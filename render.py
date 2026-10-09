@@ -391,7 +391,9 @@ def main():
         d = float(p.get('dissolvenza_sec') or 2)
         tipo = p.get('tipo_media') or 'video'
         if str(p.get('motore') or '').lower() == 'ai':
-            p['clips'], _ = scena_ai(p)
+            p['clips'], img_ai = scena_ai(p)
+            if not p.get('copertina_url'):
+                p['copertina_url'] = img_ai    # copertina = la stessa immagine AI del video, come fa il canale copiato
             tipo = 'video'
             p['effetto'] = ''              # pioggia e movimento li crea gia' l'AI
         clips = prepara_clip(p['clips'], int(p.get('max_sec_clip') or 60), fps, tipo)
