@@ -62,14 +62,20 @@ def http_json(url, data=None, headers=None, method=None):
 
 
 # ---------------------------------------------------------------- VIDEO
-def prepara_clip(urls, max_sec, fps):
+def prepara_clip(urls, max_sec, fps, tipo_media='video'):
+    """Normalizza le clip a 1920x1080. Con tipo_media = foto ogni url e' un'immagine ferma (come l'originale con foto fissa)."""
+    foto = str(tipo_media).lower() == 'foto'
     clips = []
     for i, u in enumerate(urls):
-        raw = scarica(u, os.path.join(LAVORO, f'clip_raw_{i}.mp4'))
+        raw = scarica(u, os.path.join(LAVORO, f'clip_raw_{i}' + ('.jpg' if foto else '.mp4')))
         out = os.path.join(LAVORO, f'clip_{i}.mp4')
-        run(['ffmpeg', '-y', '-v', 'error', '-i', raw, '-an', '-t', max_sec,
-             '-vf', f'scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,fps={fps},format=yuv420p',
-             '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '16', out])
+        vf = f'scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,fps={fps},format=yuv420p'
+        if foto:
+            run(['ffmpeg', '-y', '-v', 'error', '-loop', '1', '-i', raw, '-t', 20, '-vf', vf,
+                 '-c:v', 'libx264', '-preset', 'veryfast', '-tune', 'stillimage', '-crf', '16', out])
+        else:
+            run(['ffmpeg', '-y', '-v', 'error', '-i', raw, '-an', '-t', max_sec, '-vf', vf,
+                 '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '16', out])
         clips.append((out, durata(out)))
     return clips
 
@@ -293,7 +299,7 @@ def main():
         secondi = int(float(p.get('durata_minuti') or 180) * 60)
         fps = int(p.get('fps') or 30)
         d = float(p.get('dissolvenza_sec') or 2)
-        clips = prepara_clip(p['clips'], int(p.get('max_sec_clip') or 60), fps)
+        clips = prepara_clip(p['clips'], int(p.get('max_sec_clip') or 60), fps, p.get('tipo_media') or 'video')
         base, base_sec = base_video(clips, d, p.get('bitrate_video') or '4500k', fps)
         log(f'base video: {base_sec:.1f} s')
         a = audio_finale(base_audio(p['audio'], float(p.get('dissolvenza_audio_sec') or 3)), secondi, p.get('volume') or 1.0)
