@@ -249,7 +249,7 @@ def scena_ai(p):
                  'but a different place, different viewpoint and different arrangement of all elements. ')
     else:
         guida = ('Create a new photorealistic 16:9 image inspired by this scene: keep the same theme, mood, weather, time of day, '
-                 'lighting and color palette, but change the specific details: different plants and trees, different arrangement '
+                 'lighting and color palette, match the reference colors and saturation (same vivid greens), but change the specific details: different plants and trees, different arrangement '
                  'of the elements, slightly different viewpoint. It must look like a different shot of a similar place, not a copy. ')
     prompt_img = guida + str(p.get('prompt_immagine') or '') + ' No text, no letters, no logos, no watermark, no people.'
     img = fal(FAL_IMG, {'prompt': prompt_img, 'image_urls': rif, 'aspect_ratio': '16:9',
@@ -267,6 +267,42 @@ def scena_ai(p):
     vid_url = vid['video']['url']
     log('video AI: ' + vid_url)
     return [vid_url], img_url
+
+
+# ---------------------------------------------------------------- PUNTO DI LOOP MIGLIORE (clip AI)
+def miglior_loop(path, fps, min_sec=5.0, coda_sec=1.0):
+    """Cerca nella clip i due fotogrammi piu' simili tra loro (inizio e fine del loop) a distanza di almeno min_sec.
+    Ripetendo solo quel tratto, il punto di ripartenza quasi non si vede. Confronto su immagini 64x36 in grigio."""
+    w, h = 64, 36
+    raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', path, '-vf', f'scale={w}:{h},format=gray', '-f', 'rawvideo', '-'],
+                         check=True, capture_output=True).stdout
+    n = len(raw) // (w * h)
+    fr = [raw[k * w * h:(k + 1) * w * h] for k in range(n)]
+    minimo = int(min_sec * fps)
+    if n < minimo + 2:
+        return 0.0, n / fps
+    passo = 2                                   # un fotogramma ogni 2: abbastanza preciso e veloce
+    best = None
+    ultimo = n - int(coda_sec * fps) - 1         # dopo la fine del loop servono coda_sec di clip per la dissolvenza
+    for i in range(0, max(1, ultimo - minimo), passo):
+        a = fr[i]
+        for j in range(i + minimo, ultimo, passo):
+            b = fr[j]
+            diff = sum(abs(x - y) for x, y in zip(a, b))
+            if best is None or diff < best[0]:
+                best = (diff, i, j)
+    if best is None:
+        return 0.0, max(min_sec, (n / fps) - coda_sec)
+    _, i, j = best
+    log(f'loop migliore: dal fotogramma {i} al {j} ({(j - i) / fps:.1f} s), differenza media {best[0] / (w * h):.1f}')
+    return i / fps, j / fps
+
+
+def taglia(path, inizio, fine, fps):
+    out = path.replace('.mp4', '_loop.mp4')
+    run(['ffmpeg', '-y', '-v', 'error', '-i', path, '-vf', f"trim=start_frame={round(inizio * fps)}:end_frame={round(fine * fps)},setpts=PTS-STARTPTS",
+         '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '16', '-an', out])
+    return out
 
 
 def copertina(url, testo, video_base):
@@ -422,6 +458,12 @@ def main():
             if str(p.get('effetto_su_ai') or 'SI').upper() == 'NO':
                 p['effetto'] = ''          # senza la nostra pioggia: resta solo quella dell'AI
         clips = prepara_clip(p['clips'], int(p.get('max_sec_clip') or 60), fps, tipo)
+        if str(p.get('motore') or '').lower() == 'ai' and len(clips) == 1 and str(p.get('loop_migliore') or 'SI').upper() != 'NO':
+            # clip AI: si ripete solo il tratto tra i due fotogrammi piu' simili, con una dissolvenza breve
+            a0, a1 = miglior_loop(clips[0][0], fps, float(p.get('loop_min_sec') or 5), float(p.get('dissolvenza_loop') or 1))
+            seg = taglia(clips[0][0], a0, a1 + float(p.get('dissolvenza_loop') or 1), fps)
+            clips = [(seg, durata(seg))]
+            d = float(p.get('dissolvenza_loop') or 1)
         base, base_sec = base_video(clips, d, p.get('bitrate_video') or '4500k', fps)
         log(f'base video: {base_sec:.1f} s')
         base = effetto_meteo(base, base_sec, p.get('effetto'), p.get('intensita_effetto'), p.get('bitrate_video') or '4500k', fps)
