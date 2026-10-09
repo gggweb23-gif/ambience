@@ -43,6 +43,7 @@ jobs:
           YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
           YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+          FAL_KEY: ${{ secrets.FAL_KEY }}  
         run: python3 render.py
 
       - name: Salva il video di prova (scaricabile da GitHub)
