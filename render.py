@@ -242,10 +242,13 @@ def scena_ai(p):
     img_url = img['images'][0]['url']
     log('immagine AI: ' + img_url)
     prompt_vid = ('Static locked-off camera, no camera movement, no zoom, no pan. ' + str(p.get('prompt_movimento') or '') +
-                  ' Natural subtle continuous motion, seamless loop, the last frame matches the first frame.')
-    vid = fal(FAL_VID, {'prompt': prompt_vid, 'start_image_url': img_url, 'end_image_url': img_url,
-                        'duration': str(p.get('secondi_ai') or '10'), 'generate_audio': False,
-                        'negative_prompt': 'camera movement, zoom, pan, shake, people, text, watermark, blur, distortion, low quality'})
+                  ' Clearly visible motion for the whole clip: rain streaks falling continuously, leaves and branches moving, '
+                  'water drops sliding and dripping, mist drifting. Realistic, continuous, natural motion.')
+    dati = {'prompt': prompt_vid, 'start_image_url': img_url, 'duration': str(p.get('secondi_ai') or '10'), 'generate_audio': False,
+            'negative_prompt': 'still image, frozen, static scene, camera movement, zoom, pan, shake, people, text, watermark, blur, distortion, low quality'}
+    if str(p.get('fine_uguale') or '').upper() == 'SI':   # primo = ultimo fotogramma: loop perfetto ma l'AI tende a muovere poco
+        dati['end_image_url'] = img_url
+    vid = fal(FAL_VID, dati)
     vid_url = vid['video']['url']
     log('video AI: ' + vid_url)
     return [vid_url], img_url
@@ -395,7 +398,8 @@ def main():
             if not p.get('copertina_url'):
                 p['copertina_url'] = img_ai    # copertina = la stessa immagine AI del video, come fa il canale copiato
             tipo = 'video'
-            p['effetto'] = ''              # pioggia e movimento li crea gia' l'AI
+            if str(p.get('effetto_su_ai') or 'SI').upper() == 'NO':
+                p['effetto'] = ''          # senza la nostra pioggia: resta solo quella dell'AI
         clips = prepara_clip(p['clips'], int(p.get('max_sec_clip') or 60), fps, tipo)
         base, base_sec = base_video(clips, d, p.get('bitrate_video') or '4500k', fps)
         log(f'base video: {base_sec:.1f} s')
