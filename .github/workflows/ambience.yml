@@ -44,3 +44,13 @@ jobs:
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
           YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
         run: python3 render.py
+
+      - name: Salva il video di prova (scaricabile da GitHub)
+        if: ${{ inputs.prova == 'SI' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: video-prova
+          path: |
+            lavoro/video_finale.mp4
+            lavoro/copertina.jpg
+          retention-days: 3
