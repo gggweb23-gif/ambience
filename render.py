@@ -161,6 +161,39 @@ def video_finale(base, base_sec, audio, secondi):
     return out
 
 
+# ---------------------------------------------------------------- EFFETTO METEO (pioggia o neve che cade)
+def effetto_meteo(base, base_sec, effetto, intensita, bitrate, fps):
+    """Aggiunge pioggia o neve che cade sopra la scena (come i video originali con inquadratura ferma).
+    Il movimento compie un numero intero di giri nella durata della base, cosi' il loop resta senza scatti."""
+    effetto = str(effetto or '').strip().lower()
+    if effetto not in ('pioggia', 'neve'):
+        return base
+    forza = {'leggera': 0.6, 'media': 1.0, 'forte': 1.6}.get(str(intensita or 'media').strip().lower(), 1.0)
+    n = max(1, round(base_sec * fps))
+    giri = lambda vel: max(1, round(n * vel)) / n         # velocita' corretta: giri interi nella base
+    tex = os.path.join(LAVORO, 'meteo.png')
+    dens = (0.0018 if effetto == 'pioggia' else 0.0006) * forza
+    run(['ffmpeg', '-y', '-v', 'error', '-f', 'lavfi', '-i', f"nullsrc=s=1920x1080,format=gray,geq=lum='if(lt(random(1),{dens:.5f}),255,0)'",
+         '-frames:v', '1', tex])
+    if effetto == 'pioggia':
+        vicino = f"gblur=sigma=0.6:sigmaV=22,lutyuv=y='min(255,val*9)',scroll=v={-giri(0.05):.6f}"
+        lontano = f"scale=960:540,gblur=sigma=0.4:sigmaV=10,lutyuv=y='min(255,val*7)',scale=1920:1080,scroll=v={-giri(0.025):.6f}"
+        opac = min(0.75, 0.45 * forza)
+    else:
+        vicino = f"gblur=sigma=2.2,lutyuv=y='min(255,val*14)',scroll=v={-giri(0.006):.6f}"
+        lontano = f"scale=960:540,gblur=sigma=1.2,lutyuv=y='min(255,val*10)',scale=1920:1080,scroll=v={-giri(0.003):.6f}"
+        opac = min(0.9, 0.7 * forza)
+    filtro = (f"[1]format=gray,split[a][b];[a]{vicino},format=gbrp[v1];[b]{lontano},format=gbrp,colorchannelmixer=rr=0.6:gg=0.6:bb=0.6[v2];"
+              f"[v1][v2]blend=all_mode=screen[m];[0]format=gbrp[bg];[bg][m]blend=all_mode=screen:all_opacity={opac:.2f},format=yuv420p[out]")
+    out = os.path.join(LAVORO, 'base_meteo.mp4')
+    kbit = int(str(bitrate).lower().rstrip('k'))
+    run(['ffmpeg', '-y', '-v', 'error', '-i', base, '-loop', '1', '-framerate', fps, '-i', tex, '-filter_complex', filtro, '-map', '[out]',
+         '-frames:v', n, '-c:v', 'libx264', '-preset', 'medium', '-b:v', f'{kbit}k', '-maxrate', f'{int(kbit * 1.5)}k', '-bufsize', f'{kbit * 2}k',
+         '-g', fps * 2, '-keyint_min', fps * 2, '-sc_threshold', '0', '-r', fps, '-pix_fmt', 'yuv420p', '-movflags', '+faststart', out])
+    log(f'effetto {effetto} aggiunto ({intensita or "media"})')
+    return out
+
+
 def copertina(url, testo, video_base):
     """Copertina 1280x720: l'immagine indicata da n8n oppure, se manca, un fotogramma del video. Testo grande al centro."""
     raw = os.path.join(LAVORO, 'copertina_raw.jpg')
@@ -182,7 +215,7 @@ def copertina(url, testo, video_base):
             with open(tf, 'w') as f:
                 f.write(r)
             y = f'(h-{totale})/2+{i * (size + gap)}'
-            vf += (f",drawtext=fontfile={FONT}:textfile={tf}:fontsize={size}:fontcolor=white:borderw=8:bordercolor=black@0.85"
+            vf += (f",drawtext=fontfile={FONT}:textfile={tf}:expansion=none:fontsize={size}:fontcolor=white:borderw=8:bordercolor=black@0.85"
                    f":x=(w-text_w)/2:y={y}")
     for q in (2, 4, 6, 9):
         run(['ffmpeg', '-y', '-v', 'error', '-i', raw, '-vf', vf, '-frames:v', '1', '-q:v', q, out])
@@ -302,6 +335,7 @@ def main():
         clips = prepara_clip(p['clips'], int(p.get('max_sec_clip') or 60), fps, p.get('tipo_media') or 'video')
         base, base_sec = base_video(clips, d, p.get('bitrate_video') or '4500k', fps)
         log(f'base video: {base_sec:.1f} s')
+        base = effetto_meteo(base, base_sec, p.get('effetto'), p.get('intensita_effetto'), p.get('bitrate_video') or '4500k', fps)
         a = audio_finale(base_audio(p['audio'], float(p.get('dissolvenza_audio_sec') or 3)), secondi, p.get('volume') or 1.0)
         img = copertina(p.get('copertina_url'), p.get('testo_copertina'), base)
         video = video_finale(base, base_sec, a, secondi)
