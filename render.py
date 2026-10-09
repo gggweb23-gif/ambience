@@ -194,6 +194,63 @@ def effetto_meteo(base, base_sec, effetto, intensita, bitrate, fps):
     return out
 
 
+# ---------------------------------------------------------------- MOTORE AI (Fal.ai): immagine simile all'originale + animazione
+FAL_IMG = 'fal-ai/nano-banana-2/edit'
+FAL_VID = 'fal-ai/kling-video/v2.6/pro/image-to-video'
+
+
+def fal(modello, dati, attesa_max=1200):
+    """Chiamata alla coda di Fal.ai: invia, aspetta il risultato, lo restituisce."""
+    chiave = os.environ.get('FAL_KEY', '')
+    if not chiave:
+        raise RuntimeError('manca il secret FAL_KEY nel repository GitHub')
+    h = {'Authorization': 'Key ' + chiave}
+    inviato, _ = http_json('https://queue.fal.run/' + modello, dati, headers=h)
+    stato_url, risultato_url = inviato['status_url'], inviato['response_url']
+    t0 = time.time()
+    while time.time() - t0 < attesa_max:
+        time.sleep(8)
+        st, _ = http_json(stato_url, headers=h)
+        if st.get('status') == 'COMPLETED':
+            res, _ = http_json(risultato_url, headers=h)
+            return res
+        if st.get('status') not in ('IN_QUEUE', 'IN_PROGRESS'):
+            raise RuntimeError('Fal.ai: ' + json.dumps(st)[:300])
+    raise RuntimeError('Fal.ai: tempo scaduto per ' + modello)
+
+
+def url_esiste(u):
+    try:
+        with urllib.request.urlopen(urllib.request.Request(u, method='HEAD', headers={'User-Agent': 'Mozilla/5.0'}), timeout=30) as r:
+            return r.status == 200 and int(r.headers.get('Content-Length') or 2000) > 1500
+    except Exception:
+        return False
+
+
+def scena_ai(p):
+    """1) Nano Banana ricrea la scena dell'originale (stessa composizione, immagine nuova, senza scritte).
+       2) Kling la anima per 10 s con primo e ultimo fotogramma uguali: il loop e' perfetto."""
+    rif = [u for u in (p.get('riferimenti') or []) if url_esiste(u)][:1]
+    if not rif:
+        raise RuntimeError('nessuna immagine di riferimento raggiungibile del video originale')
+    log('riferimento: ' + rif[0])
+    prompt_img = ('Recreate this exact scene as a brand-new photorealistic 16:9 image: same composition, framing, subjects, '
+                  'lighting, colors, weather and mood. ' + str(p.get('prompt_immagine') or '') +
+                  ' No text, no letters, no logos, no watermark, no people.')
+    img = fal(FAL_IMG, {'prompt': prompt_img, 'image_urls': rif, 'aspect_ratio': '16:9',
+                        'resolution': p.get('risoluzione_ai') or '2K', 'output_format': 'jpeg', 'num_images': 1})
+    img_url = img['images'][0]['url']
+    log('immagine AI: ' + img_url)
+    prompt_vid = ('Static locked-off camera, no camera movement, no zoom, no pan. ' + str(p.get('prompt_movimento') or '') +
+                  ' Natural subtle continuous motion, seamless loop, the last frame matches the first frame.')
+    vid = fal(FAL_VID, {'prompt': prompt_vid, 'start_image_url': img_url, 'end_image_url': img_url,
+                        'duration': str(p.get('secondi_ai') or '10'), 'generate_audio': False,
+                        'negative_prompt': 'camera movement, zoom, pan, shake, people, text, watermark, blur, distortion, low quality'})
+    vid_url = vid['video']['url']
+    log('video AI: ' + vid_url)
+    return [vid_url], img_url
+
+
 def copertina(url, testo, video_base):
     """Copertina 1280x720: l'immagine indicata da n8n oppure, se manca, un fotogramma del video. Testo grande al centro."""
     raw = os.path.join(LAVORO, 'copertina_raw.jpg')
@@ -332,7 +389,12 @@ def main():
         secondi = int(float(p.get('durata_minuti') or 180) * 60)
         fps = int(p.get('fps') or 30)
         d = float(p.get('dissolvenza_sec') or 2)
-        clips = prepara_clip(p['clips'], int(p.get('max_sec_clip') or 60), fps, p.get('tipo_media') or 'video')
+        tipo = p.get('tipo_media') or 'video'
+        if str(p.get('motore') or '').lower() == 'ai':
+            p['clips'], _ = scena_ai(p)
+            tipo = 'video'
+            p['effetto'] = ''              # pioggia e movimento li crea gia' l'AI
+        clips = prepara_clip(p['clips'], int(p.get('max_sec_clip') or 60), fps, tipo)
         base, base_sec = base_video(clips, d, p.get('bitrate_video') or '4500k', fps)
         log(f'base video: {base_sec:.1f} s')
         base = effetto_meteo(base, base_sec, p.get('effetto'), p.get('intensita_effetto'), p.get('bitrate_video') or '4500k', fps)
