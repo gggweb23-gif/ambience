@@ -236,9 +236,22 @@ def scena_ai(p):
     if not rif:
         raise RuntimeError('nessuna immagine di riferimento raggiungibile del video originale')
     log('riferimento: ' + rif[0])
-    prompt_img = ('Recreate this exact scene as a brand-new photorealistic 16:9 image: same composition, framing, subjects, '
-                  'lighting, colors, weather and mood. ' + str(p.get('prompt_immagine') or '') +
-                  ' No text, no letters, no logos, no watermark, no people.')
+    # variazione (Impostazioni: variazione = nessuna / leggera / media / forte, vuota = media):
+    # stessa atmosfera e stesso tipo di scena dell'originale, ma un'immagine NOSTRA, non una copia riconoscibile
+    var = str(p.get('variazione') or 'media').strip().lower()
+    if var == 'nessuna':
+        guida = 'Recreate this exact scene as a brand-new photorealistic 16:9 image: same composition, framing, subjects, lighting, colors, weather and mood. '
+    elif var == 'leggera':
+        guida = ('Create a new photorealistic 16:9 image of the same kind of scene: same mood, weather, lighting and color palette, '
+                 'similar framing, but with small changes in the details (shape and position of plants, trees and objects). ')
+    elif var == 'forte':
+        guida = ('Create a new original photorealistic 16:9 image inspired by this scene: same theme, weather and mood, '
+                 'but a different place, different viewpoint and different arrangement of all elements. ')
+    else:
+        guida = ('Create a new photorealistic 16:9 image inspired by this scene: keep the same theme, mood, weather, time of day, '
+                 'lighting and color palette, but change the specific details: different plants and trees, different arrangement '
+                 'of the elements, slightly different viewpoint. It must look like a different shot of a similar place, not a copy. ')
+    prompt_img = guida + str(p.get('prompt_immagine') or '') + ' No text, no letters, no logos, no watermark, no people.'
     img = fal(FAL_IMG, {'prompt': prompt_img, 'image_urls': rif, 'aspect_ratio': '16:9',
                         'resolution': p.get('risoluzione_ai') or '2K', 'output_format': 'jpeg', 'num_images': 1})
     img_url = img['images'][0]['url']
@@ -302,6 +315,8 @@ def carica_youtube(path, p):
         snippet['defaultLanguage'] = p['lingua']
         snippet['defaultAudioLanguage'] = p['lingua']
     status = {'privacyStatus': p.get('privacy') or 'public', 'selfDeclaredMadeForKids': False}
+    if str(p.get('motore') or '').lower() == 'ai':
+        status['containsSyntheticMedia'] = True    # dichiarazione obbligatoria per i contenuti realistici creati con l'AI
     if p.get('pubblica_il'):
         status['privacyStatus'] = 'private'
         status['publishAt'] = p['pubblica_il']
