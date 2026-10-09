@@ -1,0 +1,46 @@
+name: Ambience Lunghi
+
+# Avviato da n8n (MULTICHANNEL - Ambience Lunghi) con un unico parametro: payload (JSON).
+on:
+  workflow_dispatch:
+    inputs:
+      payload:
+        description: 'JSON preparato da n8n'
+        required: true
+        type: string
+      prova:
+        description: 'SI = crea il video ma non lo carica su YouTube'
+        required: false
+        default: 'NO'
+        type: string
+
+concurrency:
+  group: ambience
+  cancel-in-progress: false
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Libera spazio sul disco
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL || true
+          df -h /
+
+      - name: Installa FFmpeg e font
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg fonts-dejavu-core
+          ffmpeg -version | head -1
+
+      - name: Crea il video e caricalo su YouTube
+        env:
+          PAYLOAD: ${{ inputs.payload }}
+          DRY_RUN: ${{ inputs.prova == 'SI' && '1' || '0' }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+        run: python3 render.py
