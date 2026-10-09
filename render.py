@@ -94,8 +94,10 @@ def base_video(clips, d, bitrate, fps):
         filtri.append(f'[{prec}][{i}:v]xfade=transition=fade:duration={d}:offset={offset:.3f}[{etichetta}]')
         lung = lung + seq[i][1] - d
         prec = etichetta
-    fine = offset + d - 1 / fps            # qui la prima clip e' di nuovo piena, un fotogramma prima del suo secondo d
-    filtri.append(f'[{prec}]trim=start={d}:end={fine:.4f},setpts=PTS-STARTPTS[out]')
+    # tagli in FOTOGRAMMI (non in secondi): nessun fotogramma doppio o mancante nel punto in cui il loop riparte
+    f_inizio = round(d * fps)
+    f_fine = round((offset + d) * fps)       # escluso: l'ultimo fotogramma e' quello subito prima della ripartenza
+    filtri.append(f'[{prec}]trim=start_frame={f_inizio}:end_frame={f_fine},setpts=PTS-STARTPTS[out]')
     out = os.path.join(LAVORO, 'base_video.mp4')
     cmd = ['ffmpeg', '-y', '-v', 'error']
     for p, _ in seq:
@@ -394,6 +396,10 @@ def main():
         d = float(p.get('dissolvenza_sec') or 2)
         tipo = p.get('tipo_media') or 'video'
         if str(p.get('motore') or '').lower() == 'ai':
+            # le clip AI escono a 24 fotogrammi al secondo: restiamo a 24 (niente scatti 24->30)
+            # e allunghiamo la dissolvenza del loop a 4 secondi, cosi' la ripartenza non si nota
+            fps = int(p.get('fps') or 24)
+            d = float(p.get('dissolvenza_sec') or 4)
             p['clips'], img_ai = scena_ai(p)
             if not p.get('copertina_url'):
                 p['copertina_url'] = img_ai    # copertina = la stessa immagine AI del video, come fa il canale copiato
