@@ -14,7 +14,7 @@ Variabili d'ambiente:
   YT_REFRESH_TOKEN   refresh token del canale YouTube di destinazione
   DRY_RUN=1          crea il video ma non lo carica (per le prove)
 """
-import json, math, os, shutil, subprocess, sys, time, traceback
+import base64, json, math, os, shutil, subprocess, sys, time, traceback
 import urllib.request, urllib.error, urllib.parse
 
 LAVORO = os.environ.get('CARTELLA_LAVORO') or os.path.join(os.getcwd(), 'lavoro')
@@ -62,13 +62,13 @@ def http_json(url, data=None, headers=None, method=None):
 
 
 # ---------------------------------------------------------------- VIDEO
-def prepara_clip(urls, max_sec, fps, tipo_media='video'):
+def prepara_clip(urls, max_sec, fps, tipo_media='video', nome='clip'):
     """Normalizza le clip a 1920x1080. Con tipo_media = foto ogni url e' un'immagine ferma (come l'originale con foto fissa)."""
     foto = str(tipo_media).lower() == 'foto'
     clips = []
     for i, u in enumerate(urls):
-        raw = scarica(u, os.path.join(LAVORO, f'clip_raw_{i}' + ('.jpg' if foto else '.mp4')))
-        out = os.path.join(LAVORO, f'clip_{i}.mp4')
+        raw = scarica(u, os.path.join(LAVORO, f'{nome}_raw_{i}' + ('.jpg' if foto else '.mp4')))
+        out = os.path.join(LAVORO, f'{nome}_{i}.mp4')
         vf = f'scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,fps={fps},format=yuv420p'
         if foto:
             run(['ffmpeg', '-y', '-v', 'error', '-loop', '1', '-i', raw, '-t', 20, '-vf', vf,
@@ -231,7 +231,7 @@ def url_esiste(u):
 
 def scena_ai(p):
     """1) Nano Banana ricrea la scena dell'originale (stessa composizione, immagine nuova, senza scritte).
-       2) Kling la anima per 10 s con primo e ultimo fotogramma uguali: il loop e' perfetto."""
+       2) Kling la anima (con loop_ai = catena main() aggiunge poi la clip di ritorno)."""
     rif = [u for u in (p.get('riferimenti') or []) if url_esiste(u)][:1]
     if not rif:
         raise RuntimeError('nessuna immagine di riferimento raggiungibile del video originale')
@@ -261,12 +261,73 @@ def scena_ai(p):
                   'water drops sliding and dripping, mist drifting. Realistic, continuous, natural motion.')
     dati = {'prompt': prompt_vid, 'start_image_url': img_url, 'duration': str(p.get('secondi_ai') or '10'), 'generate_audio': False,
             'negative_prompt': 'still image, frozen, static scene, camera movement, zoom, pan, shake, people, text, watermark, blur, distortion, low quality'}
-    if str(p.get('fine_uguale') or '').upper() == 'SI':   # primo = ultimo fotogramma: loop perfetto ma l'AI tende a muovere poco
+    if modo_loop(p) == 'fine_uguale':   # primo = ultimo fotogramma: loop perfetto ma l'AI tende a muovere poco
         dati['end_image_url'] = img_url
     vid = fal(FAL_VID, dati)
     vid_url = vid['video']['url']
     log('video AI: ' + vid_url)
+    p['_dati_kling'] = dati
     return [vid_url], img_url
+
+
+def modo_loop(p):
+    """Impostazioni loop_ai: catena (vuota) = 2 clip AI che si chiudono sull'immagine iniziale, loop perfetto con movimento (~1,5 $);
+    migliore = 1 clip, si ripete il tratto piu' simile (~0,80 $, la ripartenza puo' vedersi); fine_uguale = 1 clip con primo = ultimo fotogramma."""
+    m = str(p.get('loop_ai') or '').strip().lower()
+    if not m:
+        m = 'fine_uguale' if str(p.get('fine_uguale') or '').upper() == 'SI' else 'catena'
+    return m
+
+
+def carica_su_fal(path, tipo='image/jpeg'):
+    """Carica un file locale sullo spazio di Fal.ai e ne restituisce l'indirizzo; se non riesce usa il file incorporato (data URI)."""
+    dati = open(path, 'rb').read()
+    try:
+        h = {'Authorization': 'Key ' + os.environ.get('FAL_KEY', '')}
+        ini, _ = http_json('https://rest.alpha.fal.ai/storage/upload/initiate?storage_type=fal-cdn-v3',
+                           {'content_type': tipo, 'file_name': os.path.basename(path)}, headers=h)
+        req = urllib.request.Request(ini['upload_url'], data=dati, method='PUT', headers={'Content-Type': tipo})
+        with urllib.request.urlopen(req, timeout=120):
+            pass
+        log('fotogramma caricato: ' + ini['file_url'])
+        return ini['file_url']
+    except Exception as e:
+        log('caricamento su Fal non riuscito (' + str(e)[:120] + '): uso il fotogramma incorporato')
+        return 'data:' + tipo + ';base64,' + base64.b64encode(dati).decode()
+
+
+def ultimo_fotogramma(path):
+    out = path.replace('.mp4', '_ultimo.jpg')
+    run(['ffmpeg', '-y', '-v', 'error', '-sseof', '-0.5', '-i', path, '-update', '1', '-q:v', '2', out])
+    return out
+
+
+def clip_ritorno(p, clip_a, img_url):
+    """Seconda clip AI: parte dall'ultimo fotogramma della prima e finisce sull'immagine iniziale.
+    In fila (prima + seconda) il video torna esattamente al punto di partenza: ripartenza invisibile, movimento continuo."""
+    f = carica_su_fal(ultimo_fotogramma(clip_a))
+    dati = dict(p.get('_dati_kling') or {})
+    dati['start_image_url'] = f
+    dati['end_image_url'] = img_url
+    vid = fal(FAL_VID, dati)
+    log('video AI di ritorno: ' + vid['video']['url'])
+    return vid['video']['url']
+
+
+def base_catena(clip_a, clip_b, bitrate, fps):
+    """Unisce A e B senza dissolvenze. Si toglie il primo fotogramma di B (= ultimo di A) e l'ultimo di B (= primo di A):
+    nessun fotogramma doppio, nemmeno quando il file si ripete."""
+    nb = int(subprocess.run(['ffprobe', '-v', 'error', '-count_frames', '-select_streams', 'v:0', '-show_entries', 'stream=nb_read_frames',
+                             '-of', 'csv=p=0', clip_b], check=True, capture_output=True, text=True).stdout.strip())
+    filtro = (f'[0:v]setpts=PTS-STARTPTS[a];[1:v]trim=start_frame=1:end_frame={nb - 1},setpts=PTS-STARTPTS[b];'
+              f'[a][b]concat=n=2:v=1:a=0[out]')
+    out = os.path.join(LAVORO, 'base_video.mp4')
+    kbit = int(str(bitrate).lower().rstrip('k'))
+    run(['ffmpeg', '-y', '-v', 'error', '-i', clip_a, '-i', clip_b, '-filter_complex', filtro, '-map', '[out]',
+         '-c:v', 'libx264', '-preset', 'medium', '-b:v', f'{kbit}k', '-maxrate', f'{int(kbit * 1.5)}k', '-bufsize', f'{kbit * 2}k',
+         '-g', str(fps * 2), '-keyint_min', str(fps * 2), '-sc_threshold', '0', '-r', str(fps),
+         '-pix_fmt', 'yuv420p', '-movflags', '+faststart', out])
+    return out, durata(out)
 
 
 # ---------------------------------------------------------------- PUNTO DI LOOP MIGLIORE (clip AI)
@@ -446,6 +507,7 @@ def main():
         fps = int(p.get('fps') or 30)
         d = float(p.get('dissolvenza_sec') or 2)
         tipo = p.get('tipo_media') or 'video'
+        img_ai = ''
         if str(p.get('motore') or '').lower() == 'ai':
             # le clip AI escono a 24 fotogrammi al secondo: restiamo a 24 (niente scatti 24->30)
             # e allunghiamo la dissolvenza del loop a 4 secondi, cosi' la ripartenza non si nota
@@ -458,13 +520,20 @@ def main():
             if str(p.get('effetto_su_ai') or 'SI').upper() == 'NO':
                 p['effetto'] = ''          # senza la nostra pioggia: resta solo quella dell'AI
         clips = prepara_clip(p['clips'], int(p.get('max_sec_clip') or 60), fps, tipo)
-        if str(p.get('motore') or '').lower() == 'ai' and len(clips) == 1 and str(p.get('loop_migliore') or 'SI').upper() != 'NO':
+        catena = str(p.get('motore') or '').lower() == 'ai' and len(clips) == 1 and modo_loop(p) == 'catena'
+        if catena:
+            # loop a catena: clip A (immagine -> movimento libero) + clip B (ultimo fotogramma di A -> immagine)
+            ritorno = clip_ritorno(p, clips[0][0], img_ai)
+            b = prepara_clip([ritorno], int(p.get('max_sec_clip') or 60), fps, 'video', nome='ritorno')[0]
+            base, base_sec = base_catena(clips[0][0], b[0], p.get('bitrate_video') or '4500k', fps)
+        elif str(p.get('motore') or '').lower() == 'ai' and len(clips) == 1 and modo_loop(p) == 'migliore':
             # clip AI: si ripete solo il tratto tra i due fotogrammi piu' simili, con una dissolvenza breve
             a0, a1 = miglior_loop(clips[0][0], fps, float(p.get('loop_min_sec') or 5), float(p.get('dissolvenza_loop') or 1))
             seg = taglia(clips[0][0], a0, a1 + float(p.get('dissolvenza_loop') or 1), fps)
             clips = [(seg, durata(seg))]
             d = float(p.get('dissolvenza_loop') or 1)
-        base, base_sec = base_video(clips, d, p.get('bitrate_video') or '4500k', fps)
+        if not catena:
+            base, base_sec = base_video(clips, d, p.get('bitrate_video') or '4500k', fps)
         log(f'base video: {base_sec:.1f} s')
         base = effetto_meteo(base, base_sec, p.get('effetto'), p.get('intensita_effetto'), p.get('bitrate_video') or '4500k', fps)
         a = audio_finale(base_audio(p['audio'], float(p.get('dissolvenza_audio_sec') or 3)), secondi, p.get('volume') or 1.0)
