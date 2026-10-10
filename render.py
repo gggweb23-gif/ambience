@@ -257,10 +257,11 @@ def scena_ai(p):
     img_url = img['images'][0]['url']
     log('immagine AI: ' + img_url)
     prompt_vid = ('Static locked-off camera, no camera movement, no zoom, no pan. ' + str(p.get('prompt_movimento') or '') +
-                  ' Clearly visible motion for the whole clip: rain streaks falling continuously, leaves and branches moving, '
-                  'water drops sliding and dripping, mist drifting. Realistic, continuous, natural motion.')
+                  ' Clearly visible motion for the whole clip, only of the elements that naturally move in this scene '
+                  '(for example falling rain, dripping water, leaves, flames, smoke, waves, mist). Realistic, continuous, natural motion at real-time speed '
+                  '(filmed at normal speed, never slow motion, constant speed for the whole clip).')
     dati = {'prompt': prompt_vid, 'start_image_url': img_url, 'duration': str(p.get('secondi_ai') or '10'), 'generate_audio': False,
-            'negative_prompt': 'still image, frozen, static scene, camera movement, zoom, pan, shake, people, text, watermark, blur, distortion, low quality'}
+            'negative_prompt': 'slow motion, time-lapse, speed changes, still image, frozen, static scene, camera movement, zoom, pan, shake, people, text, watermark, blur, distortion, low quality'}
     if modo_loop(p) == 'fine_uguale':   # primo = ultimo fotogramma: loop perfetto ma l'AI tende a muovere poco
         dati['end_image_url'] = img_url
     vid = fal(FAL_VID, dati)
@@ -296,22 +297,26 @@ def carica_su_fal(path, tipo='image/jpeg'):
         return 'data:' + tipo + ';base64,' + base64.b64encode(dati).decode()
 
 
-def ultimo_fotogramma(path):
-    out = path.replace('.mp4', '_ultimo.jpg')
-    run(['ffmpeg', '-y', '-v', 'error', '-sseof', '-0.5', '-i', path, '-update', '1', '-q:v', '2', out])
+def fotogramma(path, n):
+    """Estrae il fotogramma numero n (contando da 0) in JPEG di alta qualita'."""
+    out = path.replace('.mp4', f'_f{n}.jpg')
+    run(['ffmpeg', '-y', '-v', 'error', '-i', path, '-vf', f'select=eq(n\\,{n})', '-vsync', '0', '-frames:v', '1', '-q:v', '1', out])
     return out
 
 
-def clip_ritorno(p, clip_a, img_url):
-    """Seconda clip AI: parte dall'ultimo fotogramma della prima e finisce sull'immagine iniziale.
-    In fila (prima + seconda) il video torna esattamente al punto di partenza: ripartenza invisibile, movimento continuo."""
-    f = carica_su_fal(ultimo_fotogramma(clip_a))
+def clip_ritorno(p, clip_a, img_url, fps):
+    """Seconda clip AI: parte da un fotogramma della prima poco prima della fine (cosi' le due clip si sovrappongono
+    e sfumano l'una nell'altra) e finisce sull'immagine iniziale: il video torna al punto di partenza, movimento continuo."""
+    na = conta_fotogrammi(clip_a)
+    k1 = max(1, min(int(round(float(p.get('dissolvenza_catena') or 1) * fps)), na // 4))
+    s = na - 1 - k1
+    f = carica_su_fal(fotogramma(clip_a, s))
     dati = dict(p.get('_dati_kling') or {})
     dati['start_image_url'] = f
     dati['end_image_url'] = img_url
     vid = fal(FAL_VID, dati)
-    log('video AI di ritorno: ' + vid['video']['url'])
-    return vid['video']['url']
+    log('video AI di ritorno (parte dal fotogramma ' + str(s) + '): ' + vid['video']['url'])
+    return vid['video']['url'], s
 
 
 def conta_fotogrammi(path):
@@ -319,27 +324,34 @@ def conta_fotogrammi(path):
                                '-of', 'csv=p=0', path], check=True, capture_output=True, text=True).stdout.strip())
 
 
-def base_catena(clip_a, clip_b, bitrate, fps, dissolvenza=1.0):
-    """Unisce A e B. B finisce QUASI sull'immagine iniziale (l'AI non la ricrea identica al pixel):
-    per non far vedere quel piccolo salto, l'ultimo tratto di B sfuma nel primo tratto di A (dissolvenza_catena, vuota = 1 s).
-    Il file inizia da A dopo la dissolvenza e finisce esattamente sul fotogramma che lo precede: ripetuto, non ha giunture."""
+def base_catena(clip_a, clip_b, s, bitrate, fps, dissolvenza=1.0):
+    """Unisce A e B senza giunture visibili, con due sfumature esatte fotogramma per fotogramma:
+    1) A -> B: B parte dal fotogramma s di A, quindi gli ultimi fotogrammi di A e i primi di B mostrano la stessa scena
+       e si sfumano (anche la velocita' del movimento passa gradualmente da una clip all'altra);
+    2) B -> A: B finisce quasi sull'immagine iniziale; l'ultimo tratto di B sfuma nel primo tratto di A.
+    Il file inizia subito dopo la seconda sfumatura e finisce esattamente sul fotogramma che la precede: ripetuto, non ha giunture."""
     na, nb = conta_fotogrammi(clip_a), conta_fotogrammi(clip_b)
-    k = max(1, min(int(round(dissolvenza * fps)), na // 3, nb // 3))
-    n_out = (na - k) + (nb - 1)
-    filtro = (f'[0:v]split[a1][a2];'
-              f'[a1]trim=start_frame={k}:end_frame={na},setpts=PTS-STARTPTS[ac];'
-              f'[1:v]trim=start_frame=1:end_frame={nb},setpts=PTS-STARTPTS[bc];'
-              f'[ac][bc]concat=n=2:v=1:a=0,settb=1/{fps},fps={fps}[x];'
-              f'[a2]trim=start_frame=0:end_frame={k},setpts=PTS-STARTPTS,settb=1/{fps},fps={fps}[y];'
-              f'[x][y]xfade=transition=fade:duration={k / fps:.4f}:offset={(n_out - k) / fps:.4f},'
-              f'trim=end_frame={n_out},setpts=PTS-STARTPTS[out]')
+    k1 = na - 1 - s                                                   # sovrapposizione A -> B
+    k2 = max(1, min(int(round(dissolvenza * fps)), nb // 4, s // 2))  # sfumatura B -> A
+    if k1 < 1 or s < k2 + 1 or nb < k1 + k2 + 2:
+        raise RuntimeError(f'clip troppo corte per il loop a catena (A {na}, B {nb}, s {s})')
+    filtro = (f'[0:v]split=3[a1][a2][a3];[1:v]split=3[b1][b2][b3];'
+              f'[a1]trim=start_frame={k2}:end_frame={s},setpts=PTS-STARTPTS[p1];'
+              f'[a2]trim=start_frame={s}:end_frame={s + k1},setpts=PTS-STARTPTS[ja];'
+              f'[b1]trim=start_frame=0:end_frame={k1},setpts=PTS-STARTPTS[jb];'
+              f"[ja][jb]blend=all_expr='A+(B-A)*(N+1)/{k1 + 1}'[p2];"
+              f'[b2]trim=start_frame={k1}:end_frame={nb - k2},setpts=PTS-STARTPTS[p3];'
+              f'[b3]trim=start_frame={nb - k2}:end_frame={nb},setpts=PTS-STARTPTS[cb];'
+              f'[a3]trim=start_frame=0:end_frame={k2},setpts=PTS-STARTPTS[ca];'
+              f"[cb][ca]blend=all_expr='A+(B-A)*(N+1)/{k2}'[p4];"
+              f'[p1][p2][p3][p4]concat=n=4:v=1:a=0,settb=1/{fps},setpts=N[out]')
     out = os.path.join(LAVORO, 'base_video.mp4')
     kbit = int(str(bitrate).lower().rstrip('k'))
     run(['ffmpeg', '-y', '-v', 'error', '-i', clip_a, '-i', clip_b, '-filter_complex', filtro, '-map', '[out]',
          '-c:v', 'libx264', '-preset', 'medium', '-b:v', f'{kbit}k', '-maxrate', f'{int(kbit * 1.5)}k', '-bufsize', f'{kbit * 2}k',
          '-g', str(fps * 2), '-keyint_min', str(fps * 2), '-sc_threshold', '0', '-r', str(fps),
          '-pix_fmt', 'yuv420p', '-movflags', '+faststart', out])
-    log(f'loop a catena: A {na} + B {nb} fotogrammi, dissolvenza di giunzione {k} fotogrammi -> {n_out}')
+    log(f'loop a catena: A {na} + B {nb} fotogrammi, sfumature {k1} (A->B) e {k2} (B->A) fotogrammi')
     return out, durata(out)
 
 
@@ -536,9 +548,9 @@ def main():
         catena = str(p.get('motore') or '').lower() == 'ai' and len(clips) == 1 and modo_loop(p) == 'catena'
         if catena:
             # loop a catena: clip A (immagine -> movimento libero) + clip B (ultimo fotogramma di A -> immagine)
-            ritorno = clip_ritorno(p, clips[0][0], img_ai)
+            ritorno, s_ritorno = clip_ritorno(p, clips[0][0], img_ai, fps)
             b = prepara_clip([ritorno], int(p.get('max_sec_clip') or 60), fps, 'video', nome='ritorno')[0]
-            base, base_sec = base_catena(clips[0][0], b[0], p.get('bitrate_video') or '4500k', fps, float(p.get('dissolvenza_catena') or 1))
+            base, base_sec = base_catena(clips[0][0], b[0], s_ritorno, p.get('bitrate_video') or '4500k', fps, float(p.get('dissolvenza_catena') or 1))
         elif str(p.get('motore') or '').lower() == 'ai' and len(clips) == 1 and modo_loop(p) == 'migliore':
             # clip AI: si ripete solo il tratto tra i due fotogrammi piu' simili, con una dissolvenza breve
             a0, a1 = miglior_loop(clips[0][0], fps, float(p.get('loop_min_sec') or 5), float(p.get('dissolvenza_loop') or 1))
