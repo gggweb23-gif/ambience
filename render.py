@@ -559,4 +559,19 @@ def main():
         vid = carica_youtube(video, p)
         nota = carica_copertina(vid, img)
         avvisa(p, {'stato': 'PUBBLICATO', 'video_id': vid, 'link': 'https://www.youtube.com/watch?v=' + vid,
-                   'errore': '' if nota in ('',
+                   'errore': '' if nota in ('', 'ok') else nota, 'minuti_lavoro': round((time.time() - t0) / 60, 1)})
+    except Exception as e:
+        traceback.print_exc()
+        avvisa(p, {'stato': 'ERRORE', 'video_id': '', 'link': '', 'errore': str(e)[:500], 'minuti_lavoro': round((time.time() - t0) / 60, 1)})
+        sys.exit(1)
+
+
+PAYLOAD_ESEMPIO = {
+    'id': 'AMB-001', 'durata_minuti': 180, 'clips': ['https://...pexels...mp4'], 'audio': ['https://drive.usercontent.google.com/download?id=...&export=download&confirm=t'],
+    'titolo': 'Rain on Window Sounds for Sleeping | 3 Hours', 'descrizione': '...', 'tag': ['rain sounds'], 'categoria': '22',
+    'privacy': 'public', 'pubblica_il': '', 'lingua': '', 'copertina_url': 'https://images.pexels.com/...', 'testo_copertina': 'RAIN\\n3 HOURS',
+    'callback_url': 'https://.../webhook/ambience-fatto', 'bitrate_video': '4500k', 'dissolvenza_sec': 2,
+}
+
+if __name__ == '__main__':
+    main()
