@@ -442,6 +442,46 @@ def copertina(url, testo, video_base):
     return out
 
 
+# ---------------------------------------------------------------- TRADUZIONI (titolo e descrizione in altre lingue)
+def traduci(p):
+    """Traduce titolo e descrizione nelle lingue di Impostazioni -> lingue_traduzioni (es. it,es,de,fr,pt,ja).
+    YouTube mostra a ogni spettatore il titolo nella sua lingua: il video si trova anche nelle ricerche fatte in quella lingua.
+    Serve il secret ANTHROPIC_API_KEY su GitHub. Vuota o errore = si carica solo in lingua originale."""
+    lingue = [x.strip().lower() for x in str(p.get('traduzioni') or '').replace(';', ',').split(',') if x.strip()]
+    base = str(p.get('lingua') or 'en').strip().lower()
+    lingue = [x for x in dict.fromkeys(lingue) if x != base]
+    chiave = os.environ.get('ANTHROPIC_API_KEY', '')
+    if not lingue or not chiave:
+        if lingue:
+            log('traduzioni saltate: manca il secret ANTHROPIC_API_KEY')
+        return {}
+    titolo = str(p.get('titolo', ''))[:100]
+    descr = str(p.get('descrizione', ''))[:3000]
+    prompt = ('Translate this YouTube video title and description from ' + base + ' into each of these languages: ' + ', '.join(lingue) + '.\n'
+              'Rules: natural, fluent wording a native speaker would search for (relaxing rain / sleep sounds niche); keep the same meaning, '
+              'keep emojis, symbols like | and words like ASMR or 4K; title max 95 characters; keep line breaks and hashtags in the description '
+              '(translate the hashtag words). Reply ONLY with a JSON object like {"it": {"title": "...", "description": "..."}}.\n\n'
+              'TITLE:\n' + titolo + '\n\nDESCRIPTION:\n' + descr)
+    try:
+        res, _ = http_json('https://api.anthropic.com/v1/messages',
+                           {'model': p.get('modello_traduzioni') or 'claude-haiku-4-5-20251001', 'max_tokens': 16000,
+                            'messages': [{'role': 'user', 'content': prompt}]},
+                           headers={'x-api-key': chiave, 'anthropic-version': '2023-06-01'})
+        testo = ''.join(c.get('text', '') for c in res.get('content', []))
+        dati = json.loads(testo[testo.index('{'):testo.rindex('}') + 1])
+    except Exception as e:
+        log('traduzioni non riuscite: ' + str(e)[:200])
+        return {}
+    loc = {}
+    for l in lingue:
+        v = dati.get(l) or {}
+        t, d = str(v.get('title') or '').strip()[:100], str(v.get('description') or '').strip()
+        if t:
+            loc[l] = {'title': t, 'description': d.encode('utf-8')[:4900].decode('utf-8', 'ignore')}
+    log('traduzioni pronte: ' + ', '.join(loc))
+    return loc
+
+
 # ---------------------------------------------------------------- YOUTUBE
 def token():
     data = urllib.parse.urlencode({'client_id': os.environ['YT_CLIENT_ID'], 'client_secret': os.environ['YT_CLIENT_SECRET'],
@@ -464,8 +504,14 @@ def carica_youtube(path, p):
         status['privacyStatus'] = 'private'
         status['publishAt'] = p['pubblica_il']
     meta = {'snippet': snippet, 'status': status}
+    parti = 'snippet,status'
+    loc = traduci(p)
+    if loc:
+        snippet['defaultLanguage'] = str(p.get('lingua') or 'en')   # obbligatoria quando ci sono le traduzioni
+        meta['localizations'] = loc
+        parti += ',localizations'
     size = os.path.getsize(path)
-    req = urllib.request.Request('https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&part=snippet,status',
+    req = urllib.request.Request('https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&part=' + parti,
                                  data=json.dumps(meta).encode(), method='POST',
                                  headers={'Authorization': 'Bearer ' + tok, 'Content-Type': 'application/json; charset=UTF-8',
                                           'X-Upload-Content-Length': str(size), 'X-Upload-Content-Type': 'video/mp4'})
