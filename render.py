@@ -355,6 +355,27 @@ def base_catena(clip_a, clip_b, s, bitrate, fps, dissolvenza=1.0):
     return out, durata(out)
 
 
+def base_singola(clip, bitrate, fps, dissolvenza=0.5):
+    """Una sola clip AI con primo e ultimo fotogramma = la stessa immagine (fine_uguale = SI): nessuna giunzione a meta'.
+    L'ultimo tratto (gia' quasi identico all'inizio) sfuma esattamente nel primo: ripetuta, la clip non mostra la ripartenza."""
+    n = conta_fotogrammi(clip)
+    k = max(1, min(int(round(dissolvenza * fps)), n // 4))
+    filtro = (f'[0:v]split=3[a1][a2][a3];'
+              f'[a1]trim=start_frame={k}:end_frame={n - k},setpts=PTS-STARTPTS[p1];'
+              f'[a2]trim=start_frame={n - k}:end_frame={n},setpts=PTS-STARTPTS[c1];'
+              f'[a3]trim=start_frame=0:end_frame={k},setpts=PTS-STARTPTS[c2];'
+              f"[c1][c2]blend=all_expr='A+(B-A)*(N+1)/{k}'[p2];"
+              f'[p1][p2]concat=n=2:v=1:a=0,settb=1/{fps},setpts=N[out]')
+    out = os.path.join(LAVORO, 'base_video.mp4')
+    kbit = int(str(bitrate).lower().rstrip('k'))
+    run(['ffmpeg', '-y', '-v', 'error', '-i', clip, '-filter_complex', filtro, '-map', '[out]',
+         '-c:v', 'libx264', '-preset', 'medium', '-b:v', f'{kbit}k', '-maxrate', f'{int(kbit * 1.5)}k', '-bufsize', f'{kbit * 2}k',
+         '-g', str(fps * 2), '-keyint_min', str(fps * 2), '-sc_threshold', '0', '-r', str(fps),
+         '-pix_fmt', 'yuv420p', '-movflags', '+faststart', out])
+    log(f'loop su clip singola: {n} fotogrammi, sfumatura di chiusura {k} fotogrammi')
+    return out, durata(out)
+
+
 # ---------------------------------------------------------------- PUNTO DI LOOP MIGLIORE (clip AI)
 def miglior_loop(path, fps, min_sec=5.0, coda_sec=1.0):
     """Cerca nella clip i due fotogrammi piu' simili tra loro (inizio e fine del loop) a distanza di almeno min_sec.
@@ -551,6 +572,10 @@ def main():
             ritorno, s_ritorno = clip_ritorno(p, clips[0][0], img_ai, fps)
             b = prepara_clip([ritorno], int(p.get('max_sec_clip') or 60), fps, 'video', nome='ritorno')[0]
             base, base_sec = base_catena(clips[0][0], b[0], s_ritorno, p.get('bitrate_video') or '4500k', fps, float(p.get('dissolvenza_catena') or 1))
+        elif str(p.get('motore') or '').lower() == 'ai' and len(clips) == 1 and modo_loop(p) == 'fine_uguale':
+            # una sola clip che inizia e finisce sulla stessa immagine: nessuna giunzione in mezzo
+            base, base_sec = base_singola(clips[0][0], p.get('bitrate_video') or '4500k', fps, float(p.get('dissolvenza_catena') or 0.5))
+            catena = True
         elif str(p.get('motore') or '').lower() == 'ai' and len(clips) == 1 and modo_loop(p) == 'migliore':
             # clip AI: si ripete solo il tratto tra i due fotogrammi piu' simili, con una dissolvenza breve
             a0, a1 = miglior_loop(clips[0][0], fps, float(p.get('loop_min_sec') or 5), float(p.get('dissolvenza_loop') or 1))
