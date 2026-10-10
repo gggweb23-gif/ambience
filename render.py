@@ -314,19 +314,32 @@ def clip_ritorno(p, clip_a, img_url):
     return vid['video']['url']
 
 
-def base_catena(clip_a, clip_b, bitrate, fps):
-    """Unisce A e B senza dissolvenze. Si toglie il primo fotogramma di B (= ultimo di A) e l'ultimo di B (= primo di A):
-    nessun fotogramma doppio, nemmeno quando il file si ripete."""
-    nb = int(subprocess.run(['ffprobe', '-v', 'error', '-count_frames', '-select_streams', 'v:0', '-show_entries', 'stream=nb_read_frames',
-                             '-of', 'csv=p=0', clip_b], check=True, capture_output=True, text=True).stdout.strip())
-    filtro = (f'[0:v]setpts=PTS-STARTPTS[a];[1:v]trim=start_frame=1:end_frame={nb - 1},setpts=PTS-STARTPTS[b];'
-              f'[a][b]concat=n=2:v=1:a=0[out]')
+def conta_fotogrammi(path):
+    return int(subprocess.run(['ffprobe', '-v', 'error', '-count_frames', '-select_streams', 'v:0', '-show_entries', 'stream=nb_read_frames',
+                               '-of', 'csv=p=0', path], check=True, capture_output=True, text=True).stdout.strip())
+
+
+def base_catena(clip_a, clip_b, bitrate, fps, dissolvenza=1.0):
+    """Unisce A e B. B finisce QUASI sull'immagine iniziale (l'AI non la ricrea identica al pixel):
+    per non far vedere quel piccolo salto, l'ultimo tratto di B sfuma nel primo tratto di A (dissolvenza_catena, vuota = 1 s).
+    Il file inizia da A dopo la dissolvenza e finisce esattamente sul fotogramma che lo precede: ripetuto, non ha giunture."""
+    na, nb = conta_fotogrammi(clip_a), conta_fotogrammi(clip_b)
+    k = max(1, min(int(round(dissolvenza * fps)), na // 3, nb // 3))
+    n_out = (na - k) + (nb - 1)
+    filtro = (f'[0:v]split[a1][a2];'
+              f'[a1]trim=start_frame={k}:end_frame={na},setpts=PTS-STARTPTS[ac];'
+              f'[1:v]trim=start_frame=1:end_frame={nb},setpts=PTS-STARTPTS[bc];'
+              f'[ac][bc]concat=n=2:v=1:a=0,settb=1/{fps},fps={fps}[x];'
+              f'[a2]trim=start_frame=0:end_frame={k},setpts=PTS-STARTPTS,settb=1/{fps},fps={fps}[y];'
+              f'[x][y]xfade=transition=fade:duration={k / fps:.4f}:offset={(n_out - k) / fps:.4f},'
+              f'trim=end_frame={n_out},setpts=PTS-STARTPTS[out]')
     out = os.path.join(LAVORO, 'base_video.mp4')
     kbit = int(str(bitrate).lower().rstrip('k'))
     run(['ffmpeg', '-y', '-v', 'error', '-i', clip_a, '-i', clip_b, '-filter_complex', filtro, '-map', '[out]',
          '-c:v', 'libx264', '-preset', 'medium', '-b:v', f'{kbit}k', '-maxrate', f'{int(kbit * 1.5)}k', '-bufsize', f'{kbit * 2}k',
          '-g', str(fps * 2), '-keyint_min', str(fps * 2), '-sc_threshold', '0', '-r', str(fps),
          '-pix_fmt', 'yuv420p', '-movflags', '+faststart', out])
+    log(f'loop a catena: A {na} + B {nb} fotogrammi, dissolvenza di giunzione {k} fotogrammi -> {n_out}')
     return out, durata(out)
 
 
@@ -525,7 +538,7 @@ def main():
             # loop a catena: clip A (immagine -> movimento libero) + clip B (ultimo fotogramma di A -> immagine)
             ritorno = clip_ritorno(p, clips[0][0], img_ai)
             b = prepara_clip([ritorno], int(p.get('max_sec_clip') or 60), fps, 'video', nome='ritorno')[0]
-            base, base_sec = base_catena(clips[0][0], b[0], p.get('bitrate_video') or '4500k', fps)
+            base, base_sec = base_catena(clips[0][0], b[0], p.get('bitrate_video') or '4500k', fps, float(p.get('dissolvenza_catena') or 1))
         elif str(p.get('motore') or '').lower() == 'ai' and len(clips) == 1 and modo_loop(p) == 'migliore':
             # clip AI: si ripete solo il tratto tra i due fotogrammi piu' simili, con una dissolvenza breve
             a0, a1 = miglior_loop(clips[0][0], fps, float(p.get('loop_min_sec') or 5), float(p.get('dissolvenza_loop') or 1))
@@ -546,19 +559,4 @@ def main():
         vid = carica_youtube(video, p)
         nota = carica_copertina(vid, img)
         avvisa(p, {'stato': 'PUBBLICATO', 'video_id': vid, 'link': 'https://www.youtube.com/watch?v=' + vid,
-                   'errore': '' if nota in ('', 'ok') else nota, 'minuti_lavoro': round((time.time() - t0) / 60, 1)})
-    except Exception as e:
-        traceback.print_exc()
-        avvisa(p, {'stato': 'ERRORE', 'video_id': '', 'link': '', 'errore': str(e)[:500], 'minuti_lavoro': round((time.time() - t0) / 60, 1)})
-        sys.exit(1)
-
-
-PAYLOAD_ESEMPIO = {
-    'id': 'AMB-001', 'durata_minuti': 180, 'clips': ['https://...pexels...mp4'], 'audio': ['https://drive.usercontent.google.com/download?id=...&export=download&confirm=t'],
-    'titolo': 'Rain on Window Sounds for Sleeping | 3 Hours', 'descrizione': '...', 'tag': ['rain sounds'], 'categoria': '22',
-    'privacy': 'public', 'pubblica_il': '', 'lingua': '', 'copertina_url': 'https://images.pexels.com/...', 'testo_copertina': 'RAIN\\n3 HOURS',
-    'callback_url': 'https://.../webhook/ambience-fatto', 'bitrate_video': '4500k', 'dissolvenza_sec': 2,
-}
-
-if __name__ == '__main__':
-    main()
+                   'errore': '' if nota in ('',
