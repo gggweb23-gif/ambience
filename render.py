@@ -579,6 +579,52 @@ def carica_copertina(video_id, img):
         return 'copertina non caricata: ' + str(e)[:200]
 
 
+def playlist_video(video_id, p):
+    """Aggiunge il video alle playlist del canale, creandole se non esistono.
+    Impostazioni -> playlist:  Nome playlist: parola1, parola2 || Altra playlist: parola || Playlist per tutti:
+    Il video entra in ogni playlist le cui parole compaiono nel titolo; una playlist senza parole li riceve tutti."""
+    regole = [x.strip() for x in str(p.get('playlist') or '').split('||') if x.strip()]
+    if not regole:
+        return ''
+    titolo = str(p.get('titolo') or '').lower()
+    scelte = []
+    for r in regole:
+        nome, _, parole = r.partition(':')
+        nome = nome.strip()[:150]
+        lista = [w.strip().lower() for w in parole.split(',') if w.strip()]
+        if nome and (not lista or any(w in titolo for w in lista)):
+            scelte.append(nome)
+    if not scelte:
+        return ''
+    try:
+        h = {'Authorization': 'Bearer ' + token()}
+        esistenti, pagina = {}, ''
+        for _ in range(10):
+            res, _ = http_json('https://www.googleapis.com/youtube/v3/playlists?part=snippet&mine=true&maxResults=50' + ('&pageToken=' + pagina if pagina else ''), headers=h)
+            for it in res.get('items', []):
+                esistenti[it['snippet']['title'].strip().lower()] = it['id']
+            pagina = res.get('nextPageToken') or ''
+            if not pagina:
+                break
+        fatte = []
+        for nome in scelte:
+            pid = esistenti.get(nome.lower())
+            if not pid:
+                res, _ = http_json('https://www.googleapis.com/youtube/v3/playlists?part=snippet,status',
+                                   {'snippet': {'title': nome, 'description': nome + ' - ' + str(p.get('canale_nome') or 'new videos every day')},
+                                    'status': {'privacyStatus': 'public'}}, headers=h)
+                pid = res['id']
+                esistenti[nome.lower()] = pid
+                log('playlist creata: ' + nome)
+            http_json('https://www.googleapis.com/youtube/v3/playlistItems?part=snippet',
+                      {'snippet': {'playlistId': pid, 'resourceId': {'kind': 'youtube#video', 'videoId': video_id}}}, headers=h)
+            fatte.append(nome)
+        log('aggiunto alle playlist: ' + ', '.join(fatte))
+        return ''
+    except Exception as e:
+        return 'playlist non aggiornate: ' + str(e)[:200]
+
+
 def avvisa(p, esito):
     url = p.get('callback_url')
     log('esito: ' + json.dumps(esito))
@@ -641,6 +687,9 @@ def main():
             return
         vid = carica_youtube(video, p)
         nota = carica_copertina(vid, img)
+        nota_pl = playlist_video(vid, p)
+        if nota_pl:
+            nota = (nota + ' | ' if nota not in ('', 'ok') else '') + nota_pl
         avvisa(p, {'stato': 'PUBBLICATO', 'video_id': vid, 'link': 'https://www.youtube.com/watch?v=' + vid,
                    'errore': '' if nota in ('', 'ok') else nota, 'minuti_lavoro': round((time.time() - t0) / 60, 1)})
     except Exception as e:
