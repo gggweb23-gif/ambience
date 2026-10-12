@@ -272,12 +272,13 @@ def scena_ai(p):
 
 
 def modo_loop(p):
-    """Impostazioni loop_ai: continuo (vuota) = 2+ clip AI che si continuano, montate in ordine casuale senza ciclo (~1,5 $);
+    """Impostazioni loop_ai: stabile (vuota) = 1 clip AI stabilizzata, una sola giuntura invisibile per ciclo (~0,82 $);
+    continuo = 2+ clip AI che si continuano, montate in ordine casuale senza ciclo (~1,5 $);
     catena = 2 clip AI che si chiudono sull'immagine iniziale, loop perfetto con movimento (~1,5 $);
     migliore = 1 clip, si ripete il tratto piu' simile (~0,80 $, la ripartenza puo' vedersi); fine_uguale = 1 clip con primo = ultimo fotogramma."""
     m = str(p.get('loop_ai') or '').strip().lower()
     if not m:
-        m = 'fine_uguale' if str(p.get('fine_uguale') or '').upper() == 'SI' else 'continuo'
+        m = 'fine_uguale' if str(p.get('fine_uguale') or '').upper() == 'SI' else 'stabile'
     return m
 
 
@@ -408,6 +409,109 @@ def base_singola(clip, bitrate, fps, dissolvenza=0.5):
          '-g', str(fps * 2), '-keyint_min', str(fps * 2), '-sc_threshold', '0', '-r', str(fps),
          '-pix_fmt', 'yuv420p', '-movflags', '+faststart', out])
     log(f'loop su clip singola: {n} fotogrammi, sfumatura di chiusura {k} fotogrammi')
+    return out, durata(out)
+
+
+# ---------------------------------------------------------------- LOOP STABILE A GIUNTURA UNICA (clip AI)
+def loop_stabile(sorgente, inizio, fine, fps, bitrate, min_sec=6.0, dissolvenza=1.5):
+    """Una sola giuntura per ciclo, resa invisibile:
+    1) STABILIZZA: Kling sposta leggermente l'inquadratura nel tempo; ogni fotogramma viene riallineato al centrale,
+       cosi' foglie e fiori restano esattamente al loro posto (niente "foglie non allineate" alla ripartenza);
+    2) sceglie inizio e fine del ciclo dove la scena e' quasi identica per un intero secondo e mezzo
+       (stessa posizione E stessa velocita' di foglie e acqua), preferendo il ciclo piu' lungo possibile;
+    3) sfuma l'ultimo secondo e mezzo nel tratto che precede l'inizio: il ciclo si richiude senza salti."""
+    import numpy as np
+    W, H = 1920, 1080
+    raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', sorgente, '-vf', f'trim=start_frame={inizio}:end_frame={fine},format=rgb24',
+                          '-f', 'rawvideo', '-'], check=True, capture_output=True).stdout
+    n = len(raw) // (W * H * 3)
+    fr = np.frombuffer(raw, np.uint8)[:n * W * H * 3].reshape(n, H, W, 3)
+    # --- 1) stabilizzazione: spostamento di ogni fotogramma rispetto al centrale (correlazione di fase a 960x540)
+    g2 = [fr[q, ::2, ::2, 1].astype(np.float32) for q in range(n)]
+    finestra = np.outer(np.hanning(540), np.hanning(960)).astype(np.float32)
+    rif = np.fft.fft2((g2[n // 2] - g2[n // 2].mean()) * finestra)
+
+    def spostamento(img):
+        X = np.fft.fft2((img - img.mean()) * finestra)
+        R = rif * np.conj(X)
+        R /= np.abs(R) + 1e-9
+        c = np.abs(np.fft.ifft2(R))
+        y, x = np.unravel_index(int(c.argmax()), c.shape)
+        def fine_(v, m, asse):                      # picco sub-pixel (parabola)
+            a, b, cc = (c[(v - 1) % m, x], c[v, x], c[(v + 1) % m, x]) if asse == 0 else (c[y, (v - 1) % m], c[y, v], c[y, (v + 1) % m])
+            den = a - 2 * b + cc
+            off = 0.5 * (a - cc) / den if den else 0.0
+            s = v + off
+            return s - m if s > m / 2 else s
+        return 2 * fine_(y, 540, 0), 2 * fine_(x, 960, 1)
+    sp = np.array([spostamento(g) for g in g2])
+    # le oscillazioni rapide sono movimento vero di foglie/acqua: si corregge solo la deriva lenta della camera
+    k_l = max(1, fps // 2)
+    ker = np.ones(2 * k_l + 1) / (2 * k_l + 1)
+    lisc = np.stack([np.convolve(np.pad(sp[:, a], k_l, mode='edge'), ker, mode='valid') for a in (0, 1)], axis=1)
+    lisc = np.clip(np.round(lisc), -40, 40).astype(int)
+    deriva = float(np.abs(lisc).max())
+    log(f'stabilizzazione: deriva massima della camera {deriva:.0f} px')
+    margine = 0.04 if deriva > 0 else 0.0
+
+    def stab(q):
+        dy, dx = lisc[q]
+        return np.roll(fr[q], (int(dy), int(dx)), axis=(0, 1)) if (dy or dx) else fr[q]
+
+    # --- 2) scelta del ciclo: impronte 64x36 (media a blocchi: contano foglie e acqua, non le singole gocce)
+    blocchi = np.stack([stab(q).reshape(36, 30, 64, 30, 3).mean(axis=(1, 3, 4)) for q in range(n)]).astype(np.float32).reshape(n, -1)
+    D = np.zeros((n, n), np.float32)
+    for q in range(n):
+        D[q] = np.abs(blocchi - blocchi[q]).mean(axis=1)
+    passo = float(np.median(np.diag(D, 1))) or 1e-6
+    k = max(6, int(round(dissolvenza * fps)))
+    L_min = int(min_sec * fps)
+    cand = []
+    for L in range(L_min, n - k):
+        d = np.diag(D, L)                          # d[i] = differenza tra il fotogramma i e i+L
+        cs = np.concatenate([[0], np.cumsum(d)])
+        for i in range(k, n - L + 1):              # finestra di sfumatura: i-k .. i-1  contro  i+L-k .. i+L-1
+            c = (cs[i] - cs[i - k]) / k / passo
+            cand.append((c, i, L))
+    if not cand:
+        raise RuntimeError('clip AI troppo corta per il loop stabile')
+    migliore = min(c for c, _, _ in cand)
+    buoni = [x for x in cand if x[0] <= migliore * 1.25 + 0.2]
+    c, i, L = max(buoni, key=lambda x: x[2])       # tra i ciclo quasi perfetti, il piu' lungo
+    log(f'ciclo scelto: {L / fps:.1f} s (dal fotogramma {i}), differenza alla giuntura {c:.2f} '
+        f'(1 = come un normale passo tra due fotogrammi), migliore possibile {migliore:.2f}')
+    # --- 3) scrittura del ciclo
+    out = os.path.join(LAVORO, 'base_video.mp4')
+    kbit = int(str(bitrate).lower().rstrip('k'))
+    vf = f'crop=iw*{1 - margine:.3f}:ih*{1 - margine:.3f},scale={W}:{H}:flags=lanczos,format=yuv420p' if margine else 'format=yuv420p'
+    cmd = ['ffmpeg', '-y', '-v', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-r', str(fps), '-i', '-',
+           '-vf', vf, '-c:v', 'libx264', '-preset', 'medium', '-b:v', f'{kbit}k', '-maxrate', f'{int(kbit * 1.5)}k', '-bufsize', f'{kbit * 2}k',
+           '-g', str(fps * 2), '-keyint_min', str(fps * 2), '-sc_threshold', '0', '-movflags', '+faststart', out]
+    enc = subprocess.Popen(cmd, stdin=subprocess.PIPE)
+    for m in range(L):
+        if m < L - k:
+            x = stab(i + m)
+        else:
+            a = (m - (L - k) + 1) / (k + 1)
+            x = (stab(i + m).astype(np.float32) * (1 - a) + stab(i + m - L).astype(np.float32) * a).astype(np.uint8)
+        enc.stdin.write(np.ascontiguousarray(x).tobytes())
+    enc.stdin.close()
+    if enc.wait() != 0:
+        raise RuntimeError('codifica del loop stabile non riuscita')
+    return out, durata(out)
+
+
+def allunga_base(base, base_sec, minuti):
+    """Ripete il ciclo (senza ricodificare) fino a circa `minuti`: la pioggia aggiunta sopra avra' un giro lungo
+    quanto tutta questa base, quindi non si ripete insieme al ciclo della scena e copre la giuntura."""
+    volte = max(1, int(round(minuti * 60 / base_sec)))
+    if volte == 1:
+        return base, base_sec
+    lista = os.path.join(LAVORO, 'lista_base.txt')
+    with open(lista, 'w') as f:
+        f.write(("file '" + base + "'\n") * volte)
+    out = os.path.join(LAVORO, 'base_lunga.mp4')
+    run(['ffmpeg', '-y', '-v', 'error', '-f', 'concat', '-safe', '0', '-i', lista, '-c', 'copy', out])
     return out, durata(out)
 
 
@@ -779,21 +883,35 @@ def playlist_video(video_id, p):
             pagina = res.get('nextPageToken') or ''
             if not pagina:
                 break
-        fatte = []
+        fatte, errori = [], []
         for nome in scelte:
-            pid = esistenti.get(nome.lower())
-            if not pid:
-                res, _ = http_json('https://www.googleapis.com/youtube/v3/playlists?part=snippet,status',
-                                   {'snippet': {'title': nome, 'description': nome + ' - ' + str(p.get('canale_nome') or 'new videos every day')},
-                                    'status': {'privacyStatus': 'public'}}, headers=h)
-                pid = res['id']
-                esistenti[nome.lower()] = pid
-                log('playlist creata: ' + nome)
-            http_json('https://www.googleapis.com/youtube/v3/playlistItems?part=snippet',
-                      {'snippet': {'playlistId': pid, 'resourceId': {'kind': 'youtube#video', 'videoId': video_id}}}, headers=h)
-            fatte.append(nome)
+            # YouTube risponde spesso 409 Conflict (playlist appena creata o modificata da poco): si riprova con calma,
+            # controllando prima che il video non sia gia' entrato, e un errore su una playlist non blocca le altre
+            ok = False
+            for tentativo in range(5):
+                try:
+                    pid = esistenti.get(nome.lower())
+                    if not pid:
+                        res, _ = http_json('https://www.googleapis.com/youtube/v3/playlists?part=snippet,status',
+                                           {'snippet': {'title': nome, 'description': nome + ' - ' + str(p.get('canale_nome') or 'new videos every day')},
+                                            'status': {'privacyStatus': 'public'}}, headers=h)
+                        pid = res['id']
+                        esistenti[nome.lower()] = pid
+                        log('playlist creata: ' + nome)
+                        time.sleep(10)
+                    gia, _ = http_json('https://www.googleapis.com/youtube/v3/playlistItems?part=id&maxResults=1&playlistId=' + pid + '&videoId=' + video_id, headers=h)
+                    if not gia.get('items'):
+                        http_json('https://www.googleapis.com/youtube/v3/playlistItems?part=snippet',
+                                  {'snippet': {'playlistId': pid, 'resourceId': {'kind': 'youtube#video', 'videoId': video_id}}}, headers=h)
+                    ok = True
+                    break
+                except Exception as e:
+                    log(f'playlist "{nome}", tentativo {tentativo + 1}: {e}')
+                    time.sleep(10 * (tentativo + 1))
+            (fatte if ok else errori).append(nome)
+            time.sleep(3)
         log('aggiunto alle playlist: ' + ', '.join(fatte))
-        return ''
+        return ('playlist non aggiornate: ' + ', '.join(errori)) if errori else ''
     except Exception as e:
         return 'playlist non aggiornate: ' + str(e)[:200]
 
@@ -832,7 +950,20 @@ def main():
                 p['effetto'] = ''          # senza la nostra pioggia: resta solo quella dell'AI
         clips = prepara_clip(p['clips'], int(p.get('max_sec_clip') or 60), fps, tipo)
         catena = str(p.get('motore') or '').lower() == 'ai' and len(clips) == 1 and modo_loop(p) == 'catena'
-        if str(p.get('motore') or '').lower() == 'ai' and len(clips) == 1 and modo_loop(p) == 'continuo':
+        if str(p.get('motore') or '').lower() == 'ai' and len(clips) == 1 and modo_loop(p) == 'stabile':
+            # 1 clip AI (clip_ai = 2 -> 2 clip, ciclo piu' lungo): stabilizzata, ciclo con una sola giuntura invisibile
+            prima = ultima = seq = clips[0][0]
+            for c in range(1, max(1, int(p.get('clip_ai') or 1))):
+                y, s_y = clip_seguito(p, ultima, fps, f'seguito{c}')
+                off = conta_fotogrammi(seq) - conta_fotogrammi(ultima)
+                seq = unisci_seguito(seq, y, off + s_y, fps, f'sequenza{c}')
+                ultima = y
+            ta, tb = tratti_fermi(prima, ultima, fps)
+            n_seq = conta_fotogrammi(seq)
+            base, base_sec = loop_stabile(seq, ta, n_seq - tb, fps, p.get('bitrate_video') or '4500k',
+                                          float(p.get('ciclo_min_sec') or 6), float(p.get('dissolvenza_loop') or 1.5))
+            catena = True
+        elif str(p.get('motore') or '').lower() == 'ai' and len(clips) == 1 and modo_loop(p) == 'continuo':
             # movimento continuo senza loop: la clip AI + clip_ai-1 clip che la continuano (default 2 in tutto),
             # poi la base viene montata saltando in ordine casuale tra punti identici della scena
             prima = ultima = seq = clips[0][0]
@@ -867,7 +998,13 @@ def main():
         if not catena:
             base, base_sec = base_video(clips, d, p.get('bitrate_video') or '4500k', fps)
         log(f'base video: {base_sec:.1f} s')
-        base = effetto_meteo(base, base_sec, p.get('effetto'), p.get('intensita_effetto'), p.get('bitrate_video') or '4500k', fps)
+        # effetto_fisso (Impostazioni) = pioggia/neve su TUTTA l'immagine in ogni video, qualunque cosa dica l'analisi
+        effetto = str(p.get('effetto_fisso') or p.get('effetto') or '').strip().lower()
+        if effetto in ('pioggia', 'neve'):
+            # la pioggia gira su una base di alcuni minuti: non riparte mai insieme al ciclo della scena
+            base, base_sec = allunga_base(base, base_sec, float(p.get('minuti_pioggia') or 5))
+            base = effetto_meteo(base, base_sec, effetto, p.get('intensita_effetto'), p.get('bitrate_video') or '4500k', fps)
+            base_sec = durata(base)
         a = audio_finale(base_audio(p['audio'], float(p.get('dissolvenza_audio_sec') or 3)), secondi, p.get('volume') or 1.0)
         img = copertina(p.get('copertina_url'), p.get('testo_copertina'), base)
         video = video_finale(base, base_sec, a, secondi)
