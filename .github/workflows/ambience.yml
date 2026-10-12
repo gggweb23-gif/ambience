@@ -33,7 +33,7 @@ jobs:
       - name: Installa FFmpeg e font
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y -qq ffmpeg fonts-dejavu-core
+          sudo apt-get install -y -qq ffmpeg fonts-dejavu-core python3-numpy
           ffmpeg -version | head -1
 
       - name: Crea il video e caricalo su YouTube
