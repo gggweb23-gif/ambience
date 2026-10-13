@@ -77,8 +77,13 @@ POSE = [
     'seated in an antique armchair, one arm on the armrest and the other hand open in a calm explaining gesture',
     'seated in an antique armchair, one index finger raised near his lips as if asking for silence',
 ]
-ACCORDO = ('His body is turned three-quarters toward the RIGHT side of the image (his back and shoulder toward the LEFT edge), '
-           'but his head and eyes look STRAIGHT into the camera, directly at the viewer, serious and wise expression. '
+ACCORDO = ('His whole body faces the viewer: chest, shoulders and knees toward the camera, turned only very slightly (about 15 degrees) '
+           'toward the right side of the image, like a classic seated portrait painting. His head and eyes look STRAIGHT into the camera, '
+           'directly at the viewer, calm, serious and wise expression. '
+           'His clothing belongs to his era but is elegant, clean and well kept, made of fine quality fabric in deep rich colours '
+           '(an ancient philosopher wears a clean fine wool tunic with a neatly draped cloak with a subtle embroidered border; '
+           'a modern thinker wears a well-tailored dark frock coat, waistcoat and white cravat). Dignified and refined, '
+           'never ragged, worn, torn or dirty, and never royal, flashy or covered in jewels. '
            'Tight framing from the top of the head down to the knees: the figure fills the whole height of the image. '
            'Soft warm window light from the right, cinematic photorealism, highly detailed skin and fabric. '
            'Plain flat light-grey studio background, nothing else in the background. No text, no logo, no watermark.')
@@ -90,7 +95,7 @@ def ritratto(nome, cartella, seme=0):
     - La POSA cambia a ogni video: si parte dal master (stesso viso, stessi vestiti) e si cambia solo la posizione.
     - Lo sguardo e' sempre dritto verso lo spettatore. L'url serve anche alla copertina, cosi' e' lo stesso personaggio."""
     slug = re.sub(r'[^a-z0-9]+', '_', nome.lower()).strip('_')
-    master = os.path.join(os.getcwd(), 'ritratti', slug + '_master.png')
+    master = os.path.join(os.getcwd(), 'ritratti', slug + '_master_v2.png')   # v2 = frontale e vestiti eleganti
     dest = os.path.join(cartella, 'ritratto.png')
     if not (os.path.exists(master) and os.path.getsize(master) > 2000):
         os.makedirs(os.path.dirname(master), exist_ok=True)
@@ -108,7 +113,7 @@ def ritratto(nome, cartella, seme=0):
     url = url_master
     try:
         ed = fal('fal-ai/nano-banana-2/edit', {
-            'prompt': ('The same man as in the attached image: keep exactly the same face, hair, beard, age, skin and clothing. '
+            'prompt': ('The same man as in the attached image: keep exactly the same face, hair, beard, age, skin and the same elegant clothing. '
                        f'New pose for this video: he is {posa}. ' + ACCORDO),
             'image_urls': [url_master], 'aspect_ratio': '3:4', 'resolution': '2K', 'output_format': 'png', 'num_images': 1})
         url = ed['images'][0]['url']
