@@ -11,7 +11,7 @@ Riceve da n8n (variabile PAYLOAD) solo: id, url del file JSON con le scene (su D
 Il file JSON contiene: titolo, scene [{testo, audio, media}], personaggio (facoltativo), musica, volume_musica.
 Alla fine carica il video su Fal (link pubblico) e chiama resume_url con {"movie": {"status": "done", "url", "duration"}}.
 """
-import json, os, re, shutil, sys, time, traceback, subprocess, urllib.request
+import json, os, re, shutil, zlib, sys, time, traceback, subprocess, urllib.request
 from render import scarica, http_json, fal, run, durata, log
 
 LAVORO = os.path.join(os.getcwd(), 'lavoro_filosofo')
@@ -67,33 +67,58 @@ def chi_e(dati):
     return 'an ancient Greek philosopher'
 
 
-def ritratto(nome, cartella):
-    """Ritratto realistico del filosofo seduto, scontornato (PNG trasparente).
-    Ogni filosofo viene creato UNA volta e salvato nel repository (cartella ritratti): stesso volto in tutti i video, costo zero dalla seconda volta."""
+POSE = [
+    'seated in an antique carved wooden armchair, one hand thoughtfully touching his chin, the other resting on the armrest',
+    'seated in an antique armchair holding a closed old leather book on his lap with both hands',
+    'seated in an antique armchair, hands calmly folded on his lap, shoulders relaxed',
+    'seated in an antique armchair, leaning slightly forward, forearms resting on his knees, fingers interlaced',
+    'seated in an antique armchair, one hand raised to his temple as if thinking deeply',
+    'seated in an antique armchair holding an old quill pen and a folded letter',
+    'seated in an antique armchair, one arm on the armrest and the other hand open in a calm explaining gesture',
+    'seated in an antique armchair, one index finger raised near his lips as if asking for silence',
+]
+ACCORDO = ('His body is turned three-quarters toward the RIGHT side of the image (his back and shoulder toward the LEFT edge), '
+           'but his head and eyes look STRAIGHT into the camera, directly at the viewer, serious and wise expression. '
+           'Tight framing from the top of the head down to the knees: the figure fills the whole height of the image. '
+           'Soft warm window light from the right, cinematic photorealism, highly detailed skin and fabric. '
+           'Plain flat light-grey studio background, nothing else in the background. No text, no logo, no watermark.')
+
+
+def ritratto(nome, cartella, seme=0):
+    """Ritratto del filosofo per QUESTO video. Restituisce (png scontornato, url dell'immagine con lo sfondo).
+    - Il VOLTO e' fisso: la prima volta si crea un ritratto 'master' del filosofo e si salva nel repository (cartella ritratti).
+    - La POSA cambia a ogni video: si parte dal master (stesso viso, stessi vestiti) e si cambia solo la posizione.
+    - Lo sguardo e' sempre dritto verso lo spettatore. L'url serve anche alla copertina, cosi' e' lo stesso personaggio."""
     slug = re.sub(r'[^a-z0-9]+', '_', nome.lower()).strip('_')
-    salvato = os.path.join(os.getcwd(), 'ritratti', slug + '_v2.png')   # v2 = posa girata verso destra
+    master = os.path.join(os.getcwd(), 'ritratti', slug + '_master.png')
     dest = os.path.join(cartella, 'ritratto.png')
-    if os.path.exists(salvato) and os.path.getsize(salvato) > 2000:
-        log('ritratto gia\' pronto per ' + nome)
-        shutil.copy(salvato, dest)
-        return dest
-    prompt = (f'Photorealistic portrait of {nome}, the historical philosopher, faithful to his known portraits and busts. '
-              'He sits in an antique carved wooden armchair, his body turned three-quarters toward the RIGHT side of the image: his back and '
-              'shoulder face the LEFT edge, his chest and face point to the right, head turned slightly toward the viewer, one hand '
-              'thoughtfully touching his chin, serious and wise expression. Period clothing appropriate to his era. Tight framing from the '
-              'top of the head down to the knees: the figure fills the whole height of the image. Soft warm window light from the right, cinematic, highly detailed skin '
-              'and fabric. Plain flat light-grey studio background, nothing else in the background. No text, no logo, no watermark.')
-    img = fal('fal-ai/nano-banana-2', {'prompt': prompt, 'aspect_ratio': '3:4', 'resolution': '2K', 'output_format': 'png', 'num_images': 1})
-    url = img['images'][0]['url']
-    log('ritratto: ' + url)
+    if not (os.path.exists(master) and os.path.getsize(master) > 2000):
+        os.makedirs(os.path.dirname(master), exist_ok=True)
+        prompt = (f'Photorealistic portrait of {nome}, the historical philosopher, faithful to his known portraits and busts, '
+                  f'{POSE[0]}. Period clothing appropriate to his era. ' + ACCORDO)
+        img = fal('fal-ai/nano-banana-2', {'prompt': prompt, 'aspect_ratio': '3:4', 'resolution': '2K', 'output_format': 'png', 'num_images': 1})
+        scarica(img['images'][0]['url'], master if 'ancient Greek philosopher' not in nome else dest)
+        if 'ancient Greek philosopher' in nome:
+            master = dest
+        log('nuovo volto per ' + nome)
+    else:
+        log('volto gia\' pronto per ' + nome)
+    url_master = carica_file(master, 'image/png')
+    posa = POSE[seme % len(POSE)]
+    url = url_master
+    try:
+        ed = fal('fal-ai/nano-banana-2/edit', {
+            'prompt': ('The same man as in the attached image: keep exactly the same face, hair, beard, age, skin and clothing. '
+                       f'New pose for this video: he is {posa}. ' + ACCORDO),
+            'image_urls': [url_master], 'aspect_ratio': '3:4', 'resolution': '2K', 'output_format': 'png', 'num_images': 1})
+        url = ed['images'][0]['url']
+        log('posa del video: ' + posa)
+    except Exception as e:
+        log('cambio posa non riuscito (' + str(e)[:100] + '), uso il ritratto base')
     sc = fal('fal-ai/birefnet', {'image_url': url})
     url2 = (sc.get('image') or {}).get('url') or url
-    log('ritratto scontornato: ' + url2)
     scarica(url2, dest)
-    if 'ancient Greek philosopher' not in nome:
-        os.makedirs(os.path.dirname(salvato), exist_ok=True)
-        shutil.copy(dest, salvato)
-    return dest
+    return dest, url
 
 
 def ritaglia(path):
@@ -176,12 +201,12 @@ def sottotitoli(scene, tempi, cartella, font, size, x, y, max_riga=24):
     return p
 
 
-def carica_video(path):
+def carica_file(path, tipo='video/mp4'):
     h = {'Authorization': 'Key ' + os.environ.get('FAL_KEY', '')}
     ini, _ = http_json('https://rest.alpha.fal.ai/storage/upload/initiate?storage_type=fal-cdn-v3',
-                       {'content_type': 'video/mp4', 'file_name': os.path.basename(path)}, headers=h)
+                       {'content_type': tipo, 'file_name': os.path.basename(path)}, headers=h)
     with open(path, 'rb') as f:
-        req = urllib.request.Request(ini['upload_url'], data=f.read(), method='PUT', headers={'Content-Type': 'video/mp4'})
+        req = urllib.request.Request(ini['upload_url'], data=f.read(), method='PUT', headers={'Content-Type': tipo})
     with urllib.request.urlopen(req, timeout=1800):
         pass
     return ini['file_url']
@@ -266,7 +291,8 @@ def main():
         # 3) ritratto del filosofo
         nome = chi_e(dati)
         log('personaggio: ' + nome)
-        rit = ritaglia(ritratto(nome, LAVORO))
+        rit, url_ritratto = ritratto(nome, LAVORO, zlib.crc32(str(dati.get('titolo') or p.get('id') or '').encode()))
+        rit = ritaglia(rit)
         num = lambda k, d: float(stile[k]) if str(stile.get(k, '')).strip() != '' else d
         alt = int(H * num('altezza_ritratto', 1.06))      # come l'originale: la figura occupa tutta l'altezza
         x_r = int(W * num('x_ritratto', 0.0))             # attaccata al bordo sinistro
@@ -300,9 +326,9 @@ def main():
         if os.environ.get('DRY_RUN') == '1':
             log('prova: il video resta come artifact, nessun caricamento')
             return
-        url = carica_video(finale)
+        url = carica_file(finale)
         log('video caricato: ' + url)
-        rispondi(p.get('resume_url'), {'movie': {'status': 'done', 'url': url, 'duration': round(durata(finale), 2),
+        rispondi(p.get('resume_url'), {'movie': {'status': 'done', 'url': url, 'duration': round(durata(finale), 2), 'ritratto_url': url_ritratto,
                                                  'minuti_lavoro': round((time.time() - t_inizio) / 60, 1)}})
     except Exception as e:
         traceback.print_exc()
