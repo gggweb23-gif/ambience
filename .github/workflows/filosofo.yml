@@ -28,7 +28,7 @@ jobs:
       - name: Installa FFmpeg e font
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y -qq ffmpeg fonts-dejavu-core python3-fonttools
+          sudo apt-get install -y -qq ffmpeg fonts-dejavu-core python3-fonttools python3-pil
           mkdir -p font
           if [ ! -f font/CormorantGaramond-SemiBold.ttf ]; then
             npm pack @fontsource/cormorant-garamond@5.3.0 --silent
