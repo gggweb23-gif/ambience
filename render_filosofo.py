@@ -11,7 +11,7 @@ Riceve da n8n (variabile PAYLOAD) solo: id, url del file JSON con le scene (su D
 Il file JSON contiene: titolo, scene [{testo, audio, media}], personaggio (facoltativo), musica, volume_musica.
 Alla fine carica il video su Fal (link pubblico) e chiama resume_url con {"movie": {"status": "done", "url", "duration"}}.
 """
-import json, os, re, shutil, zlib, sys, time, traceback, subprocess, urllib.request
+import json, math, os, re, shutil, zlib, sys, time, traceback, subprocess, urllib.request
 from render import scarica, http_json, fal, run, durata, log
 
 LAVORO = os.path.join(os.getcwd(), 'lavoro_filosofo')
@@ -140,6 +140,17 @@ def ritaglia(path):
     except Exception as e:
         log('ritaglio non riuscito (' + str(e)[:80] + '), uso il ritratto intero')
     return path
+
+
+def livello(path, secondi=180):
+    """Volume medio (dB) dei primi minuti di un file audio."""
+    try:
+        r = subprocess.run(['ffmpeg', '-hide_banner', '-t', str(secondi), '-i', path, '-af', 'volumedetect', '-f', 'null', '-'],
+                           capture_output=True, text=True)
+        m = re.search(r'mean_volume:\s*(-?[\d.]+) dB', r.stderr)
+        return float(m.group(1)) if m else -20.0
+    except Exception:
+        return -20.0
 
 
 def pulisci(t):
@@ -319,8 +330,12 @@ def main():
                 mf = scarica_sicuro(musica, os.path.join(LAVORO, 'musica.mp3'))
                 ingressi += ['-stream_loop', '-1', '-i', mf]
                 vol = float(dati.get('volume_musica') or 0.08)
+                # Livello RELATIVO alla voce: 0,06 = musica 24 dB sotto la voce, 0,12 = 18 dB sotto,
+                # qualunque sia il volume originale della traccia (le tracce ambient sono spesso molto basse).
+                guadagno = (livello(voce) - livello(mf)) + 20 * math.log10(max(0.001, vol))
+                log(f'musica: {vol:.3f} -> guadagno {guadagno:+.1f} dB')
                 fine_m = max(0.0, totale - 4)
-                filtro += (f";[3:a]volume={vol},afade=t=in:d=3,afade=t=out:st={fine_m:.2f}:d=4[m];"
+                filtro += (f";[3:a]volume={guadagno:.2f}dB,afade=t=in:d=3,afade=t=out:st={fine_m:.2f}:d=4[m];"
                            f"[2:a][m]amix=inputs=2:duration=first:normalize=0[a]")
                 amap = '[a]'
             except Exception as e:
