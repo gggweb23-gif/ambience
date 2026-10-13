@@ -15,6 +15,9 @@ on:
         default: 'NO'
         type: string
 
+permissions:
+  contents: write
+
 jobs:
   render:
     runs-on: ubuntu-latest
@@ -40,6 +43,18 @@ jobs:
           DRY_RUN: ${{ inputs.prova == 'SI' && '1' || '0' }}
           FAL_KEY: ${{ secrets.FAL_KEY }}
         run: python3 render_filosofo.py
+
+      - name: Salva i nuovi ritratti nel repository
+        if: ${{ always() }}
+        run: |
+          if [ -d ritratti ] && [ -n "$(git status --porcelain ritratti)" ]; then
+            git config user.name "render-bot"
+            git config user.email "render-bot@users.noreply.github.com"
+            git add ritratti
+            git commit -m "Nuovo ritratto filosofo"
+            git pull --rebase -q || true
+            git push || echo "ritratto non salvato (verra' ricreato la prossima volta)"
+          fi
 
       - name: Salva il video di prova
         if: ${{ inputs.prova == 'SI' }}
