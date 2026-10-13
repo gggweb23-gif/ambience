@@ -319,7 +319,9 @@ def main():
                 mf = scarica_sicuro(musica, os.path.join(LAVORO, 'musica.mp3'))
                 ingressi += ['-stream_loop', '-1', '-i', mf]
                 vol = float(dati.get('volume_musica') or 0.08)
-                filtro += f";[3:a]volume={vol}[m];[2:a][m]amix=inputs=2:duration=first:normalize=0[a]"
+                fine_m = max(0.0, totale - 4)
+                filtro += (f";[3:a]volume={vol},afade=t=in:d=3,afade=t=out:st={fine_m:.2f}:d=4[m];"
+                           f"[2:a][m]amix=inputs=2:duration=first:normalize=0[a]")
                 amap = '[a]'
             except Exception as e:
                 log('musica non disponibile: ' + str(e)[:100])
