@@ -71,16 +71,17 @@ def ritratto(nome, cartella):
     """Ritratto realistico del filosofo seduto, scontornato (PNG trasparente).
     Ogni filosofo viene creato UNA volta e salvato nel repository (cartella ritratti): stesso volto in tutti i video, costo zero dalla seconda volta."""
     slug = re.sub(r'[^a-z0-9]+', '_', nome.lower()).strip('_')
-    salvato = os.path.join(os.getcwd(), 'ritratti', slug + '.png')
+    salvato = os.path.join(os.getcwd(), 'ritratti', slug + '_v2.png')   # v2 = posa girata verso destra
     dest = os.path.join(cartella, 'ritratto.png')
     if os.path.exists(salvato) and os.path.getsize(salvato) > 2000:
         log('ritratto gia\' pronto per ' + nome)
         shutil.copy(salvato, dest)
         return dest
     prompt = (f'Photorealistic portrait of {nome}, the historical philosopher, faithful to his known portraits and busts. '
-              'He sits in an antique carved wooden armchair, body turned slightly to the right, one hand thoughtfully touching his chin, '
-              'serious and wise expression, looking at the viewer. Period clothing appropriate to his era. Framed from the top of the head '
-              'down to the knees, the whole figure inside the frame. Soft warm window light from the right, cinematic, highly detailed skin '
+              'He sits in an antique carved wooden armchair, his body turned three-quarters toward the RIGHT side of the image: his back and '
+              'shoulder face the LEFT edge, his chest and face point to the right, head turned slightly toward the viewer, one hand '
+              'thoughtfully touching his chin, serious and wise expression. Period clothing appropriate to his era. Tight framing from the '
+              'top of the head down to the knees: the figure fills the whole height of the image. Soft warm window light from the right, cinematic, highly detailed skin '
               'and fabric. Plain flat light-grey studio background, nothing else in the background. No text, no logo, no watermark.')
     img = fal('fal-ai/nano-banana-2', {'prompt': prompt, 'aspect_ratio': '3:4', 'resolution': '2K', 'output_format': 'png', 'num_images': 1})
     url = img['images'][0]['url']
@@ -95,13 +96,29 @@ def ritratto(nome, cartella):
     return dest
 
 
+def ritaglia(path):
+    """Toglie il bordo trasparente intorno alla figura: cosi' l'altezza scelta e' quella del filosofo, non della tela."""
+    try:
+        from PIL import Image
+        im = Image.open(path).convert('RGBA')
+        box = im.getchannel('A').point(lambda a: 255 if a > 24 else 0).getbbox()
+        if box:
+            out = path.replace('.png', '_ritaglio.png')
+            im.crop(box).save(out)
+            log(f'ritratto ritagliato: {im.size} -> {box[2] - box[0]}x{box[3] - box[1]}')
+            return out
+    except Exception as e:
+        log('ritaglio non riuscito (' + str(e)[:80] + '), uso il ritratto intero')
+    return path
+
+
 def pulisci(t):
     t = str(t or '').replace('’', "'").lower()
     t = re.sub(r"[^\w\s']", ' ', t, flags=re.UNICODE)
     return re.sub(r'\s+', ' ', t).strip()
 
 
-def blocchi(testo, max_riga=26, max_righe=2):
+def blocchi(testo, max_riga=24, max_righe=2):
     """Divide il testo in riquadri da al massimo 2 righe di ~26 caratteri, come l'originale."""
     parole, out, righe, riga = testo.split(), [], [], ''
     for p in parole:
@@ -124,17 +141,17 @@ def tempo_ass(s):
     return f'{h}:{m:02d}:{sec:05.2f}'
 
 
-def sottotitoli(scene, tempi, cartella, font, size, x, y):
+def sottotitoli(scene, tempi, cartella, font, size, x, y, max_riga=24):
     """Effetto macchina da scrivere: un evento ASS per ogni lettera, con il cursore bianco alla fine."""
     righe = ['[Script Info]', 'ScriptType: v4.00+', f'PlayResX: {W}', f'PlayResY: {H}', 'WrapStyle: 2', '',
              '[V4+ Styles]',
              'Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, '
              'StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding',
-             f'Style: T,{font},{size},&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,3,9,0,7,0,0,0,1',
+             f'Style: T,{font},{size},&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,3,7,0,7,0,0,0,1',
              '', '[Events]', 'Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text']
     cursore = r'{\fnDejaVu Sans\c&HFFFFFF&}' + '█'
     for (t0, t1), sc in zip(tempi, scene):
-        bl = blocchi(pulisci(sc.get('testo', '')))
+        bl = blocchi(pulisci(sc.get('testo', '')), max_riga)
         if not bl:
             continue
         tot = sum(len(' '.join(b)) for b in bl) or 1
@@ -249,15 +266,16 @@ def main():
         # 3) ritratto del filosofo
         nome = chi_e(dati)
         log('personaggio: ' + nome)
-        rit = ritratto(nome, LAVORO)
-        alt = int(H * float(stile.get('altezza_ritratto') or 1.12))
-        x_r = int(W * float(stile.get('x_ritratto') or 0.02))
-        y_r = int(H * float(stile.get('y_ritratto') or 0.03))
+        rit = ritaglia(ritratto(nome, LAVORO))
+        num = lambda k, d: float(stile[k]) if str(stile.get(k, '')).strip() != '' else d
+        alt = int(H * num('altezza_ritratto', 1.06))      # come l'originale: la figura occupa tutta l'altezza
+        x_r = int(W * num('x_ritratto', 0.0))             # attaccata al bordo sinistro
+        y_r = int(H * num('y_ritratto', 0.005))
         entra = float(stile.get('entrata_sec') or 0.7)
         # 4) sottotitoli
         font = stile.get('font') or 'Cormorant Garamond SemiBold'
-        ass = sottotitoli(scene, tempi, LAVORO, font, int(stile.get('dimensione_testo') or 64),
-                          int(W * float(stile.get('x_testo') or 0.52)), int(H * float(stile.get('y_testo') or 0.40)))
+        ass = sottotitoli(scene, tempi, LAVORO, font, int(num('dimensione_testo', 92)),
+                          int(W * num('x_testo', 0.50)), int(H * num('y_testo', 0.44)), int(num('caratteri_riga', 24)))
         # 5) montaggio finale (+ musica se presente)
         musica = str(dati.get('musica') or '').strip()
         ingressi = ['-i', sfondo, '-loop', '1', '-i', rit, '-i', voce]
