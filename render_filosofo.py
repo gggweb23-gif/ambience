@@ -11,7 +11,7 @@ Riceve da n8n (variabile PAYLOAD) solo: id, url del file JSON con le scene (su D
 Il file JSON contiene: titolo, scene [{testo, audio, media}], personaggio (facoltativo), musica, volume_musica.
 Alla fine carica il video su Fal (link pubblico) e chiama resume_url con {"movie": {"status": "done", "url", "duration"}}.
 """
-import json, os, re, sys, time, traceback, subprocess, urllib.request
+import json, os, re, shutil, sys, time, traceback, subprocess, urllib.request
 from render import scarica, http_json, fal, run, durata, log
 
 LAVORO = os.path.join(os.getcwd(), 'lavoro_filosofo')
@@ -52,18 +52,31 @@ def scarica_dati(url):
 
 
 def chi_e(dati):
+    """Il filosofo del video: colonna render_character, poi il nome nel titolo, poi il piu' citato nel testo."""
     if str(dati.get('personaggio') or '').strip():
         return str(dati['personaggio']).strip()
-    testo = (str(dati.get('titolo') or '') + ' ' + ' '.join(s.get('testo', '') for s in dati.get('scene', [])[:6])).lower()
-    trovati = [(testo.find(n.lower()), n) for n in FILOSOFI if n.lower() in testo]
-    if trovati:
-        nome = sorted(trovati)[0][1]
-        return 'Seneca' if nome == 'Seneca the Younger' else nome
+    norm = lambda n: 'Seneca' if n == 'Seneca the Younger' else n
+    titolo = str(dati.get('titolo') or '').lower()
+    nel_titolo = [(titolo.find(n.lower()), n) for n in FILOSOFI if n.lower() in titolo]
+    if nel_titolo:
+        return norm(sorted(nel_titolo)[0][1])
+    testo = ' '.join(str(s.get('testo', '')) for s in dati.get('scene', [])).lower()
+    conti = sorted(((testo.count(n.lower()), -testo.find(n.lower()), n) for n in FILOSOFI if n.lower() in testo), reverse=True)
+    if conti:
+        return norm(conti[0][2])
     return 'an ancient Greek philosopher'
 
 
 def ritratto(nome, cartella):
-    """Ritratto realistico del filosofo seduto, poi scontornato (PNG trasparente)."""
+    """Ritratto realistico del filosofo seduto, scontornato (PNG trasparente).
+    Ogni filosofo viene creato UNA volta e salvato nel repository (cartella ritratti): stesso volto in tutti i video, costo zero dalla seconda volta."""
+    slug = re.sub(r'[^a-z0-9]+', '_', nome.lower()).strip('_')
+    salvato = os.path.join(os.getcwd(), 'ritratti', slug + '.png')
+    dest = os.path.join(cartella, 'ritratto.png')
+    if os.path.exists(salvato) and os.path.getsize(salvato) > 2000:
+        log('ritratto gia\' pronto per ' + nome)
+        shutil.copy(salvato, dest)
+        return dest
     prompt = (f'Photorealistic portrait of {nome}, the historical philosopher, faithful to his known portraits and busts. '
               'He sits in an antique carved wooden armchair, body turned slightly to the right, one hand thoughtfully touching his chin, '
               'serious and wise expression, looking at the viewer. Period clothing appropriate to his era. Framed from the top of the head '
@@ -75,7 +88,11 @@ def ritratto(nome, cartella):
     sc = fal('fal-ai/birefnet', {'image_url': url})
     url2 = (sc.get('image') or {}).get('url') or url
     log('ritratto scontornato: ' + url2)
-    return scarica(url2, os.path.join(cartella, 'ritratto.png'))
+    scarica(url2, dest)
+    if 'ancient Greek philosopher' not in nome:
+        os.makedirs(os.path.dirname(salvato), exist_ok=True)
+        shutil.copy(dest, salvato)
+    return dest
 
 
 def pulisci(t):
