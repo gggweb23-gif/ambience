@@ -1,0 +1,50 @@
+name: Video Filosofo
+
+# Avviato da PRODUCTION (canali con render_engine = github, es. Agora of Sages).
+# Riceve: payload = {"id": "...", "dati_url": "...", "resume_url": "..."}
+on:
+  workflow_dispatch:
+    inputs:
+      payload:
+        description: 'JSON preparato da n8n'
+        required: true
+        type: string
+      prova:
+        description: 'SI = crea il video ma non lo carica (resta negli artifact)'
+        required: false
+        default: 'NO'
+        type: string
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Installa FFmpeg e font
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg fonts-dejavu-core python3-fonttools
+          mkdir -p font
+          if [ ! -f font/CormorantGaramond-SemiBold.ttf ]; then
+            npm pack @fontsource/cormorant-garamond@5.3.0 --silent
+            tar xzf fontsource-cormorant-garamond-5.3.0.tgz
+            python3 -c "from fontTools.ttLib import TTFont; f=TTFont('package/files/cormorant-garamond-latin-600-normal.woff'); f.flavor=None; f.save('font/CormorantGaramond-SemiBold.ttf')"
+          fi
+          fc-scan --format "%{family}\n" font/CormorantGaramond-SemiBold.ttf
+
+      - name: Crea il video
+        env:
+          PAYLOAD: ${{ inputs.payload }}
+          DRY_RUN: ${{ inputs.prova == 'SI' && '1' || '0' }}
+          FAL_KEY: ${{ secrets.FAL_KEY }}
+        run: python3 render_filosofo.py
+
+      - name: Salva il video di prova
+        if: ${{ inputs.prova == 'SI' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: video-filosofo
+          path: lavoro_filosofo/video_finale.mp4
+          retention-days: 3
