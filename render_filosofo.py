@@ -95,10 +95,31 @@ ACCORDO_LIBERO = ('He faces the viewer, body turned only slightly toward the rig
                   'Plain flat light-grey studio background, nothing else in the background. No text, no logo, no watermark.')
 
 
+# Personaggio scelto dall'AI per QUESTO video (colonna render_character_auto): uomo o donna, qualsiasi ruolo dell'epoca.
+ACCORDO_AUTO = ('The person faces the viewer, body turned only slightly toward the right side of the image, face fully visible, '
+                'looking STRAIGHT into the camera, directly at the viewer, with an expression that fits the role and the story. '
+                'The figure fills the whole height of the image, from the top of the head (or headdress, helmet crest) down to at least the knees. '
+                'Every piece of clothing, hairstyle, jewellery and object is historically accurate for the period. '
+                'Soft warm light from the right, cinematic photorealism, highly detailed skin, fabric and metal. '
+                'Plain flat light-grey studio background, nothing else in the background. No text, no logo, no watermark.')
+
+
 VESTITI = ('His clothing belongs to his era but is elegant, clean and well kept, made of fine quality fabric in deep rich colours '
            '(an ancient philosopher wears a clean fine wool tunic with a neatly draped cloak with a subtle embroidered border; '
            'a modern thinker wears a well-tailored dark frock coat, waistcoat and white cravat). Dignified and refined, '
            'never ragged, worn, torn or dirty, and never royal, flashy or covered in jewels. ')
+
+
+def ritratto_auto(descrizione, cartella):
+    """Personaggio diverso per ogni video, descritto dall'AI dello script: si crea direttamente (niente master salvato)."""
+    dest = os.path.join(cartella, 'ritratto.png')
+    img = fal('fal-ai/nano-banana-2', {'prompt': 'Photorealistic full-figure portrait of ' + descrizione.rstrip('. ') + '. ' + ACCORDO_AUTO,
+                                       'aspect_ratio': '3:4', 'resolution': '2K', 'output_format': 'png', 'num_images': 1})
+    url = img['images'][0]['url']
+    sc = fal('fal-ai/birefnet', {'image_url': url})
+    scarica((sc.get('image') or {}).get('url') or url, dest)
+    log('personaggio del video (scelto dallo script): ' + descrizione[:160])
+    return dest, url
 
 
 def ritratto(nome, cartella, seme=0, su_misura=False, pose=None, abiti=None, espressione=''):
@@ -375,9 +396,18 @@ def main():
         # 3) ritratto del filosofo
         nome = chi_e(dati)
         log('personaggio: ' + nome)
-        rit, url_ritratto = ritratto(nome, LAVORO, zlib.crc32(str(dati.get('titolo') or p.get('id') or '').encode()),
-                                     su_misura=bool(str(dati.get('personaggio') or '').strip()),
-                                     pose=stile.get('pose'), abiti=stile.get('abiti'), espressione=stile.get('espressione'))
+        seme = zlib.crc32(str(dati.get('titolo') or p.get('id') or '').encode())
+        rit = None
+        if dati.get('personaggio_auto'):
+            try:
+                rit, url_ritratto = ritratto_auto(nome, LAVORO)
+            except Exception as e:
+                log('personaggio automatico non riuscito (' + str(e)[:120] + '), uso il personaggio fisso del canale')
+                nome = str(dati.get('personaggio_riserva') or '').strip() or nome
+        if rit is None:
+            rit, url_ritratto = ritratto(nome, LAVORO, seme,
+                                         su_misura=bool(str(dati.get('personaggio') or '').strip()),
+                                         pose=stile.get('pose'), abiti=stile.get('abiti'), espressione=stile.get('espressione'))
         rit = ritaglia(rit)
         num = lambda k, d: float(stile[k]) if str(stile.get(k, '')).strip() != '' else d
         alt = int(H * num('altezza_ritratto', 1.06))      # come l'originale: la figura occupa tutta l'altezza
