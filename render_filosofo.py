@@ -88,7 +88,7 @@ ACCORDO = ('His whole body faces the viewer: chest, shoulders and knees toward t
 # Inquadratura per le situazioni del canale (render_style -> pose): in piedi, seduto o a cavallo.
 ACCORDO_LIBERO = ('He faces the viewer, body turned only slightly toward the right side of the image. His face is always fully visible '
                   '(if he wears a helmet it is open-faced and does not hide his eyes), and he looks STRAIGHT into the camera, '
-                  'directly at the viewer, with a calm, confident expression. '
+                  'directly at the viewer, with {espressione}. '
                   'He fills the whole height of the image, from the top of his head (or helmet crest) down to at least his knees; '
                   'if he is on horseback, show only him and the head and neck of the horse, tightly cropped, so the image stays tall and narrow. '
                   'Soft warm light from the right, cinematic photorealism, highly detailed skin, metal and fabric. '
@@ -101,7 +101,7 @@ VESTITI = ('His clothing belongs to his era but is elegant, clean and well kept,
            'never ragged, worn, torn or dirty, and never royal, flashy or covered in jewels. ')
 
 
-def ritratto(nome, cartella, seme=0, su_misura=False, pose=None, abiti=None):
+def ritratto(nome, cartella, seme=0, su_misura=False, pose=None, abiti=None, espressione=''):
     """Ritratto del filosofo per QUESTO video. Restituisce (png scontornato, url dell'immagine con lo sfondo).
     - Il VOLTO e' fisso: la prima volta si crea un ritratto 'master' del filosofo e si salva nel repository (cartella ritratti).
     - La POSA cambia a ogni video: si parte dal master (stesso viso, stessi vestiti) e si cambia solo la posizione.
@@ -127,15 +127,15 @@ def ritratto(nome, cartella, seme=0, su_misura=False, pose=None, abiti=None):
         log('volto gia\' pronto per ' + nome)
     url_master = carica_file(master, 'image/png')
     proprie = [str(x).strip() for x in (pose or []) if str(x).strip()]
-    inquadra = ACCORDO_LIBERO if proprie else ACCORDO
+    inquadra = ACCORDO_LIBERO.replace('{espressione}', str(espressione or '').strip() or 'a calm, confident expression') if proprie else ACCORDO
     pose = proprie or POSE
     abiti = [str(x).strip() for x in (abiti or []) if str(x).strip()]
     posa = pose[seme % len(pose)]
     url = url_master
     if abiti:
         abito = abiti[(seme // 7) % len(abiti)]   # scelta diversa da quella della posa: le combinazioni si ripetono di rado
-        richiesta = ('The same man as in the attached image: keep exactly the same face, hair, beard, age and skin. '
-                     f'For this video he wears different clothes: {abito}. Clean, well kept, historically accurate. '
+        richiesta = ('The same man as in the attached image: keep exactly the same face, hair, beard, age, skin and the same body build. '
+                     f'For this video he wears different clothes: {abito}. Historically accurate ancient Roman gear, real metal and leather. '
                      f'New pose for this video: he is {posa}. ' + inquadra)
         log('vestito del video: ' + abito)
     else:
@@ -377,7 +377,7 @@ def main():
         log('personaggio: ' + nome)
         rit, url_ritratto = ritratto(nome, LAVORO, zlib.crc32(str(dati.get('titolo') or p.get('id') or '').encode()),
                                      su_misura=bool(str(dati.get('personaggio') or '').strip()),
-                                     pose=stile.get('pose'), abiti=stile.get('abiti'))
+                                     pose=stile.get('pose'), abiti=stile.get('abiti'), espressione=stile.get('espressione'))
         rit = ritaglia(rit)
         num = lambda k, d: float(stile[k]) if str(stile.get(k, '')).strip() != '' else d
         alt = int(H * num('altezza_ritratto', 1.06))      # come l'originale: la figura occupa tutta l'altezza
