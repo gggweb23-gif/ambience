@@ -85,17 +85,29 @@ ACCORDO = ('His whole body faces the viewer: chest, shoulders and knees toward t
            'Plain flat light-grey studio background, nothing else in the background. No text, no logo, no watermark.')
 
 
+# Inquadratura per le situazioni del canale (render_style -> pose): in piedi, seduto o a cavallo.
+ACCORDO_LIBERO = ('He faces the viewer, body turned only slightly toward the right side of the image. His face is always fully visible '
+                  '(if he wears a helmet it is open-faced and does not hide his eyes), and he looks STRAIGHT into the camera, '
+                  'directly at the viewer, with a calm, confident expression. '
+                  'He fills the whole height of the image, from the top of his head (or helmet crest) down to at least his knees; '
+                  'if he is on horseback, show only him and the head and neck of the horse, tightly cropped, so the image stays tall and narrow. '
+                  'Soft warm light from the right, cinematic photorealism, highly detailed skin, metal and fabric. '
+                  'Plain flat light-grey studio background, nothing else in the background. No text, no logo, no watermark.')
+
+
 VESTITI = ('His clothing belongs to his era but is elegant, clean and well kept, made of fine quality fabric in deep rich colours '
            '(an ancient philosopher wears a clean fine wool tunic with a neatly draped cloak with a subtle embroidered border; '
            'a modern thinker wears a well-tailored dark frock coat, waistcoat and white cravat). Dignified and refined, '
            'never ragged, worn, torn or dirty, and never royal, flashy or covered in jewels. ')
 
 
-def ritratto(nome, cartella, seme=0, su_misura=False):
+def ritratto(nome, cartella, seme=0, su_misura=False, pose=None, abiti=None):
     """Ritratto del filosofo per QUESTO video. Restituisce (png scontornato, url dell'immagine con lo sfondo).
     - Il VOLTO e' fisso: la prima volta si crea un ritratto 'master' del filosofo e si salva nel repository (cartella ritratti).
     - La POSA cambia a ogni video: si parte dal master (stesso viso, stessi vestiti) e si cambia solo la posizione.
-    - Lo sguardo e' sempre dritto verso lo spettatore. L'url serve anche alla copertina, cosi' e' lo stesso personaggio."""
+    - Lo sguardo e' sempre dritto verso lo spettatore. L'url serve anche alla copertina, cosi' e' lo stesso personaggio.
+    - pose / abiti (facoltativi, da render_style): liste del canale. Con 'abiti' cambia anche il vestito a ogni video
+      (stesso viso), cosi' chi guarda capisce subito che e' un video nuovo."""
     slug = re.sub(r'[^a-z0-9]+', '_', nome.lower()).strip('_')[:60]
     master = os.path.join(os.getcwd(), 'ritratti', slug + '_master_v2.png')   # v2 = frontale e vestiti eleganti
     dest = os.path.join(cartella, 'ritratto.png')
@@ -114,12 +126,24 @@ def ritratto(nome, cartella, seme=0, su_misura=False):
     else:
         log('volto gia\' pronto per ' + nome)
     url_master = carica_file(master, 'image/png')
-    posa = POSE[seme % len(POSE)]
+    proprie = [str(x).strip() for x in (pose or []) if str(x).strip()]
+    inquadra = ACCORDO_LIBERO if proprie else ACCORDO
+    pose = proprie or POSE
+    abiti = [str(x).strip() for x in (abiti or []) if str(x).strip()]
+    posa = pose[seme % len(pose)]
     url = url_master
+    if abiti:
+        abito = abiti[(seme // 7) % len(abiti)]   # scelta diversa da quella della posa: le combinazioni si ripetono di rado
+        richiesta = ('The same man as in the attached image: keep exactly the same face, hair, beard, age and skin. '
+                     f'For this video he wears different clothes: {abito}. Clean, well kept, historically accurate. '
+                     f'New pose for this video: he is {posa}. ' + inquadra)
+        log('vestito del video: ' + abito)
+    else:
+        richiesta = ('The same man as in the attached image: keep exactly the same face, hair, beard, age, skin and the same clothing. '
+                     f'New pose for this video: he is {posa}. ' + inquadra)
     try:
         ed = fal('fal-ai/nano-banana-2/edit', {
-            'prompt': ('The same man as in the attached image: keep exactly the same face, hair, beard, age, skin and the same clothing. '
-                       f'New pose for this video: he is {posa}. ' + ACCORDO),
+            'prompt': richiesta,
             'image_urls': [url_master], 'aspect_ratio': '3:4', 'resolution': '2K', 'output_format': 'png', 'num_images': 1})
         url = ed['images'][0]['url']
         log('posa del video: ' + posa)
@@ -352,7 +376,8 @@ def main():
         nome = chi_e(dati)
         log('personaggio: ' + nome)
         rit, url_ritratto = ritratto(nome, LAVORO, zlib.crc32(str(dati.get('titolo') or p.get('id') or '').encode()),
-                                     su_misura=bool(str(dati.get('personaggio') or '').strip()))
+                                     su_misura=bool(str(dati.get('personaggio') or '').strip()),
+                                     pose=stile.get('pose'), abiti=stile.get('abiti'))
         rit = ritaglia(rit)
         num = lambda k, d: float(stile[k]) if str(stile.get(k, '')).strip() != '' else d
         alt = int(H * num('altezza_ritratto', 1.06))      # come l'originale: la figura occupa tutta l'altezza
