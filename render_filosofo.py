@@ -11,7 +11,7 @@ Riceve da n8n (variabile PAYLOAD) solo: id, url del file JSON con le scene (su D
 Il file JSON contiene: titolo, scene [{testo, audio, media}], personaggio (facoltativo), musica, volume_musica.
 Alla fine carica il video su Fal (link pubblico) e chiama resume_url con {"movie": {"status": "done", "url", "duration"}}.
 """
-import json, math, os, re, shutil, zlib, sys, time, traceback, subprocess, urllib.request
+import json, math, os, re, shutil, zlib, sys, time, traceback, subprocess, urllib.request, urllib.parse
 from render import scarica, http_json, fal, run, durata, log
 
 LAVORO = os.path.join(os.getcwd(), 'lavoro_filosofo')
@@ -218,13 +218,52 @@ def sottotitoli(scene, tempi, cartella, font, size, x, y, max_riga=24):
 
 
 def carica_file(path, tipo='video/mp4'):
+    """Carica un file su Fal (link pubblico). Sopra i 90 MB Fal vuole il caricamento a pezzi (multipart),
+    altrimenti risponde 413 Payload Too Large: stesso metodo della libreria ufficiale fal-js."""
     h = {'Authorization': 'Key ' + os.environ.get('FAL_KEY', '')}
-    ini, _ = http_json('https://rest.alpha.fal.ai/storage/upload/initiate?storage_type=fal-cdn-v3',
-                       {'content_type': tipo, 'file_name': os.path.basename(path)}, headers=h)
+    dim = os.path.getsize(path)
+    base = 'https://rest.alpha.fal.ai/storage/upload/'
+    corpo = {'content_type': tipo, 'file_name': os.path.basename(path)}
+    if dim <= 90 * 1024 * 1024:
+        ini, _ = http_json(base + 'initiate?storage_type=fal-cdn-v3', corpo, headers=h)
+        with open(path, 'rb') as f:
+            req = urllib.request.Request(ini['upload_url'], data=f.read(), method='PUT', headers={'Content-Type': tipo})
+        with urllib.request.urlopen(req, timeout=1800):
+            pass
+        return ini['file_url']
+    ini, _ = http_json(base + 'initiate-multipart?storage_type=fal-cdn-v3', corpo, headers=h)
+    u = urllib.parse.urlsplit(ini['upload_url'])
+    radice = f'{u.scheme}://{u.netloc}{u.path}'
+    coda = ('?' + u.query) if u.query else ''
+    pezzo, parti = 10 * 1024 * 1024, []
     with open(path, 'rb') as f:
-        req = urllib.request.Request(ini['upload_url'], data=f.read(), method='PUT', headers={'Content-Type': tipo})
-    with urllib.request.urlopen(req, timeout=1800):
-        pass
+        n = 0
+        while True:
+            dati = f.read(pezzo)
+            if not dati:
+                break
+            n += 1
+            for tentativo in range(4):
+                try:
+                    req = urllib.request.Request(f'{radice}/{n}{coda}', data=dati, method='PUT')
+                    with urllib.request.urlopen(req, timeout=600) as r:
+                        testo = r.read().decode() or '{}'
+                        try:
+                            etag = json.loads(testo).get('etag')
+                        except Exception:
+                            etag = None
+                        etag = etag or r.headers.get('ETag') or r.headers.get('etag')
+                    if not etag:
+                        raise RuntimeError('nessun etag per il pezzo ' + str(n))
+                    parti.append({'partNumber': n, 'etag': etag})
+                    break
+                except Exception as e:
+                    if tentativo == 3:
+                        raise
+                    log(f'pezzo {n} non caricato ({str(e)[:80]}), riprovo')
+                    time.sleep(5 * (tentativo + 1))
+    http_json(f'{radice}/complete{coda}', {'parts': parti})
+    log(f'video caricato a pezzi: {len(parti)} pezzi, {dim / 1e6:.0f} MB')
     return ini['file_url']
 
 
