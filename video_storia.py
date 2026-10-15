@@ -118,6 +118,8 @@ def kit_disponibile():
 def copione(comp):
     kit = kit_disponibile()
     orig = comp.get('testo') or ''
+    if PROVA and orig:   # prova: si copia solo il primo minuto circa dell'originale
+        orig = ' '.join(orig.split()[:170])
     parole = 170 if PROVA else (int(len(orig.split()) * 1.05) if orig else int(MINUTI * 150))
     lingua = {'it': 'italiano', 'en': 'English (US)'}.get(LINGUA, LINGUA)
     blocco_originale = ''
