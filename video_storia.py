@@ -164,11 +164,15 @@ Scrivi il video: "{TITOLO}". Lingua della voce e delle scritte: {lingua}. Lunghe
 STILE DEL RACCONTO: dall'inizio della storia del paese fino a oggi, in ordine cronologico, con date precise, fatti veri, nomi veri.
 Frasi brevi e concrete, ritmo da documentario coinvolgente, piccole domande e colpi di scena. Prima scena = gancio forte. Ultima scena = chiusura che fa riflettere.
 
-REGIA VISIVA: ogni scena (20-40 parole di voce) ha 2-4 "visivi" che cambiano ogni ~3 secondi.
-SINCRONIA CON LA VOCE (FONDAMENTALE): ogni visivo ha il campo "frase" = 2-4 parole COPIATE IDENTICHE dal "testo" della scena, nel punto esatto in cui il visivo deve comparire. I visivi sono nello stesso ordine delle loro frasi nel testo, a distanza di almeno 5 parole l'uno dall'altro. Il primo visivo ha come frase le prime parole della scena.
+REGIA VISIVA: ogni scena (20-40 parole di voce) ha 2-5 "visivi". RITMO (fondamentale per trattenere lo spettatore):
+- primi 10 secondi (prime ~25 parole): ALMENO 5 visivi diversi, uno ogni 4-5 parole, mostrando tutti gli stili del canale (cartone, clip, scritta, mappa...);
+- da 10 a 30 secondi: un visivo ogni ~7 parole;
+- poi un visivo ogni 8-12 parole, MAI piu' di 12 parole sullo stesso visivo.
+Il PRIMO visivo del video e' sempre un "cartone" con un personaggio.
+SINCRONIA CON LA VOCE (FONDAMENTALE): ogni visivo ha il campo "frase" = 2-4 parole COPIATE IDENTICHE dal "testo" della scena, nel punto esatto in cui il visivo deve comparire. I visivi sono nello stesso ordine delle loro frasi nel testo, a distanza di almeno 4 parole l'uno dall'altro. Il primo visivo ha come frase le prime parole della scena.
 - una "carta" compare quando la voce dice quella frase: il suo "testo" riprende parole DETTE in quella scena e la sua "frase" e' l'inizio di quelle parole nel testo;
 - una "scheda" SOLO nella scena in cui quel personaggio viene NOMINATO dalla voce, con frase = il nome cosi' come detto;
-- un "cartone" con un personaggio storico reale SOLO quando viene nominato (frase = il nome); quando non si nomina nessuno usa una figura generica (soldato, contadino, nobile...) coerente con cio' che si dice;
+- un "cartone" con un personaggio storico reale SOLO quando viene nominato (frase = il nome); quando non si nomina nessuno usa SEMPRE una figura generica della lista (soldato, contadino, nobile...) coerente con cio' che si dice: ogni cartone ha un personaggio;
 - un "pexels" deve mostrare cio' che la voce dice in quel momento.
 Tipi:
 - "cartone": scena disegnata. Campi: "sfondo" (id di uno dei 6 sfondi), "personaggio" (SOLO uno di questa lista, oppure "" per nessuno): {', '.join(kit) or '(nessuno)'}; "reazione": true se a meta' il personaggio cambia posa (momento forte). Nella PRIMA scena il primo visivo e' un cartone con il campo "data" (es. "550 a.C.").
@@ -847,6 +851,39 @@ def unisci(pezzi, out):
 PESO = {'cartone': 1.6, 'mappa': 3.0, 'scheda': 1.3, 'carta': 1.2, 'pexels_video': 1.0, 'pexels_foto': 1.0}
 
 
+def limite(t):
+    """Durata massima di un visivo in base a quando compare: primi 10 s = almeno 4 cambi, 10-30 s = 3 ogni 10 s, poi max 5 s."""
+    return 2.5 if t < 10 else 3.3 if t < 30 else 5.0
+
+
+def ritmo(piano, sf_ids):
+    """Spezza i visivi troppo lunghi in parti uguali: stesso personaggio su un altro sfondo, un'altra clip della stessa ricerca, ecc."""
+    out, t, giro = [], 0.0, 0
+    for v in piano:
+        d = v['d']; lim = limite(t)
+        n = math.ceil(d / lim - .08)
+        minimo = 2.7 if v['tipo'] in ('carta', 'scheda') else 3.0 if v['tipo'] == 'mappa' else 1.3   # il tempo di leggere
+        if n <= 1 or d / n < 1.3:
+            out.append(v); t += d; continue
+        primo = max(d / n, min(minimo, d - 1.3 * (n - 1)))
+        resto = d - primo; m = n - 1
+        while m > 1 and resto / m < 1.3:
+            m -= 1
+        parti = [dict(v, d=primo)]
+        for k in range(1, m + 1):
+            giro += 1
+            if v['tipo'] in ('pexels_video', 'pexels_foto'):
+                nuovo = {'tipo': v['tipo'], 'q': v.get('q'), 'contesto': v.get('contesto')}
+            else:
+                pg = v.get('personaggio') if v['tipo'] == 'cartone' else v.get('pg_scena')
+                altri = [x for x in sf_ids if x != v.get('sfondo')] or sf_ids
+                nuovo = {'tipo': 'cartone', 'sfondo': altri[giro % len(altri)], 'personaggio': pg or '', 'reazione': k % 2 == 1,
+                         'contesto': v.get('contesto'), 'pg_scena': v.get('pg_scena')}
+            parti.append(dict(nuovo, d=resto / m))
+        out += parti; t += d
+    return out
+
+
 def pianifica(scene, durs, voci, sf):
     """Divide ogni scena in visivi che compaiono quando la voce dice la loro 'frase'."""
     piano = []
@@ -899,9 +936,10 @@ def pianifica(scene, durs, voci, sf):
                 piano[-1]['d'] += tenuti[0][1]
             else:
                 tenuti.insert(0, ({'tipo': 'cartone', 'sfondo': random.choice(list(sf))}, 0.0))
+        pg_scena = next((v.get('personaggio') for v in (s.get('visivi') or []) if v.get('tipo') == 'cartone' and v.get('personaggio')), '')
         for j, (v, t) in enumerate(tenuti):
             fine = tenuti[j + 1][1] if j + 1 < len(tenuti) else D
-            piano.append(dict(v, d=fine - t, contesto=testo))
+            piano.append(dict(v, d=fine - t, contesto=testo, pg_scena=pg_scena))
     return piano
 
 
@@ -947,11 +985,21 @@ def main():
         fondi = mix
     # piano dei pezzi
     piano = pianifica(c['scene'], durs, voci, sf)
-    lati = 0
-    for k, v in enumerate(piano):
-        v['d'] = v['d'] + (T_TR if k < len(piano) - 1 else 0)
+    for v in piano:
         if v.get('personaggio') and v['personaggio'] not in kit:
             mancanti.append(v['personaggio']); v['personaggio'] = ''
+    # ogni cartone ha sempre un personaggio: quello della scena, altrimenti il piu' usato nel video
+    usati = [v.get('personaggio') for v in piano if v.get('tipo') == 'cartone' and v.get('personaggio')]
+    pg_video = max(set(usati), key=usati.count) if usati else (kit[0] if kit else '')
+    for v in piano:
+        if v.get('pg_scena') not in kit:
+            v['pg_scena'] = pg_video
+        if v['tipo'] == 'cartone' and not v.get('personaggio'):
+            v['personaggio'] = v['pg_scena']
+    piano = ritmo(piano, list(sf))
+    log('visivi:', len(piano), '| primi 10 s:', sum(1 for x in __import__('itertools').accumulate([0] + [v['d'] for v in piano]) if x < 10))
+    for k, v in enumerate(piano):
+        v['d'] = v['d'] + (T_TR if k < len(piano) - 1 else 0)
     n_carte = 0
     for v in piano:   # ogni carta/scheda su un fondo diverso dalla precedente
         if v['tipo'] in ('carta', 'scheda'):
