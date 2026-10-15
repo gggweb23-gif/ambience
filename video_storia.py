@@ -26,10 +26,11 @@ GEO = os.path.join(ROOT, 'geo')
 E = os.environ.get
 TITOLO = E('TITOLO', 'Tutta la storia dell\'Iran').strip()
 LINGUA = E('LINGUA', 'it').strip() or 'it'
-VOCE = E('VOCE', 'Ha21jUwaMwdgQvqNslSM').strip()
+VOCE = E('VOCE', 'glnsgBC77wt5zOYU0szz').strip()
 MINUTI = float(E('MINUTI', '13') or 13)
 PROVA = E('PROVA', 'NO').strip().upper() == 'SI'
 MODELLO_AI = E('MODELLO_AI', 'claude-sonnet-5-5').strip()
+LINK = E('LINK_COMPETITOR', '').strip()      # video da copiare (titolo, testo e copertina)
 INK = (29, 26, 23)
 random.seed(TITOLO)
 
@@ -52,6 +53,7 @@ def durata(p):
 def http(url, data=None, headers=None, metodo=None, timeout=180, raw=False):
     body = json.dumps(data).encode() if isinstance(data, (dict, list)) else data
     h = {'Content-Type': 'application/json'} if isinstance(data, (dict, list)) else {}
+    h['User-Agent'] = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36'
     h.update(headers or {})
     req = urllib.request.Request(url, data=body, headers=h, method=metodo)
     with urllib.request.urlopen(req, timeout=timeout) as r:
@@ -62,7 +64,7 @@ def http(url, data=None, headers=None, metodo=None, timeout=180, raw=False):
 def scarica(url, path, tentativi=4):
     for k in range(tentativi):
         try:
-            req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+            req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36'})
             with urllib.request.urlopen(req, timeout=180) as r, open(path, 'wb') as f:
                 shutil.copyfileobj(r, f, 1 << 20)
             if os.path.getsize(path) > 2000:
@@ -72,6 +74,40 @@ def scarica(url, path, tentativi=4):
     raise RuntimeError('impossibile scaricare ' + url)
 
 
+# ============================================================ 0) VIDEO DEL COMPETITOR
+def id_video(link):
+    m = re.search(r'(?:v=|youtu\.be/|/shorts/|/embed/|/live/)([A-Za-z0-9_-]{11})', link or '')
+    return m.group(1) if m else ''
+
+
+def competitor():
+    """Titolo, testo parlato e copertina del video originale. Se il testo non si riesce a leggere si va avanti solo col titolo."""
+    vid = id_video(LINK)
+    if not vid:
+        return {}
+    c = {'id': vid, 'copertina': f'https://i.ytimg.com/vi/{vid}/maxresdefault.jpg'}
+    try:
+        c['titolo'] = http('https://www.youtube.com/oembed?format=json&url=https://www.youtube.com/watch?v=' + vid)['title']
+    except Exception as e:
+        log('titolo originale non letto:', str(e)[:100])
+    try:
+        from youtube_transcript_api import YouTubeTranscriptApi
+        try:
+            pezzi = YouTubeTranscriptApi().fetch(vid, languages=['en', 'en-US', 'it', 'es', 'fr', 'de'])
+            testo = ' '.join(p.text for p in pezzi)
+        except AttributeError:
+            testo = ' '.join(p['text'] for p in YouTubeTranscriptApi.get_transcript(vid, languages=['en', 'en-US', 'it', 'es']))
+        c['testo'] = re.sub(r'\s+', ' ', testo.replace('[Music]', ' ')).strip()
+        log('testo originale:', len(c['testo'].split()), 'parole')
+    except Exception as e:
+        log('ATTENZIONE: testo originale non disponibile (' + str(e)[:150] + '): scrivo il copione dal titolo')
+    try:
+        urllib.request.urlopen(urllib.request.Request(c['copertina'], method='HEAD'), timeout=30)
+    except Exception:
+        c['copertina'] = f'https://i.ytimg.com/vi/{vid}/hqdefault.jpg'
+    return c
+
+
 # ============================================================ 1) COPIONE
 def kit_disponibile():
     if not os.path.isdir(KIT):
@@ -79,13 +115,26 @@ def kit_disponibile():
     return sorted({f[:-len('_fermo.png')] for f in os.listdir(KIT) if f.endswith('_fermo.png')})
 
 
-def copione():
+def copione(comp):
     kit = kit_disponibile()
-    parole = 170 if PROVA else int(MINUTI * 150)
+    orig = comp.get('testo') or ''
+    parole = 170 if PROVA else (int(len(orig.split()) * 1.05) if orig else int(MINUTI * 150))
     lingua = {'it': 'italiano', 'en': 'English (US)'}.get(LINGUA, LINGUA)
+    blocco_originale = ''
+    if comp.get('titolo'):
+        blocco_originale += f'''
+VIDEO ORIGINALE DA COPIARE: "{comp['titolo']}".
+- "titolo": e' la TRADUZIONE FEDELE al 100% del titolo originale in {lingua} (stessa struttura, stessi numeri e date, stesse parole in maiuscolo), adattata solo dove serve per suonare naturale.'''
+    if orig:
+        blocco_originale += f'''
+- Il PARLATO deve COPIARE al 100% il testo originale qui sotto: stessi fatti, stesso ordine, stessi ganci, stesse domande, stessi numeri, stessa lunghezza.
+  Traducilo in {lingua} naturale e cambia solo piccole cose per non essere una copia identica (sinonimi, ordine delle parole, qualche frase unita o divisa). NON aggiungere e NON togliere contenuti.
+TESTO ORIGINALE:
+{orig[:60000]}
+'''
     prompt = f"""Sei lo sceneggiatore e il regista di un canale YouTube di storia a cartone, nello stile di "Genius History" e "Rome Unscrolled".
 Scrivi il video: "{TITOLO}". Lingua della voce e delle scritte: {lingua}. Lunghezza totale del parlato: circa {parole} parole.
-
+{blocco_originale}
 STILE DEL RACCONTO: dall'inizio della storia del paese fino a oggi, in ordine cronologico, con date precise, fatti veri, nomi veri.
 Frasi brevi e concrete, ritmo da documentario coinvolgente, piccole domande e colpi di scena. Prima scena = gancio forte. Ultima scena = chiusura che fa riflettere.
 
@@ -105,6 +154,7 @@ Rispondi SOLO con un JSON valido, senza testo prima o dopo:
  "date": "es. 550 a.C. – 2026", "texture": "pergamena|washi|stropicciata|giornale|papiro", "font_carte": "classico|gotico|macchina",
  "sfondi": [{{"id": "s1", "prompt_en": "..."}}],
  "scene": [{{"testo": "parlato della scena", "visivi": [{{"tipo": "cartone", "sfondo": "s1", "personaggio": "...", "reazione": true, "data": "..."}}]}}],
+ "copertina": {{"testo": "testo della copertina originale TRADOTTO al 100% (stesse parole, stesse date), MAIUSCOLO", "personaggio": "personaggio della lista che corrisponde alla figura principale della copertina originale, oppure ''"}},
  "personaggi_mancanti": ["figure che sarebbero servite ma non sono nella lista, es. 'Dario I re persiano'"]}}
 Scegli la texture piu' coerente (washi per Giappone/Cina/Corea, papiro per Egitto/Mesopotamia, pergamena per antichita'/medioevo, giornale per 1800-1900, stropicciata per storia moderna)."""
     chiave = E('ANTHROPIC_API_KEY', '')
@@ -112,8 +162,12 @@ Scegli la texture piu' coerente (washi per Giappone/Cina/Corea, papiro per Egitt
         raise RuntimeError('manca il secret ANTHROPIC_API_KEY')
     for k in range(3):
         try:
+            contenuto = [{'type': 'text', 'text': prompt}]
+            if comp.get('copertina'):
+                contenuto.insert(0, {'type': 'image', 'source': {'type': 'url', 'url': comp['copertina']}})
+                contenuto.insert(1, {'type': 'text', 'text': 'Questa sopra e\' la COPERTINA del video originale.'})
             r = http('https://api.anthropic.com/v1/messages', {
-                'model': MODELLO_AI, 'max_tokens': 32000, 'messages': [{'role': 'user', 'content': prompt}]},
+                'model': MODELLO_AI, 'max_tokens': 32000, 'messages': [{'role': 'user', 'content': contenuto}]},
                 {'x-api-key': chiave, 'anthropic-version': '2023-06-01'}, timeout=900)
             testo = ''.join(b.get('text', '') for b in r.get('content', []))
             testo = testo[testo.find('{'): testo.rfind('}') + 1]
@@ -209,6 +263,42 @@ def sfondo(s):
     Image.open(p).convert('RGB').resize((W, H), Image.LANCZOS).save(p, quality=92)
     log('sfondo pronto', s['id'])
     return p
+
+
+# ============================================================ COPERTINA (copia dell'originale con i nostri personaggi)
+def carica_fal(path, tipo='image/png'):
+    h = {'Authorization': 'Key ' + E('FAL_KEY', '')}
+    ini = http('https://rest.alpha.fal.ai/storage/upload/initiate?storage_type=fal-cdn-v3', {'content_type': tipo, 'file_name': os.path.basename(path)}, h)
+    req = urllib.request.Request(ini['upload_url'], data=open(path, 'rb').read(), method='PUT', headers={'Content-Type': tipo})
+    urllib.request.urlopen(req, timeout=300).read()
+    return ini['file_url']
+
+
+def copertina(comp, c):
+    if not comp.get('copertina') or not E('FAL_KEY'):
+        return None
+    cop = c.get('copertina') or {}
+    testo = str(cop.get('testo') or c.get('titolo') or '').strip()
+    img = [comp['copertina']]
+    pg = png_personaggio(cop.get('personaggio') or '', 'fermo')
+    if pg:
+        try:
+            img.append(carica_fal(pg))
+        except Exception as e:
+            log('personaggio copertina non caricato:', e)
+    prompt = ('Recreate the YouTube thumbnail of the FIRST image almost identically: same composition, same layout, same framing, same place '
+              'and same kind of scene, same colour palette and same title position and size, redrawn as a high-quality 2D cartoon illustration '
+              'with clean black outlines and rich detail. Small differences only: slightly different camera angle, different small details in the background. '
+              + ('The main figure is the character of the SECOND image (same face, clothes and style), placed where the main figure is in the first image. ' if len(img) > 1 else '')
+              + f'Replace ALL the text with exactly this text, same font style, same colours and same position: "{testo}". No other text, no logos, no watermark.')
+    try:
+        r = fal('fal-ai/nano-banana-2/edit', {'prompt': prompt, 'image_urls': img, 'aspect_ratio': '16:9', 'resolution': '2K', 'output_format': 'jpeg', 'num_images': 1})
+        p = os.path.join(ROOT, 'copertina.jpg'); scarica(r['images'][0]['url'], p)
+        Image.open(p).convert('RGB').resize((1280, 720), Image.LANCZOS).save(p, quality=92)
+        log('copertina pronta')
+        return p
+    except Exception as e:
+        log('copertina non riuscita:', str(e)[:200])
 
 
 # ============================================================ texture e font
@@ -353,7 +443,7 @@ def pezzo_scheda(path, d, tex, nome_pg, nome):
 
 def pezzo_cartone(path, d, bg, pg, reazione, data, lato):
     ins = ['-loop', '1', '-framerate', FPS, '-t', d, '-i', bg]
-    filtri = [f'[0:v]scale={int(W * 1.1)}:{int(H * 1.1)},zoompan=z=\'1+0.08*on/{max(1, int(d * FPS))}\':d=1:'
+    filtri = [f'[0:v]scale={W * 4}:{H * 4}:flags=lanczos,zoompan=z=\'1+0.08*on/{max(1, int(d * FPS))}\':d=1:'
               f'x=\'iw/2-(iw/zoom/2)\':y=\'ih/2-(ih/zoom/2)\':s={W}x{H}:fps={FPS}[b]']
     cur = 'b'
     f1 = png_personaggio(pg, 'fermo') if pg else None
@@ -388,7 +478,7 @@ def pezzo_video(path, d, src):
 def pezzo_foto(path, d, src):
     n = max(1, int(d * FPS))
     run(['ffmpeg', '-y', '-v', 'error', '-loop', '1', '-framerate', FPS, '-t', d, '-i', src,
-         '-vf', f"scale={int(W * 1.1)}:{int(H * 1.1)}:force_original_aspect_ratio=increase,crop={int(W * 1.1)}:{int(H * 1.1)},"
+         '-vf', f"scale={W * 4}:{H * 4}:force_original_aspect_ratio=increase:flags=lanczos,crop={W * 4}:{H * 4},"
                 f"zoompan=z='1+0.07*on/{n}':d=1:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s={W}x{H}:fps={FPS},setsar=1",
          '-t', d, *ENC, path])
     return path
@@ -500,7 +590,9 @@ PESO = {'cartone': 1.6, 'mappa': 3.0, 'scheda': 1.3, 'carta': 1.2, 'pexels_video
 
 def main():
     os.makedirs(LAV, exist_ok=True)
-    c = copione()
+    comp = competitor()
+    c = copione(comp)
+    titolo_finale = c.get('titolo') or TITOLO
     json.dump(c, open(os.path.join(ROOT, 'copione.json'), 'w'), ensure_ascii=False, indent=1)
     kit = kit_disponibile()
     mancanti = list(c.get('personaggi_mancanti') or [])
@@ -570,6 +662,8 @@ def main():
             log('musica saltata:', e)
     finale = os.path.join(ROOT, 'video_storia.mp4')
     run(['ffmpeg', '-y', '-v', 'error', '-i', video, '-i', audio, '-map', '0:v', '-map', '1:a', '-c:v', 'copy', '-c:a', 'copy', '-shortest', finale])
+    copertina(comp, c)
+    open(os.path.join(ROOT, 'titolo.txt'), 'w').write(titolo_finale)
     open(os.path.join(ROOT, 'personaggi_mancanti.txt'), 'w').write('\n'.join(sorted(set(m for m in mancanti if m))))
     log('FATTO:', finale, round(durata(finale) / 60, 1), 'minuti')
 
