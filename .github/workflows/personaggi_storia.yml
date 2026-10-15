@@ -1,0 +1,35 @@
+name: Personaggi Storia
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  kit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - name: Crea il kit personaggi
+        env:
+          FAL_KEY: ${{ secrets.FAL_KEY }}
+          SOLO: samurai,cowboy
+        run: |
+          sudo apt-get install -y -qq python3-pil
+          python3 personaggi_storia.py
+      - name: Salva il kit nel repository
+        run: |
+          git config user.name "render-bot"
+          git config user.email "render-bot@users.noreply.github.com"
+          git add kit_storia
+          git commit -m "Kit personaggi storia" || true
+          git pull --rebase -q || true
+          git push || true
+      - name: Salva il risultato
+        uses: actions/upload-artifact@v4
+        with:
+          name: kit-personaggi
+          path: kit_storia/
+          retention-days: 7
