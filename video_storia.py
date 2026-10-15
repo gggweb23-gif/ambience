@@ -87,9 +87,29 @@ def competitor():
         return {}
     c = {'id': vid, 'copertina': f'https://i.ytimg.com/vi/{vid}/maxresdefault.jpg'}
     try:
+        urllib.request.urlopen(urllib.request.Request(c['copertina'], method='HEAD'), timeout=30)
+    except Exception:
+        c['copertina'] = f'https://i.ytimg.com/vi/{vid}/hqdefault.jpg'
+    try:
         c['titolo'] = http('https://www.youtube.com/oembed?format=json&url=https://www.youtube.com/watch?v=' + vid)['title']
     except Exception as e:
         log('titolo originale non letto:', str(e)[:100])
+    chiave_rapid = E('RAPIDAPI_KEY', '')
+    if chiave_rapid:   # stesso servizio usato da n8n (youtube-transcript3 su RapidAPI): YouTube non lo blocca
+        for k in range(3):
+            try:
+                j = http('https://youtube-transcript3.p.rapidapi.com/api/transcript?videoId=' + vid,
+                         headers={'X-RapidAPI-Key': chiave_rapid, 'X-RapidAPI-Host': 'youtube-transcript3.p.rapidapi.com'}, timeout=120)
+                righe = j.get('transcript') or []
+                testo = ' '.join(str(r.get('text', '')) for r in righe) if isinstance(righe, list) else str(righe)
+                testo = re.sub(r'\s+', ' ', testo.replace('[Music]', ' ')).strip()
+                if len(testo.split()) > 50:
+                    c['testo'] = testo
+                    log('testo originale:', len(testo.split()), 'parole (RapidAPI)')
+                    return c
+                log('RapidAPI: trascrizione vuota', json.dumps(j)[:200])
+            except Exception as e:
+                log('RapidAPI non riuscito:', str(e)[:150]); time.sleep(5)
     try:
         from youtube_transcript_api import YouTubeTranscriptApi
         try:
@@ -101,10 +121,6 @@ def competitor():
         log('testo originale:', len(c['testo'].split()), 'parole')
     except Exception as e:
         log('ATTENZIONE: testo originale non disponibile (' + str(e)[:150] + '): scrivo il copione dal titolo')
-    try:
-        urllib.request.urlopen(urllib.request.Request(c['copertina'], method='HEAD'), timeout=30)
-    except Exception:
-        c['copertina'] = f'https://i.ytimg.com/vi/{vid}/hqdefault.jpg'
     return c
 
 
@@ -600,7 +616,7 @@ def main():
     mancanti = list(c.get('personaggi_mancanti') or [])
     log('copione:', len(c['scene']), 'scene,', sum(len(s['testo'].split()) for s in c['scene']), 'parole')
     # voce
-    with ThreadPoolExecutor(4) as ex:
+    with ThreadPoolExecutor(2) as ex:   # ElevenLabs accetta poche richieste insieme (errore 429 con 4)
         voci = list(ex.map(lambda a: voce(*a), enumerate(s['testo'] for s in c['scene'])))
     durs = [durata(v) for v in voci]
     log('voce pronta:', round(sum(durs) / 60, 1), 'minuti')
