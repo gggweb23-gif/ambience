@@ -174,16 +174,22 @@ Tipi:
 - "cartone": scena disegnata. Campi: "sfondo" (id di uno dei 6 sfondi), "personaggio" (SOLO uno di questa lista, oppure "" per nessuno): {', '.join(kit) or '(nessuno)'}; "reazione": true se a meta' il personaggio cambia posa (momento forte). Nella PRIMA scena il primo visivo e' un cartone con il campo "data" (es. "550 a.C.").
 - "pexels_video": clip vera. Campo "q": ricerca Pexels in INGLESE, 2-4 parole concrete che diano immagini SENZA cose moderne: paesaggi naturali, montagne, deserti, rovine, monumenti antichi, oggetti antichi, monete, manoscritti, fuoco, cielo, mare, rievocazioni in costume. MAI persone di oggi, MAI citta' moderne (tranne nelle scene sul presente), MAI nomi di persone o eventi.
 - "pexels_foto": foto vera. Campo "q" come sopra.
+- DIDASCALIA (facoltativa, su "cartone", "pexels_video" o "pexels_foto"): campo "didascalia" = 2-6 parole chiave DETTE dalla voce in quel momento (es. "Ciro il Grande, 550 a.C.", "Il primo trattato della storia"). Compare su una striscia di carta strappata in basso, battuta a macchina. Usala con misura: circa 1 visivo ogni 6, mai su due visivi di fila.
 - "carta": frase chiave scritta su carta. Campo "testo": max 8 parole, la frase piu' forte del momento.
 - "scheda": presentazione di un personaggio storico. Campi "personaggio" (dalla lista) e "nome" (nome vero completo).
 - "mappa": zoom sulla mappa del paese con titolo e date (usala UNA volta, nella seconda scena).
 Proporzioni su tutto il video: circa 35% cartone, 30% pexels_video, 15% pexels_foto, 15% carta, 5% scheda+mappa. Mai due visivi uguali di fila.
 
+FONDI DELLE CARTE: definisci 3 "fondi_carte" per le scritte e le schede: decorazioni a tema del video SOLO ai bordi (rovine, colonne, rami, motivi decorativi, skyline dell'epoca) e CENTRO VUOTO e uniforme. Ogni fondo: "id" (c1..c3) e "prompt_en" (20-35 parole: colori, cosa c'e' ai bordi, colore del centro; varia i colori tra i 3: es. carta antica, toni caldi, toni scuri).
+"colori_carte": 2 colori esadecimali scuri ed eleganti coerenti con il tema (es. rosso persiano "#6b1e1e", blu lapislazzuli "#1d3557").
+"font_carte": il carattere delle scritte, coerente con l'epoca PRINCIPALE del video: "antico" (Roma, Grecia, Persia, Egitto, antichita'), "medievale" (500-1700), "ottocento" (1700-1900), "macchina" (1900-1960, guerre), "moderno" (dal 1960 a oggi), "classico" (storia lunga di un paese dall'antichita' a oggi, se nessuno prevale).
+
 SFONDI: definisci esattamente 6 sfondi a cartone (luoghi ed epoche chiave del paese, SENZA persone). Ogni sfondo: "id" (s1..s6) e "prompt_en" (descrizione in inglese del luogo e dell'epoca, 20-35 parole).
 
 Rispondi SOLO con un JSON valido, senza testo prima o dopo:
 {{"titolo": "...", "titolo_mappa": "nome del paese da scrivere sulla mappa, nella lingua del canale, es. IRAN", "paese_mappa": "nome del paese in inglese come in Natural Earth (es. Iran, India, Egypt, United States of America)",
- "date": "es. 550 a.C. – 2026", "texture": "pergamena|washi|stropicciata|giornale|papiro", "font_carte": "classico|gotico|macchina",
+ "date": "es. 550 a.C. – 2026", "texture": "pergamena|washi|stropicciata|giornale|papiro", "font_carte": "antico|medievale|ottocento|macchina|moderno|classico",
+ "fondi_carte": [{{"id": "c1", "prompt_en": "..."}}], "colori_carte": ["#......", "#......"],
  "sfondi": [{{"id": "s1", "prompt_en": "..."}}],
  "scene": [{{"testo": "parlato della scena", "visivi": [{{"tipo": "cartone", "frase": "prime parole della scena", "sfondo": "s1", "personaggio": "...", "reazione": true, "data": "..."}}]}}],
  "copertina": {{"testo": "testo della copertina originale TRADOTTO al 100% (stesse parole, stesse date), MAIUSCOLO", "personaggio": "personaggio della lista che corrisponde alla figura principale della copertina originale, oppure ''"}},
@@ -416,10 +422,59 @@ def copertina(comp, c):
 
 
 # ============================================================ texture e font
+FONT_EPOCA = {   # sempre leggibili: niente gotico stretto nelle scritte
+    'antico': 'Cinzel-Bold.ttf',              # Roma, Grecia, Persia, Egitto, Mesopotamia
+    'classico': 'EBGaramond-SemiBold.ttf',    # storia generale, libri
+    'medievale': 'IMFellEnglish.ttf',         # 500-1700
+    'gotico': 'IMFellEnglish.ttf',
+    'ottocento': 'PlayfairDisplay-Bold.ttf',  # 1700-1900, imperi coloniali
+    'macchina': 'SpecialElite.ttf',           # 1900-1960, guerre mondiali
+    'moderno': 'Oswald-SemiBold.ttf',         # dal 1960 a oggi
+    'gara': 'EBGaramond-SemiBold.ttf', 'titolo': 'LuckiestGuy.ttf'}
+
+
 def font(nome, size):
-    f = {'gara': 'EBGaramond-SemiBold.ttf', 'titolo': 'LuckiestGuy.ttf', 'gotico': 'UnifrakturMaguntia.ttf',
-         'macchina': 'SpecialElite.ttf', 'classico': 'EBGaramond-SemiBold.ttf'}.get(nome, 'EBGaramond-SemiBold.ttf')
+    f = FONT_EPOCA.get(nome, 'EBGaramond-SemiBold.ttf')
+    if not os.path.exists(os.path.join(FONT, f)):
+        f = 'EBGaramond-SemiBold.ttf'
     return ImageFont.truetype(os.path.join(FONT, f), size)
+
+
+# ---------------------------------------------------------------- fondi delle carte (scritte e schede)
+STILE_FONDO_CARTA = ('Decorative background plate for text cards in a history documentary. The theme is painted ONLY around the edges: corners, '
+                     'side borders and a low skyline or ornaments at the bottom, soft watercolour / engraving look, warm and elegant. '
+                     'The CENTRAL 65% of the image is a plain, smooth, uniform, EMPTY area (aged paper or soft solid colour) with absolutely nothing in it, '
+                     'ready for big text. No text, no letters, no numbers, no people, no faces, no logo, no watermark.')
+
+
+def fondo_carta_ai(f):
+    p = os.path.join(LAV, 'fondo_' + str(f.get('id', 'c')) + '.jpg')
+    if os.path.exists(p):
+        return p
+    r = fal('fal-ai/nano-banana-2', {'prompt': str(f.get('prompt_en') or '') + ' ' + STILE_FONDO_CARTA, 'aspect_ratio': '16:9',
+                                      'resolution': '2K', 'output_format': 'jpeg', 'num_images': 1})
+    scarica(r['images'][0]['url'], p)
+    Image.open(p).convert('RGB').resize((W, H), Image.LANCZOS).save(p, quality=92)
+    log('fondo carta pronto', f.get('id'))
+    return p
+
+
+def tinta(tex, colore):
+    """La stessa carta, ma colorata (rosso scuro, blu notte...): scritte chiare sopra."""
+    c = colore.lstrip('#'); rgb = np.array([int(c[i:i + 2], 16) for i in (0, 2, 4)], float)
+    g = np.asarray(tex.convert('L')).astype(float)[..., None] / 255
+    return Image.fromarray(np.clip(rgb * (0.55 + 0.6 * g), 0, 255).astype('uint8'))
+
+
+def prepara_fondo(im):
+    """Sceglie il colore della scritta (scuro o crema) e schiarisce/scurisce piano il centro perche' si legga sempre bene."""
+    im = im.convert('RGB').resize((W, H))
+    centro = np.asarray(im.crop((W // 4, H // 4, 3 * W // 4, 3 * H // 4))).reshape(-1, 3).mean(0)
+    chiaro = centro @ [0.299, 0.587, 0.114] > 128
+    alone = Image.new('L', (W, H), 0); ImageDraw.Draw(alone).ellipse((W * .14, H * .2, W * .86, H * .8), fill=150)
+    alone = alone.filter(ImageFilter.GaussianBlur(120))
+    im = Image.composite(Image.new('RGB', (W, H), tuple(int(v) for v in centro)), im, alone)
+    return im, (INK if chiaro else (247, 238, 218))
 
 
 def texture(tipo):
@@ -491,16 +546,29 @@ def a_capo(testo, f, larg):
     return righe + ([r] if r else [])
 
 
-def pezzo_carta(path, d, testo, tex, nome_font):
-    sz = 96
+# battitura a macchina: stessi tempi per il disegno e per il suono dei tasti
+def battitura(testo, inizio, max_dur):
+    tot = max(1, len(testo)); dur = min(max_dur, .05 * tot)
+    return inizio, dur
+
+
+def tasti(testo, inizio, max_dur, d):
+    """Secondi (dentro il pezzo) in cui compare ogni lettera: li' suona un tasto."""
+    i0, dur = battitura(testo, inizio, max_dur); tot = max(1, len(testo))
+    return [i0 + dur * (k + 1) / tot for k, ch in enumerate(testo) if ch.strip() and i0 + dur * (k + 1) / tot < d - .05]
+
+
+def pezzo_carta(path, d, testo, fondo, nome_font):
+    tex, ink = fondo
+    sz = 120
     while True:
-        f = font(nome_font, sz); righe = a_capo(testo, f, 1500)
-        if len(righe) <= 3 or sz <= 60: break
+        f = font(nome_font, sz); righe = a_capo(testo, f, 1450)
+        if (len(righe) <= 3 and max(f.getlength(r) for r in righe) <= 1500) or sz <= 74: break
         sz -= 6
-    tot = len(testo); dur_batt = min(2.0, .045 * tot)
+    tot = len(testo); i0, dur_batt = battitura(testo, .3, 2.0)
 
     def disegna(t):
-        n = tot if t >= .3 + dur_batt else int(clamp((t - .3) / dur_batt) * tot)
+        n = tot if t >= i0 + dur_batt else int(clamp((t - i0) / dur_batt) * tot)
 
         def fn():
             im = tex.copy(); dr = ImageDraw.Draw(im); resto = n
@@ -508,10 +576,83 @@ def pezzo_carta(path, d, testo, tex, nome_font):
             for k, r in enumerate(righe):
                 vis = r[:max(0, resto)]; resto -= len(r) + 1
                 x = (W - f.getlength(r)) / 2
-                dr.text((x, y0 + k * sz * 1.25), vis, font=f, fill=INK)
+                dr.text((x, y0 + k * sz * 1.25), vis, font=f, fill=ink)
             return im
         return n, fn
     return pipe_frames(path, d, disegna)
+
+
+# ---------------------------------------------------------------- striscia di carta strappata con didascalia (sopra cartoni e clip)
+def carta_strappata(alt=250, seme=0):
+    rng = np.random.default_rng(seme)
+    im = Image.new('RGBA', (W, alt + 60), (0, 0, 0, 0))
+    y, bordo = 45.0, []
+    for x in range(0, W + 8, 8):   # strappo irregolare: onde larghe + dentini
+        y = float(np.clip(y + rng.normal(0, 6), 8, 70)); bordo.append((x, y + rng.uniform(-4, 4)))
+    poli = bordo + [(W, alt + 60), (0, alt + 60)]
+    ombra = Image.new('L', im.size, 0); ImageDraw.Draw(ombra).polygon([(x, y - 6) for x, y in bordo] + [(W, alt + 60), (0, alt + 60)], fill=110)
+    ombra = ombra.filter(ImageFilter.GaussianBlur(9))
+    im.paste((0, 0, 0, 255), (0, 0), ombra)
+    maschera = Image.new('L', im.size, 0); ImageDraw.Draw(maschera).polygon(poli, fill=255)
+    fibra = rng.normal(0, 1, (im.size[1], W)); fibra = (fibra - fibra.min()) / (fibra.max() - fibra.min())
+    carta = (np.array([247, 244, 237], float) * (0.95 + 0.05 * fibra[..., None])).astype('uint8')
+    im.paste(Image.fromarray(carta), (0, 0), maschera)
+    dr = ImageDraw.Draw(im)
+    dr.line(bordo, fill=(255, 255, 255, 255), width=4)   # bordo fibroso chiaro dello strappo
+    for x, y in bordo[::2]:   # fibre che escono dallo strappo
+        if rng.random() < .5:
+            dr.line((x, y, x + rng.uniform(-6, 6), y - rng.uniform(2, 9)), fill=(250, 249, 245, 255), width=2)
+    return im
+
+
+def aggiungi_didascalia(path, d, testo, nome_font):
+    """Rifa' il pezzo con la striscia di carta che sale dal basso e la scritta battuta a macchina."""
+    striscia = carta_strappata(seme=len(testo)); hs = striscia.height
+    sz = 76
+    while sz > 52 and font(nome_font, sz).getlength(testo) > W - 260:
+        sz -= 4
+    f = font(nome_font, sz); tot = len(testo); i0, dur = battitura(testo, .45, 1.6)
+    tmp = path[:-4] + '_d.mp4'
+    lettore = subprocess.Popen(['ffmpeg', '-v', 'error', '-i', path, '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], stdout=subprocess.PIPE)
+    scrittore = subprocess.Popen(['ffmpeg', '-y', '-v', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-r', str(FPS), '-i', '-',
+                                  *map(str, ENC), tmp], stdin=subprocess.PIPE)
+    k = 0
+    while True:
+        b = lettore.stdout.read(W * H * 3)
+        if len(b) < W * H * 3:
+            break
+        t = k / FPS; k += 1
+        im = Image.frombytes('RGB', (W, H), b)
+        sale = ease(clamp(t / .35))
+        y = int(H - (hs - 20) * sale)
+        im.paste(striscia, (0, y), striscia)
+        n = tot if t >= i0 + dur else int(clamp((t - i0) / dur) * tot)
+        if n:
+            ImageDraw.Draw(im).text(((W - f.getlength(testo)) / 2, y + 60 + (hs - 60 - sz * 1.2) / 2), testo[:n], font=f, fill=INK)
+        scrittore.stdin.write(im.tobytes())
+    lettore.wait(); scrittore.stdin.close(); scrittore.wait()
+    if scrittore.returncode or k == 0:
+        raise RuntimeError('didascalia non riuscita')
+    os.replace(tmp, path)
+    return path
+
+
+# ---------------------------------------------------------------- suono della macchina da scrivere
+def suono_tasti(eventi, totale, out, sr=44100):
+    rng = np.random.default_rng(3)
+    a = np.zeros(int((totale + 1) * sr), np.float32)
+    for t in eventi:
+        n = int(sr * rng.uniform(.018, .03)); i = int(t * sr)
+        if i + n >= len(a):
+            continue
+        rum = np.diff(rng.normal(0, 1, n + 1)).astype(np.float32)         # click secco (rumore filtrato)
+        corpo = np.sin(2 * np.pi * rng.uniform(1600, 2600) * np.arange(n) / sr).astype(np.float32) * .35
+        a[i:i + n] += (rum + corpo) * np.exp(-np.arange(n) / (n / 5)).astype(np.float32) * rng.uniform(.55, 1.0)
+    a = a / (np.abs(a).max() + 1e-6) * .9
+    import wave
+    with wave.open(out, 'wb') as w:
+        w.setnchannels(1); w.setsampwidth(2); w.setframerate(sr); w.writeframes((a * 32767).astype('<i2').tobytes())
+    return out
 
 
 def clamp(v, a=0., b=1.):
@@ -531,15 +672,19 @@ def png_personaggio(nome, posa):
     return None
 
 
-def pezzo_scheda(path, d, tex, nome_pg, nome):
+def pezzo_scheda(path, d, fondo, nome_pg, nome, nome_font='classico'):
+    tex, ink = fondo
     fp = png_personaggio(nome_pg, 'fermo')
     fig = Image.open(fp).convert('RGBA') if fp else None
     if fig:
         fig.thumbnail((900, 690)); ombra = fig.split()[3].filter(ImageFilter.GaussianBlur(10))
-    f = font('gara', 86); tot = len(nome)
+    sz = 100
+    while sz > 64 and font(nome_font, sz).getlength(nome) > W - 200:
+        sz -= 4
+    f = font(nome_font, sz); tot = len(nome); i0, dur = battitura(nome, .6, 1.2)
 
     def disegna(t):
-        k = (min(12, int(t * 20)), int(clamp((t - .6) / .8) * tot))
+        k = (min(12, int(t * 20)), tot if t >= i0 + dur else int(clamp((t - i0) / dur) * tot))
 
         def fn():
             im = tex.copy()
@@ -549,7 +694,7 @@ def pezzo_scheda(path, d, tex, nome_pg, nome):
                 im.paste((60, 40, 20), (x + 8, y + 12), ombra.point(lambda v: v * .35))
                 im.paste(fig, (x, y), fig)
             n = k[1]; dr = ImageDraw.Draw(im)
-            dr.text(((W - f.getlength(nome)) / 2, 860), nome[:n], font=f, fill=INK)
+            dr.text(((W - f.getlength(nome)) / 2, 850), nome[:n], font=f, fill=ink)
             return im
         return k, fn
     return pipe_frames(path, d, disegna)
@@ -780,7 +925,26 @@ def main():
     with ThreadPoolExecutor(3) as ex:
         sf = dict(zip([s['id'] for s in c['sfondi']], ex.map(sfondo, c['sfondi'])))
     tex = texture(c.get('texture') or 'pergamena')
-    nome_font = {'gotico': 'gotico', 'macchina': 'macchina'}.get(c.get('font_carte'), 'gara')
+    nome_font = c.get('font_carte') if c.get('font_carte') in FONT_EPOCA else 'classico'
+    # fondi delle carte: 3 immagini a tema (bordi decorati, centro libero) + la carta dell'epoca + 2 colori a tinta unita
+    fondi = [prepara_fondo(tex)]
+    for col in (c.get('colori_carte') or ['#6b1e1e', '#1d3557'])[:2]:
+        try:
+            fondi.append(prepara_fondo(tinta(tex, str(col))))
+        except Exception as e:
+            log('colore carta saltato:', col, e)
+    if E('FAL_KEY') and c.get('fondi_carte'):
+        def _fc(f):
+            try:
+                return fondo_carta_ai(f)
+            except Exception as e:
+                log('fondo carta non riuscito:', str(e)[:150])
+        with ThreadPoolExecutor(3) as ex:
+            ai = [prepara_fondo(Image.open(pp)) for pp in ex.map(_fc, c['fondi_carte'][:3]) if pp]
+        mix = []   # alterna: tema, carta, tema, colore, tema, colore
+        for i in range(max(len(ai), len(fondi))):
+            mix += ([ai[i]] if i < len(ai) else []) + ([fondi[i]] if i < len(fondi) else [])
+        fondi = mix
     # piano dei pezzi
     piano = pianifica(c['scene'], durs, voci, sf)
     lati = 0
@@ -788,6 +952,10 @@ def main():
         v['d'] = v['d'] + (T_TR if k < len(piano) - 1 else 0)
         if v.get('personaggio') and v['personaggio'] not in kit:
             mancanti.append(v['personaggio']); v['personaggio'] = ''
+    n_carte = 0
+    for v in piano:   # ogni carta/scheda su un fondo diverso dalla precedente
+        if v['tipo'] in ('carta', 'scheda'):
+            v['fondo'] = n_carte % len(fondi); n_carte += 1
 
     def fai(k):
         v = piano[k]; d = v['d']; p = os.path.join(LAV, f'pezzo_{k:04d}.mp4'); t = v['tipo']
@@ -798,18 +966,30 @@ def main():
                     raise RuntimeError('nessun risultato Pexels per ' + str(v.get('q')))
                 src = os.path.join(LAV, f'src_{k:04d}' + ('.mp4' if t == 'pexels_video' else '.jpg'))
                 scarica(u, src)
-                return pezzo_video(p, d, src) if t == 'pexels_video' else pezzo_foto(p, d, src)
+                pezzo_video(p, d, src) if t == 'pexels_video' else pezzo_foto(p, d, src)
+                return con_didascalia(p, d, v)
             if t == 'carta':
-                return pezzo_carta(p, d, v.get('testo') or '', tex, nome_font)
+                return pezzo_carta(p, d, v.get('testo') or '', fondi[v.get('fondo', 0)], nome_font)
             if t == 'scheda':
-                return pezzo_scheda(p, d, tex, v.get('personaggio') or '', v.get('nome') or '')
+                return pezzo_scheda(p, d, fondi[v.get('fondo', 0)], v.get('personaggio') or '', v.get('nome') or '', nome_font)
             if t == 'mappa':
                 return pezzo_mappa(p, d, c.get('paese_mappa') or '', c.get('titolo_mappa') or TITOLO.split()[-1], c.get('date') or '')
-            return pezzo_cartone(p, d, sf.get(v.get('sfondo')) or list(sf.values())[k % len(sf)], v.get('personaggio') or '',
-                                 bool(v.get('reazione')), v.get('data') or '', k % 2 == 0)
+            pezzo_cartone(p, d, sf.get(v.get('sfondo')) or list(sf.values())[k % len(sf)], v.get('personaggio') or '',
+                          bool(v.get('reazione')), v.get('data') or '', k % 2 == 0)
+            return con_didascalia(p, d, v)
         except Exception as e:   # riserva: cartone senza personaggio, il video non si ferma mai
             log('pezzo', k, t, 'sostituito:', str(e)[:200])
+            v.pop('didascalia', None); v['tipo'] = 'cartone'
             return pezzo_cartone(p, d, list(sf.values())[k % len(sf)], '', False, '', True)
+
+    def con_didascalia(p, d, v):
+        if v.get('didascalia') and d > 2.2:
+            try:
+                return aggiungi_didascalia(p, d, str(v['didascalia'])[:60], nome_font)
+            except Exception as e:
+                log('didascalia saltata:', str(e)[:150])
+        v.pop('didascalia', None)
+        return p
     t0 = time.time()
     with ThreadPoolExecutor(2) as ex:
         paths = list(ex.map(fai, range(len(piano))))
@@ -820,6 +1000,27 @@ def main():
     lista = os.path.join(LAV, 'voci.txt'); open(lista, 'w').write(''.join(f"file '{v}'\n" for v in voci))
     voce_tot = os.path.join(LAV, 'voce.m4a')
     run(['ffmpeg', '-y', '-v', 'error', '-f', 'concat', '-safe', '0', '-i', lista, '-c:a', 'aac', '-b:a', '192k', voce_tot])
+    # tasti della macchina da scrivere, a tempo con le lettere che compaiono
+    eventi, t_ini = [], 0.0
+    for v in piano:
+        d = v['d']
+        if v['tipo'] == 'carta':
+            eventi += [t_ini + x for x in tasti(v.get('testo') or '', .3, 2.0, d)]
+        elif v['tipo'] == 'scheda':
+            eventi += [t_ini + x for x in tasti(v.get('nome') or '', .6, 1.2, d)]
+        elif v.get('didascalia'):
+            eventi += [t_ini + x for x in tasti(str(v['didascalia'])[:60], .45, 1.6, d)]
+        t_ini += d - T_TR
+    if eventi:
+        try:
+            wav = suono_tasti(eventi, sum(durs), os.path.join(LAV, 'tasti.wav'))
+            con_tasti = os.path.join(LAV, 'voce_tasti.m4a'); vt = float(E('TASTI_VOL', '0.22') or .22)
+            run(['ffmpeg', '-y', '-v', 'error', '-i', voce_tot, '-i', wav, '-filter_complex',
+                 f'[1:a]volume={vt}[k];[0:a][k]amix=inputs=2:duration=first:normalize=0[a]', '-map', '[a]', '-c:a', 'aac', '-b:a', '192k', con_tasti])
+            voce_tot = con_tasti
+            log('tasti macchina da scrivere:', len(eventi))
+        except Exception as e:
+            log('suono tasti saltato:', str(e)[:150])
     audio = voce_tot
     if E('MUSICA_URL'):
         try:
