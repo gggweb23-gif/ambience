@@ -16,46 +16,93 @@ STILE = ('High-quality 2D cartoon character for an animated history video, same 
          'Plain pure white background, no ground, no shadow on the floor, no other objects, no text, no letters, no logo.')
 MODELLO = 'A medieval European peasant man in his thirties with a brown tunic, rope belt and leather shoes, friendly smile.'
 PERSONAGGI = {
-  # --- antichità
+  # ===== RUOLI GENERICI (valgono per tutti i paesi) =====
   'contadino_antico': 'an ancient farmer in a simple beige tunic and straw hat, holding a hoe',
   'contadina_antica': 'an ancient farmer woman in a long simple dress and headscarf, carrying a basket of grain',
   're_antico': 'an ancient king with a golden crown, red royal robe with fur trim and a sceptre, proud expression',
   'regina': 'a queen with a golden crown, an elegant long blue gown and a necklace, dignified expression',
-  'faraone': 'an Egyptian pharaoh with the striped nemes headdress, golden collar and a crook, serious expression',
   'sacerdote': 'an ancient priest in long white robes holding a smoking incense bowl, calm expression',
-  'legionario': 'a Roman legionary with a red-crested helmet, segmented armour, red tunic, shield and short sword',
-  'senatore': 'a Roman senator in a white toga with a purple stripe, holding a scroll, thoughtful expression',
-  'guerriero_barbaro': 'a wild northern barbarian warrior with fur cloak, braided beard and an axe, fierce expression',
   'mercante': 'a travelling merchant with a turban, colourful robes and a bag of coins, cunning smile',
-  # --- medioevo / età moderna
+  'guerriero_barbaro': 'a wild northern barbarian warrior with fur cloak, braided beard and an axe, fierce expression',
   'cavaliere': 'a medieval knight in shining plate armour with a sword and a shield with a simple cross, brave expression',
-  'samurai': 'a Japanese samurai in lacquered armour with a horned helmet and a katana, fierce expression',
-  'shogun': 'a Japanese shogun in rich silk robes and a black court hat, stern expression, arms crossed',
-  'imperatore_cinese': 'a Chinese emperor in a yellow dragon robe and a flat imperial crown with beads, solemn expression',
-  'monaco': 'a Buddhist monk with a shaved head and orange robes, holding prayer beads, serene expression',
+  'crociato': 'a crusader knight with a white tunic with a red cross over chain mail, a great helm under the arm',
   'esploratore': 'a 1500s explorer captain with a feathered hat, cape, boots and a telescope, adventurous expression',
-  'pirata': 'a pirate with a tricorn hat, eye patch, striped shirt and a cutlass, mischievous grin',
-  'soldato_moschetto': 'an 1700s soldier with a red coat, white cross belts, tall hat and a musket',
+  'soldato_moschetto': 'an 1700s British redcoat soldier with white cross belts, tall hat and a musket',
   'nobile': 'an 1700s nobleman with a white powdered wig, embroidered coat and a lace collar, arrogant expression',
-  # --- 1800-1900
   'industriale': 'a Victorian industrialist with a black top hat, frock coat, waistcoat with a pocket watch and a cane, smug smile',
   'operaio': 'a 1900s factory worker with a flat cap, rolled-up sleeves, suspenders and a hammer, tired but proud',
-  'cowboy': 'an American cowboy with a wide brown hat, bandana, leather vest and boots, relaxed grin',
-  'nativo_americano': 'a Native American man with a feather in his hair, fringed leather clothes and a bow, calm proud expression',
-  'cercatore_oro': 'a gold prospector with a scruffy beard, battered hat, pickaxe and a pan with gold nuggets, excited expression',
   'soldato_ww1': 'a 1915 soldier with a round helmet, khaki uniform and a rifle, worried expression',
   'soldato_ww2': 'a 1940s soldier with a green helmet, field uniform and a backpack, determined expression',
+  'soldato_moderno': 'a modern soldier in camouflage uniform with a helmet and a rifle, alert expression',
   'generale': 'a 1900s general with a peaked cap, uniform covered in medals and a moustache, stern expression',
   'politico': 'a 1950s politician in a dark suit and tie giving a speech with one raised hand, confident smile',
-  'operaio_diga': 'a 1930s construction worker with a yellow hard hat, overalls and a shovel, hard-working expression',
-  # --- oggi e generici
+  'manifestante': 'a young protester holding a blank cardboard sign with no writing, shouting, raised fist',
+  'rifugiato': 'a tired refugee mother carrying a bundle and holding a child by the hand, worried expression',
   'turista': 'a modern tourist with a sun hat, flower shirt, shorts, camera around the neck, amazed expression',
-  'uomo_moderno': 'a modern businessman in a smart suit holding a smartphone, busy expression',
+  'uomo_moderno': 'a modern man in a smart suit holding a smartphone, busy expression',
   'donna_moderna': 'a modern young woman in casual clothes with a backpack, curious smile',
-  'bambino': 'a small child in simple clothes, big curious eyes, pointing at something',
   'anziano_narratore': 'a friendly old storyteller with a white beard, round glasses, a cardigan and a book, warm smile',
-  'folla_contadini': 'a small group of three poor peasants in ragged clothes standing together, angry and protesting with raised fists',
-  'esercito': 'a tight group of five soldiers in matching uniforms marching in a line, side view',
+  # ===== IRAN / PERSIA =====
+  'ciro_il_grande': 'Cyrus the Great, ancient Persian king with a tall crenellated golden crown, long curled black beard, purple and gold royal robes',
+  'immortale_persiano': 'a Persian Immortal soldier with a long patterned robe, wicker shield, spear and quiver, curled beard',
+  'sacerdote_zoroastriano': 'a Zoroastrian priest in white robes with a white mouth veil, tending a small sacred fire',
+  'scia_reza_pahlavi': 'Mohammad Reza Shah Pahlavi, the last Shah of Iran, in a white military dress uniform with medals and sash, slicked dark hair',
+  'khomeini': 'Ayatollah Ruhollah Khomeini, elderly Iranian cleric with a long white beard, black turban and dark robe, stern expression',
+  # ===== AFGHANISTAN =====
+  'guerriero_pashtun': 'an Afghan Pashtun tribal warrior with a turban, long shirt, waistcoat, shawl and an old long rifle (jezail)',
+  'alessandro_magno': 'Alexander the Great, young Macedonian king with wavy golden hair, bronze cuirass, red cloak and a sword',
+  'cavaliere_mongolo': 'a Mongol horse archer with a fur-trimmed hat, padded coat, composite bow and quiver',
+  'mujahid_anni80': 'a 1980s Afghan mujahideen fighter with a pakol wool hat, patterned scarf, long shirt and a rifle',
+  'soldato_sovietico': 'a Soviet soldier of the 1980s in a khaki uniform, telnyashka striped shirt and a panama hat, with a rifle',
+  # ===== INDIA =====
+  'contadino_indiano': 'an Indian village farmer with a white dhoti, turban and a wooden plough, tired smile',
+  'imperatore_moghul': 'a Mughal emperor in rich silk robes with a jewelled turban and pearl necklaces, holding a rose',
+  'maharaja': 'an Indian maharaja with a jewelled turban with a feather, golden embroidered coat and a curved sword',
+  'soldato_cipay': 'an 1850s Indian sepoy soldier in a red British-style coat, white turban and a musket',
+  'gandhi': 'Mahatma Gandhi, thin elderly man with round glasses, bald head, white homespun shawl and a walking stick, gentle smile',
+  'nehru': 'Jawaharlal Nehru, Indian statesman with a white Gandhi cap and a long Nehru jacket with a red rose',
+  'regina_vittoria': 'Queen Victoria, short elderly British queen in a black mourning dress with a small crown and white veil, unamused expression',
+  # ===== EGITTO =====
+  'faraone': 'an Egyptian pharaoh with the striped nemes headdress, golden collar and a crook, serious expression',
+  'ramses_ii': 'Ramesses II, mighty Egyptian pharaoh with the blue khepresh war crown, golden collar, bow and kilt',
+  'cleopatra': 'Cleopatra VII, Egyptian queen with black braided hair, golden vulture headdress, white dress and gold jewellery',
+  'scriba_egizio': 'an ancient Egyptian scribe sitting cross-legged with a papyrus scroll and a reed pen, shaved head',
+  'contadino_egizio': 'an ancient Egyptian farmer with a white linen kilt, carrying water jars on a shoulder pole',
+  'nasser': 'Gamal Abdel Nasser, Egyptian president of the 1950s with combed-back dark hair and a dark suit, confident pose',
+  # ===== ROMA =====
+  'legionario': 'a Roman legionary with a red-crested helmet, segmented armour, red tunic, shield and short sword',
+  'senatore': 'a Roman senator in a white toga with a purple stripe, holding a scroll, thoughtful expression',
+  'giulio_cesare': 'Julius Caesar with a laurel wreath, thin face, receding hair, red general cloak over armour',
+  'augusto': 'Emperor Augustus, young Roman emperor with neat short hair, armour with a decorated breastplate and a raised arm',
+  # ===== ISRAELE =====
+  're_davide': 'King David of ancient Israel with a golden crown, a harp and a purple robe, curly beard',
+  'antico_ebreo': 'an ancient Hebrew shepherd with a striped robe, head cloth and a wooden staff',
+  'netanyahu': 'Benjamin Netanyahu, Israeli prime minister with grey hair, dark suit and blue tie, serious expression',
+  'ben_gurion': 'David Ben-Gurion, Israeli founding leader with wild white hair on the sides of a bald head, open-collar shirt',
+  'combattente_palestinese': 'a Palestinian man with a black-and-white keffiyeh scarf around the neck, simple clothes, defiant expression',
+  # ===== IMPERO BRITANNICO =====
+  'churchill': 'Winston Churchill with a bowler hat, three-piece suit, bow tie and a cigar, bulldog expression',
+  'ufficiale_coloniale': 'a British colonial officer with a white pith helmet, khaki uniform and a swagger stick, moustache',
+  'marinaio_britannico': 'an 1800s Royal Navy sailor with a striped shirt, flat hat and a rope coil',
+  # ===== UCRAINA / RUSSIA =====
+  'cosacco': 'a Ukrainian Cossack with a long scalp lock (oseledets), long moustache, wide red trousers and a sabre',
+  'zar_russo': 'a Russian tsar with a fur-trimmed golden crown, heavy embroidered robe and a sceptre, bearded',
+  'zelensky': 'Volodymyr Zelensky, Ukrainian president with short dark hair and short beard, olive green military-style t-shirt',
+  'putin': 'Vladimir Putin, Russian president with thinning short hair, dark suit and tie, cold expression',
+  'stalin': 'Joseph Stalin with a thick moustache, combed-back hair and a grey military tunic',
+  # ===== LAS VEGAS / USA =====
+  'cowboy': 'an American cowboy with a wide brown hat, bandana, leather vest and boots, relaxed grin',
+  'nativo_paiute': 'a Paiute Native American man with simple woven and leather clothes and a basket, calm expression',
+  'operaio_diga': 'a 1930s construction worker with a yellow hard hat, overalls and a shovel, hard-working expression',
+  'gangster_anni50': 'a 1950s casino gangster with a fedora hat, pinstripe suit and a cigar, smug grin',
+  'showgirl': 'a 1950s Las Vegas showgirl with a feathered headdress and a sparkly costume, big smile',
+  'elvis': 'Elvis Presley in a white rhinestone jumpsuit with a high collar and black pompadour hair, singing pose',
+  'bugsy_siegel': 'Bugsy Siegel, 1940s mobster with slicked-back hair, double-breasted suit and a confident smirk',
+  # ===== CAPO VERDE =====
+  'navigatore_portoghese': 'a 1460s Portuguese navigator with a beret, puffed sleeves, a cape and an astrolabe',
+  'pescatore_capoverde': 'a Cape Verdean fisherman with a straw hat, rolled-up trousers and a fishing net, warm smile',
+  'cantante_morna': 'a Cape Verdean morna singer, barefoot woman in a simple elegant dress singing with closed eyes',
+  'amilcar_cabral': 'Amilcar Cabral, African independence leader with a knitted cap (sumbia), glasses and a short beard',
 }
 
 def http_json(url, data=None, headers=None):
@@ -91,10 +138,9 @@ def scontorna(url, nome):
     print('fatto', nome, im.size, flush=True)
     return p
 
-POSE = {
-  'indica': 'explaining something: one arm raised, pointing with the index finger to the side, mouth open as if talking',
-  'sorpreso': 'shocked and surprised: both hands up near the face, eyes wide open, mouth wide open, leaning slightly back',
-  'azione': 'in action, doing what this character typically does (walking, fighting, working or carrying something), dynamic pose',
+POSE = {   # 2 pose: fermo + reazione (la reazione piu' adatta al ruolo la sceglie l'AI)
+  'reazione': ('a strong reaction that fits this character: a ruler or leader points forward giving an order; a warrior raises his weapon '
+               'ready to fight; ordinary people look shocked with hands near the face and mouth open; a performer strikes a show pose'),
 }
 from concurrent.futures import ThreadPoolExecutor
 RIS = '1K'
