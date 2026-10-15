@@ -3,8 +3,12 @@ name: Video Storia
 on:
   workflow_dispatch:
     inputs:
+      link_competitor:
+        description: 'Link del video da copiare (titolo, testo e copertina)'
+        default: ''
+        type: string
       titolo:
-        description: 'Titolo del video'
+        description: 'Titolo di riserva (si usa solo se manca il link)'
         default: "Tutta la storia dell'Iran"
         type: string
       minuti:
@@ -35,6 +39,7 @@ jobs:
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y -qq ffmpeg python3-pil python3-numpy python3-fonttools
+          pip install --quiet --break-system-packages youtube-transcript-api
           mkdir -p font geo tmp_npm && cd tmp_npm
           npm init -y > /dev/null
           npm i --silent world-atlas@2.0.2 topojson-client@3.1.0 @fontsource/eb-garamond@5.2.5 @fontsource/luckiest-guy@5.2.5 @fontsource/special-elite@5.2.5 @fontsource/unifrakturmaguntia@5.2.5
@@ -50,6 +55,7 @@ jobs:
 
       - name: Crea il video
         env:
+          LINK_COMPETITOR: ${{ inputs.link_competitor }}
           TITOLO: ${{ inputs.titolo }}
           MINUTI: ${{ inputs.minuti }}
           PROVA: ${{ inputs.prova }}
@@ -69,6 +75,8 @@ jobs:
           name: video-storia
           path: |
             video_storia.mp4
+            copertina.jpg
+            titolo.txt
             copione.json
             personaggi_mancanti.txt
           retention-days: 7
