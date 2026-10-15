@@ -17,7 +17,7 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 W, H, FPS = 1920, 1080, 24
-T_TR = 0.2                                   # durata transizione a scatto (xfade hblur)
+T_TR = 0.0                                   # nessuna transizione: taglio netto tra le immagini
 ROOT = os.getcwd()
 LAV = os.path.join(ROOT, 'lavoro_storia')
 KIT = os.path.join(ROOT, 'kit_storia')
@@ -819,32 +819,11 @@ def lerp(a, b, t):
 
 # ============================================================ 6) UNIONE con transizioni a scatto
 def unisci(pezzi, out):
-    """pezzi = [(path, durata)], ogni durata include gia' T_TR in piu' (tranne l'ultimo). Catena xfade hblur a blocchi."""
-    def catena(lista, dest):
-        if len(lista) == 1:
-            shutil.copy(lista[0][0], dest); return lista[0][1]
-        ins, fl, lun = [], [], lista[0][1]
-        for p, _ in lista: ins += ['-i', p]
-        prec = '0:v'
-        for k in range(1, len(lista)):
-            off = lun - T_TR
-            fl.append(f'[{prec}][{k}:v]xfade=transition=hblur:duration={T_TR}:offset={off:.3f}[x{k}]')
-            prec = f'x{k}'; lun = off + lista[k][1]
-        run(['ffmpeg', '-y', '-v', 'error', *ins, '-filter_complex', ';'.join(fl), '-map', f'[{prec}]', *ENC, dest])
-        return lun
-    blocchi, n = [], 0
-    for i in range(0, len(pezzi), 14):
-        dest = os.path.join(LAV, f'blocco_{n:03d}.mp4'); n += 1
-        blocchi.append((dest, catena(pezzi[i:i + 14], dest)))
-    log('blocchi uniti:', len(blocchi))
-    while len(blocchi) > 1:
-        nuovi = []
-        for i in range(0, len(blocchi), 10):
-            dest = os.path.join(LAV, f'blocco_{n:03d}.mp4'); n += 1
-            nuovi.append((dest, catena(blocchi[i:i + 10], dest)))
-        blocchi = nuovi
-    shutil.copy(blocchi[0][0], out)
-    return blocchi[0][1]
+    """pezzi = [(path, durata)]: taglio netto, i pezzi vengono messi uno dopo l'altro senza ricodificare."""
+    lista = os.path.join(LAV, 'pezzi.txt')
+    open(lista, 'w').write(''.join(f"file '{os.path.abspath(p)}'\n" for p, _ in pezzi))
+    run(['ffmpeg', '-y', '-v', 'error', '-f', 'concat', '-safe', '0', '-i', lista, '-c', 'copy', out])
+    return durata(out)
 
 
 # ============================================================ MAIN
@@ -998,8 +977,11 @@ def main():
             v['personaggio'] = v['pg_scena']
     piano = ritmo(piano, list(sf))
     log('visivi:', len(piano), '| primi 10 s:', sum(1 for x in __import__('itertools').accumulate([0] + [v['d'] for v in piano]) if x < 10))
-    for k, v in enumerate(piano):
-        v['d'] = v['d'] + (T_TR if k < len(piano) - 1 else 0)
+    # durate a fotogrammi interi: video e voce restano allineati fino all'ultimo secondo
+    fine_prec, acc = 0, 0.0
+    for v in piano:
+        acc += v['d']; fine = int(round(acc * FPS))
+        v['d'] = max(1, fine - fine_prec) / FPS; fine_prec = fine
     n_carte = 0
     for v in piano:   # ogni carta/scheda su un fondo diverso dalla precedente
         if v['tipo'] in ('carta', 'scheda'):
