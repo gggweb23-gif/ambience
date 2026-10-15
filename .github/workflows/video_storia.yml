@@ -15,7 +15,7 @@ on:
         description: 'Durata in minuti'
         default: '13'
         type: string
-        max_minuti:
+      max_minuti:
         description: 'Durata massima in minuti (oltre, il testo viene condensato)'
         default: '25'
         type: string
