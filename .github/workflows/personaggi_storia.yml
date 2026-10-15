@@ -15,7 +15,7 @@ jobs:
       - name: Crea il kit personaggi
         env:
           FAL_KEY: ${{ secrets.FAL_KEY }}
-          SOLO: samurai,cowboy
+          
         run: |
           sudo apt-get install -y -qq python3-pil
           python3 personaggi_storia.py
