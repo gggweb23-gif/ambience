@@ -7,7 +7,7 @@ Dal titolo al video finito, tutto da solo:
   3) clip e foto (Pexels)                       6) video_storia.mp4 (+ copione.json, personaggi_mancanti.txt)
 Tipi di "pezzo": cartone (sfondo + personaggio che cambia posa), pexels_video, pexels_foto,
 carta (frase chiave battuta a macchina su texture), scheda (personaggio + nome), mappa (zoom sul paese).
-Variabili: TITOLO, LINGUA, VOCE, MINUTI, MODELLO_AI, MUSICA_URL, MUSICA_VOL, PROVA (SI = video di ~1 minuto)
+Variabili: TITOLO, LINGUA, VOCE, MINUTI, MAX_MINUTI, MODELLO_AI, MUSICA_URL, MUSICA_VOL, PROVA (SI = video di ~1 minuto)
 Chiavi: ANTHROPIC_API_KEY, ELEVENLABS_API_KEY, PEXELS_API_KEY, FAL_KEY
 """
 import json, math, os, random, re, shutil, subprocess, sys, threading, time, traceback, urllib.parse, urllib.request
@@ -28,6 +28,7 @@ TITOLO = E('TITOLO', 'Tutta la storia dell\'Iran').strip()
 LINGUA = E('LINGUA', 'it').strip() or 'it'
 VOCE = E('VOCE', 'glnsgBC77wt5zOYU0szz').strip()
 MINUTI = float(E('MINUTI', '13') or 13)
+MAX_MINUTI = float(E('MAX_MINUTI', '25') or 25)   # oltre questa durata il copione condensa l'originale
 PROVA = E('PROVA', 'NO').strip().upper() == 'SI'
 MODELLO_AI = E('MODELLO_AI', 'claude-sonnet-5-5').strip()
 LINK = E('LINK_COMPETITOR', '').strip()      # video da copiare (titolo, testo e copertina)
@@ -81,10 +82,11 @@ def id_video(link):
 
 
 def competitor():
-    """Titolo, testo parlato e copertina del video originale. Se il testo non si riesce a leggere si va avanti solo col titolo."""
+    """Titolo, testo parlato e copertina del video originale. SICUREZZA: senza link valido o senza testo originale il video NON parte."""
     vid = id_video(LINK)
     if not vid:
-        return {}
+        raise RuntimeError('STOP: manca il link del video competitor (o non e\' un link YouTube valido). '
+                           'Questo canale copia solo i competitor: nessun video creato, nessun costo.')
     c = {'id': vid, 'copertina': f'https://i.ytimg.com/vi/{vid}/maxresdefault.jpg'}
     try:
         urllib.request.urlopen(urllib.request.Request(c['copertina'], method='HEAD'), timeout=30)
@@ -120,7 +122,10 @@ def competitor():
         c['testo'] = re.sub(r'\s+', ' ', testo.replace('[Music]', ' ')).strip()
         log('testo originale:', len(c['testo'].split()), 'parole')
     except Exception as e:
-        log('ATTENZIONE: testo originale non disponibile (' + str(e)[:150] + '): scrivo il copione dal titolo')
+        log('testo originale non letto:', str(e)[:150])
+    if not c.get('testo'):
+        raise RuntimeError('STOP: non riesco a leggere il testo del video competitor (RapidAPI e YouTube). '
+                           'Nessun video creato, nessun costo per voce e immagini. Riprova piu\' tardi o con un altro video.')
     return c
 
 
@@ -137,6 +142,9 @@ def copione(comp):
     if PROVA and orig:   # prova: si copia solo il primo minuto circa dell'originale
         orig = ' '.join(orig.split()[:170])
     parole = 170 if PROVA else (int(len(orig.split()) * 1.05) if orig else int(MINUTI * 150))
+    massimo = int(MAX_MINUTI * 150)
+    condensa = parole > massimo
+    parole = min(parole, massimo)
     lingua = {'it': 'italiano', 'en': 'English (US)'}.get(LINGUA, LINGUA)
     blocco_originale = ''
     if comp.get('titolo'):
@@ -145,8 +153,8 @@ VIDEO ORIGINALE DA COPIARE: "{comp['titolo']}".
 - "titolo": e' la TRADUZIONE FEDELE al 100% del titolo originale in {lingua} (stessa struttura, stessi numeri e date, stesse parole in maiuscolo), adattata solo dove serve per suonare naturale.'''
     if orig:
         blocco_originale += f'''
-- Il PARLATO deve COPIARE al 100% il testo originale qui sotto: stessi fatti, stesso ordine, stessi ganci, stesse domande, stessi numeri, stessa lunghezza.
-  Traducilo in {lingua} naturale e cambia solo piccole cose per non essere una copia identica (sinonimi, ordine delle parole, qualche frase unita o divisa). NON aggiungere e NON togliere contenuti.
+- Il PARLATO deve COPIARE al 100% il testo originale qui sotto: stessi fatti, stesso ordine, stessi ganci, stesse domande, stessi numeri, stessa lunghezza.{' ECCEZIONE: l originale e troppo lungo, quindi CONDENSALO a circa ' + str(parole) + ' parole: stessi fatti principali, stesso ordine, stessi ganci e stesse domande, togli solo dettagli secondari ed esempi ripetuti.' if condensa else ''}
+  Traducilo in {lingua} naturale e cambia solo piccole cose per non essere una copia identica (sinonimi, ordine delle parole, qualche frase unita o divisa). NON aggiungere contenuti{' e togli solo il secondario' if condensa else ' e NON toglierne'}.
 TESTO ORIGINALE:
 {orig[:60000]}
 '''
