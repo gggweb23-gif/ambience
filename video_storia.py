@@ -228,7 +228,7 @@ def voce(i, testo):
 # ============================================================ 3) PEXELS (con memoria: max ~180 ricerche l'ora)
 # Ogni clip/foto viene CONTROLLATA da Claude (modello economico) guardando l'anteprima:
 # scarta cose moderne, scritte, persone di oggi, cose fuori tema. Mai la stessa clip due volte.
-_cache, _conti, _usati, _lock = {}, {'n': 0}, set(), threading.Lock()
+_cache, _conti, _usati, _lock = {}, {'n': 0}, set(), threading.RLock()
 VIETATE = ('firefighter', 'fire-fighter', 'jakarta', 'police', 'car', 'cars', 'traffic', 'phone', 'smartphone', 'laptop', 'computer',
            'office', 'selfie', 'tourist', 'tourists', 'christmas', 'birthday', 'party', 'card', 'greeting', 'happy', 'neon', 'logo',
            'text', 'sign', 'shopping', 'mall', 'airport', 'airplane', 'truck', 'bus', 'motorcycle', 'gym', 'fitness', 'model', 'fashion',
@@ -294,8 +294,9 @@ Rispondi SOLO con il numero della prima immagine adatta, oppure -1 se nessuna va
 
 def pexels(tipo, q, contesto=''):
     for qq in (q, q + ' ancient', 'ancient ruins desert'):
+        tutti = pexels_cerca(tipo, qq)   # ricerca FUORI dal lucchetto (prima qui si bloccava tutto)
         with _lock:
-            cand = [c for c in pexels_cerca(tipo, qq) if c['url'] not in _usati][:5]
+            cand = [c for c in tutti if c['url'] not in _usati][:5]
         if not cand:
             continue
         i = controlla(cand, qq, contesto)
