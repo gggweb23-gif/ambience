@@ -4,7 +4,8 @@ on:
   workflow_dispatch:
     inputs:
       link_competitor:
-        description: 'Link del video da copiare (titolo, testo e copertina)'
+        description: 'Link del video da copiare (OBBLIGATORIO: senza link il video non parte)'
+        required: true
         default: ''
         type: string
       titolo:
