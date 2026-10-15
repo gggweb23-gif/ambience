@@ -10,7 +10,7 @@ carta (frase chiave battuta a macchina su texture), scheda (personaggio + nome),
 Variabili: TITOLO, LINGUA, VOCE, MINUTI, MAX_MINUTI, MODELLO_AI, MUSICA_URL, MUSICA_VOL, PROVA (SI = video di ~1 minuto)
 Chiavi: ANTHROPIC_API_KEY, ELEVENLABS_API_KEY, PEXELS_API_KEY, FAL_KEY
 """
-import json, math, os, random, re, shutil, subprocess, sys, threading, time, traceback, urllib.parse, urllib.request
+import base64, json, math, os, random, re, shutil, subprocess, sys, threading, time, traceback, urllib.parse, urllib.request
 from concurrent.futures import ThreadPoolExecutor
 
 import numpy as np
@@ -164,7 +164,13 @@ Scrivi il video: "{TITOLO}". Lingua della voce e delle scritte: {lingua}. Lunghe
 STILE DEL RACCONTO: dall'inizio della storia del paese fino a oggi, in ordine cronologico, con date precise, fatti veri, nomi veri.
 Frasi brevi e concrete, ritmo da documentario coinvolgente, piccole domande e colpi di scena. Prima scena = gancio forte. Ultima scena = chiusura che fa riflettere.
 
-REGIA VISIVA: ogni scena (20-40 parole di voce) ha 2-4 "visivi" che cambiano ogni ~3 secondi. Tipi:
+REGIA VISIVA: ogni scena (20-40 parole di voce) ha 2-4 "visivi" che cambiano ogni ~3 secondi.
+SINCRONIA CON LA VOCE (FONDAMENTALE): ogni visivo ha il campo "frase" = 2-4 parole COPIATE IDENTICHE dal "testo" della scena, nel punto esatto in cui il visivo deve comparire. I visivi sono nello stesso ordine delle loro frasi nel testo, a distanza di almeno 5 parole l'uno dall'altro. Il primo visivo ha come frase le prime parole della scena.
+- una "carta" compare quando la voce dice quella frase: il suo "testo" riprende parole DETTE in quella scena e la sua "frase" e' l'inizio di quelle parole nel testo;
+- una "scheda" SOLO nella scena in cui quel personaggio viene NOMINATO dalla voce, con frase = il nome cosi' come detto;
+- un "cartone" con un personaggio storico reale SOLO quando viene nominato (frase = il nome); quando non si nomina nessuno usa una figura generica (soldato, contadino, nobile...) coerente con cio' che si dice;
+- un "pexels" deve mostrare cio' che la voce dice in quel momento.
+Tipi:
 - "cartone": scena disegnata. Campi: "sfondo" (id di uno dei 6 sfondi), "personaggio" (SOLO uno di questa lista, oppure "" per nessuno): {', '.join(kit) or '(nessuno)'}; "reazione": true se a meta' il personaggio cambia posa (momento forte). Nella PRIMA scena il primo visivo e' un cartone con il campo "data" (es. "550 a.C.").
 - "pexels_video": clip vera. Campo "q": ricerca Pexels in INGLESE, 2-4 parole concrete che diano immagini SENZA cose moderne: paesaggi naturali, montagne, deserti, rovine, monumenti antichi, oggetti antichi, monete, manoscritti, fuoco, cielo, mare, rievocazioni in costume. MAI persone di oggi, MAI citta' moderne (tranne nelle scene sul presente), MAI nomi di persone o eventi.
 - "pexels_foto": foto vera. Campo "q" come sopra.
@@ -179,7 +185,7 @@ Rispondi SOLO con un JSON valido, senza testo prima o dopo:
 {{"titolo": "...", "titolo_mappa": "nome del paese da scrivere sulla mappa, nella lingua del canale, es. IRAN", "paese_mappa": "nome del paese in inglese come in Natural Earth (es. Iran, India, Egypt, United States of America)",
  "date": "es. 550 a.C. – 2026", "texture": "pergamena|washi|stropicciata|giornale|papiro", "font_carte": "classico|gotico|macchina",
  "sfondi": [{{"id": "s1", "prompt_en": "..."}}],
- "scene": [{{"testo": "parlato della scena", "visivi": [{{"tipo": "cartone", "sfondo": "s1", "personaggio": "...", "reazione": true, "data": "..."}}]}}],
+ "scene": [{{"testo": "parlato della scena", "visivi": [{{"tipo": "cartone", "frase": "prime parole della scena", "sfondo": "s1", "personaggio": "...", "reazione": true, "data": "..."}}]}}],
  "copertina": {{"testo": "testo della copertina originale TRADOTTO al 100% (stesse parole, stesse date), MAIUSCOLO", "personaggio": "personaggio della lista che corrisponde alla figura principale della copertina originale, oppure ''"}},
  "personaggi_mancanti": ["figure che sarebbero servite ma non sono nella lista, es. 'Dario I re persiano'"]}}
 Scegli la texture piu' coerente (washi per Giappone/Cina/Corea, papiro per Egitto/Mesopotamia, pergamena per antichita'/medioevo, giornale per 1800-1900, stropicciata per storia moderna)."""
@@ -214,15 +220,47 @@ def voce(i, testo):
         return p
     for k in range(4):
         try:
-            b = http(f'https://api.elevenlabs.io/v1/text-to-speech/{VOCE}?output_format=mp3_44100_128',
+            # with-timestamps: stesso prezzo, in piu' restituisce QUANDO viene detta ogni lettera -> immagini a tempo con la voce
+            j = http(f'https://api.elevenlabs.io/v1/text-to-speech/{VOCE}/with-timestamps?output_format=mp3_44100_128',
                      {'text': testo, 'model_id': E('VOCE_MODELLO', 'eleven_multilingual_v2'),
                       'voice_settings': {'stability': .5, 'similarity_boost': .75}},
-                     {'xi-api-key': chiave, 'accept': 'audio/mpeg'}, raw=True)
-            open(p, 'wb').write(b)
+                     {'xi-api-key': chiave})
+            open(p, 'wb').write(base64.b64decode(j['audio_base64']))
+            json.dump(j.get('alignment') or {}, open(p[:-4] + '.json', 'w'))
             return p
         except Exception as e:
             log('voce non riuscita, riprovo:', str(e)[:150]); time.sleep(4 * (k + 1))
     raise RuntimeError('ElevenLabs non risponde')
+
+
+def _norm(t):
+    return re.sub(r'[^0-9a-zà-ÿ ]', ' ', (t or '').lower())
+
+
+def trova(testo, frase, da=0):
+    """Posizione (lettera) nel testo della scena dove inizia 'frase'. Prova la frase intera, poi le prime 3, 2 parole, poi la parola piu' lunga."""
+    nt = _norm(testo); parole = _norm(frase).split()
+    if not parole:
+        return None
+    prove = [' '.join(parole), ' '.join(parole[:3]), ' '.join(parole[:2])] + sorted([w for w in parole if len(w) > 4], key=len, reverse=True)[:2]
+    for pr in prove:
+        m = re.search(r'(?<![0-9a-zà-ÿ])' + r'\s+'.join(re.escape(w) for w in pr.split()), nt[da:])
+        if m:
+            return da + m.start()
+    return None
+
+
+def tempo_lettera(al, idx, testo, D):
+    st = (al or {}).get('character_start_times_seconds') or []
+    if st and len(st) == len(testo) and idx < len(st):
+        return float(st[idx])
+    return D * idx / max(1, len(testo))   # riserva: proporzionale
+
+
+def nominato(testo, nome):
+    """Vero se nel testo compare almeno una parola 'importante' del nome (es. Ciro, Dario, Khan)."""
+    nt = ' ' + _norm(testo) + ' '
+    return any(' ' + w + ' ' in nt for w in _norm(nome).split() if len(w) > 3 and w not in ('grande', 'primo', 'secondo', 'terzo', 'imperatore', 're', 'regina'))
 
 
 # ============================================================ 3) PEXELS (con memoria: max ~180 ricerche l'ora)
@@ -664,6 +702,66 @@ def unisci(pezzi, out):
 PESO = {'cartone': 1.6, 'mappa': 3.0, 'scheda': 1.3, 'carta': 1.2, 'pexels_video': 1.0, 'pexels_foto': 1.0}
 
 
+def pianifica(scene, durs, voci, sf):
+    """Divide ogni scena in visivi che compaiono quando la voce dice la loro 'frase'."""
+    piano = []
+    for i, (s, D) in enumerate(zip(scene, durs)):
+        testo = s['testo']
+        try:
+            al = json.load(open(voci[i][:-4] + '.json'))
+        except Exception:
+            al = {}
+        vis = []
+        for v in (s.get('visivi') or []):
+            if v.get('tipo') not in PESO:
+                continue
+            # una scheda (presentazione) solo se quel personaggio viene NOMINATO in questa scena
+            if v['tipo'] == 'scheda' and not nominato(testo, v.get('nome') or v.get('personaggio') or ''):
+                log('scheda tolta (non nominato nella scena):', v.get('nome')); continue
+            vis.append(v)
+        vis = vis or [{'tipo': 'cartone', 'sfondo': random.choice(list(sf))}]
+        # quando compare ogni visivo: alla parola esatta detta dalla voce
+        tot = sum(PESO[v['tipo']] for v in vis); acc = 0; pos = 0; inizi = []
+        for j, v in enumerate(vis):
+            stima = D * acc / tot; acc += PESO[v['tipo']]
+            frase = v.get('frase') or (v.get('testo') if v['tipo'] == 'carta' else '') or (v.get('nome') if v['tipo'] == 'scheda' else '')
+            if j == 0 and v['tipo'] not in ('carta', 'scheda'):
+                frase = ''   # il primo visivo parte con la scena
+            idx = trova(testo, frase, pos) if frase else None
+            if idx is not None:
+                pos = idx + 1
+                t = max(0.0, tempo_lettera(al, idx, testo, D) - 0.15)   # appena prima della parola
+            else:
+                t = stima if j else 0.0
+            inizi.append((t, j, idx is not None))
+        inizi.sort()   # in ordine di tempo
+        if inizi and not inizi[0][2]:
+            inizi[0] = (0.0,) + inizi[0][1:]
+        vis = [vis[j] for _, j, _ in inizi]; inizi = [t for t, _, _ in inizi]
+        # almeno 1,2 s per visivo: i visivi troppo ravvicinati vengono tolti
+        tenuti = []
+        for v, t in zip(vis, inizi):
+            if tenuti and t < tenuti[-1][1] + 1.2:
+                if v['tipo'] in ('carta', 'scheda'):   # la scritta/presentazione ha la precedenza: sostituisce il visivo precedente
+                    if len(tenuti) > 1 and t >= tenuti[-2][1] + 1.2:
+                        tenuti[-1] = (v, t)
+                continue
+            tenuti.append((v, t))
+        if tenuti and D - tenuti[-1][1] < 1.2 and len(tenuti) > 1:
+            tenuti.pop()
+        if tenuti and tenuti[0][1] > 0:   # la scena inizia con una scritta detta piu' avanti: fino a li' resta il visivo precedente
+            if piano:
+                piano[-1]['d'] += tenuti[0][1]
+            else:
+                tenuti.insert(0, ({'tipo': 'cartone', 'sfondo': random.choice(list(sf))}, 0.0))
+        for j, (v, t) in enumerate(tenuti):
+            fine = tenuti[j + 1][1] if j + 1 < len(tenuti) else D
+            piano.append(dict(v, d=fine - t, contesto=testo))
+    return piano
+
+
+
+
 def main():
     os.makedirs(LAV, exist_ok=True)
     comp = competitor()
@@ -684,12 +782,7 @@ def main():
     tex = texture(c.get('texture') or 'pergamena')
     nome_font = {'gotico': 'gotico', 'macchina': 'macchina'}.get(c.get('font_carte'), 'gara')
     # piano dei pezzi
-    piano = []
-    for i, (s, D) in enumerate(zip(c['scene'], durs)):
-        vis = [v for v in (s.get('visivi') or []) if v.get('tipo') in PESO] or [{'tipo': 'cartone', 'sfondo': random.choice(list(sf))}]
-        tot = sum(PESO[v['tipo']] for v in vis)
-        for v in vis:
-            piano.append(dict(v, d=D * PESO[v['tipo']] / tot, contesto=s['testo']))
+    piano = pianifica(c['scene'], durs, voci, sf)
     lati = 0
     for k, v in enumerate(piano):
         v['d'] = v['d'] + (T_TR if k < len(piano) - 1 else 0)
