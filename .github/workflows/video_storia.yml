@@ -15,6 +15,10 @@ on:
         description: 'Durata in minuti'
         default: '13'
         type: string
+        max_minuti:
+        description: 'Durata massima in minuti (oltre, il testo viene condensato)'
+        default: '25'
+        type: string
       prova:
         description: 'SI = video corto di prova (~1 minuto)'
         default: 'NO'
@@ -58,6 +62,7 @@ jobs:
           LINK_COMPETITOR: ${{ inputs.link_competitor }}
           TITOLO: ${{ inputs.titolo }}
           MINUTI: ${{ inputs.minuti }}
+          MAX_MINUTI: ${{ inputs.max_minuti }}
           PROVA: ${{ inputs.prova }}
           VOCE: ${{ inputs.voce }}
           MUSICA_URL: ${{ inputs.musica_url }}
