@@ -47,12 +47,14 @@ jobs:
           pip install --quiet --break-system-packages youtube-transcript-api
           mkdir -p font geo tmp_npm && cd tmp_npm
           npm init -y > /dev/null
-          npm i --silent world-atlas@2.0.2 topojson-client@3.1.0 @fontsource/eb-garamond@5.2.5 @fontsource/luckiest-guy@5.2.5 @fontsource/special-elite@5.2.5 @fontsource/unifrakturmaguntia@5.2.5
+          npm i --silent world-atlas@2.0.2 topojson-client@3.1.0 @fontsource/eb-garamond@5.2.5 @fontsource/luckiest-guy@5.2.5 @fontsource/special-elite@5.2.5 @fontsource/unifrakturmaguntia@5.2.5 @fontsource/cinzel@5.2.5 @fontsource/im-fell-english@5.2.5 @fontsource/playfair-display@5.2.5 @fontsource/oswald@5.2.5
           node -e "const fs=require('fs'),t=require('topojson-client');const a=require('world-atlas/countries-110m.json'),b=require('world-atlas/countries-50m.json');fs.writeFileSync('../geo/mondo.json',JSON.stringify(t.feature(a,a.objects.countries)));fs.writeFileSync('../geo/dettaglio.json',JSON.stringify(t.feature(b,b.objects.countries)));"
           python3 -c "
           from fontTools.ttLib import TTFont
           m={'eb-garamond/files/eb-garamond-latin-600-normal.woff':'EBGaramond-SemiBold.ttf','luckiest-guy/files/luckiest-guy-latin-400-normal.woff':'LuckiestGuy.ttf',
-             'special-elite/files/special-elite-latin-400-normal.woff':'SpecialElite.ttf','unifrakturmaguntia/files/unifrakturmaguntia-latin-400-normal.woff':'UnifrakturMaguntia.ttf'}
+             'special-elite/files/special-elite-latin-400-normal.woff':'SpecialElite.ttf','unifrakturmaguntia/files/unifrakturmaguntia-latin-400-normal.woff':'UnifrakturMaguntia.ttf',
+             'cinzel/files/cinzel-latin-700-normal.woff':'Cinzel-Bold.ttf','im-fell-english/files/im-fell-english-latin-400-normal.woff':'IMFellEnglish.ttf',
+             'playfair-display/files/playfair-display-latin-700-normal.woff':'PlayfairDisplay-Bold.ttf','oswald/files/oswald-latin-600-normal.woff':'Oswald-SemiBold.ttf'}
           for s,d in m.items():
               f=TTFont('node_modules/@fontsource/'+s); f.flavor=None; f.save('../font/'+d)
           "
