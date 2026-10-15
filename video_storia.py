@@ -10,7 +10,7 @@ carta (frase chiave battuta a macchina su texture), scheda (personaggio + nome),
 Variabili: TITOLO, LINGUA, VOCE, MINUTI, MODELLO_AI, MUSICA_URL, MUSICA_VOL, PROVA (SI = video di ~1 minuto)
 Chiavi: ANTHROPIC_API_KEY, ELEVENLABS_API_KEY, PEXELS_API_KEY, FAL_KEY
 """
-import json, math, os, random, re, shutil, subprocess, sys, time, traceback, urllib.parse, urllib.request
+import json, math, os, random, re, shutil, subprocess, sys, threading, time, traceback, urllib.parse, urllib.request
 from concurrent.futures import ThreadPoolExecutor
 
 import numpy as np
@@ -158,7 +158,7 @@ Frasi brevi e concrete, ritmo da documentario coinvolgente, piccole domande e co
 
 REGIA VISIVA: ogni scena (20-40 parole di voce) ha 2-4 "visivi" che cambiano ogni ~3 secondi. Tipi:
 - "cartone": scena disegnata. Campi: "sfondo" (id di uno dei 6 sfondi), "personaggio" (SOLO uno di questa lista, oppure "" per nessuno): {', '.join(kit) or '(nessuno)'}; "reazione": true se a meta' il personaggio cambia posa (momento forte). Nella PRIMA scena il primo visivo e' un cartone con il campo "data" (es. "550 a.C.").
-- "pexels_video": clip vera. Campo "q": ricerca Pexels in INGLESE, 2-4 parole concrete e filmabili oggi (paesaggi, monumenti, rievocazioni, oggetti, folla, citta'), MAI nomi di persone o eventi.
+- "pexels_video": clip vera. Campo "q": ricerca Pexels in INGLESE, 2-4 parole concrete che diano immagini SENZA cose moderne: paesaggi naturali, montagne, deserti, rovine, monumenti antichi, oggetti antichi, monete, manoscritti, fuoco, cielo, mare, rievocazioni in costume. MAI persone di oggi, MAI citta' moderne (tranne nelle scene sul presente), MAI nomi di persone o eventi.
 - "pexels_foto": foto vera. Campo "q" come sopra.
 - "carta": frase chiave scritta su carta. Campo "testo": max 8 parole, la frase piu' forte del momento.
 - "scheda": presentazione di un personaggio storico. Campi "personaggio" (dalla lista) e "nome" (nome vero completo).
@@ -218,36 +218,85 @@ def voce(i, testo):
 
 
 # ============================================================ 3) PEXELS (con memoria: max ~180 ricerche l'ora)
-_cache, _conti = {}, {'n': 0}
+# Ogni clip/foto viene CONTROLLATA da Claude (modello economico) guardando l'anteprima:
+# scarta cose moderne, scritte, persone di oggi, cose fuori tema. Mai la stessa clip due volte.
+_cache, _conti, _usati, _lock = {}, {'n': 0}, set(), threading.Lock()
+VIETATE = ('firefighter', 'fire-fighter', 'jakarta', 'police', 'car', 'cars', 'traffic', 'phone', 'smartphone', 'laptop', 'computer',
+           'office', 'selfie', 'tourist', 'tourists', 'christmas', 'birthday', 'party', 'card', 'greeting', 'happy', 'neon', 'logo',
+           'text', 'sign', 'shopping', 'mall', 'airport', 'airplane', 'truck', 'bus', 'motorcycle', 'gym', 'fitness', 'model', 'fashion',
+           'wedding', 'coffee', 'restaurant', 'supermarket', 'construction', 'vaccine', 'mask', 'covid', 'nowruz', 'football', 'soccer')
+MODELLO_CONTROLLO = E('MODELLO_CONTROLLO', 'claude-haiku-4-5-20251001')
 
 
-def pexels(tipo, q):
+def pexels_cerca(tipo, q):
     k = (tipo, q.lower().strip())
-    if k not in _cache:
-        chiave = E('PEXELS_API_KEY', '')
-        ris = []
-        if chiave and _conti['n'] < 180:
-            _conti['n'] += 1
-            base = 'https://api.pexels.com/videos/search' if tipo == 'video' else 'https://api.pexels.com/v1/search'
-            try:
-                j = http(base + '?' + urllib.parse.urlencode({'query': q, 'per_page': 15, 'orientation': 'landscape'}), headers={'Authorization': chiave})
-                if tipo == 'video':
-                    for v in j.get('videos', []):
-                        fs = [f for f in v.get('video_files', []) if 'mp4' in (f.get('file_type') or '') and (f.get('height') or 0) <= 1080]
-                        fs.sort(key=lambda f: -(f.get('height') or 0))
-                        if fs and (v.get('duration') or 0) >= 3:
-                            ris.append(fs[0]['link'])
-                else:
-                    ris = [ph['src'].get('large2x') or ph['src'].get('original') for ph in j.get('photos', [])]
-            except Exception as e:
-                log('Pexels:', q, str(e)[:120])
-        _cache[k] = {'url': [u for u in ris if u], 'usati': 0}
-    c = _cache[k]
-    if not c['url']:
-        return None
-    u = c['url'][c['usati'] % len(c['url'])]
-    c['usati'] += 1
-    return u
+    with _lock:
+        if k in _cache:
+            return _cache[k]
+        if _conti['n'] >= 180:
+            return []
+        _conti['n'] += 1
+    chiave = E('PEXELS_API_KEY', '')
+    ris = []
+    if chiave:
+        base = 'https://api.pexels.com/videos/search' if tipo == 'video' else 'https://api.pexels.com/v1/search'
+        try:
+            j = http(base + '?' + urllib.parse.urlencode({'query': q, 'per_page': 20, 'orientation': 'landscape'}), headers={'Authorization': chiave})
+            if tipo == 'video':
+                for v in j.get('videos', []):
+                    fs = [f for f in v.get('video_files', []) if 'mp4' in (f.get('file_type') or '') and (f.get('height') or 0) <= 1080]
+                    fs.sort(key=lambda f: -(f.get('height') or 0))
+                    if fs and (v.get('duration') or 0) >= 3:
+                        ris.append({'url': fs[0]['link'], 'anteprima': v.get('image') or '', 'desc': (v.get('url') or '').lower()})
+            else:
+                for ph in j.get('photos', []):
+                    ris.append({'url': ph['src'].get('large2x') or ph['src'].get('original'), 'anteprima': ph['src'].get('medium') or '',
+                                'desc': ((ph.get('alt') or '') + ' ' + (ph.get('url') or '')).lower()})
+        except Exception as e:
+            log('Pexels:', q, str(e)[:120])
+    ris = [r for r in ris if r['url'] and not any(re.search(r'(^|[^a-z])' + w + r'([^a-z]|$)', r['desc']) for w in VIETATE)]
+    with _lock:
+        _cache[k] = ris
+    return ris
+
+
+def controlla(candidati, q, contesto):
+    """Claude guarda le anteprime e sceglie la prima adatta. -1 = nessuna."""
+    chiave = E('ANTHROPIC_API_KEY', '')
+    if not chiave or not candidati:
+        return 0 if candidati else -1
+    cont = []
+    for i, c in enumerate(candidati):
+        cont += [{'type': 'text', 'text': f'Immagine {i}:'}, {'type': 'image', 'source': {'type': 'url', 'url': c['anteprima']}}]
+    cont.append({'type': 'text', 'text': f"""Video di storia. La voce in questo momento dice: "{contesto[:400]}". Ricerca usata: "{q}".
+Quale immagine e' adatta da mostrare? Deve sembrare coerente con l'epoca e il luogo raccontati.
+SCARTA: persone moderne (vestiti di oggi, divise, caschi, occhiali da sole), auto, cellulari, cartelli o scritte leggibili, biglietti di auguri, oggetti di plastica, feste moderne, cose fuori tema.
+VANNO BENE: paesaggi, montagne, deserti, rovine, monumenti antichi, musei, oggetti antichi, monete, manoscritti, fuoco, cieli, mare, rievocazioni in costume d'epoca.
+Rispondi SOLO con il numero della prima immagine adatta, oppure -1 se nessuna va bene."""})
+    try:
+        r = http('https://api.anthropic.com/v1/messages', {'model': MODELLO_CONTROLLO, 'max_tokens': 10, 'messages': [{'role': 'user', 'content': cont}]},
+                 {'x-api-key': chiave, 'anthropic-version': '2023-06-01'}, timeout=120)
+        m = re.search(r'-?\d+', ''.join(b.get('text', '') for b in r.get('content', [])))
+        n = int(m.group()) if m else 0
+        return n if -1 <= n < len(candidati) else 0
+    except Exception as e:
+        log('controllo Pexels saltato:', str(e)[:150])
+        return 0
+
+
+def pexels(tipo, q, contesto=''):
+    for qq in (q, q + ' ancient', 'ancient ruins desert'):
+        with _lock:
+            cand = [c for c in pexels_cerca(tipo, qq) if c['url'] not in _usati][:5]
+        if not cand:
+            continue
+        i = controlla(cand, qq, contesto)
+        if i >= 0:
+            with _lock:
+                _usati.add(cand[i]['url'])
+            return cand[i]['url']
+        log('Pexels scartate tutte per:', qq)
+    return None
 
 
 # ============================================================ 4) SFONDI (Fal)
@@ -631,7 +680,7 @@ def main():
         vis = [v for v in (s.get('visivi') or []) if v.get('tipo') in PESO] or [{'tipo': 'cartone', 'sfondo': random.choice(list(sf))}]
         tot = sum(PESO[v['tipo']] for v in vis)
         for v in vis:
-            piano.append(dict(v, d=D * PESO[v['tipo']] / tot))
+            piano.append(dict(v, d=D * PESO[v['tipo']] / tot, contesto=s['testo']))
     lati = 0
     for k, v in enumerate(piano):
         v['d'] = v['d'] + (T_TR if k < len(piano) - 1 else 0)
@@ -642,7 +691,7 @@ def main():
         v = piano[k]; d = v['d']; p = os.path.join(LAV, f'pezzo_{k:04d}.mp4'); t = v['tipo']
         try:
             if t in ('pexels_video', 'pexels_foto'):
-                u = pexels('video' if t == 'pexels_video' else 'foto', v.get('q') or 'ancient ruins')
+                u = pexels('video' if t == 'pexels_video' else 'foto', v.get('q') or 'ancient ruins', v.get('contesto') or '')
                 if not u:
                     raise RuntimeError('nessun risultato Pexels per ' + str(v.get('q')))
                 src = os.path.join(LAV, f'src_{k:04d}' + ('.mp4' if t == 'pexels_video' else '.jpg'))
