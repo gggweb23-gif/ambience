@@ -335,6 +335,47 @@ def rispondi(url, corpo):
             log('risposta a n8n non riuscita (' + str(e)[:120] + '), riprovo'); time.sleep(10 * (k + 1))
 
 
+def iscrizione(isc, ingressi, filtro, amap, totale):
+    """Invito "iscriviti" (colonne subscribe_overlay_* di Channel Configs): immagine nella lingua del canale + clic + campanella.
+    Stesse regole di json2video: al secondo N per 4 s, centrata in basso; clic dopo 0,6 s, campana 1 s dopo il clic."""
+    img = str(isc.get('img') or '').strip()
+    if not img:
+        return filtro, amap
+    try:
+        num = lambda v, d: float(str(v).replace(',', '.')) if str(v if v is not None else '').strip() != '' else d
+        sec = num(isc.get('sec'), 10.0)
+        png = scarica_sicuro(img, os.path.join(LAVORO, 'iscriviti.png'))
+        n = ingressi.count('-i')
+        if f'fontsdir={FONT_DIR}[v]' not in filtro:
+            raise RuntimeError('catena video non riconosciuta')
+        nuovi = ['-loop', '1', '-t', f'{totale:.3f}', '-i', png]
+        f2 = filtro.replace(f'fontsdir={FONT_DIR}[v]', f'fontsdir={FONT_DIR}[v0]', 1)
+        f2 += (f";[{n}:v]scale=900:-1,format=rgba,fade=t=in:st={sec}:d=0.3:alpha=1,fade=t=out:st={sec + 3.6}:d=0.4:alpha=1[isc];"
+                   f"[v0][isc]overlay=x=(W-w)/2:y=640:enable='between(t,{sec},{sec + 4})'[v]")
+        suoni, k = [], n + 1
+        clic = num(isc.get('clic_ritardo'), 0.6)
+        for url, quando, nome in ((isc.get('clic'), sec + clic, 'clic'), (isc.get('campana'), sec + clic + num(isc.get('campana_ritardo'), 1.0), 'campana')):
+            if not str(url or '').strip():
+                continue
+            try:
+                f = scarica_sicuro(str(url).strip(), os.path.join(LAVORO, nome + '.mp3'))
+            except Exception as e:
+                log(nome + ' non disponibile: ' + str(e)[:80]); continue
+            nuovi += ['-i', f]
+            ms = int(quando * 1000)
+            f2 += f";[{k}:a]adelay={ms}|{ms},volume=0.5[s{k}]"
+            suoni.append(f'[s{k}]'); k += 1
+        if suoni:
+            sorgente = amap if amap.startswith('[') else f'[{amap}]'
+            f2 += f";{sorgente}{''.join(suoni)}amix=inputs={len(suoni) + 1}:duration=first:normalize=0[aisc]"
+            amap = '[aisc]'
+        ingressi += nuovi; filtro = f2
+        log(f'invito iscrizione al secondo {sec} con {len(suoni)} suoni')
+    except Exception as e:
+        log('invito iscrizione saltato: ' + str(e)[:150])
+    return filtro, amap
+
+
 def main():
     p = json.loads(os.environ['PAYLOAD'])
     os.makedirs(LAVORO, exist_ok=True)
@@ -448,6 +489,7 @@ def main():
                 amap = '[a]'
             except Exception as e:
                 log('musica non disponibile: ' + str(e)[:100])
+        filtro, amap = iscrizione(dati.get('iscrizione') or {}, ingressi, filtro, amap, totale)
         finale = os.path.join(LAVORO, 'video_finale.mp4')
         run(['ffmpeg', '-y', '-v', 'error'] + ingressi + ['-filter_complex', filtro, '-map', '[v]', '-map', amap,
              '-t', f'{totale:.3f}', '-c:v', 'libx264', '-preset', 'faster', '-crf', '21', '-r', str(FPS), '-pix_fmt', 'yuv420p',
