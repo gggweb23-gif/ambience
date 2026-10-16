@@ -32,6 +32,18 @@ on:
         description: 'Link musica di sottofondo (facoltativo)'
         default: ''
         type: string
+      carica:
+        description: 'SI = carica il video su YouTube (canale Storia in Minuti)'
+        default: 'NO'
+        type: string
+      payload:
+        description: 'Solo per n8n (lascia vuoto)'
+        default: ''
+        type: string
+
+concurrency:
+  group: storia
+  cancel-in-progress: false
 
 jobs:
   video:
@@ -75,6 +87,11 @@ jobs:
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           FAL_KEY: ${{ secrets.FAL_KEY }}
           RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
+          CARICA: ${{ inputs.carica }}
+          PAYLOAD: ${{ inputs.payload }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN_STORIA }}
         run: python3 video_storia.py
 
       - name: Salva il risultato
@@ -88,4 +105,5 @@ jobs:
             titolo.txt
             copione.json
             personaggi_mancanti.txt
+            copertina_analisi.txt
           retention-days: 7
