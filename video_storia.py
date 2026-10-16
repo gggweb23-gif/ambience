@@ -380,7 +380,7 @@ def pexels_cerca(tipo, q):
                     fs.sort(key=lambda f: -(f.get('height') or 0))
                     if fs and (v.get('duration') or 0) >= 3:
                         pics = [x.get('picture') for x in (v.get('video_pictures') or []) if x.get('picture')]
-                        viste = [v.get('image') or ''] + ([pics[len(pics) // 2], pics[-1]] if len(pics) > 2 else [])
+                        viste = [v.get('image') or ''] + ([pics[int(i * (len(pics) - 1) / 4)] for i in range(5)] if len(pics) > 4 else pics)
                         ris.append({'url': fs[0]['link'], 'anteprima': v.get('image') or '', 'viste': [x for x in viste if x],
                                     'desc': (v.get('url') or '').lower()})
             else:
@@ -410,7 +410,7 @@ def controlla(candidati, q, contesto):
     cont, validi = [], 0
     for i, c in enumerate(candidati):   # per le clip: inizio, meta' e fine (una persona puo' entrare dopo)
         with ThreadPoolExecutor(3) as ex:
-            imgs = [x for x in ex.map(b64, (c.get('viste') or [c['anteprima']])[:3]) if x]
+            imgs = [x for x in ex.map(b64, (c.get('viste') or [c['anteprima']])[:6]) if x]
         if imgs:
             validi += 1
         cont += [{'type': 'text', 'text': f'Immagine {i}:' + ('' if imgs else ' (anteprima non disponibile: SCARTALA)')}] + imgs
@@ -424,7 +424,7 @@ SCARTA SEMPRE: qualsiasi persona (anche in costume medievale o storico), citta' 
 VANNO BENE: paesaggi, montagne, deserti, rovine, monumenti antichi, musei, oggetti antichi, monete, manoscritti, fuoco, cieli, mare, armi antiche in museo. NESSUNA persona: le persone nel video sono solo disegnate.
 Rispondi SOLO con il numero della prima immagine adatta, oppure -1 se nessuna va bene."""})
     try:
-        r = http('https://api.anthropic.com/v1/messages', {'model': MODELLO_CONTROLLO, 'max_tokens': 10, 'messages': [{'role': 'user', 'content': cont}]},
+        r = http('https://api.anthropic.com/v1/messages', {'model': E('MODELLO_PEXELS', '') or MODELLO_AI, 'max_tokens': 10, 'messages': [{'role': 'user', 'content': cont}]},
                  {'x-api-key': chiave, 'anthropic-version': '2023-06-01'}, timeout=120)
         m = re.search(r'-?\d+', ''.join(b.get('text', '') for b in r.get('content', [])))
         n = int(m.group()) if m else -1
@@ -436,7 +436,7 @@ Rispondi SOLO con il numero della prima immagine adatta, oppure -1 se nessuna va
 
 
 def pexels(tipo, q, contesto=''):
-    for qq in (q, q + ' ancient', 'ancient ruins desert'):
+    for qq in (q, q + ' ancient'):   # niente ricerche generiche di riserva: se non c'e' un'immagine giusta si usa un cartone
         tutti = pexels_cerca(tipo, qq)   # ricerca FUORI dal lucchetto (prima qui si bloccava tutto)
         with _lock:
             cand = [c for c in tutti if c['url'] not in _usati][:5]
