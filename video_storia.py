@@ -178,6 +178,10 @@ def kit_disponibile():
 
 # come sono disegnati i personaggi generici (il nome da solo inganna: "re_antico" e' un re europeo con l'ermellino)
 KIT_DESCR = {
+    'uomo_moderno': 'uomo moderno in giacca e cravatta: SOLO uomini d\'affari o politici di oggi (MAI archeologi, scienziati, esploratori, turisti, persone del passato)',
+    'donna_moderna': 'donna moderna in felpa e jeans (SOLO persone di oggi)',
+    'turista': 'turista moderno con camicia hawaiana e macchina fotografica (SOLO turismo di oggi)',
+    'industriale': 'industriale dell\'Ottocento in cilindro', 'operaio': 'operaio europeo del Novecento',
     're_antico': 're europeo medievale, corona e mantello di ermellino (SOLO Europa)',
     'regina': 'regina europea medievale, abito blu (SOLO Europa)',
     'nobile': 'nobile europeo del Settecento con parrucca (SOLO Europa 1700-1800)',
@@ -314,6 +318,62 @@ def voce(i, testo, prima='', dopo='', velocita=None):
         except Exception as e:
             log('voce non riuscita, riprovo:', str(e)[:150]); time.sleep(4 * (k + 1))
     raise RuntimeError('ElevenLabs non risponde')
+
+
+_U = ['zero', 'uno', 'due', 'tre', 'quattro', 'cinque', 'sei', 'sette', 'otto', 'nove', 'dieci', 'undici', 'dodici', 'tredici',
+      'quattordici', 'quindici', 'sedici', 'diciassette', 'diciotto', 'diciannove']
+_D = ['', '', 'venti', 'trenta', 'quaranta', 'cinquanta', 'sessanta', 'settanta', 'ottanta', 'novanta']
+_ORD = ['', 'primo', 'secondo', 'terzo', 'quarto', 'quinto', 'sesto', 'settimo', 'ottavo', 'nono', 'decimo', 'undicesimo', 'dodicesimo',
+        'tredicesimo', 'quattordicesimo', 'quindicesimo', 'sedicesimo', 'diciassettesimo', 'diciottesimo', 'diciannovesimo', 'ventesimo', 'ventunesimo']
+
+
+def num_it(n):
+    """Numero intero in lettere, in italiano corretto (2500 -> duemilacinquecento, 1945 -> millenovecentoquarantacinque)."""
+    n = int(n)
+    if n < 20:
+        return _U[n]
+    if n < 100:
+        d, u = divmod(n, 10); t = _D[d]
+        if u in (1, 8):
+            t = t[:-1]
+        return t + ('' if u == 0 else ('tre' if u == 3 else _U[u]))
+    if n < 1000:
+        c, r = divmod(n, 100); t = 'cento' if c == 1 else _U[c] + 'cento'
+        if r and (r // 10 == 8 or r == 8):
+            t = t[:-1]
+        return t + (num_it(r) if r else '')
+    if n < 1000000:
+        m, r = divmod(n, 1000)
+        return ('mille' if m == 1 else num_it(m) + 'mila') + (num_it(r) if r else '')
+    if n < 1000000000:
+        m, r = divmod(n, 1000000)
+        return ('un milione' if m == 1 else num_it(m) + ' milioni') + ((' ' + ('e ' if r < 1000 else '') + num_it(r)) if r else '')
+    m, r = divmod(n, 1000000000)
+    return ('un miliardo' if m == 1 else num_it(m) + ' miliardi') + ((' ' + num_it(r)) if r else '')
+
+
+def parlato(t):
+    """Testo per la VOCE: numeri, date e sigle scritti come si dicono (sullo schermo restano le cifre)."""
+    if LINGUA != 'it' or not t:
+        return t
+    t = re.sub(r'\b([IVX]{1,5})\s+(secolo|sec\.)', lambda m: (_ORD[roman(m.group(1))] if 0 < roman(m.group(1)) < len(_ORD) else m.group(1)) + ' secolo', t)
+    t = re.sub(r'\b([A-Z][a-zà-ÿ]+) (II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI)\b', lambda m: m.group(1) + ' ' + _ORD[roman(m.group(2))], t)
+    t = re.sub(r'\ba\.\s?C\.', 'avanti Cristo', t); t = re.sub(r'\bd\.\s?C\.', 'dopo Cristo', t)
+    t = re.sub(r'(\d)\s*%', r'\1 per cento', t)
+    t = re.sub(r'(\d)\s*°\s*C\b', r'\1 gradi', t); t = re.sub(r'(\d)\s*°', r'\1 gradi', t)
+    t = re.sub(r'(\d)\s*km\b', r'\1 chilometri', t); t = re.sub(r'(\d)\s*kg\b', r'\1 chili', t)
+    t = re.sub(r'\b\d{1,3}(?:[.\u202f ]\d{3})+\b', lambda m: re.sub(r'\D', '', m.group()), t)   # 2.500 -> 2500
+    t = re.sub(r'\b(\d+),(\d+)\b', lambda m: num_it(int(m.group(1))) + ' virgola ' + (num_it(int(m.group(2))) if not m.group(2).startswith('0') else ' '.join(_U[int(x)] for x in m.group(2))), t)
+    t = re.sub(r'\b\d+\b', lambda m: num_it(int(m.group())) if len(m.group()) <= 12 else m.group(), t)
+    t = re.sub(r'\buno (milion|miliard)', r'un \1', t)
+    return t
+
+
+def roman(r):
+    v = {'I': 1, 'V': 5, 'X': 10}; tot = 0
+    for i, ch in enumerate(r):
+        x = v.get(ch, 0); tot += -x if i + 1 < len(r) and v.get(r[i + 1], 0) > x else x
+    return tot
 
 
 def _norm(t):
@@ -706,6 +766,15 @@ def a_capo(testo, f, larg):
 
 
 # battitura a macchina: stessi tempi per il disegno e per il suono dei tasti
+def dur_carta(d):
+    """Battitura delle carte: la frase e' sempre completa almeno 1 secondo prima del cambio immagine."""
+    return min(2.0, max(.4, d - 1.3))
+
+
+def dur_scheda(d):
+    return min(1.2, max(.3, d - 1.6))
+
+
 def dur_did(d):
     """Durata della battitura di una didascalia: si adatta al pezzo, cosi' la scritta finisce sempre prima del cambio."""
     return min(1.6, max(.5, d - 1.1))
@@ -729,7 +798,7 @@ def pezzo_carta(path, d, testo, fondo, nome_font):
         f = font(nome_font, sz); righe = a_capo(testo, f, 1150)   # dentro il centro libero del fondo, mai sopra le decorazioni
         if (len(righe) <= 3 and max(f.getlength(r) for r in righe) <= 1200) or sz <= 70: break
         sz -= 6
-    tot = len(testo); i0, dur_batt = battitura(testo, .3, 2.0)
+    tot = len(testo); i0, dur_batt = battitura(testo, .3, dur_carta(d))
 
     def disegna(t):
         n = tot if t >= i0 + dur_batt else int(clamp((t - i0) / dur_batt) * tot)
@@ -888,7 +957,7 @@ def pezzo_scheda(path, d, fondo, nome_pg, nome, nome_font='classico'):
     sz = 100
     while sz > 64 and font(nome_font, sz).getlength(nome) > W - 200:
         sz -= 4
-    f = font(nome_font, sz); tot = len(nome); i0, dur = battitura(nome, .6, 1.2)
+    f = font(nome_font, sz); tot = len(nome); i0, dur = battitura(nome, .6, dur_scheda(d))
 
     def disegna(t):
         k = (min(12, int(t * 20)), tot if t >= i0 + dur else int(clamp((t - i0) / dur) * tot))
@@ -1107,7 +1176,7 @@ def pianifica(scene, durs, voci, sf):
     """Divide ogni scena in visivi che compaiono quando la voce dice la loro 'frase'."""
     piano = []
     for i, (s, D) in enumerate(zip(scene, durs)):
-        testo = s['testo']
+        testo = s.get('testo_voce') or s['testo']   # le lettere della voce corrispondono a questo testo
         try:
             al = json.load(open(voci[i][:-4] + '.json'))
         except Exception:
@@ -1128,7 +1197,7 @@ def pianifica(scene, durs, voci, sf):
             frase = v.get('frase') or (v.get('testo') if v['tipo'] == 'carta' else '') or (v.get('nome') if v['tipo'] == 'scheda' else '')
             if j == 0 and v['tipo'] not in ('carta', 'scheda'):
                 frase = ''   # il primo visivo parte con la scena
-            idx = trova(testo, frase, pos) if frase else None
+            idx = trova(testo, parlato(frase), pos) if frase else None
             if idx is not None:
                 pos = idx + 1
                 t = max(0.0, tempo_lettera(al, idx, testo, D) - 0.15)   # appena prima della parola
@@ -1231,7 +1300,9 @@ def main():
     log('copione:', len(c['scene']), 'scene,', sum(len(s['testo'].split()) for s in c['scene']), 'parole')
     # voce
     with ThreadPoolExecutor(2) as ex:   # ElevenLabs accetta poche richieste insieme (errore 429 con 4)
-        testi = [s['testo'] for s in c['scene']]
+        testi = [parlato(s['testo']) for s in c['scene']]   # numeri e sigle scritti per esteso: la voce li legge bene
+        for s_, t_ in zip(c['scene'], testi):
+            s_['testo_voce'] = t_
         voci = list(ex.map(lambda i: voce(i, testi[i], ' '.join(testi[:i])[-400:], ' '.join(testi[i + 1:])[:400]), range(len(testi))))
     durs = [durata(v) for v in voci]
     # ritmo della voce uguale dall'inizio alla fine: una scena letta piu' lenta delle altre (succede spesso alla prima) si rifa' un po' piu' veloce
@@ -1285,18 +1356,18 @@ def main():
     for v in piano:
         if v.get('personaggio') and v['personaggio'] not in kit:
             mancanti.append(v['personaggio']); v['personaggio'] = ''
-    # ogni cartone ha sempre un personaggio: quello della scena, altrimenti il piu' usato nel video
+    # un cartone ha il personaggio della SUA scena; se la scena non ne ha uno coerente nel kit, nessuno (meglio vuoto che fuori contesto)
     usati = [v.get('personaggio') for v in piano if v.get('tipo') == 'cartone' and v.get('personaggio') and v['personaggio'] != NARRATORE]
     pg_video = max(set(usati), key=usati.count) if usati else (kit[0] if kit else '')
     for v in piano:
         if v.get('pg_scena') not in kit:
-            v['pg_scena'] = pg_video
+            v['pg_scena'] = ''
         if v['tipo'] == 'cartone' and not v.get('personaggio'):
             v['personaggio'] = v['pg_scena']
     piano = ritmo(piano, list(sf))
     for v in piano:   # il narratore (avatar del canale) non compare MAI nei video
         if v.get('personaggio') == NARRATORE:
-            v['personaggio'] = pg_video if pg_video != NARRATORE else ''
+            v['personaggio'] = ''
     limita_personaggi(piano)
     log('visivi:', len(piano), '| primi 10 s:', sum(1 for x in __import__('itertools').accumulate([0] + [v['d'] for v in piano]) if x < 10))
     # durate a fotogrammi interi: video e voce restano allineati fino all'ultimo secondo
@@ -1364,9 +1435,9 @@ def main():
     for v in piano:
         d = v['d']
         if v['tipo'] == 'carta':
-            eventi += [t_ini + x for x in tasti(v.get('testo') or '', .3, 2.0, d)]
+            eventi += [t_ini + x for x in tasti(v.get('testo') or '', .3, dur_carta(d), d)]
         elif v['tipo'] == 'scheda':
-            eventi += [t_ini + x for x in tasti(v.get('nome') or '', .6, 1.2, d)]
+            eventi += [t_ini + x for x in tasti(v.get('nome') or '', .6, dur_scheda(d), d)]
         elif v.get('didascalia'):
             eventi += [t_ini + x for x in tasti(str(v['didascalia'])[:60], .45, dur_did(d), d)]
         t_ini += d - T_TR
