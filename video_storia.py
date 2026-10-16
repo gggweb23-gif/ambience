@@ -376,7 +376,7 @@ def controlla(candidati, q, contesto):
 Quale immagine e' adatta da mostrare? Deve sembrare coerente con l'epoca e il luogo raccontati.
 Se un'immagine ha piu' fotogrammi (stessa clip), giudicali TUTTI: basta un fotogramma sbagliato per scartarla.
 SCARTA SEMPRE: qualsiasi persona di oggi, anche piccola, lontana, di spalle o in mezzo a rovine (giacche, felpe, jeans, scarpe da ginnastica, zaini, turisti); auto, cellulari, cartelli o scritte leggibili, biglietti di auguri, oggetti di plastica, feste moderne, cose fuori tema.
-VANNO BENE: paesaggi, montagne, deserti, rovine, monumenti antichi, musei, oggetti antichi, monete, manoscritti, fuoco, cieli, mare, rievocazioni in costume d'epoca (persone ammesse SOLO se vestite in modo storico evidente).
+VANNO BENE: paesaggi, montagne, deserti, rovine, monumenti antichi, musei, oggetti antichi, monete, manoscritti, fuoco, cieli, mare, rievocazioni in costume d'epoca (persone ammesse SOLO se TUTTE vestite in modo storico: se sullo sfondo si vede anche un solo spettatore o turista moderno, SCARTA).
 Rispondi SOLO con il numero della prima immagine adatta, oppure -1 se nessuna va bene."""})
     try:
         r = http('https://api.anthropic.com/v1/messages', {'model': MODELLO_CONTROLLO, 'max_tokens': 10, 'messages': [{'role': 'user', 'content': cont}]},
@@ -453,6 +453,18 @@ STILE_COP = {
 }
 
 
+LINGUA_NOME = {'it': 'italiano', 'en': 'English (US)'}.get(LINGUA, LINGUA)
+
+
+def date_lingua(t):
+    """In italiano: BC/BCE -> a.C., AD/CE -> d.C. (copertina e testi a schermo)."""
+    if LINGUA != 'it' or not t:
+        return t
+    t = re.sub(r'\b(B\.?\s?C\.?\s?E\.?|B\.?\s?C\.?)(?![A-Za-z])', 'a.C.', t)
+    t = re.sub(r'(?<=\d)\s*(A\.?\s?D\.?|C\.?\s?E\.?)(?![A-Za-z])', ' d.C.', t)
+    return t
+
+
 def analizza_copertina(comp, testo):
     """Copia al COP_COPIA%: Claude guarda la copertina del competitor e le migliori della nicchia e decide il cambio (pattern forte)."""
     chiave = E('ANTHROPIC_API_KEY', '')
@@ -465,6 +477,7 @@ def analizza_copertina(comp, testo):
 Il cambio NON e' casuale: guarda le copertine 1-{len(RIFERIMENTI)} e trova i PATTERN che le rendono forti (es. un personaggio con emozione esagerata, una freccia o un cerchio rosso, un contrasto piu' forte, un oggetto simbolo in primo piano, una data o un numero evidenziato, un volto storico riconoscibile, fuoco/esplosione, mappa).
 Scegli UNO o DUE di questi pattern che mancano nella copertina 0 e aggiungili al posto di elementi secondari, cosi' la copertina diventa piu' forte e abbastanza diversa da non essere una copia.
 Il testo della copertina sara': "{testo}".
+Se il cambio aggiunge o modifica una scritta (date, numeri, parole), deve essere nella lingua del canale ({LINGUA_NOME}): in italiano le date si scrivono "a.C." e "d.C." (es. "5000 a.C. → 2026"), MAI "BC", "AD", "BCE", "CE".
 Rispondi SOLO con JSON: {{"tieni": "cosa resta uguale, in inglese, 1 frase", "cambia": "il cambio preciso da fare, in inglese, 1-2 frasi concrete per un generatore di immagini", "pattern": "nome breve del pattern usato, in italiano"}}"""})
     try:
         r = http('https://api.anthropic.com/v1/messages', {'model': MODELLO_AI, 'max_tokens': 600, 'messages': [{'role': 'user', 'content': cont}]},
@@ -473,7 +486,7 @@ Rispondi SOLO con JSON: {{"tieni": "cosa resta uguale, in inglese, 1 frase", "ca
         j = json.loads(t[t.find('{'): t.rfind('}') + 1])
         open(os.path.join(ROOT, 'copertina_analisi.txt'), 'w').write(json.dumps(j, ensure_ascii=False, indent=1))
         log('copertina: pattern scelto ->', j.get('pattern'), '|', j.get('cambia'))
-        return f"KEEP: {j.get('tieni', '')} CHANGE (about {100 - COP_COPIA}% of the image): {j.get('cambia', '')} "
+        return f"KEEP: {j.get('tieni', '')} CHANGE (about {100 - COP_COPIA}% of the image): {date_lingua(j.get('cambia', ''))} "
     except Exception as e:
         log('analisi copertina saltata:', str(e)[:200])
         return f'Change about {100 - COP_COPIA}% of the secondary elements (background details, small objects, camera angle) while keeping the main subject and layout. '
@@ -483,7 +496,7 @@ def copertina(comp, c):
     if not comp.get('copertina') or not E('FAL_KEY'):
         return None
     cop = c.get('copertina') or {}
-    testo = str(cop.get('testo') or c.get('titolo') or '').strip()
+    testo = date_lingua(str(cop.get('testo') or c.get('titolo') or '').strip())
     img = [comp['copertina']]
     pg = png_personaggio(cop.get('personaggio') or '', 'fermo') if COP_STILE != 'realistico' else None
     if pg:
@@ -501,7 +514,9 @@ def copertina(comp, c):
         base = (f'Recreate the YouTube thumbnail of the FIRST image keeping about {COP_COPIA}% of it: same main composition, same layout, same colour palette '
                 f'and same title position and size, {stile}. ' + cambio)
     prompt = (base + ('The main figure is the character of the SECOND image (same face, clothes and style), placed where the main figure is in the first image. ' if len(img) > 1 else '')
-              + f'Replace ALL the text with exactly this text, same font style, same colours and same position: "{testo}". No other text, no logos, no watermark.')
+              + f'Replace ALL the text with exactly this text, same font style, same colours and same position: "{testo}". '
+              + (f'Every word, number and date written on the image must be in {LINGUA_NOME}' + (' (dates as "a.C." / "d.C.", never BC or AD)' if LINGUA == 'it' else '') + '. '
+              + 'No other text, no logos, no watermark.'))
     try:
         r = fal('fal-ai/nano-banana-2/edit', {'prompt': prompt, 'image_urls': img, 'aspect_ratio': '16:9', 'resolution': '2K', 'output_format': 'jpeg', 'num_images': 1})
         p = os.path.join(ROOT, 'copertina.jpg'); scarica(r['images'][0]['url'], p)
@@ -658,8 +673,8 @@ def pezzo_carta(path, d, testo, fondo, nome_font):
     tex, ink = fondo
     sz = 120
     while True:
-        f = font(nome_font, sz); righe = a_capo(testo, f, 1450)
-        if (len(righe) <= 3 and max(f.getlength(r) for r in righe) <= 1500) or sz <= 74: break
+        f = font(nome_font, sz); righe = a_capo(testo, f, 1150)   # dentro il centro libero del fondo, mai sopra le decorazioni
+        if (len(righe) <= 3 and max(f.getlength(r) for r in righe) <= 1200) or sz <= 70: break
         sz -= 6
     tot = len(testo); i0, dur_batt = battitura(testo, .3, 2.0)
 
