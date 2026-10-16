@@ -1117,7 +1117,8 @@ def main():
         except Exception as e:
             log('musica saltata:', e)
     finale = os.path.join(ROOT, 'video_storia.mp4')
-    run(['ffmpeg', '-y', '-v', 'error', '-i', video, '-i', audio, '-map', '0:v', '-map', '1:a', '-c:v', 'copy', '-c:a', 'copy', '-shortest', finale])
+    if not iscrizione(video, audio, finale):
+        run(['ffmpeg', '-y', '-v', 'error', '-i', video, '-i', audio, '-map', '0:v', '-map', '1:a', '-c:v', 'copy', '-c:a', 'copy', '-shortest', finale])
     cop = copertina(comp, c)
     open(os.path.join(ROOT, 'titolo.txt'), 'w').write(titolo_finale)
     if CARICA:
@@ -1133,6 +1134,42 @@ def main():
                 'minuti_lavoro': round((time.time() - T_INIZIO) / 60, 1), 'titolo': titolo_finale})
     open(os.path.join(ROOT, 'personaggi_mancanti.txt'), 'w').write('\n'.join(sorted(set(m for m in mancanti if m))))
     log('FATTO:', finale, round(durata(finale) / 60, 1), 'minuti')
+
+
+# ============================================================ INVITO ISCRIZIONE (colonne subscribe_overlay_* di Channel Configs)
+def iscrizione(video, audio, finale):
+    """Immagine "ISCRIVITI / SUBSCRIBE" nella lingua del canale al secondo N per 4 s + clic + campanella (come json2video).
+    Restituisce False se non c'e' nulla da fare o se qualcosa va storto (il video esce comunque, senza invito)."""
+    isc = P.get('iscrizione') or {}
+    img = str(isc.get('img') or '').strip()
+    if not img:
+        return False
+    try:
+        num = lambda v, d: float(str(v).replace(',', '.')) if str(v if v is not None else '').strip() != '' else d
+        sec = num(isc.get('sec'), 10.0); clic = num(isc.get('clic_ritardo'), 0.6)
+        png = scarica(img, os.path.join(LAV, 'iscriviti.png'))
+        ins = ['-i', video, '-i', audio, '-loop', '1', '-t', '%.3f' % durata(video), '-i', png]
+        fl = (f"[2:v]scale=900:-1,format=rgba,fade=t=in:st={sec}:d=0.3:alpha=1,fade=t=out:st={sec + 3.6}:d=0.4:alpha=1[isc];"
+              f"[0:v][isc]overlay=x=(W-w)/2:y=640:enable='between(t,{sec},{sec + 4})'[v]")
+        suoni, k = [], 3
+        for url, quando, nome in ((isc.get('clic'), sec + clic, 'clic'), (isc.get('campana'), sec + clic + num(isc.get('campana_ritardo'), 1.0), 'campana')):
+            if not str(url or '').strip():
+                continue
+            try:
+                f = scarica(str(url).strip(), os.path.join(LAV, nome + '.mp3'))
+            except Exception as e:
+                log(nome, 'non disponibile:', str(e)[:80]); continue
+            ins += ['-i', f]; ms = int(quando * 1000)
+            fl += f";[{k}:a]adelay={ms}|{ms},volume=0.5[s{k}]"; suoni.append(f'[s{k}]'); k += 1
+        amap = '1:a'
+        if suoni:
+            fl += f";[1:a]{''.join(suoni)}amix=inputs={len(suoni) + 1}:duration=first:normalize=0[a]"; amap = '[a]'
+        run(['ffmpeg', '-y', '-v', 'error', *ins, '-filter_complex', fl, '-map', '[v]', '-map', amap, *ENC, '-c:a', 'aac', '-b:a', '192k', '-shortest', finale])
+        log(f'invito iscrizione al secondo {sec} con {len(suoni)} suoni')
+        return True
+    except Exception as e:
+        log('invito iscrizione saltato:', str(e)[:200])
+        return False
 
 
 # ============================================================ YOUTUBE (caricamento sul canale + avviso a n8n)
