@@ -816,7 +816,7 @@ def pezzo_scheda(path, d, fondo, nome_pg, nome, nome_font='classico'):
     fp = png_personaggio(nome_pg, 'fermo')
     fig = Image.open(fp).convert('RGBA') if fp else None
     if fig:
-        fig.thumbnail((900, 560)); ombra = fig.split()[3].filter(ImageFilter.GaussianBlur(10))
+        fig.thumbnail((900, 620)); ombra = fig.split()[3].filter(ImageFilter.GaussianBlur(10))
     sz = 100
     while sz > 64 and font(nome_font, sz).getlength(nome) > W - 200:
         sz -= 4
@@ -1146,7 +1146,7 @@ def main():
         mix = []   # alterna: tema, carta, tema, colore, tema, colore
         for i in range(max(len(ai), len(fondi))):
             mix += ([ai[i]] if i < len(ai) else []) + ([fondi[i]] if i < len(fondi) else [])
-        fondi = mix; fondi_ai = ai
+        fondi = ai or mix; fondi_ai = ai   # gli spettatori vogliono immagini a tema: niente fondi neutri se ci sono quelli a tema
     # piano dei pezzi
     piano = pianifica(c['scene'], durs, voci, sf)
     for v in piano:
@@ -1170,13 +1170,16 @@ def main():
     for v in piano:
         acc += v['d']; fine = int(round(acc * FPS))
         v['d'] = max(1, fine - fine_prec) / FPS; fine_prec = fine
-    n_carte, n_schede = 0, 0
+    n_carte, n_schede, ultimo_sfondo = 0, 0, (list(sf)[0] if sf else None)
     decorati = [i for i, f in enumerate(fondi) if any(f is a for a in fondi_ai)] or list(range(len(fondi)))
     for v in piano:   # carte: fondi a rotazione; schede dei personaggi: SEMPRE su un fondo decorato a tema
         if v['tipo'] == 'carta':
             v['fondo'] = n_carte % len(fondi); n_carte += 1
         elif v['tipo'] == 'scheda':
             v['fondo'] = decorati[n_schede % len(decorati)]; n_schede += 1
+            v['sfondo_scheda'] = ultimo_sfondo
+        if v['tipo'] == 'cartone' and v.get('sfondo'):
+            ultimo_sfondo = v['sfondo']
 
     def fai(k):
         v = piano[k]; d = v['d']; p = os.path.join(LAV, f'pezzo_{k:04d}.mp4'); t = v['tipo']
@@ -1191,8 +1194,9 @@ def main():
                 return con_didascalia(p, d, v)
             if t == 'carta':
                 return pezzo_carta(p, d, v.get('testo') or '', fondi[v.get('fondo', 0)], nome_font)
-            if t == 'scheda':
-                return pezzo_scheda(p, d, fondi[v.get('fondo', 0)], v.get('personaggio') or '', v.get('nome') or '', nome_font)
+            if t == 'scheda':   # il personaggio si presenta dentro un luogo della storia (sfondo a cartone del video), mai su fondo neutro
+                bg = sf.get(v.get('sfondo_scheda')) or list(sf.values())[k % len(sf)]
+                return pezzo_scheda(p, d, (Image.open(bg).convert('RGB').resize((W, H), Image.LANCZOS), INK), v.get('personaggio') or '', v.get('nome') or '', nome_font)
             if t == 'mappa':
                 return pezzo_mappa(p, d, c.get('paese_mappa') or '', c.get('titolo_mappa') or TITOLO.split()[-1], c.get('date') or '')
             pezzo_cartone(p, d, sf.get(v.get('sfondo')) or list(sf.values())[k % len(sf)], v.get('personaggio') or '',
