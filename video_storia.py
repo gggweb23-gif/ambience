@@ -380,7 +380,7 @@ def pexels_cerca(tipo, q):
                     fs.sort(key=lambda f: -(f.get('height') or 0))
                     if fs and (v.get('duration') or 0) >= 3:
                         pics = [x.get('picture') for x in (v.get('video_pictures') or []) if x.get('picture')]
-                        viste = [v.get('image') or ''] + ([pics[int(i * (len(pics) - 1) / 4)] for i in range(5)] if len(pics) > 4 else pics)
+                        viste = [pics[int(i * (len(pics) - 1) / 3)] for i in range(4)] if len(pics) > 3 else [v.get('image') or ''] + pics
                         ris.append({'url': fs[0]['link'], 'anteprima': v.get('image') or '', 'viste': [x for x in viste if x],
                                     'desc': (v.get('url') or '').lower()})
             else:
@@ -402,7 +402,7 @@ def controlla(candidati, q, contesto):
         return 0 if candidati else -1
     def b64(u):   # scarichiamo noi l'anteprima (Pexels blocca i download fatti da altri server) e la mandiamo come immagine
         try:
-            im = Image.open(io.BytesIO(http(u, raw=True, timeout=30))).convert('RGB'); im.thumbnail((480, 480))
+            im = Image.open(io.BytesIO(http(u, raw=True, timeout=30))).convert('RGB'); im.thumbnail((384, 384))
             buf = io.BytesIO(); im.save(buf, 'JPEG', quality=80)
             return {'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}}
         except Exception:
@@ -410,7 +410,7 @@ def controlla(candidati, q, contesto):
     cont, validi = [], 0
     for i, c in enumerate(candidati):   # per le clip: inizio, meta' e fine (una persona puo' entrare dopo)
         with ThreadPoolExecutor(3) as ex:
-            imgs = [x for x in ex.map(b64, (c.get('viste') or [c['anteprima']])[:6]) if x]
+            imgs = [x for x in ex.map(b64, (c.get('viste') or [c['anteprima']])[:4]) if x]
         if imgs:
             validi += 1
         cont += [{'type': 'text', 'text': f'Immagine {i}:' + ('' if imgs else ' (anteprima non disponibile: SCARTALA)')}] + imgs
@@ -422,12 +422,16 @@ Se un'immagine ha piu' fotogrammi (stessa clip), giudicali TUTTI: basta un fotog
 COERENZA: se la voce parla di un popolo o di un luogo preciso (es. gli arabi, l'Iran, il deserto), l'immagine deve essere di QUEL luogo/popolo; paesaggi di un altro continente o clima vanno SCARTATI.
 SCARTA SEMPRE: qualsiasi persona (anche in costume medievale o storico), citta' moderne, palazzi moderni, lampioni, cavi elettrici, cartelli, folle; qualsiasi persona di oggi, anche piccola, lontana, di spalle o in mezzo a rovine (giacche, felpe, jeans, scarpe da ginnastica, zaini, turisti); auto, cellulari, cartelli o scritte leggibili, biglietti di auguri, oggetti di plastica, feste moderne, cose fuori tema.
 VANNO BENE: paesaggi, montagne, deserti, rovine, monumenti antichi, musei, oggetti antichi, monete, manoscritti, fuoco, cieli, mare, armi antiche in museo. NESSUNA persona: le persone nel video sono solo disegnate.
-Rispondi SOLO con il numero della prima immagine adatta, oppure -1 se nessuna va bene."""})
+Per il LUOGO basta che sia plausibile per quel paese (montagne, deserti, rovine, cieli vanno bene se il clima e' simile); scarta solo cio' che e' chiaramente di un altro mondo (es. colline verdi alpine per un deserto, palme tropicali, citta' europee).
+Ragiona in breve (max 2 righe) e poi chiudi con una riga ESATTAMENTE cosi': SCELTA: <numero della prima immagine adatta, oppure -1 se nessuna va bene>"""})
     try:
-        r = http('https://api.anthropic.com/v1/messages', {'model': E('MODELLO_PEXELS', '') or MODELLO_AI, 'max_tokens': 10, 'messages': [{'role': 'user', 'content': cont}]},
+        r = http('https://api.anthropic.com/v1/messages', {'model': E('MODELLO_PEXELS', '') or MODELLO_AI, 'max_tokens': 300, 'messages': [{'role': 'user', 'content': cont}]},
                  {'x-api-key': chiave, 'anthropic-version': '2023-06-01'}, timeout=120)
-        m = re.search(r'-?\d+', ''.join(b.get('text', '') for b in r.get('content', [])))
-        n = int(m.group()) if m else -1
+        txt = ''.join(b.get('text', '') for b in r.get('content', []))
+        m = re.search(r'SCELTA:\s*(-?\d+)', txt) or re.search(r'(-?\d+)\s*$', txt.strip())
+        n = int(m.group(1)) if m else -1
+        if not m:
+            log('Pexels: risposta non chiara:', txt[-150:])
         log('Pexels', repr(q), '->', 'scartate tutte' if n < 0 else f'scelta {n}')
         return n if -1 <= n < len(candidati) else -1
     except Exception as e:   # senza controllo NON si usa nessuna immagine (meglio un cartone che una persona di oggi)
@@ -439,7 +443,7 @@ def pexels(tipo, q, contesto=''):
     for qq in (q, q + ' ancient'):   # niente ricerche generiche di riserva: se non c'e' un'immagine giusta si usa un cartone
         tutti = pexels_cerca(tipo, qq)   # ricerca FUORI dal lucchetto (prima qui si bloccava tutto)
         with _lock:
-            cand = [c for c in tutti if c['url'] not in _usati][:5]
+            cand = [c for c in tutti if c['url'] not in _usati][:4]
         if not cand:
             continue
         i = controlla(cand, qq, contesto)
