@@ -99,15 +99,23 @@ ACCORDO_LIBERO = ('He faces the viewer, body turned only slightly toward the rig
 ACCORDO_AUTO = ('The person faces the viewer, body turned only slightly toward the right side of the image, face fully visible, '
                 'looking STRAIGHT into the camera, directly at the viewer, with an expression that fits the role and the story. '
                 'The figure fills the whole height of the image, from the top of the head (or headdress, helmet crest) down to at least the knees. '
-                'Every piece of clothing, hairstyle, jewellery and object is historically accurate for the period. '
+                'Every piece of clothing, hairstyle, jewellery and object is historically accurate for the period, and fits the RANK of the person: '
+                'emperors, generals, senators and nobles wear rich, clean, imposing clothes of fine materials; never ragged clothes unless the story says so. '
                 'Soft warm light from the right, cinematic photorealism, highly detailed skin, fabric and metal. '
                 'Plain flat light-grey studio background, nothing else in the background. No text, no logo, no watermark.')
 
 
-VESTITI = ('His clothing belongs to his era but is elegant, clean and well kept, made of fine quality fabric in deep rich colours '
-           '(an ancient philosopher wears a clean fine wool tunic with a neatly draped cloak with a subtle embroidered border; '
-           'a modern thinker wears a well-tailored dark frock coat, waistcoat and white cravat). Dignified and refined, '
-           'never ragged, worn, torn or dirty, and never royal, flashy or covered in jewels. ')
+VESTITI = ('He is dressed with the AUTHORITY of the highest rank he held in life, in historically accurate clothing of his era, '
+           'made of rich, fine, perfectly clean materials: '
+           'if he was a Roman EMPEROR (e.g. Marcus Aurelius) he wears an imperial white toga with a broad purple border and a gold-embroidered purple cloak, '
+           'or a polished gilded muscle cuirass with a purple paludamentum, and a golden laurel wreath; '
+           'if he was a Roman SENATOR or statesman (e.g. Seneca, Cicero) he wears an immaculate white senatorial toga praetexta with a wide purple stripe, '
+           'fine linen tunic, gold signet ring; '
+           'if he was a Greek philosopher he wears a pristine fine linen chiton and a large neatly draped himation in deep rich colours '
+           '(royal blue, burgundy, cream) with a woven gold border, held by a gold fibula; '
+           'a modern thinker wears a perfectly tailored dark frock coat, silk waistcoat and white cravat. '
+           'He looks powerful, dignified and respected, like the most important man in the room: '
+           'never ragged, rough, worn, torn, faded, dirty or poor-looking. ')
 
 
 def ritratto_auto(descrizione, cartella):
@@ -130,7 +138,7 @@ def ritratto(nome, cartella, seme=0, su_misura=False, pose=None, abiti=None, esp
     - pose / abiti (facoltativi, da render_style): liste del canale. Con 'abiti' cambia anche il vestito a ogni video
       (stesso viso), cosi' chi guarda capisce subito che e' un video nuovo."""
     slug = re.sub(r'[^a-z0-9]+', '_', nome.lower()).strip('_')[:60]
-    master = os.path.join(os.getcwd(), 'ritratti', slug + '_master_v2.png')   # v2 = frontale e vestiti eleganti
+    master = os.path.join(os.getcwd(), 'ritratti', slug + '_master_v3.png')   # v3 = abiti autorevoli del suo rango (imperatore, senatore, filosofo)
     dest = os.path.join(cartella, 'ritratto.png')
     if not (os.path.exists(master) and os.path.getsize(master) > 2000):
         os.makedirs(os.path.dirname(master), exist_ok=True)
