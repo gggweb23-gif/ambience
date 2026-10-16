@@ -237,7 +237,7 @@ Il PRIMO visivo del video e' sempre un "cartone" con un personaggio.
 SINCRONIA CON LA VOCE (FONDAMENTALE): ogni visivo ha il campo "frase" = 2-4 parole COPIATE IDENTICHE dal "testo" della scena, nel punto esatto in cui il visivo deve comparire. I visivi sono nello stesso ordine delle loro frasi nel testo, a distanza di almeno 4 parole l'uno dall'altro. Il primo visivo ha come frase le prime parole della scena.
 - una "carta" compare quando la voce dice quella frase: il suo "testo" riprende parole DETTE in quella scena e la sua "frase" e' l'inizio di quelle parole nel testo;
 - una "scheda" SOLO nella scena in cui quel personaggio viene NOMINATO dalla voce, con frase = il nome cosi' come detto;
-- un "cartone" con un personaggio storico reale SOLO quando viene nominato (frase = il nome); quando non si nomina nessuno usa SEMPRE una figura generica della lista (soldato, contadino, nobile...) coerente con cio' che si dice: ogni cartone ha un personaggio; il personaggio deve essere SEMPRE della stessa EPOCA e dello stesso popolo di cio' che si racconta (mai un generale in divisa moderna per l'antichita', mai un cavaliere medievale europeo per la Persia antica);
+- un "cartone" con un personaggio storico reale SOLO quando viene nominato (frase = il nome); quando non si nomina nessuno usa SEMPRE una figura generica della lista (soldato, contadino, nobile...) coerente con cio' che si dice: ogni cartone ha un personaggio; se nella lista NON c'e' un personaggio coerente con cio' che la voce dice in quel momento, NON mettere un personaggio sbagliato: usa un "pexels_video", un "pexels_foto" o una "carta" (e segna la figura in "personaggi_mancanti"); il personaggio deve essere SEMPRE della stessa EPOCA e dello stesso popolo di cio' che si racconta (mai un generale in divisa moderna per l'antichita', mai un cavaliere medievale europeo per la Persia antica);
 - un "pexels" deve mostrare cio' che la voce dice in quel momento.
 Tipi:
 - "cartone": scena disegnata. Campi: "sfondo" (id di uno dei 6 sfondi), "personaggio" (SOLO uno di questa lista, oppure "" per nessuno): {lista_kit(kit)}; "reazione": true se a meta' il personaggio cambia posa (momento forte). Nella PRIMA scena il primo visivo e' un cartone con il campo "data" (es. "550 a.C.").
@@ -1067,6 +1067,33 @@ def pianifica(scene, durs, voci, sf):
 
 
 
+def norm_paese(t):
+    t = re.sub(r'[^a-z ]', ' ', str(t).lower())
+    t = re.sub(r'\b(the|ancient|empire|of|history|entire|kingdom|republic)\b', ' ', t)
+    t = re.sub(r'\s+', ' ', t).strip()
+    return {'roman': 'rome', 'persia': 'iran', 'persian': 'iran', 'usa': 'united states', 'america': 'united states'}.get(t, t)
+
+
+def paese_video(comp):
+    """Il paese (o impero) raccontato dal video competitor, in inglese: serve a non fare mai due video sullo stesso paese."""
+    chiave = E('ANTHROPIC_API_KEY', '')
+    if not chiave:
+        return ''
+    testo = f"Titolo: {comp.get('titolo', '')}\nInizio del parlato: {' '.join((comp.get('testo') or '').split()[:250])}"
+    try:
+        r = http('https://api.anthropic.com/v1/messages', {'model': MODELLO_CONTROLLO, 'max_tokens': 30, 'messages': [{'role': 'user', 'content':
+                 testo + "\n\nDi quale paese racconta la storia questo video? Rispondi SOLO con il nome del paese di oggi in inglese "
+                 "(es. Persia -> Iran, Prussia -> Germany). Se e' un impero senza paese di oggi (es. Roman Empire, Mongol Empire) scrivi il nome dell'impero in inglese. "
+                 "Correggi eventuali errori di battitura del titolo (es. 'History of Iron' che parla dell'Iran -> Iran)."}]},
+                 {'x-api-key': chiave, 'anthropic-version': '2023-06-01'}, timeout=60)
+        p = ''.join(b.get('text', '') for b in r.get('content', [])).strip().split('\n')[0].strip(' ."\'')
+        log('paese del video:', p)
+        return p[:60]
+    except Exception as e:
+        log('paese non riconosciuto:', str(e)[:120])
+        return ''
+
+
 def minuti_giusti(testo, n):
     """'in 11 Minuti' -> 'in 13 Minuti' (stesso maiuscolo/minuscolo, singolare se 1). Vale anche per 'minutes' e 'min'."""
     def sost(m):
@@ -1088,6 +1115,15 @@ def minuti_giusti(testo, n):
 def main():
     os.makedirs(LAV, exist_ok=True)
     comp = competitor()
+    # stesso paese gia' fatto? stop prima di spendere (voce, immagini): la riga va in DOPPIONE e al giro dopo parte il paese successivo
+    paese = paese_video(comp)
+    INFO_COMP['paese'] = paese
+    fatti = {norm_paese(str(x).split(' = ')[0]): x for x in (P.get('paesi_fatti') or []) if str(x).strip()}   # "Iran = STO-001"
+    if paese and norm_paese(paese) in fatti:
+        msg = f'DOPPIONE: {paese} e\' gia\' stato fatto (' + str(fatti[norm_paese(paese)]) + '). Video NON prodotto, nessun costo.'
+        log(msg)
+        avvisa({'stato': 'DOPPIONE', 'errore': msg, 'paese': paese, 'minuti_lavoro': round((time.time() - T_INIZIO) / 60, 1)})
+        sys.exit(0)
     INFO_COMP.update({'categoria_originale': comp.get('categoria') or '', 'tag_originali': ', '.join(comp.get('tag_originali') or [])[:2000]})
     c = copione(comp)
     c['categoria_originale'] = comp.get('categoria') or ''
