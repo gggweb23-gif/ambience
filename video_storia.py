@@ -1123,7 +1123,8 @@ def limita_personaggi(piano, massimo=PERSONAGGIO_MINUTO):
         if len(prima) < massimo or v['tipo'] == 'scheda':   # la scheda (presentazione col nome) resta sempre
             visti.setdefault(pg, []).append(tempi[i]); continue
         vicini = [piano[j] for j in range(max(0, i - 5), min(len(piano), i + 6)) if j != i]
-        altri = [x.get('personaggio') for x in vicini if x['tipo'] == 'cartone' and x.get('personaggio') not in ('', None, pg)]
+        gia = [piano[j] for j in range(max(0, i - 5), i) if piano[j].get('contesto') == v.get('contesto')]   # gia' visti, stessa scena
+        altri = [x.get('personaggio') for x in gia if x['tipo'] == 'cartone' and x.get('personaggio') not in ('', None, pg)]
         altri = [a for a in altri if len([x for x in visti.get(a, []) if tempi[i] - x < 60]) < massimo]
         clip = next((x for x in vicini if x['tipo'] in ('pexels_video', 'pexels_foto') and x.get('q')), None)
         if altri:
@@ -1181,6 +1182,9 @@ def pianifica(scene, durs, voci, sf):
             al = json.load(open(voci[i][:-4] + '.json'))
         except Exception:
             al = {}
+        n_al = len((al or {}).get('character_start_times_seconds') or [])
+        if n_al and n_al != len(testo):
+            log(f'scena {i}: tempi della voce non allineati al testo ({n_al} lettere contro {len(testo)}): uso la stima')
         vis = []
         for v in (s.get('visivi') or []):
             if v.get('tipo') not in PESO:
@@ -1201,6 +1205,9 @@ def pianifica(scene, durs, voci, sf):
             if idx is not None:
                 pos = idx + 1
                 t = max(0.0, tempo_lettera(al, idx, testo, D) - 0.15)   # appena prima della parola
+            elif j and frase and (v.get('personaggio') or v['tipo'] in ('carta', 'scheda')):
+                log('visivo tolto (parole non trovate nella voce):', v['tipo'], v.get('personaggio') or v.get('testo') or '', '|', frase[:40])
+                continue   # un personaggio o una scritta non deve MAI comparire prima che la voce ne parli
             else:
                 t = stima if j else 0.0
             inizi.append((t, j, idx is not None))
@@ -1212,9 +1219,11 @@ def pianifica(scene, durs, voci, sf):
         tenuti = []
         for v, t in zip(vis, inizi):
             if tenuti and t < tenuti[-1][1] + 1.2:
-                if v['tipo'] in ('carta', 'scheda'):   # la scritta/presentazione ha la precedenza: sostituisce il visivo precedente
+                if v['tipo'] in ('carta', 'scheda'):   # la scritta/presentazione ha la precedenza: non sparisce mai
                     if len(tenuti) > 1 and t >= tenuti[-2][1] + 1.2:
                         tenuti[-1] = (v, t)
+                    elif tenuti[-1][1] + 1.2 < D - 1.5:
+                        tenuti.append((v, tenuti[-1][1] + 1.2))   # entra poco dopo, mentre la voce la sta dicendo
                 continue
             tenuti.append((v, t))
         if tenuti and D - tenuti[-1][1] < 1.2 and len(tenuti) > 1:
@@ -1385,6 +1394,7 @@ def main():
             v['sfondo_scheda'] = ultimo_sfondo
         if v['tipo'] == 'cartone' and v.get('sfondo'):
             ultimo_sfondo = v['sfondo']
+        v['sfondo_ultimo'] = ultimo_sfondo
 
     def fai(k):
         v = piano[k]; d = v['d']; p = os.path.join(LAV, f'pezzo_{k:04d}.mp4'); t = v['tipo']
@@ -1410,7 +1420,7 @@ def main():
         except Exception as e:   # riserva: cartone senza personaggio, il video non si ferma mai
             log('pezzo', k, t, 'sostituito:', str(e)[:200])
             v.pop('didascalia', None); v['tipo'] = 'cartone'
-            return pezzo_cartone(p, d, list(sf.values())[k % len(sf)], '', False, '', True)
+            return pezzo_cartone(p, d, sf.get(v.get('sfondo_ultimo')) or list(sf.values())[k % len(sf)], '', False, '', True)
 
     def con_didascalia(p, d, v):
         if v.get('didascalia') and d > 1.7:
