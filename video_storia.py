@@ -10,7 +10,7 @@ carta (frase chiave battuta a macchina su texture), scheda (personaggio + nome),
 Variabili: TITOLO, LINGUA, VOCE, MINUTI, MAX_MINUTI, MODELLO_AI, MUSICA_URL, MUSICA_VOL, PROVA (SI = video di ~1 minuto)
 Chiavi: ANTHROPIC_API_KEY, ELEVENLABS_API_KEY, PEXELS_API_KEY, FAL_KEY
 """
-import base64, hashlib, json, math, os, random, re, shutil, subprocess, sys, threading, time, traceback, urllib.error, urllib.parse, urllib.request
+import base64, hashlib, io, json, math, os, random, re, shutil, subprocess, sys, threading, time, traceback, urllib.error, urllib.parse, urllib.request
 from concurrent.futures import ThreadPoolExecutor
 
 import numpy as np
@@ -356,6 +356,7 @@ VIETATE = ('firefighter', 'fire-fighter', 'jakarta', 'police', 'car', 'cars', 't
            'man', 'men', 'woman', 'women', 'person', 'people', 'girl', 'girls', 'boy', 'boys', 'guy', 'lady', 'child', 'children', 'kid',
            'kids', 'couple', 'family', 'friends', 'portrait', 'hiker', 'hiking', 'traveler', 'travelers', 'backpacker', 'photographer',
            'soldier', 'soldiers', 'knight', 'knights', 'warrior', 'warriors', 'reenactment', 'costume', 'parade', 'festival', 'army', 'crowd')
+PAESE = {'nome': ''}
 MODELLO_CONTROLLO = E('MODELLO_CONTROLLO', 'claude-haiku-4-5-20251001')
 
 
@@ -399,11 +400,23 @@ def controlla(candidati, q, contesto):
     chiave = E('ANTHROPIC_API_KEY', '')
     if not chiave or not candidati:
         return 0 if candidati else -1
-    cont = []
+    def b64(u):   # scarichiamo noi l'anteprima (Pexels blocca i download fatti da altri server) e la mandiamo come immagine
+        try:
+            im = Image.open(io.BytesIO(http(u, raw=True, timeout=30))).convert('RGB'); im.thumbnail((480, 480))
+            buf = io.BytesIO(); im.save(buf, 'JPEG', quality=80)
+            return {'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}}
+        except Exception:
+            return None
+    cont, validi = [], 0
     for i, c in enumerate(candidati):   # per le clip: inizio, meta' e fine (una persona puo' entrare dopo)
-        cont += [{'type': 'text', 'text': f'Immagine {i}:'}] + [{'type': 'image', 'source': {'type': 'url', 'url': u}}
-                                                                for u in (c.get('viste') or [c['anteprima']])[:3]]
-    cont.append({'type': 'text', 'text': f"""Video di storia. La voce in questo momento dice: "{contesto[:400]}". Ricerca usata: "{q}".
+        with ThreadPoolExecutor(3) as ex:
+            imgs = [x for x in ex.map(b64, (c.get('viste') or [c['anteprima']])[:3]) if x]
+        if imgs:
+            validi += 1
+        cont += [{'type': 'text', 'text': f'Immagine {i}:' + ('' if imgs else ' (anteprima non disponibile: SCARTALA)')}] + imgs
+    if not validi:
+        log('Pexels: nessuna anteprima scaricabile per', q); return -1
+    cont.append({'type': 'text', 'text': f"""Video di storia sul paese: {PAESE.get('nome') or 'vedi testo'}. La voce in questo momento dice: "{contesto[:400]}". Ricerca usata: "{q}".
 Quale immagine e' adatta da mostrare? Deve sembrare coerente con l'epoca e il luogo raccontati.
 Se un'immagine ha piu' fotogrammi (stessa clip), giudicali TUTTI: basta un fotogramma sbagliato per scartarla.
 COERENZA: se la voce parla di un popolo o di un luogo preciso (es. gli arabi, l'Iran, il deserto), l'immagine deve essere di QUEL luogo/popolo; paesaggi di un altro continente o clima vanno SCARTATI.
@@ -414,11 +427,12 @@ Rispondi SOLO con il numero della prima immagine adatta, oppure -1 se nessuna va
         r = http('https://api.anthropic.com/v1/messages', {'model': MODELLO_CONTROLLO, 'max_tokens': 10, 'messages': [{'role': 'user', 'content': cont}]},
                  {'x-api-key': chiave, 'anthropic-version': '2023-06-01'}, timeout=120)
         m = re.search(r'-?\d+', ''.join(b.get('text', '') for b in r.get('content', [])))
-        n = int(m.group()) if m else 0
-        return n if -1 <= n < len(candidati) else 0
-    except Exception as e:
-        log('controllo Pexels saltato:', str(e)[:150])
-        return 0
+        n = int(m.group()) if m else -1
+        log('Pexels', repr(q), '->', 'scartate tutte' if n < 0 else f'scelta {n}')
+        return n if -1 <= n < len(candidati) else -1
+    except Exception as e:   # senza controllo NON si usa nessuna immagine (meglio un cartone che una persona di oggi)
+        log('controllo Pexels non riuscito, immagine NON usata:', str(e)[:200])
+        return -1
 
 
 def pexels(tipo, q, contesto=''):
@@ -1165,7 +1179,7 @@ def main():
     comp = competitor()
     # stesso paese gia' fatto? stop prima di spendere (voce, immagini): la riga va in DOPPIONE e al giro dopo parte il paese successivo
     paese = paese_video(comp)
-    INFO_COMP['paese'] = paese
+    INFO_COMP['paese'] = paese; PAESE['nome'] = paese
     fatti = {norm_paese(str(x).split(' = ')[0]): x for x in (P.get('paesi_fatti') or []) if str(x).strip()}   # "Iran = STO-001"
     if paese and norm_paese(paese) in fatti:
         msg = f'DOPPIONE: {paese} e\' gia\' stato fatto (' + str(fatti[norm_paese(paese)]) + '). Video NON prodotto, nessun costo.'
@@ -1189,7 +1203,7 @@ def main():
     ritmi = [len(t.split()) / max(.5, d) for t, d in zip(testi, durs)]
     medio = sorted(ritmi)[len(ritmi) // 2] if ritmi else 0
     for i, r in enumerate(ritmi):
-        if medio and r < medio * .93 and len(testi[i].split()) >= 8:
+        if False and medio and r < medio * .93 and len(testi[i].split()) >= 8:   # disattivato: il cambio di velocita' si sentiva
             vel = round(min(1.15, medio / r), 2)
             log(f'voce scena {i}: {r:.2f} parole/s contro {medio:.2f} di media -> rifatta a velocita {vel}')
             try:
@@ -1333,9 +1347,9 @@ def main():
     try:   # effetti da film sotto la voce: si abbassano da soli quando la voce parla (come nei film)
         fx = pista_effetti(piano, sum(durs))
         if fx:
-            con_fx = os.path.join(LAV, 'voce_fx.m4a'); vf = float(str(P.get('effetti_volume') or E('EFFETTI_VOL', '') or .35).replace(',', '.'))
+            con_fx = os.path.join(LAV, 'voce_fx.m4a'); vf = float(str(P.get('effetti_volume') or E('EFFETTI_VOL', '') or .7).replace(',', '.'))
             run(['ffmpeg', '-y', '-v', 'error', '-i', voce_tot, '-i', fx, '-filter_complex',
-                 f'[0:a]asplit=2[v][sc];[1:a]volume={vf}[f];[f][sc]sidechaincompress=threshold=0.02:ratio=4:attack=30:release=400[fd];'
+                 f'[0:a]asplit=2[v][sc];[1:a]volume={vf}[f];[f][sc]sidechaincompress=threshold=0.08:ratio=2:attack=40:release=300[fd];'
                  f'[v][fd]amix=inputs=2:duration=first:normalize=0[a]', '-map', '[a]', '-c:a', 'aac', '-b:a', '192k', con_fx])
             voce_tot = con_fx
     except Exception as e:
