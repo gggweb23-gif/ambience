@@ -47,6 +47,7 @@ COP_STILE = str(P.get('copertina_stile') or E('COPERTINA_STILE', '') or 'cartone
 RIFERIMENTI = [u for u in (P.get('riferimenti_copertine') or []) if u][:8]      # copertine top della nicchia (dallo Scout)
 MODELLO_AI = E('MODELLO_AI', 'claude-sonnet-5-5').strip()
 LINK = str(P.get('link') or E('LINK_COMPETITOR', '')).strip()
+PERSONAGGIO_MINUTO = int(float(str(P.get('personaggio_minuto') or E('PERSONAGGIO_MINUTO', '') or 2)))   # stesso personaggio max N volte al minuto
 EFFETTI = str(P.get('effetti') or E('EFFETTI', '')).strip().upper() == 'SI'                  # effetti sonori da film (spade, cavalli, vento...)
 EFFETTI_MINUTO = float(str(P.get('effetti_minuto') or E('EFFETTI_MINUTO', '') or 1.5).replace(',', '.'))   # quanti al massimo per minuto
 NARRATORE = str(P.get('narratore') or E('NARRATORE', '') or 'anziano_narratore').strip()   # avatar del canale: MAI nei video
@@ -222,6 +223,7 @@ TAG DEL COMPETITOR (da tradurre in {lingua} e mettere per primi nel campo "tag")
         blocco_originale += f'''
 - Il PARLATO deve COPIARE al 100% il testo originale qui sotto: stessi fatti, stesso ordine, stessi ganci, stesse domande, stessi numeri, stessa lunghezza.{' ECCEZIONE: l originale e troppo lungo, quindi CONDENSALO a circa ' + str(parole) + ' parole: stessi fatti principali, stesso ordine, stessi ganci e stesse domande, togli solo dettagli secondari ed esempi ripetuti.' if condensa else ''}
   Traducilo in {lingua} naturale e cambia solo piccole cose per non essere una copia identica (sinonimi, ordine delle parole, qualche frase unita o divisa). NON aggiungere contenuti{' e togli solo il secondario' if condensa else ' e NON toglierne'}.
+  UNITA' DI MISURA: il pubblico e' {'italiano' if LINGUA == 'it' else 'del canale'}: {'converti SEMPRE le unita americane in quelle europee con numeri arrotondati (gradi Fahrenheit -> gradi Celsius, es. 120 gradi F = circa 50 gradi; miglia -> chilometri; piedi -> metri; pollici -> centimetri; libbre -> chili; galloni -> litri; acri -> ettari). Mai lasciare 120 gradi se erano Fahrenheit.' if LINGUA == 'it' else 'keep the units of the original.'}
 TESTO ORIGINALE:
 {orig[:60000]}
 '''
@@ -1037,6 +1039,35 @@ def unisci(pezzi, out):
 PESO = {'cartone': 1.6, 'mappa': 3.0, 'scheda': 1.3, 'carta': 1.2, 'pexels_video': 1.0, 'pexels_foto': 1.0}
 
 
+def limita_personaggi(piano, massimo=PERSONAGGIO_MINUTO):
+    """Lo stesso personaggio al massimo N volte in 60 secondi (stanca lo spettatore). Le apparizioni in piu' diventano:
+    un altro personaggio gia' usato nella stessa parte di video, oppure una clip Pexels vicina, oppure lo sfondo senza nessuno."""
+    tempi, t = [], 0.0
+    for v in piano:
+        tempi.append(t); t += v['d']
+    visti = {}
+    for i, v in enumerate(piano):
+        pg = v.get('personaggio') if v['tipo'] in ('cartone', 'scheda') else ''
+        if not pg:
+            continue
+        prima = [x for x in visti.get(pg, []) if tempi[i] - x < 60]
+        if len(prima) < massimo or v['tipo'] == 'scheda':   # la scheda (presentazione col nome) resta sempre
+            visti.setdefault(pg, []).append(tempi[i]); continue
+        vicini = [piano[j] for j in range(max(0, i - 5), min(len(piano), i + 6)) if j != i]
+        altri = [x.get('personaggio') for x in vicini if x['tipo'] == 'cartone' and x.get('personaggio') not in ('', None, pg)]
+        altri = [a for a in altri if len([x for x in visti.get(a, []) if tempi[i] - x < 60]) < massimo]
+        clip = next((x for x in vicini if x['tipo'] in ('pexels_video', 'pexels_foto') and x.get('q')), None)
+        if altri:
+            v['personaggio'] = altri[0]; visti.setdefault(altri[0], []).append(tempi[i])
+        elif clip:
+            for k in ('personaggio', 'sfondo', 'reazione', 'data'):
+                v.pop(k, None)
+            v.update({'tipo': clip['tipo'], 'q': clip['q']})
+        else:
+            v['personaggio'] = ''
+        log(f'personaggio {pg}: troppe apparizioni in 60 s, al secondo {tempi[i]:.0f} sostituito')
+
+
 def limite(t):
     """Durata massima di un visivo in base a quando compare: primi 10 s = almeno 4 cambi, 10-30 s = 3 ogni 10 s, poi max 5 s."""
     return 2.5 if t < 10 else 3.3 if t < 30 else 5.0
@@ -1266,6 +1297,7 @@ def main():
     for v in piano:   # il narratore (avatar del canale) non compare MAI nei video
         if v.get('personaggio') == NARRATORE:
             v['personaggio'] = pg_video if pg_video != NARRATORE else ''
+    limita_personaggi(piano)
     log('visivi:', len(piano), '| primi 10 s:', sum(1 for x in __import__('itertools').accumulate([0] + [v['d'] for v in piano]) if x < 10))
     # durate a fotogrammi interi: video e voce restano allineati fino all'ultimo secondo
     fine_prec, acc = 0, 0.0
