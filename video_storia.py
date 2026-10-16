@@ -47,6 +47,8 @@ COP_STILE = str(P.get('copertina_stile') or E('COPERTINA_STILE', '') or 'cartone
 RIFERIMENTI = [u for u in (P.get('riferimenti_copertine') or []) if u][:8]      # copertine top della nicchia (dallo Scout)
 MODELLO_AI = E('MODELLO_AI', 'claude-sonnet-5-5').strip()
 LINK = str(P.get('link') or E('LINK_COMPETITOR', '')).strip()
+EFFETTI = str(P.get('effetti') or E('EFFETTI', '')).strip().upper() == 'SI'                  # effetti sonori da film (spade, cavalli, vento...)
+EFFETTI_MINUTO = float(str(P.get('effetti_minuto') or E('EFFETTI_MINUTO', '') or 1.5).replace(',', '.'))   # quanti al massimo per minuto
 NARRATORE = str(P.get('narratore') or E('NARRATORE', '') or 'anziano_narratore').strip()   # avatar del canale: MAI nei video
 INK = (29, 26, 23)
 random.seed(TITOLO)
@@ -238,11 +240,12 @@ SINCRONIA CON LA VOCE (FONDAMENTALE): ogni visivo ha il campo "frase" = 2-4 paro
 - una "carta" compare quando la voce dice quella frase: il suo "testo" riprende parole DETTE in quella scena e la sua "frase" e' l'inizio di quelle parole nel testo;
 - una "scheda" SOLO nella scena in cui quel personaggio viene NOMINATO dalla voce, con frase = il nome cosi' come detto;
 - un "cartone" con un personaggio storico reale SOLO quando viene nominato (frase = il nome); quando non si nomina nessuno usa SEMPRE una figura generica della lista (soldato, contadino, nobile...) coerente con cio' che si dice: ogni cartone ha un personaggio; se nella lista NON c'e' un personaggio coerente con cio' che la voce dice in quel momento, NON mettere un personaggio sbagliato: usa un "pexels_video", un "pexels_foto" o una "carta" (e segna la figura in "personaggi_mancanti"); il personaggio deve essere SEMPRE della stessa EPOCA e dello stesso popolo di cio' che si racconta (mai un generale in divisa moderna per l'antichita', mai un cavaliere medievale europeo per la Persia antica);
-- un "pexels" deve mostrare cio' che la voce dice in quel momento.
+- un "pexels" deve mostrare cio' che la voce dice in quel momento, nel LUOGO giusto (paesaggi del paese raccontato: deserto, altopiano, montagne, mari di QUEL paese; mai colline verdi europee per un paese desertico). Le PERSONE si mostrano SOLO con i cartoni: nelle ricerche Pexels mai persone, soldati, guerrieri, cavalieri, eserciti, folle o rievocazioni (su Pexels sono sempre persone di oggi).
 Tipi:
 - "cartone": scena disegnata. Campi: "sfondo" (id di uno dei 6 sfondi), "personaggio" (SOLO uno di questa lista, oppure "" per nessuno): {lista_kit(kit)}; "reazione": true se a meta' il personaggio cambia posa (momento forte). Nella PRIMA scena il primo visivo e' un cartone con il campo "data" (es. "550 a.C.").
-- "pexels_video": clip vera. Campo "q": ricerca Pexels in INGLESE, 2-4 parole concrete che diano immagini SENZA cose moderne: paesaggi naturali, montagne, deserti, rovine, monumenti antichi, oggetti antichi, monete, manoscritti, fuoco, cielo, mare, rievocazioni in costume. MAI persone di oggi, MAI citta' moderne (tranne nelle scene sul presente), MAI nomi di persone o eventi.
+- "pexels_video": clip vera. Campo "q": ricerca Pexels in INGLESE, 2-4 parole concrete che diano immagini SENZA cose moderne: paesaggi naturali, montagne, deserti, rovine, monumenti antichi, oggetti antichi, monete, manoscritti, armi antiche in museo, fuoco, cielo, mare. MAI persone (nemmeno in costume), MAI citta' moderne (tranne nelle scene sul presente), MAI nomi di persone o eventi.
 - "pexels_foto": foto vera. Campo "q" come sopra.
+- SUONO (facoltativo, su qualsiasi visivo): campo "suono" = effetto sonoro da film IN INGLESE, 3-8 parole, coerente con cio' che si vede e si racconta (es. "swords clashing, distant battle shouts", "horses galloping on dry ground", "desert wind howling", "heavy rain and thunder", "wooden ship creaking, waves", "crackling fire", "crowd murmuring in ancient market", "propeller planes flying over", "old telephone ringing", "police sirens, city traffic"). Usalo con misura, solo nei momenti forti: circa 1-2 per minuto, mai due visivi di fila.
 - DIDASCALIA (facoltativa, su "cartone", "pexels_video" o "pexels_foto"): campo "didascalia" = 2-6 parole chiave DETTE dalla voce in quel momento (es. "Ciro il Grande, 550 a.C.", "Il primo trattato della storia"). Compare su una striscia di carta strappata in basso, battuta a macchina. Usala spesso per dare ritmo: circa 1 visivo ogni 4-5, mai su due visivi di fila; mai su visivi piu' corti di 2 secondi di parlato.
 - "carta": frase chiave scritta su carta. Campo "testo": max 8 parole, la frase piu' forte del momento.
 - "scheda": presentazione di un personaggio storico. Campi "personaggio" (dalla lista) e "nome" (nome vero completo).
@@ -260,7 +263,7 @@ Rispondi SOLO con un JSON valido, senza testo prima o dopo:
  "date": "es. 550 a.C. – 2026", "texture": "pergamena|washi|stropicciata|giornale|papiro", "font_carte": "antico|medievale|ottocento|macchina|moderno|classico",
  "fondi_carte": [{{"id": "c1", "prompt_en": "..."}}], "colori_carte": ["#......", "#......"],
  "sfondi": [{{"id": "s1", "prompt_en": "..."}}],
- "scene": [{{"testo": "parlato della scena", "visivi": [{{"tipo": "cartone", "frase": "prime parole della scena", "sfondo": "s1", "personaggio": "...", "reazione": true, "data": "..."}}]}}],
+ "scene": [{{"testo": "parlato della scena", "visivi": [{{"tipo": "cartone", "frase": "prime parole della scena", "sfondo": "s1", "personaggio": "...", "reazione": true, "data": "...", "suono": "..."}}]}}],
  "copertina": {{"testo": "testo della copertina originale TRADOTTO al 100% (stesse parole, stesse date), MAIUSCOLO", "personaggio": "SOLO se nella lista c'e' la STESSA figura della copertina originale o una dello stesso popolo, epoca e aspetto (es. re persiano antico -> ciro_il_grande; MAI un re europeo per la Persia). Se non c'e' una corrispondenza sicura: '' (la figura originale verra' ridisegnata a cartone)"}},
  "descrizione": "descrizione YouTube in {lingua}: 3 paragrafi brevi (circa 120 parole) che riassumono il video con le parole che la gente cerca, poi una riga con 4-6 hashtag",
  "tag": ["25-35 tag YouTube in {lingua}: PRIMA tutti i TAG DEL COMPETITOR (se ci sono) tradotti in {lingua} nello stesso ordine (nomi propri invariati, togli solo nomi di altri canali), POI aggiungi i nostri tag validi: paese, impero, epoche, personaggi, 'storia di ...', 'storia completa'"],
@@ -351,7 +354,8 @@ VIETATE = ('firefighter', 'fire-fighter', 'jakarta', 'police', 'car', 'cars', 't
            'wedding', 'coffee', 'restaurant', 'supermarket', 'construction', 'vaccine', 'mask', 'covid', 'nowruz', 'football', 'soccer',
            # persone di oggi: nelle clip di storia non devono comparire (restano le rievocazioni in costume, controllate da Claude)
            'man', 'men', 'woman', 'women', 'person', 'people', 'girl', 'girls', 'boy', 'boys', 'guy', 'lady', 'child', 'children', 'kid',
-           'kids', 'couple', 'family', 'friends', 'portrait', 'hiker', 'hiking', 'traveler', 'travelers', 'backpacker', 'photographer')
+           'kids', 'couple', 'family', 'friends', 'portrait', 'hiker', 'hiking', 'traveler', 'travelers', 'backpacker', 'photographer',
+           'soldier', 'soldiers', 'knight', 'knights', 'warrior', 'warriors', 'reenactment', 'costume', 'parade', 'festival', 'army', 'crowd')
 MODELLO_CONTROLLO = E('MODELLO_CONTROLLO', 'claude-haiku-4-5-20251001')
 
 
@@ -402,8 +406,9 @@ def controlla(candidati, q, contesto):
     cont.append({'type': 'text', 'text': f"""Video di storia. La voce in questo momento dice: "{contesto[:400]}". Ricerca usata: "{q}".
 Quale immagine e' adatta da mostrare? Deve sembrare coerente con l'epoca e il luogo raccontati.
 Se un'immagine ha piu' fotogrammi (stessa clip), giudicali TUTTI: basta un fotogramma sbagliato per scartarla.
-SCARTA SEMPRE: qualsiasi persona di oggi, anche piccola, lontana, di spalle o in mezzo a rovine (giacche, felpe, jeans, scarpe da ginnastica, zaini, turisti); auto, cellulari, cartelli o scritte leggibili, biglietti di auguri, oggetti di plastica, feste moderne, cose fuori tema.
-VANNO BENE: paesaggi, montagne, deserti, rovine, monumenti antichi, musei, oggetti antichi, monete, manoscritti, fuoco, cieli, mare, rievocazioni in costume d'epoca (persone ammesse SOLO se TUTTE vestite in modo storico: se sullo sfondo si vede anche un solo spettatore o turista moderno, SCARTA).
+COERENZA: se la voce parla di un popolo o di un luogo preciso (es. gli arabi, l'Iran, il deserto), l'immagine deve essere di QUEL luogo/popolo; paesaggi di un altro continente o clima vanno SCARTATI.
+SCARTA SEMPRE: qualsiasi persona (anche in costume medievale o storico), citta' moderne, palazzi moderni, lampioni, cavi elettrici, cartelli, folle; qualsiasi persona di oggi, anche piccola, lontana, di spalle o in mezzo a rovine (giacche, felpe, jeans, scarpe da ginnastica, zaini, turisti); auto, cellulari, cartelli o scritte leggibili, biglietti di auguri, oggetti di plastica, feste moderne, cose fuori tema.
+VANNO BENE: paesaggi, montagne, deserti, rovine, monumenti antichi, musei, oggetti antichi, monete, manoscritti, fuoco, cieli, mare, armi antiche in museo. NESSUNA persona: le persone nel video sono solo disegnate.
 Rispondi SOLO con il numero della prima immagine adatta, oppure -1 se nessuna va bene."""})
     try:
         r = http('https://api.anthropic.com/v1/messages', {'model': MODELLO_CONTROLLO, 'max_tokens': 10, 'messages': [{'role': 'user', 'content': cont}]},
@@ -777,6 +782,49 @@ def aggiungi_didascalia(path, d, testo, nome_font):
 
 
 # ---------------------------------------------------------------- suono della macchina da scrivere
+def effetto(desc, dur, k):
+    """Effetto sonoro da film generato con ElevenLabs (stessa chiave della voce). Uguali = generato una volta sola."""
+    chiave = E('ELEVENLABS_API_KEY', '')
+    p = os.path.join(LAV, 'fx_' + hashlib.md5(f'{desc}|{dur:.1f}'.encode()).hexdigest()[:10] + '.mp3')
+    if os.path.exists(p):
+        return p
+    b = http('https://api.elevenlabs.io/v1/sound-generation', {'text': desc, 'duration_seconds': round(max(1.0, min(dur, 6.0)), 1),
+             'prompt_influence': 0.5}, {'xi-api-key': chiave, 'Accept': 'audio/mpeg'}, timeout=120, raw=True)
+    open(p, 'wb').write(b)
+    return p
+
+
+def pista_effetti(piano, totale):
+    """Sceglie al massimo EFFETTI_MINUTO effetti al minuto (distanziati), li genera e li mette a tempo con le immagini."""
+    if not EFFETTI or not E('ELEVENLABS_API_KEY'):
+        return None
+    tetto = max(1, int(round(totale / 60 * EFFETTI_MINUTO)))
+    passo = 60 / max(.1, EFFETTI_MINUTO) * .7
+    scelti, t, ultimo = [], 0.0, -1e9
+    for v in piano:
+        desc = str(v.get('suono') or '').strip()
+        if desc and t - ultimo >= passo and len(scelti) < tetto and v['d'] >= 1.5:
+            scelti.append((t, min(v['d'], 5.0), desc)); ultimo = t
+        t += v['d'] - T_TR
+    if not scelti:
+        return None
+    ins, filt, ok = [], [], 0
+    for i, (t0, d, desc) in enumerate(scelti):
+        try:
+            f = effetto(desc, d, i)
+        except Exception as e:
+            log('effetto saltato:', desc, str(e)[:100]); continue
+        ins += ['-i', f]; ms = int(t0 * 1000)
+        filt.append(f'[{ok}:a]atrim=0:{d:.2f},afade=t=in:d=0.25,afade=t=out:st={max(0, d - 0.8):.2f}:d=0.8,adelay={ms}|{ms}[e{ok}]'); ok += 1
+    if not ok:
+        return None
+    out = os.path.join(LAV, 'effetti.wav')
+    run(['ffmpeg', '-y', '-v', 'error', *ins, '-filter_complex', ';'.join(filt) + ';' + ''.join(f'[e{i}]' for i in range(ok))
+         + f'amix=inputs={ok}:normalize=0,apad=whole_dur={totale:.2f}[a]', '-map', '[a]', '-ac', '2', '-ar', '44100', out])
+    log('effetti sonori:', ok, 'su', len(scelti), '(tetto', tetto, ')', '; '.join(x[2] for x in scelti)[:300])
+    return out
+
+
 def suono_tasti(eventi, totale, out, sr=44100):
     rng = np.random.default_rng(3)
     a = np.zeros(int((totale + 1) * sr), np.float32)
@@ -1282,13 +1330,24 @@ def main():
             log('tasti macchina da scrivere:', len(eventi))
         except Exception as e:
             log('suono tasti saltato:', str(e)[:150])
+    try:   # effetti da film sotto la voce: si abbassano da soli quando la voce parla (come nei film)
+        fx = pista_effetti(piano, sum(durs))
+        if fx:
+            con_fx = os.path.join(LAV, 'voce_fx.m4a'); vf = float(str(P.get('effetti_volume') or E('EFFETTI_VOL', '') or .35).replace(',', '.'))
+            run(['ffmpeg', '-y', '-v', 'error', '-i', voce_tot, '-i', fx, '-filter_complex',
+                 f'[0:a]asplit=2[v][sc];[1:a]volume={vf}[f];[f][sc]sidechaincompress=threshold=0.02:ratio=4:attack=30:release=400[fd];'
+                 f'[v][fd]amix=inputs=2:duration=first:normalize=0[a]', '-map', '[a]', '-c:a', 'aac', '-b:a', '192k', con_fx])
+            voce_tot = con_fx
+    except Exception as e:
+        log('effetti sonori saltati:', str(e)[:150])
     audio = voce_tot
     brani = [u.strip() for u in re.split(r'\|\||\n', MUSICA_URL) if u.strip()]
     if brani:   # piu' brani separati da || : uno per video, a rotazione
         try:
             url = brani[int(hashlib.md5(str(P.get('id') or TITOLO).encode()).hexdigest(), 16) % len(brani)]
             mf = scarica(url, os.path.join(LAV, 'musica.mp3'))
-            audio = os.path.join(LAV, 'audio.m4a'); vol = float(P.get('musica_vol') or E('MUSICA_VOL', '') or .07)
+            audio = os.path.join(LAV, 'audio.m4a'); vol = float(str(P.get('musica_vol') or E('MUSICA_VOL', '') or .06).replace(',', '.').replace('%', ''))
+            vol = vol / 100 if vol > 1 else vol   # 6 o 6% = 0.06
             tot = durata(voce_tot)
             run(['ffmpeg', '-y', '-v', 'error', '-i', voce_tot, '-stream_loop', '-1', '-i', mf, '-filter_complex',
                  f'[1:a]volume={vol},afade=t=in:d=2,afade=t=out:st={max(0, tot - 4):.2f}:d=4[m];'
