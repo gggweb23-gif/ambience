@@ -10,7 +10,7 @@ carta (frase chiave battuta a macchina su texture), scheda (personaggio + nome),
 Variabili: TITOLO, LINGUA, VOCE, MINUTI, MAX_MINUTI, MODELLO_AI, MUSICA_URL, MUSICA_VOL, PROVA (SI = video di ~1 minuto)
 Chiavi: ANTHROPIC_API_KEY, ELEVENLABS_API_KEY, PEXELS_API_KEY, FAL_KEY
 """
-import base64, json, math, os, random, re, shutil, subprocess, sys, threading, time, traceback, urllib.error, urllib.parse, urllib.request
+import base64, hashlib, json, math, os, random, re, shutil, subprocess, sys, threading, time, traceback, urllib.error, urllib.parse, urllib.request
 from concurrent.futures import ThreadPoolExecutor
 
 import numpy as np
@@ -47,8 +47,7 @@ COP_STILE = str(P.get('copertina_stile') or E('COPERTINA_STILE', '') or 'cartone
 RIFERIMENTI = [u for u in (P.get('riferimenti_copertine') or []) if u][:8]      # copertine top della nicchia (dallo Scout)
 MODELLO_AI = E('MODELLO_AI', 'claude-sonnet-5-5').strip()
 LINK = str(P.get('link') or E('LINK_COMPETITOR', '')).strip()
-NARRATORE = str(P.get('narratore') or E('NARRATORE', '') or 'anziano_narratore').strip()   # avatar del canale che racconta
-NARRATORE_OGNI = float(P.get('narratore_ogni') or E('NARRATORE_OGNI', '') or 90)            # secondi minimi tra due apparizioni      # video da copiare (titolo, testo e copertina)
+NARRATORE = str(P.get('narratore') or E('NARRATORE', '') or 'anziano_narratore').strip()   # avatar del canale: MAI nei video
 INK = (29, 26, 23)
 random.seed(TITOLO)
 
@@ -168,9 +167,34 @@ def competitor():
 
 # ============================================================ 1) COPIONE
 def kit_disponibile():
+    """Personaggi del kit, SENZA il narratore (avatar del canale): nei video non compare mai."""
     if not os.path.isdir(KIT):
         return []
-    return sorted({f[:-len('_fermo.png')] for f in os.listdir(KIT) if f.endswith('_fermo.png')})
+    return sorted({f[:-len('_fermo.png')] for f in os.listdir(KIT) if f.endswith('_fermo.png')} - {NARRATORE})
+
+
+# come sono disegnati i personaggi generici (il nome da solo inganna: "re_antico" e' un re europeo con l'ermellino)
+KIT_DESCR = {
+    're_antico': 're europeo medievale, corona e mantello di ermellino (SOLO Europa)',
+    'regina': 'regina europea medievale, abito blu (SOLO Europa)',
+    'nobile': 'nobile europeo del Settecento con parrucca (SOLO Europa 1700-1800)',
+    'cavaliere': 'cavaliere crociato europeo con armatura e croce (SOLO Europa/crociate)',
+    'crociato': 'crociato europeo (SOLO crociate)',
+    'generale': 'generale in divisa della prima guerra mondiale (SOLO 1900-1950)',
+    'politico': 'politico moderno in giacca e cravatta (SOLO dal 1900 a oggi)',
+    'esploratore': 'esploratore europeo del Cinquecento',
+    'soldato_moschetto': 'soldato europeo del Settecento con moschetto',
+    'sacerdote': 'sacerdote antico del Medio Oriente, tunica bianca e incenso',
+    'contadino_antico': 'contadino asiatico con cappello di paglia a cono',
+    'contadina_antica': 'contadina antica con velo, Medio Oriente/Mediterraneo',
+    'mercante': 'mercante mediorientale con turbante',
+    'guerriero_barbaro': 'guerriero barbaro nordico con pelliccia e ascia',
+    'legionario': 'legionario romano', 'senatore': 'senatore romano in toga',
+}
+
+
+def lista_kit(kit):
+    return ', '.join(k + (f' ({KIT_DESCR[k]})' if k in KIT_DESCR else '') for k in kit) or '(nessuno)'
 
 
 def copione(comp):
@@ -213,10 +237,10 @@ Il PRIMO visivo del video e' sempre un "cartone" con un personaggio.
 SINCRONIA CON LA VOCE (FONDAMENTALE): ogni visivo ha il campo "frase" = 2-4 parole COPIATE IDENTICHE dal "testo" della scena, nel punto esatto in cui il visivo deve comparire. I visivi sono nello stesso ordine delle loro frasi nel testo, a distanza di almeno 4 parole l'uno dall'altro. Il primo visivo ha come frase le prime parole della scena.
 - una "carta" compare quando la voce dice quella frase: il suo "testo" riprende parole DETTE in quella scena e la sua "frase" e' l'inizio di quelle parole nel testo;
 - una "scheda" SOLO nella scena in cui quel personaggio viene NOMINATO dalla voce, con frase = il nome cosi' come detto;
-- un "cartone" con un personaggio storico reale SOLO quando viene nominato (frase = il nome); quando non si nomina nessuno usa SEMPRE una figura generica della lista (soldato, contadino, nobile...) coerente con cio' che si dice: ogni cartone ha un personaggio; il narratore del canale "{NARRATORE}" (anziano con il libro) usalo SOLO ogni tanto (circa 1 volta ogni 1-2 minuti) nei momenti in cui si racconta o si introduce un nuovo capitolo, mai nella prima scena; il personaggio deve essere SEMPRE della stessa EPOCA e dello stesso popolo di cio' che si racconta (mai un generale in divisa moderna per l'antichita', mai un cavaliere medievale europeo per la Persia antica);
+- un "cartone" con un personaggio storico reale SOLO quando viene nominato (frase = il nome); quando non si nomina nessuno usa SEMPRE una figura generica della lista (soldato, contadino, nobile...) coerente con cio' che si dice: ogni cartone ha un personaggio; il personaggio deve essere SEMPRE della stessa EPOCA e dello stesso popolo di cio' che si racconta (mai un generale in divisa moderna per l'antichita', mai un cavaliere medievale europeo per la Persia antica);
 - un "pexels" deve mostrare cio' che la voce dice in quel momento.
 Tipi:
-- "cartone": scena disegnata. Campi: "sfondo" (id di uno dei 6 sfondi), "personaggio" (SOLO uno di questa lista, oppure "" per nessuno): {', '.join(kit) or '(nessuno)'}; "reazione": true se a meta' il personaggio cambia posa (momento forte). Nella PRIMA scena il primo visivo e' un cartone con il campo "data" (es. "550 a.C.").
+- "cartone": scena disegnata. Campi: "sfondo" (id di uno dei 6 sfondi), "personaggio" (SOLO uno di questa lista, oppure "" per nessuno): {lista_kit(kit)}; "reazione": true se a meta' il personaggio cambia posa (momento forte). Nella PRIMA scena il primo visivo e' un cartone con il campo "data" (es. "550 a.C.").
 - "pexels_video": clip vera. Campo "q": ricerca Pexels in INGLESE, 2-4 parole concrete che diano immagini SENZA cose moderne: paesaggi naturali, montagne, deserti, rovine, monumenti antichi, oggetti antichi, monete, manoscritti, fuoco, cielo, mare, rievocazioni in costume. MAI persone di oggi, MAI citta' moderne (tranne nelle scene sul presente), MAI nomi di persone o eventi.
 - "pexels_foto": foto vera. Campo "q" come sopra.
 - DIDASCALIA (facoltativa, su "cartone", "pexels_video" o "pexels_foto"): campo "didascalia" = 2-6 parole chiave DETTE dalla voce in quel momento (es. "Ciro il Grande, 550 a.C.", "Il primo trattato della storia"). Compare su una striscia di carta strappata in basso, battuta a macchina. Usala spesso per dare ritmo: circa 1 visivo ogni 4-5, mai su due visivi di fila; mai su visivi piu' corti di 2 secondi di parlato.
@@ -237,7 +261,7 @@ Rispondi SOLO con un JSON valido, senza testo prima o dopo:
  "fondi_carte": [{{"id": "c1", "prompt_en": "..."}}], "colori_carte": ["#......", "#......"],
  "sfondi": [{{"id": "s1", "prompt_en": "..."}}],
  "scene": [{{"testo": "parlato della scena", "visivi": [{{"tipo": "cartone", "frase": "prime parole della scena", "sfondo": "s1", "personaggio": "...", "reazione": true, "data": "..."}}]}}],
- "copertina": {{"testo": "testo della copertina originale TRADOTTO al 100% (stesse parole, stesse date), MAIUSCOLO", "personaggio": "personaggio della lista che corrisponde alla figura principale della copertina originale, oppure ''"}},
+ "copertina": {{"testo": "testo della copertina originale TRADOTTO al 100% (stesse parole, stesse date), MAIUSCOLO", "personaggio": "SOLO se nella lista c'e' la STESSA figura della copertina originale o una dello stesso popolo, epoca e aspetto (es. re persiano antico -> ciro_il_grande; MAI un re europeo per la Persia). Se non c'e' una corrispondenza sicura: '' (la figura originale verra' ridisegnata a cartone)"}},
  "descrizione": "descrizione YouTube in {lingua}: 3 paragrafi brevi (circa 120 parole) che riassumono il video con le parole che la gente cerca, poi una riga con 4-6 hashtag",
  "tag": ["25-35 tag YouTube in {lingua}: PRIMA tutti i TAG DEL COMPETITOR (se ci sono) tradotti in {lingua} nello stesso ordine (nomi propri invariati, togli solo nomi di altri canali), POI aggiungi i nostri tag validi: paese, impero, epoche, personaggi, 'storia di ...', 'storia completa'"],
  "personaggi_mancanti": ["figure che sarebbero servite ma non sono nella lista, es. 'Dario I re persiano'"]}}
@@ -501,7 +525,8 @@ def copertina(comp, c):
     cop = c.get('copertina') or {}
     testo = date_lingua(str(cop.get('testo') or c.get('titolo') or '').strip())
     img = [comp['copertina']]
-    pg = png_personaggio(cop.get('personaggio') or '', 'fermo') if COP_STILE != 'realistico' else None
+    nome_pg = str(cop.get('personaggio') or '')
+    pg = png_personaggio(nome_pg, 'fermo') if COP_STILE != 'realistico' and nome_pg and nome_pg != NARRATORE else None
     if pg:
         try:
             img.append(carica_fal(pg))
@@ -1104,6 +1129,7 @@ def main():
     nome_font = c.get('font_carte') if c.get('font_carte') in FONT_EPOCA else 'classico'
     # fondi delle carte: 3 immagini a tema (bordi decorati, centro libero) + la carta dell'epoca + 2 colori a tinta unita
     fondi = [prepara_fondo(tex)]
+    fondi_ai = []
     for col in (c.get('colori_carte') or ['#6b1e1e', '#1d3557'])[:2]:
         try:
             fondi.append(prepara_fondo(tinta(tex, str(col))))
@@ -1120,7 +1146,7 @@ def main():
         mix = []   # alterna: tema, carta, tema, colore, tema, colore
         for i in range(max(len(ai), len(fondi))):
             mix += ([ai[i]] if i < len(ai) else []) + ([fondi[i]] if i < len(fondi) else [])
-        fondi = mix
+        fondi = mix; fondi_ai = ai
     # piano dei pezzi
     piano = pianifica(c['scene'], durs, voci, sf)
     for v in piano:
@@ -1135,26 +1161,22 @@ def main():
         if v['tipo'] == 'cartone' and not v.get('personaggio'):
             v['personaggio'] = v['pg_scena']
     piano = ritmo(piano, list(sf))
-    # il narratore del canale (avatar con il libro) compare solo ogni tanto, come chi racconta la storia: mai nei primi 10 s, al massimo 1 volta ogni NARRATORE_OGNI secondi
-    t, ultimo = 0.0, -1e9
-    for v in piano:
-        if v.get('tipo') == 'cartone' and v.get('personaggio') == NARRATORE:
-            if t < 10 or t - ultimo < NARRATORE_OGNI:
-                altro = v.get('pg_scena') if v.get('pg_scena') not in ('', None, NARRATORE) else pg_video
-                v['personaggio'] = altro if altro != NARRATORE else ''
-            else:
-                ultimo = t; v['reazione'] = True
-        t += v['d']
+    for v in piano:   # il narratore (avatar del canale) non compare MAI nei video
+        if v.get('personaggio') == NARRATORE:
+            v['personaggio'] = pg_video if pg_video != NARRATORE else ''
     log('visivi:', len(piano), '| primi 10 s:', sum(1 for x in __import__('itertools').accumulate([0] + [v['d'] for v in piano]) if x < 10))
     # durate a fotogrammi interi: video e voce restano allineati fino all'ultimo secondo
     fine_prec, acc = 0, 0.0
     for v in piano:
         acc += v['d']; fine = int(round(acc * FPS))
         v['d'] = max(1, fine - fine_prec) / FPS; fine_prec = fine
-    n_carte = 0
-    for v in piano:   # ogni carta/scheda su un fondo diverso dalla precedente
-        if v['tipo'] in ('carta', 'scheda'):
+    n_carte, n_schede = 0, 0
+    decorati = [i for i, f in enumerate(fondi) if any(f is a for a in fondi_ai)] or list(range(len(fondi)))
+    for v in piano:   # carte: fondi a rotazione; schede dei personaggi: SEMPRE su un fondo decorato a tema
+        if v['tipo'] == 'carta':
             v['fondo'] = n_carte % len(fondi); n_carte += 1
+        elif v['tipo'] == 'scheda':
+            v['fondo'] = decorati[n_schede % len(decorati)]; n_schede += 1
 
     def fai(k):
         v = piano[k]; d = v['d']; p = os.path.join(LAV, f'pezzo_{k:04d}.mp4'); t = v['tipo']
@@ -1221,12 +1243,17 @@ def main():
         except Exception as e:
             log('suono tasti saltato:', str(e)[:150])
     audio = voce_tot
-    if MUSICA_URL:
+    brani = [u.strip() for u in re.split(r'\|\||\n', MUSICA_URL) if u.strip()]
+    if brani:   # piu' brani separati da || : uno per video, a rotazione
         try:
-            mf = scarica(MUSICA_URL, os.path.join(LAV, 'musica.mp3'))
-            audio = os.path.join(LAV, 'audio.m4a'); vol = float(E('MUSICA_VOL', '0.08') or .08)
+            url = brani[int(hashlib.md5(str(P.get('id') or TITOLO).encode()).hexdigest(), 16) % len(brani)]
+            mf = scarica(url, os.path.join(LAV, 'musica.mp3'))
+            audio = os.path.join(LAV, 'audio.m4a'); vol = float(P.get('musica_vol') or E('MUSICA_VOL', '') or .07)
+            tot = durata(voce_tot)
             run(['ffmpeg', '-y', '-v', 'error', '-i', voce_tot, '-stream_loop', '-1', '-i', mf, '-filter_complex',
-                 f'[1:a]volume={vol}[m];[0:a][m]amix=inputs=2:duration=first:dropout_transition=0[a]', '-map', '[a]', '-c:a', 'aac', '-b:a', '192k', audio])
+                 f'[1:a]volume={vol},afade=t=in:d=2,afade=t=out:st={max(0, tot - 4):.2f}:d=4[m];'
+                 f'[0:a][m]amix=inputs=2:duration=first:dropout_transition=0:normalize=0[a]', '-map', '[a]', '-c:a', 'aac', '-b:a', '192k', audio])
+            log('musica:', url[-40:], 'volume', vol)
         except Exception as e:
             log('musica saltata:', e)
     finale = os.path.join(ROOT, 'video_storia.mp4')
