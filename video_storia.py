@@ -1024,6 +1024,24 @@ def pianifica(scene, durs, voci, sf):
 
 
 
+def minuti_giusti(testo, n):
+    """'in 11 Minuti' -> 'in 13 Minuti' (stesso maiuscolo/minuscolo, singolare se 1). Vale anche per 'minutes' e 'min'."""
+    def sost(m):
+        parola = m.group(3); base = parola.lower()
+        if base.startswith('minut') and base[-1] in 'oi':        # italiano
+            nuova = 'minuto' if n == 1 else 'minuti'
+        elif base.startswith('minute'):                            # inglese
+            nuova = 'minute' if n == 1 else 'minutes'
+        else:
+            nuova = base
+        nuova = nuova.upper() if parola.isupper() else nuova.capitalize() if parola[0].isupper() else nuova
+        return str(n) + m.group(2) + nuova
+    nuovo = re.sub(r'(?<![\d.,])(\d{1,3})(\s*)(minut[oi]|minutes?|min)\b', sost, testo, flags=re.I)
+    if nuovo != testo:
+        log('minuti nel titolo/copertina aggiornati:', testo, '->', nuovo)
+    return nuovo
+
+
 def main():
     os.makedirs(LAV, exist_ok=True)
     comp = competitor()
@@ -1039,6 +1057,14 @@ def main():
     with ThreadPoolExecutor(2) as ex:   # ElevenLabs accetta poche richieste insieme (errore 429 con 4)
         voci = list(ex.map(lambda a: voce(*a), enumerate(s['testo'] for s in c['scene'])))
     durs = [durata(v) for v in voci]
+    # titolo e copertina copiati al 100%: se citano i minuti del video originale, si mettono i minuti VERI del nostro video
+    minuti_veri = max(1, int(round(sum(durs) / 60)))
+    titolo_finale = minuti_giusti(titolo_finale, minuti_veri)
+    if isinstance(c.get('copertina'), dict) and c['copertina'].get('testo'):
+        c['copertina']['testo'] = minuti_giusti(str(c['copertina']['testo']), minuti_veri)
+    c['titolo'] = titolo_finale
+    if c.get('descrizione'):
+        c['descrizione'] = minuti_giusti(str(c['descrizione']), minuti_veri)
     log('voce pronta:', round(sum(durs) / 60, 1), 'minuti')
     # sfondi
     with ThreadPoolExecutor(3) as ex:
