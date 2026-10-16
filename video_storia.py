@@ -96,6 +96,25 @@ def id_video(link):
     return m.group(1) if m else ''
 
 
+def dati_yt(c):
+    """Tag e categoria del video competitor (YouTube Data API con il token del canale); se non riesce usa quelli scritti dallo Scout nel foglio."""
+    tag, cat = [], ''
+    if E('YT_REFRESH_TOKEN'):
+        try:
+            req = urllib.request.Request('https://www.googleapis.com/youtube/v3/videos?part=snippet&id=' + c['id'],
+                                         headers={'Authorization': 'Bearer ' + token()})
+            with urllib.request.urlopen(req, timeout=60) as r:
+                sn = (json.loads(r.read().decode()).get('items') or [{}])[0].get('snippet') or {}
+            tag, cat = list(sn.get('tags') or []), str(sn.get('categoryId') or '')
+        except Exception as e:
+            log('tag/categoria del competitor non letti da YouTube:', str(e)[:120])
+    if not tag:
+        tag = [t.strip() for t in re.split(r'[,|]', str(P.get('tag_originali') or '')) if t.strip()]
+    cat = cat or str(P.get('categoria_originale') or '').strip()
+    c['tag_originali'], c['categoria'] = tag, cat
+    log('competitor: categoria', cat or '-', ',', len(tag), 'tag')
+
+
 def competitor():
     """Titolo, testo parlato e copertina del video originale. SICUREZZA: senza link valido o senza testo originale il video NON parte."""
     vid = id_video(LINK)
@@ -111,6 +130,7 @@ def competitor():
         c['titolo'] = http('https://www.youtube.com/oembed?format=json&url=https://www.youtube.com/watch?v=' + vid)['title']
     except Exception as e:
         log('titolo originale non letto:', str(e)[:100])
+    dati_yt(c)
     chiave_rapid = E('RAPIDAPI_KEY', '')
     if chiave_rapid:   # stesso servizio usato da n8n (youtube-transcript3 su RapidAPI): YouTube non lo blocca
         for k in range(3):
@@ -167,6 +187,9 @@ def copione(comp):
 VIDEO ORIGINALE DA COPIARE: "{comp['titolo']}".
 - "titolo": ''' + (f"e' la TRADUZIONE FEDELE al 100% del titolo originale in {lingua} (stessa struttura, stessi numeri e date, stesse parole in maiuscolo), adattata solo dove serve per suonare naturale." if TIT_COPIA >= 100 else
        f"tieni il {TIT_COPIA}% del titolo originale tradotto in {lingua} (stessa struttura, stesso argomento, stessi numeri e date) e cambia il restante {100 - TIT_COPIA}% per renderlo piu' forte e diverso: un'altra parola d'impatto, una promessa o un dettaglio di curiosita'. Mai un titolo identico all'originale.")
+    if comp.get('tag_originali'):
+        blocco_originale += f'''
+TAG DEL COMPETITOR (da tradurre in {lingua} e mettere per primi nel campo "tag"): {', '.join(comp['tag_originali'])[:1500]}'''
     if orig:
         blocco_originale += f'''
 - Il PARLATO deve COPIARE al 100% il testo originale qui sotto: stessi fatti, stesso ordine, stessi ganci, stesse domande, stessi numeri, stessa lunghezza.{' ECCEZIONE: l originale e troppo lungo, quindi CONDENSALO a circa ' + str(parole) + ' parole: stessi fatti principali, stesso ordine, stessi ganci e stesse domande, togli solo dettagli secondari ed esempi ripetuti.' if condensa else ''}
@@ -188,13 +211,13 @@ Il PRIMO visivo del video e' sempre un "cartone" con un personaggio.
 SINCRONIA CON LA VOCE (FONDAMENTALE): ogni visivo ha il campo "frase" = 2-4 parole COPIATE IDENTICHE dal "testo" della scena, nel punto esatto in cui il visivo deve comparire. I visivi sono nello stesso ordine delle loro frasi nel testo, a distanza di almeno 4 parole l'uno dall'altro. Il primo visivo ha come frase le prime parole della scena.
 - una "carta" compare quando la voce dice quella frase: il suo "testo" riprende parole DETTE in quella scena e la sua "frase" e' l'inizio di quelle parole nel testo;
 - una "scheda" SOLO nella scena in cui quel personaggio viene NOMINATO dalla voce, con frase = il nome cosi' come detto;
-- un "cartone" con un personaggio storico reale SOLO quando viene nominato (frase = il nome); quando non si nomina nessuno usa SEMPRE una figura generica della lista (soldato, contadino, nobile...) coerente con cio' che si dice: ogni cartone ha un personaggio;
+- un "cartone" con un personaggio storico reale SOLO quando viene nominato (frase = il nome); quando non si nomina nessuno usa SEMPRE una figura generica della lista (soldato, contadino, nobile...) coerente con cio' che si dice: ogni cartone ha un personaggio; il personaggio deve essere SEMPRE della stessa EPOCA e dello stesso popolo di cio' che si racconta (mai un generale in divisa moderna per l'antichita', mai un cavaliere medievale europeo per la Persia antica);
 - un "pexels" deve mostrare cio' che la voce dice in quel momento.
 Tipi:
 - "cartone": scena disegnata. Campi: "sfondo" (id di uno dei 6 sfondi), "personaggio" (SOLO uno di questa lista, oppure "" per nessuno): {', '.join(kit) or '(nessuno)'}; "reazione": true se a meta' il personaggio cambia posa (momento forte). Nella PRIMA scena il primo visivo e' un cartone con il campo "data" (es. "550 a.C.").
 - "pexels_video": clip vera. Campo "q": ricerca Pexels in INGLESE, 2-4 parole concrete che diano immagini SENZA cose moderne: paesaggi naturali, montagne, deserti, rovine, monumenti antichi, oggetti antichi, monete, manoscritti, fuoco, cielo, mare, rievocazioni in costume. MAI persone di oggi, MAI citta' moderne (tranne nelle scene sul presente), MAI nomi di persone o eventi.
 - "pexels_foto": foto vera. Campo "q" come sopra.
-- DIDASCALIA (facoltativa, su "cartone", "pexels_video" o "pexels_foto"): campo "didascalia" = 2-6 parole chiave DETTE dalla voce in quel momento (es. "Ciro il Grande, 550 a.C.", "Il primo trattato della storia"). Compare su una striscia di carta strappata in basso, battuta a macchina. Usala con misura: circa 1 visivo ogni 6, mai su due visivi di fila.
+- DIDASCALIA (facoltativa, su "cartone", "pexels_video" o "pexels_foto"): campo "didascalia" = 2-6 parole chiave DETTE dalla voce in quel momento (es. "Ciro il Grande, 550 a.C.", "Il primo trattato della storia"). Compare su una striscia di carta strappata in basso, battuta a macchina. Usala spesso per dare ritmo: circa 1 visivo ogni 4-5, mai su due visivi di fila; mai su visivi piu' corti di 2 secondi di parlato.
 - "carta": frase chiave scritta su carta. Campo "testo": max 8 parole, la frase piu' forte del momento.
 - "scheda": presentazione di un personaggio storico. Campi "personaggio" (dalla lista) e "nome" (nome vero completo).
 - "mappa": zoom sulla mappa del paese con titolo e date (usala UNA volta, nella seconda scena).
@@ -214,7 +237,7 @@ Rispondi SOLO con un JSON valido, senza testo prima o dopo:
  "scene": [{{"testo": "parlato della scena", "visivi": [{{"tipo": "cartone", "frase": "prime parole della scena", "sfondo": "s1", "personaggio": "...", "reazione": true, "data": "..."}}]}}],
  "copertina": {{"testo": "testo della copertina originale TRADOTTO al 100% (stesse parole, stesse date), MAIUSCOLO", "personaggio": "personaggio della lista che corrisponde alla figura principale della copertina originale, oppure ''"}},
  "descrizione": "descrizione YouTube in {lingua}: 3 paragrafi brevi (circa 120 parole) che riassumono il video con le parole che la gente cerca, poi una riga con 4-6 hashtag",
- "tag": ["15-25 tag YouTube in {lingua}, dal piu' importante: paese, impero, epoche, personaggi, 'storia di ...', 'storia completa'"],
+ "tag": ["25-35 tag YouTube in {lingua}: PRIMA tutti i TAG DEL COMPETITOR (se ci sono) tradotti in {lingua} nello stesso ordine (nomi propri invariati, togli solo nomi di altri canali), POI aggiungi i nostri tag validi: paese, impero, epoche, personaggi, 'storia di ...', 'storia completa'"],
  "personaggi_mancanti": ["figure che sarebbero servite ma non sono nella lista, es. 'Dario I re persiano'"]}}
 Scegli la texture piu' coerente (washi per Giappone/Cina/Corea, papiro per Egitto/Mesopotamia, pergamena per antichita'/medioevo, giornale per 1800-1900, stropicciata per storia moderna)."""
     chiave = E('ANTHROPIC_API_KEY', '')
@@ -298,7 +321,10 @@ _cache, _conti, _usati, _lock = {}, {'n': 0}, set(), threading.RLock()
 VIETATE = ('firefighter', 'fire-fighter', 'jakarta', 'police', 'car', 'cars', 'traffic', 'phone', 'smartphone', 'laptop', 'computer',
            'office', 'selfie', 'tourist', 'tourists', 'christmas', 'birthday', 'party', 'card', 'greeting', 'happy', 'neon', 'logo',
            'text', 'sign', 'shopping', 'mall', 'airport', 'airplane', 'truck', 'bus', 'motorcycle', 'gym', 'fitness', 'model', 'fashion',
-           'wedding', 'coffee', 'restaurant', 'supermarket', 'construction', 'vaccine', 'mask', 'covid', 'nowruz', 'football', 'soccer')
+           'wedding', 'coffee', 'restaurant', 'supermarket', 'construction', 'vaccine', 'mask', 'covid', 'nowruz', 'football', 'soccer',
+           # persone di oggi: nelle clip di storia non devono comparire (restano le rievocazioni in costume, controllate da Claude)
+           'man', 'men', 'woman', 'women', 'person', 'people', 'girl', 'girls', 'boy', 'boys', 'guy', 'lady', 'child', 'children', 'kid',
+           'kids', 'couple', 'family', 'friends', 'portrait', 'hiker', 'hiking', 'traveler', 'travelers', 'backpacker', 'photographer')
 MODELLO_CONTROLLO = E('MODELLO_CONTROLLO', 'claude-haiku-4-5-20251001')
 
 
@@ -321,7 +347,10 @@ def pexels_cerca(tipo, q):
                     fs = [f for f in v.get('video_files', []) if 'mp4' in (f.get('file_type') or '') and (f.get('height') or 0) <= 1080]
                     fs.sort(key=lambda f: -(f.get('height') or 0))
                     if fs and (v.get('duration') or 0) >= 3:
-                        ris.append({'url': fs[0]['link'], 'anteprima': v.get('image') or '', 'desc': (v.get('url') or '').lower()})
+                        pics = [x.get('picture') for x in (v.get('video_pictures') or []) if x.get('picture')]
+                        viste = [v.get('image') or ''] + ([pics[len(pics) // 2], pics[-1]] if len(pics) > 2 else [])
+                        ris.append({'url': fs[0]['link'], 'anteprima': v.get('image') or '', 'viste': [x for x in viste if x],
+                                    'desc': (v.get('url') or '').lower()})
             else:
                 for ph in j.get('photos', []):
                     ris.append({'url': ph['src'].get('large2x') or ph['src'].get('original'), 'anteprima': ph['src'].get('medium') or '',
@@ -340,12 +369,14 @@ def controlla(candidati, q, contesto):
     if not chiave or not candidati:
         return 0 if candidati else -1
     cont = []
-    for i, c in enumerate(candidati):
-        cont += [{'type': 'text', 'text': f'Immagine {i}:'}, {'type': 'image', 'source': {'type': 'url', 'url': c['anteprima']}}]
+    for i, c in enumerate(candidati):   # per le clip: inizio, meta' e fine (una persona puo' entrare dopo)
+        cont += [{'type': 'text', 'text': f'Immagine {i}:'}] + [{'type': 'image', 'source': {'type': 'url', 'url': u}}
+                                                                for u in (c.get('viste') or [c['anteprima']])[:3]]
     cont.append({'type': 'text', 'text': f"""Video di storia. La voce in questo momento dice: "{contesto[:400]}". Ricerca usata: "{q}".
 Quale immagine e' adatta da mostrare? Deve sembrare coerente con l'epoca e il luogo raccontati.
-SCARTA: persone moderne (vestiti di oggi, divise, caschi, occhiali da sole), auto, cellulari, cartelli o scritte leggibili, biglietti di auguri, oggetti di plastica, feste moderne, cose fuori tema.
-VANNO BENE: paesaggi, montagne, deserti, rovine, monumenti antichi, musei, oggetti antichi, monete, manoscritti, fuoco, cieli, mare, rievocazioni in costume d'epoca.
+Se un'immagine ha piu' fotogrammi (stessa clip), giudicali TUTTI: basta un fotogramma sbagliato per scartarla.
+SCARTA SEMPRE: qualsiasi persona di oggi, anche piccola, lontana, di spalle o in mezzo a rovine (giacche, felpe, jeans, scarpe da ginnastica, zaini, turisti); auto, cellulari, cartelli o scritte leggibili, biglietti di auguri, oggetti di plastica, feste moderne, cose fuori tema.
+VANNO BENE: paesaggi, montagne, deserti, rovine, monumenti antichi, musei, oggetti antichi, monete, manoscritti, fuoco, cieli, mare, rievocazioni in costume d'epoca (persone ammesse SOLO se vestite in modo storico evidente).
 Rispondi SOLO con il numero della prima immagine adatta, oppure -1 se nessuna va bene."""})
     try:
         r = http('https://api.anthropic.com/v1/messages', {'model': MODELLO_CONTROLLO, 'max_tokens': 10, 'messages': [{'role': 'user', 'content': cont}]},
@@ -607,6 +638,11 @@ def a_capo(testo, f, larg):
 
 
 # battitura a macchina: stessi tempi per il disegno e per il suono dei tasti
+def dur_did(d):
+    """Durata della battitura di una didascalia: si adatta al pezzo, cosi' la scritta finisce sempre prima del cambio."""
+    return min(1.6, max(.5, d - 1.1))
+
+
 def battitura(testo, inizio, max_dur):
     tot = max(1, len(testo)); dur = min(max_dur, .05 * tot)
     return inizio, dur
@@ -671,7 +707,7 @@ def aggiungi_didascalia(path, d, testo, nome_font):
     sz = 76
     while sz > 52 and font(nome_font, sz).getlength(testo) > W - 260:
         sz -= 4
-    f = font(nome_font, sz); tot = len(testo); i0, dur = battitura(testo, .45, 1.6)
+    f = font(nome_font, sz); tot = len(testo); i0, dur = battitura(testo, .45, dur_did(d))
     tmp = path[:-4] + '_d.mp4'
     lettore = subprocess.Popen(['ffmpeg', '-v', 'error', '-i', path, '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], stdout=subprocess.PIPE)
     scrittore = subprocess.Popen(['ffmpeg', '-y', '-v', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-r', str(FPS), '-i', '-',
@@ -737,7 +773,7 @@ def pezzo_scheda(path, d, fondo, nome_pg, nome, nome_font='classico'):
     fp = png_personaggio(nome_pg, 'fermo')
     fig = Image.open(fp).convert('RGBA') if fp else None
     if fig:
-        fig.thumbnail((900, 690)); ombra = fig.split()[3].filter(ImageFilter.GaussianBlur(10))
+        fig.thumbnail((900, 560)); ombra = fig.split()[3].filter(ImageFilter.GaussianBlur(10))
     sz = 100
     while sz > 64 and font(nome_font, sz).getlength(nome) > W - 200:
         sz -= 4
@@ -750,11 +786,17 @@ def pezzo_scheda(path, d, fondo, nome_pg, nome, nome_font='classico'):
             im = tex.copy()
             if fig:
                 dy = int((1 - ease(min(t, .6) / .6)) * 40)
-                x, y = (W - fig.width) // 2, 110 + dy
+                x, y = (W - fig.width) // 2, 700 - fig.height + 20 + dy
                 im.paste((60, 40, 20), (x + 8, y + 12), ombra.point(lambda v: v * .35))
                 im.paste(fig, (x, y), fig)
-            n = k[1]; dr = ImageDraw.Draw(im)
-            dr.text(((W - f.getlength(nome)) / 2, 850), nome[:n], font=f, fill=ink)
+            n = k[1]
+            # nome sempre leggibile: su una fascia di carta chiara al centro, mai sopra le decorazioni del bordo
+            lw, yb = f.getlength(nome) + 140, 700
+            fascia = Image.new('RGBA', (W, H), (0, 0, 0, 0)); df = ImageDraw.Draw(fascia)
+            df.rounded_rectangle(((W - lw) / 2, yb, (W + lw) / 2, yb + sz * 1.55), radius=26, fill=(247, 238, 218, 240),
+                                 outline=(120, 90, 50, 200), width=4)
+            im = Image.alpha_composite(im.convert('RGBA'), fascia).convert('RGB')
+            ImageDraw.Draw(im).text(((W - f.getlength(nome)) / 2, yb + sz * .2), nome[:n], font=f, fill=INK)
             return im
         return k, fn
     return pipe_frames(path, d, disegna)
@@ -898,6 +940,8 @@ def ritmo(piano, sf_ids):
         d = v['d']; lim = limite(t)
         n = math.ceil(d / lim - .08)
         minimo = 2.7 if v['tipo'] in ('carta', 'scheda') else 3.0 if v['tipo'] == 'mappa' else 1.3   # il tempo di leggere
+        if v.get('didascalia') and d < 3.8:   # la didascalia ha bisogno di tempo per essere letta: questo visivo non si spezza
+            n = 1
         if n <= 1 or d / n < 1.3:
             out.append(v); t += d; continue
         primo = max(d / n, min(minimo, d - 1.3 * (n - 1)))
@@ -907,9 +951,9 @@ def ritmo(piano, sf_ids):
         parti = [dict(v, d=primo)]
         for k in range(1, m + 1):
             giro += 1
-            if v['tipo'] in ('pexels_video', 'pexels_foto'):
+            if v['tipo'] == 'pexels_foto' and k % 2 == 0:
                 nuovo = {'tipo': v['tipo'], 'q': v.get('q'), 'contesto': v.get('contesto')}
-            else:
+            else:   # una clip spezzata in due sembrava un salto: si stacca sul personaggio (inquadratura diversa)
                 pg = v.get('personaggio') if v['tipo'] == 'cartone' else v.get('pg_scena')
                 altri = [x for x in sf_ids if x != v.get('sfondo')] or sf_ids
                 nuovo = {'tipo': 'cartone', 'sfondo': altri[giro % len(altri)], 'personaggio': pg or '', 'reazione': k % 2 == 1,
@@ -983,7 +1027,9 @@ def pianifica(scene, durs, voci, sf):
 def main():
     os.makedirs(LAV, exist_ok=True)
     comp = competitor()
+    INFO_COMP.update({'categoria_originale': comp.get('categoria') or '', 'tag_originali': ', '.join(comp.get('tag_originali') or [])[:2000]})
     c = copione(comp)
+    c['categoria_originale'] = comp.get('categoria') or ''
     titolo_finale = c.get('titolo') or TITOLO
     json.dump(c, open(os.path.join(ROOT, 'copione.json'), 'w'), ensure_ascii=False, indent=1)
     kit = kit_disponibile()
@@ -1069,7 +1115,7 @@ def main():
             return pezzo_cartone(p, d, list(sf.values())[k % len(sf)], '', False, '', True)
 
     def con_didascalia(p, d, v):
-        if v.get('didascalia') and d > 2.2:
+        if v.get('didascalia') and d > 1.7:
             try:
                 return aggiungi_didascalia(p, d, str(v['didascalia'])[:60], nome_font)
             except Exception as e:
@@ -1095,7 +1141,7 @@ def main():
         elif v['tipo'] == 'scheda':
             eventi += [t_ini + x for x in tasti(v.get('nome') or '', .6, 1.2, d)]
         elif v.get('didascalia'):
-            eventi += [t_ini + x for x in tasti(str(v['didascalia'])[:60], .45, 1.6, d)]
+            eventi += [t_ini + x for x in tasti(str(v['didascalia'])[:60], .45, dur_did(d), d)]
         t_ini += d - T_TR
     if eventi:
         try:
@@ -1174,6 +1220,7 @@ def iscrizione(video, audio, finale):
 
 # ============================================================ YOUTUBE (caricamento sul canale + avviso a n8n)
 T_INIZIO = time.time()
+INFO_COMP = {}   # categoria e tag del competitor: tornano nel foglio di produzione con l'esito
 
 
 def token():
@@ -1202,7 +1249,7 @@ def carica_youtube(path, c, titolo):
     tok = token()
     descr = '\n\n'.join(x for x in [titolo, str(c.get('descrizione') or '').strip(), str(P.get('descrizione_base') or '').strip()] if x)
     snippet = {'title': titolo[:100], 'description': descr[:4900], 'tags': lista_tag(titolo, c.get('tag')),
-               'categoryId': str(P.get('categoria') or '27'), 'defaultLanguage': LINGUA, 'defaultAudioLanguage': LINGUA}
+               'categoryId': str(c.get('categoria_originale') or P.get('categoria') or '27'), 'defaultLanguage': LINGUA, 'defaultAudioLanguage': LINGUA}
     status = {'privacyStatus': P.get('privacy') or 'public', 'selfDeclaredMadeForKids': False}
     if P.get('pubblica_il'):
         status['privacyStatus'] = 'private'; status['publishAt'] = P['pubblica_il']
@@ -1275,6 +1322,9 @@ def playlist_video(video_id, titolo):
 
 
 def avvisa(esito):
+    for k, v in INFO_COMP.items():
+        if v and k not in esito:
+            esito[k] = v
     log('esito:', json.dumps(esito, ensure_ascii=False)[:500])
     if not P.get('callback_url'):
         return
