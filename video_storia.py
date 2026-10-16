@@ -10,7 +10,7 @@ carta (frase chiave battuta a macchina su texture), scheda (personaggio + nome),
 Variabili: TITOLO, LINGUA, VOCE, MINUTI, MAX_MINUTI, MODELLO_AI, MUSICA_URL, MUSICA_VOL, PROVA (SI = video di ~1 minuto)
 Chiavi: ANTHROPIC_API_KEY, ELEVENLABS_API_KEY, PEXELS_API_KEY, FAL_KEY
 """
-import base64, json, math, os, random, re, shutil, subprocess, sys, threading, time, traceback, urllib.parse, urllib.request
+import base64, json, math, os, random, re, shutil, subprocess, sys, threading, time, traceback, urllib.error, urllib.parse, urllib.request
 from concurrent.futures import ThreadPoolExecutor
 
 import numpy as np
@@ -24,14 +24,29 @@ KIT = os.path.join(ROOT, 'kit_storia')
 FONT = os.path.join(ROOT, 'font')
 GEO = os.path.join(ROOT, 'geo')
 E = os.environ.get
+try:   # n8n (MULTICHANNEL - Storia Video) passa tutto in un unico JSON: vince sui campi del modulo
+    P = json.loads(E('PAYLOAD') or '{}') or {}
+except Exception:
+    P = {}
 TITOLO = E('TITOLO', 'Tutta la storia dell\'Iran').strip()
 LINGUA = E('LINGUA', 'it').strip() or 'it'
-VOCE = E('VOCE', 'glnsgBC77wt5zOYU0szz').strip()
+VOCE = str(P.get('voce') or E('VOCE', '') or 'glnsgBC77wt5zOYU0szz').strip()
 MINUTI = float(E('MINUTI', '13') or 13)
-MAX_MINUTI = float(E('MAX_MINUTI', '25') or 25)   # oltre questa durata il copione condensa l'originale
-PROVA = E('PROVA', 'NO').strip().upper() == 'SI'
+MAX_MINUTI = float(P.get('max_minuti') or E('MAX_MINUTI', '25') or 25)   # oltre questa durata il copione condensa l'originale
+PROVA = str(P.get('prova') or E('PROVA', 'NO')).strip().upper() == 'SI'
+CARICA = str(P.get('carica') or E('CARICA', 'NO')).strip().upper() == 'SI' and not PROVA   # SI = carica su YouTube
+MUSICA_URL = str(P.get('musica_url') or E('MUSICA_URL', '')).strip()
+def _perc(v, d=100):
+    try:
+        return max(0, min(100, int(float(str(v).replace('%', '').replace(',', '.')) * (100 if 0 < float(str(v).replace('%', '').replace(',', '.')) <= 1 else 1))))
+    except Exception:
+        return d
+COP_COPIA = _perc(P.get('copertina_copia') or E('COPERTINA_COPIA', ''), 100)    # % della copertina competitor da tenere uguale
+TIT_COPIA = _perc(P.get('titolo_copia') or E('TITOLO_COPIA', ''), 100)          # % del titolo competitor da tenere uguale
+COP_STILE = str(P.get('copertina_stile') or E('COPERTINA_STILE', '') or 'cartone').strip().lower()   # cartone | realistico
+RIFERIMENTI = [u for u in (P.get('riferimenti_copertine') or []) if u][:8]      # copertine top della nicchia (dallo Scout)
 MODELLO_AI = E('MODELLO_AI', 'claude-sonnet-5-5').strip()
-LINK = E('LINK_COMPETITOR', '').strip()      # video da copiare (titolo, testo e copertina)
+LINK = str(P.get('link') or E('LINK_COMPETITOR', '')).strip()      # video da copiare (titolo, testo e copertina)
 INK = (29, 26, 23)
 random.seed(TITOLO)
 
@@ -150,7 +165,8 @@ def copione(comp):
     if comp.get('titolo'):
         blocco_originale += f'''
 VIDEO ORIGINALE DA COPIARE: "{comp['titolo']}".
-- "titolo": e' la TRADUZIONE FEDELE al 100% del titolo originale in {lingua} (stessa struttura, stessi numeri e date, stesse parole in maiuscolo), adattata solo dove serve per suonare naturale.'''
+- "titolo": ''' + (f"e' la TRADUZIONE FEDELE al 100% del titolo originale in {lingua} (stessa struttura, stessi numeri e date, stesse parole in maiuscolo), adattata solo dove serve per suonare naturale." if TIT_COPIA >= 100 else
+       f"tieni il {TIT_COPIA}% del titolo originale tradotto in {lingua} (stessa struttura, stesso argomento, stessi numeri e date) e cambia il restante {100 - TIT_COPIA}% per renderlo piu' forte e diverso: un'altra parola d'impatto, una promessa o un dettaglio di curiosita'. Mai un titolo identico all'originale.")
     if orig:
         blocco_originale += f'''
 - Il PARLATO deve COPIARE al 100% il testo originale qui sotto: stessi fatti, stesso ordine, stessi ganci, stesse domande, stessi numeri, stessa lunghezza.{' ECCEZIONE: l originale e troppo lungo, quindi CONDENSALO a circa ' + str(parole) + ' parole: stessi fatti principali, stesso ordine, stessi ganci e stesse domande, togli solo dettagli secondari ed esempi ripetuti.' if condensa else ''}
@@ -197,6 +213,8 @@ Rispondi SOLO con un JSON valido, senza testo prima o dopo:
  "sfondi": [{{"id": "s1", "prompt_en": "..."}}],
  "scene": [{{"testo": "parlato della scena", "visivi": [{{"tipo": "cartone", "frase": "prime parole della scena", "sfondo": "s1", "personaggio": "...", "reazione": true, "data": "..."}}]}}],
  "copertina": {{"testo": "testo della copertina originale TRADOTTO al 100% (stesse parole, stesse date), MAIUSCOLO", "personaggio": "personaggio della lista che corrisponde alla figura principale della copertina originale, oppure ''"}},
+ "descrizione": "descrizione YouTube in {lingua}: 3 paragrafi brevi (circa 120 parole) che riassumono il video con le parole che la gente cerca, poi una riga con 4-6 hashtag",
+ "tag": ["15-25 tag YouTube in {lingua}, dal piu' importante: paese, impero, epoche, personaggi, 'storia di ...', 'storia completa'"],
  "personaggi_mancanti": ["figure che sarebbero servite ma non sono nella lista, es. 'Dario I re persiano'"]}}
 Scegli la texture piu' coerente (washi per Giappone/Cina/Corea, papiro per Egitto/Mesopotamia, pergamena per antichita'/medioevo, giornale per 1800-1900, stropicciata per storia moderna)."""
     chiave = E('ANTHROPIC_API_KEY', '')
@@ -398,28 +416,66 @@ def carica_fal(path, tipo='image/png'):
     return ini['file_url']
 
 
+STILE_COP = {
+    'cartone': 'redrawn as a high-quality 2D cartoon illustration with clean black outlines and rich detail',
+    'realistico': 'recreated as a photorealistic cinematic photograph, like a still from a big-budget historical film: real skin, real materials, dramatic light, no cartoon, no illustration',
+}
+
+
+def analizza_copertina(comp, testo):
+    """Copia al COP_COPIA%: Claude guarda la copertina del competitor e le migliori della nicchia e decide il cambio (pattern forte)."""
+    chiave = E('ANTHROPIC_API_KEY', '')
+    if not chiave or COP_COPIA >= 100:
+        return ''
+    cont = [{'type': 'text', 'text': 'IMMAGINE 0 = copertina del video che copiamo.'}, {'type': 'image', 'source': {'type': 'url', 'url': comp['copertina']}}]
+    for i, u in enumerate(RIFERIMENTI, 1):
+        cont += [{'type': 'text', 'text': f'IMMAGINE {i} = copertina di successo della stessa nicchia.'}, {'type': 'image', 'source': {'type': 'url', 'url': u}}]
+    cont.append({'type': 'text', 'text': f"""Dobbiamo rifare la copertina 0 per il nostro canale tenendo il {COP_COPIA}% IDENTICO (composizione, soggetto principale, colori, posizione e stile del testo) e cambiando il {100 - COP_COPIA}%.
+Il cambio NON e' casuale: guarda le copertine 1-{len(RIFERIMENTI)} e trova i PATTERN che le rendono forti (es. un personaggio con emozione esagerata, una freccia o un cerchio rosso, un contrasto piu' forte, un oggetto simbolo in primo piano, una data o un numero evidenziato, un volto storico riconoscibile, fuoco/esplosione, mappa).
+Scegli UNO o DUE di questi pattern che mancano nella copertina 0 e aggiungili al posto di elementi secondari, cosi' la copertina diventa piu' forte e abbastanza diversa da non essere una copia.
+Il testo della copertina sara': "{testo}".
+Rispondi SOLO con JSON: {{"tieni": "cosa resta uguale, in inglese, 1 frase", "cambia": "il cambio preciso da fare, in inglese, 1-2 frasi concrete per un generatore di immagini", "pattern": "nome breve del pattern usato, in italiano"}}"""})
+    try:
+        r = http('https://api.anthropic.com/v1/messages', {'model': MODELLO_AI, 'max_tokens': 600, 'messages': [{'role': 'user', 'content': cont}]},
+                 {'x-api-key': chiave, 'anthropic-version': '2023-06-01'}, timeout=300)
+        t = ''.join(b.get('text', '') for b in r.get('content', []))
+        j = json.loads(t[t.find('{'): t.rfind('}') + 1])
+        open(os.path.join(ROOT, 'copertina_analisi.txt'), 'w').write(json.dumps(j, ensure_ascii=False, indent=1))
+        log('copertina: pattern scelto ->', j.get('pattern'), '|', j.get('cambia'))
+        return f"KEEP: {j.get('tieni', '')} CHANGE (about {100 - COP_COPIA}% of the image): {j.get('cambia', '')} "
+    except Exception as e:
+        log('analisi copertina saltata:', str(e)[:200])
+        return f'Change about {100 - COP_COPIA}% of the secondary elements (background details, small objects, camera angle) while keeping the main subject and layout. '
+
+
 def copertina(comp, c):
     if not comp.get('copertina') or not E('FAL_KEY'):
         return None
     cop = c.get('copertina') or {}
     testo = str(cop.get('testo') or c.get('titolo') or '').strip()
     img = [comp['copertina']]
-    pg = png_personaggio(cop.get('personaggio') or '', 'fermo')
+    pg = png_personaggio(cop.get('personaggio') or '', 'fermo') if COP_STILE != 'realistico' else None
     if pg:
         try:
             img.append(carica_fal(pg))
         except Exception as e:
             log('personaggio copertina non caricato:', e)
-    prompt = ('Recreate the YouTube thumbnail of the FIRST image almost identically: same composition, same layout, same framing, same place '
-              'and same kind of scene, same colour palette and same title position and size, redrawn as a high-quality 2D cartoon illustration '
-              'with clean black outlines and rich detail. Small differences only: slightly different camera angle, different small details in the background. '
-              + ('The main figure is the character of the SECOND image (same face, clothes and style), placed where the main figure is in the first image. ' if len(img) > 1 else '')
+    stile = STILE_COP.get(COP_STILE, STILE_COP['cartone'])
+    cambio = analizza_copertina(comp, testo)
+    if COP_COPIA >= 100:
+        base = ('Recreate the YouTube thumbnail of the FIRST image almost identically: same composition, same layout, same framing, same place '
+                f'and same kind of scene, same colour palette and same title position and size, {stile}. '
+                'Small differences only: slightly different camera angle, different small details in the background. ')
+    else:
+        base = (f'Recreate the YouTube thumbnail of the FIRST image keeping about {COP_COPIA}% of it: same main composition, same layout, same colour palette '
+                f'and same title position and size, {stile}. ' + cambio)
+    prompt = (base + ('The main figure is the character of the SECOND image (same face, clothes and style), placed where the main figure is in the first image. ' if len(img) > 1 else '')
               + f'Replace ALL the text with exactly this text, same font style, same colours and same position: "{testo}". No other text, no logos, no watermark.')
     try:
         r = fal('fal-ai/nano-banana-2/edit', {'prompt': prompt, 'image_urls': img, 'aspect_ratio': '16:9', 'resolution': '2K', 'output_format': 'jpeg', 'num_images': 1})
         p = os.path.join(ROOT, 'copertina.jpg'); scarica(r['images'][0]['url'], p)
         Image.open(p).convert('RGB').resize((1280, 720), Image.LANCZOS).save(p, quality=92)
-        log('copertina pronta')
+        log('copertina pronta (copia', str(COP_COPIA) + '%, stile', COP_STILE + ')')
         return p
     except Exception as e:
         log('copertina non riuscita:', str(e)[:200])
@@ -1052,9 +1108,9 @@ def main():
         except Exception as e:
             log('suono tasti saltato:', str(e)[:150])
     audio = voce_tot
-    if E('MUSICA_URL'):
+    if MUSICA_URL:
         try:
-            mf = scarica(E('MUSICA_URL'), os.path.join(LAV, 'musica.mp3'))
+            mf = scarica(MUSICA_URL, os.path.join(LAV, 'musica.mp3'))
             audio = os.path.join(LAV, 'audio.m4a'); vol = float(E('MUSICA_VOL', '0.08') or .08)
             run(['ffmpeg', '-y', '-v', 'error', '-i', voce_tot, '-stream_loop', '-1', '-i', mf, '-filter_complex',
                  f'[1:a]volume={vol}[m];[0:a][m]amix=inputs=2:duration=first:dropout_transition=0[a]', '-map', '[a]', '-c:a', 'aac', '-b:a', '192k', audio])
@@ -1062,14 +1118,141 @@ def main():
             log('musica saltata:', e)
     finale = os.path.join(ROOT, 'video_storia.mp4')
     run(['ffmpeg', '-y', '-v', 'error', '-i', video, '-i', audio, '-map', '0:v', '-map', '1:a', '-c:v', 'copy', '-c:a', 'copy', '-shortest', finale])
-    copertina(comp, c)
+    cop = copertina(comp, c)
     open(os.path.join(ROOT, 'titolo.txt'), 'w').write(titolo_finale)
+    if CARICA:
+        t0c = time.time()
+        vid = carica_youtube(finale, c, titolo_finale)
+        note = [x for x in (carica_copertina(vid, cop), playlist_video(vid, titolo_finale)) if x]
+        avvisa({'stato': 'PUBBLICATO', 'video_id': vid, 'link': 'https://www.youtube.com/watch?v=' + vid, 'titolo': titolo_finale,
+                'testo_copertina': str((c.get('copertina') or {}).get('testo') or ''), 'pubblica_il': P.get('pubblica_il') or '',
+                'minuti_video': round(durata(finale) / 60, 1), 'minuti_lavoro': round((time.time() - T_INIZIO) / 60, 1),
+                'errore': '; '.join(note)})
+    elif P.get('id'):
+        avvisa({'stato': 'PROVA OK' if PROVA else 'CREATO', 'minuti_video': round(durata(finale) / 60, 1),
+                'minuti_lavoro': round((time.time() - T_INIZIO) / 60, 1), 'titolo': titolo_finale})
     open(os.path.join(ROOT, 'personaggi_mancanti.txt'), 'w').write('\n'.join(sorted(set(m for m in mancanti if m))))
     log('FATTO:', finale, round(durata(finale) / 60, 1), 'minuti')
+
+
+# ============================================================ YOUTUBE (caricamento sul canale + avviso a n8n)
+T_INIZIO = time.time()
+
+
+def token():
+    data = urllib.parse.urlencode({'client_id': E('YT_CLIENT_ID', ''), 'client_secret': E('YT_CLIENT_SECRET', ''),
+                                   'refresh_token': E('YT_REFRESH_TOKEN', ''), 'grant_type': 'refresh_token'}).encode()
+    with urllib.request.urlopen(urllib.request.Request('https://oauth2.googleapis.com/token', data=data), timeout=60) as r:
+        return json.loads(r.read().decode())['access_token']
+
+
+def lista_tag(titolo, tag):
+    out, lung = [], 0
+    for t in [titolo] + [str(x) for x in (tag or [])]:
+        t = re.sub(r'\s+', ' ', re.sub(r'[<>,]', ' ', t)).strip()
+        if not t or any(x.lower() == t.lower() for x in out):
+            continue
+        costo = len(t) + (2 if ' ' in t else 0) + (1 if out else 0)
+        if lung + costo > 480:
+            continue
+        out.append(t); lung += costo
+    return out
+
+
+def carica_youtube(path, c, titolo):
+    if not E('YT_REFRESH_TOKEN'):
+        raise RuntimeError('manca il secret YT_REFRESH_TOKEN_STORIA su GitHub: video creato ma non caricato')
+    tok = token()
+    descr = '\n\n'.join(x for x in [titolo, str(c.get('descrizione') or '').strip(), str(P.get('descrizione_base') or '').strip()] if x)
+    snippet = {'title': titolo[:100], 'description': descr[:4900], 'tags': lista_tag(titolo, c.get('tag')),
+               'categoryId': str(P.get('categoria') or '27'), 'defaultLanguage': LINGUA, 'defaultAudioLanguage': LINGUA}
+    status = {'privacyStatus': P.get('privacy') or 'public', 'selfDeclaredMadeForKids': False}
+    if P.get('pubblica_il'):
+        status['privacyStatus'] = 'private'; status['publishAt'] = P['pubblica_il']
+    size = os.path.getsize(path)
+    req = urllib.request.Request('https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&part=snippet,status',
+                                 data=json.dumps({'snippet': snippet, 'status': status}).encode(), method='POST',
+                                 headers={'Authorization': 'Bearer ' + tok, 'Content-Type': 'application/json; charset=UTF-8',
+                                          'X-Upload-Content-Length': str(size), 'X-Upload-Content-Type': 'video/mp4'})
+    with urllib.request.urlopen(req, timeout=120) as r:
+        sessione = r.headers['Location']
+    log(f'upload di {size / 1e6:.0f} MB')
+    for tentativo in range(6):
+        try:
+            put = urllib.request.Request(sessione, data=open(path, 'rb').read(), method='PUT',
+                                         headers={'Authorization': 'Bearer ' + tok, 'Content-Type': 'video/mp4'})
+            with urllib.request.urlopen(put, timeout=1800) as r:
+                vid = json.loads(r.read().decode())['id']
+                log('caricato su YouTube:', vid)
+                return vid
+        except urllib.error.HTTPError as e:
+            if e.code == 401:
+                tok = token()
+            elif e.code not in (500, 502, 503, 504):
+                raise RuntimeError('YouTube ha rifiutato il caricamento: ' + str(e.code) + ' ' + e.read().decode()[:400])
+            log('upload, riprovo:', e.code)
+        except Exception as e:
+            log('upload, errore di rete, riprovo:', str(e)[:150])
+        time.sleep(15 * (tentativo + 1))
+    raise RuntimeError('caricamento su YouTube non riuscito')
+
+
+def carica_copertina(video_id, img):
+    if not img:
+        return 'copertina non creata'
+    try:
+        req = urllib.request.Request(f'https://www.googleapis.com/upload/youtube/v3/thumbnails/set?videoId={video_id}',
+                                     data=open(img, 'rb').read(), method='POST', headers={'Authorization': 'Bearer ' + token(), 'Content-Type': 'image/jpeg'})
+        urllib.request.urlopen(req, timeout=120).read()
+        return ''
+    except Exception as e:
+        return 'copertina non caricata: ' + str(e)[:200]
+
+
+def playlist_video(video_id, titolo):
+    """Impostazioni -> playlist:  Nome playlist: parola1, parola2 || Altra playlist   (senza parole = tutti i video)"""
+    regole = [x.strip() for x in str(P.get('playlist') or '').split('||') if x.strip()]
+    scelte = []
+    for r in regole:
+        nome, _, parole = r.partition(':')
+        lista = [w.strip().lower() for w in parole.split(',') if w.strip()]
+        if nome.strip() and (not lista or any(w in titolo.lower() for w in lista)):
+            scelte.append(nome.strip()[:150])
+    if not scelte:
+        return ''
+    try:
+        h = {'Authorization': 'Bearer ' + token()}
+        esistenti = {it['snippet']['title'].strip().lower(): it['id'] for it in
+                     http('https://www.googleapis.com/youtube/v3/playlists?part=snippet&mine=true&maxResults=50', headers=h).get('items', [])}
+        for nome in scelte:
+            pid = esistenti.get(nome.lower())
+            if not pid:
+                pid = http('https://www.googleapis.com/youtube/v3/playlists?part=snippet,status',
+                           {'snippet': {'title': nome}, 'status': {'privacyStatus': 'public'}}, h)['id']
+                time.sleep(8)
+            http('https://www.googleapis.com/youtube/v3/playlistItems?part=snippet',
+                 {'snippet': {'playlistId': pid, 'resourceId': {'kind': 'youtube#video', 'videoId': video_id}}}, h)
+        return ''
+    except Exception as e:
+        return 'playlist non aggiornata: ' + str(e)[:150]
+
+
+def avvisa(esito):
+    log('esito:', json.dumps(esito, ensure_ascii=False)[:500])
+    if not P.get('callback_url'):
+        return
+    for k in range(3):
+        try:
+            http(P['callback_url'], {'id': P.get('id'), 'foglio': P.get('foglio', ''), **esito}); return
+        except Exception as e:
+            log('avviso a n8n non riuscito:', str(e)[:150]); time.sleep(10)
 
 
 if __name__ == '__main__':
     try:
         main()
-    except Exception:
-        traceback.print_exc(); sys.exit(1)
+    except Exception as e:
+        traceback.print_exc()
+        if P.get('id'):
+            avvisa({'stato': 'ERRORE', 'errore': str(e)[:400], 'minuti_lavoro': round((time.time() - T_INIZIO) / 60, 1)})
+        sys.exit(1)
