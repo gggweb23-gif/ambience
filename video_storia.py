@@ -46,7 +46,9 @@ TIT_COPIA = _perc(P.get('titolo_copia') or E('TITOLO_COPIA', ''), 100)          
 COP_STILE = str(P.get('copertina_stile') or E('COPERTINA_STILE', '') or 'cartone').strip().lower()   # cartone | realistico
 RIFERIMENTI = [u for u in (P.get('riferimenti_copertine') or []) if u][:8]      # copertine top della nicchia (dallo Scout)
 MODELLO_AI = E('MODELLO_AI', 'claude-sonnet-5-5').strip()
-LINK = str(P.get('link') or E('LINK_COMPETITOR', '')).strip()      # video da copiare (titolo, testo e copertina)
+LINK = str(P.get('link') or E('LINK_COMPETITOR', '')).strip()
+NARRATORE = str(P.get('narratore') or E('NARRATORE', '') or 'anziano_narratore').strip()   # avatar del canale che racconta
+NARRATORE_OGNI = float(P.get('narratore_ogni') or E('NARRATORE_OGNI', '') or 90)            # secondi minimi tra due apparizioni      # video da copiare (titolo, testo e copertina)
 INK = (29, 26, 23)
 random.seed(TITOLO)
 
@@ -211,7 +213,7 @@ Il PRIMO visivo del video e' sempre un "cartone" con un personaggio.
 SINCRONIA CON LA VOCE (FONDAMENTALE): ogni visivo ha il campo "frase" = 2-4 parole COPIATE IDENTICHE dal "testo" della scena, nel punto esatto in cui il visivo deve comparire. I visivi sono nello stesso ordine delle loro frasi nel testo, a distanza di almeno 4 parole l'uno dall'altro. Il primo visivo ha come frase le prime parole della scena.
 - una "carta" compare quando la voce dice quella frase: il suo "testo" riprende parole DETTE in quella scena e la sua "frase" e' l'inizio di quelle parole nel testo;
 - una "scheda" SOLO nella scena in cui quel personaggio viene NOMINATO dalla voce, con frase = il nome cosi' come detto;
-- un "cartone" con un personaggio storico reale SOLO quando viene nominato (frase = il nome); quando non si nomina nessuno usa SEMPRE una figura generica della lista (soldato, contadino, nobile...) coerente con cio' che si dice: ogni cartone ha un personaggio; il personaggio deve essere SEMPRE della stessa EPOCA e dello stesso popolo di cio' che si racconta (mai un generale in divisa moderna per l'antichita', mai un cavaliere medievale europeo per la Persia antica);
+- un "cartone" con un personaggio storico reale SOLO quando viene nominato (frase = il nome); quando non si nomina nessuno usa SEMPRE una figura generica della lista (soldato, contadino, nobile...) coerente con cio' che si dice: ogni cartone ha un personaggio; il narratore del canale "{NARRATORE}" (anziano con il libro) usalo SOLO ogni tanto (circa 1 volta ogni 1-2 minuti) nei momenti in cui si racconta o si introduce un nuovo capitolo, mai nella prima scena; il personaggio deve essere SEMPRE della stessa EPOCA e dello stesso popolo di cio' che si racconta (mai un generale in divisa moderna per l'antichita', mai un cavaliere medievale europeo per la Persia antica);
 - un "pexels" deve mostrare cio' che la voce dice in quel momento.
 Tipi:
 - "cartone": scena disegnata. Campi: "sfondo" (id di uno dei 6 sfondi), "personaggio" (SOLO uno di questa lista, oppure "" per nessuno): {', '.join(kit) or '(nessuno)'}; "reazione": true se a meta' il personaggio cambia posa (momento forte). Nella PRIMA scena il primo visivo e' un cartone con il campo "data" (es. "550 a.C.").
@@ -263,7 +265,7 @@ Scegli la texture piu' coerente (washi per Giappone/Cina/Corea, papiro per Egitt
 
 
 # ============================================================ 2) VOCE
-def voce(i, testo):
+def voce(i, testo, prima='', dopo='', velocita=None):
     p = os.path.join(LAV, f'voce_{i:03d}.mp3')
     chiave = E('ELEVENLABS_API_KEY', '')
     if not chiave:   # prova senza chiave: silenzio della durata giusta
@@ -274,7 +276,8 @@ def voce(i, testo):
             # with-timestamps: stesso prezzo, in piu' restituisce QUANDO viene detta ogni lettera -> immagini a tempo con la voce
             j = http(f'https://api.elevenlabs.io/v1/text-to-speech/{VOCE}/with-timestamps?output_format=mp3_44100_128',
                      {'text': testo, 'model_id': E('VOCE_MODELLO', 'eleven_multilingual_v2'),
-                      'voice_settings': {'stability': .5, 'similarity_boost': .75}},
+                      'previous_text': prima[-400:], 'next_text': dopo[:400],   # stessa intonazione tra una scena e l'altra
+                      'voice_settings': dict({'stability': .5, 'similarity_boost': .75}, **({'speed': velocita} if velocita else {}))},
                      {'xi-api-key': chiave})
             open(p, 'wb').write(base64.b64decode(j['audio_base64']))
             json.dump(j.get('alignment') or {}, open(p[:-4] + '.json', 'w'))
@@ -1070,8 +1073,21 @@ def main():
     log('copione:', len(c['scene']), 'scene,', sum(len(s['testo'].split()) for s in c['scene']), 'parole')
     # voce
     with ThreadPoolExecutor(2) as ex:   # ElevenLabs accetta poche richieste insieme (errore 429 con 4)
-        voci = list(ex.map(lambda a: voce(*a), enumerate(s['testo'] for s in c['scene'])))
+        testi = [s['testo'] for s in c['scene']]
+        voci = list(ex.map(lambda i: voce(i, testi[i], ' '.join(testi[:i])[-400:], ' '.join(testi[i + 1:])[:400]), range(len(testi))))
     durs = [durata(v) for v in voci]
+    # ritmo della voce uguale dall'inizio alla fine: una scena letta piu' lenta delle altre (succede spesso alla prima) si rifa' un po' piu' veloce
+    ritmi = [len(t.split()) / max(.5, d) for t, d in zip(testi, durs)]
+    medio = sorted(ritmi)[len(ritmi) // 2] if ritmi else 0
+    for i, r in enumerate(ritmi):
+        if medio and r < medio * .93 and len(testi[i].split()) >= 8:
+            vel = round(min(1.15, medio / r), 2)
+            log(f'voce scena {i}: {r:.2f} parole/s contro {medio:.2f} di media -> rifatta a velocita {vel}')
+            try:
+                voci[i] = voce(i, testi[i], ' '.join(testi[:i])[-400:], ' '.join(testi[i + 1:])[:400], vel)
+                durs[i] = durata(voci[i])
+            except Exception as e:
+                log('voce non rifatta:', str(e)[:120])
     # titolo e copertina copiati al 100%: se citano i minuti del video originale, si mettono i minuti VERI del nostro video
     minuti_veri = max(1, int(round(sum(durs) / 60)))
     titolo_finale = minuti_giusti(titolo_finale, minuti_veri)
@@ -1111,7 +1127,7 @@ def main():
         if v.get('personaggio') and v['personaggio'] not in kit:
             mancanti.append(v['personaggio']); v['personaggio'] = ''
     # ogni cartone ha sempre un personaggio: quello della scena, altrimenti il piu' usato nel video
-    usati = [v.get('personaggio') for v in piano if v.get('tipo') == 'cartone' and v.get('personaggio')]
+    usati = [v.get('personaggio') for v in piano if v.get('tipo') == 'cartone' and v.get('personaggio') and v['personaggio'] != NARRATORE]
     pg_video = max(set(usati), key=usati.count) if usati else (kit[0] if kit else '')
     for v in piano:
         if v.get('pg_scena') not in kit:
@@ -1119,6 +1135,16 @@ def main():
         if v['tipo'] == 'cartone' and not v.get('personaggio'):
             v['personaggio'] = v['pg_scena']
     piano = ritmo(piano, list(sf))
+    # il narratore del canale (avatar con il libro) compare solo ogni tanto, come chi racconta la storia: mai nei primi 10 s, al massimo 1 volta ogni NARRATORE_OGNI secondi
+    t, ultimo = 0.0, -1e9
+    for v in piano:
+        if v.get('tipo') == 'cartone' and v.get('personaggio') == NARRATORE:
+            if t < 10 or t - ultimo < NARRATORE_OGNI:
+                altro = v.get('pg_scena') if v.get('pg_scena') not in ('', None, NARRATORE) else pg_video
+                v['personaggio'] = altro if altro != NARRATORE else ''
+            else:
+                ultimo = t; v['reazione'] = True
+        t += v['d']
     log('visivi:', len(piano), '| primi 10 s:', sum(1 for x in __import__('itertools').accumulate([0] + [v['d'] for v in piano]) if x < 10))
     # durate a fotogrammi interi: video e voce restano allineati fino all'ultimo secondo
     fine_prec, acc = 0, 0.0
