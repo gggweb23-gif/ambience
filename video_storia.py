@@ -35,6 +35,7 @@ MINUTI = float(E('MINUTI', '13') or 13)
 MAX_MINUTI = float(P.get('max_minuti') or E('MAX_MINUTI', '25') or 25)   # oltre questa durata il copione condensa l'originale
 PROVA = str(P.get('prova') or E('PROVA', 'NO')).strip().upper() == 'SI'
 CARICA = str(P.get('carica') or E('CARICA', 'NO')).strip().upper() == 'SI' and not PROVA   # SI = carica su YouTube
+VOCE_VELOCITA = max(.8, min(1.2, float(str(P.get('voce_velocita') or E('VOCE_VELOCITA', '') or 1.06).replace(',', '.'))))   # uguale per tutte le scene
 MUSICA_URL = str(P.get('musica_url') or E('MUSICA_URL', '')).strip()
 def _perc(v, d=100):
     try:
@@ -278,6 +279,7 @@ Tipi:
 - "scheda": presentazione di un personaggio storico. Campi "personaggio" (dalla lista) e "nome" (nome vero completo).
 - "mappa": zoom sulla mappa del paese con titolo e date (usala UNA volta, nella seconda scena).
 Proporzioni su tutto il video: circa 30% pexels_video, 25% pexels_foto, 30% cartone, 10% carta, 5% scheda+mappa. Mai due visivi uguali di fila.
+CAPITOLI YOUTUBE: dividi il video in 6-10 capitoli seguendo le grandi fasi della storia (epoche, imperi, svolte); la PRIMA scena ha sempre il campo "capitolo".
 CARTE: al massimo 2 al minuto di parlato (circa 1 visivo "carta" ogni 15 visivi): solo le frasi piu' forti.
 IDENTITA' DEI PERSONAGGI: un personaggio della lista usato per una persona con NOME (es. cavaliere_mongolo = Gengis Khan, re_antico = Dario I) resta quella persona per TUTTO il video: non usarlo mai per un'altra persona o come figura generica. Per persone diverse senza personaggio adatto usa pexels o carta.
 
@@ -292,7 +294,7 @@ Rispondi SOLO con un JSON valido, senza testo prima o dopo:
  "date": "es. 550 a.C. – 2026", "texture": "pergamena|washi|stropicciata|giornale|papiro", "font_carte": "antico|medievale|ottocento|macchina|moderno|classico",
  "fondi_carte": [{{"id": "c1", "prompt_en": "..."}}], "colori_carte": ["#......", "#......"],
  "sfondi": [{{"id": "s1", "prompt_en": "..."}}],
- "scene": [{{"testo": "parlato della scena", "visivi": [{{"tipo": "cartone", "frase": "prime parole della scena", "sfondo": "s1", "personaggio": "...", "reazione": true, "data": "...", "suono": "..."}}]}}],
+ "scene": [{{"capitolo": "SOLO nella prima scena di ogni capitolo: titolo breve del capitolo in {lingua} (2-5 parole, es. 'Le origini', 'L'impero di Ciro'); nelle altre scene ometti il campo", "testo": "parlato della scena", "visivi": [{{"tipo": "cartone", "frase": "prime parole della scena", "sfondo": "s1", "personaggio": "...", "reazione": true, "data": "...", "suono": "..."}}]}}],
  "copertina": {{"testo": "testo della copertina originale TRADOTTO al 100% (stesse parole, stesse date), MAIUSCOLO", "personaggio": "SOLO se nella lista c'e' la STESSA figura della copertina originale o una dello stesso popolo, epoca e aspetto (es. re persiano antico -> ciro_il_grande; MAI un re europeo per la Persia). Se non c'e' una corrispondenza sicura: '' (la figura originale verra' ridisegnata a cartone)"}},
  "descrizione": "descrizione YouTube in {lingua}: 3 paragrafi brevi (circa 120 parole) che riassumono il video con le parole che la gente cerca, poi una riga con 4-6 hashtag",
  "tag": ["25-35 tag YouTube in {lingua}: PRIMA tutti i TAG DEL COMPETITOR (se ci sono) tradotti in {lingua} nello stesso ordine (nomi propri invariati, togli solo nomi di altri canali), POI aggiungi i nostri tag validi: paese, impero, epoche, personaggi, 'storia di ...', 'storia completa'"],
@@ -364,7 +366,7 @@ def voce(i, testo, prima='', dopo='', velocita=None):
             j = http(f'https://api.elevenlabs.io/v1/text-to-speech/{VOCE}/with-timestamps?output_format=mp3_44100_128',
                      {'text': testo, 'model_id': E('VOCE_MODELLO', 'eleven_multilingual_v2'),
                       'previous_text': prima[-400:], 'next_text': dopo[:400],   # stessa intonazione tra una scena e l'altra
-                      'voice_settings': dict({'stability': .5, 'similarity_boost': .75}, **({'speed': velocita} if velocita else {}))},
+                      'voice_settings': dict({'stability': .5, 'similarity_boost': .75}, speed=velocita or VOCE_VELOCITA)},
                      {'xi-api-key': chiave})
             open(p, 'wb').write(base64.b64decode(j['audio_base64']))
             json.dump(j.get('alignment') or {}, open(p[:-4] + '.json', 'w'))
@@ -1045,16 +1047,17 @@ def pezzo_cartone(path, d, bg, pg, reazione, data, lato):
     if f1:
         f2 = png_personaggio(pg, 'reazione') if reazione else None
         cambio = d * .5
-        xb = f'main_w-overlay_w-240' if lato else '240'
+        xb = f'(main_w-520-overlay_w/2)' if lato else '(520-overlay_w/2)'   # centrato sul personaggio: le due pose restano allineate
         entra = f'if(lt(t,0.6),(0.6-t)/0.6*{"700" if lato else "-700"},0)'
         ins += ['-loop', '1', '-framerate', FPS, '-t', d, '-i', f1]
-        filtri.append(f'[1:v]scale=-1:820[p1]')
-        en1 = f":enable='lt(t,{cambio:.2f})'" if f2 else ''
+        # cambio posa in dissolvenza (0,3 s): prima era uno scambio secco che sembrava uno 'scatto'
+        filtri.append(f'[1:v]scale=-1:820,format=rgba' + (f',fade=t=out:st={cambio:.2f}:d=0.3:alpha=1' if f2 else '') + '[p1]')
+        en1 = f":enable='lt(t,{cambio + .3:.2f})'" if f2 else ''
         filtri.append(f"[{cur}][p1]overlay=x='{xb}+{entra}':y='main_h-overlay_h-10+6*sin(2.4*t)'{en1}[o1]"); cur = 'o1'
         if f2:
             ins += ['-loop', '1', '-framerate', FPS, '-t', d, '-i', f2]
-            filtri.append(f'[2:v]scale=-1:820[p2]')
-            filtri.append(f"[{cur}][p2]overlay=x='{xb}':y='main_h-overlay_h-10+6*sin(2.4*t)-30*max(0,1-(t-{cambio:.2f})/0.3)'"
+            filtri.append(f'[2:v]scale=-1:820,format=rgba,fade=t=in:st={cambio:.2f}:d=0.3:alpha=1[p2]')
+            filtri.append(f"[{cur}][p2]overlay=x='{xb}':y='main_h-overlay_h-10+6*sin(2.4*t)'"
                           f":enable='gte(t,{cambio:.2f})'[o2]"); cur = 'o2'
     if data:
         tf = os.path.join(LAV, 'data.txt'); open(tf, 'w').write(data)
@@ -1065,8 +1068,20 @@ def pezzo_cartone(path, d, bg, pg, reazione, data, lato):
 
 
 def pezzo_video(path, d, src):
-    run(['ffmpeg', '-y', '-v', 'error', '-stream_loop', '-1', '-i', src, '-t', d, '-an',
-         '-vf', f'scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={FPS},setsar=1', *ENC, path])
+    """Clip piu' corta del suo spazio: prima si rallenta un po' (fino al 70%), poi si ferma sull'ultimo fotogramma.
+    MAI ripartire da capo (si vedeva lo 'scatto' con l'immagine che ricominciava)."""
+    try:
+        ds = durata(src)
+    except Exception:
+        ds = 0
+    lento = ''
+    if 0 < ds < d:
+        f = max(.7, ds / d)
+        lento = f'setpts=PTS/{f:.3f},'
+        if ds / f < d:
+            lento += f'tpad=stop_mode=clone:stop_duration={d - ds / f + .5:.2f},'
+    run(['ffmpeg', '-y', '-v', 'error', '-i', src, '-t', d, '-an',
+         '-vf', f'{lento}scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={FPS},setsar=1', *ENC, path])
     return path
 
 
@@ -1386,6 +1401,24 @@ def paese_video(comp):
         return ''
 
 
+def capitoli(scene, durs):
+    """Capitoli YouTube con i tempi VERI della voce: '0:00 Titolo' (almeno 3, distanti almeno 10 s, il primo a 0:00)."""
+    righe, t, ultimo = [], 0.0, -100
+    for i, (s, d) in enumerate(zip(scene, durs)):
+        tit = re.sub(r'\s+', ' ', str(s.get('capitolo') or '')).strip()
+        if tit and (i == 0 or t - ultimo >= 10):
+            tt = 0 if not righe else int(t)
+            righe.append((f'{tt // 3600}:{tt % 3600 // 60:02d}:{tt % 60:02d}' if tt >= 3600 else f'{tt // 60}:{tt % 60:02d}') + ' ' + tit[:60])
+            ultimo = t
+        t += d
+    if righe and not righe[0].startswith('0:00'):
+        righe[0] = '0:00 ' + righe[0].split(' ', 1)[1]
+    if len(righe) < 3:
+        log('capitoli: meno di 3, non inseriti'); return ''
+    log('capitoli:', len(righe))
+    return 'Capitoli:\n' + '\n'.join(righe)
+
+
 def minuti_giusti(testo, n):
     """'in 11 Minuti' -> 'in 13 Minuti' (stesso maiuscolo/minuscolo, singolare se 1). Vale anche per 'minutes' e 'min'."""
     def sost(m):
@@ -1449,6 +1482,7 @@ def main():
     if isinstance(c.get('copertina'), dict) and c['copertina'].get('testo'):
         c['copertina']['testo'] = minuti_giusti(str(c['copertina']['testo']), minuti_veri)
     c['titolo'] = titolo_finale
+    c['capitoli_testo'] = capitoli(c['scene'], durs)
     if c.get('descrizione'):
         c['descrizione'] = minuti_giusti(str(c['descrizione']), minuti_veri)
     log('voce pronta:', round(sum(durs) / 60, 1), 'minuti')
@@ -1694,7 +1728,8 @@ def carica_youtube(path, c, titolo):
     if not E('YT_REFRESH_TOKEN'):
         raise RuntimeError('manca il secret YT_REFRESH_TOKEN_STORIA su GitHub: video creato ma non caricato')
     tok = token()
-    descr = '\n\n'.join(x for x in [titolo, str(c.get('descrizione') or '').strip(), str(P.get('descrizione_base') or '').strip()] if x)
+    descr = '\n\n'.join(x for x in [titolo, str(c.get('descrizione') or '').strip(), str(c.get('capitoli_testo') or '').strip(),
+                                     str(P.get('descrizione_base') or '').strip()] if x)
     snippet = {'title': titolo[:100], 'description': descr[:4900], 'tags': lista_tag(titolo, c.get('tag')),
                'categoryId': str(c.get('categoria_originale') or P.get('categoria') or '27'), 'defaultLanguage': LINGUA, 'defaultAudioLanguage': LINGUA}
     status = {'privacyStatus': P.get('privacy') or 'public', 'selfDeclaredMadeForKids': False}
