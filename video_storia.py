@@ -284,10 +284,10 @@ Scegli la texture piu' coerente (washi per Giappone/Cina/Corea, papiro per Egitt
             if comp.get('copertina'):
                 contenuto.insert(0, {'type': 'image', 'source': {'type': 'url', 'url': comp['copertina']}})
                 contenuto.insert(1, {'type': 'text', 'text': 'Questa sopra e\' la COPERTINA del video originale.'})
-            r = http('https://api.anthropic.com/v1/messages', {
-                'model': MODELLO_AI, 'max_tokens': 32000, 'messages': [{'role': 'user', 'content': contenuto}]},
-                {'x-api-key': chiave, 'anthropic-version': '2023-06-01'}, timeout=900)
-            testo = ''.join(b.get('text', '') for b in r.get('content', []))
+            testo, fine = claude_stream({'model': MODELLO_AI if k < 2 else MODELLO_RISERVA, 'max_tokens': 48000,
+                                         'messages': [{'role': 'user', 'content': contenuto}]}, chiave)
+            if '{' not in testo:
+                raise ValueError(f'risposta senza JSON (stop: {fine}, {len(testo)} caratteri): {testo[:200]!r}')
             testo = testo[testo.find('{'): testo.rfind('}') + 1]
             c = json.loads(testo)
             assert c.get('scene') and c.get('sfondi')
@@ -295,6 +295,35 @@ Scegli la texture piu' coerente (washi per Giappone/Cina/Corea, papiro per Egitt
         except Exception as e:
             log('copione non valido, riprovo:', str(e)[:200]); time.sleep(5)
     raise RuntimeError('copione non riuscito')
+
+
+MODELLO_RISERVA = E('MODELLO_RISERVA', 'claude-opus-5-5')
+
+
+def claude_stream(payload, chiave, timeout=600):
+    """Chiamata a Claude in streaming: per le risposte lunghe (copione di 15-25 minuti) la connessione non resta mai ferma,
+    cosi' non viene chiusa a meta' (prima arrivava una risposta vuota -> 'Expecting value')."""
+    req = urllib.request.Request('https://api.anthropic.com/v1/messages', data=json.dumps(dict(payload, stream=True)).encode(),
+                                 headers={'content-type': 'application/json', 'x-api-key': chiave, 'anthropic-version': '2023-06-01'})
+    pezzi, fine = [], ''
+    with urllib.request.urlopen(req, timeout=timeout) as r:
+        for riga in r:
+            riga = riga.decode('utf-8', 'ignore').strip()
+            if not riga.startswith('data:'):
+                continue
+            try:
+                ev = json.loads(riga[5:].strip())
+            except Exception:
+                continue
+            if ev.get('type') == 'content_block_delta' and (ev.get('delta') or {}).get('type') == 'text_delta':
+                pezzi.append(ev['delta'].get('text', ''))
+            elif ev.get('type') == 'message_delta':
+                fine = (ev.get('delta') or {}).get('stop_reason') or fine
+            elif ev.get('type') == 'error':
+                raise RuntimeError('Claude: ' + json.dumps(ev.get('error'))[:200])
+    testo = ''.join(pezzi)
+    log('copione ricevuto:', len(testo), 'caratteri, fine:', fine)
+    return testo, fine
 
 
 # ============================================================ 2) VOCE
