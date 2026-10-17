@@ -47,6 +47,7 @@ COP_STILE = str(P.get('copertina_stile') or E('COPERTINA_STILE', '') or 'cartone
 RIFERIMENTI = [u for u in (P.get('riferimenti_copertine') or []) if u][:8]      # copertine top della nicchia (dallo Scout)
 MODELLO_AI = E('MODELLO_AI', 'claude-sonnet-5-5').strip()
 LINK = str(P.get('link') or E('LINK_COMPETITOR', '')).strip()
+CARTE_MINUTO = int(float(str(P.get('carte_minuto') or E('CARTE_MINUTO', '') or 2)))   # scritte su texture: max N al minuto
 PERSONAGGIO_MINUTO = int(float(str(P.get('personaggio_minuto') or E('PERSONAGGIO_MINUTO', '') or 2)))   # stesso personaggio max N volte al minuto
 EFFETTI = str(P.get('effetti') or E('EFFETTI', '')).strip().upper() == 'SI'                  # effetti sonori da film (spade, cavalli, vento...)
 EFFETTI_MINUTO = float(str(P.get('effetti_minuto') or E('EFFETTI_MINUTO', '') or 1.5).replace(',', '.'))   # quanti al massimo per minuto
@@ -276,7 +277,9 @@ Tipi:
 - "carta": frase chiave scritta su carta. Campo "testo": max 8 parole, la frase piu' forte del momento.
 - "scheda": presentazione di un personaggio storico. Campi "personaggio" (dalla lista) e "nome" (nome vero completo).
 - "mappa": zoom sulla mappa del paese con titolo e date (usala UNA volta, nella seconda scena).
-Proporzioni su tutto il video: circa 35% cartone, 30% pexels_video, 15% pexels_foto, 15% carta, 5% scheda+mappa. Mai due visivi uguali di fila.
+Proporzioni su tutto il video: circa 30% pexels_video, 25% pexels_foto, 30% cartone, 10% carta, 5% scheda+mappa. Mai due visivi uguali di fila.
+CARTE: al massimo 2 al minuto di parlato (circa 1 visivo "carta" ogni 15 visivi): solo le frasi piu' forti.
+IDENTITA' DEI PERSONAGGI: un personaggio della lista usato per una persona con NOME (es. cavaliere_mongolo = Gengis Khan, re_antico = Dario I) resta quella persona per TUTTO il video: non usarlo mai per un'altra persona o come figura generica. Per persone diverse senza personaggio adatto usa pexels o carta.
 
 FONDI DELLE CARTE: definisci 3 "fondi_carte" per le scritte e le schede: decorazioni a tema del video SOLO ai bordi (rovine, colonne, rami, motivi decorativi, skyline dell'epoca) e CENTRO VUOTO e uniforme. Ogni fondo: "id" (c1..c3) e "prompt_en" (20-35 parole: colori, cosa c'e' ai bordi, colore del centro; varia i colori tra i 3: es. carta antica, toni caldi, toni scuri).
 "colori_carte": 2 colori esadecimali scuri ed eleganti coerenti con il tema (es. rosso persiano "#6b1e1e", blu lapislazzuli "#1d3557").
@@ -1159,6 +1162,53 @@ def unisci(pezzi, out):
 PESO = {'cartone': 1.6, 'mappa': 3.0, 'scheda': 1.3, 'carta': 1.2, 'pexels_video': 1.0, 'pexels_foto': 1.0}
 
 
+def blocca_identita(piano):
+    """Un personaggio presentato con un NOME (scheda) e' quella persona per tutto il video: altrove compare solo quando
+    la voce parla di lei; negli altri punti si toglie (al suo posto un'immagine vera della scena o lo sfondo)."""
+    nomi = {}
+    for v in piano:
+        if v['tipo'] == 'scheda' and v.get('personaggio') and v.get('nome'):
+            nomi.setdefault(v['personaggio'], v['nome'])
+    for v in piano:
+        pg = v.get('personaggio')
+        if v['tipo'] != 'cartone' or pg not in nomi:
+            continue
+        if nominato(v.get('contesto') or '', nomi[pg]):
+            continue
+        qs = v.get('alt_q') or []
+        log(f'personaggio {pg} e\' {nomi[pg]}: tolto dove la voce parla d\'altro')
+        if qs:
+            for k_ in ('personaggio', 'sfondo', 'reazione', 'data'):
+                v.pop(k_, None)
+            v.update({'tipo': 'pexels_foto', 'q': qs[0], 'alt_q': qs[1:]})
+        else:
+            v['personaggio'] = ''
+
+
+def limita_carte(piano, massimo=CARTE_MINUTO):
+    """Al massimo N carte (scritte su texture) ogni 60 secondi: le altre diventano immagini vere della scena."""
+    t, tempi = 0.0, []
+    for v in piano:
+        if v['tipo'] == 'carta':
+            if len([x for x in tempi if t - x < 60]) >= massimo:
+                qs = query_vicine(piano, v)
+                if qs:
+                    tq, q = qs[0]
+                    v.update({'tipo': tq, 'q': q, 'alt_q': [x[1] for x in qs[1:]]}); v.pop('testo', None)
+                else:
+                    v.update({'tipo': 'cartone', 'personaggio': ''}); v.pop('testo', None)
+                log(f'carta al secondo {t:.0f}: troppe in 60 s, diventa {v["tipo"]}')
+            else:
+                tempi.append(t)
+        t += v['d']
+
+
+def query_vicine(piano, v):
+    stessa = [(x['tipo'], x['q']) for x in piano if x is not v and x.get('contesto') == v.get('contesto')
+              and x['tipo'] in ('pexels_video', 'pexels_foto') and x.get('q')]
+    return stessa
+
+
 def limita_personaggi(piano, massimo=PERSONAGGIO_MINUTO):
     """Lo stesso personaggio al massimo N volte in 60 secondi (stanca lo spettatore). Le apparizioni in piu' diventano:
     un altro personaggio gia' usato nella stessa parte di video, oppure una clip Pexels vicina, oppure lo sfondo senza nessuno."""
@@ -1195,6 +1245,18 @@ def limite(t):
 
 
 def ritmo(piano, sf_ids):
+    query_scena = {}
+    for x in piano:
+        if x['tipo'] in ('pexels_video', 'pexels_foto') and x.get('q'):
+            query_scena.setdefault(x.get('contesto'), []).append((x['tipo'], x['q']))
+    for x in piano:   # se una ricerca non trova niente si provano le altre della stessa scena prima del cartone
+        if x['tipo'] in ('pexels_video', 'pexels_foto'):
+            x['alt_q'] = [q for _, q in query_scena.get(x.get('contesto'), []) if q != x.get('q')]
+    out = _ritmo(piano, sf_ids, query_scena)
+    return out
+
+
+def _ritmo(piano, sf_ids, query_scena):
     """Spezza i visivi troppo lunghi in parti uguali: stesso personaggio su un altro sfondo, un'altra clip della stessa ricerca, ecc."""
     out, t, giro = [], 0.0, 0
     for v in piano:
@@ -1212,8 +1274,12 @@ def ritmo(piano, sf_ids):
         parti = [dict(v, d=primo)]
         for k in range(1, m + 1):
             giro += 1
+            qs = query_scena.get(v.get('contesto'), [])
             if v['tipo'] == 'pexels_foto' and k % 2 == 0:
                 nuovo = {'tipo': v['tipo'], 'q': v.get('q'), 'contesto': v.get('contesto')}
+            elif qs:   # meno cartoni ripetuti: un'altra immagine vera della stessa scena
+                tq, q = qs[giro % len(qs)]
+                nuovo = {'tipo': tq, 'q': q, 'contesto': v.get('contesto'), 'alt_q': [x[1] for x in qs if x[1] != q]}
             else:   # una clip spezzata in due sembrava un salto: si stacca sul personaggio (inquadratura diversa)
                 pg = v.get('personaggio') if v['tipo'] == 'cartone' else v.get('pg_scena')
                 altri = [x for x in sf_ids if x != v.get('sfondo')] or sf_ids
@@ -1428,6 +1494,8 @@ def main():
     for v in piano:   # il narratore (avatar del canale) non compare MAI nei video
         if v.get('personaggio') == NARRATORE:
             v['personaggio'] = ''
+    blocca_identita(piano)
+    limita_carte(piano)
     limita_personaggi(piano)
     log('visivi:', len(piano), '| primi 10 s:', sum(1 for x in __import__('itertools').accumulate([0] + [v['d'] for v in piano]) if x < 10))
     # durate a fotogrammi interi: video e voce restano allineati fino all'ultimo secondo
@@ -1451,7 +1519,11 @@ def main():
         v = piano[k]; d = v['d']; p = os.path.join(LAV, f'pezzo_{k:04d}.mp4'); t = v['tipo']
         try:
             if t in ('pexels_video', 'pexels_foto'):
-                u = pexels('video' if t == 'pexels_video' else 'foto', v.get('q') or 'ancient ruins', v.get('contesto') or '')
+                u = None
+                for qq in [v.get('q') or 'ancient ruins'] + list(v.get('alt_q') or [])[:2]:
+                    u = pexels('video' if t == 'pexels_video' else 'foto', qq, v.get('contesto') or '')
+                    if u:
+                        break
                 if not u:
                     raise RuntimeError('nessun risultato Pexels per ' + str(v.get('q')))
                 src = os.path.join(LAV, f'src_{k:04d}' + ('.mp4' if t == 'pexels_video' else '.jpg'))
