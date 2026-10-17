@@ -70,7 +70,27 @@ def durata(p):
     return float(run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', p]).strip())
 
 
+def senza_ragionamento(data):
+    """I modelli Claude 5.5 'ragionano' prima di rispondere e il ragionamento consuma max_tokens: con copioni lunghi
+    (o risposte brevi come 'SCELTA: 2') finiva tutto nel ragionamento e la risposta arrivava VUOTA. Qui lo si spegne."""
+    m = str(data.get('model') or '')
+    if 'thinking' in data or not re.search(r'(sonnet|opus|haiku|fable|mythos)-5', m):
+        return data
+    d = dict(data)
+    if 'sonnet-5-5' in m:
+        d['thinking'] = {'type': 'between_tools'}                 # Sonnet 5.5: 'disabled' non e' accettato
+        d['output_config'] = {'effort': 'medium'}
+    elif 'opus-5-5' in m or 'fable' in m or 'mythos' in m:
+        d['output_config'] = {'effort': 'low'}                     # non si puo' spegnere: si riduce al minimo
+    else:
+        d['thinking'] = {'type': 'disabled'}
+        d['output_config'] = {'effort': 'medium'}
+    return d
+
+
 def http(url, data=None, headers=None, metodo=None, timeout=180, raw=False):
+    if isinstance(data, dict) and 'api.anthropic.com' in url:
+        data = senza_ragionamento(data)
     body = json.dumps(data).encode() if isinstance(data, (dict, list)) else data
     h = {'Content-Type': 'application/json'} if isinstance(data, (dict, list)) else {}
     h['User-Agent'] = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36'
@@ -284,7 +304,7 @@ Scegli la texture piu' coerente (washi per Giappone/Cina/Corea, papiro per Egitt
             if comp.get('copertina'):
                 contenuto.insert(0, {'type': 'image', 'source': {'type': 'url', 'url': comp['copertina']}})
                 contenuto.insert(1, {'type': 'text', 'text': 'Questa sopra e\' la COPERTINA del video originale.'})
-            testo, fine = claude_stream({'model': MODELLO_AI if k < 2 else MODELLO_RISERVA, 'max_tokens': 48000,
+            testo, fine = claude_stream({'model': MODELLO_AI if k < 2 else MODELLO_RISERVA, 'max_tokens': 64000,
                                          'messages': [{'role': 'user', 'content': contenuto}]}, chiave)
             if '{' not in testo:
                 raise ValueError(f'risposta senza JSON (stop: {fine}, {len(testo)} caratteri): {testo[:200]!r}')
@@ -303,9 +323,9 @@ MODELLO_RISERVA = E('MODELLO_RISERVA', 'claude-opus-5-5')
 def claude_stream(payload, chiave, timeout=600):
     """Chiamata a Claude in streaming: per le risposte lunghe (copione di 15-25 minuti) la connessione non resta mai ferma,
     cosi' non viene chiusa a meta' (prima arrivava una risposta vuota -> 'Expecting value')."""
-    req = urllib.request.Request('https://api.anthropic.com/v1/messages', data=json.dumps(dict(payload, stream=True)).encode(),
+    req = urllib.request.Request('https://api.anthropic.com/v1/messages', data=json.dumps(dict(senza_ragionamento(payload), stream=True)).encode(),
                                  headers={'content-type': 'application/json', 'x-api-key': chiave, 'anthropic-version': '2023-06-01'})
-    pezzi, fine = [], ''
+    pezzi, fine, pensiero = [], '', [0]
     with urllib.request.urlopen(req, timeout=timeout) as r:
         for riga in r:
             riga = riga.decode('utf-8', 'ignore').strip()
@@ -317,12 +337,14 @@ def claude_stream(payload, chiave, timeout=600):
                 continue
             if ev.get('type') == 'content_block_delta' and (ev.get('delta') or {}).get('type') == 'text_delta':
                 pezzi.append(ev['delta'].get('text', ''))
+            elif ev.get('type') == 'content_block_delta' and (ev.get('delta') or {}).get('type') == 'thinking_delta':
+                pensiero[0] += 1
             elif ev.get('type') == 'message_delta':
                 fine = (ev.get('delta') or {}).get('stop_reason') or fine
             elif ev.get('type') == 'error':
                 raise RuntimeError('Claude: ' + json.dumps(ev.get('error'))[:200])
     testo = ''.join(pezzi)
-    log('copione ricevuto:', len(testo), 'caratteri, fine:', fine)
+    log('copione ricevuto:', len(testo), 'caratteri, fine:', fine, '| blocchi di ragionamento:', pensiero[0])
     return testo, fine
 
 
