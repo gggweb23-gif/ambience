@@ -14,7 +14,7 @@ import base64, hashlib, io, json, math, os, random, re, shutil, subprocess, sys,
 from concurrent.futures import ThreadPoolExecutor
 
 import numpy as np
-from PIL import Image, ImageDraw, ImageFilter, ImageFont
+from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageOps
 
 W, H, FPS = 1920, 1080, 24
 T_TR = 0.0                                   # nessuna transizione: taglio netto tra le immagini
@@ -59,7 +59,7 @@ def _num_lista(v, d):
     except Exception:
         return d
 RITMO = _num_lista(P.get('ritmo') or E('RITMO', ''), [3.0, 3.0, 3.0])   # secondi max per immagine: primi 10 s / 10-30 s / dopo
-QUOTA_CARTONI = _perc(P.get('quota_cartoni') or E('QUOTA_CARTONI', ''), 50)   # % del video a cartone (Nano Banana), il resto Pexels
+QUOTA_CARTONI = _perc(P.get('quota_cartoni') or E('QUOTA_CARTONI', ''), 100)   # % del video a cartone (Nano Banana), il resto Pexels
 SFONDI_MAX = int(float(str(P.get('sfondi_max') or E('SFONDI_MAX', '') or 55)))   # tetto immagini a cartone generate per video (costo)
 SUONI_CAMBIO = str(P.get('suoni_cambio') or E('SUONI_CAMBIO', '') or 'NO').strip().upper() == 'SI'   # click/swoosh a ogni cambio immagine
 SUONI_CAMBIO_URL = [u.strip() for u in re.split(r'\|\||\n', str(P.get('suoni_cambio_url') or E('SUONI_CAMBIO_URL', ''))) if u.strip().startswith('http')]
@@ -68,6 +68,13 @@ INTEGRATO = str(P.get('cartone_integrato') or E('CARTONE_INTEGRATO', '') or 'SI'
 SF_META = {}   # id immagine a cartone -> personaggi del kit disegnati dentro
 DISTANZA_IMMAGINI = float(str(P.get('distanza_immagini') or E('DISTANZA_IMMAGINI', '') or 120).replace(',', '.'))   # stesso disegno: mai prima di N secondi
 TASTI = str(P.get('suoni_tasti') or E('SUONI_TASTI', '') or 'SI').strip().upper() == 'SI'   # rumore macchina da scrivere sulle scritte
+REGIA = str(P.get('regia') or E('REGIA', '') or ('SI' if QUOTA_CARTONI >= 100 else 'NO')).strip().upper() == 'SI'   # solo cartoni, un'immagine per ogni frase
+IMMAGINI_MODELLO = str(P.get('immagini_modello') or E('IMMAGINI_MODELLO', '') or 'seedream').strip().lower()   # seedream (0,04 $) | nano-banana-2 (0,12 $ a 2K)
+NUOVE_QUOTA = float(str(P.get('immagini_nuove') or E('IMMAGINI_NUOVE', '') or .55).replace(',', '.').replace('%', ''))
+NUOVE_QUOTA = NUOVE_QUOTA / 100 if NUOVE_QUOTA > 1 else NUOVE_QUOTA   # quota di inquadrature con un'immagine nuova (le altre: dettaglio della precedente)
+IMMAGINI_MAX = int(float(str(P.get('immagini_max') or E('IMMAGINI_MAX', '') or 200)))   # tetto immagini per video (costo)
+VERIFICA = str(P.get('verifica_immagini') or E('VERIFICA_IMMAGINI', '') or 'SI').strip().upper() == 'SI'   # Claude controlla ogni immagine
+GRANA = str(P.get('grana') or E('GRANA', '') or 'SI').strip().upper() == 'SI'   # grana da pellicola + vignetta leggera
 PEXELS_MAX = int(float(str(P.get('pexels_max') or E('PEXELS_MAX', '') or 190)))   # ricerche Pexels per video (limite Pexels: 200 l'ora)
 NARRATORE = str(P.get('narratore') or E('NARRATORE', '') or 'anziano_narratore').strip()   # avatar del canale: MAI nei video
 INK = (29, 26, 23)
@@ -1346,6 +1353,282 @@ def unisci(pezzi, out):
     return durata(out)
 
 
+# ============================================================ REGIA: solo cartoni, un'inquadratura ogni ~3 s scritta sulle parole esatte della voce
+ZOOM_BOX = {'': (0.0, 0.0, 1.0), 'centro': (.2, .2, .6), 'sinistra': (.0, .22, .6), 'destra': (.4, .22, .6),
+            'alto': (.2, .0, .6), 'basso': (.2, .4, .6), 'volto': (.3, .12, .4)}
+CAMERE = ('push_in', 'pull_out', 'pan_left', 'pan_right', 'tilt_up', 'tilt_down')
+CONNETTIVI = {'e', 'ed', 'ma', 'poi', 'quando', 'mentre', 'che', 'perche', 'perché', 'cosi', 'così', 'allora', 'dopo', 'prima', 'invece',
+              'infatti', 'pero', 'però', 'anche', 'oppure', 'o', 'finche', 'finché', 'and', 'but', 'then', 'when', 'while', 'so', 'after', 'before'}
+
+
+def taglia_inquadrature(scene, durs, voci):
+    """Divide la voce in inquadrature di ~RITMO secondi, tagliando SEMPRE tra una parola e l'altra (tempi veri di ElevenLabs)."""
+    out, glob = [], 0.0
+    for i, (s, D) in enumerate(zip(scene, durs)):
+        testo = s.get('testo_voce') or s['testo']
+        try:
+            al = json.load(open(voci[i][:-4] + '.json'))
+        except Exception:
+            al = {}
+        st = (al or {}).get('character_start_times_seconds') or []
+        if len(st) != len(testo):
+            st = None
+        parole = [(m.start(), m.group()) for m in re.finditer(r'\S+', testo)]
+        tempo = (lambda ci: min(D, max(0.0, st[ci]))) if st else (lambda ci: D * ci / max(1, len(testo)))
+        tagli, primi = [0.0], [0]
+
+        def punti(k):   # quanto e' "naturale" tagliare prima della parola k
+            prima, w = parole[k - 1][1], parole[k][1].lower().strip('«"(')
+            if re.search(r'[.!?]["»)]?$', prima):
+                return 3.0
+            if re.search(r'[;:]["»)]?$', prima):
+                return 2.5
+            if prima.endswith(','):
+                return 2.0
+            return 1.2 if w in CONNETTIVI else 0.0
+        while True:   # si sceglie il taglio migliore vicino al ritmo, dove la frase "respira" (punto, virgola, "e / ma / poi...")
+            t_ini = tagli[-1]; lim = limite(glob + t_ini)
+            cand = [k for k in range(primi[-1] + 1, len(parole))
+                    if 1.6 <= tempo(parole[k][0]) - t_ini <= lim + 1.3 and D - tempo(parole[k][0]) >= 1.4]
+            if not cand:
+                break
+            k = max(cand, key=lambda k: punti(k) - abs(tempo(parole[k][0]) - t_ini - lim) * .7)
+            tagli.append(tempo(parole[k][0])); primi.append(k)
+        for j, t0 in enumerate(tagli):
+            t1 = tagli[j + 1] if j + 1 < len(tagli) else D
+            ws = parole[primi[j]: primi[j + 1] if j + 1 < len(primi) else len(parole)]
+            out.append({'scena': i, 'd': t1 - t0, 'testo': ' '.join(w for _, w in ws), 'capitolo': (s.get('capitolo') or '') if j == 0 else ''})
+        glob += D
+    return out
+
+
+def piano_regia(c, shots, kit):
+    """Claude fa il regista: per OGNI inquadratura decide l'immagine sulle parole esatte della voce."""
+    chiave = E('ANTHROPIC_API_KEY', '')
+    lotto, ris, memoria = 60, {}, ''
+    for b0 in range(0, len(shots), lotto):
+        parte = shots[b0:b0 + lotto]
+        elenco = '\n'.join(f'{b0 + k}: {s["testo"]}' + (f'   [INIZIA IL CAPITOLO: {s["capitolo"]}]' if s.get('capitolo') else '') for k, s in enumerate(parte))
+        prompt = f"""Sei il regista di un video di storia a cartone di altissimo livello: "{c.get('titolo') or TITOLO}" (paese: {PAESE.get('nome') or ''}).
+Ogni riga qui sotto e' un'inquadratura di circa {RITMO[0]:.0f} secondi con le PAROLE che la voce dice in quel momento. Per OGNI riga decidi cosa si vede.
+{('Ultime immagini decise (per continuita di epoca, luoghi e personaggi): ' + memoria) if memoria else ''}
+
+REGOLE:
+1. COERENZA ASSOLUTA: l'immagine mostra ESATTAMENTE quello che dicono quelle parole. Se dice sole: sole e luce calda; se dice pioggia o inverno: pioggia o neve; se dice deserto: deserto; se nomina una persona: quella persona; se parla di numeri o idee astratte: una scena concreta che li rappresenta. MAI qualcosa che contraddice le parole.
+2. "nuova": true = immagine nuova; false = DETTAGLIO dell'ultima immagine nuova (la stessa scena vista piu' da vicino), SOLO se le parole parlano ancora della stessa cosa e quel dettaglio e' gia' nell'immagine. Mai piu' di 2 dettagli di fila. Circa {round(NUOVE_QUOTA * 100)}% di immagini nuove.
+3. "prompt_en" (solo per le nuove): in inglese, 30-60 parole: chi c'e' e cosa fa, luogo, epoca, tempo atmosferico e luce, emozione, e l'INQUADRATURA (varia sempre: epic wide establishing shot, aerial view, medium shot, dramatic close-up, low angle, over-the-shoulder, silhouette against the sky...). Se le righe dopo saranno dettagli, descrivi anche quegli elementi e dove sono (left / right / center).
+4. "personaggi": 0-2 id del kit SOLO se sono proprio loro (la persona con nome che la voce nomina, o una figura generica coerente con epoca e popolo). Kit: {lista_kit(kit)}. Le altre persone descrivile nel prompt (popolo, epoca, vestiti corretti).
+5. "zoom" (solo per i dettagli): uno tra sinistra, destra, centro, alto, basso, volto.
+6. "camera": push_in, pull_out, pan_left, pan_right, tilt_up, tilt_down. Variala, mai uguale due volte di fila; nei momenti forti push_in.
+7. "didascalia" (facoltativa, circa 1 riga ogni 6, mai due di fila): 2-6 parole chiave DETTE in quella riga (nomi, date, luoghi).
+8. "mappa": true UNA sola volta in tutto il video, quando la voce presenta il territorio o i confini del paese (senza prompt).
+9. EMOZIONE E SORPRESA: alterna campi lunghissimi epici e primi piani emotivi, giorno e notte, folle e solitudine, interni ed esterni; mai lo stesso soggetto due volte di fila; ogni immagine deve far venire voglia di vedere la successiva.
+10. Mai scritte, lettere o numeri dentro le immagini; niente di moderno se l'epoca e' antica.
+
+INQUADRATURE:
+{elenco}
+
+Rispondi SOLO con un array JSON, un oggetto per riga, con lo stesso numero "n":
+[{{"n": {b0}, "nuova": true, "prompt_en": "...", "personaggi": [], "camera": "push_in", "didascalia": ""}}, {{"n": {b0 + 1}, "nuova": false, "zoom": "volto", "camera": "pan_left"}}]"""
+        for k in range(3):
+            try:
+                testo, _ = claude_stream({'model': MODELLO_AI if k < 2 else MODELLO_RISERVA, 'max_tokens': 32000,
+                                          'messages': [{'role': 'user', 'content': prompt}]}, chiave)
+                arr = json.loads(testo[testo.find('['): testo.rfind(']') + 1])
+                for x in arr:
+                    if isinstance(x, dict) and str(x.get('n', '')).lstrip('-').isdigit():
+                        ris[int(x['n'])] = x
+                break
+            except Exception as e:
+                log('regia non valida, riprovo:', str(e)[:150]); time.sleep(5)
+        ultime = [ris[n].get('prompt_en') for n in range(b0, b0 + len(parte)) if n in ris and ris[n].get('prompt_en')][-3:]
+        memoria = ' | '.join(u[:220] for u in ultime)
+    # regole fisse sopra le scelte di Claude
+    mappa_fatta, dettagli, ultima_cam, out = False, 0, '', []
+    for n, s in enumerate(shots):
+        r = dict(ris.get(n) or {})
+        if r.get('mappa') and not mappa_fatta and c.get('paese_mappa'):
+            mappa_fatta = True; out.append(dict(s, tipo='mappa')); dettagli = 0; continue
+        r['mappa'] = False
+        nuova = bool(r.get('nuova', True)) or not out or dettagli >= 2 or not any(x.get('img') is not None for x in out)
+        if nuova and not str(r.get('prompt_en') or '').strip():
+            if out and dettagli < 2 and any(x.get('img') is not None for x in out):
+                nuova = False
+            else:
+                r['prompt_en'] = 'Historical scene illustrating: ' + s['testo']
+        cam = r.get('camera') if r.get('camera') in CAMERE else random.choice(CAMERE)
+        if cam == ultima_cam:
+            cam = random.choice([x for x in CAMERE if x != cam])
+        ultima_cam = cam
+        v = dict(s, tipo='cartone', camera=cam, didascalia=str(r.get('didascalia') or '').strip()[:60])
+        if nuova:
+            v.update(img=n, prompt=str(r['prompt_en']).strip(), personaggi=[x for x in (r.get('personaggi') or []) if x in kit and x != NARRATORE][:2], zoom='')
+            dettagli = 0
+        else:
+            v.update(img=next(x['img'] for x in reversed(out) if x.get('img') is not None), zoom=r.get('zoom') if r.get('zoom') in ZOOM_BOX else 'centro')
+            dettagli += 1
+        out.append(v)
+    nuove = [v for v in out if v.get('prompt')]
+    if len(nuove) > IMMAGINI_MAX:   # tetto di costo: alcune nuove diventano dettagli della precedente (mai la prima del capitolo)
+        togli = len(nuove) - IMMAGINI_MAX
+        for i in range(1, len(out)):
+            if togli <= 0:
+                break
+            v, p = out[i], out[i - 1]
+            if v.get('prompt') and not v.get('capitolo') and p.get('img') is not None and i % 2:
+                v.update(img=p['img'], zoom='centro'); v.pop('prompt', None); togli -= 1
+    for v in out:   # i dettagli puntano all'immagine giusta
+        if v.get('tipo') == 'cartone' and not v.get('prompt') and v.get('img') is not None and out[v['img']].get('tipo') != 'cartone':
+            v['img'] = next(x['img'] for x in reversed(out[:out.index(v)]) if x.get('prompt'))
+    log(f"regia: {len(out)} inquadrature, {sum(1 for v in out if v.get('prompt'))} immagini nuove, "
+        f"{sum(1 for v in out if v.get('tipo') == 'cartone' and not v.get('prompt'))} dettagli, mappa: {'si' if mappa_fatta else 'no'}")
+    return out
+
+
+def _immagine_fal(prompt, refs, p):
+    if IMMAGINI_MODELLO.startswith('nano'):
+        dati = {'aspect_ratio': '16:9', 'resolution': '2K', 'output_format': 'jpeg', 'num_images': 1}
+        r = fal('fal-ai/nano-banana-2/edit', dict(dati, prompt=prompt, image_urls=refs)) if refs else fal('fal-ai/nano-banana-2', dict(dati, prompt=prompt))
+    else:
+        dati = {'image_size': {'width': 2560, 'height': 1440}, 'num_images': 1}
+        r = fal('fal-ai/bytedance/seedream/v4.5/edit', dict(dati, prompt=prompt, image_urls=refs)) if refs else \
+            fal('fal-ai/bytedance/seedream/v4.5/text-to-image', dict(dati, prompt=prompt))
+    scarica(r['images'][0]['url'], p)
+    im = Image.open(p).convert('RGB')
+    ImageOps.fit(im, (2560, 1440), Image.LANCZOS).save(p, quality=92)
+
+
+def verifica_immagine(p, testi, prompt):
+    """Claude guarda l'immagine e la confronta con le parole della voce. None = ok, altrimenti cosa correggere."""
+    chiave = E('ANTHROPIC_API_KEY', '')
+    if not chiave:
+        return None
+    im = Image.open(p).convert('RGB'); im.thumbnail((768, 768)); buf = io.BytesIO(); im.save(buf, 'JPEG', quality=85)
+    domanda = f"""Video di storia sul paese: {PAESE.get('nome') or '-'}. Questa immagine accompagna queste parole della voce: "{testi[:500]}".
+Controlla SOLO errori evidenti che uno spettatore noterebbe:
+1) contraddice le parole? (es. dice sole e c'e' pioggia, dice deserto e c'e' una foresta, dice una battaglia e c'e' una festa, nomina un re e non c'e')
+2) vestiti, edifici o oggetti moderni in un'epoca antica?
+3) scritte, lettere o numeri nell'immagine?
+4) errori di anatomia: 3 braccia, 2 teste, corpi fusi, mani deformi molto evidenti?
+Rispondi in 1 riga e chiudi con: ESITO: OK  oppure  ESITO: RIFAI - <cosa correggere, in inglese, max 20 parole>"""
+    try:
+        r = http('https://api.anthropic.com/v1/messages', {'model': MODELLO_AI, 'max_tokens': 300, 'messages': [{'role': 'user', 'content': [
+            {'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}},
+            {'type': 'text', 'text': domanda}]}]}, {'x-api-key': chiave, 'anthropic-version': '2023-06-01'}, timeout=120)
+        txt = ''.join(b.get('text', '') for b in r.get('content', []))
+        m = re.search(r'ESITO:\s*(OK|RIFAI\s*-?\s*(.*))', txt)
+        return None if not m or m.group(1).startswith('OK') else (m.group(2) or 'match the narration').strip()[:200]
+    except Exception as e:
+        log('verifica immagine non riuscita:', str(e)[:120]); return None
+
+
+def genera_regia(v, testi):
+    p = os.path.join(LAV, f'img_{v["img"]:04d}.jpg')
+    if os.path.exists(p):
+        return p
+    refs = []
+    for pg in v.get('personaggi') or []:
+        try:
+            u = ref_personaggio(pg)
+            if u:
+                refs.append(u)
+        except Exception as e:
+            log('riferimento personaggio non caricato:', pg, str(e)[:100])
+    base = v['prompt'] + '. ' + STILE_SCENA
+    if refs:
+        base = ('The character' + ('s' if len(refs) > 1 else '') + ' of the reference image' + ('s' if len(refs) > 1 else '') +
+                ' must appear INSIDE this scene, kept IDENTICAL (same face, body, clothes and drawing style), acting naturally. '
+                'Do not copy the white background of the reference. Scene: ' + base)
+    if not E('FAL_KEY'):
+        Image.new('RGB', (2560, 1440), (200, 180, 140)).save(p); return p
+    try:
+        _immagine_fal(base, refs, p)
+    except Exception as e:   # modello non disponibile o immagine rifiutata: si prova con l'altro modello
+        log('immagine', v['img'], 'riprovo con Nano Banana:', str(e)[:150])
+        dati = {'aspect_ratio': '16:9', 'resolution': '2K', 'output_format': 'jpeg', 'num_images': 1}
+        r = fal('fal-ai/nano-banana-2/edit', dict(dati, prompt=base, image_urls=refs)) if refs else fal('fal-ai/nano-banana-2', dict(dati, prompt=base))
+        scarica(r['images'][0]['url'], p); ImageOps.fit(Image.open(p).convert('RGB'), (2560, 1440), Image.LANCZOS).save(p, quality=92)
+    if VERIFICA:
+        motivo = verifica_immagine(p, testi, v['prompt'])
+        if motivo:
+            log(f'immagine {v["img"]} rifatta: {motivo}')
+            try:
+                _immagine_fal(base + ' IMPORTANT: ' + motivo, refs, p)
+            except Exception as e:
+                log('rifacimento non riuscito:', str(e)[:120])
+    return p
+
+
+def pezzo_regia(path, d, img, zoom, camera, titolo='', nome_font='classico'):
+    x0, y0, w0 = ZOOM_BOX.get(zoom or '', ZOOM_BOX[''])
+    w0 = min(w0, .86) if camera in ('pan_left', 'pan_right', 'tilt_up', 'tilt_down') else w0
+    cx, cy = x0 + ZOOM_BOX.get(zoom or '', ZOOM_BOX[''])[2] / 2, y0 + ZOOM_BOX.get(zoom or '', ZOOM_BOX[''])[2] / 2
+    a = (max(0, min(1 - w0, cx - w0 / 2)), max(0, min(1 - w0, cy - w0 / 2)), w0)
+    sp = (1 - w0) * .9   # quanto ci si puo' spostare
+    if camera == 'push_in':
+        w1 = a[2] * .84; b = (a[0] + (a[2] - w1) / 2, a[1] + (a[2] - w1) / 2, w1)
+    elif camera == 'pull_out':
+        w1 = a[2] * .84; b = a; a = (a[0] + (a[2] - w1) / 2, a[1] + (a[2] - w1) / 2, w1)
+    elif camera in ('pan_left', 'pan_right'):
+        l, r = max(0, a[0] - sp / 2), min(1 - w0, a[0] + sp / 2)
+        a, b = ((r, a[1], w0), (l, a[1], w0)) if camera == 'pan_left' else ((l, a[1], w0), (r, a[1], w0))
+    else:
+        t_, b_ = max(0, a[1] - sp / 2), min(1 - w0, a[1] + sp / 2)
+        a, b = ((a[0], b_, w0), (a[0], t_, w0)) if camera == 'tilt_up' else ((a[0], t_, w0), (a[0], b_, w0))
+    n1 = max(1, int(d * FPS) - 1)
+    e = lambda p_, q: f'({p_:.4f}+({q:.4f}-{p_:.4f})*(3*pow(on/{n1},2)-2*pow(on/{n1},3)))'
+    vf = (f"scale=3840:2160:flags=lanczos,zoompan=z='1/{e(a[2], b[2])}':x='iw*{e(a[0], b[0])}':y='ih*{e(a[1], b[1])}':d=1:s={W}x{H}:fps={FPS}")
+    if GRANA:
+        vf += ',noise=alls=4:allf=t,vignette=angle=PI/6'
+    if titolo:   # inizio capitolo: titolo grande che appare e scompare
+        tf = path[:-4] + '_t.txt'; open(tf, 'w').write(titolo.upper())
+        ff = os.path.join(FONT, FONT_EPOCA.get(nome_font, 'EBGaramond-SemiBold.ttf'))
+        vf += (f",drawtext=fontfile={ff}:textfile={tf}:fontsize=150:fontcolor=white:borderw=6:bordercolor=black@0.7:"
+               f"box=1:boxcolor=black@0.35:boxborderw=40:x=(w-tw)/2:y=(h-th)/2:"
+               f"alpha='if(lt(t,0.3),t/0.3,if(lt(t,{max(.6, d - .5):.2f}),1,max(0,({d:.2f}-t)/0.5)))'")
+    run(['ffmpeg', '-y', '-v', 'error', '-loop', '1', '-framerate', FPS, '-t', d, '-i', img, '-vf', vf + ',setsar=1', '-t', d, *ENC, path])
+    return path
+
+
+def video_regia(c, durs, voci, kit):
+    nome_font = c.get('font_carte') if c.get('font_carte') in FONT_EPOCA else 'classico'
+    shots = taglia_inquadrature(c['scene'], durs, voci)
+    piano = piano_regia(c, shots, kit)
+    fine_prec, acc = 0, 0.0   # durate a fotogrammi interi: video e voce restano allineati
+    for v in piano:
+        acc += v['d']; fine = int(round(acc * FPS)); v['d'] = max(1, fine - fine_prec) / FPS; fine_prec = fine
+    nuove = [v for v in piano if v.get('prompt')]
+    testi = {v['img']: ' '.join(x['testo'] for x in piano if x.get('img') == v['img']) for v in nuove}
+    t0 = time.time()
+    with ThreadPoolExecutor(4) as ex:
+        immagini = dict(zip([v['img'] for v in nuove], ex.map(lambda v: genera_regia(v, testi[v['img']]), nuove)))
+    log('immagini pronte:', len(immagini), 'in', int(time.time() - t0), 's')
+
+    def fai(k):
+        v = piano[k]; d = v['d']; p = os.path.join(LAV, f'pezzo_{k:04d}.mp4')
+        try:
+            if v['tipo'] == 'mappa':
+                return pezzo_mappa(p, d, c.get('paese_mappa') or '', c.get('titolo_mappa') or TITOLO.split()[-1], c.get('date') or '')
+            pezzo_regia(p, d, immagini[v['img']], v.get('zoom'), v.get('camera'), v.get('capitolo') or '', nome_font)
+        except Exception as e:
+            log('inquadratura', k, 'di riserva:', str(e)[:200])
+            prec = next((immagini[x['img']] for x in reversed(piano[:k]) if x.get('img') in immagini), None) or next(iter(immagini.values()))
+            v.pop('didascalia', None)
+            return pezzo_regia(p, d, prec, 'centro', 'push_in')
+        if v.get('didascalia') and d > 1.7:
+            try:
+                aggiungi_didascalia(p, d, v['didascalia'], nome_font)
+            except Exception as e:
+                log('didascalia saltata:', str(e)[:120]); v.pop('didascalia', None)
+        else:
+            v.pop('didascalia', None)
+        return p
+    with ThreadPoolExecutor(3) as ex:
+        paths = list(ex.map(fai, range(len(piano))))
+    log('inquadrature pronte:', len(paths), 'in', int(time.time() - t0), 's')
+    return piano, paths
+
+
 # ============================================================ MAIN
 PESO = {'cartone': 1.6, 'mappa': 3.0, 'scheda': 1.3, 'carta': 1.2, 'pexels_video': 1.0, 'pexels_foto': 1.0}
 
@@ -1804,122 +2087,125 @@ def main():
     if c.get('descrizione'):
         c['descrizione'] = minuti_giusti(str(c['descrizione']), minuti_veri)
     log('voce pronta:', round(sum(durs) / 60, 1), 'minuti')
-    # sfondi
-    with ThreadPoolExecutor(3) as ex:
-        sf = dict(zip([s['id'] for s in c['sfondi']], ex.map(sfondo, c['sfondi'])))
-    tex = texture(c.get('texture') or 'pergamena')
-    nome_font = c.get('font_carte') if c.get('font_carte') in FONT_EPOCA else 'classico'
-    # fondi delle carte: 3 immagini a tema (bordi decorati, centro libero) + la carta dell'epoca + 2 colori a tinta unita
-    fondi = [prepara_fondo(tex)]
-    fondi_ai = []
-    for col in (c.get('colori_carte') or ['#6b1e1e', '#1d3557'])[:2]:
-        try:
-            fondi.append(prepara_fondo(tinta(tex, str(col))))
-        except Exception as e:
-            log('colore carta saltato:', col, e)
-    if E('FAL_KEY') and c.get('fondi_carte'):
-        def _fc(f):
-            try:
-                return fondo_carta_ai(f)
-            except Exception as e:
-                log('fondo carta non riuscito:', str(e)[:150])
+    if REGIA:   # solo cartoni: un'immagine scritta su ogni frase della voce
+        piano, paths = video_regia(c, durs, voci, kit)
+    else:
+        # sfondi
         with ThreadPoolExecutor(3) as ex:
-            ai = [prepara_fondo(Image.open(pp)) for pp in ex.map(_fc, c['fondi_carte'][:3]) if pp]
-        mix = []   # alterna: tema, carta, tema, colore, tema, colore
-        for i in range(max(len(ai), len(fondi))):
-            mix += ([ai[i]] if i < len(ai) else []) + ([fondi[i]] if i < len(fondi) else [])
-        fondi = ai or mix; fondi_ai = ai   # gli spettatori vogliono immagini a tema: niente fondi neutri se ci sono quelli a tema
-    # piano dei pezzi
-    piano = pianifica(c['scene'], durs, voci, sf)
-    for v in piano:
-        if v.get('personaggio') and v['personaggio'] not in kit:
-            mancanti.append(v['personaggio']); v['personaggio'] = ''
-    # un cartone ha il personaggio della SUA scena; se la scena non ne ha uno coerente nel kit, nessuno (meglio vuoto che fuori contesto)
-    usati = [v.get('personaggio') for v in piano if v.get('tipo') == 'cartone' and v.get('personaggio') and v['personaggio'] != NARRATORE]
-    pg_video = max(set(usati), key=usati.count) if usati else (kit[0] if kit else '')
-    for v in piano:
-        if v.get('pg_scena') not in kit:
-            v['pg_scena'] = ''
-        if INTEGRATO and v['tipo'] == 'cartone':   # il personaggio e' quello disegnato dentro l'immagine
-            dentro = SF_META.get(v.get('sfondo')) or []
-            v['personaggio'] = v.get('personaggio') if v.get('personaggio') in dentro else (dentro[0] if dentro else '')
-        elif v['tipo'] == 'cartone' and not v.get('personaggio'):
-            v['personaggio'] = v['pg_scena']
-    piano = ritmo(piano, list(sf))
-    for v in piano:   # il narratore (avatar del canale) non compare MAI nei video
-        if v.get('personaggio') == NARRATORE:
-            v['personaggio'] = ''
-    blocca_identita(piano)
-    limita_carte(piano)
-    limita_personaggi(piano)
-    coerenza_immagini(piano)
-    distanzia_immagini(piano, list(sf))
-    viste_sfondi(piano)
-    log('visivi:', len(piano), '| primi 10 s:', sum(1 for x in __import__('itertools').accumulate([0] + [v['d'] for v in piano]) if x < 10))
-    # durate a fotogrammi interi: video e voce restano allineati fino all'ultimo secondo
-    fine_prec, acc = 0, 0.0
-    for v in piano:
-        acc += v['d']; fine = int(round(acc * FPS))
-        v['d'] = max(1, fine - fine_prec) / FPS; fine_prec = fine
-    n_carte, n_schede, ultimo_sfondo = 0, 0, (list(sf)[0] if sf else None)
-    decorati = [i for i, f in enumerate(fondi) if any(f is a for a in fondi_ai)] or list(range(len(fondi)))
-    for v in piano:   # carte: fondi a rotazione; schede dei personaggi: SEMPRE su un fondo decorato a tema
-        if v['tipo'] == 'carta':
-            v['fondo'] = n_carte % len(fondi); n_carte += 1
-        elif v['tipo'] == 'scheda':
-            v['fondo'] = decorati[n_schede % len(decorati)]; n_schede += 1
-            v['sfondo_scheda'] = ultimo_sfondo
-        if v['tipo'] == 'cartone' and v.get('sfondo'):
-            ultimo_sfondo = v['sfondo']
-        v['sfondo_ultimo'] = ultimo_sfondo
-
-    def fai(k):
-        v = piano[k]; d = v['d']; p = os.path.join(LAV, f'pezzo_{k:04d}.mp4'); t = v['tipo']
-        try:
-            if t in ('pexels_video', 'pexels_foto'):
-                u = None
-                for qq in [v.get('q') or 'ancient ruins'] + list(v.get('alt_q') or [])[:2]:
-                    u = pexels('video' if t == 'pexels_video' else 'foto', qq, v.get('contesto') or '')
-                    if u:
-                        break
-                if not u:
-                    raise RuntimeError('nessun risultato Pexels per ' + str(v.get('q')))
-                src = os.path.join(LAV, f'src_{k:04d}' + ('.mp4' if t == 'pexels_video' else '.jpg'))
-                scarica(u, src)
-                pezzo_video(p, d, src) if t == 'pexels_video' else pezzo_foto(p, d, src)
-                return con_didascalia(p, d, v)
-            if t == 'carta':
-                return pezzo_carta(p, d, v.get('testo') or '', fondi[v.get('fondo', 0)], nome_font)
-            if t == 'scheda':   # il personaggio si presenta dentro un luogo della storia (sfondo a cartone del video), mai su fondo neutro
-                bg = sf.get(v.get('sfondo_scheda')) or list(sf.values())[k % len(sf)]
-                return pezzo_scheda(p, d, (Image.open(bg).convert('RGB').resize((W, H), Image.LANCZOS), INK), v.get('personaggio') or '', v.get('nome') or '', nome_font)
-            if t == 'mappa':
-                return pezzo_mappa(p, d, c.get('paese_mappa') or '', c.get('titolo_mappa') or TITOLO.split()[-1], c.get('date') or '')
-            pezzo_cartone(p, d, vista_sfondo(sf.get(v.get('sfondo')) or list(sf.values())[k % len(sf)], v.get('vista', 0)),
-                          '' if INTEGRATO else (v.get('personaggio') or ''),
-                          bool(v.get('reazione')), v.get('data') or '', k % 2 == 0)
-            return con_didascalia(p, d, v)
-        except Exception as e:   # riserva: cartone senza personaggio su uno sfondo poco usato (mai la stessa immagine di prima)
-            log('pezzo', k, t, 'sostituito:', str(e)[:200])
-            v.pop('didascalia', None); v['tipo'] = 'cartone'
-            with _lock:
-                liberi = [x for x in sf if not (INTEGRATO and SF_META.get(x))] or list(sf)   # mai un personaggio a caso
-                ids = sorted(liberi, key=lambda x: (_riserva.get(x, 0), x == v.get('sfondo_ultimo'), abs(_num(x) - _num(v.get('sfondo_ultimo'))), random.random()))
-                sc = ids[0]; _riserva[sc] = _riserva.get(sc, 0) + 1
-            return pezzo_cartone(p, d, vista_sfondo(sf[sc], 1 + (_riserva[sc] + k) % 3), '', False, '', True)
-
-    def con_didascalia(p, d, v):
-        if v.get('didascalia') and d > 1.7:
+            sf = dict(zip([s['id'] for s in c['sfondi']], ex.map(sfondo, c['sfondi'])))
+        tex = texture(c.get('texture') or 'pergamena')
+        nome_font = c.get('font_carte') if c.get('font_carte') in FONT_EPOCA else 'classico'
+        # fondi delle carte: 3 immagini a tema (bordi decorati, centro libero) + la carta dell'epoca + 2 colori a tinta unita
+        fondi = [prepara_fondo(tex)]
+        fondi_ai = []
+        for col in (c.get('colori_carte') or ['#6b1e1e', '#1d3557'])[:2]:
             try:
-                return aggiungi_didascalia(p, d, str(v['didascalia'])[:60], nome_font)
+                fondi.append(prepara_fondo(tinta(tex, str(col))))
             except Exception as e:
-                log('didascalia saltata:', str(e)[:150])
-        v.pop('didascalia', None)
-        return p
-    t0 = time.time()
-    with ThreadPoolExecutor(2) as ex:
-        paths = list(ex.map(fai, range(len(piano))))
-    log('pezzi pronti:', len(paths), 'in', int(time.time() - t0), 's')
+                log('colore carta saltato:', col, e)
+        if E('FAL_KEY') and c.get('fondi_carte'):
+            def _fc(f):
+                try:
+                    return fondo_carta_ai(f)
+                except Exception as e:
+                    log('fondo carta non riuscito:', str(e)[:150])
+            with ThreadPoolExecutor(3) as ex:
+                ai = [prepara_fondo(Image.open(pp)) for pp in ex.map(_fc, c['fondi_carte'][:3]) if pp]
+            mix = []   # alterna: tema, carta, tema, colore, tema, colore
+            for i in range(max(len(ai), len(fondi))):
+                mix += ([ai[i]] if i < len(ai) else []) + ([fondi[i]] if i < len(fondi) else [])
+            fondi = ai or mix; fondi_ai = ai   # gli spettatori vogliono immagini a tema: niente fondi neutri se ci sono quelli a tema
+        # piano dei pezzi
+        piano = pianifica(c['scene'], durs, voci, sf)
+        for v in piano:
+            if v.get('personaggio') and v['personaggio'] not in kit:
+                mancanti.append(v['personaggio']); v['personaggio'] = ''
+        # un cartone ha il personaggio della SUA scena; se la scena non ne ha uno coerente nel kit, nessuno (meglio vuoto che fuori contesto)
+        usati = [v.get('personaggio') for v in piano if v.get('tipo') == 'cartone' and v.get('personaggio') and v['personaggio'] != NARRATORE]
+        pg_video = max(set(usati), key=usati.count) if usati else (kit[0] if kit else '')
+        for v in piano:
+            if v.get('pg_scena') not in kit:
+                v['pg_scena'] = ''
+            if INTEGRATO and v['tipo'] == 'cartone':   # il personaggio e' quello disegnato dentro l'immagine
+                dentro = SF_META.get(v.get('sfondo')) or []
+                v['personaggio'] = v.get('personaggio') if v.get('personaggio') in dentro else (dentro[0] if dentro else '')
+            elif v['tipo'] == 'cartone' and not v.get('personaggio'):
+                v['personaggio'] = v['pg_scena']
+        piano = ritmo(piano, list(sf))
+        for v in piano:   # il narratore (avatar del canale) non compare MAI nei video
+            if v.get('personaggio') == NARRATORE:
+                v['personaggio'] = ''
+        blocca_identita(piano)
+        limita_carte(piano)
+        limita_personaggi(piano)
+        coerenza_immagini(piano)
+        distanzia_immagini(piano, list(sf))
+        viste_sfondi(piano)
+        log('visivi:', len(piano), '| primi 10 s:', sum(1 for x in __import__('itertools').accumulate([0] + [v['d'] for v in piano]) if x < 10))
+        # durate a fotogrammi interi: video e voce restano allineati fino all'ultimo secondo
+        fine_prec, acc = 0, 0.0
+        for v in piano:
+            acc += v['d']; fine = int(round(acc * FPS))
+            v['d'] = max(1, fine - fine_prec) / FPS; fine_prec = fine
+        n_carte, n_schede, ultimo_sfondo = 0, 0, (list(sf)[0] if sf else None)
+        decorati = [i for i, f in enumerate(fondi) if any(f is a for a in fondi_ai)] or list(range(len(fondi)))
+        for v in piano:   # carte: fondi a rotazione; schede dei personaggi: SEMPRE su un fondo decorato a tema
+            if v['tipo'] == 'carta':
+                v['fondo'] = n_carte % len(fondi); n_carte += 1
+            elif v['tipo'] == 'scheda':
+                v['fondo'] = decorati[n_schede % len(decorati)]; n_schede += 1
+                v['sfondo_scheda'] = ultimo_sfondo
+            if v['tipo'] == 'cartone' and v.get('sfondo'):
+                ultimo_sfondo = v['sfondo']
+            v['sfondo_ultimo'] = ultimo_sfondo
+
+        def fai(k):
+            v = piano[k]; d = v['d']; p = os.path.join(LAV, f'pezzo_{k:04d}.mp4'); t = v['tipo']
+            try:
+                if t in ('pexels_video', 'pexels_foto'):
+                    u = None
+                    for qq in [v.get('q') or 'ancient ruins'] + list(v.get('alt_q') or [])[:2]:
+                        u = pexels('video' if t == 'pexels_video' else 'foto', qq, v.get('contesto') or '')
+                        if u:
+                            break
+                    if not u:
+                        raise RuntimeError('nessun risultato Pexels per ' + str(v.get('q')))
+                    src = os.path.join(LAV, f'src_{k:04d}' + ('.mp4' if t == 'pexels_video' else '.jpg'))
+                    scarica(u, src)
+                    pezzo_video(p, d, src) if t == 'pexels_video' else pezzo_foto(p, d, src)
+                    return con_didascalia(p, d, v)
+                if t == 'carta':
+                    return pezzo_carta(p, d, v.get('testo') or '', fondi[v.get('fondo', 0)], nome_font)
+                if t == 'scheda':   # il personaggio si presenta dentro un luogo della storia (sfondo a cartone del video), mai su fondo neutro
+                    bg = sf.get(v.get('sfondo_scheda')) or list(sf.values())[k % len(sf)]
+                    return pezzo_scheda(p, d, (Image.open(bg).convert('RGB').resize((W, H), Image.LANCZOS), INK), v.get('personaggio') or '', v.get('nome') or '', nome_font)
+                if t == 'mappa':
+                    return pezzo_mappa(p, d, c.get('paese_mappa') or '', c.get('titolo_mappa') or TITOLO.split()[-1], c.get('date') or '')
+                pezzo_cartone(p, d, vista_sfondo(sf.get(v.get('sfondo')) or list(sf.values())[k % len(sf)], v.get('vista', 0)),
+                              '' if INTEGRATO else (v.get('personaggio') or ''),
+                              bool(v.get('reazione')), v.get('data') or '', k % 2 == 0)
+                return con_didascalia(p, d, v)
+            except Exception as e:   # riserva: cartone senza personaggio su uno sfondo poco usato (mai la stessa immagine di prima)
+                log('pezzo', k, t, 'sostituito:', str(e)[:200])
+                v.pop('didascalia', None); v['tipo'] = 'cartone'
+                with _lock:
+                    liberi = [x for x in sf if not (INTEGRATO and SF_META.get(x))] or list(sf)   # mai un personaggio a caso
+                    ids = sorted(liberi, key=lambda x: (_riserva.get(x, 0), x == v.get('sfondo_ultimo'), abs(_num(x) - _num(v.get('sfondo_ultimo'))), random.random()))
+                    sc = ids[0]; _riserva[sc] = _riserva.get(sc, 0) + 1
+                return pezzo_cartone(p, d, vista_sfondo(sf[sc], 1 + (_riserva[sc] + k) % 3), '', False, '', True)
+
+        def con_didascalia(p, d, v):
+            if v.get('didascalia') and d > 1.7:
+                try:
+                    return aggiungi_didascalia(p, d, str(v['didascalia'])[:60], nome_font)
+                except Exception as e:
+                    log('didascalia saltata:', str(e)[:150])
+            v.pop('didascalia', None)
+            return p
+        t0 = time.time()
+        with ThreadPoolExecutor(2) as ex:
+            paths = list(ex.map(fai, range(len(piano))))
+        log('pezzi pronti:', len(paths), 'in', int(time.time() - t0), 's')
     video = os.path.join(LAV, 'muto.mp4')
     unisci([(p, v['d']) for p, v in zip(paths, piano)], video)
     # audio: voce + musica (facoltativa)
