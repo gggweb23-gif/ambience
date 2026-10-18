@@ -60,12 +60,13 @@ def _num_lista(v, d):
         return d
 RITMO = _num_lista(P.get('ritmo') or E('RITMO', ''), [3.0, 4.0, 5.0])   # secondi max per immagine: primi 10 s / 10-30 s / dopo
 QUOTA_CARTONI = _perc(P.get('quota_cartoni') or E('QUOTA_CARTONI', ''), 50)   # % del video a cartone (Nano Banana), il resto Pexels
-SFONDI_MAX = int(float(str(P.get('sfondi_max') or E('SFONDI_MAX', '') or 45)))   # tetto immagini a cartone generate per video (costo)
+SFONDI_MAX = int(float(str(P.get('sfondi_max') or E('SFONDI_MAX', '') or 55)))   # tetto immagini a cartone generate per video (costo)
 SUONI_CAMBIO = str(P.get('suoni_cambio') or E('SUONI_CAMBIO', '') or 'SI').strip().upper() == 'SI'   # click/swoosh a ogni cambio immagine
 SUONI_CAMBIO_URL = [u.strip() for u in re.split(r'\|\||\n', str(P.get('suoni_cambio_url') or E('SUONI_CAMBIO_URL', ''))) if u.strip().startswith('http')]
-SUONI_CAMBIO_VOL = float(str(P.get('suoni_cambio_vol') or E('SUONI_CAMBIO_VOL', '') or .35).replace(',', '.'))
+SUONI_CAMBIO_VOL = float(str(P.get('suoni_cambio_vol') or E('SUONI_CAMBIO_VOL', '') or .45).replace(',', '.'))
 INTEGRATO = str(P.get('cartone_integrato') or E('CARTONE_INTEGRATO', '') or 'SI').strip().upper() == 'SI'   # personaggi DENTRO l'immagine Nano Banana (come PRODUCTION)
 SF_META = {}   # id immagine a cartone -> personaggi del kit disegnati dentro
+DISTANZA_IMMAGINI = float(str(P.get('distanza_immagini') or E('DISTANZA_IMMAGINI', '') or 120).replace(',', '.'))   # stesso disegno: mai prima di N secondi
 PEXELS_MAX = int(float(str(P.get('pexels_max') or E('PEXELS_MAX', '') or 190)))   # ricerche Pexels per video (limite Pexels: 200 l'ora)
 NARRATORE = str(P.get('narratore') or E('NARRATORE', '') or 'anziano_narratore').strip()   # avatar del canale: MAI nei video
 INK = (29, 26, 23)
@@ -252,7 +253,10 @@ def copione(comp):
     parole = min(parole, massimo)
     lingua = {'it': 'italiano', 'en': 'English (US)'}.get(LINGUA, LINGUA)
     # sfondi a cartone: tanti quanti servono per non ripetere (ognuno usato al massimo 2 volte), con un tetto di costo
-    n_sf = max(6, min(SFONDI_MAX, int(round(parole / 150 * 60 / max(3.0, RITMO[2]) * QUOTA_CARTONI / 100 / 2))))
+    sec = parole / 2.5   # ~150 parole al minuto
+    pezzi = min(sec, 10) / RITMO[0] + max(0, min(sec, 30) - 10) / RITMO[1] + max(0, sec - 30) / RITMO[2]
+    usi = 1 if sec < 240 else 2   # video corti: ogni disegno UNA volta sola; lunghi: max 2 volte, a distanza
+    n_sf = max(6, min(SFONDI_MAX, math.ceil(pezzi * QUOTA_CARTONI / 100 / usi) + 2))
     w = [round(RITMO[0] * 2.5), round(RITMO[1] * 2.5), round(RITMO[2] * 2.5)]   # parole per visivo (circa 2,5 parole al secondo)
     regola_pg = ("il personaggio deve essere uno di quelli DISEGNATI DENTRO quell'immagine (campo personaggi dell'immagine), oppure \"\"" if INTEGRATO
                  else '"reazione": true se a meta\' il personaggio cambia posa (momento forte)')
@@ -1061,22 +1065,54 @@ def suono_tasti(eventi, totale, out, sr=44100):
     return out
 
 
+SUONI_CAMBIO_DESCR = [   # libreria generata con ElevenLabs (stessa chiave della voce): suoni veri, tutti diversi
+    ('fast cinematic whoosh transition', 0.8), ('soft airy swish, quick camera pan', 0.6), ('deep whoosh with a soft low boom', 1.0),
+    ('paper page turning quickly', 0.6), ('short wooden tap, warm and soft', 0.5), ('soft bubble pop, cartoon', 0.5),
+    ('short cinematic impact hit, deep', 0.8), ('quick swoosh with a light magical shimmer', 0.8), ('reverse whoosh riser, short', 0.8),
+    ('soft cloth flutter, flag in the wind, short', 0.6), ('light glass ding, gentle', 0.6), ('drum hit with short reverb, epic', 0.7)]
+
+
+def _carica_suono(f, sr):
+    w = f + '.raw'
+    run(['ffmpeg', '-y', '-v', 'error', '-i', f, '-t', '1.6', '-ac', '1', '-ar', str(sr), '-f', 's16le', w])
+    x = np.frombuffer(open(w, 'rb').read(), '<i2').astype(np.float32) / 32768
+    sopra = np.nonzero(np.abs(x) > max(.02, np.abs(x).max() * .08))[0] if len(x) else []
+    return x[max(0, sopra[0] - int(sr * .01)):] if len(sopra) else x   # niente silenzio iniziale: il suono parte col taglio
+
+
+def _stesso_volume(a, rms=.16):
+    """Tutti i suoni allo stesso volume PERCEPITO (non allo stesso picco: prima i click secchi coprivano gli swoosh)."""
+    a = a - a.mean()
+    r = float(np.sqrt(np.mean(a[np.abs(a) > 1e-4] ** 2))) if np.any(np.abs(a) > 1e-4) else 0
+    if r <= 0:
+        return a
+    return np.clip(a * (rms / r), -1, 1)
+
+
 def _libreria_cambio(sr=44100):
-    """Suoni brevi per il cambio immagine. Se nel foglio ci sono link (suoni_cambio_url) si usano quelli, altrimenti
-    10 suoni generati qui (swoosh, click, pop, carta, colpo...): costo zero."""
+    """Suoni per il cambio immagine: 1) link nel foglio (suoni_cambio_url); 2) generati con ElevenLabs (12 suoni veri);
+    3) di riserva, generati qui."""
     lib = []
     for i, u in enumerate(SUONI_CAMBIO_URL[:40]):
         try:
-            f = scarica(u, os.path.join(LAV, f'cambio_{i}.src'))
-            w = os.path.join(LAV, f'cambio_{i}.raw')
-            run(['ffmpeg', '-y', '-v', 'error', '-i', f, '-t', '1.5', '-ac', '1', '-ar', str(sr), '-f', 's16le', w])
-            a = np.frombuffer(open(w, 'rb').read(), '<i2').astype(np.float32) / 32768
+            a = _carica_suono(scarica(u, os.path.join(LAV, f'cambio_{i}.src')), sr)
             if len(a) > 100:
-                lib.append(a / (np.abs(a).max() + 1e-6))
+                lib.append(_stesso_volume(a))
         except Exception as e:
             log('suono cambio non scaricato:', u[-40:], str(e)[:80])
     if lib:
-        return lib
+        return lib, 'dal foglio'
+    if E('ELEVENLABS_API_KEY'):
+        def gen(x):
+            i, (desc, dur) = x
+            try:
+                return _stesso_volume(_carica_suono(effetto(desc, dur, i), sr)[:int(sr * 1.4)])
+            except Exception as e:
+                log('suono cambio non generato:', desc, str(e)[:80])
+        with ThreadPoolExecutor(3) as ex:
+            lib = [a for a in ex.map(gen, enumerate(SUONI_CAMBIO_DESCR)) if a is not None and len(a) > 100]
+        if len(lib) >= 4:
+            return lib, 'ElevenLabs'
     rng = np.random.default_rng(11)
 
     def env(n, att, dec):
@@ -1089,39 +1125,37 @@ def _libreria_cambio(sr=44100):
     def swoosh(dur, liscio, picco):
         n = int(sr * dur); t = np.arange(n) / sr
         return rumore(n, liscio) * np.sin(np.pi * np.clip(t / dur, 0, 1)) ** picco
+
     def tono(f0, f1, dur, dec):
         n = int(sr * dur); t = np.arange(n) / sr
         f = f1 + (f0 - f1) * np.exp(-t * 30)
         return np.sin(2 * np.pi * np.cumsum(f) / sr) * env(n, .002, dec)
-    n = int(sr * .05)
-    lib = [swoosh(.42, 18, 2), swoosh(.28, 6, 3), swoosh(.55, 40, 1.5),                    # swoosh lungo, swish corto, soffio grave
-           (rng.normal(0, 1, n) * env(n, .0005, .006) + tono(2400, 2400, .05, .01) * .5),     # click
-           tono(900, 380, .18, .05),                                                        # pop
-           tono(140, 55, .45, .12) + rumore(int(sr * .45), 60) * env(int(sr * .45), .001, .05) * .4,   # colpo basso
-           tono(1250, 1250, .12, .03) + tono(2500, 2500, .12, .02) * .3,                    # tic legnoso
+    lib = [swoosh(.42, 18, 2), swoosh(.28, 6, 3), swoosh(.55, 40, 1.5), tono(900, 380, .18, .05),
+           tono(140, 55, .45, .12) + rumore(int(sr * .45), 60) * env(int(sr * .45), .001, .05) * .4,
+           tono(1250, 1250, .12, .03) + tono(2500, 2500, .12, .02) * .3,
            np.concatenate([rumore(int(sr * .07), 3) * env(int(sr * .07), .002, .02), np.zeros(int(sr * .04)),
-                           rumore(int(sr * .09), 4) * env(int(sr * .09), .002, .03)]),      # carta che gira
-           swoosh(.35, 10, 1) * np.linspace(.2, 1, int(sr * .35)),                          # salita breve
-           np.concatenate([tono(3000, 3000, .03, .006), np.zeros(int(sr * .06)), tono(2200, 2200, .04, .008)])]   # scatto
-    return [a / (np.abs(a).max() + 1e-6) for a in lib]
+                           rumore(int(sr * .09), 4) * env(int(sr * .09), .002, .03)]),
+           swoosh(.35, 10, 1) * np.linspace(.2, 1, int(sr * .35))]
+    return [_stesso_volume(a) for a in lib], 'generati'
 
 
 def pista_cambi(piano, totale, out, sr=44100):
-    """Un suono a ogni cambio immagine, sempre diverso dal precedente (mai lo stesso due volte di fila)."""
-    lib = _libreria_cambio(sr)
+    """Un suono a ogni cambio immagine, a rotazione: mai uno dei 3 suoni appena usati."""
+    lib, fonte = _libreria_cambio(sr)
     a = np.zeros(int((totale + 2) * sr), np.float32)
-    rng = random.Random(str(P.get('id') or TITOLO)); prec, t, n = -1, 0.0, 0
+    rng = random.Random(str(P.get('id') or TITOLO)); ultimi, t, n = [], 0.0, 0
     for k, v in enumerate(piano):
         if k:
-            i = rng.choice([x for x in range(len(lib)) if x != prec] or [0]); prec = i
-            s_ = lib[i] * rng.uniform(.75, 1.0); j = max(0, int((t - .04) * sr))   # appena prima del taglio: il suono "porta" l'immagine
+            scelta = [x for x in range(len(lib)) if x not in ultimi] or list(range(len(lib)))
+            i = rng.choice(scelta); ultimi = (ultimi + [i])[-min(3, len(lib) - 1):]
+            s_ = lib[i] * rng.uniform(.85, 1.0); j = max(0, int((t - .05) * sr))   # appena prima del taglio: il suono "porta" l'immagine
             s_ = s_[:max(0, len(a) - j)]; a[j:j + len(s_)] += s_.astype(np.float32); n += 1
         t += v['d'] - T_TR
-    a = a / (np.abs(a).max() + 1e-6) * .9
+    a = np.clip(a, -1, 1)
     import wave
     with wave.open(out, 'wb') as w:
         w.setnchannels(1); w.setsampwidth(2); w.setframerate(sr); w.writeframes((a * 32767).astype('<i2').tobytes())
-    log('suoni di cambio immagine:', n, '| libreria:', len(lib), 'suoni', '(dal foglio)' if SUONI_CAMBIO_URL else '(generati)')
+    log('suoni di cambio immagine:', n, '| libreria:', len(lib), 'suoni', f'({fonte})')
     return out
 
 
@@ -1523,6 +1557,40 @@ def coerenza_immagini(piano):
         log(f'immagine {i}: il personaggio disegnato non va bene qui, diventa {v["tipo"]} {v.get("sfondo") or v.get("q")}')
 
 
+def distanzia_immagini(piano, sf_ids):
+    """Lo stesso disegno non torna prima di DISTANZA_IMMAGINI secondi (lo spettatore se ne accorge: 'scena gia' vista').
+    Al suo posto: un disegno mai usato o usato da piu' tempo (vicino nel racconto); se non c'e', un'immagine vera della stessa scena;
+    solo come ultima scelta resta lo stesso disegno (zoomato o specchiato)."""
+    ultimo, uso, t, cambiati = {}, {}, 0.0, 0
+    for v in piano:
+        if v['tipo'] == 'cartone' and v.get('sfondo'):
+            uso[v['sfondo']] = uso.get(v['sfondo'], 0) + 1
+    for i, v in enumerate(piano):
+        sc = v.get('sfondo') if v['tipo'] == 'cartone' else None
+        if sc and t - ultimo.get(sc, -1e9) < DISTANZA_IMMAGINI:
+            liberi = [x for x in sf_ids if t - ultimo.get(x, -1e9) >= DISTANZA_IMMAGINI
+                      and (not INTEGRATO or not SF_META.get(x) or v.get('personaggio') in SF_META.get(x))]
+            nuovo = scegli_immagine(liberi, uso, (), sc, SF_META.get(sc) or []) if liberi else None
+            if nuovo and (not INTEGRATO or not SF_META.get(nuovo) or set(SF_META[nuovo]) <= set(SF_META.get(sc) or [])):
+                uso[nuovo] = uso.get(nuovo, 0) + 1
+                v['sfondo'] = nuovo
+                if INTEGRATO:
+                    v['personaggio'] = (SF_META.get(nuovo) or [''])[0]
+                cambiati += 1
+            else:
+                qs = query_vicine(piano, v)
+                if qs:
+                    tq, q = qs[i % len(qs)]
+                    for k_ in ('personaggio', 'sfondo', 'reazione'):
+                        v.pop(k_, None)
+                    v.update({'tipo': tq, 'q': q, 'alt_q': [x[1] for x in qs if x[1] != q]}); cambiati += 1
+            sc = v.get('sfondo') if v['tipo'] == 'cartone' else None
+        if sc:
+            ultimo[sc] = t
+        t += v['d']
+    log(f'disegni ripetuti entro {DISTANZA_IMMAGINI:.0f} s sostituiti: {cambiati}')
+
+
 def viste_sfondi(piano):
     """Lo stesso sfondo usato piu' volte non deve sembrare la stessa immagine: 2a volta zoom a sinistra, 3a a destra, 4a specchiato."""
     n = {}
@@ -1784,6 +1852,7 @@ def main():
     limita_carte(piano)
     limita_personaggi(piano)
     coerenza_immagini(piano)
+    distanzia_immagini(piano, list(sf))
     viste_sfondi(piano)
     log('visivi:', len(piano), '| primi 10 s:', sum(1 for x in __import__('itertools').accumulate([0] + [v['d'] for v in piano]) if x < 10))
     # durate a fotogrammi interi: video e voce restano allineati fino all'ultimo secondo
