@@ -59,8 +59,8 @@ def _num_lista(v, d):
     except Exception:
         return d
 RITMO = _num_lista(P.get('ritmo') or E('RITMO', ''), [3.0, 3.0, 3.0])   # secondi max per immagine: primi 10 s / 10-30 s / dopo
-QUOTA_CARTONI = _perc(P.get('quota_cartoni') or E('QUOTA_CARTONI', ''), 50)   # % del video a cartone (Nano Banana), il resto Pexels
-SFONDI_MAX = int(float(str(P.get('sfondi_max') or E('SFONDI_MAX', '') or 55)))   # tetto immagini a cartone generate per video (costo)
+QUOTA_CARTONI = _perc(P.get('quota_cartoni') or E('QUOTA_CARTONI', ''), 80)   # % del video a cartone (Nano Banana), il resto Pexels
+SFONDI_MAX = int(float(str(P.get('sfondi_max') or E('SFONDI_MAX', '') or 90)))   # tetto immagini a cartone generate per video (costo)
 SUONI_CAMBIO = str(P.get('suoni_cambio') or E('SUONI_CAMBIO', '') or 'NO').strip().upper() == 'SI'   # click/swoosh a ogni cambio immagine
 SUONI_CAMBIO_URL = [u.strip() for u in re.split(r'\|\||\n', str(P.get('suoni_cambio_url') or E('SUONI_CAMBIO_URL', ''))) if u.strip().startswith('http')]
 SUONI_CAMBIO_VOL = float(str(P.get('suoni_cambio_vol') or E('SUONI_CAMBIO_VOL', '') or .45).replace(',', '.'))
@@ -265,7 +265,11 @@ def copione(comp):
     pezzi = min(sec, 10) / RITMO[0] + max(0, min(sec, 30) - 10) / RITMO[1] + max(0, sec - 30) / RITMO[2]
     usi = 1 if sec < 240 else 2   # video corti: ogni disegno UNA volta sola; lunghi: max 2 volte, a distanza
     n_sf = max(6, min(SFONDI_MAX, math.ceil(pezzi * QUOTA_CARTONI / 100 / usi) + 2))
+    if INTEGRATO:   # un disegno ogni ~7 s di cartone: il ritmo da 3 s lo fanno zoom e inquadrature diverse della STESSA immagine
+        n_sf = max(6, min(SFONDI_MAX, math.ceil(sec * QUOTA_CARTONI / 100 / 7) + 2))
     w = [round(RITMO[0] * 2.5), round(RITMO[1] * 2.5), round(RITMO[2] * 2.5)]   # parole per visivo (circa 2,5 parole al secondo)
+    if INTEGRATO:   # ogni visivo ha la SUA immagine scritta sulla sua frase; i tagli da 3 s li fa il montaggio (zoom sulla stessa immagine)
+        w = [8, 12, 16]
     regola_pg = ("il personaggio deve essere uno di quelli DISEGNATI DENTRO quell'immagine (campo personaggi dell'immagine), oppure \"\"" if INTEGRATO
                  else '"reazione": true se a meta\' il personaggio cambia posa (momento forte)')
     if INTEGRATO:
@@ -274,7 +278,10 @@ def copione(comp):
             "una battaglia, una nave che parte, una folla in piazza, un dettaglio ravvicinato di mani, volti, oggetti), di giorno, al tramonto, di notte, campi larghi e primi piani. "
             "Ogni immagine: \"id\" (s1..), \"prompt_en\" (in inglese, 25-45 parole: luogo, epoca, chi c'e', cosa fa, emozione, inquadratura; vestiti e oggetti SEMPRE corretti per l'epoca e il popolo, mai nulla di moderno) "
             "e \"personaggi\": lista (0-2) di personaggi della lista del kit che compaiono DENTRO l'immagine (verranno disegnati identici al kit). "
-            "Un personaggio storico con NOME compare solo nelle immagini usate mentre la voce parla di lui; le persone generiche senza personaggio nel kit descrivile nel prompt_en (popolo, epoca, vestiti).")
+            "Un personaggio storico con NOME compare solo nelle immagini usate mentre la voce parla di lui; le persone generiche senza personaggio nel kit descrivile nel prompt_en (popolo, epoca, vestiti). "
+            "Le persone hanno SEMPRE l'aspetto, il colore della pelle e i vestiti del POPOLO del paese raccontato in quell'epoca (es. indiani in India, persiani in Iran): mai europei o asiatici dell'est se non sono loro i protagonisti. "
+            "OGNI IMMAGINE E' PENSATA PER UNA SOLA FRASE: il visivo 'cartone' che la usa ha come frase esattamente cio' che l'immagine mostra (se la frase dice verde dal mare al mare, l'immagine mostra campi verdi dal mare al mare). "
+            "Ogni immagine si usa UNA sola volta in tutto il video.")
     else:
         blocco_sfondi = (f"SFONDI: definisci esattamente {n_sf} sfondi a cartone (luoghi ed epoche del paese nell'ordine del racconto, SENZA persone), TUTTI DIVERSI tra loro: "
             "citta', palazzi, interni, campi di battaglia vuoti, porti, deserti, montagne, templi, mercati vuoti, strade, di giorno, al tramonto, di notte, campi larghi e scorci ravvicinati. "
@@ -622,6 +629,7 @@ def pexels(tipo, q, contesto=''):
 STILE_SCENA = ('Wide 2D cartoon illustration for an animated history video, clean thick black outlines, flat warm colours with soft simple shading, '
                'like a modern illustrated history book, rich detail, cinematic composition. All people are drawn in the SAME cartoon style, with expressive faces, '
                'clothes, hair, weapons and objects historically correct for the era and the people described: nothing modern. '
+               'People look like the local population of the country being told (skin tone, faces, clothes), never Europeans unless stated. '
                'No text, no letters, no signs with writing, no logos, no watermark, no frame, no border.')
 _ref_url = {}
 
@@ -1653,6 +1661,7 @@ Controlla SOLO errori evidenti che uno spettatore noterebbe:
 2) vestiti, edifici o oggetti moderni in un'epoca antica?
 3) scritte, lettere o numeri nell'immagine?
 4) errori di anatomia: 3 braccia, 2 teste, corpi fusi, mani deformi molto evidenti?
+5) persone di un altro popolo rispetto al paese e all'epoca raccontati (es. europei o asiatici dell'est in una scena dell'India antica)?
 Rispondi in 1 riga e chiudi con: ESITO: OK  oppure  ESITO: RIFAI - <cosa correggere, in inglese, max 20 parole>"""
     try:
         r = http('https://api.anthropic.com/v1/messages', {'model': MODELLO_AI, 'max_tokens': 300, 'messages': [{'role': 'user', 'content': [
@@ -1917,7 +1926,10 @@ def _ritmo(piano, sf_ids, query_scena):
                 serve_cartone = False
             elif prec['tipo'] in ('pexels_video', 'pexels_foto') and sf_ids:
                 serve_cartone = True
-            if qs and not serve_cartone:   # un'altra immagine vera della stessa scena (mai la stessa clip: Pexels esclude le gia' usate)
+            if INTEGRATO and v['tipo'] == 'cartone' and v.get('sfondo'):   # stessa immagine (coerente con la frase), inquadratura diversa
+                nuovo = {k_: v[k_] for k_ in ('tipo', 'sfondo', 'personaggio', 'contesto', 'pg_scena', 'frase') if k_ in v}
+                nuovo['vista_fissa'] = k % 3 + 1
+            elif qs and not serve_cartone:   # un'altra immagine vera della stessa scena (mai la stessa clip: Pexels esclude le gia' usate)
                 tq, q = qs[giro % len(qs)]
                 nuovo = {'tipo': tq, 'q': q, 'contesto': v.get('contesto'), 'alt_q': [x[1] for x in qs if x[1] != q]}
             else:   # un altro luogo disegnato: lo sfondo meno usato, con il personaggio della scena
@@ -1994,7 +2006,8 @@ def distanzia_immagini(piano, sf_ids):
             uso[v['sfondo']] = uso.get(v['sfondo'], 0) + 1
     for i, v in enumerate(piano):
         sc = v.get('sfondo') if v['tipo'] == 'cartone' else None
-        if sc and t - ultimo.get(sc, -1e9) < DISTANZA_IMMAGINI:
+        di_fila = i > 0 and piano[i - 1].get('tipo') == 'cartone' and piano[i - 1].get('sfondo') == sc   # stessa immagine, altra inquadratura: va bene
+        if sc and not di_fila and t - ultimo.get(sc, -1e9) < DISTANZA_IMMAGINI:
             liberi = [x for x in sf_ids if t - ultimo.get(x, -1e9) >= DISTANZA_IMMAGINI
                       and (not INTEGRATO or not SF_META.get(x) or v.get('personaggio') in SF_META.get(x))]
             nuovo = scegli_immagine(liberi, uso, (), sc, SF_META.get(sc) or []) if liberi else None
@@ -2018,12 +2031,50 @@ def distanzia_immagini(piano, sf_ids):
     log(f'disegni ripetuti entro {DISTANZA_IMMAGINI:.0f} s sostituiti: {cambiati}')
 
 
+def verifica_sfondi(piano, sf, c):
+    """Claude guarda ogni immagine a cartone e la confronta con le frasi della voce in cui compare: se non c'entra
+    (es. grotta quando si dice 'verde dal mare al mare') o ha persone del popolo sbagliato, la fa rifare una volta."""
+    frasi = {}
+    for v in piano:
+        if v['tipo'] == 'cartone' and v.get('sfondo') in sf:
+            f = str(v.get('frase') or '').strip() or str(v.get('contesto') or '')[:160]
+            if f and f not in frasi.setdefault(v['sfondo'], []):
+                frasi[v['sfondo']].append(f)
+    per_id = {s_['id']: s_ for s_ in c.get('sfondi') or []}
+
+    def uno(i):
+        motivo = verifica_immagine(sf[i], ' / '.join(frasi[i])[:500], per_id.get(i, {}).get('prompt_en', ''))
+        if not motivo or i not in per_id:
+            return 0
+        log(f'immagine {i} rifatta: {motivo}')
+        for x in (sf[i], sf[i][:-4] + '_full.jpg'):
+            try:
+                os.remove(x)
+            except OSError:
+                pass
+        try:
+            sfondo(dict(per_id[i], prompt_en=per_id[i]['prompt_en'] + '. IMPORTANT: ' + motivo))
+            return 1
+        except Exception as e:
+            log('immagine non rifatta:', str(e)[:120]); return 0
+    with ThreadPoolExecutor(4) as ex:
+        n = sum(ex.map(uno, list(frasi)))
+    log(f'controllo immagini: {len(frasi)} guardate, {n} rifatte')
+
+
 def viste_sfondi(piano):
     """Lo stesso sfondo usato piu' volte non deve sembrare la stessa immagine: 2a volta zoom a sinistra, 3a a destra, 4a specchiato."""
-    n = {}
+    n, prec = {}, None
     for v in piano:
         if v['tipo'] == 'cartone' and v.get('sfondo'):
-            v['vista'] = n.get(v['sfondo'], 0) % 4; n[v['sfondo']] = n.get(v['sfondo'], 0) + 1
+            if v.get('vista_fissa'):
+                v['vista'] = v['vista_fissa']
+            else:
+                v['vista'] = n.get(v['sfondo'], 0) % 4
+                if prec and prec.get('sfondo') == v['sfondo'] and prec.get('vista') == v['vista']:
+                    v['vista'] = (v['vista'] + 1) % 4
+            n[v['sfondo']] = n.get(v['sfondo'], 0) + 1
+        prec = v
 
 
 def vista_sfondo(bg, vista):
@@ -2284,6 +2335,8 @@ def main():
         coerenza_immagini(piano)
         distanzia_immagini(piano, list(sf))
         viste_sfondi(piano)
+        if VERIFICA and E('FAL_KEY'):
+            verifica_sfondi(piano, sf, c)
         log('visivi:', len(piano), '| primi 10 s:', sum(1 for x in __import__('itertools').accumulate([0] + [v['d'] for v in piano]) if x < 10))
         # durate a fotogrammi interi: video e voce restano allineati fino all'ultimo secondo
         fine_prec, acc = 0, 0.0
