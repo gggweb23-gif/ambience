@@ -752,8 +752,7 @@ def copertina(comp, c):
     cop = c.get('copertina') or {}
     testo = date_lingua(str(cop.get('testo') or c.get('titolo') or '').strip())
     img = [comp['copertina']]
-    nome_pg = str(cop.get('personaggio') or '')
-    pg = png_personaggio(nome_pg, 'fermo') if COP_STILE != 'realistico' and nome_pg and nome_pg != NARRATORE else None
+    pg = None   # MAI una persona grande in copertina: al suo posto il bollino del canale
     if pg:
         try:
             img.append(carica_fal(pg))
@@ -769,6 +768,9 @@ def copertina(comp, c):
         base = (f'Recreate the YouTube thumbnail of the FIRST image keeping about {COP_COPIA}% of it: same main composition, same layout, same colour palette '
                 f'and same title position and size, {stile}. ' + cambio)
     prompt = (base + ('The main figure is the character of the SECOND image (same face, clothes and style), placed where the main figure is in the first image. ' if len(img) > 1 else '')
+              + 'NO big person or character in the foreground: if the first image has a large figure, REMOVE it and fill that area with the landscape, '
+              'monuments and scenery of the place (people may appear only tiny and far away). Keep the TOP-LEFT corner (about 28% of the width and 40% of the height) '
+              'free of text and of important elements, only sky or background, because the channel logo will be placed there; if the title was there, move it to the right side. '
               + f'Replace ALL the text with exactly this text, same font style, same colours and same position: "{testo}". '
               + (f'Every word, number and date written on the image must be in {LINGUA_NOME}' + (' (dates as "a.C." / "d.C.", never BC or AD)' if LINGUA == 'it' else '') + '. '
               + 'No other text, no logos, no watermark.'))
@@ -776,10 +778,144 @@ def copertina(comp, c):
         r = fal('fal-ai/nano-banana-2/edit', {'prompt': prompt, 'image_urls': img, 'aspect_ratio': '16:9', 'resolution': '2K', 'output_format': 'jpeg', 'num_images': 1})
         p = os.path.join(ROOT, 'copertina.jpg'); scarica(r['images'][0]['url'], p)
         Image.open(p).convert('RGB').resize((1280, 720), Image.LANCZOS).save(p, quality=92)
+        if BOLLINO:
+            aggiungi_bollino(p)
         log('copertina pronta (copia', str(COP_COPIA) + '%, stile', COP_STILE + ')')
         return p
     except Exception as e:
         log('copertina non riuscita:', str(e)[:200])
+
+
+# ============================================================ BOLLINO "VIDEO ORIGINALE - STORIA IN MINUTI" (sempre uguale su ogni copertina)
+RED, YEL, WHITE, INK_B = (226, 20, 30, 255), (255, 214, 0, 255), (255, 255, 255, 255), (22, 18, 20, 255)
+BOLLINO = str(P.get('bollino') or E('BOLLINO', '') or 'SI').strip().upper() == 'SI'
+BOLLINO_URL = str(P.get('bollino_url') or E('BOLLINO_URL', '')).strip()   # facoltativo: un PNG trasparente al posto di quello disegnato qui
+BOLLINO_LARGHEZZA = 330   # pixel su copertina 1280x720: stessa grandezza su tutte
+
+
+def _font_bollino():
+    f = os.path.join(FONT, 'PermanentMarker.ttf')
+    if not os.path.exists(f):
+        os.makedirs(FONT, exist_ok=True)
+        scarica('https://github.com/google/fonts/raw/main/apache/permanentmarker/PermanentMarker-Regular.ttf', f)
+    return f
+
+
+def ellisse_ruvida(d, cx, cy, rx, ry, rot, fill=None, outline=None, width=1, jit=0.02, n=180, seed=1):
+    r = random.Random(seed); pts = []
+    for k in range(n):
+        a = 2 * math.pi * k / n
+        f = 1 + r.uniform(-jit, jit)
+        x, y = rx * math.cos(a) * f, ry * math.sin(a) * f
+        c, s = math.cos(rot), math.sin(rot)
+        pts.append((cx + x * c - y * s, cy + x * s + y * c))
+    if fill:
+        d.polygon(pts, fill=fill)
+    if outline:
+        d.line(pts + [pts[0]], fill=outline, width=width, joint='curve')
+
+
+def pennellata(w, h, colore, seed, sfrangia=True):
+    """Striscia di pennarello/pennello con bordi irregolari."""
+    im = Image.new('RGBA', (w, h), (0, 0, 0, 0)); d = ImageDraw.Draw(im); r = random.Random(seed)
+    top = [(x, r.uniform(0, h * .07)) for x in range(0, w + 1, 45)]
+    bot = [(x, h - r.uniform(0, h * .07)) for x in range(w, -1, -45)]
+    d.polygon(top + bot, fill=colore)
+    if sfrangia:
+        for _ in range(40):   # setole alle estremita'
+            y = r.uniform(h * .1, h * .9); l = r.uniform(20, 90)
+            x0 = r.choice([0, w]); d.line((x0, y, x0 + (l if x0 == 0 else -l) * -1, y + r.uniform(-4, 4)), fill=colore, width=r.randint(3, 9))
+        for _ in range(25):   # vuoti della pennellata
+            x = r.uniform(0, w); y = r.choice([r.uniform(0, h * .15), r.uniform(h * .85, h)])
+            d.line((x, y, x + r.uniform(30, 120), y), fill=(0, 0, 0, 0), width=r.randint(2, 5))
+    return im
+
+
+def testo_ruotato(base, xy, testo, font, colore, ang, stroke=0, sc=None):
+    w, h = int(font.getlength(testo)) + 60, int(font.size * 1.6)
+    t = Image.new('RGBA', (w, h), (0, 0, 0, 0))
+    ImageDraw.Draw(t).text((30, h / 2), testo, font=font, fill=colore, anchor='lm', stroke_width=stroke, stroke_fill=sc)
+    t = t.rotate(ang, expand=True, resample=Image.BICUBIC)
+    base.alpha_composite(t, (int(xy[0] - t.width / 2), int(xy[1] - t.height / 2)))
+
+
+def disegna_bollino(S=1400):
+    im = Image.new('RGBA', (S, S), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
+    cx, cy, rot = S / 2, S / 2, math.radians(-8)
+    MK = lambda n: ImageFont.truetype(_font_bollino(), n)
+    # disco rosso con bordo ruvido (piu' passate sovrapposte, come pennarello)
+    for k in range(6):
+        ellisse_ruvida(d, cx, cy, S * .46, S * .40, rot, fill=RED, jit=.008, n=90, seed=10 + k)
+    for k in range(3):   # anello bianco interno, tratto a mano
+        ellisse_ruvida(d, cx, cy, S * .415, S * .355, rot + .03 * k, outline=(255, 255, 255, 235), width=8 - k * 2, jit=.004, n=90, seed=30 + k)
+    # piccole sbavature del bordo rosso
+    r = random.Random(3)
+    for _ in range(25):
+        a = r.uniform(0, 2 * math.pi); rr = r.uniform(.455, .475)
+        x, y = cx + S * rr * math.cos(a), cy + S * rr * .87 * math.sin(a)
+        d.ellipse((x - 6, y - 6, x + 6, y + 6), fill=RED)
+    # tasto play bianco + tre segni gialli
+    px, py, ps = S * .165, S * .34, S * .1
+    tri = [(px - ps * .55, py - ps * .75), (px - ps * .55, py + ps * .75), (px + ps * .85, py)]
+    d.polygon(tri, fill=WHITE); d.line(tri + [tri[0]], fill=WHITE, width=22, joint='curve')
+    for k, ang in enumerate((-35, -60, -85)):
+        a = math.radians(ang); x0, y0 = px + ps * .75 + 40 * math.cos(a), py - ps * .95 + 40 * math.sin(a)
+        d.line((x0, y0, x0 + 55 * math.cos(a), y0 + 55 * math.sin(a)), fill=YEL, width=16)
+    # VIDEO ORIGINALE
+    testo_ruotato(im, (S * .60, S * .25), 'VIDEO', MK(int(S * .125)), WHITE, 8)
+    testo_ruotato(im, (S * .58, S * .385), 'ORIGINALE', MK(int(S * .118)), WHITE, 8)
+    # striscia gialla con STORIA IN MINUTI
+    st = pennellata(int(S * .98), int(S * .20), YEL, 5).rotate(8, expand=True, resample=Image.BICUBIC)
+    im.alpha_composite(st, (int(S * .5 - st.width / 2), int(S * .585 - st.height / 2)))
+    testo_ruotato(im, (S * .5, S * .585), 'STORIA IN MINUTI', MK(int(S * .095)), INK, 8)
+    # due tratti gialli sotto
+    for k, (y, l) in enumerate(((S * .76, .5), (S * .82, .36))):
+        tr = pennellata(int(S * l), 26, YEL, 40 + k, sfrangia=False).rotate(8, expand=True, resample=Image.BICUBIC)
+        im.alpha_composite(tr, (int(S * .5 - tr.width / 2 + 40), int(y - tr.height / 2)))
+    return im.filter(ImageFilter.SMOOTH)
+
+
+
+def immagine_bollino():
+    p = os.path.join(LAV, 'bollino.png')
+    if not os.path.exists(p):
+        if BOLLINO_URL:
+            scarica(BOLLINO_URL, p)
+        else:
+            b = disegna_bollino(); b.crop(b.getbbox()).save(p)
+    return Image.open(p).convert('RGBA')
+
+
+def angolo_libero(p):
+    """Claude guarda la copertina e sceglie l'angolo dove il bollino non copre scritte, volti o il soggetto principale."""
+    chiave = E('ANTHROPIC_API_KEY', '')
+    if not chiave:
+        return 'alto_sinistra'
+    im = Image.open(p).convert('RGB'); im.thumbnail((768, 768)); buf = io.BytesIO(); im.save(buf, 'JPEG', quality=85)
+    try:
+        r = http('https://api.anthropic.com/v1/messages', {'model': MODELLO_AI, 'max_tokens': 200, 'messages': [{'role': 'user', 'content': [
+            {'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}},
+            {'type': 'text', 'text': "In questa copertina YouTube va messo un bollino rotondo largo circa un quarto dell'immagine. In quale angolo NON copre "
+                                     "scritte, numeri, date, volti o il soggetto principale? Preferisci alto_sinistra se e' libero. "
+                                     "Rispondi solo: ANGOLO: alto_sinistra | alto_destra | basso_sinistra | basso_destra"}]}]},
+                 {'x-api-key': chiave, 'anthropic-version': '2023-06-01'}, timeout=120)
+        m = re.search(r'(alto|basso)_(sinistra|destra)', ''.join(b.get('text', '') for b in r.get('content', [])))
+        return m.group(0) if m else 'alto_sinistra'
+    except Exception as e:
+        log('angolo bollino non scelto:', str(e)[:100]); return 'alto_sinistra'
+
+
+def aggiungi_bollino(p):
+    try:
+        cop = Image.open(p).convert('RGBA'); b = immagine_bollino()
+        b = b.resize((BOLLINO_LARGHEZZA, int(b.height * BOLLINO_LARGHEZZA / b.width)), Image.LANCZOS)
+        ang = angolo_libero(p); m = 16
+        x = m if ang.endswith('sinistra') else cop.width - b.width - m
+        y = m if ang.startswith('alto') else cop.height - b.height - m
+        cop.alpha_composite(b, (x, y)); cop.convert('RGB').save(p, quality=92)
+        log('bollino in copertina:', ang)
+    except Exception as e:
+        log('bollino non aggiunto:', str(e)[:150])
 
 
 # ============================================================ texture e font
