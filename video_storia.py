@@ -58,15 +58,16 @@ def _num_lista(v, d):
         return (x + d[len(x):])[:3] if x else d
     except Exception:
         return d
-RITMO = _num_lista(P.get('ritmo') or E('RITMO', ''), [3.0, 4.0, 5.0])   # secondi max per immagine: primi 10 s / 10-30 s / dopo
+RITMO = _num_lista(P.get('ritmo') or E('RITMO', ''), [3.0, 3.0, 3.0])   # secondi max per immagine: primi 10 s / 10-30 s / dopo
 QUOTA_CARTONI = _perc(P.get('quota_cartoni') or E('QUOTA_CARTONI', ''), 50)   # % del video a cartone (Nano Banana), il resto Pexels
 SFONDI_MAX = int(float(str(P.get('sfondi_max') or E('SFONDI_MAX', '') or 55)))   # tetto immagini a cartone generate per video (costo)
-SUONI_CAMBIO = str(P.get('suoni_cambio') or E('SUONI_CAMBIO', '') or 'SI').strip().upper() == 'SI'   # click/swoosh a ogni cambio immagine
+SUONI_CAMBIO = str(P.get('suoni_cambio') or E('SUONI_CAMBIO', '') or 'NO').strip().upper() == 'SI'   # click/swoosh a ogni cambio immagine
 SUONI_CAMBIO_URL = [u.strip() for u in re.split(r'\|\||\n', str(P.get('suoni_cambio_url') or E('SUONI_CAMBIO_URL', ''))) if u.strip().startswith('http')]
 SUONI_CAMBIO_VOL = float(str(P.get('suoni_cambio_vol') or E('SUONI_CAMBIO_VOL', '') or .45).replace(',', '.'))
 INTEGRATO = str(P.get('cartone_integrato') or E('CARTONE_INTEGRATO', '') or 'SI').strip().upper() == 'SI'   # personaggi DENTRO l'immagine Nano Banana (come PRODUCTION)
 SF_META = {}   # id immagine a cartone -> personaggi del kit disegnati dentro
 DISTANZA_IMMAGINI = float(str(P.get('distanza_immagini') or E('DISTANZA_IMMAGINI', '') or 120).replace(',', '.'))   # stesso disegno: mai prima di N secondi
+TASTI = str(P.get('suoni_tasti') or E('SUONI_TASTI', '') or 'SI').strip().upper() == 'SI'   # rumore macchina da scrivere sulle scritte
 PEXELS_MAX = int(float(str(P.get('pexels_max') or E('PEXELS_MAX', '') or 190)))   # ricerche Pexels per video (limite Pexels: 200 l'ora)
 NARRATORE = str(P.get('narratore') or E('NARRATORE', '') or 'anziano_narratore').strip()   # avatar del canale: MAI nei video
 INK = (29, 26, 23)
@@ -1936,7 +1937,7 @@ def main():
         elif v.get('didascalia'):
             eventi += [t_ini + x for x in tasti(str(v['didascalia'])[:60], .45, dur_did(d), d)]
         t_ini += d - T_TR
-    if eventi:
+    if eventi and TASTI:
         try:
             wav = suono_tasti(eventi, sum(durs), os.path.join(LAV, 'tasti.wav'))
             con_tasti = os.path.join(LAV, 'voce_tasti.m4a'); vt = float(E('TASTI_VOL', '0.22') or .22)
