@@ -59,7 +59,7 @@ def _num_lista(v, d):
     except Exception:
         return d
 RITMO = _num_lista(P.get('ritmo') or E('RITMO', ''), [3.0, 3.0, 3.0])   # secondi max per immagine: primi 10 s / 10-30 s / dopo
-QUOTA_CARTONI = _perc(P.get('quota_cartoni') or E('QUOTA_CARTONI', ''), 100)   # % del video a cartone (Nano Banana), il resto Pexels
+QUOTA_CARTONI = _perc(P.get('quota_cartoni') or E('QUOTA_CARTONI', ''), 50)   # % del video a cartone (Nano Banana), il resto Pexels
 SFONDI_MAX = int(float(str(P.get('sfondi_max') or E('SFONDI_MAX', '') or 55)))   # tetto immagini a cartone generate per video (costo)
 SUONI_CAMBIO = str(P.get('suoni_cambio') or E('SUONI_CAMBIO', '') or 'NO').strip().upper() == 'SI'   # click/swoosh a ogni cambio immagine
 SUONI_CAMBIO_URL = [u.strip() for u in re.split(r'\|\||\n', str(P.get('suoni_cambio_url') or E('SUONI_CAMBIO_URL', ''))) if u.strip().startswith('http')]
@@ -68,7 +68,7 @@ INTEGRATO = str(P.get('cartone_integrato') or E('CARTONE_INTEGRATO', '') or 'SI'
 SF_META = {}   # id immagine a cartone -> personaggi del kit disegnati dentro
 DISTANZA_IMMAGINI = float(str(P.get('distanza_immagini') or E('DISTANZA_IMMAGINI', '') or 120).replace(',', '.'))   # stesso disegno: mai prima di N secondi
 TASTI = str(P.get('suoni_tasti') or E('SUONI_TASTI', '') or 'SI').strip().upper() == 'SI'   # rumore macchina da scrivere sulle scritte
-REGIA = str(P.get('regia') or E('REGIA', '') or ('SI' if QUOTA_CARTONI >= 100 else 'NO')).strip().upper() == 'SI'   # solo cartoni, un'immagine per ogni frase
+REGIA = str(P.get('regia') or E('REGIA', '') or 'NO').strip().upper() == 'SI'   # prova 18/10 bocciata: resta spenta   # solo cartoni, un'immagine per ogni frase
 IMMAGINI_MODELLO = str(P.get('immagini_modello') or E('IMMAGINI_MODELLO', '') or 'seedream').strip().lower()   # seedream (0,04 $) | nano-banana-2 (0,12 $ a 2K)
 NUOVE_QUOTA = float(str(P.get('immagini_nuove') or E('IMMAGINI_NUOVE', '') or .55).replace(',', '.').replace('%', ''))
 NUOVE_QUOTA = NUOVE_QUOTA / 100 if NUOVE_QUOTA > 1 else NUOVE_QUOTA   # quota di inquadrature con un'immagine nuova (le altre: dettaglio della precedente)
@@ -772,7 +772,7 @@ def copertina(comp, c):
               'monuments and scenery of the place (people may appear only tiny and far away). Keep the TOP-LEFT corner (about 28% of the width and 40% of the height) '
               'free of text and of important elements, only sky or background, because the channel logo will be placed there; if the title was there, move it to the right side. '
               + f'Replace ALL the text with exactly this text, same font style, same colours and same position: "{testo}". '
-              + (f'Every word, number and date written on the image must be in {LINGUA_NOME}' + (' (dates as "a.C." / "d.C.", never BC or AD)' if LINGUA == 'it' else '') + '. '
+              + (f'Every word, number and date written on the image must be in {LINGUA_NOME}' + (' (dates as "a.C." / "d.C." written EXACTLY like this with lowercase a and d, even if the rest of the title is uppercase; never BC, AD or A.C.)' if LINGUA == 'it' else '') + '. '
               + 'No other text, no logos, no watermark.'))
     try:
         r = fal('fal-ai/nano-banana-2/edit', {'prompt': prompt, 'image_urls': img, 'aspect_ratio': '16:9', 'resolution': '2K', 'output_format': 'jpeg', 'num_images': 1})
@@ -790,7 +790,7 @@ def copertina(comp, c):
 RED, YEL, WHITE, INK_B = (226, 20, 30, 255), (255, 214, 0, 255), (255, 255, 255, 255), (22, 18, 20, 255)
 BOLLINO = str(P.get('bollino') or E('BOLLINO', '') or 'SI').strip().upper() == 'SI'
 BOLLINO_URL = str(P.get('bollino_url') or E('BOLLINO_URL', '')).strip()   # facoltativo: un PNG trasparente al posto di quello disegnato qui
-BOLLINO_LARGHEZZA = 330   # pixel su copertina 1280x720: stessa grandezza su tutte
+BOLLINO_LARGHEZZA = 260   # pixel su copertina 1280x720: stessa grandezza su tutte (bollino tondo come l'avatar)
 
 
 def _font_bollino():
@@ -840,40 +840,47 @@ def testo_ruotato(base, xy, testo, font, colore, ang, stroke=0, sc=None):
 
 
 def disegna_bollino(S=1400):
-    im = Image.new('RGBA', (S, S), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
-    cx, cy, rot = S / 2, S / 2, math.radians(-8)
+    """Bollino tondo: TUTTO dentro l'anello bianco, scritte centrate e misurate sulla larghezza disponibile."""
     MK = lambda n: ImageFont.truetype(_font_bollino(), n)
-    # disco rosso con bordo ruvido (piu' passate sovrapposte, come pennarello)
-    for k in range(6):
-        ellisse_ruvida(d, cx, cy, S * .46, S * .40, rot, fill=RED, jit=.008, n=90, seed=10 + k)
-    for k in range(3):   # anello bianco interno, tratto a mano
-        ellisse_ruvida(d, cx, cy, S * .415, S * .355, rot + .03 * k, outline=(255, 255, 255, 235), width=8 - k * 2, jit=.004, n=90, seed=30 + k)
-    # piccole sbavature del bordo rosso
-    r = random.Random(3)
-    for _ in range(25):
-        a = r.uniform(0, 2 * math.pi); rr = r.uniform(.455, .475)
-        x, y = cx + S * rr * math.cos(a), cy + S * rr * .87 * math.sin(a)
-        d.ellipse((x - 6, y - 6, x + 6, y + 6), fill=RED)
-    # tasto play bianco + tre segni gialli
-    px, py, ps = S * .165, S * .34, S * .1
-    tri = [(px - ps * .55, py - ps * .75), (px - ps * .55, py + ps * .75), (px + ps * .85, py)]
-    d.polygon(tri, fill=WHITE); d.line(tri + [tri[0]], fill=WHITE, width=22, joint='curve')
-    for k, ang in enumerate((-35, -60, -85)):
-        a = math.radians(ang); x0, y0 = px + ps * .75 + 40 * math.cos(a), py - ps * .95 + 40 * math.sin(a)
-        d.line((x0, y0, x0 + 55 * math.cos(a), y0 + 55 * math.sin(a)), fill=YEL, width=16)
-    # VIDEO ORIGINALE
-    testo_ruotato(im, (S * .60, S * .25), 'VIDEO', MK(int(S * .125)), WHITE, 8)
-    testo_ruotato(im, (S * .58, S * .385), 'ORIGINALE', MK(int(S * .118)), WHITE, 8)
-    # striscia gialla con STORIA IN MINUTI
-    st = pennellata(int(S * .98), int(S * .20), YEL, 5).rotate(8, expand=True, resample=Image.BICUBIC)
-    im.alpha_composite(st, (int(S * .5 - st.width / 2), int(S * .585 - st.height / 2)))
-    testo_ruotato(im, (S * .5, S * .585), 'STORIA IN MINUTI', MK(int(S * .095)), INK, 8)
-    # due tratti gialli sotto
-    for k, (y, l) in enumerate(((S * .76, .5), (S * .82, .36))):
-        tr = pennellata(int(S * l), 26, YEL, 40 + k, sfrangia=False).rotate(8, expand=True, resample=Image.BICUBIC)
-        im.alpha_composite(tr, (int(S * .5 - tr.width / 2 + 40), int(y - tr.height / 2)))
-    return im.filter(ImageFilter.SMOOTH)
+    im = Image.new('RGBA', (S, S), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
+    cx = cy = S / 2
+    R_ROSSO, R_ANELLO = S * .48, S * .435
+    R_DENTRO = R_ANELLO - S * .025   # area utile per scritte e strisce
+    d.ellipse((cx - R_ROSSO, cy - R_ROSSO, cx + R_ROSSO, cy + R_ROSSO), fill=RED)
+    w_an = int(S * .012)
+    d.ellipse((cx - R_ANELLO, cy - R_ANELLO, cx + R_ANELLO, cy + R_ANELLO), outline=WHITE, width=w_an)
+    corda = lambda y, marg=.86: 2 * math.sqrt(max(0, R_DENTRO ** 2 - (y - cy) ** 2)) * marg   # larghezza libera a quell'altezza
 
+    def scrivi(y, testo, colore, alt_max):
+        k = int(alt_max)
+        while k > 20 and MK(k).getlength(testo) > corda(y):
+            k -= 2
+        d.text((cx, y), testo, font=MK(k), fill=colore, anchor='mm')
+        return k
+    # tasto play
+    py, ps = S * .23, S * .065
+    tri = [(cx - ps * .7, py - ps * .85), (cx - ps * .7, py + ps * .85), (cx + ps, py)]
+    d.polygon(tri, fill=WHITE); d.line(tri + [tri[0]], fill=WHITE, width=int(S * .014), joint='curve')
+    # VIDEO / ORIGINALE
+    k_or = scrivi(S * .49, 'ORIGINALE', WHITE, S * .11)   # stessa grandezza per le due righe: ordinato
+    d.text((cx, S * .49 - k_or * 1.08), 'VIDEO', font=MK(k_or), fill=WHITE, anchor='mm')
+    # striscia gialla e linee: ritagliate dentro l'anello bianco (niente esce dal cerchio)
+    gialli = Image.new('RGBA', (S, S), (0, 0, 0, 0)); g = ImageDraw.Draw(gialli); r = random.Random(5)
+    ys, hs = S * .625, S * .13
+    top = [(x, ys - hs / 2 + r.uniform(-S * .006, S * .006)) for x in range(0, S + 1, int(S * .03))]
+    bot = [(x, ys + hs / 2 + r.uniform(-S * .006, S * .006)) for x in range(S, -1, -int(S * .03))]
+    g.polygon(top + bot, fill=YEL)
+    for y, l in ((S * .76, .42), (S * .815, .28)):
+        g.rounded_rectangle((cx - S * l / 2, y - S * .011, cx + S * l / 2, y + S * .011), radius=int(S * .011), fill=YEL)
+    maschera = Image.new('L', (S, S), 0)
+    ImageDraw.Draw(maschera).ellipse((cx - R_ANELLO + w_an * 1.5, cy - R_ANELLO + w_an * 1.5, cx + R_ANELLO - w_an * 1.5, cy + R_ANELLO - w_an * 1.5), fill=255)
+    im.paste(gialli, (0, 0), Image.composite(gialli.split()[3], Image.new('L', (S, S), 0), maschera))
+    d = ImageDraw.Draw(im)
+    k = int(S * .085)
+    while k > 20 and MK(k).getlength('STORIA IN MINUTI') > corda(ys, .84):
+        k -= 2
+    d.text((cx, ys), 'STORIA IN MINUTI', font=MK(k), fill=INK_B, anchor='mm')
+    return im
 
 
 def immagine_bollino():
