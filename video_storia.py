@@ -700,39 +700,45 @@ def togli_texture(piano):
     log(f'senza texture: {n} carte/schede diventate disegni, strisce di carta tolte')
 
 
+BORDO = int(float(str(P.get('cornice_bordo') or E('CORNICE_BORDO', '') or 0.055).replace(',', '.')) * H)   # spessore uguale sui 4 lati (5,5% dell'altezza)
+
+
 def crea_cornice(paese, epoca=''):
-    """Cornice decorativa a tema del paese (1 sola immagine per video, ~0,12 $). Restituisce (png con il centro trasparente, riquadro interno)."""
+    """Cornice come quella di un quadro: STESSO spessore sui 4 lati, decorata con i motivi tipici del paese.
+    Nano Banana disegna solo il MOTIVO (a tutta pagina); la cornice la ritaglia lo script: cosi' non puo' uscire bianca o storta."""
     p = os.path.join(LAV, 'cornice.png')
     if os.path.exists(p) and os.path.exists(p + '.json'):
         return p, tuple(json.load(open(p + '.json')))
-    prompt = (f"Ornamental rectangular picture frame for a history documentary about {paese}{(' (' + epoca + ')') if epoca else ''}. "
-              f"The border is decorated with motifs typical of the traditional art and architecture of {paese} (patterns, carvings, colours and materials of that culture), "
-              "rich, elegant, high detail, 2D illustrated style matching a cartoon history channel. "
-              "The border has the SAME thickness on all four sides, about 6% of the image height, straight inner edge. "
-              "The whole inside of the frame is ONE flat pure chroma-key green (#00FF00) rectangle: no shading, no objects, no texture inside. "
-              "No text, no letters, no logo, no watermark.")
-    r = fal('fal-ai/nano-banana-2', {'prompt': prompt, 'aspect_ratio': '16:9', 'resolution': '2K', 'output_format': 'png', 'num_images': 1})
-    grezza = os.path.join(LAV, 'cornice_grezza.png')
-    scarica(r['images'][0]['url'], grezza)
-    im = Image.open(grezza).convert('RGB').resize((W, H), Image.LANCZOS)
-    a = np.asarray(im).astype(int)
-    verde = (a[..., 1] > 150) & (a[..., 1] - a[..., 0] > 70) & (a[..., 1] - a[..., 2] > 70)
-    righe, colonne = np.where(verde.mean(1) > .5)[0], np.where(verde.mean(0) > .5)[0]
-    by, bx = 63, 112   # riserva: bordo ~6% (stesse proporzioni 16:9 del video)
-    if len(righe) and len(colonne):
-        y1, y2, x1, x2 = righe[0], righe[-1], colonne[0], colonne[-1]
-        if 25 < y1 < H * .14 and 40 < x1 < W * .14 and H - y2 > 25 and W - x2 > 40:
-            by = int(max(y1, H - 1 - y2)) + 2; bx = int(by * W / H)   # il video entra intero, senza deformarsi
-    alfa = np.full((H, W), 255, np.uint8); alfa[by:H - by, bx:W - bx] = 0
-    alfa[verde] = 0   # anche il verde rimasto vicino al bordo interno
+    b = BORDO
+    for tentativo in range(2):
+        prompt = (f"Dense decorative ornamental pattern typical of the traditional art and architecture of {paese}{(' (' + epoca + ')') if epoca else ''}: "
+                  f"the motifs, carvings, colours and materials of that culture, like a richly carved and painted picture-frame moulding. "
+                  "The pattern FILLS THE WHOLE IMAGE edge to edge, rich saturated colours (no white, no plain areas, no empty background), "
+                  "flat front view, high detail. No text, no letters, no logo, no watermark."
+                  + (" Use deep, warm, strong colours." if tentativo else ''))
+        r = fal('fal-ai/nano-banana-2', {'prompt': prompt, 'aspect_ratio': '16:9', 'resolution': '1K', 'output_format': 'png', 'num_images': 1})
+        grezza = os.path.join(LAV, 'cornice_motivo.png')
+        scarica(r['images'][0]['url'], grezza)
+        im = Image.open(grezza).convert('RGB').resize((W, H), Image.LANCZOS)
+        a = np.asarray(im).astype(float)
+        fascia = np.concatenate([a[:b].reshape(-1, 3), a[-b:].reshape(-1, 3), a[:, :b].reshape(-1, 3), a[:, -b:].reshape(-1, 3)])
+        luce, varia = fascia.mean(), fascia.std()
+        if 35 < luce < 200 and varia > 22:   # colorata e decorata: niente bianco, niente tinta unita
+            break
+        log(f'motivo cornice scartato (luce {luce:.0f}, varieta {varia:.0f}), lo rifaccio')
+    alfa = np.full((H, W), 255, np.uint8); alfa[b:H - b, b:W - b] = 0
     out = Image.fromarray(np.dstack([np.asarray(im), alfa]).astype(np.uint8), 'RGBA')
-    out.save(p); json.dump([bx, by], open(p + '.json', 'w'))
-    log(f'cornice di {paese} pronta: bordo {bx}x{by} px')
-    return p, (bx, by)
+    d = ImageDraw.Draw(out)   # profili come un quadro: filo scuro esterno, filo oro e ombra sul bordo interno
+    d.rectangle([0, 0, W - 1, H - 1], outline=(25, 18, 10, 255), width=4)
+    d.rectangle([b - 6, b - 6, W - b + 5, H - b + 5], outline=(25, 18, 10, 255), width=3)
+    d.rectangle([b - 3, b - 3, W - b + 2, H - b + 2], outline=(212, 175, 55, 255), width=3)
+    out.save(p); json.dump([b, b], open(p + '.json', 'w'))
+    log(f'cornice di {paese} pronta: bordo {b} px su tutti i lati')
+    return p, (b, b)
 
 
 def applica_cornice(video, c):
-    """Il video intero rimpicciolito dentro la cornice del paese: tutte le immagini, clip, mappe e scritte restano visibili."""
+    """Il video dentro la cornice: bordo uguale sui 4 lati. Il video si rimpicciolisce e si rifila appena sopra e sotto (~3%)."""
     if not CORNICE or not E('FAL_KEY'):
         return video
     try:
@@ -741,7 +747,8 @@ def applica_cornice(video, c):
         iw, ih = W - 2 * bx, H - 2 * by
         iw -= iw % 2; ih -= ih % 2
         run(['ffmpeg', '-y', '-v', 'error', '-i', video, '-loop', '1', '-framerate', FPS, '-i', png, '-filter_complex',
-             f'color=c=black:s={W}x{H}:r={FPS}[n];[0:v]scale={iw}:{ih},setsar=1[v];[n][v]overlay=x={(W - iw) // 2}:y={(H - ih) // 2}:shortest=1[b];'
+             f'color=c=black:s={W}x{H}:r={FPS}[n];[0:v]scale={iw}:{ih}:force_original_aspect_ratio=increase,crop={iw}:{ih},setsar=1[v];'
+             f'[n][v]overlay=x={(W - iw) // 2}:y={(H - ih) // 2}:shortest=1[b];'
              f'[b][1:v]overlay=0:0:shortest=1,format=yuv420p[o]', '-map', '[o]', '-an', *ENC, out])
         return out
     except Exception as e:
