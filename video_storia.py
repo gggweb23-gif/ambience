@@ -63,6 +63,7 @@ QUOTA_CARTONI = _perc(P.get('quota_cartoni') or E('QUOTA_CARTONI', ''), 80)
 BUDGET = float(str(P.get('budget_video') or E('BUDGET_VIDEO', '') or 0).replace(',', '.').replace('€', '').strip() or 0)   # euro massimi a video (0 = nessun tetto)
 PREZZO_DISEGNO = 0.12   # $ per disegno Nano Banana 2 a 2K (con i rifatti si conta +25%)
 SPESA = {'fal': 0.0, 'disegni': 0}
+CORNICE = str(P.get('cornice') or E('CORNICE', '') or 'SI').strip().upper() == 'SI'   # cornice a tema del paese intorno a tutto il video
 RISERVA_PX = []   # ricerche Pexels generiche del paese, per quando una ricerca precisa non trova niente   # % del video a cartone (Nano Banana), il resto Pexels
 SFONDI_MAX = int(float(str(P.get('sfondi_max') or E('SFONDI_MAX', '') or 60)))
 SEC_IMMAGINE = float(str(P.get('secondi_per_immagine') or E('SECONDI_PER_IMMAGINE', '') or 12))   # ogni disegno copre ~16 s: 4 inquadrature diverse da 4 s (meno immagini, stesso ritmo)   # tetto immagini a cartone generate per video (costo)
@@ -662,7 +663,10 @@ def regole_finali(n_sf):
     elif QUOTA_CARTONI >= 100:
         r.append("- SOLO DISEGNI: usa solo \"cartone\" e una \"mappa\". Niente pexels_video e pexels_foto.")
     if not TEXTURE:
-        r.append("- NIENTE SCRITTE SU CARTA: non usare i tipi \"carta\" e \"scheda\", non mettere mai il campo \"didascalia\". \"fondi_carte\" = [].")
+        r.append("- NIENTE SCRITTE SU CARTA: non usare i tipi \"carta\" e \"scheda\". \"fondi_carte\" = [].")
+        r.append("- SOVRIMPRESSIONE (campo \"didascalia\"): SOLO su visivi pexels_video / pexels_foto e SOLO quando la voce in quel momento dice un NUMERO, una DATA o una misura "
+                 "(es. '70% delle piogge in 4 mesi', 'Oltre 50 gradi', '4.200 anni fa', '1,5 miliardi di persone'). 2-6 parole, UNA sola informazione, con il numero scritto in cifre. "
+                 "Al massimo 1 ogni 4 visivi pexels, mai su due visivi di fila, mai sui cartoni. Se non c'e' un numero, niente didascalia.")
     return '\n'.join(r)
 
 
@@ -670,9 +674,16 @@ def togli_texture(piano):
     """Canale senza texture: carte e schede diventano il disegno della stessa scena (quello prima o dopo), via le strisce di carta."""
     if TEXTURE:
         return
-    n = 0
+    n, t, ultima = 0, 0.0, -1e9
     for i, v in enumerate(piano):
-        v.pop('didascalia', None)
+        did = str(v.get('didascalia') or '').strip()
+        tiene = (did and v['tipo'] in ('pexels_video', 'pexels_foto') and re.search(r'\d', did) and len(did.split()) <= 7
+                 and v.get('d', 0) >= 2.5 and t - ultima >= 12)
+        if tiene:
+            ultima = t
+        else:
+            v.pop('didascalia', None)
+        t += v.get('d', 0)
         if v['tipo'] in ('carta', 'scheda'):
             vicino = next((x for x in list(reversed(piano[:i])) + piano[i + 1:] if x['tipo'] == 'cartone' and x.get('sfondo')
                            and x.get('contesto') == v.get('contesto')), None) or \
@@ -685,6 +696,52 @@ def togli_texture(piano):
                 v.update({'tipo': 'cartone', 'personaggio': ''})
             n += 1
     log(f'senza texture: {n} carte/schede diventate disegni, strisce di carta tolte')
+
+
+def crea_cornice(paese, epoca=''):
+    """Cornice decorativa a tema del paese (1 sola immagine per video, ~0,12 $). Restituisce (png con il centro trasparente, riquadro interno)."""
+    p = os.path.join(LAV, 'cornice.png')
+    prompt = (f"Ornamental rectangular picture frame for a history documentary about {paese}{(' (' + epoca + ')') if epoca else ''}. "
+              f"The border is decorated with motifs typical of the traditional art and architecture of {paese} (patterns, carvings, colours and materials of that culture), "
+              "rich, elegant, high detail, 2D illustrated style matching a cartoon history channel. "
+              "The border has the SAME thickness on all four sides, about 6% of the image height, straight inner edge. "
+              "The whole inside of the frame is ONE flat pure chroma-key green (#00FF00) rectangle: no shading, no objects, no texture inside. "
+              "No text, no letters, no logo, no watermark.")
+    r = fal('fal-ai/nano-banana-2', {'prompt': prompt, 'aspect_ratio': '16:9', 'resolution': '2K', 'output_format': 'png', 'num_images': 1})
+    grezza = os.path.join(LAV, 'cornice_grezza.png')
+    scarica(r['images'][0]['url'], grezza)
+    im = Image.open(grezza).convert('RGB').resize((W, H), Image.LANCZOS)
+    a = np.asarray(im).astype(int)
+    verde = (a[..., 1] > 150) & (a[..., 1] - a[..., 0] > 70) & (a[..., 1] - a[..., 2] > 70)
+    righe, colonne = np.where(verde.mean(1) > .5)[0], np.where(verde.mean(0) > .5)[0]
+    by, bx = 63, 112   # riserva: bordo ~6% (stesse proporzioni 16:9 del video)
+    if len(righe) and len(colonne):
+        y1, y2, x1, x2 = righe[0], righe[-1], colonne[0], colonne[-1]
+        if 25 < y1 < H * .14 and 40 < x1 < W * .14 and H - y2 > 25 and W - x2 > 40:
+            by = int(max(y1, H - 1 - y2)) + 2; bx = int(by * W / H)   # il video entra intero, senza deformarsi
+    alfa = np.full((H, W), 255, np.uint8); alfa[by:H - by, bx:W - bx] = 0
+    alfa[verde] = 0   # anche il verde rimasto vicino al bordo interno
+    out = Image.fromarray(np.dstack([np.asarray(im), alfa]).astype(np.uint8), 'RGBA')
+    out.save(p)
+    log(f'cornice di {paese} pronta: bordo {bx}x{by} px')
+    return p, (bx, by)
+
+
+def applica_cornice(video, c):
+    """Il video intero rimpicciolito dentro la cornice del paese: tutte le immagini, clip, mappe e scritte restano visibili."""
+    if not CORNICE or not E('FAL_KEY'):
+        return video
+    try:
+        png, (bx, by) = crea_cornice(c.get('paese_mappa') or PAESE.get('nome') or TITOLO, c.get('date') or '')
+        out = video[:-4] + '_cornice.mp4'
+        iw, ih = W - 2 * bx, H - 2 * by
+        iw -= iw % 2; ih -= ih % 2
+        run(['ffmpeg', '-y', '-v', 'error', '-i', video, '-loop', '1', '-framerate', FPS, '-i', png, '-filter_complex',
+             f'color=c=black:s={W}x{H}:r={FPS}[n];[0:v]scale={iw}:{ih},setsar=1[v];[n][v]overlay=x={(W - iw) // 2}:y={(H - ih) // 2}:shortest=1[b];'
+             f'[b][1:v]overlay=0:0:shortest=1,format=yuv420p[o]', '-map', '[o]', '-an', *ENC, out])
+        return out
+    except Exception as e:
+        log('cornice saltata:', str(e)[:200]); return video
 
 
 # ============================================================ 4) SFONDI (Fal)
@@ -1197,7 +1254,57 @@ def carta_strappata(alt=250, seme=0):
     return im
 
 
+ORO = (255, 201, 74)
+
+
+def aggiungi_sovrimpressione(path, d, testo, nome_font=''):
+    """Un solo dato in sovrimpressione (canale senza texture): scritta grande bianca, i NUMERI in oro, su un'ombra scura sfumata in basso.
+    Compare con una dissolvenza, le lettere battute a macchina, poi resta ferma fino alla fine dell'immagine."""
+    f = None
+    for sz in range(104, 54, -6):
+        f = ImageFont.truetype(os.path.join(FONT, 'Oswald-SemiBold.ttf'), sz) if os.path.exists(os.path.join(FONT, 'Oswald-SemiBold.ttf')) else font('classico', sz)
+        if f.getlength(testo) <= W - 240:
+            break
+    ombra = Image.new('L', (1, 380))
+    for y in range(380):
+        ombra.putpixel((0, y), int(185 * (y / 379) ** 1.6))
+    ombra = Image.merge('RGBA', [Image.new('L', (W, 380), 0)] * 3 + [ombra.resize((W, 380))])
+    tot = len(testo); i0, dur = battitura(testo, .35, dur_did(d))
+    x0 = (W - f.getlength(testo)) / 2; y0 = H - 120 - f.size
+    oro = [bool(re.match(r'[\d.,%°]', ch)) or (ch in '+-' and k + 1 < tot and testo[k + 1].isdigit()) for k, ch in enumerate(testo)]
+    tmp = path[:-4] + '_s.mp4'
+    lettore = subprocess.Popen(['ffmpeg', '-v', 'error', '-i', path, '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], stdout=subprocess.PIPE)
+    scrittore = subprocess.Popen(['ffmpeg', '-y', '-v', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-r', str(FPS), '-i', '-',
+                                  *map(str, ENC), tmp], stdin=subprocess.PIPE)
+    k = 0
+    while True:
+        b = lettore.stdout.read(W * H * 3)
+        if len(b) < W * H * 3:
+            break
+        t = k / FPS; k += 1
+        im = Image.frombytes('RGB', (W, H), b).convert('RGBA')
+        a = ease(clamp(t / .4))
+        if a > 0:
+            o = ombra.copy(); o.putalpha(o.getchannel('A').point(lambda v: int(v * a)))
+            im.alpha_composite(o, (0, H - 380))
+        n = tot if t >= i0 + dur else int(clamp((t - i0) / dur) * tot)
+        if n:
+            dr = ImageDraw.Draw(im); x = x0
+            for j, ch in enumerate(testo[:n]):
+                dr.text((x + 3, y0 + 4), ch, font=f, fill=(0, 0, 0, 150))
+                dr.text((x, y0), ch, font=f, fill=ORO if oro[j] else (255, 255, 255))
+                x += f.getlength(ch)
+        scrittore.stdin.write(im.convert('RGB').tobytes())
+    lettore.wait(); scrittore.stdin.close(); scrittore.wait()
+    if scrittore.returncode or k == 0:
+        raise RuntimeError('sovrimpressione non riuscita')
+    os.replace(tmp, path)
+    return path
+
+
 def aggiungi_didascalia(path, d, testo, nome_font):
+    if not TEXTURE:   # canale senza texture: niente striscia di carta, solo la scritta pulita
+        return aggiungi_sovrimpressione(path, d, testo, nome_font)
     """Rifa' il pezzo con la striscia di carta che sale dal basso e la scritta battuta a macchina."""
     striscia = carta_strappata(seme=len(testo)); hs = striscia.height
     sz = 76
@@ -2493,6 +2600,7 @@ def main():
         log(f"SPESA immagini: {SPESA['disegni']} immagini, circa {SPESA['fal']:.2f} $" + (f' (tetto {BUDGET:.2f} EUR a video)' if BUDGET else ''))
     video = os.path.join(LAV, 'muto.mp4')
     unisci([(p, v['d']) for p, v in zip(paths, piano)], video)
+    video = applica_cornice(video, c)
     # audio: voce + musica (facoltativa)
     lista = os.path.join(LAV, 'voci.txt'); open(lista, 'w').write(''.join(f"file '{v}'\n" for v in voci))
     voce_tot = os.path.join(LAV, 'voce.m4a')
