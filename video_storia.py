@@ -2017,6 +2017,8 @@ def query_vicine(piano, v):
 
 
 def limita_personaggi(piano, massimo=PERSONAGGIO_MINUTO):
+    if INTEGRATO:   # i personaggi sono dentro disegni unici, ognuno scritto per la sua frase: sostituirli porta immagini incoerenti
+        return
     """Lo stesso personaggio al massimo N volte in 60 secondi (stanca lo spettatore). Le apparizioni in piu' diventano:
     un altro personaggio gia' usato nella stessa parte di video, oppure una clip Pexels vicina, oppure lo sfondo senza nessuno."""
     tempi, t = [], 0.0
@@ -2609,7 +2611,10 @@ def main():
                               bool(v.get('reazione')), v.get('data') or '', k % 2 == 0)
                 return con_didascalia(p, d, v)
             except Exception as e:   # riserva: cartone senza personaggio su uno sfondo poco usato (mai la stessa immagine di prima)
-                log('pezzo', k, t, 'sostituito:', str(e)[:200])
+                log('pezzo', k, t, 'non riuscito:', str(e)[:200])
+                if BUDGET > 0 or not TEXTURE:   # mai un'immagine a caso: si continua l'immagine precedente (vedi sotto)
+                    v.pop('didascalia', None); v['continua'] = True
+                    return None
                 v.pop('didascalia', None); v['tipo'] = 'cartone'
                 with _lock:
                     liberi = [x for x in sf if not (INTEGRATO and SF_META.get(x))] or list(sf)   # mai un personaggio a caso
@@ -2628,6 +2633,17 @@ def main():
         t0 = time.time()
         with ThreadPoolExecutor(2) as ex:
             paths = list(ex.map(fai, range(len(piano))))
+        for k, pth in enumerate(paths):   # pezzo senza immagine giusta: continua l'immagine precedente (ultimo fotogramma, zoom lento)
+            if pth:
+                continue
+            prec = next((paths[j] for j in range(k - 1, -1, -1) if paths[j]), None) or next((x for x in paths if x), None)
+            fermo = os.path.join(LAV, f'fermo_{k:04d}.jpg')
+            try:
+                run(['ffmpeg', '-y', '-v', 'error', '-sseof', '-0.2', '-i', prec, '-frames:v', '1', fermo])
+            except Exception:
+                run(['ffmpeg', '-y', '-v', 'error', '-i', prec, '-frames:v', '1', fermo])
+            paths[k] = pezzo_foto(os.path.join(LAV, f'pezzo_{k:04d}.mp4'), piano[k]['d'], fermo)
+            log(f'pezzo {k}: continua l\'immagine precedente (nessuna immagine coerente trovata)')
         log('pezzi pronti:', len(paths), 'in', int(time.time() - t0), 's')
         log(f"SPESA immagini: {SPESA['disegni']} immagini, circa {SPESA['fal']:.2f} $" + (f' (tetto {BUDGET:.2f} EUR a video)' if BUDGET else ''))
     video = os.path.join(LAV, 'muto.mp4')
