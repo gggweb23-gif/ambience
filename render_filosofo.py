@@ -167,6 +167,34 @@ def ritratto_statua(nome, cartella, seme=0):
     return dest, url
 
 
+SCENA = ('The same marble statue as in the attached image: keep exactly the same face, hair, beard and marble material. '
+         'Create a 16:9 YouTube thumbnail background: the photorealistic white marble statue is BIG on the LEFT side of the image '
+         '(head and torso, filling the whole height, occupying the left 45% of the frame), {posa}, intense wise expression, stone eyes looking at the viewer. '
+         'Dramatic cinematic side light, deep black background with soft grey smoke, very high contrast. '
+         'The RIGHT 55% of the image is empty dark space for big text: only black and faint smoke, no objects, no people. '
+         'No text, no letters, no logo, no watermark.')
+
+
+def scena_statua(nome, cartella, seme=0):
+    """Immagine UNICA usata sia come sfondo del video sia come copertina (stessa statua, stesso fumo, stessa luce).
+    Volto fisso: la statua master del filosofo (cartella ritratti) fa da riferimento."""
+    slug = re.sub(r'[^a-z0-9]+', '_', nome.lower()).strip('_')[:60]
+    master = os.path.join(os.getcwd(), 'ritratti', slug + '_statua_v1.png')
+    if not (os.path.exists(master) and os.path.getsize(master) > 2000):
+        os.makedirs(os.path.dirname(master), exist_ok=True)
+        img = fal('fal-ai/nano-banana-2', {'prompt': STATUA.format(nome=nome, posa=POSE_STATUA[0]), 'aspect_ratio': '3:4',
+                                           'resolution': '1K', 'output_format': 'png', 'num_images': 1})
+        scarica(img['images'][0]['url'], master)
+        log('nuova statua per ' + nome)
+    posa = POSE_STATUA[seme % len(POSE_STATUA)]
+    ed = fal('fal-ai/nano-banana-2/edit', {'prompt': SCENA.format(posa=posa), 'image_urls': [carica_file(master, 'image/png')],
+                                           'aspect_ratio': '16:9', 'resolution': '2K', 'output_format': 'png', 'num_images': 1})
+    url = ed['images'][0]['url']
+    dest = scarica(url, os.path.join(cartella, 'scena.png'))
+    log('scena del video (= copertina): statua, ' + posa)
+    return dest, url
+
+
 def sfondo_nero(path, fumo=True):
     """Sfondo come la copertina: nero profondo con un fumo grigio leggero dietro la statua (a sinistra)."""
     from PIL import Image, ImageDraw, ImageFilter
@@ -589,16 +617,24 @@ def main():
             except Exception as e:
                 log('personaggio automatico non riuscito (' + str(e)[:120] + '), uso il personaggio fisso del canale')
                 nome = str(dati.get('personaggio_riserva') or '').strip() or nome
+        scena_url = ''
         if rit is None and statua:
-            try:
-                rit, url_ritratto = ritratto_statua(nome, LAVORO, seme)
+            try:   # una sola immagine per video e copertina: niente ritratto sovrapposto
+                sfondo, scena_url = scena_statua(nome, LAVORO, seme)
+                url_ritratto = scena_url
+                nero = True
             except Exception as e:
-                log('statua non riuscita (' + str(e)[:120] + '), uso il ritratto normale')
-        if rit is None:
+                log('scena con statua non riuscita (' + str(e)[:120] + '), uso sfondo nero + statua sovrapposta')
+                try:
+                    rit, url_ritratto = ritratto_statua(nome, LAVORO, seme)
+                except Exception as e2:
+                    log('statua non riuscita (' + str(e2)[:120] + '), uso il ritratto normale')
+        if rit is None and not scena_url:
             rit, url_ritratto = ritratto(nome, LAVORO, seme,
                                          su_misura=bool(str(dati.get('personaggio') or '').strip()),
                                          pose=stile.get('pose'), abiti=stile.get('abiti'), espressione=stile.get('espressione'))
-        rit = ritaglia(rit)
+        if rit:
+            rit = ritaglia(rit)
         num = lambda k, d: float(stile[k]) if str(stile.get(k, '')).strip() != '' else d
         alt = int(H * num('altezza_ritratto', 1.06))      # come l'originale: la figura occupa tutta l'altezza
         x_r = int(W * num('x_ritratto', 0.0))             # attaccata al bordo sinistro
@@ -618,10 +654,16 @@ def main():
                               int(W * num('x_testo', 0.50)), int(H * num('y_testo', 0.44)), int(num('caratteri_riga', 24)))
         # 5) montaggio finale (+ musica se presente)
         musica = str(dati.get('musica') or '').strip()
-        ingressi = (['-loop', '1', '-framerate', str(FPS), '-t', f'{totale:.3f}', '-i', sfondo] if nero else ['-i', sfondo]) + ['-loop', '1', '-i', rit, '-i', voce]
-        filtro = (f"[1:v]scale=-1:{alt},format=rgba[r];"
-                  f"[0:v][r]overlay=x={x_r}:y='if(lt(t,{entra}),{H}-({H}-{y_r})*(1-pow(1-t/{entra},3)),{y_r})':eval=frame:shortest=1,"
-                  f"ass={ass}:fontsdir={FONT_DIR}[v]")
+        ingressi = (['-loop', '1', '-framerate', str(FPS), '-t', f'{totale:.3f}', '-i', sfondo] if nero else ['-i', sfondo])
+        if rit:
+            ingressi += ['-loop', '1', '-i', rit, '-i', voce]
+            filtro = (f"[1:v]scale=-1:{alt},format=rgba[r];"
+                      f"[0:v][r]overlay=x={x_r}:y='if(lt(t,{entra}),{H}-({H}-{y_r})*(1-pow(1-t/{entra},3)),{y_r})':eval=frame:shortest=1,"
+                      f"ass={ass}:fontsdir={FONT_DIR}[v]")
+        else:   # scena unica (= copertina): solo le scritte sopra
+            ingressi += ['-f', 'lavfi', '-i', 'color=c=black:s=16x16:r=1', '-i', voce]   # ingresso 1 segnaposto: la voce resta il n. 2
+            filtro = (f"[0:v]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},setsar=1,fps={FPS},"
+                      f"ass={ass}:fontsdir={FONT_DIR}[v]")
         amap = '2:a'
         if musica:
             try:
@@ -650,7 +692,7 @@ def main():
         url = carica_file(finale)
         log('video caricato: ' + url)
         rispondi(p.get('resume_url'), {'movie': {'status': 'done', 'url': url, 'duration': round(durata(finale), 2), 'ritratto_url': url_ritratto,
-                                                 'minuti_lavoro': round((time.time() - t_inizio) / 60, 1)}})
+                                                 'scena_url': scena_url, 'minuti_lavoro': round((time.time() - t_inizio) / 60, 1)}})
     except Exception as e:
         traceback.print_exc()
         rispondi(p.get('resume_url'), {'movie': {'status': 'failed', 'message': str(e)[:500]}})
