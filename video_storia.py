@@ -425,6 +425,8 @@ def claude_stream(payload, chiave, timeout=600):
 # ============================================================ 2) VOCE
 def voce(i, testo, prima='', dopo='', velocita=None):
     p = os.path.join(LAV, f'voce_{i:03d}.mp3')
+    if velocita is None and os.path.exists(p) and os.path.getsize(p) > 1000 and os.path.exists(p[:-4] + '.json'):
+        return p   # ripresa: voce gia' pagata
     chiave = E('ELEVENLABS_API_KEY', '')
     if not chiave:   # prova senza chiave: silenzio della durata giusta
         run(['ffmpeg', '-y', '-v', 'error', '-f', 'lavfi', '-i', 'anullsrc=r=44100:cl=mono', '-t', max(1.5, len(testo.split()) * .42), p])
@@ -701,6 +703,8 @@ def togli_texture(piano):
 def crea_cornice(paese, epoca=''):
     """Cornice decorativa a tema del paese (1 sola immagine per video, ~0,12 $). Restituisce (png con il centro trasparente, riquadro interno)."""
     p = os.path.join(LAV, 'cornice.png')
+    if os.path.exists(p) and os.path.exists(p + '.json'):
+        return p, tuple(json.load(open(p + '.json')))
     prompt = (f"Ornamental rectangular picture frame for a history documentary about {paese}{(' (' + epoca + ')') if epoca else ''}. "
               f"The border is decorated with motifs typical of the traditional art and architecture of {paese} (patterns, carvings, colours and materials of that culture), "
               "rich, elegant, high detail, 2D illustrated style matching a cartoon history channel. "
@@ -722,7 +726,7 @@ def crea_cornice(paese, epoca=''):
     alfa = np.full((H, W), 255, np.uint8); alfa[by:H - by, bx:W - bx] = 0
     alfa[verde] = 0   # anche il verde rimasto vicino al bordo interno
     out = Image.fromarray(np.dstack([np.asarray(im), alfa]).astype(np.uint8), 'RGBA')
-    out.save(p)
+    out.save(p); json.dump([bx, by], open(p + '.json', 'w'))
     log(f'cornice di {paese} pronta: bordo {bx}x{by} px')
     return p, (bx, by)
 
@@ -2435,7 +2439,15 @@ def main():
         avvisa({'stato': 'DOPPIONE', 'errore': msg, 'paese': paese, 'minuti_lavoro': round((time.time() - T_INIZIO) / 60, 1)})
         sys.exit(0)
     INFO_COMP.update({'categoria_originale': comp.get('categoria') or '', 'tag_originali': ', '.join(comp.get('tag_originali') or [])[:2000]})
-    c = copione(comp)
+    salvato = os.path.join(LAV, 'copione_lavoro.json')
+    if os.path.exists(salvato):   # ripresa dopo un errore: stesso copione, niente nuova spesa
+        c = json.load(open(salvato))
+        n_v = len([f for f in os.listdir(LAV) if f.startswith('voce_') and f.endswith('.mp3')])
+        n_d = len([f for f in os.listdir(LAV) if re.match(r'sfondo_s\d+\.jpg$', f)])
+        log(f'RIPRESA: copione salvato, {n_v} voci e {n_d} disegni gia\' pronti (non si ripagano)')
+    else:
+        c = copione(comp)
+        json.dump(c, open(salvato, 'w'), ensure_ascii=False)
     c['categoria_originale'] = comp.get('categoria') or ''
     titolo_finale = c.get('titolo') or TITOLO
     json.dump(c, open(os.path.join(ROOT, 'copione.json'), 'w'), ensure_ascii=False, indent=1)
