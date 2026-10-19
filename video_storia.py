@@ -59,15 +59,20 @@ def _num_lista(v, d):
     except Exception:
         return d
 RITMO = _num_lista(P.get('ritmo') or E('RITMO', ''), [4.0, 4.0, 4.0])   # secondi max per immagine: primi 10 s / 10-30 s / dopo
-QUOTA_CARTONI = _perc(P.get('quota_cartoni') or E('QUOTA_CARTONI', ''), 80)   # % del video a cartone (Nano Banana), il resto Pexels
+QUOTA_CARTONI = _perc(P.get('quota_cartoni') or E('QUOTA_CARTONI', ''), 80)
+BUDGET = float(str(P.get('budget_video') or E('BUDGET_VIDEO', '') or 0).replace(',', '.').replace('€', '').strip() or 0)   # euro massimi a video (0 = nessun tetto)
+PREZZO_DISEGNO = 0.12   # $ per disegno Nano Banana 2 a 2K (con i rifatti si conta +25%)
+SPESA = {'fal': 0.0, 'disegni': 0}
+RISERVA_PX = []   # ricerche Pexels generiche del paese, per quando una ricerca precisa non trova niente   # % del video a cartone (Nano Banana), il resto Pexels
 SFONDI_MAX = int(float(str(P.get('sfondi_max') or E('SFONDI_MAX', '') or 60)))
-SEC_IMMAGINE = float(str(P.get('secondi_per_immagine') or E('SECONDI_PER_IMMAGINE', '') or 16))   # ogni disegno copre ~16 s: 4 inquadrature diverse da 4 s (meno immagini, stesso ritmo)   # tetto immagini a cartone generate per video (costo)
+SEC_IMMAGINE = float(str(P.get('secondi_per_immagine') or E('SECONDI_PER_IMMAGINE', '') or 12))   # ogni disegno copre ~16 s: 4 inquadrature diverse da 4 s (meno immagini, stesso ritmo)   # tetto immagini a cartone generate per video (costo)
 SUONI_CAMBIO = str(P.get('suoni_cambio') or E('SUONI_CAMBIO', '') or 'NO').strip().upper() == 'SI'   # click/swoosh a ogni cambio immagine
 SUONI_CAMBIO_URL = [u.strip() for u in re.split(r'\|\||\n', str(P.get('suoni_cambio_url') or E('SUONI_CAMBIO_URL', ''))) if u.strip().startswith('http')]
 SUONI_CAMBIO_VOL = float(str(P.get('suoni_cambio_vol') or E('SUONI_CAMBIO_VOL', '') or .45).replace(',', '.'))
 INTEGRATO = str(P.get('cartone_integrato') or E('CARTONE_INTEGRATO', '') or 'SI').strip().upper() == 'SI'   # personaggi DENTRO l'immagine Nano Banana (come PRODUCTION)
 SF_META = {}   # id immagine a cartone -> personaggi del kit disegnati dentro
 DISTANZA_IMMAGINI = float(str(P.get('distanza_immagini') or E('DISTANZA_IMMAGINI', '') or 120).replace(',', '.'))   # stesso disegno: mai prima di N secondi
+TEXTURE = str(P.get('texture') or E('TEXTURE', '') or 'NO').strip().upper() == 'SI'   # NO = niente carte, schede e strisce di carta: solo disegni
 TASTI = str(P.get('suoni_tasti') or E('SUONI_TASTI', '') or 'SI').strip().upper() == 'SI'   # rumore macchina da scrivere sulle scritte
 REGIA = str(P.get('regia') or E('REGIA', '') or 'NO').strip().upper() == 'SI'   # prova 18/10 bocciata: resta spenta   # solo cartoni, un'immagine per ogni frase
 IMMAGINI_MODELLO = str(P.get('immagini_modello') or E('IMMAGINI_MODELLO', '') or 'seedream').strip().lower()   # seedream (0,04 $) | nano-banana-2 (0,12 $ a 2K)
@@ -268,8 +273,16 @@ def copione(comp):
     n_sf = max(6, min(SFONDI_MAX, math.ceil(pezzi * QUOTA_CARTONI / 100 / usi) + 2))
     if INTEGRATO:   # un disegno ogni ~7 s di cartone: il ritmo da 3 s lo fanno zoom e inquadrature diverse della STESSA immagine
         n_sf = max(6, min(SFONDI_MAX, math.ceil(sec * QUOTA_CARTONI / 100 / SEC_IMMAGINE) + 2))
+    if BUDGET > 0:   # tetto di spesa: pochi disegni (solo dove ci sono persone + gancio iniziale), il ritmo lo fa Pexels (gratis)
+        dollari = BUDGET * 1.08
+        fissi = 0.35 + 0.15 + 0.05 + (sec / 5) * 0.005   # copione + copertina + controlli disegni + controlli Pexels (Haiku)
+        n_budget = max(2, int((dollari - fissi) / (PREZZO_DISEGNO * 1.25)))
+        n_sf = max(2, min(SFONDI_MAX, n_budget, 3 + math.ceil(max(0.0, sec - 30) / 45)))
+        globals()['QUOTA_CARTONI'] = max(5, min(60, round(n_sf * 8 / max(sec, 1) * 100)))
+        globals()['RITMO'] = [4.0, 5.0, 6.0]
+        log(f'budget {BUDGET:.2f} EUR: {n_sf} disegni (circa {n_sf * PREZZO_DISEGNO:.2f} $), cartone ~{QUOTA_CARTONI}% del video, il resto Pexels')
     w = [round(RITMO[0] * 2.5), round(RITMO[1] * 2.5), round(RITMO[2] * 2.5)]   # parole per visivo (circa 2,5 parole al secondo)
-    if INTEGRATO:   # ogni visivo ha la SUA immagine scritta sulla sua frase; i tagli da 3 s li fa il montaggio (zoom sulla stessa immagine)
+    if INTEGRATO and BUDGET <= 0:   # ogni visivo ha la SUA immagine scritta sulla sua frase; i tagli da 3 s li fa il montaggio (zoom sulla stessa immagine)
         w = [12, 24, round(SEC_IMMAGINE * 2.5)]   # un visivo = un disegno; i tagli ogni 4 s li fa il montaggio
     regola_pg = ("il personaggio deve essere uno di quelli DISEGNATI DENTRO quell'immagine (campo personaggi dell'immagine), oppure \"\"" if INTEGRATO
                  else '"reazione": true se a meta\' il personaggio cambia posa (momento forte)')
@@ -352,6 +365,7 @@ Rispondi SOLO con un JSON valido, senza testo prima o dopo:
  "tag": ["25-35 tag YouTube in {lingua}: PRIMA tutti i TAG DEL COMPETITOR (se ci sono) tradotti in {lingua} nello stesso ordine (nomi propri invariati, togli solo nomi di altri canali), POI aggiungi i nostri tag validi: paese, impero, epoche, personaggi, 'storia di ...', 'storia completa'"],
  "personaggi_mancanti": ["figure che sarebbero servite ma non sono nella lista, es. 'Dario I re persiano'"]}}
 Scegli la texture piu' coerente (washi per Giappone/Cina/Corea, papiro per Egitto/Mesopotamia, pergamena per antichita'/medioevo, giornale per 1800-1900, stropicciata per storia moderna)."""
+    prompt += regole_finali(n_sf)
     chiave = E('ANTHROPIC_API_KEY', '')
     if not chiave:
         raise RuntimeError('manca il secret ANTHROPIC_API_KEY')
@@ -583,7 +597,7 @@ def controlla(candidati, q, contesto):
     cont, validi = [], 0
     for i, c in enumerate(candidati):   # per le clip: inizio, meta' e fine (una persona puo' entrare dopo)
         with ThreadPoolExecutor(3) as ex:
-            imgs = [x for x in ex.map(b64, (c.get('viste') or [c['anteprima']])[:4]) if x]
+            imgs = [x for x in ex.map(b64, (c.get('viste') or [c['anteprima']])[:3]) if x]
         if imgs:
             validi += 1
         cont += [{'type': 'text', 'text': f'Immagine {i}:' + ('' if imgs else ' (anteprima non disponibile: SCARTALA)')}] + imgs
@@ -598,7 +612,7 @@ VANNO BENE: paesaggi, montagne, deserti, rovine, monumenti antichi, musei, ogget
 Per il LUOGO basta che sia plausibile per quel paese (montagne, deserti, rovine, cieli vanno bene se il clima e' simile); scarta solo cio' che e' chiaramente di un altro mondo (es. colline verdi alpine per un deserto, palme tropicali, citta' europee).
 Ragiona in breve (max 2 righe) e poi chiudi con una riga ESATTAMENTE cosi': SCELTA: <numero della prima immagine adatta, oppure -1 se nessuna va bene>"""})
     try:
-        r = http('https://api.anthropic.com/v1/messages', {'model': E('MODELLO_PEXELS', '') or MODELLO_AI, 'max_tokens': 300, 'messages': [{'role': 'user', 'content': cont}]},
+        r = http('https://api.anthropic.com/v1/messages', {'model': E('MODELLO_PEXELS', '') or MODELLO_CONTROLLO, 'max_tokens': 300, 'messages': [{'role': 'user', 'content': cont}]},
                  {'x-api-key': chiave, 'anthropic-version': '2023-06-01'}, timeout=120)
         txt = ''.join(b.get('text', '') for b in r.get('content', []))
         m = re.search(r'SCELTA:\s*(-?\d+)', txt) or re.search(r'(-?\d+)\s*$', txt.strip())
@@ -628,10 +642,56 @@ def pexels(tipo, q, contesto=''):
     return None
 
 
+def regole_finali(n_sf):
+    """Regole che prevalgono su tutto il resto del prompt (canale Storia: solo disegni, nessuna texture)."""
+    r = ["\n\nREGOLE FINALI (PREVALGONO su tutto quello scritto sopra):",
+         "- PERSONE: in ogni immagine compaiono SOLO persone del popolo e dell'epoca di cui parla la voce in quel momento. "
+         "Quando la voce cita studiosi, geologi, scienziati, archeologi o scoperte moderne, NON disegnare loro: mostra la cosa (la grotta, la stalagmite, il reperto, la rovina) "
+         "oppure le persone ANTICHE di cui si parla. Abiti moderni o dell'800 (giacca, cravatta, panciotto) SOLO se la scena e' ambientata esplicitamente in quell'epoca.",
+         f"- IMMAGINI MAI RIPETUTE: ogni visivo \"cartone\" usa un'immagine DIVERSA (s1, s2, s3... in ordine, ognuna UNA sola volta). I visivi cartone sono quindi al massimo {n_sf}: "
+         "se la scena e' lunga, il visivo dura di piu' (gli stacchi li fa il montaggio). Mai la stessa immagine in due visivi."]
+    if BUDGET > 0:
+        r.append(f"- DISEGNI CONTATI: esattamente {n_sf} visivi \"cartone\" in tutto il video, ognuno con la SUA immagine (s1..s{n_sf}, in ordine, mai ripetute). "
+                 "Mettine 3 nei primi 30 secondi (il gancio); gli altri SOLO dove la voce parla di PERSONE (re, battaglie, popolo, mercati, eventi), distribuiti su tutto il video. "
+                 "Un cartone dura 6-9 secondi di voce (15-22 parole).")
+        r.append("- TUTTO IL RESTO e' Pexels: preferisci \"pexels_video\" (clip), \"pexels_foto\" solo se serve un oggetto preciso. Un visivo pexels ogni 10-14 parole. "
+                 "Campo \"q\": 3-5 parole in INGLESE con il LUOGO del paese + la COSA CONCRETA che la voce dice in quel momento "
+                 "(es. voce 'i monsoni portano la pioggia' -> 'monsoon rain India fields'; 'il fiume Gange' -> 'Ganges river Varanasi'; 'templi di pietra' -> 'ancient stone temple India'). "
+                 "Mai persone, soldati, folle, feste, citta' moderne (tranne quando la voce parla di oggi). Visivi vicini = cose diverse (fiume, poi montagna, poi rovina, poi cielo).")
+        r.append("- Aggiungi in cima al JSON il campo \"riserva_pexels\": 8 ricerche Pexels generiche ma tipiche del paese (paesaggi, fiumi, montagne, monumenti antichi, cielo), per quando una ricerca non trova niente.")
+    elif QUOTA_CARTONI >= 100:
+        r.append("- SOLO DISEGNI: usa solo \"cartone\" e una \"mappa\". Niente pexels_video e pexels_foto.")
+    if not TEXTURE:
+        r.append("- NIENTE SCRITTE SU CARTA: non usare i tipi \"carta\" e \"scheda\", non mettere mai il campo \"didascalia\". \"fondi_carte\" = [].")
+    return '\n'.join(r)
+
+
+def togli_texture(piano):
+    """Canale senza texture: carte e schede diventano il disegno della stessa scena (quello prima o dopo), via le strisce di carta."""
+    if TEXTURE:
+        return
+    n = 0
+    for i, v in enumerate(piano):
+        v.pop('didascalia', None)
+        if v['tipo'] in ('carta', 'scheda'):
+            vicino = next((x for x in list(reversed(piano[:i])) + piano[i + 1:] if x['tipo'] == 'cartone' and x.get('sfondo')
+                           and x.get('contesto') == v.get('contesto')), None) or \
+                next((x for x in reversed(piano[:i]) if x['tipo'] == 'cartone' and x.get('sfondo')), None)
+            for k_ in ('testo', 'nome', 'fondo'):
+                v.pop(k_, None)
+            if vicino:
+                v.update({'tipo': 'cartone', 'sfondo': vicino['sfondo'], 'personaggio': vicino.get('personaggio') or ''})
+            else:
+                v.update({'tipo': 'cartone', 'personaggio': ''})
+            n += 1
+    log(f'senza texture: {n} carte/schede diventate disegni, strisce di carta tolte')
+
+
 # ============================================================ 4) SFONDI (Fal)
 STILE_SCENA = ('Wide 2D cartoon illustration for an animated history video, clean thick black outlines, flat warm colours with soft simple shading, '
                'like a modern illustrated history book, rich detail, cinematic composition. All people are drawn in the SAME cartoon style, with expressive faces, '
                'clothes, hair, weapons and objects historically correct for the era and the people described: nothing modern. '
+               'Never people in suits, jackets, ties, waistcoats, lab coats or 19th/20th-century clothes (no scientists, scholars, explorers, tourists) unless the scene is explicitly set in that period. '
                'People look like the local population of the country being told (skin tone, faces, clothes), never Europeans unless stated. '
                'No text, no letters, no signs with writing, no logos, no watermark, no frame, no border.')
 _ref_url = {}
@@ -659,6 +719,9 @@ STILE_SFONDO = ('Wide 2D cartoon illustration for an animated history video, cle
 
 def fal(modello, dati):
     h = {'Authorization': 'Key ' + E('FAL_KEY', '')}
+    with _lock:
+        SPESA['fal'] += (PREZZO_DISEGNO if str(dati.get('resolution')) == '2K' else 0.08) if 'nano-banana' in modello else 0.04
+        SPESA['disegni'] += 1
     inv = http('https://queue.fal.run/' + modello, dati, h)
     for _ in range(150):
         time.sleep(4)
@@ -1661,13 +1724,13 @@ def verifica_immagine(p, testi, prompt):
     domanda = f"""Video di storia sul paese: {PAESE.get('nome') or '-'}. Questa immagine accompagna queste parole della voce: "{testi[:500]}".
 Controlla SOLO errori evidenti che uno spettatore noterebbe:
 1) contraddice le parole? (es. dice sole e c'e' pioggia, dice deserto e c'e' una foresta, dice una battaglia e c'e' una festa, nomina un re e non c'e')
-2) vestiti, edifici o oggetti moderni in un'epoca antica?
+2) vestiti, edifici o oggetti moderni in un'epoca antica? persone in giacca, cravatta, panciotto o abiti dell'800/900 (scienziati, studiosi) quando la voce parla di un'epoca antica o di un luogo?
 3) scritte, lettere o numeri nell'immagine?
 4) errori di anatomia: 3 braccia, 2 teste, corpi fusi, mani deformi molto evidenti?
 5) persone di un altro popolo rispetto al paese e all'epoca raccontati (es. europei o asiatici dell'est in una scena dell'India antica)?
 Rispondi in 1 riga e chiudi con: ESITO: OK  oppure  ESITO: RIFAI - <cosa correggere, in inglese, max 20 parole>"""
     try:
-        r = http('https://api.anthropic.com/v1/messages', {'model': MODELLO_AI, 'max_tokens': 300, 'messages': [{'role': 'user', 'content': [
+        r = http('https://api.anthropic.com/v1/messages', {'model': MODELLO_CONTROLLO, 'max_tokens': 300, 'messages': [{'role': 'user', 'content': [
             {'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}},
             {'type': 'text', 'text': domanda}]}]}, {'x-api-key': chiave, 'anthropic-version': '2023-06-01'}, timeout=120)
         txt = ''.join(b.get('text', '') for b in r.get('content', []))
@@ -1906,6 +1969,8 @@ def _ritmo(piano, sf_ids, query_scena):
         return sc
     for v in piano:
         d = v['d']; lim = limite(t)
+        if BUDGET > 0 and v['tipo'] == 'cartone':
+            lim = max(lim, 9.0)   # un disegno = una sola inquadratura che si muove piano
         n = max(1, round(d / lim))   # pezzi lunghi circa quanto il ritmo del foglio (non molto piu' corti)
         if d / n > lim * 1.15:
             n += 1
@@ -1929,7 +1994,9 @@ def _ritmo(piano, sf_ids, query_scena):
                 serve_cartone = False
             elif prec['tipo'] in ('pexels_video', 'pexels_foto') and sf_ids:
                 serve_cartone = True
-            if INTEGRATO and v['tipo'] == 'cartone' and v.get('sfondo'):   # stessa immagine (coerente con la frase), inquadratura diversa
+            if BUDGET > 0:   # mai un disegno in piu' (costano e non devono ripetersi): la clip successiva della stessa scena
+                serve_cartone = not qs
+            if INTEGRATO and v['tipo'] == 'cartone' and v.get('sfondo') and not (BUDGET > 0 and qs):   # stessa immagine (coerente con la frase), inquadratura diversa
                 nuovo = {k_: v[k_] for k_ in ('tipo', 'sfondo', 'personaggio', 'contesto', 'pg_scena', 'frase') if k_ in v}
                 nuovo['vista_fissa'] = k % 3 + 1
             elif qs and not serve_cartone:   # un'altra immagine vera della stessa scena (mai la stessa clip: Pexels esclude le gia' usate)
@@ -1975,6 +2042,11 @@ def coerenza_immagini(piano):
     (personaggi DENTRO l'immagine), si cambia immagine con una vicina senza personaggi, o con un'immagine vera della stessa scena."""
     if not INTEGRATO:
         return
+    for v in piano:   # l'immagine resta quella scritta per la frase: il personaggio e' quello disegnato dentro
+        dentro = (SF_META.get(v.get('sfondo')) or []) if v['tipo'] == 'cartone' else []
+        if dentro and v.get('personaggio') not in dentro:
+            v['personaggio'] = dentro[0]
+    return
     uso = {}
     for v in piano:
         if v['tipo'] == 'cartone' and v.get('sfondo'):
@@ -2003,6 +2075,8 @@ def distanzia_immagini(piano, sf_ids):
     """Lo stesso disegno non torna prima di DISTANZA_IMMAGINI secondi (lo spettatore se ne accorge: 'scena gia' vista').
     Al suo posto: un disegno mai usato o usato da piu' tempo (vicino nel racconto); se non c'e', un'immagine vera della stessa scena;
     solo come ultima scelta resta lo stesso disegno (zoomato o specchiato)."""
+    if INTEGRATO:   # ogni disegno e' fatto per la SUA frase: scambiarlo con un altro porta immagini che non c'entrano (es. grotta mentre si parla dell'Egitto)
+        log('disegni ripetuti: nessuno scambio (ogni immagine resta sulla sua frase)'); return
     ultimo, uso, t, cambiati = {}, {}, 0.0, 0
     for v in piano:
         if v['tipo'] == 'cartone' and v.get('sfondo'):
@@ -2049,17 +2123,25 @@ def verifica_sfondi(piano, sf, c):
         motivo = verifica_immagine(sf[i], ' / '.join(frasi[i])[:500], per_id.get(i, {}).get('prompt_en', ''))
         if not motivo or i not in per_id:
             return 0
+        if BUDGET > 0 and SPESA['fal'] + PREZZO_DISEGNO > BUDGET * 1.08 - 0.6:
+            log(f'immagine {i} da rifare ({motivo}) ma il tetto di spesa e\' raggiunto: resta'); return 0
         log(f'immagine {i} rifatta: {motivo}')
+        vecchie = []
         for x in (sf[i], sf[i][:-4] + '_full.jpg'):
-            try:
-                os.remove(x)
-            except OSError:
-                pass
+            if os.path.exists(x):
+                os.replace(x, x + '.old'); vecchie.append(x)
         try:
             sfondo(dict(per_id[i], prompt_en=per_id[i]['prompt_en'] + '. IMPORTANT: ' + motivo))
+            for x in vecchie:
+                os.remove(x + '.old')
+            for f in os.listdir(LAV):   # inquadrature della vecchia immagine
+                if f.startswith(os.path.basename(sf[i])[:-4] + '_v'):
+                    os.remove(os.path.join(LAV, f))
             return 1
         except Exception as e:
-            log('immagine non rifatta:', str(e)[:120]); return 0
+            for x in vecchie:
+                os.replace(x + '.old', x)
+            log('immagine non rifatta, tengo la prima:', str(e)[:120]); return 0
     with ThreadPoolExecutor(4) as ex:
         n = sum(ex.map(uno, list(frasi)))
     log(f'controllo immagini: {len(frasi)} guardate, {n} rifatte')
@@ -2087,11 +2169,11 @@ def vista_sfondo(bg, vista):
     if not os.path.exists(out):
         full = bg[:-4] + '_full.jpg'
         im = Image.open(full if os.path.exists(full) else bg).convert('RGB'); w, h = im.size
-        if INTEGRATO:   # personaggi dentro l'immagine: zoom al centro (non si tagliano) e/o specchio
-            if vista in (2, 3):
-                im = im.transpose(Image.FLIP_LEFT_RIGHT)
-            if vista in (1, 3):
-                cw, ch = int(w / 1.3), int(h / 1.3); im = im.crop(((w - cw) // 2, (h - ch) // 3, (w - cw) // 2 + cw, (h - ch) // 3 + ch))
+        if INTEGRATO:   # personaggi dentro l'immagine: inquadrature diverse (centro / sinistra / destra), MAI specchiate
+            z = {1: 1.35, 2: 1.6, 3: 1.6}[vista]
+            cw, ch = int(w / z), int(h / z)
+            x = {1: (w - cw) // 2, 2: int(w * 0.04), 3: w - cw - int(w * 0.04)}[vista]
+            im = im.crop((x, (h - ch) // 3, x + cw, (h - ch) // 3 + ch))
         elif vista == 3:
             im = im.transpose(Image.FLIP_LEFT_RIGHT)
         else:
@@ -2290,7 +2372,7 @@ def main():
         # sfondi
         with ThreadPoolExecutor(3) as ex:
             sf = dict(zip([s['id'] for s in c['sfondi']], ex.map(sfondo, c['sfondi'])))
-        tex = texture(c.get('texture') or 'pergamena')
+        tex = texture(c.get('texture') or 'pergamena') if TEXTURE else Image.new('RGB', (W, H), (240, 232, 214))
         nome_font = c.get('font_carte') if c.get('font_carte') in FONT_EPOCA else 'classico'
         # fondi delle carte: 3 immagini a tema (bordi decorati, centro libero) + la carta dell'epoca + 2 colori a tinta unita
         fondi = [prepara_fondo(tex)]
@@ -2300,7 +2382,7 @@ def main():
                 fondi.append(prepara_fondo(tinta(tex, str(col))))
             except Exception as e:
                 log('colore carta saltato:', col, e)
-        if E('FAL_KEY') and c.get('fondi_carte'):
+        if E('FAL_KEY') and c.get('fondi_carte') and TEXTURE:
             def _fc(f):
                 try:
                     return fondo_carta_ai(f)
@@ -2313,6 +2395,7 @@ def main():
                 mix += ([ai[i]] if i < len(ai) else []) + ([fondi[i]] if i < len(fondi) else [])
             fondi = ai or mix; fondi_ai = ai   # gli spettatori vogliono immagini a tema: niente fondi neutri se ci sono quelli a tema
         # piano dei pezzi
+        RISERVA_PX[:] = [str(x).strip() for x in (c.get('riserva_pexels') or []) if str(x).strip()][:10]
         piano = pianifica(c['scene'], durs, voci, sf)
         for v in piano:
             if v.get('personaggio') and v['personaggio'] not in kit:
@@ -2328,6 +2411,7 @@ def main():
                 v['personaggio'] = v.get('personaggio') if v.get('personaggio') in dentro else (dentro[0] if dentro else '')
             elif v['tipo'] == 'cartone' and not v.get('personaggio'):
                 v['personaggio'] = v['pg_scena']
+        togli_texture(piano)
         piano = ritmo(piano, list(sf))
         for v in piano:   # il narratore (avatar del canale) non compare MAI nei video
             if v.get('personaggio') == NARRATORE:
@@ -2337,6 +2421,7 @@ def main():
         limita_personaggi(piano)
         coerenza_immagini(piano)
         distanzia_immagini(piano, list(sf))
+        togli_texture(piano)
         viste_sfondi(piano)
         if VERIFICA and E('FAL_KEY'):
             verifica_sfondi(piano, sf, c)
@@ -2363,7 +2448,7 @@ def main():
             try:
                 if t in ('pexels_video', 'pexels_foto'):
                     u = None
-                    for qq in [v.get('q') or 'ancient ruins'] + list(v.get('alt_q') or [])[:2]:
+                    for qq in [v.get('q') or 'ancient ruins'] + list(v.get('alt_q') or [])[:2] + random.sample(RISERVA_PX, min(3, len(RISERVA_PX))):
                         u = pexels('video' if t == 'pexels_video' else 'foto', qq, v.get('contesto') or '')
                         if u:
                             break
@@ -2405,6 +2490,7 @@ def main():
         with ThreadPoolExecutor(2) as ex:
             paths = list(ex.map(fai, range(len(piano))))
         log('pezzi pronti:', len(paths), 'in', int(time.time() - t0), 's')
+        log(f"SPESA immagini: {SPESA['disegni']} immagini, circa {SPESA['fal']:.2f} $" + (f' (tetto {BUDGET:.2f} EUR a video)' if BUDGET else ''))
     video = os.path.join(LAV, 'muto.mp4')
     unisci([(p, v['d']) for p, v in zip(paths, piano)], video)
     # audio: voce + musica (facoltativa)
