@@ -1,0 +1,153 @@
+name: Video Storia
+
+on:
+  workflow_dispatch:
+    inputs:
+      link_competitor:
+        description: 'Link del video da copiare (OBBLIGATORIO: senza link il video non parte)'
+        required: true
+        default: ''
+        type: string
+      titolo:
+        description: 'Titolo di riserva (si usa solo se manca il link)'
+        default: "Tutta la storia dell'Iran"
+        type: string
+      minuti:
+        description: 'Durata in minuti'
+        default: '13'
+        type: string
+      max_minuti:
+        description: 'Durata massima in minuti (oltre, il testo viene condensato)'
+        default: '25'
+        type: string
+      prova:
+        description: 'SI = video corto di prova (~1 minuto)'
+        default: 'NO'
+        type: string
+      voce:
+        description: 'Voce ElevenLabs (ID)'
+        default: 'glnsgBC77wt5zOYU0szz'
+        type: string
+      musica_url:
+        description: 'Link musica di sottofondo (facoltativo)'
+        default: ''
+        type: string
+      carica:
+        description: 'SI = carica il video su YouTube (canale Storia in Minuti)'
+        default: 'NO'
+        type: string
+      payload:
+        description: 'Solo per n8n (lascia vuoto)'
+        default: ''
+        type: string
+
+permissions:
+  contents: read
+  actions: write
+
+concurrency:
+  group: storia
+  cancel-in-progress: false
+
+jobs:
+  video:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Programmi, caratteri e mappe
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg python3-pil python3-numpy python3-fonttools
+          pip install --quiet --break-system-packages youtube-transcript-api
+          mkdir -p font geo tmp_npm && cd tmp_npm
+          npm init -y > /dev/null
+          npm i --silent world-atlas@2.0.2 topojson-client@3.1.0 @fontsource/eb-garamond@5.2.5 @fontsource/luckiest-guy@5.2.5 @fontsource/special-elite@5.2.5 @fontsource/unifrakturmaguntia@5.2.5 @fontsource/cinzel@5.2.5 @fontsource/im-fell-english@5.2.5 @fontsource/playfair-display@5.2.5 @fontsource/oswald@5.2.5
+          node -e "const fs=require('fs'),t=require('topojson-client');const a=require('world-atlas/countries-110m.json'),b=require('world-atlas/countries-50m.json');fs.writeFileSync('../geo/mondo.json',JSON.stringify(t.feature(a,a.objects.countries)));fs.writeFileSync('../geo/dettaglio.json',JSON.stringify(t.feature(b,b.objects.countries)));"
+          python3 -c "
+          from fontTools.ttLib import TTFont
+          m={'eb-garamond/files/eb-garamond-latin-600-normal.woff':'EBGaramond-SemiBold.ttf','luckiest-guy/files/luckiest-guy-latin-400-normal.woff':'LuckiestGuy.ttf',
+             'special-elite/files/special-elite-latin-400-normal.woff':'SpecialElite.ttf','unifrakturmaguntia/files/unifrakturmaguntia-latin-400-normal.woff':'UnifrakturMaguntia.ttf',
+             'cinzel/files/cinzel-latin-700-normal.woff':'Cinzel-Bold.ttf','im-fell-english/files/im-fell-english-latin-400-normal.woff':'IMFellEnglish.ttf',
+             'playfair-display/files/playfair-display-latin-700-normal.woff':'PlayfairDisplay-Bold.ttf','oswald/files/oswald-latin-600-normal.woff':'Oswald-SemiBold.ttf'}
+          for s,d in m.items():
+              f=TTFont('node_modules/@fontsource/'+s); f.flavor=None; f.save('../font/'+d)
+          "
+          ls ../font ../geo
+
+      - name: Recupera il lavoro di un giro fallito (stesso video)
+        id: rid
+        env:
+          PAYLOAD: ${{ inputs.payload }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ID=$(python3 -c "import json,os,re;p=json.loads(os.environ.get('PAYLOAD') or '{}');print(re.sub(r'[^A-Za-z0-9_-]','',str(p.get('id') or '')))")
+          echo "id=$ID" >> "$GITHUB_OUTPUT"
+          if [ -z "$ID" ]; then echo "giro a mano: nessuna ripresa"; exit 0; fi
+          AID=$(gh api "repos/$GITHUB_REPOSITORY/actions/artifacts?name=lavoro-storia-$ID&per_page=10" --jq '[.artifacts[] | select(.expired==false)] | sort_by(.created_at) | last | .id // empty')
+          if [ -z "$AID" ]; then echo "nessun lavoro salvato per $ID: si parte da zero"; exit 0; fi
+          mkdir -p lavoro_storia
+          gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$AID/zip" > lavoro.zip && unzip -o -q lavoro.zip -d lavoro_storia && rm lavoro.zip
+          echo "RIPRESA di $ID:"; ls lavoro_storia | head -100
+
+      - name: Crea il video
+        timeout-minutes: 135
+        env:
+          LINK_COMPETITOR: ${{ inputs.link_competitor }}
+          TITOLO: ${{ inputs.titolo }}
+          MINUTI: ${{ inputs.minuti }}
+          MAX_MINUTI: ${{ inputs.max_minuti }}
+          PROVA: ${{ inputs.prova }}
+          VOCE: ${{ inputs.voce }}
+          MUSICA_URL: ${{ inputs.musica_url }}
+          LINGUA: it
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          FAL_KEY: ${{ secrets.FAL_KEY }}
+          RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
+          CARICA: ${{ inputs.carica }}
+          PAYLOAD: ${{ inputs.payload }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN_STORIA }}
+        run: python3 video_storia.py
+
+      - name: Salva il lavoro per ripartire (solo se il giro non e' finito bene)
+        if: ${{ (failure() || cancelled()) && steps.rid.outputs.id != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: lavoro-storia-${{ steps.rid.outputs.id }}
+          path: |
+            lavoro_storia/copione_lavoro.json
+            lavoro_storia/voce_*.mp3
+            lavoro_storia/voce_*.json
+            lavoro_storia/sfondo_s*.jpg
+            lavoro_storia/cornice.png
+            lavoro_storia/cornice.png.json
+          if-no-files-found: ignore
+          retention-days: 7
+
+      - name: Video riuscito, cancella il lavoro salvato
+        if: ${{ success() && steps.rid.outputs.id != '' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for A in $(gh api "repos/$GITHUB_REPOSITORY/actions/artifacts?name=lavoro-storia-${{ steps.rid.outputs.id }}&per_page=20" --jq '.artifacts[].id'); do
+            gh api -X DELETE "repos/$GITHUB_REPOSITORY/actions/artifacts/$A" && echo "cancellato lavoro $A"
+          done
+
+      - name: Salva il risultato
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: video-storia
+          path: |
+            video_storia.mp4
+            copertina.jpg
+            titolo.txt
+            copione.json
+            personaggi_mancanti.txt
+            copertina_analisi.txt
+          retention-days: 7
