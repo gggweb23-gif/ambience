@@ -60,7 +60,7 @@ def _num_lista(v, d):
         return d
 RITMO = _num_lista(P.get('ritmo') or E('RITMO', ''), [4.0, 4.0, 4.0])   # secondi max per immagine: primi 10 s / 10-30 s / dopo
 QUOTA_CARTONI = _perc(P.get('quota_cartoni') or E('QUOTA_CARTONI', ''), 80)
-BUDGET = float(str(P.get('budget_video') or E('BUDGET_VIDEO', '') or 0).replace(',', '.').replace('€', '').strip() or 0)   # euro massimi a video (0 = nessun tetto)
+BUDGET = float(str(P.get('budget_video') or E('BUDGET_VIDEO', '') or 3).replace(',', '.').replace('€', '').strip() or 0)   # euro massimi a video (0 = nessun tetto)
 PREZZO_DISEGNO = 0.12   # $ per disegno Nano Banana 2 a 2K (con i rifatti si conta +25%)
 SPESA = {'fal': 0.0, 'disegni': 0}
 CORNICE = str(P.get('cornice') or E('CORNICE', '') or 'SI').strip().upper() == 'SI'   # cornice a tema del paese intorno a tutto il video
@@ -2477,6 +2477,20 @@ def main():
         piano, paths = video_regia(c, durs, voci, kit)
     else:
         # sfondi
+        RISERVA_PX[:] = [str(x).strip() for x in (c.get('riserva_pexels') or []) if str(x).strip()][:10] or \
+            [f"{c.get('paese_mappa') or 'ancient'} {x}" for x in ('landscape', 'river', 'mountains', 'ancient ruins', 'sky clouds', 'temple')]
+        if BUDGET > 0:   # rete di sicurezza: mai piu' disegni di quanti ne paga il budget, anche se il copione ne chiede di piu'
+            sec_v = sum(durs)
+            massimo = max(2, int((BUDGET * 1.08 - (0.35 + 0.15 + 0.05 + sec_v / 5 * 0.005)) / (PREZZO_DISEGNO * 1.25)))
+            if len(c['sfondi']) > massimo:
+                tenuti = {x['id'] for x in c['sfondi'][:massimo]}
+                log(f"budget: il copione chiede {len(c['sfondi'])} disegni, se ne fanno {massimo}; gli altri diventano clip Pexels")
+                c['sfondi'] = c['sfondi'][:massimo]
+                for sc_ in c['scene']:
+                    for v in sc_.get('visivi') or []:
+                        if v.get('tipo') == 'cartone' and v.get('sfondo') not in tenuti:
+                            q = str(v.get('q') or '') or (RISERVA_PX[0] if RISERVA_PX else (c.get('paese_mappa') or 'ancient') + ' landscape')
+                            v.update({'tipo': 'pexels_video', 'q': q}); v.pop('sfondo', None); v.pop('personaggio', None)
         with ThreadPoolExecutor(3) as ex:
             sf = dict(zip([s['id'] for s in c['sfondi']], ex.map(sfondo, c['sfondi'])))
         tex = texture(c.get('texture') or 'pergamena') if TEXTURE else Image.new('RGB', (W, H), (240, 232, 214))
@@ -2502,7 +2516,6 @@ def main():
                 mix += ([ai[i]] if i < len(ai) else []) + ([fondi[i]] if i < len(fondi) else [])
             fondi = ai or mix; fondi_ai = ai   # gli spettatori vogliono immagini a tema: niente fondi neutri se ci sono quelli a tema
         # piano dei pezzi
-        RISERVA_PX[:] = [str(x).strip() for x in (c.get('riserva_pexels') or []) if str(x).strip()][:10]
         piano = pianifica(c['scene'], durs, voci, sf)
         for v in piano:
             if v.get('personaggio') and v['personaggio'] not in kit:
