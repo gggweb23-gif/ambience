@@ -118,6 +118,103 @@ VESTITI = ('He is dressed with the AUTHORITY of the highest rank he held in life
            'never ragged, rough, worn, torn, faded, dirty or poor-looking. ')
 
 
+# Stile "statua" (render_style: "ritratto": "statua"): il personaggio del video e' la STESSA statua di marmo della copertina.
+STATUA = ('Photorealistic white-grey marble statue of {nome}, the historical philosopher, faithful to his known busts, '
+          'classical Greco-Roman sculpture with strong defined features, carved curly hair and beard, realistic marble texture with fine veins. '
+          'The statue shows the head, shoulders and torso down to the waist, {posa}. '
+          'Intense, wise expression, the stone eyes look STRAIGHT at the viewer. Body facing the viewer, turned only slightly toward the right side of the image. '
+          'Dramatic cinematic side light from the right, deep shadows, very high contrast. '
+          'Plain flat light-grey studio background, nothing else in the background. No text, no logo, no watermark.')
+POSE_STATUA = [
+    'arms crossed firmly on the chest',
+    'one hand thoughtfully touching his chin',
+    'one index finger raised as if teaching a lesson',
+    'one hand on his heart, the other relaxed',
+    'holding a rolled scroll against his chest',
+    'one hand open toward the viewer in a calm explaining gesture',
+    'one hand raised to his temple as if thinking deeply',
+    'arms relaxed along the body, chin slightly raised, proud',
+]
+
+
+def ritratto_statua(nome, cartella, seme=0):
+    """Statua del filosofo: volto fisso (master salvato in 'ritratti'), posa diversa a ogni video."""
+    slug = re.sub(r'[^a-z0-9]+', '_', nome.lower()).strip('_')[:60]
+    master = os.path.join(os.getcwd(), 'ritratti', slug + '_statua_v1.png')
+    dest = os.path.join(cartella, 'ritratto.png')
+    if not (os.path.exists(master) and os.path.getsize(master) > 2000):
+        os.makedirs(os.path.dirname(master), exist_ok=True)
+        img = fal('fal-ai/nano-banana-2', {'prompt': STATUA.format(nome=nome, posa=POSE_STATUA[0]), 'aspect_ratio': '3:4',
+                                           'resolution': '2K', 'output_format': 'png', 'num_images': 1})
+        scarica(img['images'][0]['url'], master)
+        log('nuova statua per ' + nome)
+    else:
+        log('statua gia\' pronta per ' + nome)
+    url = url_master = carica_file(master, 'image/png')
+    posa = POSE_STATUA[seme % len(POSE_STATUA)]
+    try:
+        ed = fal('fal-ai/nano-banana-2/edit', {
+            'prompt': ('The same marble statue as in the attached image: keep exactly the same face, hair, beard, marble material and lighting. '
+                       f'New pose for this video: the statue shows head and torso, {posa}. Stone eyes looking straight at the viewer. '
+                       'Plain flat light-grey studio background. No text, no logo.'),
+            'image_urls': [url_master], 'aspect_ratio': '3:4', 'resolution': '2K', 'output_format': 'png', 'num_images': 1})
+        url = ed['images'][0]['url']
+        log('posa della statua: ' + posa)
+    except Exception as e:
+        log('cambio posa non riuscito (' + str(e)[:100] + '), uso la statua base')
+    sc = fal('fal-ai/birefnet', {'image_url': url})
+    scarica((sc.get('image') or {}).get('url') or url, dest)
+    return dest, url
+
+
+def sfondo_nero(path, fumo=True):
+    """Sfondo come la copertina: nero profondo con un fumo grigio leggero dietro la statua (a sinistra)."""
+    from PIL import Image, ImageDraw, ImageFilter
+    im = Image.new('RGB', (W, H), (6, 6, 7))
+    if fumo:
+        st = Image.new('L', (W, H), 0)
+        d = ImageDraw.Draw(st)
+        for (cx, cy, r, v) in ((0.20, 0.45, 0.42, 70), (0.08, 0.85, 0.30, 45), (0.38, 0.15, 0.25, 30), (0.80, 0.90, 0.22, 18)):
+            d.ellipse([W * cx - W * r, H * cy - W * r * 0.7, W * cx + W * r, H * cy + W * r * 0.7], fill=v)
+        st = st.filter(ImageFilter.GaussianBlur(160))
+        im = Image.composite(Image.new('RGB', (W, H), (150, 150, 155)), im, st)
+    im.save(path)
+    return path
+
+
+def font_anton():
+    """Font della copertina (Anton) per le scritte del video."""
+    p = os.path.join(FONT_DIR, 'Anton-Regular.ttf')
+    if not os.path.exists(p):
+        os.makedirs(FONT_DIR, exist_ok=True)
+        for u in ('https://github.com/google/fonts/raw/main/ofl/anton/Anton-Regular.ttf',
+                  'https://cdn.jsdelivr.net/gh/google/fonts@main/ofl/anton/Anton-Regular.ttf'):
+            try:
+                req = urllib.request.Request(u, headers={'User-Agent': 'Mozilla/5.0'})
+                with urllib.request.urlopen(req, timeout=60) as r:
+                    b = r.read()
+                if len(b) > 20000:
+                    open(p, 'wb').write(b); break
+            except Exception as e:
+                log('font Anton non scaricato da ' + u[:40] + ': ' + str(e)[:80])
+        if not os.path.exists(p):   # riserva: pacchetto npm @fontsource/anton
+            try:
+                run(['npm', 'pack', '@fontsource/anton@5.2.5', '--silent'])
+                run(['tar', 'xzf', 'fontsource-anton-5.2.5.tgz'])
+                from fontTools.ttLib import TTFont
+                f = TTFont('package/files/anton-latin-400-normal.woff'); f.flavor = None; f.save(p)
+            except Exception as e:
+                log('font Anton non disponibile: ' + str(e)[:100])
+    return 'Anton'
+
+
+def colore_ass(hexc, rif='#FFFFFF'):
+    h = (str(hexc or '').strip().lstrip('#') or rif.lstrip('#')).upper()
+    if len(h) != 6:
+        h = rif.lstrip('#')
+    return f'&H00{h[4:6]}{h[2:4]}{h[0:2]}&'
+
+
 def ritratto_auto(descrizione, cartella):
     """Personaggio diverso per ogni video, descritto dall'AI dello script: si crea direttamente (niente master salvato)."""
     dest = os.path.join(cartella, 'ritratto.png')
@@ -240,15 +337,46 @@ def tempo_ass(s):
     return f'{h}:{m:02d}:{sec:05.2f}'
 
 
-def sottotitoli(scene, tempi, cartella, font, size, x, y, max_riga=24):
-    """Effetto macchina da scrivere: un evento ASS per ogni lettera, con il cursore bianco alla fine."""
+def sottotitoli(scene, tempi, cartella, font, size, x, y, max_riga=24, copertina=None):
+    """Effetto macchina da scrivere: un evento ASS per ogni lettera, con il cursore bianco alla fine.
+    copertina = {'bianco', 'giallo'}: scritte come la copertina (maiuscole, senza riquadro, 1a riga bianca e 2a gialla)."""
+    if copertina:
+        stile_t = f'Style: T,{font},{size},&H00FFFFFF,&H00FFFFFF,&H00000000,&H64000000,0,0,0,0,100,100,1,0,1,2,4,7,0,0,0,1'
+    else:
+        stile_t = f'Style: T,{font},{size},&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,3,7,0,7,0,0,0,1'
     righe = ['[Script Info]', 'ScriptType: v4.00+', f'PlayResX: {W}', f'PlayResY: {H}', 'WrapStyle: 2', '',
              '[V4+ Styles]',
              'Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, '
              'StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding',
-             f'Style: T,{font},{size},&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,3,7,0,7,0,0,0,1',
-             '', '[Events]', 'Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text']
+             stile_t, '', '[Events]', 'Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text']
     cursore = '{\\fnDejaVu Sans\\fs' + str(int(size * 0.78)) + '\\c&HFFFFFF&}' + '█'   # cursore alto come le lettere: righe tutte uguali
+    if copertina:
+        colori = [copertina['bianco'], copertina['giallo']]
+        for (t0, t1), sc in zip(tempi, scene):
+            bl = blocchi(pulisci(sc.get('testo', '')).upper(), max_riga)
+            if not bl:
+                continue
+            tot = sum(len(' '.join(b)) for b in bl) or 1
+            t = t0
+            for b in bl:
+                n = len(' '.join(b))
+                dur = (t1 - t0) * n / tot
+                passo = dur * 0.8 / max(1, n)
+                k, ev = 0, []
+                for ri, riga in enumerate(b):
+                    for ci in range(len(riga)):
+                        if riga[ci] != ' ':
+                            vis = '\\N'.join('{\\c' + colori[min(j, 1)] + '}' + (b[j] if j < ri else riga[:ci + 1]) for j in range(ri + 1))
+                            ev.append((t + k * passo, vis))
+                        k += 1
+                    k += 1   # lo spazio tra una riga e l'altra
+                for e, (a, vis) in enumerate(ev):
+                    fine = ev[e + 1][0] if e + 1 < len(ev) else t + dur - 0.05
+                    righe.append(f'Dialogue: 0,{tempo_ass(a)},{tempo_ass(fine)},T,,0,0,0,,{{\\pos({x},{y})}}{vis}{cursore}')
+                t += dur
+        p = os.path.join(cartella, 'sottotitoli.ass')
+        open(p, 'w', encoding='utf-8').write('\n'.join(righe) + '\n')
+        return p
     for (t0, t1), sc in zip(tempi, scene):
         bl = blocchi(pulisci(sc.get('testo', '')), max_riga)
         if not bl:
@@ -400,6 +528,8 @@ def main():
         run(['ffmpeg', '-y', '-v', 'error', '-f', 'concat', '-safe', '0', '-i', lista, '-c:a', 'aac', '-b:a', '192k', voce])
         # 2) sfondo: le clip di ogni scena (anche piu' di una, con il loro secondo di partenza), sfocate e scurite.
         #    Ogni pezzo e' tagliato a fotogrammi esatti sulla voce, cosi' video e audio non si sfasano mai.
+        nero = str(stile.get('sfondo') or '').strip().lower() == 'nero'
+        statua = str(stile.get('ritratto') or '').strip().lower() == 'statua'
         blur = float(stile.get('sfocatura') or 12)
         luce = float(stile.get('luminosita') or -0.06)
         vf = (f'scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={FPS},'
@@ -407,6 +537,8 @@ def main():
         enc = ['-an', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20', '-pix_fmt', 'yuv420p']
         pezzi, scaricati = [], {}
         for i, (s, (a, b)) in enumerate(zip(scene, tempi)):
+            if nero:
+                break   # sfondo nero come la copertina: niente clip Pexels
             m = s.get('media') or []
             lista_m = [{'src': m, 'start': 0}] if isinstance(m, str) else [x for x in m if isinstance(x, dict)]
             lista_m = sorted([x for x in lista_m if str(x.get('src') or '').strip()], key=lambda x: float(x.get('start') or 0)) or [{'src': '', 'start': 0}]
@@ -438,10 +570,14 @@ def main():
                         run(['ffmpeg', '-y', '-v', 'error', '-f', 'lavfi', '-i', f'color=c=0x1a140f:s={W}x{H}:r={FPS}',
                              '-frames:v', str(nf)] + enc + [out])
                 pezzi.append(out)
-        lista_s = os.path.join(LAVORO, 'sfondi.txt')
-        open(lista_s, 'w').write(''.join(f"file '{x}'\n" for x in pezzi))
-        sfondo = os.path.join(LAVORO, 'sfondo.mp4')
-        run(['ffmpeg', '-y', '-v', 'error', '-f', 'concat', '-safe', '0', '-i', lista_s, '-c', 'copy', sfondo])
+        if nero:
+            sfondo = sfondo_nero(os.path.join(LAVORO, 'sfondo_nero.png'), str(stile.get('fumo') or 'SI').upper() != 'NO')
+            log('sfondo nero come la copertina')
+        else:
+            lista_s = os.path.join(LAVORO, 'sfondi.txt')
+            open(lista_s, 'w').write(''.join(f"file '{x}'\n" for x in pezzi))
+            sfondo = os.path.join(LAVORO, 'sfondo.mp4')
+            run(['ffmpeg', '-y', '-v', 'error', '-f', 'concat', '-safe', '0', '-i', lista_s, '-c', 'copy', sfondo])
         # 3) ritratto del filosofo
         nome = chi_e(dati)
         log('personaggio: ' + nome)
@@ -453,6 +589,11 @@ def main():
             except Exception as e:
                 log('personaggio automatico non riuscito (' + str(e)[:120] + '), uso il personaggio fisso del canale')
                 nome = str(dati.get('personaggio_riserva') or '').strip() or nome
+        if rit is None and statua:
+            try:
+                rit, url_ritratto = ritratto_statua(nome, LAVORO, seme)
+            except Exception as e:
+                log('statua non riuscita (' + str(e)[:120] + '), uso il ritratto normale')
         if rit is None:
             rit, url_ritratto = ritratto(nome, LAVORO, seme,
                                          su_misura=bool(str(dati.get('personaggio') or '').strip()),
@@ -464,12 +605,20 @@ def main():
         y_r = int(H * num('y_ritratto', 0.005))
         entra = float(stile.get('entrata_sec') or 0.7)
         # 4) sottotitoli
-        font = stile.get('font') or 'Cormorant Garamond SemiBold'
-        ass = sottotitoli(scene, tempi, LAVORO, font, int(num('dimensione_testo', 92)),
-                          int(W * num('x_testo', 0.50)), int(H * num('y_testo', 0.44)), int(num('caratteri_riga', 24)))
+        come_cop = str(stile.get('testo') or '').strip().lower() == 'copertina'
+        if come_cop:   # scritte come la copertina: Anton, maiuscole, bianco + giallo, senza riquadro
+            font = stile.get('font') or font_anton()
+            ass = sottotitoli(scene, tempi, LAVORO, font, int(num('dimensione_testo', 180)),
+                              int(W * num('x_testo', 0.52)), int(H * num('y_testo', 0.36)), int(num('caratteri_riga', 16)),
+                              copertina={'bianco': colore_ass(stile.get('colore_testo'), '#FFFFFF'),
+                                         'giallo': colore_ass(stile.get('colore_evidenza'), '#FFD21F')})
+        else:
+            font = stile.get('font') or 'Cormorant Garamond SemiBold'
+            ass = sottotitoli(scene, tempi, LAVORO, font, int(num('dimensione_testo', 92)),
+                              int(W * num('x_testo', 0.50)), int(H * num('y_testo', 0.44)), int(num('caratteri_riga', 24)))
         # 5) montaggio finale (+ musica se presente)
         musica = str(dati.get('musica') or '').strip()
-        ingressi = ['-i', sfondo, '-loop', '1', '-i', rit, '-i', voce]
+        ingressi = (['-loop', '1', '-framerate', str(FPS), '-t', f'{totale:.3f}', '-i', sfondo] if nero else ['-i', sfondo]) + ['-loop', '1', '-i', rit, '-i', voce]
         filtro = (f"[1:v]scale=-1:{alt},format=rgba[r];"
                   f"[0:v][r]overlay=x={x_r}:y='if(lt(t,{entra}),{H}-({H}-{y_r})*(1-pow(1-t/{entra},3)),{y_r})':eval=frame:shortest=1,"
                   f"ass={ass}:fontsdir={FONT_DIR}[v]")
