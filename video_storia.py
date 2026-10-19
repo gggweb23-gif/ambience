@@ -58,9 +58,10 @@ def _num_lista(v, d):
         return (x + d[len(x):])[:3] if x else d
     except Exception:
         return d
-RITMO = _num_lista(P.get('ritmo') or E('RITMO', ''), [3.0, 3.0, 3.0])   # secondi max per immagine: primi 10 s / 10-30 s / dopo
+RITMO = _num_lista(P.get('ritmo') or E('RITMO', ''), [4.0, 4.0, 4.0])   # secondi max per immagine: primi 10 s / 10-30 s / dopo
 QUOTA_CARTONI = _perc(P.get('quota_cartoni') or E('QUOTA_CARTONI', ''), 80)   # % del video a cartone (Nano Banana), il resto Pexels
-SFONDI_MAX = int(float(str(P.get('sfondi_max') or E('SFONDI_MAX', '') or 90)))   # tetto immagini a cartone generate per video (costo)
+SFONDI_MAX = int(float(str(P.get('sfondi_max') or E('SFONDI_MAX', '') or 60)))
+SEC_IMMAGINE = float(str(P.get('secondi_per_immagine') or E('SECONDI_PER_IMMAGINE', '') or 16))   # ogni disegno copre ~16 s: 4 inquadrature diverse da 4 s (meno immagini, stesso ritmo)   # tetto immagini a cartone generate per video (costo)
 SUONI_CAMBIO = str(P.get('suoni_cambio') or E('SUONI_CAMBIO', '') or 'NO').strip().upper() == 'SI'   # click/swoosh a ogni cambio immagine
 SUONI_CAMBIO_URL = [u.strip() for u in re.split(r'\|\||\n', str(P.get('suoni_cambio_url') or E('SUONI_CAMBIO_URL', ''))) if u.strip().startswith('http')]
 SUONI_CAMBIO_VOL = float(str(P.get('suoni_cambio_vol') or E('SUONI_CAMBIO_VOL', '') or .45).replace(',', '.'))
@@ -266,10 +267,10 @@ def copione(comp):
     usi = 1 if sec < 240 else 2   # video corti: ogni disegno UNA volta sola; lunghi: max 2 volte, a distanza
     n_sf = max(6, min(SFONDI_MAX, math.ceil(pezzi * QUOTA_CARTONI / 100 / usi) + 2))
     if INTEGRATO:   # un disegno ogni ~7 s di cartone: il ritmo da 3 s lo fanno zoom e inquadrature diverse della STESSA immagine
-        n_sf = max(6, min(SFONDI_MAX, math.ceil(sec * QUOTA_CARTONI / 100 / 7) + 2))
+        n_sf = max(6, min(SFONDI_MAX, math.ceil(sec * QUOTA_CARTONI / 100 / SEC_IMMAGINE) + 2))
     w = [round(RITMO[0] * 2.5), round(RITMO[1] * 2.5), round(RITMO[2] * 2.5)]   # parole per visivo (circa 2,5 parole al secondo)
     if INTEGRATO:   # ogni visivo ha la SUA immagine scritta sulla sua frase; i tagli da 3 s li fa il montaggio (zoom sulla stessa immagine)
-        w = [8, 12, 16]
+        w = [12, 24, round(SEC_IMMAGINE * 2.5)]   # un visivo = un disegno; i tagli ogni 4 s li fa il montaggio
     regola_pg = ("il personaggio deve essere uno di quelli DISEGNATI DENTRO quell'immagine (campo personaggi dell'immagine), oppure \"\"" if INTEGRATO
                  else '"reazione": true se a meta\' il personaggio cambia posa (momento forte)')
     if INTEGRATO:
@@ -360,8 +361,10 @@ Scegli la texture piu' coerente (washi per Giappone/Cina/Corea, papiro per Egitt
             if comp.get('copertina'):
                 contenuto.insert(0, {'type': 'image', 'source': {'type': 'url', 'url': comp['copertina']}})
                 contenuto.insert(1, {'type': 'text', 'text': 'Questa sopra e\' la COPERTINA del video originale.'})
-            testo, fine = claude_stream({'model': MODELLO_AI if k < 2 else MODELLO_RISERVA, 'max_tokens': 64000,
-                                         'messages': [{'role': 'user', 'content': contenuto}]}, chiave)
+            richiesta = {'model': MODELLO_AI if k < 2 else MODELLO_RISERVA, 'max_tokens': 64000, 'messages': [{'role': 'user', 'content': contenuto}]}
+            if 'sonnet-5' in richiesta['model']:   # poco ragionamento: i token servono al copione lungo (prima finivano a meta')
+                richiesta.update(thinking={'type': 'between_tools'}, output_config={'effort': 'low'})
+            testo, fine = claude_stream(richiesta, chiave)
             if '{' not in testo:
                 raise ValueError(f'risposta senza JSON (stop: {fine}, {len(testo)} caratteri): {testo[:200]!r}')
             testo = testo[testo.find('{'): testo.rfind('}') + 1]
