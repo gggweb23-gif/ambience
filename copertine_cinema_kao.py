@@ -325,13 +325,16 @@ def testo_esatto(im, frase):
             {'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}},
             {'type': 'text', 'text': 'Transcribe EXACTLY all the text written in this image, letter by letter, as it is written (do not correct mistakes). '
                                      'Then on the LAST line write CHECK: GRANDE=SI/NO (SI if the title letters are big: each letter at least about 12% of the image height, readable on a phone), '
-                                     'BASSO=SI/NO (SI if any part of the title is in the bottom 25% of the image near the left or right corner).'}]}]},
+                                     'BASSO=SI/NO (SI if any part of the title is in the bottom 25% of the image near the left or right corner), '
+                                     'CARTONCINO=SI/NO (SI if the title is inside a WHITE rounded card/box with a black outline), '
+                                     'SCURO=SI/NO (SI if a large part of the image is darkened by a dark gradient or dark panel).'}]}]},
                   {'x-api-key': E('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01'}, timeout=120)
         tutto = ''.join(b.get('text', '') for b in rr.get('content', []))
         letto = tutto.split('CHECK:')[0]
         chk = tutto.split('CHECK:')[1].upper() if 'CHECK:' in tutto else ''
-        if 'GRANDE=NO' in chk.replace(' ', '') or 'BASSO=SI' in chk.replace(' ', ''):
-            log('    scritta piccola o troppo in basso:', chk.strip()[:60]); return False
+        c_ = chk.replace(' ', '')
+        if 'GRANDE=NO' in c_ or 'BASSO=SI' in c_ or (SFONDO_TESTO == 'fumetto' and ('CARTONCINO=NO' in c_ or 'SCURO=SI' in c_)):
+            log('    scritta piccola, troppo in basso o fuori stile (cartoncino bianco, niente lato scuro):', chk.strip()[:90]); return False
         norm = lambda x: re.sub(r'[^A-Z0-9]', '', x.upper().replace('À', 'A').replace('È', 'E').replace('É', 'E').replace('Ì', 'I').replace('Ò', 'O').replace('Ù', 'U'))
         ok = norm(letto) == norm(frase)
         if not ok:
@@ -665,7 +668,7 @@ def fai(i):
             t['rif_stile'] = rif or ''
             lato_c = 'sinistra' if str(t.get('lato_testo_comp') or '') == 'sinistra' else ('centro' if str(t.get('lato_testo_comp') or '') == 'centro' and t.get('composizione') else 'destra')
             prompt = (('Image 1 is our OLD thumbnail' + (' of this video' if sua else '') + ': keep EXACTLY its graphic style: same flat 2D cartoon drawing, same rich colours and warm lighting, '
-                       'same size and look of KAO, same detailed environment drawing (but NO dark shading: everything bright and visible). Image 2 is our character KAO. '
+                       'same size and look of KAO, same detailed environment drawing. IGNORE its old title and its dark shaded side: no dark gradient, everything bright and visible. Image 2 is our character KAO. '
                        if rif else 'Image 1 is our character KAO. Flat 2D cartoon, thick black outlines, rich warm colours, fully drawn detailed environment. ') +
                       'Draw a NEW scene in that style with this content (it must match exactly): '
                       f'PLACE: {t.get("luogo") or t.get("scena", "")} (same time of day and light). '
