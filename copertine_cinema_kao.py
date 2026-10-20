@@ -246,7 +246,7 @@ VIETATO descrivere l'ASPETTO del personaggio del competitor: niente colore della
 "lato_testo" = "sinistra", "destra" o "centro": dove il competitor ha messo la scritta.
 "luogo" (in inglese) = lo STESSO luogo della copertina competitor (stesso ambiente, stessa ora del giorno, stessa luce, stesso tempo atmosferico), descritto con 4-6 dettagli visibili (es. "mountains at sunset, orange sky, a dirt path"). Mai cambiare luogo.
 "posa" (in inglese) = il MOVIMENTO e la posa ESATTI del personaggio (corre, salta, e' sdraiato, seduto, di spalle, di profilo; dove guarda; posizione di braccia e gambe) e l'inquadratura (figura intera, mezzo busto, primo piano).
-"accessori" (in inglese) = cio' che il personaggio INDOSSA o ha addosso (cuffie, occhiali, coperta, cappello, zaino...); "" se niente.
+"accessori" (in inglese) = cio' che il personaggio ha addosso OLTRE ai vestiti (cuffie, occhiali, coperta sulle spalle, cappello, zaino...); "" se niente. MAI maglioni, maglie, giacche o altri vestiti: KAO ha SEMPRE la sua maglia magenta.
 "composizione" (in inglese) = SOLO se la copertina NON e' una scena unica: com'e' divisa e cosa c'e' in ogni parte (es. "split screen in two halves: LEFT a very messy living room with clothes and dishes everywhere and KAO overwhelmed; RIGHT the same living room perfectly clean and KAO relaxed in an armchair with a cup; the title is in the middle over the dividing line"). Il personaggio compare in OGNI parte dove compare nel competitor. "" se e' una scena unica.
 "persone" (in inglese) = le ALTRE persone della situazione (quelle della copertina competitor o quelle che servono a far capire il contesto: genitori che litigano, partner, amici, folla...), cosa fanno e dove stanno; "" se la situazione e' di una persona sola.
 Rispondi SOLO JSON: {{"riga1": "...", "riga2": "...", "emo": "...", "oggetto": "...", "scena": "...", "azione": "...", "luogo": "...", "persone": "...", "posa": "...", "accessori": "...", "composizione": "", "lato_testo": "destra", "cambi": ""}}"""
@@ -482,7 +482,55 @@ def scritta_evidenziata(im, frase, lato='destra', zona=None):
     return base.convert('RGB')
 
 
-MAG_TESTO = (236, 0, 214)   # magenta delle vecchie copertine di successo (come la maglia di KAO)
+MAG_TESTO = (236, 0, 214)
+
+
+def scritta_cartoncino(im, frase, lato='destra', zona=None):
+    """Riserva nello stile approvato: frase magenta su cartoncino bianco arrotondato con bordo nero e ombra, grande, mai negli angoli bassi."""
+    W, Hh = im.size
+    x0, x1 = (int(W * .03), int(W * .50)) if lato == 'sinistra' else (int(W * .50), int(W * .97))
+    y0, y1 = int(Hh * .05), int(Hh * .72)
+    if zona:
+        zx0, zx1 = int(W * zona[0]), int(W * zona[2])
+        if zx1 - zx0 > W * .30:
+            x0, x1 = max(x0, zx0), min(x1, zx1)
+    pad = int(W * .022)
+    larg, alt = x1 - x0 - 2 * pad, y1 - y0 - 2 * pad
+    F = lambda k: ImageFont.truetype(FONT, k)
+    parole = frase.upper().split(); n = len(parole); best = None
+    for maschera in range(1 << max(0, n - 1)):
+        righe, cur = [], [parole[0]]
+        for i in range(1, n):
+            if maschera >> (i - 1) & 1:
+                righe.append(' '.join(cur)); cur = [parole[i]]
+            else:
+                cur.append(parole[i])
+        righe.append(' '.join(cur))
+        if len(righe) > 4 or (len(righe) > 1 and any(len(r) <= 2 for r in righe)):   # niente righe con una parolina sola (IL, DI, A...)
+            continue
+        lo, hi = 20, 300
+        while lo < hi:
+            k = (lo + hi + 1) // 2
+            if max(F(k).getlength(r) for r in righe) <= larg and len(righe) * k * 1.0 <= alt:
+                lo = k
+            else:
+                hi = k - 1
+        if not best or lo > best[0]:
+            best = (lo, righe)
+    k, righe = best
+    f = F(k); passo = k * 1.0
+    wt = max(f.getlength(r) for r in righe); ht = len(righe) * passo
+    cx, cy = (x0 + x1) / 2, (y0 + y1) / 2
+    box = (cx - wt / 2 - pad, cy - ht / 2 - pad, cx + wt / 2 + pad, cy + ht / 2 + pad * .8)
+    base = im.convert('RGBA')
+    sh = Image.new('RGBA', base.size, (0, 0, 0, 0)); ImageDraw.Draw(sh).rounded_rectangle((box[0] + 8, box[1] + 10, box[2] + 8, box[3] + 10), radius=int(pad * 1.4), fill=(0, 0, 0, 110))
+    base.alpha_composite(sh.filter(ImageFilter.GaussianBlur(8)))
+    dr = ImageDraw.Draw(base)
+    dr.rounded_rectangle(box, radius=int(pad * 1.4), fill=(255, 255, 255, 255), outline=(0, 0, 0, 255), width=max(4, k // 18))
+    y = cy - ht / 2
+    for j, r in enumerate(righe):
+        dr.text((cx, y + j * passo), r, font=f, fill=MAG_TESTO, anchor='mt')
+    return base.convert('RGB')   # magenta delle vecchie copertine di successo (come la maglia di KAO)
 
 
 def scritta_magenta(im, frase, zona=None):
@@ -624,7 +672,7 @@ def fai(i):
                       f'KAO POSE AND MOVEMENT: {t.get("posa", "")}. ' + (f'KAO WEARS: {t.get("accessori")}. ' if t.get('accessori') else '') +
                       f'WHAT KAO DOES: {t.get("azione", "")}. EMOTION, very clear on his face: {t.get("emo", "")}. OBJECTS: {t.get("oggetto", "")}. {diverso}'
                       + (f'OTHER PEOPLE: {t.get("persone")} (same style as KAO, neutral clothes, only KAO wears magenta). ' if t.get('persone') else '') +
-                      'KAO is exactly as in the KAO reference: bald round head, simple face, light skin, magenta long-sleeve shirt, black trousers. '
+                      'KAO is exactly as in the KAO reference: bald round head, simple face, light skin, ALWAYS his magenta long-sleeve shirt (never a sweater, jacket or other top), black trousers. '
                       + (f'COMPOSITION (copy it exactly, KAO appears in every part where the character appears): {t.get("composizione")}. The title goes where described, never covering KAO or faces. Everything bright and fully visible. ' if t.get('composizione') else f'The scene fills the WHOLE image, bright and fully visible everywhere (NO dark side, NO dark gradient). KAO, people and important objects stay in the {"RIGHT" if lato_c == "sinistra" else "LEFT"} 50%, KAO big and clearly visible. '                      f'The {"LEFT" if lato_c == "sinistra" else "RIGHT"} 50% simply continues the same environment (wall, sky, room, landscape), bright, with nothing important: a title will go there. ') +
                       'NO blur, NO bokeh, NO glow, NO rim light. Remove ALL text: absolutely NO text, letters or numbers in the image. YouTube thumbnail 16:9.')
             t['lato_testo'] = lato_c
@@ -685,8 +733,8 @@ def fai(i):
         lato = 'sinistra' if t.get('lato_testo') == 'sinistra' else 'destra'
         if STILE == 'piatto' and str(E('TESTO_STILE', '') or 'disegnata').lower() == 'evidenziata':   # come il competitor: lettere nere su strisce gialle, copertina tutta visibile
             scritta_evidenziata(im, f"{t['riga1']} {t['riga2']}", lato, zona_libera(im, lato)).save(p, quality=90)
-        elif STILE == 'piatto':   # (facoltativo) frase magenta con lato destro scurito
-            scritta_magenta(scurisci_destra(im), f"{t['riga1']} {t['riga2']}", zona_libera(im, 'destra')).save(p, quality=90)
+        elif STILE == 'piatto':   # riserva: stesso stile approvato (scritta magenta su cartoncino bianco), scritta dallo script
+            scritta_cartoncino(im, f"{t['riga1']} {t['riga2']}", lato, zona_libera(im, lato)).save(p, quality=90)
         else:
             scritta(im, [str(t['riga1']).upper(), str(t['riga2']).upper()], lato, zona_libera(im, lato)).save(p, quality=90)
         log('copertina pronta:', c['id'], t['riga1'], '/', t['riga2'])
