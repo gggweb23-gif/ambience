@@ -2457,8 +2457,15 @@ def minuti_giusti(testo, n):
 
 
 def main():
+    global TITOLO
     os.makedirs(LAV, exist_ok=True)
     comp = competitor()
+    # il titolo di riserva (es. "Tutta la storia dell'Iran") NON deve mai entrare nel copione se c'e' il video da copiare
+    if comp.get('titolo'):
+        TITOLO = comp['titolo'].strip()
+    else:
+        TITOLO = 'la storia completa del paese raccontato nel TESTO ORIGINALE qui sotto'
+    log('VIDEO DA COPIARE:', comp.get('id'), '-', comp.get('titolo') or '(titolo non letto)', '| titolo usato:', TITOLO)
     # stesso paese gia' fatto? stop prima di spendere (voce, immagini): la riga va in DOPPIONE e al giro dopo parte il paese successivo
     paese = paese_video(comp)
     INFO_COMP['paese'] = paese; PAESE['nome'] = paese
