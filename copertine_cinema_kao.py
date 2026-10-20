@@ -303,6 +303,24 @@ def e_kao(im):
         log('controllo KAO non riuscito:', str(e)[:100]); return True
 
 
+def testo_esatto(im, frase):
+    """Claude trascrive la scritta della copertina: deve essere identica alla frase (lettere e numeri), senza altre scritte."""
+    buf = io.BytesIO(); im.resize((960, 540)).save(buf, 'JPEG', quality=88)
+    try:
+        rr = http('https://api.anthropic.com/v1/messages', {'model': E('MODELLO_AI', 'claude-sonnet-5-5'), 'max_tokens': 300, 'messages': [{'role': 'user', 'content': [
+            {'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}},
+            {'type': 'text', 'text': 'Transcribe EXACTLY all the text written in this image, letter by letter, as it is written (do not correct mistakes). Answer only the text.'}]}]},
+                  {'x-api-key': E('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01'}, timeout=120)
+        letto = ''.join(b.get('text', '') for b in rr.get('content', []))
+        norm = lambda x: re.sub(r'[^A-Z0-9]', '', x.upper().replace('À', 'A').replace('È', 'E').replace('É', 'E').replace('Ì', 'I').replace('Ò', 'O').replace('Ù', 'U'))
+        ok = norm(letto) == norm(frase)
+        if not ok:
+            log('    scritta letta:', letto.strip()[:80], '| voluta:', frase)
+        return ok
+    except Exception as e:
+        log('controllo scritta non riuscito:', str(e)[:100]); return False
+
+
 def zona_libera(im, lato):
     """Claude guarda l'immagine finita e indica il rettangolo LIBERO piu' grande (niente volto, corpo, braccia od oggetti) per il testo."""
     buf = io.BytesIO(); im.resize((768, 432)).save(buf, 'JPEG', quality=85)
@@ -385,6 +403,63 @@ def scurisci_destra(im):
         m.putpixel((x, 0), int(205 * f))
     m = m.resize((W, Hh))
     return Image.composite(Image.new('RGB', im.size, (8, 8, 12)), im.convert('RGB'), m)
+
+
+EVID = tuple(int(x) for x in (E('EVID_COLORE', '') or '255,214,10').split(','))   # evidenziatore sotto la scritta (come il competitor: giallo)
+EVID_TESTO = tuple(int(x) for x in (E('EVID_TESTO', '') or '0,0,0').split(','))    # colore delle lettere (nero)
+
+
+def scritta_evidenziata(im, frase, lato='destra', zona=None):
+    """Come il competitor: lettere nere su strisce gialle (una per riga), il resto della copertina resta ben visibile. Mai sotto l'orario di YouTube."""
+    W, Hh = im.size
+    if lato == 'sinistra':
+        x0, x1, y0, y1 = int(W * .03), int(W * .52), int(Hh * .06), int(Hh * .92)
+    else:
+        x0, x1, y0, y1 = int(W * .50), int(W * .97), int(Hh * .06), int(Hh * .74)
+    if zona:   # spazio libero indicato da Claude, dentro il lato giusto
+        zx0, zy0, zx1, zy1 = int(W * zona[0]), int(Hh * zona[1]), int(W * zona[2]), int(Hh * zona[3])
+        if zx1 - zx0 > W * .25 and zy1 - zy0 > Hh * .30:
+            x0, x1 = max(x0, zx0), min(x1, zx1)
+            y0, y1 = max(y0, zy0), min(y1, zy1)
+    larg, alt = x1 - x0, y1 - y0
+    F = lambda k: ImageFont.truetype(FONT, k)
+    parole = frase.upper().split(); n = len(parole)
+    best = None
+    for maschera in range(1 << max(0, n - 1)):
+        righe, cur = [], [parole[0]]
+        for i in range(1, n):
+            if maschera >> (i - 1) & 1:
+                righe.append(' '.join(cur)); cur = [parole[i]]
+            else:
+                cur.append(parole[i])
+        righe.append(' '.join(cur))
+        if len(righe) > 5:
+            continue
+        lo, hi = 20, 300
+        while lo < hi:
+            k = (lo + hi + 1) // 2
+            if max(F(k).getlength(r) for r in righe) + k * .36 <= larg and len(righe) * k * 1.22 <= alt:
+                lo = k
+            else:
+                hi = k - 1
+        if not best or lo > best[0]:
+            best = (lo, righe)
+    k, righe = best
+    f = F(k); padx, pady, passo = k * .18, k * .08, k * 1.22
+    y = y0 + (alt - len(righe) * passo) / 2
+    cx = (x0 + x1) / 2
+    base = im.convert('RGBA')
+    ombra = Image.new('RGBA', base.size, (0, 0, 0, 0)); do = ImageDraw.Draw(ombra)
+    for j, r in enumerate(righe):
+        w = f.getlength(r); yy = y + j * passo
+        do.rectangle((cx - w / 2 - padx + 6, yy - pady + 7, cx + w / 2 + padx + 6, yy + k * 1.08 + pady + 7), fill=(0, 0, 0, 120))
+    base.alpha_composite(ombra.filter(ImageFilter.GaussianBlur(7)))
+    dr = ImageDraw.Draw(base)
+    for j, r in enumerate(righe):
+        w = f.getlength(r); yy = y + j * passo
+        dr.rectangle((cx - w / 2 - padx, yy - pady, cx + w / 2 + padx, yy + k * 1.08 + pady), fill=EVID)
+        dr.text((cx, yy + k * .02), r, font=f, fill=EVID_TESTO, anchor='mt')
+    return base.convert('RGB')
 
 
 MAG_TESTO = (236, 0, 214)   # magenta delle vecchie copertine di successo (come la maglia di KAO)
@@ -510,8 +585,9 @@ def fai(i):
             rif, sua = riferimento_stile(c['id'])
             refs = ([rif_data(rif)] if rif else []) + [ID]   # NIENTE immagine del competitor: solo la descrizione
             t['rif_stile'] = rif or ''
+            lato_c = 'sinistra' if str(t.get('lato_testo_comp') or '') == 'sinistra' else 'destra'
             prompt = (('Image 1 is our OLD thumbnail' + (' of this video' if sua else '') + ': keep EXACTLY its graphic style: same flat 2D cartoon drawing, same rich colours and warm lighting, '
-                       'same size and look of KAO, same detailed environment drawing, same dark shading on the right side. Image 2 is our character KAO. '
+                       'same size and look of KAO, same detailed environment drawing (but NO dark shading: everything bright and visible). Image 2 is our character KAO. '
                        if rif else 'Image 1 is our character KAO. Flat 2D cartoon, thick black outlines, rich warm colours, fully drawn detailed environment. ') +
                       'Draw a NEW scene in that style with this content (it must match exactly): '
                       f'PLACE: {t.get("luogo") or t.get("scena", "")} (same time of day and light). '
@@ -519,10 +595,30 @@ def fai(i):
                       f'WHAT KAO DOES: {t.get("azione", "")}. EMOTION, very clear on his face: {t.get("emo", "")}. OBJECTS: {t.get("oggetto", "")}. {diverso}'
                       + (f'OTHER PEOPLE: {t.get("persone")} (same style as KAO, neutral clothes, only KAO wears magenta). ' if t.get('persone') else '') +
                       'KAO is exactly as in the KAO reference: bald round head, simple face, light skin, magenta long-sleeve shirt, black trousers. '
-                      'The scene fills the WHOLE image; KAO, people and important objects stay in the LEFT 50%, KAO big and clearly visible. '
-                      'The RIGHT 50% continues the environment with nothing important, darker, for a big title. '
+                      f'The scene fills the WHOLE image, bright and fully visible everywhere (NO dark side, NO dark gradient). KAO, people and important objects stay in the {"RIGHT" if lato_c == "sinistra" else "LEFT"} 50%, KAO big and clearly visible. '
+                      f'The {"LEFT" if lato_c == "sinistra" else "RIGHT"} 50% simply continues the same environment (wall, sky, room, landscape), bright, with nothing important: a title will go there. '
                       'NO blur, NO bokeh, NO glow, NO rim light. Remove ALL text: absolutely NO text, letters or numbers in the image. YouTube thumbnail 16:9.')
-            t['lato_testo'] = 'destra'
+            t['lato_testo'] = lato_c
+    if STILE == 'piatto' and str(E('TESTO_STILE', '') or 'disegnata').lower() == 'disegnata':   # la scritta la disegna Nano Banana (resa migliore), controllata lettera per lettera
+        frase = f"{t['riga1']} {t['riga2']}".upper().strip()
+        lato_t = 'LEFT' if t.get('lato_testo') == 'sinistra' else 'RIGHT'
+        pt = prompt.replace('Remove ALL text: absolutely NO text, letters or numbers in the image.',
+                            f'TITLE: write EXACTLY this Italian text, nothing else: "{frase}". Put it on the {lato_t} side, in the empty part of the scene, big, on 2-4 lines, centred, '
+                            'readable on a phone: bold condensed uppercase letters (like the Anton font) in BLACK, each line on its own bright YELLOW highlighter strip, '
+                            'like a popular YouTube thumbnail. The title never covers KAO, faces or important objects, and stays out of the bottom-right corner (video timer). '
+                            'No other text anywhere. Spell every word exactly.')
+        for tent in range(3):
+            try:
+                r = fal('fal-ai/nano-banana-2/edit', {'prompt': pt, 'image_urls': refs, 'aspect_ratio': '16:9', 'resolution': '1K', 'output_format': 'jpeg', 'num_images': 1})
+                im = ImageOps.fit(Image.open(io.BytesIO(http(r['images'][0]['url'], raw=True))).convert('RGB'), (1280, 720), Image.LANCZOS)
+                if testo_esatto(im, frase) and e_kao(im):
+                    im.save(p, quality=90)
+                    log('copertina pronta (scritta disegnata):', c['id'], frase, f'tentativo {tent + 1}')
+                    return p
+                log(f'  {c["id"]}: scritta o personaggio non perfetti, rifaccio ({tent + 1}/3)')
+            except Exception as e:
+                log('  tentativo non riuscito:', str(e)[:120])
+        log(f'  {c["id"]}: 3 tentativi non perfetti, scrivo io la scritta')
     try:
         r = fal('fal-ai/nano-banana-2/edit', {'prompt': prompt, 'image_urls': refs, 'aspect_ratio': '16:9', 'resolution': '1K', 'output_format': 'jpeg', 'num_images': 1})
         im = Image.open(io.BytesIO(http(r['images'][0]['url'], raw=True))).convert('RGB')
@@ -536,7 +632,9 @@ def fai(i):
         if APPLICA and not c.get('suff'):
             im.save(os.path.join(BASI, c['id'] + '.jpg'), quality=92)
         lato = 'sinistra' if t.get('lato_testo') == 'sinistra' else 'destra'
-        if STILE == 'piatto' and str(E('TESTO_STILE', '') or 'magenta').lower() == 'magenta':   # come le vecchie copertine che andavano bene: lato destro scurito + frase intera magenta
+        if STILE == 'piatto' and str(E('TESTO_STILE', '') or 'disegnata').lower() in ('evidenziata', 'disegnata'):   # come il competitor: lettere nere su strisce gialle, copertina tutta visibile
+            scritta_evidenziata(im, f"{t['riga1']} {t['riga2']}", lato, zona_libera(im, lato)).save(p, quality=90)
+        elif STILE == 'piatto':   # (facoltativo) frase magenta con lato destro scurito
             scritta_magenta(scurisci_destra(im), f"{t['riga1']} {t['riga2']}", zona_libera(im, 'destra')).save(p, quality=90)
         else:
             scritta(im, [str(t['riga1']).upper(), str(t['riga2']).upper()], lato, zona_libera(im, lato)).save(p, quality=90)
