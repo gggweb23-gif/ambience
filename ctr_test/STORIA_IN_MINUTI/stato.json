@@ -19,6 +19,10 @@
     [
      57.33,
      140
+    ],
+    [
+     63.35,
+     162
     ]
    ],
    "freno": [],
@@ -66,6 +70,10 @@
     [
      35.07,
      141
+    ],
+    [
+     41.1,
+     142
     ]
    ],
    "freno": [],
@@ -87,6 +95,49 @@
     }
    },
    "testo_A": "AFGHANISTAN 3000 A.C. → 2026",
+   "sequenza": [
+    "A",
+    "B",
+    "C"
+   ],
+   "spinta": "mai partita",
+   "misure": {}
+  },
+  "WUVkbiZAJxQ": {
+   "titolo": "TUTTA la storia dell'India in 21 minuti",
+   "pubblicato": "2026-10-19T21:23:07+00:00",
+   "attiva": "A",
+   "cambi": [
+    [
+     "2026-10-19T21:23:07+00:00",
+     "A"
+    ]
+   ],
+   "views": [
+    [
+     3.9,
+     4
+    ]
+   ],
+   "freno": [],
+   "varianti": {
+    "B": {
+     "ipotesi": "Testa un soggetto molto piu' grande con emozione intensa (rabbia) e contrasto piu' alto, con testo piu' corto e un numero scioccante (5000 anni).",
+     "testo": "INDIA / 5000 ANNI",
+     "leggibilita": 100
+    },
+    "C": {
+     "ipotesi": "Testa se un oggetto simbolico epico (elefante e pilastro in fiamme) con un testo piu' narrativo funziona meglio di un volto umano.",
+     "testo": "IMPERI / E FUOCO",
+     "leggibilita": 100
+    },
+    "A": {
+     "ipotesi": "copertina originale",
+     "testo": "INDIA 2600 a.C. – 2026",
+     "leggibilita": 100
+    }
+   },
+   "testo_A": "INDIA 2600 a.C. – 2026",
    "sequenza": [
     "A",
     "B",
