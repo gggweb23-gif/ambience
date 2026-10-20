@@ -2790,23 +2790,47 @@ def main():
     finale = os.path.join(ROOT, 'video_storia.mp4')
     if not iscrizione(video, audio, finale):
         run(['ffmpeg', '-y', '-v', 'error', '-i', video, '-i', audio, '-map', '0:v', '-map', '1:a', '-c:v', 'copy', '-c:a', 'copy', '-shortest', finale])
-    cop = copertina(comp, c) if COP_VIDEO else None   # NO: la copertina la fa 'Copertine Storia' (bandiera + figura) entro 3 ore, prima dell'uscita
-    if not COP_VIDEO and not CARICA:   # prova: le copertine del nuovo stile (bandiera + figura) escono subito, nello zip
+    cop = copertina(comp, c) if COP_VIDEO else None
+    if not COP_VIDEO:   # copertina UFFICIALE (bandiera + figura): fatta qui, prima del caricamento, e caricata insieme al video
         try:
+            dir_cop = os.path.join(ROOT, 'copertine_storia')
             env = dict(os.environ, TITOLO_PROVA=titolo_finale)
             subprocess.run([sys.executable, os.path.join(ROOT, 'copertine_storia.py')], env=env, cwd=ROOT, timeout=900)
-            for n_, dest in ((1, 'copertina.jpg'), (2, 'copertina_2.jpg')):
-                src_ = os.path.join(ROOT, 'copertine_storia', f'prova_{n_}.jpg')
-                if os.path.exists(src_):
-                    shutil.copy(src_, os.path.join(ROOT, dest))
-            log('copertine di prova pronte: copertina.jpg (partenza) e copertina_2.jpg (alternativa)')
+            src_ = os.path.join(dir_cop, 'prova_1.jpg')
+            if os.path.exists(src_):
+                cop = os.path.join(ROOT, 'copertina.jpg'); shutil.copy(src_, cop)
+                log('copertina ufficiale pronta: copertina.jpg')
+            else:
+                log('copertina ufficiale NON creata: la fara\' Copertine Storia al prossimo giro')
         except Exception as e:
-            log('copertine di prova non riuscite:', str(e)[:150])
+            log('copertina ufficiale non riuscita:', str(e)[:150])
     open(os.path.join(ROOT, 'titolo.txt'), 'w').write(titolo_finale)
     if CARICA:
         t0c = time.time()
         vid = carica_youtube(finale, c, titolo_finale)
         note = [x for x in (carica_copertina(vid, cop), playlist_video(vid, titolo_finale)) if x]
+        if cop and not COP_VIDEO:   # la copertina diventa quella del video: il Rotatore CTR la trova, Copertine Storia non la rifa'
+            try:
+                import csv as _csv
+                dir_cop = os.path.join(ROOT, 'copertine_storia')
+                shutil.copy(cop, os.path.join(dir_cop, f'{vid}_1.jpg'))
+                inf_p = os.path.join(dir_cop, 'prova_info.json')
+                tipi = ['uomo', 'donna']
+                if os.path.exists(inf_p):
+                    shutil.copy(inf_p, os.path.join(dir_cop, f'{vid}_info.json'))
+                    tipi = (json.load(open(inf_p)).get('tipi') or tipi)
+                reg = os.path.join(dir_cop, 'registro_copertine.csv'); nuovo = not os.path.exists(reg)
+                with open(reg, 'a', newline='', encoding='utf-8') as f_:
+                    w_ = _csv.writer(f_)
+                    if nuovo:
+                        w_.writerow(['data', 'video', 'tipo_1', 'tipo_2'])
+                    w_.writerow([time.strftime('%Y-%m-%d'), vid, tipi[0], tipi[1]])
+                for x in ('prova_1.jpg', 'prova_info.json'):
+                    if os.path.exists(os.path.join(dir_cop, x)):
+                        os.remove(os.path.join(dir_cop, x))
+                log('copertina ufficiale', 'CARICATA' if not any('copertina' in n for n in note) else 'NON caricata', 'e registrata:', f'copertine_storia/{vid}_1.jpg', '| parte con:', tipi[0])
+            except Exception as e:
+                log('registro copertina non riuscito:', str(e)[:150])
         avvisa({'stato': 'PUBBLICATO', 'video_id': vid, 'link': 'https://www.youtube.com/watch?v=' + vid, 'titolo': titolo_finale,
                 'testo_copertina': str((c.get('copertina') or {}).get('testo') or ''), 'pubblica_il': P.get('pubblica_il') or '',
                 'minuti_video': round(durata(finale) / 60, 1), 'minuti_lavoro': round((time.time() - T_INIZIO) / 60, 1),

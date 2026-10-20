@@ -339,7 +339,7 @@ for nostro, comp in COPPIE:
             log(f'  copertina {k} non riuscita:', str(e)[:200]); return k, 0, None, [fig, mon]
     json.dump({'paese': paese, 'date': date, 'bandiera': band, 'figure': figure, 'monumento': monum[0], 'tratti': POPOLO.get('tratti', ''), 'tipi': tipi_},
               open(info_p, 'w'), ensure_ascii=False)
-    quante = [1, 2] if not APPLICA else [1]   # in prova si vedono tutte e due; online va solo la 1 (risparmio: la 2 solo se serve)
+    quante = [1]   # SEMPRE e solo la copertina 1 (anche in prova): la 2 si crea solo se la chiede il Rotatore CTR
     with ThreadPoolExecutor(3) as ex:
         fatte = list(ex.map(fai, quante))
     for k, perc, im, cambi in fatte:
