@@ -243,12 +243,13 @@ PERSONAGGIO (in inglese, SENZA MAI citare scritte, lettere o riquadri di testo):
 VIETATO descrivere l'ASPETTO del personaggio del competitor: niente colore della pelle o del corpo, forma, specie (fagiolo, mostro, animale, creatura), vestiti, capelli. Scrivi sempre "KAO" come soggetto;
 "oggetto" = gli oggetti e simboli che tiene o ha accanto (gli stessi della copertina).
 "scena" = uno sfondo per il NOSTRO stile cinematografico, coerente con il tema: un ambiente reale sfocato con luci calde e bokeh (es. a cozy study at night with warm lamps). NON copiare lo sfondo o i colori del competitor.
-"lato_testo" = "sinistra" o "destra": il lato dove il competitor ha messo la scritta.
+"lato_testo" = "sinistra", "destra" o "centro": dove il competitor ha messo la scritta.
 "luogo" (in inglese) = lo STESSO luogo della copertina competitor (stesso ambiente, stessa ora del giorno, stessa luce, stesso tempo atmosferico), descritto con 4-6 dettagli visibili (es. "mountains at sunset, orange sky, a dirt path"). Mai cambiare luogo.
 "posa" (in inglese) = il MOVIMENTO e la posa ESATTI del personaggio (corre, salta, e' sdraiato, seduto, di spalle, di profilo; dove guarda; posizione di braccia e gambe) e l'inquadratura (figura intera, mezzo busto, primo piano).
 "accessori" (in inglese) = cio' che il personaggio INDOSSA o ha addosso (cuffie, occhiali, coperta, cappello, zaino...); "" se niente.
+"composizione" (in inglese) = SOLO se la copertina NON e' una scena unica: com'e' divisa e cosa c'e' in ogni parte (es. "split screen in two halves: LEFT a very messy living room with clothes and dishes everywhere and KAO overwhelmed; RIGHT the same living room perfectly clean and KAO relaxed in an armchair with a cup; the title is in the middle over the dividing line"). Il personaggio compare in OGNI parte dove compare nel competitor. "" se e' una scena unica.
 "persone" (in inglese) = le ALTRE persone della situazione (quelle della copertina competitor o quelle che servono a far capire il contesto: genitori che litigano, partner, amici, folla...), cosa fanno e dove stanno; "" se la situazione e' di una persona sola.
-Rispondi SOLO JSON: {{"riga1": "...", "riga2": "...", "emo": "...", "oggetto": "...", "scena": "...", "azione": "...", "luogo": "...", "persone": "...", "posa": "...", "accessori": "...", "lato_testo": "destra", "cambi": ""}}"""
+Rispondi SOLO JSON: {{"riga1": "...", "riga2": "...", "emo": "...", "oggetto": "...", "scena": "...", "azione": "...", "luogo": "...", "persone": "...", "posa": "...", "accessori": "...", "composizione": "", "lato_testo": "destra", "cambi": ""}}"""
     try:
         rr = http('https://api.anthropic.com/v1/messages', {'model': E('MODELLO_AI', 'claude-sonnet-5-5'), 'max_tokens': 2000,
                   'messages': [{'role': 'user', 'content': [{'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}},
@@ -577,7 +578,10 @@ def fai(i):
     approvata = os.path.join(BASE, 'piatto_prova', c['id'] + '.jpg')
     if APPLICA and STILE == 'piatto' and not c.get('suff') and os.path.exists(approvata):   # si carica ESATTAMENTE la copertina vista e approvata in prova
         shutil.copy(approvata, p); shutil.copy(approvata, os.path.join(BASI, c['id'] + '.jpg')); log('copertina approvata in prova:', c['id']); return p
-    if not APPLICA and STILE == 'piatto' and not c.get('suff') and os.path.exists(approvata) and str(E('RIFAI_PROVE', '') or 'NO').upper() != 'SI':
+    rifai_id = [x.strip() for x in (E('RIFAI_ID', '') or '').split(',') if x.strip()]
+    if APPLICA and c['id'] in rifai_id:
+        rifai_id = []
+    if not APPLICA and STILE == 'piatto' and not c.get('suff') and os.path.exists(approvata) and str(E('RIFAI_PROVE', '') or 'NO').upper() != 'SI' and c['id'] not in rifai_id:
         log('prova gia\' fatta, la tengo:', c['id']); return approvata   # niente spesa: le copertine gia' viste non si rifanno
     if STILE == 'piatto' and not t.get('comp_id'):   # senza il video competitor nella scheda "Copertine" non c'e' niente da copiare: la copertina resta com'e'
         log('nessun competitor nella scheda Copertine, copertina NON cambiata:', c['id'], c['titolo'][:50]); return None
@@ -611,7 +615,7 @@ def fai(i):
             rif, sua = riferimento_stile(c['id'])
             refs = ([rif_data(rif)] if rif else []) + [ID]   # NIENTE immagine del competitor: solo la descrizione
             t['rif_stile'] = rif or ''
-            lato_c = 'sinistra' if str(t.get('lato_testo_comp') or '') == 'sinistra' else 'destra'
+            lato_c = 'sinistra' if str(t.get('lato_testo_comp') or '') == 'sinistra' else ('centro' if str(t.get('lato_testo_comp') or '') == 'centro' and t.get('composizione') else 'destra')
             prompt = (('Image 1 is our OLD thumbnail' + (' of this video' if sua else '') + ': keep EXACTLY its graphic style: same flat 2D cartoon drawing, same rich colours and warm lighting, '
                        'same size and look of KAO, same detailed environment drawing (but NO dark shading: everything bright and visible). Image 2 is our character KAO. '
                        if rif else 'Image 1 is our character KAO. Flat 2D cartoon, thick black outlines, rich warm colours, fully drawn detailed environment. ') +
@@ -621,18 +625,17 @@ def fai(i):
                       f'WHAT KAO DOES: {t.get("azione", "")}. EMOTION, very clear on his face: {t.get("emo", "")}. OBJECTS: {t.get("oggetto", "")}. {diverso}'
                       + (f'OTHER PEOPLE: {t.get("persone")} (same style as KAO, neutral clothes, only KAO wears magenta). ' if t.get('persone') else '') +
                       'KAO is exactly as in the KAO reference: bald round head, simple face, light skin, magenta long-sleeve shirt, black trousers. '
-                      f'The scene fills the WHOLE image, bright and fully visible everywhere (NO dark side, NO dark gradient). KAO, people and important objects stay in the {"RIGHT" if lato_c == "sinistra" else "LEFT"} 50%, KAO big and clearly visible. '
-                      f'The {"LEFT" if lato_c == "sinistra" else "RIGHT"} 50% simply continues the same environment (wall, sky, room, landscape), bright, with nothing important: a title will go there. '
+                      + (f'COMPOSITION (copy it exactly, KAO appears in every part where the character appears): {t.get("composizione")}. The title goes where described, never covering KAO or faces. Everything bright and fully visible. ' if t.get('composizione') else f'The scene fills the WHOLE image, bright and fully visible everywhere (NO dark side, NO dark gradient). KAO, people and important objects stay in the {"RIGHT" if lato_c == "sinistra" else "LEFT"} 50%, KAO big and clearly visible. '                      f'The {"LEFT" if lato_c == "sinistra" else "RIGHT"} 50% simply continues the same environment (wall, sky, room, landscape), bright, with nothing important: a title will go there. ') +
                       'NO blur, NO bokeh, NO glow, NO rim light. Remove ALL text: absolutely NO text, letters or numbers in the image. YouTube thumbnail 16:9.')
             t['lato_testo'] = lato_c
     if STILE == 'piatto' and str(E('TESTO_STILE', '') or 'disegnata').lower() == 'disegnata':   # la scritta la disegna Nano Banana (resa migliore), controllata lettera per lettera
         frase = f"{t['riga1']} {t['riga2']}".upper().strip()
-        lato_t = 'LEFT' if t.get('lato_testo') == 'sinistra' else 'RIGHT'
+        lato_t = {'sinistra': 'LEFT', 'centro': 'CENTRE'}.get(t.get('lato_testo'), 'RIGHT')
         stili = list(SFONDI_TESTO) if PROVA_SFONDI else [SFONDO_TESTO]
         fatte_s = {}
         for st_ in stili:
             pt = prompt.replace('Remove ALL text: absolutely NO text, letters or numbers in the image.',
-                                f'TITLE: write EXACTLY this Italian text, nothing else: "{frase}". Put it on the {lato_t} side, in the empty part of the scene, VERY BIG (letters at least 15% of the image height, '
+                                f'TITLE: write EXACTLY this Italian text, nothing else: "{frase}". Put it ' + ('in the CENTRE, over the dividing line between the parts,' if lato_t == 'CENTRE' else f'on the {lato_t} side, in the empty part of the scene,') + f' VERY BIG (letters at least 15% of the image height, '
                                 'the title block about 40-45% of the image width), on 2-4 lines, centred, inside the UPPER 72% of the image (never in the bottom corners), '
                                 'readable on a phone: bold condensed uppercase letters (like the Anton font) in bright MAGENTA (the same magenta as KAO\'s shirt). '
                                 f'Behind the title: {SFONDI_TESTO[st_]} High impact, clean, professional, like a viral YouTube thumbnail. '
