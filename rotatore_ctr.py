@@ -317,8 +317,8 @@ for c in CANALI:
         # 1) copertina 2 GIA' PRONTA nel repository (es. copertine_storia/<video>_2.jpg): nessuna copertina inventata dal rotatore
         pa = os.path.join(cart, f'{vid}_A.jpg')
         uno = [p for p in glob.glob(f'**/{vid}_1.jpg', recursive=True) if not p.startswith('ctr_test')]
-        if not os.path.exists(pa) and uno:
-            shutil.copy(uno[0], pa)
+        if uno and (not os.path.exists(pa) or open(pa, 'rb').read() != open(uno[0], 'rb').read()):
+            shutil.copy(uno[0], pa)   # la copertina 1 ufficiale e' sempre quella del repository
         if not os.path.exists(pa):   # copertina 1 attuale: serve per tornare indietro se la 2 va peggio
             for q in ('maxresdefault', 'hqdefault'):
                 try:

@@ -235,7 +235,7 @@ def registra(vid, t1, t2):
 righe, testo_log = [], []
 canale = None
 if not COPPIE:   # modo automatico (ogni 3 ore): i video nuovi del canale senza copertine del nuovo stile
-    DAL = str(E('DAL', '') or '2026-10-21')
+    DAL = str(E('DAL', '') or '2026-10-20')
     ch = http('https://www.googleapis.com/youtube/v3/channels?part=contentDetails&mine=true', headers=AUTH)['items'][0]
     r_ = http('https://www.googleapis.com/youtube/v3/playlistItems?' + urllib.parse.urlencode({'part': 'snippet,contentDetails', 'playlistId': ch['contentDetails']['relatedPlaylists']['uploads'], 'maxResults': 20}), headers=AUTH)
     for it in r_.get('items', []):
