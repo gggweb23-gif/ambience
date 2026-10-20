@@ -4,11 +4,15 @@
   "VE7QUAgT45A": {
    "titolo": "STORIA DELL'IRAN || La Civiltà di 5.000 Anni che Sopravvisse a Ogni Impero",
    "pubblicato": "2026-10-17T09:56:19+00:00",
-   "attiva": "A",
+   "attiva": "B",
    "cambi": [
     [
      "2026-10-17T09:56:19+00:00",
      "A"
+    ],
+    [
+     "2026-10-20T07:21:49.399674+00:00",
+     "B"
     ]
    ],
    "views": [
@@ -22,6 +26,10 @@
     ],
     [
      63.35,
+     162
+    ],
+    [
+     69.43,
      162
     ]
    ],
@@ -49,17 +57,26 @@
     "B",
     "C"
    ],
-   "spinta": "in corso",
-   "misure": {}
+   "spinta": "finita",
+   "misure": {
+    "A": [
+     2179,
+     2.29
+    ]
+   }
   },
   "9BOXlNXHk0E": {
    "titolo": "STORIA DELL'AFGHANISTAN | Dal 3000 a.C. al 2026 | La storia completa",
    "pubblicato": "2026-10-18T08:11:21+00:00",
-   "attiva": "A",
+   "attiva": "B",
    "cambi": [
     [
      "2026-10-18T08:11:21+00:00",
      "A"
+    ],
+    [
+     "2026-10-20T07:21:49.399674+00:00",
+     "B"
     ]
    ],
    "views": [
@@ -74,6 +91,10 @@
     [
      41.1,
      142
+    ],
+    [
+     47.17,
+     145
     ]
    ],
    "freno": [],
@@ -101,7 +122,12 @@
     "C"
    ],
    "spinta": "mai partita",
-   "misure": {}
+   "misure": {
+    "A": [
+     2717,
+     1.66
+    ]
+   }
   },
   "WUVkbiZAJxQ": {
    "titolo": "TUTTA la storia dell'India in 21 minuti",
@@ -117,6 +143,10 @@
     [
      3.9,
      4
+    ],
+    [
+     9.98,
+     5
     ]
    ],
    "freno": [],
