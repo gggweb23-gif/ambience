@@ -98,7 +98,7 @@ DOMANDA = """Copertina YouTube di un video di storia di grande successo (competi
    Cambi ammessi: inquadratura un po' diversa, colori dominanti e luce del cielo/sfondo, monumenti o elementi secondari diversi della stessa epoca e paese,
    posizione dei soggetti, ora del giorno (alba, tramonto, giorno), un simbolo storico in piu'.
    VIETATO: incendi, fumo, esplosioni, distruzione, guerra, sangue, catastrofi, cieli apocalittici; espressioni esagerate o smorfie (i personaggi hanno volti puliti, sereni, dignitosi).
-   Il testo, la sua posizione e lo stile del disegno NON cambiano.
+   Il testo, la sua posizione e lo stile del disegno NON cambiano. Non aggiungere loghi, bollini o scritte.
 Rispondi SOLO JSON: {{"testo": "...", "livelli": [{{"perc": 20, "cambi": ["...", "..."]}}]}}"""
 
 
@@ -106,13 +106,14 @@ def regole(testo):
     return ('Rules: the characters have clean, calm, dignified expressions (no grimaces, no exaggerated emotions); '
             'absolutely NO fire, smoke, explosions, destruction, war scenes, blood or catastrophes; bright, clean, inviting colours. '
             'Keep the BOTTOM-RIGHT corner (last 30% of width and last 28% of height) free of any text: YouTube shows the video duration there; '
-            'keep the TOP-LEFT corner (about 22% of width and 35% of height) free of text: the channel logo goes there. '
-            f'Replace ALL the text with exactly this Italian text, same font style, same colours, same size and same position (unless it was in a forbidden corner): "{testo}". '
-            'Dates exactly as "a.C." / "d.C." with lowercase a and d. No other text, no logos, no watermark.')
+            f'Replace ALL the text with exactly this Italian text, same font style, same colours, same size and same position (unless it was in the bottom-right corner): "{testo}". '
+            'Write ONLY this text: do not add any other word, date or line. '
+            + ('Dates exactly as written ("a.C." / "d.C." with lowercase a and d). ' if re.search(r'\d', testo) else '')
+            + 'No logos, no badges, no stickers, no watermark.')
 
 
 def bollino(im):
-    if not os.path.exists(BOLLINO):
+    if str(E('BOLLINO', '') or 'NO').upper() != 'SI' or not os.path.exists(BOLLINO):   # niente bollino: la copertina e' solo la variante dell'originale
         return im
     b = Image.open(BOLLINO).convert('RGBA'); L = 230
     b = b.resize((L, L), Image.LANCZOS)
