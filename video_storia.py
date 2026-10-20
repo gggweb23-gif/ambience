@@ -574,11 +574,11 @@ def pexels_cerca(tipo, q):
                         pics = [x.get('picture') for x in (v.get('video_pictures') or []) if x.get('picture')]
                         viste = [pics[int(i * (len(pics) - 1) / 3)] for i in range(4)] if len(pics) > 3 else [v.get('image') or ''] + pics
                         ris.append({'url': fs[0]['link'], 'anteprima': v.get('image') or '', 'viste': [x for x in viste if x],
-                                    'desc': (v.get('url') or '').lower()})
+                                    'desc': (v.get('url') or '').lower(), 'autore': str((v.get('user') or {}).get('id') or '')})
             else:
                 for ph in j.get('photos', []):
                     ris.append({'url': ph['src'].get('large2x') or ph['src'].get('original'), 'anteprima': ph['src'].get('medium') or '',
-                                'desc': ((ph.get('alt') or '') + ' ' + (ph.get('url') or '')).lower()})
+                                'desc': ((ph.get('alt') or '') + ' ' + (ph.get('url') or '')).lower(), 'autore': str(ph.get('photographer_id') or '')})
         except Exception as e:
             log('Pexels:', q, str(e)[:120])
     ris = [r for r in ris if r['url'] and not any(re.search(r'(^|[^a-z])' + w + r'([^a-z]|$)', r['desc']) for w in VIETATE)]
@@ -641,6 +641,40 @@ def del_paese(c):
     return any(re.search(r'(^|[^a-z])' + re.escape(k) + r'([^a-z]|$)', d) for k in LUOGHI)
 
 
+_scelte = []   # clip/foto gia' usate: (autore, parole del titolo, impronta dell'immagine)
+_impronte = {}
+
+
+def impronta(u):
+    """Impronta a colori 4x4 dell'anteprima: due riprese dello stesso posto (anche da un'altra angolazione) hanno gli stessi colori negli stessi punti."""
+    if u in _impronte:
+        return _impronte[u]
+    try:
+        im = Image.open(io.BytesIO(http(u, raw=True, timeout=30))).convert('RGB').resize((4, 4), Image.BOX)
+        h = [x for px in im.getdata() for x in px]
+    except Exception:
+        h = None
+    _impronte[u] = h
+    return h
+
+
+def parole_titolo(c):
+    d = re.sub(r'https?://[^/]+/(video|photo)/', '', c.get('desc', '')).replace('-', ' ')
+    return {w for w in re.findall(r'[a-z]{4,}', d) if w not in ('view', 'aerial', 'drone', 'footage', 'shot', 'video', 'photo', 'free', 'stock')}
+
+
+def stessa_ripresa(c):
+    """Vero se e' la stessa ripresa (o quasi) di una gia' usata: stesso autore con titolo simile, oppure immagine quasi uguale."""
+    h = impronta(c.get('anteprima') or '') if c.get('anteprima') else None
+    pt = parole_titolo(c)
+    for autore, pu, hu in _scelte:
+        if autore and autore == c.get('autore') and pt and pu and len(pt & pu) / max(1, min(len(pt), len(pu))) >= 0.5:
+            return True
+        if h and hu and sum(abs(x - y) for x, y in zip(h, hu)) / len(h) <= 14:   # stessi colori negli stessi punti = stessa ripresa
+            return True
+    return False
+
+
 def pexels(tipo, q, contesto=''):
     for qq in (q, q + ' ancient'):   # niente ricerche generiche di riserva: se non c'e' un'immagine giusta si usa un cartone
         tutti = pexels_cerca(tipo, qq)   # ricerca FUORI dal lucchetto (prima qui si bloccava tutto)
@@ -649,13 +683,28 @@ def pexels(tipo, q, contesto=''):
             if prima_n and not tutti:
                 log('Pexels', repr(qq), '-> nessuna clip girata nel paese, scartate', prima_n)
         with _lock:
-            cand = [c for c in tutti if c['url'] not in _usati][:4]
+            liberi = [c for c in tutti if c['url'] not in _usati]
+        cand, scartate = [], 0
+        for c in liberi:   # niente seconda ripresa dello stesso posto (es. due voli di drone sul Nilo dello stesso autore)
+            if len(cand) >= 4:
+                break
+            with _lock:
+                doppia = stessa_ripresa(c)
+            if doppia:
+                scartate += 1
+            else:
+                cand.append(c)
+        if scartate:
+            log('Pexels', repr(qq), '-> scartate', scartate, 'riprese quasi uguali a una gia\' usata')
         if not cand:
             continue
         i = controlla(cand, qq, contesto)
         if i >= 0:
             with _lock:
+                if cand[i]['url'] in _usati or stessa_ripresa(cand[i]):   # un'altra ricerca in parallelo l'ha appena presa
+                    continue
                 _usati.add(cand[i]['url'])
+                _scelte.append((cand[i].get('autore') or '', parole_titolo(cand[i]), impronta(cand[i].get('anteprima') or '') if cand[i].get('anteprima') else None))
             return cand[i]['url']
         log('Pexels scartate tutte per:', qq)
     return None
