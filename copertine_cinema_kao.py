@@ -310,14 +310,14 @@ def zona_libera(im, lato):
 def scritta(im, righe, lato='destra', zona=None):
     """Testo GRANDE a destra, mai sotto l'orario di YouTube (angolo in basso a destra): riga bianca (anche su 2 righe se lunga) + etichetta magenta."""
     W, Hh = im.size
-    x0, x1, y0, y1 = int(W * .50), int(W * .965), int(Hh * .06), int(Hh * .75)   # sotto il 75% c'e' l'orario del video
+    x0, x1, y0, y1 = int(W * .50), int(W * .965), int(Hh * .06), int(Hh * .72)   # sotto il 75% c'e' l'orario del video
     if lato == 'sinistra':   # stesso lato del testo del competitor
         x0, x1, y0, y1 = int(W * .035), int(W * .50), int(Hh * .06), int(Hh * .92)
     if zona:   # rettangolo libero indicato da Claude: la scritta si adatta allo spazio, senza coprire niente
         x0, y0, x1, y1 = int(W * zona[0]) + 10, int(Hh * zona[1]) + 10, int(W * zona[2]) - 10, int(Hh * zona[3]) - 10
         if lato == 'destra':   # centrata nello spazio vuoto a destra: dal bordo del personaggio al bordo dell'immagine, e in altezza
             x0, x1 = max(x0, int(W * .46)), int(W * .965)
-            y0, y1 = int(Hh * .07), int(Hh * .86)
+            y0, y1 = int(Hh * .06), int(Hh * .72)   # mai nell'angolo in basso a destra: li' YouTube mette la durata del video
     larg, alt = x1 - x0, y1 - y0
     F = lambda k: ImageFont.truetype(FONT, k)
     r1, r2 = righe[0].strip(), righe[1].strip()
