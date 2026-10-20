@@ -219,7 +219,7 @@ def copia_competitor(i):
     buf = io.BytesIO(); im.resize((768, 432)).save(buf, 'JPEG', quality=85)
     dom = f"""Questa e' la copertina YouTube di un video di psicologia di successo (competitor). Va copiata al 100% per il nostro canale italiano.
 TESTO: {('il testo della copertina gia\' tradotto in italiano e\' "' + k['copy'] + '": usa ESATTAMENTE queste parole, stesso ordine') if k['copy'] else 'traduci in italiano ESATTAMENTE il testo scritto nella copertina, parola per parola'}.
-Dividilo in due righe SENZA cambiare, togliere o aggiungere parole: "riga1" = la prima parte, "riga2" = l'ultima parola o le ultime 1-2 parole (la parola chiave, andra' su un'etichetta colorata). MAIUSCOLO.
+Dividilo in due righe SENZA cambiare, togliere o aggiungere parole: "riga1" = la prima parte, "riga2" = SOLO l'ultima parola (la parola chiave, andra' su un'etichetta colorata; 2 parole solo se l'ultima ha meno di 3 lettere). MAIUSCOLO.
 {('VARIANTE: questa e\' la copertina numero ' + str(len(c.get('gia') or []) + 1) + ' (le precedenti hanno avuto CTR basso). Il TESTO resta identico. '
    'L\'IMMAGINE deve essere diversa per circa il ' + str(perc) + '% dall\'originale: cambia ' + ('UN solo elemento visivo forte' if perc <= 20 else 'DUE elementi visivi forti') +
    ' (es. l\'oggetto in mano, l\'espressione, il gesto, l\'ambiente sfocato dietro), tutto il resto identico. '
@@ -271,7 +271,7 @@ def zona_libera(im, lato):
     buf = io.BytesIO(); im.resize((768, 432)).save(buf, 'JPEG', quality=85)
     dom = (f'This is a YouTube thumbnail without text. We must add a 2-line title on the {"LEFT" if lato == "sinistra" else "RIGHT"} side. '
            'Find the LARGEST rectangle on that side that is EMPTY background: it must NOT cover the face, body, arms, hands or any object, not even partially. '
-           'Keep a small margin from them. Avoid the bottom-right corner (last 25% of height on the right 30% of width: video timestamp). '
+           'Keep a small margin from them, but make the rectangle as BIG as possible (the title must be huge, readable on a phone). Avoid the bottom-right corner (last 25% of height on the right 30% of width: video timestamp). '
            'Answer ONLY JSON with percentages of width/height: {"x0": 0, "y0": 0, "x1": 0, "y1": 0}')
     try:
         rr = http('https://api.anthropic.com/v1/messages', {'model': E('MODELLO_AI', 'claude-sonnet-5-5'), 'max_tokens': 1500,
@@ -361,8 +361,9 @@ def fai(i):
                   'if he has extra arms they have KAO\'s skin and magenta sleeves. '
                   f'{diverso}Keep him a flat 2D cartoon with thick black outlines, but place him in a modern CINEMATIC thumbnail: behind him a softly blurred, '
                   f'colourful, semi-realistic background ({t.get("scena", "")}) with bokeh lights and shallow depth of field, and a strong warm rim light outlining him. '
-                  f'Head and shoulders BIG on the LEFT 55%. What he does: {t.get("azione", "")}. Emotion: {t.get("emo", "")}. Objects: {t.get("oggetto", "")} '
-                  '(drawn in the same flat cartoon style). The RIGHT 45% is darker, blurred and calm for text, with no objects. '
+                  f'Head and shoulders BIG on the LEFT HALF. What he does: {t.get("azione", "")}. Emotion: {t.get("emo", "")}. Objects: {t.get("oggetto", "")} '
+                  '(drawn in the same flat cartoon style). KAO, his arms and ALL objects stay inside the LEFT 50% of the image. '
+                  'The RIGHT 50% is completely EMPTY: only darker blurred background, no arms, no objects, nothing (it is reserved for a very big title). '
                   'YouTube thumbnail 16:9, modern, premium, very high contrast, readable on a phone. Absolutely NO text, letters or numbers in the image.')
         t['lato_testo'] = 'destra'
     try:
