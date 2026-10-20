@@ -224,8 +224,9 @@ Dividilo in due righe SENZA cambiare, togliere o aggiungere parole: "riga1" = la
    'L\'IMMAGINE deve essere diversa per circa il ' + str(perc) + '% dall\'originale: cambia ' + ('UN solo elemento visivo forte' if perc <= 20 else 'DUE elementi visivi forti') +
    ' (es. colori dominanti e luce dello sfondo, l\'oggetto in mano, l\'espressione, l\'inquadratura piu\' stretta), tutto il resto identico. '
    'Scrivi in "cambi" (in inglese) esattamente cosa cambia.') if perc else ''}
-IMMAGINE (in inglese, per ridisegnarla identica con il nostro personaggio): "emo" = emozione ed espressione esatte del soggetto principale; "oggetto" = oggetti, simboli e gesti presenti; "scena" = ambiente, sfondo, colori, luce; "composizione" = dove sta il soggetto, inquadratura, altri personaggi o elementi e dove sono.
-Rispondi SOLO JSON: {{"riga1": "...", "riga2": "...", "emo": "...", "oggetto": "...", "scena": "...", "composizione": "...", "cambi": ""}}"""
+"lato_testo" = "sinistra" o "destra": il lato dove sta il testo nella copertina del competitor.
+IMMAGINE (in inglese, per ridisegnarla identica con il nostro personaggio, SENZA MAI citare scritte, lettere o riquadri di testo: descrivi solo persone, oggetti e sfondo): "emo" = emozione ed espressione esatte del soggetto principale; "oggetto" = oggetti, simboli e gesti presenti; "scena" = ambiente, sfondo, colori, luce; "composizione" = dove sta il soggetto, inquadratura, altri personaggi o elementi e dove sono.
+Rispondi SOLO JSON: {{"riga1": "...", "riga2": "...", "emo": "...", "oggetto": "...", "scena": "...", "composizione": "...", "lato_testo": "sinistra", "cambi": ""}}"""
     try:
         rr = http('https://api.anthropic.com/v1/messages', {'model': E('MODELLO_AI', 'claude-sonnet-5-5'), 'max_tokens': 2000,
                   'messages': [{'role': 'user', 'content': [{'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}},
@@ -263,10 +264,12 @@ def fal(modello, dati):
     raise RuntimeError('tempo scaduto')
 
 
-def scritta(im, righe):
+def scritta(im, righe, lato='destra'):
     """Testo GRANDE a destra, mai sotto l'orario di YouTube (angolo in basso a destra): riga bianca (anche su 2 righe se lunga) + etichetta magenta."""
     W, Hh = im.size
     x0, x1, y0, y1 = int(W * .50), int(W * .965), int(Hh * .06), int(Hh * .75)   # sotto il 75% c'e' l'orario del video
+    if lato == 'sinistra':   # stesso lato del testo del competitor
+        x0, x1, y0, y1 = int(W * .035), int(W * .50), int(Hh * .06), int(Hh * .92)
     larg, alt = x1 - x0, y1 - y0
     F = lambda k: ImageFont.truetype(FONT, k)
     r1, r2 = righe[0].strip(), righe[1].strip()
@@ -332,8 +335,10 @@ def fai(i):
                   f'SAME poses, gestures, objects, symbols, background elements, colours and lighting. Composition: {t.get("composizione", "")}. '
                   f'The main person of the second image becomes KAO (first reference image), with the same emotion: {t.get("emo", "")}. Objects: {t.get("oggetto", "")}. '
                   f'Background: {t.get("scena", "")}. Style: KAO stays a flat 2D cartoon with thick black outlines, in a modern CINEMATIC thumbnail with a softly blurred, '
-                  'colourful semi-realistic background, bokeh and a warm rim light. Keep the main subject mostly on the LEFT and leave the RIGHT ~40% calmer for our text. '
-                  'Do NOT copy any text, letters, numbers or logos of the second image: absolutely NO text in the image.')
+                  'colourful semi-realistic background, bokeh and a warm rim light. '
+                  f'The second image has a text block on the {"LEFT" if t.get("lato_testo") == "sinistra" else "RIGHT"} side: do NOT copy it, '
+                  f'leave that {"LEFT" if t.get("lato_testo") == "sinistra" else "RIGHT"} ~45% of the image as calm, simple background with NO objects, and keep KAO and the objects on the other side. '
+                  'Absolutely NO text, letters, words, numbers, labels, boxes or logos anywhere in the image.')
         refs = [ID, t['comp_img']]
     try:
         r = fal('fal-ai/nano-banana-2/edit', {'prompt': prompt, 'image_urls': refs, 'aspect_ratio': '16:9', 'resolution': '1K', 'output_format': 'jpeg', 'num_images': 1})
@@ -341,7 +346,7 @@ def fai(i):
         im = ImageOps.fit(im, (1280, 720), Image.LANCZOS)
         if APPLICA:
             im.save(os.path.join(BASI, c['id'] + '.jpg'), quality=92)
-        scritta(im, [str(t['riga1']).upper(), str(t['riga2']).upper()]).save(p, quality=90)
+        scritta(im, [str(t['riga1']).upper(), str(t['riga2']).upper()], 'sinistra' if t.get('lato_testo') == 'sinistra' else 'destra').save(p, quality=90)
         log('copertina pronta:', c['id'], t['riga1'], '/', t['riga2'])
         return p
     except Exception as e:
