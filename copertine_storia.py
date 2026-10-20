@@ -91,18 +91,20 @@ Rispondi SOLO JSON:
 {{"paese": "nome del paese in ITALIANO, MAIUSCOLO (es. INDIA, IRAN, AFGHANISTAN, GIAPPONE)",
  "bandiera": "nome del paese in inglese per la bandiera ufficiale (es. India)",
  "date": "le date della copertina o del titolo nel formato '2600 a.C. – 2026' (a e d minuscole); se non ci sono, l'arco della storia del paese",
- "figure": ["3 figure DIVERSE in inglese, dello stesso tipo della figura principale della copertina (es. 'an ancient Indian king with a golden crown', 'a Mauryan emperor in white and red silk', 'an ancient Indian queen')"],
- "monumenti": ["3 monumenti REALI e famosi del paese, diversi, in inglese (es. 'the Great Stupa of Sanchi', 'the Brihadeeswarar Temple', 'the Taj Mahal')"]}}"""
+ "uomo": "in inglese: la figura maschile dello stesso tipo della figura principale della copertina, con abiti e gioielli storici del paese (es. 'an ancient Indian king with a golden crown and white and red silk')",
+ "donna": "in inglese: la figura femminile corrispondente dello stesso rango ed epoca (es. 'an ancient Indian queen with a golden crown and a red silk sari')",
+ "popolo": "in inglese: i tratti del viso REALI e tipici della popolazione storica di quel paese (es. 'authentic native Afghan (Pashtun) facial features: olive skin, strong nose, dark deep-set eyes'), mai tratti di altri popoli",
+ "monumento": "in inglese: UN monumento reale e famoso del paese, il piu' riconoscibile (es. 'the Great Stupa of Sanchi')"}}"""
 
 
 def prompt_con_testo(bandiera, figura, monumento, var, paese, date):
-    inquadratura = ['waist-up, looking at the viewer', 'chest-up, slightly closer, looking at the viewer', 'waist-up, seen from a slightly low angle, looking at the viewer'][var % 3]
+    inquadratura = 'waist-up, looking at the viewer'   # stessa inquadratura: la 2 cambia solo uomo/donna
     anno = (re.findall(r'\d{3,4}', date) or [''])[-1]
     return ('Create a YouTube thumbnail, 16:9, 1280x720, premium, cinematic and eye-catching, readable on a phone. PHOTOREALISTIC, like a still from a big-budget '
             'historical film: real skin, real fabrics, real metal and jewellery, natural light. No cartoon, no illustration. '
             f'LEFT HALF: the official national flag of {bandiera}, large, real silk fabric waving in the wind with deep natural folds, accurate vivid colours, lit by the sun. '
-            f'RIGHT HALF: {figura}, a photorealistic NEW, original person, {inquadratura}. Real human face with natural skin texture, calm, dignified and confident expression, '
-            'warm sunlight on his face and a soft golden rim light on his outline. '
+            f'RIGHT HALF: {figura}, a photorealistic NEW, original person, {inquadratura}. {POPOLO.get("tratti", "")} Real human face with natural skin texture, calm, dignified and confident expression, '
+            'warm sunlight on the face and a soft golden rim light on the outline. '
             f'BACKGROUND (between and behind them): {monumento}, real and recognisable, slightly out of focus, with a real blue sky with natural clouds and true natural colours '
             '(no orange filter, no sunset, no fantasy colours). '
             'TEXT, two lines only, spelled exactly: '
@@ -112,6 +114,9 @@ def prompt_con_testo(bandiera, figura, monumento, var, paese, date):
             'Place the text in the upper part, across the centre, without covering the flag\'s emblem or the person\'s face. '
             'Keep the bottom-right corner (last 30% of width, last 28% of height) empty of text: the video duration is shown there. '
             'No logo, no badge, no other text, no watermark.')
+
+
+POPOLO = {}
 
 
 def norm(t):
@@ -230,8 +235,11 @@ for nostro, comp in COPPIE:
     except Exception as e:
         log('analisi non riuscita', nostro, str(e)[:200]); continue
     paese, date, band = str(an.get('paese') or '').upper().strip(), str(an.get('date') or '').strip(), str(an.get('bandiera') or '').strip()
-    figure, monum = (an.get('figure') or ['an ancient king'])[:3], (an.get('monumenti') or ['a famous ancient monument'])[:3]
-    log(f'{nostro} <- {comp} | {paese} / {date} | figure: {figure} | monumenti: {monum}')
+    # 1 = la figura come stabilito (uomo); 2 = stessa copertina con la donna al posto dell'uomo (solo se la 1 non funziona)
+    figure = [an.get('uomo') or 'an ancient king', an.get('donna') or 'an ancient queen']
+    monum = [an.get('monumento') or 'a famous ancient monument of the country'] * 2
+    POPOLO['tratti'] = ('The person must look like a REAL native of ' + band + ': ' + str(an.get('popolo') or '') + '. Never features of other peoples.') if an.get('popolo') else ''
+    log(f'{nostro} <- {comp} | {paese} / {date} | uomo: {figure[0]} | donna: {figure[1]} | {monum[0]} | {an.get("popolo")}')
     testo_log.append(f'=== {nostro} (originale {comp})\n{paese} / {date}')
 
     def fai(k):
@@ -255,7 +263,7 @@ for nostro, comp in COPPIE:
         except Exception as e:
             log(f'  copertina {k} non riuscita:', str(e)[:200]); return k, 0, None, [fig, mon]
     with ThreadPoolExecutor(3) as ex:
-        fatte = list(ex.map(fai, [1, 2, 3]))
+        fatte = list(ex.map(fai, [1, 2]))
     for k, perc, im, cambi in fatte:
         testo_log.append(f'{k} = ' + ' | '.join(cambi))
     stato = 'solo anteprima'
