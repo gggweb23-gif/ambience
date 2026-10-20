@@ -232,6 +232,7 @@ def copia_competitor(i):
     buf = io.BytesIO(); im.resize((768, 432)).save(buf, 'JPEG', quality=85)
     dom = f"""Questa e' la copertina YouTube di un video di psicologia di successo (competitor). Va copiata al 100% per il nostro canale italiano.
 TESTO: {('il testo della copertina gia\' tradotto in italiano e\' "' + k['copy'] + '": usa ESATTAMENTE queste parole, stesso ordine') if k['copy'] else 'traduci in italiano ESATTAMENTE il testo scritto nella copertina, parola per parola'}.
+CONTROLLO: confronta con il testo SCRITTO nell'immagine. Se la traduzione data e' incompleta (mancano parole, es. "HAZLO AUNQUE NO QUIERAS" tradotto solo "FALLO ANCHE SE", oppure manca una data tra parentesi), usa la traduzione COMPLETA di tutte le parole dell'immagine (es. "FALLO ANCHE SE NON VUOI"). Date e numeri tra parentesi vanno in riga2 insieme all'ultima parola.
 Dividilo in due righe SENZA cambiare, togliere o aggiungere parole: "riga1" = la prima parte, "riga2" = SOLO l'ultima parola (la parola chiave, andra' su un'etichetta colorata; 2 parole solo se l'ultima ha meno di 3 lettere). MAIUSCOLO.
 {('VARIANTE: questa e\' la copertina numero ' + str(len(c.get('gia') or []) + 1) + ' (le precedenti hanno avuto CTR basso). Il TESTO resta identico. '
    'L\'IMMAGINE deve essere diversa per circa il ' + str(perc) + '% dall\'originale: cambia ' + ('UN solo elemento visivo forte' if perc <= 20 else 'DUE elementi visivi forti') +
@@ -243,9 +244,11 @@ VIETATO descrivere l'ASPETTO del personaggio del competitor: niente colore della
 "oggetto" = gli oggetti e simboli che tiene o ha accanto (gli stessi della copertina).
 "scena" = uno sfondo per il NOSTRO stile cinematografico, coerente con il tema: un ambiente reale sfocato con luci calde e bokeh (es. a cozy study at night with warm lamps). NON copiare lo sfondo o i colori del competitor.
 "lato_testo" = "sinistra" o "destra": il lato dove il competitor ha messo la scritta.
-"luogo" (in inglese) = il LUOGO REALE e concreto dove si svolge la situazione della copertina, descritto con 4-6 dettagli visibili (es. "a small Italian living room at night: old sofa, TV light, family photos on the wall, a door half open").
+"luogo" (in inglese) = lo STESSO luogo della copertina competitor (stesso ambiente, stessa ora del giorno, stessa luce, stesso tempo atmosferico), descritto con 4-6 dettagli visibili (es. "mountains at sunset, orange sky, a dirt path"). Mai cambiare luogo.
+"posa" (in inglese) = il MOVIMENTO e la posa ESATTI del personaggio (corre, salta, e' sdraiato, seduto, di spalle, di profilo; dove guarda; posizione di braccia e gambe) e l'inquadratura (figura intera, mezzo busto, primo piano).
+"accessori" (in inglese) = cio' che il personaggio INDOSSA o ha addosso (cuffie, occhiali, coperta, cappello, zaino...); "" se niente.
 "persone" (in inglese) = le ALTRE persone della situazione (quelle della copertina competitor o quelle che servono a far capire il contesto: genitori che litigano, partner, amici, folla...), cosa fanno e dove stanno; "" se la situazione e' di una persona sola.
-Rispondi SOLO JSON: {{"riga1": "...", "riga2": "...", "emo": "...", "oggetto": "...", "scena": "...", "azione": "...", "luogo": "...", "persone": "...", "lato_testo": "destra", "cambi": ""}}"""
+Rispondi SOLO JSON: {{"riga1": "...", "riga2": "...", "emo": "...", "oggetto": "...", "scena": "...", "azione": "...", "luogo": "...", "persone": "...", "posa": "...", "accessori": "...", "lato_testo": "destra", "cambi": ""}}"""
     try:
         rr = http('https://api.anthropic.com/v1/messages', {'model': E('MODELLO_AI', 'claude-sonnet-5-5'), 'max_tokens': 2000,
                   'messages': [{'role': 'user', 'content': [{'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}},
@@ -409,8 +412,10 @@ def fai(i):
             refs = [ID, t['comp_img']]
             prompt = ('Image 1 is our character KAO. Image 2 is a successful YouTube thumbnail: copy its IDEA 100% (situation, what the character does, emotion, objects, other people). '
                       'Draw it as a COMPLETE SCENE in a real place that explains the context at first glance: '
-                      f'PLACE: {t.get("luogo") or t.get("scena", "")}. The environment is fully drawn with all its details (walls, furniture, windows, lights, nature...), not a plain or blurred background. '
+                      f'PLACE (the SAME place, time of day and light as image 2): {t.get("luogo") or t.get("scena", "")}. The environment is fully drawn with all its details (walls, furniture, windows, lights, nature...), not a plain or blurred background. '
                       f'MAIN CHARACTER = KAO exactly as image 1: bald round head, same simple face, light skin, magenta long-sleeve shirt, black trousers. {diverso}'
+                      'KAO copies EXACTLY the pose and movement of the character of image 2 (if he runs, KAO runs; if he lies down, KAO lies down; same direction, same framing). '
+                      f'POSE AND MOVEMENT: {t.get("posa", "")}. ' + (f'KAO WEARS: {t.get("accessori")}. ' if t.get('accessori') else '') +
                       f'What KAO does: {t.get("azione", "")}. Emotion, very clear on his face: {t.get("emo", "")}. Objects: {t.get("oggetto", "")}. '
                       + (f'OTHER PEOPLE in the scene: {t.get("persone")}. They are drawn in the same style as KAO (bald round heads, simple faces) but wear NEUTRAL colours (grey, blue, brown, white): only KAO wears magenta. '
                          if t.get('persone') else '') +
