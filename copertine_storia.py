@@ -234,6 +234,10 @@ def registra(vid, t1, t2):
 
 righe, testo_log = [], []
 canale = None
+TITOLO_PROVA = str(E('TITOLO_PROVA', '') or '').strip()   # prova del video (da video_storia): copertine dal titolo, niente YouTube, niente registro
+if TITOLO_PROVA:
+    COPPIE = [['prova', '']]
+    APPLICA = False
 if not COPPIE:   # modo automatico (ogni 3 ore): i video nuovi del canale senza copertine del nuovo stile
     DAL = str(E('DAL', '') or '2026-10-20')
     ch = http('https://www.googleapis.com/youtube/v3/channels?part=contentDetails&mine=true', headers=AUTH)['items'][0]
@@ -266,8 +270,10 @@ for nostro, comp in COPPIE:
         im.save(os.path.join(OUT, f'{nostro}_2.jpg'), quality=92)
         log(f'{nostro}: copertina 2 creata ({inf["tipi"][1]}), la mettera\' online il Rotatore CTR')
         continue
+    if TITOLO_PROVA:
+        canale = [('prova', TITOLO_PROVA)]
     canale = canale or video_canale()
-    if not re.fullmatch(r'[\w-]{11}', nostro):   # parola del titolo -> ID del nostro video
+    if not TITOLO_PROVA and not re.fullmatch(r'[\w-]{11}', nostro):   # parola del titolo -> ID del nostro video
         trovato = next((v for v, t in canale if nostro.lower() in t.lower()), None)
         if not trovato:
             log('video non trovato sul canale:', nostro); continue

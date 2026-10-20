@@ -565,7 +565,7 @@ def pexels_cerca(tipo, q):
     if chiave:
         base = 'https://api.pexels.com/videos/search' if tipo == 'video' else 'https://api.pexels.com/v1/search'
         try:
-            j = http(base + '?' + urllib.parse.urlencode({'query': q, 'per_page': 20, 'orientation': 'landscape'}), headers={'Authorization': chiave})
+            j = http(base + '?' + urllib.parse.urlencode({'query': q, 'per_page': 40, 'orientation': 'landscape'}), headers={'Authorization': chiave})
             if tipo == 'video':
                 for v in j.get('videos', []):
                     fs = [f for f in v.get('video_files', []) if 'mp4' in (f.get('file_type') or '') and (f.get('height') or 0) <= 1080]
@@ -631,9 +631,23 @@ Ragiona in breve (max 2 righe) e poi chiudi con una riga ESATTAMENTE cosi': SCEL
         return -1
 
 
+LUOGHI = []   # parole dei luoghi del paese (es. iran, persia, tehran, isfahan, zagros...): i paesaggi Pexels devono essere DAVVERO di quel paese
+PAESAGGIO = re.compile(r'(mountain|desert|river|valley|canyon|lake|coast|sea|beach|city|town|village|landscape|aerial|plateau|forest|hill|field|street|market|skyline|drone)', re.I)
+
+
+def del_paese(c):
+    """La clip di un paesaggio e' accettata solo se la sua descrizione su Pexels nomina il paese o un suo luogo (niente montagne di altri paesi)."""
+    d = c.get('desc', '').replace('-', ' ')
+    return any(re.search(r'(^|[^a-z])' + re.escape(k) + r'([^a-z]|$)', d) for k in LUOGHI)
+
+
 def pexels(tipo, q, contesto=''):
     for qq in (q, q + ' ancient'):   # niente ricerche generiche di riserva: se non c'e' un'immagine giusta si usa un cartone
         tutti = pexels_cerca(tipo, qq)   # ricerca FUORI dal lucchetto (prima qui si bloccava tutto)
+        if LUOGHI and PAESAGGIO.search(qq):   # paesaggi: solo clip girate davvero nel paese
+            prima_n = len(tutti); tutti = [c for c in tutti if del_paese(c)]
+            if prima_n and not tutti:
+                log('Pexels', repr(qq), '-> nessuna clip girata nel paese, scartate', prima_n)
         with _lock:
             cand = [c for c in tutti if c['url'] not in _usati][:4]
         if not cand:
@@ -663,7 +677,10 @@ def regole_finali(n_sf):
                  "Campo \"q\": 3-5 parole in INGLESE con il LUOGO del paese + la COSA CONCRETA che la voce dice in quel momento "
                  "(es. voce 'i monsoni portano la pioggia' -> 'monsoon rain India fields'; 'il fiume Gange' -> 'Ganges river Varanasi'; 'templi di pietra' -> 'ancient stone temple India'). "
                  "Mai persone, soldati, folle, feste, citta' moderne (tranne quando la voce parla di oggi). Visivi vicini = cose diverse (fiume, poi montagna, poi rovina, poi cielo).")
-        r.append("- Aggiungi in cima al JSON il campo \"riserva_pexels\": 8 ricerche Pexels generiche ma tipiche del paese (paesaggi, fiumi, montagne, monumenti antichi, cielo), per quando una ricerca non trova niente.")
+        r.append("- Aggiungi in cima al JSON il campo \"riserva_pexels\": 8 ricerche Pexels generiche ma tipiche del paese (paesaggi, fiumi, montagne, monumenti antichi, cielo), per quando una ricerca non trova niente. "
+                 "Nelle ricerche di paesaggi metti SEMPRE il nome del paese o di una sua citta'/luogo famoso (es. 'Isfahan mosque dome', 'Iran desert dunes', 'Zagros mountains Iran').")
+        r.append("- Aggiungi in cima al JSON il campo \"luoghi_paese\": 20-30 parole in inglese minuscolo con cui su Pexels si descrivono le riprese fatte in quel paese: nome del paese, nomi antichi, aggettivi (es. iran, iranian, persia, persian), "
+                 "citta', regioni, monti, deserti, fiumi e monumenti famosi (es. tehran, isfahan, shiraz, yazd, kashan, persepolis, zagros, alborz, damavand, lut, qeshm).")
     elif QUOTA_CARTONI >= 100:
         r.append("- SOLO DISEGNI: usa solo \"cartone\" e una \"mappa\". Niente pexels_video e pexels_foto.")
     if not TEXTURE:
@@ -2502,6 +2519,8 @@ def main():
         piano, paths = video_regia(c, durs, voci, kit)
     else:
         # sfondi
+        LUOGHI[:] = [str(x).strip().lower() for x in (c.get('luoghi_paese') or []) if len(str(x).strip()) >= 3][:40]
+        log('luoghi del paese per i paesaggi Pexels:', ', '.join(LUOGHI) or '(nessuno: controllo solo visivo)')
         RISERVA_PX[:] = [str(x).strip() for x in (c.get('riserva_pexels') or []) if str(x).strip()][:10] or \
             [f"{c.get('paese_mappa') or 'ancient'} {x}" for x in ('landscape', 'river', 'mountains', 'ancient ruins', 'sky clouds', 'temple')]
         if BUDGET > 0:   # rete di sicurezza: mai piu' disegni di quanti ne paga il budget, anche se il copione ne chiede di piu'
@@ -2716,6 +2735,17 @@ def main():
     if not iscrizione(video, audio, finale):
         run(['ffmpeg', '-y', '-v', 'error', '-i', video, '-i', audio, '-map', '0:v', '-map', '1:a', '-c:v', 'copy', '-c:a', 'copy', '-shortest', finale])
     cop = copertina(comp, c) if COP_VIDEO else None   # NO: la copertina la fa 'Copertine Storia' (bandiera + figura) entro 3 ore, prima dell'uscita
+    if not COP_VIDEO and not CARICA:   # prova: le copertine del nuovo stile (bandiera + figura) escono subito, nello zip
+        try:
+            env = dict(os.environ, TITOLO_PROVA=titolo_finale)
+            subprocess.run([sys.executable, os.path.join(ROOT, 'copertine_storia.py')], env=env, cwd=ROOT, timeout=900)
+            for n_, dest in ((1, 'copertina.jpg'), (2, 'copertina_2.jpg')):
+                src_ = os.path.join(ROOT, 'copertine_storia', f'prova_{n_}.jpg')
+                if os.path.exists(src_):
+                    shutil.copy(src_, os.path.join(ROOT, dest))
+            log('copertine di prova pronte: copertina.jpg (partenza) e copertina_2.jpg (alternativa)')
+        except Exception as e:
+            log('copertine di prova non riuscite:', str(e)[:150])
     open(os.path.join(ROOT, 'titolo.txt'), 'w').write(titolo_finale)
     if CARICA:
         t0c = time.time()
