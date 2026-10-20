@@ -41,6 +41,10 @@ on:
         default: ''
         type: string
 
+permissions:
+  contents: read
+  actions: write
+
 concurrency:
   group: storia
   cancel-in-progress: false
@@ -72,7 +76,23 @@ jobs:
           "
           ls ../font ../geo
 
+      - name: Recupera il lavoro di un giro fallito (stesso video)
+        id: rid
+        env:
+          PAYLOAD: ${{ inputs.payload }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ID=$(python3 -c "import json,os,re;p=json.loads(os.environ.get('PAYLOAD') or '{}');print(re.sub(r'[^A-Za-z0-9_-]','',str(p.get('id') or '')))")
+          echo "id=$ID" >> "$GITHUB_OUTPUT"
+          if [ -z "$ID" ]; then echo "giro a mano: nessuna ripresa"; exit 0; fi
+          AID=$(gh api "repos/$GITHUB_REPOSITORY/actions/artifacts?name=lavoro-storia-$ID&per_page=10" --jq '[.artifacts[] | select(.expired==false)] | sort_by(.created_at) | last | .id // empty')
+          if [ -z "$AID" ]; then echo "nessun lavoro salvato per $ID: si parte da zero"; exit 0; fi
+          mkdir -p lavoro_storia
+          gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$AID/zip" > lavoro.zip && unzip -o -q lavoro.zip -d lavoro_storia && rm lavoro.zip
+          echo "RIPRESA di $ID:"; ls lavoro_storia | head -100
+
       - name: Crea il video
+        timeout-minutes: 135
         env:
           LINK_COMPETITOR: ${{ inputs.link_competitor }}
           TITOLO: ${{ inputs.titolo }}
@@ -93,6 +113,30 @@ jobs:
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
           YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN_STORIA }}
         run: python3 video_storia.py
+
+      - name: Salva il lavoro per ripartire (solo se il giro non e' finito bene)
+        if: ${{ (failure() || cancelled()) && steps.rid.outputs.id != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: lavoro-storia-${{ steps.rid.outputs.id }}
+          path: |
+            lavoro_storia/copione_lavoro.json
+            lavoro_storia/voce_*.mp3
+            lavoro_storia/voce_*.json
+            lavoro_storia/sfondo_s*.jpg
+            lavoro_storia/cornice.png
+            lavoro_storia/cornice.png.json
+          if-no-files-found: ignore
+          retention-days: 7
+
+      - name: Video riuscito, cancella il lavoro salvato
+        if: ${{ success() && steps.rid.outputs.id != '' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for A in $(gh api "repos/$GITHUB_REPOSITORY/actions/artifacts?name=lavoro-storia-${{ steps.rid.outputs.id }}&per_page=20" --jq '.artifacts[].id'); do
+            gh api -X DELETE "repos/$GITHUB_REPOSITORY/actions/artifacts/$A" && echo "cancellato lavoro $A"
+          done
 
       - name: Salva il risultato
         if: ${{ always() }}
