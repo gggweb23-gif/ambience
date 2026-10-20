@@ -222,11 +222,13 @@ TESTO: {('il testo della copertina gia\' tradotto in italiano e\' "' + k['copy']
 Dividilo in due righe SENZA cambiare, togliere o aggiungere parole: "riga1" = la prima parte, "riga2" = l'ultima parola o le ultime 1-2 parole (la parola chiave, andra' su un'etichetta colorata). MAIUSCOLO.
 {('VARIANTE: questa e\' la copertina numero ' + str(len(c.get('gia') or []) + 1) + ' (le precedenti hanno avuto CTR basso). Il TESTO resta identico. '
    'L\'IMMAGINE deve essere diversa per circa il ' + str(perc) + '% dall\'originale: cambia ' + ('UN solo elemento visivo forte' if perc <= 20 else 'DUE elementi visivi forti') +
-   ' (es. colori dominanti e luce dello sfondo, l\'oggetto in mano, l\'espressione, l\'inquadratura piu\' stretta), tutto il resto identico. '
+   ' (es. l\'oggetto in mano, l\'espressione, il gesto, l\'ambiente sfocato dietro), tutto il resto identico. '
    'Scrivi in "cambi" (in inglese) esattamente cosa cambia.') if perc else ''}
-"lato_testo" = "sinistra" o "destra": il lato dove sta il testo nella copertina del competitor.
-IMMAGINE (in inglese, per ridisegnarla identica con il nostro personaggio, SENZA MAI citare scritte, lettere o riquadri di testo: descrivi solo persone, oggetti e sfondo): "emo" = emozione ed espressione esatte del soggetto principale; "oggetto" = oggetti, simboli e gesti presenti; "scena" = ambiente, sfondo, colori, luce; "composizione" = dove sta il soggetto, inquadratura, altri personaggi o elementi e dove sono.
-Rispondi SOLO JSON: {{"riga1": "...", "riga2": "...", "emo": "...", "oggetto": "...", "scena": "...", "composizione": "...", "lato_testo": "sinistra", "cambi": ""}}"""
+PERSONAGGIO (in inglese, SENZA MAI citare scritte, lettere o riquadri di testo): copia ESATTAMENTE cosa fa il personaggio principale, che diventera' il nostro KAO:
+"emo" = emozione ed espressione esatte; "azione" = cosa fa, posa, gesti, mani, caratteristiche speciali (es. tante braccia che tengono oggetti) descritte come se fosse KAO;
+"oggetto" = gli oggetti e simboli che tiene o ha accanto (gli stessi della copertina).
+"scena" = uno sfondo per il NOSTRO stile cinematografico, coerente con il tema: un ambiente reale sfocato con luci calde e bokeh (es. a cozy study at night with warm lamps). NON copiare lo sfondo o i colori del competitor.
+Rispondi SOLO JSON: {{"riga1": "...", "riga2": "...", "emo": "...", "oggetto": "...", "scena": "...", "azione": "...", "cambi": ""}}"""
     try:
         rr = http('https://api.anthropic.com/v1/messages', {'model': E('MODELLO_AI', 'claude-sonnet-5-5'), 'max_tokens': 2000,
                   'messages': [{'role': 'user', 'content': [{'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}},
@@ -264,12 +266,37 @@ def fal(modello, dati):
     raise RuntimeError('tempo scaduto')
 
 
-def scritta(im, righe, lato='destra'):
+def zona_libera(im, lato):
+    """Claude guarda l'immagine finita e indica il rettangolo LIBERO piu' grande (niente volto, corpo, braccia od oggetti) per il testo."""
+    buf = io.BytesIO(); im.resize((768, 432)).save(buf, 'JPEG', quality=85)
+    dom = (f'This is a YouTube thumbnail without text. We must add a 2-line title on the {"LEFT" if lato == "sinistra" else "RIGHT"} side. '
+           'Find the LARGEST rectangle on that side that is EMPTY background: it must NOT cover the face, body, arms, hands or any object, not even partially. '
+           'Keep a small margin from them. Avoid the bottom-right corner (last 25% of height on the right 30% of width: video timestamp). '
+           'Answer ONLY JSON with percentages of width/height: {"x0": 0, "y0": 0, "x1": 0, "y1": 0}')
+    try:
+        rr = http('https://api.anthropic.com/v1/messages', {'model': E('MODELLO_AI', 'claude-sonnet-5-5'), 'max_tokens': 1500,
+                  'messages': [{'role': 'user', 'content': [{'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}},
+                                                            {'type': 'text', 'text': dom}]}]},
+                  {'x-api-key': E('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01'}, timeout=200)
+        tt = ''.join(b.get('text', '') for b in rr.get('content', []))
+        z = json.loads(tt[tt.find('{'): tt.rfind('}') + 1])
+        z = [max(0.0, min(100.0, float(z[k]))) / 100 for k in ('x0', 'y0', 'x1', 'y1')]
+        if z[2] - z[0] >= .22 and z[3] - z[1] >= .30:
+            return z
+        log('zona libera troppo piccola:', z)
+    except Exception as e:
+        log('zona libera non trovata:', str(e)[:120])
+    return None
+
+
+def scritta(im, righe, lato='destra', zona=None):
     """Testo GRANDE a destra, mai sotto l'orario di YouTube (angolo in basso a destra): riga bianca (anche su 2 righe se lunga) + etichetta magenta."""
     W, Hh = im.size
     x0, x1, y0, y1 = int(W * .50), int(W * .965), int(Hh * .06), int(Hh * .75)   # sotto il 75% c'e' l'orario del video
     if lato == 'sinistra':   # stesso lato del testo del competitor
         x0, x1, y0, y1 = int(W * .035), int(W * .50), int(Hh * .06), int(Hh * .92)
+    if zona:   # rettangolo libero indicato da Claude: la scritta si adatta allo spazio, senza coprire niente
+        x0, y0, x1, y1 = int(W * zona[0]) + 10, int(Hh * zona[1]) + 10, int(W * zona[2]) - 10, int(Hh * zona[3]) - 10
     larg, alt = x1 - x0, y1 - y0
     F = lambda k: ImageFont.truetype(FONT, k)
     r1, r2 = righe[0].strip(), righe[1].strip()
@@ -328,25 +355,24 @@ def fai(i):
               'The RIGHT 45% is darker, blurred and calm for text. YouTube thumbnail 16:9, modern, premium, very high contrast, readable on a phone. '
               'Absolutely NO text, letters or numbers in the image.')
     refs = [ID]
-    if t.get('comp_img'):   # copia al 100% della copertina del competitor, ridisegnata nel nostro stile con KAO
-        diverso = (f'This is a VARIANT about {t.get("perc")}% different from the second image: change ONLY this: {t.get("cambi", "")}. Everything else stays identical. '
-                   if t.get('perc') else '')
-        prompt = (f'{KAO}{diverso}Recreate the SECOND reference image (a YouTube thumbnail) as faithfully as possible: SAME scene, SAME composition and framing, '
-                  f'SAME poses, gestures, objects, symbols, background elements, colours and lighting. Composition: {t.get("composizione", "")}. '
-                  f'The main person of the second image becomes KAO (first reference image), with the same emotion: {t.get("emo", "")}. Objects: {t.get("oggetto", "")}. '
-                  f'Background: {t.get("scena", "")}. Style: KAO stays a flat 2D cartoon with thick black outlines, in a modern CINEMATIC thumbnail with a softly blurred, '
-                  'colourful semi-realistic background, bokeh and a warm rim light. '
-                  f'The second image has a text block on the {"LEFT" if t.get("lato_testo") == "sinistra" else "RIGHT"} side: do NOT copy it, '
-                  f'leave that {"LEFT" if t.get("lato_testo") == "sinistra" else "RIGHT"} ~45% of the image as calm, simple background with NO objects, and keep KAO and the objects on the other side. '
-                  'Absolutely NO text, letters, words, numbers, labels, boxes or logos anywhere in the image.')
-        refs = [ID, t['comp_img']]
+    if t.get('comp_id'):   # dal competitor: testo, emozione, azione e oggetti; stile, colori e impaginazione restano i nostri
+        diverso = (f'(Variant: change ONLY this compared to the reference idea: {t.get("cambi", "")}.) ' if t.get('perc') else '')
+        prompt = (f'{KAO}Every part of the character is KAO: KAO\'s bald round head, face, skin colour and magenta long-sleeve shirt; '
+                  'if he has extra arms they have KAO\'s skin and magenta sleeves. '
+                  f'{diverso}Keep him a flat 2D cartoon with thick black outlines, but place him in a modern CINEMATIC thumbnail: behind him a softly blurred, '
+                  f'colourful, semi-realistic background ({t.get("scena", "")}) with bokeh lights and shallow depth of field, and a strong warm rim light outlining him. '
+                  f'Head and shoulders BIG on the LEFT 55%. What he does: {t.get("azione", "")}. Emotion: {t.get("emo", "")}. Objects: {t.get("oggetto", "")} '
+                  '(drawn in the same flat cartoon style). The RIGHT 45% is darker, blurred and calm for text, with no objects. '
+                  'YouTube thumbnail 16:9, modern, premium, very high contrast, readable on a phone. Absolutely NO text, letters or numbers in the image.')
+        t['lato_testo'] = 'destra'
     try:
         r = fal('fal-ai/nano-banana-2/edit', {'prompt': prompt, 'image_urls': refs, 'aspect_ratio': '16:9', 'resolution': '1K', 'output_format': 'jpeg', 'num_images': 1})
         im = Image.open(io.BytesIO(http(r['images'][0]['url'], raw=True))).convert('RGB')
         im = ImageOps.fit(im, (1280, 720), Image.LANCZOS)
         if APPLICA:
             im.save(os.path.join(BASI, c['id'] + '.jpg'), quality=92)
-        scritta(im, [str(t['riga1']).upper(), str(t['riga2']).upper()], 'sinistra' if t.get('lato_testo') == 'sinistra' else 'destra').save(p, quality=90)
+        lato = 'sinistra' if t.get('lato_testo') == 'sinistra' else 'destra'
+        scritta(im, [str(t['riga1']).upper(), str(t['riga2']).upper()], lato, zona_libera(im, lato)).save(p, quality=90)
         log('copertina pronta:', c['id'], t['riga1'], '/', t['riga2'])
         return p
     except Exception as e:
