@@ -395,8 +395,8 @@ def scritta_magenta(im, frase, zona=None):
     Mai sotto l'orario di YouTube (angolo in basso a destra)."""
     W, Hh = im.size
     x0, x1, y0, y1 = int(W * .48), int(W * .97), int(Hh * .05), int(Hh * .74)
-    if zona:
-        x0 = max(int(W * .50), int(W * zona[0]) + 10)
+    if zona:   # mai sopra KAO o gli oggetti: la scritta parte dopo di loro (al massimo dal 62%)
+        x0 = min(int(W * .62), max(x0, int(W * zona[0]) + 12))
     larg, alt = x1 - x0, y1 - y0
     F = lambda k: ImageFont.truetype(FONT, k)
     parole = frase.upper().split()
@@ -436,6 +436,43 @@ def scritta_magenta(im, frase, zona=None):
     return base.convert('RGB')
 
 
+VECCHIE_INIZIO = sorted(f for f in os.listdir(VECCHIE) if f.endswith('.jpg'))   # copertine vecchie gia' salvate nel repo
+_stile_ok = {}
+
+
+def stile_vecchio(path):
+    """True se la copertina e' nello stile vecchio che funzionava (KAO piatto in una scena disegnata + frase magenta), non quella cinematografica sfocata."""
+    if path in _stile_ok:
+        return _stile_ok[path]
+    ok = False
+    try:
+        buf = io.BytesIO(); Image.open(path).convert('RGB').resize((640, 360)).save(buf, 'JPEG', quality=80)
+        rr = http('https://api.anthropic.com/v1/messages', {'model': 'claude-haiku-4-5-20251001', 'max_tokens': 20, 'messages': [{'role': 'user', 'content': [
+            {'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}},
+            {'type': 'text', 'text': 'Is this thumbnail a flat 2D cartoon scene with a fully drawn, sharp environment (NOT a blurred/bokeh cinematic background) '
+                                     'and a big title written ALL in magenta letters (not white letters with a magenta label)? Answer only SI or NO.'}]}]},
+                  {'x-api-key': E('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01'}, timeout=120)
+        ok = 'SI' in ''.join(b.get('text', '') for b in rr.get('content', [])).upper()
+    except Exception as e:
+        log('controllo stile vecchio non riuscito:', str(e)[:100])
+    _stile_ok[path] = ok
+    return ok
+
+
+def rif_data(pth):
+    buf = io.BytesIO(); Image.open(pth).convert('RGB').resize((1024, 576)).save(buf, 'JPEG', quality=88)
+    return 'data:image/jpeg;base64,' + base64.b64encode(buf.getvalue()).decode()
+
+
+def riferimento_stile(vid):
+    """La vecchia copertina del video (se e' nello stile vecchio), altrimenti un'altra vecchia copertina del canale nello stile vecchio."""
+    for f in [vid + '.jpg'] + [x for x in VECCHIE_INIZIO if x != vid + '.jpg'][:12]:
+        pth = os.path.join(VECCHIE, f)
+        if f in VECCHIE_INIZIO and os.path.exists(pth) and stile_vecchio(pth):
+            return pth, f == vid + '.jpg'
+    return None, False
+
+
 def fai(i):
     c, t = cand[i], testi.get(i) or {}
     if c.get('variante') and not t.get('comp_id'):   # varianti 20%/30% solo per i video con il competitor nel foglio
@@ -469,23 +506,22 @@ def fai(i):
                   'The RIGHT 50% is completely EMPTY: only darker blurred background, no arms, no objects, nothing (it is reserved for a very big title). '
                   'YouTube thumbnail 16:9, modern, premium, very high contrast, readable on a phone. Absolutely NO text, letters or numbers in the image.')
         t['lato_testo'] = 'destra'
-        if STILE == 'piatto':   # stile delle vecchie copertine di successo: scena completa (ambiente + persone) con il KAO originale piatto, idea copiata dal competitor
-            refs = [ID, t['comp_img']]
-            prompt = ('Image 1 is our character KAO. Image 2 is a successful YouTube thumbnail: copy its IDEA 100% (situation, what the character does, emotion, objects, other people). '
-                      'Draw it as a COMPLETE SCENE in a real place that explains the context at first glance: '
-                      f'PLACE (the SAME place, time of day and light as image 2): {t.get("luogo") or t.get("scena", "")}. The environment is fully drawn with all its details (walls, furniture, windows, lights, nature...), not a plain or blurred background. '
-                      f'MAIN CHARACTER = KAO exactly as image 1: bald round head, same simple face, light skin, magenta long-sleeve shirt, black trousers. {diverso}'
-                      'KAO copies EXACTLY the pose and movement of the character of image 2 (if he runs, KAO runs; if he lies down, KAO lies down; same direction, same framing). '
-                      f'POSE AND MOVEMENT: {t.get("posa", "")}. ' + (f'KAO WEARS: {t.get("accessori")}. ' if t.get('accessori') else '') +
-                      f'What KAO does: {t.get("azione", "")}. Emotion, very clear on his face: {t.get("emo", "")}. Objects: {t.get("oggetto", "")}. '
-                      + (f'OTHER PEOPLE in the scene: {t.get("persone")}. They are drawn in the same style as KAO (bald round heads, simple faces) but wear NEUTRAL colours (grey, blue, brown, white): only KAO wears magenta. '
-                         if t.get('persone') else '') +
-                      'The scene fills the WHOLE image, edge to edge (no panels, no borders). KAO, the other people and the important objects stay in the LEFT 50%; '
-                      'KAO is big (full figure or knees up) and clearly visible. In the RIGHT 50% the same environment simply continues (wall, sky, room, landscape) '
-                      'with NO people and NO important objects: it will be darkened and covered by a big title. '
-                      'Style: the SAME flat 2D cartoon style as image 1 for everything: thick black outlines, flat colours, simple shapes, NO shading gradients, '
-                      'NO glow, NO rim light, NO bokeh, NO blur, NO cinematic light effects. Do NOT copy the drawing style or the characters of image 2. '
-                      'YouTube thumbnail 16:9. Absolutely NO text, letters or numbers in the image.')
+        if STILE == 'piatto':   # la VECCHIA copertina (stile che funzionava) aggiornata: stessa grafica, ma scena/posa/oggetti come il competitor
+            rif, sua = riferimento_stile(c['id'])
+            refs = ([rif_data(rif)] if rif else []) + [ID]   # NIENTE immagine del competitor: solo la descrizione
+            t['rif_stile'] = rif or ''
+            prompt = (('Image 1 is our OLD thumbnail' + (' of this video' if sua else '') + ': keep EXACTLY its graphic style: same flat 2D cartoon drawing, same rich colours and warm lighting, '
+                       'same size and look of KAO, same detailed environment drawing, same dark shading on the right side. Image 2 is our character KAO. '
+                       if rif else 'Image 1 is our character KAO. Flat 2D cartoon, thick black outlines, rich warm colours, fully drawn detailed environment. ') +
+                      'Draw a NEW scene in that style with this content (it must match exactly): '
+                      f'PLACE: {t.get("luogo") or t.get("scena", "")} (same time of day and light). '
+                      f'KAO POSE AND MOVEMENT: {t.get("posa", "")}. ' + (f'KAO WEARS: {t.get("accessori")}. ' if t.get('accessori') else '') +
+                      f'WHAT KAO DOES: {t.get("azione", "")}. EMOTION, very clear on his face: {t.get("emo", "")}. OBJECTS: {t.get("oggetto", "")}. {diverso}'
+                      + (f'OTHER PEOPLE: {t.get("persone")} (same style as KAO, neutral clothes, only KAO wears magenta). ' if t.get('persone') else '') +
+                      'KAO is exactly as in the KAO reference: bald round head, simple face, light skin, magenta long-sleeve shirt, black trousers. '
+                      'The scene fills the WHOLE image; KAO, people and important objects stay in the LEFT 50%, KAO big and clearly visible. '
+                      'The RIGHT 50% continues the environment with nothing important, darker, for a big title. '
+                      'NO blur, NO bokeh, NO glow, NO rim light. Remove ALL text: absolutely NO text, letters or numbers in the image. YouTube thumbnail 16:9.')
             t['lato_testo'] = 'destra'
     try:
         r = fal('fal-ai/nano-banana-2/edit', {'prompt': prompt, 'image_urls': refs, 'aspect_ratio': '16:9', 'resolution': '1K', 'output_format': 'jpeg', 'num_images': 1})
@@ -501,7 +537,7 @@ def fai(i):
             im.save(os.path.join(BASI, c['id'] + '.jpg'), quality=92)
         lato = 'sinistra' if t.get('lato_testo') == 'sinistra' else 'destra'
         if STILE == 'piatto' and str(E('TESTO_STILE', '') or 'magenta').lower() == 'magenta':   # come le vecchie copertine che andavano bene: lato destro scurito + frase intera magenta
-            scritta_magenta(scurisci_destra(im), f"{t['riga1']} {t['riga2']}").save(p, quality=90)
+            scritta_magenta(scurisci_destra(im), f"{t['riga1']} {t['riga2']}", zona_libera(im, 'destra')).save(p, quality=90)
         else:
             scritta(im, [str(t['riga1']).upper(), str(t['riga2']).upper()], lato, zona_libera(im, lato)).save(p, quality=90)
         log('copertina pronta:', c['id'], t['riga1'], '/', t['riga2'])
@@ -555,20 +591,23 @@ with open(os.path.join(BASE, 'cinema_esito.csv'), 'a', newline='', encoding='utf
 ok = [(c, p) for c, p in zip(cand, fatte) if p and os.path.exists(p)]
 if ok:
     tw, th = 480, 270
-    S = Image.new('RGB', (tw * 3 + 40, (th + 36) * len(ok) + 10), 'white'); d = ImageDraw.Draw(S); fe = ImageFont.truetype(FONT, 22)
+    S = Image.new('RGB', ((tw * 2 + 20) if STILE == 'piatto' else (tw * 3 + 40), (th + 36) * len(ok) + 10), 'white'); d = ImageDraw.Draw(S); fe = ImageFont.truetype(FONT, 22)
     for i, (c, p) in enumerate(ok):
         y = i * (th + 36) + 5
         tc = testi.get(cand.index(c)) or {}
         if tc.get('comp_id'):
             ci = copertina_yt(tc['comp_id'])
             if ci is not None:
-                S.paste(ci.resize((tw, th)), (tw * 2 + 40, y))
-        v = os.path.join(VECCHIE, c['id'] + '.jpg')
-        try:
-            S.paste(ImageOps.fit(Image.open(v).convert('RGB'), (tw, th)), (0, y))
-        except Exception:   # copertina vecchia mancante o rovinata: si salta
-            pass
-        S.paste(Image.open(p).resize((tw, th)), (tw + 20, y))
+                S.paste(ci.resize((tw, th)), ((tw + 20) if STILE == 'piatto' else (tw * 2 + 40), y))
+        if STILE == 'piatto':   # 2 colonne: nuova | competitor
+            S.paste(Image.open(p).resize((tw, th)), (0, y))
+        else:
+            v = os.path.join(VECCHIE, c['id'] + '.jpg')
+            try:
+                S.paste(ImageOps.fit(Image.open(v).convert('RGB'), (tw, th)), (0, y))
+            except Exception:   # copertina vecchia mancante o rovinata: si salta
+                pass
+            S.paste(Image.open(p).resize((tw, th)), (tw + 20, y))
         d.text((5, y + th + 4), f'{c["quando"]}  {c["titolo"][:60]}', font=fe, fill='black')
     S.save(os.path.join(BASE, 'cinema_anteprima.jpg'), quality=85)
 os.remove(FONT)
