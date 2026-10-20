@@ -1,15 +1,11 @@
 #!/usr/bin/env python3
 """
-STORIA IN MINUTI - le 3 copertine di ogni video, SEMPRE partendo dalla copertina ORIGINALE del competitor:
-  1 = 20% diversa dall'originale  (va online subito)
-  2 = 30% diversa dall'originale  (pronta per il cambio se il CTR resta basso)
-  3 = 40% diversa dall'originale  (ultimo cambio)
-Regole: stesso testo dell'originale tradotto al 100% in italiano (date "a.C." / "d.C."), stessa impaginazione e stesso stile;
-personaggi con espressioni pulite e serene (niente smorfie), niente incendi, esplosioni, distruzione, guerra o catastrofi;
-mai testo nell'angolo in basso a destra (durata del video); bollino del canale in un angolo libero (mai in basso a destra).
-Uscita: copertine_storia/<video>_1.jpg, _2.jpg, _3.jpg + confronto.jpg + copertine.txt. APPLICA=SI carica la 1 su YouTube.
-Env: VIDEO = "nostroID:competitorID,..." (al posto dell'ID si puo' scrivere una parola del titolo, es. "India:p9IIGdg91fE")
-     APPLICA (SI/NO), LIVELLI (default "20,30,40"), YT_CLIENT_ID, YT_CLIENT_SECRET, YT_REFRESH_TOKEN, FAL_KEY, ANTHROPIC_API_KEY
+STORIA IN MINUTI - copertine "BANDIERA + SOVRANO": stile del canale, niente copiato dal competitor (dal competitor si prende solo il tipo di figura).
+  meta' sinistra: la bandiera del paese, vera stoffa al vento;   meta' destra: un sovrano dell'epoca FOTOREALISTICO, persona nuova;
+  dietro: un monumento reale e riconoscibile del paese, cielo vero e colori veri;   in alto al centro: NOME DEL PAESE grande + date (scritti dallo script).
+  3 copertine per video: 1 va online, 2 e 3 sono pronte per il cambio se il CTR resta basso (altro monumento, altra figura, altra inquadratura).
+Uscita: copertine_storia/<video>_1.jpg, _2.jpg, _3.jpg (+ _base senza scritte) + confronto.jpg. APPLICA=SI carica la 1 su YouTube.
+Env: VIDEO = "nostroID:competitorID,..." (al posto del nostro ID va bene una parola del titolo, es. "India:p9IIGdg91fE")
 """
 import base64, io, json, os, re, time, urllib.error, urllib.parse, urllib.request
 from concurrent.futures import ThreadPoolExecutor
@@ -17,7 +13,7 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 E = os.environ.get
 APPLICA = str(E('APPLICA', '') or 'NO').strip().upper() == 'SI'
-LIVELLI = [int(x) for x in (E('LIVELLI', '') or '20,30,40').split(',') if x.strip()]
+LIVELLI = [int(x) for x in (E('LIVELLI', '') or '40,50,60').split(',') if x.strip()]
 COPPIE = [x.strip().split(':', 1) for x in (E('VIDEO', '') or '').split(',') if ':' in x]
 OUT = os.path.join(os.getcwd(), 'copertine_storia'); os.makedirs(OUT, exist_ok=True)
 FAL = {'Authorization': 'Key ' + E('FAL_KEY', ''), 'Content-Type': 'application/json'}
@@ -90,130 +86,178 @@ def claude(cont, max_tokens=3000):
     return ''.join(b.get('text', '') for b in r.get('content', []))
 
 
-DOMANDA = """Copertina YouTube di un video di storia di grande successo (competitor). La rifacciamo per il nostro canale italiano "Storia in Minuti".
-1) "testo": TUTTO il testo scritto sulla copertina, tradotto in italiano AL 100% (stesse parole, stessi numeri e date, stesse maiuscole).
-   Date sempre "a.C." / "d.C." scritte esattamente cosi' (a e d minuscole). Se c'e' un nome di paese lascialo come in italiano (es. INDIA, IRAN).
-2) Per ognuno di questi livelli di differenza dall'ORIGINALE: {livelli} — scrivi in "cambi" (in inglese, 1 frase per cambio) i cambi CONCRETI per QUESTA copertina.
-   I COLORI NON SI TOCCANO MAI: stesso cielo, stessa palette, stesso momento della giornata dell'originale (la sua forza e' il contrasto dei colori).
-   20% = (a) il soggetto principale piu' grande del 15-20% e piu' in primo piano; (b) sfondo leggermente sfocato con profondita'.
-   30% = i cambi del 20% + (c) il soggetto cambia posa o gesto (es. mano alzata che indica, sguardo verso chi guarda), espressione serena; (d) UN monumento secondario diverso, della stessa epoca e paese (dillo quale).
-   40% = i cambi del 30% + (e) inquadratura dal basso, il soggetto appare imponente; (f) UN elemento in primo piano diverso (dillo quale, es. un carro al posto dell'elefante).
-   Ogni livello parte sempre dall'ORIGINALE. VIETATO: incendi, fumo, esplosioni, distruzione, guerra, sangue, catastrofi; smorfie o espressioni esagerate.
-   Il testo e la sua posizione NON cambiano. Non aggiungere loghi, bollini o scritte.
-3) "righe": lo stesso testo diviso nelle stesse righe dell'originale (es. originale "HISTORY OF" / "IRAN" -> ["STORIA DELL'", "IRAN"]).
-Rispondi SOLO JSON: {{"testo": "...", "righe": ["...", "..."], "livelli": [{{"perc": 20, "cambi": ["...", "..."]}}]}}"""
+DOMANDA = """Copertina YouTube di un video sulla storia completa di un paese (competitor). Titolo del video originale: "{titolo}".
+Rispondi SOLO JSON:
+{{"paese": "nome del paese in ITALIANO, MAIUSCOLO (es. INDIA, IRAN, AFGHANISTAN, GIAPPONE)",
+ "bandiera": "nome del paese in inglese per la bandiera ufficiale (es. India)",
+ "date": "le date della copertina o del titolo nel formato '2600 a.C. – 2026' (a e d minuscole); se non ci sono, l'arco della storia del paese",
+ "figure": ["3 figure DIVERSE in inglese, dello stesso tipo della figura principale della copertina (es. 'an ancient Indian king with a golden crown', 'a Mauryan emperor in white and red silk', 'an ancient Indian queen')"],
+ "monumenti": ["3 monumenti REALI e famosi del paese, diversi, in inglese (es. 'the Great Stupa of Sanchi', 'the Brihadeeswarar Temple', 'the Taj Mahal')"]}}"""
 
 
-RIGHE = []
+def prompt_con_testo(bandiera, figura, monumento, var, paese, date):
+    inquadratura = ['waist-up, looking at the viewer', 'chest-up, slightly closer, looking at the viewer', 'waist-up, seen from a slightly low angle, looking at the viewer'][var % 3]
+    anno = (re.findall(r'\d{3,4}', date) or [''])[-1]
+    return ('Create a YouTube thumbnail, 16:9, 1280x720, premium, cinematic and eye-catching, readable on a phone. PHOTOREALISTIC, like a still from a big-budget '
+            'historical film: real skin, real fabrics, real metal and jewellery, natural light. No cartoon, no illustration. '
+            f'LEFT HALF: the official national flag of {bandiera}, large, real silk fabric waving in the wind with deep natural folds, accurate vivid colours, lit by the sun. '
+            f'RIGHT HALF: {figura}, a photorealistic NEW, original person, {inquadratura}. Real human face with natural skin texture, calm, dignified and confident expression, '
+            'warm sunlight on his face and a soft golden rim light on his outline. '
+            f'BACKGROUND (between and behind them): {monumento}, real and recognisable, slightly out of focus, with a real blue sky with natural clouds and true natural colours '
+            '(no orange filter, no sunset, no fantasy colours). '
+            'TEXT, two lines only, spelled exactly: '
+            f'Line 1: {paese} - the country name, the BIGGEST element of the thumbnail, very clear bold serif capital letters like a documentary title, white with a thick dark outline '
+            'and a strong drop shadow, perfectly readable at a glance. '
+            f'Line 2, under it, smaller: {date} (lowercase "a" in "a.C."), bold condensed font, white with black outline' + (f', the year {anno} in bright yellow. ' if anno else '. ') +
+            'Place the text in the upper part, across the centre, without covering the flag\'s emblem or the person\'s face. '
+            'Keep the bottom-right corner (last 30% of width, last 28% of height) empty of text: the video duration is shown there. '
+            'No logo, no badge, no other text, no watermark.')
 
 
 def norm(t):
-    return re.sub(r'[^A-Z0-9]', '', str(t).upper().replace('’', "'"))
+    return re.sub(r'[^A-Z0-9]', '', str(t).upper())
 
 
-def testo_giusto(im, testo):
-    """Claude legge la scritta della copertina: deve essere ESATTAMENTE il testo voluto (nessuna lettera sbagliata o mancante)."""
+def testo_ok(im, paese, date):
+    """Claude legge la copertina: ci devono essere ESATTAMENTE il paese e le date, nient'altro."""
     try:
         t = claude([{'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': jpg64(im, 1024)}},
-                    {'type': 'text', 'text': 'Trascrivi ESATTAMENTE tutto il testo scritto in questa immagine, lettera per lettera, senza correggere errori. '
-                                             'Rispondi solo con il testo, su una riga.'}], 300)
-        ok = norm(t) == norm(testo)
+                    {'type': 'text', 'text': 'Trascrivi ESATTAMENTE tutto il testo scritto in questa immagine, lettera per lettera, senza correggere errori. Solo il testo, su una riga.'}], 300)
+        ok = norm(t) == norm(paese + date)
         if not ok:
-            log(f'    scritta sbagliata: letto "{t.strip()[:80]}" invece di "{testo}"')
+            log(f'    scritta sbagliata: "{t.strip()[:80]}"')
         return ok
     except Exception as e:
         log('    controllo scritta non riuscito:', str(e)[:100]); return True
 
 
-WOW = ('WOW EFFECT: a strong warm golden rim light outlining the main subject so it pops from the background; slightly higher contrast and saturation on the subject; '
-       'clean sharp details; keep EXACTLY the same sky colour, palette and time of day as the reference (never turn it into a sunset). '
-       'Make the title stronger: same words, same font and colours, but a thicker dark outline and a crisp drop shadow so it reads instantly on a phone. ')
+def prompt_scena(bandiera, figura, monumento, var):
+    inquadratura = ['waist-up, looking at the viewer', 'chest-up, slightly closer, looking at the viewer', 'waist-up, seen from a slightly low angle, looking at the viewer'][var % 3]
+    return ('YouTube thumbnail background, 16:9, PHOTOREALISTIC, like a still from a big-budget historical film: real skin, real fabrics, real metal and jewellery, natural sunlight. '
+            'No cartoon, no illustration. '
+            f'LEFT 45%: the official national flag of {bandiera}, large, real fabric waving in the wind with deep natural folds, accurate vivid colours, lit by the sun. '
+            f'RIGHT 35%: {figura}, a photorealistic original person, {inquadratura}, real human face with natural skin texture, calm, dignified and confident expression, '
+            'warm sunlight on the face and a soft golden rim light on the outline. '
+            f'BACKGROUND in the centre, between them: {monumento}, real and recognisable, slightly out of focus, under a real blue sky with natural white clouds, true natural colours '
+            '(no orange filter, no sunset, no fantasy colours). '
+            'The upper central area (top 40% of the image, between the flag and the person) must be calm open sky with nothing important: a big title will be added there. '
+            'Absolutely NO text, letters, numbers, logos or watermark anywhere.')
 
 
-def vignetta(im, forza=0.28):
-    """Bordi leggermente piu' scuri: l'occhio va al centro."""
-    w, h = im.size
-    m = Image.new('L', (w, h), 0); d = ImageDraw.Draw(m)
-    for k in range(60):
-        a = int(255 * forza * (1 - k / 60) ** 2)
-        d.rectangle([k * w // 240, k * h // 240, w - 1 - k * w // 240, h - 1 - k * h // 240], outline=a, width=max(1, w // 240))
+FONT_DIR = os.path.join(os.getcwd(), 'font_copertine'); os.makedirs(FONT_DIR, exist_ok=True)
+
+
+def font(nome):
+    p = os.path.join(FONT_DIR, nome + '.ttf')
+    if not os.path.exists(p):
+        u = {'slab': 'https://github.com/google/fonts/raw/main/ofl/alfaslabone/AlfaSlabOne-Regular.ttf',
+             'anton': 'https://github.com/google/fonts/raw/main/ofl/anton/Anton-Regular.ttf'}[nome]
+        open(p, 'wb').write(http(u, raw=True))
+    return p
+
+
+GIALLO, BIANCO, NERO = (255, 214, 0), (255, 255, 255), (0, 0, 0)
+
+
+def zona_titolo(im):
+    """Claude indica il rettangolo di cielo libero in alto tra bandiera e persona (mai sul volto, mai in basso a destra)."""
+    dom = ('YouTube thumbnail without text: flag on the left, a person on the right. We must add a big 2-line title in the UPPER CENTRE. '
+           'Give the LARGEST rectangle in the upper part that does NOT cover the person\'s face or head and does not cover the flag\'s central emblem. '
+           'It may overlap the top of the flag fabric and the sky. Answer ONLY JSON with percentages: {"x0": 0, "y0": 0, "x1": 0, "y1": 0}')
+    try:
+        t = claude([{'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': jpg64(im, 768)}}, {'type': 'text', 'text': dom}], 1500)
+        z = json.loads(t[t.find('{'): t.rfind('}') + 1]); z = [max(0.0, min(100.0, float(z[k]))) / 100 for k in ('x0', 'y0', 'x1', 'y1')]
+        if z[2] - z[0] >= .30 and z[3] - z[1] >= .20:
+            return z
+    except Exception as e:
+        log('    zona titolo non trovata:', str(e)[:100])
+    return [.20, .02, .74, .42]
+
+
+def titolo(im, paese, date, z):
+    """NOME DEL PAESE grande (serif pesante bianco, contorno scuro, ombra) + date sotto (condensato bianco, anno finale giallo)."""
+    W, H = im.size
+    x0, y0, x1, y1 = int(W * z[0]), int(H * z[1]) + 6, int(W * z[2]), min(int(H * z[3]), int(H * .60))
+    larg, alt = x1 - x0, y1 - y0
+    best = None
+    for k in range(300, 60, -4):
+        k2 = int(k * .52)
+        f1, f2 = ImageFont.truetype(font('slab'), k), ImageFont.truetype(font('anton'), k2)
+        h = k * 1.05 + k2 * 1.15
+        if f1.getlength(paese) <= larg and f2.getlength(date) <= larg and h <= alt:
+            best = (k, k2); break
+    k, k2 = best or (90, 47)
+    f1, f2 = ImageFont.truetype(font('slab'), k), ImageFont.truetype(font('anton'), k2)
+    cx = (x0 + x1) / 2; y = y0 + (alt - (k * 1.05 + k2 * 1.15)) / 2
+    base = im.convert('RGBA')
+    om = Image.new('RGBA', base.size, (0, 0, 0, 0)); do = ImageDraw.Draw(om)
+    do.text((cx + 8, y + 10), paese, font=f1, fill=(0, 0, 0, 200), anchor='mt', stroke_width=max(6, k // 14), stroke_fill=(0, 0, 0, 200))
+    do.text((cx + 6, y + k * 1.05 + 8), date, font=f2, fill=(0, 0, 0, 200), anchor='mt', stroke_width=max(5, k2 // 10), stroke_fill=(0, 0, 0, 200))
     from PIL import ImageFilter
-    m = m.filter(ImageFilter.GaussianBlur(w // 30))
-    return Image.composite(Image.new('RGB', (w, h), (0, 0, 0)), im, m)
-
-
-def regole(testo):
-    return (WOW + 'Rules: the characters have clean, calm, dignified expressions (no grimaces, no exaggerated emotions); '
-            'absolutely NO fire, smoke, explosions, destruction, war scenes, blood or catastrophes; bright, clean, inviting colours. '
-            'Keep the BOTTOM-RIGHT corner (last 30% of width and last 28% of height) free of any text: YouTube shows the video duration there; '
-            f'Replace ALL the text with exactly this Italian text, same font style, same colours, same size and same position (unless it was in the bottom-right corner): "{testo}". '
-            + (('Line by line, spelled letter by letter exactly like this: ' + ' / '.join(f'line {i + 1}: "{r}"' for i, r in enumerate(RIGHE))) + '. ' if RIGHE else '')
-            + 'Write ONLY this text: do not add any other word, date or line. '
-            + ('Dates exactly as written ("a.C." / "d.C." with lowercase a and d). ' if re.search(r'\d', testo) else '')
-            + 'No logos, no badges, no stickers, no watermark.')
-
-
-def bollino(im):
-    if str(E('BOLLINO', '') or 'NO').upper() != 'SI' or not os.path.exists(BOLLINO):   # niente bollino: la copertina e' solo la variante dell'originale
-        return im
-    b = Image.open(BOLLINO).convert('RGBA'); L = 230
-    b = b.resize((L, L), Image.LANCZOS)
-    out = im.convert('RGBA'); out.alpha_composite(b, (16, 16))   # sempre in alto a sinistra (lasciato libero nel prompt)
-    return out.convert('RGB')
+    base.alpha_composite(om.filter(ImageFilter.GaussianBlur(9)))
+    d = ImageDraw.Draw(base)
+    d.text((cx, y), paese, font=f1, fill=BIANCO, anchor='mt', stroke_width=max(6, k // 14), stroke_fill=(20, 20, 20))
+    # date: tutto bianco tranne l'ultimo anno (giallo)
+    yd = y + k * 1.05
+    m = re.match(r'^(.*?)(\d{3,4})\s*$', date)
+    pre, anno = (m.group(1), m.group(2)) if m else (date, '')
+    tot = f2.getlength(date); xs = cx - tot / 2
+    sw = max(5, k2 // 10)
+    d.text((xs, yd), pre, font=f2, fill=BIANCO, anchor='lt', stroke_width=sw, stroke_fill=NERO)
+    if anno:
+        d.text((xs + f2.getlength(pre), yd), anno, font=f2, fill=GIALLO, anchor='lt', stroke_width=sw, stroke_fill=NERO)
+    return base.convert('RGB')
 
 
 righe, testo_log = [], []
 canale = None
 for nostro, comp in COPPIE:
     nostro, comp = nostro.strip(), comp.strip()
+    canale = canale or video_canale()
     if not re.fullmatch(r'[\w-]{11}', nostro):   # parola del titolo -> ID del nostro video
-        canale = canale or video_canale()
         trovato = next((v for v, t in canale if nostro.lower() in t.lower()), None)
         if not trovato:
             log('video non trovato sul canale:', nostro); continue
         log(f'"{nostro}" -> {trovato}'); nostro = trovato
+    tit = next((t for v, t in canale if v == nostro), '')
     orig = copertina_yt(comp)
     if orig is None:
         log('copertina del competitor non trovata:', comp); continue
     try:
         txt = claude([{'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': jpg64(orig, 768)}},
-                      {'type': 'text', 'text': DOMANDA.format(livelli=', '.join(f'{p}%' for p in LIVELLI))}])
+                      {'type': 'text', 'text': DOMANDA.format(titolo=tit)}])
         an = json.loads(txt[txt.find('{'): txt.rfind('}') + 1])
     except Exception as e:
         log('analisi non riuscita', nostro, str(e)[:200]); continue
-    testo = str(an.get('testo') or '').strip()
-    RIGHE = [str(x).strip() for x in (an.get('righe') or []) if str(x).strip()]
-    livelli = {int(x.get('perc', 0)): x.get('cambi') or [] for x in an.get('livelli') or []}
-    log(f'{nostro} <- {comp} | testo: {testo}')
-    testo_log.append(f'=== {nostro} (originale {comp})\nTesto: {testo}')
+    paese, date, band = str(an.get('paese') or '').upper().strip(), str(an.get('date') or '').strip(), str(an.get('bandiera') or '').strip()
+    figure, monum = (an.get('figure') or ['an ancient king'])[:3], (an.get('monumenti') or ['a famous ancient monument'])[:3]
+    log(f'{nostro} <- {comp} | {paese} / {date} | figure: {figure} | monumenti: {monum}')
+    testo_log.append(f'=== {nostro} (originale {comp})\n{paese} / {date}')
 
-    def fai(k_perc):
-        k, perc = k_perc
-        cambi = livelli.get(perc) or []
-        prompt = (f'Recreate the YouTube thumbnail of the reference image as a high-quality 2D cartoon illustration with clean black outlines and rich detail, '
-                  f'keeping the same layout, title position, the same subject, theme and the SAME COLOURS, but about {perc}% DIFFERENT from it. '
-                  f'Change exactly these things: {"; ".join(cambi)}. Everything else stays like the reference. ' + regole(testo))
+    def fai(k):
+        fig, mon = figure[(k - 1) % len(figure)], monum[(k - 1) % len(monum)]
         try:
             im = None
-            for tentativo in range(3):   # la scritta deve essere perfetta: altrimenti si rifa' (max 3 volte)
-                r = fal('fal-ai/nano-banana-2/edit', {'prompt': prompt + (' CHECK THE SPELLING OF THE TITLE CAREFULLY.' if tentativo else ''),
-                                                      'image_urls': ['data:image/jpeg;base64,' + jpg64(orig)],
-                                                      'aspect_ratio': '16:9', 'resolution': '2K', 'output_format': 'jpeg', 'num_images': 1})
+            for tentativo in range(3):   # come le prove fatte con Gemini: scritta disegnata nella copertina, controllata lettera per lettera
+                r = fal('fal-ai/nano-banana-2', {'prompt': prompt_con_testo(band, fig, mon, k - 1, paese, date), 'aspect_ratio': '16:9', 'resolution': '2K',
+                                                 'output_format': 'jpeg', 'num_images': 1})
+                prova = ImageOps.fit(Image.open(io.BytesIO(http(r['images'][0]['url'], raw=True))).convert('RGB'), (1280, 720), Image.LANCZOS)
+                if testo_ok(prova, paese, date):
+                    im = prova; break
+            if im is None:   # riserva: scena senza scritte + titolo scritto dallo script (mai una scritta sbagliata online)
+                log('    3 tentativi con scritta sbagliata: uso la scena senza scritte e scrivo il titolo io')
+                r = fal('fal-ai/nano-banana-2', {'prompt': prompt_scena(band, fig, mon, k - 1), 'aspect_ratio': '16:9', 'resolution': '2K', 'output_format': 'jpeg', 'num_images': 1})
                 im = ImageOps.fit(Image.open(io.BytesIO(http(r['images'][0]['url'], raw=True))).convert('RGB'), (1280, 720), Image.LANCZOS)
-                if testo_giusto(im, testo):
-                    break
-                if tentativo == 2:
-                    raise RuntimeError('scritta ancora sbagliata dopo 3 tentativi: copertina NON usata')
-            im = vignetta(bollino(im))
-            p = os.path.join(OUT, f'{nostro}_{k}.jpg'); im.save(p, quality=92)
-            log(f'  copertina {k} ({perc}% diversa): ' + ' | '.join(cambi))
-            return k, perc, im, cambi
+                im = titolo(im, paese, date, zona_titolo(im))
+            im.save(os.path.join(OUT, f'{nostro}_{k}.jpg'), quality=92)
+            log(f'  copertina {k}: {fig} | {mon}')
+            return k, 0, im, [fig, mon]
         except Exception as e:
-            log(f'  copertina {k} non riuscita:', str(e)[:200]); return k, perc, None, cambi
+            log(f'  copertina {k} non riuscita:', str(e)[:200]); return k, 0, None, [fig, mon]
     with ThreadPoolExecutor(3) as ex:
-        fatte = list(ex.map(fai, list(enumerate(LIVELLI, start=1))))
+        fatte = list(ex.map(fai, [1, 2, 3]))
     for k, perc, im, cambi in fatte:
-        testo_log.append(f'{k} = {perc}% diversa: ' + ' | '.join(cambi))
+        testo_log.append(f'{k} = ' + ' | '.join(cambi))
     stato = 'solo anteprima'
     prima = next((im for k, perc, im, c in fatte if k == 1 and im is not None), None)
     if APPLICA and prima is not None:
@@ -231,7 +275,7 @@ for nostro, comp in COPPIE:
             stato = 'NON caricata (' + str(e)[:60] + ' ' + dett + ')' + (' -> caricala a mano da YouTube Studio: copertine_storia/' + nostro + '_1.jpg' if getattr(e, 'code', 0) == 403 else '')
     log('  ' + stato)
     testo_log.append(stato + '\n')
-    righe.append((nostro, [('ORIGINALE', orig)] + [(f'{k} - {perc}%', im) for k, perc, im, c in fatte]))
+    righe.append((nostro, [('ORIGINALE', orig)] + [(f'copertina {k}', im) for k, perc, im, c in fatte]))
 
 open(os.path.join(OUT, 'copertine.txt'), 'a', encoding='utf-8').write(time.strftime('%Y-%m-%d %H:%M') + '\n' + '\n'.join(testo_log) + '\n')
 if righe:
