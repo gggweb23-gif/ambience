@@ -303,6 +303,19 @@ def e_kao(im):
         log('controllo KAO non riuscito:', str(e)[:100]); return True
 
 
+SFONDI_TESTO = {   # sfondo dietro la scritta MAGENTA (la scritta resta sempre magenta)
+    'fumetto': 'a big white rounded card / comic speech-bubble with a thick black outline, the magenta letters inside it, a small soft shadow under the card.',
+    'nero': 'each line sits on its own solid BLACK strip (like a highlighter), tight around the words, slightly tilted; the magenta letters have a thin white outline.',
+    'bianco': 'each line sits on its own solid WHITE strip (like a highlighter), tight around the words; the magenta letters have a thick black outline.',
+    'ombra': 'NO box: thick black outline around every magenta letter and a soft dark glow/shadow only right behind the words, the rest of the scene stays bright.',
+}
+SFONDI_NOMI = {'fumetto': 'Cartoncino bianco (fumetto)', 'nero': 'Strisce nere', 'bianco': 'Strisce bianche', 'ombra': 'Solo contorno + ombra'}
+SFONDO_TESTO = str(E('SFONDO_TESTO', '') or 'fumetto').strip().lower()
+if SFONDO_TESTO not in SFONDI_TESTO:
+    SFONDO_TESTO = 'fumetto'
+PROVA_SFONDI = str(E('PROVA_SFONDI', '') or ('SI' if 0 < int(E('ULTIMI', '') or 0) <= 2 else 'NO')).upper() == 'SI'   # prova: lo stesso video con i 4 sfondi della scritta
+
+
 def testo_esatto(im, frase):
     """Claude trascrive la scritta della copertina: deve essere identica alla frase (lettere e numeri), senza altre scritte."""
     buf = io.BytesIO(); im.resize((960, 540)).save(buf, 'JPEG', quality=88)
@@ -602,23 +615,42 @@ def fai(i):
     if STILE == 'piatto' and str(E('TESTO_STILE', '') or 'disegnata').lower() == 'disegnata':   # la scritta la disegna Nano Banana (resa migliore), controllata lettera per lettera
         frase = f"{t['riga1']} {t['riga2']}".upper().strip()
         lato_t = 'LEFT' if t.get('lato_testo') == 'sinistra' else 'RIGHT'
-        pt = prompt.replace('Remove ALL text: absolutely NO text, letters or numbers in the image.',
-                            f'TITLE: write EXACTLY this Italian text, nothing else: "{frase}". Put it on the {lato_t} side, in the empty part of the scene, big, on 2-4 lines, centred, '
-                            'readable on a phone: bold condensed uppercase letters (like the Anton font) in BLACK, each line on its own bright YELLOW highlighter strip, '
-                            'like a popular YouTube thumbnail. The title never covers KAO, faces or important objects, and stays out of the bottom-right corner (video timer). '
-                            'No other text anywhere. Spell every word exactly.')
-        for tent in range(3):
-            try:
-                r = fal('fal-ai/nano-banana-2/edit', {'prompt': pt, 'image_urls': refs, 'aspect_ratio': '16:9', 'resolution': '1K', 'output_format': 'jpeg', 'num_images': 1})
-                im = ImageOps.fit(Image.open(io.BytesIO(http(r['images'][0]['url'], raw=True))).convert('RGB'), (1280, 720), Image.LANCZOS)
-                if testo_esatto(im, frase) and e_kao(im):
-                    im.save(p, quality=90)
-                    log('copertina pronta (scritta disegnata):', c['id'], frase, f'tentativo {tent + 1}')
-                    return p
-                log(f'  {c["id"]}: scritta o personaggio non perfetti, rifaccio ({tent + 1}/3)')
-            except Exception as e:
-                log('  tentativo non riuscito:', str(e)[:120])
-        log(f'  {c["id"]}: 3 tentativi non perfetti, scrivo io la scritta')
+        stili = list(SFONDI_TESTO) if PROVA_SFONDI else [SFONDO_TESTO]
+        fatte_s = {}
+        for st_ in stili:
+            pt = prompt.replace('Remove ALL text: absolutely NO text, letters or numbers in the image.',
+                                f'TITLE: write EXACTLY this Italian text, nothing else: "{frase}". Put it on the {lato_t} side, in the empty part of the scene, big, on 2-4 lines, centred, '
+                                'readable on a phone: bold condensed uppercase letters (like the Anton font) in bright MAGENTA (the same magenta as KAO\'s shirt). '
+                                f'Behind the title: {SFONDI_TESTO[st_]} High impact, clean, professional, like a viral YouTube thumbnail. '
+                                'The title never covers KAO, faces or important objects, and stays out of the bottom-right corner (video timer). '
+                                'No other text anywhere. Spell every word exactly.')
+            for tent in range(2 if PROVA_SFONDI else 3):
+                try:
+                    r = fal('fal-ai/nano-banana-2/edit', {'prompt': pt, 'image_urls': refs, 'aspect_ratio': '16:9', 'resolution': '1K', 'output_format': 'jpeg', 'num_images': 1})
+                    im = ImageOps.fit(Image.open(io.BytesIO(http(r['images'][0]['url'], raw=True))).convert('RGB'), (1280, 720), Image.LANCZOS)
+                    if testo_esatto(im, frase) and e_kao(im):
+                        fatte_s[st_] = im
+                        log('copertina pronta (scritta disegnata):', c['id'], st_, frase, f'tentativo {tent + 1}')
+                        break
+                    log(f'  {c["id"]} {st_}: scritta o personaggio non perfetti, rifaccio ({tent + 1})')
+                except Exception as e:
+                    log('  tentativo non riuscito:', str(e)[:120])
+        if PROVA_SFONDI and fatte_s:   # confronto degli sfondi della scritta: una griglia per video
+            tw, th = 640, 360
+            G = Image.new('RGB', (tw * 2 + 10, (th + 40) * 2), 'white'); dg = ImageDraw.Draw(G); fg = ImageFont.truetype(FONT, 26)
+            for n_, st_ in enumerate(stili):
+                x_, y_ = (n_ % 2) * (tw + 10), (n_ // 2) * (th + 40)
+                dg.text((x_ + 6, y_ + 4), f'{n_ + 1}) {SFONDI_NOMI[st_]}', font=fg, fill='black')
+                if st_ in fatte_s:
+                    G.paste(fatte_s[st_].resize((tw, th)), (x_, y_ + 38))
+                    fatte_s[st_].save(os.path.join(NUOVE, f'{c["id"]}_{st_}.jpg'), quality=90)
+            G.save(os.path.join(NUOVE, f'sfondi_{c["id"]}.jpg'), quality=88)
+            first = next(iter(fatte_s.values())); first.save(p, quality=90)
+            return p
+        if fatte_s:
+            fatte_s[SFONDO_TESTO].save(p, quality=90)
+            return p
+        log(f'  {c["id"]}: tentativi non perfetti, scrivo io la scritta')
     try:
         r = fal('fal-ai/nano-banana-2/edit', {'prompt': prompt, 'image_urls': refs, 'aspect_ratio': '16:9', 'resolution': '1K', 'output_format': 'jpeg', 'num_images': 1})
         im = Image.open(io.BytesIO(http(r['images'][0]['url'], raw=True))).convert('RGB')
@@ -632,7 +664,7 @@ def fai(i):
         if APPLICA and not c.get('suff'):
             im.save(os.path.join(BASI, c['id'] + '.jpg'), quality=92)
         lato = 'sinistra' if t.get('lato_testo') == 'sinistra' else 'destra'
-        if STILE == 'piatto' and str(E('TESTO_STILE', '') or 'disegnata').lower() in ('evidenziata', 'disegnata'):   # come il competitor: lettere nere su strisce gialle, copertina tutta visibile
+        if STILE == 'piatto' and str(E('TESTO_STILE', '') or 'disegnata').lower() == 'evidenziata':   # come il competitor: lettere nere su strisce gialle, copertina tutta visibile
             scritta_evidenziata(im, f"{t['riga1']} {t['riga2']}", lato, zona_libera(im, lato)).save(p, quality=90)
         elif STILE == 'piatto':   # (facoltativo) frase magenta con lato destro scurito
             scritta_magenta(scurisci_destra(im), f"{t['riga1']} {t['riga2']}", zona_libera(im, 'destra')).save(p, quality=90)
