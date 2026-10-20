@@ -99,7 +99,29 @@ DOMANDA = """Copertina YouTube di un video di storia di grande successo (competi
    posizione dei soggetti, ora del giorno (alba, tramonto, giorno), un simbolo storico in piu'.
    VIETATO: incendi, fumo, esplosioni, distruzione, guerra, sangue, catastrofi, cieli apocalittici; espressioni esagerate o smorfie (i personaggi hanno volti puliti, sereni, dignitosi).
    Il testo, la sua posizione e lo stile del disegno NON cambiano. Non aggiungere loghi, bollini o scritte.
-Rispondi SOLO JSON: {{"testo": "...", "livelli": [{{"perc": 20, "cambi": ["...", "..."]}}]}}"""
+3) "righe": lo stesso testo diviso nelle stesse righe dell'originale (es. originale "HISTORY OF" / "IRAN" -> ["STORIA DELL'", "IRAN"]).
+Rispondi SOLO JSON: {{"testo": "...", "righe": ["...", "..."], "livelli": [{{"perc": 20, "cambi": ["...", "..."]}}]}}"""
+
+
+RIGHE = []
+
+
+def norm(t):
+    return re.sub(r'[^A-Z0-9]', '', str(t).upper().replace('’', "'"))
+
+
+def testo_giusto(im, testo):
+    """Claude legge la scritta della copertina: deve essere ESATTAMENTE il testo voluto (nessuna lettera sbagliata o mancante)."""
+    try:
+        t = claude([{'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': jpg64(im, 1024)}},
+                    {'type': 'text', 'text': 'Trascrivi ESATTAMENTE tutto il testo scritto in questa immagine, lettera per lettera, senza correggere errori. '
+                                             'Rispondi solo con il testo, su una riga.'}], 300)
+        ok = norm(t) == norm(testo)
+        if not ok:
+            log(f'    scritta sbagliata: letto "{t.strip()[:80]}" invece di "{testo}"')
+        return ok
+    except Exception as e:
+        log('    controllo scritta non riuscito:', str(e)[:100]); return True
 
 
 def regole(testo):
@@ -107,7 +129,8 @@ def regole(testo):
             'absolutely NO fire, smoke, explosions, destruction, war scenes, blood or catastrophes; bright, clean, inviting colours. '
             'Keep the BOTTOM-RIGHT corner (last 30% of width and last 28% of height) free of any text: YouTube shows the video duration there; '
             f'Replace ALL the text with exactly this Italian text, same font style, same colours, same size and same position (unless it was in the bottom-right corner): "{testo}". '
-            'Write ONLY this text: do not add any other word, date or line. '
+            + (('Line by line, spelled letter by letter exactly like this: ' + ' / '.join(f'line {i + 1}: "{r}"' for i, r in enumerate(RIGHE))) + '. ' if RIGHE else '')
+            + 'Write ONLY this text: do not add any other word, date or line. '
             + ('Dates exactly as written ("a.C." / "d.C." with lowercase a and d). ' if re.search(r'\d', testo) else '')
             + 'No logos, no badges, no stickers, no watermark.')
 
@@ -141,6 +164,7 @@ for nostro, comp in COPPIE:
     except Exception as e:
         log('analisi non riuscita', nostro, str(e)[:200]); continue
     testo = str(an.get('testo') or '').strip()
+    RIGHE = [str(x).strip() for x in (an.get('righe') or []) if str(x).strip()]
     livelli = {int(x.get('perc', 0)): x.get('cambi') or [] for x in an.get('livelli') or []}
     log(f'{nostro} <- {comp} | testo: {testo}')
     testo_log.append(f'=== {nostro} (originale {comp})\nTesto: {testo}')
@@ -152,9 +176,16 @@ for nostro, comp in COPPIE:
                   f'keeping the same composition, layout, title position and size, and the same subject and theme, but about {perc}% DIFFERENT from it. '
                   f'Change exactly these things: {"; ".join(cambi)}. Everything else stays like the reference. ' + regole(testo))
         try:
-            r = fal('fal-ai/nano-banana-2/edit', {'prompt': prompt, 'image_urls': ['data:image/jpeg;base64,' + jpg64(orig)],
-                                                  'aspect_ratio': '16:9', 'resolution': '2K', 'output_format': 'jpeg', 'num_images': 1})
-            im = ImageOps.fit(Image.open(io.BytesIO(http(r['images'][0]['url'], raw=True))).convert('RGB'), (1280, 720), Image.LANCZOS)
+            im = None
+            for tentativo in range(3):   # la scritta deve essere perfetta: altrimenti si rifa' (max 3 volte)
+                r = fal('fal-ai/nano-banana-2/edit', {'prompt': prompt + (' CHECK THE SPELLING OF THE TITLE CAREFULLY.' if tentativo else ''),
+                                                      'image_urls': ['data:image/jpeg;base64,' + jpg64(orig)],
+                                                      'aspect_ratio': '16:9', 'resolution': '2K', 'output_format': 'jpeg', 'num_images': 1})
+                im = ImageOps.fit(Image.open(io.BytesIO(http(r['images'][0]['url'], raw=True))).convert('RGB'), (1280, 720), Image.LANCZOS)
+                if testo_giusto(im, testo):
+                    break
+                if tentativo == 2:
+                    raise RuntimeError('scritta ancora sbagliata dopo 3 tentativi: copertina NON usata')
             im = bollino(im)
             p = os.path.join(OUT, f'{nostro}_{k}.jpg'); im.save(p, quality=92)
             log(f'  copertina {k} ({perc}% diversa): ' + ' | '.join(cambi))
