@@ -576,7 +576,11 @@ def fai(i):
     p = os.path.join(NUOVE, c['id'] + c.get('suff', '') + '.jpg')
     approvata = os.path.join(BASE, 'piatto_prova', c['id'] + '.jpg')
     if APPLICA and STILE == 'piatto' and not c.get('suff') and os.path.exists(approvata):   # si carica ESATTAMENTE la copertina vista e approvata in prova
-        shutil.copy(approvata, p); log('copertina approvata in prova:', c['id']); return p
+        shutil.copy(approvata, p); shutil.copy(approvata, os.path.join(BASI, c['id'] + '.jpg')); log('copertina approvata in prova:', c['id']); return p
+    if not APPLICA and STILE == 'piatto' and not c.get('suff') and os.path.exists(approvata) and str(E('RIFAI_PROVE', '') or 'NO').upper() != 'SI':
+        log('prova gia\' fatta, la tengo:', c['id']); return approvata   # niente spesa: le copertine gia' viste non si rifanno
+    if STILE == 'piatto' and not t.get('comp_id'):   # senza il video competitor nella scheda "Copertine" non c'e' niente da copiare: la copertina resta com'e'
+        log('nessun competitor nella scheda Copertine, copertina NON cambiata:', c['id'], c['titolo'][:50]); return None
     for q in ('maxresdefault', 'hqdefault'):   # copertina attuale: si salva per poter tornare indietro
         if os.path.exists(os.path.join(VECCHIE, c['id'] + '.jpg')):
             break
@@ -645,6 +649,8 @@ def fai(i):
                     log(f'  {c["id"]} {st_}: scritta o personaggio non perfetti, rifaccio ({tent + 1})')
                 except Exception as e:
                     log('  tentativo non riuscito:', str(e)[:120])
+        if fatte_s and APPLICA and not c.get('suff'):   # segno "fatta": il giro automatico non la rifa'
+            next(iter(fatte_s.values())).save(os.path.join(BASI, c['id'] + '.jpg'), quality=90)
         if PROVA_SFONDI and fatte_s:   # confronto degli sfondi della scritta: una griglia per video
             tw, th = 640, 360
             G = Image.new('RGB', (tw * 2 + 10, (th + 40) * 2), 'white'); dg = ImageDraw.Draw(G); fg = ImageFont.truetype(FONT, 26)
