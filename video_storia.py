@@ -913,7 +913,8 @@ def copertina(comp, c):
               + 'NO big person or character in the foreground: if the first image has a large figure, REMOVE it and fill that area with the landscape, '
               'monuments and scenery of the place (people may appear only tiny and far away). Keep the TOP-LEFT corner (about 28% of the width and 40% of the height) '
               'free of text and of important elements, only sky or background, because the channel logo will be placed there; if the title was there, move it to the right side. '
-              + f'Replace ALL the text with exactly this text, same font style, same colours and same position: "{testo}". '
+              + 'Keep the BOTTOM-RIGHT corner (last 30% of the width and last 28% of the height) free of any text: YouTube shows the video duration there. '
+              + f'Replace ALL the text with exactly this text, same font style, same colours and same position (but never in the bottom-right corner): "{testo}". '
               + (f'Every word, number and date written on the image must be in {LINGUA_NOME}' + (' (dates as "a.C." / "d.C." written EXACTLY like this with lowercase a and d, even if the rest of the title is uppercase; never BC, AD or A.C.)' if LINGUA == 'it' else '') + '. '
               + 'No other text, no logos, no watermark.'))
     try:
@@ -1046,10 +1047,11 @@ def angolo_libero(p):
             {'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}},
             {'type': 'text', 'text': "In questa copertina YouTube va messo un bollino rotondo largo circa un quarto dell'immagine. In quale angolo NON copre "
                                      "scritte, numeri, date, volti o il soggetto principale? Preferisci alto_sinistra se e' libero. "
-                                     "Rispondi solo: ANGOLO: alto_sinistra | alto_destra | basso_sinistra | basso_destra"}]}]},
+                                     "Rispondi solo: ANGOLO: alto_sinistra | alto_destra | basso_sinistra (mai basso_destra: li' c'e' la durata del video)"}]}]},
                  {'x-api-key': chiave, 'anthropic-version': '2023-06-01'}, timeout=120)
         m = re.search(r'(alto|basso)_(sinistra|destra)', ''.join(b.get('text', '') for b in r.get('content', [])))
-        return m.group(0) if m else 'alto_sinistra'
+        ang = m.group(0) if m else 'alto_sinistra'
+        return 'alto_destra' if ang == 'basso_destra' else ang   # in basso a destra c'e' la durata del video: mai li'
     except Exception as e:
         log('angolo bollino non scelto:', str(e)[:100]); return 'alto_sinistra'
 
