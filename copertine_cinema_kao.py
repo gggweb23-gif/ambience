@@ -322,9 +322,15 @@ def testo_esatto(im, frase):
     try:
         rr = http('https://api.anthropic.com/v1/messages', {'model': E('MODELLO_AI', 'claude-sonnet-5-5'), 'max_tokens': 300, 'messages': [{'role': 'user', 'content': [
             {'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}},
-            {'type': 'text', 'text': 'Transcribe EXACTLY all the text written in this image, letter by letter, as it is written (do not correct mistakes). Answer only the text.'}]}]},
+            {'type': 'text', 'text': 'Transcribe EXACTLY all the text written in this image, letter by letter, as it is written (do not correct mistakes). '
+                                     'Then on the LAST line write CHECK: GRANDE=SI/NO (SI if the title letters are big: each letter at least about 12% of the image height, readable on a phone), '
+                                     'BASSO=SI/NO (SI if any part of the title is in the bottom 25% of the image near the left or right corner).'}]}]},
                   {'x-api-key': E('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01'}, timeout=120)
-        letto = ''.join(b.get('text', '') for b in rr.get('content', []))
+        tutto = ''.join(b.get('text', '') for b in rr.get('content', []))
+        letto = tutto.split('CHECK:')[0]
+        chk = tutto.split('CHECK:')[1].upper() if 'CHECK:' in tutto else ''
+        if 'GRANDE=NO' in chk.replace(' ', '') or 'BASSO=SI' in chk.replace(' ', ''):
+            log('    scritta piccola o troppo in basso:', chk.strip()[:60]); return False
         norm = lambda x: re.sub(r'[^A-Z0-9]', '', x.upper().replace('À', 'A').replace('È', 'E').replace('É', 'E').replace('Ì', 'I').replace('Ò', 'O').replace('Ù', 'U'))
         ok = norm(letto) == norm(frase)
         if not ok:
@@ -568,6 +574,9 @@ def fai(i):
     if not t.get('riga1') or not t.get('riga2'):
         log('testo mancante per', c['id']); return None
     p = os.path.join(NUOVE, c['id'] + c.get('suff', '') + '.jpg')
+    approvata = os.path.join(BASE, 'piatto_prova', c['id'] + '.jpg')
+    if APPLICA and STILE == 'piatto' and not c.get('suff') and os.path.exists(approvata):   # si carica ESATTAMENTE la copertina vista e approvata in prova
+        shutil.copy(approvata, p); log('copertina approvata in prova:', c['id']); return p
     for q in ('maxresdefault', 'hqdefault'):   # copertina attuale: si salva per poter tornare indietro
         if os.path.exists(os.path.join(VECCHIE, c['id'] + '.jpg')):
             break
@@ -619,10 +628,11 @@ def fai(i):
         fatte_s = {}
         for st_ in stili:
             pt = prompt.replace('Remove ALL text: absolutely NO text, letters or numbers in the image.',
-                                f'TITLE: write EXACTLY this Italian text, nothing else: "{frase}". Put it on the {lato_t} side, in the empty part of the scene, big, on 2-4 lines, centred, '
+                                f'TITLE: write EXACTLY this Italian text, nothing else: "{frase}". Put it on the {lato_t} side, in the empty part of the scene, VERY BIG (letters at least 15% of the image height, '
+                                'the title block about 40-45% of the image width), on 2-4 lines, centred, inside the UPPER 72% of the image (never in the bottom corners), '
                                 'readable on a phone: bold condensed uppercase letters (like the Anton font) in bright MAGENTA (the same magenta as KAO\'s shirt). '
                                 f'Behind the title: {SFONDI_TESTO[st_]} High impact, clean, professional, like a viral YouTube thumbnail. '
-                                'The title never covers KAO, faces or important objects, and stays out of the bottom-right corner (video timer). '
+                                'The title never covers KAO, faces or important objects, and stays out of the bottom-left and bottom-right corners (video timer). '
                                 'No other text anywhere. Spell every word exactly.')
             for tent in range(2 if PROVA_SFONDI else 3):
                 try:
