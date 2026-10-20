@@ -60,7 +60,13 @@ def _num_lista(v, d):
         return d
 RITMO = _num_lista(P.get('ritmo') or E('RITMO', ''), [4.0, 4.0, 4.0])   # secondi max per immagine: primi 10 s / 10-30 s / dopo
 QUOTA_CARTONI = _perc(P.get('quota_cartoni') or E('QUOTA_CARTONI', ''), 80)
-BUDGET = float(str(P.get('budget_video') or E('BUDGET_VIDEO', '') or 3).replace(',', '.').replace('€', '').strip() or 0)   # euro massimi a video (0 = nessun tetto)
+_bud = str(P.get('budget_video') if P.get('budget_video') is not None else E('BUDGET_VIDEO', '')).replace(',', '.').replace('€', '').strip()
+try:
+    _bud_n = float(_bud) if _bud else 3.0
+except ValueError:
+    _bud_n = 3.0
+SOLO_PEXELS = bool(_bud) and _bud_n == 0   # budget 0 = nessun disegno Nano Banana nel video: solo clip e foto Pexels (+ mappa)
+BUDGET = _bud_n   # euro massimi a video per i disegni
 PREZZO_DISEGNO = 0.12   # $ per disegno Nano Banana 2 a 2K (con i rifatti si conta +25%)
 SPESA = {'fal': 0.0, 'disegni': 0}
 COP_VIDEO = str(P.get('copertina_video') or E('COPERTINA_VIDEO', '') or 'NO').strip().upper() == 'SI'
@@ -284,8 +290,13 @@ def copione(comp):
         globals()['QUOTA_CARTONI'] = max(5, min(60, round(n_sf * 8 / max(sec, 1) * 100)))
         globals()['RITMO'] = [4.0, 5.0, 6.0]
         log(f'budget {BUDGET:.2f} EUR: {n_sf} disegni (circa {n_sf * PREZZO_DISEGNO:.2f} $), cartone ~{QUOTA_CARTONI}% del video, il resto Pexels')
+    if SOLO_PEXELS:   # budget 0: nessun disegno, tutto Pexels super coerente (+ mappa)
+        n_sf = 0
+        globals()['QUOTA_CARTONI'] = 0
+        globals()['RITMO'] = [4.0, 5.0, 6.0]
+        log('budget 0 EUR: nessun disegno, solo clip e foto Pexels controllate (+ mappa)')
     w = [round(RITMO[0] * 2.5), round(RITMO[1] * 2.5), round(RITMO[2] * 2.5)]   # parole per visivo (circa 2,5 parole al secondo)
-    if INTEGRATO and BUDGET <= 0:   # ogni visivo ha la SUA immagine scritta sulla sua frase; i tagli da 3 s li fa il montaggio (zoom sulla stessa immagine)
+    if INTEGRATO and BUDGET <= 0 and not SOLO_PEXELS:   # ogni visivo ha la SUA immagine scritta sulla sua frase; i tagli da 3 s li fa il montaggio (zoom sulla stessa immagine)
         w = [12, 24, round(SEC_IMMAGINE * 2.5)]   # un visivo = un disegno; i tagli ogni 4 s li fa il montaggio
     regola_pg = ("il personaggio deve essere uno di quelli DISEGNATI DENTRO quell'immagine (campo personaggi dell'immagine), oppure \"\"" if INTEGRATO
                  else '"reazione": true se a meta\' il personaggio cambia posa (momento forte)')
@@ -718,10 +729,13 @@ def regole_finali(n_sf):
          "oppure le persone ANTICHE di cui si parla. Abiti moderni o dell'800 (giacca, cravatta, panciotto) SOLO se la scena e' ambientata esplicitamente in quell'epoca.",
          f"- IMMAGINI MAI RIPETUTE: ogni visivo \"cartone\" usa un'immagine DIVERSA (s1, s2, s3... in ordine, ognuna UNA sola volta). I visivi cartone sono quindi al massimo {n_sf}: "
          "se la scena e' lunga, il visivo dura di piu' (gli stacchi li fa il montaggio). Mai la stessa immagine in due visivi."]
-    if BUDGET > 0:
-        r.append(f"- DISEGNI CONTATI: esattamente {n_sf} visivi \"cartone\" in tutto il video, ognuno con la SUA immagine (s1..s{n_sf}, in ordine, mai ripetute). "
-                 "Mettine 3 nei primi 30 secondi (il gancio); gli altri SOLO dove la voce parla di PERSONE (re, battaglie, popolo, mercati, eventi), distribuiti su tutto il video. "
-                 "Un cartone dura 6-9 secondi di voce (15-22 parole).")
+    if SOLO_PEXELS:
+        r.append("- NIENTE DISEGNI: NESSUN visivo \"cartone\" e \"sfondi\" = []. Il video e' fatto SOLO di \"pexels_video\" (preferiti), \"pexels_foto\" e UNA \"mappa\" all'inizio.")
+    if BUDGET > 0 or SOLO_PEXELS:
+        if not SOLO_PEXELS:
+            r.append(f"- DISEGNI CONTATI: esattamente {n_sf} visivi \"cartone\" in tutto il video, ognuno con la SUA immagine (s1..s{n_sf}, in ordine, mai ripetute). "
+                     "Mettine 3 nei primi 30 secondi (il gancio); gli altri SOLO dove la voce parla di PERSONE (re, battaglie, popolo, mercati, eventi), distribuiti su tutto il video. "
+                     "Un cartone dura 6-9 secondi di voce (15-22 parole).")
         r.append("- TUTTO IL RESTO e' Pexels: preferisci \"pexels_video\" (clip), \"pexels_foto\" solo se serve un oggetto preciso. Un visivo pexels ogni 10-14 parole. "
                  "Campo \"q\": 3-5 parole in INGLESE con il LUOGO del paese + la COSA CONCRETA che la voce dice in quel momento "
                  "(es. voce 'i monsoni portano la pioggia' -> 'monsoon rain India fields'; 'il fiume Gange' -> 'Ganges river Varanasi'; 'templi di pietra' -> 'ancient stone temple India'). "
@@ -2579,10 +2593,11 @@ def main():
         log('luoghi del paese per i paesaggi Pexels:', ', '.join(LUOGHI) or '(nessuno: controllo solo visivo)')
         RISERVA_PX[:] = [str(x).strip() for x in (c.get('riserva_pexels') or []) if str(x).strip()][:10] or \
             [f"{c.get('paese_mappa') or 'ancient'} {x}" for x in ('landscape', 'river', 'mountains', 'ancient ruins', 'sky clouds', 'temple')]
-        if BUDGET > 0:   # rete di sicurezza: mai piu' disegni di quanti ne paga il budget, anche se il copione ne chiede di piu'
+        if BUDGET > 0 or SOLO_PEXELS:   # rete di sicurezza: mai piu' disegni di quanti ne paga il budget, anche se il copione ne chiede di piu'
             sec_v = sum(durs)
-            massimo = max(2, int((BUDGET * 1.08 - (0.35 + RISERVA_COP + 0.05 + sec_v / 5 * 0.005)) / (PREZZO_DISEGNO * 1.25)))
-            if len(c['sfondi']) > massimo:
+            massimo = 0 if SOLO_PEXELS else max(2, int((BUDGET * 1.08 - (0.35 + RISERVA_COP + 0.05 + sec_v / 5 * 0.005)) / (PREZZO_DISEGNO * 1.25)))
+            c['sfondi'] = c.get('sfondi') or []
+            if len(c['sfondi']) > massimo or (SOLO_PEXELS and any(v.get('tipo') == 'cartone' for sc_ in c['scene'] for v in sc_.get('visivi') or [])):
                 tenuti = {x['id'] for x in c['sfondi'][:massimo]}
                 log(f"budget: il copione chiede {len(c['sfondi'])} disegni, se ne fanno {massimo}; gli altri diventano clip Pexels")
                 c['sfondi'] = c['sfondi'][:massimo]
@@ -2691,7 +2706,7 @@ def main():
                 return con_didascalia(p, d, v)
             except Exception as e:   # riserva: cartone senza personaggio su uno sfondo poco usato (mai la stessa immagine di prima)
                 log('pezzo', k, t, 'non riuscito:', str(e)[:200])
-                if BUDGET > 0 or not TEXTURE:   # mai un'immagine a caso: si continua l'immagine precedente (vedi sotto)
+                if BUDGET > 0 or SOLO_PEXELS or not TEXTURE:   # mai un'immagine a caso: si continua l'immagine precedente (vedi sotto)
                     v.pop('didascalia', None); v['continua'] = True
                     return None
                 v.pop('didascalia', None); v['tipo'] = 'cartone'
@@ -2774,17 +2789,41 @@ def main():
         log('effetti sonori saltati:', str(e)[:150])
     audio = voce_tot
     brani = [u.strip() for u in re.split(r'\|\||\n', MUSICA_URL) if u.strip()]
-    if brani:   # piu' brani separati da || : uno per video, a rotazione
+    if brani:   # il PRIMO brano apre sempre il video, poi gli altri si alternano (2, 3, 4, 5, 2, 3...) fino alla fine, con dissolvenze
         try:
-            url = brani[int(hashlib.md5(str(P.get('id') or TITOLO).encode()).hexdigest(), 16) % len(brani)]
-            mf = scarica(url, os.path.join(LAV, 'musica.mp3'))
-            audio = os.path.join(LAV, 'audio.m4a'); vol = float(str(P.get('musica_vol') or E('MUSICA_VOL', '') or .06).replace(',', '.').replace('%', ''))
-            vol = vol / 100 if vol > 1 else vol   # 6 o 6% = 0.06
             tot = durata(voce_tot)
+            vol = float(str(P.get('musica_volume') or P.get('musica_vol') or E('MUSICA_VOL', '') or .04).replace(',', '.').replace('%', ''))
+            vol = vol / 100 if vol > 1 else vol   # 4 o 4% = 0.04
+            file_b = []
+            for n_, u_ in enumerate(brani):
+                try:
+                    f_ = scarica(u_, os.path.join(LAV, f'musica_{n_}.mp3'))
+                    if durata(f_) > 20:
+                        file_b.append(f_)
+                except Exception as e:
+                    log('brano saltato:', u_[-40:], str(e)[:80])
+            if not file_b:
+                raise RuntimeError('nessun brano scaricato')
+            seq, somma, k_ = [file_b[0]], durata(file_b[0]), 0
+            altri = file_b[1:] or file_b
+            while somma < tot + 5 and len(seq) < 60:
+                f_ = altri[k_ % len(altri)]; k_ += 1
+                seq.append(f_); somma += durata(f_) - 3
+            mf = os.path.join(LAV, 'musica_unita.m4a')
+            if len(seq) == 1:
+                run(['ffmpeg', '-y', '-v', 'error', '-i', seq[0], '-c:a', 'aac', '-b:a', '192k', mf])
+            else:
+                ins_ = sum((['-i', f_] for f_ in seq), [])
+                fl_, prev = [], '[0:a]'
+                for n_ in range(1, len(seq)):
+                    out_ = f'[m{n_}]' if n_ < len(seq) - 1 else '[mus]'
+                    fl_.append(f'{prev}[{n_}:a]acrossfade=d=3:c1=tri:c2=tri{out_}'); prev = out_
+                run(['ffmpeg', '-y', '-v', 'error', *ins_, '-filter_complex', ';'.join(fl_), '-map', '[mus]', '-c:a', 'aac', '-b:a', '192k', mf])
+            audio = os.path.join(LAV, 'audio.m4a')
             run(['ffmpeg', '-y', '-v', 'error', '-i', voce_tot, '-stream_loop', '-1', '-i', mf, '-filter_complex',
                  f'[1:a]volume={vol},afade=t=in:d=2,afade=t=out:st={max(0, tot - 4):.2f}:d=4[m];'
                  f'[0:a][m]amix=inputs=2:duration=first:dropout_transition=0:normalize=0[a]', '-map', '[a]', '-c:a', 'aac', '-b:a', '192k', audio])
-            log('musica:', url[-40:], 'volume', vol)
+            log(f'musica: apertura + {len(seq) - 1} brani a rotazione ({len(file_b)} brani diversi), volume {vol}')
         except Exception as e:
             log('musica saltata:', e)
     finale = os.path.join(ROOT, 'video_storia.mp4')
