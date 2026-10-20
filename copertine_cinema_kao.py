@@ -18,11 +18,12 @@ APPLICA = str(E('APPLICA', '') or 'SI').strip().upper() == 'SI'
 DAL = str(E('DAL', '') or '2026-09-21').strip()   # tutti i video pubblicati (o programmati) da questa data in poi
 MAX_VIDEO = int(E('MAX_VIDEO', '') or 60)
 RIFAI = str(E('RIFAI', '') or 'NO').strip().upper() == 'SI'   # SI = rifa' anche quelli gia' fatti
+STILE = str(E('STILE', '') or 'cinema').strip().lower()   # cinema = stile attuale; piatto = copia 100% del competitor con il KAO originale piatto, senza effetti luce
 COACH = str(E('COACH', '') or 'NO').strip().upper() == 'SI'   # NO: i cambi li decide il Rotatore CTR (24 ore, spinta finita, CTR < 4%)
 _COACH_VECCHIO = ''  #   # una volta al giorno: rifa' la copertina dei video con CTR basso (come coach_auto_applica)
 CTR_MIN = float(E('CTR_MIN', '') or 4); IMP_MIN = int(E('IMP_MIN', '') or 500)
 ATTESA = int(E('ATTESA_GIORNI', '') or 7); MAX_CAMBI = int(E('MAX_CAMBI', '') or 2); MAX_AL_GIORNO = int(E('MAX_AL_GIORNO', '') or 3)
-BASE = os.path.join(os.getcwd(), 'kao_copertine'); NUOVE = os.path.join(BASE, 'cinema' if APPLICA else 'cinema_prova'); VECCHIE = os.path.join(BASE, 'originali')
+BASE = os.path.join(os.getcwd(), 'kao_copertine'); NUOVE = os.path.join(BASE, ('cinema' if STILE == 'cinema' else 'piatto') + ('' if APPLICA else '_prova')); VECCHIE = os.path.join(BASE, 'originali')
 A_MANO = os.path.join(BASE, 'a_mano')   # copertine che YouTube rifiuta via API: si caricano da YouTube Studio
 BASI = os.path.join(BASE, 'cinema_base')   # immagine senza scritte: per cambiare il testo senza rifare il disegno
 os.makedirs(NUOVE, exist_ok=True); os.makedirs(VECCHIE, exist_ok=True); os.makedirs(BASI, exist_ok=True)
@@ -81,6 +82,10 @@ if not RIFAI:
     cand = [c for c in cand if c['id'] not in fatti]
 cand.sort(key=lambda x: x['quando'], reverse=True); cand = cand[:MAX_VIDEO]
 SOLO = [x.strip() for x in (E('SOLO', '') or '').split(',') if x.strip()]   # prova: solo questi video (anche se gia' fatti)
+ULTIMI = int(E('ULTIMI', '') or 0)   # prova: gli ultimi N video del canale (anche se gia' fatti), una copertina ciascuno
+if ULTIMI and not SOLO:
+    SOLO = [c['id'] for c in sorted(cand, key=lambda x: x['quando'], reverse=True)[:ULTIMI]] if RIFAI else SOLO
+    os.environ['TRE'] = 'NO'
 if SOLO:
     cand = [{'id': v, 'titolo': '', 'quando': '', 'stato': 'prova'} for v in SOLO]
     info = http('https://www.googleapis.com/youtube/v3/videos?' + urllib.parse.urlencode({'part': 'snippet', 'id': ','.join(SOLO)}), headers=AUTH)
@@ -237,7 +242,10 @@ PERSONAGGIO (in inglese, SENZA MAI citare scritte, lettere o riquadri di testo):
 VIETATO descrivere l'ASPETTO del personaggio del competitor: niente colore della pelle o del corpo, forma, specie (fagiolo, mostro, animale, creatura), vestiti, capelli. Scrivi sempre "KAO" come soggetto;
 "oggetto" = gli oggetti e simboli che tiene o ha accanto (gli stessi della copertina).
 "scena" = uno sfondo per il NOSTRO stile cinematografico, coerente con il tema: un ambiente reale sfocato con luci calde e bokeh (es. a cozy study at night with warm lamps). NON copiare lo sfondo o i colori del competitor.
-Rispondi SOLO JSON: {{"riga1": "...", "riga2": "...", "emo": "...", "oggetto": "...", "scena": "...", "azione": "...", "cambi": ""}}"""
+"lato_testo" = "sinistra" o "destra": il lato dove il competitor ha messo la scritta.
+"luogo" (in inglese) = il LUOGO REALE e concreto dove si svolge la situazione della copertina, descritto con 4-6 dettagli visibili (es. "a small Italian living room at night: old sofa, TV light, family photos on the wall, a door half open").
+"persone" (in inglese) = le ALTRE persone della situazione (quelle della copertina competitor o quelle che servono a far capire il contesto: genitori che litigano, partner, amici, folla...), cosa fanno e dove stanno; "" se la situazione e' di una persona sola.
+Rispondi SOLO JSON: {{"riga1": "...", "riga2": "...", "emo": "...", "oggetto": "...", "scena": "...", "azione": "...", "luogo": "...", "persone": "...", "lato_testo": "destra", "cambi": ""}}"""
     try:
         rr = http('https://api.anthropic.com/v1/messages', {'model': E('MODELLO_AI', 'claude-sonnet-5-5'), 'max_tokens': 2000,
                   'messages': [{'role': 'user', 'content': [{'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}},
@@ -246,7 +254,7 @@ Rispondi SOLO JSON: {{"riga1": "...", "riga2": "...", "emo": "...", "oggetto": "
         tt = ''.join(b.get('text', '') for b in rr.get('content', []))
         x = json.loads(tt[tt.find('{'): tt.rfind('}') + 1])
         x['comp_img'] = 'data:image/jpeg;base64,' + base64.b64encode(buf.getvalue()).decode()
-        x['comp_id'] = k['comp']; x['perc'] = perc
+        x['comp_id'] = k['comp']; x['perc'] = perc; x['lato_testo_comp'] = str(x.pop('lato_testo', '') or 'destra').lower()
         testi[i] = dict(testi.get(i) or {}, **x)
         log(f"copia competitor {k['comp']} -> {c['id']} ({100 - perc}% uguale): {x.get('riga1')} / {x.get('riga2')}" + (f" | cambia: {x.get('cambi')}" if perc else ''))
     except Exception as e:
@@ -397,6 +405,21 @@ def fai(i):
                   'The RIGHT 50% is completely EMPTY: only darker blurred background, no arms, no objects, nothing (it is reserved for a very big title). '
                   'YouTube thumbnail 16:9, modern, premium, very high contrast, readable on a phone. Absolutely NO text, letters or numbers in the image.')
         t['lato_testo'] = 'destra'
+        if STILE == 'piatto':   # stile delle vecchie copertine di successo: scena completa (ambiente + persone) con il KAO originale piatto, idea copiata dal competitor
+            refs = [ID, t['comp_img']]
+            prompt = ('Image 1 is our character KAO. Image 2 is a successful YouTube thumbnail: copy its IDEA 100% (situation, what the character does, emotion, objects, other people). '
+                      'Draw it as a COMPLETE SCENE in a real place that explains the context at first glance: '
+                      f'PLACE: {t.get("luogo") or t.get("scena", "")}. The environment is fully drawn with all its details (walls, furniture, windows, lights, nature...), not a plain or blurred background. '
+                      f'MAIN CHARACTER = KAO exactly as image 1: bald round head, same simple face, light skin, magenta long-sleeve shirt, black trousers. {diverso}'
+                      f'What KAO does: {t.get("azione", "")}. Emotion, very clear on his face: {t.get("emo", "")}. Objects: {t.get("oggetto", "")}. '
+                      + (f'OTHER PEOPLE in the scene: {t.get("persone")}. They are drawn in the same style as KAO (bald round heads, simple faces) but wear NEUTRAL colours (grey, blue, brown, white): only KAO wears magenta. '
+                         if t.get('persone') else '') +
+                      'The scene fills the LEFT 58% of the image completely, edge to edge, top to bottom; KAO is big and clearly visible in it. '
+                      'The RIGHT 42% is a plain solid very dark (almost black) area, completely empty: reserved for a big title. '
+                      'Style: the SAME flat 2D cartoon style as image 1 for everything: thick black outlines, flat colours, simple shapes, NO shading gradients, '
+                      'NO glow, NO rim light, NO bokeh, NO blur, NO cinematic light effects. Do NOT copy the drawing style or the characters of image 2. '
+                      'YouTube thumbnail 16:9. Absolutely NO text, letters or numbers in the image.')
+            t['lato_testo'] = 'destra'
     try:
         r = fal('fal-ai/nano-banana-2/edit', {'prompt': prompt, 'image_urls': refs, 'aspect_ratio': '16:9', 'resolution': '1K', 'output_format': 'jpeg', 'num_images': 1})
         im = Image.open(io.BytesIO(http(r['images'][0]['url'], raw=True))).convert('RGB')
