@@ -225,7 +225,8 @@ Dividilo in due righe SENZA cambiare, togliere o aggiungere parole: "riga1" = la
    ' (es. l\'oggetto in mano, l\'espressione, il gesto, l\'ambiente sfocato dietro), tutto il resto identico. '
    'Scrivi in "cambi" (in inglese) esattamente cosa cambia.') if perc else ''}
 PERSONAGGIO (in inglese, SENZA MAI citare scritte, lettere o riquadri di testo): copia ESATTAMENTE cosa fa il personaggio principale, che diventera' il nostro KAO:
-"emo" = emozione ed espressione esatte; "azione" = cosa fa, posa, gesti, mani, caratteristiche speciali (es. tante braccia che tengono oggetti) descritte come se fosse KAO;
+"emo" = emozione ed espressione esatte; "azione" = cosa fa, posa, gesti, mani, caratteristiche speciali (es. tante braccia che tengono oggetti) descritte come se fosse KAO.
+VIETATO descrivere l'ASPETTO del personaggio del competitor: niente colore della pelle o del corpo, forma, specie (fagiolo, mostro, animale, creatura), vestiti, capelli. Scrivi sempre "KAO" come soggetto;
 "oggetto" = gli oggetti e simboli che tiene o ha accanto (gli stessi della copertina).
 "scena" = uno sfondo per il NOSTRO stile cinematografico, coerente con il tema: un ambiente reale sfocato con luci calde e bokeh (es. a cozy study at night with warm lamps). NON copiare lo sfondo o i colori del competitor.
 Rispondi SOLO JSON: {{"riga1": "...", "riga2": "...", "emo": "...", "oggetto": "...", "scena": "...", "azione": "...", "cambi": ""}}"""
@@ -266,6 +267,23 @@ def fal(modello, dati):
     raise RuntimeError('tempo scaduto')
 
 
+def e_kao(im):
+    """Claude confronta il personaggio con KAO originale: True se e' lui al 100%."""
+    buf = io.BytesIO(); im.resize((640, 360)).save(buf, 'JPEG', quality=85)
+    try:
+        rr = http('https://api.anthropic.com/v1/messages', {'model': E('MODELLO_AI', 'claude-sonnet-5-5'), 'max_tokens': 800,
+                  'messages': [{'role': 'user', 'content': [
+                      {'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/png', 'data': ID.split(',', 1)[1]}},
+                      {'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}},
+                      {'type': 'text', 'text': 'Image 1 is our character KAO. In image 2, is the main character EXACTLY KAO (same bald round head, same light skin colour, '
+                                               'same face style, magenta shirt), with nothing of another character (no green or coloured skin, no bean/monster/creature body)? '
+                                               'Extra arms are fine only if they have KAO skin and magenta sleeves. Answer only SI or NO.'}]}]},
+                  {'x-api-key': E('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01'}, timeout=200)
+        return 'NO' not in ''.join(b.get('text', '') for b in rr.get('content', [])).upper()
+    except Exception as e:
+        log('controllo KAO non riuscito:', str(e)[:100]); return True
+
+
 def zona_libera(im, lato):
     """Claude guarda l'immagine finita e indica il rettangolo LIBERO piu' grande (niente volto, corpo, braccia od oggetti) per il testo."""
     buf = io.BytesIO(); im.resize((768, 432)).save(buf, 'JPEG', quality=85)
@@ -297,6 +315,9 @@ def scritta(im, righe, lato='destra', zona=None):
         x0, x1, y0, y1 = int(W * .035), int(W * .50), int(Hh * .06), int(Hh * .92)
     if zona:   # rettangolo libero indicato da Claude: la scritta si adatta allo spazio, senza coprire niente
         x0, y0, x1, y1 = int(W * zona[0]) + 10, int(Hh * zona[1]) + 10, int(W * zona[2]) - 10, int(Hh * zona[3]) - 10
+        if lato == 'destra':   # centrata nello spazio vuoto a destra: dal bordo del personaggio al bordo dell'immagine, e in altezza
+            x0, x1 = max(x0, int(W * .46)), int(W * .965)
+            y0, y1 = int(Hh * .07), int(Hh * .86)
     larg, alt = x1 - x0, y1 - y0
     F = lambda k: ImageFont.truetype(FONT, k)
     r1, r2 = righe[0].strip(), righe[1].strip()
@@ -370,6 +391,12 @@ def fai(i):
         r = fal('fal-ai/nano-banana-2/edit', {'prompt': prompt, 'image_urls': refs, 'aspect_ratio': '16:9', 'resolution': '1K', 'output_format': 'jpeg', 'num_images': 1})
         im = Image.open(io.BytesIO(http(r['images'][0]['url'], raw=True))).convert('RGB')
         im = ImageOps.fit(im, (1280, 720), Image.LANCZOS)
+        if t.get('comp_id') and not e_kao(im):   # personaggio non originale: si rifa' una volta, con KAO ancora piu' vincolato
+            log('personaggio non e\' KAO, rifaccio:', c['id'])
+            r = fal('fal-ai/nano-banana-2/edit', {'prompt': 'IMPORTANT: the ONLY character is EXACTLY the character of the reference image (KAO): bald round head, '
+                                                 'light skin, simple face, magenta long-sleeve shirt. No other creature, no green or coloured body. ' + prompt,
+                                                 'image_urls': refs, 'aspect_ratio': '16:9', 'resolution': '1K', 'output_format': 'jpeg', 'num_images': 1})
+            im = ImageOps.fit(Image.open(io.BytesIO(http(r['images'][0]['url'], raw=True))).convert('RGB'), (1280, 720), Image.LANCZOS)
         if APPLICA:
             im.save(os.path.join(BASI, c['id'] + '.jpg'), quality=92)
         lato = 'sinistra' if t.get('lato_testo') == 'sinistra' else 'destra'
