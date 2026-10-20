@@ -117,6 +117,14 @@ if E('COPERTINE_CSV', ''):
         log(f'Competitor letti dal foglio: {len(COMP)} video')
     except Exception as e:
         log('foglio competitor non letto:', str(e)[:150])
+# ---------- modo n8n: copertina del NUOVO video prima del caricamento (n8n la carica insieme al video, come sempre)
+N8N = json.loads(E('PAYLOAD', '') or '{}') if E('PAYLOAD', '') else {}
+if N8N:
+    m_ = re.search(r'(?:v=|youtu\.be/|shorts/)([\w-]{11})', str(N8N.get('link_competitor') or ''))
+    cand = [{'id': 'n8n_' + re.sub(r'[^\w-]', '', str(N8N.get('id') or 'nuovo')), 'titolo': str(N8N.get('titolo') or ''), 'quando': '', 'stato': 'n8n', 'motivo': 'n8n'}]
+    COMP = {cand[0]['id']: {'comp': m_.group(1), 'copy': str(N8N.get('copy') or '').strip()}} if m_ else {}
+    APPLICA = False   # n8n carica la copertina insieme al video: qui non si carica niente su YouTube
+    log('modo n8n: copertina per', cand[0]['titolo'], '| competitor:', m_.group(1) if m_ else 'MANCANTE')
 log(f'Video dal {DAL} senza copertina nuova: {len(cand)}')
 
 # ---------- 2) COACH (una volta al giorno): video con CTR basso DOPO l'ultimo cambio -> nuova copertina, stesso stile, testo diverso
@@ -810,5 +818,21 @@ if ok:
             S.paste(Image.open(p).resize((tw, th)), (tw + 20, y))
         d.text((5, y + th + 4), f'{c["quando"]}  {c["titolo"][:60]}', font=fe, fill='black')
     S.save(os.path.join(BASE, 'cinema_anteprima.jpg'), quality=85)
+if N8N and N8N.get('resume_url'):   # risposta a n8n: link pubblico della copertina (oppure errore -> n8n usa la copertina di sempre)
+    risposta = {'status': 'failed', 'message': 'copertina non creata'}
+    try:
+        pp = next((p for c, p in zip(cand, fatte) if p and os.path.exists(p)), None)
+        if pp:
+            h_ = {'Authorization': 'Key ' + E('FAL_KEY', '')}
+            ini = http('https://rest.alpha.fal.ai/storage/upload/initiate?storage_type=fal-cdn-v3', {'content_type': 'image/jpeg', 'file_name': 'copertina_kao.jpg'}, h_)
+            urllib.request.urlopen(urllib.request.Request(ini['upload_url'], data=open(pp, 'rb').read(), method='PUT', headers={'Content-Type': 'image/jpeg'}), timeout=300).read()
+            risposta = {'status': 'done', 'url': ini['file_url']}
+    except Exception as e:
+        risposta = {'status': 'failed', 'message': str(e)[:300]}
+    try:
+        http(N8N['resume_url'], {'copertina': risposta}, raw=True)
+        log('risposta a n8n:', risposta)
+    except Exception as e:
+        log('risposta a n8n non riuscita:', str(e)[:200])
 os.remove(FONT)
 log('FATTO:', sum(1 for e in esiti if e[-1] == 'CARICATA'), 'caricate su', len(esiti), '| APPLICA =', APPLICA)
