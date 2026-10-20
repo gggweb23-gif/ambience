@@ -225,6 +225,20 @@ for nostro, comp in COPPIE:
             log('video non trovato sul canale:', nostro); continue
         log(f'"{nostro}" -> {trovato}'); nostro = trovato
     tit = next((t for v, t in canale if v == nostro), '')
+    gia = os.path.join(OUT, f'{nostro}_1.jpg')
+    if APPLICA and os.path.exists(gia) and str(E('RIFAI', '') or 'NO').upper() != 'SI':   # copertina gia' approvata in prova: si carica quella, non se ne fa una nuova
+        try:
+            http(f'https://www.googleapis.com/upload/youtube/v3/thumbnails/set?videoId={nostro}', open(gia, 'rb').read(),
+                 dict(AUTH, **{'Content-Type': 'image/jpeg'}), metodo='POST')
+            log(f'{nostro}: copertina 1 approvata CARICATA su YouTube'); testo_log.append(f'{nostro}: copertina 1 approvata caricata')
+        except Exception as e:
+            dett = ''
+            try:
+                dett = e.read().decode()[:200]
+            except Exception:
+                pass
+            log(f'{nostro}: NON caricata ({str(e)[:60]} {dett})' + (' -> caricala a mano da YouTube Studio: copertine_storia/' + nostro + '_1.jpg' if getattr(e, 'code', 0) == 403 else ''))
+        continue
     orig = copertina_yt(comp)
     if orig is None:
         log('copertina del competitor non trovata:', comp); continue
