@@ -9,7 +9,7 @@ KAO PSICOLOGIA - copertine in stile CINEMATOGRAFICO (M2), automatiche.
 5) APPLICA=SI (standard) -> carica le nuove copertine su YouTube. APPLICA=NO -> solo anteprima.
 Chiavi: YT_CLIENT_ID, YT_CLIENT_SECRET, YT_REFRESH_TOKEN (di KAO), FAL_KEY, ANTHROPIC_API_KEY.
 """
-import base64, csv, io, json, os, re, time, urllib.error, urllib.parse, urllib.request
+import base64, csv, io, json, os, re, shutil, time, urllib.error, urllib.parse, urllib.request
 from concurrent.futures import ThreadPoolExecutor
 from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageOps
 
@@ -18,7 +18,8 @@ APPLICA = str(E('APPLICA', '') or 'SI').strip().upper() == 'SI'
 DAL = str(E('DAL', '') or '2026-09-21').strip()   # tutti i video pubblicati (o programmati) da questa data in poi
 MAX_VIDEO = int(E('MAX_VIDEO', '') or 60)
 RIFAI = str(E('RIFAI', '') or 'NO').strip().upper() == 'SI'   # SI = rifa' anche quelli gia' fatti
-COACH = str(E('COACH', '') or 'SI').strip().upper() == 'SI'   # una volta al giorno: rifa' la copertina dei video con CTR basso (come coach_auto_applica)
+COACH = str(E('COACH', '') or 'NO').strip().upper() == 'SI'   # NO: i cambi li decide il Rotatore CTR (24 ore, spinta finita, CTR < 4%)
+_COACH_VECCHIO = ''  #   # una volta al giorno: rifa' la copertina dei video con CTR basso (come coach_auto_applica)
 CTR_MIN = float(E('CTR_MIN', '') or 4); IMP_MIN = int(E('IMP_MIN', '') or 500)
 ATTESA = int(E('ATTESA_GIORNI', '') or 7); MAX_CAMBI = int(E('MAX_CAMBI', '') or 2); MAX_AL_GIORNO = int(E('MAX_AL_GIORNO', '') or 3)
 BASE = os.path.join(os.getcwd(), 'kao_copertine'); NUOVE = os.path.join(BASE, 'cinema' if APPLICA else 'cinema_prova'); VECCHIE = os.path.join(BASE, 'originali')
@@ -90,6 +91,13 @@ if SOLO:
         cand = [dict(c, gia=['1a'] * n, suff=('' if not n else f'_{n + 1}')) for c in cand for n in range(3)]
 for c in cand:
     c['motivo'] = 'nuovo stile'
+VARIANTI = os.path.join(BASE, 'varianti'); os.makedirs(VARIANTI, exist_ok=True)
+VARIANTE = str(E('VARIANTE', '') or '').strip()   # "2" o "3": crea SOLO quella copertina (la chiede il Rotatore CTR quando serve: niente spesa prima)
+if VARIANTE in ('2', '3') and SOLO:
+    n_ = int(VARIANTE)
+    cand = [dict(c, gia=['1a'] * (n_ - 1), suff=f'_{n_}', variante=True, motivo=f'variante {n_}') for c in cand]
+elif APPLICA and str(E('VARIANTI', '') or 'NO').upper() == 'SI':   # (facoltativo) preparare subito 2 e 3
+    cand += [dict(c, gia=['1a'] * n, suff=f'_{n + 1}', variante=True) for c in list(cand) if not c.get('gia') for n in (1, 2)]
 
 # ---------- 1b) competitor di ogni video (scheda "Copertine" del file di produzione, pubblicata come CSV): copertina e copy da copiare al 100%
 COMP = {}
@@ -358,6 +366,8 @@ def scritta(im, righe, lato='destra', zona=None):
 
 def fai(i):
     c, t = cand[i], testi.get(i) or {}
+    if c.get('variante') and not t.get('comp_id'):   # varianti 20%/30% solo per i video con il competitor nel foglio
+        return None
     if not t.get('riga1') or not t.get('riga2'):
         log('testo mancante per', c['id']); return None
     p = os.path.join(NUOVE, c['id'] + c.get('suff', '') + '.jpg')
@@ -397,7 +407,7 @@ def fai(i):
                                                  'light skin, simple face, magenta long-sleeve shirt. No other creature, no green or coloured body. ' + prompt,
                                                  'image_urls': refs, 'aspect_ratio': '16:9', 'resolution': '1K', 'output_format': 'jpeg', 'num_images': 1})
             im = ImageOps.fit(Image.open(io.BytesIO(http(r['images'][0]['url'], raw=True))).convert('RGB'), (1280, 720), Image.LANCZOS)
-        if APPLICA:
+        if APPLICA and not c.get('suff'):
             im.save(os.path.join(BASI, c['id'] + '.jpg'), quality=92)
         lato = 'sinistra' if t.get('lato_testo') == 'sinistra' else 'destra'
         scritta(im, [str(t['riga1']).upper(), str(t['riga2']).upper()], lato, zona_libera(im, lato)).save(p, quality=90)
@@ -414,7 +424,12 @@ with ThreadPoolExecutor(3) as ex:
 esiti = []
 for c, p in zip(cand, fatte):
     stato = 'non creata' if not p else 'solo anteprima'
+    if c.get('variante'):   # non si carica: resta pronta per il Rotatore CTR
+        if p:
+            shutil.copy(p, os.path.join(VARIANTI, c['id'] + c['suff'] + '.jpg')); log('variante pronta:', c['id'] + c['suff'])
+        continue
     if p and APPLICA:
+        shutil.copy(p, os.path.join(VARIANTI, c['id'] + '_1.jpg'))
         try:
             http(f'https://www.googleapis.com/upload/youtube/v3/thumbnails/set?videoId={c["id"]}', open(p, 'rb').read(),
                  dict(AUTH, **{'Content-Type': 'image/jpeg'}), metodo='POST')

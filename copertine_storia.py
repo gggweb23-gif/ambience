@@ -214,10 +214,58 @@ def titolo(im, paese, date, z):
     return base.convert('RGB')
 
 
+REG = os.path.join(OUT, 'registro_copertine.csv')
+
+
+def registro():
+    import csv as _c
+    return list(_c.DictReader(open(REG, encoding='utf-8'))) if os.path.exists(REG) else []
+
+
+def registra(vid, t1, t2):
+    import csv as _c
+    nuovo = not os.path.exists(REG)
+    with open(REG, 'a', newline='', encoding='utf-8') as f:
+        w = _c.writer(f)
+        if nuovo:
+            w.writerow(['data', 'video', 'tipo_1', 'tipo_2'])
+        w.writerow([time.strftime('%Y-%m-%d'), vid, t1, t2])
+
+
 righe, testo_log = [], []
 canale = None
+if not COPPIE:   # modo automatico (ogni 3 ore): i video nuovi del canale senza copertine del nuovo stile
+    DAL = str(E('DAL', '') or '2026-10-21')
+    ch = http('https://www.googleapis.com/youtube/v3/channels?part=contentDetails&mine=true', headers=AUTH)['items'][0]
+    r_ = http('https://www.googleapis.com/youtube/v3/playlistItems?' + urllib.parse.urlencode({'part': 'snippet,contentDetails', 'playlistId': ch['contentDetails']['relatedPlaylists']['uploads'], 'maxResults': 20}), headers=AUTH)
+    for it in r_.get('items', []):
+        v_ = it['contentDetails']['videoId']
+        if str(it['contentDetails'].get('videoPublishedAt') or it['snippet'].get('publishedAt') or '')[:10] >= DAL and not os.path.exists(os.path.join(OUT, f'{v_}_1.jpg')):
+            COPPIE.append([v_, ''])
+    log(f'video nuovi senza copertine: {len(COPPIE)}')
+VARIANTE = str(E('VARIANTE', '') or '').strip()   # "2" = crea SOLO la copertina 2 di un video (la chiede il Rotatore CTR quando serve)
 for nostro, comp in COPPIE:
     nostro, comp = nostro.strip(), comp.strip()
+    info_p = os.path.join(OUT, f'{nostro}_info.json')
+    if VARIANTE == '2':
+        if not os.path.exists(info_p):
+            log(nostro, ': mancano i dati della copertina 1, copertina 2 non creata'); continue
+        inf = json.load(open(info_p))
+        POPOLO['tratti'] = inf.get('tratti', '')
+        k = 2
+        im = None
+        for tentativo in range(3):
+            r = fal('fal-ai/nano-banana-2', {'prompt': prompt_con_testo(inf['bandiera'], inf['figure'][1], inf['monumento'], 1, inf['paese'], inf['date']),
+                                             'aspect_ratio': '16:9', 'resolution': '2K', 'output_format': 'jpeg', 'num_images': 1})
+            prova = ImageOps.fit(Image.open(io.BytesIO(http(r['images'][0]['url'], raw=True))).convert('RGB'), (1280, 720), Image.LANCZOS)
+            if testo_ok(prova, inf['paese'], inf['date']):
+                im = prova; break
+        if im is None:
+            r = fal('fal-ai/nano-banana-2', {'prompt': prompt_scena(inf['bandiera'], inf['figure'][1], inf['monumento'], 1), 'aspect_ratio': '16:9', 'resolution': '2K', 'output_format': 'jpeg', 'num_images': 1})
+            im = titolo(ImageOps.fit(Image.open(io.BytesIO(http(r['images'][0]['url'], raw=True))).convert('RGB'), (1280, 720), Image.LANCZOS), inf['paese'], inf['date'], [.20, .02, .74, .42])
+        im.save(os.path.join(OUT, f'{nostro}_2.jpg'), quality=92)
+        log(f'{nostro}: copertina 2 creata ({inf["tipi"][1]}), la mettera\' online il Rotatore CTR')
+        continue
     canale = canale or video_canale()
     if not re.fullmatch(r'[\w-]{11}', nostro):   # parola del titolo -> ID del nostro video
         trovato = next((v for v, t in canale if nostro.lower() in t.lower()), None)
@@ -231,6 +279,8 @@ for nostro, comp in COPPIE:
             http(f'https://www.googleapis.com/upload/youtube/v3/thumbnails/set?videoId={nostro}', open(gia, 'rb').read(),
                  dict(AUTH, **{'Content-Type': 'image/jpeg'}), metodo='POST')
             log(f'{nostro}: copertina 1 approvata CARICATA su YouTube'); testo_log.append(f'{nostro}: copertina 1 approvata caricata')
+            if not any(x.get('video') == nostro for x in registro()):
+                registra(nostro, 'uomo', 'donna')
         except Exception as e:
             dett = ''
             try:
@@ -239,18 +289,23 @@ for nostro, comp in COPPIE:
                 pass
             log(f'{nostro}: NON caricata ({str(e)[:60]} {dett})' + (' -> caricala a mano da YouTube Studio: copertine_storia/' + nostro + '_1.jpg' if getattr(e, 'code', 0) == 403 else ''))
         continue
-    orig = copertina_yt(comp)
-    if orig is None:
-        log('copertina del competitor non trovata:', comp); continue
+    orig = copertina_yt(comp) if comp else None   # senza competitor (modo automatico) basta il titolo del nostro video
+    if comp and orig is None:
+        log('copertina del competitor non trovata:', comp)
     try:
-        txt = claude([{'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': jpg64(orig, 768)}},
-                      {'type': 'text', 'text': DOMANDA.format(titolo=tit)}])
+        cont = ([{'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': jpg64(orig, 768)}}] if orig is not None else [])
+        txt = claude(cont + [{'type': 'text', 'text': DOMANDA.format(titolo=tit) + ('' if orig is not None else ' (Nessuna immagine: ricava tutto dal titolo e da cio\' che sai della storia del paese.)')}])
         an = json.loads(txt[txt.find('{'): txt.rfind('}') + 1])
     except Exception as e:
         log('analisi non riuscita', nostro, str(e)[:200]); continue
     paese, date, band = str(an.get('paese') or '').upper().strip(), str(an.get('date') or '').strip(), str(an.get('bandiera') or '').strip()
     # 1 = la figura come stabilito (uomo); 2 = stessa copertina con la donna al posto dell'uomo (solo se la 1 non funziona)
     figure = [an.get('uomo') or 'an ancient king', an.get('donna') or 'an ancient queen']
+    # ALTERNANZA tra i video: uno parte con l'uomo, il successivo con la donna (confronto giusto: stessa fase di lancio)
+    primo = 'uomo' if len(registro()) % 2 == 0 else 'donna'
+    if primo == 'donna':
+        figure = figure[::-1]
+    tipi_ = [primo, 'donna' if primo == 'uomo' else 'uomo']
     monum = [an.get('monumento') or 'a famous ancient monument of the country'] * 2
     POPOLO['tratti'] = ('The person must look like a REAL native of ' + band + ': ' + str(an.get('popolo') or '') + '. Never features of other peoples.') if an.get('popolo') else ''
     log(f'{nostro} <- {comp} | {paese} / {date} | uomo: {figure[0]} | donna: {figure[1]} | {monum[0]} | {an.get("popolo")}')
@@ -276,8 +331,11 @@ for nostro, comp in COPPIE:
             return k, 0, im, [fig, mon]
         except Exception as e:
             log(f'  copertina {k} non riuscita:', str(e)[:200]); return k, 0, None, [fig, mon]
+    json.dump({'paese': paese, 'date': date, 'bandiera': band, 'figure': figure, 'monumento': monum[0], 'tratti': POPOLO.get('tratti', ''), 'tipi': tipi_},
+              open(info_p, 'w'), ensure_ascii=False)
+    quante = [1, 2] if not APPLICA else [1]   # in prova si vedono tutte e due; online va solo la 1 (risparmio: la 2 solo se serve)
     with ThreadPoolExecutor(3) as ex:
-        fatte = list(ex.map(fai, [1, 2]))
+        fatte = list(ex.map(fai, quante))
     for k, perc, im, cambi in fatte:
         testo_log.append(f'{k} = ' + ' | '.join(cambi))
     stato = 'solo anteprima'
@@ -295,8 +353,10 @@ for nostro, comp in COPPIE:
             except Exception:
                 pass
             stato = 'NON caricata (' + str(e)[:60] + ' ' + dett + ')' + (' -> caricala a mano da YouTube Studio: copertine_storia/' + nostro + '_1.jpg' if getattr(e, 'code', 0) == 403 else '')
-    log('  ' + stato)
-    testo_log.append(stato + '\n')
+    log('  ' + stato + f' | parte con: {tipi_[0]}')
+    testo_log.append(stato + f' | parte con: {tipi_[0]}\n')
+    if APPLICA and prima is not None:
+        registra(nostro, tipi_[0], tipi_[1])
     righe.append((nostro, [('ORIGINALE', orig)] + [(f'copertina {k}', im) for k, perc, im, c in fatte]))
 
 open(os.path.join(OUT, 'copertine.txt'), 'a', encoding='utf-8').write(time.strftime('%Y-%m-%d %H:%M') + '\n' + '\n'.join(testo_log) + '\n')
