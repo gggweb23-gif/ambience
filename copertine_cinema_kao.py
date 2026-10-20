@@ -317,7 +317,8 @@ def zona_libera(im, lato):
                   {'x-api-key': E('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01'}, timeout=200)
         tt = ''.join(b.get('text', '') for b in rr.get('content', []))
         z = json.loads(tt[tt.find('{'): tt.rfind('}') + 1])
-        z = [max(0.0, min(100.0, float(z[k]))) / 100 for k in ('x0', 'y0', 'x1', 'y1')]
+        z = [float(z[k]) for k in ('x0', 'y0', 'x1', 'y1')]
+        z = [max(0.0, min(100.0, v * (100 if max(z) <= 1.0 else 1))) / 100 for v in z]   # a volte risponde 0-1 invece che 0-100
         if z[2] - z[0] >= .22 and z[3] - z[1] >= .30:
             return z
         log('zona libera troppo piccola:', z)
@@ -375,6 +376,66 @@ def scritta(im, righe, lato='destra', zona=None):
     return base.convert('RGB')
 
 
+def scurisci_destra(im):
+    """Sfumatura scura da meta' immagine verso destra (come le vecchie copertine): la scena resta visibile, la scritta si legge."""
+    W, Hh = im.size
+    m = Image.new('L', (W, 1))
+    for x in range(W):
+        f = min(1.0, max(0.0, (x / W - .40) / .22))
+        m.putpixel((x, 0), int(205 * f))
+    m = m.resize((W, Hh))
+    return Image.composite(Image.new('RGB', im.size, (8, 8, 12)), im.convert('RGB'), m)
+
+
+MAG_TESTO = (236, 0, 214)   # magenta delle vecchie copertine di successo (come la maglia di KAO)
+
+
+def scritta_magenta(im, frase, zona=None):
+    """Stile delle vecchie copertine di successo: la frase INTERA in magenta, Anton maiuscolo, su piu' righe, piu' grande possibile, centrata nel fondo scuro a destra.
+    Mai sotto l'orario di YouTube (angolo in basso a destra)."""
+    W, Hh = im.size
+    x0, x1, y0, y1 = int(W * .48), int(W * .97), int(Hh * .05), int(Hh * .74)
+    if zona:
+        x0 = max(int(W * .50), int(W * zona[0]) + 10)
+    larg, alt = x1 - x0, y1 - y0
+    F = lambda k: ImageFont.truetype(FONT, k)
+    parole = frase.upper().split()
+    n = len(parole)
+    best = None
+    for maschera in range(1 << max(0, n - 1)):   # tutti i modi di andare a capo
+        righe, cur = [], [parole[0]]
+        for i in range(1, n):
+            if maschera >> (i - 1) & 1:
+                righe.append(' '.join(cur)); cur = [parole[i]]
+            else:
+                cur.append(parole[i])
+        righe.append(' '.join(cur))
+        if len(righe) > 6:
+            continue
+        lo, hi = 20, 400
+        while lo < hi:   # grandezza massima che entra
+            k = (lo + hi + 1) // 2
+            if max(F(k).getlength(r) for r in righe) <= larg and len(righe) * k * .98 <= alt:
+                lo = k
+            else:
+                hi = k - 1
+        if not best or lo > best[0]:
+            best = (lo, righe)
+    k, righe = best
+    f = F(k); passo = k * .98
+    y = y0 + (alt - len(righe) * passo) / 2
+    cx = (x0 + x1) / 2
+    base = im.convert('RGBA')
+    ombra = Image.new('RGBA', base.size, (0, 0, 0, 0)); do = ImageDraw.Draw(ombra)
+    for j, r in enumerate(righe):
+        do.text((cx + 5, y + j * passo + 6), r, font=f, fill=(0, 0, 0, 200), anchor='mt')
+    base.alpha_composite(ombra.filter(ImageFilter.GaussianBlur(6)))
+    dr = ImageDraw.Draw(base)
+    for j, r in enumerate(righe):
+        dr.text((cx, y + j * passo), r, font=f, fill=MAG_TESTO, anchor='mt', stroke_width=max(3, k // 18), stroke_fill=NERO)
+    return base.convert('RGB')
+
+
 def fai(i):
     c, t = cand[i], testi.get(i) or {}
     if c.get('variante') and not t.get('comp_id'):   # varianti 20%/30% solo per i video con il competitor nel foglio
@@ -419,8 +480,9 @@ def fai(i):
                       f'What KAO does: {t.get("azione", "")}. Emotion, very clear on his face: {t.get("emo", "")}. Objects: {t.get("oggetto", "")}. '
                       + (f'OTHER PEOPLE in the scene: {t.get("persone")}. They are drawn in the same style as KAO (bald round heads, simple faces) but wear NEUTRAL colours (grey, blue, brown, white): only KAO wears magenta. '
                          if t.get('persone') else '') +
-                      'The scene fills the LEFT 58% of the image completely, edge to edge, top to bottom; KAO is big and clearly visible in it. '
-                      'The RIGHT 42% is a plain solid very dark (almost black) area, completely empty: reserved for a big title. '
+                      'The scene fills the WHOLE image, edge to edge (no panels, no borders). KAO, the other people and the important objects stay in the LEFT 50%; '
+                      'KAO is big (full figure or knees up) and clearly visible. In the RIGHT 50% the same environment simply continues (wall, sky, room, landscape) '
+                      'with NO people and NO important objects: it will be darkened and covered by a big title. '
                       'Style: the SAME flat 2D cartoon style as image 1 for everything: thick black outlines, flat colours, simple shapes, NO shading gradients, '
                       'NO glow, NO rim light, NO bokeh, NO blur, NO cinematic light effects. Do NOT copy the drawing style or the characters of image 2. '
                       'YouTube thumbnail 16:9. Absolutely NO text, letters or numbers in the image.')
@@ -438,7 +500,10 @@ def fai(i):
         if APPLICA and not c.get('suff'):
             im.save(os.path.join(BASI, c['id'] + '.jpg'), quality=92)
         lato = 'sinistra' if t.get('lato_testo') == 'sinistra' else 'destra'
-        scritta(im, [str(t['riga1']).upper(), str(t['riga2']).upper()], lato, zona_libera(im, lato)).save(p, quality=90)
+        if STILE == 'piatto' and str(E('TESTO_STILE', '') or 'magenta').lower() == 'magenta':   # come le vecchie copertine che andavano bene: lato destro scurito + frase intera magenta
+            scritta_magenta(scurisci_destra(im), f"{t['riga1']} {t['riga2']}").save(p, quality=90)
+        else:
+            scritta(im, [str(t['riga1']).upper(), str(t['riga2']).upper()], lato, zona_libera(im, lato)).save(p, quality=90)
         log('copertina pronta:', c['id'], t['riga1'], '/', t['riga2'])
         return p
     except Exception as e:
