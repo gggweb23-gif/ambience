@@ -93,12 +93,13 @@ def claude(cont, max_tokens=3000):
 DOMANDA = """Copertina YouTube di un video di storia di grande successo (competitor). La rifacciamo per il nostro canale italiano "Storia in Minuti".
 1) "testo": TUTTO il testo scritto sulla copertina, tradotto in italiano AL 100% (stesse parole, stessi numeri e date, stesse maiuscole).
    Date sempre "a.C." / "d.C." scritte esattamente cosi' (a e d minuscole). Se c'e' un nome di paese lascialo come in italiano (es. INDIA, IRAN).
-2) Per ognuno di questi livelli di differenza dall'ORIGINALE: {livelli} — elenca in "cambi" cosa cambiare (in inglese, 1 frase per cambio).
-   20% = 2 cambi visibili, 30% = 3 cambi, 40% = 4 cambi. Ogni livello e' indipendente e parte sempre dall'ORIGINALE (non dal livello precedente).
-   Cambi ammessi: inquadratura un po' diversa, colori dominanti e luce del cielo/sfondo, monumenti o elementi secondari diversi della stessa epoca e paese,
-   posizione dei soggetti, ora del giorno (alba, tramonto, giorno), un simbolo storico in piu'.
-   VIETATO: incendi, fumo, esplosioni, distruzione, guerra, sangue, catastrofi, cieli apocalittici; espressioni esagerate o smorfie (i personaggi hanno volti puliti, sereni, dignitosi).
-   Il testo, la sua posizione e lo stile del disegno NON cambiano. Non aggiungere loghi, bollini o scritte.
+2) Per ognuno di questi livelli di differenza dall'ORIGINALE: {livelli} — scrivi in "cambi" (in inglese, 1 frase per cambio) i cambi CONCRETI per QUESTA copertina.
+   I COLORI NON SI TOCCANO MAI: stesso cielo, stessa palette, stesso momento della giornata dell'originale (la sua forza e' il contrasto dei colori).
+   20% = (a) il soggetto principale piu' grande del 15-20% e piu' in primo piano; (b) sfondo leggermente sfocato con profondita'.
+   30% = i cambi del 20% + (c) il soggetto cambia posa o gesto (es. mano alzata che indica, sguardo verso chi guarda), espressione serena; (d) UN monumento secondario diverso, della stessa epoca e paese (dillo quale).
+   40% = i cambi del 30% + (e) inquadratura dal basso, il soggetto appare imponente; (f) UN elemento in primo piano diverso (dillo quale, es. un carro al posto dell'elefante).
+   Ogni livello parte sempre dall'ORIGINALE. VIETATO: incendi, fumo, esplosioni, distruzione, guerra, sangue, catastrofi; smorfie o espressioni esagerate.
+   Il testo e la sua posizione NON cambiano. Non aggiungere loghi, bollini o scritte.
 3) "righe": lo stesso testo diviso nelle stesse righe dell'originale (es. originale "HISTORY OF" / "IRAN" -> ["STORIA DELL'", "IRAN"]).
 Rispondi SOLO JSON: {{"testo": "...", "righe": ["...", "..."], "livelli": [{{"perc": 20, "cambi": ["...", "..."]}}]}}"""
 
@@ -124,8 +125,25 @@ def testo_giusto(im, testo):
         log('    controllo scritta non riuscito:', str(e)[:100]); return True
 
 
+WOW = ('WOW EFFECT: a strong warm golden rim light outlining the main subject so it pops from the background; slightly higher contrast and saturation on the subject; '
+       'clean sharp details; keep EXACTLY the same sky colour, palette and time of day as the reference (never turn it into a sunset). '
+       'Make the title stronger: same words, same font and colours, but a thicker dark outline and a crisp drop shadow so it reads instantly on a phone. ')
+
+
+def vignetta(im, forza=0.28):
+    """Bordi leggermente piu' scuri: l'occhio va al centro."""
+    w, h = im.size
+    m = Image.new('L', (w, h), 0); d = ImageDraw.Draw(m)
+    for k in range(60):
+        a = int(255 * forza * (1 - k / 60) ** 2)
+        d.rectangle([k * w // 240, k * h // 240, w - 1 - k * w // 240, h - 1 - k * h // 240], outline=a, width=max(1, w // 240))
+    from PIL import ImageFilter
+    m = m.filter(ImageFilter.GaussianBlur(w // 30))
+    return Image.composite(Image.new('RGB', (w, h), (0, 0, 0)), im, m)
+
+
 def regole(testo):
-    return ('Rules: the characters have clean, calm, dignified expressions (no grimaces, no exaggerated emotions); '
+    return (WOW + 'Rules: the characters have clean, calm, dignified expressions (no grimaces, no exaggerated emotions); '
             'absolutely NO fire, smoke, explosions, destruction, war scenes, blood or catastrophes; bright, clean, inviting colours. '
             'Keep the BOTTOM-RIGHT corner (last 30% of width and last 28% of height) free of any text: YouTube shows the video duration there; '
             f'Replace ALL the text with exactly this Italian text, same font style, same colours, same size and same position (unless it was in the bottom-right corner): "{testo}". '
@@ -173,7 +191,7 @@ for nostro, comp in COPPIE:
         k, perc = k_perc
         cambi = livelli.get(perc) or []
         prompt = (f'Recreate the YouTube thumbnail of the reference image as a high-quality 2D cartoon illustration with clean black outlines and rich detail, '
-                  f'keeping the same composition, layout, title position and size, and the same subject and theme, but about {perc}% DIFFERENT from it. '
+                  f'keeping the same layout, title position, the same subject, theme and the SAME COLOURS, but about {perc}% DIFFERENT from it. '
                   f'Change exactly these things: {"; ".join(cambi)}. Everything else stays like the reference. ' + regole(testo))
         try:
             im = None
@@ -186,7 +204,7 @@ for nostro, comp in COPPIE:
                     break
                 if tentativo == 2:
                     raise RuntimeError('scritta ancora sbagliata dopo 3 tentativi: copertina NON usata')
-            im = bollino(im)
+            im = vignetta(bollino(im))
             p = os.path.join(OUT, f'{nostro}_{k}.jpg'); im.save(p, quality=92)
             log(f'  copertina {k} ({perc}% diversa): ' + ' | '.join(cambi))
             return k, perc, im, cambi
