@@ -63,6 +63,8 @@ QUOTA_CARTONI = _perc(P.get('quota_cartoni') or E('QUOTA_CARTONI', ''), 80)
 BUDGET = float(str(P.get('budget_video') or E('BUDGET_VIDEO', '') or 3).replace(',', '.').replace('€', '').strip() or 0)   # euro massimi a video (0 = nessun tetto)
 PREZZO_DISEGNO = 0.12   # $ per disegno Nano Banana 2 a 2K (con i rifatti si conta +25%)
 SPESA = {'fal': 0.0, 'disegni': 0}
+COP_VIDEO = str(P.get('copertina_video') or E('COPERTINA_VIDEO', '') or 'NO').strip().upper() == 'SI'
+RISERVA_COP = 0.15 if COP_VIDEO else 0.55   # $ tenuti da parte nel budget per le copertine: 1a (fino a 3 tentativi) + la 2a se servira'
 CORNICE = str(P.get('cornice') or E('CORNICE', '') or 'SI').strip().upper() == 'SI'   # cornice a tema del paese intorno a tutto il video
 RISERVA_PX = []   # ricerche Pexels generiche del paese, per quando una ricerca precisa non trova niente   # % del video a cartone (Nano Banana), il resto Pexels
 SFONDI_MAX = int(float(str(P.get('sfondi_max') or E('SFONDI_MAX', '') or 60)))
@@ -276,7 +278,7 @@ def copione(comp):
         n_sf = max(6, min(SFONDI_MAX, math.ceil(sec * QUOTA_CARTONI / 100 / SEC_IMMAGINE) + 2))
     if BUDGET > 0:   # tetto di spesa: pochi disegni (solo dove ci sono persone + gancio iniziale), il ritmo lo fa Pexels (gratis)
         dollari = BUDGET * 1.08
-        fissi = 0.35 + 0.15 + 0.05 + (sec / 5) * 0.005   # copione + copertina + controlli disegni + controlli Pexels (Haiku)
+        fissi = 0.35 + RISERVA_COP + 0.05 + (sec / 5) * 0.005   # copione + copertine (1 + eventuale 2) + controlli disegni + controlli Pexels (Haiku)
         n_budget = max(2, int((dollari - fissi) / (PREZZO_DISEGNO * 1.25)))
         n_sf = max(2, min(SFONDI_MAX, n_budget, 3 + math.ceil(max(0.0, sec - 30) / 45)))
         globals()['QUOTA_CARTONI'] = max(5, min(60, round(n_sf * 8 / max(sec, 1) * 100)))
@@ -2504,7 +2506,7 @@ def main():
             [f"{c.get('paese_mappa') or 'ancient'} {x}" for x in ('landscape', 'river', 'mountains', 'ancient ruins', 'sky clouds', 'temple')]
         if BUDGET > 0:   # rete di sicurezza: mai piu' disegni di quanti ne paga il budget, anche se il copione ne chiede di piu'
             sec_v = sum(durs)
-            massimo = max(2, int((BUDGET * 1.08 - (0.35 + 0.15 + 0.05 + sec_v / 5 * 0.005)) / (PREZZO_DISEGNO * 1.25)))
+            massimo = max(2, int((BUDGET * 1.08 - (0.35 + RISERVA_COP + 0.05 + sec_v / 5 * 0.005)) / (PREZZO_DISEGNO * 1.25)))
             if len(c['sfondi']) > massimo:
                 tenuti = {x['id'] for x in c['sfondi'][:massimo]}
                 log(f"budget: il copione chiede {len(c['sfondi'])} disegni, se ne fanno {massimo}; gli altri diventano clip Pexels")
@@ -2713,7 +2715,7 @@ def main():
     finale = os.path.join(ROOT, 'video_storia.mp4')
     if not iscrizione(video, audio, finale):
         run(['ffmpeg', '-y', '-v', 'error', '-i', video, '-i', audio, '-map', '0:v', '-map', '1:a', '-c:v', 'copy', '-c:a', 'copy', '-shortest', finale])
-    cop = copertina(comp, c)
+    cop = copertina(comp, c) if COP_VIDEO else None   # NO: la copertina la fa 'Copertine Storia' (bandiera + figura) entro 3 ore, prima dell'uscita
     open(os.path.join(ROOT, 'titolo.txt'), 'w').write(titolo_finale)
     if CARICA:
         t0c = time.time()
