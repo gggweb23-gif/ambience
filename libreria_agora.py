@@ -24,6 +24,7 @@ PREZZO = 0.12 if RISOLUZIONE == '2K' else 0.08
 
 STILE = ('Photorealistic cinematic film still, dark stoic philosophy atmosphere, dramatic chiaroscuro lighting, deep crushed blacks, '
          'low saturation, subtle film grain, epic and contemplative mood, shallow depth of field, 16:9 widescreen composition. '
+         'FRAMING: the person is seen FULL BODY or from the knees up, or small in a wide landscape; NEVER a close-up of a face or a bust only. '
          'Absolutely no text, no letters, no inscriptions, no logo, no watermark, no frame, nothing modern (no phones, cars, electric lights, modern buildings).')
 
 LUCE = {
@@ -35,74 +36,74 @@ LUCE = {
 
 # id, soggetto, emozione, descrizione (inglese, per il prompt e per la scelta nel video)
 SOGGETTI = [
-    # statue di filosofi (volti diversi, mai un filosofo preciso: vanno bene per tutti i video)
-    ('statua_pensatore_profilo', 'statua', 'ambra', 'side profile of a marble statue of a bearded ancient Greek philosopher, eyes lowered in thought, city at sunset blurred behind'),
-    ('statua_mano_mento', 'statua', 'notte', 'marble statue of a bearded philosopher resting his chin on his hand, deep in thought, moonlit temple behind'),
-    ('statua_busto_buio', 'statua', 'tempesta', 'close-up of the marble bust of a stern bearded sage, cracks in the marble, dark storm clouds behind'),
-    ('statua_occhi_chiusi', 'statua', 'alba', 'marble statue of an old philosopher with closed eyes, serene, morning mist around him'),
-    ('statua_seduta_trono', 'statua', 'ambra', 'marble statue of a philosopher seated on a stone throne inside a dark temple, candle light, embers in the air'),
-    ('statua_pergamena', 'statua', 'ambra', 'marble statue of a sage holding an open scroll, reading, warm oil lamp light'),
-    ('statua_spalle_citta', 'statua', 'ambra', 'marble statue seen from behind on a balcony overlooking an ancient city at golden sunset'),
-    ('statua_pioggia', 'statua', 'tempesta', 'marble statue of a philosopher standing calm under heavy rain among ruins, water running on the marble'),
-    ('statua_luna_colonne', 'statua', 'notte', 'marble statue of a muscular philosopher seen from behind between temple columns, full moon in a blue night sky'),
-    ('statua_volto_crepe', 'statua', 'tempesta', 'extreme close-up of a cracked marble face of an ancient thinker, intense gaze, dust in the air'),
-    ('statua_dito_tempia', 'statua', 'notte', 'marble statue of a philosopher touching his temple with one finger, dark background with grey smoke'),
-    ('statua_braccia_conserte', 'statua', 'ambra', 'marble statue of a strong bearded philosopher with crossed arms, confident, fire glow behind'),
-    # guerrieri e figure forti
-    ('guerriero_fuoco', 'guerriero', 'ambra', 'muscular marble warrior statue standing among flames and smoke, ancient column beside him'),
-    ('guerriero_elmo', 'guerriero', 'tempesta', 'ancient Greek hoplite statue with crested helmet and shield, standing alone, stormy sky'),
-    ('guerriero_inginocchiato', 'guerriero', 'notte', 'marble warrior kneeling with head bowed, sword planted in the ground, moonlight'),
-    ('guerriero_schiena', 'guerriero', 'alba', 'muscular marble statue seen from behind looking at a misty valley at dawn'),
-    ('gladiatore_arena', 'guerriero', 'ambra', 'lone gladiator statue in an empty ancient arena at sunset, dust in the air'),
-    ('ercole_fatica', 'guerriero', 'tempesta', 'marble statue of a herculean man carrying a heavy stone on his shoulders, grey storm light'),
-    # figure incappucciate e persone antiche (mai volti moderni)
-    ('incappucciato_trono', 'incappucciato', 'ambra', 'hooded robed figure seated on a stone throne in a dark hall, face in shadow, warm torch light'),
-    ('incappucciato_corridoio', 'incappucciato', 'notte', 'hooded figure walking alone down a long corridor of columns, blue moonlight, mist on the floor'),
-    ('incappucciato_scogliera', 'incappucciato', 'tempesta', 'hooded figure standing on a cliff above a stormy sea, cloak moving in the wind'),
-    ('incappucciato_candela', 'incappucciato', 'ambra', 'hooded monk-like figure writing by a single candle in a dark stone room'),
-    ('uomo_toga_finestra', 'figura', 'alba', 'man in an ancient toga standing at a large stone window looking at mountains at dawn, seen from behind'),
-    ('uomo_toga_citta', 'figura', 'ambra', 'man in a toga standing at an open window above an ancient Greek city at sunset, silhouette'),
-    ('vecchio_saggio_fuoco', 'figura', 'ambra', 'old bearded sage in ancient robes sitting by a small fire at night, face lit by the flames'),
-    ('figura_sentiero', 'figura', 'alba', 'lone traveler in ancient robes walking on a stone path toward a temple in the morning mist'),
-    ('figura_mare', 'figura', 'notte', 'figure in a cloak sitting on rocks watching a dark sea under the stars'),
-    ('figura_scalinata', 'figura', 'tempesta', 'robed figure climbing long stone steps toward a temple under dark clouds'),
-    # citta' antiche
-    ('atene_tramonto', 'citta', 'ambra', 'aerial view of ancient Athens with the Parthenon at golden sunset, smoke and haze'),
-    ('roma_foro_notte', 'citta', 'notte', 'ancient Roman forum at night with torches, columns and temples, blue sky with stars'),
-    ('roma_alba_nebbia', 'citta', 'alba', 'ancient Rome at dawn seen from a hill, mist between the temples and domes'),
-    ('citta_tempesta', 'citta', 'tempesta', 'ancient Greek city under a dramatic storm, lightning over the acropolis'),
-    ('porto_antico', 'citta', 'ambra', 'ancient harbor with wooden ships at sunset, stone lighthouse, golden haze'),
-    # templi, colonne, luna
-    ('tempio_luna', 'tempio', 'notte', 'ruined Greek temple with tall columns under a huge full moon, blue night'),
-    ('colonne_nebbia', 'tempio', 'alba', 'row of ancient columns disappearing into thick morning fog'),
-    ('tempio_interno_braci', 'tempio', 'ambra', 'dark interior of an ancient temple with marble columns and floating embers, a beam of light'),
-    ('rovine_nebbia', 'rovine', 'tempesta', 'ancient ruins in fog, broken columns and fallen statues, grey light'),
-    ('testa_statua_terra', 'rovine', 'tempesta', 'broken marble head of a statue lying in the grass among ruins, overcast light'),
-    ('arco_alba', 'rovine', 'alba', 'ancient stone arch on a mountain path at sunrise, soft golden light'),
-    ('anfiteatro_vuoto', 'rovine', 'notte', 'empty ancient amphitheater under the night sky, stars and moonlight on the stone seats'),
-    # natura drammatica
-    ('mare_tempesta_rocce', 'natura', 'tempesta', 'huge waves crashing on dark rocks below an ancient temple, stormy sky'),
-    ('cielo_tempesta', 'natura', 'tempesta', 'dramatic stormy sky with heavy dark clouds and rays of light breaking through'),
-    ('montagne_alba', 'natura', 'alba', 'mountain peaks above a sea of clouds at dawn, calm and vast'),
-    ('lago_notte_stelle', 'natura', 'notte', 'still lake at night reflecting the stars and the moon, silhouette of mountains'),
-    ('albero_solitario', 'natura', 'tempesta', 'lone old olive tree on a hill under a dark sky, wind'),
-    ('deserto_sole', 'natura', 'ambra', 'endless desert dunes at sunset, warm orange light, a single ancient ruin'),
-    ('fuoco_braci', 'natura', 'ambra', 'close-up of burning embers and flames in darkness, sparks rising'),
-    # candele, libri, pergamene, oggetti simbolici
-    ('biblioteca_antica', 'oggetti', 'ambra', 'ancient library with shelves of scrolls, candle light, dust floating in the air'),
-    ('pergamene_tavolo', 'oggetti', 'ambra', 'old scrolls, quill and an oil lamp on a wooden table in darkness'),
+    # INQUADRATURE come il competitor: quasi sempre CORPO INTERO o dalle ginocchia in su, a distanze diverse (campo lungo, figura intera, mezza figura),
+    # ETA' diverse (giovani, adulti, anziani). Mai solo un volto. Le 7 immagini gia' fatte e approvate restano (stessi id).
+    # statue di marmo "vive", corpo intero
+    ('statua_luna_colonne', 'statua', 'notte', 'full body marble statue of a muscular philosopher seen from behind between temple columns, full moon in a blue night sky'),
+    ('statua_mano_mento', 'statua', 'notte', 'full body marble statue of an old bearded philosopher seated on a stone bench, chin on his hand, moonlit temple behind'),
+    ('statua_occhi_chiusi', 'statua', 'alba', 'full body marble statue of an old philosopher with closed eyes standing in a misty olive grove at dawn'),
+    ('statua_pioggia', 'statua', 'tempesta', 'full body marble statue of a philosopher standing calm under heavy rain in a street of ruins'),
+    ('statua_seduta_trono', 'statua', 'ambra', 'full body marble statue of a philosopher seated on a stone throne inside a dark temple, candles, embers'),
+    ('statua_pergamena', 'statua', 'ambra', 'marble statue of a sage seated at a table reading an open scroll, seen from the knees up, oil lamp light'),
+    ('statua_spalle_citta', 'statua', 'ambra', 'full body marble statue seen from behind on a balcony overlooking an ancient city at golden sunset'),
+    ('statua_giovane_atleta', 'statua', 'alba', 'full body marble statue of a young athletic stoic man standing on a rock above a valley at dawn, calm posture'),
+    ('statua_seduta_nuvole', 'statua', 'tempesta', 'marble statue of a muscular man seated on a high ledge above dark storm clouds, seen from the knees up'),
+    ('statua_braccia_conserte', 'statua', 'ambra', 'marble statue of a strong middle-aged bearded man with crossed arms, seen from the knees up, fire glow and temple behind'),
+    ('statua_camminata', 'statua', 'notte', 'full body marble statue of a philosopher walking forward on a moonlit temple floor, robe in motion'),
+    ('statua_inginocchiata', 'statua', 'tempesta', 'full body marble statue of a young man kneeling with head bowed among ruins, rain'),
+    ('statua_anziano_bastone', 'statua', 'alba', 'full body marble statue of a very old sage leaning on a staff on a mountain path, morning mist'),
+    ('statua_fuoco', 'statua', 'ambra', 'muscular marble statue standing among flames and smoke beside an ancient column, seen from the knees up'),
+    # persone antiche reali (cinematografiche, mai volti moderni), corpo intero o mezza figura, eta' diverse
+    ('imperatore_tenda', 'persona', 'notte', 'middle-aged Roman emperor in simple armor writing on a scroll by an oil lamp inside a military tent at night, seen from the knees up'),
+    ('imperatore_campo', 'persona', 'tempesta', 'Roman emperor in a cloak standing alone on a hill above a misty army camp, full body, wide shot'),
+    ('senatore_finestra', 'persona', 'alba', 'old Roman senator in a white toga standing at a large stone window looking at the dawn, full body, seen from behind'),
+    ('senatore_esilio', 'persona', 'tempesta', 'older man in a worn toga walking alone on a windy rocky island shore, full body, wide shot'),
+    ('maestro_allievi', 'persona', 'ambra', 'old teacher with a limp and a staff speaking to young students seated on stone steps, golden light, wide shot'),
+    ('allievo_ascolta', 'persona', 'ambra', 'young student in a simple tunic sitting on temple steps listening intently, seen from the knees up, warm light'),
+    ('giovane_alba', 'persona', 'alba', 'young man in a tunic training at dawn on a beach, full body, calm and disciplined'),
+    ('uomo_pioggia', 'persona', 'tempesta', 'man in a dark cloak standing still in the pouring rain in an ancient street, full body, others running past blurred'),
+    ('vecchio_fuoco', 'persona', 'ambra', 'old bearded sage in ancient robes sitting by a small campfire at night, full body, wide shot'),
+    ('donna_scogliera', 'persona', 'tempesta', 'woman in an ancient stola standing calm on a cliff above a stormy sea, full body, cloak in the wind'),
+    ('donna_lampada', 'persona', 'notte', 'middle-aged woman in ancient clothes reading a scroll by an oil lamp, seen from the knees up'),
+    ('uomo_toga_citta', 'persona', 'ambra', 'man in a toga standing at an open window above an ancient Greek city at sunset, full body silhouette'),
+    ('viandante_sentiero', 'persona', 'alba', 'lone traveler in ancient robes walking on a stone path toward a temple in the morning mist, wide shot'),
+    ('figura_mare', 'persona', 'notte', 'man in a cloak sitting on rocks watching a dark sea under the stars, full body, seen from behind'),
+    ('figura_scalinata', 'persona', 'tempesta', 'robed figure climbing long stone steps toward a temple under dark clouds, wide shot'),
+    ('schiavo_catene', 'persona', 'ambra', 'man breaking free from iron chains on ancient stone steps, full body, warm dramatic light'),
+    ('mercato_calmo', 'persona', 'ambra', 'calm philosopher standing still in a crowded ancient market, crowd blurred around him, full body'),
+    ('padre_figlio', 'persona', 'alba', 'old father and young son walking together on an ancient road at sunrise, full body, wide shot'),
+    # figure incappucciate
+    ('incappucciato_trono', 'incappucciato', 'ambra', 'hooded robed figure seated on a stone throne in a dark hall, face in shadow, full body, torch light'),
+    ('incappucciato_corridoio', 'incappucciato', 'notte', 'hooded figure walking alone down a long corridor of columns, blue moonlight, full body, wide shot'),
+    ('incappucciato_scogliera', 'incappucciato', 'tempesta', 'hooded figure standing on a cliff above a stormy sea, full body, cloak moving in the wind'),
+    ('incappucciato_candela', 'incappucciato', 'ambra', 'hooded figure writing by a single candle in a dark stone room, seen from the knees up'),
+    # guerrieri, corpo intero
+    ('guerriero_elmo', 'guerriero', 'tempesta', 'ancient Greek hoplite with crested helmet and shield standing alone on a battlefield, full body, stormy sky'),
+    ('guerriero_inginocchiato', 'guerriero', 'notte', 'warrior kneeling with head bowed, sword planted in the ground, full body, moonlight'),
+    ('gladiatore_arena', 'guerriero', 'ambra', 'lone gladiator standing in an empty ancient arena at sunset, full body, wide shot, dust'),
+    ('ercole_fatica', 'guerriero', 'tempesta', 'muscular man carrying a heavy stone on his shoulders up a hill, full body, grey storm light'),
+    ('legionario_marcia', 'guerriero', 'alba', 'single Roman legionary marching alone on a road at dawn, full body, wide shot, mist'),
+    ('spartano_riposo', 'guerriero', 'notte', 'tired warrior sitting on a rock after battle, helmet beside him, full body, moonlight'),
+    # citta' e templi con una piccola figura (campo lungo)
+    ('atene_tramonto', 'citta', 'ambra', 'wide view of ancient Athens with the Parthenon at golden sunset, a small figure on a hill in the foreground'),
+    ('roma_foro_notte', 'citta', 'notte', 'ancient Roman forum at night with torches, a lone small figure crossing the square, wide shot'),
+    ('roma_alba_nebbia', 'citta', 'alba', 'ancient Rome at dawn seen from a hill, mist between the temples, a man in a toga small in the foreground'),
+    ('tempio_luna', 'tempio', 'notte', 'ruined Greek temple with tall columns under a huge full moon, a tiny figure at the base of the steps'),
+    ('tempio_interno_braci', 'tempio', 'ambra', 'dark interior of an ancient temple with marble columns, floating embers, a figure standing in a beam of light, wide shot'),
+    ('rovine_nebbia', 'rovine', 'tempesta', 'ancient ruins in fog, broken columns and fallen statues, a lone figure walking among them'),
+    ('anfiteatro_vuoto', 'rovine', 'notte', 'empty ancient amphitheater under the night sky, one small figure seated on the stone seats'),
+    # natura con figura
+    ('mare_tempesta_rocce', 'natura', 'tempesta', 'huge waves crashing on dark rocks below an ancient temple, a small figure standing firm on the rocks'),
+    ('montagne_alba', 'natura', 'alba', 'mountain peaks above a sea of clouds at dawn, a lone figure in robes on a summit, wide shot'),
+    ('lago_notte_stelle', 'natura', 'notte', 'still lake at night reflecting the stars, a figure sitting on the shore, wide shot'),
+    ('albero_solitario', 'natura', 'tempesta', 'lone old olive tree on a hill under a dark sky, a man in a cloak standing beside it, wind'),
+    ('deserto_sole', 'natura', 'ambra', 'endless desert dunes at sunset, a lone robed traveler walking, wide shot'),
+    # pochi oggetti simbolici (pause visive)
+    ('biblioteca_antica', 'oggetti', 'ambra', 'ancient library with shelves of scrolls, candle light, dust floating, an old man reading at a table in the distance'),
     ('clessidra', 'oggetti', 'notte', 'hourglass with falling sand on a stone table, dark room, a single candle'),
-    ('candela_sola', 'oggetti', 'notte', 'single candle burning in total darkness, smoke rising, close-up'),
-    ('specchio_bronzo', 'oggetti', 'notte', 'ancient bronze mirror on a stone wall reflecting a dim candle, mysterious'),
-    ('catene_spezzate', 'oggetti', 'ambra', 'broken iron chains on ancient stone steps, warm light, symbol of freedom'),
-    ('bilancia_antica', 'oggetti', 'alba', 'ancient bronze balance scale on a marble table, soft morning light'),
-    ('elmo_terra', 'oggetti', 'tempesta', 'ancient bronze helmet lying on the ground in the rain, battlefield mist'),
-    # animali simbolici
-    ('leone_marmo', 'animali', 'ambra', 'marble lion statue roaring at the entrance of a temple, fire glow'),
-    ('aquila_statua', 'animali', 'tempesta', 'bronze eagle statue with open wings on a column against a stormy sky'),
-    ('lupo_rovine', 'animali', 'notte', 'lone wolf among ancient ruins under the moonlight'),
-    ('gufo_colonna', 'animali', 'notte', 'owl perched on a broken marble column at night, symbol of wisdom'),
-    ('cavallo_nebbia', 'animali', 'alba', 'marble horse statue emerging from morning fog'),
+    ('candela_sola', 'oggetti', 'notte', 'single candle burning in darkness, smoke rising'),
+    ('leone_marmo', 'animali', 'ambra', 'marble lion statue at the entrance of a temple, fire glow'),
+    ('aquila_statua', 'animali', 'tempesta', 'bronze eagle with open wings on a column against a stormy sky'),
 ]
 
 
@@ -144,7 +145,8 @@ def buona(img_bytes, desc):
         r = http('https://api.anthropic.com/v1/messages', {'model': 'claude-haiku-4-5-20251001', 'max_tokens': 200, 'messages': [{'role': 'user', 'content': [
             {'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}},
             {'type': 'text', 'text': f'Expected: {desc}. Answer NO if the image has ANY readable text, letters or inscriptions, a modern object, '
-                                     'deformed faces/hands/extra limbs, or clearly does not show the expected subject. Otherwise SI. Answer only SI or NO.'}]}]},
+                                     'deformed faces/hands/extra limbs, a close-up of only a face or a bust (the person must be full body, from the knees up, or small in a wide view), '
+                                     'or clearly does not show the expected subject. Otherwise SI. Answer only SI or NO.'}]}]},
                  {'x-api-key': E('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01'})
         return 'NO' not in ''.join(b.get('text', '') for b in r.get('content', [])).upper()
     except Exception as e:
