@@ -20,7 +20,7 @@ permissions:
 
 jobs:
   render:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     timeout-minutes: 150
     steps:
       - uses: actions/checkout@v4
@@ -36,21 +36,26 @@ jobs:
             python3 -c "from fontTools.ttLib import TTFont; f=TTFont('package/files/cormorant-garamond-latin-600-normal.woff'); f.flavor=None; f.save('font/CormorantGaramond-SemiBold.ttf')"
           fi
           fc-scan --format "%{family}\n" font/CormorantGaramond-SemiBold.ttf
+          # trascrizione parola per parola (sottotitoli a frasi dello stile Agora)
+          pip install -q --break-system-packages faster-whisper || pip install -q faster-whisper || echo "faster-whisper non installato: tempi stimati"
 
       - name: Crea il video
         env:
           PAYLOAD: ${{ inputs.payload }}
           DRY_RUN: ${{ inputs.prova == 'SI' && '1' || '0' }}
           FAL_KEY: ${{ secrets.FAL_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          WHISPER_MODEL: small
         run: python3 render_filosofo.py
 
-      - name: Salva i nuovi ritratti nel repository
+      - name: Salva i nuovi ritratti e lo storico immagini nel repository
         if: ${{ always() }}
         run: |
-          if [ -d ritratti ] && [ -n "$(git status --porcelain ritratti)" ]; then
+          if [ -n "$(git status --porcelain ritratti libreria_agora 2>/dev/null)" ]; then
             git config user.name "render-bot"
             git config user.email "render-bot@users.noreply.github.com"
-            git add ritratti
+            git add ritratti libreria_agora 2>/dev/null || git add ritratti
             git commit -m "Nuovo ritratto filosofo"
             git pull --rebase -q || true
             git push || echo "ritratto non salvato (verra' ricreato la prossima volta)"

@@ -1,0 +1,45 @@
+name: Libreria Agora
+on:
+  workflow_dispatch:
+    inputs:
+      massimo:
+        description: Quante immagini nuove al massimo in questo giro (es. 10 per provare, 999 = tutte)
+        default: '999'
+      risoluzione:
+        description: 1K (~0,08 $ a immagine) oppure 2K (~0,12 $)
+        default: 1K
+permissions:
+  contents: write
+jobs:
+  libreria:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+    - uses: actions/checkout@v4
+    - name: Crea le immagini della libreria (solo quelle che mancano)
+      env:
+        MASSIMO: ${{ inputs.massimo }}
+        RISOLUZIONE: ${{ inputs.risoluzione }}
+        CONTROLLO: SI
+        FAL_KEY: ${{ secrets.FAL_KEY }}
+        ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      run: (pip install -q pillow || sudo apt-get install -y -qq python3-pil) && python3 libreria_agora.py
+    - name: Salva nel repository
+      if: always()
+      run: |
+        if [ -d libreria_agora ] && [ -n "$(git status --porcelain libreria_agora)" ]; then
+          git config user.name "render-bot"
+          git config user.email "render-bot@users.noreply.github.com"
+          git add libreria_agora
+          git commit -m "Libreria Agora"
+          git pull --rebase -q || true
+          git push
+        fi
+    - name: Anteprima
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: libreria-agora
+        path: libreria_agora
+        if-no-files-found: ignore
+        retention-days: 3
