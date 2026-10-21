@@ -256,9 +256,10 @@ VIETATO descrivere l'ASPETTO del personaggio del competitor: niente colore della
 "luogo" (in inglese) = lo STESSO luogo della copertina competitor (stesso ambiente, stessa ora del giorno, stessa luce, stesso tempo atmosferico), descritto con 4-6 dettagli visibili (es. "mountains at sunset, orange sky, a dirt path"). Mai cambiare luogo.
 "posa" (in inglese) = il MOVIMENTO e la posa ESATTI del personaggio (corre, salta, e' sdraiato, seduto, di spalle, di profilo; dove guarda; posizione di braccia e gambe) e l'inquadratura (figura intera, mezzo busto, primo piano).
 "accessori" (in inglese) = cio' che il personaggio ha addosso OLTRE ai vestiti (cuffie, occhiali, coperta sulle spalle, cappello, zaino...); "" se niente. MAI maglioni, maglie, giacche o altri vestiti: KAO ha SEMPRE la sua maglia magenta.
+"grafica" (in inglese) = gli elementi grafici disegnati sopra la scena (frecce rosse e dove puntano, cerchi, punti di domanda, punti esclamativi, nuvolette di pensiero, X, linee di movimento); "" se nessuno.
 "composizione" (in inglese) = SOLO se la copertina NON e' una scena unica: com'e' divisa e cosa c'e' in ogni parte (es. "split screen in two halves: LEFT a very messy living room with clothes and dishes everywhere and KAO overwhelmed; RIGHT the same living room perfectly clean and KAO relaxed in an armchair with a cup; the title is in the middle over the dividing line"). Il personaggio compare in OGNI parte dove compare nel competitor. "" se e' una scena unica.
 "persone" (in inglese) = le ALTRE persone della situazione (quelle della copertina competitor o quelle che servono a far capire il contesto: genitori che litigano, partner, amici, folla...), cosa fanno e dove stanno; "" se la situazione e' di una persona sola.
-Rispondi SOLO JSON: {{"riga1": "...", "riga2": "...", "emo": "...", "oggetto": "...", "scena": "...", "azione": "...", "luogo": "...", "persone": "...", "posa": "...", "accessori": "...", "composizione": "", "lato_testo": "destra", "cambi": ""}}"""
+Rispondi SOLO JSON: {{"riga1": "...", "riga2": "...", "emo": "...", "oggetto": "...", "scena": "...", "azione": "...", "luogo": "...", "persone": "...", "posa": "...", "accessori": "...", "grafica": "", "composizione": "", "lato_testo": "destra", "cambi": ""}}"""
     try:
         rr = http('https://api.anthropic.com/v1/messages', {'model': E('MODELLO_AI', 'claude-sonnet-5-5'), 'max_tokens': 2000,
                   'messages': [{'role': 'user', 'content': [{'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}},
@@ -337,13 +338,14 @@ def testo_esatto(im, frase, divisa_ok=False):   # divisa_ok: il competitor e' di
                                      'BASSO=SI/NO (SI if any part of the title is in the bottom 25% of the image near the left or right corner), '
                                      'CARTONCINO=SI/NO (SI if the title is inside a WHITE rounded card/box with a black outline), '
                                      'SCURO=SI/NO (SI if a large part of the image is darkened by a dark gradient or dark panel), '
-                                     'DIVISA=SI/NO (SI if the picture is cut into separate panels by a vertical or horizontal dividing line).'}]}]},
+                                     'DIVISA=SI/NO (SI if the picture is cut into separate panels by a vertical or horizontal dividing line), '
+                                     'COPRE=SI/NO (SI if the title or its card covers the character, his face or an important object of the scene).'}]}]},
                   {'x-api-key': E('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01'}, timeout=120)
         tutto = ''.join(b.get('text', '') for b in rr.get('content', []))
         letto = tutto.split('CHECK:')[0]
         chk = tutto.split('CHECK:')[1].upper() if 'CHECK:' in tutto else ''
         c_ = chk.replace(' ', '')
-        if 'GRANDE=NO' in c_ or 'BASSO=SI' in c_ or (not divisa_ok and 'DIVISA=SI' in c_) or (SFONDO_TESTO == 'fumetto' and ('CARTONCINO=NO' in c_ or 'SCURO=SI' in c_)):
+        if 'GRANDE=NO' in c_ or 'BASSO=SI' in c_ or (not divisa_ok and 'DIVISA=SI' in c_) or 'COPRE=SI' in c_ or (SFONDO_TESTO == 'fumetto' and ('CARTONCINO=NO' in c_ or 'SCURO=SI' in c_)):
             log('    scritta piccola, troppo in basso o fuori stile (cartoncino bianco, niente lato scuro):', chk.strip()[:90]); return False
         norm = lambda x: re.sub(r'[^A-Z0-9]', '', x.upper().replace('À', 'A').replace('È', 'E').replace('É', 'E').replace('Ì', 'I').replace('Ò', 'O').replace('Ù', 'U'))
         ok = norm(letto) == norm(frase)
@@ -685,6 +687,7 @@ def fai(i):
                       f'KAO POSE AND MOVEMENT: {t.get("posa", "")}. ' + (f'KAO WEARS: {t.get("accessori")}. ' if t.get('accessori') else '') +
                       f'WHAT KAO DOES: {t.get("azione", "")}. EMOTION, very clear on his face: {t.get("emo", "")}. OBJECTS: {t.get("oggetto", "")}. {diverso}'
                       + (f'OTHER PEOPLE: {t.get("persone")} (same style as KAO, neutral clothes, only KAO wears magenta). ' if t.get('persone') else '') +
+                      (f'GRAPHIC ELEMENTS drawn over the scene, copy them exactly (same position and direction): {t.get("grafica")}. ' if t.get('grafica') else '') +
                       'KAO is exactly as in the KAO reference: bald round head, simple face, light skin, ALWAYS his magenta long-sleeve shirt (never a sweater, jacket or other top), black trousers. '
                       + (f'COMPOSITION (copy it exactly, KAO appears in every part where the character appears): {t.get("composizione")}. The title goes where described, never covering KAO or faces. Everything bright and fully visible. ' if t.get('composizione') else f'The scene fills the WHOLE image, bright and fully visible everywhere (NO dark side, NO dark gradient). KAO, people and important objects stay in the {"RIGHT" if lato_c == "sinistra" else "LEFT"} 50%, KAO big and clearly visible. '                      f'The {"LEFT" if lato_c == "sinistra" else "RIGHT"} 50% simply continues the same environment (wall, sky, room, landscape), bright, with nothing important: a title will go there. ') +
                       ('' if t.get('composizione') else 'ONE single continuous scene filling the whole image: NO split screen, NO vertical dividing line, NO panels, NO frames, NO borders. ') +
@@ -701,7 +704,9 @@ def fai(i):
                                 'the title block about 40-45% of the image width), on 2-4 lines, centred, inside the UPPER 72% of the image (never in the bottom corners), '
                                 'readable on a phone: bold condensed uppercase letters (like the Anton font) in bright MAGENTA (the same magenta as KAO\'s shirt). '
                                 f'Behind the title: {SFONDI_TESTO[st_]} High impact, clean, professional, like a viral YouTube thumbnail. '
-                                'The title never covers KAO, faces or important objects, and stays out of the bottom-left and bottom-right corners (video timer). '
+                                'Break the lines only between word groups that belong together (e.g. "TENGONO TUTTO / NON SI SA MAI"), never split an expression and never leave a short word alone on a line. '
+                                'The title card sits on an EMPTY area of the scene (wall, sky, floor): it never covers KAO, faces, the objects of the scene or the graphic elements, '
+                                'and stays out of the bottom-left and bottom-right corners (video timer). '
                                 'No other text anywhere. Spell every word exactly.')
             for tent in range(2 if PROVA_SFONDI else 3):
                 try:
