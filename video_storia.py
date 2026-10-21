@@ -91,7 +91,9 @@ NUOVE_QUOTA = NUOVE_QUOTA / 100 if NUOVE_QUOTA > 1 else NUOVE_QUOTA   # quota di
 IMMAGINI_MAX = int(float(str(P.get('immagini_max') or E('IMMAGINI_MAX', '') or 200)))   # tetto immagini per video (costo)
 VERIFICA = str(P.get('verifica_immagini') or E('VERIFICA_IMMAGINI', '') or 'SI').strip().upper() == 'SI'   # Claude controlla ogni immagine
 GRANA = str(P.get('grana') or E('GRANA', '') or 'SI').strip().upper() == 'SI'   # grana da pellicola + vignetta leggera
-PEXELS_MAX = int(float(str(P.get('pexels_max') or E('PEXELS_MAX', '') or 190)))   # ricerche Pexels per video (limite Pexels: 200 l'ora)
+PEXELS_MAX = int(float(str(P.get('pexels_max') or E('PEXELS_MAX', '') or 190)))   # ricerche Pexels per ORA (limite Pexels: 200 l'ora)
+PEXELS_ATTESA_MAX = float(str(P.get('pexels_attesa_max') or E('PEXELS_ATTESA_MAX', '') or 80)) * 60   # minuti massimi di attesa per il limite orario
+_orari_px = []
 NARRATORE = str(P.get('narratore') or E('NARRATORE', '') or 'anziano_narratore').strip()   # avatar del canale: MAI nei video
 INK = (29, 26, 23)
 random.seed(TITOLO)
@@ -573,12 +575,30 @@ def pexels_cerca(tipo, q):
     with _lock:
         if k in _cache:
             return _cache[k]
-        if _conti['n'] >= PEXELS_MAX:
-            if not _conti.get('avvisato'):
-                _conti['avvisato'] = True
-                log(f'ATTENZIONE: ricerche Pexels FINITE ({PEXELS_MAX} su {PEXELS_MAX}): da qui si riusano clip gia\' scaricate (colonna pexels_max)')
-            return []
-        _conti['n'] += 1
+    # limite Pexels: PEXELS_MAX ricerche all'ora. Arrivati al limite si ASPETTA che l'ora si liberi (prima le ricerche finivano
+    # e meta' video restava senza clip). Solo dopo PEXELS_ATTESA_MAX minuti di attesa totale si rinuncia (e si riusano clip).
+    while True:
+        with _lock:
+            if k in _cache:
+                return _cache[k]
+            ora = time.time()
+            _orari_px[:] = [t for t in _orari_px if ora - t < 3600]
+            if len(_orari_px) < PEXELS_MAX:
+                _orari_px.append(ora); _conti['n'] += 1
+                break
+            if _conti.get('attesa', 0) >= PEXELS_ATTESA_MAX:
+                if not _conti.get('avvisato'):
+                    _conti['avvisato'] = True
+                    log(f'ATTENZIONE: ricerche Pexels FINITE ({_conti["n"]} fatte, attesa massima raggiunta): da qui si riusano clip gia\' scaricate')
+                return []
+            pausa = min(60.0, 3600 - (ora - _orari_px[0]) + 2)
+            if not _conti.get('in_attesa'):
+                _conti['in_attesa'] = True
+                log(f'Pexels: raggiunto il limite di {PEXELS_MAX} ricerche l\'ora ({_conti["n"]} fatte): aspetto che si liberi (circa {int(3600 - (ora - _orari_px[0])) // 60 + 1} min)')
+            _conti['attesa'] = _conti.get('attesa', 0) + pausa
+        time.sleep(pausa)
+    if _conti.pop('in_attesa', None):
+        log(f'Pexels: ricerche di nuovo disponibili, riparto ({int(_conti.get("attesa", 0)) // 60} min di attesa finora)')
     chiave = E('PEXELS_API_KEY', '')
     ris = []
     if chiave:
@@ -634,12 +654,14 @@ COERENZA: se la voce parla di un popolo o di un luogo preciso (es. gli arabi, l'
 SCARTA SEMPRE: qualsiasi persona (anche in costume medievale o storico), citta' moderne, palazzi moderni, lampioni, cavi elettrici, cartelli, folle; qualsiasi persona di oggi, anche piccola, lontana, di spalle o in mezzo a rovine (giacche, felpe, jeans, scarpe da ginnastica, zaini, turisti); auto, cellulari, cartelli o scritte leggibili, biglietti di auguri, oggetti di plastica, feste moderne, cose fuori tema.
 VANNO BENE: paesaggi, montagne, deserti, rovine, monumenti antichi, musei, oggetti antichi, monete, manoscritti, fuoco, cieli, mare, armi antiche in museo. NESSUNA persona: le persone nel video sono solo disegnate.
 Per il LUOGO basta che sia plausibile per quel paese (montagne, deserti, rovine, cieli vanno bene se il clima e' simile); scarta solo cio' che e' chiaramente di un altro mondo (es. colline verdi alpine per un deserto, palme tropicali, citta' europee).
-Ragiona in breve (max 2 righe) e poi chiudi con una riga ESATTAMENTE cosi': SCELTA: <numero della prima immagine adatta, oppure -1 se nessuna va bene>"""})
+Rispondi con UNA SOLA riga, esattamente cosi' e nient'altro: SCELTA: <numero della prima immagine adatta, oppure -1 se nessuna va bene>"""})
     try:
-        r = http('https://api.anthropic.com/v1/messages', {'model': E('MODELLO_PEXELS', '') or MODELLO_CONTROLLO, 'max_tokens': 300, 'messages': [{'role': 'user', 'content': cont}]},
+        r = http('https://api.anthropic.com/v1/messages', {'model': E('MODELLO_PEXELS', '') or MODELLO_CONTROLLO, 'max_tokens': 400, 'messages': [{'role': 'user', 'content': cont}]},
                  {'x-api-key': chiave, 'anthropic-version': '2023-06-01'}, timeout=120)
         txt = ''.join(b.get('text', '') for b in r.get('content', []))
-        m = re.search(r'SCELTA:\s*(-?\d+)', txt) or re.search(r'(-?\d+)\s*$', txt.strip())
+        m = (re.search(r'SCELTA:\s*\**\s*(-?\d+)', txt) or re.search(r'(-?\d+)\s*$', txt.strip())
+             or re.search(r"(?:scelgo|scelta|adatta[^.]{0,40}e')\s*(?:l')?\s*immagine\s*(\d+)", txt, re.I)
+             or re.search(r'immagine\s*(\d+)[^.]{0,60}(?:adatta|rappresentativa|coerente|evocativa|plausibile)', txt, re.I))
         n = int(m.group(1)) if m else -1
         if not m:
             log('Pexels: risposta non chiara:', txt[-150:])
@@ -2768,7 +2790,7 @@ def main():
             prec = next((paths[j] for j in range(k - 1, -1, -1) if paths[j]), None) or next((x for x in paths if x), None)
             paths[k] = pezzo_video(p_k, piano[k]['d'], prec, 0.0, specchio=True)
             log(f'pezzo {k}: ATTENZIONE nessuna clip da riusare, ripeto il pezzo precedente specchiato')
-        log(f"ricerche Pexels usate: {_conti['n']} su {PEXELS_MAX}; pezzi con clip riusata: {sum(riusi.values())}")
+        log(f"ricerche Pexels usate: {_conti['n']} (limite {PEXELS_MAX} l'ora, attesa {int(_conti.get('attesa', 0)) // 60} min); pezzi con clip riusata: {sum(riusi.values())}")
         log('pezzi pronti:', len(paths), 'in', int(time.time() - t0), 's')
         log(f"SPESA immagini: {SPESA['disegni']} immagini, circa {SPESA['fal']:.2f} $" + (f' (tetto {BUDGET:.2f} EUR a video)' if BUDGET else ''))
     video = os.path.join(LAV, 'muto.mp4')
