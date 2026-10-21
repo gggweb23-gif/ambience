@@ -2897,6 +2897,7 @@ def main():
         except Exception as e:
             log('copertina ufficiale non riuscita:', str(e)[:150])
     open(os.path.join(ROOT, 'titolo.txt'), 'w').write(titolo_finale)
+    prepara_extra(c, titolo_finale, finale, cop)
     if CARICA:
         t0c = time.time()
         vid = carica_youtube(finale, c, titolo_finale)
@@ -2999,12 +3000,11 @@ def carica_youtube(path, c, titolo):
     if not E('YT_REFRESH_TOKEN'):
         raise RuntimeError('manca il secret YT_REFRESH_TOKEN_STORIA su GitHub: video creato ma non caricato')
     tok = token()
-    descr = '\n\n'.join(x for x in [titolo, str(c.get('descrizione') or '').strip(), str(c.get('capitoli_testo') or '').strip(),
-                                     str(P.get('descrizione_base') or '').strip()] if x)
-    snippet = {'title': titolo[:100], 'description': descr[:4900], 'tags': lista_tag(titolo, c.get('tag')),
+    descr, tags_ = dati_youtube(c, titolo)
+    snippet = {'title': titolo[:100], 'description': descr, 'tags': tags_,
                'categoryId': str(c.get('categoria_originale') or P.get('categoria') or '27'), 'defaultLanguage': LINGUA, 'defaultAudioLanguage': LINGUA}
     status = {'privacyStatus': P.get('privacy') or 'public', 'selfDeclaredMadeForKids': False}
-    if P.get('pubblica_il'):
+    if P.get('pubblica_il') and str(P.get('privacy') or '').strip().lower() != 'private':   # privacy private = resta privato, si pubblica a mano
         status['privacyStatus'] = 'private'; status['publishAt'] = P['pubblica_il']
     size = os.path.getsize(path)
     req = urllib.request.Request('https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&part=snippet,status',
@@ -3074,7 +3074,92 @@ def playlist_video(video_id, titolo):
         return 'playlist non aggiornata: ' + str(e)[:150]
 
 
+EXTRA = {}   # descrizione, tag, playlist, link a video e copertina: per il foglio (caricamento a mano possibile)
+
+
+def carica_fal(path, tipo='video/mp4'):
+    h = {'Authorization': 'Key ' + E('FAL_KEY', '')}
+    dim = os.path.getsize(path)
+    base = 'https://rest.alpha.fal.ai/storage/upload/'
+    corpo = {'content_type': tipo, 'file_name': os.path.basename(path)}
+    if dim <= 90 * 1024 * 1024:
+        ini = http(base + 'initiate?storage_type=fal-cdn-v3', corpo, h)
+        with open(path, 'rb') as f:
+            req = urllib.request.Request(ini['upload_url'], data=f.read(), method='PUT', headers={'Content-Type': tipo})
+        with urllib.request.urlopen(req, timeout=1800):
+            pass
+        return ini['file_url']
+    ini = http(base + 'initiate-multipart?storage_type=fal-cdn-v3', corpo, h)
+    u = urllib.parse.urlsplit(ini['upload_url'])
+    radice, coda = f'{u.scheme}://{u.netloc}{u.path}', ('?' + u.query) if u.query else ''
+    pezzo, parti = 10 * 1024 * 1024, []
+    with open(path, 'rb') as f:
+        n = 0
+        while True:
+            dati = f.read(pezzo)
+            if not dati:
+                break
+            n += 1
+            for tent in range(4):
+                try:
+                    req = urllib.request.Request(f'{radice}/{n}{coda}', data=dati, method='PUT')
+                    with urllib.request.urlopen(req, timeout=600) as r:
+                        testo = r.read().decode() or '{}'
+                        try:
+                            etag = json.loads(testo).get('etag')
+                        except Exception:
+                            etag = None
+                        etag = etag or r.headers.get('ETag') or r.headers.get('etag')
+                    if not etag:
+                        raise RuntimeError('nessun etag')
+                    parti.append({'partNumber': n, 'etag': etag}); break
+                except Exception as e:
+                    if tent == 3:
+                        raise
+                    log(f'pezzo {n} non caricato ({str(e)[:80]}), riprovo'); time.sleep(5 * (tent + 1))
+    http(f'{radice}/complete{coda}', {'parts': parti})
+    return ini['file_url']
+
+
+
+def dati_youtube(c, titolo):
+    descr = '\n\n'.join(x for x in [titolo, str(c.get('descrizione') or '').strip(), str(c.get('capitoli_testo') or '').strip(),
+                                     str(P.get('descrizione_base') or '').strip()] if x)
+    return descr[:4900], lista_tag(titolo, c.get('tag'))
+
+
+def nomi_playlist(titolo):
+    scelte = []
+    for r in [x.strip() for x in str(P.get('playlist') or '').split('||') if x.strip()]:
+        nome, _, parole = r.partition(':')
+        lista = [w.strip().lower() for w in parole.split(',') if w.strip()]
+        if nome.strip() and (not lista or any(w in titolo.lower() for w in lista)):
+            scelte.append(nome.strip()[:150])
+    return scelte
+
+
+def prepara_extra(c, titolo, video, cop):
+    """Riempie EXTRA: testi per il caricamento a mano + video e copertina su fal (n8n li salva nelle cartelle Drive del canale)."""
+    try:
+        descr, tags = dati_youtube(c, titolo)
+        EXTRA.update(descrizione=descr, tag=', '.join(tags), playlist=' || '.join(nomi_playlist(titolo)),
+                     cartella_video=str(P.get('cartella_video') or ''), cartella_copertine=str(P.get('cartella_copertine') or ''))
+    except Exception as e:
+        log('testi per il foglio non pronti:', str(e)[:150])
+    if not E('FAL_KEY'):
+        return
+    for chiave, path, tipo in (('video_url', video, 'video/mp4'), ('copertina_url', cop, 'image/jpeg')):
+        try:
+            if path and os.path.exists(path):
+                EXTRA[chiave] = carica_fal(path, tipo); log(chiave, 'pronto per Drive')
+        except Exception as e:
+            log(chiave, 'non caricato su fal:', str(e)[:150])
+
+
 def avvisa(esito):
+    if esito.get('stato') in ('PUBBLICATO', 'CREATO', 'PROVA OK'):
+        for k_, v_ in EXTRA.items():
+            esito.setdefault(k_, v_)
     for k, v in INFO_COMP.items():
         if v and k not in esito:
             esito[k] = v
