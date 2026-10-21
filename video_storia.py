@@ -10,6 +10,7 @@ carta (frase chiave battuta a macchina su texture), scheda (personaggio + nome),
 Variabili: TITOLO, LINGUA, VOCE, MINUTI, MAX_MINUTI, MODELLO_AI, MUSICA_URL, MUSICA_VOL, PROVA (SI = video di ~1 minuto)
 Chiavi: ANTHROPIC_API_KEY, ELEVENLABS_API_KEY, PEXELS_API_KEY, FAL_KEY
 """
+import glob as _glob
 import base64, hashlib, io, json, math, os, random, re, shutil, subprocess, sys, threading, time, traceback, urllib.error, urllib.parse, urllib.request
 from concurrent.futures import ThreadPoolExecutor
 
@@ -293,7 +294,7 @@ def copione(comp):
     if SOLO_PEXELS:   # budget 0: nessun disegno, tutto Pexels super coerente (+ mappa)
         n_sf = 0
         globals()['QUOTA_CARTONI'] = 0
-        globals()['RITMO'] = [4.0, 5.0, 6.0]
+        globals()['RITMO'] = [4.0, 5.0, 5.0]   # mai piu' di 5 secondi sulla stessa immagine
         log('budget 0 EUR: nessun disegno, solo clip e foto Pexels controllate (+ mappa)')
     w = [round(RITMO[0] * 2.5), round(RITMO[1] * 2.5), round(RITMO[2] * 2.5)]   # parole per visivo (circa 2,5 parole al secondo)
     if INTEGRATO and BUDGET <= 0 and not SOLO_PEXELS:   # ogni visivo ha la SUA immagine scritta sulla sua frase; i tagli da 3 s li fa il montaggio (zoom sulla stessa immagine)
@@ -573,6 +574,9 @@ def pexels_cerca(tipo, q):
         if k in _cache:
             return _cache[k]
         if _conti['n'] >= PEXELS_MAX:
+            if not _conti.get('avvisato'):
+                _conti['avvisato'] = True
+                log(f'ATTENZIONE: ricerche Pexels FINITE ({PEXELS_MAX} su {PEXELS_MAX}): da qui si riusano clip gia\' scaricate (colonna pexels_max)')
             return []
         _conti['n'] += 1
     chiave = E('PEXELS_API_KEY', '')
@@ -1670,21 +1674,25 @@ def pezzo_cartone(path, d, bg, pg, reazione, data, lato):
     return path
 
 
-def pezzo_video(path, d, src):
-    """Clip piu' corta del suo spazio: prima si rallenta un po' (fino al 70%), poi si ferma sull'ultimo fotogramma.
-    MAI ripartire da capo (si vedeva lo 'scatto' con l'immagine che ricominciava)."""
+def pezzo_video(path, d, src, inizio=0.0, specchio=False):
+    """Clip piu' corta del suo spazio: si rallenta un po' (fino al 70%) e, se non basta, va avanti e poi all'indietro.
+    MAI un fotogramma fermo e MAI ripartire da capo (si vedeva lo 'scatto')."""
     try:
         ds = durata(src)
     except Exception:
         ds = 0
-    lento = ''
-    if 0 < ds < d:
-        f = max(.7, ds / d)
-        lento = f'setpts=PTS/{f:.3f},'
-        if ds / f < d:
-            lento += f'tpad=stop_mode=clone:stop_duration={d - ds / f + .5:.2f},'
-    run(['ffmpeg', '-y', '-v', 'error', '-i', src, '-t', d, '-an',
-         '-vf', f'{lento}scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={FPS},setsar=1', *ENC, path])
+    inizio = max(0.0, min(inizio, ds - 1.0)) if ds > 1.0 else 0.0
+    resto = ds - inizio if ds else 0
+    filtro = ''
+    if 0 < resto < d:
+        if resto / .7 < d:   # anche rallentata non basta: avanti + indietro (niente fermo immagine)
+            filtro = 'split[a][b];[b]reverse[r];[a][r]concat=n=2:v=1:a=0,'
+            resto *= 2
+        if resto < d:
+            filtro += f'setpts=PTS/{max(.5, resto / d):.3f},'
+    filtro += 'hflip,' if specchio else ''
+    run(['ffmpeg', '-y', '-v', 'error', '-ss', f'{inizio:.2f}', '-t', f'{min(ds - inizio, d + 1) if ds else d:.2f}', '-i', src, '-t', d, '-an',
+         '-vf', f'{filtro}scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={FPS},setsar=1', *ENC, path])
     return path
 
 
@@ -2732,17 +2740,35 @@ def main():
         t0 = time.time()
         with ThreadPoolExecutor(2) as ex:
             paths = list(ex.map(fai, range(len(piano))))
-        for k, pth in enumerate(paths):   # pezzo senza immagine giusta: continua l'immagine precedente (ultimo fotogramma, zoom lento)
+        # pezzo senza immagine giusta: MAI fermo immagine. Si riusa una clip Pexels gia' scaricata, lontana nel video,
+        # presa in un altro tratto e specchiata (sembra un'altra inquadratura).
+        riusi = {}
+        fonti = sorted(_glob.glob(os.path.join(LAV, 'src_*.mp4')))
+        for k, pth in enumerate(paths):
             if pth:
                 continue
+            p_k = os.path.join(LAV, f'pezzo_{k:04d}.mp4')
+            def num(f): return int(re.search(r'src_(\d+)', f).group(1))
+            cand = [f for f in fonti if abs(num(f) - k) >= 6] or fonti
+            if cand:
+                f = sorted(cand, key=lambda f: (riusi.get(f, 0), -abs(num(f) - k)))[0]
+                riusi[f] = riusi.get(f, 0) + 1
+                try:
+                    ds = durata(f)
+                except Exception:
+                    ds = 0
+                inizio = (ds * (0.5 if riusi[f] % 2 else 0.25)) if ds > piano[k]['d'] + 1 else 0.0
+                try:
+                    paths[k] = pezzo_video(p_k, piano[k]['d'], f, inizio, specchio=riusi[f] % 2 == 1)
+                    log(f'pezzo {k}: nessuna clip coerente, riuso la clip {num(f)} (altro tratto, specchiata)')
+                    continue
+                except Exception as e:
+                    log(f'pezzo {k}: riuso non riuscito', str(e)[:120])
+            # ultima riserva (nessuna clip scaricata): il pezzo precedente, specchiato, non fermo
             prec = next((paths[j] for j in range(k - 1, -1, -1) if paths[j]), None) or next((x for x in paths if x), None)
-            fermo = os.path.join(LAV, f'fermo_{k:04d}.jpg')
-            try:
-                run(['ffmpeg', '-y', '-v', 'error', '-sseof', '-0.2', '-i', prec, '-frames:v', '1', fermo])
-            except Exception:
-                run(['ffmpeg', '-y', '-v', 'error', '-i', prec, '-frames:v', '1', fermo])
-            paths[k] = pezzo_foto(os.path.join(LAV, f'pezzo_{k:04d}.mp4'), piano[k]['d'], fermo)
-            log(f'pezzo {k}: continua l\'immagine precedente (nessuna immagine coerente trovata)')
+            paths[k] = pezzo_video(p_k, piano[k]['d'], prec, 0.0, specchio=True)
+            log(f'pezzo {k}: ATTENZIONE nessuna clip da riusare, ripeto il pezzo precedente specchiato')
+        log(f"ricerche Pexels usate: {_conti['n']} su {PEXELS_MAX}; pezzi con clip riusata: {sum(riusi.values())}")
         log('pezzi pronti:', len(paths), 'in', int(time.time() - t0), 's')
         log(f"SPESA immagini: {SPESA['disegni']} immagini, circa {SPESA['fal']:.2f} $" + (f' (tetto {BUDGET:.2f} EUR a video)' if BUDGET else ''))
     video = os.path.join(LAV, 'muto.mp4')
