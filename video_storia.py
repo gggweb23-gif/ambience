@@ -397,7 +397,11 @@ Scegli la texture piu' coerente (washi per Giappone/Cina/Corea, papiro per Egitt
                 raise ValueError(f'risposta senza JSON (stop: {fine}, {len(testo)} caratteri): {testo[:200]!r}')
             testo = testo[testo.find('{'): testo.rfind('}') + 1]
             c = json.loads(testo)
-            assert c.get('scene') and c.get('sfondi')
+            if not c.get('scene'):
+                raise ValueError('copione senza scene')
+            if not c.get('sfondi') and not SOLO_PEXELS:
+                raise ValueError('copione senza sfondi a cartone')
+            c['sfondi'] = c.get('sfondi') or []   # budget 0: nessun disegno, e' giusto che non ci siano sfondi
             return c
         except Exception as e:
             log('copione non valido, riprovo:', str(e)[:200]); time.sleep(5)
@@ -2407,7 +2411,8 @@ def pianifica(scene, durs, voci, sf):
             if v['tipo'] == 'scheda' and not nominato(testo, v.get('nome') or v.get('personaggio') or ''):
                 log('scheda tolta (non nominato nella scena):', v.get('nome')); continue
             vis.append(v)
-        vis = vis or [{'tipo': 'cartone', 'sfondo': random.choice(list(sf))}]
+        if not vis:   # scena senza visivi: un disegno se ci sono, altrimenti (budget 0) una clip Pexels della riserva del paese
+            vis = [{'tipo': 'cartone', 'sfondo': random.choice(list(sf))}] if sf else [{'tipo': 'pexels_video', 'q': (RISERVA_PX[i % len(RISERVA_PX)] if RISERVA_PX else 'ancient ruins landscape')}]
         # quando compare ogni visivo: alla parola esatta detta dalla voce
         tot = sum(PESO[v['tipo']] for v in vis); acc = 0; pos = 0; inizi = []
         for j, v in enumerate(vis):
