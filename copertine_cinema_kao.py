@@ -327,7 +327,7 @@ if SFONDO_TESTO not in SFONDI_TESTO:
 PROVA_SFONDI = str(E('PROVA_SFONDI', '') or ('SI' if 0 < int(E('ULTIMI', '') or 0) <= 2 else 'NO')).upper() == 'SI'   # prova: lo stesso video con i 4 sfondi della scritta
 
 
-def testo_esatto(im, frase, divisa_ok=False):   # divisa_ok: il competitor e' diviso in parti (composizione), quindi la linea divisoria va bene
+def testo_esatto(im, frase, divisa_ok=False, braccia_extra=False):   # divisa_ok: il competitor e' diviso in parti (composizione), quindi la linea divisoria va bene
     """Claude trascrive la scritta della copertina: deve essere identica alla frase (lettere e numeri), senza altre scritte."""
     buf = io.BytesIO(); im.resize((960, 540)).save(buf, 'JPEG', quality=88)
     try:
@@ -339,13 +339,15 @@ def testo_esatto(im, frase, divisa_ok=False):   # divisa_ok: il competitor e' di
                                      'CARTONCINO=SI/NO (SI if the title is inside a WHITE rounded card/box with a black outline), '
                                      'SCURO=SI/NO (SI if a large part of the image is darkened by a dark gradient or dark panel), '
                                      'DIVISA=SI/NO (SI if the picture is cut into separate panels by a vertical or horizontal dividing line), '
-                                     'COPRE=SI/NO (SI if the title or its card covers the character, his face or an important object of the scene).'}]}]},
+                                     'COPRE=SI/NO (SI if the title or its card covers the character, his face or an important object of the scene), '
+                                     'ANATOMIA=SI/NO (SI if the main character has a correct body: exactly two arms attached to the shoulders and both visible or naturally hidden behind the body, '
+                                     'two hands, two legs; NO if an arm is missing, cut off, merged into the body, or there are extra limbs).'}]}]},
                   {'x-api-key': E('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01'}, timeout=120)
         tutto = ''.join(b.get('text', '') for b in rr.get('content', []))
         letto = tutto.split('CHECK:')[0]
         chk = tutto.split('CHECK:')[1].upper() if 'CHECK:' in tutto else ''
         c_ = chk.replace(' ', '')
-        if 'GRANDE=NO' in c_ or 'BASSO=SI' in c_ or (not divisa_ok and 'DIVISA=SI' in c_) or 'COPRE=SI' in c_ or (SFONDO_TESTO == 'fumetto' and ('CARTONCINO=NO' in c_ or 'SCURO=SI' in c_)):
+        if 'GRANDE=NO' in c_ or 'BASSO=SI' in c_ or (not divisa_ok and 'DIVISA=SI' in c_) or 'COPRE=SI' in c_ or (not braccia_extra and 'ANATOMIA=NO' in c_) or (SFONDO_TESTO == 'fumetto' and ('CARTONCINO=NO' in c_ or 'SCURO=SI' in c_)):
             log('    scritta piccola, troppo in basso o fuori stile (cartoncino bianco, niente lato scuro):', chk.strip()[:90]); return False
         norm = lambda x: re.sub(r'[^A-Z0-9]', '', x.upper().replace('À', 'A').replace('È', 'E').replace('É', 'E').replace('Ì', 'I').replace('Ò', 'O').replace('Ù', 'U'))
         ok = norm(letto) == norm(frase)
@@ -688,7 +690,7 @@ def fai(i):
                       f'WHAT KAO DOES: {t.get("azione", "")}. EMOTION, very clear on his face: {t.get("emo", "")}. OBJECTS: {t.get("oggetto", "")}. {diverso}'
                       + (f'OTHER PEOPLE: {t.get("persone")} (same style as KAO, neutral clothes, only KAO wears magenta). ' if t.get('persone') else '') +
                       (f'GRAPHIC ELEMENTS drawn over the scene, copy them exactly (same position and direction): {t.get("grafica")}. ' if t.get('grafica') else '') +
-                      'KAO is exactly as in the KAO reference: bald round head, simple face, light skin, ALWAYS his magenta long-sleeve shirt (never a sweater, jacket or other top), black trousers. '
+                      'KAO has a correct body: TWO arms attached to the shoulders (both visible, never missing or cut), two hands, two legs. KAO is exactly as in the KAO reference: bald round head, simple face, light skin, ALWAYS his magenta long-sleeve shirt (never a sweater, jacket or other top), black trousers. '
                       + (f'COMPOSITION (copy it exactly, KAO appears in every part where the character appears): {t.get("composizione")}. The title goes where described, never covering KAO or faces. Everything bright and fully visible. ' if t.get('composizione') else f'The scene fills the WHOLE image, bright and fully visible everywhere (NO dark side, NO dark gradient). KAO, people and important objects stay in the {"RIGHT" if lato_c == "sinistra" else "LEFT"} 50%, KAO big and clearly visible. '                      f'The {"LEFT" if lato_c == "sinistra" else "RIGHT"} 50% simply continues the same environment (wall, sky, room, landscape), bright, with nothing important: a title will go there. ') +
                       ('' if t.get('composizione') else 'ONE single continuous scene filling the whole image: NO split screen, NO vertical dividing line, NO panels, NO frames, NO borders. ') +
                       'NO blur, NO bokeh, NO glow, NO rim light. Remove ALL text: absolutely NO text, letters or numbers in the image. YouTube thumbnail 16:9.')
@@ -712,7 +714,8 @@ def fai(i):
                 try:
                     r = fal('fal-ai/nano-banana-2/edit', {'prompt': pt, 'image_urls': refs, 'aspect_ratio': '16:9', 'resolution': '1K', 'output_format': 'jpeg', 'num_images': 1})
                     im = ImageOps.fit(Image.open(io.BytesIO(http(r['images'][0]['url'], raw=True))).convert('RGB'), (1280, 720), Image.LANCZOS)
-                    if testo_esatto(im, frase, bool(t.get('composizione'))) and e_kao(im):
+                    extra = bool(re.search(r'(extra|multiple|many|six|four|several)\s+arms', str(t.get('azione', '')) + ' ' + str(t.get('posa', '')), re.I))
+                    if testo_esatto(im, frase, bool(t.get('composizione')), extra) and e_kao(im):
                         fatte_s[st_] = im
                         log('copertina pronta (scritta disegnata):', c['id'], st_, frase, f'tentativo {tent + 1}')
                         break
