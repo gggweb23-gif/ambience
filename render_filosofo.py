@@ -175,6 +175,10 @@ SCENA = ('The same marble statue as in the attached image: keep exactly the same
          'No text, no letters, no logo, no watermark.')
 
 
+SCENA_MASTER = {}
+FRASI = {}   # frasi dei sottotitoli calcolate insieme alle inquadrature (stile Stoic Journal)
+
+
 def scena_statua(nome, cartella, seme=0):
     """Immagine UNICA usata sia come sfondo del video sia come copertina (stessa statua, stesso fumo, stessa luce).
     Volto fisso: la statua master del filosofo (cartella ritratti) fa da riferimento."""
@@ -187,12 +191,184 @@ def scena_statua(nome, cartella, seme=0):
         scarica(img['images'][0]['url'], master)
         log('nuova statua per ' + nome)
     posa = POSE_STATUA[seme % len(POSE_STATUA)]
-    ed = fal('fal-ai/nano-banana-2/edit', {'prompt': SCENA.format(posa=posa), 'image_urls': [carica_file(master, 'image/png')],
+    SCENA_MASTER['url'] = carica_file(master, 'image/png')
+    ed = fal('fal-ai/nano-banana-2/edit', {'prompt': SCENA.format(posa=posa), 'image_urls': [SCENA_MASTER['url']],
                                            'aspect_ratio': '16:9', 'resolution': '2K', 'output_format': 'png', 'num_images': 1})
     url = ed['images'][0]['url']
     dest = scarica(url, os.path.join(cartella, 'scena.png'))
     log('scena del video (= copertina): statua, ' + posa)
     return dest, url
+
+
+# ---------------------------------------------------------------- MOVIMENTO (stile "statua"): scene diverse ogni ~8 s + cenere
+SCENE_FILOSOFO = [
+    'seated on a carved marble throne inside a dark ancient temple with tall columns, candle light',
+    'close-up of the face, deep in thought, one hand on the chin, dramatic side light',
+    'standing on a cliff at sunset, orange sky and dark clouds behind, cloak moving in the wind',
+    'walking alone through a dark hall lined with other marble statues, warm torch light',
+    'sitting on stone steps of a ruined Greek temple at dusk, looking down, reflective',
+    'standing among ancient ruins in heavy rain, calm and unmoved',
+    'reading an old scroll by the light of a single oil lamp, dark room',
+    'low angle, towering against a stormy sky with lightning, powerful pose',
+    'half figure in front of a burning fire, embers in the air, intense gaze',
+    'in a misty ancient Roman forum at dawn, soft blue light, columns in the fog',
+    'arms crossed, standing in front of a giant stone wall with carved symbols, dramatic shadows',
+    'kneeling by a calm lake at night under the stars, reflective mood',
+]
+SCENE_GENERICHE = [
+    'a dark ancient Greek temple interior with marble columns and floating embers, cinematic',
+    'rows of ancient marble statues of philosophers in a dim hall, warm light, embers floating',
+    'a lone marble statue of an ancient sage on a hill at sunset, dramatic orange sky',
+    'ancient ruins at night under a starry sky, a single torch burning',
+    'a marble statue of a thinker, close-up of hands holding a scroll, dark background with smoke',
+    'stormy sea crashing on rocks below an ancient Greek temple, dramatic clouds',
+    'an hourglass on an ancient stone table, candle light, dark room, dust in the air',
+    'a broken marble statue head lying on the ground among ruins, moody light',
+    'a long dark corridor of columns with light at the end, mist on the floor',
+    'a marble statue of a warrior-philosopher standing in falling ash, dark red sky',
+    'an ancient library with scrolls on shelves, candle light, dust particles',
+    'a mountain path at dawn with an ancient stone arch, golden light',
+]
+LOOK = ('Photorealistic white-grey marble statue style, cinematic dark moody lighting, high contrast, deep blacks, warm orange accents, '
+        'film still, 16:9. Main subject in the LEFT half of the frame; the RIGHT 45% of the image is darker and calmer (space for big text). '
+        'No text, no letters, no logo, no watermark.')
+
+
+def libreria_scene(nome, master_url, budget, cartella):
+    """Scene del video. Si conservano nel repository (cartella ritratti/scene): ogni video ne aggiunge di nuove nei limiti del budget,
+    cosi' la libreria cresce e le ripetizioni calano video dopo video."""
+    slug = re.sub(r'[^a-z0-9]+', '_', nome.lower()).strip('_')[:60]
+    d_f = os.path.join(os.getcwd(), 'ritratti', 'scene', slug); d_g = os.path.join(os.getcwd(), 'ritratti', 'scene', '_generiche')
+    os.makedirs(d_f, exist_ok=True); os.makedirs(d_g, exist_ok=True)
+    n_nuove = max(0, int((budget * 1.08 - 0.40) / 0.12))   # 0,40 $ = statua/copertina + margine; 0,12 $ a disegno 2K
+    lavori = []
+    for cartella_s, lista, rif in ((d_f, SCENE_FILOSOFO, master_url), (d_g, SCENE_GENERICHE, None)):
+        esistenti = sorted(os.listdir(cartella_s))
+        for k in range(len(lista) * 3):   # ogni descrizione fino a 3 varianti
+            nomef = f'{k % len(lista):02d}_{k // len(lista)}.jpg'
+            if nomef not in esistenti:
+                lavori.append((cartella_s, nomef, lista[k % len(lista)], rif))
+    # meta' scene del filosofo (stesso volto), meta' generiche; prima le descrizioni mai fatte
+    lavori.sort(key=lambda x: (int(x[1].split('_')[1][0]), x[3] is None))
+    lavori = lavori[:n_nuove]
+
+    def crea(x):
+        cart, nomef, desc, rif = x
+        try:
+            if rif:
+                r = fal('fal-ai/nano-banana-2/edit', {'prompt': 'The same marble statue as in the attached image (same face, hair and beard), ' + desc + '. ' + LOOK,
+                                                      'image_urls': [rif], 'aspect_ratio': '16:9', 'resolution': '2K', 'output_format': 'jpeg', 'num_images': 1})
+            else:
+                r = fal('fal-ai/nano-banana-2', {'prompt': desc + '. ' + LOOK, 'aspect_ratio': '16:9', 'resolution': '2K', 'output_format': 'jpeg', 'num_images': 1})
+            p = os.path.join(cart, nomef)
+            scarica(r['images'][0]['url'], p)
+            from PIL import Image
+            Image.open(p).convert('RGB').resize((2400, 1350)).save(p, quality=90)   # leggero nel repository, abbastanza grande per i movimenti
+            return p
+        except Exception as e:
+            log('scena non creata (' + desc[:40] + '): ' + str(e)[:100]); return None
+    from concurrent.futures import ThreadPoolExecutor
+    with ThreadPoolExecutor(4) as ex:
+        nuove = [p for p in ex.map(crea, lavori) if p]
+    tutte_f = [os.path.join(d_f, f) for f in sorted(os.listdir(d_f)) if f.endswith('.jpg')]
+    tutte_g = [os.path.join(d_g, f) for f in sorted(os.listdir(d_g)) if f.endswith('.jpg')]
+    log(f'scene: {len(nuove)} nuove (circa {len(nuove) * 0.12:.2f} $), libreria {len(tutte_f)} di {nome} + {len(tutte_g)} generiche')
+    return nuove, tutte_f, tutte_g
+
+
+def scaletta(totale, prima, nuove, tutte_f, tutte_g, sec=8.0):
+    """Un'immagine ogni ~sec secondi. Prima la copertina, poi le scene nuove, poi le altre; la stessa scena torna il piu' tardi possibile."""
+    n = max(1, int(round(totale / sec)))
+    pool = list(dict.fromkeys(nuove + [x for pair in zip(tutte_f, tutte_g) for x in pair] + tutte_f + tutte_g))
+    pool = [x for x in pool if x != prima] or [prima]
+    uso, out, ultima = {x: 0 for x in pool}, [prima], {}
+    for i in range(1, n):
+        cand = sorted(pool, key=lambda x: (uso[x], -(i - ultima.get(x, -999)), pool.index(x)))
+        x = next((c for c in cand if c != out[-1]), cand[0])
+        uso[x] += 1; ultima[x] = i; out.append(x)
+    rip = sum(1 for v in uso.values() if v > 1)
+    log(f'scaletta: {n} immagini da ~{totale / n:.1f} s, {len(set(out))} diverse' + (f', {rip} usate piu\' volte (a distanza)' if rip else ''))
+    d = totale / n
+    return [(x, d) for x in out]
+
+
+MOSSE = ['zoom_in', 'pan_dx', 'zoom_out', 'pan_sx', 'tilt_su', 'pan_dx_lento']
+
+
+def pezzo_mosso(src, dur, k, out):
+    """Movimento lento di camera su un'immagine (niente specchio): zoom o panoramica, sempre diversi tra immagini vicine."""
+    nf = max(2, int(round(dur * FPS)))
+    m = MOSSE[k % len(MOSSE)]
+    sw, sh = 2400, 1350   # sorgente piu' grande del video: si muove dentro senza bordi
+    if m in ('zoom_in', 'zoom_out'):
+        a, b = (1.0, 1.12) if m == 'zoom_in' else (1.12, 1.0)
+        z = f"{a}+({b - a})*on/{nf}"
+        vf = (f"scale={sw * 2}:{sh * 2},zoompan=z='{z}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={nf}:s={W}x{H}:fps={FPS}")
+    else:
+        dx = {'pan_dx': (0, sw - W), 'pan_sx': (sw - W, 0), 'pan_dx_lento': ((sw - W) // 4, 3 * (sw - W) // 4), 'tilt_su': ((sw - W) // 2, (sw - W) // 2)}[m]
+        dy = (sh - H, 0) if m == 'tilt_su' else ((sh - H) // 2, (sh - H) // 2)
+        x = f"{dx[0]}+({dx[1] - dx[0]})*n/{nf}"; y = f"{dy[0]}+({dy[1] - dy[0]})*n/{nf}"
+        vf = f"scale={sw}:{sh},crop={W}:{H}:'{x}':'{y}'"
+    run(['ffmpeg', '-y', '-v', 'error', '-loop', '1', '-framerate', str(FPS), '-i', src, '-frames:v', str(nf),
+         '-vf', vf + ',setsar=1,format=yuv420p', '-an', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20', out])
+    return out
+
+
+def cenere(cartella, secondi=12):
+    """Cenere e braci che salgono (come i canali stoici): 12 s in loop, fondo nero, si somma al video in modalita' 'schiarisci'."""
+    import random
+    from PIL import Image, ImageDraw, ImageFilter
+    rnd = random.Random(7)
+    nf = int(secondi * FPS)
+    parts = []
+    for _ in range(90):
+        brace = rnd.random() < 0.35
+        parts.append({'x': rnd.uniform(0, W), 'y0': rnd.uniform(0, H), 'v': rnd.uniform(25, 80) * (1.4 if brace else 1), 'r': rnd.uniform(2.5, 6.5),
+                      'dx': rnd.uniform(-15, 15), 'f': rnd.uniform(0.3, 1.2), 'brace': brace, 'fase': rnd.uniform(0, 6.28)})
+    out = os.path.join(cartella, 'cenere.mp4')
+    p = subprocess.Popen(['ffmpeg', '-y', '-v', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W // 2}x{H // 2}', '-r', str(FPS), '-i', '-',
+                          '-vf', f'scale={W}:{H}', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '22', '-pix_fmt', 'yuv420p', out], stdin=subprocess.PIPE)
+    for i in range(nf):
+        t = i / FPS
+        im = Image.new('RGB', (W // 2, H // 2)); d = ImageDraw.Draw(im)
+        for q in parts:
+            y = (q['y0'] - q['v'] * t) % (H + 40) - 20   # salgono e ricominciano dal basso: il loop e' continuo
+            x = (q['x'] + q['dx'] * t + 12 * math.sin(q['f'] * t + q['fase'])) % W
+            luce = 0.55 + 0.45 * math.sin(2.3 * t + q['fase'])
+            col = (int(255 * luce), int(120 * luce), int(30 * luce)) if q['brace'] else (int(150 * luce),) * 3
+            r = q['r'] / 2
+            d.ellipse([x / 2 - r, y / 2 - r, x / 2 + r, y / 2 + r], fill=col)
+        im = im.filter(ImageFilter.GaussianBlur(0.8))
+        p.stdin.write(im.tobytes())
+    p.stdin.close(); p.wait()
+    return out
+
+
+def sfondo_mosso(nome, scena_png, master_url, budget, totale, sec, cartella):
+    """Video di sfondo: copertina + scene della libreria, un'immagine ogni ~sec secondi, ognuna con il suo movimento, piu' la cenere."""
+    from PIL import Image
+    prima = os.path.join(cartella, 'scena_2400.jpg')
+    Image.open(scena_png).convert('RGB').resize((2400, 1350)).save(prima, quality=92)
+    nuove, tf, tg = libreria_scene(nome, master_url, budget, cartella)
+    lista = scaletta(totale, prima, nuove, tf, tg, sec)
+    pezzi, fino = [], 0
+    for k, (img, d) in enumerate(lista):   # durate a fotogrammi interi: il video resta allineato alla voce
+        fine = int(round(sum(x[1] for x in lista[:k + 1]) * FPS)); nfk = fine - fino; fino = fine
+        pezzi.append(pezzo_mosso(img, nfk / FPS, k, os.path.join(cartella, f'mosso_{k:03d}.mp4')))
+    lista_t = os.path.join(cartella, 'mossi.txt')
+    open(lista_t, 'w').write(''.join(f"file '{os.path.abspath(x)}'\n" for x in pezzi))
+    base = os.path.join(cartella, 'sfondo_base.mp4')
+    run(['ffmpeg', '-y', '-v', 'error', '-f', 'concat', '-safe', '0', '-i', lista_t, '-c', 'copy', base])
+    try:
+        fx = cenere(cartella)
+        out = os.path.join(cartella, 'sfondo_mosso.mp4')
+        run(['ffmpeg', '-y', '-v', 'error', '-i', base, '-stream_loop', '-1', '-i', fx, '-filter_complex',
+             '[0:v]format=gbrp[b];[1:v]format=gbrp[c];[b][c]blend=all_mode=screen:shortest=1,format=yuv420p[v]', '-map', '[v]', '-an',
+             '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20', out])
+        log('cenere aggiunta')
+        return out
+    except Exception as e:
+        log('cenere saltata: ' + str(e)[:120]); return base
 
 
 def sfondo_nero(path, fumo=True):
@@ -556,8 +732,8 @@ def main():
         run(['ffmpeg', '-y', '-v', 'error', '-f', 'concat', '-safe', '0', '-i', lista, '-c:a', 'aac', '-b:a', '192k', voce])
         # 2) sfondo: le clip di ogni scena (anche piu' di una, con il loro secondo di partenza), sfocate e scurite.
         #    Ogni pezzo e' tagliato a fotogrammi esatti sulla voce, cosi' video e audio non si sfasano mai.
-        nero = str(stile.get('sfondo') or '').strip().lower() == 'nero'
         statua = str(stile.get('ritratto') or '').strip().lower() == 'statua'
+        nero = str(stile.get('sfondo') or '').strip().lower() == 'nero' or statua
         blur = float(stile.get('sfocatura') or 12)
         luce = float(stile.get('luminosita') or -0.06)
         vf = (f'scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={FPS},'
@@ -623,6 +799,23 @@ def main():
                 sfondo, scena_url = scena_statua(nome, LAVORO, seme)
                 url_ritratto = scena_url
                 nero = True
+                if str(stile.get('visivi') or '').strip().lower() == 'pexels_libreria':   # stile Stoic Journal: Pexels + libreria AI + effetti
+                    import agora_visivi as AV
+                    from PIL import Image
+                    prima = os.path.join(LAVORO, 'statua_scena.jpg')
+                    Image.open(sfondo).convert('RGB').save(prima, quality=93)
+                    slug = re.sub(r'[^a-z0-9]+', '_', nome.lower()).strip('_')[:60]
+                    d_f = os.path.join(os.getcwd(), 'ritratti', 'scene', slug)
+                    statue = [prima] + ([os.path.join(d_f, f) for f in sorted(os.listdir(d_f)) if f.endswith('.jpg')][:6] if os.path.isdir(d_f) else [])
+                    sfondo, FRASI['righe'] = AV.sfondo_stoico(scene, tempi, voce, statue, str(dati.get('titolo') or ''), dati.get('config') or {}, stile, LAVORO, seme)
+                    nero = False
+                elif str(stile.get('movimento') or 'SI').strip().upper() != 'NO':
+                    try:
+                        sfondo = sfondo_mosso(nome, sfondo, SCENA_MASTER.get('url'), float(stile.get('budget') or 3), totale,
+                                              float(stile.get('secondi_immagine') or 8), LAVORO)
+                        nero = False   # ora lo sfondo e' un video, non un'immagine ferma
+                    except Exception as e:
+                        log('movimento non riuscito (' + str(e)[:150] + '), resta la scena ferma')
             except Exception as e:
                 log('scena con statua non riuscita (' + str(e)[:120] + '), uso sfondo nero + statua sovrapposta')
                 try:
@@ -642,7 +835,10 @@ def main():
         entra = float(stile.get('entrata_sec') or 0.7)
         # 4) sottotitoli
         come_cop = str(stile.get('testo') or '').strip().lower() == 'copertina'
-        if come_cop:   # scritte come la copertina: Anton, maiuscole, bianco + giallo, senza riquadro
+        if str(stile.get('testo') or '').strip().lower() == 'frase' and FRASI.get('righe'):   # una frase alla volta al centro (Stoic Journal)
+            import agora_visivi as AV
+            ass = AV.sottotitoli_frasi(FRASI['righe'], stile, LAVORO)
+        elif come_cop:   # scritte come la copertina: Anton, maiuscole, bianco + giallo, senza riquadro
             font = stile.get('font') or font_anton()
             ass = sottotitoli(scene, tempi, LAVORO, font, int(num('dimensione_testo', 180)),
                               int(W * num('x_testo', 0.52)), int(H * num('y_testo', 0.36)), int(num('caratteri_riga', 16)),
@@ -654,6 +850,17 @@ def main():
                               int(W * num('x_testo', 0.50)), int(H * num('y_testo', 0.44)), int(num('caratteri_riga', 24)))
         # 5) montaggio finale (+ musica se presente)
         musica = str(dati.get('musica') or '').strip()
+        cfg = dati.get('config') or {}
+        urls_m = [u.strip() for u in str(cfg.get('musica_rotazione') or '').split('||') if u.strip()]
+        if urls_m:   # colonna musica_rotazione: si parte da un brano a caso, poi gli altri a giro
+            try:
+                import render_kao as RK
+                unita = RK.musica_rotazione(urls_m, totale, cfg.get('musica_volume'), seme, LAVORO)
+                if unita:
+                    musica = unita
+                    dati['volume_musica'] = float(str(cfg.get('musica_volume') or dati.get('volume_musica') or 0.08).replace(',', '.'))
+            except Exception as e:
+                log('musica a rotazione non riuscita: ' + str(e)[:120])
         ingressi = (['-loop', '1', '-framerate', str(FPS), '-t', f'{totale:.3f}', '-i', sfondo] if nero else ['-i', sfondo])
         if rit:
             ingressi += ['-loop', '1', '-i', rit, '-i', voce]
@@ -667,7 +874,7 @@ def main():
         amap = '2:a'
         if musica:
             try:
-                mf = scarica_sicuro(musica, os.path.join(LAVORO, 'musica.mp3'))
+                mf = musica if os.path.exists(musica) else scarica_sicuro(musica, os.path.join(LAVORO, 'musica.mp3'))
                 ingressi += ['-stream_loop', '-1', '-i', mf]
                 vol = float(dati.get('volume_musica') or 0.08)
                 # Livello RELATIVO alla voce: 0,06 = musica 24 dB sotto la voce, 0,12 = 18 dB sotto,
