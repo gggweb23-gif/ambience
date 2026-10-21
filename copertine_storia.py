@@ -14,7 +14,7 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps
 E = os.environ.get
 APPLICA = str(E('APPLICA', '') or 'NO').strip().upper() == 'SI'
 LIVELLI = [int(x) for x in (E('LIVELLI', '') or '40,50,60').split(',') if x.strip()]
-COPPIE = [x.strip().split(':', 1) for x in (E('VIDEO', '') or '').split(',') if ':' in x]
+COPPIE = [(x.strip().split(':', 1) + [''])[:2] for x in (E('VIDEO', '') or '').split(',') if x.strip()]   # 'id:competitor' oppure solo id / parola del titolo
 OUT = os.path.join(os.getcwd(), 'copertine_storia'); os.makedirs(OUT, exist_ok=True)
 FAL = {'Authorization': 'Key ' + E('FAL_KEY', ''), 'Content-Type': 'application/json'}
 BOLLINO = os.path.join(os.getcwd(), 'bollino_storia_in_minuti.png')
@@ -251,24 +251,59 @@ VARIANTE = str(E('VARIANTE', '') or '').strip()   # "2" = crea SOLO la copertina
 for nostro, comp in COPPIE:
     nostro, comp = nostro.strip(), comp.strip()
     info_p = os.path.join(OUT, f'{nostro}_info.json')
-    if VARIANTE == '2':
-        if not os.path.exists(info_p):
-            log(nostro, ': mancano i dati della copertina 1, copertina 2 non creata'); continue
-        inf = json.load(open(info_p))
+    if VARIANTE:   # copertine alternative di un video gia' online (2 = stessa copertina con l'altra persona, 3 = stessa impostazione con 1-2 elementi diversi)
+        canale = canale or video_canale()
+        if not re.fullmatch(r'[\w-]{11}', nostro):
+            trovato = next((v for v, t in canale if nostro.lower() in t.lower()), None)
+            if not trovato:
+                log('video non trovato sul canale:', nostro); continue
+            log(f'"{nostro}" -> {trovato}'); nostro = trovato
+        info_p = os.path.join(OUT, f'{nostro}_info.json')
+        tit = next((t for v, t in canale if v == nostro), '')
+        if os.path.exists(info_p):
+            inf = json.load(open(info_p))
+        else:   # video fatto prima del sistema nuovo: i dati si ricavano dal titolo
+            try:
+                txt = claude([{'type': 'text', 'text': DOMANDA.format(titolo=tit) + " (Nessuna immagine: ricava tutto dal titolo e da cio' che sai della storia del paese.)"}])
+                an = json.loads(txt[txt.find('{'): txt.rfind('}') + 1])
+            except Exception as e:
+                log('analisi non riuscita', nostro, str(e)[:150]); continue
+            reg = next((x for x in registro() if x.get('video') == nostro), None)
+            primo = (reg or {}).get('tipo_1') or 'uomo'
+            fig = [an.get('uomo') or 'an ancient king', an.get('donna') or 'an ancient queen']
+            inf = {'paese': str(an.get('paese') or '').upper().strip(), 'date': str(an.get('date') or '').strip(), 'bandiera': str(an.get('bandiera') or '').strip(),
+                   'figure': fig if primo == 'uomo' else fig[::-1], 'monumento': an.get('monumento') or 'a famous ancient monument of the country',
+                   'tratti': ('The person must look like a REAL native of ' + str(an.get('bandiera') or '') + ': ' + str(an.get('popolo') or '') + '. Never features of other peoples.') if an.get('popolo') else '',
+                   'tipi': [primo, 'donna' if primo == 'uomo' else 'uomo']}
+            json.dump(inf, open(info_p, 'w'), ensure_ascii=False)
         POPOLO['tratti'] = inf.get('tratti', '')
-        k = 2
-        im = None
-        for tentativo in range(3):
-            r = fal('fal-ai/nano-banana-2', {'prompt': prompt_con_testo(inf['bandiera'], inf['figure'][1], inf['monumento'], 1, inf['paese'], inf['date']),
-                                             'aspect_ratio': '16:9', 'resolution': '2K', 'output_format': 'jpeg', 'num_images': 1})
-            prova = ImageOps.fit(Image.open(io.BytesIO(http(r['images'][0]['url'], raw=True))).convert('RGB'), (1280, 720), Image.LANCZOS)
-            if testo_ok(prova, inf['paese'], inf['date']):
-                im = prova; break
-        if im is None:
-            r = fal('fal-ai/nano-banana-2', {'prompt': prompt_scena(inf['bandiera'], inf['figure'][1], inf['monumento'], 1), 'aspect_ratio': '16:9', 'resolution': '2K', 'output_format': 'jpeg', 'num_images': 1})
-            im = titolo(ImageOps.fit(Image.open(io.BytesIO(http(r['images'][0]['url'], raw=True))).convert('RGB'), (1280, 720), Image.LANCZOS), inf['paese'], inf['date'], [.20, .02, .74, .42])
-        im.save(os.path.join(OUT, f'{nostro}_2.jpg'), quality=92)
-        log(f'{nostro}: copertina 2 creata ({inf["tipi"][1]}), la mettera\' online il Rotatore CTR')
+        celle = [('ATTUALE', copertina_yt(nostro))]
+        for n_ in [x.strip() for x in VARIANTE.split(',') if x.strip() in ('2', '3')]:
+            fig, mon = (inf['figure'][1], inf['monumento']) if n_ == '2' else (inf['figure'][0], inf['monumento'])
+            if n_ == '3':   # stessa impostazione (bandiera + persona + monumento + scritte), cambiano 1-2 elementi forti
+                try:
+                    t3 = claude([{'type': 'text', 'text': f'Paese: {inf["paese"]} ({inf["bandiera"]}). Monumento gia\' usato: {inf["monumento"]}. Persona gia\' usata: {inf["figure"][0]}. '
+                                  'Rispondi SOLO JSON in inglese: {"monumento": "un ALTRO monumento reale, famosissimo e diverso del paese", '
+                                  '"oggetto": "un oggetto storico simbolico che la persona tiene in mano (es. a golden ankh, a papyrus scroll)"}'}], 300)
+                    j3 = json.loads(t3[t3.find('{'): t3.rfind('}') + 1])
+                    mon = j3.get('monumento') or mon
+                    fig = fig + ', holding ' + (j3.get('oggetto') or 'a historical symbolic object') + ' at chest height, slightly more intense and determined expression'
+                except Exception as e:
+                    log('variante 3: cambi non trovati, cambio solo il monumento:', str(e)[:100]); mon = mon + ' seen from a different angle'
+            im = None
+            for tentativo in range(3):
+                r = fal('fal-ai/nano-banana-2', {'prompt': prompt_con_testo(inf['bandiera'], fig, mon, 1, inf['paese'], inf['date']),
+                                                 'aspect_ratio': '16:9', 'resolution': '2K', 'output_format': 'jpeg', 'num_images': 1})
+                prova = ImageOps.fit(Image.open(io.BytesIO(http(r['images'][0]['url'], raw=True))).convert('RGB'), (1280, 720), Image.LANCZOS)
+                if testo_ok(prova, inf['paese'], inf['date']):
+                    im = prova; break
+            if im is None:
+                r = fal('fal-ai/nano-banana-2', {'prompt': prompt_scena(inf['bandiera'], fig, mon, 1), 'aspect_ratio': '16:9', 'resolution': '2K', 'output_format': 'jpeg', 'num_images': 1})
+                im = titolo(ImageOps.fit(Image.open(io.BytesIO(http(r['images'][0]['url'], raw=True))).convert('RGB'), (1280, 720), Image.LANCZOS), inf['paese'], inf['date'], [.20, .02, .74, .42])
+            im.save(os.path.join(OUT, f'{nostro}_{n_}.jpg'), quality=92)
+            celle.append((f'copertina {n_}', im))
+            log(f'{nostro}: copertina {n_} creata ({"altra persona" if n_ == "2" else "monumento e oggetto diversi"}): {fig[:70]} | {mon[:50]}')
+        righe.append((nostro, celle))
         continue
     if TITOLO_PROVA:
         canale = [('prova', TITOLO_PROVA)]
