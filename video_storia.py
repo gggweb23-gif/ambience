@@ -2886,7 +2886,7 @@ def main():
     if not COP_VIDEO:   # copertina UFFICIALE (bandiera + figura): fatta qui, prima del caricamento, e caricata insieme al video
         try:
             dir_cop = os.path.join(ROOT, 'copertine_storia')
-            env = dict(os.environ, TITOLO_PROVA=titolo_finale)
+            env = dict(os.environ, TITOLO_PROVA=titolo_finale, COPERTINA_FORMATO=str(P.get('copertina_formato') or 'prima_dopo'))
             subprocess.run([sys.executable, os.path.join(ROOT, 'copertine_storia.py')], env=env, cwd=ROOT, timeout=900)
             src_ = os.path.join(dir_cop, 'prova_1.jpg')
             if os.path.exists(src_):
