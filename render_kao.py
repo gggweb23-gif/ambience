@@ -19,6 +19,7 @@ Riceve da n8n (variabile PAYLOAD): {"id", "dati_url", "resume_url"}. Alla fine c
 import base64, difflib, io, json, math, os, random, re, shutil, subprocess, sys, threading, time, traceback
 import urllib.error, urllib.parse, urllib.request
 from concurrent.futures import ThreadPoolExecutor
+import effetti_j2v as EF   # effetti di json2video (grafici, cornici, cifre, suoni) disegnati con Chromium
 
 E = os.environ.get
 LAVORO = os.path.join(os.getcwd(), 'lavoro_kao')
@@ -559,7 +560,7 @@ def musica_rotazione(urls, totale, volume, seme, cartella):
     return unita
 
 
-def audio_finale(voce, totale, musica, volume, swoosh, momenti, vol_swoosh, cartella):
+def audio_finale(voce, totale, musica, volume, swoosh, momenti, vol_swoosh, cartella, extra=None):
     """Voce + musica (in loop, volume basso, dissolvenze) + suono di transizione a inizio scena."""
     ins = ['-i', voce]
     fl = [f'[0:a]apad=whole_dur={totale:.3f}[v]']
@@ -578,6 +579,10 @@ def audio_finale(voce, totale, musica, volume, swoosh, momenti, vol_swoosh, cart
             fl.append(f'[w{j}]adelay={ms}|{ms}[d{j}]')
         fl.append(''.join(f'[d{j}]' for j in range(n)) + f'amix=inputs={n}:duration=longest:normalize=0[sw]')
         mix.append('[sw]'); k += 1
+    for f, t, v, dd in (extra or []):   # suoni delle scene (cornice, cassa, ...): come json2video
+        ins += ['-i', f]; ms = int(max(0.0, t) * 1000)
+        fl.append(f'[{k}:a]' + (f'atrim=0:{dd:.3f},' if dd and dd > 0 else '') + f'volume={v},adelay={ms}|{ms}[x{k}]')
+        mix.append(f'[x{k}]'); k += 1
     fl.append(''.join(mix) + f'amix=inputs={len(mix)}:duration=first:normalize=0,atrim=0:{totale:.3f}[a]')
     out = os.path.join(cartella, 'audio_finale.m4a')
     run(['ffmpeg', '-y', '-v', 'error'] + ins + ['-filter_complex', ';'.join(fl), '-map', '[a]', '-c:a', 'aac', '-b:a', '192k', out])
@@ -681,6 +686,9 @@ def monta(dati, cartella, out):
     Regole.escludi = [w.strip().lower() for w in str(cfg.get('stock_exclude_words') or '').split(',') if w.strip()]
     Regole.suffisso = str(cfg.get('stock_query_suffix') or '').strip()
     Regole.pubblico = {'it': 'italiano', 'en': 'americano/inglese'}.get(str(cfg.get('language') or 'it')[:2], str(cfg.get('language') or ''))
+    if str(cfg.get('language') or '').strip():   # lingua della voce per whisper (prima era sempre 'it')
+        os.environ['LINGUA'] = str(cfg['language']).strip().lower()[:2]
+    EFF = str(cfg.get('effetti_github') or '').strip().upper() == 'SI'   # effetti di json2video disegnati qui (grafici, cornici, cifre, suoni)
     scene = [s for s in dati.get('scene', []) if str(s.get('audio') or '').strip()]
     if not scene:
         raise RuntimeError('nessuna scena con audio nel file dati')
@@ -708,7 +716,7 @@ def monta(dati, cartella, out):
     texture = [u.strip() for u in str(cfg.get('scene_bg_textures') or '').split(',') if u.strip()]
     piano = []   # (scena, inizio, fine)
     for i, (s, (a, b)) in enumerate(zip(scene, tempi)):
-        n = 1 if s.get('typo') else max(1, math.ceil((b - a) / passo - 0.05))
+        n = 1 if (s.get('typo') or (EFF and (s.get('effetti') or {}).get('cornice'))) else max(1, math.ceil((b - a) / passo - 0.05))
         for k in range(n):
             piano.append((i, a + (b - a) * k / n, a + (b - a) * (k + 1) / n))
     # 3) ricerche e scelta delle clip (4 controlli)
@@ -719,7 +727,7 @@ def monta(dati, cartella, out):
         ricerche = scrivi_ricerche(scene, dati.get('titolo') or '')
         def per_scena(i):
             s = scene[i]
-            if s.get('typo'):
+            if s.get('typo') or (EFF and (s.get('effetti') or {}).get('cornice')):
                 return i, []
             quanti = sum(1 for x in piano if x[0] == i)
             contesto = ' '.join(scene[j]['testo'] for j in (i - 1, i) if 0 <= j < len(scene))[-600:]
@@ -730,21 +738,27 @@ def monta(dati, cartella, out):
             media_scena = dict(ex.map(per_scena, range(len(scene))))
     # 4) i pezzi di video, tagliati a fotogrammi esatti sulla voce (niente sfasamenti)
     pezzi, scaricati, ultimo = [], {}, None
-    contatore = {}
+    contatore, liste_eff = {}, {}
     for n, (i, a, b) in enumerate(piano):
         nf = int(round(b * FPS)) - int(round(a * FPS))
         if nf <= 0:
             continue
         o = os.path.join(cartella, f'pezzo_{n:04d}.mp4')
         s = scene[i]
+        eff = (s.get('effetti') or {}) if EFF else {}
         try:
-            if s.get('typo'):
+            if eff.get('cornice'):   # foto in cornice su fondo colorato (stessa pagina HTML di json2video), con zoom lento
+                png = EF.foto_cornice(eff['cornice'], eff.get('sfondo'), cartella, f'cornice_{i:03d}')
+                pezzo_foto(png, nf, o, 1)
+                ultimo = None
+            elif s.get('typo'):
                 tex = None
                 if texture:
                     u = texture[i % len(texture)]
                     tex = scaricati.get(u) or scarica(u, os.path.join(cartella, f'texture_{i % len(texture)}.jpg'))
                     scaricati[u] = tex
-                pezzo_png(immagine_typo(s, cfg, tex, os.path.join(cartella, f'typo_{i:03d}.jpg')), nf, o)
+                s_typo = dict(s, etichetta='', dati={}) if any(l.get('type') == 'text' for l in eff.get('livelli') or []) else s   # il titolo lo disegna il livello di json2video
+                pezzo_png(immagine_typo(s_typo, cfg, tex, os.path.join(cartella, f'typo_{i:03d}.jpg')), nf, o)
                 ultimo = None
             else:
                 k = contatore.get(i, 0); contatore[i] = k + 1
@@ -775,7 +789,26 @@ def monta(dati, cartella, out):
                 pezzo_png(o + '.png', nf, o)
             else:
                 run(['ffmpeg', '-y', '-v', 'error', '-f', 'lavfi', '-i', f'color=c=0x15121a:s={W}x{H}:r={FPS}', '-frames:v', str(nf)] + ENC + [o])
+        if eff.get('livelli'):   # grafici animati, titoli, cifre in dollari, clip typo_fast_cut sopra il pezzo
+            try:
+                a_sc, b_sc = tempi[i]
+                if i not in liste_eff:
+                    liste_eff[i] = EF.sovrimpressione(eff['livelli'], b_sc - a_sc, cartella, f'eff_{i:03d}')
+                    for v in eff['livelli']:
+                        if v.get('type') == 'video' and v.get('src') and not v.get('locale'):
+                            try:
+                                v['locale'] = scaricati.get(v['src']) or scarica(v['src'], os.path.join(cartella, f'sopra_{len(scaricati):04d}.mp4'))
+                                scaricati[v['src']] = v['locale']
+                            except Exception as e:
+                                log('clip sopra la scena non scaricata:', str(e)[:80])
+                video_sopra = [v for v in eff['livelli'] if v.get('type') == 'video' and v.get('locale')]
+                o2 = o[:-4] + '_eff.mp4'
+                o = EF.applica(o, o2, liste_eff[i], video_sopra, a - a_sc, nf / FPS, cartella, ENC, vf_cover())
+            except Exception as e:
+                log(f'effetti della scena {i + 1} non applicati: {str(e)[:150]}')
         pezzi.append(o)
+    if EFF:
+        EF.chiudi()
     # 5) schermata finale (end_screen_seconds): texture + "GUARDA ANCHE" a sinistra + nome canale
     fine_sec = num(cfg.get('end_screen_seconds'), 0)
     totale = totale_voce
@@ -806,6 +839,9 @@ def monta(dati, cartella, out):
     urls = [u.strip() for u in re.split(r'\|\||\n', str(cfg.get('musica_rotazione') or cfg.get('musica') or '')) if u.strip()]   # colonna musica_rotazione
     vol = num(cfg.get('musica_volume'), 0.03)
     vol = vol / 100 if vol > 1 else vol
+    if not urls and str(dati.get('musica') or '').strip():   # musica del canale di json2video (brand_music_url)
+        urls = [str(dati['musica']).strip()]
+        vol = num(dati.get('volume_musica'), vol)
     if urls:
         try:
             musica = musica_rotazione(urls, totale, vol, str(dati.get('id') or dati.get('titolo') or ''), cartella)
@@ -819,7 +855,23 @@ def monta(dati, cartella, out):
             momenti = [a for k, (a, b) in enumerate(tempi) if k > 0 and math.floor(k * perc / 100) > math.floor((k - 1) * perc / 100)]
         except Exception as e:
             log('suono di transizione saltato:', str(e)[:80])
-    audio = audio_finale(voce, totale, musica, vol, swoosh, momenti, num(cfg.get('transition_sound_volume'), 0.7), cartella)
+    extra = []
+    if EFF:
+        file_suoni = {}
+        for i, s in enumerate(scene):
+            for x in (s.get('effetti') or {}).get('suoni') or []:
+                u = str(x.get('src') or '').strip()
+                if not u:
+                    continue
+                try:
+                    if u not in file_suoni:
+                        file_suoni[u] = scarica(u, os.path.join(cartella, f'suono_{len(file_suoni):03d}.mp3'))
+                    extra.append((file_suoni[u], tempi[i][0] + num(x.get('start'), 0), num(x.get('volume'), 1), num(x.get('durata'), 0)))
+                except Exception as e:
+                    log('suono saltato:', str(e)[:80])
+        log(f'effetti json2video: {sum(1 for s in scene if (s.get("effetti") or {}).get("livelli"))} scene con livelli, '
+            f'{sum(1 for s in scene if (s.get("effetti") or {}).get("cornice"))} foto in cornice, {len(extra)} suoni')
+    audio = audio_finale(voce, totale, musica, vol, swoosh, momenti, num(cfg.get('transition_sound_volume'), 0.7), cartella, extra)
     # 8) composizione finale
     componi(base, audio, ass, dati.get('iscrizione') or {}, totale, cartella, out)
     log(f'video pronto: {durata(out) / 60:.1f} minuti, {len(pezzi)} pezzi, ricerche Pexels {_conti["pexels"]}')
