@@ -3004,7 +3004,7 @@ def carica_youtube(path, c, titolo):
     snippet = {'title': titolo[:100], 'description': descr, 'tags': tags_,
                'categoryId': str(c.get('categoria_originale') or P.get('categoria') or '27'), 'defaultLanguage': LINGUA, 'defaultAudioLanguage': LINGUA}
     status = {'privacyStatus': P.get('privacy') or 'public', 'selfDeclaredMadeForKids': False}
-    if P.get('pubblica_il') and str(P.get('privacy') or '').strip().lower() != 'private':   # privacy private = resta privato, si pubblica a mano
+    if P.get('pubblica_il') and str(P.get('privacy') or 'public').strip().lower() == 'public':   # private o unlisted: niente programmazione   # privacy private = resta privato, si pubblica a mano
         status['privacyStatus'] = 'private'; status['publishAt'] = P['pubblica_il']
     size = os.path.getsize(path)
     req = urllib.request.Request('https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&part=snippet,status',
