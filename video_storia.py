@@ -36,7 +36,7 @@ MINUTI = float(E('MINUTI', '13') or 13)
 MAX_MINUTI = float(P.get('max_minuti') or E('MAX_MINUTI', '25') or 25)   # oltre questa durata il copione condensa l'originale
 PROVA = str(P.get('prova') or E('PROVA', 'NO')).strip().upper() == 'SI'
 CARICA = str(P.get('carica') or E('CARICA', 'NO')).strip().upper() == 'SI' and not PROVA   # SI = carica su YouTube
-MIN_SEC_YT = 120   # video piu' corti di 2 minuti (le prove da 1 minuto) non vanno mai su YouTube
+MIN_SEC_YT = 480   # video piu' corti di 8 minuti (le prove) non vanno mai su YouTube
 VOCE_VELOCITA = max(.8, min(1.2, float(str(P.get('voce_velocita') or E('VOCE_VELOCITA', '') or 1.06).replace(',', '.'))))   # uguale per tutte le scene
 MUSICA_URL = str(P.get('musica_url') or E('MUSICA_URL', '')).strip()
 def _perc(v, d=100):
