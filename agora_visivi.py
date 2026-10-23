@@ -269,6 +269,73 @@ def logo_png(url, cartella):
         log('logo non disponibile:', str(e)[:100]); return None
 
 
+def firma_png(stile, cartella):
+    """Firma del canale (render_style: "firma": "meandro", "firma_colore", "firma_testo"): greca d'oro + marchio in lettere romane."""
+    if str(stile.get('firma') or '').strip().lower() != 'meandro':
+        return None
+    from PIL import Image, ImageDraw, ImageFont
+    col = str(stile.get('firma_colore') or '#D9AE4F').strip().lstrip('#')
+    rgb = tuple(int(col[i:i + 2], 16) for i in (0, 2, 4)) if len(col) == 6 else (217, 174, 79)
+    def greca(w, h=30):
+        im = Image.new('RGBA', (w, h), (0, 0, 0, 0)); d = ImageDraw.Draw(im); s_ = h / 30
+        modulo = [(2, 28), (2, 2), (28, 2), (28, 23), (9, 23), (9, 9), (21, 9), (21, 16), (15, 16)]
+        for x0 in range(0, w - int(28 * s_) + 1, int(30 * s_)):
+            d.line([(x0 + x * s_, y * s_) for x, y in modulo], fill=rgb + (255,), width=max(2, round(3 * s_)), joint='curve')
+        return im
+    out = {'greca': os.path.join(cartella, 'firma_greca.png'), 'marchio': None}
+    greca(int(RK.num(stile.get('firma_larghezza'), 600))).save(out['greca'])
+    testo = str(stile.get('firma_testo') or '').strip().upper()
+    if testo:
+        try:
+            f = ImageFont.truetype(RK.font(stile.get('firma_font') or 'Cinzel'), int(RK.num(stile.get('firma_dimensione'), 34)))
+        except Exception:
+            f = ImageFont.truetype(RK.font('Anton'), int(RK.num(stile.get('firma_dimensione'), 34)))
+        sp = 10
+        larg = sum(f.getbbox(c)[2] - f.getbbox(c)[0] if c != ' ' else 14 for c in testo) + sp * (len(testo) - 1) + 20
+        im = Image.new('RGBA', (larg, 70), (0, 0, 0, 0)); d = ImageDraw.Draw(im); x = 10
+        for c in testo:
+            if c == ' ':
+                x += 14 + sp; continue
+            d.text((x, 35), c, font=f, fill=rgb + (255,), anchor='lm', stroke_width=1, stroke_fill=(0, 0, 0, 160))
+            x += f.getbbox(c)[2] - f.getbbox(c)[0] + sp
+        out['marchio'] = os.path.join(cartella, 'firma_marchio.png'); im.save(out['marchio'])
+    return out
+
+
+def aggiungi_firma(ins, filtro, stile, cartella, righe, tot):
+    """FIRMA DEL CANALE (render_style "firma"): marchio + greca d'oro in apertura e chiusura, greca sotto le domande al pubblico.
+    Riceve il grafo che finisce in [vl] e lo chiude in [v]."""
+    fi = firma_png(stile, cartella)
+    if not fi:
+        return filtro + ';[vl]null[v]'
+    st = {'n': sum(1 for x in ins if x == '-i'), 'cur': 'vl'}
+    y_txt = int(H * RK.num(stile.get('y_testo'), 0.50))
+    y_top = int(H * RK.num(stile.get('firma_y'), 0.16))
+    def strato(png, t0, t1, y, nome, dissolvi=True):
+        ins.extend(['-loop', '1', '-t', f'{tot:.3f}', '-i', png])
+        if isinstance(t0, list):
+            fx, en = '', '+'.join(f'between(t,{a:.2f},{b:.2f})' for a, b in t0)
+        else:
+            fx = (f",fade=t=in:st={t0 + .2:.2f}:d=0.7:alpha=1,fade=t=out:st={max(t0, t1 - .8):.2f}:d=0.7:alpha=1" if dissolvi else '')
+            en = f'between(t,{t0:.2f},{t1:.2f})'
+        g = f";[{st['n']}:v]format=rgba{fx}[{nome}];[{st['cur']}][{nome}]overlay=x=(W-w)/2:y={y}:enable='{en}'[{nome}o]"
+        st['n'] += 1; st['cur'] = nome + 'o'
+        return g
+    blocchi = [(0.0, min(4.5, tot / 3), 'ia')] + ([(tot - 5.0, tot, 'fz')] if tot > 30 else [])
+    for t0, t1, nome in blocchi:
+        if fi['marchio']:
+            filtro += strato(fi['marchio'], t0, t1, y_top, nome + 'm')
+        filtro += strato(fi['greca'], t0 + .2, t1, y_top + 64, nome + 'g')
+    dom, ultimo_t = [], -99.0
+    for r in righe:   # al massimo una ogni 40 s, mai nei primi 5 s
+        if str(r['testo']).strip().endswith('?') and r['a'] - ultimo_t >= 40 and r['a'] > 5:
+            dom.append((r['a'], r['b'])); ultimo_t = r['a']
+    if dom:
+        filtro += strato(fi['greca'], dom, None, y_txt + int(RK.num(stile.get('dimensione_testo'), 60) * .9), 'dq', False)
+    log(f"firma del canale: marchio + greca in apertura/chiusura, greca sotto {len(dom)} domande")
+    return filtro + f";[{st['cur']}]null[v]"
+
+
 def sfondo_stoico(scene, tempi_scene, voce, statue, titolo, cfg, stile, cartella, seme):
     """Video di sfondo completo (senza scritte) + le frasi per i sottotitoli."""
     if not os.environ.get('LINGUA'):   # lingua della voce per whisper, dalla colonna language
@@ -336,9 +403,10 @@ def sfondo_stoico(scene, tempi_scene, voce, statue, titolo, cfg, stile, cartella
     ins = ['-i', base, '-stream_loop', '-1', '-i', fx['polvere'], '-stream_loop', '-1', '-i', fx['braci']]
     if logo:
         ins += ['-i', logo]
-        filtro += f";[v0][3:v]overlay=x=W-w-36:y=H-h-30[v]"
+        filtro += f";[v0][3:v]overlay=x=W-w-36:y=H-h-30[vl]"
     else:
-        filtro = filtro.replace('[v0]', '[v]')
+        filtro = filtro.replace('[v0]', '[vl]')
+    filtro = aggiungi_firma(ins, filtro, stile, cartella, righe, tempi_scene[-1][1])
     out = os.path.join(cartella, 'sfondo_stoico.mp4')
     run(['ffmpeg', '-y', '-v', 'error'] + ins + ['-filter_complex', filtro, '-map', '[v]', '-t', f'{tempi_scene[-1][1]:.3f}'] + ENC + [out])
     log('sfondo stoico pronto: colore per emozione, cenere, braci, grana, vignettatura' + (', logo' if logo else ''))
