@@ -302,7 +302,7 @@ def firma_png(stile, cartella):
     return out
 
 
-def aggiungi_firma(ins, filtro, stile, cartella, righe, tot):
+def aggiungi_firma(ins, filtro, stile, cartella, righe, tot, cfg=None):
     """FIRMA DEL CANALE (render_style "firma"): marchio + greca d'oro in apertura e chiusura, greca sotto le domande al pubblico.
     Riceve il grafo che finisce in [vl] e lo chiude in [v]."""
     fi = firma_png(stile, cartella)
@@ -326,10 +326,21 @@ def aggiungi_firma(ins, filtro, stile, cartella, righe, tot):
         if fi['marchio']:
             filtro += strato(fi['marchio'], t0, t1, y_top, nome + 'm')
         filtro += strato(fi['greca'], t0 + .2, t1, y_top + 64, nome + 'g')
-    dom, ultimo_t = [], -99.0
-    for r in righe:   # al massimo una ogni 40 s, mai nei primi 5 s
-        if str(r['testo']).strip().endswith('?') and r['a'] - ultimo_t >= 40 and r['a'] > 5:
-            dom.append((r['a'], r['b'])); ultimo_t = r['a']
+    # greca sotto le domande ai commenti: ESATTAMENTE quante dice la colonna domande_commenti (vuota o 0 = nessuna)
+    try:
+        nd = int(float(str((cfg or {}).get('domande_commenti') or 0).replace(',', '.')))
+    except ValueError:
+        nd = 0
+    cand = [r for r in righe if str(r['testo']).strip().endswith('?') and r['a'] > 5]
+    parole = ('comment', 'below', 'tell me', 'let me know', 'write', 'share', 'commenti', 'scrivi', 'dimmi', 'sotto')
+    dom = []
+    for k in range(1, nd + 1):   # la domanda piu' vicina al punto in cui il copione la mette (k/(n+1) del video), preferendo quelle che invitano a commentare
+        atteso = tot * k / (nd + 1)
+        liberi = [r for r in cand if r not in dom]
+        if not liberi:
+            break
+        dom.append(min(liberi, key=lambda r: (not any(w in str(r['testo']).lower() for w in parole), abs(r['a'] - atteso))))
+    dom = sorted((r['a'], r['b']) for r in dom)
     if dom:
         filtro += strato(fi['greca'], dom, None, y_txt + int(RK.num(stile.get('dimensione_testo'), 60) * .9), 'dq', False)
     log(f"firma del canale: marchio + greca in apertura/chiusura, greca sotto {len(dom)} domande")
@@ -406,7 +417,7 @@ def sfondo_stoico(scene, tempi_scene, voce, statue, titolo, cfg, stile, cartella
         filtro += f";[v0][3:v]overlay=x=W-w-36:y=H-h-30[vl]"
     else:
         filtro = filtro.replace('[v0]', '[vl]')
-    filtro = aggiungi_firma(ins, filtro, stile, cartella, righe, tempi_scene[-1][1])
+    filtro = aggiungi_firma(ins, filtro, stile, cartella, righe, tempi_scene[-1][1], cfg)
     out = os.path.join(cartella, 'sfondo_stoico.mp4')
     run(['ffmpeg', '-y', '-v', 'error'] + ins + ['-filter_complex', filtro, '-map', '[v]', '-t', f'{tempi_scene[-1][1]:.3f}'] + ENC + [out])
     log('sfondo stoico pronto: colore per emozione, cenere, braci, grana, vignettatura' + (', logo' if logo else ''))
