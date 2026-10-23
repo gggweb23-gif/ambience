@@ -5,7 +5,10 @@ STORIA IN MINUTI - copertine "BANDIERA + SOVRANO": stile del canale, niente copi
   dietro: un monumento reale e riconoscibile del paese, cielo vero e colori veri;   in alto al centro: NOME DEL PAESE grande + date (scritti dallo script).
   3 copertine per video: 1 va online, 2 e 3 sono pronte per il cambio se il CTR resta basso (altro monumento, altra figura, altra inquadratura).
 Uscita: copertine_storia/<video>_1.jpg, _2.jpg, _3.jpg (+ _base senza scritte) + confronto.jpg. APPLICA=SI carica la 1 su YouTube.
-STILE "PRIMA_DOPO" (predefinito, COPERTINA_FORMATO=prima_dopo; "bandiera" = stile vecchio qui sopra), ispirato a CityEons:
+STILE "ILLUSTRATO" (predefinito dal 23/10, COPERTINA_FORMATO=illustrato), come Genius History / History in Minutes:
+  illustrazione dipinta; a sinistra un personaggio simbolo del paese a mezzo busto che guarda lo spettatore; dietro il paese che passa
+  dall'antico (sinistra) al moderno (destra); in alto a destra il NOME enorme in nero con grazie spesse + bandiera, sotto "2600 a.C. -> 2026" con freccia rossa.
+STILE "PRIMA_DOPO" (COPERTINA_FORMATO=prima_dopo, COPERTINA_FORMATO=prima_dopo; "bandiera" = stile vecchio qui sopra), ispirato a CityEons:
   vista aerea 3D fotorealistica divisa in diagonale: a sinistra la citta' antica del paese, a destra lo stesso paese oggi col suo monumento simbolo;
   in alto "2600 a.C. -> 2026" (freccia arancio zafferano, anno finale oro); in basso il NOME DEL PAESE enorme e spaziato con la bandierina. Nessuna persona.
 Env: VIDEO = "nostroID:competitorID,..." (al posto del nostro ID va bene una parola del titolo, es. "India:p9IIGdg91fE")
@@ -21,7 +24,7 @@ COPPIE = [(x.strip().split(':', 1) + [''])[:2] for x in (E('VIDEO', '') or '').s
 OUT = os.path.join(os.getcwd(), 'copertine_storia'); os.makedirs(OUT, exist_ok=True)
 FAL = {'Authorization': 'Key ' + E('FAL_KEY', ''), 'Content-Type': 'application/json'}
 BOLLINO = os.path.join(os.getcwd(), 'bollino_storia_in_minuti.png')
-FORMATO = str(E('COPERTINA_FORMATO', '') or 'prima_dopo').strip().lower()   # prima_dopo (aerea antico -> oggi) | bandiera (bandiera + sovrano)
+FORMATO = str(E('COPERTINA_FORMATO', '') or 'illustrato').strip().lower()   # illustrato (come i competitor: personaggio + nome nero con grazie) | prima_dopo (aerea antico -> oggi) | bandiera
 
 
 def log(*a):
@@ -95,7 +98,7 @@ Rispondi SOLO JSON:
 {{"paese": "nome del paese in ITALIANO, MAIUSCOLO (es. INDIA, IRAN, AFGHANISTAN, GIAPPONE)",
  "bandiera": "nome del paese in inglese per la bandiera ufficiale (es. India)",
  "date": "le date della copertina o del titolo nel formato '2600 a.C. – 2026' (a e d minuscole); se non ci sono, l'arco della storia del paese",
- "uomo": "in inglese: la figura maschile dello stesso tipo della figura principale della copertina, con abiti e gioielli storici del paese (es. 'an ancient Indian king with a golden crown and white and red silk')",
+ "uomo": "in inglese: la figura maschile dello stesso tipo della figura principale della copertina, con abiti e gioielli storici del paese (es. 'an ancient Indian king with a golden crown and white and red silk'); se la copertina non ha una figura: il personaggio storico piu' simbolico e riconoscibile del paese, descritto con abiti tipici (es. 'an Indian maharaja with a golden jewelled turban and cream and gold clothes')",
  "donna": "in inglese: la figura femminile corrispondente dello stesso rango ed epoca (es. 'an ancient Indian queen with a golden crown and a red silk sari')",
  "popolo": "in inglese: i tratti del viso REALI e tipici della popolazione storica di quel paese (es. 'authentic native Afghan (Pashtun) facial features: olive skin, strong nose, dark deep-set eyes'), mai tratti di altri popoli",
  "monumento": "in inglese: UN monumento reale e famoso del paese, il piu' riconoscibile (es. 'the Great Stupa of Sanchi')",
@@ -146,6 +149,62 @@ def prompt_pd(antico, moderno, paese, bandiera, date):
             f'with a small waving national flag of {bandiera} just to the left of the word. '
             'Keep the bottom-right corner (last 25% of width, last 25% of height) free of text: the video duration is shown there. '
             'No other text, no logo, no badge, no watermark.')
+
+
+def prompt_ill(figura, antico, moderno, paese, bandiera, date):
+    da, a = date_freccia(date)
+    return ('YouTube thumbnail, 16:9, detailed hand-painted digital illustration in the style of a history documentary thumbnail, warm vivid colours, '
+            'bright clear blue sky, very sharp, readable on a phone. '
+            f'LEFT 40%: {figura}, waist-up, looking straight at the viewer with a calm, proud expression, large and close to the camera. {POPOLO.get("tratti", "")} '
+            f'BACKGROUND behind and to the right: on the left side {antico}, blending towards the right into {moderno}, like a journey through time. '
+            f'TEXT at the top right, on the bright sky: "{paese}" enormous, in a VERY THICK, BOLD, heavy black classical Roman serif font (like Cinzel Black or Trajan Bold), '
+            f'the biggest element of the image. Right next to the word, a waving national flag of {bandiera} about half the height of the letters, clearly visible. '
+            f'Under it, smaller but still bold, black heavy serif: "{da}" then a short thick RED arrow pointing right, then "{a}" (lowercase "a" in "a.C."). '
+            'Keep the bottom-right corner free of text. No other text, no logo, no watermark.')
+
+
+def prompt_scena_ill(figura, antico, moderno):
+    return ('YouTube thumbnail background, 16:9, detailed hand-painted digital illustration in the style of a history documentary thumbnail, warm vivid colours, '
+            'bright clear blue sky, very sharp. '
+            f'LEFT 40%: {figura}, waist-up, looking straight at the viewer with a calm, proud expression, large and close to the camera. {POPOLO.get("tratti", "")} '
+            f'BACKGROUND behind and to the right: on the left side {antico}, blending towards the right into {moderno}, like a journey through time. '
+            'The upper right area (top 45%, right 55%) is calm open sky: a big title will be added there. Absolutely NO text, letters, numbers, logos or watermark anywhere.')
+
+
+def titolo_ill(im, paese, date):
+    """Riserva: PAESE enorme nero con grazie spesse in alto a destra, date sotto con freccia rossa."""
+    W, H = im.size
+    da, a = date_freccia(date)
+    d = ImageDraw.Draw(im)
+    x0, x1 = int(W * .45), int(W * .97)
+    k = 230
+    while k > 60:
+        f1 = ImageFont.truetype(font('slab'), k)
+        if f1.getlength(paese) <= x1 - x0:
+            break
+        k -= 6
+    f2 = ImageFont.truetype(font('slab'), max(40, int(k * .42)))
+    cx = (x0 + x1) / 2; y = int(H * .05)
+    d.text((cx, y), paese, font=f1, fill=(15, 15, 15), anchor='mt')
+    y2 = y + k * 1.08; fr = int(f2.size * 1.3)
+    tot = f2.getlength(da) + fr + 30 + f2.getlength(a); xs = cx - tot / 2
+    d.text((xs, y2), da, font=f2, fill=(15, 15, 15), anchor='lt')
+    ya = y2 + f2.size * .55; xa = xs + f2.getlength(da) + 15
+    d.rectangle([xa, ya - 5, xa + fr - 22, ya + 5], fill=(220, 30, 30)); d.polygon([(xa + fr - 26, ya - 18), (xa + fr, ya), (xa + fr - 26, ya + 18)], fill=(220, 30, 30))
+    d.text((xa + fr + 15, y2), a, font=f2, fill=(15, 15, 15), anchor='lt')
+    return im
+
+
+def crea_ill(figura, antico, moderno, paese, bandiera, date):
+    for tentativo in range(3):
+        r = fal('fal-ai/nano-banana-2', {'prompt': prompt_ill(figura, antico, moderno, paese, bandiera, date), 'aspect_ratio': '16:9', 'resolution': '2K',
+                                         'output_format': 'jpeg', 'num_images': 1})
+        prova = ImageOps.fit(Image.open(io.BytesIO(http(r['images'][0]['url'], raw=True))).convert('RGB'), (1280, 720), Image.LANCZOS)
+        if testo_ok(prova, paese, ' '.join(date_freccia(date))):
+            return prova
+    log('    3 tentativi con scritta sbagliata: scena senza scritte + titolo scritto dallo script')
+    r = fal('fal-ai/nano-banana-2', {'prompt': prompt_scena_ill(figura, antico, moderno), 'aspect_ratio': '16:9', 'resolution': '2K', 'output_format': 'jpeg', 'num_images': 1})
+    return titolo_ill(ImageOps.fit(Image.open(io.BytesIO(http(r['images'][0]['url'], raw=True))).convert('RGB'), (1280, 720), Image.LANCZOS), paese, date)
 
 
 def prompt_scena_pd(antico, moderno):
@@ -366,7 +425,7 @@ for nostro, comp in COPPIE:
             json.dump(inf, open(info_p, 'w'), ensure_ascii=False)
         POPOLO['tratti'] = inf.get('tratti', '')
         celle = [('ATTUALE', copertina_yt(nostro))]
-        if FORMATO == 'prima_dopo':
+        if FORMATO in ('prima_dopo', 'illustrato'):
             if not inf.get('antico'):
                 try:
                     txt = claude([{'type': 'text', 'text': DOMANDA.format(titolo=tit) + " (Nessuna immagine: ricava tutto dal titolo e da cio' che sai della storia del paese.)"}])
@@ -380,7 +439,11 @@ for nostro, comp in COPPIE:
                 ant, mod = ((inf.get('antico2') or inf['antico'], inf.get('moderno2') or inf['moderno']) if n_ == '2'
                             else (inf['antico'] + ', seen from a different, higher angle', inf['moderno'] + ', seen from a different, higher angle'))
                 try:
-                    im = crea_pd(ant, mod, inf['paese'], inf['bandiera'], inf['date'])
+                    if FORMATO == 'illustrato':   # 2 = l'altra figura (donna/uomo) e altri luoghi; 3 = stessa figura, altri luoghi
+                        fig_ = (inf.get('figure') or ['a historical leader of the country'] * 2)[1 if n_ == '2' else 0]
+                        im = crea_ill(fig_, ant, mod, inf['paese'], inf['bandiera'], inf['date'])
+                    else:
+                        im = crea_pd(ant, mod, inf['paese'], inf['bandiera'], inf['date'])
                 except Exception as e:
                     log(f'{nostro}: copertina {n_} non riuscita:', str(e)[:150]); continue
                 im.save(os.path.join(OUT, f'{nostro}_{n_}.jpg'), quality=92)
@@ -463,6 +526,17 @@ for nostro, comp in COPPIE:
     testo_log.append(f'=== {nostro} (originale {comp})\n{paese} / {date}')
 
     def fai(k):
+        if FORMATO == 'illustrato':
+            ant = an.get('antico') or f'ancient {band} with its most famous ancient monument'
+            mod = an.get('moderno') or f'{band} today with its most famous landmark and a modern city skyline'
+            fig = figure[0]
+            try:
+                im = crea_ill(fig, ant, mod, paese, band, date)
+                im.save(os.path.join(OUT, f'{nostro}_{k}.jpg'), quality=92)
+                log(f'  copertina {k} (illustrata): {fig[:60]} | {ant[:50]} | {mod[:50]}')
+                return k, 0, im, [fig, ant, mod]
+            except Exception as e:
+                log(f'  copertina {k} non riuscita:', str(e)[:200]); return k, 0, None, [fig, ant, mod]
         if FORMATO == 'prima_dopo':
             ant, mod = an.get('antico') or f'the most ancient famous city of {band} as it was at the time of {date_freccia(date)[0]}', an.get('moderno') or f'{band} today with its most famous landmark and a modern city'
             try:
