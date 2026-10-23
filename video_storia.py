@@ -36,6 +36,7 @@ MINUTI = float(E('MINUTI', '13') or 13)
 MAX_MINUTI = float(P.get('max_minuti') or E('MAX_MINUTI', '25') or 25)   # oltre questa durata il copione condensa l'originale
 PROVA = str(P.get('prova') or E('PROVA', 'NO')).strip().upper() == 'SI'
 CARICA = str(P.get('carica') or E('CARICA', 'NO')).strip().upper() == 'SI' and not PROVA   # SI = carica su YouTube
+MIN_SEC_YT = 120   # video piu' corti di 2 minuti (le prove da 1 minuto) non vanno mai su YouTube
 VOCE_VELOCITA = max(.8, min(1.2, float(str(P.get('voce_velocita') or E('VOCE_VELOCITA', '') or 1.06).replace(',', '.'))))   # uguale per tutte le scene
 MUSICA_URL = str(P.get('musica_url') or E('MUSICA_URL', '')).strip()
 def _perc(v, d=100):
@@ -2898,7 +2899,10 @@ def main():
             log('copertina ufficiale non riuscita:', str(e)[:150])
     open(os.path.join(ROOT, 'titolo.txt'), 'w').write(titolo_finale)
     prepara_extra(c, titolo_finale, finale, cop)
-    if CARICA:
+    corto = durata(finale) < MIN_SEC_YT   # video di prova (1 minuto): MAI su YouTube, resta solo su Drive
+    if CARICA and corto:
+        log(f'video di {durata(finale):.0f} secondi (sotto {MIN_SEC_YT} s): e\' una prova, NON lo carico su YouTube')
+    if CARICA and not corto:
         t0c = time.time()
         vid = carica_youtube(finale, c, titolo_finale)
         note = [x for x in (carica_copertina(vid, cop), playlist_video(vid, titolo_finale)) if x]
@@ -2929,7 +2933,7 @@ def main():
                 'minuti_video': round(durata(finale) / 60, 1), 'minuti_lavoro': round((time.time() - T_INIZIO) / 60, 1),
                 'errore': '; '.join(note)})
     elif P.get('id'):
-        avvisa({'stato': 'PROVA OK' if PROVA else 'CREATO', 'minuti_video': round(durata(finale) / 60, 1),
+        avvisa({'stato': 'PROVA OK' if (PROVA or corto) else 'CREATO', 'minuti_video': round(durata(finale) / 60, 1),
                 'minuti_lavoro': round((time.time() - T_INIZIO) / 60, 1), 'titolo': titolo_finale})
     open(os.path.join(ROOT, 'personaggi_mancanti.txt'), 'w').write('\n'.join(sorted(set(m for m in mancanti if m))))
     log('FATTO:', finale, round(durata(finale) / 60, 1), 'minuti')
