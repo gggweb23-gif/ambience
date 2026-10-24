@@ -153,22 +153,27 @@ def prompt_pd(antico, moderno, paese, bandiera, date):
 
 def prompt_ill(figura, antico, moderno, paese, bandiera, date):
     da, a = date_freccia(date)
-    return ('YouTube thumbnail, 16:9, detailed hand-painted digital illustration in the style of a history documentary thumbnail, warm vivid colours, '
-            'bright clear blue sky, very sharp, readable on a phone. '
-            f'LEFT 40%: {figura}, waist-up, looking straight at the viewer with a calm, proud expression, large and close to the camera. {POPOLO.get("tratti", "")} '
-            f'BACKGROUND behind and to the right: on the left side {antico}, blending towards the right into {moderno}, like a journey through time. '
-            f'TEXT at the top right, on the bright sky: "{paese}" enormous, in a VERY THICK, BOLD, heavy black classical Roman serif font (like Cinzel Black or Trajan Bold), '
-            f'the biggest element of the image. Right next to the word, a waving national flag of {bandiera} about half the height of the letters, clearly visible. '
-            f'Under it, smaller but still bold, black heavy serif: "{da}" then a short thick RED arrow pointing right, then "{a}" (lowercase "a" in "a.C."). '
+    return ('YouTube thumbnail, 16:9, detailed hand-painted digital illustration in the style of a history documentary thumbnail, rich vivid colours, '
+            'very high contrast, very sharp, readable on a phone, slightly darker vignette on the edges. '
+            f'LEFT 40%: {figura}, waist-up, close to the camera, looking straight into the viewer\'s eyes with an INTENSE, serious, determined gaze, '
+            f'strong warm golden light on the face and a golden rim light on the outline. {POPOLO.get("tratti", "")} '
+            f'BACKGROUND behind and to the right: on the left side {antico} under a warm golden sky, blending towards the right into {moderno} '
+            'with city lights turning on, under a dramatic sunset sky with orange and deep blue clouds, like a journey through thousands of years. '
+            f'TEXT at the top right: "{paese}" enormous, VERY THICK heavy black classical Roman serif font (like Cinzel Black) with a thin white outline, '
+            f'the biggest element of the image, with a waving national flag of {bandiera} next to it about half the height of the letters. '
+            f'Under it, BIG and bold (about 60% of the height of the word {paese}): "{da}" in black with a thin white outline (lowercase "a" in "a.C."), '
+            f'a thick RED arrow pointing right, and "{a}" in bright GOLD with a black outline. '
             'Keep the bottom-right corner free of text. No other text, no logo, no watermark.')
 
 
 def prompt_scena_ill(figura, antico, moderno):
-    return ('YouTube thumbnail background, 16:9, detailed hand-painted digital illustration in the style of a history documentary thumbnail, warm vivid colours, '
-            'bright clear blue sky, very sharp. '
-            f'LEFT 40%: {figura}, waist-up, looking straight at the viewer with a calm, proud expression, large and close to the camera. {POPOLO.get("tratti", "")} '
-            f'BACKGROUND behind and to the right: on the left side {antico}, blending towards the right into {moderno}, like a journey through time. '
-            'The upper right area (top 45%, right 55%) is calm open sky: a big title will be added there. Absolutely NO text, letters, numbers, logos or watermark anywhere.')
+    return ('YouTube thumbnail background, 16:9, detailed hand-painted digital illustration in the style of a history documentary thumbnail, rich vivid colours, '
+            'very high contrast, very sharp, slightly darker vignette on the edges. '
+            f'LEFT 40%: {figura}, waist-up, close to the camera, looking straight into the viewer\'s eyes with an INTENSE, serious, determined gaze, '
+            f'strong warm golden light on the face and a golden rim light on the outline. {POPOLO.get("tratti", "")} '
+            f'BACKGROUND behind and to the right: on the left side {antico} under a warm golden sky, blending towards the right into {moderno} '
+            'with city lights turning on, under a dramatic sunset sky with orange and deep blue clouds. '
+            'The upper right area (top 45%, right 55%) is open sky: a big title will be added there. Absolutely NO text, letters, numbers, logos or watermark anywhere.')
 
 
 def titolo_ill(im, paese, date):
@@ -183,15 +188,20 @@ def titolo_ill(im, paese, date):
         if f1.getlength(paese) <= x1 - x0:
             break
         k -= 6
-    f2 = ImageFont.truetype(font('slab'), max(40, int(k * .42)))
+    k2 = max(40, int(k * .6))
+    while k2 > 30:
+        f2 = ImageFont.truetype(font('slab'), k2)
+        if f2.getlength(da) + f2.getlength(a) + k2 * 1.3 + 30 <= x1 - x0:
+            break
+        k2 -= 4
     cx = (x0 + x1) / 2; y = int(H * .05)
-    d.text((cx, y), paese, font=f1, fill=(15, 15, 15), anchor='mt')
+    d.text((cx, y), paese, font=f1, fill=(15, 15, 15), anchor='mt', stroke_width=3, stroke_fill=(255, 255, 255))
     y2 = y + k * 1.08; fr = int(f2.size * 1.3)
     tot = f2.getlength(da) + fr + 30 + f2.getlength(a); xs = cx - tot / 2
     d.text((xs, y2), da, font=f2, fill=(15, 15, 15), anchor='lt')
     ya = y2 + f2.size * .55; xa = xs + f2.getlength(da) + 15
     d.rectangle([xa, ya - 5, xa + fr - 22, ya + 5], fill=(220, 30, 30)); d.polygon([(xa + fr - 26, ya - 18), (xa + fr, ya), (xa + fr - 26, ya + 18)], fill=(220, 30, 30))
-    d.text((xa + fr + 15, y2), a, font=f2, fill=(15, 15, 15), anchor='lt')
+    d.text((xa + fr + 15, y2), a, font=f2, fill=(232, 182, 40), anchor='lt', stroke_width=3, stroke_fill=(10, 10, 10))
     return im
 
 
