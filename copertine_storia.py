@@ -5,7 +5,10 @@ STORIA IN MINUTI - copertine "BANDIERA + SOVRANO": stile del canale, niente copi
   dietro: un monumento reale e riconoscibile del paese, cielo vero e colori veri;   in alto al centro: NOME DEL PAESE grande + date (scritti dallo script).
   3 copertine per video: 1 va online, 2 e 3 sono pronte per il cambio se il CTR resta basso (altro monumento, altra figura, altra inquadratura).
 Uscita: copertine_storia/<video>_1.jpg, _2.jpg, _3.jpg (+ _base senza scritte) + confronto.jpg. APPLICA=SI carica la 1 su YouTube.
-STILE "ILLUSTRATO" (predefinito dal 23/10, COPERTINA_FORMATO=illustrato), come Genius History / History in Minutes:
+STILE "COPPIA" (predefinito dal 24/10, COPERTINA_FORMATO=coppia): FOTOREALISTICO, a sinistra la figura antica piu' famosa del paese, a destra una persona
+  di oggi del paese (un uomo e una donna: si alternano tra un video e l'altro), ognuno con dietro la sua epoca sotto un unico cielo al tramonto;
+  in alto al centro il NOME nero con grazie + bandiera, sotto "3100 a.C. -> 2026" (freccia rossa, anno in oro), su fasce chiare.
+STILE "ILLUSTRATO" (COPERTINA_FORMATO=illustrato, COPERTINA_FORMATO=illustrato), come Genius History / History in Minutes:
   illustrazione dipinta; a sinistra un personaggio simbolo del paese a mezzo busto che guarda lo spettatore; dietro il paese che passa
   dall'antico (sinistra) al moderno (destra); in alto a destra il NOME enorme in nero con grazie spesse + bandiera, sotto "2600 a.C. -> 2026" con freccia rossa.
 STILE "PRIMA_DOPO" (COPERTINA_FORMATO=prima_dopo, COPERTINA_FORMATO=prima_dopo; "bandiera" = stile vecchio qui sopra), ispirato a CityEons:
@@ -24,7 +27,7 @@ COPPIE = [(x.strip().split(':', 1) + [''])[:2] for x in (E('VIDEO', '') or '').s
 OUT = os.path.join(os.getcwd(), 'copertine_storia'); os.makedirs(OUT, exist_ok=True)
 FAL = {'Authorization': 'Key ' + E('FAL_KEY', ''), 'Content-Type': 'application/json'}
 BOLLINO = os.path.join(os.getcwd(), 'bollino_storia_in_minuti.png')
-FORMATO = str(E('COPERTINA_FORMATO', '') or 'illustrato').strip().lower()   # illustrato (come i competitor: personaggio + nome nero con grazie) | prima_dopo (aerea antico -> oggi) | bandiera
+FORMATO = str(E('COPERTINA_FORMATO', '') or 'coppia').strip().lower()   # coppia (figura antica + persona di oggi) | illustrato (come i competitor: personaggio + nome nero con grazie) | prima_dopo (aerea antico -> oggi) | bandiera
 
 
 def log(*a):
@@ -105,6 +108,12 @@ Rispondi SOLO JSON:
  "antico": "in inglese, per una vista AEREA dall'alto: la citta' o il sito piu' antico e famoso del paese com'era all'epoca della PRIMA data, ricostruito intatto e vivo (es. 'the ancient Indus Valley city of Mohenjo-daro in 2600 BC: mud-brick houses, the Great Bath, the river, dusty ochre tones')",
  "moderno": "in inglese, per una vista AEREA dall'alto: il paese OGGI, con il suo monumento piu' famoso in primo piano e la grande citta' moderna dietro (es. 'modern India today with the Taj Mahal and its gardens in the foreground and a dense modern city skyline behind it')",
  "antico2": "come antico ma un ALTRO sito antico famoso del paese, diverso",
+ "antica_figura_uomo": "in inglese: la figura STORICA MASCHILE piu' famosa e riconoscibile del paese, antica (es. Egitto: 'Ramesses II, ancient Egyptian pharaoh with the blue and gold nemes headdress and the royal cobra, black kohl, golden collar'), con aspetto, abiti e gioielli tipici",
+ "antica_figura_donna": "in inglese: la figura STORICA FEMMINILE piu' famosa e riconoscibile del paese, antica (es. Egitto: 'CLEOPATRA, ancient Egyptian queen, black hair with a golden headdress and the royal cobra, black kohl, golden jewelled collar, white linen dress'); se non esiste una donna famosa: una regina o nobildonna dell'epoca piu' famosa del paese",
+ "oggi_uomo": "in inglese: un uomo di oggi del paese, circa 30 anni, tratti autentici del paese, abiti moderni tipici e realistici (es. 'a modern Egyptian man, short dark hair, light beard, white modern shirt')",
+ "oggi_donna": "in inglese: una donna di oggi del paese, circa 30 anni, tratti autentici del paese, abiti moderni tipici e realistici, rispettosi della cultura del paese",
+ "luogo_antico": "in inglese: il luogo antico piu' famoso del paese da mettere dietro la figura antica (es. 'the Great Pyramids of Giza and the Sphinx at golden hour')",
+ "luogo_oggi": "in inglese: la citta' di oggi piu' famosa del paese da mettere dietro la persona di oggi, al crepuscolo con le luci accese (es. 'modern Cairo at dusk with the Cairo Tower and the city lights along the Nile')",
  "moderno2": "come moderno ma un ALTRO luogo simbolo di oggi del paese, diverso"}}"""
 
 
@@ -149,6 +158,84 @@ def prompt_pd(antico, moderno, paese, bandiera, date):
             f'with a small waving national flag of {bandiera} just to the left of the word. '
             'Keep the bottom-right corner (last 25% of width, last 25% of height) free of text: the video duration is shown there. '
             'No other text, no logo, no badge, no watermark.')
+
+
+def prompt_coppia(antica, oggi, l_antico, l_oggi, paese, bandiera, date):
+    da, a = date_freccia(date)
+    return ('YouTube thumbnail, 16:9, PHOTOREALISTIC, like a still from a big-budget film shot on a cinema camera: real skin with natural texture, '
+            'real fabrics and gold, natural cinematic light, very high contrast, very sharp, readable on a phone, slightly darker vignette on the edges. '
+            'No cartoon, no illustration. '
+            f'LEFT 33%: {antica}, waist-up, close to the camera, looking straight into the viewer\'s eyes with an intense, confident gaze. {POPOLO.get("tratti", "")} '
+            f'Behind this ancient figure: {l_antico}. '
+            f'RIGHT 33%: {oggi}, waist-up, close to the camera, looking straight into the viewer\'s eyes with an intense, confident gaze. Behind this person: {l_oggi}. '
+            'The two backgrounds melt into each other in the centre under ONE dramatic real sunset sky with orange and deep blue clouds, '
+            'like a journey through thousands of years from the ancient figure to the person of today. '
+            f'TEXT at the TOP CENTRE, between the two people, never covering their faces, each line on a light semi-transparent white band: "{paese}" big, VERY THICK heavy black '
+            f'classical Roman serif font (like Cinzel Black), with a small waving national flag of {bandiera} next to it, the flag NOT covering any letter. '
+            f'Under it, bold: "{da}" in black (lowercase "a" in "a.C."), a thick RED arrow pointing right, and "{a}" in bright GOLD with a black outline. '
+            'The text block takes at most 36% of the image width. Keep the bottom-right corner free of text. No other text, no logo, no watermark.')
+
+
+def prompt_scena_coppia(antica, oggi, l_antico, l_oggi):
+    return ('YouTube thumbnail background, 16:9, PHOTOREALISTIC, like a still from a big-budget film shot on a cinema camera, very high contrast, very sharp, '
+            'slightly darker vignette on the edges. No cartoon, no illustration. '
+            f'LEFT 33%: {antica}, waist-up, close to the camera, looking straight into the viewer\'s eyes with an intense, confident gaze. {POPOLO.get("tratti", "")} Behind: {l_antico}. '
+            f'RIGHT 33%: {oggi}, waist-up, close to the camera, looking straight into the viewer\'s eyes with an intense, confident gaze. Behind: {l_oggi}. '
+            'The two backgrounds melt into each other in the centre under ONE dramatic real sunset sky with orange and deep blue clouds. '
+            'The top centre (top 40%, middle 36% of the width) is open sky: a title will be added there. Absolutely NO text, letters, numbers, logos or watermark anywhere.')
+
+
+def titolo_coppia(im, paese, date):
+    """Riserva: in alto al centro PAESE nero con grazie spesse su fascia chiara, sotto le date con freccia rossa e anno in oro."""
+    W, H = im.size
+    da, a = date_freccia(date)
+    x0, x1 = int(W * .32), int(W * .68)
+    k = 150
+    while k > 40:
+        f1 = ImageFont.truetype(font('slab'), k)
+        if f1.getlength(paese) <= (x1 - x0) * .92:
+            break
+        k -= 4
+    k2 = max(30, int(k * .6))
+    while k2 > 24:
+        f2 = ImageFont.truetype(font('slab'), k2)
+        if f2.getlength(da) + f2.getlength(a) + k2 * 1.3 + 30 <= (x1 - x0) * .92:
+            break
+        k2 -= 3
+    cx = W / 2; y = int(H * .05)
+    base = im.convert('RGBA'); ov = Image.new('RGBA', base.size, (0, 0, 0, 0)); do = ImageDraw.Draw(ov)
+    w1 = f1.getlength(paese); fr = int(f2.size * 1.3); tot = f2.getlength(da) + fr + 30 + f2.getlength(a)
+    do.rectangle([cx - w1 / 2 - 18, y - 6, cx + w1 / 2 + 18, y + k * 1.0 + 8], fill=(255, 255, 255, 190))
+    y2 = y + k * 1.12
+    do.rectangle([cx - tot / 2 - 18, y2 - 6, cx + tot / 2 + 18, y2 + k2 * 1.05 + 8], fill=(255, 255, 255, 190))
+    base.alpha_composite(ov); d = ImageDraw.Draw(base)
+    d.text((cx, y), paese, font=f1, fill=(15, 15, 15), anchor='mt')
+    xs = cx - tot / 2
+    d.text((xs, y2), da, font=f2, fill=(15, 15, 15), anchor='lt')
+    ya = y2 + f2.size * .55; xa = xs + f2.getlength(da) + 15
+    d.rectangle([xa, ya - 5, xa + fr - 22, ya + 5], fill=(220, 30, 30)); d.polygon([(xa + fr - 26, ya - 16), (xa + fr, ya), (xa + fr - 26, ya + 16)], fill=(220, 30, 30))
+    d.text((xa + fr + 15, y2), a, font=f2, fill=(232, 182, 40), anchor='lt', stroke_width=3, stroke_fill=(10, 10, 10))
+    return base.convert('RGB')
+
+
+def crea_coppia(antica, oggi, l_antico, l_oggi, paese, bandiera, date):
+    for tentativo in range(3):
+        r = fal('fal-ai/nano-banana-2', {'prompt': prompt_coppia(antica, oggi, l_antico, l_oggi, paese, bandiera, date), 'aspect_ratio': '16:9', 'resolution': '2K',
+                                         'output_format': 'jpeg', 'num_images': 1})
+        prova = ImageOps.fit(Image.open(io.BytesIO(http(r['images'][0]['url'], raw=True))).convert('RGB'), (1280, 720), Image.LANCZOS)
+        if testo_ok(prova, paese, ' '.join(date_freccia(date))):
+            return prova
+    log('    3 tentativi con scritta sbagliata: scena senza scritte + titolo scritto dallo script')
+    r = fal('fal-ai/nano-banana-2', {'prompt': prompt_scena_coppia(antica, oggi, l_antico, l_oggi), 'aspect_ratio': '16:9', 'resolution': '2K', 'output_format': 'jpeg', 'num_images': 1})
+    return titolo_coppia(ImageOps.fit(Image.open(io.BytesIO(http(r['images'][0]['url'], raw=True))).convert('RGB'), (1280, 720), Image.LANCZOS), paese, date)
+
+
+def scelta_coppia(an, primo, scambia=False):
+    """primo = 'donna' -> figura antica donna + uomo di oggi; 'uomo' -> figura antica uomo + donna di oggi. scambia = l'altra combinazione (variante 2)."""
+    donna_antica = (primo == 'donna') != scambia
+    antica = an.get('antica_figura_donna' if donna_antica else 'antica_figura_uomo') or ('an ancient queen of the country' if donna_antica else 'an ancient king of the country')
+    oggi = an.get('oggi_uomo' if donna_antica else 'oggi_donna') or ('a modern man of the country' if donna_antica else 'a modern woman of the country')
+    return antica, oggi
 
 
 def prompt_ill(figura, antico, moderno, paese, bandiera, date):
@@ -435,12 +522,12 @@ for nostro, comp in COPPIE:
             json.dump(inf, open(info_p, 'w'), ensure_ascii=False)
         POPOLO['tratti'] = inf.get('tratti', '')
         celle = [('ATTUALE', copertina_yt(nostro))]
-        if FORMATO in ('prima_dopo', 'illustrato'):
-            if not inf.get('antico'):
+        if FORMATO in ('prima_dopo', 'illustrato', 'coppia'):
+            if not inf.get('antico') or (FORMATO == 'coppia' and not inf.get('antica_figura_uomo')):
                 try:
                     txt = claude([{'type': 'text', 'text': DOMANDA.format(titolo=tit) + " (Nessuna immagine: ricava tutto dal titolo e da cio' che sai della storia del paese.)"}])
                     an = json.loads(txt[txt.find('{'): txt.rfind('}') + 1])
-                    inf.update({k: an.get(k) or '' for k in ('antico', 'moderno', 'antico2', 'moderno2')})
+                    inf.update({k: an.get(k) or '' for k in ('antico', 'moderno', 'antico2', 'moderno2', 'antica_figura_uomo', 'antica_figura_donna', 'oggi_uomo', 'oggi_donna', 'luogo_antico', 'luogo_oggi')})
                     json.dump(inf, open(info_p, 'w'), ensure_ascii=False)
                 except Exception as e:
                     log('analisi prima/dopo non riuscita', nostro, str(e)[:150]); continue
@@ -449,7 +536,12 @@ for nostro, comp in COPPIE:
                 ant, mod = ((inf.get('antico2') or inf['antico'], inf.get('moderno2') or inf['moderno']) if n_ == '2'
                             else (inf['antico'] + ', seen from a different, higher angle', inf['moderno'] + ', seen from a different, higher angle'))
                 try:
-                    if FORMATO == 'illustrato':   # 2 = l'altra figura (donna/uomo) e altri luoghi; 3 = stessa figura, altri luoghi
+                    if FORMATO == 'coppia':   # 2 = uomo e donna scambiati; 3 = stessa coppia, altri luoghi
+                        antica, oggi = scelta_coppia(inf, inf.get('primo') or 'donna', scambia=(n_ == '2'))
+                        l_a = (inf.get('antico2') if n_ == '3' else '') or inf.get('luogo_antico') or inf['antico']
+                        l_o = (inf.get('moderno2') if n_ == '3' else '') or inf.get('luogo_oggi') or inf['moderno']
+                        im = crea_coppia(antica, oggi, l_a, l_o, inf['paese'], inf['bandiera'], inf['date'])
+                    elif FORMATO == 'illustrato':   # 2 = l'altra figura (donna/uomo) e altri luoghi; 3 = stessa figura, altri luoghi
                         fig_ = (inf.get('figure') or ['a historical leader of the country'] * 2)[1 if n_ == '2' else 0]
                         im = crea_ill(fig_, ant, mod, inf['paese'], inf['bandiera'], inf['date'])
                     else:
@@ -536,6 +628,17 @@ for nostro, comp in COPPIE:
     testo_log.append(f'=== {nostro} (originale {comp})\n{paese} / {date}')
 
     def fai(k):
+        if FORMATO == 'coppia':
+            antica, oggi = scelta_coppia(an, primo)
+            l_a = an.get('luogo_antico') or an.get('antico') or f'the most famous ancient monument of {band} at golden hour'
+            l_o = an.get('luogo_oggi') or an.get('moderno') or f'the biggest modern city of {band} at dusk with the city lights'
+            try:
+                im = crea_coppia(antica, oggi, l_a, l_o, paese, band, date)
+                im.save(os.path.join(OUT, f'{nostro}_{k}.jpg'), quality=92)
+                log(f'  copertina {k} (coppia): {antica[:50]} | {oggi[:50]}')
+                return k, 0, im, [antica, oggi, l_a, l_o]
+            except Exception as e:
+                log(f'  copertina {k} non riuscita:', str(e)[:200]); return k, 0, None, [antica, oggi]
         if FORMATO == 'illustrato':
             ant = an.get('antico') or f'ancient {band} with its most famous ancient monument'
             mod = an.get('moderno') or f'{band} today with its most famous landmark and a modern city skyline'
@@ -576,7 +679,8 @@ for nostro, comp in COPPIE:
         except Exception as e:
             log(f'  copertina {k} non riuscita:', str(e)[:200]); return k, 0, None, [fig, mon]
     json.dump({'paese': paese, 'date': date, 'bandiera': band, 'figure': figure, 'monumento': monum[0], 'tratti': POPOLO.get('tratti', ''), 'tipi': tipi_,
-               'formato': FORMATO, 'antico': an.get('antico') or '', 'moderno': an.get('moderno') or '', 'antico2': an.get('antico2') or '', 'moderno2': an.get('moderno2') or ''},
+               'formato': FORMATO, 'primo': primo, **{k_: an.get(k_) or '' for k_ in ('antica_figura_uomo', 'antica_figura_donna', 'oggi_uomo', 'oggi_donna', 'luogo_antico', 'luogo_oggi')},
+               'antico': an.get('antico') or '', 'moderno': an.get('moderno') or '', 'antico2': an.get('antico2') or '', 'moderno2': an.get('moderno2') or ''},
               open(info_p, 'w'), ensure_ascii=False)
     quante = [1]   # SEMPRE e solo la copertina 1 (anche in prova): la 2 si crea solo se la chiede il Rotatore CTR
     with ThreadPoolExecutor(3) as ex:
