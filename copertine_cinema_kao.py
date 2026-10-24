@@ -301,7 +301,7 @@ def e_kao(im):
     """Claude confronta il personaggio con KAO originale: True se e' lui al 100%."""
     buf = io.BytesIO(); im.resize((640, 360)).save(buf, 'JPEG', quality=85)
     try:
-        rr = http('https://api.anthropic.com/v1/messages', {'model': E('MODELLO_AI', 'claude-sonnet-5-5'), 'max_tokens': 800,
+        rr = http('https://api.anthropic.com/v1/messages', {'model': E('MODELLO_AI', 'claude-sonnet-5-5'), 'max_tokens': 3000,
                   'messages': [{'role': 'user', 'content': [
                       {'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/png', 'data': ID.split(',', 1)[1]}},
                       {'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}},
@@ -331,7 +331,7 @@ def testo_esatto(im, frase, divisa_ok=False, braccia_extra=False):   # divisa_ok
     """Claude trascrive la scritta della copertina: deve essere identica alla frase (lettere e numeri), senza altre scritte."""
     buf = io.BytesIO(); im.resize((960, 540)).save(buf, 'JPEG', quality=88)
     try:
-        rr = http('https://api.anthropic.com/v1/messages', {'model': E('MODELLO_AI', 'claude-sonnet-5-5'), 'max_tokens': 300, 'messages': [{'role': 'user', 'content': [
+        rr = http('https://api.anthropic.com/v1/messages', {'model': E('MODELLO_AI', 'claude-sonnet-5-5'), 'max_tokens': 4000, 'messages': [{'role': 'user', 'content': [
             {'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}},
             {'type': 'text', 'text': 'Transcribe EXACTLY all the text written in this image, letter by letter, as it is written (do not correct mistakes). '
                                      'Then on the LAST line write CHECK: GRANDE=SI/NO (SI if the title letters are big: each letter at least about 12% of the image height, readable on a phone), '
@@ -366,7 +366,7 @@ def zona_libera(im, lato):
            'Keep a small margin from them, but make the rectangle as BIG as possible (the title must be huge, readable on a phone). Avoid the bottom-right corner (last 25% of height on the right 30% of width: video timestamp). '
            'Answer ONLY JSON with percentages of width/height: {"x0": 0, "y0": 0, "x1": 0, "y1": 0}')
     try:
-        rr = http('https://api.anthropic.com/v1/messages', {'model': E('MODELLO_AI', 'claude-sonnet-5-5'), 'max_tokens': 1500,
+        rr = http('https://api.anthropic.com/v1/messages', {'model': E('MODELLO_AI', 'claude-sonnet-5-5'), 'max_tokens': 3000,
                   'messages': [{'role': 'user', 'content': [{'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}},
                                                             {'type': 'text', 'text': dom}]}]},
                   {'x-api-key': E('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01'}, timeout=200)
@@ -742,7 +742,11 @@ def fai(i):
             return p
         log(f'  {c["id"]}: tentativi non perfetti, scrivo io la scritta')
     try:
-        r = fal('fal-ai/nano-banana-2/edit', {'prompt': prompt, 'image_urls': refs, 'aspect_ratio': '16:9', 'resolution': '1K', 'output_format': 'jpeg', 'num_images': 1})
+        try:
+            r = fal('fal-ai/nano-banana-2/edit', {'prompt': prompt, 'image_urls': refs, 'aspect_ratio': '16:9', 'resolution': '1K', 'output_format': 'jpeg', 'num_images': 1})
+        except Exception as e_:   # es. HTTP 422: si riprova solo con il KAO di riferimento
+            log('  immagine senza scritta non riuscita (' + str(e_)[:60] + '), riprovo solo con KAO')
+            r = fal('fal-ai/nano-banana-2/edit', {'prompt': prompt, 'image_urls': [ID], 'aspect_ratio': '16:9', 'resolution': '1K', 'output_format': 'jpeg', 'num_images': 1})
         im = Image.open(io.BytesIO(http(r['images'][0]['url'], raw=True))).convert('RGB')
         im = ImageOps.fit(im, (1280, 720), Image.LANCZOS)
         if t.get('comp_id') and not e_kao(im):   # personaggio non originale: si rifa' una volta, con KAO ancora piu' vincolato
