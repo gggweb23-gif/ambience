@@ -1277,7 +1277,7 @@ def texture(tipo):
 
 
 # ============================================================ 5) PEZZI (ogni pezzo = un mp4 1920x1080 senza audio)
-ENC = ['-c:v', 'libx264', '-preset', 'veryfast', '-crf', '19', '-pix_fmt', 'yuv420p', '-r', FPS]
+ENC = ['-c:v', 'libx264', '-preset', 'veryfast', '-crf', '16', '-pix_fmt', 'yuv420p', '-r', FPS]
 
 
 def pipe_frames(path, d, disegna):
@@ -2967,7 +2967,7 @@ def iscrizione(video, audio, finale):
         amap = '1:a'
         if suoni:
             fl += f";[1:a]{''.join(suoni)}amix=inputs={len(suoni) + 1}:duration=first:normalize=0[a]"; amap = '[a]'
-        run(['ffmpeg', '-y', '-v', 'error', *ins, '-filter_complex', fl, '-map', '[v]', '-map', amap, *ENC, '-c:a', 'aac', '-b:a', '192k', '-shortest', finale])
+        run(['ffmpeg', '-y', '-v', 'error', *ins, '-filter_complex', fl, '-map', '[v]', '-map', amap, *ENC, '-s', '2560x1440', '-sws_flags', 'lanczos', '-crf', '18', '-c:a', 'aac', '-b:a', '192k', '-shortest', finale])
         log(f'invito iscrizione al secondo {sec} con {len(suoni)} suoni')
         return True
     except Exception as e:
