@@ -890,7 +890,7 @@ def main():
         filtro, amap = iscrizione(dati.get('iscrizione') or {}, ingressi, filtro, amap, totale)
         finale = os.path.join(LAVORO, 'video_finale.mp4')
         run(['ffmpeg', '-y', '-v', 'error'] + ingressi + ['-filter_complex', filtro, '-map', '[v]', '-map', amap,
-             '-t', f'{totale:.3f}', '-c:v', 'libx264', '-preset', 'faster', '-crf', '21', '-r', str(FPS), '-pix_fmt', 'yuv420p',
+             '-t', f'{totale:.3f}', '-c:v', 'libx264', '-preset', 'fast', '-crf', '18', '-s', '2560x1440', '-sws_flags', 'lanczos', '-r', str(FPS), '-pix_fmt', 'yuv420p',
              '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', finale])
         log(f'video pronto: {durata(finale) / 60:.1f} min, {os.path.getsize(finale) / 1e6:.0f} MB')
         if os.environ.get('DRY_RUN') == '1':
