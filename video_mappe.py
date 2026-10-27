@@ -683,8 +683,8 @@ def impagina(eventi, tappe, dur, job):
             for j, ((pt, _), occ) in enumerate(zip(pts, occs)):
                 bx = ingombro(ev, *pt(lo, la))
                 u += sum(_urto(b, o) for b in bx for o in occ)
-                if j == 0:   # nella vista piu' larga deve stare tutto dentro lo schermo
-                    u += sum(max(0, 30 - b[0]) + max(0, b[2] - W + 30) + max(0, 30 - b[1]) + max(0, b[3] - H + 30) for b in bx) * 400
+                # dentro lo schermo in ogni inquadratura (nella piu' larga obbligatorio, nelle altre fortemente preferito)
+                u += sum(max(0, 30 - b[0]) + max(0, b[2] - W + 30) + max(0, 30 - b[1]) + max(0, b[3] - H + 30) for b in bx) * (400 if j == 0 else 150)
                 if solo_larga:
                     break
             return u
@@ -706,12 +706,21 @@ def piano_camera(v0, v1, eventi, dur):
     """Tappe della camera: arrivo sulla vista della scena, poi a ogni evento con un luogo la camera SI AVVICINA (1,5x),
     tra un evento e l'altro deriva lentamente. Risultato: un'inquadratura nuova ogni 2-3 secondi, come il competitor."""
     tappe = [(0.0, v0), (min(1.0, dur * .25), v1)]
-    for ev in eventi:
+    visti = []   # luoghi degli elementi gia' comparsi (restano a schermo fino a fine scena)
+    MX, MY = 300, 230   # margine in pixel: mezzo elemento + aria, cosi' niente esce dal bordo
+    for ev in sorted(eventi, key=lambda e: e['_t']):
         p = ev.get('_luogo')
         if ev.get('tipo') in ('anno', 'scritta', 'barre') or not p:
             vista = v1   # eventi senza luogo: la camera torna larga
         else:
-            vista = (v1[0] + (p[0] - v1[0]) * .6, v1[1] + (p[1] - v1[1]) * .6, v1[2] / 1.5)
+            visti.append(p)
+            xs = [q[0] for q in visti]; ys = [q[1] for q in visti]
+            if len(visti) == 1:
+                cx, cy = v1[0] + (p[0] - v1[0]) * .6, v1[1] + (p[1] - v1[1]) * .6
+            else:   # centro tra tutti gli elementi a schermo, spostato verso il nuovo
+                cx, cy = ((min(xs) + max(xs)) / 2 + p[0]) / 2, ((min(ys) + max(ys)) / 2 + p[1]) / 2
+            serve = max([v1[2] / 1.5] + [abs(q[0] - cx) * W / (W / 2 - MX) for q in visti] + [abs(q[1] - cy) * W / (H / 2 - MY) for q in visti])
+            vista = (cx, cy, min(serve, v1[2] * 1.15))
         t0 = max(tappe[-1][0] + .3, ev['_t'] - .5)
         if t0 < dur - .5:
             tappe.append((t0, tappe[-1][1])); tappe.append((min(dur - .2, t0 + .8), camera({'lon': vista[0], 'lat': vista[1], 'larghezza': vista[2]})))
@@ -907,6 +916,7 @@ def disegna_finale(job):
     """Chiusura: numero del video + nome canale + slogan + Pin + Iscriviti (4 s, senza voce)."""
     path = job['path']; n = int(job['dur'] * FPS)
     v = camera(job.get('vista')); base, pt = fondo(v, 0.0)
+    i0 = Image.open(immagine_iscriviti()).convert('RGBA'); isc = i0.resize((900, max(1, int(i0.height * 900 / i0.width))))
     p = subprocess.Popen(['ffmpeg', '-y', '-v', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-r', str(FPS), '-i', '-', *ENC, path],
                          stdin=subprocess.PIPE)
     for fi in range(n):
@@ -914,11 +924,7 @@ def disegna_finale(job):
         riempi(im, base, anelli_visibili(job.get('verde'), pt), VERDE, 1, 6)
         riempi(im, base, anelli_visibili(job.get('oro'), pt), ORO, 1, 12)
         titolo_fascia(im, NOME_CANALE, SLOGAN, ease(t / .5))
-        d = ImageDraw.Draw(im); kk = back((t - .8) / .4)
-        if kk > 0:
-            d.rectangle([W / 2 - 190 * kk, 760 - 52 * kk, W / 2 + 190 * kk, 760 + 52 * kk], fill=(230, 40, 40))
-            if kk > .9:
-                d.text((W / 2, 760), 'SUBSCRIBE', font=font('Poppins-ExtraBold.ttf', 48), fill='white', anchor='mm')
+        metti(im, isc, W / 2, 640 + isc.height / 2, ease((t - .8) / .4))   # stesso SUBSCRIBE dell'inizio
         pin(im, W / 2 - 560, 420, 2.4, 'normale', abs(math.sin(t * 4)) * 12)
         p.stdin.write(im.convert('RGB').tobytes())
     p.stdin.close(); p.wait()
@@ -1226,17 +1232,24 @@ def bottone_iscriviti(path):
     im.save(path); return path
 
 
+def immagine_iscriviti():
+    png = os.path.join(LAV, 'iscriviti.png')
+    if os.path.exists(png):
+        return png
+    try:
+        scarica(ISC_IMG, png); Image.open(png).verify()
+    except Exception as e:
+        log('immagine iscriviti dal Drive non disponibile, uso quella disegnata:', str(e)[:80]); bottone_iscriviti(png)
+    return png
+
+
 def invito_iscriviti(muto, audio, out, totale):
     sec = _num(P.get('subscribe_overlay_second'), 10.0)
     clic_t = sec + _num(P.get('subscribe_overlay_sound_delay'), 0.6)
     camp_t = clic_t + _num(P.get('subscribe_overlay_bell_delay'), 1.0)
     if totale < sec + 5:
         run(['ffmpeg', '-y', '-v', 'error', '-i', muto, '-i', audio, '-c:v', 'copy', '-c:a', 'copy', '-shortest', out]); return
-    png = os.path.join(LAV, 'iscriviti.png')
-    try:
-        scarica(ISC_IMG, png); Image.open(png).verify()
-    except Exception as e:
-        log('immagine iscriviti dal Drive non disponibile, uso quella disegnata:', str(e)[:80]); bottone_iscriviti(png)
+    png = immagine_iscriviti()
     ins = ['-i', muto, '-i', audio, '-loop', '1', '-t', f'{totale:.3f}', '-i', png]
     fl = (f"[2:v]scale=900:-1,format=rgba,fade=t=in:st={sec}:d=0.3:alpha=1,fade=t=out:st={sec + 3.6}:d=0.4:alpha=1[isc];"
           f"[0:v][isc]overlay=x=(W-w)/2:y=640:enable='between(t,{sec},{sec + 4})'[v]")
