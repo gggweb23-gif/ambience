@@ -1075,7 +1075,7 @@ def avvisa(esito):
         return
     for k in range(3):
         try:
-            http(P['callback_url'], {'id': P.get('id'), 'foglio': P.get('foglio', ''), **esito}); return
+            http(P['callback_url'], {'id': P.get('id'), 'foglio': P.get('foglio', ''), 'gid': P.get('gid', ''), **esito}); return
         except Exception as e:
             log('avviso a n8n non riuscito:', str(e)[:150]); time.sleep(10)
 
@@ -1193,16 +1193,68 @@ def main():
     c['capitoli_testo'] = capitoli(scene, durs)
     open(os.path.join(ROOT, 'titolo.txt'), 'w').write(titolo)
     dur_v = durata(finale); log('FATTO:', finale, round(dur_v / 60, 1), 'minuti')
+    descr_yt, tag_yt = dati_youtube(c, titolo)
+    extra = {'descrizione': descr_yt, 'tag': ', '.join(tag_yt), 'cartella_video': P.get('cartella_video') or '', 'cartella_copertine': P.get('cartella_copertine') or ''}
+    if P.get('callback_url') and E('FAL_KEY') and dur_v >= MIN_SEC_YT:   # copia per n8n: video e copertina finiscono nella cartella Drive del canale
+        try:
+            extra['video_url'] = carica_file(finale, 'video/mp4'); extra['copertina_url'] = carica_file(cop, 'image/jpeg')
+            log('video e copertina pronti per il Drive')
+        except Exception as e:
+            log('copia per il Drive non riuscita:', str(e)[:150])
     if CARICA and dur_v >= MIN_SEC_YT:
         vid = carica_youtube(finale, c, titolo); nota = carica_copertina(vid, cop)
         avvisa({'stato': 'PUBBLICATO', 'video_id': vid, 'link': 'https://www.youtube.com/watch?v=' + vid, 'titolo': titolo,
-                'pubblica_il': P.get('pubblica_il') or '', 'minuti_video': round(dur_v / 60, 1), 'minuti_lavoro': round((time.time() - T_INIZIO) / 60, 1), 'errore': nota})
+                'pubblica_il': P.get('pubblica_il') or '', 'minuti_video': round(dur_v / 60, 1), 'minuti_lavoro': round((time.time() - T_INIZIO) / 60, 1), 'errore': nota, **extra})
     else:
         if CARICA:
             log(f'video di {dur_v:.0f} s (sotto {MIN_SEC_YT} s): e\' una prova, NON lo carico')
         if P.get('id'):
             avvisa({'stato': 'PROVA OK' if (PROVA or dur_v < MIN_SEC_YT) else 'CREATO', 'minuti_video': round(dur_v / 60, 1),
-                    'minuti_lavoro': round((time.time() - T_INIZIO) / 60, 1), 'titolo': titolo})
+                    'minuti_lavoro': round((time.time() - T_INIZIO) / 60, 1), 'titolo': titolo, **extra})
+
+
+def carica_file(path, tipo='video/mp4'):
+    """Carica un file sullo spazio temporaneo di fal (FAL_KEY) e restituisce il link: n8n lo scarica e lo salva nel Drive del canale."""
+    h = {'Authorization': 'Key ' + E('FAL_KEY', '')}
+    dim = os.path.getsize(path)
+    base = 'https://rest.alpha.fal.ai/storage/upload/'
+    corpo = {'content_type': tipo, 'file_name': os.path.basename(path)}
+    if dim <= 90 * 1024 * 1024:
+        ini = http(base + 'initiate?storage_type=fal-cdn-v3', corpo, h)
+        with open(path, 'rb') as f:
+            req = urllib.request.Request(ini['upload_url'], data=f.read(), method='PUT', headers={'Content-Type': tipo})
+        with urllib.request.urlopen(req, timeout=1800):
+            pass
+        return ini['file_url']
+    ini = http(base + 'initiate-multipart?storage_type=fal-cdn-v3', corpo, h)
+    u = urllib.parse.urlsplit(ini['upload_url'])
+    radice, coda = f'{u.scheme}://{u.netloc}{u.path}', ('?' + u.query) if u.query else ''
+    pezzo, parti, n = 10 * 1024 * 1024, [], 0
+    with open(path, 'rb') as f:
+        while True:
+            dati = f.read(pezzo)
+            if not dati:
+                break
+            n += 1
+            for tent in range(4):
+                try:
+                    req = urllib.request.Request(f'{radice}/{n}{coda}', data=dati, method='PUT')
+                    with urllib.request.urlopen(req, timeout=600) as r:
+                        testo = r.read().decode() or '{}'
+                        try:
+                            etag = json.loads(testo).get('etag')
+                        except Exception:
+                            etag = None
+                        etag = etag or r.headers.get('ETag') or r.headers.get('etag')
+                    if not etag:
+                        raise RuntimeError('nessun etag')
+                    parti.append({'partNumber': n, 'etag': etag}); break
+                except Exception as e:
+                    if tent == 3:
+                        raise
+                    log(f'pezzo {n} non caricato ({str(e)[:80]}), riprovo'); time.sleep(5 * (tent + 1))
+    http(f'{radice}/complete{coda}', {'parts': parti})
+    return ini['file_url']
 
 
 # ---------- invito SUBSCRIBE come negli altri canali: immagine al secondo N per 4 s + clic + campanella
