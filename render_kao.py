@@ -25,7 +25,7 @@ E = os.environ.get
 LAVORO = os.path.join(os.getcwd(), 'lavoro_kao')
 FONT_DIR = os.path.join(os.getcwd(), 'font')
 W, H, FPS = 1920, 1080, 30
-ENC = ['-an', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20', '-pix_fmt', 'yuv420p', '-r', str(FPS)]
+ENC = ['-an', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '17', '-pix_fmt', 'yuv420p', '-r', str(FPS)]
 MODELLO_AI = E('MODELLO_AI', '') or 'claude-sonnet-5-5'
 MODELLO_CONTROLLO = E('MODELLO_CONTROLLO', '') or 'claude-haiku-4-5-20251001'
 OFFLINE = E('OFFLINE', '') == '1'   # prova senza rete (media locali, niente Pexels/Claude/Fal)
@@ -168,7 +168,7 @@ def pexels_cerca(tipo, q):
                 j = http(base + '?' + urllib.parse.urlencode({'query': q, 'per_page': 40, 'orientation': 'landscape'}), headers={'Authorization': chiave})
                 if tipo == 'video':
                     for v in j.get('videos', []):
-                        fs = [f for f in v.get('video_files', []) if 'mp4' in (f.get('file_type') or '') and 0 < (f.get('height') or 0) <= 1080]
+                        fs = [f for f in v.get('video_files', []) if 'mp4' in (f.get('file_type') or '') and 0 < (f.get('height') or 0) <= 1440]
                         fs.sort(key=lambda f: -(f.get('height') or 0))
                         if fs and (v.get('duration') or 0) >= 3:
                             pics = [x.get('picture') for x in (v.get('video_pictures') or []) if x.get('picture')]
@@ -620,7 +620,7 @@ def componi(base, audio, ass, isc, totale, cartella, out):
         except Exception as e:
             log('invito iscrizione saltato:', str(e)[:120])
     run(['ffmpeg', '-y', '-v', 'error'] + ins + ['-filter_complex', fl, '-map', vmap, '-map', amap,
-         '-c:v', 'libx264', '-preset', 'medium', '-crf', '20', '-pix_fmt', 'yuv420p', '-r', str(FPS),
+         '-c:v', 'libx264', '-preset', 'fast', '-crf', '18', '-s', '2560x1440', '-sws_flags', 'lanczos', '-pix_fmt', 'yuv420p', '-r', str(FPS),
          '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', '-t', f'{totale:.3f}', out])
 
 
