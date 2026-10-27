@@ -182,7 +182,7 @@ def copione(comp):
     if PROVA:
         orig = ' '.join(orig.split()[:200])
     parole = 170 if PROVA else int(min(MAX_MINUTI * PPM, max(MIN_MINUTI * PPM, len(orig.split()) * 1.0)))
-    n_scene = max(6, round(parole / 30))
+    n_scene = max(8, round(parole / 20))
     icone = ', '.join(sorted(ICONE))
     prompt = f"""You write videos for the YouTube channel RICH BORDERS ("Every border has a price."): economic history and geopolitics explained with ANIMATED MAPS, in the style of the channel "Fortune of Nations".
 
@@ -191,7 +191,7 @@ Rewrite EVERYTHING in your own words (never copy sentences: YouTube penalizes re
 ORIGINAL TRANSCRIPT:
 \"\"\"{orig[:45000]}\"\"\"
 
-WRITE: an English (US) narration of about {parole} words, split into about {n_scene} scenes of 20-40 words each (1-3 short sentences).
+WRITE: an English (US) narration of about {parole} words, split into about {n_scene} scenes of 15-25 words each (1-2 short sentences).
 Tone: curious, punchy, simple words, short sentences, questions that create suspense. The first scene is a strong hook (a paradox or a shocking number). No greeting, no "in this video". End with a one-sentence takeaway.
 Narration must be easy to read aloud: write numbers as people say them ("eight times", "300 years", "1700"), never use symbols like × or %.
 Use only facts you are confident are true; round numbers are fine ("about", "almost").
@@ -200,7 +200,9 @@ For EVERY scene you also direct the MAP (equirectangular world map with shaded r
 - "vista": camera {{"lon": center longitude, "lat": center latitude, "larghezza": degrees of longitude visible (8 = one small country, 30 = a region, 120 = a continent, 300 = whole world)}}. Change it often (zoom in / out / pan), like a documentary.
 - "epoca": "oggi" (modern colored map) or "antica" (old parchment map: use it for events before ~1900). Do not switch epoch more than 4 times in the whole video.
 - "oro": ISO-3 codes of the country/countries that are the "rich / winner / focus" side (painted gold, raised in 3D). "verde": ISO-3 codes of the other side (painted blue-green). Max 25 codes each. Can be empty.
-- "eventi": 2-4 things that POP on screen during the scene, each tied to a WORD of the scene ("parola" = one exact word that appears in that scene's text; the event appears when the voice says it). Types:
+- "eventi": something new must appear on screen every 2-3 seconds: put ONE event every 6-8 words of the scene (usually 2-4 per scene), each tied to a different WORD of the scene, spread from the beginning to the end of the scene ("parola" = one exact word that appears in that scene's text; the event appears when the voice says it). The camera automatically zooms on each event that has a location, so give most events a precise lon/lat.
+  Every scene must contain at least ONE moving element (freccia, confine, colonna, barre) or a NEW place (icona/etichetta) — never two scenes in a row with only labels.
+  An "anno" card must show exactly the year said in that scene (if the text says "300 years ago", write the year that means). Types:
   {{"tipo":"icona","icona": one of [{icone}] or "flag:XX" (ISO-2 country code),"lon":..,"lat":..,"parola":".."}}
   {{"tipo":"etichetta","testo":"SHORT CAPS LABEL (max 4 words)","lon":..,"lat":..,"parola":".."}}
   {{"tipo":"anno","testo":"1700","parola":".."}}   (year card, top-left)
@@ -211,7 +213,7 @@ For EVERY scene you also direct the MAP (equirectangular world map with shaded r
   {{"tipo":"confine","punti":[[lon,lat],[lon,lat],...],"parola":".."}}   (a red border/line drawn on the map)
   {{"tipo":"scritta","testo":"STRANGE?","parola":".."}}   (big word in the middle, max 2 words, use rarely)
   {{"tipo":"barre","titolo":"GDP PER PERSON","voci":[{{"testo":"USA","valore":82,"lato":"oro"}},{{"testo":"MEXICO","valore":14,"lato":"verde"}}],"parola":".."}}   (chart panel, max 4 bars, real numbers only)
-  Coordinates must be REAL and inside the "vista" of that scene.
+  Coordinates must be REAL and well inside the "vista" of that scene (not on its edges).
 - "pin": where Pin (our red map-pin mascot) stands: {{"lon":..,"lat":..,"faccia":"normale" or "stupito"}} (inside the vista, not covering the main event; "stupito" on shocking numbers).
 
 ALSO WRITE:
@@ -295,7 +297,7 @@ def risorse():
         return _R
     base = Image.open(os.path.join(RIS, 'shadedrelief.jpg')).convert('RGB')     # 10800 x 5400, 30 px per grado
     g = ImageOps.grayscale(base)
-    sep = ImageEnhance.Contrast(ImageOps.colorize(g, black=(92, 70, 40), white=(238, 222, 190), mid=(196, 168, 120))).enhance(1.15)
+    sep = ImageEnhance.Contrast(ImageOps.colorize(g, black=(70, 50, 28), white=(242, 226, 192), mid=(190, 158, 108))).enhance(1.45)
     geo = json.load(open(os.path.join(RIS, 'paesi50.geojson')))['features']
     paesi = {}
     for f in geo:
@@ -391,16 +393,23 @@ def anelli_visibili(codici, pt):
     return out
 
 
-def riempi(im, base, polys, col, a, rilievo):
+def riempi(im, base, polys, col, a, rilievo, cerchio=None):
+    """Colora i paesi sul rilievo. cerchio=(x, y, r): il colore si ALLARGA dal punto (x, y) fino al raggio r."""
     if a <= 0.01 or not polys:
         return
     m = Image.new('L', (W, H), 0); dm = ImageDraw.Draw(m)
     for xy in polys:
         dm.polygon(xy, fill=255)
+    if cerchio is not None and cerchio[2] < 2400:
+        c = Image.new('L', (W, H), 0); cx, cy, r = cerchio
+        ImageDraw.Draw(c).ellipse([cx - r, cy - r, cx + r, cy + r], fill=255)
+        m = ImageChops.multiply(m, c.filter(ImageFilter.GaussianBlur(18)))
     if rilievo > 0.5:
         sp = Image.new('L', (W, H), 0); ds = ImageDraw.Draw(sp)
         for xy in polys:
             ds.polygon([(x, y + rilievo) for x, y in xy], fill=int(255 * a))
+        if cerchio is not None and cerchio[2] < 2400:
+            sp = ImageChops.multiply(sp, c.filter(ImageFilter.GaussianBlur(18)))
         im.paste(Image.new('RGBA', (W, H), mix(col, (40, 20, 10), .5) + (255,)), (0, 0), sp)
     chiaro = ImageEnhance.Brightness(ImageOps.grayscale(base).convert('RGB')).enhance(1.35)
     im.paste(ImageChops.multiply(chiaro, Image.new('RGB', (W, H), col)).convert('RGBA'), (0, 0), m.point(lambda v: int(v * a)))
@@ -409,15 +418,15 @@ def riempi(im, base, polys, col, a, rilievo):
         d.line(xy + [xy[0]], fill=mix(col, (255, 255, 255), .55) + (int(200 * a),), width=2)
 
 
-def etichetta(im, x, y, testo, k, fs=38, colore=None):
+def etichetta(im, x, y, testo, k, fs=58, colore=None):
     if k <= 0:
         return
     s = back(k); f = font('Anton-Regular.ttf', fs * s); d = ImageDraw.Draw(im)
-    w = d.textlength(testo, font=f) + 44 * s; h = 33 * s
+    w = d.textlength(testo, font=f) + 60 * s; h = fs * .82 * s
     x = max(w / 2 + 10, min(W - w / 2 - 10, x)); y = max(h + 10, min(H - h - 10, y))
     d.rectangle([x - w / 2 + 5, y - h + 6, x + w / 2 + 5, y + h + 6], fill=(0, 0, 0))
     d.rectangle([x - w / 2, y - h, x + w / 2, y + h], fill=NAVY)
-    d.rectangle([x - w / 2, y + h - 7 * s, x + w / 2, y + h], fill=ROSSO)
+    d.rectangle([x - w / 2, y + h - 10 * s, x + w / 2, y + h], fill=ROSSO)
     d.text((x, y - 3 * s), testo, font=f, fill=colore or CREMA, anchor='mm')
 
 
@@ -476,21 +485,21 @@ def metti(im, ic, x, y, k=1.0):
 
 
 def colonna(im, x, y, h, col):
-    d = ImageDraw.Draw(im); w = 40
+    d = ImageDraw.Draw(im); w = 64
     d.rectangle([x - w / 2, y - h, x + w / 2, y], fill=col)
-    d.rectangle([x - w / 2, y - h, x - w / 2 + 10, y], fill=mix(col, (255, 255, 255), .35))
-    d.rectangle([x + w / 2 - 9, y - h, x + w / 2, y], fill=mix(col, (0, 0, 0), .25))
-    d.ellipse([x - w / 2, y - 9, x + w / 2, y + 9], fill=mix(col, (0, 0, 0), .25))
-    d.ellipse([x - w / 2, y - h - 9, x + w / 2, y - h + 9], fill=mix(col, (255, 255, 255), .45))
+    d.rectangle([x - w / 2, y - h, x - w / 2 + 16, y], fill=mix(col, (255, 255, 255), .35))
+    d.rectangle([x + w / 2 - 14, y - h, x + w / 2, y], fill=mix(col, (0, 0, 0), .25))
+    d.ellipse([x - w / 2, y - 14, x + w / 2, y + 14], fill=mix(col, (0, 0, 0), .25))
+    d.ellipse([x - w / 2, y - h - 14, x + w / 2, y - h + 14], fill=mix(col, (255, 255, 255), .45))
 
 
 def cartellino_anno(im, testo, k):
     if k <= 0:
         return
-    d = ImageDraw.Draw(im); s = back(k); x, y = 60, 45
-    d.rectangle([x + 6, y + 9, x + 6 + 225 * s, y + 9 + 120 * s], fill=(60, 45, 30))
-    d.rectangle([x, y, x + 225 * s, y + 120 * s], fill=(245, 236, 214), outline=(120, 100, 70), width=3)
-    d.text((x + 112 * s, y + 60 * s), testo, font=font('Poppins-Bold.ttf', 60 * s), fill=(70, 55, 40), anchor='mm')
+    d = ImageDraw.Draw(im); s = back(k); x, y = 70, 70
+    d.rectangle([x + 8, y + 12, x + 8 + 330 * s, y + 12 + 170 * s], fill=(60, 45, 30))
+    d.rectangle([x, y, x + 330 * s, y + 170 * s], fill=(245, 236, 214), outline=(120, 100, 70), width=4)
+    d.text((x + 165 * s, y + 88 * s), testo, font=font('Poppins-Bold.ttf', 92 * s), fill=(70, 55, 40), anchor='mm')
 
 
 def pannello_barre(im, ev, k):
@@ -516,97 +525,175 @@ def pannello_barre(im, ev, k):
 
 
 # ---------- una scena = un pezzo di video (senza audio). Gira in parallelo su tutti i core.
+def luogo(ev):
+    """Punto (lon, lat) di un evento, se ne ha uno."""
+    try:
+        if ev.get('tipo') == 'freccia':
+            return float(ev['a'][0]), float(ev['a'][1])
+        if ev.get('tipo') == 'confine' and ev.get('punti'):
+            pts = ev['punti']; return float(pts[len(pts) // 2][0]), float(pts[len(pts) // 2][1])
+        if ev.get('tipo') == 'contorno':
+            r = max(risorse()['paesi'].get(str(ev.get('paese')).upper(), []), key=len, default=None)
+            return (float(r[:, 0].mean()), float(r[:, 1].mean())) if r is not None else None
+        if ev.get('lon') is not None:
+            return float(ev['lon']), float(ev['lat'])
+    except Exception:
+        return None
+    return None
+
+
+def dentro(lon, lat, v, margine=.12):
+    """Riporta il punto dentro l'inquadratura v (se Claude lo mette fuori)."""
+    cx, cy, wd = v; hd = wd * H / W
+    return (max(cx - wd / 2 * (1 - margine * 2), min(cx + wd / 2 * (1 - margine * 2), lon)),
+            max(cy - hd / 2 * (1 - margine * 3), min(cy + hd / 2 * (1 - margine * 2), lat)))
+
+
+def piano_camera(v0, v1, eventi, dur):
+    """Tappe della camera: arrivo sulla vista della scena, poi a ogni evento con un luogo la camera SI AVVICINA (1,5x),
+    tra un evento e l'altro deriva lentamente. Risultato: un'inquadratura nuova ogni 2-3 secondi, come il competitor."""
+    tappe = [(0.0, v0), (min(1.0, dur * .25), v1)]
+    for ev in eventi:
+        p = ev.get('_luogo')
+        if ev.get('tipo') in ('anno', 'scritta', 'barre') or not p:
+            vista = v1   # eventi senza luogo: la camera torna larga
+        else:
+            vista = (v1[0] + (p[0] - v1[0]) * .6, v1[1] + (p[1] - v1[1]) * .6, v1[2] / 1.5)
+        t0 = max(tappe[-1][0] + .3, ev['_t'] - .5)
+        if t0 < dur - .5:
+            tappe.append((t0, tappe[-1][1])); tappe.append((min(dur - .2, t0 + .8), camera({'lon': vista[0], 'lat': vista[1], 'larghezza': vista[2]})))
+    return tappe
+
+
+def vista_a(tappe, t, dur):
+    for (ta, va), (tb, vb) in zip(tappe, tappe[1:]):
+        if ta <= t <= tb:
+            k = ease((t - ta) / max(tb - ta, 1e-6)); v = tuple(a + (b - a) * k for a, b in zip(va, vb)); break
+    else:
+        v = tappe[-1][1]
+    drift = 1 - .06 * t / max(dur, 1)   # zoom lento continuo: la mappa non e' mai ferma
+    return (v[0], v[1], v[2] * drift)
+
+
 def disegna_scena(job):
     sc, path = job['scena'], job['path']
-    R = risorse(); n = max(1, int(round(job['dur'] * FPS)))
+    R = risorse(); dur = job['dur']; n = max(1, int(round(dur * FPS)))
     v0, v1 = camera(job.get('vista_prima') or sc.get('vista')), camera(sc.get('vista'))
     sep0 = 1.0 if job.get('epoca_prima') == 'antica' else 0.0
     sep1 = 1.0 if sc.get('epoca') == 'antica' else 0.0
-    T_CAM = min(1.2, job['dur'] * .3)
     nuv = nuvola(620) if sep0 != sep1 else None
     eventi = job['eventi']
-    pin_da, pin_a = job.get('pin_prima'), sc.get('pin') or {}
+    for ev in eventi:   # luoghi sempre dentro la vista della scena
+        p = luogo(ev); ev['_luogo'] = dentro(p[0], p[1], v1) if p else None
+        if ev['_luogo'] and ev.get('lon') is not None:
+            ev['lon'], ev['lat'] = ev['_luogo']
+    tappe = piano_camera(v0, v1, eventi, dur)
+    pin_a = sc.get('pin') or {}
+    try:
+        pin_base = dentro(float(pin_a.get('lon')), float(pin_a.get('lat')), v1, .2)
+    except Exception:
+        pin_base = (v1[0] - v1[2] * .3, v1[1] - v1[2] * H / W * .2)
+    pin_da = job.get('pin_prima_luogo') or pin_base
+    # da dove si allarga il colore: primo evento con un luogo, altrimenti il centro
+    orig = next((ev['_luogo'] for ev in eventi if ev.get('_luogo')), (v1[0], v1[1]))
     p = subprocess.Popen(['ffmpeg', '-y', '-v', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-r', str(FPS), '-i', '-', *ENC, path],
                          stdin=subprocess.PIPE)
     for fi in range(n):
         t = fi / FPS
-        kc = ease(t / T_CAM)
-        vista = tuple(a + (b - a) * kc for a, b in zip(v0, v1))
+        vista = vista_a(tappe, t, dur)
         sk = sep0 + (sep1 - sep0) * ease((t - .2) / .9)
         base, pt = fondo(vista, sk)
         im = base.convert('RGBA')
         zoom = (120 / vista[2]) ** .5
         a_in = ease(t / .5)
-        if job.get('oro_prima') and kc < 1:
-            riempi(im, base, anelli_visibili(job['oro_prima'], pt), ORO, (1 - a_in) * (1 - sep0 * .55), 0)
-        if job.get('verde_prima') and kc < 1:
-            riempi(im, base, anelli_visibili(job['verde_prima'], pt), VERDE, (1 - a_in) * (1 - sep0 * .55), 0)
-        tinta = 1 - sk * .55
-        riempi(im, base, anelli_visibili(sc.get('verde'), pt), VERDE, a_in * tinta, min(10, 4 * zoom))
-        riempi(im, base, anelli_visibili(sc.get('oro'), pt), ORO, a_in * tinta, min(16, 8 * zoom))
+        if job.get('oro_prima') and t < .6:
+            riempi(im, base, anelli_visibili(job['oro_prima'], pt), ORO, 1 - a_in, 0)
+        if job.get('verde_prima') and t < .6:
+            riempi(im, base, anelli_visibili(job['verde_prima'], pt), VERDE, 1 - a_in, 0)
+        ox, oy = pt(*orig); r = ease((t - .15) / 1.3) * 2600
+        tinta = 1 - sk * .18
+        nuovi_v = set(sc.get('verde') or []) - set(job.get('verde_prima') or [])
+        nuovi_o = set(sc.get('oro') or []) - set(job.get('oro_prima') or [])
+        vecchi_v = [c for c in sc.get('verde') or [] if c not in nuovi_v]; vecchi_o = [c for c in sc.get('oro') or [] if c not in nuovi_o]
+        col_o = (240, 172, 30) if sk > .5 else ORO
+        riempi(im, base, anelli_visibili(vecchi_v, pt), VERDE, tinta, min(10, 4 * zoom))
+        riempi(im, base, anelli_visibili(list(nuovi_v), pt), VERDE, tinta, min(10, 4 * zoom), (ox, oy, r))
+        riempi(im, base, anelli_visibili(vecchi_o, pt), col_o, tinta, min(18, 9 * zoom))
+        riempi(im, base, anelli_visibili(list(nuovi_o), pt), col_o, tinta, min(18, 9 * zoom), (ox, oy, r))
         d = ImageDraw.Draw(im)
-        fine = 1 - ease((t - job['dur'] + .25) / .25)
+        fine = 1 - ease((t - dur + .25) / .25)
+        ultimo = None
         for ev in eventi:
             k = ease((t - ev['_t']) / .35) * fine
             if k <= 0:
                 continue
+            if ev.get('_luogo'):
+                ultimo = ev['_luogo']
             tipo = ev.get('tipo')
             try:
                 if tipo in ('icona', 'etichetta', 'numero', 'colonna') and ev.get('lon') is not None:
                     x, y = pt(float(ev['lon']), float(ev['lat']))
                 if tipo == 'icona':
-                    metti(im, icona(ev.get('icona'), 96), x, y, k)
+                    metti(im, icona(ev.get('icona'), 210), x, y + math.sin(t * 2.2 + ev['_t']) * 7, k)
                 elif tipo == 'etichetta':
-                    etichetta(im, x, y + 60, str(ev.get('testo') or '').upper()[:30], k)
+                    etichetta(im, x, y + 110, str(ev.get('testo') or '').upper()[:30], k)
                 elif tipo == 'numero':
-                    etichetta(im, x, y, str(ev.get('testo') or '')[:14].replace('x', '×') if re.match(r'^x\d', str(ev.get('testo') or '')) else str(ev.get('testo') or '')[:14], k, 84, ORO)
+                    tx = str(ev.get('testo') or '')[:14]
+                    etichetta(im, x, y, tx.replace('x', '×', 1) if re.match(r'^x\d', tx) else tx, k, 120, ORO)
                 elif tipo == 'colonna':
                     kh = ease((t - ev['_t']) / 1.0) * fine
-                    colonna(im, x, y, 260 * max(.1, min(1.0, float(ev.get('valore') or .5))) * kh, (232, 186, 40))
-                    etichetta(im, x, y + 48, str(ev.get('testo') or '').upper()[:22], k, 30)
+                    colonna(im, x, y, 380 * max(.1, min(1.0, float(ev.get('valore') or .5))) * kh, (232, 186, 40))
+                    etichetta(im, x, y + 72, str(ev.get('testo') or '').upper()[:22], k, 44)
                 elif tipo == 'anno':
                     cartellino_anno(im, str(ev.get('testo') or '')[:6], k)
                 elif tipo == 'scritta':
-                    f = font('Anton-Regular.ttf', 150 * back(k))
-                    d.text((W / 2, H / 2 - 120), str(ev.get('testo') or '').upper()[:16], font=f, fill=CREMA, anchor='mm', stroke_width=10, stroke_fill=NAVY)
+                    f = font('Anton-Regular.ttf', 190 * back(k))
+                    d.text((W / 2, H / 2 - 140), str(ev.get('testo') or '').upper()[:16], font=f, fill=CREMA, anchor='mm', stroke_width=12, stroke_fill=NAVY)
                 elif tipo == 'contorno':
+                    lampo = .5 + .5 * math.sin((t - ev['_t']) * 5)
                     for xy in anelli_visibili([ev.get('paese')], pt):
-                        d.line(xy + [xy[0]], fill=(255, 230, 90), width=6)
+                        d.line(xy + [xy[0]], fill=mix((255, 200, 40), (255, 250, 200), lampo), width=10)
                 elif tipo == 'confine':
                     pts = [pt(float(a), float(b)) for a, b in (ev.get('punti') or [])][:60]
                     if len(pts) >= 2:
                         kl = ease((t - ev['_t']) / 1.4); m = max(2, int(len(pts) * kl) + 1)
-                        d.line(pts[:m], fill=(120, 10, 10), width=16, joint='curve'); d.line(pts[:m], fill=(230, 40, 40), width=8, joint='curve')
+                        d.line(pts[:m], fill=(120, 10, 10), width=24, joint='curve'); d.line(pts[:m], fill=(230, 40, 40), width=12, joint='curve')
                 elif tipo == 'freccia':
                     (xa, ya), (xb, yb) = pt(*map(float, ev['da'])), pt(*map(float, ev['a']))
-                    kk = ease((t - ev['_t']) / 2.2); alto = min(220, math.hypot(xb - xa, yb - ya) * .25)
-                    pts = [(xa + (xb - xa) * u, ya + (yb - ya) * u - math.sin(u * math.pi) * alto) for u in np.linspace(0, kk, 40)]
+                    kk = ease((t - ev['_t']) / 2.0); alto = min(260, math.hypot(xb - xa, yb - ya) * .25)
+                    pts = [(xa + (xb - xa) * u, ya + (yb - ya) * u - math.sin(u * math.pi) * alto) for u in np.linspace(0, kk, 50)]
                     for j in range(0, len(pts) - 1, 2):
-                        d.line([pts[j], pts[j + 1]], fill=(255, 255, 255), width=5)
-                    metti(im, icona(ev.get('icona') or 'ship', 96), pts[-1][0], pts[-1][1], k)
+                        d.line([pts[j], pts[j + 1]], fill=(255, 255, 255), width=8)
+                    metti(im, icona(ev.get('icona') or 'ship', 190), pts[-1][0], pts[-1][1], k)
                 elif tipo == 'barre':
                     pannello_barre(im, ev, k)
             except Exception:
                 continue
-        # Pin: salta dal punto della scena prima al punto di questa scena
+        # Pin: segue l'ultimo evento con un luogo (gli sta accanto), altrimenti sta al suo posto della scena
         try:
-            xb, yb = pt(float(pin_a.get('lon')), float(pin_a.get('lat')))
-            if pin_da and pin_da.get('lon') is not None:
-                xa, ya = pt(float(pin_da['lon']), float(pin_da['lat']))
-            else:
-                xa, ya = xb, yb
-            kp = ease((t - .15) / .9)
-            salto = math.sin(kp * math.pi) * 110 + (abs(math.sin(t * 4.5)) * 8 if kp >= 1 else 0)
-            xb2, yb2 = xa + (xb - xa) * kp, ya + (yb - ya) * kp
-            if -60 < xb2 < W + 60 and -60 < yb2 < H + 60 and not (job.get('apertura') and t < 2.5):
-                pin(im, xb2, yb2, 1.9, (pin_a.get('faccia') or 'normale') if kp > .5 else 'normale', salto)
+            meta = ultimo or pin_base
+            mx, my = pt(*meta); mx -= 170; my += 120
+            if not hasattr(disegna_scena, '_p') or fi == 0:
+                sx, sy = pt(*pin_da); disegna_scena._p = [sx, sy, sx, sy, -9.0]
+            st = disegna_scena._p
+            if abs(st[2] - mx) > 4 or abs(st[3] - my) > 4:
+                if t - st[4] > .7:
+                    st[0], st[1] = st[0] + (st[2] - st[0]), st[1] + (st[3] - st[1])
+                    st[2], st[3], st[4] = mx, my, t
+            kp = ease((t - st[4]) / .7)
+            px, py = st[0] + (st[2] - st[0]) * kp, st[1] + (st[3] - st[1]) * kp
+            salto = math.sin(kp * math.pi) * 90 + (abs(math.sin(t * 4.5)) * 6 if kp >= 1 else 0)
+            faccia = 'stupito' if (pin_a.get('faccia') == 'stupito' and t > dur * .4) else 'normale'
+            px = max(80, min(W - 80, px)); py = max(200, min(H - 30, py))
+            if not (job.get('apertura') and t < 2.5):
+                pin(im, px, py, 1.4, faccia, salto)
         except Exception:
             pass
         if job.get('apertura'):   # numero del video, poi il titolo
-            num = job['apertura']
-            numero_grande(im, str(num.get('testo') or '').replace('x', '×', 1) if re.match(r'^x\d', str(num.get('testo') or '')) else str(num.get('testo') or ''),
+            num = job['apertura']; tx = str(num.get('testo') or '')
+            numero_grande(im, tx.replace('x', '×', 1) if re.match(r'^x\d', tx) else tx,
                           str(num.get('sotto') or ''), ease((t - .1) / .35) * (1 - ease((t - 2.3) / .35)))
-            titolo_fascia(im, job['titolo1'], job['titolo2'], ease((t - 2.5) / .6) * (1 - ease((t - min(job['dur'] - .4, 6.5)) / .5)))
+            titolo_fascia(im, job['titolo1'], job['titolo2'], ease((t - 2.5) / .6) * (1 - ease((t - min(dur - .4, 6.5)) / .5)))
         if nuv is not None:   # cambio d'epoca: nuvole che passano
             k = t / 1.6
             if 0 < k < 1:
@@ -669,13 +756,18 @@ def pista_suoni(totale, pop_t, whoosh_t, out):
     for i, fr in enumerate((392.0, 493.9, 587.3)):   # firma Rich Borders: tre note all'inizio
         tn = np.arange(int(.5 * SR)) / SR
         add(.15 + i * .16, (np.sin(2 * np.pi * fr * tn) + .3 * np.sin(4 * np.pi * fr * tn)) * np.exp(-tn * 7) * .3)
-    if not MUSICA_URL:   # tappeto quasi impercettibile, come il competitor
+    if not MUSICA_URL and not brani():   # nessuna musica: tappeto quasi impercettibile
         ta = np.arange(len(a)) / SR
         a += sum(np.sin(2 * np.pi * fr * ta) for fr in (110, 164.8, 220)) * (0.5 + 0.5 * np.sin(2 * np.pi * ta / 8)) * .01
     a = np.clip(a, -1, 1)
     with wave.open(out, 'w') as w:
         w.setnchannels(1); w.setsampwidth(2); w.setframerate(SR); w.writeframes((a * 32767).astype(np.int16).tobytes())
     return out
+
+
+def brani():
+    cart = os.path.join(ROOT, 'musica_mappe')
+    return sorted(f for f in os.listdir(cart) if f.lower().endswith(('.mp3', '.m4a', '.wav'))) if os.path.isdir(cart) else []
 
 
 # ============================================================ 5) COPERTINA (in codice, stile Rich Borders)
@@ -799,6 +891,14 @@ def capitoli(scene, durs):
 
 
 # ============================================================ MAIN
+def pin_luogo(sc):
+    try:
+        pn = (sc or {}).get('pin') or {}
+        return float(pn['lon']), float(pn['lat'])
+    except Exception:
+        return None
+
+
 def main():
     os.makedirs(LAV, exist_ok=True); os.makedirs(os.path.join(RIS, 'tw'), exist_ok=True)
     comp = competitor()
@@ -835,7 +935,7 @@ def main():
         if i > 0 and camera(s.get('vista')) != camera(prima.get('vista')) and s.get('epoca') == prima.get('epoca'):
             whoosh_t.append(max(0, t_acc - .35))
         job = {'scena': s, 'dur': d, 'eventi': evs, 'path': os.path.join(LAV, f'scena_{i:03d}.mp4'),
-               'vista_prima': prima.get('vista'), 'epoca_prima': prima.get('epoca', s.get('epoca')), 'pin_prima': prima.get('pin'),
+               'vista_prima': prima.get('vista'), 'epoca_prima': prima.get('epoca', s.get('epoca')), 'pin_prima_luogo': pin_luogo(prima),
                'oro_prima': prima.get('oro'), 'verde_prima': prima.get('verde')}
         if i == 0:
             tit = str(c.get('titolo') or comp.get('titolo') or '').upper()
@@ -864,13 +964,21 @@ def main():
     totale = sum(durs) + 4.0
     suoni = pista_suoni(totale, pop_t + [sum(durs) + .8], whoosh_t, os.path.join(LAV, 'suoni.wav'))
     mix_in = ['-i', voce_tot, '-i', suoni]; mix_f = '[0:a]apad[v0];[v0][1:a]amix=inputs=2:duration=longest:normalize=0[m]'
-    if MUSICA_URL:
+    mus = None
+    if brani():   # un brano della cartella musica_mappe/, scelto in base al video (sempre lo stesso per lo stesso video)
+        lista_b = brani(); mus = os.path.join(ROOT, 'musica_mappe', lista_b[sum(map(ord, comp['id'])) % len(lista_b)])
+    elif MUSICA_URL:
         try:
             mus = scarica(MUSICA_URL, os.path.join(LAV, 'musica.mp3'))
-            mix_in += ['-stream_loop', '-1', '-i', mus]
-            mix_f = f'[0:a]apad[v0];[2:a]volume={MUSICA_VOL}[mu];[v0][1:a][mu]amix=inputs=3:duration=first:normalize=0[m]'
         except Exception as e:
             log('musica non disponibile:', str(e)[:100])
+    if mus:
+        log('musica:', os.path.basename(mus))
+        mix_in += ['-stream_loop', '-1', '-i', mus]
+        # stesso volume per ogni brano (loudnorm), poi basso sotto la voce e ancora piu' basso mentre la voce parla
+        mix_f = (f'[0:a]apad,asplit=2[v0][vk];[2:a]loudnorm=I=-24:TP=-3,volume={MUSICA_VOL / .04 * .45:.3f},afade=t=in:d=2,'
+                 f'afade=t=out:st={max(0, totale - 3):.2f}:d=3[mu0];[mu0][vk]sidechaincompress=threshold=0.03:ratio=6:attack=30:release=500[mu];'
+                 f'[v0][1:a][mu]amix=inputs=3:duration=first:normalize=0[m]')
     audio = os.path.join(LAV, 'audio.m4a')
     run(['ffmpeg', '-y', '-v', 'error', *mix_in, '-filter_complex', mix_f + f';[m]atrim=0:{totale:.3f}[o]', '-map', '[o]', '-c:a', 'aac', '-b:a', '192k', audio])
     finale = os.path.join(ROOT, 'video_mappe.mp4')
