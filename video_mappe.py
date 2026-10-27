@@ -418,12 +418,13 @@ def riempi(im, base, polys, col, a, rilievo, cerchio=None):
         d.line(xy + [xy[0]], fill=mix(col, (255, 255, 255), .55) + (int(200 * a),), width=2)
 
 
-def etichetta(im, x, y, testo, k, fs=58, colore=None):
+def etichetta(im, x, y, testo, k, fs=58, colore=None, blocca=True):
     if k <= 0:
         return
     s = back(k); f = font('Anton-Regular.ttf', fs * s); d = ImageDraw.Draw(im)
     w = d.textlength(testo, font=f) + 60 * s; h = fs * .82 * s
-    x = max(w / 2 + 10, min(W - w / 2 - 10, x)); y = max(h + 10, min(H - h - 10, y))
+    if blocca:   # gli elementi della mappa invece escono dal quadro con la camera, non si ammucchiano sul bordo
+        x = max(w / 2 + 10, min(W - w / 2 - 10, x)); y = max(h + 10, min(H - h - 10, y))
     d.rectangle([x - w / 2 + 5, y - h + 6, x + w / 2 + 5, y + h + 6], fill=(0, 0, 0))
     d.rectangle([x - w / 2, y - h, x + w / 2, y + h], fill=NAVY)
     d.rectangle([x - w / 2, y + h - 10 * s, x + w / 2, y + h], fill=ROSSO)
@@ -549,6 +550,105 @@ def dentro(lon, lat, v, margine=.12):
             max(cy - hd / 2 * (1 - margine * 3), min(cy + hd / 2 * (1 - margine * 2), lat)))
 
 
+def proietta(v):
+    """Come il pt di fondo(), ma senza disegnare: (lon, lat) -> pixel per la vista v."""
+    cx, cy, wd = v; s = W / wd
+    return lambda lon, lat: ((lon - cx) * s + W / 2, (cy - lat) * s + H / 2)
+
+
+def _largo(testo, fs):
+    return ImageDraw.Draw(Image.new('L', (1, 1))).textlength(testo, font=font('Anton-Regular.ttf', fs))
+
+
+def ingombro(ev, x, y):
+    """Rettangoli (in pixel) occupati da un elemento disegnato nel punto (x, y)."""
+    tipo = ev.get('tipo')
+    if tipo == 'icona':
+        return [(x - 122, y - 130, x + 122, y + 130)]
+    if tipo == 'etichetta':
+        w = _largo(str(ev.get('testo') or '').upper()[:30], 58) + 60; h = 58 * .82
+        return [(x - w / 2, y + 110 - h, x + w / 2 + 6, y + 110 + h + 7)]
+    if tipo == 'numero':
+        w = _largo(str(ev.get('testo') or '')[:14], 120) + 60; h = 120 * .82
+        return [(x - w / 2, y - h, x + w / 2 + 6, y + h + 7)]
+    if tipo == 'colonna':
+        hc = 380 * max(.1, min(1.0, float(ev.get('valore') or .5)))
+        w = _largo(str(ev.get('testo') or '').upper()[:22], 44) + 60; h = 44 * .82
+        return [(x - 34, y - hc - 16, x + 34, y + 16), (x - w / 2, y + 72 - h, x + w / 2 + 6, y + 72 + h + 7)]
+    return []
+
+
+def _urto(a, b, pad=18):
+    return max(0, min(a[2], b[2]) + pad - max(a[0], b[0])) * max(0, min(a[3], b[3]) + pad - max(a[1], b[1]))
+
+
+def impagina(eventi, tappe, dur, job):
+    """Niente piu' elementi uno sopra l'altro: ogni icona/etichetta/numero/colonna viene spostata (il meno possibile)
+    finche' non tocca piu' gli elementi gia' a schermo, ne' il cartellino dell'anno, le scritte grandi o il pannello barre.
+    Il controllo si fa nella vista piu' larga che la camera avra' mentre l'elemento e' visibile (li' sono piu' vicini).
+    Per ogni elemento sceglie anche un posto libero accanto per il Pin."""
+    fissi = []
+    for ev in eventi:
+        tipo = ev.get('tipo')
+        if tipo == 'anno':
+            fissi.append((60, 60, 420, 260))
+        elif tipo == 'scritta':
+            w = _largo(str(ev.get('testo') or '').upper()[:16], 190) + 40
+            fissi.append((W / 2 - w / 2, H / 2 - 140 - 105, W / 2 + w / 2, H / 2 - 140 + 105))
+        elif tipo == 'barre':
+            n = len([v for v in (ev.get('voci') or []) if isinstance(v, dict)][:4])
+            fissi.append((1120, 200, 1860, 210 + 150 + 120 * n + 10))
+    if job.get('apertura'):
+        fissi.append((W / 2 - 760, 90, W / 2 + 760, 320))
+    giro = [(math.cos(a), math.sin(a)) for a in np.radians([90, 0, 180, 45, 135, 270, 315, 225, 20, 160, 340, 200])]
+    passi = [(0, 0)] + [(r * c, r * s_) for r in range(70, 701, 70) for c, s_ in giro]
+    messi = []   # (ev, lon, lat)
+    for ev in sorted(eventi, key=lambda e: e['_t']):
+        tipo = ev.get('tipo')
+        ts = np.arange(ev['_t'], max(ev['_t'] + .01, dur), .2)
+        v = max((vista_a(tappe, t, dur) for t in ts), key=lambda q: q[2])
+        pt = proietta(v); s = W / v[2]
+        occ = list(fissi)
+        for e2, lo, la in messi:
+            occ += ingombro(e2, *pt(lo, la)) if e2.get('tipo') != 'freccia' else [(pt(lo, la)[0] - 115, pt(lo, la)[1] - 115, pt(lo, la)[0] + 115, pt(lo, la)[1] + 115)]
+        if tipo == 'freccia':
+            try:
+                messi.append((ev, float(ev['a'][0]), float(ev['a'][1])))
+            except Exception:
+                pass
+            continue
+        if tipo not in ('icona', 'etichetta', 'numero', 'colonna') or ev.get('lon') is None:
+            continue
+        try:
+            x0, y0 = pt(float(ev['lon']), float(ev['lat']))
+        except Exception:
+            continue
+        migliore, punti = (0, 0), None
+        for dx, dy in passi:
+            bx = ingombro(ev, x0 + dx, y0 + dy)
+            fuori = sum(max(0, 30 - b[0]) + max(0, b[2] - W + 30) + max(0, 30 - b[1]) + max(0, b[3] - H + 30) for b in bx) * 400
+            u = sum(_urto(b, o) for b in bx for o in occ) + fuori
+            if punti is None or u < punti:
+                migliore, punti = (dx, dy), u
+            if u == 0:
+                break
+        dx, dy = migliore
+        ev['lon'] = float(ev['lon']) + dx / s; ev['lat'] = float(ev['lat']) - dy / s
+        messi.append((ev, ev['lon'], ev['lat']))
+        # posto del Pin: a sinistra, a destra o sotto l'elemento, dove non tocca niente
+        bx = ingombro(ev, x0 + dx, y0 + dy); bx0 = min(b[0] for b in bx); bx1 = max(b[2] for b in bx); by1 = max(b[3] for b in bx)
+        cy_ = (min(b[1] for b in bx) + by1) / 2 + 60
+        occ2 = occ + bx; scelta = None
+        for px, py in ((bx0 - 60, cy_), (bx1 + 60, cy_), ((bx0 + bx1) / 2, by1 + 140), (bx0 - 60, by1 + 60), (bx1 + 60, by1 + 60)):
+            if not (90 < px < W - 90 and 160 < py < H - 30):
+                continue
+            pb = (px - 42, py - 128, px + 42, py + 10)
+            if not any(_urto(pb, o, 8) for o in occ2):
+                scelta = (px, py); break
+        if scelta:
+            ev['_pin'] = (v[0] + (scelta[0] - W / 2) / s, v[1] - (scelta[1] - H / 2) / s)
+
+
 def piano_camera(v0, v1, eventi, dur):
     """Tappe della camera: arrivo sulla vista della scena, poi a ogni evento con un luogo la camera SI AVVICINA (1,5x),
     tra un evento e l'altro deriva lentamente. Risultato: un'inquadratura nuova ogni 2-3 secondi, come il competitor."""
@@ -587,7 +687,11 @@ def disegna_scena(job):
         p = luogo(ev); ev['_luogo'] = dentro(p[0], p[1], v1) if p else None
         if ev['_luogo'] and ev.get('lon') is not None:
             ev['lon'], ev['lat'] = ev['_luogo']
+    if nuv is not None:   # cambio d'epoca: niente elementi sotto le nuvole che passano
+        for ev in eventi:
+            ev['_t'] = max(ev['_t'], 1.5)
     tappe = piano_camera(v0, v1, eventi, dur)
+    impagina(eventi, tappe, dur, job)
     pin_a = sc.get('pin') or {}
     try:
         pin_base = dentro(float(pin_a.get('lon')), float(pin_a.get('lat')), v1, .2)
@@ -628,7 +732,7 @@ def disegna_scena(job):
             if k <= 0:
                 continue
             if ev.get('_luogo'):
-                ultimo = ev['_luogo']
+                ultimo = ev.get('_pin') or ('base', ev['_luogo'])
             tipo = ev.get('tipo')
             try:
                 if tipo in ('icona', 'etichetta', 'numero', 'colonna') and ev.get('lon') is not None:
@@ -636,14 +740,14 @@ def disegna_scena(job):
                 if tipo == 'icona':
                     metti(im, icona(ev.get('icona'), 210), x, y + math.sin(t * 2.2 + ev['_t']) * 7, k)
                 elif tipo == 'etichetta':
-                    etichetta(im, x, y + 110, str(ev.get('testo') or '').upper()[:30], k)
+                    etichetta(im, x, y + 110, str(ev.get('testo') or '').upper()[:30], k, blocca=False)
                 elif tipo == 'numero':
                     tx = str(ev.get('testo') or '')[:14]
-                    etichetta(im, x, y, tx.replace('x', '×', 1) if re.match(r'^x\d', tx) else tx, k, 120, ORO)
+                    etichetta(im, x, y, tx.replace('x', '×', 1) if re.match(r'^x\d', tx) else tx, k, 120, ORO, blocca=False)
                 elif tipo == 'colonna':
                     kh = ease((t - ev['_t']) / 1.0) * fine
                     colonna(im, x, y, 380 * max(.1, min(1.0, float(ev.get('valore') or .5))) * kh, (232, 186, 40))
-                    etichetta(im, x, y + 72, str(ev.get('testo') or '').upper()[:22], k, 44)
+                    etichetta(im, x, y + 72, str(ev.get('testo') or '').upper()[:22], k, 44, blocca=False)
                 elif tipo == 'anno':
                     cartellino_anno(im, str(ev.get('testo') or '')[:6], k)
                 elif tipo == 'scritta':
@@ -671,8 +775,10 @@ def disegna_scena(job):
                 continue
         # Pin: segue l'ultimo evento con un luogo (gli sta accanto), altrimenti sta al suo posto della scena
         try:
-            meta = ultimo or pin_base
-            mx, my = pt(*meta); mx -= 170; my += 120
+            if ultimo and ultimo[0] != 'base':
+                mx, my = pt(*ultimo)                 # posto libero accanto all'ultimo elemento
+            else:
+                mx, my = pt(*(ultimo[1] if ultimo else pin_base)); mx -= 170; my += 120
             if not hasattr(disegna_scena, '_p') or fi == 0:
                 sx, sy = pt(*pin_da); disegna_scena._p = [sx, sy, sx, sy, -9.0]
             st = disegna_scena._p
