@@ -703,7 +703,7 @@ def fai(i):
                       'The background is ALWAYS a complete, fully drawn, detailed real place (room, street, garage, park...) filling the whole image: NEVER a plain, empty, cream or single-colour background. '
                       'NO blur, NO bokeh, NO glow, NO rim light. Remove ALL text: absolutely NO text, letters or numbers in the image. YouTube thumbnail 16:9.')
             t['lato_testo'] = lato_c
-    if STILE == 'piatto' and str(E('TESTO_STILE', '') or 'disegnata').lower() == 'disegnata':   # la scritta la disegna Nano Banana (resa migliore), controllata lettera per lettera
+    if STILE == 'piatto' and str(E('TESTO_STILE', '') or 'cartoncino').lower() == 'disegnata':   # (spento di default dal 27/10: Nano Banana faceva le lettere troppo piccole) la scritta la disegna Nano Banana
         frase = f"{t['riga1']} {t['riga2']}".upper().strip()
         lato_t = {'sinistra': 'LEFT', 'centro': 'CENTRE'}.get(t.get('lato_testo'), 'RIGHT')
         stili = list(SFONDI_TESTO) if PROVA_SFONDI else [SFONDO_TESTO]
@@ -765,9 +765,9 @@ def fai(i):
         if APPLICA and not c.get('suff'):
             im.save(os.path.join(BASI, c['id'] + '.jpg'), quality=92)
         lato = 'sinistra' if t.get('lato_testo') == 'sinistra' else 'destra'
-        if STILE == 'piatto' and str(E('TESTO_STILE', '') or 'disegnata').lower() == 'evidenziata':   # come il competitor: lettere nere su strisce gialle, copertina tutta visibile
+        if STILE == 'piatto' and str(E('TESTO_STILE', '') or 'cartoncino').lower() == 'evidenziata':   # come il competitor: lettere nere su strisce gialle, copertina tutta visibile
             scritta_evidenziata(im, f"{t['riga1']} {t['riga2']}", lato, zona_libera(im, lato)).save(p, quality=90)
-        elif STILE == 'piatto':   # riserva: stesso stile approvato (scritta magenta su cartoncino bianco), scritta dallo script
+        elif STILE == 'piatto':   # DEFAULT dal 27/10: scritta magenta su cartoncino bianco scritta dal codice, sempre la piu' grande possibile (leggibile da telefono)
             scritta_cartoncino(im, f"{t['riga1']} {t['riga2']}", lato, zona_libera(im, lato)).save(p, quality=90)
         else:
             scritta(im, [str(t['riga1']).upper(), str(t['riga2']).upper()], lato, zona_libera(im, lato)).save(p, quality=90)
