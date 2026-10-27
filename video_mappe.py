@@ -39,6 +39,7 @@ MUSICA_VOL = float(str(P.get('musica_volume') or E('MUSICA_VOL', '') or .04).rep
 SLOGAN = str(P.get('slogan') or E('SLOGAN', '') or 'EVERY BORDER HAS A PRICE.').strip()
 NOME_CANALE = str(P.get('canale_nome') or E('NOME_CANALE', '') or 'RICH BORDERS').strip().upper()
 MIN_SEC_YT = 480                                    # sotto gli 8 minuti (le prove) mai su YouTube
+ZOOM_MIN = 34.0                                     # larghezza minima inquadratura in gradi (qualita' della mappa)
 PPM = 150                                           # parole al minuto della voce inglese (stima per la lunghezza del copione)
 
 NAVY, ROSSO, CREMA, ORO, VERDE = (16, 30, 62), (222, 44, 52), (250, 242, 222), (246, 196, 44), (40, 160, 170)
@@ -369,7 +370,7 @@ def camera(v):
         lon, lat, wd = float(v.get('lon', -40)), float(v.get('lat', 20)), float(v.get('larghezza', 120))
     except Exception:
         lon, lat, wd = -40.0, 20.0, 120.0
-    wd = max(6.0, min(340.0, wd))
+    wd = max(ZOOM_MIN, min(340.0, wd))   # mai piu' stretta di ZOOM_MIN gradi: oltre, il rilievo (30 px/grado) si sgrana
     hd = wd * H / W
     lat = max(-85 + hd / 2, min(85 - hd / 2, lat)) if hd < 170 else 0
     lon = max(-180 + wd / 2, min(180 - wd / 2, lon))
@@ -381,9 +382,11 @@ def fondo(vista, sep_k):
     cx, cy, wd = vista; cw = wd * Pg; ch = cw * H / W
     x0, y0 = (cx + 180) * Pg - cw / 2, (90 - cy) * Pg - ch / 2
     box = (int(x0), int(y0), int(x0 + cw), int(y0 + ch))
-    im = R['base'].crop(box).resize((W, H), Image.BILINEAR, reducing_gap=2.0)
+    im = R['base'].crop(box).resize((W, H), Image.BICUBIC, reducing_gap=2.0)
     if sep_k > 0.01:
-        im = Image.blend(im, R['sepia'].crop(box).resize((W, H), Image.BILINEAR, reducing_gap=2.0), sep_k)
+        im = Image.blend(im, R['sepia'].crop(box).resize((W, H), Image.BICUBIC, reducing_gap=2.0), sep_k)
+    if cw < W * .9:   # rilievo ingrandito: un filo di nitidezza
+        im = im.filter(ImageFilter.UnsharpMask(radius=1.6, percent=70, threshold=2))
     pt = lambda lon, lat: (((lon + 180) * Pg - x0) * W / cw, ((90 - lat) * Pg - y0) * H / ch)
     return im, pt
 
@@ -1067,6 +1070,43 @@ def carica_copertina(video_id, img):
         return 'copertina non caricata: ' + str(e)[:200]
 
 
+def metti_in_playlist(video_id, titolo, descr):
+    """Come il Publisher di n8n: playlist per argomento. Claude sceglie l'argomento (dalla lista playlist_topics se c'e'),
+    la playlist si crea se non esiste e il video ci entra. Restituisce il nome della playlist ('' se non riesce)."""
+    try:
+        H = {'Authorization': 'Bearer ' + token()}
+        esistenti, pg = {}, ''
+        for _ in range(5):
+            r = http('https://www.googleapis.com/youtube/v3/playlists?' + urllib.parse.urlencode({'part': 'snippet', 'mine': 'true', 'maxResults': 50, 'pageToken': pg}), headers=H)
+            for x in r.get('items', []):
+                esistenti[x['snippet']['title'].strip()] = x['id']
+            pg = r.get('nextPageToken') or ''
+            if not pg:
+                break
+        lista = [x.strip() for x in re.split(r'[,;\n]', str(P.get('playlist_topics') or '')) if x.strip()]
+        domanda = (f'YouTube channel "{NOME_CANALE.title()}" (economic history and geopolitics explained with animated maps). Video title: "{titolo}".\n'
+                   f'Video description: {descr[:600]}\n'
+                   f'Existing playlists of the channel: {json.dumps(list(esistenti), ensure_ascii=False)}\n'
+                   + (f'Allowed playlist topics (choose EXACTLY one of these, same spelling): {json.dumps(lista, ensure_ascii=False)}\n' if lista else
+                      'If one existing playlist fits the video, answer with its exact name. Otherwise propose ONE new playlist name: 2-4 words in English, broad enough '
+                      'to hold 10+ future videos (a region or a theme, e.g. "Latin America", "Europe\'s Wealth", "Empires & Money"), never the video title.\n')
+                   + 'Answer ONLY with the playlist name, nothing else.')
+        nome = claude(domanda, 300).strip().strip('"').strip()[:140]
+        if not nome:
+            return ''
+        pid = esistenti.get(nome)
+        if not pid:
+            r = http('https://www.googleapis.com/youtube/v3/playlists?part=snippet,status',
+                     {'snippet': {'title': nome, 'description': f'{nome} | {NOME_CANALE.title()}: {SLOGAN.capitalize()}'}, 'status': {'privacyStatus': 'public'}}, H)
+            pid = r['id']; log('playlist creata:', nome)
+        http('https://www.googleapis.com/youtube/v3/playlistItems?part=snippet',
+             {'snippet': {'playlistId': pid, 'resourceId': {'kind': 'youtube#video', 'videoId': video_id}}}, H)
+        log('video aggiunto alla playlist:', nome)
+        return nome
+    except Exception as e:
+        log('playlist non riuscita:', str(e)[:200]); return ''
+
+
 def avvisa(esito):
     for k, v in INFO_COMP.items():
         esito.setdefault(k, v)
@@ -1203,6 +1243,7 @@ def main():
             log('copia per il Drive non riuscita:', str(e)[:150])
     if CARICA and dur_v >= MIN_SEC_YT:
         vid = carica_youtube(finale, c, titolo); nota = carica_copertina(vid, cop)
+        extra['playlist'] = metti_in_playlist(vid, titolo, descr_yt)
         avvisa({'stato': 'PUBBLICATO', 'video_id': vid, 'link': 'https://www.youtube.com/watch?v=' + vid, 'titolo': titolo,
                 'pubblica_il': P.get('pubblica_il') or '', 'minuti_video': round(dur_v / 60, 1), 'minuti_lavoro': round((time.time() - T_INIZIO) / 60, 1), 'errore': nota, **extra})
     else:
@@ -1304,7 +1345,7 @@ def invito_iscriviti(muto, audio, out, totale):
     png = immagine_iscriviti()
     ins = ['-i', muto, '-i', audio, '-loop', '1', '-t', f'{totale:.3f}', '-i', png]
     fl = (f"[2:v]scale=900:-1,format=rgba,fade=t=in:st={sec}:d=0.3:alpha=1,fade=t=out:st={sec + 3.6}:d=0.4:alpha=1[isc];"
-          f"[0:v][isc]overlay=x=(W-w)/2:y=640:enable='between(t,{sec},{sec + 4})'[v]")
+          f"[0:v][isc]overlay=x=(W-w)/2:y=640:enable='between(t,{sec},{sec + 4})',scale=2560:1440:flags=lanczos[v]")
     suoni, k = [], 3
     for url, quando, nome in ((ISC_CLIC, clic_t, 'clic'), (ISC_CAMPANA, camp_t, 'campana')):
         try:
@@ -1316,7 +1357,7 @@ def invito_iscriviti(muto, audio, out, totale):
     amap = '1:a'
     if suoni:
         fl += f";[1:a]{''.join(suoni)}amix=inputs={len(suoni) + 1}:duration=first:normalize=0[a]"; amap = '[a]'
-    run(['ffmpeg', '-y', '-v', 'error', *ins, '-filter_complex', fl, '-map', '[v]', '-map', amap, *ENC,
+    run(['ffmpeg', '-y', '-v', 'error', *ins, '-filter_complex', fl, '-map', '[v]', '-map', amap, '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18', '-pix_fmt', 'yuv420p', '-r', str(FPS),
          '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', '-t', f'{totale:.3f}', out])
     log(f'invito SUBSCRIBE al secondo {sec:g} (clic {clic_t:g} s, campanella {camp_t:g} s)')
 
