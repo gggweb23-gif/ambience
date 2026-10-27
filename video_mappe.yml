@@ -1,0 +1,91 @@
+name: Video Mappe
+
+on:
+  workflow_dispatch:
+    inputs:
+      link_competitor:
+        description: 'Link del video da copiare (OBBLIGATORIO)'
+        required: true
+        default: ''
+        type: string
+      prova:
+        description: 'SI = video corto di prova (~1 minuto)'
+        default: 'SI'
+        type: string
+      carica:
+        description: 'SI = carica il video su YouTube (canale Rich Borders)'
+        default: 'NO'
+        type: string
+      voce:
+        description: 'Voce ElevenLabs (ID)'
+        default: 'pNInz6obpgDQGcFmaJgB'
+        type: string
+      payload:
+        description: 'Solo per n8n (lascia vuoto)'
+        default: ''
+        type: string
+
+concurrency:
+  group: mappe
+  cancel-in-progress: false
+
+jobs:
+  video:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Memoria di mappa, confini e caratteri (si scaricano una volta sola)
+        id: memoria
+        uses: actions/cache@v4
+        with:
+          path: risorse_mappe
+          key: risorse-mappe-v1
+
+      - name: Programmi
+        timeout-minutes: 10
+        run: |
+          sudo apt-get update -qq -o Acquire::Retries=3
+          sudo apt-get install -y -qq --no-install-recommends ffmpeg libcairo2
+          pip install --quiet --break-system-packages --timeout 60 cairosvg
+
+      - name: Mappa, confini e caratteri (solo la prima volta)
+        if: steps.memoria.outputs.cache-hit != 'true'
+        timeout-minutes: 10
+        run: |
+          mkdir -p risorse_mappe/tw /tmp/w
+          pip download --quiet --timeout 60 basemap-data==2.0.0 --no-deps -d /tmp/w
+          unzip -q -j /tmp/w/basemap_data-2.0.0-py3-none-any.whl 'mpl_toolkits/basemap_data/shadedrelief.jpg' -d risorse_mappe
+          curl -sSfL --retry 3 --max-time 120 -o risorse_mappe/paesi50.geojson https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_50m_admin_0_countries.geojson
+          curl -sSfL --retry 3 --max-time 60 -o risorse_mappe/Anton-Regular.ttf https://raw.githubusercontent.com/google/fonts/main/ofl/anton/Anton-Regular.ttf
+          curl -sSfL --retry 3 --max-time 60 -o risorse_mappe/Poppins-Bold.ttf https://raw.githubusercontent.com/google/fonts/main/ofl/poppins/Poppins-Bold.ttf
+          curl -sSfL --retry 3 --max-time 60 -o risorse_mappe/Poppins-ExtraBold.ttf https://raw.githubusercontent.com/google/fonts/main/ofl/poppins/Poppins-ExtraBold.ttf
+          ls -la risorse_mappe
+
+      - name: Crea il video
+        env:
+          LINK_COMPETITOR: ${{ inputs.link_competitor }}
+          PROVA: ${{ inputs.prova }}
+          CARICA: ${{ inputs.carica }}
+          VOCE: ${{ inputs.voce }}
+          PAYLOAD: ${{ inputs.payload }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN_RICHBORDERS }}
+        run: python3 video_mappe.py
+
+      - name: Salva il risultato
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: video-mappe
+          path: |
+            video_mappe.mp4
+            copertina.jpg
+            titolo.txt
+            copione.json
+          retention-days: 7
