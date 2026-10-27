@@ -637,6 +637,13 @@ def fai(i):
     c, t = cand[i], testi.get(i) or {}
     if c.get('variante') and not t.get('comp_id'):   # varianti 20%/30% solo per i video con il competitor nel foglio
         return None
+    r1, r2 = str(t.get('riga1') or '').strip(), str(t.get('riga2') or '').strip()
+    if not r2 and len(r1.split()) >= 2:   # tutto su una riga: l'ultima parola va sull'etichetta
+        r1, r2 = ' '.join(r1.split()[:-1]), r1.split()[-1]
+    if not r1 and len(r2.split()) >= 2:
+        r1, r2 = ' '.join(r2.split()[:-1]), r2.split()[-1]
+    t['riga1'], t['riga2'] = r1, r2
+    testi[i] = t
     if not t.get('riga1') or not t.get('riga2'):
         log('testo mancante per', c['id']); return None
     p = os.path.join(NUOVE, c['id'] + c.get('suff', '') + '.jpg')
