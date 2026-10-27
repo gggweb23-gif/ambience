@@ -603,50 +603,87 @@ def impagina(eventi, tappe, dur, job):
     giro = [(math.cos(a), math.sin(a)) for a in np.radians([90, 0, 180, 45, 135, 270, 315, 225, 20, 160, 340, 200])]
     passi = [(0, 0)] + [(r * c, r * s_) for r in range(70, 701, 70) for c, s_ in giro]
     messi = []   # (ev, lon, lat)
-    for ev in sorted(eventi, key=lambda e: e['_t']):
-        tipo = ev.get('tipo')
-        ts = np.arange(ev['_t'], max(ev['_t'] + .01, dur), .2)
-        v = max((vista_a(tappe, t, dur) for t in ts), key=lambda q: q[2])
-        pt = proietta(v); s = W / v[2]
+
+    def occupati(pt, escludi=None):
         occ = list(fissi)
         for e2, lo, la in messi:
-            occ += ingombro(e2, *pt(lo, la)) if e2.get('tipo') != 'freccia' else [(pt(lo, la)[0] - 115, pt(lo, la)[1] - 115, pt(lo, la)[0] + 115, pt(lo, la)[1] + 115)]
+            if e2 is escludi:
+                continue
+            if e2.get('tipo') == 'freccia':
+                x_, y_ = pt(lo, la); occ.append((x_ - 115, y_ - 115, x_ + 115, y_ + 115))
+            else:
+                occ += ingombro(e2, *pt(lo, la))
+            if e2.get('_pin'):
+                x_, y_ = pt(*e2['_pin']); occ.append((x_ - 42, y_ - 128, x_ + 42, y_ + 10))
+        return occ
+
+    def posto_pin(ev, bx, occ, larga):
+        """Posto del Pin accanto all'elemento, dove non tocca niente (prima vicino, poi piu' lontano)."""
+        sc_ = W / larga[2]
+        bx0 = min(b[0] for b in bx); bx1 = max(b[2] for b in bx); by0 = min(b[1] for b in bx); by1 = max(b[3] for b in bx)
+        cy_ = (by0 + by1) / 2 + 60; cand = []
+        for extra in (0, 80, 170, 280):
+            cand += [(bx0 - 60 - extra, cy_), (bx1 + 60 + extra, cy_), ((bx0 + bx1) / 2, by1 + 140 + extra),
+                     (bx0 - 60 - extra, by1 + 60), (bx1 + 60 + extra, by1 + 60), ((bx0 + bx1) / 2, by0 - 20 - extra)]
+        scelta, peggio = None, None
+        for px, py in cand:
+            if not (90 < px < W - 90 and 160 < py < H - 30):
+                continue
+            pb = (px - 42, py - 128, px + 42, py + 10)
+            u = sum(_urto(pb, o, 8) for o in occ + bx)
+            if peggio is None or u < peggio:
+                scelta, peggio = (px, py), u
+            if u == 0:
+                break
+        if scelta:
+            ev['_pin'] = (larga[0] + (scelta[0] - W / 2) / sc_, larga[1] - (scelta[1] - H / 2) / sc_)
+
+    for ev in sorted(eventi, key=lambda e: e['_t']):
+        tipo = ev.get('tipo')
         if tipo == 'freccia':
             try:
-                messi.append((ev, float(ev['a'][0]), float(ev['a'][1])))
+                lo, la = float(ev['a'][0]), float(ev['a'][1])
+                larga = max((vista_a(tappe, t, dur) for t in np.arange(ev['_t'], max(ev['_t'] + .01, dur), .2)), key=lambda q: q[2])
+                pt = proietta(larga); x_, y_ = pt(lo, la)
+                posto_pin(ev, [(x_ - 115, y_ - 115, x_ + 115, y_ + 115)], occupati(pt), larga)
+                messi.append((ev, lo, la))
             except Exception:
                 pass
             continue
         if tipo not in ('icona', 'etichetta', 'numero', 'colonna') or ev.get('lon') is None:
             continue
-        try:
-            x0, y0 = pt(float(ev['lon']), float(ev['lat']))
-        except Exception:
-            continue
+        # le inquadrature che la camera avra' mentre l'elemento e' a schermo (6 campioni + la piu' larga)
+        ts = np.arange(ev['_t'] + .3, max(ev['_t'] + .31, dur), .2)
+        viste = [vista_a(tappe, t, dur) for t in ts]
+        larga = max(viste, key=lambda q: q[2])
+        campioni = [larga] + [viste[int(i)] for i in np.linspace(0, len(viste) - 1, min(6, len(viste)))]
+        pts = [(proietta(v), W / v[2]) for v in campioni]
+        occs = [occupati(pt) for pt, _ in pts]
+        lon0, lat0 = float(ev['lon']), float(ev['lat'])
+        s0 = pts[0][1]
+
+        def costo(dx, dy, solo_larga=False):
+            lo, la = lon0 + dx / s0, lat0 - dy / s0; u = 0
+            for j, ((pt, _), occ) in enumerate(zip(pts, occs)):
+                bx = ingombro(ev, *pt(lo, la))
+                u += sum(_urto(b, o) for b in bx for o in occ)
+                if j == 0:   # nella vista piu' larga deve stare tutto dentro lo schermo
+                    u += sum(max(0, 30 - b[0]) + max(0, b[2] - W + 30) + max(0, 30 - b[1]) + max(0, b[3] - H + 30) for b in bx) * 400
+                if solo_larga:
+                    break
+            return u
         migliore, punti = (0, 0), None
         for dx, dy in passi:
-            bx = ingombro(ev, x0 + dx, y0 + dy)
-            fuori = sum(max(0, 30 - b[0]) + max(0, b[2] - W + 30) + max(0, 30 - b[1]) + max(0, b[3] - H + 30) for b in bx) * 400
-            u = sum(_urto(b, o) for b in bx for o in occ) + fuori
+            u = costo(dx, dy)
             if punti is None or u < punti:
                 migliore, punti = (dx, dy), u
             if u == 0:
                 break
         dx, dy = migliore
-        ev['lon'] = float(ev['lon']) + dx / s; ev['lat'] = float(ev['lat']) - dy / s
+        ev['lon'] = lon0 + dx / s0; ev['lat'] = lat0 - dy / s0
+        pt, sc_ = pts[0]
+        posto_pin(ev, ingombro(ev, *pt(ev['lon'], ev['lat'])), occs[0], larga)
         messi.append((ev, ev['lon'], ev['lat']))
-        # posto del Pin: a sinistra, a destra o sotto l'elemento, dove non tocca niente
-        bx = ingombro(ev, x0 + dx, y0 + dy); bx0 = min(b[0] for b in bx); bx1 = max(b[2] for b in bx); by1 = max(b[3] for b in bx)
-        cy_ = (min(b[1] for b in bx) + by1) / 2 + 60
-        occ2 = occ + bx; scelta = None
-        for px, py in ((bx0 - 60, cy_), (bx1 + 60, cy_), ((bx0 + bx1) / 2, by1 + 140), (bx0 - 60, by1 + 60), (bx1 + 60, by1 + 60)):
-            if not (90 < px < W - 90 and 160 < py < H - 30):
-                continue
-            pb = (px - 42, py - 128, px + 42, py + 10)
-            if not any(_urto(pb, o, 8) for o in occ2):
-                scelta = (px, py); break
-        if scelta:
-            ev['_pin'] = (v[0] + (scelta[0] - W / 2) / s, v[1] - (scelta[1] - H / 2) / s)
 
 
 def piano_camera(v0, v1, eventi, dur):
@@ -791,6 +828,20 @@ def disegna_scena(job):
             salto = math.sin(kp * math.pi) * 90 + (abs(math.sin(t * 4.5)) * 6 if kp >= 1 else 0)
             faccia = 'stupito' if (pin_a.get('faccia') == 'stupito' and t > dur * .4) else 'normale'
             px = max(80, min(W - 80, px)); py = max(200, min(H - 30, py))
+            # il Pin non passa mai sopra scritte grandi, cartellino dell'anno o pannello barre: si sposta sotto/accanto
+            for ev in eventi:
+                if t < ev['_t'] or ev.get('tipo') not in ('scritta', 'anno', 'barre'):
+                    continue
+                if ev['tipo'] == 'scritta':
+                    w_ = _largo(str(ev.get('testo') or '').upper()[:16], 190) + 40; r_ = (W / 2 - w_ / 2, H / 2 - 245, W / 2 + w_ / 2, H / 2 - 35)
+                elif ev['tipo'] == 'anno':
+                    r_ = (60, 60, 420, 260)
+                else:
+                    r_ = (1120, 200, 1860, 840)
+                if _urto((px - 42, py - 128, px + 42, py + 10), r_, 10):
+                    py = r_[3] + 150 if r_[3] + 150 < H - 30 else py
+                    if _urto((px - 42, py - 128, px + 42, py + 10), r_, 10):
+                        px = r_[0] - 70 if r_[0] - 70 > 80 else r_[2] + 70
             if not (job.get('apertura') and t < 2.5):
                 pin(im, px, py, 1.4, faccia, salto)
         except Exception:
