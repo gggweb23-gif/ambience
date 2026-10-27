@@ -134,7 +134,7 @@ def competitor():
 
 
 # ============================================================ 1) COPIONE + REGIA (Claude)
-ICONE = {   # nome usato da Claude -> codice Twemoji (icone gratuite CC-BY; in futuro: libreria 3D fatta una volta)
+ICONE = {'bell': '1f514',    # nome usato da Claude -> codice Twemoji (icone gratuite CC-BY; in futuro: libreria 3D fatta una volta)
     'gold': '1fa99', 'coin': '1fa99', 'silver': '1fa99', 'money': '1f4b0', 'cash': '1f4b5', 'bank': '1f3e6', 'ship': '1f6a2', 'sailboat': '26f5',
     'crown': '1f451', 'chains': '26d3', 'mine': '26cf', 'farm': '1f33e', 'house': '1f3e0', 'factory': '1f3ed', 'oil': '1f6e2', 'train': '1f686',
     'car': '1f697', 'plane': '2708', 'chart_up': '1f4c8', 'chart_down': '1f4c9', 'people': '1f465', 'soldier': '1f482', 'sword': '2694',
@@ -1139,7 +1139,7 @@ def main():
     audio = os.path.join(LAV, 'audio.m4a')
     run(['ffmpeg', '-y', '-v', 'error', *mix_in, '-filter_complex', mix_f + f';[m]atrim=0:{totale:.3f}[o]', '-map', '[o]', '-c:a', 'aac', '-b:a', '192k', audio])
     finale = os.path.join(ROOT, 'video_mappe.mp4')
-    run(['ffmpeg', '-y', '-v', 'error', '-i', muto, '-i', audio, '-c:v', 'copy', '-c:a', 'copy', '-shortest', finale])
+    invito_iscriviti(muto, audio, finale, totale)
     cop = copertina(c, os.path.join(ROOT, 'copertina.jpg'))
     titolo = str(c.get('titolo') or comp.get('titolo') or 'Rich Borders')[:100]
     c['capitoli_testo'] = capitoli(scene, durs)
@@ -1155,6 +1155,63 @@ def main():
         if P.get('id'):
             avvisa({'stato': 'PROVA OK' if (PROVA or dur_v < MIN_SEC_YT) else 'CREATO', 'minuti_video': round(dur_v / 60, 1),
                     'minuti_lavoro': round((time.time() - T_INIZIO) / 60, 1), 'titolo': titolo})
+
+
+# ---------- invito SUBSCRIBE come negli altri canali: immagine al secondo N per 4 s + clic + campanella
+# (stesse colonne di Channel Configs: subscribe_overlay_*; vuote = valori della riga Main Street Atlas / Rich Borders)
+ISC_IMG = str(P.get('subscribe_overlay_url') or 'https://drive.google.com/uc?export=download&id=10HxGKh0ISy1eGapQwuagJyyVuzUo5qd3').strip()
+ISC_CLIC = str(P.get('subscribe_overlay_sound_url') or 'https://drive.google.com/uc?export=download&id=1I-kBzQs0Mz_g3w_FDZsYK6-hdGxbTkjJ').strip()
+ISC_CAMPANA = str(P.get('subscribe_overlay_bell_url') or 'https://drive.google.com/uc?export=download&id=1xejqUoCdL7fUih6WGuhug5mfinW-91A2').strip()
+
+
+def _num(v, d):
+    try:
+        return float(str(v).replace(',', '.')) if str(v or '').strip() != '' else d
+    except Exception:
+        return d
+
+
+def bottone_iscriviti(path):
+    """Riserva: se l'immagine del Drive non si scarica, bottone SUBSCRIBE rosso con campanella disegnato qui."""
+    im = Image.new('RGBA', (900, 230), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
+    d.rounded_rectangle([14, 24, 886, 214], 40, fill=(0, 0, 0, 110))
+    d.rounded_rectangle([0, 10, 872, 200], 40, fill=(230, 33, 23))
+    d.text((380, 105), 'SUBSCRIBE', font=font('Anton-Regular.ttf', 110), fill='white', anchor='mm')
+    try:
+        metti(im, icona('bell', 150), 760, 105)
+    except Exception:
+        pass
+    im.save(path); return path
+
+
+def invito_iscriviti(muto, audio, out, totale):
+    sec = _num(P.get('subscribe_overlay_second'), 10.0)
+    clic_t = sec + _num(P.get('subscribe_overlay_sound_delay'), 0.6)
+    camp_t = clic_t + _num(P.get('subscribe_overlay_bell_delay'), 1.0)
+    if totale < sec + 5:
+        run(['ffmpeg', '-y', '-v', 'error', '-i', muto, '-i', audio, '-c:v', 'copy', '-c:a', 'copy', '-shortest', out]); return
+    png = os.path.join(LAV, 'iscriviti.png')
+    try:
+        scarica(ISC_IMG, png); Image.open(png).verify()
+    except Exception as e:
+        log('immagine iscriviti dal Drive non disponibile, uso quella disegnata:', str(e)[:80]); bottone_iscriviti(png)
+    ins = ['-i', muto, '-i', audio, '-loop', '1', '-t', f'{totale:.3f}', '-i', png]
+    fl = (f"[2:v]scale=900:-1,format=rgba,fade=t=in:st={sec}:d=0.3:alpha=1,fade=t=out:st={sec + 3.6}:d=0.4:alpha=1[isc];"
+          f"[0:v][isc]overlay=x=(W-w)/2:y=640:enable='between(t,{sec},{sec + 4})'[v]")
+    suoni, k = [], 3
+    for url, quando, nome in ((ISC_CLIC, clic_t, 'clic'), (ISC_CAMPANA, camp_t, 'campana')):
+        try:
+            f = scarica(url, os.path.join(LAV, nome + '.mp3'))
+        except Exception as e:
+            log(nome + ' non disponibile:', str(e)[:80]); continue
+        ms = int(quando * 1000); ins += ['-i', f]
+        fl += f";[{k}:a]adelay={ms}|{ms},volume=0.5[s{k}]"; suoni.append(f'[s{k}]'); k += 1
+    amap = '1:a'
+    if suoni:
+        fl += f";[1:a]{''.join(suoni)}amix=inputs={len(suoni) + 1}:duration=first:normalize=0[a]"; amap = '[a]'
+    run(['ffmpeg', '-y', '-v', 'error', *ins, '-filter_complex', fl, '-map', '[v]', '-map', amap, *ENC,
+         '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', '-t', f'{totale:.3f}', out])
+    log(f'invito SUBSCRIBE al secondo {sec:g} (clic {clic_t:g} s, campanella {camp_t:g} s)')
 
 
 if __name__ == '__main__':
