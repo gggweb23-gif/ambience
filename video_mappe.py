@@ -43,7 +43,7 @@ ZOOM_MIN = 34.0                                     # larghezza minima inquadrat
 PPM = 150                                           # parole al minuto della voce inglese (stima per la lunghezza del copione)
 
 NAVY, ROSSO, CREMA, ORO, VERDE = (16, 30, 62), (222, 44, 52), (250, 242, 222), (246, 196, 44), (40, 160, 170)
-ENC = ['-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20', '-pix_fmt', 'yuv420p', '-r', str(FPS)]
+ENC = ['-c:v', 'libx264', '-preset', 'veryfast', '-crf', '16', '-pix_fmt', 'yuv420p', '-r', str(FPS)]
 T_INIZIO = time.time()
 
 
@@ -1357,7 +1357,7 @@ def invito_iscriviti(muto, audio, out, totale):
     amap = '1:a'
     if suoni:
         fl += f";[1:a]{''.join(suoni)}amix=inputs={len(suoni) + 1}:duration=first:normalize=0[a]"; amap = '[a]'
-    run(['ffmpeg', '-y', '-v', 'error', *ins, '-filter_complex', fl, '-map', '[v]', '-map', amap, '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18', '-pix_fmt', 'yuv420p', '-r', str(FPS),
+    run(['ffmpeg', '-y', '-v', 'error', *ins, '-filter_complex', fl, '-map', '[v]', '-map', amap, '-c:v', 'libx264', '-preset', 'fast', '-crf', '18', '-pix_fmt', 'yuv420p', '-r', str(FPS),
          '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', '-t', f'{totale:.3f}', out])
     log(f'invito SUBSCRIBE al secondo {sec:g} (clic {clic_t:g} s, campanella {camp_t:g} s)')
 
