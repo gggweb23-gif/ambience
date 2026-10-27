@@ -200,7 +200,7 @@ For EVERY scene you also direct the MAP (equirectangular world map with shaded r
 - "vista": camera {{"lon": center longitude, "lat": center latitude, "larghezza": degrees of longitude visible (8 = one small country, 30 = a region, 120 = a continent, 300 = whole world)}}. Change it often (zoom in / out / pan), like a documentary.
 - "epoca": "oggi" (modern colored map) or "antica" (old parchment map: use it for events before ~1900). Do not switch epoch more than 4 times in the whole video.
 - "oro": ISO-3 codes of the country/countries that are the "rich / winner / focus" side (painted gold, raised in 3D). "verde": ISO-3 codes of the other side (painted blue-green). Max 25 codes each. Can be empty.
-- "eventi": something new must appear on screen every 2-3 seconds: put ONE event every 6-8 words of the scene (usually 2-4 per scene), each tied to a different WORD of the scene, spread from the beginning to the end of the scene ("parola" = one exact word that appears in that scene's text; the event appears when the voice says it). The camera automatically zooms on each event that has a location, so give most events a precise lon/lat.
+- "eventi": something new must appear on screen every 2-3 seconds: put ONE event every 4-5 words of the scene (usually 3-6 per scene), each tied to a different WORD of the scene, spread from the beginning to the end of the scene ("parola" = one exact word that appears in that scene's text; the event appears when the voice says it). The camera automatically zooms on each event that has a location, so give most events a precise lon/lat.
   Every scene must contain at least ONE moving element (freccia, confine, colonna, barre) or a NEW place (icona/etichetta) — never two scenes in a row with only labels.
   An "anno" card must show exactly the year said in that scene (if the text says "300 years ago", write the year that means). Types:
   {{"tipo":"icona","icona": one of [{icone}] or "flag:XX" (ISO-2 country code),"lon":..,"lat":..,"parola":".."}}
@@ -292,6 +292,10 @@ def mix(a, b, t):
 _R = {}   # risorse caricate una volta per processo
 
 
+NOMI_CORTI = {'USA': 'USA', 'GBR': 'UK', 'RUS': 'RUSSIA', 'COD': 'DR CONGO', 'CAF': 'C. AFRICAN REP.', 'ARE': 'UAE', 'DOM': 'DOMINICAN REP.',
+              'BIH': 'BOSNIA', 'KOR': 'SOUTH KOREA', 'PRK': 'NORTH KOREA', 'CZE': 'CZECHIA', 'SAU': 'SAUDI ARABIA'}
+
+
 def risorse():
     if _R:
         return _R
@@ -299,7 +303,7 @@ def risorse():
     g = ImageOps.grayscale(base)
     sep = ImageEnhance.Contrast(ImageOps.colorize(g, black=(70, 50, 28), white=(242, 226, 192), mid=(190, 158, 108))).enhance(1.45)
     geo = json.load(open(os.path.join(RIS, 'paesi50.geojson')))['features']
-    paesi = {}
+    paesi, nomi = {}, {}
     for f in geo:
         p = f['properties']
         codici = {str(p.get(k) or '') for k in ('ADM0_A3', 'ISO_A3', 'SOV_A3', 'GU_A3')} - {'', '-99'}
@@ -309,7 +313,10 @@ def risorse():
             pass
         for cd in codici:
             paesi.setdefault(cd, []).extend(anelli)
-    _R.update(base=base, sepia=sep, paesi=paesi, P=base.width / 360.0)
+            nm = str(p.get('NAME') or p.get('ADMIN') or '')
+            nm = NOMI_CORTI.get(cd) or (nm if len(nm) <= 14 else str(p.get('ABBREV') or nm).replace('.', '') if len(str(p.get('ABBREV') or '')) > 4 else nm)
+            nomi.setdefault(cd, nm)
+    _R.update(base=base, sepia=sep, paesi=paesi, nomi=nomi, P=base.width / 360.0)
     return _R
 
 
@@ -503,26 +510,32 @@ def cartellino_anno(im, testo, k):
     d.text((x + 165 * s, y + 88 * s), testo, font=font('Poppins-Bold.ttf', 92 * s), fill=(70, 55, 40), anchor='mm')
 
 
+def box_barre(n):
+    """Riquadro del pannello barre con n voci (grande: deve leggersi bene anche da telefono)."""
+    sp = 160 if n <= 3 else 135
+    return (1000, 200, 1880, 200 + 175 + sp * n), sp
+
+
 def pannello_barre(im, ev, k):
     if k <= 0:
         return
     voci = [v for v in (ev.get('voci') or []) if isinstance(v, dict)][:4]
     if not voci:
         return
+    (x0, y0, x1, y1), sp = box_barre(len(voci))
     ov = Image.new('RGBA', (W, H), (0, 0, 0, 0)); od = ImageDraw.Draw(ov)
-    x0, y0, x1 = 1130, 210, 1850; y1 = y0 + 150 + 120 * len(voci)
-    od.rectangle([x0, y0, x1, y1], fill=NAVY + (int(225 * k),)); od.rectangle([x0, y1 - 10, x1, y1], fill=ROSSO + (int(255 * k),))
+    od.rectangle([x0, y0, x1, y1], fill=NAVY + (int(230 * k),)); od.rectangle([x0, y1 - 12, x1, y1], fill=ROSSO + (int(255 * k),))
     im.alpha_composite(ov); d = ImageDraw.Draw(im)
-    d.text(((x0 + x1) / 2, y0 + 60), str(ev.get('titolo') or '').upper()[:28], font=font('Anton-Regular.ttf', 50), fill=CREMA, anchor='mm')
+    d.text(((x0 + x1) / 2, y0 + 72), str(ev.get('titolo') or '').upper()[:26], font=font('Anton-Regular.ttf', 68), fill=CREMA, anchor='mm')
     mx = max(float(v.get('valore') or 0) for v in voci) or 1
     for i, v in enumerate(voci):
-        y = y0 + 170 + i * 120; kb = ease(k * 1.6 - i * .2)
+        y = y0 + 210 + i * sp; kb = ease(k * 1.6 - i * .2)
         val = float(v.get('valore') or 0); col = ORO if str(v.get('lato')) == 'oro' else VERDE
-        d.text((x0 + 40, y - 42), str(v.get('testo') or '').upper()[:22], font=font('Poppins-Bold.ttf', 30), fill=(220, 225, 235), anchor='lm')
-        lw = 470 * val / mx * kb
-        d.rectangle([x0 + 40, y - 18, x0 + 40 + max(4, lw), y + 22], fill=col)
+        d.text((x0 + 44, y - 58), str(v.get('testo') or '').upper()[:22], font=font('Poppins-Bold.ttf', 42), fill=(225, 230, 240), anchor='lm')
+        lw = 560 * val / mx * kb
+        d.rectangle([x0 + 44, y - 24, x0 + 44 + max(6, lw), y + 34], fill=col)
         nv = ('%g' % round(val * kb, 1)) if val < 100 else '{:,}'.format(int(val * kb))
-        d.text((x0 + 60 + lw, y + 2), nv, font=font('Anton-Regular.ttf', 40), fill='white', anchor='lm')
+        d.text((x0 + 68 + lw, y + 5), nv, font=font('Anton-Regular.ttf', 64), fill='white', anchor='lm')
 
 
 # ---------- una scena = un pezzo di video (senza audio). Gira in parallelo su tutti i core.
@@ -568,6 +581,9 @@ def ingombro(ev, x, y):
     if tipo == 'etichetta':
         w = _largo(str(ev.get('testo') or '').upper()[:30], 58) + 60; h = 58 * .82
         return [(x - w / 2, y + 110 - h, x + w / 2 + 6, y + 110 + h + 7)]
+    if tipo == 'nome':
+        w = _largo(str(ev.get('testo') or '')[:24], 50) + 60; h = 50 * .82
+        return [(x - w / 2, y - h, x + w / 2 + 6, y + h + 7)]
     if tipo == 'numero':
         w = _largo(str(ev.get('testo') or '')[:14], 120) + 60; h = 120 * .82
         return [(x - w / 2, y - h, x + w / 2 + 6, y + h + 7)]
@@ -597,7 +613,7 @@ def impagina(eventi, tappe, dur, job):
             fissi.append((W / 2 - w / 2, H / 2 - 140 - 105, W / 2 + w / 2, H / 2 - 140 + 105))
         elif tipo == 'barre':
             n = len([v for v in (ev.get('voci') or []) if isinstance(v, dict)][:4])
-            fissi.append((1120, 200, 1860, 210 + 150 + 120 * n + 10))
+            bx_ = box_barre(max(1, n))[0]; fissi.append((bx_[0] - 10, bx_[1] - 10, bx_[2] + 10, bx_[3] + 10))
     if job.get('apertura'):
         fissi.append((W / 2 - 760, 90, W / 2 + 760, 320))
     giro = [(math.cos(a), math.sin(a)) for a in np.radians([90, 0, 180, 45, 135, 270, 315, 225, 20, 160, 340, 200])]
@@ -650,7 +666,7 @@ def impagina(eventi, tappe, dur, job):
             except Exception:
                 pass
             continue
-        if tipo not in ('icona', 'etichetta', 'numero', 'colonna') or ev.get('lon') is None:
+        if tipo not in ('icona', 'etichetta', 'numero', 'colonna', 'nome') or ev.get('lon') is None:
             continue
         # le inquadrature che la camera avra' mentre l'elemento e' a schermo (6 campioni + la piu' larga)
         ts = np.arange(ev['_t'] + .3, max(ev['_t'] + .31, dur), .2)
@@ -712,16 +728,37 @@ def vista_a(tappe, t, dur):
     return (v[0], v[1], v[2] * drift)
 
 
+def nomi_paesi(sc, job, v1, dur, eventi):
+    """Quando un paese si colora compare anche il suo NOME (al massimo i 2 piu' grandi, solo se si vedono e se non c'e' gia' un'etichetta uguale)."""
+    R = risorse(); fatti = {str(e.get('testo') or '').strip().upper() for e in eventi}
+    prima = set(job.get('oro_prima') or []) | set(job.get('verde_prima') or [])
+    cand = []
+    for cd in list(sc.get('oro') or []) + list(sc.get('verde') or []):
+        cd = str(cd).upper(); anelli = R['paesi'].get(cd) or []
+        nome = (R['nomi'].get(cd) or '').upper()
+        if cd in prima or not anelli or not nome or nome in fatti:
+            continue
+        r = max(anelli, key=len); lon, lat = float(r[:, 0].mean()), float(r[:, 1].mean())
+        cx, cy, wd = v1; hd = wd * H / W
+        if abs(lon - cx) > wd * .42 or abs(lat - cy) > hd * .42:
+            continue
+        cand.append((len(r), nome, lon, lat))
+    cand.sort(reverse=True)
+    return [{'tipo': 'nome', 'testo': n, 'lon': lo, 'lat': la, '_t': min(max(.5, dur - .8), 1.1 + i * .5), '_luogo': None}
+            for i, (_, n, lo, la) in enumerate(cand[:2])]
+
+
 def disegna_scena(job):
     sc, path = job['scena'], job['path']
     R = risorse(); dur = job['dur']; n = max(1, int(round(dur * FPS)))
     v0, v1 = camera(job.get('vista_prima') or sc.get('vista')), camera(sc.get('vista'))
     sep0 = 1.0 if job.get('epoca_prima') == 'antica' else 0.0
     sep1 = 1.0 if sc.get('epoca') == 'antica' else 0.0
-    nuv = nuvola(620) if sep0 != sep1 else None
+    nuv = nuvola(620) if (sep0 != sep1 and job.get('nuvole', True)) else None
     eventi = job['eventi']
-    for ev in eventi:   # luoghi sempre dentro la vista della scena
-        p = luogo(ev); ev['_luogo'] = dentro(p[0], p[1], v1) if p else None
+    eventi += nomi_paesi(sc, job, v1, dur, eventi)
+    for ev in eventi:   # luoghi sempre dentro la vista della scena (i nomi dei paesi non muovono la camera)
+        p = luogo(ev) if ev.get('tipo') != 'nome' else None; ev['_luogo'] = dentro(p[0], p[1], v1) if p else None
         if ev['_luogo'] and ev.get('lon') is not None:
             ev['lon'], ev['lat'] = ev['_luogo']
     if nuv is not None:   # cambio d'epoca: niente elementi sotto le nuvole che passano
@@ -772,8 +809,10 @@ def disegna_scena(job):
                 ultimo = ev.get('_pin') or ('base', ev['_luogo'])
             tipo = ev.get('tipo')
             try:
-                if tipo in ('icona', 'etichetta', 'numero', 'colonna') and ev.get('lon') is not None:
+                if tipo in ('icona', 'etichetta', 'numero', 'colonna', 'nome') and ev.get('lon') is not None:
                     x, y = pt(float(ev['lon']), float(ev['lat']))
+                if tipo == 'nome':   # nome del paese appena colorato
+                    etichetta(im, x, y, str(ev.get('testo') or '')[:24], k, 50, blocca=False)
                 if tipo == 'icona':
                     metti(im, icona(ev.get('icona'), 210), x, y + math.sin(t * 2.2 + ev['_t']) * 7, k)
                 elif tipo == 'etichetta':
@@ -837,7 +876,7 @@ def disegna_scena(job):
                 elif ev['tipo'] == 'anno':
                     r_ = (60, 60, 420, 260)
                 else:
-                    r_ = (1120, 200, 1860, 840)
+                    r_ = box_barre(max(1, len([v for v in (ev.get('voci') or []) if isinstance(v, dict)][:4])))[0]
                 if _urto((px - 42, py - 128, px + 42, py + 10), r_, 10):
                     py = r_[3] + 150 if r_[3] + 150 < H - 30 else py
                     if _urto((px - 42, py - 128, px + 42, py + 10), r_, 10):
@@ -1077,13 +1116,14 @@ def main():
     pop_t, whoosh_t, t_acc = [], [], 0.0
     jobs = []
     prima = {}
+    gia_antica = False
     for i, (s, v, d) in enumerate(zip(scene, voci, durs)):
         try:
             al = json.load(open(v[:-4] + '.json'))
         except Exception:
             al = {}
         evs = []
-        for k_, ev in enumerate([e for e in (s.get('eventi') or []) if isinstance(e, dict)][:5]):
+        for k_, ev in enumerate([e for e in (s.get('eventi') or []) if isinstance(e, dict)][:7]):
             te = tempo_parola(testi[i], ev.get('parola'), al, d)
             if te is None:
                 te = d * (k_ + 1) / (len(s.get('eventi') or []) + 1.5)
@@ -1091,7 +1131,9 @@ def main():
             pop_t.append(t_acc + ev['_t'])
         if i > 0 and camera(s.get('vista')) != camera(prima.get('vista')) and s.get('epoca') == prima.get('epoca'):
             whoosh_t.append(max(0, t_acc - .35))
-        job = {'scena': s, 'dur': d, 'eventi': evs, 'path': os.path.join(LAV, f'scena_{i:03d}.mp4'),
+        nuvole = s.get('epoca') == 'antica' and prima.get('epoca', s.get('epoca')) != 'antica' and not gia_antica
+        gia_antica = gia_antica or s.get('epoca') == 'antica'
+        job = {'scena': s, 'dur': d, 'eventi': evs, 'nuvole': nuvole, 'path': os.path.join(LAV, f'scena_{i:03d}.mp4'),
                'vista_prima': prima.get('vista'), 'epoca_prima': prima.get('epoca', s.get('epoca')), 'pin_prima_luogo': pin_luogo(prima),
                'oro_prima': prima.get('oro'), 'verde_prima': prima.get('verde')}
         if i == 0:
