@@ -43,12 +43,17 @@ jobs:
           path: risorse_mappe
           key: risorse-mappe-v1
 
-      - name: Programmi
-        timeout-minutes: 10
+      - name: FFmpeg (versione pronta, senza apt-get che a volte resta bloccato)
+        uses: FedericoCarboni/setup-ffmpeg@v3
+        with:
+          ffmpeg-version: release
+
+      - name: Programmi Python
+        timeout-minutes: 5
         run: |
-          sudo apt-get update -qq -o Acquire::Retries=3
-          sudo apt-get install -y -qq --no-install-recommends ffmpeg libcairo2
           pip install --quiet --break-system-packages --timeout 60 cairosvg
+          python3 -c "import cairosvg; print('cairosvg ok')" || (sudo apt-get install -y -qq --no-install-recommends libcairo2 && python3 -c "import cairosvg; print('cairosvg ok')")
+          ffmpeg -version | head -1 && ffprobe -version | head -1
 
       - name: Mappa, confini e caratteri (solo la prima volta)
         if: steps.memoria.outputs.cache-hit != 'true'
