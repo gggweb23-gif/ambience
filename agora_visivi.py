@@ -20,7 +20,7 @@ import render_kao as RK   # motore Pexels con i controlli, whisper, musica a rot
 
 W, H, FPS = 1920, 1080, 30
 DISS = 0.4   # secondi di dissolvenza tra due inquadrature
-ENC = ['-an', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '19', '-pix_fmt', 'yuv420p', '-r', str(FPS)]
+ENC = ['-an', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '16', '-pix_fmt', 'yuv420p', '-r', str(FPS)]
 LIB = os.path.join(os.getcwd(), 'libreria_agora')
 STORICO = os.path.join(LIB, 'storico.json')
 
@@ -407,7 +407,7 @@ def sfondo_stoico(scene, tempi_scene, voce, statue, titolo, cfg, stile, cartella
     # effetti globali: cenere scura (moltiplica) + braci (somma) + grana + vignettatura + logo
     fx = particelle(cartella)
     logo = logo_png(cfg.get('thumbnail_watermark_url') or stile.get('logo'), cartella)
-    grana = int(RK.num(stile.get('grana'), 4))
+    grana = int(RK.num(stile.get('grana'), 0))
     filtro = (f"[0:v]format=gbrp[b];[1:v]format=gbrp[p];[b][p]blend=all_mode=multiply:shortest=1[b2];"
               f"[2:v]format=gbrp[c];[b2][c]blend=all_mode=screen:shortest=1,format=yuv420p,"
               f"noise=alls={grana}:allf=t,vignette=angle=PI/4.6[v0]")
