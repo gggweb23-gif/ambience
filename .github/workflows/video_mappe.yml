@@ -80,7 +80,7 @@ jobs:
           RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
           YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
-          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN_RICHBORDERS }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN_MAIN_STREET_ATLAS }}
         run: python3 video_mappe.py
 
       - name: Salva il risultato
