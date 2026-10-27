@@ -36,18 +36,31 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Programmi, mappa, confini, caratteri
+      - name: Memoria di mappa, confini e caratteri (si scaricano una volta sola)
+        id: memoria
+        uses: actions/cache@v4
+        with:
+          path: risorse_mappe
+          key: risorse-mappe-v1
+
+      - name: Programmi
+        timeout-minutes: 10
         run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y -qq ffmpeg libcairo2 unzip
-          pip install --quiet --break-system-packages cairosvg numpy pillow
+          sudo apt-get update -qq -o Acquire::Retries=3
+          sudo apt-get install -y -qq --no-install-recommends ffmpeg libcairo2
+          pip install --quiet --break-system-packages --timeout 60 cairosvg
+
+      - name: Mappa, confini e caratteri (solo la prima volta)
+        if: steps.memoria.outputs.cache-hit != 'true'
+        timeout-minutes: 10
+        run: |
           mkdir -p risorse_mappe/tw /tmp/w
-          pip download --quiet basemap-data==2.0.0 --no-deps -d /tmp/w
+          pip download --quiet --timeout 60 basemap-data==2.0.0 --no-deps -d /tmp/w
           unzip -q -j /tmp/w/basemap_data-2.0.0-py3-none-any.whl 'mpl_toolkits/basemap_data/shadedrelief.jpg' -d risorse_mappe
-          curl -sSfL -o risorse_mappe/paesi50.geojson https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_50m_admin_0_countries.geojson
-          curl -sSfL -o risorse_mappe/Anton-Regular.ttf https://raw.githubusercontent.com/google/fonts/main/ofl/anton/Anton-Regular.ttf
-          curl -sSfL -o risorse_mappe/Poppins-Bold.ttf https://raw.githubusercontent.com/google/fonts/main/ofl/poppins/Poppins-Bold.ttf
-          curl -sSfL -o risorse_mappe/Poppins-ExtraBold.ttf https://raw.githubusercontent.com/google/fonts/main/ofl/poppins/Poppins-ExtraBold.ttf
+          curl -sSfL --retry 3 --max-time 120 -o risorse_mappe/paesi50.geojson https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_50m_admin_0_countries.geojson
+          curl -sSfL --retry 3 --max-time 60 -o risorse_mappe/Anton-Regular.ttf https://raw.githubusercontent.com/google/fonts/main/ofl/anton/Anton-Regular.ttf
+          curl -sSfL --retry 3 --max-time 60 -o risorse_mappe/Poppins-Bold.ttf https://raw.githubusercontent.com/google/fonts/main/ofl/poppins/Poppins-Bold.ttf
+          curl -sSfL --retry 3 --max-time 60 -o risorse_mappe/Poppins-ExtraBold.ttf https://raw.githubusercontent.com/google/fonts/main/ofl/poppins/Poppins-ExtraBold.ttf
           ls -la risorse_mappe
 
       - name: Crea il video
