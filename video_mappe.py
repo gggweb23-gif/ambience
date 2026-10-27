@@ -232,6 +232,9 @@ Reply ONLY with valid JSON:
             c = json.loads(t[t.find('{'): t.rfind('}') + 1])
             if not c.get('scene'):
                 raise ValueError('copione senza scene')
+            n_par = sum(len(str(sc_.get('testo', '')).split()) for sc_ in c['scene'])
+            if n_par < parole * .6:   # copione troncato o troppo corto: si rifa' (mai un video da pochi secondi)
+                raise ValueError(f'copione troppo corto: {len(c["scene"])} scene, {n_par} parole su {parole} richieste')
             log('copione:', len(c['scene']), 'scene,', sum(len(str(s.get('testo', '')).split()) for s in c['scene']), 'parole')
             return c
         except Exception as e:
