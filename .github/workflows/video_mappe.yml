@@ -51,7 +51,7 @@ jobs:
       - name: Programmi Python
         timeout-minutes: 5
         run: |
-          pip install --quiet --break-system-packages --timeout 60 cairosvg
+          pip install --quiet --break-system-packages --timeout 60 cairosvg numpy pillow
           python3 -c "import cairosvg; print('cairosvg ok')" || (sudo apt-get install -y -qq --no-install-recommends libcairo2 && python3 -c "import cairosvg; print('cairosvg ok')")
           ffmpeg -version | head -1 && ffprobe -version | head -1
 
