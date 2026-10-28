@@ -1,0 +1,34 @@
+name: Copertine Competitor
+
+# Gratis: scarica titoli e copertine degli ultimi video di un canale YouTube (strumenti/copertine_competitor.py).
+on:
+  workflow_dispatch:
+    inputs:
+      payload:
+        description: 'JSON con nome e canale_id'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  copertine:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Scarica copertine
+        env:
+          PAYLOAD: ${{ inputs.payload }}
+        run: pip install -q pillow && python3 strumenti/copertine_competitor.py
+      - name: Salva nel repository
+        if: ${{ always() }}
+        run: |
+          if [ -n "$(git status --porcelain copertine_competitor)" ]; then
+            git config user.name "render-bot"
+            git config user.email "render-bot@users.noreply.github.com"
+            git add copertine_competitor
+            git commit -m "Copertine competitor"
+            for i in 1 2 3 4 5; do git pull --rebase -q && git push && break; sleep $((i * 5)); done
+          fi
