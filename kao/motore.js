@@ -9,8 +9,8 @@
 
    1) testo del competitor (RapidAPI)            6) voce ElevenLabs scena per scena
    2) leve psicologiche (Bias Analyzer)           7) scene tipografiche di riserva (Pexels a vuoto)
-   3) copione a blocchi con Claude                8) montaggio: render_kao.py (come prima)
-   4) tag del video originale + testo copertina   9) copertina: copertine_cinema_kao.py (come prima, in parallelo)
+   3) copione a blocchi con Claude                8) montaggio: render_kao.py (KAO) o render_filosofo.py (Agora)
+   4) tag del video originale + testo copertina   9) copertina: copertine_cinema_kao.py oppure quella di sempre (n8n)
    5) SEO (descrizione, tag, commento)           10) caricamento YouTube, copertina, primo commento, playlist
  Alla fine avvisa n8n (webhook github-fatto) e il workflow "GitHub Video" aggiorna il foglio e salva su Drive.
 
@@ -247,10 +247,13 @@ async function main() {
     if (!n) throw new Error('STOP: trascrizione del competitor vuota (' + JSON.stringify(trascr).slice(0, 200) + ')');
   } else trascr = (await codice('Nessuna Trascrizione', [J({})]))[0].json;
   // ---- copioni di riferimento (cartella Drive scripts_examples_folder_id, copiata nel repository in esempi_copioni/<id cartella>)
-  const cart = path.join(ROOT, 'esempi_copioni', String(cfg.scripts_examples_folder_id || '').trim());
-  const blocchi = fs.existsSync(cart) ? fs.readdirSync(cart).filter(f => f.endsWith('.txt')).sort()
-    .map(f => '========== ' + f.replace(/^\d+_/, '').replace(/\.txt$/, '') + ' ==========\n\n' + fs.readFileSync(path.join(cart, f), 'utf8').trim()) : [];
-  if (!blocchi.length) log('ATTENZIONE: nessun copione di riferimento in', cart);
+  // (anche file sciolti in esempi_copioni che iniziano con "<id cartella>__", piu' comodi da caricare da GitHub)
+  const idCart = String(cfg.scripts_examples_folder_id || '').trim(), base = path.join(ROOT, 'esempi_copioni'), cart = path.join(base, idCart);
+  const fileEsempi = idCart ? [...(fs.existsSync(cart) ? fs.readdirSync(cart).map(f => [f, path.join(cart, f)]) : []),
+    ...(fs.existsSync(base) ? fs.readdirSync(base).filter(f => f.startsWith(idCart + '__')).map(f => [f.slice(idCart.length + 2), path.join(base, f)]) : [])] : [];
+  const blocchi = fileEsempi.filter(([f]) => f.endsWith('.txt')).sort((a, b) => a[0].localeCompare(b[0]))
+    .map(([f, p]) => '========== ' + f.replace(/^\d+_/, '').replace(/\.txt$/, '') + ' ==========\n\n' + fs.readFileSync(p, 'utf8').trim());
+  if (!blocchi.length) log('ATTENZIONE: nessun copione di riferimento per la cartella', idCart);
   const ref = blocchi.slice(0, 3).join('\n\n---\n\n');
   metti('Code in JavaScript3', [J({ referenceBlock: ref, exampleCount: blocchi.length, totalChars: ref.length })]);
   metti('Merge', [J({ ...trascr, referenceBlock: ref, exampleCount: blocchi.length, totalChars: ref.length })]);
@@ -291,7 +294,7 @@ async function main() {
     copertinaFatta = python('copertine_cinema_kao.py', {
       PAYLOAD: JSON.stringify({ id: RUN_ID, titolo: sw.titolo_italiano, link_competitor: riga['Link video'], resume_url: `http://127.0.0.1:${PORTA}/risposta/copertina` }),
       APPLICA: 'NO', STILE: 'piatto', SFONDO_TESTO: 'fumetto', PROVA_SFONDI: 'NO', RIFAI: 'NO', COACH: 'NO', MAX_VIDEO: '5' }, 'copertina');
-  } else if (!saltaCop) log('ATTENZIONE: copertina_github non e\' SI: su GitHub c\'e\' solo la copertina di copertine_cinema_kao.py');
+  }
 
   // ---- 4) tag del video originale + testo della copertina del competitor
   try {
@@ -375,32 +378,53 @@ async function main() {
   await codice('Collect Card URLs', [J({})]);
   metti('Prepara Foto Cornice', [J({ _sentinel: true })]);
   await codice('Raccogli Foto Cornice', [J({})]);
-  const prep = await codice('Prepara Render GitHub', [J({})]);
+  // formato del montaggio: render_workflow = kao_render.yml -> render_kao.py (KAO); filosofo.yml o vuoto -> render_filosofo.py (Agora of Sages)
+  const KAO = String(cfg.render_workflow || '').toLowerCase().includes('kao');
+  // per il formato "filosofo" Prepara Render GitHub legge le scene dal JSON di json2video: qui lo ricostruisco con gli stessi dati
+  // (voce e clip di ogni scena + musica del canale con lo stesso volume del vecchio nodo "Code in JavaScript")
+  const _mv = Number(String(cfg.brand_music_volume ?? '').replace(',', '.'));
+  const volMusica = (String(cfg.brand_music_volume ?? '').trim() === '' || Number.isNaN(_mv)) ? 0.035 : (_mv > 1 ? _mv / 100 : _mv);
+  const j2v = KAO ? {} : { scenes: (agg.url_audio || []).map((a, i) => ({ elements: [{ type: 'audio', src: a },
+      ...(agg.url_immagine && agg.url_immagine[i] ? [{ type: 'video', width: 1920, src: agg.url_immagine[i], start: 0 }] : [])] })),
+    elements: String(cfg.brand_music_url || '').trim() ? [{ type: 'audio', src: String(cfg.brand_music_url).trim(), volume: volMusica }] : [] };
+  const prep = await codice('Prepara Render GitHub', [J(j2v)]);
   const dati = JSON.parse(Buffer.from(prep[0].binary.data.data, 'base64').toString('utf8'));
   for (const s of dati.scene) { const m = String(s.audio || '').match(/id=(GHKAO_[^&]+)/); if (m) s.audio = urlLocale(m[1]); }
   if (String(cfg.effetti_github || '').trim().toUpperCase() === 'SI') log('ATTENZIONE: effetti_github = SI non e\' previsto qui (servirebbe json2video): montaggio senza effetti');
 
-  // ---- 8) montaggio (render_kao.py, invariato)
-  log('montaggio:', dati.scene.length, 'scene');
-  const rr = await python('render_kao.py', { PAYLOAD: JSON.stringify({ id: RUN_ID, dati, resume_url: `http://127.0.0.1:${PORTA}/risposta/render` }), DRY_RUN: '0',
+  // ---- 8) montaggio (render_kao.py o render_filosofo.py, invariati)
+  log('montaggio', KAO ? 'KAO' : 'filosofo', ':', dati.scene.length, 'scene');
+  const risposta = `http://127.0.0.1:${PORTA}/risposta/render`;
+  let rr;
+  if (KAO) rr = await python('render_kao.py', { PAYLOAD: JSON.stringify({ id: RUN_ID, dati, resume_url: risposta }), DRY_RUN: '0',
     LINGUA: String(cfg.language || 'it'), WHISPER_MODEL: E('WHISPER_MODEL', 'small') }, 'render');
+  else {
+    fs.writeFileSync(path.join(SERVER_DIR, 'dati_render.json'), JSON.stringify(dati));
+    rr = await python('render_filosofo.py', { PAYLOAD: JSON.stringify({ id: RUN_ID, dati_url: urlLocale('dati_render.json'), resume_url: risposta }), DRY_RUN: '0',
+      WHISPER_MODEL: E('WHISPER_MODEL', 'small') }, 'render');
+  }
   const movie = (rr.risposta || {}).movie || {};
   if (movie.status !== 'done') throw new Error('montaggio non riuscito: ' + (movie.message || 'codice ' + rr.code));
   metti('Attendi Render GitHub', [J({ body: rr.risposta })]);
   await codice('Risultato Render GitHub', OUT['Attendi Render GitHub']);
-  const fileVideo = path.join(ROOT, 'lavoro_kao', 'video_finale.mp4');
+  const fileVideo = path.join(ROOT, KAO ? 'lavoro_kao' : 'lavoro_filosofo', 'video_finale.mp4');
   log('video:', Math.round(movie.duration / 6) / 10, 'minuti');
   metti('Upload file2', [J({ id: '' })]);
   await codice('Build Prompt Manuale', [J({})]);
 
   // ---- copertina: aspetto il programma partito in parallelo
-  let copertina = null, urlCop = '';
+  let copertina = null, urlCop = '', tipoCop = 'image/jpeg';
   if (copertinaFatta) {
     const rc = await copertinaFatta;
     metti('Attendi Copertina GitHub', [J({ body: rc.risposta || {} })]);
     const ris = (await codice('Risultato Copertina GitHub', OUT['Attendi Copertina GitHub']))[0].json;
-    if (ris.ok) { urlCop = ris.url; copertina = await richiesta(ris.url, { tipo: 'buffer' }); log('copertina pronta'); }
-    else log('ATTENZIONE: copertina non creata: il video viene caricato con la copertina automatica di YouTube');
+    if (ris.ok) { urlCop = ris.url; copertina = await richiesta(ris.url, { tipo: 'buffer' }); tipoCop = 'image/jpeg'; log('copertina pronta'); }
+    else log('copertina GitHub non riuscita: faccio la copertina di sempre (Nano Banana + scritta)');
+  }
+  // copertina "di sempre" (come n8n: Nano Banana Thumbnail -> Build Thumbnail Payload -> immagine della pagina HTML), anche come riserva di quella GitHub
+  if (!copertina && !saltaCop) {
+    try { const c = await copertinaN8n(cfg); copertina = c; tipoCop = 'image/png'; urlCop = await falCarica(c, 'image/png', 'copertina.png'); log('copertina pronta (stile di sempre)'); }
+    catch (e) { log('ATTENZIONE: copertina non creata (' + e.message.slice(0, 150) + '): il video viene caricato con la copertina automatica di YouTube'); }
   }
 
   // ---- campi del foglio (Update row in sheet1, stesse formule)
@@ -430,13 +454,45 @@ async function main() {
   }
   const vid = await caricaYouTube(fileVideo, cfg, colonne);
   const note = [];
-  if (copertina) { try { await yt('https://www.googleapis.com/upload/youtube/v3/thumbnails/set?videoId=' + vid, { metodo: 'POST', corpo: copertina, headers: { 'Content-Type': 'image/jpeg' } }); }
+  if (copertina) { try { await yt('https://www.googleapis.com/upload/youtube/v3/thumbnails/set?videoId=' + vid, { metodo: 'POST', corpo: copertina, headers: { 'Content-Type': tipoCop } }); }
     catch (e) { note.push('copertina non caricata: ' + e.message.slice(0, 120)); } }
   if (colonne.frase_commento) { try { await yt('https://www.googleapis.com/youtube/v3/commentThreads?part=snippet', { metodo: 'POST',
     corpo: { snippet: { videoId: vid, topLevelComment: { snippet: { textOriginal: colonne.frase_commento } } } } }); } catch (e) { note.push('primo commento non pubblicato'); } }
   if (!PROVA) { try { extra.playlist = await playlist(vid, cfg, extra.titolo, extra.descrizione); } catch (e) { note.push('playlist: ' + e.message.slice(0, 100)); } }
   await avvisa({ stato: PROVA ? 'PROVA OK' : 'PUBBLICATO', video_id: vid, link: 'https://www.youtube.com/watch?v=' + vid,
     pubblica_il: PROVA ? '' : (P.pubblica_il || ''), errore: note.join('; '), ...extra });
+}
+
+// copertina come la faceva n8n: immagine Nano Banana (o la scena del video, per Agora) + pagina HTML del nodo "Build Thumbnail Payload"
+// trasformata in immagine con Chromium (al posto del servizio hcti.io: stesso motore, stesso risultato)
+async function copertinaN8n(cfg) {
+  const scena = (((OUT['Risultato Render GitHub'] || [])[0] || { json: {} }).json.movie || {}).scena_url;
+  if (scena) metti('Nano Banana Thumbnail', [J({})]);   // c'e' gia' l'immagine della scena del video: niente spesa in piu'
+  else {
+    const p = WF['Nano Banana Thumbnail'].params, ctx = { items: [J({})], itemIndex: 0 };
+    try { metti('Nano Banana Thumbnail', [J(await richiesta(valuta(p.url, ctx), { metodo: 'POST', corpo: JSON.parse(valuta(p.jsonBody, ctx)), timeout: 600000,
+      headers: { Authorization: 'Key ' + E('FAL_KEY') } }))]); }
+    catch (e) { log('Nano Banana non riuscito:', e.message.slice(0, 120)); metti('Nano Banana Thumbnail', [J({})]); }
+  }
+  const wm = (String(cfg.thumbnail_watermark_url || '').match(/[-\w]{25,}/) || [''])[0];
+  if (wm) {
+    try { const b = await richiesta('https://drive.usercontent.google.com/download?id=' + wm + '&export=download&confirm=t', { tipo: 'buffer' });
+      metti('Download Watermark', [{ json: {}, binary: { data: { data: b.toString('base64'), mimeType: 'image/png' } } }]); }
+    catch (e) { log('watermark non scaricato:', e.message.slice(0, 100)); metti('Download Watermark', [{ json: {}, binary: {} }]); }
+  } else metti('Download Watermark', [{ json: {}, binary: {} }]);
+  const pl = (await codice('Build Thumbnail Payload', OUT['Download Watermark']))[0].json;
+  const html = path.join(LAVORO, 'copertina.html'), png = path.join(LAVORO, 'copertina.png');
+  fs.writeFileSync(html, pl.html);
+  const r = await new Promise(ok => { const p = spawn('python3', [path.join(__dirname, 'html_png.py'), html, png, String(pl.viewport_width || 1280),
+    String(pl.viewport_height || 720), String(pl.ms_delay || 5000), String(pl.selector || '.container')], { stdio: 'inherit' }); p.on('close', ok); });
+  if (r !== 0 || !fs.existsSync(png)) throw new Error('immagine della copertina non creata');
+  return fs.readFileSync(png);
+}
+async function falCarica(buf, tipo, nome) {
+  const ini = await richiesta('https://rest.alpha.fal.ai/storage/upload/initiate?storage_type=fal-cdn-v3', { metodo: 'POST',
+    corpo: { content_type: tipo, file_name: nome }, headers: { Authorization: 'Key ' + E('FAL_KEY') } });
+  await richiesta(ini.upload_url, { metodo: 'PUT', corpo: buf, headers: { 'Content-Type': tipo }, tipo: 'risposta' });
+  return ini.file_url;
 }
 
 // REGOLA DI TUTTI I CANALI: i tag del video originale vanno nella LINGUA DEL CANALE (stessa lingua = restano uguali),
