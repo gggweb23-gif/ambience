@@ -1021,6 +1021,8 @@ _SL = {}
 
 def suono_lib(cat):
     """Suono vero della libreria (monete, nave, folla...) come array mono a SR; None se non c'e'."""
+    if cat in ('persona', 'folla'):   # niente brusio di folla quando compaiono le persone: basta il "pop" morbido
+        return None
     if cat in _SL:
         return _SL[cat]
     f = os.path.join(LIB, 'suoni', cat + '.mp3'); sig = None
