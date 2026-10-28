@@ -187,7 +187,7 @@ def copione(comp):
     n_scene = max(8, round(parole / 20))
     lib_img = LIB_IND.get('immagini') or {}
     personaggi = ', '.join(sorted(n for n, c in lib_img.items() if c == 'persona')) or 'family, soldier, worker'
-    icone = ', '.join(sorted(n for n, c in lib_img.items() if c != 'persona')) + ', ' + ', '.join(sorted(n for n in ICONE if n not in ALIAS_LIB)) if lib_img else ', '.join(sorted(ICONE))
+    icone = ', '.join(sorted(n for n, c in lib_img.items() if c != 'persona')) if lib_img else ', '.join(sorted(ICONE))   # solo disegni della libreria (niente emoji)
     prompt = f"""You write videos for the YouTube channel RICH BORDERS ("Every border has a price."): economic history and geopolitics explained with ANIMATED MAPS, in the style of the channel "Fortune of Nations".
 
 ORIGINAL VIDEO TO COPY (title: "{comp.get('titolo') or ''}"). Keep ~80% of it: the SAME topic, the same story structure, the same facts, numbers and examples, the same hook.
@@ -346,7 +346,8 @@ ALIAS_LIB = {'gold': 'gold_coins', 'coin': 'gold_coins', 'silver': 'silver_bars'
              'ship': 'galleon', 'sailboat': 'galleon', 'container': 'cargo_ship', 'crown': 'crown', 'mine': 'mine', 'farm': 'farm', 'factory': 'factory',
              'house': 'cabin', 'school': 'school', 'church': 'church', 'law': 'scroll_law', 'scroll': 'scroll_law', 'vote': 'ballot_box', 'tax': 'scroll_law',
              'train': 'steam_train', 'sword': 'swords', 'gun': 'cannon', 'soldier': 'soldier', 'people': 'family', 'oil': 'oil_derrick', 'sugar': 'sugar_cane',
-             'coffee': 'coffee_sack', 'cow': 'cattle', 'clock': 'hourglass', 'chart_up': 'chart_up', 'chart_down': 'chart_down', 'bank': 'banker'}
+             'coffee': 'coffee_sack', 'cow': 'cattle', 'clock': 'hourglass', 'chart_up': 'chart_up', 'chart_down': 'chart_down', 'bank': 'banker',
+             'tree': 'forest', 'skull': 'grave', 'volcano': 'mountain', 'desert': 'mountain', 'island': 'port', 'temple': 'church', 'tent': 'fortress', 'pyramid': 'mountain'}
 CATEGORIE_SUONO = dict(LIB_IND.get('immagini') or {})
 
 
@@ -359,6 +360,10 @@ def nome_lib(nome):
 def icona(nome, size):
     nome = str(nome or '').strip().lower()
     lib = nome_lib(nome)
+    if not lib and (LIB_IND.get('immagini') or {}) and not nome.startswith('flag:'):   # con la libreria: niente emoji "economiche"
+        lib = ALIAS_LIB.get(nome) if ALIAS_LIB.get(nome) in (LIB_IND.get('immagini') or {}) else ''
+        if not lib:
+            return Image.new('RGBA', (2, 2), (0, 0, 0, 0))
     if lib:   # disegno della libreria (personaggi e oggetti illustrati)
         k = ('lib', lib, size)
         if k not in _IC:
@@ -642,7 +647,7 @@ def ingombro(ev, x, y):
     if tipo == 'icona':
         return [(x - 135, y - 140, x + 135, y + 140)]
     if tipo == 'folla':
-        return [(x - 210, y - 150, x + 210, y + 150)]
+        return [(x - 250, y - 170, x + 250, y + 170)]
     if tipo == 'etichetta':
         w = _largo(str(ev.get('testo') or '').upper()[:30], 58) + 60; h = 58 * .82
         return [(x - w / 2, y + 110 - h, x + w / 2 + 6, y + 110 + h + 7)]
@@ -897,7 +902,7 @@ def disegna_scena(job):
                         kj = ease((t - ev['_t'] - j * .12) / .3) * fine
                         if kj > 0:
                             dx_, dy_ = FOLLA_POS[j]
-                            metti(im, icona(ev.get('personaggio') or 'family', 150), x + dx_ * 88, y + dy_ * 62, kj)
+                            metti(im, icona(ev.get('personaggio') or 'family', 185), x + dx_ * 105, y + dy_ * 72, kj)
                 elif tipo == 'contatore':
                     contatore(im, ev, (t - ev['_t']), fine)
                 elif tipo == 'etichetta':

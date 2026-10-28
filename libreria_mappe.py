@@ -72,6 +72,19 @@ VISIVI = {
     'hourglass': ('tempo', 'an antique wooden hourglass with golden sand'),
     'chart_down': ('calo', 'a red 3D arrow chart going down'),
     'chart_up': ('crescita', 'a green 3D arrow chart going up'),
+    # paesaggi e simboli (sostituiscono le ultime emoji)
+    'mountain': ('alza', 'a big rocky snowy mountain peak'),
+    'forest': ('carta', 'a small cluster of dark green pine trees'),
+    'river': ('nave', 'a winding blue river with small waves'),
+    'question': ('tempo', 'a big glossy red question mark'),
+    'castle': ('guerra', 'a stone medieval castle with towers and flags'),
+    'fortress': ('guerra', 'a wooden frontier fort with a palisade'),
+    'wheat': ('lavoro', 'a golden wheat field patch with a sheaf of wheat'),
+    'grave': ('calo', 'a simple stone grave with a small cross'),
+    'bridge': ('casa', 'an old stone arch bridge'),
+    'port': ('nave', 'a small harbour with a wooden pier and a crane'),
+    'tsar': ('persona', 'a Russian tsar with a fur crown, a long red coat with gold trim and a sceptre'),
+    'peasant': ('persona', 'a poor Russian peasant in a linen shirt and bast shoes with a scythe'),
 }
 
 # suoni (ElevenLabs sound effects): nome -> (descrizione, secondi)
