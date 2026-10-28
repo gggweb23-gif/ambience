@@ -218,7 +218,7 @@ For EVERY scene you also direct the MAP (equirectangular world map with shaded r
 - "pin": where Pin (our red map-pin mascot) stands: {{"lon":..,"lat":..,"faccia":"normale" or "stupito"}} (inside the vista, not covering the main event; "stupito" on shocking numbers).
 
 ALSO WRITE:
-- "titolo": YouTube title, same idea and structure as the original title (max 70 characters), Title Case.
+- "titolo": YouTube title ~90% IDENTICAL to the original title: same structure, same keywords, same question/promise, same countries; change only 1-2 words (a synonym or a tiny rewording) so it is not a 1:1 copy. Max 70 characters, Title Case.
 - "numero": THE number of the video, shown big at the start and the end: {{"testo":"x8","sotto":"THE GAP BETWEEN TWO AMERICAS (max 6 words)"}}.
 - "copertina": thumbnail like the original's idea: {{"testo":"WHY?" (1-3 words, CAPS),"oro":[ISO-3],"verde":[ISO-3],"vista":{{"lon":..,"lat":..,"larghezza":..}}}}.
 - "descrizione": 2 short paragraphs for YouTube (no links, no hashtags).
@@ -1000,6 +1000,122 @@ def copertina(c, path):
     return path
 
 
+COLORI_COP = {   # copertina "fluo": colori pieni e accesi (come i competitor), con bagliore attorno ai paesi
+    'oro': (255, 204, 0), 'verde': (0, 214, 200), 'rosso': (255, 40, 60), 'lime': (90, 255, 60), 'ruggine': (214, 80, 30)}
+
+
+def mezza_mappa(vista, colori, Wm, Hm, glow=True):
+    """Una porzione di mappa (Wm x Hm) con i paesi colorati pieni e un bagliore attorno (stile fluo)."""
+    v = camera(vista)
+    try:   # la copertina puo' stringere piu' del video (immagine ferma): fino a 18 gradi
+        richiesta = float((vista or {}).get('larghezza'))
+        if richiesta < v[2]:
+            v = (v[0], v[1], max(18.0, richiesta))
+    except Exception:
+        pass
+    base, pt = fondo(v, 0.0)
+    if v[2] < 40:
+        base = base.filter(ImageFilter.UnsharpMask(radius=2, percent=80, threshold=2))
+    base = ImageEnhance.Contrast(ImageEnhance.Color(base).enhance(1.45)).enhance(1.12)
+    im = base.convert('RGBA')
+    for nome, codici in colori.items():
+        polys = anelli_visibili(codici, pt)
+        if not polys:
+            continue
+        col = COLORI_COP.get(nome, ORO)
+        if glow:
+            g = Image.new('L', (W, H), 0); dg = ImageDraw.Draw(g)
+            for xy in polys:
+                dg.line(xy + [xy[0]], fill=255, width=26)
+            g = g.filter(ImageFilter.GaussianBlur(14))
+            im.alpha_composite(Image.merge('RGBA', [Image.new('L', (W, H), c_) for c_ in col] + [g.point(lambda x: int(x * .9))]))
+        m = Image.new('L', (W, H), 0); dm = ImageDraw.Draw(m)
+        for xy in polys:
+            dm.polygon(xy, fill=255)
+        chiaro = ImageEnhance.Brightness(ImageOps.grayscale(base).convert('RGB')).enhance(1.55)
+        tinta = ImageChops.multiply(chiaro, Image.new('RGB', (W, H), col))
+        tinta = ImageEnhance.Color(tinta).enhance(1.3)
+        im.paste(tinta.convert('RGBA'), (0, 0), m)
+        d = ImageDraw.Draw(im)
+        for xy in polys:
+            d.line(xy + [xy[0]], fill=(255, 255, 255, 200), width=3)
+    cx = (W - Wm) // 2
+    return im.crop((cx, (H - Hm) // 2, cx + Wm, (H - Hm) // 2 + Hm))
+
+
+def riquadro(im, x, y, testo, fs, col_testo=(255, 255, 255), bordo=(225, 30, 35)):
+    d = ImageDraw.Draw(im); f = font('Anton-Regular.ttf', fs); w = d.textlength(testo, font=f); h = fs * .82
+    d.rectangle([x - w / 2 - 42, y - h / 2 - 34, x + w / 2 + 42, y + h / 2 + 38], fill=bordo)
+    d.rectangle([x - w / 2 - 32, y - h / 2 - 24, x + w / 2 + 32, y + h / 2 + 28], fill=(0, 0, 0))
+    d.text((x, y), testo, font=f, fill=col_testo, anchor='mm')
+
+
+PATTERN_COP = ('Patterns of this niche that get the most clicks (use them for the 10% you change): split screen with a red vertical line comparing two places; '
+               'whole country silhouettes filled with flat FLUO colours (lime green = the rich/winner side, rust orange-red = the poor/loser side, red = the one country in focus); '
+               'one huge short word in a black box (WHY?, BREXIT WINNER); a striking real number or comparison (8x RICHER, $3 TRILLION, 109M PEOPLE, 1 vs 18?).')
+
+
+def piano_copertina(comp, c):
+    """Claude GUARDA la copertina del competitor e la descrive nel nostro schema: 90% uguale (stessa divisione, stessi paesi, stessi colori,
+    stessa scritta), 10% da pattern che funzionano (un numero vero del copione, Pin). Restituisce il dizionario per copertina_nuova()."""
+    img = None
+    for q in ('maxresdefault', 'hqdefault'):
+        try:
+            b = http(f'https://i.ytimg.com/vi/{comp["id"]}/{q}.jpg', raw=True); Image.open(io.BytesIO(b)).verify(); img = b; break
+        except Exception:
+            pass
+    if not img:
+        raise RuntimeError('copertina competitor non scaricata')
+    buf = io.BytesIO(); Image.open(io.BytesIO(img)).convert('RGB').resize((960, 540)).save(buf, 'JPEG', quality=88)
+    numeri = '; '.join(str(e.get('testo')) for s_ in c.get('scene') or [] for e in (s_.get('eventi') or []) if e.get('tipo') in ('numero', 'barre') and e.get('testo'))[:400]
+    domanda = (f'This is the thumbnail of a very successful YouTube video ("{comp.get("titolo") or ""}"). Our video copies it: our thumbnail must be 90% IDENTICAL '
+               '(same composition, same places, same colours, same words), 10% ours. ' + str(P.get('copertina_pattern') or PATTERN_COP) + '\n'
+               f'Real numbers said in our video (use one ONLY if it fits and the original has a number or none at all): {numeri or "none"}\n'
+               'Describe how to redraw it on our world map. Answer ONLY JSON:\n'
+               '{"sinistra":{"vista":{"lon":..,"lat":..,"larghezza":..},"colori":{"lime":[ISO-3],"ruggine":[ISO-3],"rosso":[ISO-3]}},'
+               '"destra":{same as sinistra},"unica":null,"testo":"EXACT words of the original thumbnail text, in CAPS (max 3 words)","testo_lato":"destra or sinistra",'
+               '"extra":"a short real number/comparison from our video (max 12 chars) or empty"}\n'
+               'Rules: if the original is NOT split in two, put the whole map in "unica" (same format as sinistra) and set sinistra/destra to null. '
+               '"larghezza" = degrees of longitude shown in THAT half (or in the whole image for "unica") so that the countries appear WHOLE and big like in the original '
+               '(e.g. USA alone ~100, South America ~128, Europe ~70, one small country ~25). Colour keys: use the colour family of the original '
+               '(green-like -> lime, brown/orange/red-brown -> ruggine, bright red -> rosso, yellow -> oro). Only countries that are coloured in the original.')
+    rr = http('https://api.anthropic.com/v1/messages', {'model': MODELLO_AI, 'max_tokens': 3000, 'messages': [{'role': 'user', 'content': [
+        {'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}},
+        {'type': 'text', 'text': domanda}]}]}, {'x-api-key': E('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01'}, timeout=300)
+    tt = ''.join(b_.get('text', '') for b_ in rr.get('content', []))
+    cp = json.loads(tt[tt.find('{'): tt.rfind('}') + 1])
+    log('copertina come il competitor:', json.dumps(cp, ensure_ascii=False)[:300])
+    return cp
+
+
+def copertina_nuova(cp, path):
+    """Copertina nello schema dei competitor (90% uguale): schermo diviso con linea rossa (o mappa unica), paesi fluo,
+    scritta del competitor enorme in riquadro nero, eventuale numero/confronto giallo, Pin piccolo (il nostro 10%)."""
+    sx, dx = cp.get('sinistra') or {}, cp.get('destra') or {}
+    if sx and dx:
+        L = mezza_mappa(sx.get('vista'), sx.get('colori') or {}, W // 2, H); R = mezza_mappa(dx.get('vista'), dx.get('colori') or {}, W // 2, H)
+        im = Image.new('RGBA', (W, H)); im.paste(L, (0, 0)); im.paste(R, (W // 2, 0))
+        d = ImageDraw.Draw(im); d.rectangle([W // 2 - 14, 0, W // 2 + 14, H], fill=(0, 0, 0)); d.rectangle([W // 2 - 8, 0, W // 2 + 8, H], fill=(235, 30, 40))
+        lato_testo = 'destra' if cp.get('testo_lato', 'destra') != 'sinistra' else 'sinistra'
+    else:
+        unica = cp.get('unica') or sx or dx or {}
+        im = mezza_mappa(unica.get('vista') or cp.get('vista'), unica.get('colori') or {}, W, H)
+        lato_testo = cp.get('testo_lato') or 'destra'
+    testo = str(cp.get('testo') or 'WHY?').upper()[:18]
+    fs = 260 if len(testo) <= 6 else (200 if len(testo) <= 10 else 150)
+    xt = W * (.74 if lato_testo == 'destra' else .26)
+    riquadro(im, xt, H * .60, testo, fs)   # mai nell'angolo in basso a destra (durata del video)
+    extra = str(cp.get('extra') or '').upper()[:14]
+    if extra:
+        riquadro(im, W * (.25 if lato_testo == 'destra' else .75), H * .16, extra, 150, (255, 214, 0), (0, 0, 0))
+    if sx and dx:
+        pin(im, W // 2, H * .52, 2.4, 'stupito', 0)   # Pin sulla linea rossa
+    else:   # mappa unica: Pin di lato, mai sopra il paese in evidenza ne' sulla durata del video
+        pin(im, W * (.12 if lato_testo == 'destra' else .90), H * .42, 2.4, 'stupito', 0)
+    im.convert('RGB').resize((1280, 720), Image.LANCZOS).save(path, quality=93)
+    return path
+
+
 # ============================================================ YOUTUBE + avviso a n8n
 EXTRA, INFO_COMP = {}, {}
 
@@ -1086,7 +1202,7 @@ def metti_in_playlist(video_id, titolo, descr):
             pg = r.get('nextPageToken') or ''
             if not pg:
                 break
-        lista = [x.strip() for x in re.split(r'[,;\n]', str(P.get('playlist_topics') or '')) if x.strip()]
+        lista = [x.strip() for x in re.split(r'[,;|\n]', str(P.get('playlist_topics') or '')) if x.strip()]
         domanda = (f'YouTube channel "{NOME_CANALE.title()}" (economic history and geopolitics explained with animated maps). Video title: "{titolo}".\n'
                    f'Video description: {descr[:600]}\n'
                    f'Existing playlists of the channel: {json.dumps(list(esistenti), ensure_ascii=False)}\n'
@@ -1231,7 +1347,11 @@ def main():
     run(['ffmpeg', '-y', '-v', 'error', *mix_in, '-filter_complex', mix_f + f';[m]atrim=0:{totale:.3f}[o]', '-map', '[o]', '-c:a', 'aac', '-b:a', '192k', audio])
     finale = os.path.join(ROOT, 'video_mappe.mp4')
     invito_iscriviti(muto, audio, finale, totale)
-    cop = copertina(c, os.path.join(ROOT, 'copertina.jpg'))
+    try:   # copertina 90% come quella del competitor (schema diviso, colori fluo, stessa scritta); se non riesce, quella di prima
+        cop = copertina_nuova(piano_copertina(comp, c), os.path.join(ROOT, 'copertina.jpg'))
+    except Exception as e:
+        log('copertina nuova non riuscita, uso quella semplice:', str(e)[:150])
+        cop = copertina(c, os.path.join(ROOT, 'copertina.jpg'))
     titolo = str(c.get('titolo') or comp.get('titolo') or 'Rich Borders')[:100]
     c['capitoli_testo'] = capitoli(scene, durs)
     open(os.path.join(ROOT, 'titolo.txt'), 'w').write(titolo)
