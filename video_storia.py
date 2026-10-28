@@ -3172,7 +3172,7 @@ def avvisa(esito):
         return
     for k in range(3):
         try:
-            hhttp(P['callback_url'], {'id': P.get('id'), 'foglio': P.get('foglio', ''), 'gid': P.get('gid', ''), **esito}); return
+            http(P['callback_url'], {'id': P.get('id'), 'foglio': P.get('foglio', ''), 'gid': P.get('gid', ''), **esito}); return
         except Exception as e:
             log('avviso a n8n non riuscito:', str(e)[:150]); time.sleep(10)
 
