@@ -1103,7 +1103,7 @@ COLORI_COP = {   # copertina "fluo": colori pieni e accesi (come i competitor), 
     'oro': (255, 204, 0), 'verde': (0, 214, 200), 'rosso': (255, 40, 60), 'lime': (90, 255, 60), 'ruggine': (214, 80, 30)}
 
 
-def mezza_mappa(vista, colori, Wm, Hm, glow=True):
+def mezza_mappa(vista, colori, Wm, Hm, glow=True, centro_x=None):
     """Una porzione di mappa (Wm x Hm) con i paesi colorati pieni e un bagliore attorno (stile fluo)."""
     v = camera(vista)
     try:   # la copertina puo' stringere piu' del video (immagine ferma): fino a 18 gradi
@@ -1138,7 +1138,7 @@ def mezza_mappa(vista, colori, Wm, Hm, glow=True):
         d = ImageDraw.Draw(im)
         for xy in polys:
             d.line(xy + [xy[0]], fill=(255, 255, 255, 200), width=3)
-    cx = (W - Wm) // 2
+    cx = (W - Wm) // 2 if centro_x is None else max(0, min(W - Wm, W // 2 - int(centro_x)))   # centro_x: dove cade il centro della vista nel ritaglio
     return im.crop((cx, (H - Hm) // 2, cx + Wm, (H - Hm) // 2 + Hm))
 
 
@@ -1187,30 +1187,81 @@ def piano_copertina(comp, c):
     return cp
 
 
+def presentatore():
+    """Volto del canale in copertina (colonna copertina_presentatore: file del repository o link a un PNG senza sfondo). None se non c'e'."""
+    src = str(P.get('copertina_presentatore') or '').strip()
+    if not src:
+        return None
+    try:
+        if re.match(r'https?://', src):
+            return Image.open(io.BytesIO(http(src, raw=True))).convert('RGBA')
+        return Image.open(os.path.join(ROOT, src)).convert('RGBA')
+    except Exception as e:
+        log('presentatore non caricato:', str(e)[:120]); return None
+
+
+def metti_presentatore(im, pr, lato):
+    """Presentatore grande (95% dell'altezza) attaccato al bordo, con contorno bianco e ombra che lo staccano dalla mappa."""
+    alto = int(H * .95); pr = pr.crop(pr.getbbox()); pr = pr.resize((int(pr.width * alto / pr.height), alto), Image.LANCZOS)
+    a = pr.split()[3]
+    ombra = Image.new('RGBA', pr.size, (0, 0, 0, 0)); ombra.putalpha(a.filter(ImageFilter.GaussianBlur(22)).point(lambda v: int(v * .65)))
+    bianco = Image.new('RGBA', pr.size, (255, 255, 255, 255)); bianco.putalpha(a.filter(ImageFilter.MaxFilter(15)))
+    x = W - pr.width if lato == 'destra' else 0; y = H - alto
+    im.alpha_composite(ombra, (x + 12, y + 8)); im.alpha_composite(bianco, (x, y)); im.alpha_composite(pr, (x, y))
+    return pr.width
+
+
 def copertina_nuova(cp, path):
     """Copertina nello schema dei competitor (90% uguale): schermo diviso con linea rossa (o mappa unica), paesi fluo,
-    scritta del competitor enorme in riquadro nero, eventuale numero/confronto giallo, Pin piccolo (il nostro 10%)."""
+    scritta del competitor enorme in riquadro nero, eventuale numero/confronto giallo, Pin piccolo (il nostro 10%).
+    Con copertina_presentatore: il volto del canale grande su un lato (copertina_presentatore_lato, di solito destra) e mappa + scritte nello spazio che resta."""
+    pr = presentatore()
+    lato_pr = 'sinistra' if str(P.get('copertina_presentatore_lato') or '').strip().lower() == 'sinistra' else 'destra'
+    A = int(W * .64) if pr is not None else W          # larghezza della zona mappa
+    x0 = W - A if (pr is not None and lato_pr == 'sinistra') else 0   # dove comincia la zona mappa
     sx, dx = cp.get('sinistra') or {}, cp.get('destra') or {}
+    im = Image.new('RGBA', (W, H))
     if sx and dx:
-        L = mezza_mappa(sx.get('vista'), sx.get('colori') or {}, W // 2, H); R = mezza_mappa(dx.get('vista'), dx.get('colori') or {}, W // 2, H)
-        im = Image.new('RGBA', (W, H)); im.paste(L, (0, 0)); im.paste(R, (W // 2, 0))
-        d = ImageDraw.Draw(im); d.rectangle([W // 2 - 14, 0, W // 2 + 14, H], fill=(0, 0, 0)); d.rectangle([W // 2 - 8, 0, W // 2 + 8, H], fill=(235, 30, 40))
+        meta = A // 2
+        if pr is None:
+            L = mezza_mappa(sx.get('vista'), sx.get('colori') or {}, meta, H); R = mezza_mappa(dx.get('vista'), dx.get('colori') or {}, W - meta, H)
+            im.paste(L, (0, 0)); im.paste(R, (meta, 0))
+        elif lato_pr == 'destra':   # la meta' destra continua sotto il presentatore: il paese resta al centro della parte visibile
+            L = mezza_mappa(sx.get('vista'), sx.get('colori') or {}, meta, H)
+            R = mezza_mappa(dx.get('vista'), dx.get('colori') or {}, W - meta, H, centro_x=meta // 2)
+            im.paste(L, (0, 0)); im.paste(R, (meta, 0))
+        else:
+            L = mezza_mappa(sx.get('vista'), sx.get('colori') or {}, W - meta, H, centro_x=(W - meta) - meta // 2)
+            R = mezza_mappa(dx.get('vista'), dx.get('colori') or {}, meta, H)
+            im.paste(L, (0, 0)); im.paste(R, (W - meta, 0))
+        linea = x0 + meta if lato_pr == 'destra' or pr is None else W - meta
+        d = ImageDraw.Draw(im); d.rectangle([linea - 14, 0, linea + 14, H], fill=(0, 0, 0)); d.rectangle([linea - 8, 0, linea + 8, H], fill=(235, 30, 40))
         lato_testo = 'destra' if cp.get('testo_lato', 'destra') != 'sinistra' else 'sinistra'
     else:
         unica = cp.get('unica') or sx or dx or {}
-        im = mezza_mappa(unica.get('vista') or cp.get('vista'), unica.get('colori') or {}, W, H)
+        if pr is None:
+            im = mezza_mappa(unica.get('vista') or cp.get('vista'), unica.get('colori') or {}, W, H)
+        else:
+            im.paste(mezza_mappa(unica.get('vista') or cp.get('vista'), unica.get('colori') or {}, W, H, centro_x=x0 + A // 2), (0, 0))
+        linea = x0 + A // 2
         lato_testo = cp.get('testo_lato') or 'destra'
     testo = str(cp.get('testo') or 'WHY?').upper()[:18]
     fs = 260 if len(testo) <= 6 else (200 if len(testo) <= 10 else 150)
-    xt = W * (.74 if lato_testo == 'destra' else .26)
+    if pr is not None:
+        fs = int(fs * .8)
+    xt = x0 + A * (.74 if lato_testo == 'destra' else .26)
+    if pr is not None and (sx and dx) and ((lato_pr == 'destra' and lato_testo == 'destra') or (lato_pr == 'sinistra' and lato_testo == 'sinistra')):
+        xt = x0 + A * (.26 if lato_pr == 'destra' else .74)   # mai sotto il presentatore: la scritta va nella meta' libera
     riquadro(im, xt, H * .60, testo, fs)   # mai nell'angolo in basso a destra (durata del video)
     extra = str(cp.get('extra') or '').upper()[:14]
     if extra:
-        riquadro(im, W * (.25 if lato_testo == 'destra' else .75), H * .16, extra, 150, (255, 214, 0), (0, 0, 0))
+        riquadro(im, x0 + A * (.25 if xt > x0 + A / 2 else .75), H * .16, extra, 150 if pr is None else 120, (255, 214, 0), (0, 0, 0))
     if sx and dx:
-        pin(im, W // 2, H * .52, 2.4, 'stupito', 0)   # Pin sulla linea rossa
-    else:   # mappa unica: Pin di lato, mai sopra il paese in evidenza ne' sulla durata del video
+        pin(im, linea, H * .52, 2.4, 'stupito', 0)   # Pin sulla linea rossa
+    elif pr is None:   # mappa unica: Pin di lato, mai sopra il paese in evidenza ne' sulla durata del video
         pin(im, W * (.12 if lato_testo == 'destra' else .90), H * .42, 2.4, 'stupito', 0)
+    if pr is not None:
+        metti_presentatore(im, pr, lato_pr)
     im.convert('RGB').resize((1280, 720), Image.LANCZOS).save(path, quality=93)
     return path
 
