@@ -31,6 +31,13 @@ jobs:
             git config user.email "render-bot@users.noreply.github.com"
             git add prove_presentatore
             git commit -m "Prova presentatore"
-            git pull --rebase -q || true
-            git push
+            for i in 1 2 3 4 5; do git pull --rebase -q && git push && break; sleep $((i * 5)); done
+      - name: Copia di riserva (se il salvataggio non riesce)
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: risultati
+          path: prove_presentatore
+          if-no-files-found: ignore
+          retention-days: 7
           fi
