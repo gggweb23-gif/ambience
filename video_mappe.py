@@ -39,6 +39,7 @@ MUSICA_VOL = float(str(P.get('musica_volume') or E('MUSICA_VOL', '') or .04).rep
 SLOGAN = str(P.get('slogan') or E('SLOGAN', '') or 'EVERY BORDER HAS A PRICE.').strip()
 NOME_CANALE = str(P.get('canale_nome') or E('NOME_CANALE', '') or 'RICH BORDERS').strip().upper()
 MIN_SEC_YT = 480                                    # sotto gli 8 minuti (le prove) mai su YouTube
+MASCOTTE = str(P.get('mascotte') or E('MASCOTTE', '') or 'NO').strip().upper() == 'SI'   # Pin nelle scene: spento (dava fastidio)
 ZOOM_MIN = 34.0                                     # larghezza minima inquadratura in gradi (qualita' della mappa)
 PPM = 150                                           # parole al minuto della voce inglese (stima per la lunghezza del copione)
 
@@ -184,7 +185,9 @@ def copione(comp):
         orig = ' '.join(orig.split()[:200])
     parole = 170 if PROVA else int(min(MAX_MINUTI * PPM, max(MIN_MINUTI * PPM, len(orig.split()) * 1.0)))
     n_scene = max(8, round(parole / 20))
-    icone = ', '.join(sorted(ICONE))
+    lib_img = LIB_IND.get('immagini') or {}
+    personaggi = ', '.join(sorted(n for n, c in lib_img.items() if c == 'persona')) or 'family, soldier, worker'
+    icone = ', '.join(sorted(n for n, c in lib_img.items() if c != 'persona')) + ', ' + ', '.join(sorted(n for n in ICONE if n not in ALIAS_LIB)) if lib_img else ', '.join(sorted(ICONE))
     prompt = f"""You write videos for the YouTube channel RICH BORDERS ("Every border has a price."): economic history and geopolitics explained with ANIMATED MAPS, in the style of the channel "Fortune of Nations".
 
 ORIGINAL VIDEO TO COPY (title: "{comp.get('titolo') or ''}"). Keep ~80% of it: the SAME topic, the same story structure, the same facts, numbers and examples, the same hook.
@@ -201,10 +204,12 @@ For EVERY scene you also direct the MAP (equirectangular world map with shaded r
 - "vista": camera {{"lon": center longitude, "lat": center latitude, "larghezza": degrees of longitude visible (8 = one small country, 30 = a region, 120 = a continent, 300 = whole world)}}. Change it often (zoom in / out / pan), like a documentary.
 - "epoca": "oggi" (modern colored map) or "antica" (old parchment map: use it for events before ~1900). Do not switch epoch more than 4 times in the whole video.
 - "oro": ISO-3 codes of the country/countries that are the "rich / winner / focus" side (painted gold, raised in 3D). "verde": ISO-3 codes of the other side (painted blue-green). Max 25 codes each. Can be empty.
-- "eventi": something new must appear on screen every 2-3 seconds: put ONE event every 4-5 words of the scene (usually 3-6 per scene), each tied to a different WORD of the scene, spread from the beginning to the end of the scene ("parola" = one exact word that appears in that scene's text; the event appears when the voice says it). The camera automatically zooms on each event that has a location, so give most events a precise lon/lat.
+- "eventi": something new must appear on screen every 2-3 seconds: put ONE event every 6-8 words of the scene (usually 2-4 per scene: fewer but richer elements, calm and interesting to watch), each tied to a different WORD of the scene, spread from the beginning to the end of the scene ("parola" = one exact word that appears in that scene's text; the event appears when the voice says it). The camera automatically zooms on each event that has a location, so give most events a precise lon/lat.
   Every scene must contain at least ONE moving element (freccia, confine, colonna, barre) or a NEW place (icona/etichetta) — never two scenes in a row with only labels.
   An "anno" card must show exactly the year said in that scene (if the text says "300 years ago", write the year that means). Types:
   {{"tipo":"icona","icona": one of [{icone}] or "flag:XX" (ISO-2 country code),"lon":..,"lat":..,"parola":".."}}
+  {{"tipo":"folla","personaggio": one of [{personaggi}],"n":3-7,"lon":..,"lat":..,"parola":".."}}   (a small crowd of illustrated people standing on that place: workers, colonists, soldiers... use it OFTEN, it makes the map alive)
+  {{"tipo":"contatore","testo":"9 IN 10" or "MORE THAN 8 IN 10","su":9,"di":10,"personaggio": one of [{personaggi}],"parola":".."}}   (bottom bar of little people, for shares of a population; real numbers only)
   {{"tipo":"etichetta","testo":"SHORT CAPS LABEL (max 4 words)","lon":..,"lat":..,"parola":".."}}
   {{"tipo":"anno","testo":"1700","parola":".."}}   (year card, top-left)
   {{"tipo":"numero","testo":"x8" or "$3 TRILLION" or "109M" (max 12 chars),"lon":..,"lat":..,"parola":".."}}
@@ -331,8 +336,39 @@ def font(nome, s):
 _IC = {}
 
 
+LIB = os.path.join(ROOT, 'libreria_mappe')
+try:
+    LIB_IND = json.load(open(os.path.join(LIB, 'indice.json')))
+except Exception:
+    LIB_IND = {'immagini': {}, 'suoni': []}
+# nomi "vecchi" (emoji) -> disegno della libreria, cosi' anche i copioni semplici usano i disegni belli
+ALIAS_LIB = {'gold': 'gold_coins', 'coin': 'gold_coins', 'silver': 'silver_bars', 'money': 'money_bag', 'cash': 'banknotes', 'dollar': 'money_bag',
+             'ship': 'galleon', 'sailboat': 'galleon', 'container': 'cargo_ship', 'crown': 'crown', 'mine': 'mine', 'farm': 'farm', 'factory': 'factory',
+             'house': 'cabin', 'school': 'school', 'church': 'church', 'law': 'scroll_law', 'scroll': 'scroll_law', 'vote': 'ballot_box', 'tax': 'scroll_law',
+             'train': 'steam_train', 'sword': 'swords', 'gun': 'cannon', 'soldier': 'soldier', 'people': 'family', 'oil': 'oil_derrick', 'sugar': 'sugar_cane',
+             'coffee': 'coffee_sack', 'cow': 'cattle', 'clock': 'hourglass', 'chart_up': 'chart_up', 'chart_down': 'chart_down', 'bank': 'banker'}
+CATEGORIE_SUONO = dict(LIB_IND.get('immagini') or {})
+
+
+def nome_lib(nome):
+    n = str(nome or '').strip().lower()
+    n = n if n in (LIB_IND.get('immagini') or {}) else ALIAS_LIB.get(n, '')
+    return n if n in (LIB_IND.get('immagini') or {}) else ''
+
+
 def icona(nome, size):
     nome = str(nome or '').strip().lower()
+    lib = nome_lib(nome)
+    if lib:   # disegno della libreria (personaggi e oggetti illustrati)
+        k = ('lib', lib, size)
+        if k not in _IC:
+            im = Image.open(os.path.join(LIB, 'img', lib + '.png')).convert('RGBA')
+            im.thumbnail((size, size), Image.LANCZOS)
+            out = Image.new('RGBA', (im.width + 30, im.height + 30), (0, 0, 0, 0))
+            om = Image.new('RGBA', im.size, (20, 20, 30, 255)); om.putalpha(im.split()[3].point(lambda v: int(v * .4)))
+            out.paste(om, (16, 22), om); out = out.filter(ImageFilter.GaussianBlur(5)); out.paste(im, (9, 9), im)
+            _IC[k] = out
+        return _IC[k]
     code = bandiera(nome.split(':', 1)[1]) if nome.startswith('flag:') else ICONE.get(nome, '')
     if not code:
         code = ICONE['question']
@@ -491,6 +527,27 @@ def pin(im, x, y, sc=1.0, faccia='normale', salto=0.0):
         d.arc([x - r * .32, cy + r * .2, x + r * .32, cy + r * .66], 20, 160, fill=(90, 10, 20), width=max(2, int(3 * sc)))
 
 
+FOLLA_POS = [(0, 0), (-1.1, .35), (1.1, .35), (-.55, -.6), (.55, -.6), (-2.1, -.1), (2.1, -.1), (0, .9), (-1.6, .95)]
+
+
+def contatore(im, ev, dt, fine):
+    """Barra in basso come il competitor: 'MORE THAN 8 IN 10' + fila di omini (i primi 'su' colorati, gli altri spenti)."""
+    k = ease(dt / .4) * fine
+    if k <= 0:
+        return
+    di = max(2, min(10, int(ev.get('di') or 10))); su = max(0, min(di, int(ev.get('su') or 8)))
+    testo = str(ev.get('testo') or f'{su} IN {di}').upper()[:22]
+    d = ImageDraw.Draw(im); f = font('Anton-Regular.ttf', 110 * back(k))
+    d.text((W / 2, H - 250), testo, font=f, fill=ORO, anchor='mm', stroke_width=8, stroke_fill=NAVY)
+    ic = icona(ev.get('personaggio') or 'family', 110)
+    spento = ic.copy(); a_ = spento.getchannel('A').point(lambda v: int(v * .35)); spento = ImageOps.grayscale(spento).convert('RGBA'); spento.putalpha(a_)
+    passo = 115; x0 = W / 2 - (di - 1) * passo / 2
+    for j in range(di):
+        kj = ease((dt - .3 - j * .08) / .25) * fine
+        if kj > 0:
+            metti(im, ic if j < su else spento, x0 + j * passo, H - 110, kj)
+
+
 def metti(im, ic, x, y, k=1.0):
     if k <= 0.02:
         return
@@ -583,7 +640,9 @@ def ingombro(ev, x, y):
     """Rettangoli (in pixel) occupati da un elemento disegnato nel punto (x, y)."""
     tipo = ev.get('tipo')
     if tipo == 'icona':
-        return [(x - 122, y - 130, x + 122, y + 130)]
+        return [(x - 135, y - 140, x + 135, y + 140)]
+    if tipo == 'folla':
+        return [(x - 210, y - 150, x + 210, y + 150)]
     if tipo == 'etichetta':
         w = _largo(str(ev.get('testo') or '').upper()[:30], 58) + 60; h = 58 * .82
         return [(x - w / 2, y + 110 - h, x + w / 2 + 6, y + 110 + h + 7)]
@@ -614,6 +673,8 @@ def impagina(eventi, tappe, dur, job):
         tipo = ev.get('tipo')
         if tipo == 'anno':
             fissi.append((60, 60, 420, 260))
+        elif tipo == 'contatore':
+            fissi.append((W / 2 - 620, H - 330, W / 2 + 620, H - 20))
         elif tipo == 'scritta':
             w = _largo(str(ev.get('testo') or '').upper()[:16], 190) + 40
             fissi.append((W / 2 - w / 2, H / 2 - 140 - 105, W / 2 + w / 2, H / 2 - 140 + 105))
@@ -672,7 +733,7 @@ def impagina(eventi, tappe, dur, job):
             except Exception:
                 pass
             continue
-        if tipo not in ('icona', 'etichetta', 'numero', 'colonna', 'nome') or ev.get('lon') is None:
+        if tipo not in ('icona', 'etichetta', 'numero', 'colonna', 'nome', 'folla') or ev.get('lon') is None:
             continue
         # le inquadrature che la camera avra' mentre l'elemento e' a schermo (6 campioni + la piu' larga)
         ts = np.arange(ev['_t'] + .3, max(ev['_t'] + .31, dur), .2)
@@ -824,12 +885,21 @@ def disegna_scena(job):
                 ultimo = ev.get('_pin') or ('base', ev['_luogo'])
             tipo = ev.get('tipo')
             try:
-                if tipo in ('icona', 'etichetta', 'numero', 'colonna', 'nome') and ev.get('lon') is not None:
+                if tipo in ('icona', 'etichetta', 'numero', 'colonna', 'nome', 'folla') and ev.get('lon') is not None:
                     x, y = pt(float(ev['lon']), float(ev['lat']))
                 if tipo == 'nome':   # nome del paese appena colorato
                     etichetta(im, x, y, str(ev.get('testo') or '')[:24], k, 50, blocca=False)
                 if tipo == 'icona':
-                    metti(im, icona(ev.get('icona'), 210), x, y + math.sin(t * 2.2 + ev['_t']) * 7, k)
+                    metti(im, icona(ev.get('icona'), 240), x, y, k)   # fermo: niente oscillazione
+                elif tipo == 'folla':   # gruppo di personaggi che compaiono uno dopo l'altro (come il competitor)
+                    n_ = max(2, min(9, int(ev.get('n') or 5)))
+                    for j in range(n_):
+                        kj = ease((t - ev['_t'] - j * .12) / .3) * fine
+                        if kj > 0:
+                            dx_, dy_ = FOLLA_POS[j]
+                            metti(im, icona(ev.get('personaggio') or 'family', 150), x + dx_ * 88, y + dy_ * 62, kj)
+                elif tipo == 'contatore':
+                    contatore(im, ev, (t - ev['_t']), fine)
                 elif tipo == 'etichetta':
                     etichetta(im, x, y + 110, str(ev.get('testo') or '').upper()[:30], k, blocca=False)
                 elif tipo == 'numero':
@@ -896,7 +966,7 @@ def disegna_scena(job):
                     py = r_[3] + 150 if r_[3] + 150 < H - 30 else py
                     if _urto((px - 42, py - 128, px + 42, py + 10), r_, 10):
                         px = r_[0] - 70 if r_[0] - 70 > 80 else r_[2] + 70
-            if not (job.get('apertura') and t < 2.5):
+            if MASCOTTE and not (job.get('apertura') and t < 2.5):
                 pin(im, px, py, 1.4, faccia, salto)
         except Exception:
             pass
@@ -941,6 +1011,26 @@ def disegna_finale(job):
 SR = 44100
 
 
+_SL = {}
+
+
+def suono_lib(cat):
+    """Suono vero della libreria (monete, nave, folla...) come array mono a SR; None se non c'e'."""
+    if cat in _SL:
+        return _SL[cat]
+    f = os.path.join(LIB, 'suoni', cat + '.mp3'); sig = None
+    if os.path.exists(f):
+        try:
+            raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', f, '-ac', '1', '-ar', str(SR), '-f', 's16le', '-'], capture_output=True).stdout
+            sig = np.frombuffer(raw, dtype=np.int16).astype(np.float64) / 32768
+            sig = sig / max(1e-6, np.abs(sig).max()) * float(P.get('suoni_vol') or .32)   # sotto la voce
+            fade = min(len(sig), int(.15 * SR)); sig[-fade:] *= np.linspace(1, 0, fade)
+        except Exception:
+            sig = None
+    _SL[cat] = sig
+    return sig
+
+
 def pista_suoni(totale, pop_t, whoosh_t, out):
     rng = np.random.default_rng(1); a = np.zeros(int((totale + 1) * SR))
 
@@ -960,7 +1050,9 @@ def pista_suoni(totale, pop_t, whoosh_t, out):
     for t in whoosh_t:
         add(t, whoosh)
     for t in pop_t:
-        add(t, pop)
+        t, cat = t if isinstance(t, tuple) else (t, '')
+        sig = suono_lib(cat) if cat else None
+        add(t, sig if sig is not None else pop)
     for i, fr in enumerate((392.0, 493.9, 587.3)):   # firma Rich Borders: tre note all'inizio
         tn = np.arange(int(.5 * SR)) / SR
         add(.15 + i * .16, (np.sin(2 * np.pi * fr * tn) + .3 * np.sin(4 * np.pi * fr * tn)) * np.exp(-tn * 7) * .3)
@@ -1293,7 +1385,9 @@ def main():
             if te is None:
                 te = d * (k_ + 1) / (len(s.get('eventi') or []) + 1.5)
             ev = dict(ev); ev['_t'] = max(.4, min(d - .6, te)); evs.append(ev)
-            pop_t.append(t_acc + ev['_t'])
+            nl = nome_lib(ev.get('icona') or ev.get('personaggio') or '')
+            cat = 'folla' if ev.get('tipo') in ('folla', 'contatore') else (CATEGORIE_SUONO.get(nl) if nl else '')
+            pop_t.append((t_acc + ev['_t'], cat or ''))
         if i > 0 and camera(s.get('vista')) != camera(prima.get('vista')) and s.get('epoca') == prima.get('epoca'):
             whoosh_t.append(max(0, t_acc - .35))
         nuvole = s.get('epoca') == 'antica' and prima.get('epoca', s.get('epoca')) != 'antica' and not gia_antica
@@ -1326,7 +1420,7 @@ def main():
     fl += ''.join(f'[v{i}]' for i in range(len(voci))) + f'concat=n={len(voci)}:v=0:a=1[a]'
     run(['ffmpeg', '-y', '-v', 'error', *ins, '-filter_complex', fl, '-map', '[a]', '-ac', '1', voce_tot])
     totale = sum(durs) + 4.0
-    suoni = pista_suoni(totale, pop_t + [sum(durs) + .8], whoosh_t, os.path.join(LAV, 'suoni.wav'))
+    suoni = pista_suoni(totale, pop_t + [(sum(durs) + .8, '')], whoosh_t, os.path.join(LAV, 'suoni.wav'))
     mix_in = ['-i', voce_tot, '-i', suoni]; mix_f = '[0:a]apad[v0];[v0][1:a]amix=inputs=2:duration=longest:normalize=0[m]'
     mus = None
     if brani():   # un brano della cartella musica_mappe/, scelto in base al video (sempre lo stesso per lo stesso video)
