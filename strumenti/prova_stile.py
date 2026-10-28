@@ -67,7 +67,9 @@ def per_modello(mod):
     pers = os.path.join(CART, 'personaggio_%s.jpg' % mod)
     scheda = P.get('scheda') or ('Draw a character design sheet of OUR main character, full body, three poses (front, walking, surprised), '
                                  'on a plain light background: ')   # 'scheda' nel payload: come disegnare la scheda del personaggio
-    if P.get('rif_personaggio'):   # personaggio gia' fatto (file del repository): nessuna scheda nuova, nessuna spesa in piu'
+    if P.get('senza_scheda'):   # personaggio solo descritto nelle scene (nessuna scheda, nessuna spesa in piu')
+        u = None; out = []
+    elif P.get('rif_personaggio'):   # personaggio gia' fatto (file del repository): nessuna scheda nuova, nessuna spesa in piu'
         u = 'https://raw.githubusercontent.com/%s/main/%s' % (REPO, P['rif_personaggio']); out = []
     else:
         u = immagine(mod, REG_STILE + scheda + P['personaggio'] + '. ' + STILE + SENZA_CORNICE, RIF, pers)
@@ -76,8 +78,11 @@ def per_modello(mod):
     for i, sc in enumerate(P['scene'], 1):
         p = os.path.join(CART, '%s_%02d.jpg' % (mod, i))
         try:
-            immagine(mod, 'The FIRST reference image is OUR main character: when he appears keep him identical (face, hair, clothes, proportions). '
-                     + REG_STILE.replace('reference image', 'other reference image') + 'SCENE: ' + sc + '. ' + STILE + SENZA_CORNICE, [u] + RIF, p)
+            if u:
+                immagine(mod, 'The FIRST reference image is OUR main character: when he appears keep him identical (face, hair, clothes, proportions). '
+                         + REG_STILE.replace('reference image', 'other reference image') + 'SCENE: ' + sc + '. ' + STILE + SENZA_CORNICE, [u] + RIF, p)
+            else:
+                immagine(mod, REG_STILE + 'SCENE: ' + sc + '. ' + STILE + SENZA_CORNICE, RIF, p)
             out.append(p); log(mod, 'scena', i)
         except Exception as e:
             log(mod, 'scena', i, 'non riuscita:', str(e)[:200])
