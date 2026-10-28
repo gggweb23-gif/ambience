@@ -1,0 +1,92 @@
+name: Video Agora
+
+# Tutto il video di Agora of Sages su GitHub (prima lo facevano PRODUCTION + Publisher di n8n): copione, voce, montaggio (render_filosofo.py), copertina, caricamento.
+# Stesso programma di KAO (kao/motore.js). Lo lancia n8n ("MULTICHANNEL - GitHub Video") quando nella riga del canale github_workflow = video_agora.yml.
+
+on:
+  workflow_dispatch:
+    inputs:
+      link_competitor:
+        description: 'Link del video da copiare (lo passa n8n)'
+        default: ''
+        type: string
+      prova:
+        description: 'SI = crea il video ma NON lo carica su YouTube'
+        default: 'NO'
+        type: string
+      carica:
+        description: 'SI = carica su YouTube'
+        default: 'SI'
+        type: string
+      voce:
+        description: 'Voce ElevenLabs (la passa n8n)'
+        default: ''
+        type: string
+      payload:
+        description: 'Solo per n8n (riga del canale)'
+        default: ''
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: video-agora-completo
+  cancel-in-progress: false
+
+jobs:
+  video:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Installa FFmpeg, font, whisper e Chromium
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core python3-pil python3-fonttools
+          mkdir -p font
+          if [ ! -f font/CormorantGaramond-SemiBold.ttf ]; then
+            npm pack @fontsource/cormorant-garamond@5.3.0 --silent
+            tar xzf fontsource-cormorant-garamond-5.3.0.tgz
+            python3 -c "from fontTools.ttLib import TTFont; f=TTFont('package/files/cormorant-garamond-latin-600-normal.woff'); f.flavor=None; f.save('font/CormorantGaramond-SemiBold.ttf')"
+          fi
+          pip install -q faster-whisper pillow playwright && python -m playwright install --with-deps chromium
+          npm install --prefix kao --silent --no-audit --no-fund luxon@3
+          node --version && ffmpeg -version | head -1
+
+      - name: Crea e carica il video
+        env:
+          PAYLOAD: ${{ inputs.payload }}
+          PROVA: ${{ inputs.prova }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
+          FAL_KEY: ${{ secrets.FAL_KEY }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN_AGORA_OF_SAGES }}
+          WHISPER_MODEL: small
+        run: node kao/motore.js
+
+      - name: Salva i nuovi ritratti e lo storico immagini nel repository
+        if: ${{ always() }}
+        run: |
+          if [ -n "$(git status --porcelain ritratti libreria_agora 2>/dev/null)" ]; then
+            git config user.name "render-bot"
+            git config user.email "render-bot@users.noreply.github.com"
+            git add ritratti libreria_agora 2>/dev/null || git add ritratti
+            git commit -m "Nuovo ritratto filosofo"
+            git pull --rebase -q || true
+            git push || echo "ritratto non salvato (verra' ricreato la prossima volta)"
+          fi
+
+      - name: Video di prova (se non caricato)
+        if: ${{ always() && inputs.prova == 'SI' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: video-agora
+          path: lavoro_filosofo/video_finale.mp4
+          if-no-files-found: ignore
+          retention-days: 3
