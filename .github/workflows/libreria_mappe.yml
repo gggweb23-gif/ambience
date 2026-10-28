@@ -1,0 +1,40 @@
+name: Libreria Mappe
+on:
+  workflow_dispatch:
+    inputs:
+      massimo:
+        description: Quante immagini nuove al massimo (es. 6 per provare, 999 = tutte)
+        default: '999'
+permissions:
+  contents: write
+jobs:
+  libreria:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Crea personaggi, oggetti e suoni (solo quelli che mancano)
+        env:
+          MASSIMO: ${{ inputs.massimo }}
+          FAL_KEY: ${{ secrets.FAL_KEY }}
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+        run: pip install --quiet --break-system-packages pillow && python3 libreria_mappe.py
+      - name: Salva nel repository
+        if: always()
+        run: |
+          if [ -d libreria_mappe ] && [ -n "$(git status --porcelain libreria_mappe)" ]; then
+            git config user.name "render-bot"
+            git config user.email "render-bot@users.noreply.github.com"
+            git add libreria_mappe
+            git commit -m "Libreria Mappe"
+            git pull --rebase -q || true
+            git push
+          fi
+      - name: Anteprima
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: libreria-mappe
+          path: libreria_mappe/anteprima.jpg
+          if-no-files-found: ignore
+          retention-days: 5
