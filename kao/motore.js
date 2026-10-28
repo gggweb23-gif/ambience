@@ -298,6 +298,7 @@ async function main() {
     const id = valuta(WF['Tag Originale'].params.queryParameters.parameters.find(x => x.name === 'id').value, { items: [J({})], itemIndex: 0 });
     metti('Tag Originale', [J(id === 'nessuno' ? { items: [] } : await yt('https://www.googleapis.com/youtube/v3/videos?part=snippet&id=' + id))]);
   } catch (e) { log('tag originali non letti:', e.message.slice(0, 120)); metti('Tag Originale', [J({ items: [] })]); }
+  await traduciTag(cfg);
   const est = await codice('Estrai Copertina Competitor', [J({})]);
   if (est[0].json.attivo === true || est[0].json.attivo === 'true') {
     try { metti('Leggi Copertina Competitor', [J(await openaiChat(est[0].json.payload))]); }
@@ -436,6 +437,28 @@ async function main() {
   if (!PROVA) { try { extra.playlist = await playlist(vid, cfg, extra.titolo, extra.descrizione); } catch (e) { note.push('playlist: ' + e.message.slice(0, 100)); } }
   await avvisa({ stato: PROVA ? 'PROVA OK' : 'PUBBLICATO', video_id: vid, link: 'https://www.youtube.com/watch?v=' + vid,
     pubblica_il: PROVA ? '' : (P.pubblica_il || ''), errore: note.join('; '), ...extra });
+}
+
+// REGOLA DI TUTTI I CANALI: i tag del video originale vanno nella LINGUA DEL CANALE (stessa lingua = restano uguali),
+// senza il nome del canale copiato. Li traduco qui, prima che li usino il SEO Generator e la formula dei tag (originali tradotti per primi, poi i nostri).
+const LINGUE = { it: 'italiano', en: 'inglese', es: 'spagnolo', fr: 'francese', de: 'tedesco', pt: 'portoghese' };
+async function traduciTag(cfg) {
+  const v = ((OUT['Tag Originale'][0] || { json: {} }).json.items || [])[0];
+  const tag = (v && v.snippet && v.snippet.tags) || [];
+  if (!tag.length) return;
+  const cod = String(cfg.language || 'it').trim().toLowerCase().slice(0, 2), lingua = LINGUE[cod] || cod;
+  const canale = String(v.snippet.channelTitle || '');
+  try {
+    const r = await claude({ model: 'claude-sonnet-4-6', max_tokens: 2000, messages: [{ role: 'user', content:
+      'Questi sono i tag YouTube di un video del canale "' + canale + '". Li useremo per un nostro video in ' + lingua + '.\n' +
+      'Per ogni tag: se e\' gia\' in ' + lingua + ' lascialo identico; altrimenti TRADUCILO in ' + lingua + ' come lo cercherebbe un madrelingua su YouTube ' +
+      '(es. "psicología del sueño" -> "psicologia del sonno", "ancient rome" -> "antica roma"). Nomi propri: forma usata in ' + lingua + '.\n' +
+      'ELIMINA i tag che contengono il nome del canale "' + canale + '" (anche scritto in modo diverso o tradotto), nomi di altri canali o di persone che non c\'entrano col tema. ' +
+      'Togli i doppioni. Stesso ordine.\nRispondi SOLO con un array JSON di stringhe.\n\nTAG: ' + JSON.stringify(tag) }] });
+    const m = testoClaude(r).match(/\[[\s\S]*\]/);
+    const nuovi = JSON.parse(m ? m[0] : '[]').map(t => String(t || '').trim()).filter(Boolean);
+    if (nuovi.length) { v.snippet.tags = nuovi; log('tag originali in', lingua + ':', nuovi.slice(0, 8).join(', '), nuovi.length > 8 ? '...' : ''); }
+  } catch (e) { log('tag non tradotti (' + e.message.slice(0, 80) + '): tolgo quelli del video originale'); v.snippet.tags = []; }
 }
 
 async function caricaYouTube(file, cfg, col) {
