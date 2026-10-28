@@ -559,15 +559,15 @@ def scritta_cartoncino(im, frase, lato='destra', zona=None):
         lo, hi = 20, 300
         while lo < hi:
             k = (lo + hi + 1) // 2
-            if max(F(k).getlength(r) for r in righe) <= larg and len(righe) * k * .92 <= alt:
+            if max(F(k).getlength(r) for r in righe) <= larg and altezza_righe(F(k), righe)[2] <= alt:
                 lo = k
             else:
                 hi = k - 1
         if not best or lo > best[0]:
             best = (lo, righe)
     k, righe = best
-    f = F(k); passo = k * .92
-    wt = max(f.getlength(r) for r in righe); ht = len(righe) * passo
+    f = F(k); bb, gap, ht = altezza_righe(f, righe)
+    wt = max(f.getlength(r) for r in righe)
     cx, cy = (x0 + x1) / 2, (y0 + y1) / 2
     box = (cx - wt / 2 - pad, cy - ht / 2 - pad, cx + wt / 2 + pad, cy + ht / 2 + pad * .8)
     base = im.convert('RGBA')
@@ -576,9 +576,17 @@ def scritta_cartoncino(im, frase, lato='destra', zona=None):
     dr = ImageDraw.Draw(base)
     dr.rounded_rectangle(box, radius=int(pad * 1.4), fill=(255, 255, 255, 255), outline=(0, 0, 0, 255), width=max(4, k // 18))
     y = cy - ht / 2
-    for j, r in enumerate(righe):
-        dr.text((cx, y + j * passo), r, font=f, fill=MAG_TESTO, anchor='mt')
+    for r, b in zip(righe, bb):   # ogni riga sotto l'ingombro VERO della precedente (accenti di É, À... compresi): le lettere non si toccano mai
+        dr.text((cx, y - b[1]), r, font=f, fill=MAG_TESTO, anchor='ms')
+        y += (b[3] - b[1]) + gap
     return base.convert('RGB')   # magenta delle vecchie copertine di successo (come la maglia di KAO)
+
+
+def altezza_righe(f, righe):
+    """Ingombro reale di ogni riga (dalla cima degli accenti al fondo delle lettere) + spazio tra le righe = altezza totale della scritta."""
+    bb = [f.getbbox(r, anchor='ls') for r in righe]
+    gap = f.size * .16
+    return bb, gap, sum(b[3] - b[1] for b in bb) + gap * (len(righe) - 1)
 
 
 def scritta_magenta(im, frase, zona=None):
