@@ -1,0 +1,36 @@
+name: Prova Presentatore
+
+# Prova copertine con un "presentatore" credibile (volto realistico) incollato su una nostra copertina (strumenti/prova_presentatore.py).
+on:
+  workflow_dispatch:
+    inputs:
+      payload:
+        description: 'JSON con nome, video_id, competitor_id, persone, posizioni, max_spesa'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  prova:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Presentatore in copertina
+        env:
+          PAYLOAD: ${{ inputs.payload }}
+          FAL_KEY: ${{ secrets.FAL_KEY }}
+        run: pip install -q pillow "rembg[cpu]" && python3 strumenti/prova_presentatore.py
+      - name: Salva nel repository
+        if: ${{ always() }}
+        run: |
+          if [ -n "$(git status --porcelain prove_presentatore)" ]; then
+            git config user.name "render-bot"
+            git config user.email "render-bot@users.noreply.github.com"
+            git add prove_presentatore
+            git commit -m "Prova presentatore"
+            git pull --rebase -q || true
+            git push
+          fi

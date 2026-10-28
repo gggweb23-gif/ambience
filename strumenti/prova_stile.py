@@ -57,6 +57,7 @@ def immagine(mod, prompt, refs, path):
 
 
 STILE = P['stile']
+SENZA_CORNICE = ' Full-bleed illustration filling the whole image: no screen, no monitor, no TV, no frame or border around it.'
 REG_STILE = ('The reference image%s show%s ONLY the DRAWING STYLE to copy (line work, colours, shading, level of detail, how people are drawn): '
              'do NOT copy their exact scene, composition or characters, and never add any logo or text. ' % (('s', '') if len(RIF) > 1 else ('', 's')))
 log = lambda *a: print(time.strftime('%H:%M:%S'), *a, flush=True)
@@ -64,15 +65,16 @@ log = lambda *a: print(time.strftime('%H:%M:%S'), *a, flush=True)
 
 def per_modello(mod):
     pers = os.path.join(CART, 'personaggio_%s.jpg' % mod)
-    u = immagine(mod, REG_STILE + 'Draw a character design sheet of OUR main character, full body, three poses (front, walking, surprised), '
-                 'on a plain light background: ' + P['personaggio'] + '. ' + STILE, RIF, pers)
+    scheda = P.get('scheda') or ('Draw a character design sheet of OUR main character, full body, three poses (front, walking, surprised), '
+                                 'on a plain light background: ')   # 'scheda' nel payload: come disegnare la scheda del personaggio
+    u = immagine(mod, REG_STILE + scheda + P['personaggio'] + '. ' + STILE + SENZA_CORNICE, RIF, pers)
     log(mod, 'personaggio pronto')
     out = [pers]
     for i, sc in enumerate(P['scene'], 1):
         p = os.path.join(CART, '%s_%02d.jpg' % (mod, i))
         try:
             immagine(mod, 'The FIRST reference image is OUR main character: when he appears keep him identical (face, hair, clothes, proportions). '
-                     + REG_STILE.replace('reference image', 'other reference image') + 'SCENE: ' + sc + '. ' + STILE, [u] + RIF, p)
+                     + REG_STILE.replace('reference image', 'other reference image') + 'SCENE: ' + sc + '. ' + STILE + SENZA_CORNICE, [u] + RIF, p)
             out.append(p); log(mod, 'scena', i)
         except Exception as e:
             log(mod, 'scena', i, 'non riuscita:', str(e)[:200])
