@@ -1,0 +1,36 @@
+name: Prova Stile
+
+# Prima di aprire un canale: immagini di prova nello stile del canale da copiare, con il nostro personaggio (strumenti/prova_stile.py).
+on:
+  workflow_dispatch:
+    inputs:
+      payload:
+        description: 'JSON con nome, stile, personaggio, scene, modelli, riferimenti'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  prova:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - name: Immagini di prova
+        env:
+          PAYLOAD: ${{ inputs.payload }}
+          FAL_KEY: ${{ secrets.FAL_KEY }}
+        run: pip install -q pillow && python3 strumenti/prova_stile.py
+      - name: Salva nel repository
+        if: ${{ always() }}
+        run: |
+          if [ -n "$(git status --porcelain prove_stile)" ]; then
+            git config user.name "render-bot"
+            git config user.email "render-bot@users.noreply.github.com"
+            git add prove_stile
+            git commit -m "Prova stile"
+            git pull --rebase -q || true
+            git push
+          fi
