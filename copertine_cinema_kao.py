@@ -502,16 +502,47 @@ def scritta_evidenziata(im, frase, lato='destra', zona=None):
 MAG_TESTO = (236, 0, 214)
 
 
+def ingrandisci_kao(im, lato_testo='destra'):
+    """KAO deve occupare quasi tutta l'altezza (si vede bene da telefono). Claude trova il riquadro di KAO; se e' piu' basso dell'85%
+    dell'altezza si fa uno zoom (max 1,6x) centrato su di lui, lasciando spazio per la scritta dal lato giusto. Esce sempre a 1280x720."""
+    W0, H0 = im.size
+    try:
+        buf = io.BytesIO(); im.resize((768, 432)).save(buf, 'JPEG', quality=85)
+        rr = http('https://api.anthropic.com/v1/messages', {'model': E('MODELLO_AI', 'claude-sonnet-5-5'), 'max_tokens': 1500, 'messages': [{'role': 'user', 'content': [
+            {'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}},
+            {'type': 'text', 'text': 'Find the main bald cartoon character in the magenta shirt (KAO). Give the tight bounding box of his WHOLE visible body '
+                                     '(head included, plus anything he holds). Answer ONLY JSON with percentages of width/height: {"x0":0,"y0":0,"x1":0,"y1":0}'}]}]},
+                  {'x-api-key': E('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01'}, timeout=120)
+        tt = ''.join(b.get('text', '') for b in rr.get('content', []))
+        z = json.loads(tt[tt.find('{'): tt.rfind('}') + 1]); z = [float(z[k]) for k in ('x0', 'y0', 'x1', 'y1')]
+        z = [v / 100 if max(z) > 1.0 else v for v in z]
+        alt = max(0.05, z[3] - z[1])
+        s_ = max(1.0, min(1.6, 0.88 / alt))
+        if s_ > 1.03:
+            cw, ch = W0 / s_, H0 / s_
+            cy = (z[1] + z[3]) / 2 * H0
+            y0 = max(0, min(H0 - ch, z[1] * H0 - ch * .05 if alt * s_ < .95 else cy - ch / 2))   # la testa resta in alto, con un filo d'aria
+            cx = (z[0] + z[2]) / 2 * W0
+            # KAO resta nella sua meta': la scritta va dall'altro lato
+            x0 = cx - cw * (0.30 if lato_testo == 'destra' else 0.70)
+            x0 = max(0, min(W0 - cw, x0))
+            im = im.crop((int(x0), int(y0), int(x0 + cw), int(y0 + ch)))
+            log(f'  KAO era alto il {alt:.0%}: zoom {s_:.2f}x')
+    except Exception as e:
+        log('  zoom su KAO non riuscito:', str(e)[:100])
+    return im.resize((1280, 720), Image.LANCZOS)
+
+
 def scritta_cartoncino(im, frase, lato='destra', zona=None):
     """Riserva nello stile approvato: frase magenta su cartoncino bianco arrotondato con bordo nero e ombra, grande, mai negli angoli bassi."""
     W, Hh = im.size
-    x0, x1 = (int(W * .03), int(W * .50)) if lato == 'sinistra' else (int(W * .50), int(W * .97))
-    y0, y1 = int(Hh * .05), int(Hh * .72)
+    x0, x1 = (int(W * .025), int(W * .53)) if lato == 'sinistra' else (int(W * .47), int(W * .975))
+    y0, y1 = int(Hh * .04), (int(Hh * .90) if lato == 'sinistra' else int(Hh * .76))   # in basso a destra c'e' la durata del video
     if zona:
         zx0, zx1 = int(W * zona[0]), int(W * zona[2])
-        if zx1 - zx0 > W * .30:
+        if zx1 - zx0 > W * .38:   # la zona libera restringe la scritta solo se resta comunque grande
             x0, x1 = max(x0, zx0), min(x1, zx1)
-    pad = int(W * .022)
+    pad = int(W * .016)
     larg, alt = x1 - x0 - 2 * pad, y1 - y0 - 2 * pad
     F = lambda k: ImageFont.truetype(FONT, k)
     parole = frase.upper().split(); n = len(parole); best = None
@@ -528,14 +559,14 @@ def scritta_cartoncino(im, frase, lato='destra', zona=None):
         lo, hi = 20, 300
         while lo < hi:
             k = (lo + hi + 1) // 2
-            if max(F(k).getlength(r) for r in righe) <= larg and len(righe) * k * 1.0 <= alt:
+            if max(F(k).getlength(r) for r in righe) <= larg and len(righe) * k * .92 <= alt:
                 lo = k
             else:
                 hi = k - 1
         if not best or lo > best[0]:
             best = (lo, righe)
     k, righe = best
-    f = F(k); passo = k * 1.0
+    f = F(k); passo = k * .92
     wt = max(f.getlength(r) for r in righe); ht = len(righe) * passo
     cx, cy = (x0 + x1) / 2, (y0 + y1) / 2
     box = (cx - wt / 2 - pad, cy - ht / 2 - pad, cx + wt / 2 + pad, cy + ht / 2 + pad * .8)
@@ -698,7 +729,8 @@ def fai(i):
                       + (f'OTHER PEOPLE: {t.get("persone")} (same style as KAO, neutral clothes, only KAO wears magenta). ' if t.get('persone') else '') +
                       (f'GRAPHIC ELEMENTS drawn over the scene, copy them exactly (same position and direction): {t.get("grafica")}. ' if t.get('grafica') else '') +
                       'KAO has a correct body: TWO arms attached to the shoulders (both visible, never missing or cut), two hands, two legs. KAO is exactly as in the KAO reference: bald round head, simple face, light skin, ALWAYS his magenta long-sleeve shirt (never a sweater, jacket or other top), black trousers. '
-                      + (f'COMPOSITION (copy it exactly, KAO appears in every part where the character appears): {t.get("composizione")}. The title goes where described, never covering KAO or faces. Everything bright and fully visible. ' if t.get('composizione') else f'The scene fills the WHOLE image, bright and fully visible everywhere (NO dark side, NO dark gradient). KAO, people and important objects stay in the {"RIGHT" if lato_c == "sinistra" else "LEFT"} 50%, KAO big and clearly visible. '                      f'The {"LEFT" if lato_c == "sinistra" else "RIGHT"} 50% simply continues the same environment (wall, sky, room, landscape), bright, with nothing important: a title will go there. ') +
+                      + (f'COMPOSITION (copy it exactly, KAO appears in every part where the character appears): {t.get("composizione")}. The title goes where described, never covering KAO or faces. Everything bright and fully visible. ' if t.get('composizione') else f'The scene fills the WHOLE image, bright and fully visible everywhere (NO dark side, NO dark gradient). KAO, people and important objects stay in the {"RIGHT" if lato_c == "sinistra" else "LEFT"} 50%. KAO is VERY BIG and close to the camera: '
+                      'he fills 85-95% of the image HEIGHT (from the top of his head down to his knees or waist), his face large and clearly readable on a phone. '                      f'The {"LEFT" if lato_c == "sinistra" else "RIGHT"} 50% simply continues the same environment (wall, sky, room, landscape), bright, with nothing important: a title will go there. ') +
                       ('' if t.get('composizione') else 'ONE single continuous scene filling the whole image: NO split screen, NO vertical dividing line, NO panels, NO frames, NO borders. ') +
                       'The background is ALWAYS a complete, fully drawn, detailed real place (room, street, garage, park...) filling the whole image: NEVER a plain, empty, cream or single-colour background. '
                       'NO blur, NO bokeh, NO glow, NO rim light. Remove ALL text: absolutely NO text, letters or numbers in the image. YouTube thumbnail 16:9.')
@@ -750,18 +782,19 @@ def fai(i):
         log(f'  {c["id"]}: tentativi non perfetti, scrivo io la scritta')
     try:
         try:
-            r = fal('fal-ai/nano-banana-2/edit', {'prompt': prompt, 'image_urls': refs, 'aspect_ratio': '16:9', 'resolution': '1K', 'output_format': 'jpeg', 'num_images': 1})
+            r = fal('fal-ai/nano-banana-2/edit', {'prompt': prompt, 'image_urls': refs, 'aspect_ratio': '16:9', 'resolution': '2K', 'output_format': 'jpeg', 'num_images': 1})
         except Exception as e_:   # es. HTTP 422: si riprova solo con il KAO di riferimento
             log('  immagine senza scritta non riuscita (' + str(e_)[:60] + '), riprovo solo con KAO')
-            r = fal('fal-ai/nano-banana-2/edit', {'prompt': prompt, 'image_urls': [ID], 'aspect_ratio': '16:9', 'resolution': '1K', 'output_format': 'jpeg', 'num_images': 1})
+            r = fal('fal-ai/nano-banana-2/edit', {'prompt': prompt, 'image_urls': [ID], 'aspect_ratio': '16:9', 'resolution': '2K', 'output_format': 'jpeg', 'num_images': 1})
         im = Image.open(io.BytesIO(http(r['images'][0]['url'], raw=True))).convert('RGB')
-        im = ImageOps.fit(im, (1280, 720), Image.LANCZOS)
+        im = ImageOps.fit(im, (2560, 1440), Image.LANCZOS)
         if t.get('comp_id') and not e_kao(im):   # personaggio non originale: si rifa' una volta, con KAO ancora piu' vincolato
             log('personaggio non e\' KAO, rifaccio:', c['id'])
             r = fal('fal-ai/nano-banana-2/edit', {'prompt': 'IMPORTANT: the ONLY character is EXACTLY the character of the reference image (KAO): bald round head, '
                                                  'light skin, simple face, magenta long-sleeve shirt. No other creature, no green or coloured body. ' + prompt,
-                                                 'image_urls': refs, 'aspect_ratio': '16:9', 'resolution': '1K', 'output_format': 'jpeg', 'num_images': 1})
-            im = ImageOps.fit(Image.open(io.BytesIO(http(r['images'][0]['url'], raw=True))).convert('RGB'), (1280, 720), Image.LANCZOS)
+                                                 'image_urls': refs, 'aspect_ratio': '16:9', 'resolution': '2K', 'output_format': 'jpeg', 'num_images': 1})
+            im = ImageOps.fit(Image.open(io.BytesIO(http(r['images'][0]['url'], raw=True))).convert('RGB'), (2560, 1440), Image.LANCZOS)
+        im = ingrandisci_kao(im, 'sinistra' if t.get('lato_testo') == 'sinistra' else 'destra')   # KAO quasi a tutta altezza (zoom), poi 1280x720
         if APPLICA and not c.get('suff'):
             im.save(os.path.join(BASI, c['id'] + '.jpg'), quality=92)
         lato = 'sinistra' if t.get('lato_testo') == 'sinistra' else 'destra'
