@@ -67,9 +67,12 @@ def per_modello(mod):
     pers = os.path.join(CART, 'personaggio_%s.jpg' % mod)
     scheda = P.get('scheda') or ('Draw a character design sheet of OUR main character, full body, three poses (front, walking, surprised), '
                                  'on a plain light background: ')   # 'scheda' nel payload: come disegnare la scheda del personaggio
-    u = immagine(mod, REG_STILE + scheda + P['personaggio'] + '. ' + STILE + SENZA_CORNICE, RIF, pers)
-    log(mod, 'personaggio pronto')
-    out = [pers]
+    if P.get('rif_personaggio'):   # personaggio gia' fatto (file del repository): nessuna scheda nuova, nessuna spesa in piu'
+        u = 'https://raw.githubusercontent.com/%s/main/%s' % (REPO, P['rif_personaggio']); out = []
+    else:
+        u = immagine(mod, REG_STILE + scheda + P['personaggio'] + '. ' + STILE + SENZA_CORNICE, RIF, pers)
+        log(mod, 'personaggio pronto')
+        out = [pers]
     for i, sc in enumerate(P['scene'], 1):
         p = os.path.join(CART, '%s_%02d.jpg' % (mod, i))
         try:
