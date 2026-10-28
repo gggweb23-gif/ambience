@@ -19,6 +19,7 @@ REPO = E('GITHUB_REPOSITORY', 'gggweb23-gif/ambience')
 RIF = ['https://raw.githubusercontent.com/%s/main/%s' % (REPO, r) for r in P.get('riferimenti', [])]
 PREZZO = {'seedream': 0.04, 'nano': 0.12}
 SPESA = {'tot': 0.0}
+MAX_SPESA = float(P.get('max_spesa', 0.5))   # tetto di spesa: oltre questo non parte nessuna immagine
 
 
 def http(url, dati=None, h=None):
@@ -33,20 +34,22 @@ def fal(modello, dati):
     inv = http('https://queue.fal.run/' + modello, dati, h)
     for _ in range(150):
         time.sleep(4)
-        st = http(inv['status_url'], headers=h)
+        st = http(inv['status_url'], h=h)
         if st.get('status') == 'COMPLETED':
-            return http(inv['response_url'], headers=h)
+            return http(inv['response_url'], h=h)
         if st.get('status') not in ('IN_QUEUE', 'IN_PROGRESS'):
             raise RuntimeError(json.dumps(st)[:300])
     raise RuntimeError('Fal: tempo scaduto')
 
 
 def immagine(mod, prompt, refs, path):
+    if SPESA['tot'] + PREZZO[mod] > MAX_SPESA + 1e-9:
+        raise RuntimeError('tetto di spesa %.2f $ raggiunto' % MAX_SPESA)
+    SPESA['tot'] += PREZZO[mod]   # contata subito: fal fa pagare anche se poi qualcosa va storto
     if mod == 'nano':
         r = fal('fal-ai/nano-banana-2/edit', {'prompt': prompt, 'image_urls': refs, 'aspect_ratio': '16:9', 'resolution': '2K', 'output_format': 'jpeg', 'num_images': 1})
     else:
         r = fal('fal-ai/bytedance/seedream/v4.5/edit', {'prompt': prompt, 'image_urls': refs, 'image_size': {'width': 2560, 'height': 1440}, 'num_images': 1})
-    SPESA['tot'] += PREZZO[mod]
     url = r['images'][0]['url']
     urllib.request.urlretrieve(url, path)
     im = Image.open(path).convert('RGB'); im.thumbnail((1920, 1080)); im.save(path, quality=90)
