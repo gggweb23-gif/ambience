@@ -32,6 +32,7 @@ jobs:
             git add prove_stile
             git commit -m "Prova stile"
             for i in 1 2 3 4 5; do git pull --rebase -q && git push && break; sleep $((i * 5)); done
+          fi
       - name: Copia di riserva (se il salvataggio non riesce)
         if: ${{ always() }}
         uses: actions/upload-artifact@v4
@@ -40,4 +41,3 @@ jobs:
           path: prove_stile
           if-no-files-found: ignore
           retention-days: 7
-          fi
