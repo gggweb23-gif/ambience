@@ -1252,7 +1252,7 @@ def copertina_nuova(cp, path):
     xt = x0 + A * (.74 if lato_testo == 'destra' else .26)
     if pr is not None and (sx and dx) and ((lato_pr == 'destra' and lato_testo == 'destra') or (lato_pr == 'sinistra' and lato_testo == 'sinistra')):
         xt = x0 + A * (.26 if lato_pr == 'destra' else .74)   # mai sotto il presentatore: la scritta va nella meta' libera
-    riquadro(im, xt, H * .60, testo, fs)   # mai nell'angolo in basso a destra (durata del video)
+    riquadro(im, xt, H * (.80 if pr is not None else .60), testo, fs)   # col presentatore in basso: la meta' mappa e' stretta e il paese resta visibile
     extra = str(cp.get('extra') or '').upper()[:14]
     if extra:
         riquadro(im, x0 + A * (.25 if xt > x0 + A / 2 else .75), H * .16, extra, 150 if pr is None else 120, (255, 214, 0), (0, 0, 0))
