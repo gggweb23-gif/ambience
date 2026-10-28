@@ -249,8 +249,14 @@ async function main() {
   // ---- copioni di riferimento (cartella Drive scripts_examples_folder_id, copiata nel repository in esempi_copioni/<id cartella>)
   // (anche file sciolti in esempi_copioni che iniziano con "<id cartella>__", piu' comodi da caricare da GitHub)
   const idCart = String(cfg.scripts_examples_folder_id || '').trim(), base = path.join(ROOT, 'esempi_copioni'), cart = path.join(base, idCart);
-  const fileEsempi = idCart ? [...(fs.existsSync(cart) ? fs.readdirSync(cart).map(f => [f, path.join(cart, f)]) : []),
-    ...(fs.existsSync(base) ? fs.readdirSync(base).filter(f => f.startsWith(idCart + '__')).map(f => [f.slice(idCart.length + 2), path.join(base, f)]) : [])] : [];
+  // un file che inizia con "<id di un'altra cartella>__" e' di un altro canale, ovunque sia stato caricato
+  const altroCanale = (f) => { const m = f.match(/^([\w-]{20,})__/); return m && m[1] !== idCart; };
+  const tutti = [];
+  const giro = (d) => { if (!fs.existsSync(d)) return; for (const f of fs.readdirSync(d)) { const p = path.join(d, f);
+    if (fs.statSync(p).isDirectory()) giro(p); else tutti.push({ f, p, dir: d }); } };
+  giro(base);
+  const fileEsempi = idCart ? tutti.filter(x => !altroCanale(x.f) && (x.dir === cart || x.f.startsWith(idCart + '__')))
+    .map(x => [x.f.startsWith(idCart + '__') ? x.f.slice(idCart.length + 2) : x.f, x.p]) : [];
   const blocchi = fileEsempi.filter(([f]) => f.endsWith('.txt')).sort((a, b) => a[0].localeCompare(b[0]))
     .map(([f, p]) => '========== ' + f.replace(/^\d+_/, '').replace(/\.txt$/, '') + ' ==========\n\n' + fs.readFileSync(p, 'utf8').trim());
   if (!blocchi.length) log('ATTENZIONE: nessun copione di riferimento per la cartella', idCart);
