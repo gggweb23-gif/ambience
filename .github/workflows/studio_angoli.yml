@@ -1,0 +1,36 @@
+name: Studio Angoli
+
+# Prima di aprire un canale (o quando il CTR e' basso): le copertine piu' viste del competitor rifatte in 3 angoli d'attacco (strumenti/studio_angoli.py).
+on:
+  workflow_dispatch:
+    inputs:
+      payload:
+        description: 'JSON con nome, canale_id, n, max_spesa (facoltativi: stile, font, angoli)'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  studio:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Copertine nei 3 angoli
+        env:
+          PAYLOAD: ${{ inputs.payload }}
+          FAL_KEY: ${{ secrets.FAL_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: pip install -q pillow && python3 strumenti/studio_angoli.py
+      - name: Salva nel repository
+        if: ${{ always() }}
+        run: |
+          if [ -n "$(git status --porcelain prove_angoli)" ]; then
+            git config user.name "render-bot"
+            git config user.email "render-bot@users.noreply.github.com"
+            git add prove_angoli
+            git commit -m "Studio angoli"
+            for i in 1 2 3 4 5; do git pull --rebase -q && git push && break; sleep $((i * 5)); done
+          fi
