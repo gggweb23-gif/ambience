@@ -2499,7 +2499,7 @@ REGOLE:
 5. "camera": push_in, pull_out, pan_left, pan_right, tilt_up, tilt_down, punch (zoom secco: solo nei momenti forti, 1 riga ogni 5-6). Mai uguale due volte di fila.
 6. [COMING UP]: queste righe sono l'ANTEPRIMA del video, come nei video di MrBeast: mostrano i momenti piu' spettacolari, sorprendenti o drammatici di TUTTA la storia (anche se la voce qui dice altro), ognuno una scena diversa. Nel resto del video non disegnare MAI di nuovo una scena gia' mostrata nell'anteprima.
 7. "scritta" (circa 1 riga ogni 4, mai due di fila): 1-4 parole IN MAIUSCOLO che la voce dice in quella riga e che colpiscono (numeri, cifre, orari, nomi, parole forti: "5:00 AM", "300 SESTERCES", "NO WATER", "CAESAR"). Nella lingua del video.
-8. "etichetta": quando nel racconto cambia il momento (ora del giorno, giorno, anno, tappa), una etichetta breve che resta fissa nell'angolo finche' non cambia (es. "5:00 AM", "NOON", "DAY 1", "64 AD"). Altrimenti "".
+8. "etichetta": SOLO quando nel racconto cambia il TEMPO (ora del giorno, giorno, anno): una etichetta breve che resta fissa nell'angolo finche' non cambia (es. "5:00 AM", "NOON", "SUNSET", "DAY 1", "64 AD"). Mai concetti o temi ("MYTH", "REALITY", "THE PATRON"): per quelli c'e' la scritta. Al massimo 1 nuova etichetta ogni 30 secondi. Altrimenti "".
 9. "battuta" (1-2 al minuto, solo nei momenti ironici o sorprendenti): commento breve e divertente in basso, max 6 parole, nella lingua del video (es. "OUCH...", "NOT IDEAL", "HE WAS NOT OKAY").
 10. "flash": true solo nei colpi di scena (max 1 ogni 20 secondi).
 11. "atmosfera" (di solito ""): pioggia, neve, polvere, braci o nebbia SOLO se la scena li ha davvero.
