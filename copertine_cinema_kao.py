@@ -855,10 +855,17 @@ def fai(i):
             im = ImageOps.fit(Image.open(io.BytesIO(http(r['images'][0]['url'], raw=True))).convert('RGB'), (2560, 1440), Image.LANCZOS)
         diviso = bool(t.get('composizione'))
         ck = controllo(im, diviso) if STILE == 'piatto' else None
-        if ck and (ck.get('scritte') or ck.get('vestiti_uguali') or ck.get('luoghi_uguali')):   # una sola rigenerazione, con il difetto scritto chiaro
+        def th_(z):
+            try:
+                v = float(z.get('testa_alta')); return v / 100 if v > 1 else v
+            except Exception:
+                return 1.0
+        teste_alte = t.get('lato_testo') == 'alto' and ck is not None and th_(ck) < .33   # con la fascia in alto la scritta verrebbe piccola
+        if ck and (ck.get('scritte') or ck.get('vestiti_uguali') or ck.get('luoghi_uguali') or teste_alte):   # una sola rigenerazione, con il difetto scritto chiaro
             dif = (' The two DIFFERENT women/people MUST wear tops of clearly different colours and styles.' if ck.get('vestiti_uguali') else '') + \
                   (' The two parts MUST be completely different kinds of places (e.g. a home living room vs a city street at night).' if ck.get('luoghi_uguali') else '') + \
-                  (' Absolutely NO letters or words anywhere.' if ck.get('scritte') else '')
+                  (' Absolutely NO letters or words anywhere.' if ck.get('scritte') else '') + \
+                  (' Draw the people a bit smaller and lower in the frame: the TOP of every head must be BELOW 38% of the image height (the upper part is only background).' if teste_alte else '')
             log('  difetti trovati, rifaccio una volta:', dif.strip())
             r = fal('fal-ai/nano-banana-2/edit', {'prompt': 'IMPORTANT:' + dif + ' ' + prompt, 'image_urls': refs, 'aspect_ratio': '16:9', 'resolution': '2K', 'output_format': 'jpeg', 'num_images': 1})
             im = ImageOps.fit(Image.open(io.BytesIO(http(r['images'][0]['url'], raw=True))).convert('RGB'), (2560, 1440), Image.LANCZOS)

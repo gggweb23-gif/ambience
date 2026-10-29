@@ -287,6 +287,12 @@ async function main() {
   }
   metti('Loop Blocchi', blocchiItems);
   const sw = (await codice('AI Scriptwriter', [J({})]))[0].json.output;
+  if (String(cfg.titolo_maiuscole || '').trim().toUpperCase() === 'NO' && sw.titolo_italiano) {   // colonna titolo_maiuscole = NO: niente parole tutte maiuscole nel titolo
+    const t0 = sw.titolo_italiano;
+    sw.titolo_italiano = t0.split(' ').map(w => (/[A-ZÀ-Ý]/.test(w) && w === w.toUpperCase() && w.replace(/[^A-Za-zÀ-ÿ]/g, '').length >= 3) ? w.toLowerCase() : w).join(' ');
+    sw.titolo_italiano = sw.titolo_italiano.charAt(0).toUpperCase() + sw.titolo_italiano.slice(1);
+    if (t0 !== sw.titolo_italiano) log('titolo senza maiuscole:', t0, '->', sw.titolo_italiano);
+  }
   log('copione:', sw.segments.length, 'scene | titolo:', sw.titolo_italiano);
 
   // ---- 9) copertina in parallelo (stesso programma e stesse impostazioni di "Copertina KAO n8n")
