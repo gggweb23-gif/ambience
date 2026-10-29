@@ -57,8 +57,12 @@ def mezza(isos, col, Wm, scuro=False, alto=0.0):
     if Wm < W and (serve > 330 or serve / 2 > 180 - abs(lon_c)):
         im, m = _mezza(isos, col, W, scuro, 0.0)
         h2 = int(H * Wm / W); y0 = int((H - h2) * (.5 + alto / 2))
-        fondo = ImageEnhance.Brightness(ImageOps.fit(im, (Wm, H)).filter(ImageFilter.GaussianBlur(30))).enhance(.6).convert('RGBA')
-        fondo.paste(im.resize((Wm, h2), Image.LANCZOS), (0, y0)); mm = Image.new('L', (Wm, H), 0); mm.paste(m.resize((Wm, h2)), (0, y0))
+        fondo = Image.new('RGBA', (Wm, H), (14, 24, 38, 255) if scuro else (60, 120, 190, 255))
+        pezzo = im.resize((Wm, h2), Image.LANCZOS); bordo = max(10, h2 // 8)
+        alfa = Image.new('L', (Wm, h2), 255); da = ImageDraw.Draw(alfa)
+        for i in range(bordo):   # bordi sopra e sotto sfumati: niente fasce nette
+            da.line([(0, i), (Wm, i)], fill=int(255 * i / bordo)); da.line([(0, h2 - 1 - i), (Wm, h2 - 1 - i)], fill=int(255 * i / bordo))
+        pezzo.putalpha(alfa); fondo.alpha_composite(pezzo, (0, y0)); mm = Image.new('L', (Wm, H), 0); mm.paste(m.resize((Wm, h2)), (0, y0))
         return fondo, mm
     return _mezza(isos, col, Wm, scuro, alto)
 
