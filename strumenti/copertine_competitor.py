@@ -11,8 +11,11 @@ from PIL import Image, ImageDraw
 P = json.loads(os.environ.get('PAYLOAD') or '{}')
 CART = os.path.join('copertine_competitor', P['nome']); os.makedirs(CART, exist_ok=True)
 get = lambda u: urllib.request.urlopen(urllib.request.Request(u, headers={'User-Agent': 'Mozilla/5.0'}), timeout=60).read()
-xml = get('https://www.youtube.com/feeds/videos.xml?channel_id=' + P['canale_id']).decode()
-voci = re.findall(r'<yt:videoId>([\w-]{11})</yt:videoId>.*?<title>(.*?)</title>.*?<media:statistics views="(\d+)"', xml, re.S)
+if P.get('video_ids'):   # singoli video (lista di ID), senza feed del canale
+    voci = [(v, '', '0') for v in P['video_ids']]
+else:
+    xml = get('https://www.youtube.com/feeds/videos.xml?channel_id=' + P['canale_id']).decode()
+    voci = re.findall(r'<yt:videoId>([\w-]{11})</yt:videoId>.*?<title>(.*?)</title>.*?<media:statistics views="(\d+)"', xml, re.S)
 righe, imgs = [], []
 for vid, tit, views in voci:
     for q in ('maxresdefault', 'hqdefault'):
