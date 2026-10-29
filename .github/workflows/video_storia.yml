@@ -166,7 +166,7 @@ jobs:
           fi
 
       - name: Anteprima della prova nel repository (copertina + 8 fotogrammi, per controllarla senza scaricare il video)
-        if: ${{ always() && inputs.prova == 'SI' }}
+        if: ${{ always() }}   # anche per i video veri: copertina, fotogrammi e registro per controllarli senza scaricare
         run: |
           D="prove_video/$(python3 -c "import json,os,re;p=json.loads(os.environ.get('PAYLOAD') or '{}');print(re.sub(r'[^A-Za-z0-9_-]','_',str(p.get('canale') or 'storia')))")"
           mkdir -p "$D" && rm -f "$D"/*
