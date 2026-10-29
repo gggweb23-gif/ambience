@@ -2699,7 +2699,10 @@ def video_scene(c, durs, voci, kit):
     testo_g = [' / '.join(piano[k]['testo'] for k in ks) for ks in gruppi]
     fogli = {}
     if gruppi:
-        fogli[0] = genera_foglio(0, [piano[k] for k in gruppi[0]], testo_g[0])
+        try:
+            fogli[0] = genera_foglio(0, [piano[k] for k in gruppi[0]], testo_g[0])
+        except Exception as e:
+            log('primo foglio NON riuscito:', str(e)[:200]); fogli[0] = []
         try:   # il primo foglio fa da riferimento di stile e personaggi a tutti gli altri
             rif = os.path.join(LAV, 'tavola_rif.jpg')
             src0 = os.path.join(LAV, 'foglio_000_tavola.jpg')
@@ -2708,15 +2711,28 @@ def video_scene(c, durs, voci, kit):
                 TAVOLA_RIF['url'] = carica_fal(rif, 'image/jpeg')
         except Exception as e:
             log('riferimento foglio non caricato:', str(e)[:150])
+    def foglio_sicuro(g):
+        try:
+            return genera_foglio(g, [piano[k] for k in gruppi[g]], testo_g[g])
+        except Exception as e:
+            log('foglio', g, 'NON riuscito:', str(e)[:200]); return []
     with ThreadPoolExecutor(4) as ex:
         resto = list(range(1, len(gruppi)))
-        fogli.update(zip(resto, ex.map(lambda g: genera_foglio(g, [piano[k] for k in gruppi[g]], testo_g[g]), resto)))
+        fogli.update(zip(resto, ex.map(foglio_sicuro, resto)))
     log('fogli pronti:', len(fogli), 'per', len(cart), 'scene a cartone, in', int(time.time() - t0), 's')
     nome_font = c.get('font_carte') if c.get('font_carte') in FONT_EPOCA else 'classico'
 
     def fai(k):
+        try:
+            return _fai(k)
+        except Exception as e:   # mai fermare tutto il video per un'inquadratura: si allunga quella prima
+            log('inquadratura', k, piano[k]['tipo'], 'NON riuscita:', str(e)[:300]); return None
+
+    def _fai(k):
         v = piano[k]; d = v['d']; p = os.path.join(LAV, f'pezzo_{k:04d}.mp4')
         if v['tipo'] == 'cartone':
+            if len(fogli.get(v['foglio']) or []) <= v['pannello']:
+                raise RuntimeError('foglio mancante')
             pezzo_regia(p, d, fogli[v['foglio']][v['pannello']], '', v.get('camera'), '' if v.get('coming_up') else (v.get('capitolo') or ''),
                         nome_font, v.get('atmo') or '', v.get('flash'))
         elif v['tipo'] == 'pexels_video':
@@ -2731,8 +2747,22 @@ def video_scene(c, durs, voci, kit):
         return p
     with ThreadPoolExecutor(3) as ex:
         paths = list(ex.map(fai, range(len(piano))))
-    log('inquadrature pronte:', len(paths), 'in', int(time.time() - t0), 's')
-    return piano, paths
+    buoni_p, buoni_v = [], []   # un'inquadratura non riuscita: la precedente dura di piu' (niente immagine ripetuta)
+    for p_, v in zip(paths, piano):
+        if p_:
+            buoni_p.append(p_); buoni_v.append(v)
+        elif buoni_v:
+            buoni_v[-1] = dict(buoni_v[-1], d=buoni_v[-1]['d'] + v['d'])
+            try:
+                pv = buoni_p[-1][:-4] + '_l.mp4'
+                run(['ffmpeg', '-y', '-v', 'error', '-i', buoni_p[-1], '-vf', f'tpad=stop_mode=clone:stop_duration={v["d"]:.3f}', *ENC, pv])
+                buoni_p[-1] = pv
+            except Exception as e:
+                log('allungamento non riuscito:', str(e)[:120])
+    if not buoni_p:
+        raise RuntimeError('nessuna inquadratura riuscita')
+    log('inquadrature pronte:', len(buoni_p), 'su', len(piano), 'in', int(time.time() - t0), 's')
+    return buoni_v, buoni_p
 
 
 def ritocchi_scene(video, piano):
