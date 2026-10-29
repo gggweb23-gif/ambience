@@ -96,6 +96,10 @@ IMMAGINI_MODELLO = str(P.get('immagini_modello') or E('IMMAGINI_MODELLO', '') or
 NUOVE_QUOTA = float(str(P.get('immagini_nuove') or E('IMMAGINI_NUOVE', '') or .55).replace(',', '.').replace('%', ''))
 NUOVE_QUOTA = NUOVE_QUOTA / 100 if NUOVE_QUOTA > 1 else NUOVE_QUOTA   # quota di inquadrature con un'immagine nuova (le altre: dettaglio della precedente)
 IMMAGINI_MAX = int(float(str(P.get('immagini_max') or E('IMMAGINI_MAX', '') or 200)))   # tetto immagini per video (costo)
+TAVOLE = str(P.get('tavole') or E('TAVOLE', '') or 'NO').strip().upper() == 'SI'   # regia: ogni immagine generata = tavola 2x2 con 4 inquadrature diverse (mai la stessa immagine due volte)
+if TAVOLE and not (P.get('immagini_nuove') or E('IMMAGINI_NUOVE', '')):
+    NUOVE_QUOTA = .3   # una tavola ogni ~4 inquadrature: le altre 3 sono gli altri pannelli
+ATMOSFERA = str(P.get('atmosfera') or E('ATMOSFERA', '') or ('SI' if TAVOLE else 'NO')).strip().upper() == 'SI'   # pioggia, neve, polvere, braci, nebbia animate sopra l'immagine quando la scena le ha
 VERIFICA = str(P.get('verifica_immagini') or E('VERIFICA_IMMAGINI', '') or 'SI').strip().upper() == 'SI'   # Claude controlla ogni immagine
 GRANA = str(P.get('grana') or E('GRANA', '') or 'SI').strip().upper() == 'SI'   # grana da pellicola + vignetta leggera
 PEXELS_MAX = int(float(str(P.get('pexels_max') or E('PEXELS_MAX', '') or 190)))   # ricerche Pexels per ORA (limite Pexels: 200 l'ora)
@@ -1654,7 +1658,7 @@ def pista_cambi(piano, totale, out, sr=44100):
     a = np.zeros(int((totale + 2) * sr), np.float32)
     rng = random.Random(str(P.get('id') or TITOLO)); ultimi, t, n = [], 0.0, 0
     for k, v in enumerate(piano):
-        if k:
+        if k and (not TAVOLE or v.get('prompt') or v.get('tipo') != 'cartone'):
             scelta = [x for x in range(len(lib)) if x not in ultimi] or list(range(len(lib)))
             i = rng.choice(scelta); ultimi = (ultimi + [i])[-min(3, len(lib) - 1):]
             s_ = lib[i] * rng.uniform(.85, 1.0); j = max(0, int((t - .05) * sr))   # appena prima del taglio: il suono "porta" l'immagine
@@ -1907,6 +1911,14 @@ def taglia_inquadrature(scene, durs, voci):
     return out
 
 
+REGOLE_DETTAGLI = """2. "nuova": true = immagine nuova; false = DETTAGLIO dell'ultima immagine nuova (la stessa scena vista piu' da vicino), SOLO se le parole parlano ancora della stessa cosa e quel dettaglio e' gia' nell'immagine. Mai piu' di 2 dettagli di fila. Circa {q}% di immagini nuove.
+3. "prompt_en" (solo per le nuove): in inglese, 30-60 parole: chi c'e' e cosa fa, luogo, epoca, tempo atmosferico e luce, emozione, e l'INQUADRATURA (varia sempre: epic wide establishing shot, aerial view, medium shot, dramatic close-up, low angle, over-the-shoulder, silhouette against the sky...). Se le righe dopo saranno dettagli, descrivi anche quegli elementi e dove sono (left / right / center)."""
+REGOLE_TAVOLE = """2. MONTAGGIO DA FILM: "nuova": true = un MOMENTO nuovo, che viene disegnato come TAVOLA di 4 inquadrature diverse dello stesso momento (stessi personaggi, vestiti e luogo). Le righe dopo con "nuova": false mostrano, in ordine, gli altri pannelli della stessa tavola: massimo 3 di fila, e solo se le parole parlano ancora di quel momento. Lo spettatore non vede MAI la stessa immagine due volte. Circa una riga nuova ogni 3-4.
+3. "prompt_en" (solo per le nuove): in inglese, 30-50 parole: il momento (chi c'e', cosa fa, luogo, epoca, tempo atmosferico e luce, emozione). "pannelli" (solo per le nuove): 4 descrizioni in inglese di 10-25 parole, una per pannello, ognuna coerente con le parole della riga in cui si vedra' (pannello 1 = questa riga, 2/3/4 = le righe "nuova": false che seguono). Ordine da film: 1 campo largo che mostra tutta la scena; 2 primo piano del volto del protagonista con un'emozione forte; 3 dettaglio di mani o dell'oggetto chiave (MAI un volto); 4 un altro personaggio che reagisce, oppure la scena da un'angolazione opposta (dall'alto, dal basso, di spalle). Quattro soggetti chiaramente diversi."""
+REGOLE_EXTRA = """11. "atmosfera" (solo per le nuove, di solito ""): pioggia, neve, polvere, braci o nebbia SOLO se la scena li ha davvero (temporale, inverno, strada o battaglia polverosa, fuoco o citta' in fiamme, alba nebbiosa o fumo). Vale per tutta la tavola.
+12. "suono" (facoltativo, circa uno ogni 15-20 secondi, nei momenti forti): un effetto sonoro in inglese, 3-8 parole, che corrisponde a cio' che si vede (es. "swords clashing in battle", "horses galloping on stone", "roaring crowd in the arena", "heavy rain and thunder"). Mai musica, mai voci che parlano."""
+
+
 def piano_regia(c, shots, kit):
     """Claude fa il regista: per OGNI inquadratura decide l'immagine sulle parole esatte della voce."""
     chiave = E('ANTHROPIC_API_KEY', '')
@@ -1920,8 +1932,7 @@ Ogni riga qui sotto e' un'inquadratura di circa {RITMO[0]:.0f} secondi con le PA
 
 REGOLE:
 1. COERENZA ASSOLUTA: l'immagine mostra ESATTAMENTE quello che dicono quelle parole. Se dice sole: sole e luce calda; se dice pioggia o inverno: pioggia o neve; se dice deserto: deserto; se nomina una persona: quella persona; se parla di numeri o idee astratte: una scena concreta che li rappresenta. MAI qualcosa che contraddice le parole.
-2. "nuova": true = immagine nuova; false = DETTAGLIO dell'ultima immagine nuova (la stessa scena vista piu' da vicino), SOLO se le parole parlano ancora della stessa cosa e quel dettaglio e' gia' nell'immagine. Mai piu' di 2 dettagli di fila. Circa {round(NUOVE_QUOTA * 100)}% di immagini nuove.
-3. "prompt_en" (solo per le nuove): in inglese, 30-60 parole: chi c'e' e cosa fa, luogo, epoca, tempo atmosferico e luce, emozione, e l'INQUADRATURA (varia sempre: epic wide establishing shot, aerial view, medium shot, dramatic close-up, low angle, over-the-shoulder, silhouette against the sky...). Se le righe dopo saranno dettagli, descrivi anche quegli elementi e dove sono (left / right / center).
+{REGOLE_TAVOLE if TAVOLE else REGOLE_DETTAGLI.format(q=round(NUOVE_QUOTA * 100))}
 4. "personaggi": 0-2 id del kit SOLO se sono proprio loro (la persona con nome che la voce nomina, o una figura generica coerente con epoca e popolo). Kit: {lista_kit(kit)}. Le altre persone descrivile nel prompt (popolo, epoca, vestiti corretti).
 5. "zoom" (solo per i dettagli): uno tra sinistra, destra, centro, alto, basso, volto.
 6. "camera": push_in, pull_out, pan_left, pan_right, tilt_up, tilt_down. Variala, mai uguale due volte di fila; nei momenti forti push_in.
@@ -1929,12 +1940,13 @@ REGOLE:
 8. "mappa": true UNA sola volta in tutto il video, quando la voce presenta il territorio o i confini del paese (senza prompt).
 9. EMOZIONE E SORPRESA: alterna campi lunghissimi epici e primi piani emotivi, giorno e notte, folle e solitudine, interni ed esterni; mai lo stesso soggetto due volte di fila; ogni immagine deve far venire voglia di vedere la successiva.
 10. Mai scritte, lettere o numeri dentro le immagini; niente di moderno se l'epoca e' antica.
+{REGOLE_EXTRA if (TAVOLE or EFFETTI or ATMOSFERA) else ''}
 
 INQUADRATURE:
 {elenco}
 
 Rispondi SOLO con un array JSON, un oggetto per riga, con lo stesso numero "n":
-[{{"n": {b0}, "nuova": true, "prompt_en": "...", "personaggi": [], "camera": "push_in", "didascalia": ""}}, {{"n": {b0 + 1}, "nuova": false, "zoom": "volto", "camera": "pan_left"}}]"""
+[{{"n": {b0}, "nuova": true, "prompt_en": "...",{' "pannelli": ["...", "...", "...", "..."], "atmosfera": "",' if TAVOLE else ''} "personaggi": [], "camera": "push_in", "didascalia": "", "suono": ""}}, {{"n": {b0 + 1}, "nuova": false,{'' if TAVOLE else ' "zoom": "volto",'} "camera": "pan_left", "suono": ""}}]"""
         for k in range(3):
             try:
                 testo, _ = claude_stream({'model': MODELLO_AI if k < 2 else MODELLO_RISERVA, 'max_tokens': 32000,
@@ -1955,9 +1967,10 @@ Rispondi SOLO con un array JSON, un oggetto per riga, con lo stesso numero "n":
         if r.get('mappa') and not mappa_fatta and c.get('paese_mappa'):
             mappa_fatta = True; out.append(dict(s, tipo='mappa')); dettagli = 0; continue
         r['mappa'] = False
-        nuova = bool(r.get('nuova', True)) or not out or dettagli >= 2 or not any(x.get('img') is not None for x in out)
+        max_det = 3 if TAVOLE else 2
+        nuova = bool(r.get('nuova', True)) or not out or dettagli >= max_det or not any(x.get('img') is not None for x in out)
         if nuova and not str(r.get('prompt_en') or '').strip():
-            if out and dettagli < 2 and any(x.get('img') is not None for x in out):
+            if out and dettagli < max_det and any(x.get('img') is not None for x in out):
                 nuova = False
             else:
                 r['prompt_en'] = 'Historical scene illustrating: ' + s['testo']
@@ -1965,9 +1978,11 @@ Rispondi SOLO con un array JSON, un oggetto per riga, con lo stesso numero "n":
         if cam == ultima_cam:
             cam = random.choice([x for x in CAMERE if x != cam])
         ultima_cam = cam
-        v = dict(s, tipo='cartone', camera=cam, didascalia=str(r.get('didascalia') or '').strip()[:60])
+        v = dict(s, tipo='cartone', camera=cam, didascalia=str(r.get('didascalia') or '').strip()[:60], suono=str(r.get('suono') or '').strip()[:80])
         if nuova:
-            v.update(img=n, prompt=str(r['prompt_en']).strip(), personaggi=[x for x in (r.get('personaggi') or []) if x in kit and x != NARRATORE][:2], zoom='')
+            v.update(img=n, prompt=str(r['prompt_en']).strip(), personaggi=[x for x in (r.get('personaggi') or []) if x in kit and x != NARRATORE][:2], zoom='',
+                     pannelli=[str(x).strip() for x in (r.get('pannelli') or []) if str(x).strip()][:4],
+                     atmo=str(r.get('atmosfera') or '').strip().lower() if str(r.get('atmosfera') or '').strip().lower() in ATMO_TIPI else '')
             dettagli = 0
         else:
             v.update(img=next(x['img'] for x in reversed(out) if x.get('img') is not None), zoom=r.get('zoom') if r.get('zoom') in ZOOM_BOX else 'centro')
@@ -1985,31 +2000,104 @@ Rispondi SOLO con un array JSON, un oggetto per riga, con lo stesso numero "n":
     for v in out:   # i dettagli puntano all'immagine giusta
         if v.get('tipo') == 'cartone' and not v.get('prompt') and v.get('img') is not None and out[v['img']].get('tipo') != 'cartone':
             v['img'] = next(x['img'] for x in reversed(out[:out.index(v)]) if x.get('prompt'))
+    if TAVOLE:   # ogni inquadratura della stessa tavola prende il pannello dopo: 1 campo largo, 2 volto, 3 dettaglio, 4 reazione
+        uso, atmo = {}, {v['img']: v.get('atmo', '') for v in out if v.get('prompt')}
+        for v in out:
+            if v.get('tipo') != 'cartone' or v.get('img') is None:
+                continue
+            i = uso.get(v['img'], 0); uso[v['img']] = i + 1
+            v.update(pannello=i % 4, zoom='' if i < 4 else 'centro', atmo=atmo.get(v['img'], ''))   # oltre 4 (solo col tetto di costo): dettaglio del pannello
     log(f"regia: {len(out)} inquadrature, {sum(1 for v in out if v.get('prompt'))} immagini nuove, "
         f"{sum(1 for v in out if v.get('tipo') == 'cartone' and not v.get('prompt'))} dettagli, mappa: {'si' if mappa_fatta else 'no'}")
     return out
 
 
-def _immagine_fal(prompt, refs, p):
+def _immagine_fal(prompt, refs, p, size=(2560, 1440)):
     if IMMAGINI_MODELLO.startswith('nano'):
-        dati = {'aspect_ratio': '16:9', 'resolution': '2K', 'output_format': 'jpeg', 'num_images': 1}
+        dati = {'aspect_ratio': '16:9', 'resolution': '4K' if size[0] > 2560 else '2K', 'output_format': 'jpeg', 'num_images': 1}
         r = fal('fal-ai/nano-banana-2/edit', dict(dati, prompt=prompt, image_urls=refs)) if refs else fal('fal-ai/nano-banana-2', dict(dati, prompt=prompt))
     else:
-        dati = {'image_size': {'width': 2560, 'height': 1440}, 'num_images': 1}
+        dati = {'image_size': {'width': size[0], 'height': size[1]}, 'num_images': 1}
         r = fal('fal-ai/bytedance/seedream/v4.5/edit', dict(dati, prompt=prompt, image_urls=refs)) if refs else \
             fal('fal-ai/bytedance/seedream/v4.5/text-to-image', dict(dati, prompt=prompt))
     scarica(r['images'][0]['url'], p)
     im = Image.open(p).convert('RGB')
-    ImageOps.fit(im, (2560, 1440), Image.LANCZOS).save(p, quality=92)
+    ImageOps.fit(im, size, Image.LANCZOS).save(p, quality=92)
 
 
-def verifica_immagine(p, testi, prompt):
+# ============================================================ TAVOLE 2x2: 4 inquadrature diverse al prezzo di un'immagine
+TAVOLA_PROMPT = ('A 2x2 STORYBOARD SHEET: the image is divided into FOUR EQUAL panels (top-left, top-right, bottom-left, bottom-right) separated by thin straight '
+                 'white lines that cross exactly in the centre; each panel is a complete 16:9 frame of the SAME moment with the SAME characters, clothes, light and place, '
+                 'but a clearly DIFFERENT shot and subject. ')
+TAVOLA_STD = ['wide establishing shot of the whole scene', 'close-up of the main character face with a strong emotion',
+              'detail close-up of the hands or the key object (no face)', 'another character reacting, or the scene from the opposite angle']
+
+
+def _bordo(a):   # righe (n, L, 3): e' una linea di separazione (quasi tutta bianca) o un contorno (quasi tutto nero)?
+    mn, mx = a.min(axis=2), a.max(axis=2)
+    bi = (mn > 205).mean(axis=1); ne = (mx < 70).mean(axis=1)
+    return (bi > .8) | (ne > .8), bi > .8
+
+
+def _linea(prof, lo, hi):   # la fascia bianca piu' vicina al centro tra lo e hi
+    best, i, mid = None, lo, (lo + hi) / 2
+    while i < hi:
+        if prof[i]:
+            j = i
+            while j < hi and prof[j]:
+                j += 1
+            if best is None or abs((i + j) / 2 - mid) < abs(sum(best) / 2 - mid):
+                best = (i, j)
+            i = j
+        else:
+            i += 1
+    return best
+
+
+def _rifila(q):   # toglie dai 4 lati le righe/colonne di linea bianca o di contorno nero rimaste attaccate al pannello
+    a = np.asarray(q, dtype=np.int16); h, w = a.shape[:2]
+    rig, _ = _bordo(a); col, _ = _bordo(a.transpose(1, 0, 2))
+
+    def conta(seq, lim):
+        n = 0
+        while n < lim and seq[n]:
+            n += 1
+        return n
+    t, b = conta(rig, int(h * .06)), conta(rig[::-1], int(h * .06))
+    l, r = conta(col, int(w * .06)), conta(col[::-1], int(w * .06))
+    e = max(3, int(w * .006))   # margine per l'antialias della linea
+    return q.crop((l + e, t + e, w - r - e, h - b - e))
+
+
+def taglia_tavola(im, size=(2560, 1440)):
+    """Tavola 2x2 -> 4 pannelli 16:9 senza linee bianche: trova da sola le linee divisorie (anche se i pannelli non sono uguali).
+    ok=False se una linea non si trova o un pannello e' troppo lontano dal 16:9 (tavola da rifare)."""
+    im = im.convert('RGB'); W_, H_ = im.size; k = 2; trovate = []
+    a = np.asarray(im.resize((W_ // k, H_ // k)), dtype=np.int16); h2, w2 = a.shape[:2]
+
+    def oriz(c0, c1):
+        z = _linea(_bordo(a[:, c0:c1])[1], int(h2 * .3), int(h2 * .7)); trovate.append(bool(z))
+        return (z[0] * k, z[1] * k) if z else (H_ // 2, H_ // 2)
+
+    def vert(r0, r1):
+        z = _linea(_bordo(a[r0:r1].transpose(1, 0, 2))[1], int(w2 * .3), int(w2 * .7)); trovate.append(bool(z))
+        return (z[0] * k, z[1] * k) if z else (W_ // 2, W_ // 2)
+    ys = oriz(int(w2 * .05), int(w2 * .3)), oriz(int(w2 * .7), int(w2 * .95))   # linea orizzontale a sinistra e a destra
+    vt = vert(int(h2 * .05), int(min(ys[0][0], ys[1][0]) / k * .9))
+    vb = vert(int(max(ys[0][1], ys[1][1]) / k + (h2 - max(ys[0][1], ys[1][1]) / k) * .1), int(h2 * .95))
+    boxes = [(0, 0, vt[0], ys[0][0]), (vt[1], 0, W_, ys[1][0]), (0, ys[0][1], vb[0], H_), (vb[1], ys[1][1], W_, H_)]
+    pannelli = [_rifila(im.crop(bx)) for bx in boxes]
+    ok = all(trovate) and all(1.35 < q.size[0] / max(1, q.size[1]) < 2.3 for q in pannelli)
+    return [ImageOps.fit(q, size, Image.LANCZOS) for q in pannelli], ok
+
+
+def verifica_immagine(p, testi, prompt, nota=''):
     """Claude guarda l'immagine e la confronta con le parole della voce. None = ok, altrimenti cosa correggere."""
     chiave = E('ANTHROPIC_API_KEY', '')
     if not chiave:
         return None
     im = Image.open(p).convert('RGB'); im.thumbnail((768, 768)); buf = io.BytesIO(); im.save(buf, 'JPEG', quality=85)
-    domanda = f"""Video di storia sul paese: {PAESE.get('nome') or '-'}. Questa immagine accompagna queste parole della voce: "{testi[:500]}".
+    domanda = nota + f"""Video di storia sul paese: {PAESE.get('nome') or '-'}. Questa immagine accompagna queste parole della voce: "{testi[:500]}".
 Controlla SOLO errori evidenti che uno spettatore noterebbe:
 1) contraddice le parole? (es. dice sole e c'e' pioggia, dice deserto e c'e' una foresta, dice una battaglia e c'e' una festa, nomina un re e non c'e')
 2) vestiti, edifici o oggetti moderni in un'epoca antica? persone in giacca, cravatta, panciotto o abiti dell'800/900 (scienziati, studiosi) quando la voce parla di un'epoca antica o di un luogo?
@@ -2045,6 +2133,8 @@ def genera_regia(v, testi):
         base = ('The character' + ('s' if len(refs) > 1 else '') + ' of the reference image' + ('s' if len(refs) > 1 else '') +
                 ' must appear INSIDE this scene, kept IDENTICAL (same face, body, clothes and drawing style), acting naturally. '
                 'Do not copy the white background of the reference. Scene: ' + base)
+    if TAVOLE:
+        return genera_tavola(v, testi, refs, p)
     if not E('FAL_KEY'):
         Image.new('RGB', (2560, 1440), (200, 180, 140)).save(p); return p
     try:
@@ -2065,7 +2155,114 @@ def genera_regia(v, testi):
     return p
 
 
-def pezzo_regia(path, d, img, zoom, camera, titolo='', nome_font='classico'):
+TAVOLE_KO = set()   # tavole non tagliabili: si usa l'immagine intera con inquadrature diverse (zoom)
+
+
+def genera_tavola(v, testi, refs, p):
+    """Una tavola 2x2 a 4K -> 4 pannelli diversi. Lista di 4 percorsi (pannello 1..4)."""
+    out = [p[:-4] + f'_p{i}.jpg' for i in range(4)]
+    if all(os.path.exists(x) for x in out):
+        return out
+    pan = (v.get('pannelli') or []) + TAVOLA_STD[len(v.get('pannelli') or []):]
+    prompt = (TAVOLA_PROMPT + ' '.join(f'PANEL {i + 1}: {x}.' for i, x in enumerate(pan[:4])) + ' MOMENT: ' + v['prompt'] + '. STYLE (the shot of each panel above wins over any framing written here): ' + STILE_SCENA +
+              ' No text, no letters, no numbers, no captions, no speech bubbles, no borders other than the thin white dividing lines.')
+    if refs:
+        prompt = ('The character' + ('s' if len(refs) > 1 else '') + ' of the reference image' + ('s' if len(refs) > 1 else '') +
+                  ' must appear in the panels kept IDENTICAL (same face, body, clothes and drawing style). Do not copy the white background of the reference. ' + prompt)
+    tav = p[:-4] + '_tavola.jpg'
+    if not E('FAL_KEY'):
+        Image.new('RGB', (3840, 2160), (200, 180, 140)).save(tav)
+    pannelli, ok, motivo = None, False, None
+    for tentativo in range(2):   # una sola ripetizione se la tavola non si taglia bene o non corrisponde alle parole
+        try:
+            if E('FAL_KEY'):
+                _immagine_fal(prompt + (' IMPORTANT: ' + motivo if tentativo and motivo else ''), refs, tav, (3840, 2160))
+            pannelli, ok = taglia_tavola(Image.open(tav))
+        except Exception as e:
+            log('tavola', v['img'], 'non riuscita:', str(e)[:150]); ok = False
+        motivo = None
+        if ok and VERIFICA and E('FAL_KEY'):
+            motivo = verifica_immagine(tav, testi, v['prompt'], 'E\' una TAVOLA di 4 inquadrature dello stesso momento separate da linee bianche: le linee vanno bene, '
+                                                              'controlla il contenuto dei 4 pannelli. ')
+            if motivo:
+                log(f'tavola {v["img"]} da rifare: {motivo}'); ok = False
+        if ok:
+            break
+        motivo = motivo or 'four EQUAL panels separated by thin straight white lines crossing exactly in the centre'
+    if pannelli is None:   # mai senza immagine: tavola non riuscita due volte -> immagine singola
+        _immagine_fal(v['prompt'] + '. ' + STILE_SCENA, refs, p); TAVOLE_KO.add(v['img'])
+        return [p] * 4
+    if not ok and pannelli:
+        log('tavola', v['img'], 'tagliata male due volte: uso dei pannelli comunque')
+    for q, x in zip(pannelli, out):
+        q.save(x, quality=92)
+    log('tavola pronta', v['img'])
+    return out
+
+
+# ============================================================ ATMOSFERA: particelle animate sopra l'immagine (gratis, generate qui)
+ATMO_TIPI = ('pioggia', 'neve', 'polvere', 'braci', 'nebbia')
+
+
+def atmosfera_clip(tipo):
+    """Clip in loop (trasparente) con pioggia / neve / polvere / braci / nebbia: generata una volta per video."""
+    with _atmo_lock:   # piu' inquadrature in parallelo: la clip si genera una volta sola
+        return _atmosfera_clip(tipo)
+
+
+_atmo_lock = threading.Lock()
+
+
+def _atmosfera_clip(tipo):
+    out = os.path.join(LAV, f'atmo_{tipo}.mov')
+    if os.path.exists(out):
+        return out
+    w, h = 960, 540; T = {'pioggia': 2.0, 'neve': 6.0, 'polvere': 6.0, 'braci': 6.0, 'nebbia': 8.0}[tipo]; n = int(T * FPS)
+    rng = np.random.default_rng(7); cart = os.path.join(LAV, f'atmo_{tipo}'); os.makedirs(cart, exist_ok=True)
+    if tipo == 'nebbia':   # rumore morbido periodico (si ripete senza cuciture) che scorre in orizzontale
+        def strato(scala):
+            f = np.zeros((h, w), complex)
+            for ky in range(-scala, scala + 1):
+                for kx in range(-scala, scala + 1):
+                    if kx or ky:
+                        f[ky % h, kx % w] = rng.normal() / (kx * kx + ky * ky) * np.exp(2j * np.pi * rng.random())
+            z = np.real(np.fft.ifft2(f)); return (z - z.min()) / (z.max() - z.min() + 1e-9)
+        s1, s2 = strato(4), strato(7)
+    else:
+        m = {'pioggia': 260, 'neve': 170, 'polvere': 160, 'braci': 70}[tipo]
+        x0, y0 = rng.random(m) * w, rng.random(m) * h
+        dim, fase, freq = rng.uniform(.5, 1.0, m), rng.random(m) * 6.283, rng.integers(1, 3, m)
+        giri = rng.integers(1, 3, m) if tipo != 'pioggia' else rng.integers(3, 5, m)   # quante volte attraversa lo schermo in un loop (intero = loop perfetto)
+    for i in range(n):
+        t = i / n
+        if tipo == 'nebbia':
+            z = .6 * np.roll(s1, int(w * t), axis=1) + .4 * np.roll(s2, -int(w * t), axis=1)
+            al = (np.clip((z - .35) / .65, 0, 1) * 120).astype(np.uint8)
+            fr = np.dstack([np.full((h, w), 225, np.uint8)] * 3 + [al]); Image.fromarray(fr, 'RGBA').save(os.path.join(cart, f'{i:04d}.png')); continue
+        im = Image.new('RGBA', (w, h), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
+        for j in range(m):
+            if tipo == 'pioggia':
+                y = (y0[j] + giri[j] * h * t) % h; x = (x0[j] - .25 * (y - y0[j])) % w; L = 14 + 18 * dim[j]
+                d.line((x, y, x - .25 * L, y - L), fill=(215, 225, 240, int(110 + 90 * dim[j])), width=1)
+            elif tipo == 'neve':
+                y = (y0[j] + giri[j] * h * t) % h; x = (x0[j] + 12 * math.sin(6.283 * freq[j] * t + fase[j])) % w; r = .8 + 2.2 * dim[j]
+                d.ellipse((x - r, y - r, x + r, y + r), fill=(255, 255, 255, int(150 + 100 * dim[j])))
+            elif tipo == 'polvere':
+                x = (x0[j] + 18 * math.sin(6.283 * freq[j] * t + fase[j])) % w; y = (y0[j] + 10 * math.cos(6.283 * freq[j] * t + fase[j])) % h; r = .6 + 1.6 * dim[j]
+                d.ellipse((x - r, y - r, x + r, y + r), fill=(255, 232, 190, int(70 + 170 * (.5 + .5 * math.sin(6.283 * freq[j] * t + fase[j] * 2)) * dim[j])))
+            else:   # braci: salgono ondeggiando e brillano
+                y = (y0[j] - giri[j] * h * t) % h; x = (x0[j] + 15 * math.sin(6.283 * freq[j] * t + fase[j])) % w; r = 1 + 1.8 * dim[j]
+                d.ellipse((x - r * 2.2, y - r * 2.2, x + r * 2.2, y + r * 2.2), fill=(255, 120, 30, 60))
+                d.ellipse((x - r, y - r, x + r, y + r), fill=(255, 200, 90, int(160 + 90 * (.5 + .5 * math.sin(6.283 * 2 * t + fase[j])))))
+        if tipo in ('neve', 'braci', 'polvere'):
+            im = im.filter(ImageFilter.GaussianBlur(.6))
+        im.save(os.path.join(cart, f'{i:04d}.png'))
+    run(['ffmpeg', '-y', '-v', 'error', '-framerate', FPS, '-i', os.path.join(cart, '%04d.png'), '-c:v', 'qtrle', '-pix_fmt', 'argb', out])
+    shutil.rmtree(cart, ignore_errors=True)
+    return out
+
+
+def pezzo_regia(path, d, img, zoom, camera, titolo='', nome_font='classico', atmo=''):
     x0, y0, w0 = ZOOM_BOX.get(zoom or '', ZOOM_BOX[''])
     w0 = min(w0, .86) if camera in ('pan_left', 'pan_right', 'tilt_up', 'tilt_down') else w0
     cx, cy = x0 + ZOOM_BOX.get(zoom or '', ZOOM_BOX[''])[2] / 2, y0 + ZOOM_BOX.get(zoom or '', ZOOM_BOX[''])[2] / 2
@@ -2084,6 +2281,14 @@ def pezzo_regia(path, d, img, zoom, camera, titolo='', nome_font='classico'):
     n1 = max(1, int(d * FPS) - 1)
     e = lambda p_, q: f'({p_:.4f}+({q:.4f}-{p_:.4f})*(3*pow(on/{n1},2)-2*pow(on/{n1},3)))'
     vf = (f"scale=3840:2160:flags=lanczos,zoompan=z='1/{e(a[2], b[2])}':x='iw*{e(a[0], b[0])}':y='ih*{e(a[1], b[1])}':d=1:s={W}x{H}:fps={FPS}")
+    ov = None
+    if ATMOSFERA and atmo in ATMO_TIPI:
+        try:
+            ov = atmosfera_clip(atmo)
+        except Exception as e_:
+            log('atmosfera saltata:', atmo, str(e_)[:120])
+    if ov:   # particelle sopra il disegno; grana e titolo vengono dopo
+        vf += f"[b];[1:v]scale={W}:{H},format=rgba[o];[b][o]overlay=0:0:shortest=1"
     if GRANA:
         vf += ',noise=alls=4:allf=t,vignette=angle=PI/6'
     if titolo:   # inizio capitolo: titolo grande che appare e scompare
@@ -2092,7 +2297,11 @@ def pezzo_regia(path, d, img, zoom, camera, titolo='', nome_font='classico'):
         vf += (f",drawtext=fontfile={ff}:textfile={tf}:fontsize=150:fontcolor=white:borderw=6:bordercolor=black@0.7:"
                f"box=1:boxcolor=black@0.35:boxborderw=40:x=(w-tw)/2:y=(h-th)/2:"
                f"alpha='if(lt(t,0.3),t/0.3,if(lt(t,{max(.6, d - .5):.2f}),1,max(0,({d:.2f}-t)/0.5)))'")
-    run(['ffmpeg', '-y', '-v', 'error', '-loop', '1', '-framerate', FPS, '-t', d, '-i', img, '-vf', vf + ',setsar=1', '-t', d, *ENC, path])
+    if ov:
+        run(['ffmpeg', '-y', '-v', 'error', '-loop', '1', '-framerate', FPS, '-t', d, '-i', img, '-stream_loop', '-1', '-i', ov,
+             '-filter_complex', '[0:v]' + vf + ',setsar=1[v]', '-map', '[v]', '-t', d, *ENC, path])
+    else:
+        run(['ffmpeg', '-y', '-v', 'error', '-loop', '1', '-framerate', FPS, '-t', d, '-i', img, '-vf', vf + ',setsar=1', '-t', d, *ENC, path])
     return path
 
 
@@ -2115,10 +2324,17 @@ def video_regia(c, durs, voci, kit):
         try:
             if v['tipo'] == 'mappa':
                 return pezzo_mappa(p, d, c.get('paese_mappa') or '', c.get('titolo_mappa') or TITOLO.split()[-1], c.get('date') or '')
-            pezzo_regia(p, d, immagini[v['img']], v.get('zoom'), v.get('camera'), v.get('capitolo') or '', nome_font)
+            src = immagini[v['img']]
+            zoom = v.get('zoom')
+            if isinstance(src, list):   # tavola: il pannello di questa inquadratura
+                src = src[v.get('pannello', 0) % len(src)]
+                if v['img'] in TAVOLE_KO and not zoom:
+                    zoom = ('', 'volto', 'basso', 'destra')[v.get('pannello', 0) % 4]
+            pezzo_regia(p, d, src, zoom, v.get('camera'), v.get('capitolo') or '', nome_font, v.get('atmo') or '')
         except Exception as e:
             log('inquadratura', k, 'di riserva:', str(e)[:200])
             prec = next((immagini[x['img']] for x in reversed(piano[:k]) if x.get('img') in immagini), None) or next(iter(immagini.values()))
+            prec = prec[-1] if isinstance(prec, list) else prec
             v.pop('didascalia', None)
             return pezzo_regia(p, d, prec, 'centro', 'push_in')
         if v.get('didascalia') and d > 1.7:
