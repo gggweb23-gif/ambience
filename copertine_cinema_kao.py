@@ -760,7 +760,9 @@ def fai(i):
                       + (f'OTHER PEOPLE: {t.get("persone")} (same style as KAO, neutral clothes, only KAO wears magenta). ' if t.get('persone') else '') +
                       (f'GRAPHIC ELEMENTS drawn over the scene, copy them exactly (same position and direction): {t.get("grafica")}. ' if t.get('grafica') else '') +
                       'KAO has a correct body: TWO arms attached to the shoulders (both visible, never missing or cut), two hands, two legs. KAO is exactly as in the KAO reference: bald round head, simple face, light skin, ALWAYS his magenta long-sleeve shirt (never a sweater, jacket or other top), black trousers. '
-                      + (f'Keep the {fascia} 28% of the image a simple calm continuation of the background, with NO heads, faces or important objects (a title band goes there); all characters and objects stay in the rest of the image, fully visible. ' if fascia else '')
+                      + (f'In the {fascia} 28% of the image there are NO heads, faces or important objects (a title band will be placed there): the SAME scene simply continues there, seamlessly '
+                         '(the same sky, wall, ceiling or street of each part, drawn continuously up to the edge of the image): NO separate band, NO stripe, NO horizontal cut line, NO frame, NO empty margin. '
+                         'All characters and objects stay in the rest of the image, fully visible. ' if fascia else '')
                       + (f'COMPOSITION (copy it exactly, KAO appears in every part where the character appears): {t.get("composizione")}. The title goes where described, never covering KAO or faces. Everything bright and fully visible. '
                          'When the parts show DIFFERENT people or DIFFERENT situations, make it obvious at a glance: each different person has clearly different clothes (different colour and type of top), hair and look, '
                          'and each part has a clearly DIFFERENT place and light (e.g. a warm home living room vs a city street at night). ' if t.get('composizione') else
