@@ -42,7 +42,7 @@ on:
         type: string
 
 permissions:
-  contents: read
+  contents: write
   actions: write
 
 concurrency:
@@ -152,3 +152,21 @@ jobs:
             personaggi_mancanti.txt
             copertina_analisi.txt
           retention-days: 7
+
+      - name: Anteprima della prova nel repository (copertina + 8 fotogrammi, per controllarla senza scaricare il video)
+        if: ${{ always() && inputs.prova == 'SI' }}
+        run: |
+          D="prove_video/$(python3 -c "import json,os,re;p=json.loads(os.environ.get('PAYLOAD') or '{}');print(re.sub(r'[^A-Za-z0-9_-]','_',str(p.get('canale') or 'storia')))")"
+          mkdir -p "$D" && rm -f "$D"/*
+          [ -f copertina.jpg ] && cp copertina.jpg "$D/"
+          [ -f titolo.txt ] && cp titolo.txt "$D/"
+          [ -f copione.json ] && cp copione.json "$D/"
+          if [ -f video_storia.mp4 ]; then
+            DUR=$(ffprobe -v error -show_entries format=duration -of csv=p=0 video_storia.mp4)
+            for i in 1 2 3 4 5 6 7 8; do T=$(python3 -c "print(round($DUR*($i-0.5)/8,2))"); ffmpeg -v error -y -ss $T -i video_storia.mp4 -frames:v 1 -vf scale=960:-1 "$D/fotogramma_$i.jpg"; done
+          fi
+          git config user.name "render-bot"; git config user.email "render-bot@users.noreply.github.com"
+          git add "$D"; git commit -m "Anteprima prova video" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -q && git push && break; sleep $((i * 5)); done
+        env:
+          PAYLOAD: ${{ inputs.payload }}
