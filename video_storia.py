@@ -2717,7 +2717,8 @@ def video_scene(c, durs, voci, kit):
     def fai(k):
         v = piano[k]; d = v['d']; p = os.path.join(LAV, f'pezzo_{k:04d}.mp4')
         if v['tipo'] == 'cartone':
-            pezzo_regia(p, d, fogli[v['foglio']][v['pannello']], '', v.get('camera'), v.get('capitolo') or '', nome_font, v.get('atmo') or '', v.get('flash'))
+            pezzo_regia(p, d, fogli[v['foglio']][v['pannello']], '', v.get('camera'), '' if v.get('coming_up') else (v.get('capitolo') or ''),
+                        nome_font, v.get('atmo') or '', v.get('flash'))
         elif v['tipo'] == 'pexels_video':
             pezzo_video(p, d, v['src'])
         else:
