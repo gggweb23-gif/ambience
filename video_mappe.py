@@ -659,6 +659,49 @@ def luogo(ev):
     return None
 
 
+_TERRA = {}
+A_TERRA = ('icona', 'folla', 'impulso', 'colonna', 'numero', 'etichetta')   # elementi che devono stare sulla terraferma
+
+
+def maschera_terra():
+    """Mappa terra/mare a 1/4 di grado (dai confini dei paesi), fatta una volta sola."""
+    if 'm' not in _TERRA:
+        Q = 4; m = Image.new('L', (360 * Q, 180 * Q), 0); d = ImageDraw.Draw(m)
+        for anelli_ in risorse()['paesi'].values():
+            for r in anelli_:
+                if len(r) >= 3:
+                    d.polygon([((lo + 180) * Q, (90 - la) * Q) for lo, la in r], fill=255)
+        a = np.array(m) > 0; g = a.copy()
+        for dy in range(-3, 4):   # terra "vera": almeno 3/4 di grado di terra attorno (niente isolette e scogli)
+            for dx in range(-3, 4):
+                g &= np.roll(np.roll(a, dy, 0), dx, 1)
+        _TERRA['m'], _TERRA['g'], _TERRA['Q'] = a, g, Q
+    return _TERRA['m'], _TERRA['Q']
+
+
+def a_terra(lon, lat, v):
+    """Se il punto e' in mare, lo sposta sulla terraferma piu' vicina che si vede nell'inquadratura (mai soldati o case in mezzo all'oceano)."""
+    try:
+        m, Q = maschera_terra()
+        ix, iy = int((lon + 180) * Q) % m.shape[1], int((90 - lat) * Q)
+        if 0 <= iy < m.shape[0] and m[iy, ix]:
+            return lon, lat
+        m = _TERRA['g']
+        for rr in range(1, 30 * Q):
+            ys, xs = np.nonzero(m[max(0, iy - rr): iy + rr + 1, max(0, ix - rr): ix + rr + 1])
+            if len(xs):
+                cand = sorted(zip(xs + max(0, ix - rr), ys + max(0, iy - rr)), key=lambda p: (p[0] - ix) ** 2 + (p[1] - iy) ** 2)
+                for px, py in cand[:200]:
+                    lo, la = (px + .5) / Q - 180, 90 - (py + .5) / Q
+                    # un po' dentro la costa: si cerca il punto di terra con altra terra attorno
+                    lo2, la2 = dentro(lo, la, v)
+                    if abs(lo2 - lo) < 1e-6 and abs(la2 - la) < 1e-6:
+                        return float(lo), float(la)
+        return lon, lat
+    except Exception:
+        return lon, lat
+
+
 def dentro(lon, lat, v, margine=.12):
     """Riporta il punto dentro l'inquadratura v (se Claude lo mette fuori)."""
     cx, cy, wd = v; hd = wd * H / W
@@ -876,6 +919,8 @@ def disegna_scena(job):
     eventi += nomi_paesi(sc, job, v1, dur, eventi)
     for ev in eventi:   # luoghi sempre dentro la vista della scena (i nomi dei paesi non muovono la camera)
         p = luogo(ev) if ev.get('tipo') != 'nome' else None; ev['_luogo'] = dentro(p[0], p[1], v1) if p else None
+        if ev['_luogo'] and ev.get('tipo') in A_TERRA:
+            ev['_luogo'] = a_terra(*ev['_luogo'], v1)
         if ev['_luogo'] and ev.get('lon') is not None:
             ev['lon'], ev['lat'] = ev['_luogo']
     if nuv is not None:   # cambio d'epoca: niente elementi sotto le nuvole che passano
@@ -924,7 +969,10 @@ def disegna_scena(job):
         for ev in eventi:
             if ev.get('_luogo') and ease((t - ev['_t']) / .35) * fine > 0:
                 ultimo = ev.get('_pin') or ('base', ev['_luogo'])
+        centrali = sorted((e for e in eventi if e.get('tipo') in CENTRO and e['_t'] <= t), key=lambda e: e['_t'])
         for ev in sorted(eventi, key=lambda e: e.get('tipo') in SOPRA):
+            if ev.get('tipo') in CENTRO and centrali and ev is not centrali[-1]:
+                continue
             k = ease((t - ev['_t']) / .35) * fine
             if k <= 0:
                 continue
@@ -1042,11 +1090,11 @@ def disegna_scena(job):
                 pin(im, px, py, 1.4, faccia, salto)
         except Exception:
             pass
-        if job.get('anteprima'):   # COMING UP... in basso a sinistra, lampeggia
+        if job.get('anteprima'):   # COMING UP... in alto al centro (in basso copriva i nomi dei paesi), lampeggia
             f_ = font('Anton-Regular.ttf', 84); alfa = 1.0 if (t % 1) < .75 else .55
             lab = Image.new('RGBA', (560, 130), (0, 0, 0, 0)); dl = ImageDraw.Draw(lab)
-            dl.text((10, 10), 'COMING UP...', font=f_, fill=(255, 214, 0, int(255 * alfa)), stroke_width=7, stroke_fill=(0, 0, 0, int(255 * alfa)))
-            im.alpha_composite(lab, (50, H - 170))
+            dl.text((280, 65), 'COMING UP...', font=f_, fill=(255, 214, 0, int(255 * alfa)), stroke_width=7, stroke_fill=(0, 0, 0, int(255 * alfa)), anchor='mm')
+            im.alpha_composite(lab, (W // 2 - 280, 20))
         if job.get('apertura'):   # numero del video, poi il titolo
             num = job['apertura']; tx = str(num.get('testo') or '')
             numero_grande(im, tx.replace('x', '×', 1) if re.match(r'^x\d', tx) else tx,
@@ -1094,6 +1142,7 @@ def _punta(d, pts, col):
               fill=col, outline=(0, 0, 0))
 
 
+CENTRO = ('prezzo', 'scritta')   # al centro dello schermo: mai due insieme
 SOPRA = ('prezzo', 'scritta', 'barre', 'conta', 'personaggio', 'nota', 'anno', 'contatore', 'numero')   # riquadri disegnati per ultimi
 
 

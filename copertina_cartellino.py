@@ -75,7 +75,7 @@ def _mezza(isos, col, Wm, scuro=False, alto=0.0):
         im = Image.blend(sc, Image.new('RGB', (W, H), (8, 22, 48)), .35).convert('RGBA')
     else:
         im = base.convert('RGBA')
-    polys = VM.anelli_visibili(isos, pt)
+    polys = [[pt(lo, la) for lo, la in r] for r in anelli_lonlat(isos)]   # solo le terre principali: niente pezzi di Alaska sul bordo
     g = Image.new('L', (W, H), 0); dg = ImageDraw.Draw(g)
     for xy in polys:
         dg.line(xy + [xy[0]], fill=255, width=30)
