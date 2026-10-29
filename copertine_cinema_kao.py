@@ -542,7 +542,7 @@ def scritta_cartoncino(im, frase, lato='destra', zona=None):
     y0, y1 = int(Hh * .04), (int(Hh * .90) if lato == 'sinistra' else int(Hh * .76))   # in basso a destra c'e' la durata del video
     if lato in ('alto', 'basso'):   # fascia come il competitor: larga e bassa, la scena sotto resta visibile
         x0, x1 = int(W * .05), int(W * .95)
-        y0, y1 = (int(Hh * .03), int(Hh * .30)) if lato == 'alto' else (int(Hh * .66), int(Hh * .90))
+        y0, y1 = (int(Hh * .025), int(Hh * .27)) if lato == 'alto' else (int(Hh * .68), int(Hh * .92))
         if lato == 'basso':
             x1 = int(W * .78)   # mai sotto la durata del video
         zona = None
@@ -581,7 +581,7 @@ def scritta_cartoncino(im, frase, lato='destra', zona=None):
         bn = [f.getbbox(senza(r), anchor='ls') for r in righe]
         ext = [max(0, n[1] - a[1]) for n, a in zip(bn, bb)]
         hn = sum(n[3] - n[1] for n in bn) + sum(gap + e for e in ext[1:])
-        vpad = pad + (ext[0] + pad * .35 if ext[0] else 0)
+        vpad = max(pad * .7, ext[0] + max(4, k // 18) + 2)   # margine stretto come le copertine di sempre: solo lo spazio per l'accento e il bordo
         return f, gap, bn, ext, hn, vpad
     f, gap, bn, ext, hn, vpad = misure(k)
     while hn + 2 * vpad > (y1 - y0) and k > 24:   # con il margine per l'accento deve stare comunque nello spazio
