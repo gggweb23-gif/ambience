@@ -1,989 +1,149 @@
 {
- "titolo": "What Did People in Ancient Rome Really Do All Day? (It's Weirder Than You Think)",
+ "titolo": "What Did People in Ancient Rome Actually Do All Day? The Shocking Truth",
  "titolo_mappa": "ROME",
  "paese_mappa": "",
- "date": "1st century BC – 2nd century AD",
+ "date": "753 BC – 476 AD",
  "texture": "pergamena",
  "font_carte": "antico",
  "fondi_carte": [],
  "colori_carte": [
   "#6b1e1e",
-  "#3b2a1a"
+  "#1d3557"
  ],
  "sfondi": [
   {
    "id": "s1",
-   "prompt_en": "Pre-dawn darkness inside a tiny cramped Roman apartment room, 1st century AD, a tired bearded Roman man in a simple tunic lying on a straw mattress, eyes half open, faint blue light through a small window, close-up.",
+   "prompt_en": "Cartoon interior of a tiny cramped Roman apartment before dawn, a bearded Roman man in a tunic lying on a straw mattress, startled by loud knocking at the wooden door, dim blue light, comic style",
    "personaggi": []
   },
   {
    "id": "s2",
-   "prompt_en": "Close-up of a rough wooden door in a dark ancient Roman apartment corridor being banged by a fist from outside, dust shaking off, oil lamp flickering, tense night atmosphere.",
+   "prompt_en": "Cartoon dark Roman street before sunrise, a groggy Roman man in a tunic dressing by feel in cold air, oil lamp glowing, stone apartment blocks around him, worried expression, wide shot",
    "personaggi": []
   },
   {
    "id": "s3",
-   "prompt_en": "Wide shot of ancient Rome before sunrise, dark rooftops of brick apartment blocks and temples, a faint orange glow on the horizon, a few Roman men in tunics stepping out into narrow streets.",
+   "prompt_en": "Cartoon crowd of poor Roman men in togas lining up at dawn outside the grand door of a rich man's villa, a doorkeeper standing guard, columns and torches, early morning light",
    "personaggi": []
   },
   {
    "id": "s4",
-   "prompt_en": "Roman man in his best white tunic hurrying through a dark narrow ancient street at dawn toward a grand house with columns, worried face, breath visible in the cold air.",
+   "prompt_en": "Cartoon close-up of a hungry Roman man with an empty table and an empty bowl, stomach growling, sad face, simple Roman room, warm dim light, comic exaggeration",
    "personaggi": []
   },
   {
    "id": "s5",
-   "prompt_en": "Bright idealized scene of a Roman senator in a toga giving a speech on marble steps under white columns, admiring citizens below, golden sunlight, movie-like grandeur.",
-   "personaggi": [
-    "senatore"
-   ]
+   "prompt_en": "Cartoon wide view of a busy ancient Rome forum with temples, marble columns and the Colosseum in the distance, bright sunny day, crowds of Romans in togas and tunics",
+   "personaggi": []
   },
   {
    "id": "s6",
-   "prompt_en": "A Roman sundial on a stone pedestal in a sunny Roman courtyard, long shadow at summer time, a puzzled Roman man in a tunic scratching his head looking at it, medium shot.",
+   "prompt_en": "Cartoon Roman street scene, loud and dirty, vendors shouting, carts, animals, garbage and puddles on cobblestones, tall crowded apartment buildings, chaotic energy, daytime",
    "personaggi": []
   },
   {
    "id": "s7",
-   "prompt_en": "Split scene: left a long bright Roman summer day with a stretched sun arc over Rome, right a short dark winter day with a low sun, Roman townsfolk in tunics and cloaks below.",
+   "prompt_en": "Cartoon Roman citizen puzzled, looking at a sundial in a sunny square with a confused expression, strange divided daylight hours, Roman architecture behind him, close-up",
    "personaggi": []
   },
   {
    "id": "s8",
-   "prompt_en": "Empty ancient Roman street at blazing noon, harsh white light, no shadows, shutters closed, a single nervous Roman man in a tunic peeking from a doorway, eerie mood.",
-   "personaggi": []
-  },
-  {
-   "id": "s9",
-   "prompt_en": "Long line of ordinary Romans in their best tunics and worn togas walking across the city at first light toward the grand door of a wealthy townhouse, misty dawn, wide shot.",
-   "personaggi": []
-  },
-  {
-   "id": "s10",
-   "prompt_en": "Inside the atrium of a rich Roman house, a patron in a toga handing small baskets of bread and coins to bowing clients in tunics, impluvium pool, morning light.",
-   "personaggi": [
-    "senatore"
-   ]
-  },
-  {
-   "id": "s11",
-   "prompt_en": "A crowd of Roman clients in tunics cheering loudly and clapping behind their wealthy patron walking toward a Roman courthouse basilica, forced smiles, sunny day.",
-   "personaggi": []
-  },
-  {
-   "id": "s12",
-   "prompt_en": "Close-up of a tired Roman man in a patched good tunic forcing a smile while holding a small food basket, other clients behind him with blank faces, cold dawn light.",
-   "personaggi": []
-  },
-  {
-   "id": "s13",
-   "prompt_en": "Weary ordinary Romans sitting on a stone step in a narrow street, slumped shoulders, holding baskets, an ancient marble statue looming proudly behind them, ironic contrast.",
-   "personaggi": []
-  },
-  {
-   "id": "s14",
-   "prompt_en": "Roman man eating a piece of bread dipped in olive oil while walking down a street, a few olives and cheese in his hand, no plate, morning light, close medium shot.",
-   "personaggi": []
-  },
-  {
-   "id": "s15",
-   "prompt_en": "Extremely crowded narrow street in ancient Rome, hundreds of Romans in tunics pushing past each other, mud and animal waste on the ground, tall brick buildings, bird's eye view.",
-   "personaggi": []
-  },
-  {
-   "id": "s16",
-   "prompt_en": "Busy Roman street corner with a fig tree, a small temple and a butcher's stall, shouting vendors and townsfolk in tunics, noisy chaotic daytime scene.",
-   "personaggi": []
-  },
-  {
-   "id": "s17",
-   "prompt_en": "Julius Caesar in a laurel wreath and toga pointing firmly at a stopped ox cart at a Roman city gate, guards blocking the cart, bright daylight, commanding pose.",
-   "personaggi": [
-    "giulio_cesare"
-   ]
-  },
-  {
-   "id": "s18",
-   "prompt_en": "Night in ancient Rome, heavy wooden carts loaded with grain sacks, stone blocks and wine barrels rumbling over paving stones by torchlight, sleepless faces peering from windows above.",
-   "personaggi": []
-  },
-  {
-   "id": "s19",
-   "prompt_en": "Tall Roman insula apartment block, six stories of brick and wood, shops with open counters on the ground floor, laundry hanging from windows, Romans everywhere, wide street-level view.",
-   "personaggi": []
-  },
-  {
-   "id": "s20",
-   "prompt_en": "Roman man climbing steep narrow wooden stairs inside an insula carrying all his belongings on his back, exhausted, dim light, smoke drifting from an upper floor.",
-   "personaggi": []
-  },
-  {
-   "id": "s21",
-   "prompt_en": "Emperor Augustus in a toga standing before a large group of Roman vigiles firefighters with buckets and axes as a building burns in the background at night, orange glow.",
-   "personaggi": [
-    "augusto"
-   ]
-  },
-  {
-   "id": "s22",
-   "prompt_en": "A great Roman aqueduct with stone arches crossing the countryside into the city, while a poor Roman family in a cramped apartment looks at an empty clay jar, contrast composition.",
-   "personaggi": []
-  },
-  {
-   "id": "s23",
-   "prompt_en": "Roman woman in a simple tunic and veil filling a clay jar at a public stone fountain with a carved face spout, water flowing constantly, neighbors waiting in line.",
-   "personaggi": []
-  },
-  {
-   "id": "s24",
-   "prompt_en": "Wealthy Roman in a fine toga strolling empty-handed while servants behind him carry water jars, baskets and a folding chair, sunny street, satirical tone.",
-   "personaggi": []
-  },
-  {
-   "id": "s25",
-   "prompt_en": "The Roman Forum packed in the morning, lawyers arguing, merchants signing contracts on wax tablets, citizens in togas debating among temples and basilicas, wide busy shot.",
-   "personaggi": []
-  },
-  {
-   "id": "s26",
-   "prompt_en": "Roman barber shaving a grimacing customer outdoors on the street with an iron razor, no soap, nearby bakers, cobblers and potters selling goods spilling onto the street.",
-   "personaggi": []
-  },
-  {
-   "id": "s27",
-   "prompt_en": "Enslaved workers in ancient Rome carrying heavy amphorae and sacks, cooking and cleaning in a rich house, somber muted tones, dignified but exhausted faces.",
-   "personaggi": []
-  },
-  {
-   "id": "s28",
-   "prompt_en": "A Greek enslaved scholar in a plain tunic teaching two Roman children with scrolls in the garden of a senator's house, calm atmosphere, warm afternoon light.",
-   "personaggi": []
-  },
-  {
-   "id": "s29",
-   "prompt_en": "Haunting noon in ancient Rome, flat white light, empty street, faint translucent ghostly figures of restless dead drifting between columns, a frightened Roman hiding behind a pillar.",
-   "personaggi": []
-  },
-  {
-   "id": "s30",
-   "prompt_en": "Roman family napping in the shade during the midday rest, a shopkeeper closing wooden shutters, a man asleep on a bench under a vine pergola, sleepy hot atmosphere.",
-   "personaggi": []
-  },
-  {
-   "id": "s31",
-   "prompt_en": "Roman apodyterium changing room with stone niches for clothes, bathers handing tunics to an attendant, one man glancing suspiciously at a shifty figure eyeing the clothes.",
-   "personaggi": []
-  },
-  {
-   "id": "s32",
-   "prompt_en": "Close-up of hands scratching angry words onto a small lead curse tablet by lamplight, a furious Roman man in a towel, a missing tunic niche empty behind him.",
-   "personaggi": []
-  },
-  {
-   "id": "s33",
-   "prompt_en": "Roman bath complex interior, men exercising with ball games and weights in a courtyard, steam rising from the hot caldarium beyond, a cold frigidarium pool in view, lively scene.",
-   "personaggi": []
-  },
-  {
-   "id": "s34",
-   "prompt_en": "Close-up of a Roman bather scraping olive oil and dirt from his arm with a curved metal strigil, a small oil flask nearby, grime dripping, mildly gross humorous tone.",
-   "personaggi": []
-  },
-  {
-   "id": "s35",
-   "prompt_en": "Large Roman bath hall full of people chatting in a pool, food sellers shouting, massage tables, a library alcove with scrolls, vaulted ceiling with light beams.",
-   "personaggi": []
-  },
-  {
-   "id": "s36",
-   "prompt_en": "Enormous Baths of Caracalla with towering vaults and thousands of tiny bathers, in the foreground a man shrieking as an attendant plucks his armpit hair with tweezers.",
-   "personaggi": []
-  },
-  {
-   "id": "s37",
-   "prompt_en": "Ancient Roman public latrine, long stone bench with many holes, several Roman men in tunics sitting side by side chatting and laughing, no walls, mosaic floor.",
-   "personaggi": []
-  },
-  {
-   "id": "s38",
-   "prompt_en": "Close-up of a sea sponge on a wooden stick resting in a channel of clean running water at the feet of a stone latrine bench, ancient Roman detail.",
-   "personaggi": []
-  },
-  {
-   "id": "s39",
-   "prompt_en": "Dim Roman latrine with a rat peeking from a hole, a small flame flickering from another, a nervous seated Roman glancing at a painted shrine of the goddess Fortuna on the wall.",
-   "personaggi": []
-  },
-  {
-   "id": "s40",
-   "prompt_en": "Busy Roman thermopolium street counter with big ceramic jars sunk into it, steaming stew, lentils and sausages, customers in tunics eating standing up, daytime.",
-   "personaggi": []
-  },
-  {
-   "id": "s41",
-   "prompt_en": "Colorful painted front of a Pompeii food counter showing a chicken, ducks and a dog, a vendor serving bread, olives and watered wine to a simple Roman customer.",
-   "personaggi": []
-  },
-  {
-   "id": "s42",
-   "prompt_en": "Grain distribution in ancient Rome, officials pouring wheat from sacks into citizens' bags, a long queue of hungry Romans, granary warehouses behind, tense but orderly.",
-   "personaggi": []
-  },
-  {
-   "id": "s43",
-   "prompt_en": "Massive Circus Maximus packed with a roaring crowd of Romans, chariots thundering around the long track, dust clouds, Palatine hill in background, epic wide shot.",
-   "personaggi": []
-  },
-  {
-   "id": "s44",
-   "prompt_en": "Roman fans in red, white, blue and green tunics waving cloths and shouting at each other in the stands, below a chariot crashing in a spectacular wreck.",
-   "personaggi": []
-  },
-  {
-   "id": "s45",
-   "prompt_en": "Close-up of a Roman charioteer with reins tied around his waist, curved knife at his belt, leather helmet, gritting teeth as he leans into a turn, horses straining.",
-   "personaggi": []
-  },
-  {
-   "id": "s46",
-   "prompt_en": "Colosseum arena in the morning with exotic animals, lions, bears and leopards released from cages, amazed Roman spectators pointing, stands half full.",
-   "personaggi": []
-  },
-  {
-   "id": "s47",
-   "prompt_en": "Two Roman gladiators with shields and helmets fighting in the Colosseum, one raising a finger in surrender, crowd cheering, sponsor watching from a box.",
-   "personaggi": []
-  },
-  {
-   "id": "s48",
-   "prompt_en": "Wealthy Roman matron in a stola giving orders to household staff and checking accounts on a wax tablet in an elegant atrium, children nearby, confident expression.",
-   "personaggi": []
-  },
-  {
-   "id": "s49",
-   "prompt_en": "Six Vestal Virgins in white veils tending the sacred flame inside the round Temple of Vesta, glowing fire, solemn mood, columns around.",
-   "personaggi": []
-  },
-  {
-   "id": "s50",
-   "prompt_en": "Roman roadside school behind a curtain, a stern teacher raising a cane, children in tunics writing on wax tablets with styluses, passersby peeking in, early morning.",
-   "personaggi": []
-  },
-  {
-   "id": "s51",
-   "prompt_en": "Young Roman boy apprentice carrying tools in a workshop beside a blacksmith, and in the corner a small carved children's tombstone with flowers, bittersweet mood.",
-   "personaggi": []
-  },
-  {
-   "id": "s52",
-   "prompt_en": "Elegant Roman dinner at sunset, guests reclining on three couches around a low table, slaves serving dishes, a small jar of garum fish sauce in the foreground.",
-   "personaggi": []
-  },
-  {
-   "id": "s53",
-   "prompt_en": "Pitch-dark Roman street at night, a wealthy man walking behind slaves carrying torches, while a poor man walks alone in shadows behind, nervous expression.",
-   "personaggi": []
-  },
-  {
-   "id": "s54",
-   "prompt_en": "Roman family locking and barring their apartment door at night by oil lamp, through the window heavy carts and shadowy robbers move in the dark street.",
-   "personaggi": []
-  },
-  {
-   "id": "s55",
-   "prompt_en": "Saturnalia festival in a Roman house in December, people exchanging small gifts, playing dice openly, wearing felt caps, candles and garlands, joyful mood.",
-   "personaggi": []
-  },
-  {
-   "id": "s56",
-   "prompt_en": "During Saturnalia a Roman master in a toga serving food to laughing enslaved people seated at his table, one jokingly mocking him, warm lamp light, role reversal.",
-   "personaggi": []
-  },
-  {
-   "id": "s57",
-   "prompt_en": "Montage-like busy panorama of a Roman day: queues at a patron's door, baths steaming, a food counter, chariot races in the distance, all in one sunlit cityscape.",
-   "personaggi": []
-  },
-  {
-   "id": "s58",
-   "prompt_en": "A lonely Roman man sitting alone in a dark small room looking out at a lively crowd sharing food in the street below, contrast of solitude and togetherness.",
-   "personaggi": []
-  },
-  {
-   "id": "s59",
-   "prompt_en": "Ordinary Romans hurrying home through a street at golden sunset, carrying bread and water jars, long shadows, a mother pulling a child, warm nostalgic tone.",
-   "personaggi": []
-  },
-  {
-   "id": "s60",
-   "prompt_en": "Abandoned Roman bath at dusk, cracked dry pools, broken aqueduct in the distance, a lone Roman in a cloak looking back sadly, melancholic ending shot.",
+   "prompt_en": "Cartoon sunset over ancient Rome, a thoughtful Roman man in a tunic sitting on steps looking at the glowing city with the aqueduct and Colosseum, warm golden light, reflective mood",
    "personaggi": []
   }
  ],
  "scene": [
   {
-   "capitolo": "Before Dawn",
+   "capitolo": "Before Sunrise",
    "testo": "It's still dark outside. You're lying on a straw mattress in a room the size of a parking space, and someone is banging on your door. Not a friend. Not an emergency. This is just Tuesday.",
    "visivi": [
     {
      "tipo": "cartone",
-     "frase": "It's still dark",
+     "frase": "It's still dark outside",
      "sfondo": "s1",
      "personaggio": "",
-     "data": "1st century AD"
-    },
-    {
-     "tipo": "cartone",
-     "frase": "someone is banging",
-     "sfondo": "s2",
-     "personaggio": "",
-     "suono": "loud knocking on wooden door"
+     "reazione": true,
+     "data": "Rome, 100 AD",
+     "suono": "loud knocking on wooden door, rooster crowing"
     }
    ]
   },
   {
-   "testo": "In ancient Rome, your day started before the sun did. No coffee, no alarm clock, no snooze button. Within twenty minutes, you had to be standing outside a rich man's house. Why? Because if you weren't there, you didn't eat.",
+   "capitolo": "The Daily Duty",
+   "testo": "In ancient Rome, your day started before the sun did. No coffee, no alarm clock, no snooze button. You got up in the cold dark, and you dressed by feel.",
    "visivi": [
     {
      "tipo": "cartone",
-     "frase": "In ancient Rome",
-     "sfondo": "s3",
-     "personaggio": ""
-    },
-    {
-     "tipo": "cartone",
-     "frase": "Within twenty minutes",
-     "sfondo": "s4",
-     "personaggio": ""
+     "frase": "your day started",
+     "sfondo": "s2",
+     "personaggio": "",
+     "reazione": false
     }
    ]
   },
   {
-   "testo": "That's not an exaggeration. That was the system, for hundreds of thousands of ordinary people. We picture togas, marble, and emperors giving speeches. The reality was louder, dirtier, and stranger than any movie has ever shown you.",
+   "testo": "Within twenty minutes, you had to be standing outside a rich man's house, in the street. Why? Because if you weren't there, you didn't eat that day.",
+   "visivi": [
+    {
+     "tipo": "cartone",
+     "frase": "standing outside a rich",
+     "sfondo": "s3",
+     "personaggio": "",
+     "reazione": false,
+     "suono": "crowd murmuring in ancient street"
+    }
+   ]
+  },
+  {
+   "testo": "That's not an exaggeration. That was the system. For hundreds of years, this was daily life for hundreds of thousands of ordinary Romans.",
    "visivi": [
     {
      "tipo": "cartone",
      "frase": "That's not an exaggeration",
-     "sfondo": "s5",
-     "personaggio": "senatore"
+     "sfondo": "s4",
+     "personaggio": "",
+     "reazione": false
     }
    ]
   },
   {
-   "testo": "And here's the part that breaks most people's brains. Romans did not have hours the way you do. A Roman hour in summer was about 75 minutes long. The same hour in winter? About 45.",
+   "capitolo": "The Real Rome",
+   "testo": "We picture togas, marble and emperors giving speeches. The reality was louder, dirtier and stranger than any movie has ever shown you.",
+   "visivi": [
+    {
+     "tipo": "cartone",
+     "frase": "We picture togas",
+     "sfondo": "s5",
+     "personaggio": "",
+     "reazione": false
+    },
+    {
+     "tipo": "cartone",
+     "frase": "louder, dirtier and stranger",
+     "sfondo": "s6",
+     "personaggio": "",
+     "reazione": false,
+     "suono": "busy Roman street, vendors shouting"
+    }
+   ]
+  },
+  {
+   "capitolo": "Time Itself",
+   "testo": "And here's the part that breaks most people's brains. The Romans did not have hours the way you do. So how did they know when to show up? And what did they do all day?",
    "visivi": [
     {
      "tipo": "cartone",
      "frase": "And here's the part",
-     "sfondo": "s6",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "testo": "They split daylight into 12 hours. Always 12. Sunrise was hour one, sunset was hour twelve. In June they stretched the hours. In December they squeezed them. The day didn't fit the clock. The clock fit the day.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "They split daylight",
      "sfondo": "s7",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "testo": "Nobody was ever on time the way you are. Nobody was late either. But there was one hour Romans genuinely did not want to be caught outside in. And it wasn't at night. I'll tell you which one later.",
-   "visivi": [
+     "personaggio": "",
+     "reazione": true
+    },
     {
      "tipo": "cartone",
-     "frase": "Nobody was ever",
+     "frase": "So how did they",
      "sfondo": "s8",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "capitolo": "The Morning Greeting",
-   "testo": "First, that dawn knocking. It was the salutatio, the morning greeting. Before first light, ordinary Romans put on their best clothes and walked across the city to stand outside a wealthier man's door.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "First, that dawn knocking",
-     "sfondo": "s9",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "testo": "He was the patron. They were his clients, sometimes ten, sometimes a hundred. They queued in the street like commuters, filed in, greeted him by name, and bowed. Then he handed each a small basket of food or a few coins: the sportula.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "He was the patron",
-     "sfondo": "s10",
-     "personaggio": "senatore"
-    }
-   ]
-  },
-  {
-   "testo": "Here's the shocking part. This wasn't charity. It was a job. If he went to court, you went with him to make the crowd look impressive. If he ran for office, you cheered. Skip it, and the basket went to someone else.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "Here's the shocking part",
-     "sfondo": "s11",
      "personaggio": "",
-     "suono": "crowd cheering in ancient street"
-    }
-   ]
-  },
-  {
-   "testo": "Imagine walking 45 minutes in the dark, in your only good outfit, smiling at a man who will not remember your name. The poet Juvenal wrote about this with real bitterness. He hated it. He did it anyway.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "Imagine walking 45 minutes",
-     "sfondo": "s12",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "testo": "Because life in ancient Rome wasn't marble and glory. It was mostly people swallowing their pride to get through the week. They weren't statues. They were tired. If you want the human version of history, hit subscribe right now.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "Because life in ancient",
-     "sfondo": "s13",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "capitolo": "The Streets of Rome",
-   "testo": "After the greeting, you finally eat. Sort of. Breakfast, the ientaculum, was a piece of bread dipped in wine or olive oil, maybe olives or cheese. Eaten standing up or walking. No plates. And no forks. The fork didn't exist yet.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "After the greeting",
-     "sfondo": "s14",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "testo": "Then you step into the street. Rome was the most crowded city on Earth. Around a million people crammed into an area you could walk across in an hour. Streets barely wide enough for two people, covered in animal waste and worse.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "Then you step",
-     "sfondo": "s15",
-     "personaggio": "",
-     "suono": "crowd murmuring in ancient market"
-    }
-   ]
-  },
-  {
-   "testo": "No street signs, no house numbers. You navigated by landmarks: the fig tree, the temple, the butcher on the corner. And the noise never stopped. Here's why. Julius Caesar banned wheeled carts from the city during daylight hours.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "No street signs",
-     "sfondo": "s16",
-     "personaggio": ""
-    },
-    {
-     "tipo": "cartone",
-     "frase": "Julius Caesar banned",
-     "sfondo": "s17",
-     "personaggio": "giulio_cesare"
-    }
-   ]
-  },
-  {
-   "testo": "So every sack of grain, every block of stone, every barrel of wine moved at night. The city never slept. It just swapped shifts. By night, the rumble of cartwheels on stone, every night. Only the rich could afford silence.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "So every sack",
-     "sfondo": "s18",
-     "personaggio": "",
-     "suono": "wooden cart wheels rumbling on stone"
-    }
-   ]
-  },
-  {
-   "capitolo": "Living on an Island",
-   "testo": "Which brings us to where you lived. Not a villa. No courtyard, no mosaics. You lived in an insula, literally an island. Shops on the ground floor, then floor after floor of rented rooms, sometimes six or seven stories high.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "Which brings us",
-     "sfondo": "s19",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "testo": "The higher you went, the cheaper and worse it got. Top floor meant dozens of stairs, and you died first if the building burned. Rome burned so often that Augustus created a fire brigade of thousands of men, the vigiles.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "The higher you went",
-     "sfondo": "s20",
-     "personaggio": ""
-    },
-    {
-     "tipo": "cartone",
-     "frase": "Augustus created",
-     "sfondo": "s21",
-     "personaggio": "augusto",
-     "suono": "crackling fire"
-    }
-   ]
-  },
-  {
-   "testo": "And most apartments had no kitchen, no chimney. So if a million people had nowhere to cook, what on earth were they eating? Hold that thought. First, water. Those famous aqueducts? That water did not go into your apartment.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "And most apartments",
-     "sfondo": "s22",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "testo": "Running water at home was a luxury almost nobody could pay for. Everyone else used hundreds of public fountains, running day and night. So you carried water up six flights of stairs in a clay jar, every day.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "Running water at home",
-     "sfondo": "s23",
-     "personaggio": "",
-     "suono": "water flowing from stone fountain"
-    }
-   ]
-  },
-  {
-   "testo": "If you were rich, someone else did it for you. That's what wealth actually bought in Rome. Not gold. Not jewels. It bought you the ability to not carry things.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "If you were rich",
-     "sfondo": "s24",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "capitolo": "Work and the Cursed Hour",
-   "testo": "Now the workday begins. The myth: Romans worked sunrise to sunset. The truth: for most, serious work ended around midday. Mornings were business hours, and the Roman Forum was packed with court cases, contracts, deals, and politics.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "Now the workday begins",
-     "sfondo": "s25",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "testo": "Shopkeepers pushed goods right into the street. Bakers, butchers, cobblers, dyers, potters. Barbers shaved customers outdoors with an iron razor and no soap. It hurt. People wrote about how much it hurt.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "Shopkeepers pushed goods",
-     "sfondo": "s26",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "testo": "But first, the part usually left out. Rome ran on slavery. Not as a side detail, as the engine. By some estimates, close to a third of the city was enslaved. They cooked, cleaned, carried, taught, and died in the mines.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "But first, the part",
-     "sfondo": "s27",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "testo": "Yet a Roman slave might be a Greek scholar teaching a senator's children, or run a business, or be freed, his children born citizens. The system was brutal and fluid at the same time. The leisure we're describing was built on them.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "Yet a Roman slave",
-     "sfondo": "s28",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "testo": "Now, that forbidden hour. It was the sixth hour, noon. Romans considered it unlucky. The heat peaked, the streets emptied, the shadows disappeared. Old superstitions said restless spirits walked in that blank white light.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "Now, that forbidden hour",
-     "sfondo": "s29",
-     "personaggio": "",
-     "suono": "eerie hot wind, distant whispers"
-    }
-   ]
-  },
-  {
-   "testo": "So Rome did the sensible thing. It stopped. The midday rest was called the meridiatio. A proper nap. Shops closed, the forum emptied, and people slept through the worst of the heat. And then they went to the baths.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "So Rome did",
-     "sfondo": "s30",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "capitolo": "The Roman Baths",
-   "testo": "Not a quick wash. The baths were the center of social life. Entry was so cheap a poor man could go daily, and children often got in free. You handed your clothes over in the apodyterium and faced the number one risk: theft.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "Not a quick wash",
-     "sfondo": "s31",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "testo": "We've found curse tablets, little lead sheets scratched with furious messages cursing whoever stole a tunic at the baths. Written rage, preserved for 2,000 years, about missing clothes.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "We've found curse tablets",
-     "sfondo": "s32",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "testo": "Then the circuit. Exercise first: ball games, weights, wrestling. Then the hot caldarium, heated by furnaces under hollow floors. Then the warm room. Then the cold plunge, the frigidarium. But here's the catch. The Romans had no soap.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "Then the circuit",
-     "sfondo": "s33",
-     "personaggio": "",
-     "suono": "water splashing, echoing voices in bathhouse"
-    }
-   ]
-  },
-  {
-   "testo": "So you rubbed olive oil all over your body, then scraped it off with a curved metal blade called a strigil. Oil, sweat, dead skin, flicked onto the floor. The scrapings of famous athletes were sometimes sold as a cosmetic. Sit with that.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "So you rubbed",
-     "sfondo": "s34",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "testo": "No chlorine, no filtration. Doctors warned against bathing with open wounds. Yet Romans went almost every day, because the baths were about deals, gossip, and careers. There were food sellers, massage rooms, even libraries.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "No chlorine, no filtration",
-     "sfondo": "s35",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "testo": "One writer living above a bathhouse ranted about the grunting weightlifters, the slap of massages, and the shriek of a man getting his armpit hair plucked. The Baths of Caracalla held thousands at once. Stadium-sized, built for ordinary citizens.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "One writer living",
-     "sfondo": "s36",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "capitolo": "Toilets and Fast Food",
-   "testo": "Which raises the question nobody asks out loud. A million people, no bathrooms. Where did everyone go? Public toilets. A long stone bench with twenty, thirty holes. No doors, no dividers. You sat next to a stranger, and you talked.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "Which raises the question",
-     "sfondo": "s37",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "testo": "Under the bench, flowing water carried everything to the sewers. At your feet ran a channel of clean water. Why? Romans used a sea sponge on a stick. Dip it, use it, rinse it, and often leave it for the next person.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "Under the bench",
-     "sfondo": "s38",
-     "personaggio": "",
-     "suono": "trickling water in stone channel"
-    }
-   ]
-  },
-  {
-   "testo": "Historians debate how shared those sponges were. And there was one more fear: the sewer itself. Rats came up. Some writers describe flames from the holes, methane igniting. So some latrines had a shrine to the goddess Fortuna. Watching.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "Historians debate how",
-     "sfondo": "s39",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "testo": "Now remember those apartments with no kitchens? Here's the answer. Rome invented fast food. Thermopolia, thousands of them. Stone counters on the street with big jars of stew, lentils, chickpeas, sausages, and spiced wine.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "Now remember those apartments",
-     "sfondo": "s40",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "testo": "In Pompeii, archaeologists found one with paintings on the front, a chicken, ducks, a dog, like a menu board. Most Romans ate bread, beans, olives, cheap fish, and watered wine. Meat was a treat. Not peacock tongues.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "In Pompeii, archaeologists",
-     "sfondo": "s41",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "testo": "Bread mattered so much that the state ran the annona, free or cheap grain for hundreds of thousands. Not out of kindness. A hungry city of a million is one bad harvest from burning. That's bread and circuses: a governing strategy.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "Bread mattered so much",
-     "sfondo": "s42",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "capitolo": "Races and the Arena",
-   "testo": "And here everyone gets it wrong. Gladiators weren't Rome's biggest obsession. Chariot racing was. The Circus Maximus held around 150,000 spectators, far more than the Colosseum, and races happened far more often.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "And here everyone",
-     "sfondo": "s43",
-     "personaggio": "",
-     "suono": "huge crowd roaring, horses galloping"
-    }
-   ]
-  },
-  {
-   "testo": "There were four teams: Reds, Whites, Blues, Greens. You didn't support a driver. You supported a color, forever. Fans fought. Emperors picked sides. Seven laps, twelve chariots, constant crashes, called naufragium: shipwreck.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "There were four teams",
-     "sfondo": "s44",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "testo": "Drivers tied the reins around their waist, so in a crash the horses dragged them. They carried a knife to cut free. Yet Gaius Appuleius Diocles retired with a fortune that may make him one of history's highest paid athletes.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "Drivers tied the reins",
-     "sfondo": "s45",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "testo": "The Colosseum was a different day, in three acts. Morning: exotic animals. Lions, bears, leopards. For many, their only glimpse of the edges of the world. Midday: public punishments. And that was considered the boring part. People went to lunch.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "The Colosseum was",
-     "sfondo": "s46",
-     "personaggio": "",
-     "suono": "lions roaring in arena"
-    }
-   ]
-  },
-  {
-   "testo": "Afternoon: gladiators. And the biggest myth? They weren't disposable. They were expensive, years of training and care. Most fights didn't end in death. They were prize fighters with fans, and Pompeii's graffiti brags about their records.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "Afternoon: gladiators",
-     "sfondo": "s47",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "capitolo": "Women and Children",
-   "testo": "But all this was built around men. For women, it depended on wealth. A wealthy matron ran the household, staff, accounts, and children. Her property often stayed hers. She could inherit, run businesses, even divorce, simply. But she could not vote.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "But all this",
-     "sfondo": "s48",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "testo": "Wool-working was the ultimate symbol of a good wife, praised on tombstones. Poorer women worked openly: shops, midwives, hairdressers, even doctors. And the six Vestal Virgins kept Rome's sacred flame, with enormous power and thirty years of chastity.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "Wool-working was the",
-     "sfondo": "s49",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "testo": "Children? School started before dawn, often in a shop corner or roadside space behind a curtain, so the whole street heard the lessons and the beatings. Teachers struck students routinely. Kids wrote on wax tablets, smoothed them, and wrote again.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "Children? School started",
-     "sfondo": "s50",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "testo": "The final stage was rhetoric, because persuading a crowd was the path to power. But most children were working by their early teens. Childhood was short, and Roman tombstones for small children are some of the most devastating objects to survive.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "The final stage",
-     "sfondo": "s51",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "capitolo": "Dinner and Darkness",
-   "testo": "Now the sun goes down. Dinner, the cena. The poor ate porridge and vegetables. The rich reclined on couches, nine guests, three per couch, where your seat coded your status. And on almost everything: garum, fermented fish sauce.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "Now the sun goes down",
-     "sfondo": "s52",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "testo": "Dormice in honey, flamingo tongues, a pig stuffed with sausages. Real, but showing off. Then you walk home. No street lighting. None. The rich walked behind slaves carrying torches. The poor walked in the dark and hoped.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "Dormice in honey",
-     "sfondo": "s53",
-     "personaggio": "",
-     "suono": "footsteps at night, torches crackling"
-    }
-   ]
-  },
-  {
-   "testo": "Robbery was common. Juvenal joked that walking home without making your will was careless. The carts came flooding in. The vigiles were mostly firefighters. So most Romans simply stayed in. Daylight was the only safe currency they had.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "Robbery was common",
-     "sfondo": "s54",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "capitolo": "No Weekends, Only Festivals",
-   "testo": "And Romans had no weekend. They had an eight-day cycle, the nundinae. Every eighth day was market day. But Rome also had dozens of festivals. The greatest was Saturnalia in December: courts closed, gifts given, gambling allowed.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "And Romans had",
-     "sfondo": "s55",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "testo": "And enslaved people were served by their owners and allowed to mock them. For a few days, a brutally hierarchical society let the pressure out on purpose. Then it snapped back.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "And enslaved people",
-     "sfondo": "s56",
-     "personaggio": "",
-     "suono": "laughter and festive music"
-    }
-   ]
-  },
-  {
-   "testo": "So put the day together. You wake six floors up, queue for a basket, eat bread standing, work in a deafening street, nap at noon, scrape yourself at the baths, chat on a public toilet, and scream over a color at the races.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "So put the day",
-     "sfondo": "s57",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "testo": "Almost none of it was done alone. Privacy, the thing we organize our lives around, was barely a concept. For most Romans, being alone wasn't peace. It was closer to punishment. Their luxuries were public. Their misery was private. The reverse of ours.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "Almost none of it",
-     "sfondo": "s58",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "testo": "Strip away the togas, and what's left is unnervingly familiar. People trying to eat, trying to move up, trying to be seen, trying to get home before dark. Two thousand years is nothing. The buildings changed. The wanting didn't.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "Strip away the togas",
-     "sfondo": "s59",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "testo": "So what happens when this whole machine breaks down, when the water stops running and the baths go cold? Would you have survived a single day in Rome? Watch the next video to see how it ended.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "So what happens",
-     "sfondo": "s60",
-     "personaggio": "",
-     "suono": "cold wind through empty ruins"
+     "reazione": false
     }
    ]
   }
@@ -992,7 +152,7 @@
   "testo": "NO JOBS",
   "personaggio": ""
  },
- "descrizione": "What did people in ancient Rome actually do all day? Forget the marble and the emperors. Daily life in ancient Rome started before dawn, with a queue outside a rich patron's door for a basket of food, and ended behind a locked door in a pitch-black city.\n\nIn this animated history documentary, discover why Roman hours changed length with the seasons, why noon was considered unlucky, how Romans cleaned themselves without soap at the Roman baths, what public toilets were really like, how Rome invented fast food, and why chariot racing at the Circus Maximus beat the Colosseum.\n\nWe also explore the lives of Roman women, children, enslaved people and the wild festival of Saturnalia. This is life in ancient Rome, the human version.\n#AncientRome #RomanHistory #History #RomanEmpire #DailyLife #Documentary",
+ "descrizione": "What did people in ancient Rome actually do all day? Wake up before dawn and step into the daily life of an ordinary Roman citizen, from a tiny apartment to the rich man's doorstep.\n\nIn this cartoon history documentary, we explore the Roman Forum, the streets, the crowds and the strange system that decided whether you ate or went hungry. Forget the movie version of Rome: the truth was louder, dirtier and stranger.\n\nDiscover what daily life in ancient Rome was really like, and why the Romans did not measure time the way we do. Watch to the end for the surprising answer.\n\n#ancientrome #romanhistory #dailylifeinancientrome #historydocumentary #romanempire",
  "tag": [
   "daily life in ancient rome",
   "ancient rome documentary",
@@ -1014,25 +174,18 @@
   "weird history",
   "7 days in ancient rome",
   "ancient civilizations",
-  "augustus",
-  "roman toilets",
-  "saturnalia",
-  "gladiators",
-  "pompeii",
-  "roman insula",
-  "history of rome",
-  "animated history",
-  "a day in ancient rome",
-  "full history of rome"
+  "roman citizens",
+  "roman clients and patrons",
+  "roman day schedule",
+  "cartoon history",
+  "history for adults",
+  "storia di Roma",
+  "storia completa"
  ],
  "personaggi_mancanti": [
-  "Roman plebeian man in tunic (ordinary citizen)",
-  "Roman matron in stola",
-  "Roman charioteer",
-  "Roman gladiator",
-  "Vestal Virgin",
-  "Juvenal Roman poet",
-  "Gaius Appuleius Diocles charioteer"
+  "Ordinary Roman commoner in tunic",
+  "Rich Roman patron",
+  "Roman client in toga"
  ],
  "categoria_originale": "22"
 }
