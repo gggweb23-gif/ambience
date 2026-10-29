@@ -30,7 +30,7 @@ try:   # n8n (MULTICHANNEL - Storia Video) passa tutto in un unico JSON: vince s
 except Exception:
     P = {}
 TITOLO = E('TITOLO', 'Tutta la storia dell\'Iran').strip()
-LINGUA = E('LINGUA', 'it').strip() or 'it'
+LINGUA = (str(P.get('language') or '').strip().lower()[:2] or E('LINGUA', 'it').strip() or 'it')   # language del canale (Channel Configs) vince
 VOCE = str(P.get('voce') or E('VOCE', '') or 'glnsgBC77wt5zOYU0szz').strip()
 MINUTI = float(E('MINUTI', '13') or 13)
 MAX_MINUTI = float(P.get('max_minuti') or E('MAX_MINUTI', '25') or 25)   # oltre questa durata il copione condensa l'originale
