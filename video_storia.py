@@ -2579,12 +2579,42 @@ def _sottopannelli(q):
     return bool(_linea(_bordo(a)[1], int(h * .2), int(h * .8)) or _linea(_bordo(a.transpose(1, 0, 2))[1], int(w * .2), int(w * .8)))
 
 
+def verifica_foglio(tav, testi, descr):
+    """Claude guarda il foglio e dice QUALI pannelli sono sbagliati (epoca, scritte, anatomia, scena ripetuta). Ritorna l'insieme (0-3)."""
+    chiave = E('ANTHROPIC_API_KEY', '')
+    if not chiave or not VERIFICA:
+        return set()
+    im = Image.open(tav).convert('RGB'); im.thumbnail((1568, 1568)); buf = io.BytesIO(); im.save(buf, 'JPEG', quality=85)
+    domanda = (f"Foglio con 4 pannelli (1 in alto a sinistra, 2 in alto a destra, 3 in basso a sinistra, 4 in basso a destra) per un video di storia: "
+               f"{PAESE.get('nome') or ''}. Le parole della voce: \"{testi[:600]}\". Le scene previste: {' | '.join(descr)[:1200]}.\n"
+               "Per OGNI pannello controlla SOLO errori evidenti: edifici moderni o costruiti dopo l'epoca, ciminiere, vetrate, ringhiere di ferro, croci, "
+               "orologi meccanici, ingranaggi, vestiti o oggetti non dell'epoca, scritte o lettere, anatomia sbagliata (3 braccia, volti deformi), "
+               "pannello che ripete la stessa scena di un altro, pannello vuoto o tagliato. Guarda bene anche lo sfondo.\n"
+               "Rispondi con UNA riga: SBAGLIATI: <numeri dei pannelli sbagliati separati da virgola, oppure nessuno>")
+    try:
+        r = http('https://api.anthropic.com/v1/messages', {'model': MODELLO_CONTROLLO, 'max_tokens': 200, 'messages': [{'role': 'user', 'content': [
+            {'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}},
+            {'type': 'text', 'text': domanda}]}]}, {'x-api-key': chiave, 'anthropic-version': '2023-06-01'}, timeout=120)
+        txt = ''.join(b.get('text', '') for b in r.get('content', []))
+        m = re.search(r'SBAGLIATI:\s*(.*)', txt)
+        return {int(x) - 1 for x in re.findall(r'[1-4]', m.group(1))} if m else set()
+    except Exception as e:
+        log('controllo foglio non riuscito:', str(e)[:120]); return set()
+
+
+def _pannello_buono(q):
+    return 1.35 < q.width / max(1, q.height) < 2.3 and not _sottopannelli(q)
+
+
 def genera_foglio(g, scene, testi):
-    """Un foglio 2x2 a 4K con 4 scene diverse -> 4 immagini Full HD. Rifatto se storto (max 3 volte); poi immagini singole."""
+    """Un foglio 2x2 a 4K con 4 scene diverse -> {indice: immagine Full HD} dei soli pannelli BUONI.
+    Spesa prevedibile: UNA generazione per foglio; una seconda solo se il foglio e' inutilizzabile (meno di 2 pannelli buoni).
+    I pannelli sbagliati non si rifanno: la loro inquadratura prende un'immagine di riserva (mai una ripetuta)."""
     base = os.path.join(LAV, f'foglio_{g:03d}')
     out = [f'{base}_p{i}.jpg' for i in range(4)]
-    if all(os.path.exists(x) for x in out[:len(scene)]):
-        return out[:len(scene)]
+    pronti = {i: x for i, x in enumerate(out[:len(scene)]) if os.path.exists(x)}
+    if os.path.exists(base + '_fatto') and pronti:
+        return pronti
     refs = []
     for pg in list(dict.fromkeys(x for v in scene for x in (v.get('personaggi') or [])))[:3]:
         try:
@@ -2603,50 +2633,50 @@ def genera_foglio(g, scene, testi):
         prompt = ('The LAST reference image is an earlier storyboard sheet of this same video: copy EXACTLY its drawing style, line thickness, colours and light, '
                   'and keep recurring characters identical; do NOT copy its scenes or compositions. ' + prompt)
     if not E('FAL_KEY'):
-        for x in out:
+        for x in out[:len(scene)]:
             Image.new('RGB', (1920, 1080), (200, 180, 140)).save(x)
-        return out[:len(scene)]
-    tav, motivo = base + '_tavola.jpg', None
-    for tentativo in range(3):
+        open(base + '_fatto', 'w').write('1')
+        return {i: x for i, x in enumerate(out[:len(scene)])}
+    tav = base + '_tavola.jpg'
+    for tentativo in range(2):
         try:
-            _immagine_fal(prompt + (' IMPORTANT: ' + motivo if motivo else ''), refs, tav, (3840, 2160))
-            pannelli, ok = taglia_tavola(Image.open(tav), (1920, 1080))
-            if ok and any(_sottopannelli(q) for q in pannelli):
-                ok = False
-            motivo = None if ok else 'exactly FOUR EQUAL panels in a 2x2 grid, separated by thin straight white lines crossing exactly in the centre'
-            if ok and VERIFICA:
-                motivo = verifica_immagine(tav, testi, ' | '.join(descr), 'E\' un FOGLIO di 4 scene diverse separate da linee bianche: le linee vanno bene, '
-                                           'controlla il contenuto dei 4 pannelli. Conta come errore ogni edificio moderno, monumento costruito dopo l\'epoca, '
-                                           'ciminiera, finestra a vetri, ringhiera di ferro, croce su una chiesa, vestito o oggetto non dell\'epoca, '
-                                           'e due pannelli che mostrano la stessa scena. Guarda bene anche lo sfondo. ')
-                ok = not motivo
-            if ok:
-                for q, x in zip(pannelli, out):
-                    q.save(x, quality=93)
-                log('foglio pronto', g)
-                return out[:len(scene)]
-            log(f'foglio {g} da rifare ({tentativo + 1}): {motivo}')
+            _immagine_fal(prompt + (' IMPORTANT: exactly FOUR EQUAL panels in a 2x2 grid, separated by thin straight white lines crossing exactly in the centre.' if tentativo else ''),
+                          refs, tav, (3840, 2160))
         except Exception as e:
-            log('foglio', g, 'non riuscito:', str(e)[:150]); motivo = None
-    log('foglio', g, 'non riuscito 3 volte: immagini singole')   # raro: costa di piu' ma mai un'immagine ripetuta o storta
-    fatte = []
-    for v, x in zip(scene, out):
-        pr = v['prompt'] + '. ' + STILE_SCENA + SCENA_FINE.replace('No text, no letters, no numbers, no captions, no speech bubbles, no borders other than the thin white dividing lines.',
-                                                                   'No text, no letters, no numbers, no captions, no borders.')
-        for tentativo, rr in enumerate((refs, [], None)):
-            try:
-                if rr is None:   # ultima prova: l'altro modello
-                    dati = {'aspect_ratio': '16:9', 'resolution': '2K', 'output_format': 'jpeg', 'num_images': 1}
-                    r = fal('fal-ai/nano-banana-2', dict(dati, prompt=pr)); scarica(r['images'][0]['url'], x)
-                    ImageOps.fit(Image.open(x).convert('RGB'), (1920, 1080), Image.LANCZOS).save(x, quality=93)
-                else:
-                    _immagine_fal(pr, rr, x, (2560, 1440))
-                fatte.append(x); break
-            except Exception as e:
-                log('immagine singola', g, 'tentativo', tentativo + 1, 'non riuscito:', str(e)[:150])
-    if len(fatte) < len(scene):
-        raise RuntimeError(f'foglio {g}: {len(fatte)} immagini su {len(scene)}')
-    return out[:len(scene)]
+            log('foglio', g, 'non generato:', str(e)[:150]); continue
+        pannelli, _ = taglia_tavola(Image.open(tav), (1920, 1080))
+        crudi = taglia_tavola_crudi(Image.open(tav))
+        buoni = {i for i in range(len(scene)) if _pannello_buono(crudi[i])}
+        if len(buoni) < 2 and tentativo == 0:
+            log(f'foglio {g} inutilizzabile ({len(buoni)} pannelli buoni): rifatto una volta'); continue
+        sbagliati = verifica_foglio(tav, testi, descr[:len(scene)]) if buoni else set()
+        buoni -= sbagliati
+        for i in buoni:
+            pannelli[i].save(out[i], quality=93)
+        open(base + '_fatto', 'w').write('1')
+        log(f'foglio {g}: {len(buoni)}/{len(scene)} pannelli buoni' + (f' (scartati dal controllo: {sorted(x + 1 for x in sbagliati)})' if sbagliati else ''))
+        return {i: out[i] for i in sorted(buoni)}
+    return {}
+
+
+def taglia_tavola_crudi(im):
+    """I 4 pannelli come escono dal foglio (senza adattarli al 16:9): servono a capire se sono buoni."""
+    W_, H_ = im.size
+    k = 2
+    a = np.asarray(im.convert('RGB').resize((W_ // k, H_ // k)), dtype=np.int16); h2, w2 = a.shape[:2]
+
+    def oriz(c0, c1):
+        z = _linea(_bordo(a[:, c0:c1])[1], int(h2 * .3), int(h2 * .7))
+        return (z[0] * k, z[1] * k) if z else (H_ // 2, H_ // 2)
+
+    def vert(r0, r1):
+        z = _linea(_bordo(a[r0:r1].transpose(1, 0, 2))[1], int(w2 * .3), int(w2 * .7))
+        return (z[0] * k, z[1] * k) if z else (W_ // 2, W_ // 2)
+    ys = oriz(int(w2 * .05), int(w2 * .3)), oriz(int(w2 * .7), int(w2 * .95))
+    vt = vert(int(h2 * .05), int(min(ys[0][0], ys[1][0]) / k * .9))
+    vb = vert(int(max(ys[0][1], ys[1][1]) / k + (h2 - max(ys[0][1], ys[1][1]) / k) * .1), int(h2 * .95))
+    boxes = [(0, 0, vt[0], ys[0][0]), (vt[1], 0, W_, ys[1][0]), (0, ys[0][1], vb[0], H_), (vb[1], ys[1][1], W_, H_)]
+    return [_rifila(im.convert('RGB').crop(bx)) for bx in boxes]
 
 
 def _font_scene(sz):
@@ -2692,6 +2722,16 @@ def aggiungi_scritta(path, d, testo):
     os.replace(tmp, path)
 
 
+def riserva_scene():
+    """Immagini vere d'epoca di riserva, dalla colonna stock_fallback_query del canale ("ricerca: parole chiave, ..."): si cercano solo se servono."""
+    voci = []
+    for pezzo in re.split(r',\s*(?=[^,:]+:)', str(P.get('stock_fallback_query') or '')):
+        if ':' in pezzo:
+            q, chiavi = pezzo.split(':', 1)
+            voci.append((q.strip(), {w.strip().lower() for w in chiavi.split() if len(w.strip()) > 2}))
+    return voci
+
+
 def video_scene(c, durs, voci, kit):
     shots = taglia_inquadrature(c['scene'], durs, voci)
     piano = piano_scene(c, shots, kit)
@@ -2700,64 +2740,116 @@ def video_scene(c, durs, voci, kit):
         acc += v['d']; fine = int(round(acc * FPS)); v['d'] = max(1, fine - fine_prec) / FPS; fine_prec = fine
     t0 = time.time()
 
-    def trova(k):   # 1) prima le immagini vere: quelle che non si trovano diventano scene a cartone (mai un ripiego su un'immagine gia' vista)
-        v = piano[k]
-        for tipo in (v['tipo'], 'pexels_foto' if v['tipo'] == 'pexels_video' else 'pexels_video'):
-            for qq in [v.get('q')] + list(v.get('alt_q') or []):
+    def prendi(v, k, tipi, query):   # un'immagine vera adatta e mai usata (Claude la guarda prima)
+        for tipo in tipi:
+            for qq in query:
                 u = pexels('video' if tipo == 'pexels_video' else 'foto', qq, v.get('contesto') or v['testo']) if qq else None
                 if u:
                     src = os.path.join(LAV, f'src_{k:04d}' + ('.mp4' if tipo == 'pexels_video' else '.jpg'))
                     try:
-                        scarica(u, src); v.update(tipo=tipo, src=src); return
+                        scarica(u, src); return tipo, src
                     except Exception as e:
                         log('download Pexels non riuscito:', str(e)[:100])
-        log('Pexels: niente di adatto per', repr(v.get('q')), '-> scena a cartone'); v['tipo'] = 'cartone'
+        return None, None
+
+    def trova(k):   # 1) immagini vere: quelle che non si trovano diventano scene a cartone
+        v = piano[k]
+        tipo, src = prendi(v, k, (v['tipo'], 'pexels_foto' if v['tipo'] == 'pexels_video' else 'pexels_video'), [v.get('q')] + list(v.get('alt_q') or []))
+        if tipo:
+            v.update(tipo=tipo, src=src)
+        else:
+            log('Pexels: niente di adatto per', repr(v.get('q')), '-> scena a cartone'); v['tipo'] = 'cartone'
     with ThreadPoolExecutor(3) as ex:
         list(ex.map(trova, [k for k, v in enumerate(piano) if v['tipo'] != 'cartone']))
-    # 2) fogli: scene a cartone consecutive, 4 per foglio
+    # 2) fogli: 4 scene a cartone consecutive per foglio (una generazione a foglio: spesa prevedibile)
     cart = [k for k, v in enumerate(piano) if v['tipo'] == 'cartone']
     gruppi = [cart[i:i + 4] for i in range(0, len(cart), 4)]
     for g, ks in enumerate(gruppi):
         for j, k in enumerate(ks):
             piano[k].update(foglio=g, pannello=j)
     testo_g = [' / '.join(piano[k]['testo'] for k in ks) for ks in gruppi]
-    fogli = {}
-    if gruppi:
-        try:
-            fogli[0] = genera_foglio(0, [piano[k] for k in gruppi[0]], testo_g[0])
-        except Exception as e:
-            log('primo foglio NON riuscito:', str(e)[:200]); fogli[0] = []
-        try:   # il primo foglio fa da riferimento di stile e personaggi a tutti gli altri
-            rif = os.path.join(LAV, 'tavola_rif.jpg')
-            src0 = os.path.join(LAV, 'foglio_000_tavola.jpg')
-            Image.open(src0 if os.path.exists(src0) else fogli[0][0]).convert('RGB').resize((1920, 1080), Image.LANCZOS).save(rif, quality=88)
-            if E('FAL_KEY'):
-                TAVOLA_RIF['url'] = carica_fal(rif, 'image/jpeg')
-        except Exception as e:
-            log('riferimento foglio non caricato:', str(e)[:150])
+
     def foglio_sicuro(g):
         try:
             return genera_foglio(g, [piano[k] for k in gruppi[g]], testo_g[g])
         except Exception as e:
-            log('foglio', g, 'NON riuscito:', str(e)[:200]); return []
+            log('foglio', g, 'NON riuscito:', str(e)[:200]); return {}
+    def foglio_sicuro_rec(g, ks):
+        try:
+            return genera_foglio(g, [piano[k] for k in ks], ' / '.join(piano[k]['testo'] for k in ks))
+        except Exception as e:
+            log('foglio di recupero', g, 'NON riuscito:', str(e)[:200]); return {}
+    fogli = {}
+    if gruppi:
+        fogli[0] = foglio_sicuro(0)
+        try:   # il primo foglio fa da riferimento di stile e personaggi a tutti gli altri
+            src0 = os.path.join(LAV, 'foglio_000_tavola.jpg')
+            if os.path.exists(src0) and E('FAL_KEY'):
+                rif = os.path.join(LAV, 'tavola_rif.jpg')
+                Image.open(src0).convert('RGB').resize((1920, 1080), Image.LANCZOS).save(rif, quality=88)
+                TAVOLA_RIF['url'] = carica_fal(rif, 'image/jpeg')
+        except Exception as e:
+            log('riferimento foglio non caricato:', str(e)[:150])
     with ThreadPoolExecutor(4) as ex:
         resto = list(range(1, len(gruppi)))
         fogli.update(zip(resto, ex.map(foglio_sicuro, resto)))
-    log('fogli pronti:', len(fogli), 'per', len(cart), 'scene a cartone, in', int(time.time() - t0), 's')
+    for v in piano:
+        if v['tipo'] == 'cartone':
+            v['img'] = (fogli.get(v['foglio']) or {}).get(v['pannello'])
+    mancanti = [k for k, v in enumerate(piano) if v['tipo'] == 'cartone' and not v.get('img')]
+    log('fogli pronti:', len(fogli), '| scene a cartone:', len(cart), '| senza immagine:', len(mancanti), '| in', int(time.time() - t0), 's')
+    if mancanti:   # un giro di recupero: le scene rimaste senza disegno, ridisegnate insieme in fogli nuovi (4 per foglio)
+        rec = [mancanti[i:i + 4] for i in range(0, len(mancanti), 4)]
+        with ThreadPoolExecutor(4) as ex:
+            esiti = list(ex.map(lambda gi: (gi, foglio_sicuro_rec(100 + gi, rec[gi])), range(len(rec))))
+        for gi, ris in esiti:
+            for j, k in enumerate(rec[gi]):
+                if ris.get(j):
+                    piano[k]['img'] = ris[j]
+        mancanti = [k for k in mancanti if not piano[k].get('img')]
+        log('dopo il recupero, scene senza disegno:', len(mancanti))
+    # 3) ogni scena senza immagine prende un'immagine vera d'epoca di riserva, scelta sulle parole della voce (mai una ripetuta)
+    riserva = riserva_scene()
+
+    def ripara(k):
+        v = piano[k]
+        parole = set(re.findall(r'[a-zàèéìòù]{3,}', v['testo'].lower()))
+        ordine = sorted(riserva, key=lambda x: -len(x[1] & parole))
+        query = [v.get('q')] + list(v.get('alt_q') or []) + [q for q, _ in ordine[:6]]
+        tipo, src = prendi(v, k, ('pexels_video', 'pexels_foto'), [q for q in query if q])
+        if tipo:
+            v.update(tipo=tipo, src=src, contesto=v['testo']); return True
+        return False
+    dopo = [k for k in mancanti if piano[k].get('t', 0) >= PEXELS_DA]   # nel primo minuto solo cartoni: niente immagini vere di riserva
+    with ThreadPoolExecutor(3) as ex:
+        riparate = list(ex.map(ripara, dopo))
+    ancora = [k for k in mancanti if k not in dopo] + [k for k, ok in zip(dopo, riparate) if not ok]
+    # 4) ultima rete: la durata della scena mancante va ai vicini, senza superare il ritmo massimo (MAI 10 secondi ferma)
+    massimo = max(RITMO) + .5
+    for k in ancora:
+        v = piano[k]; vicini = [j for j in (k - 1, k + 1) if 0 <= j < len(piano) and (piano[j]['tipo'] != 'cartone' or piano[j].get('img'))]
+        if not vicini:
+            continue
+        quota = v['d'] / len(vicini)
+        for j in vicini:
+            piano[j]['d'] += quota
+        v['salta'] = True
+        if any(piano[j]['d'] > massimo for j in vicini):
+            log(f'ATTENZIONE: inquadratura vicina a {k} supera {massimo:.1f} s')
+    piano = [v for v in piano if not v.get('salta')]
+    log(f'immagini: {len(mancanti)} scene senza disegno -> {sum(riparate)} immagini vere di riserva, {len(ancora)} assorbite dai vicini')
     nome_font = c.get('font_carte') if c.get('font_carte') in FONT_EPOCA else 'classico'
 
     def fai(k):
         try:
             return _fai(k)
-        except Exception as e:   # mai fermare tutto il video per un'inquadratura: si allunga quella prima
+        except Exception as e:
             log('inquadratura', k, piano[k]['tipo'], 'NON riuscita:', str(e)[:300]); return None
 
     def _fai(k):
         v = piano[k]; d = v['d']; p = os.path.join(LAV, f'pezzo_{k:04d}.mp4')
         if v['tipo'] == 'cartone':
-            if len(fogli.get(v['foglio']) or []) <= v['pannello']:
-                raise RuntimeError('foglio mancante')
-            pezzo_regia(p, d, fogli[v['foglio']][v['pannello']], '', v.get('camera'), '' if v.get('coming_up') else (v.get('capitolo') or ''),
+            pezzo_regia(p, d, v['img'], '', v.get('camera'), '' if v.get('coming_up') else (v.get('capitolo') or ''),
                         nome_font, v.get('atmo') or '', v.get('flash'))
         elif v['tipo'] == 'pexels_video':
             pezzo_video(p, d, v['src'])
@@ -2771,11 +2863,11 @@ def video_scene(c, durs, voci, kit):
         return p
     with ThreadPoolExecutor(3) as ex:
         paths = list(ex.map(fai, range(len(piano))))
-    buoni_p, buoni_v = [], []   # un'inquadratura non riuscita: la precedente dura di piu' (niente immagine ripetuta)
+    buoni_p, buoni_v = [], []
     for p_, v in zip(paths, piano):
         if p_:
             buoni_p.append(p_); buoni_v.append(v)
-        elif buoni_v:
+        elif buoni_v:   # errore di montaggio (raro): la precedente dura di piu'
             buoni_v[-1] = dict(buoni_v[-1], d=buoni_v[-1]['d'] + v['d'])
             try:
                 pv = buoni_p[-1][:-4] + '_l.mp4'
@@ -2785,7 +2877,9 @@ def video_scene(c, durs, voci, kit):
                 log('allungamento non riuscito:', str(e)[:120])
     if not buoni_p:
         raise RuntimeError('nessuna inquadratura riuscita')
-    log('inquadrature pronte:', len(buoni_p), 'su', len(piano), 'in', int(time.time() - t0), 's')
+    ds = [v['d'] for v in buoni_v]
+    log(f'CONTROLLO RITMO: {len(buoni_p)} inquadrature, durata media {sum(ds) / len(ds):.1f} s, massima {max(ds):.1f} s, '
+        f'oltre {massimo:.1f} s: {sum(1 for x in ds if x > massimo)} | in {int(time.time() - t0)} s')
     return buoni_v, buoni_p
 
 
