@@ -13,49 +13,51 @@
  "sfondi": [
   {
    "id": "s1",
-   "prompt_en": "Cartoon interior of a tiny cramped Roman apartment before dawn, a bearded Roman man in a tunic lying on a straw mattress, startled by loud knocking at the wooden door, dim blue light, comic style",
+   "prompt_en": "Cartoon style, ancient Rome before dawn, a bearded Roman man in a simple tunic sits up on a straw mattress in a tiny cramped room, startled, hearing loud banging on the door, dim blue light, close-up",
    "personaggi": []
   },
   {
    "id": "s2",
-   "prompt_en": "Cartoon dark Roman street before sunrise, a groggy Roman man in a tunic dressing by feel in cold air, oil lamp glowing, stone apartment blocks around him, worried expression, wide shot",
+   "prompt_en": "Cartoon style, narrow dark Roman street at dawn, a Roman man in a simple tunic dressing hurriedly in the cold, shivering, torch light flickering on brick walls, wide shot, no modern items",
    "personaggi": []
   },
   {
    "id": "s3",
-   "prompt_en": "Cartoon crowd of poor Roman men in togas lining up at dawn outside the grand door of a rich man's villa, a doorkeeper standing guard, columns and torches, early morning light",
+   "prompt_en": "Cartoon style, crowd of poor Roman men in tunics lined up in the street outside the grand door of a rich man's villa at sunrise, anxious faces, a doorman at the entrance, wide shot",
    "personaggi": []
   },
   {
    "id": "s4",
-   "prompt_en": "Cartoon close-up of a hungry Roman man with an empty table and an empty bowl, stomach growling, sad face, simple Roman room, warm dim light, comic exaggeration",
+   "prompt_en": "Cartoon style, a hungry Roman man with an empty table and an empty bowl, hands on his stomach, sad expression, bare room, warm dim light, close-up of table and hands",
    "personaggi": []
   },
   {
    "id": "s5",
-   "prompt_en": "Cartoon wide view of a busy ancient Rome forum with temples, marble columns and the Colosseum in the distance, bright sunny day, crowds of Romans in togas and tunics",
-   "personaggi": []
+   "prompt_en": "Cartoon style, rich Roman patron in a white toga handing a small bag of coins and a loaf of bread to a grateful poor client at his villa doorway, sunlit courtyard, medium shot",
+   "personaggi": [
+    "senatore"
+   ]
   },
   {
    "id": "s6",
-   "prompt_en": "Cartoon Roman street scene, loud and dirty, vendors shouting, carts, animals, garbage and puddles on cobblestones, tall crowded apartment buildings, chaotic energy, daytime",
+   "prompt_en": "Cartoon style, busy ancient Roman market, loud crowded stalls with bread, fruit and fish, merchants shouting, dusty street, midday sun, colorful awnings, wide shot",
    "personaggi": []
   },
   {
    "id": "s7",
-   "prompt_en": "Cartoon Roman citizen puzzled, looking at a sundial in a sunny square with a confused expression, strange divided daylight hours, Roman architecture behind him, close-up",
+   "prompt_en": "Cartoon style, enormous Colosseum and Roman Forum with columns and a triumphal arch, tiny crowds of Romans in tunics and togas, golden hour, dramatic wide shot, no modern items",
    "personaggi": []
   },
   {
    "id": "s8",
-   "prompt_en": "Cartoon sunset over ancient Rome, a thoughtful Roman man in a tunic sitting on steps looking at the glowing city with the aqueduct and Colosseum, warm golden light, reflective mood",
+   "prompt_en": "Cartoon style, Roman man in a tunic sitting alone on a stone step at sunset looking at the sky and a sundial, thoughtful expression, warm orange light, quiet street, medium shot",
    "personaggi": []
   }
  ],
  "scene": [
   {
    "capitolo": "Before Sunrise",
-   "testo": "It's still dark outside. You're lying on a straw mattress in a room the size of a parking space, and someone is banging on your door. Not a friend. Not an emergency. This is just Tuesday.",
+   "testo": "It's still dark outside. You are lying on a straw mattress in a room the size of a parking space, and someone is banging on your door. Not a friend. Not an emergency. This is just Tuesday.",
    "visivi": [
     {
      "tipo": "cartone",
@@ -64,86 +66,73 @@
      "personaggio": "",
      "reazione": true,
      "data": "Rome, 100 AD",
-     "suono": "loud knocking on wooden door, rooster crowing"
+     "suono": "loud knocking on a wooden door"
     }
    ]
   },
   {
-   "capitolo": "The Daily Duty",
-   "testo": "In ancient Rome, your day started before the sun did. No coffee, no alarm clock, no snooze button. You got up in the cold dark, and you dressed by feel.",
+   "capitolo": "The Daily Grind",
+   "testo": "In ancient Rome, your day started before the sun did. No coffee, no alarm clock, no snooze button. You got up in the dark, in the cold, and got dressed by feel. Within twenty minutes, you had to be standing outside a rich man's house.",
    "visivi": [
     {
      "tipo": "cartone",
      "frase": "your day started",
      "sfondo": "s2",
-     "personaggio": "",
-     "reazione": false
+     "personaggio": ""
     }
    ]
   },
   {
-   "testo": "Within twenty minutes, you had to be standing outside a rich man's house, in the street. Why? Because if you weren't there, you didn't eat that day.",
+   "capitolo": "The Patron System",
+   "testo": "Why? Because if you weren't there, you didn't eat that day. That's not an exaggeration. That was the system. For hundreds of years, this was daily life for hundreds of thousands of ordinary people.",
    "visivi": [
     {
      "tipo": "cartone",
-     "frase": "standing outside a rich",
+     "frase": "Why? Because if",
      "sfondo": "s3",
-     "personaggio": "",
-     "reazione": false,
-     "suono": "crowd murmuring in ancient street"
-    }
-   ]
-  },
-  {
-   "testo": "That's not an exaggeration. That was the system. For hundreds of years, this was daily life for hundreds of thousands of ordinary Romans.",
-   "visivi": [
+     "personaggio": ""
+    },
     {
      "tipo": "cartone",
-     "frase": "That's not an exaggeration",
+     "frase": "you didn't eat",
      "sfondo": "s4",
-     "personaggio": "",
-     "reazione": false
+     "personaggio": ""
     }
    ]
   },
   {
-   "capitolo": "The Real Rome",
-   "testo": "We picture togas, marble and emperors giving speeches. The reality was louder, dirtier and stranger than any movie has ever shown you.",
+   "capitolo": "Reality vs. Myth",
+   "testo": "We picture togas, marble and emperors giving speeches. The reality was louder, dirtier and stranger than any movie has ever shown you. And here's the part that breaks most people's brains.",
    "visivi": [
     {
      "tipo": "cartone",
      "frase": "We picture togas",
-     "sfondo": "s5",
-     "personaggio": "",
-     "reazione": false
+     "sfondo": "s7",
+     "personaggio": ""
     },
     {
      "tipo": "cartone",
      "frase": "louder, dirtier and stranger",
      "sfondo": "s6",
-     "personaggio": "",
-     "reazione": false,
-     "suono": "busy Roman street, vendors shouting"
+     "personaggio": ""
     }
    ]
   },
   {
-   "capitolo": "Time Itself",
-   "testo": "And here's the part that breaks most people's brains. The Romans did not have hours the way you do. So how did they know when to show up? And what did they do all day?",
+   "capitolo": "Time Without Hours",
+   "testo": "The Romans did not have hours the way you do. So how did they know when to start, when to eat, when to stop? Would you survive a single day in their world?",
    "visivi": [
     {
      "tipo": "cartone",
-     "frase": "And here's the part",
-     "sfondo": "s7",
-     "personaggio": "",
-     "reazione": true
+     "frase": "The Romans did not",
+     "sfondo": "s5",
+     "personaggio": "senatore"
     },
     {
      "tipo": "cartone",
-     "frase": "So how did they",
+     "frase": "Would you survive",
      "sfondo": "s8",
-     "personaggio": "",
-     "reazione": false
+     "personaggio": ""
     }
    ]
   }
@@ -152,7 +141,8 @@
   "testo": "NO JOBS",
   "personaggio": ""
  },
- "descrizione": "What did people in ancient Rome actually do all day? Wake up before dawn and step into the daily life of an ordinary Roman citizen, from a tiny apartment to the rich man's doorstep.\n\nIn this cartoon history documentary, we explore the Roman Forum, the streets, the crowds and the strange system that decided whether you ate or went hungry. Forget the movie version of Rome: the truth was louder, dirtier and stranger.\n\nDiscover what daily life in ancient Rome was really like, and why the Romans did not measure time the way we do. Watch to the end for the surprising answer.\n\n#ancientrome #romanhistory #dailylifeinancientrome #historydocumentary #romanempire",
+ "descripcion_nota": "",
+ "descrizione": "What did people in ancient Rome actually do all day? Forget the movies. Daily life in ancient Rome began before sunrise, with ordinary Romans lining up outside a rich patron's house just to earn their daily bread.\n\nIn this animated history documentary, we explore the roman daily life of the poor and the powerful, from the crowded streets and the Roman Forum to the markets, the baths and the Colosseum. Discover how the patron system really worked and why missing the morning visit could mean going hungry.\n\nIf you love ancient history, Roman history and weird history facts, this video shows what life in ancient Rome was truly like.\n\n#ancientrome #romanhistory #dailylifeinancientrome #historydocumentary #romanempire",
  "tag": [
   "daily life in ancient rome",
   "ancient rome documentary",
@@ -174,18 +164,18 @@
   "weird history",
   "7 days in ancient rome",
   "ancient civilizations",
-  "roman citizens",
-  "roman clients and patrons",
-  "roman day schedule",
-  "cartoon history",
-  "history for adults",
-  "storia di Roma",
-  "storia completa"
+  "roman patron and client",
+  "roman clients salutatio",
+  "roman poor people",
+  "roman insulae",
+  "roman morning routine",
+  "history of rome",
+  "complete roman history"
  ],
  "personaggi_mancanti": [
-  "Ordinary Roman commoner in tunic",
-  "Rich Roman patron",
-  "Roman client in toga"
+  "Roman baker or commoner in a tunic and apron",
+  "Roman client or poor citizen in a plain tunic",
+  "Roman patron in a toga (senatore used as stand-in)"
  ],
  "categoria_originale": "22"
 }
