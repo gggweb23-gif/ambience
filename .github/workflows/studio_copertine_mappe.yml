@@ -62,7 +62,7 @@ jobs:
           PAYLOAD: ${{ inputs.payload }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           FAL_KEY: ${{ secrets.FAL_KEY }}
-        run: python3 strumenti/studio_copertine_mappe.py
+        run: python3 "strumenti/$(python3 -c "import json,os;print(json.loads(os.environ['PAYLOAD']).get('script') or 'studio_copertine_mappe.py')")"
 
       - name: Salva nel repository
         if: ${{ always() }}
