@@ -1,0 +1,43 @@
+name: Prova Tavola
+
+# Prova della tavola 2x2: 4 inquadrature diverse in una sola immagine generata (strumenti/prova_tavola.py).
+on:
+  workflow_dispatch:
+    inputs:
+      payload:
+        description: 'JSON con nome, stile, personaggio, scene, modelli, riferimenti'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  prova:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - name: Immagini di prova
+        env:
+          PAYLOAD: ${{ inputs.payload }}
+          FAL_KEY: ${{ secrets.FAL_KEY }}
+        run: pip install -q pillow && python3 strumenti/prova_tavola.py
+      - name: Salva nel repository
+        if: ${{ always() }}
+        run: |
+          if [ -n "$(git status --porcelain prove_tavola)" ]; then
+            git config user.name "render-bot"
+            git config user.email "render-bot@users.noreply.github.com"
+            git add prove_tavola
+            git commit -m "Prova tavola"
+            for i in 1 2 3 4 5; do git pull --rebase -q && git push && break; sleep $((i * 5)); done
+          fi
+      - name: Copia di riserva (se il salvataggio non riesce)
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: risultati
+          path: prove_tavola
+          if-no-files-found: ignore
+          retention-days: 7
