@@ -11,51 +11,65 @@
   ],
   "verde": [
    "MEX",
+   "BRA",
    "BOL",
    "PER",
-   "BRA",
+   "COL",
    "ARG",
-   "COL"
+   "CHL"
   ],
   "vista": {
-   "lon": -80,
-   "lat": 5,
-   "larghezza": 120
+   "lon": -85,
+   "lat": 10,
+   "larghezza": 140
   }
  },
- "descrizione": "Silver hit a record price this year, yet the mountain that once gave the world nearly half its silver sits in Bolivia, one of South America's poorest countries. Three hundred years ago, Latin America looked like the winner of the Americas. So what went wrong?\n\nWe follow the money across the map: from the Aztec and Inca empires to the Spanish encomienda, and show why finding treasure first may have been the biggest curse of all.",
+ "descrizione": "Three hundred years ago, Mexico City was the biggest city in the Americas and the Spanish half of the New World looked like the sure winner. So why does an average American produce about eight times more than an average Latin American today? We follow the silver, the land, the votes and the wars to find out.\n\nFrom the mountain that eats men to the nine days that cost Mexico a fortune, this is the story of two Americas built on two sets of rules. And it ends with a hopeful twist: the gap was never written in the soil.",
  "tag": [
-  "why is latin america poor",
-  "us vs latin america",
   "economic history",
-  "geopolitics explained",
-  "animated maps",
-  "potosi silver",
-  "spanish empire",
-  "aztec empire",
-  "inca empire",
+  "latin america",
+  "united states",
+  "why latin america is poor",
+  "potosi",
+  "silver",
+  "resource curse",
   "encomienda",
-  "gdp per person",
-  "history of the americas"
+  "mita",
+  "homestead act",
+  "geopolitics",
+  "animated maps"
  ],
  "scene": [
   {
-   "testo": "A mountain that gave the world half its silver. A city bigger than any in the Americas. And one gap: eight times richer.",
+   "testo": "A border where one step makes you eight times richer. A gold rush that made one side poor. A mountain that eats men.",
    "anteprima": true,
    "vista": {
-    "lon": -66,
-    "lat": -20,
-    "larghezza": 20
+    "lon": -105,
+    "lat": 28,
+    "larghezza": 40
    },
-   "epoca": "antica",
+   "epoca": "oggi",
    "oro": [
     "USA"
    ],
    "verde": [
-    "BOL",
     "MEX"
    ],
    "eventi": [
+    {
+     "tipo": "numero",
+     "testo": "x8",
+     "lon": -104,
+     "lat": 31,
+     "parola": "eight"
+    },
+    {
+     "tipo": "icona",
+     "icona": "gold_coins",
+     "lon": -121,
+     "lat": 38.5,
+     "parola": "gold"
+    },
     {
      "tipo": "icona",
      "icona": "mountain",
@@ -64,37 +78,21 @@
      "parola": "mountain"
     },
     {
-     "tipo": "numero",
-     "testo": "HALF",
-     "lon": -66.5,
-     "lat": -17.5,
-     "parola": "half"
-    },
-    {
-     "tipo": "icona",
-     "icona": "castle",
-     "lon": -99.1,
-     "lat": 19.4,
-     "parola": "city"
-    },
-    {
-     "tipo": "numero",
-     "testo": "x8",
-     "lon": -98,
-     "lat": 38,
-     "parola": "eight"
+     "tipo": "scritta",
+     "testo": "EATS MEN",
+     "parola": "eats"
     }
    ],
    "musica": "mistero",
    "stacco": false,
    "pin": {
-    "lon": -60,
-    "lat": -25,
+    "lon": -110,
+    "lat": 24,
     "faccia": "stupito"
    }
   },
   {
-   "testo": "Who got rich, who stayed poor, and why? Why did the US get rich, but Latin America never did?",
+   "testo": "And the single set of rules that decided everything. So why did the US get rich, but Latin America never did?",
    "anteprima": true,
    "vista": {
     "lon": -80,
@@ -107,13 +105,21 @@
    ],
    "verde": [
     "MEX",
+    "BRA",
     "BOL",
     "PER",
-    "BRA",
+    "COL",
     "ARG",
-    "COL"
+    "CHL"
    ],
    "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": -98,
+     "lat": 39,
+     "parola": "rules"
+    },
     {
      "tipo": "solleva",
      "paese": [
@@ -127,31 +133,24 @@
     {
      "tipo": "scritta",
      "testo": "WHY?",
-     "parola": "Why"
-    },
-    {
-     "tipo": "icona",
-     "icona": "question",
-     "lon": -60,
-     "lat": -10,
-     "parola": "never"
+     "parola": "why"
     }
    ],
    "musica": "",
    "stacco": false,
    "pin": {
-    "lon": -45,
-    "lat": 30,
-    "faccia": "stupito"
+    "lon": -60,
+    "lat": 20,
+    "faccia": "normale"
    }
   },
   {
-   "testo": "In January, silver hit the highest price in its history. Yet the mountain that once gave the world nearly half its silver is in Bolivia.",
+   "testo": "In January, silver hit the highest price in its history. And the mountain that once gave nearly half the world's silver sits in Bolivia.",
    "anteprima": false,
    "vista": {
     "lon": -66,
-    "lat": -19,
-    "larghezza": 30
+    "lat": -19.6,
+    "larghezza": 20
    },
    "epoca": "oggi",
    "oro": [],
@@ -162,8 +161,8 @@
     {
      "tipo": "icona",
      "icona": "silver_bars",
-     "lon": -65.7,
-     "lat": -19.6,
+     "lon": -67.5,
+     "lat": -17.5,
      "parola": "silver"
     },
     {
@@ -172,96 +171,91 @@
      "parola": "Bolivia"
     },
     {
-     "tipo": "conta",
-     "valore": 50,
-     "prefisso": "~",
-     "suffisso": "%",
-     "sotto": "OF WORLD SILVER",
-     "parola": "half"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Bolivia: a poor land, a silver mountain",
+     "tipo": "etichetta",
+     "testo": "CERRO RICO",
+     "lon": -65.75,
+     "lat": -19.6,
      "parola": "mountain"
     }
    ],
-   "musica": "curiosita",
+   "musica": "mistero",
    "stacco": false,
    "pin": {
-    "lon": -58,
-    "lat": -25,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "That is odd, because 300 years ago this side of the map looked like the winner. Mexico City was the biggest city in the Americas.",
-   "anteprima": false,
-   "vista": {
-    "lon": -99,
-    "lat": 19.4,
-    "larghezza": 25
-   },
-   "epoca": "antica",
-   "oro": [
-    "MEX"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1700",
-     "parola": "300"
-    },
-    {
-     "tipo": "icona",
-     "icona": "castle",
-     "lon": -99.1,
-     "lat": 19.4,
-     "parola": "winner"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "merchant",
-     "n": 5,
-     "lon": -99.1,
-     "lat": 19.0,
-     "parola": "biggest"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Mexico City led the Americas",
-     "parola": "Americas"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": -105,
-    "lat": 25,
+    "lon": -62,
+    "lat": -16,
     "faccia": "normale"
    }
   },
   {
-   "testo": "It even had a university 85 years before Harvard. And in 1700, the average Mexican was almost as rich as a colonist in English America.",
+   "testo": "Bolivia is one of the poorest countries in South America. That's strange, because 300 years ago, this half of the map looked like the winner.",
    "anteprima": false,
    "vista": {
-    "lon": -90,
-    "lat": 30,
-    "larghezza": 60
+    "lon": -80,
+    "lat": 0,
+    "larghezza": 100
    },
    "epoca": "antica",
-   "oro": [
-    "USA"
+   "oro": [],
+   "verde": [
+    "BOL",
+    "MEX",
+    "PER"
    ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": -64,
+     "lat": -17,
+     "parola": "poorest"
+    },
+    {
+     "tipo": "anno",
+     "testo": "1725",
+     "parola": "300"
+    },
+    {
+     "tipo": "icona",
+     "icona": "crown",
+     "lon": -75,
+     "lat": -10,
+     "parola": "winner"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -50,
+    "lat": 10,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Mexico City was the biggest city in the Americas. Its university opened 85 years before Harvard.",
+   "anteprima": false,
+   "vista": {
+    "lon": -99,
+    "lat": 19.4,
+    "larghezza": 14
+   },
+   "epoca": "antica",
+   "oro": [],
    "verde": [
     "MEX"
    ],
    "eventi": [
     {
-     "tipo": "icona",
-     "icona": "school",
+     "tipo": "etichetta",
+     "testo": "MEXICO CITY",
      "lon": -99.1,
      "lat": 19.4,
+     "parola": "Mexico"
+    },
+    {
+     "tipo": "icona",
+     "icona": "school",
+     "lon": -99.15,
+     "lat": 19.45,
      "parola": "university"
     },
     {
@@ -271,6 +265,34 @@
      "suffisso": "",
      "sotto": "YEARS BEFORE HARVARD",
      "parola": "85"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -95,
+    "lat": 22,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "By one famous estimate, in 1700 the average Mexican was almost as rich as the average person in the English colonies.",
+   "anteprima": false,
+   "vista": {
+    "lon": -90,
+    "lat": 30,
+    "larghezza": 50
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "MEX"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1700",
+     "parola": "1700"
     },
     {
      "tipo": "colonna",
@@ -286,28 +308,23 @@
      "valore": 1.0,
      "lon": -76,
      "lat": 38,
-     "parola": "colonist"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Almost equal in 1700",
-     "parola": "almost"
+     "parola": "English"
     }
    ],
-   "musica": "curiosita",
+   "musica": "",
    "stacco": false,
    "pin": {
     "lon": -88,
-    "lat": 18,
+    "lat": 22,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Today the average American produces about eight times more than the average Latin American. So what happened?",
+   "testo": "Today, the average American produces about eight times as much as the average Latin American.",
    "anteprima": false,
    "vista": {
-    "lon": -80,
-    "lat": 10,
+    "lon": -85,
+    "lat": 15,
     "larghezza": 120
    },
    "epoca": "oggi",
@@ -317,12 +334,24 @@
    "verde": [
     "MEX",
     "BRA",
-    "COL",
-    "PER",
     "BOL",
-    "ARG"
+    "PER",
+    "COL",
+    "ARG",
+    "CHL",
+    "VEN"
    ],
    "eventi": [
+    {
+     "tipo": "solleva",
+     "paese": [
+      "USA"
+     ],
+     "volte": 8,
+     "testo": "x8",
+     "colore": "oro",
+     "parola": "eight"
+    },
     {
      "tipo": "prezzo",
      "testo": "$82,000",
@@ -336,43 +365,103 @@
      "sotto": "LATIN AMERICA · PER PERSON",
      "ricco": false,
      "parola": "Latin"
-    },
-    {
-     "tipo": "solleva",
-     "paese": [
-      "USA"
-     ],
-     "volte": 8,
-     "testo": "x8",
-     "colore": "oro",
-     "parola": "eight"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "WHY?",
-     "parola": "happened"
     }
    ],
-   "musica": "tensione",
+   "musica": "",
    "stacco": true,
    "pin": {
-    "lon": -40,
-    "lat": 35,
+    "lon": -60,
+    "lat": 30,
     "faccia": "stupito"
    }
   },
   {
-   "testo": "The answer starts with what each side found on arrival. And here is the twist: the side that found the treasure is the side that lost.",
+   "testo": "So why did the US get rich, but Latin America never did? The answer starts with what each side found when it first arrived.",
    "anteprima": false,
    "vista": {
     "lon": -80,
     "lat": 15,
-    "larghezza": 100
+    "larghezza": 120
    },
    "epoca": "antica",
-   "oro": [
-    "USA"
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "scritta",
+     "testo": "WHY?",
+     "parola": "why"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -10,
+      38
+     ],
+     "a": [
+      -70,
+      18
+     ],
+     "icona": "galleon",
+     "parola": "arrived"
+    }
    ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -45,
+    "lat": 25,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "And here's the strange part. The side that found the treasure is the side that lost.",
+   "anteprima": false,
+   "vista": {
+    "lon": -80,
+    "lat": 5,
+    "larghezza": 120
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "MEX",
+    "PER",
+    "BOL",
+    "COL"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "treasure_chest",
+     "lon": -90,
+     "lat": -5,
+     "parola": "treasure"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "LOST",
+     "parola": "lost"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -55,
+    "lat": 15,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "When the Spanish arrived, they landed on the richest prize in the Americas: two great empires, the Aztecs and the Incas.",
+   "anteprima": false,
+   "vista": {
+    "lon": -85,
+    "lat": 0,
+    "larghezza": 60
+   },
+   "epoca": "antica",
+   "oro": [],
    "verde": [
     "MEX",
     "PER"
@@ -385,31 +474,2076 @@
       37
      ],
      "a": [
-      -95,
+      -99,
       19
      ],
      "icona": "galleon",
-     "parola": "arrival"
+     "parola": "Spanish"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "AZTECS",
+     "lon": -99,
+     "lat": 19.4,
+     "parola": "Aztecs"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "INCAS",
+     "lon": -72,
+     "lat": -13.5,
+     "parola": "Incas"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": -105,
+    "lat": 8,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "They had cities, roads, farms and millions of people. This was the prize every European crown wanted.",
+   "anteprima": false,
+   "vista": {
+    "lon": -75,
+    "lat": -12,
+    "larghezza": 30
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "PER"
+   ],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "native_worker",
+     "n": 5,
+     "lon": -72,
+     "lat": -13.5,
+     "parola": "cities"
     },
     {
      "tipo": "icona",
-     "icona": "treasure_chest",
+     "icona": "farm",
+     "lon": -74,
+     "lat": -11,
+     "parola": "farms"
+    },
+    {
+     "tipo": "conta",
+     "valore": 10,
+     "prefisso": "~",
+     "suffisso": "M+",
+     "sotto": "PEOPLE IN BOTH EMPIRES",
+     "parola": "millions"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -68,
+    "lat": -6,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "The Spanish crown rewarded its conquerors with something called the encomienda. Not land. People.",
+   "anteprima": false,
+   "vista": {
+    "lon": -99,
+    "lat": 19,
+    "larghezza": 20
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "MEX"
+   ],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "conquistador",
+     "n": 3,
      "lon": -99,
      "lat": 19.4,
+     "parola": "conquerors"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "ENCOMIENDA",
+     "lon": -97,
+     "lat": 18,
+     "parola": "encomienda"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "PEOPLE",
+     "parola": "People"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -94,
+    "lat": 23,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "A conquistador was handed whole villages that owed him tribute and work. Then came the diseases Europeans carried.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 19,
+    "larghezza": 14
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "MEX"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "hacienda",
+     "lon": -98.5,
+     "lat": 19.2,
+     "parola": "villages"
+    },
+    {
+     "tipo": "icona",
+     "icona": "money_bag",
+     "lon": -97.5,
+     "lat": 18.7,
+     "parola": "tribute"
+    },
+    {
+     "tipo": "icona",
+     "icona": "grave",
+     "lon": -99.3,
+     "lat": 18.8,
+     "parola": "diseases"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -95,
+    "lat": 21,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Within a century, around nine in ten people in Central Mexico had died.",
+   "anteprima": false,
+   "vista": {
+    "lon": -99,
+    "lat": 19.5,
+    "larghezza": 14
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "MEX"
+   ],
+   "eventi": [
+    {
+     "tipo": "contatore",
+     "testo": "9 IN 10",
+     "su": 9,
+     "di": 10,
+     "personaggio": "native_worker",
+     "parola": "nine"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "native_worker",
+     "n": 4,
+     "lon": -99,
+     "lat": 19.4,
+     "parola": "people"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": -95,
+    "lat": 22,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Even so, in 1570 more than eight in ten people in the whole New World still lived in Spain's part of it.",
+   "anteprima": false,
+   "vista": {
+    "lon": -80,
+    "lat": 5,
+    "larghezza": 120
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "MEX",
+    "PER",
+    "COL",
+    "BOL",
+    "VEN",
+    "CHL"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1570",
+     "parola": "1570"
+    },
+    {
+     "tipo": "contatore",
+     "testo": "MORE THAN 8 IN 10",
+     "su": 8,
+     "di": 10,
+     "personaggio": "peasant",
+     "parola": "eight"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "SPANISH AMERICA",
+     "lon": -75,
+     "lat": -5,
+     "parola": "Spain's"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -60,
+    "lat": 28,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Then, in 1545 and 1546, they found two of the richest silver deposits ever discovered: Potosi in the Andes, and Zacatecas in Mexico.",
+   "anteprima": false,
+   "vista": {
+    "lon": -85,
+    "lat": 0,
+    "larghezza": 100
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "MEX",
+    "BOL"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1545",
+     "parola": "1545"
+    },
+    {
+     "tipo": "icona",
+     "icona": "mine",
+     "lon": -65.75,
+     "lat": -19.6,
+     "parola": "Potosi"
+    },
+    {
+     "tipo": "icona",
+     "icona": "silver_bars",
+     "lon": -102.6,
+     "lat": 22.8,
+     "parola": "Zacatecas"
+    }
+   ],
+   "musica": "epico",
+   "stacco": true,
+   "pin": {
+    "lon": -80,
+    "lat": 15,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "The English got the leftovers: cold forests, no gold, no silver, and far fewer people.",
+   "anteprima": false,
+   "vista": {
+    "lon": -75,
+    "lat": 40,
+    "larghezza": 30
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "forest",
+     "lon": -72,
+     "lat": 43,
+     "parola": "forests"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "NO SILVER",
+     "parola": "silver"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "colonist",
+     "n": 3,
+     "lon": -76.5,
+     "lat": 37.2,
+     "parola": "fewer"
+    }
+   ],
+   "musica": "quotidiano",
+   "stacco": false,
+   "pin": {
+    "lon": -68,
+    "lat": 36,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Their first lasting colony, Jamestown, nearly didn't make it. In the winter of 1609, about 500 colonists were living there.",
+   "anteprima": false,
+   "vista": {
+    "lon": -76.5,
+    "lat": 37.2,
+    "larghezza": 8
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "JAMESTOWN",
+     "lon": -76.78,
+     "lat": 37.2,
+     "parola": "Jamestown"
+    },
+    {
+     "tipo": "anno",
+     "testo": "1609",
+     "parola": "1609"
+    },
+    {
+     "tipo": "conta",
+     "valore": 500,
+     "prefisso": "~",
+     "suffisso": "",
+     "sotto": "COLONISTS",
+     "parola": "500"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -75,
+    "lat": 38.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "By spring, 61 were still alive. So if you bet in 1600 on which half would end up rich, you'd have picked the South.",
+   "anteprima": false,
+   "vista": {
+    "lon": -80,
+    "lat": 15,
+    "larghezza": 100
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "MEX",
+    "PER",
+    "BOL"
+   ],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 61,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "SURVIVORS",
+     "parola": "61"
+    },
+    {
+     "tipo": "anno",
+     "testo": "1600",
+     "parola": "1600"
+    },
+    {
+     "tipo": "icona",
+     "icona": "question",
+     "lon": -90,
+     "lat": 25,
+     "parola": "bet"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -60,
+    "lat": 30,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Almost everyone would have. But that treasure came with a catch. Silver doesn't dig itself out of the ground.",
+   "anteprima": false,
+   "vista": {
+    "lon": -66,
+    "lat": -19.6,
+    "larghezza": 14
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "BOL"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "treasure_chest",
+     "lon": -66.5,
+     "lat": -18.5,
      "parola": "treasure"
     },
     {
      "tipo": "scritta",
-     "testo": "LOST",
-     "parola": "lost"
+     "testo": "THE CATCH",
+     "parola": "catch"
     },
     {
-     "tipo": "nota",
-     "testo": "Treasure became the trap",
-     "parola": "twist"
+     "tipo": "icona",
+     "icona": "mine",
+     "lon": -65.75,
+     "lat": -19.6,
+     "parola": "dig"
     }
    ],
-   "musica": "mistero",
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -62,
+    "lat": -17,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Potosi sits four kilometers up in the Andes, one of the highest cities on Earth. Almost nobody wanted to work there.",
+   "anteprima": false,
+   "vista": {
+    "lon": -65.75,
+    "lat": -19.6,
+    "larghezza": 8
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "BOL"
+   ],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 4000,
+     "prefisso": "",
+     "suffisso": " M",
+     "sotto": "UP IN THE ANDES",
+     "parola": "four"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "POTOSI",
+     "lon": -65.75,
+     "lat": -19.58,
+     "parola": "Potosi"
+    },
+    {
+     "tipo": "icona",
+     "icona": "mountain",
+     "lon": -65.6,
+     "lat": -19.7,
+     "parola": "highest"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -63.5,
+    "lat": -18.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "So in 1573, the Spanish Viceroy made it compulsory. It was called the Mita.",
+   "anteprima": false,
+   "vista": {
+    "lon": -72,
+    "lat": -15,
+    "larghezza": 24
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "PER",
+    "BOL"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1573",
+     "parola": "1573"
+    },
+    {
+     "tipo": "personaggio",
+     "nome": "Francisco de Toledo",
+     "descrizione": "16th-century Spanish viceroy of Peru, dark clothes, stern face",
+     "parola": "Viceroy"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "THE MITA",
+     "parola": "Mita"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -66,
+    "lat": -11,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Every year, villages across the Andes had to send one in every seven adult men to the mines.",
+   "anteprima": false,
+   "vista": {
+    "lon": -70,
+    "lat": -15,
+    "larghezza": 30
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "PER",
+    "BOL"
+   ],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "native_worker",
+     "n": 6,
+     "lon": -71.5,
+     "lat": -14,
+     "parola": "villages"
+    },
+    {
+     "tipo": "contatore",
+     "testo": "1 IN 7 MEN",
+     "su": 1,
+     "di": 7,
+     "personaggio": "native_worker",
+     "parola": "seven"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -71.5,
+      -14
+     ],
+     "a": [
+      -65.75,
+      -19.6
+     ],
+     "icona": "mine",
+     "parola": "mines"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -76,
+    "lat": -9,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "More than 11,000 men a year, many walking for weeks to get there. They worked in the dark, deep inside the mountain.",
+   "anteprima": false,
+   "vista": {
+    "lon": -68,
+    "lat": -17,
+    "larghezza": 16
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "BOL"
+   ],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 11000,
+     "prefisso": "+",
+     "suffisso": "",
+     "sotto": "MEN A YEAR",
+     "parola": "11,000"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "miner",
+     "n": 5,
+     "lon": -65.9,
+     "lat": -19.5,
+     "parola": "dark"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": -63,
+    "lat": -15,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Many never made it home. People called it the mountain that eats men.",
+   "anteprima": false,
+   "vista": {
+    "lon": -65.75,
+    "lat": -19.6,
+    "larghezza": 8
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "BOL"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "grave",
+     "lon": -65.9,
+     "lat": -19.5,
+     "parola": "home"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "EATS MEN",
+     "parola": "eats"
+    }
+   ],
+   "musica": "",
+   "stacco": true,
+   "pin": {
+    "lon": -64,
+    "lat": -18.5,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "And it worked. By 1610, Potosi reportedly had around 160,000 people, one of the biggest cities in the world.",
+   "anteprima": false,
+   "vista": {
+    "lon": -65.75,
+    "lat": -19.6,
+    "larghezza": 8
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "BOL"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1610",
+     "parola": "1610"
+    },
+    {
+     "tipo": "conta",
+     "valore": 160000,
+     "prefisso": "~",
+     "suffisso": "",
+     "sotto": "PEOPLE IN POTOSI",
+     "parola": "160,000"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "merchant",
+     "n": 4,
+     "lon": -65.7,
+     "lat": -19.6,
+     "parola": "city"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": -64,
+    "lat": -18.3,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "And the king took his cut first: a fifth of every ounce. For comparison, London then had about 200,000 people.",
+   "anteprima": false,
+   "vista": {
+    "lon": -30,
+    "lat": 35,
+    "larghezza": 120
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "BOL"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "crown",
+     "lon": -4,
+     "lat": 40.4,
+     "parola": "king"
+    },
+    {
+     "tipo": "barre",
+     "titulo": "x",
+     "titolo": "CITY SIZE, 1610",
+     "voci": [
+      {
+       "testo": "POTOSI",
+       "valor": 160,
+       "valore": 160,
+       "lato": "verde"
+      },
+      {
+       "testo": "LONDON",
+       "valore": 200,
+       "lato": "oro"
+      }
+     ],
+     "parola": "cut"
+    },
+    {
+     "tipo": "numero",
+     "testo": "1 IN 5",
+     "lon": -4,
+     "lat": 45,
+     "parola": "fifth"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -30,
+    "lat": 20,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "But look at how the whole system was built. A few owners at the top, forced labor at the bottom, and everything flowing out.",
+   "anteprima": false,
+   "vista": {
+    "lon": -45,
+    "lat": -5,
+    "larghezza": 120
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "BOL",
+    "PER"
+   ],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "landowner",
+     "n": 3,
+     "lon": -65,
+     "lat": -19,
+     "parola": "owners"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "native_worker",
+     "n": 6,
+     "lon": -70,
+     "lat": -17,
+     "parola": "labor"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -65.75,
+      -19.6
+     ],
+     "a": [
+      -6,
+      37
+     ],
+     "icona": "galleon",
+     "parola": "flowing"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -40,
+    "lat": 15,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "The rules weren't designed to build a country. They were designed to empty a mountain.",
+   "anteprima": false,
+   "vista": {
+    "lon": -66,
+    "lat": -19.6,
+    "larghezza": 14
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "BOL"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": -67,
+     "lat": -18.5,
+     "parola": "rules"
+    },
+    {
+     "tipo": "icona",
+     "icona": "mine",
+     "lon": -65.75,
+     "lat": -19.6,
+     "parola": "mountain"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "EMPTY IT",
+     "parola": "empty"
+    }
+   ],
+   "musica": "",
+   "stacco": true,
+   "pin": {
+    "lon": -62,
+    "lat": -17,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "And those rules left a scar. In 2010, an economist compared villages on both sides of the old Mita border in Peru.",
+   "anteprima": false,
+   "vista": {
+    "lon": -72,
+    "lat": -14,
+    "larghezza": 14
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "PER"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "2010",
+     "parola": "2010"
+    },
+    {
+     "tipo": "personaggio",
+     "nome": "Melissa Dell",
+     "descrizione": "modern economist, woman with shoulder-length hair, professional portrait",
+     "parola": "economist"
+    },
+    {
+     "tipo": "confine",
+     "punti": [
+      [
+       -74.5,
+       -12.5
+      ],
+      [
+       -73.5,
+       -14
+      ],
+      [
+       -72.5,
+       -15.5
+      ],
+      [
+       -71.5,
+       -16.5
+      ]
+     ],
+     "parola": "border"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -69,
+    "lat": -12,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Inside it, families are still about a quarter poorer today, and more of their children grow up stunted.",
+   "anteprima": false,
+   "vista": {
+    "lon": -72.5,
+    "lat": -14.5,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "PER"
+   ],
+   "eventi": [
+    {
+     "tipo": "griglia",
+     "paese": [
+      "PER"
+     ],
+     "pieni": 0.25,
+     "testo": "1 IN 4 POORER",
+     "colore": "verde",
+     "parola": "quarter"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "family",
+     "n": 4,
+     "lon": -73,
+     "lat": -14,
+     "parola": "families"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -69.5,
+    "lat": -12,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Before we follow the silver, an honest ask. These videos take a long time to make, so if you're enjoying this one, subscribing really helps.",
+   "anteprima": false,
+   "vista": {
+    "lon": -66,
+    "lat": -19.6,
+    "larghezza": 30
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "BOL"
+   ],
+   "eventi": [
+    {
+     "tipo": "nota",
+     "testo": "Subscribing really helps. Thank you!",
+     "parola": "subscribing"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -60,
+    "lat": -15,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "So where did all that silver go? First by llama down to the Pacific, then by ship to Panama.",
+   "anteprima": false,
+   "vista": {
+    "lon": -75,
+    "lat": -10,
+    "larghezza": 40
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "BOL",
+    "PER",
+    "PAN"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      -65.75,
+      -19.6
+     ],
+     "a": [
+      -70.2,
+      -18.5
+     ],
+     "icona": "cattle",
+     "parola": "llama"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -77.1,
+      -12
+     ],
+     "a": [
+      -79.5,
+      8.9
+     ],
+     "icona": "cargo_ship",
+     "parola": "ship"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "PANAMA",
+     "lon": -79.5,
+     "lat": 9,
+     "parola": "Panama"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": -85,
+    "lat": -5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Then by mule across the jungle, and onto the treasure fleets bound for Spain.",
+   "anteprima": false,
+   "vista": {
+    "lon": -50,
+    "lat": 22,
+    "larghezza": 90
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "PAN",
+    "ESP"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      -79.9,
+      9.4
+     ],
+     "a": [
+      -80,
+      9.3
+     ],
+     "icona": "cattle",
+     "parola": "mule"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -77,
+      22
+     ],
+     "a": [
+      -6.3,
+      36.5
+     ],
+     "icona": "galleon",
+     "parola": "fleets"
+    },
+    {
+     "tipo": "icona",
+     "icona": "crown",
+     "lon": -6,
+     "lat": 37.4,
+     "parola": "Spain"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -60,
+    "lat": 35,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "And there was only one door in. By law, the colonies could trade only through Seville, on Spain's own fleets.",
+   "anteprima": false,
+   "vista": {
+    "lon": -6,
+    "lat": 37.4,
+    "larghezza": 14
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "ESP"
+   ],
+   "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "SEVILLE",
+     "lon": -5.98,
+     "lat": 37.39,
+     "parola": "Seville"
+    },
+    {
+     "tipo": "icona",
+     "icona": "port",
+     "lon": -6.2,
+     "lat": 36.9,
+     "parola": "door"
+    },
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": -4.5,
+     "lat": 38.5,
+     "parola": "law"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -2,
+    "lat": 40,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "So you'd think Spain got incredibly rich. It didn't. With silver pouring in, King Philip the Second still went bankrupt four times.",
+   "anteprima": false,
+   "vista": {
+    "lon": -4,
+    "lat": 40,
+    "larghezza": 16
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "ESP"
+   ],
+   "eventi": [
+    {
+     "tipo": "personaggio",
+     "nome": "Philip II of Spain",
+     "descrizione": "16th-century Spanish king, black clothes, pale face, pointed beard",
+     "parola": "Philip"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "BANKRUPT",
+     "parola": "bankrupt"
+    },
+    {
+     "tipo": "conta",
+     "valore": 4,
+     "prefisso": "",
+     "suffisso": "X",
+     "sotto": "BANKRUPTCIES",
+     "parola": "four"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 0,
+    "lat": 43,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "All that silver also made everything in Spain more expensive. Over the 1500s, prices rose several times over.",
+   "anteprima": false,
+   "vista": {
+    "lon": -4,
+    "lat": 40,
+    "larghezza": 14
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "ESP"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "chart_up",
+     "lon": -3.7,
+     "lat": 40.4,
+     "parola": "expensive"
+    },
+    {
+     "tipo": "anno",
+     "testo": "1500s",
+     "parola": "1500s"
+    },
+    {
+     "tipo": "numero",
+     "testo": "PRICES UP",
+     "lon": -5,
+     "lat": 38,
+     "parola": "prices"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -1,
+    "lat": 43,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "It became cheaper to buy from abroad than to make things at home. So the silver paid for wars and for loans from Genoese bankers.",
+   "anteprima": false,
+   "vista": {
+    "lon": 5,
+    "lat": 45,
+    "larghezza": 30
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "ESP",
+    "ITA"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "swords",
+     "lon": 4,
+     "lat": 51,
+     "parola": "wars"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "banker",
+     "n": 3,
+     "lon": 8.9,
+     "lat": 44.4,
+     "parola": "Genoese"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -4,
+      40
+     ],
+     "a": [
+      8.9,
+      44.4
+     ],
+     "icona": "money_bag",
+     "parola": "loans"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 15,
+    "lat": 38,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "It also bought goods from England, France and the Netherlands. The silver made other people rich.",
+   "anteprima": false,
+   "vista": {
+    "lon": 2,
+    "lat": 50,
+    "larghezza": 24
+   },
+   "epoca": "antica",
+   "oro": [
+    "GBR",
+    "FRA",
+    "NLD"
+   ],
+   "verde": [
+    "ESP"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      -4,
+      40
+     ],
+     "a": [
+      -0.1,
+      51.5
+     ],
+     "icona": "silver_bars",
+     "parola": "England"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -4,
+      40
+     ],
+     "a": [
+      2.3,
+      48.9
+     ],
+     "icona": "silver_bars",
+     "parola": "France"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -4,
+      40
+     ],
+     "a": [
+      4.9,
+      52.4
+     ],
+     "icona": "silver_bars",
+     "parola": "Netherlands"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 12,
+    "lat": 56,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "And for 250 years, galleons sailed from Acapulco to Manila, loaded with Mexican silver, with Chinese merchants waiting on the other side.",
+   "anteprima": false,
+   "vista": {
+    "lon": -175,
+    "lat": 18,
+    "larghezza": 160
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "MEX",
+    "PHL",
+    "CHN"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      -99.9,
+      16.85
+     ],
+     "a": [
+      120.98,
+      14.6
+     ],
+     "icona": "galleon",
+     "parola": "galleons"
+    },
+    {
+     "tipo": "conta",
+     "valore": 250,
+     "prefisso": "",
+     "suffisso": " YRS",
+     "sotto": "OF PACIFIC TRADE",
+     "parola": "250"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "merchant",
+     "n": 4,
+     "lon": 121,
+     "lat": 14.6,
+     "parola": "merchants"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -140,
+    "lat": 30,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Even the US dollar started out as a copy. In 1792, Congress defined it by the value of the Spanish silver dollar.",
+   "anteprima": false,
+   "vista": {
+    "lon": -77,
+    "lat": 39,
+    "larghezza": 18
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1792",
+     "parola": "1792"
+    },
+    {
+     "tipo": "icona",
+     "icona": "parliament",
+     "lon": -77.01,
+     "lat": 38.89,
+     "parola": "Congress"
+    },
+    {
+     "tipo": "icona",
+     "icona": "silver_bars",
+     "lon": -75,
+     "lat": 40,
+     "parola": "silver"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -70,
+    "lat": 43,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Spanish dollars stayed legal money in the US until 1857. So the silver made other places rich. The Americas kept the holes.",
+   "anteprima": false,
+   "vista": {
+    "lon": -80,
+    "lat": 15,
+    "larghezza": 100
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA",
+    "GBR"
+   ],
+   "verde": [
+    "BOL",
+    "MEX"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1857",
+     "parola": "1857"
+    },
+    {
+     "tipo": "icona",
+     "icona": "mine",
+     "lon": -65.75,
+     "lat": -19.6,
+     "parola": "holes"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "THE HOLES",
+     "parola": "holes"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": -50,
+    "lat": 20,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Today, we call this the resource curse. Latin America may have been its very first victim.",
+   "anteprima": false,
+   "vista": {
+    "lon": -75,
+    "lat": -5,
+    "larghezza": 100
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "BOL",
+    "PER",
+    "MEX"
+   ],
+   "eventi": [
+    {
+     "tipo": "scritta",
+     "testo": "RESOURCE CURSE",
+     "parola": "curse"
+    },
+    {
+     "tipo": "icona",
+     "icona": "hourglass",
+     "lon": -70,
+     "lat": -12,
+     "parola": "first"
+    }
+   ],
+   "musica": "",
+   "stacco": true,
+   "pin": {
+    "lon": -50,
+    "lat": 10,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Now look back north, where there was nothing to dig. With no silver and few people to force into work, the English colonies had the opposite problem.",
+   "anteprima": false,
+   "vista": {
+    "lon": -75,
+    "lat": 40,
+    "larghezza": 30
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "forest",
+     "lon": -73,
+     "lat": 43,
+     "parola": "nothing"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "colonist",
+     "n": 4,
+     "lon": -76,
+     "lat": 38,
+     "parola": "colonies"
+    },
+    {
+     "tipo": "icona",
+     "icona": "question",
+     "lon": -72,
+     "lat": 39,
+     "parola": "problem"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -68,
+    "lat": 36,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "They had to convince people to come. So they gave away land.",
+   "anteprima": false,
+   "vista": {
+    "lon": -76.5,
+    "lat": 37.5,
+    "larghezza": 16
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      -0.1,
+      51.5
+     ],
+     "a": [
+      -76.5,
+      37.2
+     ],
+     "icona": "galleon",
+     "parola": "come"
+    },
+    {
+     "tipo": "icona",
+     "icona": "farm",
+     "lon": -77.5,
+     "lat": 37.8,
+     "parola": "land"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -72,
+    "lat": 40,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "From 1618, Virginia offered 50 acres to settlers who paid their own way, and 50 more for each person they brought.",
+   "anteprima": false,
+   "vista": {
+    "lon": -77,
+    "lat": 37.5,
+    "larghezza": 10
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1618",
+     "parola": "1618"
+    },
+    {
+     "tipo": "conta",
+     "valore": 50,
+     "prefisso": "",
+     "suffisso": " ACRES",
+     "sotto": "PER SETTLER",
+     "parola": "50"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "colonist",
+     "n": 5,
+     "lon": -77.3,
+     "lat": 37.5,
+     "parola": "settlers"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -74,
+    "lat": 39.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "A year later, the colonists elected their own assembly. And in 1647, Massachusetts ordered every town with 50 families to pay for a teacher.",
+   "anteprima": false,
+   "vista": {
+    "lon": -73,
+    "lat": 41,
+    "larghezza": 14
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "parliament",
+     "lon": -76.78,
+     "lat": 37.2,
+     "parola": "assembly"
+    },
+    {
+     "tipo": "anno",
+     "testo": "1647",
+     "parola": "1647"
+    },
+    {
+     "tipo": "icona",
+     "icona": "school",
+     "lon": -71.06,
+     "lat": 42.36,
+     "parola": "teacher"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -69,
+    "lat": 39,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Spreading land across thousands of families changed everything. People who own something want a say in how it's run.",
+   "anteprima": false,
+   "vista": {
+    "lon": -76,
+    "lat": 40,
+    "larghezza": 24
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "family",
+     "n": 6,
+     "lon": -75,
+     "lat": 40,
+     "parola": "families"
+    },
+    {
+     "tipo": "icona",
+     "icona": "farm",
+     "lon": -77,
+     "lat": 39,
+     "parola": "own"
+    },
+    {
+     "tipo": "icona",
+     "icona": "ballot_box",
+     "lon": -73.5,
+     "lat": 41.5,
+     "parola": "say"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": false,
+   "pin": {
+    "lon": -70,
+    "lat": 37,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "They wanted schools for their kids, and banks that would lend to them. Owners built the institutions that made a country grow.",
+   "anteprima": false,
+   "vista": {
+    "lon": -75,
+    "lat": 40,
+    "larghezza": 24
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "school",
+     "lon": -74,
+     "lat": 40.7,
+     "parola": "schools"
+    },
+    {
+     "tipo": "icona",
+     "icona": "banknotes",
+     "lon": -75.2,
+     "lat": 39.95,
+     "parola": "banks"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_up",
+     "lon": -77,
+     "lat": 38.9,
+     "parola": "grow"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -70,
+    "lat": 38,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In 1862, the US went further. The Homestead Act gave 160 acres to almost anyone who would live on the land and farm it for five years.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 40,
+    "larghezza": 50
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1862",
+     "parola": "1862"
+    },
+    {
+     "tipo": "conta",
+     "valore": 160,
+     "prefisso": "",
+     "suffisso": " ACRES",
+     "sotto": "HOMESTEAD ACT",
+     "parola": "160"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "peasant",
+     "n": 5,
+     "lon": -98,
+     "lat": 41,
+     "parola": "farm"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -115,
+    "lat": 45,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Much of that land had been taken from Native American nations. Around 1.6 million homesteads were granted, about a tenth of the whole country.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 40,
+    "larghezza": 60
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 1600000,
+     "prefisso": "~",
+     "suffisso": "",
+     "sotto": "HOMESTEADS GRANTED",
+     "parola": "million"
+    },
+    {
+     "tipo": "griglia",
+     "paese": [
+      "USA"
+     ],
+     "pieni": 0.1,
+     "testo": "1 IN 10 OF THE COUNTRY",
+     "colore": "oro",
+     "parola": "tenth"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -118,
+    "lat": 35,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Now compare. Around 1900, three in four American farms were run by the people who owned them.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 40,
+    "larghezza": 40
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1900",
+     "parola": "1900"
+    },
+    {
+     "tipo": "contatore",
+     "testo": "3 IN 4 FARMS OWNED",
+     "su": 3,
+     "di": 4,
+     "personaggio": "peasant",
+     "parola": "three"
+    },
+    {
+     "tipo": "icona",
+     "icona": "farm",
+     "lon": -97,
+     "lat": 40,
+     "parola": "farms"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -112,
+    "lat": 33,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In rural Mexico in 1910, only about two families in a hundred owned any land at all.",
+   "anteprima": false,
+   "vista": {
+    "lon": -102,
+    "lat": 23,
+    "larghezza": 30
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "MEX"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1910",
+     "parola": "1910"
+    },
+    {
+     "tipo": "griglia",
+     "paese": [
+      "MEX"
+     ],
+     "pieni": 0.02,
+     "testo": "2 IN 100 OWNED LAND",
+     "colore": "verde",
+     "parola": "two"
+    },
+    {
+     "tipo": "icona",
+     "icona": "hacienda",
+     "lon": -101,
+     "lat": 21,
+     "parola": "land"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": true,
+   "pin": {
+    "lon": -95,
+    "lat": 28,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Nearly nine in ten Americans could read. In Mexico, about one in five.",
+   "anteprima": false,
+   "vista": {
+    "lon": -95,
+    "lat": 30,
+    "larghezza": 70
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "MEX"
+   ],
+   "eventi": [
+    {
+     "tipo": "contatore",
+     "testo": "NEARLY 9 IN 10 CAN READ",
+     "su": 9,
+     "di": 10,
+     "personaggio": "student",
+     "parola": "nine"
+    },
+    {
+     "tipo": "barre",
+     "titolo": "CAN READ, 1900s",
+     "voci": [
+      {
+       "testo": "USA",
+       "valore": 89,
+       "lato": "oro"
+      },
+      {
+       "testo": "MEXICO",
+       "valore": 20,
+       "lato": "verde"
+      }
+     ],
+     "parola": "Mexico"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -85,
+    "lat": 20,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Almost one in five Americans voted. In Brazil, about two in a hundred.",
+   "anteprima": false,
+   "vista": {
+    "lon": -70,
+    "lat": 10,
+    "larghezza": 100
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "BRA"
+   ],
+   "eventi": [
+    {
+     "tipo": "barre",
+     "titolo": "SHARE WHO VOTED",
+     "voci": [
+      {
+       "testo": "USA",
+       "valore": 18,
+       "lato": "oro"
+      },
+      {
+       "testo": "BRAZIL",
+       "valore": 2,
+       "lato": "verde"
+      }
+     ],
+     "parola": "voted"
+    },
+    {
+     "tipo": "icona",
+     "icona": "ballot_box",
+     "lon": -98,
+     "lat": 39,
+     "parola": "Americans"
+    },
+    {
+     "tipo": "icona",
+     "icona": "ballot_box",
+     "lon": -48,
+     "lat": -15,
+     "parola": "Brazil"
+    }
+   ],
+   "musica": "",
    "stacco": false,
    "pin": {
     "lon": -60,
@@ -418,62 +2552,1872 @@
    }
   },
   {
-   "testo": "The Spanish landed on the richest prize in the Americas: the Aztec and Inca empires, with cities, roads, farms and millions of people. The crown paid conquerors with the encomienda.",
+   "testo": "Because in much of Latin America, you couldn't vote unless you owned property or could read.",
+   "anteprima": false,
+   "vista": {
+    "lon": -70,
+    "lat": -5,
+    "larghezza": 100
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "BRA",
+    "MEX",
+    "PER",
+    "COL"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": -48,
+     "lat": -15.8,
+     "parola": "vote"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "NO LAND, NO VOTE",
+     "parola": "property"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -45,
+    "lat": 10,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "So the few families who held the land also held the votes, and they had no reason to share either.",
+   "anteprima": false,
+   "vista": {
+    "lon": -70,
+    "lat": -5,
+    "larghezza": 100
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "BRA",
+    "MEX",
+    "PER",
+    "COL"
+   ],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "landowner",
+     "n": 3,
+     "lon": -60,
+     "lat": -10,
+     "parola": "families"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "voter",
+     "n": 3,
+     "lon": -75,
+     "lat": -5,
+     "parola": "votes"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -45,
+    "lat": 8,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "And the exception proves the rule. The part of the US that worked most like Latin America was the slave plantations of the South.",
+   "anteprima": false,
+   "vista": {
+    "lon": -88,
+    "lat": 33,
+    "larghezza": 24
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "USA"
+   ],
+   "eventi": [
+    {
+     "tipo": "scritta",
+     "testo": "EXCEPTION",
+     "parola": "exception"
+    },
+    {
+     "tipo": "icona",
+     "icona": "hacienda",
+     "lon": -90,
+     "lat": 32,
+     "parola": "plantations"
+    },
+    {
+     "tipo": "icona",
+     "icona": "sugar_cane",
+     "lon": -91,
+     "lat": 30.5,
+     "parola": "South"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -80,
+    "lat": 38,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "It stayed at about half the national income per person for decades after the Civil War.",
+   "anteprima": false,
+   "vista": {
+    "lon": -90,
+    "lat": 35,
+    "larghezza": 40
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "barre",
+     "titolo": "INCOME PER PERSON",
+     "voci": [
+      {
+       "testo": "US NORTH",
+       "valore": 100,
+       "lato": "oro"
+      },
+      {
+       "testo": "US SOUTH",
+       "valore": 50,
+       "lato": "verde"
+      }
+     ],
+     "parola": "half"
+    },
+    {
+     "tipo": "conta",
+     "valore": 1865,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "CIVIL WAR ENDS",
+     "parola": "Civil"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -75,
+    "lat": 42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Then came nine days that cost Mexico a fortune. While the 13 colonies came together as one country with one market and one currency, Spain's empire broke apart.",
    "anteprima": false,
    "vista": {
     "lon": -85,
-    "lat": -2,
-    "larghezza": 70
+    "lat": 15,
+    "larghezza": 120
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "MEX"
+   ],
+   "eventi": [
+    {
+     "tipo": "scritta",
+     "testo": "9 DAYS",
+     "parola": "nine"
+    },
+    {
+     "tipo": "conta",
+     "valore": 13,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "COLONIES, ONE COUNTRY",
+     "parola": "13"
+    },
+    {
+     "tipo": "icona",
+     "icona": "banknotes",
+     "lon": -77,
+     "lat": 38.9,
+     "parola": "currency"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -60,
+    "lat": 30,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Spain's American empire shattered in the 1810s and 1820s. It would end up as 18 separate countries.",
+   "anteprima": false,
+   "vista": {
+    "lon": -80,
+    "lat": -5,
+    "larghezza": 120
    },
    "epoca": "antica",
    "oro": [],
    "verde": [
     "MEX",
-    "PER"
+    "GTM",
+    "HND",
+    "SLV",
+    "NIC",
+    "CRI",
+    "PAN",
+    "COL",
+    "VEN",
+    "ECU",
+    "PER",
+    "BOL",
+    "CHL",
+    "ARG",
+    "URY",
+    "PRY",
+    "DOM",
+    "CUB"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1820",
+     "parola": "1820s"
+    },
+    {
+     "tipo": "conta_paesi",
+     "paesi": [
+      "MEX",
+      "GTM",
+      "HND",
+      "SLV",
+      "NIC",
+      "CRI",
+      "PAN",
+      "COL",
+      "VEN",
+      "ECU",
+      "PER",
+      "BOL",
+      "CHL",
+      "ARG",
+      "URY",
+      "PRY",
+      "DOM",
+      "CUB"
+     ],
+     "colore": "rosso",
+     "parola": "18"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -50,
+    "lat": 15,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "The new countries spent decades fighting each other and themselves. In Mexico, one general became president 11 different times.",
+   "anteprima": false,
+   "vista": {
+    "lon": -99,
+    "lat": 19.4,
+    "larghezza": 24
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "MEX"
    ],
    "eventi": [
     {
      "tipo": "folla",
-     "personaggio": "conquistador",
+     "personaggio": "soldier",
      "n": 5,
-     "lon": -97,
-     "lat": 19,
-     "parola": "Spanish"
+     "lon": -99,
+     "lat": 19.4,
+     "parola": "fighting"
     },
     {
-     "tipo": "icona",
-     "icona": "fortress",
-     "lon": -72,
-     "lat": -13.5,
-     "parola": "Inca"
+     "tipo": "personaggio",
+     "nome": "Antonio Lopez de Santa Anna",
+     "descrizione": "19th-century Mexican general, military uniform, mustache",
+     "parola": "general"
     },
     {
      "tipo": "conta",
-     "valore": 10,
-     "prefisso": "~",
-     "suffisso": "M",
-     "sotto": "PEOPLE IN TWO EMPIRES",
-     "parola": "millions"
+     "valore": 11,
+     "prefisso": "",
+     "suffisso": "X",
+     "sotto": "TIMES PRESIDENT",
+     "parola": "11"
+    }
+   ],
+   "musica": "azione",
+   "stacco": false,
+   "pin": {
+    "lon": -92,
+    "lat": 23,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Meanwhile, the US kept pushing west, and in 1846 the two countries went to war.",
+   "anteprima": false,
+   "vista": {
+    "lon": -102,
+    "lat": 32,
+    "larghezza": 40
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "MEX"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1846",
+     "parola": "1846"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -95,
+      30
+     ],
+     "a": [
+      -99,
+      19.4
+     ],
+     "icona": "soldier",
+     "parola": "war"
+    },
+    {
+     "tipo": "icona",
+     "icona": "cannon",
+     "lon": -97,
+     "lat": 26,
+     "parola": "war"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -112,
+    "lat": 42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "On January 24th, 1848, a worker building a sawmill in California spotted gold in the river.",
+   "anteprima": false,
+   "vista": {
+    "lon": -121,
+    "lat": 38.8,
+    "larghezza": 8
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1848",
+     "parola": "1848"
     },
     {
      "tipo": "folla",
-     "personaggio": "native_worker",
-     "n": 6,
-     "lon": -72,
-     "lat": -13,
-     "parola": "farms"
+     "personaggio": "worker",
+     "n": 3,
+     "lon": -120.89,
+     "lat": 38.8,
+     "parola": "worker"
     },
     {
-     "tipo": "nota",
-     "testo": "Encomienda: rule over people, not land",
-     "parola": "encomienda"
+     "tipo": "icona",
+     "icona": "gold_coins",
+     "lon": -120.9,
+     "lat": 38.78,
+     "parola": "gold"
+    }
+   ],
+   "musica": "mistero",
+   "stacco": false,
+   "pin": {
+    "lon": -118,
+    "lat": 40,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Nine days later, Mexico signed the treaty that handed California to the United States, along with most of the Southwest.",
+   "anteprima": false,
+   "vista": {
+    "lon": -108,
+    "lat": 34,
+    "larghezza": 36
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "MEX"
+   ],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 9,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "DAYS LATER",
+     "parola": "Nine"
+    },
+    {
+     "tipo": "confine",
+     "punti": [
+      [
+       -117.1,
+       32.5
+      ],
+      [
+       -114.8,
+       32.5
+      ],
+      [
+       -111,
+       31.3
+      ],
+      [
+       -108.2,
+       31.3
+      ],
+      [
+       -106.5,
+       31.8
+      ],
+      [
+       -104,
+       29.5
+      ],
+      [
+       -101,
+       29.7
+      ]
+     ],
+     "parola": "handed"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "HANDED OVER",
+     "parola": "treaty"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": true,
+   "pin": {
+    "lon": -120,
+    "lat": 45,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Nobody in Mexico City knew about the gold yet. The US paid 15 million dollars.",
+   "anteprima": false,
+   "vista": {
+    "lon": -105,
+    "lat": 30,
+    "larghezza": 50
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "MEX"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "question",
+     "lon": -99.1,
+     "lat": 19.4,
+     "parola": "knew"
+    },
+    {
+     "tipo": "prezzo",
+     "testo": "$15M",
+     "sotto": "WHAT THE US PAID",
+     "ricco": false,
+     "parola": "paid"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -115,
+    "lat": 42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In 1852 alone, California produced about 81 million dollars in gold. Mexico lost about half its territory.",
+   "anteprima": false,
+   "vista": {
+    "lon": -110,
+    "lat": 32,
+    "larghezza": 50
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "MEX"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1852",
+     "parola": "1852"
+    },
+    {
+     "tipo": "prezzo",
+     "testo": "$81M",
+     "sotto": "CALIFORNIA GOLD, 1852",
+     "ricco": true,
+     "parola": "81"
+    },
+    {
+     "tipo": "griglia",
+     "paese": [
+      "MEX"
+     ],
+     "pieni": 0.5,
+     "testo": "HALF LOST",
+     "colore": "verde",
+     "parola": "half"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -122,
+    "lat": 45,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "And that gold was five times the price Mexico was paid. The gold rush filled California with people chasing their own fortune.",
+   "anteprima": false,
+   "vista": {
+    "lon": -121,
+    "lat": 38,
+    "larghezza": 16
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "numero",
+     "testo": "x5",
+     "lon": -121.5,
+     "lat": 39.5,
+     "parola": "five"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "miner",
+     "n": 6,
+     "lon": -121,
+     "lat": 38.5,
+     "parola": "people"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -74,
+      40.7
+     ],
+     "a": [
+      -122.4,
+      37.8
+     ],
+     "icona": "cargo_ship",
+     "parola": "filled"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -117,
+    "lat": 42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "After independence, the old colonial machine didn't disappear. It just switched products.",
+   "anteprima": false,
+   "vista": {
+    "lon": -70,
+    "lat": -5,
+    "larghezza": 100
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "PER",
+    "CHL",
+    "BRA",
+    "COL",
+    "VEN"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "factory",
+     "lon": -60,
+     "lat": -10,
+     "parola": "machine"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "NEW PRODUCT",
+     "parola": "products"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -45,
+    "lat": 10,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Peru sold guano, bird droppings, to fertilize European farms. Chile sold copper and nitrates.",
+   "anteprima": false,
+   "vista": {
+    "lon": -74,
+    "lat": -20,
+    "larghezza": 30
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "PER",
+    "CHL"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "cargo_ship",
+     "lon": -77.2,
+     "lat": -12,
+     "parola": "guano"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -77,
+      -12
+     ],
+     "a": [
+      -9,
+      38
+     ],
+     "icona": "cargo_ship",
+     "parola": "fertilize"
+    },
+    {
+     "tipo": "icona",
+     "icona": "mine",
+     "lon": -69,
+     "lat": -22.5,
+     "parola": "copper"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -62,
+    "lat": -10,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Brazil and Colombia sold coffee. Central America sold bananas, and Venezuela sold oil.",
+   "anteprima": false,
+   "vista": {
+    "lon": -65,
+    "lat": 2,
+    "larghezza": 70
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "BRA",
+    "COL",
+    "VEN",
+    "GTM",
+    "HND",
+    "CRI"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "coffee_sack",
+     "lon": -47,
+     "lat": -21,
+     "parola": "coffee"
+    },
+    {
+     "tipo": "icona",
+     "icona": "farm",
+     "lon": -85,
+     "lat": 14,
+     "parola": "bananas"
+    },
+    {
+     "tipo": "icona",
+     "icona": "oil_derrick",
+     "lon": -71.6,
+     "lat": 10.6,
+     "parola": "oil"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -55,
+    "lat": 14,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Each boom made a few families rich. Then prices crashed and took whole countries down with them.",
+   "anteprima": false,
+   "vista": {
+    "lon": -70,
+    "lat": -5,
+    "larghezza": 100
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "PER",
+    "CHL",
+    "BRA",
+    "VEN"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "chart_up",
+     "lon": -60,
+     "lat": -10,
+     "parola": "boom"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": -75,
+     "lat": -5,
+     "parola": "crashed"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "BUST",
+     "parola": "crashed"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": -45,
+    "lat": 8,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Peru controlled the world's fertilizer trade for 40 years, borrowed against it, and in 1876 still couldn't pay its debts.",
+   "anteprima": false,
+   "vista": {
+    "lon": -77,
+    "lat": -12,
+    "larghezza": 16
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "PER"
+   ],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 40,
+     "prefisso": "",
+     "suffisso": " YRS",
+     "sotto": "FERTILIZER KING",
+     "parola": "40"
+    },
+    {
+     "tipo": "anno",
+     "testo": "1876",
+     "parola": "1876"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "DEFAULT",
+     "parola": "debts"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -73,
+    "lat": -8,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Three years later, Chile, Peru and Bolivia went to war over the nitrate deserts of the Atacama.",
+   "anteprima": false,
+   "vista": {
+    "lon": -70,
+    "lat": -21,
+    "larghezza": 16
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "CHL",
+    "PER",
+    "BOL"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1879",
+     "parola": "Three"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "soldier",
+     "n": 5,
+     "lon": -70,
+     "lat": -21,
+     "parola": "war"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "ATACAMA NITRATES",
+     "lon": -69.5,
+     "lat": -23,
+     "parola": "Atacama"
+    }
+   ],
+   "musica": "azione",
+   "stacco": false,
+   "pin": {
+    "lon": -66,
+    "lat": -17,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Bolivia lost its entire coastline, and it has been landlocked ever since.",
+   "anteprima": false,
+   "vista": {
+    "lon": -69,
+    "lat": -21,
+    "larghezza": 14
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "BOL"
+   ],
+   "eventi": [
+    {
+     "tipo": "confine",
+     "punti": [
+      [
+       -70.3,
+       -18.3
+      ],
+      [
+       -70.2,
+       -22
+      ],
+      [
+       -70.1,
+       -24.2
+      ]
+     ],
+     "parola": "coastline"
+    },
+    {
+     "tipo": "contorno",
+     "paese": "BOL",
+     "parola": "landlocked"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "LANDLOCKED",
+     "parola": "landlocked"
+    }
+   ],
+   "musica": "",
+   "stacco": true,
+   "pin": {
+    "lon": -66,
+    "lat": -17,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "The worst crash came in the 1980s. In August 1982, Mexico told its lenders it couldn't pay, and the crisis spread across the region.",
+   "anteprima": false,
+   "vista": {
+    "lon": -80,
+    "lat": 5,
+    "larghezza": 120
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "MEX",
+    "BRA",
+    "ARG",
+    "VEN",
+    "PER",
+    "CHL",
+    "COL"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1982",
+     "parola": "1982"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "CAN'T PAY",
+     "parola": "pay"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": -99,
+     "lat": 19.4,
+     "parola": "crisis"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -50,
+    "lat": 25,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "By 1990, the average Latin American was poorer than in 1980. Over the same years, the average American got about a quarter richer.",
+   "anteprima": false,
+   "vista": {
+    "lon": -80,
+    "lat": 15,
+    "larghezza": 120
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "MEX",
+    "BRA",
+    "ARG",
+    "VEN",
+    "PER",
+    "CHL",
+    "COL"
+   ],
+   "eventi": [
+    {
+     "tipo": "barre",
+     "titolo": "INCOME CHANGE 1980-90",
+     "voci": [
+      {
+       "testo": "USA",
+       "valore": 25,
+       "lato": "oro"
+      },
+      {
+       "testo": "LATIN AMERICA",
+       "valore": -5,
+       "lato": "verde"
+      }
+     ],
+     "parola": "quarter"
+    },
+    {
+     "tipo": "solleva",
+     "paese": [
+      "USA"
+     ],
+     "volte": 3,
+     "testo": "+25%",
+     "colore": "oro",
+     "parola": "richer"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -60,
+    "lat": 30,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Latin Americans have a name for it: the lost decade.",
+   "anteprima": false,
+   "vista": {
+    "lon": -75,
+    "lat": -5,
+    "larghezza": 100
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "MEX",
+    "BRA",
+    "ARG",
+    "PER",
+    "CHL",
+    "COL"
+   ],
+   "eventi": [
+    {
+     "tipo": "scritta",
+     "testo": "LOST DECADE",
+     "parola": "lost"
+    },
+    {
+     "tipo": "icona",
+     "icona": "hourglass",
+     "lon": -65,
+     "lat": -10,
+     "parola": "decade"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": -50,
+    "lat": 12,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "So, back to that mountain. Nearly 500 years later, around 15,000 miners still work inside Cerro Rico.",
+   "anteprima": false,
+   "vista": {
+    "lon": -65.75,
+    "lat": -19.6,
+    "larghezza": 8
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "BOL"
+   ],
+   "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "CERRO RICO",
+     "lon": -65.75,
+     "lat": -19.6,
+     "parola": "mountain"
+    },
+    {
+     "tipo": "conta",
+     "valore": 15000,
+     "prefisso": "~",
+     "suffisso": "",
+     "sotto": "MINERS TODAY",
+     "parola": "15,000"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "miner",
+     "n": 5,
+     "lon": -65.7,
+     "lat": -19.55,
+     "parola": "miners"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -64,
+    "lat": -18.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "It's been dug so hollow that its summit caved in, and the hole had to be filled with cement. UNESCO now lists it as a world heritage site in danger.",
+   "anteprima": false,
+   "vista": {
+    "lon": -65.75,
+    "lat": -19.6,
+    "larghezza": 6
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "BOL"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "mountain",
+     "lon": -65.75,
+     "lat": -19.6,
+     "parola": "summit"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "IN DANGER",
+     "parola": "danger"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -64.5,
+    "lat": -18.8,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Today, Latin America still mines more than half of the world's silver, and Mexico is the biggest producer on Earth.",
+   "anteprima": false,
+   "vista": {
+    "lon": -85,
+    "lat": 5,
+    "larghezza": 120
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "MEX",
+    "PER",
+    "BOL",
+    "CHL"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "silver_bars",
+     "lon": -102.6,
+     "lat": 22.8,
+     "parola": "silver"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "MEXICO: #1 SILVER",
+     "lon": -103,
+     "lat": 24,
+     "parola": "Mexico"
+    },
+    {
+     "tipo": "contorno",
+     "paese": "MEX",
+     "parola": "producer"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -60,
+    "lat": 20,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "And yet Americans still produce about eight times more per person than Latin Americans, and over 17 times more than Bolivians.",
+   "anteprima": false,
+   "vista": {
+    "lon": -85,
+    "lat": 5,
+    "larghezza": 120
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "MEX",
+    "BOL",
+    "BRA",
+    "PER"
+   ],
+   "eventi": [
+    {
+     "tipo": "prezzo",
+     "testo": "$82,000",
+     "sotto": "USA · PER PERSON",
+     "ricco": true,
+     "parola": "Americans"
+    },
+    {
+     "tipo": "prezzo",
+     "testo": "$4,800",
+     "sotto": "BOLIVIA · PER PERSON",
+     "ricco": false,
+     "parola": "Bolivians"
+    },
+    {
+     "tipo": "solleva",
+     "paese": [
+      "USA"
+     ],
+     "volte": 12,
+     "testo": "x17",
+     "colore": "oro",
+     "parola": "17"
+    }
+   ],
+   "musica": "",
+   "stacco": true,
+   "pin": {
+    "lon": -60,
+    "lat": 28,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "But here's the honest part. This gap wasn't written in the soil.",
+   "anteprima": false,
+   "vista": {
+    "lon": -85,
+    "lat": 15,
+    "larghezza": 120
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "scritta",
+     "testo": "NOT FATE",
+     "parola": "soil"
+    },
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": -95,
+     "lat": 22,
+     "parola": "written"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -60,
+    "lat": 25,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In 1700, by that famous estimate, Mexico was almost level. By 1800 it had fallen to half. By 1900, to about a third.",
+   "anteprima": false,
+   "vista": {
+    "lon": -95,
+    "lat": 30,
+    "larghezza": 60
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "MEX"
+   ],
+   "eventi": [
+    {
+     "tipo": "barre",
+     "titolo": "MEXICO VS USA INCOME",
+     "voci": [
+      {
+       "testo": "1700",
+       "valore": 90,
+       "lato": "verde"
+      },
+      {
+       "testo": "1800",
+       "valore": 50,
+       "lato": "verde"
+      },
+      {
+       "testo": "1900",
+       "valore": 33,
+       "lato": "verde"
+      }
+     ],
+     "parola": "1700"
+    },
+    {
+     "tipo": "anno",
+     "testo": "1900",
+     "parola": "third"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -85,
+    "lat": 18,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "The gap opened while the rules were being written, and rules can change.",
+   "anteprima": false,
+   "vista": {
+    "lon": -80,
+    "lat": 10,
+    "larghezza": 120
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": -90,
+     "lat": 15,
+     "parola": "rules"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "RULES CHANGE",
+     "parola": "change"
+    }
+   ],
+   "musica": "",
+   "stacco": true,
+   "pin": {
+    "lon": -60,
+    "lat": 25,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Chile, Uruguay and Panama are now classed as high-income countries by the World Bank.",
+   "anteprima": false,
+   "vista": {
+    "lon": -70,
+    "lat": -15,
+    "larghezza": 70
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CHL",
+    "URY",
+    "PAN"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "conta_paesi",
+     "paesi": [
+      "CHL",
+      "URY",
+      "PAN"
+     ],
+     "colore": "verde",
+     "parola": "Chile"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_up",
+     "lon": -71,
+     "lat": -33,
+     "parola": "high-income"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": false,
+   "pin": {
+    "lon": -60,
+    "lat": -5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Uruguay, which never had any silver, now produces almost five times as much per person as Bolivia.",
+   "anteprima": false,
+   "vista": {
+    "lon": -60,
+    "lat": -27,
+    "larghezza": 40
+   },
+   "epoca": "oggi",
+   "oro": [
+    "URY"
+   ],
+   "verde": [
+    "BOL"
+   ],
+   "eventi": [
+    {
+     "tipo": "solleva",
+     "paese": [
+      "URY"
+     ],
+     "volte": 5,
+     "testo": "x5",
+     "colore": "oro",
+     "parola": "five"
+    },
+    {
+     "tipo": "prezzo",
+     "testo": "$23,000",
+     "sotto": "URUGUAY · PER PERSON",
+     "ricco": true,
+     "parola": "Uruguay"
+    },
+    {
+     "tipo": "prezzo",
+     "testo": "$4,800",
+     "sotto": "BOLIVIA · PER PERSON",
+     "ricco": false,
+     "parola": "Bolivia"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -52,
+    "lat": -20,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "So, the scorecard. Geography: the South had the better start, with big cities, rich land and huge populations.",
+   "anteprima": false,
+   "vista": {
+    "lon": -85,
+    "lat": 10,
+    "larghezza": 120
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "MEX",
+    "PER",
+    "BOL",
+    "COL",
+    "BRA"
+   ],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "merchant",
+     "n": 4,
+     "lon": -99,
+     "lat": 19.4,
+     "parola": "cities"
+    },
+    {
+     "tipo": "icona",
+     "icona": "wheat",
+     "lon": -72,
+     "lat": -13,
+     "parola": "land"
+    },
+    {
+     "tipo": "colonna",
+     "testo": "SOUTH",
+     "valore": 1.0,
+     "lon": -80,
+     "lat": -5,
+     "parola": "South"
     }
    ],
    "musica": "epico",
    "stacco": false,
    "pin": {
-    "lon": -90,
-    "lat": -10,
+    "lon": -60,
+    "lat": 30,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Resources: the South again, by a mountain. And that's exactly where things went wrong.",
+   "anteprima": false,
+   "vista": {
+    "lon": -70,
+    "lat": -15,
+    "larghezza": 70
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "BOL",
+    "PER",
+    "MEX"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "mountain",
+     "lon": -65.75,
+     "lat": -19.6,
+     "parola": "mountain"
+    },
+    {
+     "tipo": "icona",
+     "icona": "silver_bars",
+     "lon": -102.6,
+     "lat": 22.8,
+     "parola": "Resources"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "WRONG",
+     "parola": "wrong"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -55,
+    "lat": -5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "History: the South got rules built to take things out. The North got rules built to bring people in.",
+   "anteprima": false,
+   "vista": {
+    "lon": -80,
+    "lat": 15,
+    "larghezza": 120
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "MEX",
+    "PER",
+    "BOL"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      -65.75,
+      -19.6
+     ],
+     "a": [
+      -6,
+      37
+     ],
+     "icona": "silver_bars",
+     "parola": "out"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -0.1,
+      51.5
+     ],
+     "a": [
+      -76.5,
+      37.2
+     ],
+     "icona": "colonist",
+     "parola": "in"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -45,
+    "lat": 30,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Decisions: two centuries of wars, coups, booms and busts, against two centuries of land, schools and votes for far more people.",
+   "anteprima": false,
+   "vista": {
+    "lon": -85,
+    "lat": 15,
+    "larghezza": 120
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "MEX",
+    "PER",
+    "BOL",
+    "BRA",
+    "COL"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "swords",
+     "lon": -70,
+     "lat": -10,
+     "parola": "wars"
+    },
+    {
+     "tipo": "icona",
+     "icona": "school",
+     "lon": -90,
+     "lat": 38,
+     "parola": "schools"
+    },
+    {
+     "tipo": "icona",
+     "icona": "ballot_box",
+     "lon": -100,
+     "lat": 40,
+     "parola": "votes"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -55,
+    "lat": 28,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "So why did the US get rich while Latin America never did? Not because it had more. Because it had less.",
+   "anteprima": false,
+   "vista": {
+    "lon": -85,
+    "lat": 15,
+    "larghezza": 120
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "MEX",
+    "BOL",
+    "PER",
+    "BRA"
+   ],
+   "eventi": [
+    {
+     "tipo": "solleva",
+     "paese": [
+      "USA"
+     ],
+     "volte": 8,
+     "testo": "x8",
+     "colore": "oro",
+     "parola": "rich"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "LESS",
+     "parola": "less"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": true,
+   "pin": {
+    "lon": -60,
+    "lat": 28,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "The richest mountain on Earth made other countries rich. The places with nothing to dig had to build something instead.",
+   "anteprima": false,
+   "vista": {
+    "lon": -45,
+    "lat": 15,
+    "larghezza": 200
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA",
+    "GBR",
+    "FRA"
+   ],
+   "verde": [
+    "BOL"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "mountain",
+     "lon": -65.75,
+     "lat": -19.6,
+     "parola": "mountain"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -65.75,
+      -19.6
+     ],
+     "a": [
+      2,
+      48
+     ],
+     "icona": "silver_bars",
+     "parola": "other"
+    },
+    {
+     "tipo": "icona",
+     "icona": "factory",
+     "lon": -77,
+     "lat": 40,
+     "parola": "build"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -30,
+    "lat": 30,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Switzerland is the extreme version of that story: no silver, no sea, nothing to dig, and one of the richest countries on Earth.",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.2,
+    "lat": 46.8,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "contorno",
+     "paese": "CHE",
+     "parola": "Switzerland"
+    },
+    {
+     "tipo": "solleva",
+     "paese": [
+      "CHE"
+     ],
+     "volte": 10,
+     "testo": "RICH",
+     "colore": "oro",
+     "parola": "richest"
+    },
+    {
+     "tipo": "prezzo",
+     "testo": "$90,000",
+     "sotto": "SWITZERLAND · PER PERSON",
+     "ricco": true,
+     "parola": "richest"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 11,
+    "lat": 48,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "When you start with nothing, you have to build rules that bring people in. That one decision is worth more than any mountain of silver.",
+   "anteprima": false,
+   "vista": {
+    "lon": -30,
+    "lat": 30,
+    "larghezza": 240
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA",
+    "CHE"
+   ],
+   "verde": [
+    "BOL"
+   ],
+   "eventi": [
+    {
+     "tipo": "scritta",
+     "testo": "RULES WIN",
+     "parola": "decision"
+    },
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": -98,
+     "lat": 39,
+     "parola": "rules"
+    },
+    {
+     "tipo": "numero",
+     "testo": "x8",
+     "lon": -98,
+     "lat": 32,
+     "parola": "mountain"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": false,
+   "pin": {
+    "lon": -40,
+    "lat": 40,
     "faccia": "normale"
    }
   }
