@@ -252,15 +252,14 @@ PERSONAGGIO (in inglese, SENZA MAI citare scritte, lettere o riquadri di testo):
 VIETATO descrivere l'ASPETTO del personaggio del competitor: niente colore della pelle o del corpo, forma, specie (fagiolo, mostro, animale, creatura), vestiti, capelli. Scrivi sempre "KAO" come soggetto;
 "oggetto" = gli oggetti e simboli che tiene o ha accanto (gli stessi della copertina).
 "scena" = uno sfondo per il NOSTRO stile cinematografico, coerente con il tema: un ambiente reale sfocato con luci calde e bokeh (es. a cozy study at night with warm lamps). NON copiare lo sfondo o i colori del competitor.
-"lato_testo" = "sinistra", "destra" o "centro": dove il competitor ha messo la scritta.
+"lato_testo" = dove il competitor ha messo la scritta: "alto" (fascia in alto su tutta o quasi tutta la larghezza, anche sopra un'immagine divisa), "basso" (fascia in basso), "sinistra", "destra" o "centro" (al centro, sopra la linea divisoria).
 "luogo" (in inglese) = lo STESSO luogo della copertina competitor (stesso ambiente, stessa ora del giorno, stessa luce, stesso tempo atmosferico), descritto con 4-6 dettagli visibili (es. "mountains at sunset, orange sky, a dirt path"). Mai cambiare luogo, TRANNE un caso: il nostro stile e' SEMPRE un luogo REALE e quotidiano (casa, camera, ufficio, strada, parco, bar...). SE il luogo del competitor e' surreale, onirico, fantastico o astratto (nuvole, cielo, spazio, scale verso il cielo, sogni, mondi immaginari): NON copiarlo, usa il luogo reale e quotidiano dove quella azione succede davvero (es. chi abbraccia il cuscino per dormire: "a cozy bedroom at night, bed with pillows and blanket, bedside lamp, window with the moon"), con 4-6 dettagli visibili. SE lo sfondo del competitor e' vuoto, a tinta unita o quasi senza ambiente: inventa TU un luogo reale e completo, coerente con il tema e con l'azione (es. per chi dimentica i nomi: "a lively party in a living room, guests chatting, string lights, a buffet table"), sempre con 4-6 dettagli visibili. MAI uno sfondo vuoto.
 "posa" (in inglese) = il MOVIMENTO e la posa ESATTI del personaggio (corre, salta, e' sdraiato, seduto, di spalle, di profilo; dove guarda; posizione di braccia e gambe) e l'inquadratura (figura intera, mezzo busto, primo piano).
 "accessori" (in inglese) = cio' che il personaggio ha addosso OLTRE ai vestiti (cuffie, occhiali, coperta sulle spalle, cappello, zaino...); "" se niente. MAI maglioni, maglie, giacche o altri vestiti: KAO ha SEMPRE la sua maglia magenta.
 "grafica" (in inglese) = gli elementi grafici disegnati sopra la scena (frecce rosse e dove puntano, cerchi, punti di domanda, punti esclamativi, nuvolette di pensiero, X, linee di movimento); "" se nessuno.
 "composizione" (in inglese) = SOLO se la copertina NON e' una scena unica: com'e' divisa e cosa c'e' in ogni parte (es. "split screen in two halves: LEFT a very messy living room with clothes and dishes everywhere and KAO overwhelmed; RIGHT the same living room perfectly clean and KAO relaxed in an armchair with a cup; the title is in the middle over the dividing line"). Il personaggio compare in OGNI parte dove compare nel competitor. "" se e' una scena unica.
-"scena_unica" (in inglese) = SOLO se c'e' una "composizione": la STESSA storia raccontata in UNA sola scena continua, senza divisioni (es. per "LEFT KAO holds hands with his partner; RIGHT KAO secretly texting another woman": "KAO holds hands with his partner while secretly glancing at another woman who winks at him from a few steps away"); "" altrimenti.
 "persone" (in inglese) = le ALTRE persone della situazione (quelle della copertina competitor o quelle che servono a far capire il contesto: genitori che litigano, partner, amici, folla...), cosa fanno e dove stanno; "" se la situazione e' di una persona sola.
-Rispondi SOLO JSON: {{"riga1": "...", "riga2": "...", "emo": "...", "oggetto": "...", "scena": "...", "azione": "...", "luogo": "...", "persone": "...", "posa": "...", "accessori": "...", "grafica": "", "composizione": "", "scena_unica": "", "lato_testo": "destra", "cambi": ""}}"""
+Rispondi SOLO JSON: {{"riga1": "...", "riga2": "...", "emo": "...", "oggetto": "...", "scena": "...", "azione": "...", "luogo": "...", "persone": "...", "posa": "...", "accessori": "...", "grafica": "", "composizione": "", "lato_testo": "destra", "cambi": ""}}"""
     try:
         rr = http('https://api.anthropic.com/v1/messages', {'model': E('MODELLO_AI', 'claude-sonnet-5-5'), 'max_tokens': 2000,
                   'messages': [{'role': 'user', 'content': [{'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}},
@@ -507,6 +506,8 @@ def ingrandisci_kao(im, lato_testo='destra'):
     """KAO deve occupare quasi tutta l'altezza (si vede bene da telefono). Claude trova il riquadro di KAO; se e' piu' basso dell'85%
     dell'altezza si fa uno zoom (max 1,6x) centrato su di lui, lasciando spazio per la scritta dal lato giusto. Esce sempre a 1280x720."""
     W0, H0 = im.size
+    if lato_testo in ('alto', 'basso'):   # scritta su una fascia: l'immagine resta intera, come il competitor
+        return im.resize((1280, 720), Image.LANCZOS)
     try:
         buf = io.BytesIO(); im.resize((768, 432)).save(buf, 'JPEG', quality=85)
         rr = http('https://api.anthropic.com/v1/messages', {'model': E('MODELLO_AI', 'claude-sonnet-5-5'), 'max_tokens': 1500, 'messages': [{'role': 'user', 'content': [
@@ -539,6 +540,12 @@ def scritta_cartoncino(im, frase, lato='destra', zona=None):
     W, Hh = im.size
     x0, x1 = (int(W * .025), int(W * .53)) if lato == 'sinistra' else (int(W * .47), int(W * .975))
     y0, y1 = int(Hh * .04), (int(Hh * .90) if lato == 'sinistra' else int(Hh * .76))   # in basso a destra c'e' la durata del video
+    if lato in ('alto', 'basso'):   # fascia come il competitor: larga e bassa, la scena sotto resta visibile
+        x0, x1 = int(W * .05), int(W * .95)
+        y0, y1 = (int(Hh * .03), int(Hh * .30)) if lato == 'alto' else (int(Hh * .66), int(Hh * .90))
+        if lato == 'basso':
+            x1 = int(W * .78)   # mai sotto la durata del video
+        zona = None
     if zona:
         zx0, zx1 = int(W * zona[0]), int(W * zona[2])
         if zx1 - zx0 > W * .38:   # la zona libera restringe la scritta solo se resta comunque grande
@@ -664,10 +671,9 @@ def rif_data(pth):
     return 'data:image/jpeg;base64,' + base64.b64encode(buf.getvalue()).decode()
 
 
-def riferimento_stile(vid, evita_sua=False):
-    """La vecchia copertina del video (se e' nello stile vecchio), altrimenti un'altra vecchia copertina del canale nello stile vecchio.
-    evita_sua: la copertina attuale del video non si usa (es. era a schermo diviso: verrebbe ricopiata divisa)."""
-    for f in ([] if evita_sua else [vid + '.jpg']) + [x for x in VECCHIE_INIZIO if x != vid + '.jpg'][:12]:
+def riferimento_stile(vid):
+    """La vecchia copertina del video (se e' nello stile vecchio), altrimenti un'altra vecchia copertina del canale nello stile vecchio."""
+    for f in [vid + '.jpg'] + [x for x in VECCHIE_INIZIO if x != vid + '.jpg'][:12]:
         pth = os.path.join(VECCHIE, f)
         if f in VECCHIE_INIZIO and os.path.exists(pth) and stile_vecchio(pth):
             return pth, f == vid + '.jpg'
@@ -725,17 +731,12 @@ def fai(i):
                   'YouTube thumbnail 16:9, modern, premium, very high contrast, readable on a phone. Absolutely NO text, letters or numbers in the image.')
         t['lato_testo'] = 'destra'
         if STILE == 'piatto':   # la VECCHIA copertina (stile che funzionava) aggiornata: stessa grafica, ma scena/posa/oggetti come il competitor
-            diviso = bool(t.get('composizione'))
-            rif, sua = riferimento_stile(c['id'], evita_sua=diviso)
+            rif, sua = riferimento_stile(c['id'])
             refs = ([rif_data(rif)] if rif else []) + [ID]   # NIENTE immagine del competitor: solo la descrizione
             t['rif_stile'] = rif or ''
-            if diviso:   # stile KAO: SEMPRE una scena unica con la meta' libera per la scritta (lo schermo diviso faceva coprire una meta' dal cartoncino)
-                unica = str(t.get('scena_unica') or '').strip()
-                t['persone'] = (str(t.get('persone') or '') + ' ' + (unica or 'everyone in ONE single continuous scene, close together')).strip()
-                t['composizione'] = ''
-                if str(t.get('lato_testo_comp') or '') == 'centro':
-                    t['lato_testo_comp'] = 'destra'
-            lato_c = 'sinistra' if str(t.get('lato_testo_comp') or '') == 'sinistra' else ('centro' if str(t.get('lato_testo_comp') or '') == 'centro' and t.get('composizione') else 'destra')
+            lc_ = str(t.get('lato_testo_comp') or '')
+            lato_c = lc_ if lc_ in ('alto', 'basso') else ('sinistra' if lc_ == 'sinistra' else ('centro' if lc_ == 'centro' and t.get('composizione') else 'destra'))
+            fascia = {'alto': 'TOP', 'basso': 'BOTTOM'}.get(lato_c)   # scritta su una fascia, come il competitor: la scena resta tutta visibile
             prompt = (('Image 1 is our OLD thumbnail' + (' of this video' if sua else '') + ': keep EXACTLY its graphic style: same flat 2D cartoon drawing, same rich colours and warm lighting, '
                        'same size and look of KAO, same detailed environment drawing. IGNORE its old title and its dark shaded side: no dark gradient, everything bright and visible. Image 2 is our character KAO. '
                        if rif else 'Image 1 is our character KAO. Flat 2D cartoon, thick black outlines, rich warm colours, fully drawn detailed environment. ') +
@@ -746,7 +747,9 @@ def fai(i):
                       + (f'OTHER PEOPLE: {t.get("persone")} (same style as KAO, neutral clothes, only KAO wears magenta). ' if t.get('persone') else '') +
                       (f'GRAPHIC ELEMENTS drawn over the scene, copy them exactly (same position and direction): {t.get("grafica")}. ' if t.get('grafica') else '') +
                       'KAO has a correct body: TWO arms attached to the shoulders (both visible, never missing or cut), two hands, two legs. KAO is exactly as in the KAO reference: bald round head, simple face, light skin, ALWAYS his magenta long-sleeve shirt (never a sweater, jacket or other top), black trousers. '
-                      + (f'COMPOSITION (copy it exactly, KAO appears in every part where the character appears): {t.get("composizione")}. The title goes where described, never covering KAO or faces. Everything bright and fully visible. ' if t.get('composizione') else f'The scene fills the WHOLE image, bright and fully visible everywhere (NO dark side, NO dark gradient). KAO, people and important objects stay in the {"RIGHT" if lato_c == "sinistra" else "LEFT"} 50%. KAO is VERY BIG and close to the camera: '
+                      + (f'Keep the {fascia} 28% of the image a simple calm continuation of the background, with NO heads, faces or important objects (a title band goes there); all characters and objects stay in the rest of the image, fully visible. ' if fascia else '')
+                      + (f'COMPOSITION (copy it exactly, KAO appears in every part where the character appears): {t.get("composizione")}. The title goes where described, never covering KAO or faces. Everything bright and fully visible. ' if t.get('composizione') else
+                         'The scene fills the WHOLE image, bright and fully visible everywhere. KAO is big and close to the camera, his face clearly readable on a phone. ' if fascia else f'The scene fills the WHOLE image, bright and fully visible everywhere (NO dark side, NO dark gradient). KAO, people and important objects stay in the {"RIGHT" if lato_c == "sinistra" else "LEFT"} 50%. KAO is VERY BIG and close to the camera: '
                       'he fills 85-95% of the image HEIGHT (from the top of his head down to his knees or waist), his face large and clearly readable on a phone. '                      f'The {"LEFT" if lato_c == "sinistra" else "RIGHT"} 50% simply continues the same environment (wall, sky, room, landscape), bright, with nothing important: a title will go there. ') +
                       ('' if t.get('composizione') else 'ONE single continuous scene filling the whole image: NO split screen, NO vertical dividing line, NO panels, NO frames, NO borders. ') +
                       'The background is ALWAYS a complete, fully drawn, detailed real place (room, street, garage, park...) filling the whole image: NEVER a plain, empty, cream or single-colour background. '
@@ -811,14 +814,14 @@ def fai(i):
                                                  'light skin, simple face, magenta long-sleeve shirt. No other creature, no green or coloured body. ' + prompt,
                                                  'image_urls': refs, 'aspect_ratio': '16:9', 'resolution': '2K', 'output_format': 'jpeg', 'num_images': 1})
             im = ImageOps.fit(Image.open(io.BytesIO(http(r['images'][0]['url'], raw=True))).convert('RGB'), (2560, 1440), Image.LANCZOS)
-        im = ingrandisci_kao(im, 'sinistra' if t.get('lato_testo') == 'sinistra' else 'destra')   # KAO quasi a tutta altezza (zoom), poi 1280x720
+        im = ingrandisci_kao(im, t.get('lato_testo') if t.get('lato_testo') in ('sinistra', 'alto', 'basso') else 'destra')   # KAO quasi a tutta altezza (zoom), poi 1280x720
         if APPLICA and not c.get('suff'):
             im.save(os.path.join(BASI, c['id'] + '.jpg'), quality=92)
-        lato = 'sinistra' if t.get('lato_testo') == 'sinistra' else 'destra'
+        lato = t.get('lato_testo') if t.get('lato_testo') in ('sinistra', 'alto', 'basso') else 'destra'
         if STILE == 'piatto' and str(E('TESTO_STILE', '') or 'cartoncino').lower() == 'evidenziata':   # come il competitor: lettere nere su strisce gialle, copertina tutta visibile
             scritta_evidenziata(im, f"{t['riga1']} {t['riga2']}", lato, zona_libera(im, lato)).save(p, quality=90)
         elif STILE == 'piatto':   # DEFAULT dal 27/10: scritta magenta su cartoncino bianco scritta dal codice, sempre la piu' grande possibile (leggibile da telefono)
-            scritta_cartoncino(im, f"{t['riga1']} {t['riga2']}", lato, zona_libera(im, lato)).save(p, quality=90)
+            scritta_cartoncino(im, f"{t['riga1']} {t['riga2']}", lato, None if lato in ('alto', 'basso') else zona_libera(im, lato)).save(p, quality=90)
         else:
             scritta(im, [str(t['riga1']).upper(), str(t['riga2']).upper()], lato, zona_libera(im, lato)).save(p, quality=90)
         log('copertina pronta:', c['id'], t['riga1'], '/', t['riga2'])
