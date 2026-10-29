@@ -921,7 +921,11 @@ STILE_SFONDO = ('Wide 2D cartoon illustration for an animated history video, cle
 def fal(modello, dati):
     h = {'Authorization': 'Key ' + E('FAL_KEY', '')}
     with _lock:
-        SPESA['fal'] += (PREZZO_DISEGNO if str(dati.get('resolution')) == '2K' else 0.08) if 'nano-banana' in modello else 0.04
+        costo = (PREZZO_DISEGNO if str(dati.get('resolution')) == '2K' else 0.08) if 'nano-banana' in modello else 0.04
+        tetto = float(str(P.get('max_spesa_immagini') or 0).replace(',', '.') or 0)
+        if tetto and SPESA['fal'] + costo > tetto + 1e-9:   # tetto di spesa immagini del video (colonna max_spesa_immagini, in $)
+            raise RuntimeError(f'tetto di spesa immagini {tetto:.2f} $ raggiunto')
+        SPESA['fal'] += costo
         SPESA['disegni'] += 1
     inv = http('https://queue.fal.run/' + modello, dati, h)
     for _ in range(150):
@@ -1925,6 +1929,9 @@ def taglia_inquadrature(scene, durs, voci):
                     if 1.6 <= tempo(parole[k][0]) - t_ini <= lim + (0 if TAVOLE else 1.3) and D - tempo(parole[k][0]) >= 1.4]
             if not cand and TAVOLE and D - t_ini > lim:   # tetto rigido: si taglia comunque tra due parole
                 cand = [k for k in range(primi[-1] + 1, len(parole)) if 1.0 <= tempo(parole[k][0]) - t_ini <= lim and D - tempo(parole[k][0]) >= 1.0]
+                if not cand:   # ultima risorsa: la parola piu' vicina al ritmo (mai un'inquadratura lunghissima)
+                    cand = sorted([k for k in range(primi[-1] + 1, len(parole)) if .6 <= tempo(parole[k][0]) - t_ini and D - tempo(parole[k][0]) >= .6],
+                                  key=lambda k: abs(tempo(parole[k][0]) - t_ini - lim))[:1]
             if not cand:
                 break
             k = max(cand, key=lambda k: punti(k) - abs(tempo(parole[k][0]) - t_ini - lim) * .7)
@@ -2486,7 +2493,8 @@ Ogni riga e' un'inquadratura di 2-3 secondi con le PAROLE che la voce dice in qu
 REGOLE:
 1. OGNI RIGA E' UNA SCENA DIVERSA: un'altra azione, un altro soggetto o un altro luogo. MAI la stessa scena due volte, nemmeno da un'altra angolazione o piu' da vicino. Lo spettatore deve vedere sempre qualcosa di nuovo che succede.
 2. COERENZA: la scena mostra ESATTAMENTE quello che dicono le parole di quella riga (persone, luogo, ora del giorno, tempo atmosferico, emozione). Se le parole sono astratte, una scena concreta che le rappresenta.
-3. "prompt_en" (SEMPRE, anche sulle righe Pexels): in inglese, 25-45 parole: chi c'e', cosa sta FACENDO (un'azione in corso), dove, luce, emozione forte e leggibile, e l'inquadratura. Alterna di continuo campo largo, campo medio, primo piano, dettaglio, dall'alto, dal basso: mai la stessa inquadratura due volte di fila. Vestiti, armi, edifici e oggetti esatti dell'epoca raccontata; luoghi come erano ALLORA. Mai scritte nelle immagini.
+3. OGGETTI DELL'EPOCA: disegna solo cose che esistevano allora. Se la voce nomina una cosa moderna per contrasto ("niente sveglia, niente caffe'"), mostra l'equivalente antico (un gallo che canta, una lucerna, una meridiana), MAI l'oggetto moderno: niente orologi meccanici, ingranaggi, vetrate, carta stampata, occhiali.
+3b. "prompt_en" (SEMPRE, anche sulle righe Pexels): in inglese, 25-45 parole: chi c'e', cosa sta FACENDO (un'azione in corso), dove, luce, emozione forte e leggibile, e l'inquadratura. Alterna di continuo campo largo, campo medio, primo piano, dettaglio, dall'alto, dal basso: mai la stessa inquadratura due volte di fila. Vestiti, armi, edifici e oggetti esatti dell'epoca raccontata; luoghi come erano ALLORA. Mai scritte nelle immagini.
 4. "personaggi": 0-2 id del kit solo se sono proprio loro. Kit: {lista_kit(kit)}. I personaggi ricorrenti hanno sempre gli stessi vestiti: descrivili uguali ogni volta.
 5. "camera": push_in, pull_out, pan_left, pan_right, tilt_up, tilt_down, punch (zoom secco: solo nei momenti forti, 1 riga ogni 5-6). Mai uguale due volte di fila.
 6. [COMING UP]: queste righe sono l'ANTEPRIMA del video, come nei video di MrBeast: mostrano i momenti piu' spettacolari, sorprendenti o drammatici di TUTTA la storia (anche se la voce qui dice altro), ognuno una scena diversa. Nel resto del video non disegnare MAI di nuovo una scena gia' mostrata nell'anteprima.
@@ -2557,6 +2565,7 @@ Rispondi SOLO con un array JSON, un oggetto per riga, con lo stesso numero "n":
             altri = [i for i, v in enumerate(out) if v['tipo'] == 'cartone' and v.get('q') and v.get('t', 0) >= PEXELS_DA and not v.get('capitolo')]
             for i in [altri[int(j * len(altri) / resto)] for j in range(min(resto, len(altri)))] if altri else []:
                 out[i].update(tipo='pexels_video' if i % 2 else 'pexels_foto', contesto=out[i]['testo'], camera='')
+    log('inquadrature (secondo, durata, tipo):', ' '.join(f"{v['t']:.1f}/{v['d']:.1f}/{v['tipo'][:3]}" for v in out)[:3000])
     log(f"regia scene: {len(out)} inquadrature, {sum(1 for v in out if v['tipo'] == 'cartone')} cartoni, "
         f"{sum(1 for v in out if v['tipo'] != 'cartone')} Pexels, {sum(1 for v in out if v.get('scritta'))} scritte, "
         f"{sum(1 for v in out if v.get('battuta'))} battute, anteprima {sum(1 for v in out if v.get('coming_up'))} scene")
@@ -2620,8 +2629,23 @@ def genera_foglio(g, scene, testi):
         except Exception as e:
             log('foglio', g, 'non riuscito:', str(e)[:150]); motivo = None
     log('foglio', g, 'non riuscito 3 volte: immagini singole')   # raro: costa di piu' ma mai un'immagine ripetuta o storta
+    fatte = []
     for v, x in zip(scene, out):
-        _immagine_fal(v['prompt'] + '. ' + STILE_SCENA + SCENA_FINE, refs, x, (2560, 1440))
+        pr = v['prompt'] + '. ' + STILE_SCENA + SCENA_FINE.replace('No text, no letters, no numbers, no captions, no speech bubbles, no borders other than the thin white dividing lines.',
+                                                                   'No text, no letters, no numbers, no captions, no borders.')
+        for tentativo, rr in enumerate((refs, [], None)):
+            try:
+                if rr is None:   # ultima prova: l'altro modello
+                    dati = {'aspect_ratio': '16:9', 'resolution': '2K', 'output_format': 'jpeg', 'num_images': 1}
+                    r = fal('fal-ai/nano-banana-2', dict(dati, prompt=pr)); scarica(r['images'][0]['url'], x)
+                    ImageOps.fit(Image.open(x).convert('RGB'), (1920, 1080), Image.LANCZOS).save(x, quality=93)
+                else:
+                    _immagine_fal(pr, rr, x, (2560, 1440))
+                fatte.append(x); break
+            except Exception as e:
+                log('immagine singola', g, 'tentativo', tentativo + 1, 'non riuscito:', str(e)[:150])
+    if len(fatte) < len(scene):
+        raise RuntimeError(f'foglio {g}: {len(fatte)} immagini su {len(scene)}')
     return out[:len(scene)]
 
 
