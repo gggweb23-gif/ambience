@@ -646,7 +646,7 @@ def controlla(candidati, q, contesto):
         return 0 if candidati else -1
     def b64(u):   # scarichiamo noi l'anteprima (Pexels blocca i download fatti da altri server) e la mandiamo come immagine
         try:
-            im = Image.open(io.BytesIO(http(u, raw=True, timeout=30))).convert('RGB'); im.thumbnail((384, 384))
+            im = Image.open(io.BytesIO(http(u, raw=True, timeout=30))).convert('RGB'); im.thumbnail((640, 640))
             buf = io.BytesIO(); im.save(buf, 'JPEG', quality=80)
             return {'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}}
         except Exception:
@@ -664,7 +664,7 @@ def controlla(candidati, q, contesto):
 Quale immagine e' adatta da mostrare? Deve sembrare coerente con l'epoca e il luogo raccontati.
 Se un'immagine ha piu' fotogrammi (stessa clip), giudicali TUTTI: basta un fotogramma sbagliato per scartarla.
 COERENZA: se la voce parla di un popolo o di un luogo preciso (es. gli arabi, l'Iran, il deserto), l'immagine deve essere di QUEL luogo/popolo; paesaggi di un altro continente o clima vanno SCARTATI.
-SCARTA SEMPRE: qualsiasi persona (anche in costume medievale o storico), citta' moderne, palazzi moderni, lampioni, cavi elettrici, cartelli, folle; qualsiasi persona di oggi, anche piccola, lontana, di spalle o in mezzo a rovine (giacche, felpe, jeans, scarpe da ginnastica, zaini, turisti); auto, cellulari, cartelli o scritte leggibili, biglietti di auguri, oggetti di plastica, feste moderne, cose fuori tema.
+SCARTA SEMPRE (guarda bene anche i bordi e lo sfondo, persone minuscole comprese): qualsiasi persona (anche in costume medievale o storico), transenne, recinzioni, ponteggi, auto parcheggiate, palazzi moderni dietro le rovine, citta' moderne, palazzi moderni, lampioni, cavi elettrici, cartelli, folle; qualsiasi persona di oggi, anche piccola, lontana, di spalle o in mezzo a rovine (giacche, felpe, jeans, scarpe da ginnastica, zaini, turisti); auto, cellulari, cartelli o scritte leggibili, biglietti di auguri, oggetti di plastica, feste moderne, cose fuori tema.
 VANNO BENE: paesaggi, montagne, deserti, rovine, monumenti antichi, musei, oggetti antichi, monete, manoscritti, fuoco, cieli, mare, armi antiche in museo. NESSUNA persona: le persone nel video sono solo disegnate.
 Per il LUOGO basta che sia plausibile per quel paese (montagne, deserti, rovine, cieli vanno bene se il clima e' simile); scarta solo cio' che e' chiaramente di un altro mondo (es. colline verdi alpine per un deserto, palme tropicali, citta' europee).
 Rispondi con UNA SOLA riga, esattamente cosi' e nient'altro: SCELTA: <numero della prima immagine adatta, oppure -1 se nessuna va bene>"""})
@@ -1444,7 +1444,7 @@ def aggiungi_sovrimpressione(path, d, testo, nome_font=''):
     """Un solo dato in sovrimpressione (canale senza texture): scritta grande bianca, i NUMERI in oro, su un'ombra scura sfumata in basso.
     Compare con una dissolvenza, le lettere battute a macchina, poi resta ferma fino alla fine dell'immagine."""
     f = None
-    for sz in range(104, 54, -6):
+    for sz in range(104, 28, -6):
         f = ImageFont.truetype(os.path.join(FONT, 'Oswald-SemiBold.ttf'), sz) if os.path.exists(os.path.join(FONT, 'Oswald-SemiBold.ttf')) else font('classico', sz)
         if f.getlength(testo) <= W - 240:
             break
@@ -1926,7 +1926,7 @@ def taglia_inquadrature(scene, durs, voci):
 
 REGOLE_DETTAGLI = """2. "nuova": true = immagine nuova; false = DETTAGLIO dell'ultima immagine nuova (la stessa scena vista piu' da vicino), SOLO se le parole parlano ancora della stessa cosa e quel dettaglio e' gia' nell'immagine. Mai piu' di 2 dettagli di fila. Circa {q}% di immagini nuove.
 3. "prompt_en" (solo per le nuove): in inglese, 30-60 parole: chi c'e' e cosa fa, luogo, epoca, tempo atmosferico e luce, emozione, e l'INQUADRATURA (varia sempre: epic wide establishing shot, aerial view, medium shot, dramatic close-up, low angle, over-the-shoulder, silhouette against the sky...). Se le righe dopo saranno dettagli, descrivi anche quegli elementi e dove sono (left / right / center)."""
-REGOLE_PEXELS = """13. IMMAGINI VERE (solo righe segnate [PEXELS SI]): circa il {q}% di quelle righe diventa "tipo": "pexels_video" (preferito) o "pexels_foto" invece del cartone: rovine, monumenti, statue, mosaici, monete, oggetti antichi nei musei, strade romane, acquedotti, fuoco, cielo, mare, campagna. Mai due di fila e mai a meta' di una tavola (dopo un pexels la riga seguente e' "nuova": true). Per OGNI riga segnata [PEXELS SI], anche se resta cartone, scrivi "q": ricerca Pexels in inglese di 3-5 parole MOLTO precisa: il luogo o l'oggetto antico esatto + cosa si vede (es. "Colosseum arches ruins Rome", "Roman Forum columns sunset", "ancient Roman coins museum", "Roman marble bust museum", "Appian Way ancient stones", "Roman mosaic floor detail", "ancient oil lamp flame"), e "alt_q": 2 alternative altrettanto precise. Mai persone, soldati in costume, citta' moderne, turisti: solo cose d'epoca."""
+REGOLE_PEXELS = """13. IMMAGINI VERE (solo righe segnate [PEXELS SI]): circa il {q}% di quelle righe diventa "tipo": "pexels_video" (preferito) o "pexels_foto" invece del cartone: rovine, monumenti, statue, mosaici, monete, oggetti antichi nei musei, strade romane, acquedotti, fuoco, cielo, mare, campagna. Mai due di fila e mai a meta' di una tavola (dopo un pexels la riga seguente e' "nuova": true). Per OGNI riga segnata [PEXELS SI], anche se resta cartone, scrivi "q": ricerca Pexels in inglese di 3-5 parole MOLTO precisa: il luogo o l'oggetto antico esatto + cosa si vede (es. "Colosseum arches ruins Rome", "Roman Forum columns sunset", "ancient Roman coins museum", "Roman marble bust museum", "Appian Way ancient stones", "Roman mosaic floor detail", "ancient oil lamp flame"), e "alt_q": 2 alternative altrettanto precise. Mai persone, soldati in costume, citta' moderne, turisti: solo cose d'epoca. Preferisci inquadrature STRETTE e di dettaglio (un arco, pietre, colonne, un mosaico, una statua, monete, una lucerna) ai panorami larghi delle rovine, dove compaiono turisti, transenne e palazzi moderni."""
 REGOLE_TAVOLE = """2. MONTAGGIO DA FILM: "nuova": true = un MOMENTO nuovo, che viene disegnato come TAVOLA di 4 inquadrature diverse dello stesso momento (stessi personaggi, vestiti e luogo). Le righe dopo con "nuova": false mostrano, in ordine, gli altri pannelli della stessa tavola: massimo 3 di fila, e solo se le parole parlano ancora di quel momento. Lo spettatore non vede MAI la stessa immagine due volte. Circa una riga nuova ogni 3-4.
 3. "prompt_en" (solo per le nuove): in inglese, 30-50 parole: il momento (chi c'e', cosa fa, luogo, epoca, tempo atmosferico e luce, emozione). "pannelli" (solo per le nuove): 4 descrizioni in inglese di 10-25 parole, una per pannello, ognuna coerente con le parole della riga in cui si vedra' (pannello 1 = questa riga, 2/3/4 = le righe "nuova": false che seguono). Ordine da film, SEMPRE: 1 campo LARGO che mostra tutto l'ambiente; 2 primo piano del volto del protagonista con un'emozione forte; 3 dettaglio di mani o dell'oggetto chiave (MAI un volto); 4 campo MEDIO di un altro personaggio o della scena da un'angolazione opposta (dall'alto, dal basso, di spalle), MAI un primo piano. Quattro soggetti chiaramente diversi.
    Ogni pannello mostra un'AZIONE in corso (un gesto, un movimento, qualcosa che succede), mai pose ferme: lo spettatore deve voler vedere cosa succede dopo.
@@ -2073,6 +2073,7 @@ def _immagine_fal(prompt, refs, p, size=(2560, 1440)):
 TAVOLA_PROMPT = ('A 2x2 STORYBOARD SHEET: the image is divided into FOUR EQUAL panels (top-left, top-right, bottom-left, bottom-right) separated by thin straight '
                  'white lines that cross exactly in the centre; each panel is a complete 16:9 frame of the SAME moment with the SAME characters, clothes, light and place, '
                  'but a clearly DIFFERENT shot and subject; every panel shows an ACTION happening, never a static pose. '
+                 'Places are shown exactly as they were IN THAT ERA, never as they look today (no later monuments, no modern palazzi, no church crosses, no iron railings). '
                  'Everything is historically accurate for the era of the story: no modern buildings, no factory chimneys or smokestacks, no glass windows, '
                  'no electric lights, no modern clothes or objects. ')
 TAVOLA_STD = ['wide establishing shot of the whole scene', 'close-up of the main character face with a strong emotion',
@@ -2143,7 +2144,7 @@ def verifica_immagine(p, testi, prompt, nota=''):
     chiave = E('ANTHROPIC_API_KEY', '')
     if not chiave:
         return None
-    im = Image.open(p).convert('RGB'); im.thumbnail((768, 768)); buf = io.BytesIO(); im.save(buf, 'JPEG', quality=85)
+    im = Image.open(p).convert('RGB'); im.thumbnail((1568, 1568) if nota else (768, 768)); buf = io.BytesIO(); im.save(buf, 'JPEG', quality=85)
     domanda = nota + f"""Video di storia sul paese: {PAESE.get('nome') or '-'}. Questa immagine accompagna queste parole della voce: "{testi[:500]}".
 Controlla SOLO errori evidenti che uno spettatore noterebbe:
 1) contraddice le parole? (es. dice sole e c'e' pioggia, dice deserto e c'e' una foresta, dice una battaglia e c'e' una festa, nomina un re e non c'e')
@@ -2235,7 +2236,8 @@ def genera_tavola(v, testi, refs, p):
         if ok and VERIFICA and E('FAL_KEY'):
             motivo = verifica_immagine(tav, testi, v['prompt'], 'E\' una TAVOLA di 4 inquadrature dello stesso momento separate da linee bianche: le linee vanno bene, '
                                                               'controlla il contenuto dei 4 pannelli. Conta come errore anche ogni edificio moderno, '
-                                                              'ciminiera di fabbrica, finestra a vetri o luce elettrica in un\'epoca antica. ')
+                                                              'ciminiera di fabbrica, finestra a vetri, ringhiera di ferro, croce su una chiesa, monumento costruito dopo l\'epoca raccontata '
+                                                              '(la citta\' deve essere com\'era ALLORA, mai com\'e\' oggi). Guarda bene anche lo sfondo di ogni pannello. ')
             if motivo:
                 log(f'tavola {v["img"]} da rifare: {motivo}'); ok = False
         if ok:
@@ -2346,7 +2348,13 @@ def pezzo_regia(path, d, img, zoom, camera, titolo='', nome_font='classico', atm
     if titolo:   # inizio capitolo: titolo grande che appare e scompare
         tf = path[:-4] + '_t.txt'; open(tf, 'w').write(titolo.upper())
         ff = os.path.join(FONT, FONT_EPOCA.get(nome_font, 'EBGaramond-SemiBold.ttf'))
-        vf += (f",drawtext=fontfile={ff}:textfile={tf}:fontsize=150:fontcolor=white:borderw=6:bordercolor=black@0.7:"
+        fs = 150
+        try:   # la scritta sta sempre dentro lo schermo (margine 100 px per lato, box compreso)
+            while fs > 50 and ImageFont.truetype(ff, fs).getlength(titolo.upper()) > W - 280:
+                fs -= 6
+        except Exception:
+            fs = 100
+        vf += (f",drawtext=fontfile={ff}:textfile={tf}:fontsize={fs}:fontcolor=white:borderw=6:bordercolor=black@0.7:"
                f"box=1:boxcolor=black@0.35:boxborderw=40:x=(w-tw)/2:y=(h-th)/2:"
                f"alpha='if(lt(t,0.3),t/0.3,if(lt(t,{max(.6, d - .5):.2f}),1,max(0,({d:.2f}-t)/0.5)))'")
     if ov:
