@@ -669,7 +669,7 @@ def maschera_terra():
         Q = 4; m = Image.new('L', (360 * Q, 180 * Q), 0); d = ImageDraw.Draw(m)
         for anelli_ in risorse()['paesi'].values():
             for r in anelli_:
-                if len(r) >= 3:
+                if len(r) >= 3 and float(r[:, 0].max() - r[:, 0].min()) < 180:   # niente anelli a cavallo del 180 (riempirebbero il mondo)
                     d.polygon([((lo + 180) * Q, (90 - la) * Q) for lo, la in r], fill=255)
         a = np.array(m) > 0; g = a.copy()
         for dy in range(-3, 4):   # terra "vera": almeno 3/4 di grado di terra attorno (niente isolette e scogli)
