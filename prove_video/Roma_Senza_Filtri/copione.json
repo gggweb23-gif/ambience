@@ -1,0 +1,186 @@
+{
+ "titolo": "What Did People in Ancient Rome Actually Do All Day? The Shocking Truth",
+ "titolo_mappa": "ROME",
+ "paese_mappa": "",
+ "date": "753 BC – 476 AD",
+ "texture": "pergamena",
+ "font_carte": "antico",
+ "fondi_carte": [],
+ "colori_carte": [
+  "#6b1e1e",
+  "#1d3557"
+ ],
+ "sfondi": [
+  {
+   "id": "s1",
+   "prompt_en": "Cartoon style, a tiny dark Roman bedroom before dawn, a bearded man in a rough tunic lying on a straw mattress, startled, a fist banging on the wooden door, cold blue light, close-up framing.",
+   "personaggi": []
+  },
+  {
+   "id": "s2",
+   "prompt_en": "Cartoon style, cold dark Roman street before sunrise, a poor Roman man pulling on a tunic by feel in a cramped apartment doorway, torchlight flickering, tired and shivering, wide shot with tenement buildings.",
+   "personaggi": []
+  },
+  {
+   "id": "s3",
+   "prompt_en": "Cartoon style, dawn in ancient Rome, a crowd of ordinary Romans in tunics and white togas lined up outside the grand door of a rich man's villa, waiting anxiously, marble columns, pink morning sky.",
+   "personaggi": []
+  },
+  {
+   "id": "s4",
+   "prompt_en": "Cartoon style, close-up of a hungry Roman man's hands holding an empty cloth bag and an empty wooden bowl, stomach growling, worried face partly visible, warm light, ancient Rome street background.",
+   "personaggi": []
+  },
+  {
+   "id": "s5",
+   "prompt_en": "Cartoon style, a rich Roman patron in a red-trimmed toga handing a small sack of food and coins to a line of grateful clients at his villa door, golden sunlight, marble atrium, cheerful and tense mood.",
+   "personaggi": [
+    "senatore"
+   ]
+  },
+  {
+   "id": "s6",
+   "prompt_en": "Cartoon style, wide view of ancient Rome at midday, the Colosseum, aqueduct and triumphal arch in the background, crowded noisy street with ordinary Romans in tunics and togas, bakers, merchants, dust and sun.",
+   "personaggi": []
+  },
+  {
+   "id": "s7",
+   "prompt_en": "Cartoon style, bustling Roman market scene, striped awnings, a baker with a tray of bread, vendors shouting, a gambler tossing dice on the ground, dirty crowded street, lively and chaotic, daytime.",
+   "personaggi": [
+    "mercante"
+   ]
+  },
+  {
+   "id": "s8",
+   "prompt_en": "Cartoon style, sunset over the Roman Forum, a lone tired Roman man in a tunic sitting on marble steps looking up at the glowing sky, thoughtful mood, columns and temple silhouettes, warm orange light.",
+   "personaggi": []
+  }
+ ],
+ "scene": [
+  {
+   "capitolo": "Before Sunrise",
+   "testo": "It's still dark outside. You're lying on a straw mattress in a room the size of a parking space, and someone is banging on your door. Not a friend. Not an emergency. This is just Tuesday.",
+   "visivi": [
+    {
+     "tipo": "cartone",
+     "frase": "It's still dark outside",
+     "sfondo": "s1",
+     "personaggio": "",
+     "reazione": true,
+     "data": "Ancient Rome, 100 AD",
+     "suono": "loud knocking on a wooden door"
+    }
+   ]
+  },
+  {
+   "capitolo": "The Morning Duty",
+   "testo": "In ancient Rome, your day started before the sun did. No coffee, no alarm clock, no snooze button. You got up in the dark, in the cold, and got dressed by feel. Within twenty minutes, you had to be standing outside a rich man's house.",
+   "visivi": [
+    {
+     "tipo": "cartone",
+     "frase": "In ancient Rome, your day",
+     "sfondo": "s2",
+     "personaggio": ""
+    },
+    {
+     "tipo": "cartone",
+     "frase": "you had to be standing",
+     "sfondo": "s3",
+     "personaggio": "",
+     "suono": "crowd murmuring at dawn"
+    }
+   ]
+  },
+  {
+   "capitolo": "Eat or Starve",
+   "testo": "Why? Because if you weren't there, you didn't eat that day. That's not an exaggeration. That was the system. For hundreds of years, this was daily life for hundreds of thousands of ordinary Romans.",
+   "visivi": [
+    {
+     "tipo": "cartone",
+     "frase": "if you weren't there",
+     "sfondo": "s4",
+     "personaggio": ""
+    },
+    {
+     "tipo": "cartone",
+     "frase": "For hundreds of years",
+     "sfondo": "s5",
+     "personaggio": "senatore"
+    }
+   ]
+  },
+  {
+   "capitolo": "Not Like the Movies",
+   "testo": "We picture togas, marble, and emperors giving speeches. The reality was louder, dirtier, and stranger than any movie has ever shown you. And here's the part that breaks most people's brains.",
+   "visivi": [
+    {
+     "tipo": "cartone",
+     "frase": "We picture togas, marble",
+     "sfondo": "s6",
+     "personaggio": ""
+    },
+    {
+     "tipo": "cartone",
+     "frase": "louder, dirtier, and stranger",
+     "sfondo": "s7",
+     "personaggio": "mercante",
+     "suono": "crowd murmuring in ancient market"
+    }
+   ]
+  },
+  {
+   "capitolo": "Time Itself",
+   "testo": "The Romans did not have hours the way you do. So how did anyone know when to show up? What would you have done all day?",
+   "visivi": [
+    {
+     "tipo": "cartone",
+     "frase": "The Romans did not have",
+     "sfondo": "s8",
+     "personaggio": ""
+    }
+   ]
+  }
+ ],
+ "copertina": {
+  "testo": "NO JOBS",
+  "personaggio": ""
+ },
+ "descripcion_placeholder": "",
+ "descrizione": "What did people in ancient Rome actually do all day? Forget the movies. Daily life in ancient Rome began in the dark, with a knock on the door and a long walk to a rich man's house just to earn the day's meal.\n\nIn this cartoon history video we explore the real Roman daily routine: the patron and client system, crowded apartments, noisy streets, bakers, markets and gamblers. It was louder, dirtier and stranger than any documentary on the Roman Empire has shown you.\n\nWatch to find out how ordinary Romans survived, why the Romans did not have hours like we do, and what life was truly like in ancient Rome.\n\n#AncientRome #RomanHistory #DailyLifeInAncientRome #RomanEmpire #HistoryDocumentary",
+ "tag": [
+  "daily life in ancient rome",
+  "ancient rome documentary",
+  "roman forum",
+  "circus maximus",
+  "roman history",
+  "ancient history",
+  "ancient rome",
+  "roman empire",
+  "life in ancient rome",
+  "what was life like in ancient rome",
+  "roman daily life",
+  "roman baths history",
+  "ancient roman baths",
+  "roman chariot racing",
+  "colosseum",
+  "julius caesar",
+  "history documentary",
+  "weird history",
+  "7 days in ancient rome",
+  "ancient civilizations",
+  "roman patron and client",
+  "roman jobs",
+  "roman morning routine",
+  "cartoon history",
+  "rome unscrolled style",
+  "history for adults",
+  "roman streets",
+  "complete history of rome"
+ ],
+ "personaggi_mancanti": [
+  "Roman baker",
+  "Roman poor commoner",
+  "Roman client in tunic"
+ ],
+ "categoria_originale": "22"
+}
