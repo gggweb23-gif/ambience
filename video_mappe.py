@@ -1763,8 +1763,15 @@ def metti_in_playlist(video_id, titolo, descr):
             r = http('https://www.googleapis.com/youtube/v3/playlists?part=snippet,status',
                      {'snippet': {'title': nome, 'description': f'{nome} | {NOME_CANALE.title()}: {SLOGAN.capitalize()}'}, 'status': {'privacyStatus': 'public'}}, H)
             pid = r['id']; log('playlist creata:', nome)
-        http('https://www.googleapis.com/youtube/v3/playlistItems?part=snippet',
-             {'snippet': {'playlistId': pid, 'resourceId': {'kind': 'youtube#video', 'videoId': video_id}}}, H)
+        for prova in range(4):   # playlist appena creata: YouTube risponde 409 per qualche secondo, si riprova
+            try:
+                http('https://www.googleapis.com/youtube/v3/playlistItems?part=snippet',
+                     {'snippet': {'playlistId': pid, 'resourceId': {'kind': 'youtube#video', 'videoId': video_id}}}, H)
+                break
+            except Exception:
+                if prova == 3:
+                    raise
+                time.sleep(10 * (prova + 1))
         log('video aggiunto alla playlist:', nome)
         return nome
     except Exception as e:
