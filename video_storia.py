@@ -2598,10 +2598,13 @@ def verifica_foglio(tav, testi, descr):
                f"{PAESE.get('nome') or ''}. Le parole della voce: \"{testi[:600]}\". Le scene previste: {' | '.join(descr)[:1200]}.\n"
                "Per OGNI pannello controlla SOLO errori evidenti: edifici moderni o costruiti dopo l'epoca, ciminiere, vetrate, ringhiere di ferro, croci, "
                "orologi meccanici, ingranaggi, vestiti o oggetti non dell'epoca, scritte o lettere, anatomia sbagliata (3 braccia, volti deformi), "
-               "pannello che ripete la stessa scena di un altro, pannello vuoto o tagliato. Guarda bene anche lo sfondo.\n"
-               "Rispondi con UNA riga: SBAGLIATI: <numeri dei pannelli sbagliati separati da virgola, oppure nessuno>")
+               "sacchi di plastica, piazze o palazzi della citta' di oggi (facciate colorate moderne, obelischi in piazze moderne), "
+               "pannello diviso in due immagini affiancate, pannello che ripete la stessa scena di un altro, pannello vuoto o tagliato.\n"
+               "Prima, per OGNI pannello, scrivi una riga: 'Pannello N: <cosa si vede sullo SFONDO e sui bordi> -> <eventuali elementi non antichi>'. "
+               "Poi chiudi con UNA riga: SBAGLIATI: <numeri dei pannelli sbagliati separati da virgola, oppure nessuno>")
     try:
-        r = http('https://api.anthropic.com/v1/messages', {'model': MODELLO_CONTROLLO, 'max_tokens': 200, 'messages': [{'role': 'user', 'content': [
+        r = http('https://api.anthropic.com/v1/messages', {'model': str(P.get('modello_controllo_scene') or MODELLO_CONTROLLO), 'max_tokens': 700,
+                 'messages': [{'role': 'user', 'content': [
             {'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}},
             {'type': 'text', 'text': domanda}]}]}, {'x-api-key': chiave, 'anthropic-version': '2023-06-01'}, timeout=120)
         txt = ''.join(b.get('text', '') for b in r.get('content', []))
