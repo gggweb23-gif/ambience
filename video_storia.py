@@ -652,7 +652,7 @@ def controlla(candidati, q, contesto):
         return 0 if candidati else -1
     def b64(u):   # scarichiamo noi l'anteprima (Pexels blocca i download fatti da altri server) e la mandiamo come immagine
         try:
-            im = Image.open(io.BytesIO(http(u, raw=True, timeout=30))).convert('RGB'); im.thumbnail((640, 640))
+            im = Image.open(io.BytesIO(http(u, raw=True, timeout=30))).convert('RGB'); im.thumbnail((512, 512))
             buf = io.BytesIO(); im.save(buf, 'JPEG', quality=80)
             return {'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}}
         except Exception:
@@ -2500,7 +2500,7 @@ REGOLE:
 1. OGNI RIGA E' UNA SCENA DIVERSA: un'altra azione, un altro soggetto o un altro luogo. MAI la stessa scena due volte, nemmeno da un'altra angolazione o piu' da vicino. Lo spettatore deve vedere sempre qualcosa di nuovo che succede.
 2. COERENZA: la scena mostra ESATTAMENTE quello che dicono le parole di quella riga (persone, luogo, ora del giorno, tempo atmosferico, emozione). Se le parole sono astratte, una scena concreta che le rappresenta.
 3. OGGETTI DELL'EPOCA: disegna solo cose che esistevano allora. Se la voce nomina una cosa moderna per contrasto ("niente sveglia, niente caffe'"), mostra l'equivalente antico (un gallo che canta, una lucerna, una meridiana), MAI l'oggetto moderno: niente orologi meccanici, ingranaggi, vetrate, carta stampata, occhiali.
-3b. "prompt_en" (SEMPRE, anche sulle righe Pexels): in inglese, 25-45 parole: chi c'e', cosa sta FACENDO (un'azione in corso), dove, luce, emozione forte e leggibile, e l'inquadratura. Alterna di continuo campo largo, campo medio, primo piano, dettaglio, dall'alto, dal basso: mai la stessa inquadratura due volte di fila. Vestiti, armi, edifici e oggetti esatti dell'epoca raccontata; luoghi come erano ALLORA. Mai scritte nelle immagini.
+3b. "prompt_en" (SEMPRE; sulle righe con "tipo" pexels bastano 10-15 parole, servono solo di riserva): in inglese, 25-45 parole: chi c'e', cosa sta FACENDO (un'azione in corso), dove, luce, emozione forte e leggibile, e l'inquadratura. Alterna di continuo campo largo, campo medio, primo piano, dettaglio, dall'alto, dal basso: mai la stessa inquadratura due volte di fila. Vestiti, armi, edifici e oggetti esatti dell'epoca raccontata; luoghi come erano ALLORA. Mai scritte nelle immagini.
 4. "personaggi": 0-2 id del kit solo se sono proprio loro. Kit: {lista_kit(kit)}. I personaggi ricorrenti hanno sempre gli stessi vestiti: descrivili uguali ogni volta.
 5. "camera": push_in, pull_out, pan_left, pan_right, tilt_up, tilt_down, punch (zoom secco: solo nei momenti forti, 1 riga ogni 5-6). Mai uguale due volte di fila.
 6. [COMING UP]: queste righe sono l'ANTEPRIMA del video, come nei video di MrBeast: mostrano i momenti piu' spettacolari, sorprendenti o drammatici di TUTTA la storia (anche se la voce qui dice altro), ognuno una scena diversa. Nel resto del video non disegnare MAI di nuovo una scena gia' mostrata nell'anteprima.
