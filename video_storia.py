@@ -918,12 +918,17 @@ STILE_SFONDO = ('Wide 2D cartoon illustration for an animated history video, cle
                 'The lower 30% of the image is open flat ground. No text, no letters, no signs with writing, no logos, no watermark.')
 
 
+_CTX = threading.local()   # _CTX.scena = True mentre si disegnano le scene (tetto di spesa)
+
+
 def fal(modello, dati):
     h = {'Authorization': 'Key ' + E('FAL_KEY', '')}
     with _lock:
         costo = (PREZZO_DISEGNO if str(dati.get('resolution')) == '2K' else 0.08) if 'nano-banana' in modello else 0.04
         tetto = float(str(P.get('max_spesa_immagini') or 0).replace(',', '.') or 0)
-        if tetto and SPESA['fal'] + costo > tetto + 1e-9:   # tetto di spesa immagini del video (colonna max_spesa_immagini, in $)
+        if getattr(_CTX, 'scena', False):
+            SPESA['scene'] = SPESA.get('scene', 0) + costo
+        if tetto and getattr(_CTX, 'scena', False) and SPESA['scene'] > tetto + 1e-9:   # il tetto vale per le immagini delle scene, mai per la copertina   # tetto di spesa immagini del video (colonna max_spesa_immagini, in $)
             raise RuntimeError(f'tetto di spesa immagini {tetto:.2f} $ raggiunto')
         SPESA['fal'] += costo
         SPESA['disegni'] += 1
@@ -2611,6 +2616,14 @@ def _pannello_buono(q):
 
 
 def genera_foglio(g, scene, testi):
+    _CTX.scena = True
+    try:
+        return _genera_foglio(g, scene, testi)
+    finally:
+        _CTX.scena = False
+
+
+def _genera_foglio(g, scene, testi):
     """Un foglio 2x2 a 4K con 4 scene diverse -> {indice: immagine Full HD} dei soli pannelli BUONI.
     Spesa prevedibile: UNA generazione per foglio; una seconda solo se il foglio e' inutilizzabile (meno di 2 pannelli buoni).
     I pannelli sbagliati non si rifanno: la loro inquadratura prende un'immagine di riserva (mai una ripetuta)."""
