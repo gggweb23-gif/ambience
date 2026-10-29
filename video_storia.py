@@ -670,7 +670,7 @@ def controlla(candidati, q, contesto):
 Quale immagine e' adatta da mostrare? Deve sembrare coerente con l'epoca e il luogo raccontati.
 Se un'immagine ha piu' fotogrammi (stessa clip), giudicali TUTTI: basta un fotogramma sbagliato per scartarla.
 COERENZA: se la voce parla di un popolo o di un luogo preciso (es. gli arabi, l'Iran, il deserto), l'immagine deve essere di QUEL luogo/popolo; paesaggi di un altro continente o clima vanno SCARTATI.
-SCARTA SEMPRE (guarda bene anche i bordi e lo sfondo, persone minuscole comprese): qualsiasi persona (anche in costume medievale o storico), transenne, recinzioni, ponteggi, auto parcheggiate, palazzi moderni dietro le rovine, citta' moderne, palazzi moderni, lampioni, cavi elettrici, cartelli, folle; qualsiasi persona di oggi, anche piccola, lontana, di spalle o in mezzo a rovine (giacche, felpe, jeans, scarpe da ginnastica, zaini, turisti); auto, cellulari, cartelli o scritte leggibili, biglietti di auguri, oggetti di plastica, feste moderne, cose fuori tema.
+SCARTA SEMPRE (guarda bene anche i bordi e lo sfondo, persone minuscole comprese): qualsiasi persona (anche in costume medievale o storico), transenne, recinzioni, ponteggi, strutture o ponti di metallo, tralicci, cartelli, auto parcheggiate, palazzi moderni dietro le rovine, citta' moderne, palazzi moderni, lampioni, cavi elettrici, cartelli, folle; qualsiasi persona di oggi, anche piccola, lontana, di spalle o in mezzo a rovine (giacche, felpe, jeans, scarpe da ginnastica, zaini, turisti); auto, cellulari, cartelli o scritte leggibili, biglietti di auguri, oggetti di plastica, feste moderne, cose fuori tema.
 VANNO BENE: paesaggi, montagne, deserti, rovine, monumenti antichi, musei, oggetti antichi, monete, manoscritti, fuoco, cieli, mare, armi antiche in museo. NESSUNA persona: le persone nel video sono solo disegnate.
 Per il LUOGO basta che sia plausibile per quel paese (montagne, deserti, rovine, cieli vanno bene se il clima e' simile); scarta solo cio' che e' chiaramente di un altro mondo (es. colline verdi alpine per un deserto, palme tropicali, citta' europee).
 Rispondi con UNA SOLA riga, esattamente cosi' e nient'altro: SCELTA: <numero della prima immagine adatta, oppure -1 se nessuna va bene>"""})
@@ -1082,7 +1082,8 @@ def copertina_primo_piano(comp, c):
             {'x-api-key': E('ANTHROPIC_API_KEY'), 'anthropic-version': '2023-06-01'}, timeout=300)
         t = ''.join(x.get('text', '') for x in r.get('content', [])); j = json.loads(t[t.find('{'): t.rfind('}') + 1])
         prompt = ('The reference image shows ONLY the drawing style to copy (lines, colours, faces): do NOT copy its composition. YouTube thumbnail, FOCUSED CLOSE-UP: '
-                  + str(j.get('scena') or '') + ' ' + STILE_SCENA + ' The TOP 25% of the image stays simple (a big title will go there), no face there.')
+                  + str(j.get('scena') or '') + ' ' + STILE_SCENA + ' The TOP 25% of the image stays simple (a big title will go there), no face there.'
+                  + ' Everything historically accurate for the era: no modern symbols or signs (no $ or currency signs on bags or coins), no modern objects, no text.')
         p = os.path.join(ROOT, 'copertina.jpg')
         _immagine_fal(prompt, [comp['copertina']], p)
         im = Image.open(p).convert('RGB').resize((1280, 720), Image.LANCZOS)
@@ -2503,6 +2504,8 @@ REGOLE:
 9. "battuta" (1-2 al minuto, solo nei momenti ironici o sorprendenti): commento breve e divertente in basso, max 6 parole, nella lingua del video (es. "OUCH...", "NOT IDEAL", "HE WAS NOT OKAY").
 10. "flash": true solo nei colpi di scena (max 1 ogni 20 secondi).
 11. "atmosfera" (di solito ""): pioggia, neve, polvere, braci o nebbia SOLO se la scena li ha davvero.
+11b. "musica": l'UMORE della musica, SOLO dove cambia (un tratto dura almeno 15-20 secondi): uno tra mistero, tensione, epico, azione, curiosita, quotidiano, malinconia, trionfo. Segui il racconto come in un film: mistero o curiosita' all'inizio, tensione quando arriva il problema, epico nelle battaglie, malinconia nei momenti tristi, trionfo nelle conquiste. La prima riga ha sempre un umore. Altrimenti "".
+11c. "stacco": true sulla riga di una RIVELAZIONE o di un colpo di scena (max 1 ogni 30 secondi): la musica si ferma un attimo prima e riparte.
 12. "suono" (circa una riga ogni 4): effetto sonoro in inglese, 3-8 parole, coerente con quello che si vede (passi, porta, folla, spade, cavalli, fuoco, pioggia, monete). Mai musica, mai voci.
 {REGOLE_PEXELS_SCENE.format(q=REGIA_PEXELS) if REGIA_PEXELS else ''}
 
@@ -2510,7 +2513,7 @@ INQUADRATURE:
 {elenco}
 
 Rispondi SOLO con un array JSON, un oggetto per riga, con lo stesso numero "n":
-[{{"n": {b0}, "prompt_en": "...", "personaggi": [], "camera": "push_in", "scritta": "", "etichetta": "", "battuta": "", "flash": false, "atmosfera": "", "suono": ""{', "tipo": "cartone", "q": "", "alt_q": []' if REGIA_PEXELS else ''}}}]"""
+[{{"n": {b0}, "prompt_en": "...", "personaggi": [], "camera": "push_in", "scritta": "", "etichetta": "", "battuta": "", "flash": false, "atmosfera": "", "suono": "", "musica": "mistero", "stacco": false{', "tipo": "cartone", "q": "", "alt_q": []' if REGIA_PEXELS else ''}}}]"""
         for k in range(3):
             try:
                 testo, _ = claude_stream({'model': MODELLO_AI if k < 2 else MODELLO_RISERVA, 'max_tokens': 32000,
@@ -2541,7 +2544,8 @@ Rispondi SOLO con un array JSON, un oggetto per riga, con lo stesso numero "n":
                  personaggi=[x for x in (r.get('personaggi') or []) if x in kit and x != NARRATORE][:2], scritta=scritta, etichetta=etichetta,
                  battuta=str(r.get('battuta') or '').strip().upper()[:40], flash=bool(r.get('flash')),
                  atmo=str(r.get('atmosfera') or '').strip().lower() if str(r.get('atmosfera') or '').strip().lower() in ATMO_TIPI else '',
-                 suono=str(r.get('suono') or '').strip()[:80], didascalia='', coming_up=s.get('t', 0) < COMING_UP)
+                 suono=str(r.get('suono') or '').strip()[:80], didascalia='', coming_up=s.get('t', 0) < COMING_UP,
+                 musica=str(r.get('musica') or '').strip().lower().replace("'", '').replace('à', 'a'), stacco=bool(r.get('stacco')))
         q_px = str(r.get('q') or '').strip()
         if q_px:
             v.update(q=q_px, alt_q=[str(x).strip() for x in (r.get('alt_q') or []) if str(x).strip()][:2])
@@ -2925,6 +2929,108 @@ def ritocchi_scene(video, piano):
     except Exception as e:
         log('ritocchi scene saltati:', str(e)[:200])
         return video
+
+
+# ============================================================ MUSICA DA FILM (colonna musica_regia=SI, modo scene)
+# Il regista segna l'UMORE di ogni tratto del racconto; la musica viene da una LIBRERIA comune a tutti i canali (cartella libreria_musica/),
+# creata con Eleven Music (musica unica, nessun reclamo Content ID) e che cresce da sola: un brano si genera solo se manca.
+MUSICA_REGIA = str(P.get('musica_regia') or E('MUSICA_REGIA', '') or 'NO').strip().upper() == 'SI'
+UMORI = {
+    'mistero': 'mysterious, curious and suspenseful, soft pulsing low strings, light plucks, slow build',
+    'tensione': 'tense and urgent, ticking rhythm, deep drums and staccato strings, rising suspense',
+    'epico': 'epic and grand, big war drums, brass and choir-like pads, powerful and heroic',
+    'azione': 'fast action, driving percussion, aggressive strings, high energy chase',
+    'curiosita': 'playful and light, quirky pizzicato strings and light percussion, curious and fun',
+    'quotidiano': 'warm and lively daily life, gentle rhythm, plucked strings and soft flutes, relaxed',
+    'malinconia': 'melancholic and emotional, slow solo instrument over soft strings, sad and reflective',
+    'trionfo': 'triumphant and uplifting, bright brass and strings, celebratory climax',
+}
+LIB_MUSICA = os.path.join(ROOT, 'libreria_musica')
+
+
+def _brano_umore(umore, evita):
+    """Un brano della libreria per questo umore, mai uno di quelli in 'evita' (gia' usati di recente dal canale). Se manca, lo crea."""
+    os.makedirs(LIB_MUSICA, exist_ok=True)
+    stile = str(P.get('musica_stile') or '').strip()
+    gia = sorted(_glob.glob(os.path.join(LIB_MUSICA, f'{umore}_*.mp3')))
+    liberi = [f for f in gia if os.path.basename(f) not in evita]
+    if liberi:
+        return random.choice(liberi)
+    chiave = E('ELEVENLABS_API_KEY', '')
+    if not chiave:
+        return random.choice(gia) if gia else None
+    prompt = (f'Instrumental cinematic background score for a documentary-style YouTube video, {UMORI[umore]}. '
+              + (f'Colour: {stile}. ' if stile else '') + 'No vocals, no lyrics, clean mix, steady loopable feel, no fade-out at the end.')
+    b = http('https://api.elevenlabs.io/v1/music', {'prompt': prompt, 'music_length_ms': 90000, 'model_id': 'music_v1', 'force_instrumental': True},
+             {'xi-api-key': chiave, 'Accept': 'audio/mpeg'}, timeout=600, raw=True)
+    n = 1 + max([int(re.search(r'_(\d+)\.mp3$', f).group(1)) for f in gia] or [0])
+    p = os.path.join(LIB_MUSICA, f'{umore}_{n:03d}.mp3')
+    open(p, 'wb').write(b)
+    log('musica nuova in libreria:', os.path.basename(p), f'({len(b) // 1024} KB)')
+    return p
+
+
+def musica_scene(piano, voce_tot, totale):
+    """Colonna sonora a tratti: un brano per umore, cambi in dissolvenza, silenzio di un attimo prima delle rivelazioni, sotto la voce."""
+    tratti, t, cur, ini, stacchi = [], 0.0, None, 0.0, []
+    for v in piano:
+        u = v.get('musica') if v.get('musica') in UMORI else cur or 'mistero'
+        if u != cur:
+            if cur:
+                tratti.append([ini, t, cur])
+            cur, ini = u, t
+        if v.get('stacco') and t > 3:
+            stacchi.append(t)
+        t += v['d'] - T_TR
+    tratti.append([ini, totale, cur or 'mistero'])
+    pulito = []   # tratti troppo corti (meno di 8 s) si uniscono al precedente
+    for a, b, u in tratti:
+        if pulito and (b - a < 8 or pulito[-1][2] == u):
+            pulito[-1][1] = b
+        else:
+            pulito.append([a, b, u])
+    usati_f = os.path.join(LIB_MUSICA, 'usati_' + re.sub(r'\W', '_', str(P.get('canale') or 'canale')) + '.json')
+    try:
+        recenti = json.load(open(usati_f))
+    except Exception:
+        recenti = []
+    pezzi, scelti, X = [], [], 1.5
+    for i, (a, b, u) in enumerate(pulito):
+        f = _brano_umore(u, set(recenti[-12:]) | set(scelti))
+        if not f:
+            continue
+        scelti.append(os.path.basename(f))
+        lung = b - a + (X if i < len(pulito) - 1 else 0)
+        dur_f = durata(f)
+        off = random.uniform(0, max(0, dur_f - lung - 1)) if dur_f > lung + 1 else 0
+        out = os.path.join(LAV, f'mus_{i:02d}.wav')
+        filtro = f'atrim=0:{lung:.2f},asetpts=PTS-STARTPTS,afade=t=in:d={.8 if i else 2}'
+        giro = ['-stream_loop', '-1'] if dur_f < lung else []   # brano piu' corto del tratto: si ripete
+        run(['ffmpeg', '-y', '-v', 'error', *giro, '-ss', f'{off:.2f}', '-i', f, '-af', filtro, '-ar', '44100', '-ac', '2', out])
+        pezzi.append(out)
+    if not pezzi:
+        return None
+    mus = os.path.join(LAV, 'musica_scene.wav')
+    if len(pezzi) == 1:
+        shutil.copy(pezzi[0], mus)
+    else:
+        fl, prev = [], '[0:a]'
+        for n in range(1, len(pezzi)):
+            o = f'[m{n}]' if n < len(pezzi) - 1 else '[mm]'
+            fl.append(f'{prev}[{n}:a]acrossfade=d={X}:c1=tri:c2=tri{o}'); prev = o
+        run(['ffmpeg', '-y', '-v', 'error', *sum((['-i', p] for p in pezzi), []), '-filter_complex', ';'.join(fl), '-map', '[mm]', mus])
+    vol = float(str(P.get('musica_volume') or .22).replace(',', '.').replace('%', ''))
+    vol = vol / 100 if vol > 1 else vol
+    buchi = '+'.join(f'between(t,{s - .9:.2f},{s:.2f})' for s in stacchi[:30])
+    vol_expr = f"volume='{vol}*(1-0.95*({buchi}))':eval=frame" if buchi else f'volume={vol}'
+    out = os.path.join(LAV, 'voce_musica.m4a')
+    run(['ffmpeg', '-y', '-v', 'error', '-i', voce_tot, '-i', mus, '-filter_complex',
+         f"[1:a]{vol_expr},afade=t=out:st={max(0, totale - 3):.2f}:d=3,apad=whole_dur={totale:.2f}[m];"
+         f'[0:a]asplit=2[v][sc];[m][sc]sidechaincompress=threshold=0.05:ratio=4:attack=30:release=400[md];'
+         f'[v][md]amix=inputs=2:duration=first:normalize=0[a]', '-map', '[a]', '-c:a', 'aac', '-b:a', '192k', out])
+    json.dump((recenti + scelti)[-40:], open(usati_f, 'w'))
+    log('musica: ' + ' | '.join(f'{a:.0f}-{b:.0f}s {u}' for a, b, u in pulito), '| stacchi:', len(stacchi), '| brani:', ', '.join(scelti))
+    return out
 
 
 # ============================================================ MAIN
@@ -3692,6 +3798,13 @@ def main():
         log('effetti sonori saltati:', str(e)[:150])
     audio = voce_tot
     brani = [u.strip() for u in re.split(r'\|\||\n', MUSICA_URL) if u.strip()]
+    if REGIA and TAVOLE and MUSICA_REGIA:   # musica da film scelta scena per scena (libreria comune)
+        try:
+            m_ = musica_scene(piano, voce_tot, durata(voce_tot))
+            if m_:
+                audio = m_; brani = []
+        except Exception as e:
+            log('musica da film non riuscita:', str(e)[:200])
     if brani:   # il PRIMO brano apre sempre il video, poi gli altri si alternano (2, 3, 4, 5, 2, 3...) fino alla fine, con dissolvenze
         try:
             tot = durata(voce_tot)
