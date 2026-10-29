@@ -46,16 +46,20 @@ def anelli_lonlat(isos):
     return out
 
 
-def vista_per(isos, Wm, margine=1.5):
+def vista_per(isos, Wm, margine=1.35, alto=0.0):
+    """Vista che mostra il paese INTERO e grande nella parte bassa (alto = quota in alto lasciata alle scritte)."""
     pts = np.concatenate(anelli_lonlat(isos))
     lo0, lo1, la0, la1 = pts[:, 0].min(), pts[:, 0].max(), pts[:, 1].min(), pts[:, 1].max()
-    larg = max((lo1 - lo0) * margine * W / Wm, (la1 - la0) * margine * W / H, 20)
-    return {'lon': (lo0 + lo1) / 2, 'lat': (la0 + la1) / 2 - (la1 - la0) * .06, 'larghezza': larg}
+    larg = max((lo1 - lo0) * margine * W / Wm, (la1 - la0) * margine * W / (H * (1 - alto)), VM.ZOOM_MIN)
+    if larg > 330:   # paesi enormi (Russia): meno margine, mai tagliati
+        larg = max(330, (lo1 - lo0) * 1.02 * W / Wm)
+    hd = larg * H / W
+    return {'lon': (lo0 + lo1) / 2, 'lat': (la0 + la1) / 2 + hd * alto / 2, 'larghezza': larg}
 
 
-def mezza(isos, col, Wm, scuro=False):
+def mezza(isos, col, Wm, scuro=False, alto=0.0):
     """Mezza copertina (Wm x H) centrata su questi paesi. Ritorna immagine e i poligoni in pixel (coordinate della meta')."""
-    v = VM.camera(vista_per(isos, Wm)); base, pt = VM.fondo(v, 0.0)
+    v = VM.camera(vista_per(isos, Wm, alto=alto)); base, pt = VM.fondo(v, 0.0)
     base = ImageEnhance.Contrast(ImageEnhance.Color(base).enhance(1.45)).enhance(1.12)
     if scuro:
         sc = ImageEnhance.Brightness(ImageEnhance.Color(base).enhance(.45)).enhance(.42)
@@ -172,6 +176,68 @@ def copertina(variante, luoghi, testo_loro, domanda, path):
     im.convert('RGB').resize((1280, 720), Image.LANCZOS).save(path, quality=93)
 
 
+def testo_fit(d, testo, nome_font, fs, larg):
+    f = VM.font(nome_font, fs)
+    while d.textlength(testo, font=f) > larg and fs > 40:
+        fs -= 6; f = VM.font(nome_font, fs)
+    return f, fs
+
+
+def riflettore_base(luoghi, alto):
+    meta = W // 2
+    ordina = sorted(luoghi[:2], key=lambda l: 0 if l.get('ricco') else 1)
+    im = Image.new('RGBA', (W, H)); maschere = []
+    for k, l in enumerate(ordina):
+        mi, mm = mezza([str(c) for c in l.get('iso') or []], LIME if l.get('ricco') else RUGGINE, meta, True, alto)
+        im.paste(mi, (k * meta, 0)); maschere.append(mm)
+    d = ImageDraw.Draw(im); d.rectangle([meta - 12, 0, meta + 12, H], fill=(0, 0, 0)); d.rectangle([meta - 7, 0, meta + 7, H], fill=(235, 30, 40))
+    return im, ordina, maschere
+
+
+def b_varianti(variante, luoghi, domanda, path):
+    """B1 domanda enorme in riquadro nero | B2 parola gigante color crema stile 'grandi scritte' | B3 prezzi giganti al posto dei cartellini."""
+    meta = W // 2
+    if variante == 'B1':
+        im, ordina, mm = riflettore_base(luoghi, .30)
+        d = ImageDraw.Draw(im); f, fs = testo_fit(d, domanda, 'Anton-Regular.ttf', 210, W - 220)
+        w = d.textlength(domanda, font=f); h = fs * .82
+        d.rectangle([W / 2 - w / 2 - 50, 30, W / 2 + w / 2 + 50, 30 + h + 90], fill=(235, 30, 40))
+        d.rectangle([W / 2 - w / 2 - 38, 42, W / 2 + w / 2 + 38, 18 + h + 90], fill=(0, 0, 0))
+        d.text((W / 2, 30 + (h + 90) / 2), domanda, font=f, fill='white', anchor='mm')
+        for k, l in enumerate(ordina):
+            metti_cartellino(im, mm[k], k * meta, meta, str(l.get('prezzo') or ''), bool(l.get('ricco')), [(0, 0, W, 330)])
+    elif variante == 'B2':
+        im, ordina, mm = riflettore_base(luoghi, .42)
+        parole = domanda.split(); piccola, grande = (' '.join(parole[:-1]), parole[-1]) if len(parole) > 1 else ('', parole[0])
+        d = ImageDraw.Draw(im)
+        if piccola:
+            f1, fs1 = testo_fit(d, piccola.title(), 'Poppins-ExtraBold.ttf', 96, W * .6)
+            w1 = d.textlength(piccola.title(), font=f1)
+            d.rectangle([W / 2 - w1 / 2 - 34, 28, W / 2 + w1 / 2 + 34, 28 + fs1 * 1.25], fill=(252, 240, 222))
+            d.text((W / 2, 28 + fs1 * .62), piccola.title(), font=f1, fill=(12, 60, 40), anchor='mm')
+            y2 = 28 + fs1 * 1.25 + 10
+        else:
+            y2 = 30
+        f2, fs2 = testo_fit(d, grande, 'Poppins-ExtraBold.ttf', 300, W - 140)
+        d.text((W / 2 + 10, y2 + fs2 * .55 + 12), grande, font=f2, fill=(0, 0, 0, 170), anchor='mm')
+        d.text((W / 2, y2 + fs2 * .55), grande, font=f2, fill=(252, 240, 222), anchor='mm', stroke_width=4, stroke_fill=(20, 40, 30))
+        for k, l in enumerate(ordina):
+            metti_cartellino(im, mm[k], k * meta, meta, str(l.get('prezzo') or ''), bool(l.get('ricco')), [(0, 0, W, y2 + fs2 * 1.1)])
+    else:   # B3: prezzi giganti, niente cartellini
+        im, ordina, mm = riflettore_base(luoghi, .38)
+        d = ImageDraw.Draw(im)
+        for k, l in enumerate(ordina):
+            prezzo = str(l.get('prezzo') or '')
+            f, fs = testo_fit(d, prezzo, 'Anton-Regular.ttf', 230, meta - 90)
+            cx = k * meta + meta / 2; cy = 40 + fs * .55
+            d.text((cx + 8, cy + 10), prezzo, font=f, fill=(0, 0, 0), anchor='mm')
+            d.text((cx, cy), prezzo, font=f, fill=LIME if l.get('ricco') else (255, 90, 50), anchor='mm', stroke_width=8, stroke_fill=(0, 0, 0))
+            m = np.asarray(mm[k].resize((meta // 8, H // 8))) > 0; ys, xs = np.nonzero(m)
+            if len(xs):
+                freccia(im, (cx, cy + fs * .55), (k * meta + xs.mean() * 8, ys.mean() * 8))
+    im.convert('RGB').resize((1280, 720), Image.LANCZOS).save(path, quality=93)
+
+
 piani = json.load(open(os.path.join(SRC, 'piano.json')))
 righe = []
 for x in piani:
@@ -182,9 +248,12 @@ for x in piani:
     testo_loro = str((P0.get('testi_loro') or {}).get(vid) or 'WHY?').upper()
     domanda = str(pc.get('scritta') or 'WHY?').upper()
     Image.open(os.path.join(SRC, f'{n}_loro.jpg')).save(os.path.join(CART, f'{n}_loro.jpg'), quality=90)
-    for v in 'ABC':
+    for v in (P0.get('varianti') or ['A', 'B', 'C']):
         try:
-            copertina(v, luoghi, testo_loro, domanda, os.path.join(CART, f'{n}_{v}.jpg'))
+            if v.startswith('B') and len(v) == 2 and len(luoghi) >= 2:
+                b_varianti(v, luoghi, domanda, os.path.join(CART, f'{n}_{v}.jpg'))
+            else:
+                copertina(v, luoghi, testo_loro, domanda, os.path.join(CART, f'{n}_{v}.jpg'))
         except Exception as e:
             print('variante', v, 'non riuscita', vid, str(e)[:200], flush=True); Image.new('RGB', (1280, 720), (60, 60, 60)).save(os.path.join(CART, f'{n}_{v}.jpg'))
     righe.append((n, tit, pc.get('fonte', ''))); print('fatto', n, flush=True)
@@ -192,13 +261,15 @@ for x in piani:
 F = VM.font('Anton-Regular.ttf', 30); F2 = VM.font('Anton-Regular.ttf', 22)
 tw, th = 640, 360
 S = Image.new('RGB', (tw * 4, (th + 50) * len(righe) + 50), 'white'); d = ImageDraw.Draw(S)
-for j, t in enumerate(['LORO', 'A · COME LORO + CARTELLINI', 'B · RIFLETTORE', 'C · IL DIVARIO']):
+VARI = P0.get('varianti') or ['A', 'B', 'C']
+NOMI = {'A': 'A · COME LORO + CARTELLINI', 'B': 'B · RIFLETTORE', 'C': 'C · IL DIVARIO', 'B1': 'B1 · DOMANDA ENORME', 'B2': 'B2 · PAROLA GIGANTE', 'B3': 'B3 · PREZZI GIGANTI'}
+for j, t in enumerate(['LORO'] + [NOMI.get(v, v) for v in VARI]):
     d.text((j * tw + 10, 8), t, font=F, fill='black')
 M = Image.new('RGB', (4 * 256 + 10, len(righe) * 148 + 10), (15, 15, 15))
 for i, (n, tit, fonte) in enumerate(righe):
     y = 50 + i * (th + 50)
     d.text((10, y + 6), f'{tit[:70]}   |   dati: {str(fonte)[:90]}', font=F2, fill='grey')
-    for j, k in enumerate(['loro', 'A', 'B', 'C']):
+    for j, k in enumerate(['loro'] + VARI):
         im = Image.open(os.path.join(CART, f'{n}_{k}.jpg')).convert('RGB')
         S.paste(im.resize((tw, th)), (j * tw, y + 40)); M.paste(im.resize((246, 138), Image.LANCZOS), (10 + j * 256, 10 + i * 148))
 S.save(os.path.join(CART, 'confronto.jpg'), quality=85); M.save(os.path.join(CART, 'telefono.jpg'), quality=90)
