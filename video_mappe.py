@@ -1257,7 +1257,7 @@ def copertina_nuova(cp, path):
     if extra:
         riquadro(im, x0 + A * (.25 if xt > x0 + A / 2 else .75), H * .16, extra, 150 if pr is None else 120, (255, 214, 0), (0, 0, 0))
     if sx and dx:
-        pin(im, linea, H * .52, 2.4, 'stupito', 0)   # Pin sulla linea rossa
+        pin(im, linea, H * (.52 if float(cp.get('pin_scala') or 2.4) <= 2.4 else .97), float(cp.get('pin_scala') or 2.4), 'stupito', 0)   # Pin sulla linea rossa
     elif pr is None:   # mappa unica: Pin di lato, mai sopra il paese in evidenza ne' sulla durata del video
         pin(im, W * (.12 if lato_testo == 'destra' else .90), H * .42, 2.4, 'stupito', 0)
     if pr is not None:

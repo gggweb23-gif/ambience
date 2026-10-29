@@ -1,0 +1,67 @@
+name: Studio Copertine Mappe
+
+# Canali a mappe: copertine dei video piu' visti del competitor rifatte nel nostro motore in 3 varianti (strumenti/studio_copertine_mappe.py).
+on:
+  workflow_dispatch:
+    inputs:
+      payload:
+        description: 'JSON con nome, video_ids, titoli'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  studio:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Memoria di mappa, confini e caratteri (si scaricano una volta sola)
+        id: memoria
+        uses: actions/cache@v4
+        with:
+          path: risorse_mappe
+          key: risorse-mappe-v1
+
+      - name: FFmpeg (versione pronta, senza apt-get che a volte resta bloccato)
+        uses: FedericoCarboni/setup-ffmpeg@v3
+        with:
+          ffmpeg-version: release
+
+      - name: Programmi Python
+        timeout-minutes: 5
+        run: |
+          pip install --quiet --break-system-packages --timeout 60 cairosvg numpy pillow
+          python3 -c "import cairosvg; print('cairosvg ok')" || (sudo apt-get install -y -qq --no-install-recommends libcairo2 && python3 -c "import cairosvg; print('cairosvg ok')")
+          ffmpeg -version | head -1 && ffprobe -version | head -1
+
+      - name: Mappa, confini e caratteri (solo la prima volta)
+        if: steps.memoria.outputs.cache-hit != 'true'
+        timeout-minutes: 10
+        run: |
+          mkdir -p risorse_mappe/tw /tmp/w
+          pip download --quiet --timeout 60 basemap-data==2.0.0 --no-deps -d /tmp/w
+          unzip -q -j /tmp/w/basemap_data-2.0.0-py3-none-any.whl 'mpl_toolkits/basemap_data/shadedrelief.jpg' -d risorse_mappe
+          curl -sSfL --retry 3 --max-time 120 -o risorse_mappe/paesi50.geojson https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_50m_admin_0_countries.geojson
+          curl -sSfL --retry 3 --max-time 60 -o risorse_mappe/Anton-Regular.ttf https://raw.githubusercontent.com/google/fonts/main/ofl/anton/Anton-Regular.ttf
+          curl -sSfL --retry 3 --max-time 60 -o risorse_mappe/Poppins-Bold.ttf https://raw.githubusercontent.com/google/fonts/main/ofl/poppins/Poppins-Bold.ttf
+          curl -sSfL --retry 3 --max-time 60 -o risorse_mappe/Poppins-ExtraBold.ttf https://raw.githubusercontent.com/google/fonts/main/ofl/poppins/Poppins-ExtraBold.ttf
+          ls -la risorse_mappe
+
+      - name: Copertine nelle 3 varianti
+        env:
+          PAYLOAD: ${{ inputs.payload }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python3 strumenti/studio_copertine_mappe.py
+
+      - name: Salva nel repository
+        if: ${{ always() }}
+        run: |
+          if [ -n "$(git status --porcelain prove_angoli)" ]; then
+            git config user.name "render-bot"; git config user.email "render-bot@users.noreply.github.com"
+            git add prove_angoli; git commit -m "Studio copertine mappe"
+            for i in 1 2 3 4 5; do git pull --rebase -q && git push && break; sleep $((i * 5)); done
+          fi
