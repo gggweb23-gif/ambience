@@ -1599,8 +1599,8 @@ def suono_tasti(eventi, totale, out, sr=44100):
 SUONI_CAMBIO_DESCR = [   # libreria generata con ElevenLabs (stessa chiave della voce): suoni veri, tutti diversi
     ('fast cinematic whoosh transition', 0.8), ('soft airy swish, quick camera pan', 0.6), ('deep whoosh with a soft low boom', 1.0),
     ('paper page turning quickly', 0.6), ('short wooden tap, warm and soft', 0.5), ('soft bubble pop, cartoon', 0.5),
-    ('short cinematic impact hit, deep', 0.8), ('quick swoosh with a light magical shimmer', 0.8), ('reverse whoosh riser, short', 0.8),
-    ('soft cloth flutter, flag in the wind, short', 0.6), ('light glass ding, gentle', 0.6), ('drum hit with short reverb, epic', 0.7)]
+    ('short cinematic impact hit, deep', 0.8), ('soft low whoosh, warm and muffled', 0.8), ('reverse whoosh riser, short', 0.8),
+    ('soft cloth flutter, flag in the wind, short', 0.6), ('soft muffled thump, low and warm', 0.5), ('drum hit with short reverb, epic', 0.7)]
 
 
 def _carica_suono(f, sr):
@@ -2846,8 +2846,12 @@ def video_scene(c, durs, voci, kit):
     ancora = [k for k in mancanti if k not in dopo] + [k for k, ok in zip(dopo, riparate) if not ok]
     # 4) ultima rete: la durata della scena mancante va ai vicini, senza superare il ritmo massimo (MAI 10 secondi ferma)
     massimo = max(RITMO) + .5
-    for k in ancora:
-        v = piano[k]; vicini = [j for j in (k - 1, k + 1) if 0 <= j < len(piano) and (piano[j]['tipo'] != 'cartone' or piano[j].get('img'))]
+    buona = lambda j: piano[j]['tipo'] != 'cartone' or bool(piano[j].get('img'))
+    for k in sorted(ancora):
+        v = piano[k]
+        sx = next((j for j in range(k - 1, -1, -1) if buona(j) and not piano[j].get('salta')), None)
+        dx = next((j for j in range(k + 1, len(piano)) if buona(j)), None)
+        vicini = [j for j in (sx, dx) if j is not None]
         if not vicini:
             continue
         quota = v['d'] / len(vicini)
@@ -4047,12 +4051,23 @@ def playlist_video(video_id, titolo):
         lista = [w.strip().lower() for w in parole.split(',') if w.strip()]
         if nome.strip() and (not lista or any(w in titolo.lower() for w in lista)):
             scelte.append(nome.strip()[:150])
-    if not scelte:
-        return ''
     try:
         h = {'Authorization': 'Bearer ' + token()}
-        esistenti = {it['snippet']['title'].strip().lower(): it['id'] for it in
-                     http('https://www.googleapis.com/youtube/v3/playlists?part=snippet&mine=true&maxResults=50', headers=h).get('items', [])}
+        tutte = http('https://www.googleapis.com/youtube/v3/playlists?part=snippet&mine=true&maxResults=50', headers=h).get('items', [])
+        esistenti = {it['snippet']['title'].strip().lower(): it['id'] for it in tutte}
+        if not scelte:
+            argomenti = [x.strip() for x in re.split(r'[,;|\n]', str(P.get('playlist_topics') or '')) if x.strip()]
+            chiave = E('ANTHROPIC_API_KEY', '')
+            if not argomenti or not chiave:
+                return ''
+            r = http('https://api.anthropic.com/v1/messages', {'model': MODELLO_CONTROLLO, 'max_tokens': 60, 'messages': [{'role': 'user', 'content':
+                     f'Video title: "{titolo}".\nAllowed playlist names: {json.dumps(argomenti, ensure_ascii=False)}\n'
+                     'Answer ONLY with the ONE playlist name from the list that best fits the video, exactly as written.'}]},
+                     {'x-api-key': chiave, 'anthropic-version': '2023-06-01'}, timeout=60)
+            nome = ''.join(b.get('text', '') for b in r.get('content', [])).strip().split('\n')[0].strip(' ."\'')
+            nome = next((a for a in argomenti if a.lower() == nome.lower()), argomenti[0])
+            scelte = [nome[:150]]
+            log('playlist scelta:', nome)
         for nome in scelte:
             pid = esistenti.get(nome.lower())
             if not pid:
