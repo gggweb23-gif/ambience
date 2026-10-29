@@ -11,7 +11,7 @@ Stile RICH BORDERS (fisso, uguale in tutti i video): oro = paese ricco, blu-verd
 Pin (puntina rossa con gli occhi) che salta sulla mappa; "numero del video" all'inizio e alla fine; tre note di firma;
 nuvole SOLO nei cambi d'epoca (oggi <-> carta antica), senza whoosh.
 """
-import base64, io, json, math, os, re, shutil, subprocess, sys, time, traceback, urllib.error, urllib.parse, urllib.request, wave
+import base64, io, json, math, os, random, re, shutil, subprocess, sys, time, traceback, urllib.error, urllib.parse, urllib.request, wave
 from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor
 
 import numpy as np
@@ -227,6 +227,9 @@ For EVERY scene you also direct the MAP (equirectangular world map with shaded r
   {{"tipo":"contorno","paese":"ISO-3","parola":".."}}   (glowing outline of one country)
   {{"tipo":"confine","punti":[[lon,lat],[lon,lat],...],"parola":".."}}   (a red border/line drawn on the map)
   {{"tipo":"scritta","testo":"STRANGE?","parola":".."}}   (huge 3D word in the middle, max 2 words, on the key word of a sentence: EXCEPTION, HALF, 9 DAYS, WHY?, NEVER... about one every 20 seconds)
+  {{"tipo":"solleva","paese":["USA"],"volte":8,"testo":"x8","colore":"oro","parola":".."}}   (the country RISES in 3D, height proportional to "volte" (1-12): use it when the voice compares wealth/size, e.g. eight times richer)
+  {{"tipo":"griglia","paese":["MEX"],"pieni":0.1,"testo":"1 IN 10 OWNED LAND","colore":"oro","parola":".."}}   (the country splits into little squares that appear one by one, "pieni" = coloured share (0-1): land ownership, shares of people, quotas)
+  {{"tipo":"conta_paesi","paesi":["MEX","GTM","HND",...],"colore":"rosso","parola":".."}}   (the countries light up ONE BY ONE with a big counter 1, 2, 3... 18: use it when the voice counts countries)
   {{"tipo":"prezzo","testo":"$82,000","sotto":"USA · PER PERSON (max 4 words)","ricco":true,"parola":".."}}   (HUGE price tag in the middle with the sound of a cash register, every time the voice says the income / GDP per person / a price of a country; real numbers only)
   {{"tipo":"barre","titolo":"GDP PER PERSON","voci":[{{"testo":"USA","valore":82,"lato":"oro"}},{{"testo":"MEXICO","valore":14,"lato":"verde"}}],"parola":".."}}   (chart panel, max 4 bars, real numbers only)
   Coordinates must be REAL and well inside the "vista" of that scene (not on its edges).
@@ -626,6 +629,16 @@ def luogo(ev):
             return float(ev['a'][0]), float(ev['a'][1])
         if ev.get('tipo') == 'confine' and ev.get('punti'):
             pts = ev['punti']; return float(pts[len(pts) // 2][0]), float(pts[len(pts) // 2][1])
+        if ev.get('tipo') in ('solleva', 'griglia', 'conta_paesi'):
+            cod = ev.get('paese') or ev.get('paesi') or []
+            cod = [cod] if isinstance(cod, str) else cod
+            anelli_ = [r for c_ in cod for r in risorse()['paesi'].get(str(c_).upper(), [])]
+            r = max(anelli_, key=len, default=None) if ev.get('tipo') != 'conta_paesi' else None
+            if r is not None:
+                return float(r[:, 0].mean()), float(r[:, 1].mean())
+            if anelli_:
+                pts_ = np.concatenate(anelli_); return float(np.median(pts_[:, 0])), float(np.median(pts_[:, 1]))
+            return None
         if ev.get('tipo') == 'contorno':
             r = max(risorse()['paesi'].get(str(ev.get('paese')).upper(), []), key=len, default=None)
             return (float(r[:, 0].mean()), float(r[:, 1].mean())) if r is not None else None
@@ -938,6 +951,12 @@ def disegna_scena(job):
                     d.text((xc, yc), tx, font=f, fill=(255, 255, 255), anchor='mm', stroke_width=3, stroke_fill=(60, 66, 80))
                 elif tipo == 'prezzo':
                     prezzo_grande(im, ev, k)
+                elif tipo == 'solleva':
+                    solleva(im, ev, pt, t - ev['_t'], fine)
+                elif tipo == 'griglia':
+                    griglia(im, ev, pt, t - ev['_t'], fine)
+                elif tipo == 'conta_paesi':
+                    conta_paesi(im, base, ev, pt, t - ev['_t'], fine)
                 elif tipo == 'contorno':
                     lampo = .5 + .5 * math.sin((t - ev['_t']) * 5)
                     for xy in anelli_visibili([ev.get('paese')], pt):
@@ -1015,6 +1034,97 @@ def disegna_scena(job):
     if p.returncode:
         raise RuntimeError('ffmpeg scena fallito')
     return path
+
+
+COL_EV = {'oro': ORO, 'giallo': ORO, 'verde': VERDE, 'rosso': (232, 70, 30), 'arancio': (232, 90, 30), 'ruggine': (214, 80, 30)}
+
+
+def solleva(im, ev, pt, dt, fine):
+    """Il paese si ALZA in 3D (blocco con spessore) in proporzione al dato: x8 = 8 volte piu' alto. Come il competitor."""
+    if dt <= 0 or fine <= 0:
+        return
+    cod = ev.get('paese') or []; cod = [cod] if isinstance(cod, str) else cod
+    polys = anelli_visibili(cod, pt)
+    if not polys:
+        return
+    try:
+        volte = max(1.0, min(12.0, float(ev.get('volte') or 3)))
+    except Exception:
+        volte = 3.0
+    alt = 26 * volte * back(min(1, dt / 1.1)) * fine   # altezza in pixel
+    col = COL_EV.get(str(ev.get('colore') or 'oro'), ORO)
+    lato = mix(col, (40, 20, 0), .45); d = ImageDraw.Draw(im)
+    passo = 3
+    for h in range(0, int(alt), passo):   # spessore: strati scuri impilati
+        for xy in polys:
+            d.polygon([(x, y - h) for x, y in xy], fill=lato + (255,))
+    for xy in polys:   # faccia sopra luminosa
+        d.polygon([(x, y - alt) for x, y in xy], fill=col + (255,))
+        d.line([(x, y - alt) for x, y in xy] + [(xy[0][0], xy[0][1] - alt)], fill=(255, 255, 255, 230), width=3)
+    tx = str(ev.get('testo') or '').strip()
+    if tx and dt > .6:
+        xs = [p[0] for xy in polys for p in xy]; ys = [p[1] for xy in polys for p in xy]
+        x0, y0 = max(xs) + 30, min(ys) - alt + 40
+        f = font('Poppins-ExtraBold.ttf', 150 * back(min(1, (dt - .6) / .35)))
+        x0 = min(x0, W - 260); y0 = max(120, y0)
+        ImageDraw.Draw(im).text((x0, y0), tx.replace('x', '×', 1) if re.match(r'^x\d', tx) else tx, font=f, fill=col, stroke_width=8, stroke_fill=(30, 30, 40))
+
+
+def griglia(im, ev, pt, dt, fine):
+    """Il paese diviso in QUADRATINI che compaiono uno dopo l'altro: una parte colorata (es. 9 su 10), il resto grigio. Per terre, proprietari, quote."""
+    if dt <= 0 or fine <= 0:
+        return
+    cod = ev.get('paese') or []; cod = [cod] if isinstance(cod, str) else cod
+    polys = anelli_visibili(cod, pt)
+    if not polys:
+        return
+    m = Image.new('L', (W, H), 0); dm = ImageDraw.Draw(m)
+    for xy in polys:
+        dm.polygon(xy, fill=255)
+    bb = m.getbbox()
+    if not bb:
+        return
+    lato_c = max(14, int((bb[2] - bb[0]) / 38)); a = np.asarray(m)
+    celle = [(x, y) for y in range(bb[1], bb[3], lato_c) for x in range(bb[0], bb[2], lato_c)
+             if a[min(H - 1, y + lato_c // 2), min(W - 1, x + lato_c // 2)] > 0]
+    if not celle:
+        return
+    rng = random.Random(str(ev.get('testo')) + str(cod)); ordine = list(range(len(celle))); rng.shuffle(ordine)
+    try:
+        quota = max(0.0, min(1.0, float(ev.get('pieni') or .5)))
+    except Exception:
+        quota = .5
+    pieni = set(ordine[:int(len(celle) * quota)])
+    col = COL_EV.get(str(ev.get('colore') or 'oro'), ORO); d = ImageDraw.Draw(im)
+    visibili = int(len(celle) * min(1, dt / 1.6))
+    for j in ordine[:visibili]:
+        x, y = celle[j]
+        d.rectangle([x + 2, y + 2, x + lato_c - 2, y + lato_c - 2], fill=(col if j in pieni else (150, 150, 150)) + (int(235 * fine),),
+                    outline=(255, 255, 255, int(160 * fine)))
+    tx = str(ev.get('testo') or '').upper()[:26]
+    if tx and dt > 1.0:
+        etichetta(im, (bb[0] + bb[2]) / 2, bb[1] - 70, tx, ease((dt - 1.0) / .35) * fine, 64)
+
+
+def conta_paesi(im, base, ev, pt, dt, fine):
+    """I paesi si colorano UNO DOPO L'ALTRO e un grande contatore sale (1, 2, 3 ... 18)."""
+    if dt <= 0 or fine <= 0:
+        return
+    cod = [str(c) for c in (ev.get('paesi') or [])][:40]
+    if not cod:
+        return
+    passo = min(.18, 2.2 / max(1, len(cod))); n = min(len(cod), int(dt / passo) + 1)
+    col = COL_EV.get(str(ev.get('colore') or 'rosso'), (232, 70, 30))
+    xs, ys = [], []
+    for c in cod[:n]:
+        polys = anelli_visibili([c], pt)
+        riempi(im, base, polys, col, fine, 6)
+        for xy in polys:
+            xs += [p[0] for p in xy]; ys += [p[1] for p in xy]
+    if xs:
+        x0 = min(W - 220, max(xs) + 60); y0 = max(160, min(H - 200, (min(ys) + max(ys)) / 2))
+        f = font('Poppins-ExtraBold.ttf', 190)
+        ImageDraw.Draw(im).text((x0, y0), str(n), font=f, fill=col, anchor='lm', stroke_width=9, stroke_fill=(30, 30, 40))
 
 
 def prezzo_grande(im, ev, k):
