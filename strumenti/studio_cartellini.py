@@ -58,7 +58,19 @@ def vista_per(isos, Wm, margine=1.35, alto=0.0):
 
 
 def mezza(isos, col, Wm, scuro=False, alto=0.0):
-    """Mezza copertina (Wm x H) centrata su questi paesi. Ritorna immagine e i poligoni in pixel (coordinate della meta')."""
+    """Mezza copertina (Wm x H) centrata su questi paesi. Paesi enormi (Russia) che non entrano nella meta': disegnati a tutto schermo e rimpiccioliti."""
+    pts = np.concatenate(anelli_lonlat(isos)); lon_c = float((pts[:, 0].min() + pts[:, 0].max()) / 2); span = float(pts[:, 0].max() - pts[:, 0].min())
+    serve = span * 1.1 * W / Wm
+    if Wm < W and (serve > 330 or serve / 2 > 180 - abs(lon_c)):
+        im, m = _mezza(isos, col, W, scuro, 0.0)
+        h2 = int(H * Wm / W); y0 = int((H - h2) * (.5 + alto / 2))
+        fondo = Image.new('RGBA', (Wm, H), (8, 22, 48, 255) if scuro else (60, 120, 190, 255))
+        fondo.paste(im.resize((Wm, h2), Image.LANCZOS), (0, y0)); mm = Image.new('L', (Wm, H), 0); mm.paste(m.resize((Wm, h2)), (0, y0))
+        return fondo, mm
+    return _mezza(isos, col, Wm, scuro, alto)
+
+
+def _mezza(isos, col, Wm, scuro=False, alto=0.0):
     v = VM.camera(vista_per(isos, Wm, alto=alto)); base, pt = VM.fondo(v, 0.0)
     base = ImageEnhance.Contrast(ImageEnhance.Color(base).enhance(1.45)).enhance(1.12)
     if scuro:
