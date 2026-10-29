@@ -258,8 +258,9 @@ VIETATO descrivere l'ASPETTO del personaggio del competitor: niente colore della
 "accessori" (in inglese) = cio' che il personaggio ha addosso OLTRE ai vestiti (cuffie, occhiali, coperta sulle spalle, cappello, zaino...); "" se niente. MAI maglioni, maglie, giacche o altri vestiti: KAO ha SEMPRE la sua maglia magenta.
 "grafica" (in inglese) = gli elementi grafici disegnati sopra la scena (frecce rosse e dove puntano, cerchi, punti di domanda, punti esclamativi, nuvolette di pensiero, X, linee di movimento); "" se nessuno.
 "composizione" (in inglese) = SOLO se la copertina NON e' una scena unica: com'e' divisa e cosa c'e' in ogni parte (es. "split screen in two halves: LEFT a very messy living room with clothes and dishes everywhere and KAO overwhelmed; RIGHT the same living room perfectly clean and KAO relaxed in an armchair with a cup; the title is in the middle over the dividing line"). Il personaggio compare in OGNI parte dove compare nel competitor. "" se e' una scena unica.
+"scena_unica" (in inglese) = SOLO se c'e' una "composizione": la STESSA storia raccontata in UNA sola scena continua, senza divisioni (es. per "LEFT KAO holds hands with his partner; RIGHT KAO secretly texting another woman": "KAO holds hands with his partner while secretly glancing at another woman who winks at him from a few steps away"); "" altrimenti.
 "persone" (in inglese) = le ALTRE persone della situazione (quelle della copertina competitor o quelle che servono a far capire il contesto: genitori che litigano, partner, amici, folla...), cosa fanno e dove stanno; "" se la situazione e' di una persona sola.
-Rispondi SOLO JSON: {{"riga1": "...", "riga2": "...", "emo": "...", "oggetto": "...", "scena": "...", "azione": "...", "luogo": "...", "persone": "...", "posa": "...", "accessori": "...", "grafica": "", "composizione": "", "lato_testo": "destra", "cambi": ""}}"""
+Rispondi SOLO JSON: {{"riga1": "...", "riga2": "...", "emo": "...", "oggetto": "...", "scena": "...", "azione": "...", "luogo": "...", "persone": "...", "posa": "...", "accessori": "...", "grafica": "", "composizione": "", "scena_unica": "", "lato_testo": "destra", "cambi": ""}}"""
     try:
         rr = http('https://api.anthropic.com/v1/messages', {'model': E('MODELLO_AI', 'claude-sonnet-5-5'), 'max_tokens': 2000,
                   'messages': [{'role': 'user', 'content': [{'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}},
@@ -663,9 +664,10 @@ def rif_data(pth):
     return 'data:image/jpeg;base64,' + base64.b64encode(buf.getvalue()).decode()
 
 
-def riferimento_stile(vid):
-    """La vecchia copertina del video (se e' nello stile vecchio), altrimenti un'altra vecchia copertina del canale nello stile vecchio."""
-    for f in [vid + '.jpg'] + [x for x in VECCHIE_INIZIO if x != vid + '.jpg'][:12]:
+def riferimento_stile(vid, evita_sua=False):
+    """La vecchia copertina del video (se e' nello stile vecchio), altrimenti un'altra vecchia copertina del canale nello stile vecchio.
+    evita_sua: la copertina attuale del video non si usa (es. era a schermo diviso: verrebbe ricopiata divisa)."""
+    for f in ([] if evita_sua else [vid + '.jpg']) + [x for x in VECCHIE_INIZIO if x != vid + '.jpg'][:12]:
         pth = os.path.join(VECCHIE, f)
         if f in VECCHIE_INIZIO and os.path.exists(pth) and stile_vecchio(pth):
             return pth, f == vid + '.jpg'
@@ -723,12 +725,13 @@ def fai(i):
                   'YouTube thumbnail 16:9, modern, premium, very high contrast, readable on a phone. Absolutely NO text, letters or numbers in the image.')
         t['lato_testo'] = 'destra'
         if STILE == 'piatto':   # la VECCHIA copertina (stile che funzionava) aggiornata: stessa grafica, ma scena/posa/oggetti come il competitor
-            rif, sua = riferimento_stile(c['id'])
+            diviso = bool(t.get('composizione'))
+            rif, sua = riferimento_stile(c['id'], evita_sua=diviso)
             refs = ([rif_data(rif)] if rif else []) + [ID]   # NIENTE immagine del competitor: solo la descrizione
             t['rif_stile'] = rif or ''
-            if t.get('composizione'):   # stile KAO: SEMPRE una scena unica con la meta' libera per la scritta (lo schermo diviso faceva coprire una meta' dal cartoncino)
-                t['persone'] = (str(t.get('persone') or '') + ' Tell the SAME story of this split thumbnail inside ONE single continuous scene '
-                                '(everything important in the half opposite to the title): ' + str(t['composizione'])).strip()
+            if diviso:   # stile KAO: SEMPRE una scena unica con la meta' libera per la scritta (lo schermo diviso faceva coprire una meta' dal cartoncino)
+                unica = str(t.get('scena_unica') or '').strip()
+                t['persone'] = (str(t.get('persone') or '') + ' ' + (unica or 'everyone in ONE single continuous scene, close together')).strip()
                 t['composizione'] = ''
                 if str(t.get('lato_testo_comp') or '') == 'centro':
                     t['lato_testo_comp'] = 'destra'
