@@ -262,7 +262,11 @@ for x in piani:
     Image.open(os.path.join(SRC, f'{n}_loro.jpg')).save(os.path.join(CART, f'{n}_loro.jpg'), quality=90)
     for v in (P0.get('varianti') or ['A', 'B', 'C']):
         try:
-            if v.startswith('B') and len(v) == 2 and len(luoghi) >= 2:
+            if v == 'MOTORE':   # la copertina esattamente come la fara' il motore (copertina_cartellino.py)
+                import copertina_cartellino as CC
+                CC.VM = VM
+                CC.copertina_b2(luoghi, domanda, os.path.join(CART, f'{n}_{v}.jpg'))
+            elif v.startswith('B') and len(v) == 2 and len(luoghi) >= 2:
                 b_varianti(v, luoghi, domanda, os.path.join(CART, f'{n}_{v}.jpg'))
             else:
                 copertina(v, luoghi, testo_loro, domanda, os.path.join(CART, f'{n}_{v}.jpg'))
@@ -274,7 +278,7 @@ F = VM.font('Anton-Regular.ttf', 30); F2 = VM.font('Anton-Regular.ttf', 22)
 tw, th = 640, 360
 S = Image.new('RGB', (tw * 4, (th + 50) * len(righe) + 50), 'white'); d = ImageDraw.Draw(S)
 VARI = P0.get('varianti') or ['A', 'B', 'C']
-NOMI = {'A': 'A · COME LORO + CARTELLINI', 'B': 'B · RIFLETTORE', 'C': 'C · IL DIVARIO', 'B1': 'B1 · DOMANDA ENORME', 'B2': 'B2 · PAROLA GIGANTE', 'B3': 'B3 · PREZZI GIGANTI'}
+NOMI = {'A': 'A · COME LORO + CARTELLINI', 'B': 'B · RIFLETTORE', 'C': 'C · IL DIVARIO', 'B1': 'B1 · DOMANDA ENORME', 'B2': 'B2 · PAROLA GIGANTE', 'B3': 'B3 · PREZZI GIGANTI', 'MOTORE': 'B2 · VERSIONE DEL MOTORE'}
 for j, t in enumerate(['LORO'] + [NOMI.get(v, v) for v in VARI]):
     d.text((j * tw + 10, 8), t, font=F, fill='black')
 M = Image.new('RGB', (4 * 256 + 10, len(righe) * 148 + 10), (15, 15, 15))

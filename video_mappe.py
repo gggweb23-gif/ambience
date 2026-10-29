@@ -1500,7 +1500,13 @@ def main():
     finale = os.path.join(ROOT, 'video_mappe.mp4')
     invito_iscriviti(muto, audio, finale, totale)
     try:   # copertina 90% come quella del competitor (schema diviso, colori fluo, stessa scritta); se non riesce, quella di prima
-        cop = copertina_nuova(piano_copertina(comp, c), os.path.join(ROOT, 'copertina.jpg'))
+        if str(P.get('copertina_stile') or '').strip().lower() == 'cartellino':   # stile scelto per Rich Borders (29 ott): cartellini del prezzo + parola gigante
+            import copertina_cartellino as CC
+            CC.VM = sys.modules[__name__]
+            pc = CC.piano(comp); log('copertina cartellino:', json.dumps(pc, ensure_ascii=False)[:300])
+            cop = CC.copertina_b2(pc.get('luoghi') or [], pc.get('scritta') or 'WHY?', os.path.join(ROOT, 'copertina.jpg'))
+        else:
+            cop = copertina_nuova(piano_copertina(comp, c), os.path.join(ROOT, 'copertina.jpg'))
     except Exception as e:
         log('copertina nuova non riuscita, uso quella semplice:', str(e)[:150])
         cop = copertina(c, os.path.join(ROOT, 'copertina.jpg'))
