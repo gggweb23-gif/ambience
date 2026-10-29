@@ -99,6 +99,8 @@ IMMAGINI_MAX = int(float(str(P.get('immagini_max') or E('IMMAGINI_MAX', '') or 2
 TAVOLE = str(P.get('tavole') or E('TAVOLE', '') or 'NO').strip().upper() == 'SI'   # regia: ogni immagine generata = tavola 2x2 con 4 inquadrature diverse (mai la stessa immagine due volte)
 if TAVOLE and not (P.get('immagini_nuove') or E('IMMAGINI_NUOVE', '')):
     NUOVE_QUOTA = .3   # una tavola ogni ~4 inquadrature: le altre 3 sono gli altri pannelli
+COMING_UP = float(str(P.get('coming_up_secondi') or E('COMING_UP_SECONDI', '') or 0).replace(',', '.'))   # scene: anteprima iniziale "COMING UP..." (0 = spenta)
+ALTA_RIS = str(P.get('risoluzione') or E('RISOLUZIONE', '') or '').strip() == '1440'   # video finale a 2560x1440 (YouTube lo comprime meglio)
 PEXELS_DA = float(str(P.get('pexels_da_secondi') or E('PEXELS_DA_SECONDI', '') or 60).replace(',', '.'))   # regia: prima di questo secondo solo cartoni
 REGIA_PEXELS = _perc(P.get('regia_pexels') or E('REGIA_PEXELS', ''), 0)   # regia: % di inquadrature Pexels (clip e foto d'epoca) dopo PEXELS_DA
 ATMOSFERA = str(P.get('atmosfera') or E('ATMOSFERA', '') or ('SI' if TAVOLE else 'NO')).strip().upper() == 'SI'   # pioggia, neve, polvere, braci, nebbia animate sopra l'immagine quando la scena le ha
@@ -581,6 +583,9 @@ VIETATE = ('firefighter', 'fire-fighter', 'jakarta', 'police', 'car', 'cars', 't
            'soldier', 'soldiers', 'knight', 'knights', 'warrior', 'warriors', 'reenactment', 'costume', 'parade', 'festival', 'army', 'crowd')
 PAESE = {'nome': ''}
 MODELLO_CONTROLLO = E('MODELLO_CONTROLLO', 'claude-haiku-4-5-20251001')
+VIETATE_SCENE = tuple(w.strip().lower() for w in re.split(r'[,;]', str(P.get('stock_exclude_words') or '')) if w.strip()) + (
+    'cafe', 'coffee', 'shop', 'store', 'donut', 'donuts', 'restaurant', 'supermarket', 'people', 'woman', 'girl', 'tourist', 'tourists',
+    'crowd', 'modern', 'apartment', 'shopping', 'bakery', 'pastry', 'neon', 'skyline', 'highway')   # scene: mai luoghi o persone di oggi
 
 
 def pexels_cerca(tipo, q):
@@ -633,7 +638,8 @@ def pexels_cerca(tipo, q):
                                 'desc': ((ph.get('alt') or '') + ' ' + (ph.get('url') or '')).lower(), 'autore': str(ph.get('photographer_id') or '')})
         except Exception as e:
             log('Pexels:', q, str(e)[:120])
-    ris = [r for r in ris if r['url'] and not any(re.search(r'(^|[^a-z])' + w + r'([^a-z]|$)', r['desc']) for w in VIETATE)]
+    vietate = VIETATE + (VIETATE_SCENE if TAVOLE else ())
+    ris = [r for r in ris if r['url'] and not any(re.search(r'(^|[^a-z])' + re.escape(w) + r'([^a-z]|$)', r['desc']) for w in vietate)]
     with _lock:
         _cache[k] = ris
     return ris
@@ -669,7 +675,7 @@ VANNO BENE: paesaggi, montagne, deserti, rovine, monumenti antichi, musei, ogget
 Per il LUOGO basta che sia plausibile per quel paese (montagne, deserti, rovine, cieli vanno bene se il clima e' simile); scarta solo cio' che e' chiaramente di un altro mondo (es. colline verdi alpine per un deserto, palme tropicali, citta' europee).
 Rispondi con UNA SOLA riga, esattamente cosi' e nient'altro: SCELTA: <numero della prima immagine adatta, oppure -1 se nessuna va bene>"""})
     try:
-        r = http('https://api.anthropic.com/v1/messages', {'model': E('MODELLO_PEXELS', '') or MODELLO_CONTROLLO, 'max_tokens': 400, 'messages': [{'role': 'user', 'content': cont}]},
+        r = http('https://api.anthropic.com/v1/messages', {'model': str(P.get('modello_pexels') or E('MODELLO_PEXELS', '') or MODELLO_CONTROLLO), 'max_tokens': 400, 'messages': [{'role': 'user', 'content': cont}]},
                  {'x-api-key': chiave, 'anthropic-version': '2023-06-01'}, timeout=120)
         txt = ''.join(b.get('text', '') for b in r.get('content', []))
         m = (re.search(r'SCELTA:\s*\**\s*(-?\d+)', txt) or re.search(r'(-?\d+)\s*$', txt.strip())
@@ -1659,13 +1665,20 @@ def pista_cambi(piano, totale, out, sr=44100):
     lib, fonte = _libreria_cambio(sr)
     a = np.zeros(int((totale + 2) * sr), np.float32)
     rng = random.Random(str(P.get('id') or TITOLO)); ultimi, t, n = [], 0.0, 0
-    scatto = None
+    scatto = colpo = None
+    if any(v.get('scritta') for v in piano):
+        try:
+            colpo = _stesso_volume(_carica_suono(effetto('short punchy cinematic impact hit, deep boom', 1.0, 0), sr)[:int(sr * .8)], .18)
+        except Exception as e:
+            log('suono delle scritte non generato:', str(e)[:100])
     if any(v.get('tipo') == 'pexels_foto' for v in piano):
         try:
             scatto = _stesso_volume(_carica_suono(effetto('single camera shutter click, vintage camera, crisp', 1.0, 0), sr)[:int(sr * .6)], .2)
         except Exception as e:
             log('suono di scatto non generato:', str(e)[:100])
     for k, v in enumerate(piano):
+        if v.get('scritta') and colpo is not None:   # scritta che entra a scatto: colpo secco
+            j = max(0, int((t + .08) * sr)); s_ = colpo[:max(0, len(a) - j)]; a[j:j + len(s_)] += s_.astype(np.float32) * .8
         if k and v.get('tipo') == 'pexels_foto' and scatto is not None:   # foto: scatto della macchina fotografica
             j = max(0, int((t - .03) * sr)); s_ = scatto[:max(0, len(a) - j)]; a[j:j + len(s_)] += s_.astype(np.float32); n += 1
         elif k and SUONI_CAMBIO and (not TAVOLE or v.get('prompt') or v.get('tipo') != 'cartone'):
@@ -2316,14 +2329,14 @@ def _atmosfera_clip(tipo):
     return out
 
 
-def pezzo_regia(path, d, img, zoom, camera, titolo='', nome_font='classico', atmo=''):
+def pezzo_regia(path, d, img, zoom, camera, titolo='', nome_font='classico', atmo='', flash=False):
     x0, y0, w0 = ZOOM_BOX.get(zoom or '', ZOOM_BOX[''])
     w0 = min(w0, .86) if camera in ('pan_left', 'pan_right', 'tilt_up', 'tilt_down') else w0
     cx, cy = x0 + ZOOM_BOX.get(zoom or '', ZOOM_BOX[''])[2] / 2, y0 + ZOOM_BOX.get(zoom or '', ZOOM_BOX[''])[2] / 2
     a = (max(0, min(1 - w0, cx - w0 / 2)), max(0, min(1 - w0, cy - w0 / 2)), w0)
     sp = (1 - w0) * .9   # quanto ci si puo' spostare
-    if camera == 'push_in':
-        w1 = a[2] * .84; b = (a[0] + (a[2] - w1) / 2, a[1] + (a[2] - w1) / 2, w1)
+    if camera in ('push_in', 'punch'):
+        w1 = a[2] * (.72 if camera == 'punch' else .84); b = (a[0] + (a[2] - w1) / 2, a[1] + (a[2] - w1) / 2, w1)
     elif camera == 'pull_out':
         w1 = a[2] * .84; b = a; a = (a[0] + (a[2] - w1) / 2, a[1] + (a[2] - w1) / 2, w1)
     elif camera in ('pan_left', 'pan_right'):
@@ -2334,6 +2347,9 @@ def pezzo_regia(path, d, img, zoom, camera, titolo='', nome_font='classico', atm
         a, b = ((a[0], b_, w0), (a[0], t_, w0)) if camera == 'tilt_up' else ((a[0], t_, w0), (a[0], b_, w0))
     n1 = max(1, int(d * FPS) - 1)
     e = lambda p_, q: f'({p_:.4f}+({q:.4f}-{p_:.4f})*(3*pow(on/{n1},2)-2*pow(on/{n1},3)))'
+    if camera == 'punch':   # zoom secco nei primi 0,2 s, poi quasi fermo: il "colpo" dei video ad alto ritmo
+        k5 = max(2, int(FPS * .2))
+        e = lambda p_, q: f'({p_:.4f}+({q:.4f}-{p_:.4f})*(0.85*(1-pow(1-min(on/{k5},1),3))+0.15*on/{n1}))'
     vf = (f"scale=3840:2160:flags=lanczos,zoompan=z='1/{e(a[2], b[2])}':x='iw*{e(a[0], b[0])}':y='ih*{e(a[1], b[1])}':d=1:s={W}x{H}:fps={FPS}")
     ov = None
     if ATMOSFERA and atmo in ATMO_TIPI:
@@ -2343,6 +2359,8 @@ def pezzo_regia(path, d, img, zoom, camera, titolo='', nome_font='classico', atm
             log('atmosfera saltata:', atmo, str(e_)[:120])
     if ov:   # particelle sopra il disegno; grana e titolo vengono dopo
         vf += f"[b];[1:v]scale={W}:{H},format=rgba[o];[b][o]overlay=0:0:shortest=1"
+    if flash:
+        vf += ',fade=t=in:st=0:d=0.15:color=white'
     if GRANA:
         vf += ',noise=alls=4:allf=t,vignette=angle=PI/6'
     if titolo:   # inizio capitolo: titolo grande che appare e scompare
@@ -2436,6 +2454,328 @@ def video_regia(c, durs, voci, kit):
         paths = list(ex.map(fai, range(len(piano))))
     log('inquadrature pronte:', len(paths), 'in', int(time.time() - t0), 's')
     return piano, paths
+
+
+# ============================================================ SCENE (colonna tavole=SI): ogni inquadratura e' una SCENA DIVERSA, mai ripetuta
+# Ritmo da "film" (metodo MrBeast): taglio ogni 2-3 s, anteprima COMING UP, scritte a scatto, etichetta fissa, battute, zoom secchi, suoni.
+# Ogni immagine generata e' un foglio 2x2 a 4K con 4 scene DIVERSE in sequenza (4 immagini Full HD al prezzo di una).
+CAMERE_SCENE = CAMERE + ('punch',)
+REGOLE_PEXELS_SCENE = REGOLE_PEXELS.replace('Mai due di fila e mai a meta\' di una tavola (dopo un pexels la riga seguente e\' "nuova": true). ', 'Mai due di fila. ')
+SCENA_FOGLIO = ('A 2x2 STORYBOARD SHEET: the image is divided into FOUR EQUAL panels (top-left, top-right, bottom-left, bottom-right) separated by thin straight '
+                'white lines that cross exactly in the centre. Each panel is a complete 16:9 frame showing a DIFFERENT scene of the same story, in this order: ')
+SCENA_FINE = (' Every panel shows an ACTION happening, never a static pose; vary the framing between panels (wide, medium, close-up, detail, from above, from below). '
+              'Recurring characters keep the same face and clothes. Places are shown exactly as they were IN THAT ERA, never as they look today. '
+              'Everything is historically accurate for the era of the story: no modern buildings, no later monuments, no factory chimneys, no glass windows, '
+              'no electric lights, no iron railings, no church crosses, no modern clothes or objects. '
+              'No text, no letters, no numbers, no captions, no speech bubbles, no borders other than the thin white dividing lines.')
+
+
+def piano_scene(c, shots, kit):
+    """Claude fa il regista: per OGNI inquadratura una scena diversa, piu' scritte, etichette, battute e suoni."""
+    chiave = E('ANTHROPIC_API_KEY', '')
+    lotto, ris, gia = 50, {}, []
+    for b0 in range(0, len(shots), lotto):
+        parte = shots[b0:b0 + lotto]
+        elenco = '\n'.join(f'{b0 + k}: {s["testo"]}' + ('   [COMING UP]' if s.get('t', 0) < COMING_UP else '')
+                           + (f'   [CAPITOLO: {s["capitolo"]}]' if s.get('capitolo') else '')
+                           + ('   [PEXELS SI]' if REGIA_PEXELS and s.get('t', 0) >= PEXELS_DA else '') for k, s in enumerate(parte))
+        prompt = f"""Sei il regista di un video YouTube di storia a cartone che deve tenere incollati come un film (ritmo da MrBeast): "{c.get('titolo') or TITOLO}".
+Ogni riga e' un'inquadratura di 2-3 secondi con le PAROLE che la voce dice in quel momento. Per OGNI riga decidi cosa si vede.
+{('Scene GIA usate (non ripeterle MAI, nemmeno simili): ' + ' | '.join(gia[-40:])) if gia else ''}
+
+REGOLE:
+1. OGNI RIGA E' UNA SCENA DIVERSA: un'altra azione, un altro soggetto o un altro luogo. MAI la stessa scena due volte, nemmeno da un'altra angolazione o piu' da vicino. Lo spettatore deve vedere sempre qualcosa di nuovo che succede.
+2. COERENZA: la scena mostra ESATTAMENTE quello che dicono le parole di quella riga (persone, luogo, ora del giorno, tempo atmosferico, emozione). Se le parole sono astratte, una scena concreta che le rappresenta.
+3. "prompt_en" (SEMPRE, anche sulle righe Pexels): in inglese, 25-45 parole: chi c'e', cosa sta FACENDO (un'azione in corso), dove, luce, emozione forte e leggibile, e l'inquadratura. Alterna di continuo campo largo, campo medio, primo piano, dettaglio, dall'alto, dal basso: mai la stessa inquadratura due volte di fila. Vestiti, armi, edifici e oggetti esatti dell'epoca raccontata; luoghi come erano ALLORA. Mai scritte nelle immagini.
+4. "personaggi": 0-2 id del kit solo se sono proprio loro. Kit: {lista_kit(kit)}. I personaggi ricorrenti hanno sempre gli stessi vestiti: descrivili uguali ogni volta.
+5. "camera": push_in, pull_out, pan_left, pan_right, tilt_up, tilt_down, punch (zoom secco: solo nei momenti forti, 1 riga ogni 5-6). Mai uguale due volte di fila.
+6. [COMING UP]: queste righe sono l'ANTEPRIMA del video, come nei video di MrBeast: mostrano i momenti piu' spettacolari, sorprendenti o drammatici di TUTTA la storia (anche se la voce qui dice altro), ognuno una scena diversa. Nel resto del video non disegnare MAI di nuovo una scena gia' mostrata nell'anteprima.
+7. "scritta" (circa 1 riga ogni 4, mai due di fila): 1-4 parole IN MAIUSCOLO che la voce dice in quella riga e che colpiscono (numeri, cifre, orari, nomi, parole forti: "5:00 AM", "300 SESTERCES", "NO WATER", "CAESAR"). Nella lingua del video.
+8. "etichetta": quando nel racconto cambia il momento (ora del giorno, giorno, anno, tappa), una etichetta breve che resta fissa nell'angolo finche' non cambia (es. "5:00 AM", "NOON", "DAY 1", "64 AD"). Altrimenti "".
+9. "battuta" (1-2 al minuto, solo nei momenti ironici o sorprendenti): commento breve e divertente in basso, max 6 parole, nella lingua del video (es. "OUCH...", "NOT IDEAL", "HE WAS NOT OKAY").
+10. "flash": true solo nei colpi di scena (max 1 ogni 20 secondi).
+11. "atmosfera" (di solito ""): pioggia, neve, polvere, braci o nebbia SOLO se la scena li ha davvero.
+12. "suono" (circa una riga ogni 4): effetto sonoro in inglese, 3-8 parole, coerente con quello che si vede (passi, porta, folla, spade, cavalli, fuoco, pioggia, monete). Mai musica, mai voci.
+{REGOLE_PEXELS_SCENE.format(q=REGIA_PEXELS) if REGIA_PEXELS else ''}
+
+INQUADRATURE:
+{elenco}
+
+Rispondi SOLO con un array JSON, un oggetto per riga, con lo stesso numero "n":
+[{{"n": {b0}, "prompt_en": "...", "personaggi": [], "camera": "push_in", "scritta": "", "etichetta": "", "battuta": "", "flash": false, "atmosfera": "", "suono": ""{', "tipo": "cartone", "q": "", "alt_q": []' if REGIA_PEXELS else ''}}}]"""
+        for k in range(3):
+            try:
+                testo, _ = claude_stream({'model': MODELLO_AI if k < 2 else MODELLO_RISERVA, 'max_tokens': 32000,
+                                          'messages': [{'role': 'user', 'content': prompt}]}, chiave)
+                arr = json.loads(testo[testo.find('['): testo.rfind(']') + 1])
+                for x in arr:
+                    if isinstance(x, dict) and str(x.get('n', '')).lstrip('-').isdigit():
+                        ris[int(x['n'])] = x
+                break
+            except Exception as e:
+                log('regia scene non valida, riprovo:', str(e)[:150]); time.sleep(5)
+        gia += [str(ris[n].get('prompt_en') or '')[:90] for n in range(b0, b0 + len(parte)) if n in ris and ris[n].get('prompt_en')]
+    out, ultima_cam, etichetta, ultimo_px, ultima_scritta = [], '', '', False, -9
+    for n, s in enumerate(shots):
+        r = dict(ris.get(n) or {})
+        cam = r.get('camera') if r.get('camera') in CAMERE_SCENE else random.choice(CAMERE)
+        if cam == ultima_cam:
+            cam = random.choice([x for x in CAMERE if x != cam])
+        ultima_cam = cam
+        if str(r.get('etichetta') or '').strip():
+            etichetta = str(r['etichetta']).strip().upper()[:18]
+        scritta = str(r.get('scritta') or '').strip().upper()[:28]
+        if scritta and n - ultima_scritta < 2:
+            scritta = ''
+        if scritta:
+            ultima_scritta = n
+        v = dict(s, tipo='cartone', camera=cam, prompt=str(r.get('prompt_en') or '').strip() or ('Historical scene, action in progress, illustrating: ' + s['testo']),
+                 personaggi=[x for x in (r.get('personaggi') or []) if x in kit and x != NARRATORE][:2], scritta=scritta, etichetta=etichetta,
+                 battuta=str(r.get('battuta') or '').strip().upper()[:40], flash=bool(r.get('flash')),
+                 atmo=str(r.get('atmosfera') or '').strip().lower() if str(r.get('atmosfera') or '').strip().lower() in ATMO_TIPI else '',
+                 suono=str(r.get('suono') or '').strip()[:80], didascalia='', coming_up=s.get('t', 0) < COMING_UP)
+        q_px = str(r.get('q') or '').strip()
+        if q_px:
+            v.update(q=q_px, alt_q=[str(x).strip() for x in (r.get('alt_q') or []) if str(x).strip()][:2])
+        if REGIA_PEXELS and s.get('t', 0) >= PEXELS_DA and r.get('tipo') in ('pexels_video', 'pexels_foto') and q_px and not ultimo_px:
+            v.update(tipo=r['tipo'], contesto=s['testo'], camera='')
+        ultimo_px = v['tipo'] != 'cartone'
+        out.append(v)
+    # tetto di costo: piu' scene a cartone di quelle pagate dal tetto -> immagini Pexels d'epoca (dopo il primo minuto, mai due di fila)
+    cartoni = [i for i, v in enumerate(out) if v['tipo'] == 'cartone']
+    troppe = len(cartoni) - IMMAGINI_MAX * 4
+    if troppe > 0 and REGIA_PEXELS:
+        adatti = [i for i in cartoni if out[i].get('q') and out[i].get('t', 0) >= PEXELS_DA and not out[i].get('capitolo')
+                  and (i == 0 or out[i - 1]['tipo'] == 'cartone') and (i + 1 >= len(out) or out[i + 1]['tipo'] == 'cartone')]
+        scelti = [adatti[int(j * len(adatti) / troppe)] for j in range(min(troppe, len(adatti)))] if adatti else []
+        for i in scelti:
+            if (i == 0 or out[i - 1]['tipo'] == 'cartone') and (i + 1 >= len(out) or out[i + 1]['tipo'] == 'cartone'):
+                out[i].update(tipo='pexels_video' if i % 2 else 'pexels_foto', contesto=out[i]['testo'], camera='')
+        log(f'tetto di {IMMAGINI_MAX} fogli: {sum(1 for i in scelti if out[i]["tipo"] != "cartone")} scene a cartone diventano Pexels')
+        resto = sum(1 for v in out if v['tipo'] == 'cartone') - IMMAGINI_MAX * 4
+        if resto > 0:   # il tetto non si supera mai: se serve anche due immagini vere di fila
+            altri = [i for i, v in enumerate(out) if v['tipo'] == 'cartone' and v.get('q') and v.get('t', 0) >= PEXELS_DA and not v.get('capitolo')]
+            for i in [altri[int(j * len(altri) / resto)] for j in range(min(resto, len(altri)))] if altri else []:
+                out[i].update(tipo='pexels_video' if i % 2 else 'pexels_foto', contesto=out[i]['testo'], camera='')
+    log(f"regia scene: {len(out)} inquadrature, {sum(1 for v in out if v['tipo'] == 'cartone')} cartoni, "
+        f"{sum(1 for v in out if v['tipo'] != 'cartone')} Pexels, {sum(1 for v in out if v.get('scritta'))} scritte, "
+        f"{sum(1 for v in out if v.get('battuta'))} battute, anteprima {sum(1 for v in out if v.get('coming_up'))} scene")
+    return out
+
+
+def _sottopannelli(q):
+    """Vero se dentro un pannello c'e' un'altra linea divisoria (il modello ha disegnato piu' di 4 riquadri)."""
+    a = np.asarray(q.resize((q.width // 4, q.height // 4)), dtype=np.int16)
+    h, w = a.shape[:2]
+    return bool(_linea(_bordo(a)[1], int(h * .2), int(h * .8)) or _linea(_bordo(a.transpose(1, 0, 2))[1], int(w * .2), int(w * .8)))
+
+
+def genera_foglio(g, scene, testi):
+    """Un foglio 2x2 a 4K con 4 scene diverse -> 4 immagini Full HD. Rifatto se storto (max 3 volte); poi immagini singole."""
+    base = os.path.join(LAV, f'foglio_{g:03d}')
+    out = [f'{base}_p{i}.jpg' for i in range(4)]
+    if all(os.path.exists(x) for x in out[:len(scene)]):
+        return out[:len(scene)]
+    refs = []
+    for pg in list(dict.fromkeys(x for v in scene for x in (v.get('personaggi') or [])))[:3]:
+        try:
+            u = ref_personaggio(pg)
+            if u:
+                refs.append(u)
+        except Exception as e:
+            log('riferimento personaggio non caricato:', pg, str(e)[:100])
+    descr = [v['prompt'] for v in scene] + [scene[-1]['prompt'] + ' (another moment, different action)'] * (4 - len(scene))
+    prompt = SCENA_FOGLIO + ' '.join(f'PANEL {i + 1}: {x}' + ('' if x.endswith('.') else '.') for i, x in enumerate(descr)) + ' STYLE: ' + STILE_SCENA + SCENA_FINE
+    if refs:
+        prompt = ('The character' + ('s' if len(refs) > 1 else '') + ' of the reference image' + ('s' if len(refs) > 1 else '') +
+                  ' must appear kept IDENTICAL (same face, body, clothes and drawing style) when the panels talk about them. Do not copy the white background of the reference. ' + prompt)
+    if TAVOLA_RIF.get('url'):
+        refs = refs + [TAVOLA_RIF['url']]
+        prompt = ('The LAST reference image is an earlier storyboard sheet of this same video: copy EXACTLY its drawing style, line thickness, colours and light, '
+                  'and keep recurring characters identical; do NOT copy its scenes or compositions. ' + prompt)
+    if not E('FAL_KEY'):
+        for x in out:
+            Image.new('RGB', (1920, 1080), (200, 180, 140)).save(x)
+        return out[:len(scene)]
+    tav, motivo = base + '_tavola.jpg', None
+    for tentativo in range(3):
+        try:
+            _immagine_fal(prompt + (' IMPORTANT: ' + motivo if motivo else ''), refs, tav, (3840, 2160))
+            pannelli, ok = taglia_tavola(Image.open(tav), (1920, 1080))
+            if ok and any(_sottopannelli(q) for q in pannelli):
+                ok = False
+            motivo = None if ok else 'exactly FOUR EQUAL panels in a 2x2 grid, separated by thin straight white lines crossing exactly in the centre'
+            if ok and VERIFICA:
+                motivo = verifica_immagine(tav, testi, ' | '.join(descr), 'E\' un FOGLIO di 4 scene diverse separate da linee bianche: le linee vanno bene, '
+                                           'controlla il contenuto dei 4 pannelli. Conta come errore ogni edificio moderno, monumento costruito dopo l\'epoca, '
+                                           'ciminiera, finestra a vetri, ringhiera di ferro, croce su una chiesa, vestito o oggetto non dell\'epoca, '
+                                           'e due pannelli che mostrano la stessa scena. Guarda bene anche lo sfondo. ')
+                ok = not motivo
+            if ok:
+                for q, x in zip(pannelli, out):
+                    q.save(x, quality=93)
+                log('foglio pronto', g)
+                return out[:len(scene)]
+            log(f'foglio {g} da rifare ({tentativo + 1}): {motivo}')
+        except Exception as e:
+            log('foglio', g, 'non riuscito:', str(e)[:150]); motivo = None
+    log('foglio', g, 'non riuscito 3 volte: immagini singole')   # raro: costa di piu' ma mai un'immagine ripetuta o storta
+    for v, x in zip(scene, out):
+        _immagine_fal(v['prompt'] + '. ' + STILE_SCENA + SCENA_FINE, refs, x, (2560, 1440))
+    return out[:len(scene)]
+
+
+def _font_scene(sz):
+    for nome in ('LuckiestGuy.ttf', 'Oswald-SemiBold.ttf', 'EBGaramond-SemiBold.ttf'):
+        p = os.path.join(FONT, nome)
+        if os.path.exists(p):
+            return ImageFont.truetype(p, sz), p
+    return ImageFont.load_default(), ''
+
+
+def aggiungi_scritta(path, d, testo):
+    """Scritta che ENTRA A SCATTO (grande, rimbalza e si ferma), gialla con bordo nero, nel terzo alto. Mai fuori dallo schermo."""
+    sz = 150
+    f, _ = _font_scene(sz)
+    while sz > 50 and f.getlength(testo) > W - 260:
+        sz -= 8; f, _ = _font_scene(sz)
+    base = Image.new('RGBA', (int(f.getlength(testo)) + 60, int(sz * 1.5)), (0, 0, 0, 0))
+    ImageDraw.Draw(base).text((30, sz * .2), testo, font=f, fill=(255, 214, 0), stroke_width=max(6, sz // 12), stroke_fill=(0, 0, 0))
+    tmp = path[:-4] + '_w.mp4'
+    lettore = subprocess.Popen(['ffmpeg', '-v', 'error', '-i', path, '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], stdout=subprocess.PIPE)
+    scrittore = subprocess.Popen(['ffmpeg', '-y', '-v', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-r', str(FPS), '-i', '-',
+                                  *map(str, ENC), tmp], stdin=subprocess.PIPE)
+    k = 0
+    while True:
+        b = lettore.stdout.read(W * H * 3)
+        if len(b) < W * H * 3:
+            break
+        t = k / FPS; k += 1
+        im = Image.frombytes('RGB', (W, H), b).convert('RGBA')
+        t0 = t - .08
+        if t0 >= 0:
+            s_ = 1.0 if t0 > .3 else (1.6 - 2.4 * t0 if t0 < .25 else 1.0 + .2 * (1 - (t0 - .25) / .05))   # entra grande, rimbalza, si ferma
+            s_ = max(1.0, s_) if t0 > .25 else s_
+            w_, h_ = int(base.width * s_), int(base.height * s_)
+            q = base.resize((w_, h_), Image.BILINEAR)
+            if d - t < .2:
+                q.putalpha(q.getchannel('A').point(lambda x: int(x * max(0, (d - t) / .2))))
+            im.alpha_composite(q, ((W - w_) // 2, max(10, int(H * .2) - h_ // 2)))
+        scrittore.stdin.write(im.convert('RGB').tobytes())
+    lettore.wait(); scrittore.stdin.close(); scrittore.wait()
+    if scrittore.returncode or k == 0:
+        raise RuntimeError('scritta non riuscita')
+    os.replace(tmp, path)
+
+
+def video_scene(c, durs, voci, kit):
+    shots = taglia_inquadrature(c['scene'], durs, voci)
+    piano = piano_scene(c, shots, kit)
+    fine_prec, acc = 0, 0.0   # durate a fotogrammi interi: video e voce restano allineati
+    for v in piano:
+        acc += v['d']; fine = int(round(acc * FPS)); v['d'] = max(1, fine - fine_prec) / FPS; fine_prec = fine
+    t0 = time.time()
+
+    def trova(k):   # 1) prima le immagini vere: quelle che non si trovano diventano scene a cartone (mai un ripiego su un'immagine gia' vista)
+        v = piano[k]
+        for tipo in (v['tipo'], 'pexels_foto' if v['tipo'] == 'pexels_video' else 'pexels_video'):
+            for qq in [v.get('q')] + list(v.get('alt_q') or []):
+                u = pexels('video' if tipo == 'pexels_video' else 'foto', qq, v.get('contesto') or v['testo']) if qq else None
+                if u:
+                    src = os.path.join(LAV, f'src_{k:04d}' + ('.mp4' if tipo == 'pexels_video' else '.jpg'))
+                    try:
+                        scarica(u, src); v.update(tipo=tipo, src=src); return
+                    except Exception as e:
+                        log('download Pexels non riuscito:', str(e)[:100])
+        log('Pexels: niente di adatto per', repr(v.get('q')), '-> scena a cartone'); v['tipo'] = 'cartone'
+    with ThreadPoolExecutor(3) as ex:
+        list(ex.map(trova, [k for k, v in enumerate(piano) if v['tipo'] != 'cartone']))
+    # 2) fogli: scene a cartone consecutive, 4 per foglio
+    cart = [k for k, v in enumerate(piano) if v['tipo'] == 'cartone']
+    gruppi = [cart[i:i + 4] for i in range(0, len(cart), 4)]
+    for g, ks in enumerate(gruppi):
+        for j, k in enumerate(ks):
+            piano[k].update(foglio=g, pannello=j)
+    testo_g = [' / '.join(piano[k]['testo'] for k in ks) for ks in gruppi]
+    fogli = {}
+    if gruppi:
+        fogli[0] = genera_foglio(0, [piano[k] for k in gruppi[0]], testo_g[0])
+        try:   # il primo foglio fa da riferimento di stile e personaggi a tutti gli altri
+            rif = os.path.join(LAV, 'tavola_rif.jpg')
+            src0 = os.path.join(LAV, 'foglio_000_tavola.jpg')
+            Image.open(src0 if os.path.exists(src0) else fogli[0][0]).convert('RGB').resize((1920, 1080), Image.LANCZOS).save(rif, quality=88)
+            if E('FAL_KEY'):
+                TAVOLA_RIF['url'] = carica_fal(rif, 'image/jpeg')
+        except Exception as e:
+            log('riferimento foglio non caricato:', str(e)[:150])
+    with ThreadPoolExecutor(4) as ex:
+        resto = list(range(1, len(gruppi)))
+        fogli.update(zip(resto, ex.map(lambda g: genera_foglio(g, [piano[k] for k in gruppi[g]], testo_g[g]), resto)))
+    log('fogli pronti:', len(fogli), 'per', len(cart), 'scene a cartone, in', int(time.time() - t0), 's')
+    nome_font = c.get('font_carte') if c.get('font_carte') in FONT_EPOCA else 'classico'
+
+    def fai(k):
+        v = piano[k]; d = v['d']; p = os.path.join(LAV, f'pezzo_{k:04d}.mp4')
+        if v['tipo'] == 'cartone':
+            pezzo_regia(p, d, fogli[v['foglio']][v['pannello']], '', v.get('camera'), v.get('capitolo') or '', nome_font, v.get('atmo') or '', v.get('flash'))
+        elif v['tipo'] == 'pexels_video':
+            pezzo_video(p, d, v['src'])
+        else:
+            pezzo_foto(p, d, v['src'], flash=True)
+        if v.get('scritta') and d > 1.0:
+            try:
+                aggiungi_scritta(p, d, v['scritta'])
+            except Exception as e:
+                log('scritta saltata:', str(e)[:120]); v['scritta'] = ''
+        return p
+    with ThreadPoolExecutor(3) as ex:
+        paths = list(ex.map(fai, range(len(piano))))
+    log('inquadrature pronte:', len(paths), 'in', int(time.time() - t0), 's')
+    return piano, paths
+
+
+def ritocchi_scene(video, piano):
+    """Un solo passaggio sul video muto: COMING UP iniziale, etichetta fissa nell'angolo, battute in basso."""
+    _, ff = _font_scene(60)
+    if not ff:
+        return video
+    filtri, t, cartella = [], 0.0, os.path.join(LAV, 'testi_scene'); os.makedirs(cartella, exist_ok=True)
+
+    def testo(nome, s_):
+        p = os.path.join(cartella, nome + '.txt'); open(p, 'w').write(s_); return p
+    if COMING_UP > 0:
+        fine = min(COMING_UP, sum(v['d'] for v in piano if v.get('coming_up')) or COMING_UP)
+        filtri.append(f"drawtext=fontfile={ff}:textfile={testo('cu', 'COMING UP...')}:fontsize=78:fontcolor=0xFFD600:borderw=6:bordercolor=black:"
+                      f"x=60:y=h-th-70:enable='between(t,0,{fine:.2f})':alpha='if(lt(mod(t,1),0.75),1,0.55)'")
+    tratti, ini, cur = [], 0.0, ''
+    for v in piano:
+        if v.get('etichetta', '') != cur:
+            if cur:
+                tratti.append((ini, t, cur))
+            cur, ini = v.get('etichetta', ''), t
+        if v.get('battuta') and v['d'] > 1.2:
+            filtri.append(f"drawtext=fontfile={ff}:textfile={testo(f'b{len(filtri)}', v['battuta'])}:fontsize=64:fontcolor=white:borderw=5:bordercolor=black:"
+                          f"x=w-tw-70:y=h-th-80:enable='between(t,{t + .15:.2f},{t + v['d']:.2f})'")
+        t += v['d']
+    if cur:
+        tratti.append((ini, t, cur))
+    for i, (a, b, et) in enumerate(tratti):
+        if a < COMING_UP:   # durante l'anteprima niente etichetta
+            a = COMING_UP
+        if b - a < 1:
+            continue
+        filtri.append(f"drawtext=fontfile={ff}:textfile={testo(f'e{i}', et)}:fontsize=58:fontcolor=white:borderw=5:bordercolor=black:"
+                      f"box=1:boxcolor=black@0.35:boxborderw=18:x=50:y=45:enable='between(t,{a:.2f},{b:.2f})'")
+    if not filtri:
+        return video
+    out = video[:-4] + '_r.mp4'
+    try:
+        run(['ffmpeg', '-y', '-v', 'error', '-i', video, '-vf', ','.join(filtri), *ENC, out])
+        log('ritocchi scene: anteprima', 'si' if COMING_UP else 'no', '|', len(tratti), 'etichette |', sum(1 for v in piano if v.get('battuta')), 'battute')
+        return out
+    except Exception as e:
+        log('ritocchi scene saltati:', str(e)[:200])
+        return video
 
 
 # ============================================================ MAIN
@@ -2977,7 +3317,9 @@ def main():
     if c.get('descrizione'):
         c['descrizione'] = minuti_giusti(str(c['descrizione']), minuti_veri)
     log('voce pronta:', round(sum(durs) / 60, 1), 'minuti')
-    if REGIA:   # solo cartoni: un'immagine scritta su ogni frase della voce
+    if REGIA and TAVOLE:   # scene sempre diverse, ritmo da film (colonna tavole=SI)
+        piano, paths = video_scene(c, durs, voci, kit)
+    elif REGIA:   # solo cartoni: un'immagine scritta su ogni frase della voce
         piano, paths = video_regia(c, durs, voci, kit)
     else:
         # sfondi
@@ -3153,6 +3495,8 @@ def main():
     video = os.path.join(LAV, 'muto.mp4')
     unisci([(p, v['d']) for p, v in zip(paths, piano)], video)
     video = applica_cornice(video, c)
+    if REGIA and TAVOLE:
+        video = ritocchi_scene(video, piano)
     # audio: voce + musica (facoltativa)
     lista = os.path.join(LAV, 'voci.txt'); open(lista, 'w').write(''.join(f"file '{v}'\n" for v in voci))
     voce_tot = os.path.join(LAV, 'voce.m4a')
@@ -3178,7 +3522,7 @@ def main():
             log('tasti macchina da scrivere:', len(eventi))
         except Exception as e:
             log('suono tasti saltato:', str(e)[:150])
-    if SUONI_CAMBIO or any(v.get('tipo') == 'pexels_foto' for v in piano):   # click / swoosh / pop a ogni cambio immagine; scatto sulle foto
+    if SUONI_CAMBIO or any(v.get('tipo') == 'pexels_foto' or v.get('scritta') for v in piano):   # click / swoosh / pop a ogni cambio immagine; scatto sulle foto
         try:
             wav = pista_cambi(piano, sum(durs), os.path.join(LAV, 'cambi.wav'))
             con_c = os.path.join(LAV, 'voce_cambi.m4a')
@@ -3239,6 +3583,14 @@ def main():
     finale = os.path.join(ROOT, 'video_storia.mp4')
     if not iscrizione(video, audio, finale):
         run(['ffmpeg', '-y', '-v', 'error', '-i', video, '-i', audio, '-map', '0:v', '-map', '1:a', '-c:v', 'copy', '-c:a', 'copy', '-shortest', finale])
+    if ALTA_RIS:   # 2560x1440: YouTube usa una compressione migliore e il video si vede piu' nitido a tutti
+        try:
+            alto = finale[:-4] + '_1440.mp4'
+            run(['ffmpeg', '-y', '-v', 'error', '-i', finale, '-vf', 'scale=2560:1440:flags=lanczos', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '17',
+                 '-pix_fmt', 'yuv420p', '-c:a', 'copy', alto])
+            os.replace(alto, finale); log('video finale a 1440p')
+        except Exception as e:
+            log('1440p non riuscito, resta 1080p:', str(e)[:150])
     cop = copertina(comp, c) if COP_VIDEO else None
     if str(P.get('copertina_formato') or '').strip().lower() == 'primo_piano':   # stile Faces of Rome
         cop = copertina_primo_piano(comp, c)
