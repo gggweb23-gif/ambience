@@ -44,7 +44,11 @@ def _perc(v, d=100):
         return max(0, min(100, int(float(str(v).replace('%', '').replace(',', '.')) * (100 if 0 < float(str(v).replace('%', '').replace(',', '.')) <= 1 else 1))))
     except Exception:
         return d
-COP_COPIA = _perc(P.get('copertina_copia') or E('COPERTINA_COPIA', ''), 100)    # % della copertina competitor da tenere uguale
+COP_COPIA = _perc(P.get('copertina_copia') or E('COPERTINA_COPIA', ''), 100)
+TESTO_COPIA = _perc(P.get('copia_copione') or E('COPIA_COPIONE', ''), 100)       # % del copione competitor da tenere uguale (il resto: pattern vincenti)
+STILE_RACCONTO = str(P.get('stile_racconto') or E('STILE_RACCONTO', '')).strip()   # vuoto = storia del paese in ordine cronologico
+STILE_IMMAGINI = str(P.get('stile_immagini') or E('STILE_IMMAGINI', '')).strip()   # vuoto = stile cartone di Storia in Minuti
+MAPPA_SI = str(P.get('mappa') or E('MAPPA', '') or 'SI').strip().upper() != 'NO'    # % della copertina competitor da tenere uguale
 TIT_COPIA = _perc(P.get('titolo_copia') or E('TITOLO_COPIA', ''), 100)          # % del titolo competitor da tenere uguale
 COP_STILE = str(P.get('copertina_stile') or E('COPERTINA_STILE', '') or 'cartone').strip().lower()   # cartone | realistico
 RIFERIMENTI = [u for u in (P.get('riferimenti_copertine') or []) if u][:8]      # copertine top della nicchia (dallo Scout)
@@ -329,7 +333,7 @@ VIDEO ORIGINALE DA COPIARE: "{comp['titolo']}".
 TAG DEL COMPETITOR (da tradurre in {lingua} e mettere per primi nel campo "tag"): {', '.join(comp['tag_originali'])[:1500]}'''
     if orig:
         blocco_originale += f'''
-- Il PARLATO deve COPIARE al 100% il testo originale qui sotto: stessi fatti, stesso ordine, stessi ganci, stesse domande, stessi numeri, stessa lunghezza.{' ECCEZIONE: l originale e troppo lungo, quindi CONDENSALO a circa ' + str(parole) + ' parole: stessi fatti principali, stesso ordine, stessi ganci e stesse domande, togli solo dettagli secondari ed esempi ripetuti.' if condensa else ''}
+- Il PARLATO deve COPIARE al {TESTO_COPIA}% il testo originale qui sotto: stessi fatti, stesso ordine, stessi ganci, stesse domande, stessi numeri, stessa lunghezza.{(' Il restante ' + str(100 - TESTO_COPIA) + '% riscrivilo seguendo i pattern vincenti dell originale (stesso tipo di ganci, domande allo spettatore, dettagli concreti e sorprendenti, stesso tono): mai parti a caso.') if TESTO_COPIA < 100 else ''}{' ECCEZIONE: l originale e troppo lungo, quindi CONDENSALO a circa ' + str(parole) + ' parole: stessi fatti principali, stesso ordine, stessi ganci e stesse domande, togli solo dettagli secondari ed esempi ripetuti.' if condensa else ''}
   Traducilo in {lingua} naturale e cambia solo piccole cose per non essere una copia identica (sinonimi, ordine delle parole, qualche frase unita o divisa). NON aggiungere contenuti{' e togli solo il secondario' if condensa else ' e NON toglierne'}.
   UNITA' DI MISURA: il pubblico e' {'italiano' if LINGUA == 'it' else 'del canale'}: {'converti SEMPRE le unita americane in quelle europee con numeri arrotondati (gradi Fahrenheit -> gradi Celsius, es. 120 gradi F = circa 50 gradi; miglia -> chilometri; piedi -> metri; pollici -> centimetri; libbre -> chili; galloni -> litri; acri -> ettari). Mai lasciare 120 gradi se erano Fahrenheit.' if LINGUA == 'it' else 'keep the units of the original.'}
 TESTO ORIGINALE:
@@ -338,7 +342,7 @@ TESTO ORIGINALE:
     prompt = f"""Sei lo sceneggiatore e il regista di un canale YouTube di storia a cartone, nello stile di "Genius History" e "Rome Unscrolled".
 Scrivi il video: "{TITOLO}". Lingua della voce e delle scritte: {lingua}. Lunghezza totale del parlato: circa {parole} parole.
 {blocco_originale}
-STILE DEL RACCONTO: dall'inizio della storia del paese fino a oggi, in ordine cronologico, con date precise, fatti veri, nomi veri.
+STILE DEL RACCONTO: {STILE_RACCONTO or "dall'inizio della storia del paese fino a oggi, in ordine cronologico, con date precise, fatti veri, nomi veri."}
 Frasi brevi e concrete, ritmo da documentario coinvolgente, piccole domande e colpi di scena. Prima scena = gancio forte. Ultima scena = chiusura che fa riflettere.
 
 REGIA VISIVA: ogni scena (20-40 parole di voce) ha 2-5 "visivi". RITMO (fondamentale per trattenere lo spettatore):
@@ -776,7 +780,7 @@ def regole_finali(n_sf):
         r.append("- Aggiungi in cima al JSON il campo \"luoghi_paese\": 20-30 parole in inglese minuscolo con cui su Pexels si descrivono le riprese fatte in quel paese: nome del paese, nomi antichi, aggettivi (es. iran, iranian, persia, persian), "
                  "citta', regioni, monti, deserti, fiumi e monumenti famosi (es. tehran, isfahan, shiraz, yazd, kashan, persepolis, zagros, alborz, damavand, lut, qeshm).")
     elif QUOTA_CARTONI >= 100:
-        r.append("- SOLO DISEGNI: usa solo \"cartone\" e una \"mappa\". Niente pexels_video e pexels_foto.")
+        r.append("- SOLO DISEGNI: usa solo \"cartone\"" + (" e una \"mappa\"" if MAPPA_SI else " (niente mappa)") + ". Niente pexels_video e pexels_foto.")
     if not TEXTURE:
         r.append("- NIENTE SCRITTE SU CARTA: non usare i tipi \"carta\" e \"scheda\". \"fondi_carte\" = [].")
         r.append("- SOVRIMPRESSIONE (campo \"didascalia\"): SOLO su visivi pexels_video / pexels_foto e SOLO quando la voce in quel momento dice un NUMERO, una DATA o una misura "
@@ -875,6 +879,8 @@ STILE_SCENA = ('Wide 2D cartoon illustration for an animated history video, clea
                'Never people in suits, jackets, ties, waistcoats, lab coats or 19th/20th-century clothes (no scientists, scholars, explorers, tourists) unless the scene is explicitly set in that period. '
                'People look like the local population of the country being told (skin tone, faces, clothes), never Europeans unless stated. '
                'No text, no letters, no signs with writing, no logos, no watermark, no frame, no border.')
+if STILE_IMMAGINI:   # stile del canale (es. Faces of Rome: personaggi in primo piano a fuoco)
+    STILE_SCENA = STILE_IMMAGINI
 _ref_url = {}
 
 
@@ -1040,6 +1046,49 @@ def copertina(comp, c):
         return p
     except Exception as e:
         log('copertina non riuscita:', str(e)[:200])
+
+
+def copertina_primo_piano(comp, c):
+    """Copertina "primo piano a fuoco" (angolo A dello Studio Angoli, es. Faces of Rome): stessa storia e stessa scritta della copertina
+    del competitor, ma UN personaggio enorme e nitido con reazione esagerata, sfondo semplice e sfocato; scritta gialla su UNA riga in alto."""
+    if not comp.get('copertina') or not E('FAL_KEY') or not E('ANTHROPIC_API_KEY'):
+        return None
+    try:
+        b = http(comp['copertina'], raw=True); im0 = Image.open(io.BytesIO(b)).convert('RGB').resize((1280, 720)); buf = io.BytesIO(); im0.save(buf, 'JPEG', quality=88)
+        dom = ('This is the thumbnail of a successful YouTube video titled "' + str(comp.get('titolo') or '') + '". Our channel uses the same topics and the same drawing style '
+               'but always a FOCUSED CLOSE-UP framing. Answer ONLY JSON: {"testo": "the words written on the thumbnail, translated to ' + LINGUA_NOME + ', CAPS, max 3 short words, same meaning", '
+               '"scena": "in English, the SAME story as ONE single character VERY BIG in the foreground (from the waist up, about 60% of the image) with the exact exaggerated emotion, '
+               'holding or near the key object, and the place behind him SIMPLE and softly BLURRED with only 2-3 recognizable elements; 2 sentences"}')
+        r = http('https://api.anthropic.com/v1/messages', {'model': MODELLO_AI, 'max_tokens': 800, 'messages': [{'role': 'user', 'content': [
+            {'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}}, {'type': 'text', 'text': dom}]}]},
+            {'x-api-key': E('ANTHROPIC_API_KEY'), 'anthropic-version': '2023-06-01'}, timeout=300)
+        t = ''.join(x.get('text', '') for x in r.get('content', [])); j = json.loads(t[t.find('{'): t.rfind('}') + 1])
+        prompt = ('The reference image shows ONLY the drawing style to copy (lines, colours, faces): do NOT copy its composition. YouTube thumbnail, FOCUSED CLOSE-UP: '
+                  + str(j.get('scena') or '') + ' ' + STILE_SCENA + ' The TOP 25% of the image stays simple (a big title will go there), no face there.')
+        p = os.path.join(ROOT, 'copertina.jpg')
+        _immagine_fal(prompt, [comp['copertina']], p)
+        im = Image.open(p).convert('RGB').resize((1280, 720), Image.LANCZOS)
+        fp = os.path.join(LAV, 'cinzel.ttf')
+        if not os.path.exists(fp):
+            open(fp, 'wb').write(http('https://github.com/google/fonts/raw/main/ofl/cinzel/Cinzel%5Bwght%5D.ttf', raw=True))
+        def F(k):
+            f = ImageFont.truetype(fp, k)
+            try:
+                f.set_variation_by_name('Black')
+            except Exception:
+                pass
+            return f
+        testo = str(j.get('testo') or c.get('titolo') or '').upper().strip()
+        d = ImageDraw.Draw(im); k = 150; f = F(k)
+        while d.textlength(testo, font=f) > 1180 and k > 60:   # sempre UNA riga: non copre mai le teste
+            k -= 4; f = F(k)
+        d.text((640, 18), testo, font=f, fill=(255, 220, 0), stroke_width=max(7, int(k * .1)), stroke_fill=(10, 10, 10), anchor='ma')
+        im.save(p, quality=93)
+        log('copertina primo piano pronta:', testo)
+        return p
+    except Exception as e:
+        log('copertina primo piano non riuscita:', str(e)[:200])
+        return None
 
 
 # ============================================================ BOLLINO "VIDEO ORIGINALE - STORIA IN MINUTI" (sempre uguale su ogni copertina)
@@ -2583,6 +2632,8 @@ def main():
         log(f'RIPRESA: copione salvato, {n_v} voci e {n_d} disegni gia\' pronti (non si ripagano)')
     else:
         c = copione(comp)
+        if not MAPPA_SI:   # canale senza mappa (es. Faces of Rome)
+            c['paese_mappa'] = ''
         json.dump(c, open(salvato, 'w'), ensure_ascii=False)
     c['categoria_originale'] = comp.get('categoria') or ''
     titolo_finale = c.get('titolo') or TITOLO
@@ -2884,7 +2935,9 @@ def main():
     if not iscrizione(video, audio, finale):
         run(['ffmpeg', '-y', '-v', 'error', '-i', video, '-i', audio, '-map', '0:v', '-map', '1:a', '-c:v', 'copy', '-c:a', 'copy', '-shortest', finale])
     cop = copertina(comp, c) if COP_VIDEO else None
-    if not COP_VIDEO:   # copertina UFFICIALE (bandiera + figura): fatta qui, prima del caricamento, e caricata insieme al video
+    if str(P.get('copertina_formato') or '').strip().lower() == 'primo_piano':   # stile Faces of Rome
+        cop = copertina_primo_piano(comp, c)
+    elif not COP_VIDEO:   # copertina UFFICIALE (bandiera + figura): fatta qui, prima del caricamento, e caricata insieme al video
         try:
             dir_cop = os.path.join(ROOT, 'copertine_storia')
             env = dict(os.environ, TITOLO_PROVA=titolo_finale, COPERTINA_FORMATO=str(P.get('copertina_formato') or 'coppia'))

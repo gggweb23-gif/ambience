@@ -46,7 +46,7 @@ permissions:
   actions: write
 
 concurrency:
-  group: storia
+  group: storia-${{ fromJSON(inputs.payload || '{}').canale || 'storia' }}   # un video alla volta PER CANALE
   cancel-in-progress: false
 
 jobs:
@@ -111,7 +111,7 @@ jobs:
           PAYLOAD: ${{ inputs.payload }}
           YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
-          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN_STORIA }}
+          YT_REFRESH_TOKEN: ${{ secrets[fromJSON(inputs.payload || '{}').chiave_youtube || 'YT_REFRESH_TOKEN_STORIA'] }}   # chiave_youtube del canale (vuota = Storia in Minuti)
         run: python3 video_storia.py
 
       - name: Salva il lavoro per ripartire (solo se il giro non e' finito bene)
