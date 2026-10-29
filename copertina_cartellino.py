@@ -208,4 +208,4 @@ def piano(comp):
     rr = VM.http('https://api.anthropic.com/v1/messages', {'model': VM.MODELLO_AI, 'max_tokens': 1500, 'messages': [{'role': 'user', 'content': cont}]},
                  {'x-api-key': os.environ.get('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01'}, timeout=300)
     t = ''.join(b.get('text', '') for b in rr.get('content', []))
-    return json.loads(t[t.find('{'): t.rfind('}') + 1])
+    return json.JSONDecoder().raw_decode(t[t.find('{'):])[0]   # legge solo il primo oggetto JSON (ignora testo dopo)

@@ -236,7 +236,7 @@ For EVERY scene you also direct the MAP (equirectangular world map with shaded r
   {{"tipo":"scritta","testo":"STRANGE?","parola":".."}}   (huge 3D word in the middle, max 2 words, on the key word of a sentence: EXCEPTION, HALF, 9 DAYS, WHY?, NEVER... about one every 20 seconds)
   {{"tipo":"conta","valore":11150,"prefisso":"~","suffisso":"","sotto":"KM AT SEA","parola":".."}}   (counter in a card top-right that COUNTS UP from zero: distances, years, people, money; real numbers only; use it OFTEN)
   {{"tipo":"personaggio","nome":"Miguel Lopez de Legazpi","descrizione":"16th-century Spanish conquistador, beard, armour","parola":".."}}   (portrait card top-left, every time the voice names a historical person)
-  {{"tipo":"nota","testo":"He sailed from Mexico","parola":".."}}   (bottom bar with the key fact just said, max 6 words, about one every 10 seconds)
+  {{"tipo":"nota","testo":"He sailed from Mexico","parola":".."}}   (bottom bar with the key fact just said, max 6 words: MANDATORY, exactly one in EVERY scene that is not "anteprima")
   {{"tipo":"solleva","paese":["USA"],"volte":8,"testo":"x8","colore":"oro","parola":".."}}   (the country RISES in 3D, height proportional to "volte" (1-12): use it when the voice compares wealth/size, e.g. eight times richer)
   {{"tipo":"griglia","paese":["MEX"],"pieni":0.1,"testo":"1 IN 10 OWNED LAND","colore":"oro","parola":".."}}   (the country splits into little squares that appear one by one, "pieni" = coloured share (0-1): land ownership, shares of people, quotas)
   {{"tipo":"conta_paesi","paesi":["MEX","GTM","HND",...],"colore":"rosso","parola":".."}}   (the countries light up ONE BY ONE with a big counter 1, 2, 3... 18: use it when the voice counts countries)
@@ -922,11 +922,12 @@ def disegna_scena(job):
             collega_eventi(im, eventi, pt, t)
         ultimo = None
         for ev in eventi:
+            if ev.get('_luogo') and ease((t - ev['_t']) / .35) * fine > 0:
+                ultimo = ev.get('_pin') or ('base', ev['_luogo'])
+        for ev in sorted(eventi, key=lambda e: e.get('tipo') in SOPRA):
             k = ease((t - ev['_t']) / .35) * fine
             if k <= 0:
                 continue
-            if ev.get('_luogo'):
-                ultimo = ev.get('_pin') or ('base', ev['_luogo'])
             tipo = ev.get('tipo')
             try:
                 if tipo in ('icona', 'etichetta', 'numero', 'colonna', 'nome', 'folla') and ev.get('lon') is not None:
@@ -1093,6 +1094,9 @@ def _punta(d, pts, col):
               fill=col, outline=(0, 0, 0))
 
 
+SOPRA = ('prezzo', 'scritta', 'barre', 'conta', 'personaggio', 'nota', 'anno', 'contatore', 'numero')   # riquadri disegnati per ultimi
+
+
 def filo_storia(im, traccia, pt, t):
     """Il collante della storia: un percorso tratteggiato che unisce i luoghi delle scene (gli ultimi restano, l'ultimo tratto si disegna mentre si arriva),
     con un punto luminoso che viaggia sul tratto nuovo."""
@@ -1119,7 +1123,7 @@ def filo_storia(im, traccia, pt, t):
 
 def collega_eventi(im, eventi, pt, t):
     """Freccia tratteggiata da un elemento della scena al successivo, mentre compare: l'occhio segue il percorso."""
-    luoghi = [ev for ev in sorted(eventi, key=lambda e: e['_t']) if ev.get('_luogo') and ev.get('tipo') not in ('nome', 'freccia', 'impulso')]
+    luoghi = [ev for ev in sorted(eventi, key=lambda e: e['_t']) if ev.get('_luogo') and ev.get('tipo') not in ('nome', 'freccia', 'impulso') + SOPRA]
     d = ImageDraw.Draw(im)
     for a, b in zip(luoghi, luoghi[1:]):
         k = ease((t - b['_t'] + .1) / .6)
