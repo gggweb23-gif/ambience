@@ -9,7 +9,7 @@ KAO PSICOLOGIA - copertine in stile CINEMATOGRAFICO (M2), automatiche.
 5) APPLICA=SI (standard) -> carica le nuove copertine su YouTube. APPLICA=NO -> solo anteprima.
 Chiavi: YT_CLIENT_ID, YT_CLIENT_SECRET, YT_REFRESH_TOKEN (di KAO), FAL_KEY, ANTHROPIC_API_KEY.
 """
-import base64, csv, io, json, os, re, shutil, time, urllib.error, urllib.parse, urllib.request
+import base64, csv, io, json, os, re, shutil, time, unicodedata, urllib.error, urllib.parse, urllib.request
 from concurrent.futures import ThreadPoolExecutor
 from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageOps
 
@@ -574,19 +574,32 @@ def scritta_cartoncino(im, frase, lato='destra', zona=None):
         if not best or lo > best[0]:
             best = (lo, righe)
     k, righe = best
-    f = F(k); bb, gap, ht = altezza_righe(f, righe)
+    senza = lambda r: ''.join(ch for ch in unicodedata.normalize('NFD', r) if unicodedata.category(ch) != 'Mn')
+
+    def misure(k):   # centratura in altezza sul CORPO delle lettere: l'accento di É/À sta nel margine sopra, che resta uguale a quello sotto
+        f = F(k); bb, gap, _ = altezza_righe(f, righe)
+        bn = [f.getbbox(senza(r), anchor='ls') for r in righe]
+        ext = [max(0, n[1] - a[1]) for n, a in zip(bn, bb)]
+        hn = sum(n[3] - n[1] for n in bn) + sum(gap + e for e in ext[1:])
+        vpad = pad + (ext[0] + pad * .35 if ext[0] else 0)
+        return f, gap, bn, ext, hn, vpad
+    f, gap, bn, ext, hn, vpad = misure(k)
+    while hn + 2 * vpad > (y1 - y0) and k > 24:   # con il margine per l'accento deve stare comunque nello spazio
+        k -= 2; f, gap, bn, ext, hn, vpad = misure(k)
     wt = max(f.getlength(r) for r in righe)
     cx, cy = (x0 + x1) / 2, (y0 + y1) / 2
-    box = (cx - wt / 2 - pad, cy - ht / 2 - pad, cx + wt / 2 + pad, cy + ht / 2 + pad)   # stesso margine sopra e sotto: scritta centrata anche in altezza
+    box = (cx - wt / 2 - pad, cy - hn / 2 - vpad, cx + wt / 2 + pad, cy + hn / 2 + vpad)
     base = im.convert('RGBA')
     sh = Image.new('RGBA', base.size, (0, 0, 0, 0)); ImageDraw.Draw(sh).rounded_rectangle((box[0] + 8, box[1] + 10, box[2] + 8, box[3] + 10), radius=int(pad * 1.4), fill=(0, 0, 0, 110))
     base.alpha_composite(sh.filter(ImageFilter.GaussianBlur(8)))
     dr = ImageDraw.Draw(base)
     dr.rounded_rectangle(box, radius=int(pad * 1.4), fill=(255, 255, 255, 255), outline=(0, 0, 0, 255), width=max(4, k // 18))
-    y = cy - ht / 2
-    for r, b in zip(righe, bb):   # ogni riga sotto l'ingombro VERO della precedente (accenti di É, À... compresi): le lettere non si toccano mai
-        dr.text((cx, y - b[1]), r, font=f, fill=MAG_TESTO, anchor='ms')
-        y += (b[3] - b[1]) + gap
+    y = cy - hn / 2
+    for i, (r, n) in enumerate(zip(righe, bn)):   # ogni riga sotto la precedente, con lo spazio per i suoi accenti: le lettere non si toccano mai
+        if i:
+            y += gap + ext[i]
+        dr.text((cx, y - n[1]), r, font=f, fill=MAG_TESTO, anchor='ms')
+        y += n[3] - n[1]
     return base.convert('RGB')   # magenta delle vecchie copertine di successo (come la maglia di KAO)
 
 
@@ -748,7 +761,9 @@ def fai(i):
                       (f'GRAPHIC ELEMENTS drawn over the scene, copy them exactly (same position and direction): {t.get("grafica")}. ' if t.get('grafica') else '') +
                       'KAO has a correct body: TWO arms attached to the shoulders (both visible, never missing or cut), two hands, two legs. KAO is exactly as in the KAO reference: bald round head, simple face, light skin, ALWAYS his magenta long-sleeve shirt (never a sweater, jacket or other top), black trousers. '
                       + (f'Keep the {fascia} 28% of the image a simple calm continuation of the background, with NO heads, faces or important objects (a title band goes there); all characters and objects stay in the rest of the image, fully visible. ' if fascia else '')
-                      + (f'COMPOSITION (copy it exactly, KAO appears in every part where the character appears): {t.get("composizione")}. The title goes where described, never covering KAO or faces. Everything bright and fully visible. ' if t.get('composizione') else
+                      + (f'COMPOSITION (copy it exactly, KAO appears in every part where the character appears): {t.get("composizione")}. The title goes where described, never covering KAO or faces. Everything bright and fully visible. '
+                         'When the parts show DIFFERENT people or DIFFERENT situations, make it obvious at a glance: each different person has clearly different clothes (different colour and type of top), hair and look, '
+                         'and each part has a clearly DIFFERENT place and light (e.g. a warm home living room vs a city street at night). ' if t.get('composizione') else
                          'The scene fills the WHOLE image, bright and fully visible everywhere. KAO is big and close to the camera, his face clearly readable on a phone. ' if fascia else f'The scene fills the WHOLE image, bright and fully visible everywhere (NO dark side, NO dark gradient). KAO, people and important objects stay in the {"RIGHT" if lato_c == "sinistra" else "LEFT"} 50%. KAO is VERY BIG and close to the camera: '
                       'he fills 85-95% of the image HEIGHT (from the top of his head down to his knees or waist), his face large and clearly readable on a phone. '                      f'The {"LEFT" if lato_c == "sinistra" else "RIGHT"} 50% simply continues the same environment (wall, sky, room, landscape), bright, with nothing important: a title will go there. ') +
                       ('' if t.get('composizione') else 'ONE single continuous scene filling the whole image: NO split screen, NO vertical dividing line, NO panels, NO frames, NO borders. ') +
