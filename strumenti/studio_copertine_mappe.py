@@ -48,17 +48,24 @@ def fal_immagine(prompt, path):
 
 
 # ---------------------------------------------------------------- geografia comune
+def _area(r):
+    x, y = r[:, 0], r[:, 1]
+    return abs(float(np.dot(x, np.roll(y, 1)) - np.dot(y, np.roll(x, 1)))) / 2
+
+
 def anelli_lonlat(isos):
+    """Solo le terre PRINCIPALI di ogni paese (le parti che fanno il 90% della superficie, senza Alaska/Hawaii/isole lontane e territori d'oltremare):
+    altrimenti la vista si allarga a tutto il mondo."""
     R = VM.risorse(); out = []
     for cd in isos:
-        rs = R['paesi'].get(str(cd).upper(), [])
-        medi = [float(r[:, 0].mean()) for r in rs]
-        for r, m in zip(rs, medi):
-            if max(medi) > 100 and m < -150:   # isole oltre la linea del cambio di data (es. Russia): fuori dal riquadro
-                continue
-            if str(cd).upper() == 'USA' and (m < -130):   # Alaska e Hawaii lontane: la vista resta sugli USA continentali
-                continue
-            out.append(r)
+        rs = [r for r in R['paesi'].get(str(cd).upper(), []) if float(r[:, 0].max() - r[:, 0].min()) < 180]
+        if str(cd).upper() == 'USA':
+            rs = [r for r in rs if float(r[:, 0].mean()) > -130]
+        rs = sorted(rs, key=_area, reverse=True); tot = sum(_area(r) for r in rs) or 1; acc = 0
+        for r in rs:
+            out.append(r); acc += _area(r)
+            if acc >= .9 * tot:
+                break
     return out
 
 
@@ -125,11 +132,17 @@ def idea_cartellino(dati, path):
     gruppi = [([str(c) for c in l.get('iso') or []], (90, 255, 60) if l.get('ricco') else (235, 80, 30)) for l in luoghi]
     vista = vista_per([g for g, _ in gruppi], 1.45)
     im, tutti = mappa_riflettore(vista, gruppi)
+    occupati = []
     for k, (l, polys) in enumerate(zip(luoghi, tutti)):
         if not polys:
             continue
         cx, cy, top = centro_pixel(polys)
-        cartellino(im, cx, cy - 40, str(l.get('prezzo') or ''), bool(l.get('ricco')), 7 if k % 2 == 0 else -7)
+        cy = max(260, min(H - 300, cy - 40))
+        for oy in occupati:   # mai un cartellino sopra l'altro
+            if abs(cy - oy) < 260:
+                cy = oy + 280 if cy >= oy else oy - 280
+        cy = max(250, min(H - 280, cy)); occupati.append(cy)
+        cartellino(im, min(cx, W - 700), cy, str(l.get('prezzo') or ''), bool(l.get('ricco')), 7 if k % 2 == 0 else -7)
     scritta = str(dati.get('scritta') or '').upper()[:22]
     if scritta:
         fs = 150 if len(scritta) <= 12 else 110
@@ -147,7 +160,9 @@ def idea_notte(dati, path):
     im = notte.crop((int(x0), int(y0), int(x0 + cw), int(y0 + ch))).resize((W, H), Image.LANCZOS)
     a = np.asarray(im).astype(np.float32) / 255
     lum = a.mean(axis=2, keepdims=True)
-    a = np.clip(a * 1.25 + np.power(lum, 1.6) * np.array([1.0, .75, .25]) * 1.4, 0, 1)   # luci dorate che brillano, il buio resta buio
+    a = a - np.array([.10, .10, .16]); a = np.clip(a, 0, 1)   # il fondo viola della foto torna nero
+    lum = a.mean(axis=2, keepdims=True)
+    a = np.clip(a * 1.6 + np.power(lum, 1.2) * np.array([1.0, .72, .22]) * 2.2, 0, 1)   # luci dorate che brillano, il buio resta buio
     im = Image.fromarray((a * 255).astype(np.uint8)).filter(ImageFilter.UnsharpMask(radius=2, percent=90))
     bagliore = im.filter(ImageFilter.GaussianBlur(9)); im = ImageChops.screen(im, ImageEnhance.Brightness(bagliore).enhance(.6)).convert('RGBA')
     pt = lambda lon, lat: (((lon + 180) * Pg - x0) * W / cw, ((90 - lat) * Pg - y0) * H / ch)
@@ -183,7 +198,18 @@ Rules: "prezzo" = GDP per capita (current US$, rounded, with $ and comma) unless
 for a single country video (e.g. Switzerland) use that country and its richest/poorest relevant neighbour; for a world video use the 4-6 richest countries as ONE rich place."""
 
 righe = []
+vecchio = {}
+if P0.get('riusa_piano') and os.path.exists(os.path.join(CART, 'piano.json')):
+    vecchio = {x['id']: x['piano'] for x in json.load(open(os.path.join(CART, 'piano.json')))}
 for n, (vid, tit) in enumerate(zip(P0['video_ids'], P0.get('titoli') or [''] * 99), 1):
+    if vid in vecchio:
+        piano = vecchio[vid]
+        for k, (fn, chiave) in enumerate(((idea_cartellino, 'cartellino'), (idea_notte, 'notte')), 1):
+            try:
+                fn(piano.get(chiave) or {}, os.path.join(CART, f'{n}_{k}.jpg'))
+            except Exception as e:
+                print('idea', k, 'non riuscita per', vid, str(e)[:200], flush=True)
+        righe.append((n, vid, tit, piano)); print('rifatto', n, flush=True); continue
     try:
         b = VM.http(f'https://i.ytimg.com/vi/{vid}/maxresdefault.jpg', raw=True)
         loro = Image.open(io.BytesIO(b)).convert('RGB').resize((1280, 720)); loro.save(os.path.join(CART, f'{n}_loro.jpg'), quality=90)
