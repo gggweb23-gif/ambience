@@ -29,6 +29,9 @@ concurrency:
   group: mappe
   cancel-in-progress: false
 
+permissions:
+  contents: write
+
 jobs:
   video:
     runs-on: ubuntu-24.04
@@ -82,7 +85,10 @@ jobs:
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
           YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN_MAIN_STREET_ATLAS }}
           FAL_KEY: ${{ secrets.FAL_KEY }}
-        run: python3 video_mappe.py
+        shell: bash
+        run: |
+          set -o pipefail
+          python3 video_mappe.py 2>&1 | tee mappe.log
 
       - name: Salva il risultato
         if: ${{ always() }}
@@ -95,3 +101,28 @@ jobs:
             titolo.txt
             copione.json
           retention-days: 7
+
+      - name: Libreria musicale comune (brani nuovi creati da questo video)
+        if: ${{ always() }}
+        run: |
+          if [ -d libreria_musica ] && [ -n "$(git status --porcelain libreria_musica)" ]; then
+            git config user.name "render-bot"; git config user.email "render-bot@users.noreply.github.com"
+            git add libreria_musica; git commit -m "Libreria musicale" || exit 0
+            for i in 1 2 3 4 5; do git pull --rebase -q && git push && break; sleep $((i * 5)); done
+          fi
+
+      - name: Anteprima nel repository (copertina, 8 fotogrammi, registro)
+        if: ${{ always() }}
+        run: |
+          D=prove_video/rich_borders; mkdir -p "$D" && rm -f "$D"/*
+          [ -f copertina.jpg ] && cp copertina.jpg "$D/"
+          [ -f titolo.txt ] && cp titolo.txt "$D/"
+          [ -f copione.json ] && cp copione.json "$D/"
+          [ -f mappe.log ] && grep -v -i -E "key|token|secret|authorization" mappe.log | tail -n 300 > "$D/log.txt"
+          if [ -f video_mappe.mp4 ]; then
+            DUR=$(ffprobe -v error -show_entries format=duration -of csv=p=0 video_mappe.mp4)
+            for i in 1 2 3 4 5 6 7 8; do T=$(python3 -c "print(round($DUR*($i-0.5)/8,2))"); ffmpeg -v error -y -ss $T -i video_mappe.mp4 -frames:v 1 -vf scale=960:-1 "$D/fotogramma_$i.jpg"; done
+          fi
+          git config user.name "render-bot"; git config user.email "render-bot@users.noreply.github.com"
+          git add "$D"; git commit -m "Anteprima video mappe" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -q && git push && break; sleep $((i * 5)); done

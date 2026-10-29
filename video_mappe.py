@@ -39,6 +39,8 @@ MUSICA_VOL = float(str(P.get('musica_volume') or E('MUSICA_VOL', '') or .04).rep
 SLOGAN = str(P.get('slogan') or E('SLOGAN', '') or 'EVERY BORDER HAS A PRICE.').strip()
 NOME_CANALE = str(P.get('canale_nome') or E('NOME_CANALE', '') or 'RICH BORDERS').strip().upper()
 MIN_SEC_YT = 480                                    # sotto gli 8 minuti (le prove) mai su YouTube
+COMING_UP = float(str(P.get('coming_up_secondi') or E('COMING_UP_SECONDI', '') or 0).replace(',', '.'))   # anteprima stile MrBeast nei primi secondi (0 = spenta)
+MUSICA_REGIA = str(P.get('musica_regia') or E('MUSICA_REGIA', '') or 'NO').strip().upper() == 'SI'   # musica da film a umori (libreria comune)
 MASCOTTE = str(P.get('mascotte') or E('MASCOTTE', '') or 'NO').strip().upper() == 'SI'   # Pin nelle scene: spento (dava fastidio)
 ZOOM_MIN = 34.0                                     # larghezza minima inquadratura in gradi (qualita' della mappa)
 PPM = 150                                           # parole al minuto della voce inglese (stima per la lunghezza del copione)
@@ -179,6 +181,12 @@ def claude(prompt, max_tokens=32000):
     return ''.join(pezzi)
 
 
+ANTEPRIMA = '''THE FIRST {sec} SECONDS ARE A "COMING UP" TEASER (like MrBeast): the first 1-2 scenes (about {parole} words in total) have "anteprima": true.
+  Their narration teases the most surprising moments of the WHOLE video in quick fragments (e.g. "A border where one step makes you eight times richer. A gold rush that made one side poor. And the single decision that changed everything."), ending with the big question.
+  Their map shows those moments: change "vista" to a DIFFERENT place for each fragment and put one event every 3-4 words (prezzo, numero, colonna, freccia, scritta): fast and spectacular.
+  Never reuse later the exact same picture of the teaser; the real story starts right after it.'''
+
+
 def copione(comp):
     orig = comp['testo']
     if PROVA:
@@ -196,6 +204,7 @@ ORIGINAL TRANSCRIPT:
 \"\"\"{orig[:45000]}\"\"\"
 
 WRITE: an English (US) narration of about {parole} words, split into about {n_scene} scenes of 15-25 words each (1-2 short sentences).
+{ANTEPRIMA.format(sec=int(COMING_UP), parole=int(COMING_UP * 2.6)) if COMING_UP else ''}
 Tone: curious, punchy, simple words, short sentences, questions that create suspense. The first scene is a strong hook (a paradox or a shocking number). No greeting, no "in this video". End with a one-sentence takeaway.
 Narration must be easy to read aloud: write numbers as people say them ("eight times", "300 years", "1700"), never use symbols like × or %.
 Use only facts you are confident are true; round numbers are fine ("about", "almost").
@@ -217,9 +226,12 @@ For EVERY scene you also direct the MAP (equirectangular world map with shaded r
   {{"tipo":"freccia","da":[lon,lat],"a":[lon,lat],"icona":"ship" (or another icon),"parola":".."}}   (route / migration / trade)
   {{"tipo":"contorno","paese":"ISO-3","parola":".."}}   (glowing outline of one country)
   {{"tipo":"confine","punti":[[lon,lat],[lon,lat],...],"parola":".."}}   (a red border/line drawn on the map)
-  {{"tipo":"scritta","testo":"STRANGE?","parola":".."}}   (big word in the middle, max 2 words, use rarely)
+  {{"tipo":"scritta","testo":"STRANGE?","parola":".."}}   (huge 3D word in the middle, max 2 words, on the key word of a sentence: EXCEPTION, HALF, 9 DAYS, WHY?, NEVER... about one every 20 seconds)
+  {{"tipo":"prezzo","testo":"$82,000","sotto":"USA · PER PERSON (max 4 words)","ricco":true,"parola":".."}}   (HUGE price tag in the middle with the sound of a cash register, every time the voice says the income / GDP per person / a price of a country; real numbers only)
   {{"tipo":"barre","titolo":"GDP PER PERSON","voci":[{{"testo":"USA","valore":82,"lato":"oro"}},{{"testo":"MEXICO","valore":14,"lato":"verde"}}],"parola":".."}}   (chart panel, max 4 bars, real numbers only)
   Coordinates must be REAL and well inside the "vista" of that scene (not on its edges).
+- "musica": the MOOD of the music, only where it changes (a mood lasts at least 20 seconds): one of mistero, tensione, epico, azione, curiosita, quotidiano, malinconia, trionfo. Follow the story like a film. The first scene always has one. Otherwise "".
+- "stacco": true on the scene of a big reveal (max one every 40 seconds): the music stops for a moment just before it.
 - "pin": where Pin (our red map-pin mascot) stands: {{"lon":..,"lat":..,"faccia":"normale" or "stupito"}} (inside the vista, not covering the main event; "stupito" on shocking numbers).
 
 ALSO WRITE:
@@ -230,7 +242,7 @@ ALSO WRITE:
 - "tag": 12 YouTube tags.
 
 Reply ONLY with valid JSON:
-{{"titolo":"...","numero":{{...}},"copertina":{{...}},"descrizione":"...","tag":[...],"scene":[{{"testo":"...","vista":{{...}},"epoca":"oggi","oro":[],"verde":[],"eventi":[...],"pin":{{...}}}}]}}"""
+{{"titolo":"...","numero":{{...}},"copertina":{{...}},"descrizione":"...","tag":[...],"scene":[{{"testo":"...","anteprima":false,"vista":{{...}},"epoca":"oggi","oro":[],"verde":[],"eventi":[...],"musica":"mistero","stacco":false,"pin":{{...}}}}]}}"""
     for k in range(3):
         try:
             t = claude(prompt)
@@ -916,9 +928,16 @@ def disegna_scena(job):
                     etichetta(im, x, y + 72, str(ev.get('testo') or '').upper()[:22], k, 44, blocca=False)
                 elif tipo == 'anno':
                     cartellino_anno(im, str(ev.get('testo') or '')[:6], k)
-                elif tipo == 'scritta':
-                    f = font('Anton-Regular.ttf', 190 * back(k))
-                    d.text((W / 2, H / 2 - 140), str(ev.get('testo') or '').upper()[:16], font=f, fill=CREMA, anchor='mm', stroke_width=12, stroke_fill=NAVY)
+                elif tipo == 'scritta':   # parola gigante in 3D (come il competitor): spessore scuro sotto, bianca sopra
+                    tx = str(ev.get('testo') or '').upper()[:16]; fs = 230
+                    while fs > 90 and font('Poppins-ExtraBold.ttf', fs).getlength(tx) > W - 200:
+                        fs -= 10
+                    f = font('Poppins-ExtraBold.ttf', fs * back(k)); xc, yc = W / 2, H / 2 - 140
+                    for z in range(16, 0, -2):
+                        d.text((xc + z * .6, yc + z), tx, font=f, fill=(40, 46, 60), anchor='mm')
+                    d.text((xc, yc), tx, font=f, fill=(255, 255, 255), anchor='mm', stroke_width=3, stroke_fill=(60, 66, 80))
+                elif tipo == 'prezzo':
+                    prezzo_grande(im, ev, k)
                 elif tipo == 'contorno':
                     lampo = .5 + .5 * math.sin((t - ev['_t']) * 5)
                     for xy in anelli_visibili([ev.get('paese')], pt):
@@ -975,6 +994,11 @@ def disegna_scena(job):
                 pin(im, px, py, 1.4, faccia, salto)
         except Exception:
             pass
+        if job.get('anteprima'):   # COMING UP... in basso a sinistra, lampeggia
+            f_ = font('Anton-Regular.ttf', 84); alfa = 1.0 if (t % 1) < .75 else .55
+            lab = Image.new('RGBA', (560, 130), (0, 0, 0, 0)); dl = ImageDraw.Draw(lab)
+            dl.text((10, 10), 'COMING UP...', font=f_, fill=(255, 214, 0, int(255 * alfa)), stroke_width=7, stroke_fill=(0, 0, 0, int(255 * alfa)))
+            im.alpha_composite(lab, (50, H - 170))
         if job.get('apertura'):   # numero del video, poi il titolo
             num = job['apertura']; tx = str(num.get('testo') or '')
             numero_grande(im, tx.replace('x', '×', 1) if re.match(r'^x\d', tx) else tx,
@@ -993,6 +1017,27 @@ def disegna_scena(job):
     return path
 
 
+def prezzo_grande(im, ev, k):
+    """Cartellino del prezzo ENORME al centro (come in copertina): entra a scatto, con il suono della cassa."""
+    if k <= 0:
+        return
+    s = back(k); tx = str(ev.get('testo') or '')[:12]; ricco = ev.get('ricco') is not False
+    f = font('Anton-Regular.ttf', 230 * s); d0 = ImageDraw.Draw(im); tw = d0.textlength(tx, font=f)
+    w, h = int(tw + 230 * s), int(330 * s)
+    t = Image.new('RGBA', (w + 60, h + 60), (0, 0, 0, 0)); d = ImageDraw.Draw(t)
+    corpo = [(30 + 100 * s, 30), (30 + w, 30), (30 + w, 30 + h), (30 + 100 * s, 30 + h), (30, 30 + h / 2)]
+    d.polygon([(x + 14, y + 16) for x, y in corpo], fill=(0, 0, 0, 150))
+    d.polygon(corpo, fill=(255, 248, 225), outline=(20, 20, 20), width=max(4, int(10 * s)))
+    d.ellipse([30 + 45 * s, 30 + h / 2 - 22 * s, 30 + 89 * s, 30 + h / 2 + 22 * s], fill=(20, 20, 20))
+    d.text((30 + 115 * s + tw / 2 + 30 * s, 30 + h / 2), tx, font=f, fill=(20, 140, 40) if ricco else (200, 40, 30), anchor='mm')
+    t = t.rotate(-5, resample=Image.BICUBIC, expand=True)
+    x, y = int(W / 2 - t.width / 2), int(H / 2 - t.height / 2 - 60)
+    sotto = str(ev.get('sotto') or '').upper()[:30]
+    im.alpha_composite(t, (x, y))
+    if sotto:
+        ImageDraw.Draw(im).text((W / 2, y + t.height + 40), sotto, font=font('Anton-Regular.ttf', 70 * s), fill='white', anchor='mm', stroke_width=7, stroke_fill=NAVY)
+
+
 def disegna_finale(job):
     """Chiusura: numero del video + nome canale + slogan + Pin + Iscriviti (4 s, senza voce)."""
     path = job['path']; n = int(job['dur'] * FPS)
@@ -1006,7 +1051,8 @@ def disegna_finale(job):
         riempi(im, base, anelli_visibili(job.get('oro'), pt), ORO, 1, 12)
         titolo_fascia(im, NOME_CANALE, SLOGAN, ease(t / .5))
         metti(im, isc, W / 2, 640 + isc.height / 2, ease((t - .8) / .4))   # stesso SUBSCRIBE dell'inizio
-        pin(im, W / 2 - 560, 420, 2.4, 'normale', abs(math.sin(t * 4)) * 12)
+        if MASCOTTE:
+            pin(im, W / 2 - 560, 420, 2.4, 'normale', abs(math.sin(t * 4)) * 12)
         p.stdin.write(im.convert('RGB').tobytes())
     p.stdin.close(); p.wait()
     return path
@@ -1021,7 +1067,9 @@ _SL = {}
 
 def suono_lib(cat):
     """Suono vero della libreria (monete, nave, folla...) come array mono a SR; None se non c'e'."""
-    if cat in ('persona', 'folla'):   # niente brusio di folla quando compaiono le persone: basta il "pop" morbido
+    if cat == 'cassa':   # il prezzo si deve sentire bene
+        pass
+    elif cat in ('persona', 'folla'):   # niente brusio di folla quando compaiono le persone: basta il "pop" morbido
         return None
     if cat in _SL:
         return _SL[cat]
@@ -1051,7 +1099,7 @@ def pista_suoni(totale, pop_t, whoosh_t, out):
     for i in range(nW):
         acc += (0.008 + 0.05 * env[i]) * (x[i] - acc); y[i] = acc
     f = np.linspace(45, 95, nW)
-    whoosh = (y * 2.2 + np.sin(2 * np.pi * np.cumsum(f) / SR) * .45) * env * .28          # morbido e basso
+    whoosh = (y * 2.2 + np.sin(2 * np.pi * np.cumsum(f) / SR) * .45) * env * float(P.get('whoosh_vol') or .28)          # morbido e basso
     tt = np.arange(int(.12 * SR)) / SR
     pop = np.sin(2 * np.pi * np.cumsum(520 * np.exp(-tt * 18) + 180) / SR) * np.exp(-tt * 30) * .22
     for t in whoosh_t:
@@ -1444,7 +1492,7 @@ def main():
                 te = d * (k_ + 1) / (len(s.get('eventi') or []) + 1.5)
             ev = dict(ev); ev['_t'] = max(.4, min(d - .6, te)); evs.append(ev)
             nl = nome_lib(ev.get('icona') or ev.get('personaggio') or '')
-            cat = 'folla' if ev.get('tipo') in ('folla', 'contatore') else (CATEGORIE_SUONO.get(nl) if nl else '')
+            cat = 'folla' if ev.get('tipo') in ('folla', 'contatore') else 'cassa' if ev.get('tipo') == 'prezzo' else (CATEGORIE_SUONO.get(nl) if nl else '')
             pop_t.append((t_acc + ev['_t'], cat or ''))
         if i > 0 and camera(s.get('vista')) != camera(prima.get('vista')) and s.get('epoca') == prima.get('epoca'):
             whoosh_t.append(max(0, t_acc - .35))
@@ -1453,7 +1501,10 @@ def main():
         job = {'scena': s, 'dur': d, 'eventi': evs, 'nuvole': nuvole, 'path': os.path.join(LAV, f'scena_{i:03d}.mp4'),
                'vista_prima': prima.get('vista'), 'epoca_prima': prima.get('epoca', s.get('epoca')), 'pin_prima_luogo': pin_luogo(prima),
                'oro_prima': prima.get('oro'), 'verde_prima': prima.get('verde')}
-        if i == 0:
+        if s.get('anteprima') and COMING_UP:
+            job['anteprima'] = True
+        primo_vero = next((j for j, x in enumerate(scene) if not (x.get('anteprima') and COMING_UP)), 0)
+        if i == primo_vero:
             tit = str(c.get('titolo') or comp.get('titolo') or '').upper()
             parole_t = tit.split(); meta = max(1, len(parole_t) // 2)
             job.update(apertura=c.get('numero') or {}, titolo1=' '.join(parole_t[:meta])[:34], titolo2=' '.join(parole_t[meta:])[:40])
@@ -1481,7 +1532,27 @@ def main():
     suoni = pista_suoni(totale, pop_t + [(sum(durs) + .8, '')], whoosh_t, os.path.join(LAV, 'suoni.wav'))
     mix_in = ['-i', voce_tot, '-i', suoni]; mix_f = '[0:a]apad[v0];[v0][1:a]amix=inputs=2:duration=longest:normalize=0[m]'
     mus = None
-    if brani():   # un brano della cartella musica_mappe/, scelto in base al video (sempre lo stesso per lo stesso video)
+    if MUSICA_REGIA:   # musica da film: umore per tratto (regista), libreria comune, stacchi sulle rivelazioni
+        try:
+            import musica_film
+            tratti, t_, cur, ini, stacchi = [], 0.0, None, 0.0, []
+            for s_, d_ in zip(scene, durs):
+                u = str(s_.get('musica') or '').strip().lower().replace("'", '') or cur or 'mistero'
+                if u != cur:
+                    if cur:
+                        tratti.append((ini, t_, cur))
+                    cur, ini = u, t_
+                if s_.get('stacco'):
+                    stacchi.append(t_)
+                t_ += d_
+            tratti.append((ini, totale, cur or 'mistero'))
+            mus = musica_film.traccia(tratti, stacchi, totale, LAV, P.get('canale') or 'mappe', str(P.get('musica_stile') or ''),
+                                      os.path.join(ROOT, 'libreria_musica'), E('ELEVENLABS_API_KEY', ''), log)
+        except Exception as e:
+            log('musica da film non riuscita:', str(e)[:200]); mus = None
+    if mus:
+        pass
+    elif brani():   # un brano della cartella musica_mappe/, scelto in base al video (sempre lo stesso per lo stesso video)
         lista_b = brani(); mus = os.path.join(ROOT, 'musica_mappe', lista_b[sum(map(ord, comp['id'])) % len(lista_b)])
     elif MUSICA_URL:
         try:
