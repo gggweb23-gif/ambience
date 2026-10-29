@@ -46,6 +46,13 @@ ZOOM_MIN = 34.0                                     # larghezza minima inquadrat
 PPM = 150                                           # parole al minuto della voce inglese (stima per la lunghezza del copione)
 
 NAVY, ROSSO, CREMA, ORO, VERDE = (16, 30, 62), (222, 44, 52), (250, 242, 222), (246, 196, 44), (40, 160, 170)
+try:   # colore del secondo lato (colonna colore_secondo, es. #E8641E arancio come il competitor)
+    _c2 = str(P.get('colore_secondo') or '').strip().lstrip('#')
+    if len(_c2) == 6:
+        VERDE = tuple(int(_c2[i:i + 2], 16) for i in (0, 2, 4))
+except Exception:
+    pass
+FILO = str(P.get('filo_storia') or E('FILO_STORIA', '') or 'NO').strip().upper() == 'SI'   # percorso tratteggiato che lega i luoghi della storia
 ENC = ['-c:v', 'libx264', '-preset', 'veryfast', '-crf', '16', '-pix_fmt', 'yuv420p', '-r', str(FPS)]
 T_INIZIO = time.time()
 
@@ -213,7 +220,7 @@ For EVERY scene you also direct the MAP (equirectangular world map with shaded r
 - "vista": camera {{"lon": center longitude, "lat": center latitude, "larghezza": degrees of longitude visible (8 = one small country, 30 = a region, 120 = a continent, 300 = whole world)}}. Change it often (zoom in / out / pan), like a documentary.
 - "epoca": "oggi" (modern colored map) or "antica" (old parchment map: use it for events before ~1900). Do not switch epoch more than 4 times in the whole video.
 - "oro": ISO-3 codes of the country/countries that are the "rich / winner / focus" side (painted gold, raised in 3D). "verde": ISO-3 codes of the other side (painted blue-green). Max 25 codes each. Can be empty.
-- "eventi": something new must appear on screen every 2-3 seconds: put ONE event every 6-8 words of the scene (usually 2-4 per scene: fewer but richer elements, calm and interesting to watch), each tied to a different WORD of the scene, spread from the beginning to the end of the scene ("parola" = one exact word that appears in that scene's text; the event appears when the voice says it). The camera automatically zooms on each event that has a location, so give most events a precise lon/lat.
+- "eventi": something new must appear on screen EVERY 2 SECONDS (a route drawing itself, a counter, a portrait, a key-fact bar, a label, a price, a country rising or lighting up): the viewer must never see a still map. Put ONE event every 5-6 words of the scene (usually 2-4 per scene: fewer but richer elements, calm and interesting to watch), each tied to a different WORD of the scene, spread from the beginning to the end of the scene ("parola" = one exact word that appears in that scene's text; the event appears when the voice says it). The camera automatically zooms on each event that has a location, so give most events a precise lon/lat.
   Every scene must contain at least ONE moving element (freccia, confine, colonna, barre) or a NEW place (icona/etichetta) — never two scenes in a row with only labels.
   An "anno" card must show exactly the year said in that scene (if the text says "300 years ago", write the year that means). Types:
   {{"tipo":"icona","icona": one of [{icone}] or "flag:XX" (ISO-2 country code),"lon":..,"lat":..,"parola":".."}}
@@ -227,10 +234,13 @@ For EVERY scene you also direct the MAP (equirectangular world map with shaded r
   {{"tipo":"contorno","paese":"ISO-3","parola":".."}}   (glowing outline of one country)
   {{"tipo":"confine","punti":[[lon,lat],[lon,lat],...],"parola":".."}}   (a red border/line drawn on the map)
   {{"tipo":"scritta","testo":"STRANGE?","parola":".."}}   (huge 3D word in the middle, max 2 words, on the key word of a sentence: EXCEPTION, HALF, 9 DAYS, WHY?, NEVER... about one every 20 seconds)
+  {{"tipo":"conta","valore":11150,"prefisso":"~","suffisso":"","sotto":"KM AT SEA","parola":".."}}   (counter in a card top-right that COUNTS UP from zero: distances, years, people, money; real numbers only; use it OFTEN)
+  {{"tipo":"personaggio","nome":"Miguel Lopez de Legazpi","descrizione":"16th-century Spanish conquistador, beard, armour","parola":".."}}   (portrait card top-left, every time the voice names a historical person)
+  {{"tipo":"nota","testo":"He sailed from Mexico","parola":".."}}   (bottom bar with the key fact just said, max 6 words, about one every 10 seconds)
   {{"tipo":"solleva","paese":["USA"],"volte":8,"testo":"x8","colore":"oro","parola":".."}}   (the country RISES in 3D, height proportional to "volte" (1-12): use it when the voice compares wealth/size, e.g. eight times richer)
   {{"tipo":"griglia","paese":["MEX"],"pieni":0.1,"testo":"1 IN 10 OWNED LAND","colore":"oro","parola":".."}}   (the country splits into little squares that appear one by one, "pieni" = coloured share (0-1): land ownership, shares of people, quotas)
   {{"tipo":"conta_paesi","paesi":["MEX","GTM","HND",...],"colore":"rosso","parola":".."}}   (the countries light up ONE BY ONE with a big counter 1, 2, 3... 18: use it when the voice counts countries)
-  {{"tipo":"prezzo","testo":"$82,000","sotto":"USA · PER PERSON (max 4 words)","ricco":true,"parola":".."}}   (HUGE price tag in the middle with the sound of a cash register, every time the voice says the income / GDP per person / a price of a country; real numbers only)
+  {{"tipo":"prezzo","testo":"$82,000","sotto":"USA · PER PERSON (max 4 words)","ricco":true,"parola":".."}}   (HUGE price tag in the middle with the sound of a cash register: EVERY time the story compares how rich two places are (e.g. "eight times richer"), show the real GDP per person of each side with two "prezzo" events in that scene (rich first, then poor with "ricco": false); real numbers only)
   {{"tipo":"barre","titolo":"GDP PER PERSON","voci":[{{"testo":"USA","valore":82,"lato":"oro"}},{{"testo":"MEXICO","valore":14,"lato":"verde"}}],"parola":".."}}   (chart panel, max 4 bars, real numbers only)
   Coordinates must be REAL and well inside the "vista" of that scene (not on its edges).
 - "musica": the MOOD of the music, only where it changes (a mood lasts at least 20 seconds): one of mistero, tensione, epico, azione, curiosita, quotidiano, malinconia, trionfo. Follow the story like a film. The first scene always has one. Otherwise "".
@@ -830,8 +840,9 @@ def vista_a(tappe, t, dur):
             k = ease((t - ta) / max(tb - ta, 1e-6)); v = tuple(a + (b - a) * k for a, b in zip(va, vb)); break
     else:
         v = tappe[-1][1]
-    drift = 1 - .06 * t / max(dur, 1)   # zoom lento continuo: la mappa non e' mai ferma
-    return (v[0], v[1], v[2] * drift)
+    k = t / max(dur, 1)
+    drift = 1 - (.12 if FILO else .06) * k   # zoom lento continuo: la mappa non e' mai ferma
+    return (v[0] + (v[2] * .04 * k if FILO else 0), v[1], v[2] * drift)
 
 
 def nomi_paesi(sc, job, v1, dur, eventi):
@@ -906,6 +917,9 @@ def disegna_scena(job):
         riempi(im, base, anelli_visibili(list(nuovi_o), pt), col_o, tinta, min(18, 9 * zoom), (ox, oy, r))
         d = ImageDraw.Draw(im)
         fine = 1 - ease((t - dur + .25) / .25)
+        if FILO:
+            filo_storia(im, job.get('traccia') or [], pt, t)
+            collega_eventi(im, eventi, pt, t)
         ultimo = None
         for ev in eventi:
             k = ease((t - ev['_t']) / .35) * fine
@@ -951,6 +965,20 @@ def disegna_scena(job):
                     d.text((xc, yc), tx, font=f, fill=(255, 255, 255), anchor='mm', stroke_width=3, stroke_fill=(60, 66, 80))
                 elif tipo == 'prezzo':
                     prezzo_grande(im, ev, k)
+                elif tipo == 'conta':
+                    riquadro_conta(im, ev, t - ev['_t'], fine)
+                elif tipo == 'personaggio':
+                    scheda_personaggio(im, ev, t - ev['_t'], fine)
+                elif tipo == 'nota':
+                    barra_nota(im, ev, t - ev['_t'], fine, dur - ev['_t'])
+                elif tipo == 'impulso':   # onda che si allarga sul luogo della storia: la mappa non resta mai ferma
+                    xi, yi = pt(float(ev['lon']), float(ev['lat']))
+                    for j in range(3):
+                        ph = ((t - ev['_t']) * .9 - j * .33)
+                        if 0 < ph < 1:
+                            r_ = 30 + ph * 230
+                            d.ellipse([xi - r_, yi - r_, xi + r_, yi + r_], outline=(255, 255, 255, int(220 * (1 - ph) * fine)), width=6)
+                    d.ellipse([xi - 14, yi - 14, xi + 14, yi + 14], fill=(255, 214, 0, int(255 * fine)), outline=(0, 0, 0), width=3)
                 elif tipo == 'solleva':
                     solleva(im, ev, pt, t - ev['_t'], fine)
                 elif tipo == 'griglia':
@@ -1036,6 +1064,162 @@ def disegna_scena(job):
     return path
 
 
+def _tratteggio(d, pts, col, larg, lungo=26, vuoto=16):
+    acc, disegna = 0.0, True
+    for (x0, y0), (x1, y1) in zip(pts, pts[1:]):
+        seg = math.hypot(x1 - x0, y1 - y0)
+        if seg < 1e-6:
+            continue
+        u = 0.0
+        while u < seg:
+            passo = min((lungo if disegna else vuoto) - acc, seg - u)
+            a = (x0 + (x1 - x0) * u / seg, y0 + (y1 - y0) * u / seg); u += passo
+            b = (x0 + (x1 - x0) * u / seg, y0 + (y1 - y0) * u / seg)
+            if disegna:
+                d.line([a, b], fill=col, width=larg)
+            acc += passo
+            if acc >= (lungo if disegna else vuoto) - 1e-6:
+                acc, disegna = 0.0, not disegna
+
+
+def _curva(a, b, n=40, alza=.22):
+    (xa, ya), (xb, yb) = a, b; h = min(260, math.hypot(xb - xa, yb - ya) * alza)
+    return [(xa + (xb - xa) * u, ya + (yb - ya) * u - math.sin(u * math.pi) * h) for u in np.linspace(0, 1, n)]
+
+
+def _punta(d, pts, col):
+    (ax, ay), (bx, by) = pts[-3], pts[-1]; ang = math.atan2(by - ay, bx - ax); L = 40
+    d.polygon([(bx, by), (bx - L * math.cos(ang - .5), by - L * math.sin(ang - .5)), (bx - L * math.cos(ang + .5), by - L * math.sin(ang + .5))],
+              fill=col, outline=(0, 0, 0))
+
+
+def filo_storia(im, traccia, pt, t):
+    """Il collante della storia: un percorso tratteggiato che unisce i luoghi delle scene (gli ultimi restano, l'ultimo tratto si disegna mentre si arriva),
+    con un punto luminoso che viaggia sul tratto nuovo."""
+    if len(traccia) < 2:
+        return
+    d = ImageDraw.Draw(im); P_ = [pt(*p) for p in traccia]
+    for j in range(len(P_) - 1):
+        pts = _curva(P_[j], P_[j + 1])
+        ultimo = j == len(P_) - 2
+        k = ease(t / 1.3) if ultimo else 1.0
+        if k <= 0:
+            continue
+        m = max(2, int(len(pts) * k))
+        vecchio = len(P_) - 2 - j   # i tratti piu' vecchi sbiadiscono
+        a = 235 if ultimo else max(70, 170 - 50 * vecchio)
+        _tratteggio(d, pts[:m], (0, 0, 0, int(a * .6)), 11); _tratteggio(d, pts[:m], (255, 255, 255, a), 6)
+        if ultimo and k < 1:
+            x, y = pts[m - 1]; d.ellipse([x - 16, y - 16, x + 16, y + 16], fill=(255, 214, 0, 255), outline=(0, 0, 0), width=4)
+        elif ultimo:
+            _punta(d, pts, (255, 255, 255, 240))
+    for x, y in P_[:-1]:
+        d.ellipse([x - 9, y - 9, x + 9, y + 9], fill=(255, 255, 255, 200), outline=(0, 0, 0), width=3)
+
+
+def collega_eventi(im, eventi, pt, t):
+    """Freccia tratteggiata da un elemento della scena al successivo, mentre compare: l'occhio segue il percorso."""
+    luoghi = [ev for ev in sorted(eventi, key=lambda e: e['_t']) if ev.get('_luogo') and ev.get('tipo') not in ('nome', 'freccia', 'impulso')]
+    d = ImageDraw.Draw(im)
+    for a, b in zip(luoghi, luoghi[1:]):
+        k = ease((t - b['_t'] + .1) / .6)
+        if k <= 0:
+            continue
+        pa, pb = pt(*a['_luogo']), pt(*b['_luogo'])
+        if math.hypot(pb[0] - pa[0], pb[1] - pa[1]) < 120:
+            continue
+        pts = _curva(pa, pb, 30, .18); m = max(2, int(len(pts) * k))
+        _tratteggio(d, pts[:m], (0, 0, 0, 150), 9, 20, 14); _tratteggio(d, pts[:m], (255, 214, 0, 235), 5, 20, 14)
+        if k >= 1:
+            _punta(d, pts, (255, 214, 0, 235))
+
+
+def riquadro_conta(im, ev, dt, fine):
+    """Riquadro in alto a destra con un numero che SALE da zero (km, anni, persone, soldi) e sotto cosa misura."""
+    if dt <= 0 or fine <= 0:
+        return
+    try:
+        val = float(str(ev.get('valore')).replace(',', ''))
+    except Exception:
+        return
+    k = ease(min(1, dt / 1.4)); n = val * k
+    tx = str(ev.get('prefisso') or '') + (f'{n:,.0f}' if val >= 10 or val == int(val) else f'{n:.1f}') + str(ev.get('suffisso') or '')
+    sotto = str(ev.get('sotto') or '').upper()[:26]
+    f1, f2 = font('Poppins-ExtraBold.ttf', 96), font('Anton-Regular.ttf', 40)
+    d = ImageDraw.Draw(im); w = max(d.textlength(tx, font=f1), d.textlength(sotto, font=f2)) + 80; h = 190 if sotto else 140
+    s_ = back(min(1, dt / .3)); x1 = W - 50; x0 = x1 - w * s_; y0 = 50
+    a = int(255 * fine)
+    d.rectangle([x0 + 8, y0 + 10, x1 + 8, y0 + h + 10], fill=(0, 0, 0, int(a * .45)))
+    d.rectangle([x0, y0, x1, y0 + h], fill=(252, 248, 238, a), outline=(30, 30, 40, a), width=4)
+    if s_ > .9:
+        d.text(((x0 + x1) / 2, y0 + 72), tx, font=f1, fill=(214, 84, 30, a), anchor='mm')
+        if sotto:
+            d.text(((x0 + x1) / 2, y0 + 150), sotto, font=f2, fill=(40, 40, 50, a), anchor='mm')
+
+
+def scheda_personaggio(im, ev, dt, fine):
+    """Scheda in alto a sinistra: ritratto disegnato a tratto + nome, quando la voce nomina una persona storica."""
+    if dt <= 0 or fine <= 0:
+        return
+    s_ = back(min(1, dt / .35)); w, h = int(300 * s_), int(380 * s_)
+    if w < 20:
+        return
+    x0, y0 = 50, 50
+    card = Image.new('RGBA', (w, h), (252, 248, 238, 255)); dc = ImageDraw.Draw(card)
+    try:
+        ritr = Image.open(ev['_img']).convert('RGB')
+    except Exception:
+        ritr = None
+    if ritr is not None:
+        card.paste(ImageOps.fit(ritr, (w - 40, int(h * .68))), (20, 20))
+    else:   # sagoma
+        dc.ellipse([w * .3, h * .1, w * .7, h * .42], fill=(190, 190, 190)); dc.rectangle([w * .2, h * .42, w * .8, h * .7], fill=(190, 190, 190))
+    nome = str(ev.get('nome') or '')[:28]
+    fn = font('Anton-Regular.ttf', max(10, int(34 * s_)))
+    righe = [nome] if dc.textlength(nome, font=fn) < w - 30 else [' '.join(nome.split()[:-1]), nome.split()[-1]]
+    for i, r in enumerate(righe):
+        dc.text((w / 2, h * .78 + i * 40 * s_), r, font=fn, fill=(30, 30, 40), anchor='mm')
+    dc.rectangle([0, 0, w - 1, h - 1], outline=(30, 30, 40), width=4)
+    card.putalpha(int(255 * fine))
+    ombra = Image.new('RGBA', (w, h), (0, 0, 0, int(110 * fine)))
+    im.alpha_composite(ombra, (x0 + 10, y0 + 12)); im.alpha_composite(card, (x0, y0))
+
+
+def barra_nota(im, ev, dt, fine, resto):
+    """Barra in basso con la frase chiave appena detta (es. "He sailed from Mexico"), entra da sinistra."""
+    if dt <= 0 or fine <= 0:
+        return
+    tx = str(ev.get('testo') or '')[:48]; f = font('Poppins-Bold.ttf', 50)
+    d = ImageDraw.Draw(im); w = d.textlength(tx, font=f) + 70; h = 86
+    k = ease(min(1, dt / .4)) * (1 - ease((dt - min(4.0, resto - .2)) / .3)) * fine
+    if k <= 0:
+        return
+    x0 = W / 2 - w / 2; y0 = H - 150 + (1 - k) * 40
+    d.rectangle([x0, y0, x0 + w, y0 + h], fill=(16, 30, 62, int(235 * k)))
+    d.rectangle([x0, y0 + h - 8, x0 + w, y0 + h], fill=(232, 100, 30, int(255 * k)))
+    d.text((W / 2, y0 + h / 2 - 3), tx, font=f, fill=(255, 255, 255, int(255 * k)), anchor='mm')
+
+
+def ritratto(nome, descr):
+    """Ritratto a tratto (stile incisione) di un personaggio storico: generato una volta, poi riusato dalla libreria."""
+    cart = os.path.join(LIB, 'ritratti'); os.makedirs(cart, exist_ok=True)
+    p = os.path.join(cart, re.sub(r'[^a-z0-9]+', '_', nome.lower()).strip('_')[:60] + '.jpg')
+    if os.path.exists(p) or not E('FAL_KEY'):
+        return p
+    h = {'Authorization': 'Key ' + E('FAL_KEY', '')}
+    prompt = (f'Portrait of {nome}, {descr}. Black ink line-art engraving, like an old history book illustration, head and shoulders, '
+              'facing the viewer, plain white background, historically accurate clothes and hair for the era. No text, no letters, no frame.')
+    inv = http('https://queue.fal.run/fal-ai/bytedance/seedream/v4.5/text-to-image', {'prompt': prompt, 'image_size': {'width': 1024, 'height': 1280}, 'num_images': 1}, h)
+    for _ in range(100):
+        time.sleep(3); st = http(inv['status_url'], headers=h)
+        if st.get('status') == 'COMPLETED':
+            r = http(inv['response_url'], headers=h)
+            Image.open(io.BytesIO(http(r['images'][0]['url'], raw=True))).convert('RGB').save(p, quality=90); log('ritratto nuovo:', nome); return p
+        if st.get('status') not in ('IN_QUEUE', 'IN_PROGRESS'):
+            raise RuntimeError(json.dumps(st)[:200])
+    raise RuntimeError('ritratto: tempo scaduto')
+
+
 COL_EV = {'oro': ORO, 'giallo': ORO, 'verde': VERDE, 'rosso': (232, 70, 30), 'arancio': (232, 90, 30), 'ruggine': (214, 80, 30)}
 
 
@@ -1053,7 +1237,7 @@ def solleva(im, ev, pt, dt, fine):
         volte = 3.0
     alt = 26 * volte * back(min(1, dt / 1.1)) * fine   # altezza in pixel
     col = COL_EV.get(str(ev.get('colore') or 'oro'), ORO)
-    lato = mix(col, (40, 20, 0), .45); d = ImageDraw.Draw(im)
+    lato = mix(col, (60, 30, 0), .28); d = ImageDraw.Draw(im)
     passo = 3
     for h in range(0, int(alt), passo):   # spessore: strati scuri impilati
         for xy in polys:
@@ -1587,7 +1771,7 @@ def main():
     log('voce pronta:', round(sum(durs) / 60, 1), 'minuti')
     # tempi degli eventi sulle parole della voce
     pop_t, whoosh_t, t_acc = [], [], 0.0
-    jobs = []
+    jobs = []; ancore = []
     prima = {}
     gia_antica = False
     for i, (s, v, d) in enumerate(zip(scene, voci, durs)):
@@ -1608,7 +1792,16 @@ def main():
             whoosh_t.append(max(0, t_acc - .35))
         nuvole = s.get('epoca') == 'antica' and prima.get('epoca', s.get('epoca')) != 'antica' and not gia_antica
         gia_antica = gia_antica or s.get('epoca') == 'antica'
-        job = {'scena': s, 'dur': d, 'eventi': evs, 'nuvole': nuvole, 'path': os.path.join(LAV, f'scena_{i:03d}.mp4'),
+        anc = next((luogo(e) for e in evs if luogo(e) and e.get('tipo') not in ('anno', 'scritta', 'barre', 'prezzo')), None)
+        if anc is None:
+            v_ = camera(s.get('vista')); anc = (v_[0], v_[1])
+        ancore.append(anc)
+        if FILO:   # niente buchi: se tra due elementi passano piu' di 2,5 s compare un'onda sul luogo della storia
+            tempi = [0.0] + sorted(e['_t'] for e in evs) + [d]
+            for a_, b_ in zip(tempi, tempi[1:]):
+                if b_ - a_ > 2.5:
+                    evs.append({'tipo': 'impulso', 'lon': anc[0], 'lat': anc[1], '_t': a_ + (b_ - a_) / 2 - .3})
+        job = {'scena': s, 'dur': d, 'eventi': evs, 'nuvole': nuvole, 'path': os.path.join(LAV, f'scena_{i:03d}.mp4'), 'traccia': ancore[-4:],
                'vista_prima': prima.get('vista'), 'epoca_prima': prima.get('epoca', s.get('epoca')), 'pin_prima_luogo': pin_luogo(prima),
                'oro_prima': prima.get('oro'), 'verde_prima': prima.get('verde')}
         if s.get('anteprima') and COMING_UP:
@@ -1621,6 +1814,22 @@ def main():
         jobs.append(job); prima = s; t_acc += d
     finale_job = {'path': os.path.join(LAV, 'scena_fine.mp4'), 'dur': 4.0, 'vista': (c.get('copertina') or {}).get('vista') or scene[-1].get('vista'),
                   'oro': (c.get('copertina') or {}).get('oro'), 'verde': (c.get('copertina') or {}).get('verde')}
+    pers = {}
+    for j_ in jobs:   # ritratti dei personaggi storici (uno per persona, restano in libreria)
+        for ev in j_['eventi']:
+            if ev.get('tipo') == 'personaggio' and ev.get('nome'):
+                pers.setdefault(str(ev['nome']), str(ev.get('descrizione') or ''))
+    with ThreadPoolExecutor(3) as ex:
+        def _r(n):
+            try:
+                return ritratto(n, pers[n])
+            except Exception as e:
+                log('ritratto non riuscito:', n, str(e)[:120]); return None
+        immagini_p = dict(zip(pers, ex.map(_r, pers)))
+    for j_ in jobs:
+        for ev in j_['eventi']:
+            if ev.get('tipo') == 'personaggio':
+                ev['_img'] = immagini_p.get(str(ev.get('nome')))
     # disegno in parallelo (ogni core una scena)
     t0 = time.time(); core = max(1, (os.cpu_count() or 2))
     log(f'disegno {len(jobs)} scene su {core} core')

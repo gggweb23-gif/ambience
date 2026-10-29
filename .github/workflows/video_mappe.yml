@@ -105,9 +105,9 @@ jobs:
       - name: Libreria musicale comune (brani nuovi creati da questo video)
         if: ${{ always() }}
         run: |
-          if [ -d libreria_musica ] && [ -n "$(git status --porcelain libreria_musica)" ]; then
+          if [ -n "$(git status --porcelain libreria_musica libreria_mappe/ritratti 2>/dev/null)" ]; then
             git config user.name "render-bot"; git config user.email "render-bot@users.noreply.github.com"
-            git add libreria_musica; git commit -m "Libreria musicale" || exit 0
+            git add libreria_musica libreria_mappe/ritratti 2>/dev/null; git commit -m "Libreria musicale e ritratti" || exit 0
             for i in 1 2 3 4 5; do git pull --rebase -q && git push && break; sleep $((i * 5)); done
           fi
 
