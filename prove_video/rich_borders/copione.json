@@ -11,11 +11,11 @@
   ],
   "verde": [
    "MEX",
-   "BRA",
    "BOL",
    "PER",
-   "COL",
-   "ARG"
+   "BRA",
+   "ARG",
+   "COL"
   ],
   "vista": {
    "lon": -80,
@@ -23,45 +23,39 @@
    "larghezza": 120
   }
  },
- "descrizione": "In 1700, Mexico City was the biggest city in the Americas, and the average Mexican was almost as rich as the average colonist in what became the United States. Today, the average American produces about eight times more. What went wrong?\n\nWe follow the silver of Potosi in Bolivia, the Spanish conquest of the Aztecs and Incas, and the first choices that shaped two very different Americas. Every border has a price.",
+ "descrizione": "Silver hit a record price this year, yet the mountain that once gave the world nearly half its silver sits in Bolivia, one of South America's poorest countries. Three hundred years ago, Latin America looked like the winner of the Americas. So what went wrong?\n\nWe follow the money across the map: from the Aztec and Inca empires to the Spanish encomienda, and show why finding treasure first may have been the biggest curse of all.",
  "tag": [
+  "why is latin america poor",
+  "us vs latin america",
   "economic history",
-  "geopolitics",
-  "latin america",
-  "united states",
-  "why latin america is poor",
-  "why us is rich",
-  "bolivia silver",
-  "potosi",
-  "spanish empire",
-  "aztecs and incas",
+  "geopolitics explained",
   "animated maps",
-  "economics explained"
+  "potosi silver",
+  "spanish empire",
+  "aztec empire",
+  "inca empire",
+  "encomienda",
+  "gdp per person",
+  "history of the americas"
  ],
  "scene": [
   {
-   "testo": "Silver hit a record high. A mountain gave half the world's silver. A rich country? No. Why did the US get rich, but Latin America never did?",
+   "testo": "A mountain that gave the world half its silver. A city bigger than any in the Americas. And one gap: eight times richer.",
    "anteprima": true,
    "vista": {
     "lon": -66,
     "lat": -20,
-    "larghezza": 30
+    "larghezza": 20
    },
-   "epoca": "oggi",
+   "epoca": "antica",
    "oro": [
     "USA"
    ],
    "verde": [
-    "BOL"
+    "BOL",
+    "MEX"
    ],
    "eventi": [
-    {
-     "tipo": "prezzo",
-     "testo": "RECORD",
-     "sotto": "SILVER PRICE",
-     "ricco": true,
-     "parola": "record"
-    },
     {
      "tipo": "icona",
      "icona": "mountain",
@@ -69,6 +63,57 @@
      "lat": -19.6,
      "parola": "mountain"
     },
+    {
+     "tipo": "numero",
+     "testo": "HALF",
+     "lon": -66.5,
+     "lat": -17.5,
+     "parola": "half"
+    },
+    {
+     "tipo": "icona",
+     "icona": "castle",
+     "lon": -99.1,
+     "lat": 19.4,
+     "parola": "city"
+    },
+    {
+     "tipo": "numero",
+     "testo": "x8",
+     "lon": -98,
+     "lat": 38,
+     "parola": "eight"
+    }
+   ],
+   "musica": "mistero",
+   "stacco": false,
+   "pin": {
+    "lon": -60,
+    "lat": -25,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Who got rich, who stayed poor, and why? Why did the US get rich, but Latin America never did?",
+   "anteprima": true,
+   "vista": {
+    "lon": -80,
+    "lat": 5,
+    "larghezza": 120
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "MEX",
+    "BOL",
+    "PER",
+    "BRA",
+    "ARG",
+    "COL"
+   ],
+   "eventi": [
     {
      "tipo": "solleva",
      "paese": [
@@ -83,23 +128,126 @@
      "tipo": "scritta",
      "testo": "WHY?",
      "parola": "Why"
+    },
+    {
+     "tipo": "icona",
+     "icona": "question",
+     "lon": -60,
+     "lat": -10,
+     "parola": "never"
     }
    ],
-   "musica": "mistero",
+   "musica": "",
    "stacco": false,
    "pin": {
-    "lon": -62,
-    "lat": -14,
+    "lon": -45,
+    "lat": 30,
     "faccia": "stupito"
    }
   },
   {
-   "testo": "Mexico City once beat them all. The average Mexican nearly matched a colonist. Today, one gap: eight times.",
-   "anteprima": true,
+   "testo": "In January, silver hit the highest price in its history. Yet the mountain that once gave the world nearly half its silver is in Bolivia.",
+   "anteprima": false,
    "vista": {
-    "lon": -98,
-    "lat": 28,
-    "larghezza": 50
+    "lon": -66,
+    "lat": -19,
+    "larghezza": 30
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "BOL"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "silver_bars",
+     "lon": -65.7,
+     "lat": -19.6,
+     "parola": "silver"
+    },
+    {
+     "tipo": "contorno",
+     "paese": "BOL",
+     "parola": "Bolivia"
+    },
+    {
+     "tipo": "conta",
+     "valore": 50,
+     "prefisso": "~",
+     "suffisso": "%",
+     "sotto": "OF WORLD SILVER",
+     "parola": "half"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Bolivia: a poor land, a silver mountain",
+     "parola": "mountain"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -58,
+    "lat": -25,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "That is odd, because 300 years ago this side of the map looked like the winner. Mexico City was the biggest city in the Americas.",
+   "anteprima": false,
+   "vista": {
+    "lon": -99,
+    "lat": 19.4,
+    "larghezza": 25
+   },
+   "epoca": "antica",
+   "oro": [
+    "MEX"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1700",
+     "parola": "300"
+    },
+    {
+     "tipo": "icona",
+     "icona": "castle",
+     "lon": -99.1,
+     "lat": 19.4,
+     "parola": "winner"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "merchant",
+     "n": 5,
+     "lon": -99.1,
+     "lat": 19.0,
+     "parola": "biggest"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Mexico City led the Americas",
+     "parola": "Americas"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": -105,
+    "lat": 25,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "It even had a university 85 years before Harvard. And in 1700, the average Mexican was almost as rich as a colonist in English America.",
+   "anteprima": false,
+   "vista": {
+    "lon": -90,
+    "lat": 30,
+    "larghezza": 60
    },
    "epoca": "antica",
    "oro": [
@@ -114,143 +262,6 @@
      "icona": "school",
      "lon": -99.1,
      "lat": 19.4,
-     "parola": "Mexico"
-    },
-    {
-     "tipo": "colonna",
-     "testo": "MEXICO",
-     "valore": 0.9,
-     "lon": -102,
-     "lat": 23,
-     "parola": "nearly"
-    },
-    {
-     "tipo": "colonna",
-     "testo": "COLONIES",
-     "valore": 1.0,
-     "lon": -76,
-     "lat": 38,
-     "parola": "colonist"
-    },
-    {
-     "tipo": "numero",
-     "testo": "x8",
-     "lon": -98,
-     "lat": 38,
-     "parola": "eight"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -90,
-    "lat": 18,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Potosi, in Bolivia, sat on a mountain of silver. In its peak years, it supplied close to half of all the silver on Earth.",
-   "anteprima": false,
-   "vista": {
-    "lon": -65.7,
-    "lat": -19.6,
-    "larghezza": 12
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "BOL"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "mine",
-     "lon": -65.75,
-     "lat": -19.6,
-     "parola": "Potosi"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "miner",
-     "n": 5,
-     "lon": -65.6,
-     "lat": -19.4,
-     "parola": "mountain"
-    },
-    {
-     "tipo": "conta",
-     "valore": 50,
-     "prefisso": "~",
-     "suffisso": "%",
-     "sotto": "OF WORLD SILVER",
-     "parola": "half"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": -64.5,
-    "lat": -21,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Today Bolivia is among the poorest countries in South America. Three centuries ago, this side of the map looked like the winner.",
-   "anteprima": false,
-   "vista": {
-    "lon": -70,
-    "lat": -10,
-    "larghezza": 70
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "BOL"
-   ],
-   "eventi": [
-    {
-     "tipo": "contorno",
-     "paese": "BOL",
-     "parola": "Bolivia"
-    },
-    {
-     "tipo": "anno",
-     "testo": "1700",
-     "parola": "Three"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "STRANGE?",
-     "parola": "winner"
-    }
-   ],
-   "musica": "mistero",
-   "stacco": false,
-   "pin": {
-    "lon": -55,
-    "lat": -25,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Mexico City was the largest city in the Americas. Its university opened 85 years before Harvard, in a place that looked unstoppable.",
-   "anteprima": false,
-   "vista": {
-    "lon": -99.1,
-    "lat": 19.4,
-    "larghezza": 14
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "MEX"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "school",
-     "lon": -99.13,
-     "lat": 19.43,
      "parola": "university"
     },
     {
@@ -262,75 +273,41 @@
      "parola": "85"
     },
     {
-     "tipo": "folla",
-     "personaggio": "student",
-     "n": 4,
-     "lon": -99,
-     "lat": 19.6,
-     "parola": "unstoppable"
+     "tipo": "colonna",
+     "testo": "MEXICO",
+     "valore": 0.9,
+     "lon": -102,
+     "lat": 23,
+     "parola": "Mexican"
+    },
+    {
+     "tipo": "colonna",
+     "testo": "ENGLISH COLONIES",
+     "valore": 1.0,
+     "lon": -76,
+     "lat": 38,
+     "parola": "colonist"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Almost equal in 1700",
+     "parola": "almost"
     }
    ],
    "musica": "curiosita",
    "stacco": false,
    "pin": {
-    "lon": -97,
+    "lon": -88,
     "lat": 18,
     "faccia": "normale"
    }
   },
   {
-   "testo": "By one famous estimate, in 1700 the average Mexican was almost as rich as a colonist in the future United States.",
+   "testo": "Today the average American produces about eight times more than the average Latin American. So what happened?",
    "anteprima": false,
    "vista": {
-    "lon": -90,
-    "lat": 28,
-    "larghezza": 60
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [
-    "MEX"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1700",
-     "parola": "1700"
-    },
-    {
-     "tipo": "barre",
-     "titolo": "INCOME PER PERSON, 1700",
-     "voci": [
-      {
-       "testo": "MEXICO",
-       "valore": 9,
-       "lato": "verde"
-      },
-      {
-       "testo": "US COLONIES",
-       "valore": 10,
-       "lato": "oro"
-      }
-     ],
-     "parola": "almost"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -105,
-    "lat": 20,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Now the average American produces about eight times more than the average Latin American. Imagine one family earning in a month what the other earns in eight.",
-   "anteprima": false,
-   "vista": {
-    "lon": -85,
-    "lat": 15,
+    "lon": -80,
+    "lat": 10,
     "larghezza": 120
    },
    "epoca": "oggi",
@@ -340,12 +317,26 @@
    "verde": [
     "MEX",
     "BRA",
-    "BOL",
-    "PER",
     "COL",
+    "PER",
+    "BOL",
     "ARG"
    ],
    "eventi": [
+    {
+     "tipo": "prezzo",
+     "testo": "$82,000",
+     "sotto": "USA · PER PERSON",
+     "ricco": true,
+     "parola": "American"
+    },
+    {
+     "tipo": "prezzo",
+     "testo": "$10,000",
+     "sotto": "LATIN AMERICA · PER PERSON",
+     "ricco": false,
+     "parola": "Latin"
+    },
     {
      "tipo": "solleva",
      "paese": [
@@ -357,38 +348,31 @@
      "parola": "eight"
     },
     {
-     "tipo": "prezzo",
-     "testo": "$80,000",
-     "sotto": "USA · PER PERSON",
-     "ricco": true,
-     "parola": "American"
-    },
-    {
-     "tipo": "prezzo",
-     "testo": "$10,000",
-     "sotto": "LATIN AMERICA · PER PERSON",
-     "ricco": false,
-     "parola": "Latin"
+     "tipo": "scritta",
+     "testo": "WHY?",
+     "parola": "happened"
     }
    ],
    "musica": "tensione",
    "stacco": true,
    "pin": {
-    "lon": -60,
-    "lat": 40,
+    "lon": -40,
+    "lat": 35,
     "faccia": "stupito"
    }
   },
   {
-   "testo": "The answer starts with what each side found on arrival. And the strange part? The side that found the treasure is the one that lost.",
+   "testo": "The answer starts with what each side found on arrival. And here is the twist: the side that found the treasure is the side that lost.",
    "anteprima": false,
    "vista": {
-    "lon": -85,
-    "lat": 0,
-    "larghezza": 120
+    "lon": -80,
+    "lat": 15,
+    "larghezza": 100
    },
    "epoca": "antica",
-   "oro": [],
+   "oro": [
+    "USA"
+   ],
    "verde": [
     "MEX",
     "PER"
@@ -401,7 +385,7 @@
       37
      ],
      "a": [
-      -96,
+      -95,
       19
      ],
      "icona": "galleon",
@@ -418,13 +402,78 @@
      "tipo": "scritta",
      "testo": "LOST",
      "parola": "lost"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Treasure became the trap",
+     "parola": "twist"
+    }
+   ],
+   "musica": "mistero",
+   "stacco": false,
+   "pin": {
+    "lon": -60,
+    "lat": 25,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "The Spanish landed on the richest prize in the Americas: the Aztec and Inca empires, with cities, roads, farms and millions of people. The crown paid conquerors with the encomienda.",
+   "anteprima": false,
+   "vista": {
+    "lon": -85,
+    "lat": -2,
+    "larghezza": 70
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "MEX",
+    "PER"
+   ],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "conquistador",
+     "n": 5,
+     "lon": -97,
+     "lat": 19,
+     "parola": "Spanish"
+    },
+    {
+     "tipo": "icona",
+     "icona": "fortress",
+     "lon": -72,
+     "lat": -13.5,
+     "parola": "Inca"
+    },
+    {
+     "tipo": "conta",
+     "valore": 10,
+     "prefisso": "~",
+     "suffisso": "M",
+     "sotto": "PEOPLE IN TWO EMPIRES",
+     "parola": "millions"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "native_worker",
+     "n": 6,
+     "lon": -72,
+     "lat": -13,
+     "parola": "farms"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Encomienda: rule over people, not land",
+     "parola": "encomienda"
     }
    ],
    "musica": "epico",
    "stacco": false,
    "pin": {
-    "lon": -45,
-    "lat": 25,
+    "lon": -90,
+    "lat": -10,
     "faccia": "normale"
    }
   }
