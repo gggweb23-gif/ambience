@@ -535,7 +535,7 @@ def ingrandisci_kao(im, lato_testo='destra'):
     return im.resize((1280, 720), Image.LANCZOS)
 
 
-def scritta_cartoncino(im, frase, lato='destra', zona=None):
+def scritta_cartoncino(im, frase, lato='destra', zona=None, limite=None):
     """Riserva nello stile approvato: frase magenta su cartoncino bianco arrotondato con bordo nero e ombra, grande, mai negli angoli bassi."""
     W, Hh = im.size
     x0, x1 = (int(W * .025), int(W * .53)) if lato == 'sinistra' else (int(W * .47), int(W * .975))
@@ -543,6 +543,8 @@ def scritta_cartoncino(im, frase, lato='destra', zona=None):
     if lato in ('alto', 'basso'):   # fascia come il competitor: larga e bassa, la scena sotto resta visibile
         x0, x1 = int(W * .05), int(W * .95)
         y0, y1 = (int(Hh * .025), int(Hh * .27)) if lato == 'alto' else (int(Hh * .68), int(Hh * .92))
+        if lato == 'alto' and limite:   # mai sopra le teste: il fondo del riquadro (ombra compresa) resta sopra la testa piu' alta
+            y1 = min(y1, int(Hh * limite) - 12)
         if lato == 'basso':
             x1 = int(W * .78)   # mai sotto la durata del video
         zona = None
@@ -693,6 +695,26 @@ def riferimento_stile(vid):
     return None, False
 
 
+def controllo(im, diviso):
+    """Claude controlla l'immagine PRIMA della scritta e del caricamento (~0,01 $): dove arriva la testa piu' alta, e se l'immagine e' divisa
+    che persone diverse abbiano vestiti diversi e che i luoghi siano diversi; niente scritte disegnate. None se il controllo non riesce."""
+    buf = io.BytesIO(); im.resize((960, 540)).save(buf, 'JPEG', quality=88)
+    dom = ('Check this YouTube thumbnail image. Answer ONLY JSON: {"testa_alta": <y of the HIGHEST point of any person head or hair, in % of the image height from the top>, '
+           '"scritte": <true if the image contains any written letters or words>'
+           + (', "vestiti_uguali": <true if, between the two parts, two DIFFERENT people (not the main bald character in magenta) wear tops of the same or very similar colour>, '
+              '"luoghi_uguali": <true if the two parts show the same kind of place (e.g. two bars, two living rooms)>' if diviso else '') + '}')
+    try:
+        rr = http('https://api.anthropic.com/v1/messages', {'model': E('MODELLO_AI', 'claude-sonnet-5-5'), 'max_tokens': 400, 'messages': [{'role': 'user', 'content': [
+            {'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}},
+            {'type': 'text', 'text': dom}]}]}, {'x-api-key': E('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01'}, timeout=120)
+        tt = ''.join(b.get('text', '') for b in rr.get('content', []))
+        z = json.loads(tt[tt.find('{'): tt.rfind('}') + 1])
+        log('  controllo immagine:', json.dumps(z))
+        return z
+    except Exception as e:
+        log('  controllo immagine non riuscito:', str(e)[:100]); return None
+
+
 def fai(i):
     c, t = cand[i], testi.get(i) or {}
     if c.get('variante') and not t.get('comp_id'):   # varianti 20%/30% solo per i video con il competitor nel foglio
@@ -831,6 +853,16 @@ def fai(i):
                                                  'light skin, simple face, magenta long-sleeve shirt. No other creature, no green or coloured body. ' + prompt,
                                                  'image_urls': refs, 'aspect_ratio': '16:9', 'resolution': '2K', 'output_format': 'jpeg', 'num_images': 1})
             im = ImageOps.fit(Image.open(io.BytesIO(http(r['images'][0]['url'], raw=True))).convert('RGB'), (2560, 1440), Image.LANCZOS)
+        diviso = bool(t.get('composizione'))
+        ck = controllo(im, diviso) if STILE == 'piatto' else None
+        if ck and (ck.get('scritte') or ck.get('vestiti_uguali') or ck.get('luoghi_uguali')):   # una sola rigenerazione, con il difetto scritto chiaro
+            dif = (' The two DIFFERENT women/people MUST wear tops of clearly different colours and styles.' if ck.get('vestiti_uguali') else '') + \
+                  (' The two parts MUST be completely different kinds of places (e.g. a home living room vs a city street at night).' if ck.get('luoghi_uguali') else '') + \
+                  (' Absolutely NO letters or words anywhere.' if ck.get('scritte') else '')
+            log('  difetti trovati, rifaccio una volta:', dif.strip())
+            r = fal('fal-ai/nano-banana-2/edit', {'prompt': 'IMPORTANT:' + dif + ' ' + prompt, 'image_urls': refs, 'aspect_ratio': '16:9', 'resolution': '2K', 'output_format': 'jpeg', 'num_images': 1})
+            im = ImageOps.fit(Image.open(io.BytesIO(http(r['images'][0]['url'], raw=True))).convert('RGB'), (2560, 1440), Image.LANCZOS)
+            ck = controllo(im, diviso) or ck
         im = ingrandisci_kao(im, t.get('lato_testo') if t.get('lato_testo') in ('sinistra', 'alto', 'basso') else 'destra')   # KAO quasi a tutta altezza (zoom), poi 1280x720
         if APPLICA and not c.get('suff'):
             im.save(os.path.join(BASI, c['id'] + '.jpg'), quality=92)
@@ -838,7 +870,11 @@ def fai(i):
         if STILE == 'piatto' and str(E('TESTO_STILE', '') or 'cartoncino').lower() == 'evidenziata':   # come il competitor: lettere nere su strisce gialle, copertina tutta visibile
             scritta_evidenziata(im, f"{t['riga1']} {t['riga2']}", lato, zona_libera(im, lato)).save(p, quality=90)
         elif STILE == 'piatto':   # DEFAULT dal 27/10: scritta magenta su cartoncino bianco scritta dal codice, sempre la piu' grande possibile (leggibile da telefono)
-            scritta_cartoncino(im, f"{t['riga1']} {t['riga2']}", lato, None if lato in ('alto', 'basso') else zona_libera(im, lato)).save(p, quality=90)
+            limite = None   # fascia in alto: il riquadro finisce sempre sopra la testa piu' alta (la scritta si rimpicciolisce se serve)
+            if lato == 'alto' and ck and isinstance(ck.get('testa_alta'), (int, float)):
+                th_ = float(ck['testa_alta']); th_ = th_ / 100 if th_ > 1 else th_
+                limite = max(.14, th_ - .03)
+            scritta_cartoncino(im, f"{t['riga1']} {t['riga2']}", lato, None if lato in ('alto', 'basso') else zona_libera(im, lato), limite).save(p, quality=90)
         else:
             scritta(im, [str(t['riga1']).upper(), str(t['riga2']).upper()], lato, zona_libera(im, lato)).save(p, quality=90)
         log('copertina pronta:', c['id'], t['riga1'], '/', t['riga2'])
