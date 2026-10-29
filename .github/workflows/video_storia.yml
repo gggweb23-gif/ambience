@@ -162,7 +162,7 @@ jobs:
           if [ -d libreria_musica ] && [ -n "$(git status --porcelain libreria_musica)" ]; then
             git config user.name "render-bot"; git config user.email "render-bot@users.noreply.github.com"
             git add libreria_musica; git commit -m "Libreria musicale" || exit 0
-            for i in 1 2 3 4 5; do git pull --rebase -q && git push && break; sleep $((i * 5)); done
+            for i in 1 2 3 4 5; do git pull --rebase --autostash -q && git push && break; sleep $((i * 5)); done
           fi
 
       - name: Anteprima della prova nel repository (copertina + 8 fotogrammi, per controllarla senza scaricare il video)
@@ -180,6 +180,6 @@ jobs:
           fi
           git config user.name "render-bot"; git config user.email "render-bot@users.noreply.github.com"
           git add "$D"; git commit -m "Anteprima prova video" || exit 0
-          for i in 1 2 3 4 5; do git pull --rebase -q && git push && break; sleep $((i * 5)); done
+          for i in 1 2 3 4 5; do git pull --rebase --autostash -q && git push && break; sleep $((i * 5)); done
         env:
           PAYLOAD: ${{ inputs.payload }}
