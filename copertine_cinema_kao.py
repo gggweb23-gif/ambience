@@ -577,7 +577,7 @@ def scritta_cartoncino(im, frase, lato='destra', zona=None):
     f = F(k); bb, gap, ht = altezza_righe(f, righe)
     wt = max(f.getlength(r) for r in righe)
     cx, cy = (x0 + x1) / 2, (y0 + y1) / 2
-    box = (cx - wt / 2 - pad, cy - ht / 2 - pad, cx + wt / 2 + pad, cy + ht / 2 + pad * .8)
+    box = (cx - wt / 2 - pad, cy - ht / 2 - pad, cx + wt / 2 + pad, cy + ht / 2 + pad)   # stesso margine sopra e sotto: scritta centrata anche in altezza
     base = im.convert('RGBA')
     sh = Image.new('RGBA', base.size, (0, 0, 0, 0)); ImageDraw.Draw(sh).rounded_rectangle((box[0] + 8, box[1] + 10, box[2] + 8, box[3] + 10), radius=int(pad * 1.4), fill=(0, 0, 0, 110))
     base.alpha_composite(sh.filter(ImageFilter.GaussianBlur(8)))
