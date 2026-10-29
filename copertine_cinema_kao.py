@@ -726,6 +726,12 @@ def fai(i):
             rif, sua = riferimento_stile(c['id'])
             refs = ([rif_data(rif)] if rif else []) + [ID]   # NIENTE immagine del competitor: solo la descrizione
             t['rif_stile'] = rif or ''
+            if t.get('composizione'):   # stile KAO: SEMPRE una scena unica con la meta' libera per la scritta (lo schermo diviso faceva coprire una meta' dal cartoncino)
+                t['persone'] = (str(t.get('persone') or '') + ' Tell the SAME story of this split thumbnail inside ONE single continuous scene '
+                                '(everything important in the half opposite to the title): ' + str(t['composizione'])).strip()
+                t['composizione'] = ''
+                if str(t.get('lato_testo_comp') or '') == 'centro':
+                    t['lato_testo_comp'] = 'destra'
             lato_c = 'sinistra' if str(t.get('lato_testo_comp') or '') == 'sinistra' else ('centro' if str(t.get('lato_testo_comp') or '') == 'centro' and t.get('composizione') else 'destra')
             prompt = (('Image 1 is our OLD thumbnail' + (' of this video' if sua else '') + ': keep EXACTLY its graphic style: same flat 2D cartoon drawing, same rich colours and warm lighting, '
                        'same size and look of KAO, same detailed environment drawing. IGNORE its old title and its dark shaded side: no dark gradient, everything bright and visible. Image 2 is our character KAO. '
