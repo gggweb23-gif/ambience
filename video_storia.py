@@ -71,6 +71,8 @@ try:
     _bud_n = float(_bud) if _bud else 3.0
 except ValueError:
     _bud_n = 3.0
+if _bud.upper() in ('NO', '-1', 'LIBERO'):   # budget_video = NO: solo disegni (niente Pexels), il costo lo limita immagini_max
+    _bud, _bud_n = '', 0.0
 SOLO_PEXELS = bool(_bud) and _bud_n == 0   # budget 0 = nessun disegno Nano Banana nel video: solo clip e foto Pexels (+ mappa)
 BUDGET = _bud_n   # euro massimi a video per i disegni
 PREZZO_DISEGNO = 0.12   # $ per disegno Nano Banana 2 a 2K (con i rifatti si conta +25%)
