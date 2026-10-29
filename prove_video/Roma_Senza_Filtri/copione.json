@@ -13,51 +13,49 @@
  "sfondi": [
   {
    "id": "s1",
-   "prompt_en": "Cartoon style, ancient Rome before dawn, a bearded Roman man in a simple tunic sits up on a straw mattress in a tiny cramped room, startled, hearing loud banging on the door, dim blue light, close-up",
+   "prompt_en": "Dark cramped Roman apartment room before dawn, a bearded poor man on a straw mattress startled awake by someone banging on the wooden door, dim oil lamp, wide-eyed shocked emotion, close-up cartoon style",
    "personaggi": []
   },
   {
    "id": "s2",
-   "prompt_en": "Cartoon style, narrow dark Roman street at dawn, a Roman man in a simple tunic dressing hurriedly in the cold, shivering, torch light flickering on brick walls, wide shot, no modern items",
+   "prompt_en": "Cold dark Roman street at dawn, a poor man in a simple tunic dressing by feel in the shadows of crowded apartment blocks, torches flickering, sleepy tired emotion, wide shot, cartoon style",
    "personaggi": []
   },
   {
    "id": "s3",
-   "prompt_en": "Cartoon style, crowd of poor Roman men in tunics lined up in the street outside the grand door of a rich man's villa at sunrise, anxious faces, a doorman at the entrance, wide shot",
+   "prompt_en": "Crowd of poor Roman clients in togas waiting outside the gate of a rich man's grand villa at sunrise, stone street, anxious faces, hungry emotion, wide shot, cartoon style",
    "personaggi": []
   },
   {
    "id": "s4",
-   "prompt_en": "Cartoon style, a hungry Roman man with an empty table and an empty bowl, hands on his stomach, sad expression, bare room, warm dim light, close-up of table and hands",
+   "prompt_en": "Close-up of an empty plate and a hungry Roman man's worried face, a small basket with a single piece of bread beside him, warm morning light, ancient Rome, cartoon style",
    "personaggi": []
   },
   {
    "id": "s5",
-   "prompt_en": "Cartoon style, rich Roman patron in a white toga handing a small bag of coins and a loaf of bread to a grateful poor client at his villa doorway, sunlit courtyard, medium shot",
-   "personaggi": [
-    "senatore"
-   ]
+   "prompt_en": "Busy Roman forum with marble temples, columns and the Colosseum in the distance, ordinary Romans in tunics and togas rushing about, loud lively morning, bright sun, wide cartoon shot",
+   "personaggi": []
   },
   {
    "id": "s6",
-   "prompt_en": "Cartoon style, busy ancient Roman market, loud crowded stalls with bread, fruit and fish, merchants shouting, dusty street, midday sun, colorful awnings, wide shot",
+   "prompt_en": "Noisy dirty Roman street market with stalls, bakers, shouting merchants, chickens, carts and crowds of Romans in tunics, chaotic and loud, cartoon style, daytime",
    "personaggi": []
   },
   {
    "id": "s7",
-   "prompt_en": "Cartoon style, enormous Colosseum and Roman Forum with columns and a triumphal arch, tiny crowds of Romans in tunics and togas, golden hour, dramatic wide shot, no modern items",
+   "prompt_en": "Roman citizen puzzled looking up at a sundial on a stone wall in a sunny plaza, confused face, columns and arches behind, close-up cartoon style",
    "personaggi": []
   },
   {
    "id": "s8",
-   "prompt_en": "Cartoon style, Roman man in a tunic sitting alone on a stone step at sunset looking at the sky and a sundial, thoughtful expression, warm orange light, quiet street, medium shot",
+   "prompt_en": "Sunset over ancient Rome, an aqueduct and temples glowing orange, a lone Roman man in a tunic walking home thoughtfully along the road, reflective emotion, wide cartoon shot",
    "personaggi": []
   }
  ],
  "scene": [
   {
    "capitolo": "Before Sunrise",
-   "testo": "It's still dark outside. You are lying on a straw mattress in a room the size of a parking space, and someone is banging on your door. Not a friend. Not an emergency. This is just Tuesday.",
+   "testo": "It's still dark outside. You're lying on a straw mattress in a room the size of a parking space, and someone is banging on your door. Not a friend. Not an emergency. This is just Tuesday.",
    "visivi": [
     {
      "tipo": "cartone",
@@ -65,14 +63,14 @@
      "sfondo": "s1",
      "personaggio": "",
      "reazione": true,
-     "data": "Rome, 100 AD",
+     "data": "100 AD",
      "suono": "loud knocking on a wooden door"
     }
    ]
   },
   {
-   "capitolo": "The Daily Grind",
-   "testo": "In ancient Rome, your day started before the sun did. No coffee, no alarm clock, no snooze button. You got up in the dark, in the cold, and got dressed by feel. Within twenty minutes, you had to be standing outside a rich man's house.",
+   "capitolo": "Up in the Dark",
+   "testo": "In ancient Rome, your day started before the sun did. No coffee, no alarm clock, no snooze button. You got up in the cold dark and got dressed by feel.",
    "visivi": [
     {
      "tipo": "cartone",
@@ -83,14 +81,15 @@
    ]
   },
   {
-   "capitolo": "The Patron System",
-   "testo": "Why? Because if you weren't there, you didn't eat that day. That's not an exaggeration. That was the system. For hundreds of years, this was daily life for hundreds of thousands of ordinary people.",
+   "capitolo": "The Morning Line",
+   "testo": "Within twenty minutes, you had to be standing outside a rich man's house. Why? Because if you weren't there, you didn't eat that day. That's not an exaggeration. That was the system.",
    "visivi": [
     {
      "tipo": "cartone",
-     "frase": "Why? Because if",
+     "frase": "Within twenty minutes",
      "sfondo": "s3",
-     "personaggio": ""
+     "personaggio": "",
+     "suono": "crowd murmuring in ancient street"
     },
     {
      "tipo": "cartone",
@@ -101,36 +100,37 @@
    ]
   },
   {
-   "capitolo": "Reality vs. Myth",
-   "testo": "We picture togas, marble and emperors giving speeches. The reality was louder, dirtier and stranger than any movie has ever shown you. And here's the part that breaks most people's brains.",
+   "capitolo": "Real Roman Life",
+   "testo": "For hundreds of years, this was daily life for hundreds of thousands of ordinary Romans. We picture togas, marble and emperors giving speeches. The reality was louder, dirtier and stranger than any movie has shown you.",
    "visivi": [
     {
      "tipo": "cartone",
      "frase": "We picture togas",
-     "sfondo": "s7",
-     "personaggio": ""
-    },
-    {
-     "tipo": "cartone",
-     "frase": "louder, dirtier and stranger",
-     "sfondo": "s6",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "capitolo": "Time Without Hours",
-   "testo": "The Romans did not have hours the way you do. So how did they know when to start, when to eat, when to stop? Would you survive a single day in their world?",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "The Romans did not",
      "sfondo": "s5",
      "personaggio": "senatore"
     },
     {
      "tipo": "cartone",
-     "frase": "Would you survive",
+     "frase": "louder, dirtier and stranger",
+     "sfondo": "s6",
+     "personaggio": "",
+     "suono": "crowd murmuring in ancient market"
+    }
+   ]
+  },
+  {
+   "capitolo": "Time Itself",
+   "testo": "And here's the part that breaks most people's brains. The Romans did not have hours the way you do. So how did they know when to be anywhere? And what would you have done all day?",
+   "visivi": [
+    {
+     "tipo": "cartone",
+     "frase": "The Romans did not",
+     "sfondo": "s7",
+     "personaggio": ""
+    },
+    {
+     "tipo": "cartone",
+     "frase": "what would you have",
      "sfondo": "s8",
      "personaggio": ""
     }
@@ -141,8 +141,7 @@
   "testo": "NO JOBS",
   "personaggio": ""
  },
- "descripcion_nota": "",
- "descrizione": "What did people in ancient Rome actually do all day? Forget the movies. Daily life in ancient Rome began before sunrise, with ordinary Romans lining up outside a rich patron's house just to earn their daily bread.\n\nIn this animated history documentary, we explore the roman daily life of the poor and the powerful, from the crowded streets and the Roman Forum to the markets, the baths and the Colosseum. Discover how the patron system really worked and why missing the morning visit could mean going hungry.\n\nIf you love ancient history, Roman history and weird history facts, this video shows what life in ancient Rome was truly like.\n\n#ancientrome #romanhistory #dailylifeinancientrome #historydocumentary #romanempire",
+ "descrizione": "What did people in ancient Rome actually do all day? Forget the movies. Daily life in ancient Rome began in the dark, with hungry citizens lining up outside rich men's houses just to eat.\n\nIn this cartoon history video, we walk through a real Roman morning: the cramped apartments, the noisy streets, the Roman Forum and the strange way Romans measured time.\n\nIf you love Roman history, ancient history and weird history, this is the daily life of the Roman Empire as it really was. Would you have survived a day in ancient Rome?\n\n#AncientRome #RomanHistory #DailyLife #History #RomanEmpire",
  "tag": [
   "daily life in ancient rome",
   "ancient rome documentary",
@@ -164,18 +163,17 @@
   "weird history",
   "7 days in ancient rome",
   "ancient civilizations",
-  "roman patron and client",
-  "roman clients salutatio",
-  "roman poor people",
-  "roman insulae",
-  "roman morning routine",
-  "history of rome",
-  "complete roman history"
+  "roman clients",
+  "roman patrons",
+  "roman apartments",
+  "roman street life",
+  "cartoon history",
+  "history for adults",
+  "what romans did all day"
  ],
  "personaggi_mancanti": [
-  "Roman baker or commoner in a tunic and apron",
-  "Roman client or poor citizen in a plain tunic",
-  "Roman patron in a toga (senatore used as stand-in)"
+  "Poor Roman commoner (plebeian) in a tunic",
+  "Rich Roman patron"
  ],
  "categoria_originale": "22"
 }
