@@ -91,6 +91,18 @@ Finche' lo scout riesce ad aggiungere righe, nessun avviso.
 Se ti accorgi che una colonna di Channel Configs non la legge piu' nessun motore/workflow (cerca il nome nel repository), proponila
 a Giorgio nel messaggio come "COLONNA DA TOGLIERE: <nome>". Non cancellarla mai da solo.
 
+## Come leggere il CTR della copertina (Giorgio, 30 ott 2026)
+Media CTR della finestra (ultimi 3 video) e storico del canale:
+- SOTTO 1%: grave, l'IDEA della copertina non funziona. Si cambia tutta: studio copertine (video migliori del competitor
+  affiancati da 2-3 angoli d'attacco nuovi, stesso filone) e PROPOSTA a Giorgio con le prove; sceglie lui.
+- SOTTO 3% con idea NUOVA (il canale/stile non e' mai stato sopra 3%) e confermato sui video successivi: si cambia tutto, come sopra.
+- SOTTO 3% ma prima ANDAVA (storico sopra 3% con la stessa idea, poi calo improvviso): non cambiare a caso, prima capire perche'.
+  Domande: sono cambiati gli argomenti/titoli dei video? la copertina e' uscita diversa (bug, testo illeggibile)? il competitor
+  ha cambiato qualcosa? impression crollate (YouTube non spinge)? Scrivi la diagnosi nel messaggio e correggi la causa.
+- TRA 3% E l'obiettivo (3,5%): l'idea regge, si PERFEZIONA da soli dentro quel percorso, una modifica alla volta
+  (formula delle scritte, colori, grandezza del personaggio, gesto/espressione...).
+- SOPRA l'obiettivo: non toccare (vedi stato stabile).
+
 ## Catalogo delle leve (parametri che il motore legge già)
 I nomi nei `parametri` della ricetta devono essere quelli che il MOTORE legge dal payload (controlla nel codice: per esempio
 video_storia.py legge `voce`, `max_minuti`... oltre ai nomi delle colonne). Motore di ogni canale: colonna `render_workflow` /
