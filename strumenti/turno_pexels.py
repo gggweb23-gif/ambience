@@ -14,6 +14,11 @@ def get(url):
     return json.loads(urllib.request.urlopen(urllib.request.Request(url, headers=H), timeout=60).read())
 
 
+if str(os.environ.get('PROVA', '')).strip().upper() == 'SI':   # le prove (1 minuto) partono SUBITO, senza aspettare il turno
+    print('TURNO PEXELS: prova, via libera senza controllo')
+    with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+        f.write('ok=true\n')
+    sys.exit(0)
 io = get(f'https://api.github.com/repos/{REPO}/actions/runs/{MIO}')
 chiave_mia = (io.get('run_started_at') or '', MIO)
 prima = []
