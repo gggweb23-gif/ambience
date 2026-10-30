@@ -1,8 +1,8 @@
 {
- "titolo": "L'Intera Storia degli Stati Uniti in 12 Minuti",
+ "titolo": "L'INTERA Storia degli Stati Uniti in 12 Minuti",
  "numero": {
-  "testo": "1492",
-  "sotto": "L'ERRORE CHE HA CREATO UNA SUPERPOTENZA"
+  "testo": "828.000",
+  "sotto": "MIGLIA QUADRATE COMPRATE A POCHISSIMO"
  },
  "copertina": {
   "testo": "UN ERRORE?",
@@ -10,13 +10,13 @@
    "USA"
   ],
   "verde": [
-   "ESP",
-   "PRT"
+   "CAN",
+   "MEX"
   ],
   "vista": {
-   "lon": -60,
-   "lat": 30,
-   "larghezza": 120
+   "lon": -98,
+   "lat": 39,
+   "larghezza": 70
   }
  },
  "copertina_titolo": {
@@ -33,44 +33,89 @@
    ],
    [
     "cabin",
-    -90,
-    35
+    -100,
+    40
    ],
    [
     "steam_train",
     -98,
-    40
+    39
    ],
    [
     "factory",
-    -118,
-    38
+    -87,
+    41
    ]
   ]
  },
- "descrizione": "Oggi gli Stati Uniti sono la nazione più ricca e potente della storia. Ma sapevi che la loro ascesa è nata da un enorme errore geografico? Per più di cent'anni, quasi nessuno voleva il Nord America.\n\nIn questo viaggio sulle mappe animate partiamo dal 1492, da Cristoforo Colombo e da una rotta sbagliata verso l'India, e seguiamo come una frontiera sperduta sia diventata una superpotenza.",
+ "descrizione": "Oggi gli Stati Uniti sono la potenza più ricca e influente del pianeta. Ma è nata per caso: per oltre un secolo nessuno voleva quel continente. Dai primi coloni alla Rivoluzione, dalla Guerra Civile alla Guerra Fredda, scopri come una frontiera dimenticata è diventata una superpotenza.\n\nUn viaggio veloce tra mappe animate, numeri e colpi di scena: acquisti incredibili, guerre, rivolte, crisi e rinascite. Tutta la storia di un paese, dall'inizio a oggi.",
  "tag": [
   "storia degli Stati Uniti",
-  "storia America",
-  "Cristoforo Colombo",
-  "1492",
+  "storia USA",
+  "Stati Uniti",
+  "storia in mappe",
   "mappe animate",
-  "storia in minuti",
-  "superpotenza",
-  "colonizzazione",
-  "Spagna e Portogallo",
+  "Rivoluzione americana",
+  "Guerra Civile americana",
+  "Abraham Lincoln",
+  "George Washington",
+  "Guerra Fredda",
   "storia del mondo",
-  "documentario storia",
-  "Nord America"
+  "documentario storia"
  ],
  "scene": [
   {
-   "testo": "Un'economia che muove i mercati. Un esercito sugli oceani. E se tutto fosse nato per caso? Come ha fatto un errore a creare una superpotenza?",
+   "testo": "Una colonia sparita nel nulla. Un acquisto da quindici milioni di dollari. Una guerra fratricida. E una domanda: come è nata la superpotenza?",
+   "anteprima": true,
+   "vista": {
+    "lon": -76,
+    "lat": 35,
+    "larghezza": 14
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "ROANOKE SPARITA",
+     "lon": -76,
+     "lat": 35.9,
+     "parola": "sparita"
+    },
+    {
+     "tipo": "prezzo",
+     "testo": "$15 MILIONI",
+     "sotto": "LOUISIANA · INTERA",
+     "ricco": true,
+     "parola": "quindici"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "GUERRA CIVILE",
+     "parola": "fratricida"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "COME?",
+     "parola": "come"
+    }
+   ],
+   "musica": "mistero",
+   "stacco": false,
+   "pin": {
+    "lon": -74,
+    "lat": 37,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Oggi dominano economia, cultura e mari. Eppure tutto è nato da un incidente.",
    "anteprima": true,
    "vista": {
     "lon": -98,
     "lat": 39,
-    "larghezza": 60
+    "larghezza": 80
    },
    "epoca": "oggi",
    "oro": [
@@ -86,88 +131,29 @@
      "volte": 8,
      "testo": "POTENZA",
      "colore": "oro",
-     "parola": "economia"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -20,
-      35
-     ],
-     "a": [
-      -75,
-      25
-     ],
-     "icona": "ship",
-     "parola": "oceani"
+     "parola": "dominano"
     },
     {
      "tipo": "scritta",
-     "testo": "PER CASO?",
-     "parola": "caso"
+     "testo": "UN INCIDENTE",
+     "parola": "incidente"
     }
    ],
-   "musica": "mistero",
+   "musica": "epico",
    "stacco": false,
    "pin": {
-    "lon": -98,
-    "lat": 30,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Una rotta sbagliata. Un continente che nessuno voleva. Un oro trovato a sud. Perché l'America ha vinto proprio lì?",
-   "anteprima": true,
-   "vista": {
-    "lon": -70,
-    "lat": 15,
-    "larghezza": 80
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [
-    "MEX"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "galleon",
-     "lon": -70,
-     "lat": 22,
-     "parola": "sbagliata"
-    },
-    {
-     "tipo": "icona",
-     "icona": "gold_coins",
-     "lon": -99,
-     "lat": 19,
-     "parola": "oro"
-    },
-    {
-     "tipo": "icona",
-     "icona": "question",
-     "lon": -95,
-     "lat": 38,
-     "parola": "Perché"
-    }
-   ],
-   "musica": "mistero",
-   "stacco": false,
-   "pin": {
-    "lon": -60,
-    "lat": 30,
+    "lon": -120,
+    "lat": 47,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Oggi gli Stati Uniti sono il paese più ricco, influente e armato della storia. Eppure per più di un secolo nessuno li voleva.",
+   "testo": "Oggi gli Stati Uniti sono la nazione più ricca, influente e armata della storia. Ma la loro ascesa non era nei piani di nessuno.",
    "anteprima": false,
    "vista": {
     "lon": -98,
     "lat": 39,
-    "larghezza": 50
+    "larghezza": 70
    },
    "epoca": "oggi",
    "oro": [
@@ -178,37 +164,34 @@
     {
      "tipo": "contorno",
      "paese": "USA",
-     "parola": "ricco"
+     "parola": "Stati"
     },
     {
-     "tipo": "conta",
-     "valore": 100,
-     "prefisso": "",
-     "suffisso": "+",
-     "sotto": "ANNI SENZA INTERESSE",
-     "parola": "secolo"
+     "tipo": "scritta",
+     "testo": "NON PREVISTO",
+     "parola": "piani"
     },
     {
      "tipo": "nota",
-     "testo": "Nessuno voleva il Nord America",
-     "parola": "nessuno"
+     "testo": "Un'ascesa non pianificata",
+     "parola": "ascesa"
     }
    ],
    "musica": "curiosita",
    "stacco": false,
    "pin": {
-    "lon": -110,
-    "lat": 45,
+    "lon": -80,
+    "lat": 30,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Per gli europei era solo un ostacolo: foreste fitte, paludi ostili, distese infinite. Loro sognavano i mercati di spezie dell'Asia.",
+   "testo": "Per più di un secolo dopo l'arrivo degli europei, quasi nessuno voleva il Nord America. Foreste fitte, paludi ostili, terre infinite.",
    "anteprima": false,
    "vista": {
     "lon": -85,
-    "lat": 38,
-    "larghezza": 50
+    "lat": 40,
+    "larghezza": 60
    },
    "epoca": "antica",
    "oro": [],
@@ -217,37 +200,24 @@
     {
      "tipo": "icona",
      "icona": "forest",
-     "lon": -80,
-     "lat": 40,
-     "parola": "foreste"
+     "lon": -82,
+     "lat": 42,
+     "parola": "Foreste"
     },
     {
      "tipo": "icona",
      "icona": "river",
      "lon": -90,
-     "lat": 32,
+     "lat": 35,
      "parola": "paludi"
     },
     {
-     "tipo": "freccia",
-     "da": [
-      -75,
-      38
-     ],
-     "a": [
-      100,
-      15
-     ],
-     "icona": "ship",
-     "parola": "spezie"
-    },
-    {
      "tipo": "nota",
-     "testo": "Un ostacolo verso l'Asia",
-     "parola": "sognavano"
+     "testo": "Un ostacolo, non un premio",
+     "parola": "nessuno"
     }
    ],
-   "musica": "curiosita",
+   "musica": "mistero",
    "stacco": false,
    "pin": {
     "lon": -100,
@@ -256,17 +226,61 @@
    }
   },
   {
-   "testo": "Nel 1492 Cristoforo Colombo salpa per la Spagna, convinto di arrivare in India. Ma incontra le isole dei Caraibi.",
+   "testo": "Era solo un muro verde tra gli europei e ciò che sognavano davvero: le spezie dell'Asia.",
    "anteprima": false,
    "vista": {
+    "lon": -20,
+    "lat": 30,
+    "larghezza": 240
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      -9,
+      38
+     ],
+     "a": [
+      75,
+      15
+     ],
+     "icona": "galleon",
+     "parola": "spezie"
+    },
+    {
+     "tipo": "icona",
+     "icona": "sugar_cane",
+     "lon": 78,
+     "lat": 16,
+     "parola": "Asia"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Il vero obiettivo: l'Asia",
+     "parola": "sognavano"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
     "lon": -40,
+    "lat": 50,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Tutto parte da un clamoroso errore geografico. Nel 1492 Cristoforo Colombo salpa verso ovest sotto bandiera spagnola.",
+   "anteprima": false,
+   "vista": {
+    "lon": -45,
     "lat": 30,
     "larghezza": 100
    },
    "epoca": "antica",
-   "oro": [
-    "ESP"
-   ],
+   "oro": [],
    "verde": [],
    "eventi": [
     {
@@ -277,8 +291,8 @@
     {
      "tipo": "personaggio",
      "nome": "Cristoforo Colombo",
-     "descrizione": "Navigatore genovese del Quattrocento, cappello e mantello",
-     "parola": "Cristoforo"
+     "descrizione": "Navigatore genovese del Quattrocento, mantello scuro e cappello",
+     "parola": "Colombo"
     },
     {
      "tipo": "freccia",
@@ -288,27 +302,27 @@
      ],
      "a": [
       -75,
-      22
+      24
      ],
      "icona": "galleon",
      "parola": "salpa"
     },
     {
      "tipo": "nota",
-     "testo": "Voleva l'India, trovò i Caraibi",
-     "parola": "Caraibi"
+     "testo": "Rotta verso ovest per l'India",
+     "parola": "ovest"
     }
    ],
    "musica": "epico",
-   "stacco": true,
+   "stacco": false,
    "pin": {
     "lon": -30,
-    "lat": 50,
-    "faccia": "stupito"
+    "lat": 45,
+    "faccia": "normale"
    }
   },
   {
-   "testo": "Niente depositi di spezie, come aveva promesso. Ma trova nativi con gioielli d'oro. Un dettaglio che cambia tutto.",
+   "testo": "Era sicuro di arrivare in India. Invece trova i Caraibi. Niente magazzini di spezie, ma nativi con gioielli d'oro.",
    "anteprima": false,
    "vista": {
     "lon": -75,
@@ -317,18 +331,14 @@
    },
    "epoca": "antica",
    "oro": [],
-   "verde": [
-    "CUB",
-    "DOM"
-   ],
+   "verde": [],
    "eventi": [
     {
-     "tipo": "folla",
-     "personaggio": "native_worker",
-     "n": 5,
-     "lon": -76,
-     "lat": 20,
-     "parola": "nativi"
+     "tipo": "etichetta",
+     "testo": "CARAIBI",
+     "lon": -75,
+     "lat": 19,
+     "parola": "Caraibi"
     },
     {
      "tipo": "icona",
@@ -338,93 +348,42 @@
      "parola": "oro"
     },
     {
-     "tipo": "scritta",
-     "testo": "ORO!",
-     "parola": "cambia"
+     "tipo": "folla",
+     "personaggio": "native_worker",
+     "n": 4,
+     "lon": -70,
+     "lat": 18,
+     "parola": "nativi"
     },
     {
-     "tipo": "nota",
-     "testo": "Gioielli d'oro tra i nativi",
-     "parola": "gioielli"
+     "tipo": "scritta",
+     "testo": "ERRORE",
+     "parola": "Invece"
     }
    ],
-   "musica": "tensione",
-   "stacco": false,
+   "musica": "mistero",
+   "stacco": true,
    "pin": {
-    "lon": -85,
-    "lat": 28,
+    "lon": -82,
+    "lat": 26,
     "faccia": "stupito"
    }
   },
   {
-   "testo": "La Spagna capisce subito: al sud c'è una ricchezza enorme da saccheggiare. E punta su Messico e Perù, ignorando il nord.",
+   "testo": "La Spagna capisce subito dov'è la ricchezza: a sud. Insieme al Portogallo si spartisce il mondo con una linea tracciata sul globo.",
    "anteprima": false,
    "vista": {
-    "lon": -85,
-    "lat": 5,
-    "larghezza": 100
+    "lon": -40,
+    "lat": 10,
+    "larghezza": 140
    },
    "epoca": "antica",
    "oro": [
     "ESP"
    ],
    "verde": [
-    "MEX",
-    "PER"
-   ],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "conquistador",
-     "n": 5,
-     "lon": -99,
-     "lat": 19,
-     "parola": "saccheggiare"
-    },
-    {
-     "tipo": "colonna",
-     "testo": "SUD",
-     "valore": 1.0,
-     "lon": -78,
-     "lat": -9,
-     "parola": "Messico"
-    },
-    {
-     "tipo": "colonna",
-     "testo": "NORD",
-     "valore": 0.1,
-     "lon": -95,
-     "lat": 40,
-     "parola": "ignorando"
-    },
-    {
-     "tipo": "nota",
-     "testo": "La ricchezza stava al sud",
-     "parola": "sud"
-    }
-   ],
-   "musica": "azione",
-   "stacco": false,
-   "pin": {
-    "lon": -60,
-    "lat": 15,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Spagna e Portogallo tracciano una linea sul globo e si dividono il mondo. Il Portogallo sceglie le rotte attorno all'Africa. Il Nord America? Resta lì, in attesa.",
-   "anteprima": false,
-   "vista": {
-    "lon": -30,
-    "lat": 10,
-    "larghezza": 160
-   },
-   "epoca": "antica",
-   "oro": [
-    "ESP",
     "PRT"
    ],
-   "verde": [],
    "eventi": [
     {
      "tipo": "confine",
@@ -441,36 +400,4169 @@
      "parola": "linea"
     },
     {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": -46,
+     "lat": 15,
+     "parola": "spartisce"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Mondo diviso tra due corone",
+     "parola": "mondo"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -20,
+    "lat": 30,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Il Portogallo punta sulle rotte attorno all'Africa. La Spagna conquista gli imperi azteco e inca, ricchissimi.",
+   "anteprima": false,
+   "vista": {
+    "lon": -85,
+    "lat": 0,
+    "larghezza": 90
+   },
+   "epoca": "antica",
+   "oro": [
+    "MEX",
+    "PER"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "conquistador",
+     "n": 5,
+     "lon": -99,
+     "lat": 19,
+     "parola": "azteco"
+    },
+    {
+     "tipo": "icona",
+     "icona": "castle",
+     "lon": -72,
+     "lat": -13,
+     "parola": "inca"
+    },
+    {
      "tipo": "freccia",
      "da": [
       -9,
       38
      ],
      "a": [
-      40,
-      -15
+      18,
+      -34
      ],
      "icona": "galleon",
      "parola": "Africa"
     },
     {
      "tipo": "nota",
-     "testo": "Il mondo diviso in due",
-     "parola": "dividono"
+     "testo": "Spagna conquista Azteca e Inca",
+     "parola": "conquista"
+    }
+   ],
+   "musica": "azione",
+   "stacco": false,
+   "pin": {
+    "lon": -60,
+    "lat": 15,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "I galeoni tornano in Europa carichi di montagne d'argento e d'oro. Il Nord America, al confronto, sembrava senza valore.",
+   "anteprima": false,
+   "vista": {
+    "lon": -50,
+    "lat": 25,
+    "larghezza": 110
+   },
+   "epoca": "antica",
+   "oro": [
+    "MEX",
+    "PER"
+   ],
+   "verde": [
+    "USA"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      -77,
+      10
+     ],
+     "a": [
+      -6,
+      37
+     ],
+     "icona": "galleon",
+     "parola": "galeoni"
     },
     {
      "tipo": "icona",
-     "icona": "question",
+     "icona": "silver_bars",
+     "lon": -70,
+     "lat": -15,
+     "parola": "argento"
+    },
+    {
+     "tipo": "colonna",
+     "testo": "SUD",
+     "valore": 1.0,
+     "lon": -70,
+     "lat": -5,
+     "parola": "montagne"
+    },
+    {
+     "tipo": "colonna",
+     "testo": "NORD",
+     "valore": 0.1,
      "lon": -98,
      "lat": 40,
-     "parola": "attesa"
+     "parola": "valore"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Il Nord pareva senza valore",
+     "parola": "Nord"
     }
    ],
    "musica": "curiosita",
    "stacco": false,
    "pin": {
-    "lon": -100,
+    "lon": -30,
+    "lat": 45,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Nei primi anni del Cinquecento gli esploratori spagnoli marciano verso nord. Niente città d'oro, niente miniere d'argento.",
+   "anteprima": false,
+   "vista": {
+    "lon": -95,
+    "lat": 32,
+    "larghezza": 40
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1500",
+     "parola": "Cinquecento"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "conquistador",
+     "n": 4,
+     "lon": -98,
+     "lat": 30,
+     "parola": "spagnoli"
+    },
+    {
+     "tipo": "icona",
+     "icona": "question",
+     "lon": -100,
+     "lat": 35,
+     "parola": "Niente"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Nessuna città d'oro",
+     "parola": "città"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": -110,
+    "lat": 40,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Così le grandi potenze ignorano il nord per decenni. Poi, finalmente, l'Inghilterra ci riprova a guardare.",
+   "anteprima": false,
+   "vista": {
+    "lon": -60,
+    "lat": 45,
+    "larghezza": 100
+   },
+   "epoca": "antica",
+   "oro": [
+    "GBR"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 50,
+     "prefisso": "~",
+     "suffisso": "",
+     "sotto": "ANNI DI IGNORANZA",
+     "parola": "decenni"
+    },
+    {
+     "tipo": "contorno",
+     "paese": "GBR",
+     "parola": "Inghilterra"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Arrivano gli inglesi",
+     "parola": "Inghilterra"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -45,
+    "lat": 50,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Gli inglesi arrivano in ritardo. Nel 1585 fondano Roanoke, ma la colonia svanisce nel nulla, senza lasciare traccia.",
+   "anteprima": false,
+   "vista": {
+    "lon": -76,
+    "lat": 36,
+    "larghezza": 14
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1585",
+     "parola": "1585"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "ROANOKE",
+     "lon": -75.7,
+     "lat": 35.9,
+     "parola": "Roanoke"
+    },
+    {
+     "tipo": "icona",
+     "icona": "cabin",
+     "lon": -75.8,
+     "lat": 35.8,
+     "parola": "colonia"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "SPARITA",
+     "parola": "svanisce"
+    }
+   ],
+   "musica": "mistero",
+   "stacco": true,
+   "pin": {
+    "lon": -77.5,
+    "lat": 37.5,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Ritentano nel 1607 a Jamestown, in Virginia. Malattie, fame e guerra con le tribù locali quasi la distruggono.",
+   "anteprima": false,
+   "vista": {
+    "lon": -76.5,
+    "lat": 37.2,
+    "larghezza": 10
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1607",
+     "parola": "1607"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "JAMESTOWN",
+     "lon": -76.8,
+     "lat": 37.2,
+     "parola": "Jamestown"
+    },
+    {
+     "tipo": "icona",
+     "icona": "grave",
+     "lon": -76.6,
+     "lat": 37.1,
+     "parola": "Malattie"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "colonist",
+     "n": 5,
+     "lon": -76.9,
+     "lat": 37.3,
+     "parola": "fame"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Jamestown quasi collassa",
+     "parola": "quasi"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -78.5,
+    "lat": 38.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Niente oro. Ma i coloni scoprono qualcosa che li salva: il tabacco. Gli europei ne vanno pazzi, e il tabacco diventa denaro.",
+   "anteprima": false,
+   "vista": {
+    "lon": -77,
+    "lat": 37.5,
+    "larghezza": 12
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "farm",
+     "lon": -77.2,
+     "lat": 37.4,
+     "parola": "tabacco"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -76.3,
+      37
+     ],
+     "a": [
+      -6,
+      50
+     ],
+     "icona": "cargo_ship",
+     "parola": "Europei"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "TABACCO",
+     "parola": "salva"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Il tabacco diventa denaro",
+     "parola": "denaro"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": true,
+   "pin": {
+    "lon": -79,
+    "lat": 38.5,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Pochi anni dopo, più a nord, in Massachusetts, sbarcano pellegrini e puritani. Non cercano oro, ma una società lontana dalla corruzione europea.",
+   "anteprima": false,
+   "vista": {
+    "lon": -71,
+    "lat": 42.5,
+    "larghezza": 10
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1620",
+     "parola": "Massachusetts"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "MASSACHUSETTS",
+     "lon": -71.5,
+     "lat": 42.3,
+     "parola": "Massachusetts"
+    },
+    {
+     "tipo": "icona",
+     "icona": "church",
+     "lon": -70.7,
+     "lat": 41.9,
+     "parola": "puritani"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "colonist",
+     "n": 5,
+     "lon": -70.9,
+     "lat": 42,
+     "parola": "pellegrini"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Fuggono dalla corruzione europea",
+     "parola": "società"
+    }
+   ],
+   "musica": "quotidiano",
+   "stacco": false,
+   "pin": {
+    "lon": -73,
+    "lat": 43.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Nel secolo seguente arrivano sempre più persone. Chi cerca libertà religiosa, chi terra a buon prezzo. E molti vengono portati con la forza.",
+   "anteprima": false,
+   "vista": {
+    "lon": -60,
+    "lat": 35,
+    "larghezza": 100
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      -3,
+      51
+     ],
+     "a": [
+      -72,
+      41
+     ],
+     "icona": "galleon",
+     "parola": "arrivano"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -17,
+      14
+     ],
+     "a": [
+      -80,
+      33
+     ],
+     "icona": "cargo_ship",
+     "parola": "forza"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "colonist",
+     "n": 5,
+     "lon": -75,
+     "lat": 40,
+     "parola": "terra"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Libertà, terra e schiavitù",
+     "parola": "libertà"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": -50,
+    "lat": 45,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Sono africani ridotti in schiavitù, costretti a lavorare nelle piantagioni di tabacco e riso del Sud, che crescono di anno in anno.",
+   "anteprima": false,
+   "vista": {
+    "lon": -80,
+    "lat": 33,
+    "larghezza": 16
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "native_worker",
+     "n": 6,
+     "lon": -80,
+     "lat": 33,
+     "parola": "africani"
+    },
+    {
+     "tipo": "icona",
+     "icona": "wheat",
+     "lon": -81,
+     "lat": 32,
+     "parola": "riso"
+    },
+    {
+     "tipo": "icona",
+     "icona": "hacienda",
+     "lon": -79,
+     "lat": 34,
+     "parola": "piantagioni"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Lavoro schiavo nel Sud",
+     "parola": "schiavitù"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -84,
+    "lat": 35,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Lentamente, lungo la costa atlantica, nascono tredici colonie britanniche. I francesi, intanto, si prendono i grandi fiumi interni e le foreste piene di pellicce del Canada.",
+   "anteprima": false,
+   "vista": {
+    "lon": -80,
+    "lat": 42,
+    "larghezza": 40
+   },
+   "epoca": "antica",
+   "oro": [
+    "GBR"
+   ],
+   "verde": [
+    "FRA"
+   ],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 13,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "COLONIE BRITANNICHE",
+     "parola": "tredici"
+    },
+    {
+     "tipo": "icona",
+     "icona": "forest",
+     "lon": -75,
+     "lat": 50,
+     "parola": "foreste"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "NUOVA FRANCIA",
+     "lon": -72,
+     "lat": 47,
+     "parola": "francesi"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Inglesi sulla costa, francesi dentro",
+     "parola": "colonie"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -95,
+    "lat": 38,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Inevitabile lo scontro tra i due imperi. Nel 1754, nella valle dell'Ohio, scoppia la guerra franco-indiana.",
+   "anteprima": false,
+   "vista": {
+    "lon": -80,
+    "lat": 40,
+    "larghezza": 14
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1754",
+     "parola": "1754"
+    },
+    {
+     "tipo": "icona",
+     "icona": "swords",
+     "lon": -80,
+     "lat": 40.5,
+     "parola": "scoppia"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "VALLE DELL'OHIO",
+     "lon": -82,
+     "lat": 39.8,
+     "parola": "Ohio"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Inizia la guerra franco-indiana",
+     "parola": "guerra"
+    }
+   ],
+   "musica": "azione",
+   "stacco": false,
+   "pin": {
+    "lon": -84,
+    "lat": 42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "I francesi si alleano con varie tribù native, che temevano a ragione l'espansione britannica. Ma gli inglesi avevano molti più coloni.",
+   "anteprima": false,
+   "vista": {
+    "lon": -78,
+    "lat": 42,
+    "larghezza": 24
+   },
+   "epoca": "antica",
+   "oro": [
+    "GBR"
+   ],
+   "verde": [
+    "FRA"
+   ],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "native_worker",
+     "n": 4,
+     "lon": -80,
+     "lat": 43,
+     "parola": "tribù"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "colonist",
+     "n": 7,
+     "lon": -74,
+     "lat": 41,
+     "parola": "coloni"
+    },
+    {
+     "tipo": "barre",
+     "titolo": "POPOLAZIONE COLONIE",
+     "voci": [
+      {
+       "testo": "BRITANNICHE",
+       "valore": 1500,
+       "lato": "oro"
+      },
+      {
+       "testo": "FRANCESI",
+       "valore": 70,
+       "lato": "verde"
+      }
+     ],
+     "parola": "molti"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Gli inglesi erano molti di più",
+     "parola": "più"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -88,
+    "lat": 45,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Con l'aiuto dei coloni, la Gran Bretagna sconfigge la Francia. Si prende il Canada e tutte le terre a est del Mississippi.",
+   "anteprima": false,
+   "vista": {
+    "lon": -85,
+    "lat": 45,
+    "larghezza": 60
+   },
+   "epoca": "antica",
+   "oro": [
+    "GBR",
+    "CAN"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1763",
+     "parola": "sconfigge"
+    },
+    {
+     "tipo": "contorno",
+     "paese": "CAN",
+     "parola": "Canada"
+    },
+    {
+     "tipo": "confine",
+     "punti": [
+      [
+       -90,
+       48
+      ],
+      [
+       -90,
+       30
+      ],
+      [
+       -89,
+       29
+      ]
+     ],
+     "parola": "Mississippi"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Gli inglesi vincono il continente",
+     "parola": "vincono"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": false,
+   "pin": {
+    "lon": -70,
+    "lat": 52,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Londra aveva vinto il continente, ma la vittoria portava un problema enorme: il debito. Difendere le colonie era costato una fortuna.",
+   "anteprima": false,
+   "vista": {
+    "lon": -30,
+    "lat": 48,
+    "larghezza": 100
+   },
+   "epoca": "antica",
+   "oro": [
+    "GBR"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "money_bag",
+     "lon": -0.1,
+     "lat": 51.5,
+     "parola": "debito"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": -0.1,
+     "lat": 52.5,
+     "parola": "fortuna"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "DEBITO",
+     "parola": "debito"
+    },
+    {
+     "tipo": "nota",
+     "testo": "La guerra costò una fortuna",
+     "parola": "costato"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -15,
     "lat": 55,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Il governo decide che anche i coloni devono pagare. Arrivano tasse su zucchero, carta e tè.",
+   "anteprima": false,
+   "vista": {
+    "lon": -72,
+    "lat": 41,
+    "larghezza": 14
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": -71,
+     "lat": 42.3,
+     "parola": "tasse"
+    },
+    {
+     "tipo": "icona",
+     "icona": "sugar_cane",
+     "lon": -74,
+     "lat": 40.7,
+     "parola": "zucchero"
+    },
+    {
+     "tipo": "icona",
+     "icona": "cargo_ship",
+     "lon": -71,
+     "lat": 41.4,
+     "parola": "tè"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Nuove tasse sulle colonie",
+     "parola": "pagare"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -75,
+    "lat": 43,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Per i coloni è tirannia. Si governavano da generazioni e non avevano rappresentanti nel Parlamento. Da Boston alla Virginia risuona un grido.",
+   "anteprima": false,
+   "vista": {
+    "lon": -75,
+    "lat": 40,
+    "larghezza": 22
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "parliament",
+     "lon": -0.1,
+     "lat": 51.5,
+     "parola": "Parlamento"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "colonist",
+     "n": 6,
+     "lon": -71,
+     "lat": 42.3,
+     "parola": "Boston"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "TIRANNIA",
+     "parola": "tirannia"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Niente tasse senza rappresentanza",
+     "parola": "rappresentanti"
+    }
+   ],
+   "musica": "azione",
+   "stacco": false,
+   "pin": {
+    "lon": -78,
+    "lat": 43,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Le proteste diventano rivolte. Nel 1770 i soldati britannici sparano sulla folla: è il massacro di Boston.",
+   "anteprima": false,
+   "vista": {
+    "lon": -71,
+    "lat": 42.35,
+    "larghezza": 6
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1770",
+     "parola": "1770"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "soldier",
+     "n": 5,
+     "lon": -71.06,
+     "lat": 42.36,
+     "parola": "soldati"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "MASSACRO DI BOSTON",
+     "lon": -71.06,
+     "lat": 42.34,
+     "parola": "massacro"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Soldati sparano sulla folla",
+     "parola": "sparano"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": true,
+   "pin": {
+    "lon": -71.4,
+    "lat": 42.5,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Nel 1773 i coloni gettano in mare, nel porto di Boston, 342 casse di tè britannico. Nel 1775 echeggiano i primi spari a Lexington.",
+   "anteprima": false,
+   "vista": {
+    "lon": -71,
+    "lat": 42.4,
+    "larghezza": 6
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1773",
+     "parola": "1773"
+    },
+    {
+     "tipo": "conta",
+     "valore": 342,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "CASSE DI TÈ IN MARE",
+     "parola": "342"
+    },
+    {
+     "tipo": "icona",
+     "icona": "cargo_ship",
+     "lon": -71.05,
+     "lat": 42.35,
+     "parola": "porto"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "LEXINGTON",
+     "lon": -71.23,
+     "lat": 42.45,
+     "parola": "Lexington"
+    }
+   ],
+   "musica": "azione",
+   "stacco": false,
+   "pin": {
+    "lon": -70.5,
+    "lat": 42.7,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "È l'inizio della Rivoluzione americana. Il 4 luglio 1776, i delegati delle tredici colonie firmano la Dichiarazione d'Indipendenza.",
+   "anteprima": false,
+   "vista": {
+    "lon": -76,
+    "lat": 40,
+    "larghezza": 16
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1776",
+     "parola": "1776"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "FILADELFIA",
+     "lon": -75.16,
+     "lat": 39.95,
+     "parola": "Dichiarazione"
+    },
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": -75.1,
+     "lat": 40,
+     "parola": "firmano"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Nasce una nazione libera",
+     "parola": "tredici"
+    }
+   ],
+   "musica": "epico",
+   "stacco": true,
+   "pin": {
+    "lon": -77.5,
+    "lat": 41.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Vincere sembrava impossibile. Un esercito improvvisato di contadini, guidato da un piantatore virginiano, George Washington, contro la macchina militare più professionale del mondo.",
+   "anteprima": false,
+   "vista": {
+    "lon": -75,
+    "lat": 40,
+    "larghezza": 16
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "personaggio",
+     "nome": "George Washington",
+     "descrizione": "Generale e piantatore virginiano del Settecento, giacca blu, capelli incipriati",
+     "parola": "Washington"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "peasant",
+     "n": 6,
+     "lon": -74.5,
+     "lat": 40,
+     "parola": "contadini"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "soldier",
+     "n": 6,
+     "lon": -73.9,
+     "lat": 40.7,
+     "parola": "professionale"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Contadini contro l'esercito migliore",
+     "parola": "impossibile"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -78,
+    "lat": 42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Ma Washington lo sapeva: non doveva distruggere gli inglesi. Bastava tenere in vita il suo esercito finché Londra non avesse perso la voglia di combattere.",
+   "anteprima": false,
+   "vista": {
+    "lon": -74.5,
+    "lat": 40.5,
+    "larghezza": 10
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "GBR"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "hourglass",
+     "lon": -74.6,
+     "lat": 40.4,
+     "parola": "tenere"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "RESISTERE",
+     "parola": "vita"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Vincere resistendo più a lungo",
+     "parola": "voglia"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -76,
+    "lat": 41.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Dopo la stupefacente vittoria americana a Saratoga, la Francia entra in guerra per vendicarsi della Gran Bretagna. Soldati, navi e denaro cambiano le sorti.",
+   "anteprima": false,
+   "vista": {
+    "lon": -73.6,
+    "lat": 43,
+    "larghezza": 14
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA",
+    "FRA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1777",
+     "parola": "Saratoga"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "SARATOGA",
+     "lon": -73.6,
+     "lat": 43,
+     "parola": "Saratoga"
+    },
+    {
+     "tipo": "flag",
+     "icona": "flag:FR",
+     "lon": -74.5,
+     "lat": 42.2,
+     "parola": "Francia"
+    },
+    {
+     "tipo": "icona",
+     "icona": "galleon",
+     "lon": -73.7,
+     "lat": 42.5,
+     "parola": "navi"
+    },
+    {
+     "tipo": "nota",
+     "testo": "La Francia scende in campo",
+     "parola": "vendicarsi"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": false,
+   "pin": {
+    "lon": -75.5,
+    "lat": 44.5,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Nel 1781 le forze britanniche restano intrappolate e si arrendono a Yorktown, in Virginia. L'America è libera.",
+   "anteprima": false,
+   "vista": {
+    "lon": -76.5,
+    "lat": 37.2,
+    "larghezza": 8
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1781",
+     "parola": "1781"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "YORKTOWN",
+     "lon": -76.5,
+     "lat": 37.24,
+     "parola": "Yorktown"
+    },
+    {
+     "tipo": "icona",
+     "icona": "fortress",
+     "lon": -76.6,
+     "lat": 37.2,
+     "parola": "intrappolate"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "LIBERA",
+     "parola": "libera"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": true,
+   "pin": {
+    "lon": -78,
+    "lat": 38.5,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Ma il primo governo, gli Articoli della Confederazione, è troppo debole. Gli stati litigano come paesi separati.",
+   "anteprima": false,
+   "vista": {
+    "lon": -76,
+    "lat": 39,
+    "larghezza": 24
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": -75.2,
+     "lat": 40,
+     "parola": "Articoli"
+    },
+    {
+     "tipo": "icona",
+     "icona": "swords",
+     "lon": -78,
+     "lat": 38,
+     "parola": "litigano"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": -74,
+     "lat": 41,
+     "parola": "debole"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Un governo troppo debole",
+     "parola": "debole"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -80,
+    "lat": 42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Il giovane paese rischia il crollo. Nel 1787 i leader si riuniscono a Filadelfia per buttare via tutto e ricominciare.",
+   "anteprima": false,
+   "vista": {
+    "lon": -75.2,
+    "lat": 40,
+    "larghezza": 8
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1787",
+     "parola": "1787"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "FILADELFIA",
+     "lon": -75.16,
+     "lat": 39.95,
+     "parola": "Filadelfia"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "politician",
+     "n": 6,
+     "lon": -75.15,
+     "lat": 39.96,
+     "parola": "leader"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Si riscrive tutto il sistema",
+     "parola": "ricominciare"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -76.5,
+    "lat": 41,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Scrivono la Costituzione. Un governo federale bilanciato: presidente eletto, Congresso con due camere e una Corte Suprema indipendente.",
+   "anteprima": false,
+   "vista": {
+    "lon": -77,
+    "lat": 39,
+    "larghezza": 10
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": -77.04,
+     "lat": 38.9,
+     "parola": "Costituzione"
+    },
+    {
+     "tipo": "conta",
+     "valore": 3,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "POTERI BILANCIATI",
+     "parola": "bilanciato"
+    },
+    {
+     "tipo": "icona",
+     "icona": "parliament",
+     "lon": -77.01,
+     "lat": 38.89,
+     "parola": "Congresso"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Presidente, Congresso, Corte",
+     "parola": "Corte"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": -78.5,
+    "lat": 40,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Nel 1789 George Washington è eletto all'unanimità primo presidente degli Stati Uniti.",
+   "anteprima": false,
+   "vista": {
+    "lon": -75,
+    "lat": 40.5,
+    "larghezza": 12
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1789",
+     "parola": "1789"
+    },
+    {
+     "tipo": "personaggio",
+     "nome": "George Washington",
+     "descrizione": "Primo presidente degli Stati Uniti, giacca scura, capelli incipriati",
+     "parola": "Washington"
+    },
+    {
+     "tipo": "icona",
+     "icona": "ballot_box",
+     "lon": -74,
+     "lat": 40.7,
+     "parola": "unanimità"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Primo presidente, voto unanime",
+     "parola": "primo"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": false,
+   "pin": {
+    "lon": -77,
+    "lat": 42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Il paese era ancora chiuso sulla costa atlantica. Tutto a ovest del Mississippi apparteneva alla Spagna e, in segreto, alla Francia di Napoleone.",
+   "anteprima": false,
+   "vista": {
+    "lon": -95,
+    "lat": 38,
+    "larghezza": 60
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "FRA"
+   ],
+   "eventi": [
+    {
+     "tipo": "contorno",
+     "paese": "USA",
+     "parola": "costa"
+    },
+    {
+     "tipo": "confine",
+     "punti": [
+      [
+       -90,
+       49
+      ],
+      [
+       -90,
+       30
+      ]
+     ],
+     "parola": "Mississippi"
+    },
+    {
+     "tipo": "personaggio",
+     "nome": "Napoleone Bonaparte",
+     "descrizione": "Imperatore francese, cappello bicorno, uniforme blu",
+     "parola": "Napoleone"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Ovest ancora europeo",
+     "parola": "ovest"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -110,
+    "lat": 45,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Ma Napoleone ha dei guai. Una enorme rivolta di schiavi ad Haiti e una guerra imminente contro la Gran Bretagna. Ha bisogno di soldi, subito.",
+   "anteprima": false,
+   "vista": {
+    "lon": -60,
+    "lat": 30,
+    "larghezza": 100
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "FRA"
+   ],
+   "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "HAITI",
+     "lon": -72.3,
+     "lat": 19,
+     "parola": "Haiti"
+    },
+    {
+     "tipo": "icona",
+     "icona": "swords",
+     "lon": -72.3,
+     "lat": 19.2,
+     "parola": "rivolta"
+    },
+    {
+     "tipo": "icona",
+     "icona": "money_bag",
+     "lon": 2.3,
+     "lat": 48.9,
+     "parola": "soldi"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Napoleone ha fretta di contanti",
+     "parola": "bisogno"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -45,
+    "lat": 45,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Nel 1803 il presidente Thomas Jefferson manda dei diplomatici a comprare il porto di New Orleans. Napoleone risponde con un'offerta incredibile.",
+   "anteprima": false,
+   "vista": {
+    "lon": -90,
+    "lat": 30,
+    "larghezza": 14
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1803",
+     "parola": "1803"
+    },
+    {
+     "tipo": "personaggio",
+     "nome": "Thomas Jefferson",
+     "descrizione": "Terzo presidente americano, capelli rossicci, giacca scura del Settecento",
+     "parola": "Jefferson"
+    },
+    {
+     "tipo": "icona",
+     "icona": "port",
+     "lon": -90.07,
+     "lat": 29.95,
+     "parola": "porto"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "NEW ORLEANS",
+     "lon": -90.07,
+     "lat": 29.95,
+     "parola": "Orleans"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -86,
+    "lat": 32,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Vende l'intera Louisiana: 828.000 miglia quadrate per soli 15 milioni di dollari. Dal giorno alla notte, gli Stati Uniti raddoppiano.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 40,
+    "larghezza": 50
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 828000,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "MIGLIA QUADRATE",
+     "parola": "828.000"
+    },
+    {
+     "tipo": "prezzo",
+     "testo": "$15 MILIONI",
+     "sotto": "LOUISIANA · INTERA",
+     "ricco": true,
+     "parola": "milioni"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "RADDOPPIATI",
+     "parola": "raddoppiano"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Paese raddoppiato in un colpo",
+     "parola": "notte"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": true,
+   "pin": {
+    "lon": -112,
+    "lat": 47,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Fai un conto: sono pochi centesimi per acro. Nella storia, un affare così non si è mai più visto.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 40,
+    "larghezza": 50
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "prezzo",
+     "testo": "3 CENTESIMI",
+     "sotto": "PER ACRO · LOUISIANA",
+     "ricco": false,
+     "parola": "centesimi"
+    },
+    {
+     "tipo": "icona",
+     "icona": "treasure_chest",
+     "lon": -98,
+     "lat": 40,
+     "parola": "affare"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Affare del millennio",
+     "parola": "mai"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -108,
+    "lat": 44,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Segue un'epoca di espansione esplosiva e spietata, guidata dal destino manifesto: il diritto divino di popolare il continente da un oceano all'altro.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 39,
+    "larghezza": 70
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "scritta",
+     "testo": "DESTINO MANIFESTO",
+     "parola": "manifesto"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -75,
+      40
+     ],
+     "a": [
+      -122,
+      38
+     ],
+     "icona": "steam_train",
+     "parola": "oceano"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Da oceano a oceano",
+     "parola": "oceano"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": -105,
+    "lat": 47,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "I pionieri avanzano a ovest sui carri coperti, disboscando e occupando terre. Ma quella terra non era vuota.",
+   "anteprima": false,
+   "vista": {
+    "lon": -95,
+    "lat": 40,
+    "larghezza": 40
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "colonist",
+     "n": 6,
+     "lon": -95,
+     "lat": 40,
+     "parola": "pionieri"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -90,
+      39
+     ],
+     "a": [
+      -110,
+      41
+     ],
+     "icona": "cabin",
+     "parola": "carri"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "native_worker",
+     "n": 4,
+     "lon": -100,
+     "lat": 41,
+     "parola": "vuota"
+    },
+    {
+     "tipo": "nota",
+     "testo": "La terra non era vuota",
+     "parola": "vuota"
+    }
+   ],
+   "musica": "azione",
+   "stacco": false,
+   "pin": {
+    "lon": -103,
+    "lat": 47,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Milioni di nativi americani vengono espropriati e cacciati dalle terre di caccia degli avi. Campagne militari violente e marce forzate li spingono nelle riserve.",
+   "anteprima": false,
+   "vista": {
+    "lon": -90,
+    "lat": 36,
+    "larghezza": 40
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "native_worker",
+     "n": 6,
+     "lon": -85,
+     "lat": 34,
+     "parola": "nativi"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -84,
+      34
+     ],
+     "a": [
+      -95,
+      35.5
+     ],
+     "icona": "swords",
+     "parola": "marce"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "RISERVE",
+     "lon": -97,
+     "lat": 35.5,
+     "parola": "riserve"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Espulsi dalle terre ancestrali",
+     "parola": "cacciati"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": -100,
+    "lat": 42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "La più terribile è la Pista delle Lacrime, negli anni Trenta dell'Ottocento. Migliaia di persone muoiono lungo il cammino.",
+   "anteprima": false,
+   "vista": {
+    "lon": -90,
+    "lat": 35.5,
+    "larghezza": 24
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1838",
+     "parola": "Trenta"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -84.5,
+      34.5
+     ],
+     "a": [
+      -95,
+      35.5
+     ],
+     "icona": "grave",
+     "parola": "cammino"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "PISTA DELLE LACRIME",
+     "lon": -90,
+     "lat": 36,
+     "parola": "Lacrime"
+    },
+    {
+     "tipo": "conta",
+     "valore": 4000,
+     "prefisso": "~",
+     "suffisso": "",
+     "sotto": "MORTI SUL CAMMINO",
+     "parola": "Migliaia"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": -98,
+    "lat": 39,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Gli Stati Uniti continuano a ingoiare territori. Nel 1819 la Spagna cede la Florida.",
+   "anteprima": false,
+   "vista": {
+    "lon": -83,
+    "lat": 28,
+    "larghezza": 14
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "ESP"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1819",
+     "parola": "1819"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "FLORIDA",
+     "lon": -82,
+     "lat": 28,
+     "parola": "Florida"
+    },
+    {
+     "tipo": "contorno",
+     "paese": "USA",
+     "parola": "Stati"
+    },
+    {
+     "tipo": "nota",
+     "testo": "La Spagna cede la Florida",
+     "parola": "cede"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -86,
+    "lat": 31,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Poi i coloni americani del Texas, nel nord del Messico, si ribellano e fondano una repubblica indipendente. Alla fine gli Stati Uniti la annettono.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 31,
+    "larghezza": 18
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "MEX"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1836",
+     "parola": "ribellano"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "TEXAS",
+     "lon": -99,
+     "lat": 31.5,
+     "parola": "Texas"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "colonist",
+     "n": 5,
+     "lon": -98.5,
+     "lat": 30.5,
+     "parola": "coloni"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Texas indipendente, poi annesso",
+     "parola": "annettono"
+    }
+   ],
+   "musica": "azione",
+   "stacco": false,
+   "pin": {
+    "lon": -104,
+    "lat": 35,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Quella mossa scatena la guerra messicano-americana. Nel 1846 le truppe americane prendono Città del Messico.",
+   "anteprima": false,
+   "vista": {
+    "lon": -100,
+    "lat": 23,
+    "larghezza": 30
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "MEX"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1846",
+     "parola": "1846"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -97,
+      26
+     ],
+     "a": [
+      -99.1,
+      19.4
+     ],
+     "icona": "swords",
+     "parola": "truppe"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "soldier",
+     "n": 6,
+     "lon": -99.1,
+     "lat": 19.4,
+     "parola": "Messico"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Gli USA entrano a Città del Messico",
+     "parola": "prendono"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -108,
+    "lat": 29,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Nel trattato di pace il Messico è costretto a cedere quasi metà del territorio: California, Nevada, Utah, Arizona e Nuovo Messico.",
+   "anteprima": false,
+   "vista": {
+    "lon": -112,
+    "lat": 35,
+    "larghezza": 30
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "MEX"
+   ],
+   "eventi": [
+    {
+     "tipo": "griglia",
+     "paese": [
+      "MEX"
+     ],
+     "pieni": 0.5,
+     "testo": "PERSA METÀ DEL PAESE",
+     "colore": "verde",
+     "parola": "metà"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "METÀ",
+     "parola": "metà"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "CALIFORNIA",
+     "lon": -120,
+     "lat": 37,
+     "parola": "California"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "ARIZONA",
+     "lon": -111.5,
+     "lat": 34,
+     "parola": "Arizona"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": true,
+   "pin": {
+    "lon": -105,
+    "lat": 42,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Proprio mentre il trattato viene firmato, in California si scopre l'oro. La corsa del 1849 spinge centinaia di migliaia di persone verso ovest.",
+   "anteprima": false,
+   "vista": {
+    "lon": -121,
+    "lat": 38,
+    "larghezza": 14
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1849",
+     "parola": "1849"
+    },
+    {
+     "tipo": "icona",
+     "icona": "gold_coins",
+     "lon": -121,
+     "lat": 38.7,
+     "parola": "oro"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "miner",
+     "n": 6,
+     "lon": -120.8,
+     "lat": 38.5,
+     "parola": "persone"
+    },
+    {
+     "tipo": "conta",
+     "valore": 300000,
+     "prefisso": "~",
+     "suffisso": "",
+     "sotto": "CERCATORI D'ORO",
+     "parola": "centinaia"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": true,
+   "pin": {
+    "lon": -123,
+    "lat": 40,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "In meno di cinquant'anni l'America ha raggiunto l'oceano Pacifico. Per capirci: dalla costa atlantica al Pacifico sono circa quattromila chilometri.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 39,
+    "larghezza": 70
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      -74,
+      40
+     ],
+     "a": [
+      -122,
+      37.5
+     ],
+     "icona": "steam_train",
+     "parola": "Pacifico"
+    },
+    {
+     "tipo": "conta",
+     "valore": 4000,
+     "prefisso": "~",
+     "suffisso": " KM",
+     "sotto": "DA COSTA A COSTA",
+     "parola": "quattromila"
+    },
+    {
+     "tipo": "contorno",
+     "paese": "USA",
+     "parola": "America"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Da costa a costa",
+     "parola": "oceano"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": -100,
+    "lat": 47,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Ma questa espansione porta con sé il seme della distruzione. Ogni nuovo stato scatena una lite feroce: schiavista o libero?",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 38,
+    "larghezza": 60
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "question",
+     "lon": -105,
+     "lat": 39,
+     "parola": "schiavista"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "SCHIAVO O LIBERO?",
+     "parola": "libero"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Ogni nuovo stato divide il paese",
+     "parola": "lite"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -112,
+    "lat": 45,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Il Nord vive di fabbriche, commercio e lavoro pagato. Un movimento abolizionista sempre più forte considera la schiavitù un male morale imperdonabile.",
+   "anteprima": false,
+   "vista": {
+    "lon": -80,
+    "lat": 41,
+    "larghezza": 24
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "factory",
+     "lon": -75,
+     "lat": 40,
+     "parola": "fabbriche"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "worker",
+     "n": 6,
+     "lon": -78,
+     "lat": 42,
+     "parola": "lavoro"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Nord industriale e abolizionista",
+     "parola": "abolizionista"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -85,
+    "lat": 44,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Il Sud ha costruito tutta la sua economia sul cotone, raccolto interamente da milioni di afroamericani ridotti in schiavitù.",
+   "anteprima": false,
+   "vista": {
+    "lon": -87,
+    "lat": 33,
+    "larghezza": 24
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "farm",
+     "lon": -87,
+     "lat": 33,
+     "parola": "cotone"
+    },
+    {
+     "tipo": "conta",
+     "valore": 4000000,
+     "prefisso": "~",
+     "suffisso": "",
+     "sotto": "PERSONE IN SCHIAVITÙ",
+     "parola": "milioni"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "native_worker",
+     "n": 6,
+     "lon": -88,
+     "lat": 32.5,
+     "parola": "afroamericani"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Il Sud vive di cotone e schiavitù",
+     "parola": "economia"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": -92,
+    "lat": 36,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "I politici del Sud lo sapevano: se gli stati liberi superavano quelli schiavisti al Congresso, la schiavitù sarebbe finita.",
+   "anteprima": false,
+   "vista": {
+    "lon": -80,
+    "lat": 38,
+    "larghezza": 40
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "parliament",
+     "lon": -77,
+     "lat": 38.9,
+     "parola": "Congresso"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "politician",
+     "n": 5,
+     "lon": -77.1,
+     "lat": 38.85,
+     "parola": "politici"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Il Sud teme di perdere voti",
+     "parola": "superavano"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -90,
+    "lat": 42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Il punto di rottura arriva nel novembre 1860, con l'elezione di Abraham Lincoln. Lui è contrario a estendere la schiavitù ai nuovi territori.",
+   "anteprima": false,
+   "vista": {
+    "lon": -90,
+    "lat": 39,
+    "larghezza": 40
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1860",
+     "parola": "1860"
+    },
+    {
+     "tipo": "personaggio",
+     "nome": "Abraham Lincoln",
+     "descrizione": "Presidente americano alto e magro, barba senza baffi, cilindro nero",
+     "parola": "Lincoln"
+    },
+    {
+     "tipo": "icona",
+     "icona": "ballot_box",
+     "lon": -89.6,
+     "lat": 39.8,
+     "parola": "elezione"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Lincoln contro l'espansione schiavista",
+     "parola": "contrario"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": true,
+   "pin": {
+    "lon": -98,
+    "lat": 44,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Temendo la fine del loro sistema, undici stati del Sud lasciano l'Unione e si proclamano Stati Confederati d'America.",
+   "anteprima": false,
+   "vista": {
+    "lon": -87,
+    "lat": 33,
+    "larghezza": 30
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "ALA"
+   ],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 11,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "STATI SEPARATISTI",
+     "parola": "undici"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "SECESSIONE",
+     "parola": "lasciano"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "CONFEDERAZIONE",
+     "lon": -87,
+     "lat": 33,
+     "parola": "Confederati"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Il Sud si stacca dall'Unione",
+     "parola": "Unione"
+    }
+   ],
+   "musica": "azione",
+   "stacco": false,
+   "pin": {
+    "lon": -95,
+    "lat": 39,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Nell'aprile 1861 i cannoni confederati sparano su Fort Sumter. È l'inizio della Guerra Civile americana.",
+   "anteprima": false,
+   "vista": {
+    "lon": -79.9,
+    "lat": 32.75,
+    "larghezza": 6
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1861",
+     "parola": "1861"
+    },
+    {
+     "tipo": "icona",
+     "icona": "cannon",
+     "lon": -79.87,
+     "lat": 32.75,
+     "parola": "cannoni"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "FORT SUMTER",
+     "lon": -79.87,
+     "lat": 32.75,
+     "parola": "Sumter"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "GUERRA CIVILE",
+     "parola": "Civile"
+    }
+   ],
+   "musica": "azione",
+   "stacco": true,
+   "pin": {
+    "lon": -80.5,
+    "lat": 33.5,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Fu il conflitto più sanguinoso della storia americana: fratelli contro fratelli. Una guerra moderna, tra fucili, ferrovie e navi corazzate, ma con tattiche antiquate.",
+   "anteprima": false,
+   "vista": {
+    "lon": -80,
+    "lat": 37,
+    "larghezza": 24
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "steam_train",
+     "lon": -77.5,
+     "lat": 38,
+     "parola": "ferrovie"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "soldier",
+     "n": 7,
+     "lon": -78,
+     "lat": 38.5,
+     "parola": "fratelli"
+    },
+    {
+     "tipo": "icona",
+     "icona": "cannon",
+     "lon": -77.7,
+     "lat": 39.2,
+     "parola": "fucili"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Guerra moderna, tattiche antiche",
+     "parola": "antiquate"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -84,
+    "lat": 40,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Per quattro anni terribili muoiono centinaia di migliaia di uomini, in battaglie come Antietam e Gettysburg.",
+   "anteprima": false,
+   "vista": {
+    "lon": -77.5,
+    "lat": 39.5,
+    "larghezza": 8
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 620000,
+     "prefisso": "~",
+     "suffisso": "",
+     "sotto": "MORTI IN TOTALE",
+     "parola": "centinaia"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "GETTYSBURG",
+     "lon": -77.23,
+     "lat": 39.83,
+     "parola": "Gettysburg"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "ANTIETAM",
+     "lon": -77.74,
+     "lat": 39.47,
+     "parola": "Antietam"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Quattro anni di carneficina",
+     "parola": "quattro"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": -79,
+    "lat": 40.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Lincoln emana la Proclamazione di Emancipazione: la guerra diventa una crociata per abolire la schiavitù.",
+   "anteprima": false,
+   "vista": {
+    "lon": -85,
+    "lat": 36,
+    "larghezza": 40
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1863",
+     "parola": "Emancipazione"
+    },
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": -77.04,
+     "lat": 38.9,
+     "parola": "Proclamazione"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "EMANCIPAZIONE",
+     "parola": "abolire"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Una guerra per la libertà",
+     "parola": "crociata"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": -92,
+    "lat": 42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Nel 1865 la forza industriale e il maggior numero di uomini del Nord schiacciano gli eserciti confederati.",
+   "anteprima": false,
+   "vista": {
+    "lon": -85,
+    "lat": 36,
+    "larghezza": 40
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1865",
+     "parola": "1865"
+    },
+    {
+     "tipo": "barre",
+     "titolo": "POPOLAZIONE 1860",
+     "voci": [
+      {
+       "testo": "NORD",
+       "valore": 22,
+       "lato": "oro"
+      },
+      {
+       "testo": "SUD",
+       "valore": 9,
+       "lato": "verde"
+      }
+     ],
+     "parola": "uomini"
+    },
+    {
+     "tipo": "icona",
+     "icona": "factory",
+     "lon": -76,
+     "lat": 40,
+     "parola": "industriale"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Il Nord prevale per numeri",
+     "parola": "schiacciano"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": false,
+   "pin": {
+    "lon": -92,
+    "lat": 42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "La schiavitù è abolita, l'Unione è salva. Ma Lincoln viene assassinato pochi giorni dopo la resa. Il paese è riunito, ma le cicatrici restano profonde.",
+   "anteprima": false,
+   "vista": {
+    "lon": -77,
+    "lat": 38.9,
+    "larghezza": 8
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "scritta",
+     "testo": "ABOLITA",
+     "parola": "abolita"
+    },
+    {
+     "tipo": "icona",
+     "icona": "grave",
+     "lon": -77.03,
+     "lat": 38.9,
+     "parola": "assassinato"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Lincoln ucciso dopo la vittoria",
+     "parola": "assassinato"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": true,
+   "pin": {
+    "lon": -78.5,
+    "lat": 40,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Nonostante tutto, il paese entra in una fase di crescita industriale vertiginosa, l'Età Dorata. Milioni di immigrati arrivano dall'Europa in cerca di lavoro.",
+   "anteprima": false,
+   "vista": {
+    "lon": -50,
+    "lat": 42,
+    "larghezza": 120
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      -6,
+      52
+     ],
+     "a": [
+      -74,
+      40.7
+     ],
+     "icona": "cargo_ship",
+     "parola": "Europa"
+    },
+    {
+     "tipo": "conta",
+     "valore": 25,
+     "prefisso": "~",
+     "suffisso": " MILIONI",
+     "sotto": "IMMIGRATI 1870-1914",
+     "parola": "Milioni"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "worker",
+     "n": 6,
+     "lon": -74,
+     "lat": 40.7,
+     "parola": "lavoro"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Immigrati per le fabbriche",
+     "parola": "immigrati"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -35,
+    "lat": 55,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Le ferrovie transcontinentali uniscono il paese. Giganti come Rockefeller, nel petrolio, e Carnegie, nell'acciaio, costruiscono imperi più grandi di molti governi.",
+   "anteprima": false,
+   "vista": {
+    "lon": -95,
+    "lat": 40,
+    "larghezza": 60
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      -74,
+      40.7
+     ],
+     "a": [
+      -122.4,
+      37.8
+     ],
+     "icona": "steam_train",
+     "parola": "ferrovie"
+    },
+    {
+     "tipo": "personaggio",
+     "nome": "John D. Rockefeller",
+     "descrizione": "Magnate del petrolio, anziano, completo scuro e cappello",
+     "parola": "Rockefeller"
+    },
+    {
+     "tipo": "icona",
+     "icona": "oil_derrick",
+     "lon": -81.5,
+     "lat": 41.5,
+     "parola": "petrolio"
+    },
+    {
+     "tipo": "personaggio",
+     "nome": "Andrew Carnegie",
+     "descrizione": "Industriale dell'acciaio, barba bianca, abito scuro",
+     "parola": "Carnegie"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": -105,
+    "lat": 46,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Gli Stati Uniti stanno diventando il motore industriale del pianeta. Pensa: nel 1900 producono più acciaio di Gran Bretagna e Germania messe insieme.",
+   "anteprima": false,
+   "vista": {
+    "lon": -60,
+    "lat": 45,
+    "larghezza": 120
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "GBR",
+    "DEU"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1900",
+     "parola": "1900"
+    },
+    {
+     "tipo": "barre",
+     "titolo": "ACCIAIO (MILIONI DI TONNELLATE)",
+     "voci": [
+      {
+       "testo": "USA",
+       "valore": 10,
+       "lato": "oro"
+      },
+      {
+       "testo": "GB + GERMANIA",
+       "valore": 10,
+       "lato": "verde"
+      }
+     ],
+     "parola": "acciaio"
+    },
+    {
+     "tipo": "icona",
+     "icona": "factory",
+     "lon": -80,
+     "lat": 40.4,
+     "parola": "industriale"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Più acciaio di Londra e Berlino",
+     "parola": "insieme"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": false,
+   "pin": {
+    "lon": -40,
+    "lat": 55,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Verso la fine degli anni Novanta dell'Ottocento la frontiera occidentale è chiusa, e l'America guarda oltre gli oceani.",
+   "anteprima": false,
+   "vista": {
+    "lon": -140,
+    "lat": 30,
+    "larghezza": 160
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1890",
+     "parola": "Novanta"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -122,
+      37
+     ],
+     "a": [
+      -157,
+      21
+     ],
+     "icona": "galleon",
+     "parola": "oltre"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Frontiera chiusa, sguardo al mondo",
+     "parola": "chiusa"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -125,
+    "lat": 45,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Nel 1898, dopo l'esplosione misteriosa di una corazzata americana nel porto dell'Avana, scoppia la guerra ispano-americana.",
+   "anteprima": false,
+   "vista": {
+    "lon": -82.4,
+    "lat": 23.1,
+    "larghezza": 12
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "ESP"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1898",
+     "parola": "1898"
+    },
+    {
+     "tipo": "icona",
+     "icona": "galleon",
+     "lon": -82.35,
+     "lat": 23.15,
+     "parola": "corazzata"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "L'AVANA",
+     "lon": -82.36,
+     "lat": 23.13,
+     "parola": "Avana"
+    },
+    {
+     "tipo": "icona",
+     "icona": "cannon",
+     "lon": -82.3,
+     "lat": 23.1,
+     "parola": "esplosione"
+    }
+   ],
+   "musica": "azione",
+   "stacco": true,
+   "pin": {
+    "lon": -85,
+    "lat": 26,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "In pochi mesi l'esercito americano schiaccia la Spagna e ne cancella gli ultimi resti d'impero.",
+   "anteprima": false,
+   "vista": {
+    "lon": -60,
+    "lat": 25,
+    "larghezza": 160
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "ESP"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "swords",
+     "lon": -66,
+     "lat": 18.2,
+     "parola": "schiaccia"
+    },
+    {
+     "tipo": "icona",
+     "icona": "crown",
+     "lon": -3.7,
+     "lat": 40.4,
+     "parola": "impero"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Spagna perde gli ultimi domini",
+     "parola": "cancella"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": false,
+   "pin": {
+    "lon": -40,
+    "lat": 38,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Gli Stati Uniti prendono Porto Rico, Guam e le Filippine, e annettono le isole Hawaii.",
+   "anteprima": false,
+   "vista": {
+    "lon": -150,
+    "lat": 20,
+    "larghezza": 280
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA",
+    "PRI",
+    "GUM",
+    "PHL"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "PORTO RICO",
+     "lon": -66.5,
+     "lat": 18.2,
+     "parola": "Porto"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "GUAM",
+     "lon": 144.8,
+     "lat": 13.4,
+     "parola": "Guam"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "FILIPPINE",
+     "lon": 121,
+     "lat": 14.6,
+     "parola": "Filippine"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "HAWAII",
+     "lon": -157.8,
+     "lat": 21.3,
+     "parola": "Hawaii"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": -170,
+    "lat": 40,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Il presidente Theodore Roosevelt porta l'America sulla scena mondiale. Modernizza la marina nella Grande Flotta Bianca.",
+   "anteprima": false,
+   "vista": {
+    "lon": -60,
+    "lat": 30,
+    "larghezza": 120
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "personaggio",
+     "nome": "Theodore Roosevelt",
+     "descrizione": "Presidente americano con baffi e occhiali, cappello da cavaliere",
+     "parola": "Roosevelt"
+    },
+    {
+     "tipo": "icona",
+     "icona": "galleon",
+     "lon": -76,
+     "lat": 37,
+     "parola": "marina"
+    },
+    {
+     "tipo": "nota",
+     "testo": "La Grande Flotta Bianca",
+     "parola": "Flotta"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": -45,
+    "lat": 40,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "E ottiene il terreno per scavare il Canale di Panama, così le navi passano facilmente tra Atlantico e Pacifico.",
+   "anteprima": false,
+   "vista": {
+    "lon": -79.8,
+    "lat": 9,
+    "larghezza": 10
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "PAN"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1914",
+     "parola": "Canale"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "CANALE DI PANAMA",
+     "lon": -79.8,
+     "lat": 9.1,
+     "parola": "Panama"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -79.5,
+      9.35
+     ],
+     "a": [
+      -79.9,
+      8.9
+     ],
+     "icona": "cargo_ship",
+     "parola": "navi"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Scorciatoia tra due oceani",
+     "parola": "passano"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": false,
+   "pin": {
+    "lon": -82,
+    "lat": 11,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Quando nel 1914 la Prima guerra mondiale spezza l'Europa, l'America resta neutrale. Ma i sottomarini tedeschi e i complotti segreti la trascinano dentro.",
+   "anteprima": false,
+   "vista": {
+    "lon": -30,
+    "lat": 45,
+    "larghezza": 120
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "DEU"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1914",
+     "parola": "1914"
+    },
+    {
+     "tipo": "icona",
+     "icona": "cannon",
+     "lon": 10,
+     "lat": 50,
+     "parola": "guerra"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      8,
+      54
+     ],
+     "a": [
+      -25,
+      48
+     ],
+     "icona": "galleon",
+     "parola": "sottomarini"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Neutrale, finché non arrivano i sommergibili",
+     "parola": "neutrale"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -50,
+    "lat": 55,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Nel 1917 il presidente Woodrow Wilson entra in guerra. Le truppe fresche rompono lo stallo nelle trincee e portano gli Alleati alla vittoria.",
+   "anteprima": false,
+   "vista": {
+    "lon": -10,
+    "lat": 48,
+    "larghezza": 50
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA",
+    "FRA",
+    "GBR"
+   ],
+   "verde": [
+    "DEU"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1917",
+     "parola": "1917"
+    },
+    {
+     "tipo": "personaggio",
+     "nome": "Woodrow Wilson",
+     "descrizione": "Presidente americano, occhiali e abito scuro, aria severa",
+     "parola": "Wilson"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -74,
+      40.7
+     ],
+     "a": [
+      2,
+      49
+     ],
+     "icona": "galleon",
+     "parola": "truppe"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "soldier",
+     "n": 6,
+     "lon": 3,
+     "lat": 49.5,
+     "parola": "trincee"
+    }
+   ],
+   "musica": "azione",
+   "stacco": false,
+   "pin": {
+    "lon": -15,
+    "lat": 55,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Negli anni Venti arriva una prosperità selvaggia. Ma la festa finisce col crollo di Wall Street, nel 1929.",
+   "anteprima": false,
+   "vista": {
+    "lon": -74,
+    "lat": 40.7,
+    "larghezza": 8
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1929",
+     "parola": "1929"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_up",
+     "lon": -74.01,
+     "lat": 40.71,
+     "parola": "prosperità"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": -74,
+     "lat": 40.7,
+     "parola": "crollo"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "CROLLO",
+     "parola": "crollo"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": true,
+   "pin": {
+    "lon": -75.5,
+    "lat": 41.8,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "La Grande Depressione spazza via le banche, chiude le fabbriche e lascia senza lavoro un quarto dei lavoratori.",
+   "anteprima": false,
+   "vista": {
+    "lon": -95,
+    "lat": 39,
+    "larghezza": 60
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "contatore",
+     "testo": "1 SU 4 SENZA LAVORO",
+     "su": 1,
+     "di": 4,
+     "personaggio": "worker",
+     "parola": "quarto"
+    },
+    {
+     "tipo": "icona",
+     "icona": "bridge",
+     "lon": -80,
+     "lat": 40,
+     "parola": "banche"
+    },
+    {
+     "tipo": "icona",
+     "icona": "factory",
+     "lon": -85,
+     "lat": 41,
+     "parola": "fabbriche"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Un lavoratore su quattro a casa",
+     "parola": "quarto"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": -110,
+    "lat": 46,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Il presidente Franklin Roosevelt risponde col New Deal: più Stato, con opere pubbliche, regole per la finanza e aiuti sociali.",
+   "anteprima": false,
+   "vista": {
+    "lon": -95,
+    "lat": 39,
+    "larghezza": 60
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "personaggio",
+     "nome": "Franklin D. Roosevelt",
+     "descrizione": "Presidente americano, occhiali pince-nez, sorriso, abito scuro",
+     "parola": "Franklin"
+    },
+    {
+     "tipo": "icona",
+     "icona": "bridge",
+     "lon": -120,
+     "lat": 37.8,
+     "parola": "opere"
+    },
+    {
+     "tipo": "nota",
+     "testo": "New Deal: Stato più presente",
+     "parola": "Stato"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": -108,
+    "lat": 45,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Eppure non fu il New Deal a chiudere la Grande Depressione. Fu la Seconda guerra mondiale.",
+   "anteprima": false,
+   "vista": {
+    "lon": -95,
+    "lat": 39,
+    "larghezza": 60
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "scritta",
+     "testo": "NON IL NEW DEAL",
+     "parola": "New"
+    },
+    {
+     "tipo": "icona",
+     "icona": "swords",
+     "lon": -95,
+     "lat": 39,
+     "parola": "guerra"
+    },
+    {
+     "tipo": "nota",
+     "testo": "La guerra ha chiuso la crisi",
+     "parola": "guerra"
+    }
+   ],
+   "musica": "mistero",
+   "stacco": true,
+   "pin": {
+    "lon": -108,
+    "lat": 45,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Il 7 dicembre 1941 il Giappone imperiale attacca a sorpresa Pearl Harbor. L'America è catapultata in una guerra su due fronti.",
+   "anteprima": false,
+   "vista": {
+    "lon": -157.9,
+    "lat": 21.4,
+    "larghezza": 8
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "JPN"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1941",
+     "parola": "1941"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "PEARL HARBOR",
+     "lon": -157.95,
+     "lat": 21.36,
+     "parola": "Pearl"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      139,
+      35
+     ],
+     "a": [
+      -157.9,
+      21.4
+     ],
+     "icona": "galleon",
+     "parola": "attacca"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Attacco a sorpresa a Pearl Harbor",
+     "parola": "sorpresa"
+    }
+   ],
+   "musica": "azione",
+   "stacco": true,
+   "pin": {
+    "lon": -159.5,
+    "lat": 22.5,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Contro Germania, Giappone e Italia la mobilitazione è mai vista. Le fabbriche di auto producono carri armati, quelle di elettrodomestici mitragliatrici.",
+   "anteprima": false,
+   "vista": {
+    "lon": -90,
+    "lat": 41,
+    "larghezza": 40
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "factory",
+     "lon": -83,
+     "lat": 42.3,
+     "parola": "fabbriche"
+    },
+    {
+     "tipo": "icona",
+     "icona": "cannon",
+     "lon": -87.6,
+     "lat": 41.9,
+     "parola": "mitragliatrici"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "worker",
+     "n": 6,
+     "lon": -83.1,
+     "lat": 42.4,
+     "parola": "auto"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Fabbriche civili diventano belliche",
+     "parola": "carri"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": -98,
+    "lat": 45,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Milioni di donne entrano nelle fabbriche per costruire aerei e navi. Nel 1944 l'industria americana produce più di tutti i paesi dell'Asse messi insieme.",
+   "anteprima": false,
+   "vista": {
+    "lon": -95,
+    "lat": 39,
+    "larghezza": 60
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "DEU",
+    "JPN",
+    "ITA"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1944",
+     "parola": "1944"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "worker",
+     "n": 6,
+     "lon": -118,
+     "lat": 34,
+     "parola": "donne"
+    },
+    {
+     "tipo": "solleva",
+     "paese": [
+      "USA"
+     ],
+     "volte": 6,
+     "testo": "PRODUZIONE",
+     "colore": "oro",
+     "parola": "più"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Più dell'Asse messo insieme",
+     "parola": "insieme"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": false,
+   "pin": {
+    "lon": -108,
+    "lat": 46,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Le forze americane combattono isola per isola nel Pacifico e, con gli Alleati, liberano l'Europa occidentale nel D-Day.",
+   "anteprima": false,
+   "vista": {
+    "lon": -10,
+    "lat": 40,
+    "larghezza": 240
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA",
+    "GBR",
+    "FRA"
+   ],
+   "verde": [
+    "DEU",
+    "JPN"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      -1,
+      51
+     ],
+     "a": [
+      -0.8,
+      49.4
+     ],
+     "icona": "galleon",
+     "parola": "D-Day"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -157.9,
+      21.4
+     ],
+     "a": [
+      139,
+      35
+     ],
+     "icona": "galleon",
+     "parola": "isola"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "soldier",
+     "n": 6,
+     "lon": -0.8,
+     "lat": 49.4,
+     "parola": "Alleati"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Due fronti: Pacifico ed Europa",
+     "parola": "liberano"
+    }
+   ],
+   "musica": "azione",
+   "stacco": false,
+   "pin": {
+    "lon": -40,
+    "lat": 55,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "La guerra finisce nell'agosto 1945, dopo le due bombe atomiche su Hiroshima e Nagasaki.",
+   "anteprima": false,
+   "vista": {
+    "lon": 131,
+    "lat": 33,
+    "larghezza": 10
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "JPN"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1945",
+     "parola": "1945"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "HIROSHIMA",
+     "lon": 132.45,
+     "lat": 34.4,
+     "parola": "Hiroshima"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "NAGASAKI",
+     "lon": 129.9,
+     "lat": 32.75,
+     "parola": "Nagasaki"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "DUE BOMBE",
+     "parola": "bombe"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": true,
+   "pin": {
+    "lon": 134,
+    "lat": 36,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Quando il fumo si dirada, gli imperi europei sono in rovina. Gli Stati Uniti sono quasi intatti: metà della ricchezza mondiale, la flotta più forte e il monopolio atomico.",
+   "anteprima": false,
+   "vista": {
+    "lon": -30,
+    "lat": 40,
+    "larghezza": 200
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "GBR",
+    "FRA",
+    "DEU"
+   ],
+   "eventi": [
+    {
+     "tipo": "griglia",
+     "paese": [
+      "USA"
+     ],
+     "pieni": 0.5,
+     "testo": "METÀ DELLA RICCHEZZA MONDIALE",
+     "colore": "oro",
+     "parola": "metà"
+    },
+    {
+     "tipo": "solleva",
+     "paese": [
+      "USA"
+     ],
+     "volte": 8,
+     "testo": "SUPERPOTENZA",
+     "colore": "oro",
+     "parola": "intatti"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Quasi intatti, ricchi e armati",
+     "parola": "monopolio"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": true,
+   "pin": {
+    "lon": -60,
+    "lat": 50,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Pensaci: una landa selvaggia, ignorata ai confini del mondo, era diventata una superpotenza assoluta.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 39,
+    "larghezza": 70
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "scritta",
+     "testo": "SUPERPOTENZA",
+     "parola": "superpotenza"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Da terra ignorata a primo potere",
+     "parola": "ignorata"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": -115,
+    "lat": 45,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "La seconda metà del Novecento è dominata dalla Guerra Fredda: capitalismo americano contro comunismo sovietico, uno scontro ideologico durato decenni.",
+   "anteprima": false,
+   "vista": {
+    "lon": 40,
+    "lat": 50,
+    "larghezza": 280
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "RUS"
+   ],
+   "eventi": [
+    {
+     "tipo": "contorno",
+     "paese": "RUS",
+     "parola": "sovietico"
+    },
+    {
+     "tipo": "contorno",
+     "paese": "USA",
+     "parola": "americano"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "GUERRA FREDDA",
+     "parola": "Fredda"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Due superpotenze, due ideologie",
+     "parola": "ideologico"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -20,
+    "lat": 60,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Le due superpotenze si scontrano per procura in Corea e Vietnam, costruiscono arsenali nucleari terrificanti e gareggiano per raggiungere le stelle.",
+   "anteprima": false,
+   "vista": {
+    "lon": 110,
+    "lat": 30,
+    "larghezza": 60
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "RUS"
+   ],
+   "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "COREA",
+     "lon": 127,
+     "lat": 37,
+     "parola": "Corea"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "VIETNAM",
+     "lon": 106,
+     "lat": 16,
+     "parola": "Vietnam"
+    },
+    {
+     "tipo": "icona",
+     "icona": "mountain",
+     "lon": 100,
+     "lat": 30,
+     "parola": "stelle"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Guerre per procura e missili",
+     "parola": "procura"
+    }
+   ],
+   "musica": "azione",
+   "stacco": false,
+   "pin": {
+    "lon": 90,
+    "lat": 42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "La corsa culmina nel 1969, con lo sbarco americano sulla Luna. Un passo che nessuno aveva mai fatto.",
+   "anteprima": false,
+   "vista": {
+    "lon": -80.6,
+    "lat": 28.5,
+    "larghezza": 8
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1969",
+     "parola": "1969"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "CAPE CANAVERAL",
+     "lon": -80.6,
+     "lat": 28.4,
+     "parola": "sbarco"
+    },
+    {
+     "tipo": "conta",
+     "valore": 384400,
+     "prefisso": "",
+     "suffisso": " KM",
+     "sotto": "DISTANZA DALLA LUNA",
+     "parola": "Luna"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "LUNA",
+     "parola": "Luna"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": true,
+   "pin": {
+    "lon": -82,
+    "lat": 30,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Intanto, in casa, il movimento per i diritti civili cambia il paese. Gli afroamericani, guidati da Martin Luther King, chiedono la promessa di uguaglianza.",
+   "anteprima": false,
+   "vista": {
+    "lon": -86,
+    "lat": 33,
+    "larghezza": 24
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "personaggio",
+     "nome": "Martin Luther King Jr.",
+     "descrizione": "Pastore e leader dei diritti civili, abito scuro, sguardo deciso",
+     "parola": "King"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "voter",
+     "n": 6,
+     "lon": -86.3,
+     "lat": 32.4,
+     "parola": "afroamericani"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Diritti civili e uguaglianza",
+     "parola": "uguaglianza"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": -91,
+    "lat": 36,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Nel 1991 l'Unione Sovietica crolla. Gli Stati Uniti restano soli in cima al mondo.",
+   "anteprima": false,
+   "vista": {
+    "lon": 40,
+    "lat": 50,
+    "larghezza": 280
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "RUS"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1991",
+     "parola": "1991"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "CROLLO URSS",
+     "parola": "crolla"
+    },
+    {
+     "tipo": "solleva",
+     "paese": [
+      "USA"
+     ],
+     "volte": 8,
+     "testo": "SOLI",
+     "colore": "oro",
+     "parola": "soli"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Un solo gigante rimasto",
+     "parola": "cima"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": true,
+   "pin": {
+    "lon": -20,
+    "lat": 60,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Un confronto per capire: oggi gli americani sono circa trecentotrenta milioni, meno del cinque per cento degli abitanti del pianeta, ma producono circa un quarto della ricchezza mondiale.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 39,
+    "larghezza": 70
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "contatore",
+     "testo": "MENO DI 1 SU 20",
+     "su": 1,
+     "di": 20,
+     "personaggio": "family",
+     "parola": "cinque"
+    },
+    {
+     "tipo": "conta",
+     "valore": 330,
+     "prefisso": "~",
+     "suffisso": " MILIONI",
+     "sotto": "ABITANTI USA",
+     "parola": "trecentotrenta"
+    },
+    {
+     "tipo": "griglia",
+     "paese": [
+      "USA"
+     ],
+     "pieni": 0.25,
+     "testo": "1 SU 4 DELLA RICCHEZZA MONDIALE",
+     "colore": "oro",
+     "parola": "quarto"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -80,
+    "lat": 30,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Da sparsi insediamenti dimenticati su una costa buia e boscosa, l'America ha conquistato un continente, costruito il mondo moderno e cambiato per sempre la storia umana.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 39,
+    "larghezza": 70
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "contorno",
+     "paese": "USA",
+     "parola": "continente"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "STORIA CAMBIATA",
+     "parola": "storia"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Dal nulla alla superpotenza",
+     "parola": "conquistato"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": -115,
+    "lat": 44,
     "faccia": "normale"
    }
   }
