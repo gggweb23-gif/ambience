@@ -112,7 +112,35 @@ def _adatta(t, s, larg, padx=26):
     return s
 
 
-def disegna(nome, anni, foto, box, path, testo_alto='TUTTA LA STORIA'):
+def _anno(a, lingua='it'):
+    a = int(a)
+    return (f"{-a:,}".replace(',', '.') + (' a.C.' if lingua == 'it' else ' BC')) if a < 0 else str(a)
+
+
+def linea_tempo(d, tappe, x0, x1, y, stile='piena', lingua='it'):
+    """La stessa linea del tempo del video: tappe equidistanti, tutta gia' percorsa (gialla) fino a oggi, punto finale grande."""
+    tappe = sorted(set(int(t) for t in tappe))
+    if len(tappe) < 2:
+        return
+    if len(tappe) > 4:   # in copertina al massimo 4 tappe: prima, due in mezzo, oggi (si leggono da telefono)
+        tappe = [tappe[0], tappe[len(tappe) // 3], tappe[2 * len(tappe) // 3], tappe[-1]]
+    pos = lambda i: x0 + i * (x1 - x0) / (len(tappe) - 1)
+    f = font(30 if stile != 'mini' else 26)
+    if stile == 'piena':   # fascia scura con bordi tondi
+        d.rounded_rectangle([x0 - 50, y - 46, x1 + 50, y + 60], radius=24, fill=(10, 14, 24, 200))
+    d.line([(x0, y), (x1, y)], fill=GIALLO, width=9)
+    for i, t in enumerate(tappe):
+        x = pos(i); ultimo = i == len(tappe) - 1
+        rr = 17 if ultimo else 10
+        d.ellipse([x - rr, y - rr, x + rr, y + rr], fill=GIALLO, outline=BIANCO if ultimo else NERO, width=4)
+        tx = _anno(t, lingua); l, tp, r_, b = d.textbbox((0, 0), tx, font=f); w = r_ - l
+        xa = min(max(x - w / 2, x0 - 40), x1 + 40 - w)
+        sopra = stile == 'mini' and i % 2 == 1   # nel pannello stretto le scritte si alternano sopra e sotto: mai una sull'altra
+        ya = y - 24 - (b - tp) if sopra else y + 22
+        d.text((xa - l + 3, ya - tp + 3), tx, font=f, fill=(0, 0, 0, 200)); d.text((xa - l, ya - tp), tx, font=f, fill=BIANCO)
+
+
+def disegna(nome, anni, foto, box, path, testo_alto='TUTTA LA STORIA', tappe=None, linea='', lingua='it'):
     xs = int(W * .42)
     im = Image.new('RGB', (W, H), BLU)
     im.paste(ImageEnhance.Contrast(ImageEnhance.Color(ritaglia_su(foto, box, W - xs, H)).enhance(1.25)).enhance(1.12), (xs, 0))
@@ -128,8 +156,14 @@ def disegna(nome, anni, foto, box, path, testo_alto='TUTTA LA STORIA'):
         l, tp, r, b = d.textbbox((0, 0), p, font=font(s))
         d.text((x - l + 6, y - tp + 8), p, font=font(s), fill=(0, 0, 0, 160)); d.text((x - l, y - tp), p, font=font(s), fill=BIANCO)
         y += b - tp + 18
-    if anni:
+    if anni and linea != 'pannello':
         _box(d, x, y + 14, anni, _adatta(anni, 60, larg), ROSSO, BIANCO)
+    if tappe and linea == 'pannello':   # al posto della fascia degli anni: la linea del tempo dentro il pannello blu
+        linea_tempo(d, tappe, x + 40, x + larg - 50, y + 90, 'mini', lingua)
+    elif tappe and linea == 'foto':   # sulla foto, in alto (mai vicino all'angolo del timer in basso a destra)
+        linea_tempo(d, tappe, xs + 90, W - 90, 70, 'piena', lingua)
+    elif tappe and linea == 'base':   # lungo tutta la copertina, poco sopra il bordo basso ma finisce prima dell'angolo del timer
+        linea_tempo(d, tappe, 90, W - 330, H - 120, 'piena', lingua)
     im.convert('RGB').save(path, quality=93)
     return path
 
