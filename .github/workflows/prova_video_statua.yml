@@ -1,0 +1,33 @@
+name: Prova video statua + testo (voce ElevenLabs)
+
+# Prova breve (30-60 s) dello stile video "statua ferma a sinistra + testo grande a destra" (strumenti/prova_video_statua.py).
+on:
+  workflow_dispatch:
+    inputs:
+      payload:
+        description: 'JSON: cartella, immagine, testo, voce, colori, font_url'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  prova:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Programmi
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg && pip install -q --break-system-packages pillow
+      - name: Video
+        env:
+          PAYLOAD: ${{ inputs.payload }}
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+        run: python3 strumenti/prova_video_statua.py
+      - name: Salva nel repository
+        if: ${{ always() }}
+        run: |
+          git config user.name "render-bot"; git config user.email "render-bot@users.noreply.github.com"
+          git add prove_video; git commit -m "Prova video statua" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase --autostash -q && git push && break; sleep $((i * 5)); done
