@@ -8,11 +8,10 @@ finché i parametri sono rispettati, senza buttare il lavoro fatto. Rispondi e s
 - Parametri (colonne di Channel Configs, default tra parentesi): `coach_obiettivo_ctr` (3,5), `coach_obiettivo_ret30` (65),
   `coach_obiettivo_ret60` (50), `coach_finestra_video` (3), `coach_min_impression` (1000), `coach_budget_video`
   (costo massimo per video in $ ≈ €, voce ElevenLabs esclusa perche' e' un abbonamento).
-- LUCCHETTO SPESA (Giorgio, 30 ott 2026): budget e spese li decide SOLO Giorgio. Il coach non cambia MAI, ne' nel foglio ne' nella
-  ricetta, nessun parametro di budget/spesa/tetto immagini (`budget_video`, `coach_budget_video`, `max_spesa_immagini`,
-  `immagini_max`...): il motore e la ricetta li ignorano comunque. Se un canale costa piu' del budget, il coach riduce il costo
-  con leve che NON sono di spesa (es. inquadrature piu' lunghe, `secondi_per_immagine`, `ritmo`, riuso dei disegni, modelli
-  piu' economici per i controlli) oppure lo segnala a Giorgio con una proposta.
+- LUCCHETTO BUDGET (Giorgio, 30 ott 2026): i BUDGET li decide SOLO Giorgio (`coach_budget_video`, `budget_video`): il coach non li
+  cambia mai, ne' nel foglio ne' nella ricetta (motore e ricetta li ignorano comunque). DENTRO il budget il coach decide da solo
+  come spendere: numero di immagini (`immagini_max`), tetto immagini (`max_spesa_immagini`), quota cartone, riuso dei disegni,
+  modelli. Regola d'oro: il costo reale di un video non supera MAI `coach_budget_video` (il motore blocca comunque le immagini).
 - Il costo reale di ogni video lo scrivono i workflow in `coach/costi/<slug>.tsv` (prove escluse dal calcolo).
 - La DURATA la decide Giorgio nel foglio (`durata_min_minuti`, `durata_max_minuti`): il coach non la cambia mai.
 - Il calcolo lo fa `coach/coach_calcola.py` (gratis). Ordine fisso delle leve: COSTO (se il costo medio degli ultimi video supera

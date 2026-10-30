@@ -19,7 +19,7 @@ def applica(P, log=print):
         v = next((x for x in ric.get('versioni', []) if x.get('n') == ric.get('versione_attiva')), None)
         if v and v.get('parametri'):
             # LUCCHETTO: budget, spese e tetti di immagini li decide solo Giorgio nel foglio: la ricetta non li puo' cambiare
-            bloccati = [k for k in v['parametri'] if re.search(r'budget|spesa|immagini_max|prezzo|costo', k, re.I)]
+            bloccati = [k for k in v['parametri'] if re.search(r'budget', k, re.I)]
             for k in bloccati:
                 log('coach: parametro ' + k + ' ignorato (lucchetto spesa)')
             P.update({k: x for k, x in v['parametri'].items() if k not in bloccati})

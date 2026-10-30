@@ -126,6 +126,8 @@ def _soldi(v):
 # LUCCHETTO DI SPESA (30 ott 2026, Giorgio): mai disegni senza tetto. budget_video numero = euro massimi di immagini a video;
 # budget_video NO / vuoto = vale max_spesa_immagini, e se manca anche quella 1 $. Il tetto vale per qualunque tipo di disegno.
 TETTO_IMMAGINI = BUDGET if BUDGET > 0 else (_soldi(P.get('max_spesa_immagini')) or 1.0)
+if _soldi(P.get('coach_budget_video')):   # il budget del coach (deciso da Giorgio) e' il tetto massimo: le immagini non lo superano mai
+    TETTO_IMMAGINI = min(TETTO_IMMAGINI, max(0.0, _soldi(P.get('coach_budget_video')) - 0.3 - (0.15 if COP_VIDEO else 0.55)))
 TAVOLE = str(P.get('tavole') or E('TAVOLE', '') or 'NO').strip().upper() == 'SI'   # regia: ogni immagine generata = tavola 2x2 con 4 inquadrature diverse (mai la stessa immagine due volte)
 if TAVOLE and not (P.get('immagini_nuove') or E('IMMAGINI_NUOVE', '')):
     NUOVE_QUOTA = .3   # una tavola ogni ~4 inquadrature: le altre 3 sono gli altri pannelli

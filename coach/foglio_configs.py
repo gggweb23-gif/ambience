@@ -3,7 +3,7 @@
 Lucchetti (decisi da Giorgio il 30 ott 2026), controllati qui E con gli intervalli protetti del foglio:
 - la riga di KAO PSICOLOGIA non si tocca mai;
 - le colonne videos_per_day (canale acceso/spento) e publish_schedule_days non si toccano mai;
-- nessuna colonna di budget/spesa/tetto immagini (budget_video, coach_budget_video, max_spesa_immagini, immagini_max...) si tocca mai;
+- nessuna colonna di budget (budget_video, coach_budget_video) si tocca mai;
 - le colonne dei parametri di Giorgio (coach_*, durata_min_minuti, durata_max_minuti) si possono solo COMPILARE se vuote.
 PAYLOAD = {"modifiche": [{"canale": "Agora of Sages", "colonna": "render_engine", "valore": "github_completo"}, ...],
            "nuove_colonne": ["coach_auto", ...], "prova": "SI" (solo controllo, non scrive)}
@@ -63,7 +63,7 @@ def main():
         can, col, val = str(m['canale']).strip(), str(m['colonna']).strip(), m['valore']
         if can in RIGHE_BLOCCATE:
             esito.append(f'BLOCCATO: la riga {can} non si tocca'); continue
-        if col in COLONNE_BLOCCATE or re.search(r'budget|spesa|immagini_max|prezzo|costo', col, re.I):
+        if col in COLONNE_BLOCCATE or re.search(r'budget', col, re.I):
             esito.append(f'BLOCCATO: la colonna {col} la decide solo Giorgio'); continue
         if can not in righe:
             esito.append(f'canale non trovato: {can}'); continue
