@@ -3655,6 +3655,17 @@ def main():
         sys.exit(0)
     INFO_COMP.update({'categoria_originale': comp.get('categoria') or '', 'tag_originali': ', '.join(comp.get('tag_originali') or [])[:2000]})
     salvato = os.path.join(LAV, 'copione_lavoro.json')
+    if os.path.exists(salvato) and not PROVA:   # copione salvato fuori dalla durata del foglio (es. lanciato senza durata): si rifa' da zero
+        try:
+            n_par = sum(len(str(s_.get('testo', '')).split()) for s_ in json.load(open(salvato)).get('scene', []))
+        except Exception:
+            n_par = 0
+        if n_par and (n_par > MAX_MINUTI * 150 * 1.10 or n_par < MIN_MINUTI * 150 * 0.90):
+            log(f'RIPRESA SCARTATA: il copione salvato ({n_par} parole, ~{n_par / 150:.1f} min) e\' fuori da {MIN_MINUTI:g}-{MAX_MINUTI:g} minuti: si riparte da zero')
+            for f_ in os.listdir(LAV):
+                fp_ = os.path.join(LAV, f_)
+                if os.path.isfile(fp_):
+                    os.remove(fp_)
     if os.path.exists(salvato):   # ripresa dopo un errore: stesso copione, niente nuova spesa
         c = json.load(open(salvato))
         n_v = len([f for f in os.listdir(LAV) if f.startswith('voce_') and f.endswith('.mp3')])
