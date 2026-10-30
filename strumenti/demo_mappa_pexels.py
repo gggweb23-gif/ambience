@@ -60,7 +60,9 @@ def unisci(pezzi, transizioni, out):
 
 def linea(video, tappe):
     """Linea del tempo in alto (come nel motore storia): tappe = [(secondo, anno)]."""
+    import shutil
     import video_storia as VS
+    shutil.rmtree(os.path.join(LAV, 'linea'), ignore_errors=True)   # ogni demo la sua linea (i fotogrammi vecchi bloccavano la seconda)
     VS.LINEA_TEMPO = 'alto'; VS.LAV = LAV; VS.FONT = os.path.abspath('risorse_mappe')
     if not os.path.exists(os.path.join(VS.FONT, 'Oswald-SemiBold.ttf')):
         import shutil; shutil.copy(os.path.join(VS.FONT, 'Anton-Regular.ttf'), os.path.join(VS.FONT, 'Oswald-SemiBold.ttf'))
@@ -81,10 +83,10 @@ GIZA, ALESS, MEMFI, TEBE = (31.13, 29.98), (29.92, 31.2), (31.25, 29.85), (32.65
 
 # ---------- DEMO 1: zoom dentro la mappa
 def demo1():
-    a = scena_mappa('d1_a', EGITTO, 7, [{'tipo': 'anno', 'testo': '3100 a.C.', '_t': .5}, {'tipo': 'etichetta', 'testo': 'IL NILO', 'lon': 31.3, 'lat': 27.0, '_t': 1.5},
+    a = scena_mappa('d1_a', EGITTO, 7, [{'tipo': 'etichetta', 'testo': 'IL NILO', 'lon': 31.3, 'lat': 27.0, '_t': 1.5},
                     {'tipo': 'folla', 'personaggio': 'peasant', 'n': 4, 'lon': 32.6, 'lat': 26.0, '_t': 2.5}, {'tipo': 'impulso', 'lon': GIZA[0], 'lat': GIZA[1], '_t': 4.5}])
     b = clip_pexels('Giza pyramids aerial', 8, 'd1_b')
-    c = scena_mappa('d1_c', MEDIT, 7, [{'tipo': 'anno', 'testo': '332 a.C.', '_t': .5}, {'tipo': 'freccia', 'da': [22.5, 40.6], 'a': list(ALESS), 'icona': 'galleon', '_t': 1.2},
+    c = scena_mappa('d1_c', MEDIT, 7, [{'tipo': 'freccia', 'da': [22.5, 40.6], 'a': list(ALESS), 'icona': 'galleon', '_t': 1.2},
                     {'tipo': 'etichetta', 'testo': 'ALESSANDRO MAGNO', 'lon': 22.5, 'lat': 39.5, '_t': 1.5}, {'tipo': 'impulso', 'lon': ALESS[0], 'lat': ALESS[1], '_t': 4.5}],
                     traccia=[GIZA, ALESS])
     d = clip_pexels('Alexandria Egypt sea', 8.6, 'd1_d')
@@ -131,9 +133,9 @@ def demo2():
 
 # ---------- DEMO 3: mappa palcoscenico con finestre Pexels
 def demo3():
-    m = scena_mappa('d3_mappa', EGITTO, 30, [{'tipo': 'anno', 'testo': '3100 a.C.', '_t': .5}, {'tipo': 'impulso', 'lon': 31.3, 'lat': 30.4, '_t': 2.0},
-                    {'tipo': 'folla', 'personaggio': 'peasant', 'n': 4, 'lon': 32.6, 'lat': 26.0, '_t': 4.0}, {'tipo': 'anno', 'testo': '2560 a.C.', '_t': 10},
-                    {'tipo': 'impulso', 'lon': GIZA[0], 'lat': GIZA[1], '_t': 11}, {'tipo': 'anno', 'testo': '2026', '_t': 20},
+    m = scena_mappa('d3_mappa', EGITTO, 30, [{'tipo': 'impulso', 'lon': 31.3, 'lat': 30.4, '_t': 2.0},
+                    {'tipo': 'folla', 'personaggio': 'peasant', 'n': 4, 'lon': 32.6, 'lat': 26.0, '_t': 4.0}, 
+                    {'tipo': 'impulso', 'lon': GIZA[0], 'lat': GIZA[1], '_t': 11}, 
                     {'tipo': 'impulso', 'lon': 31.24, 'lat': 30.04, '_t': 21}, {'tipo': 'nota', 'testo': 'Una civilta lunga 5.000 anni', '_t': 24}],
                     traccia=[(31.3, 30.4), GIZA, (31.24, 30.04)])
     finestre = [(clip_pexels('Nile river Egypt boat', 8, 'd3_a'), 2.2, 'IL NILO'), (clip_pexels('Giza pyramids', 8, 'd3_b'), 11.2, 'GIZA'),
