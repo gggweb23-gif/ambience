@@ -116,8 +116,9 @@ jobs:
         env:
           PAYLOAD: ${{ inputs.payload }}
         run: |
-          C=$(python3 -c "import json,os,re;p=json.loads(os.environ.get('PAYLOAD') or '{}' or '{}');print(re.sub(r'\W+','_',str(p.get('channel_name') or p.get('canale_nome') or 'rich_borders')).strip('_').lower())" 2>/dev/null || echo rich_borders)
-          D=prove_video/${C:-rich_borders}; mkdir -p "$D" && rm -f "$D"/*
+          C=$(python3 -c "import json,os,re;p=json.loads(os.environ.get('PAYLOAD') or '{}' or '{}');print(re.sub(r'\W+','_',str(p.get('channel_name') or p.get('canale_nome') or '')).strip('_'))" 2>/dev/null)
+          D=prove_video/rich_borders; [ -n "$C" ] && [ "$C" != "Rich_Borders" ] && D=prove_video/$C/mappe   # stessa cartella del canale, sottocartella del motore mappe
+          mkdir -p "$D" && rm -f "$D"/*
           [ -f copertina.jpg ] && cp copertina.jpg "$D/"
           [ -f titolo.txt ] && cp titolo.txt "$D/"
           [ -f copione.json ] && cp copione.json "$D/"

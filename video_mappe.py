@@ -404,7 +404,10 @@ def _font_canale(rel):
         try:
             if not os.path.exists(p):
                 dati = http('https://raw.githubusercontent.com/google/fonts/main/' + rel.lstrip('/'), raw=True)
-                open(p + '.tmp', 'wb').write(dati); ImageFont.truetype(p + '.tmp', 20); os.replace(p + '.tmp', p)
+                tmp = f'{p}.{os.getpid()}.tmp'   # nome unico: piu' processi in parallelo non si pestano i piedi
+                with open(tmp, 'wb') as f_:
+                    f_.write(dati)
+                ImageFont.truetype(tmp, 20); os.replace(tmp, p)
             _FONT_OK[nome] = True
         except Exception as e:
             log('carattere non disponibile, uso quello di serie:', rel, str(e)[:100]); _FONT_OK[nome] = False
@@ -1875,6 +1878,9 @@ def pin_luogo(sc):
 
 
 def main():
+    for rel in (FONT_TITOLI, FONT_TESTI):   # caratteri del canale scaricati PRIMA di disegnare in parallelo
+        if rel:
+            _font_canale(rel)
     os.makedirs(LAV, exist_ok=True); os.makedirs(os.path.join(RIS, 'tw'), exist_ok=True)
     comp = competitor()
     INFO_COMP['titolo_originale'] = comp.get('titolo') or ''
