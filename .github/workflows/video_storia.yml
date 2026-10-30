@@ -192,7 +192,7 @@ jobs:
         if: ${{ always() }}   # anche per i video veri: copertina, fotogrammi e registro per controllarli senza scaricare
         run: |
           D="prove_video/$(python3 -c "import json,os,re;p=json.loads(os.environ.get('PAYLOAD') or '{}');print(re.sub(r'[^A-Za-z0-9_-]','_',str(p.get('canale') or 'storia')))")"
-          mkdir -p "$D" && rm -f "$D"/*
+          mkdir -p "$D" && find "$D" -maxdepth 1 -type f -delete
           [ -f copertina.jpg ] && cp copertina.jpg "$D/"
           [ -f titolo.txt ] && cp titolo.txt "$D/"
           [ -f copione.json ] && cp copione.json "$D/"
