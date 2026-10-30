@@ -1,1579 +1,3380 @@
 {
- "titolo": "Why Did the US Get Rich But Latin America Stay Poor?",
+ "titolo": "Why Did Russia Unify as a Country But Europe Never Did?",
  "numero": {
-  "testo": "x8",
-  "sotto": "THE GAP BETWEEN TWO AMERICAS"
+  "testo": "17M",
+  "sotto": "SQUARE KILOMETERS VS 43 COUNTRIES"
  },
  "copertina": {
   "testo": "WHY?",
   "oro": [
-   "USA"
+   "RUS"
   ],
   "verde": [
-   "MEX",
-   "BRA",
-   "BOL",
-   "PER",
-   "COL",
-   "ARG",
-   "CHL"
+   "FRA",
+   "DEU",
+   "ITA",
+   "ESP",
+   "POL",
+   "GBR"
   ],
   "vista": {
-   "lon": -85,
-   "lat": 10,
-   "larghezza": 140
+   "lon": 50,
+   "lat": 55,
+   "larghezza": 120
   }
  },
- "descrizione": "Three hundred years ago, Mexico City was the biggest city in the Americas and the Spanish half of the New World looked like the sure winner. So why does an average American produce about eight times more than an average Latin American today? We follow the silver, the land, the votes and the wars to find out.\n\nFrom the mountain that eats men to the nine days that cost Mexico a fortune, this is the story of two Americas built on two sets of rules. And it ends with a hopeful twist: the gap was never written in the soil.",
+ "descrizione": "One country covers 17 million square kilometers. The rest of Europe is about a third of that size and holds 43 countries. How did one side become a single giant while the other never came together? We follow the rivers, the Mongols, the fur trade and the armies that died on the plain.\n\nFrom Ivan the Money Bag to Napoleon and Hitler, from the Peace of Westphalia to the European market, this is the story of how geography shaped power and money. Russia won the land. Europe won the money.",
  "tag": [
-  "economic history",
-  "latin america",
-  "united states",
-  "why latin america is poor",
-  "potosi",
-  "silver",
-  "resource curse",
-  "encomienda",
-  "mita",
-  "homestead act",
+  "russia history",
+  "europe history",
   "geopolitics",
-  "animated maps"
+  "economic history",
+  "animated maps",
+  "peace of westphalia",
+  "mongols",
+  "siberia",
+  "napoleon russia",
+  "why europe is divided",
+  "russia geography",
+  "fur trade",
+  "golden horde",
+  "european union",
+  "history explained",
+  "rich borders"
  ],
  "scene": [
   {
-   "testo": "A border where one step makes you eight times richer. A gold rush that made one side poor. A mountain that eats men.",
+   "testo": "One country stretches across 17 million square kilometers. A Mongol bell, a sable fortune, and a burning Moscow. Why did one side become a giant?",
    "anteprima": true,
    "vista": {
-    "lon": -105,
-    "lat": 28,
-    "larghezza": 40
+    "lon": 90,
+    "lat": 58,
+    "larghezza": 160
    },
    "epoca": "oggi",
    "oro": [
-    "USA"
+    "RUS"
    ],
-   "verde": [
-    "MEX"
-   ],
+   "verde": [],
    "eventi": [
     {
      "tipo": "numero",
-     "testo": "x8",
-     "lon": -104,
-     "lat": 31,
-     "parola": "eight"
+     "testo": "17M KM2",
+     "lon": 90,
+     "lat": 62,
+     "parola": "17"
     },
     {
      "tipo": "icona",
-     "icona": "gold_coins",
-     "lon": -121,
-     "lat": 38.5,
-     "parola": "gold"
+     "icona": "church",
+     "lon": 31,
+     "lat": 58,
+     "parola": "bell"
     },
     {
      "tipo": "icona",
-     "icona": "mountain",
-     "lon": -65.7,
-     "lat": -19.6,
-     "parola": "mountain"
+     "icona": "money_bag",
+     "lon": 90,
+     "lat": 62,
+     "parola": "sable"
     },
     {
-     "tipo": "scritta",
-     "testo": "EATS MEN",
-     "parola": "eats"
+     "tipo": "icona",
+     "icona": "fortress",
+     "lon": 37.6,
+     "lat": 55.7,
+     "parola": "burning"
     }
    ],
    "musica": "mistero",
    "stacco": false,
    "pin": {
-    "lon": -110,
-    "lat": 24,
+    "lon": 60,
+    "lat": 50,
     "faccia": "stupito"
    }
   },
   {
-   "testo": "And the single set of rules that decided everything. So why did the US get rich, but Latin America never did?",
+   "testo": "Two men almost united Europe, and the same land destroyed both. And the winner ended up poorer. Why?",
    "anteprima": true,
    "vista": {
-    "lon": -80,
-    "lat": 5,
-    "larghezza": 120
+    "lon": 30,
+    "lat": 52,
+    "larghezza": 60
    },
    "epoca": "oggi",
-   "oro": [
-    "USA"
-   ],
+   "oro": [],
    "verde": [
-    "MEX",
-    "BRA",
-    "BOL",
-    "PER",
-    "COL",
-    "ARG",
-    "CHL"
+    "RUS",
+    "FRA",
+    "DEU"
    ],
    "eventi": [
     {
-     "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": -98,
-     "lat": 39,
-     "parola": "rules"
-    },
-    {
-     "tipo": "solleva",
-     "paese": [
-      "USA"
-     ],
-     "volte": 8,
-     "testo": "x8",
-     "colore": "oro",
-     "parola": "rich"
+     "tipo": "personaggio",
+     "nome": "Napoleon",
+     "descrizione": "French emperor, bicorne hat, grey coat",
+     "parola": "men"
     },
     {
      "tipo": "scritta",
      "testo": "WHY?",
-     "parola": "why"
+     "parola": "Why"
     }
    ],
    "musica": "",
    "stacco": false,
    "pin": {
-    "lon": -60,
-    "lat": 20,
+    "lon": 20,
+    "lat": 48,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "In 1648, a Russian sailor rounded the far eastern tip of Asia. His country already stretched from Europe to the Pacific.",
+   "anteprima": false,
+   "vista": {
+    "lon": 150,
+    "lat": 62,
+    "larghezza": 90
+   },
+   "epoca": "antica",
+   "oro": [
+    "RUS"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1648",
+     "parola": "1648"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      140,
+      60
+     ],
+     "a": [
+      170,
+      66
+     ],
+     "icona": "galleon",
+     "parola": "rounded"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Russia already reached the Pacific",
+     "parola": "Pacific"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 120,
+    "lat": 55,
     "faccia": "normale"
    }
   },
   {
-   "testo": "In January, silver hit the highest price in its history. And the mountain that once gave nearly half the world's silver sits in Bolivia.",
+   "testo": "That same year, Europe's rulers signed the Peace of Westphalia, often called the birth of a Europe of separate sovereign states.",
    "anteprima": false,
    "vista": {
-    "lon": -66,
-    "lat": -19.6,
-    "larghezza": 20
+    "lon": 10,
+    "lat": 50,
+    "larghezza": 40
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "DEU",
+    "FRA",
+    "SWE",
+    "NLD"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1648",
+     "parola": "1648"
+    },
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": 7.6,
+     "lat": 52,
+     "parola": "Westphalia"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "king",
+     "n": 4,
+     "lon": 7.6,
+     "lat": 51.5,
+     "parola": "rulers"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Peace of Westphalia, 1648",
+     "parola": "signed"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 15,
+    "lat": 46,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Today, Russia is one country of 17 million square kilometers, nearly as big as the whole surface of Pluto.",
+   "anteprima": false,
+   "vista": {
+    "lon": 90,
+    "lat": 58,
+    "larghezza": 160
+   },
+   "epoca": "oggi",
+   "oro": [
+    "RUS"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 17000000,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "SQUARE KM",
+     "parola": "17"
+    },
+    {
+     "tipo": "solleva",
+     "paese": [
+      "RUS"
+     ],
+     "volte": 6,
+     "testo": "1 COUNTRY",
+     "colore": "oro",
+     "parola": "one"
+    },
+    {
+     "tipo": "nota",
+     "testo": "About the surface area of Pluto",
+     "parola": "Pluto"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": 60,
+    "lat": 40,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "The rest of Europe is about a third of that size, and it's split into 43 countries.",
+   "anteprima": false,
+   "vista": {
+    "lon": 15,
+    "lat": 52,
+    "larghezza": 60
    },
    "epoca": "oggi",
    "oro": [],
    "verde": [
-    "BOL"
+    "FRA",
+    "DEU",
+    "ITA",
+    "ESP",
+    "POL",
+    "GBR",
+    "UKR",
+    "ROU",
+    "NLD",
+    "BEL",
+    "CZE",
+    "AUT",
+    "HUN",
+    "SWE",
+    "NOR",
+    "FIN",
+    "GRC",
+    "PRT",
+    "CHE",
+    "BGR",
+    "SRB",
+    "IRL",
+    "DNK",
+    "HRV",
+    "SVK"
    ],
    "eventi": [
     {
-     "tipo": "icona",
-     "icona": "silver_bars",
-     "lon": -67.5,
-     "lat": -17.5,
-     "parola": "silver"
+     "tipo": "conta_paesi",
+     "paesi": [
+      "FRA",
+      "DEU",
+      "ITA",
+      "ESP",
+      "POL",
+      "GBR",
+      "UKR",
+      "ROU",
+      "NLD",
+      "BEL",
+      "CZE",
+      "AUT",
+      "HUN",
+      "SWE"
+     ],
+     "colore": "rosso",
+     "parola": "split"
     },
     {
-     "tipo": "contorno",
-     "paese": "BOL",
-     "parola": "Bolivia"
+     "tipo": "numero",
+     "testo": "43",
+     "lon": 15,
+     "lat": 50,
+     "parola": "43"
     },
     {
-     "tipo": "etichetta",
-     "testo": "CERRO RICO",
-     "lon": -65.75,
-     "lat": -19.6,
-     "parola": "mountain"
-    }
-   ],
-   "musica": "mistero",
-   "stacco": false,
-   "pin": {
-    "lon": -62,
-    "lat": -16,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Bolivia is one of the poorest countries in South America. That's strange, because 300 years ago, this half of the map looked like the winner.",
-   "anteprima": false,
-   "vista": {
-    "lon": -80,
-    "lat": 0,
-    "larghezza": 100
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "BOL",
-    "MEX",
-    "PER"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "chart_down",
-     "lon": -64,
-     "lat": -17,
-     "parola": "poorest"
-    },
-    {
-     "tipo": "anno",
-     "testo": "1725",
-     "parola": "300"
-    },
-    {
-     "tipo": "icona",
-     "icona": "crown",
-     "lon": -75,
-     "lat": -10,
-     "parola": "winner"
+     "tipo": "nota",
+     "testo": "A third the size, 43 countries",
+     "parola": "third"
     }
    ],
    "musica": "",
    "stacco": false,
    "pin": {
-    "lon": -50,
-    "lat": 10,
+    "lon": 0,
+    "lat": 60,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Mexico City was the biggest city in the Americas. Its university opened 85 years before Harvard.",
+   "testo": "So why did one side become a single giant while the other never came together? And no, it's not just that Siberia was empty.",
    "anteprima": false,
    "vista": {
-    "lon": -99,
-    "lat": 19.4,
-    "larghezza": 14
+    "lon": 60,
+    "lat": 55,
+    "larghezza": 140
    },
-   "epoca": "antica",
-   "oro": [],
+   "epoca": "oggi",
+   "oro": [
+    "RUS"
+   ],
    "verde": [
-    "MEX"
+    "FRA",
+    "DEU",
+    "ITA",
+    "ESP",
+    "POL",
+    "GBR"
    ],
    "eventi": [
     {
-     "tipo": "etichetta",
-     "testo": "MEXICO CITY",
-     "lon": -99.1,
-     "lat": 19.4,
-     "parola": "Mexico"
+     "tipo": "scritta",
+     "testo": "WHY?",
+     "parola": "why"
     },
     {
      "tipo": "icona",
-     "icona": "school",
-     "lon": -99.15,
-     "lat": 19.45,
-     "parola": "university"
+     "icona": "question",
+     "lon": 100,
+     "lat": 62,
+     "parola": "empty"
     },
     {
-     "tipo": "conta",
-     "valore": 85,
-     "prefisso": "",
-     "suffisso": "",
-     "sotto": "YEARS BEFORE HARVARD",
-     "parola": "85"
+     "tipo": "nota",
+     "testo": "Empty land is only part of it",
+     "parola": "empty"
     }
    ],
    "musica": "curiosita",
    "stacco": false,
    "pin": {
-    "lon": -95,
-    "lat": 22,
+    "lon": 30,
+    "lat": 45,
     "faccia": "normale"
    }
   },
   {
-   "testo": "By one famous estimate, in 1700 the average Mexican was almost as rich as the average person in the English colonies.",
+   "testo": "The strange part is that the land that built Russia is the same land that destroyed the two men who came closest to uniting Europe.",
    "anteprima": false,
    "vista": {
-    "lon": -90,
-    "lat": 30,
+    "lon": 35,
+    "lat": 54,
+    "larghezza": 50
+   },
+   "epoca": "oggi",
+   "oro": [
+    "RUS"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "contorno",
+     "paese": "RUS",
+     "parola": "land"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "soldier",
+     "n": 5,
+     "lon": 35,
+     "lat": 54,
+     "parola": "destroyed"
+    },
+    {
+     "tipo": "nota",
+     "testo": "The same land destroyed two conquerors",
+     "parola": "two"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 25,
+    "lat": 48,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "And the side that won all that land? It ended up the poorer one.",
+   "anteprima": false,
+   "vista": {
+    "lon": 40,
+    "lat": 52,
+    "larghezza": 100
+   },
+   "epoca": "oggi",
+   "oro": [
+    "FRA",
+    "DEU",
+    "ITA",
+    "ESP",
+    "POL",
+    "GBR"
+   ],
+   "verde": [
+    "RUS"
+   ],
+   "eventi": [
+    {
+     "tipo": "scritta",
+     "testo": "POORER",
+     "parola": "poorer"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": 50,
+     "lat": 57,
+     "parola": "poorer"
+    }
+   ],
+   "musica": "",
+   "stacco": true,
+   "pin": {
+    "lon": 70,
+    "lat": 45,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Start with the ground. Russia was born on the East European Plain, about 4 million square kilometers of land.",
+   "anteprima": false,
+   "vista": {
+    "lon": 40,
+    "lat": 55,
     "larghezza": 50
    },
    "epoca": "antica",
    "oro": [],
    "verde": [
-    "MEX"
+    "RUS"
    ],
    "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1700",
-     "parola": "1700"
-    },
-    {
-     "tipo": "colonna",
-     "testo": "MEXICO",
-     "valore": 0.9,
-     "lon": -102,
-     "lat": 23,
-     "parola": "Mexican"
-    },
-    {
-     "tipo": "colonna",
-     "testo": "ENGLISH COLONIES",
-     "valore": 1.0,
-     "lon": -76,
-     "lat": 38,
-     "parola": "English"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -88,
-    "lat": 22,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Today, the average American produces about eight times as much as the average Latin American.",
-   "anteprima": false,
-   "vista": {
-    "lon": -85,
-    "lat": 15,
-    "larghezza": 120
-   },
-   "epoca": "oggi",
-   "oro": [
-    "USA"
-   ],
-   "verde": [
-    "MEX",
-    "BRA",
-    "BOL",
-    "PER",
-    "COL",
-    "ARG",
-    "CHL",
-    "VEN"
-   ],
-   "eventi": [
-    {
-     "tipo": "solleva",
-     "paese": [
-      "USA"
-     ],
-     "volte": 8,
-     "testo": "x8",
-     "colore": "oro",
-     "parola": "eight"
-    },
-    {
-     "tipo": "prezzo",
-     "testo": "$82,000",
-     "sotto": "USA · PER PERSON",
-     "ricco": true,
-     "parola": "American"
-    },
-    {
-     "tipo": "prezzo",
-     "testo": "$10,000",
-     "sotto": "LATIN AMERICA · PER PERSON",
-     "ricco": false,
-     "parola": "Latin"
-    }
-   ],
-   "musica": "",
-   "stacco": true,
-   "pin": {
-    "lon": -60,
-    "lat": 30,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "So why did the US get rich, but Latin America never did? The answer starts with what each side found when it first arrived.",
-   "anteprima": false,
-   "vista": {
-    "lon": -80,
-    "lat": 15,
-    "larghezza": 120
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "scritta",
-     "testo": "WHY?",
-     "parola": "why"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -10,
-      38
-     ],
-     "a": [
-      -70,
-      18
-     ],
-     "icona": "galleon",
-     "parola": "arrived"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": -45,
-    "lat": 25,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "And here's the strange part. The side that found the treasure is the side that lost.",
-   "anteprima": false,
-   "vista": {
-    "lon": -80,
-    "lat": 5,
-    "larghezza": 120
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "MEX",
-    "PER",
-    "BOL",
-    "COL"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "treasure_chest",
-     "lon": -90,
-     "lat": -5,
-     "parola": "treasure"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "LOST",
-     "parola": "lost"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -55,
-    "lat": 15,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "When the Spanish arrived, they landed on the richest prize in the Americas: two great empires, the Aztecs and the Incas.",
-   "anteprima": false,
-   "vista": {
-    "lon": -85,
-    "lat": 0,
-    "larghezza": 60
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "MEX",
-    "PER"
-   ],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      -6,
-      37
-     ],
-     "a": [
-      -99,
-      19
-     ],
-     "icona": "galleon",
-     "parola": "Spanish"
-    },
     {
      "tipo": "etichetta",
-     "testo": "AZTECS",
-     "lon": -99,
-     "lat": 19.4,
-     "parola": "Aztecs"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "INCAS",
-     "lon": -72,
-     "lat": -13.5,
-     "parola": "Incas"
-    }
-   ],
-   "musica": "epico",
-   "stacco": false,
-   "pin": {
-    "lon": -105,
-    "lat": 8,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "They had cities, roads, farms and millions of people. This was the prize every European crown wanted.",
-   "anteprima": false,
-   "vista": {
-    "lon": -75,
-    "lat": -12,
-    "larghezza": 30
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "PER"
-   ],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "native_worker",
-     "n": 5,
-     "lon": -72,
-     "lat": -13.5,
-     "parola": "cities"
-    },
-    {
-     "tipo": "icona",
-     "icona": "farm",
-     "lon": -74,
-     "lat": -11,
-     "parola": "farms"
+     "testo": "EAST EUROPEAN PLAIN",
+     "lon": 40,
+     "lat": 55,
+     "parola": "Plain"
     },
     {
      "tipo": "conta",
-     "valore": 10,
-     "prefisso": "~",
-     "suffisso": "M+",
-     "sotto": "PEOPLE IN BOTH EMPIRES",
-     "parola": "millions"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -68,
-    "lat": -6,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "The Spanish crown rewarded its conquerors with something called the encomienda. Not land. People.",
-   "anteprima": false,
-   "vista": {
-    "lon": -99,
-    "lat": 19,
-    "larghezza": 20
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "MEX"
-   ],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "conquistador",
-     "n": 3,
-     "lon": -99,
-     "lat": 19.4,
-     "parola": "conquerors"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "ENCOMIENDA",
-     "lon": -97,
-     "lat": 18,
-     "parola": "encomienda"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "PEOPLE",
-     "parola": "People"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -94,
-    "lat": 23,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "A conquistador was handed whole villages that owed him tribute and work. Then came the diseases Europeans carried.",
-   "anteprima": false,
-   "vista": {
-    "lon": -98,
-    "lat": 19,
-    "larghezza": 14
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "MEX"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "hacienda",
-     "lon": -98.5,
-     "lat": 19.2,
-     "parola": "villages"
-    },
-    {
-     "tipo": "icona",
-     "icona": "money_bag",
-     "lon": -97.5,
-     "lat": 18.7,
-     "parola": "tribute"
-    },
-    {
-     "tipo": "icona",
-     "icona": "grave",
-     "lon": -99.3,
-     "lat": 18.8,
-     "parola": "diseases"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": -95,
-    "lat": 21,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Within a century, around nine in ten people in Central Mexico had died.",
-   "anteprima": false,
-   "vista": {
-    "lon": -99,
-    "lat": 19.5,
-    "larghezza": 14
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "MEX"
-   ],
-   "eventi": [
-    {
-     "tipo": "contatore",
-     "testo": "9 IN 10",
-     "su": 9,
-     "di": 10,
-     "personaggio": "native_worker",
-     "parola": "nine"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "native_worker",
-     "n": 4,
-     "lon": -99,
-     "lat": 19.4,
-     "parola": "people"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": -95,
-    "lat": 22,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Even so, in 1570 more than eight in ten people in the whole New World still lived in Spain's part of it.",
-   "anteprima": false,
-   "vista": {
-    "lon": -80,
-    "lat": 5,
-    "larghezza": 120
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "MEX",
-    "PER",
-    "COL",
-    "BOL",
-    "VEN",
-    "CHL"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1570",
-     "parola": "1570"
-    },
-    {
-     "tipo": "contatore",
-     "testo": "MORE THAN 8 IN 10",
-     "su": 8,
-     "di": 10,
-     "personaggio": "peasant",
-     "parola": "eight"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "SPANISH AMERICA",
-     "lon": -75,
-     "lat": -5,
-     "parola": "Spain's"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -60,
-    "lat": 28,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Then, in 1545 and 1546, they found two of the richest silver deposits ever discovered: Potosi in the Andes, and Zacatecas in Mexico.",
-   "anteprima": false,
-   "vista": {
-    "lon": -85,
-    "lat": 0,
-    "larghezza": 100
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "MEX",
-    "BOL"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1545",
-     "parola": "1545"
-    },
-    {
-     "tipo": "icona",
-     "icona": "mine",
-     "lon": -65.75,
-     "lat": -19.6,
-     "parola": "Potosi"
-    },
-    {
-     "tipo": "icona",
-     "icona": "silver_bars",
-     "lon": -102.6,
-     "lat": 22.8,
-     "parola": "Zacatecas"
-    }
-   ],
-   "musica": "epico",
-   "stacco": true,
-   "pin": {
-    "lon": -80,
-    "lat": 15,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "The English got the leftovers: cold forests, no gold, no silver, and far fewer people.",
-   "anteprima": false,
-   "vista": {
-    "lon": -75,
-    "lat": 40,
-    "larghezza": 30
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "forest",
-     "lon": -72,
-     "lat": 43,
-     "parola": "forests"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "NO SILVER",
-     "parola": "silver"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "colonist",
-     "n": 3,
-     "lon": -76.5,
-     "lat": 37.2,
-     "parola": "fewer"
-    }
-   ],
-   "musica": "quotidiano",
-   "stacco": false,
-   "pin": {
-    "lon": -68,
-    "lat": 36,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Their first lasting colony, Jamestown, nearly didn't make it. In the winter of 1609, about 500 colonists were living there.",
-   "anteprima": false,
-   "vista": {
-    "lon": -76.5,
-    "lat": 37.2,
-    "larghezza": 8
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "etichetta",
-     "testo": "JAMESTOWN",
-     "lon": -76.78,
-     "lat": 37.2,
-     "parola": "Jamestown"
-    },
-    {
-     "tipo": "anno",
-     "testo": "1609",
-     "parola": "1609"
-    },
-    {
-     "tipo": "conta",
-     "valore": 500,
-     "prefisso": "~",
-     "suffisso": "",
-     "sotto": "COLONISTS",
-     "parola": "500"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": -75,
-    "lat": 38.5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "By spring, 61 were still alive. So if you bet in 1600 on which half would end up rich, you'd have picked the South.",
-   "anteprima": false,
-   "vista": {
-    "lon": -80,
-    "lat": 15,
-    "larghezza": 100
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "MEX",
-    "PER",
-    "BOL"
-   ],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 61,
+     "valore": 4000000,
      "prefisso": "",
      "suffisso": "",
-     "sotto": "SURVIVORS",
-     "parola": "61"
+     "sotto": "SQUARE KM",
+     "parola": "4"
     },
-    {
-     "tipo": "anno",
-     "testo": "1600",
-     "parola": "1600"
-    },
-    {
-     "tipo": "icona",
-     "icona": "question",
-     "lon": -90,
-     "lat": 25,
-     "parola": "bet"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -60,
-    "lat": 30,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Almost everyone would have. But that treasure came with a catch. Silver doesn't dig itself out of the ground.",
-   "anteprima": false,
-   "vista": {
-    "lon": -66,
-    "lat": -19.6,
-    "larghezza": 14
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "BOL"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "treasure_chest",
-     "lon": -66.5,
-     "lat": -18.5,
-     "parola": "treasure"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "THE CATCH",
-     "parola": "catch"
-    },
-    {
-     "tipo": "icona",
-     "icona": "mine",
-     "lon": -65.75,
-     "lat": -19.6,
-     "parola": "dig"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": -62,
-    "lat": -17,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Potosi sits four kilometers up in the Andes, one of the highest cities on Earth. Almost nobody wanted to work there.",
-   "anteprima": false,
-   "vista": {
-    "lon": -65.75,
-    "lat": -19.6,
-    "larghezza": 8
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "BOL"
-   ],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 4000,
-     "prefisso": "",
-     "suffisso": " M",
-     "sotto": "UP IN THE ANDES",
-     "parola": "four"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "POTOSI",
-     "lon": -65.75,
-     "lat": -19.58,
-     "parola": "Potosi"
-    },
-    {
-     "tipo": "icona",
-     "icona": "mountain",
-     "lon": -65.6,
-     "lat": -19.7,
-     "parola": "highest"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -63.5,
-    "lat": -18.5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "So in 1573, the Spanish Viceroy made it compulsory. It was called the Mita.",
-   "anteprima": false,
-   "vista": {
-    "lon": -72,
-    "lat": -15,
-    "larghezza": 24
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "PER",
-    "BOL"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1573",
-     "parola": "1573"
-    },
-    {
-     "tipo": "personaggio",
-     "nome": "Francisco de Toledo",
-     "descrizione": "16th-century Spanish viceroy of Peru, dark clothes, stern face",
-     "parola": "Viceroy"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "THE MITA",
-     "parola": "Mita"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -66,
-    "lat": -11,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Every year, villages across the Andes had to send one in every seven adult men to the mines.",
-   "anteprima": false,
-   "vista": {
-    "lon": -70,
-    "lat": -15,
-    "larghezza": 30
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "PER",
-    "BOL"
-   ],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "native_worker",
-     "n": 6,
-     "lon": -71.5,
-     "lat": -14,
-     "parola": "villages"
-    },
-    {
-     "tipo": "contatore",
-     "testo": "1 IN 7 MEN",
-     "su": 1,
-     "di": 7,
-     "personaggio": "native_worker",
-     "parola": "seven"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -71.5,
-      -14
-     ],
-     "a": [
-      -65.75,
-      -19.6
-     ],
-     "icona": "mine",
-     "parola": "mines"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -76,
-    "lat": -9,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "More than 11,000 men a year, many walking for weeks to get there. They worked in the dark, deep inside the mountain.",
-   "anteprima": false,
-   "vista": {
-    "lon": -68,
-    "lat": -17,
-    "larghezza": 16
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "BOL"
-   ],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 11000,
-     "prefisso": "+",
-     "suffisso": "",
-     "sotto": "MEN A YEAR",
-     "parola": "11,000"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "miner",
-     "n": 5,
-     "lon": -65.9,
-     "lat": -19.5,
-     "parola": "dark"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": -63,
-    "lat": -15,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Many never made it home. People called it the mountain that eats men.",
-   "anteprima": false,
-   "vista": {
-    "lon": -65.75,
-    "lat": -19.6,
-    "larghezza": 8
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "BOL"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "grave",
-     "lon": -65.9,
-     "lat": -19.5,
-     "parola": "home"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "EATS MEN",
-     "parola": "eats"
-    }
-   ],
-   "musica": "",
-   "stacco": true,
-   "pin": {
-    "lon": -64,
-    "lat": -18.5,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "And it worked. By 1610, Potosi reportedly had around 160,000 people, one of the biggest cities in the world.",
-   "anteprima": false,
-   "vista": {
-    "lon": -65.75,
-    "lat": -19.6,
-    "larghezza": 8
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "BOL"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1610",
-     "parola": "1610"
-    },
-    {
-     "tipo": "conta",
-     "valore": 160000,
-     "prefisso": "~",
-     "suffisso": "",
-     "sotto": "PEOPLE IN POTOSI",
-     "parola": "160,000"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "merchant",
-     "n": 4,
-     "lon": -65.7,
-     "lat": -19.6,
-     "parola": "city"
-    }
-   ],
-   "musica": "epico",
-   "stacco": false,
-   "pin": {
-    "lon": -64,
-    "lat": -18.3,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "And the king took his cut first: a fifth of every ounce. For comparison, London then had about 200,000 people.",
-   "anteprima": false,
-   "vista": {
-    "lon": -30,
-    "lat": 35,
-    "larghezza": 120
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "BOL"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "crown",
-     "lon": -4,
-     "lat": 40.4,
-     "parola": "king"
-    },
-    {
-     "tipo": "barre",
-     "titulo": "x",
-     "titolo": "CITY SIZE, 1610",
-     "voci": [
-      {
-       "testo": "POTOSI",
-       "valor": 160,
-       "valore": 160,
-       "lato": "verde"
-      },
-      {
-       "testo": "LONDON",
-       "valore": 200,
-       "lato": "oro"
-      }
-     ],
-     "parola": "cut"
-    },
-    {
-     "tipo": "numero",
-     "testo": "1 IN 5",
-     "lon": -4,
-     "lat": 45,
-     "parola": "fifth"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -30,
-    "lat": 20,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "But look at how the whole system was built. A few owners at the top, forced labor at the bottom, and everything flowing out.",
-   "anteprima": false,
-   "vista": {
-    "lon": -45,
-    "lat": -5,
-    "larghezza": 120
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "BOL",
-    "PER"
-   ],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "landowner",
-     "n": 3,
-     "lon": -65,
-     "lat": -19,
-     "parola": "owners"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "native_worker",
-     "n": 6,
-     "lon": -70,
-     "lat": -17,
-     "parola": "labor"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -65.75,
-      -19.6
-     ],
-     "a": [
-      -6,
-      37
-     ],
-     "icona": "galleon",
-     "parola": "flowing"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": -40,
-    "lat": 15,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "The rules weren't designed to build a country. They were designed to empty a mountain.",
-   "anteprima": false,
-   "vista": {
-    "lon": -66,
-    "lat": -19.6,
-    "larghezza": 14
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "BOL"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": -67,
-     "lat": -18.5,
-     "parola": "rules"
-    },
-    {
-     "tipo": "icona",
-     "icona": "mine",
-     "lon": -65.75,
-     "lat": -19.6,
-     "parola": "mountain"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "EMPTY IT",
-     "parola": "empty"
-    }
-   ],
-   "musica": "",
-   "stacco": true,
-   "pin": {
-    "lon": -62,
-    "lat": -17,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "And those rules left a scar. In 2010, an economist compared villages on both sides of the old Mita border in Peru.",
-   "anteprima": false,
-   "vista": {
-    "lon": -72,
-    "lat": -14,
-    "larghezza": 14
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "PER"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "2010",
-     "parola": "2010"
-    },
-    {
-     "tipo": "personaggio",
-     "nome": "Melissa Dell",
-     "descrizione": "modern economist, woman with shoulder-length hair, professional portrait",
-     "parola": "economist"
-    },
-    {
-     "tipo": "confine",
-     "punti": [
-      [
-       -74.5,
-       -12.5
-      ],
-      [
-       -73.5,
-       -14
-      ],
-      [
-       -72.5,
-       -15.5
-      ],
-      [
-       -71.5,
-       -16.5
-      ]
-     ],
-     "parola": "border"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": -69,
-    "lat": -12,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Inside it, families are still about a quarter poorer today, and more of their children grow up stunted.",
-   "anteprima": false,
-   "vista": {
-    "lon": -72.5,
-    "lat": -14.5,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "PER"
-   ],
-   "eventi": [
-    {
-     "tipo": "griglia",
-     "paese": [
-      "PER"
-     ],
-     "pieni": 0.25,
-     "testo": "1 IN 4 POORER",
-     "colore": "verde",
-     "parola": "quarter"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "family",
-     "n": 4,
-     "lon": -73,
-     "lat": -14,
-     "parola": "families"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -69.5,
-    "lat": -12,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Before we follow the silver, an honest ask. These videos take a long time to make, so if you're enjoying this one, subscribing really helps.",
-   "anteprima": false,
-   "vista": {
-    "lon": -66,
-    "lat": -19.6,
-    "larghezza": 30
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "BOL"
-   ],
-   "eventi": [
     {
      "tipo": "nota",
-     "testo": "Subscribing really helps. Thank you!",
-     "parola": "subscribing"
+     "testo": "Russia was born on a plain",
+     "parola": "born"
     }
    ],
-   "musica": "",
+   "musica": "curiosita",
    "stacco": false,
    "pin": {
-    "lon": -60,
-    "lat": -15,
+    "lon": 28,
+    "lat": 50,
     "faccia": "normale"
    }
   },
   {
-   "testo": "So where did all that silver go? First by llama down to the Pacific, then by ship to Panama.",
+   "testo": "It sits, on average, just 170 meters above the sea. No Alps, no Pyrenees, nothing to hide behind. Just forest, steppe, and rivers.",
    "anteprima": false,
    "vista": {
-    "lon": -75,
-    "lat": -10,
+    "lon": 40,
+    "lat": 54,
     "larghezza": 40
    },
    "epoca": "antica",
    "oro": [],
    "verde": [
-    "BOL",
-    "PER",
-    "PAN"
+    "RUS"
+   ],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 170,
+     "prefisso": "",
+     "suffisso": " M",
+     "sotto": "AVERAGE HEIGHT",
+     "parola": "170"
+    },
+    {
+     "tipo": "icona",
+     "icona": "forest",
+     "lon": 38,
+     "lat": 58,
+     "parola": "forest"
+    },
+    {
+     "tipo": "icona",
+     "icona": "wheat",
+     "lon": 40,
+     "lat": 50,
+     "parola": "steppe"
+    },
+    {
+     "tipo": "icona",
+     "icona": "river",
+     "lon": 44,
+     "lat": 54,
+     "parola": "rivers"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 50,
+    "lat": 48,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "And the rivers were the secret. They ran north and south, and their sources almost touched.",
+   "anteprima": false,
+   "vista": {
+    "lon": 38,
+    "lat": 56,
+    "larghezza": 30
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "RUS"
    ],
    "eventi": [
     {
      "tipo": "freccia",
      "da": [
-      -65.75,
-      -19.6
+      35,
+      58
      ],
      "a": [
-      -70.2,
-      -18.5
+      44,
+      48
      ],
-     "icona": "cattle",
-     "parola": "llama"
+     "icona": "cargo_ship",
+     "parola": "north"
     },
     {
      "tipo": "freccia",
      "da": [
-      -77.1,
-      -12
+      38,
+      57
      ],
      "a": [
-      -79.5,
-      8.9
+      32,
+      50
      ],
      "icona": "cargo_ship",
-     "parola": "ship"
+     "parola": "south"
+    },
+    {
+     "tipo": "nota",
+     "testo": "River sources almost touched",
+     "parola": "touched"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 46,
+    "lat": 60,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Where they didn't, people dragged their boats over land from one river to the next. The Russians called these portages voloks.",
+   "anteprima": false,
+   "vista": {
+    "lon": 34,
+    "lat": 57,
+    "larghezza": 16
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "RUS"
+   ],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "peasant",
+     "n": 5,
+     "lon": 34,
+     "lat": 57,
+     "parola": "dragged"
     },
     {
      "tipo": "etichetta",
-     "testo": "PANAMA",
-     "lon": -79.5,
-     "lat": 9,
-     "parola": "Panama"
+     "testo": "VOLOKS",
+     "lon": 34.5,
+     "lat": 57.5,
+     "parola": "voloks"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Boats dragged between rivers",
+     "parola": "boats"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 30,
+    "lat": 55,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Whoever held the rivers held the plain. In 1300, the Principality of Moscow covered about 20,000 square kilometers.",
+   "anteprima": false,
+   "vista": {
+    "lon": 37,
+    "lat": 56,
+    "larghezza": 16
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "RUS"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1300",
+     "parola": "1300"
+    },
+    {
+     "tipo": "icona",
+     "icona": "castle",
+     "lon": 37.6,
+     "lat": 55.75,
+     "parola": "Moscow"
+    },
+    {
+     "tipo": "conta",
+     "valore": 20000,
+     "prefisso": "~",
+     "suffisso": "",
+     "sotto": "SQUARE KM",
+     "parola": "20,000"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 42,
+    "lat": 54,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "By 1462, 430,000. By 1584, 5.4 million. Moscow grew like nothing else in Europe.",
+   "anteprima": false,
+   "vista": {
+    "lon": 50,
+    "lat": 57,
+    "larghezza": 80
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "RUS"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1462",
+     "parola": "1462"
+    },
+    {
+     "tipo": "conta",
+     "valore": 430000,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "SQUARE KM",
+     "parola": "430,000"
+    },
+    {
+     "tipo": "conta",
+     "valore": 5400000,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "SQUARE KM IN 1584",
+     "parola": "5.4"
+    },
+    {
+     "tipo": "solleva",
+     "paese": [
+      "RUS"
+     ],
+     "volte": 4,
+     "testo": "x270",
+     "colore": "oro",
+     "parola": "grew"
     }
    ],
    "musica": "epico",
    "stacco": false,
    "pin": {
-    "lon": -85,
-    "lat": -5,
-    "faccia": "normale"
+    "lon": 30,
+    "lat": 48,
+    "faccia": "stupito"
    }
   },
   {
-   "testo": "Then by mule across the jungle, and onto the treasure fleets bound for Spain.",
+   "testo": "Even the Urals, the line between Europe and Asia, never stopped anyone. Their highest peak is under 1,900 meters.",
    "anteprima": false,
    "vista": {
-    "lon": -50,
-    "lat": 22,
-    "larghezza": 90
+    "lon": 60,
+    "lat": 58,
+    "larghezza": 24
    },
    "epoca": "antica",
    "oro": [],
    "verde": [
-    "PAN",
-    "ESP"
+    "RUS"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "mountain",
+     "lon": 60,
+     "lat": 60,
+     "parola": "Urals"
+    },
+    {
+     "tipo": "conta",
+     "valore": 1900,
+     "prefisso": "<",
+     "suffisso": " M",
+     "sotto": "HIGHEST PEAK",
+     "parola": "1,900"
+    },
+    {
+     "tipo": "nota",
+     "testo": "The Urals never stopped anyone",
+     "parola": "stopped"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 52,
+    "lat": 54,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In 1582, a Cossack band crossed them and took the capital of the Khanate of Sibir.",
+   "anteprima": false,
+   "vista": {
+    "lon": 65,
+    "lat": 58,
+    "larghezza": 30
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "RUS"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1582",
+     "parola": "1582"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "soldier",
+     "n": 5,
+     "lon": 62,
+     "lat": 58,
+     "parola": "Cossack"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      58,
+      58
+     ],
+     "a": [
+      68,
+      57
+     ],
+     "icona": "swords",
+     "parola": "took"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "KHANATE OF SIBIR",
+     "lon": 68,
+     "lat": 57,
+     "parola": "Sibir"
+    }
+   ],
+   "musica": "azione",
+   "stacco": false,
+   "pin": {
+    "lon": 75,
+    "lat": 52,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "From there, Siberia was the same trick on a bigger scale. Rivers, short portages, boat after boat.",
+   "anteprima": false,
+   "vista": {
+    "lon": 95,
+    "lat": 60,
+    "larghezza": 100
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "RUS"
    ],
    "eventi": [
     {
      "tipo": "freccia",
      "da": [
-      -79.9,
-      9.4
+      68,
+      58
      ],
      "a": [
-      -80,
-      9.3
+      86,
+      59
      ],
-     "icona": "cattle",
-     "parola": "mule"
+     "icona": "cargo_ship",
+     "parola": "Rivers"
     },
     {
      "tipo": "freccia",
      "da": [
-      -77,
-      22
+      86,
+      59
      ],
      "a": [
-      -6.3,
-      36.5
+      104,
+      58
      ],
-     "icona": "galleon",
-     "parola": "fleets"
+     "icona": "cargo_ship",
+     "parola": "portages"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      104,
+      58
+     ],
+     "a": [
+      125,
+      62
+     ],
+     "icona": "cargo_ship",
+     "parola": "boat"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 100,
+    "lat": 70,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Fifty-seven years later, in 1639, Russians were standing on the shore of the Pacific.",
+   "anteprima": false,
+   "vista": {
+    "lon": 140,
+    "lat": 58,
+    "larghezza": 40
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "RUS"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1639",
+     "parola": "1639"
+    },
+    {
+     "tipo": "conta",
+     "valore": 57,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "YEARS TO THE PACIFIC",
+     "parola": "Fifty-seven"
+    },
+    {
+     "tipo": "icona",
+     "icona": "port",
+     "lon": 143,
+     "lat": 59.4,
+     "parola": "Pacific"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 128,
+    "lat": 52,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Now look west. Europe is the opposite. Peninsula after peninsula, cut off by mountains and seas.",
+   "anteprima": false,
+   "vista": {
+    "lon": 12,
+    "lat": 47,
+    "larghezza": 50
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "ESP",
+    "ITA",
+    "SWE",
+    "NOR",
+    "GBR",
+    "FRA"
+   ],
+   "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "PENINSULAS",
+     "lon": 12,
+     "lat": 42,
+     "parola": "Peninsula"
+    },
+    {
+     "tipo": "icona",
+     "icona": "mountain",
+     "lon": 10,
+     "lat": 46.5,
+     "parola": "mountains"
+    },
+    {
+     "tipo": "icona",
+     "icona": "port",
+     "lon": -3,
+     "lat": 44,
+     "parola": "seas"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 28,
+    "lat": 40,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Iberia behind the Pyrenees, Italy behind the Alps, Scandinavia across the Baltic, Britain across the channel.",
+   "anteprima": false,
+   "vista": {
+    "lon": 10,
+    "lat": 50,
+    "larghezza": 40
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "ESP",
+    "ITA",
+    "SWE",
+    "GBR"
+   ],
+   "eventi": [
+    {
+     "tipo": "confine",
+     "punti": [
+      [
+       -2,
+       42.8
+      ],
+      [
+       0,
+       42.7
+      ],
+      [
+       3,
+       42.4
+      ]
+     ],
+     "parola": "Pyrenees"
+    },
+    {
+     "tipo": "confine",
+     "punti": [
+      [
+       6.5,
+       44.5
+      ],
+      [
+       9,
+       46.3
+      ],
+      [
+       13,
+       46.5
+      ]
+     ],
+     "parola": "Alps"
+    },
+    {
+     "tipo": "contorno",
+     "paese": "SWE",
+     "parola": "Baltic"
+    },
+    {
+     "tipo": "contorno",
+     "paese": "GBR",
+     "parola": "channel"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 25,
+    "lat": 58,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Every corner was easy to defend and hard to conquer. Russia had no walls to stop it. Europe had walls everywhere.",
+   "anteprima": false,
+   "vista": {
+    "lon": 25,
+    "lat": 50,
+    "larghezza": 90
+   },
+   "epoca": "antica",
+   "oro": [
+    "RUS"
+   ],
+   "verde": [
+    "ESP",
+    "ITA",
+    "FRA",
+    "GBR"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "fortress",
+     "lon": 2,
+     "lat": 46,
+     "parola": "defend"
+    },
+    {
+     "tipo": "icona",
+     "icona": "fortress",
+     "lon": 12,
+     "lat": 43,
+     "parola": "walls"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "NO WALLS",
+     "parola": "no"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 60,
+    "lat": 40,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "And a land with no walls is also a land with no safe border. The only way to feel safe was to keep going.",
+   "anteprima": false,
+   "vista": {
+    "lon": 50,
+    "lat": 55,
+    "larghezza": 70
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "RUS"
+   ],
+   "eventi": [
+    {
+     "tipo": "confine",
+     "punti": [
+      [
+       28,
+       60
+      ],
+      [
+       30,
+       55
+      ],
+      [
+       32,
+       50
+      ]
+     ],
+     "parola": "border"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      40,
+      55
+     ],
+     "a": [
+      70,
+      56
+     ],
+     "icona": "swords",
+     "parola": "going"
+    },
+    {
+     "tipo": "nota",
+     "testo": "No walls meant no safe border",
+     "parola": "safe"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 30,
+    "lat": 45,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "But a plain with no walls cuts both ways. In 1237, the Mongols rode in. Within three years, they had burned the cities of the Rus.",
+   "anteprima": false,
+   "vista": {
+    "lon": 45,
+    "lat": 54,
+    "larghezza": 60
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "RUS",
+    "UKR"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1237",
+     "parola": "1237"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      80,
+      50
+     ],
+     "a": [
+      40,
+      55
+     ],
+     "icona": "swords",
+     "parola": "rode"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "soldier",
+     "n": 6,
+     "lon": 42,
+     "lat": 55,
+     "parola": "Mongols"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Mongols burned the Rus cities",
+     "parola": "burned"
+    }
+   ],
+   "musica": "azione",
+   "stacco": false,
+   "pin": {
+    "lon": 28,
+    "lat": 46,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Kiev, the greatest of them, fell in 1240. For the next two centuries, the Rus princes paid tribute to the Golden Horde.",
+   "anteprima": false,
+   "vista": {
+    "lon": 40,
+    "lat": 52,
+    "larghezza": 40
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "UKR",
+    "RUS"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1240",
+     "parola": "1240"
+    },
+    {
+     "tipo": "icona",
+     "icona": "castle",
+     "lon": 30.5,
+     "lat": 50.45,
+     "parola": "Kiev"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "GOLDEN HORDE",
+     "lon": 46,
+     "lat": 48,
+     "parola": "Horde"
+    },
+    {
+     "tipo": "conta",
+     "valore": 200,
+     "prefisso": "~",
+     "suffisso": "",
+     "sotto": "YEARS OF TRIBUTE",
+     "parola": "centuries"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": 50,
+    "lat": 55,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "And one small town got very good at it, Moscow. Its prince Ivan, nicknamed Kalita, the money bag, collected the Khan's tribute.",
+   "anteprima": false,
+   "vista": {
+    "lon": 37.6,
+    "lat": 56,
+    "larghezza": 14
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "RUS"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "castle",
+     "lon": 37.6,
+     "lat": 55.75,
+     "parola": "Moscow"
+    },
+    {
+     "tipo": "personaggio",
+     "nome": "Ivan Kalita",
+     "descrizione": "14th-century Moscow prince, fur hat, holding a money bag",
+     "parola": "Ivan"
+    },
+    {
+     "tipo": "icona",
+     "icona": "money_bag",
+     "lon": 38.5,
+     "lat": 56.2,
+     "parola": "tribute"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 35,
+    "lat": 54.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "The Khan trusted him and the other princes had to pay him. Moscow learned how a steppe empire runs a huge flat land.",
+   "anteprima": false,
+   "vista": {
+    "lon": 40,
+    "lat": 56,
+    "larghezza": 24
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "RUS"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      34,
+      57
+     ],
+     "a": [
+      37.6,
+      55.75
+     ],
+     "icona": "money_bag",
+     "parola": "pay"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      37.6,
+      55.75
+     ],
+     "a": [
+      46,
+      48
+     ],
+     "icona": "gold_coins",
+     "parola": "Khan"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Moscow became the Khan's collector",
+     "parola": "trusted"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 45,
+    "lat": 59,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "One ruler, one tax, messengers riding in relays across the plain. It also learned to swallow its rivals.",
+   "anteprima": false,
+   "vista": {
+    "lon": 40,
+    "lat": 57,
+    "larghezza": 30
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "RUS"
+   ],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "tsar",
+     "n": 1,
+     "lon": 37.6,
+     "lat": 55.75,
+     "parola": "ruler"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      37.6,
+      55.75
+     ],
+     "a": [
+      30,
+      59.9
+     ],
+     "icona": "scroll_law",
+     "parola": "messengers"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      37.6,
+      55.75
+     ],
+     "a": [
+      45,
+      56
+     ],
+     "icona": "scroll_law",
+     "parola": "relays"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 48,
+    "lat": 52,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Novgorod was a rich merchant republic in the north, run by a town assembly that rang a bell to call its citizens.",
+   "anteprima": false,
+   "vista": {
+    "lon": 32,
+    "lat": 58.5,
+    "larghezza": 16
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "RUS"
+   ],
+   "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "NOVGOROD",
+     "lon": 31.3,
+     "lat": 58.5,
+     "parola": "Novgorod"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "merchant",
+     "n": 5,
+     "lon": 31.3,
+     "lat": 58.4,
+     "parola": "merchant"
+    },
+    {
+     "tipo": "icona",
+     "icona": "church",
+     "lon": 31.5,
+     "lat": 58.6,
+     "parola": "bell"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 38,
+    "lat": 60,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In 1478, Moscow took the city, abolished the assembly, and carried the bell back to Moscow.",
+   "anteprima": false,
+   "vista": {
+    "lon": 34,
+    "lat": 57,
+    "larghezza": 24
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "RUS"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1478",
+     "parola": "1478"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      37.6,
+      55.75
+     ],
+     "a": [
+      31.3,
+      58.5
+     ],
+     "icona": "swords",
+     "parola": "took"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      31.3,
+      58.5
+     ],
+     "a": [
+      37.6,
+      55.75
+     ],
+     "icona": "church",
+     "parola": "carried"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Moscow took Novgorod's bell",
+     "parola": "bell"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 28,
+    "lat": 55,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In 1480, a Mongol army and a Russian army faced each other across the Ugra River. Neither attacked.",
+   "anteprima": false,
+   "vista": {
+    "lon": 36,
+    "lat": 54.5,
+    "larghezza": 14
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "RUS"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1480",
+     "parola": "1480"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "soldier",
+     "n": 4,
+     "lon": 35.5,
+     "lat": 54.7,
+     "parola": "Russian"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "soldier",
+     "n": 4,
+     "lon": 36.5,
+     "lat": 54.5,
+     "parola": "Mongol"
+    },
+    {
+     "tipo": "icona",
+     "icona": "river",
+     "lon": 36,
+     "lat": 54.6,
+     "parola": "Ugra"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 38,
+    "lat": 56.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "The Horde turned back and Moscow simply took its place.",
+   "anteprima": false,
+   "vista": {
+    "lon": 42,
+    "lat": 54,
+    "larghezza": 40
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "RUS"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      36.5,
+      54.5
+     ],
+     "a": [
+      48,
+      48
+     ],
+     "icona": "swords",
+     "parola": "turned"
     },
     {
      "tipo": "icona",
      "icona": "crown",
-     "lon": -6,
+     "lon": 37.6,
+     "lat": 55.75,
+     "parola": "Moscow"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Moscow replaced the Horde",
+     "parola": "place"
+    }
+   ],
+   "musica": "",
+   "stacco": true,
+   "pin": {
+    "lon": 30,
+    "lat": 50,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Here's the strange part. The same Mongols also conquered China. The two places that became giants had the same teacher.",
+   "anteprima": false,
+   "vista": {
+    "lon": 80,
+    "lat": 48,
+    "larghezza": 120
+   },
+   "epoca": "antica",
+   "oro": [
+    "RUS",
+    "CHN"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "contorno",
+     "paese": "CHN",
+     "parola": "China"
+    },
+    {
+     "tipo": "contorno",
+     "paese": "RUS",
+     "parola": "giants"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "SAME TEACHER",
+     "parola": "teacher"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 95,
+    "lat": 38,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Europe? In 1241, the Mongols crushed armies in Poland and Hungary. Then, in 1242, they turned around.",
+   "anteprima": false,
+   "vista": {
+    "lon": 20,
+    "lat": 49,
+    "larghezza": 30
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "POL",
+    "HUN"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1241",
+     "parola": "1241"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      40,
+      50
+     ],
+     "a": [
+      19,
+      50
+     ],
+     "icona": "swords",
+     "parola": "crushed"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      19,
+      47
+     ],
+     "a": [
+      35,
+      48
+     ],
+     "icona": "swords",
+     "parola": "turned"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 10,
+    "lat": 52,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Europe never got a conqueror big enough to force it together. Before we follow the crown, an honest ask: subscribing really helps. Thank you.",
+   "anteprima": false,
+   "vista": {
+    "lon": 15,
+    "lat": 50,
+    "larghezza": 60
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "FRA",
+    "DEU",
+    "ITA",
+    "ESP",
+    "POL"
+   ],
+   "eventi": [
+    {
+     "tipo": "scritta",
+     "testo": "NEVER",
+     "parola": "never"
+    },
+    {
+     "tipo": "nota",
+     "testo": "No conqueror ever united Europe",
+     "parola": "conqueror"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 0,
+    "lat": 55,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In 1453, Constantinople fell to the Ottomans and Moscow became the strongest Orthodox Christian power left.",
+   "anteprima": false,
+   "vista": {
+    "lon": 33,
+    "lat": 47,
+    "larghezza": 40
+   },
+   "epoca": "antica",
+   "oro": [
+    "RUS"
+   ],
+   "verde": [
+    "TUR"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1453",
+     "parola": "1453"
+    },
+    {
+     "tipo": "icona",
+     "icona": "cannon",
+     "lon": 28.98,
+     "lat": 41,
+     "parola": "fell"
+    },
+    {
+     "tipo": "icona",
+     "icona": "church",
+     "lon": 37.6,
+     "lat": 55.75,
+     "parola": "Orthodox"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": 45,
+    "lat": 48,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Its monks had a slogan for it. Two Romes have fallen, the third stands, and there will be no fourth.",
+   "anteprima": false,
+   "vista": {
+    "lon": 25,
+    "lat": 46,
+    "larghezza": 50
+   },
+   "epoca": "antica",
+   "oro": [
+    "RUS"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "ROME",
+     "lon": 12.5,
+     "lat": 41.9,
+     "parola": "Romes"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "CONSTANTINOPLE",
+     "lon": 29,
+     "lat": 41,
+     "parola": "fallen"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "MOSCOW: THIRD ROME",
+     "lon": 37.6,
+     "lat": 55.75,
+     "parola": "third"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 20,
+    "lat": 52,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Moscow had already married into the old empire. In 1472, Ivan III wed the niece of the last Byzantine emperor.",
+   "anteprima": false,
+   "vista": {
+    "lon": 33,
+    "lat": 48,
+    "larghezza": 40
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "RUS"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1472",
+     "parola": "1472"
+    },
+    {
+     "tipo": "personaggio",
+     "nome": "Ivan III",
+     "descrizione": "15th-century Russian grand prince, long beard, fur robe",
+     "parola": "Ivan"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      12.5,
+      41.9
+     ],
+     "a": [
+      37.6,
+      55.75
+     ],
+     "icona": "crown",
+     "parola": "wed"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 45,
+    "lat": 45,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "He took Byzantium's double-headed eagle as Russia's emblem. In 1547, Ivan IV was crowned not just prince, but Tsar, from Caesar.",
+   "anteprima": false,
+   "vista": {
+    "lon": 37.6,
+    "lat": 55.75,
+    "larghezza": 16
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "RUS"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "crown",
+     "lon": 37.6,
+     "lat": 55.75,
+     "parola": "eagle"
+    },
+    {
+     "tipo": "anno",
+     "testo": "1547",
+     "parola": "1547"
+    },
+    {
+     "tipo": "personaggio",
+     "nome": "Ivan IV",
+     "descrizione": "16th-century first Tsar of Russia, crown, dark robe",
+     "parola": "Tsar"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "TSAR = CAESAR",
+     "parola": "Caesar"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": 42,
+    "lat": 53,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "And in Russia, the church stood behind the throne, not against it. In 1721, Peter the Great abolished the patriarch.",
+   "anteprima": false,
+   "vista": {
+    "lon": 32,
+    "lat": 58,
+    "larghezza": 24
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "RUS"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "church",
+     "lon": 37.6,
+     "lat": 55.75,
+     "parola": "church"
+    },
+    {
+     "tipo": "anno",
+     "testo": "1721",
+     "parola": "1721"
+    },
+    {
+     "tipo": "personaggio",
+     "nome": "Peter the Great",
+     "descrizione": "Russian emperor, tall, wig, dark coat",
+     "parola": "Peter"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Church placed under a government office",
+     "parola": "abolished"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 40,
+    "lat": 52,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In Europe, power was split from the start. In 1077, an emperor stood in the snow at Canossa for three days, begging the Pope.",
+   "anteprima": false,
+   "vista": {
+    "lon": 11,
+    "lat": 44,
+    "larghezza": 16
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "ITA",
+    "DEU"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1077",
+     "parola": "1077"
+    },
+    {
+     "tipo": "icona",
+     "icona": "castle",
+     "lon": 10.5,
+     "lat": 44.6,
+     "parola": "Canossa"
+    },
+    {
+     "tipo": "conta",
+     "valore": 3,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "DAYS IN THE SNOW",
+     "parola": "three"
+    },
+    {
+     "tipo": "icona",
+     "icona": "church",
+     "lon": 12.5,
+     "lat": 41.9,
+     "parola": "Pope"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 6,
+    "lat": 42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In 1517, the Reformation split the church itself. And the Thirty Years War that followed killed millions.",
+   "anteprima": false,
+   "vista": {
+    "lon": 12,
+    "lat": 50,
+    "larghezza": 30
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "DEU"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1517",
+     "parola": "1517"
+    },
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": 12.6,
+     "lat": 51.9,
+     "parola": "Reformation"
+    },
+    {
+     "tipo": "icona",
+     "icona": "grave",
+     "lon": 11,
+     "lat": 50,
+     "parola": "killed"
+    },
+    {
+     "tipo": "nota",
+     "testo": "The Thirty Years War killed millions",
+     "parola": "millions"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 20,
+    "lat": 46,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "It ended in 1648 with the Peace of Westphalia. That's our 1648. The same year a Russian sailor reached the end of Asia, Europe signed a peace that left it in pieces.",
+   "anteprima": false,
+   "vista": {
+    "lon": 100,
+    "lat": 52,
+    "larghezza": 200
+   },
+   "epoca": "antica",
+   "oro": [
+    "RUS"
+   ],
+   "verde": [
+    "DEU",
+    "FRA",
+    "SWE"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1648",
+     "parola": "1648"
+    },
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": 7.6,
+     "lat": 52,
+     "parola": "Westphalia"
+    },
+    {
+     "tipo": "icona",
+     "icona": "galleon",
+     "lon": 170,
+     "lat": 66,
+     "parola": "sailor"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "IN PIECES",
+     "parola": "pieces"
+    }
+   ],
+   "musica": "",
+   "stacco": true,
+   "pin": {
+    "lon": 60,
+    "lat": 40,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "But what really pulled Russia east wasn't kings or priests, it was fur. Siberian furs were so valuable they were called soft gold.",
+   "anteprima": false,
+   "vista": {
+    "lon": 85,
+    "lat": 60,
+    "larghezza": 90
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "RUS"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "gold_coins",
+     "lon": 85,
+     "lat": 62,
+     "parola": "fur"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "SOFT GOLD",
+     "parola": "soft"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Siberian furs were called soft gold",
+     "parola": "gold"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 100,
+    "lat": 50,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "The Stroganovs, a family of merchants, had hired that Cossack band in 1582 to push their fur business east.",
+   "anteprima": false,
+   "vista": {
+    "lon": 58,
+    "lat": 58,
+    "larghezza": 24
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "RUS"
+   ],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "merchant",
+     "n": 3,
+     "lon": 56,
+     "lat": 59,
+     "parola": "Stroganovs"
+    },
+    {
+     "tipo": "anno",
+     "testo": "1582",
+     "parola": "1582"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      56,
+      59
+     ],
+     "a": [
+      68,
+      57
+     ],
+     "icona": "swords",
+     "parola": "east"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 66,
+    "lat": 52,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "The peoples of Siberia were forced to pay tribute in furs called yasak. Every few hundred kilometers, the Cossacks built a wooden fort.",
+   "anteprima": false,
+   "vista": {
+    "lon": 95,
+    "lat": 60,
+    "larghezza": 70
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "RUS"
+   ],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "native_worker",
+     "n": 4,
+     "lon": 85,
+     "lat": 60,
+     "parola": "tribute"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "YASAK",
+     "lon": 86,
+     "lat": 62,
+     "parola": "yasak"
+    },
+    {
+     "tipo": "icona",
+     "icona": "fortress",
+     "lon": 100,
+     "lat": 58,
+     "parola": "fort"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 110,
+    "lat": 50,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Tomsk in 1604, Yeniseysk in 1619, Yakutsk in 1632. Fort after fort, all the way east.",
+   "anteprima": false,
+   "vista": {
+    "lon": 105,
+    "lat": 58,
+    "larghezza": 80
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "RUS"
+   ],
+   "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "TOMSK 1604",
+     "lon": 84.9,
+     "lat": 56.5,
+     "parola": "Tomsk"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "YENISEYSK 1619",
+     "lon": 92.2,
+     "lat": 58.5,
+     "parola": "Yeniseysk"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "YAKUTSK 1632",
+     "lon": 129.7,
+     "lat": 62,
+     "parola": "Yakutsk"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 110,
+    "lat": 48,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In the middle of the 1600s, Siberian furs brought the Tsar more than 100,000 rubles a year, up to a tenth of all state income.",
+   "anteprima": false,
+   "vista": {
+    "lon": 85,
+    "lat": 60,
+    "larghezza": 100
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "RUS"
+   ],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 100000,
+     "prefisso": ">",
+     "suffisso": "",
+     "sotto": "RUBLES A YEAR",
+     "parola": "100,000"
+    },
+    {
+     "tipo": "contatore",
+     "testo": "UP TO 1 IN 10",
+     "su": 1,
+     "di": 10,
+     "personaggio": "tsar",
+     "parola": "tenth"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Furs funded a tenth of the state",
+     "parola": "tenth"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 110,
+    "lat": 48,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "And sable doesn't come back fast. When the hunters had cleared one region, they moved on to the next and the next.",
+   "anteprima": false,
+   "vista": {
+    "lon": 100,
+    "lat": 60,
+    "larghezza": 100
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "RUS"
+   ],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "worker",
+     "n": 4,
+     "lon": 75,
+     "lat": 60,
+     "parola": "hunters"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      70,
+      60
+     ],
+     "a": [
+      100,
+      60
+     ],
+     "icona": "forest",
+     "parola": "next"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      100,
+      60
+     ],
+     "a": [
+      135,
+      62
+     ],
+     "icona": "forest",
+     "parola": "next"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 120,
+    "lat": 50,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Between the 1620s and the 1690s, the tribute furs coming out of western Siberia fell by about 45 percent.",
+   "anteprima": false,
+   "vista": {
+    "lon": 75,
+    "lat": 60,
+    "larghezza": 40
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "RUS"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": 75,
+     "lat": 60,
+     "parola": "fell"
+    },
+    {
+     "tipo": "conta",
+     "valore": 45,
+     "prefisso": "-",
+     "suffisso": " PERCENT",
+     "sotto": "FURS FROM WEST SIBERIA",
+     "parola": "45"
+    },
+    {
+     "tipo": "nota",
+     "testo": "The sable ran out",
+     "parola": "fell"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": 60,
+    "lat": 52,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "The hunt went all the way to the Pacific and then across it to Alaska, which Russia sold to the United States in 1867 for 7.2 million dollars.",
+   "anteprima": false,
+   "vista": {
+    "lon": -160,
+    "lat": 62,
+    "larghezza": 120
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "RUS"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      160,
+      62
+     ],
+     "a": [
+      -150,
+      62
+     ],
+     "icona": "galleon",
+     "parola": "across"
+    },
+    {
+     "tipo": "anno",
+     "testo": "1867",
+     "parola": "1867"
+    },
+    {
+     "tipo": "prezzo",
+     "testo": "$7.2M",
+     "sotto": "ALASKA · SOLD TO USA",
+     "ricco": true,
+     "parola": "7.2"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -130,
+    "lat": 50,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Russia's expansion was, at its heart, a business, and it worked. But the same flat land would do something else.",
+   "anteprima": false,
+   "vista": {
+    "lon": 80,
+    "lat": 58,
+    "larghezza": 140
+   },
+   "epoca": "antica",
+   "oro": [
+    "RUS"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "money_bag",
+     "lon": 90,
+     "lat": 62,
+     "parola": "business"
+    },
+    {
+     "tipo": "icona",
+     "icona": "hourglass",
+     "lon": 40,
+     "lat": 54,
+     "parola": "But"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Expansion was a fur business",
+     "parola": "business"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 60,
+    "lat": 45,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Europe had its would-be unifiers. Rome got stuck at the Rhine after losing three legions in the German forests in 9 AD.",
+   "anteprima": false,
+   "vista": {
+    "lon": 10,
+    "lat": 51,
+    "larghezza": 24
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "DEU",
+    "ITA"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "9 AD",
+     "parola": "9"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "soldier",
+     "n": 5,
+     "lon": 8.5,
+     "lat": 52,
+     "parola": "legions"
+    },
+    {
+     "tipo": "conta",
+     "valore": 3,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "LEGIONS LOST",
+     "parola": "three"
+    },
+    {
+     "tipo": "icona",
+     "icona": "forest",
+     "lon": 8.5,
+     "lat": 52.3,
+     "parola": "forests"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 16,
+    "lat": 47,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Charlemagne built an empire, and his grandson split it in three in 843.",
+   "anteprima": false,
+   "vista": {
+    "lon": 8,
+    "lat": 48,
+    "larghezza": 30
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "FRA",
+    "DEU",
+    "ITA"
+   ],
+   "eventi": [
+    {
+     "tipo": "personaggio",
+     "nome": "Charlemagne",
+     "descrizione": "Frankish emperor, crown, long mustache, royal cloak",
+     "parola": "Charlemagne"
+    },
+    {
+     "tipo": "anno",
+     "testo": "843",
+     "parola": "843"
+    },
+    {
+     "tipo": "conta",
+     "valore": 3,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "KINGDOMS",
+     "parola": "three"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 18,
+    "lat": 44,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In 1709, Sweden's king marched into Russia and lost his army at Poltava.",
+   "anteprima": false,
+   "vista": {
+    "lon": 30,
+    "lat": 54,
+    "larghezza": 40
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "SWE",
+    "RUS"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1709",
+     "parola": "1709"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      18,
+      59
+     ],
+     "a": [
+      34.5,
+      49.6
+     ],
+     "icona": "swords",
+     "parola": "marched"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "POLTAVA",
+     "lon": 34.5,
+     "lat": 49.6,
+     "parola": "Poltava"
+    }
+   ],
+   "musica": "azione",
+   "stacco": false,
+   "pin": {
+    "lon": 45,
+    "lat": 58,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Napoleon came closest. By 1812, he dominated most of the continent. Then he marched into Russia with more than half a million men.",
+   "anteprima": false,
+   "vista": {
+    "lon": 20,
+    "lat": 52,
+    "larghezza": 60
+   },
+   "epoca": "antica",
+   "oro": [
+    "FRA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "personaggio",
+     "nome": "Napoleon Bonaparte",
+     "descrizione": "French emperor, bicorne hat, blue military coat",
+     "parola": "Napoleon"
+    },
+    {
+     "tipo": "anno",
+     "testo": "1812",
+     "parola": "1812"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      14,
+      52
+     ],
+     "a": [
+      37.6,
+      55.75
+     ],
+     "icona": "swords",
+     "parola": "marched"
+    },
+    {
+     "tipo": "conta",
+     "valore": 500000,
+     "prefisso": ">",
+     "suffisso": "",
+     "sotto": "MEN",
+     "parola": "half"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": 5,
+    "lat": 46,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "He even took Moscow in September 1812, and found it empty. Then the city burned, more than two thirds of it.",
+   "anteprima": false,
+   "vista": {
+    "lon": 37.6,
+    "lat": 55.75,
+    "larghezza": 14
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "RUS"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "castle",
+     "lon": 37.6,
+     "lat": 55.75,
+     "parola": "Moscow"
+    },
+    {
+     "tipo": "icona",
+     "icona": "question",
+     "lon": 37.2,
+     "lat": 55.9,
+     "parola": "empty"
+    },
+    {
+     "tipo": "contatore",
+     "testo": "MORE THAN 2 IN 3",
+     "su": 2,
+     "di": 3,
+     "personaggio": "family",
+     "parola": "two"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Moscow burned",
+     "parola": "burned"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 42,
+    "lat": 57,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "The plain gave him no walls to break, just distance. The Russians fell back, burned what they left behind, and let winter do the rest.",
+   "anteprima": false,
+   "vista": {
+    "lon": 32,
+    "lat": 54,
+    "larghezza": 30
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "RUS"
+   ],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 1000,
+     "prefisso": "~",
+     "suffisso": " KM",
+     "sotto": "MARCH FROM THE NIEMEN",
+     "parola": "distance"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      37.6,
+      55.75
+     ],
+     "a": [
+      24,
+      54.7
+     ],
+     "icona": "swords",
+     "parola": "fell"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "WINTER",
+     "parola": "winter"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 42,
+    "lat": 50,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "By the time what was left of his army crossed the Berezina River, only about 27,000 men were still fit to fight.",
+   "anteprima": false,
+   "vista": {
+    "lon": 28,
+    "lat": 54,
+    "larghezza": 14
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "BLR"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "river",
+     "lon": 29,
+     "lat": 54.3,
+     "parola": "Berezina"
+    },
+    {
+     "tipo": "conta",
+     "valore": 27000,
+     "prefisso": "~",
+     "suffisso": "",
+     "sotto": "MEN FIT TO FIGHT",
+     "parola": "27,000"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Napoleon's army was gone",
+     "parola": "fit"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": true,
+   "pin": {
+    "lon": 33,
+    "lat": 52,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "In 1941, Hitler tried again with more than three million troops. Same plain, same distance, same winter.",
+   "anteprima": false,
+   "vista": {
+    "lon": 30,
+    "lat": 54,
+    "larghezza": 40
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "DEU"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1941",
+     "parola": "1941"
+    },
+    {
+     "tipo": "conta",
+     "valore": 3000000,
+     "prefisso": ">",
+     "suffisso": "",
+     "sotto": "TROOPS",
+     "parola": "three"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      22,
+      52
+     ],
+     "a": [
+      37.6,
+      55.75
+     ],
+     "icona": "swords",
+     "parola": "plain"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 45,
+    "lat": 50,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "By December, his soldiers could see Moscow's spires, and that was as far as they got.",
+   "anteprima": false,
+   "vista": {
+    "lon": 37.6,
+    "lat": 55.75,
+    "larghezza": 14
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "RUS"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "castle",
+     "lon": 37.6,
+     "lat": 55.75,
+     "parola": "Moscow's"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "STOPPED",
+     "parola": "far"
+    },
+    {
+     "tipo": "nota",
+     "testo": "They saw Moscow, then retreated",
+     "parola": "far"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 42,
+    "lat": 57,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "The land that let Russia grow without walls is the same land that swallowed the two men who came closest to uniting Europe by force.",
+   "anteprima": false,
+   "vista": {
+    "lon": 35,
+    "lat": 54,
+    "larghezza": 60
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "RUS"
+   ],
+   "eventi": [
+    {
+     "tipo": "contorno",
+     "paese": "RUS",
+     "parola": "land"
+    },
+    {
+     "tipo": "icona",
+     "icona": "grave",
+     "lon": 28,
+     "lat": 54.5,
+     "parola": "swallowed"
+    },
+    {
+     "tipo": "icona",
+     "icona": "grave",
+     "lon": 35,
+     "lat": 55,
+     "parola": "force"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 50,
+    "lat": 50,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "So Russia won the land, but who won the money? Today, the average person in the European Union produces about 43,000 dollars a year.",
+   "anteprima": false,
+   "vista": {
+    "lon": 20,
+    "lat": 52,
+    "larghezza": 60
+   },
+   "epoca": "oggi",
+   "oro": [
+    "FRA",
+    "DEU",
+    "ITA",
+    "ESP",
+    "POL",
+    "NLD",
+    "BEL",
+    "AUT",
+    "SWE",
+    "DNK",
+    "FIN",
+    "IRL",
+    "PRT",
+    "GRC",
+    "CZE",
+    "HUN",
+    "ROU",
+    "BGR",
+    "HRV",
+    "SVK",
+    "SVN",
+    "LTU",
+    "LVA",
+    "EST"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "prezzo",
+     "testo": "$43,000",
+     "sotto": "EU · PER PERSON",
+     "ricco": true,
+     "parola": "43,000"
+    },
+    {
+     "tipo": "solleva",
+     "paese": [
+      "FRA",
+      "DEU",
+      "ITA",
+      "ESP",
+      "POL"
+     ],
+     "volte": 3,
+     "testo": "x3",
+     "colore": "oro",
+     "parola": "money"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 35,
+    "lat": 60,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "The average Russian, about 15,000, almost three times less.",
+   "anteprima": false,
+   "vista": {
+    "lon": 50,
+    "lat": 55,
+    "larghezza": 120
+   },
+   "epoca": "oggi",
+   "oro": [
+    "FRA",
+    "DEU",
+    "ITA",
+    "ESP",
+    "POL"
+   ],
+   "verde": [
+    "RUS"
+   ],
+   "eventi": [
+    {
+     "tipo": "prezzo",
+     "testo": "$15,000",
+     "sotto": "RUSSIA · PER PERSON",
+     "ricco": false,
+     "parola": "15,000"
+    },
+    {
+     "tipo": "barre",
+     "titolo": "GDP PER PERSON",
+     "voci": [
+      {
+       "testo": "EU",
+       "valore": 43,
+       "lato": "oro"
+      },
+      {
+       "testo": "RUSSIA",
+       "valore": 15,
+       "lato": "verde"
+      }
+     ],
+     "parola": "three"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "3X POORER",
+     "parola": "three"
+    }
+   ],
+   "musica": "",
+   "stacco": true,
+   "pin": {
+    "lon": 90,
+    "lat": 45,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Historians like Joel Mokyr and Walter Scheidel think Europe's broken map is part of the reason.",
+   "anteprima": false,
+   "vista": {
+    "lon": 15,
+    "lat": 50,
+    "larghezza": 50
+   },
+   "epoca": "oggi",
+   "oro": [
+    "FRA",
+    "DEU",
+    "ITA",
+    "ESP",
+    "POL",
+    "GBR"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "personaggio",
+     "nome": "Joel Mokyr",
+     "descrizione": "Economic historian, glasses, grey hair, academic jacket",
+     "parola": "Mokyr"
+    },
+    {
+     "tipo": "personaggio",
+     "nome": "Walter Scheidel",
+     "descrizione": "Stanford historian, glasses, dark hair, blazer",
+     "parola": "Scheidel"
+    },
+    {
+     "tipo": "nota",
+     "testo": "A broken map helped Europe",
+     "parola": "map"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 0,
+    "lat": 58,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In a Europe of many states, if one king crushed your business or banned your book, you crossed a border.",
+   "anteprima": false,
+   "vista": {
+    "lon": 10,
+    "lat": 48,
+    "larghezza": 30
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "FRA",
+    "DEU",
+    "ITA",
+    "ESP"
+   ],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "merchant",
+     "n": 4,
+     "lon": 6,
+     "lat": 48,
+     "parola": "business"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      6,
+      48
+     ],
+     "a": [
+      12,
+      47
+     ],
+     "icona": "scroll_law",
+     "parola": "crossed"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Cross a border, escape the ruler",
+     "parola": "border"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 18,
+    "lat": 52,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Rulers had to compete for merchants, scientists, and ideas, or lose them to the neighbors.",
+   "anteprima": false,
+   "vista": {
+    "lon": 10,
+    "lat": 48,
+    "larghezza": 40
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "FRA",
+    "DEU",
+    "ITA",
+    "ESP",
+    "NLD"
+   ],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "student",
+     "n": 4,
+     "lon": 11.5,
+     "lat": 48,
+     "parola": "scientists"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      11.5,
+      48
+     ],
+     "a": [
+      5,
+      52
+     ],
+     "icona": "scroll_law",
+     "parola": "lose"
+    },
+    {
+     "tipo": "icona",
+     "icona": "banknotes",
+     "lon": 5,
+     "lat": 52,
+     "parola": "compete"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 20,
+    "lat": 44,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "When Portugal turned down Columbus, he crossed the border and kept asking until Spain said yes.",
+   "anteprima": false,
+   "vista": {
+    "lon": -6,
+    "lat": 39,
+    "larghezza": 16
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "PRT",
+    "ESP"
+   ],
+   "eventi": [
+    {
+     "tipo": "personaggio",
+     "nome": "Christopher Columbus",
+     "descrizione": "15th-century Genoese navigator, long hair, red cap, dark cloak",
+     "parola": "Columbus"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -9.1,
+      38.7
+     ],
+     "a": [
+      -5.9,
+      37.4
+     ],
+     "icona": "galleon",
+     "parola": "crossed"
+    },
+    {
+     "tipo": "flag",
+     "icona": "flag:ES",
+     "lon": -5.9,
      "lat": 37.4,
      "parola": "Spain"
     }
@@ -1581,2843 +3382,673 @@
    "musica": "",
    "stacco": false,
    "pin": {
-    "lon": -60,
-    "lat": 35,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "And there was only one door in. By law, the colonies could trade only through Seville, on Spain's own fleets.",
-   "anteprima": false,
-   "vista": {
-    "lon": -6,
-    "lat": 37.4,
-    "larghezza": 14
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "ESP"
-   ],
-   "eventi": [
-    {
-     "tipo": "etichetta",
-     "testo": "SEVILLE",
-     "lon": -5.98,
-     "lat": 37.39,
-     "parola": "Seville"
-    },
-    {
-     "tipo": "icona",
-     "icona": "port",
-     "lon": -6.2,
-     "lat": 36.9,
-     "parola": "door"
-    },
-    {
-     "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": -4.5,
-     "lat": 38.5,
-     "parola": "law"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
     "lon": -2,
-    "lat": 40,
+    "lat": 43,
     "faccia": "normale"
    }
   },
   {
-   "testo": "So you'd think Spain got incredibly rich. It didn't. With silver pouring in, King Philip the Second still went bankrupt four times.",
+   "testo": "When the Inquisition banned Galileo's books, his last one was printed in the Dutch Republic in 1638.",
    "anteprima": false,
    "vista": {
-    "lon": -4,
-    "lat": 40,
-    "larghezza": 16
+    "lon": 10,
+    "lat": 47,
+    "larghezza": 24
    },
    "epoca": "antica",
    "oro": [],
    "verde": [
-    "ESP"
+    "ITA",
+    "NLD"
    ],
    "eventi": [
     {
      "tipo": "personaggio",
-     "nome": "Philip II of Spain",
-     "descrizione": "16th-century Spanish king, black clothes, pale face, pointed beard",
-     "parola": "Philip"
+     "nome": "Galileo Galilei",
+     "descrizione": "Italian astronomer, long white beard, dark scholar robe",
+     "parola": "Galileo's"
     },
     {
-     "tipo": "scritta",
-     "testo": "BANKRUPT",
-     "parola": "bankrupt"
-    },
-    {
-     "tipo": "conta",
-     "valore": 4,
-     "prefisso": "",
-     "suffisso": "X",
-     "sotto": "BANKRUPTCIES",
-     "parola": "four"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": 0,
-    "lat": 43,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "All that silver also made everything in Spain more expensive. Over the 1500s, prices rose several times over.",
-   "anteprima": false,
-   "vista": {
-    "lon": -4,
-    "lat": 40,
-    "larghezza": 14
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "ESP"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "chart_up",
-     "lon": -3.7,
-     "lat": 40.4,
-     "parola": "expensive"
+     "tipo": "freccia",
+     "da": [
+      11.2,
+      43.8
+     ],
+     "a": [
+      4.5,
+      52.2
+     ],
+     "icona": "scroll_law",
+     "parola": "printed"
     },
     {
      "tipo": "anno",
-     "testo": "1500s",
-     "parola": "1500s"
-    },
-    {
-     "tipo": "numero",
-     "testo": "PRICES UP",
-     "lon": -5,
-     "lat": 38,
-     "parola": "prices"
+     "testo": "1638",
+     "parola": "1638"
     }
    ],
    "musica": "",
    "stacco": false,
    "pin": {
-    "lon": -1,
-    "lat": 43,
+    "lon": 18,
+    "lat": 52,
     "faccia": "normale"
    }
   },
   {
-   "testo": "It became cheaper to buy from abroad than to make things at home. So the silver paid for wars and for loans from Genoese bankers.",
+   "testo": "In Russia, there was nowhere to go. One ruler, one church, and peasants tied to the land.",
    "anteprima": false,
    "vista": {
-    "lon": 5,
-    "lat": 45,
-    "larghezza": 30
+    "lon": 45,
+    "lat": 55,
+    "larghezza": 50
    },
    "epoca": "antica",
    "oro": [],
    "verde": [
-    "ESP",
-    "ITA"
+    "RUS"
    ],
    "eventi": [
     {
      "tipo": "icona",
-     "icona": "swords",
-     "lon": 4,
-     "lat": 51,
-     "parola": "wars"
+     "icona": "crown",
+     "lon": 37.6,
+     "lat": 55.75,
+     "parola": "ruler"
+    },
+    {
+     "tipo": "icona",
+     "icona": "church",
+     "lon": 40,
+     "lat": 57,
+     "parola": "church"
     },
     {
      "tipo": "folla",
-     "personaggio": "banker",
-     "n": 3,
-     "lon": 8.9,
-     "lat": 44.4,
-     "parola": "Genoese"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -4,
-      40
-     ],
-     "a": [
-      8.9,
-      44.4
-     ],
-     "icona": "money_bag",
-     "parola": "loans"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 15,
-    "lat": 38,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "It also bought goods from England, France and the Netherlands. The silver made other people rich.",
-   "anteprima": false,
-   "vista": {
-    "lon": 2,
-    "lat": 50,
-    "larghezza": 24
-   },
-   "epoca": "antica",
-   "oro": [
-    "GBR",
-    "FRA",
-    "NLD"
-   ],
-   "verde": [
-    "ESP"
-   ],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      -4,
-      40
-     ],
-     "a": [
-      -0.1,
-      51.5
-     ],
-     "icona": "silver_bars",
-     "parola": "England"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -4,
-      40
-     ],
-     "a": [
-      2.3,
-      48.9
-     ],
-     "icona": "silver_bars",
-     "parola": "France"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -4,
-      40
-     ],
-     "a": [
-      4.9,
-      52.4
-     ],
-     "icona": "silver_bars",
-     "parola": "Netherlands"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 12,
-    "lat": 56,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "And for 250 years, galleons sailed from Acapulco to Manila, loaded with Mexican silver, with Chinese merchants waiting on the other side.",
-   "anteprima": false,
-   "vista": {
-    "lon": -175,
-    "lat": 18,
-    "larghezza": 160
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "MEX",
-    "PHL",
-    "CHN"
-   ],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      -99.9,
-      16.85
-     ],
-     "a": [
-      120.98,
-      14.6
-     ],
-     "icona": "galleon",
-     "parola": "galleons"
-    },
-    {
-     "tipo": "conta",
-     "valore": 250,
-     "prefisso": "",
-     "suffisso": " YRS",
-     "sotto": "OF PACIFIC TRADE",
-     "parola": "250"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "merchant",
-     "n": 4,
-     "lon": 121,
-     "lat": 14.6,
-     "parola": "merchants"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -140,
-    "lat": 30,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Even the US dollar started out as a copy. In 1792, Congress defined it by the value of the Spanish silver dollar.",
-   "anteprima": false,
-   "vista": {
-    "lon": -77,
-    "lat": 39,
-    "larghezza": 18
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1792",
-     "parola": "1792"
-    },
-    {
-     "tipo": "icona",
-     "icona": "parliament",
-     "lon": -77.01,
-     "lat": 38.89,
-     "parola": "Congress"
-    },
-    {
-     "tipo": "icona",
-     "icona": "silver_bars",
-     "lon": -75,
-     "lat": 40,
-     "parola": "silver"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": -70,
-    "lat": 43,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Spanish dollars stayed legal money in the US until 1857. So the silver made other places rich. The Americas kept the holes.",
-   "anteprima": false,
-   "vista": {
-    "lon": -80,
-    "lat": 15,
-    "larghezza": 100
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA",
-    "GBR"
-   ],
-   "verde": [
-    "BOL",
-    "MEX"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1857",
-     "parola": "1857"
-    },
-    {
-     "tipo": "icona",
-     "icona": "mine",
-     "lon": -65.75,
-     "lat": -19.6,
-     "parola": "holes"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "THE HOLES",
-     "parola": "holes"
+     "personaggio": "peasant",
+     "n": 5,
+     "lon": 44,
+     "lat": 54,
+     "parola": "peasants"
     }
    ],
    "musica": "malinconia",
    "stacco": false,
    "pin": {
-    "lon": -50,
-    "lat": 20,
+    "lon": 55,
+    "lat": 50,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Today, we call this the resource curse. Latin America may have been its very first victim.",
+   "testo": "Russia only abolished serfdom in 1861, and most of that land is nearly empty. Siberia is 77 percent of Russia, but home to about a quarter of its people.",
    "anteprima": false,
    "vista": {
-    "lon": -75,
-    "lat": -5,
-    "larghezza": 100
+    "lon": 95,
+    "lat": 60,
+    "larghezza": 120
    },
-   "epoca": "antica",
+   "epoca": "oggi",
    "oro": [],
    "verde": [
-    "BOL",
-    "PER",
-    "MEX"
+    "RUS"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1861",
+     "parola": "1861"
+    },
+    {
+     "tipo": "conta",
+     "valore": 77,
+     "prefisso": "",
+     "suffisso": " PERCENT",
+     "sotto": "OF RUSSIA IS SIBERIA",
+     "parola": "77"
+    },
+    {
+     "tipo": "contatore",
+     "testo": "ABOUT 1 IN 4",
+     "su": 1,
+     "di": 4,
+     "personaggio": "family",
+     "parola": "quarter"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 60,
+    "lat": 48,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Is that destiny? No. Russia's economy has grown fast before, and not every European country is rich.",
+   "anteprima": false,
+   "vista": {
+    "lon": 40,
+    "lat": 52,
+    "larghezza": 90
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "RUS",
+    "ALB",
+    "MDA",
+    "UKR"
    ],
    "eventi": [
     {
      "tipo": "scritta",
-     "testo": "RESOURCE CURSE",
-     "parola": "curse"
-    },
-    {
-     "tipo": "icona",
-     "icona": "hourglass",
-     "lon": -70,
-     "lat": -12,
-     "parola": "first"
-    }
-   ],
-   "musica": "",
-   "stacco": true,
-   "pin": {
-    "lon": -50,
-    "lat": 10,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Now look back north, where there was nothing to dig. With no silver and few people to force into work, the English colonies had the opposite problem.",
-   "anteprima": false,
-   "vista": {
-    "lon": -75,
-    "lat": 40,
-    "larghezza": 30
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "forest",
-     "lon": -73,
-     "lat": 43,
-     "parola": "nothing"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "colonist",
-     "n": 4,
-     "lon": -76,
-     "lat": 38,
-     "parola": "colonies"
-    },
-    {
-     "tipo": "icona",
-     "icona": "question",
-     "lon": -72,
-     "lat": 39,
-     "parola": "problem"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": -68,
-    "lat": 36,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "They had to convince people to come. So they gave away land.",
-   "anteprima": false,
-   "vista": {
-    "lon": -76.5,
-    "lat": 37.5,
-    "larghezza": 16
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      -0.1,
-      51.5
-     ],
-     "a": [
-      -76.5,
-      37.2
-     ],
-     "icona": "galleon",
-     "parola": "come"
-    },
-    {
-     "tipo": "icona",
-     "icona": "farm",
-     "lon": -77.5,
-     "lat": 37.8,
-     "parola": "land"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -72,
-    "lat": 40,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "From 1618, Virginia offered 50 acres to settlers who paid their own way, and 50 more for each person they brought.",
-   "anteprima": false,
-   "vista": {
-    "lon": -77,
-    "lat": 37.5,
-    "larghezza": 10
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1618",
-     "parola": "1618"
-    },
-    {
-     "tipo": "conta",
-     "valore": 50,
-     "prefisso": "",
-     "suffisso": " ACRES",
-     "sotto": "PER SETTLER",
-     "parola": "50"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "colonist",
-     "n": 5,
-     "lon": -77.3,
-     "lat": 37.5,
-     "parola": "settlers"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -74,
-    "lat": 39.5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "A year later, the colonists elected their own assembly. And in 1647, Massachusetts ordered every town with 50 families to pay for a teacher.",
-   "anteprima": false,
-   "vista": {
-    "lon": -73,
-    "lat": 41,
-    "larghezza": 14
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "parliament",
-     "lon": -76.78,
-     "lat": 37.2,
-     "parola": "assembly"
-    },
-    {
-     "tipo": "anno",
-     "testo": "1647",
-     "parola": "1647"
-    },
-    {
-     "tipo": "icona",
-     "icona": "school",
-     "lon": -71.06,
-     "lat": 42.36,
-     "parola": "teacher"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -69,
-    "lat": 39,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Spreading land across thousands of families changed everything. People who own something want a say in how it's run.",
-   "anteprima": false,
-   "vista": {
-    "lon": -76,
-    "lat": 40,
-    "larghezza": 24
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "family",
-     "n": 6,
-     "lon": -75,
-     "lat": 40,
-     "parola": "families"
-    },
-    {
-     "tipo": "icona",
-     "icona": "farm",
-     "lon": -77,
-     "lat": 39,
-     "parola": "own"
-    },
-    {
-     "tipo": "icona",
-     "icona": "ballot_box",
-     "lon": -73.5,
-     "lat": 41.5,
-     "parola": "say"
-    }
-   ],
-   "musica": "trionfo",
-   "stacco": false,
-   "pin": {
-    "lon": -70,
-    "lat": 37,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "They wanted schools for their kids, and banks that would lend to them. Owners built the institutions that made a country grow.",
-   "anteprima": false,
-   "vista": {
-    "lon": -75,
-    "lat": 40,
-    "larghezza": 24
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "school",
-     "lon": -74,
-     "lat": 40.7,
-     "parola": "schools"
-    },
-    {
-     "tipo": "icona",
-     "icona": "banknotes",
-     "lon": -75.2,
-     "lat": 39.95,
-     "parola": "banks"
+     "testo": "NOT DESTINY",
+     "parola": "destiny"
     },
     {
      "tipo": "icona",
      "icona": "chart_up",
-     "lon": -77,
-     "lat": 38.9,
-     "parola": "grow"
+     "lon": 45,
+     "lat": 57,
+     "parola": "fast"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Geography is not fate",
+     "parola": "No"
     }
    ],
    "musica": "",
    "stacco": false,
    "pin": {
-    "lon": -70,
-    "lat": 38,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "In 1862, the US went further. The Homestead Act gave 160 acres to almost anyone who would live on the land and farm it for five years.",
-   "anteprima": false,
-   "vista": {
-    "lon": -98,
-    "lat": 40,
-    "larghezza": 50
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1862",
-     "parola": "1862"
-    },
-    {
-     "tipo": "conta",
-     "valore": 160,
-     "prefisso": "",
-     "suffisso": " ACRES",
-     "sotto": "HOMESTEAD ACT",
-     "parola": "160"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "peasant",
-     "n": 5,
-     "lon": -98,
-     "lat": 41,
-     "parola": "farm"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -115,
-    "lat": 45,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Much of that land had been taken from Native American nations. Around 1.6 million homesteads were granted, about a tenth of the whole country.",
-   "anteprima": false,
-   "vista": {
-    "lon": -98,
-    "lat": 40,
-    "larghezza": 60
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 1600000,
-     "prefisso": "~",
-     "suffisso": "",
-     "sotto": "HOMESTEADS GRANTED",
-     "parola": "million"
-    },
-    {
-     "tipo": "griglia",
-     "paese": [
-      "USA"
-     ],
-     "pieni": 0.1,
-     "testo": "1 IN 10 OF THE COUNTRY",
-     "colore": "oro",
-     "parola": "tenth"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -118,
-    "lat": 35,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Now compare. Around 1900, three in four American farms were run by the people who owned them.",
-   "anteprima": false,
-   "vista": {
-    "lon": -98,
-    "lat": 40,
-    "larghezza": 40
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1900",
-     "parola": "1900"
-    },
-    {
-     "tipo": "contatore",
-     "testo": "3 IN 4 FARMS OWNED",
-     "su": 3,
-     "di": 4,
-     "personaggio": "peasant",
-     "parola": "three"
-    },
-    {
-     "tipo": "icona",
-     "icona": "farm",
-     "lon": -97,
-     "lat": 40,
-     "parola": "farms"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -112,
-    "lat": 33,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "In rural Mexico in 1910, only about two families in a hundred owned any land at all.",
-   "anteprima": false,
-   "vista": {
-    "lon": -102,
-    "lat": 23,
-    "larghezza": 30
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "MEX"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1910",
-     "parola": "1910"
-    },
-    {
-     "tipo": "griglia",
-     "paese": [
-      "MEX"
-     ],
-     "pieni": 0.02,
-     "testo": "2 IN 100 OWNED LAND",
-     "colore": "verde",
-     "parola": "two"
-    },
-    {
-     "tipo": "icona",
-     "icona": "hacienda",
-     "lon": -101,
-     "lat": 21,
-     "parola": "land"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": true,
-   "pin": {
-    "lon": -95,
-    "lat": 28,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Nearly nine in ten Americans could read. In Mexico, about one in five.",
-   "anteprima": false,
-   "vista": {
-    "lon": -95,
-    "lat": 30,
-    "larghezza": 70
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [
-    "MEX"
-   ],
-   "eventi": [
-    {
-     "tipo": "contatore",
-     "testo": "NEARLY 9 IN 10 CAN READ",
-     "su": 9,
-     "di": 10,
-     "personaggio": "student",
-     "parola": "nine"
-    },
-    {
-     "tipo": "barre",
-     "titolo": "CAN READ, 1900s",
-     "voci": [
-      {
-       "testo": "USA",
-       "valore": 89,
-       "lato": "oro"
-      },
-      {
-       "testo": "MEXICO",
-       "valore": 20,
-       "lato": "verde"
-      }
-     ],
-     "parola": "Mexico"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -85,
-    "lat": 20,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Almost one in five Americans voted. In Brazil, about two in a hundred.",
-   "anteprima": false,
-   "vista": {
-    "lon": -70,
-    "lat": 10,
-    "larghezza": 100
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [
-    "BRA"
-   ],
-   "eventi": [
-    {
-     "tipo": "barre",
-     "titolo": "SHARE WHO VOTED",
-     "voci": [
-      {
-       "testo": "USA",
-       "valore": 18,
-       "lato": "oro"
-      },
-      {
-       "testo": "BRAZIL",
-       "valore": 2,
-       "lato": "verde"
-      }
-     ],
-     "parola": "voted"
-    },
-    {
-     "tipo": "icona",
-     "icona": "ballot_box",
-     "lon": -98,
-     "lat": 39,
-     "parola": "Americans"
-    },
-    {
-     "tipo": "icona",
-     "icona": "ballot_box",
-     "lon": -48,
-     "lat": -15,
-     "parola": "Brazil"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -60,
-    "lat": 25,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Because in much of Latin America, you couldn't vote unless you owned property or could read.",
-   "anteprima": false,
-   "vista": {
-    "lon": -70,
-    "lat": -5,
-    "larghezza": 100
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "BRA",
-    "MEX",
-    "PER",
-    "COL"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": -48,
-     "lat": -15.8,
-     "parola": "vote"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "NO LAND, NO VOTE",
-     "parola": "property"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -45,
-    "lat": 10,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "So the few families who held the land also held the votes, and they had no reason to share either.",
-   "anteprima": false,
-   "vista": {
-    "lon": -70,
-    "lat": -5,
-    "larghezza": 100
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "BRA",
-    "MEX",
-    "PER",
-    "COL"
-   ],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "landowner",
-     "n": 3,
-     "lon": -60,
-     "lat": -10,
-     "parola": "families"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "voter",
-     "n": 3,
-     "lon": -75,
-     "lat": -5,
-     "parola": "votes"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -45,
-    "lat": 8,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "And the exception proves the rule. The part of the US that worked most like Latin America was the slave plantations of the South.",
-   "anteprima": false,
-   "vista": {
-    "lon": -88,
-    "lat": 33,
-    "larghezza": 24
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "USA"
-   ],
-   "eventi": [
-    {
-     "tipo": "scritta",
-     "testo": "EXCEPTION",
-     "parola": "exception"
-    },
-    {
-     "tipo": "icona",
-     "icona": "hacienda",
-     "lon": -90,
-     "lat": 32,
-     "parola": "plantations"
-    },
-    {
-     "tipo": "icona",
-     "icona": "sugar_cane",
-     "lon": -91,
-     "lat": 30.5,
-     "parola": "South"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -80,
-    "lat": 38,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "It stayed at about half the national income per person for decades after the Civil War.",
-   "anteprima": false,
-   "vista": {
-    "lon": -90,
-    "lat": 35,
-    "larghezza": 40
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "barre",
-     "titolo": "INCOME PER PERSON",
-     "voci": [
-      {
-       "testo": "US NORTH",
-       "valore": 100,
-       "lato": "oro"
-      },
-      {
-       "testo": "US SOUTH",
-       "valore": 50,
-       "lato": "verde"
-      }
-     ],
-     "parola": "half"
-    },
-    {
-     "tipo": "conta",
-     "valore": 1865,
-     "prefisso": "",
-     "suffisso": "",
-     "sotto": "CIVIL WAR ENDS",
-     "parola": "Civil"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -75,
+    "lon": 20,
     "lat": 42,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Then came nine days that cost Mexico a fortune. While the 13 colonies came together as one country with one market and one currency, Spain's empire broke apart.",
+   "testo": "But here's the final twist. Even Russia's plain couldn't hold everything together. In 1991, the Soviet Union split into 15 countries.",
    "anteprima": false,
    "vista": {
-    "lon": -85,
-    "lat": 15,
+    "lon": 65,
+    "lat": 50,
     "larghezza": 120
    },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [
-    "MEX"
-   ],
-   "eventi": [
-    {
-     "tipo": "scritta",
-     "testo": "9 DAYS",
-     "parola": "nine"
-    },
-    {
-     "tipo": "conta",
-     "valore": 13,
-     "prefisso": "",
-     "suffisso": "",
-     "sotto": "COLONIES, ONE COUNTRY",
-     "parola": "13"
-    },
-    {
-     "tipo": "icona",
-     "icona": "banknotes",
-     "lon": -77,
-     "lat": 38.9,
-     "parola": "currency"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": -60,
-    "lat": 30,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Spain's American empire shattered in the 1810s and 1820s. It would end up as 18 separate countries.",
-   "anteprima": false,
-   "vista": {
-    "lon": -80,
-    "lat": -5,
-    "larghezza": 120
-   },
-   "epoca": "antica",
+   "epoca": "oggi",
    "oro": [],
    "verde": [
-    "MEX",
-    "GTM",
-    "HND",
-    "SLV",
-    "NIC",
-    "CRI",
-    "PAN",
-    "COL",
-    "VEN",
-    "ECU",
-    "PER",
-    "BOL",
-    "CHL",
-    "ARG",
-    "URY",
-    "PRY",
-    "DOM",
-    "CUB"
+    "RUS",
+    "UKR",
+    "BLR",
+    "KAZ",
+    "UZB",
+    "GEO",
+    "ARM",
+    "AZE",
+    "TKM",
+    "KGZ",
+    "TJK",
+    "MDA",
+    "LTU",
+    "LVA",
+    "EST"
    ],
    "eventi": [
     {
      "tipo": "anno",
-     "testo": "1820",
-     "parola": "1820s"
+     "testo": "1991",
+     "parola": "1991"
     },
     {
      "tipo": "conta_paesi",
      "paesi": [
-      "MEX",
-      "GTM",
-      "HND",
-      "SLV",
-      "NIC",
-      "CRI",
-      "PAN",
-      "COL",
-      "VEN",
-      "ECU",
-      "PER",
-      "BOL",
-      "CHL",
-      "ARG",
-      "URY",
-      "PRY",
-      "DOM",
-      "CUB"
+      "RUS",
+      "UKR",
+      "BLR",
+      "KAZ",
+      "UZB",
+      "GEO",
+      "ARM",
+      "AZE",
+      "TKM",
+      "KGZ",
+      "TJK",
+      "MDA",
+      "LTU",
+      "LVA",
+      "EST"
      ],
      "colore": "rosso",
-     "parola": "18"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -50,
-    "lat": 15,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "The new countries spent decades fighting each other and themselves. In Mexico, one general became president 11 different times.",
-   "anteprima": false,
-   "vista": {
-    "lon": -99,
-    "lat": 19.4,
-    "larghezza": 24
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "MEX"
-   ],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "soldier",
-     "n": 5,
-     "lon": -99,
-     "lat": 19.4,
-     "parola": "fighting"
-    },
-    {
-     "tipo": "personaggio",
-     "nome": "Antonio Lopez de Santa Anna",
-     "descrizione": "19th-century Mexican general, military uniform, mustache",
-     "parola": "general"
-    },
-    {
-     "tipo": "conta",
-     "valore": 11,
-     "prefisso": "",
-     "suffisso": "X",
-     "sotto": "TIMES PRESIDENT",
-     "parola": "11"
+     "parola": "15"
     }
    ],
    "musica": "azione",
-   "stacco": false,
+   "stacco": true,
    "pin": {
-    "lon": -92,
-    "lat": 23,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Meanwhile, the US kept pushing west, and in 1846 the two countries went to war.",
-   "anteprima": false,
-   "vista": {
-    "lon": -102,
-    "lat": 32,
-    "larghezza": 40
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [
-    "MEX"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1846",
-     "parola": "1846"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -95,
-      30
-     ],
-     "a": [
-      -99,
-      19.4
-     ],
-     "icona": "soldier",
-     "parola": "war"
-    },
-    {
-     "tipo": "icona",
-     "icona": "cannon",
-     "lon": -97,
-     "lat": 26,
-     "parola": "war"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -112,
-    "lat": 42,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "On January 24th, 1848, a worker building a sawmill in California spotted gold in the river.",
-   "anteprima": false,
-   "vista": {
-    "lon": -121,
-    "lat": 38.8,
-    "larghezza": 8
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1848",
-     "parola": "1848"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "worker",
-     "n": 3,
-     "lon": -120.89,
-     "lat": 38.8,
-     "parola": "worker"
-    },
-    {
-     "tipo": "icona",
-     "icona": "gold_coins",
-     "lon": -120.9,
-     "lat": 38.78,
-     "parola": "gold"
-    }
-   ],
-   "musica": "mistero",
-   "stacco": false,
-   "pin": {
-    "lon": -118,
+    "lon": 90,
     "lat": 40,
     "faccia": "stupito"
    }
   },
   {
-   "testo": "Nine days later, Mexico signed the treaty that handed California to the United States, along with most of the Southwest.",
+   "testo": "Russia lost about a quarter of its territory and about half its people.",
    "anteprima": false,
    "vista": {
-    "lon": -108,
-    "lat": 34,
-    "larghezza": 36
+    "lon": 70,
+    "lat": 55,
+    "larghezza": 100
    },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
+   "epoca": "oggi",
+   "oro": [],
    "verde": [
-    "MEX"
+    "RUS"
    ],
    "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 9,
-     "prefisso": "",
-     "suffisso": "",
-     "sotto": "DAYS LATER",
-     "parola": "Nine"
-    },
-    {
-     "tipo": "confine",
-     "punti": [
-      [
-       -117.1,
-       32.5
-      ],
-      [
-       -114.8,
-       32.5
-      ],
-      [
-       -111,
-       31.3
-      ],
-      [
-       -108.2,
-       31.3
-      ],
-      [
-       -106.5,
-       31.8
-      ],
-      [
-       -104,
-       29.5
-      ],
-      [
-       -101,
-       29.7
-      ]
-     ],
-     "parola": "handed"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "HANDED OVER",
-     "parola": "treaty"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": true,
-   "pin": {
-    "lon": -120,
-    "lat": 45,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Nobody in Mexico City knew about the gold yet. The US paid 15 million dollars.",
-   "anteprima": false,
-   "vista": {
-    "lon": -105,
-    "lat": 30,
-    "larghezza": 50
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [
-    "MEX"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "question",
-     "lon": -99.1,
-     "lat": 19.4,
-     "parola": "knew"
-    },
-    {
-     "tipo": "prezzo",
-     "testo": "$15M",
-     "sotto": "WHAT THE US PAID",
-     "ricco": false,
-     "parola": "paid"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -115,
-    "lat": 42,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "In 1852 alone, California produced about 81 million dollars in gold. Mexico lost about half its territory.",
-   "anteprima": false,
-   "vista": {
-    "lon": -110,
-    "lat": 32,
-    "larghezza": 50
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [
-    "MEX"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1852",
-     "parola": "1852"
-    },
-    {
-     "tipo": "prezzo",
-     "testo": "$81M",
-     "sotto": "CALIFORNIA GOLD, 1852",
-     "ricco": true,
-     "parola": "81"
-    },
     {
      "tipo": "griglia",
      "paese": [
-      "MEX"
+      "RUS"
      ],
-     "pieni": 0.5,
-     "testo": "HALF LOST",
+     "pieni": 0.75,
+     "testo": "A QUARTER LOST",
      "colore": "verde",
-     "parola": "half"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -122,
-    "lat": 45,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "And that gold was five times the price Mexico was paid. The gold rush filled California with people chasing their own fortune.",
-   "anteprima": false,
-   "vista": {
-    "lon": -121,
-    "lat": 38,
-    "larghezza": 16
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "numero",
-     "testo": "x5",
-     "lon": -121.5,
-     "lat": 39.5,
-     "parola": "five"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "miner",
-     "n": 6,
-     "lon": -121,
-     "lat": 38.5,
-     "parola": "people"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -74,
-      40.7
-     ],
-     "a": [
-      -122.4,
-      37.8
-     ],
-     "icona": "cargo_ship",
-     "parola": "filled"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -117,
-    "lat": 42,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "After independence, the old colonial machine didn't disappear. It just switched products.",
-   "anteprima": false,
-   "vista": {
-    "lon": -70,
-    "lat": -5,
-    "larghezza": 100
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "PER",
-    "CHL",
-    "BRA",
-    "COL",
-    "VEN"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "factory",
-     "lon": -60,
-     "lat": -10,
-     "parola": "machine"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "NEW PRODUCT",
-     "parola": "products"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -45,
-    "lat": 10,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Peru sold guano, bird droppings, to fertilize European farms. Chile sold copper and nitrates.",
-   "anteprima": false,
-   "vista": {
-    "lon": -74,
-    "lat": -20,
-    "larghezza": 30
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "PER",
-    "CHL"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "cargo_ship",
-     "lon": -77.2,
-     "lat": -12,
-     "parola": "guano"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -77,
-      -12
-     ],
-     "a": [
-      -9,
-      38
-     ],
-     "icona": "cargo_ship",
-     "parola": "fertilize"
-    },
-    {
-     "tipo": "icona",
-     "icona": "mine",
-     "lon": -69,
-     "lat": -22.5,
-     "parola": "copper"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -62,
-    "lat": -10,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Brazil and Colombia sold coffee. Central America sold bananas, and Venezuela sold oil.",
-   "anteprima": false,
-   "vista": {
-    "lon": -65,
-    "lat": 2,
-    "larghezza": 70
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "BRA",
-    "COL",
-    "VEN",
-    "GTM",
-    "HND",
-    "CRI"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "coffee_sack",
-     "lon": -47,
-     "lat": -21,
-     "parola": "coffee"
-    },
-    {
-     "tipo": "icona",
-     "icona": "farm",
-     "lon": -85,
-     "lat": 14,
-     "parola": "bananas"
-    },
-    {
-     "tipo": "icona",
-     "icona": "oil_derrick",
-     "lon": -71.6,
-     "lat": 10.6,
-     "parola": "oil"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -55,
-    "lat": 14,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Each boom made a few families rich. Then prices crashed and took whole countries down with them.",
-   "anteprima": false,
-   "vista": {
-    "lon": -70,
-    "lat": -5,
-    "larghezza": 100
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "PER",
-    "CHL",
-    "BRA",
-    "VEN"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "chart_up",
-     "lon": -60,
-     "lat": -10,
-     "parola": "boom"
-    },
-    {
-     "tipo": "icona",
-     "icona": "chart_down",
-     "lon": -75,
-     "lat": -5,
-     "parola": "crashed"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "BUST",
-     "parola": "crashed"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": -45,
-    "lat": 8,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Peru controlled the world's fertilizer trade for 40 years, borrowed against it, and in 1876 still couldn't pay its debts.",
-   "anteprima": false,
-   "vista": {
-    "lon": -77,
-    "lat": -12,
-    "larghezza": 16
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "PER"
-   ],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 40,
-     "prefisso": "",
-     "suffisso": " YRS",
-     "sotto": "FERTILIZER KING",
-     "parola": "40"
-    },
-    {
-     "tipo": "anno",
-     "testo": "1876",
-     "parola": "1876"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "DEFAULT",
-     "parola": "debts"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -73,
-    "lat": -8,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Three years later, Chile, Peru and Bolivia went to war over the nitrate deserts of the Atacama.",
-   "anteprima": false,
-   "vista": {
-    "lon": -70,
-    "lat": -21,
-    "larghezza": 16
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "CHL",
-    "PER",
-    "BOL"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1879",
-     "parola": "Three"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "soldier",
-     "n": 5,
-     "lon": -70,
-     "lat": -21,
-     "parola": "war"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "ATACAMA NITRATES",
-     "lon": -69.5,
-     "lat": -23,
-     "parola": "Atacama"
-    }
-   ],
-   "musica": "azione",
-   "stacco": false,
-   "pin": {
-    "lon": -66,
-    "lat": -17,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Bolivia lost its entire coastline, and it has been landlocked ever since.",
-   "anteprima": false,
-   "vista": {
-    "lon": -69,
-    "lat": -21,
-    "larghezza": 14
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "BOL"
-   ],
-   "eventi": [
-    {
-     "tipo": "confine",
-     "punti": [
-      [
-       -70.3,
-       -18.3
-      ],
-      [
-       -70.2,
-       -22
-      ],
-      [
-       -70.1,
-       -24.2
-      ]
-     ],
-     "parola": "coastline"
-    },
-    {
-     "tipo": "contorno",
-     "paese": "BOL",
-     "parola": "landlocked"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "LANDLOCKED",
-     "parola": "landlocked"
-    }
-   ],
-   "musica": "",
-   "stacco": true,
-   "pin": {
-    "lon": -66,
-    "lat": -17,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "The worst crash came in the 1980s. In August 1982, Mexico told its lenders it couldn't pay, and the crisis spread across the region.",
-   "anteprima": false,
-   "vista": {
-    "lon": -80,
-    "lat": 5,
-    "larghezza": 120
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "MEX",
-    "BRA",
-    "ARG",
-    "VEN",
-    "PER",
-    "CHL",
-    "COL"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1982",
-     "parola": "1982"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "CAN'T PAY",
-     "parola": "pay"
-    },
-    {
-     "tipo": "icona",
-     "icona": "chart_down",
-     "lon": -99,
-     "lat": 19.4,
-     "parola": "crisis"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": -50,
-    "lat": 25,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "By 1990, the average Latin American was poorer than in 1980. Over the same years, the average American got about a quarter richer.",
-   "anteprima": false,
-   "vista": {
-    "lon": -80,
-    "lat": 15,
-    "larghezza": 120
-   },
-   "epoca": "oggi",
-   "oro": [
-    "USA"
-   ],
-   "verde": [
-    "MEX",
-    "BRA",
-    "ARG",
-    "VEN",
-    "PER",
-    "CHL",
-    "COL"
-   ],
-   "eventi": [
-    {
-     "tipo": "barre",
-     "titolo": "INCOME CHANGE 1980-90",
-     "voci": [
-      {
-       "testo": "USA",
-       "valore": 25,
-       "lato": "oro"
-      },
-      {
-       "testo": "LATIN AMERICA",
-       "valore": -5,
-       "lato": "verde"
-      }
-     ],
      "parola": "quarter"
     },
     {
-     "tipo": "solleva",
-     "paese": [
-      "USA"
-     ],
-     "volte": 3,
-     "testo": "+25%",
-     "colore": "oro",
-     "parola": "richer"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -60,
-    "lat": 30,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Latin Americans have a name for it: the lost decade.",
-   "anteprima": false,
-   "vista": {
-    "lon": -75,
-    "lat": -5,
-    "larghezza": 100
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "MEX",
-    "BRA",
-    "ARG",
-    "PER",
-    "CHL",
-    "COL"
-   ],
-   "eventi": [
-    {
-     "tipo": "scritta",
-     "testo": "LOST DECADE",
-     "parola": "lost"
-    },
-    {
-     "tipo": "icona",
-     "icona": "hourglass",
-     "lon": -65,
-     "lat": -10,
-     "parola": "decade"
+     "tipo": "contatore",
+     "testo": "ABOUT 1 IN 2",
+     "su": 1,
+     "di": 2,
+     "personaggio": "family",
+     "parola": "half"
     }
    ],
    "musica": "malinconia",
    "stacco": false,
    "pin": {
-    "lon": -50,
-    "lat": 12,
+    "lon": 50,
+    "lat": 42,
     "faccia": "normale"
    }
   },
   {
-   "testo": "So, back to that mountain. Nearly 500 years later, around 15,000 miners still work inside Cerro Rico.",
+   "testo": "So let's score it. Geography: Russia got a plain with no walls. Europe got peninsulas and mountains.",
    "anteprima": false,
    "vista": {
-    "lon": -65.75,
-    "lat": -19.6,
-    "larghezza": 8
+    "lon": 40,
+    "lat": 52,
+    "larghezza": 100
    },
    "epoca": "oggi",
-   "oro": [],
+   "oro": [
+    "FRA",
+    "DEU",
+    "ITA",
+    "ESP",
+    "POL",
+    "GBR"
+   ],
    "verde": [
-    "BOL"
+    "RUS"
    ],
    "eventi": [
     {
      "tipo": "etichetta",
-     "testo": "CERRO RICO",
-     "lon": -65.75,
-     "lat": -19.6,
-     "parola": "mountain"
-    },
-    {
-     "tipo": "conta",
-     "valore": 15000,
-     "prefisso": "~",
-     "suffisso": "",
-     "sotto": "MINERS TODAY",
-     "parola": "15,000"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "miner",
-     "n": 5,
-     "lon": -65.7,
-     "lat": -19.55,
-     "parola": "miners"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": -64,
-    "lat": -18.5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "It's been dug so hollow that its summit caved in, and the hole had to be filled with cement. UNESCO now lists it as a world heritage site in danger.",
-   "anteprima": false,
-   "vista": {
-    "lon": -65.75,
-    "lat": -19.6,
-    "larghezza": 6
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "BOL"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "mountain",
-     "lon": -65.75,
-     "lat": -19.6,
-     "parola": "summit"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "IN DANGER",
-     "parola": "danger"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -64.5,
-    "lat": -18.8,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Today, Latin America still mines more than half of the world's silver, and Mexico is the biggest producer on Earth.",
-   "anteprima": false,
-   "vista": {
-    "lon": -85,
-    "lat": 5,
-    "larghezza": 120
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "MEX",
-    "PER",
-    "BOL",
-    "CHL"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "silver_bars",
-     "lon": -102.6,
-     "lat": 22.8,
-     "parola": "silver"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "MEXICO: #1 SILVER",
-     "lon": -103,
-     "lat": 24,
-     "parola": "Mexico"
-    },
-    {
-     "tipo": "contorno",
-     "paese": "MEX",
-     "parola": "producer"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -60,
-    "lat": 20,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "And yet Americans still produce about eight times more per person than Latin Americans, and over 17 times more than Bolivians.",
-   "anteprima": false,
-   "vista": {
-    "lon": -85,
-    "lat": 5,
-    "larghezza": 120
-   },
-   "epoca": "oggi",
-   "oro": [
-    "USA"
-   ],
-   "verde": [
-    "MEX",
-    "BOL",
-    "BRA",
-    "PER"
-   ],
-   "eventi": [
-    {
-     "tipo": "prezzo",
-     "testo": "$82,000",
-     "sotto": "USA · PER PERSON",
-     "ricco": true,
-     "parola": "Americans"
-    },
-    {
-     "tipo": "prezzo",
-     "testo": "$4,800",
-     "sotto": "BOLIVIA · PER PERSON",
-     "ricco": false,
-     "parola": "Bolivians"
-    },
-    {
-     "tipo": "solleva",
-     "paese": [
-      "USA"
-     ],
-     "volte": 12,
-     "testo": "x17",
-     "colore": "oro",
-     "parola": "17"
-    }
-   ],
-   "musica": "",
-   "stacco": true,
-   "pin": {
-    "lon": -60,
-    "lat": 28,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "But here's the honest part. This gap wasn't written in the soil.",
-   "anteprima": false,
-   "vista": {
-    "lon": -85,
-    "lat": 15,
-    "larghezza": 120
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "scritta",
-     "testo": "NOT FATE",
-     "parola": "soil"
-    },
-    {
-     "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": -95,
-     "lat": 22,
-     "parola": "written"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": -60,
-    "lat": 25,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "In 1700, by that famous estimate, Mexico was almost level. By 1800 it had fallen to half. By 1900, to about a third.",
-   "anteprima": false,
-   "vista": {
-    "lon": -95,
-    "lat": 30,
-    "larghezza": 60
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [
-    "MEX"
-   ],
-   "eventi": [
-    {
-     "tipo": "barre",
-     "titolo": "MEXICO VS USA INCOME",
-     "voci": [
-      {
-       "testo": "1700",
-       "valore": 90,
-       "lato": "verde"
-      },
-      {
-       "testo": "1800",
-       "valore": 50,
-       "lato": "verde"
-      },
-      {
-       "testo": "1900",
-       "valore": 33,
-       "lato": "verde"
-      }
-     ],
-     "parola": "1700"
-    },
-    {
-     "tipo": "anno",
-     "testo": "1900",
-     "parola": "third"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -85,
-    "lat": 18,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "The gap opened while the rules were being written, and rules can change.",
-   "anteprima": false,
-   "vista": {
-    "lon": -80,
-    "lat": 10,
-    "larghezza": 120
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": -90,
-     "lat": 15,
-     "parola": "rules"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "RULES CHANGE",
-     "parola": "change"
-    }
-   ],
-   "musica": "",
-   "stacco": true,
-   "pin": {
-    "lon": -60,
-    "lat": 25,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Chile, Uruguay and Panama are now classed as high-income countries by the World Bank.",
-   "anteprima": false,
-   "vista": {
-    "lon": -70,
-    "lat": -15,
-    "larghezza": 70
-   },
-   "epoca": "oggi",
-   "oro": [
-    "CHL",
-    "URY",
-    "PAN"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "conta_paesi",
-     "paesi": [
-      "CHL",
-      "URY",
-      "PAN"
-     ],
-     "colore": "verde",
-     "parola": "Chile"
-    },
-    {
-     "tipo": "icona",
-     "icona": "chart_up",
-     "lon": -71,
-     "lat": -33,
-     "parola": "high-income"
-    }
-   ],
-   "musica": "trionfo",
-   "stacco": false,
-   "pin": {
-    "lon": -60,
-    "lat": -5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Uruguay, which never had any silver, now produces almost five times as much per person as Bolivia.",
-   "anteprima": false,
-   "vista": {
-    "lon": -60,
-    "lat": -27,
-    "larghezza": 40
-   },
-   "epoca": "oggi",
-   "oro": [
-    "URY"
-   ],
-   "verde": [
-    "BOL"
-   ],
-   "eventi": [
-    {
-     "tipo": "solleva",
-     "paese": [
-      "URY"
-     ],
-     "volte": 5,
-     "testo": "x5",
-     "colore": "oro",
-     "parola": "five"
-    },
-    {
-     "tipo": "prezzo",
-     "testo": "$23,000",
-     "sotto": "URUGUAY · PER PERSON",
-     "ricco": true,
-     "parola": "Uruguay"
-    },
-    {
-     "tipo": "prezzo",
-     "testo": "$4,800",
-     "sotto": "BOLIVIA · PER PERSON",
-     "ricco": false,
-     "parola": "Bolivia"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -52,
-    "lat": -20,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "So, the scorecard. Geography: the South had the better start, with big cities, rich land and huge populations.",
-   "anteprima": false,
-   "vista": {
-    "lon": -85,
-    "lat": 10,
-    "larghezza": 120
-   },
-   "epoca": "oggi",
-   "oro": [
-    "USA"
-   ],
-   "verde": [
-    "MEX",
-    "PER",
-    "BOL",
-    "COL",
-    "BRA"
-   ],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "merchant",
-     "n": 4,
-     "lon": -99,
-     "lat": 19.4,
-     "parola": "cities"
+     "testo": "GEOGRAPHY",
+     "lon": 40,
+     "lat": 62,
+     "parola": "Geography"
     },
     {
      "tipo": "icona",
      "icona": "wheat",
-     "lon": -72,
-     "lat": -13,
-     "parola": "land"
+     "lon": 55,
+     "lat": 55,
+     "parola": "plain"
     },
     {
-     "tipo": "colonna",
-     "testo": "SOUTH",
-     "valore": 1.0,
-     "lon": -80,
-     "lat": -5,
-     "parola": "South"
+     "tipo": "icona",
+     "icona": "mountain",
+     "lon": 10,
+     "lat": 46.5,
+     "parola": "mountains"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 80,
+    "lat": 45,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Resources: Russia got fur and endless land. Europe got ports and trade. History: Russia had the Mongols and one Tsar.",
+   "anteprima": false,
+   "vista": {
+    "lon": 40,
+    "lat": 52,
+    "larghezza": 100
+   },
+   "epoca": "oggi",
+   "oro": [
+    "FRA",
+    "DEU",
+    "ITA",
+    "ESP",
+    "POL",
+    "GBR"
+   ],
+   "verde": [
+    "RUS"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "money_bag",
+     "lon": 70,
+     "lat": 60,
+     "parola": "fur"
+    },
+    {
+     "tipo": "icona",
+     "icona": "port",
+     "lon": 4,
+     "lat": 51.5,
+     "parola": "ports"
+    },
+    {
+     "tipo": "icona",
+     "icona": "swords",
+     "lon": 45,
+     "lat": 52,
+     "parola": "Mongols"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 80,
+    "lat": 45,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Europe had a Pope against an Emperor. Decisions: Russia chose one ruler. Europe, in the end, chose to compete.",
+   "anteprima": false,
+   "vista": {
+    "lon": 30,
+    "lat": 52,
+    "larghezza": 120
+   },
+   "epoca": "oggi",
+   "oro": [
+    "FRA",
+    "DEU",
+    "ITA",
+    "ESP",
+    "POL",
+    "GBR"
+   ],
+   "verde": [
+    "RUS"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "church",
+     "lon": 12.5,
+     "lat": 41.9,
+     "parola": "Pope"
+    },
+    {
+     "tipo": "icona",
+     "icona": "crown",
+     "lon": 37.6,
+     "lat": 55.75,
+     "parola": "ruler"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "COMPETE",
+     "parola": "compete"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 90,
+    "lat": 45,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "The plain gave Russia its size. The walls gave Europe its rivals, and the rivals made it rich.",
+   "anteprima": false,
+   "vista": {
+    "lon": 30,
+    "lat": 52,
+    "larghezza": 130
+   },
+   "epoca": "oggi",
+   "oro": [
+    "FRA",
+    "DEU",
+    "ITA",
+    "ESP",
+    "POL",
+    "GBR"
+   ],
+   "verde": [
+    "RUS"
+   ],
+   "eventi": [
+    {
+     "tipo": "solleva",
+     "paese": [
+      "RUS"
+     ],
+     "volte": 6,
+     "testo": "SIZE",
+     "colore": "verde",
+     "parola": "size"
+    },
+    {
+     "tipo": "solleva",
+     "paese": [
+      "FRA",
+      "DEU",
+      "ITA",
+      "ESP",
+      "POL",
+      "GBR"
+     ],
+     "volte": 9,
+     "testo": "WEALTH",
+     "colore": "oro",
+     "parola": "rich"
     }
    ],
    "musica": "epico",
    "stacco": false,
    "pin": {
-    "lon": -60,
-    "lat": 30,
+    "lon": 80,
+    "lat": 42,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Resources: the South again, by a mountain. And that's exactly where things went wrong.",
+   "testo": "And Europe did finally come together. Not with an army, but with treaties. Today, 27 countries share one market.",
    "anteprima": false,
    "vista": {
-    "lon": -70,
-    "lat": -15,
-    "larghezza": 70
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "BOL",
-    "PER",
-    "MEX"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "mountain",
-     "lon": -65.75,
-     "lat": -19.6,
-     "parola": "mountain"
-    },
-    {
-     "tipo": "icona",
-     "icona": "silver_bars",
-     "lon": -102.6,
-     "lat": 22.8,
-     "parola": "Resources"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "WRONG",
-     "parola": "wrong"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -55,
-    "lat": -5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "History: the South got rules built to take things out. The North got rules built to bring people in.",
-   "anteprima": false,
-   "vista": {
-    "lon": -80,
-    "lat": 15,
-    "larghezza": 120
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [
-    "MEX",
-    "PER",
-    "BOL"
-   ],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      -65.75,
-      -19.6
-     ],
-     "a": [
-      -6,
-      37
-     ],
-     "icona": "silver_bars",
-     "parola": "out"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -0.1,
-      51.5
-     ],
-     "a": [
-      -76.5,
-      37.2
-     ],
-     "icona": "colonist",
-     "parola": "in"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -45,
-    "lat": 30,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Decisions: two centuries of wars, coups, booms and busts, against two centuries of land, schools and votes for far more people.",
-   "anteprima": false,
-   "vista": {
-    "lon": -85,
-    "lat": 15,
-    "larghezza": 120
+    "lon": 15,
+    "lat": 52,
+    "larghezza": 50
    },
    "epoca": "oggi",
    "oro": [
-    "USA"
-   ],
-   "verde": [
-    "MEX",
-    "PER",
-    "BOL",
-    "BRA",
-    "COL"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "swords",
-     "lon": -70,
-     "lat": -10,
-     "parola": "wars"
-    },
-    {
-     "tipo": "icona",
-     "icona": "school",
-     "lon": -90,
-     "lat": 38,
-     "parola": "schools"
-    },
-    {
-     "tipo": "icona",
-     "icona": "ballot_box",
-     "lon": -100,
-     "lat": 40,
-     "parola": "votes"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -55,
-    "lat": 28,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "So why did the US get rich while Latin America never did? Not because it had more. Because it had less.",
-   "anteprima": false,
-   "vista": {
-    "lon": -85,
-    "lat": 15,
-    "larghezza": 120
-   },
-   "epoca": "oggi",
-   "oro": [
-    "USA"
-   ],
-   "verde": [
-    "MEX",
-    "BOL",
-    "PER",
-    "BRA"
-   ],
-   "eventi": [
-    {
-     "tipo": "solleva",
-     "paese": [
-      "USA"
-     ],
-     "volte": 8,
-     "testo": "x8",
-     "colore": "oro",
-     "parola": "rich"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "LESS",
-     "parola": "less"
-    }
-   ],
-   "musica": "trionfo",
-   "stacco": true,
-   "pin": {
-    "lon": -60,
-    "lat": 28,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "The richest mountain on Earth made other countries rich. The places with nothing to dig had to build something instead.",
-   "anteprima": false,
-   "vista": {
-    "lon": -45,
-    "lat": 15,
-    "larghezza": 200
-   },
-   "epoca": "oggi",
-   "oro": [
-    "USA",
-    "GBR",
-    "FRA"
-   ],
-   "verde": [
-    "BOL"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "mountain",
-     "lon": -65.75,
-     "lat": -19.6,
-     "parola": "mountain"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -65.75,
-      -19.6
-     ],
-     "a": [
-      2,
-      48
-     ],
-     "icona": "silver_bars",
-     "parola": "other"
-    },
-    {
-     "tipo": "icona",
-     "icona": "factory",
-     "lon": -77,
-     "lat": 40,
-     "parola": "build"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -30,
-    "lat": 30,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Switzerland is the extreme version of that story: no silver, no sea, nothing to dig, and one of the richest countries on Earth.",
-   "anteprima": false,
-   "vista": {
-    "lon": 8.2,
-    "lat": 46.8,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [
-    "CHE"
+    "FRA",
+    "DEU",
+    "ITA",
+    "ESP",
+    "POL",
+    "NLD",
+    "BEL",
+    "AUT",
+    "SWE",
+    "DNK",
+    "FIN",
+    "IRL",
+    "PRT",
+    "GRC",
+    "CZE",
+    "HUN",
+    "ROU",
+    "BGR",
+    "HRV",
+    "SVK",
+    "SVN",
+    "LTU",
+    "LVA",
+    "EST",
+    "LUX",
+    "CYP",
+    "MLT"
    ],
    "verde": [],
    "eventi": [
     {
-     "tipo": "contorno",
-     "paese": "CHE",
-     "parola": "Switzerland"
-    },
-    {
-     "tipo": "solleva",
-     "paese": [
-      "CHE"
-     ],
-     "volte": 10,
-     "testo": "RICH",
-     "colore": "oro",
-     "parola": "richest"
-    },
-    {
-     "tipo": "prezzo",
-     "testo": "$90,000",
-     "sotto": "SWITZERLAND · PER PERSON",
-     "ricco": true,
-     "parola": "richest"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 11,
-    "lat": 48,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "When you start with nothing, you have to build rules that bring people in. That one decision is worth more than any mountain of silver.",
-   "anteprima": false,
-   "vista": {
-    "lon": -30,
-    "lat": 30,
-    "larghezza": 240
-   },
-   "epoca": "oggi",
-   "oro": [
-    "USA",
-    "CHE"
-   ],
-   "verde": [
-    "BOL"
-   ],
-   "eventi": [
-    {
-     "tipo": "scritta",
-     "testo": "RULES WIN",
-     "parola": "decision"
-    },
-    {
      "tipo": "icona",
      "icona": "scroll_law",
-     "lon": -98,
-     "lat": 39,
-     "parola": "rules"
+     "lon": 4.35,
+     "lat": 50.85,
+     "parola": "treaties"
     },
     {
-     "tipo": "numero",
-     "testo": "x8",
-     "lon": -98,
-     "lat": 32,
-     "parola": "mountain"
+     "tipo": "conta_paesi",
+     "paesi": [
+      "FRA",
+      "DEU",
+      "ITA",
+      "ESP",
+      "POL",
+      "NLD",
+      "BEL",
+      "AUT",
+      "SWE",
+      "DNK"
+     ],
+     "colore": "oro",
+     "parola": "27"
+    },
+    {
+     "tipo": "nota",
+     "testo": "27 countries, one market",
+     "parola": "market"
     }
    ],
    "musica": "trionfo",
    "stacco": false,
    "pin": {
-    "lon": -40,
+    "lon": 30,
+    "lat": 46,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Think back to 1648. A Russian sailor at the edge of Asia, diplomats in Westphalia. One side was building the biggest country on Earth. The other agreed to stay in pieces.",
+   "anteprima": false,
+   "vista": {
+    "lon": 90,
+    "lat": 52,
+    "larghezza": 220
+   },
+   "epoca": "antica",
+   "oro": [
+    "DEU"
+   ],
+   "verde": [
+    "RUS"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1648",
+     "parola": "1648"
+    },
+    {
+     "tipo": "icona",
+     "icona": "galleon",
+     "lon": 170,
+     "lat": 66,
+     "parola": "sailor"
+    },
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": 7.6,
+     "lat": 52,
+     "parola": "Westphalia"
+    },
+    {
+     "tipo": "nota",
+     "testo": "One built a giant, one stayed split",
+     "parola": "pieces"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": 50,
     "lat": 40,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Russia won the land. Europe won the money.",
+   "anteprima": false,
+   "vista": {
+    "lon": 40,
+    "lat": 52,
+    "larghezza": 130
+   },
+   "epoca": "oggi",
+   "oro": [
+    "FRA",
+    "DEU",
+    "ITA",
+    "ESP",
+    "POL",
+    "GBR"
+   ],
+   "verde": [
+    "RUS"
+   ],
+   "eventi": [
+    {
+     "tipo": "prezzo",
+     "testo": "$43,000",
+     "sotto": "EU · PER PERSON",
+     "ricco": true,
+     "parola": "money"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "LAND VS MONEY",
+     "parola": "land"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Russia won land, Europe won money",
+     "parola": "money"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": false,
+   "pin": {
+    "lon": 85,
+    "lat": 45,
     "faccia": "normale"
    }
   }
