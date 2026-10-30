@@ -39,11 +39,20 @@ log('font:', NOME_FONT)
 
 # 2) voce con i tempi di ogni lettera
 testo = re.sub(r'\s+', ' ', P['testo']).strip()
-req = urllib.request.Request(f"https://api.elevenlabs.io/v1/text-to-speech/{P.get('voce') or 'ppLqTilh7rH7fbUVlXsf'}/with-timestamps",
+cache_v, cache_j = os.path.join(CART, 'voce.mp3'), os.path.join(CART, 'voce.json')
+if os.path.exists(cache_v) and os.path.exists(cache_j) and json.load(open(cache_j)).get('testo') == testo and json.load(open(cache_j)).get('voce') == P.get('voce'):
+    r = json.load(open(cache_j)); r['audio_base64'] = base64.b64encode(open(cache_v, 'rb').read()).decode()
+    log('voce gia\' pronta: riusata (nessun credito)')
+else:
+    r = None
+if r is None:
+  req = urllib.request.Request(f"https://api.elevenlabs.io/v1/text-to-speech/{P.get('voce') or 'ppLqTilh7rH7fbUVlXsf'}/with-timestamps",
                              data=json.dumps({'text': testo, 'model_id': P.get('modello_voce') or 'eleven_multilingual_v2',
                                               'voice_settings': {'stability': 0.5, 'similarity_boost': 0.8, 'style': 0.2}}).encode(),
                              headers={'xi-api-key': K, 'Content-Type': 'application/json'})
-r = json.loads(urllib.request.urlopen(req, timeout=300).read())
+  r = json.loads(urllib.request.urlopen(req, timeout=300).read())
+  open(cache_v, 'wb').write(base64.b64decode(r['audio_base64']))
+  json.dump({'testo': testo, 'voce': P.get('voce'), 'alignment': r.get('alignment'), 'normalized_alignment': r.get('normalized_alignment')}, open(cache_j, 'w'))
 voce = os.path.join(LAV, 'voce.mp3'); open(voce, 'wb').write(base64.b64decode(r['audio_base64']))
 al = r.get('alignment') or r.get('normalized_alignment')
 ch, t0s, t1s = al['characters'], al['character_start_times_seconds'], al['character_end_times_seconds']
@@ -126,15 +135,86 @@ for a, b, t in ev:
     ass.append(f'Dialogue: 0,{ts(a)},{ts(b)},T,,0,0,0,,{{\\pos({xc},{yc})}}{t}')
 pa = os.path.join(LAV, 'testo.ass'); open(pa, 'w').write('\n'.join(ass) + '\n')
 
-# 5) montaggio + volume standard YouTube
-out = os.path.join(LAV, 'video.mp4')
+# 5) MOVIMENTO: effetti sopra la statua ferma (cenere, zoom lento, fumo, luce che respira)
+import math, random
+
+
+def strato_cenere(dur, out):
+    """cenere grigio-chiara che sale lenta, fiocchi di 3 grandezze (i grandi sfocati = piu' vicini). Si somma (schiarisci)."""
+    rnd = random.Random(11); w, h = W // 2, H // 2; nf = int(dur * FPS)
+    parts = []
+    for _ in range(140):
+        z = rnd.choice((1, 1, 1, 2, 2, 3))
+        parts.append({'x': rnd.uniform(0, w), 'y0': rnd.uniform(0, h), 'v': rnd.uniform(6, 16) * z, 'r': rnd.uniform(.6, 1.3) * z,
+                      'dx': rnd.uniform(-5, 5), 'f': rnd.uniform(.2, .9), 'fase': rnd.uniform(0, 6.3), 'z': z})
+    pr = subprocess.Popen(['ffmpeg', '-y', '-v', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{w}x{h}', '-r', str(FPS), '-i', '-',
+                           '-vf', f'scale={W}:{H}', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20', '-pix_fmt', 'yuv420p', out], stdin=subprocess.PIPE)
+    for i in range(nf):
+        t = i / FPS
+        lay = {z: Image.new('L', (w, h)) for z in (1, 2, 3)}
+        for q in parts:
+            y = (q['y0'] - q['v'] * t) % (h + 20) - 10
+            x = (q['x'] + q['dx'] * t + 6 * math.sin(q['f'] * t + q['fase'])) % w
+            luce = int((110 + 90 * math.sin(1.7 * t + q['fase'])) * (1.0 if q['z'] < 3 else .8))
+            r = q['r']; ImageDraw.Draw(lay[q['z']]).ellipse([x - r, y - r, x + r, y + r], fill=max(40, luce))
+        im = Image.merge('RGB', [lay[1]] * 3)
+        for z, bl in ((2, 1.2), (3, 2.6)):
+            im = Image.composite(Image.merge('RGB', [lay[z]] * 3).filter(ImageFilter.GaussianBlur(bl)), im, lay[z].filter(ImageFilter.GaussianBlur(bl)))
+        pr.stdin.write(im.tobytes())
+    pr.stdin.close(); pr.wait()
+    return out
+
+
+def strato_fumo(out, secondi=20):
+    """nebbia bassa che scorre piano da sinistra a destra (texture larga che scorre in loop)"""
+    rnd = random.Random(5); tw, th = W * 2, H
+    tex = Image.new('L', (tw // 8, th // 8))
+    tex.putdata([rnd.randint(0, 255) for _ in range((tw // 8) * (th // 8))])
+    tex = tex.resize((tw, th), Image.BICUBIC).filter(ImageFilter.GaussianBlur(60))
+    tex = ImageOps.autocontrast(tex)
+    grad = Image.linear_gradient('L').resize((tw, th))   # piu' denso in basso
+    tex = Image.composite(tex, Image.new('L', (tw, th)), grad).point(lambda v: int(v * .55))
+    Image.merge('RGB', [tex] * 3).save(os.path.join(LAV, 'fumo.png'))
+    subprocess.run(['ffmpeg', '-y', '-v', 'error', '-loop', '1', '-i', os.path.join(LAV, 'fumo.png'), '-t', str(secondi), '-r', str(FPS),
+                    '-vf', f"crop={W}:{H}:x='(t/{secondi})*{W}':y=0,format=yuv420p", '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '22', out], check=True)
+    return out
+
+
+def monta(effetti, nome_out):
+    dur = durata + .4
+    ingr = ['-loop', '1', '-framerate', str(FPS), '-i', sfondo, '-i', voce]
+    if 'zoom' in effetti:   # spinta lenta in avanti (1,00 -> 1,06), centrata sulla statua
+        nf = int(dur * FPS)
+        base = (f"[0:v]scale={W * 2}:{H * 2},zoompan=z='1+0.06*on/{nf}':x='(iw-iw/zoom)*0.3':y='(ih-ih/zoom)*0.35':"
+                f"d=1:s={W}x{H}:fps={FPS}[b0]")
+    else:
+        base = '[0:v]null[b0]'
+    f, cur, n = base, '[b0]', 2
+    if 'respiro' in effetti:
+        f += f";{cur}eq=brightness='0.025*sin(2*PI*t/6)':eval=frame[br]"; cur = '[br]'
+    if 'fumo' in effetti:
+        ingr += ['-stream_loop', '-1', '-i', strato_fumo(os.path.join(LAV, 'fumo.mp4'))]
+        f += f";[{n}:v]format=gbrp[fm];{cur}format=gbrp[bb];[bb][fm]blend=all_mode=screen:all_opacity=0.45,format=yuv420p[fu]"; cur = '[fu]'; n += 1
+    if 'cenere' in effetti:
+        cen = os.path.join(LAV, 'cenere.mp4')
+        if not os.path.exists(cen):
+            strato_cenere(12, cen)
+        ingr += ['-stream_loop', '-1', '-i', cen]
+        f += f";[{n}:v]format=gbrp[cn];{cur}format=gbrp[bc];[bc][cn]blend=all_mode=lighten,format=yuv420p[ce]"; cur = '[ce]'; n += 1
+    f += f";{cur}ass={pa}:fontsdir={os.path.dirname(fnt)},format=yuv420p[v];[1:a]loudnorm=I={lufs}:TP=-1.0:LRA=11,aresample=48000[a]"
+    out = os.path.join(LAV, nome_out)
+    subprocess.run(['ffmpeg', '-y', '-v', 'error'] + ingr + ['-filter_complex', f, '-map', '[v]', '-map', '[a]', '-t', f'{dur:.2f}',
+                    '-c:v', 'libx264', '-preset', 'medium', '-crf', '20', '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', out], check=True)
+    os.replace(out, os.path.join(CART, nome_out))
+    log('pronto:', nome_out, effetti)
+
+
 lufs = float(P.get('lufs') or -14)
-subprocess.run(['ffmpeg', '-y', '-v', 'error', '-loop', '1', '-framerate', str(FPS), '-i', sfondo, '-i', voce,
-                '-filter_complex', f"[0:v]ass={pa}:fontsdir={os.path.dirname(fnt)},format=yuv420p[v];[1:a]loudnorm=I={lufs}:TP=-1.0:LRA=11,aresample=48000[a]",
-                '-map', '[v]', '-map', '[a]', '-t', f'{durata + .4:.2f}', '-c:v', 'libx264', '-preset', 'medium', '-crf', '20',
-                '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', out], check=True)
-os.replace(out, os.path.join(CART, 'video.mp4'))
+varianti = P.get('varianti') or {'video': P.get('effetti') or []}
+for nome, eff in varianti.items():
+    monta(eff, nome + '.mp4')
+primo = os.path.join(CART, list(varianti)[0] + '.mp4')
 for i, tt in enumerate([1.5, durata * .35, durata * .65, durata - 1], 1):
-    subprocess.run(['ffmpeg', '-y', '-v', 'error', '-ss', f'{tt:.2f}', '-i', os.path.join(CART, 'video.mp4'), '-frames:v', '1',
+    subprocess.run(['ffmpeg', '-y', '-v', 'error', '-ss', f'{tt:.2f}', '-i', primo, '-frames:v', '1',
                     '-vf', 'scale=960:-1', os.path.join(CART, f'fotogramma_{i}.jpg')])
-log('FATTO', os.path.getsize(os.path.join(CART, 'video.mp4')) // 1000, 'KB')
+log('FATTO')
