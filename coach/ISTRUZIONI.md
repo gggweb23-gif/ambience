@@ -62,8 +62,12 @@ finché i parametri sono rispettati, senza buttare il lavoro fatto. Rispondi e s
         scegliendo la modifica più probabile guardando i dati (video migliori del canale vs peggiori, copertine del competitor).
      c. Se la modifica è visiva, fai prima una prova breve (es. workflow "Prova breve motore statua + karaoke") e guarda il risultato.
      d. Aggiorna `ricetta.json` (`versione_attiva`, nuova voce in `versioni`, una riga in `registro`), commit e push.
-5. Manda a Giorgio un messaggio BREVE (notifica): per ogni canale stato, misure (CTR, ret 30 s, ret 60 s sui video della finestra),
-   cosa hai cambiato e perché, spesa delle prove. Niente altro.
+5. Messaggio a Giorgio (regola di Giorgio, 30 ott 2026), il piu' corto possibile per risparmiare:
+   - Scrivi SOLO per i canali dove hai CAMBIATO qualcosa (o tornato indietro): una riga per canale =
+     "<canale>: medie CTR x% · ret30 y% · ret60 z% -> cambiato <cosa> (versione n)". Piu' la spesa delle prove, se c'e' stata.
+   - Se un canale ha raggiunto i parametri: "PARAMETRI RAGGIUNTI: <canale>" in cima.
+   - Se non hai cambiato nulla in nessun canale: una sola riga "Coach: nessuna modifica". Nient'altro, niente spiegazioni.
+   - Lavora in modo economico: se coach_calcola.py da' ATTESA o OK per tutti, non analizzare altro e chiudi subito.
 
 ## Catalogo delle leve (parametri che il motore legge già)
 I nomi nei `parametri` della ricetta devono essere quelli che il MOTORE legge dal payload (controlla nel codice: per esempio
