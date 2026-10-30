@@ -20,7 +20,7 @@ def sagoma_foto(iso, query):
         if iso in {str(p.get('ADM0_A3')), str(p.get('ISO_A3'))}:
             gm = f['geometry']; polys = gm['coordinates'] if gm['type'] == 'MultiPolygon' else [gm['coordinates']]
             anelli = sorted([np.array(pp[0]) for pp in polys], key=len, reverse=True)
-    w, h = 1300, 720
+    w, h = 1280 - int(1280 * .42), 720   # esattamente la parte della foto: la sagoma non viene mai tagliata
     tutti = np.concatenate(anelli[:4]); lo0, lo1, la0, la1 = tutti[:, 0].min(), tutti[:, 0].max(), tutti[:, 1].min(), tutti[:, 1].max()
     sc = min(w * .78 / (lo1 - lo0), h * .82 / (la1 - la0)); ox = (w - (lo1 - lo0) * sc) / 2; oy = (h - (la1 - la0) * sc) / 2
     pt = lambda lo, la: (ox + (lo - lo0) * sc, oy + (la1 - la) * sc)
@@ -34,7 +34,7 @@ def sagoma_foto(iso, query):
     base.paste(Image.new('RGB', (w, h), CF.GIALLO), (0, 0), alone.point(lambda x: int(x * .8)))
     base.paste(Image.new('RGB', (w, h), CF.BIANCO), (0, 0), m.filter(ImageFilter.MaxFilter(7)))
     base.paste(ImageOps.fit(im_f, (w, h)), (0, 0), m)
-    return base, [.1, .1, .9, .9]
+    return base, [0, 0, 1, 1]
 
 
 for c in P.get('copertine') or []:
