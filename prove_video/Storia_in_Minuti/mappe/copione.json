@@ -1,8 +1,8 @@
 {
- "titolo": "L'INTERA Storia degli Stati Uniti in 12 Minuti",
+ "titolo": "L'Intera Storia degli Stati Uniti in 12 Minuti",
  "numero": {
   "testo": "1492",
-  "sotto": "L'ANNO DELL'ERRORE PIÙ FORTUNATO"
+  "sotto": "L'ERRORE CHE HA CREATO UNA SUPERPOTENZA"
  },
  "copertina": {
   "testo": "UN ERRORE?",
@@ -29,26 +29,26 @@
    [
     "galleon",
     -76,
-    36
+    37
    ],
    [
     "cabin",
-    -85,
-    41
+    -90,
+    35
    ],
    [
     "steam_train",
-    -100,
-    39
+    -98,
+    40
    ],
    [
     "factory",
     -118,
-    37
+    38
    ]
   ]
  },
- "descrizione": "Gli Stati Uniti sono la nazione più ricca, influente e potente della storia. Ma sapevi che la loro ascesa è nata da un enorme errore geografico? Per oltre un secolo nessuno voleva il Nord America.\n\nIn questo viaggio con mappe animate partiamo dal 1492 e da Cristoforo Colombo, che cercava l'India e trovò i Caraibi. Vedremo perché la Spagna guardò a sud, come venne diviso il mondo con una linea e come un confine ignorato è diventato un impero.",
+ "descrizione": "Oggi gli Stati Uniti sono la nazione più ricca e potente della storia. Ma sapevi che la loro ascesa è nata da un enorme errore geografico? Per più di cent'anni, quasi nessuno voleva il Nord America.\n\nIn questo viaggio sulle mappe animate partiamo dal 1492, da Cristoforo Colombo e da una rotta sbagliata verso l'India, e seguiamo come una frontiera sperduta sia diventata una superpotenza.",
  "tag": [
   "storia degli Stati Uniti",
   "storia America",
@@ -57,116 +57,16 @@
   "mappe animate",
   "storia in minuti",
   "superpotenza",
-  "Spagna e Portogallo",
-  "trattato di Tordesillas",
   "colonizzazione",
+  "Spagna e Portogallo",
+  "storia del mondo",
   "documentario storia",
-  "come nascono gli USA"
+  "Nord America"
  ],
  "scene": [
   {
-   "testo": "La nazione più ricca della storia. Una cultura che conquista il pianeta. E tutto nato per sbaglio. Come ha fatto un posto che nessuno voleva a dominare il mondo?",
+   "testo": "Un'economia che muove i mercati. Un esercito sugli oceani. E se tutto fosse nato per caso? Come ha fatto un errore a creare una superpotenza?",
    "anteprima": true,
-   "vista": {
-    "lon": -100,
-    "lat": 40,
-    "larghezza": 60
-   },
-   "epoca": "oggi",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "prezzo",
-     "testo": "$80,000",
-     "sotto": "USA · A PERSONA",
-     "ricco": true,
-     "lon": -98,
-     "lat": 39,
-     "parola": "ricca"
-    },
-    {
-     "tipo": "icona",
-     "icona": "flag:US",
-     "lon": -77,
-     "lat": 38.9,
-     "parola": "cultura"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "PER SBAGLIO",
-     "parola": "sbaglio"
-    },
-    {
-     "tipo": "icona",
-     "icona": "question",
-     "lon": -100,
-     "lat": 40,
-     "parola": "Come"
-    }
-   ],
-   "musica": "mistero",
-   "stacco": false,
-   "pin": {
-    "lon": -120,
-    "lat": 45,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Una barriera di foreste, paludi e terre selvagge. Per più di un secolo l'America del Nord fu solo un ostacolo sulla strada per l'Asia.",
-   "anteprima": true,
-   "vista": {
-    "lon": -85,
-    "lat": 38,
-    "larghezza": 50
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "forest",
-     "lon": -85,
-     "lat": 42,
-     "parola": "foreste"
-    },
-    {
-     "tipo": "conta",
-     "valore": 100,
-     "prefisso": "+",
-     "suffisso": "",
-     "sotto": "ANNI IGNORATA",
-     "parola": "secolo"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -75,
-      38
-     ],
-     "a": [
-      100,
-      15
-     ],
-     "icona": "galleon",
-     "parola": "Asia"
-    }
-   ],
-   "musica": "mistero",
-   "stacco": false,
-   "pin": {
-    "lon": -110,
-    "lat": 30,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Oggi gli Stati Uniti muovono i mercati, dettano la cultura e pattugliano gli oceani. Eppure la loro storia comincia con un errore di geografia.",
-   "anteprima": false,
    "vista": {
     "lon": -98,
     "lat": 39,
@@ -179,38 +79,187 @@
    "verde": [],
    "eventi": [
     {
-     "tipo": "contorno",
-     "paese": "USA",
-     "parola": "Stati"
+     "tipo": "solleva",
+     "paese": [
+      "USA"
+     ],
+     "volte": 8,
+     "testo": "POTENZA",
+     "colore": "oro",
+     "parola": "economia"
     },
     {
-     "tipo": "icona",
-     "icona": "banknotes",
-     "lon": -74,
-     "lat": 40.7,
-     "parola": "mercati"
-    },
-    {
-     "tipo": "icona",
-     "icona": "cargo_ship",
-     "lon": -122,
-     "lat": 37.8,
+     "tipo": "freccia",
+     "da": [
+      -20,
+      35
+     ],
+     "a": [
+      -75,
+      25
+     ],
+     "icona": "ship",
      "parola": "oceani"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "PER CASO?",
+     "parola": "caso"
     }
    ],
-   "musica": "epico",
+   "musica": "mistero",
    "stacco": false,
    "pin": {
-    "lon": -115,
-    "lat": 47,
+    "lon": -98,
+    "lat": 30,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Una rotta sbagliata. Un continente che nessuno voleva. Un oro trovato a sud. Perché l'America ha vinto proprio lì?",
+   "anteprima": true,
+   "vista": {
+    "lon": -70,
+    "lat": 15,
+    "larghezza": 80
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "MEX"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "galleon",
+     "lon": -70,
+     "lat": 22,
+     "parola": "sbagliata"
+    },
+    {
+     "tipo": "icona",
+     "icona": "gold_coins",
+     "lon": -99,
+     "lat": 19,
+     "parola": "oro"
+    },
+    {
+     "tipo": "icona",
+     "icona": "question",
+     "lon": -95,
+     "lat": 38,
+     "parola": "Perché"
+    }
+   ],
+   "musica": "mistero",
+   "stacco": false,
+   "pin": {
+    "lon": -60,
+    "lat": 30,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Nel 1492 Cristoforo Colombo salpa per la Spagna, sicuro di arrivare in India. Attraversa l'Atlantico e, invece, sbatte contro i Caraibi.",
+   "testo": "Oggi gli Stati Uniti sono il paese più ricco, influente e armato della storia. Eppure per più di un secolo nessuno li voleva.",
    "anteprima": false,
    "vista": {
-    "lon": -45,
+    "lon": -98,
+    "lat": 39,
+    "larghezza": 50
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "contorno",
+     "paese": "USA",
+     "parola": "ricco"
+    },
+    {
+     "tipo": "conta",
+     "valore": 100,
+     "prefisso": "",
+     "suffisso": "+",
+     "sotto": "ANNI SENZA INTERESSE",
+     "parola": "secolo"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Nessuno voleva il Nord America",
+     "parola": "nessuno"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -110,
+    "lat": 45,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Per gli europei era solo un ostacolo: foreste fitte, paludi ostili, distese infinite. Loro sognavano i mercati di spezie dell'Asia.",
+   "anteprima": false,
+   "vista": {
+    "lon": -85,
+    "lat": 38,
+    "larghezza": 50
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "forest",
+     "lon": -80,
+     "lat": 40,
+     "parola": "foreste"
+    },
+    {
+     "tipo": "icona",
+     "icona": "river",
+     "lon": -90,
+     "lat": 32,
+     "parola": "paludi"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -75,
+      38
+     ],
+     "a": [
+      100,
+      15
+     ],
+     "icona": "ship",
+     "parola": "spezie"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Un ostacolo verso l'Asia",
+     "parola": "sognavano"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -100,
+    "lat": 45,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Nel 1492 Cristoforo Colombo salpa per la Spagna, convinto di arrivare in India. Ma incontra le isole dei Caraibi.",
+   "anteprima": false,
+   "vista": {
+    "lon": -40,
     "lat": 30,
     "larghezza": 100
    },
@@ -228,7 +277,7 @@
     {
      "tipo": "personaggio",
      "nome": "Cristoforo Colombo",
-     "descrizione": "navigatore genovese del XV secolo, mantello scuro e cappello",
+     "descrizione": "Navigatore genovese del Quattrocento, cappello e mantello",
      "parola": "Cristoforo"
     },
     {
@@ -242,29 +291,27 @@
       22
      ],
      "icona": "galleon",
-     "parola": "Atlantico"
+     "parola": "salpa"
     },
     {
-     "tipo": "icona",
-     "icona": "question",
-     "lon": -72,
-     "lat": 20,
+     "tipo": "nota",
+     "testo": "Voleva l'India, trovò i Caraibi",
      "parola": "Caraibi"
     }
    ],
-   "musica": "curiosita",
-   "stacco": false,
+   "musica": "epico",
+   "stacco": true,
    "pin": {
-    "lon": -20,
+    "lon": -30,
     "lat": 50,
-    "faccia": "normale"
+    "faccia": "stupito"
    }
   },
   {
-   "testo": "Niente depositi di spezie, come aveva promesso. Ma sulle isole vede gente con gioielli d'oro. Quanto basta per far brillare gli occhi alla Spagna.",
+   "testo": "Niente depositi di spezie, come aveva promesso. Ma trova nativi con gioielli d'oro. Un dettaglio che cambia tutto.",
    "anteprima": false,
    "vista": {
-    "lon": -72,
+    "lon": -75,
     "lat": 20,
     "larghezza": 30
    },
@@ -272,35 +319,37 @@
    "oro": [],
    "verde": [
     "CUB",
-    "HTI",
     "DOM"
    ],
    "eventi": [
     {
-     "tipo": "icona",
-     "icona": "wheat",
-     "lon": -80,
-     "lat": 22,
-     "parola": "spezie"
-    },
-    {
      "tipo": "folla",
      "personaggio": "native_worker",
-     "n": 4,
-     "lon": -72,
-     "lat": 19,
-     "parola": "gente"
+     "n": 5,
+     "lon": -76,
+     "lat": 20,
+     "parola": "nativi"
     },
     {
      "tipo": "icona",
      "icona": "gold_coins",
-     "lon": -70,
+     "lon": -72,
      "lat": 19,
      "parola": "oro"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "ORO!",
+     "parola": "cambia"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Gioielli d'oro tra i nativi",
+     "parola": "gioielli"
     }
    ],
    "musica": "tensione",
-   "stacco": true,
+   "stacco": false,
    "pin": {
     "lon": -85,
     "lat": 28,
@@ -308,12 +357,12 @@
    }
   },
   {
-   "testo": "Gli spagnoli capiscono che la vera ricchezza da saccheggiare è a sud. Il nord? Non interessa a nessuno, per ora.",
+   "testo": "La Spagna capisce subito: al sud c'è una ricchezza enorme da saccheggiare. E punta su Messico e Perù, ignorando il nord.",
    "anteprima": false,
    "vista": {
     "lon": -85,
-    "lat": 15,
-    "larghezza": 80
+    "lat": 5,
+    "larghezza": 100
    },
    "epoca": "antica",
    "oro": [
@@ -325,63 +374,57 @@
    ],
    "eventi": [
     {
-     "tipo": "freccia",
-     "da": [
-      -72,
-      20
-     ],
-     "a": [
-      -99,
-      19
-     ],
-     "icona": "galleon",
-     "parola": "sud"
+     "tipo": "folla",
+     "personaggio": "conquistador",
+     "n": 5,
+     "lon": -99,
+     "lat": 19,
+     "parola": "saccheggiare"
     },
     {
      "tipo": "colonna",
      "testo": "SUD",
-     "valore": 0.9,
-     "lon": -99,
-     "lat": 19,
-     "parola": "ricchezza"
+     "valore": 1.0,
+     "lon": -78,
+     "lat": -9,
+     "parola": "Messico"
     },
     {
      "tipo": "colonna",
      "testo": "NORD",
      "valore": 0.1,
      "lon": -95,
-     "lat": 38,
-     "parola": "nord"
+     "lat": 40,
+     "parola": "ignorando"
     },
     {
      "tipo": "nota",
-     "testo": "Il nord restò ignorato",
-     "parola": "interessa"
+     "testo": "La ricchezza stava al sud",
+     "parola": "sud"
     }
    ],
-   "musica": "tensione",
+   "musica": "azione",
    "stacco": false,
    "pin": {
-    "lon": -110,
-    "lat": 35,
+    "lon": -60,
+    "lat": 15,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Poi Spagna e Portogallo tracciano una linea sul globo. Letteralmente. Il mondo fuori dall'Europa viene spartito in due, come una torta.",
+   "testo": "Spagna e Portogallo tracciano una linea sul globo e si dividono il mondo. Il Portogallo sceglie le rotte attorno all'Africa. Il Nord America? Resta lì, in attesa.",
    "anteprima": false,
    "vista": {
     "lon": -30,
     "lat": 10,
-    "larghezza": 300
+    "larghezza": 160
    },
    "epoca": "antica",
    "oro": [
-    "ESP"
-   ],
-   "verde": [
+    "ESP",
     "PRT"
    ],
+   "verde": [],
    "eventi": [
     {
      "tipo": "confine",
@@ -392,63 +435,11 @@
       ],
       [
        -46,
-       40
-      ],
-      [
-       -46,
-       0
-      ],
-      [
-       -46,
-       -40
-      ],
-      [
-       -46,
-       -80
+       -60
       ]
      ],
      "parola": "linea"
     },
-    {
-     "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": -46,
-     "lat": 20,
-     "parola": "tracciano"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "DUE METÀ",
-     "parola": "due"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Il mondo diviso in due",
-     "parola": "spartito"
-    }
-   ],
-   "musica": "epico",
-   "stacco": false,
-   "pin": {
-    "lon": -100,
-    "lat": 50,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Il Portogallo punta tutto sulle rotte attorno all'Africa. Ma l'America del Nord resta lì, in attesa. La sua occasione arriverà molto dopo.",
-   "anteprima": false,
-   "vista": {
-    "lon": 0,
-    "lat": 10,
-    "larghezza": 120
-   },
-   "epoca": "antica",
-   "oro": [
-    "PRT"
-   ],
-   "verde": [],
-   "eventi": [
     {
      "tipo": "freccia",
      "da": [
@@ -456,38 +447,30 @@
       38
      ],
      "a": [
-      18,
-      -34
+      40,
+      -15
      ],
      "icona": "galleon",
      "parola": "Africa"
     },
     {
-     "tipo": "conta",
-     "valore": 10000,
-     "prefisso": "~",
-     "suffisso": " KM",
-     "sotto": "ROTTA ATTORNO ALL'AFRICA",
-     "parola": "rotte"
+     "tipo": "nota",
+     "testo": "Il mondo diviso in due",
+     "parola": "dividono"
     },
     {
      "tipo": "icona",
-     "icona": "hourglass",
-     "lon": -95,
-     "lat": 38,
+     "icona": "question",
+     "lon": -98,
+     "lat": 40,
      "parola": "attesa"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Il Portogallo scelse l'Africa",
-     "parola": "punta"
     }
    ],
    "musica": "curiosita",
    "stacco": false,
    "pin": {
-    "lon": -40,
-    "lat": 45,
+    "lon": -100,
+    "lat": 55,
     "faccia": "normale"
    }
   }
