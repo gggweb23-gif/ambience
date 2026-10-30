@@ -837,9 +837,11 @@ def monta(dati, cartella, out):
     # 7) audio: voce + musica a rotazione + transizioni
     musica = None
     urls = [u.strip() for u in re.split(r'\|\||\n', str(cfg.get('musica_rotazione') or cfg.get('musica') or '')) if u.strip()]   # colonna musica_rotazione
+    if str(cfg.get('musica_attiva') or '').strip().upper() != 'SI':   # 30 ott: musica automatica SPENTA su tutti i canali (colonna musica_attiva = SI per riaccenderla)
+        urls = []
     vol = num(cfg.get('musica_volume'), 0.03)
     vol = vol / 100 if vol > 1 else vol
-    if not urls and str(dati.get('musica') or '').strip():   # musica del canale di json2video (brand_music_url)
+    if not urls and str(dati.get('musica') or '').strip() and str(cfg.get('musica_attiva') or '').strip().upper() == 'SI':   # musica del canale di json2video (brand_music_url)
         urls = [str(dati['musica']).strip()]
         vol = num(dati.get('volume_musica'), vol)
     if urls:

@@ -40,7 +40,8 @@ PROVA = str(P.get('prova') or E('PROVA', 'NO')).strip().upper() == 'SI'
 CARICA = str(P.get('carica') or E('CARICA', 'NO')).strip().upper() == 'SI' and not PROVA   # SI = carica su YouTube
 MIN_SEC_YT = 480   # video piu' corti di 8 minuti (le prove) non vanno mai su YouTube
 VOCE_VELOCITA = max(.8, min(1.2, float(str(P.get('voce_velocita') or E('VOCE_VELOCITA', '') or 1.06).replace(',', '.'))))   # uguale per tutte le scene
-MUSICA_URL = str(P.get('musica_url') or E('MUSICA_URL', '')).strip()
+MUSICA_ATTIVA = str(P.get('musica_attiva') or E('MUSICA_ATTIVA', '') or 'NO').strip().upper() == 'SI'   # 30 ott: musica automatica SPENTA su tutti i canali (la mette lui da YouTube); SI = accesa
+MUSICA_URL = str(P.get('musica_url') or E('MUSICA_URL', '')).strip() if MUSICA_ATTIVA else ''
 def _perc(v, d=100):
     try:
         return max(0, min(100, int(float(str(v).replace('%', '').replace(',', '.')) * (100 if 0 < float(str(v).replace('%', '').replace(',', '.')) <= 1 else 1))))
@@ -1632,8 +1633,9 @@ def aggiungi_didascalia(path, d, testo, nome_font):
 def effetto(desc, dur, k):
     """Effetto sonoro da film generato con ElevenLabs (stessa chiave della voce). Uguali = generato una volta sola."""
     chiave = E('ELEVENLABS_API_KEY', '')
-    p = os.path.join(LAV, 'fx_' + hashlib.md5(f'{desc}|{dur:.1f}'.encode()).hexdigest()[:10] + '.mp3')
-    if os.path.exists(p):
+    lib = os.path.join(ROOT, 'libreria_suoni'); os.makedirs(lib, exist_ok=True)   # libreria comune nel repository: ogni suono si paga UNA volta sola
+    p = os.path.join(lib, 'fx_' + hashlib.md5(f'{desc}|{dur:.1f}'.encode()).hexdigest()[:10] + '.mp3')
+    if os.path.exists(p) and os.path.getsize(p) > 500:
         return p
     b = http('https://api.elevenlabs.io/v1/sound-generation', {'text': desc, 'duration_seconds': round(max(1.0, min(dur, 6.0)), 1),
              'prompt_influence': 0.5}, {'xi-api-key': chiave, 'Accept': 'audio/mpeg'}, timeout=120, raw=True)
@@ -3913,7 +3915,7 @@ def main():
         log('effetti sonori saltati:', str(e)[:150])
     audio = voce_tot
     brani = [u.strip() for u in re.split(r'\|\||\n', MUSICA_URL) if u.strip()]
-    if REGIA and TAVOLE and MUSICA_REGIA:   # musica da film scelta scena per scena (libreria comune)
+    if REGIA and TAVOLE and MUSICA_REGIA and MUSICA_ATTIVA:   # musica da film scelta scena per scena (libreria comune)
         try:
             m_ = musica_scene(piano, voce_tot, durata(voce_tot))
             if m_:
