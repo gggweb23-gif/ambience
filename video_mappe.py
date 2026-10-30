@@ -20,12 +20,18 @@ from PIL import Image, ImageChops, ImageDraw, ImageEnhance, ImageFilter, ImageFo
 W, H, FPS = 1920, 1080, 24
 ROOT = os.getcwd()
 LAV = os.path.join(ROOT, 'lavoro_mappe')
+os.makedirs(LAV, exist_ok=True)
+os.environ.setdefault('COSTI_FILE', os.path.join(LAV, 'costi_video.jsonl'))
+import costi as CO
 RIS = os.path.join(ROOT, 'risorse_mappe')          # mappa, confini, font e icone (scaricati dal workflow)
 E = os.environ.get
 try:
     P = json.loads(E('PAYLOAD') or '{}') or {}
 except Exception:
     P = {}
+sys.path.insert(0, os.path.join(os.getcwd(), 'coach'))
+import ricetta as _RIC   # coach automatico: parametri della versione attiva della ricetta del canale (coach_auto = SI)
+P = _RIC.applica(P)
 LINK = str(P.get('link') or E('LINK_COMPETITOR', '')).strip()
 PROVA = str(P.get('prova') or E('PROVA', 'NO')).strip().upper() == 'SI'
 CARICA = str(P.get('carica') or E('CARICA', 'NO')).strip().upper() == 'SI' and not PROVA
@@ -126,7 +132,15 @@ def http(url, data=None, headers=None, metodo=None, timeout=180, raw=False):
     h.update(headers or {})
     with urllib.request.urlopen(urllib.request.Request(url, data=body, headers=h, method=metodo), timeout=timeout) as r:
         b = r.read()
-        return b if raw else json.loads(b.decode() or '{}')
+        if raw:
+            return b
+        j = json.loads(b.decode() or '{}')
+        if isinstance(data, dict) and isinstance(j, dict):   # costo del video (costi.py)
+            if 'api.anthropic.com' in url and j.get('usage'):
+                CO.registra('claude', data.get('model'), j['usage'])
+            elif 'queue.fal.run' in url and j.get('status_url'):
+                CO.registra('fal', url.split('queue.fal.run/')[-1], dollari=0.04)
+        return j
 
 
 def scarica(url, path, tentativi=4):
@@ -201,7 +215,7 @@ def claude(prompt, max_tokens=32000):
                                  data=json.dumps(dict(senza_ragionamento({'model': MODELLO_AI, 'max_tokens': max_tokens,
                                                                           'messages': [{'role': 'user', 'content': prompt}]}), stream=True)).encode(),
                                  headers={'content-type': 'application/json', 'x-api-key': chiave, 'anthropic-version': '2023-06-01'})
-    pezzi = []
+    pezzi, uso = [], {}
     with urllib.request.urlopen(req, timeout=900) as r:
         for riga in r:
             riga = riga.decode('utf-8', 'ignore').strip()
@@ -213,8 +227,13 @@ def claude(prompt, max_tokens=32000):
                 continue
             if ev.get('type') == 'content_block_delta' and (ev.get('delta') or {}).get('type') == 'text_delta':
                 pezzi.append(ev['delta'].get('text', ''))
+            elif ev.get('type') == 'message_start':
+                uso = dict((ev.get('message') or {}).get('usage') or {})
+            elif ev.get('type') == 'message_delta':
+                uso.update({k: v for k, v in (ev.get('usage') or {}).items() if isinstance(v, int)})
             elif ev.get('type') == 'error':
                 raise RuntimeError('Claude: ' + json.dumps(ev.get('error'))[:200])
+    CO.registra('claude', MODELLO_AI, uso, nota='copione')
     return ''.join(pezzi)
 
 
@@ -329,6 +348,8 @@ def voce(i, testo, prima='', dopo=''):
                       'voice_settings': {'stability': VOCE_STABILITA, 'similarity_boost': .75, 'speed': VOCE_VELOCITA, 'style': VOCE_STILE, 'use_speaker_boost': True}}, {'xi-api-key': chiave})
             open(p, 'wb').write(base64.b64decode(j['audio_base64']))
             json.dump(j.get('alignment') or {}, open(p[:-4] + '.json', 'w'))
+            mv = E('VOCE_MODELLO', 'eleven_multilingual_v2')
+            CO.registra('elevenlabs', mv, crediti=len(testo) * (0.5 if ('flash' in mv or 'turbo' in mv) else 1))
             return p
         except Exception as e:
             log('voce non riuscita, riprovo:', str(e)[:150]); time.sleep(4 * (k + 1))
@@ -2076,6 +2097,10 @@ def main():
     c['capitoli_testo'] = capitoli(scene, durs)
     open(os.path.join(ROOT, 'titolo.txt'), 'w').write(titolo)
     dur_v = durata(finale); log('FATTO:', finale, round(dur_v / 60, 1), 'minuti')
+    try:
+        log(CO.testo())
+    except Exception:
+        pass
     descr_yt, tag_yt = dati_youtube(c, titolo)
     extra = {'descrizione': descr_yt, 'tag': ', '.join(tag_yt), 'cartella_video': P.get('cartella_video') or '', 'cartella_copertine': P.get('cartella_copertine') or ''}
     if P.get('callback_url') and E('FAL_KEY') and dur_v >= MIN_SEC_YT:   # copia per n8n: video e copertina finiscono nella cartella Drive del canale

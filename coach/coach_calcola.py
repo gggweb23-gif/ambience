@@ -79,11 +79,25 @@ def main(f_cfg, f_prod, canale):
                       'pubblicato': str(pub), 'ore': round((ADESSO - pub).total_seconds() / 3600, 1) if pub else 0,
                       'impression': num(p.get('impression'), 0), 'ctr': num(p.get('ctr')), 'views': num(p.get('views'), 0),
                       'ret30': num(p.get('ritenzione_30s')), 'ret60': num(p.get('ritenzione_60s'))})
+    # costo reale degli ultimi video (coach/costi/<slug>.tsv, scritto dai workflow), prove escluse
+    costi = []
+    ft = os.path.join(os.path.dirname(__file__), 'costi', slug(canale) + '.tsv')
+    if os.path.exists(ft):
+        for l in open(ft).read().splitlines()[1:]:
+            c = l.split('\t')
+            if len(c) > 3 and c[3].upper() != 'SI':
+                costi.append(num(c[1], 0))
+    BUD = num(cfg.get('coach_budget_video'))
     attiva = ric['versione_attiva']
     maturi = sorted([v for v in video if v['versione'] == attiva and v['ore'] >= 72], key=lambda v: v['pubblicato'])
     fin = maturi[-N:]
     esito = {'canale': canale, 'versione_attiva': attiva, 'obiettivi': O, 'finestra': N, 'video_versione': len([v for v in video if v['versione'] == attiva]),
-             'video_maturi': len(maturi), 'video_finestra': fin, 'tutti_i_video': video}
+             'video_maturi': len(maturi), 'video_finestra': fin, 'tutti_i_video': video,
+             'budget_video': BUD, 'costo_medio_ultimi': round(sum(costi[-N:]) / len(costi[-N:]), 3) if costi else None,
+             'costi_ultimi': costi[-N:]}
+    if BUD and costi and esito['costo_medio_ultimi'] > BUD * 1.05:   # il budget e' una regola fissa: prima si rientra nel budget
+        esito.update({'stato': 'LEVA_COSTO', 'motivo': f"costo medio {esito['costo_medio_ultimi']} $ sopra il budget {BUD} $ a video"})
+        return esito, fr
     if len(fin) < N:
         esito.update({'stato': 'ATTESA', 'motivo': f'servono {N} video con almeno 72 ore nella versione {attiva}, ce ne sono {len(fin)}'})
         return esito, fr

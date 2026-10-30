@@ -140,6 +140,17 @@ jobs:
           set -o pipefail
           python3 video_storia.py 2>&1 | tee storia.log
 
+      - name: Costo del video (storico per il coach automatico)
+        if: ${{ success() }}
+        env:
+          PAYLOAD: ${{ inputs.payload }}
+        run: |
+          python3 coach/registra_costo.py lavoro_storia/costi_video.jsonl || exit 0
+          [ -n "$(git status --porcelain coach/costi)" ] || exit 0
+          git config user.name "render-bot"; git config user.email "render-bot@users.noreply.github.com"
+          git add coach/costi; git commit -m "Costo video" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase --autostash -q && git push && break; sleep $((i * 5)); done
+
       - name: Salva il lavoro per ripartire (solo se il giro non e' finito bene)
         if: ${{ (failure() || cancelled()) && steps.rid.outputs.id != '' }}
         uses: actions/upload-artifact@v4

@@ -96,6 +96,17 @@ jobs:
           WHISPER_MODEL: small
         run: node motore/motore.js
 
+      - name: Costo del video (storico per il coach automatico)
+        if: ${{ success() }}
+        env:
+          PAYLOAD: ${{ inputs.payload }}
+        run: |
+          python3 coach/registra_costo.py costi_video.jsonl || exit 0
+          [ -n "$(git status --porcelain coach/costi)" ] || exit 0
+          git config user.name "render-bot"; git config user.email "render-bot@users.noreply.github.com"
+          git add coach/costi; git commit -m "Costo video" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase --autostash -q && git push && break; sleep $((i * 5)); done
+
       - name: Salva i nuovi ritratti nel repository (canali con statue/filosofi)
         if: ${{ always() }}
         run: |

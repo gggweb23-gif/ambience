@@ -32,6 +32,9 @@ try:   # n8n (MULTICHANNEL - Storia Video) passa tutto in un unico JSON: vince s
     P = json.loads(E('PAYLOAD') or '{}') or {}
 except Exception:
     P = {}
+sys.path.insert(0, os.path.join(os.getcwd(), 'coach'))
+import ricetta as _RIC   # coach automatico: parametri della versione attiva della ricetta del canale (coach_auto = SI)
+P = _RIC.applica(P)
 TITOLO = E('TITOLO', 'Tutta la storia dell\'Iran').strip()
 LINGUA = (str(P.get('language') or '').strip().lower()[:2] or E('LINGUA', 'it').strip() or 'it')   # language del canale (Channel Configs) vince
 VOCE = str(P.get('voce') or E('VOCE', '') or 'glnsgBC77wt5zOYU0szz').strip()
