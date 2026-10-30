@@ -654,9 +654,10 @@ def cartellino_anno(im, testo, k):
     if k <= 0:
         return
     d = ImageDraw.Draw(im); s = back(k); x, y = 70, 70
-    d.rectangle([x + 8, y + 12, x + 8 + 330 * s, y + 12 + 170 * s], fill=(60, 45, 30))
-    d.rectangle([x, y, x + 330 * s, y + 170 * s], fill=(245, 236, 214), outline=(120, 100, 70), width=4)
-    d.text((x + 165 * s, y + 88 * s), testo, font=font('Poppins-Bold.ttf', 92 * s), fill=(70, 55, 40), anchor='mm')
+    tema = bool(P.get('tema_colori'))   # con lo stile del canale: cartellino bianco/carta con scritta del colore dei riquadri
+    d.rectangle([x + 8, y + 12, x + 8 + 330 * s, y + 12 + 170 * s], fill=mix(NAVY, (0, 0, 0), .4) if tema else (60, 45, 30))
+    d.rectangle([x, y, x + 330 * s, y + 170 * s], fill=CARTA if tema else (245, 236, 214), outline=NAVY if tema else (120, 100, 70), width=4)
+    d.text((x + 165 * s, y + 88 * s), testo, font=font('Poppins-Bold.ttf', 92 * s), fill=NAVY if tema else (70, 55, 40), anchor='mm')
 
 
 def box_barre(n):
