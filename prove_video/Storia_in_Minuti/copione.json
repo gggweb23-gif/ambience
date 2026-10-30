@@ -1,18 +1,18 @@
 {
+ "titolo": "L'INTERA Storia degli Stati Uniti in 12 Minuti",
+ "titolo_mappa": "STATI UNITI",
+ "paese_mappa": "United States of America",
  "riserva_pexels": [
   "Statue of Liberty New York harbor",
-  "Brooklyn Bridge New York skyline",
   "Grand Canyon Arizona cliffs",
   "Appalachian mountains forest autumn",
   "Mississippi river delta Louisiana",
   "Atlantic ocean waves coast",
-  "Yosemite valley granite cliffs",
-  "Great Plains Kansas wheat fields"
+  "Great Plains prairie grass",
+  "Brooklyn Bridge New York skyline",
+  "Caribbean island beach palm"
  ],
- "luoghi_paese": "usa, united states, america, american, new york, washington, boston, philadelphia, virginia, florida, louisiana, mississippi, appalachian, atlantic, caribbean, great plains, grand canyon, yosemite, hudson, manhattan, brooklyn, california, texas, arizona, colorado, alaska, hawaii, nevada",
- "titolo": "L'INTERA Storia degli Stati Uniti in 12 Minuti",
- "titolo_mappa": "STATI UNITI",
- "paese_mappa": "United States of America",
+ "luoghi_paese": "usa united states america american new york washington boston philadelphia jamestown virginia mississippi appalachian hudson atlantic caribbean florida texas california manhattan brooklyn liberty colonies plains rocky",
  "date": "1492 – 2026",
  "texture": "giornale",
  "font_carte": "classico",
@@ -21,118 +21,166 @@
   "#1d3557",
   "#6b1e1e"
  ],
- "sfondi": [],
+ "sfondi": [
+  {
+   "id": "s1",
+   "prompt_en": "Wide shot of the Statue of Liberty and New York harbor at sunrise, ferries sailing, glittering skyline behind, hopeful dramatic mood, comic book cartoon style",
+   "personaggi": []
+  },
+  {
+   "id": "s2",
+   "prompt_en": "Dense wild North American forest with swamp and fog, a small 16th century European ship anchored near the shore, explorers looking at endless wilderness, cartoon style",
+   "personaggi": [
+    "esploratore"
+   ]
+  },
+  {
+   "id": "s3",
+   "prompt_en": "Christopher Columbus ship deck in 1492, Spanish flag flying, stormy Atlantic waves, sailors pointing at a distant green Caribbean island at dawn, cartoon style",
+   "personaggi": []
+  },
+  {
+   "id": "s4",
+   "prompt_en": "Caribbean beach in 1492, native Taino people wearing gold jewelry meeting Spanish sailors, curious tense emotion, palm trees, bright daylight, cartoon style",
+   "personaggi": [
+    "esploratore"
+   ]
+  }
+ ],
  "scene": [
   {
-   "capitolo": "Un'ascesa per caso",
-   "testo": "Oggi gli Stati Uniti sono la nazione più ricca, più influente a livello culturale e più potente militarmente di tutta la storia umana. La sua economia muove i mercati globali. Il suo intrattenimento plasma la cultura mondiale, e la sua marina pattuglia gli oceani del pianeta.",
+   "capitolo": "Un incidente geografico",
+   "testo": "Oggi gli Stati Uniti sono la nazione più ricca, culturalmente dominante e militarmente potente della storia umana. La sua economia muove i mercati globali. Il suo intrattenimento plasma la cultura mondiale, e la sua flotta pattuglia gli oceani del pianeta.",
    "anno": 2026,
    "visivi": [
     {
+     "tipo": "cartone",
+     "frase": "Oggi gli Stati Uniti",
+     "sfondo": "s1",
+     "personaggio": "uomo_moderno",
+     "data": "2026"
+    },
+    {
      "tipo": "mappa",
-     "frase": "Oggi gli Stati Uniti"
+     "frase": "la nazione più ricca",
+     "suono": "epic orchestral swell"
     },
     {
      "tipo": "pexels_video",
-     "frase": "I mercati globali",
-     "q": "New York skyline Manhattan aerial",
-     "didascalia": ""
+     "frase": "La sua economia",
+     "q": "New York Wall Street skyline"
     },
     {
      "tipo": "pexels_foto",
      "frase": "Il suo intrattenimento",
-     "q": "Los Angeles Hollywood sign hills"
+     "q": "Hollywood sign Los Angeles hills"
     },
     {
      "tipo": "pexels_video",
      "frase": "pattuglia gli oceani",
-     "q": "Atlantic ocean waves open sea",
-     "suono": "ocean waves and wind"
+     "q": "aircraft carrier ocean waves",
+     "suono": "ocean waves, ship horn"
     }
    ]
   },
   {
-   "testo": "Ma la cosa più sconvolgente della sua ascesa è che fu un puro incidente. Per più di un secolo dopo l'arrivo degli europei, quasi nessuno voleva il Nord America. Era una barriera fastidiosa di foreste fitte, paludi ostili e natura infinita, che si frapponeva a ciò che davvero contava: i mercati delle spezie dell'Asia.",
+   "testo": "Ma la cosa più incredibile della sua ascesa è che fu un puro incidente. Per più di un secolo dopo l'arrivo degli europei, quasi nessuno voleva il Nord America. Era una barriera fastidiosa di foreste fitte, paludi ostili e natura infinita.",
    "anno": 1500,
    "visivi": [
     {
-     "tipo": "pexels_video",
-     "frase": "un puro incidente",
-     "q": "foggy forest Appalachian mountains"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "foreste fitte, paludi",
-     "q": "Louisiana swamp cypress trees"
+     "tipo": "cartone",
+     "frase": "Ma la cosa più",
+     "sfondo": "s2",
+     "personaggio": "esploratore"
     },
     {
      "tipo": "pexels_video",
-     "frase": "natura infinita",
-     "q": "Great Plains grassland wind Kansas"
+     "frase": "Per più di un secolo",
+     "q": "Virginia dense forest fog"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "mercati delle spezie",
-     "q": "spices market old sacks cinnamon pepper"
+     "frase": "paludi ostili",
+     "q": "Louisiana swamp cypress trees",
+     "suono": "swamp frogs and insects at night"
     }
    ]
   },
   {
-   "capitolo": "Colombo e il grande errore",
-   "testo": "Per capire come una frontiera sperduta sia diventata una superpotenza, dobbiamo partire da un enorme errore geografico. Nel 1492 Cristoforo Colombo salpò verso ovest attraverso l'Atlantico, sotto bandiera spagnola, convinto di raggiungere l'India.",
+   "testo": "Ciò che contava davvero era altro: i mercati delle spezie dell'Asia. Per capire come una frontiera remota sia diventata una superpotenza, dobbiamo partire da un enorme errore geografico.",
    "anno": 1492,
    "visivi": [
     {
+     "tipo": "pexels_foto",
+     "frase": "mercati delle spezie",
+     "q": "colorful spices market bowls",
+     "didascalia": "Le spezie dell'Asia"
+    },
+    {
      "tipo": "pexels_video",
-     "frase": "un enorme errore geografico",
-     "q": "antique world map globe old"
+     "frase": "una frontiera remota",
+     "q": "Appalachian mountains wilderness valley"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "Cristoforo Colombo salpò",
-     "q": "old wooden sailing ship ocean sunset",
-     "didascalia": "1492",
+     "frase": "enorme errore geografico",
+     "q": "old world map antique parchment"
+    }
+   ]
+  },
+  {
+   "capitolo": "Colombo e la Spagna",
+   "testo": "Nel 1492 Cristoforo Colombo salpò verso ovest attraverso l'Atlantico, sotto bandiera spagnola, convinto di raggiungere l'India. Invece si imbatté nelle isole dei Caraibi.",
+   "anno": 1492,
+   "visivi": [
+    {
+     "tipo": "cartone",
+     "frase": "Cristoforo Colombo",
+     "sfondo": "s3",
+     "personaggio": "navigatore_portoghese",
+     "data": "1492",
      "suono": "wooden ship creaking, waves"
     },
     {
      "tipo": "pexels_video",
      "frase": "attraverso l'Atlantico",
-     "q": "Atlantic ocean horizon waves sunrise"
+     "q": "Atlantic ocean open sea waves"
     },
     {
-     "tipo": "pexels_foto",
-     "frase": "raggiungere l'India",
-     "q": "antique compass nautical map"
+     "tipo": "pexels_video",
+     "frase": "isole dei Caraibi",
+     "q": "Caribbean island turquoise water aerial"
     }
    ]
   },
   {
-   "testo": "Invece si imbatté nelle isole dei Caraibi. Non trovò i vasti depositi di spezie che aveva promesso, ma trovò nativi che indossavano gioielli d'oro. La Spagna capì in fretta che c'era un'enorme",
-   "anno": 1492,
+   "testo": "Non trovò i vasti depositi di spezie che aveva promesso, ma trovò nativi con gioielli d'oro. La Spagna capì presto che c'era un'enorme ricchezza da prendere.",
+   "anno": 1493,
    "visivi": [
     {
-     "tipo": "pexels_video",
-     "frase": "isole dei Caraibi",
-     "q": "Caribbean island beach palm trees aerial"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "vasti depositi di spezie",
-     "q": "spices sacks dried peppercorns wooden"
+     "tipo": "cartone",
+     "frase": "Non trovò i vasti",
+     "sfondo": "s4",
+     "personaggio": "esploratore"
     },
     {
      "tipo": "pexels_foto",
      "frase": "gioielli d'oro",
-     "q": "ancient gold jewelry museum artifacts"
+     "q": "ancient gold jewelry artifacts museum"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "La Spagna capì",
+     "q": "Spanish galleon sailing ship sea"
     }
    ]
   }
  ],
  "copertina": {
   "testo": "USA 1492 – 2026",
-  "personaggio": ""
+  "personaggio": "politico"
  },
- "descrizione": "L'intera storia degli Stati Uniti in 12 minuti: come una frontiera remota e quasi ignorata è diventata la più grande superpotenza del mondo.\n\nPartiamo dal grande errore di Cristoforo Colombo nel 1492 e seguiamo il cammino dell'America: le colonie, la Rivoluzione americana, la Dichiarazione d'Indipendenza, George Washington, la Guerra civile e le due guerre mondiali.\n\nUn documentario di storia americana spiegato in modo semplice, con date, fatti e protagonisti, per capire come è nata la nazione più potente della storia.\n\n#StoriaUSA #StoriaAmericana #Documentario #StatiUniti #StoriaDelMondo",
+ "descrizione": "L'intera storia degli Stati Uniti in pochi minuti: dall'errore geografico di Cristoforo Colombo nel 1492 fino alla superpotenza di oggi.\n\nScopri perché per oltre un secolo quasi nessuno voleva il Nord America, come la ricerca delle spezie dell'Asia cambiò il mondo e come una frontiera remota divenne la nazione più potente della storia.\n\nUn documentario a cartone, chiaro e veloce, per capire la storia americana dalle origini a oggi.\n\n#storiaUSA #StatiUniti #storia #Colombo #documentario",
  "tag": [
   "storia degli Stati Uniti",
   "storia USA",
@@ -146,23 +194,27 @@
   "rivoluzione americana",
   "Cristoforo Colombo",
   "George Washington",
-  "dichiarazione d'indipendenza",
+  "dichiarazione di indipendenza",
   "guerra civile americana",
   "prima guerra mondiale",
   "seconda guerra mondiale",
   "storia spiegata",
   "Stati Uniti",
   "America",
-  "1492",
-  "colonie americane",
-  "superpotenza",
   "storia completa",
-  "storia di America",
-  "storia degli USA in 12 minuti",
+  "storia degli USA",
+  "superpotenza",
+  "colonie americane",
+  "1492",
   "Nord America",
   "storia moderna",
-  "storia contemporanea"
+  "storia in 12 minuti",
+  "storia a cartoni"
  ],
- "personaggi_mancanti": [],
+ "personaggi_mancanti": [
+  "nativo americano Taino",
+  "George Washington",
+  "colono inglese del Seicento"
+ ],
  "categoria_originale": "27"
 }
