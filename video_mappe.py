@@ -36,8 +36,7 @@ VOCE_STILE = max(0.0, min(1.0, float(str(P.get('voce_stile') or 0).replace(',', 
 MIN_MINUTI = float(str(P.get('durata_min_minuti') or P.get('min_minuti') or E('MIN_MINUTI', '') or 10).replace(',', '.'))   # colonne del foglio
 MAX_MINUTI = float(str(P.get('durata_max_minuti') or P.get('max_minuti') or E('MAX_MINUTI', '') or 14).replace(',', '.'))
 MODELLO_AI = str(P.get('modello_ai') or E('MODELLO_AI', '') or 'claude-sonnet-5-5').strip()
-MUSICA_ATTIVA = str(P.get('musica_attiva') or E('MUSICA_ATTIVA', '') or 'NO').strip().upper() == 'SI'   # 30 ott: musica automatica SPENTA su tutti i canali; SI = accesa
-MUSICA_URL = str(P.get('musica_url') or E('MUSICA_URL', '')).strip() if MUSICA_ATTIVA else ''
+MUSICA_URL = str(P.get('musica_url') or E('MUSICA_URL', '')).strip()
 MUSICA_VOL = float(str(P.get('musica_volume') or E('MUSICA_VOL', '') or .04).replace(',', '.'))
 SLOGAN = str(P.get('slogan') or E('SLOGAN', '') or 'EVERY BORDER HAS A PRICE.').strip()
 NOME_CANALE = str(P.get('canale_nome') or P.get('channel_name') or E('NOME_CANALE', '') or 'RICH BORDERS').strip().upper()
@@ -2012,7 +2011,7 @@ def main():
     suoni = pista_suoni(totale, pop_t + [(sum(durs) + .8, '')], whoosh_t, os.path.join(LAV, 'suoni.wav'))
     mix_in = ['-i', voce_tot, '-i', suoni]; mix_f = '[0:a]apad[v0];[v0][1:a]amix=inputs=2:duration=longest:normalize=0[m]'
     mus = None
-    if MUSICA_REGIA and MUSICA_ATTIVA:   # musica da film: umore per tratto (regista), libreria comune, stacchi sulle rivelazioni
+    if MUSICA_REGIA:   # musica da film: umore per tratto (regista), libreria comune, stacchi sulle rivelazioni
         try:
             import musica_film
             tratti, t_, cur, ini, stacchi = [], 0.0, None, 0.0, []
@@ -2036,7 +2035,7 @@ def main():
             log('musica da film non riuscita:', str(e)[:200]); mus = None
     if mus:
         pass
-    elif MUSICA_ATTIVA and brani():   # un brano della cartella musica_mappe/, scelto in base al video (sempre lo stesso per lo stesso video)
+    elif brani():   # un brano della cartella musica_mappe/, scelto in base al video (sempre lo stesso per lo stesso video)
         lista_b = brani(); mus = os.path.join(ROOT, 'musica_mappe', lista_b[sum(map(ord, comp['id'])) % len(lista_b)])
     elif MUSICA_URL:
         try:

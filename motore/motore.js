@@ -394,7 +394,7 @@ async function main() {
   const volMusica = (String(cfg.brand_music_volume ?? '').trim() === '' || Number.isNaN(_mv)) ? 0.035 : (_mv > 1 ? _mv / 100 : _mv);
   const j2v = formatoKao ? {} : { scenes: (agg.url_audio || []).map((a, i) => ({ elements: [{ type: 'audio', src: a },
       ...(agg.url_immagine && agg.url_immagine[i] ? [{ type: 'video', width: 1920, src: agg.url_immagine[i], start: 0 }] : [])] })),
-    elements: (String(cfg.musica_attiva || '').trim().toUpperCase() === 'SI' && String(cfg.brand_music_url || '').trim()) ? [{ type: 'audio', src: String(cfg.brand_music_url).trim(), volume: volMusica }] : [] };
+    elements: String(cfg.brand_music_url || '').trim() ? [{ type: 'audio', src: String(cfg.brand_music_url).trim(), volume: volMusica }] : [] };
   const prep = await codice('Prepara Render GitHub', [J(j2v)]);
   const dati = JSON.parse(Buffer.from(prep[0].binary.data.data, 'base64').toString('utf8'));
   for (const s of dati.scene) { const m = String(s.audio || '').match(/id=(GHAUDIO_[^&]+)/); if (m) s.audio = urlLocale(m[1]); }
