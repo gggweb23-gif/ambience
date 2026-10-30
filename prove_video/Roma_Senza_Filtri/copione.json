@@ -1,19 +1,8 @@
 {
- "riserva_pexels": [
-  "ancient stone ruins Italy",
-  "Roman aqueduct Italy sunset",
-  "night sky stars full moon",
-  "campfire burning in dark",
-  "Hadrian's Wall Britain landscape",
-  "Roman ruins Pompeii",
-  "dark forest mist Germany",
-  "old Roman road stones Italy"
- ],
- "luoghi_paese": "italy, italian, rome, roman, latium, pompeii, ostia, appia, apennines, tuscany, tiber, colosseum, forum, hadrian, wall, britain, germany, gaul, danube, rhine, aqueduct, ruins, mediterranean, sicily, sardinia",
- "titolo": "Why Roman Soldiers Slept Safely Two Miles From 40,000 Enemies",
+ "titolo": "Why Were Roman Soldiers Not Afraid to Sleep Near Enemies? The Shovel Secret",
  "titolo_mappa": "ROMAN EMPIRE",
  "paese_mappa": "",
- "date": "753 BC – 476 AD",
+ "date": "57 BC – 9 AD",
  "texture": "pergamena",
  "font_carte": "antico",
  "fondi_carte": [],
@@ -21,178 +10,1161 @@
   "#6b1e1e",
   "#1d3557"
  ],
- "sfondi": [],
+ "riserva_pexels": [
+  "Roman ruins Italy",
+  "Colosseum Rome ancient",
+  "Italian countryside hills",
+  "Roman aqueduct stone arches",
+  "night sky full moon",
+  "campfire burning dark",
+  "stone wall ancient ruins",
+  "Hadrian's Wall Britain"
+ ],
+ "luoghi_paese": "italy, italian, rome, roman, latium, tiber, pompeii, colosseum, forum, appian way, pantheon, tuscany, apennines, aqueduct, hadrian's wall, britain, scotland, masada, judean desert, gaul, germany, forest, spain",
+ "sfondi": [
+  {
+   "id": "s1",
+   "prompt_en": "Night scene, Roman legionaries behind a sharpened wooden stake palisade and ditch pointing at a distant barbarian camp with glowing fires two miles away, moonlit sky, tense mood, cartoon style",
+   "personaggi": [
+    "legionario"
+   ]
+  },
+  {
+   "id": "s2",
+   "prompt_en": "Roman soldiers at dusk digging a V-shaped ditch and planting wooden stakes on an earth rampart with pickaxes, tents being raised behind them, exhausted but disciplined, wide shot, cartoon style",
+   "personaggi": [
+    "legionario"
+   ]
+  }
+ ],
  "scene": [
   {
-   "capitolo": "Enemy Fires",
-   "testo": "Imagine an army of 40,000 men camped two miles from you. Close enough to see their fires. Close enough to hear them. You have the numbers. You know the ground.",
-   "anno": -52,
+   "capitolo": "Two Miles Away",
+   "testo": "Imagine an army of 40,000 men camped two miles from you. Close enough to see their fires. Close enough to hear them. You have the numbers. You know the ground. You could attack in the dark. Yet night after night you don't, because something stands between you and them. Something that wasn't there this morning.",
+   "anno": -57,
+   "visivi": [
+    {
+     "tipo": "cartone",
+     "frase": "Imagine an army of",
+     "sfondo": "s1",
+     "personaggio": "legionario",
+     "reaccion": true,
+     "data": "57 BC",
+     "suono": "crackling fire, distant camp murmur"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Close enough to see",
+     "q": "campfire burning dark night"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "You have the numbers",
+     "q": "night sky full moon hills"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Something that wasn't there",
+     "q": "wooden stakes fence field",
+     "suono": "wind in dark field"
+    }
+   ]
+  },
+  {
+   "testo": "This is the strangest habit of the Roman army. They didn't hide. They didn't run for high ground. They didn't look for a castle. They walked all day, stopped within striking distance of an enemy who wanted them dead, and went to sleep. And they almost always woke up.",
+   "anno": -57,
    "visivi": [
     {
      "tipo": "mappa",
-     "frase": "Imagine an army"
+     "frase": "This is the strangest",
+     "titulo": "ROMAN EMPIRE"
     },
     {
      "tipo": "pexels_video",
-     "frase": "camped two miles",
-     "q": "campfire burning night darkness",
-     "suono": "crackling fire, distant night murmurs",
-     "didascalia": "40,000 men, 2 miles away"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "Close enough to see",
-     "q": "glowing embers fire night"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "You know the ground",
-     "q": "dark hills night Italy fog"
-    }
-   ]
-  },
-  {
-   "testo": "You have every reason to attack them in the dark. And yet night after night, you don't. Because something is standing between you and them. Something that wasn't there this morning.",
-   "anno": -52,
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "attack them in the dark",
-     "q": "full moon dark clouds night sky"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "night after night",
-     "q": "starry night sky over hills"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "standing between you",
-     "q": "fog moving over empty field night"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "wasn't there this morning",
-     "q": "empty grass field dawn Italy"
-    }
-   ]
-  },
-  {
-   "capitolo": "Strange Habit",
-   "testo": "This is the strangest habit of the Roman army. They didn't hide. They didn't run for high ground. They didn't look for a castle. They walked all day, then stopped within striking distance of an enemy that wanted to wipe them out.",
-   "anno": -52,
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "strangest habit of the Roman army",
-     "q": "ancient Roman ruins Italy"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "They didn't hide",
-     "q": "Roman road stones Appian Way"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "run for high ground",
-     "q": "mountain ridge Apennines Italy"
+     "frase": "They didn't run for high ground",
+     "q": "Italian hills mountain ridge"
     },
     {
      "tipo": "pexels_foto",
      "frase": "look for a castle",
-     "q": "old stone fortress ruins"
+     "q": "ancient stone fortress ruins"
     },
     {
      "tipo": "pexels_video",
-     "frase": "They walked all day",
-     "q": "long dusty road sunset Italy"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "striking distance of an enemy",
-     "q": "dark valley night mist Germany forest"
+     "frase": "And they almost always",
+     "q": "sunrise misty field dawn"
     }
    ]
   },
   {
-   "capitolo": "A Hole in the Ground",
-   "testo": "And then they went to sleep, and they almost always woke up. Here's the part that breaks people's brains. The thing protecting them wasn't a wall of stone. It wasn't a fortress. It wasn't even permanent.",
-   "anno": -52,
+   "testo": "Here's the part that breaks people's brains. The thing protecting them wasn't a wall of stone. It wasn't a fortress. It wasn't even permanent. It was a hole in the ground, dug by hand by exhausted men in a couple of hours. And it worked for 600 years.",
+   "anno": -57,
    "visivi": [
     {
-     "tipo": "pexels_video",
-     "frase": "went to sleep",
-     "q": "sunrise over misty field"
-    },
-    {
      "tipo": "pexels_foto",
-     "frase": "breaks people's brains",
-     "q": "ancient Roman helmet museum"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "wall of stone",
-     "q": "Hadrian's Wall stone landscape"
+     "frase": "wasn't a wall of stone",
+     "q": "ancient Roman stone wall ruins"
     },
     {
      "tipo": "pexels_video",
-     "frase": "It wasn't a fortress",
-     "q": "ancient fortress ruins Italy"
+     "frase": "It was a hole in the ground",
+     "q": "dirt trench excavation earth"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "And it worked for 600 years",
+     "q": "Roman ruins Italy sunset",
+     "didascalia": "600 years"
     }
    ]
   },
   {
-   "testo": "It was a hole in the ground, dug by hand by exhausted men in a couple of hours. And it worked for 600 years. Every Roman soldier on the march carried what he needed to build it.",
-   "anno": -52,
+   "testo": "Every Roman soldier carried a weapon that never appears in paintings of battle. Not his sword. Not his shield. Not the famous javelin. A tool. The Romans themselves said it broke more enemies than steel ever did. And one general said something about it that sounds insane until you understand the system.",
+   "anno": -57,
    "visivi": [
     {
-     "tipo": "pexels_video",
-     "frase": "hole in the ground",
-     "q": "deep trench earth soil"
+     "tipo": "pexels_foto",
+     "frase": "Every Roman soldier carried",
+     "q": "ancient Roman sword museum"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "dug by hand",
-     "q": "shovel in dirt ground",
-     "didascalia": "Built in a couple of hours"
+     "frase": "Not his shield",
+     "q": "Roman shield helmet museum"
     },
     {
      "tipo": "pexels_video",
-     "frase": "worked for 600 years",
-     "q": "ancient Roman ruins sunset Italy",
-     "didascalia": "It worked for 600 years"
+     "frase": "A tool",
+     "q": "old iron pickaxe tool"
     },
     {
-     "tipo": "pexels_foto",
-     "frase": "carried what he needed",
-     "q": "ancient Roman tools museum iron"
+     "tipo": "pexels_video",
+     "frase": "one general said something",
+     "q": "old manuscript parchment writing"
     }
    ]
   },
   {
-   "capitolo": "The Question",
-   "testo": "Wooden stakes, a ditch, a mound of earth. Simple, fast, repeated every single night. So if a ditch could stop an army, why didn't everyone else copy it?",
-   "anno": -52,
+   "capitulo": "The Deadly Window",
+   "testo": "First, the problem. An army on the march is the most vulnerable thing in the ancient world. Strung out in a long line. Tired. Gear packed. No formation. And there was one window every single day when a legion could be destroyed. Not marching. Not in battle. While building the camp.",
+   "anno": -57,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "An army on the march",
+     "q": "Appian Way ancient road stones"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Strung out in a long line",
+     "q": "winding dirt road forest"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "one window every single day",
+     "q": "sunset golden hour hills"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "While building the camp",
+     "q": "ancient shovel digging earth"
+    }
+   ]
+  },
+  {
+   "testo": "To build the camp, you put down your shield. You take off your helmet. You hand your life to the man beside you and start digging. And in 57 BC, in what is now Belgium, an enemy figured that out.",
+   "anno": -57,
    "visivi": [
     {
      "tipo": "pexels_foto",
-     "frase": "Wooden stakes, a ditch",
+     "frase": "you put down your shield",
+     "q": "Roman helmet shield ground"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "in what is now Belgium",
+     "q": "Belgium river forest woods"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "an enemy figured that out",
+     "q": "dark forest edge mist",
+     "suono": "distant war horns in forest"
+    }
+   ]
+  },
+  {
+   "testo": "Caesar's legions reached a river and began fortifying as always. Men scattered across the slope, cutting timber, cutting turf. And the Nervii burst out of the woods at a dead sprint. Caesar had to do everything at once. Raise the standard, sound the trumpet, form a line. He wrote that the shortness of time made most of it impossible.",
+   "anno": -57,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Caesar's legions reached a river",
+     "q": "river valley green slope"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "cutting timber, cutting turf",
+     "q": "cut timber logs forest"
+    },
+    {
+     "tipo": "cartone",
+     "frase": "And the Nervii burst out",
+     "sfondo": "s1",
+     "personaggio": "giulio_cesare",
+     "suono": "war cries, running feet"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Raise the standard",
+     "q": "Roman standard eagle museum"
+    }
+   ]
+  },
+  {
+   "testo": "They nearly lost three legions in the time it takes to boil water. So why keep taking that risk every single evening for centuries? Because of what the camp gave them on the other side of that risk.",
+   "anno": -57,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "They nearly lost three legions",
+     "q": "boiling water pot fire"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "every single evening",
+     "q": "sunset dusk sky orange"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Because of what the camp",
+     "q": "campfire embers glowing night"
+    }
+   ]
+  },
+  {
+   "capitulo": "A Home That Moves",
+   "testo": "Think about being nineteen years old, a thousand miles from home, in a country where you don't speak the language and the trees look wrong. You are terrified constantly. Then the sun goes down, and you walk through a gate you dug yourself into a camp laid out exactly like last night's.",
+   "anno": -50,
+   "visivi": [
+    {
+     "tipo": "cartone",
+     "frase": "Think about being nineteen",
+     "sfondo": "s2",
+     "personaggio": "legionario"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "in a country where you don't",
+     "q": "misty forest strange trees"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Then the sun goes down",
+     "q": "sunset silhouette trees dusk"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "walk through a gate",
+     "q": "ancient wooden gate ruins"
+    }
+   ]
+  },
+  {
+   "testo": "Same streets. Same distances. Same gate on the same side. Same seven men in your tent. In Britain, in Syria, in the desert, in the snow. The Roman marching camp was the only piece of home that could move. Rome didn't conquer the world by being braver. It made the whole world feel familiar to a scared teenager with a shovel.",
+   "anno": -50,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "In Britain, in Syria",
+     "q": "Scotland moorland snow"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "in the desert, in the snow",
+     "q": "Judean desert dunes wind"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Rome didn't conquer the world",
+     "q": "Roman ruins columns Italy"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "a scared teenager with a shovel",
+     "q": "old shovel tool dirt"
+    }
+   ]
+  },
+  {
+   "capitulo": "Before Dawn",
+   "testo": "The day starts before dawn. Trumpets. Josephus, who watched the Roman army up close, described it. First trumpet, tents come down. Second, baggage goes onto the mules. And before leaving, they set fire to the camp they just slept in. Every time.",
+   "anno": 70,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "The day starts before dawn",
+     "q": "dawn mist field sunrise"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Josephus, who watched",
+     "q": "ancient scroll manuscript"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "set fire to the camp",
+     "q": "burning fire flames field",
+     "suono": "crackling fire, wood burning"
+    }
+   ]
+  },
+  {
+   "testo": "Not out of spite. A half-finished Roman camp left standing is a gift to the enemy, a ready-made fort in hostile country. So they destroyed their own shelter every morning, knowing they'd build it again in nine hours. The third trumpet sounds, and forty thousand men shout that they are ready for war.",
+   "anno": 70,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "A half-finished Roman camp",
+     "q": "ancient earthwork ruins grass"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "they'd build it again",
+     "q": "smoldering ashes ground"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "The third trumpet sounds",
+     "q": "ancient bronze horn trumpet",
+     "suono": "Roman horn trumpet call"
+    }
+   ]
+  },
+  {
+   "testo": "How far did they march? Vegetius gives a brutal number. Twenty Roman miles in five hours. About eighteen modern miles before lunch. Add the weight. A saw, a basket, a pickaxe, an axe, a strap, a hook, three days of rations, plus armor, shield, helmet, sword, javelins.",
+   "anno": 70,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "How far did they march",
+     "q": "long dirt road hills",
+     "didascalia": "18 miles before lunch"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "A saw, a basket",
+     "q": "old saw axe tools wood"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "plus armor, shield, helmet",
+     "q": "Roman armor museum lorica"
+    }
+   ]
+  },
+  {
+   "testo": "They called themselves Marius's mules. And look at that list again. Four of the seven items weren't weapons. They were construction tools. The Roman army marched to war carrying a building site on its back.",
+   "anno": 70,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "They called themselves",
+     "q": "mule carrying load mountain"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Four of the seven items",
+     "q": "ancient iron tools museum"
+    },
+    {
+     "tipo": "cartone",
+     "frase": "The Roman army marched",
+     "sfondo": "s2",
+     "personaggio": "legionario"
+    }
+   ]
+  },
+  {
+   "capitulo": "Measuring the Field",
+   "testo": "The column halts in late afternoon. And the first men to move aren't soldiers. They're surveyors. Polybius, a Greek hostage turned sharpest observer of Rome, described it. A white flag goes into the ground where the commander's tent will stand. That flag is the center of the universe.",
+   "anno": -150,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "The column halts in late",
+     "q": "golden field afternoon light"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Polybius, a Greek hostage",
+     "q": "ancient Greek manuscript papyrus"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "A white flag goes",
+     "q": "white flag pole field wind"
+    }
+   ]
+  },
+  {
+   "testo": "Colored flags mark the streets and the corners of the ditch. They used measuring rods ten Roman feet long and a surveying tool, the groma, for dead straight lines. By the time the army arrives, the empty field is already a map. No arguing. No wasted minutes.",
+   "anno": -150,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "Colored flags mark the streets",
+     "q": "colored flags field wind"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "measuring rods ten Roman feet",
+     "q": "wooden measuring rod ancient"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "the empty field is already",
+     "q": "aerial farmland grid fields"
+    }
+   ]
+  },
+  {
+   "testo": "The shape is why we can still find these camps. A rectangle with rounded corners, like a playing card. Four gates. Two main roads crossing. The commander's tent in the middle. Every unit in a fixed position. The Greeks fitted camps to the terrain. The Romans did the opposite, leveling the ground and forcing the same plan every time.",
+   "anno": -150,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "A rectangle with rounded corners",
+     "q": "aerial fields crop marks"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Four gates",
+     "q": "ancient stone gate arch"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "The Greeks fitted camps",
+     "q": "Greek hills rocky terrain"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "leveling the ground",
+     "q": "flat grassy plain wind"
+    }
+   ]
+  },
+  {
+   "testo": "Why more work? Because of what identical does to a human under stress. A soldier woken at two in the morning by screaming doesn't have to think. He steps out and his legs know the route. Same paces, same turn, same place in the line. A fortress a man could navigate blind.",
+   "anno": -150,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Why more work",
+     "q": "dark night torch flame"
+    },
+    {
+     "tipo": "cartone",
+     "frase": "A soldier woken at two",
+     "sfondo": "s1",
+     "personaggio": "legionario",
+     "reazione": true,
+     "suono": "screams in the night, alarm horn"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "A fortress a man could",
+     "q": "dark stone corridor ancient"
+    }
+   ]
+  },
+  {
+   "testo": "There's a second layer. Between the rampart and the first tents, the Romans left an empty strip, two hundred Roman feet wide. It cost enormous extra digging. They did it anyway. It stopped missiles landing in tents, gave burning arrows nothing to catch, and gave an army woken in the dark space to form up.",
+   "anno": -150,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Between the rampart and the first",
+     "q": "empty grass field fence"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "It stopped missiles landing",
+     "q": "ancient arrows quiver museum"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "gave burning arrows nothing",
+     "q": "fire sparks dark night"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "space to form up",
+     "q": "open field fog morning"
+    }
+   ]
+  },
+  {
+   "testo": "Notice: we're nine minutes into a video about sleeping, and I haven't described a single weapon. That's the point. The genius of Rome was treating an ordinary evening as an engineering problem with a known answer.",
+   "anno": -150,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "we're nine minutes into",
+     "q": "hourglass sand time"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "an engineering problem",
+     "q": "Roman aqueduct arches stone"
+    }
+   ]
+  },
+  {
+   "capitulo": "The Ditch",
+   "testo": "Now, the digging. The men arrive. They don't rest. They drop shields and packs around their standards, keep their swords on, and grab the tools. Each unit has its own stretch of perimeter, measured in advance. Nobody supervises. Every century knows its frontage.",
+   "anno": -50,
+   "visivi": [
+    {
+     "tipo": "cartone",
+     "frase": "Now, the digging",
+     "sfondo": "s2",
+     "personaggio": "legionario",
+     "suono": "digging shovels in dirt"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "keep their swords on",
+     "q": "ancient Roman gladius sword"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Every century knows",
+     "q": "digging soil shovel closeup"
+    }
+   ]
+  },
+  {
+   "testo": "Vegetius describes grades of defense. When no threat, they cut turf blocks into a wall about three feet high. A quick ditch, five feet wide, three deep. But when attack is expected, a proper ditch: twelve feet wide, nine feet deep, dug by hand after marching eighteen miles in armor.",
+   "anno": -50,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "they cut turf blocks",
+     "q": "grass turf blocks stacked"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "A quick ditch",
+     "q": "deep ditch earth wall"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "twelve feet wide, nine feet deep",
+     "q": "deep trench earthwork",
+     "didascalia": "12 feet wide, 9 deep"
+    }
+   ]
+  },
+  {
+   "testo": "And it isn't flat-bottomed. It's cut as a V, narrowing to a slot. You can't stand in it. You can't brace. Jump in during the dark and your ankle rolls, your feet wedge, and you're stuck at the bottom of a slope with Romans above you.",
+   "anno": -50,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "It's cut as a V",
+     "q": "V shaped ditch earth"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "your ankle rolls",
+     "q": "muddy trench dark night"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "stuck at the bottom",
+     "q": "steep dirt slope rain"
+    }
+   ]
+  },
+  {
+   "testo": "The spoil from the ditch is thrown inward and packed into a rampart, with turf stacked like bricks. An attacker must cross open ground, drop into a trench he can't see, climb out, then climb a slick bank, while rested men with javelins wait above him.",
+   "anno": -50,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "The spoil from the ditch",
+     "q": "earth rampart grass bank"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "cross open ground",
+     "q": "dark open field fog night"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "climb a slick bank",
+     "q": "wet muddy hillside steep"
+    }
+   ]
+  },
+  {
+   "capitulo": "The Mystery Tool",
+   "testo": "On top of the rampart went stakes. Not local wood. Stakes the soldiers carried, with a narrow waist carved in the middle so they could be tied into bundles. Archaeologists have pulled them from waterlogged ground in Germany. Lashed in clumps, points outward, planted along the crest.",
+   "anno": -50,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "On top of the rampart",
      "q": "sharpened wooden stakes fence"
     },
     {
-     "tipo": "pexels_video",
-     "frase": "a mound of earth",
-     "q": "earth mound grass field"
+     "tipo": "pexels_foto",
+     "frase": "Archaeologists have pulled them",
+     "q": "archaeological wooden artifact museum"
     },
     {
      "tipo": "pexels_video",
-     "frase": "repeated every single night",
-     "q": "campfire night time lapse stars"
+     "frase": "Lashed in clumps",
+     "q": "rope tied wood bundle"
+    }
+   ]
+  },
+  {
+   "testo": "That means Rome didn't depend on the landscape. No trees, no problem. Marsh, desert, bare Scottish hillside. The palisade came out of the packs. Most armies could only fortify where terrain let them. Rome could fortify anywhere, on demand, in one evening.",
+   "anno": -50,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Rome didn't depend on the landscape",
+     "q": "Scottish highlands bare hillside"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Marsh, desert",
+     "q": "marsh swamp reeds mist"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "why didn't everyone else",
-     "q": "ancient Roman coin close up"
+     "frase": "Rome could fortify anywhere",
+     "q": "desert rocky landscape"
+    }
+   ]
+  },
+  {
+   "testo": "And now the tool. The pickaxe. The Roman dolabra, a pick on one side, a blade on the other. Every man had one. Corbulo, a general under Nero, was famous for working his soldiers on fortifications. His line, preserved by Frontinus: the enemy must be beaten with the pickaxe.",
+   "anno": 55,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "The pickaxe",
+     "q": "old iron pickaxe tool"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Corbulo, a general under Nero",
+     "q": "Roman marble bust museum"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "the enemy must be beaten",
+     "q": "old parchment ink writing"
+    }
+   ]
+  },
+  {
+   "testo": "That's the whole Roman doctrine in one sentence. Not we're braver. Not the gods favor us. We will outdig you. Roman discipline wasn't mostly standing still under fire. It was picking up a pick after an eighteen-mile march, hungry and soaked, and digging a trench you'd burn tomorrow, for twenty-five years.",
+   "anno": 55,
+   "visivi": [
+    {
+     "tipo": "cartone",
+     "frase": "That's the whole Roman doctrine",
+     "sfondo": "s2",
+     "personaggio": "legionario"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "hungry and soaked",
+     "q": "heavy rain mud field",
+     "suono": "heavy rain and thunder"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "for twenty-five years",
+     "q": "old worn stone steps ruins",
+     "didascalia": "25 years of service"
+    }
+   ]
+  },
+  {
+   "capitulo": "A City in an Afternoon",
+   "testo": "A myth worth killing: that the camp was a grim compound of tents. Josephus describes a city that sprang up suddenly. Proper streets, craftsmen at work, a marketplace, a place for settling disputes, artillery between the towers, and the commander's tent in the middle, which he compared to a temple.",
+   "anno": 70,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "A myth worth killing",
+     "q": "ancient Roman ruins streets"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "craftsmen at work",
+     "q": "blacksmith forge hammer iron",
+     "suono": "hammer on anvil"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "artillery between the towers",
+     "q": "ancient catapult replica"
+    }
+   ]
+  },
+  {
+   "testo": "This was a functioning Roman town of tens of thousands, built in an afternoon, destroyed the next morning, and rebuilt eighteen miles down the road.",
+   "anno": 70,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "built in an afternoon",
+     "q": "time lapse clouds hills"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "rebuilt eighteen miles",
+     "q": "long road horizon hills"
+    }
+   ]
+  },
+  {
+   "capitulo": "Eight Men",
+   "testo": "Now go inside a tent. The smallest unit of the legion wasn't the century. It was eight men sharing a leather tent, called a papilio, a butterfly. They shared a mule, a millstone, a cooking pot, and slept pressed together for warmth. The group was a contubernium.",
+   "anno": 70,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "Now go inside a tent",
+     "q": "leather tent canvas rope"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "They shared a mule",
+     "q": "mule donkey rope pack"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "a millstone, a cooking pot",
+     "q": "old millstone grinding grain"
+    }
+   ]
+  },
+  {
+   "testo": "Ten groups made a century. Six centuries made a cohort. Ten cohorts made a legion. But loyalty lived at the level of eight. Stealing from the men in your own camp was a capital offense. Men don't die for an empire. They die for the seven people they cook with.",
+   "anno": 70,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "Ten groups made a century",
+     "q": "Roman legion standard museum"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Stealing from the men",
+     "q": "dark tent flap night"
+    },
+    {
+     "tipo": "cartone",
+     "frase": "Men don't die for an empire",
+     "sfondo": "s1",
+     "personaggio": "legionario"
+    }
+   ]
+  },
+  {
+   "capitulo": "The Night Watch",
+   "testo": "The ditch is dug, the stakes planted, the fires lit. Now the night watch. A fortification is only as good as the men awake behind it, and humans are bad at staying awake. So Rome built a system that assumed its own soldiers would fail. Four watches, about three hours each.",
+   "anno": -150,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "The ditch is dug",
+     "q": "torch fire night flame",
+     "suono": "crackling torch, night wind"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "A fortification is only as good",
+     "q": "night watchtower silhouette"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Four watches",
+     "q": "moon clouds night sky",
+     "didascalia": "4 watches a night"
+    }
+   ]
+  },
+  {
+   "testo": "The password wasn't shouted down the line, because that leaks. It was written on a small wooden tablet, the tessera, physically carried from unit to unit. Men chosen by lot made the rounds with friends as witnesses. If a sentry was alert, they took his tablet. If asleep, they didn't wake him. They noted it and left.",
+   "anno": -150,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "written on a small wooden tablet",
+     "q": "ancient wooden tablet wax"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Men chosen by lot",
+     "q": "walking torch dark corridor"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "If asleep, they didn't wake",
+     "q": "sleeping silhouette dark candle"
+    }
+   ]
+  },
+  {
+   "testo": "In the morning the tablets were counted. A century still holding its tablet at dawn proved it with an object nobody could take. The sleeper had no defense. The physical evidence sat in his own fist. And that was why no Roman century slept.",
+   "anno": -150,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "In the morning the tablets",
+     "q": "sunrise camp morning light"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "The sleeper had no defense",
+     "q": "closed fist hand old"
+    }
+   ]
+  },
+  {
+   "testo": "The punishment was the fustuarium. The officer struck the condemned man once, and then his own tent group, the seven men he ate with, carried out the sentence with clubs and stones. It applied to sleeping on watch, desertion, and theft. Every one a betrayal of the men beside you, so the betrayed carried it out.",
+   "anno": -150,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "The punishment was the fustuarium",
+     "q": "ancient wooden club stones"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "his own tent group",
+     "q": "dark torchlight shadows crowd"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Every one a betrayal",
+     "q": "broken chain iron old"
+    }
+   ]
+  },
+  {
+   "capitulo": "Think Like the Enemy",
+   "testo": "Now flip it. Stand outside the ditch. You have more men. Your warriors are fiercer one on one. You wait for night, the great equalizer. And you find a ditch, a bank, a wall of stakes, and men not asleep in the way you hoped. No unguarded side, because all four faces are identical.",
+   "anno": -50,
+   "visivi": [
+    {
+     "tipo": "cartone",
+     "frase": "Now flip it",
+     "sfondo": "s1",
+     "personaggio": "guerriero_barbaro",
+     "suono": "distant drums, night wind"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "You wait for night",
+     "q": "dark forest night fog"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "a wall of stakes",
+     "q": "wooden palisade fence night"
+    }
+   ]
+  },
+  {
+   "testo": "So you go home. The next day they march eighteen miles deeper into your country and do it again. The Romans took away your best weapon, the ambush, permanently, every night, for free. The only fight left is daylight on open ground, exactly the battle the legion was built to win.",
+   "anno": -50,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "the next day they march",
+     "q": "dirt road dust hills morning"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "your best weapon, the ambush",
+     "q": "dark forest path trees"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "daylight on open ground",
+     "q": "open plain grass sunlight"
+    }
+   ]
+  },
+  {
+   "testo": "That answers the title. The Romans didn't sleep near the enemy despite the danger. They slept near the enemy because it was the most aggressive thing they could do. A camp two miles away says: we are here, we are not leaving, and we are in no hurry. You choose when to fight.",
+   "anno": -50,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "That answers the title",
+     "q": "Roman ruins sunset Italy"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "A camp two miles away",
+     "q": "distant campfires hills dusk"
+    },
+    {
+     "tipo": "cartone",
+     "frase": "we are not leaving",
+     "sfondo": "s2",
+     "personaggio": "legionario"
+    }
+   ]
+  },
+  {
+   "testo": "Ancient armies were coalitions, and they dissolved. Farmers had harvests. Warriors got bored. Rome's army was paid, fed, and lived behind a wall it carried with it. The marching camp wasn't really defensive. It was a siege weapon aimed at the enemy's patience.",
+   "anno": -50,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Farmers had harvests",
+     "q": "wheat field harvest golden"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "paid, fed",
+     "q": "ancient Roman coins silver"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "a siege weapon aimed",
+     "q": "stone wall fortress ruins"
+    }
+   ]
+  },
+  {
+   "capitulo": "Alesia",
+   "testo": "Take this to the extreme: Alesia, 52 BC, Gaul. Caesar has Vercingetorix and a huge army trapped in a hilltop town. He can't storm it, so he builds a wall right around the hill. Roughly eleven Roman miles of ditches, ramparts, and towers.",
+   "anno": -52,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Take this to the extreme",
+     "q": "French hilltop plateau aerial"
+    },
+    {
+     "tipo": "cartone",
+     "frase": "Caesar has Vercingetorix",
+     "sfondo": "s2",
+     "personaggio": "giulio_cesare",
+     "data": "52 BC"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "ditches, ramparts, and towers",
+     "q": "ancient wooden watchtower ruins",
+     "didascalia": "11 Roman miles of walls"
+    }
+   ]
+  },
+  {
+   "testo": "Then word comes that a huge Gallic relief army is coming from behind. A normal commander retreats. Caesar builds a second ring facing outward, another fourteen miles. He turned his own army into the filling of a sandwich and fortified both sides of the bread.",
+   "anno": -52,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "a huge Gallic relief army",
+     "q": "misty hills dawn France"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Caesar builds a second ring",
+     "q": "aerial circular earthwork"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "fortified both sides",
+     "q": "stone wall long countryside",
+     "didascalia": "14 more miles"
+    }
+   ]
+  },
+  {
+   "testo": "And the ground between was seeded with horrors. Pits with sharpened stakes, hidden under brush. Blocks of wood with iron hooks buried at ankle height. Sharpened branches interlaced in trenches. A flooded ditch. Alesia is usually told as a story about Caesar's nerve. It isn't. It's a story about shovels.",
+   "anno": -52,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "Pits with sharpened stakes",
+     "q": "sharpened wooden spikes pit"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "iron hooks buried",
+     "q": "old iron hooks rusty"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "A flooded ditch",
+     "q": "flooded ditch water reeds"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "a story about shovels",
+     "q": "old shovel in soil"
+    }
+   ]
+  },
+  {
+   "capitulo": "When Rome Couldn't Dig",
+   "testo": "What happens when Romans can't do this? The worst day in Roman memory. 9 AD, northern Germany. Three legions under Varus strung out along tracks between forest and swamp. You can't form a line in dense woodland. You can't lay out a camp boxed in by trees and bog.",
+   "anno": 9,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "What happens when Romans",
+     "q": "dense German forest fog"
+    },
+    {
+     "tipo": "cartone",
+     "frase": "9 AD, northern Germany",
+     "sfondo": "s1",
+     "personaggio": "legionario",
+     "data": "9 AD",
+     "reazione": true,
+     "suono": "war cries in forest, rain"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "boxed in by trees and bog",
+     "q": "swamp bog trees mist"
+    }
+   ]
+  },
+  {
+   "testo": "The system that kept Rome alive every other night simply couldn't run. The legions were destroyed over several days. The lesson wasn't that Germans were unbeatable. It was: never let the army be caught where it cannot dig.",
+   "anno": 9,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "The legions were destroyed",
+     "q": "dark rain forest storm",
+     "suono": "heavy rain and thunder"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "never let the army be caught",
+     "q": "lonely dark forest path"
+    }
+   ]
+  },
+  {
+   "capitulo": "Ghost Camps",
+   "testo": "And these camps were temporary, built in an afternoon, never meant to last a week. Yet you can still find them. At Masada in the Judean desert, the Roman siege camps still sit on the sand, walls, gates, even the tent lines. In Spain, near Numantia, Scipio's camps ring a town he starved.",
+   "anno": 73,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "At Masada in the Judean desert",
+     "q": "Masada Judean desert aerial"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "even the tent lines",
+     "q": "desert ruins stone outline"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "In Spain, near Numantia",
+     "q": "Spain dry plateau ruins"
+    }
+   ]
+  },
+  {
+   "testo": "And in Scotland, hundreds of marching camps have been found from the air, because a buried ditch changes how crops grow. From the ground, an empty field. From a plane in the right summer, a perfect rounded rectangle with gates. Two thousand years later, one night's work is still printed on the land.",
+   "anno": 2026,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "hundreds of marching camps",
+     "q": "aerial Scotland farmland drone"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "a buried ditch changes",
+     "q": "crop field aerial pattern"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Two thousand years later",
+     "q": "Hadrian's Wall sunset"
+    }
+   ]
+  },
+  {
+   "capitulo": "The Real Weapon",
+   "testo": "So let's close the loops. The mystery tool was the pickaxe. The general was Corbulo. The line: the enemy must be beaten with the pickaxe. Roman soldiers could sleep in sight of an enemy not from courage, but from a routine so drilled that exhausted men could build a fortified town in the dark without discussion.",
+   "anno": 2026,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "The mystery tool was the pickaxe",
+     "q": "old iron pickaxe tool"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "a routine so drilled",
+     "q": "night campfire hills stars"
+    },
+    {
+     "tipo": "cartone",
+     "frase": "build a fortified town",
+     "sfondo": "s2",
+     "personaggio": "legionario"
+    }
+   ]
+  },
+  {
+   "testo": "Rome's real weapon wasn't the sword or the javelin. It was making one specific evening happen identically ten thousand times across three continents for six hundred years. The roads, the aqueducts, the empire, the same habit, scaled up. They conquered the world by being boring on purpose, every single night.",
+   "anno": 2026,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Rome's real weapon wasn't",
+     "q": "Roman aqueduct sunset arches"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "across three continents",
+     "q": "ancient Roman road stones"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "every single night",
+     "q": "starry night sky ruins"
+    }
+   ]
+  },
+  {
+   "testo": "Even Vegetius, centuries later, complained that armies had stopped fortifying their camps properly. He wanted the old standard back. He was writing about a ditch, but really about discipline. So tell me: could your habits survive a night two miles from your enemy?",
+   "anno": 2026,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "Even Vegetius, centuries later",
+     "q": "ancient book manuscript candle"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "So tell me",
+     "q": "full moon night clouds"
     }
    ]
   }
@@ -201,7 +1173,7 @@
   "testo": "TWO MILES",
   "personaggio": "legionario"
  },
- "descrizione": "Imagine an army of 40,000 men camped just two miles away, close enough to see their fires. Why didn't they attack in the dark? Discover the strange secret behind the Roman army's nightly camps.\n\nThe Romans never hid in castles or climbed to high ground. They marched all day, then dug a ditch and raised wooden stakes. This simple routine protected legions for 600 years.\n\nLearn how Roman engineering, discipline and the humble marching camp kept soldiers alive night after night.\n\n#RomanArmy #AncientRome #RomanHistory #RomanLegion #History",
+ "descrizione": "Imagine an enemy army of 40,000 camped just two miles away, and the Roman legion going to sleep anyway. Why weren't Roman soldiers afraid to sleep near enemies? The answer is a hole in the ground dug by hand and a tool that appears in no battle painting.\n\nIn this video we walk through the Roman marching camp step by step: the surveyors, the playing-card layout, the V-shaped ditch, the stake palisade, the tessera night watch, the contubernium, and the brutal fustuarium punishment. We also look at Caesar's near disaster against the Nervii, the siege of Alesia, and the Teutoburg Forest.\n\nDiscover how Roman engineering, discipline, and routine conquered the ancient world, one night at a time.\n\n#RomanArmy #RomanHistory #AncientRome #RomanLegion #History",
  "tag": [
   "roman soldiers",
   "roman army",
@@ -224,11 +1196,23 @@
   "life of a roman soldier",
   "history documentary",
   "roman camp",
-  "roman ditch and stakes",
-  "how romans slept near enemies",
-  "history of rome",
-  "complete history of rome"
+  "julius caesar",
+  "corbulo",
+  "vegetius",
+  "roman pickaxe",
+  "fustuarium",
+  "roman night watch",
+  "cartoon history",
+  "ancient rome explained",
+  "complete roman army history"
  ],
- "personaggi_mancanti": [],
+ "personaggi_mancanti": [
+  "Josephus (Jewish historian)",
+  "Polybius (Greek historian)",
+  "Vegetius (Roman writer)",
+  "Corbulo (Roman general)",
+  "Vercingetorix (Gallic chieftain)",
+  "Varus (Roman commander)"
+ ],
  "categoria_originale": "22"
 }
