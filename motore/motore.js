@@ -271,7 +271,9 @@ async function main() {
     if (String(cfg.coach_auto || '').trim().toUpperCase() === 'SI' && fs.existsSync(fr)) {
       const ric = JSON.parse(fs.readFileSync(fr, 'utf8'));
       const v = (ric.versioni || []).find(x => x.n === ric.versione_attiva);
-      if (v && v.parametri) { Object.assign(cfg, v.parametri); log('coach: ricetta versione', v.n, '-', v.cosa || '', '|', Object.keys(v.parametri).join(', ')); }
+      if (v && v.parametri) {   // LUCCHETTO: budget, spese e tetti di immagini li decide solo Giorgio nel foglio
+        for (const k of Object.keys(v.parametri)) if (/budget|spesa|immagini_max|prezzo|costo/i.test(k)) { log('coach: parametro', k, 'ignorato (lucchetto spesa)'); delete v.parametri[k]; }
+        Object.assign(cfg, v.parametri); log('coach: ricetta versione', v.n, '-', v.cosa || '', '|', Object.keys(v.parametri).join(', ')); }
     }
   } catch (e) { log('coach: ricetta non letta (' + e.message.slice(0, 100) + '), uso Channel Configs'); }
   metti('Load Channel Config', [J(cfg)]);

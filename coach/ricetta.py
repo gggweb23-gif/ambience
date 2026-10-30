@@ -18,7 +18,11 @@ def applica(P, log=print):
         ric = json.load(open(f))
         v = next((x for x in ric.get('versioni', []) if x.get('n') == ric.get('versione_attiva')), None)
         if v and v.get('parametri'):
-            P.update(v['parametri'])
+            # LUCCHETTO: budget, spese e tetti di immagini li decide solo Giorgio nel foglio: la ricetta non li puo' cambiare
+            bloccati = [k for k in v['parametri'] if re.search(r'budget|spesa|immagini_max|prezzo|costo', k, re.I)]
+            for k in bloccati:
+                log('coach: parametro ' + k + ' ignorato (lucchetto spesa)')
+            P.update({k: x for k, x in v['parametri'].items() if k not in bloccati})
             log(f"coach: ricetta versione {v['n']} - {v.get('cosa', '')} | {', '.join(v['parametri'])}")
     except Exception as e:
         log('coach: ricetta non letta (' + str(e)[:100] + '), uso Channel Configs')

@@ -3,17 +3,18 @@
 Lucchetti (decisi da Giorgio il 30 ott 2026), controllati qui E con gli intervalli protetti del foglio:
 - la riga di KAO PSICOLOGIA non si tocca mai;
 - le colonne videos_per_day (canale acceso/spento) e publish_schedule_days non si toccano mai;
+- nessuna colonna di budget/spesa/tetto immagini (budget_video, coach_budget_video, max_spesa_immagini, immagini_max...) si tocca mai;
 - le colonne dei parametri di Giorgio (coach_*, durata_min_minuti, durata_max_minuti) si possono solo COMPILARE se vuote.
 PAYLOAD = {"modifiche": [{"canale": "Agora of Sages", "colonna": "render_engine", "valore": "github_completo"}, ...],
            "nuove_colonne": ["coach_auto", ...], "prova": "SI" (solo controllo, non scrive)}
 Segreto: GOOGLE_SA_KEY (JSON dell'account di servizio, con il foglio condiviso in modifica con la sua email)."""
-import json, os, sys, time, urllib.parse, urllib.request
+import json, os, re, sys, time, urllib.parse, urllib.request
 
 FOGLIO = os.environ.get('FOGLIO_CONFIGS', '1COMpgHJshcmz_a9s-WsjCO5xbhwxBazt-ZB0G_C7Rb0')
 RIGHE_BLOCCATE = {'KAO PSICOLOGIA'}
 COLONNE_BLOCCATE = {'channel_id', 'videos_per_day', 'publish_schedule_days'}
 SOLO_SE_VUOTE = {'coach_auto', 'coach_obiettivo_ctr', 'coach_obiettivo_ret30', 'coach_obiettivo_ret60', 'coach_finestra_video',
-                 'coach_min_impression', 'coach_budget_video', 'durata_min_minuti', 'durata_max_minuti'}
+                 'coach_min_impression', 'durata_min_minuti', 'durata_max_minuti'}
 
 
 def token():
@@ -62,7 +63,7 @@ def main():
         can, col, val = str(m['canale']).strip(), str(m['colonna']).strip(), m['valore']
         if can in RIGHE_BLOCCATE:
             esito.append(f'BLOCCATO: la riga {can} non si tocca'); continue
-        if col in COLONNE_BLOCCATE:
+        if col in COLONNE_BLOCCATE or re.search(r'budget|spesa|immagini_max|prezzo|costo', col, re.I):
             esito.append(f'BLOCCATO: la colonna {col} la decide solo Giorgio'); continue
         if can not in righe:
             esito.append(f'canale non trovato: {can}'); continue

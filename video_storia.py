@@ -109,6 +109,23 @@ IMMAGINI_MODELLO = str(P.get('immagini_modello') or E('IMMAGINI_MODELLO', '') or
 NUOVE_QUOTA = float(str(P.get('immagini_nuove') or E('IMMAGINI_NUOVE', '') or .55).replace(',', '.').replace('%', ''))
 NUOVE_QUOTA = NUOVE_QUOTA / 100 if NUOVE_QUOTA > 1 else NUOVE_QUOTA   # quota di inquadrature con un'immagine nuova (le altre: dettaglio della precedente)
 IMMAGINI_MAX = int(float(str(P.get('immagini_max') or E('IMMAGINI_MAX', '') or 200)))   # tetto immagini per video (costo)
+
+
+def _soldi(v):
+    """'1,10' / '1.10' / '1:10' (cella letta come ora) / 1.1 -> 1.1 ; vuoto o non valido -> None"""
+    t = str(v if v is not None else '').strip().replace('€', '').replace('$', '')
+    if not t:
+        return None
+    m = re.match(r'^(\d+)[:.,](\d+)', t)
+    try:
+        return float(f'{m.group(1)}.{m.group(2)}') if m else float(t)
+    except ValueError:
+        return None
+
+
+# LUCCHETTO DI SPESA (30 ott 2026, Giorgio): mai disegni senza tetto. budget_video numero = euro massimi di immagini a video;
+# budget_video NO / vuoto = vale max_spesa_immagini, e se manca anche quella 1 $. Il tetto vale per qualunque tipo di disegno.
+TETTO_IMMAGINI = BUDGET if BUDGET > 0 else (_soldi(P.get('max_spesa_immagini')) or 1.0)
 TAVOLE = str(P.get('tavole') or E('TAVOLE', '') or 'NO').strip().upper() == 'SI'   # regia: ogni immagine generata = tavola 2x2 con 4 inquadrature diverse (mai la stessa immagine due volte)
 if TAVOLE and not (P.get('immagini_nuove') or E('IMMAGINI_NUOVE', '')):
     NUOVE_QUOTA = .3   # una tavola ogni ~4 inquadrature: le altre 3 sono gli altri pannelli
@@ -1052,11 +1069,16 @@ def fal(modello, dati):
     h = {'Authorization': 'Key ' + E('FAL_KEY', '')}
     with _lock:
         costo = (PREZZO_DISEGNO if str(dati.get('resolution')) == '2K' else 0.08) if 'nano-banana' in modello else 0.04
-        tetto = float(str(P.get('max_spesa_immagini') or 0).replace(',', '.') or 0)
+        tetto = TETTO_IMMAGINI
         if getattr(_CTX, 'scena', False):
             SPESA['scene'] = SPESA.get('scene', 0) + costo
-        if tetto and getattr(_CTX, 'scena', False) and SPESA['scene'] > tetto + 1e-9:   # il tetto vale per le immagini delle scene, mai per la copertina   # tetto di spesa immagini del video (colonna max_spesa_immagini, in $)
+        if getattr(_CTX, 'scena', False) and SPESA['scene'] > tetto + 1e-9:   # il tetto vale per le immagini delle scene
+            SPESA['scene'] -= costo
             raise RuntimeError(f'tetto di spesa immagini {tetto:.2f} $ raggiunto')
+        if SPESA['fal'] + costo > tetto + RISERVA_COP + 1e-9:   # LUCCHETTO DI SPESA: il totale immagini del video (scene + copertine) non si supera MAI
+            if getattr(_CTX, 'scena', False):
+                SPESA['scene'] -= costo
+            raise RuntimeError(f'tetto di spesa totale immagini {tetto + RISERVA_COP:.2f} $ raggiunto')
         SPESA['fal'] += costo
         SPESA['disegni'] += 1
         CO.registra('fal', modello, dollari=costo)

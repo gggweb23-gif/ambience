@@ -8,8 +8,11 @@ finché i parametri sono rispettati, senza buttare il lavoro fatto. Rispondi e s
 - Parametri (colonne di Channel Configs, default tra parentesi): `coach_obiettivo_ctr` (3,5), `coach_obiettivo_ret30` (65),
   `coach_obiettivo_ret60` (50), `coach_finestra_video` (3), `coach_min_impression` (1000), `coach_budget_video`
   (costo massimo per video in $ ≈ €, voce ElevenLabs esclusa perche' e' un abbonamento).
-- ATTENZIONE: la colonna `budget_video` (senza coach_) e' un'impostazione del motore video_storia (euro di disegni: 0 = solo Pexels,
-  NO = senza tetto): e' una LEVA che il coach puo' cambiare nella ricetta, non il budget del coach.
+- LUCCHETTO SPESA (Giorgio, 30 ott 2026): budget e spese li decide SOLO Giorgio. Il coach non cambia MAI, ne' nel foglio ne' nella
+  ricetta, nessun parametro di budget/spesa/tetto immagini (`budget_video`, `coach_budget_video`, `max_spesa_immagini`,
+  `immagini_max`...): il motore e la ricetta li ignorano comunque. Se un canale costa piu' del budget, il coach riduce il costo
+  con leve che NON sono di spesa (es. inquadrature piu' lunghe, `secondi_per_immagine`, `ritmo`, riuso dei disegni, modelli
+  piu' economici per i controlli) oppure lo segnala a Giorgio con una proposta.
 - Il costo reale di ogni video lo scrivono i workflow in `coach/costi/<slug>.tsv` (prove escluse dal calcolo).
 - La DURATA la decide Giorgio nel foglio (`durata_min_minuti`, `durata_max_minuti`): il coach non la cambia mai.
 - Il calcolo lo fa `coach/coach_calcola.py` (gratis). Ordine fisso delle leve: COSTO (se il costo medio degli ultimi video supera
@@ -57,9 +60,8 @@ I nomi nei `parametri` della ricetta devono essere quelli che il MOTORE legge da
 video_storia.py legge `voce`, `max_minuti`... oltre ai nomi delle colonne). Motore di ogni canale: colonna `render_workflow` /
 `github_workflow` (video_storia.yml -> video_storia.py, video_mappe.yml -> video_mappe.py, video_produzione.yml -> motore/motore.js).
 
-Motore video_storia.py (Faces of Rome = channel_id Roma Senza Filtri, Storia in Minuti): `budget_video` (euro di disegni;
-0 = solo Pexels), `quota_cartoni` (% cartone), `ritmo` (secondi per immagine nei primi 10 s / 10-30 s / dopo), `secondi_per_immagine`,
-`sfondi_max`, `max_spesa_immagini`, `copertina_stile` (foto, primo_piano...), `copertina_copia`, `cornice`, `linea_tempo`, musica.
+Motore video_storia.py (Faces of Rome = channel_id Roma Senza Filtri, Storia in Minuti): `quota_cartoni` (% cartone), `ritmo` (secondi per immagine nei primi 10 s / 10-30 s / dopo), `secondi_per_immagine`,
+`sfondi_max`, `copertina_stile` (foto, primo_piano...), `copertina_copia`, `cornice`, `linea_tempo`, musica.
 Motore video_mappe.py (Rich Borders = channel_id Main Street Atlas): `copertina_stile`, `tema_colori`, `font_titoli`, `font_testi`,
 `angoli_tondi`, `voce_stabilita`, `voce_stile`, `voice_speed`, `musica_cartella`, `musica_ritmo`.
 
