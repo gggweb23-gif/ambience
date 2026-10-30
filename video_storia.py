@@ -898,11 +898,17 @@ def linea_del_tempo(video, scene, durs):
             log('linea del tempo saltata: il copione non ha gli anni'); return video
         primo = next(a for a in anni if a is not None)
         anni = [a if a is not None else primo for a in anni]
+        # INTRODUZIONE: il racconto apre spesso col presente ("Oggi...") e poi torna all'inizio. Le scene prima della
+        # data piu' antica sono l'introduzione: la barra mostra tutto l'arco senza cursore. Da li' il cursore va solo avanti.
+        k0 = anni.index(min(anni))
+        for i in range(k0 + 1, len(anni)):
+            anni[i] = max(anni[i], anni[i - 1])
         inizi, t = [], 0.0
         for d in durs:
             inizi.append(t); t += d
         totale = durata(video)
-        tappe = sorted(set(anni))
+        intro_fine = inizi[k0] if k0 else None
+        tappe = sorted(set(anni[k0:]) | {max(anni)})
         if len(tappe) > 9:   # al massimo 9 tappe scritte: le altre restano solo come posizione
             passo = (len(tappe) - 1) / 8
             scritte = {tappe[round(i * passo)] for i in range(9)}
@@ -919,10 +925,10 @@ def linea_del_tempo(video, scene, durs):
             return x0 if a < tappe[0] else x1
         def anno_a(tt):   # l'anno mostrato al tempo tt: corre verso quello della scena nuova in 1,2 s
             k = max(0, sum(1 for s_ in inizi if s_ <= tt) - 1)
-            a_ora, a_prima = anni[k], anni[k - 1] if k else anni[k]
+            a_ora, a_prima = anni[k], anni[k - 1] if k > k0 else anni[k]
             f = min(1, (tt - inizi[k]) / 1.2); f = f * f * (3 - 2 * f)
             return a_prima + (a_ora - a_prima) * f
-        cart = os.path.join(LAV, 'linea'); os.makedirs(cart, exist_ok=True)
+        cart = os.path.join(LAV, 'linea'); shutil.rmtree(cart, ignore_errors=True); os.makedirs(cart, exist_ok=True)
         fps_l = 8; n = int(totale * fps_l) + 1
         fnt = None
         for cand in (os.path.join(FONT, 'Oswald-SemiBold.ttf'), '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'):
@@ -939,12 +945,17 @@ def linea_del_tempo(video, scene, durs):
                 db.text((x, yl + 26), _anno_txt(a), font=F1, fill=(255, 255, 255, 200), anchor='mm')
         ultimo = None
         for i in range(n):
-            tt = i / fps_l; a = anno_a(tt); x = pos(a)
-            chiave = (round(x), round(a))
+            tt = i / fps_l
             p = os.path.join(cart, f'l_{i:06d}.png')
+            if intro_fine is not None and tt < intro_fine:   # introduzione: solo l'arco intero, senza cursore
+                chiave = 'intro'
+            else:
+                a = anno_a(tt); x = pos(a); chiave = (round(x), round(a))
             if chiave == ultimo and i:
                 os.link(os.path.join(cart, f'l_{i - 1:06d}.png'), p); continue
             ultimo = chiave
+            if chiave == 'intro':
+                base.save(p); continue
             im = base.copy(); d = ImageDraw.Draw(im)
             d.line([(x0, yl), (x, yl)], fill=(255, 200, 40, 255), width=8)   # la parte gia' raccontata
             d.ellipse([x - 15, yl - 15, x + 15, yl + 15], fill=(255, 200, 40, 255), outline=(255, 255, 255, 255), width=4)
