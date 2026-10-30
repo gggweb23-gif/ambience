@@ -1,0 +1,37 @@
+name: Studio copertine Pexels (prove, non carica niente)
+
+on:
+  workflow_dispatch:
+    inputs:
+      payload:
+        description: 'JSON: cartella, video [{nome, iso, anni, simbolo, antico, oggi}]'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  copertine:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Memoria di mappa, confini e caratteri
+        uses: actions/cache@v4
+        with:
+          path: risorse_mappe
+          key: risorse-mappe-v1
+      - name: Programmi Python
+        run: pip install --quiet --break-system-packages numpy pillow
+      - name: Copertine
+        env:
+          PAYLOAD: ${{ inputs.payload }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+        run: python3 strumenti/studio_copertine_pexels.py
+      - name: Salva nel repository
+        if: ${{ always() }}
+        run: |
+          git config user.name "render-bot"; git config user.email "render-bot@users.noreply.github.com"
+          git add prove_video; git commit -m "Studio copertine Pexels" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase --autostash -q && git push && break; sleep $((i * 5)); done
