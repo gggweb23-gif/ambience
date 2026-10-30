@@ -138,17 +138,79 @@ def variante_c(v, simbolo, oggi):
     return im
 
 
+def box2(d, x, y, t, s, fondo, col, padx=26, pady=14, centro=False):
+    """Rettangolo che CONTIENE sempre tutta la scritta (misurata sul disegno vero delle lettere), con margine uguale."""
+    f = font(s); l, tp, r, b = d.textbbox((0, 0), t, font=f)
+    w, h = r - l + 2 * padx, b - tp + 2 * pady
+    if centro:
+        x = x - w / 2
+    d.rectangle([x + 8, y + 10, x + w + 8, y + h + 10], fill=(0, 0, 0, 150))
+    d.rectangle([x, y, x + w, y + h], fill=fondo)
+    d.text((x + padx - l, y + pady - tp), t, font=f, fill=col)
+    return x, y, w, h
+
+
+def adatta_box(t, s, larg, padx=26):
+    while s > 36 and font(s).getlength(t) + 2 * padx > larg:
+        s -= 4
+    return s
+
+
+def a1(v, simbolo):
+    """A1: come A, ma ogni scritta dentro il suo rettangolo pieno (giallo, nero, rosso)."""
+    im = vivace(riempi(simbolo, W, H)); sfuma_sinistra(im, 150, .6)
+    im = im.convert('RGBA'); d = ImageDraw.Draw(im)
+    _, y, _, h = box2(d, 50, 44, 'TUTTA LA STORIA', 58, GIALLO, NERO)
+    s = adatta_box(v['nome'], 210, W - 120, 30)
+    _, y2, _, h2 = box2(d, 50, y + h + 26, v['nome'], s, NERO, BIANCO, 30, 18)
+    box2(d, 50, y2 + h2 + 26, v['anni'], 64, ROSSO, BIANCO)
+    return im
+
+
+def a2(v, simbolo):
+    """A2: foto simbolo a tutto schermo, scritte centrate in alto dentro i rettangoli (il monumento resta libero in basso)."""
+    im = vivace(riempi(simbolo, W, H)).convert('RGBA'); d = ImageDraw.Draw(im)
+    s = adatta_box(v['nome'], 200, W - 140, 30)
+    _, y, _, h = box2(d, W / 2, 34, v['nome'], s, NERO, GIALLO, 30, 16, centro=True)
+    box2(d, W / 2, y + h + 26, v['anni'], 66, ROSSO, BIANCO, centro=True)
+    return im
+
+
+def a3(v, simbolo):
+    """A3: pannello blu pieno a sinistra con le scritte impilate, foto simbolo a destra."""
+    im = Image.new('RGB', (W, H), (16, 52, 120)); im.paste(vivace(riempi(simbolo, int(W * .58), H)), (int(W * .42), 0))
+    im = im.convert('RGBA'); d = ImageDraw.Draw(im)
+    d.polygon([(int(W * .42) - 2, 0), (int(W * .42) + 70, 0), (int(W * .42) - 2, H)], fill=(16, 52, 120))
+    larg = W * .42 - 60
+    _, y, _, h = box2(d, 40, 70, 'TUTTA LA STORIA', adatta_box('TUTTA LA STORIA', 54, larg), GIALLO, NERO)
+    parole = v['nome'].split(); s = min(adatta_box(p, 190, larg, 0) for p in parole)
+    altezza = lambda s_: sum(d.textbbox((0, 0), p, font=font(s_))[3] - d.textbbox((0, 0), p, font=font(s_))[1] + 18 for p in parole)
+    while s > 60 and y + h + 30 + altezza(s) + 110 > H - 30:   # tutto dentro l'altezza della copertina
+        s -= 6
+    y += h + 30
+    for p in parole:
+        l, tp, r, b = d.textbbox((0, 0), p, font=font(s))
+        d.text((40 - l + 6, y - tp + 8), p, font=font(s), fill=(0, 0, 0, 160)); d.text((40 - l, y - tp), p, font=font(s), fill=BIANCO)
+        y += b - tp + 18
+    box2(d, 40, y + 14, v['anni'], adatta_box(v['anni'], 60, larg), ROSSO, BIANCO)
+    return im
+
+
+VARIANTI = {'A': lambda v, f: variante_a(v, f['simbolo']), 'B': lambda v, f: variante_b(v, f['antico'], f['oggi']), 'C': lambda v, f: variante_c(v, f['simbolo'], f['oggi']),
+            'A1': lambda v, f: a1(v, f['simbolo']), 'A2': lambda v, f: a2(v, f['simbolo']), 'A3': lambda v, f: a3(v, f['simbolo'])}
+SCELTE = [x.strip() for x in str(P.get('varianti') or 'A,B,C').split(',') if x.strip() in VARIANTI]
+
 righe = []
 for v in P.get('video') or []:
     try:
-        simbolo, antico, oggi = pexels(v['simbolo']), pexels(v['antico']), pexels(v['oggi'])
+        foto = {k: pexels(v[k]) for k in ('simbolo', 'antico', 'oggi') if v.get(k)}
     except Exception as e:
         print('foto non trovate per', v.get('nome'), e); continue
     nome = v['nome'].lower().replace(' ', '_')
     cop = []
-    for lett, fn in (('A', lambda: variante_a(v, simbolo)), ('B', lambda: variante_b(v, antico, oggi)), ('C', lambda: variante_c(v, simbolo, oggi))):
-        im = fn().convert('RGB'); p = os.path.join(CART, f'{nome}_{lett}.jpg'); im.save(p, quality=92); cop.append(im)
-    riga = Image.new('RGB', (W * 3 + 40, H), 'white')
+    for lett in SCELTE:
+        im = VARIANTI[lett](v, foto).convert('RGB'); p = os.path.join(CART, f'{nome}_{lett}.jpg'); im.save(p, quality=92); cop.append(im)
+    riga = Image.new('RGB', (W * len(cop) + 20 * (len(cop) - 1), H), 'white')
     for i, c in enumerate(cop):
         riga.paste(c, (i * (W + 20), 0))
     righe.append(riga)
