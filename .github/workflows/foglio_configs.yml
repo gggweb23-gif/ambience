@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
     inputs:
       payload:
-        description: 'JSON: modifiche [{canale, colonna, valore}], nuove_colonne [...], prova SI/NO'
+        description: 'JSON: modifiche [{canale, colonna, valore}], nuove_colonne [...], prova SI/NO  oppure  canale, link, valori {colonna: valore} (file di produzione)'
         required: true
         type: string
 
@@ -22,7 +22,7 @@ jobs:
         env:
           PAYLOAD: ${{ inputs.payload }}
           GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
-        run: pip install -q google-auth requests && python3 coach/foglio_configs.py
+        run: pip install -q google-auth requests && python3 coach/$(python3 -c 'import json,os;print("foglio_produzione.py" if json.loads(os.environ["PAYLOAD"]).get("link") else "foglio_configs.py")')
       - name: Registro delle modifiche
         if: ${{ always() }}
         run: |

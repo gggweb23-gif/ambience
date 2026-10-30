@@ -32,6 +32,16 @@ finché i parametri sono rispettati, senza buttare il lavoro fatto. Rispondi e s
 - Non lanciare video veri: li lancia l'orchestratore. Le prove brevi (circa 1 minuto) sono permesse.
 - Non toccare canali senza `coach_auto = SI`, non cambiare impostazioni di n8n, non spendere fuori da `budget_video`.
 
+## Principi di Giorgio (sempre)
+- Si parte SEMPRE dal competitor: cio' che funziona, i suoi pattern. Su quella base si crea qualcosa di unico, di valore per
+  quell'argomento e quel pubblico, riconoscibile (tratto distintivo), senza dimenticare cio' che funziona.
+- Il budget della colonna bloccata `coach_budget_video` non si supera mai.
+- Si conserva sempre la versione che funziona: se il risultato migliore era il precedente, si torna indietro.
+- Quando un canale RAGGIUNGE i parametri (CTR, retention 30 s e 60 s sopra gli obiettivi sulla finestra), il messaggio a Giorgio
+  deve dirlo in modo evidente all'inizio: "PARAMETRI RAGGIUNTI: <canale>".
+- Per scrivere sui file di produzione (status, date) si usa lo stesso workflow con payload {canale, link, valori}
+  (coach/foglio_produzione.py). KAO non si tocca.
+
 ## Passi a ogni controllo
 1. `cd` nel repository ambience (gggweb23-gif/ambience), `git pull`.
 2. Scarica Channel Configs (Google Drive, id `1COMpgHJshcmz_a9s-WsjCO5xbhwxBazt-ZB0G_C7Rb0`) come xlsx
