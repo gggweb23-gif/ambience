@@ -82,6 +82,7 @@ def piano():
               ' | '.join(f'{i}: {g}' for i, g in enumerate(GESTI)) + ". "
               "Scegli l'ASPETTO (indice 0-5): " + ' | '.join(f'{i}: {a}' for i, a in enumerate(ASPETTI)) + ". " +
               ("Dai anche un numero di regola da 1 a 12 coerente col titolo (se il titolo ha un numero di principi, usalo). " if regola else '') +
+              (f"ISTRUZIONI DEL CANALE (hanno la precedenza): {CFG.get('copertina_istruzioni')}. " if str(CFG.get('copertina_istruzioni') or '').strip() else '') +
               'Rispondi SOLO con JSON: {"righe": ["...", "..."], "evidenza": 0, "scena": "sola", "gesto": 0, "aspetto": 0, "regola": 1}')
     try:
         r = http('https://api.anthropic.com/v1/messages', {'model': E('MODELLO_COPERTINA', 'claude-sonnet-5-5'), 'max_tokens': 400,
@@ -92,10 +93,17 @@ def piano():
         righe = [str(x).strip().upper() for x in j.get('righe') or [] if str(x).strip()][:3]
         if not righe:
             raise ValueError('nessuna riga')
-        return {'righe': righe, 'evidenza': max(0, min(len(righe) - 1, int(j.get('evidenza') or 0))),
-                'scena': 'antagonisti' if str(j.get('scena')).lower().startswith('antag') else 'sola',
-                'gesto': int(j.get('gesto') or 0) % len(GESTI), 'aspetto': int(j.get('aspetto') or 0) % len(ASPETTI),
-                'regola': int(j.get('regola') or 0) if regola else 0}
+        pn = {'righe': righe, 'evidenza': max(0, min(len(righe) - 1, int(j.get('evidenza') or 0))),
+              'scena': 'antagonisti' if str(j.get('scena')).lower().startswith('antag') else 'sola',
+              'gesto': int(j.get('gesto') or 0) % len(GESTI), 'aspetto': int(j.get('aspetto') or 0) % len(ASPETTI),
+              'regola': int(j.get('regola') or 0) if regola else 0}
+        forza = str(CFG.get('statua_scena') or '').strip().lower()   # colonna statua_scena: sola | antagonisti (vuota = decide Claude)
+        if forza in ('sola', 'antagonisti'):
+            pn['scena'] = forza
+        ammessi = [int(x) for x in re.findall(r'\d+', str(CFG.get('statua_gesti') or '')) if int(x) < len(GESTI)]   # es. "0,2,3"
+        if ammessi and pn['gesto'] not in ammessi:
+            pn['gesto'] = ammessi[sum(map(ord, P.get('titolo', ''))) % len(ammessi)]
+        return pn
     except Exception as e:
         log('piano con Claude non riuscito (' + str(e)[:120] + '): uso il testo copertina')
         parole = (str(P.get('testo_copertina') or P.get('titolo') or 'STAY STRONG').upper().split())[:5]

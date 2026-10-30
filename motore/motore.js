@@ -234,6 +234,17 @@ async function main() {
   await avviaServer();
   // ---- Load Channel Config + riga del file di produzione (come li leggeva n8n)
   const cfg = { ...P };
+  // COACH AUTOMATICO: i parametri della versione attiva della "ricetta" del canale (coach/canali/<canale>/ricetta.json)
+  // valgono sopra la riga di Channel Configs. Nessun file = nessun cambiamento.
+  try {
+    const slug = String(cfg.channel_id || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '');
+    const fr = path.join(ROOT, 'coach', 'canali', slug, 'ricetta.json');
+    if (String(cfg.coach_auto || '').trim().toUpperCase() === 'SI' && fs.existsSync(fr)) {
+      const ric = JSON.parse(fs.readFileSync(fr, 'utf8'));
+      const v = (ric.versioni || []).find(x => x.n === ric.versione_attiva);
+      if (v && v.parametri) { Object.assign(cfg, v.parametri); log('coach: ricetta versione', v.n, '-', v.cosa || '', '|', Object.keys(v.parametri).join(', ')); }
+    }
+  } catch (e) { log('coach: ricetta non letta (' + e.message.slice(0, 100) + '), uso Channel Configs'); }
   metti('Load Channel Config', [J(cfg)]);
   const riga = { ...(P.riga || {}), titolo_originale: P.titolo_originale || (P.riga || {}).titolo_originale || '', 'Link video': P.link || P.id || '', status: 'Pronto' };
   for (const n of ['Read Production Row', 'Prima Riga Pronto', 'Filter']) metti(n, [J(riga)]);
