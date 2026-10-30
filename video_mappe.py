@@ -231,6 +231,10 @@ def copione(comp):
     lib_img = LIB_IND.get('immagini') or {}
     personaggi = ', '.join(sorted(n for n, c in lib_img.items() if c == 'persona')) or 'family, soldier, worker'
     icone = ', '.join(sorted(n for n, c in lib_img.items() if c != 'persona')) if lib_img else ', '.join(sorted(ICONE))   # solo disegni della libreria (niente emoji)
+    COP_TITOLO_REGOLA = ('- "copertina_titolo": thumbnail with the country name: {"titolo": the main country/empire name, 1-2 words, as written in the video language (e.g. "STATI UNITI"), '
+                         '"fascia": the years covered (e.g. "1492 → 2026"), "paese": [ISO-3 of today\'s country], "icone": exactly 4 items [name from the icon list, lon, lat] '
+                         'telling the story in order (e.g. arrival ship, first people, a key invention, the modern era), each placed well INSIDE the country, spread from one side to the other}.'
+                         if str(P.get('copertina_stile') or '').strip().lower() == 'titolo_mappa' else '')
     lingua_txt = '' if LINGUA == 'en' else (
         f"LANGUAGE: the whole video is in {LINGUE.get(LINGUA, LINGUA)}. Write the narration AND every text that appears on screen (etichetta, nota, scritta, numero, conta 'sotto', "
         f"prezzo 'sotto', barre, griglia, anno, titolo, descrizione, tag, copertina) in {LINGUE.get(LINGUA, LINGUA)}, with the names of countries and people as they are "
@@ -284,6 +288,7 @@ ALSO WRITE:
 - "titolo": YouTube title ~90% IDENTICAL to the original title: same structure, same keywords, same question/promise, same countries; change only 1-2 words (a synonym or a tiny rewording) so it is not a 1:1 copy. Max 70 characters, Title Case.
 - "numero": THE number of the video, shown big at the start and the end: {{"testo":"x8","sotto":"THE GAP BETWEEN TWO AMERICAS (max 6 words)"}}.
 - "copertina": thumbnail like the original's idea: {{"testo":"WHY?" (1-3 words, CAPS),"oro":[ISO-3],"verde":[ISO-3],"vista":{{"lon":..,"lat":..,"larghezza":..}}}}.
+{COP_TITOLO_REGOLA}
 - "descrizione": 2 short paragraphs for YouTube (no links, no hashtags).
 - "tag": 12 YouTube tags.
 
@@ -2007,7 +2012,12 @@ def main():
     finale = os.path.join(ROOT, 'video_mappe.mp4')
     invito_iscriviti(muto, audio, finale, totale)
     try:   # copertina 90% come quella del competitor (schema diviso, colori fluo, stessa scritta); se non riesce, quella di prima
-        if str(P.get('copertina_stile') or '').strip().lower() == 'cartellino':   # stile scelto per Rich Borders (29 ott): cartellini del prezzo + parola gigante
+        if str(P.get('copertina_stile') or '').strip().lower() == 'titolo_mappa' and c.get('copertina_titolo'):   # nome del paese enorme + paese sulla mappa con i disegni del video
+            import copertina_cartellino as CC
+            CC.VM = sys.modules[__name__]; ct = c['copertina_titolo']; log('copertina titolo su mappa:', json.dumps(ct, ensure_ascii=False)[:300])
+            ic = [(nome_lib(x[0]) or 'question', float(x[1]), float(x[2])) for x in (ct.get('icone') or [])[:4] if len(x) >= 3]
+            cop = CC.copertina_titolo(ct.get('paese') or [], ct.get('titolo') or '', ct.get('fascia') or '', ic, os.path.join(ROOT, 'copertina.jpg'))
+        elif str(P.get('copertina_stile') or '').strip().lower() == 'cartellino':   # stile scelto per Rich Borders (29 ott): cartellini del prezzo + parola gigante
             import copertina_cartellino as CC
             CC.VM = sys.modules[__name__]
             pc = CC.piano(comp); log('copertina cartellino:', json.dumps(pc, ensure_ascii=False)[:300])
