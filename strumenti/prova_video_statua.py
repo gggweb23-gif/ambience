@@ -118,8 +118,9 @@ for bl in blocchi:
         fine = parole[idx[k + 1]][1] if k + 1 < len(idx) else (parole[idx[-1]][2] + .25)
         testo_ass = '\\N'.join(' '.join(('{\\c' + (accento if j == i else bianco) + '}') + w for j, w in rg) for rg in bl)
         ev.append((inizio, fine, testo_ass))
-for k in range(len(ev) - 1):   # niente buchi tra un blocco e l'altro
-    ev[k] = (ev[k][0], max(ev[k][1], ev[k + 1][0]) if ev[k + 1][0] - ev[k][1] < .6 else ev[k][1], ev[k][2])
+for k in range(len(ev) - 1):   # mai due testi insieme: ognuno finisce esattamente quando parte il successivo (pause brevi: resta fino al nuovo)
+    a, b, t = ev[k]; nx = ev[k + 1][0]
+    ev[k] = (a, nx if (nx - b < .6 or b > nx) else b, t)
 
 
 def ts(s):
