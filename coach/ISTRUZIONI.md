@@ -29,6 +29,8 @@ finché i parametri sono rispettati, senza buttare il lavoro fatto. Rispondi e s
   e publish_schedule_days non si toccano; i suoi parametri (coach_*, durata_min_minuti, durata_max_minuti) non si cambiano.
   Le modifiche del coach restano nella ricetta: sul foglio si scrive solo se Giorgio lo chiede.
 - Mai cambiare un canale STABILE se i parametri tengono. Se scende sotto: tornare alla versione `migliore`.
+- Video di prova o di nuova versione caricati su YouTube: sempre NON IN ELENCO (privacy unlisted), mai privati (Giorgio, 30 ott 2026).
+- Montaggio: mai la stessa immagine due volte nel video e mai un'inquadratura oltre 4 s (dove ritmo_max e' impostato).
 - Non lanciare video veri: li lancia l'orchestratore. Le prove brevi (circa 1 minuto) sono permesse.
 - Non toccare canali senza `coach_auto = SI`, non cambiare impostazioni di n8n, non spendere fuori da `budget_video`.
 
