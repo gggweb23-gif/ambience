@@ -43,7 +43,8 @@ def piano(titolo, lingua='it', extra=''):
         f'{{"nome": "nome del paese (o impero) in {lin}, MAIUSCOLO, breve (es. STATI UNITI, IRAN, IMPERO ROMANO)", '
         f'"anni": "il periodo raccontato, corto, in {lin} (es. 3000 a.C. → 2026, 660 a.C. → 2026); se il titolo non lo dice: 5.000 ANNI DI STORIA o simile, solo se vero", '
         '"simboli": ["6 ricerche Pexels in inglese, dalla piu\' famosa: i monumenti e luoghi SIMBOLO del paese che un italiano riconosce subito '
-        '(es. Taj Mahal; Giza pyramids; Colosseum Rome; Statue of Liberty New York; Persepolis Iran), con il nome del luogo e del paese"]}'}],
+        '(es. Taj Mahal; Giza pyramids; Colosseum Rome; Statue of Liberty New York; Persepolis Iran), con il nome del luogo e del paese; '
+        'se del paese ci sono poche foto famose, le ultime 2 ricerche siano paesaggi tipici e inconfondibili con il nome del paese (es. Afghanistan mountains valley, Jerusalem old city walls)"]}'}],
         os.environ.get('MODELLO_COPERTINA', 'claude-sonnet-5-5'))
 
 
@@ -58,9 +59,10 @@ def foto_simbolo(nome, simboli, modello='claude-sonnet-5-5'):
     domanda = (f'Questa foto andra\' sulla copertina di un video su TUTTA LA STORIA di: {nome}. Rispondi SOLO JSON: '
                '{"cosa": "cosa mostra esattamente (luogo, citta, paese)", "paese_giusto": true/false (il luogo si trova DAVVERO in quel paese? se non ne sei sicuro: false), '
                '"simbolo": 1-10 (quanto e\' un simbolo famoso e riconoscibile di quel paese per un italiano), "visibile": 1-10 (quanto il soggetto e\' grande, nitido, ben illuminato), '
+               '"pulita": true/false (false se davanti o attorno al soggetto ci sono negozi, insegne, auto, cartelli, cantieri, impalcature, cavi o folle che rovinano la foto), '
                '"box": [x0, y0, x1, y1] (riquadro del soggetto principale, frazioni 0-1 della foto)}')
     candidati = []
-    for q in simboli[:6]:
+    for q in simboli[:8]:
         try:
             foto = _pexels(q)
         except Exception as e:
@@ -75,7 +77,7 @@ def foto_simbolo(nome, simboli, modello='claude-sonnet-5-5'):
                 log('controllo foto non riuscito', q, str(e)[:100]); continue
             REGISTRO.append(f"{nome} | {q} | {g.get('cosa')} | paese {g.get('paese_giusto')} | simbolo {g.get('simbolo')} | visibile {g.get('visibile')} | {f['url']}")
             log('foto copertina:', REGISTRO[-1][:200])
-            if g.get('paese_giusto') and (g.get('visibile') or 0) >= 7:
+            if g.get('paese_giusto') and g.get('pulita', True) and (g.get('visibile') or 0) >= 7:
                 candidati.append(((g.get('simbolo') or 0) + (g.get('visibile') or 0), g.get('simbolo') or 0, im, g.get('box') or [.2, .2, .8, .8]))
         if any(c[1] >= 9 and c[0] >= 17 for c in candidati):
             break
