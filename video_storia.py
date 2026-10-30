@@ -41,6 +41,9 @@ CARICA = str(P.get('carica') or E('CARICA', 'NO')).strip().upper() == 'SI' and n
 MIN_SEC_YT = 480   # video piu' corti di 8 minuti (le prove) non vanno mai su YouTube
 VOCE_VELOCITA = max(.8, min(1.2, float(str(P.get('voce_velocita') or E('VOCE_VELOCITA', '') or 1.06).replace(',', '.'))))   # uguale per tutte le scene
 MUSICA_URL = str(P.get('musica_url') or E('MUSICA_URL', '')).strip()
+# 30 ott: ElevenLabs solo per la VOCE. Musica e suoni NUOVI generati con ElevenLabs spenti (consumano crediti): si usano solo quelli gia' in libreria
+# e la musica dei link nel foglio. Colonna elevenlabs_musica_suoni = SI per riaccendere la generazione.
+ELEVEN_EXTRA = str(P.get('elevenlabs_musica_suoni') or E('ELEVENLABS_MUSICA_SUONI', '') or 'NO').strip().upper() == 'SI'
 def _perc(v, d=100):
     try:
         return max(0, min(100, int(float(str(v).replace('%', '').replace(',', '.')) * (100 if 0 < float(str(v).replace('%', '').replace(',', '.')) <= 1 else 1))))
@@ -1632,9 +1635,12 @@ def aggiungi_didascalia(path, d, testo, nome_font):
 def effetto(desc, dur, k):
     """Effetto sonoro da film generato con ElevenLabs (stessa chiave della voce). Uguali = generato una volta sola."""
     chiave = E('ELEVENLABS_API_KEY', '')
-    p = os.path.join(LAV, 'fx_' + hashlib.md5(f'{desc}|{dur:.1f}'.encode()).hexdigest()[:10] + '.mp3')
-    if os.path.exists(p):
+    lib = os.path.join(ROOT, 'libreria_suoni'); os.makedirs(lib, exist_ok=True)   # libreria comune: ogni suono generato resta e non si paga piu'
+    p = os.path.join(lib, 'fx_' + hashlib.md5(f'{desc}|{dur:.1f}'.encode()).hexdigest()[:10] + '.mp3')
+    if os.path.exists(p) and os.path.getsize(p) > 500:
         return p
+    if not ELEVEN_EXTRA:
+        raise RuntimeError('suono non in libreria (generazione ElevenLabs spenta)')
     b = http('https://api.elevenlabs.io/v1/sound-generation', {'text': desc, 'duration_seconds': round(max(1.0, min(dur, 6.0)), 1),
              'prompt_influence': 0.5}, {'xi-api-key': chiave, 'Accept': 'audio/mpeg'}, timeout=120, raw=True)
     open(p, 'wb').write(b)
@@ -3069,7 +3075,7 @@ def _brano_umore(umore, evita):
     liberi = [f for f in gia if os.path.basename(f) not in evita]
     if liberi:
         return random.choice(liberi)
-    chiave = E('ELEVENLABS_API_KEY', '')
+    chiave = E('ELEVENLABS_API_KEY', '') if ELEVEN_EXTRA else ''   # niente brani nuovi: si riusa la libreria
     if not chiave:
         return random.choice(gia) if gia else None
     prompt = (f'Instrumental cinematic background score for a documentary-style YouTube video, {UMORI[umore]}. '

@@ -2030,7 +2030,8 @@ def main():
             cart_m = re.sub(r'\W+', '_', str(P.get('musica_cartella') or '')).strip('_')   # colonna musica_cartella: libreria musicale propria del canale (vuota = comune)
             mus = musica_film.traccia(tratti, stacchi, totale, LAV, P.get('canale') or 'mappe', stile_m,
                                       os.path.join(ROOT, 'libreria_musica', cart_m) if cart_m else os.path.join(ROOT, 'libreria_musica'),
-                                      E('ELEVENLABS_API_KEY', ''), log, min_tratto=18 if ritmo else 8)
+                                      E('ELEVENLABS_API_KEY', '') if str(P.get('elevenlabs_musica_suoni') or '').strip().upper() == 'SI' else '',   # 30 ott: niente brani nuovi ElevenLabs, solo la libreria
+                                      log, min_tratto=18 if ritmo else 8)
         except Exception as e:
             log('musica da film non riuscita:', str(e)[:200]); mus = None
     if mus:
