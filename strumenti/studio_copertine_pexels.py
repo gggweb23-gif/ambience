@@ -32,6 +32,63 @@ def pexels(q, n=0):
     return Image.open(io.BytesIO(b)).convert('RGB')
 
 
+import base64
+CONTROLLATE = []
+
+
+def claude_vede(im, domanda):
+    buf = io.BytesIO(); x = im.copy(); x.thumbnail((900, 900)); x.save(buf, 'JPEG', quality=85)
+    corpo = {'model': P.get('modello_controllo') or 'claude-sonnet-5-5', 'max_tokens': 300, 'messages': [{'role': 'user', 'content': [
+        {'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}},
+        {'type': 'text', 'text': domanda}]}]}
+    req = urllib.request.Request('https://api.anthropic.com/v1/messages', data=json.dumps(corpo).encode(),
+                                 headers={'x-api-key': os.environ.get('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01', 'content-type': 'application/json'})
+    t = ''.join(b.get('text', '') for b in json.loads(urllib.request.urlopen(req, timeout=120).read()).get('content', []))
+    return json.JSONDecoder().raw_decode(t[t.find('{'):])[0]
+
+
+def foto_simbolo(v):
+    """La foto della copertina: un luogo SIMBOLO del paese, controllato da Claude (paese giusto, luogo riconoscibile, ben visibile).
+    Si provano piu' ricerche e piu' foto; vince quella con il voto piu' alto. Restituisce (foto, riquadro del monumento 0-1)."""
+    domanda = (f'Questa foto andra\' sulla copertina di un video su TUTTA LA STORIA di: {v["nome"]}. Rispondi SOLO JSON: '
+               '{"cosa": "cosa mostra esattamente (luogo, citta, paese)", "paese_giusto": true/false (il luogo si trova DAVVERO in quel paese? se non ne sei sicuro: false), '
+               '"simbolo": 1-10 (quanto e\' un simbolo famoso e riconoscibile di quel paese per un italiano), "visibile": 1-10 (quanto il soggetto e\' grande, nitido, ben illuminato), '
+               '"box": [x0, y0, x1, y1] (riquadro del soggetto principale, frazioni 0-1 della foto)}')
+    migliore = None
+    for q in v.get('simboli') or [v.get('simbolo')]:
+        url = 'https://api.pexels.com/v1/search?' + urllib.parse.urlencode({'query': q, 'per_page': 6, 'orientation': 'landscape', 'size': 'large'})
+        try:
+            foto = json.loads(urllib.request.urlopen(urllib.request.Request(url, headers={'Authorization': K, 'User-Agent': 'Mozilla/5.0'}), timeout=60).read()).get('photos') or []
+        except Exception as e:
+            print('pexels', q, e); continue
+        for f in foto[:4]:
+            try:
+                im = Image.open(io.BytesIO(urllib.request.urlopen(urllib.request.Request(f['src']['large2x'], headers={'User-Agent': 'Mozilla/5.0'}), timeout=60).read())).convert('RGB')
+                g = claude_vede(im, domanda)
+            except Exception as e:
+                print('controllo non riuscito', q, str(e)[:100]); continue
+            voto = (g.get('simbolo') or 0) + (g.get('visibile') or 0) if g.get('paese_giusto') else -1
+            CONTROLLATE.append(f"{v['nome']} | {q} | {g.get('cosa')} | paese {g.get('paese_giusto')} | simbolo {g.get('simbolo')} | visibile {g.get('visibile')} | {f['url']}")
+            print(CONTROLLATE[-1])
+            if g.get('paese_giusto') and (g.get('simbolo') or 0) >= 8 and (g.get('visibile') or 0) >= 7 and (migliore is None or voto > migliore[0]):
+                migliore = (voto, im, g.get('box') or [.2, .2, .8, .8])
+        if migliore and migliore[0] >= 18:
+            break
+    if not migliore:
+        raise RuntimeError('nessuna foto superata al controllo per ' + v['nome'])
+    return migliore[1], migliore[2]
+
+
+def ritaglia_su(im, box, w, h, quota=.78):
+    """Ritaglio (w x h) centrato sul monumento, che occupa circa 'quota' dell'altezza o della larghezza: grande e ben visibile."""
+    W0, H0 = im.size; x0, y0, x1, y1 = [float(c) for c in box]
+    bw, bh = max(.05, x1 - x0) * W0, max(.05, y1 - y0) * H0; cx, cy = (x0 + x1) / 2 * W0, (y0 + y1) / 2 * H0
+    sc = min(w * quota / bw, h * quota / bh); sc = max(sc, w / W0, h / H0)
+    im2 = im.resize((int(W0 * sc), int(H0 * sc)), Image.LANCZOS)
+    left = min(max(0, cx * sc - w / 2), im2.width - w); top = min(max(0, cy * sc - h / 2), im2.height - h)
+    return im2.crop((int(left), int(top), int(left) + w, int(top) + h))
+
+
 def riempi(im, w, h):
     return ImageOps.fit(im, (w, h), Image.LANCZOS, centering=(.5, .45))
 
@@ -196,14 +253,65 @@ def a3(v, simbolo):
     return im
 
 
+def pannello(d, v, larg, x=40):
+    _, y, _, h = box2(d, x, 70, 'TUTTA LA STORIA', adatta_box('TUTTA LA STORIA', 54, larg), GIALLO, NERO)
+    parole = v['nome'].split(); s = min(adatta_box(p, 190, larg, 0) for p in parole)
+    alt = lambda s_: sum(d.textbbox((0, 0), p, font=font(s_))[3] - d.textbbox((0, 0), p, font=font(s_))[1] + 18 for p in parole)
+    while s > 60 and y + h + 30 + alt(s) + 110 > H - 30:
+        s -= 6
+    y += h + 30
+    for p in parole:
+        l, tp, r_, b = d.textbbox((0, 0), p, font=font(s))
+        d.text((x - l + 6, y - tp + 8), p, font=font(s), fill=(0, 0, 0, 160)); d.text((x - l, y - tp), p, font=font(s), fill=BIANCO)
+        y += b - tp + 18
+    box2(d, x, y + 14, v['anni'], adatta_box(v['anni'], 60, larg), ROSSO, BIANCO)
+
+
+BLU = (16, 52, 120)
+
+
+def a3a(v, foto, box_):
+    """A3a: come A3, ma la foto e' ritagliata sul monumento: grande e al centro della sua parte."""
+    xs = int(W * .42); im = Image.new('RGB', (W, H), BLU); im.paste(vivace(ritaglia_su(foto, box_, W - xs, H)), (xs, 0))
+    im = im.convert('RGBA'); d = ImageDraw.Draw(im)
+    d.polygon([(xs - 2, 0), (xs + 60, 0), (xs - 2, H)], fill=BLU); pannello(d, v, W * .42 - 60)
+    return im
+
+
+def a3b(v, foto, box_):
+    """A3b: pannello piu' stretto (35%), foto piu' grande (65%) ritagliata sul monumento."""
+    xs = int(W * .35); im = Image.new('RGB', (W, H), BLU); im.paste(vivace(ritaglia_su(foto, box_, W - xs, H, .85)), (xs, 0))
+    im = im.convert('RGBA'); d = ImageDraw.Draw(im)
+    d.rectangle([xs - 6, 0, xs, H], fill=GIALLO); pannello(d, v, W * .35 - 50, 32)
+    return im
+
+
+def a3c(v, foto, box_):
+    """A3c: il pannello blu sfuma dentro la foto (nessun taglio netto); il monumento grande nella parte destra."""
+    xs = int(W * .30); base = Image.new('RGB', (W, H), BLU)
+    base.paste(vivace(ritaglia_su(foto, box_, W - xs, H, .82)), (xs, 0))
+    m = Image.new('L', (W, H), 0); dm = ImageDraw.Draw(m)
+    for x in range(int(W * .56)):
+        a_ = 255 if x <= xs + 10 else int(255 * (1 - (x - xs - 10) / (W * .56 - xs - 10)) ** 1.2)
+        dm.line([(x, 0), (x, H)], fill=a_)
+    base.paste(Image.new('RGB', (W, H), BLU), (0, 0), m)
+    im = base.convert('RGBA'); d = ImageDraw.Draw(im); pannello(d, v, W * .42 - 60)
+    return im
+
+
 VARIANTI = {'A': lambda v, f: variante_a(v, f['simbolo']), 'B': lambda v, f: variante_b(v, f['antico'], f['oggi']), 'C': lambda v, f: variante_c(v, f['simbolo'], f['oggi']),
-            'A1': lambda v, f: a1(v, f['simbolo']), 'A2': lambda v, f: a2(v, f['simbolo']), 'A3': lambda v, f: a3(v, f['simbolo'])}
+            'A1': lambda v, f: a1(v, f['simbolo']), 'A2': lambda v, f: a2(v, f['simbolo']), 'A3': lambda v, f: a3(v, f['simbolo']),
+            'A3a': lambda v, f: a3a(v, f['simbolo'], f['box']), 'A3b': lambda v, f: a3b(v, f['simbolo'], f['box']), 'A3c': lambda v, f: a3c(v, f['simbolo'], f['box'])}
 SCELTE = [x.strip() for x in str(P.get('varianti') or 'A,B,C').split(',') if x.strip() in VARIANTI]
 
 righe = []
 for v in P.get('video') or []:
     try:
-        foto = {k: pexels(v[k]) for k in ('simbolo', 'antico', 'oggi') if v.get(k)}
+        foto = {k: pexels(v[k]) for k in ('antico', 'oggi') if v.get(k)}
+        if v.get('simboli'):   # foto della copertina scelta e CONTROLLATA da Claude
+            foto['simbolo'], foto['box'] = foto_simbolo(v)
+        elif v.get('simbolo'):
+            foto['simbolo'], foto['box'] = pexels(v['simbolo']), [.2, .2, .8, .8]
     except Exception as e:
         print('foto non trovate per', v.get('nome'), e); continue
     nome = v['nome'].lower().replace(' ', '_')
@@ -219,4 +327,5 @@ if righe:
     for i, r in enumerate(righe):
         tav.paste(r, (0, i * (H + 20)))
     tav.resize((tav.width // 2, tav.height // 2)).save(os.path.join(CART, 'confronto.jpg'), quality=88)
+open(os.path.join(CART, 'controlli.txt'), 'w').write('\n'.join(CONTROLLATE) + '\n')
 print('fatto:', len(righe), 'video')
