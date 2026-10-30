@@ -1,18 +1,18 @@
 {
- "titolo": "TUTTA la storia degli Stati Uniti in 12 minuti",
- "titolo_mappa": "STATI UNITI",
- "paese_mappa": "United States of America",
  "riserva_pexels": [
   "Statue of Liberty New York harbor",
-  "Grand Canyon Arizona aerial",
-  "Appalachian mountains autumn forest",
-  "Mississippi river delta",
-  "Monument Valley Utah desert",
-  "Golden Gate Bridge San Francisco",
-  "Atlantic coast New England lighthouse",
-  "Great Plains prairie sunset"
+  "Brooklyn Bridge New York skyline",
+  "Grand Canyon Arizona cliffs",
+  "Appalachian mountains forest autumn",
+  "Mississippi river delta Louisiana",
+  "Atlantic ocean waves coast",
+  "Yosemite valley granite cliffs",
+  "Great Plains Kansas wheat fields"
  ],
- "luoghi_paese": "united states, usa, american, america, new york, manhattan, boston, philadelphia, washington, virginia, jamestown, mississippi, appalachian, great plains, california, texas, florida, new orleans, grand canyon, statue of liberty, brooklyn bridge, atlantic coast, hudson",
+ "luoghi_paese": "usa, united states, america, american, new york, washington, boston, philadelphia, virginia, florida, louisiana, mississippi, appalachian, atlantic, caribbean, great plains, grand canyon, yosemite, hudson, manhattan, brooklyn, california, texas, arizona, colorado, alaska, hawaii, nevada",
+ "titolo": "L'INTERA Storia degli Stati Uniti in 12 Minuti",
+ "titolo_mappa": "STATI UNITI",
+ "paese_mappa": "United States of America",
  "date": "1492 – 2026",
  "texture": "giornale",
  "font_carte": "classico",
@@ -24,8 +24,9 @@
  "sfondi": [],
  "scene": [
   {
-   "capitolo": "Un errore geografico",
-   "testo": "Oggi gli Stati Uniti sono la nazione più ricca, più influente e più potente militarmente della storia umana. La sua economia muove i mercati mondiali, i suoi film plasmano la cultura globale, la sua flotta pattuglia gli oceani. Ma il fatto più incredibile è che tutto questo è nato per caso.",
+   "capitolo": "Un'ascesa per caso",
+   "testo": "Oggi gli Stati Uniti sono la nazione più ricca, più influente a livello culturale e più potente militarmente di tutta la storia umana. La sua economia muove i mercati globali. Il suo intrattenimento plasma la cultura mondiale, e la sua marina pattuglia gli oceani del pianeta.",
+   "anno": 2026,
    "visivi": [
     {
      "tipo": "mappa",
@@ -33,920 +34,96 @@
     },
     {
      "tipo": "pexels_video",
-     "frase": "La sua economia muove",
-     "q": "New York skyline Manhattan aerial"
+     "frase": "I mercati globali",
+     "q": "New York skyline Manhattan aerial",
+     "didascalia": ""
     },
     {
-     "tipo": "pexels_video",
-     "frase": "i suoi film plasmano",
-     "q": "Hollywood sign Los Angeles hills"
+     "tipo": "pexels_foto",
+     "frase": "Il suo intrattenimento",
+     "q": "Los Angeles Hollywood sign hills"
     },
     {
      "tipo": "pexels_video",
      "frase": "pattuglia gli oceani",
-     "q": "aircraft carrier ocean waves"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "è nato per caso",
-     "q": "Atlantic coast New England lighthouse"
+     "q": "Atlantic ocean waves open sea",
+     "suono": "ocean waves and wind"
     }
    ]
   },
   {
-   "testo": "Per più di un secolo dopo l'arrivo degli europei, nessuno voleva il Nordamerica. Era solo un fastidioso ostacolo di foreste fitte, paludi ostili e natura sconfinata, che si frapponeva tra l'Europa e ciò che contava davvero: le spezie dell'Asia.",
+   "testo": "Ma la cosa più sconvolgente della sua ascesa è che fu un puro incidente. Per più di un secolo dopo l'arrivo degli europei, quasi nessuno voleva il Nord America. Era una barriera fastidiosa di foreste fitte, paludi ostili e natura infinita, che si frapponeva a ciò che davvero contava: i mercati delle spezie dell'Asia.",
+   "anno": 1500,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "nessuno voleva il Nordamerica",
-     "q": "Appalachian mountains autumn forest"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "paludi ostili",
-     "q": "Florida everglades swamp mist"
+     "frase": "un puro incidente",
+     "q": "foggy forest Appalachian mountains"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "le spezie dell'Asia",
-     "q": "spices market pile colorful"
+     "frase": "foreste fitte, paludi",
+     "q": "Louisiana swamp cypress trees"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "natura infinita",
+     "q": "Great Plains grassland wind Kansas"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "mercati delle spezie",
+     "q": "spices market old sacks cinnamon pepper"
     }
    ]
   },
   {
-   "capitolo": "Colombo e le colonie",
-   "testo": "Nel 1492 Cristoforo Colombo salpò verso ovest sotto bandiera spagnola, convinto di raggiungere l'India. Trovò invece i Caraibi. Non c'erano depositi di spezie, ma c'erano nativi con gioielli d'oro. La Spagna capì subito dove stava la ricchezza: a sud.",
+   "capitolo": "Colombo e il grande errore",
+   "testo": "Per capire come una frontiera sperduta sia diventata una superpotenza, dobbiamo partire da un enorme errore geografico. Nel 1492 Cristoforo Colombo salpò verso ovest attraverso l'Atlantico, sotto bandiera spagnola, convinto di raggiungere l'India.",
+   "anno": 1492,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "Nel 1492 Cristoforo Colombo",
-     "q": "old wooden sailing ship ocean",
-     "didascalia": "1492"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "Trovò invece i Caraibi",
-     "q": "Caribbean island turquoise sea aerial"
+     "frase": "un enorme errore geografico",
+     "q": "antique world map globe old"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "nativi con gioielli d'oro",
-     "q": "ancient gold jewelry museum"
+     "frase": "Cristoforo Colombo salpò",
+     "q": "old wooden sailing ship ocean sunset",
+     "didascalia": "1492",
+     "suono": "wooden ship creaking, waves"
     },
     {
      "tipo": "pexels_video",
-     "frase": "La Spagna capì subito",
-     "q": "old world map antique globe"
+     "frase": "attraverso l'Atlantico",
+     "q": "Atlantic ocean horizon waves sunrise"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "raggiungere l'India",
+     "q": "antique compass nautical map"
     }
    ]
   },
   {
-   "testo": "Spagna e Portogallo tracciarono una linea sul globo e si spartirono il mondo extraeuropeo. Il Portogallo puntò sulle rotte africane, la Spagna conquistò gli imperi azteco e inca. I galeoni tornavano in Europa carichi di montagne d'argento e d'oro.",
+   "testo": "Invece si imbatté nelle isole dei Caraibi. Non trovò i vasti depositi di spezie che aveva promesso, ma trovò nativi che indossavano gioielli d'oro. La Spagna capì in fretta che c'era un'enorme",
+   "anno": 1492,
    "visivi": [
     {
-     "tipo": "pexels_foto",
-     "frase": "tracciarono una linea sul globo",
-     "q": "antique map globe parchment"
-    },
-    {
      "tipo": "pexels_video",
-     "frase": "conquistò gli imperi azteco",
-     "q": "Machu Picchu ruins Peru clouds"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "I galeoni tornavano in Europa",
-     "q": "galleon ship sailing sunset"
+     "frase": "isole dei Caraibi",
+     "q": "Caribbean island beach palm trees aerial"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "montagne d'argento e d'oro",
-     "q": "gold silver coins treasure"
-    }
-   ]
-  },
-  {
-   "testo": "Il Nordamerica, al confronto, sembrava inutile. Gli esploratori spagnoli vi marciarono nei primi anni del Cinquecento, ma non trovarono né città d'oro né miniere d'argento. Così le superpotenze europee ignorarono il nord per decenni.",
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "Il Nordamerica, al confronto",
-     "q": "Great Plains prairie wind grass"
+     "frase": "vasti depositi di spezie",
+     "q": "spices sacks dried peppercorns wooden"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "né città d'oro",
-     "q": "Monument Valley Utah desert"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "ignorarono il nord",
-     "q": "northern forest lake fog"
-    }
-   ]
-  },
-  {
-   "testo": "Fu l'Inghilterra a guardare di nuovo. Arrivata tardi, nel 1585 tentò il primo insediamento a Roanoke, e la colonia svanì nel nulla senza lasciare traccia. Ci riprovò nel 1607 a Jamestown, in Virginia.",
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "Fu l'Inghilterra a guardare",
-     "q": "Virginia coast forest river"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "Roanoke, e la colonia",
-     "q": "Outer Banks North Carolina beach"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "nel 1607 a Jamestown",
-     "q": "James river Virginia sunrise",
-     "didascalia": "Jamestown, 1607"
-    }
-   ]
-  },
-  {
-   "testo": "Jamestown rischiò di crollare per malattie, carestia e guerre con le tribù native. I coloni non trovarono oro, ma scoprirono ciò che salvò la loro economia: il tabacco. Gli europei ne divennero dipendenti, e il tabacco diventò denaro.",
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "Jamestown rischiò di crollare",
-     "q": "abandoned wooden fort ruins"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "il tabacco. Gli europei",
-     "q": "tobacco leaves field drying"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "il tabacco diventò denaro",
-     "q": "tobacco leaves close up"
-    }
-   ]
-  },
-  {
-   "testo": "Qualche anno dopo, più a nord, in Massachusetts, arrivò un gruppo del tutto diverso: pellegrini e puritani. Non cercavano oro, ma una società isolata dall'influsso corruttore dell'Europa. Nel secolo successivo arrivarono sempre più persone.",
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "in Massachusetts, arrivò",
-     "q": "Massachusetts rocky coast waves"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "pellegrini e puritani",
-     "q": "old stone church New England"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "arrivarono sempre più persone",
-     "q": "sailing ship stormy Atlantic"
-    }
-   ]
-  },
-  {
-   "testo": "Alcuni cercavano libertà religiosa, altri terra a buon mercato, e molti furono portati con la forza come africani ridotti in schiavitù per lavorare nelle piantagioni di tabacco e riso del Sud. Lentamente, tredici colonie britanniche misero radici lungo la costa atlantica.",
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "libertà religiosa, altri terra",
-     "q": "farmland fields Virginia countryside"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "piantagioni di tabacco e riso",
-     "q": "old plantation house South"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "tredici colonie britanniche",
-     "q": "Atlantic coastline aerial colonial",
-     "didascalia": "13 colonie"
-    }
-   ]
-  },
-  {
-   "capitolo": "La Rivoluzione",
-   "testo": "I francesi, intanto, rivendicarono i grandi fiumi interni e le foreste ricche di pellicce del Canada. Inevitabilmente, gli imperi britannico e francese si scontrarono. Nel 1754, nella valle del fiume Ohio, scoppiò la guerra franco-indiana.",
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "I francesi, intanto, rivendicarono",
-     "q": "Ohio river valley forest"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "foreste ricche di pellicce",
-     "q": "Canada wilderness forest river"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "Nel 1754, nella valle",
-     "q": "old musket flintlock museum",
-     "didascalia": "1754"
-    }
-   ]
-  },
-  {
-   "testo": "I francesi si allearono con tribù native che temevano a ragione l'espansione britannica. Ma gli inglesi avevano molti più coloni. Con l'aiuto dei combattenti coloniali, la Gran Bretagna schiacciò la Francia e prese il Canada e tutta la terra a est del Mississippi.",
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "tribù native che temevano",
-     "q": "misty forest lake canoe shore"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "schiacciò la Francia",
-     "q": "old cannon fort wall"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "a est del Mississippi",
-     "q": "Mississippi river aerial bend"
-    }
-   ]
-  },
-  {
-   "testo": "La Gran Bretagna aveva vinto il continente, ma la vittoria portò un problema enorme: il debito. Londra impose tasse su zucchero, carta e tè. Per i coloni era tirannia: non avevano rappresentanti in Parlamento. La frase risuonò da Boston alla Virginia: niente tasse senza rappresentanza.",
-   "visivi": [
-    {
-     "tipo": "pexels_foto",
-     "frase": "Londra impose tasse",
-     "q": "antique tea chest harbor"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "non avevano rappresentanti",
-     "q": "old parliament building London"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "da Boston alla Virginia",
-     "q": "Boston harbor historic ships",
-     "didascalia": "Niente tasse senza rappresentanza"
-    }
-   ]
-  },
-  {
-   "testo": "Le proteste diventarono rivolte. Nel 1770 le truppe britanniche spararono su una folla a Boston. Nel 1773 i coloni gettarono 342 casse di tè nel porto. Nel 1775 si sparò a Lexington e Concord: la guerra d'indipendenza era iniziata.",
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "Nel 1770 le truppe",
-     "q": "Boston old town historic street"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "342 casse di tè",
-     "q": "Boston harbor water night",
-     "didascalia": "342 casse di tè"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "a Lexington e Concord",
-     "q": "Concord Massachusetts old bridge"
-    }
-   ]
-  },
-  {
-   "testo": "Il 4 luglio 1776, i capi delle tredici colonie firmarono la Dichiarazione d'Indipendenza, annunciando al mondo di non essere più sudditi britannici. Vincere sembrava impossibile: un esercito di contadini guidato dal piantatore George Washington contro la macchina militare più professionale del pianeta.",
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "Il 4 luglio 1776",
-     "q": "Independence Hall Philadelphia",
-     "didascalia": "4 luglio 1776"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "la Dichiarazione d'Indipendenza",
-     "q": "old parchment quill ink"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "George Washington contro",
-     "q": "Mount Vernon Virginia estate"
-    }
-   ]
-  },
-  {
-   "testo": "Ma Washington capì che non doveva schiacciare l'esercito britannico: doveva solo tenere in vita il proprio, finché gli inglesi avessero perso la voglia di combattere. Dopo la vittoria di Saratoga, la Francia entrò in guerra per vendicarsi. Nel 1781 gli inglesi furono intrappolati a Yorktown e si arresero.",
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "Washington capì che non",
-     "q": "winter forest snow Pennsylvania"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "la Francia entrò in guerra",
-     "q": "old cannons battlefield field"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "a Yorktown e si arresero",
-     "q": "Yorktown Virginia battlefield monument",
-     "didascalia": "Yorktown, 1781"
-    }
-   ]
-  },
-  {
-   "capitolo": "La Costituzione",
-   "testo": "L'America era libera, ma il suo primo governo, gli Articoli della Confederazione, era troppo debole. Gli stati litigavano come paesi separati. Nel 1787 i leader si riunirono a Filadelfia e scrissero la Costituzione: un presidente eletto, un Congresso a due camere, una Corte Suprema indipendente.",
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "L'America era libera",
-     "q": "American flag waving old"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "a Filadelfia e scrissero",
-     "q": "Philadelphia historic brick buildings"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "una Corte Suprema indipendente",
-     "q": "Supreme Court building columns"
-    }
-   ]
-  },
-  {
-   "testo": "Nel 1789 George Washington fu eletto all'unanimità primo presidente. Il paese era ancora confinato alla costa atlantica. Tutto ciò che stava a ovest del Mississippi apparteneva alla Spagna, e poi, in segreto, alla Francia di Napoleone Bonaparte.",
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "Nel 1789 George Washington",
-     "q": "Washington DC Capitol building",
-     "didascalia": "1789"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "a ovest del Mississippi",
-     "q": "Mississippi river western plains"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "Napoleone Bonaparte",
-     "q": "antique French map 1800"
-    }
-   ]
-  },
-  {
-   "capitolo": "L'espansione verso ovest",
-   "testo": "Ma Napoleone aveva dei guai: una grande rivolta di schiavi ad Haiti e una guerra imminente con la Gran Bretagna. Gli serviva denaro. Nel 1803 il presidente Thomas Jefferson mandò dei diplomatici a comprare il porto di New Orleans.",
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "Napoleone aveva dei guai",
-     "q": "Haiti coast tropical stormy"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "il presidente Thomas Jefferson",
-     "q": "Monticello Virginia mansion"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "il porto di New Orleans",
-     "q": "New Orleans French Quarter balconies"
-    }
-   ]
-  },
-  {
-   "testo": "Napoleone offrì invece l'intera Louisiana: oltre due milioni di chilometri quadrati per soli 15 milioni di dollari. Dall'oggi al domani gli Stati Uniti raddoppiarono, per pochi centesimi l'ettaro.",
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "Napoleone offrì invece",
-     "q": "Great Plains prairie aerial vast",
-     "didascalia": "2 milioni di km² per 15 milioni di dollari"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "raddoppiarono, per pochi",
-     "q": "Missouri river plains sunset"
-    }
-   ]
-  },
-  {
-   "testo": "Seguì un'epoca di espansione esplosiva e spietata, guidata dall'idea del destino manifesto: il diritto divino di colonizzare il continente da un oceano all'altro. I pionieri avanzavano sui carri coperti, ma quella terra non era vuota.",
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "Seguì un'epoca di espansione",
-     "q": "Oregon trail prairie wagon trail"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "il destino manifesto",
-     "q": "vintage covered wagon prairie"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "non era vuota",
-     "q": "Rocky mountains valley wide"
-    }
-   ]
-  },
-  {
-   "testo": "Milioni di nativi americani furono sistematicamente espropriati, cacciati dalle terre di caccia ancestrali e rinchiusi nelle riserve con campagne militari violente e marce forzate, la più terribile delle quali fu il Sentiero delle Lacrime.",
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "Milioni di nativi americani",
-     "q": "Monument Valley desert wide"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "nelle riserve con campagne",
-     "q": "Great Plains empty grassland"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "il Sentiero delle Lacrime",
-     "q": "Appalachian trail foggy forest path"
-    }
-   ]
-  },
-  {
-   "testo": "Nel 1819 la Spagna cedette la Florida. Negli anni Trenta i coloni americani del Texas, territorio messicano, si ribellarono, fondarono una repubblica indipendente e furono poi annessi. Questo scatenò la guerra messico-americana.",
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "Nel 1819 la Spagna",
-     "q": "Florida coast palm trees"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "del Texas, territorio messicano",
-     "q": "Texas plains ranch landscape"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "la guerra messico-americana",
-     "q": "Alamo mission San Antonio"
-    }
-   ]
-  },
-  {
-   "testo": "Nel 1846 le truppe americane presero Città del Messico, e col trattato di pace il Messico dovette cedere quasi metà del proprio territorio: California, Nevada, Utah, Arizona e Nuovo Messico. Proprio mentre si firmava, in California fu scoperto l'oro.",
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "Nel 1846 le truppe",
-     "q": "Mexico City historic cathedral zocalo",
-     "didascalia": "1846"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "California, Nevada, Utah",
-     "q": "Arizona desert canyon aerial"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "fu scoperto l'oro",
-     "q": "gold nuggets pan river"
-    }
-   ]
-  },
-  {
-   "testo": "La corsa all'oro del 1849 spinse centinaia di migliaia di persone verso ovest. In meno di cinquant'anni l'America aveva raggiunto il Pacifico. Ma questa rapida espansione portava con sé i semi della distruzione nazionale.",
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "La corsa all'oro del 1849",
-     "q": "Sierra Nevada mountains river",
-     "didascalia": "1849"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "aveva raggiunto il Pacifico",
-     "q": "Pacific coast California cliffs waves"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "i semi della distruzione",
-     "q": "stormy sky dark clouds field"
-    }
-   ]
-  },
-  {
-   "capitolo": "La Guerra Civile",
-   "testo": "Ogni volta che nasceva un nuovo stato a ovest, scoppiava una lite feroce: avrebbe ammesso la schiavitù o sarebbe stato libero? Il Nord aveva un'economia di fabbriche, commercio e lavoro pagato, e un movimento abolizionista sempre più forte la considerava un male morale imperdonabile.",
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "Ogni volta che nasceva",
-     "q": "Midwest farmland aerial"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "Il Nord aveva un'economia",
-     "q": "old brick factory industrial"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "un male morale imperdonabile",
-     "q": "old chains rusted iron"
-    }
-   ]
-  },
-  {
-   "testo": "Il Sud, invece, aveva fondato tutto il suo sistema economico sul cotone, raccolto da milioni di afroamericani ridotti in schiavitù. I politici sudisti sapevano che, se gli stati liberi avessero superato quelli schiavisti al Congresso, la schiavitù sarebbe stata abolita.",
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "Il Sud, invece, aveva",
-     "q": "cotton field white bolls"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "raccolto da milioni",
-     "q": "cotton plant close up"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "al Congresso, la schiavitù",
-     "q": "Capitol building Washington dome"
-    }
-   ]
-  },
-  {
-   "testo": "Il punto di rottura arrivò nel novembre 1860, con l'elezione di Abraham Lincoln, contrario all'espansione della schiavitù. Undici stati del Sud si staccarono dall'Unione e formarono gli Stati Confederati d'America. Nell'aprile 1861 i cannoni confederati spararono su Fort Sumter.",
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "nel novembre 1860",
-     "q": "Lincoln Memorial Washington",
-     "didascalia": "Novembre 1860"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "Undici stati del Sud",
-     "q": "old Confederate flag museum"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "su Fort Sumter",
-     "q": "Fort Sumter Charleston harbor",
-     "didascalia": "Aprile 1861"
-    }
-   ]
-  },
-  {
-   "testo": "Fu il conflitto più sanguinoso della storia americana, fratello contro fratello: una guerra industriale in cui fucili, ferrovie e navi corazzate incontrarono tattiche ormai superate. Per quattro anni centinaia di migliaia di uomini morirono in battaglie come Antietam e Gettysburg.",
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "Fu il conflitto più sanguinoso",
-     "q": "Gettysburg battlefield cannons fog"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "fucili, ferrovie e navi",
-     "q": "civil war cannon field"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "come Antietam e Gettysburg",
-     "q": "Antietam battlefield sunrise mist"
-    }
-   ]
-  },
-  {
-   "testo": "Lincoln emanò il Proclama di Emancipazione, trasformando la guerra in una crociata contro la schiavitù. Nel 1865 la forza industriale e il maggior numero di uomini del Nord schiacciarono gli eserciti confederati. La schiavitù fu abolita, l'Unione salva. Lincoln fu assassinato pochi giorni dopo la resa.",
-   "visivi": [
-    {
-     "tipo": "pexels_foto",
-     "frase": "il Proclama di Emancipazione",
-     "q": "old document quill candle"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "Nel 1865 la forza",
-     "q": "American flag tattered field",
-     "didascalia": "1865"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "Lincoln fu assassinato",
-     "q": "Ford's Theatre Washington"
-    }
-   ]
-  },
-  {
-   "capitolo": "L'età dorata",
-   "testo": "La nazione era riunita, ma le cicatrici erano profonde. Eppure il paese entrò in una fase di crescita industriale mozzafiato, l'Età Dorata. Milioni di immigrati arrivarono dall'Europa in cerca di lavoro, e le ferrovie transcontinentali unirono il continente.",
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "La nazione era riunita",
-     "q": "Ellis Island New York harbor"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "le ferrovie transcontinentali",
-     "q": "railroad tracks prairie sunset"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "unirono il continente",
-     "q": "old steam locomotive"
-    }
-   ]
-  },
-  {
-   "testo": "Giganti come John D. Rockefeller nel petrolio e Andrew Carnegie nell'acciaio costruirono imperi più grandi della maggior parte dei governi nazionali. L'America stava diventando il motore industriale del mondo.",
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "John D. Rockefeller nel petrolio",
-     "q": "oil derrick pumpjack sunset"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "Andrew Carnegie nell'acciaio",
-     "q": "steel mill molten metal"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "il motore industriale",
-     "q": "factory smokestacks industrial"
-    }
-   ]
-  },
-  {
-   "capitolo": "Una potenza mondiale",
-   "testo": "Verso il 1890 la frontiera occidentale fu dichiarata chiusa, e l'America guardò oltre gli oceani. Nel 1898, dopo l'esplosione misteriosa di una corazzata americana nel porto dell'Avana, gli Stati Uniti combatterono la guerra ispano-americana.",
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "Verso il 1890 la frontiera",
-     "q": "Western plains sunset horizon"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "nel porto dell'Avana",
-     "q": "Havana harbor old fortress"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "la guerra ispano-americana",
-     "q": "old battleship gray sea",
-     "didascalia": "1898"
-    }
-   ]
-  },
-  {
-   "testo": "In pochi mesi l'esercito americano schiacciò la Spagna, strappandole i resti del suo impero. Gli Stati Uniti presero Porto Rico, Guam e le Filippine, e annessero le Hawaii.",
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "schiacciò la Spagna",
-     "q": "Puerto Rico coast fortress"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "Guam e le Filippine",
-     "q": "Philippines tropical islands aerial"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "annessero le Hawaii",
-     "q": "Hawaii volcano coastline"
-    }
-   ]
-  },
-  {
-   "testo": "Il presidente Theodore Roosevelt portò l'America sulla scena globale: modernizzò la marina nella Grande Flotta Bianca e ottenne la terra per il canale di Panama, che permise alle navi di passare dall'Atlantico al Pacifico.",
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "Theodore Roosevelt portò",
-     "q": "battleship navy fleet sea"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "il canale di Panama",
-     "q": "Panama canal ship locks"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "dall'Atlantico al Pacifico",
-     "q": "container ship canal lock"
-    }
-   ]
-  },
-  {
-   "capitolo": "Le guerre mondiali",
-   "testo": "Quando nel 1914 la Prima guerra mondiale squarciò l'Europa, l'America restò neutrale. Ma la guerra sottomarina tedesca e i complotti diplomatici costrinsero il presidente Woodrow Wilson a entrare in guerra nel 1917. Le truppe fresche ruppero lo stallo delle trincee e portarono gli Alleati alla vittoria.",
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "Quando nel 1914 la Prima",
-     "q": "World War trenches memorial France",
-     "didascalia": "1914"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "la guerra sottomarina tedesca",
-     "q": "submarine ocean waves gray"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "entrare in guerra nel 1917",
-     "q": "old war memorial flag"
-    }
-   ]
-  },
-  {
-   "testo": "Gli anni Venti portarono una prosperità sfrenata, ma la festa finì con il disastroso crollo di Wall Street del 1929. La Grande Depressione spazzò via banche e fabbriche e lasciò senza lavoro un quarto della forza lavoro americana.",
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "Gli anni Venti portarono",
-     "q": "Wall Street New York stock exchange"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "il disastroso crollo",
-     "q": "abandoned factory empty rusty",
-     "didascalia": "1929"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "senza lavoro un quarto",
-     "q": "empty dusty road farmland"
-    }
-   ]
-  },
-  {
-   "testo": "Il presidente Franklin D. Roosevelt rispose con il New Deal, ampliando enormemente il ruolo dello stato con lavori pubblici, regole finanziarie e programmi sociali. Eppure non fu il New Deal a finire la Depressione. Fu la Seconda guerra mondiale.",
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "Franklin D. Roosevelt rispose",
-     "q": "Hoover Dam concrete aerial"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "lavori pubblici, regole",
-     "q": "Golden Gate Bridge construction fog"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "Fu la Seconda guerra",
-     "q": "old propeller plane sky clouds"
-    }
-   ]
-  },
-  {
-   "testo": "Il 7 dicembre 1941 il Giappone imperiale lanciò un devastante attacco a sorpresa contro Pearl Harbor. L'America fu gettata in una guerra su due fronti contro Germania, Giappone e Italia. La mobilitazione fu senza precedenti.",
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "Il 7 dicembre 1941",
-     "q": "Pearl Harbor memorial Hawaii water",
-     "didascalia": "7 dicembre 1941"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "una guerra su due fronti",
-     "q": "Pacific ocean warship sunset"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "La mobilitazione fu senza",
-     "q": "vintage factory assembly line"
-    }
-   ]
-  },
-  {
-   "testo": "Le fabbriche di automobili producevano carri armati, quelle di elettrodomestici mitragliatrici, e milioni di donne entrarono nel mondo del lavoro per costruire aerei e navi. Nel 1944 l'industria americana produceva più di tutte le nazioni dell'Asse messe insieme.",
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "Le fabbriche di automobili",
-     "q": "old tank museum armor"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "costruire aerei e navi",
-     "q": "vintage bomber airplane"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "Nel 1944 l'industria",
-     "q": "shipyard cranes steel ships"
-    }
-   ]
-  },
-  {
-   "testo": "Le forze americane combatterono isola per isola nel Pacifico e, con britannici e Alleati, liberarono l'Europa occidentale nel D-Day. La guerra si concluse nell'agosto 1945, dopo le due bombe atomiche su Hiroshima e Nagasaki.",
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "isola per isola nel Pacifico",
-     "q": "Pacific island beach tropical"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "nel D-Day",
-     "q": "Normandy beach cliffs waves",
-     "didascalia": "D-Day, 1944"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "Hiroshima e Nagasaki",
-     "q": "Hiroshima peace memorial dome",
-     "didascalia": "Agosto 1945"
-    }
-   ]
-  },
-  {
-   "testo": "Quando il fumo si diradò, i vecchi imperi europei erano in rovina. Gli Stati Uniti restavano in piedi quasi intatti, con metà della ricchezza mondiale, la marina più forte e il monopolio delle armi nucleari. Una landa remota e ignorata ai margini del mondo era diventata una superpotenza assoluta.",
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "i vecchi imperi europei",
-     "q": "ruined buildings rubble city"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "la marina più forte",
-     "q": "aircraft carrier ocean aerial"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "una superpotenza assoluta",
-     "q": "Statue of Liberty New York harbor"
-    }
-   ]
-  },
-  {
-   "capitolo": "Guerra Fredda",
-   "testo": "La seconda metà del Novecento fu dominata dalla Guerra Fredda, un lungo scontro ideologico tra il capitalismo americano e il comunismo sovietico. Le due superpotenze si scontrarono con guerre per procura in Corea e Vietnam, e si sfidarono a costruire arsenali di missili nucleari.",
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "La seconda metà del Novecento",
-     "q": "missile silo launch rocket"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "guerre per procura in Corea",
-     "q": "Korea mountains misty landscape"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "arsenali di missili nucleari",
-     "q": "intercontinental missile museum"
-    }
-   ]
-  },
-  {
-   "testo": "Gareggiarono anche per raggiungere le stelle, fino allo sbarco americano sulla Luna nel 1969. Sul fronte interno, la nazione fu trasformata dal movimento per i diritti civili, mentre gli afroamericani, guidati da figure come Martin Luther King, chiedevano di mantenere la promessa di uguaglianza.",
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "fino allo sbarco americano",
-     "q": "Moon surface full moon night",
-     "didascalia": "1969"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "movimento per i diritti civili",
-     "q": "Lincoln Memorial reflecting pool"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "promessa di uguaglianza",
-     "q": "Washington monument sunrise"
-    }
-   ]
-  },
-  {
-   "testo": "Quando l'Unione Sovietica crollò nel 1991, gli Stati Uniti restarono soli sulla vetta del potere globale. Da un pugno di insediamenti dimenticati su una costa buia e boscosa, l'America aveva conquistato un continente, costruito il mondo moderno e cambiato per sempre la storia umana. Grazie per aver guardato, e alla prossima.",
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "l'Unione Sovietica crollò",
-     "q": "Kremlin Moscow snow",
-     "didascalia": "1991"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "Da un pugno di insediamenti",
-     "q": "Atlantic coast forest sunrise mist"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "cambiato per sempre",
-     "q": "New York skyline sunset aerial"
+     "frase": "gioielli d'oro",
+     "q": "ancient gold jewelry museum artifacts"
     }
    ]
   }
@@ -955,13 +132,13 @@
   "testo": "USA 1492 – 2026",
   "personaggio": ""
  },
- "descrizione": "Tutta la storia degli Stati Uniti in 12 minuti: dall'errore di Cristoforo Colombo nel 1492 alla nascita delle tredici colonie, dalla Rivoluzione americana con George Washington alla Dichiarazione d'Indipendenza.\n\nScopri come un continente ignorato è diventato una superpotenza: l'acquisto della Louisiana, il destino manifesto, la corsa all'oro, la Guerra Civile di Abraham Lincoln, l'Età Dorata e l'ascesa industriale.\n\nPoi la Prima e la Seconda guerra mondiale, Pearl Harbor, la bomba atomica, la Guerra Fredda, i diritti civili, lo sbarco sulla Luna e il crollo dell'Unione Sovietica. Una storia degli USA spiegata in modo semplice e coinvolgente.\n\n#storiadegliusa #storiaamericana #guerracivile #rivoluzioneamericana #storia #documentario",
+ "descrizione": "L'intera storia degli Stati Uniti in 12 minuti: come una frontiera remota e quasi ignorata è diventata la più grande superpotenza del mondo.\n\nPartiamo dal grande errore di Cristoforo Colombo nel 1492 e seguiamo il cammino dell'America: le colonie, la Rivoluzione americana, la Dichiarazione d'Indipendenza, George Washington, la Guerra civile e le due guerre mondiali.\n\nUn documentario di storia americana spiegato in modo semplice, con date, fatti e protagonisti, per capire come è nata la nazione più potente della storia.\n\n#StoriaUSA #StoriaAmericana #Documentario #StatiUniti #StoriaDelMondo",
  "tag": [
   "storia degli Stati Uniti",
-  "storia degli USA",
+  "storia USA",
   "storia americana spiegata",
   "l'intera storia dell'America",
-  "documentario sull'America",
+  "documentario America",
   "documentario storico",
   "storia del mondo",
   "civiltà",
@@ -969,33 +146,23 @@
   "rivoluzione americana",
   "Cristoforo Colombo",
   "George Washington",
-  "Dichiarazione d'Indipendenza",
+  "dichiarazione d'indipendenza",
   "guerra civile americana",
-  "Prima guerra mondiale",
-  "Seconda guerra mondiale",
+  "prima guerra mondiale",
+  "seconda guerra mondiale",
   "storia spiegata",
+  "Stati Uniti",
+  "America",
+  "1492",
+  "colonie americane",
+  "superpotenza",
   "storia completa",
   "storia di America",
-  "Abraham Lincoln",
-  "Guerra Fredda",
-  "Pearl Harbor",
-  "corsa all'oro",
-  "destino manifesto",
-  "Thomas Jefferson",
-  "acquisto della Louisiana",
-  "diritti civili",
-  "Stati Uniti superpotenza",
-  "storia degli Stati Uniti in 12 minuti"
+  "storia degli USA in 12 minuti",
+  "Nord America",
+  "storia moderna",
+  "storia contemporanea"
  ],
- "personaggi_mancanti": [
-  "Donald Trump (figura della copertina originale, non in lista)",
-  "Cristoforo Colombo",
-  "George Washington",
-  "Abraham Lincoln",
-  "Thomas Jefferson",
-  "Theodore Roosevelt",
-  "Franklin D. Roosevelt",
-  "Martin Luther King"
- ],
+ "personaggi_mancanti": [],
  "categoria_originale": "27"
 }
