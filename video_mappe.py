@@ -1785,7 +1785,7 @@ def carica_youtube(path, c, titolo):
         raise RuntimeError('manca il secret YT_REFRESH_TOKEN del canale: video creato ma non caricato')
     tok = token(); descr, tags_ = dati_youtube(c, titolo)
     snippet = {'title': titolo[:100], 'description': descr, 'tags': tags_, 'categoryId': str(P.get('categoria') or '27'),
-               'defaultLanguage': 'en', 'defaultAudioLanguage': 'en'}
+               'defaultLanguage': LINGUA, 'defaultAudioLanguage': LINGUA}
     status = {'privacyStatus': P.get('privacy') or 'public', 'selfDeclaredMadeForKids': False}
     if P.get('pubblica_il') and str(P.get('privacy') or 'public').strip().lower() == 'public':
         status['privacyStatus'] = 'private'; status['publishAt'] = P['pubblica_il']
@@ -1841,7 +1841,7 @@ def metti_in_playlist(video_id, titolo, descr):
                    f'Video description: {descr[:600]}\n'
                    f'Existing playlists of the channel: {json.dumps(list(esistenti), ensure_ascii=False)}\n'
                    + (f'Allowed playlist topics (choose EXACTLY one of these, same spelling): {json.dumps(lista, ensure_ascii=False)}\n' if lista else
-                      'If one existing playlist fits the video, answer with its exact name. Otherwise propose ONE new playlist name: 2-4 words in English, broad enough '
+                      'If one existing playlist fits the video, answer with its exact name. Otherwise propose ONE new playlist name: 2-4 words in ' + LINGUE.get(LINGUA, 'English') + ', broad enough '
                       'to hold 10+ future videos (a region or a theme, e.g. "Latin America", "Europe\'s Wealth", "Empires & Money"), never the video title.\n')
                    + 'Answer ONLY with the playlist name, nothing else.')
         nome = claude(domanda, 300).strip().strip('"').strip()[:140]
