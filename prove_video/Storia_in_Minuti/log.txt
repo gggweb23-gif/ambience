@@ -1,45 +1,94 @@
-12:29:58 competitor: categoria 27 , 17 tag
-12:29:59 testo originale: 2027 parole (RapidAPI)
-12:29:59 VIDEO DA COPIARE: tn2ehtuk1Gk - The ENTIRE History of United States in 12 Minutes | titolo usato: The ENTIRE History of United States in 12 Minutes
-12:29:59 paese del video: United States
-12:29:59 RIPRESA: copione salvato, 0 voci e 0 disegni gia' pronti (non si ripagano)
-12:29:59 copione: 4 scene, 165 parole
-12:29:59 voce non riuscita, riprovo: HTTP Error 401: Unauthorized
-12:29:59 voce non riuscita, riprovo: HTTP Error 401: Unauthorized
-12:30:03 voce non riuscita, riprovo: HTTP Error 401: Unauthorized
-12:30:03 voce non riuscita, riprovo: HTTP Error 401: Unauthorized
-12:30:11 voce non riuscita, riprovo: HTTP Error 401: Unauthorized
-12:30:12 voce non riuscita, riprovo: HTTP Error 401: Unauthorized
-12:30:24 voce non riuscita, riprovo: HTTP Error 401: Unauthorized
-12:30:24 voce non riuscita, riprovo: HTTP Error 401: Unauthorized
-12:30:40 voce non riuscita, riprovo: HTTP Error 401: Unauthorized
-12:30:44 voce non riuscita, riprovo: HTTP Error 401: Unauthorized
-12:30:52 voce non riuscita, riprovo: HTTP Error 401: Unauthorized
-12:31:04 voce non riuscita, riprovo: HTTP Error 401: Unauthorized
-Traceback (most recent call last):
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 4292, in <module>
-    main()
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 3664, in main
-    voci = list(ex.map(lambda i: voce(i, testi[i], ' '.join(testi[:i])[-400:], ' '.join(testi[i + 1:])[:400]), range(len(testi))))
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 619, in result_iterator
-    yield _result_or_cancel(fs.pop())
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 317, in _result_or_cancel
-    return fut.result(timeout)
-           ^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 456, in result
-    return self.__get_result()
-           ^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
-    raise self._exception
-  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 58, in run
-    result = self.fn(*self.args, **self.kwargs)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 3664, in <lambda>
-    voci = list(ex.map(lambda i: voce(i, testi[i], ' '.join(testi[:i])[-400:], ' '.join(testi[i + 1:])[:400]), range(len(testi))))
-                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 487, in voce
-    raise RuntimeError('ElevenLabs non risponde')
-RuntimeError: ElevenLabs non risponde
-12:31:20 esito: {"stato": "ERRORE", "errore": "ElevenLabs non risponde", "minuti_lavoro": 1.4, "paese": "United States", "categoria_originale": "27", "tag_originali": "United States History, USA History, American History Explained, The Entire History of America, America Documentary, History Documentary, World History, Civilization, Rise of the United States, American Revolution, Christopher Columbus, George Washington, Declaration of Independence, American Civil War, World War 1, World War 2, History Explained"
+13:20:51 competitor: categoria 27 , 17 tag
+13:20:52 testo originale: 2027 parole (RapidAPI)
+13:20:52 VIDEO DA COPIARE: tn2ehtuk1Gk - The ENTIRE History of United States in 12 Minutes | titolo usato: The ENTIRE History of United States in 12 Minutes
+13:20:52 paese del video: United States
+13:20:52 RIPRESA: copione salvato, 0 voci e 0 disegni gia' pronti (non si ripagano)
+13:20:52 copione: 4 scene, 165 parole
+13:20:57 minuti nel titolo/copertina aggiornati: L'INTERA Storia degli Stati Uniti in 12 Minuti -> L'INTERA Storia degli Stati Uniti in 1 Minuto
+13:20:57 capitoli: meno di 3, non inseriti
+13:20:57 minuti nel titolo/copertina aggiornati: L'intera storia degli Stati Uniti in 12 minuti: come una frontiera remota e quasi ignorata è diventata la più grande superpotenza del mondo.
+
+Partiamo dal grande errore di Cristoforo Colombo nel 1492 e seguiamo il cammino dell'America: le colonie, la Rivoluzione americana, la Dichiarazione d'Indipendenza, George Washington, la Guerra civile e le due guerre mondiali.
+
+Un documentario di storia americana spiegato in modo semplice, con date, fatti e protagonisti, per capire come è nata la nazione più potente della storia.
+
+#StoriaUSA #StoriaAmericana #Documentario #StatiUniti #StoriaDelMondo -> L'intera storia degli Stati Uniti in 1 minuto: come una frontiera remota e quasi ignorata è diventata la più grande superpotenza del mondo.
+
+Partiamo dal grande errore di Cristoforo Colombo nel 1492 e seguiamo il cammino dell'America: le colonie, la Rivoluzione americana, la Dichiarazione d'Indipendenza, George Washington, la Guerra civile e le due guerre mondiali.
+
+Un documentario di storia americana spiegato in modo semplice, con date, fatti e protagonisti, per capire come è nata la nazione più potente della storia.
+
+#StoriaUSA #StoriaAmericana #Documentario #StatiUniti #StoriaDelMondo
+13:20:57 voce pronta: 1.1 minuti
+13:20:57 luoghi del paese per i paesaggi Pexels: (nessuno: controllo solo visivo)
+13:20:57 senza texture: 0 carte/schede diventate disegni, strisce di carta tolte
+13:20:57 ritmo: 22 immagini | cartone 20% (quota 100%) | sfondi usati: 0/0, max 0 volte
+13:20:57 disegni ripetuti: nessuno scambio (ogni immagine resta sulla sua frase)
+13:20:57 senza texture: 0 carte/schede diventate disegni, strisce di carta tolte
+13:20:57 controllo immagini: 0 guardate, 0 rifatte
+13:20:57 visivi: 22 | primi 10 s: 4
+13:20:57 pezzo 1 cartone non riuscito: integer modulo by zero
+13:21:00 Pexels 'Atlantic ocean waves open sea' -> scelta 2
+13:21:10 Pexels 'New York skyline Manhattan aerial' -> scelta 1
+13:21:14 Pexels 'New York skyline Manhattan aerial' -> scelta 1
+13:21:18 Pexels 'Atlantic ocean waves open sea' -> scelta 3
+13:21:22 Pexels 'foggy forest Appalachian mountains' -> scelta 0
+13:21:24 pezzo 7 cartone non riuscito: integer modulo by zero
+13:21:25 Pexels 'foggy forest Appalachian mountains' -> scelta 2
+13:21:27 Pexels 'Louisiana swamp cypress trees' -> scelta 0
+13:21:29 Pexels 'Great Plains grassland wind Kansas' -> scelta 1
+13:21:32 Pexels 'spices market old sacks cinnamon pepper' -> scelta 1
+13:21:35 Pexels 'antique world map globe old' -> scelta 0
+13:21:35 pezzo 13 cartone non riuscito: integer modulo by zero
+13:21:37 Pexels 'Atlantic ocean horizon waves sunrise' -> scartate 1 riprese quasi uguali a una gia' usata
+13:21:39 Pexels 'Atlantic ocean horizon waves sunrise' -> scelta 0
+13:21:39 Pexels 'old wooden sailing ship ocean sunset' -> scelta 0
+13:21:41 Pexels 'Atlantic ocean horizon waves sunrise' -> scartate 1 riprese quasi uguali a una gia' usata
+13:21:42 Pexels 'Atlantic ocean horizon waves sunrise' -> scelta 0
+13:21:45 Pexels 'antique compass nautical map' -> scelta 0
+13:21:48 Pexels 'Caribbean island beach palm trees aerial' -> scartate 1 riprese quasi uguali a una gia' usata
+13:21:49 Pexels 'Caribbean island beach palm trees aerial' -> scelta 0
+13:21:54 Pexels 'spices sacks dried peppercorns wooden' -> scartate tutte
+13:21:54 Pexels scartate tutte per: spices sacks dried peppercorns wooden
+13:21:56 Pexels 'spices sacks dried peppercorns wooden ancient' -> scartate tutte
+13:21:56 Pexels scartate tutte per: spices sacks dried peppercorns wooden ancient
+13:21:58 Pexels 'Caribbean island beach palm trees aerial' -> scelta 0
+13:22:01 pezzo 20 cartone non riuscito: integer modulo by zero
+13:22:03 Pexels 'ancient gold jewelry museum artifacts' -> scartate tutte
+13:22:03 Pexels scartate tutte per: ancient gold jewelry museum artifacts
+13:22:05 Pexels 'ancient gold jewelry museum artifacts ancient' -> scartate tutte
+13:22:05 Pexels scartate tutte per: ancient gold jewelry museum artifacts ancient
+13:22:06 Pexels 'Caribbean island beach palm trees aerial' -> scelta 3
+13:22:12 pezzo 1: nessuna clip coerente, riuso la clip 18 (altro tratto, specchiata)
+13:22:13 pezzo 7: nessuna clip coerente, riuso la clip 16 (altro tratto, specchiata)
+13:22:15 pezzo 13: nessuna clip coerente, riuso la clip 2 (altro tratto, specchiata)
+13:22:16 pezzo 20: nessuna clip coerente, riuso la clip 3 (altro tratto, specchiata)
+13:22:16 ricerche Pexels usate: 19 (limite 190 l'ora, attesa 0 min); pezzi con clip riusata: 4
+13:22:16 pezzi pronti: 22 in 79 s
+13:22:16 SPESA immagini: 0 immagini, circa 0.00 $
+13:22:37 linea del tempo (alto): 3 tappe, da 1492 a 2026
+13:22:38 suono cambio non generato: soft airy swish, quick camera pan suono non in libreria (generazione ElevenLabs spenta)
+13:22:38 suono cambio non generato: deep whoosh with a soft low boom suono non in libreria (generazione ElevenLabs spenta)
+13:22:38 suono cambio non generato: fast cinematic whoosh transition suono non in libreria (generazione ElevenLabs spenta)
+13:22:38 suono cambio non generato: paper page turning quickly suono non in libreria (generazione ElevenLabs spenta)
+13:22:38 suono cambio non generato: soft bubble pop, cartoon suono non in libreria (generazione ElevenLabs spenta)
+13:22:38 suono cambio non generato: short cinematic impact hit, deep suono non in libreria (generazione ElevenLabs spenta)
+13:22:38 suono cambio non generato: soft low whoosh, warm and muffled suono non in libreria (generazione ElevenLabs spenta)
+13:22:38 suono cambio non generato: soft cloth flutter, flag in the wind, short suono non in libreria (generazione ElevenLabs spenta)
+13:22:38 suono cambio non generato: soft muffled thump, low and warm suono non in libreria (generazione ElevenLabs spenta)
+13:22:38 suono cambio non generato: short wooden tap, warm and soft suono non in libreria (generazione ElevenLabs spenta)
+13:22:38 suono cambio non generato: drum hit with short reverb, epic suono non in libreria (generazione ElevenLabs spenta)
+13:22:38 suono cambio non generato: reverse whoosh riser, short suono non in libreria (generazione ElevenLabs spenta)
+13:22:38 suono di scatto non generato: suono non in libreria (generazione ElevenLabs spenta)
+13:22:38 suoni di cambio immagine: 0 | libreria: 8 suoni (generati)
+13:22:50 musica: apertura + 0 brani a rotazione (5 brani diversi), volume 0.03
+13:22:52 copertina foto: {"nome": "STATI UNITI", "anni": "1492 → 2026", "simboli": ["Statue of Liberty New York", "Golden Gate Bridge San Francisco", "White House Washington DC", "Mount Rushmore South Dakota", "Grand Canyon Arizona USA", "Times Square New York City"]}
+13:22:55 foto copertina: STATI UNITI | Statue of Liberty New York | La Statua della Libertà (Liberty Island, porto di New York, Stati Uniti), con il piedistallo in pietra e la torcia dorata contro un cielo azzurro-turchese | 
+13:22:56 foto copertina: STATI UNITI | Statue of Liberty New York | Statua della Libertà, Liberty Island, New York City, Stati Uniti | paese True | simbolo 10 | visibile 8 | https://www.pexels.com/photo/statue-of-liberty-in-n
+13:22:59 foto copertina: STATI UNITI | Statue of Liberty New York | La Statua della Libertà su Liberty Island, nel porto di New York (New York, Stati Uniti), vista dall'acqua | paese True | simbolo 10 | visibile 7 | https://w
+13:23:01 foto copertina: STATI UNITI | Statue of Liberty New York | La Statua della Libertà su Liberty Island, con lo skyline di Lower Manhattan (One World Trade Center) sullo sfondo, New York, Stati Uniti | paese True | simb
+13:23:01 copertina foto pronta: copertina.jpg
+13:23:04 video_url pronto per Drive
+13:23:05 copertina_url pronto per Drive
+13:23:05 esito: {"stato": "PROVA OK", "minuti_video": 1.1, "minuti_lavoro": 2.3, "titolo": "L'INTERA Storia degli Stati Uniti in 1 Minuto", "descrizione": "L'INTERA Storia degli Stati Uniti in 1 Minuto\n\nL'intera storia degli Stati Uniti in 1 minuto: come una frontiera remota e quasi ignorata è diventata la più grande superpotenza del mondo.\n\nPartiamo dal grande errore di Cristoforo Colombo nel 1492 e seguiamo il cammino dell'America: le colonie, la Rivoluzione americana, la Dichiarazione d'Indipendenza, Geo
+13:23:05 FATTO: /home/runner/work/ambience/ambience/video_storia.mp4 1.1 minuti
