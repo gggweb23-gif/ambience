@@ -1,0 +1,40 @@
+name: Copertine mappe (rifai e carica)
+
+on:
+  workflow_dispatch:
+    inputs:
+      payload:
+        description: 'JSON: channel_name, carica (SI/NO), copertine [{video_id, luoghi, scritta}]'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  copertine:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Memoria di mappa, confini e caratteri
+        uses: actions/cache@v4
+        with:
+          path: risorse_mappe
+          key: risorse-mappe-v1
+      - name: Programmi Python
+        run: pip install --quiet --break-system-packages cairosvg numpy pillow
+      - name: Copertine
+        env:
+          PAYLOAD: ${{ inputs.payload }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN_MAIN_STREET_ATLAS }}
+        run: python3 strumenti/copertina_mappe_rifai.py 2>&1 | tee copertine.log
+      - name: Salva le copertine nel repository
+        if: ${{ always() }}
+        run: |
+          git config user.name "render-bot"; git config user.email "render-bot@users.noreply.github.com"
+          cp copertine.log prove_video/ 2>/dev/null || true
+          git add prove_video; git commit -m "Copertine mappe rifatte" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase --autostash -q && git push && break; sleep $((i * 5)); done

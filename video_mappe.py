@@ -2022,6 +2022,8 @@ def main():
             CC.VM = sys.modules[__name__]
             pc = CC.piano(comp); log('copertina cartellino:', json.dumps(pc, ensure_ascii=False)[:300])
             cop = CC.copertina_b2(pc.get('luoghi') or [], pc.get('scritta') or 'WHY?', os.path.join(ROOT, 'copertina.jpg'))
+            if not PROVA:
+                CC.segna_parola(pc.get('scritta') or 'WHY?')
         else:
             cop = copertina_nuova(piano_copertina(comp, c), os.path.join(ROOT, 'copertina.jpg'))
     except Exception as e:

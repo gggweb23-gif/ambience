@@ -115,26 +115,62 @@ def freccia(im, a, b, col=(255, 255, 255)):
     d.polygon(tri, fill=col, outline=(0, 0, 0), width=6)
 
 
+TIMER = (W - 360, H - 200, 360, 200)   # angolo in basso a destra: su YouTube c'e' la durata del video, il cartellino non va mai li'
+
+
+def _curva_freccia(a, b, n=30):
+    (x0, y0), (x1, y1) = a, b
+    mx, my = (x0 + x1) / 2 + (y1 - y0) * .25, (y0 + y1) / 2 - (x1 - x0) * .25
+    return [((1 - t) ** 2 * x0 + 2 * (1 - t) * t * mx + t ** 2 * x1, (1 - t) ** 2 * y0 + 2 * (1 - t) * t * my + t ** 2 * y1) for t in [i / n for i in range(n + 1)]]
+
+
+def _dentro(px, py, box, m=30):
+    ex, ey, ew, eh = box
+    return ex - m < px < ex + ew + m and ey - m < py < ey + eh + m
+
+
 def metti_cartellino(im, maschera, ox, Wm, prezzo, ricco, evita=()):
-    """Cartellino nel punto della meta' dove copre MENO il paese (e le scritte), freccia fino al paese."""
+    """Cartellino nel punto della meta' dove copre MENO il paese, MAI sulle scritte ne' nell'angolo del timer di YouTube;
+    la freccia arriva su una parte del paese fuori dalle scritte e non le attraversa mai."""
     t = cartellino_img(prezzo, ricco, 6 if ricco else -6)
     m = np.asarray(maschera.resize((Wm // 8, H // 8))) > 0
     ys, xs = np.nonzero(m)
     if len(xs) == 0:
         return
-    cx, cy = xs.mean() * 8, ys.mean() * 8
+    liberi = []
+    for marg in (30, 0):   # paese fuori dalle scritte (prima con un po' di margine, poi senza)
+        liberi = [(x * 8, y * 8) for x, y in zip(xs, ys) if not any(_dentro(ox + x * 8, y * 8, b, marg) for b in evita)]
+        if liberi:
+            break
+    if not liberi:   # il paese e' tutto sotto le scritte: la freccia punta alla sua parte piu' bassa
+        soglia = np.percentile(ys, 90); liberi = [(x * 8, y * 8) for x, y in zip(xs, ys) if y >= soglia]
+    if liberi:
+        cx, cy = float(np.mean([p[0] for p in liberi])), float(np.mean([p[1] for p in liberi]))
+        if any(_dentro(ox + cx, cy, b) for b in evita) or not m[min(m.shape[0] - 1, int(cy // 8)), min(m.shape[1] - 1, int(cx // 8))]:
+            cx, cy = min(liberi, key=lambda p: (p[0] - cx) ** 2 + (p[1] - cy) ** 2)   # il punto del paese libero piu' vicino al centro
+    else:
+        cx, cy = xs.mean() * 8, ys.mean() * 8
     best = None
-    for fy in (.06, .30, .55, .72):
-        for fx in (.03, .30, .55):
+    for fy in (.06, .20, .30, .42, .55, .64, .72):
+        for fx in (.03, .16, .30, .42, .55):
             x, y = int(Wm * fx), int(H * fy)
             x = min(x, Wm - t.width - 10); y = min(y, H - t.height - 10)
+            gx0, gy0, gx1, gy1 = ox + x, y, ox + x + t.width, y + t.height
+            tx_, ty_, tw_, th_ = TIMER
+            if gx1 > tx_ and gy1 > ty_:   # angolo del timer: escluso
+                continue
             sub = m[y // 8:(y + t.height) // 8, x // 8:(x + t.width) // 8]
             cop = sub.mean() if sub.size else 1
             dist = math.hypot(x + t.width / 2 - cx, y + t.height / 2 - cy) / Wm
-            vic = sum(1 for (ex, ey, ew, eh) in evita if x < ex + ew and ex < x + ox + t.width and y < ey + eh and ey < y + t.height)
-            punt = cop * 5 + vic * 5 + abs(dist - .45)
+            vic = sum(1 for (ex, ey, ew, eh) in evita if gx0 < ex + ew and ex < gx1 and gy0 < ey + eh and ey < gy1)
+            bordo = (x + t.width / 2, y + t.height) if cy > y + t.height else (x + t.width / 2, y)
+            curva = _curva_freccia((ox + bordo[0], bordo[1]), (ox + cx, cy))
+            taglia = sum(1 for px, py in curva if any(_dentro(px, py, b, 10) for b in evita))   # la freccia passa sopra le scritte?
+            punt = cop * 5 + vic * 50 + taglia * 3 + abs(dist - .45)
             if best is None or punt < best[0]:
                 best = (punt, x, y)
+    if best is None:
+        return
     _, x, y = best
     bordo = (x + t.width / 2, y + t.height) if cy > y + t.height else (x + t.width / 2, y)
     freccia(im, (ox + bordo[0], bordo[1]), (ox + cx, cy))
@@ -192,6 +228,31 @@ Rules: exactly 2 places, the rich one first; "prezzo" = GDP per capita in curren
 for a single country video use that country and the most meaningful neighbour; for a world video use the richest countries vs the poorest ones."""
 
 
+def _file_parole():
+    import os, re as _re
+    c = _re.sub(r'\W+', '_', str(VM.P.get('channel_name') or VM.P.get('canale') or 'rich_borders')).strip('_').lower()
+    return os.path.join(VM.LIB, 'parole_copertina', c + '.txt')
+
+
+def parole_usate():
+    """Parole GRANDI gia' usate nelle copertine del canale: ogni video deve averne una diversa."""
+    try:
+        return [x.strip().upper() for x in open(_file_parole(), encoding='utf-8') if x.strip()]
+    except Exception:
+        return []
+
+
+def segna_parola(scritta):
+    import os
+    try:
+        p = _file_parole(); os.makedirs(os.path.dirname(p), exist_ok=True)
+        grande = str(scritta or '').upper().split()[-1]
+        with open(p, 'a', encoding='utf-8') as f:
+            f.write(grande + '\n')
+    except Exception:
+        pass
+
+
 def piano(comp):
     """Claude guarda la copertina del competitor e il titolo e decide i due luoghi, i prezzi veri e la domanda."""
     img = None
@@ -200,7 +261,10 @@ def piano(comp):
             img = VM.http(f'https://i.ytimg.com/vi/{comp["id"]}/{q}.jpg', raw=True); Image.open(io.BytesIO(img)).verify(); break
         except Exception:
             img = None
-    cont = [{'type': 'text', 'text': DOMANDA.format(t=comp.get('titolo') or '')}]
+    usate = parole_usate()
+    vieta = ('\nThe BIG word (the last word of "scritta") must be DIFFERENT from every big word already used by this channel: ' + ', '.join(usate)
+             + '. Choose another strong word that fits THIS video (e.g. UNITED?, BROKE?, 44?, HALF?, TRAP?).') if usate else ''
+    cont = [{'type': 'text', 'text': DOMANDA.format(t=comp.get('titolo') or '') + vieta}]
     if img:
         buf = io.BytesIO(); Image.open(io.BytesIO(img)).convert('RGB').resize((960, 540)).save(buf, 'JPEG', quality=88)
         cont.insert(0, {'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}})
@@ -208,7 +272,11 @@ def piano(comp):
     rr = VM.http('https://api.anthropic.com/v1/messages', {'model': VM.MODELLO_AI, 'max_tokens': 1500, 'messages': [{'role': 'user', 'content': cont}]},
                  {'x-api-key': os.environ.get('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01'}, timeout=300)
     t = ''.join(b.get('text', '') for b in rr.get('content', []))
-    return json.JSONDecoder().raw_decode(t[t.find('{'):])[0]   # legge solo il primo oggetto JSON (ignora testo dopo)
+    pc = json.JSONDecoder().raw_decode(t[t.find('{'):])[0]   # legge solo il primo oggetto JSON (ignora testo dopo)
+    grande = str(pc.get('scritta') or '').upper().split()[-1:] 
+    if grande and grande[0] in usate and not comp.get('_riprova'):   # parola gia' usata: si chiede di nuovo
+        return piano(dict(comp, _riprova=True))
+    return pc
 
 
 # ============================================================ COPERTINA "TITOLO SU MAPPA" (colonna copertina_stile = titolo_mappa)
