@@ -1,0 +1,31 @@
+name: Prova statue copertine (a pagamento, con tetto)
+
+# Genera statue di marmo eroiche per le prove copertina (strumenti/statue_agora.py). Tetto di spesa nel payload (max_spesa).
+on:
+  workflow_dispatch:
+    inputs:
+      payload:
+        description: 'JSON: cartella, max_spesa, statue [{nome, soggetto, posa}]'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  statue:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Statue
+        env:
+          PAYLOAD: ${{ inputs.payload }}
+          FAL_KEY: ${{ secrets.FAL_KEY }}
+        run: python3 strumenti/statue_agora.py
+      - name: Salva nel repository
+        if: ${{ always() }}
+        run: |
+          git config user.name "render-bot"; git config user.email "render-bot@users.noreply.github.com"
+          git add prove_video; git commit -m "Prova statue copertine" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase --autostash -q && git push && break; sleep $((i * 5)); done
