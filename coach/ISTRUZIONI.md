@@ -79,9 +79,15 @@ finché i parametri sono rispettati, senza buttare il lavoro fatto. Rispondi e s
    - Lavora in modo economico: se coach_calcola.py da' ATTESA o OK per tutti, non analizzare altro e chiudi subito.
 
 ## Video da produrre in esaurimento (Giorgio, 30 ott 2026)
-A ogni controllo conta per ogni canale le righe `Pronto` del file di produzione. Se sono 4 o meno (circa 4 giorni a 1 video al
-giorno), scrivi in cima al messaggio: "SCOUT NECESSARIO: <canale>, restano N video" (vale anche se non hai cambiato altro),
-cosi' Giorgio cerca nuovi competitor e lancia lo scout prima che il canale resti senza video.
+Lo scout aggiunge da solo nuove righe dal competitor. A ogni controllo salva per ogni canale in `coach/canali/<slug>/scout.json`
+il numero di righe `Pronto` e il totale delle righe del file di produzione. Scrivi in cima al messaggio
+"SCOUT NECESSARIO: <canale>, restano N video, il competitor non ha piu' video nuovi" SOLO se le righe Pronto sono 4 o meno
+E il totale delle righe non e' cresciuto dal controllo precedente (lo scout non trova piu' video: serve un altro competitor).
+Finche' lo scout riesce ad aggiungere righe, nessun avviso.
+
+## Pulizia delle colonne (Giorgio, 30 ott 2026)
+Se ti accorgi che una colonna di Channel Configs non la legge piu' nessun motore/workflow (cerca il nome nel repository), proponila
+a Giorgio nel messaggio come "COLONNA DA TOGLIERE: <nome>". Non cancellarla mai da solo.
 
 ## Catalogo delle leve (parametri che il motore legge già)
 I nomi nei `parametri` della ricetta devono essere quelli che il MOTORE legge dal payload (controlla nel codice: per esempio
