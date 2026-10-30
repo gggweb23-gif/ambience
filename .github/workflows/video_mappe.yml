@@ -25,8 +25,8 @@ on:
         default: ''
         type: string
 
-concurrency:
-  group: mappe
+concurrency:   # un video alla volta PER CANALE: canali diversi lavorano in parallelo
+  group: mappe-${{ inputs.payload != '' && (fromJSON(inputs.payload).channel_name || fromJSON(inputs.payload).canale) || 'rich_borders' }}
   cancel-in-progress: false
 
 permissions:
