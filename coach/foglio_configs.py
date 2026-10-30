@@ -71,7 +71,7 @@ def main():
             esito.append(f'colonna non trovata: {col}'); continue
         r, c = righe[can], intest.index(col) + 1
         attuale = (valori[r - 1][c - 1] if r - 1 < len(valori) and c - 1 < len(valori[r - 1]) else '')
-        if col in SOLO_SE_VUOTE and str(attuale).strip() != '':
+        if col in SOLO_SE_VUOTE and str(attuale).strip() != '' and P.get('richiesta_di_giorgio') != 'SI':   # solo su richiesta esplicita di Giorgio
             esito.append(f'BLOCCATO: {col} di {can} e\' gia\' compilata ({attuale}): la cambia solo Giorgio'); continue
         dati.append({'range': f"'{scheda}'!{lettera(c)}{r}", 'values': [[val]]})
         esito.append(f'{can} | {col} ({lettera(c)}{r}): "{attuale}" -> "{val}"')
