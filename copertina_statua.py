@@ -142,6 +142,13 @@ def statua(pn):
     f = os.path.join(CART, 'statua.png')
     open(f, 'wb').write(http(r['images'][0]['url'], raw=True))
     log('statua pronta:', pn['scena'], '|', posa[:70])
+    if pn['scena'] == 'sola':   # statua scontornata: sempre lo STESSO fondo scuro del canale, senza stacchi
+        try:
+            sc = fal('fal-ai/birefnet', {'image_url': r['images'][0]['url']})
+            open(f, 'wb').write(http((sc.get('image') or {}).get('url'), raw=True))
+            log('statua scontornata')
+        except Exception as e:
+            log('scontorno non riuscito (' + str(e)[:100] + '): uso il fondo originale')
     return f
 
 
@@ -155,9 +162,35 @@ def scala(im, h):
     return im.resize((int(im.width * h / im.height), h), Image.LANCZOS)
 
 
+def fondo_canale(w, h):
+    """grigio scuro con luce dietro la statua (a destra) e fumo basso: lo stesso per copertina e video"""
+    c = Image.new('RGB', (w, h), (14, 14, 16))
+    luce = Image.new('L', (w, h), 0); ImageDraw.Draw(luce).ellipse([w * .45, -h * .2, w * 1.15, h * 1.1], fill=255)
+    c = Image.composite(Image.new('RGB', (w, h), (78, 78, 82)), c, luce.filter(ImageFilter.GaussianBlur(w * .12)))
+    rnd = random.Random(3); fw, fh = w // 16, h // 16
+    n = Image.new('L', (fw, fh)); n.putdata([rnd.randint(0, 255) for _ in range(fw * fh)])
+    n = n.resize((w, h), Image.BICUBIC).filter(ImageFilter.GaussianBlur(w * .02))
+    basso = Image.linear_gradient('L').resize((w, h)).point(lambda v: max(0, v - 120) * 2)
+    fumo = ImageChops_multiply(ImageOps.autocontrast(n), basso).point(lambda v: int(v * .55))
+    return Image.composite(Image.new('RGB', (w, h), (150, 150, 155)), c, fumo)
+
+
+def ImageChops_multiply(a, b):
+    from PIL import ImageChops
+    return ImageChops.multiply(a, b)
+
+
 def scena_destra(png, scena, w, h):
     """statua a DESTRA, lato sinistro scurito per il testo (copertina). Il video usa la stessa scena specchiata."""
-    im = grigio(Image.open(png).convert('RGB'))
+    src = Image.open(png)
+    if src.mode == 'RGBA' and src.getchannel('A').getextrema()[0] < 20:   # scontornata: fondo del canale (grigio scuro + fumo in basso)
+        a = src.getchannel('A'); im = grigio(src.convert('RGB')); im.putalpha(a)
+        im = scala(im, int(h * 1.06))
+        c = fondo_canale(w, h)
+        c.paste(im, (w - im.width + int(w * .02), int(h * .02)), im)
+        v = Image.new('L', (w, h), 0); ImageDraw.Draw(v).rectangle([0, 0, w * .45, h], fill=120)
+        return Image.composite(Image.new('RGB', (w, h), (8, 8, 10)), c, v.filter(ImageFilter.GaussianBlur(w * .08)))
+    im = grigio(src.convert('RGB'))
     if scena == 'antagonisti':
         im = scala(im, h); im = im.crop((max(0, im.width - w), 0, im.width, h)).resize((w, h))
         c = im; buio = .42
