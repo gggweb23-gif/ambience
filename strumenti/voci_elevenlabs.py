@@ -11,6 +11,14 @@ def get(url):
     return json.loads(urllib.request.urlopen(urllib.request.Request(url, headers={'xi-api-key': K}), timeout=60).read())
 
 
+if P.get('solo_abbonamento'):   # controllo crediti: quanti caratteri restano nel mese
+    try:
+        a = get('https://api.elevenlabs.io/v1/user/subscription')
+        t = (f"piano {a.get('tier')} | caratteri usati {a.get('character_count')} su {a.get('character_limit')} | "
+             f"rinnovo {a.get('next_character_count_reset_unix')} | stato {a.get('status')}")
+    except Exception as e:
+        t = 'controllo non riuscito: ' + str(e)[:300]
+    print(t); open(os.path.join(cart, 'abbonamento.txt'), 'w').write(t + '\n'); raise SystemExit
 righe, visti = [], set()
 for uso in [P.get('uso') or 'narrative_story', 'informative_educational']:
     q = urllib.parse.urlencode({'page_size': 50, 'language': P.get('lingua', 'it'), 'use_cases': uso, 'sort': 'trending'})
