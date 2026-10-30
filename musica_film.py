@@ -45,12 +45,12 @@ def brano(lib, umore, evita, stile='', chiave='', log=print):
     return p
 
 
-def traccia(tratti, stacchi, totale, lav, canale='canale', stile='', lib='libreria_musica', chiave='', log=print, X=1.5):
+def traccia(tratti, stacchi, totale, lav, canale='canale', stile='', lib='libreria_musica', chiave='', log=print, X=1.5, min_tratto=8):
     """tratti = [(inizio, fine, umore)], stacchi = [secondi]. Ritorna il wav della musica (volume pieno: il missaggio lo abbassa sotto la voce)."""
     pulito = []
     for a, b, u in tratti:
         u = u if u in UMORI else 'mistero'
-        if pulito and (b - a < 8 or pulito[-1][2] == u):
+        if pulito and (b - a < min_tratto or pulito[-1][2] == u):
             pulito[-1][1] = b
         else:
             pulito.append([a, b, u])

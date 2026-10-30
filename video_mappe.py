@@ -30,7 +30,9 @@ LINK = str(P.get('link') or E('LINK_COMPETITOR', '')).strip()
 PROVA = str(P.get('prova') or E('PROVA', 'NO')).strip().upper() == 'SI'
 CARICA = str(P.get('carica') or E('CARICA', 'NO')).strip().upper() == 'SI' and not PROVA
 VOCE = str(P.get('voce') or E('VOCE', '') or 'pNInz6obpgDQGcFmaJgB').strip()
-VOCE_VELOCITA = max(.8, min(1.2, float(str(P.get('voce_velocita') or E('VOCE_VELOCITA', '') or 1.0).replace(',', '.'))))
+VOCE_VELOCITA = max(.8, min(1.2, float(str(P.get('voce_velocita') or P.get('voice_speed') or E('VOCE_VELOCITA', '') or 1.0).replace(',', '.'))))
+VOCE_STABILITA = max(0.0, min(1.0, float(str(P.get('voce_stabilita') or .5).replace(',', '.'))))   # piu' bassa = voce piu' espressiva e varia
+VOCE_STILE = max(0.0, min(1.0, float(str(P.get('voce_stile') or 0).replace(',', '.'))))            # 0-1: quanto "recita" (emozione, enfasi)
 MIN_MINUTI = float(str(P.get('min_minuti') or E('MIN_MINUTI', '') or 10).replace(',', '.'))
 MAX_MINUTI = float(str(P.get('max_minuti') or E('MAX_MINUTI', '') or 14).replace(',', '.'))
 MODELLO_AI = str(P.get('modello_ai') or E('MODELLO_AI', '') or 'claude-sonnet-5-5').strip()
@@ -324,7 +326,7 @@ def voce(i, testo, prima='', dopo=''):
         try:
             j = http(f'https://api.elevenlabs.io/v1/text-to-speech/{VOCE}/with-timestamps?output_format=mp3_44100_128',
                      {'text': testo, 'model_id': E('VOCE_MODELLO', 'eleven_multilingual_v2'), 'previous_text': prima[-400:], 'next_text': dopo[:400],
-                      'voice_settings': {'stability': .5, 'similarity_boost': .75, 'speed': VOCE_VELOCITA}}, {'xi-api-key': chiave})
+                      'voice_settings': {'stability': VOCE_STABILITA, 'similarity_boost': .75, 'speed': VOCE_VELOCITA, 'style': VOCE_STILE, 'use_speaker_boost': True}}, {'xi-api-key': chiave})
             open(p, 'wb').write(base64.b64decode(j['audio_base64']))
             json.dump(j.get('alignment') or {}, open(p[:-4] + '.json', 'w'))
             return p
@@ -412,6 +414,22 @@ def _font_canale(rel):
         except Exception as e:
             log('carattere non disponibile, uso quello di serie:', rel, str(e)[:100]); _FONT_OK[nome] = False
     return nome if _FONT_OK[nome] else None
+
+
+ANGOLI = float(str(P.get('angoli_tondi') or 0).replace(',', '.') or 0)   # colonna angoli_tondi: raggio in pixel dei riquadri (0 = spigoli vivi)
+
+
+def rett(d, xy, fill=None, outline=None, width=1):
+    """Riquadro: con angoli_tondi > 0 gli angoli sono arrotondati (stile morbido del canale)."""
+    if ANGOLI > 0:
+        if len(xy) == 4:
+            x0, y0, x1, y1 = xy
+        else:
+            (x0, y0), (x1, y1) = xy
+        r = min(ANGOLI, abs(x1 - x0) / 2, abs(y1 - y0) / 2)
+        if r >= 1:
+            return d.rounded_rectangle([min(x0, x1), min(y0, y1), max(x0, x1), max(y0, y1)], radius=r, fill=fill, outline=outline, width=width)
+    return d.rectangle(xy, fill=fill, outline=outline, width=width)
 
 
 def font(nome, s):
@@ -568,9 +586,9 @@ def etichetta(im, x, y, testo, k, fs=58, colore=None, blocca=True):
     w = d.textlength(testo, font=f) + 60 * s; h = fs * .82 * s
     if blocca:   # gli elementi della mappa invece escono dal quadro con la camera, non si ammucchiano sul bordo
         x = max(w / 2 + 10, min(W - w / 2 - 10, x)); y = max(h + 10, min(H - h - 10, y))
-    d.rectangle([x - w / 2 + 5, y - h + 6, x + w / 2 + 5, y + h + 6], fill=(0, 0, 0))
-    d.rectangle([x - w / 2, y - h, x + w / 2, y + h], fill=NAVY)
-    d.rectangle([x - w / 2, y + h - 10 * s, x + w / 2, y + h], fill=ROSSO)
+    rett(d, [x - w / 2 + 5, y - h + 6, x + w / 2 + 5, y + h + 6], fill=(0, 0, 0))
+    rett(d, [x - w / 2, y - h, x + w / 2, y + h], fill=NAVY)
+    rett(d, [x - w / 2, y + h - 10 * s, x + w / 2, y + h], fill=ROSSO)
     d.text((x, y - 3 * s), testo, font=f, fill=colore or CREMA, anchor='mm')
 
 
@@ -580,9 +598,9 @@ def numero_grande(im, testo, sotto, k):
     d = ImageDraw.Draw(im); s = back(k)
     f = font('Anton-Regular.ttf', 220 * s); w = d.textlength(testo, font=f) + 120 * s
     x, y = W / 2, H / 2 - 40
-    d.rectangle([x - w / 2 + 12, y - 140 * s + 14, x + w / 2 + 12, y + 140 * s + 14], fill=(0, 0, 0))
-    d.rectangle([x - w / 2, y - 140 * s, x + w / 2, y + 140 * s], fill=NAVY)
-    d.rectangle([x - w / 2, y + 140 * s - 20 * s, x + w / 2, y + 140 * s], fill=ROSSO)
+    rett(d, [x - w / 2 + 12, y - 140 * s + 14, x + w / 2 + 12, y + 140 * s + 14], fill=(0, 0, 0))
+    rett(d, [x - w / 2, y - 140 * s, x + w / 2, y + 140 * s], fill=NAVY)
+    rett(d, [x - w / 2, y + 140 * s - 20 * s, x + w / 2, y + 140 * s], fill=ROSSO)
     d.text((x, y - 12 * s), testo, font=f, fill=ORO, anchor='mm')
     if sotto:
         d.text((x, y + 190 * s), sotto.upper(), font=font('Anton-Regular.ttf', 52 * s), fill='white', anchor='mm', stroke_width=6, stroke_fill=NAVY)
@@ -597,10 +615,10 @@ def titolo_fascia(im, riga1, riga2, k):
         if kk <= 0 or not r:
             continue
         f = font('Anton-Regular.ttf', 84 * kk); y = 150 + i * 108; w = d.textlength(r, font=f)
-        d.rectangle([W / 2 - w / 2 - 26, y - 52, W / 2 + w / 2 + 26, y + 52], fill=ORO if i == 0 else NAVY)
+        rett(d, [W / 2 - w / 2 - 26, y - 52, W / 2 + w / 2 + 26, y + 52], fill=ORO if i == 0 else NAVY)
         d.text((W / 2, y), r, font=f, fill=NAVY if i == 0 else CREMA, anchor='mm')
         if i == 1:
-            d.rectangle([W / 2 - w / 2 - 26, y + 43, W / 2 + w / 2 + 26, y + 52], fill=ROSSO)
+            rett(d, [W / 2 - w / 2 - 26, y + 43, W / 2 + w / 2 + 26, y + 52], fill=ROSSO)
 
 
 def pin(im, x, y, sc=1.0, faccia='normale', salto=0.0):
@@ -651,9 +669,9 @@ def metti(im, ic, x, y, k=1.0):
 
 def colonna(im, x, y, h, col):
     d = ImageDraw.Draw(im); w = 64
-    d.rectangle([x - w / 2, y - h, x + w / 2, y], fill=col)
-    d.rectangle([x - w / 2, y - h, x - w / 2 + 16, y], fill=mix(col, (255, 255, 255), .35))
-    d.rectangle([x + w / 2 - 14, y - h, x + w / 2, y], fill=mix(col, (0, 0, 0), .25))
+    rett(d, [x - w / 2, y - h, x + w / 2, y], fill=col)
+    rett(d, [x - w / 2, y - h, x - w / 2 + 16, y], fill=mix(col, (255, 255, 255), .35))
+    rett(d, [x + w / 2 - 14, y - h, x + w / 2, y], fill=mix(col, (0, 0, 0), .25))
     d.ellipse([x - w / 2, y - 14, x + w / 2, y + 14], fill=mix(col, (0, 0, 0), .25))
     d.ellipse([x - w / 2, y - h - 14, x + w / 2, y - h + 14], fill=mix(col, (255, 255, 255), .45))
 
@@ -663,8 +681,8 @@ def cartellino_anno(im, testo, k):
         return
     d = ImageDraw.Draw(im); s = back(k); x, y = 70, 70
     tema = bool(P.get('tema_colori'))   # con lo stile del canale: cartellino bianco/carta con scritta del colore dei riquadri
-    d.rectangle([x + 8, y + 12, x + 8 + 330 * s, y + 12 + 170 * s], fill=mix(NAVY, (0, 0, 0), .4) if tema else (60, 45, 30))
-    d.rectangle([x, y, x + 330 * s, y + 170 * s], fill=CARTA if tema else (245, 236, 214), outline=NAVY if tema else (120, 100, 70), width=4)
+    rett(d, [x + 8, y + 12, x + 8 + 330 * s, y + 12 + 170 * s], fill=mix(NAVY, (0, 0, 0), .4) if tema else (60, 45, 30))
+    rett(d, [x, y, x + 330 * s, y + 170 * s], fill=CARTA if tema else (245, 236, 214), outline=NAVY if tema else (120, 100, 70), width=4)
     d.text((x + 165 * s, y + 88 * s), testo, font=font('Poppins-Bold.ttf', 92 * s), fill=NAVY if tema else (70, 55, 40), anchor='mm')
 
 
@@ -682,7 +700,7 @@ def pannello_barre(im, ev, k):
         return
     (x0, y0, x1, y1), sp = box_barre(len(voci))
     ov = Image.new('RGBA', (W, H), (0, 0, 0, 0)); od = ImageDraw.Draw(ov)
-    od.rectangle([x0, y0, x1, y1], fill=NAVY + (int(230 * k),)); od.rectangle([x0, y1 - 12, x1, y1], fill=ROSSO + (int(255 * k),))
+    rett(od, [x0, y0, x1, y1], fill=NAVY + (int(230 * k),)); rett(od, [x0, y1 - 12, x1, y1], fill=ROSSO + (int(255 * k),))
     im.alpha_composite(ov); d = ImageDraw.Draw(im)
     d.text(((x0 + x1) / 2, y0 + 72), str(ev.get('titolo') or '').upper()[:26], font=font('Anton-Regular.ttf', 68), fill=CREMA, anchor='mm')
     mx = max(float(v.get('valore') or 0) for v in voci) or 1
@@ -691,7 +709,7 @@ def pannello_barre(im, ev, k):
         val = float(v.get('valore') or 0); col = ORO if str(v.get('lato')) == 'oro' else VERDE
         d.text((x0 + 44, y - 58), str(v.get('testo') or '').upper()[:22], font=font('Poppins-Bold.ttf', 42), fill=(225, 230, 240), anchor='lm')
         lw = 560 * val / mx * kb
-        d.rectangle([x0 + 44, y - 24, x0 + 44 + max(6, lw), y + 34], fill=col)
+        rett(d, [x0 + 44, y - 24, x0 + 44 + max(6, lw), y + 34], fill=col)
         nv = ('%g' % round(val * kb, 1)) if val < 100 else '{:,}'.format(int(val * kb))
         d.text((x0 + 68 + lw, y + 5), nv, font=font('Anton-Regular.ttf', 64), fill='white', anchor='lm')
 
@@ -1267,8 +1285,8 @@ def riquadro_conta(im, ev, dt, fine):
     d = ImageDraw.Draw(im); w = max(d.textlength(tx, font=f1), d.textlength(sotto, font=f2)) + 80; h = 190 if sotto else 140
     s_ = back(min(1, dt / .3)); x1 = W - 50; x0 = x1 - w * s_; y0 = 50
     a = int(255 * fine)
-    d.rectangle([x0 + 8, y0 + 10, x1 + 8, y0 + h + 10], fill=(0, 0, 0, int(a * .45)))
-    d.rectangle([x0, y0, x1, y0 + h], fill=(*CARTA, a), outline=(30, 30, 40, a), width=4)
+    rett(d, [x0 + 8, y0 + 10, x1 + 8, y0 + h + 10], fill=(0, 0, 0, int(a * .45)))
+    rett(d, [x0, y0, x1, y0 + h], fill=(*CARTA, a), outline=(30, 30, 40, a), width=4)
     if s_ > .9:
         d.text(((x0 + x1) / 2, y0 + 72), tx, font=f1, fill=(*ACCENTO, a), anchor='mm')
         if sotto:
@@ -1291,13 +1309,13 @@ def scheda_personaggio(im, ev, dt, fine):
     if ritr is not None:
         card.paste(ImageOps.fit(ritr, (w - 40, int(h * .68))), (20, 20))
     else:   # sagoma
-        dc.ellipse([w * .3, h * .1, w * .7, h * .42], fill=(190, 190, 190)); dc.rectangle([w * .2, h * .42, w * .8, h * .7], fill=(190, 190, 190))
+        dc.ellipse([w * .3, h * .1, w * .7, h * .42], fill=(190, 190, 190)); rett(dc, [w * .2, h * .42, w * .8, h * .7], fill=(190, 190, 190))
     nome = str(ev.get('nome') or '')[:28]
     fn = font('Anton-Regular.ttf', max(10, int(34 * s_)))
     righe = [nome] if dc.textlength(nome, font=fn) < w - 30 else [' '.join(nome.split()[:-1]), nome.split()[-1]]
     for i, r in enumerate(righe):
         dc.text((w / 2, h * .78 + i * 40 * s_), r, font=fn, fill=(30, 30, 40), anchor='mm')
-    dc.rectangle([0, 0, w - 1, h - 1], outline=(30, 30, 40), width=4)
+    rett(dc, [0, 0, w - 1, h - 1], outline=(30, 30, 40), width=4)
     card.putalpha(int(255 * fine))
     ombra = Image.new('RGBA', (w, h), (0, 0, 0, int(110 * fine)))
     im.alpha_composite(ombra, (x0 + 10, y0 + 12)); im.alpha_composite(card, (x0, y0))
@@ -1313,8 +1331,8 @@ def barra_nota(im, ev, dt, fine, resto):
     if k <= 0:
         return
     x0 = W / 2 - w / 2; y0 = H - 150 + (1 - k) * 40
-    d.rectangle([x0, y0, x0 + w, y0 + h], fill=(*NAVY, int(235 * k)))
-    d.rectangle([x0, y0 + h - 8, x0 + w, y0 + h], fill=(*ACCENTO, int(255 * k)))
+    rett(d, [x0, y0, x0 + w, y0 + h], fill=(*NAVY, int(235 * k)))
+    rett(d, [x0, y0 + h - 8, x0 + w, y0 + h], fill=(*ACCENTO, int(255 * k)))
     d.text((W / 2, y0 + h / 2 - 3), tx, font=f, fill=(255, 255, 255, int(255 * k)), anchor='mm')
 
 
@@ -1401,7 +1419,7 @@ def griglia(im, ev, pt, dt, fine):
     visibili = int(len(celle) * min(1, dt / 1.6))
     for j in ordine[:visibili]:
         x, y = celle[j]
-        d.rectangle([x + 2, y + 2, x + lato_c - 2, y + lato_c - 2], fill=(col if j in pieni else (150, 150, 150)) + (int(235 * fine),),
+        rett(d, [x + 2, y + 2, x + lato_c - 2, y + lato_c - 2], fill=(col if j in pieni else (150, 150, 150)) + (int(235 * fine),),
                     outline=(255, 255, 255, int(160 * fine)))
     tx = str(ev.get('testo') or '').upper()[:26]
     if tx and dt > 1.0:
@@ -1550,9 +1568,9 @@ def copertina(c, path):
     d = ImageDraw.Draw(im)
     f = font('Anton-Regular.ttf', 190); w = d.textlength(testo, font=f)
     x, y = W / 2 + 120, 190
-    d.rectangle([x - w / 2 - 50 + 14, y - 120 + 16, x + w / 2 + 50 + 14, y + 120 + 16], fill=(0, 0, 0))
-    d.rectangle([x - w / 2 - 50, y - 120, x + w / 2 + 50, y + 120], fill=NAVY)
-    d.rectangle([x - w / 2 - 50, y + 100, x + w / 2 + 50, y + 120], fill=ROSSO)
+    rett(d, [x - w / 2 - 50 + 14, y - 120 + 16, x + w / 2 + 50 + 14, y + 120 + 16], fill=(0, 0, 0))
+    rett(d, [x - w / 2 - 50, y - 120, x + w / 2 + 50, y + 120], fill=NAVY)
+    rett(d, [x - w / 2 - 50, y + 100, x + w / 2 + 50, y + 120], fill=ROSSO)
     d.text((x, y - 10), testo, font=f, fill=ORO, anchor='mm')
     pin(im, 230, 1000, 4.2, 'stupito', 0)
     im.convert('RGB').resize((Wc, Hc), Image.LANCZOS).save(path, quality=92)
@@ -1604,8 +1622,8 @@ def mezza_mappa(vista, colori, Wm, Hm, glow=True, centro_x=None):
 
 def riquadro(im, x, y, testo, fs, col_testo=(255, 255, 255), bordo=(225, 30, 35)):
     d = ImageDraw.Draw(im); f = font('Anton-Regular.ttf', fs); w = d.textlength(testo, font=f); h = fs * .82
-    d.rectangle([x - w / 2 - 42, y - h / 2 - 34, x + w / 2 + 42, y + h / 2 + 38], fill=bordo)
-    d.rectangle([x - w / 2 - 32, y - h / 2 - 24, x + w / 2 + 32, y + h / 2 + 28], fill=(0, 0, 0))
+    rett(d, [x - w / 2 - 42, y - h / 2 - 34, x + w / 2 + 42, y + h / 2 + 38], fill=bordo)
+    rett(d, [x - w / 2 - 32, y - h / 2 - 24, x + w / 2 + 32, y + h / 2 + 28], fill=(0, 0, 0))
     d.text((x, y), testo, font=f, fill=col_testo, anchor='mm')
 
 
@@ -1695,7 +1713,7 @@ def copertina_nuova(cp, path):
             R = mezza_mappa(dx.get('vista'), dx.get('colori') or {}, meta, H)
             im.paste(L, (0, 0)); im.paste(R, (W - meta, 0))
         linea = x0 + meta if lato_pr == 'destra' or pr is None else W - meta
-        d = ImageDraw.Draw(im); d.rectangle([linea - 14, 0, linea + 14, H], fill=(0, 0, 0)); d.rectangle([linea - 8, 0, linea + 8, H], fill=(235, 30, 40))
+        d = ImageDraw.Draw(im); rett(d, [linea - 14, 0, linea + 14, H], fill=(0, 0, 0)); rett(d, [linea - 8, 0, linea + 8, H], fill=(235, 30, 40))
         lato_testo = 'destra' if cp.get('testo_lato', 'destra') != 'sinistra' else 'sinistra'
     else:
         unica = cp.get('unica') or sx or dx or {}
@@ -1993,8 +2011,12 @@ def main():
                     stacchi.append(t_)
                 t_ += d_
             tratti.append((ini, totale, cur or 'mistero'))
-            mus = musica_film.traccia(tratti, stacchi, totale, LAV, P.get('canale') or 'mappe', str(P.get('musica_stile') or ''),
-                                      os.path.join(ROOT, 'libreria_musica'), E('ELEVENLABS_API_KEY', ''), log)
+            ritmo = str(P.get('musica_ritmo') or '').strip().upper() == 'SI'   # colonna musica_ritmo: brani sempre con un battito chiaro, mai lenti
+            stile_m = str(P.get('musica_stile') or '') + (', always a steady driving rhythm with a clear beat (100-120 BPM), energetic, never slow or ambient' if ritmo else '')
+            cart_m = re.sub(r'\W+', '_', str(P.get('musica_cartella') or '')).strip('_')   # colonna musica_cartella: libreria musicale propria del canale (vuota = comune)
+            mus = musica_film.traccia(tratti, stacchi, totale, LAV, P.get('canale') or 'mappe', stile_m,
+                                      os.path.join(ROOT, 'libreria_musica', cart_m) if cart_m else os.path.join(ROOT, 'libreria_musica'),
+                                      E('ELEVENLABS_API_KEY', ''), log, min_tratto=18 if ritmo else 8)
         except Exception as e:
             log('musica da film non riuscita:', str(e)[:200]); mus = None
     if mus:

@@ -1,0 +1,29 @@
+name: Voci ElevenLabs (elenco e anteprime gratuite)
+
+on:
+  workflow_dispatch:
+    inputs:
+      payload:
+        description: 'JSON: lingua (it), uso (narrative_story), quante (12)'
+        default: '{"lingua":"it"}'
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  voci:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Elenco voci
+        env:
+          PAYLOAD: ${{ inputs.payload }}
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+        run: python3 strumenti/voci_elevenlabs.py
+      - name: Salva nel repository
+        run: |
+          git config user.name "render-bot"; git config user.email "render-bot@users.noreply.github.com"
+          git add prove_video; git commit -m "Voci ElevenLabs" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase --autostash -q && git push && break; sleep $((i * 5)); done

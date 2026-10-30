@@ -323,9 +323,9 @@ def copertina_titolo(isos, titolo, fascia, icone, path):
         y += int(fs * 1.02)
     if fascia:
         f2 = VM.font('Poppins-ExtraBold.ttf', 110); tw = d.textlength(fascia, font=f2); y += 30
-        d.rectangle([70 + 10, y + 12, 70 + tw + 70 + 10, y + 170 + 12], fill=(0, 0, 0, 160))
-        d.rectangle([70, y, 70 + tw + 70, y + 170], fill=VM.NAVY)
-        d.rectangle([70, y + 158, 70 + tw + 70, y + 170], fill=VM.ROSSO)
+        VM.rett(d, [70 + 10, y + 12, 70 + tw + 70 + 10, y + 170 + 12], fill=(0, 0, 0, 160))
+        VM.rett(d, [70, y, 70 + tw + 70, y + 170], fill=VM.NAVY)
+        VM.rett(d, [70, y + 158, 70 + tw + 70, y + 170], fill=VM.ROSSO)
         d.text((70 + 35 + tw / 2, y + 82), fascia, font=f2, fill=VM.LUCE, anchor='mm')
     im.convert('RGB').resize((1280, 720), Image.LANCZOS).save(path, quality=92)
     return path
