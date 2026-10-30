@@ -1,8 +1,8 @@
 {
   "channel_id": "Roma Senza Filtri",
   "competitor": "Rome Unscrolled (vita quotidiana nell'antica Roma)",
-  "stile_base": "Video a cartone (quota_cartoni 100) con montaggio ritmato stile MrBeast: inquadrature brevi, mai la stessa immagine due volte, personaggi e vestiti coerenti con l'epoca; personaggio fisso: gladiatore romano muscoloso (render_character). Motore video_storia.py (render_workflow video_storia.yml), cornice NO.",
-  "versione_attiva": 1,
+  "stile_base": "Argomenti e titoli di Rome Unscrolled (vita dei soldati e della gente nell'antica Roma). Gancio a cartone stile competitor nei primi ~25 s, poi clip/foto vere coerenti con l'epoca (mai nulla di moderno), ritmo da TV: inquadrature max 4 s ma senza confusione. Copertine primo piano a fuoco. Motore video_storia.py.",
+  "versione_attiva": 2,
   "migliore": null,
   "stato": "in_prova",
   "versioni": [
@@ -14,11 +14,25 @@
       "parametri": {},
       "risultati": null,
       "decisione": null
+    },
+    {
+      "n": 2,
+      "dal": "2026-10-30 21:10",
+      "cosa": "Nuovo angolo per stare in 1 euro: gancio iniziale a cartone (2 tavole) poi clip e foto vere d'epoca controllate (niente anacronismi), inquadrature mai oltre 4 s",
+      "leva": "COSTO (scelta di Giorgio sulla prova B del 30 ott)",
+      "parametri": {
+        "modo_immagini": "misto",
+        "ritmo_max": "4",
+        "pexels_da_secondi": "25"
+      },
+      "risultati": null,
+      "decisione": null
     }
   ],
   "registro": [
     "2026-10-30: versione 1 di partenza = stile attuale del canale.",
-    "2026-10-30: Giorgio autorizza il cambio di grafiche e stile di Faces per rispettare il budget di 1 euro."
+    "2026-10-30: Giorgio autorizza il cambio di grafiche e stile di Faces per rispettare il budget di 1 euro.",
+    "2026-10-30: Giorgio sceglie la prova B (cartone + clip vere); chiede zero anacronismi (scartare ruspe/bobcat ecc.) e inquadrature mai oltre 4 s, dinamiche ma non confuse. Versione 2."
   ],
   "autorizzazioni": "Giorgio (30 ott 2026): per Faces of Rome il coach PUO' cambiare grafiche e stile (copertina e video), anche lasciando il cartone, pur di stare nel budget di 1 euro a video; resta l'argomento e il competitor (Rome Unscrolled) come base, con un tratto distintivo."
 }

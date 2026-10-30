@@ -75,7 +75,8 @@ def _num_lista(v, d):
         return (x + d[len(x):])[:3] if x else d
     except Exception:
         return d
-RITMO = _num_lista(P.get('ritmo') or E('RITMO', ''), [4.0, 4.0, 4.0])   # secondi max per immagine: primi 10 s / 10-30 s / dopo
+RITMO_MAX = float(str(P.get('ritmo_max') or E('RITMO_MAX', '') or 99).replace(',', '.'))   # secondi massimi di una inquadratura (vuoto = nessun tetto; Faces: 4 dalla ricetta)
+RITMO = [min(x, RITMO_MAX) for x in _num_lista(P.get('ritmo') or E('RITMO', ''), [4.0, 4.0, 4.0])]   # secondi max per immagine: primi 10 s / 10-30 s / dopo
 QUOTA_CARTONI = _perc(P.get('quota_cartoni') or E('QUOTA_CARTONI', ''), 80)
 _bud = str(P.get('budget_video') if P.get('budget_video') is not None else E('BUDGET_VIDEO', '')).replace(',', '.').replace('€', '').strip()
 try:
@@ -356,12 +357,12 @@ def copione(comp):
         n_budget = max(2, int((dollari - fissi) / (PREZZO_DISEGNO * 1.25)))
         n_sf = max(2, min(SFONDI_MAX, n_budget, 3 + math.ceil(max(0.0, sec - 30) / 45)))
         globals()['QUOTA_CARTONI'] = max(5, min(60, round(n_sf * 8 / max(sec, 1) * 100)))
-        globals()['RITMO'] = [4.0, 5.0, 6.0]
+        globals()['RITMO'] = [min(x, RITMO_MAX) for x in (4.0, 5.0, 6.0)]   # ritmo_max (Faces 4 s): mai oltre sulla stessa inquadratura
         log(f'budget {BUDGET:.2f} EUR: {n_sf} disegni (circa {n_sf * PREZZO_DISEGNO:.2f} $), cartone ~{QUOTA_CARTONI}% del video, il resto Pexels')
     if SOLO_PEXELS:   # budget 0: nessun disegno, tutto Pexels super coerente (+ mappa)
         n_sf = 0
         globals()['QUOTA_CARTONI'] = 0
-        globals()['RITMO'] = [4.0, 5.0, 5.0]   # mai piu' di 5 secondi sulla stessa immagine
+        globals()['RITMO'] = [min(x, RITMO_MAX) for x in (4.0, 5.0, 5.0)]   # mai piu' di 5 s (o ritmo_max) sulla stessa immagine
         log('budget 0 EUR: nessun disegno, solo clip e foto Pexels controllate (+ mappa)')
     w = [round(RITMO[0] * 2.5), round(RITMO[1] * 2.5), round(RITMO[2] * 2.5)]   # parole per visivo (circa 2,5 parole al secondo)
     if INTEGRATO and BUDGET <= 0 and not SOLO_PEXELS:   # ogni visivo ha la SUA immagine scritta sulla sua frase; i tagli da 3 s li fa il montaggio (zoom sulla stessa immagine)
@@ -725,6 +726,10 @@ def controlla(candidati, q, contesto):
     cont.append({'type': 'text', 'text': f"""Video di storia sul paese: {PAESE.get('nome') or 'vedi testo'}. La voce in questo momento dice: "{contesto[:400]}". Ricerca usata: "{q}".
 Quale immagine e' adatta da mostrare? Deve sembrare coerente con l'epoca e il luogo raccontati.
 Se un'immagine ha piu' fotogrammi (stessa clip), giudicali TUTTI: basta un fotogramma sbagliato per scartarla.
+ANACRONISMI (regola piu' importante): epoca del video {PAESE.get('date') or 'quella raccontata'}. Qualsiasi cosa che in quell'epoca NON esisteva = SCARTA,
+anche se piccola o in un angolo: macchine e mezzi a motore (escavatori, bobcat, trivelle, trattori, ruspe, gru, cingoli, ruote di gomma), attrezzi
+moderni di metallo o plastica, lampadine, luci elettriche, faretti, lampade a muro, vetro moderno, asfalto, segnaletica, recinzioni,
+tubi, cavi, bambini o spettatori di oggi dietro a rievocatori. Nel dubbio SCARTA: meglio -1 che un anacronismo.
 COERENZA: se la voce parla di un popolo o di un luogo preciso (es. gli arabi, l'Iran, il deserto), l'immagine deve essere di QUEL luogo/popolo; paesaggi di un altro continente o clima vanno SCARTATI.
 SCARTA SEMPRE (guarda bene anche i bordi e lo sfondo, persone minuscole comprese): qualsiasi persona (anche in costume medievale o storico), transenne, recinzioni, ponteggi, strutture o ponti di metallo, tralicci, cartelli, auto parcheggiate, palazzi moderni dietro le rovine, citta' moderne, palazzi moderni, lampioni, cavi elettrici, cartelli, folle; qualsiasi persona di oggi, anche piccola, lontana, di spalle o in mezzo a rovine (giacche, felpe, jeans, scarpe da ginnastica, zaini, turisti); auto, cellulari, cartelli o scritte leggibili, biglietti di auguri, oggetti di plastica, feste moderne, cose fuori tema.
 VANNO BENE: paesaggi, montagne, deserti, rovine, monumenti antichi, musei, oggetti antichi, monete, manoscritti, fuoco, cieli, mare, armi antiche in museo. NESSUNA persona: le persone nel video sono solo disegnate.
@@ -3009,7 +3014,7 @@ def video_scene(c, durs, voci, kit):
         riparate = list(ex.map(ripara, dopo))
     ancora = [k for k in mancanti if k not in dopo] + [k for k, ok in zip(dopo, riparate) if not ok]
     # 4) ultima rete: la durata della scena mancante va ai vicini, senza superare il ritmo massimo (MAI 10 secondi ferma)
-    massimo = max(RITMO) + .5
+    massimo = max(RITMO) + (0 if RITMO_MAX < 99 else .5)
     buona = lambda j: piano[j]['tipo'] != 'cartone' or bool(piano[j].get('img'))
     for k in sorted(ancora):
         v = piano[k]
@@ -3731,6 +3736,7 @@ def main():
             c['paese_mappa'] = ''
         json.dump(c, open(salvato, 'w'), ensure_ascii=False)
     c['categoria_originale'] = comp.get('categoria') or ''
+    PAESE['date'] = str(c.get('date') or '')   # epoca per il controllo anacronismi delle clip
     titolo_finale = c.get('titolo') or TITOLO
     json.dump(c, open(os.path.join(ROOT, 'copione.json'), 'w'), ensure_ascii=False, indent=1)
     kit = kit_disponibile()
