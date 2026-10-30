@@ -20,6 +20,7 @@ finché i parametri sono rispettati, senza buttare il lavoro fatto. Rispondi e s
   (`coach/canali/<slug>/ricetta.json`): numero, data `dal`, cosa, leva, parametri, risultati, decisione.
 - I parametri della versione attiva valgono SOPRA la riga di Channel Configs (li legge il motore). Il foglio non si tocca.
 - Mai superare `coach_budget_video`. Preferire SEMPRE le modifiche a costo zero: meno costa un video, più canali si aprono.
+- Se la ricetta ha il campo `autorizzazioni`, vale quello che c'e' scritto (decisioni di Giorgio per quel canale).
 - Restare SEMPRE nello stile del competitor del canale (campo `stile_base` della ricetta) e nel suo tratto distintivo:
   si cambiano dettagli dentro quello stile, mai lo stile intero.
 - Titolo: resta copiato/tradotto dal competitor (regola di Giorgio). Durata: sempre tra durata_min_minuti e durata_max_minuti.
