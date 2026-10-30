@@ -83,7 +83,7 @@ jobs:
           RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
           YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
-          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN_MAIN_STREET_ATLAS }}
+          YT_REFRESH_TOKEN: ${{ secrets[(inputs.payload != '' && fromJSON(inputs.payload).chiave_youtube) || 'YT_REFRESH_TOKEN_MAIN_STREET_ATLAS'] }}   # chiave_youtube del canale (vuota = Rich Borders)
           FAL_KEY: ${{ secrets.FAL_KEY }}
         shell: bash
         run: |

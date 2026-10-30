@@ -614,7 +614,10 @@ def titolo_fascia(im, riga1, riga2, k):
         kk = back(min(1, k * 1.4 - i * .4))
         if kk <= 0 or not r:
             continue
-        f = font('Anton-Regular.ttf', 84 * kk); y = 150 + i * 108; w = d.textlength(r, font=f)
+        fs = 84
+        while fs > 30 and d.textlength(r, font=font('Anton-Regular.ttf', fs)) > W - 180:   # mai fuori dallo schermo
+            fs -= 4
+        f = font('Anton-Regular.ttf', fs * kk); y = 150 + i * 108; w = d.textlength(r, font=f)
         rett(d, [W / 2 - w / 2 - 26, y - 52, W / 2 + w / 2 + 26, y + 52], fill=ORO if i == 0 else NAVY)
         d.text((W / 2, y), r, font=f, fill=NAVY if i == 0 else CREMA, anchor='mm')
         if i == 1:
@@ -1325,7 +1328,10 @@ def barra_nota(im, ev, dt, fine, resto):
     """Barra in basso con la frase chiave appena detta (es. "He sailed from Mexico"), entra da sinistra."""
     if dt <= 0 or fine <= 0:
         return
-    tx = str(ev.get('testo') or '')[:48]; f = font('Poppins-Bold.ttf', 50)
+    tx = str(ev.get('testo') or '')[:48]; fs = 50
+    while fs > 28 and ImageDraw.Draw(im).textlength(tx, font=font('Poppins-Bold.ttf', fs)) > W - 240:   # mai fuori dallo schermo
+        fs -= 2
+    f = font('Poppins-Bold.ttf', fs)
     d = ImageDraw.Draw(im); w = d.textlength(tx, font=f) + 70; h = 86
     k = ease(min(1, dt / .4)) * (1 - ease((dt - min(4.0, resto - .2)) / .3)) * fine
     if k <= 0:
