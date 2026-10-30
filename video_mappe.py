@@ -1055,9 +1055,16 @@ def disegna_scena(job):
         for ev in eventi:
             if ev.get('_luogo') and ease((t - ev['_t']) / .35) * fine > 0:
                 ultimo = ev.get('_pin') or ('base', ev['_luogo'])
-        centrali = sorted((e for e in eventi if e.get('tipo') in CENTRO and e['_t'] <= t), key=lambda e: e['_t'])
+        ultimi = {}   # per ogni zona dello schermo resta solo l'elemento comparso per ultimo (mai due riquadri uno sopra l'altro)
+        for e in sorted((e for e in eventi if e['_t'] <= t), key=lambda e: e['_t']):
+            for zona, tipi in ZONE.items():
+                if e.get('tipo') in tipi:
+                    ultimi[zona] = e
         for ev in sorted(eventi, key=lambda e: e.get('tipo') in SOPRA):
-            if ev.get('tipo') in CENTRO and centrali and ev is not centrali[-1]:
+            zona = next((z for z, tipi in ZONE.items() if ev.get('tipo') in tipi), None)
+            if zona and ev is not ultimi.get(zona):
+                continue
+            if 'centro' in ultimi and ev.get('tipo') in ('etichetta', 'nome', 'numero'):   # prezzo o parola gigante al centro: niente etichette sotto
                 continue
             k = ease((t - ev['_t']) / .35) * fine
             if k <= 0:
@@ -1083,7 +1090,7 @@ def disegna_scena(job):
                     etichetta(im, x, y + 110, str(ev.get('testo') or '').upper()[:30], k, blocca=False)
                 elif tipo == 'numero':
                     tx = str(ev.get('testo') or '')[:14]
-                    etichetta(im, x, y, tx.replace('x', '×', 1) if re.match(r'^x\d', tx) else tx, k, 120, ORO, blocca=False)
+                    etichetta(im, x, y, tx.replace('x', '×', 1) if re.match(r'^x\d', tx) else tx, k, 120, ORO, blocca=True)   # sempre tutto dentro lo schermo
                 elif tipo == 'colonna':
                     kh = ease((t - ev['_t']) / 1.0) * fine
                     colonna(im, x, y, 380 * max(.1, min(1.0, float(ev.get('valore') or .5))) * kh, ORO)
@@ -1229,6 +1236,7 @@ def _punta(d, pts, col):
 
 
 CENTRO = ('prezzo', 'scritta')   # al centro dello schermo: mai due insieme
+ZONE = {'centro': CENTRO, 'alto_sx': ('personaggio', 'anno'), 'alto_dx': ('conta',), 'basso': ('nota',)}   # zone fisse dello schermo: un elemento per volta
 SOPRA = ('prezzo', 'scritta', 'barre', 'conta', 'personaggio', 'nota', 'anno', 'contatore', 'numero')   # riquadri disegnati per ultimi
 
 
