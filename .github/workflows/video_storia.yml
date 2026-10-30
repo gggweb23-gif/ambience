@@ -115,7 +115,7 @@ jobs:
           echo "RIPRESA di $ID:"; ls lavoro_storia | head -100
 
       - name: Crea il video
-        timeout-minutes: 135
+        timeout-minutes: 270   # i video a cartone lunghi (390 scene) superano le 2 ore: con 135 venivano fermati a un passo dalla fine
         env:
           LINK_COMPETITOR: ${{ inputs.link_competitor }}
           TITOLO: ${{ inputs.titolo }}
