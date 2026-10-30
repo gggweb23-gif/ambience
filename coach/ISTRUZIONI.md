@@ -78,12 +78,18 @@ finché i parametri sono rispettati, senza buttare il lavoro fatto. Rispondi e s
    - Se non hai cambiato nulla in nessun canale: una sola riga "Coach: nessuna modifica". Nient'altro, niente spiegazioni.
    - Lavora in modo economico: se coach_calcola.py da' ATTESA o OK per tutti, non analizzare altro e chiudi subito.
 
+## Video da produrre in esaurimento (Giorgio, 30 ott 2026)
+A ogni controllo conta per ogni canale le righe `Pronto` del file di produzione. Se sono 4 o meno (circa 4 giorni a 1 video al
+giorno), scrivi in cima al messaggio: "SCOUT NECESSARIO: <canale>, restano N video" (vale anche se non hai cambiato altro),
+cosi' Giorgio cerca nuovi competitor e lancia lo scout prima che il canale resti senza video.
+
 ## Catalogo delle leve (parametri che il motore legge già)
 I nomi nei `parametri` della ricetta devono essere quelli che il MOTORE legge dal payload (controlla nel codice: per esempio
 video_storia.py legge `voce`, `max_minuti`... oltre ai nomi delle colonne). Motore di ogni canale: colonna `render_workflow` /
 `github_workflow` (video_storia.yml -> video_storia.py, video_mappe.yml -> video_mappe.py, video_produzione.yml -> motore/motore.js).
 
-Motore video_storia.py (Faces of Rome = channel_id Roma Senza Filtri, Storia in Minuti): `quota_cartoni` (% cartone), `ritmo` (secondi per immagine nei primi 10 s / 10-30 s / dopo), `secondi_per_immagine`,
+Motore video_storia.py (Faces of Rome = channel_id Roma Senza Filtri, Storia in Minuti): `modo_immagini` (cartoni | pexels | misto:
+pochi disegni per gancio e persone + Pexels; sceglie lo STILE, il tetto di spesa resta il budget di Giorgio), `quota_cartoni` (% cartone), `ritmo` (secondi per immagine nei primi 10 s / 10-30 s / dopo), `secondi_per_immagine`,
 `sfondi_max`, `copertina_stile` (foto, primo_piano...), `copertina_copia`, `cornice`, `linea_tempo`, musica.
 Motore video_mappe.py (Rich Borders = channel_id Main Street Atlas): `copertina_stile`, `tema_colori`, `font_titoli`, `font_testi`,
 `angoli_tondi`, `voce_stabilita`, `voce_stile`, `voice_speed`, `musica_cartella`, `musica_ritmo`.
