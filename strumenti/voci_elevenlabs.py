@@ -20,12 +20,27 @@ if P.get('solo_abbonamento'):   # controllo crediti: quanti caratteri restano ne
         t = 'controllo non riuscito: ' + str(e)[:300]
     print(t); open(os.path.join(cart, 'abbonamento.txt'), 'w').write(t + '\n'); raise SystemExit
 righe, visti = [], set()
+# filtri facoltativi: "genere" (male/female), "eta" (young/middle_aged/old), "cerca" (lista di parole, es. ["deep", "wise old"])
+ricerche = []
 for uso in [P.get('uso') or 'narrative_story', 'informative_educational']:
-    q = urllib.parse.urlencode({'page_size': 50, 'language': P.get('lingua', 'it'), 'use_cases': uso, 'sort': 'trending'})
-    for v in get('https://api.elevenlabs.io/v1/shared-voices?' + q).get('voices', []):
+    for parola in (P.get('cerca') or ['']):
+        f_ = {'page_size': 50, 'language': P.get('lingua', 'it'), 'use_cases': uso, 'sort': P.get('ordine') or 'trending'}
+        if P.get('genere'): f_['gender'] = P['genere']
+        if P.get('eta'): f_['age'] = P['eta']
+        if parola: f_['search'] = parola
+        ricerche.append(f_)
+for f_ in ricerche:
+    q = urllib.parse.urlencode(f_)
+    try:
+        trovate = get('https://api.elevenlabs.io/v1/shared-voices?' + q).get('voices', [])
+    except Exception as e:
+        print('ricerca non riuscita', f_, str(e)[:120]); continue
+    for v in trovate:
         if v['voice_id'] in visti:
             continue
         visti.add(v['voice_id']); righe.append(v)
+if P.get('ordina_per_uso'):   # prima le voci piu' usate dagli altri creator (di solito le migliori)
+    righe.sort(key=lambda v: -(v.get('cloned_by_count') or 0))
 righe = righe[:int(P.get('quante') or 12)]
 out = []
 for i, v in enumerate(righe, 1):
