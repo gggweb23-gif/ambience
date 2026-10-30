@@ -32,6 +32,15 @@ finché i parametri sono rispettati, senza buttare il lavoro fatto. Rispondi e s
 - Non lanciare video veri: li lancia l'orchestratore. Le prove brevi (circa 1 minuto) sono permesse.
 - Non toccare canali senza `coach_auto = SI`, non cambiare impostazioni di n8n, non spendere fuori da `budget_video`.
 
+## Scelte economiche (Giorgio, 30 ott 2026)
+- Qualsiasi modifica che tocca la parte economica (modelli AI e loro costo, fornitori, piani/abbonamenti, servizi a pagamento
+  nuovi, tetti di spesa) il coach NON la applica: la PROPONE nel messaggio a Giorgio e aspetta il suo ok.
+- Unica libertà: dentro coach_budget_video decide come spendere (numero immagini ecc.), senza mai superarlo.
+- Se nasce una nuova scelta economica, si crea una colonna apposta in Channel Configs con "budget" nel nome
+  (es. `budget_modello_testo`): Giorgio la compila e la blocca; il lucchetto del codice blocca già ogni colonna con "budget".
+- Controllo di gestione costante: a ogni controllo guarda i costi in coach/costi/ e, se vedi un risparmio senza perdita di
+  qualità, scrivilo come PROPOSTA (una riga, con il risparmio stimato per video).
+
 ## Principi di Giorgio (sempre)
 - Si parte SEMPRE dal competitor: cio' che funziona, i suoi pattern. Su quella base si crea qualcosa di unico, di valore per
   quell'argomento e quel pubblico, riconoscibile (tratto distintivo), senza dimenticare cio' che funziona.
