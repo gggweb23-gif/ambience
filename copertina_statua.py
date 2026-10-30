@@ -12,6 +12,7 @@ Colonne usate: thumbnail_accent_color, thumbnail_font_url, thumbnail_firma_testo
 Uscita: <cartella>/copertina.jpg, statua.png, statua_video.png, risultato.json"""
 import io, json, math, os, random, re, time, urllib.request
 from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont, ImageOps
+import costi as CO
 
 P = json.loads(os.environ.get('PAYLOAD') or '{}')
 CFG = P.get('config') or {}
@@ -85,9 +86,11 @@ def piano():
               (f"ISTRUZIONI DEL CANALE (hanno la precedenza): {CFG.get('copertina_istruzioni')}. " if str(CFG.get('copertina_istruzioni') or '').strip() else '') +
               'Rispondi SOLO con JSON: {"righe": ["...", "..."], "evidenza": 0, "scena": "sola", "gesto": 0, "aspetto": 0, "regola": 1}')
     try:
-        r = http('https://api.anthropic.com/v1/messages', {'model': E('MODELLO_COPERTINA', 'claude-sonnet-5-5'), 'max_tokens': 400,
+        mod = E('MODELLO_COPERTINA', 'claude-sonnet-5-5')
+        r = http('https://api.anthropic.com/v1/messages', {'model': mod, 'max_tokens': 400,
                                                           'messages': [{'role': 'user', 'content': prompt}]},
                  {'x-api-key': E('ANTHROPIC_API_KEY'), 'anthropic-version': '2023-06-01'})
+        CO.registra('claude', mod, r.get('usage'), nota='piano copertina')
         t = r['content'][0]['text']
         j, _ = json.JSONDecoder().raw_decode(t[t.index('{'):])
         righe = [str(x).strip().upper() for x in j.get('righe') or [] if str(x).strip()][:3]
@@ -123,6 +126,7 @@ STATUA = ('Hyper-detailed photorealistic statue carved in smooth dark-grey and c
 
 
 def fal(modello, dati):
+    CO.registra('fal', modello, dollari=0.08 if 'nano-banana' in modello else 0.005)
     h = {'Authorization': 'Key ' + E('FAL_KEY')}
     inv = http('https://queue.fal.run/' + modello, dati, h)
     for _ in range(150):

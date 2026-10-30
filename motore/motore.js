@@ -147,15 +147,36 @@ async function richiesta(url, { metodo = 'GET', corpo, headers = {}, tipo = 'jso
   }
   throw ultimo;
 }
+// COSTO DEL VIDEO: ogni chiamata a pagamento scrive una riga in costi_video.jsonl (stesso formato di costi.py, letto anche dai programmi Python)
+process.env.COSTI_FILE = process.env.COSTI_FILE || path.join(ROOT, 'costi_video.jsonl');
+const PREZZI = { haiku: [1, 5], sonnet: [3, 15], opus: [5, 25], 'gpt-4.1-mini': [0.4, 1.6], 'gpt-4.1': [2, 8], 'gpt-4o-mini': [0.15, 0.6], 'gpt-4o': [2.5, 10] };
+function costo(voce, modello, u, dollari, crediti, nota) {
+  try {
+    if (dollari == null && u) {
+      const k = Object.keys(PREZZI).sort((a, b) => b.length - a.length).find(x => String(modello).toLowerCase().includes(x));
+      const [pi, po] = PREZZI[k] || [3, 15];
+      dollari = ((u.input_tokens || u.prompt_tokens || 0) * pi + (u.output_tokens || u.completion_tokens || 0) * po
+        + (u.cache_read_input_tokens || 0) * pi * 0.1 + (u.cache_creation_input_tokens || 0) * pi * 1.25) / 1e6;
+    }
+    fs.appendFileSync(process.env.COSTI_FILE, JSON.stringify({ t: Math.round(Date.now() / 1000), voce, modello: String(modello || ''),
+      dollari: Math.round((dollari || 0) * 1e5) / 1e5, crediti: Math.round(crediti || 0), nota: nota || '' }) + '\n');
+  } catch (e) { }
+}
 async function claude(body) {
-  return richiesta('https://api.anthropic.com/v1/messages', { metodo: 'POST', corpo: body, timeout: 600000,
+  const r = await richiesta('https://api.anthropic.com/v1/messages', { metodo: 'POST', corpo: body, timeout: 600000,
     headers: { 'x-api-key': E('ANTHROPIC_API_KEY'), 'anthropic-version': '2023-06-01' } });
+  if (r && r.usage) costo('claude', body.model, r.usage);
+  return r;
 }
 const testoClaude = (r) => (r.content || []).filter(x => x.type === 'text').map(x => x.text).join('\n').trim();
 // chiamata in formato OpenAI (come in n8n). Senza OPENAI_API_KEY la fa Claude e rimette la risposta nello stesso formato.
 async function openaiChat(payload) {
-  if (E('OPENAI_API_KEY')) return richiesta('https://api.openai.com/v1/chat/completions', { metodo: 'POST', corpo: payload,
-    headers: { Authorization: 'Bearer ' + E('OPENAI_API_KEY') } });
+  if (E('OPENAI_API_KEY')) {
+    const r = await richiesta('https://api.openai.com/v1/chat/completions', { metodo: 'POST', corpo: payload,
+      headers: { Authorization: 'Bearer ' + E('OPENAI_API_KEY') } });
+    if (r && r.usage) costo('openai', payload.model, r.usage);
+    return r;
+  }
   const sys = payload.messages.filter(m => m.role === 'system').map(m => m.content).join('\n\n');
   const msgs = payload.messages.filter(m => m.role !== 'system').map(m => ({ role: m.role,
     content: typeof m.content === 'string' ? m.content : m.content.map(c => c.type === 'image_url'
@@ -221,6 +242,14 @@ const yt = async (url, opz = {}) => richiesta(url, { ...opz, headers: { ...(opz.
 // ======================================================================= risposta a n8n
 async function avvisa(esito) {
   esito.minuti_lavoro = Math.round((Date.now() - T0) / 6000) / 10;
+  try {   // costo del video (somma delle righe di costi_video.jsonl, anche quelle dei programmi Python)
+    const righe = fs.readFileSync(process.env.COSTI_FILE, 'utf8').split('\n').filter(Boolean).map(l => JSON.parse(l));
+    const per = {};
+    for (const r of righe) { const k = r.voce + ' ' + r.modello; per[k] = per[k] || [0, 0, 0]; per[k][0]++; per[k][1] += r.dollari || 0; per[k][2] += r.crediti || 0; }
+    const tot = righe.reduce((a, r) => a + (r.dollari || 0), 0), cred = righe.reduce((a, r) => a + (r.crediti || 0), 0);
+    log('COSTO VIDEO (stima):', tot.toFixed(2), '$ +', cred, 'crediti voce |', Object.entries(per).sort((a, b) => b[1][1] - a[1][1])
+      .map(([k, v]) => `${k}: ${v[1].toFixed(3)} $ (${v[0]} chiamate)` + (v[2] ? `, ${v[2]} crediti` : '')).join(' | '));
+  } catch (e) { }
   log('esito:', JSON.stringify(esito).slice(0, 600));
   if (!P.callback_url) return;
   for (let k = 0; k < 3; k++) {
@@ -353,6 +382,8 @@ async function main() {
         headers: { 'xi-api-key': E('ELEVENLABS_API_KEY'), Accept: 'audio/mpeg' } });
       const nome = PREFISSO_AUDIO + String(c1[i].json.index || i + 1) + '_audio.mp3';
       fs.writeFileSync(path.join(SERVER_DIR, nome), buf);
+      try { const cb = JSON.parse(valuta(pTTS.jsonBody, ctx)); const mv = String(cb.model_id || '');
+        costo('elevenlabs', mv, null, 0, String(cb.text || '').length * (/flash|turbo/.test(mv) ? 0.5 : 1)); } catch (e) { }
       audio[i] = { buf, nome };
     }
   };
@@ -503,7 +534,7 @@ async function copertinaN8n(cfg) {
   else {
     const p = WF['Nano Banana Thumbnail'].params, ctx = { items: [J({})], itemIndex: 0 };
     try { metti('Nano Banana Thumbnail', [J(await richiesta(valuta(p.url, ctx), { metodo: 'POST', corpo: JSON.parse(valuta(p.jsonBody, ctx)), timeout: 600000,
-      headers: { Authorization: 'Key ' + E('FAL_KEY') } }))]); }
+      headers: { Authorization: 'Key ' + E('FAL_KEY') } }))]); costo('fal', 'nano-banana copertina', null, 0.08); }
     catch (e) { log('Nano Banana non riuscito:', e.message.slice(0, 120)); metti('Nano Banana Thumbnail', [J({})]); }
   }
   const wm = (String(cfg.thumbnail_watermark_url || '').match(/[-\w]{25,}/) || [''])[0];

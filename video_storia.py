@@ -21,6 +21,9 @@ W, H, FPS = 1920, 1080, 24
 T_TR = 0.0                                   # nessuna transizione: taglio netto tra le immagini
 ROOT = os.getcwd()
 LAV = os.path.join(ROOT, 'lavoro_storia')
+os.makedirs(LAV, exist_ok=True)
+os.environ.setdefault('COSTI_FILE', os.path.join(LAV, 'costi_video.jsonl'))   # resta nel lavoro salvato: una ripresa somma i costi
+import costi as CO
 KIT = os.path.join(ROOT, 'kit_storia')
 FONT = os.path.join(ROOT, 'font')
 GEO = os.path.join(ROOT, 'geo')
@@ -164,7 +167,15 @@ def http(url, data=None, headers=None, metodo=None, timeout=180, raw=False):
     req = urllib.request.Request(url, data=body, headers=h, method=metodo)
     with urllib.request.urlopen(req, timeout=timeout) as r:
         b = r.read()
-        return b if raw else json.loads(b.decode() or '{}')
+        if raw:
+            return b
+        j = json.loads(b.decode() or '{}')
+        if isinstance(data, dict) and isinstance(j, dict) and j.get('usage'):   # costo del video (costi.py)
+            if 'api.anthropic.com' in url:
+                CO.registra('claude', data.get('model'), j['usage'])
+            elif 'api.openai.com' in url:
+                CO.registra('openai', data.get('model'), j['usage'])
+        return j
 
 
 def scarica(url, path, tentativi=4):
@@ -442,7 +453,7 @@ def claude_stream(payload, chiave, timeout=600):
     cosi' non viene chiusa a meta' (prima arrivava una risposta vuota -> 'Expecting value')."""
     req = urllib.request.Request('https://api.anthropic.com/v1/messages', data=json.dumps(dict(senza_ragionamento(payload), stream=True)).encode(),
                                  headers={'content-type': 'application/json', 'x-api-key': chiave, 'anthropic-version': '2023-06-01'})
-    pezzi, fine, pensiero = [], '', [0]
+    pezzi, fine, pensiero, uso = [], '', [0], {}
     with urllib.request.urlopen(req, timeout=timeout) as r:
         for riga in r:
             riga = riga.decode('utf-8', 'ignore').strip()
@@ -456,11 +467,15 @@ def claude_stream(payload, chiave, timeout=600):
                 pezzi.append(ev['delta'].get('text', ''))
             elif ev.get('type') == 'content_block_delta' and (ev.get('delta') or {}).get('type') == 'thinking_delta':
                 pensiero[0] += 1
+            elif ev.get('type') == 'message_start':
+                uso = dict((ev.get('message') or {}).get('usage') or {})
             elif ev.get('type') == 'message_delta':
                 fine = (ev.get('delta') or {}).get('stop_reason') or fine
+                uso.update({k: v for k, v in (ev.get('usage') or {}).items() if isinstance(v, int)})
             elif ev.get('type') == 'error':
                 raise RuntimeError('Claude: ' + json.dumps(ev.get('error'))[:200])
     testo = ''.join(pezzi)
+    CO.registra('claude', payload.get('model'), uso, nota='copione')
     log('copione ricevuto:', len(testo), 'caratteri, fine:', fine, '| blocchi di ragionamento:', pensiero[0])
     return testo, fine
 
@@ -484,6 +499,8 @@ def voce(i, testo, prima='', dopo='', velocita=None):
                      {'xi-api-key': chiave})
             open(p, 'wb').write(base64.b64decode(j['audio_base64']))
             json.dump(j.get('alignment') or {}, open(p[:-4] + '.json', 'w'))
+            mv = E('VOCE_MODELLO', 'eleven_multilingual_v2')
+            CO.registra('elevenlabs', mv, crediti=len(testo) * (0.5 if ('flash' in mv or 'turbo' in mv) else 1))
             return p
         except Exception as e:
             log('voce non riuscita, riprovo:', str(e)[:150]); time.sleep(4 * (k + 1))
@@ -1039,6 +1056,7 @@ def fal(modello, dati):
             raise RuntimeError(f'tetto di spesa immagini {tetto:.2f} $ raggiunto')
         SPESA['fal'] += costo
         SPESA['disegni'] += 1
+        CO.registra('fal', modello, dollari=costo)
     inv = http('https://queue.fal.run/' + modello, dati, h)
     for _ in range(150):
         time.sleep(4)
@@ -4064,6 +4082,10 @@ def main():
                 'minuti_lavoro': round((time.time() - T_INIZIO) / 60, 1), 'titolo': titolo_finale})
     open(os.path.join(ROOT, 'personaggi_mancanti.txt'), 'w').write('\n'.join(sorted(set(m for m in mancanti if m))))
     log('FATTO:', finale, round(durata(finale) / 60, 1), 'minuti')
+    try:
+        log(CO.testo())
+    except Exception:
+        pass
 
 
 # ============================================================ INVITO ISCRIZIONE (colonne subscribe_overlay_* di Channel Configs)
