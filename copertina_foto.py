@@ -54,7 +54,7 @@ def _pexels(q):
     return json.loads(urllib.request.urlopen(req, timeout=60).read()).get('photos') or []
 
 
-def foto_simbolo(nome, simboli, modello='claude-sonnet-5-5'):
+def foto_simbolo(nome, simboli, modello='claude-sonnet-5-5', pulita=True):
     """La foto migliore tra quelle che superano il controllo di Claude. (foto, riquadro del soggetto 0-1) oppure (None, None)."""
     domanda = (f'Questa foto andra\' sulla copertina di un video su TUTTA LA STORIA di: {nome}. Rispondi SOLO JSON: '
                '{"cosa": "cosa mostra esattamente (luogo, citta, paese)", "paese_giusto": true/false (il luogo si trova DAVVERO in quel paese? se non ne sei sicuro: false), '
@@ -77,7 +77,7 @@ def foto_simbolo(nome, simboli, modello='claude-sonnet-5-5'):
                 log('controllo foto non riuscito', q, str(e)[:100]); continue
             REGISTRO.append(f"{nome} | {q} | {g.get('cosa')} | paese {g.get('paese_giusto')} | simbolo {g.get('simbolo')} | visibile {g.get('visibile')} | {f['url']}")
             log('foto copertina:', REGISTRO[-1][:200])
-            if g.get('paese_giusto') and g.get('pulita', True) and (g.get('visibile') or 0) >= 7:
+            if g.get('paese_giusto') and (g.get('pulita', True) or not pulita) and (g.get('visibile') or 0) >= 7:
                 candidati.append(((g.get('simbolo') or 0) + (g.get('visibile') or 0), g.get('simbolo') or 0, im, g.get('box') or [.2, .2, .8, .8]))
         if any(c[1] >= 9 and c[0] >= 17 for c in candidati):
             break
