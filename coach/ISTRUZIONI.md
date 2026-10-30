@@ -21,6 +21,10 @@ finché i parametri sono rispettati, senza buttare il lavoro fatto. Rispondi e s
 - Restare SEMPRE nello stile del competitor del canale (campo `stile_base` della ricetta) e nel suo tratto distintivo:
   si cambiano dettagli dentro quello stile, mai lo stile intero.
 - Titolo: resta copiato/tradotto dal competitor (regola di Giorgio). Durata: sempre tra durata_min_minuti e durata_max_minuti.
+- Per scrivere su Channel Configs si usa SOLO il workflow "Modifica Channel Configs (con lucchetti)" (coach/foglio_configs.py).
+  LUCCHETTI di Giorgio, mai da aggirare: la riga KAO PSICOLOGIA non si tocca; le colonne videos_per_day (canale acceso/spento)
+  e publish_schedule_days non si toccano; i suoi parametri (coach_*, durata_min_minuti, durata_max_minuti) non si cambiano.
+  Le modifiche del coach restano nella ricetta: sul foglio si scrive solo se Giorgio lo chiede.
 - Mai cambiare un canale STABILE se i parametri tengono. Se scende sotto: tornare alla versione `migliore`.
 - Non lanciare video veri: li lancia l'orchestratore. Le prove brevi (circa 1 minuto) sono permesse.
 - Non toccare canali senza `coach_auto = SI`, non cambiare impostazioni di n8n, non spendere fuori da `budget_video`.
