@@ -34,7 +34,30 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  turno:   # mai due video con Pexels nello stesso momento: se un altro e' gia' in lavorazione, questo si rimanda al prossimo turno
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      actions: read
+      contents: read
+    outputs:
+      ok: ${{ steps.t.outputs.ok }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: strumenti
+      - id: t
+        name: Turno Pexels
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PAYLOAD: ${{ inputs.payload }}
+          PROVA: ${{ inputs.prova }}
+          WORKFLOW_PEXELS: video_storia.yml,video_kao.yml,video_agora.yml,video_produzione.yml,filosofo.yml,kao_render.yml
+        run: python3 strumenti/turno_pexels.py
+
   video:
+    needs: turno
+    if: needs.turno.outputs.ok == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 300
     steps:
