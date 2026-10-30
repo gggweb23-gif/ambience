@@ -33,8 +33,8 @@ VOCE = str(P.get('voce') or E('VOCE', '') or 'pNInz6obpgDQGcFmaJgB').strip()
 VOCE_VELOCITA = max(.8, min(1.2, float(str(P.get('voce_velocita') or P.get('voice_speed') or E('VOCE_VELOCITA', '') or 1.0).replace(',', '.'))))
 VOCE_STABILITA = max(0.0, min(1.0, float(str(P.get('voce_stabilita') or .5).replace(',', '.'))))   # piu' bassa = voce piu' espressiva e varia
 VOCE_STILE = max(0.0, min(1.0, float(str(P.get('voce_stile') or 0).replace(',', '.'))))            # 0-1: quanto "recita" (emozione, enfasi)
-MIN_MINUTI = float(str(P.get('min_minuti') or E('MIN_MINUTI', '') or 10).replace(',', '.'))
-MAX_MINUTI = float(str(P.get('max_minuti') or E('MAX_MINUTI', '') or 14).replace(',', '.'))
+MIN_MINUTI = float(str(P.get('durata_min_minuti') or P.get('min_minuti') or E('MIN_MINUTI', '') or 10).replace(',', '.'))   # colonne del foglio
+MAX_MINUTI = float(str(P.get('durata_max_minuti') or P.get('max_minuti') or E('MAX_MINUTI', '') or 14).replace(',', '.'))
 MODELLO_AI = str(P.get('modello_ai') or E('MODELLO_AI', '') or 'claude-sonnet-5-5').strip()
 MUSICA_URL = str(P.get('musica_url') or E('MUSICA_URL', '')).strip()
 MUSICA_VOL = float(str(P.get('musica_volume') or E('MUSICA_VOL', '') or .04).replace(',', '.'))

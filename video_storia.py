@@ -33,7 +33,9 @@ TITOLO = E('TITOLO', 'Tutta la storia dell\'Iran').strip()
 LINGUA = (str(P.get('language') or '').strip().lower()[:2] or E('LINGUA', 'it').strip() or 'it')   # language del canale (Channel Configs) vince
 VOCE = str(P.get('voce') or E('VOCE', '') or 'glnsgBC77wt5zOYU0szz').strip()
 MINUTI = float(E('MINUTI', '13') or 13)
-MAX_MINUTI = float(P.get('max_minuti') or E('MAX_MINUTI', '25') or 25)   # oltre questa durata il copione condensa l'originale
+# durata dal foglio (colonne durata_min_minuti / durata_max_minuti): l'originale piu' lungo si condensa, piu' corto si espande
+MAX_MINUTI = float(str(P.get('durata_max_minuti') or P.get('max_minuti') or E('MAX_MINUTI', '25') or 25).replace(',', '.'))
+MIN_MINUTI = float(str(P.get('durata_min_minuti') or P.get('min_minuti') or E('MIN_MINUTI', '0') or 0).replace(',', '.'))
 PROVA = str(P.get('prova') or E('PROVA', 'NO')).strip().upper() == 'SI'
 CARICA = str(P.get('carica') or E('CARICA', 'NO')).strip().upper() == 'SI' and not PROVA   # SI = carica su YouTube
 MIN_SEC_YT = 480   # video piu' corti di 8 minuti (le prove) non vanno mai su YouTube
@@ -289,9 +291,10 @@ def copione(comp):
     if PROVA and orig:   # prova: si copia solo il primo minuto circa dell'originale
         orig = ' '.join(orig.split()[:170])
     parole = 170 if PROVA else (int(len(orig.split()) * 1.05) if orig else int(MINUTI * 150))
-    massimo = int(MAX_MINUTI * 150)
+    massimo = int(MAX_MINUTI * 150); minimo = 0 if PROVA else int(MIN_MINUTI * 150)
     condensa = parole > massimo
-    parole = min(parole, massimo)
+    espandi = parole < minimo
+    parole = max(min(parole, massimo), minimo)
     lingua = {'it': 'italiano', 'en': 'English (US)'}.get(LINGUA, LINGUA)
     # sfondi a cartone: tanti quanti servono per non ripetere (ognuno usato al massimo 2 volte), con un tetto di costo
     sec = parole / 2.5   # ~150 parole al minuto
@@ -343,8 +346,8 @@ VIDEO ORIGINALE DA COPIARE: "{comp['titolo']}".
 TAG DEL COMPETITOR (da tradurre in {lingua} e mettere per primi nel campo "tag"): {', '.join(comp['tag_originali'])[:1500]}'''
     if orig:
         blocco_originale += f'''
-- Il PARLATO deve COPIARE al {TESTO_COPIA}% il testo originale qui sotto: stessi fatti, stesso ordine, stessi ganci, stesse domande, stessi numeri, stessa lunghezza.{(' Il restante ' + str(100 - TESTO_COPIA) + '% riscrivilo seguendo i pattern vincenti dell originale (stesso tipo di ganci, domande allo spettatore, dettagli concreti e sorprendenti, stesso tono): mai parti a caso.') if TESTO_COPIA < 100 else ''}{' ECCEZIONE: l originale e troppo lungo, quindi CONDENSALO a circa ' + str(parole) + ' parole: stessi fatti principali, stesso ordine, stessi ganci e stesse domande, togli solo dettagli secondari ed esempi ripetuti.' if condensa else ''}
-  Traducilo in {lingua} naturale e cambia solo piccole cose per non essere una copia identica (sinonimi, ordine delle parole, qualche frase unita o divisa). NON aggiungere contenuti{' e togli solo il secondario' if condensa else ' e NON toglierne'}.
+- Il PARLATO deve COPIARE al {TESTO_COPIA}% il testo originale qui sotto: stessi fatti, stesso ordine, stessi ganci, stesse domande, stessi numeri, stessa lunghezza.{(' Il restante ' + str(100 - TESTO_COPIA) + '% riscrivilo seguendo i pattern vincenti dell originale (stesso tipo di ganci, domande allo spettatore, dettagli concreti e sorprendenti, stesso tono): mai parti a caso.') if TESTO_COPIA < 100 else ''}{' ECCEZIONE: l originale e troppo lungo, quindi CONDENSALO a circa ' + str(parole) + ' parole: stessi fatti principali, stesso ordine, stessi ganci e stesse domande, togli solo dettagli secondari ed esempi ripetuti.' if condensa else ''}{' ECCEZIONE: l originale e troppo corto, quindi ESPANDILO a circa ' + str(parole) + ' parole: stesso ordine e stessi ganci, aggiungi dettagli veri e concreti, esempi e curiosita coerenti con quelli dell originale (mai riempitivi).' if espandi else ''}
+  Traducilo in {lingua} naturale e cambia solo piccole cose per non essere una copia identica (sinonimi, ordine delle parole, qualche frase unita o divisa). {'Aggiungi solo dettagli veri e coerenti' if espandi else 'NON aggiungere contenuti'}{' e togli solo il secondario' if condensa else ' e NON toglierne'}.
   UNITA' DI MISURA: il pubblico e' {'italiano' if LINGUA == 'it' else 'del canale'}: {'converti SEMPRE le unita americane in quelle europee con numeri arrotondati (gradi Fahrenheit -> gradi Celsius, es. 120 gradi F = circa 50 gradi; miglia -> chilometri; piedi -> metri; pollici -> centimetri; libbre -> chili; galloni -> litri; acri -> ettari). Mai lasciare 120 gradi se erano Fahrenheit.' if LINGUA == 'it' else 'keep the units of the original.'}
 TESTO ORIGINALE:
 {orig[:60000]}
