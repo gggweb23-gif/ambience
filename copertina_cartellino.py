@@ -209,3 +209,55 @@ def piano(comp):
                  {'x-api-key': os.environ.get('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01'}, timeout=300)
     t = ''.join(b.get('text', '') for b in rr.get('content', []))
     return json.JSONDecoder().raw_decode(t[t.find('{'):])[0]   # legge solo il primo oggetto JSON (ignora testo dopo)
+
+
+# ============================================================ COPERTINA "TITOLO SU MAPPA" (colonna copertina_stile = titolo_mappa)
+# Stessa grafica del video: il paese colorato e in rilievo sulla mappa, i disegni della libreria uniti dal tratteggio della storia,
+# a sinistra il nome del paese ENORME (caratteri e colori del canale) e sotto la fascia con gli anni (es. "1492 → 2026").
+def copertina_titolo(isos, titolo, fascia, icone, path):
+    """isos: paese/i protagonisti; titolo: 1-2 parole (es. 'STATI UNITI'); fascia: es. '1492 → 2026';
+    icone: [(nome_libreria, lon, lat), ...] da 2 a 4 disegni sul paese, uniti dal tratteggio nell'ordine dato."""
+    pts = np.concatenate(anelli_lonlat(isos))
+    lo0, lo1, la0, la1 = pts[:, 0].min(), pts[:, 0].max(), pts[:, 1].min(), pts[:, 1].max()
+    larg = max((lo1 - lo0) / .56, (la1 - la0) * 1.15 * W / H, VM.ZOOM_MIN)
+    cx = (lo0 + lo1) / 2 - larg * .21          # il paese occupa la parte destra (centro al 71%), a sinistra il titolo
+    v = VM.camera({'lon': cx, 'lat': (la0 + la1) / 2, 'larghezza': larg}); base, pt = VM.fondo(v, 0.0)
+    im = ImageEnhance.Brightness(base).enhance(.8).convert('RGBA')
+    polys = [[pt(lo, la) for lo, la in r] for r in anelli_lonlat(isos)]
+    g = Image.new('L', (W, H), 0); dg = ImageDraw.Draw(g)
+    for xy in polys:
+        dg.line(xy + [xy[0]], fill=255, width=34)
+    im.alpha_composite(Image.merge('RGBA', [Image.new('L', (W, H), c) for c in VM.LUCE] + [g.filter(ImageFilter.GaussianBlur(22)).point(lambda x: int(x * .75))]))
+    VM.riempi(im, base, polys, VM.ORO, 1.0, 22)
+    d = ImageDraw.Draw(im)
+    pos = [pt(lo, la) for _, lo, la in icone]
+    for a, b in zip(pos, pos[1:]):   # il filo della storia, come nel video
+        c = VM._curva(a, b, 30, .2); VM._tratteggio(d, c, (0, 0, 0, 170), 14, 26, 16); VM._tratteggio(d, c, (*VM.LUCE, 255), 8, 26, 16)
+        VM._punta(d, c, (*VM.LUCE, 255))
+    for (nome, _, _), (x, y) in zip(icone, pos):
+        VM.metti(im, VM.icona(nome, 230), x, y)
+    # sfumatura scura a sinistra per far leggere il titolo
+    sf = Image.new('L', (W, H), 0); ds = ImageDraw.Draw(sf)
+    for x in range(int(W * .62)):
+        ds.line([(x, 0), (x, H)], fill=int(205 * (1 - x / (W * .62)) ** 1.4))
+    im.alpha_composite(Image.merge('RGBA', [Image.new('L', (W, H), c) for c in VM.mix(VM.NAVY, (0, 0, 0), .45)] + [sf]))
+    d = ImageDraw.Draw(im)
+    righe = str(titolo).upper().split()
+    righe = [' '.join(righe[:len(righe) // 2]), ' '.join(righe[len(righe) // 2:])] if len(righe) > 1 else righe
+    fs = 300
+    while fs > 120 and max(VM.font('Anton-Regular.ttf', fs).getlength(r) for r in righe) > W * .56:
+        fs -= 10
+    f = VM.font('Anton-Regular.ttf', fs); y = 90
+    for r in righe:
+        for z in range(18, 0, -3):
+            d.text((70 + z * .7, y + z), r, font=f, fill=VM.mix(VM.NAVY, (0, 0, 0), .5))
+        d.text((70, y), r, font=f, fill=VM.CREMA, stroke_width=6, stroke_fill=VM.NAVY)
+        y += int(fs * 1.02)
+    if fascia:
+        f2 = VM.font('Poppins-ExtraBold.ttf', 110); tw = d.textlength(fascia, font=f2); y += 30
+        d.rectangle([70 + 10, y + 12, 70 + tw + 70 + 10, y + 170 + 12], fill=(0, 0, 0, 160))
+        d.rectangle([70, y, 70 + tw + 70, y + 170], fill=VM.NAVY)
+        d.rectangle([70, y + 158, 70 + tw + 70, y + 170], fill=VM.ROSSO)
+        d.text((70 + 35 + tw / 2, y + 82), fascia, font=f2, fill=VM.LUCE, anchor='mm')
+    im.convert('RGB').resize((1280, 720), Image.LANCZOS).save(path, quality=92)
+    return path

@@ -37,7 +37,13 @@ MODELLO_AI = str(P.get('modello_ai') or E('MODELLO_AI', '') or 'claude-sonnet-5-
 MUSICA_URL = str(P.get('musica_url') or E('MUSICA_URL', '')).strip()
 MUSICA_VOL = float(str(P.get('musica_volume') or E('MUSICA_VOL', '') or .04).replace(',', '.'))
 SLOGAN = str(P.get('slogan') or E('SLOGAN', '') or 'EVERY BORDER HAS A PRICE.').strip()
-NOME_CANALE = str(P.get('canale_nome') or E('NOME_CANALE', '') or 'RICH BORDERS').strip().upper()
+NOME_CANALE = str(P.get('canale_nome') or P.get('channel_name') or E('NOME_CANALE', '') or 'RICH BORDERS').strip().upper()
+LINGUA = str(P.get('language') or E('LINGUA', '') or 'en').strip().lower()[:2]   # lingua del video (colonna language): voce, scritte, nomi dei paesi
+LINGUE = {'en': 'English (US)', 'it': 'Italian', 'es': 'Spanish', 'fr': 'French', 'de': 'German', 'pt': 'Portuguese'}
+REGISTRO = str(P.get('language_register') or '').strip()
+TESTI = {'it': {'coming_up': 'TRA POCO...'}, 'es': {'coming_up': 'A CONTINUACIÓN...'}, 'fr': {'coming_up': 'À VENIR...'},
+         'de': {'coming_up': 'GLEICH...'}, 'pt': {'coming_up': 'A SEGUIR...'}}
+TESTO_COMING_UP = str(P.get('coming_up_testo') or (TESTI.get(LINGUA) or {}).get('coming_up') or 'COMING UP...')
 MIN_SEC_YT = 480                                    # sotto gli 8 minuti (le prove) mai su YouTube
 COMING_UP = float(str(P.get('coming_up_secondi') or E('COMING_UP_SECONDI', '') or 0).replace(',', '.'))   # anteprima stile MrBeast nei primi secondi (0 = spenta)
 MUSICA_REGIA = str(P.get('musica_regia') or E('MUSICA_REGIA', '') or 'NO').strip().upper() == 'SI'   # musica da film a umori (libreria comune)
@@ -52,6 +58,28 @@ try:   # colore del secondo lato (colonna colore_secondo, es. #E8641E arancio co
         VERDE = tuple(int(_c2[i:i + 2], 16) for i in (0, 2, 4))
 except Exception:
     pass
+LUCE = (255, 214, 0)   # giallo dei punti luminosi, del COMING UP e delle frecce che collegano
+ACCENTO = (232, 100, 30)   # numero del contatore e riga sotto la frase chiave
+CARTA = (252, 248, 238)    # fondo dei riquadri chiari (contatore, scheda personaggio)
+
+
+def _hex(v):
+    v = str(v or '').strip().lstrip('#')
+    return tuple(int(v[i:i + 2], 16) for i in (0, 2, 4)) if re.fullmatch(r'[0-9a-fA-F]{6}', v) else None
+
+
+# stile grafico del canale (colonna tema_colori): "navy=#4A1420, rosso=#D6A234, crema=#F6ECD6, oro=#B03030, verde=#34608C, luce=#E6B446"
+# navy = riquadri scuri, rosso = sottolineature, crema = carta dei cartellini, oro = paesi protagonisti, verde = l'altro lato, luce = punti e frecce,
+# accento = numero del contatore e riga della frase chiave, carta = fondo dei riquadri chiari (se manca: crema)
+for _k, _v in re.findall(r'(\w+)\s*=\s*(#?[0-9a-fA-F]{6})', str(P.get('tema_colori') or '')):
+    _c = _hex(_v); _k = _k.strip().lower()
+    if _c and _k in ('navy', 'rosso', 'crema', 'oro', 'verde', 'luce', 'accento', 'carta'):
+        globals()[_k.upper()] = _c
+        if _k == 'crema' and 'carta' not in str(P.get('tema_colori')):
+            CARTA = _c
+# caratteri del canale (colonne font_titoli / font_testi): percorso del file su github.com/google/fonts, es. ofl/abrilfatface/AbrilFatface-Regular.ttf
+FONT_TITOLI = str(P.get('font_titoli') or '').strip()
+FONT_TESTI = str(P.get('font_testi') or '').strip()
 FILO = str(P.get('filo_storia') or E('FILO_STORIA', '') or 'NO').strip().upper() == 'SI'   # percorso tratteggiato che lega i luoghi della storia
 ENC = ['-c:v', 'libx264', '-preset', 'veryfast', '-crf', '16', '-pix_fmt', 'yuv420p', '-r', str(FPS)]
 T_INIZIO = time.time()
@@ -203,14 +231,19 @@ def copione(comp):
     lib_img = LIB_IND.get('immagini') or {}
     personaggi = ', '.join(sorted(n for n, c in lib_img.items() if c == 'persona')) or 'family, soldier, worker'
     icone = ', '.join(sorted(n for n, c in lib_img.items() if c != 'persona')) if lib_img else ', '.join(sorted(ICONE))   # solo disegni della libreria (niente emoji)
-    prompt = f"""You write videos for the YouTube channel RICH BORDERS ("Every border has a price."): economic history and geopolitics explained with ANIMATED MAPS, in the style of the channel "Fortune of Nations".
+    lingua_txt = '' if LINGUA == 'en' else (
+        f"LANGUAGE: the whole video is in {LINGUE.get(LINGUA, LINGUA)}. Write the narration AND every text that appears on screen (etichetta, nota, scritta, numero, conta 'sotto', "
+        f"prezzo 'sotto', barre, griglia, anno, titolo, descrizione, tag, copertina) in {LINGUE.get(LINGUA, LINGUA)}, with the names of countries and people as they are "
+        f"written in {LINGUE.get(LINGUA, LINGUA)}. The JSON keys and the codes (tipo, icona, ISO codes, musica moods) stay as in the examples. "
+        + (f"Register and tone: {REGISTRO}. " if REGISTRO else '') + '\n\n')
+    prompt = lingua_txt + f"""You write videos for the YouTube channel {NOME_CANALE} ("{SLOGAN}"): history explained with ANIMATED MAPS, in the style of the channel "Fortune of Nations".
 
 ORIGINAL VIDEO TO COPY (title: "{comp.get('titolo') or ''}"). Keep ~80% of it: the SAME topic, the same story structure, the same facts, numbers and examples, the same hook.
 Rewrite EVERYTHING in your own words (never copy sentences: YouTube penalizes reused content). Add ~20% of our own: one extra striking comparison or number, and clearer explanations.
 ORIGINAL TRANSCRIPT:
 \"\"\"{orig[:45000]}\"\"\"
 
-WRITE: an English (US) narration of about {parole} words, split into about {n_scene} scenes of 15-25 words each (1-2 short sentences).
+WRITE: an {LINGUE.get(LINGUA, LINGUA)} narration of about {parole} words, split into about {n_scene} scenes of 15-25 words each (1-2 short sentences).
 {ANTEPRIMA.format(sec=int(COMING_UP), parole=int(COMING_UP * 2.6)) if COMING_UP else ''}
 Tone: curious, punchy, simple words, short sentences, questions that create suspense. The first scene is a strong hook (a paradox or a shocking number). No greeting, no "in this video". End with a one-sentence takeaway.
 Narration must be easy to read aloud: write numbers as people say them ("eight times", "300 years", "1700"), never use symbols like × or %.
@@ -326,6 +359,8 @@ def mix(a, b, t):
 _R = {}   # risorse caricate una volta per processo
 
 
+NOMI_CORTI_LINGUA = {'it': {'USA': 'USA', 'GBR': 'REGNO UNITO', 'RUS': 'RUSSIA', 'COD': 'RD CONGO', 'CAF': 'CENTRAFRICA', 'ARE': 'EMIRATI',
+                           'DOM': 'REP. DOMINICANA', 'BIH': 'BOSNIA', 'KOR': 'COREA DEL SUD', 'PRK': 'COREA DEL NORD', 'CZE': 'CECHIA', 'SAU': 'ARABIA SAUDITA'}}
 NOMI_CORTI = {'USA': 'USA', 'GBR': 'UK', 'RUS': 'RUSSIA', 'COD': 'DR CONGO', 'CAF': 'C. AFRICAN REP.', 'ARE': 'UAE', 'DOM': 'DOMINICAN REP.',
               'BIH': 'BOSNIA', 'KOR': 'SOUTH KOREA', 'PRK': 'NORTH KOREA', 'CZE': 'CZECHIA', 'SAU': 'SAUDI ARABIA'}
 
@@ -347,14 +382,35 @@ def risorse():
             pass
         for cd in codici:
             paesi.setdefault(cd, []).extend(anelli)
-            nm = str(p.get('NAME') or p.get('ADMIN') or '')
-            nm = NOMI_CORTI.get(cd) or (nm if len(nm) <= 14 else str(p.get('ABBREV') or nm).replace('.', '') if len(str(p.get('ABBREV') or '')) > 4 else nm)
+            nm = str((p.get('NAME_' + LINGUA.upper()) if LINGUA != 'en' else '') or p.get('NAME') or p.get('ADMIN') or '')
+            nm = (NOMI_CORTI if LINGUA == 'en' else NOMI_CORTI_LINGUA.get(LINGUA, {})).get(cd) or (nm if len(nm) <= 14 else str(p.get('ABBREV') or nm).replace('.', '') if len(str(p.get('ABBREV') or '')) > 4 else nm)
             nomi.setdefault(cd, nm)
     _R.update(base=base, sepia=sep, paesi=paesi, nomi=nomi, P=base.width / 360.0)
     return _R
 
 
+_FONT_OK = {}
+
+
+def _font_canale(rel):
+    """Scarica una volta il carattere scelto nel foglio (Google Fonts); se non riesce, resta quello di serie."""
+    nome = os.path.basename(rel); p = os.path.join(RIS, nome)
+    if nome not in _FONT_OK:
+        try:
+            if not os.path.exists(p):
+                dati = http('https://raw.githubusercontent.com/google/fonts/main/' + rel.lstrip('/'), raw=True)
+                open(p + '.tmp', 'wb').write(dati); ImageFont.truetype(p + '.tmp', 20); os.replace(p + '.tmp', p)
+            _FONT_OK[nome] = True
+        except Exception as e:
+            log('carattere non disponibile, uso quello di serie:', rel, str(e)[:100]); _FONT_OK[nome] = False
+    return nome if _FONT_OK[nome] else None
+
+
 def font(nome, s):
+    if FONT_TITOLI and nome == 'Anton-Regular.ttf':
+        nome = _font_canale(FONT_TITOLI) or nome
+    elif FONT_TESTI and nome in ('Poppins-Bold.ttf', 'Poppins-ExtraBold.ttf'):
+        nome = _font_canale(FONT_TESTI) or nome
     return ImageFont.truetype(os.path.join(RIS, nome), max(2, int(s)))
 
 
@@ -1000,7 +1056,7 @@ def disegna_scena(job):
                     etichetta(im, x, y, tx.replace('x', '×', 1) if re.match(r'^x\d', tx) else tx, k, 120, ORO, blocca=False)
                 elif tipo == 'colonna':
                     kh = ease((t - ev['_t']) / 1.0) * fine
-                    colonna(im, x, y, 380 * max(.1, min(1.0, float(ev.get('valore') or .5))) * kh, (232, 186, 40))
+                    colonna(im, x, y, 380 * max(.1, min(1.0, float(ev.get('valore') or .5))) * kh, ORO)
                     etichetta(im, x, y + 72, str(ev.get('testo') or '').upper()[:22], k, 44, blocca=False)
                 elif tipo == 'anno':
                     cartellino_anno(im, str(ev.get('testo') or '')[:6], k)
@@ -1010,8 +1066,8 @@ def disegna_scena(job):
                         fs -= 10
                     f = font('Poppins-ExtraBold.ttf', fs * back(k)); xc, yc = W / 2, H / 2 - 140
                     for z in range(16, 0, -2):
-                        d.text((xc + z * .6, yc + z), tx, font=f, fill=(40, 46, 60), anchor='mm')
-                    d.text((xc, yc), tx, font=f, fill=(255, 255, 255), anchor='mm', stroke_width=3, stroke_fill=(60, 66, 80))
+                        d.text((xc + z * .6, yc + z), tx, font=f, fill=mix(NAVY, (0, 0, 0), .3), anchor='mm')
+                    d.text((xc, yc), tx, font=f, fill=(255, 255, 255) if not P.get('tema_colori') else CREMA, anchor='mm', stroke_width=3, stroke_fill=NAVY)
                 elif tipo == 'prezzo':
                     prezzo_grande(im, ev, k)
                 elif tipo == 'conta':
@@ -1027,7 +1083,7 @@ def disegna_scena(job):
                         if 0 < ph < 1:
                             r_ = 30 + ph * 230
                             d.ellipse([xi - r_, yi - r_, xi + r_, yi + r_], outline=(255, 255, 255, int(220 * (1 - ph) * fine)), width=6)
-                    d.ellipse([xi - 14, yi - 14, xi + 14, yi + 14], fill=(255, 214, 0, int(255 * fine)), outline=(0, 0, 0), width=3)
+                    d.ellipse([xi - 14, yi - 14, xi + 14, yi + 14], fill=(*LUCE, int(255 * fine)), outline=(0, 0, 0), width=3)
                 elif tipo == 'solleva':
                     solleva(im, ev, pt, t - ev['_t'], fine)
                 elif tipo == 'griglia':
@@ -1093,7 +1149,7 @@ def disegna_scena(job):
         if job.get('anteprima'):   # COMING UP... in alto al centro (in basso copriva i nomi dei paesi), lampeggia
             f_ = font('Anton-Regular.ttf', 84); alfa = 1.0 if (t % 1) < .75 else .55
             lab = Image.new('RGBA', (560, 130), (0, 0, 0, 0)); dl = ImageDraw.Draw(lab)
-            dl.text((280, 65), 'COMING UP...', font=f_, fill=(255, 214, 0, int(255 * alfa)), stroke_width=7, stroke_fill=(0, 0, 0, int(255 * alfa)), anchor='mm')
+            dl.text((280, 65), TESTO_COMING_UP, font=f_, fill=(*LUCE, int(255 * alfa)), stroke_width=7, stroke_fill=(0, 0, 0, int(255 * alfa)), anchor='mm')
             im.alpha_composite(lab, (W // 2 - 280, 20))
         if job.get('apertura'):   # numero del video, poi il titolo
             num = job['apertura']; tx = str(num.get('testo') or '')
@@ -1163,7 +1219,7 @@ def filo_storia(im, traccia, pt, t):
         a = 235 if ultimo else max(70, 170 - 50 * vecchio)
         _tratteggio(d, pts[:m], (0, 0, 0, int(a * .6)), 11); _tratteggio(d, pts[:m], (255, 255, 255, a), 6)
         if ultimo and k < 1:
-            x, y = pts[m - 1]; d.ellipse([x - 16, y - 16, x + 16, y + 16], fill=(255, 214, 0, 255), outline=(0, 0, 0), width=4)
+            x, y = pts[m - 1]; d.ellipse([x - 16, y - 16, x + 16, y + 16], fill=(*LUCE, 255), outline=(0, 0, 0), width=4)
         elif ultimo:
             _punta(d, pts, (255, 255, 255, 240))
     for x, y in P_[:-1]:
@@ -1182,9 +1238,9 @@ def collega_eventi(im, eventi, pt, t):
         if math.hypot(pb[0] - pa[0], pb[1] - pa[1]) < 120:
             continue
         pts = _curva(pa, pb, 30, .18); m = max(2, int(len(pts) * k))
-        _tratteggio(d, pts[:m], (0, 0, 0, 150), 9, 20, 14); _tratteggio(d, pts[:m], (255, 214, 0, 235), 5, 20, 14)
+        _tratteggio(d, pts[:m], (0, 0, 0, 150), 9, 20, 14); _tratteggio(d, pts[:m], (*LUCE, 235), 5, 20, 14)
         if k >= 1:
-            _punta(d, pts, (255, 214, 0, 235))
+            _punta(d, pts, (*LUCE, 235))
 
 
 def riquadro_conta(im, ev, dt, fine):
@@ -1203,9 +1259,9 @@ def riquadro_conta(im, ev, dt, fine):
     s_ = back(min(1, dt / .3)); x1 = W - 50; x0 = x1 - w * s_; y0 = 50
     a = int(255 * fine)
     d.rectangle([x0 + 8, y0 + 10, x1 + 8, y0 + h + 10], fill=(0, 0, 0, int(a * .45)))
-    d.rectangle([x0, y0, x1, y0 + h], fill=(252, 248, 238, a), outline=(30, 30, 40, a), width=4)
+    d.rectangle([x0, y0, x1, y0 + h], fill=(*CARTA, a), outline=(30, 30, 40, a), width=4)
     if s_ > .9:
-        d.text(((x0 + x1) / 2, y0 + 72), tx, font=f1, fill=(214, 84, 30, a), anchor='mm')
+        d.text(((x0 + x1) / 2, y0 + 72), tx, font=f1, fill=(*ACCENTO, a), anchor='mm')
         if sotto:
             d.text(((x0 + x1) / 2, y0 + 150), sotto, font=f2, fill=(40, 40, 50, a), anchor='mm')
 
@@ -1218,7 +1274,7 @@ def scheda_personaggio(im, ev, dt, fine):
     if w < 20:
         return
     x0, y0 = 50, 50
-    card = Image.new('RGBA', (w, h), (252, 248, 238, 255)); dc = ImageDraw.Draw(card)
+    card = Image.new('RGBA', (w, h), (*CARTA, 255)); dc = ImageDraw.Draw(card)
     try:
         ritr = Image.open(ev['_img']).convert('RGB')
     except Exception:
@@ -1248,8 +1304,8 @@ def barra_nota(im, ev, dt, fine, resto):
     if k <= 0:
         return
     x0 = W / 2 - w / 2; y0 = H - 150 + (1 - k) * 40
-    d.rectangle([x0, y0, x0 + w, y0 + h], fill=(16, 30, 62, int(235 * k)))
-    d.rectangle([x0, y0 + h - 8, x0 + w, y0 + h], fill=(232, 100, 30, int(255 * k)))
+    d.rectangle([x0, y0, x0 + w, y0 + h], fill=(*NAVY, int(235 * k)))
+    d.rectangle([x0, y0 + h - 8, x0 + w, y0 + h], fill=(*ACCENTO, int(255 * k)))
     d.text((W / 2, y0 + h / 2 - 3), tx, font=f, fill=(255, 255, 255, int(255 * k)), anchor='mm')
 
 
@@ -1374,7 +1430,7 @@ def prezzo_grande(im, ev, k):
     t = Image.new('RGBA', (w + 60, h + 60), (0, 0, 0, 0)); d = ImageDraw.Draw(t)
     corpo = [(30 + 100 * s, 30), (30 + w, 30), (30 + w, 30 + h), (30 + 100 * s, 30 + h), (30, 30 + h / 2)]
     d.polygon([(x + 14, y + 16) for x, y in corpo], fill=(0, 0, 0, 150))
-    d.polygon(corpo, fill=(255, 248, 225), outline=(20, 20, 20), width=max(4, int(10 * s)))
+    d.polygon(corpo, fill=CREMA, outline=(20, 20, 20), width=max(4, int(10 * s)))
     d.ellipse([30 + 45 * s, 30 + h / 2 - 22 * s, 30 + 89 * s, 30 + h / 2 + 22 * s], fill=(20, 20, 20))
     d.text((30 + 115 * s + tw / 2 + 30 * s, 30 + h / 2), tx, font=f, fill=(20, 140, 40) if ricco else (200, 40, 30), anchor='mm')
     t = t.rotate(-5, resample=Image.BICUBIC, expand=True)
@@ -1650,7 +1706,7 @@ def copertina_nuova(cp, path):
     riquadro(im, xt, H * (.80 if pr is not None else .60), testo, fs)   # col presentatore in basso: la meta' mappa e' stretta e il paese resta visibile
     extra = str(cp.get('extra') or '').upper()[:14]
     if extra:
-        riquadro(im, x0 + A * (.25 if xt > x0 + A / 2 else .75), H * .16, extra, 150 if pr is None else 120, (255, 214, 0), (0, 0, 0))
+        riquadro(im, x0 + A * (.25 if xt > x0 + A / 2 else .75), H * .16, extra, 150 if pr is None else 120, LUCE, (0, 0, 0))
     if sx and dx:
         pin(im, linea, H * (.52 if float(cp.get('pin_scala') or 2.4) <= 2.4 else .97), float(cp.get('pin_scala') or 2.4), 'stupito', 0)   # Pin sulla linea rossa
     elif pr is None:   # mappa unica: Pin di lato, mai sopra il paese in evidenza ne' sulla durata del video
