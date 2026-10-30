@@ -296,7 +296,7 @@ async function main() {
   log('copione:', sw.segments.length, 'scene | titolo:', sw.titolo_italiano);
 
   // ---- 9) copertina in parallelo (stesso programma e stesse impostazioni di "Copertina KAO n8n")
-  let copertinaFatta = null;
+  let copertinaFatta = null, statuaRis = null;
   const saltaCop = String(cfg.skip_thumbnail || '').trim() !== '';
   if (!saltaCop && String(cfg.copertina_github || '').trim().toUpperCase() === 'SI') {
     copertinaFatta = python('copertine_cinema_kao.py', {
@@ -407,6 +407,15 @@ async function main() {
   if (formatoKao) rr = await python('render_kao.py', { PAYLOAD: JSON.stringify({ id: RUN_ID, dati, resume_url: risposta }), DRY_RUN: '0',
     LINGUA: String(cfg.language || 'it'), WHISPER_MODEL: E('WHISPER_MODEL', 'small') }, 'render');
   else {
+    // copertina_stile = statua: copertina e immagine del video dalla STESSA statua nuova (copertina_statua.py), prima del montaggio
+    if (String(cfg.copertina_stile || '').trim().toLowerCase() === 'statua' && !saltaCop) {
+      const cs = await python('copertina_statua.py', { PAYLOAD: JSON.stringify({ titolo: sw.titolo_italiano,
+        testo_copertina: (OUT['SEO Generator'][0].json.output || {}).titolo_thumbnail || '', cartella: 'lavoro_statua', config: cfg }) });
+      try { statuaRis = JSON.parse(fs.readFileSync(path.join(ROOT, 'lavoro_statua', 'risultato.json'), 'utf8')); } catch (e) { statuaRis = { ok: false, errore: 'nessun risultato (codice ' + cs.code + ')' }; }
+      if (statuaRis.ok) { dati.statua_video = path.join(ROOT, statuaRis.statua_video); log('statua di copertina e video pronta'); }
+      else log('ATTENZIONE: copertina statua non riuscita (' + statuaRis.errore + '): video e copertina con lo stile di sempre');
+    }
+    dati.config = { ...(dati.config || {}), ...cfg };
     fs.writeFileSync(path.join(SERVER_DIR, 'dati_render.json'), JSON.stringify(dati));
     rr = await python('render_filosofo.py', { PAYLOAD: JSON.stringify({ id: RUN_ID, dati_url: urlLocale('dati_render.json'), resume_url: risposta }), DRY_RUN: '0',
       WHISPER_MODEL: E('WHISPER_MODEL', 'small') }, 'render');
@@ -422,7 +431,11 @@ async function main() {
 
   // ---- copertina: aspetto il programma partito in parallelo
   let copertina = null, urlCop = '', tipoCop = 'image/jpeg';
-  if (copertinaFatta) {
+  if (statuaRis && statuaRis.ok) {   // copertina statua (stessa statua del video)
+    try { copertina = fs.readFileSync(path.join(ROOT, statuaRis.copertina)); urlCop = await falCarica(copertina, 'image/jpeg', 'copertina.jpg'); log('copertina statua pronta'); }
+    catch (e) { copertina = null; log('copertina statua non caricata: ' + e.message.slice(0, 120)); }
+  }
+  if (copertinaFatta && !copertina) {
     const rc = await copertinaFatta;
     metti('Attendi Copertina GitHub', [J({ body: rc.risposta || {} })]);
     const ris = (await codice('Risultato Copertina GitHub', OUT['Attendi Copertina GitHub']))[0].json;

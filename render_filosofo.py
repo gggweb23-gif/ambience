@@ -734,6 +734,14 @@ def main():
         #    Ogni pezzo e' tagliato a fotogrammi esatti sulla voce, cosi' video e audio non si sfasano mai.
         statua = str(stile.get('ritratto') or '').strip().lower() == 'statua'
         nero = str(stile.get('sfondo') or '').strip().lower() == 'nero' or statua
+        # STILE "KARAOKE" (render_style testo = karaoke): la statua della copertina (copertina_statua.py) ferma a sinistra + cenere,
+        # testo a destra con font e colori della copertina. Niente clip Pexels, niente altre statue: nessuna spesa in piu'.
+        karaoke = str(stile.get('testo') or '').strip().lower() == 'karaoke' and os.path.exists(str(dati.get('statua_video') or ''))
+        if str(stile.get('testo') or '').strip().lower() == 'karaoke' and not karaoke:
+            log('ATTENZIONE: testo karaoke senza immagine della statua (copertina_stile = statua?): uso lo stile di sempre')
+            stile['testo'] = 'copertina'
+        if karaoke:
+            statua, nero = False, True
         blur = float(stile.get('sfocatura') or 12)
         luce = float(stile.get('luminosita') or -0.06)
         vf = (f'scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={FPS},'
@@ -787,6 +795,7 @@ def main():
         log('personaggio: ' + nome)
         seme = zlib.crc32(str(dati.get('titolo') or p.get('id') or '').encode())
         rit = None
+        url_ritratto = ''
         if dati.get('personaggio_auto'):
             try:
                 rit, url_ritratto = ritratto_auto(nome, LAVORO)
@@ -822,7 +831,7 @@ def main():
                     rit, url_ritratto = ritratto_statua(nome, LAVORO, seme)
                 except Exception as e2:
                     log('statua non riuscita (' + str(e2)[:120] + '), uso il ritratto normale')
-        if rit is None and not scena_url:
+        if rit is None and not scena_url and not karaoke:
             rit, url_ritratto = ritratto(nome, LAVORO, seme,
                                          su_misura=bool(str(dati.get('personaggio') or '').strip()),
                                          pose=stile.get('pose'), abiti=stile.get('abiti'), espressione=stile.get('espressione'))
@@ -835,7 +844,14 @@ def main():
         entra = float(stile.get('entrata_sec') or 0.7)
         # 4) sottotitoli
         come_cop = str(stile.get('testo') or '').strip().lower() == 'copertina'
-        if str(stile.get('testo') or '').strip().lower() == 'frase' and FRASI.get('righe'):   # una frase alla volta al centro (Stoic Journal)
+        if karaoke:
+            import statua_karaoke as SK
+            cfg_k = dati.get('config') or {}
+            ff = SK.font_file(cfg_k, FONT_DIR)
+            sfondo = SK.sfondo(dati['statua_video'], totale, LAVORO, str(stile.get('effetto') or 'cenere').strip().lower(), FPS, log)
+            nero = False
+            ass, _ = SK.ass(scene, tempi, voce, cfg_k, stile, LAVORO, ff, log)
+        elif str(stile.get('testo') or '').strip().lower() == 'frase' and FRASI.get('righe'):   # una frase alla volta al centro (Stoic Journal)
             import agora_visivi as AV
             ass = AV.sottotitoli_frasi(FRASI['righe'], stile, LAVORO)
         elif come_cop:   # scritte come la copertina: Anton, maiuscole, bianco + giallo, senza riquadro
