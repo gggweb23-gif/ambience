@@ -1,0 +1,36 @@
+name: Copertine foto simbolo (video gia' nel canale)
+
+on:
+  workflow_dispatch:
+    inputs:
+      payload:
+        description: 'JSON: chiave_youtube (nome del secret), lingua, carica SI/NO, solo [id], escludi [id], cartella'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  copertine:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - name: Programmi Python
+        run: pip install --quiet --break-system-packages pillow
+      - name: Copertine
+        env:
+          PAYLOAD: ${{ inputs.payload }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets[fromJSON(inputs.payload).chiave_youtube || 'YT_REFRESH_TOKEN_STORIA'] }}
+        run: python3 strumenti/copertine_canale_foto.py
+      - name: Salva nel repository
+        if: ${{ always() }}
+        run: |
+          git config user.name "render-bot"; git config user.email "render-bot@users.noreply.github.com"
+          git add prove_video copertine_storia; git commit -m "Copertine foto simbolo" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase --autostash -q && git push && break; sleep $((i * 5)); done

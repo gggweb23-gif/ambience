@@ -3969,7 +3969,19 @@ def main():
         except Exception as e:
             log('1440p non riuscito, resta 1080p:', str(e)[:150])
     cop = copertina(comp, c) if COP_VIDEO else None
-    if str(P.get('copertina_formato') or '').strip().lower() == 'primo_piano':   # stile Faces of Rome
+    if COP_STILE == 'foto':   # copertina_stile = foto: pannello con il nome del paese + foto SIMBOLO da Pexels controllata da Claude (stile A3a, 30 ott)
+        try:
+            import copertina_foto as CF
+            CF.log = log
+            cop = CF.crea(titolo_finale, LINGUA, os.path.join(ROOT, 'copertina.jpg'),
+                          f"Periodo raccontato: {c.get('date') or ''}. Paese: {c.get('titolo_mappa') or c.get('paese_mappa') or ''}.")
+            if cop:
+                log('copertina foto pronta: copertina.jpg')
+        except Exception as e:
+            log('copertina foto non riuscita:', str(e)[:200]); cop = None
+    if COP_STILE == 'foto' and cop:
+        pass
+    elif str(P.get('copertina_formato') or '').strip().lower() == 'primo_piano':   # stile Faces of Rome
         cop = copertina_primo_piano(comp, c)
     elif not COP_VIDEO:   # copertina UFFICIALE (bandiera + figura): fatta qui, prima del caricamento, e caricata insieme al video
         try:
