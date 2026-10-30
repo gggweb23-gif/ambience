@@ -888,6 +888,15 @@ def main():
             except Exception as e:
                 log('musica non disponibile: ' + str(e)[:100])
         filtro, amap = iscrizione(dati.get('iscrizione') or {}, ingressi, filtro, amap, totale)
+        # VOLUME FINALE: tutto l'audio portato al livello standard di YouTube (-14 LUFS, colonna audio_lufs),
+        # cosi' il video si sente forte come quelli dei competitor e non va alzato a mano.
+        try:
+            lufs = float(str(cfg.get('audio_lufs') or dati.get('audio_lufs') or -14).replace(',', '.'))
+        except Exception:
+            lufs = -14.0
+        filtro += f";{amap if amap.startswith('[') else '[' + amap + ']'}loudnorm=I={lufs:.1f}:TP=-1.0:LRA=11,aresample=48000[afin]"
+        amap = '[afin]'
+        log(f'volume finale: {lufs:.0f} LUFS')
         finale = os.path.join(LAVORO, 'video_finale.mp4')
         run(['ffmpeg', '-y', '-v', 'error'] + ingressi + ['-filter_complex', filtro, '-map', '[v]', '-map', amap,
              '-t', f'{totale:.3f}', '-c:v', 'libx264', '-preset', 'fast', '-crf', '18', '-s', '2560x1440', '-sws_flags', 'lanczos', '-r', str(FPS), '-pix_fmt', 'yuv420p',

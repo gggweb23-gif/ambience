@@ -15,6 +15,9 @@ if P.get('video_ids'):   # singoli video (lista di ID), senza feed del canale
     voci = [(v, '', '0') for v in P['video_ids']]
 else:
     xml = get('https://www.youtube.com/feeds/videos.xml?channel_id=' + P['canale_id']).decode()
+    nome_canale = re.search(r'<author>\s*<name>(.*?)</name>', xml, re.S)
+    print('CANALE:', P['canale_id'], '=', nome_canale.group(1) if nome_canale else '?', flush=True)
+    open(os.path.join(CART, 'canale.txt'), 'w').write(P['canale_id'] + ' = ' + (nome_canale.group(1) if nome_canale else '?') + '\n')
     voci = re.findall(r'<yt:videoId>([\w-]{11})</yt:videoId>.*?<title>(.*?)</title>.*?<media:statistics views="(\d+)"', xml, re.S)
 righe, imgs = [], []
 for vid, tit, views in voci:
