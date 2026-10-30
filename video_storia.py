@@ -81,6 +81,8 @@ PREZZO_DISEGNO = 0.12   # $ per disegno Nano Banana 2 a 2K (con i rifatti si con
 SPESA = {'fal': 0.0, 'disegni': 0}
 COP_VIDEO = str(P.get('copertina_video') or E('COPERTINA_VIDEO', '') or 'NO').strip().upper() == 'SI'
 RISERVA_COP = 0.15 if COP_VIDEO else 0.55   # $ tenuti da parte nel budget per le copertine: 1a (fino a 3 tentativi) + la 2a se servira'
+LINEA_TEMPO = str(P.get('linea_tempo') or E('LINEA_TEMPO', '') or 'NO').strip().lower()   # colonna linea_tempo: alto | basso | NO (vuota) = linea del tempo sempre visibile
+LINEA_TEMPO = 'alto' if LINEA_TEMPO in ('si', 'alto', 'sopra') else 'basso' if LINEA_TEMPO in ('basso', 'sotto') else ''
 CORNICE = str(P.get('cornice') or E('CORNICE', '') or 'SI').strip().upper() == 'SI'   # cornice a tema del paese intorno a tutto il video
 RISERVA_PX = []   # ricerche Pexels generiche del paese, per quando una ricerca precisa non trova niente   # % del video a cartone (Nano Banana), il resto Pexels
 SFONDI_MAX = int(float(str(P.get('sfondi_max') or E('SFONDI_MAX', '') or 60)))
@@ -394,7 +396,7 @@ Rispondi SOLO con un JSON valido, senza testo prima o dopo:
  "date": "es. 550 a.C. – 2026", "texture": "pergamena|washi|stropicciata|giornale|papiro", "font_carte": "antico|medievale|ottocento|macchina|moderno|classico",
  "fondi_carte": [{{"id": "c1", "prompt_en": "..."}}], "colori_carte": ["#......", "#......"],
  "sfondi": [{{"id": "s1", "prompt_en": "...", "personaggi": []}}],
- "scene": [{{"capitolo": "SOLO nella prima scena di ogni capitolo: titolo breve del capitolo in {lingua} (2-5 parole, es. 'Le origini', 'L'impero di Ciro'); nelle altre scene ometti il campo", "testo": "parlato della scena", "visivi": [{{"tipo": "cartone", "frase": "prime parole della scena", "sfondo": "s1", "personaggio": "...", "reazione": true, "data": "...", "suono": "..."}}]}}],
+ "scene": [{{"capitolo": "SOLO nella prima scena di ogni capitolo: titolo breve del capitolo in {lingua} (2-5 parole, es. 'Le origini', 'L'impero di Ciro'); nelle altre scene ometti il campo", "testo": "parlato della scena", "anno": "l'anno (numero intero) del momento storico di cui parla la scena: negativo = avanti Cristo (es. -3000, -550, 1492, 1948, 2026); le scene su oggi = 2026", "visivi": [{{"tipo": "cartone", "frase": "prime parole della scena", "sfondo": "s1", "personaggio": "...", "reazione": true, "data": "...", "suono": "..."}}]}}],
  "copertina": {{"testo": "testo della copertina originale TRADOTTO al 100% (stesse parole, stesse date), MAIUSCOLO", "personaggio": "SOLO se nella lista c'e' la STESSA figura della copertina originale o una dello stesso popolo, epoca e aspetto (es. re persiano antico -> ciro_il_grande; MAI un re europeo per la Persia). Se non c'e' una corrispondenza sicura: '' (la figura originale verra' ridisegnata a cartone)"}},
  "descrizione": "descrizione YouTube in {lingua}: 3 paragrafi brevi (circa 120 parole) che riassumono il video con le parole che la gente cerca, poi una riga con 4-6 hashtag",
  "tag": ["25-35 tag YouTube in {lingua}: PRIMA tutti i TAG DEL COMPETITOR (se ci sono) tradotti in {lingua} nello stesso ordine (nomi propri invariati, togli solo nomi di altri canali), POI aggiungi i nostri tag validi: paese, impero, epoche, personaggi, 'storia di ...', 'storia completa'"],
@@ -869,6 +871,94 @@ def crea_cornice(paese, epoca=''):
     out.save(p); json.dump([b, b], open(p + '.json', 'w'))
     log(f'cornice di {paese} pronta: bordo {b} px su tutti i lati')
     return p, (b, b)
+
+
+def _anno_txt(a):
+    a = int(a)
+    if a < 0:
+        return f"{-a:,}".replace(',', '.') + (' a.C.' if LINGUA == 'it' else ' BC')
+    return str(a)
+
+
+def linea_del_tempo(video, scene, durs):
+    """LINEA DEL TEMPO sempre visibile (in alto o in basso): le tappe del racconto in ordine, la parte gia' raccontata si colora
+    e un segnale con l'anno corre da una tappa all'altra quando il racconto cambia epoca. Fa capire a chi guarda dove siamo nel tempo."""
+    try:
+        anni, prec = [], None
+        for sc in scene:
+            try:
+                a = int(float(str(sc.get('anno')).replace('.', '').replace(',', '').strip()))
+            except Exception:
+                a = prec
+            anni.append(a); prec = a
+        if not any(a is not None for a in anni):
+            log('linea del tempo saltata: il copione non ha gli anni'); return video
+        primo = next(a for a in anni if a is not None)
+        anni = [a if a is not None else primo for a in anni]
+        inizi, t = [], 0.0
+        for d in durs:
+            inizi.append(t); t += d
+        totale = durata(video)
+        tappe = sorted(set(anni))
+        if len(tappe) > 9:   # al massimo 9 tappe scritte: le altre restano solo come posizione
+            passo = (len(tappe) - 1) / 8
+            scritte = {tappe[round(i * passo)] for i in range(9)}
+        else:
+            scritte = set(tappe)
+        x0, x1, hb = 110, W - 110, 132
+        def pos(a):   # tappe equidistanti (5.000 anni di antichita' non schiacciano il Novecento), tra due tappe in proporzione
+            if len(tappe) == 1:
+                return (x0 + x1) / 2
+            for i in range(len(tappe) - 1):
+                if tappe[i] <= a <= tappe[i + 1]:
+                    f = (a - tappe[i]) / max(1, tappe[i + 1] - tappe[i])
+                    return x0 + (i + f) * (x1 - x0) / (len(tappe) - 1)
+            return x0 if a < tappe[0] else x1
+        def anno_a(tt):   # l'anno mostrato al tempo tt: corre verso quello della scena nuova in 1,2 s
+            k = max(0, sum(1 for s_ in inizi if s_ <= tt) - 1)
+            a_ora, a_prima = anni[k], anni[k - 1] if k else anni[k]
+            f = min(1, (tt - inizi[k]) / 1.2); f = f * f * (3 - 2 * f)
+            return a_prima + (a_ora - a_prima) * f
+        cart = os.path.join(LAV, 'linea'); os.makedirs(cart, exist_ok=True)
+        fps_l = 8; n = int(totale * fps_l) + 1
+        fnt = None
+        for cand in (os.path.join(FONT, 'Oswald-SemiBold.ttf'), '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'):
+            if os.path.exists(cand):
+                fnt = cand; break
+        F1, F2 = ImageFont.truetype(fnt, 24), ImageFont.truetype(fnt, 34)
+        base = Image.new('RGBA', (W, hb), (0, 0, 0, 0)); db = ImageDraw.Draw(base)
+        db.rounded_rectangle([40, 8, W - 40, hb - 8], radius=22, fill=(10, 14, 24, 165))
+        yl = 80
+        db.line([(x0, yl), (x1, yl)], fill=(255, 255, 255, 110), width=6)
+        for a in tappe:
+            x = pos(a); db.ellipse([x - 6, yl - 6, x + 6, yl + 6], fill=(255, 255, 255, 170))
+            if a in scritte:
+                db.text((x, yl + 26), _anno_txt(a), font=F1, fill=(255, 255, 255, 200), anchor='mm')
+        ultimo = None
+        for i in range(n):
+            tt = i / fps_l; a = anno_a(tt); x = pos(a)
+            chiave = (round(x), round(a))
+            p = os.path.join(cart, f'l_{i:06d}.png')
+            if chiave == ultimo and i:
+                os.link(os.path.join(cart, f'l_{i - 1:06d}.png'), p); continue
+            ultimo = chiave
+            im = base.copy(); d = ImageDraw.Draw(im)
+            d.line([(x0, yl), (x, yl)], fill=(255, 200, 40, 255), width=8)   # la parte gia' raccontata
+            d.ellipse([x - 15, yl - 15, x + 15, yl + 15], fill=(255, 200, 40, 255), outline=(255, 255, 255, 255), width=4)
+            tx = _anno_txt(round(a))
+            w_ = d.textlength(tx, font=F2) + 34; xc = min(max(x, 40 + w_ / 2), W - 40 - w_ / 2)
+            d.rounded_rectangle([xc - w_ / 2, yl - 58, xc + w_ / 2, yl - 18], radius=12, fill=(255, 200, 40, 255))
+            d.text((xc, yl - 38), tx, font=F2, fill=(15, 15, 20, 255), anchor='mm')
+            im.save(p)
+        y = 18 if LINEA_TEMPO == 'alto' else H - hb - 14
+        out = video[:-4] + '_tempo.mp4'
+        run(['ffmpeg', '-y', '-v', 'error', '-i', video, '-framerate', str(fps_l), '-i', os.path.join(cart, 'l_%06d.png'),
+             '-filter_complex', f'[1:v]fps={FPS}[l];[0:v][l]overlay=0:{y}:shortest=1[v]', '-map', '[v]', '-map', '0:a?',
+             '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18', '-pix_fmt', 'yuv420p', '-c:a', 'copy', out])
+        log(f'linea del tempo ({LINEA_TEMPO}): {len(tappe)} tappe, da {_anno_txt(tappe[0])} a {_anno_txt(tappe[-1])}')
+        return out
+    except Exception as e:
+        log('linea del tempo saltata:', str(e)[:200]); return video
 
 
 def applica_cornice(video, c):
@@ -3773,6 +3863,8 @@ def main():
     video = os.path.join(LAV, 'muto.mp4')
     unisci([(p, v['d']) for p, v in zip(paths, piano)], video)
     video = applica_cornice(video, c)
+    if LINEA_TEMPO:
+        video = linea_del_tempo(video, c['scene'], durs)
     if REGIA and TAVOLE:
         video = ritocchi_scene(video, piano)
     # audio: voce + musica (facoltativa)
