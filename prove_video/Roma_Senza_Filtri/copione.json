@@ -1,8 +1,8 @@
 {
- "titolo": "How Did Roman Soldiers Survive Freezing Nights Without Heaters? The Secrets That Kept an Empire Alive",
+ "titolo": "How Did Roman Soldiers Survive Freezing Nights Without Heaters? The 400-Year Secret",
  "titolo_mappa": "ROMAN BRITAIN",
  "paese_mappa": "",
- "date": "43 AD – 410 AD",
+ "date": "122 AD – 410 AD",
  "texture": "pergamena",
  "font_carte": "antico",
  "fondi_carte": [],
@@ -13,368 +13,372 @@
  "sfondi": [
   {
    "id": "s1",
-   "prompt_en": "Cartoon style, a Roman sentry on a snowy stone wall at night, frost on his beard, howling wind across dark moors, full moon, wide shot, dramatic cold blue palette",
+   "prompt_en": "Cartoon night scene, a lone Roman sentry on a snowy stone wall at a northern frontier fort, wind blowing snow sideways, moors in the dark, frost on his red-crested helmet, cold blue moonlight, wide shot.",
    "personaggi": [
     "legionario"
    ]
   },
   {
    "id": "s2",
-   "prompt_en": "Cartoon style, a Roman soldier shivering in a bare stone room with an empty window frame and snow blowing in, dawn light, he pulls on his boots, medium shot",
+   "prompt_en": "Cartoon close-up of a Roman soldier's shivering face, icicles on his beard, breath clouds, helmet frosted, grim expression, snowy night, dramatic close framing.",
    "personaggi": [
     "legionario"
    ]
   },
   {
    "id": "s3",
-   "prompt_en": "Cartoon style, a long line of Roman soldiers marching through snow across four different landscapes: British moors, Rhine forest, Danube river, Armenian mountains, panoramic collage feel",
+   "prompt_en": "Cartoon interior of a bare stone barrack room at night, no glass in the window, snow drifting in, a Roman soldier sleeping curled up in a cloak on a wooden bunk, cold blue light.",
    "personaggi": []
   },
   {
    "id": "s4",
-   "prompt_en": "Cartoon style, Napoleon-era French army freezing in a Russian blizzard, tiny figures collapsing in deep snow, grey bleak sky, wide shot",
+   "prompt_en": "Cartoon wide view of Roman frontiers across four centuries: a map-like landscape showing Britain's moors, the Rhine river, the Danube and Armenian mountains, small Roman forts dotted in snow, daytime pale sky.",
    "personaggi": []
   },
   {
    "id": "s5",
-   "prompt_en": "Cartoon style, close-up of a Roman soldier's frostbitten hands failing to tie a knot, ice on fingers, blue-grey tones",
+   "prompt_en": "Cartoon of Napoleon's army freezing in a Russian snowstorm, ragged French soldiers collapsing in deep snow, dark sky, despair, contrasted with a distant tidy Roman fort glowing warm on a hill.",
    "personaggi": []
   },
   {
    "id": "s6",
-   "prompt_en": "Cartoon style, a frozen Danube river with a Roman army crossing the ice, wagons and soldiers in cloaks, pale winter sun",
+   "prompt_en": "Cartoon mystery scene: a shop shelf with a plain folded wool cloth glowing softly among ordinary goods, a question mark in the air, Roman-era market stall, warm lantern light.",
    "personaggi": []
   },
   {
    "id": "s7",
-   "prompt_en": "Cartoon style, a Roman soldier cutting frozen wine from a jar with a blade in a cold storeroom, breath steam, warm lantern light",
+   "prompt_en": "Cartoon of a Roman soldier's hands turning blue and stiff, fingers failing to tie a knot on a rope, snow falling, close-up of numb hands, cold pale light.",
    "personaggi": [
     "legionario"
    ]
   },
   {
    "id": "s8",
-   "prompt_en": "Cartoon style, Roman historian Tacitus writing on a scroll by lamplight in a study, ancient Rome, warm candle glow, over-the-shoulder shot",
+   "prompt_en": "Cartoon of a frozen river on the Danube, an army column walking across the thick ice, grey winter sky, Roman standards, long 16-hour dark night approaching, wide shot.",
+   "personaggi": []
+  },
+  {
+   "id": "s9",
+   "prompt_en": "Cartoon close-up of a clay jar of frozen wine, a Roman soldier cutting the solid block with a blade, ice chips flying, dim camp interior, amber lamp light.",
+   "personaggi": [
+    "legionario"
+   ]
+  },
+  {
+   "id": "s10",
+   "prompt_en": "Cartoon of the Armenian mountain campaign, Roman centurions frozen solid standing at their posts in deep snow, blackened limbs, grim grey dawn, a general looking on in horror.",
+   "personaggi": []
+  },
+  {
+   "id": "s11",
+   "prompt_en": "Cartoon of a soldier carrying a bundle of firewood, his frozen hands still gripping it, standing stiff in blizzard, tragic and dramatic, side view.",
+   "personaggi": [
+    "legionario"
+   ]
+  },
+  {
+   "id": "s12",
+   "prompt_en": "Cartoon of Roman officers in a tent studying the cold like an enemy, scrolls and wax tablets on a table, lamp glowing, discipline and planning mood.",
    "personaggi": [
     "senatore"
    ]
   },
   {
-   "id": "s9",
-   "prompt_en": "Cartoon style, Roman centurions frozen solid at their posts in deep mountain snow in Armenia, tents buried, grim blue dusk, wide shot",
-   "personaggi": []
-  },
-  {
-   "id": "s10",
-   "prompt_en": "Cartoon style, a soldier carrying a bundle of firewood, his frozen hands still gripping it, snowy camp, dramatic close-up",
-   "personaggi": [
-    "legionario"
-   ]
-  },
-  {
-   "id": "s11",
-   "prompt_en": "Cartoon style, Roman officers studying a wax tablet plan of winter defenses in a command tent, lamp light, serious faces",
-   "personaggi": []
-  },
-  {
-   "id": "s12",
-   "prompt_en": "Cartoon style, archaeologists-free scene: a thin wooden writing tablet lying in dark wet mud, ink letters visible, spotlight on it, 1,900 years old feel, close-up",
-   "personaggi": []
-  },
-  {
    "id": "s13",
-   "prompt_en": "Cartoon style, a Roman soldier at Vindolanda reading a letter with a parcel of socks and sandals on his bunk, touched expression, warm lamp light",
-   "personaggi": [
-    "legionario"
-   ]
+   "prompt_en": "Cartoon of Vindolanda excavation, archaeologists-free scene: thin postcard-sized wooden tablets with ink writing lying in dark wet mud, close-up, soft museum-like light.",
+   "personaggi": []
   },
   {
    "id": "s14",
-   "prompt_en": "Cartoon style, a Roman family at home in sunny Italy packing socks, sandals and underwear into a parcel, loving warm interior",
-   "personaggi": [
-    "contadina_antica"
-   ]
+   "prompt_en": "Cartoon of a Roman family at home in a sunny Mediterranean villa packing a parcel with socks, sandals and underwear, a mother tying string, warm golden light.",
+   "personaggi": []
   },
   {
    "id": "s15",
-   "prompt_en": "Cartoon style, comparison scene: marble statue of a bare-legged soldier beside a real bundled soldier in wool layers in snow, humorous, wide shot",
+   "prompt_en": "Cartoon of a Roman soldier at a northern fort opening a care package, joyfully lifting wool socks, snowy yard behind him, warm smile, emotional moment.",
    "personaggi": [
     "legionario"
    ]
   },
   {
    "id": "s16",
-   "prompt_en": "Cartoon style, close-up of raw greasy wool being spun, rain beads rolling off a wool cloak, countryside workshop",
-   "personaggi": []
-  },
-  {
-   "id": "s17",
-   "prompt_en": "Cartoon style, a soldier wearing a heavy wool sagum cloak pinned at the shoulder, standing in drizzle, medium shot",
+   "prompt_en": "Cartoon contrast: parade-version Roman soldier in bare legs and metal armor under a Mediterranean sun, next to a bundled northern soldier in thick wool, split composition.",
    "personaggi": [
     "legionario"
    ]
   },
   {
-   "id": "s18",
-   "prompt_en": "Cartoon style, a Romano-British weaver in rainy Britain making a hooded cloak, hanging finished cloaks, drizzle outside, rustic hut",
+   "id": "s17",
+   "prompt_en": "Cartoon close-up of raw greasy wool being spun by a woman, lanolin shine on fibers, sheep in the background, rain outside a stone hut, warm hearth glow.",
    "personaggi": []
   },
   {
-   "id": "s19",
-   "prompt_en": "Cartoon style, Emperor Diocletian's officials reading a price edict on a stone wall, a hooded British cloak listed as premium item, Roman marketplace",
+   "id": "s18",
+   "prompt_en": "Cartoon of a Roman soldier in pouring rain, water beading and rolling off his greasy wool cloak, steam rising, stubborn smile, grey moorland background.",
    "personaggi": [
-    "senatore"
+    "legionario"
+   ]
+  },
+  {
+   "id": "s19",
+   "prompt_en": "Cartoon of the sagum: a soldier pinning a thick rectangular wool cloak on his shoulder, workshop of a fort, shelves of folded cloth, warm lamplight.",
+   "personaggi": [
+    "legionario"
    ]
   },
   {
    "id": "s20",
-   "prompt_en": "Cartoon style, Roman senator sneering at a man in trousers in a Roman forum, comedic expression, bright day",
+   "prompt_en": "Cartoon of Roman Britain weavers making hooded cloaks, birrus Britannicus hanging on racks in a drizzly workshop, hooded figures, misty hills outside.",
+   "personaggi": []
+  },
+  {
+   "id": "s21",
+   "prompt_en": "Cartoon of a Roman marketplace where a wealthy merchant counts coins and admires a British hooded cloak, price edict tablet on the wall, bustling stalls, golden sunlight.",
+   "personaggi": [
+    "mercante"
+   ]
+  },
+  {
+   "id": "s22",
+   "prompt_en": "Cartoon of a snobbish Roman senator sneering at a Gaul in trousers, comic mocking expression, marble forum background, bright daylight.",
    "personaggi": [
     "senatore"
    ]
   },
   {
-   "id": "s21",
-   "prompt_en": "Cartoon style, legionary pulling on wool leggings under his tunic in a cold barrack, relieved grin, frosty window",
-   "personaggi": [
-    "legionario"
-   ]
-  },
-  {
-   "id": "s22",
-   "prompt_en": "Cartoon style, layered clothing diagram feel: soldier with linen tunic, wool tunic, cloak, trapped air arrows, snowy background",
-   "personaggi": [
-    "legionario"
-   ]
-  },
-  {
    "id": "s23",
-   "prompt_en": "Cartoon style, a Roman open-toed hobnailed caliga boot full of freezing mud and slush, close-up, miserable toes, grey light",
-   "personaggi": []
+   "prompt_en": "Cartoon of a frontier legionary proudly pulling on wool trousers under his tunic, snow outside a barrack door, practical determined mood.",
+   "personaggi": [
+    "legionario"
+   ]
   },
   {
    "id": "s24",
-   "prompt_en": "Cartoon style, shelves of Roman leather shoes found in an excavation, closed boots and socks displayed, museum warm light",
-   "personaggi": []
+   "prompt_en": "Cartoon of a Roman soldier layering clothes: two tunics, linen under wool, cloak over all, arrows showing trapped air between layers, barrack interior, warm light.",
+   "personaggi": [
+    "legionario"
+   ]
   },
   {
    "id": "s25",
-   "prompt_en": "Cartoon style, a soldier wearing sandals with woven wool socks, comedic fashion pose, snowy fort yard",
-   "personaggi": [
-    "legionario"
-   ]
-  },
-  {
-   "id": "s26",
-   "prompt_en": "Cartoon style, eight Roman soldiers sitting together eating from one pot, friendly banter, firelit barrack room",
-   "personaggi": [
-    "legionario"
-   ]
-  },
-  {
-   "id": "s27",
-   "prompt_en": "Cartoon style, a goatskin leather Roman tent in snow, glowing warmly from inside, butterfly-shaped flaps, night camp",
+   "prompt_en": "Cartoon close-up of a hobnailed open caliga boot full of freezing mud and icy slush, toes blue, grim detail, cold daylight.",
    "personaggi": []
   },
   {
+   "id": "s26",
+   "prompt_en": "Cartoon of a cobbler at Vindolanda stitching a closed leather shoe, shelves full of boots and shoes, hundreds of leather soles, workshop glow.",
+   "personaggi": []
+  },
+  {
+   "id": "s27",
+   "prompt_en": "Cartoon close-up of Roman sock and sandal combination on a soldier's feet, woven cloth sock wrapped with bindings, humorous fashion moment, stone floor.",
+   "personaggi": [
+    "legionario"
+   ]
+  },
+  {
    "id": "s28",
-   "prompt_en": "Cartoon style, eight soldiers packed asleep in a leather tent, warm orange glow with heat shimmer, cozy and crowded, cross-section view",
+   "prompt_en": "Cartoon of sunset over a snowy Roman fort, soldiers heading to barracks, orange sky fading to deep blue, smoke rising from chimneys, wide shot.",
    "personaggi": []
   },
   {
    "id": "s29",
-   "prompt_en": "Cartoon style, top-down view of a Roman fort barrack block with paired rooms, front room with gear and back room for sleeping, snow on roof",
-   "personaggi": []
-  },
-  {
-   "id": "s30",
-   "prompt_en": "Cartoon style, soldiers hanging wet cloaks and muddy boots in a front buffer room, dry sleeping room behind, practical mood",
+   "prompt_en": "Cartoon of eight Roman soldiers of a contubernium eating together around a table in a barrack room, sharing bread, laughing, warm lamp light.",
    "personaggi": [
     "legionario"
    ]
   },
   {
+   "id": "s30",
+   "prompt_en": "Cartoon of a goat-hide leather tent, papilio, in a snowy camp at night, glowing from inside, silhouettes of eight men packed in, steam rising from the top.",
+   "personaggi": []
+  },
+  {
    "id": "s31",
-   "prompt_en": "Cartoon style, small hearth fire in a thick-walled stone room, warm glow on stone, men sleeping around it, night",
+   "prompt_en": "Cartoon cutaway of a sealed leather tent with eight sleeping soldiers each glowing like a small lamp, warm orange aura filling the tent, cozy and funny.",
    "personaggi": []
   },
   {
    "id": "s32",
-   "prompt_en": "Cartoon style, a glowing charcoal brazier in a closed small room, faint ghostly fumes, a man drowsy and pale, ominous warm light",
+   "prompt_en": "Cartoon overhead view of a Roman barrack block, long rectangle split into paired rooms, front room with armor and gear, back room with bunks, cutaway.",
    "personaggi": []
   },
   {
    "id": "s33",
-   "prompt_en": "Cartoon style, a soldier opening a small gap in a shutter letting cold air in while a brazier glows, tension of cold versus fumes",
+   "prompt_en": "Cartoon of a soldier hanging a wet muddy cloak and boots in the front room before stepping into the dry sleeping room, steam, snowy doorway behind.",
    "personaggi": [
     "legionario"
    ]
   },
   {
    "id": "s34",
-   "prompt_en": "Cartoon style, huge stacks of firewood inside a Roman fort, soldiers hauling logs, autumn forest in background, industrial scale",
-   "personaggi": [
-    "legionario"
-   ]
+   "prompt_en": "Cartoon of a small hearth fire in a thick stone room, eight soldiers sleeping around it, stone walls glowing warm, deep night, cozy amber light.",
+   "personaggi": []
   },
   {
    "id": "s35",
-   "prompt_en": "Cartoon style, raiders sneaking toward a fort's woodpile at dusk, stripped bare hillside with no trees, tense mood",
+   "prompt_en": "Cartoon of a bronze charcoal brazier glowing in a small closed room, a faint ghostly green haze rising, soldiers sleeping, ominous mood, dark room.",
    "personaggi": []
   },
   {
    "id": "s36",
-   "prompt_en": "Cartoon style, Roman soldiers digging black coal from an exposed seam near a wall in Britain, grey sky, hardworking scene",
+   "prompt_en": "Cartoon of a Roman officer opening a gap in the window shutter to ventilate a barrack room, cold air flowing in, soldiers waking safely, dawn light.",
    "personaggi": [
     "legionario"
    ]
   },
   {
    "id": "s37",
-   "prompt_en": "Cartoon style, a Roman altar with a steady coal flame burning at a frontier shrine at night, glowing embers, atmospheric",
+   "prompt_en": "Cartoon of soldiers felling trees and stacking enormous woodpiles outside a Roman fort in autumn, axes, oxen hauling logs, golden leaves.",
    "personaggi": []
   },
   {
    "id": "s38",
-   "prompt_en": "Cartoon style, exterior of a Roman fort bathhouse with chimney smoke rising into snowy sky, outside the fort walls, cozy glow in windows",
-   "personaggi": []
+   "prompt_en": "Cartoon of a Roman commander in November staring at a huge woodpile with a worried look, snow beginning to fall, fort walls behind, thoughtful mood.",
+   "personaggi": [
+    "senatore"
+   ]
   },
   {
    "id": "s39",
-   "prompt_en": "Cartoon style, cutaway of a hypocaust: brick pillars under the floor, furnace pushing hot air, steam rising in the bath room, warm orange",
-   "personaggi": []
+   "prompt_en": "Cartoon of raiders sneaking toward a fort's woodpile at night with torches, a bare treeless landscape stripped of trees around the fort, tense moonlight.",
+   "personaggi": [
+    "guerriero_barbaro"
+   ]
   },
   {
    "id": "s40",
-   "prompt_en": "Cartoon style, frozen soldier relaxing in a hot steamy Roman bath after night watch, eyes closed, relief, warm colors",
+   "prompt_en": "Cartoon of Roman soldiers digging black coal out of an exposed seam on a hillside near Hadrian's Wall, baskets of coal, grey sky, wall visible in the distance.",
    "personaggi": [
     "legionario"
    ]
   },
   {
    "id": "s41",
-   "prompt_en": "Cartoon style, four Roman watch guards at different posts on a fort wall under a starry winter sky, trumpet call, wide shot",
-   "personaggi": [
-    "legionario"
-   ]
+   "prompt_en": "Cartoon of a glowing coal fire in a smithy and shrine altar flame burning through the night at a frontier fort, orange embers, calm glow.",
+   "personaggi": []
   },
   {
    "id": "s42",
-   "prompt_en": "Cartoon style, a sleeping sentry being scolded by angry comrades with sticks, snowy rampart, dramatic lighting",
+   "prompt_en": "Cartoon exterior of a Roman fort bathhouse with a furnace outside blowing smoke, snow on the roof, a steaming doorway, soldiers lining up, dusk.",
    "personaggi": [
     "legionario"
    ]
   },
   {
    "id": "s43",
-   "prompt_en": "Cartoon style, soldiers rotating shifts: one coming in shaking with cold, another heading out, dim torchlight at fort gate",
+   "prompt_en": "Cartoon cutaway of a hypocaust, brick pillars under the floor, hot air flowing from a furnace through hollow wall tiles, glowing orange and red arrows.",
+   "personaggi": []
+  },
+  {
+   "id": "s44",
+   "prompt_en": "Cartoon of a half-frozen soldier relaxing in a steamy hot bath after night watch, ice melting from his beard, blissful expression, warm steam, tiled room.",
    "personaggi": [
     "legionario"
    ]
   },
   {
-   "id": "s44",
-   "prompt_en": "Cartoon style, a pot of steaming grain porridge and bread with bacon fat on a rough table in a barrack, warm comforting light",
-   "personaggi": []
-  },
-  {
    "id": "s45",
-   "prompt_en": "Cartoon style, soldiers sipping hot posca from clay cups by a fire, steam rising, relaxed, snowy night outside",
+   "prompt_en": "Cartoon of four Roman night watches shown as four moon phases over a fort, trumpeter on the wall, sentries rotating, dark blue sky with stars.",
    "personaggi": [
     "legionario"
    ]
   },
   {
    "id": "s46",
-   "prompt_en": "Cartoon style, comparison: Roman soldier drinking diluted wine in moderation versus later army men drinking rum in snow and collapsing, split-feel humorous",
+   "prompt_en": "Cartoon of a centurion angrily waking a sleeping sentry in the snow with a stick, other soldiers gathering sternly, torchlight, tense moment.",
    "personaggi": [
     "legionario"
    ]
   },
   {
    "id": "s47",
-   "prompt_en": "Cartoon style, a Syrian archer in conical helmet on Hadrian's Wall in sleet, homesick face, grey sky, wide shot",
-   "personaggi": []
-  },
-  {
-   "id": "s48",
-   "prompt_en": "Cartoon style, a thick pile of dry bracken and heather as a bed with a wool cloak on top, stone floor, close-up, soft warm light",
-   "personaggi": []
-  },
-  {
-   "id": "s49",
-   "prompt_en": "Cartoon style, a Roman army doctor warming a patient's frostbitten hands gently by a fire with warm oil, fort hospital, calm light",
+   "prompt_en": "Cartoon of Roman soldiers eating thick wheat porridge and bread with bacon fat in a barrack mess, steam rising from bowls, cozy warm light.",
    "personaggi": [
-    "senatore"
+    "legionario"
    ]
   },
   {
+   "id": "s48",
+   "prompt_en": "Cartoon of a soldier sipping hot posca from a clay cup by a fire, vinegar jar beside him, steam curling, content smile, firelight.",
+   "personaggi": [
+    "legionario"
+   ]
+  },
+  {
+   "id": "s49",
+   "prompt_en": "Cartoon of a freezing Napoleonic-era soldier gulping brandy in the snow, blood flush on his face while a blue frost creeps over him, tragic irony, night.",
+   "personaggi": []
+  },
+  {
    "id": "s50",
-   "prompt_en": "Cartoon style, Roman cavalry stable built into a barrack block, horses steaming, men and animals under one roof, warm hay light",
+   "prompt_en": "Cartoon of Syrian Hamian archers in desert-style clothes shivering on a rainy Hadrian's Wall fort, curved bows, grey drizzle, homesick faces.",
    "personaggi": []
   },
   {
    "id": "s51",
-   "prompt_en": "Cartoon style, a sheep on a hill, then cloak and tallow lamp, closed loop of wool hide and fat, hillside fort in snow",
-   "personaggi": []
+   "prompt_en": "Cartoon of a thick pile of dry bracken and straw bedding under a soldier asleep in his wool cloak, cutaway showing air trapped under him, stone floor, lamp glow.",
+   "personaggi": [
+    "legionario"
+   ]
   },
   {
    "id": "s52",
-   "prompt_en": "Cartoon style, Roman soldiers drilling with wooden swords in snowy fort courtyard, steaming breath, energetic",
+   "prompt_en": "Cartoon of a Roman army doctor gently rewarming a soldier's frostbitten hands by a fire with warm oil, hospital room, surgical instruments on a table.",
    "personaggi": [
-    "legionario"
+    "sacerdote"
    ]
   },
   {
    "id": "s53",
-   "prompt_en": "Cartoon style, soldiers swinging picks and hauling stone at a fort construction site in winter, sweaty and warm despite snow",
+   "prompt_en": "Cartoon of a Roman cavalry fort with stables built into the barrack block, horses and soldiers sleeping on each side of a wall, steam from animals, warm interior.",
+   "personaggi": []
+  },
+  {
+   "id": "s54",
+   "prompt_en": "Cartoon of busy winter fort life: soldiers drilling in snow, repairing gear, building, hauling supplies, steam rising from working men, busy courtyard.",
    "personaggi": [
     "legionario"
    ]
   },
   {
-   "id": "s54",
-   "prompt_en": "Cartoon style, Roman supply wagons and ships delivering olive oil jars, wine and grain to a northern fort, cold harbor",
+   "id": "s55",
+   "prompt_en": "Cartoon of a supply convoy arriving at a snowy northern fort: jars of olive oil, wine amphorae, sacks of grain, wool bales, merchants and mules, bustling.",
    "personaggi": [
     "mercante"
    ]
   },
   {
-   "id": "s55",
-   "prompt_en": "Cartoon style, a Roman storeroom stacked with amphorae of oil, grain sacks, folded cloaks, ledger-keeping clerk, warm lamp light",
-   "personaggi": [
-    "scriba_egizio"
-   ]
-  },
-  {
    "id": "s56",
-   "prompt_en": "Cartoon style, pitch-black winter night outside a fort, a single sentry lantern, glowing eyes of unseen raiders in the dark, tense",
+   "prompt_en": "Cartoon of a pitch-black northern night outside fort walls, sentries with tiny torches, shadowy figures moving in the dark, trumpet sounding, tense atmosphere.",
    "personaggi": [
     "legionario"
    ]
   },
   {
    "id": "s57",
-   "prompt_en": "Cartoon style, soldiers leaving offerings at a small frontier shrine at night, lead curse tablets, candle glow",
+   "prompt_en": "Cartoon of a soldier kneeling at a small frontier shrine leaving an offering and scratching a curse onto a lead tablet, candlelight, whispered prayer.",
    "personaggi": [
     "legionario"
    ]
   },
   {
    "id": "s58",
-   "prompt_en": "Cartoon style, a deserter sneaking out of a fort gate into snowy countryside at dawn, looking back guiltily",
+   "prompt_en": "Cartoon of a deserter sneaking out of a fort gate at dawn through the snow, guards unaware, lonely footprints, grey sky.",
    "personaggi": [
     "legionario"
    ]
   },
   {
    "id": "s59",
-   "prompt_en": "Cartoon style, big pile of folded woolen cloaks and sheep in a field, hero shot of wool as the secret, warm sunlight",
-   "personaggi": []
+   "prompt_en": "Cartoon montage of a soldier's layered wool, boots, bath, bracken bed, eight men, fire and porridge arranged as small icons around a content bundled legionary.",
+   "personaggi": [
+    "legionario"
+   ]
   },
   {
    "id": "s60",
-   "prompt_en": "Cartoon style, a lone Roman sentry on the wall at sunrise, snow melting, warm golden light over the frontier, reflective, wide shot",
+   "prompt_en": "Cartoon final shot: a lone Roman sentry on a snowy wall at dawn, first sun lighting the frozen moors, smoke from the fort behind him, calm and reflective mood, wide shot.",
    "personaggi": [
     "legionario"
    ]
@@ -383,804 +387,967 @@
  "scene": [
   {
    "capitolo": "The Freezing Wall",
-   "testo": "It is February on the northern frontier. The wind is coming off the moors at 40 miles an hour. It is below freezing, and a Roman soldier stands on a stone wall in the dark with no heater, no thermal jacket, no sleeping bag.",
+   "testo": "It is February on the northern frontier. The wind is coming off the moors at 40 miles an hour. It is below freezing, and a Roman soldier stands on a stone wall in the dark. No heater. No thermal jacket. No sleeping bag. No way to leave his post. He will stand there for 3 hours.",
+   "anno": 122,
    "visivi": [
     {
      "tipo": "cartone",
-     "frase": "It is February",
+     "frase": "It is February on",
      "sfondo": "s1",
      "personaggio": "legionario",
-     "data": "February, 2nd century AD",
-     "suono": "howling wind over snowy moors"
+     "data": "122 AD",
+     "suono": "howling wind over frozen moors"
     }
    ]
   },
   {
-   "testo": "He cannot leave his post. He will stand there for 3 hours. Then he will sleep in a stone room with no glass in the window, and in the morning he will get up and do his job. Here is the part that should not make sense.",
+   "testo": "Then he will sleep in a stone room with no glass in the window, and in the morning he will get up and do his job. Here is the part that should not make sense. Men like him did this for 400 years.",
+   "anno": 122,
    "visivi": [
     {
      "tipo": "cartone",
-     "frase": "He cannot leave",
+     "frase": "Then he will sleep",
+     "sfondo": "s3",
+     "personaggio": ""
+    },
+    {
+     "tipo": "cartone",
+     "frase": "Men like him did",
      "sfondo": "s2",
      "personaggio": "legionario"
     }
    ]
   },
   {
-   "testo": "Men like him did this for 400 years. Not one bad winter. Four centuries, across Britain, the Rhine, the Danube, and the mountains of Armenia. No chimneys the way we think of chimneys. No cotton. No down. No matches.",
+   "testo": "Not one bad winter. Four centuries, across Britain, the Rhine, the Danube, and the mountains of Armenia. They had no chimneys the way we think of chimneys. No cotton. No down. No matches.",
+   "anno": 150,
    "visivi": [
     {
      "tipo": "cartone",
-     "frase": "Men like him",
-     "sfondo": "s3",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "testo": "And yet the Roman army lost fewer men to cold than almost any army that came after it for a thousand years. Napoleon's army froze in Russia in weeks. Rome held frozen ground for generations.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "Napoleon's army froze",
+     "frase": "Not one bad winter",
      "sfondo": "s4",
      "personaggio": ""
     }
    ]
   },
   {
-   "testo": "So they knew something we mostly forgot. And the single most important piece of Roman winter survival gear was not fur, and it was not fire. It was something so ordinary you probably walked past it in a shop this year. Once you see it, you cannot unsee it.",
+   "testo": "And yet the Roman army lost fewer men to cold than almost any army that came after it for the next thousand years. Napoleon's army froze in Russia in weeks. Rome held frozen ground for generations. So they knew something. Something we mostly forgot.",
+   "anno": 150,
    "visivi": [
     {
      "tipo": "cartone",
-     "frase": "So they knew",
-     "sfondo": "s59",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "capitolo": "What Cold Does",
-   "testo": "First, understand what these men were up against, because cold is not one thing. It shuts you down in stages. First your fingers go. Then your hands stop obeying. You cannot tie a knot. You cannot hold a spear.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "Cold is not",
+     "frase": "And yet the Roman",
      "sfondo": "s5",
      "personaggio": ""
-    }
-   ]
-  },
-  {
-   "testo": "Then your body pulls blood from your skin to protect your heart, and your feet go from painful, to numb, to nothing at all. And numb is the dangerous part. Numb feels like relief.",
-   "visivi": [
+    },
     {
      "tipo": "cartone",
-     "frase": "Then your body",
+     "frase": "So they knew something",
      "sfondo": "s6",
      "personaggio": ""
     }
    ]
   },
   {
-   "testo": "Now put that on a man in northern Britain, where winter nights run 16 hours long, or on the Danube, where the river freezes solid enough to march an army across. Roman writers describe wine freezing in the jar and being cut with a blade.",
+   "testo": "The single most important piece of Roman winter survival gear was not fur, and it was not fire. It was something so ordinary you probably walked past it in a shop this year. We will get to it, because once you see it, you cannot unsee it.",
+   "anno": 150,
    "visivi": [
     {
      "tipo": "cartone",
-     "frase": "Roman writers describe",
-     "sfondo": "s7",
-     "personaggio": "legionario",
-     "suono": "ice cracking on a frozen river"
-    }
-   ]
-  },
-  {
-   "testo": "These were the postings nobody wanted. And we know exactly what happened when the system failed, because a Roman historian wrote it down. It is much worse than you are imagining.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "a Roman historian",
-     "sfondo": "s8",
-     "personaggio": "senatore"
-    }
-   ]
-  },
-  {
-   "capitolo": "Tacitus and the Armenian Snow",
-   "testo": "His name is Tacitus. He is writing about a winter campaign in Armenia under the general Corbulo, in the first century. The army was caught in the mountains. The snow was deep enough to bury the ground, and the cold crept into the camp.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "Tacitus",
-     "sfondo": "s9",
-     "personaggio": "senatore"
-    }
-   ]
-  },
-  {
-   "testo": "Tacitus says sentries were found frozen at their posts, still standing, still holding position. Limbs turned black and were simply lost. One story says a soldier carrying firewood had hands so frozen they stayed gripped around the wood.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "sentries were found",
-     "sfondo": "s10",
-     "personaggio": "legionario"
-    }
-   ]
-  },
-  {
-   "testo": "Whether that last detail is literal or a campfire story, the point is the same. Cold could beat the Roman army without a single sword being drawn. So they did what Rome always did with an enemy. They studied it, built a system against it, and enforced it with discipline.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "So they did what",
-     "sfondo": "s11",
+     "frase": "The single most important",
+     "sfondo": "s6",
      "personaggio": ""
     }
    ]
   },
   {
-   "capitolo": "Letters and Socks",
-   "testo": "The first piece of that system is a letter. A real one, written by hand. In 1973, archaeologists digging at Vindolanda, a fort just south of Hadrian's Wall, found something nobody expected to survive.",
+   "capitolo": "What Cold Does",
+   "testo": "First, you have to understand what these men were up against, because we say cold like it is one thing. It is not. Cold shuts you down in stages. First you stop feeling your fingers. Then your hands stop obeying you. You cannot tie a knot. You cannot hold a spear.",
+   "anno": 150,
    "visivi": [
     {
      "tipo": "cartone",
-     "frase": "In 1973",
-     "sfondo": "s12",
-     "personaggio": "",
-     "data": "1973"
+     "frase": "First, you have to",
+     "sfondo": "s2",
+     "personaggio": "legionario"
+    },
+    {
+     "tipo": "cartone",
+     "frase": "You cannot tie a",
+     "sfondo": "s7",
+     "personaggio": "legionario",
+     "suono": "cold wind, faint shivering"
     }
    ]
   },
   {
-   "testo": "Thin slivers of wood the size of a postcard, preserved in wet, oxygen-free mud for 1,900 years. Ordinary letters. Birthday invitations, complaints about the roads, requests for beer. And one is a note about a care package for a soldier. Socks. Two pairs of sandals. Underwear.",
+   "testo": "Then your body pulls blood away from your skin to protect your heart, and your feet go from painful to numb to nothing at all. And numb is the dangerous part. Numb feels like relief.",
+   "anno": 150,
    "visivi": [
     {
      "tipo": "cartone",
-     "frase": "Socks. Two pairs",
-     "sfondo": "s13",
+     "frase": "Then your body pulls",
+     "sfondo": "s25",
+     "personaggio": ""
+    }
+   ]
+  },
+  {
+   "testo": "Now put that on a man in a Roman fort in northern Britain, where winter nights run 16 hours long, or on the Danube, where the river freezes solid enough to walk an army across. Roman writers describe wine freezing in the jar and having to be cut with a blade.",
+   "anno": 150,
+   "visivi": [
+    {
+     "tipo": "cartone",
+     "frase": "Now put that on",
+     "sfondo": "s8",
+     "personaggio": ""
+    },
+    {
+     "tipo": "cartone",
+     "frase": "Roman writers describe wine",
+     "sfondo": "s9",
      "personaggio": "legionario"
     }
    ]
   },
   {
-   "testo": "Sit with that for a second. Two thousand years ago, somebody who loved a man stationed on the coldest, wettest edge of the empire sent him socks, because they worried about his feet. That is not a textbook. That is a person.",
+   "capitolo": "Tacitus and Armenia",
+   "testo": "These were not soft postings. These were the postings nobody wanted. And we know exactly what happened when the system failed, because a Roman historian wrote it down. The historian is Tacitus, writing about a winter campaign in Armenia under the general Corbulo in the first century.",
+   "anno": 60,
    "visivi": [
     {
      "tipo": "cartone",
-     "frase": "Two thousand years ago",
-     "sfondo": "s14",
-     "personaggio": "contadina_antica"
+     "frase": "These were not soft",
+     "sfondo": "s12",
+     "personaggio": ""
+    },
+    {
+     "tipo": "cartone",
+     "frase": "The historian is Tacitus",
+     "sfondo": "s10",
+     "personaggio": "",
+     "data": "1st century AD"
     }
    ]
   },
   {
-   "testo": "If you like that kind of small human detail hiding inside ancient history, subscribe right now. That is the whole point of this channel. History made of people, not dates. Because those socks are also the first clue to the real survival system.",
+   "testo": "The army was caught in the mountains. The snow was deep enough to bury the ground, and the cold got into the camp. Tacitus says centurions were found frozen at their posts, still standing, still holding position, frozen solid. He describes men whose limbs turned black and were simply lost.",
+   "anno": 60,
    "visivi": [
     {
      "tipo": "cartone",
-     "frase": "If you like",
+     "frase": "The army was caught",
+     "sfondo": "s10",
+     "personaggio": ""
+    },
+    {
+     "tipo": "cartone",
+     "frase": "He describes men whose",
+     "sfondo": "s11",
+     "personaggio": "legionario"
+    }
+   ]
+  },
+  {
+   "testo": "One story that has followed that passage for 2,000 years is of a soldier carrying a bundle of firewood whose hands froze so completely that they failed entirely, still gripping the wood. Whether that last detail is literal or a story passed around a fire, the point is the same. Cold could beat the Roman army without a single sword drawn.",
+   "anno": 60,
+   "visivi": [
+    {
+     "tipo": "cartone",
+     "frase": "One story that has",
+     "sfondo": "s11",
+     "personaggio": "legionario"
+    },
+    {
+     "tipo": "cartone",
+     "frase": "Cold could beat the",
+     "sfondo": "s12",
+     "personaggio": ""
+    }
+   ]
+  },
+  {
+   "testo": "So they did what Rome always did with an enemy. They studied it. They built a system against it, and they enforced that system with discipline. And the first piece of that system is a letter. A real letter, written by hand.",
+   "anno": 100,
+   "visivi": [
+    {
+     "tipo": "cartone",
+     "frase": "So they did what",
+     "sfondo": "s12",
+     "personaggio": "senatore"
+    },
+    {
+     "tipo": "cartone",
+     "frase": "A real letter, written",
+     "sfondo": "s13",
+     "personaggio": ""
+    }
+   ]
+  },
+  {
+   "capitolo": "Letters from Vindolanda",
+   "testo": "In 1973, archaeologists digging at Vindolanda, a fort just south of Hadrian's Wall, found something nobody expected to survive. Thin slivers of wood about the size of a postcard, preserved in wet, oxygen-free mud for 1,900 years. They were letters. Invitations to a birthday party, complaints about the roads, requests for beer.",
+   "anno": 100,
+   "visivi": [
+    {
+     "tipo": "cartone",
+     "frase": "In 1973, archaeologists digging",
+     "sfondo": "s13",
+     "personaggio": "",
+     "data": "1973"
+    },
+    {
+     "tipo": "cartone",
+     "frase": "Invitations to a birthday",
+     "sfondo": "s13",
+     "personaggio": ""
+    }
+   ]
+  },
+  {
+   "testo": "And one of them is a note about a care package sent to a soldier. Socks. Two pairs of sandals. Underwear. Sit with that for a second. Two thousand years ago, somebody who loved a man stationed in the coldest, wettest corner of the empire sent him socks, because they were worried about his feet.",
+   "anno": 100,
+   "visivi": [
+    {
+     "tipo": "cartone",
+     "frase": "And one of them",
+     "sfondo": "s14",
+     "personaggio": ""
+    },
+    {
+     "tipo": "cartone",
+     "frase": "Sit with that for",
      "sfondo": "s15",
      "personaggio": "legionario"
     }
    ]
   },
   {
-   "capitolo": "Wool, Wool, Wool",
-   "testo": "Here is what modern people get wrong. We look at statues and picture soldiers in metal and leather, bare-legged, dressed for a Mediterranean summer. That is the parade version. The real northern soldier was dressed in one material above all others. Wool.",
+   "testo": "That is not a textbook. That is a person. If you are the kind of person who gets something out of that small human detail hiding inside ancient history, subscribe right now. That is the entire point of this channel. History made of people, not dates.",
+   "anno": 100,
    "visivi": [
+    {
+     "tipo": "cartone",
+     "frase": "That is not a",
+     "sfondo": "s15",
+     "personaggio": "legionario"
+    }
+   ]
+  },
+  {
+   "capitolo": "Wool Is King",
+   "testo": "Here is what modern people get wrong about Roman clothing. We look at statues and picture soldiers in metal and leather, bare-legged, dressed for a Mediterranean summer. That is the parade version. The real northern soldier was dressed in one material above all others. Wool.",
+   "anno": 120,
+   "visivi": [
+    {
+     "tipo": "cartone",
+     "frase": "Here is what modern",
+     "sfondo": "s16",
+     "personaggio": "legionario"
+    },
     {
      "tipo": "cartone",
      "frase": "The real northern soldier",
-     "sfondo": "s16",
+     "sfondo": "s17",
      "personaggio": ""
     }
    ]
   },
   {
-   "testo": "Raw wool carries a natural grease called lanolin. The Romans in the north often did not wash it out. Greasy wool sheds rain instead of soaking it up. And wool keeps insulating even when wet, because its crimped fibers trap air. Wet cotton kills you. Wet wool just annoys you.",
+   "testo": "And not the soft white wool you buy today. Raw wool has a natural grease in it called lanolin. Wash wool hard and you strip that grease out. The Romans in the north often did not. That matters more than it sounds. Greasy wool sheds rain instead of soaking it up.",
+   "anno": 120,
    "visivi": [
     {
      "tipo": "cartone",
-     "frase": "Greasy wool sheds",
+     "frase": "And not the soft",
      "sfondo": "s17",
+     "personaggio": ""
+    },
+    {
+     "tipo": "cartone",
+     "frase": "Greasy wool sheds rain",
+     "sfondo": "s18",
      "personaggio": "legionario"
     }
    ]
   },
   {
-   "testo": "The basic cloak was the sagum, a thick rectangle of wool pinned at the shoulder. A wearable blanket. But in the north they had something better. The birrus Britannicus, a hooded, weatherproof cloak made in Roman Britain.",
+   "testo": "And here is the part that still beats most modern fabrics. Wool keeps insulating even when it is wet, because the fibers are crimped and trap air inside themselves. Wet cotton kills you. Wet wool just annoys you.",
+   "anno": 120,
    "visivi": [
+    {
+     "tipo": "cartone",
+     "frase": "Wool keeps insulating even",
+     "sfondo": "s18",
+     "personaggio": "legionario",
+     "suono": "steady rain on wool"
+    }
+   ]
+  },
+  {
+   "testo": "The basic soldier's cloak was the sagum, a thick rectangle of heavy wool pinned at the shoulder. Simple. Unglamorous. Effectively a wearable blanket. But in the north, they had something better. The birrus Britannicus, a hooded, weatherproof cloak made in Roman Britain.",
+   "anno": 150,
+   "visivi": [
+    {
+     "tipo": "cartone",
+     "frase": "The basic soldier's cloak",
+     "sfondo": "s19",
+     "personaggio": "legionario"
+    },
     {
      "tipo": "cartone",
      "frase": "The birrus Britannicus",
-     "sfondo": "s18",
+     "sfondo": "s20",
      "personaggio": ""
     }
    ]
   },
   {
-   "testo": "And we know how good it was. When Emperor Diocletian issued his price edict, the British hooded cloak was listed as a premium item. Think about that. Britain was the cold, damp, unfashionable edge of the empire, and its luxury export was rain gear.",
+   "testo": "We are not guessing about how good it was. When the Emperor Diocletian issued his price edict, trying to cap prices across the empire, the British hooded cloak is on the list as a premium item. Think about what that means. Britain was the cold, damp, unfashionable edge of the Roman world, and its main luxury export was rain gear.",
+   "anno": 301,
    "visivi": [
     {
      "tipo": "cartone",
-     "frase": "Emperor Diocletian",
-     "sfondo": "s19",
-     "personaggio": "senatore"
-    }
-   ]
-  },
-  {
-   "testo": "A cloak alone does not get you through a 16-hour night, though. The next layer is something Romans mocked for centuries. Trousers. Bracae. To a Roman senator, a man in trousers had given up on civilization. Gauls wore them, Germans wore them, Persians wore them.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "Trousers. Bracae.",
-     "sfondo": "s20",
-     "personaggio": "senatore"
-    }
-   ]
-  },
-  {
-   "testo": "Then Rome conquered the cold places, and the men standing on the frozen ground did the sensible thing. By the second century, legionaries on monuments wear close-fitting wool leggings. Fashion lost every argument it ever had with frostbite.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "By the second century",
+     "frase": "We are not guessing",
      "sfondo": "s21",
+     "personaggio": "mercante",
+     "data": "301 AD"
+    },
+    {
+     "tipo": "cartone",
+     "frase": "Britain was the cold",
+     "sfondo": "s20",
+     "personaggio": ""
+    }
+   ]
+  },
+  {
+   "capitolo": "Trousers and Layers",
+   "testo": "But a cloak alone does not get you through a 16-hour night. The next layer is something Romans openly mocked for centuries. Trousers. Bracae. For most of Roman history, trousers were a joke. They were what Gauls wore, what Germans wore, what Persians wore.",
+   "anno": 200,
+   "visivi": [
+    {
+     "tipo": "cartone",
+     "frase": "To a Roman senator",
+     "sfondo": "s22",
+     "personaggio": "senatore"
+    }
+   ]
+  },
+  {
+   "testo": "To a Roman senator, a man in trousers was a man who had given up on civilization. And then Rome conquered the cold places, and the men actually standing on the frozen ground did the sensible thing. They put on the trousers. By the second century, you see legionaries on Roman monuments wearing close-fitting wool leggings under their tunics.",
+   "anno": 200,
+   "visivi": [
+    {
+     "tipo": "cartone",
+     "frase": "And then Rome conquered",
+     "sfondo": "s23",
      "personaggio": "legionario"
     }
    ]
   },
   {
-   "testo": "And they layered. Two tunics in winter was normal. Wool over linen, cloak over both, trapped air between the layers. Exactly what a modern mountaineer does today with a base layer, a mid layer, and a shell.",
+   "testo": "The empire's official taste said no. The empire's front lines said yes. This is one of the quiet truths about the Roman legion. It was ruthlessly practical. Fashion lost every argument it ever had with frostbite. And they layered. Two tunics in winter was normal. Wool over linen, cloak over both, trapped air between the layers.",
+   "anno": 200,
    "visivi": [
     {
      "tipo": "cartone",
      "frase": "And they layered",
-     "sfondo": "s22",
+     "sfondo": "s24",
      "personaggio": "legionario"
     }
    ]
   },
   {
-   "capitolo": "Boots and Feet",
-   "testo": "But the weakest point was never the body. It was the feet. The famous Roman boot, the caliga, had a heavy sole, hobnails, and an open strappy design. In Italy it is brilliant. It breathes and drains.",
+   "capitolo": "Boots and Socks",
+   "testo": "But the weakest point in the whole system was never the body. It was the feet. The famous Roman boot, the caliga, has a heavy leather sole, hobnails, and a strappy open design that lets air move around the foot. In Italy, brilliant. In a British winter, an open boot full of freezing mud is a very efficient machine for destroying toes.",
+   "anno": 150,
    "visivi": [
     {
      "tipo": "cartone",
      "frase": "The famous Roman boot",
-     "sfondo": "s23",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "testo": "In a British winter, an open boot full of freezing mud is a very efficient machine for destroying toes. So the northern army quietly changed. Vindolanda has produced thousands of shoes, one of the biggest collections in the world, and many are closed shoes. Real boots.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "Vindolanda has produced",
-     "sfondo": "s24",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "testo": "And inside them, socks. Woven cloth cut and sewn to the foot, or wool wrapped and bound. There is even Roman art showing socks worn with sandals, which every fashion magazine on earth would like us to forget.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "even Roman art",
      "sfondo": "s25",
+     "personaggio": ""
+    }
+   ]
+  },
+  {
+   "testo": "So the northern army quietly changed. Excavations at Vindolanda have produced thousands of shoes, one of the biggest collections of Roman leather footwear in the world, and a lot of them are closed shoes. Enclosed uppers. Real boots. And inside them, socks.",
+   "anno": 150,
+   "visivi": [
+    {
+     "tipo": "cartone",
+     "frase": "So the northern army",
+     "sfondo": "s26",
+     "personaggio": ""
+    },
+    {
+     "tipo": "cartone",
+     "frase": "And inside them, socks",
+     "sfondo": "s27",
+     "personaggio": "legionario"
+    }
+   ]
+  },
+  {
+   "testo": "Not knitted socks like ours. Roman socks were often woven cloth cut and sewn to the foot, or wool wrapped and bound. There is even Roman art showing socks worn with sandals, which every fashion magazine on earth would like us to forget.",
+   "anno": 150,
+   "visivi": [
+    {
+     "tipo": "cartone",
+     "frase": "There is even Roman",
+     "sfondo": "s27",
      "personaggio": "legionario"
     }
    ]
   },
   {
    "capitolo": "Eight Men, One Heater",
-   "testo": "So the man is dressed. The sun goes down, and now the real engineering starts. The basic unit of the Roman army day to day was the contubernium. Eight men who ate together, marched together, were punished together, and slept together.",
+   "testo": "So the man is dressed. Now the sun goes down, and here is where the real engineering starts, because eight men are about to do something to stay alive that no modern soldier would be comfortable with.",
+   "anno": 150,
    "visivi": [
     {
      "tipo": "cartone",
-     "frase": "The basic unit",
-     "sfondo": "s26",
-     "personaggio": "legionario"
-    }
-   ]
-  },
-  {
-   "testo": "On campaign, they slept in a tent of stitched goat hide. Soldiers nicknamed it the papilio, the butterfly, for the way it opened out. Now think about the physics. A human body puts out roughly 100 watts at rest.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "On campaign",
-     "sfondo": "s27",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "testo": "Eight bodies in a sealed leather tent is 800 watts of heat with nowhere to go. Miserable for smell and moisture. Excellent for temperature. The sleeping arrangement was the heating system. The Roman army had industrialized body heat.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "Eight bodies in",
+     "frase": "So the man is",
      "sfondo": "s28",
      "personaggio": ""
-    }
-   ]
-  },
-  {
-   "testo": "In permanent forts, the architecture did the work. Barrack blocks are long rectangles divided into pairs of rooms. Each contubernium got a front room for kit and gear, and a back room for sleeping. The front room is an airlock.",
-   "visivi": [
+    },
     {
      "tipo": "cartone",
-     "frase": "In permanent forts",
+     "frase": "eight men are about",
      "sfondo": "s29",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "testo": "Cold air, wet cloaks, and muddy boots stop there instead of coming into the room where men sleep. Any mountaineer will tell you that keeping wet gear out of your sleeping space is the difference between a rough night and a dangerous one.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "Cold air, wet cloaks",
-     "sfondo": "s30",
      "personaggio": "legionario"
     }
    ]
   },
   {
-   "testo": "Many rooms have small hearths. Not grand fireplaces, just a contained fire, thick stone walls, and eight men. Stone is slow. It takes hours to warm and hours to cool. A stone room with a fire is a battery. You charge it in the evening, and it pays you back at 3 a.m.",
+   "testo": "The basic unit of the Roman army was not the legion. Day to day, it was the contubernium. Eight men who ate together, marched together, were punished together, and slept together in one room or one tent. On campaign, that tent was made of goat hide stitched into panels.",
+   "anno": 150,
    "visivi": [
     {
      "tipo": "cartone",
-     "frase": "Many rooms have",
+     "frase": "The basic unit of",
+     "sfondo": "s29",
+     "personaggio": "legionario"
+    },
+    {
+     "tipo": "cartone",
+     "frase": "On campaign, that tent",
+     "sfondo": "s30",
+     "personaggio": ""
+    }
+   ]
+  },
+  {
+   "testo": "Soldiers nicknamed it the papilio, the butterfly, because of the way it opened out. Now think about the physics. A human body puts out heat like a small lamp, roughly 100 watts at rest. Eight bodies in a sealed leather tent is 800 watts of heat with nowhere to go.",
+   "anno": 150,
+   "visivi": [
+    {
+     "tipo": "cartone",
+     "frase": "Now think about the",
      "sfondo": "s31",
      "personaggio": ""
     }
    ]
   },
   {
-   "capitolo": "Fire, Fumes and Fuel",
-   "testo": "But fire indoors, in a small stone room with a low roof, carries a silent risk. Charcoal braziers were everywhere in the Roman world. Charcoal burns hot and steady with almost no smoke. That is why you can use it indoors, and exactly what makes it dangerous.",
+   "testo": "Leather does not breathe much. That is miserable for smell and moisture. It is excellent for temperature. The sleeping arrangement was the heating system. The Roman army had industrialized body heat.",
+   "anno": 150,
    "visivi": [
     {
      "tipo": "cartone",
-     "frase": "Charcoal braziers were",
-     "sfondo": "s32",
-     "personaggio": "",
-     "suono": "soft crackling charcoal embers"
+     "frase": "The sleeping arrangement was",
+     "sfondo": "s31",
+     "personaggio": ""
     }
    ]
   },
   {
-   "testo": "Burning charcoal in a closed room makes carbon monoxide. No smell, no smoke, no warning. You feel pleasantly warm and sleepy. Roman authors warned about braziers in closed rooms and people found unresponsive in the morning. So the rule was ventilation. Gaps. Which meant letting the cold back in.",
+   "capitolo": "Stone, Fire and Fumes",
+   "testo": "In the permanent forts, the architecture itself was doing something clever. Walk around a Roman fort today and the barrack blocks look like long, thin rectangles divided into pairs of rooms. Each contubernium got two spaces. A front room for armor and gear. A back room for sleeping.",
+   "anno": 150,
    "visivi": [
     {
      "tipo": "cartone",
-     "frase": "Roman authors warned",
+     "frase": "Walk around a Roman",
+     "sfondo": "s32",
+     "personaggio": ""
+    }
+   ]
+  },
+  {
+   "testo": "The front room is an airlock. Cold air, wet cloaks, and muddy boots stop there instead of coming into the room where the men sleep. Any mountaineer will tell you that keeping wet gear out of your sleeping space is the difference between a rough night and a dangerous one.",
+   "anno": 150,
+   "visivi": [
+    {
+     "tipo": "cartone",
+     "frase": "The front room is",
      "sfondo": "s33",
      "personaggio": "legionario"
     }
    ]
   },
   {
-   "testo": "Which raises a question nobody asks. Where did all the fuel come from? A single auxiliary fort of 500 men could burn hundreds of tons of wood a year, counting cooking fires, barrack hearths, the bathhouse furnace, and workshops. That is not a campfire. That is an industry.",
+   "testo": "And in many of these rooms, archaeologists find hearths. Small fires. A contained fire in a room with eight men and thick stone walls. Stone is slow. It takes hours to warm up and hours to cool down. A stone room with a fire in it is a battery. You charge it in the evening, and it pays you back at 3 in the morning.",
+   "anno": 150,
    "visivi": [
     {
      "tipo": "cartone",
-     "frase": "Where did all",
+     "frase": "And in many of",
      "sfondo": "s34",
-     "personaggio": "legionario"
+     "personaggio": "",
+     "suono": "crackling fire"
     }
    ]
   },
   {
-   "testo": "Green wood burns badly, so wood cut in autumn is nearly useless in December. A Roman commander in November was thinking about the enemy, and about a woodpile. Which made the woodpile a target. Raiders did not need to win a battle. They just needed to stop the fuel.",
+   "testo": "But fire indoors, in a small stone room with a low roof, comes with a silent risk. Charcoal braziers were everywhere in the Roman world. Charcoal burns hot, steady, and with almost no smoke. That is exactly what makes it dangerous. Burning charcoal in a closed room produces carbon monoxide. No smell. No smoke. No warning.",
+   "anno": 150,
    "visivi": [
     {
      "tipo": "cartone",
-     "frase": "Raiders did not",
+     "frase": "Charcoal braziers were everywhere",
      "sfondo": "s35",
      "personaggio": ""
     }
    ]
   },
   {
-   "testo": "Which is why on the northern frontier, the army started burning something most people think nobody used until the Industrial Revolution. Coal. At sites along Hadrian's Wall, archaeologists have found coal and burnt coal residue in Roman levels.",
+   "testo": "The Romans did not have the chemistry, but they had the pattern. Roman authors warned about fumes from braziers in closed rooms, and about people found unresponsive in the morning. So the rule was ventilation. Gaps. Openings. Which means the price of not being poisoned was letting the cold back in.",
+   "anno": 150,
    "visivi": [
     {
      "tipo": "cartone",
-     "frase": "Coal. At sites",
+     "frase": "So the rule was",
      "sfondo": "s36",
      "personaggio": "legionario"
     }
    ]
   },
   {
-   "testo": "Wood burns fast and needs constant feeding. Coal burns slow, burns hot, and holds heat for hours. There is even evidence linking coal to frontier shrines, where a flame had to burn all night without someone watching it. The Romans solved an energy crisis about 1,600 years early.",
+   "capitolo": "Wood, Coal and Baths",
+   "testo": "Which raises the question nobody asks. Where did all the fuel come from? Estimates for a single auxiliary fort of 500 men run into hundreds of tons of wood a year, once you add up cooking fires, barrack hearths, the bathhouse furnace, and the workshops. That is not a campfire. That is an industry.",
+   "anno": 150,
    "visivi": [
     {
      "tipo": "cartone",
-     "frase": "Wood burns fast",
+     "frase": "Estimates for a single",
      "sfondo": "s37",
      "personaggio": ""
     }
    ]
   },
   {
-   "capitolo": "The Bathhouse",
-   "testo": "But the most aggressive weapon against cold was not a fire in a room. It was a building, and they built one at almost every fort. The bathhouse. We think of Roman baths as leisure. On the frontier, the bathhouse was medical infrastructure.",
+   "testo": "Fuel was strategy. Wood had to be cut, dried, hauled, and stored in bulk before winter. Green wood does not burn well, so a Roman commander in November was thinking about a wood pile. And that made the wood pile a target. Raiders did not need to beat a garrison in battle. They just needed to stop it getting fuel.",
+   "anno": 150,
    "visivi": [
     {
      "tipo": "cartone",
-     "frase": "But the most aggressive",
+     "frase": "Fuel was strategy",
      "sfondo": "s38",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "testo": "Under the floor ran the hypocaust. The floor sat on stacks of short brick pillars, and a furnace outside pushed hot air into the space below. Heat traveled up through hollow tiles in the walls. Underfloor heating, in the first century.",
-   "visivi": [
+     "personaggio": "senatore"
+    },
     {
      "tipo": "cartone",
-     "frase": "Under the floor",
+     "frase": "Raiders did not need",
      "sfondo": "s39",
-     "personaggio": "",
-     "suono": "furnace roaring, steam hissing"
+     "personaggio": "guerriero_barbaro"
     }
    ]
   },
   {
-   "testo": "Now think of a man just off a night watch in sleet, cold to the core. A blanket will not fix that quickly. Hot air and hot water will. A bathhouse is a rewarming station. It dries clothes, kills the shivering, and resets a body on the edge of going down.",
+   "testo": "Which is why, on the northern frontier, the Roman army started burning something most people think nobody used until the Industrial Revolution. Coal. At sites along Hadrian's Wall, archaeologists have found coal and burnt coal residue in Roman levels.",
+   "anno": 150,
    "visivi": [
     {
      "tipo": "cartone",
-     "frase": "Now think of a man",
+     "frase": "At sites along Hadrian's",
      "sfondo": "s40",
      "personaggio": "legionario"
     }
    ]
   },
   {
-   "testo": "They built these even where it was tactically awkward. Bathhouses often sit outside the fort walls, because a furnace burning all day beside timber and thatch is a fire risk. They accepted a building outside their own defenses, in hostile country, to get it.",
+   "testo": "Coal solves the exact problem wood creates. Wood burns fast and needs constant feeding. Coal burns slow, burns hot, and holds heat for hours. There is even evidence linking coal use to shrines along the frontier, where a flame had to burn all night without someone standing over it. They solved their energy crisis about 1,600 years before the Industrial Revolution.",
+   "anno": 150,
    "visivi": [
     {
      "tipo": "cartone",
-     "frase": "They built these",
-     "sfondo": "s38",
+     "frase": "Coal solves the exact",
+     "sfondo": "s41",
      "personaggio": ""
     }
    ]
   },
   {
-   "capitolo": "Watches, Food and Drink",
-   "testo": "And the night watch was not only about security. It was thermal math. The Roman night was divided into four watches, sunset to dawn, whatever the season. In deep winter, with 16 hours of darkness, each watch stretches long.",
+   "testo": "But the single most aggressive weapon the Romans had against cold was a building they built at almost every fort. The bathhouse. We think of Roman baths as leisure. On the frontier, the bathhouse was medical infrastructure.",
+   "anno": 150,
    "visivi": [
     {
      "tipo": "cartone",
-     "frase": "The Roman night",
-     "sfondo": "s41",
-     "personaggio": "legionario",
-     "suono": "distant trumpet call at night"
-    }
-   ]
-  },
-  {
-   "testo": "A sentry who fell asleep could be beaten by the men whose lives he had endangered. Savage, until you realize that sleeping in the cold is how hypothermia finishes you. He does not just risk the camp. He risks never waking up.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "A sentry who fell",
+     "frase": "The bathhouse. We think",
      "sfondo": "s42",
      "personaggio": "legionario"
     }
    ]
   },
   {
-   "testo": "So rotation was survival. You go out, get cold, come back, get warm, and someone else goes out. Nobody stays out long enough to lose their hands. Shift work designed around the limits of the human body.",
+   "testo": "Underneath the floor ran the hypocaust. The floor was raised on stacks of short brick pillars, and a furnace outside pushed hot air into that empty space. Heat traveled under the floor and up through hollow tiles in the walls. Underfloor heating, in the first century.",
+   "anno": 100,
    "visivi": [
     {
      "tipo": "cartone",
-     "frase": "So rotation was",
+     "frase": "Underneath the floor ran",
      "sfondo": "s43",
-     "personaggio": "legionario"
-    }
-   ]
-  },
-  {
-   "testo": "And they fueled that body in a specific way. Forget legionaries tearing into roast meat. The core of the diet was grain. Wheat, made into bread or boiled into thick porridge. Boring, and exactly right. Digesting food produces heat.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "Forget legionaries",
-     "sfondo": "s44",
      "personaggio": ""
     }
    ]
   },
   {
-   "testo": "Add fat. Bacon, lard, and animal fat appear again and again in Roman military supply records. Fat is the densest energy you can carry. And hot liquid. Posca, sour wine or vinegar mixed with water. Warm it, and it hydrates you and delivers heat straight to your core.",
+   "testo": "Now understand what that does for a man who has just come off a night watch in sleet. Core temperature does not come back from a blanket quickly. It comes back fast from hot air and hot water. A bathhouse is a rewarming station. It dries clothes, kills the shivering, and resets a body on the edge of going down.",
+   "anno": 150,
    "visivi": [
     {
      "tipo": "cartone",
-     "frase": "Posca, sour wine",
+     "frase": "Now understand what that",
+     "sfondo": "s44",
+     "personaggio": "legionario",
+     "suono": "bubbling hot water, steam"
+    }
+   ]
+  },
+  {
+   "capitolo": "Watches and Food",
+   "testo": "Even the night watch was not only about security. It was thermal math. The Roman night was divided into four watches, sunset to dawn, whatever the season. In deep winter, with 16 hours of darkness, each watch stretches out. And falling asleep on guard could get a man beaten without mercy.",
+   "anno": 150,
+   "visivi": [
+    {
+     "tipo": "cartone",
+     "frase": "The Roman night was",
+     "sfondo": "s45",
+     "personaggio": "legionario"
+    },
+    {
+     "tipo": "cartone",
+     "frase": "falling asleep on guard",
+     "sfondo": "s46",
+     "personaggio": "legionario"
+    }
+   ]
+  },
+  {
+   "testo": "That sounds savage until you realize what falling asleep in the cold means. Sleeping in the cold is how hypothermia finishes you. A sentry who nods off risks never waking up. So rotation was survival. You go out, you get cold, you come back, you get warm, someone else goes out. Nobody stays out long enough to lose their hands.",
+   "anno": 150,
+   "visivi": [
+    {
+     "tipo": "cartone",
+     "frase": "So rotation was survival",
      "sfondo": "s45",
      "personaggio": "legionario"
     }
    ]
   },
   {
-   "testo": "And that brings us to the biggest cold myth in history. That a strong drink keeps you warm. It does the opposite. Alcohol opens the blood vessels near your skin, your core heat rushes out, and you feel warmer while getting colder.",
+   "testo": "And they fueled that body in a very specific way. Forget legionaries tearing into roast meat every night. The core of the diet was grain. Wheat ground into flour, made into bread or boiled into thick porridge. Simple. Boring. And exactly right. Digesting food produces heat.",
+   "anno": 150,
    "visivi": [
     {
      "tipo": "cartone",
-     "frase": "the biggest cold myth",
-     "sfondo": "s46",
+     "frase": "The core of the",
+     "sfondo": "s47",
      "personaggio": "legionario"
     }
    ]
   },
   {
-   "testo": "Roman soldiers drank wine watered down, often heavily. Drinking it neat was considered barbaric. Compare that with armies 1,500 years later, handing out rum and brandy to freezing men before a night march, and losing them by morning. Drunk sentries lose forts. In the cold, they also become ghosts.",
+   "testo": "Then add fat. Bacon, lard, and animal fat appear repeatedly in Roman military supply records. And hot liquid. Posca, a drink of sour wine or vinegar mixed with water, was a staple. Warm it, and it hydrates you and delivers heat straight to your core.",
+   "anno": 150,
+   "visivi": [
+    {
+     "tipo": "cartone",
+     "frase": "Posca, a drink of",
+     "sfondo": "s48",
+     "personaggio": "legionario"
+    }
+   ]
+  },
+  {
+   "testo": "And that brings us to the biggest cold weather myth in history. Drinking to keep warm. Alcohol opens up the blood vessels near your skin. Blood rushes to the surface. You feel a flush of warmth, and that warmth is literally your core heat leaving your body. You feel warmer while becoming colder.",
+   "anno": 150,
+   "visivi": [
+    {
+     "tipo": "cartone",
+     "frase": "Alcohol opens up the",
+     "sfondo": "s49",
+     "personaggio": ""
+    }
+   ]
+  },
+  {
+   "testo": "Roman soldiers drank wine, but they drank it watered, often heavily. Drinking wine neat was considered barbaric. Compare that with armies 1,500 years later, handing out rum and brandy to freezing men before a night march, and losing them by morning. Drunk sentries lose forts. In the cold, a drunk sentry is also a ghost in waiting.",
+   "anno": 150,
    "visivi": [
     {
      "tipo": "cartone",
      "frase": "Roman soldiers drank wine",
-     "sfondo": "s46",
-     "personaggio": ""
+     "sfondo": "s48",
+     "personaggio": "legionario"
     }
    ]
   },
   {
-   "capitolo": "Syrians on the Wall",
-   "testo": "But no clothing, fire, or food prepares you for what the empire did to some of its own men. At a fort called Carvoran, along Hadrian's Wall, was a unit of Syrian archers, raised in the hot, dry country of what is now Syria.",
+   "capitolo": "Far From Home",
+   "testo": "But no amount of clothing, fire, or food prepares you for what the empire did to some of its own men. Along Hadrian's Wall, at a fort called Carvoran, was a unit of Syrian archers, raised in the hot, dry country of what is now Syria.",
+   "anno": 150,
    "visivi": [
     {
      "tipo": "cartone",
-     "frase": "At a fort called",
-     "sfondo": "s47",
+     "frase": "Along Hadrian's Wall, at",
+     "sfondo": "s50",
      "personaggio": ""
     }
    ]
   },
   {
-   "testo": "Picture that journey. Recruited in sun and dust, marched across an empire, and stationed in a stone fort where it rains for weeks and the sun barely climbs above the hills in January. Rome often posted units far from home so they would not sympathize with local rebels.",
+   "testo": "Picture that journey. Recruited in a landscape of sun and dust, marched across an empire, and posted to a stone fort where it rains for weeks and the sun barely climbs above the hills in January. Units were often stationed far from home so they would not sympathize with local rebels.",
+   "anno": 150,
    "visivi": [
     {
      "tipo": "cartone",
      "frase": "Picture that journey",
-     "sfondo": "s47",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "testo": "These men had no inherited tricks for a northern winter. They had to learn from the men around them, or not at all. That is what makes those little wooden letters so heavy. Behind the system were individual people, a very long way from anywhere warm.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "These men had",
-     "sfondo": "s47",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "capitolo": "Beds, Doctors and Horses",
-   "testo": "So what did a man actually lie down on at the end of a watch? Not a mattress. At Vindolanda, waterlogged layers have preserved bedding: bracken, straw, heather, and wool. And here is the rule every survival instructor teaches today.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "So what did a man",
-     "sfondo": "s48",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "testo": "The cold does not mainly come from the air. It comes from the ground. Lie on stone and the ground pulls heat out of you all night. A thick pile of dry bracken is not comfort. It is insulation. Then you sleep in your cloak. One item, two jobs.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "The cold does not",
-     "sfondo": "s48",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "testo": "And when all that failed, the army had doctors. Roman and Greek medical writers described the stages of frozen flesh, and the standard treatment was warming oil, gentle rubbing, and slow rewarming by a fire rather than a shock of heat. Rewarm too aggressively and you destroy the tissue.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "the army had doctors",
-     "sfondo": "s49",
-     "personaggio": "senatore"
-    }
-   ]
-  },
-  {
-   "testo": "But something else had to be kept alive too. Horses and mules. At Roman cavalry forts, excavations show stables built right into the barrack blocks. Men and animals under one roof, separated by a wall. Big animals throw off serious heat.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "Horses and mules",
      "sfondo": "s50",
-     "personaggio": "",
-     "suono": "horses snorting in a stable"
-    }
-   ]
-  },
-  {
-   "testo": "And animals gave the fort its raw materials of warmth. Wool, hide for tents and boots, tallow for lamps, fat for food, bone for tools. The sheep on the hill became the cloak on the sentry's shoulders and the grease in his lamp.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "The sheep on the hill",
-     "sfondo": "s51",
      "personaggio": ""
     }
    ]
   },
   {
-   "capitolo": "Work, Supply and Night",
-   "testo": "That destroys the biggest myth about the Roman winter, that the army shut the gates in November and sat still until spring. Winter quarters were not hibernation. Vegetius is blunt that soldiers need drill in all weather, because fitness falls apart fast without it.",
+   "testo": "Those men had no inherited tricks, no family knowledge of how to survive a northern winter. They learned from the men around them, or not at all. That is what makes those little wooden letters so heavy. Behind the system were individual people a very long way from anywhere warm.",
+   "anno": 150,
    "visivi": [
     {
      "tipo": "cartone",
-     "frase": "Winter quarters were",
+     "frase": "That is what makes",
+     "sfondo": "s13",
+     "personaggio": ""
+    }
+   ]
+  },
+  {
+   "capitolo": "Beds and Medicine",
+   "testo": "So what did that man lie down on at the end of a watch? Not a mattress in our sense. In the archaeology you find bracken, straw, heather, and wool. At Vindolanda, waterlogged layers have preserved bedding material, including bracken.",
+   "anno": 150,
+   "visivi": [
+    {
+     "tipo": "cartone",
+     "frase": "In the archaeology you",
+     "sfondo": "s51",
+     "personaggio": "legionario"
+    }
+   ]
+  },
+  {
+   "testo": "Here is the rule every survival instructor teaches today. The cold does not mainly come from the air. It comes from the ground. Lie directly on stone and the ground pulls heat out of you all night. A thick pile of dry bracken is not comfort. It is insulation. Then you sleep in your cloak. One item, two jobs.",
+   "anno": 150,
+   "visivi": [
+    {
+     "tipo": "cartone",
+     "frase": "A thick pile of",
+     "sfondo": "s51",
+     "personaggio": "legionario"
+    }
+   ]
+  },
+  {
+   "testo": "And when all of that failed, the Roman army had doctors. Forts had hospitals, and you can still see the plans in the ground. Roman and Greek medical writers described the stages of chilled and frozen flesh, and the standard treatment was warming oil and slow, controlled rewarming by a fire, rather than a shock of heat. That instinct is broadly right.",
+   "anno": 150,
+   "visivi": [
+    {
+     "tipo": "cartone",
+     "frase": "Forts had hospitals",
      "sfondo": "s52",
-     "personaggio": "legionario"
+     "personaggio": "sacerdote"
     }
    ]
   },
   {
-   "testo": "So the winter fort ran on work. Drill, repairing kit, building, hauling supplies, cutting fuel, roads and ditches. And work generates heat. A man swinging a pick makes several hundred watts. A man sitting still makes a hundred. Movement is the cheapest heater ever invented.",
+   "testo": "And when tissue was truly lost, they removed it. Cold was treated as a wound, which medically is exactly what it is. But the fort was not only trying to keep men alive. Cavalry forts housed horses and mules worth a fortune, and stables were built right into the barrack blocks.",
+   "anno": 150,
    "visivi": [
     {
      "tipo": "cartone",
-     "frase": "So the winter fort",
+     "frase": "But the fort was",
      "sfondo": "s53",
+     "personaggio": ""
+    }
+   ]
+  },
+  {
+   "testo": "Men and horses under one roof, separated by a wall. The animals were heating the building, too. And they gave the fort wool, hide for tents and boots, tallow for lamps, fat for food. A frontier fort in winter was a closed loop. The sheep on the hill became the cloak on the sentry's shoulders.",
+   "anno": 150,
+   "visivi": [
+    {
+     "tipo": "cartone",
+     "frase": "Men and horses under",
+     "sfondo": "s53",
+     "personaggio": ""
+    }
+   ]
+  },
+  {
+   "capitolo": "Work, Supply and Fear",
+   "testo": "That destroys the biggest myth about the Roman winter. The idea that the army shut the gates in November and sat still until spring. Winter quarters were not hibernation. An idle army rots. Vegetius is blunt about soldiers needing constant drill in all weather.",
+   "anno": 150,
+   "visivi": [
+    {
+     "tipo": "cartone",
+     "frase": "Winter quarters were not",
+     "sfondo": "s54",
      "personaggio": "legionario"
     }
    ]
   },
   {
-   "testo": "And keeping that fort supplied meant Rome built a supply chain for warmth itself. Olive oil from Spain in huge pottery jars. Wine from Gaul. Grain by the ton. Oil alone is calories and light in one jar, shipped thousands of miles.",
+   "testo": "So the winter fort ran on work. Drill, repairing kit, building, hauling supplies, cutting and stacking fuel. And work generates heat. A man swinging a pick produces several hundred watts. A man sitting still produces a hundred. Movement is the cheapest heater ever invented. The fort in January was a construction site with sentries.",
+   "anno": 150,
+   "visivi": [
+    {
+     "tipo": "cartone",
+     "frase": "Work generates heat",
+     "sfondo": "s54",
+     "personaggio": "legionario"
+    }
+   ]
+  },
+  {
+   "testo": "And keeping that site supplied meant building a supply chain for warmth itself. Olive oil from Spain in huge pottery jars. Wine from Gaul. Grain by the ton. Oil alone lights lamps, goes on skin, goes in food. Calories and light in one jar, shipped thousands of miles.",
+   "anno": 150,
    "visivi": [
     {
      "tipo": "cartone",
      "frase": "Olive oil from Spain",
-     "sfondo": "s54",
+     "sfondo": "s55",
      "personaggio": "mercante"
     }
    ]
   },
   {
-   "testo": "A soldier on that wall stood at the far end of a network stretching across the Mediterranean, and it worked well enough to deliver him fuel, fat, and clothing in February. That is the real answer. Not toughness. Administration. Rome beat winter with paperwork, warehouses, and wool.",
+   "testo": "That is the real answer to how Rome held the frozen frontier. Not toughness. Administration. Rome did not beat winter with heroes. It beat winter with paperwork, warehouses, and wool. But there was one last enemy in that fort, and it was not the weather. It was the night itself.",
+   "anno": 150,
    "visivi": [
     {
      "tipo": "cartone",
-     "frase": "Rome beat winter",
+     "frase": "Rome did not beat",
      "sfondo": "s55",
-     "personaggio": "scriba_egizio"
+     "personaggio": "mercante"
+    },
+    {
+     "tipo": "cartone",
+     "frase": "It was the night",
+     "sfondo": "s56",
+     "personaggio": "legionario"
     }
    ]
   },
   {
-   "testo": "But one last enemy waited in that fort, and it was not the weather. Night itself. We forget how dark ancient nights were. On a cloudy northern night, outside the firelight, you cannot see your own hand. And out there is a frontier with real raiders.",
+   "testo": "We forget how dark ancient nights were. On a cloudy northern night, outside the firelight, you cannot see your own hand. And out there is a frontier. Real raiders. Real ambushes. So the fort ran on sound. Trumpet calls marked the watches. A wooden tablet with the watchword was carried between posts.",
+   "anno": 150,
    "visivi": [
     {
      "tipo": "cartone",
      "frase": "We forget how dark",
      "sfondo": "s56",
      "personaggio": "legionario",
-     "suono": "low wind and distant owl"
+     "suono": "distant trumpet call in the night"
     }
    ]
   },
   {
-   "testo": "So the fort ran on sound. Trumpets marked the watches. Challenges and passwords moved around the walls. Men wrote curses on lead tablets, left offerings at shrines, paid for altars to the gods of the frontier. Fear is a cold of its own.",
+   "testo": "Men wrote curses on lead tablets. They left offerings at shrines. Fear is a cold of its own. And when men could not take it anymore, the empire had a word for what they did. Desertion. Roman law deals with deserters in detail, which tells you it happened often enough to need a bureaucracy.",
+   "anno": 150,
    "visivi": [
     {
      "tipo": "cartone",
-     "frase": "Men wrote curses",
+     "frase": "Men wrote curses on",
      "sfondo": "s57",
      "personaggio": "legionario"
-    }
-   ]
-  },
-  {
-   "testo": "And when men could not take it anymore, the empire had a word for it, and a punishment. Desertion. Roman law deals with deserters in detail, the clearest sign it happened often. Penalties ranged from brutal punishment to execution.",
-   "visivi": [
+    },
     {
      "tipo": "cartone",
-     "frase": "Desertion. Roman law",
+     "frase": "Desertion. Roman law deals",
      "sfondo": "s58",
      "personaggio": "legionario"
     }
    ]
   },
   {
-   "testo": "Now put that next to a 25-year term, freezing nights, and a posting a thousand miles from your family. The cloaks, hearths, baths, and hot food were not just biology. Comfort was a retention policy. A cold, wet, idle army disappears into the countryside one man at a time.",
+   "capitolo": "The Secret Revealed",
+   "testo": "Penalties ranged from brutal punishment to execution. Now put that next to a 25-year term of service and freezing nights a thousand miles from your family. The system of cloaks, hearths, baths, and hot food was not just about biology. Comfort was a retention policy. A warm, fed, busy army stays.",
+   "anno": 150,
    "visivi": [
     {
      "tipo": "cartone",
-     "frase": "Now put that next",
+     "frase": "Comfort was a retention",
      "sfondo": "s58",
+     "personaggio": "legionario"
+    }
+   ]
+  },
+  {
+   "testo": "Which brings us back to the thing I promised you at the start. The single most important piece of cold weather gear the Romans had. It was wool. Not a heroic invention. Not a lost technology. Just sheep, spun and woven, worn in layers, kept greasy, wrapped around a man in a hood.",
+   "anno": 150,
+   "visivi": [
+    {
+     "tipo": "cartone",
+     "frase": "It was wool",
+     "sfondo": "s17",
      "personaggio": ""
     }
    ]
   },
   {
-   "capitolo": "The Secret Was Wool",
-   "testo": "Which brings us back to what I promised you at the start. The single most important piece of cold weather gear the Romans had. It was wool. Not a lost technology. Just sheep, spun and woven, worn in layers, kept greasy, wrapped around a man in a hood.",
+   "testo": "The Romans did not out-invent the cold. They out-organized it. The cleverness was in doing all of it at the same time, every single night. Layered wool, boots and socks, eight bodies in one room, stone that holds heat, charcoal with ventilation, coal when wood ran short, a bathhouse, four rotating watches, grain, fat, hot watered wine, bracken between you and the ground.",
+   "anno": 150,
    "visivi": [
     {
      "tipo": "cartone",
-     "frase": "It was wool.",
-     "sfondo": "s59",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "testo": "Modern testing keeps proving the point. Wool holds much of its insulation when wet, manages moisture, and resists smell when you cannot wash for weeks. Armies and mountaineers abandoned wool, then came back to it. The Romans did not out-invent the cold. They out-organized it.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "Modern testing keeps",
-     "sfondo": "s59",
-     "personaggio": ""
-    }
-   ]
-  },
-  {
-   "testo": "Layered wool. Boots and socks. Eight bodies in one room. Stone that holds heat. Charcoal with ventilation. Coal when wood ran short. A bathhouse for a frozen man. Four rotating watches. Grain, fat, and hot watered wine. Bracken between you and the ground.",
-   "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "Layered wool. Boots",
+     "frase": "The Romans did not",
      "sfondo": "s59",
      "personaggio": "legionario"
     }
    ]
   },
   {
-   "testo": "No single miracle. A dozen unglamorous answers, enforced every night for 400 years. So go back to that man on the wall. He is not standing there because he is tougher than you. A thousand small decisions were made on his behalf.",
+   "testo": "No single miracle. A dozen unglamorous answers, enforced by discipline, every night for 400 years. So go back to that man on the wall. He is not standing there because he is tougher than you. A thousand small decisions were made on his behalf.",
+   "anno": 150,
    "visivi": [
     {
      "tipo": "cartone",
-     "frase": "No single miracle",
+     "frase": "So go back to",
      "sfondo": "s60",
      "personaggio": "legionario"
     }
    ]
   },
   {
-   "testo": "Somebody cut the wood in August. Somebody stacked the bracken. Somebody stoked the bath furnace. Somebody sent him socks. That is what an empire actually is. Not marble, not eagles. It is the ability to keep an ordinary man alive on a freezing rock at the edge of the known world.",
+   "testo": "Somebody cut the wood in August. Somebody stacked the bracken. Somebody stoked the bath furnace. Somebody wrote him a letter and sent him socks. That is what an empire actually is. Not marble. Not eagles. The ability to keep an ordinary man alive on a freezing rock at the edge of the known world.",
+   "anno": 150,
    "visivi": [
     {
      "tipo": "cartone",
-     "frase": "Somebody cut the wood",
-     "sfondo": "s60",
-     "personaggio": ""
+     "frase": "Somebody wrote him a",
+     "sfondo": "s15",
+     "personaggio": "legionario"
     }
    ]
   },
   {
-   "testo": "We flip a switch and the room gets warm, and we never think about it. He had wool, fire, eight friends, and a routine. And it worked. Now tell me, in the comments: could you have lasted one winter on that wall? And if you want to see a Roman army that lost this fight completely, watch the video on screen now.",
+   "testo": "We flip a switch and the room gets warm, and we never think about it. He had wool, fire, eight friends, and a routine. And it worked. So tell me in the comments. Could you have survived one winter on that wall? And if you want to see a Roman army that lost this fight completely, watch the video on screen now.",
+   "anno": 2026,
    "visivi": [
     {
      "tipo": "cartone",
      "frase": "We flip a switch",
-     "sfondo": "s60",
+     "sfondo": "s1",
      "personaggio": "legionario"
     }
    ]
@@ -1190,7 +1357,7 @@
   "testo": "TOO COLD?",
   "personaggio": "legionario"
  },
- "descrizione": "How did Roman soldiers survive freezing nights on the northern frontier with no heaters, no thermal jackets, and no sleeping bags? In this video we uncover the real system behind Roman winter survival: greasy wool cloaks, the birrus Britannicus, trousers, closed boots and socks, eight men sharing one room, stone hearths, charcoal braziers, British coal, hypocaust bathhouses, and a night watch built around the limits of the human body.\n\nWe visit Hadrian's Wall, Vindolanda and its famous wooden letters, read Tacitus on the frozen army in Armenia, and learn why Rome lost fewer men to cold than almost any army for a thousand years. Along the way you will see how food, fuel, medicine, discipline, and supply chains kept an empire alive in the snow.\n\nIf you love Roman history, ancient history, and the real daily life of legionaries, subscribe for more.\n\n#romanarmy #romanhistory #hadrianswall #ancienthistory #romansoldiers",
+ "descrizione": "How did Roman soldiers survive freezing nights on the northern frontier with no heaters, no thermal jackets and no sleeping bags? For 400 years, Roman legionaries held frozen ground across Britain, the Rhine, the Danube and Armenia, and lost fewer men to cold than almost any army for the next thousand years.\n\nIn this animated history video we uncover the real system behind Roman winter survival: greasy wool cloaks, the birrus Britannicus, trousers, closed boots and socks, eight-man tents, stone barracks, coal fires, hypocaust bathhouses, rotating night watches and a diet built for warmth. We also read the Vindolanda tablets, the letter that mentions socks sent to a freezing soldier, and Tacitus' account of the frozen army in Armenia.\n\nSubscribe for more history made of people, not dates.\n\n#RomanHistory #RomanArmy #Vindolanda #HadriansWall #AncientRome",
  "tag": [
   "how romans stayed warm",
   "what roman soldiers wore",
@@ -1215,19 +1382,19 @@
   "ancient rome documentary",
   "roman history documentary",
   "before civilization",
-  "roman soldiers cold",
+  "roman soldiers freezing nights",
   "how roman soldiers survived winter",
   "roman fort life",
-  "tacitus armenia",
+  "roman army cold weather",
+  "tacitus armenia winter",
   "roman coal britain",
-  "history of rome",
-  "roman legionary winter"
+  "history of the roman army"
  ],
  "personaggi_mancanti": [
-  "Tacitus (storico romano)",
-  "Imperatore Diocle­ziano",
-  "Arciere siriano ausiliario romano",
-  "Medico militare romano"
+  "Roman army doctor (medicus)",
+  "Roman centurion",
+  "Syrian Hamian archer",
+  "Roman cobbler or weaver"
  ],
  "categoria_originale": "22"
 }
