@@ -1,0 +1,41 @@
+name: Libreria Clip (archivi video, una volta sola)
+
+# Taglia i video d'archivio in spezzoni da 3-4 s e li etichetta con Haiku (tetto rigido di spesa) -> libreria_clip/<nome>/indice.json
+on:
+  workflow_dispatch:
+    inputs:
+      payload:
+        description: 'JSON: {"nome": "nasa_spazio", "max_spezzoni": 300, "max_spesa": 0.45}'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: libreria-clip
+  cancel-in-progress: false
+
+jobs:
+  libreria:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - name: Strumenti
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null && pip install -q pillow
+      - name: Libreria
+        env:
+          PAYLOAD: ${{ inputs.payload }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python3 strumenti/libreria_clip.py
+      - name: Salva nel repository
+        if: ${{ always() }}
+        run: |
+          if [ -n "$(git status --porcelain libreria_clip)" ]; then
+            git config user.name "render-bot"
+            git config user.email "render-bot@users.noreply.github.com"
+            git add libreria_clip
+            git commit -m "Libreria clip"
+            for i in 1 2 3 4 5; do git pull --rebase -q && git push && break; sleep $((i * 5)); done
+          fi
