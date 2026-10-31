@@ -64,10 +64,18 @@ def nasa(q, tipo):
     return r.get('collection', {}).get('items', [])
 
 
-def foto(q):
+import re
+SERIE = set()   # foto della stessa serie (stesso scatto ripetuto: iss053e079613 / iss053e079615) = immagine ripetuta -> scartata
+ORBITA = re.compile(r'^(iss\d|s\d{2,3}e|sts\d|nm\d)', re.I)   # foto scattate in orbita (non a Terra, non in addestramento)
+
+
+def foto(q, a_terra=False):
     for it in nasa(q, 'image'):
         nid = it['data'][0]['nasa_id']
-        if nid in USATI:
+        serie = re.sub(r'\d{3}$', '', nid)
+        if nid in USATI or serie in SERIE:
+            continue
+        if not a_terra and not ORBITA.match(nid):
             continue
         href = (it.get('links') or [{}])[0].get('href', '')
         for v in ('~large.', '~medium.', '~orig.'):
@@ -77,7 +85,7 @@ def foto(q):
                 continue
             if im.width < 900 or im.width < im.height:      # niente foto piccole o verticali
                 break
-            USATI.add(nid); return im, nid, it['data'][0].get('title', '')
+            USATI.add(nid); SERIE.add(serie); return im, nid, it['data'][0].get('title', '')
     return None
 
 
@@ -140,7 +148,7 @@ for k, (s, (a, b)) in enumerate(zip(scene, tempi)):
                 run(cmd + ['-filter_complex', filt, '-map', '[v]', '-an', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20', '-pix_fmt', 'yuv420p', out])
                 fonti.append(f'{n:03d} CLIP {nid} | {tit}'); fatto = True
         if not fatto:
-            f_ = foto(s['q']) or foto(s['q'].split()[0] + ' ' + s['q'].split()[-1])
+            t_ = bool(s.get('a_terra')); f_ = foto(s['q'], t_) or foto(' '.join(s['q'].split()[:3]), t_) or foto('astronaut International Space Station', t_)
             if not f_:
                 raise RuntimeError('nessuna immagine NASA per: ' + s['q'])
             im, nid, tit = f_
