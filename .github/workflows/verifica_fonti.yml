@@ -9,7 +9,7 @@ on:
         type: string
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   verifica:
@@ -21,7 +21,9 @@ jobs:
         env:
           QUERY: ${{ inputs.query }}
         run: python3 strumenti/verifica_fonti.py | tee verifica.txt
-      - uses: actions/upload-artifact@v4
-        with:
-          name: verifica-fonti
-          path: verifica.txt
+      - name: Salva il risultato nel repository
+        run: |
+          mkdir -p prove_video && cp verifica.txt prove_video/verifica_fonti.txt
+          git config user.name "render-bot"; git config user.email "render-bot@users.noreply.github.com"
+          git add prove_video/verifica_fonti.txt; git commit -m "Verifica fonti" || exit 0
+          for i in 1 2 3; do git pull --rebase -q && git push && break; sleep 5; done
