@@ -88,10 +88,15 @@ def parole(t):
     return set(re.findall(r'[a-z]+', str(t).lower())) - {'the', 'a', 'an', 'of', 'in', 'on', 'and', 'with', 'from', 'to', 'at', 'is'}
 
 
+# parole troppo generiche per dire che una clip e' coerente con la frase (prima: pomodori in un video sul freddo)
+GENERICHE = {'space', 'station', 'astronaut', 'astronauts', 'iss', 'earth', 'inside', 'outside', 'orbit', 'crew', 'nasa', 'view', 'module',
+             'spacecraft', 'international', 'working', 'work', 'activity', 'activities', 'equipment', 'onboard', 'aboard'}
+
+
 def dalla_libreria(s, dur):
     """Lo spezzone piu' adatto alla scena (parole chiave della scena contro etichetta), mai ripetuto,
     mai due volte di fila dalla stessa ripresa."""
-    chiave = parole(' '.join(s.get('tag') or []) + ' ' + s['q'])
+    chiave = parole(' '.join(s.get('tag') or []) + ' ' + s['q']) - GENERICHE   # solo parole che dicono DAVVERO di cosa parla la frase
     best, bp = None, 0
     for x in LIB:
         if x['n'] in LIB_USATI or x['nasa_id'] == ULTIMA_SORGENTE[0] or PER_SORGENTE.get(x['nasa_id'], 0) >= 3 or float(x.get('durata') or 0) + .2 < dur:

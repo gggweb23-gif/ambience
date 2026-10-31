@@ -45,8 +45,14 @@ def sh(c, **k):
     return subprocess.run([str(x) for x in c], capture_output=True, text=True, **k)
 
 
+# ---------------- 0) libreria esistente: si AGGIUNGE, mai si riscrive ----------------
+F_IND = os.path.join(CART, 'indice.json')
+VECCHI = json.load(open(F_IND)) if os.path.exists(F_IND) else []
+GIA_FATTE = {x.get('nasa_id') for x in VECCHI}
+log(len(VECCHI), 'spezzoni gia' + "'" + ' in libreria,', len(GIA_FATTE), 'video gia' + "'" + ' tagliati')
+
 # ---------------- 1) video sorgente ----------------
-sorgenti, visti = [], set()
+sorgenti, visti = [], set(GIA_FATTE)
 for q in RICERCHE:
     try:
         items = get('https://images-api.nasa.gov/search?' + urllib.parse.urlencode({'q': q, 'media_type': 'video'})).get('collection', {}).get('items', [])
@@ -66,6 +72,7 @@ log(len(sorgenti), 'video sorgente')
 
 # ---------------- 2) spezzoni ----------------
 spezzoni = []
+BASE_N = max([int(x.get('n', 0)) for x in VECCHI] + [-1]) + 1
 for nid, tit, href in sorgenti:
     if len(spezzoni) >= MAX_N:
         break
@@ -103,8 +110,12 @@ for nid, tit, href in sorgenti:
                     centro = ImageStat.Stat(i1.crop((i1.width // 3, 0, 2 * i1.width // 3, i1.height))).mean[0]
                     bande = bordo < 6 and centro > 30
                     if mov >= 2.5 and luce > 18 and not bande:          # niente spezzoni fermi, neri o con bande
-                        mid = os.path.join(LAV, f'sp_{len(spezzoni):04d}.jpg'); Image.open(f1).convert('RGB').save(mid, quality=80)
-                        spezzoni.append({'n': len(spezzoni), 'nasa_id': nid, 'titolo': tit, 'url': mp4, 'da': round(t, 2), 'durata': 3.5,
+                        # inizio e fine dello spezzone affiancati: una scritta o una persona che entra a meta' si vede
+                        mid = os.path.join(LAV, f'sp_{len(spezzoni):04d}.jpg')
+                        ia, ib = Image.open(f1).convert('RGB'), Image.open(f2).convert('RGB')
+                        dop = Image.new('RGB', (ia.width * 2 + 8, ia.height), 'black'); dop.paste(ia, (0, 0)); dop.paste(ib, (ia.width + 8, 0))
+                        dop.save(mid, quality=78)
+                        spezzoni.append({'n': BASE_N + len(spezzoni), 'nasa_id': nid, 'titolo': tit, 'url': mp4, 'da': round(t, 2), 'durata': 3.5,
                                          'movimento': round(mov, 1), 'img': mid})
                         presi += 1
                 t += 12
@@ -114,11 +125,12 @@ for nid, tit, href in sorgenti:
         log('sorgente scartata', nid[:50], str(e)[:100])
 
 # ---------------- 3) etichette (Haiku, con tetto rigido) ----------------
-DOMANDA = ('These are frames from NASA videos. For EACH frame answer one JSON object. Answer ONLY a JSON array, same order: '
+DOMANDA = ('These are frames from NASA videos (each image = start and end of the same short clip, side by side). For EACH frame answer one JSON object. Answer ONLY a JSON array, same order: '
            '[{"k": <frame number>, "cosa": "what is visible, 6-12 English words", '
            '"luogo": "inside_station | outside_station | earth_from_orbit | spacecraft | on_earth | other", '
            '"parla_in_camera": true/false (a person talking to the camera or an interview/press setting), '
-           '"scritte": true/false (any overlay text, captions, logos, titles, subtitles burned in), '
+           '"scritte": true/false (ANY overlay text in EITHER half: captions, lower thirds, logos, titles, subtitles, date or time stamps burned in), '
+           '"animazione": true/false (computer animation, render, graphic or simulation instead of a real camera shot), '
            '"qualita": 1-5 (5 = sharp, beautiful, cinematic; 1 = blurry, dark, boring), '
            '"tag": ["3-6 lowercase English keywords, e.g. spacewalk, treadmill, food, sleeping, earth, cupola, robotic arm"]}]')
 STIMA_CHIAMATA = (10 * 400 + 600) * PREZZO[0] / 1e6 + 900 * PREZZO[1] / 1e6     # stima prudente prima di ogni chiamata
@@ -139,7 +151,7 @@ for i in range(0, len(spezzoni), 10):
         for x in json.loads(t[t.find('['): t.rfind(']') + 1]):
             s = next((s for s in gruppo if s['n'] == int(x.get('k', -1))), None)
             if s:
-                s.update({k: x.get(k) for k in ('cosa', 'luogo', 'parla_in_camera', 'scritte', 'qualita', 'tag')})
+                s.update({k: x.get(k) for k in ('cosa', 'luogo', 'parla_in_camera', 'scritte', 'animazione', 'qualita', 'tag')})
     except Exception as e:
         log('etichette non riuscite per il gruppo', i, str(e)[:150])
     log(f'etichettati {min(i + 10, len(spezzoni))}/{len(spezzoni)} | spesa {SPESA["tot"]:.3f} $')
@@ -148,14 +160,14 @@ for i in range(0, len(spezzoni), 10):
 def buono(s):
     if re.search(r'airplane|aircraft|jet|plane|satellite imagery|map|chart|diagram', str(s.get('cosa')), re.I):
         return False
-    return (s.get('cosa') and not s.get('parla_in_camera') and not s.get('scritte') and int(s.get('qualita') or 0) >= 3
+    return (s.get('cosa') and not s.get('parla_in_camera') and not s.get('scritte') and not s.get('animazione') and int(s.get('qualita') or 0) >= 3
             and s.get('luogo') in ('inside_station', 'outside_station', 'earth_from_orbit', 'spacecraft'))
 
 
 for s in spezzoni:
     s['ok'] = bool(buono(s))
 ok = [s for s in spezzoni if s['ok']]
-json.dump([{k: v for k, v in s.items() if k != 'img'} for s in spezzoni], open(os.path.join(CART, 'indice.json'), 'w'), ensure_ascii=False, indent=1)
+json.dump(VECCHI + [{k: v for k, v in s.items() if k != 'img'} for s in spezzoni], open(F_IND, 'w'), ensure_ascii=False, indent=1)
 col = 8; tw, th = 240, 135
 G = Image.new('RGB', (col * tw, ((len(spezzoni) + col - 1) // col) * (th + 30)), 'black'); d = ImageDraw.Draw(G)
 for i, s in enumerate(spezzoni):
@@ -164,8 +176,9 @@ for i, s in enumerate(spezzoni):
     d.rectangle((x, y + th, x + tw - 2, y + th + 28), fill=(0, 110, 0) if s['ok'] else (130, 0, 0))
     d.text((x + 3, y + th + 2), f"{s['n']} {str(s.get('cosa') or '')[:34]}", fill='white')
     d.text((x + 3, y + th + 14), f"{s.get('luogo') or '?'} q{s.get('qualita') or '?'}", fill='white')
-G.save(os.path.join(CART, 'controllo.jpg'), quality=75)
-riepilogo = (f'sorgenti: {len(sorgenti)} | spezzoni: {len(spezzoni)} | buoni: {len(ok)} | chiamate Haiku: {SPESA["chiamate"]} | '
+G.save(os.path.join(CART, 'controllo.jpg'), quality=75)   # solo gli spezzoni di questo giro
+riepilogo = (time.strftime('%Y-%m-%d') + f' | sorgenti: {len(sorgenti)} | spezzoni nuovi: {len(spezzoni)} | buoni nuovi: {len(ok)} | '
+             f'buoni in libreria: {sum(1 for x in VECCHI if x.get("ok")) + len(ok)} | chiamate Haiku: {SPESA["chiamate"]} | '
              f'spesa: {SPESA["tot"]:.3f} $ (tetto {MAX_SPESA:.2f} $)\n')
-open(os.path.join(CART, 'costi.txt'), 'w').write(riepilogo)
+open(os.path.join(CART, 'costi.txt'), 'a').write(riepilogo)   # storico di tutti i giri
 log(riepilogo)

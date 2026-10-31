@@ -1,0 +1,36 @@
+name: Libreria clip che cresce ogni giorno
+
+# Ogni notte aggiunge spezzoni nuovi alle librerie dei canali (colonne libreria, libreria_budget_giorno, libreria_ricerche di Channel Configs).
+on:
+  schedule:
+    - cron: '23 2 * * *'   # 03:23 / 04:23 ora italiana
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: libreria-clip
+  cancel-in-progress: false
+
+jobs:
+  libreria:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+      - name: Strumenti
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null && pip install -q pillow google-auth requests
+      - name: Libreria
+        env:
+          GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python3 strumenti/libreria_giornaliera.py
+      - name: Salva nel repository
+        if: ${{ always() }}
+        run: |
+          if [ -n "$(git status --porcelain libreria_clip)" ]; then
+            git config user.name "render-bot"; git config user.email "render-bot@users.noreply.github.com"
+            git add libreria_clip; git commit -m "Libreria clip (giro giornaliero)"
+            for i in 1 2 3 4 5; do git pull --rebase -q && git push && break; sleep $((i * 5)); done
+          fi
