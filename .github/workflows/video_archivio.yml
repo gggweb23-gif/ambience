@@ -36,7 +36,10 @@ jobs:
           YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
           YT_REFRESH_TOKEN: ${{ secrets[fromJSON(inputs.payload).chiave_youtube] }}
-        run: python3 strumenti/video_archivio.py
+        run: |
+          set -o pipefail
+          mkdir -p prove_video/archivio/registri
+          python3 strumenti/video_archivio.py 2>&1 | tee prove_video/archivio/registri/video_archivio.log
       - name: Video e copertina da scaricare
         if: ${{ always() }}
         uses: actions/upload-artifact@v4

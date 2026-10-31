@@ -96,7 +96,7 @@ for k in range(2):
         c = json.loads(t[t.find('{'): t.rfind('}') + 1])
         n = sum(len(s['testo'].split()) for s in c['scene'])
         log(f'copione: {len(c["scene"])} scene, {n} parole (limite {P_MIN}-{P_MAX})')
-        if P_MIN * .9 <= n <= P_MAX * 1.1:
+        if P_MIN * .85 <= n <= P_MAX * 1.12:
             break
     except Exception as e:
         n = 0; log('copione non leggibile:', str(e)[:120])
