@@ -1,0 +1,38 @@
+name: Controllo caricamenti YouTube (gratis)
+
+# Ogni giorno dopo le uscite delle 17:00: blocchi o impostazioni che frenano la spinta di YouTube (strumenti/controllo_caricamenti.py).
+# Per aggiungere un canale basta un nuovo segreto che inizia per YT_REFRESH_TOKEN e una riga qui sotto in env.
+on:
+  schedule:
+    - cron: '47 16 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  controllo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Controllo
+        env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+          YT_REFRESH_TOKEN_KAO: ${{ secrets.YT_REFRESH_TOKEN_KAO }}
+          YT_REFRESH_TOKEN_AGORA_OF_SAGES: ${{ secrets.YT_REFRESH_TOKEN_AGORA_OF_SAGES }}
+          YT_REFRESH_TOKEN_MAIN_STREET_ATLAS: ${{ secrets.YT_REFRESH_TOKEN_MAIN_STREET_ATLAS }}
+          YT_REFRESH_TOKEN_STORIA: ${{ secrets.YT_REFRESH_TOKEN_STORIA }}
+        run: python3 strumenti/controllo_caricamenti.py
+      - name: Salva nel repository
+        if: ${{ always() }}
+        run: |
+          if [ -n "$(git status --porcelain prove_video/controllo_caricamenti)" ]; then
+            git config user.name "render-bot"
+            git config user.email "render-bot@users.noreply.github.com"
+            git add prove_video/controllo_caricamenti
+            git commit -m "Controllo caricamenti"
+            for i in 1 2 3 4 5; do git pull --rebase -q && git push && break; sleep $((i * 5)); done
+          fi
