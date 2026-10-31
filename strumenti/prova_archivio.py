@@ -2,26 +2,32 @@
 """
 PROVA ARCHIVIO (per tutti i canali) — video di prova breve fatto SOLO con archivi gratuiti (oggi: NASA), niente cartoni.
 Serve a vedere un formato PRIMA di aprire un canale.
-- copione gia' scritto nel PAYLOAD (nessun costo Claude), diviso in inquadrature con la ricerca d'archivio di ciascuna
-- voce ElevenLabs con i tempi di ogni lettera -> ogni immagine cambia esattamente quando cambia la frase
-- inquadrature MAI oltre 'max_secondi' (se una frase dura di piu', si divide su piu' immagini diverse)
-- la stessa immagine non torna mai due volte nel video
-- clip video NASA dove richiesto ("clip": true), altrimenti foto con movimento lento alternato (avanti / indietro / laterale)
+Regole (Giorgio, 31 ott 2026): YouTube e' VIDEO -> almeno l'80% del video sono clip in movimento, nei primi 30 s quasi solo clip;
+le foto solo ogni tanto. Montaggio dinamico: tagli netti alternati a effetti brevi (nero, lampo, zoom, dissolvenza, scorrimento).
+- copione gia' scritto nel PAYLOAD (nessun costo Claude), diviso in scene con la ricerca d'archivio di ciascuna
+- voce ElevenLabs con i tempi di ogni lettera -> ogni inquadratura cambia quando cambia la frase
+- inquadrature MAI oltre 'max_secondi' (una frase lunga si divide su piu' inquadrature diverse)
+- la stessa clip / foto non torna mai due volte; scartate le clip di conferenze, interviste, dirette
 - musica bassa dalla libreria, nessun altro suono
-PAYLOAD = {"nome": "astronauti_it", "voce": "<id ElevenLabs>", "velocita": 1.06, "musica": "curiosita_001.mp3", "volume_musica": 0.07,
-           "max_secondi": 4, "scene": [{"testo": "...", "q": "ricerca NASA", "scritta": "FACOLTATIVA", "clip": false}]}
+PAYLOAD = {"nome": "...", "voce": "<id ElevenLabs>", "velocita": 1.08, "musica": "epico_002.mp3", "volume_musica": 0.08,
+           "max_secondi": 3.5, "solo_video_fino_a": 30, "escludi": ["<nasa_id>"],
+           "scene": [{"testo": "...", "q": "ricerca NASA", "scritta": "FACOLTATIVA", "tipo": "clip|foto", "a_terra": false}]}
 Uscita: prove_video/archivio/<nome>/ (prova.mp4, fotogrammi.jpg, fonti.txt, costi.txt)
 """
-import base64, io, json, os, subprocess, time, urllib.parse, urllib.request
+import base64, io, json, os, random, re, subprocess, time, urllib.parse, urllib.request
 from PIL import Image, ImageDraw, ImageFont
 
 E = os.environ.get
 P = json.loads(E('PAYLOAD') or '{}')
 CART = os.path.join('prove_video', 'archivio', P.get('nome') or 'prova'); os.makedirs(CART, exist_ok=True)
 LAV = '/tmp/lav'; os.makedirs(LAV, exist_ok=True)
-MAXS = float(P.get('max_secondi') or 4)
+MAXS = float(P.get('max_secondi') or 3.5)
+SOLO_VIDEO = float(P.get('solo_video_fino_a') or 30)
 W, H, FPS = 1920, 1080, 30
 UA = {'User-Agent': 'ambience-prova-archivio/1.0 (gggweb23@gmail.com)'}
+NO_CLIP = re.compile(r'brief|conference|interview|news|q ?& ?a|panel|talk|chat|replay|update|event|coverage|town hall|live|speech|remarks|'
+                     r'podcast|webinar|explain|animation|graphic|trailer|countdown', re.I)
+random.seed(7)
 log = lambda *a: print(time.strftime('%H:%M:%S'), *a, flush=True)
 
 
@@ -37,45 +43,47 @@ def run(c):
     subprocess.run([str(x) for x in c], check=True)
 
 
+def durata(p):
+    return float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', p],
+                                capture_output=True, text=True).stdout.strip() or 0)
+
+
 # ---------------- 1) voce con i tempi ----------------
 scene = P['scene']
 testo = ' '.join(s['testo'].strip() for s in scene)
 j = get(f"https://api.elevenlabs.io/v1/text-to-speech/{P.get('voce') or 'glnsgBC77wt5zOYU0szz'}/with-timestamps?output_format=mp3_44100_128",
         {'text': testo, 'model_id': 'eleven_multilingual_v2',
-         'voice_settings': {'stability': .5, 'similarity_boost': .75, 'speed': float(P.get('velocita') or 1.06)}},
+         'voice_settings': {'stability': float(P.get('stabilita') or .45), 'similarity_boost': .75, 'style': float(P.get('stile_voce') or 0),
+                            'speed': float(P.get('velocita') or 1.06)}},
         {'xi-api-key': E('ELEVENLABS_API_KEY', '')})
 VOCE = os.path.join(LAV, 'voce.mp3'); open(VOCE, 'wb').write(base64.b64decode(j['audio_base64']))
 al = j['alignment']; ts = al['character_start_times_seconds']; te = al['character_end_times_seconds']
-durata_voce = te[-1]
 pos, inizi = 0, []
 for s in scene:
     inizi.append(0.0 if not inizi else ts[min(pos, len(ts) - 1)])
     pos += len(s['testo'].strip()) + 1
-fine_tot = durata_voce + 0.8
+fine_tot = te[-1] + 0.9
 tempi = [(inizi[k], inizi[k + 1] if k + 1 < len(inizi) else fine_tot) for k in range(len(scene))]
-log('voce', round(durata_voce, 1), 's,', len(testo), 'caratteri')
+log('voce', round(te[-1], 1), 's,', len(testo), 'caratteri,', round(len(testo.split()) / te[-1], 2), 'parole/s')
 
 # ---------------- 2) archivio NASA ----------------
-USATI = set()
+USATI = set(P.get('escludi') or [])
+SERIE = set()   # foto della stessa serie (iss053e079613 / iss053e079615) = immagine ripetuta -> scartata
+ORBITA = re.compile(r'^(iss\d|s\d{2,3}e|sts\d|nm\d)', re.I)   # foto scattate in orbita (non a Terra, non in addestramento)
+CLIP_CACHE = {}   # nasa_id -> (file, lunghezza, segmenti gia' usati)
 
 
 def nasa(q, tipo):
-    r = get('https://images-api.nasa.gov/search?' + urllib.parse.urlencode({'q': q, 'media_type': tipo}))
-    return r.get('collection', {}).get('items', [])
-
-
-import re
-SERIE = set()   # foto della stessa serie (stesso scatto ripetuto: iss053e079613 / iss053e079615) = immagine ripetuta -> scartata
-ORBITA = re.compile(r'^(iss\d|s\d{2,3}e|sts\d|nm\d)', re.I)   # foto scattate in orbita (non a Terra, non in addestramento)
+    try:
+        return get('https://images-api.nasa.gov/search?' + urllib.parse.urlencode({'q': q, 'media_type': tipo})).get('collection', {}).get('items', [])
+    except Exception as e:
+        log('ricerca non riuscita', q, str(e)[:80]); return []
 
 
 def foto(q, a_terra=False):
     for it in nasa(q, 'image'):
-        nid = it['data'][0]['nasa_id']
-        serie = re.sub(r'\d{3}$', '', nid)
-        if nid in USATI or serie in SERIE:
-            continue
-        if not a_terra and not ORBITA.match(nid):
+        nid = it['data'][0]['nasa_id']; serie = re.sub(r'\d{3}$', '', nid)
+        if nid in USATI or serie in SERIE or (not a_terra and not ORBITA.match(nid)):
             continue
         href = (it.get('links') or [{}])[0].get('href', '')
         for v in ('~large.', '~medium.', '~orig.'):
@@ -83,31 +91,48 @@ def foto(q, a_terra=False):
                 im = Image.open(io.BytesIO(get(href.replace('~thumb.', v), raw=True))).convert('RGB')
             except Exception:
                 continue
-            if im.width < 900 or im.width < im.height:      # niente foto piccole o verticali
+            if im.width < 900 or im.width < im.height:
                 break
             USATI.add(nid); SERIE.add(serie); return im, nid, it['data'][0].get('title', '')
     return None
 
 
 def clip(q, dur):
-    for it in nasa(q, 'video')[:6]:
-        nid = it['data'][0]['nasa_id']
-        if nid in USATI:
+    """Una clip NASA nuova per la ricerca; restituisce (file, inizio, nasa_id, titolo)."""
+    for it in nasa(q, 'video')[:10]:
+        d0 = it['data'][0]; nid = d0['nasa_id']; tit = d0.get('title', '')
+        if nid in USATI or NO_CLIP.search(tit + ' ' + ' '.join(d0.get('keywords') or [])):
             continue
         try:
             files = get(it['href'])
-            mp4 = next((f for suf in ('~small.mp4', '~mobile.mp4', '~medium.mp4') for f in files if f.endswith(suf)), None)
+            mp4 = next((f for suf in ('~small.mp4', '~mobile.mp4', '~medium.mp4', '~preview.mp4') for f in files if f.endswith(suf)), None)
             if not mp4:
                 continue
-            p = os.path.join(LAV, nid.replace('/', '_') + '.mp4')
+            p = os.path.join(LAV, re.sub(r'\W', '_', nid) + '.mp4')
             open(p, 'wb').write(get(mp4.replace('http://', 'https://'), raw=True, timeout=300))
-            lung = float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', p],
-                                        capture_output=True, text=True).stdout.strip() or 0)
-            if lung < dur + 2:
+            lung = durata(p)
+            if lung < dur + 3:
                 continue
-            USATI.add(nid); return p, lung, nid, it['data'][0].get('title', '')
+            ok = subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width,height', '-of', 'csv=p=0', p],
+                                capture_output=True, text=True).stdout.strip().split(',')
+            if len(ok) < 2 or int(ok[0]) < int(ok[1]) or int(ok[0]) < 600:   # niente clip verticali o minuscole
+                continue
+            USATI.add(nid)
+            da = random.uniform(lung * .15, max(lung * .15, lung * .85 - dur))   # mai l'inizio (titoli) ne' la fine (crediti)
+            CLIP_CACHE[nid] = (p, lung, [da])
+            return p, da, nid, tit
         except Exception as e:
             log('clip non usata', nid, str(e)[:80])
+    return None
+
+
+def altro_pezzo(nid, dur):
+    """Un altro momento (lontano almeno 6 s) della stessa clip, se la ricerca non da' clip nuove."""
+    p, lung, usati = CLIP_CACHE[nid]
+    for _ in range(20):
+        da = random.uniform(lung * .1, max(lung * .1, lung * .9 - dur))
+        if all(abs(da - u) > dur + 6 for u in usati):
+            usati.append(da); return p, da
     return None
 
 
@@ -118,80 +143,104 @@ open(FONT, 'wb').write(get('https://github.com/google/fonts/raw/main/ofl/anton/A
 
 def scritta_png(t, k):
     im = Image.new('RGBA', (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
-    s = 150; f = ImageFont.truetype(FONT, s)
-    while d.textlength(t, font=f) > W - 200 and s > 70:
+    s = 160; f = ImageFont.truetype(FONT, s)
+    while d.textlength(t, font=f) > W - 220 and s > 70:
         s -= 6; f = ImageFont.truetype(FONT, s)
-    d.text((W // 2, 70), t, font=f, fill=(255, 255, 255), stroke_width=s // 12, stroke_fill=(0, 0, 0), anchor='ma')
+    d.text((W // 2, H - 90), t, font=f, fill=(255, 255, 255), stroke_width=s // 11, stroke_fill=(0, 0, 0), anchor='md')
     p = os.path.join(LAV, f'scritta_{k}.png'); im.save(p); return p
 
 
 # ---------------- 4) inquadrature ----------------
-pezzi, fonti, n = [], [], 0
-MOTI = ['avanti', 'indietro', 'destra', 'sinistra']
+# transizioni tra un'inquadratura e la successiva: soprattutto tagli netti, ogni tanto un effetto breve
+EFFETTI = [('fadeblack', .35), ('fadewhite', .18), ('zoomin', .35), ('dissolve', .40), ('slideleft', .30), ('smoothright', .30), ('circleopen', .35)]
+TAGLIO = ('fade', .04)
+piano = []   # [(durata sul timeline, scena, prima_parte)]
 for k, (s, (a, b)) in enumerate(zip(scene, tempi)):
-    dur = b - a
-    parti = max(1, int(-(-dur // MAXS)))          # quante immagini servono per non superare MAXS
-    d1 = dur / parti
+    d = b - a; parti = max(1, int(-(-d // MAXS)))
     for i in range(parti):
-        out = os.path.join(LAV, f'p_{n:03d}.mp4')
-        sc = scritta_png(s['scritta'], n) if (s.get('scritta') and i == 0) else None
-        fatto = False
-        if s.get('clip') and i == 0:
-            c = clip(s['q'], d1)
-            if c:
-                p, lung, nid, tit = c
-                da = min(max(1.0, lung * .25), lung - d1 - .5)
-                filt = f'[0:v]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={FPS},setsar=1[v]'
-                cmd = ['ffmpeg', '-y', '-v', 'error', '-ss', round(da, 2), '-t', round(d1, 3), '-i', p]
-                if sc:
-                    cmd += ['-i', sc]; filt += ';[v][1:v]overlay=0:0[v]'
-                run(cmd + ['-filter_complex', filt, '-map', '[v]', '-an', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20', '-pix_fmt', 'yuv420p', out])
-                fonti.append(f'{n:03d} CLIP {nid} | {tit}'); fatto = True
-        if not fatto:
-            t_ = bool(s.get('a_terra')); f_ = foto(s['q'], t_) or foto(' '.join(s['q'].split()[:3]), t_) or foto('astronaut International Space Station', t_)
-            if not f_:
-                raise RuntimeError('nessuna immagine NASA per: ' + s['q'])
-            im, nid, tit = f_
-            # riempie 16:9 a doppia risoluzione (movimento fluido), poi movimento lento
-            r = max(W * 2 / im.width, H * 2 / im.height); im = im.resize((int(im.width * r) + 1, int(im.height * r) + 1), Image.LANCZOS)
-            x0, y0 = (im.width - W * 2) // 2, (im.height - H * 2) // 3
-            im = im.crop((x0, y0, x0 + W * 2, y0 + H * 2)); src = os.path.join(LAV, f'f_{n:03d}.jpg'); im.save(src, quality=92)
-            fr = max(2, int(round(d1 * FPS))); m = MOTI[n % 4]
-            z = {'avanti': f"1+0.10*on/{fr}", 'indietro': f"1.10-0.10*on/{fr}"}.get(m, '1.10')
-            x = {'destra': f"(iw-iw/zoom)*on/{fr}", 'sinistra': f"(iw-iw/zoom)*(1-on/{fr})"}.get(m, 'iw/2-(iw/zoom/2)')
-            filt = f"[0:v]zoompan=z='{z}':x='{x}':y='ih/2-(ih/zoom/2)':d={fr}:s={W}x{H}:fps={FPS},setsar=1[v]"
-            cmd = ['ffmpeg', '-y', '-v', 'error', '-i', src]
-            if sc:
-                cmd += ['-i', sc]; filt += ';[v][1:v]overlay=0:0[v]'
-            run(cmd + ['-filter_complex', filt, '-map', '[v]', '-frames:v', fr, '-an', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20', '-pix_fmt', 'yuv420p', out])
-            fonti.append(f'{n:03d} FOTO {nid} | {tit}')
-        pezzi.append(out); n += 1
-    log('scena', k + 1, 'di', len(scene), round(dur, 1), 's ->', parti, 'inquadrature')
+        piano.append((d / parti, s, i == 0, a + i * d / parti))
+trans = []
+for n in range(len(piano) - 1):
+    trans.append(EFFETTI[(n // 3) % len(EFFETTI)] if n % 3 == 2 else TAGLIO)   # un effetto ogni 3 tagli
+trans.append(('fade', 0))
 
-# ---------------- 5) montaggio + audio ----------------
-lista = os.path.join(LAV, 'lista.txt'); open(lista, 'w').write(''.join(f"file '{p}'\n" for p in pezzi))
-muto = os.path.join(LAV, 'muto.mp4'); run(['ffmpeg', '-y', '-v', 'error', '-f', 'concat', '-safe', '0', '-i', lista, '-c', 'copy', muto])
-mus = os.path.join('libreria_musica', P.get('musica') or 'curiosita_001.mp3')
-vm = float(P.get('volume_musica') or 0.07)
+pezzi, fonti, nclip = [], [], 0
+for n, (d, s, prima, t0) in enumerate(piano):
+    T = trans[n][1]; L = d + T                        # ogni pezzo dura un po' di piu' per la transizione
+    out = os.path.join(LAV, f'p_{n:03d}.mp4')
+    sc = scritta_png(s['scritta'], n) if (s.get('scritta') and prima) else None
+    vuole_clip = s.get('tipo', 'clip') != 'foto' or t0 < SOLO_VIDEO
+    c = None
+    if vuole_clip:
+        c = clip(s['q'], L) or clip(' '.join(s['q'].split()[:3]), L)
+        if not c and s.get('_ultima'):
+            r = altro_pezzo(s['_ultima'], L)
+            c = (r[0], r[1], s['_ultima'], '(altro momento)') if r else None
+    if c:
+        p, da, nid, tit = c; s['_ultima'] = nid; nclip += 1
+        spinta = n % 2 == 0                            # una clip si' e una no: leggera spinta in avanti (punch-in)
+        vf = (f'[0:v]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={FPS},setsar=1'
+              + (f",zoompan=z='1+0.06*on/{int(L * FPS)}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s={W}x{H}:fps={FPS}" if spinta else '') + '[v]')
+        cmd = ['ffmpeg', '-y', '-v', 'error', '-ss', round(da, 2), '-t', round(L, 3), '-i', p]
+        fonti.append(f'{n:03d} CLIP {nid} da {da:.1f}s | {tit}')
+    else:
+        f_ = foto(s['q'], bool(s.get('a_terra'))) or foto(' '.join(s['q'].split()[:3]), bool(s.get('a_terra'))) \
+            or foto('astronaut International Space Station')
+        if not f_:
+            raise RuntimeError('nessuna immagine NASA per: ' + s['q'])
+        im, nid, tit = f_
+        r = max(W * 2 / im.width, H * 2 / im.height); im = im.resize((int(im.width * r) + 1, int(im.height * r) + 1), Image.LANCZOS)
+        x0, y0 = (im.width - W * 2) // 2, (im.height - H * 2) // 3
+        src = os.path.join(LAV, f'f_{n:03d}.jpg'); im.crop((x0, y0, x0 + W * 2, y0 + H * 2)).save(src, quality=92)
+        fr = int(L * FPS) + 1; m = ['avanti', 'destra', 'indietro', 'sinistra'][n % 4]
+        z = {'avanti': f"1+0.12*on/{fr}", 'indietro': f"1.12-0.12*on/{fr}"}.get(m, '1.12')
+        x = {'destra': f"(iw-iw/zoom)*on/{fr}", 'sinistra': f"(iw-iw/zoom)*(1-on/{fr})"}.get(m, 'iw/2-(iw/zoom/2)')
+        vf = f"[0:v]zoompan=z='{z}':x='{x}':y='ih/2-(ih/zoom/2)':d={fr}:s={W}x{H}:fps={FPS},setsar=1[v]"
+        cmd = ['ffmpeg', '-y', '-v', 'error', '-i', src]
+        fonti.append(f'{n:03d} FOTO {nid} | {tit}')
+    if sc:
+        cmd += ['-i', sc]; vf += ';[v][1:v]overlay=0:0[v]'
+    run(cmd + ['-filter_complex', vf + ';[v]format=yuv420p[o]', '-map', '[o]', '-frames:v', int(round(L * FPS)), '-an',
+               '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '19', out])
+    pezzi.append((out, d, trans[n]))
+    log(f'{n:02d}', 'CLIP' if c else 'FOTO', round(d, 2), 's', trans[n][0])
+
+# ---------------- 5) montaggio con transizioni + audio ----------------
+ins, fl, acc, prec = [], [], 0.0, '0:v'
+for i, (p, d, _) in enumerate(pezzi):
+    ins += ['-i', p]
+for i in range(1, len(pezzi)):
+    acc += pezzi[i - 1][1]
+    tipo, T = pezzi[i - 1][2]
+    o = f'x{i}'
+    fl.append(f'[{prec}][{i}:v]xfade=transition={tipo}:duration={T}:offset={acc:.3f}[{o}]'); prec = o
+# leggera vignettatura e grana, come i documentari d'archivio
+fl.append(f'[{prec}]vignette=angle=PI/6,noise=alls=5:allf=t,format=yuv420p[vf]')
+muto = os.path.join(LAV, 'muto.mp4')
+run(['ffmpeg', '-y', '-v', 'error'] + ins + ['-filter_complex', ';'.join(fl), '-map', '[vf]', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20', muto])
+mus = os.path.join('libreria_musica', P.get('musica') or 'epico_002.mp3')
+vm = float(P.get('volume_musica') or 0.08)
 OUT = os.path.join(CART, 'prova.mp4')
 run(['ffmpeg', '-y', '-v', 'error', '-i', muto, '-i', VOCE, '-stream_loop', '-1', '-i', mus, '-filter_complex',
      f'[1:a]aformat=sample_rates=44100:channel_layouts=stereo[v];'
      f'[2:a]aformat=sample_rates=44100:channel_layouts=stereo,volume={vm},afade=t=in:d=1,afade=t=out:st={fine_tot - 1.5:.2f}:d=1.5[m];'
      f'[v][m]amix=inputs=2:duration=first:normalize=0[a]',
-     '-map', '0:v', '-map', '[a]', '-t', round(fine_tot, 2), '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '22', '-pix_fmt', 'yuv420p',
-     '-c:a', 'aac', '-b:a', '160k', '-movflags', '+faststart', OUT])
+     '-map', '0:v', '-map', '[a]', '-t', round(fine_tot, 2), '-c:v', 'copy', '-c:a', 'aac', '-b:a', '160k', '-movflags', '+faststart', OUT])
 
 # ---------------- 6) controlli ----------------
-# un fotogramma a meta' di ogni inquadratura, in griglia, per il controllo visivo
 fot = []
-for p in pezzi:
+for i, (p, d, _) in enumerate(pezzi):
     q = p[:-4] + '.png'
-    run(['ffmpeg', '-y', '-v', 'error', '-sseof', '-1.2', '-i', p, '-frames:v', 1, '-vf', 'scale=384:216', q]); fot.append(q)
+    run(['ffmpeg', '-y', '-v', 'error', '-ss', f'{d / 2:.2f}', '-i', p, '-frames:v', 1, '-vf', 'scale=384:216', q]); fot.append(q)
 col = 5; G = Image.new('RGB', (col * 390, ((len(fot) + col - 1) // col) * 222), 'black'); dg = ImageDraw.Draw(G)
 for i, q in enumerate(fot):
     G.paste(Image.open(q), ((i % col) * 390, (i // col) * 222)); dg.text(((i % col) * 390 + 6, (i // col) * 222 + 4), str(i), fill='yellow')
 G.save(os.path.join(CART, 'fotogrammi.jpg'), quality=85)
+quota = 100 * sum(d for (p, d, _), f in zip(pezzi, fonti) if ' CLIP ' in f) / max(.1, sum(d for p, d, _ in pezzi))
 open(os.path.join(CART, 'fonti.txt'), 'w').write('\n'.join(fonti) + '\n')
-open(os.path.join(CART, 'costi.txt'), 'w').write(f'ElevenLabs: {len(testo)} crediti dell\'abbonamento | immagini NASA: 0 | Claude: 0 (copione nel payload) | render GitHub: 0\n'
-                                                 f'inquadrature: {len(pezzi)} | durata: {fine_tot:.1f} s | inquadratura media {fine_tot / len(pezzi):.1f} s\n')
-log('FATTO', OUT, len(pezzi), 'inquadrature', round(fine_tot, 1), 's')
+open(os.path.join(CART, 'costi.txt'), 'w').write(
+    f'ElevenLabs: {len(testo)} crediti dell\'abbonamento | NASA: 0 | Claude: 0 (copione nel payload) | render GitHub: 0\n'
+    f'inquadrature: {len(pezzi)} | durata: {fine_tot:.1f} s | inquadratura media {fine_tot / len(pezzi):.1f} s | video in movimento: {quota:.0f}%\n')
+if quota < 80:
+    log(f'ATTENZIONE: solo {quota:.0f}% di video in movimento (minimo 80%)')
+log('FATTO', OUT, len(pezzi), 'inquadrature', round(fine_tot, 1), 's', f'{quota:.0f}% video')
