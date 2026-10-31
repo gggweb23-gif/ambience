@@ -42,8 +42,11 @@ def spendi(voce, usd):
         raise RuntimeError(f'VIDEO BLOCCATO (budget): speso {SPESA["usd"]:.2f} $ oltre {BUDGET_USD:.2f} $')
 
 
-def claude(prompt, modello='claude-sonnet-5-5', max_tokens=16000):
-    r = get('https://api.anthropic.com/v1/messages', {'model': modello, 'max_tokens': max_tokens, 'messages': [{'role': 'user', 'content': prompt}]},
+def claude(prompt, modello='claude-sonnet-5-5', max_tokens=24000):
+    corpo = {'model': modello, 'max_tokens': max_tokens, 'messages': [{'role': 'user', 'content': prompt}]}
+    if 'sonnet-5' in modello:   # Sonnet 5.5 ragiona prima di rispondere e il ragionamento consumava tutti i token: risposta vuota
+        corpo.update(thinking={'type': 'between_tools'}, output_config={'effort': 'medium'})
+    r = get('https://api.anthropic.com/v1/messages', corpo,
             {'x-api-key': E('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01'}, timeout=600)
     u = r.get('usage', {}); prezzi = (3, 15) if 'sonnet' in modello else (1, 5)
     spendi('claude ' + modello, (u.get('input_tokens', 0) * prezzi[0] + u.get('output_tokens', 0) * prezzi[1]) / 1e6)
@@ -99,7 +102,7 @@ for k in range(2):
         if P_MIN * .85 <= n <= P_MAX * 1.12:
             break
     except Exception as e:
-        n = 0; log('copione non leggibile:', str(e)[:120])
+        n = 0; log('copione non leggibile:', str(e)[:120], '| risposta:', len(t), 'caratteri', repr(t[:200]))
     c = None
 if not c:
     raise RuntimeError('VIDEO BLOCCATO: copione fuori lunghezza (nessuna spesa per voce e montaggio)')
