@@ -97,12 +97,34 @@ def foto(q, a_terra=False):
     return None
 
 
-def clip(q, dur):
+CLIP_ORBITA = re.compile(r'^iss\d{3}m', re.I)   # riprese grezze girate in orbita (downlink ISS): niente scritte, studi, addestramenti a Terra
+
+
+def bande_nere(p, da, dur):
+    """True se il pezzo ha bande nere (video 4:3 o con cornice): da scartare."""
+    o = subprocess.run(['ffmpeg', '-v', 'info', '-ss', f'{da:.2f}', '-t', f'{min(dur, 3):.2f}', '-i', p, '-vf', 'cropdetect=limit=24:round=2:reset=0',
+                        '-an', '-f', 'null', '-'], capture_output=True, text=True).stderr
+    m = re.findall(r'crop=(\d+):(\d+):', o)
+    if not m:
+        return False
+    cw, ch = map(int, m[-1])
+    w, h = map(int, subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width,height', '-of', 'csv=p=0', p],
+                                   capture_output=True, text=True).stdout.strip().split(',')[:2])
+    return cw < w * .92 or ch < h * .88
+
+
+def clip(q, dur, a_terra=False):
     """Una clip NASA nuova per la ricerca; restituisce (file, inizio, nasa_id, titolo)."""
-    for it in nasa(q, 'video')[:10]:
+    tentate = 0
+    for it in nasa(q, 'video'):
         d0 = it['data'][0]; nid = d0['nasa_id']; tit = d0.get('title', '')
         if nid in USATI or NO_CLIP.search(tit + ' ' + ' '.join(d0.get('keywords') or [])):
             continue
+        if not a_terra and not CLIP_ORBITA.match(nid):
+            continue
+        tentate += 1
+        if tentate > 5:
+            break
         try:
             files = get(it['href'])
             mp4 = next((f for suf in ('~small.mp4', '~mobile.mp4', '~medium.mp4', '~preview.mp4') for f in files if f.endswith(suf)), None)
@@ -117,8 +139,13 @@ def clip(q, dur):
                                 capture_output=True, text=True).stdout.strip().split(',')
             if len(ok) < 2 or int(ok[0]) < int(ok[1]) or int(ok[0]) < 600:   # niente clip verticali o minuscole
                 continue
+            for _ in range(4):
+                da = random.uniform(lung * .15, max(lung * .15, lung * .85 - dur))   # mai l'inizio (titoli) ne' la fine (crediti)
+                if not bande_nere(p, da, dur):
+                    break
+            else:
+                log('clip con bande nere, scartata', nid); continue
             USATI.add(nid)
-            da = random.uniform(lung * .15, max(lung * .15, lung * .85 - dur))   # mai l'inizio (titoli) ne' la fine (crediti)
             CLIP_CACHE[nid] = (p, lung, [da])
             return p, da, nid, tit
         except Exception as e:
@@ -172,7 +199,7 @@ for n, (d, s, prima, t0) in enumerate(piano):
     vuole_clip = s.get('tipo', 'clip') != 'foto' or t0 < SOLO_VIDEO
     c = None
     if vuole_clip:
-        c = clip(s['q'], L) or clip(' '.join(s['q'].split()[:3]), L)
+        at = bool(s.get('a_terra')); c = clip(s['q'], L, at) or clip(' '.join(s['q'].split()[:2]), L, at)
         if not c and s.get('_ultima'):
             r = altro_pezzo(s['_ultima'], L)
             c = (r[0], r[1], s['_ultima'], '(altro momento)') if r else None
