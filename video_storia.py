@@ -629,6 +629,11 @@ def nominato(testo, nome):
 # Ogni clip/foto viene CONTROLLATA da Claude (modello economico) guardando l'anteprima:
 # scarta cose moderne, scritte, persone di oggi, cose fuori tema. Mai la stessa clip due volte.
 _cache, _conti, _usati, _lock = {}, {'n': 0}, set(), threading.RLock()
+# coach (31 ott 2026, leva COSTO): ricorda_scartate = SI -> le clip/foto Pexels gia' bocciate dal controllo non si rimandano piu' a Claude
+# (prima la stessa clip bocciata veniva ricontrollata a ogni inquadratura: 'colosseum' 281 controlli in un video, 2,5 $ di Haiku).
+# Vuoto/NO = come prima (gli altri canali non cambiano).
+RICORDA_SCARTATE = str(P.get('ricorda_scartate') or E('RICORDA_SCARTATE', '') or 'NO').strip().upper() == 'SI'
+_scartati = set()
 _riserva = {}
 VIETATE = ('firefighter', 'fire-fighter', 'jakarta', 'police', 'car', 'cars', 'traffic', 'phone', 'smartphone', 'laptop', 'computer',
            'office', 'selfie', 'tourist', 'tourists', 'christmas', 'birthday', 'party', 'card', 'greeting', 'happy', 'neon', 'logo',
@@ -804,7 +809,7 @@ def pexels(tipo, q, contesto=''):
             if prima_n and not tutti:
                 log('Pexels', repr(qq), '-> nessuna clip girata nel paese, scartate', prima_n)
         with _lock:
-            liberi = [c for c in tutti if c['url'] not in _usati]
+            liberi = [c for c in tutti if c['url'] not in _usati and c['url'] not in _scartati]
         cand, scartate = [], 0
         for c in liberi:   # niente seconda ripresa dello stesso posto (es. due voli di drone sul Nilo dello stesso autore)
             if len(cand) >= 4:
@@ -820,6 +825,9 @@ def pexels(tipo, q, contesto=''):
         if not cand:
             continue
         i = controlla(cand, qq, contesto)
+        if RICORDA_SCARTATE:   # quelle prima della scelta (o tutte, se -1) sono state bocciate: mai piu' ricontrollate
+            with _lock:
+                _scartati.update(c['url'] for c in (cand if i < 0 else cand[:i]))
         if i >= 0:
             with _lock:
                 if cand[i]['url'] in _usati or stessa_ripresa(cand[i]):   # un'altra ricerca in parallelo l'ha appena presa
@@ -3945,6 +3953,7 @@ def main():
             prec = next((paths[j] for j in range(k - 1, -1, -1) if paths[j]), None) or next((x for x in paths if x), None)
             paths[k] = pezzo_video(p_k, piano[k]['d'], prec, 0.0, specchio=True)
             log(f'pezzo {k}: ATTENZIONE nessuna clip da riusare, ripeto il pezzo precedente specchiato')
+        log(f"clip Pexels bocciate e ricordate (mai ricontrollate): {len(_scartati)}")
         log(f"ricerche Pexels usate: {_conti['n']} (limite {PEXELS_MAX} l'ora, attesa {int(_conti.get('attesa', 0)) // 60} min); pezzi con clip riusata: {sum(riusi.values())}")
         log('pezzi pronti:', len(paths), 'in', int(time.time() - t0), 's')
         log(f"SPESA immagini: {SPESA['disegni']} immagini, circa {SPESA['fal']:.2f} $" + (f' (tetto {BUDGET:.2f} EUR a video)' if BUDGET else ''))
