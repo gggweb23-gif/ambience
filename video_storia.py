@@ -340,21 +340,24 @@ def condensa_originale(orig, obiettivo):
     """Prima del copione: un modello economico condensa il testo del competitor alla lunghezza del NOSTRO video
     (stesso ordine, ganci, domande, numeri e finale), cosi' il copione copia un testo gia' della lunghezza giusta."""
     chiave = E('ANTHROPIC_API_KEY', '')
-    for k in range(3):
+    testo = orig
+    for k in range(6):   # a passaggi: ogni modello taglia solo il 25-30% per volta (5.014 -> 3.700 anche chiedendo 1.300)
         try:
             r = http('https://api.anthropic.com/v1/messages', {'model': MODELLO_CONTROLLO, 'max_tokens': 8000, 'messages': [{'role': 'user', 'content':
-                f"""Condense this YouTube video transcript to about {obiettivo} words (between {int(obiettivo * .95)} and {int(obiettivo * 1.03)} words), in its ORIGINAL language.
+                f"""Condense this YouTube video transcript to about {max(obiettivo, int(len(testo.split()) * .6))} words, in its ORIGINAL language.
 Keep: the opening hook, the same order of topics, the questions to the viewer, the strongest facts and numbers, the most surprising details and the ending.
 Cut: repetitions, filler, secondary examples, channel promos. Do not add anything. Write it as continuous narration, no titles, no notes.
 
 TRANSCRIPT:
-{orig[:60000]}"""}]}, {'x-api-key': chiave, 'anthropic-version': '2023-06-01'}, timeout=300)
+{testo[:60000]}"""}]}, {'x-api-key': chiave, 'anthropic-version': '2023-06-01'}, timeout=300)
             CO.registra('claude', MODELLO_CONTROLLO, r.get('usage') or {}, nota='condensa')
             txt = ''.join(b.get('text', '') for b in r.get('content', [])).strip()
             n = len(txt.split())
-            log(f'originale condensato: {len(orig.split())} -> {n} parole (obiettivo {obiettivo})')
-            if obiettivo * .85 <= n <= obiettivo * 1.12:
+            log(f'originale condensato: {len(testo.split())} -> {n} parole (obiettivo {obiettivo})')
+            if obiettivo * .80 <= n <= obiettivo * 1.12:
                 return txt
+            if obiettivo * .80 <= n < len(testo.split()):   # piu' corto ma ancora lungo: si ripassa il risultato
+                testo = txt
         except Exception as e:
             log('condensa non riuscita:', str(e)[:150])
     raise RuntimeError('VIDEO BLOCCATO: testo del competitor non condensato alla lunghezza giusta (nessuna spesa per voce e immagini)')
