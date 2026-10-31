@@ -150,11 +150,14 @@ def controlli():
 # RIPARAZIONE AUTOMATICA (31 ott, Giorgio: "i video non si devono bloccare"): se un controllo non passa, si rifa' il montaggio
 # con regole piu' strette (clip ovunque, inquadrature piu' corte, altri momenti delle riprese gia' scaricate) invece di fermarsi.
 TENTATIVI = [mont, dict(mont, solo_video_fino_a=99999, max_secondi=3.0)]
-quota = media = dur = 0; errori = ['montaggio non riuscito']
+quota = media = dur = 0; errori = ['montaggio non riuscito']; MONTATO = False
 for t_, m_ in enumerate(TENTATIVI):
+    if os.path.exists(VIDEO):
+        os.remove(VIDEO)   # mai caricare il video rotto di un tentativo precedente
     r = subprocess.run([sys.executable, 'strumenti/prova_archivio.py'], env=dict(os.environ, PAYLOAD=json.dumps(m_)))
     if r.returncode:
         log('montaggio non riuscito al tentativo', t_ + 1); continue
+    MONTATO = True
     quota, media, dur, errori = controlli()
     if not errori:
         break
@@ -171,7 +174,7 @@ except Exception:
     pass
 DA_CONTROLLARE = ''
 if errori:
-    if not os.path.exists(VIDEO) or (P.get('privacy') or 'unlisted') == 'public':
+    if not MONTATO or not os.path.exists(VIDEO) or (P.get('privacy') or 'unlisted') == 'public':
         raise RuntimeError('VIDEO BLOCCATO (controlli, anche dopo la riparazione): ' + '; '.join(errori))
     DA_CONTROLLARE = '; '.join(errori)   # video non in elenco: si carica comunque e lo si segnala, Giorgio lo vede prima di pubblicare
     log('CARICATO DA CONTROLLARE (non in elenco):', DA_CONTROLLARE)
@@ -218,7 +221,13 @@ vid_id = ''
 if str(P.get('carica') or '').upper() == 'SI' and E('YT_REFRESH_TOKEN'):
     tk = json.loads(urllib.request.urlopen(urllib.request.Request('https://oauth2.googleapis.com/token', data=urllib.parse.urlencode({
         'client_id': E('YT_CLIENT_ID'), 'client_secret': E('YT_CLIENT_SECRET'), 'refresh_token': E('YT_REFRESH_TOKEN'), 'grant_type': 'refresh_token'}).encode()), timeout=60).read())['access_token']
-    meta = {'snippet': {'title': P['titolo'][:100], 'description': c.get('descrizione', ''), 'tags': c.get('tag', [])[:30],
+    pulisci = lambda t: re.sub(r'[<>]', '', str(t)).strip()
+    tags, tot = [], 0
+    for t in c.get('tag', []):   # YouTube: massimo 500 caratteri di tag in tutto, niente < >
+        t = pulisci(t)[:60]
+        if t and tot + len(t) + 3 <= 450:
+            tags.append(t); tot += len(t) + 3
+    meta = {'snippet': {'title': pulisci(P['titolo'])[:100], 'description': pulisci(c.get('descrizione', ''))[:4900], 'tags': tags,
                         'categoryId': str(P.get('youtube_category_id') or 27), 'defaultLanguage': str(P.get('language') or 'en')[:2],
                         'defaultAudioLanguage': str(P.get('language') or 'en')[:2]},
             'status': {'privacyStatus': P.get('privacy') or 'unlisted', 'selfDeclaredMadeForKids': False}}

@@ -184,7 +184,7 @@ def clip(q, dur, a_terra=False):
         if tentate > 6:
             break
         try:
-            files = get(it['href'])
+            files = [urllib.parse.quote(f_, safe=':/~.%-_') for f_ in get(urllib.parse.quote(it['href'], safe=':/~.%-_?=&'))]   # nomi con spazi
             mp4 = next((f for suf in ('~small.mp4', '~mobile.mp4', '~medium.mp4', '~preview.mp4') for f in files if f.endswith(suf)), None)
             if not mp4:
                 continue
@@ -275,9 +275,9 @@ for n, (d, s, prima, t0) in enumerate(piano):
         fonti.append(f'{n:03d} CLIP {nid} da {da:.1f}s | {tit}')
     else:
         f_ = foto(s['q'], bool(s.get('a_terra'))) or foto(' '.join(s['q'].split()[:3]), bool(s.get('a_terra'))) \
-            or foto('astronaut International Space Station')
-        if not f_:
-            raise RuntimeError('nessuna immagine NASA per: ' + s['q'])
+            or foto('astronaut International Space Station') or foto('Earth from International Space Station') or foto('ISS crew Expedition')
+        if not f_:   # ultima rete: mai fermarsi per una sola scena
+            f_ = (Image.new('RGB', (W * 2, H * 2), (8, 10, 18)), 'nessuna', 'sfondo scuro (nessuna immagine trovata)')
         im, nid, tit = f_
         r = max(W * 2 / im.width, H * 2 / im.height); im = im.resize((int(im.width * r) + 1, int(im.height * r) + 1), Image.LANCZOS)
         x0, y0 = (im.width - W * 2) // 2, (im.height - H * 2) // 3
