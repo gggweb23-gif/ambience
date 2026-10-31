@@ -1,0 +1,40 @@
+name: Analisi video di riferimento (gratis)
+
+# Studio del montaggio di un video che funziona: tagli, ritmo, transizioni, parole al secondo (strumenti/analisi_video.py).
+on:
+  workflow_dispatch:
+    inputs:
+      payload:
+        description: 'JSON: {"nome": "...", "video": "<link>", "secondi": 90}'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  analisi:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Strumenti
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null && pip install -q pillow yt-dlp
+      - name: Analisi
+        env:
+          PAYLOAD: ${{ inputs.payload }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN_KAO }}
+          RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
+        run: python3 strumenti/analisi_video.py
+      - name: Salva nel repository
+        if: ${{ always() }}
+        run: |
+          if [ -n "$(git status --porcelain prove_video/analisi)" ]; then
+            git config user.name "render-bot"
+            git config user.email "render-bot@users.noreply.github.com"
+            git add prove_video/analisi
+            git commit -m "Analisi video"
+            for i in 1 2 3 4 5; do git pull --rebase -q && git push && break; sleep $((i * 5)); done
+          fi
