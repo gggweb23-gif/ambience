@@ -37,6 +37,20 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 180
     steps:
+      - name: Nascondi chiavi e token del payload (repository pubblico)
+        run: |
+          python3 - <<'PY'
+          import json, os
+          ev = json.load(open(os.environ['GITHUB_EVENT_PATH']))
+          raw = (ev.get('inputs') or {}).get('payload') or ''
+          try:
+              p = json.loads(raw)
+          except Exception:
+              p = {}
+          for k, v in (p.items() if isinstance(p, dict) else []):
+              if any(w in str(k).lower() for w in ('token', 'secret', 'password', 'api_key', 'apikey')) and len(str(v).strip()) > 8:
+                  print('::add-mask::' + str(v).strip())
+          PY
       - uses: actions/checkout@v4
 
       - name: Memoria di mappa, confini e caratteri (si scaricano una volta sola)
