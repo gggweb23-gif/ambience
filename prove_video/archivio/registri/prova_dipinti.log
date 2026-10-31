@@ -1,47 +1,37 @@
-22:58:31 voce 45.6 s
+23:04:08 voce 40.2 s
 /home/runner/work/ambience/ambience/strumenti/prova_dipinti.py:133: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
   g = im.convert('L').resize((9, 8)); px = list(g.getdata())
-22:58:43 scena 0: 3 immagini/clip coerenti per 3 inquadrature
-22:58:45 00 000 DIPINTO Arthur-Pyle Sir Kay showeth the mystic sword unto Sir Ector.JPG | Howard Pyle 
-22:58:47 01 001 DIPINTO Arthur-Pyle How Arthur drew forth ye sword.JPG | Howard Pyle | Public domain p
-22:58:49 02 002 DIPINTO Stories King Arthur-073.jpg | Arthur Lincoln Haydon | Public domain pd
+23:04:20 scena 0: 10 immagini/clip coerenti per 3 inquadrature
+23:04:28 00 000 VIDEO 111-fb-178 - flame thrower fuels.webm | Department of Defense. Department of the
+23:04:33 01 001 VIDEO Nampo hodo (7).webm | 
+Nippon Eigasha Djawa (producer) | Public domain pd
+23:04:36 02 002 VIDEO Raising the Flag on Iwo Jima (color).ogv | Bill Genaust | Public domain pd
 /home/runner/work/ambience/ambience/strumenti/prova_dipinti.py:133: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
   g = im.convert('L').resize((9, 8)); px = list(g.getdata())
-22:59:09 scena 1: 1 immagini/clip coerenti per 2 inquadrature
-22:59:10 03 003 DIPINTO The taking of Excalibur, by John Duncan.jpg | Unserefahne | Public domain pd
-22:59:10 04 004 SCHEDA (nessuna immagine coerente)
+23:04:49 scena 1: 5 immagini/clip coerenti per 2 inquadrature
+23:04:52 03 003 DIPINTO SC 171713 - The doughboy's constant companion is his Garand rifle. (5227220685
+23:04:54 04 004 DIPINTO A young soldier of the armored forces holds and sights his Garand rifle like a
 /home/runner/work/ambience/ambience/strumenti/prova_dipinti.py:133: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
   g = im.convert('L').resize((9, 8)); px = list(g.getdata())
-22:59:30 scena 2: 3 immagini/clip coerenti per 2 inquadrature
-22:59:33 05 005 DIPINTO Arthur Joseph Gaskin - Kilhwych, The King's Son - Google Art Project.jpg | 
-Ar
-22:59:35 06 006 DIPINTO Dante Gabriel Rossetti - Chapel Before the Lists.jpg | Dante Gabriel Rossetti 
+23:05:06 scena 2: 5 immagini/clip coerenti per 2 inquadrature
+23:05:09 05 005 VIDEO " ENEMY WEAPONS -- JAPANESE ARMY " RESTRICTED WWII INFANTRY TRAINING FILM NAMBU 
+23:05:12 06 006 VIDEO " KILL OR BE KILLED " 1943 WWII INFANTRY TRAINING FILM HAND-TO-HAND COMBAT TECHN
 /home/runner/work/ambience/ambience/strumenti/prova_dipinti.py:133: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
   g = im.convert('L').resize((9, 8)); px = list(g.getdata())
-23:00:00 scena 3: 4 immagini/clip coerenti per 2 inquadrature
-23:00:02 07 007 DIPINTO Sir Breunor le Noire postcard - front.jpg | King Arthur's Hall, Tintagel, 1905
-23:00:04 08 008 DIPINTO Arthur-Pyle Mounted Knight.JPG | Howard Pyle | Public domain pd
+23:05:35 scena 3: 1 immagini/clip coerenti per 3 inquadrature
+23:05:37 07 007 DIPINTO Colonel Frank Capra (right) of the US Army Signal Corps confers with Captain R
+23:05:38 08 008 SCHEDA (nessuna immagine coerente)
+23:05:38 09 009 SCHEDA (nessuna immagine coerente)
 /home/runner/work/ambience/ambience/strumenti/prova_dipinti.py:133: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
   g = im.convert('L').resize((9, 8)); px = list(g.getdata())
-23:00:51 scena 4: 4 immagini/clip coerenti per 3 inquadrature
-23:00:53 09 009 DIPINTO CRANE King Arthur asks the lady of the lake for the sword Excalibur.jpg | Walt
-23:00:54 10 010 DIPINTO Joyce Crowther, Lady Lake (1744-1834) as Diana.jpg | Francis Cotes | Public do
-23:00:56 11 011 DIPINTO Edwin Austin Abbey - Amfortas Released by Galahad, study for The Quest of the 
+23:06:00 scena 4: 2 immagini/clip coerenti per 3 inquadrature
+23:06:02 10 010 DIPINTO Ww2 158.jpg | Staff Sergent Walter F. Kleine | Public domain pd
+23:06:04 11 011 DIPINTO Churchill-and-machine-gun-H36960.jpg | William George Horton | Public domain p
+23:06:05 12 012 SCHEDA (nessuna immagine coerente)
 /home/runner/work/ambience/ambience/strumenti/prova_dipinti.py:133: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
   g = im.convert('L').resize((9, 8)); px = list(g.getdata())
-23:01:13 scena 5: 0 immagini/clip coerenti per 2 inquadrature
-23:01:14 12 012 SCHEDA (nessuna immagine coerente)
-23:01:15 13 013 SCHEDA (nessuna immagine coerente)
-/home/runner/work/ambience/ambience/strumenti/prova_dipinti.py:133: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
-  g = im.convert('L').resize((9, 8)); px = list(g.getdata())
-23:01:28 scena 6: 0 immagini/clip coerenti per 3 inquadrature
-23:01:29 14 014 SCHEDA (nessuna immagine coerente)
-23:01:29 15 015 SCHEDA (nessuna immagine coerente)
-23:01:30 16 016 SCHEDA (nessuna immagine coerente)
-/home/runner/work/ambience/ambience/strumenti/prova_dipinti.py:133: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
-  g = im.convert('L').resize((9, 8)); px = list(g.getdata())
-23:01:38 scena 7: 4 immagini/clip coerenti per 3 inquadrature
-23:01:40 17 017 DIPINTO Susanoo-no-Mikoto-slays-Yamata-no-Orochi-in-Izumo-By-Tsukioka-Yoshitoshi.png |
-23:01:42 18 018 DIPINTO Yoshitoshi Nihon-ryakushi Susanoo-no-mikoto.jpg | Tsukioka Yoshitoshi (月岡芳年, J
-23:01:44 19 019 DIPINTO Dragon Susanoo no mikoto and the water dragon.jpg | Utagawa Kuniyoshi (歌川 国芳) 
-23:02:11 FATTO prove_video/archivio/yorp_dipinti_spade/prova.mp4
+23:06:13 scena 5: 1 immagini/clip coerenti per 3 inquadrature
+23:06:30 13 013 VIDEO Attack in the Pacific (1944).webm | Frank Capra | Public domain pd
+23:06:30 14 014 SCHEDA (nessuna immagine coerente)
+23:06:31 15 015 SCHEDA (nessuna immagine coerente)
+23:07:13 FATTO prove_video/archivio/impronta_yorp_ww2/prova.mp4
