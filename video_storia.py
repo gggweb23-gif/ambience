@@ -455,12 +455,15 @@ Scegli la texture piu' coerente (washi per Giappone/Cina/Corea, papiro per Egitt
     chiave = E('ANTHROPIC_API_KEY', '')
     if not chiave:
         raise RuntimeError('manca il secret ANTHROPIC_API_KEY')
+    errore_lunghezza = False
     for k in range(3):
         try:
             contenuto = [{'type': 'text', 'text': prompt}]
             if comp.get('copertina'):
                 contenuto.insert(0, {'type': 'image', 'source': {'type': 'url', 'url': comp['copertina']}})
                 contenuto.insert(1, {'type': 'text', 'text': 'Questa sopra e\' la COPERTINA del video originale.'})
+            if k == 2 and errore_lunghezza:   # mai il modello piu' caro per un problema di lunghezza: si ferma prima della voce
+                raise RuntimeError('VIDEO BLOCCATO: copione fuori lunghezza dopo 2 tentativi (nessuna spesa per voce e immagini)')
             richiesta = {'model': MODELLO_AI if k < 2 else MODELLO_RISERVA, 'max_tokens': 64000, 'messages': [{'role': 'user', 'content': contenuto}]}
             if 'sonnet-5' in richiesta['model']:   # poco ragionamento: i token servono al copione lungo (prima finivano a meta')
                 richiesta.update(thinking={'type': 'between_tools'}, output_config={'effort': 'low'})
@@ -471,16 +474,45 @@ Scegli la texture piu' coerente (washi per Giappone/Cina/Corea, papiro per Egitt
             c = json.loads(testo)
             if not c.get('scene'):
                 raise ValueError('copione senza scene')
+            n_par = sum(len(str(s_.get('testo', '')).split()) for s_ in c['scene'])
+            if not PROVA and (n_par > massimo * 1.10 or (minimo and n_par < minimo * 0.90)):   # 31 ott: 2495 parole invece di 1300 = video da 16 min
+                contenuto_extra = (f"\n\nATTENZIONE: il tentativo precedente aveva {n_par} parole di parlato: FUORI LIMITE. "
+                                   f"Il parlato totale deve essere tra {minimo} e {massimo} parole (conta le parole del campo testo di tutte le scene).")
+                prompt = prompt.split('\n\nATTENZIONE: il tentativo precedente')[0] + contenuto_extra
+                errore_lunghezza = True
+                raise ValueError(f'copione di {n_par} parole, fuori da {minimo}-{massimo}')
+            log(f'copione: {n_par} parole (limite {minimo}-{massimo})')
             if not c.get('sfondi') and not SOLO_PEXELS:
                 raise ValueError('copione senza sfondi a cartone')
             c['sfondi'] = c.get('sfondi') or []   # budget 0: nessun disegno, e' giusto che non ci siano sfondi
             return c
+        except RuntimeError as e:
+            if 'VIDEO BLOCCATO' in str(e):
+                raise
+            log('copione non valido, riprovo:', str(e)[:200]); time.sleep(5)
         except Exception as e:
             log('copione non valido, riprovo:', str(e)[:200]); time.sleep(5)
     raise RuntimeError('copione non riuscito')
 
 
 MODELLO_RISERVA = E('MODELLO_RISERVA', 'claude-opus-5-5')
+
+
+def leggi_array(testo):
+    """Array JSON della regia; se e' rovinato (risposta troncata o un carattere sbagliato) recupera gli oggetti validi uno per uno."""
+    try:
+        return json.loads(testo[testo.find('['): testo.rfind(']') + 1])
+    except Exception as e:
+        arr = []
+        for m in re.finditer(r'\{[^{}]*(?:\{[^{}]*\}[^{}]*)*\}', testo):
+            try:
+                arr.append(json.loads(m.group(0)))
+            except Exception:
+                pass
+        if len(arr) < 3:
+            raise ValueError(f'regia illeggibile ({str(e)[:80]}), {len(testo)} caratteri')
+        log(f'regia: JSON riparato, {len(arr)} righe recuperate')
+        return arr
 
 
 def claude_stream(payload, chiave, timeout=600):
@@ -714,12 +746,30 @@ TETTO_TOTALE = _soldi(P.get('coach_budget_video')) or 0.0   # LUCCHETTO SUL TOTA
 _STOP = {'avvisato': False}
 
 
+def preventivo(fase, quota):
+    """PREVENTIVO (31 ott 2026): dopo copione e regia la spesa deve stare sotto quota x budget, altrimenti il video si ferma
+    SUBITO (nessuna spesa per immagini e controlli, niente caricamento). Il lavoro gia' pagato resta salvato per ripartire."""
+    if TETTO_TOTALE and not PROVA and CO.totale() > TETTO_TOTALE * 1.08 * quota:
+        raise RuntimeError(f'VIDEO BLOCCATO (preventivo dopo {fase}): speso {CO.totale():.2f} $, oltre il {quota:.0%} del budget di {TETTO_TOTALE:g} euro')
+    log(f'preventivo dopo {fase}: speso {CO.totale():.2f} $ su {TETTO_TOTALE * 1.08:.2f} $ di budget')
+
+
+def controllo_finale(ds, massimo):
+    """CONTROLLO FINALE prima del caricamento: nessuna inquadratura ferma oltre il ritmo massimo (es. 4 s su Faces).
+    Se non e' rispettato il video NON viene caricato (prima: 15 minuti di immagine ferma pubblicati)."""
+    if RITMO_MAX >= 99 or PROVA and not ds:
+        return
+    oltre = [x for x in ds if x > massimo + 0.3]
+    if max(ds) > max(massimo * 2, 8) or len(oltre) > max(2, len(ds) * 0.03):
+        raise RuntimeError(f'VIDEO BLOCCATO (ritmo): {len(oltre)} inquadrature oltre {massimo:.1f} s, la piu\' lunga {max(ds):.1f} s: NON caricato')
+
+
 def controlla(candidati, q, contesto):
     """Claude guarda le anteprime e sceglie la prima adatta. -1 = nessuna."""
     chiave = E('ANTHROPIC_API_KEY', '')
-    if TETTO_TOTALE and CO.totale() > TETTO_TOTALE * 0.85:   # vicino al budget: niente piu' controlli (e quindi clip nuove)
+    if TETTO_TOTALE and CO.totale() > TETTO_TOTALE * 1.08 - 0.08:   # budget in euro (x1,08 = dollari) meno una piccola riserva
         if not _STOP['avvisato']:
-            _STOP['avvisato'] = True; log(f'LUCCHETTO SPESA: speso {CO.totale():.2f} $ su {TETTO_TOTALE:.2f}: stop alle clip nuove, si usano quelle gia\' approvate')
+            _STOP['avvisato'] = True; log(f'LUCCHETTO SPESA: speso {CO.totale():.2f} $ su {TETTO_TOTALE:.2f} euro: stop ai controlli (se il video resta senza immagini, il CONTROLLO FINALE lo blocca)')
         return -1
     if not chiave or not candidati:
         return 0 if candidati else -1
@@ -2181,9 +2231,9 @@ Rispondi SOLO con un array JSON, un oggetto per riga, con lo stesso numero "n":
 [{{"n": {b0}, "nuova": true, "prompt_en": "...",{' "pannelli": ["...", "...", "...", "..."], "atmosfera": "",' if TAVOLE else ''} "personaggi": [], "camera": "push_in", "didascalia": "", "suono": ""}}, {{"n": {b0 + 1}, "nuova": false,{'' if TAVOLE else ' "zoom": "volto",'} "camera": "pan_left", "suono": ""}}]"""
         for k in range(3):
             try:
-                testo, _ = claude_stream({'model': (MODELLO_REGIA or MODELLO_AI) if k < 2 else MODELLO_AI, 'max_tokens': 32000,
+                testo, _ = claude_stream({'model': MODELLO_REGIA or MODELLO_AI, 'max_tokens': 32000,   # mai salto a un modello piu' caro
                                           'messages': [{'role': 'user', 'content': prompt}]}, chiave)
-                arr = json.loads(testo[testo.find('['): testo.rfind(']') + 1])
+                arr = leggi_array(testo)
                 for x in arr:
                     if isinstance(x, dict) and str(x.get('n', '')).lstrip('-').isdigit():
                         ris[int(x['n'])] = x
@@ -2588,6 +2638,7 @@ def video_regia(c, durs, voci, kit):
     nome_font = c.get('font_carte') if c.get('font_carte') in FONT_EPOCA else 'classico'
     shots = taglia_inquadrature(c['scene'], durs, voci)
     piano = piano_regia(c, shots, kit)
+    preventivo('regia', 0.65)
     fine_prec, acc = 0, 0.0   # durate a fotogrammi interi: video e voce restano allineati
     for v in piano:
         acc += v['d']; fine = int(round(acc * FPS)); v['d'] = max(1, fine - fine_prec) / FPS; fine_prec = fine
@@ -2709,9 +2760,9 @@ Rispondi SOLO con un array JSON, un oggetto per riga, con lo stesso numero "n":
 [{{"n": {b0}, "prompt_en": "...", "personaggi": [], "camera": "push_in", "scritta": "", "etichetta": "", "battuta": "", "flash": false, "atmosfera": "", "suono": "", "musica": "mistero", "stacco": false{', "tipo": "cartone", "q": "", "alt_q": []' if REGIA_PEXELS else ''}}}]"""
         for k in range(3):
             try:
-                testo, _ = claude_stream({'model': (MODELLO_REGIA or MODELLO_AI) if k < 2 else MODELLO_AI, 'max_tokens': 32000,
+                testo, _ = claude_stream({'model': MODELLO_REGIA or MODELLO_AI, 'max_tokens': 32000,   # mai salto a un modello piu' caro
                                           'messages': [{'role': 'user', 'content': prompt}]}, chiave)
-                arr = json.loads(testo[testo.find('['): testo.rfind(']') + 1])
+                arr = leggi_array(testo)
                 for x in arr:
                     if isinstance(x, dict) and str(x.get('n', '')).lstrip('-').isdigit():
                         ris[int(x['n'])] = x
@@ -2943,6 +2994,7 @@ def riserva_scene():
 def video_scene(c, durs, voci, kit):
     shots = taglia_inquadrature(c['scene'], durs, voci)
     piano = piano_scene(c, shots, kit)
+    preventivo('regia', 0.65)
     fine_prec, acc = 0, 0.0   # durate a fotogrammi interi: video e voce restano allineati
     for v in piano:
         acc += v['d']; fine = int(round(acc * FPS)); v['d'] = max(1, fine - fine_prec) / FPS; fine_prec = fine
@@ -3047,7 +3099,9 @@ def video_scene(c, durs, voci, kit):
             piano[j]['d'] += quota
         v['salta'] = True
         if any(piano[j]['d'] > massimo for j in vicini):
-            log(f'ATTENZIONE: inquadratura vicina a {k} supera {massimo:.1f} s')
+            _STOP['lunghe'] = _STOP.get('lunghe', 0) + 1
+    if _STOP.get('lunghe'):
+        log(f"ATTENZIONE: {_STOP['lunghe']} scene assorbite fanno superare {massimo:.1f} s ai vicini")
     piano = [v for v in piano if not v.get('salta')]
     log(f'immagini: {len(mancanti)} scene senza disegno -> {sum(riparate)} immagini vere di riserva, {len(ancora)} assorbite dai vicini')
     nome_font = c.get('font_carte') if c.get('font_carte') in FONT_EPOCA else 'classico'
@@ -3092,6 +3146,7 @@ def video_scene(c, durs, voci, kit):
     ds = [v['d'] for v in buoni_v]
     log(f'CONTROLLO RITMO: {len(buoni_p)} inquadrature, durata media {sum(ds) / len(ds):.1f} s, massima {max(ds):.1f} s, '
         f'oltre {massimo:.1f} s: {sum(1 for x in ds if x > massimo)} | in {int(time.time() - t0)} s')
+    controllo_finale(ds, massimo)
     return buoni_v, buoni_p
 
 
@@ -3751,6 +3806,7 @@ def main():
         log(f'RIPRESA: copione salvato, {n_v} voci e {n_d} disegni gia\' pronti (non si ripagano)')
     else:
         c = copione(comp)
+        preventivo('copione', 0.45)
         if not MAPPA_SI:   # canale senza mappa (es. Faces of Rome)
             c['paese_mappa'] = ''
         json.dump(c, open(salvato, 'w'), ensure_ascii=False)

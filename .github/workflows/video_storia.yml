@@ -207,7 +207,7 @@ jobs:
           [ -f copertina.jpg ] && cp copertina.jpg "$D/"
           [ -f titolo.txt ] && cp titolo.txt "$D/"
           [ -f copione.json ] && cp copione.json "$D/"
-          [ -f storia.log ] && grep -v -i -E "key|token|secret|authorization" storia.log | tail -n 300 > "$D/log.txt"
+          [ -f storia.log ] && { grep -v -i -E "key|token|secret|authorization" storia.log | grep -v "^.\{9\}Pexels" | head -n 250; echo "..."; grep -v -i -E "key|token|secret|authorization" storia.log | tail -n 150; } > "$D/log.txt"
           if [ -f video_storia.mp4 ]; then
             DUR=$(ffprobe -v error -show_entries format=duration -of csv=p=0 video_storia.mp4)
             for i in 1 2 3 4 5 6 7 8; do T=$(python3 -c "print(round($DUR*($i-0.5)/8,2))"); ffmpeg -v error -y -ss $T -i video_storia.mp4 -frames:v 1 -vf scale=960:-1 "$D/fotogramma_$i.jpg"; done
