@@ -118,7 +118,7 @@ Motore "github" (Agora of Sages: motore.js + copertina_statua.py + render_filoso
 - CTR (copertina): `copertina_istruzioni` (testo libero per il piano della copertina: formula delle scritte, es. "comando
   di 2 parole + verdetto", "usa sempre YOU"), `statua_scena` (sola | antagonisti), `statua_gesti` (indici ammessi 0-7,
   vedi GESTI in copertina_statua.py), `statua_aspetto` (descrizione in inglese di capelli/barba), `copertina_regola` (SI/NO),
-  `thumbnail_firma_testo`. Il verde #39FF14 è il tratto distintivo: non si cambia.
+  `thumbnail_firma_testo`, `statua_zoom` (grandezza della statua, 1,5 = testa e busto in primo piano; da mobile deve vedersi bene). Il verde #39FF14 è il tratto distintivo: non si cambia.
 - Retention 30 s (gancio): `narrative_angle` (istruzioni al copione sull'apertura: andare subito al punto, promessa forte,
   domanda diretta allo spettatore), `language_register`.
 - Retention 60 s e oltre (ritmo/video): `render_style` (JSON: `dimensione_testo`, `caratteri_riga`, `righe_max`, `effetto`

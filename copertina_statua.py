@@ -197,9 +197,17 @@ def scena_destra(png, scena, w, h):
     src = Image.open(png)
     if src.mode == 'RGBA' and src.getchannel('A').getextrema()[0] < 20:   # scontornata: fondo del canale (grigio scuro + fumo in basso)
         a = src.getchannel('A'); im = grigio(src.convert('RGB')); im.putalpha(a)
-        im = scala(im, int(h * 1.06))
+        bb = a.getbbox() or (0, 0, im.width, im.height)
+        im = im.crop(bb)   # solo la statua, senza margini vuoti
+        zoom = float(str(CFG.get('statua_zoom') or 1.5).replace(',', '.'))   # >1 = primo piano: testa e busto grandi (da mobile si vede)
+        im = scala(im, int(h * zoom))
+        if im.width > w * .56:   # mai oltre ~56% della larghezza: a sinistra resta lo spazio delle scritte
+            im = im.crop(((im.width - int(w * .56)) // 2, 0, (im.width + int(w * .56)) // 2, im.height))
+            al = im.getchannel('A'); fade = int(im.width * .12)   # bordo sinistro sfumato: niente taglio netto
+            gr = Image.linear_gradient('L').rotate(90).resize((fade, im.height))
+            al.paste(ImageChops_multiply(al.crop((0, 0, fade, im.height)), gr), (0, 0)); im.putalpha(al)
         c = fondo_canale(w, h)
-        c.paste(im, (w - im.width + int(w * .02), int(h * .02)), im)
+        c.paste(im, (w - im.width + int(w * .02), int(h * .03)), im)   # testa in alto, il corpo esce dal fondo
         v = Image.new('L', (w, h), 0); ImageDraw.Draw(v).rectangle([0, 0, w * .45, h], fill=120)
         return Image.composite(Image.new('RGB', (w, h), (8, 8, 10)), c, v.filter(ImageFilter.GaussianBlur(w * .08)))
     im = grigio(src.convert('RGB'))
