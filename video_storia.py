@@ -337,30 +337,40 @@ def lista_kit(kit):
 
 
 def condensa_originale(orig, obiettivo):
-    """Prima del copione: un modello economico condensa il testo del competitor alla lunghezza del NOSTRO video
-    (stesso ordine, ganci, domande, numeri e finale), cosi' il copione copia un testo gia' della lunghezza giusta."""
+    """Prima del copione: il testo del competitor viene condensato alla lunghezza del NOSTRO video (stesso ordine, ganci,
+    domande, numeri e finale). A BLOCCHI: un modello non accorcia mai un testo lungo del 70% in un colpo solo (31 ott: 5.014 -> 4.200
+    in 6 passaggi), ma riassume bene un pezzo breve in poche frasi. Ogni blocco di ~400 parole diventa N frasi; si verifica il totale."""
     chiave = E('ANTHROPIC_API_KEY', '')
-    testo = orig
-    for k in range(6):   # a passaggi: ogni modello taglia solo il 25-30% per volta (5.014 -> 3.700 anche chiedendo 1.300)
-        try:
-            r = http('https://api.anthropic.com/v1/messages', {'model': MODELLO_CONTROLLO, 'max_tokens': 8000, 'messages': [{'role': 'user', 'content':
-                f"""Condense this YouTube video transcript to about {max(obiettivo, int(len(testo.split()) * .6))} words, in its ORIGINAL language.
-Keep: the opening hook, the same order of topics, the questions to the viewer, the strongest facts and numbers, the most surprising details and the ending.
-Cut: repetitions, filler, secondary examples, channel promos. Do not add anything. Write it as continuous narration, no titles, no notes.
+    parole = orig.split()
+    n_blocchi = max(1, round(len(parole) / 400))
+    passo = math.ceil(len(parole) / n_blocchi)
+    blocchi = [' '.join(parole[i:i + passo]) for i in range(0, len(parole), passo)]
+    quota = obiettivo / len(parole)
+    def uno(k):
+        b = blocchi[k]
+        n = max(20, round(len(b.split()) * quota))
+        frasi = max(2, round(n / 15))
+        for t in range(3):
+            r = http('https://api.anthropic.com/v1/messages', {'model': MODELLO_CONTROLLO, 'max_tokens': 1500, 'messages': [{'role': 'user', 'content':
+                f"""This is part {k + 1} of {len(blocchi)} of a YouTube video transcript. Rewrite it as EXACTLY {frasi} short sentences (about {n} words in total), in the same language.
+Keep only the most important facts, numbers, questions to the viewer and surprising details, in the same order.{' Keep the opening hook.' if k == 0 else ''}{' Keep the ending.' if k == len(blocchi) - 1 else ''}
+Output ONLY the {frasi} sentences, nothing else.
 
-TRANSCRIPT:
-{testo[:60000]}"""}]}, {'x-api-key': chiave, 'anthropic-version': '2023-06-01'}, timeout=300)
+PART {k + 1}:
+{b}"""}]}, {'x-api-key': chiave, 'anthropic-version': '2023-06-01'}, timeout=120)
             CO.registra('claude', MODELLO_CONTROLLO, r.get('usage') or {}, nota='condensa')
-            txt = ''.join(b.get('text', '') for b in r.get('content', [])).strip()
-            n = len(txt.split())
-            log(f'originale condensato: {len(testo.split())} -> {n} parole (obiettivo {obiettivo})')
-            if obiettivo * .80 <= n <= obiettivo * 1.12:
+            txt = ''.join(x.get('text', '') for x in r.get('content', [])).strip()
+            if len(txt.split()) <= n * 1.3:
                 return txt
-            if obiettivo * .80 <= n < len(testo.split()):   # piu' corto ma ancora lungo: si ripassa il risultato
-                testo = txt
-        except Exception as e:
-            log('condensa non riuscita:', str(e)[:150])
-    raise RuntimeError('VIDEO BLOCCATO: testo del competitor non condensato alla lunghezza giusta (nessuna spesa per voce e immagini)')
+        return txt
+    with ThreadPoolExecutor(4) as ex:
+        pezzi = list(ex.map(uno, range(len(blocchi))))
+    txt = ' '.join(pezzi)
+    n = len(txt.split())
+    log(f'originale condensato a blocchi: {len(parole)} -> {n} parole in {len(blocchi)} blocchi (obiettivo {obiettivo})')
+    if obiettivo * .80 <= n <= obiettivo * 1.15:
+        return txt
+    raise RuntimeError(f'VIDEO BLOCCATO: testo del competitor condensato a {n} parole invece di {obiettivo} (nessuna spesa per voce e immagini)')
 
 
 def copione(comp):
@@ -3801,6 +3811,11 @@ def main():
     global TITOLO
     os.makedirs(LAV, exist_ok=True)
     comp = competitor()
+    if str(P.get('solo_condensa') or '').upper() == 'SI':   # verifica a pochi centesimi prima di lanciare un video vero
+        massimo, minimo = int(MAX_MINUTI * 150), int(MIN_MINUTI * 150)
+        txt = condensa_originale(comp.get('testo') or '', (minimo + massimo) // 2 if minimo else massimo)
+        log('PROVA CONDENSA RIUSCITA:', len(txt.split()), 'parole | costo', round(CO.totale(), 3), '$ | inizio:', txt[:300])
+        sys.exit(0)
     # il titolo di riserva (es. "Tutta la storia dell'Iran") NON deve mai entrare nel copione se c'e' il video da copiare
     if comp.get('titolo'):
         TITOLO = comp['titolo'].strip()
