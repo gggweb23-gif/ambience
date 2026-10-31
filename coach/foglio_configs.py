@@ -77,8 +77,9 @@ def main():
             n = max(righe.values() or [1]) + 1
             while n <= len(valori) and any(str(c).strip() for c in valori[n - 1]):
                 n += 1
-            if P.get('prova') != 'SI':
-                api('PUT', rng(f'A{n}') + '?valueInputOption=USER_ENTERED', {'values': [riga]}, tk)
+            if P.get('prova') != 'SI':   # solo le celle compilate: le colonne protette del foglio (budget, videos_per_day...) non si toccano
+                api('POST', '/values:batchUpdate', {'valueInputOption': 'USER_ENTERED', 'data': [
+                    {'range': f"'{scheda}'!{lettera(intest.index(k) + 1)}{n}", 'values': [[x]]} for k, x in vals.items() if k in intest]}, tk)
             righe[can] = n
             esito.append(f'NUOVA RIGA {n}: {can} con {len(vals) - len(mancano)} colonne' + (f' (colonne inesistenti ignorate: {", ".join(mancano)})' if mancano else ''))
     dati = []
