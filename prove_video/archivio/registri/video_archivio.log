@@ -1,0 +1,7 @@
+22:54:13 testo di riferimento: 5219 parole
+22:56:07 copione non leggibile: Expecting value: line 1 column 1 (char 0)
+22:58:00 copione non leggibile: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "/home/runner/work/ambience/ambience/strumenti/video_archivio.py", line 105, in <module>
+    raise RuntimeError('VIDEO BLOCCATO: copione fuori lunghezza (nessuna spesa per voce e montaggio)')
+RuntimeError: VIDEO BLOCCATO: copione fuori lunghezza (nessuna spesa per voce e montaggio)
