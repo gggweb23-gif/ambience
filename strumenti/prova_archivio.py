@@ -29,6 +29,9 @@ NO_CLIP = re.compile(r'brief|conference|interview|news|q ?& ?a|panel|talk|chat|r
                      r'podcast|webinar|explain|animation|graphic|trailer|countdown|speaks|call|engagement|discuss|student|school|media|magazine|'
                      r'governor|official|tour|education|in-?flight|virtual|ceremony|award|reporter|answers|questions', re.I)
 B_ROLL = re.compile(r'b-?roll|time ?lapse|timelapse|footage', re.I)   # riprese senza persone che parlano in camera
+if P.get('animazioni'):   # canali sui pianeti: ammesse le animazioni ufficiali NASA/JPL (pubblico dominio, in movimento)
+    NO_CLIP = re.compile(NO_CLIP.pattern.replace('animation|graphic|', '').replace('|launch', ''), re.I)
+    B_ROLL = re.compile(r'b-?roll|time ?lapse|timelapse|footage|animation|visuali[sz]ation|simulation|artist', re.I)
 random.seed(7)
 log = lambda *a: print(time.strftime('%H:%M:%S'), *a, flush=True)
 
