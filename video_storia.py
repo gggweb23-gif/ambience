@@ -345,7 +345,7 @@ def condensa_originale(orig, obiettivo):
     n_blocchi = max(1, round(len(parole) / 400))
     passo = math.ceil(len(parole) / n_blocchi)
     blocchi = [' '.join(parole[i:i + passo]) for i in range(0, len(parole), passo)]
-    quota = obiettivo / len(parole)
+    quota = obiettivo / len(parole) * 0.82   # i riassunti escono ~20% piu' lunghi del chiesto (prova 31 ott: 1.614 invece di 1.312)
     def uno(k):
         b = blocchi[k]
         n = max(20, round(len(b.split()) * quota))
