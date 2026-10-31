@@ -30,7 +30,10 @@ jobs:
           PAYLOAD: ${{ inputs.payload }}
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
-        run: python3 strumenti/prova_dipinti.py
+        run: |
+          set -o pipefail
+          mkdir -p prove_video/archivio/registri
+          python3 strumenti/prova_dipinti.py 2>&1 | tee prove_video/archivio/registri/prova_dipinti.log
       - name: Salva nel repository
         if: ${{ always() }}
         run: |
