@@ -44,6 +44,18 @@ def registra(voce, modello='', usage=None, dollari=None, crediti=None, nota=''):
         pass
 
 
+def totale(path=None):
+    """dollari spesi finora in questo video (per il lucchetto di spesa sul totale)"""
+    path = path or FILE(); s = 0.0
+    if os.path.exists(path):
+        for l in open(path):
+            try:
+                s += json.loads(l).get('dollari') or 0
+            except Exception:
+                pass
+    return s
+
+
 def riepilogo(path=None):
     path = path or FILE()
     righe = []

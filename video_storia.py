@@ -75,6 +75,9 @@ def _num_lista(v, d):
         return (x + d[len(x):])[:3] if x else d
     except Exception:
         return d
+MODELLO_REGIA = str(P.get('modello_regia') or '').strip()   # modello per la regia delle inquadrature (vuoto = MODELLO_AI)
+FOTOGRAMMI_CONTROLLO = int(float(str(P.get('fotogrammi_controllo') or 3)))   # fotogrammi per clip guardati dal controllo
+CANDIDATI_CONTROLLO = int(float(str(P.get('candidati_controllo') or 4)))     # clip candidate mandate in ogni controllo
 RITMO_MAX = float(str(P.get('ritmo_max') or E('RITMO_MAX', '') or 99).replace(',', '.'))   # secondi massimi di una inquadratura (vuoto = nessun tetto; Faces: 4 dalla ricetta)
 RITMO = [min(x, RITMO_MAX) for x in _num_lista(P.get('ritmo') or E('RITMO', ''), [4.0, 4.0, 4.0])]   # secondi max per immagine: primi 10 s / 10-30 s / dopo
 QUOTA_CARTONI = _perc(P.get('quota_cartoni') or E('QUOTA_CARTONI', ''), 80)
@@ -707,9 +710,17 @@ def pexels_cerca(tipo, q):
     return ris
 
 
+TETTO_TOTALE = _soldi(P.get('coach_budget_video')) or 0.0   # LUCCHETTO SUL TOTALE del video (Claude compreso): budget di Giorgio
+_STOP = {'avvisato': False}
+
+
 def controlla(candidati, q, contesto):
     """Claude guarda le anteprime e sceglie la prima adatta. -1 = nessuna."""
     chiave = E('ANTHROPIC_API_KEY', '')
+    if TETTO_TOTALE and CO.totale() > TETTO_TOTALE * 0.85:   # vicino al budget: niente piu' controlli (e quindi clip nuove)
+        if not _STOP['avvisato']:
+            _STOP['avvisato'] = True; log(f'LUCCHETTO SPESA: speso {CO.totale():.2f} $ su {TETTO_TOTALE:.2f}: stop alle clip nuove, si usano quelle gia\' approvate')
+        return -1
     if not chiave or not candidati:
         return 0 if candidati else -1
     def b64(u):   # scarichiamo noi l'anteprima (Pexels blocca i download fatti da altri server) e la mandiamo come immagine
@@ -722,7 +733,7 @@ def controlla(candidati, q, contesto):
     cont, validi = [], 0
     for i, c in enumerate(candidati):   # per le clip: inizio, meta' e fine (una persona puo' entrare dopo)
         with ThreadPoolExecutor(3) as ex:
-            imgs = [x for x in ex.map(b64, (c.get('viste') or [c['anteprima']])[:3]) if x]
+            imgs = [x for x in ex.map(b64, (c.get('viste') or [c['anteprima']])[:FOTOGRAMMI_CONTROLLO]) if x]
         if imgs:
             validi += 1
         cont += [{'type': 'text', 'text': f'Immagine {i}:' + ('' if imgs else ' (anteprima non disponibile: SCARTALA)')}] + imgs
@@ -812,7 +823,7 @@ def pexels(tipo, q, contesto=''):
             liberi = [c for c in tutti if c['url'] not in _usati and c['url'] not in _scartati]
         cand, scartate = [], 0
         for c in liberi:   # niente seconda ripresa dello stesso posto (es. due voli di drone sul Nilo dello stesso autore)
-            if len(cand) >= 4:
+            if len(cand) >= CANDIDATI_CONTROLLO:
                 break
             with _lock:
                 doppia = stessa_ripresa(c)
@@ -2170,7 +2181,7 @@ Rispondi SOLO con un array JSON, un oggetto per riga, con lo stesso numero "n":
 [{{"n": {b0}, "nuova": true, "prompt_en": "...",{' "pannelli": ["...", "...", "...", "..."], "atmosfera": "",' if TAVOLE else ''} "personaggi": [], "camera": "push_in", "didascalia": "", "suono": ""}}, {{"n": {b0 + 1}, "nuova": false,{'' if TAVOLE else ' "zoom": "volto",'} "camera": "pan_left", "suono": ""}}]"""
         for k in range(3):
             try:
-                testo, _ = claude_stream({'model': MODELLO_AI if k < 2 else MODELLO_RISERVA, 'max_tokens': 32000,
+                testo, _ = claude_stream({'model': (MODELLO_REGIA or MODELLO_AI) if k < 2 else MODELLO_AI, 'max_tokens': 32000,
                                           'messages': [{'role': 'user', 'content': prompt}]}, chiave)
                 arr = json.loads(testo[testo.find('['): testo.rfind(']') + 1])
                 for x in arr:
@@ -2698,7 +2709,7 @@ Rispondi SOLO con un array JSON, un oggetto per riga, con lo stesso numero "n":
 [{{"n": {b0}, "prompt_en": "...", "personaggi": [], "camera": "push_in", "scritta": "", "etichetta": "", "battuta": "", "flash": false, "atmosfera": "", "suono": "", "musica": "mistero", "stacco": false{', "tipo": "cartone", "q": "", "alt_q": []' if REGIA_PEXELS else ''}}}]"""
         for k in range(3):
             try:
-                testo, _ = claude_stream({'model': MODELLO_AI if k < 2 else MODELLO_RISERVA, 'max_tokens': 32000,
+                testo, _ = claude_stream({'model': (MODELLO_REGIA or MODELLO_AI) if k < 2 else MODELLO_AI, 'max_tokens': 32000,
                                           'messages': [{'role': 'user', 'content': prompt}]}, chiave)
                 arr = json.loads(testo[testo.find('['): testo.rfind(']') + 1])
                 for x in arr:

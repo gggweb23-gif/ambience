@@ -27,13 +27,10 @@
         "distanza_immagini": "99999"
       },
       "risultati": {
-        "costo_reale_video": 4.074,
-        "dettaglio": "Haiku 1316 chiamate 2,53 $ (controllo clip Pexels: 1029 controlli con tutte bocciate, stessa clip ricontrollata a ogni inquadratura, es. colosseum 281 volte); Sonnet 9 chiamate 1,38 $; disegni 0,16 $",
-        "ctr": null,
-        "ret30": null,
-        "ret60": null
+        "costo_dollari": 4.07,
+        "nota": "Haiku 1316 controlli clip 2,53 $, Sonnet 9 chiamate 1,38 $, disegni 0,16 $"
       },
-      "decisione": "costo 4,07 $ sopra il budget 1 $: leva COSTO, si tengono stile e parametri e si toglie lo spreco dei controlli ripetuti"
+      "decisione": "fuori budget: versione 3 con le stesse scelte di stile ma spesa ridotta"
     },
     {
       "n": 3,
@@ -49,6 +46,24 @@
       },
       "risultati": null,
       "decisione": null
+    },
+    {
+      "n": 3,
+      "dal": "2026-10-31 09:30",
+      "cosa": "Stesso stile della v2 dentro 1 euro: inquadrature 3-3,8 s (max 4), regia con Haiku, controllo clip su 2 fotogrammi e 3 candidate, lucchetto sul totale del video",
+      "leva": "COSTO",
+      "parametri": {
+        "modo_immagini": "misto",
+        "ritmo_max": "4",
+        "pexels_da_secondi": "25",
+        "distanza_immagini": "99999",
+        "ritmo": "3;3.5;3.8",
+        "modello_regia": "claude-haiku-4-5-20251001",
+        "fotogrammi_controllo": "2",
+        "candidati_controllo": "3"
+      },
+      "risultati": null,
+      "decisione": null
     }
   ],
   "registro": [
@@ -56,7 +71,8 @@
     "2026-10-30: Giorgio autorizza il cambio di grafiche e stile di Faces per rispettare il budget di 1 euro.",
     "2026-10-30: Giorgio sceglie la prova B (cartone + clip vere); chiede zero anacronismi (scartare ruspe/bobcat ecc.) e inquadrature mai oltre 4 s, dinamiche ma non confuse. Versione 2.",
     "2026-10-31: coach - versione 2 costata 4,07 $ (budget 1 $): 2,53 $ di Haiku sprecati a ricontrollare clip gia' bocciate (1029 controlli a vuoto su 1316). Versione 3: ricorda_scartate = SI (costo zero, nessun cambio di stile). Stima Haiku <= 0,8 $. Resta il copione con Sonnet (1,38 $): proposta a Giorgio.",
-    "2026-10-31: prova breve v3 (run 41177857552) riuscita: 0,33 $ (come la prova v2 da 0,33 $), nessun errore, ricetta letta correttamente. Versione 3 attiva dal prossimo video."
+    "2026-10-31: prova breve v3 (run 41177857552) riuscita: 0,33 $ (come la prova v2 da 0,33 $), nessun errore, ricetta letta correttamente. Versione 3 attiva dal prossimo video.",
+    "2026-10-31: v2 costata 4,07 $. Giorgio: trovare la soluzione migliore dentro 1 euro massimo. Versione 3."
   ],
   "autorizzazioni": "Giorgio (30 ott 2026): per Faces of Rome il coach PUO' cambiare grafiche e stile (copertina e video), anche lasciando il cartone, pur di stare nel budget di 1 euro a video; resta l'argomento e il competitor (Rome Unscrolled) come base, con un tratto distintivo."
 }
