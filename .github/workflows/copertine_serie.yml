@@ -1,0 +1,35 @@
+name: Copertine in serie (stesso stile)
+
+# N copertine nello stile fisso del canale (strumenti/copertine_serie.py). Ritocco AI con tetto rigido 0,25 $.
+on:
+  workflow_dispatch:
+    inputs:
+      payload:
+        description: 'JSON (vedi strumenti/copertine_serie.py)'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  serie:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Copertine
+        env:
+          PAYLOAD: ${{ inputs.payload }}
+          FAL_KEY: ${{ secrets.FAL_KEY }}
+        run: pip install -q pillow && python3 strumenti/copertine_serie.py
+      - name: Salva nel repository
+        if: ${{ always() }}
+        run: |
+          if [ -n "$(git status --porcelain prove_archivi)" ]; then
+            git config user.name "render-bot"
+            git config user.email "render-bot@users.noreply.github.com"
+            git add prove_archivi
+            git commit -m "Copertine in serie"
+            for i in 1 2 3 4 5; do git pull --rebase -q && git push && break; sleep $((i * 5)); done
+          fi
