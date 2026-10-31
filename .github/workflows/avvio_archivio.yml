@@ -1,0 +1,23 @@
+name: Avvio giornaliero canali archivio
+
+# Ogni giorno lancia il video del giorno per i canali con render_workflow = video_archivio.yml e videos_per_day >= 1 (strumenti/avvio_archivio.py).
+on:
+  schedule:
+    - cron: '41 9 * * *'   # 10:41 / 11:41 ora italiana: il video e' pronto nel primo pomeriggio
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: write
+
+jobs:
+  avvio:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Avvio
+        env:
+          GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
+          GH_TOKEN: ${{ github.token }}
+        run: pip install -q google-auth requests && python3 strumenti/avvio_archivio.py

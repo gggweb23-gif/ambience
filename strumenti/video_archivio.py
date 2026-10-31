@@ -38,8 +38,34 @@ def _costo_se_fermo():   # anche un giro che si ferma ha speso: va nello storico
         o.write('\t'.join([time.strftime('%Y-%m-%d %H:%M'), f"{SPESA['usd']:.3f}", '0', 'NO', '', json.dumps(SPESA['voci']), 'BLOCCATO']) + '\n')
 
 
+def riga_produzione(valori):
+    """Aggiorna la riga del file di produzione (se il video e' partito dall'avvio giornaliero)."""
+    fid, n = P.get('foglio_produzione'), P.get('riga_produzione')
+    if not fid or not n or not E('GOOGLE_SA_KEY'):
+        return
+    try:
+        from google.oauth2 import service_account
+        from google.auth.transport.requests import Request
+        cr = service_account.Credentials.from_service_account_info(json.loads(E('GOOGLE_SA_KEY')), scopes=['https://www.googleapis.com/auth/spreadsheets'])
+        cr.refresh(Request()); h_ = {'Authorization': 'Bearer ' + cr.token}
+        sch = get(f'https://sheets.googleapis.com/v4/spreadsheets/{fid}?fields=sheets.properties', h=h_)['sheets'][0]['properties']['title']
+        intest = get(f'https://sheets.googleapis.com/v4/spreadsheets/{fid}/values/' + urllib.parse.quote(f"'{sch}'!A1:AZ1"), h=h_)['values'][0]
+        col = lambda k: ''.join(chr(65 + x) for x in ([intest.index(k) // 26 - 1] if intest.index(k) >= 26 else []) + [intest.index(k) % 26])
+        dati = [{'range': f"'{sch}'!{col(k)}{n}", 'values': [[v]]} for k, v in valori.items() if k in intest]
+        get(f'https://sheets.googleapis.com/v4/spreadsheets/{fid}/values:batchUpdate', {'valueInputOption': 'RAW', 'data': dati}, h=h_)
+        log('file di produzione aggiornato:', ', '.join(valori))
+    except Exception as e:
+        log('file di produzione non aggiornato:', str(e)[:150])
+
+
+def _riga_se_fermo():   # video fermato: la riga torna Pronto, riparte al prossimo giro
+    if not SPESA.get('fatto'):
+        riga_produzione({'status': 'Pronto', 'data_inizio_produzione': ''})
+
+
 import atexit
 atexit.register(_costo_se_fermo)
+atexit.register(_riga_se_fermo)
 
 
 def get(u, dati=None, h=None, raw=False, timeout=300, metodo=None):
@@ -257,5 +283,7 @@ with open(f, 'a') as o:
     o.write('\t'.join([time.strftime('%Y-%m-%d %H:%M'), f"{SPESA['usd']:.3f}", str(crediti), 'NO', 'https://www.youtube.com/watch?v=' + vid_id if vid_id else '',
                        json.dumps(SPESA['voci']), 'OK']) + '\n')
 SPESA['fatto'] = True
+riga_produzione({'status': 'Completato', 'youtube_video_id': vid_id, 'descrizione_youtube': c.get('descrizione', ''),
+                 'tag_seo': ', '.join(c.get('tag', [])), 'data_pubblicazione': time.strftime('%Y-%m-%d %H:%M') + (' (non in elenco)' if (P.get('privacy') or 'unlisted') != 'public' else '')})
 print('VIDEO_ID=' + vid_id)
 log('FATTO', NOME, f"{SPESA['usd']:.3f} $")
