@@ -1,4054 +1,3811 @@
 {
- "titolo": "Why Did Russia Unify as a Country But Europe Never Did?",
+ "titolo": "Why Britain's Slide Is Making Ireland Rich",
  "numero": {
-  "testo": "17M",
-  "sotto": "SQUARE KILOMETERS VS 43 COUNTRIES"
+  "testo": "x2",
+  "sotto": "IRELAND'S PAPER LEAD OVER BRITAIN"
  },
  "copertina": {
   "testo": "WHY?",
   "oro": [
-   "RUS"
+   "IRL"
   ],
   "verde": [
-   "FRA",
-   "DEU",
-   "ITA",
-   "ESP",
-   "POL",
    "GBR"
   ],
   "vista": {
-   "lon": 50,
-   "lat": 55,
-   "larghezza": 120
+   "lon": -6,
+   "lat": 53.5,
+   "larghezza": 14
   }
  },
- "descrizione": "One country covers 17 million square kilometers. The rest of Europe is about a third of that size and holds 43 countries. How did one side become a single giant while the other never came together? We follow the rivers, the Mongols, the fur trade and the armies that died on the plain.\n\nFrom Ivan the Money Bag to Napoleon and Hitler, from the Peace of Westphalia to the European market, this is the story of how geography shaped power and money. Russia won the land. Europe won the money.",
+ "descrizione": "For 200 years, the ferries between Ireland and Britain carried people out. Now the money is sailing the other way. How did Britain's poorer neighbor pull ahead, and how much of that wealth is real?\n\nWe follow the story on animated maps: famine, emigration, two Irish booms, Brexit, the Apple tax fight and the strange case of leprechaun economics, plus the weak spots that could turn the ferries around again.",
  "tag": [
-  "russia history",
-  "europe history",
-  "geopolitics",
+  "Ireland economy",
+  "Britain decline",
+  "Brexit",
+  "Ireland vs UK",
+  "Dublin finance",
+  "corporation tax",
+  "Apple tax case",
+  "leprechaun economics",
+  "Celtic Tiger",
   "economic history",
   "animated maps",
-  "peace of westphalia",
-  "mongols",
-  "siberia",
-  "napoleon russia",
-  "why europe is divided",
-  "russia geography",
-  "fur trade",
-  "golden horde",
-  "european union",
-  "history explained",
-  "rich borders"
+  "Northern Ireland"
  ],
  "scene": [
   {
-   "testo": "One country stretches across 17 million square kilometers. A Mongol bell, a sable fortune, and a burning Moscow. Why did one side become a giant?",
+   "testo": "A border where Brexit flipped the map. A tax fight where Ireland refused free money. A country twice as rich on paper. Is any of it real?",
    "anteprima": true,
    "vista": {
-    "lon": 90,
-    "lat": 58,
-    "larghezza": 160
+    "lon": -6,
+    "lat": 53.5,
+    "larghezza": 14
    },
    "epoca": "oggi",
    "oro": [
-    "RUS"
+    "IRL"
    ],
-   "verde": [],
+   "verde": [
+    "GBR"
+   ],
    "eventi": [
     {
+     "tipo": "freccia",
+     "da": [
+      -6.2,
+      53.3
+     ],
+     "a": [
+      -3,
+      53.4
+     ],
+     "icona": "ship",
+     "parola": "border"
+    },
+    {
+     "tipo": "prezzo",
+     "testo": "13B EURO",
+     "sotto": "MONEY IRELAND REFUSED",
+     "ricco": true,
+     "lon": -8,
+     "lat": 53,
+     "parola": "refused"
+    },
+    {
      "tipo": "numero",
-     "testo": "17M KM2",
-     "lon": 90,
-     "lat": 62,
-     "parola": "17"
+     "testo": "x2",
+     "lon": -7.5,
+     "lat": 53.2,
+     "parola": "twice"
     },
     {
-     "tipo": "icona",
-     "icona": "church",
-     "lon": 31,
-     "lat": 58,
-     "parola": "bell"
-    },
-    {
-     "tipo": "icona",
-     "icona": "money_bag",
-     "lon": 90,
-     "lat": 62,
-     "parola": "sable"
-    },
-    {
-     "tipo": "icona",
-     "icona": "fortress",
-     "lon": 37.6,
-     "lat": 55.7,
-     "parola": "burning"
+     "tipo": "scritta",
+     "testo": "REAL?",
+     "parola": "real"
     }
    ],
    "musica": "mistero",
    "stacco": false,
    "pin": {
-    "lon": 60,
-    "lat": 50,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Two men almost united Europe, and the same land destroyed both. And the winner ended up poorer. Why?",
-   "anteprima": true,
-   "vista": {
-    "lon": 30,
+    "lon": -9,
     "lat": 52,
-    "larghezza": 60
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "RUS",
-    "FRA",
-    "DEU"
-   ],
-   "eventi": [
-    {
-     "tipo": "personaggio",
-     "nome": "Napoleon",
-     "descrizione": "French emperor, bicorne hat, grey coat",
-     "parola": "men"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "WHY?",
-     "parola": "Why"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 20,
-    "lat": 48,
     "faccia": "stupito"
    }
   },
   {
-   "testo": "In 1648, a Russian sailor rounded the far eastern tip of Asia. His country already stretched from Europe to the Pacific.",
+   "testo": "For 200 years, Irish ferries carried one main export: people. Four hundred fifty thousand left in the 1980s alone. Today, the money crosses the other way.",
    "anteprima": false,
    "vista": {
-    "lon": 150,
-    "lat": 62,
-    "larghezza": 90
-   },
-   "epoca": "antica",
-   "oro": [
-    "RUS"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1648",
-     "parola": "1648"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      140,
-      60
-     ],
-     "a": [
-      170,
-      66
-     ],
-     "icona": "galleon",
-     "parola": "rounded"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Russia already reached the Pacific",
-     "parola": "Pacific"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 120,
-    "lat": 55,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "That same year, Europe's rulers signed the Peace of Westphalia, often called the birth of a Europe of separate sovereign states.",
-   "anteprima": false,
-   "vista": {
-    "lon": 10,
-    "lat": 50,
-    "larghezza": 40
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "DEU",
-    "FRA",
-    "SWE",
-    "NLD"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1648",
-     "parola": "1648"
-    },
-    {
-     "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": 7.6,
-     "lat": 52,
-     "parola": "Westphalia"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "king",
-     "n": 4,
-     "lon": 7.6,
-     "lat": 51.5,
-     "parola": "rulers"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Peace of Westphalia, 1648",
-     "parola": "signed"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 15,
-    "lat": 46,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Today, Russia is one country of 17 million square kilometers, nearly as big as the whole surface of Pluto.",
-   "anteprima": false,
-   "vista": {
-    "lon": 90,
-    "lat": 58,
-    "larghezza": 160
+    "lon": -5.5,
+    "lat": 53.5,
+    "larghezza": 16
    },
    "epoca": "oggi",
    "oro": [
-    "RUS"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 17000000,
-     "prefisso": "",
-     "suffisso": "",
-     "sotto": "SQUARE KM",
-     "parola": "17"
-    },
-    {
-     "tipo": "solleva",
-     "paese": [
-      "RUS"
-     ],
-     "volte": 6,
-     "testo": "1 COUNTRY",
-     "colore": "oro",
-     "parola": "one"
-    },
-    {
-     "tipo": "nota",
-     "testo": "About the surface area of Pluto",
-     "parola": "Pluto"
-    }
-   ],
-   "musica": "epico",
-   "stacco": false,
-   "pin": {
-    "lon": 60,
-    "lat": 40,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "The rest of Europe is about a third of that size, and it's split into 43 countries.",
-   "anteprima": false,
-   "vista": {
-    "lon": 15,
-    "lat": 52,
-    "larghezza": 60
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "FRA",
-    "DEU",
-    "ITA",
-    "ESP",
-    "POL",
-    "GBR",
-    "UKR",
-    "ROU",
-    "NLD",
-    "BEL",
-    "CZE",
-    "AUT",
-    "HUN",
-    "SWE",
-    "NOR",
-    "FIN",
-    "GRC",
-    "PRT",
-    "CHE",
-    "BGR",
-    "SRB",
-    "IRL",
-    "DNK",
-    "HRV",
-    "SVK"
-   ],
-   "eventi": [
-    {
-     "tipo": "conta_paesi",
-     "paesi": [
-      "FRA",
-      "DEU",
-      "ITA",
-      "ESP",
-      "POL",
-      "GBR",
-      "UKR",
-      "ROU",
-      "NLD",
-      "BEL",
-      "CZE",
-      "AUT",
-      "HUN",
-      "SWE"
-     ],
-     "colore": "rosso",
-     "parola": "split"
-    },
-    {
-     "tipo": "numero",
-     "testo": "43",
-     "lon": 15,
-     "lat": 50,
-     "parola": "43"
-    },
-    {
-     "tipo": "nota",
-     "testo": "A third the size, 43 countries",
-     "parola": "third"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 0,
-    "lat": 60,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "So why did one side become a single giant while the other never came together? And no, it's not just that Siberia was empty.",
-   "anteprima": false,
-   "vista": {
-    "lon": 60,
-    "lat": 55,
-    "larghezza": 140
-   },
-   "epoca": "oggi",
-   "oro": [
-    "RUS"
+    "IRL"
    ],
    "verde": [
-    "FRA",
-    "DEU",
-    "ITA",
-    "ESP",
-    "POL",
     "GBR"
    ],
    "eventi": [
     {
+     "tipo": "folla",
+     "personaggio": "family",
+     "n": 5,
+     "lon": -6.2,
+     "lat": 53.3,
+     "parola": "people"
+    },
+    {
+     "tipo": "conta",
+     "valore": 450000,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "LEFT IN THE 1980S",
+     "parola": "Four"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -6.2,
+      53.3
+     ],
+     "a": [
+      -3,
+      53.4
+     ],
+     "icona": "ship",
+     "parola": "ferries"
+    },
+    {
+     "tipo": "icona",
+     "icona": "banknotes",
+     "lon": -6.2,
+     "lat": 53.3,
+     "parola": "money"
+    }
+   ],
+   "musica": "mistero",
+   "stacco": false,
+   "pin": {
+    "lon": -9,
+    "lat": 52.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "A magazine once called Ireland the poorest of the rich. The average Irish person produced under three quarters of what the average Brit did.",
+   "anteprima": false,
+   "vista": {
+    "lon": -6,
+    "lat": 53.5,
+    "larghezza": 14
+   },
+   "epoca": "oggi",
+   "oro": [
+    "GBR"
+   ],
+   "verde": [
+    "IRL"
+   ],
+   "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "POOREST OF THE RICH",
+     "lon": -8,
+     "lat": 53.5,
+     "parola": "poorest"
+    },
+    {
+     "tipo": "barre",
+     "titolo": "OUTPUT PER PERSON, 1980S",
+     "voci": [
+      {
+       "testo": "BRITAIN",
+       "valore": 100,
+       "lato": "oro"
+      },
+      {
+       "testo": "IRELAND",
+       "valore": 72,
+       "lato": "verde"
+      }
+     ],
+     "parola": "average"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": -9.5,
+    "lat": 52,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Now look at the same water today. Banks are moving staff from London to Dublin, and the biggest tech companies on Earth run Europe from this island.",
+   "anteprima": false,
+   "vista": {
+    "lon": -5,
+    "lat": 53.2,
+    "larghezza": 12
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [
+    "GBR"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      -0.1,
+      51.5
+     ],
+     "a": [
+      -6.26,
+      53.35
+     ],
+     "icona": "banknotes",
+     "parola": "Banks"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "banker",
+     "n": 4,
+     "lon": -6.26,
+     "lat": 53.35,
+     "parola": "staff"
+    },
+    {
+     "tipo": "icona",
+     "icona": "factory",
+     "lon": -6.4,
+     "lat": 53.3,
+     "parola": "tech"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -9,
+    "lat": 52.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "On paper, Ireland now produces more than twice as much per person as the United Kingdom. But some economists say a big slice isn't really Irish.",
+   "anteprima": false,
+   "vista": {
+    "lon": -5,
+    "lat": 54,
+    "larghezza": 14
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [
+    "GBR"
+   ],
+   "eventi": [
+    {
+     "tipo": "solleva",
+     "paese": [
+      "IRL"
+     ],
+     "volte": 6,
+     "testo": "x2",
+     "colore": "oro",
+     "parola": "twice"
+    },
+    {
      "tipo": "scritta",
-     "testo": "WHY?",
-     "parola": "why"
+     "testo": "ON PAPER",
+     "parola": "paper"
     },
     {
      "tipo": "icona",
      "icona": "question",
-     "lon": 100,
-     "lat": 62,
-     "parola": "empty"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Empty land is only part of it",
-     "parola": "empty"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": 30,
-    "lat": 45,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "The strange part is that the land that built Russia is the same land that destroyed the two men who came closest to uniting Europe.",
-   "anteprima": false,
-   "vista": {
-    "lon": 35,
-    "lat": 54,
-    "larghezza": 50
-   },
-   "epoca": "oggi",
-   "oro": [
-    "RUS"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "contorno",
-     "paese": "RUS",
-     "parola": "land"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "soldier",
-     "n": 5,
-     "lon": 35,
-     "lat": 54,
-     "parola": "destroyed"
-    },
-    {
-     "tipo": "nota",
-     "testo": "The same land destroyed two conquerors",
-     "parola": "two"
+     "lon": -8,
+     "lat": 53.2,
+     "parola": "isn't"
     }
    ],
    "musica": "tensione",
-   "stacco": false,
+   "stacco": true,
    "pin": {
-    "lon": 25,
-    "lat": 48,
+    "lon": -9.5,
+    "lat": 52,
     "faccia": "stupito"
    }
   },
   {
-   "testo": "And the side that won all that land? It ended up the poorer one.",
+   "testo": "So how did Britain's poorer neighbor overtake it? And how much of that new wealth is real? Start with the map.",
    "anteprima": false,
    "vista": {
-    "lon": 40,
-    "lat": 52,
-    "larghezza": 100
+    "lon": -4,
+    "lat": 53,
+    "larghezza": 24
    },
    "epoca": "oggi",
    "oro": [
-    "FRA",
-    "DEU",
-    "ITA",
-    "ESP",
-    "POL",
-    "GBR"
+    "IRL"
    ],
    "verde": [
-    "RUS"
+    "GBR"
    ],
    "eventi": [
     {
      "tipo": "scritta",
-     "testo": "POORER",
-     "parola": "poorer"
-    },
-    {
-     "tipo": "icona",
-     "icona": "chart_down",
-     "lon": 50,
-     "lat": 57,
-     "parola": "poorer"
-    }
-   ],
-   "musica": "",
-   "stacco": true,
-   "pin": {
-    "lon": 70,
-    "lat": 45,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Start with the ground. Russia was born on the East European Plain, about 4 million square kilometers of land.",
-   "anteprima": false,
-   "vista": {
-    "lon": 40,
-    "lat": 55,
-    "larghezza": 50
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "RUS"
-   ],
-   "eventi": [
-    {
-     "tipo": "etichetta",
-     "testo": "EAST EUROPEAN PLAIN",
-     "lon": 40,
-     "lat": 55,
-     "parola": "Plain"
-    },
-    {
-     "tipo": "conta",
-     "valore": 4000000,
-     "prefisso": "",
-     "suffisso": "",
-     "sotto": "SQUARE KM",
-     "parola": "4"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Russia was born on a plain",
-     "parola": "born"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": 28,
-    "lat": 50,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "It sits, on average, just 170 meters above the sea. No Alps, no Pyrenees, nothing to hide behind. Just forest, steppe, and rivers.",
-   "anteprima": false,
-   "vista": {
-    "lon": 40,
-    "lat": 54,
-    "larghezza": 40
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "RUS"
-   ],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 170,
-     "prefisso": "",
-     "suffisso": " M",
-     "sotto": "AVERAGE HEIGHT",
-     "parola": "170"
-    },
-    {
-     "tipo": "icona",
-     "icona": "forest",
-     "lon": 38,
-     "lat": 58,
-     "parola": "forest"
-    },
-    {
-     "tipo": "icona",
-     "icona": "wheat",
-     "lon": 40,
-     "lat": 50,
-     "parola": "steppe"
-    },
-    {
-     "tipo": "icona",
-     "icona": "river",
-     "lon": 44,
-     "lat": 54,
-     "parola": "rivers"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 50,
-    "lat": 48,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "And the rivers were the secret. They ran north and south, and their sources almost touched.",
-   "anteprima": false,
-   "vista": {
-    "lon": 38,
-    "lat": 56,
-    "larghezza": 30
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "RUS"
-   ],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      35,
-      58
-     ],
-     "a": [
-      44,
-      48
-     ],
-     "icona": "cargo_ship",
-     "parola": "north"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      38,
-      57
-     ],
-     "a": [
-      32,
-      50
-     ],
-     "icona": "cargo_ship",
-     "parola": "south"
-    },
-    {
-     "tipo": "nota",
-     "testo": "River sources almost touched",
-     "parola": "touched"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 46,
-    "lat": 60,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Where they didn't, people dragged their boats over land from one river to the next. The Russians called these portages voloks.",
-   "anteprima": false,
-   "vista": {
-    "lon": 34,
-    "lat": 57,
-    "larghezza": 16
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "RUS"
-   ],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "peasant",
-     "n": 5,
-     "lon": 34,
-     "lat": 57,
-     "parola": "dragged"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "VOLOKS",
-     "lon": 34.5,
-     "lat": 57.5,
-     "parola": "voloks"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Boats dragged between rivers",
-     "parola": "boats"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 30,
-    "lat": 55,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Whoever held the rivers held the plain. In 1300, the Principality of Moscow covered about 20,000 square kilometers.",
-   "anteprima": false,
-   "vista": {
-    "lon": 37,
-    "lat": 56,
-    "larghezza": 16
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "RUS"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1300",
-     "parola": "1300"
-    },
-    {
-     "tipo": "icona",
-     "icona": "castle",
-     "lon": 37.6,
-     "lat": 55.75,
-     "parola": "Moscow"
-    },
-    {
-     "tipo": "conta",
-     "valore": 20000,
-     "prefisso": "~",
-     "suffisso": "",
-     "sotto": "SQUARE KM",
-     "parola": "20,000"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 42,
-    "lat": 54,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "By 1462, 430,000. By 1584, 5.4 million. Moscow grew like nothing else in Europe.",
-   "anteprima": false,
-   "vista": {
-    "lon": 50,
-    "lat": 57,
-    "larghezza": 80
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "RUS"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1462",
-     "parola": "1462"
-    },
-    {
-     "tipo": "conta",
-     "valore": 430000,
-     "prefisso": "",
-     "suffisso": "",
-     "sotto": "SQUARE KM",
-     "parola": "430,000"
-    },
-    {
-     "tipo": "conta",
-     "valore": 5400000,
-     "prefisso": "",
-     "suffisso": "",
-     "sotto": "SQUARE KM IN 1584",
-     "parola": "5.4"
-    },
-    {
-     "tipo": "solleva",
-     "paese": [
-      "RUS"
-     ],
-     "volte": 4,
-     "testo": "x270",
-     "colore": "oro",
-     "parola": "grew"
-    }
-   ],
-   "musica": "epico",
-   "stacco": false,
-   "pin": {
-    "lon": 30,
-    "lat": 48,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Even the Urals, the line between Europe and Asia, never stopped anyone. Their highest peak is under 1,900 meters.",
-   "anteprima": false,
-   "vista": {
-    "lon": 60,
-    "lat": 58,
-    "larghezza": 24
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "RUS"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "mountain",
-     "lon": 60,
-     "lat": 60,
-     "parola": "Urals"
-    },
-    {
-     "tipo": "conta",
-     "valore": 1900,
-     "prefisso": "<",
-     "suffisso": " M",
-     "sotto": "HIGHEST PEAK",
-     "parola": "1,900"
-    },
-    {
-     "tipo": "nota",
-     "testo": "The Urals never stopped anyone",
-     "parola": "stopped"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 52,
-    "lat": 54,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "In 1582, a Cossack band crossed them and took the capital of the Khanate of Sibir.",
-   "anteprima": false,
-   "vista": {
-    "lon": 65,
-    "lat": 58,
-    "larghezza": 30
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "RUS"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1582",
-     "parola": "1582"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "soldier",
-     "n": 5,
-     "lon": 62,
-     "lat": 58,
-     "parola": "Cossack"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      58,
-      58
-     ],
-     "a": [
-      68,
-      57
-     ],
-     "icona": "swords",
-     "parola": "took"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "KHANATE OF SIBIR",
-     "lon": 68,
-     "lat": 57,
-     "parola": "Sibir"
-    }
-   ],
-   "musica": "azione",
-   "stacco": false,
-   "pin": {
-    "lon": 75,
-    "lat": 52,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "From there, Siberia was the same trick on a bigger scale. Rivers, short portages, boat after boat.",
-   "anteprima": false,
-   "vista": {
-    "lon": 95,
-    "lat": 60,
-    "larghezza": 100
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "RUS"
-   ],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      68,
-      58
-     ],
-     "a": [
-      86,
-      59
-     ],
-     "icona": "cargo_ship",
-     "parola": "Rivers"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      86,
-      59
-     ],
-     "a": [
-      104,
-      58
-     ],
-     "icona": "cargo_ship",
-     "parola": "portages"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      104,
-      58
-     ],
-     "a": [
-      125,
-      62
-     ],
-     "icona": "cargo_ship",
-     "parola": "boat"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 100,
-    "lat": 70,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Fifty-seven years later, in 1639, Russians were standing on the shore of the Pacific.",
-   "anteprima": false,
-   "vista": {
-    "lon": 140,
-    "lat": 58,
-    "larghezza": 40
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "RUS"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1639",
-     "parola": "1639"
-    },
-    {
-     "tipo": "conta",
-     "valore": 57,
-     "prefisso": "",
-     "suffisso": "",
-     "sotto": "YEARS TO THE PACIFIC",
-     "parola": "Fifty-seven"
-    },
-    {
-     "tipo": "icona",
-     "icona": "port",
-     "lon": 143,
-     "lat": 59.4,
-     "parola": "Pacific"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 128,
-    "lat": 52,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Now look west. Europe is the opposite. Peninsula after peninsula, cut off by mountains and seas.",
-   "anteprima": false,
-   "vista": {
-    "lon": 12,
-    "lat": 47,
-    "larghezza": 50
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "ESP",
-    "ITA",
-    "SWE",
-    "NOR",
-    "GBR",
-    "FRA"
-   ],
-   "eventi": [
-    {
-     "tipo": "etichetta",
-     "testo": "PENINSULAS",
-     "lon": 12,
-     "lat": 42,
-     "parola": "Peninsula"
-    },
-    {
-     "tipo": "icona",
-     "icona": "mountain",
-     "lon": 10,
-     "lat": 46.5,
-     "parola": "mountains"
-    },
-    {
-     "tipo": "icona",
-     "icona": "port",
-     "lon": -3,
-     "lat": 44,
-     "parola": "seas"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 28,
-    "lat": 40,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Iberia behind the Pyrenees, Italy behind the Alps, Scandinavia across the Baltic, Britain across the channel.",
-   "anteprima": false,
-   "vista": {
-    "lon": 10,
-    "lat": 50,
-    "larghezza": 40
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "ESP",
-    "ITA",
-    "SWE",
-    "GBR"
-   ],
-   "eventi": [
-    {
-     "tipo": "confine",
-     "punti": [
-      [
-       -2,
-       42.8
-      ],
-      [
-       0,
-       42.7
-      ],
-      [
-       3,
-       42.4
-      ]
-     ],
-     "parola": "Pyrenees"
-    },
-    {
-     "tipo": "confine",
-     "punti": [
-      [
-       6.5,
-       44.5
-      ],
-      [
-       9,
-       46.3
-      ],
-      [
-       13,
-       46.5
-      ]
-     ],
-     "parola": "Alps"
+     "testo": "HOW?",
+     "parola": "how"
     },
     {
      "tipo": "contorno",
-     "paese": "SWE",
-     "parola": "Baltic"
+     "paese": "IRL",
+     "parola": "overtake"
     },
     {
      "tipo": "contorno",
      "paese": "GBR",
-     "parola": "channel"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 25,
-    "lat": 58,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Every corner was easy to defend and hard to conquer. Russia had no walls to stop it. Europe had walls everywhere.",
-   "anteprima": false,
-   "vista": {
-    "lon": 25,
-    "lat": 50,
-    "larghezza": 90
-   },
-   "epoca": "antica",
-   "oro": [
-    "RUS"
-   ],
-   "verde": [
-    "ESP",
-    "ITA",
-    "FRA",
-    "GBR"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "fortress",
-     "lon": 2,
-     "lat": 46,
-     "parola": "defend"
-    },
-    {
-     "tipo": "icona",
-     "icona": "fortress",
-     "lon": 12,
-     "lat": 43,
-     "parola": "walls"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "NO WALLS",
-     "parola": "no"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 60,
-    "lat": 40,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "And a land with no walls is also a land with no safe border. The only way to feel safe was to keep going.",
-   "anteprima": false,
-   "vista": {
-    "lon": 50,
-    "lat": 55,
-    "larghezza": 70
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "RUS"
-   ],
-   "eventi": [
-    {
-     "tipo": "confine",
-     "punti": [
-      [
-       28,
-       60
-      ],
-      [
-       30,
-       55
-      ],
-      [
-       32,
-       50
-      ]
-     ],
-     "parola": "border"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      40,
-      55
-     ],
-     "a": [
-      70,
-      56
-     ],
-     "icona": "swords",
-     "parola": "going"
-    },
-    {
-     "tipo": "nota",
-     "testo": "No walls meant no safe border",
-     "parola": "safe"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": 30,
-    "lat": 45,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "But a plain with no walls cuts both ways. In 1237, the Mongols rode in. Within three years, they had burned the cities of the Rus.",
-   "anteprima": false,
-   "vista": {
-    "lon": 45,
-    "lat": 54,
-    "larghezza": 60
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "RUS",
-    "UKR"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1237",
-     "parola": "1237"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      80,
-      50
-     ],
-     "a": [
-      40,
-      55
-     ],
-     "icona": "swords",
-     "parola": "rode"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "soldier",
-     "n": 6,
-     "lon": 42,
-     "lat": 55,
-     "parola": "Mongols"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Mongols burned the Rus cities",
-     "parola": "burned"
-    }
-   ],
-   "musica": "azione",
-   "stacco": false,
-   "pin": {
-    "lon": 28,
-    "lat": 46,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Kiev, the greatest of them, fell in 1240. For the next two centuries, the Rus princes paid tribute to the Golden Horde.",
-   "anteprima": false,
-   "vista": {
-    "lon": 40,
-    "lat": 52,
-    "larghezza": 40
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "UKR",
-    "RUS"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1240",
-     "parola": "1240"
-    },
-    {
-     "tipo": "icona",
-     "icona": "castle",
-     "lon": 30.5,
-     "lat": 50.45,
-     "parola": "Kiev"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "GOLDEN HORDE",
-     "lon": 46,
-     "lat": 48,
-     "parola": "Horde"
-    },
-    {
-     "tipo": "conta",
-     "valore": 200,
-     "prefisso": "~",
-     "suffisso": "",
-     "sotto": "YEARS OF TRIBUTE",
-     "parola": "centuries"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": 50,
-    "lat": 55,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "And one small town got very good at it, Moscow. Its prince Ivan, nicknamed Kalita, the money bag, collected the Khan's tribute.",
-   "anteprima": false,
-   "vista": {
-    "lon": 37.6,
-    "lat": 56,
-    "larghezza": 14
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "RUS"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "castle",
-     "lon": 37.6,
-     "lat": 55.75,
-     "parola": "Moscow"
-    },
-    {
-     "tipo": "personaggio",
-     "nome": "Ivan Kalita",
-     "descrizione": "14th-century Moscow prince, fur hat, holding a money bag",
-     "parola": "Ivan"
-    },
-    {
-     "tipo": "icona",
-     "icona": "money_bag",
-     "lon": 38.5,
-     "lat": 56.2,
-     "parola": "tribute"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 35,
-    "lat": 54.5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "The Khan trusted him and the other princes had to pay him. Moscow learned how a steppe empire runs a huge flat land.",
-   "anteprima": false,
-   "vista": {
-    "lon": 40,
-    "lat": 56,
-    "larghezza": 24
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "RUS"
-   ],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      34,
-      57
-     ],
-     "a": [
-      37.6,
-      55.75
-     ],
-     "icona": "money_bag",
-     "parola": "pay"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      37.6,
-      55.75
-     ],
-     "a": [
-      46,
-      48
-     ],
-     "icona": "gold_coins",
-     "parola": "Khan"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Moscow became the Khan's collector",
-     "parola": "trusted"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 45,
-    "lat": 59,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "One ruler, one tax, messengers riding in relays across the plain. It also learned to swallow its rivals.",
-   "anteprima": false,
-   "vista": {
-    "lon": 40,
-    "lat": 57,
-    "larghezza": 30
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "RUS"
-   ],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "tsar",
-     "n": 1,
-     "lon": 37.6,
-     "lat": 55.75,
-     "parola": "ruler"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      37.6,
-      55.75
-     ],
-     "a": [
-      30,
-      59.9
-     ],
-     "icona": "scroll_law",
-     "parola": "messengers"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      37.6,
-      55.75
-     ],
-     "a": [
-      45,
-      56
-     ],
-     "icona": "scroll_law",
-     "parola": "relays"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 48,
-    "lat": 52,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Novgorod was a rich merchant republic in the north, run by a town assembly that rang a bell to call its citizens.",
-   "anteprima": false,
-   "vista": {
-    "lon": 32,
-    "lat": 58.5,
-    "larghezza": 16
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "RUS"
-   ],
-   "eventi": [
-    {
-     "tipo": "etichetta",
-     "testo": "NOVGOROD",
-     "lon": 31.3,
-     "lat": 58.5,
-     "parola": "Novgorod"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "merchant",
-     "n": 5,
-     "lon": 31.3,
-     "lat": 58.4,
-     "parola": "merchant"
-    },
-    {
-     "tipo": "icona",
-     "icona": "church",
-     "lon": 31.5,
-     "lat": 58.6,
-     "parola": "bell"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": 38,
-    "lat": 60,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "In 1478, Moscow took the city, abolished the assembly, and carried the bell back to Moscow.",
-   "anteprima": false,
-   "vista": {
-    "lon": 34,
-    "lat": 57,
-    "larghezza": 24
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "RUS"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1478",
-     "parola": "1478"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      37.6,
-      55.75
-     ],
-     "a": [
-      31.3,
-      58.5
-     ],
-     "icona": "swords",
-     "parola": "took"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      31.3,
-      58.5
-     ],
-     "a": [
-      37.6,
-      55.75
-     ],
-     "icona": "church",
-     "parola": "carried"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Moscow took Novgorod's bell",
-     "parola": "bell"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 28,
-    "lat": 55,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "In 1480, a Mongol army and a Russian army faced each other across the Ugra River. Neither attacked.",
-   "anteprima": false,
-   "vista": {
-    "lon": 36,
-    "lat": 54.5,
-    "larghezza": 14
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "RUS"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1480",
-     "parola": "1480"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "soldier",
-     "n": 4,
-     "lon": 35.5,
-     "lat": 54.7,
-     "parola": "Russian"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "soldier",
-     "n": 4,
-     "lon": 36.5,
-     "lat": 54.5,
-     "parola": "Mongol"
-    },
-    {
-     "tipo": "icona",
-     "icona": "river",
-     "lon": 36,
-     "lat": 54.6,
-     "parola": "Ugra"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": 38,
-    "lat": 56.5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "The Horde turned back and Moscow simply took its place.",
-   "anteprima": false,
-   "vista": {
-    "lon": 42,
-    "lat": 54,
-    "larghezza": 40
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "RUS"
-   ],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      36.5,
-      54.5
-     ],
-     "a": [
-      48,
-      48
-     ],
-     "icona": "swords",
-     "parola": "turned"
-    },
-    {
-     "tipo": "icona",
-     "icona": "crown",
-     "lon": 37.6,
-     "lat": 55.75,
-     "parola": "Moscow"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Moscow replaced the Horde",
-     "parola": "place"
-    }
-   ],
-   "musica": "",
-   "stacco": true,
-   "pin": {
-    "lon": 30,
-    "lat": 50,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Here's the strange part. The same Mongols also conquered China. The two places that became giants had the same teacher.",
-   "anteprima": false,
-   "vista": {
-    "lon": 80,
-    "lat": 48,
-    "larghezza": 120
-   },
-   "epoca": "antica",
-   "oro": [
-    "RUS",
-    "CHN"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "contorno",
-     "paese": "CHN",
-     "parola": "China"
-    },
-    {
-     "tipo": "contorno",
-     "paese": "RUS",
-     "parola": "giants"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "SAME TEACHER",
-     "parola": "teacher"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": 95,
-    "lat": 38,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Europe? In 1241, the Mongols crushed armies in Poland and Hungary. Then, in 1242, they turned around.",
-   "anteprima": false,
-   "vista": {
-    "lon": 20,
-    "lat": 49,
-    "larghezza": 30
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "POL",
-    "HUN"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1241",
-     "parola": "1241"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      40,
-      50
-     ],
-     "a": [
-      19,
-      50
-     ],
-     "icona": "swords",
-     "parola": "crushed"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      19,
-      47
-     ],
-     "a": [
-      35,
-      48
-     ],
-     "icona": "swords",
-     "parola": "turned"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 10,
-    "lat": 52,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Europe never got a conqueror big enough to force it together. Before we follow the crown, an honest ask: subscribing really helps. Thank you.",
-   "anteprima": false,
-   "vista": {
-    "lon": 15,
-    "lat": 50,
-    "larghezza": 60
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "FRA",
-    "DEU",
-    "ITA",
-    "ESP",
-    "POL"
-   ],
-   "eventi": [
-    {
-     "tipo": "scritta",
-     "testo": "NEVER",
-     "parola": "never"
-    },
-    {
-     "tipo": "nota",
-     "testo": "No conqueror ever united Europe",
-     "parola": "conqueror"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 0,
-    "lat": 55,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "In 1453, Constantinople fell to the Ottomans and Moscow became the strongest Orthodox Christian power left.",
-   "anteprima": false,
-   "vista": {
-    "lon": 33,
-    "lat": 47,
-    "larghezza": 40
-   },
-   "epoca": "antica",
-   "oro": [
-    "RUS"
-   ],
-   "verde": [
-    "TUR"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1453",
-     "parola": "1453"
-    },
-    {
-     "tipo": "icona",
-     "icona": "cannon",
-     "lon": 28.98,
-     "lat": 41,
-     "parola": "fell"
-    },
-    {
-     "tipo": "icona",
-     "icona": "church",
-     "lon": 37.6,
-     "lat": 55.75,
-     "parola": "Orthodox"
-    }
-   ],
-   "musica": "epico",
-   "stacco": false,
-   "pin": {
-    "lon": 45,
-    "lat": 48,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Its monks had a slogan for it. Two Romes have fallen, the third stands, and there will be no fourth.",
-   "anteprima": false,
-   "vista": {
-    "lon": 25,
-    "lat": 46,
-    "larghezza": 50
-   },
-   "epoca": "antica",
-   "oro": [
-    "RUS"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "etichetta",
-     "testo": "ROME",
-     "lon": 12.5,
-     "lat": 41.9,
-     "parola": "Romes"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "CONSTANTINOPLE",
-     "lon": 29,
-     "lat": 41,
-     "parola": "fallen"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "MOSCOW: THIRD ROME",
-     "lon": 37.6,
-     "lat": 55.75,
-     "parola": "third"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 20,
-    "lat": 52,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Moscow had already married into the old empire. In 1472, Ivan III wed the niece of the last Byzantine emperor.",
-   "anteprima": false,
-   "vista": {
-    "lon": 33,
-    "lat": 48,
-    "larghezza": 40
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "RUS"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1472",
-     "parola": "1472"
-    },
-    {
-     "tipo": "personaggio",
-     "nome": "Ivan III",
-     "descrizione": "15th-century Russian grand prince, long beard, fur robe",
-     "parola": "Ivan"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      12.5,
-      41.9
-     ],
-     "a": [
-      37.6,
-      55.75
-     ],
-     "icona": "crown",
-     "parola": "wed"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 45,
-    "lat": 45,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "He took Byzantium's double-headed eagle as Russia's emblem. In 1547, Ivan IV was crowned not just prince, but Tsar, from Caesar.",
-   "anteprima": false,
-   "vista": {
-    "lon": 37.6,
-    "lat": 55.75,
-    "larghezza": 16
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "RUS"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "crown",
-     "lon": 37.6,
-     "lat": 55.75,
-     "parola": "eagle"
-    },
-    {
-     "tipo": "anno",
-     "testo": "1547",
-     "parola": "1547"
-    },
-    {
-     "tipo": "personaggio",
-     "nome": "Ivan IV",
-     "descrizione": "16th-century first Tsar of Russia, crown, dark robe",
-     "parola": "Tsar"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "TSAR = CAESAR",
-     "parola": "Caesar"
-    }
-   ],
-   "musica": "epico",
-   "stacco": false,
-   "pin": {
-    "lon": 42,
-    "lat": 53,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "And in Russia, the church stood behind the throne, not against it. In 1721, Peter the Great abolished the patriarch.",
-   "anteprima": false,
-   "vista": {
-    "lon": 32,
-    "lat": 58,
-    "larghezza": 24
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "RUS"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "church",
-     "lon": 37.6,
-     "lat": 55.75,
-     "parola": "church"
-    },
-    {
-     "tipo": "anno",
-     "testo": "1721",
-     "parola": "1721"
-    },
-    {
-     "tipo": "personaggio",
-     "nome": "Peter the Great",
-     "descrizione": "Russian emperor, tall, wig, dark coat",
-     "parola": "Peter"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Church placed under a government office",
-     "parola": "abolished"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 40,
-    "lat": 52,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "In Europe, power was split from the start. In 1077, an emperor stood in the snow at Canossa for three days, begging the Pope.",
-   "anteprima": false,
-   "vista": {
-    "lon": 11,
-    "lat": 44,
-    "larghezza": 16
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "ITA",
-    "DEU"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1077",
-     "parola": "1077"
-    },
-    {
-     "tipo": "icona",
-     "icona": "castle",
-     "lon": 10.5,
-     "lat": 44.6,
-     "parola": "Canossa"
-    },
-    {
-     "tipo": "conta",
-     "valore": 3,
-     "prefisso": "",
-     "suffisso": "",
-     "sotto": "DAYS IN THE SNOW",
-     "parola": "three"
-    },
-    {
-     "tipo": "icona",
-     "icona": "church",
-     "lon": 12.5,
-     "lat": 41.9,
-     "parola": "Pope"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 6,
-    "lat": 42,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "In 1517, the Reformation split the church itself. And the Thirty Years War that followed killed millions.",
-   "anteprima": false,
-   "vista": {
-    "lon": 12,
-    "lat": 50,
-    "larghezza": 30
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "DEU"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1517",
-     "parola": "1517"
-    },
-    {
-     "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": 12.6,
-     "lat": 51.9,
-     "parola": "Reformation"
-    },
-    {
-     "tipo": "icona",
-     "icona": "grave",
-     "lon": 11,
-     "lat": 50,
-     "parola": "killed"
-    },
-    {
-     "tipo": "nota",
-     "testo": "The Thirty Years War killed millions",
-     "parola": "millions"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": 20,
-    "lat": 46,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "It ended in 1648 with the Peace of Westphalia. That's our 1648. The same year a Russian sailor reached the end of Asia, Europe signed a peace that left it in pieces.",
-   "anteprima": false,
-   "vista": {
-    "lon": 100,
-    "lat": 52,
-    "larghezza": 200
-   },
-   "epoca": "antica",
-   "oro": [
-    "RUS"
-   ],
-   "verde": [
-    "DEU",
-    "FRA",
-    "SWE"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1648",
-     "parola": "1648"
-    },
-    {
-     "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": 7.6,
-     "lat": 52,
-     "parola": "Westphalia"
-    },
-    {
-     "tipo": "icona",
-     "icona": "galleon",
-     "lon": 170,
-     "lat": 66,
-     "parola": "sailor"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "IN PIECES",
-     "parola": "pieces"
-    }
-   ],
-   "musica": "",
-   "stacco": true,
-   "pin": {
-    "lon": 60,
-    "lat": 40,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "But what really pulled Russia east wasn't kings or priests, it was fur. Siberian furs were so valuable they were called soft gold.",
-   "anteprima": false,
-   "vista": {
-    "lon": 85,
-    "lat": 60,
-    "larghezza": 90
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "RUS"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "gold_coins",
-     "lon": 85,
-     "lat": 62,
-     "parola": "fur"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "SOFT GOLD",
-     "parola": "soft"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Siberian furs were called soft gold",
-     "parola": "gold"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": 100,
-    "lat": 50,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "The Stroganovs, a family of merchants, had hired that Cossack band in 1582 to push their fur business east.",
-   "anteprima": false,
-   "vista": {
-    "lon": 58,
-    "lat": 58,
-    "larghezza": 24
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "RUS"
-   ],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "merchant",
-     "n": 3,
-     "lon": 56,
-     "lat": 59,
-     "parola": "Stroganovs"
-    },
-    {
-     "tipo": "anno",
-     "testo": "1582",
-     "parola": "1582"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      56,
-      59
-     ],
-     "a": [
-      68,
-      57
-     ],
-     "icona": "swords",
-     "parola": "east"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 66,
-    "lat": 52,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "The peoples of Siberia were forced to pay tribute in furs called yasak. Every few hundred kilometers, the Cossacks built a wooden fort.",
-   "anteprima": false,
-   "vista": {
-    "lon": 95,
-    "lat": 60,
-    "larghezza": 70
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "RUS"
-   ],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "native_worker",
-     "n": 4,
-     "lon": 85,
-     "lat": 60,
-     "parola": "tribute"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "YASAK",
-     "lon": 86,
-     "lat": 62,
-     "parola": "yasak"
-    },
-    {
-     "tipo": "icona",
-     "icona": "fortress",
-     "lon": 100,
-     "lat": 58,
-     "parola": "fort"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 110,
-    "lat": 50,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Tomsk in 1604, Yeniseysk in 1619, Yakutsk in 1632. Fort after fort, all the way east.",
-   "anteprima": false,
-   "vista": {
-    "lon": 105,
-    "lat": 58,
-    "larghezza": 80
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "RUS"
-   ],
-   "eventi": [
-    {
-     "tipo": "etichetta",
-     "testo": "TOMSK 1604",
-     "lon": 84.9,
-     "lat": 56.5,
-     "parola": "Tomsk"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "YENISEYSK 1619",
-     "lon": 92.2,
-     "lat": 58.5,
-     "parola": "Yeniseysk"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "YAKUTSK 1632",
-     "lon": 129.7,
-     "lat": 62,
-     "parola": "Yakutsk"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 110,
-    "lat": 48,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "In the middle of the 1600s, Siberian furs brought the Tsar more than 100,000 rubles a year, up to a tenth of all state income.",
-   "anteprima": false,
-   "vista": {
-    "lon": 85,
-    "lat": 60,
-    "larghezza": 100
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "RUS"
-   ],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 100000,
-     "prefisso": ">",
-     "suffisso": "",
-     "sotto": "RUBLES A YEAR",
-     "parola": "100,000"
-    },
-    {
-     "tipo": "contatore",
-     "testo": "UP TO 1 IN 10",
-     "su": 1,
-     "di": 10,
-     "personaggio": "tsar",
-     "parola": "tenth"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Furs funded a tenth of the state",
-     "parola": "tenth"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 110,
-    "lat": 48,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "And sable doesn't come back fast. When the hunters had cleared one region, they moved on to the next and the next.",
-   "anteprima": false,
-   "vista": {
-    "lon": 100,
-    "lat": 60,
-    "larghezza": 100
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "RUS"
-   ],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "worker",
-     "n": 4,
-     "lon": 75,
-     "lat": 60,
-     "parola": "hunters"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      70,
-      60
-     ],
-     "a": [
-      100,
-      60
-     ],
-     "icona": "forest",
-     "parola": "next"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      100,
-      60
-     ],
-     "a": [
-      135,
-      62
-     ],
-     "icona": "forest",
-     "parola": "next"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 120,
-    "lat": 50,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Between the 1620s and the 1690s, the tribute furs coming out of western Siberia fell by about 45 percent.",
-   "anteprima": false,
-   "vista": {
-    "lon": 75,
-    "lat": 60,
-    "larghezza": 40
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "RUS"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "chart_down",
-     "lon": 75,
-     "lat": 60,
-     "parola": "fell"
-    },
-    {
-     "tipo": "conta",
-     "valore": 45,
-     "prefisso": "-",
-     "suffisso": " PERCENT",
-     "sotto": "FURS FROM WEST SIBERIA",
-     "parola": "45"
-    },
-    {
-     "tipo": "nota",
-     "testo": "The sable ran out",
-     "parola": "fell"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": 60,
-    "lat": 52,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "The hunt went all the way to the Pacific and then across it to Alaska, which Russia sold to the United States in 1867 for 7.2 million dollars.",
-   "anteprima": false,
-   "vista": {
-    "lon": -160,
-    "lat": 62,
-    "larghezza": 120
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [
-    "RUS"
-   ],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      160,
-      62
-     ],
-     "a": [
-      -150,
-      62
-     ],
-     "icona": "galleon",
-     "parola": "across"
-    },
-    {
-     "tipo": "anno",
-     "testo": "1867",
-     "parola": "1867"
-    },
-    {
-     "tipo": "prezzo",
-     "testo": "$7.2M",
-     "sotto": "ALASKA · SOLD TO USA",
-     "ricco": true,
-     "parola": "7.2"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -130,
-    "lat": 50,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Russia's expansion was, at its heart, a business, and it worked. But the same flat land would do something else.",
-   "anteprima": false,
-   "vista": {
-    "lon": 80,
-    "lat": 58,
-    "larghezza": 140
-   },
-   "epoca": "antica",
-   "oro": [
-    "RUS"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "money_bag",
-     "lon": 90,
-     "lat": 62,
-     "parola": "business"
-    },
-    {
-     "tipo": "icona",
-     "icona": "hourglass",
-     "lon": 40,
-     "lat": 54,
-     "parola": "But"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Expansion was a fur business",
-     "parola": "business"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": 60,
-    "lat": 45,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Europe had its would-be unifiers. Rome got stuck at the Rhine after losing three legions in the German forests in 9 AD.",
-   "anteprima": false,
-   "vista": {
-    "lon": 10,
-    "lat": 51,
-    "larghezza": 24
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "DEU",
-    "ITA"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "9 AD",
-     "parola": "9"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "soldier",
-     "n": 5,
-     "lon": 8.5,
-     "lat": 52,
-     "parola": "legions"
-    },
-    {
-     "tipo": "conta",
-     "valore": 3,
-     "prefisso": "",
-     "suffisso": "",
-     "sotto": "LEGIONS LOST",
-     "parola": "three"
-    },
-    {
-     "tipo": "icona",
-     "icona": "forest",
-     "lon": 8.5,
-     "lat": 52.3,
-     "parola": "forests"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 16,
-    "lat": 47,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Charlemagne built an empire, and his grandson split it in three in 843.",
-   "anteprima": false,
-   "vista": {
-    "lon": 8,
-    "lat": 48,
-    "larghezza": 30
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "FRA",
-    "DEU",
-    "ITA"
-   ],
-   "eventi": [
-    {
-     "tipo": "personaggio",
-     "nome": "Charlemagne",
-     "descrizione": "Frankish emperor, crown, long mustache, royal cloak",
-     "parola": "Charlemagne"
-    },
-    {
-     "tipo": "anno",
-     "testo": "843",
-     "parola": "843"
-    },
-    {
-     "tipo": "conta",
-     "valore": 3,
-     "prefisso": "",
-     "suffisso": "",
-     "sotto": "KINGDOMS",
-     "parola": "three"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 18,
-    "lat": 44,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "In 1709, Sweden's king marched into Russia and lost his army at Poltava.",
-   "anteprima": false,
-   "vista": {
-    "lon": 30,
-    "lat": 54,
-    "larghezza": 40
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "SWE",
-    "RUS"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1709",
-     "parola": "1709"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      18,
-      59
-     ],
-     "a": [
-      34.5,
-      49.6
-     ],
-     "icona": "swords",
-     "parola": "marched"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "POLTAVA",
-     "lon": 34.5,
-     "lat": 49.6,
-     "parola": "Poltava"
-    }
-   ],
-   "musica": "azione",
-   "stacco": false,
-   "pin": {
-    "lon": 45,
-    "lat": 58,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Napoleon came closest. By 1812, he dominated most of the continent. Then he marched into Russia with more than half a million men.",
-   "anteprima": false,
-   "vista": {
-    "lon": 20,
-    "lat": 52,
-    "larghezza": 60
-   },
-   "epoca": "antica",
-   "oro": [
-    "FRA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "personaggio",
-     "nome": "Napoleon Bonaparte",
-     "descrizione": "French emperor, bicorne hat, blue military coat",
-     "parola": "Napoleon"
-    },
-    {
-     "tipo": "anno",
-     "testo": "1812",
-     "parola": "1812"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      14,
-      52
-     ],
-     "a": [
-      37.6,
-      55.75
-     ],
-     "icona": "swords",
-     "parola": "marched"
-    },
-    {
-     "tipo": "conta",
-     "valore": 500000,
-     "prefisso": ">",
-     "suffisso": "",
-     "sotto": "MEN",
-     "parola": "half"
-    }
-   ],
-   "musica": "epico",
-   "stacco": false,
-   "pin": {
-    "lon": 5,
-    "lat": 46,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "He even took Moscow in September 1812, and found it empty. Then the city burned, more than two thirds of it.",
-   "anteprima": false,
-   "vista": {
-    "lon": 37.6,
-    "lat": 55.75,
-    "larghezza": 14
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "RUS"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "castle",
-     "lon": 37.6,
-     "lat": 55.75,
-     "parola": "Moscow"
-    },
-    {
-     "tipo": "icona",
-     "icona": "question",
-     "lon": 37.2,
-     "lat": 55.9,
-     "parola": "empty"
-    },
-    {
-     "tipo": "contatore",
-     "testo": "MORE THAN 2 IN 3",
-     "su": 2,
-     "di": 3,
-     "personaggio": "family",
-     "parola": "two"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Moscow burned",
-     "parola": "burned"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": 42,
-    "lat": 57,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "The plain gave him no walls to break, just distance. The Russians fell back, burned what they left behind, and let winter do the rest.",
-   "anteprima": false,
-   "vista": {
-    "lon": 32,
-    "lat": 54,
-    "larghezza": 30
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "RUS"
-   ],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 1000,
-     "prefisso": "~",
-     "suffisso": " KM",
-     "sotto": "MARCH FROM THE NIEMEN",
-     "parola": "distance"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      37.6,
-      55.75
-     ],
-     "a": [
-      24,
-      54.7
-     ],
-     "icona": "swords",
-     "parola": "fell"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "WINTER",
-     "parola": "winter"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 42,
-    "lat": 50,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "By the time what was left of his army crossed the Berezina River, only about 27,000 men were still fit to fight.",
-   "anteprima": false,
-   "vista": {
-    "lon": 28,
-    "lat": 54,
-    "larghezza": 14
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "BLR"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "river",
-     "lon": 29,
-     "lat": 54.3,
-     "parola": "Berezina"
-    },
-    {
-     "tipo": "conta",
-     "valore": 27000,
-     "prefisso": "~",
-     "suffisso": "",
-     "sotto": "MEN FIT TO FIGHT",
-     "parola": "27,000"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Napoleon's army was gone",
-     "parola": "fit"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": true,
-   "pin": {
-    "lon": 33,
-    "lat": 52,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "In 1941, Hitler tried again with more than three million troops. Same plain, same distance, same winter.",
-   "anteprima": false,
-   "vista": {
-    "lon": 30,
-    "lat": 54,
-    "larghezza": 40
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "DEU"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1941",
-     "parola": "1941"
-    },
-    {
-     "tipo": "conta",
-     "valore": 3000000,
-     "prefisso": ">",
-     "suffisso": "",
-     "sotto": "TROOPS",
-     "parola": "three"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      22,
-      52
-     ],
-     "a": [
-      37.6,
-      55.75
-     ],
-     "icona": "swords",
-     "parola": "plain"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": 45,
-    "lat": 50,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "By December, his soldiers could see Moscow's spires, and that was as far as they got.",
-   "anteprima": false,
-   "vista": {
-    "lon": 37.6,
-    "lat": 55.75,
-    "larghezza": 14
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "RUS"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "castle",
-     "lon": 37.6,
-     "lat": 55.75,
-     "parola": "Moscow's"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "STOPPED",
-     "parola": "far"
-    },
-    {
-     "tipo": "nota",
-     "testo": "They saw Moscow, then retreated",
-     "parola": "far"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 42,
-    "lat": 57,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "The land that let Russia grow without walls is the same land that swallowed the two men who came closest to uniting Europe by force.",
-   "anteprima": false,
-   "vista": {
-    "lon": 35,
-    "lat": 54,
-    "larghezza": 60
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "RUS"
-   ],
-   "eventi": [
-    {
-     "tipo": "contorno",
-     "paese": "RUS",
-     "parola": "land"
-    },
-    {
-     "tipo": "icona",
-     "icona": "grave",
-     "lon": 28,
-     "lat": 54.5,
-     "parola": "swallowed"
-    },
-    {
-     "tipo": "icona",
-     "icona": "grave",
-     "lon": 35,
-     "lat": 55,
-     "parola": "force"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 50,
-    "lat": 50,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "So Russia won the land, but who won the money? Today, the average person in the European Union produces about 43,000 dollars a year.",
-   "anteprima": false,
-   "vista": {
-    "lon": 20,
-    "lat": 52,
-    "larghezza": 60
-   },
-   "epoca": "oggi",
-   "oro": [
-    "FRA",
-    "DEU",
-    "ITA",
-    "ESP",
-    "POL",
-    "NLD",
-    "BEL",
-    "AUT",
-    "SWE",
-    "DNK",
-    "FIN",
-    "IRL",
-    "PRT",
-    "GRC",
-    "CZE",
-    "HUN",
-    "ROU",
-    "BGR",
-    "HRV",
-    "SVK",
-    "SVN",
-    "LTU",
-    "LVA",
-    "EST"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "prezzo",
-     "testo": "$43,000",
-     "sotto": "EU · PER PERSON",
-     "ricco": true,
-     "parola": "43,000"
-    },
-    {
-     "tipo": "solleva",
-     "paese": [
-      "FRA",
-      "DEU",
-      "ITA",
-      "ESP",
-      "POL"
-     ],
-     "volte": 3,
-     "testo": "x3",
-     "colore": "oro",
-     "parola": "money"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": 35,
-    "lat": 60,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "The average Russian, about 15,000, almost three times less.",
-   "anteprima": false,
-   "vista": {
-    "lon": 50,
-    "lat": 55,
-    "larghezza": 120
-   },
-   "epoca": "oggi",
-   "oro": [
-    "FRA",
-    "DEU",
-    "ITA",
-    "ESP",
-    "POL"
-   ],
-   "verde": [
-    "RUS"
-   ],
-   "eventi": [
-    {
-     "tipo": "prezzo",
-     "testo": "$15,000",
-     "sotto": "RUSSIA · PER PERSON",
-     "ricco": false,
-     "parola": "15,000"
-    },
-    {
-     "tipo": "barre",
-     "titolo": "GDP PER PERSON",
-     "voci": [
-      {
-       "testo": "EU",
-       "valore": 43,
-       "lato": "oro"
-      },
-      {
-       "testo": "RUSSIA",
-       "valore": 15,
-       "lato": "verde"
-      }
-     ],
-     "parola": "three"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "3X POORER",
-     "parola": "three"
-    }
-   ],
-   "musica": "",
-   "stacco": true,
-   "pin": {
-    "lon": 90,
-    "lat": 45,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Historians like Joel Mokyr and Walter Scheidel think Europe's broken map is part of the reason.",
-   "anteprima": false,
-   "vista": {
-    "lon": 15,
-    "lat": 50,
-    "larghezza": 50
-   },
-   "epoca": "oggi",
-   "oro": [
-    "FRA",
-    "DEU",
-    "ITA",
-    "ESP",
-    "POL",
-    "GBR"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "personaggio",
-     "nome": "Joel Mokyr",
-     "descrizione": "Economic historian, glasses, grey hair, academic jacket",
-     "parola": "Mokyr"
-    },
-    {
-     "tipo": "personaggio",
-     "nome": "Walter Scheidel",
-     "descrizione": "Stanford historian, glasses, dark hair, blazer",
-     "parola": "Scheidel"
-    },
-    {
-     "tipo": "nota",
-     "testo": "A broken map helped Europe",
      "parola": "map"
     }
    ],
    "musica": "",
    "stacco": false,
    "pin": {
-    "lon": 0,
-    "lat": 58,
+    "lon": -10,
+    "lat": 51.5,
     "faccia": "normale"
    }
   },
   {
-   "testo": "In a Europe of many states, if one king crushed your business or banned your book, you crossed a border.",
+   "testo": "Ireland is an island sitting behind another island. Between Ireland and the rest of Europe lies Britain, so for generations its trade went through Britain.",
    "anteprima": false,
    "vista": {
-    "lon": 10,
-    "lat": 48,
-    "larghezza": 30
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "FRA",
-    "DEU",
-    "ITA",
-    "ESP"
-   ],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "merchant",
-     "n": 4,
-     "lon": 6,
-     "lat": 48,
-     "parola": "business"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      6,
-      48
-     ],
-     "a": [
-      12,
-      47
-     ],
-     "icona": "scroll_law",
-     "parola": "crossed"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Cross a border, escape the ruler",
-     "parola": "border"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 18,
-    "lat": 52,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Rulers had to compete for merchants, scientists, and ideas, or lose them to the neighbors.",
-   "anteprima": false,
-   "vista": {
-    "lon": 10,
-    "lat": 48,
-    "larghezza": 40
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "FRA",
-    "DEU",
-    "ITA",
-    "ESP",
-    "NLD"
-   ],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "student",
-     "n": 4,
-     "lon": 11.5,
-     "lat": 48,
-     "parola": "scientists"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      11.5,
-      48
-     ],
-     "a": [
-      5,
-      52
-     ],
-     "icona": "scroll_law",
-     "parola": "lose"
-    },
-    {
-     "tipo": "icona",
-     "icona": "banknotes",
-     "lon": 5,
-     "lat": 52,
-     "parola": "compete"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 20,
-    "lat": 44,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "When Portugal turned down Columbus, he crossed the border and kept asking until Spain said yes.",
-   "anteprima": false,
-   "vista": {
-    "lon": -6,
-    "lat": 39,
-    "larghezza": 16
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "PRT",
-    "ESP"
-   ],
-   "eventi": [
-    {
-     "tipo": "personaggio",
-     "nome": "Christopher Columbus",
-     "descrizione": "15th-century Genoese navigator, long hair, red cap, dark cloak",
-     "parola": "Columbus"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -9.1,
-      38.7
-     ],
-     "a": [
-      -5.9,
-      37.4
-     ],
-     "icona": "galleon",
-     "parola": "crossed"
-    },
-    {
-     "tipo": "flag",
-     "icona": "flag:ES",
-     "lon": -5.9,
-     "lat": 37.4,
-     "parola": "Spain"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -2,
-    "lat": 43,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "When the Inquisition banned Galileo's books, his last one was printed in the Dutch Republic in 1638.",
-   "anteprima": false,
-   "vista": {
-    "lon": 10,
-    "lat": 47,
-    "larghezza": 24
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "ITA",
-    "NLD"
-   ],
-   "eventi": [
-    {
-     "tipo": "personaggio",
-     "nome": "Galileo Galilei",
-     "descrizione": "Italian astronomer, long white beard, dark scholar robe",
-     "parola": "Galileo's"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      11.2,
-      43.8
-     ],
-     "a": [
-      4.5,
-      52.2
-     ],
-     "icona": "scroll_law",
-     "parola": "printed"
-    },
-    {
-     "tipo": "anno",
-     "testo": "1638",
-     "parola": "1638"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 18,
-    "lat": 52,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "In Russia, there was nowhere to go. One ruler, one church, and peasants tied to the land.",
-   "anteprima": false,
-   "vista": {
-    "lon": 45,
-    "lat": 55,
-    "larghezza": 50
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "RUS"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "crown",
-     "lon": 37.6,
-     "lat": 55.75,
-     "parola": "ruler"
-    },
-    {
-     "tipo": "icona",
-     "icona": "church",
-     "lon": 40,
-     "lat": 57,
-     "parola": "church"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "peasant",
-     "n": 5,
-     "lon": 44,
-     "lat": 54,
-     "parola": "peasants"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": 55,
-    "lat": 50,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Russia only abolished serfdom in 1861, and most of that land is nearly empty. Siberia is 77 percent of Russia, but home to about a quarter of its people.",
-   "anteprima": false,
-   "vista": {
-    "lon": 95,
-    "lat": 60,
-    "larghezza": 120
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "RUS"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1861",
-     "parola": "1861"
-    },
-    {
-     "tipo": "conta",
-     "valore": 77,
-     "prefisso": "",
-     "suffisso": " PERCENT",
-     "sotto": "OF RUSSIA IS SIBERIA",
-     "parola": "77"
-    },
-    {
-     "tipo": "contatore",
-     "testo": "ABOUT 1 IN 4",
-     "su": 1,
-     "di": 4,
-     "personaggio": "family",
-     "parola": "quarter"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 60,
-    "lat": 48,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Is that destiny? No. Russia's economy has grown fast before, and not every European country is rich.",
-   "anteprima": false,
-   "vista": {
-    "lon": 40,
-    "lat": 52,
-    "larghezza": 90
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "RUS",
-    "ALB",
-    "MDA",
-    "UKR"
-   ],
-   "eventi": [
-    {
-     "tipo": "scritta",
-     "testo": "NOT DESTINY",
-     "parola": "destiny"
-    },
-    {
-     "tipo": "icona",
-     "icona": "chart_up",
-     "lon": 45,
-     "lat": 57,
-     "parola": "fast"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Geography is not fate",
-     "parola": "No"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 20,
-    "lat": 42,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "But here's the final twist. Even Russia's plain couldn't hold everything together. In 1991, the Soviet Union split into 15 countries.",
-   "anteprima": false,
-   "vista": {
-    "lon": 65,
-    "lat": 50,
-    "larghezza": 120
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "RUS",
-    "UKR",
-    "BLR",
-    "KAZ",
-    "UZB",
-    "GEO",
-    "ARM",
-    "AZE",
-    "TKM",
-    "KGZ",
-    "TJK",
-    "MDA",
-    "LTU",
-    "LVA",
-    "EST"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1991",
-     "parola": "1991"
-    },
-    {
-     "tipo": "conta_paesi",
-     "paesi": [
-      "RUS",
-      "UKR",
-      "BLR",
-      "KAZ",
-      "UZB",
-      "GEO",
-      "ARM",
-      "AZE",
-      "TKM",
-      "KGZ",
-      "TJK",
-      "MDA",
-      "LTU",
-      "LVA",
-      "EST"
-     ],
-     "colore": "rosso",
-     "parola": "15"
-    }
-   ],
-   "musica": "azione",
-   "stacco": true,
-   "pin": {
-    "lon": 90,
-    "lat": 40,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Russia lost about a quarter of its territory and about half its people.",
-   "anteprima": false,
-   "vista": {
-    "lon": 70,
-    "lat": 55,
-    "larghezza": 100
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "RUS"
-   ],
-   "eventi": [
-    {
-     "tipo": "griglia",
-     "paese": [
-      "RUS"
-     ],
-     "pieni": 0.75,
-     "testo": "A QUARTER LOST",
-     "colore": "verde",
-     "parola": "quarter"
-    },
-    {
-     "tipo": "contatore",
-     "testo": "ABOUT 1 IN 2",
-     "su": 1,
-     "di": 2,
-     "personaggio": "family",
-     "parola": "half"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": 50,
-    "lat": 42,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "So let's score it. Geography: Russia got a plain with no walls. Europe got peninsulas and mountains.",
-   "anteprima": false,
-   "vista": {
-    "lon": 40,
-    "lat": 52,
-    "larghezza": 100
+    "lon": -3,
+    "lat": 52.5,
+    "larghezza": 26
    },
    "epoca": "oggi",
    "oro": [
-    "FRA",
-    "DEU",
-    "ITA",
-    "ESP",
-    "POL",
     "GBR"
    ],
    "verde": [
-    "RUS"
+    "IRL"
    ],
    "eventi": [
     {
+     "tipo": "freccia",
+     "da": [
+      -6.2,
+      53.3
+     ],
+     "a": [
+      -3,
+      52.5
+     ],
+     "icona": "cargo_ship",
+     "parola": "Ireland"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -3,
+      52.5
+     ],
+     "a": [
+      2.4,
+      50.9
+     ],
+     "icona": "cargo_ship",
+     "parola": "rest"
+    },
+    {
      "tipo": "etichetta",
-     "testo": "GEOGRAPHY",
-     "lon": 40,
-     "lat": 62,
-     "parola": "Geography"
-    },
-    {
-     "tipo": "icona",
-     "icona": "wheat",
-     "lon": 55,
-     "lat": 55,
-     "parola": "plain"
-    },
-    {
-     "tipo": "icona",
-     "icona": "mountain",
-     "lon": 10,
-     "lat": 46.5,
-     "parola": "mountains"
+     "testo": "BEHIND BRITAIN",
+     "lon": -8,
+     "lat": 53.5,
+     "parola": "behind"
     }
    ],
    "musica": "curiosita",
    "stacco": false,
    "pin": {
-    "lon": 80,
-    "lat": 45,
+    "lon": -9,
+    "lat": 51.5,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Resources: Russia got fur and endless land. Europe got ports and trade. History: Russia had the Mongols and one Tsar.",
+   "testo": "Even before Brexit, around 150,000 Irish truck trips a year still crossed Britain to reach the continent. Sometimes those trucks took days.",
    "anteprima": false,
    "vista": {
-    "lon": 40,
+    "lon": -2,
     "lat": 52,
-    "larghezza": 100
+    "larghezza": 22
    },
    "epoca": "oggi",
    "oro": [
-    "FRA",
-    "DEU",
-    "ITA",
-    "ESP",
-    "POL",
     "GBR"
    ],
    "verde": [
-    "RUS"
+    "IRL"
    ],
    "eventi": [
     {
-     "tipo": "icona",
-     "icona": "money_bag",
-     "lon": 70,
-     "lat": 60,
-     "parola": "fur"
+     "tipo": "conta",
+     "valore": 150000,
+     "prefisso": "~",
+     "suffisso": "",
+     "sotto": "TRUCK TRIPS A YEAR",
+     "parola": "150,000"
     },
     {
-     "tipo": "icona",
-     "icona": "port",
-     "lon": 4,
-     "lat": 51.5,
-     "parola": "ports"
+     "tipo": "freccia",
+     "da": [
+      -6.2,
+      53.3
+     ],
+     "a": [
+      1.3,
+      51.1
+     ],
+     "icona": "cargo_ship",
+     "parola": "crossed"
     },
     {
-     "tipo": "icona",
-     "icona": "swords",
-     "lon": 45,
-     "lat": 52,
-     "parola": "Mongols"
+     "tipo": "nota",
+     "testo": "Trucks crossed Britain first",
+     "parola": "continent"
     }
    ],
    "musica": "",
    "stacco": false,
    "pin": {
-    "lon": 80,
-    "lat": 45,
+    "lon": -9,
+    "lat": 51.5,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Europe had a Pope against an Emperor. Decisions: Russia chose one ruler. Europe, in the end, chose to compete.",
+   "testo": "Its money was tied to Britain too. From 1826 until 1979, one Irish pound was worth exactly one British pound.",
    "anteprima": false,
    "vista": {
-    "lon": 30,
-    "lat": 52,
-    "larghezza": 120
+    "lon": -5,
+    "lat": 53,
+    "larghezza": 16
    },
-   "epoca": "oggi",
+   "epoca": "antica",
    "oro": [
-    "FRA",
-    "DEU",
-    "ITA",
-    "ESP",
-    "POL",
     "GBR"
    ],
    "verde": [
-    "RUS"
+    "IRL"
    ],
    "eventi": [
     {
-     "tipo": "icona",
-     "icona": "church",
-     "lon": 12.5,
-     "lat": 41.9,
-     "parola": "Pope"
+     "tipo": "anno",
+     "testo": "1826",
+     "parola": "1826"
     },
     {
      "tipo": "icona",
-     "icona": "crown",
-     "lon": 37.6,
-     "lat": 55.75,
-     "parola": "ruler"
+     "icona": "banknotes",
+     "lon": -6.2,
+     "lat": 53.3,
+     "parola": "pound"
     },
     {
-     "tipo": "scritta",
-     "testo": "COMPETE",
-     "parola": "compete"
+     "tipo": "numero",
+     "testo": "1 = 1",
+     "lon": -2,
+     "lat": 52.5,
+     "parola": "exactly"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Same value until 1979",
+     "parola": "1979"
     }
    ],
    "musica": "",
    "stacco": false,
    "pin": {
-    "lon": 90,
-    "lat": 45,
+    "lon": -9,
+    "lat": 52,
     "faccia": "normale"
    }
   },
   {
-   "testo": "The plain gave Russia its size. The walls gave Europe its rivals, and the rivals made it rich.",
+   "testo": "And its people kept leaving. In 1841, the island had almost 8.2 million people. Then the potato blight arrived.",
    "anteprima": false,
    "vista": {
-    "lon": 30,
-    "lat": 52,
-    "larghezza": 130
+    "lon": -8,
+    "lat": 53.3,
+    "larghezza": 9
    },
-   "epoca": "oggi",
-   "oro": [
-    "FRA",
-    "DEU",
-    "ITA",
-    "ESP",
-    "POL",
-    "GBR"
-   ],
+   "epoca": "antica",
+   "oro": [],
    "verde": [
-    "RUS"
+    "IRL"
    ],
    "eventi": [
     {
-     "tipo": "solleva",
-     "paese": [
-      "RUS"
-     ],
-     "volte": 6,
-     "testo": "SIZE",
-     "colore": "verde",
-     "parola": "size"
+     "tipo": "anno",
+     "testo": "1841",
+     "parola": "1841"
     },
     {
-     "tipo": "solleva",
-     "paese": [
-      "FRA",
-      "DEU",
-      "ITA",
-      "ESP",
-      "POL",
-      "GBR"
-     ],
-     "volte": 9,
-     "testo": "WEALTH",
-     "colore": "oro",
-     "parola": "rich"
+     "tipo": "conta",
+     "valore": 8200000,
+     "prefisso": "~",
+     "suffisso": "",
+     "sotto": "PEOPLE ON THE ISLAND",
+     "parola": "8.2"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "peasant",
+     "n": 6,
+     "lon": -8,
+     "lat": 53.2,
+     "parola": "people"
+    },
+    {
+     "tipo": "icona",
+     "icona": "farm",
+     "lon": -7.5,
+     "lat": 52.8,
+     "parola": "potato"
     }
    ],
-   "musica": "epico",
+   "musica": "malinconia",
    "stacco": false,
    "pin": {
-    "lon": 80,
-    "lat": 42,
+    "lon": -9.8,
+    "lat": 52,
     "faccia": "normale"
    }
   },
   {
-   "testo": "And Europe did finally come together. Not with an army, but with treaties. Today, 27 countries share one market.",
+   "testo": "Around a million died in the famine, and more than a million emigrated. The Republic wouldn't pass five million people again until 2022.",
    "anteprima": false,
    "vista": {
-    "lon": 15,
+    "lon": -8,
+    "lat": 53.3,
+    "larghezza": 10
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "IRL"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "grave",
+     "lon": -8.5,
+     "lat": 53.2,
+     "parola": "died"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -8,
+      52.1
+     ],
+     "a": [
+      -30,
+      48
+     ],
+     "icona": "ship",
+     "parola": "emigrated"
+    },
+    {
+     "tipo": "anno",
+     "testo": "2022",
+     "parola": "2022"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Five million, finally, in 2022",
+     "parola": "five"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": -9.8,
     "lat": 52,
-    "larghezza": 50
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "By the late 1980s, unemployment topped 16 percent, and government debt was over twice Britain's measured against the economy.",
+   "anteprima": false,
+   "vista": {
+    "lon": -6,
+    "lat": 53.5,
+    "larghezza": 14
    },
    "epoca": "oggi",
    "oro": [
-    "FRA",
-    "DEU",
-    "ITA",
-    "ESP",
-    "POL",
-    "NLD",
-    "BEL",
-    "AUT",
-    "SWE",
-    "DNK",
-    "FIN",
-    "IRL",
-    "PRT",
-    "GRC",
-    "CZE",
-    "HUN",
-    "ROU",
-    "BGR",
-    "HRV",
-    "SVK",
-    "SVN",
-    "LTU",
-    "LVA",
-    "EST",
-    "LUX",
-    "CYP",
-    "MLT"
+    "GBR"
+   ],
+   "verde": [
+    "IRL"
+   ],
+   "eventi": [
+    {
+     "tipo": "numero",
+     "testo": "16%+",
+     "lon": -8,
+     "lat": 53.3,
+     "parola": "unemployment"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": -6.2,
+     "lat": 53.3,
+     "parola": "debt"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Debt double Britain's",
+     "parola": "twice"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -9.5,
+    "lat": 52,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "A third of the people leaving had a university degree. The country was exporting its brightest.",
+   "anteprima": false,
+   "vista": {
+    "lon": -6,
+    "lat": 53.5,
+    "larghezza": 16
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "IRL"
+   ],
+   "eventi": [
+    {
+     "tipo": "contatore",
+     "testo": "1 IN 3 HAD A DEGREE",
+     "su": 1,
+     "di": 3,
+     "personaggio": "student",
+     "parola": "third"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -6.2,
+      53.3
+     ],
+     "a": [
+      -0.1,
+      51.5
+     ],
+     "icona": "ship",
+     "parola": "exporting"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Exporting its brightest",
+     "parola": "brightest"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": -9.5,
+    "lat": 52,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "The odd part? Ireland and Britain joined the European club on the very same day, the first of January 1973. Only one looked rich.",
+   "anteprima": false,
+   "vista": {
+    "lon": -3,
+    "lat": 53,
+    "larghezza": 24
+   },
+   "epoca": "oggi",
+   "oro": [
+    "GBR"
+   ],
+   "verde": [
+    "IRL"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1973",
+     "parola": "1973"
+    },
+    {
+     "tipo": "icona",
+     "icona": "flag:IE",
+     "lon": -8,
+     "lat": 53.2,
+     "parola": "Ireland"
+    },
+    {
+     "tipo": "icona",
+     "icona": "flag:GB",
+     "lon": -1.5,
+     "lat": 52.7,
+     "parola": "Britain"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Both joined on 1 January 1973",
+     "parola": "same"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -10,
+    "lat": 51.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "So in the late 1980s, Ireland tried something drastic. It cut spending, kept taxes low, and went out to sell itself to companies.",
+   "anteprima": false,
+   "vista": {
+    "lon": -7,
+    "lat": 53.3,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
    ],
    "verde": [],
    "eventi": [
     {
      "tipo": "icona",
      "icona": "scroll_law",
-     "lon": 4.35,
-     "lat": 50.85,
-     "parola": "treaties"
+     "lon": -6.3,
+     "lat": 53.35,
+     "parola": "cut"
     },
     {
-     "tipo": "conta_paesi",
-     "paesi": [
-      "FRA",
-      "DEU",
-      "ITA",
-      "ESP",
-      "POL",
-      "NLD",
-      "BEL",
-      "AUT",
-      "SWE",
-      "DNK"
-     ],
-     "colore": "oro",
-     "parola": "27"
+     "tipo": "etichetta",
+     "testo": "LOW TAXES",
+     "lon": -8,
+     "lat": 53,
+     "parola": "taxes"
     },
     {
-     "tipo": "nota",
-     "testo": "27 countries, one market",
-     "parola": "market"
+     "tipo": "folla",
+     "personaggio": "politician",
+     "n": 3,
+     "lon": -6.3,
+     "lat": 53.35,
+     "parola": "sell"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": -9.5,
+    "lat": 52.2,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "It worked. Between 1995 and 2000, the economy grew by more than nine percent a year.",
+   "anteprima": false,
+   "vista": {
+    "lon": -7,
+    "lat": 53.3,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1995",
+     "parola": "1995"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_up",
+     "lon": -6.3,
+     "lat": 53.35,
+     "parola": "grew"
+    },
+    {
+     "tipo": "numero",
+     "testo": "9%+",
+     "lon": -8.5,
+     "lat": 53,
+     "parola": "nine"
     }
    ],
    "musica": "trionfo",
    "stacco": false,
    "pin": {
-    "lon": 30,
-    "lat": 46,
+    "lon": -9.5,
+    "lat": 52.2,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Think back to 1648. A Russian sailor at the edge of Asia, diplomats in Westphalia. One side was building the biggest country on Earth. The other agreed to stay in pieces.",
+   "testo": "In 1997, Irish output per person passed Britain's for the first time. The same magazine now called Ireland Europe's shining light.",
    "anteprima": false,
    "vista": {
-    "lon": 90,
-    "lat": 52,
-    "larghezza": 220
+    "lon": -4,
+    "lat": 53,
+    "larghezza": 20
    },
-   "epoca": "antica",
+   "epoca": "oggi",
    "oro": [
-    "DEU"
+    "IRL"
    ],
    "verde": [
-    "RUS"
+    "GBR"
    ],
    "eventi": [
     {
      "tipo": "anno",
-     "testo": "1648",
-     "parola": "1648"
+     "testo": "1997",
+     "parola": "1997"
+    },
+    {
+     "tipo": "solleva",
+     "paese": [
+      "IRL"
+     ],
+     "volte": 4,
+     "testo": "PASSED",
+     "colore": "oro",
+     "parola": "passed"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "EUROPE'S SHINING LIGHT",
+     "lon": -8,
+     "lat": 54.3,
+     "parola": "shining"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": true,
+   "pin": {
+    "lon": -10,
+    "lat": 51.5,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Then it blew up. Cheap credit poured into houses, and when the bubble burst in 2008, the government guaranteed every big Irish bank.",
+   "anteprima": false,
+   "vista": {
+    "lon": -7,
+    "lat": 53.3,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "IRL"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "2008",
+     "parola": "2008"
     },
     {
      "tipo": "icona",
-     "icona": "galleon",
-     "lon": 170,
-     "lat": 66,
-     "parola": "sailor"
+     "icona": "cabin",
+     "lon": -6.3,
+     "lat": 53.35,
+     "parola": "houses"
     },
     {
      "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": 7.6,
-     "lat": 52,
-     "parola": "Westphalia"
+     "icona": "chart_down",
+     "lon": -8.5,
+     "lat": 53,
+     "parola": "burst"
     },
     {
-     "tipo": "nota",
-     "testo": "One built a giant, one stayed split",
-     "parola": "pieces"
+     "tipo": "folla",
+     "personaggio": "banker",
+     "n": 4,
+     "lon": -6.3,
+     "lat": 53.35,
+     "parola": "bank"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -9.5,
+    "lat": 52.2,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Their losses landed on taxpayers. In 2010, Ireland needed an 85 billion euro rescue from the EU and the IMF.",
+   "anteprima": false,
+   "vista": {
+    "lon": -7,
+    "lat": 53.3,
+    "larghezza": 12
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "IRL"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "2010",
+     "parola": "2010"
+    },
+    {
+     "tipo": "prezzo",
+     "testo": "85B EURO",
+     "sotto": "EU AND IMF RESCUE",
+     "ricco": false,
+     "lon": -8,
+     "lat": 53.3,
+     "parola": "85"
+    },
+    {
+     "tipo": "icona",
+     "icona": "money_bag",
+     "lon": -6.3,
+     "lat": 53.35,
+     "parola": "rescue"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -9.5,
+    "lat": 52.2,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "By 2012, unemployment was back near 16 percent, and young people were back on the ferries.",
+   "anteprima": false,
+   "vista": {
+    "lon": -5,
+    "lat": 53.3,
+    "larghezza": 14
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "IRL"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "2012",
+     "parola": "2012"
+    },
+    {
+     "tipo": "numero",
+     "testo": "~16%",
+     "lon": -8.5,
+     "lat": 53,
+     "parola": "16"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "student",
+     "n": 5,
+     "lon": -6.2,
+     "lat": 53.3,
+     "parola": "young"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -6.2,
+      53.3
+     ],
+     "a": [
+      -3,
+      53.4
+     ],
+     "icona": "ship",
+     "parola": "ferries"
     }
    ],
    "musica": "malinconia",
    "stacco": false,
    "pin": {
-    "lon": 50,
-    "lat": 40,
+    "lon": -9.5,
+    "lat": 52.2,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Russia won the land. Europe won the money.",
+   "testo": "So the first Irish miracle ended in a crash. The second one needed something Ireland couldn't build alone, and it sat across the water.",
    "anteprima": false,
    "vista": {
-    "lon": 40,
-    "lat": 52,
-    "larghezza": 130
+    "lon": -4,
+    "lat": 53,
+    "larghezza": 18
    },
    "epoca": "oggi",
    "oro": [
+    "GBR"
+   ],
+   "verde": [
+    "IRL"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": -8,
+     "lat": 53.2,
+     "parola": "crash"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "CRASH",
+     "parola": "crash"
+    },
+    {
+     "tipo": "contorno",
+     "paese": "GBR",
+     "parola": "across"
+    }
+   ],
+   "musica": "mistero",
+   "stacco": false,
+   "pin": {
+    "lon": -10,
+    "lat": 51.8,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "There, in the most powerful financial city in Europe, Britain's model rested on three advantages.",
+   "anteprima": false,
+   "vista": {
+    "lon": -0.5,
+    "lat": 51.5,
+    "larghezza": 8
+   },
+   "epoca": "oggi",
+   "oro": [
+    "GBR"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "bank",
+     "lon": -0.09,
+     "lat": 51.51,
+     "parola": "financial"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "LONDON",
+     "lon": -0.12,
+     "lat": 51.5,
+     "parola": "city"
+    },
+    {
+     "tipo": "conta",
+     "valore": 3,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "ADVANTAGES",
+     "parola": "three"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Three advantages built Britain",
+     "parola": "advantages"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": -2.5,
+    "lat": 52.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "One, the door. For any American or Asian company selling to Europe, Britain was the obvious first stop.",
+   "anteprima": false,
+   "vista": {
+    "lon": -20,
+    "lat": 50,
+    "larghezza": 70
+   },
+   "epoca": "oggi",
+   "oro": [
+    "GBR"
+   ],
+   "verde": [
+    "USA"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      -74,
+      40.7
+     ],
+     "a": [
+      -0.1,
+      51.5
+     ],
+     "icona": "cargo_ship",
+     "parola": "American"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -0.1,
+      51.5
+     ],
+     "a": [
+      10,
+      50
+     ],
+     "icona": "cargo_ship",
+     "parola": "selling"
+    },
+    {
+     "tipo": "icona",
+     "icona": "port",
+     "lon": -0.1,
+     "lat": 51.5,
+     "parola": "door"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -35,
+    "lat": 55,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Same language, familiar law, and full access to the European market. Easy.",
+   "anteprima": false,
+   "vista": {
+    "lon": 0,
+    "lat": 50,
+    "larghezza": 30
+   },
+   "epoca": "oggi",
+   "oro": [
+    "GBR"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": -1,
+     "lat": 52,
+     "parola": "law"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "FULL EU ACCESS",
+     "lon": 4,
+     "lat": 50.5,
+     "parola": "access"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Language, law, market access",
+     "parola": "language"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -8,
+    "lat": 55,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Two, the passport. A bank licensed in London could sell its services across the whole European Economic Area.",
+   "anteprima": false,
+   "vista": {
+    "lon": 5,
+    "lat": 50,
+    "larghezza": 40
+   },
+   "epoca": "oggi",
+   "oro": [
+    "GBR"
+   ],
+   "verde": [
     "FRA",
     "DEU",
     "ITA",
     "ESP",
-    "POL",
-    "GBR"
-   ],
-   "verde": [
-    "RUS"
+    "NLD"
    ],
    "eventi": [
     {
-     "tipo": "prezzo",
-     "testo": "$43,000",
-     "sotto": "EU · PER PERSON",
-     "ricco": true,
-     "parola": "money"
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": -0.1,
+     "lat": 51.5,
+     "parola": "passport"
     },
     {
-     "tipo": "scritta",
-     "testo": "LAND VS MONEY",
-     "parola": "land"
+     "tipo": "freccia",
+     "da": [
+      -0.1,
+      51.5
+     ],
+     "a": [
+      2.3,
+      48.9
+     ],
+     "icona": "banknotes",
+     "parola": "sell"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -0.1,
+      51.5
+     ],
+     "a": [
+      9.2,
+      45.5
+     ],
+     "icona": "banknotes",
+     "parola": "whole"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -6,
+    "lat": 55,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Banks operating in London held more than ten trillion euros in assets.",
+   "anteprima": false,
+   "vista": {
+    "lon": -0.5,
+    "lat": 51.5,
+    "larghezza": 8
+   },
+   "epoca": "oggi",
+   "oro": [
+    "GBR"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "prezzo",
+     "testo": "10T EURO",
+     "sotto": "BANK ASSETS IN LONDON",
+     "ricco": true,
+     "lon": -0.1,
+     "lat": 51.5,
+     "parola": "trillion"
+    },
+    {
+     "tipo": "colonna",
+     "testo": "LONDON",
+     "valore": 1.0,
+     "lon": -0.1,
+     "lat": 51.5,
+     "parola": "assets"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": -2.5,
+    "lat": 52.5,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Three, rising pay. For decades, each generation of British workers earned more than the one before.",
+   "anteprima": false,
+   "vista": {
+    "lon": -2,
+    "lat": 53,
+    "larghezza": 12
+   },
+   "epoca": "oggi",
+   "oro": [
+    "GBR"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "worker",
+     "n": 6,
+     "lon": -2,
+     "lat": 53,
+     "parola": "workers"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_up",
+     "lon": -1,
+     "lat": 52.5,
+     "parola": "rising"
     },
     {
      "tipo": "nota",
-     "testo": "Russia won land, Europe won money",
-     "parola": "money"
+     "testo": "Each generation earned more",
+     "parola": "generation"
     }
    ],
    "musica": "trionfo",
    "stacco": false,
    "pin": {
-    "lon": 85,
-    "lat": 45,
+    "lon": -4.5,
+    "lat": 54,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "None of those three were guaranteed, and they started to crack one at a time.",
+   "anteprima": false,
+   "vista": {
+    "lon": -2,
+    "lat": 53,
+    "larghezza": 14
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "GBR"
+   ],
+   "eventi": [
+    {
+     "tipo": "scritta",
+     "testo": "CRACKS",
+     "parola": "crack"
+    },
+    {
+     "tipo": "conta_paesi",
+     "paesi": [
+      "GBR"
+     ],
+     "colore": "rosso",
+     "parola": "three"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Nothing was guaranteed",
+     "parola": "guaranteed"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -5,
+    "lat": 54,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "The third cracked first. After 2008, British pay simply stopped growing.",
+   "anteprima": false,
+   "vista": {
+    "lon": -2,
+    "lat": 53,
+    "larghezza": 12
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "GBR"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "2008",
+     "parola": "2008"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": -1.5,
+     "lat": 52.8,
+     "parola": "stopped"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "worker",
+     "n": 5,
+     "lon": -2,
+     "lat": 53.5,
+     "parola": "pay"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": -5,
+    "lat": 54,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "One think tank estimates the typical worker now earns about 11,000 pounds a year less than if pay had kept growing at its old pace.",
+   "anteprima": false,
+   "vista": {
+    "lon": -2,
+    "lat": 53,
+    "larghezza": 12
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "GBR"
+   ],
+   "eventi": [
+    {
+     "tipo": "prezzo",
+     "testo": "11,000 POUNDS",
+     "sotto": "LOST PER WORKER A YEAR",
+     "richo": false,
+     "ricco": false,
+     "lon": -2,
+     "lat": 53,
+     "parola": "11,000"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Pay lost versus old trend",
+     "parola": "less"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": true,
+   "pin": {
+    "lon": -5,
+    "lat": 54,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Then, in 2016, Britain voted to leave the European Union, and the door and the passport went with it.",
+   "anteprima": false,
+   "vista": {
+    "lon": -2,
+    "lat": 53,
+    "larghezza": 16
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "GBR"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "2016",
+     "parola": "2016"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "voter",
+     "n": 6,
+     "lon": -1.5,
+     "lat": 52.5,
+     "parola": "voted"
+    },
+    {
+     "tipo": "icona",
+     "icona": "ballot_box",
+     "lon": -1.5,
+     "lat": 52.5,
+     "parola": "voted"
+    },
+    {
+     "tipo": "confine",
+     "punti": [
+      [
+       1.7,
+       51
+      ],
+      [
+       -1,
+       50.3
+      ],
+      [
+       -5,
+       49.9
+      ]
+     ],
+     "parola": "door"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -5,
+    "lat": 54,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Britain's own budget watchdog assumes the country ends up about four percent less productive than if it had stayed, with trade around 15 percent lower.",
+   "anteprima": false,
+   "vista": {
+    "lon": -2,
+    "lat": 53,
+    "larghezza": 14
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "GBR"
+   ],
+   "eventi": [
+    {
+     "tipo": "numero",
+     "testo": "-4%",
+     "lon": -2,
+     "lat": 54,
+     "parola": "four"
+    },
+    {
+     "tipo": "numero",
+     "testo": "-15%",
+     "lon": -2,
+     "lat": 51.8,
+     "parola": "15"
+    },
+    {
+     "tipo": "barre",
+     "titolo": "BREXIT HIT (OBR)",
+     "voci": [
+      {
+       "testo": "PRODUCTIVITY",
+       "valore": 4,
+       "lato": "verde"
+      },
+      {
+       "testo": "TRADE",
+       "valore": 15,
+       "lato": "verde"
+      }
+     ],
+     "parola": "trade"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -5,
+    "lat": 54,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Before we follow the money across the Irish Sea, a quick ask. These videos take a long time to make, and subscribing really helps.",
+   "anteprima": false,
+   "vista": {
+    "lon": -5,
+    "lat": 53.5,
+    "larghezza": 14
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [
+    "GBR"
+   ],
+   "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "SUBSCRIBE",
+     "lon": -5.5,
+     "lat": 53.5,
+     "parola": "subscribing"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Subscribing really helps",
+     "parola": "helps"
+    }
+   ],
+   "musica": "quotidiano",
+   "stacco": false,
+   "pin": {
+    "lon": -8,
+    "lat": 52.3,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Take the door first. With Britain gone, Ireland became the biggest English-speaking country left in the European Union.",
+   "anteprima": false,
+   "vista": {
+    "lon": -6,
+    "lat": 53.3,
+    "larghezza": 16
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "contorno",
+     "paese": "IRL",
+     "parola": "Ireland"
+    },
+    {
+     "tipo": "icona",
+     "icona": "port",
+     "lon": -6.2,
+     "lat": 53.3,
+     "parola": "door"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Biggest English speaker left in EU",
+     "parola": "English-speaking"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -9.5,
+    "lat": 52,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "For an American company, it's the closest thing to Britain still inside the single market. And most of the giants were already here.",
+   "anteprima": false,
+   "vista": {
+    "lon": -7,
+    "lat": 53.3,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      -74,
+      40.7
+     ],
+     "a": [
+      -6.26,
+      53.35
+     ],
+     "icona": "cargo_ship",
+     "parola": "American"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "banker",
+     "n": 4,
+     "lon": -6.26,
+     "lat": 53.35,
+     "parola": "giants"
+    },
+    {
+     "tipo": "icona",
+     "icona": "factory",
+     "lon": -6.4,
+     "lat": 53.3,
+     "parola": "company"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": -9.5,
+    "lat": 52,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Google and Meta run Europe from Dublin. Apple's European base is in Cork. Microsoft, LinkedIn, TikTok and X all have big Irish operations.",
+   "anteprima": false,
+   "vista": {
+    "lon": -7.5,
+    "lat": 53,
+    "larghezza": 8
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "GOOGLE · META",
+     "lon": -6.26,
+     "lat": 53.35,
+     "parola": "Google"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "APPLE",
+     "lon": -8.47,
+     "lat": 51.9,
+     "parola": "Cork"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "MICROSOFT · TIKTOK · X",
+     "lon": -7.5,
+     "lat": 52.7,
+     "parola": "Microsoft"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -9.8,
+    "lat": 53.8,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "They came for one number: twelve and a half percent. That's Ireland's tax on company profits.",
+   "anteprima": false,
+   "vista": {
+    "lon": -7,
+    "lat": 53.3,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "numero",
+     "testo": "12.5%",
+     "lon": -7.5,
+     "lat": 53.2,
+     "parola": "twelve"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "12.5%",
+     "parola": "number"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Ireland's profit tax rate",
+     "parola": "profits"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": true,
+   "pin": {
+    "lon": -9.8,
+    "lat": 52,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "It's now fifteen percent for the very largest firms, but Britain's main rate is twenty-five. That gap is the whole sales pitch.",
+   "anteprima": false,
+   "vista": {
+    "lon": -4,
+    "lat": 53,
+    "larghezza": 16
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [
+    "GBR"
+   ],
+   "eventi": [
+    {
+     "tipo": "barre",
+     "titolo": "COMPANY TAX RATE",
+     "voci": [
+      {
+       "testo": "IRELAND",
+       "valore": 15,
+       "lato": "oro"
+      },
+      {
+       "testo": "BRITAIN",
+       "valore": 25,
+       "lato": "verde"
+      }
+     ],
+     "parola": "fifteen"
+    },
+    {
+     "tipo": "nota",
+     "testo": "15 versus 25 percent",
+     "parola": "twenty-five"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -9.8,
+    "lat": 52,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Then the passport. The moment Britain left, a London license stopped working in Paris or Milan. Banks and insurers needed a new address inside the EU.",
+   "anteprima": false,
+   "vista": {
+    "lon": 3,
+    "lat": 49,
+    "larghezza": 24
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [
+    "GBR",
+    "FRA",
+    "ITA"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      -0.1,
+      51.5
+     ],
+     "a": [
+      2.3,
+      48.9
+     ],
+     "icona": "banknotes",
+     "parola": "Paris"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -0.1,
+      51.5
+     ],
+     "a": [
+      9.2,
+      45.5
+     ],
+     "icona": "banknotes",
+     "parola": "Milan"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "BLOCKED",
+     "parola": "stopped"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -5,
+    "lat": 54,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Dublin became the top destination. At least 135 financial firms moved business there because of Brexit.",
+   "anteprima": false,
+   "vista": {
+    "lon": -4,
+    "lat": 53,
+    "larghezza": 14
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [
+    "GBR"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      -0.1,
+      51.5
+     ],
+     "a": [
+      -6.26,
+      53.35
+     ],
+     "icona": "banknotes",
+     "parola": "Dublin"
+    },
+    {
+     "tipo": "conta",
+     "valore": 135,
+     "prefisso": "",
+     "suffisso": "+",
+     "sotto": "FIRMS MOVED BUSINESS",
+     "parola": "135"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "banker",
+     "n": 5,
+     "lon": -6.26,
+     "lat": 53.35,
+     "parola": "firms"
+    }
+   ],
+   "musica": "azione",
+   "stacco": false,
+   "pin": {
+    "lon": -9.8,
+    "lat": 52,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Banks moved or plan to move over 900 billion pounds of assets out of Britain. That's about a tenth of the whole British banking system.",
+   "anteprima": false,
+   "vista": {
+    "lon": -3,
+    "lat": 52.5,
+    "larghezza": 14
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [
+    "GBR"
+   ],
+   "eventi": [
+    {
+     "tipo": "prezzo",
+     "testo": "900B POUNDS",
+     "sotto": "ASSETS LEAVING BRITAIN",
+     "ricco": true,
+     "lon": -3,
+     "lat": 52.5,
+     "parola": "900"
+    },
+    {
+     "tipo": "contatore",
+     "testo": "1 IN 10 OF UK BANKING",
+     "su": 1,
+     "di": 10,
+     "personaggio": "banker",
+     "parola": "tenth"
+    }
+   ],
+   "musica": "azione",
+   "stacco": false,
+   "pin": {
+    "lon": -9.8,
+    "lat": 52,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Roughly one in three fund managers that relocated chose Dublin. Even the trucks changed course.",
+   "anteprima": false,
+   "vista": {
+    "lon": -5,
+    "lat": 52.5,
+    "larghezza": 14
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [
+    "GBR"
+   ],
+   "eventi": [
+    {
+     "tipo": "contatore",
+     "testo": "1 IN 3 CHOSE DUBLIN",
+     "su": 1,
+     "di": 3,
+     "personaggio": "banker",
+     "parola": "three"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -6.3,
+      52.3
+     ],
+     "a": [
+      -1,
+      49.5
+     ],
+     "icona": "cargo_ship",
+     "parola": "trucks"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Fund managers picked Dublin",
+     "parola": "Dublin"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -9.8,
+    "lat": 52,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Instead of crossing Britain and facing new checks, Irish exporters started sailing straight to France and Spain.",
+   "anteprima": false,
+   "vista": {
+    "lon": -3,
+    "lat": 48.5,
+    "larghezza": 30
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [
+    "FRA",
+    "ESP"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      -6.4,
+      52.25
+     ],
+     "a": [
+      -1.6,
+      49.6
+     ],
+     "icona": "cargo_ship",
+     "parola": "France"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -6.4,
+      52.25
+     ],
+     "a": [
+      -3.8,
+      43.4
+     ],
+     "icona": "cargo_ship",
+     "parola": "Spain"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "NEW CHECKS IN BRITAIN",
+     "lon": -2,
+     "lat": 52.5,
+     "parola": "checks"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -10,
+    "lat": 47,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "By 2021, a single southeastern port, Rosslare, ran 36 direct sailings a week to and from the continent.",
+   "anteprima": false,
+   "vista": {
+    "lon": -6.5,
+    "lat": 52.3,
+    "larghezza": 8
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "2021",
+     "parola": "2021"
+    },
+    {
+     "tipo": "icona",
+     "icona": "port",
+     "lon": -6.35,
+     "lat": 52.25,
+     "parola": "Rosslare"
+    },
+    {
+     "tipo": "conta",
+     "valore": 36,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "DIRECT SAILINGS A WEEK",
+     "parola": "36"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -8.5,
+    "lat": 53,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "All of this lands in one place, the tax office. In 2025, Ireland collected a record 33 billion euros in corporation tax.",
+   "anteprima": false,
+   "vista": {
+    "lon": -7,
+    "lat": 53.3,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "2025",
+     "parola": "2025"
+    },
+    {
+     "tipo": "prezzo",
+     "testo": "33B EURO",
+     "sotto": "CORPORATION TAX, RECORD",
+     "ricco": true,
+     "lon": -7.5,
+     "lat": 53.2,
+     "parola": "33"
+    },
+    {
+     "tipo": "icona",
+     "icona": "money_bag",
+     "lon": -6.26,
+     "lat": 53.35,
+     "parola": "tax"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": true,
+   "pin": {
+    "lon": -9.8,
+    "lat": 52,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "It was the fifth record year in a row. So much that the government now saves it in two long-term funds.",
+   "anteprima": false,
+   "vista": {
+    "lon": -7,
+    "lat": 53.3,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 5,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "RECORD YEARS IN A ROW",
+     "parola": "fifth"
+    },
+    {
+     "tipo": "icona",
+     "icona": "treasure_chest",
+     "lon": -6.26,
+     "lat": 53.35,
+     "parola": "saves"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "TWO SAVINGS FUNDS",
+     "lon": -8.5,
+     "lat": 53,
+     "parola": "two"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -9.8,
+    "lat": 52,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Like an oil state putting away its windfall. Except Ireland has no oil.",
+   "anteprima": false,
+   "vista": {
+    "lon": -7,
+    "lat": 53.3,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "oil_derrick",
+     "lon": -8,
+     "lat": 53.3,
+     "parola": "oil"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "NO OIL",
+     "parola": "no"
+    },
+    {
+     "tipo": "nota",
+     "testo": "A windfall without resources",
+     "parola": "windfall"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -9.8,
+    "lat": 52,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "And the people? Between 2016 and 2022, about 190,000 more people moved into Ireland than left. Same sea, same ferries, only now the money sails west.",
+   "anteprima": false,
+   "vista": {
+    "lon": -5,
+    "lat": 53.3,
+    "larghezza": 14
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [
+    "GBR"
+   ],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 190000,
+     "prefisso": "~",
+     "suffisso": "",
+     "sotto": "NET NEW ARRIVALS 2016-22",
+     "parola": "190,000"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "family",
+     "n": 5,
+     "lon": -6.2,
+     "lat": 53.3,
+     "parola": "people"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -3,
+      53.4
+     ],
+     "a": [
+      -6.2,
+      53.3
+     ],
+     "icona": "ship",
+     "parola": "west"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": false,
+   "pin": {
+    "lon": -9.8,
+    "lat": 52,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "But here's the strangest part. In 2016, the European Commission ruled that Apple had paid far too little tax in Ireland and told Ireland to collect 13 billion euros.",
+   "anteprima": false,
+   "vista": {
+    "lon": -7,
+    "lat": 52.5,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "2016",
+     "parola": "2016"
+    },
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": -8.47,
+     "lat": 51.9,
+     "parola": "ruled"
+    },
+    {
+     "tipo": "prezzo",
+     "testo": "13B EURO",
+     "sotto": "APPLE BACK TAX OWED",
+     "ricco": true,
+     "lon": -7.5,
+     "lat": 53,
+     "parola": "13"
+    }
+   ],
+   "musica": "mistero",
+   "stacco": false,
+   "pin": {
+    "lon": -9.8,
+    "lat": 54,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Most governments would have taken the money and thrown a party. Ireland went to court to refuse it.",
+   "anteprima": false,
+   "vista": {
+    "lon": -7,
+    "lat": 53.3,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "banknotes",
+     "lon": -6.26,
+     "lat": 53.35,
+     "parola": "money"
+    },
+    {
+     "tipo": "icona",
+     "icona": "parliament",
+     "lon": -6.25,
+     "lat": 53.34,
+     "parola": "court"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "REFUSED",
+     "parola": "refuse"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": true,
+   "pin": {
+    "lon": -9.8,
+    "lat": 52,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "For eight years, the Irish state fought alongside Apple for the right not to be paid. In 2024, it lost.",
+   "anteprima": false,
+   "vista": {
+    "lon": -7,
+    "lat": 53.3,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 8,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "YEARS FIGHTING",
+     "parola": "eight"
+    },
+    {
+     "tipo": "anno",
+     "testo": "2024",
+     "parola": "2024"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "politician",
+     "n": 4,
+     "lon": -6.25,
+     "lat": 53.34,
+     "parola": "fought"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -9.8,
+    "lat": 52,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "With interest, about 14 billion euros landed in Ireland's accounts. The government says it will go on housing, water, power and transport, not tax cuts.",
+   "anteprima": false,
+   "vista": {
+    "lon": -7,
+    "lat": 53.3,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "prezzo",
+     "testo": "14B EURO",
+     "sotto": "APPLE MONEY RECEIVED",
+     "ricco": true,
+     "lon": -7.5,
+     "lat": 53.2,
+     "parola": "14"
+    },
+    {
+     "tipo": "icona",
+     "icona": "cabin",
+     "lon": -6.3,
+     "lat": 53.0,
+     "parola": "housing"
+    },
+    {
+     "tipo": "icona",
+     "icona": "steam_train",
+     "lon": -8.2,
+     "lat": 52.7,
+     "parola": "transport"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Spending, not tax cuts",
+     "parola": "cuts"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -9.8,
+    "lat": 52,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Why fight that hard against free money? Because the money was never the point. The point was a promise.",
+   "anteprima": false,
+   "vista": {
+    "lon": -7,
+    "lat": 53.3,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "scritta",
+     "testo": "WHY?",
+     "parola": "Why"
+    },
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": -6.26,
+     "lat": 53.35,
+     "parola": "promise"
+    },
+    {
+     "tipo": "nota",
+     "testo": "The point was a promise",
+     "parola": "promise"
+    }
+   ],
+   "musica": "mistero",
+   "stacco": false,
+   "pin": {
+    "lon": -9.8,
+    "lat": 52,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Come to Ireland, and the rules won't change under your feet. Every multinational on the island was watching to see if that promise would hold.",
+   "anteprima": false,
+   "vista": {
+    "lon": -7,
+    "lat": 53.3,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "banker",
+     "n": 5,
+     "lon": -6.3,
+     "lat": 53.35,
+     "parola": "multinational"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "STABLE RULES",
+     "lon": -8.3,
+     "lat": 53,
+     "parola": "rules"
+    },
+    {
+     "tipo": "icona",
+     "icona": "question",
+     "lon": -6.5,
+     "lat": 52.7,
+     "parola": "hold"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -9.8,
+    "lat": 52,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "So if this much rests on a handful of foreign companies, how much of Ireland's wealth is really Irish? In 2015, official growth hit 26 percent in a single year.",
+   "anteprima": false,
+   "vista": {
+    "lon": -7,
+    "lat": 53.3,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "2015",
+     "parola": "2015"
+    },
+    {
+     "tipo": "numero",
+     "testo": "26%",
+     "lon": -8,
+     "lat": 53.2,
+     "parola": "26"
+    },
+    {
+     "tipo": "solleva",
+     "paese": [
+      "IRL"
+     ],
+     "volte": 9,
+     "testo": "+26%",
+     "colore": "oro",
+     "parola": "growth"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": true,
+   "pin": {
+    "lon": -9.8,
+    "lat": 52,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "No economy really does that. Apple moved the rights to its patents and designs into its Irish company, and billions in profits suddenly counted as Irish output.",
+   "anteprima": false,
+   "vista": {
+    "lon": -7,
+    "lat": 53.3,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [
+    "USA"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      -122,
+      37.3
+     ],
+     "a": [
+      -8.47,
+      51.9
+     ],
+     "icona": "scroll_law",
+     "parola": "moved"
+    },
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": -8.47,
+     "lat": 51.9,
+     "parola": "patents"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Patents moved, profits counted",
+     "parola": "profits"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -9.8,
+    "lat": 53.8,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Nobody in Ireland got a raise. Economist Paul Krugman gave it a name: leprechaun economics.",
+   "anteprima": false,
+   "vista": {
+    "lon": -7,
+    "lat": 53.3,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "personaggio",
+     "nome": "Paul Krugman",
+     "descrizione": "American economist, glasses, grey hair, suit",
+     "parola": "Krugman"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "LEPRECHAUN ECONOMICS",
+     "parola": "leprechaun"
+    },
+    {
+     "tipo": "nota",
+     "testo": "No one got a raise",
+     "parola": "raise"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -9.8,
+    "lat": 52,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "It got so distorted that Ireland made its own measure, modified GNI, to strip the multinational effects back out.",
+   "anteprima": false,
+   "vista": {
+    "lon": -7,
+    "lat": 53.3,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "MODIFIED GNI",
+     "lon": -7.5,
+     "lat": 53.2,
+     "parola": "modified"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_up",
+     "lon": -6.26,
+     "lat": 53.35,
+     "parola": "measure"
+    },
+    {
+     "tipo": "nota",
+     "testo": "A cleaner yardstick",
+     "parola": "strip"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -9.8,
+    "lat": 52,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "So let's use it. On that honest yardstick, Ireland sits about a fifth above the European average, and Britain just below it.",
+   "anteprima": false,
+   "vista": {
+    "lon": -4,
+    "lat": 53,
+    "larghezza": 18
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [
+    "GBR"
+   ],
+   "eventi": [
+    {
+     "tipo": "barre",
+     "titolo": "VS EUROPEAN AVERAGE (100)",
+     "voci": [
+      {
+       "testo": "IRELAND",
+       "valore": 120,
+       "lato": "oro"
+      },
+      {
+       "testo": "EU AVERAGE",
+       "valore": 100,
+       "lato": "verde"
+      },
+      {
+       "testo": "BRITAIN",
+       "valore": 97,
+       "lato": "verde"
+      }
+     ],
+     "parola": "fifth"
+    },
+    {
+     "tipo": "solleva",
+     "paese": [
+      "IRL"
+     ],
+     "volte": 2,
+     "testo": "+20%",
+     "colore": "oro",
+     "parola": "above"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -9.8,
+    "lat": 52,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "So yes, Ireland really is richer than Britain, just not twice as rich. Think a fifth to a quarter more, like a team that wins by a goal, not ten.",
+   "anteprima": false,
+   "vista": {
+    "lon": -4,
+    "lat": 53,
+    "larghezza": 16
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [
+    "GBR"
+   ],
+   "eventi": [
+    {
+     "tipo": "numero",
+     "testo": "+20-25%",
+     "lon": -8,
+     "lat": 53.2,
+     "parola": "quarter"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "NOT x2",
+     "parola": "twice"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Richer, but not twice as rich",
+     "parola": "richer"
+    }
+   ],
+   "musica": "",
+   "stacco": true,
+   "pin": {
+    "lon": -9.8,
+    "lat": 52,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "And even that lead has weak spots. Ten companies pay almost 60 percent of all Irish corporation tax. Three of them pay almost half.",
+   "anteprima": false,
+   "vista": {
+    "lon": -7,
+    "lat": 53.3,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "contatore",
+     "testo": "10 FIRMS PAY ALMOST 6 IN 10",
+     "su": 6,
+     "di": 10,
+     "personaggio": "banker",
+     "parola": "Ten"
+    },
+    {
+     "tipo": "contatore",
+     "testo": "3 FIRMS PAY ALMOST HALF",
+     "su": 5,
+     "di": 10,
+     "personaggio": "banker",
+     "parola": "Three"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -9.8,
+    "lat": 52,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Medicines and chemicals make up around four fifths of everything Ireland sells to America.",
+   "anteprima": false,
+   "vista": {
+    "lon": -40,
+    "lat": 48,
+    "larghezza": 90
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [
+    "USA"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      -6.3,
+      53.3
+     ],
+     "a": [
+      -74,
+      40.7
+     ],
+     "icona": "cargo_ship",
+     "parola": "sells"
+    },
+    {
+     "tipo": "griglia",
+     "paese": [
+      "IRL"
+     ],
+     "pieni": 0.8,
+     "testo": "4 IN 5 IS MEDICINES",
+     "colore": "oro",
+     "parola": "four"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Mostly medicines and chemicals",
+     "parola": "chemicals"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -30,
+    "lat": 60,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "So when Washington threatened tariffs on medicines in 2025, Irish drug exports to the United States jumped more than fivefold in a single month.",
+   "anteprima": false,
+   "vista": {
+    "lon": -40,
+    "lat": 48,
+    "larghezza": 90
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [
+    "USA"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "2025",
+     "parola": "2025"
+    },
+    {
+     "tipo": "numero",
+     "testo": "x5",
+     "lon": -35,
+     "lat": 50,
+     "parola": "fivefold"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -6.3,
+      53.3
+     ],
+     "a": [
+      -74,
+      40.7
+     ],
+     "icona": "cargo_ship",
+     "parola": "exports"
+    }
+   ],
+   "musica": "azione",
+   "stacco": false,
+   "pin": {
+    "lon": -30,
+    "lat": 62,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "American buyers rushed to stock up before the deadline. A customer across the Atlantic can change everything overnight.",
+   "anteprima": false,
+   "vista": {
+    "lon": -40,
+    "lat": 48,
+    "larghezza": 90
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [
+    "USA"
+   ],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "merchant",
+     "n": 5,
+     "lon": -74,
+     "lat": 40.7,
+     "parola": "buyers"
+    },
+    {
+     "tipo": "icona",
+     "icona": "hourglass",
+     "lon": -74,
+     "lat": 42,
+     "parola": "deadline"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Stockpiling before tariffs",
+     "parola": "stock"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -30,
+    "lat": 62,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "And the wealth hasn't reached everyone's front door. Housing is so expensive that one in eight Irish 25-year-olds has already emigrated.",
+   "anteprima": false,
+   "vista": {
+    "lon": -7,
+    "lat": 53.3,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "IRL"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "cabin",
+     "lon": -6.3,
+     "lat": 53.3,
+     "parola": "Housing"
+    },
+    {
+     "tipo": "contatore",
+     "testo": "1 IN 8 AGED 25 HAS LEFT",
+     "su": 1,
+     "di": 8,
+     "personaggio": "student",
+     "parola": "eight"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -6.2,
+      53.3
+     ],
+     "a": [
+      -3,
+      53.4
+     ],
+     "icona": "ship",
+     "parola": "emigrated"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": -9.8,
+    "lat": 52,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In the year to April 2024, close to 70,000 people left, the most in almost a decade. More still arrive than leave, but the ferries never fully stopped.",
+   "anteprima": false,
+   "vista": {
+    "lon": -5,
+    "lat": 53.3,
+    "larghezza": 14
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 70000,
+     "prefisso": "~",
+     "suffisso": "",
+     "sotto": "LEFT IN YEAR TO APRIL 2024",
+     "parola": "70,000"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "family",
+     "n": 4,
+     "lon": -6.2,
+     "lat": 53.3,
+     "parola": "left"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -6.2,
+      53.3
+     ],
+     "a": [
+      -3,
+      53.4
+     ],
+     "icona": "ship",
+     "parola": "ferries"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -9.8,
+    "lat": 52,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "But the best clue to what really happened is on the map. Look at the border inside Ireland.",
+   "anteprima": false,
+   "vista": {
+    "lon": -7.3,
+    "lat": 54.4,
+    "larghezza": 6
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [
+    "GBR"
+   ],
+   "eventi": [
+    {
+     "tipo": "confine",
+     "punti": [
+      [
+       -8.2,
+       54.5
+      ],
+      [
+       -7.5,
+       54.2
+      ],
+      [
+       -6.9,
+       54.1
+      ],
+      [
+       -6.3,
+       54.05
+      ]
+     ],
+     "parola": "border"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "NORTHERN IRELAND",
+     "lon": -6.8,
+     "lat": 54.7,
+     "parola": "Look"
+    }
+   ],
+   "musica": "mistero",
+   "stacco": false,
+   "pin": {
+    "lon": -9,
+    "lat": 53.7,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Northern Ireland is part of the UK, but since Brexit it's the only place that can sell freely into both the British and European markets.",
+   "anteprima": false,
+   "vista": {
+    "lon": -4,
+    "lat": 53.5,
+    "larghezza": 16
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [
+    "GBR"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      -6.7,
+      54.6
+     ],
+     "a": [
+      -1.5,
+      52.5
+     ],
+     "icona": "cargo_ship",
+     "parola": "British"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -6.7,
+      54.6
+     ],
+     "a": [
+      2.3,
+      48.9
+     ],
+     "icona": "cargo_ship",
+     "parola": "European"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Free access to both markets",
+     "parola": "both"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -9,
+    "lat": 52.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "And since the Brexit vote, it has grown faster than any other region of the United Kingdom.",
+   "anteprima": false,
+   "vista": {
+    "lon": -4,
+    "lat": 54.5,
+    "larghezza": 14
+   },
+   "epoca": "oggi",
+   "oro": [
+    "GBR"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "chart_up",
+     "lon": -6.7,
+     "lat": 54.6,
+     "parola": "grown"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "FASTEST",
+     "parola": "faster"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Fastest-growing UK region",
+     "parola": "region"
+    }
+   ],
+   "musica": "epico",
+   "stacco": true,
+   "pin": {
+    "lon": -9,
+    "lat": 52.5,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "The only corner of Britain that kept a foot inside Europe is the corner growing fastest. So here's the scorecard for both of them.",
+   "anteprima": false,
+   "vista": {
+    "lon": -4,
+    "lat": 53.5,
+    "larghezza": 16
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [
+    "GBR"
+   ],
+   "eventi": [
+    {
+     "tipo": "contorno",
+     "paese": "GBR",
+     "parola": "corner"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "A FOOT IN EUROPE",
+     "lon": -6.7,
+     "lat": 54.6,
+     "parola": "foot"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "SCORECARD",
+     "lon": -1,
+     "lat": 52.5,
+     "parola": "scorecard"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -9,
+    "lat": 52.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Geography: Britain used to be Europe's bridge, and Ireland was stuck behind it. Brexit flipped the map. Now Ireland is the bridge.",
+   "anteprima": false,
+   "vista": {
+    "lon": -3,
+    "lat": 52.5,
+    "larghezza": 24
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [
+    "GBR"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "bridge",
+     "lon": -1.5,
+     "lat": 52.5,
+     "parola": "bridge"
+    },
+    {
+     "tipo": "icona",
+     "icona": "bridge",
+     "lon": -8,
+     "lat": 53.2,
+     "parola": "bridge"
+    },
+    {
+     "tipo": "solleva",
+     "paese": [
+      "IRL"
+     ],
+     "volte": 3,
+     "testo": "BRIDGE",
+     "colore": "oro",
+     "parola": "flipped"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -10,
+    "lat": 51.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Resources: neither has much under the ground. Both sell what sits on top of it: money, law and the English language.",
+   "anteprima": false,
+   "vista": {
+    "lon": -4,
+    "lat": 53.5,
+    "larghezza": 16
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [
+    "GBR"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "banknotes",
+     "lon": -6.26,
+     "lat": 53.35,
+     "parola": "money"
+    },
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": -0.1,
+     "lat": 51.5,
+     "parola": "law"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Neither has much underground",
+     "parola": "ground"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -9,
+    "lat": 52.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "History: centuries of one ruling the other, and a famine that began an exodus lasting over a hundred years.",
+   "anteprima": false,
+   "vista": {
+    "lon": -6,
+    "lat": 53.5,
+    "larghezza": 14
+   },
+   "epoca": "antica",
+   "oro": [
+    "GBR"
+   ],
+   "verde": [
+    "IRL"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icon": "crown",
+     "icona": "crown",
+     "lon": -1.5,
+     "lat": 52.5,
+     "parola": "ruling"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -8,
+      52
+     ],
+     "a": [
+      -30,
+      48
+     ],
+     "icona": "ship",
+     "parola": "exodus"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Famine began a long exodus",
+     "parola": "famine"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": -9.8,
+    "lat": 52,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Decisions: Britain chose to leave the club. Ireland chose to be the friendliest address inside it.",
+   "anteprima": false,
+   "vista": {
+    "lon": -4,
+    "lat": 53.5,
+    "larghezza": 16
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [
+    "GBR"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "ballot_box",
+     "lon": -1.5,
+     "lat": 52.5,
+     "parola": "leave"
+    },
+    {
+     "tipo": "icona",
+     "icona": "flag:IE",
+     "lon": -6.26,
+     "lat": 53.35,
+     "parola": "friendliest"
+    },
+    {
+     "tipo": "nota",
+     "testo": "One left, one welcomed",
+     "parola": "address"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": -9.5,
+    "lat": 52.3,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Ireland didn't overtake Britain by getting bigger or finding something in the ground. It stood on the right side of a line Britain drew for itself.",
+   "anteprima": false,
+   "vista": {
+    "lon": -4,
+    "lat": 53.5,
+    "larghezza": 16
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [
+    "GBR"
+   ],
+   "eventi": [
+    {
+     "tipo": "confine",
+     "punti": [
+      [
+       1.7,
+       51
+      ],
+      [
+       -1,
+       50.3
+      ],
+      [
+       -5,
+       49.9
+      ]
+     ],
+     "parola": "line"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "THE RIGHT SIDE",
+     "parola": "right"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Won by position, not size",
+     "parola": "bigger"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": true,
+   "pin": {
+    "lon": -9.5,
+    "lat": 52.3,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "But that lead rests on a few companies, one tax promise, and an American customer that wants its factories back. If any of those moves, the ferries could turn around.",
+   "anteprima": false,
+   "vista": {
+    "lon": -35,
+    "lat": 50,
+    "larghezza": 100
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [
+    "USA"
+   ],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "banker",
+     "n": 3,
+     "lon": -6.3,
+     "lat": 53.3,
+     "parola": "companies"
+    },
+    {
+     "tipo": "icona",
+     "icona": "factory",
+     "lon": -90,
+     "lat": 40,
+     "parola": "factories"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -6.3,
+      53.3
+     ],
+     "a": [
+      -3,
+      53.4
+     ],
+     "icona": "ship",
+     "parola": "ferries"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -30,
+    "lat": 62,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In 1988, Ireland was the poorest of the rich. Today it's among the richest countries on paper, and still clearly richer than Britain off it.",
+   "anteprima": false,
+   "vista": {
+    "lon": -5,
+    "lat": 53.5,
+    "larghezza": 14
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [
+    "GBR"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1988",
+     "parola": "1988"
+    },
+    {
+     "tipo": "solleva",
+     "paese": [
+      "IRL"
+     ],
+     "volte": 3,
+     "testo": "RICHER",
+     "colore": "oro",
+     "parola": "richer"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Still richer, off paper too",
+     "parola": "clearly"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": false,
+   "pin": {
+    "lon": -9.5,
+    "lat": 52.3,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "For 200 years, this sea carried people out of Ireland. Today, it carries money in.",
+   "anteprima": false,
+   "vista": {
+    "lon": -5.5,
+    "lat": 53.5,
+    "larghezza": 12
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IRL"
+   ],
+   "verde": [
+    "GBR"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      -3,
+      53.4
+     ],
+     "a": [
+      -6.2,
+      53.3
+     ],
+     "icona": "banknotes",
+     "parola": "money"
+    },
+    {
+     "tipo": "conta",
+     "valore": 200,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "YEARS OF OUTFLOW",
+     "parola": "200"
+    },
+    {
+     "tipo": "nota",
+     "testo": "The tide has turned",
+     "parola": "carries"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": -9.5,
+    "lat": 52.3,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Switzerland pulled off a similar trick, getting rich by selling trust to the world's money. That story is right here.",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.2,
+    "lat": 46.8,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "contorno",
+     "paese": "CHE",
+     "parola": "Switzerland"
+    },
+    {
+     "tipo": "icona",
+     "icona": "gold_coins",
+     "lon": 8.5,
+     "lat": 47.4,
+     "parola": "trust"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Next: Switzerland sells trust",
+     "parola": "story"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 6.5,
+    "lat": 46,
     "faccia": "normale"
    }
   }
