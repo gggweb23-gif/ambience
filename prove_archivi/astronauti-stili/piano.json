@@ -2,7 +2,7 @@
  "filoni": [
   {
    "id": "visiera",
-   "nome": "A \u00b7 VISIERA",
+   "nome": "A · VISIERA",
    "archivio": "nasa",
    "colore": "#FFD400",
    "righe": [
@@ -14,31 +14,51 @@
       "astronaut visor reflection spacewalk",
       "spacewalk astronaut helmet close up"
      ],
-     "scelta": 0
+     "scelta": 0,
+     "candidati": [
+      "https://images-assets.nasa.gov/image/iss073e0008235/iss073e0008235~medium.jpg",
+      "https://images-assets.nasa.gov/image/iss002e5904/iss002e5904~medium.jpg",
+      "https://images-assets.nasa.gov/image/iss054e022850/iss054e022850~medium.jpg",
+      "https://images-assets.nasa.gov/image/iss068e022445/iss068e022445~medium.jpg",
+      "https://images-assets.nasa.gov/image/sts113-305-007/sts113-305-007~medium.jpg",
+      "https://images-assets.nasa.gov/image/iss068e022442/iss068e022442~medium.jpg",
+      "https://images-assets.nasa.gov/image/iss061e066267/iss061e066267~medium.jpg",
+      "https://images-assets.nasa.gov/image/iss015e12253/iss015e12253~medium.jpg"
+     ]
     }
    ]
   },
   {
    "id": "terra",
-   "nome": "B \u00b7 TERRA SOTTO",
+   "nome": "B · TERRA SOTTO",
    "archivio": "nasa",
    "colore": "#FFD400",
    "righe": [
     {
      "k": 1,
      "titolo": "",
-     "testo": "-150\u00b0C",
+     "testo": "-150°C",
      "query": [
       "spacewalk astronaut Earth below",
       "astronaut spacewalk Earth horizon"
      ],
-     "scelta": 0
+     "scelta": 0,
+     "candidati": [
+      "https://images-assets.nasa.gov/image/iss061e065379/iss061e065379~medium.jpg",
+      "https://images-assets.nasa.gov/image/iss061e064798/iss061e064798~medium.jpg",
+      "https://images-assets.nasa.gov/image/iss059e005841/iss059e005841~medium.jpg",
+      "https://images-assets.nasa.gov/image/iss028e016173/iss028e016173~medium.jpg",
+      "https://images-assets.nasa.gov/image/iss028e016175/iss028e016175~medium.jpg",
+      "https://images-assets.nasa.gov/image/iss061e011882/iss061e011882~medium.jpg",
+      "https://images-assets.nasa.gov/image/iss039e014976/iss039e014976~medium.jpg",
+      "https://images-assets.nasa.gov/image/iss028e016121/iss028e016121~medium.jpg"
+     ]
     }
    ]
   },
   {
    "id": "volto",
-   "nome": "C \u00b7 VOLTO",
+   "nome": "C · VOLTO",
    "archivio": "nasa",
    "colore": "#FFD400",
    "righe": [
@@ -50,7 +70,17 @@
       "astronaut portrait spacesuit helmet",
       "astronaut face spacesuit"
      ],
-     "scelta": 0
+     "scelta": 0,
+     "candidati": [
+      "https://images-assets.nasa.gov/image/iss070e014334/iss070e014334~medium.jpg",
+      "https://images-assets.nasa.gov/image/iss064e016099/iss064e016099~medium.jpg",
+      "https://images-assets.nasa.gov/image/S69-38866/S69-38866~medium.jpg",
+      "https://images-assets.nasa.gov/image/iss074e0365172/iss074e0365172~large.jpg",
+      "https://images-assets.nasa.gov/image/S66-17475/S66-17475~medium.jpg",
+      "https://images-assets.nasa.gov/image/s66-17480/s66-17480~medium.jpg",
+      "https://images-assets.nasa.gov/image/S65-34635/S65-34635~medium.jpg",
+      "https://images-assets.nasa.gov/image/S65-30271/S65-30271~medium.jpg"
+     ]
     }
    ]
   }
