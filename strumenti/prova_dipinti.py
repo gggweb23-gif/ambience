@@ -215,7 +215,7 @@ for k, (s, (a, b)) in enumerate(zip(scene, tempi)):
             src = os.path.join(LAV, f'v_{n}' + ('.mp4' if c['tipo'] == 'pexels' else '.webm')); open(src, 'wb').write(get(c['url'], raw=True, timeout=600))
             lung = float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', src], capture_output=True, text=True).stdout.strip() or 0)
             da = random.uniform(min(1, lung * .1), max(min(1, lung * .1), lung * .85 - L))
-            vf = f'[0:v]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={FPS},setsar=1[v]'
+            vf = f'[0:v]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={FPS},setsar=1,tpad=stop_mode=clone:stop_duration={L:.2f}[v]'   # clip piu' corta del previsto: allungata, mai buchi
             cmd = ['ffmpeg', '-y', '-v', 'error', '-ss', round(da, 2), '-t', round(L, 3), '-i', src]
             fonti.append(f'{n:03d} VIDEO {c["titolo"]} | {c["autore"]} | {c["licenza"]}'); nvideo += 1
         else:

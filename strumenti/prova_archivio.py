@@ -269,7 +269,7 @@ for n, (d, s, prima, t0) in enumerate(piano):
     if c:
         p, da, nid, tit = c; s['_ultima'] = nid; nclip += 1
         spinta = n % 2 == 0                            # una clip si' e una no: leggera spinta in avanti (punch-in)
-        vf = (f'[0:v]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={FPS},setsar=1'
+        vf = (f'[0:v]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={FPS},setsar=1,tpad=stop_mode=clone:stop_duration={L:.2f}'
               + (f",zoompan=z='1+0.06*on/{int(L * FPS)}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s={W}x{H}:fps={FPS}" if spinta else '') + '[v]')
         cmd = ['ffmpeg', '-y', '-v', 'error', '-ss', round(da, 2), '-t', round(L, 3), '-i', p]
         fonti.append(f'{n:03d} CLIP {nid} da {da:.1f}s | {tit}')
