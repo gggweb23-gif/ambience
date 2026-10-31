@@ -124,7 +124,11 @@ def dalla_libreria(s, dur):
     if best['url'] not in LIB_FILE:
         f = os.path.join(LAV, 'lib_' + re.sub(r'\W', '_', best['nasa_id'])[:60] + '.mp4')
         open(f, 'wb').write(get(best['url'], raw=True, timeout=600)); LIB_FILE[best['url']] = f
-    return LIB_FILE[best['url']], float(best['da']), best['nasa_id'], 'LIBRERIA: ' + str(best.get('cosa'))
+    f_ = LIB_FILE[best['url']]
+    if best['nasa_id'] not in CLIP_CACHE:
+        CLIP_CACHE[best['nasa_id']] = (f_, durata(f_), [])
+    CLIP_CACHE[best['nasa_id']][2].append(float(best['da']))
+    return f_, float(best['da']), best['nasa_id'], 'LIBRERIA: ' + str(best.get('cosa'))
 
 
 def nasa(q, tipo):
@@ -209,6 +213,8 @@ def clip(q, dur, a_terra=False):
 
 def altro_pezzo(nid, dur):
     """Un altro momento (lontano almeno 6 s) della stessa clip, se la ricerca non da' clip nuove."""
+    if nid not in CLIP_CACHE:   # (prima: spezzone di libreria non registrato -> KeyError e montaggio fermo)
+        return None
     p, lung, usati = CLIP_CACHE[nid]
     for _ in range(20):
         da = random.uniform(lung * .1, max(lung * .1, lung * .9 - dur))
