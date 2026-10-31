@@ -81,7 +81,7 @@ if P.get('libreria'):
         LIB = [x for x in json.load(open(os.path.join('libreria_clip', P['libreria'], 'indice.json'))) if x.get('ok')]
     except Exception as e:
         log('libreria non letta', str(e)[:80])
-LIB_USATI, LIB_FILE, ULTIMA_SORGENTE = set(), {}, ['']
+LIB_USATI, LIB_FILE, ULTIMA_SORGENTE, PER_SORGENTE = set(), {}, [''], {}   # max 3 spezzoni dalla stessa ripresa per video
 
 
 def parole(t):
@@ -94,7 +94,7 @@ def dalla_libreria(s, dur):
     chiave = parole(' '.join(s.get('tag') or []) + ' ' + s['q'])
     best, bp = None, 0
     for x in LIB:
-        if x['n'] in LIB_USATI or x['nasa_id'] == ULTIMA_SORGENTE[0] or float(x.get('durata') or 0) + .2 < dur:
+        if x['n'] in LIB_USATI or x['nasa_id'] == ULTIMA_SORGENTE[0] or PER_SORGENTE.get(x['nasa_id'], 0) >= 3 or float(x.get('durata') or 0) + .2 < dur:
             continue
         et = parole(' '.join(x.get('tag') or []) + ' ' + str(x.get('cosa') or '') + ' ' + str(x.get('luogo') or '').replace('_', ' '))
         pt = len(chiave & et) * 10 + int(x.get('qualita') or 0) + min(3, float(x.get('movimento') or 0) / 5)
@@ -105,7 +105,7 @@ def dalla_libreria(s, dur):
             best, bp = x, pt
     if not best:
         return None
-    LIB_USATI.add(best['n']); ULTIMA_SORGENTE[0] = best['nasa_id']
+    LIB_USATI.add(best['n']); ULTIMA_SORGENTE[0] = best['nasa_id']; PER_SORGENTE[best['nasa_id']] = PER_SORGENTE.get(best['nasa_id'], 0) + 1
     if best['url'] not in LIB_FILE:
         f = os.path.join(LAV, 'lib_' + re.sub(r'\W', '_', best['nasa_id'])[:60] + '.mp4')
         open(f, 'wb').write(get(best['url'], raw=True, timeout=600)); LIB_FILE[best['url']] = f

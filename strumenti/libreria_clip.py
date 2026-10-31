@@ -146,6 +146,8 @@ for i in range(0, len(spezzoni), 10):
 
 # ---------------- 4) indice + foglio di controllo ----------------
 def buono(s):
+    if re.search(r'airplane|aircraft|jet|plane|satellite imagery|map|chart|diagram', str(s.get('cosa')), re.I):
+        return False
     return (s.get('cosa') and not s.get('parla_in_camera') and not s.get('scritte') and int(s.get('qualita') or 0) >= 3
             and s.get('luogo') in ('inside_station', 'outside_station', 'earth_from_orbit', 'spacecraft'))
 
