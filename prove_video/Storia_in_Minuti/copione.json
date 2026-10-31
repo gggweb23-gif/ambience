@@ -1,19 +1,19 @@
 {
- "titolo": "L'INTERA Storia degli Stati Uniti in 12 Minuti",
- "titolo_mappa": "STATI UNITI",
- "paese_mappa": "United States of America",
+ "titolo": "L'INTERA Storia dell'Impero Britannico Spiegata",
+ "titolo_mappa": "REGNO UNITO",
+ "paese_mappa": "United Kingdom",
  "riserva_pexels": [
-  "Statue of Liberty New York harbor",
-  "Grand Canyon Arizona cliffs",
-  "Appalachian mountains forest autumn",
-  "Mississippi river delta Louisiana",
-  "Atlantic ocean waves coast",
-  "Great Plains prairie grass",
-  "Brooklyn Bridge New York skyline",
-  "Caribbean island beach palm"
+  "Scottish highlands misty mountains",
+  "English countryside green hills",
+  "White cliffs of Dover sea",
+  "Hadrian's Wall ancient ruins",
+  "Thames river London bridge",
+  "Stonehenge sunrise England",
+  "Wooden sailing ship ocean waves",
+  "Cloudy sky stormy sea Britain"
  ],
- "luoghi_paese": "usa united states america american new york washington boston philadelphia jamestown virginia mississippi appalachian hudson atlantic caribbean florida texas california manhattan brooklyn liberty colonies plains rocky",
- "date": "1492 – 2026",
+ "luoghi_paese": "britain british england english scotland scottish wales welsh united kingdom london thames dover stonehenge hadrian's wall cornwall yorkshire edinburgh highlands canterbury windsor oxford liverpool portsmouth",
+ "date": "55 a.C. – 2026",
  "texture": "giornale",
  "font_carte": "classico",
  "fondi_carte": [],
@@ -21,200 +21,887 @@
   "#1d3557",
   "#6b1e1e"
  ],
- "sfondi": [
-  {
-   "id": "s1",
-   "prompt_en": "Wide shot of the Statue of Liberty and New York harbor at sunrise, ferries sailing, glittering skyline behind, hopeful dramatic mood, comic book cartoon style",
-   "personaggi": []
-  },
-  {
-   "id": "s2",
-   "prompt_en": "Dense wild North American forest with swamp and fog, a small 16th century European ship anchored near the shore, explorers looking at endless wilderness, cartoon style",
-   "personaggi": [
-    "esploratore"
-   ]
-  },
-  {
-   "id": "s3",
-   "prompt_en": "Christopher Columbus ship deck in 1492, Spanish flag flying, stormy Atlantic waves, sailors pointing at a distant green Caribbean island at dawn, cartoon style",
-   "personaggi": []
-  },
-  {
-   "id": "s4",
-   "prompt_en": "Caribbean beach in 1492, native Taino people wearing gold jewelry meeting Spanish sailors, curious tense emotion, palm trees, bright daylight, cartoon style",
-   "personaggi": [
-    "esploratore"
-   ]
-  }
- ],
+ "sfondi": [],
  "scene": [
   {
-   "capitolo": "Un incidente geografico",
-   "testo": "Oggi gli Stati Uniti sono la nazione più ricca, culturalmente dominante e militarmente potente della storia umana. La sua economia muove i mercati globali. Il suo intrattenimento plasma la cultura mondiale, e la sua flotta pattuglia gli oceani del pianeta.",
-   "anno": 2026,
+   "capitolo": "Le invasioni",
+   "testo": "La Gran Bretagna è ricordata come il più grande impero del mondo. Ma prima di dominare il pianeta, perfino il suo nome lo hanno scelto gli invasori. Come ha fatto una piccola isola piovosa, grande la metà della California, a diventare un mostro globale? Dobbiamo tornare indietro di duemila anni.",
+   "anno": -55,
    "visivi": [
     {
-     "tipo": "cartone",
-     "frase": "Oggi gli Stati Uniti",
-     "sfondo": "s1",
-     "personaggio": "uomo_moderno",
-     "data": "2026"
+     "tipo": "pexels_video",
+     "frase": "La Gran Bretagna è",
+     "q": "British Isles aerial coast clouds"
     },
     {
      "tipo": "mappa",
-     "frase": "la nazione più ricca",
-     "suono": "epic orchestral swell"
+     "frase": "Ma prima di dominare"
     },
     {
      "tipo": "pexels_video",
-     "frase": "La sua economia",
-     "q": "New York Wall Street skyline"
+     "frase": "piccola isola piovosa",
+     "q": "rainy green island Britain coast"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "Il suo intrattenimento",
-     "q": "Hollywood sign Los Angeles hills"
+     "frase": "diventare un mostro",
+     "q": "old world map vintage globe"
     },
     {
      "tipo": "pexels_video",
-     "frase": "pattuglia gli oceani",
-     "q": "aircraft carrier ocean waves",
-     "suono": "ocean waves, ship horn"
+     "frase": "Dobbiamo tornare indietro",
+     "q": "ancient stone ruins Britain mist",
+     "didascalia": "2.000 anni fa"
     }
    ]
   },
   {
-   "testo": "Ma la cosa più incredibile della sua ascesa è che fu un puro incidente. Per più di un secolo dopo l'arrivo degli europei, quasi nessuno voleva il Nord America. Era una barriera fastidiosa di foreste fitte, paludi ostili e natura infinita.",
-   "anno": 1500,
+   "testo": "Allora la Britannia non era nemmeno un paese. Solo tribù ai margini del mondo conosciuto. La storia comincia con gli stranieri. Prima i Romani, con le legioni, le strade, le mura e le terme. Poi se ne andarono, quando il loro impero cominciò a crollare.",
+   "anno": 43,
    "visivi": [
     {
-     "tipo": "cartone",
-     "frase": "Ma la cosa più",
-     "sfondo": "s2",
-     "personaggio": "esploratore"
-    },
-    {
      "tipo": "pexels_video",
-     "frase": "Per più di un secolo",
-     "q": "Virginia dense forest fog"
+     "frase": "Allora la Britannia",
+     "q": "Scottish highlands wild landscape"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "paludi ostili",
-     "q": "Louisiana swamp cypress trees",
-     "suono": "swamp frogs and insects at night"
+     "frase": "La storia comincia",
+     "q": "Hadrian's Wall Northumberland"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "le strade, le mura",
+     "q": "Roman baths Bath England ruins"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Poi se ne andarono",
+     "q": "ancient Roman ruins crumbling stone"
     }
    ]
   },
   {
-   "testo": "Ciò che contava davvero era altro: i mercati delle spezie dell'Asia. Per capire come una frontiera remota sia diventata una superpotenza, dobbiamo partire da un enorme errore geografico.",
-   "anno": 1492,
+   "testo": "Arrivarono dalla Germania gli Angli e i Sassoni, che spinsero via la gente del posto e diedero alla terra un nuovo nome: Angland, cioè Inghilterra. Ma le invasioni non finirono. Poi vennero i Vichinghi, con fuoco, asce e navi lunghe.",
+   "anno": 450,
    "visivi": [
     {
+     "tipo": "pexels_video",
+     "frase": "Arrivarono dalla Germania",
+     "q": "English countryside misty fields"
+    },
+    {
      "tipo": "pexels_foto",
-     "frase": "mercati delle spezie",
-     "q": "colorful spices market bowls",
-     "didascalia": "Le spezie dell'Asia"
+     "frase": "diedero alla terra",
+     "q": "England old stone village medieval"
     },
     {
      "tipo": "pexels_video",
-     "frase": "una frontiera remota",
-     "q": "Appalachian mountains wilderness valley"
+     "frase": "Ma le invasioni",
+     "q": "stormy sea waves coast",
+     "suono": "waves crashing, cold wind"
     },
     {
-     "tipo": "pexels_foto",
-     "frase": "enorme errore geografico",
-     "q": "old world map antique parchment"
+     "tipo": "pexels_video",
+     "frase": "con fuoco, asce",
+     "q": "burning fire flames dark night"
     }
    ]
   },
   {
-   "capitolo": "Colombo e la Spagna",
-   "testo": "Nel 1492 Cristoforo Colombo salpò verso ovest attraverso l'Atlantico, sotto bandiera spagnola, convinto di raggiungere l'India. Invece si imbatté nelle isole dei Caraibi.",
-   "anno": 1492,
+   "testo": "E infine, nel 1066, un uomo chiamato Guglielmo il Conquistatore attraversò il mare dalla Francia e prese il trono con la forza. Per secoli i re d'Inghilterra parlarono francese, mentre il popolo continuò testardo a parlare inglese. Tutte quelle invasioni non lasciarono solo cicatrici: forgiarono un'identità dura, complicata e ostinata.",
+   "anno": 1066,
    "visivi": [
     {
-     "tipo": "cartone",
-     "frase": "Cristoforo Colombo",
-     "sfondo": "s3",
-     "personaggio": "navigatore_portoghese",
-     "data": "1492",
+     "tipo": "pexels_video",
+     "frase": "E infine, nel 1066",
+     "q": "English Channel sea cliffs Dover",
+     "didascalia": "1066: Guglielmo il Conquistatore"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Per secoli i re",
+     "q": "medieval castle England Windsor"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "mentre il popolo",
+     "q": "medieval cathedral interior England"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "forgiarono un'identità",
+     "q": "Tower of London old stone walls"
+    }
+   ]
+  },
+  {
+   "capitolo": "Tudor e Armada",
+   "testo": "Nel 1500 l'Inghilterra era stanca di essere la preda. Voleva diventare cacciatrice. La scintilla fu Enrico VIII. Voleva il divorzio, il Papa di Roma disse no, e lui rispose: bene, mi faccio una chiesa tutta mia e comando io.",
+   "anno": 1534,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Nel 1500 l'Inghilterra",
+     "q": "Tudor house England old timber"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "La scintilla fu",
+     "q": "Hampton Court Palace England"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "il Papa di Roma",
+     "q": "Vatican St Peter's dome Rome"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "mi faccio una chiesa",
+     "q": "English Gothic church altar candles"
+    }
+   ]
+  },
+  {
+   "testo": "Nacque uno spirito fieramente indipendente, ma anche molti nemici. Il più grande era la Spagna, superpotenza dell'epoca, arricchita dall'oro del Nuovo Mondo. Nel 1588 mandò una flotta enorme, l'Invincibile Armata, per schiacciare l'Inghilterra una volta per tutte.",
+   "anno": 1588,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Nacque uno spirito",
+     "q": "dark stormy clouds England coast"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "arricchita dall'oro",
+     "q": "gold coins treasure antique"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Nel 1588 mandò",
+     "q": "sailing ship fleet ocean",
+     "didascalia": "1588: l'Invincibile Armata",
      "suono": "wooden ship creaking, waves"
     },
     {
-     "tipo": "pexels_video",
-     "frase": "attraverso l'Atlantico",
-     "q": "Atlantic ocean open sea waves"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "isole dei Caraibi",
-     "q": "Caribbean island turquoise water aerial"
+     "tipo": "pexels_foto",
+     "frase": "per schiacciare l'Inghilterra",
+     "q": "antique cannon old ship"
     }
    ]
   },
   {
-   "testo": "Non trovò i vasti depositi di spezie che aveva promesso, ma trovò nativi con gioielli d'oro. La Spagna capì presto che c'era un'enorme ricchezza da prendere.",
-   "anno": 1493,
+   "testo": "Una piccola isola contro la più grande marina d'Europa. E contro ogni pronostico, con un aiutino di una tempesta enorme, vinse. Quella vittoria cambiò tutto. Diede all'Inghilterra spavalderia. Dimostrò che chi controlla l'oceano può controllare il mondo.",
+   "anno": 1588,
    "visivi": [
     {
-     "tipo": "cartone",
-     "frase": "Non trovò i vasti",
-     "sfondo": "s4",
-     "personaggio": "esploratore"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "gioielli d'oro",
-     "q": "ancient gold jewelry artifacts museum"
+     "tipo": "pexels_video",
+     "frase": "Una piccola isola",
+     "q": "rough sea storm waves ship",
+     "suono": "heavy rain and thunder"
     },
     {
      "tipo": "pexels_video",
-     "frase": "La Spagna capì",
-     "q": "Spanish galleon sailing ship sea"
+     "frase": "con un aiutino",
+     "q": "lightning storm ocean night"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Dimostrò che chi",
+     "q": "ocean horizon sunset sailing ship"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "controllare il mondo",
+     "q": "spinning antique globe"
+    }
+   ]
+  },
+  {
+   "capitolo": "Colonie e guerra civile",
+   "testo": "Dopo l'Armada, gli inglesi guardarono oltre l'Atlantico. Fondarono la prima colonia stabile a Jamestown nel 1607. Cercavano oro, ma trovarono qualcosa di ancora più avvincente: il tabacco. Era l'inizio di una gigantesca macchina da soldi.",
+   "anno": 1607,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Dopo l'Armada",
+     "q": "Atlantic ocean sailing vast"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Jamestown nel 1607",
+     "q": "Virginia coast river marsh",
+     "didascalia": "1607: Jamestown"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "il tabacco",
+     "q": "tobacco leaves field drying"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "gigantesca macchina da soldi",
+     "q": "old coins ledger antique"
+    }
+   ]
+  },
+  {
+   "testo": "Ma mentre costruivano colonie, in patria si combattevano. Giacomo I e suo figlio Carlo I si credevano scelti da Dio per governare con potere assoluto. Il Parlamento non era d'accordo. Lo scontro divenne una sanguinosa guerra civile, tra Cavalieri del re e Teste Rotonde del Parlamento.",
+   "anno": 1642,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Ma mentre costruivano",
+     "q": "Houses of Parliament Westminster"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Giacomo I e suo figlio",
+     "q": "royal throne crown palace"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Lo scontro divenne",
+     "q": "old cannon battlefield field fog",
+     "suono": "distant cannon fire, wind"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "tra Cavalieri del re",
+     "q": "antique sword armor museum"
+    }
+   ]
+  },
+  {
+   "testo": "Il re perse la testa, letteralmente, e l'Inghilterra fu per breve tempo una repubblica. Poi tornò la monarchia, ma con una regola che cambiò il mondo: il re doveva ascoltare il popolo. Da allora la Gran Bretagna non fu governata dal capriccio di uno solo, ma dalla legge e dal commercio. Nel 1707 Inghilterra e Scozia si unirono nel Regno di Gran Bretagna.",
+   "anno": 1707,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Il re perse la testa",
+     "q": "executioner axe medieval dark"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Poi tornò la monarchia",
+     "q": "British crown jewels crown velvet"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "ma dalla legge",
+     "q": "law books old library"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Nel 1707 Inghilterra",
+     "q": "Edinburgh Castle Scotland",
+     "didascalia": "1707: nasce la Gran Bretagna"
+    }
+   ]
+  },
+  {
+   "capitolo": "La Compagnia delle Indie",
+   "testo": "Unita, l'isola guardò al resto del mondo con nuova intensità. E non usò solo i soldati: usò un'azienda. La Compagnia delle Indie Orientali era una società privata che prese lentamente il controllo dell'India. Affari, accordi, guerre private: nacque un impero aziendale.",
+   "anno": 1757,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Unita, l'isola guardò",
+     "q": "world map old compass"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "La Compagnia delle Indie",
+     "q": "India Kolkata colonial building"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Affari, accordi",
+     "q": "spices market India colorful"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "nacque un impero",
+     "q": "Mumbai Gateway of India sea"
+    }
+   ]
+  },
+  {
+   "testo": "Commerciavano tè, seta e spezie, e con un esercito privato più grande di quello britannico facevano arrivare i profitti a Londra. Ma non tutto andò bene. Negli anni 1770 la Gran Bretagna subì la sua prima grande rottura: le tredici colonie americane, stufe di pagare tasse a un re lontano migliaia di chilometri.",
+   "anno": 1776,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Commerciavano tè, seta",
+     "q": "tea plantation hills India"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "esercito privato più grande",
+     "q": "antique musket flintlock museum"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Negli anni 1770",
+     "q": "Boston harbor old ships",
+     "didascalia": "13 colonie americane"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "stufe di pagare tasse",
+     "q": "antique American flag old"
+    }
+   ]
+  },
+  {
+   "testo": "Volevano niente tasse senza rappresentanza. Con un po' d'aiuto dei francesi, gli americani si staccarono con la rivoluzione. La Gran Bretagna perse un continente e molti pensarono che l'impero fosse finito. Ma non si arrese: tenne la flotta, le banche e i nervi saldi, e guardò altrove, all'Australia, trasformata in una gigantesca colonia penale.",
+   "anno": 1783,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Volevano niente tasse",
+     "q": "Declaration independence old document"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "La Gran Bretagna perse",
+     "q": "North America aerial coast vast"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "tenne la flotta",
+     "q": "Royal Navy warship sea"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "all'Australia, trasformata",
+     "q": "Sydney Harbour early morning cliffs"
+    }
+   ]
+  },
+  {
+   "capitolo": "Rivoluzione industriale",
+   "testo": "Poi arrivò la Rivoluzione Industriale, il trucco segreto della Gran Bretagna. Mentre il mondo usava ancora cavalli e attrezzi a mano, lei costruiva macchine a vapore, navi di ferro e fabbriche enormi. Aveva il carbone, il ferro e il denaro.",
+   "anno": 1800,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Poi arrivò la Rivoluzione",
+     "q": "steam locomotive vintage smoke"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "macchine a vapore",
+     "q": "old steam engine machinery"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "fabbriche enormi",
+     "q": "factory chimneys smoke industrial"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "il carbone, il ferro",
+     "q": "coal mine iron industrial"
+    }
+   ]
+  },
+  {
+   "testo": "Produceva stoffe, attrezzi e armi più in fretta e a meno di chiunque altro. Londra divenne la banchiera del mondo. Restava un ostacolo in Europa: un uomo in Francia, Napoleone Bonaparte, che voleva dominare l'Europa e strangolare il commercio britannico.",
+   "anno": 1805,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Produceva stoffe",
+     "q": "textile loom cotton thread"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Londra divenne la banchiera",
+     "q": "Bank of England London historic"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "un uomo in Francia",
+     "q": "Paris Arc de Triomphe aerial"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "strangolare il commercio",
+     "q": "harbor docks cargo old ships"
+    }
+   ]
+  },
+  {
+   "testo": "I due giganti si scontrarono per anni, ma la svolta fu nel 1805. A Trafalgar l'ammiraglio Horatio Nelson distrusse le flotte unite di Francia e Spagna. Nelson morì sulla sua nave, la Victory, ma il suo successo significò che nessuno avrebbe toccato la Gran Bretagna sul mare per cento anni.",
+   "anno": 1805,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "I due giganti",
+     "q": "naval battle cannon smoke sea",
+     "suono": "cannons booming at sea"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "A Trafalgar",
+     "q": "Trafalgar Cape coast Spain sea",
+     "didascalia": "1805: Trafalgar"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Nelson morì sulla",
+     "q": "tall ship sails ocean sunset"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "per cento anni",
+     "q": "HMS Victory Portsmouth ship"
+    }
+   ]
+  },
+  {
+   "capitolo": "Pax Britannica",
+   "testo": "L'oceano divenne un'autostrada britannica. Fu la Pax Britannica, la pace britannica. Non sempre pacifica, ma Gran Bretagna era l'unica vera superpotenza. Con la flotta portava cotone dall'India, lana dall'Australia, tè dalla Cina, e rispediva prodotti finiti: la prima rete globale di acquisti.",
+   "anno": 1850,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "L'oceano divenne",
+     "q": "ocean ship wake horizon"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "cotone dall'India",
+     "q": "cotton field harvest India"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "tè dalla Cina",
+     "q": "tea terraces hills mist China"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "la prima rete globale",
+     "q": "cargo port cranes containers harbor"
+    }
+   ]
+  },
+  {
+   "testo": "Alla fine dell'Ottocento l'impero era all'apice. Si diceva che il sole non tramontasse mai sull'Impero britannico, perché da qualche parte era sempre giorno. La regina Vittoria era Imperatrice d'India. Londra controllava gran parte dell'Africa, il Canada, l'Australia, la Nuova Zelanda, Hong Kong, con cavi telegrafici sotto il mare e ferrovie sulla terra.",
+   "anno": 1890,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Alla fine dell'Ottocento",
+     "q": "sun setting over ocean horizon"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "La regina Vittoria",
+     "q": "Buckingham Palace London"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "gran parte dell'Africa",
+     "q": "Africa savanna sunset acacia"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Hong Kong, con cavi",
+     "q": "Hong Kong harbour old skyline"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "ferrovie sulla terra",
+     "q": "railway tracks vintage train countryside"
+    }
+   ]
+  },
+  {
+   "capitolo": "Il lato oscuro",
+   "testo": "Ma questo potere aveva un lato oscurissimo. In Irlanda, nel 1845, un fungo distrusse le patate. Milioni morirono di fame o fuggirono in America, mentre il governo britannico, accecato dalle sue teorie economiche, non aiutò abbastanza.",
+   "anno": 1845,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Ma questo potere",
+     "q": "dark storm clouds over fields"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "In Irlanda, nel 1845",
+     "q": "Ireland abandoned stone cottage field",
+     "didascalia": "1845: la Grande Carestia"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Milioni morirono",
+     "q": "Irish coast cliffs grey sea"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "accecato dalle sue",
+     "q": "empty field potatoes rotting"
+    }
+   ]
+  },
+  {
+   "testo": "In India la gente era stanca di essere governata da una compagnia avida. Nel 1857 una rivolta enorme, la Rivolta dei Cipay o prima guerra d'indipendenza, costrinse il governo britannico a sciogliere la Compagnia e a prendere il controllo diretto. L'impero vinceva sulla mappa, ma seminava risentimento che sarebbe tornato a tormentarlo.",
+   "anno": 1857,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "In India la gente",
+     "q": "Delhi Red Fort historic India"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Nel 1857 una rivolta",
+     "q": "old cannon fort India",
+     "didascalia": "1857: la Rivolta dei Cipay"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "L'impero vinceva",
+     "q": "antique map British empire red"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "seminava risentimento",
+     "q": "ruins fort sunset India"
+    }
+   ]
+  },
+  {
+   "capitolo": "Le due guerre mondiali",
+   "testo": "All'inizio del Novecento il mondo cambiava. Nuovi rivali, Germania e Stati Uniti, costruivano fabbriche e flotte potenti. Nel 1914 un solo colpo di pistola nei Balcani incendiò il mondo. La Prima guerra mondiale fu un tritacarne industriale. L'impero chiamò milioni di uomini da India, Canada, Sudafrica e Australia a combattere nel fango e nel gas.",
+   "anno": 1914,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "All'inizio del Novecento",
+     "q": "factory steel industrial sparks"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Nel 1914 un solo",
+     "q": "Sarajevo old bridge Balkans",
+     "didascalia": "1914: la Prima guerra mondiale"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "La Prima guerra mondiale",
+     "q": "muddy battlefield trenches fog",
+     "suono": "distant artillery rumbling"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "nel fango e nel gas",
+     "q": "war memorial poppies field"
+    }
+   ]
+  },
+  {
+   "testo": "La Gran Bretagna vinse nel 1918, ma fu una vittoria vuota. Un'intera generazione di giovani era sparita, il paese era sepolto dai debiti e lo spirito dell'impero cominciava a incrinarsi. Poi si formò una nuova tempesta. La Germania nazista invase la Polonia nel 1939. La Seconda guerra mondiale fu una lotta totale per sopravvivere.",
+   "anno": 1939,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "La Gran Bretagna vinse",
+     "q": "cemetery crosses war graves"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Poi si formò",
+     "q": "dark storm sky dramatic"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "La Germania nazista",
+     "q": "old black white warplane sky",
+     "suono": "propeller planes flying over"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "lotta totale per sopravvivere",
+     "q": "bombed ruins old building"
+    }
+   ]
+  },
+  {
+   "testo": "Dopo la caduta della Francia, per un anno terrificante la Gran Bretagna restò quasi sola contro Hitler. Fu martellata dalle bombe ogni notte durante il Blitz, ma non si spezzò. Con l'aiuto di Stati Uniti e Unione Sovietica vinse nel 1945. Ma il prezzo fu la fine dell'impero.",
+   "anno": 1945,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Dopo la caduta",
+     "q": "English Channel waves grey sky"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "martellata dalle bombe",
+     "q": "London night sky searchlights",
+     "didascalia": "Il Blitz"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "non si spezzò",
+     "q": "St Paul's Cathedral London dome"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "vinse nel 1945",
+     "q": "victory flags Union Jack old"
+    }
+   ]
+  },
+  {
+   "capitolo": "La fine dell'impero",
+   "testo": "La Gran Bretagna era al verde. Aveva speso ogni centesimo per sconfiggere i nazisti e non poteva più mantenere migliaia di soldati in ogni angolo del mondo. E le colonie non volevano più aspettare la libertà. Avevano combattuto per Londra, ora volevano combattere per sé.",
+   "anno": 1946,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "La Gran Bretagna era",
+     "q": "empty old bank vault coins"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "migliaia di soldati",
+     "q": "colonial fort old harbor"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "E le colonie",
+     "q": "India countryside sunrise fields"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "ora volevano combattere",
+     "q": "old flag waving wind sky"
+    }
+   ]
+  },
+  {
+   "testo": "L'India si mosse per prima. Dopo decenni di proteste e marce non violente guidate dal Mahatma Gandhi, la Gran Bretagna capì di non poter resistere. Nel 1947 India e Pakistan divennero indipendenti. Il gioiello della corona era perso, e il resto dell'impero capì che il suo momento era arrivato.",
+   "anno": 1947,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "L'India si mosse",
+     "q": "India Gate New Delhi"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "marce non violente",
+     "q": "dusty road India countryside walking"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Nel 1947 India",
+     "q": "Indian flag waving sky",
+     "didascalia": "1947: indipendenza dell'India"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Il gioiello della corona",
+     "q": "diamond crown jewel sparkle"
+    }
+   ]
+  },
+  {
+   "testo": "Le tessere del domino caddero in fretta. Negli anni Cinquanta e Sessanta le colonie in Africa, nei Caraibi e in Medio Oriente conquistarono l'indipendenza. Quasi sempre la Gran Bretagna non combatté per restare: firmò i trattati, ammainò la bandiera e se ne andò. Ma non volle perdere del tutto il legame, e creò il Commonwealth.",
+   "anno": 1960,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Le tessere del domino",
+     "q": "African savanna sunrise Kenya"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "nei Caraibi",
+     "q": "Caribbean beach palm trees"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "ammainò la bandiera",
+     "q": "flag lowering pole sunset"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "creò il Commonwealth",
+     "q": "Union Jack flag old stone building"
+    }
+   ]
+  },
+  {
+   "capitolo": "La Gran Bretagna di oggi",
+   "testo": "In patria la Gran Bretagna dovette reinventarsi. Costruì il Servizio Sanitario Nazionale e accolse immigrati dall'ex impero, la generazione Windrush, per ricostruire le città distrutte. Londra passò da capitale di un impero a crocevia multiculturale di lingue, cibi e musiche.",
+   "anno": 1950,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "In patria la Gran Bretagna",
+     "q": "London street red bus"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Servizio Sanitario Nazionale",
+     "q": "hospital corridor empty"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Londra passò da",
+     "q": "London skyline Thames Tower Bridge"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "crocevia multiculturale",
+     "q": "London market food colorful"
+    }
+   ]
+  },
+  {
+   "testo": "L'ultimo grande pezzo del vecchio impero fu restituito nel 1997, quando la Gran Bretagna riconsegnò Hong Kong alla Cina. Per la prima volta in secoli l'Impero britannico era ufficialmente finito. Poi l'isola dovette trovare il suo posto in un mondo dominato da Stati Uniti e Cina. Entrò nell'Unione Europea, ma non si sentì mai davvero parte.",
+   "anno": 1997,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "L'ultimo grande pezzo",
+     "q": "Hong Kong Victoria Harbour night",
+     "didascalia": "1997: Hong Kong alla Cina"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "ufficialmente finito",
+     "q": "old British map faded"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Entrò nell'Unione Europea",
+     "q": "European Union flags Brussels"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "non si sentì mai",
+     "q": "white cliffs Dover sea horizon"
+    }
+   ]
+  },
+  {
+   "testo": "Nel 2016, dopo anni di discussioni accese, il Regno Unito votò la Brexit: uscire dall'Unione Europea e riprovare a fare da solo. Oggi la Gran Bretagna è un posto molto diverso. È più piccola, non domina i mari e si interroga sul futuro. Ma la sua influenza è ovunque.",
+   "anno": 2016,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Nel 2016, dopo anni",
+     "q": "Westminster Big Ben London",
+     "didascalia": "2016: il voto sulla Brexit"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Oggi la Gran Bretagna",
+     "q": "London modern skyline Shard"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "non domina i mari",
+     "q": "ferry sea Britain coast grey"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "la sua influenza",
+     "q": "world map lights network"
+    }
+   ]
+  },
+  {
+   "testo": "Ogni volta che qualcuno parla inglese in una riunione, guarda una partita di Premier League o usa il World Wide Web, l'eredità di quella piccola isola è viva. La Gran Bretagna è passata da isola invasa a più grande invasore del mondo, fino a nazione moderna in cerca della sua strada in un mondo che non aspetta più i suoi ordini.",
+   "anno": 2026,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Ogni volta che qualcuno",
+     "q": "business meeting laptop typing"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "una partita di Premier",
+     "q": "football stadium England pitch"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "il World Wide Web",
+     "q": "internet data network glowing"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "dall'isola invasa",
+     "q": "British island aerial sea"
+    }
+   ]
+  },
+  {
+   "testo": "È una storia di spavalderia, industria, guerra e, alla fine, di capacità di adattarsi. L'impero è storia, ma l'isola è ancora in piedi, e si reinventa per qualunque cosa verrà. Grazie per aver guardato questo viaggio. Se ti è piaciuto, metti mi piace e iscriviti. Alla prossima.",
+   "anno": 2026,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "È una storia di spavalderia",
+     "q": "sunset over British coast waves"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "L'impero è storia",
+     "q": "ancient stone ruins sunset England"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Grazie per aver guardato",
+     "q": "lighthouse coast Britain dusk"
     }
    ]
   }
  ],
  "copertina": {
-  "testo": "USA 1492 – 2026",
-  "personaggio": "politico"
+  "testo": "1600 ANNI IN 10 MINUTI",
+  "personaggio": "churchill"
  },
- "descrizione": "L'intera storia degli Stati Uniti in pochi minuti: dall'errore geografico di Cristoforo Colombo nel 1492 fino alla superpotenza di oggi.\n\nScopri perché per oltre un secolo quasi nessuno voleva il Nord America, come la ricerca delle spezie dell'Asia cambiò il mondo e come una frontiera remota divenne la nazione più potente della storia.\n\nUn documentario a cartone, chiaro e veloce, per capire la storia americana dalle origini a oggi.\n\n#storiaUSA #StatiUniti #storia #Colombo #documentario",
+ "descrizione": "Come ha fatto una piccola isola piovosa a diventare il più grande impero della storia? In questo video ripercorriamo l'intera storia dell'Impero britannico, dalle invasioni di Romani, Angli, Sassoni, Vichinghi e Normanni fino alla Brexit.\n\nVedremo l'Invincibile Armata del 1588, la guerra civile inglese, la Compagnia delle Indie Orientali, la perdita delle colonie americane, la Rivoluzione Industriale, Trafalgar e la Pax Britannica. Poi il lato oscuro dell'impero, dalla Grande Carestia irlandese alla Rivolta dei Cipay.\n\nInfine le due guerre mondiali, l'indipendenza dell'India nel 1947, la fine dell'impero, il Commonwealth, Hong Kong nel 1997 e la Brexit del 2016. Una storia completa spiegata in modo semplice.\n\n#ImperoBritannico #StoriaBritannica #Storia #RegnoUnito #DocumentarioStorico",
  "tag": [
-  "storia degli Stati Uniti",
-  "storia USA",
-  "storia americana spiegata",
-  "l'intera storia dell'America",
-  "documentario America",
+  "impero britannico",
+  "storia britannica",
+  "gran bretagna",
+  "regno unito",
+  "l'intera storia della gran bretagna",
   "documentario storico",
   "storia del mondo",
-  "civiltà",
-  "ascesa degli Stati Uniti",
-  "rivoluzione americana",
-  "Cristoforo Colombo",
-  "George Washington",
-  "dichiarazione di indipendenza",
-  "guerra civile americana",
+  "storia spiegata",
   "prima guerra mondiale",
   "seconda guerra mondiale",
-  "storia spiegata",
-  "Stati Uniti",
-  "America",
+  "impero",
+  "storia antica",
+  "documentario",
+  "storia dell'impero britannico",
   "storia completa",
-  "storia degli USA",
-  "superpotenza",
-  "colonie americane",
-  "1492",
-  "Nord America",
-  "storia moderna",
-  "storia in 12 minuti",
-  "storia a cartoni"
+  "storia del regno unito",
+  "storia dell'inghilterra",
+  "regina vittoria",
+  "compagnia delle indie orientali",
+  "invincibile armata",
+  "napoleone",
+  "battaglia di trafalgar",
+  "rivoluzione industriale",
+  "pax britannica",
+  "indipendenza dell'india",
+  "gandhi",
+  "commonwealth",
+  "brexit",
+  "enrico viii",
+  "winston churchill"
  ],
- "personaggi_mancanti": [
-  "nativo americano Taino",
-  "George Washington",
-  "colono inglese del Seicento"
- ],
+ "personaggi_mancanti": [],
  "categoria_originale": "27"
 }
