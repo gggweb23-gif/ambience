@@ -1,0 +1,58 @@
+{
+ "filoni": [
+  {
+   "id": "visiera",
+   "nome": "A \u00b7 VISIERA",
+   "archivio": "nasa",
+   "colore": "#FFD400",
+   "righe": [
+    {
+     "k": 1,
+     "titolo": "",
+     "testo": "TOO COLD?",
+     "query": [
+      "astronaut visor reflection spacewalk",
+      "spacewalk astronaut helmet close up"
+     ],
+     "scelta": 0
+    }
+   ]
+  },
+  {
+   "id": "terra",
+   "nome": "B \u00b7 TERRA SOTTO",
+   "archivio": "nasa",
+   "colore": "#FFD400",
+   "righe": [
+    {
+     "k": 1,
+     "titolo": "",
+     "testo": "-150\u00b0C",
+     "query": [
+      "spacewalk astronaut Earth below",
+      "astronaut spacewalk Earth horizon"
+     ],
+     "scelta": 0
+    }
+   ]
+  },
+  {
+   "id": "volto",
+   "nome": "C \u00b7 VOLTO",
+   "archivio": "nasa",
+   "colore": "#FFD400",
+   "righe": [
+    {
+     "k": 1,
+     "titolo": "",
+     "testo": "TOO COLD?",
+     "query": [
+      "astronaut portrait spacesuit helmet",
+      "astronaut face spacesuit"
+     ],
+     "scelta": 0
+    }
+   ]
+  }
+ ]
+}
