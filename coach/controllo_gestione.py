@@ -97,6 +97,11 @@ def leggi(foglio, scheda, area='A1:AZZ5000'):
 
 def scrivi(foglio, scheda, righe):
     api(foglio, 'POST', '/values/' + urllib.parse.quote(f"'{scheda}'!A1:AZZ5000") + ':clear', {})
+    try:   # via i formati numerici rimasti (una colonna spostata non deve ereditare la % della colonna di prima)
+        sid = next(x['properties']['sheetId'] for x in api(foglio, 'GET', '?fields=sheets.properties')['sheets'] if x['properties']['title'] == scheda)
+        api(foglio, 'POST', ':batchUpdate', {'requests': [{'repeatCell': {'range': {'sheetId': sid}, 'cell': {'userEnteredFormat': {}}, 'fields': 'userEnteredFormat.numberFormat'}}]})
+    except Exception:
+        pass
     api(foglio, 'PUT', '/values/' + urllib.parse.quote(f"'{scheda}'!A1") + '?valueInputOption=USER_ENTERED', {'values': righe})
 
 
