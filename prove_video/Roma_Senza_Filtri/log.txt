@@ -1,39 +1,41 @@
 coach: ricetta versione 3 - Come la versione 2 (stesso stile, stesse clip, stessi controlli anacronismi) ma le clip Pexels gia' bocciate da Claude non vengono piu' ricontrollate a ogni inquadratura | modo_immagini, ritmo_max, pexels_da_secondi, distanza_immagini, ricorda_scartate
-10:54:54 competitor: categoria 22 , 23 tag
-10:54:55 testo originale: 5014 parole (RapidAPI)
-10:54:55 VIDEO DA COPIARE: pQWJtBUyO2s - How Did Roman Soldiers Survive Freezing Nights Without Heaters? | titolo usato: How Did Roman Soldiers Survive Freezing Nights Without Heaters?
-10:54:56 paese del video: Roman Empire
-10:54:56 budget 0.15 EUR: 2 disegni (circa 0.24 $), cartone ~5% del video, il resto Pexels
-10:56:27 copione ricevuto: 38216 caratteri, fine: end_turn | blocchi di ragionamento: 0
-10:56:27 copione non valido, riprovo: copione di 2549 parole, fuori da 1275-1350
-10:57:46 copione ricevuto: 32019 caratteri, fine: end_turn | blocchi di ragionamento: 0
-10:57:46 copione non valido, riprovo: copione di 2474 parole, fuori da 1275-1350
+11:00:59 competitor: categoria 22 , 23 tag
+11:01:00 testo originale: 5014 parole (RapidAPI)
+11:01:00 VIDEO DA COPIARE: pQWJtBUyO2s - How Did Roman Soldiers Survive Freezing Nights Without Heaters? | titolo usato: How Did Roman Soldiers Survive Freezing Nights Without Heaters?
+11:01:01 paese del video: Roman Empire
+11:02:16 originale condensato: 5014 -> 3745 parole (obiettivo 1312)
+11:03:31 originale condensato: 5014 -> 3800 parole (obiettivo 1312)
+11:04:41 originale condensato: 5014 -> 3517 parole (obiettivo 1312)
 Traceback (most recent call last):
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 4460, in <module>
+  File "/home/runner/work/ambience/ambience/video_storia.py", line 4487, in <module>
     main()
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 3808, in main
+  File "/home/runner/work/ambience/ambience/video_storia.py", line 3835, in main
     c = copione(comp)
         ^^^^^^^^^^^^^
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 466, in copione
-    raise RuntimeError('VIDEO BLOCCATO: copione fuori lunghezza dopo 2 tentativi (nessuna spesa per voce e immagini)')
-RuntimeError: VIDEO BLOCCATO: copione fuori lunghezza dopo 2 tentativi (nessuna spesa per voce e immagini)
+  File "/home/runner/work/ambience/ambience/video_storia.py", line 372, in copione
+    orig = condensa_originale(orig, (minimo + massimo) // 2 if minimo else massimo)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/ambience/ambience/video_storia.py", line 360, in condensa_originale
+    raise RuntimeError('VIDEO BLOCCATO: testo del competitor non condensato alla lunghezza giusta (nessuna spesa per voce e immagini)')
+RuntimeError: VIDEO BLOCCATO: testo del competitor non condensato alla lunghezza giusta (nessuna spesa per voce e immagini)
 ...
 coach: ricetta versione 3 - Come la versione 2 (stesso stile, stesse clip, stessi controlli anacronismi) ma le clip Pexels gia' bocciate da Claude non vengono piu' ricontrollate a ogni inquadratura | modo_immagini, ritmo_max, pexels_da_secondi, distanza_immagini, ricorda_scartate
-10:54:54 competitor: categoria 22 , 23 tag
-10:54:55 testo originale: 5014 parole (RapidAPI)
-10:54:55 VIDEO DA COPIARE: pQWJtBUyO2s - How Did Roman Soldiers Survive Freezing Nights Without Heaters? | titolo usato: How Did Roman Soldiers Survive Freezing Nights Without Heaters?
-10:54:56 paese del video: Roman Empire
-10:54:56 budget 0.15 EUR: 2 disegni (circa 0.24 $), cartone ~5% del video, il resto Pexels
-10:56:27 copione ricevuto: 38216 caratteri, fine: end_turn | blocchi di ragionamento: 0
-10:56:27 copione non valido, riprovo: copione di 2549 parole, fuori da 1275-1350
-10:57:46 copione ricevuto: 32019 caratteri, fine: end_turn | blocchi di ragionamento: 0
-10:57:46 copione non valido, riprovo: copione di 2474 parole, fuori da 1275-1350
+11:00:59 competitor: categoria 22 , 23 tag
+11:01:00 testo originale: 5014 parole (RapidAPI)
+11:01:00 VIDEO DA COPIARE: pQWJtBUyO2s - How Did Roman Soldiers Survive Freezing Nights Without Heaters? | titolo usato: How Did Roman Soldiers Survive Freezing Nights Without Heaters?
+11:01:01 paese del video: Roman Empire
+11:02:16 originale condensato: 5014 -> 3745 parole (obiettivo 1312)
+11:03:31 originale condensato: 5014 -> 3800 parole (obiettivo 1312)
+11:04:41 originale condensato: 5014 -> 3517 parole (obiettivo 1312)
 Traceback (most recent call last):
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 4460, in <module>
+  File "/home/runner/work/ambience/ambience/video_storia.py", line 4487, in <module>
     main()
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 3808, in main
+  File "/home/runner/work/ambience/ambience/video_storia.py", line 3835, in main
     c = copione(comp)
         ^^^^^^^^^^^^^
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 466, in copione
-    raise RuntimeError('VIDEO BLOCCATO: copione fuori lunghezza dopo 2 tentativi (nessuna spesa per voce e immagini)')
-RuntimeError: VIDEO BLOCCATO: copione fuori lunghezza dopo 2 tentativi (nessuna spesa per voce e immagini)
+  File "/home/runner/work/ambience/ambience/video_storia.py", line 372, in copione
+    orig = condensa_originale(orig, (minimo + massimo) // 2 if minimo else massimo)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/ambience/ambience/video_storia.py", line 360, in condensa_originale
+    raise RuntimeError('VIDEO BLOCCATO: testo del competitor non condensato alla lunghezza giusta (nessuna spesa per voce e immagini)')
+RuntimeError: VIDEO BLOCCATO: testo del competitor non condensato alla lunghezza giusta (nessuna spesa per voce e immagini)
