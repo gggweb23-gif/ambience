@@ -8,7 +8,7 @@ PAYLOAD = {"nome": "...", "voce": "<id ElevenLabs>", "velocita": 1.08, "stabilit
            "max_secondi": 3.0, "scene": [{"testo": "...", "q": ["ricerca Commons", ...], "pexels": "ricerca clip (facoltativa)", "scritta": ""}]}
 Uscita: prove_video/archivio/<nome>/ (prova.mp4, fotogrammi.jpg, fonti.txt con autore e licenza di ogni immagine, costi.txt)
 """
-import base64, hashlib, io, json, os, random, re, subprocess, time, urllib.parse, urllib.request
+import base64, hashlib, io, json, os, random, re, subprocess, time, urllib.error, urllib.parse, urllib.request
 from PIL import Image, ImageDraw, ImageFont
 
 E = os.environ.get
@@ -26,11 +26,19 @@ NO_FILE = re.compile(r'\.(svg|pdf|djvu|tif|tiff|gif)$|map|diagram|chart|coat of 
 
 
 def get(u, dati=None, h=None, raw=False, timeout=120):
-    req = urllib.request.Request(u, data=json.dumps(dati).encode() if dati is not None else None,
-                                 headers=dict(UA, **({'Content-Type': 'application/json'} if dati is not None else {}), **(h or {})))
-    with urllib.request.urlopen(req, timeout=timeout) as r:
-        b = r.read()
-        return b if raw else json.loads(b.decode() or '{}')
+    for k in range(6):   # Wikimedia limita le richieste (429): si aspetta e si riprova, piano
+        if 'wikimedia.org' in u or 'wikipedia.org' in u:
+            time.sleep(0.6)
+        req = urllib.request.Request(u, data=json.dumps(dati).encode() if dati is not None else None,
+                                     headers=dict(UA, **({'Content-Type': 'application/json'} if dati is not None else {}), **(h or {})))
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                b = r.read()
+                return b if raw else json.loads(b.decode() or '{}')
+        except urllib.error.HTTPError as e:
+            if e.code != 429 or k == 5:
+                raise
+            time.sleep(5 * (k + 1))
 
 
 def run(c):
@@ -60,6 +68,7 @@ log('voce', round(te[-1], 1), 's')
 
 # ---------------- 2) fonti: candidate + CONTROLLO DI COERENZA ----------------
 USATI, VISTI = set(), set()
+IMPRONTE = []   # impronte visive delle immagini gia' viste
 SPESA = {'usd': 0.0}
 TEMA = P.get('tema') or ''
 
@@ -115,16 +124,27 @@ def coerenti(cands, frase):
     """Claude Haiku guarda le miniature e tiene SOLO quelle che mostrano cio' che dice la voce (in ordine di adatte)."""
     if not cands or not E('ANTHROPIC_API_KEY'):
         return cands
-    cont = []
+    cont, tenute = [], []
+    for c in cands:
+        try:
+            im = Image.open(io.BytesIO(get(c['thumb'] or c['url'], raw=True, timeout=60))).convert('RGB')
+        except Exception:
+            continue
+        g = im.convert('L').resize((9, 8)); px = list(g.getdata())
+        imp = sum(1 << i for i in range(64) if px[(i // 8) * 9 + i % 8] > px[(i // 8) * 9 + i % 8 + 1])
+        if any(bin(imp ^ x).count('1') <= 6 for x in IMPRONTE):   # stessa immagine (anche ritagliata o restaurata): scartata
+            continue
+        IMPRONTE.append(imp); c['_im'] = im; tenute.append(c)
+    cands = tenute
     for n, c in enumerate(cands):
         try:
-            im = Image.open(io.BytesIO(get(c['thumb'] or c['url'], raw=True, timeout=60))).convert('RGB'); im.thumbnail((400, 400))
+            im = c.pop('_im'); im.thumbnail((400, 400))
             b = io.BytesIO(); im.save(b, 'JPEG', quality=75)
             cont += [{'type': 'text', 'text': f'Image {n}:'}, {'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(b.getvalue()).decode()}}]
         except Exception:
             pass
     cont.append({'type': 'text', 'text': f"""Video topic: {TEMA}. The narration at this moment says: "{frase}".
-Which images show what the narration says (the same subject, person, place or object, in the right era and style for the topic)? Reject modern photos, unrelated scenes, other stories, people from other eras, book covers and photos of objects or buildings that only share a name.
+Which images show what the narration says (the same subject, person, place or object, in the right era and style for the topic)? Reject modern photos and modern people (unless the narration talks about today), interviews, unrelated scenes, other stories, people from other eras, book covers and photos of objects, buildings or people that only share a name.
 Answer ONE line: GOOD: <image numbers, best first, comma separated, or none>"""})
     try:
         r = get('https://api.anthropic.com/v1/messages', {'model': 'claude-haiku-4-5-20251001', 'max_tokens': 100, 'messages': [{'role': 'user', 'content': cont}]},
