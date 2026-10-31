@@ -244,10 +244,12 @@ EFF = ['fadeblack', 'fadewhite', 'zoomin', 'dissolve', 'slideleft', 'circleopen'
 ins, fl, acc, prec = [], [], 0.0, '0:v'
 for p, L, T in pezzi:
     ins += ['-i', p]
+fl += [f'[{i}:v]settb=1/{FPS},setpts=PTS-STARTPTS,fps={FPS},format=yuv420p[n{i}]' for i in range(len(pezzi))]   # tempi azzerati e uguali
+prec = 'n0'
 for i in range(1, len(pezzi)):
     acc += pezzi[i - 1][1]; T = pezzi[i - 1][2]
     t = EFF[(i // 3) % len(EFF)] if T > .1 else 'fade'
-    fl.append(f'[{prec}][{i}:v]xfade=transition={t}:duration={T}:offset={acc:.3f}[x{i}]'); prec = f'x{i}'
+    fl.append(f'[{prec}][n{i}]xfade=transition={t}:duration={T}:offset={acc:.3f}[x{i}]'); prec = f'x{i}'
 fl.append(f'[{prec}]vignette=angle=PI/5,noise=alls=4:allf=t,format=yuv420p[vf]')
 muto = os.path.join(LAV, 'muto.mp4')
 run(['ffmpeg', '-y', '-v', 'error'] + ins + ['-filter_complex', ';'.join(fl), '-map', '[vf]', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '22', muto])
@@ -257,6 +259,9 @@ run(['ffmpeg', '-y', '-v', 'error', '-i', muto, '-i', VOCE, '-stream_loop', '-1'
      f'[1:a]aformat=sample_rates=44100:channel_layouts=stereo[v];[2:a]aformat=sample_rates=44100:channel_layouts=stereo,volume=0.08,afade=t=out:st={fine - 1.5:.2f}:d=1.5[m];'
      f'[v][m]amix=inputs=2:duration=first:normalize=0[a]', '-map', '0:v', '-map', '[a]', '-t', round(fine, 2), '-c:v', 'copy', '-c:a', 'aac', '-b:a', '160k', OUT])
 
+dv = float(subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'v', '-show_entries', 'stream=duration', '-of', 'csv=p=0', OUT], capture_output=True, text=True).stdout.strip() or 0)
+if dv < fine - 1.5:   # mai piu' un video che si ferma alla 2a immagine con l'audio che continua
+    raise RuntimeError(f'VIDEO ROTTO: immagini {dv:.1f} s, voce {fine:.1f} s')
 # ---------------- 5) controlli ----------------
 fot = []
 for i, (p, L, _) in enumerate(pezzi):

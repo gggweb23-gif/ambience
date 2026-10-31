@@ -301,10 +301,13 @@ def monta(blocco, out):
     ins, fl, acc, prec = [], [], 0.0, '0:v'
     for p, d, _ in blocco:
         ins += ['-i', p]
+    # ogni pezzo con tempi azzerati e uguali (le clip d'archivio possono iniziare a 0,07 s: xfade allora si fermava al 1° pezzo)
+    fl += [f'[{i}:v]settb=1/{FPS},setpts=PTS-STARTPTS,fps={FPS},format=yuv420p[n{i}]' for i in range(len(blocco))]
+    prec = 'n0'
     for i in range(1, len(blocco)):
         acc += blocco[i - 1][1]
         tipo, T = blocco[i - 1][2]
-        fl.append(f'[{prec}][{i}:v]xfade=transition={tipo}:duration={T}:offset={acc:.3f}[x{i}]'); prec = f'x{i}'
+        fl.append(f'[{prec}][n{i}]xfade=transition={tipo}:duration={T}:offset={acc:.3f}[x{i}]'); prec = f'x{i}'
     fl.append(f'[{prec}]vignette=angle=PI/6,noise=alls=3:allf=t,format=yuv420p,trim=duration={sum(d for _, d, _ in blocco):.3f}[vf]')
     run(['ffmpeg', '-y', '-v', 'error'] + ins + ['-filter_complex', ';'.join(fl), '-map', '[vf]', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '23', out])
 muto = os.path.join(LAV, 'muto.mp4')
@@ -327,6 +330,9 @@ run(['ffmpeg', '-y', '-v', 'error', '-i', muto, '-i', VOCE, '-stream_loop', '-1'
      f'[v][m]amix=inputs=2:duration=first:normalize=0[a]',
      '-map', '0:v', '-map', '[a]', '-t', round(fine_tot, 2), '-c:v', 'copy', '-c:a', 'aac', '-b:a', '160k', '-movflags', '+faststart', OUT])
 
+dv = float(subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'v', '-show_entries', 'stream=duration', '-of', 'csv=p=0', OUT], capture_output=True, text=True).stdout.strip() or 0)
+if dv < fine_tot - 1.5:   # mai piu' un video che si ferma alla 2a immagine con l'audio che continua
+    raise RuntimeError(f'VIDEO ROTTO: immagini {dv:.1f} s, voce {fine_tot:.1f} s')
 # ---------------- 6) controlli ----------------
 fot = []
 for i, (p, d, _) in enumerate(pezzi):

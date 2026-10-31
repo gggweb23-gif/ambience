@@ -135,7 +135,7 @@ def controlli():
     costi = open(os.path.join(CART, 'costi.txt')).read()
     quota = float((re.search(r'video in movimento: (\d+)', costi) or [0, 0])[1])
     media = float((re.search(r'inquadratura media ([\d.]+)', costi) or [0, 9])[1])
-    dur = float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', VIDEO], capture_output=True, text=True).stdout or 0)
+    dur = float(subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'v', '-show_entries', 'stream=duration', '-of', 'csv=p=0', VIDEO], capture_output=True, text=True).stdout or 0)   # durata delle IMMAGINI, non dell'audio
     err = []
     if not (MIN_M * 60 * .93 <= dur <= MAX_M * 60 * 1.07):
         err.append(f'durata {dur / 60:.1f} min fuori da {MIN_M:g}-{MAX_M:g}')
