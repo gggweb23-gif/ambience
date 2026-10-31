@@ -1,0 +1,11 @@
+22:41:54 voce 44.3 s
+22:41:59 00 000 VIDEO Pexels 5846587 (Tima Miroshnichenko)
+22:42:02 01 001 DIPINTO Arthur-Pyle Sir Kay showeth the mystic sword unto Sir Ector.JPG | Howard Pyle 
+22:42:04 02 002 DIPINTO Arthur-Pyle How Arthur drew forth ye sword.JPG | Howard Pyle | Public domain p
+22:42:06 03 003 DIPINTO The taking of Excalibur, by John Duncan.jpg | Unserefahne | Public domain pd
+22:42:08 04 004 DIPINTO EXCALIBUR - IMO 8763282.JPG | Alf van Beem | CC0 cc0
+22:42:12 05 005 DIPINTO Tales from far and near - history stories of other lands (1915) (14593544909).
+Traceback (most recent call last):
+  File "/home/runner/work/ambience/ambience/strumenti/prova_dipinti.py", line 140, in <module>
+    raise RuntimeError('nessun dipinto libero per: ' + str(s.get('q')))
+RuntimeError: nessun dipinto libero per: ['Arthur draws the sword from the stone', 'young Arthur sword stone illustration']
