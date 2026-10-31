@@ -1,0 +1,35 @@
+name: Copertine Stili (3 stili a confronto)
+
+# La stessa copertina in 3 stili per scegliere lo stile fisso del canale (strumenti/copertine_stili.py). Ritocco AI con tetto rigido 0,10 $.
+on:
+  workflow_dispatch:
+    inputs:
+      payload:
+        description: 'JSON (vedi strumenti/copertine_stili.py)'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  stili:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Stili
+        env:
+          PAYLOAD: ${{ inputs.payload }}
+          FAL_KEY: ${{ secrets.FAL_KEY }}
+        run: pip install -q pillow && python3 strumenti/copertine_stili.py
+      - name: Salva nel repository
+        if: ${{ always() }}
+        run: |
+          if [ -n "$(git status --porcelain prove_archivi)" ]; then
+            git config user.name "render-bot"
+            git config user.email "render-bot@users.noreply.github.com"
+            git add prove_archivi
+            git commit -m "Copertine stili"
+            for i in 1 2 3 4 5; do git pull --rebase -q && git push && break; sleep $((i * 5)); done
+          fi
