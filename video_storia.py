@@ -2787,9 +2787,9 @@ REGOLE:
 4. "personaggi": 0-2 id del kit solo se sono proprio loro. Kit: {lista_kit(kit)}. I personaggi ricorrenti hanno sempre gli stessi vestiti: descrivili uguali ogni volta.
 5. "camera": push_in, pull_out, pan_left, pan_right, tilt_up, tilt_down, punch (zoom secco: solo nei momenti forti, 1 riga ogni 5-6). Mai uguale due volte di fila.
 6. [COMING UP]: queste righe sono l'ANTEPRIMA del video, come nei video di MrBeast: mostrano i momenti piu' spettacolari, sorprendenti o drammatici di TUTTA la storia (anche se la voce qui dice altro), ognuno una scena diversa. Nel resto del video non disegnare MAI di nuovo una scena gia' mostrata nell'anteprima.
-7. "scritta" (circa 1 riga ogni 4, mai due di fila): 1-4 parole IN MAIUSCOLO che la voce dice in quella riga e che colpiscono (numeri, cifre, orari, nomi, parole forti: "5:00 AM", "300 SESTERCES", "NO WATER", "CAESAR"). Nella lingua del video.
-8. "etichetta": SOLO quando nel racconto cambia il TEMPO (ora del giorno, giorno, anno): una etichetta breve che resta fissa nell'angolo finche' non cambia (es. "5:00 AM", "NOON", "SUNSET", "DAY 1", "64 AD"). Mai concetti o temi ("MYTH", "REALITY", "THE PATRON"): per quelli c'e' la scritta. Al massimo 1 nuova etichetta ogni 30 secondi. Altrimenti "".
-9. "battuta" (1-2 al minuto, solo nei momenti ironici o sorprendenti): commento breve e divertente in basso, max 6 parole, nella lingua del video (es. "OUCH...", "NOT IDEAL", "HE WAS NOT OKAY").
+7. "scritta" (circa 1 riga ogni 4, mai due di fila): 1-4 parole IN MAIUSCOLO che la voce dice in quella riga e che colpiscono (numeri, cifre, orari, nomi, parole forti: "5:00 AM", "300 SESTERCES", "NO WATER", "CAESAR"). SEMPRE in {LINGUA_NOME}, mai in un'altra lingua.
+8. "etichetta" (SEMPRE in {LINGUA_NOME}): SOLO quando nel racconto cambia il TEMPO (ora del giorno, giorno, anno): una etichetta breve che resta fissa nell'angolo finche' non cambia (es. "5:00 AM", "NOON", "SUNSET", "DAY 1", "64 AD"). Mai concetti o temi ("MYTH", "REALITY", "THE PATRON"): per quelli c'e' la scritta. Al massimo 1 nuova etichetta ogni 30 secondi. Altrimenti "".
+9. "battuta" (1-2 al minuto, solo nei momenti ironici o sorprendenti): commento breve e divertente in basso, max 6 parole, SEMPRE in {LINGUA_NOME} (es. "OUCH...", "NOT IDEAL", "HE WAS NOT OKAY").
 10. "flash": true solo nei colpi di scena (max 1 ogni 20 secondi).
 11. "atmosfera" (di solito ""): pioggia, neve, polvere, braci o nebbia SOLO se la scena li ha davvero.
 11b. "musica": l'UMORE della musica, SOLO dove cambia (un tratto dura almeno 15-20 secondi): uno tra mistero, tensione, epico, azione, curiosita, quotidiano, malinconia, trionfo. Segui il racconto come in un film: mistero o curiosita' all'inizio, tensione quando arriva il problema, epico nelle battaglie, malinconia nei momenti tristi, trionfo nelle conquiste. La prima riga ha sempre un umore. Altrimenti "".
@@ -3009,6 +3009,86 @@ def scheda_testo(testo, k):
     return p
 
 
+def controllo_lingua(piano):
+    """CONTROLLO LINGUA (31 ott): tutte le scritte a schermo nella lingua del canale. Un solo passaggio economico:
+    ogni scritta in un'altra lingua viene tradotta (prima: etichette italiane in un video inglese)."""
+    campi = ('scritta', 'etichetta', 'battuta', 'didascalia', 'capitolo')
+    testi = sorted({str(v.get(k) or '').strip() for v in piano for k in campi if str(v.get(k) or '').strip()})
+    if not testi or not E('ANTHROPIC_API_KEY'):
+        return
+    try:
+        r = http('https://api.anthropic.com/v1/messages', {'model': MODELLO_CONTROLLO, 'max_tokens': 4000, 'messages': [{'role': 'user', 'content':
+            f"""Target language: {LINGUA_NOME}. Below is a JSON list of short on-screen texts of a video. For EACH text: if it is already correct {LINGUA_NOME}, return it unchanged; otherwise translate it to {LINGUA_NOME}, keeping it short and in the same case (CAPS stays CAPS). Numbers and units in the style of {LINGUA_NOME}.
+Answer ONLY with a JSON list of the same length, same order.
+{json.dumps(testi, ensure_ascii=False)}"""}]}, {'x-api-key': E('ANTHROPIC_API_KEY'), 'anthropic-version': '2023-06-01'}, timeout=120)
+        CO.registra('claude', MODELLO_CONTROLLO, r.get('usage') or {}, nota='lingua')
+        txt = ''.join(b.get('text', '') for b in r.get('content', []))
+        nuovi = json.loads(txt[txt.find('['): txt.rfind(']') + 1])
+        if len(nuovi) != len(testi):
+            raise ValueError(f'{len(nuovi)} risposte per {len(testi)} scritte')
+        mappa = {a: str(b).strip() for a, b in zip(testi, nuovi) if str(b).strip() and str(b).strip() != a}
+        for v in piano:
+            for k in campi:
+                if str(v.get(k) or '').strip() in mappa:
+                    v[k] = mappa[str(v[k]).strip()]
+        log(f'CONTROLLO LINGUA ({LINGUA_NOME}): {len(testi)} scritte, {len(mappa)} tradotte' + (': ' + ' | '.join(f'{a} -> {b}' for a, b in list(mappa.items())[:12]) if mappa else ''))
+    except Exception as e:
+        raise RuntimeError('VIDEO BLOCCATO (lingua): controllo delle scritte non riuscito: ' + str(e)[:150])
+
+
+def controllo_visivo(piano):
+    """CONTROLLO VISIVO FINALE (31 ott): un fotogramma di ogni immagine vera, 9 per foglio, guardati con una domanda sola:
+    'quali NON vanno bene?' (persone di oggi, cose moderne, edifici di epoche successive, scritte). Quelle segnalate
+    diventano schede di testo. Se sono troppe il video si ferma. Costo: ~0,003 $ ogni 9 immagini."""
+    idx = [k for k, v in enumerate(piano) if v.get('tipo') in ('pexels_video', 'pexels_foto') and v.get('src') and 'scheda_' not in str(v.get('src'))]
+    if not idx or not E('ANTHROPIC_API_KEY'):
+        return
+    def fotogramma(k):
+        src = piano[k]['src']; out = os.path.join(LAV, f'cv_{k:04d}.jpg')
+        try:
+            if src.endswith('.mp4'):
+                run(['ffmpeg', '-y', '-v', 'error', '-ss', '1', '-i', src, '-frames:v', '1', '-vf', 'scale=480:270:force_original_aspect_ratio=increase,crop=480:270', out])
+            else:
+                Image.open(src).convert('RGB').resize((480, 270)).save(out)
+            return Image.open(out).convert('RGB').resize((480, 270))
+        except Exception:
+            return None
+    with ThreadPoolExecutor(4) as ex:
+        imgs = list(ex.map(fotogramma, idx))
+    cattive, f9 = set(), ImageFont.load_default()
+    try:
+        f9, _ = _font_scene(46)
+    except Exception:
+        pass
+    gruppi = [list(range(i, min(i + 9, len(idx)))) for i in range(0, len(idx), 9)]
+    def guarda(g):
+        tav = Image.new('RGB', (480 * 3, 270 * 3), (0, 0, 0)); d = ImageDraw.Draw(tav)
+        for j, gi in enumerate(g):
+            if imgs[gi] is not None:
+                tav.paste(imgs[gi], ((j % 3) * 480, (j // 3) * 270))
+            d.text(((j % 3) * 480 + 10, (j // 3) * 270 + 6), str(j + 1), font=f9, fill=(255, 255, 0), stroke_width=4, stroke_fill=(0, 0, 0))
+        buf = io.BytesIO(); tav.save(buf, 'JPEG', quality=82)
+        r = http('https://api.anthropic.com/v1/messages', {'model': str(P.get('modello_controllo_finale') or MODELLO_CONTROLLO), 'max_tokens': 200, 'messages': [{'role': 'user', 'content': [
+            {'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}},
+            {'type': 'text', 'text': f"""These {len(g)} numbered tiles are shots of a history video set in: {PAESE.get('date') or 'the era of the story'} ({PAESE.get('nome') or ''}).
+Find the tiles that must NOT be used. A tile is BAD if it shows ANY of: a person or crowd of today (tourists, people in modern clothes, even small or in the background); modern objects (signs, warning boards, street lamps, electric lights, cables, railings, fences, cars, glass windows, asphalt, scaffolding); buildings or monuments made AFTER that era (churches, crosses, domes with crosses, baroque fountains or statues such as the Trevi Fountain, palaces with glass windows, modern cities); readable text, logos or watermarks.
+Nature, fire, sky, snow, animals, ancient ruins without people, ancient objects in museums are fine.
+Answer with ONE line: BAD: <tile numbers separated by commas, or none>"""}]}]},
+            {'x-api-key': E('ANTHROPIC_API_KEY'), 'anthropic-version': '2023-06-01'}, timeout=120)
+        CO.registra('claude', str(P.get('modello_controllo_finale') or MODELLO_CONTROLLO), r.get('usage') or {}, nota='controllo visivo')
+        txt = ''.join(b.get('text', '') for b in r.get('content', []))
+        m = re.search(r'BAD:\s*([^\n]*)', txt)
+        return [g[int(x) - 1] for x in re.findall(r'\d+', m.group(1) if m else '') if 1 <= int(x) <= len(g)]
+    with ThreadPoolExecutor(3) as ex:
+        for ris in ex.map(guarda, gruppi):
+            cattive.update(idx[gi] for gi in ris)
+    for k in cattive:
+        piano[k].update(tipo='pexels_foto', src=scheda_testo(piano[k]['testo'], k), scritta='')
+    log(f'CONTROLLO VISIVO: {len(idx)} immagini vere guardate, {len(cattive)} scartate e sostituite da schede di testo')
+    if len(cattive) > max(6, len(idx) * 0.15):
+        raise RuntimeError(f'VIDEO BLOCCATO (immagini): {len(cattive)} immagini vere su {len(idx)} fuori epoca o con persone di oggi: NON caricato')
+
+
 def _font_scene(sz):
     for nome in ('LuckiestGuy.ttf', 'Oswald-SemiBold.ttf', 'EBGaramond-SemiBold.ttf'):
         p = os.path.join(FONT, nome)
@@ -3183,6 +3263,8 @@ def video_scene(c, durs, voci, kit):
         log(f"ATTENZIONE: {_STOP['lunghe']} scene assorbite fanno superare {massimo:.1f} s ai vicini")
     piano = [v for v in piano if not v.get('salta')]
     log(f'immagini: {len(mancanti)} scene senza disegno -> {sum(riparate)} immagini vere di riserva, {len(ancora)} assorbite dai vicini')
+    controllo_visivo(piano)
+    controllo_lingua(piano)
     nome_font = c.get('font_carte') if c.get('font_carte') in FONT_EPOCA else 'classico'
 
     def fai(k):
