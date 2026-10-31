@@ -16,7 +16,10 @@ def applica(P, log=print):
         if not os.path.exists(f):
             return P
         ric = json.load(open(f))
-        v = next((x for x in ric.get('versioni', []) if x.get('n') == ric.get('versione_attiva')), None)
+        uguali = [x for x in ric.get('versioni', []) if x.get('n') == ric.get('versione_attiva')]
+        if len(uguali) > 1:   # 31 ott: due versioni con lo stesso numero -> si usava la prima (sbagliata)
+            log(f"coach: ATTENZIONE {len(uguali)} versioni numerate {ric.get('versione_attiva')}, uso l'ultima")
+        v = uguali[-1] if uguali else None
         if v and v.get('parametri'):
             # LUCCHETTO: budget, spese e tetti di immagini li decide solo Giorgio nel foglio: la ricetta non li puo' cambiare
             bloccati = [k for k in v['parametri'] if re.search(r'budget', k, re.I)]

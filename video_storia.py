@@ -515,7 +515,7 @@ Scegli la texture piu' coerente (washi per Giappone/Cina/Corea, papiro per Egitt
             if not c.get('scene'):
                 raise ValueError('copione senza scene')
             n_par = sum(len(str(s_.get('testo', '')).split()) for s_ in c['scene'])
-            if not PROVA and (n_par > massimo * 1.10 or (minimo and n_par < minimo * 0.90)):   # 31 ott: 2495 parole invece di 1300 = video da 16 min
+            if not PROVA and (n_par > massimo * 1.10 or (minimo and n_par < minimo * 0.85)):   # 31 ott: 2495 parole invece di 1300 = video da 16 min
                 contenuto_extra = (f"\n\nATTENZIONE: il tentativo precedente aveva {n_par} parole di parlato: FUORI LIMITE. "
                                    f"Il parlato totale deve essere tra {minimo} e {massimo} parole (conta le parole del campo testo di tutte le scene).")
                 prompt = prompt.split('\n\nATTENZIONE: il tentativo precedente')[0] + contenuto_extra
@@ -948,6 +948,10 @@ def regole_finali(n_sf):
          "oppure le persone ANTICHE di cui si parla. Abiti moderni o dell'800 (giacca, cravatta, panciotto) SOLO se la scena e' ambientata esplicitamente in quell'epoca.",
          f"- IMMAGINI MAI RIPETUTE: ogni visivo \"cartone\" usa un'immagine DIVERSA (s1, s2, s3... in ordine, ognuna UNA sola volta). I visivi cartone sono quindi al massimo {n_sf}: "
          "se la scena e' lunga, il visivo dura di piu' (gli stacchi li fa il montaggio). Mai la stessa immagine in due visivi."]
+    if REGIA and TAVOLE:   # la regia delle inquadrature la fa un passaggio separato: i visivi del copione non si usano (meta' dei token spesi per niente)
+        r.append('- VISIVI: questo video ha una REGIA SEPARATA. In ogni scena scrivi "visivi": [] (lista vuota) e "fondi_carte": []. '
+                 'Concentrati sul PARLATO. "sfondi": al massimo 2, con prompt_en breve. Ignora le istruzioni sui visivi scritte sopra.')
+        return '\n'.join(r)
     if SOLO_PEXELS:
         r.append("- NIENTE DISEGNI: NESSUN visivo \"cartone\" e \"sfondi\" = []. Il video e' fatto SOLO di \"pexels_video\" (preferiti), \"pexels_foto\" e UNA \"mappa\" all'inizio.")
     if BUDGET > 0 or SOLO_PEXELS:

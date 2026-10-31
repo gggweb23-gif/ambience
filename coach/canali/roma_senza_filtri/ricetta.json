@@ -1,78 +1,79 @@
 {
-  "channel_id": "Roma Senza Filtri",
-  "competitor": "Rome Unscrolled (vita quotidiana nell'antica Roma)",
-  "stile_base": "Argomenti e titoli di Rome Unscrolled (vita dei soldati e della gente nell'antica Roma). Gancio a cartone stile competitor nei primi ~25 s, poi clip/foto vere coerenti con l'epoca (mai nulla di moderno), ritmo da TV: inquadrature max 4 s ma senza confusione. Copertine primo piano a fuoco. Motore video_storia.py.",
-  "versione_attiva": 3,
-  "migliore": null,
-  "stato": "in_prova",
-  "versioni": [
-    {
-      "n": 1,
-      "dal": "2026-10-30 19:15",
-      "cosa": "Stile attuale al 30 ott 2026: cartone 100%, disegni senza tetto (budget_video = NO), durata dal foglio",
-      "leva": "partenza",
-      "parametri": {},
-      "risultati": null,
-      "decisione": null
-    },
-    {
-      "n": 2,
-      "dal": "2026-10-30 21:10",
-      "cosa": "Nuovo angolo per stare in 1 euro: gancio iniziale a cartone (2 tavole) poi clip e foto vere d'epoca controllate (niente anacronismi), inquadrature mai oltre 4 s; mai la stessa immagine due volte nel video",
-      "leva": "COSTO (scelta di Giorgio sulla prova B del 30 ott)",
-      "parametri": {
-        "modo_immagini": "misto",
-        "ritmo_max": "4",
-        "pexels_da_secondi": "25",
-        "distanza_immagini": "99999"
-      },
-      "risultati": {
-        "costo_dollari": 4.07,
-        "nota": "Haiku 1316 controlli clip 2,53 $, Sonnet 9 chiamate 1,38 $, disegni 0,16 $"
-      },
-      "decisione": "fuori budget: versione 3 con le stesse scelte di stile ma spesa ridotta"
-    },
-    {
-      "n": 3,
-      "dal": "2026-10-31 06:44",
-      "cosa": "Come la versione 2 (stesso stile, stesse clip, stessi controlli anacronismi) ma le clip Pexels gia' bocciate da Claude non vengono piu' ricontrollate a ogni inquadratura",
-      "leva": "COSTO",
-      "parametri": {
-        "modo_immagini": "misto",
-        "ritmo_max": "4",
-        "pexels_da_secondi": "25",
-        "distanza_immagini": "99999",
-        "ricorda_scartate": "SI"
-      },
-      "risultati": null,
-      "decisione": null
-    },
-    {
-      "n": 3,
-      "dal": "2026-10-31 09:30",
-      "cosa": "Stesso stile della v2 dentro 1 euro: inquadrature 3-3,8 s (max 4), regia con Haiku, controllo clip su 2 fotogrammi e 3 candidate, lucchetto sul totale del video",
-      "leva": "COSTO",
-      "parametri": {
-        "modo_immagini": "misto",
-        "ritmo_max": "4",
-        "pexels_da_secondi": "25",
-        "distanza_immagini": "99999",
-        "ritmo": "3;3.5;3.8",
-        "modello_regia": "claude-haiku-4-5-20251001",
-        "fotogrammi_controllo": "2",
-        "candidati_controllo": "3"
-      },
-      "risultati": null,
-      "decisione": null
-    }
-  ],
-  "registro": [
-    "2026-10-30: versione 1 di partenza = stile attuale del canale.",
-    "2026-10-30: Giorgio autorizza il cambio di grafiche e stile di Faces per rispettare il budget di 1 euro.",
-    "2026-10-30: Giorgio sceglie la prova B (cartone + clip vere); chiede zero anacronismi (scartare ruspe/bobcat ecc.) e inquadrature mai oltre 4 s, dinamiche ma non confuse. Versione 2.",
-    "2026-10-31: coach - versione 2 costata 4,07 $ (budget 1 $): 2,53 $ di Haiku sprecati a ricontrollare clip gia' bocciate (1029 controlli a vuoto su 1316). Versione 3: ricorda_scartate = SI (costo zero, nessun cambio di stile). Stima Haiku <= 0,8 $. Resta il copione con Sonnet (1,38 $): proposta a Giorgio.",
-    "2026-10-31: prova breve v3 (run 41177857552) riuscita: 0,33 $ (come la prova v2 da 0,33 $), nessun errore, ricetta letta correttamente. Versione 3 attiva dal prossimo video.",
-    "2026-10-31: v2 costata 4,07 $. Giorgio: trovare la soluzione migliore dentro 1 euro massimo. Versione 3."
-  ],
-  "autorizzazioni": "Giorgio (30 ott 2026): per Faces of Rome il coach PUO' cambiare grafiche e stile (copertina e video), anche lasciando il cartone, pur di stare nel budget di 1 euro a video; resta l'argomento e il competitor (Rome Unscrolled) come base, con un tratto distintivo."
+ "channel_id": "Roma Senza Filtri",
+ "competitor": "Rome Unscrolled (vita quotidiana nell'antica Roma)",
+ "stile_base": "Argomenti e titoli di Rome Unscrolled (vita dei soldati e della gente nell'antica Roma). Gancio a cartone stile competitor nei primi ~25 s, poi clip/foto vere coerenti con l'epoca (mai nulla di moderno), ritmo da TV: inquadrature max 4 s ma senza confusione. Copertine primo piano a fuoco. Motore video_storia.py.",
+ "versione_attiva": 4,
+ "migliore": null,
+ "stato": "in_prova",
+ "versioni": [
+  {
+   "n": 1,
+   "dal": "2026-10-30 19:15",
+   "cosa": "Stile attuale al 30 ott 2026: cartone 100%, disegni senza tetto (budget_video = NO), durata dal foglio",
+   "leva": "partenza",
+   "parametri": {},
+   "risultati": null,
+   "decisione": null
+  },
+  {
+   "n": 2,
+   "dal": "2026-10-30 21:10",
+   "cosa": "Nuovo angolo per stare in 1 euro: gancio iniziale a cartone (2 tavole) poi clip e foto vere d'epoca controllate (niente anacronismi), inquadrature mai oltre 4 s; mai la stessa immagine due volte nel video",
+   "leva": "COSTO (scelta di Giorgio sulla prova B del 30 ott)",
+   "parametri": {
+    "modo_immagini": "misto",
+    "ritmo_max": "4",
+    "pexels_da_secondi": "25",
+    "distanza_immagini": "99999"
+   },
+   "risultati": {
+    "costo_dollari": 4.07,
+    "nota": "Haiku 1316 controlli clip 2,53 $, Sonnet 9 chiamate 1,38 $, disegni 0,16 $"
+   },
+   "decisione": "fuori budget: versione 3 con le stesse scelte di stile ma spesa ridotta"
+  },
+  {
+   "n": 3,
+   "dal": "2026-10-31 06:44",
+   "cosa": "Come la versione 2 (stesso stile, stesse clip, stessi controlli anacronismi) ma le clip Pexels gia' bocciate da Claude non vengono piu' ricontrollate a ogni inquadratura",
+   "leva": "COSTO",
+   "parametri": {
+    "modo_immagini": "misto",
+    "ritmo_max": "4",
+    "pexels_da_secondi": "25",
+    "distanza_immagini": "99999",
+    "ricorda_scartate": "SI"
+   },
+   "risultati": null,
+   "decisione": null
+  },
+  {
+   "n": 4,
+   "dal": "2026-10-31 09:30",
+   "cosa": "Stesso stile della v2 dentro 1 euro: inquadrature 3-3,8 s (max 4), regia con Haiku, controllo clip su 2 fotogrammi e 3 candidate, lucchetto sul totale del video (rinumerata 4 il 31 ott: era duplicata come 3 e non veniva mai applicata)",
+   "leva": "COSTO",
+   "parametri": {
+    "modo_immagini": "misto",
+    "ritmo_max": "4",
+    "pexels_da_secondi": "25",
+    "distanza_immagini": "99999",
+    "ritmo": "3;3.5;3.8",
+    "modello_regia": "claude-haiku-4-5-20251001",
+    "fotogrammi_controllo": "2",
+    "candidati_controllo": "3",
+    "ricorda_scartate": "SI"
+   },
+   "risultati": null,
+   "decisione": null
+  }
+ ],
+ "registro": [
+  "2026-10-30: versione 1 di partenza = stile attuale del canale.",
+  "2026-10-30: Giorgio autorizza il cambio di grafiche e stile di Faces per rispettare il budget di 1 euro.",
+  "2026-10-30: Giorgio sceglie la prova B (cartone + clip vere); chiede zero anacronismi (scartare ruspe/bobcat ecc.) e inquadrature mai oltre 4 s, dinamiche ma non confuse. Versione 2.",
+  "2026-10-31: coach - versione 2 costata 4,07 $ (budget 1 $): 2,53 $ di Haiku sprecati a ricontrollare clip gia' bocciate (1029 controlli a vuoto su 1316). Versione 3: ricorda_scartate = SI (costo zero, nessun cambio di stile). Stima Haiku <= 0,8 $. Resta il copione con Sonnet (1,38 $): proposta a Giorgio.",
+  "2026-10-31: prova breve v3 (run 41177857552) riuscita: 0,33 $ (come la prova v2 da 0,33 $), nessun errore, ricetta letta correttamente. Versione 3 attiva dal prossimo video.",
+  "2026-10-31: v2 costata 4,07 $. Giorgio: trovare la soluzione migliore dentro 1 euro massimo. Versione 3."
+ ],
+ "autorizzazioni": "Giorgio (30 ott 2026): per Faces of Rome il coach PUO' cambiare grafiche e stile (copertina e video), anche lasciando il cartone, pur di stare nel budget di 1 euro a video; resta l'argomento e il competitor (Rome Unscrolled) come base, con un tratto distintivo."
 }
