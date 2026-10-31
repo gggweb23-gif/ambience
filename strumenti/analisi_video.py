@@ -107,5 +107,38 @@ try:
 except Exception as e:
     dati['video_non_scaricato'] = str(e)[:300]; log('video non scaricato:', str(e)[:200])
 
+
+# 4) se il video non si scarica: storyboard di YouTube (le miniature che si vedono scorrendo la barra) -> com'e' fatto il video
+if 'video_non_scaricato' in dati:
+    try:
+        corpo = json.dumps({'videoId': VID, 'context': {'client': {'clientName': 'WEB', 'clientVersion': '2.20250101.00.00', 'hl': 'en'}}}).encode()
+        pr = get('https://www.youtube.com/youtubei/v1/player?prettyPrint=false', corpo, {'Content-Type': 'application/json'})
+        spec = pr['storyboards']['playerStoryboardSpecRenderer']['spec'].split('|')
+        base = spec[0]; livelli = spec[1:]
+        L = len(livelli) - 1                                 # il livello piu' dettagliato
+        w, h, tot, col, righe, ms, nome, sigh = livelli[L].split('#')
+        w, h, tot, col, righe, ms = int(w), int(h), int(tot), int(col), int(righe), int(ms)
+        per_foglio = col * righe; usati = []
+        for f in range(0, (tot + per_foglio - 1) // per_foglio):
+            if f * per_foglio * ms / 1000 > SEC:
+                break
+            u = base.replace('$L', str(L)).replace('$N', nome.replace('$M', str(f))) + '&sigh=' + sigh
+            usati.append(Image.open(__import__('io').BytesIO(get(u, raw=True))))
+        tiles = []
+        for im in usati:
+            for r_ in range(righe):
+                for c_ in range(col):
+                    tiles.append(im.crop((c_ * w, r_ * h, (c_ + 1) * w, (r_ + 1) * h)))
+        tiles = [t for i, t in enumerate(tiles) if i * ms / 1000 <= SEC]
+        c8 = 10; G = Image.new('RGB', (c8 * w, ((len(tiles) + c8 - 1) // c8) * (h + 14)), 'black'); d = ImageDraw.Draw(G)
+        for i, t in enumerate(tiles):
+            x, y = (i % c8) * w, (i // c8) * (h + 14)
+            G.paste(t, (x, y + 14)); d.text((x + 3, y + 1), f'{i * ms / 1000:.0f}s', fill='yellow')
+        G.save(os.path.join(CART, 'storyboard.jpg'), quality=85)
+        dati['storyboard'] = f'un fotogramma ogni {ms / 1000:.1f} s, {len(tiles)} fotogrammi'
+        log('storyboard', dati['storyboard'])
+    except Exception as e:
+        dati['storyboard_errore'] = str(e)[:200]; log('storyboard non letto:', str(e)[:200])
+
 json.dump(dati, open(os.path.join(CART, 'dati.json'), 'w'), ensure_ascii=False, indent=1)
 log('FATTO')
