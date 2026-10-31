@@ -1,0 +1,895 @@
+{
+ "riserva_pexels": [
+  "Hadrian's Wall Northumberland landscape",
+  "snowy pine forest Europe",
+  "ancient stone ruins Britain",
+  "frozen lake winter fog",
+  "burning charcoal embers close up",
+  "wool texture close up",
+  "starry night sky winter",
+  "misty hills northern England"
+ ],
+ "luoghi_paese": "britain, british, roman britain, england, northumberland, hadrian's wall, vindolanda, housesteads, cumbria, pennines, scotland, rhine, danube, germania, armenia, wall, fort, moorland, heather, bracken, drizzle, mist, ruins, stone",
+ "titolo": "How Did Roman Soldiers Survive Freezing Nights Without Heaters? The Secrets They Never Taught You",
+ "titolo_mappa": "ROMAN BRITAIN",
+ "paese_mappa": "",
+ "date": "43 – 410 d.C.",
+ "texture": "pergamena",
+ "font_carte": "antico",
+ "fondi_carte": [],
+ "colori_carte": [
+  "#6b1e1e",
+  "#1d3557"
+ ],
+ "sfondi": [
+  {
+   "id": "s1",
+   "prompt_en": "Cartoon night scene on a snowy Roman fort wall in Britain, a lone legionary sentry with frosted helmet and red cloak shivering, breath clouds, full moon, watchtower behind, dramatic cold blue palette",
+   "personaggi": [
+    "legionario"
+   ]
+  },
+  {
+   "id": "s2",
+   "prompt_en": "Cartoon dawn at a snowy Roman frontier fort, eight legionaries huddled around a glowing charcoal brazier outside a leather tent, steaming cups, wool cloaks, warm orange light against blue snow, wide shot",
+   "personaggi": [
+    "legionario"
+   ]
+  }
+ ],
+ "scene": [
+  {
+   "capitolo": "The Frozen Wall",
+   "testo": "A Roman soldier stands on a frozen wall for three hours with no protective gear, then sleeps in an unheated stone room. Men like him endured this for 400 years across Britain, the Rhine, the Danube, and Armenia.",
+   "anno": 122,
+   "visivi": [
+    {
+     "tipo": "cartone",
+     "frase": "A Roman soldier stands",
+     "sfondo": "s1",
+     "personaggio": "legionario",
+     "data": "122 d.C.",
+     "suono": "howling icy wind over stone walls"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "unheated stone room",
+     "q": "Hadrian's Wall snow Northumberland"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "400 years across Britain",
+     "q": "ancient stone ruins Britain winter",
+     "didascalia": "400 years on the frontier"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "the Danube, and Armenia",
+     "q": "frozen river mountains winter Europe"
+    }
+   ]
+  },
+  {
+   "testo": "Napoleon's army froze in Russia in weeks, yet Rome held frozen ground for generations. They knew something we forgot. Cold kills in stages: first your fingers stop feeling, then your hands fail, then your body numbs dangerously.",
+   "anno": 122,
+   "visivi": [
+    {
+     "tipo": "mappa",
+     "frase": "Napoleon's army froze"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "held frozen ground",
+     "q": "snowy moorland Northumberland fog"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Cold kills in stages",
+     "q": "frost covered grass close up"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "your body numbs",
+     "q": "icicles melting close up winter"
+    }
+   ]
+  },
+  {
+   "testo": "Wine froze solid enough to cut with a blade in these brutal postings nobody wanted. The solution wasn't fur or fire, but something so ordinary you've probably walked past it this year.",
+   "anno": 122,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "Wine froze solid",
+     "q": "frozen ice crystals dark background"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "brutal postings nobody wanted",
+     "q": "misty hills northern England"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "so ordinary you've probably",
+     "q": "sheep wool field hills England"
+    }
+   ]
+  },
+  {
+   "capitolo": "Tacitus and Cold",
+   "testo": "The Roman historian Tacitus documented a catastrophic winter campaign in Armenia where soldiers froze solid at their posts, unable to move. The army recognized cold as a deadly enemy and systematically studied it, building disciplinary systems to fight it.",
+   "anno": 60,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Roman historian Tacitus",
+     "q": "ancient manuscript pages candlelight"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "campaign in Armenia",
+     "q": "Armenia snowy mountains winter"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "deadly enemy and systematically",
+     "q": "snowstorm pine trees night"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "disciplinary systems",
+     "q": "ancient Roman fort ruins stone"
+    }
+   ]
+  },
+  {
+   "capitolo": "Letters From Vindolanda",
+   "testo": "In 1973, archaeologists at Vindolanda fort discovered 1,900-year-old wooden letters preserved in mud, revealing ordinary human concerns. One letter described a care package containing socks and sandals sent to a soldier in Britain's coldest corner.",
+   "anno": 100,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "In 1973, archaeologists",
+     "q": "Vindolanda fort ruins Northumberland",
+     "didascalia": "1973: wooden letters found"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "preserved in mud",
+     "q": "wooden tablet ancient handwriting museum"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "socks and sandals",
+     "q": "woolen socks knitted close up"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Britain's coldest corner",
+     "q": "Hadrian's Wall winter mist hills"
+    }
+   ]
+  },
+  {
+   "testo": "A worried family member sent those socks 2,000 years ago because they cared about their loved one's feet. These socks represent real people within history, not just textbook dates.",
+   "anno": 100,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "A worried family member",
+     "q": "old letter parchment candlelight"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "These socks represent real people",
+     "q": "ancient artifacts museum display"
+    }
+   ]
+  },
+  {
+   "capitolo": "Wool and Cloaks",
+   "testo": "Roman soldiers in the north wore wool, not the bare-legged armor shown in statues. Raw wool contains lanolin, a natural grease that makes it waterproof and insulating even when wet.",
+   "anno": 122,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "Roman soldiers in the north",
+     "q": "Roman statue bare legs museum"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Raw wool contains lanolin",
+     "q": "raw sheep wool texture close up"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "waterproof and insulating",
+     "q": "rain drops on wool fabric"
+    }
+   ]
+  },
+  {
+   "testo": "The birrus Britannicus, a hooded cloak from Roman Britain, was so effective that the Empire listed it as a premium luxury export. Rome paid serious money for rain gear made by people living in drizzle, because survival depended on perfecting the product.",
+   "anno": 301,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "The birrus Britannicus",
+     "q": "hooded wool cloak hanging rustic"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "premium luxury export",
+     "q": "ancient Roman coins gold close up"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "people living in drizzle",
+     "q": "drizzle rain misty English hills"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "survival depended on perfecting",
+     "q": "weaving loom wool threads"
+    }
+   ]
+  },
+  {
+   "testo": "A cloak alone couldn't survive a sixteen-hour night, so Romans adopted trousers, the bracae, despite centuries of mocking this barbarian clothing. Legionaries rejected fashion for practicality, wearing wool leggings and layering tunics like modern mountaineers.",
+   "anno": 122,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "sixteen-hour night",
+     "q": "long winter night starry sky hills"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "trousers, the bracae",
+     "q": "wool trousers fabric folded"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "mocking this barbarian clothing",
+     "q": "layered wool clothing folded stack"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "like modern mountaineers",
+     "q": "snowy mountain ridge wind"
+    }
+   ]
+  },
+  {
+   "testo": "The famous caliga boot, designed brilliantly for Italy, became a disaster in British winters. Its open design let freezing mud destroy toes. Northern armies quietly changed to enclosed boots and wore socks, sometimes even with sandals.",
+   "anno": 122,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "The famous caliga boot",
+     "q": "ancient leather sandal museum"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "freezing mud destroy toes",
+     "q": "muddy frozen ground close up"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "enclosed boots and wore socks",
+     "q": "old leather boot artifact"
+    }
+   ]
+  },
+  {
+   "capitolo": "The Contubernium",
+   "testo": "The basic unit wasn't the legion but the contubernium: eight men who ate, marched, and slept together. At night, these eight men did something no modern soldier would accept to stay alive.",
+   "anno": 122,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "The basic unit wasn't",
+     "q": "ancient Roman fort reconstruction gate"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "eight men who ate",
+     "q": "leather tent canvas camp snow"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "did something no modern soldier",
+     "q": "campfire embers night snow"
+    }
+   ]
+  },
+  {
+   "testo": "A leather tent housed eight soldiers whose combined body heat reached 800 watts, a portable heating system. Barracks used paired rooms: a front buffer space for wet gear and a back sleeping chamber.",
+   "anno": 122,
+   "visivi": [
+    {
+     "tipo": "cartone",
+     "frase": "A leather tent housed",
+     "sfondo": "s2",
+     "personaggio": "legionario",
+     "suono": "crackling fire, soft wind"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "combined body heat reached",
+     "q": "warm glow tent night snow",
+     "didascalia": "8 men = 800 watts"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Barracks used paired rooms",
+     "q": "Housesteads fort barracks foundations"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "back sleeping chamber",
+     "q": "old stone room interior dim light"
+    }
+   ]
+  },
+  {
+   "capitolo": "Fire and Fuel",
+   "testo": "Stone rooms with small fires acted as thermal batteries, warming up in the evening and releasing heat at night. Charcoal braziers provided portable heating, burning hot and steady with minimal smoke. But this posed a silent danger Roman writers documented.",
+   "anno": 122,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Stone rooms with small fires",
+     "q": "fire burning stone hearth close up"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Charcoal braziers provided",
+     "q": "glowing charcoal embers close up"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "silent danger Roman writers",
+     "q": "ancient scroll manuscript close up"
+    }
+   ]
+  },
+  {
+   "testo": "What risk came from charcoal that soldiers never saw coming? Braziers in closed rooms produce odorless, colorless carbon monoxide that replaces oxygen in your blood. Roman authors warned of people found unresponsive in sealed spaces.",
+   "anno": 122,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "What risk came from charcoal",
+     "q": "smoke rising dark background"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "odorless, colorless carbon monoxide",
+     "q": "ash and embers dark close up"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "found unresponsive in sealed",
+     "q": "closed wooden door dim light"
+    }
+   ]
+  },
+  {
+   "testo": "Ventilation prevented poisoning but let cold air in, a constant trade-off. A single 500-man fort needed hundreds of tons of wood every year for cooking, heating, and bathhouses, making fuel a critical military strategy.",
+   "anno": 122,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Ventilation prevented poisoning",
+     "q": "cold wind through stone window"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "A single 500-man fort",
+     "q": "Housesteads fort aerial ruins",
+     "didascalia": "Hundreds of tons of wood yearly"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "hundreds of tons of wood",
+     "q": "stacked firewood logs pile"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "critical military strategy",
+     "q": "forest felled trees stumps"
+    }
+   ]
+  },
+  {
+   "testo": "Raiding parties targeted wood supplies rather than engaging garrisons directly, stripping the landscape of trees. Desperate for fuel, Romans along Hadrian's Wall burned coal from exposed seams because it burned slower and hotter than wood.",
+   "anno": 200,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Raiding parties targeted wood",
+     "q": "bare hills deforested moorland"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Hadrian's Wall burned coal",
+     "q": "Hadrian's Wall Northumberland sunset"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "exposed seams",
+     "q": "coal seam rock close up"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "slower and hotter than wood",
+     "q": "burning coal glowing embers"
+    }
+   ]
+  },
+  {
+   "testo": "The Romans solved their energy crisis 1,600 years before the Industrial Revolution, using coal at frontier shrines and altars.",
+   "anno": 200,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "energy crisis 1,600 years",
+     "q": "ancient stone altar ruins Britain",
+     "didascalia": "1,600 years before industry"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "coal at frontier shrines",
+     "q": "flame burning ancient stone altar"
+    }
+   ]
+  },
+  {
+   "capitolo": "Bathhouses and Watches",
+   "testo": "Bathhouses weren't luxury in frontier forts. They were medical infrastructure with hypocaust underfloor heating. Hot air from furnaces traveled under floors and through hollow wall tiles, rapidly rewarming soldiers returning from freezing night watches.",
+   "anno": 150,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Bathhouses weren't luxury",
+     "q": "Roman bathhouse ruins Britain"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "hypocaust underfloor heating",
+     "q": "hypocaust pillars Roman ruins"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Hot air from furnaces",
+     "q": "furnace fire glowing stone"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "freezing night watches",
+     "q": "watchtower snow night moon"
+    }
+   ]
+  },
+  {
+   "testo": "Romans built bathhouses outside fort walls despite tactical risks, because furnaces posed fire hazards near timber buildings. The night watch wasn't just security, it was thermal mathematics, dividing darkness into four blocks called vigiliae.",
+   "anno": 150,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "bathhouses outside fort walls",
+     "q": "Chesters Roman fort bathhouse ruins"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "fire hazards near timber",
+     "q": "wooden beams fire sparks dark"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "four blocks called vigiliae",
+     "q": "night sky time lapse stars"
+    }
+   ]
+  },
+  {
+   "testo": "In winter's sixteen-hour darkness each watch stretched dangerously long. Soldiers rotated guard duty to prevent hypothermia-induced sleep, a death sentence in freezing conditions.",
+   "anno": 150,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "In winter's sixteen-hour darkness",
+     "q": "dark winter night moorland frost"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "rotated guard duty",
+     "q": "lantern glowing night fog"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "a death sentence in freezing",
+     "q": "frozen landscape blizzard wind"
+    }
+   ]
+  },
+  {
+   "capitolo": "Food and Posca",
+   "testo": "The army fueled troops with grain-based bread and porridge, plus fat from bacon and lard, for sustained internal heat. Hot posca, sour wine mixed with water, hydrated soldiers and delivered warmth directly to their core.",
+   "anno": 150,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "grain-based bread and porridge",
+     "q": "porridge steaming pot rustic"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "fat from bacon and lard",
+     "q": "bacon fat pan sizzling"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Hot posca, sour wine",
+     "q": "steam rising clay cup"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "warmth directly to their core",
+     "q": "wine amphora ancient clay"
+    }
+   ]
+  },
+  {
+   "testo": "Roman officers instinctively created a cold-weather nutrition plan centuries before science explained why it worked. Unlike later armies, Romans avoided strong alcohol because it dilates blood vessels, making you feel warm while losing core heat.",
+   "anno": 150,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "cold-weather nutrition plan",
+     "q": "grain sacks wheat granary"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "avoided strong alcohol",
+     "q": "pouring wine into cup dark"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "losing core heat",
+     "q": "breath fog cold air close up"
+    }
+   ]
+  },
+  {
+   "testo": "Roman soldiers drank watered wine, not spirits, because drunk sentries lose forts and freeze to death. Rome even stationed units far from home, including Syrian archers in frozen Britain, so they wouldn't sympathize with local rebels.",
+   "anno": 150,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "drank watered wine",
+     "q": "clay jug water wine ancient"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Syrian archers in frozen Britain",
+     "q": "Syria desert ruins Palmyra"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "sympathize with local rebels",
+     "q": "misty Scottish highlands rugged"
+    }
+   ]
+  },
+  {
+   "testo": "These men had no cultural memory of northern winters and had to learn survival from those around them, or die. Behind the system were individuals trapped far from anywhere warm.",
+   "anno": 150,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "no cultural memory of northern",
+     "q": "snow falling dark forest edge"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "individuals trapped far from",
+     "q": "lonely stone wall winter hills"
+    }
+   ]
+  },
+  {
+   "capitolo": "Beds and Frostbite",
+   "testo": "The archaeology reveals soldiers slept on bracken, straw, heather, and wool, not mattresses. This is a rule modern survival instructors still teach. Cold comes from the ground through conduction, which is faster than wind.",
+   "anno": 150,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "slept on bracken, straw",
+     "q": "dry bracken ferns close up"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "heather, and wool",
+     "q": "heather moorland hills Britain"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Cold comes from the ground",
+     "q": "frozen ground frost crystals"
+    }
+   ]
+  },
+  {
+   "testo": "Dry bracken provides insulation by trapping air, while the wool sagum served as both cloak and blanket. The army treated cold injury seriously, with warming oil, gentle rubbing, and slow rewarming by fire.",
+   "anno": 150,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "Dry bracken provides insulation",
+     "q": "straw bedding hay close up"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "wool sagum served",
+     "q": "wool blanket folded rustic"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "slow rewarming by fire",
+     "q": "hands warming near fire"
+    }
+   ]
+  },
+  {
+   "testo": "Modern medicine took centuries to learn what Romans already knew: aggressive rewarming destroys frozen tissue. Commanders treated dry clothing and shelter as military responsibilities, not luxuries.",
+   "anno": 150,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "Modern medicine took centuries",
+     "q": "ancient Roman medical tools museum"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "dry clothing and shelter",
+     "q": "clothes drying by fireplace"
+    }
+   ]
+  },
+  {
+   "capitolo": "Work and Supply",
+   "testo": "Cavalry forts housed horses and mules in stables built into the barracks, where animals provided extra heat. Winter forts weren't hibernation. Soldiers constantly drilled, repaired equipment, and built structures, because an idle army rots.",
+   "anno": 150,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Cavalry forts housed horses",
+     "q": "horses stable straw warm breath"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Winter forts weren't hibernation",
+     "q": "Roman fort wall stone construction"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "an idle army rots",
+     "q": "pickaxe hammering stone quarry"
+    }
+   ]
+  },
+  {
+   "testo": "Work itself generates heat. A man swinging a pick produces several hundred watts. Rome built an unprecedented supply chain delivering olive oil from Spain, wine from Gaul, fish sauce, grain, and wool across thousands of miles to frontier forts.",
+   "anno": 150,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "A man swinging a pick",
+     "q": "old pickaxe tool stone"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "olive oil from Spain",
+     "q": "olive oil pouring amphora"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "wine from Gaul",
+     "q": "vineyard hills France autumn"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "across thousands of miles",
+     "q": "Mediterranean sea ancient harbor"
+    }
+   ]
+  },
+  {
+   "testo": "A soldier on Hadrian's Wall stood at the end of a Mediterranean logistics network supplying fuel, fat, and clothing in February. The fort in January was a construction site with sentries, powered by constant movement. Rome beat winter with paperwork, warehouses, and wool, not heroes.",
+   "anno": 150,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "A soldier on Hadrian's Wall",
+     "q": "Hadrian's Wall winter dawn"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Mediterranean logistics network",
+     "q": "stone warehouse granary ruins Roman"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "beat winter with paperwork",
+     "q": "quill writing parchment candle"
+    }
+   ]
+  },
+  {
+   "capitolo": "Darkness and Fear",
+   "testo": "Ancient northern nights were so dark that soldiers couldn't see their own hands, creating real danger from raiders and ambushes. The night watch relied on trumpet calls, passwords, and wooden tablets carried between posts.",
+   "anno": 150,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Ancient northern nights were",
+     "q": "pitch dark night fog hills"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "trumpet calls, passwords",
+     "q": "ancient bronze horn trumpet"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "wooden tablets carried",
+     "q": "wooden writing tablet ancient"
+    }
+   ]
+  },
+  {
+   "testo": "Fear drove men to leave curse tablets at shrines and pay for altars to frontier gods. Desertion was common enough that Roman law created detailed penalties, from brutal punishment to execution.",
+   "anno": 150,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "leave curse tablets at shrines",
+     "q": "ancient lead tablet inscription"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "altars to frontier gods",
+     "q": "Roman altar stone inscription"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Desertion was common enough",
+     "q": "empty road mist moorland"
+    }
+   ]
+  },
+  {
+   "capitolo": "What Really Kept Them Alive",
+   "testo": "Rome understood that comfort, meaning warm cloaks, hearths, and hot food, was a retention policy to keep soldiers from disappearing into the countryside. The most important gear was simply wool: layered, greasy, and moisture-managing.",
+   "anno": 150,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "warm cloaks, hearths",
+     "q": "hearth fire warm glow stone"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "simply wool: layered, greasy",
+     "q": "wool fibers close up natural"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "moisture-managing",
+     "q": "water beading on wool fabric"
+    }
+   ]
+  },
+  {
+   "testo": "Survival wasn't about invention but organization: layered clothing, heated stone rooms, rotating watches, hot wine, and bathhouses, enforced nightly for 400 years.",
+   "anno": 300,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "wasn't about invention but organization",
+     "q": "Roman fort ruins aerial Britain"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "enforced nightly for 400 years",
+     "q": "Vindolanda ruins sunset stone",
+     "didascalia": "400 years of nightly discipline"
+    }
+   ]
+  },
+  {
+   "testo": "That soldier on the wall survived not because he was tougher, but because a thousand small decisions were made for him. Someone cut wood, stoked fires, and sent socks.",
+   "anno": 150,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "That soldier on the wall",
+     "q": "lone wall mist dawn Britain"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Someone cut wood, stoked fires",
+     "q": "stacked logs firewood axe"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "and sent socks",
+     "q": "woolen socks gift wrapped rustic"
+    }
+   ]
+  },
+  {
+   "testo": "An empire's true power isn't marble or eagles, but keeping ordinary men alive on freezing rocks through unglamorous discipline. But one Roman army lost this fight completely in the snow, and what happened changed Rome forever.",
+   "anno": 9,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "An empire's true power",
+     "q": "ancient marble ruins sunset"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "freezing rocks through unglamorous",
+     "q": "snow covered rocks winter dusk"
+    },
+    {
+     "tipo": "cartone",
+     "frase": "one Roman army lost",
+     "sfondo": "s1",
+     "personaggio": "legionario",
+     "suono": "blizzard wind, distant horns"
+    }
+   ]
+  }
+ ],
+ "copertina": {
+  "testo": "TOO COLD?",
+  "personaggio": "legionario"
+ },
+ "descrizione": "How did Roman soldiers survive freezing nights on Hadrian's Wall without heaters? In this animated history video we explore real life in the Roman army: wool clothing, the birrus Britannicus cloak, bracae trousers, the contubernium of eight men, charcoal braziers, hypocaust bathhouses and the hidden danger of carbon monoxide.\n\nDiscover the Vindolanda tablets, the famous letter with socks and sandals, how the night watch worked, why Romans drank posca instead of strong wine, and how a Mediterranean supply chain kept legions warm on the frozen frontier of Roman Britain for 400 years.\n\nIf you love Roman history, ancient history and daily life in ancient Rome, subscribe for more documentary-style stories from the Roman Empire.\n#RomanHistory #RomanArmy #HadriansWall #AncientRome #Vindolanda",
+ "tag": [
+  "how romans stayed warm",
+  "what roman soldiers wore",
+  "roman soldiers",
+  "roman army winter",
+  "roman history",
+  "ancient history",
+  "roman empire",
+  "roman legion",
+  "roman soldier life",
+  "daily life in ancient rome",
+  "hadrians wall",
+  "vindolanda",
+  "vindolanda tablets",
+  "roman britain",
+  "roman winter camp",
+  "roman clothing",
+  "birrus britannicus",
+  "roman bathhouse",
+  "hypocaust",
+  "roman military history",
+  "ancient rome documentary",
+  "roman history documentary",
+  "before civilization",
+  "roman soldiers cold",
+  "contubernium",
+  "posca",
+  "roman caliga boots",
+  "roman fort life",
+  "complete roman army history"
+ ],
+ "personaggi_mancanti": [],
+ "categoria_originale": "22"
+}
