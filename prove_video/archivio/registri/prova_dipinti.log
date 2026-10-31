@@ -1,21 +1,32 @@
-22:43:52 voce 44.3 s
-22:43:56 00 000 VIDEO Pexels 5846587 (Tima Miroshnichenko)
-22:43:58 01 001 DIPINTO Arthur-Pyle Sir Kay showeth the mystic sword unto Sir Ector.JPG | Howard Pyle 
-22:44:00 02 002 DIPINTO Arthur-Pyle How Arthur drew forth ye sword.JPG | Howard Pyle | Public domain p
-22:44:02 03 003 DIPINTO The taking of Excalibur, by John Duncan.jpg | Unserefahne | Public domain pd
-22:44:05 04 004 DIPINTO Nature is taking over. Excalibur Estate, Catford 2014-03-18.jpg | maggie jones
-22:44:15 05 005 DIPINTO Arthur Howes Weigall (c.1836-1894) - After Marriage - P29-76 - The New Art Gal
-22:44:16 06 006 DIPINTO Arthur Howes Weigall (c.1836-1894) - Before Marriage - P13-76 - The New Art Ga
-22:44:20 07 007 DIPINTO The Death of King Arthur by James Archer (1860).jpg | James Archer | Public do
-22:44:21 08 008 DIPINTO The Death of King Arthur by John Garrick.jpg | John Mulcaster Carrick | Public
-22:44:27 09 009 VIDEO Pexels 6081600 (Nelson Axigoth)
-22:44:28 10 010 DIPINTO Lady of the Lake MET ma1982.55.1.jpg | Horace Pippin | CC0 cc0
-22:44:30 11 011 DIPINTO CRANE King Arthur asks the lady of the lake for the sword Excalibur.jpg | Walt
-22:44:37 12 012 DIPINTO Le Morte d'Arthur.jpg | Author: Thomas Malory (c.1425-c. 1470) Illustrator:  A
-22:44:39 13 013 DIPINTO P538, Idler magazine 1898--Aubrey Beardsley.png | Aubrey Beardsley | Public do
-22:44:46 14 014 DIPINTO Ballads of bravery (1877) (14785021975).jpg | Internet Archive Book Images | N
-22:44:48 15 015 DIPINTO The Death of Cleopatra arthur.jpg | Reginald Arthur | Public domain pd
-22:44:51 16 016 VIDEO Pexels 36592043 (Giuseppe Paoletti)
-22:44:53 17 017 DIPINTO Susanoo-no-Mikoto-slays-Yamata-no-Orochi-in-Izumo-By-Tsukioka-Yoshitoshi.png |
-22:44:56 18 018 DIPINTO Susanoo-no-Mikoto-slays-Yamata-no-Orochi-in-Izumo-By-Tsukioka-Yoshitoshi repai
-22:45:46 FATTO prove_video/archivio/yorp_dipinti_spade/prova.mp4
+22:49:14 voce 44.1 s
+22:49:22 scena 0: 3 immagini/clip coerenti per 3 inquadrature
+22:49:24 00 000 DIPINTO Arthur-Pyle Sir Kay showeth the mystic sword unto Sir Ector.JPG | Howard Pyle 
+22:49:25 01 001 DIPINTO Arthur-Pyle How Arthur drew forth ye sword.JPG | Howard Pyle | Public domain p
+22:49:27 02 002 DIPINTO Stories King Arthur-073.jpg | Arthur Lincoln Haydon | Public domain pd
+22:49:48 scena 1: 4 immagini/clip coerenti per 2 inquadrature
+22:49:50 03 003 DIPINTO The taking of Excalibur, by John Duncan.jpg | Unserefahne | Public domain pd
+22:49:51 04 004 DIPINTO The Death of Breuse sans Pitié by Dante Gabriel Rossetti.jpg | Dante Gabriel R
+22:50:01 scena 2: 2 immagini/clip coerenti per 2 inquadrature
+Traceback (most recent call last):
+  File "/home/runner/work/ambience/ambience/strumenti/prova_dipinti.py", line 203, in <module>
+    img = Image.open(io.BytesIO(get(c['url'], raw=True))).convert('RGB')
+                                ~~~^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/ambience/ambience/strumenti/prova_dipinti.py", line 31, in get
+    with urllib.request.urlopen(req, timeout=timeout) as r:
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 187, in urlopen
+    return opener.open(url, data, timeout)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 493, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.14/urllib/request.py", line 602, in http_response
+    response = self.parent.error(
+        'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.14/urllib/request.py", line 531, in error
+    return self._call_chain(*args)
+           ~~~~~~~~~~~~~~~~^^^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 464, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.14/urllib/request.py", line 611, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 429: Your bot is making too many requests. Please reduce your request rate or contact bot-traffic@wikimedia.org (f263c81)
