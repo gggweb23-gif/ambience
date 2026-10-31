@@ -12,7 +12,7 @@ Cosa fa (stesso aspetto del template json2video di KAO, ma con le clip scelte qu
   4) sottotitoli come json2video "classic": Archivo Black 105 px, max 3 parole per riga, parola detta in giallo (#F2B33D),
      resto bianco, contorno nero 8, ombra 4. Tempi parola per parola con faster-whisper (riserva: tempi stimati);
   5) musica a rotazione: si parte da un brano a caso della lista, poi seguono gli altri, volume 0.03 (dal foglio);
-  6) suono di transizione tra le scene (se c'e'), invito iscrizione (immagine + clic + campana), schermata finale (se c'e').
+  6) suono di transizione tra le scene (se c'e'), invito iscrizione (immagine + clic + campana).
 Riceve da n8n (variabile PAYLOAD): {"id", "dati_url", "resume_url"}. Alla fine carica il video su Fal e chiama resume_url con
 {"movie": {"status": "done", "url", "duration"}} (oppure {"status": "failed", "message"}).
 """
@@ -809,23 +809,8 @@ def monta(dati, cartella, out):
         pezzi.append(o)
     if EFF:
         EF.chiudi()
-    # 5) schermata finale (end_screen_seconds): texture + "GUARDA ANCHE" a sinistra + nome canale
-    fine_sec = num(cfg.get('end_screen_seconds'), 0)
+    # 5) nessuna schermata finale (decisione di Giorgio, 31 ott 2026: mai su nessun canale)
     totale = totale_voce
-    if fine_sec >= 5:
-        from PIL import Image
-        try:
-            tex = scarica(texture[0], os.path.join(cartella, 'texture_fine.jpg')) if texture else None
-            img = Image.open(tex).convert('RGB').resize((W, H)) if tex else Image.new('RGB', (W, H), (20, 18, 24))
-        except Exception:
-            img = Image.new('RGB', (W, H), (20, 18, 24))
-        testo_grande(img, str(cfg.get('end_screen_text') or ('GUARDA ANCHE' if str(cfg.get('language') or 'it')[:2] == 'it' else 'WATCH NEXT')), cfg, (110, 200, 830, 760))   # lingua del canale
-        if str(cfg.get('channel_name') or '').strip():
-            testo_grande(img, str(cfg['channel_name']), cfg, (115, 760, 875, 850), colore='#FFFFFF', dim_max=50)
-        png = os.path.join(cartella, 'fine.jpg'); img.save(png, quality=92)
-        o = os.path.join(cartella, 'pezzo_fine.mp4')
-        pezzo_png(png, int(round(fine_sec * FPS)), o)
-        pezzi.append(o); totale += fine_sec
     lista_p = os.path.join(cartella, 'pezzi.txt')
     open(lista_p, 'w').write(''.join(f"file '{os.path.abspath(p)}'\n" for p in pezzi))
     base = os.path.join(cartella, 'base.mp4')
