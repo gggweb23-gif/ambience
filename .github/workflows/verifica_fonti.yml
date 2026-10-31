@@ -1,0 +1,27 @@
+name: Verifica fonti libere (gratis)
+
+on:
+  workflow_dispatch:
+    inputs:
+      query:
+        description: 'Ricerche separate da ; (es. roman soldier;roman lamp)'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  verifica:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Conta le immagini libere
+        env:
+          QUERY: ${{ inputs.query }}
+        run: python3 strumenti/verifica_fonti.py | tee verifica.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: verifica-fonti
+          path: verifica.txt
