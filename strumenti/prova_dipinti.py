@@ -21,7 +21,8 @@ UA = {'User-Agent': 'ambience-prova-dipinti/1.0 (gggweb23@gmail.com)'}
 random.seed(11)
 log = lambda *a: print(time.strftime('%H:%M:%S'), *a, flush=True)
 LIBERE = re.compile(r'public domain|^pd|cc0|cc-zero|no restrictions', re.I)
-NO_FILE = re.compile(r'\.(svg|pdf|djvu|tif|tiff|gif)$|map|diagram|chart|coat of arms|logo|flag|book|page|letter|manuscript page|signature|stamp|coin', re.I)
+NO_FILE = re.compile(r'\.(svg|pdf|djvu|tif|tiff|gif)$|map|diagram|chart|coat of arms|logo|flag|book|page|letter|manuscript page|signature|stamp|coin|'
+                     r'\bIMO\b|ship|vessel|boat|DSC|IMG_|\bphoto|museum|exhibit|statue of|car\b|train|aircraft', re.I)   # foto moderne, navi col nome della spada...
 
 
 def get(u, dati=None, h=None, raw=False, timeout=120):
@@ -135,7 +136,11 @@ for k, (s, (a, b)) in enumerate(zip(scene, tempi)):
             cmd = ['ffmpeg', '-y', '-v', 'error', '-ss', round(da, 2), '-t', round(L, 3), '-i', src]
             fonti.append(f'{n:03d} VIDEO {cv["titolo"]}'); nvideo += 1
         else:
-            im_ = imgs.pop(0) if imgs else next(iter(commons(s['q'][0] + ' painting', 1)), None)
+            im_ = imgs.pop(0) if imgs else None
+            for q in ([q_ + ' painting' for q_ in s.get('q') or []] + [' '.join(q_.split()[:2]) for q_ in s.get('q') or []] + list(P.get('riserva') or [])):
+                if im_:
+                    break
+                im_ = next(iter(commons(q, 1)), None)   # ricerca piu' larga, poi le riserve del video (sempre a tema)
             if not im_:
                 raise RuntimeError('nessun dipinto libero per: ' + str(s.get('q')))
             img = Image.open(io.BytesIO(get(im_['url'], raw=True))).convert('RGB')
