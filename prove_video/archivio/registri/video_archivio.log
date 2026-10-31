@@ -1,7 +1,27 @@
-22:54:13 testo di riferimento: 5219 parole
-22:56:07 copione non leggibile: Expecting value: line 1 column 1 (char 0)
-22:58:00 copione non leggibile: Expecting value: line 1 column 1 (char 0)
+23:00:33 testo di riferimento: 5219 parole
+23:01:14 copione: 37 scene, 1619 parole (limite 1479-1566)
+23:01:53 voce 507.2 s, 9059 caratteri, 3.19 parole/s
+23:02:00 00 CLIP 2.97 s fade
 Traceback (most recent call last):
-  File "/home/runner/work/ambience/ambience/strumenti/video_archivio.py", line 105, in <module>
-    raise RuntimeError('VIDEO BLOCCATO: copione fuori lunghezza (nessuna spesa per voce e montaggio)')
-RuntimeError: VIDEO BLOCCATO: copione fuori lunghezza (nessuna spesa per voce e montaggio)
+  File "/home/runner/work/ambience/ambience/strumenti/prova_archivio.py", line 261, in <module>
+    r = altro_pezzo(s['_ultima'], L)
+  File "/home/runner/work/ambience/ambience/strumenti/prova_archivio.py", line 212, in altro_pezzo
+    p, lung, usati = CLIP_CACHE[nid]
+                     ~~~~~~~~~~^^^^^
+KeyError: 'jsc2023m000178_Expedition_69_Soyuz_MS-23_Landing_Day_Highlights_230927'
+23:02:00 montaggio non riuscito al tentativo 1
+23:02:00 voce ripresa dal tentativo precedente (nessun credito in piu')
+23:02:00 voce 507.2 s, 9059 caratteri, 3.19 parole/s
+23:02:06 00 CLIP 2.97 s fade
+Traceback (most recent call last):
+  File "/home/runner/work/ambience/ambience/strumenti/prova_archivio.py", line 261, in <module>
+    r = altro_pezzo(s['_ultima'], L)
+  File "/home/runner/work/ambience/ambience/strumenti/prova_archivio.py", line 212, in altro_pezzo
+    p, lung, usati = CLIP_CACHE[nid]
+                     ~~~~~~~~~~^^^^^
+KeyError: 'jsc2023m000178_Expedition_69_Soyuz_MS-23_Landing_Day_Highlights_230927'
+23:02:06 montaggio non riuscito al tentativo 2
+Traceback (most recent call last):
+  File "/home/runner/work/ambience/ambience/strumenti/video_archivio.py", line 175, in <module>
+    raise RuntimeError('VIDEO BLOCCATO (controlli, anche dopo la riparazione): ' + '; '.join(errori))
+RuntimeError: VIDEO BLOCCATO (controlli, anche dopo la riparazione): montaggio non riuscito
