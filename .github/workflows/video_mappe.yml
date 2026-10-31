@@ -91,8 +91,9 @@ jobs:
           python3 video_mappe.py 2>&1 | tee mappe.log
 
       - name: Costo del video (storico per il coach automatico)
-        if: ${{ success() }}
+        if: ${{ always() }}
         env:
+          ESITO: ${{ job.status }}
           PAYLOAD: ${{ inputs.payload }}
         run: |
           python3 coach/registra_costo.py lavoro_mappe/costi_video.jsonl || exit 0

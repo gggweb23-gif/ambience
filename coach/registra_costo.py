@@ -20,8 +20,9 @@ out = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'costi', slug(can
 nuovo = not os.path.exists(out)
 with open(out, 'a') as o:
     if nuovo:
-        o.write('data\tcosto_dollari\tcrediti_voce\tprova\tlink\tdettaglio\n')
+        o.write('data\tcosto_dollari\tcrediti_voce\tprova\tlink\tdettaglio\tesito\n')
     o.write('\t'.join([dt.datetime.now().strftime('%Y-%m-%d %H:%M'), f"{rp['totale_dollari']:.3f}", str(rp['crediti_voce']),
                        str(P.get('prova') or os.environ.get('PROVA') or 'NO'), str(P.get('link') or ''),
-                       json.dumps(rp['dettaglio'], ensure_ascii=False)]) + '\n')
+                       json.dumps(rp['dettaglio'], ensure_ascii=False),
+                       'OK' if os.environ.get('ESITO', 'success') == 'success' else 'BLOCCATO']) + '\n')   # giri bloccati: soldi spesi anche senza video
 print(CO.testo(rp))

@@ -85,7 +85,7 @@ def main(f_cfg, f_prod, canale):
     if os.path.exists(ft):
         for l in open(ft).read().splitlines()[1:]:
             c = l.split('\t')
-            if len(c) > 3 and c[3].upper() != 'SI':
+            if len(c) > 3 and c[3].upper() != 'SI' and (len(c) < 7 or c[6].upper() in ('', 'OK')):   # giri bloccati esclusi dalla media
                 costi.append(num(c[1], 0))
     BUD = num(cfg.get('coach_budget_video'))
     attiva = ric['versione_attiva']

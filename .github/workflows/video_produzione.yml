@@ -97,8 +97,9 @@ jobs:
         run: node motore/motore.js
 
       - name: Costo del video (storico per il coach automatico)
-        if: ${{ success() }}
+        if: ${{ always() }}
         env:
+          ESITO: ${{ job.status }}
           PAYLOAD: ${{ inputs.payload }}
         run: |
           python3 coach/registra_costo.py costi_video.jsonl || exit 0
