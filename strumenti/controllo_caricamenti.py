@@ -65,8 +65,7 @@ for chiave in sorted(k for k in os.environ if k.startswith('YT_REFRESH_TOKEN') a
             pv.append(f"caricamento {s['uploadStatus']}: {s.get('rejectionReason') or s.get('failureReason')}")
         if s.get('privacyStatus') == 'private' and not s.get('publishAt'):
             pv.append('PRIVATO senza data di uscita (se doveva essere pubblico: blocco dei caricamenti API da progetto Google non verificato)')
-        if s.get('privacyStatus') == 'unlisted' and sec >= 480:
-            pv.append('NON IN ELENCO: YouTube non lo mostra a nessuno')
+        doppione = s.get('privacyStatus') == 'unlisted' and sec >= 480   # prova non in elenco (voluta): solo nel report
         if s.get('madeForKids') or s.get('selfDeclaredMadeForKids'):
             pv.append('"creato per bambini" -> niente commenti, niente notifiche, spinta ridotta')
         if (cd.get('contentRating') or {}).get('ytRating') == 'ytAgeRestricted':
@@ -86,6 +85,8 @@ for chiave in sorted(k for k in os.environ if k.startswith('YT_REFRESH_TOKEN') a
             pv.append('pubblico da oltre 48 ore con 0 visualizzazioni')
         riga = (f"  {pub[:16].replace('T', ' ')} | {s.get('privacyStatus')}{' (esce ' + s['publishAt'][:16] + ')' if s.get('publishAt') else ''} | "
                 f"{sec // 60} min | {sta.get('viewCount', '?')} views | {tit}")
+        if doppione:
+            riga += '  [prova non in elenco: se esiste gia\' la versione pubblica conviene cancellarla, due video quasi uguali sullo stesso canale non aiutano]'
         report.append(riga + ('' if not pv else '\n     !! ' + '\n     !! '.join(pv)))
         if pv and sec >= 480 and ore < 24 * 15:          # i problemi contano sui video veri degli ultimi 15 giorni
             problemi += [f'{nome} | {tit} | {p}' for p in pv]
