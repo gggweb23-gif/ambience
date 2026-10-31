@@ -54,7 +54,7 @@ except Exception as e:
 
 # 3) video: tagli di scena e fotogrammi
 try:
-    subprocess.run(['yt-dlp', '-q', '--no-warnings', '-f', 'bv*[height<=480][ext=mp4]+ba[ext=m4a]/b[height<=480]/b',
+    subprocess.run(['yt-dlp', '-q', '--no-warnings', '--extractor-args', 'youtube:player_client=tv,ios,mweb,web_safari', '-f', 'bv*[height<=480][ext=mp4]+ba[ext=m4a]/b[height<=480]/b',
                     '--download-sections', f'*0-{SEC}', '--force-keyframes-at-cuts', '-o', f'{LAV}/v.%(ext)s',
                     f'https://www.youtube.com/watch?v={VID}'], check=True, timeout=900)
     src = sorted(glob.glob(f'{LAV}/v.*'))[0]
@@ -111,8 +111,18 @@ except Exception as e:
 # 4) se il video non si scarica: storyboard di YouTube (le miniature che si vedono scorrendo la barra) -> com'e' fatto il video
 if 'video_non_scaricato' in dati:
     try:
-        corpo = json.dumps({'videoId': VID, 'context': {'client': {'clientName': 'WEB', 'clientVersion': '2.20250101.00.00', 'hl': 'en'}}}).encode()
-        pr = get('https://www.youtube.com/youtubei/v1/player?prettyPrint=false', corpo, {'Content-Type': 'application/json'})
+        pr = {}
+        for cl in ({'clientName': 'WEB', 'clientVersion': '2.20250101.00.00'}, {'clientName': 'IOS', 'clientVersion': '19.45.4', 'deviceModel': 'iPhone16,2'},
+                   {'clientName': 'ANDROID', 'clientVersion': '19.44.38', 'androidSdkVersion': 34}, {'clientName': 'TVHTML5', 'clientVersion': '7.20250101.10.00'},
+                   {'clientName': 'MWEB', 'clientVersion': '2.20250101.01.00'}):
+            try:
+                corpo = json.dumps({'videoId': VID, 'context': {'client': dict(cl, hl='en')}}).encode()
+                pr = get('https://www.youtube.com/youtubei/v1/player?prettyPrint=false', corpo, {'Content-Type': 'application/json'})
+                if pr.get('storyboards'):
+                    log('storyboard dal client', cl['clientName']); break
+                log('client', cl['clientName'], 'senza storyboard:', (pr.get('playabilityStatus') or {}).get('status'))
+            except Exception as e:
+                log('client', cl['clientName'], str(e)[:80])
         spec = pr['storyboards']['playerStoryboardSpecRenderer']['spec'].split('|')
         base = spec[0]; livelli = spec[1:]
         L = len(livelli) - 1                                 # il livello piu' dettagliato
