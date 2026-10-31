@@ -2982,6 +2982,33 @@ def taglia_tavola_crudi(im):
     return [_rifila(im.convert('RGB').crop(bx)) for bx in boxes]
 
 
+def scheda_testo(testo, k):
+    """Scheda nera e bronzo con 2-4 parole chiave GRANDI della frase (numeri prima): riempie un buco senza ripetere immagini."""
+    parole = re.findall(r"[\w'.,%]+", testo)
+    numeri = [w for w in parole if re.search(r'\d', w)]
+    lunghe = sorted([w for w in parole if len(w) > 5 and not re.search(r'\d', w)], key=lambda w: -len(w))
+    scelte = (numeri[:1] + lunghe)[:3] or parole[:3]
+    scelte = [w for w in parole if w in scelte][:3]   # nell'ordine in cui le dice la voce
+    righe = [w.strip('.,').upper() for w in scelte]
+    im = Image.new('RGB', (W, H), (14, 10, 6))
+    a = np.zeros((H, W, 3)); yy, xx = np.mgrid[0:H, 0:W]
+    r = np.sqrt(((xx - W / 2) / W) ** 2 + ((yy - H / 2) / H) ** 2)
+    a[...] = np.clip(1 - r * 1.4, 0, 1)[..., None] * np.array([120, 70, 25])
+    im = Image.fromarray((a + 10).clip(0, 255).astype(np.uint8))
+    d = ImageDraw.Draw(im)
+    sz = int(H * 0.16)
+    f, _ = _font_scene(sz)
+    while sz > 40 and max(f.getlength(x) for x in righe) > W * 0.86:
+        sz -= 6; f, _ = _font_scene(sz)
+    h_tot = len(righe) * sz * 1.15; y = (H - h_tot) / 2
+    for x in righe:
+        w = f.getlength(x)
+        d.text(((W - w) / 2, y), x, font=f, fill=(255, 206, 38), stroke_width=max(4, sz // 14), stroke_fill=(20, 12, 6))
+        y += sz * 1.15
+    p = os.path.join(LAV, f'scheda_{k:04d}.jpg'); im.save(p, quality=92)
+    return p
+
+
 def _font_scene(sz):
     for nome in ('LuckiestGuy.ttf', 'Oswald-SemiBold.ttf', 'EBGaramond-SemiBold.ttf'):
         p = os.path.join(FONT, nome)
@@ -3128,9 +3155,17 @@ def video_scene(c, durs, voci, kit):
     with ThreadPoolExecutor(3) as ex:
         riparate = list(ex.map(ripara, dopo))
     ancora = [k for k in mancanti if k not in dopo] + [k for k, ok in zip(dopo, riparate) if not ok]
-    # 4) ultima rete: la durata della scena mancante va ai vicini, senza superare il ritmo massimo (MAI 10 secondi ferma)
+    # 4) ultima rete (31 ott): una SCHEDA DI TESTO con le parole chiave della frase (mai la stessa immagine, mai inquadrature lunghe)
     massimo = max(RITMO) + (0 if RITMO_MAX < 99 else .5)
     buona = lambda j: piano[j]['tipo'] != 'cartone' or bool(piano[j].get('img'))
+    for k in list(ancora):
+        try:
+            piano[k].update(tipo='pexels_foto', src=scheda_testo(piano[k]['testo'], k), scritta='')
+            ancora.remove(k)
+        except Exception as e:
+            log('scheda di testo non riuscita:', str(e)[:120])
+    if ancora is not None:
+        log(f'schede di testo al posto delle immagini mancanti: {len(mancanti) - sum(riparate) - len(ancora)}')
     for k in sorted(ancora):
         v = piano[k]
         sx = next((j for j in range(k - 1, -1, -1) if buona(j) and not piano[j].get('salta')), None)
