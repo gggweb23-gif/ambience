@@ -74,6 +74,40 @@ SERIE = set()   # foto della stessa serie (iss053e079613 / iss053e079615) = imma
 ORBITA = re.compile(r'^(iss\d|s\d{2,3}e|sts\d|nm\d)', re.I)   # foto scattate in orbita (non a Terra, non in addestramento)
 CLIP_CACHE = {}   # nasa_id -> (file, lunghezza, segmenti gia' usati)
 
+# ---- libreria di spezzoni gia' etichettati (strumenti/libreria_clip.py): prima scelta, costo zero ----
+LIB = []
+if P.get('libreria'):
+    try:
+        LIB = [x for x in json.load(open(os.path.join('libreria_clip', P['libreria'], 'indice.json'))) if x.get('ok')]
+    except Exception as e:
+        log('libreria non letta', str(e)[:80])
+LIB_USATI, LIB_FILE, ULTIMA_SORGENTE = set(), {}, ['']
+
+
+def parole(t):
+    return set(re.findall(r'[a-z]+', str(t).lower())) - {'the', 'a', 'an', 'of', 'in', 'on', 'and', 'with', 'from', 'to', 'at', 'is'}
+
+
+def dalla_libreria(s, dur):
+    """Lo spezzone piu' adatto alla scena (parole chiave della scena contro etichetta), mai ripetuto,
+    mai due volte di fila dalla stessa ripresa."""
+    chiave = parole(' '.join(s.get('tag') or []) + ' ' + s['q'])
+    best, bp = None, 0
+    for x in LIB:
+        if x['n'] in LIB_USATI or x['nasa_id'] == ULTIMA_SORGENTE[0] or float(x.get('durata') or 0) + .2 < dur:
+            continue
+        et = parole(' '.join(x.get('tag') or []) + ' ' + str(x.get('cosa') or '') + ' ' + str(x.get('luogo') or '').replace('_', ' '))
+        pt = len(chiave & et) * 10 + int(x.get('qualita') or 0) + min(3, float(x.get('movimento') or 0) / 5)
+        if len(chiave & et) and pt > bp:
+            best, bp = x, pt
+    if not best:
+        return None
+    LIB_USATI.add(best['n']); ULTIMA_SORGENTE[0] = best['nasa_id']
+    if best['url'] not in LIB_FILE:
+        f = os.path.join(LAV, 'lib_' + re.sub(r'\W', '_', best['nasa_id'])[:60] + '.mp4')
+        open(f, 'wb').write(get(best['url'], raw=True, timeout=600)); LIB_FILE[best['url']] = f
+    return LIB_FILE[best['url']], float(best['da']), best['nasa_id'], 'LIBRERIA: ' + str(best.get('cosa'))
+
 
 def nasa(q, tipo):
     try:
@@ -199,8 +233,8 @@ for n, (d, s, prima, t0) in enumerate(piano):
     out = os.path.join(LAV, f'p_{n:03d}.mp4')
     sc = scritta_png(s['scritta'], n) if (s.get('scritta') and prima) else None
     vuole_clip = s.get('tipo', 'clip') != 'foto' or t0 < SOLO_VIDEO
-    c = None
-    if vuole_clip:
+    c = dalla_libreria(s, L) if (vuole_clip and LIB) else None
+    if vuole_clip and not c:
         at = bool(s.get('a_terra')); c = clip(s['q'], L, at) or clip(' '.join(s['q'].split()[:2]), L, at)
         if not c and s.get('_ultima'):
             r = altro_pezzo(s['_ultima'], L)
@@ -244,9 +278,9 @@ for i in range(1, len(pezzi)):
     o = f'x{i}'
     fl.append(f'[{prec}][{i}:v]xfade=transition={tipo}:duration={T}:offset={acc:.3f}[{o}]'); prec = o
 # leggera vignettatura e grana, come i documentari d'archivio
-fl.append(f'[{prec}]vignette=angle=PI/6,noise=alls=5:allf=t,format=yuv420p[vf]')
+fl.append(f'[{prec}]vignette=angle=PI/6,noise=alls=3:allf=t,format=yuv420p[vf]')
 muto = os.path.join(LAV, 'muto.mp4')
-run(['ffmpeg', '-y', '-v', 'error'] + ins + ['-filter_complex', ';'.join(fl), '-map', '[vf]', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20', muto])
+run(['ffmpeg', '-y', '-v', 'error'] + ins + ['-filter_complex', ';'.join(fl), '-map', '[vf]', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '23', muto])
 mus = os.path.join('libreria_musica', P.get('musica') or 'epico_002.mp3')
 vm = float(P.get('volume_musica') or 0.08)
 OUT = os.path.join(CART, 'prova.mp4')
