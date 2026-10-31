@@ -2,7 +2,7 @@
  "channel_id": "Roma Senza Filtri",
  "competitor": "Rome Unscrolled (vita quotidiana nell'antica Roma)",
  "stile_base": "Argomenti e titoli di Rome Unscrolled (vita dei soldati e della gente nell'antica Roma). Gancio a cartone stile competitor nei primi ~25 s, poi clip/foto vere coerenti con l'epoca (mai nulla di moderno), ritmo da TV: inquadrature max 4 s ma senza confusione. Copertine primo piano a fuoco. Motore video_storia.py.",
- "versione_attiva": 4,
+ "versione_attiva": 5,
  "migliore": null,
  "stato": "in_prova",
  "versioni": [
@@ -64,6 +64,24 @@
     "ricorda_scartate": "SI"
    },
    "risultati": null,
+   "decisione": null
+  },
+  {
+   "n": 5,
+   "dal": "2026-10-31 18:20",
+   "cosa": "Come la v4 + controllo visivo finale (9 immagini per foglio) e controllo lingua: il controllo di ogni clip guarda 1 fotogramma invece di 2 (meta' dei token), tanto il controllo finale riguarda tutto",
+   "leva": "COSTO",
+   "parametri": {
+    "modo_immagini": "misto",
+    "ritmo_max": "4",
+    "pexels_da_secondi": "25",
+    "distanza_immagini": "99999",
+    "ritmo": "3;3.5;3.8",
+    "modello_regia": "claude-haiku-4-5-20251001",
+    "fotogrammi_controllo": "1",
+    "candidati_controllo": "3",
+    "ricorda_scartate": "SI"
+   },
    "decisione": null
   }
  ],
