@@ -17,7 +17,7 @@ QUI = os.path.dirname(os.path.abspath(__file__))
 
 RIEPILOGO = ['canale', 'nome_youtube', 'attivo', 'data_avvio', 'giorno_prova', 'giorni_al_giudizio', 'data_giudizio',
              'video_pubblicati', 'video_ultimi_30gg', 'costo_totale_eur', 'costo_medio_video_eur', 'budget_video_eur',
-             'video_fuori_budget', 'costo_giri_bloccati_eur', 'costo_ultimi_30gg_eur', 'views_totali', 'views_ultimi_30gg',
+             'video_fuori_budget', 'costo_giri_bloccati_eur', 'costo_libreria_eur', 'costo_ultimi_30gg_eur', 'views_totali', 'views_ultimi_30gg',
              'iscritti_guadagnati', 'ctr_medio', 'ricavi_totali_eur', 'margine_eur', 'ricavi_per_1000_views_eur',
              'segnale', 'decisione', 'note', 'aggiornato']
 MANUALI = ('data_avvio', 'decisione', 'note')
@@ -156,7 +156,8 @@ def main():
         for c in cs:
             log_costi.append([c['data'], can, eur(c['usd']), eur(c['eur']), c['prova'], c['esito'], c['link'], c['dettaglio']])
         veri = [c for c in cs if c['prova'] != 'SI' and c['esito'] == 'OK']
-        bloccati = [c for c in cs if c['esito'] != 'OK']
+        bloccati = [c for c in cs if c['esito'] == 'BLOCCATO']
+        libreria = [c for c in cs if c['esito'] == 'LIBRERIA']
         bud = num(cfg.get('coach_budget_video'))
         pubbl, views, views30, iscr, imp, clic, errore = [], 0, 0, 0, 0, 0, ''
         fid = str(cfg.get('scout_production_sheet_id') or '').strip()
@@ -210,17 +211,19 @@ def main():
                      man.get('data_avvio') or (avvio.strftime('%Y-%m-%d') if avvio else ''),
                      giorno or '', max(0, prova_gg - giorno + 1) if avvio else '', giudizio.strftime('%Y-%m-%d') if giudizio else '',
                      len(pubbl), sum(1 for d in pubbl if d >= OGGI - dt.timedelta(days=30)),
-                     eur(costo_tot), eur(medio), eur(bud) if bud else '', fuori, eur(sum(c['eur'] for c in bloccati)), eur(c30),
+                     eur(costo_tot), eur(medio), eur(bud) if bud else '', fuori, eur(sum(c['eur'] for c in bloccati)), eur(sum(c['eur'] for c in libreria)), eur(c30),
                      int(views), int(views30), int(iscr), (eur(clic / imp * 100) + '%') if imp else '',
                      eur(ric), eur(ric - costo_tot), eur(ric / views * 1000) if views else '',
                      ' | '.join(segnali), man.get('decisione', ''), man.get('note', ''), OGGI.strftime('%Y-%m-%d %H:%M')])
     if attivi > max_attivi:
         riep.append([f'ATTENZIONE: {attivi} canali accesi, oltre il massimo di {max_attivi} della scheda Regole'])
     tot_costi = sum(num(r[9], 0) for r in riep[1:] if len(r) > 9)
-    tot_ricavi = sum(num(r[19], 0) for r in riep[1:] if len(r) > 19)
+    tot_ricavi = sum(num(r[RIEPILOGO.index('ricavi_totali_eur')], 0) for r in riep[1:] if len(r) > RIEPILOGO.index('ricavi_totali_eur'))
     riep.append([])
-    riep.append(['TOTALE', '', f'{attivi} accesi', '', '', '', '', '', '', eur(tot_costi), '', '', '', '', '', '', '', '', '',
-                 eur(tot_ricavi), eur(tot_ricavi - tot_costi)])
+    tot = [''] * len(RIEPILOGO); tot[0], tot[2] = 'TOTALE', f'{attivi} accesi'
+    tot[RIEPILOGO.index('costo_totale_eur')] = eur(tot_costi); tot[RIEPILOGO.index('ricavi_totali_eur')] = eur(tot_ricavi)
+    tot[RIEPILOGO.index('margine_eur')] = eur(tot_ricavi - tot_costi)
+    riep.append(tot)
     scrivi(GESTIONE, 'Riepilogo', riep)
     scrivi(GESTIONE, 'Costi', log_costi)
     print(f'controllo di gestione aggiornato: {len(canali)} canali, {attivi} accesi, costi {eur(tot_costi)} euro, ricavi {eur(tot_ricavi)} euro')

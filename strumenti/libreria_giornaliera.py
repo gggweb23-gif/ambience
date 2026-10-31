@@ -28,6 +28,24 @@ def num(v):
         return 0.0
 
 
+def registra_costo(canale, nome):
+    """La spesa del giro va nello storico costi del canale (coach/costi/<canale>.tsv) con esito LIBRERIA:
+    entra nel controllo di gestione (costo totale) ma non nella media del costo a video."""
+    try:
+        ultima = open(os.path.join('libreria_clip', nome, 'costi.txt')).read().strip().splitlines()[-1]
+        usd = float(re.search(r'spesa: ([\d.]+) \$', ultima).group(1))
+    except Exception:
+        return
+    f = os.path.join('coach', 'costi', re.sub(r'[^a-z0-9]+', '_', str(canale).lower()).strip('_') + '.tsv')
+    nuovo = not os.path.exists(f); os.makedirs('coach/costi', exist_ok=True)
+    with open(f, 'a') as o:
+        if nuovo:
+            o.write('data\tcosto_dollari\tcrediti_voce\tprova\tlink\tdettaglio\tesito\n')
+        import time
+        o.write('\t'.join([time.strftime('%Y-%m-%d %H:%M'), f'{usd:.3f}', '0', 'NO', '', json.dumps(['libreria ' + nome + ': ' + ultima[:150]]), 'LIBRERIA']) + '\n')
+    print(f'costo libreria {usd:.3f} $ registrato per {canale}')
+
+
 tk = token()
 scheda = api(tk, '?fields=sheets.properties')['sheets'][0]['properties']['title']
 v = api(tk, '/values/' + urllib.parse.quote(f"'{scheda}'!A1:AZZ200")).get('values', [])
@@ -36,6 +54,8 @@ fatte = set()
 for r in v[1:]:
     c = dict(zip(h, r + [''] * (len(h) - len(r))))
     nome, budget = str(c.get('libreria') or '').strip(), num(c.get('libreria_budget_giorno'))
+    if os.environ.get('SPINTA') and budget > 0:   # giro una tantum approvato da Giorgio (es. spinta iniziale 0,50 $)
+        budget = num(os.environ['SPINTA'])
     if not nome or budget <= 0 or nome in fatte:
         continue
     fatte.add(nome)
@@ -45,5 +65,6 @@ for r in v[1:]:
         payload['ricerche'] = ricerche
     print(f"libreria {payload['nome']} per {c.get('channel_id')}: budget {payload['max_spesa']:.2f} $, {len(ricerche)} ricerche", flush=True)
     subprocess.run([sys.executable, 'strumenti/libreria_clip.py'], env=dict(os.environ, PAYLOAD=json.dumps(payload)), check=False)
+    registra_costo(c.get('channel_id'), payload['nome'])
 if not fatte:
     print('nessun canale con libreria e libreria_budget_giorno compilati: niente da fare')
