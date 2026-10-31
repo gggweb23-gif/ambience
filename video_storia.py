@@ -336,6 +336,30 @@ def lista_kit(kit):
     return ', '.join(k + (f' ({KIT_DESCR[k]})' if k in KIT_DESCR else '') for k in kit) or '(nessuno)'
 
 
+def condensa_originale(orig, obiettivo):
+    """Prima del copione: un modello economico condensa il testo del competitor alla lunghezza del NOSTRO video
+    (stesso ordine, ganci, domande, numeri e finale), cosi' il copione copia un testo gia' della lunghezza giusta."""
+    chiave = E('ANTHROPIC_API_KEY', '')
+    for k in range(3):
+        try:
+            r = http('https://api.anthropic.com/v1/messages', {'model': MODELLO_CONTROLLO, 'max_tokens': 8000, 'messages': [{'role': 'user', 'content':
+                f"""Condense this YouTube video transcript to about {obiettivo} words (between {int(obiettivo * .95)} and {int(obiettivo * 1.03)} words), in its ORIGINAL language.
+Keep: the opening hook, the same order of topics, the questions to the viewer, the strongest facts and numbers, the most surprising details and the ending.
+Cut: repetitions, filler, secondary examples, channel promos. Do not add anything. Write it as continuous narration, no titles, no notes.
+
+TRANSCRIPT:
+{orig[:60000]}"""}]}, {'x-api-key': chiave, 'anthropic-version': '2023-06-01'}, timeout=300)
+            CO.registra('claude', MODELLO_CONTROLLO, r.get('usage') or {}, nota='condensa')
+            txt = ''.join(b.get('text', '') for b in r.get('content', [])).strip()
+            n = len(txt.split())
+            log(f'originale condensato: {len(orig.split())} -> {n} parole (obiettivo {obiettivo})')
+            if obiettivo * .85 <= n <= obiettivo * 1.12:
+                return txt
+        except Exception as e:
+            log('condensa non riuscita:', str(e)[:150])
+    raise RuntimeError('VIDEO BLOCCATO: testo del competitor non condensato alla lunghezza giusta (nessuna spesa per voce e immagini)')
+
+
 def copione(comp):
     kit = kit_disponibile()
     orig = comp.get('testo') or ''
@@ -344,6 +368,9 @@ def copione(comp):
     parole = 170 if PROVA else (int(len(orig.split()) * 1.05) if orig else int(MINUTI * 150))
     massimo = int(MAX_MINUTI * 150); minimo = 0 if PROVA else int(MIN_MINUTI * 150)
     condensa = parole > massimo
+    if condensa and orig and not PROVA:   # 31 ott: Sonnet NON condensa da solo (5.000 parole -> 2.500 per 4 volte di fila)
+        orig = condensa_originale(orig, (minimo + massimo) // 2 if minimo else massimo)
+        parole = int(len(orig.split()) * 1.05); condensa = parole > massimo
     espandi = parole < minimo
     parole = max(min(parole, massimo), minimo)
     lingua = {'it': 'italiano', 'en': 'English (US)'}.get(LINGUA, LINGUA)
