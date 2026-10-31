@@ -98,6 +98,9 @@ def dalla_libreria(s, dur):
             continue
         et = parole(' '.join(x.get('tag') or []) + ' ' + str(x.get('cosa') or '') + ' ' + str(x.get('luogo') or '').replace('_', ' '))
         pt = len(chiave & et) * 10 + int(x.get('qualita') or 0) + min(3, float(x.get('movimento') or 0) / 5)
+        obbligo = parole(' '.join(s.get('obbligo') or []))   # parole che DEVONO esserci (es. l'apertura deve far capire subito l'argomento)
+        if obbligo and not (obbligo & et):
+            continue
         if len(chiave & et) and pt > bp:
             best, bp = x, pt
     if not best:
