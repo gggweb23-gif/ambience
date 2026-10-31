@@ -1,40 +1,42 @@
-23:33:01 voce 40.1 s
+23:51:36 voce 41.5 s
 /home/runner/work/ambience/ambience/strumenti/prova_dipinti.py:133: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
   g = im.convert('L').resize((9, 8)); px = list(g.getdata())
-23:33:14 scena 0: 5 immagini/clip coerenti per 4 inquadrature
-23:33:16 00 000 DIPINTO Marine flamethrower operator at work on Iwo Jima. (49672564278).jpg | Signal C
-23:33:18 01 001 DIPINTO Ronson flame tank Iwo Jima.jpg | Life Magazine photographer Mark Kauffman (192
-23:33:20 02 002 DIPINTO Fifth Division Marines on Iwo Jima carry a wounded comrade through tangled und
-23:33:21 03 003 DIPINTO 127-GW-320-111008 (29219150350).jpg | National Museum of the U.S. Navy | Publi
+23:51:56 scena 0: 9 immagini/clip coerenti per 3 inquadrature
+23:51:59 00 000 DIPINTO Meeting Gods In The Clouds by Cornelis van Poelenburch.jpg | Cornelius van Poe
+23:52:01 01 001 DIPINTO Bijlert - Le Festin des dieux - 09-530998.jpg | Jan van Bijlert | CC0 cc0
+23:52:04 02 002 DIPINTO Guillemot, Alexandre Charles - Mars and Venus Surprised by Vulcan - Google Art
 /home/runner/work/ambience/ambience/strumenti/prova_dipinti.py:133: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
   g = im.convert('L').resize((9, 8)); px = list(g.getdata())
-23:33:35 scena 1: 4 immagini/clip coerenti per 2 inquadrature
-23:33:37 04 004 DIPINTO SC 171713 - The doughboy's constant companion is his Garand rifle. (5227220685
-23:33:39 05 005 DIPINTO A young soldier of the armored forces holds and sights his Garand rifle like a
+23:53:01 scena 1: 3 immagini/clip coerenti per 3 inquadrature
+23:53:03 03 003 DIPINTO The Return of Neptune MET DT201337.jpg | John Singleton Copley | CC0 cc0
+23:53:05 04 004 DIPINTO Natoire Neptune and Amphitrite.jpg | Circle of Simon Vouet / Formerly attribut
+23:53:07 05 005 DIPINTO Neptune and the Winds MET ep37.165.4.bw.R.jpg | Giovanni Battista Tiepolo | CC
 /home/runner/work/ambience/ambience/strumenti/prova_dipinti.py:133: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
   g = im.convert('L').resize((9, 8)); px = list(g.getdata())
-23:33:51 scena 2: 7 immagini/clip coerenti per 2 inquadrature
-23:33:53 06 006 VIDEO " ENEMY WEAPONS -- JAPANESE ARMY " RESTRICTED WWII INFANTRY TRAINING FILM NAMBU 
-23:33:56 07 007 VIDEO " KILL OR BE KILLED " 1943 WWII INFANTRY TRAINING FILM HAND-TO-HAND COMBAT TECHN
+23:53:44 scena 2: 3 immagini/clip coerenti per 3 inquadrature
+23:53:47 06 006 DIPINTO Francisco de Goya, Saturno devorando a su hijo (1819-1823).jpg | Francisco Goy
+23:53:49 07 007 DIPINTO Saturno devorando a sus hijos por Goya.jpg | Francisco Goya | Public domain pd
+23:53:51 08 008 DIPINTO Peter Paul Rubens - Orpheus und Eurydike vor Pluto und Proserpina - R 27 - Kun
 /home/runner/work/ambience/ambience/strumenti/prova_dipinti.py:133: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
   g = im.convert('L').resize((9, 8)); px = list(g.getdata())
-23:34:18 scena 3: 1 immagini/clip coerenti per 3 inquadrature
-23:34:20 08 008 DIPINTO Colonel Frank Capra (right) of the US Army Signal Corps confers with Captain R
-23:34:21 09 009 SCHEDA (nessuna immagine coerente)
-23:34:21 10 010 SCHEDA (nessuna immagine coerente)
+23:54:12 scena 3: 1 immagini/clip coerenti per 2 inquadrature
+23:54:14 09 009 DIPINTO Pluto Carrying Proserpina Past the Nymph Cyane LACMA 65.37.131.jpg | 
+Wilhelm 
+23:54:15 10 010 SCHEDA (nessuna immagine coerente)
 /home/runner/work/ambience/ambience/strumenti/prova_dipinti.py:133: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
   g = im.convert('L').resize((9, 8)); px = list(g.getdata())
-23:34:43 scena 4: 2 immagini/clip coerenti per 3 inquadrature
-23:34:45 11 011 DIPINTO Ww2 158.jpg | Staff Sergent Walter F. Kleine | Public domain pd
-23:34:46 12 012 DIPINTO Churchill-and-machine-gun-H36960.jpg | William George Horton | Public domain p
-23:34:47 13 013 SCHEDA (nessuna immagine coerente)
+23:54:58 scena 4: 0 immagini/clip coerenti per 2 inquadrature
+23:54:59 11 011 SCHEDA (nessuna immagine coerente)
+23:55:00 12 012 SCHEDA (nessuna immagine coerente)
 /home/runner/work/ambience/ambience/strumenti/prova_dipinti.py:133: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
   g = im.convert('L').resize((9, 8)); px = list(g.getdata())
-23:34:55 scena 5: 1 immagini/clip coerenti per 3 inquadrature
-23:35:10 14 014 VIDEO Attack in the Pacific (1944).webm | Frank Capra | Public domain pd
-23:35:11 15 015 SCHEDA (nessuna immagine coerente)
-23:35:11 16 016 SCHEDA (nessuna immagine coerente)
-Traceback (most recent call last):
-  File "/home/runner/work/ambience/ambience/strumenti/prova_dipinti.py", line 264, in <module>
-    raise RuntimeError(f'VIDEO ROTTO: immagini {dv:.1f} s, voce {fine:.1f} s')
-RuntimeError: VIDEO ROTTO: immagini 20.3 s, voce 40.9 s
+23:55:33 scena 5: 0 immagini/clip coerenti per 2 inquadrature
+23:55:34 13 013 SCHEDA (nessuna immagine coerente)
+23:55:35 14 014 SCHEDA (nessuna immagine coerente)
+/home/runner/work/ambience/ambience/strumenti/prova_dipinti.py:133: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  g = im.convert('L').resize((9, 8)); px = list(g.getdata())
+23:56:14 scena 6: 0 immagini/clip coerenti per 3 inquadrature
+23:56:15 15 015 SCHEDA (nessuna immagine coerente)
+23:56:16 16 016 SCHEDA (nessuna immagine coerente)
+23:56:17 17 017 SCHEDA (nessuna immagine coerente)
+23:57:05 FATTO prove_video/archivio/yorp_copia_dei_greci/prova.mp4
