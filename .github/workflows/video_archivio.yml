@@ -1,0 +1,58 @@
+name: Video Archivio (video vero da archivi gratuiti)
+
+# Video completo per i canali fatti con archivi gratuiti (strumenti/video_archivio.py): copione, montaggio, controlli, copertina, caricamento.
+on:
+  workflow_dispatch:
+    inputs:
+      payload:
+        description: 'Riga di Channel Configs + titolo, testo_copertina, link_competitor, nome'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: prova-archivio
+  cancel-in-progress: false
+
+jobs:
+  video:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - name: Nascondi chiavi e token del payload (repository pubblico)
+        run: "python3 - <<'PY'\nimport json, os\nev = json.load(open(os.environ['GITHUB_EVENT_PATH']))\nraw = (ev.get('inputs') or {}).get('payload') or (ev.get('inputs') or {}).get('config') or ''\ntry:\n    p = json.loads(raw)\nexcept Exception:\n    p = {}\nfor k, v in (p.items() if isinstance(p, dict) else []):\n    if any(w in str(k).lower() for w in ('token', 'secret', 'password', 'api_key', 'apikey')) and len(str(v).strip()) > 8:\n        print('::add-mask::' + str(v).strip())\nPY"
+      - uses: actions/checkout@v4
+      - name: Strumenti
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null && pip install -q pillow
+      - name: Video
+        env:
+          PAYLOAD: ${{ inputs.payload }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
+          FAL_KEY: ${{ secrets.FAL_KEY }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets[fromJSON(inputs.payload).chiave_youtube] }}
+        run: python3 strumenti/video_archivio.py
+      - name: Video e copertina da scaricare
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: video-archivio
+          path: |
+            prove_video/archivio/*/prova.mp4
+            prove_video/archivio/*/copertina.jpg
+          if-no-files-found: ignore
+          retention-days: 7
+      - name: Salva nel repository (senza il video)
+        if: ${{ always() }}
+        run: |
+          find prove_video/archivio -name 'prova.mp4' -size +40M -delete || true
+          if [ -n "$(git status --porcelain prove_video/archivio coach/costi)" ]; then
+            git config user.name "render-bot"; git config user.email "render-bot@users.noreply.github.com"
+            git add prove_video/archivio coach/costi; git commit -m "Video archivio"
+            for i in 1 2 3 4 5; do git pull --rebase -q && git push && break; sleep $((i * 5)); done
+          fi

@@ -277,18 +277,28 @@ for n, (d, s, prima, t0) in enumerate(piano):
     log(f'{n:02d}', 'CLIP' if c else 'FOTO', round(d, 2), 's', trans[n][0])
 
 # ---------------- 5) montaggio con transizioni + audio ----------------
-ins, fl, acc, prec = [], [], 0.0, '0:v'
-for i, (p, d, _) in enumerate(pezzi):
-    ins += ['-i', p]
-for i in range(1, len(pezzi)):
-    acc += pezzi[i - 1][1]
-    tipo, T = pezzi[i - 1][2]
-    o = f'x{i}'
-    fl.append(f'[{prec}][{i}:v]xfade=transition={tipo}:duration={T}:offset={acc:.3f}[{o}]'); prec = o
-# leggera vignettatura e grana, come i documentari d'archivio
-fl.append(f'[{prec}]vignette=angle=PI/6,noise=alls=3:allf=t,format=yuv420p[vf]')
+# a BLOCCHI di 24 inquadrature (video lunghi: 200 ingressi in un solo ffmpeg esauriscono la memoria); tra un blocco e l'altro taglio netto
+def monta(blocco, out):
+    ins, fl, acc, prec = [], [], 0.0, '0:v'
+    for p, d, _ in blocco:
+        ins += ['-i', p]
+    for i in range(1, len(blocco)):
+        acc += blocco[i - 1][1]
+        tipo, T = blocco[i - 1][2]
+        fl.append(f'[{prec}][{i}:v]xfade=transition={tipo}:duration={T}:offset={acc:.3f}[x{i}]'); prec = f'x{i}'
+    fl.append(f'[{prec}]vignette=angle=PI/6,noise=alls=3:allf=t,format=yuv420p,trim=duration={sum(d for _, d, _ in blocco):.3f}[vf]')
+    run(['ffmpeg', '-y', '-v', 'error'] + ins + ['-filter_complex', ';'.join(fl), '-map', '[vf]', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '23', out])
 muto = os.path.join(LAV, 'muto.mp4')
-run(['ffmpeg', '-y', '-v', 'error'] + ins + ['-filter_complex', ';'.join(fl), '-map', '[vf]', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '23', muto])
+blocchi = [pezzi[i:i + 24] for i in range(0, len(pezzi), 24)]
+if len(blocchi) == 1:
+    monta(blocchi[0], muto)
+else:
+    parti = []
+    for bi, bl in enumerate(blocchi):
+        bl = bl[:-1] + [(bl[-1][0], bl[-1][1], ('fade', 0))]   # l'ultimo del blocco: taglio netto verso il blocco dopo
+        o = os.path.join(LAV, f'blocco_{bi:02d}.mp4'); monta(bl, o); parti.append(o)
+    lista = os.path.join(LAV, 'blocchi.txt'); open(lista, 'w').write(''.join(f"file '{x}'\n" for x in parti))
+    run(['ffmpeg', '-y', '-v', 'error', '-f', 'concat', '-safe', '0', '-i', lista, '-c', 'copy', muto])
 mus = os.path.join('libreria_musica', P.get('musica') or 'epico_002.mp3')
 vm = float(P.get('volume_musica') or 0.08)
 OUT = os.path.join(CART, 'prova.mp4')
