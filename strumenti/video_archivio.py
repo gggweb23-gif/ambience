@@ -110,26 +110,53 @@ mont = {'nome': NOME, 'voce': P.get('voice_id'), 'velocita': float(str(P.get('vo
         'stabilita': float(str(P.get('voce_stabilita') or .4).replace(',', '.')), 'stile_voce': float(str(P.get('voce_stile') or .25).replace(',', '.')),
         'musica': P.get('musica_file') or 'epico_002.mp3', 'volume_musica': 0.07, 'max_secondi': 3.3, 'solo_video_fino_a': 30,
         'libreria': P.get('libreria') or '', 'scene': [{k: s.get(k) for k in ('testo', 'q', 'tag', 'scritta', 'obbligo') if s.get(k)} for s in c['scene']]}
-r = subprocess.run([sys.executable, 'strumenti/prova_archivio.py'], env=dict(os.environ, PAYLOAD=json.dumps(mont)))
-if r.returncode:
-    raise RuntimeError('montaggio non riuscito')
 VIDEO = os.path.join(CART, 'prova.mp4')
 
-# ---------------- 4) controlli prima del caricamento ----------------
-costi = open(os.path.join(CART, 'costi.txt')).read()
-quota = float((re.search(r'video in movimento: (\d+)', costi) or [0, 0])[1])
-media = float((re.search(r'inquadratura media ([\d.]+)', costi) or [0, 9])[1])
-dur = float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', VIDEO], capture_output=True, text=True).stdout or 0)
-log(f'CONTROLLI: durata {dur / 60:.1f} min (minuti {MIN_M:g}-{MAX_M:g}), video in movimento {quota:.0f}%, inquadratura media {media:.1f} s')
-errori = []
-if not (MIN_M * 60 * .93 <= dur <= MAX_M * 60 * 1.07):
-    errori.append(f'durata {dur / 60:.1f} min fuori da {MIN_M:g}-{MAX_M:g}')
-if quota < 80:
-    errori.append(f'solo {quota:.0f}% di video in movimento (minimo 80%)')
-if media > 3.6:
-    errori.append(f'inquadratura media {media:.1f} s (massimo 3,3)')
+
+def controlli():
+    costi = open(os.path.join(CART, 'costi.txt')).read()
+    quota = float((re.search(r'video in movimento: (\d+)', costi) or [0, 0])[1])
+    media = float((re.search(r'inquadratura media ([\d.]+)', costi) or [0, 9])[1])
+    dur = float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', VIDEO], capture_output=True, text=True).stdout or 0)
+    err = []
+    if not (MIN_M * 60 * .93 <= dur <= MAX_M * 60 * 1.07):
+        err.append(f'durata {dur / 60:.1f} min fuori da {MIN_M:g}-{MAX_M:g}')
+    if quota < 80:
+        err.append(f'solo {quota:.0f}% di video in movimento (minimo 80%)')
+    if media > 3.6:
+        err.append(f'inquadratura media {media:.1f} s (massimo 3,3)')
+    log(f'CONTROLLI: durata {dur / 60:.1f} min, video in movimento {quota:.0f}%, inquadratura media {media:.1f} s' + (' | DA RIPARARE: ' + '; '.join(err) if err else ' | OK'))
+    return quota, media, dur, err
+
+
+# RIPARAZIONE AUTOMATICA (31 ott, Giorgio: "i video non si devono bloccare"): se un controllo non passa, si rifa' il montaggio
+# con regole piu' strette (clip ovunque, inquadrature piu' corte, altri momenti delle riprese gia' scaricate) invece di fermarsi.
+TENTATIVI = [mont, dict(mont, solo_video_fino_a=99999, max_secondi=3.0)]
+quota = media = dur = 0; errori = ['montaggio non riuscito']
+for t_, m_ in enumerate(TENTATIVI):
+    r = subprocess.run([sys.executable, 'strumenti/prova_archivio.py'], env=dict(os.environ, PAYLOAD=json.dumps(m_)))
+    if r.returncode:
+        log('montaggio non riuscito al tentativo', t_ + 1); continue
+    quota, media, dur, errori = controlli()
+    if not errori:
+        break
+    log('RIPARAZIONE: rifaccio il montaggio con clip ovunque e inquadrature piu\' corte')
+# argomenti senza clip in libreria -> la libreria li cerchera' nei prossimi giri (cresce dove serve)
+try:
+    mancano = [x for x in open(os.path.join(CART, 'mancanti.txt')).read().splitlines() if x.strip()]
+    if mancano and P.get('libreria'):
+        fm = os.path.join('libreria_clip', P['libreria'], 'ricerche_mancanti.txt'); os.makedirs(os.path.dirname(fm), exist_ok=True)
+        gia = set(open(fm).read().splitlines()) if os.path.exists(fm) else set()
+        open(fm, 'a').write(''.join(x + '\n' for x in mancano if x not in gia))
+        log(len(mancano), 'argomenti senza clip in libreria: aggiunti alle ricerche dei prossimi giri')
+except Exception:
+    pass
+DA_CONTROLLARE = ''
 if errori:
-    raise RuntimeError('VIDEO BLOCCATO (controlli): ' + '; '.join(errori) + ' — NON caricato')
+    if not os.path.exists(VIDEO) or (P.get('privacy') or 'unlisted') == 'public':
+        raise RuntimeError('VIDEO BLOCCATO (controlli, anche dopo la riparazione): ' + '; '.join(errori))
+    DA_CONTROLLARE = '; '.join(errori)   # video non in elenco: si carica comunque e lo si segnala, Giorgio lo vede prima di pubblicare
+    log('CARICATO DA CONTROLLARE (non in elenco):', DA_CONTROLLARE)
 
 # ---------------- 5) copertina stile C ----------------
 FP = os.path.join(LAV, 'anton.ttf'); open(FP, 'wb').write(get('https://github.com/google/fonts/raw/main/ofl/anton/Anton-Regular.ttf', raw=True))
@@ -192,7 +219,7 @@ if str(P.get('carica') or '').upper() == 'SI' and E('YT_REFRESH_TOKEN'):
 
 # ---------------- 7) costi e riepilogo ----------------
 crediti = len(' '.join(s['testo'] for s in c['scene']))
-open(os.path.join(CART, 'riepilogo.txt'), 'w').write(f"titolo: {P['titolo']}\nyoutube: {vid_id}\nspesa: {SPESA['usd']:.3f} $ ({'; '.join(SPESA['voci'])}) + {crediti} crediti voce\n"
+open(os.path.join(CART, 'riepilogo.txt'), 'w').write(f"titolo: {P['titolo']}\nyoutube: {vid_id}\n" + (f"DA CONTROLLARE: {DA_CONTROLLARE}\n" if DA_CONTROLLARE else '') + f"spesa: {SPESA['usd']:.3f} $ ({'; '.join(SPESA['voci'])}) + {crediti} crediti voce\n"
                                                      f"durata: {dur / 60:.1f} min | video in movimento: {quota:.0f}% | inquadratura media: {media:.1f} s\n")
 os.makedirs('coach/costi', exist_ok=True)
 f = os.path.join('coach', 'costi', re.sub(r'[^a-z0-9]+', '_', str(P.get('channel_id') or 'canale').lower()).strip('_') + '.tsv')

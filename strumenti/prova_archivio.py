@@ -53,11 +53,18 @@ def durata(p):
 # ---------------- 1) voce con i tempi ----------------
 scene = P['scene']
 testo = ' '.join(s['testo'].strip() for s in scene)
-j = get(f"https://api.elevenlabs.io/v1/text-to-speech/{P.get('voce') or 'glnsgBC77wt5zOYU0szz'}/with-timestamps?output_format=mp3_44100_128",
-        {'text': testo, 'model_id': 'eleven_multilingual_v2',
-         'voice_settings': {'stability': float(P.get('stabilita') or .45), 'similarity_boost': .75, 'style': float(P.get('stile_voce') or 0),
-                            'speed': float(P.get('velocita') or 1.06)}},
-        {'xi-api-key': E('ELEVENLABS_API_KEY', '')})
+import hashlib
+_chiave_voce = hashlib.md5((testo + str(P.get('voce')) + str(P.get('velocita'))).encode()).hexdigest()[:12]
+_cache_voce = os.path.join(LAV, f'voce_{_chiave_voce}.json')
+if os.path.exists(_cache_voce):   # riparazione: stessa voce gia' pagata, non si rifa'
+    j = json.load(open(_cache_voce)); log('voce ripresa dal tentativo precedente (nessun credito in piu\')')
+else:
+    j = get(f"https://api.elevenlabs.io/v1/text-to-speech/{P.get('voce') or 'glnsgBC77wt5zOYU0szz'}/with-timestamps?output_format=mp3_44100_128",
+            {'text': testo, 'model_id': 'eleven_multilingual_v2',
+             'voice_settings': {'stability': float(P.get('stabilita') or .45), 'similarity_boost': .75, 'style': float(P.get('stile_voce') or 0),
+                                'speed': float(P.get('velocita') or 1.06)}},
+            {'xi-api-key': E('ELEVENLABS_API_KEY', '')})
+    json.dump(j, open(_cache_voce, 'w'))
 VOCE = os.path.join(LAV, 'voce.mp3'); open(VOCE, 'wb').write(base64.b64decode(j['audio_base64']))
 al = j['alignment']; ts = al['character_start_times_seconds']; te = al['character_end_times_seconds']
 pos, inizi = 0, []
@@ -236,12 +243,15 @@ for n in range(len(piano) - 1):
 trans.append(('fade', 0))
 
 pezzi, fonti, nclip = [], [], 0
+MANCANTI = []   # ricerche delle scene senza spezzone adatto in libreria: la libreria le cerchera' nei giri successivi
 for n, (d, s, prima, t0) in enumerate(piano):
     T = trans[n][1]; L = d + T                        # ogni pezzo dura un po' di piu' per la transizione
     out = os.path.join(LAV, f'p_{n:03d}.mp4')
     sc = scritta_png(s['scritta'], n) if (s.get('scritta') and prima) else None
     vuole_clip = s.get('tipo', 'clip') != 'foto' or t0 < SOLO_VIDEO
     c = dalla_libreria(s, L) if (vuole_clip and LIB) else None
+    if vuole_clip and LIB and not c:
+        MANCANTI.append(s.get('q') or '')
     if vuole_clip and not c:
         at = bool(s.get('a_terra')); c = clip(s['q'], L, at) or clip(' '.join(s['q'].split()[:2]), L, at)
         if not c and s.get('_ultima'):
@@ -319,6 +329,7 @@ for i, q in enumerate(fot):
 G.save(os.path.join(CART, 'fotogrammi.jpg'), quality=85)
 quota = 100 * sum(d for (p, d, _), f in zip(pezzi, fonti) if ' CLIP ' in f) / max(.1, sum(d for p, d, _ in pezzi))
 open(os.path.join(CART, 'fonti.txt'), 'w').write('\n'.join(fonti) + '\n')
+open(os.path.join(CART, 'mancanti.txt'), 'w').write('\n'.join(sorted(set(m for m in MANCANTI if m))) + '\n')
 open(os.path.join(CART, 'costi.txt'), 'w').write(
     f'ElevenLabs: {len(testo)} crediti dell\'abbonamento | NASA: 0 | Claude: 0 (copione nel payload) | render GitHub: 0\n'
     f'inquadrature: {len(pezzi)} | durata: {fine_tot:.1f} s | inquadratura media {fine_tot / len(pezzi):.1f} s | video in movimento: {quota:.0f}%\n')

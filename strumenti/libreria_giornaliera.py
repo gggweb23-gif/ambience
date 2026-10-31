@@ -60,6 +60,9 @@ for r in v[1:]:
         continue
     fatte.add(nome)
     ricerche = [q.strip() for q in str(c.get('libreria_ricerche') or '').split(';') if q.strip()]
+    fm = os.path.join('libreria_clip', re.sub(r'[^a-z0-9_]', '', nome.lower()), 'ricerche_mancanti.txt')
+    if os.path.exists(fm):   # prima gli argomenti che ai video sono mancati
+        ricerche = [x.strip() for x in open(fm).read().splitlines() if x.strip()][-20:] + ricerche
     payload = {'nome': re.sub(r'[^a-z0-9_]', '', nome.lower()), 'max_spezzoni': int(budget / 0.0007), 'max_spesa': min(budget, 0.50)}
     if ricerche:
         payload['ricerche'] = ricerche
