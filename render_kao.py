@@ -514,7 +514,7 @@ def immagine_typo(s, cfg, texture, out):
     if dati.get('tipo') in ('numero', 'quota') and valori and len(valori) == 1:   # grafico semplice: valore grande + etichetta
         v = valori[0]
         val = str(v.get('valore'))
-        val = (val.replace('.', ',') + '%') if dati.get('tipo') == 'quota' else (val + (' ' + str(dati.get('unita')) if dati.get('unita') else ''))
+        val = ((val.replace('.', ',') if os.environ.get('LINGUA', 'it')[:2] == 'it' else val) + '%') if dati.get('tipo') == 'quota' else (val + (' ' + str(dati.get('unita')) if dati.get('unita') else ''))
         if titolo:
             testo_grande(img, re.sub(r'[\d][\d.,]*\s*(%|x|mln|mld|anni)?', '', titolo, flags=re.I).strip() or titolo, cfg, (160, 60, 1760, 300), dim_max=110)
         testo_grande(img, val, cfg, (160, 330, 1760, 760), colore=cfg.get('chart_value_color') or cfg.get('chart_bar_color'), dim_max=260)
@@ -819,7 +819,7 @@ def monta(dati, cartella, out):
             img = Image.open(tex).convert('RGB').resize((W, H)) if tex else Image.new('RGB', (W, H), (20, 18, 24))
         except Exception:
             img = Image.new('RGB', (W, H), (20, 18, 24))
-        testo_grande(img, str(cfg.get('end_screen_text') or 'GUARDA ANCHE'), cfg, (110, 200, 830, 760))
+        testo_grande(img, str(cfg.get('end_screen_text') or ('GUARDA ANCHE' if str(cfg.get('language') or 'it')[:2] == 'it' else 'WATCH NEXT')), cfg, (110, 200, 830, 760))   # lingua del canale
         if str(cfg.get('channel_name') or '').strip():
             testo_grande(img, str(cfg['channel_name']), cfg, (115, 760, 875, 850), colore='#FFFFFF', dim_max=50)
         png = os.path.join(cartella, 'fine.jpg'); img.save(png, quality=92)

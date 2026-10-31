@@ -672,7 +672,7 @@ def contatore(im, ev, dt, fine):
     if k <= 0:
         return
     di = max(2, min(10, int(ev.get('di') or 10))); su = max(0, min(di, int(ev.get('su') or 8)))
-    testo = str(ev.get('testo') or f'{su} IN {di}').upper()[:22]
+    testo = str(ev.get('testo') or (f'{su} SU {di}' if LINGUA[:2] == 'it' else f'{su} IN {di}')).upper()[:22]
     d = ImageDraw.Draw(im); f = font('Anton-Regular.ttf', 110 * back(k))
     d.text((W / 2, H - 250), testo, font=f, fill=ORO, anchor='mm', stroke_width=8, stroke_fill=NAVY)
     ic = icona(ev.get('personaggio') or 'family', 110)
@@ -2185,7 +2185,7 @@ def bottone_iscriviti(path):
     im = Image.new('RGBA', (900, 230), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
     d.rounded_rectangle([14, 24, 886, 214], 40, fill=(0, 0, 0, 110))
     d.rounded_rectangle([0, 10, 872, 200], 40, fill=(230, 33, 23))
-    d.text((380, 105), 'SUBSCRIBE', font=font('Anton-Regular.ttf', 110), fill='white', anchor='mm')
+    d.text((380, 105), 'ISCRIVITI' if LINGUA[:2] == 'it' else 'SUBSCRIBE', font=font('Anton-Regular.ttf', 110), fill='white', anchor='mm')
     try:
         metti(im, icona('bell', 150), 760, 105)
     except Exception:
