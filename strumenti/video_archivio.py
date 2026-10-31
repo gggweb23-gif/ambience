@@ -27,6 +27,21 @@ SPESA = {'usd': 0.0, 'voci': []}
 log = lambda *a: print(time.strftime('%H:%M:%S'), *a, flush=True)
 
 
+def _costo_se_fermo():   # anche un giro che si ferma ha speso: va nello storico costi del canale (esito BLOCCATO)
+    if SPESA.get('fatto') or not SPESA['usd']:
+        return
+    f = os.path.join('coach', 'costi', re.sub(r'[^a-z0-9]+', '_', str(P.get('channel_id') or 'canale').lower()).strip('_') + '.tsv')
+    os.makedirs('coach/costi', exist_ok=True); nuovo = not os.path.exists(f)
+    with open(f, 'a') as o:
+        if nuovo:
+            o.write('data\tcosto_dollari\tcrediti_voce\tprova\tlink\tdettaglio\tesito\n')
+        o.write('\t'.join([time.strftime('%Y-%m-%d %H:%M'), f"{SPESA['usd']:.3f}", '0', 'NO', '', json.dumps(SPESA['voci']), 'BLOCCATO']) + '\n')
+
+
+import atexit
+atexit.register(_costo_se_fermo)
+
+
 def get(u, dati=None, h=None, raw=False, timeout=300, metodo=None):
     req = urllib.request.Request(u, data=(dati if isinstance(dati, bytes) else json.dumps(dati).encode()) if dati is not None else None,
                                  headers=dict({'User-Agent': 'ambience-video-archivio/1.0', **({'Content-Type': 'application/json'} if dati is not None and not isinstance(dati, bytes) else {})}, **(h or {})),
@@ -232,5 +247,6 @@ with open(f, 'a') as o:
         o.write('data\tcosto_dollari\tcrediti_voce\tprova\tlink\tdettaglio\tesito\n')
     o.write('\t'.join([time.strftime('%Y-%m-%d %H:%M'), f"{SPESA['usd']:.3f}", str(crediti), 'NO', 'https://www.youtube.com/watch?v=' + vid_id if vid_id else '',
                        json.dumps(SPESA['voci']), 'OK']) + '\n')
+SPESA['fatto'] = True
 print('VIDEO_ID=' + vid_id)
 log('FATTO', NOME, f"{SPESA['usd']:.3f} $")
