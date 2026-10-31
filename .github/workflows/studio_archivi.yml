@@ -1,0 +1,48 @@
+name: Studio Archivi (gratis)
+
+# Prima di aprire un canale: la struttura di un canale che funziona portata su altri argomenti,
+# uno per ogni archivio di immagini gratuito (Pexels, NASA, Commons, Library of Congress, Met). Nessuna spesa.
+on:
+  workflow_dispatch:
+    inputs:
+      fase:
+        description: 'competitor | candidati | componi'
+        required: true
+        type: string
+      payload:
+        description: 'JSON: {"nome": "...", "canale": "...", "n": 5, "solo": ["nasa"] (facoltativo)}'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: studio-archivi
+  cancel-in-progress: false
+
+jobs:
+  studio:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Studio
+        env:
+          FASE: ${{ inputs.fase }}
+          PAYLOAD: ${{ inputs.payload }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN_KAO }}
+        run: pip install -q pillow && python3 strumenti/studio_archivi.py
+      - name: Salva nel repository
+        if: ${{ always() }}
+        run: |
+          if [ -n "$(git status --porcelain prove_archivi)" ]; then
+            git config user.name "render-bot"
+            git config user.email "render-bot@users.noreply.github.com"
+            git add prove_archivi
+            git commit -m "Studio archivi: ${{ inputs.fase }}"
+            for i in 1 2 3 4 5; do git pull --rebase -q && git push && break; sleep $((i * 5)); done
+          fi
