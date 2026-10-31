@@ -5,7 +5,8 @@ Lucchetti (decisi da Giorgio il 30 ott 2026), controllati qui E con gli interval
 - le colonne videos_per_day (canale acceso/spento) e publish_schedule_days non si toccano mai;
 - nessuna colonna di budget (budget_video, coach_budget_video) si tocca mai;
 - le colonne dei parametri di Giorgio (coach_*, durata_min_minuti, durata_max_minuti) si possono solo COMPILARE se vuote.
-PAYLOAD = {"modifiche": [{"canale": "Agora of Sages", "colonna": "render_engine", "valore": "github_completo"}, ...],
+PAYLOAD = {"nuova_riga": {"channel_id": "...", "valori": {...}} (canale nuovo, mai colonne bloccate),
+           "modifiche": [{"canale": "Agora of Sages", "colonna": "render_engine", "valore": "github_completo"}, ...],
            "nuove_colonne": ["coach_auto", ...], "prova": "SI" (solo controllo, non scrive)}
 Segreto: GOOGLE_SA_KEY (JSON dell'account di servizio, con il foglio condiviso in modifica con la sua email)."""
 import json, os, re, sys, time, urllib.parse, urllib.request
@@ -58,6 +59,28 @@ def main():
         intest += nuove
         esito.append(f'colonne nuove: {", ".join(nuove)} (da {lettera(da)})')
     righe = {str(r[0]).strip(): i + 1 for i, r in enumerate(valori) if r and i > 0}
+    nr = P.get('nuova_riga')   # {"channel_id": "...", "valori": {colonna: valore}}: canale NUOVO, riga in fondo
+    if nr and str(nr.get('channel_id') or '').strip():
+        can = str(nr['channel_id']).strip()
+        if can in righe:
+            esito.append(f'nuova riga NON creata: {can} esiste gia\' (riga {righe[can]})')
+        else:
+            vals = dict(nr.get('valori') or {}); vals['channel_id'] = can
+            vietate = [k for k in vals if k in ('videos_per_day', 'publish_schedule_days') or re.search(r'budget', k, re.I)]
+            for k in vietate:
+                vals.pop(k); esito.append(f'BLOCCATO: {k} la compila solo Giorgio')
+            mancano = [k for k in vals if k not in intest]
+            riga = [''] * len(intest)
+            for k, x in vals.items():
+                if k in intest:
+                    riga[intest.index(k)] = x
+            n = max(righe.values() or [1]) + 1
+            while n <= len(valori) and any(str(c).strip() for c in valori[n - 1]):
+                n += 1
+            if P.get('prova') != 'SI':
+                api('PUT', rng(f'A{n}') + '?valueInputOption=USER_ENTERED', {'values': [riga]}, tk)
+            righe[can] = n
+            esito.append(f'NUOVA RIGA {n}: {can} con {len(vals) - len(mancano)} colonne' + (f' (colonne inesistenti ignorate: {", ".join(mancano)})' if mancano else ''))
     dati = []
     for m in P.get('modifiche', []):
         can, col, val = str(m['canale']).strip(), str(m['colonna']).strip(), m['valore']
