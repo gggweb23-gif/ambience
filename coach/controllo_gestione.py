@@ -122,7 +122,10 @@ def costi_canale(canale, cambio):
     if os.path.exists(f):
         for l in open(f).read().splitlines()[1:]:
             c = l.split('\t') + [''] * 8
-            usd = num(c[1], 0)
+            try:
+                usd = float(c[1])   # nel file dei costi il punto e' il decimale (0.660 = 66 centesimi)
+            except Exception:
+                usd = 0.0
             out.append({'data': c[0], 'usd': usd, 'eur': usd * cambio, 'prova': (c[3] or 'NO').upper(), 'link': c[4],
                         'dettaglio': c[5][:300], 'esito': (c[6] or 'OK').upper()})
     return out
@@ -143,7 +146,7 @@ def main():
     for r in leggi(GESTIONE, 'Ricavi'):
         ricavi[r.get('canale', '').strip()] = ricavi.get(r.get('canale', '').strip(), 0) + (num(r.get('ricavi_eur'), 0) or 0)
     cfg_scheda = schede(CONFIGS)[0]
-    canali = [r for r in leggi(CONFIGS, cfg_scheda) if str(r.get('channel_id', '')).strip()]
+    canali = [r for r in leggi(CONFIGS, cfg_scheda) if str(r.get('channel_id', '')).strip() and str(r.get('channel_name', '')).strip()]
     riep, log_costi, attivi = [RIEPILOGO], [COSTI], 0
     for cfg in canali:
         can = str(cfg['channel_id']).strip()
@@ -182,7 +185,7 @@ def main():
                         if im and ct is not None:
                             imp += im; clic += im * ct / 100
             except Exception as e:
-                errore = 'file di produzione non leggibile: ' + str(e)[:80]
+                errore = 'file di produzione non condiviso con coach-164 (' + str(e)[:40] + ')'
         man = vecchio.get(can, {})
         avvio = data(man.get('data_avvio')) or (min(pubbl) if pubbl else None)
         giorno = (OGGI - avvio).days + 1 if avvio else 0
