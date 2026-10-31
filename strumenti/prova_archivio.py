@@ -26,7 +26,9 @@ SOLO_VIDEO = float(P.get('solo_video_fino_a') or 30)
 W, H, FPS = 1920, 1080, 30
 UA = {'User-Agent': 'ambience-prova-archivio/1.0 (gggweb23@gmail.com)'}
 NO_CLIP = re.compile(r'brief|conference|interview|news|q ?& ?a|panel|talk|chat|replay|update|event|coverage|town hall|live|speech|remarks|'
-                     r'podcast|webinar|explain|animation|graphic|trailer|countdown', re.I)
+                     r'podcast|webinar|explain|animation|graphic|trailer|countdown|speaks|call|engagement|discuss|student|school|media|magazine|'
+                     r'governor|official|tour|education|in-?flight|virtual|ceremony|award|reporter|answers|questions', re.I)
+B_ROLL = re.compile(r'b-?roll|time ?lapse|timelapse|footage', re.I)   # riprese senza persone che parlano in camera
 random.seed(7)
 log = lambda *a: print(time.strftime('%H:%M:%S'), *a, flush=True)
 
@@ -120,10 +122,10 @@ def clip(q, dur, a_terra=False):
         d0 = it['data'][0]; nid = d0['nasa_id']; tit = d0.get('title', '')
         if nid in USATI or NO_CLIP.search(tit + ' ' + ' '.join(d0.get('keywords') or [])):
             continue
-        if not a_terra and not CLIP_ORBITA.match(nid):
+        if not B_ROLL.search(tit + ' ' + d0.get('description', '')[:300]) or (not a_terra and not (CLIP_ORBITA.match(nid) or re.search(r'space station|ISS|orbit|spacewalk|expedition', tit + d0.get('description', '')[:300], re.I))):
             continue
         tentate += 1
-        if tentate > 5:
+        if tentate > 6:
             break
         try:
             files = get(it['href'])
