@@ -9,7 +9,8 @@ Uscita: JSON su stdout (e coach/canali/<slug>/ultimo_calcolo.json).
 Regole (decise con Giorgio il 30 ott 2026, valgono per tutti i canali con coach_auto = SI):
 - finestra = ultimi N video della versione attiva (colonna coach_finestra_video, default 3), solo video con almeno 72 ore
 - CTR = clic totali / impression totali della finestra (media pesata) >= coach_obiettivo_ctr (default 3,5)
-- se la finestra ha meno di coach_min_impression (default 1000) impression totali -> problema di CTR (YouTube non spinge)
+- copertine ferme finche' il canale non ha almeno coach_video_prima_di_cambiare video (default 5) E coach_min_impression (default 1000)
+  impression totali (1 nov 2026): poche impression = YouTube non spinge, la leva non e' la copertina (stato ATTESA_IMPRESSION)
 - retention 30 s e 60 s = media pesata sulle views, solo video con almeno 30 views (se non bastano si allarga a 5 video)
   >= coach_obiettivo_ret30 (default 65) e coach_obiettivo_ret60 (default 50)
 - ordine fisso delle leve: CTR -> retention 30 s -> retention 60 s
@@ -53,6 +54,7 @@ def main(f_cfg, f_prod, canale):
     O = {'ctr': num(cfg.get('coach_obiettivo_ctr'), 3.5), 'ret30': num(cfg.get('coach_obiettivo_ret30'), 65),
          'ret60': num(cfg.get('coach_obiettivo_ret60'), 50)}
     N = int(num(cfg.get('coach_finestra_video'), 3)); MIN_IMP = num(cfg.get('coach_min_impression'), 1000)
+    MIN_VID = int(num(cfg.get('coach_video_prima_di_cambiare'), 5))   # 1 nov, Giorgio: copertine si toccano solo dopo 5 video E 1000 impression totali
     wb = openpyxl.load_workbook(f_prod, data_only=True)
     prod = righe(wb.worksheets[0])
     perf = righe(wb['Performance']) if 'Performance' in wb.sheetnames else []
@@ -113,7 +115,12 @@ def main(f_cfg, f_prod, canale):
         return (round(sum(v[k] * v['views'] for v in base) / pv, 1) if pv else None), len(base)
     r30, n30 = ret('ret30'); r60, n60 = ret('ret60')
     esito['misure'] = {'ctr': ctr, 'impression_totali': imp, 'ret30': r30, 'video_ret30': n30, 'ret60': r60, 'video_ret60': n60}
-    if imp < MIN_IMP or ctr < O['ctr']:
+    pubblicati = [v for v in video if v['versione'] == attiva and v['ore'] > 0]
+    imp_tot = sum(v['impression'] for v in pubblicati)
+    esito['misure'].update(video_pubblicati=len(pubblicati), impression_canale=imp_tot)
+    if len(pubblicati) < MIN_VID or imp_tot < MIN_IMP:   # pochi video o poche impression: il problema NON e' la copertina, non si cambia
+        esito.update({'stato': 'ATTESA_IMPRESSION', 'motivo': f'copertine ferme: {len(pubblicati)} video (minimo {MIN_VID}) e {int(imp_tot)} impression totali (minimo {int(MIN_IMP)}); se restano basse la leva e\' titolo/argomento, non la copertina'})
+    elif ctr < O['ctr']:
         esito.update({'stato': 'LEVA_CTR', 'motivo': f'CTR {ctr}% su {int(imp)} impression (obiettivo {O["ctr"]}%, minimo {int(MIN_IMP)} impression)'})
     elif r30 is None or r30 < O['ret30']:
         esito.update({'stato': 'LEVA_RET30', 'motivo': f'retention 30 s {r30}% (obiettivo {O["ret30"]}%)'})
