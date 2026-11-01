@@ -65,6 +65,19 @@ def riga_produzione(R, tk):
 def main():
     P = json.loads(os.environ.get('PAYLOAD') or '{}')
     tk = token()
+    if P.get('leggi_produzione'):   # sola lettura: titolo, testo copertina e stato di ogni riga del file di produzione
+        global FOGLIO
+        vecchio, FOGLIO = FOGLIO, P['leggi_produzione']
+        sch = api('GET', '?fields=sheets.properties', tk=tk)['sheets'][0]['properties']['title']
+        val = api('GET', '/values/' + urllib.parse.quote(f"'{sch}'!A1:AZ200"), tk=tk).get('values', [])
+        FOGLIO = vecchio
+        h = [str(x).strip() for x in val[0]]
+        col = lambda r, k: (r[h.index(k)] if k in h and h.index(k) < len(r) else '')
+        out = [f"riga {i + 1} | {col(r, 'status')} | {col(r, 'titolo_italiano') or col(r, 'titolo_originale')} | {col(r, 'titolo_thumbnail')} | {col(r, 'youtube_video_id')}"
+               for i, r in enumerate(val) if i > 0 and any(str(x).strip() for x in r)]
+        with open('coach/modifiche_foglio.log', 'a') as f:
+            f.write(time.strftime('%Y-%m-%d %H:%M') + ' LETTURA file di produzione\n' + '\n'.join(out) + '\n')
+        print('\n'.join(out)); return
     if P.get('riga_produzione'):
         msg = riga_produzione(P['riga_produzione'], tk); print(msg)
         with open('coach/modifiche_foglio.log', 'a') as f:
