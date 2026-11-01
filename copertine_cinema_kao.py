@@ -284,6 +284,9 @@ Rispondi SOLO JSON: {{"riga1": "...", "riga2": "...", "emo": "...", "oggetto": "
         x = json.loads(tt[tt.find('{'): tt.rfind('}') + 1])
         x['comp_img'] = 'data:image/jpeg;base64,' + base64.b64encode(buf.getvalue()).decode()
         x['comp_id'] = k['comp']; x['perc'] = perc; x['lato_testo_comp'] = str(x.pop('lato_testo', '') or 'destra').lower()
+        r1_, r2_ = str(x.get('riga1') or '').strip(), str(x.get('riga2') or '').strip()
+        if r2_ and r1_.upper().endswith(' ' + r2_.upper()):   # mai la parola chiave due volte (es. "ALLENANO DA SOLI / SOLI")
+            x['riga1'] = r1_[:-len(r2_)].strip()
         testi[i] = dict(testi.get(i) or {}, **x)
         log(f"copia competitor {k['comp']} -> {c['id']} ({100 - perc}% uguale): {x.get('riga1')} / {x.get('riga2')}" + (f" | cambia: {x.get('cambi')}" if perc else ''))
     except Exception as e:
