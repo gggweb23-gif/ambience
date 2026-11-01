@@ -60,7 +60,17 @@ def riga_produzione(R, tk):
         R['valori'] = vv
         dati = [{'range': f"'{sch}'!{lettera(h.index(k) + 1)}{n}", 'values': [[v]]} for k, v in vv.items()
                 if k in h and not re.search(r'budget', k, re.I)]
-        api('POST', '/values:batchUpdate', {'valueInputOption': 'USER_ENTERED', 'data': dati}, tk)
+        try:
+            api('POST', '/values:batchUpdate', {'valueInputOption': 'USER_ENTERED', 'data': dati}, tk)
+        except Exception as e:   # riga oltre la fine della griglia del foglio: si aggiunge in fondo (righe nuove)
+            if n - 1 < len(val) and any(str(x).strip() for x in riga):
+                raise
+            nuova = [''] * len(h)
+            for k, v in vv.items():
+                if k in h and not re.search(r'budget', k, re.I):
+                    nuova[h.index(k)] = v
+            api('POST', '/values/' + urllib.parse.quote(f"'{sch}'!A1") + ':append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS', {'values': [nuova]}, tk)
+            return 'file di produzione, riga AGGIUNTA in fondo: ' + ', '.join(f'{k}={v}' for k, v in vv.items() if k in h)
         return f'file di produzione, riga {n}: ' + ', '.join(f'{k}={v}' for k, v in (R.get('valori') or {}).items() if k in h)
     finally:
         FOGLIO = vecchio
