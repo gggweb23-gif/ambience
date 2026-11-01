@@ -42,9 +42,35 @@ def lettera(n):   # 1 -> A
     return s
 
 
+def riga_produzione(R, tk):
+    """File di produzione di un canale: aggiorna UNA riga solo se il titolo corrisponde (mai budget o colonne protette).
+    {"riga_produzione": {"foglio": "<id>", "riga": 2, "titolo": "...", "valori": {"status": "Completato", ...}}}"""
+    global FOGLIO
+    vecchio, FOGLIO = FOGLIO, R['foglio']
+    try:
+        sch = api('GET', '?fields=sheets.properties', tk=tk)['sheets'][0]['properties']['title']
+        val = api('GET', '/values/' + urllib.parse.quote(f"'{sch}'!A1:AZ200"), tk=tk).get('values', [])
+        h, n = [str(x).strip() for x in val[0]], int(R['riga'])
+        riga = val[n - 1] if n - 1 < len(val) else []
+        if str(R.get('titolo') or '').strip().lower() not in ' | '.join(str(x) for x in riga).lower():
+            return f'riga {n} NON aggiornata: il titolo non corrisponde'
+        dati = [{'range': f"'{sch}'!{lettera(h.index(k) + 1)}{n}", 'values': [[v]]} for k, v in (R.get('valori') or {}).items()
+                if k in h and not re.search(r'budget', k, re.I)]
+        api('POST', '/values:batchUpdate', {'valueInputOption': 'USER_ENTERED', 'data': dati}, tk)
+        return f'file di produzione, riga {n}: ' + ', '.join(f'{k}={v}' for k, v in (R.get('valori') or {}).items() if k in h)
+    finally:
+        FOGLIO = vecchio
+
+
 def main():
     P = json.loads(os.environ.get('PAYLOAD') or '{}')
     tk = token()
+    if P.get('riga_produzione'):
+        msg = riga_produzione(P['riga_produzione'], tk); print(msg)
+        with open('coach/modifiche_foglio.log', 'a') as f:
+            f.write(time.strftime('%Y-%m-%d %H:%M') + ' ' + msg + '\n')
+        if not P.get('modifiche') and not P.get('nuove_colonne') and not P.get('nuova_riga'):
+            return
     meta = api('GET', '?fields=sheets.properties', tk=tk)
     scheda = meta['sheets'][0]['properties']['title']
     rng = lambda a: '/values/' + urllib.parse.quote(f"'{scheda}'!{a}")

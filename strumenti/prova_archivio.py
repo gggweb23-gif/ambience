@@ -324,10 +324,32 @@ else:
 mus = os.path.join('libreria_musica', P.get('musica') or 'epico_002.mp3')
 vm = float(P.get('volume_musica') or 0.08)
 OUT = os.path.join(CART, 'prova.mp4')
-run(['ffmpeg', '-y', '-v', 'error', '-i', muto, '-i', VOCE, '-stream_loop', '-1', '-i', mus, '-filter_complex',
+# SCATTO DI MACCHINA FOTOGRAFICA all'arrivo di ogni foto (1 nov, Giorgio: dinamicita' anche quando c'e' una foto); suono creato qui, gratis
+import array, math, wave
+SR = 44100
+def _scatto():
+    out = []
+    for t0, lung, vol in ((0.0, .012, .9), (.07, .022, .6)):   # due clic: otturatore che si apre e si chiude
+        out += [0.0] * (int((t0 * SR)) - len(out))
+        out += [vol * random.uniform(-1, 1) * math.exp(-i / (lung * SR / 4)) for i in range(int(lung * SR))]
+    return out
+sc_ = _scatto(); traccia = array.array('h', bytes(2 * int((fine_tot + 1) * SR))); t_ = 0.0; nscatti = 0
+for (p_, d_, _), f_ in zip(pezzi, fonti):
+    if ' FOTO ' in f_:
+        i0 = int(t_ * SR); nscatti += 1
+        for i, x in enumerate(sc_):
+            if i0 + i < len(traccia):
+                traccia[i0 + i] = max(-32767, min(32767, traccia[i0 + i] + int(x * 0.35 * 32767)))
+    t_ += d_
+SCATTI = os.path.join(LAV, 'scatti.wav')
+with wave.open(SCATTI, 'wb') as w_:
+    w_.setnchannels(1); w_.setsampwidth(2); w_.setframerate(SR); w_.writeframes(traccia.tobytes())
+log('scatti di macchina fotografica:', nscatti)
+run(['ffmpeg', '-y', '-v', 'error', '-i', muto, '-i', VOCE, '-stream_loop', '-1', '-i', mus, '-i', SCATTI, '-filter_complex',
      f'[1:a]aformat=sample_rates=44100:channel_layouts=stereo[v];'
      f'[2:a]aformat=sample_rates=44100:channel_layouts=stereo,volume={vm},afade=t=in:d=1,afade=t=out:st={fine_tot - 1.5:.2f}:d=1.5[m];'
-     f'[v][m]amix=inputs=2:duration=first:normalize=0[a]',
+     f'[3:a]aformat=sample_rates=44100:channel_layouts=stereo[s];'
+     f'[v][m][s]amix=inputs=3:duration=first:normalize=0[a]',
      '-map', '0:v', '-map', '[a]', '-t', round(fine_tot, 2), '-c:v', 'copy', '-c:a', 'aac', '-b:a', '160k', '-movflags', '+faststart', OUT])
 
 dv = float(subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'v', '-show_entries', 'stream=duration', '-of', 'csv=p=0', OUT], capture_output=True, text=True).stdout.strip() or 0)

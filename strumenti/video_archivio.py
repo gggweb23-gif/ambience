@@ -10,7 +10,7 @@ VIDEO ARCHIVIO (per tutti i canali fatti con archivi video gratuiti, es. Orbital
 Spesa: copione (Claude) + 1 ritocco copertina, con TETTO sul totale (coach_budget_video del foglio, in euro).
 PAYLOAD = riga di Channel Configs + {"titolo": "...", "testo_copertina": "...", "link_competitor": "...", "nome": "..."}
 """
-import base64, io, json, os, re, subprocess, sys, time, urllib.parse, urllib.request
+import shutil, base64, io, json, os, re, subprocess, sys, time, urllib.parse, urllib.request
 from PIL import Image, ImageDraw, ImageEnhance, ImageFont
 
 E = os.environ.get
@@ -20,7 +20,7 @@ CART = os.path.join('prove_video', 'archivio', NOME); os.makedirs(CART, exist_ok
 LAV = '/tmp/va'; os.makedirs(LAV, exist_ok=True)
 LINGUA = {'en': 'English (US)', 'it': 'italiano'}.get(str(P.get('language') or 'en')[:2], str(P.get('language')))
 MIN_M = float(str(P.get('durata_min_minuti') or 8.5).replace(',', '.')); MAX_M = float(str(P.get('durata_max_minuti') or 9).replace(',', '.'))
-PAROLE_SEC = 3.1                                     # misurato sulla voce di Orbital a 1.08: 3,09 parole al secondo (con 2,9 il video veniva 7,5 min invece di 8,5)
+PAROLE_SEC = 3.3                                     # largo apposta (misurato 3,1-3,23 parole/s a 1.08): il video deve stare SEMPRE sopra la durata minima del foglio (1 nov, Giorgio: mai sotto 8 minuti)
 P_MIN, P_MAX = int(MIN_M * 60 * PAROLE_SEC), int(MAX_M * 60 * PAROLE_SEC)
 BUDGET_USD = float(str(P.get('coach_budget_video') or P.get('budget_video') or 1).replace(',', '.').replace('€', '') or 1) * 1.08
 SPESA = {'usd': 0.0, 'voci': []}
@@ -140,7 +140,7 @@ for k in range(2):
         c = json.loads(t[t.find('{'): t.rfind('}') + 1])
         n = sum(len(s['testo'].split()) for s in c['scene'])
         log(f'copione: {len(c["scene"])} scene, {n} parole (limite {P_MIN}-{P_MAX})')
-        if P_MIN * .85 <= n <= P_MAX * 1.12:
+        if P_MIN * .95 <= n <= P_MAX * 1.12:
             break
     except Exception as e:
         n = 0; log('copione non leggibile:', str(e)[:120], '| risposta:', len(t), 'caratteri', repr(t[:200]))
@@ -155,6 +155,7 @@ mont = {'nome': NOME, 'voce': P.get('voice_id'), 'velocita': float(str(P.get('vo
         'musica': P.get('musica_file') or 'epico_002.mp3', 'volume_musica': 0.07, 'max_secondi': 3.3, 'solo_video_fino_a': 30,
         'libreria': P.get('libreria') or '', 'scene': [{k: s.get(k) for k in ('testo', 'q', 'tag', 'scritta', 'obbligo') if s.get(k)} for s in c['scene']]}
 VIDEO = os.path.join(CART, 'prova.mp4')
+MIN_VIDEO = float(str(P.get('video_movimento_minimo') or 80).replace(',', '.'))   # colonna del foglio (decide Giorgio): sotto questa quota un video pubblico si blocca
 
 
 def controlli():
@@ -163,10 +164,10 @@ def controlli():
     media = float((re.search(r'inquadratura media ([\d.]+)', costi) or [0, 9])[1])
     dur = float(subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'v', '-show_entries', 'stream=duration', '-of', 'csv=p=0', VIDEO], capture_output=True, text=True).stdout or 0)   # durata delle IMMAGINI, non dell'audio
     err = []
-    if not (MIN_M * 60 * .93 <= dur <= MAX_M * 60 * 1.07):
+    if not (MIN_M * 60 * .95 <= dur <= MAX_M * 60 * 1.12):
         err.append(f'durata {dur / 60:.1f} min fuori da {MIN_M:g}-{MAX_M:g}')
-    if quota < 80:
-        err.append(f'solo {quota:.0f}% di video in movimento (minimo 80%)')
+    if quota < MIN_VIDEO:
+        err.append(f'solo {quota:.0f}% di video in movimento (minimo {MIN_VIDEO:g}%)')
     if media > 3.6:
         err.append(f'inquadratura media {media:.1f} s (massimo 3,3)')
     log(f'CONTROLLI: durata {dur / 60:.1f} min, video in movimento {quota:.0f}%, inquadratura media {media:.1f} s' + (' | DA RIPARARE: ' + '; '.join(err) if err else ' | OK'))
@@ -176,7 +177,7 @@ def controlli():
 # RIPARAZIONE AUTOMATICA (31 ott, Giorgio: "i video non si devono bloccare"): se un controllo non passa, si rifa' il montaggio
 # con regole piu' strette (clip ovunque, inquadrature piu' corte, altri momenti delle riprese gia' scaricate) invece di fermarsi.
 TENTATIVI = [mont, dict(mont, solo_video_fino_a=99999, max_secondi=3.0)]
-quota = media = dur = 0; errori = ['montaggio non riuscito']; MONTATO = False
+quota = media = dur = 0; errori = ['montaggio non riuscito']; MONTATO = False; MIGLIORE = None
 for t_, m_ in enumerate(TENTATIVI):
     if os.path.exists(VIDEO):
         os.remove(VIDEO)   # mai caricare il video rotto di un tentativo precedente
@@ -187,6 +188,8 @@ for t_, m_ in enumerate(TENTATIVI):
     quota, media, dur, errori = controlli()
     if not errori:
         break
+    if not MIGLIORE or quota > MIGLIORE[0]:   # si tiene la versione migliore (piu' video in movimento) tra quelle fatte
+        MIGLIORE = (quota, media, dur, errori); shutil.copy(VIDEO, VIDEO + '.migliore.mp4')
     log('RIPARAZIONE: rifaccio il montaggio con clip ovunque e inquadrature piu\' corte')
 # argomenti senza clip in libreria -> la libreria li cerchera' nei prossimi giri (cresce dove serve)
 try:
@@ -199,6 +202,11 @@ try:
 except Exception:
     pass
 DA_CONTROLLARE = ''
+if errori and MIGLIORE and os.path.exists(VIDEO + '.migliore.mp4') and (not os.path.exists(VIDEO) or MIGLIORE[0] > quota):
+    os.replace(VIDEO + '.migliore.mp4', VIDEO); quota, media, dur, errori = MIGLIORE
+    log(f'si usa la versione migliore: {quota:.0f}% di video in movimento')
+if os.path.exists(VIDEO + '.migliore.mp4'):
+    os.remove(VIDEO + '.migliore.mp4')
 if errori:
     if not MONTATO or not os.path.exists(VIDEO) or (P.get('privacy') or 'unlisted') == 'public':
         raise RuntimeError('VIDEO BLOCCATO (controlli, anche dopo la riparazione): ' + '; '.join(errori))
