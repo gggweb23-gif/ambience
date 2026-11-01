@@ -117,6 +117,21 @@ if E('COPERTINE_CSV', ''):
         log(f'Competitor letti dal foglio: {len(COMP)} video')
     except Exception as e:
         log('foglio competitor non letto:', str(e)[:150])
+# copertina di UN video (SOLO) non ancora nella scheda Copertine: competitor dal link dato a mano, altrimenti cercato per titolo nel canale competitor
+for c in (cand if SOLO else []):
+    if c['id'] in COMP:
+        continue
+    m_ = re.search(r'(?:v=|youtu\.be/|shorts/)([\w-]{11})', str(E('LINK_COMPETITOR', '') or ''))
+    if not m_ and c.get('titolo'):
+        try:
+            tr = http('https://www.googleapis.com/youtube/v3/search?' + urllib.parse.urlencode({'part': 'snippet', 'type': 'video', 'maxResults': 5, 'q': c['titolo'],
+                      'channelId': E('COMPETITOR_CANALE', '') or 'UCAUv6KvqEEXpriK9sNC63dA'}), headers=AUTH).get('items', [])
+            if tr:
+                m_ = re.match(r'([\w-]{11})', tr[0]['id']['videoId']); log('competitor trovato per titolo:', tr[0]['snippet']['title'][:70], tr[0]['id']['videoId'])
+        except Exception as e:
+            log('ricerca competitor non riuscita:', str(e)[:150])
+    if m_:
+        COMP[c['id']] = {'comp': m_.group(1), 'copy': ''}
 # ---------- modo n8n: copertina del NUOVO video prima del caricamento (n8n la carica insieme al video, come sempre)
 N8N = json.loads(E('PAYLOAD', '') or '{}') if E('PAYLOAD', '') else {}
 if N8N:

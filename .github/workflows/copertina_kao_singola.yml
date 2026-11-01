@@ -6,6 +6,9 @@ on:
       video_id:
         description: "ID del video YouTube (le 11 lettere dopo v= oppure dal link di Studio)"
         required: true
+      link_competitor:
+        description: "(facoltativo) link del video competitor da copiare; vuoto = cercato per titolo"
+        default: ""
 permissions:
   contents: write
 concurrency:
@@ -20,6 +23,7 @@ jobs:
       - name: Copertina nuova per il video indicato
         env:
           SOLO: ${{ inputs.video_id }}
+          LINK_COMPETITOR: ${{ inputs.link_competitor }}
           APPLICA: "SI"
           STILE: "piatto"
           SFONDO_TESTO: "fumetto"
