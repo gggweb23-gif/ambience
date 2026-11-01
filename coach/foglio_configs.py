@@ -122,7 +122,10 @@ def main():
             righe[can] = n
             esito.append(f'NUOVA RIGA {n}: {can} con {len(vals) - len(mancano)} colonne' + (f' (colonne inesistenti ignorate: {", ".join(mancano)})' if mancano else ''))
     dati = []
-    for m in P.get('modifiche', []):
+    mods = []
+    for m in P.get('modifiche', []):   # canale "*" = tutte le righe dei canali
+        mods += [dict(m, canale=k) for k in righe] if str(m.get('canale')).strip() == '*' else [m]
+    for m in mods:
         can, col, val = str(m['canale']).strip(), str(m['colonna']).strip(), m['valore']
         if can in RIGHE_BLOCCATE:
             esito.append(f'BLOCCATO: la riga {can} non si tocca'); continue
