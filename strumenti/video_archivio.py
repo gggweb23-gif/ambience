@@ -20,7 +20,7 @@ CART = os.path.join('prove_video', 'archivio', NOME); os.makedirs(CART, exist_ok
 LAV = '/tmp/va'; os.makedirs(LAV, exist_ok=True)
 LINGUA = {'en': 'English (US)', 'it': 'italiano'}.get(str(P.get('language') or 'en')[:2], str(P.get('language')))
 MIN_M = float(str(P.get('durata_min_minuti') or 8.5).replace(',', '.')); MAX_M = float(str(P.get('durata_max_minuti') or 9).replace(',', '.'))
-PAROLE_SEC = 2.9                                     # voce veloce da documentario (Titan a 1.08: ~2,9 parole al secondo)
+PAROLE_SEC = 3.1                                     # misurato sulla voce di Orbital a 1.08: 3,09 parole al secondo (con 2,9 il video veniva 7,5 min invece di 8,5)
 P_MIN, P_MAX = int(MIN_M * 60 * PAROLE_SEC), int(MAX_M * 60 * PAROLE_SEC)
 BUDGET_USD = float(str(P.get('coach_budget_video') or P.get('budget_video') or 1).replace(',', '.').replace('€', '') or 1) * 1.08
 SPESA = {'usd': 0.0, 'voci': []}
