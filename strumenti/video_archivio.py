@@ -83,8 +83,10 @@ def spendi(voce, usd):
         raise RuntimeError(f'VIDEO BLOCCATO (budget): speso {SPESA["usd"]:.2f} $ oltre {BUDGET_USD:.2f} $')
 
 
-def claude(prompt, modello='claude-sonnet-5-5', max_tokens=24000):
-    corpo = {'model': modello, 'max_tokens': max_tokens, 'messages': [{'role': 'user', 'content': prompt}]}
+def claude(prompt, modello='claude-sonnet-5-5', max_tokens=24000, immagine=None):
+    contenuto = prompt if not immagine else [{'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(immagine).decode()}},
+                                              {'type': 'text', 'text': prompt}]
+    corpo = {'model': modello, 'max_tokens': max_tokens, 'messages': [{'role': 'user', 'content': contenuto}]}
     if 'sonnet-5' in modello:   # Sonnet 5.5 ragiona prima di rispondere e il ragionamento consumava tutti i token: risposta vuota
         corpo.update(thinking={'type': 'between_tools'}, output_config={'effort': 'medium'})
     r = get('https://api.anthropic.com/v1/messages', corpo,
@@ -107,6 +109,15 @@ if vid and E('RAPIDAPI_KEY'):
     except Exception as e:
         log('testo di riferimento non letto:', str(e)[:120])
 
+# copertina del video competitor (gratis): il testo della NOSTRA copertina parte dalla sua idea (1 nov, Giorgio)
+COP_COMP = None
+if vid and not str(P.get('testo_copertina') or '').strip():
+    for q_ in ('maxresdefault', 'hqdefault'):
+        try:
+            COP_COMP = get(f'https://i.ytimg.com/vi/{vid}/{q_}.jpg', raw=True, timeout=60); break
+        except Exception:
+            pass
+
 # ---------------- 2) copione ----------------
 regole = f"""You write the narration of a YouTube documentary for the channel "{P.get('channel_name')}".
 Title of the video: "{P['titolo']}". Language: {LINGUA} ONLY (every word of the narration, on-screen texts, title, description and tags).
@@ -126,16 +137,23 @@ if riferimento:
 
 REFERENCE VIDEO (copy its STRUCTURE, rhythm, hooks and kind of questions — NOT its topic): a successful video about ancient Rome.
 {' '.join(riferimento.split()[:6000])}"""
+if not str(P.get('testo_copertina') or '').strip():
+    regole += """
+
+THUMBNAIL TEXT ("testo_copertina"): 1-3 words in CAPS, built on the TITLE of this video. """ + (
+        'The attached image is the thumbnail of the successful competitor video: FIRST try to adapt ITS text idea (same mechanism: a short shock word, a question, a contrast, a number) to our title and topic. Only if it cannot be adapted, invent one in the same style. ' if COP_COMP else
+        'No competitor thumbnail for this title: invent one in the style of the channel (examples: NO WEEKENDS, TOO COLD?, NO BED, NO ESCAPE, THE NIGHT SHIFT). ') + """It must complete the title and create curiosity, never repeat it word by word, in the channel language only."""
 regole += """
 
 Answer ONLY with valid JSON:
 {"scene": [{"testo": "...", "q": "...", "tag": ["..."], "scritta": "", "obbligo": []}],
  "descrizione": "YouTube description, 3 short paragraphs (~120 words) with the words people search, then a line with 4-6 hashtags",
  "tag": ["20-30 YouTube tags"],
+ "testo_copertina": "1-3 WORDS (only if asked above, else empty)",
  "copertina_prompt": "one sentence: the scene of the thumbnail, a FICTIONAL astronaut in close-up with a strong readable emotion matching the title, setting and light"}"""
 c = None
 for k in range(2):
-    t = claude(regole + ('' if k == 0 else f'\n\nATTENTION: the previous attempt had {n} words: it MUST be between {P_MIN} and {P_MAX}.'))
+    t = claude(regole + ('' if k == 0 else f'\n\nATTENTION: the previous attempt had {n} words: it MUST be between {P_MIN} and {P_MAX}.'), immagine=COP_COMP)
     try:
         c = json.loads(t[t.find('{'): t.rfind('}') + 1])
         n = sum(len(s['testo'].split()) for s in c['scene'])
@@ -240,7 +258,9 @@ g = Image.new('L', (1280, 1))
 for x in range(1280):
     g.putpixel((x, 0), int(170 * max(0, ((1 - x / 1280) - .5) / .5)))
 im.paste(Image.new('RGB', (1280, 720)), (0, 0), g.resize((1280, 720))); d = ImageDraw.Draw(im)
-parole = str(P.get('testo_copertina') or 'WHY?').upper().split(); righe = [' '.join(parole[:-1]), parole[-1]] if len(parole) > 1 else parole
+TESTO_COP = str(P.get('testo_copertina') or '').strip() or str(c.get('testo_copertina') or '').strip() or 'WHY?'
+log('testo copertina:', TESTO_COP, '(dal foglio)' if str(P.get('testo_copertina') or '').strip() else '(creato dal titolo e dalla copertina del competitor)')
+parole = TESTO_COP.upper().split(); righe = [' '.join(parole[:-1]), parole[-1]] if len(parole) > 1 else parole
 y = 110
 for i, rr in enumerate(righe):
     s_ = 240
@@ -302,7 +322,7 @@ with open(f, 'a') as o:
     o.write('\t'.join([time.strftime('%Y-%m-%d %H:%M'), f"{SPESA['usd']:.3f}", str(crediti), 'NO', 'https://www.youtube.com/watch?v=' + vid_id if vid_id else '',
                        json.dumps(SPESA['voci']), 'OK']) + '\n')
 SPESA['fatto'] = True
-riga_produzione({'status': 'Completato', 'youtube_video_id': vid_id, 'descrizione_youtube': c.get('descrizione', ''),
+riga_produzione({'status': 'Completato', 'youtube_video_id': vid_id, 'titolo_thumbnail': TESTO_COP, 'descrizione_youtube': c.get('descrizione', ''),
                  'tag_seo': ', '.join(c.get('tag', [])), 'data_pubblicazione': (meta['status'].get('publishAt', '') if vid_id else '') or time.strftime('%Y-%m-%d %H:%M') + (' (non in elenco)' if (P.get('privacy') or 'unlisted') != 'public' else '')})
 print('VIDEO_ID=' + vid_id)
 log('FATTO', NOME, f"{SPESA['usd']:.3f} $")
