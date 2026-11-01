@@ -1,3776 +1,461 @@
 {
- "titolo": "Why Britain's Slide Is Making Ireland Rich",
+ "titolo": "Switzerland Should Be Poor. Here's Why It Isn't",
  "numero": {
-  "testo": "x2",
-  "sotto": "IRELAND'S PAPER LEAD OVER BRITAIN"
+  "testo": "500 YEARS",
+  "sotto": "ONE PRODUCT, SOLD IN NEW PACKAGES"
  },
  "copertina": {
   "testo": "WHY?",
   "oro": [
-   "IRL"
+   "CHE"
   ],
   "verde": [
-   "GBR"
+   "FRA",
+   "DEU",
+   "ITA",
+   "AUT"
   ],
   "vista": {
-   "lon": -6,
-   "lat": 53.5,
+   "lon": 8.2,
+   "lat": 46.8,
    "larghezza": 14
   }
  },
- "descrizione": "For 200 years, the ferries between Ireland and Britain carried people out. Now the money is sailing the other way. How did Britain's poorer neighbor pull ahead, and how much of that wealth is real?\n\nWe follow the story on animated maps: famine, emigration, two Irish booms, Brexit, the Apple tax fight and the strange case of leprechaun economics, plus the weak spots that could turn the ferries around again.",
+ "descrizione": "Two hundred years ago, Swiss villagers ate grass and tree bark. Today Switzerland is one of the richest countries on Earth, with no sea, no oil, no gold mines and mountains everywhere. How did that happen? We follow 500 years of one strange product: safety, sold in new packages, from mercenaries to neutrality, vaults and medicine.\n\nWe walk through the lucky accidents that built the Swiss fortune, the bills that came due for banking secrecy, and the skill that keeps the country rich anyway: recovery. Every border has a price, and here is Switzerland's.",
  "tag": [
-  "Ireland economy",
-  "Britain decline",
-  "Brexit",
-  "Ireland vs UK",
-  "Dublin finance",
-  "corporation tax",
-  "Apple tax case",
-  "leprechaun economics",
-  "Celtic Tiger",
+  "Switzerland",
+  "Swiss economy",
+  "why is Switzerland rich",
+  "Swiss banking",
+  "Swiss neutrality",
+  "animated map history",
   "economic history",
-  "animated maps",
-  "Northern Ireland"
+  "Credit Suisse collapse",
+  "Swiss mercenaries",
+  "Swiss watches",
+  "geography explained",
+  "Rich Borders"
  ],
  "scene": [
   {
-   "testo": "A border where Brexit flipped the map. A tax fight where Ireland refused free money. A country twice as rich on paper. Is any of it real?",
+   "testo": "Shelters for everyone. A bank that fell in one weekend. Soldiers for rent. Gold nobody should have kept. How does a poor mountain rock get this rich?",
    "anteprima": true,
    "vista": {
-    "lon": -6,
-    "lat": 53.5,
-    "larghezza": 14
+    "lon": 8.2,
+    "lat": 46.8,
+    "larghezza": 10
    },
    "epoca": "oggi",
    "oro": [
-    "IRL"
+    "CHE"
    ],
-   "verde": [
-    "GBR"
-   ],
+   "verde": [],
    "eventi": [
     {
-     "tipo": "freccia",
-     "da": [
-      -6.2,
-      53.3
-     ],
-     "a": [
-      -3,
-      53.4
-     ],
-     "icona": "ship",
-     "parola": "border"
+     "tipo": "numero",
+     "testo": "370,000",
+     "lon": 8.2,
+     "lat": 46.8,
+     "parola": "Shelters"
     },
     {
      "tipo": "prezzo",
-     "testo": "13B EURO",
-     "sotto": "MONEY IRELAND REFUSED",
+     "testo": "$200B",
+     "sotto": "STATE GUARANTEES",
      "ricco": true,
-     "lon": -8,
-     "lat": 53,
-     "parola": "refused"
+     "parola": "bank"
     },
-    {
-     "tipo": "numero",
-     "testo": "x2",
-     "lon": -7.5,
-     "lat": 53.2,
-     "parola": "twice"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "REAL?",
-     "parola": "real"
-    }
-   ],
-   "musica": "mistero",
-   "stacco": false,
-   "pin": {
-    "lon": -9,
-    "lat": 52,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "For 200 years, Irish ferries carried one main export: people. Four hundred fifty thousand left in the 1980s alone. Today, the money crosses the other way.",
-   "anteprima": false,
-   "vista": {
-    "lon": -5.5,
-    "lat": 53.5,
-    "larghezza": 16
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [
-    "GBR"
-   ],
-   "eventi": [
     {
      "tipo": "folla",
-     "personaggio": "family",
+     "personaggio": "soldier",
      "n": 5,
-     "lon": -6.2,
-     "lat": 53.3,
-     "parola": "people"
-    },
-    {
-     "tipo": "conta",
-     "valore": 450000,
-     "prefisso": "",
-     "suffisso": "",
-     "sotto": "LEFT IN THE 1980S",
-     "parola": "Four"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -6.2,
-      53.3
-     ],
-     "a": [
-      -3,
-      53.4
-     ],
-     "icona": "ship",
-     "parola": "ferries"
+     "lon": 7.2,
+     "lat": 47.4,
+     "parola": "Soldiers"
     },
     {
      "tipo": "icona",
-     "icona": "banknotes",
-     "lon": -6.2,
-     "lat": 53.3,
-     "parola": "money"
-    }
-   ],
-   "musica": "mistero",
-   "stacco": false,
-   "pin": {
-    "lon": -9,
-    "lat": 52.5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "A magazine once called Ireland the poorest of the rich. The average Irish person produced under three quarters of what the average Brit did.",
-   "anteprima": false,
-   "vista": {
-    "lon": -6,
-    "lat": 53.5,
-    "larghezza": 14
-   },
-   "epoca": "oggi",
-   "oro": [
-    "GBR"
-   ],
-   "verde": [
-    "IRL"
-   ],
-   "eventi": [
-    {
-     "tipo": "etichetta",
-     "testo": "POOREST OF THE RICH",
-     "lon": -8,
-     "lat": 53.5,
-     "parola": "poorest"
+     "icona": "gold_coins",
+     "lon": 9.5,
+     "lat": 46.2,
+     "parola": "Gold"
     },
-    {
-     "tipo": "barre",
-     "titolo": "OUTPUT PER PERSON, 1980S",
-     "voci": [
-      {
-       "testo": "BRITAIN",
-       "valore": 100,
-       "lato": "oro"
-      },
-      {
-       "testo": "IRELAND",
-       "valore": 72,
-       "lato": "verde"
-      }
-     ],
-     "parola": "average"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": -9.5,
-    "lat": 52,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Now look at the same water today. Banks are moving staff from London to Dublin, and the biggest tech companies on Earth run Europe from this island.",
-   "anteprima": false,
-   "vista": {
-    "lon": -5,
-    "lat": 53.2,
-    "larghezza": 12
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [
-    "GBR"
-   ],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      -0.1,
-      51.5
-     ],
-     "a": [
-      -6.26,
-      53.35
-     ],
-     "icona": "banknotes",
-     "parola": "Banks"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "banker",
-     "n": 4,
-     "lon": -6.26,
-     "lat": 53.35,
-     "parola": "staff"
-    },
-    {
-     "tipo": "icona",
-     "icona": "factory",
-     "lon": -6.4,
-     "lat": 53.3,
-     "parola": "tech"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": -9,
-    "lat": 52.5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "On paper, Ireland now produces more than twice as much per person as the United Kingdom. But some economists say a big slice isn't really Irish.",
-   "anteprima": false,
-   "vista": {
-    "lon": -5,
-    "lat": 54,
-    "larghezza": 14
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [
-    "GBR"
-   ],
-   "eventi": [
-    {
-     "tipo": "solleva",
-     "paese": [
-      "IRL"
-     ],
-     "volte": 6,
-     "testo": "x2",
-     "colore": "oro",
-     "parola": "twice"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "ON PAPER",
-     "parola": "paper"
-    },
-    {
-     "tipo": "icona",
-     "icona": "question",
-     "lon": -8,
-     "lat": 53.2,
-     "parola": "isn't"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": true,
-   "pin": {
-    "lon": -9.5,
-    "lat": 52,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "So how did Britain's poorer neighbor overtake it? And how much of that new wealth is real? Start with the map.",
-   "anteprima": false,
-   "vista": {
-    "lon": -4,
-    "lat": 53,
-    "larghezza": 24
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [
-    "GBR"
-   ],
-   "eventi": [
     {
      "tipo": "scritta",
      "testo": "HOW?",
-     "parola": "how"
-    },
-    {
-     "tipo": "contorno",
-     "paese": "IRL",
-     "parola": "overtake"
-    },
-    {
-     "tipo": "contorno",
-     "paese": "GBR",
-     "parola": "map"
+     "parola": "How"
     }
    ],
-   "musica": "",
+   "musica": "mistero",
    "stacco": false,
    "pin": {
-    "lon": -10,
-    "lat": 51.5,
-    "faccia": "normale"
+    "lon": 7.0,
+    "lat": 46.2,
+    "faccia": "stupito"
    }
   },
   {
-   "testo": "Ireland is an island sitting behind another island. Between Ireland and the rest of Europe lies Britain, so for generations its trade went through Britain.",
+   "testo": "In 1817, in the eastern Swiss mountains, people ate grass and tree bark. That year, twice the usual number of Swiss died.",
    "anteprima": false,
    "vista": {
-    "lon": -3,
-    "lat": 52.5,
-    "larghezza": 26
-   },
-   "epoca": "oggi",
-   "oro": [
-    "GBR"
-   ],
-   "verde": [
-    "IRL"
-   ],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      -6.2,
-      53.3
-     ],
-     "a": [
-      -3,
-      52.5
-     ],
-     "icona": "cargo_ship",
-     "parola": "Ireland"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -3,
-      52.5
-     ],
-     "a": [
-      2.4,
-      50.9
-     ],
-     "icona": "cargo_ship",
-     "parola": "rest"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "BEHIND BRITAIN",
-     "lon": -8,
-     "lat": 53.5,
-     "parola": "behind"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": -9,
-    "lat": 51.5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Even before Brexit, around 150,000 Irish truck trips a year still crossed Britain to reach the continent. Sometimes those trucks took days.",
-   "anteprima": false,
-   "vista": {
-    "lon": -2,
-    "lat": 52,
-    "larghezza": 22
-   },
-   "epoca": "oggi",
-   "oro": [
-    "GBR"
-   ],
-   "verde": [
-    "IRL"
-   ],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 150000,
-     "prefisso": "~",
-     "suffisso": "",
-     "sotto": "TRUCK TRIPS A YEAR",
-     "parola": "150,000"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -6.2,
-      53.3
-     ],
-     "a": [
-      1.3,
-      51.1
-     ],
-     "icona": "cargo_ship",
-     "parola": "crossed"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Trucks crossed Britain first",
-     "parola": "continent"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -9,
-    "lat": 51.5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Its money was tied to Britain too. From 1826 until 1979, one Irish pound was worth exactly one British pound.",
-   "anteprima": false,
-   "vista": {
-    "lon": -5,
-    "lat": 53,
-    "larghezza": 16
-   },
-   "epoca": "antica",
-   "oro": [
-    "GBR"
-   ],
-   "verde": [
-    "IRL"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1826",
-     "parola": "1826"
-    },
-    {
-     "tipo": "icona",
-     "icona": "banknotes",
-     "lon": -6.2,
-     "lat": 53.3,
-     "parola": "pound"
-    },
-    {
-     "tipo": "numero",
-     "testo": "1 = 1",
-     "lon": -2,
-     "lat": 52.5,
-     "parola": "exactly"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Same value until 1979",
-     "parola": "1979"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -9,
-    "lat": 52,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "And its people kept leaving. In 1841, the island had almost 8.2 million people. Then the potato blight arrived.",
-   "anteprima": false,
-   "vista": {
-    "lon": -8,
-    "lat": 53.3,
-    "larghezza": 9
+    "lon": 9.3,
+    "lat": 47.0,
+    "larghezza": 6
    },
    "epoca": "antica",
    "oro": [],
    "verde": [
-    "IRL"
+    "CHE"
    ],
    "eventi": [
     {
      "tipo": "anno",
-     "testo": "1841",
-     "parola": "1841"
-    },
-    {
-     "tipo": "conta",
-     "valore": 8200000,
-     "prefisso": "~",
-     "suffisso": "",
-     "sotto": "PEOPLE ON THE ISLAND",
-     "parola": "8.2"
+     "testo": "1817",
+     "parola": "1817"
     },
     {
      "tipo": "folla",
      "personaggio": "peasant",
-     "n": 6,
-     "lon": -8,
-     "lat": 53.2,
-     "parola": "people"
+     "n": 5,
+     "lon": 9.3,
+     "lat": 47.0,
+     "parola": "grass"
     },
     {
-     "tipo": "icona",
-     "icona": "farm",
-     "lon": -7.5,
-     "lat": 52.8,
-     "parola": "potato"
+     "tipo": "contatore",
+     "testo": "TWICE THE USUAL DEATHS",
+     "su": 2,
+     "di": 1,
+     "personaggio": "peasant",
+     "parola": "twice"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Swiss deaths doubled in 1817",
+     "parola": "died"
     }
    ],
-   "musica": "malinconia",
+   "musica": "tensione",
    "stacco": false,
    "pin": {
-    "lon": -9.8,
-    "lat": 52,
+    "lon": 8.0,
+    "lat": 46.3,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Around a million died in the famine, and more than a million emigrated. The Republic wouldn't pass five million people again until 2022.",
+   "testo": "The summer before, snow had fallen down to the valley floors. A volcano called Tambora, on the other side of the planet, had stolen Europe's summer.",
    "anteprima": false,
    "vista": {
-    "lon": -8,
-    "lat": 53.3,
-    "larghezza": 10
+    "lon": 115,
+    "lat": -8,
+    "larghezza": 120
    },
    "epoca": "antica",
    "oro": [],
    "verde": [
-    "IRL"
+    "IDN",
+    "CHE"
    ],
    "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "grave",
-     "lon": -8.5,
-     "lat": 53.2,
-     "parola": "died"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -8,
-      52.1
-     ],
-     "a": [
-      -30,
-      48
-     ],
-     "icona": "ship",
-     "parola": "emigrated"
-    },
-    {
-     "tipo": "anno",
-     "testo": "2022",
-     "parola": "2022"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Five million, finally, in 2022",
-     "parola": "five"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": -9.8,
-    "lat": 52,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "By the late 1980s, unemployment topped 16 percent, and government debt was over twice Britain's measured against the economy.",
-   "anteprima": false,
-   "vista": {
-    "lon": -6,
-    "lat": 53.5,
-    "larghezza": 14
-   },
-   "epoca": "oggi",
-   "oro": [
-    "GBR"
-   ],
-   "verde": [
-    "IRL"
-   ],
-   "eventi": [
-    {
-     "tipo": "numero",
-     "testo": "16%+",
-     "lon": -8,
-     "lat": 53.3,
-     "parola": "unemployment"
-    },
-    {
-     "tipo": "icona",
-     "icona": "chart_down",
-     "lon": -6.2,
-     "lat": 53.3,
-     "parola": "debt"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Debt double Britain's",
-     "parola": "twice"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": -9.5,
-    "lat": 52,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "A third of the people leaving had a university degree. The country was exporting its brightest.",
-   "anteprima": false,
-   "vista": {
-    "lon": -6,
-    "lat": 53.5,
-    "larghezza": 16
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "IRL"
-   ],
-   "eventi": [
-    {
-     "tipo": "contatore",
-     "testo": "1 IN 3 HAD A DEGREE",
-     "su": 1,
-     "di": 3,
-     "personaggio": "student",
-     "parola": "third"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -6.2,
-      53.3
-     ],
-     "a": [
-      -0.1,
-      51.5
-     ],
-     "icona": "ship",
-     "parola": "exporting"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Exporting its brightest",
-     "parola": "brightest"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": -9.5,
-    "lat": 52,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "The odd part? Ireland and Britain joined the European club on the very same day, the first of January 1973. Only one looked rich.",
-   "anteprima": false,
-   "vista": {
-    "lon": -3,
-    "lat": 53,
-    "larghezza": 24
-   },
-   "epoca": "oggi",
-   "oro": [
-    "GBR"
-   ],
-   "verde": [
-    "IRL"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1973",
-     "parola": "1973"
-    },
-    {
-     "tipo": "icona",
-     "icona": "flag:IE",
-     "lon": -8,
-     "lat": 53.2,
-     "parola": "Ireland"
-    },
-    {
-     "tipo": "icona",
-     "icona": "flag:GB",
-     "lon": -1.5,
-     "lat": 52.7,
-     "parola": "Britain"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Both joined on 1 January 1973",
-     "parola": "same"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": -10,
-    "lat": 51.5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "So in the late 1980s, Ireland tried something drastic. It cut spending, kept taxes low, and went out to sell itself to companies.",
-   "anteprima": false,
-   "vista": {
-    "lon": -7,
-    "lat": 53.3,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": -6.3,
-     "lat": 53.35,
-     "parola": "cut"
-    },
     {
      "tipo": "etichetta",
-     "testo": "LOW TAXES",
-     "lon": -8,
-     "lat": 53,
-     "parola": "taxes"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "politician",
-     "n": 3,
-     "lon": -6.3,
-     "lat": 53.35,
-     "parola": "sell"
-    }
-   ],
-   "musica": "epico",
-   "stacco": false,
-   "pin": {
-    "lon": -9.5,
-    "lat": 52.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "It worked. Between 1995 and 2000, the economy grew by more than nine percent a year.",
-   "anteprima": false,
-   "vista": {
-    "lon": -7,
-    "lat": 53.3,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1995",
-     "parola": "1995"
-    },
-    {
-     "tipo": "icona",
-     "icona": "chart_up",
-     "lon": -6.3,
-     "lat": 53.35,
-     "parola": "grew"
-    },
-    {
-     "tipo": "numero",
-     "testo": "9%+",
-     "lon": -8.5,
-     "lat": 53,
-     "parola": "nine"
-    }
-   ],
-   "musica": "trionfo",
-   "stacco": false,
-   "pin": {
-    "lon": -9.5,
-    "lat": 52.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "In 1997, Irish output per person passed Britain's for the first time. The same magazine now called Ireland Europe's shining light.",
-   "anteprima": false,
-   "vista": {
-    "lon": -4,
-    "lat": 53,
-    "larghezza": 20
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [
-    "GBR"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1997",
-     "parola": "1997"
-    },
-    {
-     "tipo": "solleva",
-     "paese": [
-      "IRL"
-     ],
-     "volte": 4,
-     "testo": "PASSED",
-     "colore": "oro",
-     "parola": "passed"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "EUROPE'S SHINING LIGHT",
-     "lon": -8,
-     "lat": 54.3,
-     "parola": "shining"
-    }
-   ],
-   "musica": "trionfo",
-   "stacco": true,
-   "pin": {
-    "lon": -10,
-    "lat": 51.5,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Then it blew up. Cheap credit poured into houses, and when the bubble burst in 2008, the government guaranteed every big Irish bank.",
-   "anteprima": false,
-   "vista": {
-    "lon": -7,
-    "lat": 53.3,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "IRL"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "2008",
-     "parola": "2008"
-    },
-    {
-     "tipo": "icona",
-     "icona": "cabin",
-     "lon": -6.3,
-     "lat": 53.35,
-     "parola": "houses"
-    },
-    {
-     "tipo": "icona",
-     "icona": "chart_down",
-     "lon": -8.5,
-     "lat": 53,
-     "parola": "burst"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "banker",
-     "n": 4,
-     "lon": -6.3,
-     "lat": 53.35,
-     "parola": "bank"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": -9.5,
-    "lat": 52.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Their losses landed on taxpayers. In 2010, Ireland needed an 85 billion euro rescue from the EU and the IMF.",
-   "anteprima": false,
-   "vista": {
-    "lon": -7,
-    "lat": 53.3,
-    "larghezza": 12
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "IRL"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "2010",
-     "parola": "2010"
-    },
-    {
-     "tipo": "prezzo",
-     "testo": "85B EURO",
-     "sotto": "EU AND IMF RESCUE",
-     "ricco": false,
-     "lon": -8,
-     "lat": 53.3,
-     "parola": "85"
-    },
-    {
-     "tipo": "icona",
-     "icona": "money_bag",
-     "lon": -6.3,
-     "lat": 53.35,
-     "parola": "rescue"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": -9.5,
-    "lat": 52.2,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "By 2012, unemployment was back near 16 percent, and young people were back on the ferries.",
-   "anteprima": false,
-   "vista": {
-    "lon": -5,
-    "lat": 53.3,
-    "larghezza": 14
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "IRL"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "2012",
-     "parola": "2012"
-    },
-    {
-     "tipo": "numero",
-     "testo": "~16%",
-     "lon": -8.5,
-     "lat": 53,
-     "parola": "16"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "student",
-     "n": 5,
-     "lon": -6.2,
-     "lat": 53.3,
-     "parola": "young"
+     "testo": "MOUNT TAMBORA",
+     "lon": 118,
+     "lat": -8.2,
+     "parola": "Tambora"
     },
     {
      "tipo": "freccia",
      "da": [
-      -6.2,
-      53.3
+      118,
+      -8.2
      ],
      "a": [
-      -3,
-      53.4
+      8.2,
+      46.8
      ],
      "icona": "ship",
-     "parola": "ferries"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": -9.5,
-    "lat": 52.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "So the first Irish miracle ended in a crash. The second one needed something Ireland couldn't build alone, and it sat across the water.",
-   "anteprima": false,
-   "vista": {
-    "lon": -4,
-    "lat": 53,
-    "larghezza": 18
-   },
-   "epoca": "oggi",
-   "oro": [
-    "GBR"
-   ],
-   "verde": [
-    "IRL"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "chart_down",
-     "lon": -8,
-     "lat": 53.2,
-     "parola": "crash"
+     "parola": "planet"
     },
     {
      "tipo": "scritta",
-     "testo": "CRASH",
-     "parola": "crash"
+     "testo": "NO SUMMER",
+     "parola": "summer"
     },
     {
-     "tipo": "contorno",
-     "paese": "GBR",
-     "parola": "across"
+     "tipo": "nota",
+     "testo": "Volcanic ash dimmed Europe's sun",
+     "parola": "stolen"
     }
    ],
    "musica": "mistero",
    "stacco": false,
    "pin": {
-    "lon": -10,
-    "lat": 51.8,
+    "lon": 90,
+    "lat": 25,
     "faccia": "normale"
    }
   },
   {
-   "testo": "There, in the most powerful financial city in Europe, Britain's model rested on three advantages.",
+   "testo": "The harvest failed. Some villages grew so poor that they later paid their own neighbors to leave for America.",
    "anteprima": false,
    "vista": {
-    "lon": -0.5,
-    "lat": 51.5,
+    "lon": 8.2,
+    "lat": 46.8,
+    "larghezza": 14
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "CHE"
+   ],
+   "eventi": [
+    {
+     "tipo": "icono",
+     "icona": "wheat",
+     "lon": 8.0,
+     "lat": 47.2,
+     "parola": "harvest"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": 8.0,
+     "lat": 47.2,
+     "parola": "failed"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      8.2,
+      46.8
+     ],
+     "a": [
+      -20,
+      40
+     ],
+     "icona": "ship",
+     "parola": "America"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Villages paid to export people",
+     "parola": "paid"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": 10.5,
+    "lat": 45.8,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Today, that same country is the fourth richest on Earth per person. And that makes no sense.",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.2,
+    "lat": 46.8,
+    "larghezza": 12
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "TODAY",
+     "parola": "Today"
+    },
+    {
+     "tipo": "solleva",
+     "paese": [
+      "CHE"
+     ],
+     "volte": 8,
+     "testo": "#4",
+     "colore": "oro",
+     "parola": "fourth"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "NO SENSE",
+     "parola": "sense"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Fourth richest per person",
+     "parola": "richest"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": true,
+   "pin": {
+    "lon": 6.2,
+    "lat": 47.5,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Switzerland has no sea, no oil, no gas, no gold mines. About sixty percent of it is mountain, land you can barely farm.",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.2,
+    "lat": 46.8,
     "larghezza": 8
    },
    "epoca": "oggi",
    "oro": [
-    "GBR"
+    "CHE"
    ],
    "verde": [],
    "eventi": [
     {
      "tipo": "icona",
-     "icona": "bank",
-     "lon": -0.09,
-     "lat": 51.51,
-     "parola": "financial"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "LONDON",
-     "lon": -0.12,
-     "lat": 51.5,
-     "parola": "city"
-    },
-    {
-     "tipo": "conta",
-     "valore": 3,
-     "prefisso": "",
-     "suffisso": "",
-     "sotto": "ADVANTAGES",
-     "parola": "three"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Three advantages built Britain",
-     "parola": "advantages"
-    }
-   ],
-   "musica": "epico",
-   "stacco": false,
-   "pin": {
-    "lon": -2.5,
-    "lat": 52.5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "One, the door. For any American or Asian company selling to Europe, Britain was the obvious first stop.",
-   "anteprima": false,
-   "vista": {
-    "lon": -20,
-    "lat": 50,
-    "larghezza": 70
-   },
-   "epoca": "oggi",
-   "oro": [
-    "GBR"
-   ],
-   "verde": [
-    "USA"
-   ],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      -74,
-      40.7
-     ],
-     "a": [
-      -0.1,
-      51.5
-     ],
-     "icona": "cargo_ship",
-     "parola": "American"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -0.1,
-      51.5
-     ],
-     "a": [
-      10,
-      50
-     ],
-     "icona": "cargo_ship",
-     "parola": "selling"
+     "icona": "port",
+     "lon": 6.1,
+     "lat": 46.2,
+     "parola": "sea"
     },
     {
      "tipo": "icona",
-     "icona": "port",
-     "lon": -0.1,
-     "lat": 51.5,
-     "parola": "door"
+     "icona": "oil_derrick",
+     "lon": 8.6,
+     "lat": 47.4,
+     "parola": "oil"
+    },
+    {
+     "tipo": "icona",
+     "icona": "mine",
+     "lon": 9.4,
+     "lat": 46.7,
+     "parola": "gold"
+    },
+    {
+     "tipo": "griglia",
+     "paese": [
+      "CHE"
+     ],
+     "pieni": 0.6,
+     "testo": "60% MOUNTAIN",
+     "colore": "verde",
+     "parola": "mountain"
     }
    ],
    "musica": "curiosita",
    "stacco": false,
    "pin": {
-    "lon": -35,
-    "lat": 55,
+    "lon": 6.0,
+    "lat": 47.3,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Same language, familiar law, and full access to the European market. Easy.",
+   "testo": "Four languages. No colonies. Surrounded for centuries by empires far bigger than itself. So how does this landlocked rock end up so rich?",
    "anteprima": false,
    "vista": {
-    "lon": 0,
-    "lat": 50,
-    "larghezza": 30
+    "lon": 9,
+    "lat": 47,
+    "larghezza": 24
    },
    "epoca": "oggi",
    "oro": [
-    "GBR"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": -1,
-     "lat": 52,
-     "parola": "law"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "FULL EU ACCESS",
-     "lon": 4,
-     "lat": 50.5,
-     "parola": "access"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Language, law, market access",
-     "parola": "language"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -8,
-    "lat": 55,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Two, the passport. A bank licensed in London could sell its services across the whole European Economic Area.",
-   "anteprima": false,
-   "vista": {
-    "lon": 5,
-    "lat": 50,
-    "larghezza": 40
-   },
-   "epoca": "oggi",
-   "oro": [
-    "GBR"
+    "CHE"
    ],
    "verde": [
     "FRA",
     "DEU",
     "ITA",
-    "ESP",
-    "NLD"
+    "AUT"
    ],
    "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": -0.1,
-     "lat": 51.5,
-     "parola": "passport"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -0.1,
-      51.5
-     ],
-     "a": [
-      2.3,
-      48.9
-     ],
-     "icona": "banknotes",
-     "parola": "sell"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -0.1,
-      51.5
-     ],
-     "a": [
-      9.2,
-      45.5
-     ],
-     "icona": "banknotes",
-     "parola": "whole"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -6,
-    "lat": 55,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Banks operating in London held more than ten trillion euros in assets.",
-   "anteprima": false,
-   "vista": {
-    "lon": -0.5,
-    "lat": 51.5,
-    "larghezza": 8
-   },
-   "epoca": "oggi",
-   "oro": [
-    "GBR"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "prezzo",
-     "testo": "10T EURO",
-     "sotto": "BANK ASSETS IN LONDON",
-     "ricco": true,
-     "lon": -0.1,
-     "lat": 51.5,
-     "parola": "trillion"
-    },
-    {
-     "tipo": "colonna",
-     "testo": "LONDON",
-     "valore": 1.0,
-     "lon": -0.1,
-     "lat": 51.5,
-     "parola": "assets"
-    }
-   ],
-   "musica": "epico",
-   "stacco": false,
-   "pin": {
-    "lon": -2.5,
-    "lat": 52.5,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Three, rising pay. For decades, each generation of British workers earned more than the one before.",
-   "anteprima": false,
-   "vista": {
-    "lon": -2,
-    "lat": 53,
-    "larghezza": 12
-   },
-   "epoca": "oggi",
-   "oro": [
-    "GBR"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "worker",
-     "n": 6,
-     "lon": -2,
-     "lat": 53,
-     "parola": "workers"
-    },
-    {
-     "tipo": "icona",
-     "icona": "chart_up",
-     "lon": -1,
-     "lat": 52.5,
-     "parola": "rising"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Each generation earned more",
-     "parola": "generation"
-    }
-   ],
-   "musica": "trionfo",
-   "stacco": false,
-   "pin": {
-    "lon": -4.5,
-    "lat": 54,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "None of those three were guaranteed, and they started to crack one at a time.",
-   "anteprima": false,
-   "vista": {
-    "lon": -2,
-    "lat": 53,
-    "larghezza": 14
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "GBR"
-   ],
-   "eventi": [
-    {
-     "tipo": "scritta",
-     "testo": "CRACKS",
-     "parola": "crack"
-    },
-    {
-     "tipo": "conta_paesi",
-     "paesi": [
-      "GBR"
-     ],
-     "colore": "rosso",
-     "parola": "three"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Nothing was guaranteed",
-     "parola": "guaranteed"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": -5,
-    "lat": 54,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "The third cracked first. After 2008, British pay simply stopped growing.",
-   "anteprima": false,
-   "vista": {
-    "lon": -2,
-    "lat": 53,
-    "larghezza": 12
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "GBR"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "2008",
-     "parola": "2008"
-    },
-    {
-     "tipo": "icona",
-     "icona": "chart_down",
-     "lon": -1.5,
-     "lat": 52.8,
-     "parola": "stopped"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "worker",
-     "n": 5,
-     "lon": -2,
-     "lat": 53.5,
-     "parola": "pay"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": -5,
-    "lat": 54,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "One think tank estimates the typical worker now earns about 11,000 pounds a year less than if pay had kept growing at its old pace.",
-   "anteprima": false,
-   "vista": {
-    "lon": -2,
-    "lat": 53,
-    "larghezza": 12
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "GBR"
-   ],
-   "eventi": [
-    {
-     "tipo": "prezzo",
-     "testo": "11,000 POUNDS",
-     "sotto": "LOST PER WORKER A YEAR",
-     "richo": false,
-     "ricco": false,
-     "lon": -2,
-     "lat": 53,
-     "parola": "11,000"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Pay lost versus old trend",
-     "parola": "less"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": true,
-   "pin": {
-    "lon": -5,
-    "lat": 54,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Then, in 2016, Britain voted to leave the European Union, and the door and the passport went with it.",
-   "anteprima": false,
-   "vista": {
-    "lon": -2,
-    "lat": 53,
-    "larghezza": 16
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "GBR"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "2016",
-     "parola": "2016"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "voter",
-     "n": 6,
-     "lon": -1.5,
-     "lat": 52.5,
-     "parola": "voted"
-    },
-    {
-     "tipo": "icona",
-     "icona": "ballot_box",
-     "lon": -1.5,
-     "lat": 52.5,
-     "parola": "voted"
-    },
-    {
-     "tipo": "confine",
-     "punti": [
-      [
-       1.7,
-       51
-      ],
-      [
-       -1,
-       50.3
-      ],
-      [
-       -5,
-       49.9
-      ]
-     ],
-     "parola": "door"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": -5,
-    "lat": 54,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Britain's own budget watchdog assumes the country ends up about four percent less productive than if it had stayed, with trade around 15 percent lower.",
-   "anteprima": false,
-   "vista": {
-    "lon": -2,
-    "lat": 53,
-    "larghezza": 14
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "GBR"
-   ],
-   "eventi": [
-    {
-     "tipo": "numero",
-     "testo": "-4%",
-     "lon": -2,
-     "lat": 54,
-     "parola": "four"
-    },
-    {
-     "tipo": "numero",
-     "testo": "-15%",
-     "lon": -2,
-     "lat": 51.8,
-     "parola": "15"
-    },
-    {
-     "tipo": "barre",
-     "titolo": "BREXIT HIT (OBR)",
-     "voci": [
-      {
-       "testo": "PRODUCTIVITY",
-       "valore": 4,
-       "lato": "verde"
-      },
-      {
-       "testo": "TRADE",
-       "valore": 15,
-       "lato": "verde"
-      }
-     ],
-     "parola": "trade"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": -5,
-    "lat": 54,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Before we follow the money across the Irish Sea, a quick ask. These videos take a long time to make, and subscribing really helps.",
-   "anteprima": false,
-   "vista": {
-    "lon": -5,
-    "lat": 53.5,
-    "larghezza": 14
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [
-    "GBR"
-   ],
-   "eventi": [
-    {
-     "tipo": "etichetta",
-     "testo": "SUBSCRIBE",
-     "lon": -5.5,
-     "lat": 53.5,
-     "parola": "subscribing"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Subscribing really helps",
-     "parola": "helps"
-    }
-   ],
-   "musica": "quotidiano",
-   "stacco": false,
-   "pin": {
-    "lon": -8,
-    "lat": 52.3,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Take the door first. With Britain gone, Ireland became the biggest English-speaking country left in the European Union.",
-   "anteprima": false,
-   "vista": {
-    "lon": -6,
-    "lat": 53.3,
-    "larghezza": 16
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "contorno",
-     "paese": "IRL",
-     "parola": "Ireland"
-    },
-    {
-     "tipo": "icona",
-     "icona": "port",
-     "lon": -6.2,
-     "lat": 53.3,
-     "parola": "door"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Biggest English speaker left in EU",
-     "parola": "English-speaking"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": -9.5,
-    "lat": 52,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "For an American company, it's the closest thing to Britain still inside the single market. And most of the giants were already here.",
-   "anteprima": false,
-   "vista": {
-    "lon": -7,
-    "lat": 53.3,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      -74,
-      40.7
-     ],
-     "a": [
-      -6.26,
-      53.35
-     ],
-     "icona": "cargo_ship",
-     "parola": "American"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "banker",
-     "n": 4,
-     "lon": -6.26,
-     "lat": 53.35,
-     "parola": "giants"
-    },
-    {
-     "tipo": "icona",
-     "icona": "factory",
-     "lon": -6.4,
-     "lat": 53.3,
-     "parola": "company"
-    }
-   ],
-   "musica": "epico",
-   "stacco": false,
-   "pin": {
-    "lon": -9.5,
-    "lat": 52,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Google and Meta run Europe from Dublin. Apple's European base is in Cork. Microsoft, LinkedIn, TikTok and X all have big Irish operations.",
-   "anteprima": false,
-   "vista": {
-    "lon": -7.5,
-    "lat": 53,
-    "larghezza": 8
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "etichetta",
-     "testo": "GOOGLE · META",
-     "lon": -6.26,
-     "lat": 53.35,
-     "parola": "Google"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "APPLE",
-     "lon": -8.47,
-     "lat": 51.9,
-     "parola": "Cork"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "MICROSOFT · TIKTOK · X",
-     "lon": -7.5,
-     "lat": 52.7,
-     "parola": "Microsoft"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -9.8,
-    "lat": 53.8,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "They came for one number: twelve and a half percent. That's Ireland's tax on company profits.",
-   "anteprima": false,
-   "vista": {
-    "lon": -7,
-    "lat": 53.3,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "numero",
-     "testo": "12.5%",
-     "lon": -7.5,
-     "lat": 53.2,
-     "parola": "twelve"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "12.5%",
-     "parola": "number"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Ireland's profit tax rate",
-     "parola": "profits"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": true,
-   "pin": {
-    "lon": -9.8,
-    "lat": 52,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "It's now fifteen percent for the very largest firms, but Britain's main rate is twenty-five. That gap is the whole sales pitch.",
-   "anteprima": false,
-   "vista": {
-    "lon": -4,
-    "lat": 53,
-    "larghezza": 16
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [
-    "GBR"
-   ],
-   "eventi": [
-    {
-     "tipo": "barre",
-     "titolo": "COMPANY TAX RATE",
-     "voci": [
-      {
-       "testo": "IRELAND",
-       "valore": 15,
-       "lato": "oro"
-      },
-      {
-       "testo": "BRITAIN",
-       "valore": 25,
-       "lato": "verde"
-      }
-     ],
-     "parola": "fifteen"
-    },
-    {
-     "tipo": "nota",
-     "testo": "15 versus 25 percent",
-     "parola": "twenty-five"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -9.8,
-    "lat": 52,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Then the passport. The moment Britain left, a London license stopped working in Paris or Milan. Banks and insurers needed a new address inside the EU.",
-   "anteprima": false,
-   "vista": {
-    "lon": 3,
-    "lat": 49,
-    "larghezza": 24
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [
-    "GBR",
-    "FRA",
-    "ITA"
-   ],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      -0.1,
-      51.5
-     ],
-     "a": [
-      2.3,
-      48.9
-     ],
-     "icona": "banknotes",
-     "parola": "Paris"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -0.1,
-      51.5
-     ],
-     "a": [
-      9.2,
-      45.5
-     ],
-     "icona": "banknotes",
-     "parola": "Milan"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "BLOCKED",
-     "parola": "stopped"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": -5,
-    "lat": 54,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Dublin became the top destination. At least 135 financial firms moved business there because of Brexit.",
-   "anteprima": false,
-   "vista": {
-    "lon": -4,
-    "lat": 53,
-    "larghezza": 14
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [
-    "GBR"
-   ],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      -0.1,
-      51.5
-     ],
-     "a": [
-      -6.26,
-      53.35
-     ],
-     "icona": "banknotes",
-     "parola": "Dublin"
-    },
     {
      "tipo": "conta",
-     "valore": 135,
-     "prefisso": "",
-     "suffisso": "+",
-     "sotto": "FIRMS MOVED BUSINESS",
-     "parola": "135"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "banker",
-     "n": 5,
-     "lon": -6.26,
-     "lat": 53.35,
-     "parola": "firms"
-    }
-   ],
-   "musica": "azione",
-   "stacco": false,
-   "pin": {
-    "lon": -9.8,
-    "lat": 52,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Banks moved or plan to move over 900 billion pounds of assets out of Britain. That's about a tenth of the whole British banking system.",
-   "anteprima": false,
-   "vista": {
-    "lon": -3,
-    "lat": 52.5,
-    "larghezza": 14
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [
-    "GBR"
-   ],
-   "eventi": [
-    {
-     "tipo": "prezzo",
-     "testo": "900B POUNDS",
-     "sotto": "ASSETS LEAVING BRITAIN",
-     "ricco": true,
-     "lon": -3,
-     "lat": 52.5,
-     "parola": "900"
-    },
-    {
-     "tipo": "contatore",
-     "testo": "1 IN 10 OF UK BANKING",
-     "su": 1,
-     "di": 10,
-     "personaggio": "banker",
-     "parola": "tenth"
-    }
-   ],
-   "musica": "azione",
-   "stacco": false,
-   "pin": {
-    "lon": -9.8,
-    "lat": 52,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Roughly one in three fund managers that relocated chose Dublin. Even the trucks changed course.",
-   "anteprima": false,
-   "vista": {
-    "lon": -5,
-    "lat": 52.5,
-    "larghezza": 14
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [
-    "GBR"
-   ],
-   "eventi": [
-    {
-     "tipo": "contatore",
-     "testo": "1 IN 3 CHOSE DUBLIN",
-     "su": 1,
-     "di": 3,
-     "personaggio": "banker",
-     "parola": "three"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -6.3,
-      52.3
-     ],
-     "a": [
-      -1,
-      49.5
-     ],
-     "icona": "cargo_ship",
-     "parola": "trucks"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Fund managers picked Dublin",
-     "parola": "Dublin"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -9.8,
-    "lat": 52,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Instead of crossing Britain and facing new checks, Irish exporters started sailing straight to France and Spain.",
-   "anteprima": false,
-   "vista": {
-    "lon": -3,
-    "lat": 48.5,
-    "larghezza": 30
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [
-    "FRA",
-    "ESP"
-   ],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      -6.4,
-      52.25
-     ],
-     "a": [
-      -1.6,
-      49.6
-     ],
-     "icona": "cargo_ship",
-     "parola": "France"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -6.4,
-      52.25
-     ],
-     "a": [
-      -3.8,
-      43.4
-     ],
-     "icona": "cargo_ship",
-     "parola": "Spain"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "NEW CHECKS IN BRITAIN",
-     "lon": -2,
-     "lat": 52.5,
-     "parola": "checks"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": -10,
-    "lat": 47,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "By 2021, a single southeastern port, Rosslare, ran 36 direct sailings a week to and from the continent.",
-   "anteprima": false,
-   "vista": {
-    "lon": -6.5,
-    "lat": 52.3,
-    "larghezza": 8
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "2021",
-     "parola": "2021"
-    },
-    {
-     "tipo": "icona",
-     "icona": "port",
-     "lon": -6.35,
-     "lat": 52.25,
-     "parola": "Rosslare"
-    },
-    {
-     "tipo": "conta",
-     "valore": 36,
+     "valore": 4,
      "prefisso": "",
      "suffisso": "",
-     "sotto": "DIRECT SAILINGS A WEEK",
-     "parola": "36"
+     "sotto": "OFFICIAL LANGUAGES",
+     "parola": "languages"
+    },
+    {
+     "tipo": "contorno",
+     "paese": "FRA",
+     "parola": "empires"
+    },
+    {
+     "tipo": "contorno",
+     "paese": "DEU",
+     "parola": "bigger"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "WHY?",
+     "parola": "how"
     }
    ],
-   "musica": "",
+   "musica": "mistero",
    "stacco": false,
    "pin": {
-    "lon": -8.5,
-    "lat": 53,
+    "lon": 5.0,
+    "lat": 44.5,
     "faccia": "normale"
    }
   },
   {
-   "testo": "All of this lands in one place, the tax office. In 2025, Ireland collected a record 33 billion euros in corporation tax.",
+   "testo": "We need three answers. What did Switzerland sell when it had nothing? Why did the richest people trust it? And why is the model cracking?",
    "anteprima": false,
    "vista": {
-    "lon": -7,
-    "lat": 53.3,
-    "larghezza": 10
+    "lon": 8.2,
+    "lat": 46.8,
+    "larghezza": 16
    },
    "epoca": "oggi",
    "oro": [
-    "IRL"
+    "CHE"
    ],
    "verde": [],
    "eventi": [
     {
-     "tipo": "anno",
-     "testo": "2025",
-     "parola": "2025"
-    },
-    {
-     "tipo": "prezzo",
-     "testo": "33B EURO",
-     "sotto": "CORPORATION TAX, RECORD",
-     "ricco": true,
-     "lon": -7.5,
-     "lat": 53.2,
-     "parola": "33"
+     "tipo": "icona",
+     "icona": "question",
+     "lon": 6.5,
+     "lat": 46.5,
+     "parola": "sell"
     },
     {
      "tipo": "icona",
      "icona": "money_bag",
-     "lon": -6.26,
-     "lat": 53.35,
-     "parola": "tax"
-    }
-   ],
-   "musica": "trionfo",
-   "stacco": true,
-   "pin": {
-    "lon": -9.8,
-    "lat": 52,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "It was the fifth record year in a row. So much that the government now saves it in two long-term funds.",
-   "anteprima": false,
-   "vista": {
-    "lon": -7,
-    "lat": 53.3,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 5,
-     "prefisso": "",
-     "suffisso": "",
-     "sotto": "RECORD YEARS IN A ROW",
-     "parola": "fifth"
+     "lon": 8.5,
+     "lat": 47.4,
+     "parola": "trust"
     },
     {
      "tipo": "icona",
-     "icona": "treasure_chest",
-     "lon": -6.26,
-     "lat": 53.35,
-     "parola": "saves"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "TWO SAVINGS FUNDS",
-     "lon": -8.5,
-     "lat": 53,
-     "parola": "two"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -9.8,
-    "lat": 52,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Like an oil state putting away its windfall. Except Ireland has no oil.",
-   "anteprima": false,
-   "vista": {
-    "lon": -7,
-    "lat": 53.3,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "oil_derrick",
-     "lon": -8,
-     "lat": 53.3,
-     "parola": "oil"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "NO OIL",
-     "parola": "no"
+     "icona": "chart_down",
+     "lon": 10.0,
+     "lat": 46.4,
+     "parola": "cracking"
     },
     {
      "tipo": "nota",
-     "testo": "A windfall without resources",
-     "parola": "windfall"
+     "testo": "Three questions, one answer",
+     "parola": "three"
     }
    ],
    "musica": "curiosita",
    "stacco": false,
    "pin": {
-    "lon": -9.8,
-    "lat": 52,
+    "lon": 11.5,
+    "lat": 47.8,
     "faccia": "normale"
    }
   },
   {
-   "testo": "And the people? Between 2016 and 2022, about 190,000 more people moved into Ireland than left. Same sea, same ferries, only now the money sails west.",
-   "anteprima": false,
-   "vista": {
-    "lon": -5,
-    "lat": 53.3,
-    "larghezza": 14
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [
-    "GBR"
-   ],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 190000,
-     "prefisso": "~",
-     "suffisso": "",
-     "sotto": "NET NEW ARRIVALS 2016-22",
-     "parola": "190,000"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "family",
-     "n": 5,
-     "lon": -6.2,
-     "lat": 53.3,
-     "parola": "people"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -3,
-      53.4
-     ],
-     "a": [
-      -6.2,
-      53.3
-     ],
-     "icona": "ship",
-     "parola": "west"
-    }
-   ],
-   "musica": "trionfo",
-   "stacco": false,
-   "pin": {
-    "lon": -9.8,
-    "lat": 52,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "But here's the strangest part. In 2016, the European Commission ruled that Apple had paid far too little tax in Ireland and told Ireland to collect 13 billion euros.",
-   "anteprima": false,
-   "vista": {
-    "lon": -7,
-    "lat": 52.5,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "2016",
-     "parola": "2016"
-    },
-    {
-     "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": -8.47,
-     "lat": 51.9,
-     "parola": "ruled"
-    },
-    {
-     "tipo": "prezzo",
-     "testo": "13B EURO",
-     "sotto": "APPLE BACK TAX OWED",
-     "ricco": true,
-     "lon": -7.5,
-     "lat": 53,
-     "parola": "13"
-    }
-   ],
-   "musica": "mistero",
-   "stacco": false,
-   "pin": {
-    "lon": -9.8,
-    "lat": 54,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Most governments would have taken the money and thrown a party. Ireland went to court to refuse it.",
-   "anteprima": false,
-   "vista": {
-    "lon": -7,
-    "lat": 53.3,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "banknotes",
-     "lon": -6.26,
-     "lat": 53.35,
-     "parola": "money"
-    },
-    {
-     "tipo": "icona",
-     "icona": "parliament",
-     "lon": -6.25,
-     "lat": 53.34,
-     "parola": "court"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "REFUSED",
-     "parola": "refuse"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": true,
-   "pin": {
-    "lon": -9.8,
-    "lat": 52,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "For eight years, the Irish state fought alongside Apple for the right not to be paid. In 2024, it lost.",
-   "anteprima": false,
-   "vista": {
-    "lon": -7,
-    "lat": 53.3,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 8,
-     "prefisso": "",
-     "suffisso": "",
-     "sotto": "YEARS FIGHTING",
-     "parola": "eight"
-    },
-    {
-     "tipo": "anno",
-     "testo": "2024",
-     "parola": "2024"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "politician",
-     "n": 4,
-     "lon": -6.25,
-     "lat": 53.34,
-     "parola": "fought"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": -9.8,
-    "lat": 52,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "With interest, about 14 billion euros landed in Ireland's accounts. The government says it will go on housing, water, power and transport, not tax cuts.",
-   "anteprima": false,
-   "vista": {
-    "lon": -7,
-    "lat": 53.3,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "prezzo",
-     "testo": "14B EURO",
-     "sotto": "APPLE MONEY RECEIVED",
-     "ricco": true,
-     "lon": -7.5,
-     "lat": 53.2,
-     "parola": "14"
-    },
-    {
-     "tipo": "icona",
-     "icona": "cabin",
-     "lon": -6.3,
-     "lat": 53.0,
-     "parola": "housing"
-    },
-    {
-     "tipo": "icona",
-     "icona": "steam_train",
-     "lon": -8.2,
-     "lat": 52.7,
-     "parola": "transport"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Spending, not tax cuts",
-     "parola": "cuts"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -9.8,
-    "lat": 52,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Why fight that hard against free money? Because the money was never the point. The point was a promise.",
-   "anteprima": false,
-   "vista": {
-    "lon": -7,
-    "lat": 53.3,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "scritta",
-     "testo": "WHY?",
-     "parola": "Why"
-    },
-    {
-     "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": -6.26,
-     "lat": 53.35,
-     "parola": "promise"
-    },
-    {
-     "tipo": "nota",
-     "testo": "The point was a promise",
-     "parola": "promise"
-    }
-   ],
-   "musica": "mistero",
-   "stacco": false,
-   "pin": {
-    "lon": -9.8,
-    "lat": 52,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Come to Ireland, and the rules won't change under your feet. Every multinational on the island was watching to see if that promise would hold.",
-   "anteprima": false,
-   "vista": {
-    "lon": -7,
-    "lat": 53.3,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "banker",
-     "n": 5,
-     "lon": -6.3,
-     "lat": 53.35,
-     "parola": "multinational"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "STABLE RULES",
-     "lon": -8.3,
-     "lat": 53,
-     "parola": "rules"
-    },
-    {
-     "tipo": "icona",
-     "icona": "question",
-     "lon": -6.5,
-     "lat": 52.7,
-     "parola": "hold"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -9.8,
-    "lat": 52,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "So if this much rests on a handful of foreign companies, how much of Ireland's wealth is really Irish? In 2015, official growth hit 26 percent in a single year.",
-   "anteprima": false,
-   "vista": {
-    "lon": -7,
-    "lat": 53.3,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "2015",
-     "parola": "2015"
-    },
-    {
-     "tipo": "numero",
-     "testo": "26%",
-     "lon": -8,
-     "lat": 53.2,
-     "parola": "26"
-    },
-    {
-     "tipo": "solleva",
-     "paese": [
-      "IRL"
-     ],
-     "volte": 9,
-     "testo": "+26%",
-     "colore": "oro",
-     "parola": "growth"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": true,
-   "pin": {
-    "lon": -9.8,
-    "lat": 52,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "No economy really does that. Apple moved the rights to its patents and designs into its Irish company, and billions in profits suddenly counted as Irish output.",
-   "anteprima": false,
-   "vista": {
-    "lon": -7,
-    "lat": 53.3,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [
-    "USA"
-   ],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      -122,
-      37.3
-     ],
-     "a": [
-      -8.47,
-      51.9
-     ],
-     "icona": "scroll_law",
-     "parola": "moved"
-    },
-    {
-     "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": -8.47,
-     "lat": 51.9,
-     "parola": "patents"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Patents moved, profits counted",
-     "parola": "profits"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -9.8,
-    "lat": 53.8,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Nobody in Ireland got a raise. Economist Paul Krugman gave it a name: leprechaun economics.",
-   "anteprima": false,
-   "vista": {
-    "lon": -7,
-    "lat": 53.3,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "personaggio",
-     "nome": "Paul Krugman",
-     "descrizione": "American economist, glasses, grey hair, suit",
-     "parola": "Krugman"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "LEPRECHAUN ECONOMICS",
-     "parola": "leprechaun"
-    },
-    {
-     "tipo": "nota",
-     "testo": "No one got a raise",
-     "parola": "raise"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": -9.8,
-    "lat": 52,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "It got so distorted that Ireland made its own measure, modified GNI, to strip the multinational effects back out.",
-   "anteprima": false,
-   "vista": {
-    "lon": -7,
-    "lat": 53.3,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "etichetta",
-     "testo": "MODIFIED GNI",
-     "lon": -7.5,
-     "lat": 53.2,
-     "parola": "modified"
-    },
-    {
-     "tipo": "icona",
-     "icona": "chart_up",
-     "lon": -6.26,
-     "lat": 53.35,
-     "parola": "measure"
-    },
-    {
-     "tipo": "nota",
-     "testo": "A cleaner yardstick",
-     "parola": "strip"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -9.8,
-    "lat": 52,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "So let's use it. On that honest yardstick, Ireland sits about a fifth above the European average, and Britain just below it.",
-   "anteprima": false,
-   "vista": {
-    "lon": -4,
-    "lat": 53,
-    "larghezza": 18
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [
-    "GBR"
-   ],
-   "eventi": [
-    {
-     "tipo": "barre",
-     "titolo": "VS EUROPEAN AVERAGE (100)",
-     "voci": [
-      {
-       "testo": "IRELAND",
-       "valore": 120,
-       "lato": "oro"
-      },
-      {
-       "testo": "EU AVERAGE",
-       "valore": 100,
-       "lato": "verde"
-      },
-      {
-       "testo": "BRITAIN",
-       "valore": 97,
-       "lato": "verde"
-      }
-     ],
-     "parola": "fifth"
-    },
-    {
-     "tipo": "solleva",
-     "paese": [
-      "IRL"
-     ],
-     "volte": 2,
-     "testo": "+20%",
-     "colore": "oro",
-     "parola": "above"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": -9.8,
-    "lat": 52,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "So yes, Ireland really is richer than Britain, just not twice as rich. Think a fifth to a quarter more, like a team that wins by a goal, not ten.",
-   "anteprima": false,
-   "vista": {
-    "lon": -4,
-    "lat": 53,
-    "larghezza": 16
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [
-    "GBR"
-   ],
-   "eventi": [
-    {
-     "tipo": "numero",
-     "testo": "+20-25%",
-     "lon": -8,
-     "lat": 53.2,
-     "parola": "quarter"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "NOT x2",
-     "parola": "twice"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Richer, but not twice as rich",
-     "parola": "richer"
-    }
-   ],
-   "musica": "",
-   "stacco": true,
-   "pin": {
-    "lon": -9.8,
-    "lat": 52,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "And even that lead has weak spots. Ten companies pay almost 60 percent of all Irish corporation tax. Three of them pay almost half.",
-   "anteprima": false,
-   "vista": {
-    "lon": -7,
-    "lat": 53.3,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "contatore",
-     "testo": "10 FIRMS PAY ALMOST 6 IN 10",
-     "su": 6,
-     "di": 10,
-     "personaggio": "banker",
-     "parola": "Ten"
-    },
-    {
-     "tipo": "contatore",
-     "testo": "3 FIRMS PAY ALMOST HALF",
-     "su": 5,
-     "di": 10,
-     "personaggio": "banker",
-     "parola": "Three"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": -9.8,
-    "lat": 52,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Medicines and chemicals make up around four fifths of everything Ireland sells to America.",
-   "anteprima": false,
-   "vista": {
-    "lon": -40,
-    "lat": 48,
-    "larghezza": 90
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [
-    "USA"
-   ],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      -6.3,
-      53.3
-     ],
-     "a": [
-      -74,
-      40.7
-     ],
-     "icona": "cargo_ship",
-     "parola": "sells"
-    },
-    {
-     "tipo": "griglia",
-     "paese": [
-      "IRL"
-     ],
-     "pieni": 0.8,
-     "testo": "4 IN 5 IS MEDICINES",
-     "colore": "oro",
-     "parola": "four"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Mostly medicines and chemicals",
-     "parola": "chemicals"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -30,
-    "lat": 60,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "So when Washington threatened tariffs on medicines in 2025, Irish drug exports to the United States jumped more than fivefold in a single month.",
-   "anteprima": false,
-   "vista": {
-    "lon": -40,
-    "lat": 48,
-    "larghezza": 90
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [
-    "USA"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "2025",
-     "parola": "2025"
-    },
-    {
-     "tipo": "numero",
-     "testo": "x5",
-     "lon": -35,
-     "lat": 50,
-     "parola": "fivefold"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -6.3,
-      53.3
-     ],
-     "a": [
-      -74,
-      40.7
-     ],
-     "icona": "cargo_ship",
-     "parola": "exports"
-    }
-   ],
-   "musica": "azione",
-   "stacco": false,
-   "pin": {
-    "lon": -30,
-    "lat": 62,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "American buyers rushed to stock up before the deadline. A customer across the Atlantic can change everything overnight.",
-   "anteprima": false,
-   "vista": {
-    "lon": -40,
-    "lat": 48,
-    "larghezza": 90
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [
-    "USA"
-   ],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "merchant",
-     "n": 5,
-     "lon": -74,
-     "lat": 40.7,
-     "parola": "buyers"
-    },
-    {
-     "tipo": "icona",
-     "icona": "hourglass",
-     "lon": -74,
-     "lat": 42,
-     "parola": "deadline"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Stockpiling before tariffs",
-     "parola": "stock"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -30,
-    "lat": 62,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "And the wealth hasn't reached everyone's front door. Housing is so expensive that one in eight Irish 25-year-olds has already emigrated.",
-   "anteprima": false,
-   "vista": {
-    "lon": -7,
-    "lat": 53.3,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "IRL"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "cabin",
-     "lon": -6.3,
-     "lat": 53.3,
-     "parola": "Housing"
-    },
-    {
-     "tipo": "contatore",
-     "testo": "1 IN 8 AGED 25 HAS LEFT",
-     "su": 1,
-     "di": 8,
-     "personaggio": "student",
-     "parola": "eight"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -6.2,
-      53.3
-     ],
-     "a": [
-      -3,
-      53.4
-     ],
-     "icona": "ship",
-     "parola": "emigrated"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": -9.8,
-    "lat": 52,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "In the year to April 2024, close to 70,000 people left, the most in almost a decade. More still arrive than leave, but the ferries never fully stopped.",
-   "anteprima": false,
-   "vista": {
-    "lon": -5,
-    "lat": 53.3,
-    "larghezza": 14
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 70000,
-     "prefisso": "~",
-     "suffisso": "",
-     "sotto": "LEFT IN YEAR TO APRIL 2024",
-     "parola": "70,000"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "family",
-     "n": 4,
-     "lon": -6.2,
-     "lat": 53.3,
-     "parola": "left"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -6.2,
-      53.3
-     ],
-     "a": [
-      -3,
-      53.4
-     ],
-     "icona": "ship",
-     "parola": "ferries"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -9.8,
-    "lat": 52,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "But the best clue to what really happened is on the map. Look at the border inside Ireland.",
-   "anteprima": false,
-   "vista": {
-    "lon": -7.3,
-    "lat": 54.4,
-    "larghezza": 6
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [
-    "GBR"
-   ],
-   "eventi": [
-    {
-     "tipo": "confine",
-     "punti": [
-      [
-       -8.2,
-       54.5
-      ],
-      [
-       -7.5,
-       54.2
-      ],
-      [
-       -6.9,
-       54.1
-      ],
-      [
-       -6.3,
-       54.05
-      ]
-     ],
-     "parola": "border"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "NORTHERN IRELAND",
-     "lon": -6.8,
-     "lat": 54.7,
-     "parola": "Look"
-    }
-   ],
-   "musica": "mistero",
-   "stacco": false,
-   "pin": {
-    "lon": -9,
-    "lat": 53.7,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Northern Ireland is part of the UK, but since Brexit it's the only place that can sell freely into both the British and European markets.",
-   "anteprima": false,
-   "vista": {
-    "lon": -4,
-    "lat": 53.5,
-    "larghezza": 16
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [
-    "GBR"
-   ],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      -6.7,
-      54.6
-     ],
-     "a": [
-      -1.5,
-      52.5
-     ],
-     "icona": "cargo_ship",
-     "parola": "British"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -6.7,
-      54.6
-     ],
-     "a": [
-      2.3,
-      48.9
-     ],
-     "icona": "cargo_ship",
-     "parola": "European"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Free access to both markets",
-     "parola": "both"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": -9,
-    "lat": 52.5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "And since the Brexit vote, it has grown faster than any other region of the United Kingdom.",
-   "anteprima": false,
-   "vista": {
-    "lon": -4,
-    "lat": 54.5,
-    "larghezza": 14
-   },
-   "epoca": "oggi",
-   "oro": [
-    "GBR"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "chart_up",
-     "lon": -6.7,
-     "lat": 54.6,
-     "parola": "grown"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "FASTEST",
-     "parola": "faster"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Fastest-growing UK region",
-     "parola": "region"
-    }
-   ],
-   "musica": "epico",
-   "stacco": true,
-   "pin": {
-    "lon": -9,
-    "lat": 52.5,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "The only corner of Britain that kept a foot inside Europe is the corner growing fastest. So here's the scorecard for both of them.",
-   "anteprima": false,
-   "vista": {
-    "lon": -4,
-    "lat": 53.5,
-    "larghezza": 16
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [
-    "GBR"
-   ],
-   "eventi": [
-    {
-     "tipo": "contorno",
-     "paese": "GBR",
-     "parola": "corner"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "A FOOT IN EUROPE",
-     "lon": -6.7,
-     "lat": 54.6,
-     "parola": "foot"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "SCORECARD",
-     "lon": -1,
-     "lat": 52.5,
-     "parola": "scorecard"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -9,
-    "lat": 52.5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Geography: Britain used to be Europe's bridge, and Ireland was stuck behind it. Brexit flipped the map. Now Ireland is the bridge.",
-   "anteprima": false,
-   "vista": {
-    "lon": -3,
-    "lat": 52.5,
-    "larghezza": 24
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [
-    "GBR"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "bridge",
-     "lon": -1.5,
-     "lat": 52.5,
-     "parola": "bridge"
-    },
-    {
-     "tipo": "icona",
-     "icona": "bridge",
-     "lon": -8,
-     "lat": 53.2,
-     "parola": "bridge"
-    },
-    {
-     "tipo": "solleva",
-     "paese": [
-      "IRL"
-     ],
-     "volte": 3,
-     "testo": "BRIDGE",
-     "colore": "oro",
-     "parola": "flipped"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": -10,
-    "lat": 51.5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Resources: neither has much under the ground. Both sell what sits on top of it: money, law and the English language.",
-   "anteprima": false,
-   "vista": {
-    "lon": -4,
-    "lat": 53.5,
-    "larghezza": 16
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [
-    "GBR"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "banknotes",
-     "lon": -6.26,
-     "lat": 53.35,
-     "parola": "money"
-    },
-    {
-     "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": -0.1,
-     "lat": 51.5,
-     "parola": "law"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Neither has much underground",
-     "parola": "ground"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -9,
-    "lat": 52.5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "History: centuries of one ruling the other, and a famine that began an exodus lasting over a hundred years.",
-   "anteprima": false,
-   "vista": {
-    "lon": -6,
-    "lat": 53.5,
-    "larghezza": 14
-   },
-   "epoca": "antica",
-   "oro": [
-    "GBR"
-   ],
-   "verde": [
-    "IRL"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icon": "crown",
-     "icona": "crown",
-     "lon": -1.5,
-     "lat": 52.5,
-     "parola": "ruling"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -8,
-      52
-     ],
-     "a": [
-      -30,
-      48
-     ],
-     "icona": "ship",
-     "parola": "exodus"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Famine began a long exodus",
-     "parola": "famine"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": -9.8,
-    "lat": 52,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Decisions: Britain chose to leave the club. Ireland chose to be the friendliest address inside it.",
-   "anteprima": false,
-   "vista": {
-    "lon": -4,
-    "lat": 53.5,
-    "larghezza": 16
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [
-    "GBR"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "ballot_box",
-     "lon": -1.5,
-     "lat": 52.5,
-     "parola": "leave"
-    },
-    {
-     "tipo": "icona",
-     "icona": "flag:IE",
-     "lon": -6.26,
-     "lat": 53.35,
-     "parola": "friendliest"
-    },
-    {
-     "tipo": "nota",
-     "testo": "One left, one welcomed",
-     "parola": "address"
-    }
-   ],
-   "musica": "epico",
-   "stacco": false,
-   "pin": {
-    "lon": -9.5,
-    "lat": 52.3,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Ireland didn't overtake Britain by getting bigger or finding something in the ground. It stood on the right side of a line Britain drew for itself.",
-   "anteprima": false,
-   "vista": {
-    "lon": -4,
-    "lat": 53.5,
-    "larghezza": 16
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [
-    "GBR"
-   ],
-   "eventi": [
-    {
-     "tipo": "confine",
-     "punti": [
-      [
-       1.7,
-       51
-      ],
-      [
-       -1,
-       50.3
-      ],
-      [
-       -5,
-       49.9
-      ]
-     ],
-     "parola": "line"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "THE RIGHT SIDE",
-     "parola": "right"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Won by position, not size",
-     "parola": "bigger"
-    }
-   ],
-   "musica": "trionfo",
-   "stacco": true,
-   "pin": {
-    "lon": -9.5,
-    "lat": 52.3,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "But that lead rests on a few companies, one tax promise, and an American customer that wants its factories back. If any of those moves, the ferries could turn around.",
-   "anteprima": false,
-   "vista": {
-    "lon": -35,
-    "lat": 50,
-    "larghezza": 100
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [
-    "USA"
-   ],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "banker",
-     "n": 3,
-     "lon": -6.3,
-     "lat": 53.3,
-     "parola": "companies"
-    },
-    {
-     "tipo": "icona",
-     "icona": "factory",
-     "lon": -90,
-     "lat": 40,
-     "parola": "factories"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -6.3,
-      53.3
-     ],
-     "a": [
-      -3,
-      53.4
-     ],
-     "icona": "ship",
-     "parola": "ferries"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": -30,
-    "lat": 62,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "In 1988, Ireland was the poorest of the rich. Today it's among the richest countries on paper, and still clearly richer than Britain off it.",
-   "anteprima": false,
-   "vista": {
-    "lon": -5,
-    "lat": 53.5,
-    "larghezza": 14
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [
-    "GBR"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1988",
-     "parola": "1988"
-    },
-    {
-     "tipo": "solleva",
-     "paese": [
-      "IRL"
-     ],
-     "volte": 3,
-     "testo": "RICHER",
-     "colore": "oro",
-     "parola": "richer"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Still richer, off paper too",
-     "parola": "clearly"
-    }
-   ],
-   "musica": "trionfo",
-   "stacco": false,
-   "pin": {
-    "lon": -9.5,
-    "lat": 52.3,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "For 200 years, this sea carried people out of Ireland. Today, it carries money in.",
-   "anteprima": false,
-   "vista": {
-    "lon": -5.5,
-    "lat": 53.5,
-    "larghezza": 12
-   },
-   "epoca": "oggi",
-   "oro": [
-    "IRL"
-   ],
-   "verde": [
-    "GBR"
-   ],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      -3,
-      53.4
-     ],
-     "a": [
-      -6.2,
-      53.3
-     ],
-     "icona": "banknotes",
-     "parola": "money"
-    },
-    {
-     "tipo": "conta",
-     "valore": 200,
-     "prefisso": "",
-     "suffisso": "",
-     "sotto": "YEARS OF OUTFLOW",
-     "parola": "200"
-    },
-    {
-     "tipo": "nota",
-     "testo": "The tide has turned",
-     "parola": "carries"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": -9.5,
-    "lat": 52.3,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Switzerland pulled off a similar trick, getting rich by selling trust to the world's money. That story is right here.",
+   "testo": "The answer is strange. For 500 years, Switzerland has sold the world the same product, only in different packages.",
    "anteprima": false,
    "vista": {
     "lon": 8.2,
@@ -3784,28 +469,3358 @@
    "verde": [],
    "eventi": [
     {
-     "tipo": "contorno",
-     "paese": "CHE",
-     "parola": "Switzerland"
+     "tipo": "conta",
+     "valore": 500,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "YEARS, ONE PRODUCT",
+     "parola": "500"
     },
     {
-     "tipo": "icona",
-     "icona": "gold_coins",
-     "lon": 8.5,
-     "lat": 47.4,
-     "parola": "trust"
+     "tipo": "scritta",
+     "testo": "SAME PRODUCT",
+     "parola": "same"
     },
     {
      "tipo": "nota",
-     "testo": "Next: Switzerland sells trust",
-     "parola": "story"
+     "testo": "One product, many packages",
+     "parola": "packages"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": true,
+   "pin": {
+    "lon": 6.5,
+    "lat": 47.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Start with the map. Mountains are a wall. They protect you, but they also trap you.",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.5,
+    "lat": 46.7,
+    "larghezza": 9
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "CHE"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "mountain",
+     "lon": 8.0,
+     "lat": 46.5,
+     "parola": "Mountains"
+    },
+    {
+     "tipo": "confine",
+     "punti": [
+      [
+       6.0,
+       46.4
+      ],
+      [
+       7.5,
+       45.9
+      ],
+      [
+       9.0,
+       46.2
+      ],
+      [
+       10.4,
+       46.6
+      ]
+     ],
+     "parola": "wall"
+    },
+    {
+     "tipo": "icona",
+     "icona": "fortress",
+     "lon": 9.2,
+     "lat": 46.9,
+     "parola": "protect"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Mountains protect and trap",
+     "parola": "trap"
+    }
+   ],
+   "musica": "mistero",
+   "stacco": false,
+   "pin": {
+    "lon": 6.6,
+    "lat": 47.4,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "No big river to the sea. No wide plains for huge farms. Every valley was its own little world.",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.2,
+    "lat": 46.8,
+    "larghezza": 7
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "CHE"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "river",
+     "lon": 7.6,
+     "lat": 47.5,
+     "parola": "river"
+    },
+    {
+     "tipo": "icona",
+     "icona": "farm",
+     "lon": 8.0,
+     "lat": 47.0,
+     "parola": "farms"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "peasant",
+     "n": 4,
+     "lon": 9.0,
+     "lat": 46.7,
+     "parola": "valley"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Each valley lived alone",
+     "parola": "world"
+    }
+   ],
+   "musica": "quotidiano",
+   "stacco": false,
+   "pin": {
+    "lon": 6.4,
+    "lat": 46.3,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "So for most of its history, Switzerland was poor. Too many people, too little land. And poor mountain countries export what they have too much of: young men.",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.2,
+    "lat": 46.8,
+    "larghezza": 14
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "CHE"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "hourglass",
+     "lon": 8.2,
+     "lat": 46.8,
+     "parola": "history"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "peasant",
+     "n": 6,
+     "lon": 8.3,
+     "lat": 46.8,
+     "parola": "people"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      8.2,
+      46.8
+     ],
+     "a": [
+      2.3,
+      48.8
+     ],
+     "icona": "soldier",
+     "parola": "export"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "YOUNG MEN",
+     "parola": "men"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": 11.0,
+    "lat": 47.8,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Swiss pikemen became the most feared soldiers in Europe. Kings, dukes and popes rented them by the thousand.",
+   "anteprima": false,
+   "vista": {
+    "lon": 9,
+    "lat": 46.5,
+    "larghezza": 30
+   },
+   "epoca": "antica",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [
+    "FRA",
+    "ITA",
+    "DEU"
+   ],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "soldier",
+     "n": 6,
+     "lon": 8.3,
+     "lat": 46.9,
+     "parola": "pikemen"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      8.3,
+      46.9
+     ],
+     "a": [
+      2.3,
+      48.8
+     ],
+     "icona": "swords",
+     "parola": "Kings"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      8.3,
+      46.9
+     ],
+     "a": [
+      12.5,
+      41.9
+     ],
+     "icona": "church",
+     "parola": "popes"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Soldiers rented by the thousand",
+     "parola": "rented"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": 15.0,
+    "lat": 50.0,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "This was no side business. Around 1500, about one in eight Swiss was serving as a soldier for someone else.",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.2,
+    "lat": 46.8,
+    "larghezza": 14
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "CHE"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1500",
+     "parola": "1500"
+    },
+    {
+     "tipo": "contatore",
+     "testo": "ABOUT 1 IN 8 SERVED ABROAD",
+     "su": 1,
+     "di": 8,
+     "personaggio": "soldier",
+     "parola": "one"
+    },
+    {
+     "tipo": "conta",
+     "valore": 12,
+     "prefisso": "~",
+     "suffisso": "%",
+     "sotto": "OF SWISS AS SOLDIERS",
+     "parola": "eight"
+    }
+   ],
+   "musica": "azione",
+   "stacco": false,
+   "pin": {
+    "lon": 10.8,
+    "lat": 47.9,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Over the centuries, about one and a half million Swiss men marched off to foreign wars. Up to forty percent never came home.",
+   "anteprima": false,
+   "vista": {
+    "lon": 9,
+    "lat": 46.5,
+    "larghezza": 30
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "CHE"
+   ],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 1500000,
+     "prefisso": "~",
+     "suffisso": "",
+     "sotto": "MEN IN FOREIGN ARMIES",
+     "parola": "million"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      8.2,
+      46.8
+     ],
+     "a": [
+      2.5,
+      48.5
+     ],
+     "icona": "soldier",
+     "parola": "marched"
+    },
+    {
+     "tipo": "icona",
+     "icona": "grave",
+     "lon": 4.0,
+     "lat": 47.5,
+     "parola": "never"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Up to 40% never returned",
+     "parola": "forty"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": 14.0,
+    "lat": 49.0,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In 1506, a pope hired a unit of them as bodyguards. That unit still guards the Vatican today.",
+   "anteprima": false,
+   "vista": {
+    "lon": 12.5,
+    "lat": 42.5,
+    "larghezza": 10
+   },
+   "epoca": "antica",
+   "oro": [
+    "VAT"
+   ],
+   "verde": [
+    "ITA",
+    "CHE"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1506",
+     "parola": "1506"
+    },
+    {
+     "tipo": "icona",
+     "icona": "church",
+     "lon": 12.45,
+     "lat": 41.9,
+     "parola": "pope"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "soldier",
+     "n": 4,
+     "lon": 12.45,
+     "lat": 41.9,
+     "parola": "bodyguards"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Swiss Guard still serves",
+     "parola": "today"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": 14.8,
+    "lat": 44.2,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Sometimes Swiss mercenaries even faced each other in one battle, paid by two different kings to kill one another.",
+   "anteprima": false,
+   "vista": {
+    "lon": 5,
+    "lat": 46,
+    "larghezza": 20
+   },
+   "epoca": "antica",
+   "oro": [
+    "FRA"
+   ],
+   "verde": [
+    "ITA"
+   ],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "soldier",
+     "n": 4,
+     "lon": 2.5,
+     "lat": 47.0,
+     "parola": "mercenaries"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "soldier",
+     "n": 4,
+     "lon": 8.5,
+     "lat": 45.5,
+     "parola": "other"
+    },
+    {
+     "tipo": "icona",
+     "icona": "swords",
+     "lon": 5.5,
+     "lat": 46.2,
+     "parola": "kill"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "SAME SIDE?",
+     "parola": "different"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 12.0,
+    "lat": 48.5,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "The money came home in the pockets of survivors. By the 1800s, less than fifteen percent of Swiss coins were actually Swiss.",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.2,
+    "lat": 46.8,
+    "larghezza": 14
+   },
+   "epoca": "antica",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      2.3,
+      48.8
+     ],
+     "a": [
+      8.2,
+      46.8
+     ],
+     "icona": "gold_coins",
+     "parola": "came"
+    },
+    {
+     "tipo": "anno",
+     "testo": "1800s",
+     "parola": "1800s"
+    },
+    {
+     "tipo": "conta",
+     "valore": 15,
+     "prefisso": "<",
+     "suffisso": "%",
+     "sotto": "COINS WERE SWISS",
+     "parola": "fifteen"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Most coins came from abroad",
+     "parola": "abroad"
     }
    ],
    "musica": "curiosita",
    "stacco": false,
    "pin": {
+    "lon": 10.6,
+    "lat": 47.8,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "So Switzerland's first export wasn't cheese or watches. It was safety, paid for in blood.",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.2,
+    "lat": 46.8,
+    "larghezza": 10
+   },
+   "epoca": "antica",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "cannon",
+     "lon": 7.0,
+     "lat": 47.0,
+     "parola": "cheese"
+    },
+    {
+     "tipo": "icona",
+     "icona": "fortress",
+     "lon": 8.6,
+     "lat": 47.0,
+     "parola": "safety"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "IN BLOOD",
+     "parola": "blood"
+    },
+    {
+     "tipo": "nota",
+     "testo": "First export: safety",
+     "parola": "export"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": true,
+   "pin": {
+    "lon": 6.4,
+    "lat": 47.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Then, in 1515, at Marignano in northern Italy, the Swiss lost badly to the French.",
+   "anteprima": false,
+   "vista": {
+    "lon": 9.2,
+    "lat": 45.4,
+    "larghezza": 10
+   },
+   "epoca": "antica",
+   "oro": [
+    "FRA"
+   ],
+   "verde": [
+    "CHE"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1515",
+     "parola": "1515"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "MARIGNANO",
+     "lon": 9.3,
+     "lat": 45.4,
+     "parola": "Marignano"
+    },
+    {
+     "tipo": "icona",
+     "icona": "swords",
+     "lon": 9.3,
+     "lat": 45.4,
+     "parola": "lost"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Swiss defeated by France",
+     "parola": "French"
+    }
+   ],
+   "musica": "azione",
+   "stacco": false,
+   "pin": {
+    "lon": 11.2,
+    "lat": 46.3,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "And instead of revenge, they did something almost no power did. They stopped expanding and chose to stay out of other people's wars.",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.2,
+    "lat": 46.8,
+    "larghezza": 12
+   },
+   "epoca": "antica",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "contorno",
+     "paese": "CHE",
+     "parola": "stopped"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "NEUTRAL",
+     "parola": "stay"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Neutrality begins here",
+     "parola": "wars"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": true,
+   "pin": {
+    "lon": 6.0,
+    "lat": 47.4,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "For three centuries, neutrality was only a habit. Then Napoleon's armies swept through anyway, proving a habit is not a shield.",
+   "anteprima": false,
+   "vista": {
+    "lon": 7,
+    "lat": 46.5,
+    "larghezza": 22
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "CHE"
+   ],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 300,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "YEARS OF HABIT",
+     "parola": "three"
+    },
+    {
+     "tipo": "personaggio",
+     "nombre": "Napoleon",
+     "nome": "Napoleon Bonaparte",
+     "descrizione": "French emperor, bicorne hat, grey coat",
+     "parola": "Napoleon's"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      2.3,
+      48.8
+     ],
+     "a": [
+      8.2,
+      46.8
+     ],
+     "icona": "cannon",
+     "parola": "swept"
+    },
+    {
+     "tipo": "nota",
+     "testo": "A habit is not a shield",
+     "parola": "shield"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 11.5,
+    "lat": 48.0,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "But when Napoleon fell, Europe's great powers redrew the map. On November 20, 1815, they signed a guarantee that Switzerland would stay neutral forever.",
+   "anteprima": false,
+   "vista": {
+    "lon": 10,
+    "lat": 47,
+    "larghezza": 40
+   },
+   "epoca": "antica",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [
+    "FRA",
+    "GBR",
+    "AUT",
+    "RUS",
+    "PRT",
+    "ESP"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1815",
+     "parola": "1815"
+    },
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": 8.2,
+     "lat": 46.8,
+     "parola": "guarantee"
+    },
+    {
+     "tipo": "contorno",
+     "paese": "CHE",
+     "parola": "neutral"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Neutrality guaranteed by treaty",
+     "parola": "signed"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": 20.0,
+    "lat": 52.0,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Think about that. On a continent that went to war every generation, one country held a legal promise to stay out.",
+   "anteprima": false,
+   "vista": {
+    "lon": 10,
+    "lat": 48,
+    "larghezza": 40
+   },
+   "epoca": "antica",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [
+    "FRA",
+    "DEU",
+    "ITA",
+    "AUT",
+    "ESP",
+    "GBR"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "swords",
+     "lon": 2.3,
+     "lat": 48.8,
+     "parola": "war"
+    },
+    {
+     "tipo": "icona",
+     "icona": "swords",
+     "lon": 13.4,
+     "lat": 52.5,
+     "parola": "generation"
+    },
+    {
+     "tipo": "icona",
+     "icona": "fortress",
+     "lon": 8.2,
+     "lat": 46.8,
+     "parola": "promise"
+    },
+    {
+     "tipo": "nota",
+     "testo": "One country exempt from war",
+     "parola": "exempt"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 22.0,
+    "lat": 42.0,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "If you are rich and your country might burn, where do you keep your money? Switzerland now sold the promise that nothing would happen there.",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.2,
+    "lat": 46.8,
+    "larghezza": 16
+   },
+   "epoca": "antica",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "landowner",
+     "n": 4,
+     "lon": 2.3,
+     "lat": 48.8,
+     "parola": "rich"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      2.3,
+      48.8
+     ],
+     "a": [
+      8.5,
+      47.3
+     ],
+     "icona": "money_bag",
+     "parola": "money"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "NOTHING HAPPENS",
+     "parola": "nothing"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 11.2,
+    "lat": 47.9,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "But a promise feeds no one. As late as 1855, one Swiss village paid for 305 of its people to leave for America. More than one in ten.",
+   "anteprima": false,
+   "vista": {
+    "lon": -20,
+    "lat": 42,
+    "larghezza": 120
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "CHE"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1855",
+     "parola": "1855"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      8.2,
+      46.8
+     ],
+     "a": [
+      -74,
+      40.7
+     ],
+     "icona": "cargo_ship",
+     "parola": "America"
+    },
+    {
+     "tipo": "conta",
+     "valore": 305,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "VILLAGERS SENT AWAY",
+     "parola": "305"
+    },
+    {
+     "tipo": "contatore",
+     "testo": "MORE THAN 1 IN 10 LEFT",
+     "su": 1,
+     "di": 10,
+     "personaggio": "peasant",
+     "parola": "ten"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": -45,
+    "lat": 55,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Over the century, more than half a million Swiss left. Neutral? Yes. Rich? Not even close.",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.2,
+    "lat": 46.8,
+    "larghezza": 14
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "CHE"
+   ],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 500000,
+     "prefisso": "+",
+     "suffisso": "",
+     "sotto": "SWISS EMIGRATED",
+     "parola": "half"
+    },
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": 8.2,
+     "lat": 46.8,
+     "parola": "Neutral"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "NOT RICH",
+     "parola": "Rich"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": 10.5,
+    "lat": 47.9,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "To get rich, Switzerland needed a few lucky accidents. The first happened in Geneva. In 1541, the reformer John Calvin banned jewelry as sinful.",
+   "anteprima": false,
+   "vista": {
+    "lon": 6.15,
+    "lat": 46.2,
+    "larghezza": 5
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "CHE"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1541",
+     "parola": "1541"
+    },
+    {
+     "tipo": "personaggio",
+     "nome": "John Calvin",
+     "descrizione": "16th-century Protestant reformer, black robe, stern face",
+     "parola": "Calvin"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "GENEVA",
+     "lon": 6.15,
+     "lat": 46.2,
+     "parola": "Geneva"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Calvin banned jewelry",
+     "parola": "banned"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 7.4,
+    "lat": 46.9,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Geneva's goldsmiths suddenly had no market. So they turned their tiny tools to something Calvin could not object to: clocks.",
+   "anteprima": false,
+   "vista": {
+    "lon": 6.15,
+    "lat": 46.2,
+    "larghezza": 4
+   },
+   "epoca": "antica",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "worker",
+     "n": 4,
+     "lon": 6.15,
+     "lat": 46.2,
+     "parola": "goldsmiths"
+    },
+    {
+     "tipo": "icona",
+     "icona": "hourglass",
+     "lon": 6.2,
+     "lat": 46.25,
+     "parola": "clocks"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Jewelers became watchmakers",
+     "parola": "turned"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 7.0,
+    "lat": 46.7,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "French Protestant refugees brought even more skill. By 1601, Geneva had the world's first watchmakers guild. A religious ban had created an industry built on precision.",
+   "anteprima": false,
+   "vista": {
+    "lon": 6.15,
+    "lat": 46.2,
+    "larghezza": 10
+   },
+   "epoca": "antica",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [
+    "FRA"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      2.3,
+      46.5
+     ],
+     "a": [
+      6.15,
+      46.2
+     ],
+     "icona": "hourglass",
+     "parola": "refugees"
+    },
+    {
+     "tipo": "anno",
+     "testo": "1601",
+     "parola": "1601"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "PRECISION",
+     "parola": "precision"
+    },
+    {
+     "tipo": "nota",
+     "testo": "World's first watchmakers guild",
+     "parola": "guild"
+    }
+   ],
+   "musica": "quotidiano",
+   "stacco": false,
+   "pin": {
+    "lon": 8.0,
+    "lat": 47.0,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Keep those watchmakers in mind. Four hundred years later, they almost disappear.",
+   "anteprima": false,
+   "vista": {
+    "lon": 7,
+    "lat": 47.2,
+    "larghezza": 6
+   },
+   "epoca": "antica",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "hourglass",
+     "lon": 6.9,
+     "lat": 47.1,
+     "parola": "watchmakers"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": 6.9,
+     "lat": 47.1,
+     "parola": "disappear"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Remember: they nearly vanish",
+     "parola": "Four"
+    }
+   ],
+   "musica": "mistero",
+   "stacco": false,
+   "pin": {
+    "lon": 8.2,
+    "lat": 47.6,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Accident number two: chaos. Before 1850, Switzerland had no single money. About eight thousand different coins and banknotes circulated.",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.2,
+    "lat": 46.8,
+    "larghezza": 8
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "CHE"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1850",
+     "parola": "1850"
+    },
+    {
+     "tipo": "conta",
+     "valore": 8000,
+     "prefisso": "~",
+     "suffisso": "",
+     "sotto": "DIFFERENT COINS AND NOTES",
+     "parola": "eight"
+    },
+    {
+     "tipo": "icona",
+     "icona": "banknotes",
+     "lon": 7.4,
+     "lat": 46.9,
+     "parola": "banknotes"
+    },
+    {
+     "tipo": "icona",
+     "icona": "gold_coins",
+     "lon": 9.2,
+     "lat": 47.2,
+     "parola": "coins"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
     "lon": 6.5,
-    "lat": 46,
+    "lat": 47.5,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Then the new federal state created one currency, the franc. It sounds boring, but it became one of the most trusted currencies on Earth.",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.2,
+    "lat": 46.8,
+    "larghezza": 9
+   },
+   "epoca": "antica",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": 7.45,
+     "lat": 46.95,
+     "parola": "federal"
+    },
+    {
+     "tipo": "icona",
+     "icona": "banknotes",
+     "lon": 8.2,
+     "lat": 46.8,
+     "parola": "franc"
+    },
+    {
+     "tipo": "nota",
+     "testo": "One franc replaced thousands",
+     "parola": "currency"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "TRUSTED",
+     "parola": "trusted"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 10.2,
+    "lat": 47.6,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "It would be so trusted that one day it would become a problem. Hold that thought.",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.2,
+    "lat": 46.8,
+    "larghezza": 9
+   },
+   "epoca": "antica",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "question",
+     "lon": 8.2,
+     "lat": 46.8,
+     "parola": "problem"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Too much trust, later",
+     "parola": "thought"
+    }
+   ],
+   "musica": "mistero",
+   "stacco": false,
+   "pin": {
+    "lon": 6.4,
+    "lat": 47.4,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Accident number three: the wall became a road. In 1882, the Swiss opened a 15 kilometer railway tunnel under the Gotthard Pass, the longest in the world.",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.6,
+    "lat": 46.7,
+    "larghezza": 6
+   },
+   "epoca": "antica",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1882",
+     "parola": "1882"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      8.6,
+      46.55
+     ],
+     "a": [
+      8.6,
+      46.9
+     ],
+     "icona": "steam_train",
+     "parola": "tunnel"
+    },
+    {
+     "tipo": "conta",
+     "valore": 15,
+     "prefisso": "",
+     "suffisso": " KM",
+     "sotto": "GOTTHARD TUNNEL",
+     "parola": "15"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "GOTTHARD PASS",
+     "lon": 8.55,
+     "lat": 46.65,
+     "parola": "Gotthard"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": 10.0,
+    "lat": 47.6,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "It cost at least 177 workers their lives. When workers went on strike, the army opened fire and killed four.",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.6,
+    "lat": 46.7,
+    "larghezza": 5
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "CHE"
+   ],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 177,
+     "prefisso": "+",
+     "suffisso": "",
+     "sotto": "WORKERS DIED",
+     "parola": "177"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "worker",
+     "n": 5,
+     "lon": 8.6,
+     "lat": 46.6,
+     "parola": "strike"
+    },
+    {
+     "tipo": "icona",
+     "icona": "grave",
+     "lon": 8.6,
+     "lat": 46.7,
+     "parola": "killed"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Army fired on strikers",
+     "parola": "fire"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": 10.0,
+    "lat": 47.3,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "But once open, the mountain wall was suddenly a toll road between northern and southern Europe.",
+   "anteprima": false,
+   "vista": {
+    "lon": 9,
+    "lat": 47,
+    "larghezza": 18
+   },
+   "epoca": "antica",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [
+    "DEU",
+    "ITA"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      9.0,
+      52.0
+     ],
+     "a": [
+      9.2,
+      45.5
+     ],
+     "icona": "steam_train",
+     "parola": "between"
+    },
+    {
+     "tipo": "icona",
+     "icona": "gold_coins",
+     "lon": 8.6,
+     "lat": 46.8,
+     "parola": "toll"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "TOLL ROAD",
+     "parola": "road"
+    },
+    {
+     "tipo": "nota",
+     "testo": "The wall became a trade route",
+     "parola": "suddenly"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": true,
+   "pin": {
+    "lon": 13.0,
+    "lat": 48.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Accident number four came in Basel, on the Rhine. In 1859, a silk dyer began making the new artificial dyes just discovered in England.",
+   "anteprima": false,
+   "vista": {
+    "lon": 7.6,
+    "lat": 47.55,
+    "larghezza": 5
+   },
+   "epoca": "antica",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1859",
+     "parola": "1859"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "BASEL",
+     "lon": 7.6,
+     "lat": 47.56,
+     "parola": "Basel"
+    },
+    {
+     "tipo": "icona",
+     "icona": "factory",
+     "lon": 7.65,
+     "lat": 47.55,
+     "parola": "dyes"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Silk dyer turned chemist",
+     "parola": "England"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 8.9,
+    "lat": 48.0,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Others followed. Dye factories became chemical companies, and chemical companies grew into some of the biggest pharmaceutical firms in the world.",
+   "anteprima": false,
+   "vista": {
+    "lon": 7.6,
+    "lat": 47.55,
+    "larghezza": 6
+   },
+   "epoca": "antica",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "factory",
+     "lon": 7.6,
+     "lat": 47.55,
+     "parola": "factories"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_up",
+     "lon": 7.8,
+     "lat": 47.6,
+     "parola": "grew"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Dyes became medicine",
+     "parola": "pharmaceutical"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 9.0,
+    "lat": 48.0,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Accident number five happened in the lakeside town of Vevey. In 1875, Daniel Peter finally mixed cocoa with condensed milk: milk chocolate.",
+   "anteprima": false,
+   "vista": {
+    "lon": 6.84,
+    "lat": 46.46,
+    "larghezza": 4
+   },
+   "epoca": "antica",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1875",
+     "parola": "1875"
+    },
+    {
+     "tipo": "personaggio",
+     "nome": "Daniel Peter",
+     "descrizione": "19th-century Swiss chocolate maker, mustache, apron",
+     "parola": "Daniel"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "VEVEY",
+     "lon": 6.84,
+     "lat": 46.46,
+     "parola": "Vevey"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Milk chocolate invented",
+     "parola": "chocolate"
+    }
+   ],
+   "musica": "quotidiano",
+   "stacco": false,
+   "pin": {
+    "lon": 7.9,
+    "lat": 46.9,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "His neighbor, by the way, was a man named Henri Nestlé.",
+   "anteprima": false,
+   "vista": {
+    "lon": 6.84,
+    "lat": 46.46,
+    "larghezza": 3
+   },
+   "epoca": "antica",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "personaggio",
+     "nome": "Henri Nestlé",
+     "descrizione": "19th-century German-Swiss merchant, beard, dark suit",
+     "parola": "Henri"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Daniel Peter's neighbor: Nestlé",
+     "parola": "neighbor"
+    }
+   ],
+   "musica": "quotidiano",
+   "stacco": false,
+   "pin": {
+    "lon": 7.6,
+    "lat": 46.8,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Watches, a trusted franc, a tunnel, medicine, chocolate. Notice the pattern. None needs oil, a port or an empire.",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.2,
+    "lat": 46.8,
+    "larghezza": 9
+   },
+   "epoca": "antica",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "hourglass",
+     "lon": 6.15,
+     "lat": 46.2,
+     "parola": "Watches"
+    },
+    {
+     "tipo": "icona",
+     "icona": "steam_train",
+     "lon": 8.6,
+     "lat": 46.7,
+     "parola": "tunnel"
+    },
+    {
+     "tipo": "icona",
+     "icona": "factory",
+     "lon": 7.6,
+     "lat": 47.55,
+     "parola": "medicine"
+    },
+    {
+     "tipo": "icona",
+     "icona": "gold_coins",
+     "lon": 6.84,
+     "lat": 46.46,
+     "parola": "chocolate"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 10.4,
+    "lat": 47.6,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "They are small, expensive things you buy because you trust they will not fail. If you like seeing how maps decide who gets rich, subscribe.",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.2,
+    "lat": 46.8,
+    "larghezza": 10
+   },
+   "epoca": "antica",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "scritta",
+     "testo": "TRUST",
+     "parola": "trust"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Small, costly, never fail",
+     "parola": "expensive"
+    },
+    {
+     "tipo": "icona",
+     "icona": "question",
+     "lon": 8.2,
+     "lat": 46.8,
+     "parola": "maps"
+    }
+   ],
+   "musica": "quotidiano",
+   "stacco": false,
+   "pin": {
+    "lon": 6.3,
+    "lat": 47.4,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "But none of that explains the real Swiss fortune. For that, we have to go underground, into the vaults.",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.5,
+    "lat": 47.37,
+    "larghezza": 4
+   },
+   "epoca": "antica",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "ZURICH VAULTS",
+     "lon": 8.54,
+     "lat": 47.37,
+     "parola": "underground"
+    },
+    {
+     "tipo": "icona",
+     "icona": "treasure_chest",
+     "lon": 8.54,
+     "lat": 47.37,
+     "parola": "vaults"
+    },
+    {
+     "tipo": "nota",
+     "testo": "The real fortune: secrecy",
+     "parola": "fortune"
+    }
+   ],
+   "musica": "mistero",
+   "stacco": true,
+   "pin": {
+    "lon": 9.4,
+    "lat": 47.8,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In 1932, France launched a campaign against its own tax evaders. Rich French families panicked, and Switzerland answered.",
+   "anteprima": false,
+   "vista": {
+    "lon": 5,
+    "lat": 47,
+    "larghezza": 12
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [
+    "FRA"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1932",
+     "parola": "1932"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "landowner",
+     "n": 4,
+     "lon": 2.3,
+     "lat": 48.8,
+     "parola": "panicked"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      2.3,
+      48.8
+     ],
+     "a": [
+      8.5,
+      47.4
+     ],
+     "icona": "money_bag",
+     "parola": "answered"
+    },
+    {
+     "tipo": "nota",
+     "testo": "French savings fled to Switzerland",
+     "parola": "evaders"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 9.8,
+    "lat": 48.4,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In 1934, a new banking law made revealing a client's information a federal crime. A banker who talked could go to prison.",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.5,
+    "lat": 47.2,
+    "larghezza": 6
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1934",
+     "parola": "1934"
+    },
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": 7.45,
+     "lat": 46.95,
+     "parola": "law"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "banker",
+     "n": 3,
+     "lon": 8.54,
+     "lat": 47.37,
+     "parola": "banker"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "SILENCE",
+     "parola": "prison"
+    }
+   ],
+   "musica": "mistero",
+   "stacco": false,
+   "pin": {
+    "lon": 10.0,
+    "lat": 47.9,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Even your own government could ask. Even your tax office could ask. The answer was silence.",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.5,
+    "lat": 47.2,
+    "larghezza": 8
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "parliament",
+     "lon": 7.45,
+     "lat": 46.95,
+     "parola": "government"
+    },
+    {
+     "tipo": "icona",
+     "icona": "banknotes",
+     "lon": 8.54,
+     "lat": 47.37,
+     "parola": "tax"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Even tax offices got silence",
+     "parola": "silence"
+    }
+   ],
+   "musica": "mistero",
+   "stacco": false,
+   "pin": {
+    "lon": 10.4,
+    "lat": 46.4,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In June 1940, days after France fell, Germany drew up a plan to invade Switzerland. Up to half a million men.",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.5,
+    "lat": 47.5,
+    "larghezza": 16
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [
+    "DEU"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1940",
+     "parola": "1940"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      9.0,
+      50.0
+     ],
+     "a": [
+      8.5,
+      47.4
+     ],
+     "icona": "cannon",
+     "parola": "invade"
+    },
+    {
+     "tipo": "conta",
+     "valore": 500000,
+     "prefisso": "UP TO ",
+     "suffisso": "",
+     "sotto": "GERMAN SOLDIERS PLANNED",
+     "parola": "half"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 12.5,
+    "lat": 46.2,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "After conquest, the country would be carved up by language. German part to Germany, Italian to Italy, French to France.",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.2,
+    "lat": 46.8,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "CHE"
+   ],
+   "eventi": [
+    {
+     "tipo": "confine",
+     "punti": [
+      [
+       7.2,
+       47.5
+      ],
+      [
+       7.2,
+       46.2
+      ]
+     ],
+     "parola": "carved"
+    },
+    {
+     "tipo": "icona",
+     "tipo2": "x",
+     "icona": "flag:DE",
+     "lon": 9.0,
+     "lat": 47.3,
+     "parola": "German"
+    },
+    {
+     "tipo": "icona",
+     "icona": "flag:IT",
+     "lon": 8.9,
+     "lat": 46.2,
+     "parola": "Italian"
+    },
+    {
+     "tipo": "icona",
+     "icona": "flag:FR",
+     "lon": 6.4,
+     "lat": 46.7,
+     "parola": "French"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 10.6,
+    "lat": 47.9,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "The Swiss answer was to pull the army back into the mountains, into a fortress carved inside the Alps, ready to fight for years.",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.6,
+    "lat": 46.7,
+    "larghezza": 8
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "soldier",
+     "n": 5,
+     "lon": 8.6,
+     "lat": 46.7,
+     "parola": "army"
+    },
+    {
+     "tipo": "icona",
+     "icona": "fortress",
+     "lon": 8.6,
+     "lat": 46.7,
+     "parola": "fortress"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Army retreated into the Alps",
+     "parola": "Alps"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": 6.6,
+    "lat": 47.4,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "The invasion never came, but that fortress mindset never left. In 1963, a law promised every resident a place in a nuclear shelter.",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.2,
+    "lat": 46.8,
+    "larghezza": 9
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1963",
+     "parola": "1963"
+    },
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": 7.45,
+     "lat": 46.95,
+     "parola": "law"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "family",
+     "n": 4,
+     "lon": 8.5,
+     "lat": 47.0,
+     "parola": "resident"
+    },
+    {
+     "tipo": "nota",
+     "testo": "A shelter spot for everyone",
+     "parola": "shelter"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 10.4,
+    "lat": 47.6,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Today there are around 370,000 shelters. That is enough to fit the whole population, so a country that sells safety also buys it for everyone.",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.2,
+    "lat": 46.8,
+    "larghezza": 9
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 370000,
+     "prefisso": "~",
+     "suffisso": "",
+     "sotto": "NUCLEAR SHELTERS",
+     "parola": "370,000"
+    },
+    {
+     "tipo": "icona",
+     "icona": "fortress",
+     "lon": 8.2,
+     "lat": 46.8,
+     "parola": "shelters"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "SAFE",
+     "parola": "safety"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 6.2,
+    "lat": 47.4,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "During the war, Switzerland kept doing business with everyone, including Nazi Germany. A later commission found its national bank took in about 1.6 billion francs in German gold.",
+   "anteprima": false,
+   "vista": {
+    "lon": 9,
+    "lat": 48,
+    "larghezza": 14
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [
+    "DEU"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      13.4,
+      52.5
+     ],
+     "a": [
+      7.45,
+      46.95
+     ],
+     "icona": "silver_bars",
+     "parola": "German"
+    },
+    {
+     "tipo": "prezzo",
+     "testo": "1.6B FRANCS",
+     "sotto": "NAZI GOLD ACCEPTED",
+     "ricco": true,
+     "parola": "billion"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Swiss bank took Nazi gold",
+     "parola": "gold"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 11.8,
+    "lat": 46.0,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "About three quarters of that gold had been looted from other countries. And the bank's leaders knew early on where it came from.",
+   "anteprima": false,
+   "vista": {
+    "lon": 7.45,
+    "lat": 46.95,
+    "larghezza": 6
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "CHE"
+   ],
+   "eventi": [
+    {
+     "tipo": "griglia",
+     "paese": [
+      "CHE"
+     ],
+     "pieni": 0.75,
+     "testo": "3 IN 4 LOOTED",
+     "colore": "verde",
+     "parola": "three"
+    },
+    {
+     "tipo": "icona",
+     "icona": "treasure_chest",
+     "lon": 7.45,
+     "lat": 46.95,
+     "parola": "looted"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Leaders knew its origin",
+     "parola": "knew"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": true,
+   "pin": {
+    "lon": 9.0,
+    "lat": 47.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "The same mountains that sheltered refugees' savings also stored stolen gold. The vaults did not ask questions. That was the product.",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.54,
+    "lat": 47.37,
+    "larghezza": 4
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "treasure_chest",
+     "lon": 8.54,
+     "lat": 47.37,
+     "parola": "vaults"
+    },
+    {
+     "tipo": "icona",
+     "icona": "question",
+     "lon": 8.7,
+     "lat": 47.45,
+     "parola": "questions"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "NO QUESTIONS",
+     "parola": "product"
+    }
+   ],
+   "musica": "mistero",
+   "stacco": false,
+   "pin": {
+    "lon": 9.4,
+    "lat": 47.8,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "But the thing that made Switzerland rich was about to become its biggest problem. Because secrets have a price, and the bill was coming.",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.2,
+    "lat": 46.8,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "banknotes",
+     "lon": 8.5,
+     "lat": 47.4,
+     "parola": "price"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": 7.2,
+     "lat": 46.7,
+     "parola": "problem"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "THE BILLS",
+     "parola": "bill"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": true,
+   "pin": {
+    "lon": 10.2,
+    "lat": 47.6,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Bill number one arrived in 1995. Families of Holocaust victims asked: where is the money our relatives left in your banks?",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.5,
+    "lat": 47.3,
+    "larghezza": 8
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1995",
+     "parola": "1995"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "family",
+     "n": 4,
+     "lon": 8.5,
+     "lat": 47.4,
+     "parola": "families"
+    },
+    {
+     "tipo": "icona",
+     "icona": "question",
+     "lon": 8.6,
+     "lat": 47.4,
+     "parola": "where"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Families demanded their money",
+     "parola": "money"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": 10.4,
+    "lat": 47.8,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Swiss secrecy made even that hard to answer. It became the country's biggest diplomatic crisis since the war.",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.2,
+    "lat": 46.8,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "CHE"
+   ],
+   "eventi": [
+    {
+     "tipo": "scritta",
+     "testo": "CRISIS",
+     "parola": "crisis"
+    },
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": 8.2,
+     "lat": 46.8,
+     "parola": "secrecy"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Worst crisis since the war",
+     "parola": "diplomatic"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 6.4,
+    "lat": 47.4,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In 1998, its two giant banks agreed to pay one and a quarter billion dollars, eventually reaching more than 450,000 claimants.",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.5,
+    "lat": 47.3,
+    "larghezza": 8
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1998",
+     "parola": "1998"
+    },
+    {
+     "tipo": "prezzo",
+     "testo": "$1.25B",
+     "sotto": "SETTLEMENT PAID",
+     "ricco": true,
+     "parola": "quarter"
+    },
+    {
+     "tipo": "conta",
+     "valore": 450000,
+     "prefisso": "+",
+     "suffisso": "",
+     "sotto": "CLAIMANTS PAID",
+     "parola": "450,000"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": 10.4,
+    "lat": 47.9,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Bill number two came in 2009. America caught UBS running secret accounts for about 20,000 US clients, around 17,000 of them hiding money from the tax office.",
+   "anteprima": false,
+   "vista": {
+    "lon": -20,
+    "lat": 42,
+    "larghezza": 110
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "CHE"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "2009",
+     "parola": "2009"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -77,
+      38.9
+     ],
+     "a": [
+      8.54,
+      47.37
+     ],
+     "icona": "banknotes",
+     "parola": "accounts"
+    },
+    {
+     "tipo": "conta",
+     "valore": 20000,
+     "prefisso": "~",
+     "suffisso": "",
+     "sotto": "SECRET US CLIENTS",
+     "parola": "20,000"
+    },
+    {
+     "tipo": "contatore",
+     "testo": "ABOUT 17,000 HID TAXES",
+     "su": 17,
+     "di": 20,
+     "personaggio": "banker",
+     "parola": "17,000"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -45,
+    "lat": 58,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "UBS paid 780 million dollars. And then it did the unthinkable: it handed over client names.",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.54,
+    "lat": 47.37,
+    "larghezza": 6
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [
+    "USA"
+   ],
+   "eventi": [
+    {
+     "tipo": "prezzo",
+     "testo": "$780M",
+     "sotto": "UBS PAID",
+     "ricco": false,
+     "parola": "780"
+    },
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": 8.54,
+     "lat": 47.37,
+     "parola": "handed"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "UNTHINKABLE",
+     "parola": "unthinkable"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": true,
+   "pin": {
+    "lon": 10.4,
+    "lat": 47.9,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Bill number three, 2018. Switzerland began automatically sending account data to tax authorities across Europe and beyond. About two million accounts in the first round.",
+   "anteprima": false,
+   "vista": {
+    "lon": 10,
+    "lat": 48,
+    "larghezza": 40
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "CHE",
+    "FRA",
+    "DEU",
+    "ITA",
+    "GBR"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "2018",
+     "parola": "2018"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      8.54,
+      47.37
+     ],
+     "a": [
+      2.3,
+      48.8
+     ],
+     "icona": "scroll_law",
+     "parola": "sending"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      8.54,
+      47.37
+     ],
+     "a": [
+      13.4,
+      52.5
+     ],
+     "icona": "scroll_law",
+     "parola": "Europe"
+    },
+    {
+     "tipo": "conta",
+     "valore": 2000000,
+     "prefisso": "~",
+     "suffisso": "",
+     "sotto": "ACCOUNTS SHARED",
+     "parola": "two"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 20,
+    "lat": 43,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "The secret was over. And bill number four came in March 2023, when Credit Suisse, one of the oldest names in Swiss banking, began to fall.",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.54,
+    "lat": 47.37,
+    "larghezza": 6
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "scritta",
+     "testo": "SECRET OVER",
+     "parola": "over"
+    },
+    {
+     "tipo": "anno",
+     "testo": "2023",
+     "parola": "2023"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "CREDIT SUISSE",
+     "lon": 8.54,
+     "lat": 47.37,
+     "parola": "Credit"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": 8.54,
+     "lat": 47.37,
+     "parola": "fall"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 10.2,
+    "lat": 47.9,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In just three months, clients pulled out 61 billion francs. Then, over one weekend, the government pushed UBS to buy it for 3 billion.",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.54,
+    "lat": 47.2,
+    "larghezza": 6
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 61,
+     "prefisso": "",
+     "suffisso": "B",
+     "sotto": "FRANCS WITHDRAWN IN 3 MONTHS",
+     "parola": "61"
+    },
+    {
+     "tipo": "prezzo",
+     "testo": "3B FRANCS",
+     "sotto": "UBS BUYS CREDIT SUISSE",
+     "ricco": false,
+     "parola": "3"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "ONE WEEKEND",
+     "parola": "weekend"
+    }
+   ],
+   "musica": "azione",
+   "stacco": true,
+   "pin": {
+    "lon": 10.2,
+    "lat": 47.9,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "It came with up to 200 billion francs in state guarantees. The country that sold trust watched one of its biggest banks collapse in two days.",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.2,
+    "lat": 46.8,
+    "larghezza": 9
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 200,
+     "prefisso": "UP TO ",
+     "suffisso": "B",
+     "sotto": "STATE GUARANTEES",
+     "parola": "200"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": 8.54,
+     "lat": 47.37,
+     "parola": "collapse"
+    },
+    {
+     "tipo": "nota",
+     "testo": "The trust seller lost its bank",
+     "parola": "trust"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": 6.3,
+    "lat": 47.4,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "And in 2025, for the first time, Hong Kong caught up with Switzerland as the world's biggest hub for money from abroad.",
+   "anteprima": false,
+   "vista": {
+    "lon": 70,
+    "lat": 35,
+    "larghezza": 160
+   },
+   "epoca": "oggi",
+   "oro": [
+    "HKG"
+   ],
+   "verde": [
+    "CHE"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "2025",
+     "parola": "2025"
+    },
+    {
+     "tipo": "colonna",
+     "testo": "SWITZERLAND",
+     "valore": 0.9,
+     "lon": 8.2,
+     "lat": 46.8,
+     "parola": "Switzerland"
+    },
+    {
+     "tipo": "colonna",
+     "testo": "HONG KONG",
+     "valore": 0.9,
+     "lon": 114.2,
+     "lat": 22.3,
+     "parola": "Hong"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Hong Kong caught up",
+     "parola": "caught"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 40,
+    "lat": 60,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "So the secret is gone. One giant bank is gone. The crown is slipping. Why is Switzerland still this rich?",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.2,
+    "lat": 46.8,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "crown",
+     "lon": 8.2,
+     "lat": 46.8,
+     "parola": "crown"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": 8.2,
+     "lat": 46.8,
+     "parola": "slipping"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "STILL RICH?",
+     "parola": "rich"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": true,
+   "pin": {
+    "lon": 6.2,
+    "lat": 47.4,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Because banking was never the whole story. Remember Basel? That one city is home to two of the ten biggest pharmaceutical companies on Earth.",
+   "anteprima": false,
+   "vista": {
+    "lon": 7.6,
+    "lat": 47.55,
+    "larghezza": 5
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "BASEL",
+     "lon": 7.6,
+     "lat": 47.56,
+     "parola": "Basel"
+    },
+    {
+     "tipo": "contatore",
+     "testo": "2 OF THE TOP 10 PHARMA FIRMS",
+     "su": 2,
+     "di": 10,
+     "personaggio": "worker",
+     "parola": "two"
+    },
+    {
+     "tipo": "icona",
+     "icona": "factory",
+     "lon": 7.65,
+     "lat": 47.55,
+     "parola": "pharmaceutical"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 8.8,
+    "lat": 48.0,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Medicines alone make up more than a third of everything Switzerland exports. Safety still sells, it just comes in a pill bottle now.",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.2,
+    "lat": 46.8,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "griglia",
+     "paese": [
+      "CHE"
+     ],
+     "pieni": 0.35,
+     "testo": "OVER 1 IN 3 EXPORTS",
+     "colore": "oro",
+     "parola": "third"
+    },
+    {
+     "tipo": "icona",
+     "icona": "factory",
+     "lon": 7.6,
+     "lat": 47.55,
+     "parola": "Medicines"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Medicine is a third of exports",
+     "parola": "exports"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": false,
+   "pin": {
+    "lon": 10.4,
+    "lat": 47.6,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Remember the watchmakers? In 1969, a Japanese company released the first quartz watch, cheaper and more accurate than any Swiss one.",
+   "anteprima": false,
+   "vista": {
+    "lon": 100,
+    "lat": 40,
+    "larghezza": 120
+   },
+   "epoca": "oggi",
+   "oro": [
+    "JPN"
+   ],
+   "verde": [
+    "CHE"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1969",
+     "parola": "1969"
+    },
+    {
+     "tipo": "icona",
+     "icona": "flag:JP",
+     "lon": 139.7,
+     "lat": 35.7,
+     "parola": "Japanese"
+    },
+    {
+     "tipo": "icona",
+     "icona": "hourglass",
+     "lon": 139.7,
+     "lat": 35.7,
+     "parola": "quartz"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Quartz beat Swiss craftsmanship",
+     "parola": "cheaper"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 60,
+    "lat": 55,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Within 15 years, Swiss watchmaking jobs fell from 90,000 to about 30,000. The industry Calvin accidentally created was dying.",
+   "anteprima": false,
+   "vista": {
+    "lon": 7,
+    "lat": 47,
+    "larghezza": 8
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "CHE"
+   ],
+   "eventi": [
+    {
+     "tipo": "barre",
+     "titolo": "WATCHMAKING JOBS",
+     "voci": [
+      {
+       "testo": "BEFORE",
+       "valore": 90,
+       "lato": "oro"
+      },
+      {
+       "testo": "AFTER",
+       "valore": 30,
+       "lato": "verde"
+      }
+     ],
+     "parola": "jobs"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": 6.9,
+     "lat": 47.1,
+     "parola": "fell"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Two thirds of the jobs vanished",
+     "parola": "dying"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": 9.2,
+    "lat": 47.8,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Then, in 1983, it came back with a cheap, colorful, plastic watch: the Swatch. That is the real Swiss skill. Not the secret. The recovery.",
+   "anteprima": false,
+   "vista": {
+    "lon": 7.2,
+    "lat": 47.1,
+    "larghezza": 6
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1983",
+     "parola": "1983"
+    },
+    {
+     "tipo": "icona",
+     "icona": "hourglass",
+     "lon": 7.25,
+     "lat": 47.15,
+     "parola": "Swatch"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_up",
+     "lon": 7.25,
+     "lat": 47.15,
+     "parola": "recovery"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "RECOVERY",
+     "parola": "recovery"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": true,
+   "pin": {
+    "lon": 9.0,
+    "lat": 47.8,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "It is built into the system. About two thirds of Swiss teenagers choose an apprenticeship, learning a trade inside a real company while they study.",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.2,
+    "lat": 46.8,
+    "larghezza": 9
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "contatore",
+     "testo": "ABOUT 2 IN 3 CHOOSE A TRADE",
+     "su": 2,
+     "di": 3,
+     "personaggio": "student",
+     "parola": "two"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "worker",
+     "n": 4,
+     "lon": 8.5,
+     "lat": 47.3,
+     "parola": "company"
+    },
+    {
+     "tipo": "icona",
+     "icona": "school",
+     "lon": 8.0,
+     "lat": 47.0,
+     "parola": "study"
+    }
+   ],
+   "musica": "quotidiano",
+   "stacco": false,
+   "pin": {
+    "lon": 10.2,
+    "lat": 47.6,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Citizens also vote directly on laws several times a year, which makes wild political swings rare.",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.2,
+    "lat": 46.8,
+    "larghezza": 9
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "voter",
+     "n": 5,
+     "lon": 8.3,
+     "lat": 47.0,
+     "parola": "vote"
+    },
+    {
+     "tipo": "icona",
+     "icona": "ballot_box",
+     "lon": 7.45,
+     "lat": 46.95,
+     "parola": "directly"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Voters decide laws directly",
+     "parola": "laws"
+    }
+   ],
+   "musica": "quotidiano",
+   "stacco": false,
+   "pin": {
+    "lon": 6.3,
+    "lat": 47.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "And the franc became so trusted that the central bank had to hold it down by force. In January 2015, it let go.",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.2,
+    "lat": 46.8,
+    "larghezza": 9
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "banknotes",
+     "lon": 7.45,
+     "lat": 46.95,
+     "parola": "franc"
+    },
+    {
+     "tipo": "anno",
+     "testo": "2015",
+     "parola": "2015"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_up",
+     "lon": 8.5,
+     "lat": 47.3,
+     "parola": "let"
+    }
+   ],
+   "musica": "azione",
+   "stacco": false,
+   "pin": {
+    "lon": 10.2,
+    "lat": 47.6,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "The franc jumped about twenty percent within minutes. Most countries fear their money collapsing. Switzerland's problem is that the whole world wants its.",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.2,
+    "lat": 46.8,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 20,
+     "prefisso": "+~",
+     "suffisso": "%",
+     "sotto": "FRANC JUMP IN MINUTES",
+     "parola": "twenty"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "TOO WANTED",
+     "parola": "wants"
+    },
+    {
+     "tipo": "nota",
+     "testo": "The world wants Swiss francs",
+     "parola": "world"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": true,
+   "pin": {
+    "lon": 6.3,
+    "lat": 47.5,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "When Switzerland had nothing, it sold safety. The rich trusted it because it was the one place in Europe where nothing happened.",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.2,
+    "lat": 46.8,
+    "larghezza": 16
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [
+    "FRA",
+    "DEU",
+    "ITA",
+    "AUT"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "fortress",
+     "lon": 8.2,
+     "lat": 46.8,
+     "parola": "safety"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "landowner",
+     "n": 4,
+     "lon": 8.5,
+     "lat": 47.4,
+     "parola": "rich"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Trust came from nothing happening",
+     "parola": "nothing"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": 12.0,
+    "lat": 48.0,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "The model cracks because the world stopped accepting silence. Yet safety still sells. Pikes, neutrality, vaults, medicine: 500 years, one product, from grass to riches.",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.2,
+    "lat": 46.8,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CHE"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "swords",
+     "lon": 7.0,
+     "lat": 47.2,
+     "parola": "Pikes"
+    },
+    {
+     "tipo": "icona",
+     "icona": "treasure_chest",
+     "lon": 8.5,
+     "lat": 47.4,
+     "parola": "vaults"
+    },
+    {
+     "tipo": "icona",
+     "icona": "factory",
+     "lon": 7.6,
+     "lat": 47.55,
+     "parola": "medicine"
+    },
+    {
+     "tipo": "conta",
+     "valore": 500,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "YEARS, ONE PRODUCT",
+     "parola": "500"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": false,
+   "pin": {
+    "lon": 10.4,
+    "lat": 47.6,
     "faccia": "normale"
    }
   }
