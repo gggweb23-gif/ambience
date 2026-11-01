@@ -1,23 +1,25 @@
 {
  "scene": [
   {
-   "testo": "Sixteen sunrises. Sixteen sunsets. Every single day. You are floating 250 miles above Earth, moving at 17,500 miles per hour, and your alarm just went off. Welcome to the strangest workplace ever built. This is what astronauts actually do all day.",
+   "testo": "You are moving at 17,500 miles per hour. Right now. While you read this, you would circle the entire Earth in about 90 minutes. That's the speed of the International Space Station, and the people inside it still have to get up for work.",
    "q": "astronaut floating space station",
    "tag": [
     "astronaut",
-    "floating"
+    "floating",
+    "cabin"
    ],
-   "scritta": "16 SUNRISES",
+   "scritta": "17,500 MPH",
    "obbligo": [
     "astronaut"
    ]
   },
   {
-   "testo": "Imagine you are floating inside the International Space Station at 6 AM. Not lying down. Floating. Your sleeping bag is tied to a wall, and your arms drift up in front of you like a sleepwalker's. No up. No down. Just you and a humming machine.",
-   "q": "astronaut sleeping bag crew quarters",
+   "testo": "Imagine you are floating in the station at 6 AM. No alarm clock rings in your ear. A sleeping bag is strapped to the wall of a closet-sized room, and you are drifting inside it. There is no up. There is no down.",
+   "q": "sleeping bag crew quarters",
    "tag": [
     "sleeping",
-    "bag"
+    "bag",
+    "crew"
    ],
    "scritta": "",
    "obbligo": [
@@ -25,41 +27,99 @@
    ]
   },
   {
-   "testo": "Here is the first surprise. The station runs on Greenwich Mean Time, no matter who you are. The crew lives on one clock, even though the sun rises every 90 minutes outside your window. Your day is a schedule, not a sunrise.",
-   "q": "astronaut cupola window earth",
+   "testo": "Here is what you probably picture. Astronauts floating around, laughing, flipping through the air all day. The truth is far busier. Their day is planned almost minute by minute, by teams of people on the ground.",
+   "q": "astronauts working inside station",
    "tag": [
-    "window",
-    "cupola"
-   ],
-   "scritta": "",
-   "obbligo": [
-    "astronaut"
-   ]
-  },
-  {
-   "testo": "Wake-up time on a typical day is around 6 AM. No coffee pot. No snooze button you can trust. You unzip the bag, grab a handrail, and push off. One tiny kick sends you flying across the module. Nobody walks to the bathroom up here.",
-   "q": "astronaut floating module push",
-   "tag": [
-    "floating",
+    "astronauts",
+    "working",
     "module"
+   ],
+   "scritta": "",
+   "obbligo": [
+    "astronaut"
+   ]
+  },
+  {
+   "testo": "The station orbits about 250 miles above Earth. That's roughly the distance from New York City to Washington, D.C., except straight up. And here's the part that breaks most people's brains. You never fall to the ground.",
+   "q": "space station orbit earth",
+   "tag": [
+    "station",
+    "orbit",
+    "earth"
+   ],
+   "scritta": "250 MILES",
+   "obbligo": []
+  },
+  {
+   "testo": "Why? Because you are falling all the time. The station falls toward Earth, but it moves sideways so fast that the ground curves away beneath it. You miss the planet again and again. That is what orbit really means.",
+   "q": "astronaut floating weightless",
+   "tag": [
+    "weightless",
+    "floating"
    ],
    "scritta": "",
    "obbligo": []
   },
   {
-   "testo": "Speaking of bathrooms. The toilet uses suction instead of water. You strap your legs down, and a fan pulls everything away. And the water you drink later? NASA has said part of it comes from recycled sweat and urine. Yes, really.",
-   "q": "space station toilet",
+   "testo": "Gravity is still there. At that height, it is about 90 percent as strong as on the ground. You feel weightless only because everything around you falls together. You, the walls, your toothbrush, your breakfast.",
+   "q": "astronaut floating food",
    "tag": [
-    "toilet",
+    "floating",
+    "food",
+    "weightless"
+   ],
+   "scritta": "",
+   "obbligo": []
+  },
+  {
+   "testo": "So how do you sleep? You zip into that bag and tie it down. If you didn't, you would drift into a fan or a wall. Your arms float up in front of you. Many astronauts say it feels like sleeping on a cloud.",
+   "q": "astronaut sleeping crew cabin",
+   "tag": [
+    "sleeping",
+    "cabin",
+    "bag"
+   ],
+   "scritta": "",
+   "obbligo": []
+  },
+  {
+   "testo": "Then the day begins. Your crew wakes up on a set schedule, usually in Greenwich Mean Time. Why? Because the station sees a sunrise or a sunset roughly every 45 minutes. The sun cannot tell you when it's morning.",
+   "q": "sunrise from space station",
+   "tag": [
+    "sunrise",
+    "horizon",
+    "orbit"
+   ],
+   "scritta": "16 SUNRISES",
+   "obbligo": []
+  },
+  {
+   "testo": "That's right. Sixteen sunrises and sixteen sunsets every single day. Each one lasts only moments. Gold light, then blue, then black. Astronauts have described the view as the one thing they never get tired of.",
+   "q": "earth sunrise orbit window",
+   "tag": [
+    "sunrise",
+    "earth",
+    "window"
+   ],
+   "scritta": "",
+   "obbligo": []
+  },
+  {
+   "testo": "Before breakfast, there's a morning routine. You brush your teeth, but you can't spit into a sink. You swallow the toothpaste, or you wipe your mouth with a towel. It's the first lesson of space: everything floats.",
+   "q": "astronaut brushing teeth space",
+   "tag": [
+    "brushing",
+    "teeth",
     "hygiene"
    ],
    "scritta": "",
    "obbligo": []
   },
   {
-   "testo": "Next, a wash. There is no shower. The crew uses wet towels and rinseless soap, squeezing warm water from a pouch. Water does not fall in space. It clings to your skin in wobbling blobs, so the towel does the work.",
+   "testo": "Washing your hair works differently too. You squeeze a little water onto your head and use no-rinse shampoo. The water clings to your skin like a layer of jelly. Then you towel it off. There are no showers on the station.",
    "q": "astronaut washing hair space",
    "tag": [
+    "hair",
     "washing",
     "water"
    ],
@@ -67,29 +127,21 @@
    "obbligo": []
   },
   {
-   "testo": "Brushing teeth is its own puzzle. You squeeze a little toothpaste, brush, and then you can swallow it or spit into a towel. A drop of water floating loose can drift into the air vents, so every drop is managed.",
-   "q": "astronaut brushing teeth",
-   "tag": [
-    "brushing",
-    "teeth"
-   ],
-   "scritta": "",
-   "obbligo": []
-  },
-  {
-   "testo": "Now breakfast. Your food comes in pouches, cans, and vacuum-sealed packs. You add hot or cold water through a needle port, then wait. Cereal, scrambled eggs, coffee in a pouch with a straw. Everything is held down with Velcro or tape.",
+   "testo": "Now, breakfast. Your food comes in sealed pouches and cans, made on Earth and sent up on cargo ships. Cereal, scrambled eggs, fruit, coffee. You add water through a small needle, because the meal is often dried.",
    "q": "astronaut eating food space station",
    "tag": [
     "food",
-    "eating"
+    "eating",
+    "pouch"
    ],
    "scritta": "",
    "obbligo": []
   },
   {
-   "testo": "Why the straw and the pouch? Because liquid does not stay in a cup. It forms a floating ball. Crumbs are even worse. A loose crumb can float into your eye or clog a filter. That is why astronauts avoid ordinary bread.",
-   "q": "astronaut floating food crumbs",
+   "testo": "Crumbs are the enemy. A loose crumb floats off and can end up in a filter or someone's eye. So tortillas replace bread on the station. Salt and pepper come as liquids, because floating grains could clog the equipment.",
+   "q": "astronaut tortilla food floating",
    "tag": [
+    "tortilla",
     "food",
     "floating"
    ],
@@ -97,160 +149,209 @@
    "obbligo": []
   },
   {
-   "testo": "Then comes the daily planning conference. Around 7 AM, the crew talks with mission control on the ground. They review the schedule, check problems, and get the day's task list. The station is a laboratory first, and every minute is planned.",
+   "testo": "Even your coffee is a puzzle. Drinks float in blobs, so astronauts sip from pouches with straws. A special cup was designed for the station that uses the shape of its walls to pull the liquid toward your mouth.",
+   "q": "astronaut drinking coffee space",
+   "tag": [
+    "coffee",
+    "drinking",
+    "cup"
+   ],
+   "scritta": "",
+   "obbligo": []
+  },
+  {
+   "testo": "After breakfast, the crew holds a daily check-in with mission control. Teams in Houston and other centers read out the plan. Today's experiments, today's repairs, today's visitors. Then the real work begins.",
    "q": "astronauts talking mission control",
    "tag": [
     "mission",
-    "control"
+    "control",
+    "crew",
+    "talking"
    ],
    "scritta": "",
    "obbligo": []
   },
   {
-   "testo": "By about 8 AM, the work begins. And here is a number that surprises people. Space station crews often work around 6.5 hours a day on a typical weekday, according to NASA's published schedules. That is a full job, in a place where nothing sits still.",
-   "q": "astronaut working experiment station",
+   "testo": "And the real work is science. The station is a laboratory with six research labs worth of equipment. Astronauts study how plants grow, how flames burn, how fluids behave, how the human body changes in space.",
+   "q": "astronaut science experiment laboratory",
    "tag": [
     "experiment",
-    "laboratory"
-   ],
-   "scritta": "6.5 HOURS",
-   "obbligo": []
-  },
-  {
-   "testo": "What kind of work? Science. Lots of it. Astronauts run experiments on plants, fluids, flames, human bodies, and materials. On Earth, gravity hides many effects. In orbit, the hidden things float out into view.",
-   "q": "astronaut science experiment microgravity",
-   "tag": [
-    "experiment",
-    "microgravity"
+    "laboratory",
+    "science"
    ],
    "scritta": "",
    "obbligo": []
   },
   {
-   "testo": "Take fire. A candle flame on Earth is teardrop shaped, pulled upward by hot air. In microgravity, NASA experiments have shown flames burn as a small blue sphere. Studying this helps engineers build safer spacecraft.",
+   "testo": "Fire behaves differently up there. Without gravity, a candle flame turns into a tiny blue ball. That strange behavior helps engineers design better engines and safer fire detectors, here on the ground.",
    "q": "flame experiment microgravity",
    "tag": [
     "flame",
-    "combustion"
+    "combustion",
+    "experiment"
    ],
    "scritta": "",
    "obbligo": []
   },
   {
-   "testo": "Then there are plants. Crews have grown lettuce, radishes, and other crops on the station. Astronauts tend them, water them, and measure them. One day, the food for a long trip to Mars may be grown right inside the ship.",
+   "testo": "Some days, you grow food. Crews on the station have grown lettuce, radishes, and chili peppers, using special lights and a small growing system. In 2015, astronauts ate lettuce they had grown themselves, a first for NASA.",
    "q": "astronaut growing plants lettuce",
    "tag": [
     "plants",
-    "lettuce"
+    "lettuce",
+    "growing"
    ],
    "scritta": "",
    "obbligo": []
   },
   {
-   "testo": "Some days are about fixing things. The station is a house that never stops needing repairs. Filters clog. Pumps fail. Air scrubbers need parts. Astronauts act as plumbers, electricians, and mechanics, working with a manual and a call to the ground.",
-   "q": "astronaut repairing equipment station",
-   "tag": [
-    "repair",
-    "tools"
-   ],
-   "scritta": "",
-   "obbligo": []
-  },
-  {
-   "testo": "Now the part that surprises everyone. Exercise. Astronauts work out about two hours every day. Not for fun. Without gravity, bones and muscles weaken. NASA has reported that astronauts can lose bone density at roughly 1 percent per month without countermeasures.",
-   "q": "astronaut exercising treadmill",
+   "testo": "Other days, you work on your own body. Because without gravity, muscles and bones weaken. Astronauts can lose bone density at a rate of about 1 percent per month, according to NASA. That's why exercise is not optional.",
+   "q": "astronaut exercise treadmill station",
    "tag": [
     "exercise",
-    "treadmill"
+    "treadmill",
+    "harness"
    ],
    "scritta": "2 HOURS",
    "obbligo": []
   },
   {
-   "testo": "They run on a treadmill, strapped in with a harness. They lift using a machine that uses vacuum cylinders to create resistance. They pedal a bike. Sweat does not drip. It sticks to your skin and builds up.",
-   "q": "astronaut running treadmill harness",
+   "testo": "Two hours every day. That's the standard NASA exercise plan. You run on a treadmill while strapped in with a harness. You lift weights using a vacuum-powered machine. You pedal a bike that is bolted to the floor.",
+   "q": "astronaut cycling bike space station",
    "tag": [
-    "treadmill",
-    "harness"
+    "cycling",
+    "bike",
+    "exercise"
    ],
    "scritta": "",
    "obbligo": []
   },
   {
-   "testo": "Around midday, lunch. The crew often gathers in one module to eat together. It matters. Spending months in a space the size of a six-bedroom house, with the same few people, makes shared meals a lifeline.",
-   "q": "astronauts eating meal together",
+   "testo": "Sweat doesn't drip. It clings to your skin and forms a bead. Then it floats away from you in the air. The station's air system catches it, and then something remarkable happens. The water is recycled.",
+   "q": "water recovery system station",
    "tag": [
-    "meal",
-    "crew"
+    "water",
+    "recycling",
+    "system"
    ],
    "scritta": "",
    "obbligo": []
   },
   {
-   "testo": "How big is the station really? NASA says its pressurized living space is about the volume of a Boeing 747 jumbo jet. The whole structure stretches roughly 356 feet end to end, about the length of an American football field including end zones.",
-   "q": "international space station exterior",
+   "testo": "Yes, you read that right. The station recycles sweat, breath moisture, and even urine into drinking water. NASA says the system recovers about 98 percent of the water on board. Coffee made from yesterday's coffee, in a way.",
+   "q": "astronaut drinking water pouch",
    "tag": [
-    "station",
-    "solar",
-    "panels"
+    "water",
+    "drinking",
+    "pouch"
    ],
-   "scritta": "356 FEET",
+   "scritta": "98%",
    "obbligo": []
   },
   {
-   "testo": "Afternoons often bring more experiments, maintenance, or a special task. Sometimes a cargo ship arrives. Astronauts use the station's robotic arm to catch it, then spend days unpacking food, science gear, and spare parts.",
-   "q": "robotic arm capturing cargo spacecraft",
+   "testo": "Next, lunch. And then, afternoon work. This is when you might fix something. The station is as long as a football field, including its solar panels, and something is always breaking. A pump, a filter, a toilet.",
+   "q": "astronaut repair station equipment",
    "tag": [
-    "robotic",
-    "arm"
+    "repair",
+    "tools",
+    "equipment"
    ],
    "scritta": "",
    "obbligo": []
   },
   {
-   "testo": "And sometimes the job takes you outside. A spacewalk. You put on a suit that weighs around 300 pounds on Earth, breathe pure oxygen, and float out through an airlock. Below your boots, the planet slides by at 17,500 mph.",
+   "testo": "The toilet is a big deal. It uses airflow, not water, to pull waste away from your body. You strap your feet down and use a seat belt on your legs. Get it wrong, and the problem floats. Everyone remembers their first try.",
+   "q": "space station toilet",
+   "tag": [
+    "toilet",
+    "hygiene",
+    "station"
+   ],
+   "scritta": "",
+   "obbligo": []
+  },
+  {
+   "testo": "Some afternoons, though, the work is outside. A spacewalk. You put on a suit that weighs about 300 pounds on Earth. It is a tiny spaceship you wear, with its own air, water, cooling, and radio.",
    "q": "spacewalk astronaut suit",
    "tag": [
     "spacewalk",
-    "suit"
+    "suit",
+    "outside"
    ],
-   "scritta": "17,500 MPH",
+   "scritta": "",
    "obbligo": []
   },
   {
-   "testo": "Spacewalks can last six or seven hours. Outside, temperatures swing wildly. NASA says they can range from about minus 250 degrees Fahrenheit in shadow to plus 250 degrees Fahrenheit in direct sunlight. The suit keeps you alive.",
-   "q": "spacewalk repair solar panel",
+   "testo": "Outside, the temperature swings are brutal. In sunlight, surfaces can reach about +250°F. In shadow, they can fall to about -250°F. That's a swing of 500 degrees, every 45 minutes, as the station circles Earth.",
+   "q": "spacewalk astronaut sunlight",
    "tag": [
+    "spacewalk",
+    "sunlight",
+    "suit"
+   ],
+   "scritta": "-250°F",
+   "obbligo": []
+  },
+  {
+   "testo": "A spacewalk can last about six to seven hours. Your hands tire first. The gloves are stiff, like squeezing a tennis ball all day. Astronauts say their fingertips get sore from pushing against the glove walls.",
+   "q": "astronaut spacewalk gloves tools",
+   "tag": [
+    "gloves",
     "spacewalk",
     "tools"
    ],
-   "scritta": "-250°F / +250°F",
+   "scritta": "",
    "obbligo": []
   },
   {
-   "testo": "One tool slip, and a wrench is gone forever. So everything is tethered. Your safety line clips to the station. Your tools clip to you. Float free, and there is a small jet pack called SAFER built to bring you back.",
-   "q": "astronaut tether spacewalk",
+   "testo": "Before every spacewalk, you breathe pure oxygen for hours. Why? To flush nitrogen out of your blood. Without that step, the lower pressure in the suit could cause decompression sickness, the same thing divers call the bends.",
+   "q": "astronaut preparing spacewalk airlock",
+   "tag": [
+    "airlock",
+    "suit",
+    "preparing"
+   ],
+   "scritta": "",
+   "obbligo": []
+  },
+  {
+   "testo": "Then you float out the hatch. Below your boots, Earth rolls by at 17,500 miles an hour. You are tied to the station by a tether. Lose that line, and you have a small jet pack as a backup, called SAFER.",
+   "q": "spacewalk tether earth below",
    "tag": [
     "tether",
-    "spacewalk"
+    "spacewalk",
+    "earth"
    ],
    "scritta": "",
    "obbligo": []
   },
   {
-   "testo": "Back inside, the evening routine begins. Around 6 PM, dinner. Maybe rehydrated pasta, a thermostabilized chicken pouch, or something tortilla-wrapped. Astronauts use tortillas instead of bread, because tortillas barely make crumbs.",
-   "q": "astronaut eating tortilla",
+   "testo": "After the workday, there's dinner. And this is the best part of the day for many crews. Everyone gathers at the table, strapped in or floating, sharing meals from many countries. Americans, Russians, Europeans, Japanese, Canadians.",
+   "q": "astronauts eating dinner together",
    "tag": [
-    "tortilla",
-    "food"
+    "dinner",
+    "crew",
+    "table"
    ],
    "scritta": "",
    "obbligo": []
   },
   {
-   "testo": "After dinner, some free time. Astronauts watch the Earth through the cupola, a window with seven panes. They take photographs. They call family over video. They read, play music, or just float and watch the planet turn.",
-   "q": "astronaut looking earth window",
+   "testo": "The menu has about 200 items, according to NASA. Shrimp cocktail is a favorite. Why shrimp cocktail? Astronauts say the spicy horseradish sauce helps, because in space, your nose gets stuffy and food tastes blander.",
+   "q": "astronaut shrimp cocktail food",
    "tag": [
+    "shrimp",
+    "food",
+    "eating"
+   ],
+   "scritta": "",
+   "obbligo": []
+  },
+  {
+   "testo": "On weekends, the pace slows down. Crews still clean, still exercise, but they also get free time. They call family on video, take photographs of Earth, watch movies, play music, or just stare out the window.",
+   "q": "astronaut looking out cupola window",
+   "tag": [
+    "cupola",
     "window",
     "earth"
    ],
@@ -258,69 +359,54 @@
    "obbligo": []
   },
   {
-   "testo": "Many say the view changes them. From orbit, you can see city lights at night, thunderstorms glowing from inside, and the thin blue line of atmosphere. Astronauts have described the atmosphere as shockingly thin, like a coat of paint.",
-   "q": "earth horizon atmosphere astronaut",
+   "testo": "The Cupola is the best window on the station. It has seven panes, and the largest is about 31 inches wide. From there, you can watch storms, cities at night, and lightning flashing under the clouds.",
+   "q": "cupola window astronaut earth view",
    "tag": [
-    "horizon",
-    "atmosphere"
+    "cupola",
+    "window",
+    "view"
    ],
-   "scritta": "",
+   "scritta": "7 WINDOWS",
    "obbligo": []
   },
   {
-   "testo": "Bedtime is around 9:30 PM station time. You climb into a sleeping bag fixed to a wall, or a small private cabin. You strap yourself in so you do not drift into equipment. Then you close your eyes, and the station hums.",
-   "q": "astronaut sleeping station",
-   "tag": [
-    "sleeping",
-    "bag"
-   ],
-   "scritta": "",
-   "obbligo": []
-  },
-  {
-   "testo": "And sleep is tricky. The station orbits Earth about every 90 minutes. That is roughly 16 sunrises a day. Crews cover windows and wear eye masks to fake night. Noise from fans never stops, so earplugs help.",
-   "q": "astronaut sleep mask crew",
-   "tag": [
-    "sleep",
-    "mask"
-   ],
-   "scritta": "",
-   "obbligo": []
-  },
-  {
-   "testo": "Compare that with your day. You walk to the bathroom. You eat with a fork. You sleep lying down. You shower under falling water. Every single habit you take for granted is rebuilt from scratch in orbit.",
-   "q": "astronaut daily life space station",
-   "tag": [
-    "daily",
-    "life"
-   ],
-   "scritta": "",
-   "obbligo": []
-  },
-  {
-   "testo": "And then there is the biggest difference. You cannot leave. A workday on Earth ends when you walk out the door. On the station, the office is your home, your gym, your bedroom, and your lifeboat, for months at a time.",
+   "testo": "Now compare it with your day. Your commute? A few minutes, or an hour in traffic. Theirs? Zero. They live at work. They sleep at work. And they can't just walk outside for fresh air when they need a break.",
    "q": "astronaut inside station module",
    "tag": [
     "module",
-    "interior"
+    "crew",
+    "inside"
    ],
    "scritta": "",
    "obbligo": []
   },
   {
-   "testo": "Stays usually last about six months. Some last longer. Over that time, the body changes. Fluids shift toward the head. Faces puff up. Legs get thinner. Astronauts have also reported that their height can increase slightly in space.",
-   "q": "astronaut floating body fluids",
+   "testo": "The living space is about the size of a six-bedroom house, NASA says. But it's packed with machines, and much of it is off limits to sleeping. For months at a time, you share it with the same few people.",
+   "q": "astronauts crew station interior",
    "tag": [
-    "floating",
-    "body"
+    "interior",
+    "crew",
+    "module"
    ],
    "scritta": "",
    "obbligo": []
   },
   {
-   "testo": "Then the day comes to go home. You strap into a Soyuz capsule or a SpaceX Dragon, undock, and fall back toward Earth. Reentry heat outside the capsule climbs to thousands of degrees Fahrenheit. You feel several times your own weight.",
-   "q": "Soyuz landing",
+   "testo": "Then there's the noise. The station hums with fans and pumps, day and night. Astronauts often wear earplugs to sleep. It's one reason crews describe a strange feeling when they return, hearing silence for the first time.",
+   "q": "astronaut sleeping earplugs station",
    "tag": [
+    "sleeping",
+    "station",
+    "crew"
+   ],
+   "scritta": "",
+   "obbligo": []
+  },
+  {
+   "testo": "And then there's the goodbye. At the end of a mission, the crew climbs into a capsule, such as a Soyuz. The ride home starts with a burn, and then the capsule hits the atmosphere at about 17,500 miles an hour.",
+   "q": "Soyuz landing capsule",
+   "tag": [
+    "soyuz",
     "landing",
     "capsule"
    ],
@@ -328,65 +414,81 @@
    "obbligo": []
   },
   {
-   "testo": "And now the strangest part. Back on Earth, gravity feels brutal. Your arm feels like lead. A pen feels heavy. Astronauts have said they instinctively let go of objects, expecting them to float. Some forget, and drop a phone.",
+   "testo": "Outside the window, fire glows around the capsule. The heat shield faces temperatures of thousands of degrees. Then parachutes open, and the capsule drifts down into the grasslands of Kazakhstan, where rescue teams are waiting.",
+   "q": "Soyuz capsule parachute landing",
+   "tag": [
+    "parachute",
+    "capsule",
+    "landing"
+   ],
+   "scritta": "",
+   "obbligo": []
+  },
+  {
+   "testo": "And here is the surprising part. After months in orbit, your legs feel like lead. Standing up is hard. Many astronauts get dizzy. Your body forgot gravity, and you have to learn all over again to walk, balance, and carry yourself.",
    "q": "astronaut after landing recovery",
    "tag": [
     "landing",
-    "recovery"
+    "recovery",
+    "astronaut"
    ],
    "scritta": "",
    "obbligo": []
   },
   {
-   "testo": "So what do astronauts actually do all day? They exercise, repair, experiment, eat from pouches, and watch the world roll by. A job that looks like adventure is really a schedule, with a planet outside the window.",
-   "q": "astronaut working station earth",
+   "testo": "So what do astronauts do all day? They fix, they test, they exercise, they eat, they sleep tied to a wall. They live a life that is part laboratory, part repair shop, part tiny town, 250 miles above all of us.",
+   "q": "astronaut working station window earth",
    "tag": [
     "astronaut",
-    "working"
+    "working",
+    "window"
    ],
    "scritta": "",
    "obbligo": []
   },
   {
-   "testo": "Here is the most surprising detail. Astronauts say the hardest part is not danger. It is routine. And the favorite moment of the day, many say, is the quiet one, floating at a window, watching the sun rise for the sixteenth time.",
-   "q": "astronaut sunrise from space",
+   "testo": "And the most surprising detail? The crew has been living up there nonstop since November 2, 2000. For years, humans have never left. Right now, as you watch this, people are floating above your head, doing their chores.",
+   "q": "international space station flying earth",
    "tag": [
-    "sunrise",
+    "station",
+    "flying",
     "orbit"
    ],
-   "scritta": "",
+   "scritta": "NOV 2, 2000",
    "obbligo": []
   }
  ],
- "descripcion": "",
- "descrizione": "What do astronauts actually do all day? Follow a real day aboard the International Space Station, from waking up in a sleeping bag at 6 AM to exercising two hours, eating from pouches, running science experiments, and floating through a spacewalk at 17,500 mph.\n\nThis documentary uses real NASA footage and documented facts from NASA, ESA, and astronauts' own accounts. You will learn how astronauts eat, sleep, wash, work, and stay healthy 250 miles above Earth, and how their routine compares with yours.\n\nIf you love space exploration, life on the ISS, and astronaut daily routines, subscribe to Orbital Days for more stories from orbit.\n\n#astronaut #ISS #spacestation #NASA #spacefacts #orbitaldays",
+ "descrizione": "What do astronauts actually do all day? Step inside the International Space Station and follow a real day in orbit: waking up in a sleeping bag, eating from pouches, exercising two hours to protect your bones, doing science, fixing equipment, and floating out on a spacewalk at +250°F and -250°F.\n\nLearn how the station travels at 17,500 mph about 250 miles above Earth, why astronauts see 16 sunrises every day, how the water recycling system recovers about 98 percent of the water on board, and what the return to Earth really feels like.\n\nAll facts come from NASA, ESA, and astronauts' own accounts, and all footage is real NASA archive video. Subscribe to Orbital Days for more daily life in space.\n\n#astronaut #spacestation #NASA #spaceexploration #lifeinspace #ISS",
  "tag": [
-  "astronaut daily life",
+  "astronaut",
   "what do astronauts do all day",
-  "life on the space station",
+  "astronaut daily life",
+  "life in space",
   "International Space Station",
   "ISS",
   "NASA",
-  "astronaut routine",
-  "space documentary",
-  "how astronauts sleep",
-  "how astronauts eat",
+  "space station documentary",
   "spacewalk",
+  "astronaut routine",
+  "astronaut sleep",
+  "astronaut food",
+  "how astronauts eat",
+  "how astronauts sleep",
+  "how astronauts exercise",
   "microgravity",
-  "astronaut exercise",
-  "space food",
-  "living in space",
+  "zero gravity",
+  "space documentary",
   "Orbital Days",
-  "space facts",
   "astronaut training",
-  "Soyuz",
-  "SpaceX Dragon",
-  "space science",
-  "ISS experiments",
-  "day in the life astronaut",
-  "space station tour",
+  "Soyuz landing",
+  "space toilet",
+  "astronaut workout",
   "Earth from space",
-  "astronaut workday"
+  "16 sunrises a day",
+  "space science experiments",
+  "living in space",
+  "space facts",
+  "NASA footage"
  ],
- "copertina_prompt": "A FICTIONAL astronaut in close-up inside a space station module, helmet off and hair floating, eyes wide with wonder and astonishment, lit by a warm window glow with Earth blurred behind."
+ "copertina_prompt": "A fictional astronaut in close-up inside the space station, helmet off, eyes wide with astonishment, floating hair, warm sunrise light streaming through a window with Earth glowing behind."
 }
