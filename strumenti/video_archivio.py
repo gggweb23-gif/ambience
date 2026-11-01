@@ -265,6 +265,17 @@ if str(P.get('carica') or '').upper() == 'SI' and E('YT_REFRESH_TOKEN'):
                         'categoryId': str(P.get('youtube_category_id') or 27), 'defaultLanguage': str(P.get('language') or 'en')[:2],
                         'defaultAudioLanguage': str(P.get('language') or 'en')[:2]},
             'status': {'privacyStatus': P.get('privacy') or 'unlisted', 'selfDeclaredMadeForKids': False}}
+    # canale pubblico: esce all'ora del foglio (publish_time, ora italiana), oggi se c'e' tempo, altrimenti domani
+    ora_pub = re.match(r'(\d{1,2})[:.](\d{2})', str(P.get('publish_time') or ''))
+    if meta['status']['privacyStatus'] == 'public' and ora_pub and not DA_CONTROLLARE:
+        import datetime as dt_
+        from zoneinfo import ZoneInfo
+        ora = dt_.datetime.now(ZoneInfo('Europe/Rome'))
+        quando = ora.replace(hour=int(ora_pub[1]), minute=int(ora_pub[2]), second=0, microsecond=0)
+        if quando < ora + dt_.timedelta(minutes=30):
+            quando += dt_.timedelta(days=1)
+        meta['status'].update(privacyStatus='private', publishAt=quando.astimezone(dt_.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'))
+        log('esce il', quando.strftime('%d/%m alle %H:%M'), '(ora italiana)')
     req = urllib.request.Request('https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&part=snippet,status', data=json.dumps(meta).encode(),
                                  headers={'Authorization': 'Bearer ' + tk, 'Content-Type': 'application/json', 'X-Upload-Content-Type': 'video/mp4'})
     up = urllib.request.urlopen(req, timeout=60).headers['Location']
@@ -292,6 +303,6 @@ with open(f, 'a') as o:
                        json.dumps(SPESA['voci']), 'OK']) + '\n')
 SPESA['fatto'] = True
 riga_produzione({'status': 'Completato', 'youtube_video_id': vid_id, 'descrizione_youtube': c.get('descrizione', ''),
-                 'tag_seo': ', '.join(c.get('tag', [])), 'data_pubblicazione': time.strftime('%Y-%m-%d %H:%M') + (' (non in elenco)' if (P.get('privacy') or 'unlisted') != 'public' else '')})
+                 'tag_seo': ', '.join(c.get('tag', [])), 'data_pubblicazione': (meta['status'].get('publishAt', '') if vid_id else '') or time.strftime('%Y-%m-%d %H:%M') + (' (non in elenco)' if (P.get('privacy') or 'unlisted') != 'public' else '')})
 print('VIDEO_ID=' + vid_id)
 log('FATTO', NOME, f"{SPESA['usd']:.3f} $")
