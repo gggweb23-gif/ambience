@@ -36,6 +36,7 @@ const P = JSON.parse(E('PAYLOAD', '{}') || '{}');
 const PROVA = String(P.prova || E('PROVA', 'NO')).trim().toUpperCase() === 'SI';
 const T0 = Date.now();
 const RUN_ID = E('GITHUB_RUN_ID', String(Date.now()));
+let COP_MANCANTE = false;   // copertina nuova (copertina_github = SI) non riuscita: niente copertina vecchia
 const log = (...a) => console.log('[motore]', ...a);
 const sleep = (ms) => new Promise(r => setTimeout(r, ms));
 const MODELLO_CLAUDE_GPT = E('MODELLO_AL_POSTO_DI_GPT', 'claude-sonnet-4-6');   // usato solo se manca OPENAI_API_KEY
@@ -222,9 +223,15 @@ const avviaServer = () => new Promise(r => server.listen(0, '127.0.0.1', () => {
 const urlLocale = (n) => `http://127.0.0.1:${PORTA}/file/${n}`;
 const PREFISSO_AUDIO = 'GHAUDIO_';   // id finto "Drive" degli audio: dopo diventa un link del server locale
 
-function python(script, env, nomeRisposta) {
+function python(script, env, nomeRisposta, fileLog) {
   return new Promise((ok) => {
-    const p = spawn('python3', [script], { cwd: ROOT, env: { ...process.env, ...env }, stdio: 'inherit' });
+    if (nomeRisposta) delete RISPOSTE[nomeRisposta];   // mai la risposta di un tentativo precedente
+    const p = spawn('python3', [script], { cwd: ROOT, env: { ...process.env, ...env }, stdio: fileLog ? ['ignore', 'pipe', 'pipe'] : 'inherit' });
+    if (fileLog) {   // registro salvato nel repository (es. copertina): si vede subito perche' non e' riuscita
+      fs.mkdirSync(path.dirname(fileLog), { recursive: true });
+      const scrivi = (d) => { process.stdout.write(d); fs.appendFileSync(fileLog, d); };
+      p.stdout.on('data', scrivi); p.stderr.on('data', scrivi);
+    }
     p.on('close', (code) => ok({ code, risposta: nomeRisposta ? RISPOSTE[nomeRisposta] : null }));
   });
 }
@@ -340,11 +347,12 @@ async function main() {
   // ---- 9) copertina in parallelo (stesso programma e stesse impostazioni di "Copertina KAO n8n")
   let copertinaFatta = null, statuaRis = null;
   const saltaCop = String(cfg.skip_thumbnail || '').trim() !== '';
-  if (!saltaCop && String(cfg.copertina_github || '').trim().toUpperCase() === 'SI') {
-    copertinaFatta = python('copertine_cinema_kao.py', {
+  const copGithub = !saltaCop && String(cfg.copertina_github || '').trim().toUpperCase() === 'SI';
+  const LOG_COP = path.join(ROOT, 'kao_copertine', 'registri', new Date().toISOString().slice(0, 10) + '_' + RUN_ID + '.log');
+  const lanciaCopertina = () => python('copertine_cinema_kao.py', {
       PAYLOAD: JSON.stringify({ id: RUN_ID, titolo: sw.titolo_italiano, link_competitor: riga['Link video'], resume_url: `http://127.0.0.1:${PORTA}/risposta/copertina` }),
-      APPLICA: 'NO', STILE: 'piatto', SFONDO_TESTO: 'fumetto', PROVA_SFONDI: 'NO', RIFAI: 'NO', COACH: 'NO', MAX_VIDEO: '5' }, 'copertina');
-  }
+      APPLICA: 'NO', STILE: 'piatto', SFONDO_TESTO: 'fumetto', PROVA_SFONDI: 'NO', RIFAI: 'NO', COACH: 'NO', MAX_VIDEO: '5' }, 'copertina', LOG_COP);
+  if (copGithub) copertinaFatta = lanciaCopertina();
 
   // ---- 4) tag del video originale + testo della copertina del competitor
   try {
@@ -480,14 +488,17 @@ async function main() {
     catch (e) { copertina = null; log('copertina statua non caricata: ' + e.message.slice(0, 120)); }
   }
   if (copertinaFatta && !copertina) {
-    const rc = await copertinaFatta;
-    metti('Attendi Copertina GitHub', [J({ body: rc.risposta || {} })]);
-    const ris = (await codice('Risultato Copertina GitHub', OUT['Attendi Copertina GitHub']))[0].json;
-    if (ris.ok) { urlCop = ris.url; copertina = await richiesta(ris.url, { tipo: 'buffer' }); tipoCop = 'image/jpeg'; log('copertina pronta'); }
-    else log('copertina GitHub non riuscita: faccio la copertina di sempre (Nano Banana + scritta)');
+    for (let tent = 1; tent <= 2 && !copertina; tent++) {
+      const rc = await (tent === 1 ? copertinaFatta : lanciaCopertina());
+      metti('Attendi Copertina GitHub', [J({ body: rc.risposta || {} })]);
+      const ris = (await codice('Risultato Copertina GitHub', OUT['Attendi Copertina GitHub']))[0].json;
+      if (ris.ok) { urlCop = ris.url; copertina = await richiesta(ris.url, { tipo: 'buffer' }); tipoCop = 'image/jpeg'; log('copertina pronta (tentativo ' + tent + ')'); }
+      else log('copertina GitHub non riuscita al tentativo ' + tent + (tent === 1 ? ': riprovo' : ''));
+    }
+    if (!copertina) { COP_MANCANTE = true; log('ATTENZIONE: copertina nuova non riuscita due volte: NIENTE copertina vecchia, il video esce programmato e la copertina si rifa\' subito (Copertina KAO singola)'); }
   }
-  // copertina "di sempre" (come n8n: Nano Banana Thumbnail -> Build Thumbnail Payload -> immagine della pagina HTML), anche come riserva di quella GitHub
-  if (!copertina && !saltaCop) {
+  // copertina "di sempre" (come n8n: Nano Banana Thumbnail -> Build Thumbnail Payload -> immagine della pagina HTML): solo per i canali SENZA copertina_github
+  if (!copertina && !saltaCop && !copGithub) {
     try { const c = await copertinaN8n(cfg); copertina = c; tipoCop = 'image/png'; urlCop = await falCarica(c, 'image/png', 'copertina.png'); log('copertina pronta (stile di sempre)'); }
     catch (e) { log('ATTENZIONE: copertina non creata (' + e.message.slice(0, 150) + '): il video viene caricato con la copertina automatica di YouTube'); }
   }
@@ -521,6 +532,13 @@ async function main() {
   const note = [];
   if (copertina) { try { await yt('https://www.googleapis.com/upload/youtube/v3/thumbnails/set?videoId=' + vid, { metodo: 'POST', corpo: copertina, headers: { 'Content-Type': tipoCop } }); }
     catch (e) { note.push('copertina non caricata: ' + e.message.slice(0, 120)); } }
+  if (COP_MANCANTE) {   // copertina rifatta subito sul video gia' caricato (prima dell'uscita programmata)
+    try {
+      await richiesta(`https://api.github.com/repos/${E('GITHUB_REPOSITORY', 'gggweb23-gif/ambience')}/actions/workflows/copertina_kao_singola.yml/dispatches`, { metodo: 'POST',
+        headers: { Authorization: 'Bearer ' + E('GH_TOKEN'), Accept: 'application/vnd.github+json' }, corpo: { ref: 'main', inputs: { video_id: vid, link_competitor: riga['Link video'] || '' } } });
+      note.push('COPERTINA NUOVA NON RIUSCITA: rilanciata Copertina KAO singola sul video (registro in kao_copertine/registri)');
+    } catch (e) { note.push('COPERTINA NUOVA NON RIUSCITA e Copertina KAO singola non lanciata: ' + e.message.slice(0, 100)); }
+  }
   if (colonne.frase_commento) { try { await yt('https://www.googleapis.com/youtube/v3/commentThreads?part=snippet', { metodo: 'POST',
     corpo: { snippet: { videoId: vid, topLevelComment: { snippet: { textOriginal: colonne.frase_commento } } } } }); } catch (e) { note.push('primo commento non pubblicato'); } }
   if (!PROVA) { try { extra.playlist = await playlist(vid, cfg, extra.titolo, extra.descrizione); } catch (e) { note.push('playlist: ' + e.message.slice(0, 100)); } }
@@ -595,6 +613,7 @@ async function caricaYouTube(file, cfg, col) {
   const priv = String(cfg.privacy || '').trim().toLowerCase();
   const status = ['private', 'unlisted'].includes(priv) ? { privacyStatus: priv }
     : (P.pubblica_il && new Date(P.pubblica_il).getTime() > Date.now() + 20 * 60000 ? { privacyStatus: 'private', publishAt: new Date(P.pubblica_il).toISOString() } : { privacyStatus: 'public' });
+  if (COP_MANCANTE && status.privacyStatus === 'public') { status.privacyStatus = 'private'; status.publishAt = new Date(Date.now() + 3 * 3600000).toISOString(); }
   status.selfDeclaredMadeForKids = false;
   const lingua = String(cfg.language || 'it');
   const meta = { snippet: { title: String(col.titolo_italiano || '').slice(0, 100), description: String(col.descrizione_youtube || '').slice(0, 4900),

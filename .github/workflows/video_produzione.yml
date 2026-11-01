@@ -31,6 +31,7 @@ on:
 
 permissions:
   contents: write
+  actions: write   # rilancio di Copertina KAO singola se la copertina nuova non riesce
 
 concurrency:
   group: produzione-${{ fromJSON(inputs.payload).canale }}   # un video alla volta per canale; canali diversi in parallelo
@@ -122,6 +123,7 @@ jobs:
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
           YT_REFRESH_TOKEN: ${{ secrets[fromJSON(inputs.payload).chiave_youtube] }}
           WHISPER_MODEL: small
+          GH_TOKEN: ${{ github.token }}
         run: node motore/motore.js
 
       - name: Costo del video (storico per il coach automatico)
@@ -139,11 +141,12 @@ jobs:
       - name: Salva i nuovi ritratti nel repository (canali con statue/filosofi)
         if: ${{ always() }}
         run: |
-          if [ -n "$(git status --porcelain ritratti libreria_agora 2>/dev/null)" ]; then
+          if [ -n "$(git status --porcelain ritratti libreria_agora kao_copertine/registri 2>/dev/null)" ]; then
             git config user.name "render-bot"
             git config user.email "render-bot@users.noreply.github.com"
             git add ritratti libreria_agora 2>/dev/null || git add ritratti
-            git commit -m "Nuovo ritratto filosofo"
+            git add kao_copertine/registri 2>/dev/null || true
+            git commit -m "Ritratti e registro copertina"
             git pull --rebase -q || true
             git push || echo "ritratto non salvato (verra' ricreato la prossima volta)"
           fi
