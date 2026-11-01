@@ -244,7 +244,7 @@ EFF = ['fadeblack', 'fadewhite', 'zoomin', 'dissolve', 'slideleft', 'circleopen'
 ins, fl, acc, prec = [], [], 0.0, '0:v'
 for p, L, T in pezzi:
     ins += ['-i', p]
-fl += [f'[{i}:v]settb=1/{FPS},setpts=PTS-STARTPTS,fps={FPS},format=yuv420p[n{i}]' for i in range(len(pezzi))]   # tempi azzerati e uguali
+fl += [f'[{i}:v]settb=1/{FPS},setpts=PTS-STARTPTS,fps={FPS},format=yuv420p,tpad=stop_mode=clone:stop_duration=1[n{i}]' for i in range(len(pezzi))]   # tempi azzerati e uguali
 prec = 'n0'
 for i in range(1, len(pezzi)):
     acc += pezzi[i - 1][1]; T = pezzi[i - 1][2]

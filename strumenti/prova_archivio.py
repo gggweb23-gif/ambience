@@ -302,7 +302,7 @@ def monta(blocco, out):
     for p, d, _ in blocco:
         ins += ['-i', p]
     # ogni pezzo con tempi azzerati e uguali (le clip d'archivio possono iniziare a 0,07 s: xfade allora si fermava al 1° pezzo)
-    fl += [f'[{i}:v]settb=1/{FPS},setpts=PTS-STARTPTS,fps={FPS},format=yuv420p[n{i}]' for i in range(len(blocco))]
+    fl += [f'[{i}:v]settb=1/{FPS},setpts=PTS-STARTPTS,fps={FPS},format=yuv420p,tpad=stop_mode=clone:stop_duration=1[n{i}]' for i in range(len(blocco))]   # coda di 1 s: gli arrotondamenti ai fotogrammi non accorciano piu' il blocco
     prec = 'n0'
     for i in range(1, len(blocco)):
         acc += blocco[i - 1][1]
