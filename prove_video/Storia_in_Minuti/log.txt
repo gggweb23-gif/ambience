@@ -1,37 +1,240 @@
-02:01:29 competitor: categoria 27 , 30 tag
-02:01:31 testo originale: 2547 parole (RapidAPI)
-02:01:31 VIDEO DA COPIARE: UEdPIsvxlGg - The ENTIRE History of Ukraine in 17 Minutes | titolo usato: The ENTIRE History of Ukraine in 17 Minutes
-02:01:32 paese del video: Ukraine
-02:01:44 originale condensato a blocchi: 2547 -> 869 parole in 6 blocchi (obiettivo 1312)
-Traceback (most recent call last):
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 4626, in <module>
-    main()
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 3974, in main
-    c = copione(comp)
-        ^^^^^^^^^^^^^
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 385, in copione
-    orig = condensa_originale(orig, (minimo + massimo) // 2 if minimo else massimo)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 373, in condensa_originale
-    raise RuntimeError(f'VIDEO BLOCCATO: testo del competitor condensato a {n} parole invece di {obiettivo} (nessuna spesa per voce e immagini)')
-RuntimeError: VIDEO BLOCCATO: testo del competitor condensato a 869 parole invece di 1312 (nessuna spesa per voce e immagini)
-02:01:44 esito: {"stato": "ERRORE", "errore": "VIDEO BLOCCATO: testo del competitor condensato a 869 parole invece di 1312 (nessuna spesa per voce e immagini)", "minuti_lavoro": 0.3, "paese": "Ukraine", "categoria_originale": "27", "tag_originali": "ukraine history, ukraine, russia ukraine war, ukraine war, war in ukraine, history documentary, historical documentary, chernobyl, chernobyl disaster, holodomor, cossacks, carol of the bells, soviet union, ussr, joseph stalin, world war 2, russian empire, russian hi
+03:01:30 competitor: categoria 27 , 20 tag
+03:01:35 testo originale: 2360 parole (RapidAPI)
+03:01:35 VIDEO DA COPIARE: vfUeKc8MSiA - The ENTIRE History of Las Vegas in 13 Minutes | titolo usato: The ENTIRE History of Las Vegas in 13 Minutes
+03:01:36 paese del video: United States
+03:01:41 originale condensato a blocchi: 2360 -> 1165 parole in 6 blocchi (obiettivo 1312)
+03:01:41 budget 0 EUR: nessun disegno, solo clip e foto Pexels controllate (+ mappa)
+03:02:34 copione ricevuto: 18998 caratteri, fine: end_turn | blocchi di ragionamento: 0
+03:02:34 copione: 1131 parole (limite 1275-1350)
+03:02:34 preventivo dopo copione: speso 0.19 $ su 1.08 $ di budget
+03:02:34 copione: 29 scene, 1131 parole
+03:03:04 minuti nel titolo/copertina aggiornati: L'INTERA Storia di Las Vegas in 13 Minuti -> L'INTERA Storia di Las Vegas in 8 Minuti
+03:03:04 capitoli: 12
+03:03:04 minuti nel titolo/copertina aggiornati: Dal deserto del Mojave alla città più luminosa della Terra: questa è l'intera storia di Las Vegas in 13 minuti. Scopri come una piccola oasi scoperta nel 1829 è diventata la capitale mondiale dell'intrattenimento.
+
+Vedremo la fondazione nel 1905, la costruzione della diga di Hoover, la legalizzazione del gioco d'azzardo nel 1931, Bugsy Siegel e il Flamingo, la mafia, i test atomici, il Rat Pack, Howard Hughes e i grandi mega resort come il Mirage, il Luxor e il Venetian.
+
+Infine, la Las Vegas di oggi: gli chef stellati, le residency delle star, i Golden Knights, i Raiders, la Formula 1 e la Sphere. Una storia di audacia, crimine e immaginazione.
+
+#LasVegas #StoriaDiLasVegas #Storia #Nevada #SinCity -> Dal deserto del Mojave alla città più luminosa della Terra: questa è l'intera storia di Las Vegas in 8 minuti. Scopri come una piccola oasi scoperta nel 1829 è diventata la capitale mondiale dell'intrattenimento.
+
+Vedremo la fondazione nel 1905, la costruzione della diga di Hoover, la legalizzazione del gioco d'azzardo nel 1931, Bugsy Siegel e il Flamingo, la mafia, i test atomici, il Rat Pack, Howard Hughes e i grandi mega resort come il Mirage, il Luxor e il Venetian.
+
+Infine, la Las Vegas di oggi: gli chef stellati, le residency delle star, i Golden Knights, i Raiders, la Formula 1 e la Sphere. Una storia di audacia, crimine e immaginazione.
+
+#LasVegas #StoriaDiLasVegas #Storia #Nevada #SinCity
+03:03:04 voce pronta: 8.1 minuti
+03:03:04 luoghi del paese per i paesaggi Pexels: (nessuno: controllo solo visivo)
+03:03:04 senza texture: 0 carte/schede diventate disegni, strisce di carta tolte
+03:03:04 ritmo: 127 immagini | cartone 0% (quota 0%) | sfondi usati: 0/0, max 0 volte
+03:03:04 disegni ripetuti: nessuno scambio (ogni immagine resta sulla sua frase)
+03:03:04 senza texture: 0 carte/schede diventate disegni, strisce di carta tolte
+03:03:04 controllo immagini: 0 guardate, 0 rifatte
+03:03:04 visivi: 127 | primi 10 s: 3
+03:50:53 ATTENZIONE: ricerche Pexels FINITE (190 fatte, attesa massima raggiunta): da qui si riusano clip gia' scaricate
+03:51:29 pezzo 119 pexels_foto non riuscito: nessun risultato Pexels per desert spring muddy water horses
+03:51:36 pezzo 122 pexels_foto non riuscito: nessun risultato Pexels per Mojave desert sun sunset red rocks
+03:51:51 pezzo 119: nessuna clip coerente, riuso la clip 2 (altro tratto, specchiata)
+03:51:53 pezzo 122: nessuna clip coerente, riuso la clip 4 (altro tratto, specchiata)
+03:51:53 clip Pexels bocciate e ricordate (mai ricontrollate): 0
+03:51:53 ricerche Pexels usate: 190 (limite 190 l'ora, attesa 80 min); pezzi con clip riusata: 2
+03:51:53 pezzi pronti: 127 in 2928 s
+03:51:53 SPESA immagini: 0 immagini, circa 0.00 $
+03:52:10 tasti macchina da scrivere: 83
+03:52:10 suono cambio non generato: fast cinematic whoosh transition suono non in libreria (generazione ElevenLabs spenta)
+03:52:10 suono cambio non generato: deep whoosh with a soft low boom suono non in libreria (generazione ElevenLabs spenta)
+03:52:10 suono cambio non generato: paper page turning quickly suono non in libreria (generazione ElevenLabs spenta)
+03:52:10 suono cambio non generato: soft bubble pop, cartoon suono non in libreria (generazione ElevenLabs spenta)
+03:52:10 suono cambio non generato: soft airy swish, quick camera pan suono non in libreria (generazione ElevenLabs spenta)
+03:52:10 suono cambio non generato: short wooden tap, warm and soft suono non in libreria (generazione ElevenLabs spenta)
+03:52:10 suono cambio non generato: short cinematic impact hit, deep suono non in libreria (generazione ElevenLabs spenta)
+03:52:10 suono cambio non generato: soft low whoosh, warm and muffled suono non in libreria (generazione ElevenLabs spenta)
+03:52:10 suono cambio non generato: soft cloth flutter, flag in the wind, short suono non in libreria (generazione ElevenLabs spenta)
+03:52:10 suono cambio non generato: reverse whoosh riser, short suono non in libreria (generazione ElevenLabs spenta)
+03:52:10 suono cambio non generato: soft muffled thump, low and warm suono non in libreria (generazione ElevenLabs spenta)
+03:52:10 suono cambio non generato: drum hit with short reverb, epic suono non in libreria (generazione ElevenLabs spenta)
+03:52:10 suono di scatto non generato: suono non in libreria (generazione ElevenLabs spenta)
+03:52:10 suoni di cambio immagine: 0 | libreria: 8 suoni (generati)
+03:52:40 musica: apertura + 3 brani a rotazione (5 brani diversi), volume 0.03
+03:57:03 invito iscrizione al secondo 10.0 con 2 suoni
+03:57:05 copertina foto: {"nome": "STATI UNITI", "anni": "1829 → 2026", "simboli": ["Las Vegas Strip neon lights Nevada", "Welcome to Fabulous Las Vegas sign Nevada", "Bellagio fountains Las Vegas", "Hoover Dam Nevada Arizona", "Statue of Liberty New York USA", "Golden Gate Bridge San Francisco USA"]}
+03:57:08 foto copertina: STATI UNITI | Las Vegas Strip neon lights Nevada | Portico con insegne al neon rosse e luci a lampadine sotto una pensilina di un casinò o hotel, di sera, con colonne rivestite in granito. Probabilmen
+03:57:10 foto copertina: STATI UNITI | Las Vegas Strip neon lights Nevada | Il celebre cartello al neon 'Welcome to Fabulous Las Vegas, Nevada' fotografato di notte, a Las Vegas, Nevada, Stati Uniti | paese True | simbolo 8 |
+03:57:12 foto copertina: STATI UNITI | Las Vegas Strip neon lights Nevada | Las Vegas Strip di notte (Nevada, USA), all'incrocio con Tropicana Avenue, con il grande schermo LED del Showcase Mall (Jason Aldean's Kitchen + Bar,
+03:57:15 foto copertina: STATI UNITI | Las Vegas Strip neon lights Nevada | Veduta notturna dall'alto della Las Vegas Strip, Nevada, Stati Uniti: la replica della Torre Eiffel e il pallone aerostatico del Paris Las Vegas in p
+03:57:18 foto copertina: STATI UNITI | Welcome to Fabulous Las Vegas sign Nevada | Il cartello 'Welcome to Fabulous Las Vegas' a Las Vegas, Nevada, Stati Uniti | paese True | simbolo 8 | visibile 9 | https://www.pexels.com/ph
+03:57:20 foto copertina: STATI UNITI | Welcome to Fabulous Las Vegas sign Nevada | Il celebre cartello 'Welcome to Fabulous Las Vegas, Nevada' illuminato di notte, con la stella al neon rossa in alto. Si trova a Las Vegas, Ne
+03:57:22 foto copertina: STATI UNITI | Welcome to Fabulous Las Vegas sign Nevada | Replica del cartello 'Welcome to Fabulous Las Vegas, Nevada' con luci e lettere al neon, fotografata all'interno di un negozio di moto (conces
+03:57:24 foto copertina: STATI UNITI | Welcome to Fabulous Las Vegas sign Nevada | Il celebre cartello 'Welcome to Fabulous Las Vegas Nevada' a Las Vegas, Nevada, Stati Uniti, circondato da palme. Sullo sfondo a destra si ved
+03:57:26 foto copertina: STATI UNITI | Bellagio fountains Las Vegas | Hotel Bellagio con il lago e il ponte illuminati di notte, Las Vegas, Nevada, Stati Uniti | paese True | simbolo 6 | visibile 8 | https://www.pexels.com/ph
+03:57:29 foto copertina: STATI UNITI | Bellagio fountains Las Vegas | Veduta aerea al tramonto della Las Vegas Strip, Nevada, Stati Uniti: la fontana del Bellagio con l'hotel Bellagio, il Caesars Palace sullo sfondo, la repli
+03:57:31 foto copertina: STATI UNITI | Bellagio fountains Las Vegas | Hotel Bellagio (a sinistra) e Caesars Palace (a destra, con l'insegna visibile) affacciati sul lago artificiale del Bellagio, sulla Las Vegas Strip, Las Ve
+03:57:33 foto copertina: STATI UNITI | Bellagio fountains Las Vegas | Il Bellagio Hotel & Casino a Las Vegas, Nevada, Stati Uniti. A destra si vedono il Caesars Palace e le fontane del lago del Bellagio | paese True | simbolo
+03:57:36 foto copertina: STATI UNITI | Hoover Dam Nevada Arizona | La Diga di Hoover (Hoover Dam) con la centrale elettrica alla base, vista dall'alto. Si trova nel Black Canyon, sul fiume Colorado, al confine tra Nevada e Ar
+03:57:39 controllo foto non riuscito Hoover Dam Nevada Arizona Unterminated string starting at: line 1 column 208 (char 207)
+03:57:41 foto copertina: STATI UNITI | Hoover Dam Nevada Arizona | Il Mike O'Callaghan–Pat Tillman Memorial Bridge, ponte ad arco in cemento sul Black Canyon del fiume Colorado, vicino alla diga Hoover, al confine tra Nevada 
+03:57:44 foto copertina: STATI UNITI | Hoover Dam Nevada Arizona | La diga di Hoover (Hoover Dam) con le torri di presa e il lago Mead, al confine tra Nevada e Arizona, Stati Uniti | paese True | simbolo 7 | visibile 8 | http
+03:57:46 foto copertina: STATI UNITI | Statue of Liberty New York USA | La Statua della Libertà (Liberty Island, New York City, Stati Uniti), ripresa con la torcia dorata e il piedistallo in pietra contro un cielo turchese | 
+03:57:48 foto copertina: STATI UNITI | Statue of Liberty New York USA | La Statua della Libertà (Liberty Island, porto di New York, New York City, Stati Uniti) | paese True | simbolo 10 | visibile 7 | https://www.pexels.com/p
+03:57:49 foto copertina: STATI UNITI | Statue of Liberty New York USA | La Statua della Libertà su Liberty Island, nel porto di New York (New York, Stati Uniti), vista dall'acqua | paese True | simbolo 10 | visibile 7 | https
+03:57:52 foto copertina: STATI UNITI | Statue of Liberty New York USA | La Statua della Libertà su Liberty Island, nella baia di New York (New York, Stati Uniti), vista dall'acqua con cielo azzurro e nuvole | paese True | sim
+03:57:52 copertina foto pronta: copertina.jpg
+03:59:10 video_url pronto per Drive
+03:59:10 copertina_url pronto per Drive
+03:59:12 upload di 686 MB
+03:59:19 caricato su YouTube: BDFdp4s8ueY
+03:59:23 copertina ufficiale CARICATA e registrata: copertine_storia/BDFdp4s8ueY_1.jpg | parte con: uomo
+03:59:23 esito: {"stato": "PUBBLICATO", "video_id": "BDFdp4s8ueY", "link": "https://www.youtube.com/watch?v=BDFdp4s8ueY", "titolo": "L'INTERA Storia di Las Vegas in 8 Minuti", "testo_copertina": "LAS VEGAS 1905 → 2026", "pubblica_il": "2026-11-01T16:00:00.000Z", "minuti_video": 8.1, "minuti_lavoro": 57.9, "errore": "", "descrizione": "L'INTERA Storia di Las Vegas in 8 Minuti\n\nDal deserto del Mojave alla città più luminosa della Terra: questa è l'intera storia di Las Vegas in 8 minuti. Scopri come una piccola 
+03:59:24 FATTO: /home/runner/work/ambience/ambience/video_storia.mp4 8.1 minuti
+03:59:24 COSTO VIDEO (stima): 0.82 $ + 7132 crediti voce | claude claude-haiku-4-5-20251001: 0.651 $ (313 chiamate) | claude claude-sonnet-5-5: 0.168 $ (1 chiamate) | elevenlabs eleven_multilingual_v2: 0.000 $ (29 chiamate), 7132 crediti
 ...
-02:01:29 competitor: categoria 27 , 30 tag
-02:01:31 testo originale: 2547 parole (RapidAPI)
-02:01:31 VIDEO DA COPIARE: UEdPIsvxlGg - The ENTIRE History of Ukraine in 17 Minutes | titolo usato: The ENTIRE History of Ukraine in 17 Minutes
-02:01:32 paese del video: Ukraine
-02:01:44 originale condensato a blocchi: 2547 -> 869 parole in 6 blocchi (obiettivo 1312)
-Traceback (most recent call last):
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 4626, in <module>
-    main()
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 3974, in main
-    c = copione(comp)
-        ^^^^^^^^^^^^^
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 385, in copione
-    orig = condensa_originale(orig, (minimo + massimo) // 2 if minimo else massimo)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 373, in condensa_originale
-    raise RuntimeError(f'VIDEO BLOCCATO: testo del competitor condensato a {n} parole invece di {obiettivo} (nessuna spesa per voce e immagini)')
-RuntimeError: VIDEO BLOCCATO: testo del competitor condensato a 869 parole invece di 1312 (nessuna spesa per voce e immagini)
-02:01:44 esito: {"stato": "ERRORE", "errore": "VIDEO BLOCCATO: testo del competitor condensato a 869 parole invece di 1312 (nessuna spesa per voce e immagini)", "minuti_lavoro": 0.3, "paese": "Ukraine", "categoria_originale": "27", "tag_originali": "ukraine history, ukraine, russia ukraine war, ukraine war, war in ukraine, history documentary, historical documentary, chernobyl, chernobyl disaster, holodomor, cossacks, carol of the bells, soviet union, ussr, joseph stalin, world war 2, russian empire, russian hi
+03:10:14 Pexels 'gondola canal Venice Italy water ancient' -> scartate tutte
+03:10:14 Pexels scartate tutte per: gondola canal Venice Italy water ancient
+03:10:14 Pexels 'Las Vegas welcome sign night ancient' -> scartate 3 riprese quasi uguali a una gia' usata
+03:10:15 Pexels 'Las Vegas welcome sign night ancient' -> scartate tutte
+03:10:15 Pexels scartate tutte per: Las Vegas welcome sign night ancient
+03:10:15 Pexels 'Nevada desert road sunset' -> scartate 6 riprese quasi uguali a una gia' usata
+03:10:15 Pexels 'Las Vegas welcome sign night' -> scartate tutte
+03:10:15 Pexels scartate tutte per: Las Vegas welcome sign night
+03:10:16 Pexels 'Nevada desert road sunset' -> scelta 2
+03:10:17 Pexels 'Las Vegas welcome sign night ancient' -> scartate tutte
+03:10:17 Pexels scartate tutte per: Las Vegas welcome sign night ancient
+03:10:17 Pexels 'Red Rock Canyon Nevada' -> scelta 0
+03:10:19 Pexels 'Las Vegas welcome sign night' -> scartate 2 riprese quasi uguali a una gia' usata
+03:10:20 Pexels 'Las Vegas welcome sign night' -> scartate tutte
+03:10:20 Pexels scartate tutte per: Las Vegas welcome sign night
+03:10:20 Pexels 'Las Vegas welcome sign night ancient' -> scartate 3 riprese quasi uguali a una gia' usata
+03:10:21 Pexels 'Las Vegas welcome sign night ancient' -> scartate tutte
+03:10:21 Pexels scartate tutte per: Las Vegas welcome sign night ancient
+03:10:22 Pexels 'gondola canal Venice Italy water' -> scartate tutte
+03:10:22 Pexels scartate tutte per: gondola canal Venice Italy water
+03:10:23 Pexels 'gondola canal Venice Italy water ancient' -> scartate tutte
+03:10:23 Pexels scartate tutte per: gondola canal Venice Italy water ancient
+03:10:23 Pexels 'luxury shopping mall interior painted sky' -> scartate tutte
+03:10:23 Pexels scartate tutte per: luxury shopping mall interior painted sky
+03:10:24 Pexels 'luxury shopping mall interior painted sky ancient' -> scartate tutte
+03:10:24 Pexels scartate tutte per: luxury shopping mall interior painted sky ancient
+03:10:24 Pexels 'desert mountains Nevada sky' -> scartate 7 riprese quasi uguali a una gia' usata
+03:10:24 Pexels 'luxury shopping mall interior painted sky' -> scartate tutte
+03:10:24 Pexels scartate tutte per: luxury shopping mall interior painted sky
+03:10:25 Pexels 'desert mountains Nevada sky' -> scelta 0
+03:10:25 Pexels 'luxury shopping mall interior painted sky ancient' -> scartate tutte
+03:10:25 Pexels scartate tutte per: luxury shopping mall interior painted sky ancient
+03:10:26 Pexels 'gondola canal Venice Italy water' -> scartate tutte
+03:10:26 Pexels scartate tutte per: gondola canal Venice Italy water
+03:10:27 Pexels 'gondola canal Venice Italy water ancient' -> scartate tutte
+03:10:27 Pexels scartate tutte per: gondola canal Venice Italy water ancient
+03:10:28 Pexels 'Las Vegas welcome sign night' -> scartate tutte
+03:10:28 Pexels scartate tutte per: Las Vegas welcome sign night
+03:10:28 Pexels 'Las Vegas welcome sign night ancient' -> scartate tutte
+03:10:28 Pexels scartate tutte per: Las Vegas welcome sign night ancient
+03:10:29 Pexels 'Hoover Dam aerial' -> scelta 2
+03:10:31 Pexels 'fine dining kitchen flames chef plate' -> scelta 1
+03:10:36 Pexels 'nightclub lasers stage lights' -> scartate tutte
+03:10:36 Pexels scartate tutte per: nightclub lasers stage lights
+03:10:36 Pexels 'concert stage lights microphone' -> scartate tutte
+03:10:36 Pexels scartate tutte per: concert stage lights microphone
+03:10:38 Pexels 'concert stage lights microphone ancient' -> scartate tutte
+03:10:38 Pexels scartate tutte per: concert stage lights microphone ancient
+03:10:39 Pexels 'nightclub lasers stage lights ancient' -> scartate tutte
+03:10:39 Pexels scartate tutte per: nightclub lasers stage lights ancient
+03:10:39 Pexels 'fine dining kitchen flames chef plate' -> scartate 1 riprese quasi uguali a una gia' usata
+03:10:39 Pexels 'fine dining kitchen flames chef plate' -> scelta 0
+03:10:40 Pexels 'fine dining kitchen flames chef plate' -> scelta 1
+03:10:46 Pexels 'nightclub lasers stage lights' -> scelta 3
+03:10:51 Pexels 'modern football stadium black exterior night' -> scartate tutte
+03:10:51 Pexels scartate tutte per: modern football stadium black exterior night
+03:10:53 Pexels 'modern football stadium black exterior night' -> scartate 1 riprese quasi uguali a una gia' usata
+03:10:53 Pexels 'modern football stadium black exterior night ancient' -> scartate tutte
+03:10:53 Pexels scartate tutte per: modern football stadium black exterior night ancient
+03:10:53 Pexels: raggiunto il limite di 190 ricerche l'ora (190 fatte): aspetto che si liberi (circa 53 min)
+03:10:54 Pexels 'modern football stadium black exterior night' -> scelta 1
+03:10:58 Pexels 'modern football stadium black exterior night' -> scartate tutte
+03:10:58 Pexels scartate tutte per: modern football stadium black exterior night
+03:10:59 Pexels 'modern football stadium black exterior night ancient' -> scartate tutte
+03:10:59 Pexels scartate tutte per: modern football stadium black exterior night ancient
+03:50:53 ATTENZIONE: ricerche Pexels FINITE (190 fatte, attesa massima raggiunta): da qui si riusano clip gia' scaricate
+03:50:55 Pexels 'Lake Mead Nevada' -> scelta 0
+03:50:59 Pexels 'Lake Mead Nevada' -> scartate 1 riprese quasi uguali a una gia' usata
+03:51:00 Pexels 'Lake Mead Nevada' -> scelta 3
+03:51:02 Pexels 'modern football stadium black exterior night' -> scartate 1 riprese quasi uguali a una gia' usata
+03:51:04 Pexels 'modern football stadium black exterior night' -> scelta 2
+03:51:05 Pexels 'Lake Mead Nevada' -> scartate 1 riprese quasi uguali a una gia' usata
+03:51:05 Pexels 'Lake Mead Nevada' -> scelta 0
+03:51:10 Pexels 'Red Rock Canyon Nevada' -> scelta 0
+03:51:10 Pexels 'Lake Mead Nevada' -> scartate 1 riprese quasi uguali a una gia' usata
+03:51:11 Pexels 'Lake Mead Nevada' -> scelta 1
+03:51:16 Pexels 'Nevada desert road sunset' -> scartate 7 riprese quasi uguali a una gia' usata
+03:51:17 Pexels 'Nevada desert road sunset' -> scelta 3
+03:51:19 Pexels 'Colorado River canyon Arizona' -> scelta 0
+03:51:22 Pexels 'Colorado River canyon Arizona' -> scelta 0
+03:51:22 Pexels 'Red Rock Canyon Nevada' -> scelta 0
+03:51:29 pezzo 119 pexels_foto non riuscito: nessun risultato Pexels per desert spring muddy water horses
+03:51:30 Pexels 'Colorado River canyon Arizona' -> scelta 0
+03:51:30 Pexels 'Red Rock Canyon Nevada' -> scelta 0
+03:51:32 Pexels 'desert mountains Nevada sky' -> scartate 7 riprese quasi uguali a una gia' usata
+03:51:33 Pexels 'desert mountains Nevada sky' -> scelta 2
+03:51:36 Pexels 'Hoover Dam aerial' -> scartate tutte
+03:51:36 Pexels scartate tutte per: Hoover Dam aerial
+03:51:36 pezzo 122 pexels_foto non riuscito: nessun risultato Pexels per Mojave desert sun sunset red rocks
+03:51:37 Pexels 'Mojave desert landscape Nevada' -> scartate 13 riprese quasi uguali a una gia' usata
+03:51:37 Pexels 'Mojave desert landscape Nevada' -> scelta 2
+03:51:41 Pexels 'Lake Mead Nevada' -> scartate 1 riprese quasi uguali a una gia' usata
+03:51:41 Pexels 'Lake Mead Nevada' -> scartate 2 riprese quasi uguali a una gia' usata
+03:51:42 Pexels 'Lake Mead Nevada' -> scelta 3
+03:51:42 Pexels 'Lake Mead Nevada' -> scelta 3
+03:51:46 Pexels 'Nevada desert road sunset' -> scartate 9 riprese quasi uguali a una gia' usata
+03:51:47 Pexels 'Nevada desert road sunset' -> scelta 1
+03:51:51 pezzo 119: nessuna clip coerente, riuso la clip 2 (altro tratto, specchiata)
+03:51:53 pezzo 122: nessuna clip coerente, riuso la clip 4 (altro tratto, specchiata)
+03:51:53 clip Pexels bocciate e ricordate (mai ricontrollate): 0
+03:51:53 ricerche Pexels usate: 190 (limite 190 l'ora, attesa 80 min); pezzi con clip riusata: 2
+03:51:53 pezzi pronti: 127 in 2928 s
+03:51:53 SPESA immagini: 0 immagini, circa 0.00 $
+03:52:10 tasti macchina da scrivere: 83
+03:52:10 suono cambio non generato: fast cinematic whoosh transition suono non in libreria (generazione ElevenLabs spenta)
+03:52:10 suono cambio non generato: deep whoosh with a soft low boom suono non in libreria (generazione ElevenLabs spenta)
+03:52:10 suono cambio non generato: paper page turning quickly suono non in libreria (generazione ElevenLabs spenta)
+03:52:10 suono cambio non generato: soft bubble pop, cartoon suono non in libreria (generazione ElevenLabs spenta)
+03:52:10 suono cambio non generato: soft airy swish, quick camera pan suono non in libreria (generazione ElevenLabs spenta)
+03:52:10 suono cambio non generato: short wooden tap, warm and soft suono non in libreria (generazione ElevenLabs spenta)
+03:52:10 suono cambio non generato: short cinematic impact hit, deep suono non in libreria (generazione ElevenLabs spenta)
+03:52:10 suono cambio non generato: soft low whoosh, warm and muffled suono non in libreria (generazione ElevenLabs spenta)
+03:52:10 suono cambio non generato: soft cloth flutter, flag in the wind, short suono non in libreria (generazione ElevenLabs spenta)
+03:52:10 suono cambio non generato: reverse whoosh riser, short suono non in libreria (generazione ElevenLabs spenta)
+03:52:10 suono cambio non generato: soft muffled thump, low and warm suono non in libreria (generazione ElevenLabs spenta)
+03:52:10 suono cambio non generato: drum hit with short reverb, epic suono non in libreria (generazione ElevenLabs spenta)
+03:52:10 suono di scatto non generato: suono non in libreria (generazione ElevenLabs spenta)
+03:52:10 suoni di cambio immagine: 0 | libreria: 8 suoni (generati)
+03:52:40 musica: apertura + 3 brani a rotazione (5 brani diversi), volume 0.03
+03:57:03 invito iscrizione al secondo 10.0 con 2 suoni
+03:57:05 copertina foto: {"nome": "STATI UNITI", "anni": "1829 → 2026", "simboli": ["Las Vegas Strip neon lights Nevada", "Welcome to Fabulous Las Vegas sign Nevada", "Bellagio fountains Las Vegas", "Hoover Dam Nevada Arizona", "Statue of Liberty New York USA", "Golden Gate Bridge San Francisco USA"]}
+03:57:08 foto copertina: STATI UNITI | Las Vegas Strip neon lights Nevada | Portico con insegne al neon rosse e luci a lampadine sotto una pensilina di un casinò o hotel, di sera, con colonne rivestite in granito. Probabilmen
+03:57:10 foto copertina: STATI UNITI | Las Vegas Strip neon lights Nevada | Il celebre cartello al neon 'Welcome to Fabulous Las Vegas, Nevada' fotografato di notte, a Las Vegas, Nevada, Stati Uniti | paese True | simbolo 8 |
+03:57:12 foto copertina: STATI UNITI | Las Vegas Strip neon lights Nevada | Las Vegas Strip di notte (Nevada, USA), all'incrocio con Tropicana Avenue, con il grande schermo LED del Showcase Mall (Jason Aldean's Kitchen + Bar,
+03:57:15 foto copertina: STATI UNITI | Las Vegas Strip neon lights Nevada | Veduta notturna dall'alto della Las Vegas Strip, Nevada, Stati Uniti: la replica della Torre Eiffel e il pallone aerostatico del Paris Las Vegas in p
+03:57:18 foto copertina: STATI UNITI | Welcome to Fabulous Las Vegas sign Nevada | Il cartello 'Welcome to Fabulous Las Vegas' a Las Vegas, Nevada, Stati Uniti | paese True | simbolo 8 | visibile 9 | https://www.pexels.com/ph
+03:57:20 foto copertina: STATI UNITI | Welcome to Fabulous Las Vegas sign Nevada | Il celebre cartello 'Welcome to Fabulous Las Vegas, Nevada' illuminato di notte, con la stella al neon rossa in alto. Si trova a Las Vegas, Ne
+03:57:22 foto copertina: STATI UNITI | Welcome to Fabulous Las Vegas sign Nevada | Replica del cartello 'Welcome to Fabulous Las Vegas, Nevada' con luci e lettere al neon, fotografata all'interno di un negozio di moto (conces
+03:57:24 foto copertina: STATI UNITI | Welcome to Fabulous Las Vegas sign Nevada | Il celebre cartello 'Welcome to Fabulous Las Vegas Nevada' a Las Vegas, Nevada, Stati Uniti, circondato da palme. Sullo sfondo a destra si ved
+03:57:26 foto copertina: STATI UNITI | Bellagio fountains Las Vegas | Hotel Bellagio con il lago e il ponte illuminati di notte, Las Vegas, Nevada, Stati Uniti | paese True | simbolo 6 | visibile 8 | https://www.pexels.com/ph
+03:57:29 foto copertina: STATI UNITI | Bellagio fountains Las Vegas | Veduta aerea al tramonto della Las Vegas Strip, Nevada, Stati Uniti: la fontana del Bellagio con l'hotel Bellagio, il Caesars Palace sullo sfondo, la repli
+03:57:31 foto copertina: STATI UNITI | Bellagio fountains Las Vegas | Hotel Bellagio (a sinistra) e Caesars Palace (a destra, con l'insegna visibile) affacciati sul lago artificiale del Bellagio, sulla Las Vegas Strip, Las Ve
+03:57:33 foto copertina: STATI UNITI | Bellagio fountains Las Vegas | Il Bellagio Hotel & Casino a Las Vegas, Nevada, Stati Uniti. A destra si vedono il Caesars Palace e le fontane del lago del Bellagio | paese True | simbolo
+03:57:36 foto copertina: STATI UNITI | Hoover Dam Nevada Arizona | La Diga di Hoover (Hoover Dam) con la centrale elettrica alla base, vista dall'alto. Si trova nel Black Canyon, sul fiume Colorado, al confine tra Nevada e Ar
+03:57:39 controllo foto non riuscito Hoover Dam Nevada Arizona Unterminated string starting at: line 1 column 208 (char 207)
+03:57:41 foto copertina: STATI UNITI | Hoover Dam Nevada Arizona | Il Mike O'Callaghan–Pat Tillman Memorial Bridge, ponte ad arco in cemento sul Black Canyon del fiume Colorado, vicino alla diga Hoover, al confine tra Nevada 
+03:57:44 foto copertina: STATI UNITI | Hoover Dam Nevada Arizona | La diga di Hoover (Hoover Dam) con le torri di presa e il lago Mead, al confine tra Nevada e Arizona, Stati Uniti | paese True | simbolo 7 | visibile 8 | http
+03:57:46 foto copertina: STATI UNITI | Statue of Liberty New York USA | La Statua della Libertà (Liberty Island, New York City, Stati Uniti), ripresa con la torcia dorata e il piedistallo in pietra contro un cielo turchese | 
+03:57:48 foto copertina: STATI UNITI | Statue of Liberty New York USA | La Statua della Libertà (Liberty Island, porto di New York, New York City, Stati Uniti) | paese True | simbolo 10 | visibile 7 | https://www.pexels.com/p
+03:57:49 foto copertina: STATI UNITI | Statue of Liberty New York USA | La Statua della Libertà su Liberty Island, nel porto di New York (New York, Stati Uniti), vista dall'acqua | paese True | simbolo 10 | visibile 7 | https
+03:57:52 foto copertina: STATI UNITI | Statue of Liberty New York USA | La Statua della Libertà su Liberty Island, nella baia di New York (New York, Stati Uniti), vista dall'acqua con cielo azzurro e nuvole | paese True | sim
+03:57:52 copertina foto pronta: copertina.jpg
+03:59:10 video_url pronto per Drive
+03:59:10 copertina_url pronto per Drive
+03:59:12 upload di 686 MB
+03:59:19 caricato su YouTube: BDFdp4s8ueY
+03:59:23 copertina ufficiale CARICATA e registrata: copertine_storia/BDFdp4s8ueY_1.jpg | parte con: uomo
+03:59:23 esito: {"stato": "PUBBLICATO", "video_id": "BDFdp4s8ueY", "link": "https://www.youtube.com/watch?v=BDFdp4s8ueY", "titolo": "L'INTERA Storia di Las Vegas in 8 Minuti", "testo_copertina": "LAS VEGAS 1905 → 2026", "pubblica_il": "2026-11-01T16:00:00.000Z", "minuti_video": 8.1, "minuti_lavoro": 57.9, "errore": "", "descrizione": "L'INTERA Storia di Las Vegas in 8 Minuti\n\nDal deserto del Mojave alla città più luminosa della Terra: questa è l'intera storia di Las Vegas in 8 minuti. Scopri come una piccola 
+03:59:24 FATTO: /home/runner/work/ambience/ambience/video_storia.mp4 8.1 minuti
+03:59:24 COSTO VIDEO (stima): 0.82 $ + 7132 crediti voce | claude claude-haiku-4-5-20251001: 0.651 $ (313 chiamate) | claude claude-sonnet-5-5: 0.168 $ (1 chiamate) | elevenlabs eleven_multilingual_v2: 0.000 $ (29 chiamate), 7132 crediti

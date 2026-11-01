@@ -1,0 +1,709 @@
+{
+ "titolo": "L'INTERA Storia di Las Vegas in 13 Minuti",
+ "titolo_mappa": "STATI UNITI",
+ "paese_mappa": "United States of America",
+ "riserva_pexels": [
+  "Mojave desert landscape Nevada",
+  "Nevada desert road sunset",
+  "Red Rock Canyon Nevada",
+  "Hoover Dam aerial",
+  "Lake Mead Nevada",
+  "Las Vegas Strip night lights",
+  "desert mountains Nevada sky",
+  "Colorado River canyon Arizona"
+ ],
+ "luoghi_paese": "las vegas, nevada, mojave, mojave desert, american, usa, united states, strip, fremont street, hoover dam, lake mead, red rock canyon, colorado river, boulder city, henderson, utah, california, sahara, flamingo, luxor, venetian, sphere",
+ "date": "1829 – 2026",
+ "texture": "giornale",
+ "font_carte": "moderno",
+ "fondi_carte": [],
+ "colori_carte": [
+  "#6b1e1e",
+  "#1d3557"
+ ],
+ "sfondi": [],
+ "scene": [
+  {
+   "capitolo": "Il deserto",
+   "testo": "Se cent'anni fa fossi stato sulla Strip di Las Vegas, non avresti visto nemmeno un'insegna al neon, né sentito una slot machine. Solo un deserto vuoto e silenzioso, con temperature oltre i 43 gradi capaci di ucciderti in poche ore. Oggi, dallo spazio, è il punto più luminoso della Terra. Com'è possibile?",
+   "anno": 1925,
+   "visivi": [
+    {
+     "tipo": "mappa",
+     "frase": "Se cent'anni fa"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Solo un deserto",
+     "q": "Mojave desert Nevada empty landscape",
+     "suono": "desert wind howling"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "oltre i 43 gradi",
+     "q": "Nevada desert heat shimmer road",
+     "didascalia": "Oltre 43 gradi"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Oggi, dallo spazio",
+     "q": "Las Vegas Strip night aerial lights"
+    }
+   ]
+  },
+  {
+   "testo": "Non fu un caso. Fu una miscela di lavoratori disperati, gangster pericolosi, bombe atomiche e della più grande scommessa della storia. All'inizio dell'Ottocento questa zona era un mistero che tutti evitavano, perché troppo arida per sopravvivere.",
+   "anno": 1800,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Non fu un caso",
+     "q": "Las Vegas Strip neon signs night"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "bombe atomiche",
+     "q": "Nevada desert dry cracked earth"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "All'inizio dell'Ottocento",
+     "q": "Mojave desert dunes wind"
+    }
+   ]
+  },
+  {
+   "capitolo": "L'oasi",
+   "testo": "Nel 1829 un esploratore messicano, Rafael Rivera, scoprì una valle nascosta con sorgenti sotterranee ed erba verde in mezzo al deserto marrone. La chiamò Las Vegas, che in spagnolo significa le praterie. Per settant'anni restò una minuscola oasi dove i viaggiatori riposavano i cavalli.",
+   "anno": 1829,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Nel 1829 un esploratore",
+     "q": "Nevada desert canyon exploration landscape",
+     "didascalia": "1829"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "sorgenti sotterranee",
+     "q": "desert spring water green grass Nevada"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "La chiamò Las Vegas",
+     "q": "Nevada green meadow desert valley"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "minuscola oasi",
+     "q": "desert oasis palm trees Mojave"
+    }
+   ]
+  },
+  {
+   "testo": "Negli anni Cinquanta dell'Ottocento i coloni mormoni provarono a costruirci un forte, ma lo abbandonarono: il deserto era troppo duro. Las Vegas sembrava destinata a restare una nota a margine, una semplice stazione di sosta.",
+   "anno": 1855,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "i coloni mormoni",
+     "q": "old adobe fort ruins Nevada desert"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "ma lo abbandonarono",
+     "q": "abandoned desert ruins wind dust"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "una semplice stazione",
+     "q": "old wooden wagon wheel desert"
+    }
+   ]
+  },
+  {
+   "capitolo": "La ferrovia",
+   "testo": "Nel 1905 una compagnia ferroviaria, che costruiva la linea tra Salt Lake City e Los Angeles, aveva bisogno di un posto dove i treni a vapore potessero rifornirsi d'acqua. Il 15 maggio 1905 mise all'asta 44 ettari di terreno e fondò ufficialmente la città.",
+   "anno": 1905,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Nel 1905 una compagnia",
+     "q": "steam locomotive railroad desert vintage",
+     "didascalia": "15 maggio 1905"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "i treni a vapore",
+     "q": "old railway tracks desert sunset"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "mise all'asta 44 ettari",
+     "q": "Nevada desert flat land horizon"
+    }
+   ]
+  },
+  {
+   "testo": "La prima Las Vegas era una città rude del Far West, fatta di fango, polvere ed edifici di legno, con i saloon di Fremont Street al centro di tutto.",
+   "anno": 1910,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "La prima Las Vegas",
+     "q": "old western town wooden buildings dust"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "di fango, polvere",
+     "q": "dusty dirt road western desert"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "i saloon di Fremont Street",
+     "q": "vintage saloon doors wooden western"
+    }
+   ]
+  },
+  {
+   "capitolo": "La diga",
+   "testo": "La Grande Depressione devastò l'America nel 1929, ma Las Vegas ebbe una fortuna incredibile: il governo decise di costruire la diga di Hoover a soli 48 chilometri di distanza. Migliaia di operai disperati arrivarono da tutto il paese.",
+   "anno": 1929,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "La Grande Depressione",
+     "q": "vintage black white abandoned farm dust"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "la diga di Hoover",
+     "q": "Hoover Dam aerial concrete",
+     "didascalia": "48 chilometri"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Migliaia di operai",
+     "q": "Colorado River canyon dam construction site"
+    }
+   ]
+  },
+  {
+   "testo": "All'improvviso Las Vegas si riempì di giovani con un lavoro e soldi in tasca. Dopo giornate di fatica sotto un caldo estremo, nel weekend volevano divertirsi. I leader del Nevada capirono di essere seduti su una miniera d'oro.",
+   "anno": 1931,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "All'improvviso Las Vegas",
+     "q": "Lake Mead Nevada shoreline"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "sotto un caldo estremo",
+     "q": "Nevada desert sun heat horizon"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "una miniera d'oro",
+     "q": "gold nuggets mine pile"
+    }
+   ]
+  },
+  {
+   "capitolo": "Il gioco legale",
+   "testo": "Nel 1931 presero una decisione che il resto del paese giudicò folle: legalizzarono completamente il gioco d'azzardo. Inoltre Las Vegas offriva divorzi lampo in sole sei settimane, mentre nel resto d'America divorziare era quasi impossibile.",
+   "anno": 1931,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Nel 1931 presero",
+     "q": "casino roulette wheel spinning vintage"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "il gioco d'azzardo",
+     "q": "playing cards poker chips table",
+     "didascalia": "1931"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "divorzi lampo",
+     "q": "wedding rings old paper documents"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "quasi impossibile",
+     "q": "vintage Nevada road sign desert"
+    }
+   ]
+  },
+  {
+   "testo": "Ricchi di Hollywood e operai della diga accorsero nella Città del Peccato per le scommesse e i divorzi facili. I primi casinò erano piccoli e sembravano vecchi bar western, finché la mafia non cambiò tutto.",
+   "anno": 1935,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "Ricchi di Hollywood",
+     "q": "vintage Las Vegas neon sign Fremont"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "I primi casinò",
+     "q": "slot machines casino lights close"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "finché la mafia",
+     "q": "dark alley vintage fedora shadows"
+    }
+   ]
+  },
+  {
+   "capitolo": "La mafia",
+   "testo": "Dopo la Seconda guerra mondiale arrivò il gangster Bugsy Siegel, deciso a portare il glamour di Hollywood nel deserto. Costruì il Flamingo con milioni di dollari di soldi mafiosi presi in prestito: una piscina enorme, l'aria condizionata e una gigantesca insegna al neon rosa.",
+   "anno": 1946,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "il gangster Bugsy Siegel",
+     "q": "vintage pink neon sign night"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "una piscina enorme",
+     "q": "resort swimming pool palm trees desert"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "gigantesca insegna al neon",
+     "q": "pink neon sign glowing night"
+    }
+   ]
+  },
+  {
+   "testo": "Il Flamingo aprì nel 1946 con un fallimento totale: stanze incomplete e nessuna celebrità. Pochi mesi dopo Bugsy fu ucciso a colpi di pistola dai soci furiosi che odiavano perdere soldi. Eppure la sua idea di lusso ebbe successo e spinse la mafia a usare i casinò per riciclare denaro.",
+   "anno": 1947,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "Il Flamingo aprì",
+     "q": "empty hotel lobby vintage unfinished"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Pochi mesi dopo",
+     "q": "dark city night rain car lights"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "riciclare denaro",
+     "q": "stacks of cash dollar bills"
+    }
+   ]
+  },
+  {
+   "testo": "Nel decennio successivo nacquero hotel famosi come il Sahara, il Sands e il Riviera, costruiti con denaro della criminalità organizzata. Si allineavano lungo una strada fuori città, che presto fu chiamata la Strip.",
+   "anno": 1955,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "hotel famosi come",
+     "q": "Las Vegas Strip hotels aerial dusk"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "denaro della criminalità",
+     "q": "vintage neon motel sign desert night"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "chiamata la Strip",
+     "q": "Las Vegas Boulevard road night traffic"
+    }
+   ]
+  },
+  {
+   "capitolo": "La città atomica",
+   "testo": "Negli anni Cinquanta Las Vegas diventò la Città Atomica, perché gli Stati Uniti collaudavano bombe nucleari a soli 105 chilometri di distanza. Invece di fuggire, la città trasformò le esplosioni in uno spettacolo.",
+   "anno": 1951,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "la Città Atomica",
+     "q": "mushroom cloud explosion desert archive"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "a soli 105 chilometri",
+     "q": "Nevada desert mountains horizon dawn",
+     "didascalia": "105 chilometri"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "trasformò le esplosioni",
+     "q": "bright flash sky desert dawn"
+    }
+   ]
+  },
+  {
+   "testo": "Gli hotel organizzavano picnic atomici, con turisti a guardare i funghi di fumo salire sopra le montagne. I concorsi di bellezza incoronavano Miss Bomba Atomica, con vestiti bianchi e vaporosi come nuvole. Le armi più pericolose del mondo erano un passatempo.",
+   "anno": 1955,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Gli hotel organizzavano",
+     "q": "desert mountains sunrise Nevada clouds",
+     "suono": "distant explosion rumble"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "concorsi di bellezza",
+     "q": "vintage white cloud dress retro"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Le armi più pericolose",
+     "q": "vintage atomic bomb museum model"
+    }
+   ]
+  },
+  {
+   "capitolo": "Il Rat Pack",
+   "testo": "Il Rat Pack, cioè Frank Sinatra, Dean Martin e Sammy Davis Jr., diventò il re di Las Vegas. Nel 1955 potevi trovare Sinatra a giocare a carte al tavolo accanto. Smoking, abiti eleganti e feste senza fine.",
+   "anno": 1955,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "Il Rat Pack",
+     "q": "vintage microphone stage spotlight"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "giocare a carte",
+     "q": "casino card table dealer cards"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Smoking, abiti eleganti",
+     "q": "champagne glasses elegant party gold"
+    }
+   ]
+  },
+  {
+   "testo": "Eppure Sammy Davis Jr., pur essendo il motivo per cui la gente andava negli hotel, non poteva dormire nelle camere né mangiare nei ristoranti perché era nero. Ci vollero anni di pressioni e coraggio per abolire la segregazione, nel 1960.",
+   "anno": 1960,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "non poteva dormire",
+     "q": "vintage hotel room key door"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "anni di pressioni",
+     "q": "old newspaper pages vintage print"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "la segregazione, nel 1960",
+     "q": "vintage Las Vegas sign night",
+     "didascalia": "1960"
+    }
+   ]
+  },
+  {
+   "capitolo": "Le corporation",
+   "testo": "Alla fine degli anni Sessanta l'epoca della mafia stava finendo, sotto la pressione del governo. Il miliardario Howard Hughes si trasferì all'ultimo piano dell'hotel Desert Inn e poi comprò l'intero albergo. Comprò altri hotel, e le grandi aziende presero il posto dei boss.",
+   "anno": 1967,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "l'epoca della mafia",
+     "q": "vintage casino neon signs dusk"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Il miliardario Howard Hughes",
+     "q": "hotel penthouse window desert view"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "le grandi aziende",
+     "q": "corporate office skyscrapers glass"
+    }
+   ]
+  },
+  {
+   "testo": "Gli uomini con le pistole furono lentamente sostituiti da uomini in giacca e cravatta con un master in economia.",
+   "anno": 1970,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "Gli uomini con le pistole",
+     "q": "vintage revolver old table"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "in giacca e cravatta",
+     "q": "business suits boardroom table documents"
+    }
+   ]
+  },
+  {
+   "capitolo": "I mega resort",
+   "testo": "Negli anni Ottanta Las Vegas aveva un problema: stava diventando noiosa, perché altri stati legalizzavano il gioco e gli hotel della Strip sembravano vecchi. Nel 1989 Steve Wynn costruì il Mirage, un mega resort che cambiò tutto per sempre.",
+   "anno": 1989,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "stava diventando noiosa",
+     "q": "old faded casino sign sunset"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Steve Wynn costruì",
+     "q": "luxury resort fountain Las Vegas night",
+     "didascalia": "1989"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "cambiò tutto per sempre",
+     "q": "Las Vegas Strip resort golden lights"
+    }
+   ]
+  },
+  {
+   "testo": "L'hotel aveva un vulcano artificiale che eruttava ogni ora con vero fuoco, tigri bianche e un enorme acquario, e costò 630 milioni di dollari. Tutti pensavano che Wynn sarebbe fallito, invece il Mirage divenne l'hotel di maggior successo della storia.",
+   "anno": 1989,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "un vulcano artificiale",
+     "q": "volcano fire eruption flames night"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "tigri bianche",
+     "q": "white tiger close up"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "un enorme acquario",
+     "q": "large aquarium fish tank blue",
+     "didascalia": "630 milioni di dollari"
+    }
+   ]
+  },
+  {
+   "testo": "Negli anni Novanta scoppiò una guerra di costruzioni, con attrazioni sempre più grandi ogni anno. L'MGM Grand divenne il più grande hotel del mondo, mentre il raggio di luce della piramide del Luxor era così potente che i piloti lo vedevano dallo spazio.",
+   "anno": 1993,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "una guerra di costruzioni",
+     "q": "construction cranes skyline dusk"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "il più grande hotel",
+     "q": "giant hotel facade green glass Las Vegas"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "la piramide del Luxor",
+     "q": "Luxor pyramid Las Vegas light beam night"
+    }
+   ]
+  },
+  {
+   "testo": "Il Venetian aveva veri canali dove i visitatori navigavano in barca dentro i centri commerciali. Las Vegas lanciò lo slogan famoso: quello che succede a Las Vegas, resta a Las Vegas, per gli adulti che volevano divertirsi.",
+   "anno": 1999,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Il Venetian aveva",
+     "q": "gondola canal Venice Italy water"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "dentro i centri commerciali",
+     "q": "luxury shopping mall interior painted sky"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "quello che succede",
+     "q": "Las Vegas welcome sign night"
+    }
+   ]
+  },
+  {
+   "capitolo": "Oggi",
+   "testo": "Negli anni Duemila Las Vegas cambiò ancora: la gente veniva per l'esperienza, non solo per il gioco. I più famosi chef del mondo aprirono ristoranti sulla Strip, e grandi star come Adele e Usher restavano per mesi con le loro residency.",
+   "anno": 2005,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "la gente veniva",
+     "q": "fine dining kitchen flames chef plate"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "grandi star come Adele",
+     "q": "concert stage lights microphone"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "con le loro residency",
+     "q": "nightclub lasers stage lights"
+    }
+   ]
+  },
+  {
+   "testo": "Il vero sport arrivò nel 2017 con i Vegas Golden Knights, la squadra di hockey. Poi i Raiders della NFL si trasferirono in uno stadio da due miliardi di dollari a forma di astronave nera. Oggi la città ospita il Super Bowl e la Formula 1 sulle sue strade.",
+   "anno": 2017,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Il vero sport arrivò",
+     "q": "hockey rink ice arena lights"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "uno stadio da due miliardi",
+     "q": "modern football stadium black exterior night",
+     "didascalia": "2 miliardi di dollari"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "la Formula 1",
+     "q": "Formula 1 race car track speed"
+    }
+   ]
+  },
+  {
+   "testo": "La Sphere, una struttura da 2,3 miliardi di dollari coperta da 1,2 milioni di luci LED, simboleggia l'impegno della città a mostrare qualcosa che nessuno ha mai visto.",
+   "anno": 2023,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "La Sphere, una struttura",
+     "q": "Las Vegas Sphere LED night",
+     "didascalia": "1,2 milioni di LED"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "mostrare qualcosa",
+     "q": "Las Vegas skyline night lights aerial"
+    }
+   ]
+  },
+  {
+   "capitolo": "La scommessa",
+   "testo": "Las Vegas conta perché è la storia definitiva dell'immaginazione e dell'audacia umana. Una città nata in un deserto dove l'acqua è finita da tempo, eppure prospera. Ha superato la Grande Depressione, la mafia e gli anni noiosi, per diventare capitale mondiale dello spettacolo.",
+   "anno": 2026,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Las Vegas conta",
+     "q": "Las Vegas Strip aerial sunset"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "un deserto dove l'acqua",
+     "q": "Lake Mead low water desert shoreline"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "capitale mondiale dello spettacolo",
+     "q": "Las Vegas Strip night timelapse"
+    }
+   ]
+  },
+  {
+   "testo": "Da sorgenti fangose per cavalli a un posto dove puoi essere chi vuoi per 48 ore. La città ha fatto la scommessa più grande della storia: che la gente avrebbe attraversato un deserto rovente per luci e spettacoli. Quella scommessa ha vinto alla grande.",
+   "anno": 2026,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "sorgenti fangose per cavalli",
+     "q": "desert spring muddy water horses"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "la scommessa più grande",
+     "q": "casino dice roll table slow"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "un deserto rovente",
+     "q": "Mojave desert sun sunset red rocks"
+    }
+   ]
+  },
+  {
+   "testo": "Oggi le praterie che Rafael Rivera trovò nel 1829 sono coperte da miliardi di dollari di vetro e acciaio. Las Vegas dimostra che se costruisci qualcosa di abbastanza luminoso e audace, il mondo intero troverà la strada fino alla tua porta.",
+   "anno": 2026,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Oggi le praterie",
+     "q": "Las Vegas Strip glass towers aerial day"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "miliardi di dollari",
+     "q": "Las Vegas neon lights glowing night"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "troverà la strada",
+     "q": "desert road leading to Las Vegas lights night"
+    }
+   ]
+  }
+ ],
+ "copertina": {
+  "testo": "LAS VEGAS 1905 → 2026",
+  "personaggio": ""
+ },
+ "descrizione": "Dal deserto del Mojave alla città più luminosa della Terra: questa è l'intera storia di Las Vegas in 13 minuti. Scopri come una piccola oasi scoperta nel 1829 è diventata la capitale mondiale dell'intrattenimento.\n\nVedremo la fondazione nel 1905, la costruzione della diga di Hoover, la legalizzazione del gioco d'azzardo nel 1931, Bugsy Siegel e il Flamingo, la mafia, i test atomici, il Rat Pack, Howard Hughes e i grandi mega resort come il Mirage, il Luxor e il Venetian.\n\nInfine, la Las Vegas di oggi: gli chef stellati, le residency delle star, i Golden Knights, i Raiders, la Formula 1 e la Sphere. Una storia di audacia, crimine e immaginazione.\n\n#LasVegas #StoriaDiLasVegas #Storia #Nevada #SinCity",
+ "tag": [
+  "Las Vegas",
+  "Storia di Las Vegas",
+  "Storia",
+  "Documentario storico",
+  "Storia americana",
+  "Nevada",
+  "Las Vegas Strip",
+  "Documentario",
+  "Storia spiegata",
+  "Storia del mondo",
+  "Sin City",
+  "Bugsy Siegel",
+  "Diga di Hoover",
+  "Storia della mafia",
+  "Flamingo Hotel",
+  "Deserto del Mojave",
+  "Storia del gioco d'azzardo",
+  "Storia di una città",
+  "Storia degli USA",
+  "History Channel",
+  "storia completa di Las Vegas",
+  "storia degli Stati Uniti",
+  "Rat Pack",
+  "Howard Hughes",
+  "città atomica",
+  "Mirage",
+  "Luxor",
+  "Sphere Las Vegas",
+  "Fremont Street",
+  "Rafael Rivera"
+ ],
+ "personaggi_mancanti": [
+  "Rafael Rivera esploratore messicano",
+  "Howard Hughes miliardario",
+  "Frank Sinatra e il Rat Pack",
+  "Steve Wynn"
+ ],
+ "categoria_originale": "27"
+}
