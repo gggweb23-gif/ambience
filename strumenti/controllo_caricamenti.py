@@ -84,7 +84,7 @@ for chiave in sorted(k for k in os.environ if k.startswith('YT_REFRESH_TOKEN') a
         if s.get('privacyStatus') == 'public' and ore > 48 and int(sta.get('viewCount', 0)) == 0 and sec >= 480:
             pv.append('pubblico da oltre 48 ore con 0 visualizzazioni')
         riga = (f"  {pub[:16].replace('T', ' ')} | {s.get('privacyStatus')}{' (esce ' + s['publishAt'][:16] + ')' if s.get('publishAt') else ''} | "
-                f"{sec // 60} min | {sta.get('viewCount', '?')} views | {tit}")
+                f"{sec // 60} min | {sta.get('viewCount', '?')} views | {tit} | {v['id']}")
         if doppione:
             riga += '  [prova non in elenco: se esiste gia\' la versione pubblica conviene cancellarla, due video quasi uguali sullo stesso canale non aiutano]'
         report.append(riga + ('' if not pv else '\n     !! ' + '\n     !! '.join(pv)))
