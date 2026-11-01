@@ -54,7 +54,11 @@ def riga_produzione(R, tk):
         riga = val[n - 1] if n - 1 < len(val) else []
         if str(R.get('titolo') or '').strip().lower() not in ' | '.join(str(x) for x in riga).lower():
             return f'riga {n} NON aggiornata: il titolo non corrisponde'
-        dati = [{'range': f"'{sch}'!{lettera(h.index(k) + 1)}{n}", 'values': [[v]]} for k, v in (R.get('valori') or {}).items()
+        vv = dict(R.get('valori') or {})
+        if 'titolo_nostro' in vv:   # il NOSTRO titolo va nella colonna che il motore legge (titolo_italiano, altrimenti titolo_originale)
+            vv['titolo_italiano' if 'titolo_italiano' in h else 'titolo_originale'] = vv.pop('titolo_nostro')
+        R['valori'] = vv
+        dati = [{'range': f"'{sch}'!{lettera(h.index(k) + 1)}{n}", 'values': [[v]]} for k, v in vv.items()
                 if k in h and not re.search(r'budget', k, re.I)]
         api('POST', '/values:batchUpdate', {'valueInputOption': 'USER_ENTERED', 'data': dati}, tk)
         return f'file di produzione, riga {n}: ' + ', '.join(f'{k}={v}' for k, v in (R.get('valori') or {}).items() if k in h)
@@ -79,7 +83,7 @@ def main():
             f.write(time.strftime('%Y-%m-%d %H:%M') + ' LETTURA file di produzione\n' + '\n'.join(out) + '\n')
         print('\n'.join(out)); return
     if P.get('riga_produzione'):
-        msg = riga_produzione(P['riga_produzione'], tk); print(msg)
+        msg = '\n'.join(riga_produzione(R, tk) for R in (P['riga_produzione'] if isinstance(P['riga_produzione'], list) else [P['riga_produzione']])); print(msg)
         with open('coach/modifiche_foglio.log', 'a') as f:
             f.write(time.strftime('%Y-%m-%d %H:%M') + ' ' + msg + '\n')
         if not P.get('modifiche') and not P.get('nuove_colonne') and not P.get('nuova_riga'):
