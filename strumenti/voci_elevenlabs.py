@@ -22,7 +22,7 @@ if P.get('solo_abbonamento'):   # controllo crediti: quanti caratteri restano ne
 righe, visti = [], set()
 # filtri facoltativi: "genere" (male/female), "eta" (young/middle_aged/old), "cerca" (lista di parole, es. ["deep", "wise old"])
 ricerche = []
-for uso in [P.get('uso') or 'narrative_story', 'informative_educational']:
+for uso in (P.get('usi') or [P.get('uso') or 'narrative_story', 'informative_educational']):
     for parola in (P.get('cerca') or ['']):
         f_ = {'page_size': 50, 'language': P.get('lingua', 'it'), 'use_cases': uso, 'sort': P.get('ordine') or 'trending'}
         if P.get('genere'): f_['gender'] = P['genere']
@@ -39,6 +39,8 @@ for f_ in ricerche:
     for v in trovate:
         if v['voice_id'] in visti:
             continue
+        if P.get('solo_lingua') and not any(l.get('language') == P.get('lingua') and l.get('preview_url') for l in (v.get('verified_languages') or [])):
+            continue   # solo voci con un'anteprima VERA nella lingua del canale
         visti.add(v['voice_id']); righe.append(v)
 if P.get('ordina_per_uso'):   # prima le voci piu' usate dagli altri creator (di solito le migliori)
     righe.sort(key=lambda v: -(v.get('cloned_by_count') or 0))
