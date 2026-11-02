@@ -22,6 +22,8 @@ LINGUA = {'en': 'English (US)', 'it': 'italiano'}.get(str(P.get('language') or '
 MIN_M = float(str(P.get('durata_min_minuti') or 8.5).replace(',', '.')); MAX_M = float(str(P.get('durata_max_minuti') or 9).replace(',', '.'))
 PAROLE_SEC = 3.3                                     # largo apposta (misurato 3,1-3,23 parole/s a 1.08): il video deve stare SEMPRE sopra la durata minima del foglio (1 nov, Giorgio: mai sotto 8 minuti)
 P_MIN, P_MAX = int(MIN_M * 60 * PAROLE_SEC), int(MAX_M * 60 * PAROLE_SEC)
+N_SCENE = round((P_MIN + P_MAX) / 2 / 36)   # numero di scene: Sonnet rispetta il numero di scene meglio del numero di parole
+P_OK = int(max(P_MIN * .92, MIN_M * 60 * .95 * 3.25))   # minimo accettato: sopra la durata minima del foglio anche con la voce piu' veloce misurata
 BUDGET_USD = float(str(P.get('coach_budget_video') or P.get('budget_video') or 1).replace(',', '.').replace('€', '') or 1) * 1.08
 SPESA = {'usd': 0.0, 'voci': []}
 log = lambda *a: print(time.strftime('%H:%M:%S'), *a, flush=True)
@@ -131,7 +133,7 @@ FOOTAGE: the video is made ONLY of real NASA footage. For EACH scene give the ar
  - "tag": 2-4 specific lowercase English keywords of what must be visible (e.g. ["food", "eating"], ["spacewalk", "suit"]); NEVER only generic words like space, station, astronaut, earth
  - the first 3 scenes must make it obvious in one second that the video is about astronauts (astronauts in the station or on a spacewalk): add "obbligo": ["astronaut"] to them
  - "scritta" (optional, about 1 scene in 4): 1-3 words in CAPS shown on screen, a number or a strong word said in that scene (US units: -250°F, 17,500 MPH, 250 MILES)
-Scenes: 25-40 words each."""
+Scenes: EXACTLY {N_SCENE} scenes, each 32-40 words (Sonnet tends to write too little: count the scenes)."""
 if riferimento:
     regole += f"""
 
@@ -152,16 +154,31 @@ Answer ONLY with valid JSON:
  "testo_copertina": "1-3 WORDS (only if asked above, else empty)",
  "copertina_prompt": "one sentence: the scene of the thumbnail, a FICTIONAL astronaut in close-up with a strong readable emotion matching the title, setting and light"}"""
 c = None
-for k in range(2):
-    t = claude(regole + ('' if k == 0 else f'\n\nATTENTION: the previous attempt had {n} words: it MUST be between {P_MIN} and {P_MAX}.'), immagine=COP_COMP)
+t = claude(regole, immagine=COP_COMP)
+try:
+    c = json.loads(t[t.find('{'): t.rfind('}') + 1])
+    n = sum(len(s['testo'].split()) for s in c['scene'])
+    log(f'copione: {len(c["scene"])} scene, {n} parole (obiettivo {P_MIN}-{P_MAX}, minimo accettato {P_OK})')
+except Exception as e:
+    c = None; n = 0; log('copione non leggibile:', str(e)[:120], '| risposta:', len(t), 'caratteri', repr(t[:200]))
+# troppo corto: NON si riscrive tutto (Sonnet tornava sempre a ~1360 parole) ma si AGGIUNGONO scene nel mezzo
+for giro in range(2):
+    if not c or n >= P_OK:
+        break
+    manca = (P_MIN + P_MAX) // 2 - n; k_ = max(3, round(manca / 36)); dove = max(1, len(c['scene']) - 3)
+    agg = claude(f"""This is the narration of a YouTube documentary titled "{P['titolo']}", in {LINGUA} ONLY, as JSON scenes:
+{json.dumps(c['scene'], ensure_ascii=False)}
+It is {n} words: too short. Write EXACTLY {k_} NEW scenes (32-40 words each, about {manca} words in total) that go between scene {dove} and scene {dove + 1}:
+new documented facts and moments on the same topic, same voice and rules, no repetition of what is already said, smooth with the scenes before and after.
+Same fields as the other scenes (testo, q, tag, scritta, obbligo). Answer ONLY with JSON: {{"scene": [...]}}""", max_tokens=12000)
     try:
-        c = json.loads(t[t.find('{'): t.rfind('}') + 1])
+        nuove = json.loads(agg[agg.find('{'): agg.rfind('}') + 1])['scene']
+        c['scene'] = c['scene'][:dove] + nuove + c['scene'][dove:]
         n = sum(len(s['testo'].split()) for s in c['scene'])
-        log(f'copione: {len(c["scene"])} scene, {n} parole (limite {P_MIN}-{P_MAX})')
-        if P_MIN * .95 <= n <= P_MAX * 1.12:
-            break
+        log(f'copione allungato: +{len(nuove)} scene -> {len(c["scene"])} scene, {n} parole')
     except Exception as e:
-        n = 0; log('copione non leggibile:', str(e)[:120], '| risposta:', len(t), 'caratteri', repr(t[:200]))
+        log('allungamento non leggibile:', str(e)[:120])
+if c and not (P_OK <= n <= P_MAX * 1.15):
     c = None
 if not c:
     raise RuntimeError('VIDEO BLOCCATO: copione fuori lunghezza (nessuna spesa per voce e montaggio)')

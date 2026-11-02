@@ -3,7 +3,7 @@ name: Avvio giornaliero canali archivio
 # Ogni giorno lancia il video del giorno per i canali con render_workflow = video_archivio.yml e videos_per_day >= 1 (strumenti/avvio_archivio.py).
 on:
   schedule:
-    - cron: '41 9 * * *'   # 10:41 / 11:41 ora italiana: il video e' pronto nel primo pomeriggio
+    - cron: '41 0 * * *'   # 01:41 ora italiana (dopo la libreria delle 00:23): video pronto di notte, esce alle 17 (publish_time)
   workflow_dispatch:
 
 permissions:
