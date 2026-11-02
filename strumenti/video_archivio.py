@@ -341,13 +341,13 @@ def revisione():
                 b_ = open(x['frame'], 'rb').read()
             except Exception:
                 continue
-            cont.append({'type': 'text', 'text': f"Shot {x['i']} ({x.get('tipo')}). Narration: \"{x.get('testo', '')[:200]}\""})
+            cont.append({'type': 'text', 'text': f"Shot {x['i']} ({x.get('tipo')}). Narration: \"{x.get('testo', '')[:600]}\""})
             cont.append({'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/png', 'data': base64.b64encode(b_).decode()}})
         cont.append({'type': 'text', 'text': f'These are shots of a YouTube documentary about: {argomento}. For each shot decide if it is WRONG for this video. '
                      'A shot is WRONG if: it shows a different era (modern/after 1950 vehicles, clothes, colour TV look) or space/astronauts/NASA; it is a cartoon, '
                      'animation, map graphic or drawing; it is a title card, intertitle or has burned-in text/subtitles/timecode; a swastika flag or Nazi banner is '
                      'the main subject; it is black/empty; or it has NOTHING to do with the narration. Archival black-and-white footage that fits the period is fine '
-                     'even if generic. Answer ONLY JSON: {"sbagliate": [{"i": <shot number>, "motivo": "short reason"}]} (empty list if all are fine).'})
+                     'even if generic. Judge ONLY the image: the narration is given just as context and may be cut, never reject a shot because of the narration text. Answer ONLY JSON: {"sbagliate": [{"i": <shot number>, "motivo": "short reason"}]} (empty list if all are fine).'})
         try:
             corpo = {'model': 'claude-haiku-4-5-20251001', 'max_tokens': 1200, 'messages': [{'role': 'user', 'content': cont}]}
             r_ = get('https://api.anthropic.com/v1/messages', corpo, {'x-api-key': E('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01'}, timeout=300)
@@ -388,6 +388,7 @@ if MONTATO and os.path.exists(VIDEO) and str(P.get('revisione_inquadrature') or 
         if r.returncode == 0 and os.path.exists(VIDEO):
             quota, media, dur, errori = controlli()
             bocc2 = revisione()
+            segna_in_libreria(bocc2)   # anche le bocciate del secondo giro non tornano piu'
             if len(bocc2) > max(3, len(json.load(open('/tmp/lav/inquadrature.json'))) * .04):
                 errori = errori + [f'ancora {len(bocc2)} inquadrature sbagliate dopo la revisione']
         else:
