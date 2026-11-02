@@ -47,9 +47,15 @@ def num(x):
 
 _, _, canali = righe(CONFIGS)
 ora = dt.datetime.now(dt.timezone.utc)
+SOLO = os.environ.get('SOLO_CANALE', '').strip()          # lancio a mano di un solo canale (es. primo video di un canale nuovo)
+PRIVACY = os.environ.get('PRIVACY_FORZATA', '').strip()   # es. unlisted per il primo video da controllare
 for cfg in canali:
     if str(cfg.get('render_workflow') or '').strip() != 'video_archivio.yml' or num(cfg.get('videos_per_day')) < 1:
         continue
+    if SOLO and str(cfg.get('channel_id')).strip() != SOLO:
+        continue
+    if PRIVACY:
+        cfg = dict(cfg, privacy=PRIVACY)
     fid = str(cfg.get('scout_production_sheet_id') or '').strip()
     sch, h, prod = righe(fid)
     occupata = False

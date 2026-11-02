@@ -5,6 +5,15 @@ on:
   schedule:
     - cron: '41 0 * * *'   # 01:41 ora italiana (dopo la libreria delle 00:23): video pronto di notte, esce alle 17 (publish_time)
   workflow_dispatch:
+    inputs:
+      canale:
+        description: 'Solo questo canale (channel_id), vuoto = tutti'
+        default: ''
+        type: string
+      privacy:
+        description: 'Privacy forzata (es. unlisted), vuoto = quella del foglio'
+        default: ''
+        type: string
 
 permissions:
   contents: read
@@ -20,4 +29,6 @@ jobs:
         env:
           GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
           GH_TOKEN: ${{ github.token }}
+          SOLO_CANALE: ${{ inputs.canale }}
+          PRIVACY_FORZATA: ${{ inputs.privacy }}
         run: pip install -q google-auth requests && python3 strumenti/avvio_archivio.py
