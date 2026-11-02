@@ -38,6 +38,7 @@ P = _RIC.applica(P)
 TITOLO = E('TITOLO', 'Tutta la storia dell\'Iran').strip()
 LINGUA = (str(P.get('language') or '').strip().lower()[:2] or E('LINGUA', 'it').strip() or 'it')   # language del canale (Channel Configs) vince
 VOCE = str(P.get('voce') or E('VOCE', '') or 'glnsgBC77wt5zOYU0szz').strip()
+print('voce ElevenLabs usata:', VOCE, flush=True)   # per controllare che sia quella della colonna voice_id del canale
 MINUTI = float(E('MINUTI', '13') or 13)
 # durata dal foglio (colonne durata_min_minuti / durata_max_minuti): l'originale piu' lungo si condensa, piu' corto si espande
 MAX_MINUTI = float(str(P.get('durata_max_minuti') or P.get('max_minuti') or E('MAX_MINUTI', '25') or 25).replace(',', '.'))
