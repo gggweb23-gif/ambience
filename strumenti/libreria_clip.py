@@ -55,7 +55,7 @@ log(len(VECCHI), 'spezzoni gia' + "'" + ' in libreria,', len(GIA_FATTE), 'video 
 # ---------------- 1) video sorgente ----------------
 ARCHIVIO = str(P.get('archivio') or 'nasa').lower()   # nasa | storico (archive.org + Wikimedia Commons, solo pubblico dominio)
 # collezioni di archive.org di pubblico dominio: cinegiornali Universal (donati al pubblico dominio), film del governo USA (FedFlix, Archivi Nazionali)
-COLLEZIONI_PD = ['universal_newsreels', 'FedFlix', 'usnationalarchives', 'prelinger']
+COLLEZIONI_PD = ['universal_newsreels', 'FedFlix', 'usnationalarchives']   # Prelinger tolto: dentro ci sono anche film di Hollywood
 NO_STORICO = re.compile(r'cartoon|animated|animation|trailer|commercial|advertis|colorized|coloriz|remaster|reenact|re-enact|movie clip|hollywood|music video|tiktok|game', re.I)
 LIBERE = re.compile(r'public domain|publicdomain|^pd|cc0|cc-zero|no restrictions|mark/1\.0', re.I)
 
@@ -165,7 +165,7 @@ for nid, tit, href in sorgenti:
                 continue
             # spezzoni da 3,5 s dentro la scena (uno ogni 12 s se la scena e' lunga)
             t = a + .3
-            while t + 3.5 < b - .2 and presi < 25 and len(spezzoni) < MAX_N:
+            while t + 3.5 < b - .2 and presi < (25 if ARCHIVIO == 'nasa' else 6) and len(spezzoni) < MAX_N:   # archivi storici: max 6 per film, piu' varieta'
                 f1, f2 = os.path.join(LAV, 'a.jpg'), os.path.join(LAV, 'b.jpg')
                 sh(['ffmpeg', '-v', 'error', '-y', '-ss', f'{t + .4:.2f}', '-i', p, '-frames:v', '1', '-vf', 'scale=512:-2', f1])
                 sh(['ffmpeg', '-v', 'error', '-y', '-ss', f'{t + 3.0:.2f}', '-i', p, '-frames:v', '1', '-vf', 'scale=512:-2', f2])
