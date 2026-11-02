@@ -1,0 +1,35 @@
+name: Cancella un video da YouTube (solo su richiesta di Giorgio)
+
+on:
+  workflow_dispatch:
+    inputs:
+      payload:
+        description: 'JSON: video_id, motivo'
+        required: true
+        type: string
+      chiave_youtube:
+        description: 'Nome del secret del canale, es. YT_REFRESH_TOKEN_WWII_TESTIMONY'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  cancella:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Cancella
+        env:
+          PAYLOAD: ${{ inputs.payload }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets[inputs.chiave_youtube] }}
+        run: python3 strumenti/elimina_video.py
+      - name: Registro
+        run: |
+          git config user.name "render-bot"; git config user.email "render-bot@users.noreply.github.com"
+          git add coach/video_cancellati.log; git commit -m "Video cancellato" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase --autostash -q && git push && break; sleep $((i * 5)); done
