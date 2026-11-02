@@ -37,11 +37,22 @@ log = lambda *a: print(time.strftime('%H:%M:%S'), *a, flush=True)
 
 
 def get(u, dati=None, h=None, raw=False, timeout=120):
-    req = urllib.request.Request(u, data=json.dumps(dati).encode() if dati is not None else None,
-                                 headers=dict(UA, **({'Content-Type': 'application/json'} if dati is not None else {}), **(h or {})))
-    with urllib.request.urlopen(req, timeout=timeout) as r:
-        b = r.read()
-        return b if raw else json.loads(b.decode() or '{}')
+    # i download (GET) riprovano fino a 4 volte se la connessione cade (server NASA che chiude la connessione);
+    # le chiamate con dati (es. voce ElevenLabs, a pagamento) NON vengono ripetute qui
+    for prova in range(4 if dati is None else 1):
+        req = urllib.request.Request(u, data=json.dumps(dati).encode() if dati is not None else None,
+                                     headers=dict(UA, **({'Content-Type': 'application/json'} if dati is not None else {}), **(h or {})))
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                b = r.read()
+                return b if raw else json.loads(b.decode() or '{}')
+        except urllib.error.HTTPError as e:
+            if dati is not None or e.code < 500 or prova == 3:
+                raise
+        except (urllib.error.URLError, ConnectionError, TimeoutError, OSError):
+            if dati is not None or prova == 3:
+                raise
+        time.sleep(4 * (prova + 1))
 
 
 def run(c):
@@ -123,7 +134,13 @@ def dalla_libreria(s, dur):
     LIB_USATI.add(best['n']); ULTIMA_SORGENTE[0] = best['nasa_id']; PER_SORGENTE[best['nasa_id']] = PER_SORGENTE.get(best['nasa_id'], 0) + 1
     if best['url'] not in LIB_FILE:
         f = os.path.join(LAV, 'lib_' + re.sub(r'\W', '_', best['nasa_id'])[:60] + '.mp4')
-        open(f, 'wb').write(get(best['url'], raw=True, timeout=600)); LIB_FILE[best['url']] = f
+        try:
+            dati_clip = get(best['url'], raw=True, timeout=600)
+        except Exception as e:   # clip della libreria non scaricabile: si passa a un'altra, il video non si blocca
+            log('clip della libreria non scaricata, ne cerco un\'altra', best['nasa_id'], str(e)[:80])
+            PER_SORGENTE[best['nasa_id']] = 99   # questa ripresa non si riprova piu' in questo video
+            return dalla_libreria(s, dur)
+        open(f, 'wb').write(dati_clip); LIB_FILE[best['url']] = f
     f_ = LIB_FILE[best['url']]
     if best['nasa_id'] not in CLIP_CACHE:
         CLIP_CACHE[best['nasa_id']] = (f_, durata(f_), [])
