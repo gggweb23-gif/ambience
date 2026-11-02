@@ -1,8 +1,61 @@
-07:59:48 testo di riferimento: 5014 parole
-08:00:37 copione: 45 scene, 1760 parole (obiettivo 1683-1782, minimo accettato 1574)
+08:04:13 testo di riferimento: 5014 parole
+08:04:59 copione: 46 scene, 1698 parole (obiettivo 1683-1782, minimo accettato 1574)
 Traceback (most recent call last):
-  File "/home/runner/work/ambience/ambience/strumenti/video_archivio.py", line 188, in <module>
-    mont = {'nome': NOME, 'voce': P.get('voice_id'), 'velocita': float(str(P.get('voice_speed') or 1.08).replace(',', '.')),
-                                                                 ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-ValueError: could not convert string to float: '01:08'
-08:00:38 file di produzione aggiornato: status, data_inizio_produzione
+  File "/home/runner/work/ambience/ambience/strumenti/prova_archivio.py", line 65, in <module>
+    j = get(f"https://api.elevenlabs.io/v1/text-to-speech/{P.get('voce') or 'glnsgBC77wt5zOYU0szz'}/with-timestamps?output_format=mp3_44100_128",
+            {'text': testo, 'model_id': 'eleven_multilingual_v2',
+             'voice_settings': {'stability': float(P.get('stabilita') or .45), 'similarity_boost': .75, 'style': float(P.get('stile_voce') or 0),
+                                'speed': float(P.get('velocita') or 1.06)}},
+            {'xi-api-key': E('ELEVENLABS_API_KEY', '')})
+  File "/home/runner/work/ambience/ambience/strumenti/prova_archivio.py", line 42, in get
+    with urllib.request.urlopen(req, timeout=timeout) as r:
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 187, in urlopen
+    return opener.open(url, data, timeout)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 493, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.14/urllib/request.py", line 602, in http_response
+    response = self.parent.error(
+        'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.14/urllib/request.py", line 531, in error
+    return self._call_chain(*args)
+           ~~~~~~~~~~~~~~~~^^^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 464, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.14/urllib/request.py", line 611, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 401: Unauthorized
+08:05:00 montaggio non riuscito al tentativo 1
+Traceback (most recent call last):
+  File "/home/runner/work/ambience/ambience/strumenti/prova_archivio.py", line 65, in <module>
+    j = get(f"https://api.elevenlabs.io/v1/text-to-speech/{P.get('voce') or 'glnsgBC77wt5zOYU0szz'}/with-timestamps?output_format=mp3_44100_128",
+            {'text': testo, 'model_id': 'eleven_multilingual_v2',
+             'voice_settings': {'stability': float(P.get('stabilita') or .45), 'similarity_boost': .75, 'style': float(P.get('stile_voce') or 0),
+                                'speed': float(P.get('velocita') or 1.06)}},
+            {'xi-api-key': E('ELEVENLABS_API_KEY', '')})
+  File "/home/runner/work/ambience/ambience/strumenti/prova_archivio.py", line 42, in get
+    with urllib.request.urlopen(req, timeout=timeout) as r:
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 187, in urlopen
+    return opener.open(url, data, timeout)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 493, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.14/urllib/request.py", line 602, in http_response
+    response = self.parent.error(
+        'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.14/urllib/request.py", line 531, in error
+    return self._call_chain(*args)
+           ~~~~~~~~~~~~~~~~^^^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 464, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.14/urllib/request.py", line 611, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 401: Unauthorized
+08:05:00 montaggio non riuscito al tentativo 2
+Traceback (most recent call last):
+  File "/home/runner/work/ambience/ambience/strumenti/video_archivio.py", line 254, in <module>
+    raise RuntimeError('VIDEO BLOCCATO (controlli, anche dopo la riparazione): ' + '; '.join(errori))
+RuntimeError: VIDEO BLOCCATO (controlli, anche dopo la riparazione): montaggio non riuscito
+08:05:02 file di produzione aggiornato: status, data_inizio_produzione

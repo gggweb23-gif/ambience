@@ -1,12 +1,11 @@
 {
  "scene": [
   {
-   "testo": "It is 6 AM on the International Space Station. Outside the window, the temperature is minus 250 degrees Fahrenheit in the shade. Inside, the crew is sipping coffee in T-shirts. There is no furnace on board. So where does the warmth come from?",
-   "q": "astronauts floating inside space station",
+   "testo": "Step outside the station and the temperature drops to minus 250 degrees Fahrenheit. Step into the sunlight and it jumps to plus 250. Same astronaut, same suit, a few seconds apart. So how do astronauts survive without a single heater?",
+   "q": "spacewalk astronaut",
    "tag": [
-    "astronaut",
-    "floating",
-    "module"
+    "spacewalk",
+    "suit"
    ],
    "scritta": "-250°F",
    "obbligo": [
@@ -14,12 +13,23 @@
    ]
   },
   {
-   "testo": "Here is the part that should not make sense. That same station travels at 17,500 miles per hour, about 250 miles above Earth. In sunlight it can swing past +250 degrees Fahrenheit. Cold and hot, minutes apart, all day long.",
-   "q": "space station orbit sunrise",
+   "testo": "Imagine you are floating inside the International Space Station at 6 AM. The alarm chimes. The air feels comfortable, around 72 degrees Fahrenheit. Yet just inches beyond the wall, the vacuum of space is waiting to freeze you solid.",
+   "q": "astronaut floating inside space station",
    "tag": [
-    "orbit",
-    "sunrise",
-    "station"
+    "floating",
+    "module"
+   ],
+   "scritta": "",
+   "obbligo": [
+    "astronaut"
+   ]
+  },
+  {
+   "testo": "You unzip your sleeping bag, which is clipped to the wall. You drift toward the galley. Outside the window, Earth rolls by at 17,500 miles per hour. You will circle the planet about 16 times before the day ends.",
+   "q": "astronaut sleeping bag crew quarters",
+   "tag": [
+    "sleeping bag",
+    "crew quarters"
    ],
    "scritta": "17,500 MPH",
    "obbligo": [
@@ -27,278 +37,89 @@
    ]
   },
   {
-   "testo": "Imagine you are floating in that station right now. Your hair drifts up. Your coffee comes in a pouch with a straw. You drift past a window, and beyond the glass is a vacuum colder than any freezer you have ever opened.",
-   "q": "astronaut drinking pouch straw",
+   "testo": "The station orbits roughly 250 miles above Earth. That is about the distance from New York City to Washington, D.C., but straight up. At that height there is almost no air, so almost nothing carries heat away from you.",
+   "q": "space station orbit earth",
    "tag": [
-    "drinking",
-    "pouch",
-    "straw"
+    "station",
+    "orbit"
    ],
-   "scritta": "",
-   "obbligo": [
-    "astronaut"
-   ]
+   "scritta": "250 MILES",
+   "obbligo": []
   },
   {
-   "testo": "So here is the question. How do astronauts survive the cold of space without heaters? The surprising answer is that space is not really cold the way you think. And the real danger is almost the opposite of freezing.",
-   "q": "astronaut looking out window earth",
+   "testo": "Here is the first surprise. Space itself is not really cold in the way you imagine. Cold needs something to touch you and steal your warmth. In a vacuum, there is almost nothing to do the stealing.",
+   "q": "deep space stars vacuum",
    "tag": [
-    "window",
-    "cupola",
-    "view"
+    "stars",
+    "space"
    ],
    "scritta": "",
    "obbligo": []
   },
   {
-   "testo": "First, a confession. Space has no temperature in the way air does. Cold is really about air molecules bumping into your skin. In a vacuum, almost nothing bumps into you. So there is almost nothing to carry heat away.",
-   "q": "vacuum of space stars dark",
+   "testo": "Think of a thermos bottle. A vacuum between two walls keeps your coffee hot for hours. Space works the same way. A warm object in a vacuum cannot lose heat by touching air, because there is no air.",
+   "q": "vacuum chamber test",
    "tag": [
     "vacuum",
-    "stars",
-    "dark"
+    "chamber"
    ],
    "scritta": "",
    "obbligo": []
   },
   {
-   "testo": "On Earth, a winter wind steals your heat fast. That is convection and conduction. Your body hands warmth to the air, and the air carries it off. In space, those two thieves are almost completely missing. Only one remains.",
-   "q": "astronaut spacewalk tether",
-   "tag": [
-    "spacewalk",
-    "tether",
-    "suit"
-   ],
-   "scritta": "",
-   "obbligo": []
-  },
-  {
-   "testo": "That last thief is radiation. Your body glows in infrared light and slowly sends its heat out into the dark. It works, but it is slow. This is why a person in space does not freeze solid in seconds, like movies show.",
-   "q": "astronaut infrared thermal image",
+   "testo": "On Earth, heat escapes three ways. Conduction, through touch. Convection, through moving air. And radiation, through invisible infrared light. In orbit, the first two nearly vanish. Only radiation is left, and that changes everything.",
+   "q": "infrared thermal image",
    "tag": [
     "infrared",
-    "thermal",
-    "heat"
+    "thermal"
    ],
    "scritta": "",
    "obbligo": []
   },
   {
-   "testo": "Now flip it around. The sun in orbit is not filtered by air. Sunlight hits the station with about 1,360 watts on every square meter, measured by NASA. That is brutally strong. Metal skin in the sun heats up fast.",
-   "q": "sun shining on space station solar",
-   "tag": [
-    "sunlight",
-    "solar",
-    "panels"
-   ],
-   "scritta": "",
-   "obbligo": []
-  },
-  {
-   "testo": "And here is the twist. The station circles Earth about every 90 minutes. That means about 16 sunrises and 16 sunsets every single day. Light, dark, light, dark. Each trip swings the outside temperature by hundreds of degrees.",
-   "q": "sunrise from space station window",
-   "tag": [
-    "sunrise",
-    "orbital",
-    "horizon"
-   ],
-   "scritta": "16 SUNRISES",
-   "obbligo": []
-  },
-  {
-   "testo": "Picture the station like a roast in an oven that keeps switching on and off every 45 minutes. If nothing managed that swing, metal would flex, seals would crack, and equipment would fail. Something has to smooth it out.",
-   "q": "space station exterior truss",
-   "tag": [
-    "truss",
-    "exterior",
-    "structure"
-   ],
-   "scritta": "",
-   "obbligo": []
-  },
-  {
-   "testo": "The first answer is wrapped around the outside. Thermal blankets. Multiple thin layers of reflective film, like a super fancy emergency blanket from a first aid kit. Gold and silver colored sheets bounce heat away or keep it in.",
-   "q": "multi layer insulation thermal blanket",
-   "tag": [
-    "blanket",
-    "insulation",
-    "foil"
-   ],
-   "scritta": "",
-   "obbligo": []
-  },
-  {
-   "testo": "Why layers? Because in a vacuum, gaps between layers cannot carry heat by touch. Each reflective sheet blocks a little more radiation. Stack enough of them, and heat struggles to cross. A thin film becomes a powerful shield.",
-   "q": "satellite gold foil insulation",
-   "tag": [
-    "gold",
-    "foil",
-    "insulation"
-   ],
-   "scritta": "",
-   "obbligo": []
-  },
-  {
-   "testo": "That crinkly gold foil you see on satellites is not decoration. It is the thermos of space. Same idea as the double wall in your coffee flask, only built from many layers of film and a perfect vacuum.",
-   "q": "satellite gold foil close up",
-   "tag": [
-    "gold",
-    "foil",
-    "satellite"
-   ],
-   "scritta": "",
-   "obbligo": []
-  },
-  {
-   "testo": "The second answer is the paint. Surfaces on the station use special coatings and white or shiny finishes to reflect sunlight. White reflects more heat than black. You know this already. A white car stays cooler in a summer parking lot.",
-   "q": "space station radiators white panels",
-   "tag": [
-    "radiator",
-    "panels",
-    "white"
-   ],
-   "scritta": "",
-   "obbligo": []
-  },
-  {
-   "testo": "But the real hero is not a blanket. It is a cooling loop. The station has liquid ammonia flowing through pipes outside, and water loops inside. Together they act like a radiator and a plumbing system, moving heat where it is needed.",
-   "q": "space station radiator ammonia cooling",
-   "tag": [
-    "radiator",
-    "cooling",
-    "ammonia"
-   ],
-   "scritta": "",
-   "obbligo": []
-  },
-  {
-   "testo": "Here is the surprise. The station is not struggling to stay warm. It is struggling to stay cool. Inside, computers, lights, pumps, and seven crew members all create heat. Every bit of it must be thrown away into space.",
-   "q": "astronauts working laptop space station",
+   "testo": "So the real danger on the station is not freezing. It is the opposite. Every person aboard gives off roughly 100 watts of heat. Add computers, lights, and pumps, and the station wants to cook itself.",
+   "q": "space station interior computers",
    "tag": [
     "laptop",
-    "working",
-    "module"
-   ],
-   "scritta": "",
-   "obbligo": [
-    "astronaut"
-   ]
-  },
-  {
-   "testo": "Remember, there is no air outside to carry that heat off. On Earth, a fan can blow your computer cool. In a vacuum, heat has nowhere to go, unless you build a way. That is the job of those big white radiator panels.",
-   "q": "space station radiator panels close",
-   "tag": [
-    "radiator",
-    "panels",
-    "station"
-   ],
-   "scritta": "",
-   "obbligo": []
-  },
-  {
-   "testo": "Those radiators glow in infrared and send the extra heat out into space. The loop collects warmth from inside, carries it out, and lets it escape. It is a heater and an air conditioner in one, and it never rests.",
-   "q": "space station exterior radiators solar arrays",
-   "tag": [
-    "radiators",
-    "arrays",
-    "exterior"
-   ],
-   "scritta": "",
-   "obbligo": []
-  },
-  {
-   "testo": "Now think about that for a second. A crew of astronauts on the station can warm the place just by living there. A resting human gives off roughly 100 watts of heat. That is about like an old incandescent light bulb.",
-   "q": "astronauts group meal space station",
-   "tag": [
-    "crew",
-    "meal",
-    "table"
-   ],
-   "scritta": "100 WATTS",
-   "obbligo": []
-  },
-  {
-   "testo": "Add up everything on board, and the station produces tens of thousands of watts of heat. Electronics, motors, lights, people. It is less like a freezer and more like a crowded server room that must be constantly chilled.",
-   "q": "space station interior racks equipment",
-   "tag": [
-    "racks",
-    "equipment",
     "interior"
    ],
    "scritta": "",
    "obbligo": []
   },
   {
-   "testo": "Inside, the crew keeps the cabin around room temperature. NASA documents show the station is typically held in the low 70s degrees Fahrenheit. That is comfortable enough for a T-shirt and shorts, no jacket needed.",
-   "q": "astronaut wearing t-shirt shorts station",
+   "testo": "That is why the International Space Station does not mainly need heaters. It needs a giant cooling system. Pumps push liquid ammonia through loops outside the station, carrying heat away from the crew modules.",
+   "q": "space station radiator ammonia",
    "tag": [
-    "shorts",
-    "t-shirt",
-    "cabin"
-   ],
-   "scritta": "70°F",
-   "obbligo": []
-  },
-  {
-   "testo": "And the air matters, too. There is no wind in space, but fans are running all the time inside. Why? Because in weightlessness, warm air does not rise. Without gravity, hot air simply stays put around your body.",
-   "q": "astronaut floating air vent fan",
-   "tag": [
-    "fan",
-    "vent",
-    "airflow"
+    "radiator",
+    "cooling"
    ],
    "scritta": "",
    "obbligo": []
   },
   {
-   "testo": "On Earth, a candle flame pulls warm air up and fresh air in. That is convection, and gravity runs it. Take away gravity, and a bubble of stale, hot air can build around your face, so fans keep the air moving.",
-   "q": "space station ventilation fan module",
+   "testo": "Those radiators are the big flat panels you can see on the truss. They dump waste heat into space as infrared light. Your body heat, your laptop heat, your dinner heat, all of it leaves the station as glowing infrared.",
+   "q": "space station truss radiators",
    "tag": [
-    "ventilation",
-    "fan",
-    "module"
+    "radiator",
+    "truss"
    ],
    "scritta": "",
    "obbligo": []
   },
   {
-   "testo": "Now let us step outside, because here is where it gets dangerous. A spacewalk can last about 6 to 7 hours, based on NASA records. The astronaut is wearing a suit, and that suit is basically a personal spacecraft.",
-   "q": "spacewalk astronaut suit",
+   "testo": "Now imagine the sun. Every 90 minutes the station completes one lap around Earth. Roughly every 45 minutes, it swings from blazing daylight into total darkness. Sixteen sunrises and sixteen sunsets, every single day.",
+   "q": "sunrise from space station",
    "tag": [
-    "spacewalk",
-    "suit",
-    "eva"
+    "sunrise",
+    "orbit"
    ],
-   "scritta": "",
+   "scritta": "16 SUNRISES",
    "obbligo": []
   },
   {
-   "testo": "Inside the suit, an astronaut wears a garment threaded with thin tubes of water. It is called a liquid cooling and ventilation garment. Cool water flows past the skin and carries sweat and body heat away.",
-   "q": "liquid cooling garment astronaut tubes",
+   "testo": "In direct sunlight, the outside of the station can climb past 250 degrees Fahrenheit. In Earth's shadow, it can plunge toward minus 250. That swing is a brutal test for metal, wires, and seals.",
+   "q": "space station sunlight shadow",
    "tag": [
-    "cooling",
-    "garment",
-    "tubes"
-   ],
-   "scritta": "",
-   "obbligo": []
-  },
-  {
-   "testo": "Think of it as underwear made of a spider web of plumbing. Why is it needed? Because working in a bulky pressurized suit is hard labor. Muscles burn energy, and the body makes heat that has nowhere to go.",
-   "q": "astronaut suit training pool",
-   "tag": [
-    "suit",
-    "training",
-    "pool"
-   ],
-   "scritta": "",
-   "obbligo": []
-  },
-  {
-   "testo": "Outside the suit, the sun side can be scorching. The shadow side can be deadly cold. NASA describes the suit exposed to extremes that run from about minus 250 degrees to plus 250 degrees Fahrenheit.",
-   "q": "astronaut spacewalk sunlight shadow",
-   "tag": [
-    "spacewalk",
     "sunlight",
     "shadow"
    ],
@@ -306,233 +127,381 @@
    "obbligo": []
   },
   {
-   "testo": "So the suit has to be a fortress. Many layers of insulation, a reflective outer shell, and a sealed pressure bladder. Between the astronaut and the vacuum is a stack of fabric roughly the same count as a good winter coat.",
-   "q": "spacesuit layers construction",
+   "testo": "To survive it, the station wears a coat. Layers of thin, shiny insulation wrap its modules. It looks like crumpled gold foil. You have seen the same material in a marathon runner's emergency blanket.",
+   "q": "spacecraft thermal blanket insulation",
    "tag": [
-    "spacesuit",
-    "layers",
-    "fabric"
+    "insulation",
+    "blanket"
    ],
    "scritta": "",
    "obbligo": []
   },
   {
-   "testo": "Yet the coldest part of the body is often the same as on a ski slope. Fingers. Astronauts have said gloves are the hardest part of a spacewalk. Hands can grow cold or sore when touching shaded metal for long periods.",
-   "q": "astronaut glove hand spacewalk",
+   "testo": "These blankets are called multi-layer insulation. Many thin films are stacked with gaps between them. Each layer reflects heat back where it came from. In a vacuum, that simple trick works astonishingly well.",
+   "q": "multi-layer insulation spacecraft",
    "tag": [
-    "glove",
-    "hand",
-    "tool"
+    "insulation",
+    "layers"
    ],
    "scritta": "",
    "obbligo": []
   },
   {
-   "testo": "The gloves have small heaters built in. That is right, heaters, but just for fingertips. NASA has said that some suit gloves include heating to keep hands working when holding cold tools in the shade.",
-   "q": "spacesuit glove heater close up",
+   "testo": "Now put yourself on a spacewalk. You are sealed in a suit that weighs about 300 pounds on the ground, heavier than a grand piano keyboard cabinet. In orbit, it weighs nothing, but it still has mass.",
+   "q": "spacewalk suit astronaut",
    "tag": [
-    "glove",
-    "heater",
-    "fingers"
-   ],
-   "scritta": "",
-   "obbligo": []
-  },
-  {
-   "testo": "On a hot sun side, the suit does the opposite. It pushes heat out through a device called a sublimator. Water turns directly from ice into vapor in the vacuum, and that process carries heat away from the cooling loop.",
-   "q": "spacesuit backpack life support",
-   "tag": [
-    "backpack",
-    "life support",
+    "spacewalk",
     "suit"
    ],
    "scritta": "",
    "obbligo": []
   },
   {
-   "testo": "That detail is astonishing. The suit cools itself by letting water boil away into space. Crews have even carried the earlier Apollo-era version of this idea all the way to the Moon, where the heat was real.",
-   "q": "Apollo astronaut moonwalk",
+   "testo": "The suit is not a heater. It is a tiny spaceship shaped like a person. It holds oxygen, removes carbon dioxide, and keeps pressure around your body. And, above all, it controls your temperature.",
+   "q": "spacesuit helmet visor",
    "tag": [
-    "apollo",
-    "moon",
-    "lunar"
+    "helmet",
+    "visor"
    ],
    "scritta": "",
    "obbligo": []
   },
   {
-   "testo": "Speaking of the Moon, let us look at what Apollo crews faced. On the lunar surface, sunlit ground can reach about 250 degrees Fahrenheit, while shadowed areas drop far below zero. The suits had to handle that swing.",
-   "q": "Apollo moon surface astronaut",
+   "testo": "Under the hard outer shell, you wear a garment laced with thin plastic tubes. Cool water flows through them. It is called a liquid cooling and ventilation garment, and it looks like long underwear covered in spaghetti.",
+   "q": "liquid cooling garment astronaut",
    "tag": [
-    "moon",
-    "surface",
-    "apollo"
+    "cooling garment",
+    "tubes"
    ],
    "scritta": "",
    "obbligo": []
   },
   {
-   "testo": "Apollo suits used water cooling, too. Astronauts wore a garment with tubes under the suit, like the modern design. A spacecraft carried the water supply, and a sublimator dumped the heat into the vacuum of space.",
-   "q": "Apollo astronaut suit cooling",
+   "testo": "Why cooling, not heating? Because working hard in a sealed suit makes you hot. A spacewalk can last more than six hours. Your muscles generate heat, and without sweat evaporating freely, that heat has nowhere to go.",
+   "q": "astronaut spacewalk working",
    "tag": [
-    "apollo",
-    "suit",
-    "cooling"
+    "spacewalk",
+    "work"
    ],
    "scritta": "",
    "obbligo": []
   },
   {
-   "testo": "Now back to the station. What about the long nights? Crew members sleep in small sleeping compartments, with a bag fastened to the wall. They float in it. And yes, it can feel chilly, so some tuck into that bag fully.",
-   "q": "astronaut sleeping bag crew quarters",
+   "testo": "The water carries your heat to a backpack unit. There, a device called a sublimator lets ice turn straight into vapor in the vacuum. That process pulls heat away, and your suit gets cooled by space itself.",
+   "q": "spacesuit backpack life support",
    "tag": [
-    "sleeping bag",
-    "crew quarters",
-    "sleeping"
+    "backpack",
+    "life support"
    ],
    "scritta": "",
    "obbligo": []
   },
   {
-   "testo": "That bag is not about warmth from heaters. It is about holding you in place. Without gravity, your arms would drift out and bump into things. Zipping up keeps limbs close, and that keeps body heat close, too.",
-   "q": "astronaut sleeping floating bag",
+   "testo": "Still, some parts of you do get cold. Your fingers and toes are the weak spot. Astronauts have described cold hands during spacewalks, especially when gripping a cold handrail in the shade.",
+   "q": "astronaut gloves handrail",
    "tag": [
-    "sleeping",
-    "bag",
+    "gloves",
+    "handrail"
+   ],
+   "scritta": "",
+   "obbligo": []
+  },
+  {
+   "testo": "The gloves have small heaters built into the fingertips. Yes, heaters. So the title has a catch. Spacewalkers do use a little electrical warmth on their hands. But the main battle is controlling heat, not making it.",
+   "q": "spacesuit glove fingertips",
+   "tag": [
+    "glove",
+    "fingertips"
+   ],
+   "scritta": "",
+   "obbligo": []
+  },
+  {
+   "testo": "Outside the suit, the rules get strange. Touch a metal tool sitting in sunlight and it can be hot enough to damage a glove. Touch the same tool in shadow and it can be dangerously cold. Context is everything.",
+   "q": "astronaut tool spacewalk",
+   "tag": [
+    "tool",
+    "spacewalk"
+   ],
+   "scritta": "",
+   "obbligo": []
+  },
+  {
+   "testo": "So the suit is built in many layers. Inside, a comfortable liner. Then the cooling garment. Then a pressure bladder. Then restraint fabric. Then insulation. Then a tough outer layer. It is like a very advanced winter coat.",
+   "q": "spacesuit layers",
+   "tag": [
+    "spacesuit",
+    "layers"
+   ],
+   "scritta": "",
+   "obbligo": []
+  },
+  {
+   "testo": "The outer layer is white for a reason. White reflects sunlight. A dark suit would absorb heat and cook its owner. That is why you rarely see a dark spacesuit outside a spacecraft. White is nature's sunscreen.",
+   "q": "white spacesuit sunlight",
+   "tag": [
+    "white suit",
+    "sunlight"
+   ],
+   "scritta": "",
+   "obbligo": []
+  },
+  {
+   "testo": "Back inside the station, life is far more relaxed. Crews wear shorts and T-shirts most days. Imagine eating breakfast in a T-shirt while orbiting 250 miles above the planet. Not what most people picture.",
+   "q": "astronaut eating food space station",
+   "tag": [
+    "food",
+    "eating"
+   ],
+   "scritta": "",
+   "obbligo": []
+  },
+  {
+   "testo": "Breakfast might be rehydrated scrambled eggs and a tortilla. You squeeze hot water into a pouch. You wait a few minutes. Then you eat with a spoon, carefully, because a floating blob of egg is a real hazard.",
+   "q": "astronaut food pouch rehydrate",
+   "tag": [
+    "pouch",
+    "food"
+   ],
+   "scritta": "",
+   "obbligo": []
+  },
+  {
+   "testo": "Your own body is a heater. A person at rest gives off about 100 watts. That is the same as an old incandescent light bulb. Seven crew members make about 700 watts, enough to keep a small room warm.",
+   "q": "crew members space station group",
+   "tag": [
+    "crew",
+    "group"
+   ],
+   "scritta": "700 WATTS",
+   "obbligo": []
+  },
+  {
+   "testo": "On Earth, warm air rises. On the station, it does not. With no gravity, the air around you stays put. Your own warm breath can wrap around your face like a bubble. Fans must keep air moving constantly.",
+   "q": "astronaut floating air ventilation",
+   "tag": [
+    "ventilation",
     "floating"
    ],
    "scritta": "",
    "obbligo": []
   },
   {
-   "testo": "Compare that with a camping trip on Earth. You stay warm with a thick bag, a pad under you, and maybe a fire. The station skips all of it. The whole building is the heater, kept in balance by pumps and radiators.",
-   "q": "space station crew quarters interior",
+   "testo": "Without fans, a crew member sleeping in a quiet corner could breathe in her own carbon dioxide and wake up with a headache. So fans run all day and all night. That steady hum is the sound of the station.",
+   "q": "space station interior fan",
+   "tag": [
+    "fan",
+    "interior"
+   ],
+   "scritta": "",
+   "obbligo": []
+  },
+  {
+   "testo": "Now think of sleep. You slide into a bag tied to the wall. No pillow, no mattress, because there is no down to press against. You zip up, and the fabric keeps you from drifting into a vent or a wall.",
+   "q": "astronaut sleeping bag",
+   "tag": [
+    "sleeping",
+    "bag"
+   ],
+   "scritta": "",
+   "obbligo": []
+  },
+  {
+   "testo": "The cabin stays near room temperature. Crews can adjust it a bit, and different modules run slightly different. Astronauts have said the Russian side can feel a little different from the American side. Small details, but real ones.",
+   "q": "space station module interior crew",
+   "tag": [
+    "module",
+    "interior"
+   ],
+   "scritta": "",
+   "obbligo": []
+  },
+  {
+   "testo": "Compare that to a camping trip on Earth. At 20 degrees Fahrenheit, you pile on a down jacket, wool socks, and a heavy sleeping bag. Meanwhile, the station crew sleeps comfortably in shorts, just a thin bag away from a vacuum.",
+   "q": "astronaut crew quarters sleeping",
    "tag": [
     "crew quarters",
-    "interior",
     "sleeping"
    ],
    "scritta": "",
    "obbligo": []
   },
   {
-   "testo": "Here is a comparison you know. Your house has a thermostat and a furnace. The station has the same idea, but reversed. The thermostat tells the system how much heat to throw away, not how much to make.",
-   "q": "astronaut adjusting controls space station",
+   "testo": "Now go back to the Apollo era. Spacecraft heading to the Moon turned slowly, like a chicken on a rotisserie. NASA called it passive thermal control. The slow roll spread the sun's heat evenly across the whole ship.",
+   "q": "Apollo spacecraft rotating moon",
    "tag": [
-    "controls",
-    "panel",
-    "adjusting"
+    "apollo",
+    "spacecraft"
    ],
    "scritta": "",
    "obbligo": []
   },
   {
-   "testo": "The scale is huge. The station is about as long as a football field, including its end zones, roughly 357 feet across its main truss, according to NASA. That is a lot of metal soaking up and shedding heat.",
-   "q": "International Space Station full view",
+   "testo": "Without that slow spin, one side would bake while the other froze. Engineers did not invent a miracle machine. They used a slow, steady roll, about one turn every hour, to share the sunshine fairly.",
+   "q": "Apollo command module space",
    "tag": [
-    "station",
-    "solar arrays",
-    "truss"
-   ],
-   "scritta": "357 FEET",
-   "obbligo": []
-  },
-  {
-   "testo": "And it must survive that environment for years. Many parts have been in orbit since the first module launched on November 20, 1998. More than two decades of sun and shadow, and the thermal system keeps going.",
-   "q": "space station assembly modules orbit",
-   "tag": [
-    "assembly",
-    "modules",
-    "orbit"
+    "apollo",
+    "command module"
    ],
    "scritta": "",
    "obbligo": []
   },
   {
-   "testo": "Cold, though, is not a danger only to people. Fuel lines, batteries, and wires must stay above freezing, too. Small electric heaters do exist on spacecraft for parts like valves and thrusters, switched on only where needed.",
-   "q": "spacecraft thruster engineers testing",
+   "testo": "On the lunar surface, the numbers get more extreme. In daylight, the Moon's surface can reach about 250 degrees Fahrenheit. At night, it falls to roughly minus 280. Apollo astronauts walked only in the lunar day.",
+   "q": "Apollo astronaut moon surface",
    "tag": [
-    "thruster",
-    "engineers",
-    "testing"
+    "moon",
+    "apollo"
    ],
    "scritta": "",
    "obbligo": []
   },
   {
-   "testo": "So the title of this video is a little tricky. The station has no big furnace for the crew. But yes, small heaters exist in gloves and hardware. The main system is about moving and rejecting heat, not making more.",
-   "q": "engineer inspecting satellite thermal vacuum chamber",
+   "testo": "Apollo moonwalkers wore suits with cooling garments too. Water flowed through tubes against their skin. After hours of work in lunar dust and sunlight, the cooling water was the only thing keeping them comfortable.",
+   "q": "Apollo lunar rover astronaut",
    "tag": [
-    "thermal",
-    "vacuum chamber",
-    "testing"
+    "lunar rover",
+    "astronaut"
    ],
    "scritta": "",
    "obbligo": []
   },
   {
-   "testo": "Before launch, spacecraft are tested in giant vacuum chambers. Engineers bake them under lamps and chill them with liquid nitrogen, copying orbit. If anything cracks or sticks, they find it on the ground, not in space.",
-   "q": "thermal vacuum chamber test spacecraft",
+   "testo": "And then came Apollo 13. On April 13, 1970, an oxygen tank failed. The crew moved into the lunar module, a lifeboat built for two people, and shut down nearly everything to save power. The ship got cold.",
+   "q": "Apollo 13 lunar module",
    "tag": [
-    "chamber",
-    "vacuum",
+    "apollo 13",
+    "lunar module"
+   ],
+   "scritta": "",
+   "obbligo": []
+  },
+  {
+   "testo": "Crew accounts say the temperature dropped to near freezing, around 38 degrees Fahrenheit in places. Water condensed on the walls. They wore whatever they had and tried to sleep. That is what a spacecraft does when the heat is gone.",
+   "q": "Apollo 13 crew return",
+   "tag": [
+    "apollo 13",
+    "crew"
+   ],
+   "scritta": "38°F",
+   "obbligo": []
+  },
+  {
+   "testo": "They had shut off power on purpose. Every watt mattered, and electronics make heat. With almost everything off, the cabin simply cooled down. It was a rare case where the crew truly needed a warmer room.",
+   "q": "Apollo 13 mission control",
+   "tag": [
+    "mission control",
+    "apollo 13"
+   ],
+   "scritta": "",
+   "obbligo": []
+  },
+  {
+   "testo": "So what about spacecraft that do need warmth? Satellites and rovers carry small electric heaters, plus insulation. Some deep space probes use a tiny amount of radioactive material that gives off steady warmth for years.",
+   "q": "spacecraft satellite heater test",
+   "tag": [
+    "satellite",
     "test"
    ],
    "scritta": "",
    "obbligo": []
   },
   {
-   "testo": "Now here is the most surprising detail. In space, the astronaut's biggest temperature problem is usually getting rid of heat. Your body is a tiny furnace, and in a vacuum, it has to shout its warmth into the dark.",
-   "q": "astronaut portrait helmet visor reflection",
+   "testo": "On the station, thermal engineers work around the clock. Mission control in Houston watches temperature sensors across the whole station. If a pump slows or a loop leaks, they know within seconds, and the crew can respond.",
+   "q": "mission control Houston flight controllers",
    "tag": [
-    "helmet",
-    "visor",
-    "reflection"
+    "mission control",
+    "controllers"
    ],
    "scritta": "",
    "obbligo": []
   },
   {
-   "testo": "So when people ask how astronauts survive the cold without heaters, the real answer is wonderfully backward. They survive by staying cool, using blankets, mirrors, water loops, and radiators. Space is not freezing them. It is the hardest place to cool down.",
-   "q": "astronaut floating smiling station",
+   "testo": "One real emergency shows how fragile it is. On July 31, 2013, an astronaut's helmet filled with water during a spacewalk, in part because of a cooling system problem. The walk ended early, and everyone made it back inside.",
+   "q": "spacewalk helmet water",
    "tag": [
-    "smiling",
-    "floating",
-    "crew"
+    "helmet",
+    "spacewalk"
    ],
    "scritta": "",
    "obbligo": []
+  },
+  {
+   "testo": "That day proved that cooling is life support. The suit's water loop is not a luxury. When something in that loop goes wrong, a six hour job can become an emergency, with the crew racing back to the airlock.",
+   "q": "astronaut airlock return",
+   "tag": [
+    "airlock",
+    "astronaut"
+   ],
+   "scritta": "",
+   "obbligo": []
+  },
+  {
+   "testo": "Compare it to your home. Your furnace burns fuel to add heat. The station does the reverse. It spends its whole life getting rid of heat. Your house fights the cold. The station fights the warmth.",
+   "q": "space station earth view",
+   "tag": [
+    "station",
+    "earth"
+   ],
+   "scritta": "",
+   "obbligo": []
+  },
+  {
+   "testo": "So how do astronauts survive the cold of space without heaters? Mostly, they do not fight cold at all. They fight heat. Insulation, white coatings, water loops, and giant radiators keep everything balanced.",
+   "q": "astronauts working station",
+   "tag": [
+    "astronauts",
+    "station"
+   ],
+   "scritta": "",
+   "obbligo": [
+    "astronaut"
+   ]
+  },
+  {
+   "testo": "And here is the most surprising part. The warmest object in that frozen darkness is you. Your body, glowing in infrared at about 100 watts, is the heater. The whole station is just carefully managing your warmth.",
+   "q": "astronaut portrait space station",
+   "tag": [
+    "astronaut",
+    "portrait"
+   ],
+   "scritta": "",
+   "obbligo": [
+    "astronaut"
+   ]
   }
  ],
- "descrizione": "How do astronauts survive the cold of space without heaters? The answer is surprising. Space is a vacuum, so heat escapes slowly, and the real challenge for the International Space Station is getting rid of extra heat. In this video you will float inside the station at 6 AM, learn how thermal blankets, white radiator panels, ammonia loops, and water-cooled spacesuit garments keep crews alive, and see why a spacewalk can swing between -250°F and +250°F.\n\nWe explain how the station circles Earth at 17,500 mph and sees about 16 sunrises a day, why warm air does not rise in weightlessness, and how Apollo suits handled the Moon. Every fact comes from documented NASA and ESA sources, and we say so when something is uncertain.\n\nSubscribe to Orbital Days for daily answers about life in space, from sleeping and eating to spacewalks and landings.\n\n#astronauts #spacestation #nasa #spacefacts #orbitaldays",
+ "descrizione": "How do astronauts survive the freezing cold of space without heaters? The answer surprises almost everyone. In this Orbital Days documentary, we float inside the International Space Station and step outside on a spacewalk to explore temperatures swinging from -250°F to +250°F.\n\nYou will learn why space is not cold in the way you think, how the station sheds heat with ammonia loops and giant radiators, how spacesuits use cooling water instead of heaters, and how Apollo crews handled the extremes, including the cold cabin of Apollo 13.\n\nAll facts come from NASA and astronaut accounts. Subscribe to Orbital Days for more questions about daily life in orbit.\n\n#astronauts #space #ISS #NASA #spacewalk #orbitaldays",
  "tag": [
   "astronauts",
-  "space station",
-  "how astronauts stay warm",
-  "cold of space",
+  "space",
+  "how do astronauts survive cold",
+  "space temperature",
   "International Space Station",
   "ISS",
   "NASA",
   "spacewalk",
   "spacesuit",
+  "space cold",
+  "space heat",
   "thermal control",
-  "space temperature",
   "life in space",
   "astronaut life",
-  "space facts",
   "space documentary",
-  "Orbital Days",
+  "Apollo 13",
   "vacuum of space",
-  "radiator",
-  "thermal blanket",
+  "space station cooling",
+  "ammonia cooling loop",
   "liquid cooling garment",
-  "Apollo",
-  "how astronauts survive",
-  "space science",
-  "weightlessness",
-  "astronaut sleeping",
-  "space cold"
+  "space facts",
+  "orbit",
+  "Orbital Days",
+  "space explained",
+  "astronaut sleep",
+  "how spacesuits work",
+  "space radiators",
+  "Apollo missions"
  ],
- "testo_copertina": "NO HEATERS?",
- "copertina_prompt": "A fictional astronaut in close-up inside a space station module, wide-eyed with shocked disbelief, frost-blue light from a window on one side of the face and warm amber cabin light on the other."
+ "testo_copertina": "-250°F",
+ "copertina_prompt": "A fictional astronaut in close-up inside a white spacesuit helmet, eyes wide with shock, frost glinting on the visor, harsh golden sunlight on one side of the face and deep blue shadow on the other, Earth glowing behind."
 }
