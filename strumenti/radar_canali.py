@@ -63,6 +63,11 @@ for cid in P.get('canali') or []:
     for v in vids:
         v['_views'] = int(v['statistics'].get('viewCount') or 0); v['_dur'] = durata(v['contentDetails'].get('duration'))
     lunghi = [v for v in vids if v['_dur'] > 180]
+    import datetime as _dt
+    oggi = _dt.datetime.now(_dt.timezone.utc)
+    json.dump([{'id': v['id'], 'titolo': v['snippet']['title'], 'views': v['_views'], 'min': round(v['_dur'] / 60, 1), 'data': v['snippet']['publishedAt'][:10],
+                'views_giorno': round(v['_views'] / max(1, (oggi - _dt.datetime.fromisoformat(v['snippet']['publishedAt'].replace('Z', '+00:00'))).days), 1)}
+               for v in sorted(vids, key=lambda v: v['snippet']['publishedAt'])], open(os.path.join(CART, slug + '_video.json'), 'w'), ensure_ascii=False, indent=0)
     top = sorted(lunghi or vids, key=lambda v: -v['_views'])
     date = sorted(v['snippet']['publishedAt'][:10] for v in vids)
     s = ch['statistics']
