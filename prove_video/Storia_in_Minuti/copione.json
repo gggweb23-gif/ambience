@@ -1,709 +1,782 @@
 {
- "titolo": "L'INTERA Storia di Las Vegas in 13 Minuti",
- "titolo_mappa": "STATI UNITI",
- "paese_mappa": "United States of America",
+ "titolo": "L'INTERA Storia della Cina in 20 Minuti",
+ "titolo_mappa": "CINA",
+ "paese_mappa": "China",
  "riserva_pexels": [
-  "Mojave desert landscape Nevada",
-  "Nevada desert road sunset",
-  "Red Rock Canyon Nevada",
-  "Hoover Dam aerial",
-  "Lake Mead Nevada",
-  "Las Vegas Strip night lights",
-  "desert mountains Nevada sky",
-  "Colorado River canyon Arizona"
+  "Great Wall of China mountains",
+  "Yellow River China valley",
+  "Li River Guilin karst mountains",
+  "Forbidden City Beijing roof",
+  "Chinese temple pagoda mist",
+  "Gobi desert dunes China",
+  "Yangtze river gorge China",
+  "Chinese lanterns red night"
  ],
- "luoghi_paese": "las vegas, nevada, mojave, mojave desert, american, usa, united states, strip, fremont street, hoover dam, lake mead, red rock canyon, colorado river, boulder city, henderson, utah, california, sahara, flamingo, luxor, venetian, sphere",
- "date": "1829 – 2026",
- "texture": "giornale",
- "font_carte": "moderno",
+ "luoghi_paese": "china chinese beijing xian shanghai guilin chengdu luoyang nanjing yellow river yangtze great wall forbidden city pagoda gobi tibet xinjiang guangxi yunnan huangshan lijiang silk road terracotta shaanxi henan",
+ "date": "2100 a.C. – 2026",
+ "texture": "washi",
+ "font_carte": "classico",
  "fondi_carte": [],
  "colori_carte": [
-  "#6b1e1e",
+  "#8b1a1a",
   "#1d3557"
  ],
  "sfondi": [],
  "scene": [
   {
-   "capitolo": "Il deserto",
-   "testo": "Se cent'anni fa fossi stato sulla Strip di Las Vegas, non avresti visto nemmeno un'insegna al neon, né sentito una slot machine. Solo un deserto vuoto e silenzioso, con temperature oltre i 43 gradi capaci di ucciderti in poche ore. Oggi, dallo spazio, è il punto più luminoso della Terra. Com'è possibile?",
-   "anno": 1925,
+   "capitolo": "Le origini",
+   "testo": "La Cina è morta più volte di qualsiasi altro paese al mondo, eppure si è sempre ricucita da sola in oltre 4.000 anni. Come ha fatto a rifiutarsi di restare morta? Tutto comincia con un eroe, Yu il Grande.",
+   "anno": -2100,
    "visivi": [
     {
      "tipo": "mappa",
-     "frase": "Se cent'anni fa"
+     "frase": "La Cina è morta"
     },
     {
      "tipo": "pexels_video",
-     "frase": "Solo un deserto",
-     "q": "Mojave desert Nevada empty landscape",
-     "suono": "desert wind howling"
+     "frase": "Come ha fatto",
+     "q": "Yellow River China valley",
+     "suono": "river flowing, distant wind"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "oltre i 43 gradi",
-     "q": "Nevada desert heat shimmer road",
-     "didascalia": "Oltre 43 gradi"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "Oggi, dallo spazio",
-     "q": "Las Vegas Strip night aerial lights"
+     "frase": "Yu il Grande",
+     "q": "Yellow River flood China plain"
     }
    ]
   },
   {
-   "testo": "Non fu un caso. Fu una miscela di lavoratori disperati, gangster pericolosi, bombe atomiche e della più grande scommessa della storia. All'inizio dell'Ottocento questa zona era un mistero che tutti evitavano, perché troppo arida per sopravvivere.",
+   "testo": "Yu passò 13 anni a domare le devastanti piene del Fiume Giallo. Il popolo lo fece primo re e nacque la leggendaria dinastia Xia. Poi gli archeologi dimostrarono che esisteva davvero anche la dinastia Shang, guerrieri feroci dell'età del bronzo.",
+   "anno": -2100,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Yu passò 13 anni",
+     "q": "Yellow River rapids China",
+     "didascalia": "13 anni contro le piene"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Il popolo lo fece",
+     "q": "ancient Chinese bronze vessel museum"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Poi gli archeologi",
+     "q": "ancient ruins excavation China"
+    }
+   ]
+  },
+  {
+   "capitolo": "Shang e Zhou",
+   "testo": "Gli Shang dovevano prendere decisioni di vita o di morte senza conoscere il futuro. La loro soluzione fu strana: chiedere consiglio agli antenati morti con le ossa oracolari. Un sacerdote incideva domande su ossa di bue o gusci di tartaruga.",
+   "anno": -1200,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "Gli Shang dovevano",
+     "q": "ancient Chinese oracle bone inscription"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "chiedere consiglio agli antenati",
+     "q": "burning fire embers dark"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Un sacerdote incideva",
+     "q": "turtle shell ancient artifact"
+    }
+   ]
+  },
+  {
+   "testo": "I re leggevano le crepe dei gusci bruciati come messaggi degli spiriti, e quei simboli diventarono la più antica scrittura cinese mai scoperta. I caratteri usati oggi da miliardi di persone nascono da domande incise oltre 3.000 anni fa.",
+   "anno": -1200,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "I re leggevano",
+     "q": "crackling fire close up",
+     "suono": "crackling fire"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "la più antica scrittura",
+     "q": "Chinese calligraphy characters ink paper"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "I caratteri usati oggi",
+     "q": "Chinese calligraphy brush ink",
+     "didascalia": "3.000 anni fa"
+    }
+   ]
+  },
+  {
+   "testo": "Quando gli Zhou sconfissero gli arroganti re Shang, ebbero un problema di legittimità. Inventarono il mandato del cielo: il cielo giudica i sovrani dalla morale e manda terremoti e inondazioni come avvertimento.",
+   "anno": -1046,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Quando gli Zhou",
+     "q": "stormy sky clouds China mountains"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Inventarono il mandato",
+     "q": "Temple of Heaven Beijing"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "manda terremoti",
+     "q": "river flood muddy water China",
+     "suono": "thunder rumbling"
+    }
+   ]
+  },
+  {
+   "testo": "Per 3.000 anni la storia cinese ripeté lo stesso ciclo: le dinastie salivano, si corrompevano, perdevano il favore del cielo e cadevano per rivolta. Ma il mandato era una trappola: chiunque avesse un esercito poteva dire che il cielo aveva scelto lui.",
+   "anno": -770,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "Per 3.000 anni",
+     "q": "ancient Chinese dynasty palace ruins"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "le dinastie salivano",
+     "q": "Forbidden City roof tiles Beijing"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "chiunque avesse un esercito",
+     "q": "ancient bronze sword museum China"
+    }
+   ]
+  },
+  {
+   "capitolo": "Il primo imperatore",
+   "testo": "Il caos portò a 250 anni di guerra civile. Nel periodo degli Stati Combattenti milioni di contadini combatterono con balestre di bronzo in un bagno di sangue infinito. Confucio insegnava che la pace richiede rispetto e dovere, ma i re lo ignoravano.",
+   "anno": -475,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Il caos portò",
+     "q": "misty mountains ancient China landscape"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "milioni di contadini",
+     "q": "ancient Chinese crossbow bronze"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Confucio insegnava",
+     "q": "Confucius temple Qufu"
+    }
+   ]
+  },
+  {
+   "testo": "Lo stato di Qin scelse il legalismo, un sistema di paura e leggi brutali. Nel 221 a.C. il suo re spietato unificò la Cina e divenne Qin Shi Huang, il primo imperatore. Impose la stessa scrittura, le stesse monete, le stesse misure e perfino la stessa larghezza delle ruote dei carri.",
+   "anno": -221,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Lo stato di Qin",
+     "q": "Great Wall of China mountains"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Nel 221 a.C.",
+     "q": "ancient Chinese coins bronze",
+     "didascalia": "221 a.C."
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Qin Shi Huang",
+     "q": "terracotta army Xian"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Impose la stessa scrittura",
+     "q": "ancient Chinese bamboo scrolls"
+    }
+   ]
+  },
+  {
+   "testo": "Contro i predoni del nord costrinse centinaia di migliaia di operai a collegare le vecchie mura, ponendo le basi della Grande Muraglia. Quando gli studiosi lo criticarono, bruciò migliaia di libri e, si dice, seppellì vivi centinaia di sapienti.",
+   "anno": -213,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Contro i predoni",
+     "q": "Great Wall Badaling ridge",
+     "suono": "wind over mountains"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Grande Muraglia",
+     "q": "Great Wall of China watchtower"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "bruciò migliaia di libri",
+     "q": "burning scrolls fire flames"
+    }
+   ]
+  },
+  {
+   "testo": "Ossessionato dal sconfiggere la morte, prendeva ogni giorno pillole di mercurio che i medici dicevano garantissero l'immortalità. Il veleno gli distrusse cervello e organi e morì tra atroci sofferenze a 49 anni.",
+   "anno": -210,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "Ossessionato dal sconfiggere",
+     "q": "liquid mercury silver close up"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Il veleno gli distrusse",
+     "q": "incense smoke dark room"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "morì tra atroci",
+     "q": "ancient Chinese palace hall empty",
+     "didascalia": "Morì a 49 anni"
+    }
+   ]
+  },
+  {
+   "testo": "Non potendo vivere per sempre, costruì un palazzo sotterraneo con 8.000 soldati di terracotta a grandezza naturale per regnare nell'aldilà. La sua tomba, con fiumi di mercurio liquido, resta sigillata perché troppo tossica da aprire.",
+   "anno": -210,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Non potendo vivere",
+     "q": "terracotta warriors pit Xian"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "8.000 soldati",
+     "q": "terracotta army statues rows",
+     "didascalia": "8.000 soldati di terracotta"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "La sua tomba",
+     "q": "burial mound hill China"
+    }
+   ]
+  },
+  {
+   "capitolo": "Gli Han",
+   "testo": "La sua dinastia crollò in 15 anni, travolta dalle rivolte contadine, e fu sostituita dagli Han, fondati da un funzionario di villaggio, Liu Bang. Gli Han sostituirono le leggi crudeli con i dolci insegnamenti di Confucio: un'età dell'oro tale che i cinesi si chiamano ancora Han.",
+   "anno": -206,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "La sua dinastia crollò",
+     "q": "ancient Chinese temple stone carving"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Liu Bang",
+     "q": "rice fields village China"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "insegnamenti di Confucio",
+     "q": "Chinese bamboo books ancient"
+    }
+   ]
+  },
+  {
+   "testo": "La grande ricchezza era la seta: Roma pagava montagne d'oro per una sola veste, e i mercanti la portavano lungo la pericolosa Via della Seta. Contrabbandare uova di baco da seta significava la morte. Gli Han inventarono anche la carta.",
+   "anno": -130,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "La grande ricchezza",
+     "q": "silk fabric flowing colorful"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Via della Seta",
+     "q": "Gobi desert dunes China",
+     "suono": "desert wind howling"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "uova di baco",
+     "q": "silkworm cocoons close up"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "inventarono anche la carta",
+     "q": "handmade paper making traditional"
+    }
+   ]
+  },
+  {
+   "testo": "Gli Han crollarono nell'epoca dei Tre Regni, e la popolazione precipitò da oltre 50 milioni a appena 16 milioni.",
+   "anno": 220,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Gli Han crollarono",
+     "q": "abandoned ruins misty mountains China",
+     "didascalia": "Da 50 a 16 milioni"
+    }
+   ]
+  },
+  {
+   "capitolo": "I Tang",
+   "testo": "Nel 618 nacque la dinastia Tang, che trasformò la Cina nella superpotenza più ricca del mondo, con la capitale Chang'an più grande città della Terra. Wu Zetian, da concubina di basso rango, divenne l'unica imperatrice della Cina e governò con talento per decenni.",
+   "anno": 618,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "Nel 618 nacque",
+     "q": "Xian city wall ancient"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Chang'an più grande",
+     "q": "Big Wild Goose Pagoda Xian"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Wu Zetian",
+     "q": "Longmen Grottoes Buddha Luoyang"
+    }
+   ]
+  },
+  {
+   "testo": "Riformò il governo e premiò il talento più della nascita nobile. Nel 755 il generale di frontiera An Lushan scatenò una guerra civile devastante che distrusse l'agricoltura e uccise decine di milioni di persone. I Tang sopravvissero, ma l'età dell'oro era finita.",
+   "anno": 755,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Riformò il governo",
+     "q": "ancient Chinese palace hall interior"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Nel 755",
+     "q": "burning field smoke dark sky",
+     "didascalia": "755: guerra di An Lushan"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "I Tang sopravvissero",
+     "q": "sunset over ancient pagoda China"
+    }
+   ]
+  },
+  {
+   "capitolo": "I Song",
+   "testo": "Nel 960 arrivarono i Song, che misero al comando funzionari letterati invece di generali. Furono forse i più brillanti inventori della storia, secoli prima dell'Europa: la stampa a caratteri mobili, la prima economia basata sulla carta moneta.",
+   "anno": 960,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "Nel 960 arrivarono",
+     "q": "Chinese scholar garden Suzhou"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "la stampa a caratteri",
+     "q": "movable type printing letterpress"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "carta moneta",
+     "q": "old Chinese paper money banknote"
+    }
+   ]
+  },
+  {
+   "testo": "Crearono la bussola magnetica, che permise alle navi di attraversare gli oceani. E gli alchimisti cinesi inventarono per caso la polvere da sparo, mentre preparavano una pozione di eterna vita con zolfo, carbone e salnitro.",
+   "anno": 1000,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "Crearono la bussola",
+     "q": "antique compass brass close up"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "gli alchimisti cinesi",
+     "q": "sparks fire powder flame",
+     "suono": "fireworks crackling"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "zolfo, carbone",
+     "q": "sulfur yellow crystals rock"
+    }
+   ]
+  },
+  {
+   "capitolo": "I Mongoli",
+   "testo": "I Mongoli di Gengis Khan e Kublai Khan conquistarono la Cina nel 1279: per la prima volta stranieri governavano l'intero paese. Kublai costruì Pechino e fondò la dinastia Yuan, ma trattò i cinesi come cittadini di seconda classe.",
+   "anno": 1279,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "I Mongoli di Gengis",
+     "q": "Mongolian steppe grassland wide"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "nel 1279",
+     "q": "Beijing ancient observatory",
+     "didascalia": "1279: i Mongoli governano la Cina"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Kublai costruì Pechino",
+     "q": "Beijing hutong old rooftops"
+    }
+   ]
+  },
+  {
+   "capitolo": "I Ming",
+   "testo": "Un mendicante contadino, Zhu Yuanzhang, divenne un genio militare, radunò centinaia di migliaia di contadini furiosi e cacciò i Mongoli. Nel 1368 si fece imperatore e fondò la dinastia Ming per mostrare il ritorno della grandezza cinese.",
+   "anno": 1368,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "Un mendicante contadino",
+     "q": "Nanjing city wall Ming"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "cacciò i Mongoli",
+     "q": "Great Wall Mutianyu green mountains"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Nel 1368",
+     "q": "Ming dynasty tombs Beijing",
+     "didascalia": "1368: nasce la dinastia Ming"
+    }
+   ]
+  },
+  {
+   "testo": "I Ming ricostruirono la Grande Muraglia in pietra e mattoni rossi e innalzarono la Città Proibita a Pechino. Costruirono una flotta immensa di oltre 250 navi del tesoro, comandata dall'ammiraglio Zheng He, che arrivò in Africa e commerciò con 30 nazioni.",
+   "anno": 1405,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "I Ming ricostruirono",
+     "q": "Great Wall stone bricks Jinshanling"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "la Città Proibita",
+     "q": "Forbidden City Beijing red walls"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "flotta immensa",
+     "q": "wooden ship sails ocean waves",
+     "suono": "wooden ship creaking, waves"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "commerciò con 30 nazioni",
+     "q": "old nautical map antique",
+     "didascalia": "250 navi, 30 nazioni"
+    }
+   ]
+  },
+  {
+   "testo": "Al culmine del dominio, un nuovo imperatore decise che gli oceani erano uno spreco: smantellò la flotta e bruciò le carte nautiche. Mentre Colombo si preparava a navigare nel mondo, la Cina chiuse le porte.",
+   "anno": 1433,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Al culmine del dominio",
+     "q": "stormy ocean waves dark sky"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "bruciò le carte",
+     "q": "burning old map paper"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "la Cina chiuse",
+     "q": "closed wooden gate ancient temple"
+    }
+   ]
+  },
+  {
+   "capitolo": "I Qing",
+   "testo": "I Ming decaddero tra funzionari corrotti e carestie, e nel 1644 i Manciù invasero la Cina e fondarono la dinastia Qing. Costrinsero gli uomini cinesi a rasarsi la testa e portare lunghe trecce, pena la morte. I Qing estesero i confini fino a Tibet, Mongolia e Xinjiang.",
+   "anno": 1644,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "I Ming decaddero",
+     "q": "abandoned fields drought cracked earth"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "nel 1644",
+     "q": "Shenyang imperial palace roof",
+     "didascalia": "1644: nasce la dinastia Qing"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "fino a Tibet",
+     "q": "Potala Palace Lhasa Tibet"
+    }
+   ]
+  },
+  {
+   "capitolo": "Le guerre dell'oppio",
+   "testo": "Mentre l'Europa viveva la Rivoluzione Industriale, la Gran Bretagna arrivò chiedendo tè, porcellana e seta. I Qing non compravano merci europee e volevano solo argento, svuotando le riserve britanniche. La Compagnia delle Indie introdusse allora l'oppio di contrabbando, drogando milioni di cinesi.",
    "anno": 1800,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "Non fu un caso",
-     "q": "Las Vegas Strip neon signs night"
+     "frase": "Mentre l'Europa",
+     "q": "tea plantation hills China"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "bombe atomiche",
-     "q": "Nevada desert dry cracked earth"
+     "frase": "porcellana e seta",
+     "q": "Chinese porcelain vase antique"
     },
     {
-     "tipo": "pexels_video",
-     "frase": "All'inizio dell'Ottocento",
-     "q": "Mojave desert dunes wind"
+     "tipo": "pexels_foto",
+     "frase": "l'oppio di contrabbando",
+     "q": "poppy flowers field red"
     }
    ]
   },
   {
-   "capitolo": "L'oasi",
-   "testo": "Nel 1829 un esploratore messicano, Rafael Rivera, scoprì una valle nascosta con sorgenti sotterranee ed erba verde in mezzo al deserto marrone. La chiamò Las Vegas, che in spagnolo significa le praterie. Per settant'anni restò una minuscola oasi dove i viaggiatori riposavano i cavalli.",
-   "anno": 1829,
+   "testo": "Quando la Cina distrusse l'oppio britannico, la Gran Bretagna attaccò con navi moderne, vinse le Guerre dell'Oppio e impose trattati umilianti. Poi un uomo delirante, Hong Xiuquan, lanciò la ribellione dei Taiping, la guerra civile più mortale della storia: da 20 a 30 milioni di morti in 14 anni.",
+   "anno": 1850,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "Nel 1829 un esploratore",
-     "q": "Nevada desert canyon exploration landscape",
-     "didascalia": "1829"
+     "frase": "Quando la Cina distrusse",
+     "q": "steamship harbor smoke sea",
+     "suono": "cannon fire distant"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "sorgenti sotterranee",
-     "q": "desert spring water green grass Nevada"
+     "frase": "Hong Xiuquan",
+     "q": "Nanjing Taiping heavenly kingdom ruins"
     },
     {
      "tipo": "pexels_video",
-     "frase": "La chiamò Las Vegas",
-     "q": "Nevada green meadow desert valley"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "minuscola oasi",
-     "q": "desert oasis palm trees Mojave"
+     "frase": "da 20 a 30 milioni",
+     "q": "smoke over ruins dark sky",
+     "didascalia": "20-30 milioni di morti"
     }
    ]
   },
   {
-   "testo": "Negli anni Cinquanta dell'Ottocento i coloni mormoni provarono a costruirci un forte, ma lo abbandonarono: il deserto era troppo duro. Las Vegas sembrava destinata a restare una nota a margine, una semplice stazione di sosta.",
-   "anno": 1855,
+   "capitolo": "Il Novecento",
+   "testo": "Indebolita, la dinastia Qing crollò nel 1912, ponendo fine a 2.000 anni di impero quando un imperatore di sei anni fu costretto ad abdicare. La Cina precipitò nel caos dei signori della guerra, poi il Giappone invase con atrocità brutali durante la Seconda guerra mondiale.",
+   "anno": 1912,
    "visivi": [
     {
      "tipo": "pexels_foto",
-     "frase": "i coloni mormoni",
-     "q": "old adobe fort ruins Nevada desert"
+     "frase": "Indebolita, la dinastia",
+     "q": "Forbidden City throne hall empty"
     },
     {
      "tipo": "pexels_video",
-     "frase": "ma lo abbandonarono",
-     "q": "abandoned desert ruins wind dust"
+     "frase": "La Cina precipitò",
+     "q": "ruined buildings smoke fog"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "una semplice stazione",
-     "q": "old wooden wagon wheel desert"
+     "frase": "il Giappone invase",
+     "q": "old war memorial Nanjing",
+     "didascalia": "1912: fine dell'impero"
     }
    ]
   },
   {
-   "capitolo": "La ferrovia",
-   "testo": "Nel 1905 una compagnia ferroviaria, che costruiva la linea tra Salt Lake City e Los Angeles, aveva bisogno di un posto dove i treni a vapore potessero rifornirsi d'acqua. Il 15 maggio 1905 mise all'asta 44 ettari di terreno e fondò ufficialmente la città.",
-   "anno": 1905,
+   "testo": "Due gruppi rivali lottarono per il potere: i Nazionalisti, che volevano una repubblica all'occidentale, e i Comunisti di Mao Zedong. Nel 1949 vinse Mao e proclamò la Repubblica Popolare Cinese, dicendo che il popolo cinese finalmente si era alzato in piedi.",
+   "anno": 1949,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "Nel 1905 una compagnia",
-     "q": "steam locomotive railroad desert vintage",
-     "didascalia": "15 maggio 1905"
+     "frase": "Due gruppi rivali",
+     "q": "red flag waving sky"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "i treni a vapore",
-     "q": "old railway tracks desert sunset"
+     "frase": "Nel 1949 vinse Mao",
+     "q": "Tiananmen Gate Beijing",
+     "didascalia": "1949: nasce la Repubblica Popolare"
     },
     {
      "tipo": "pexels_video",
-     "frase": "mise all'asta 44 ettari",
-     "q": "Nevada desert flat land horizon"
+     "frase": "il popolo cinese",
+     "q": "Tiananmen Square flag Beijing"
     }
    ]
   },
   {
-   "testo": "La prima Las Vegas era una città rude del Far West, fatta di fango, polvere ed edifici di legno, con i saloon di Fremont Street al centro di tutto.",
-   "anno": 1910,
+   "capitolo": "Mao e Deng",
+   "testo": "Mao unificò il paese, ma le sue politiche radicali causarono sofferenze indicibili. Con il Grande Balzo in Avanti ordinò ai contadini di fondere gli attrezzi in fornaci nei cortili, provocando la più grave carestia della storia: tra 20 e 45 milioni di morti.",
+   "anno": 1958,
    "visivi": [
     {
      "tipo": "pexels_foto",
-     "frase": "La prima Las Vegas",
-     "q": "old western town wooden buildings dust"
+     "frase": "Mao unificò il paese",
+     "q": "abandoned rural village China"
     },
     {
      "tipo": "pexels_video",
-     "frase": "di fango, polvere",
-     "q": "dusty dirt road western desert"
+     "frase": "fondere gli attrezzi",
+     "q": "molten metal furnace glowing",
+     "suono": "furnace roaring"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "i saloon di Fremont Street",
-     "q": "vintage saloon doors wooden western"
+     "frase": "la più grave carestia",
+     "q": "barren dry field China",
+     "didascalia": "20-45 milioni di morti"
     }
    ]
   },
   {
-   "capitolo": "La diga",
-   "testo": "La Grande Depressione devastò l'America nel 1929, ma Las Vegas ebbe una fortuna incredibile: il governo decise di costruire la diga di Hoover a soli 48 chilometri di distanza. Migliaia di operai disperati arrivarono da tutto il paese.",
-   "anno": 1929,
+   "testo": "Poi la Rivoluzione Culturale scatenò le Guardie Rosse a distruggere templi, bruciare libri e perseguitare chi pensava in modo indipendente. Quando Mao morì nel 1976, la Cina era esausta, a pezzi e poverissima.",
+   "anno": 1966,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "La Grande Depressione",
-     "q": "vintage black white abandoned farm dust"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "la diga di Hoover",
-     "q": "Hoover Dam aerial concrete",
-     "didascalia": "48 chilometri"
+     "frase": "Poi la Rivoluzione",
+     "q": "burning books fire pile"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "Migliaia di operai",
-     "q": "Colorado River canyon dam construction site"
+     "frase": "distruggere templi",
+     "q": "damaged ancient temple statue China"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Quando Mao morì",
+     "q": "grey sky over empty street Beijing",
+     "didascalia": "1976: muore Mao"
     }
    ]
   },
   {
-   "testo": "All'improvviso Las Vegas si riempì di giovani con un lavoro e soldi in tasca. Dopo giornate di fatica sotto un caldo estremo, nel weekend volevano divertirsi. I leader del Nevada capirono di essere seduti su una miniera d'oro.",
-   "anno": 1931,
+   "testo": "Allora prese il potere Deng Xiaoping, dichiarò che arricchirsi è glorioso e permise alla gente comune di aprire attività. In 40 anni oltre 800 milioni di persone sono uscite dalla povertà estrema e la Cina è diventata la fabbrica del mondo.",
+   "anno": 1978,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "All'improvviso Las Vegas",
-     "q": "Lake Mead Nevada shoreline"
+     "frase": "Allora prese il potere",
+     "q": "Shenzhen skyline night"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "sotto un caldo estremo",
-     "q": "Nevada desert sun heat horizon"
+     "frase": "oltre 800 milioni",
+     "q": "Shanghai Pudong skyline",
+     "didascalia": "800 milioni fuori dalla povertà"
     },
     {
-     "tipo": "pexels_foto",
-     "frase": "una miniera d'oro",
-     "q": "gold nuggets mine pile"
+     "tipo": "pexels_video",
+     "frase": "la fabbrica del mondo",
+     "q": "container port cranes China",
+     "suono": "port machinery, ship horn"
     }
    ]
   },
   {
-   "capitolo": "Il gioco legale",
-   "testo": "Nel 1931 presero una decisione che il resto del paese giudicò folle: legalizzarono completamente il gioco d'azzardo. Inoltre Las Vegas offriva divorzi lampo in sole sei settimane, mentre nel resto d'America divorziare era quasi impossibile.",
-   "anno": 1931,
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "Nel 1931 presero",
-     "q": "casino roulette wheel spinning vintage"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "il gioco d'azzardo",
-     "q": "playing cards poker chips table",
-     "didascalia": "1931"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "divorzi lampo",
-     "q": "wedding rings old paper documents"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "quasi impossibile",
-     "q": "vintage Nevada road sign desert"
-    }
-   ]
-  },
-  {
-   "testo": "Ricchi di Hollywood e operai della diga accorsero nella Città del Peccato per le scommesse e i divorzi facili. I primi casinò erano piccoli e sembravano vecchi bar western, finché la mafia non cambiò tutto.",
-   "anno": 1935,
-   "visivi": [
-    {
-     "tipo": "pexels_foto",
-     "frase": "Ricchi di Hollywood",
-     "q": "vintage Las Vegas neon sign Fremont"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "I primi casinò",
-     "q": "slot machines casino lights close"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "finché la mafia",
-     "q": "dark alley vintage fedora shadows"
-    }
-   ]
-  },
-  {
-   "capitolo": "La mafia",
-   "testo": "Dopo la Seconda guerra mondiale arrivò il gangster Bugsy Siegel, deciso a portare il glamour di Hollywood nel deserto. Costruì il Flamingo con milioni di dollari di soldi mafiosi presi in prestito: una piscina enorme, l'aria condizionata e una gigantesca insegna al neon rosa.",
-   "anno": 1946,
-   "visivi": [
-    {
-     "tipo": "pexels_foto",
-     "frase": "il gangster Bugsy Siegel",
-     "q": "vintage pink neon sign night"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "una piscina enorme",
-     "q": "resort swimming pool palm trees desert"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "gigantesca insegna al neon",
-     "q": "pink neon sign glowing night"
-    }
-   ]
-  },
-  {
-   "testo": "Il Flamingo aprì nel 1946 con un fallimento totale: stanze incomplete e nessuna celebrità. Pochi mesi dopo Bugsy fu ucciso a colpi di pistola dai soci furiosi che odiavano perdere soldi. Eppure la sua idea di lusso ebbe successo e spinse la mafia a usare i casinò per riciclare denaro.",
-   "anno": 1947,
-   "visivi": [
-    {
-     "tipo": "pexels_foto",
-     "frase": "Il Flamingo aprì",
-     "q": "empty hotel lobby vintage unfinished"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "Pochi mesi dopo",
-     "q": "dark city night rain car lights"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "riciclare denaro",
-     "q": "stacks of cash dollar bills"
-    }
-   ]
-  },
-  {
-   "testo": "Nel decennio successivo nacquero hotel famosi come il Sahara, il Sands e il Riviera, costruiti con denaro della criminalità organizzata. Si allineavano lungo una strada fuori città, che presto fu chiamata la Strip.",
-   "anno": 1955,
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "hotel famosi come",
-     "q": "Las Vegas Strip hotels aerial dusk"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "denaro della criminalità",
-     "q": "vintage neon motel sign desert night"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "chiamata la Strip",
-     "q": "Las Vegas Boulevard road night traffic"
-    }
-   ]
-  },
-  {
-   "capitolo": "La città atomica",
-   "testo": "Negli anni Cinquanta Las Vegas diventò la Città Atomica, perché gli Stati Uniti collaudavano bombe nucleari a soli 105 chilometri di distanza. Invece di fuggire, la città trasformò le esplosioni in uno spettacolo.",
-   "anno": 1951,
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "la Città Atomica",
-     "q": "mushroom cloud explosion desert archive"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "a soli 105 chilometri",
-     "q": "Nevada desert mountains horizon dawn",
-     "didascalia": "105 chilometri"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "trasformò le esplosioni",
-     "q": "bright flash sky desert dawn"
-    }
-   ]
-  },
-  {
-   "testo": "Gli hotel organizzavano picnic atomici, con turisti a guardare i funghi di fumo salire sopra le montagne. I concorsi di bellezza incoronavano Miss Bomba Atomica, con vestiti bianchi e vaporosi come nuvole. Le armi più pericolose del mondo erano un passatempo.",
-   "anno": 1955,
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "Gli hotel organizzavano",
-     "q": "desert mountains sunrise Nevada clouds",
-     "suono": "distant explosion rumble"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "concorsi di bellezza",
-     "q": "vintage white cloud dress retro"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "Le armi più pericolose",
-     "q": "vintage atomic bomb museum model"
-    }
-   ]
-  },
-  {
-   "capitolo": "Il Rat Pack",
-   "testo": "Il Rat Pack, cioè Frank Sinatra, Dean Martin e Sammy Davis Jr., diventò il re di Las Vegas. Nel 1955 potevi trovare Sinatra a giocare a carte al tavolo accanto. Smoking, abiti eleganti e feste senza fine.",
-   "anno": 1955,
-   "visivi": [
-    {
-     "tipo": "pexels_foto",
-     "frase": "Il Rat Pack",
-     "q": "vintage microphone stage spotlight"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "giocare a carte",
-     "q": "casino card table dealer cards"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "Smoking, abiti eleganti",
-     "q": "champagne glasses elegant party gold"
-    }
-   ]
-  },
-  {
-   "testo": "Eppure Sammy Davis Jr., pur essendo il motivo per cui la gente andava negli hotel, non poteva dormire nelle camere né mangiare nei ristoranti perché era nero. Ci vollero anni di pressioni e coraggio per abolire la segregazione, nel 1960.",
-   "anno": 1960,
-   "visivi": [
-    {
-     "tipo": "pexels_foto",
-     "frase": "non poteva dormire",
-     "q": "vintage hotel room key door"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "anni di pressioni",
-     "q": "old newspaper pages vintage print"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "la segregazione, nel 1960",
-     "q": "vintage Las Vegas sign night",
-     "didascalia": "1960"
-    }
-   ]
-  },
-  {
-   "capitolo": "Le corporation",
-   "testo": "Alla fine degli anni Sessanta l'epoca della mafia stava finendo, sotto la pressione del governo. Il miliardario Howard Hughes si trasferì all'ultimo piano dell'hotel Desert Inn e poi comprò l'intero albergo. Comprò altri hotel, e le grandi aziende presero il posto dei boss.",
-   "anno": 1967,
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "l'epoca della mafia",
-     "q": "vintage casino neon signs dusk"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "Il miliardario Howard Hughes",
-     "q": "hotel penthouse window desert view"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "le grandi aziende",
-     "q": "corporate office skyscrapers glass"
-    }
-   ]
-  },
-  {
-   "testo": "Gli uomini con le pistole furono lentamente sostituiti da uomini in giacca e cravatta con un master in economia.",
-   "anno": 1970,
-   "visivi": [
-    {
-     "tipo": "pexels_foto",
-     "frase": "Gli uomini con le pistole",
-     "q": "vintage revolver old table"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "in giacca e cravatta",
-     "q": "business suits boardroom table documents"
-    }
-   ]
-  },
-  {
-   "capitolo": "I mega resort",
-   "testo": "Negli anni Ottanta Las Vegas aveva un problema: stava diventando noiosa, perché altri stati legalizzavano il gioco e gli hotel della Strip sembravano vecchi. Nel 1989 Steve Wynn costruì il Mirage, un mega resort che cambiò tutto per sempre.",
-   "anno": 1989,
-   "visivi": [
-    {
-     "tipo": "pexels_foto",
-     "frase": "stava diventando noiosa",
-     "q": "old faded casino sign sunset"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "Steve Wynn costruì",
-     "q": "luxury resort fountain Las Vegas night",
-     "didascalia": "1989"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "cambiò tutto per sempre",
-     "q": "Las Vegas Strip resort golden lights"
-    }
-   ]
-  },
-  {
-   "testo": "L'hotel aveva un vulcano artificiale che eruttava ogni ora con vero fuoco, tigri bianche e un enorme acquario, e costò 630 milioni di dollari. Tutti pensavano che Wynn sarebbe fallito, invece il Mirage divenne l'hotel di maggior successo della storia.",
-   "anno": 1989,
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "un vulcano artificiale",
-     "q": "volcano fire eruption flames night"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "tigri bianche",
-     "q": "white tiger close up"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "un enorme acquario",
-     "q": "large aquarium fish tank blue",
-     "didascalia": "630 milioni di dollari"
-    }
-   ]
-  },
-  {
-   "testo": "Negli anni Novanta scoppiò una guerra di costruzioni, con attrazioni sempre più grandi ogni anno. L'MGM Grand divenne il più grande hotel del mondo, mentre il raggio di luce della piramide del Luxor era così potente che i piloti lo vedevano dallo spazio.",
-   "anno": 1993,
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "una guerra di costruzioni",
-     "q": "construction cranes skyline dusk"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "il più grande hotel",
-     "q": "giant hotel facade green glass Las Vegas"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "la piramide del Luxor",
-     "q": "Luxor pyramid Las Vegas light beam night"
-    }
-   ]
-  },
-  {
-   "testo": "Il Venetian aveva veri canali dove i visitatori navigavano in barca dentro i centri commerciali. Las Vegas lanciò lo slogan famoso: quello che succede a Las Vegas, resta a Las Vegas, per gli adulti che volevano divertirsi.",
-   "anno": 1999,
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "Il Venetian aveva",
-     "q": "gondola canal Venice Italy water"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "dentro i centri commerciali",
-     "q": "luxury shopping mall interior painted sky"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "quello che succede",
-     "q": "Las Vegas welcome sign night"
-    }
-   ]
-  },
-  {
-   "capitolo": "Oggi",
-   "testo": "Negli anni Duemila Las Vegas cambiò ancora: la gente veniva per l'esperienza, non solo per il gioco. I più famosi chef del mondo aprirono ristoranti sulla Strip, e grandi star come Adele e Usher restavano per mesi con le loro residency.",
-   "anno": 2005,
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "la gente veniva",
-     "q": "fine dining kitchen flames chef plate"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "grandi star come Adele",
-     "q": "concert stage lights microphone"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "con le loro residency",
-     "q": "nightclub lasers stage lights"
-    }
-   ]
-  },
-  {
-   "testo": "Il vero sport arrivò nel 2017 con i Vegas Golden Knights, la squadra di hockey. Poi i Raiders della NFL si trasferirono in uno stadio da due miliardi di dollari a forma di astronave nera. Oggi la città ospita il Super Bowl e la Formula 1 sulle sue strade.",
-   "anno": 2017,
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "Il vero sport arrivò",
-     "q": "hockey rink ice arena lights"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "uno stadio da due miliardi",
-     "q": "modern football stadium black exterior night",
-     "didascalia": "2 miliardi di dollari"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "la Formula 1",
-     "q": "Formula 1 race car track speed"
-    }
-   ]
-  },
-  {
-   "testo": "La Sphere, una struttura da 2,3 miliardi di dollari coperta da 1,2 milioni di luci LED, simboleggia l'impegno della città a mostrare qualcosa che nessuno ha mai visto.",
-   "anno": 2023,
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "La Sphere, una struttura",
-     "q": "Las Vegas Sphere LED night",
-     "didascalia": "1,2 milioni di LED"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "mostrare qualcosa",
-     "q": "Las Vegas skyline night lights aerial"
-    }
-   ]
-  },
-  {
-   "capitolo": "La scommessa",
-   "testo": "Las Vegas conta perché è la storia definitiva dell'immaginazione e dell'audacia umana. Una città nata in un deserto dove l'acqua è finita da tempo, eppure prospera. Ha superato la Grande Depressione, la mafia e gli anni noiosi, per diventare capitale mondiale dello spettacolo.",
+   "capitolo": "La Cina di oggi",
+   "testo": "Oggi la Cina è una superpotenza globale, una civiltà di 4.000 anni travestita da paese. I suoi leader ricordano che quando la Cina si spezza, muoiono milioni di persone, e che il potere dipende dal portare ordine, cibo e prosperità.",
    "anno": 2026,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "Las Vegas conta",
-     "q": "Las Vegas Strip aerial sunset"
+     "frase": "Oggi la Cina",
+     "q": "Beijing skyline aerial city"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "un deserto dove l'acqua",
-     "q": "Lake Mead low water desert shoreline"
+     "frase": "una civiltà di 4.000",
+     "q": "Forbidden City aerial Beijing"
     },
     {
      "tipo": "pexels_video",
-     "frase": "capitale mondiale dello spettacolo",
-     "q": "Las Vegas Strip night timelapse"
+     "frase": "quando la Cina si spezza",
+     "q": "Great Wall fog mountains sunrise"
     }
    ]
   },
   {
-   "testo": "Da sorgenti fangose per cavalli a un posto dove puoi essere chi vuoi per 48 ore. La città ha fatto la scommessa più grande della storia: che la gente avrebbe attraversato un deserto rovente per luci e spettacoli. Quella scommessa ha vinto alla grande.",
-   "anno": 2026,
-   "visivi": [
-    {
-     "tipo": "pexels_foto",
-     "frase": "sorgenti fangose per cavalli",
-     "q": "desert spring muddy water horses"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "la scommessa più grande",
-     "q": "casino dice roll table slow"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "un deserto rovente",
-     "q": "Mojave desert sun sunset red rocks"
-    }
-   ]
-  },
-  {
-   "testo": "Oggi le praterie che Rafael Rivera trovò nel 1829 sono coperte da miliardi di dollari di vetro e acciaio. Las Vegas dimostra che se costruisci qualcosa di abbastanza luminoso e audace, il mondo intero troverà la strada fino alla tua porta.",
+   "testo": "Come il grande Fiume Giallo che le diede vita, la Cina trova sempre il modo di continuare a scorrere.",
    "anno": 2026,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "Oggi le praterie",
-     "q": "Las Vegas Strip glass towers aerial day"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "miliardi di dollari",
-     "q": "Las Vegas neon lights glowing night"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "troverà la strada",
-     "q": "desert road leading to Las Vegas lights night"
+     "frase": "Come il grande Fiume",
+     "q": "Yellow River sunset aerial",
+     "suono": "river flowing, calm wind"
     }
    ]
   }
  ],
  "copertina": {
-  "testo": "LAS VEGAS 1905 → 2026",
+  "testo": "CINA 2100 A.C. – 2026",
   "personaggio": ""
  },
- "descrizione": "Dal deserto del Mojave alla città più luminosa della Terra: questa è l'intera storia di Las Vegas in 13 minuti. Scopri come una piccola oasi scoperta nel 1829 è diventata la capitale mondiale dell'intrattenimento.\n\nVedremo la fondazione nel 1905, la costruzione della diga di Hoover, la legalizzazione del gioco d'azzardo nel 1931, Bugsy Siegel e il Flamingo, la mafia, i test atomici, il Rat Pack, Howard Hughes e i grandi mega resort come il Mirage, il Luxor e il Venetian.\n\nInfine, la Las Vegas di oggi: gli chef stellati, le residency delle star, i Golden Knights, i Raiders, la Formula 1 e la Sphere. Una storia di audacia, crimine e immaginazione.\n\n#LasVegas #StoriaDiLasVegas #Storia #Nevada #SinCity",
+ "descrizione": "La Cina è morta più volte di qualsiasi altro paese, eppure si è sempre ricomposta in oltre 4.000 anni. In questo video ripercorriamo l'intera storia della Cina in 20 minuti: dal leggendario Yu il Grande e la dinastia Xia agli Shang e alle ossa oracolari, fino al mandato del cielo degli Zhou.\n\nScopriamo Qin Shi Huang, il primo imperatore, con la Grande Muraglia e l'Esercito di Terracotta, poi gli Han, la Via della Seta, i Tang di Wu Zetian, le invenzioni dei Song, i Mongoli di Gengis Khan e Kublai Khan, i Ming di Zheng He e i Qing.\n\nInfine le Guerre dell'Oppio, la ribellione dei Taiping, la nascita della Repubblica Popolare con Mao Zedong, il Grande Balzo in Avanti e la rinascita economica di Deng Xiaoping. La storia completa della civiltà cinese, dal 2100 a.C. a oggi.\n\n#storiadellacina #cina #documentario #storia #impero",
  "tag": [
-  "Las Vegas",
-  "Storia di Las Vegas",
-  "Storia",
-  "Documentario storico",
-  "Storia americana",
-  "Nevada",
-  "Las Vegas Strip",
-  "Documentario",
-  "Storia spiegata",
-  "Storia del mondo",
-  "Sin City",
-  "Bugsy Siegel",
-  "Diga di Hoover",
-  "Storia della mafia",
-  "Flamingo Hotel",
-  "Deserto del Mojave",
-  "Storia del gioco d'azzardo",
-  "Storia di una città",
-  "Storia degli USA",
-  "History Channel",
-  "storia completa di Las Vegas",
-  "storia degli Stati Uniti",
-  "Rat Pack",
-  "Howard Hughes",
-  "città atomica",
-  "Mirage",
-  "Luxor",
-  "Sphere Las Vegas",
-  "Fremont Street",
-  "Rafael Rivera"
+  "storia della cina",
+  "cina",
+  "storia cinese",
+  "antica cina",
+  "documentario storico",
+  "storia del mondo",
+  "storia antica",
+  "l'intera storia della cina",
+  "documentario sulla cina",
+  "civiltà cinese",
+  "impero cinese",
+  "dinastia Qin",
+  "dinastia Han",
+  "dinastia Tang",
+  "dinastia Song",
+  "dinastia Yuan",
+  "impero mongolo",
+  "dinastia Ming",
+  "dinastia Qing",
+  "Confucio",
+  "Qin Shi Huang",
+  "Gengis Khan",
+  "Kublai Khan",
+  "Via della Seta",
+  "Grande Muraglia cinese",
+  "Esercito di Terracotta",
+  "guerre dell'oppio",
+  "Mao Zedong",
+  "storia di Cina",
+  "storia completa"
  ],
  "personaggi_mancanti": [
-  "Rafael Rivera esploratore messicano",
-  "Howard Hughes miliardario",
-  "Frank Sinatra e il Rat Pack",
-  "Steve Wynn"
+  "Yu il Grande",
+  "Qin Shi Huang imperatore cinese",
+  "Wu Zetian imperatrice",
+  "Zheng He ammiraglio",
+  "Mao Zedong",
+  "Deng Xiaoping",
+  "contadino cinese antico",
+  "soldato cinese antico"
  ],
  "categoria_originale": "27"
 }
