@@ -114,6 +114,8 @@ jobs:
           if [ -z "$AID" ]; then echo "nessun lavoro salvato per $ID: si parte da zero"; exit 0; fi
           mkdir -p lavoro_mappe
           gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$AID/zip" > lavoro.zip && unzip -o -q lavoro.zip -d lavoro_mappe && rm lavoro.zip
+          echo "ripreso=SI" >> "$GITHUB_OUTPUT"
+          gh api -X DELETE "repos/$GITHUB_REPOSITORY/actions/artifacts/$AID" || true   # si usa una volta sola: se anche questo giro si ferma, il prossimo riparte da zero
           rm -f lavoro_mappe/costi_video.jsonl   # i costi del giro fallito sono gia' stati registrati
           echo "RIPRESA di $ID:"; ls lavoro_mappe | head -50
 
@@ -149,7 +151,7 @@ jobs:
           for i in 1 2 3 4 5; do git pull --rebase --autostash -q && git push && break; sleep $((i * 5)); done
 
       - name: Salva copione e voce per ripartire senza ripagarli (solo se il giro non e' finito bene)
-        if: ${{ (failure() || cancelled()) && steps.rid.outputs.id != '' }}
+        if: ${{ (failure() || cancelled()) && steps.rid.outputs.id != '' && steps.rid.outputs.ripreso != 'SI' }}
         uses: actions/upload-artifact@v4
         with:
           name: lavoro-mappe-${{ steps.rid.outputs.id }}

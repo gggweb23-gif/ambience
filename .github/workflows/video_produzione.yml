@@ -109,6 +109,23 @@ jobs:
           npm install --prefix motore --silent --no-audit --no-fund luxon@3
           node --version && ffmpeg -version | head -1
 
+      - name: Recupera le risposte gia' pagate di un giro fallito (solo canali con riprendi_lavoro = SI; mai KAO)
+        id: rid
+        env:
+          PAYLOAD: ${{ inputs.payload }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ID=$(python3 -c "import json,os,re;p=json.loads(os.environ.get('PAYLOAD') or '{}');print(re.sub(r'[^a-z0-9]+','_',str(p.get('canale') or p.get('channel_name') or '').lower()).strip('_') if str(p.get('riprendi_lavoro') or '').strip().upper()=='SI' else '')")
+          echo "id=$ID" >> "$GITHUB_OUTPUT"
+          [ -n "$ID" ] || { echo "ripresa non attiva per questo canale"; exit 0; }
+          AID=$(gh api "repos/$GITHUB_REPOSITORY/actions/artifacts?name=lavoro-produzione-$ID&per_page=10" --jq '[.artifacts[] | select(.expired==false)] | sort_by(.created_at) | last | .id // empty')
+          if [ -z "$AID" ]; then echo "nessun lavoro salvato: si parte da zero"; exit 0; fi
+          mkdir -p lavoro_ripresa
+          gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$AID/zip" > lavoro.zip && unzip -o -q lavoro.zip -d lavoro_ripresa && rm lavoro.zip
+          echo "ripreso=SI" >> "$GITHUB_OUTPUT"
+          gh api -X DELETE "repos/$GITHUB_REPOSITORY/actions/artifacts/$AID" || true   # si usa una volta sola: se anche questo giro si ferma, il prossimo riparte da zero
+          echo "lavoro salvato trovato:"; ls lavoro_ripresa | wc -l
+
       - name: Crea e carica il video
         env:
           PAYLOAD: ${{ inputs.payload }}
@@ -125,6 +142,16 @@ jobs:
           WHISPER_MODEL: small
           GH_TOKEN: ${{ github.token }}
         run: node motore/motore.js
+
+      - name: Salva le risposte gia' pagate per ripartire senza ripagarle (solo se il giro non e' finito bene e non era gia' una ripresa)
+        if: ${{ (failure() || cancelled()) && steps.rid.outputs.id != '' && steps.rid.outputs.ripreso != 'SI' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: lavoro-produzione-${{ steps.rid.outputs.id }}
+          path: lavoro_ripresa/
+          if-no-files-found: ignore
+          retention-days: 3
+          overwrite: true
 
       - name: Costo del video (storico per il coach automatico)
         if: ${{ always() }}

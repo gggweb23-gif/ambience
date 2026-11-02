@@ -40,6 +40,8 @@ jobs:
           if [ -z "$AID" ]; then echo "nessun lavoro salvato: si parte da zero"; exit 0; fi
           mkdir -p lavoro_archivio
           gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$AID/zip" > lavoro.zip && unzip -o -q lavoro.zip -d lavoro_archivio && rm lavoro.zip
+          echo "ripreso=SI" >> "$GITHUB_OUTPUT"
+          gh api -X DELETE "repos/$GITHUB_REPOSITORY/actions/artifacts/$AID" || true   # si usa una volta sola: se anche questo giro si ferma, il prossimo riparte da zero
           echo "lavoro salvato trovato:"; ls -la lavoro_archivio
       - name: Video
         env:
@@ -57,11 +59,11 @@ jobs:
           mkdir -p prove_video/archivio/registri
           python3 strumenti/video_archivio.py 2>&1 | tee prove_video/archivio/registri/video_archivio.log
       - name: Salva copione e voce per ripartire senza ripagarli (solo se il giro non e' finito bene)
-        if: ${{ (failure() || cancelled()) && steps.rid.outputs.id != '' }}
+        if: ${{ (failure() || cancelled()) && steps.rid.outputs.id != '' && steps.rid.outputs.ripreso != 'SI' }}
         run: |
           mkdir -p lavoro_archivio; cp /tmp/lav/voce_*.json lavoro_archivio/ 2>/dev/null || true; ls -la lavoro_archivio
       - name: Carica il lavoro salvato
-        if: ${{ (failure() || cancelled()) && steps.rid.outputs.id != '' }}
+        if: ${{ (failure() || cancelled()) && steps.rid.outputs.id != '' && steps.rid.outputs.ripreso != 'SI' }}
         uses: actions/upload-artifact@v4
         with:
           name: lavoro-archivio-${{ steps.rid.outputs.id }}

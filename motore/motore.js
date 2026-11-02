@@ -163,20 +163,40 @@ function costo(voce, modello, u, dollari, crediti, nota) {
       dollari: Math.round((dollari || 0) * 1e5) / 1e5, crediti: Math.round(crediti || 0), nota: nota || '' }) + '\n');
   } catch (e) { }
 }
-async function claude(body) {
-  const r = await richiesta('https://api.anthropic.com/v1/messages', { metodo: 'POST', corpo: body, timeout: 600000,
-    headers: { 'x-api-key': E('ANTHROPIC_API_KEY'), 'anthropic-version': '2023-06-01' } });
-  if (r && r.usage) costo('claude', body.model, r.usage);
+// RIPRESA (colonna riprendi_lavoro = SI; mai sui canali senza la colonna, es. KAO): le risposte gia' pagate (Claude, GPT, voce ElevenLabs)
+// si salvano per richiesta identica; se il giro si ferma il workflow le conserva e il giro dopo, rifacendo le STESSE richieste, le riusa
+// senza ripagarle. Il video viene uguale: stesse richieste = stesse risposte. Una richiesta diversa si paga normalmente.
+const RIPRENDI = String(P.riprendi_lavoro || '').trim().toUpperCase() === 'SI' && !PROVA;
+const DIR_RIPRESA = path.join(ROOT, 'lavoro_ripresa');
+if (RIPRENDI) fs.mkdirSync(DIR_RIPRESA, { recursive: true });
+const chiaveRipresa = (x) => require('crypto').createHash('sha256').update(JSON.stringify(x)).digest('hex').slice(0, 32);
+let RIUSATE = 0;
+async function conRipresa(tipo, richiestaCorpo, fn) {
+  if (!RIPRENDI) return fn();
+  const f = path.join(DIR_RIPRESA, tipo + '_' + chiaveRipresa(richiestaCorpo) + '.json');
+  if (fs.existsSync(f)) { RIUSATE++; if (RIUSATE === 1) log('RIPRESA: riuso le risposte gia\' pagate nel giro fallito'); return JSON.parse(fs.readFileSync(f, 'utf8')); }
+  const r = await fn();
+  try { fs.writeFileSync(f, JSON.stringify(r)); } catch (e) { }
   return r;
+}
+async function claude(body) {
+  return conRipresa('claude', body, async () => {
+    const r = await richiesta('https://api.anthropic.com/v1/messages', { metodo: 'POST', corpo: body, timeout: 600000,
+      headers: { 'x-api-key': E('ANTHROPIC_API_KEY'), 'anthropic-version': '2023-06-01' } });
+    if (r && r.usage) costo('claude', body.model, r.usage);
+    return r;
+  });
 }
 const testoClaude = (r) => (r.content || []).filter(x => x.type === 'text').map(x => x.text).join('\n').trim();
 // chiamata in formato OpenAI (come in n8n). Senza OPENAI_API_KEY la fa Claude e rimette la risposta nello stesso formato.
 async function openaiChat(payload) {
   if (E('OPENAI_API_KEY')) {
-    const r = await richiesta('https://api.openai.com/v1/chat/completions', { metodo: 'POST', corpo: payload,
-      headers: { Authorization: 'Bearer ' + E('OPENAI_API_KEY') } });
-    if (r && r.usage) costo('openai', payload.model, r.usage);
-    return r;
+    return conRipresa('openai', payload, async () => {
+      const r = await richiesta('https://api.openai.com/v1/chat/completions', { metodo: 'POST', corpo: payload,
+        headers: { Authorization: 'Bearer ' + E('OPENAI_API_KEY') } });
+      if (r && r.usage) costo('openai', payload.model, r.usage);
+      return r;
+    });
   }
   const sys = payload.messages.filter(m => m.role === 'system').map(m => m.content).join('\n\n');
   const msgs = payload.messages.filter(m => m.role !== 'system').map(m => ({ role: m.role,
@@ -388,12 +408,19 @@ async function main() {
     while (prossimo < c1.length) {
       const i = prossimo++;
       const ctx = { items: c1, item: c1[i], itemIndex: i };
-      const buf = await richiesta(valuta(pTTS.url, ctx), { metodo: 'POST', corpo: JSON.parse(valuta(pTTS.jsonBody, ctx)), tipo: 'buffer', timeout: 120000,
-        headers: { 'xi-api-key': E('ELEVENLABS_API_KEY'), Accept: 'audio/mpeg' } });
+      const urlTTS = valuta(pTTS.url, ctx), corpoTTS = JSON.parse(valuta(pTTS.jsonBody, ctx));
+      const fVoce = RIPRENDI ? path.join(DIR_RIPRESA, 'voce_' + chiaveRipresa([urlTTS, corpoTTS]) + '.mp3') : '';
+      let buf, ripresa = false;
+      if (fVoce && fs.existsSync(fVoce) && fs.statSync(fVoce).size > 1000) { buf = fs.readFileSync(fVoce); ripresa = true; RIUSATE++; }
+      else {
+        buf = await richiesta(urlTTS, { metodo: 'POST', corpo: corpoTTS, tipo: 'buffer', timeout: 120000,
+          headers: { 'xi-api-key': E('ELEVENLABS_API_KEY'), Accept: 'audio/mpeg' } });
+        if (fVoce) try { fs.writeFileSync(fVoce, buf); } catch (e) { }
+      }
       const nome = PREFISSO_AUDIO + String(c1[i].json.index || i + 1) + '_audio.mp3';
       fs.writeFileSync(path.join(SERVER_DIR, nome), buf);
-      try { const cb = JSON.parse(valuta(pTTS.jsonBody, ctx)); const mv = String(cb.model_id || '');
-        costo('elevenlabs', mv, null, 0, String(cb.text || '').length * (/flash|turbo/.test(mv) ? 0.5 : 1)); } catch (e) { }
+      if (!ripresa) try { const mv = String(corpoTTS.model_id || '');
+        costo('elevenlabs', mv, null, 0, String(corpoTTS.text || '').length * (/flash|turbo/.test(mv) ? 0.5 : 1)); } catch (e) { }
       audio[i] = { buf, nome };
     }
   };
