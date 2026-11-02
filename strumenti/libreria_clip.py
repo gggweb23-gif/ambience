@@ -241,6 +241,8 @@ EPOCHE_OK = [e.lower() for e in (P.get('epoche') or ['1930s', '1940s'])]
 
 def buono(s):
     if ARCHIVIO != 'nasa':   # archivi storici: ripresa vera dell'epoca giusta, senza scritte, nessuno che parla in camera
+        if s.get('anno') and f"{str(s['anno'])[:3]}0s" not in EPOCHE_OK:   # il titolo del film dice un'altra epoca (es. 1917, 1960): fuori
+            return False
         return bool(s.get('cosa') and not s.get('parla_in_camera') and not s.get('scritte') and not s.get('animazione')
                     and int(s.get('qualita') or 0) >= int(P.get('qualita_minima') or 2) and str(s.get('epoca') or '').lower() in EPOCHE_OK)
     # (archivi storici: qualita' minima 2 e non 3: Haiku giudica "sfocate" quasi tutte le pellicole degli anni '40, che sono cosi' anche nei canali che copiamo)
@@ -250,11 +252,11 @@ def buono(s):
             and s.get('luogo') in ('inside_station', 'outside_station', 'earth_from_orbit', 'spacecraft'))
 
 
-ANNO = re.compile(r'(?<!\d)(19[1-6]\d)(?!\d)')
+ANNO = re.compile(r'(?:^|[\s(,/])(19[1-6]\d)(?=[\s),.:;/-]|$)')   # un anno vero: non i numeri di catalogo tipo "111-adc-1921"
 
 
 def anno_film(x):   # anno del film d'archivio dal titolo o dal nome del file (cinegiornali: "1945-05-14_...")
-    m = ANNO.search(str(x.get('nasa_id') or '') + ' ' + str(x.get('titolo') or ''))
+    m = re.match(r'ia:(19[1-6]\d)-\d\d', str(x.get('nasa_id') or '')) or ANNO.search(str(x.get('titolo') or '').replace('_', ' '))
     return int(m.group(1)) if m else None
 
 
