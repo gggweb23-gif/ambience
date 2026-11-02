@@ -1,22 +1,24 @@
 {
  "scene": [
   {
-   "testo": "They asked him one question. When did you know the Luftwaffe was losing control of the air? He did not name a battle. He did not name a defeat at the front. He named one German city.",
-   "q": "Goering interrogation 1945",
+   "testo": "Two days after the war in Europe ended, American air generals sat down across from Hermann Göring and asked him one question. When did you know the Luftwaffe was losing control of the air?",
+   "q": "Hermann Göring prisoner 1945",
    "tag": [
     "goering",
-    "interrogation"
+    "prisoner",
+    "american"
    ],
-   "scritta": "ONE CITY",
+   "scritta": "ONE QUESTION",
    "obbligo": [],
    "capitolo": "The Question",
    "anno": 1945
   },
   {
-   "testo": "And that answer contradicted an official order that Hermann Göring had issued himself. It was a direct contradiction. It was given to the men who had beaten him. This is the story of that interrogation.",
-   "q": "Hermann Goering captured American officers",
+   "testo": "Göring did not name a battle. He did not name a defeat on any front. He named one German city. And that answer quietly contradicted an order he had given himself.",
+   "q": "Göring captured American officers",
    "tag": [
     "goering",
+    "captured",
     "officers"
    ],
    "scritta": "",
@@ -25,22 +27,50 @@
    "anno": 1945
   },
   {
-   "testo": "The date was May 10, 1945. Two days after the war in Europe ended. The place was Augsburg, in southern Germany. Reichsmarschall Hermann Göring sat in a room full of American air generals.",
-   "q": "Augsburg Germany May 1945",
+   "testo": "Across the table sat the general who had run the American air war over Germany in its final year. Carl Spaatz, commander of United States Strategic Air Forces in Europe.",
+   "q": "General Spaatz",
    "tag": [
-    "augsburg",
-    "american"
+    "spaatz",
+    "general",
+    "uniform"
    ],
-   "scritta": "MAY 10, 1945",
+   "scritta": "",
    "obbligo": [],
-   "capitolo": "Augsburg, May 1945",
+   "capitolo": "The Interrogation Room",
    "anno": 1945
   },
   {
-   "testo": "Göring had surrendered to the 36th Infantry Division a few days earlier. He was flown to Augsburg. He had commanded the Luftwaffe since before the war began. Now he had to explain its defeat.",
-   "q": "Goering surrenders American troops",
+   "testo": "Beside him sat Hoyt Vandenberg of the Ninth Air Force, Seventh Army commander Alexander Patch, and Alexander de Seversky, the aircraft designer who advised the Secretary of War.",
+   "q": "American generals meeting 1945",
+   "tag": [
+    "generals",
+    "officers",
+    "meeting"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 1945
+  },
+  {
+   "testo": "The date was May 10, 1945. The questioning lasted two hours, and a military interpreter carried every answer into English. Göring had surrendered only days earlier, and been flown to Augsburg.",
+   "q": "Göring surrender American troops",
    "tag": [
     "goering",
+    "surrender",
+    "americans"
+   ],
+   "scritta": "MAY 10, 1945",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 1945
+  },
+  {
+   "testo": "He had surrendered to the American 36th Infantry Division. He wore a gray uniform, stripped of decorations except the insignia of a Reichsmarschall. He had commanded the Luftwaffe since before the war began.",
+   "q": "Göring surrendering uniform",
+   "tag": [
+    "goering",
+    "uniform",
     "surrender"
    ],
    "scritta": "",
@@ -49,59 +79,25 @@
    "anno": 1945
   },
   {
-   "testo": "Facing him was the general who ran the American air war over Germany in its final year. Carl Spaatz, commander of the United States Strategic Air Forces in Europe. He had come with a purpose.",
-   "q": "General Carl Spaatz",
-   "tag": [
-    "spaatz",
-    "general"
-   ],
-   "scritta": "",
-   "obbligo": [],
-   "capitolo": "",
-   "anno": 1945
-  },
-  {
-   "testo": "Beside Spaatz sat Hoyt Vandenberg of the Ninth Air Force, and General Alexander Patch of the Seventh Army. Also present was Alexander de Seversky, an aircraft designer who advised the Secretary of War.",
-   "q": "American generals conference 1945",
-   "tag": [
-    "generals",
-    "conference"
-   ],
-   "scritta": "",
-   "obbligo": [],
-   "capitolo": "",
-   "anno": 1945
-  },
-  {
-   "testo": "The interrogation lasted two hours. A military interpreter carried every answer into English. Göring wore a gray wool uniform, without decorations, only the insignia of a Reich Marshal. His face was flushed, his manner confident.",
-   "q": "Goering gray uniform prisoner",
+   "testo": "Now he had to explain to the men who beat him why they had won. He began by blaming someone else. In the early years, he said, he had definite plans.",
+   "q": "Göring portrait newsreel",
    "tag": [
     "goering",
-    "uniform"
+    "reichsmarschall",
+    "portrait"
    ],
-   "scritta": "TWO HOURS",
+   "scritta": "",
    "obbligo": [],
    "capitolo": "",
    "anno": 1945
   },
   {
-   "testo": "He began by blaming someone else. In the early years, he said, while he held supreme command of the air force, he had definite plans. Then, in 1940, Hitler began to interfere.",
-   "q": "Hitler Goering 1940",
-   "tag": [
-    "hitler",
-    "goering"
-   ],
-   "scritta": "",
-   "obbligo": [],
-   "capitolo": "Blame Hitler",
-   "anno": 1940
-  },
-  {
-   "testo": "Spaatz let him talk. He was patient. Then he asked the question he had come to ask. When did you realize you were losing control of the air? Göring did not hesitate. He answered at once.",
-   "q": "Spaatz questioning Goering",
+   "testo": "Then, he said, in 1940, Hitler began to interfere. Spaatz let him talk. Then he asked the question he had come to ask. When did you realize you were losing control of the air?",
+   "q": "Spaatz interrogation Göring",
    "tag": [
     "spaatz",
-    "goering"
+    "goering",
+    "interrogation"
    ],
    "scritta": "",
    "obbligo": [],
@@ -109,23 +105,25 @@
    "anno": 1945
   },
   {
-   "testo": "He said it was when American long-range fighters could escort the bombers as far as Hanover. And soon after that, he added, they reached Berlin. Hanover. A city, not a battle.",
-   "q": "Hanover Germany 1944",
+   "testo": "Göring answered at once. When American long-range fighters could escort the bombers to Hanover, he said, and it was not long before they came to Berlin. One word. Hanover.",
+   "q": "Hanover Germany bombing 1943",
    "tag": [
     "hanover",
+    "bombing",
     "city"
    ],
    "scritta": "HANOVER",
    "obbligo": [],
-   "capitolo": "The Answer",
-   "anno": 1944
+   "capitolo": "The Answer: Hanover",
+   "anno": 1943
   },
   {
-   "testo": "Hanover lay deep in northern Germany, far beyond the point where American escorts used to turn back. For Göring, that was the decisive moment. Not when the bombers came, but when the fighters came with them.",
-   "q": "B-17 bombers over Germany",
+   "testo": "Not a battle. Not a front line. A city deep in northern Germany, far beyond the point where American escorts used to turn back. For Göring, that was the moment. Not when the bombers came. When the fighters came with them.",
+   "q": "B-17 formation over Germany",
    "tag": [
-    "bombers",
-    "formation"
+    "b-17",
+    "formation",
+    "bombers"
    ],
    "scritta": "",
    "obbligo": [],
@@ -133,11 +131,12 @@
    "anno": 1943
   },
   {
-   "testo": "To understand why, go back to 1943. For most of that year, American bombers flew deep into Germany alone. Their escort fighters ran low on fuel and turned back near the border.",
-   "q": "B-17 bombers 1943 mission",
+   "testo": "Through most of 1943, American bombers flew deep into Germany alone. Their escort fighters ran low on fuel and turned back near the border. From there to the target, the Flying Fortresses fought on their own.",
+   "q": "B-17 bombers 1943 combat",
    "tag": [
     "b-17",
-    "bombers"
+    "bombers",
+    "flying fortress"
    ],
    "scritta": "",
    "obbligo": [],
@@ -145,58 +144,50 @@
    "anno": 1943
   },
   {
-   "testo": "From there to the target, the Flying Fortresses fought on their own. German fighters were waiting for exactly that moment. Every raid beyond the border meant a running battle with no friendly fighters nearby.",
-   "q": "German fighters attacking bombers",
-   "tag": [
-    "fighters",
-    "attack"
-   ],
-   "scritta": "",
-   "obbligo": [],
-   "capitolo": "",
-   "anno": 1943
-  },
-  {
-   "testo": "In August 1943, 376 Flying Fortresses struck the ball bearing plants at Schweinfurt. Albert Speer, the German armaments minister, recorded that ball bearing production fell by 38 percent. But the bombers paid heavily for every mile.",
+   "testo": "German fighters waited for exactly that moment. In August, 376 Flying Fortresses struck the ball bearing plants at Schweinfurt. Albert Speer, the armaments minister, recorded a 38 percent drop in ball bearing production.",
    "q": "Schweinfurt raid 1943",
    "tag": [
     "schweinfurt",
-    "bombers"
-   ],
-   "scritta": "376 BOMBERS",
-   "obbligo": [],
-   "capitolo": "",
-   "anno": 1943
-  },
-  {
-   "testo": "As long as they flew alone, the Luftwaffe could inflict losses on every raid. Then the escort fighters began to reach farther. And one man in Berlin noticed. Joseph Goebbels, Hitler's propaganda minister, wrote it in his diary.",
-   "q": "Goebbels 1943 Berlin",
-   "tag": [
-    "goebbels",
-    "berlin"
-   ],
-   "scritta": "",
-   "obbligo": [],
-   "capitolo": "What Goebbels Wrote",
-   "anno": 1943
-  },
-  {
-   "testo": "At the end of September, he wrote about a daytime raid on Emden. The Americans, he noted, had flown with fighter escort and had therefore not suffered heavy losses. Five weeks later, his tone changed.",
-   "q": "Emden raid 1943",
-   "tag": [
-    "emden",
+    "bombers",
     "raid"
    ],
+   "scritta": "38 PERCENT",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 1943
+  },
+  {
+   "testo": "But the bombers paid for every mile they flew past the border. As long as they flew alone, the Luftwaffe could inflict losses on every raid. Then the escorts began to reach farther.",
+   "q": "bomber crash 1943 shot down",
+   "tag": [
+    "bomber",
+    "shot down",
+    "crash"
+   ],
    "scritta": "",
    "obbligo": [],
    "capitolo": "",
    "anno": 1943
   },
   {
-   "testo": "In a single daylight raid the day before, he wrote, we lost thirty fighters. The Americans now come with fighter escort on their daytime attacks. Our fighters are no match for them.",
-   "q": "German fighter planes wreckage",
+   "testo": "Joseph Goebbels, Hitler's propaganda minister, noticed it in his diary. At the end of September he wrote about a daytime raid on Emden. The Americans had flown with fighter escort, and suffered no heavy losses.",
+   "q": "Goebbels newsreel 1943",
    "tag": [
-    "fighter",
+    "goebbels",
+    "speech",
+    "propaganda"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "Goebbels Notices",
+   "anno": 1943
+  },
+  {
+   "testo": "Five weeks later, the tone changed. In yesterday's daylight raid alone, he wrote, we lost thirty fighters. The Americans now came with fighter escort, carrying first-class equipment, and German fighters were no match.",
+   "q": "German fighters losses 1943",
+   "tag": [
+    "german fighters",
+    "luftwaffe",
     "wreckage"
    ],
    "scritta": "30 FIGHTERS",
@@ -205,35 +196,25 @@
    "anno": 1943
   },
   {
-   "testo": "It is deeply humiliating, he continued, to see how the enemy leads us by the nose in the air war. A propaganda minister, writing privately, admitting what the official communiqués never said.",
-   "q": "Goebbels diary writing",
+   "testo": "It was deeply humiliating, he wrote, to watch the enemy lead us by the nose in the air war. That autumn, Göring's fighter general, Adolf Galland, reported American fighters shot down over Aachen, inside Germany.",
+   "q": "Aachen air battle 1943",
    "tag": [
-    "goebbels",
-    "diary"
+    "aachen",
+    "fighters",
+    "air battle"
    ],
    "scritta": "",
    "obbligo": [],
-   "capitolo": "",
+   "capitolo": "The Aachen Order",
    "anno": 1943
   },
   {
-   "testo": "That autumn, Göring's fighter general, Adolf Galland, reported American fighters shot down over Aachen, just inside Germany. Göring told him it was impossible. He issued an official order that they had not been there.",
+   "testo": "Göring told him that was impossible, and issued a formal order that they had not been there. That scene is in our own video about Galland. Here it matters for one reason.",
    "q": "Adolf Galland Luftwaffe general",
    "tag": [
     "galland",
-    "luftwaffe"
-   ],
-   "scritta": "AACHEN",
-   "obbligo": [],
-   "capitolo": "The Order",
-   "anno": 1943
-  },
-  {
-   "testo": "That scene is told in our video about Galland. Here it matters for one reason. The man who ordered the denial of those fighters in 1943 was now telling Americans those same fighters decided the air war.",
-   "q": "Luftwaffe fighter pilots 1943",
-   "tag": [
     "luftwaffe",
-    "pilots"
+    "general"
    ],
    "scritta": "",
    "obbligo": [],
@@ -241,23 +222,38 @@
    "anno": 1943
   },
   {
-   "testo": "The Americans hung extra fuel tanks beneath their fighters and pushed the escort farther every month. Emden. Hanover. Then a new fighter, the P-51 Mustang, which could fly from England to Berlin and back.",
-   "q": "P-51 Mustang fighter flying",
+   "testo": "The man who had ordered the denial of those fighters in 1943 was now telling Americans that the same fighters decided the air war. Meanwhile, the Americans hung extra fuel tanks beneath their fighters.",
+   "q": "P-47 Thunderbolt drop tanks",
    "tag": [
-    "p-51",
-    "mustang"
+    "p-47",
+    "drop tank",
+    "fighter"
    ],
    "scritta": "",
    "obbligo": [],
-   "capitolo": "Mustangs Arrive",
+   "capitolo": "Longer Range",
+   "anno": 1943
+  },
+  {
+   "testo": "Each month the escorts pushed deeper. Emden. Hanover. Then a new fighter, the P-51 Mustang, which could fly from England to Berlin and back with fuel left to fight.",
+   "q": "P-51 Mustang formation",
+   "tag": [
+    "p-51",
+    "mustang",
+    "formation"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
    "anno": 1944
   },
   {
-   "testo": "It carried enough fuel to fight once it arrived. In early March 1944, American fighters were flying over the capital of the Reich. It did not take long for them to reach Berlin, Göring told Spaatz.",
+   "testo": "By early March 1944, American fighters were flying over the capital of the Reich. It was not long before they came to Berlin, Göring told Spaatz. Then we knew we had to develop jet aircraft.",
    "q": "Berlin air raid March 1944",
    "tag": [
     "berlin",
-    "air raid"
+    "air raid",
+    "bombers"
    ],
    "scritta": "MARCH 1944",
    "obbligo": [],
@@ -265,47 +261,38 @@
    "anno": 1944
   },
   {
-   "testo": "We knew then, he said, that we had to develop jet aircraft. Jets were his hope. Spaatz asked whether the jet really had a chance to win. Göring said yes, he was still convinced of it.",
+   "testo": "Jets were his hope. Spaatz asked whether the jet really had a chance of winning. Göring said he was still convinced of it. If only we had had four or five more months.",
    "q": "Me 262 jet fighter",
    "tag": [
     "me 262",
-    "jet"
+    "jet",
+    "fighter"
    ],
    "scritta": "",
    "obbligo": [],
    "capitolo": "The Jet Hope",
-   "anno": 1944
+   "anno": 1945
   },
   {
-   "testo": "If we had only had four to five more months, he said. He spoke of underground factories and a plant that could build one thousand jets a month. Vandenberg asked the obvious question.",
+   "testo": "He spoke of underground factories and a plant that could build a thousand jets a month. Vandenberg asked the obvious question. With your oil shortage, could you have trained enough jet pilots? Göring said yes.",
    "q": "underground aircraft factory Germany",
    "tag": [
-    "underground",
-    "factory"
+    "factory",
+    "aircraft",
+    "production"
    ],
    "scritta": "1,000 JETS",
    "obbligo": [],
    "capitolo": "",
-   "anno": 1944
+   "anno": 1945
   },
   {
-   "testo": "Could you have trained enough jet pilots with your shortage of oil? Göring said yes. Underground oil plants would have supplied enough fuel. But his other answers that evening told a different story.",
-   "q": "Luftwaffe pilots training 1944",
+   "testo": "Underground oil plants, he said, would have supplied enough fuel. But his other answers that evening told a different story. Spaatz asked whether the bombing had hurt pilot training. Göring said yes.",
+   "q": "German pilots training aircraft",
    "tag": [
     "pilots",
-    "training"
-   ],
-   "scritta": "",
-   "obbligo": [],
-   "capitolo": "",
-   "anno": 1944
-  },
-  {
-   "testo": "Spaatz asked whether the bombing had damaged pilot training. Göring said yes. The attacks on oil crippled training, he said, because the new pilots were sent up without enough instruction, and were no match for yours.",
-   "q": "oil refinery bombing Germany",
-   "tag": [
-    "oil",
-    "refinery"
+    "training",
+    "luftwaffe"
    ],
    "scritta": "",
    "obbligo": [],
@@ -313,11 +300,12 @@
    "anno": 1944
   },
   {
-   "testo": "Then Edward Curtis, Spaatz's chief of staff, asked whether the Americans had chosen good targets, especially oil. Göring answered yes, excellent. As soon as we began repairing an oil plant, you bombed it again.",
-   "q": "bombing oil plant Germany 1944",
+   "testo": "The attacks on oil crippled training, he said, because new pilots were sent up without enough instruction, and were no match for your pilots. Spaatz's chief of staff, Edward Curtis, asked whether the Americans had chosen good targets.",
+   "q": "oil refinery bombing 1944",
    "tag": [
-    "oil plant",
-    "bombing"
+    "oil refinery",
+    "bombing",
+    "smoke"
    ],
    "scritta": "",
    "obbligo": [],
@@ -325,11 +313,12 @@
    "anno": 1944
   },
   {
-   "testo": "You bombed it again before we produced a single ton, he said. The logic was simple. Escorts protected the bombers. The bombers destroyed the fuel. Without fuel, new pilots never learned to fly well enough.",
-   "q": "German oil facility destroyed",
+   "testo": "Especially oil. Göring said yes, excellent. Whenever we began repairing an oil plant, you bombed it again before we had produced a single ton. The escorts protected the bombers. The bombers consumed the fuel.",
+   "q": "B-24 bombers oil target",
    "tag": [
-    "oil",
-    "destroyed"
+    "b-24",
+    "bombers",
+    "oil target"
    ],
    "scritta": "",
    "obbligo": [],
@@ -337,107 +326,77 @@
    "anno": 1944
   },
   {
-   "testo": "Vandenberg then asked about New Year's Day, 1945, when the Luftwaffe struck Allied airfields in one large morning attack. Why was it never repeated? Göring gave a short answer. Orders from the supreme command.",
-   "q": "Allied airfield attack January 1945",
+   "testo": "Without fuel, new pilots never learned to fly well enough to fight the escorts. Vandenberg asked about New Year's Day 1945, when the Luftwaffe struck Allied airfields in one big morning attack. Why was it never repeated?",
+   "q": "Allied airfield attacked January 1945",
    "tag": [
     "airfield",
+    "destroyed aircraft",
     "attack"
    ],
    "scritta": "JAN 1, 1945",
    "obbligo": [],
-   "capitolo": "Lost Opportunity",
+   "capitolo": "Orders from Above",
    "anno": 1945
   },
   {
-   "testo": "Hitler had said there was no use bombing American planes, because more would come like bees. In 1943, Hitler himself had dismissed American production figures as invented stories. The numbers proved otherwise.",
-   "q": "American aircraft factory production",
+   "testo": "Göring gave a curt answer. Orders from the supreme command. Hitler said there was no point in bombing American planes, because more would come like bees. Hitler himself had called American production figures fairy tales.",
+   "q": "Hitler newsreel 1943",
+   "tag": [
+    "hitler",
+    "speech",
+    "newsreel"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 1943
+  },
+  {
+   "testo": "Vandenberg then asked him to compare the air forces he had fought. Göring dismissed the Russians in a single sentence. On the Americans, he was precise. They were superior in technology and in production.",
+   "q": "American aircraft production line",
    "tag": [
     "aircraft",
+    "production line",
     "factory"
    ],
    "scritta": "",
    "obbligo": [],
-   "capitolo": "",
-   "anno": 1943
+   "capitolo": "The Real Difference",
+   "anno": 1944
   },
   {
-   "testo": "Then Vandenberg asked Göring to compare the air forces he had fought. He dismissed the Russians in a single sentence. About the Americans, he was precise. They were superior in technology and in production.",
-   "q": "American aircraft assembly line",
+   "testo": "The pilots, he said, were equal. English, German and American airmen fought with the same skill. The difference was what stood behind them. Because our production capacity was not as great as America's, we could not build fast enough.",
+   "q": "fighter pilots England Germany",
    "tag": [
-    "assembly line",
+    "fighter pilots",
+    "airfield",
     "aircraft"
    ],
    "scritta": "",
    "obbligo": [],
-   "capitolo": "Comparing Air Forces",
-   "anno": 1944
-  },
-  {
-   "testo": "The pilots, he said, were equal. English, German and American airmen fought with the same skill. The difference was what stood behind them. Later in the same session, he said it again.",
-   "q": "Allied pilots briefing 1944",
-   "tag": [
-    "pilots",
-    "briefing"
-   ],
-   "scritta": "",
-   "obbligo": [],
    "capitolo": "",
    "anno": 1944
   },
   {
-   "testo": "Because our production was not as great as America's, he said, we could not produce everything we needed quickly. He added that the fighters over Germany were demoralizing. After escorting bombers, they dived and shot up everything.",
-   "q": "P-51 strafing airfield",
-   "tag": [
-    "strafing",
-    "airfield"
-   ],
-   "scritta": "",
-   "obbligo": [],
-   "capitolo": "",
-   "anno": 1945
-  },
-  {
-   "testo": "That included jets in the act of landing. The most vulnerable moment for a jet was the approach to the runway. American fighters waited above the airfields, and the new aircraft could not be protected.",
-   "q": "jet fighter landing destroyed",
-   "tag": [
-    "jet",
-    "landing"
-   ],
-   "scritta": "",
-   "obbligo": [],
-   "capitolo": "",
-   "anno": 1945
-  },
-  {
-   "testo": "Spaatz sent the transcript to the commander of the Army Air Forces, General Henry Arnold, with a short note. I think you will find this extremely interesting. The record was kept. The answer was written down.",
-   "q": "General Henry Arnold",
+   "testo": "He added that the fighters overhead were demoralizing. After escorting the bombers, they dived down and hit everything, including jets as they landed. Spaatz sent the interrogation record to General Henry Arnold, with a short note.",
+   "q": "Henry Arnold Air Forces general",
    "tag": [
     "arnold",
-    "general"
+    "general",
+    "air forces"
    ],
    "scritta": "",
    "obbligo": [],
-   "capitolo": "The Missing Passage",
+   "capitolo": "The Missing Paragraph",
    "anno": 1945
   },
   {
-   "testo": "After the war, Arnold published his memoirs and described the interrogation in some detail. But de Seversky, who had been at the table, noticed what was missing. He wrote about it in 1950.",
-   "q": "Alexander de Seversky",
+   "testo": "I think you will find this most interesting, he wrote. After the war, Arnold published his memoirs and described the interrogation in detail. But de Seversky, who had sat at that table, noticed what was missing.",
+   "q": "Seversky aircraft designer",
    "tag": [
     "seversky",
-    "aircraft designer"
-   ],
-   "scritta": "1950",
-   "obbligo": [],
-   "capitolo": "",
-   "anno": 1950
-  },
-  {
-   "testo": "Arnold, he wrote, had left out one passage. The question: when did you know you had lost control of the air? And the answer: Hanover. The single most telling answer of the session was absent.",
-   "q": "book pages memoir 1940s",
-   "tag": [
-    "book",
-    "pages"
+    "designer",
+    "aviation"
    ],
    "scritta": "",
    "obbligo": [],
@@ -445,71 +404,12 @@
    "anno": 1950
   },
   {
-   "testo": "De Seversky wrote that it was unfortunate that General Arnold, though reporting this interrogation in some detail in his book, had omitted this important passage. The one answer Göring gave without hesitation.",
-   "q": "General Arnold memoir Global Mission",
-   "tag": [
-    "arnold",
-    "memoir"
-   ],
-   "scritta": "",
-   "obbligo": [],
-   "capitolo": "",
-   "anno": 1950
-  },
-  {
-   "testo": "Why did it matter? Because Hanover was not a battlefield. It was a measure of distance. It marked the point where the Luftwaffe could no longer separate the bombers from their escorts.",
-   "q": "Hanover bombing aerial view",
+   "testo": "In 1950, he wrote that Arnold had omitted one passage. The question: when did you know you had lost control of the air? The answer: Hanover. A pity, de Seversky wrote, that Arnold left out this important paragraph.",
+   "q": "Hanover ruins 1945",
    "tag": [
     "hanover",
-    "aerial"
-   ],
-   "scritta": "",
-   "obbligo": [],
-   "capitolo": "Why Hanover Mattered",
-   "anno": 1944
-  },
-  {
-   "testo": "Once escorts reached Hanover, no German target was safe. Fighter units that had thrived on unescorted bombers now faced American fighters first. Every sortie cost experienced pilots the Luftwaffe could not replace.",
-   "q": "Luftwaffe fighter units 1944",
-   "tag": [
-    "luftwaffe",
-    "fighters"
-   ],
-   "scritta": "",
-   "obbligo": [],
-   "capitolo": "",
-   "anno": 1944
-  },
-  {
-   "testo": "And Göring's own answer carried the evidence. Fuel shortages, short training, outnumbered pilots. All of it followed from one fact. American fighters could now go wherever the bombers went.",
-   "q": "bomber formation escorted fighters",
-   "tag": [
-    "bombers",
-    "escort"
-   ],
-   "scritta": "",
-   "obbligo": [],
-   "capitolo": "",
-   "anno": 1944
-  },
-  {
-   "testo": "Remember the order. In 1943, Göring had told his general that American fighters over Aachen did not exist. In 1945, he told the Americans that the same fighters, reaching Hanover, decided the air war.",
-   "q": "Goering Galland meeting 1943",
-   "tag": [
-    "goering",
-    "galland"
-   ],
-   "scritta": "",
-   "obbligo": [],
-   "capitolo": "The Contradiction",
-   "anno": 1943
-  },
-  {
-   "testo": "One man, two statements. The first was an order meant to silence a general. The second was an admission made to the victors. Only the second matched the facts that every Luftwaffe pilot already knew.",
-   "q": "Luftwaffe pilots defeated 1945",
-   "tag": [
-    "luftwaffe",
-    "pilots"
+    "ruins",
+    "destroyed city"
    ],
    "scritta": "",
    "obbligo": [],
@@ -517,100 +417,66 @@
    "anno": 1945
   },
   {
-   "testo": "The air war had been lost long before May 1945. By the spring of that year, Allied aircraft ranged over Germany almost freely. Cities lay in ruins. Airfields were cratered. The Luftwaffe had been broken.",
-   "q": "bombed German city ruins 1945",
+   "testo": "A year and a half later, Göring was convicted at Nuremberg. He took his own life in his cell the night before his execution. In 1943, he had ordered that American fighters did not exist over Germany.",
+   "q": "Nuremberg trial Göring dock",
    "tag": [
-    "ruins",
-    "bombed city"
+    "nuremberg",
+    "goering",
+    "trial"
    ],
    "scritta": "",
    "obbligo": [],
    "capitolo": "The Consequence",
-   "anno": 1945
-  },
-  {
-   "testo": "Göring stood trial before the International Military Tribunal at Nuremberg. He was convicted of war crimes and crimes against humanity, and sentenced to death by hanging. He took his own life in his cell.",
-   "q": "Nuremberg courtroom Goering",
-   "tag": [
-    "nuremberg",
-    "courtroom"
-   ],
-   "scritta": "",
-   "obbligo": [],
-   "capitolo": "",
    "anno": 1946
   },
   {
-   "testo": "That happened in October 1946, the night before the executions. The man who had led the Luftwaffe ended his life by poison. The interrogation at Augsburg remained as one of the last records of his thinking.",
-   "q": "Nuremberg prison cell 1946",
+   "testo": "In May 1945, asked when he knew the air war was lost, he named the city those same fighters reached alongside the bombers. Subscribe, and tell us in the comments whose story we should tell next.",
+   "q": "Nuremberg courtroom 1946",
    "tag": [
     "nuremberg",
-    "prison"
+    "courtroom",
+    "defendants"
    ],
-   "scritta": "OCT 1946",
+   "scritta": "HANOVER",
    "obbligo": [],
    "capitolo": "",
    "anno": 1946
-  },
-  {
-   "testo": "Asked when he knew the air war was lost, Göring named the city American fighters reached with their bombers. Subscribe, and tell us in the comments whose story we should cover next.",
-   "q": "American fighters over Germany 1944",
-   "tag": [
-    "fighters",
-    "germany"
-   ],
-   "scritta": "",
-   "obbligo": [],
-   "capitolo": "",
-   "anno": 1944
-  },
-  {
-   "testo": "The order about the fighters over Aachen, and Galland's four word reply, are in our video about that scene in his train. Watch it next, and compare it with what Göring told Spaatz.",
-   "q": "Galland Goering train 1945",
-   "tag": [
-    "galland",
-    "train"
-   ],
-   "scritta": "",
-   "obbligo": [],
-   "capitolo": "",
-   "anno": 1945
   }
  ],
- "descrizione": "On May 10, 1945, American air generals including Carl Spaatz interrogated Hermann Göring at Augsburg and asked when he knew the Luftwaffe was losing control of the air. He named one German city: Hanover. This documentary follows the interrogation record, the arrival of American long-range escort fighters, and what Joseph Goebbels wrote in his diary.\n\nWe trace the P-51 Mustang, the Schweinfurt raid, the fuel and pilot training crisis, and Göring's own contradiction of his order about fighters over Aachen. We also cover Alexander de Seversky's 1950 note on the passage General Arnold left out.\n\nThis video draws on Allied interrogation records, memoirs and documented history of the air war over Germany. Subscribe to WWII Testimony for more.\n\n#WWII #Luftwaffe #Goering #AirWar #WWIIHistory",
+ "descrizione": "In May 1945, American air generals interrogated Hermann Göring and asked when he knew the Luftwaffe had lost control of the air. His answer was one German city: Hanover. This documentary follows the Göring interrogation by Carl Spaatz, the arrival of long-range American escort fighters, and what the Reichsmarschall admitted about oil, pilots and production.\n\nWe trace the daylight bombing campaign of 1943, the Schweinfurt raid, Goebbels's diary entries, the Aachen order given to Adolf Galland, and the rise of the P-51 Mustang over Berlin in 1944. Every detail comes from interrogation records, memoirs and documented history.\n\nWatch to the end for the missing paragraph that de Seversky said General Arnold left out of his memoirs. Subscribe to WWII Testimony for more firsthand accounts of the war.\n\n#WWII #Goering #Luftwaffe #AirWar #WWIITestimony",
  "tag": [
-  "Goering interrogation",
-  "Hermann Goring",
-  "Luftwaffe defeat",
+  "WWII",
+  "World War II",
+  "Hermann Göring",
+  "Göring interrogation",
+  "Luftwaffe",
   "Hanover",
   "Carl Spaatz",
-  "WWII documentary",
-  "air war over Germany",
   "P-51 Mustang",
   "long-range escort fighters",
+  "Eighth Air Force",
+  "strategic bombing",
   "Schweinfurt raid",
-  "Augsburg 1945",
-  "Hoyt Vandenberg",
-  "de Seversky",
   "Adolf Galland",
   "Goebbels diary",
-  "Eighth Air Force",
-  "B-17 Flying Fortress",
-  "WWII testimony",
-  "Nazi leaders interrogation",
-  "Luftwaffe history",
-  "American bombers",
-  "WWII archive footage",
-  "Henry Arnold",
-  "Alexander Patch",
-  "Reichsmarschall",
   "Nuremberg trial",
+  "Albert Speer",
+  "B-17 Flying Fortress",
+  "air war 1944",
+  "Hoyt Vandenberg",
+  "Alexander de Seversky",
+  "Henry Arnold",
+  "German jet fighters",
+  "Me 262",
   "oil campaign",
-  "jet fighters",
-  "air superiority",
-  "World War II history"
+  "WWII history",
+  "WWII documentary",
+  "Reichsmarschall",
+  "1945 interrogation",
+  "WWII Testimony",
+  "Allied air power"
  ],
  "testo_copertina": "HANOVER",
- "copertina_prompt": "Close-up of a fictional 1940s German Luftwaffe officer in a gray wool uniform, flushed face and tense, defeated expression, sitting in a dim interrogation room with harsh side light from a single window.",
+ "copertina_prompt": "Close-up of a fictional 1940s German Luftwaffe officer in a gray wool uniform, face flushed and eyes lowered in grim admission, seated at a plain wooden table in a dim interrogation room lit by a single harsh overhead lamp.",
  "titolo_video": "They Asked Göring When He Knew the Luftwaffe Was Finished. He Named One City."
 }
