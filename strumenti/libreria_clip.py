@@ -19,7 +19,8 @@ NOME = P.get('nome') or 'nasa_spazio'
 CART = os.path.join('libreria_clip', NOME); os.makedirs(CART, exist_ok=True)
 LAV = '/tmp/lib'; os.makedirs(LAV, exist_ok=True)
 MAX_N = int(P.get('max_spezzoni') or 300)
-MAX_SPESA = min(float(P.get('max_spesa') or 0.45), 0.50)          # tetto deciso da Giorgio: mai oltre 0,50 $
+SOLO_PROVA = str(P.get('solo_prova') or '').upper() == 'SI'   # prova a secco: trova e taglia le clip, NIENTE Haiku, indice non toccato (costo 0)
+MAX_SPESA = 0.0 if SOLO_PROVA else min(float(P.get('max_spesa') or 0.45), 0.50)          # tetto deciso da Giorgio: mai oltre 0,50 $
 MODELLO = 'claude-haiku-4-5-20251001'; PREZZO = (1.0, 5.0)         # $ per milione di token (input, output)
 SPESA = {'tot': 0.0, 'chiamate': 0}
 UA = {'User-Agent': 'ambience-libreria-clip/1.0 (gggweb23@gmail.com)'}
@@ -52,8 +53,72 @@ GIA_FATTE = {x.get('nasa_id') for x in VECCHI}
 log(len(VECCHI), 'spezzoni gia' + "'" + ' in libreria,', len(GIA_FATTE), 'video gia' + "'" + ' tagliati')
 
 # ---------------- 1) video sorgente ----------------
+ARCHIVIO = str(P.get('archivio') or 'nasa').lower()   # nasa | storico (archive.org + Wikimedia Commons, solo pubblico dominio)
+# collezioni di archive.org di pubblico dominio: cinegiornali Universal (donati al pubblico dominio), film del governo USA (FedFlix, Archivi Nazionali)
+COLLEZIONI_PD = ['universal_newsreels', 'FedFlix', 'usnationalarchives', 'prelinger']
+NO_STORICO = re.compile(r'cartoon|animated|animation|trailer|commercial|advertis|colorized|coloriz|remaster|reenact|re-enact|movie clip|hollywood|music video|tiktok|game', re.I)
+LIBERE = re.compile(r'public domain|publicdomain|^pd|cc0|cc-zero|no restrictions|mark/1\.0', re.I)
+
+
+def archive_org(q, quanti=4):
+    out = []
+    try:
+        coll = ' OR '.join('collection:' + c for c in COLLEZIONI_PD)
+        r = get('https://archive.org/advancedsearch.php?' + urllib.parse.urlencode(
+            [('q', f'({q}) AND mediatype:movies AND ({coll})'), ('fl[]', 'identifier'), ('fl[]', 'title'), ('rows', 15), ('output', 'json')]))
+    except Exception as e:
+        log('archive.org non risponde per', q, str(e)[:80]); return out
+    for d in r.get('response', {}).get('docs', []):
+        ide = d.get('identifier'); tit = str(d.get('title') or ide)
+        if not ide or 'ia:' + ide in visti or NO_STORICO.search(tit):
+            continue
+        try:
+            m = get('https://archive.org/metadata/' + urllib.parse.quote(ide))
+        except Exception:
+            continue
+        colls = m.get('metadata', {}).get('collection') or []; colls = colls if isinstance(colls, list) else [colls]
+        lic = str(m.get('metadata', {}).get('licenseurl') or '')
+        if 'prelinger' in colls and not LIBERE.search(lic):   # Prelinger: solo i film marcati di pubblico dominio
+            continue
+        mp4 = [f for f in m.get('files', []) if str(f.get('name', '')).lower().endswith('.mp4') and 5e6 < float(f.get('size') or 0) < 6e8]
+        if not mp4:
+            continue
+        f = sorted(mp4, key=lambda f: (0 if 'h.264' in str(f.get('format', '')).lower() else 1, float(f.get('size') or 0)))[0]
+        out.append(('ia:' + ide, tit, 'DIRETTO:https://archive.org/download/' + urllib.parse.quote(ide) + '/' + urllib.parse.quote(f['name']),
+                    'pubblico dominio (' + (lic or ', '.join(c for c in colls if c in COLLEZIONI_PD)) + ')'))
+        visti.add('ia:' + ide)
+        if len(out) >= quanti:
+            break
+    return out
+
+
+def commons_video(q, quanti=3):
+    out = []
+    try:
+        j = get('https://commons.wikimedia.org/w/api.php?' + urllib.parse.urlencode({
+            'action': 'query', 'format': 'json', 'generator': 'search', 'gsrnamespace': 6, 'gsrsearch': q + ' filetype:video', 'gsrlimit': 20,
+            'prop': 'imageinfo', 'iiprop': 'url|size|extmetadata'}))
+    except Exception as e:
+        log('Commons non risponde per', q, str(e)[:80]); return out
+    for pg in sorted((j.get('query') or {}).get('pages', {}).values(), key=lambda x: x.get('index', 99)):
+        t = pg.get('title', ''); ii = (pg.get('imageinfo') or [{}])[0]; m = ii.get('extmetadata') or {}
+        lic = ((m.get('LicenseShortName') or {}).get('value', '') + ' ' + (m.get('License') or {}).get('value', '')).strip()
+        nid = 'cm:' + t[5:][:120]
+        if nid in visti or not LIBERE.search(lic) or NO_STORICO.search(t) or ii.get('width', 0) < 480 or float(ii.get('size') or 0) > 6e8:
+            continue
+        out.append((nid, t[5:], 'DIRETTO:' + ii.get('url', ''), lic[:60])); visti.add(nid)
+        if len(out) >= quanti:
+            break
+    return out
+
+
 sorgenti, visti = [], set(GIA_FATTE)
-for q in RICERCHE:
+LICENZE = {}
+if ARCHIVIO != 'nasa':
+    for q in RICERCHE:
+        for nid, tit, href, lic in archive_org(q) + commons_video(q):
+            sorgenti.append((nid, tit, href)); LICENZE[nid] = lic
+for q in (RICERCHE if ARCHIVIO == 'nasa' else []):
     try:
         items = get('https://images-api.nasa.gov/search?' + urllib.parse.urlencode({'q': q, 'media_type': 'video'})).get('collection', {}).get('items', [])
     except Exception as e:
@@ -77,16 +142,19 @@ for nid, tit, href in sorgenti:
     if len(spezzoni) >= MAX_N:
         break
     try:
-        files = get(href)
-        mp4 = next((f for suf in ('~small.mp4', '~mobile.mp4', '~medium.mp4', '~preview.mp4') for f in files if f.endswith(suf)), None)
-        if not mp4:
-            continue
-        mp4 = mp4.replace('http://', 'https://')
+        if href.startswith('DIRETTO:'):   # archivi storici: link diretto al file
+            mp4 = href[8:]
+        else:
+            files = get(href)
+            mp4 = next((f for suf in ('~small.mp4', '~mobile.mp4', '~medium.mp4', '~preview.mp4') for f in files if f.endswith(suf)), None)
+            if not mp4:
+                continue
+            mp4 = mp4.replace('http://', 'https://')
         p = os.path.join(LAV, re.sub(r'\W', '_', nid)[:80] + '.mp4')
         open(p, 'wb').write(get(mp4, raw=True, timeout=600))
         wh = sh(['ffprobe', '-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width,height', '-of', 'csv=p=0', p]).stdout.strip().split(',')
         lung = float(sh(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', p]).stdout.strip() or 0)
-        if len(wh) < 2 or int(wh[0]) < 600 or int(wh[0]) < int(wh[1]) or lung < 20:
+        if len(wh) < 2 or int(wh[0]) < (600 if ARCHIVIO == 'nasa' else 480) or int(wh[0]) < int(wh[1]) or lung < 20:   # i film d'epoca sono 640x480
             os.remove(p); continue
         # cambi di scena
         o = sh(['ffmpeg', '-v', 'info', '-i', p, '-vf', "scale=320:-2,select='gt(scene,0.30)',metadata=print", '-an', '-f', 'null', '-']).stderr
@@ -116,7 +184,7 @@ for nid, tit, href in sorgenti:
                         dop = Image.new('RGB', (ia.width * 2 + 8, ia.height), 'black'); dop.paste(ia, (0, 0)); dop.paste(ib, (ia.width + 8, 0))
                         dop.save(mid, quality=78)
                         spezzoni.append({'n': BASE_N + len(spezzoni), 'nasa_id': nid, 'titolo': tit, 'url': mp4, 'da': round(t, 2), 'durata': 3.5,
-                                         'movimento': round(mov, 1), 'img': mid})
+                                         'movimento': round(mov, 1), 'img': mid, **({'licenza': LICENZE[nid]} if nid in LICENZE else {})})
                         presi += 1
                 t += 12
         log(nid[:50], '->', presi, 'spezzoni (totale', len(spezzoni), ')')
@@ -133,6 +201,16 @@ DOMANDA = ('These are frames from NASA videos (each image = start and end of the
            '"animazione": true/false (computer animation, render, graphic or simulation instead of a real camera shot), '
            '"qualita": 1-5 (5 = sharp, beautiful, cinematic; 1 = blurry, dark, boring), '
            '"tag": ["3-6 lowercase English keywords, e.g. spacewalk, treadmill, food, sleeping, earth, cupola, robotic arm"]}]')
+if ARCHIVIO != 'nasa':
+    DOMANDA = ('These are frames from historical archive films (each image = start and end of the same short clip, side by side). For EACH frame answer one JSON object. Answer ONLY a JSON array, same order: '
+               '[{"k": <frame number>, "cosa": "what is visible, 6-12 English words (people, place, action)", '
+               '"luogo": "short place type, e.g. prison_camp, battlefield, city_ruins, factory, farm, train, ship, office, street, home_front, aircraft, other", '
+               '"epoca": "decade it looks like: 1930s | 1940s | 1950s | later", '
+               '"parla_in_camera": true/false (a person talking to the camera, interview or speech setting), '
+               '"scritte": true/false (ANY overlay text in EITHER half: titles, captions, intertitles, logos, subtitles, credits, burned-in stamps), '
+               '"animazione": true/false (animation, map graphic, drawing or cartoon instead of a real camera shot), '
+               '"qualita": 1-5 (5 = sharp, well exposed, striking; 1 = blurry, damaged, too dark, boring), '
+               '"tag": ["3-6 lowercase English keywords of what is visible, e.g. soldiers, prisoners, barbed wire, train, tanks, farm, food, bombers"]}]')
 STIMA_CHIAMATA = (10 * 400 + 600) * PREZZO[0] / 1e6 + 900 * PREZZO[1] / 1e6     # stima prudente prima di ogni chiamata
 for i in range(0, len(spezzoni), 10):
     if SPESA['tot'] + STIMA_CHIAMATA > MAX_SPESA:
@@ -151,13 +229,19 @@ for i in range(0, len(spezzoni), 10):
         for x in json.loads(t[t.find('['): t.rfind(']') + 1]):
             s = next((s for s in gruppo if s['n'] == int(x.get('k', -1))), None)
             if s:
-                s.update({k: x.get(k) for k in ('cosa', 'luogo', 'parla_in_camera', 'scritte', 'animazione', 'qualita', 'tag')})
+                s.update({k: x.get(k) for k in ('cosa', 'luogo', 'epoca', 'parla_in_camera', 'scritte', 'animazione', 'qualita', 'tag')})
     except Exception as e:
         log('etichette non riuscite per il gruppo', i, str(e)[:150])
     log(f'etichettati {min(i + 10, len(spezzoni))}/{len(spezzoni)} | spesa {SPESA["tot"]:.3f} $')
 
 # ---------------- 4) indice + foglio di controllo ----------------
+EPOCHE_OK = [e.lower() for e in (P.get('epoche') or ['1930s', '1940s'])]
+
+
 def buono(s):
+    if ARCHIVIO != 'nasa':   # archivi storici: ripresa vera dell'epoca giusta, senza scritte, nessuno che parla in camera
+        return bool(s.get('cosa') and not s.get('parla_in_camera') and not s.get('scritte') and not s.get('animazione')
+                    and int(s.get('qualita') or 0) >= 3 and str(s.get('epoca') or '').lower() in EPOCHE_OK)
     if re.search(r'airplane|aircraft|jet|plane|satellite imagery|map|chart|diagram', str(s.get('cosa')), re.I):
         return False
     return (s.get('cosa') and not s.get('parla_in_camera') and not s.get('scritte') and not s.get('animazione') and int(s.get('qualita') or 0) >= 3
@@ -167,7 +251,8 @@ def buono(s):
 for s in spezzoni:
     s['ok'] = bool(buono(s))
 ok = [s for s in spezzoni if s['ok']]
-json.dump(VECCHI + [{k: v for k, v in s.items() if k != 'img'} for s in spezzoni], open(F_IND, 'w'), ensure_ascii=False, indent=1)
+if not SOLO_PROVA:
+    json.dump(VECCHI + [{k: v for k, v in s.items() if k != 'img'} for s in spezzoni], open(F_IND, 'w'), ensure_ascii=False, indent=1)
 col = 8; tw, th = 240, 135
 G = Image.new('RGB', (col * tw, ((len(spezzoni) + col - 1) // col) * (th + 30)), 'black'); d = ImageDraw.Draw(G)
 for i, s in enumerate(spezzoni):
@@ -180,5 +265,8 @@ G.save(os.path.join(CART, 'controllo.jpg'), quality=75)   # solo gli spezzoni di
 riepilogo = (time.strftime('%Y-%m-%d') + f' | sorgenti: {len(sorgenti)} | spezzoni nuovi: {len(spezzoni)} | buoni nuovi: {len(ok)} | '
              f'buoni in libreria: {sum(1 for x in VECCHI if x.get("ok")) + len(ok)} | chiamate Haiku: {SPESA["chiamate"]} | '
              f'spesa: {SPESA["tot"]:.3f} $ (tetto {MAX_SPESA:.2f} $)\n')
-open(os.path.join(CART, 'costi.txt'), 'a').write(riepilogo)   # storico di tutti i giri
+if not SOLO_PROVA:
+    open(os.path.join(CART, 'costi.txt'), 'a').write(riepilogo)   # storico di tutti i giri
+else:
+    open(os.path.join(CART, 'prova_a_secco.txt'), 'w').write(riepilogo + '\n'.join(f"{x['nasa_id']} | {x['titolo'][:80]} | {x.get('licenza', '')}" for x in spezzoni) + '\n')
 log(riepilogo)
