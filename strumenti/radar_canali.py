@@ -3,7 +3,8 @@
 con archivi gratuiti (Pexels, NASA, archivi storici, dipinti...) o con l'IMPRONTA.
 PAYLOAD = {"nome": "radar_2026_11_02", "canali": ["UC...", ...], "fotogrammi": "SI"}
 Uscita: prove_video/radar/<nome>/ : report.txt (dati), <canale>_copertine.jpg (copertine dei video piu' visti),
-<canale>_fotogrammi.jpg (fotogrammi dei primi 2 minuti del video piu' visto, se si scarica)."""
+<canale>_fotogrammi.jpg (fotogrammi dei primi 2 minuti del video piu' visto, se si scarica),
+<canale>_video.json (tutti i video con visualizzazioni al giorno) e in report.txt i FILONI: frasi ricorrenti nei titoli con la resa di ognuna."""
 import io, json, os, re, statistics, subprocess, time, urllib.parse, urllib.request
 from PIL import Image, ImageDraw
 
@@ -79,6 +80,38 @@ for cid in P.get('canali') or []:
                f"descrizione canale: {ch['snippet'].get('description', '')[:300].replace(chr(10), ' ')}\n"
                "video piu' visti:\n" + ''.join(f"  {v['_views']:>9} | {v['_dur'] / 60:5.1f} min | {v['snippet']['publishedAt'][:10]} | {v['snippet']['title'][:90]} | {v['id']}\n" for v in top[:10])
                + f"descrizione del piu' visto: {(top[0]['snippet'].get('description', '') if top else '')[:500].replace(chr(10), ' ')}\n")
+    # FILONI (2 nov, Giorgio: si copia solo il filone che funziona): frasi ricorrenti nei titoli (2-3 parole in almeno 3 video)
+    # e per ognuna le visualizzazioni al giorno mediane dei suoi video, confrontate con la mediana del canale. Gratis, niente AI.
+    try:
+        lv = [x for x in json.load(open(os.path.join(CART, slug + '_video.json'))) if x['min'] > 3]
+        STOP = {'the', 'a', 'an', 'of', 'in', 'on', 'and', 'to', 'is', 'was', 'for', 'it', 'that', 'this', 'with', 'you', 'by', 'at', 'from'}
+        parole_t = [re.findall(r"[\w']+", x['titolo'].lower()) for x in lv]
+        cont = {}
+        for i, w in enumerate(parole_t):
+            vis = set()
+            for n_ in (2, 3):
+                for k in range(len(w) - n_ + 1):
+                    g = w[k:k + n_]
+                    if g[0] in STOP or g[-1] in STOP:
+                        continue
+                    vis.add(' '.join(g))
+            for g in vis:
+                cont.setdefault(g, []).append(i)
+        med_c = statistics.median([x['views_giorno'] for x in lv]) if lv else 0
+        fil = []
+        for g, idx in cont.items():
+            if len(idx) >= 3:
+                vg = [lv[i]['views_giorno'] for i in idx]
+                fil.append((statistics.median(vg), g, len(idx), max(vg)))
+        fil.sort(reverse=True)
+        tenuti = []
+        for f_ in fil:   # niente doppioni (una frase dentro l'altra con gli stessi video)
+            if not any(f_[1] in t[1] or t[1] in f_[1] for t in tenuti):
+                tenuti.append(f_)
+        rep[-1] += f"FILONI (visualizzazioni al giorno, mediana canale {med_c:.0f}/g):\n" + ''.join(
+            f"  {'VINCE ' if m_ >= 2 * med_c else ('flop  ' if m_ < med_c / 2 else '      ')}\"{g}\": {n} video | mediana {m_:.0f}/g | migliore {mx:.0f}/g\n" for m_, g, n, mx in tenuti[:10])
+    except Exception as e:
+        rep[-1] += f'filoni non calcolati: {str(e)[:80]}\n'
     # copertine dei 8 piu' visti
     cop = []
     for v in top[:8]:
