@@ -35,17 +35,32 @@ def _claude(contenuto, modello, max_tokens=400):
     return json.JSONDecoder().raw_decode(t[t.find('{'):])[0]
 
 
-def piano(titolo, lingua='it', extra=''):
-    """Dal titolo del video: nome del paese, anni, ricerche Pexels dei luoghi simbolo."""
+def piano(titolo, lingua='it', extra='', nota=''):
+    """Dal titolo del video: il SOGGETTO del titolo (paese, impero, citta', regione...), anni, ricerche Pexels dei luoghi simbolo."""
     lin = {'it': 'italiano', 'en': 'English'}.get(lingua, lingua)
     return _claude([{'type': 'text', 'text':
-        f'Titolo di un video YouTube sulla storia completa di un paese: "{titolo}". {extra}\nRispondi SOLO JSON: '
-        f'{{"nome": "nome del paese (o impero) in {lin}, MAIUSCOLO, breve (es. STATI UNITI, IRAN, IMPERO ROMANO)", '
+        f'Titolo di un video YouTube sulla storia completa di qualcosa: "{titolo}". {extra}\n{nota}Rispondi SOLO JSON: '
+        f'{{"nome": "il SOGGETTO ESATTO del titolo, in {lin}, MAIUSCOLO, breve: quello che il titolo dice (paese, impero, citta\', regione, '
+        f'azienda...). Se il titolo parla di una citta\' scrivi la citta\', MAI il paese in cui si trova (es. titolo su Las Vegas -> LAS VEGAS, non STATI UNITI; '
+        f'titolo su Venezia -> VENEZIA, non ITALIA). Esempi: STATI UNITI, IRAN, IMPERO ROMANO, LAS VEGAS", '
         f'"anni": "il periodo raccontato, corto, in {lin} (es. 3000 a.C. → 2026, 660 a.C. → 2026); se il titolo non lo dice: 5.000 ANNI DI STORIA o simile, solo se vero", '
-        '"simboli": ["6 ricerche Pexels in inglese, dalla piu\' famosa: i monumenti e luoghi SIMBOLO del paese che un italiano riconosce subito '
-        '(es. Taj Mahal; Giza pyramids; Colosseum Rome; Statue of Liberty New York; Persepolis Iran), con il nome del luogo e del paese; '
-        'se del paese ci sono poche foto famose, le ultime 2 ricerche siano paesaggi tipici e inconfondibili con il nome del paese (es. Afghanistan mountains valley, Jerusalem old city walls)"]}'}],
+        '"simboli": ["6 ricerche Pexels in inglese, dalla piu\' famosa: i monumenti e luoghi SIMBOLO di quel soggetto (non del paese intorno) che un italiano riconosce subito '
+        '(es. Taj Mahal; Giza pyramids; Colosseum Rome; Statue of Liberty New York; Las Vegas Strip; Persepolis Iran), con il nome del luogo; '
+        'se ci sono poche foto famose, le ultime 2 ricerche siano paesaggi tipici e inconfondibili di quel soggetto (es. Afghanistan mountains valley, Jerusalem old city walls)"]}'}],
         os.environ.get('MODELLO_COPERTINA', 'claude-sonnet-5-5'))
+
+
+def _norm(t):
+    import unicodedata
+    return ''.join(ch for ch in unicodedata.normalize('NFD', str(t).lower()) if unicodedata.category(ch) != 'Mn')
+
+
+def nome_nel_titolo(nome, titolo):
+    """CONTROLLO: il nome scritto in copertina deve essere il soggetto del titolo (almeno una parola importante del nome nel titolo)."""
+    import re
+    pt = set(re.findall(r'\w+', _norm(titolo)))
+    pn = [w for w in re.findall(r'\w+', _norm(nome)) if len(w) > 2 and w not in ('impero', 'regno', 'repubblica', 'storia', 'della', 'delle', 'the', 'empire', 'kingdom')]
+    return bool(pn) and any(w in pt or w.rstrip('aeio') in {x.rstrip('aeio') for x in pt} for w in pn)
 
 
 def _pexels(q):
@@ -57,9 +72,10 @@ def _pexels(q):
 def foto_simbolo(nome, simboli, modello='claude-sonnet-5-5', pulita=True):
     """La foto migliore tra quelle che superano il controllo di Claude. (foto, riquadro del soggetto 0-1) oppure (None, None)."""
     domanda = (f'Questa foto andra\' sulla copertina di un video su TUTTA LA STORIA di: {nome}. Rispondi SOLO JSON: '
-               '{"cosa": "cosa mostra esattamente (luogo, citta, paese)", "paese_giusto": true/false (il luogo si trova DAVVERO in quel paese? se non ne sei sicuro: false), '
-               '"simbolo": 1-10 (quanto e\' un simbolo famoso e riconoscibile di quel paese per un italiano), "visibile": 1-10 (quanto il soggetto e\' grande, nitido, ben illuminato), '
-               '"pulita": true/false (false se davanti o attorno al soggetto ci sono negozi, insegne, auto, cartelli, cantieri, impalcature, cavi o folle che rovinano la foto), '
+               '{"cosa": "cosa mostra esattamente (luogo, citta, paese)", "paese_giusto": true/false (il luogo si trova DAVVERO in/a ' + nome + '? una foto di un altro luogo dello stesso paese = false; se non ne sei sicuro: false), '
+               '"simbolo": 1-10 (quanto e\' un simbolo famoso e riconoscibile di ' + nome + ' per un italiano), "visibile": 1-10 (quanto il soggetto e\' grande, nitido, ben illuminato), '
+               '"pulita": true/false (false se davanti o attorno al soggetto ci sono negozi, insegne, auto, cartelli, cantieri, impalcature, cavi o folle che rovinano la foto; '
+               'ma se le insegne o le luci SONO il simbolo stesso, es. le insegne al neon di Las Vegas, allora e\' pulita), '
                '"box": [x0, y0, x1, y1] (riquadro del soggetto principale, frazioni 0-1 della foto)}')
     candidati = []
     for q in simboli[:8]:
@@ -170,6 +186,11 @@ def disegna(nome, anni, foto, box, path, testo_alto='TUTTA LA STORIA', tappe=Non
 
 def crea(titolo, lingua, path, extra=''):
     p = piano(titolo, lingua, extra)
+    if not nome_nel_titolo(p.get('nome') or '', titolo):   # CONTROLLO: mai in copertina un soggetto diverso dal titolo (31 ott: Las Vegas -> STATI UNITI)
+        log('copertina foto: nome', p.get('nome'), 'non e\' il soggetto del titolo, rifaccio')
+        p = piano(titolo, lingua, '', f'ATTENZIONE: "{p.get("nome")}" e\' sbagliato, non e\' il soggetto del titolo. Il nome deve essere scritto nel titolo. ')
+        if not nome_nel_titolo(p.get('nome') or '', titolo):
+            log('COPERTINA BLOCCATA: il nome', p.get('nome'), 'non corrisponde al titolo', titolo); return None
     log('copertina foto:', json.dumps(p, ensure_ascii=False)[:300])
     foto, box = foto_simbolo(p.get('nome') or titolo, p.get('simboli') or [])
     if foto is None:

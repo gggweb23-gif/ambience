@@ -4304,7 +4304,7 @@ def main():
             import copertina_foto as CF
             CF.log = log
             cop = CF.crea(titolo_finale, LINGUA, os.path.join(ROOT, 'copertina.jpg'),
-                          f"Periodo raccontato: {c.get('date') or ''}. Paese: {c.get('titolo_mappa') or c.get('paese_mappa') or ''}.")
+                          f"Periodo raccontato: {c.get('date') or ''}. Paese in cui si trova (solo contesto: in copertina va il soggetto del titolo, non il paese se il titolo parla di una citta'): {c.get('titolo_mappa') or c.get('paese_mappa') or ''}.")
             if cop:
                 log('copertina foto pronta: copertina.jpg')
         except Exception as e:
