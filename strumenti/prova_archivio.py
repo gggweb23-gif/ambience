@@ -325,6 +325,10 @@ for n in range(len(piano) - 1):
 trans.append(('fade', 0))
 
 pezzi, fonti, nclip = [], [], 0
+# 2 nov (Giorgio): niente movimenti di camera e niente rumore quando cambia l'immagine, su tutti i canali d'archivio.
+# Si riaccendono dal foglio con le colonne movimenti_camera = SI e suono_foto = SI.
+MOVIMENTI = str(P.get('movimenti_camera') or 'NO').strip().upper() == 'SI'
+SUONO_FOTO = str(P.get('suono_foto') or 'NO').strip().upper() == 'SI'
 INQ = []   # per la revisione delle inquadrature (video_archivio): cosa c'e' in ogni inquadratura e da dove viene
 MANCANTI = []   # ricerche delle scene senza spezzone adatto in libreria: la libreria le cerchera' nei giri successivi
 for n, (d, s, prima, t0) in enumerate(piano):
@@ -345,7 +349,7 @@ for n, (d, s, prima, t0) in enumerate(piano):
     if c:
         p, da, nid, tit = c; s['_ultima'] = nid; nclip += 1
         INFO_N.update(tipo='clip', fonte=nid)
-        spinta = n % 2 == 0                            # una clip si' e una no: leggera spinta in avanti (punch-in)
+        spinta = MOVIMENTI and n % 2 == 0              # una clip si' e una no: leggera spinta in avanti (punch-in), solo con movimenti_camera = SI
         vf = (f'[0:v]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={FPS},setsar=1,tpad=stop_mode=clone:stop_duration={L:.2f}'
               + (f",zoompan=z='1+0.06*on/{int(L * FPS)}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s={W}x{H}:fps={FPS}" if spinta else '') + '[v]')
         cmd = ['ffmpeg', '-y', '-v', 'error', '-ss', round(da, 2), '-t', round(L, 3), '-i', p]
@@ -363,7 +367,8 @@ for n, (d, s, prima, t0) in enumerate(piano):
         fr = int(L * FPS) + 1; m = ['avanti', 'destra', 'indietro', 'sinistra'][n % 4]
         z = {'avanti': f"1+0.12*on/{fr}", 'indietro': f"1.12-0.12*on/{fr}"}.get(m, '1.12')
         x = {'destra': f"(iw-iw/zoom)*on/{fr}", 'sinistra': f"(iw-iw/zoom)*(1-on/{fr})"}.get(m, 'iw/2-(iw/zoom/2)')
-        vf = f"[0:v]zoompan=z='{z}':x='{x}':y='ih/2-(ih/zoom/2)':d={fr}:s={W}x{H}:fps={FPS},setsar=1[v]"
+        vf = (f"[0:v]zoompan=z='{z}':x='{x}':y='ih/2-(ih/zoom/2)':d={fr}:s={W}x{H}:fps={FPS},setsar=1[v]" if MOVIMENTI else
+              f"[0:v]scale={W}:{H},loop=loop={fr}:size=1:start=0,fps={FPS},setsar=1[v]")   # foto ferma (2 nov, Giorgio: niente movimenti)
         cmd = ['ffmpeg', '-y', '-v', 'error', '-i', src]
         fonti.append(f'{n:03d} FOTO {nid} | {tit}')
     if sc:
@@ -412,7 +417,7 @@ def _scatto():
         out += [0.0] * (int((t0 * SR)) - len(out))
         out += [vol * random.uniform(-1, 1) * math.exp(-i / (lung * SR / 4)) for i in range(int(lung * SR))]
     return out
-sc_ = _scatto(); traccia = array.array('h', bytes(2 * int((fine_tot + 1) * SR))); t_ = 0.0; nscatti = 0
+sc_ = _scatto() if SUONO_FOTO else []; traccia = array.array('h', bytes(2 * int((fine_tot + 1) * SR))); t_ = 0.0; nscatti = 0
 for (p_, d_, _), f_ in zip(pezzi, fonti):
     if ' FOTO ' in f_:
         i0 = int(t_ * SR); nscatti += 1
