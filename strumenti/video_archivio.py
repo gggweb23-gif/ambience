@@ -19,7 +19,14 @@ NOME = re.sub(r'[^a-z0-9_]+', '_', (P.get('nome') or P.get('titolo') or 'video')
 CART = os.path.join('prove_video', 'archivio', NOME); os.makedirs(CART, exist_ok=True)
 LAV = '/tmp/va'; os.makedirs(LAV, exist_ok=True)
 LINGUA = {'en': 'English (US)', 'it': 'italiano'}.get(str(P.get('language') or 'en')[:2], str(P.get('language')))
-MIN_M = float(str(P.get('durata_min_minuti') or 8.5).replace(',', '.')); MAX_M = float(str(P.get('durata_max_minuti') or 9).replace(',', '.'))
+def numero(x, base):   # numeri del foglio: 1,08 / 1.08 / "01:08" (cella formattata come ora) -> 1.08
+    try:
+        return float(re.sub(r'[^0-9.\-]', '', str(x).replace(',', '.').replace(':', '.')) or base) if str(x or '').strip() else float(base)
+    except Exception:
+        return float(base)
+
+
+MIN_M = numero(P.get('durata_min_minuti'), 8.5); MAX_M = numero(P.get('durata_max_minuti'), 9)
 PAROLE_SEC = 3.3                                     # largo apposta (misurato 3,1-3,23 parole/s a 1.08): il video deve stare SEMPRE sopra la durata minima del foglio (1 nov, Giorgio: mai sotto 8 minuti)
 P_MIN, P_MAX = int(MIN_M * 60 * PAROLE_SEC), int(MAX_M * 60 * PAROLE_SEC)
 N_SCENE = round((P_MIN + P_MAX) / 2 / 36)   # numero di scene: Sonnet rispetta il numero di scene meglio del numero di parole
@@ -185,12 +192,12 @@ if not c:
 json.dump(c, open(os.path.join(CART, 'copione.json'), 'w'), ensure_ascii=False, indent=1)
 
 # ---------------- 3) montaggio (strumenti/prova_archivio.py) ----------------
-mont = {'nome': NOME, 'voce': P.get('voice_id'), 'velocita': float(str(P.get('voice_speed') or 1.08).replace(',', '.')),
-        'stabilita': float(str(P.get('voce_stabilita') or .4).replace(',', '.')), 'stile_voce': float(str(P.get('voce_stile') or .25).replace(',', '.')),
+mont = {'nome': NOME, 'voce': P.get('voice_id'), 'velocita': numero(P.get('voice_speed'), 1.08),
+        'stabilita': numero(P.get('voce_stabilita'), .4), 'stile_voce': numero(P.get('voce_stile'), .25),
         'musica': P.get('musica_file') or 'epico_002.mp3', 'volume_musica': 0.07, 'max_secondi': 3.3, 'solo_video_fino_a': 30,
         'libreria': P.get('libreria') or '', 'scene': [{k: s.get(k) for k in ('testo', 'q', 'tag', 'scritta', 'obbligo') if s.get(k)} for s in c['scene']]}
 VIDEO = os.path.join(CART, 'prova.mp4')
-MIN_VIDEO = float(str(P.get('video_movimento_minimo') or 80).replace(',', '.'))   # colonna del foglio (decide Giorgio): sotto questa quota un video pubblico si blocca
+MIN_VIDEO = numero(P.get('video_movimento_minimo'), 80)   # colonna del foglio (decide Giorgio): sotto questa quota un video pubblico si blocca
 
 
 def controlli():
