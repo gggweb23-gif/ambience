@@ -292,6 +292,7 @@ for k, (s, (a, b)) in enumerate(zip(scene, tempi)):
     d = b - a; parti = max(1, int(-(-d // MAXS)))
     for i in range(parti):
         piano.append((d / parti, s, i == 0, a + i * d / parti))
+json.dump([[round(a, 2), round(b, 2)] for a, b in tempi], open(os.path.join(CART, 'tempi_scene.json'), 'w'))   # per i capitoli YouTube
 trans = []
 for n in range(len(piano) - 1):
     trans.append(EFFETTI[(n // 3) % len(EFFETTI)] if n % 3 == 2 else TAGLIO)   # un effetto ogni 3 tagli

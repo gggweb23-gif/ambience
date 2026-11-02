@@ -161,6 +161,7 @@ FOOTAGE: the video is made ONLY of real NASA footage. For EACH scene give the ar
  - "q": 2-5 English words for the NASA video archive (e.g. "astronaut eating food space station", "spacewalk", "Soyuz landing", "sleeping bag crew quarters")
  - "tag": 2-4 specific lowercase English keywords of what must be visible (e.g. ["food", "eating"], ["spacewalk", "suit"]); NEVER only generic words like space, station, astronaut, earth
  - the first 3 scenes must make it obvious in one second that the video is about astronauts (astronauts in the station or on a spacewalk): add "obbligo": ["astronaut"] to them
+ - "capitolo" (YouTube chapters): on the FIRST scene and then on the scene that opens each new part of the story, about one every 60-90 seconds (6-9 in total): a chapter title of 2-5 words in the channel language; every other scene "capitolo": ""
  - "scritta" (optional, about 1 scene in 4): 1-3 words in CAPS shown on screen, a number or a strong word said in that scene (US units: -250°F, 17,500 MPH, 250 MILES)
 Scenes: EXACTLY {N_SCENE} scenes, each 32-40 words (Sonnet tends to write too little: count the scenes)."""
 if riferimento:
@@ -177,7 +178,7 @@ THUMBNAIL TEXT ("testo_copertina"): 1-3 words in CAPS, built on the TITLE of thi
 regole += """
 
 Answer ONLY with valid JSON:
-{"scene": [{"testo": "...", "q": "...", "tag": ["..."], "scritta": "", "obbligo": []}],
+{"scene": [{"testo": "...", "q": "...", "tag": ["..."], "scritta": "", "obbligo": [], "capitolo": ""}],
  "descrizione": "YouTube description, 3 short paragraphs (~120 words) with the words people search, then a line with 4-6 hashtags",
  "tag": ["20-30 YouTube tags"],
  "testo_copertina": "1-3 WORDS (only if asked above, else empty)",
@@ -216,7 +217,7 @@ for giro in range(2):
 {json.dumps(c['scene'], ensure_ascii=False)}
 It is {n} words: too short. Write EXACTLY {k_} NEW scenes (32-40 words each, about {manca} words in total) that go between scene {dove} and scene {dove + 1}:
 new documented facts and moments on the same topic, same voice and rules, no repetition of what is already said, smooth with the scenes before and after.
-Same fields as the other scenes (testo, q, tag, scritta, obbligo). Answer ONLY with JSON: {{"scene": [...]}}""", max_tokens=12000)
+Same fields as the other scenes (testo, q, tag, scritta, obbligo, capitolo). Answer ONLY with JSON: {{"scene": [...]}}""", max_tokens=12000)
     try:
         nuove = json_sicuro(agg)['scene']
         c['scene'] = c['scene'][:dove] + nuove + c['scene'][dove:]
@@ -335,6 +336,59 @@ for i, rr in enumerate(righe):
     y += int(s_ * 1.02)
 COP = os.path.join(CART, 'copertina.jpg'); im.save(COP, quality=92)
 
+# ---------------- capitoli (tempi VERI della voce, come Storia in Minuti e Rich Borders) ----------------
+def capitoli():
+    try:
+        tempi = json.load(open(os.path.join(CART, 'tempi_scene.json')))
+    except Exception:
+        return ''
+    righe, ultimo = [], -100
+    for i, (s_, (a, b)) in enumerate(zip(c['scene'], tempi)):
+        tit = re.sub(r'\s+', ' ', str(s_.get('capitolo') or '')).strip()
+        if tit and (not righe or a - ultimo >= 15):
+            tt = 0 if not righe else int(a)
+            righe.append(f'{tt // 60}:{tt % 60:02d} ' + tit[:60]); ultimo = a
+    if len(righe) < 3:
+        log('capitoli: meno di 3, non inseriti'); return ''
+    log('capitoli:', len(righe))
+    return ('Capitoli:' if str(P.get('language') or 'en')[:2] == 'it' else 'Chapters:') + '\n' + '\n'.join(righe)
+
+
+CAPITOLI = capitoli()
+if CAPITOLI:
+    c['descrizione'] = str(c.get('descrizione') or '').strip() + '\n\n' + CAPITOLI
+
+
+def playlist(vid_id_, tk_):
+    """Come gli altri canali: playlist per argomento (colonna playlist_topics se compilata), creata se non esiste. Scelta con Haiku."""
+    try:
+        H_ = {'Authorization': 'Bearer ' + tk_, 'Content-Type': 'application/json'}
+        esistenti = {x['snippet']['title'].strip(): x['id'] for x in get('https://www.googleapis.com/youtube/v3/playlists?part=snippet&mine=true&maxResults=50', h=H_).get('items', [])}
+        lista = [x.strip() for x in re.split(r'[,;|\n]', str(P.get('playlist_topics') or '')) if x.strip()]
+        domanda = (f'YouTube channel "{P.get("channel_name")}". Video title: "{P["titolo"]}".\nExisting playlists: {json.dumps(list(esistenti), ensure_ascii=False)}\n'
+                   + (f'Allowed playlist names (choose EXACTLY one, same spelling): {json.dumps(lista, ensure_ascii=False)}\n' if lista else
+                      f'If an existing playlist fits, answer with its exact name. Otherwise propose ONE new playlist name, 2-4 words in {LINGUA}, broad enough for 10+ future videos (a theme), never the video title.\n')
+                   + 'Answer ONLY with the playlist name.')
+        nome = claude(domanda, modello='claude-haiku-4-5-20251001', max_tokens=60).strip().strip('"').strip()[:140]
+        if not nome:
+            return ''
+        pid = esistenti.get(nome)
+        if not pid:
+            pid = get('https://www.googleapis.com/youtube/v3/playlists?part=snippet,status', {'snippet': {'title': nome}, 'status': {'privacyStatus': 'public'}}, h=H_)['id']
+            log('playlist creata:', nome)
+        for k_ in range(4):   # playlist appena creata: per qualche secondo YouTube risponde 409
+            try:
+                get('https://www.googleapis.com/youtube/v3/playlistItems?part=snippet', {'snippet': {'playlistId': pid, 'resourceId': {'kind': 'youtube#video', 'videoId': vid_id_}}}, h=H_)
+                break
+            except Exception:
+                if k_ == 3:
+                    raise
+                time.sleep(10 * (k_ + 1))
+        log('video aggiunto alla playlist:', nome); return nome
+    except Exception as e:
+        log('playlist non riuscita:', str(e)[:200]); return ''
+
+
 # ---------------- 6) caricamento su YouTube ----------------
 vid_id = ''
 if str(P.get('carica') or '').upper() == 'SI' and E('YT_REFRESH_TOKEN'):
@@ -373,6 +427,7 @@ if str(P.get('carica') or '').upper() == 'SI' and E('YT_REFRESH_TOKEN'):
         urllib.request.urlopen(req, timeout=120); log('copertina caricata')
     except Exception as e:
         log('copertina non caricata (canale da verificare per le miniature personalizzate?):', str(e)[:150])
+    playlist(vid_id, tk)
 
 # ---------------- 7) costi e riepilogo ----------------
 crediti = 0 if VOCE_RIPRESA else len(' '.join(s['testo'] for s in c['scene']))   # voce ripresa da un giro fallito: gia' contata li'
