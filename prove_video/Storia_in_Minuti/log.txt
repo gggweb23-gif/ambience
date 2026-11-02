@@ -1,37 +1,13 @@
-03:01:42 competitor: categoria 27 , 20 tag
-03:01:43 testo originale: 1350 parole (RapidAPI)
-03:01:43 VIDEO DA COPIARE: 6-tlQ0ym7UE - The ENTIRE History of Cape Verde in 7 Minutes | The Strange Atlantic Paradise You Know Nothing About | titolo usato: The ENTIRE History of Cape Verde in 7 Minutes | The Strange Atlantic Paradise You Know Nothing About
-03:01:44 paese del video: Cape Verde
-03:01:48 originale condensato a blocchi: 1350 -> 980 parole in 3 blocchi (obiettivo 1312)
-Traceback (most recent call last):
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 4626, in <module>
-    main()
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 3974, in main
-    c = copione(comp)
-        ^^^^^^^^^^^^^
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 385, in copione
-    orig = condensa_originale(orig, (minimo + massimo) // 2 if minimo else massimo)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 373, in condensa_originale
-    raise RuntimeError(f'VIDEO BLOCCATO: testo del competitor condensato a {n} parole invece di {obiettivo} (nessuna spesa per voce e immagini)')
-RuntimeError: VIDEO BLOCCATO: testo del competitor condensato a 980 parole invece di 1312 (nessuna spesa per voce e immagini)
-03:01:48 esito: {"stato": "ERRORE", "errore": "VIDEO BLOCCATO: testo del competitor condensato a 980 parole invece di 1312 (nessuna spesa per voce e immagini)", "minuti_lavoro": 0.1, "paese": "Cape Verde", "categoria_originale": "27", "tag_originali": "cape verde history, cape verde, history documentary, world history, african history, portuguese empire, transatlantic slave trade, slave trade, creole society, cape verde documentary, atlantic history, amilcar cabral, portuguese explorers, history explained, colo
+04:01:44 competitor: categoria 27 , 15 tag
+04:01:51 testo originale: 2355 parole (RapidAPI)
+04:01:51 VIDEO DA COPIARE: BkOtJwis7vg - The ENTIRE History of Israel in 12 Minutes | titolo usato: The ENTIRE History of Israel in 12 Minutes
+04:01:52 paese del video: Israel
+04:01:52 DOPPIONE: Israel e' gia' stato fatto (Israel = https://www.youtube.com/watch?v=clU5PzSBhIA). Video NON prodotto, nessun costo.
+04:01:52 esito: {"stato": "DOPPIONE", "errore": "DOPPIONE: Israel e' gia' stato fatto (Israel = https://www.youtube.com/watch?v=clU5PzSBhIA). Video NON prodotto, nessun costo.", "paese": "Israel", "minuti_lavoro": 0.1}
 ...
-03:01:42 competitor: categoria 27 , 20 tag
-03:01:43 testo originale: 1350 parole (RapidAPI)
-03:01:43 VIDEO DA COPIARE: 6-tlQ0ym7UE - The ENTIRE History of Cape Verde in 7 Minutes | The Strange Atlantic Paradise You Know Nothing About | titolo usato: The ENTIRE History of Cape Verde in 7 Minutes | The Strange Atlantic Paradise You Know Nothing About
-03:01:44 paese del video: Cape Verde
-03:01:48 originale condensato a blocchi: 1350 -> 980 parole in 3 blocchi (obiettivo 1312)
-Traceback (most recent call last):
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 4626, in <module>
-    main()
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 3974, in main
-    c = copione(comp)
-        ^^^^^^^^^^^^^
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 385, in copione
-    orig = condensa_originale(orig, (minimo + massimo) // 2 if minimo else massimo)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 373, in condensa_originale
-    raise RuntimeError(f'VIDEO BLOCCATO: testo del competitor condensato a {n} parole invece di {obiettivo} (nessuna spesa per voce e immagini)')
-RuntimeError: VIDEO BLOCCATO: testo del competitor condensato a 980 parole invece di 1312 (nessuna spesa per voce e immagini)
-03:01:48 esito: {"stato": "ERRORE", "errore": "VIDEO BLOCCATO: testo del competitor condensato a 980 parole invece di 1312 (nessuna spesa per voce e immagini)", "minuti_lavoro": 0.1, "paese": "Cape Verde", "categoria_originale": "27", "tag_originali": "cape verde history, cape verde, history documentary, world history, african history, portuguese empire, transatlantic slave trade, slave trade, creole society, cape verde documentary, atlantic history, amilcar cabral, portuguese explorers, history explained, colo
+04:01:44 competitor: categoria 27 , 15 tag
+04:01:51 testo originale: 2355 parole (RapidAPI)
+04:01:51 VIDEO DA COPIARE: BkOtJwis7vg - The ENTIRE History of Israel in 12 Minutes | titolo usato: The ENTIRE History of Israel in 12 Minutes
+04:01:52 paese del video: Israel
+04:01:52 DOPPIONE: Israel e' gia' stato fatto (Israel = https://www.youtube.com/watch?v=clU5PzSBhIA). Video NON prodotto, nessun costo.
+04:01:52 esito: {"stato": "DOPPIONE", "errore": "DOPPIONE: Israel e' gia' stato fatto (Israel = https://www.youtube.com/watch?v=clU5PzSBhIA). Video NON prodotto, nessun costo.", "paese": "Israel", "minuti_lavoro": 0.1}
