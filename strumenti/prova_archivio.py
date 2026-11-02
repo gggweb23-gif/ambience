@@ -66,6 +66,8 @@ def durata(p):
 
 # ---------------- 1) voce con i tempi ----------------
 scene = P['scene']
+if scene:
+    scene[0]['_apertura'] = True
 testo = ' '.join(s['testo'].strip() for s in scene)
 import hashlib
 _chiave_voce = hashlib.md5((testo + str(P.get('voce')) + str(P.get('velocita'))).encode()).hexdigest()[:12]
@@ -120,8 +122,18 @@ def dalla_libreria(s, dur):
     mai due volte di fila dalla stessa ripresa."""
     chiave = parole(' '.join(s.get('tag') or []) + ' ' + s['q']) - GENERICHE   # solo parole che dicono DAVVERO di cosa parla la frase
     best, bp = None, 0
+    try:
+        anno_s = int(s.get('anno') or 0)
+    except Exception:
+        anno_s = 0
     for x in LIB:
         if x['n'] in LIB_USATI or x['nasa_id'] == ULTIMA_SORGENTE[0] or PER_SORGENTE.get(x['nasa_id'], 0) >= 3 or float(x.get('durata') or 0) + .2 < dur:
+            continue
+        # epoca giusta (2 nov, Giorgio): se la scena ha un anno e il film d'archivio pure, al massimo 1 anno di differenza
+        if anno_s and x.get('anno') and abs(int(x['anno']) - anno_s) > 1:
+            continue
+        # simboli nazisti in primo piano: mai in apertura ne' sotto una scritta (rischio limitazioni YouTube)
+        if x.get('simboli_nazisti') and (s.get('_apertura') or s.get('scritta')):
             continue
         et = parole(' '.join(x.get('tag') or []) + ' ' + str(x.get('cosa') or '') + ' ' + str(x.get('luogo') or '').replace('_', ' '))
         pt = len(chiave & et) * 10 + int(x.get('qualita') or 0) + min(3, float(x.get('movimento') or 0) / 5)
@@ -143,6 +155,9 @@ def dalla_libreria(s, dur):
             return dalla_libreria(s, dur)
         open(f, 'wb').write(dati_clip); LIB_FILE[best['url']] = f
     f_ = LIB_FILE[best['url']]
+    if bande_nere(f_, float(best['da']), dur):   # anche le clip della libreria: niente bande nere (pillarbox)
+        log('clip della libreria con bande nere, scartata', best['nasa_id'], best['da'])
+        return dalla_libreria(s, dur)
     if best['nasa_id'] not in CLIP_CACHE:
         CLIP_CACHE[best['nasa_id']] = (f_, durata(f_), [])
     CLIP_CACHE[best['nasa_id']][2].append(float(best['da']))

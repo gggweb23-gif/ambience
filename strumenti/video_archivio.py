@@ -161,6 +161,7 @@ FOOTAGE: the video is made ONLY of real NASA footage. For EACH scene give the ar
  - "q": 2-5 English words for the NASA video archive (e.g. "astronaut eating food space station", "spacewalk", "Soyuz landing", "sleeping bag crew quarters")
  - "tag": 2-4 specific lowercase English keywords of what must be visible (e.g. ["food", "eating"], ["spacewalk", "suit"]); NEVER only generic words like space, station, astronaut, earth
  - the first 3 scenes must make it obvious in one second that the video is about astronauts (astronauts in the station or on a spacewalk): add "obbligo": ["astronaut"] to them
+ - "anno" (only for history videos): the year the scene talks about (e.g. 1944), so the archive footage is from the right year; 0 if the scene has no precise year
  - "capitolo" (YouTube chapters): on the FIRST scene and then on the scene that opens each new part of the story, about one every 60-90 seconds (6-9 in total): a chapter title of 2-5 words in the channel language; every other scene "capitolo": ""
  - "scritta" (optional, about 1 scene in 4): 1-3 words in CAPS shown on screen, a number or a strong word said in that scene (US units: -250°F, 17,500 MPH, 250 MILES)
 Scenes: EXACTLY {N_SCENE} scenes, each 32-40 words (Sonnet tends to write too little: count the scenes)."""
@@ -178,7 +179,7 @@ THUMBNAIL TEXT ("testo_copertina"): 1-3 words in CAPS, built on the TITLE of thi
 regole += """
 
 Answer ONLY with valid JSON:
-{"scene": [{"testo": "...", "q": "...", "tag": ["..."], "scritta": "", "obbligo": [], "capitolo": ""}],
+{"scene": [{"testo": "...", "q": "...", "tag": ["..."], "scritta": "", "obbligo": [], "capitolo": "", "anno": 0}],
  "descrizione": "YouTube description, 3 short paragraphs (~120 words) with the words people search, then a line with 4-6 hashtags",
  "tag": ["20-30 YouTube tags"],
  "testo_copertina": "1-3 WORDS (only if asked above, else empty)",
@@ -217,7 +218,7 @@ for giro in range(2):
 {json.dumps(c['scene'], ensure_ascii=False)}
 It is {n} words: too short. Write EXACTLY {k_} NEW scenes (32-40 words each, about {manca} words in total) that go between scene {dove} and scene {dove + 1}:
 new documented facts and moments on the same topic, same voice and rules, no repetition of what is already said, smooth with the scenes before and after.
-Same fields as the other scenes (testo, q, tag, scritta, obbligo, capitolo). Answer ONLY with JSON: {{"scene": [...]}}""", max_tokens=12000)
+Same fields as the other scenes (testo, q, tag, scritta, obbligo, capitolo, anno). Answer ONLY with JSON: {{"scene": [...]}}""", max_tokens=12000)
     try:
         nuove = json_sicuro(agg)['scene']
         c['scene'] = c['scene'][:dove] + nuove + c['scene'][dove:]
@@ -237,7 +238,7 @@ os.makedirs(RIP, exist_ok=True); json.dump(c, open(os.path.join(RIP, 'copione.js
 mont = {'nome': NOME, 'voce': P.get('voice_id'), 'velocita': numero(P.get('voice_speed'), 1.08),
         'stabilita': numero(P.get('voce_stabilita'), .4), 'stile_voce': numero(P.get('voce_stile'), .25),
         'musica': P.get('musica_file') or 'epico_002.mp3', 'volume_musica': 0.07, 'max_secondi': 3.3, 'solo_video_fino_a': 30,
-        'libreria': P.get('libreria') or '', 'scene': [{k: s.get(k) for k in ('testo', 'q', 'tag', 'scritta', 'obbligo') if s.get(k)} for s in c['scene']]}
+        'libreria': P.get('libreria') or '', 'scene': [{k: s.get(k) for k in ('testo', 'q', 'tag', 'scritta', 'obbligo', 'anno') if s.get(k)} for s in c['scene']]}
 VIDEO = os.path.join(CART, 'prova.mp4')
 MIN_VIDEO = numero(P.get('video_movimento_minimo'), 80)   # colonna del foglio (decide Giorgio): sotto questa quota un video pubblico si blocca
 

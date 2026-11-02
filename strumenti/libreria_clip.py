@@ -209,6 +209,7 @@ if ARCHIVIO != 'nasa':
                '"parla_in_camera": true/false (a person talking to the camera, interview or speech setting), '
                '"scritte": true/false (ANY overlay text in EITHER half: titles, captions, intertitles, logos, subtitles, credits, burned-in stamps), '
                '"animazione": true/false (animation, map graphic, drawing or cartoon instead of a real camera shot), '
+               '"simboli_nazisti": true/false (a swastika, Nazi flag or Nazi banner is LARGE and clearly visible in EITHER half), '
                '"qualita": 1-5 (5 = sharp, well exposed, striking; 1 = blurry, damaged, too dark, boring), '
                '"tag": ["3-6 lowercase English keywords of what is visible, e.g. soldiers, prisoners, barbed wire, train, tanks, farm, food, bombers"]}]')
 STIMA_CHIAMATA = (10 * 400 + 600) * PREZZO[0] / 1e6 + 900 * PREZZO[1] / 1e6     # stima prudente prima di ogni chiamata
@@ -229,7 +230,7 @@ for i in range(0, len(spezzoni), 10):
         for x in json.loads(t[t.find('['): t.rfind(']') + 1]):
             s = next((s for s in gruppo if s['n'] == int(x.get('k', -1))), None)
             if s:
-                s.update({k: x.get(k) for k in ('cosa', 'luogo', 'epoca', 'parla_in_camera', 'scritte', 'animazione', 'qualita', 'tag')})
+                s.update({k: x.get(k) for k in ('cosa', 'luogo', 'epoca', 'parla_in_camera', 'scritte', 'animazione', 'simboli_nazisti', 'qualita', 'tag')})
     except Exception as e:
         log('etichette non riuscite per il gruppo', i, str(e)[:150])
     log(f'etichettati {min(i + 10, len(spezzoni))}/{len(spezzoni)} | spesa {SPESA["tot"]:.3f} $')
@@ -249,6 +250,19 @@ def buono(s):
             and s.get('luogo') in ('inside_station', 'outside_station', 'earth_from_orbit', 'spacecraft'))
 
 
+ANNO = re.compile(r'(?<!\d)(19[1-6]\d)(?!\d)')
+
+
+def anno_film(x):   # anno del film d'archivio dal titolo o dal nome del file (cinegiornali: "1945-05-14_...")
+    m = ANNO.search(str(x.get('nasa_id') or '') + ' ' + str(x.get('titolo') or ''))
+    return int(m.group(1)) if m else None
+
+
+for s in spezzoni + VECCHI:
+    if ARCHIVIO != 'nasa':
+        s['anno'] = anno_film(s)
+        if s.get('simboli_nazisti') is None and re.search(r'swastika|nazi flag|nazi banner|nazi symbol', str(s.get('cosa')) + ' ' + ' '.join(s.get('tag') or []), re.I):
+            s['simboli_nazisti'] = True
 for s in spezzoni:
     s['ok'] = bool(buono(s))
 for s in VECCHI:   # regole aggiornate valgono anche per gli spezzoni gia' etichettati (gratis)
