@@ -1,91 +1,37 @@
-02:01:22 competitor: categoria 27 , 28 tag
-02:01:27 testo originale: 3423 parole (RapidAPI)
-02:01:27 VIDEO DA COPIARE: Fbz4QYZ5XrI - The ENTIRE History of China in 20 Minutes | titolo usato: The ENTIRE History of China in 20 Minutes
-02:01:27 paese del video: China
-02:01:43 originale condensato a blocchi: 3423 -> 1304 parole in 9 blocchi (obiettivo 1312)
-02:01:43 budget 0 EUR: nessun disegno, solo clip e foto Pexels controllate (+ mappa)
-02:02:41 copione ricevuto: 20713 caratteri, fine: end_turn | blocchi di ragionamento: 0
-02:02:41 copione: 1244 parole (limite 1275-1350)
-02:02:41 preventivo dopo copione: speso 0.24 $ su 1.08 $ di budget
-02:02:41 copione: 32 scene, 1244 parole
-02:02:46 voce non riuscita, riprovo: HTTP Error 401: Unauthorized
-02:02:47 voce non riuscita, riprovo: HTTP Error 401: Unauthorized
-02:02:50 voce non riuscita, riprovo: HTTP Error 401: Unauthorized
-02:02:52 voce non riuscita, riprovo: HTTP Error 401: Unauthorized
-02:02:58 voce non riuscita, riprovo: HTTP Error 401: Unauthorized
-02:03:00 voce non riuscita, riprovo: HTTP Error 401: Unauthorized
-02:03:11 voce non riuscita, riprovo: HTTP Error 401: Unauthorized
-02:03:12 voce non riuscita, riprovo: HTTP Error 401: Unauthorized
+03:01:42 competitor: categoria 27 , 20 tag
+03:01:43 testo originale: 1350 parole (RapidAPI)
+03:01:43 VIDEO DA COPIARE: 6-tlQ0ym7UE - The ENTIRE History of Cape Verde in 7 Minutes | The Strange Atlantic Paradise You Know Nothing About | titolo usato: The ENTIRE History of Cape Verde in 7 Minutes | The Strange Atlantic Paradise You Know Nothing About
+03:01:44 paese del video: Cape Verde
+03:01:48 originale condensato a blocchi: 1350 -> 980 parole in 3 blocchi (obiettivo 1312)
 Traceback (most recent call last):
   File "/home/runner/work/ambience/ambience/video_storia.py", line 4626, in <module>
     main()
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 3993, in main
-    voci = list(ex.map(lambda i: voce(i, testi[i], ' '.join(testi[:i])[-400:], ' '.join(testi[i + 1:])[:400]), range(len(testi))))
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 619, in result_iterator
-    yield _result_or_cancel(fs.pop())
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 317, in _result_or_cancel
-    return fut.result(timeout)
-           ^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 456, in result
-    return self.__get_result()
-           ^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
-    raise self._exception
-  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 58, in run
-    result = self.fn(*self.args, **self.kwargs)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 3993, in <lambda>
-    voci = list(ex.map(lambda i: voce(i, testi[i], ' '.join(testi[:i])[-400:], ' '.join(testi[i + 1:])[:400]), range(len(testi))))
-                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 614, in voce
-    raise RuntimeError('ElevenLabs non risponde')
-RuntimeError: ElevenLabs non risponde
-02:03:29 esito: {"stato": "ERRORE", "errore": "ElevenLabs non risponde", "minuti_lavoro": 2.1, "paese": "China", "categoria_originale": "27", "tag_originali": "china history, china, history of china, ancient china, history documentary, world history, ancient history, the entire history of china, china documentary, chinese civilization, chinese empire, qin dynasty, han dynasty, tang dynasty, song dynasty, yuan dynasty, mongol empire, ming dynasty, qing dynasty, confucius, qin shi huang, genghis khan, kublai khan
+  File "/home/runner/work/ambience/ambience/video_storia.py", line 3974, in main
+    c = copione(comp)
+        ^^^^^^^^^^^^^
+  File "/home/runner/work/ambience/ambience/video_storia.py", line 385, in copione
+    orig = condensa_originale(orig, (minimo + massimo) // 2 if minimo else massimo)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/ambience/ambience/video_storia.py", line 373, in condensa_originale
+    raise RuntimeError(f'VIDEO BLOCCATO: testo del competitor condensato a {n} parole invece di {obiettivo} (nessuna spesa per voce e immagini)')
+RuntimeError: VIDEO BLOCCATO: testo del competitor condensato a 980 parole invece di 1312 (nessuna spesa per voce e immagini)
+03:01:48 esito: {"stato": "ERRORE", "errore": "VIDEO BLOCCATO: testo del competitor condensato a 980 parole invece di 1312 (nessuna spesa per voce e immagini)", "minuti_lavoro": 0.1, "paese": "Cape Verde", "categoria_originale": "27", "tag_originali": "cape verde history, cape verde, history documentary, world history, african history, portuguese empire, transatlantic slave trade, slave trade, creole society, cape verde documentary, atlantic history, amilcar cabral, portuguese explorers, history explained, colo
 ...
-02:01:22 competitor: categoria 27 , 28 tag
-02:01:27 testo originale: 3423 parole (RapidAPI)
-02:01:27 VIDEO DA COPIARE: Fbz4QYZ5XrI - The ENTIRE History of China in 20 Minutes | titolo usato: The ENTIRE History of China in 20 Minutes
-02:01:27 paese del video: China
-02:01:43 originale condensato a blocchi: 3423 -> 1304 parole in 9 blocchi (obiettivo 1312)
-02:01:43 budget 0 EUR: nessun disegno, solo clip e foto Pexels controllate (+ mappa)
-02:02:41 copione ricevuto: 20713 caratteri, fine: end_turn | blocchi di ragionamento: 0
-02:02:41 copione: 1244 parole (limite 1275-1350)
-02:02:41 preventivo dopo copione: speso 0.24 $ su 1.08 $ di budget
-02:02:41 copione: 32 scene, 1244 parole
-02:02:46 voce non riuscita, riprovo: HTTP Error 401: Unauthorized
-02:02:47 voce non riuscita, riprovo: HTTP Error 401: Unauthorized
-02:02:50 voce non riuscita, riprovo: HTTP Error 401: Unauthorized
-02:02:52 voce non riuscita, riprovo: HTTP Error 401: Unauthorized
-02:02:58 voce non riuscita, riprovo: HTTP Error 401: Unauthorized
-02:03:00 voce non riuscita, riprovo: HTTP Error 401: Unauthorized
-02:03:11 voce non riuscita, riprovo: HTTP Error 401: Unauthorized
-02:03:12 voce non riuscita, riprovo: HTTP Error 401: Unauthorized
+03:01:42 competitor: categoria 27 , 20 tag
+03:01:43 testo originale: 1350 parole (RapidAPI)
+03:01:43 VIDEO DA COPIARE: 6-tlQ0ym7UE - The ENTIRE History of Cape Verde in 7 Minutes | The Strange Atlantic Paradise You Know Nothing About | titolo usato: The ENTIRE History of Cape Verde in 7 Minutes | The Strange Atlantic Paradise You Know Nothing About
+03:01:44 paese del video: Cape Verde
+03:01:48 originale condensato a blocchi: 1350 -> 980 parole in 3 blocchi (obiettivo 1312)
 Traceback (most recent call last):
   File "/home/runner/work/ambience/ambience/video_storia.py", line 4626, in <module>
     main()
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 3993, in main
-    voci = list(ex.map(lambda i: voce(i, testi[i], ' '.join(testi[:i])[-400:], ' '.join(testi[i + 1:])[:400]), range(len(testi))))
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 619, in result_iterator
-    yield _result_or_cancel(fs.pop())
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 317, in _result_or_cancel
-    return fut.result(timeout)
-           ^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 456, in result
-    return self.__get_result()
-           ^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
-    raise self._exception
-  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 58, in run
-    result = self.fn(*self.args, **self.kwargs)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 3993, in <lambda>
-    voci = list(ex.map(lambda i: voce(i, testi[i], ' '.join(testi[:i])[-400:], ' '.join(testi[i + 1:])[:400]), range(len(testi))))
-                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 614, in voce
-    raise RuntimeError('ElevenLabs non risponde')
-RuntimeError: ElevenLabs non risponde
-02:03:29 esito: {"stato": "ERRORE", "errore": "ElevenLabs non risponde", "minuti_lavoro": 2.1, "paese": "China", "categoria_originale": "27", "tag_originali": "china history, china, history of china, ancient china, history documentary, world history, ancient history, the entire history of china, china documentary, chinese civilization, chinese empire, qin dynasty, han dynasty, tang dynasty, song dynasty, yuan dynasty, mongol empire, ming dynasty, qing dynasty, confucius, qin shi huang, genghis khan, kublai khan
+  File "/home/runner/work/ambience/ambience/video_storia.py", line 3974, in main
+    c = copione(comp)
+        ^^^^^^^^^^^^^
+  File "/home/runner/work/ambience/ambience/video_storia.py", line 385, in copione
+    orig = condensa_originale(orig, (minimo + massimo) // 2 if minimo else massimo)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/ambience/ambience/video_storia.py", line 373, in condensa_originale
+    raise RuntimeError(f'VIDEO BLOCCATO: testo del competitor condensato a {n} parole invece di {obiettivo} (nessuna spesa per voce e immagini)')
+RuntimeError: VIDEO BLOCCATO: testo del competitor condensato a 980 parole invece di 1312 (nessuna spesa per voce e immagini)
+03:01:48 esito: {"stato": "ERRORE", "errore": "VIDEO BLOCCATO: testo del competitor condensato a 980 parole invece di 1312 (nessuna spesa per voce e immagini)", "minuti_lavoro": 0.1, "paese": "Cape Verde", "categoria_originale": "27", "tag_originali": "cape verde history, cape verde, history documentary, world history, african history, portuguese empire, transatlantic slave trade, slave trade, creole society, cape verde documentary, atlantic history, amilcar cabral, portuguese explorers, history explained, colo
