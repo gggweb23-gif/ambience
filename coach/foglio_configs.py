@@ -5,7 +5,7 @@ Lucchetti (decisi da Giorgio il 30 ott 2026), controllati qui E con gli interval
 - le colonne videos_per_day (canale acceso/spento) e publish_schedule_days non si toccano mai;
 - nessuna colonna di budget (budget_video, coach_budget_video) si tocca mai;
 - le colonne dei parametri di Giorgio (coach_*, durata_min_minuti, durata_max_minuti) si possono solo COMPILARE se vuote.
-PAYLOAD = {"nuova_riga": {"channel_id": "...", "valori": {...}} (canale nuovo, mai colonne bloccate),
+PAYLOAD = {"nuova_riga": {"channel_id": "...", "copia_da": "Orbital Days" (facoltativo), "valori": {...}} (canale nuovo, mai colonne bloccate),
            "modifiche": [{"canale": "Agora of Sages", "colonna": "render_engine", "valore": "github_completo"}, ...],
            "nuove_colonne": ["coach_auto", ...], "prova": "SI" (solo controllo, non scrive)}
 Segreto: GOOGLE_SA_KEY (JSON dell'account di servizio, con il foglio condiviso in modifica con la sua email)."""
@@ -118,7 +118,16 @@ def main():
         if can in righe:
             esito.append(f'nuova riga NON creata: {can} esiste gia\' (riga {righe[can]})')
         else:
-            vals = dict(nr.get('valori') or {}); vals['channel_id'] = can
+            vals = {}
+            src = str(nr.get('copia_da') or '').strip()   # canale da cui partire: si copiano le sue celle compilate (mai KAO, mai budget o videos_per_day)
+            if src and src not in RIGHE_BLOCCATE and src in righe:
+                rs = valori[righe[src] - 1]
+                vals = {intest[i]: x for i, x in enumerate(rs) if i < len(intest) and str(x).strip() != ''}
+                esito.append(f'nuova riga partita da {src}: {len(vals)} celle copiate')
+            elif src:
+                esito.append(f'copia_da {src}: non usato (riga bloccata o inesistente)')
+            vals.update(nr.get('valori') or {}); vals['channel_id'] = can
+            vals = {k: x for k, x in vals.items() if str(x).strip() != '' or k in (nr.get('valori') or {})}
             vietate = [k for k in vals if k in ('videos_per_day', 'publish_schedule_days') or re.search(r'budget', k, re.I)]
             for k in vietate:
                 vals.pop(k); esito.append(f'BLOCCATO: {k} la compila solo Giorgio')
