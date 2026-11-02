@@ -27,6 +27,7 @@ for uso in [P.get('uso') or 'narrative_story', 'informative_educational']:
         f_ = {'page_size': 50, 'language': P.get('lingua', 'it'), 'use_cases': uso, 'sort': P.get('ordine') or 'trending'}
         if P.get('genere'): f_['gender'] = P['genere']
         if P.get('eta'): f_['age'] = P['eta']
+        if P.get('accento'): f_['accent'] = P['accento']   # es. italian: solo voci native della lingua
         if parola: f_['search'] = parola
         ricerche.append(f_)
 for f_ in ricerche:
@@ -47,8 +48,9 @@ for i, v in enumerate(righe, 1):
     nome = re.sub(r'\W+', '_', v.get('name', 'voce'))[:30]
     f = os.path.join(cart, f'{i:02d}_{nome}.mp3')
     try:
-        if v.get('preview_url'):
-            open(f, 'wb').write(urllib.request.urlopen(v['preview_url'], timeout=60).read())
+        prev = next((l.get('preview_url') for l in (v.get('verified_languages') or []) if l.get('language') == P.get('lingua') and l.get('preview_url')), None) or v.get('preview_url')
+        if prev:   # anteprima nella lingua del canale quando c'e'
+            open(f, 'wb').write(urllib.request.urlopen(prev, timeout=60).read())
     except Exception as e:
         f = 'anteprima non scaricata: ' + str(e)[:80]
     out.append(f"{i:02d} | {v.get('name')} | voice_id={v['voice_id']} | {v.get('gender')} {v.get('age')} {v.get('accent')} | "
