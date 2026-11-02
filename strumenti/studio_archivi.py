@@ -99,10 +99,13 @@ def a_nasa(q, n):
 def a_commons(q, n):
     r = get('https://commons.wikimedia.org/w/api.php?' + urllib.parse.urlencode({
         'action': 'query', 'format': 'json', 'generator': 'search', 'gsrnamespace': 6, 'gsrlimit': n * 3,
-        'gsrsearch': q + ' filetype:bitmap', 'prop': 'imageinfo', 'iiprop': 'url|size', 'iiurlwidth': 1600}))
+        'gsrsearch': q + ' filetype:bitmap', 'prop': 'imageinfo', 'iiprop': 'url|size|extmetadata', 'iiurlwidth': 1600}))
     out = []
     for p in sorted((r.get('query') or {}).get('pages', {}).values(), key=lambda p: p.get('index', 0)):
-        ii = (p.get('imageinfo') or [{}])[0]
+        ii = (p.get('imageinfo') or [{}])[0]; m = ii.get('extmetadata') or {}
+        lic = ((m.get('LicenseShortName') or {}).get('value', '') + ' ' + (m.get('License') or {}).get('value', ''))
+        if not re.search(r'public domain|^pd|cc0|cc-zero|no restrictions', lic.strip(), re.I):   # solo immagini libere (pubblico dominio / CC0)
+            continue
         if ii.get('width', 0) >= 900 and ii.get('width', 0) >= ii.get('height', 1) * 0.9 and ii.get('thumburl'):
             out.append(ii['thumburl'])
     return out[:n]
