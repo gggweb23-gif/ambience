@@ -44,7 +44,13 @@ def _costo_se_fermo():   # anche un giro che si ferma ha speso: va nello storico
     with open(f, 'a') as o:
         if nuovo:
             o.write('data\tcosto_dollari\tcrediti_voce\tprova\tlink\tdettaglio\tesito\n')
-        o.write('\t'.join([time.strftime('%Y-%m-%d %H:%M'), f"{SPESA['usd']:.3f}", '0', 'NO', '', json.dumps(SPESA['voci']), 'BLOCCATO']) + '\n')
+        cr_ = 0   # crediti voce gia' pagati in questo giro fermato (prima venivano segnati 0)
+        try:
+            if not globals().get('VOCE_RIPRESA') and any(f_.startswith('voce_') for f_ in os.listdir('/tmp/lav')):
+                cr_ = len(' '.join(s_['testo'] for s_ in c['scene']))
+        except Exception:
+            pass
+        o.write('\t'.join([time.strftime('%Y-%m-%d %H:%M'), f"{SPESA['usd']:.3f}", str(cr_), 'NO', '', json.dumps(SPESA['voci']), 'BLOCCATO']) + '\n')
 
 
 def riga_produzione(valori):
@@ -160,14 +166,31 @@ Answer ONLY with valid JSON:
  "tag": ["20-30 YouTube tags"],
  "testo_copertina": "1-3 WORDS (only if asked above, else empty)",
  "copertina_prompt": "one sentence: the scene of the thumbnail, a FICTIONAL astronaut in close-up with a strong readable emotion matching the title, setting and light"}"""
-c = None
-t = claude(regole, immagine=COP_COMP)
+c = None; n = 0; VOCE_RIPRESA = False
+# RIPRESA (2 nov, Giorgio: non buttare soldi nei giri falliti): se un giro precedente sullo STESSO titolo si e' fermato dopo aver
+# pagato copione e voce, il workflow li ha salvati in lavoro_archivio/: si riusano (stesso testo = stessa voce, zero crediti ElevenLabs)
+RIP = 'lavoro_archivio'
 try:
-    c = json.loads(t[t.find('{'): t.rfind('}') + 1])
-    n = sum(len(s['testo'].split()) for s in c['scene'])
-    log(f'copione: {len(c["scene"])} scene, {n} parole (obiettivo {P_MIN}-{P_MAX}, minimo accettato {P_OK})')
-except Exception as e:
-    c = None; n = 0; log('copione non leggibile:', str(e)[:120], '| risposta:', len(t), 'caratteri', repr(t[:200]))
+    c0 = json.load(open(os.path.join(RIP, 'copione.json')))
+    if c0.get('titolo_video') == P['titolo'] and c0.get('scene'):
+        c = c0; n = sum(len(s['testo'].split()) for s in c['scene'])
+        os.makedirs('/tmp/lav', exist_ok=True)
+        for f_ in os.listdir(RIP):
+            if f_.startswith('voce_') and f_.endswith('.json'):
+                shutil.copy(os.path.join(RIP, f_), os.path.join('/tmp/lav', f_))
+        VOCE_RIPRESA = any(f_.startswith('voce_') for f_ in os.listdir(RIP))
+        log(f'copione RIPRESO dal giro fallito precedente ({len(c["scene"])} scene, {n} parole): nessuna spesa di copione; voce salvata:',
+            any(f_.startswith('voce_') for f_ in os.listdir(RIP)))
+except Exception:
+    pass
+if c is None:
+    t = claude(regole, immagine=COP_COMP)
+    try:
+        c = json.loads(t[t.find('{'): t.rfind('}') + 1])
+        n = sum(len(s['testo'].split()) for s in c['scene'])
+        log(f'copione: {len(c["scene"])} scene, {n} parole (obiettivo {P_MIN}-{P_MAX}, minimo accettato {P_OK})')
+    except Exception as e:
+        c = None; n = 0; log('copione non leggibile:', str(e)[:120], '| risposta:', len(t), 'caratteri', repr(t[:200]))
 # troppo corto: NON si riscrive tutto (Sonnet tornava sempre a ~1360 parole) ma si AGGIUNGONO scene nel mezzo
 for giro in range(2):
     if not c or n >= P_OK:
@@ -189,7 +212,9 @@ if c and not (P_OK <= n <= P_MAX * 1.15):
     c = None
 if not c:
     raise RuntimeError('VIDEO BLOCCATO: copione fuori lunghezza (nessuna spesa per voce e montaggio)')
+c['titolo_video'] = P['titolo']
 json.dump(c, open(os.path.join(CART, 'copione.json'), 'w'), ensure_ascii=False, indent=1)
+os.makedirs(RIP, exist_ok=True); json.dump(c, open(os.path.join(RIP, 'copione.json'), 'w'), ensure_ascii=False)   # salvato per un'eventuale ripresa
 
 # ---------------- 3) montaggio (strumenti/prova_archivio.py) ----------------
 mont = {'nome': NOME, 'voce': P.get('voice_id'), 'velocita': numero(P.get('voice_speed'), 1.08),
@@ -334,7 +359,7 @@ if str(P.get('carica') or '').upper() == 'SI' and E('YT_REFRESH_TOKEN'):
         log('copertina non caricata (canale da verificare per le miniature personalizzate?):', str(e)[:150])
 
 # ---------------- 7) costi e riepilogo ----------------
-crediti = len(' '.join(s['testo'] for s in c['scene']))
+crediti = 0 if VOCE_RIPRESA else len(' '.join(s['testo'] for s in c['scene']))   # voce ripresa da un giro fallito: gia' contata li'
 open(os.path.join(CART, 'riepilogo.txt'), 'w').write(f"titolo: {P['titolo']}\nyoutube: {vid_id}\n" + (f"DA CONTROLLARE: {DA_CONTROLLARE}\n" if DA_CONTROLLARE else '') + f"spesa: {SPESA['usd']:.3f} $ ({'; '.join(SPESA['voci'])}) + {crediti} crediti voce\n"
                                                      f"durata: {dur / 60:.1f} min | video in movimento: {quota:.0f}% | inquadratura media: {media:.1f} s\n")
 os.makedirs('coach/costi', exist_ok=True)
