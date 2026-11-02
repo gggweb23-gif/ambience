@@ -21,10 +21,14 @@ TESTI = {
 }
 
 
+INTEST = {}
+
+
 def el(percorso, dati=None):
     req = urllib.request.Request('https://api.elevenlabs.io' + percorso, data=json.dumps(dati).encode() if dati else None,
                                  headers={'xi-api-key': K, 'Content-Type': 'application/json'})
     with urllib.request.urlopen(req, timeout=180) as r:
+        INTEST.clear(); INTEST.update({k.lower(): v for k, v in r.headers.items()})
         return r.read()
 
 
@@ -65,14 +69,20 @@ for c in canali:
     testo = P.get('testo_' + lingua) or TESTI[lingua]
     vel = num(c.get('voice_speed')) or 1.0
     for m in MODELLI:
-        prima = usati()
+        f = os.path.join(CART, f'{slug}_{m}.mp3')
+        if os.path.exists(f):   # gia' fatto in un giro precedente: non si ripaga
+            continue
         try:
             audio = el(f"/v1/text-to-speech/{str(c['voice_id']).strip()}?output_format=mp3_44100_128",
                        {'text': testo, 'model_id': m, 'voice_settings': {'stability': .45, 'similarity_boost': .75, 'speed': max(.7, min(1.2, vel))}})
         except Exception as e:
             righe.append(f'{nome} | {m} | ERRORE {str(e)[:120]}'); print(righe[-1]); continue
-        f = os.path.join(CART, f'{slug}_{m}.mp3'); open(f, 'wb').write(audio)
-        crediti = usati() - prima
+        open(f, 'wb').write(audio)
+        crediti = INTEST.get('character-cost') or INTEST.get('x-character-count') or '?'   # crediti scalati per questo audio (intestazione della risposta)
         righe.append(f'{nome} | {lingua} | {m} | {len(testo)} caratteri | crediti usati {crediti} | {f}'); print(righe[-1])
-righe.append(f'crediti usati in tutto nel mese: {usati()}')
+righe.append('intestazioni ultima risposta: ' + ', '.join(f'{k}={v}' for k, v in INTEST.items() if 'char' in k or 'cost' in k or 'credit' in k))
+try:
+    righe.append(f'crediti usati in tutto nel mese: {usati()}')
+except Exception as e:
+    righe.append('abbonamento non letto: ' + str(e)[:80])
 open(os.path.join(CART, 'esito.txt'), 'w').write('\n'.join(righe) + '\n')
