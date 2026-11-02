@@ -1,8 +1,8 @@
-10:17:49 testo di riferimento: 5014 parole
-10:18:27 copione: 36 scene, 1360 parole (limite 1683-1782)
-10:19:03 copione: 34 scene, 1359 parole (limite 1683-1782)
+07:59:48 testo di riferimento: 5014 parole
+08:00:37 copione: 45 scene, 1760 parole (obiettivo 1683-1782, minimo accettato 1574)
 Traceback (most recent call last):
-  File "/home/runner/work/ambience/ambience/strumenti/video_archivio.py", line 149, in <module>
-    raise RuntimeError('VIDEO BLOCCATO: copione fuori lunghezza (nessuna spesa per voce e montaggio)')
-RuntimeError: VIDEO BLOCCATO: copione fuori lunghezza (nessuna spesa per voce e montaggio)
-10:19:04 file di produzione aggiornato: status, data_inizio_produzione
+  File "/home/runner/work/ambience/ambience/strumenti/video_archivio.py", line 188, in <module>
+    mont = {'nome': NOME, 'voce': P.get('voice_id'), 'velocita': float(str(P.get('voice_speed') or 1.08).replace(',', '.')),
+                                                                 ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: could not convert string to float: '01:08'
+08:00:38 file di produzione aggiornato: status, data_inizio_produzione
