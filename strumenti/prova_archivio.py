@@ -155,7 +155,34 @@ def nasa(q, tipo):
         log('ricerca non riuscita', q, str(e)[:80]); return []
 
 
+ARCHIVIO = str(P.get('archivio') or 'nasa').lower()   # nasa | storico (foto da Wikimedia Commons, solo pubblico dominio / CC0)
+LIBERE = re.compile(r'public domain|^pd|cc0|cc-zero|no restrictions', re.I)
+
+
+def foto_commons(q):
+    try:
+        j = get('https://commons.wikimedia.org/w/api.php?' + urllib.parse.urlencode({
+            'action': 'query', 'format': 'json', 'generator': 'search', 'gsrnamespace': 6, 'gsrsearch': q + ' filetype:bitmap', 'gsrlimit': 25,
+            'prop': 'imageinfo', 'iiprop': 'url|size|extmetadata', 'iiurlwidth': 2400}))
+    except Exception as e:
+        log('Commons non risponde per', q, str(e)[:80]); return None
+    for pg in sorted((j.get('query') or {}).get('pages', {}).values(), key=lambda x: x.get('index', 99)):
+        t = pg.get('title', ''); ii = (pg.get('imageinfo') or [{}])[0]; m = ii.get('extmetadata') or {}
+        lic = ((m.get('LicenseShortName') or {}).get('value', '') + ' ' + (m.get('License') or {}).get('value', '')).strip()
+        if t in USATI or not LIBERE.search(lic) or ii.get('width', 0) < 900 or ii.get('width', 0) < ii.get('height', 1) * .9 \
+                or re.search(r'\.(svg|pdf|tif|tiff|gif)$|map|chart|diagram|flag|logo|coat of arms|document|poster|stamp|coin|page', t, re.I):
+            continue
+        try:
+            im = Image.open(io.BytesIO(get(ii.get('thumburl') or ii['url'], raw=True))).convert('RGB')
+        except Exception:
+            continue
+        USATI.add(t); return im, t[5:], f"{t[5:]} | {lic[:40]}"
+    return None
+
+
 def foto(q, a_terra=False):
+    if ARCHIVIO != 'nasa':
+        return foto_commons(q)
     for it in nasa(q, 'image'):
         nid = it['data'][0]['nasa_id']; serie = re.sub(r'\d{3}$', '', nid)
         if nid in USATI or serie in SERIE or (not a_terra and not ORBITA.match(nid)):
@@ -190,6 +217,8 @@ def bande_nere(p, da, dur):
 
 def clip(q, dur, a_terra=False):
     """Una clip NASA nuova per la ricerca; restituisce (file, inizio, nasa_id, titolo)."""
+    if ARCHIVIO != 'nasa':   # archivi storici: le clip arrivano SOLO dalla libreria (gia' controllata: epoca, scritte, licenza)
+        return None
     tentate = 0
     for it in nasa(q, 'video'):
         d0 = it['data'][0]; nid = d0['nasa_id']; tit = d0.get('title', '')
@@ -292,7 +321,7 @@ for n, (d, s, prima, t0) in enumerate(piano):
         fonti.append(f'{n:03d} CLIP {nid} da {da:.1f}s | {tit}')
     else:
         f_ = foto(s['q'], bool(s.get('a_terra'))) or foto(' '.join(s['q'].split()[:3]), bool(s.get('a_terra'))) \
-            or foto('astronaut International Space Station') or foto('Earth from International Space Station') or foto('ISS crew Expedition')
+            or next((r_ for r_ in (foto(q_) for q_ in (P.get('foto_riserva') or ['astronaut International Space Station', 'Earth from International Space Station', 'ISS crew Expedition'])) if r_), None)
         if not f_:   # ultima rete: mai fermarsi per una sola scena
             f_ = (Image.new('RGB', (W * 2, H * 2), (8, 10, 18)), 'nessuna', 'sfondo scuro (nessuna immagine trovata)')
         im, nid, tit = f_
