@@ -209,6 +209,22 @@ def bandiera(iso2):
     return '-'.join('%x' % (0x1F1E6 + ord(ch) - 65) for ch in iso2)
 
 
+def json_sicuro(t):
+    """JSON della risposta di Claude; se ha un errore di sintassi (es. virgolette non chiuse) lo ripara GRATIS invece di
+    rifare il copione (2 nov: un errore di una virgola a Rich Borders = copione rifatto da capo, +0,30 $)."""
+    t = t[t.find('{'): t.rfind('}') + 1]
+    try:
+        return json.loads(t)
+    except Exception as e:
+        try:
+            from json_repair import repair_json
+            c = json.loads(repair_json(t))
+            log('JSON del copione riparato gratis (errore era:', str(e)[:80] + ')')
+            return c
+        except ImportError:
+            raise e
+
+
 def claude(prompt, max_tokens=32000):
     chiave = E('ANTHROPIC_API_KEY', '')
     req = urllib.request.Request('https://api.anthropic.com/v1/messages',
@@ -318,7 +334,7 @@ Reply ONLY with valid JSON:
     for k in range(3):
         try:
             t = claude(prompt)
-            c = json.loads(t[t.find('{'): t.rfind('}') + 1])
+            c = json_sicuro(t)
             if not c.get('scene'):
                 raise ValueError('copione senza scene')
             n_par = sum(len(str(sc_.get('testo', '')).split()) for sc_ in c['scene'])

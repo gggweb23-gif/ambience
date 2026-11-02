@@ -98,6 +98,22 @@ def spendi(voce, usd):
         raise RuntimeError(f'VIDEO BLOCCATO (budget): speso {SPESA["usd"]:.2f} $ oltre {BUDGET_USD:.2f} $')
 
 
+def json_sicuro(t):
+    """JSON della risposta di Claude; se ha un errore di sintassi (es. virgolette non chiuse) lo ripara GRATIS invece di
+    rifare il copione (2 nov: un errore di una virgola a Rich Borders = copione rifatto da capo, +0,30 $)."""
+    t = t[t.find('{'): t.rfind('}') + 1]
+    try:
+        return json.loads(t)
+    except Exception as e:
+        try:
+            from json_repair import repair_json
+            c = json.loads(repair_json(t))
+            log('JSON del copione riparato gratis (errore era:', str(e)[:80] + ')')
+            return c
+        except ImportError:
+            raise e
+
+
 def claude(prompt, modello='claude-sonnet-5-5', max_tokens=24000, immagine=None):
     contenuto = prompt if not immagine else [{'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(immagine).decode()}},
                                               {'type': 'text', 'text': prompt}]
@@ -186,7 +202,7 @@ except Exception:
 if c is None:
     t = claude(regole, immagine=COP_COMP)
     try:
-        c = json.loads(t[t.find('{'): t.rfind('}') + 1])
+        c = json_sicuro(t)
         n = sum(len(s['testo'].split()) for s in c['scene'])
         log(f'copione: {len(c["scene"])} scene, {n} parole (obiettivo {P_MIN}-{P_MAX}, minimo accettato {P_OK})')
     except Exception as e:
@@ -202,7 +218,7 @@ It is {n} words: too short. Write EXACTLY {k_} NEW scenes (32-40 words each, abo
 new documented facts and moments on the same topic, same voice and rules, no repetition of what is already said, smooth with the scenes before and after.
 Same fields as the other scenes (testo, q, tag, scritta, obbligo). Answer ONLY with JSON: {{"scene": [...]}}""", max_tokens=12000)
     try:
-        nuove = json.loads(agg[agg.find('{'): agg.rfind('}') + 1])['scene']
+        nuove = json_sicuro(agg)['scene']
         c['scene'] = c['scene'][:dove] + nuove + c['scene'][dove:]
         n = sum(len(s['testo'].split()) for s in c['scene'])
         log(f'copione allungato: +{len(nuove)} scene -> {len(c["scene"])} scene, {n} parole')
