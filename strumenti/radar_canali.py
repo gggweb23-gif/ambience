@@ -64,6 +64,8 @@ for cid in P.get('canali') or []:
     for v in vids:
         v['_views'] = int(v['statistics'].get('viewCount') or 0); v['_dur'] = durata(v['contentDetails'].get('duration'))
     lunghi = [v for v in vids if v['_dur'] > 180]
+    import collections as _co
+    CATEG = _co.Counter(v['snippet'].get('categoryId') for v in vids).most_common(3)
     import datetime as _dt
     oggi = _dt.datetime.now(_dt.timezone.utc)
     json.dump([{'id': v['id'], 'titolo': v['snippet']['title'], 'views': v['_views'], 'min': round(v['_dur'] / 60, 1), 'data': v['snippet']['publishedAt'][:10],
@@ -74,6 +76,7 @@ for cid in P.get('canali') or []:
     s = ch['statistics']
     rep.append(f"## {nome} ({cid})\niscritti {s.get('subscriberCount')} | views totali {s.get('viewCount')} | video {s.get('videoCount')} | "
                f"creato {ch['snippet'].get('publishedAt', '')[:10]} | paese {ch['snippet'].get('country', '-')}\n"
+               f"categorie YouTube dei video (id: quanti): {CATEG}\n"
                f"video analizzati {len(vids)} (lunghi >3 min: {len(lunghi)}) | primo {date[0] if date else '-'} | ultimo {date[-1] if date else '-'}\n"
                f"durata mediana lunghi: {statistics.median([v['_dur'] for v in lunghi]) / 60 if lunghi else 0:.1f} min | "
                f"views mediane lunghi: {int(statistics.median([v['_views'] for v in lunghi])) if lunghi else 0}\n"
