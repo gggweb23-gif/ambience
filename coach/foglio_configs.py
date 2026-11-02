@@ -96,7 +96,7 @@ def main():
         msg = '\n'.join(riga_produzione(R, tk) for R in (P['riga_produzione'] if isinstance(P['riga_produzione'], list) else [P['riga_produzione']])); print(msg)
         with open('coach/modifiche_foglio.log', 'a') as f:
             f.write(time.strftime('%Y-%m-%d %H:%M') + ' ' + msg + '\n')
-        if not P.get('modifiche') and not P.get('nuove_colonne') and not P.get('nuova_riga'):
+        if not P.get('modifiche') and not P.get('nuove_colonne') and not P.get('nuova_riga') and not P.get('copia_celle'):
             return
     meta = api('GET', '?fields=sheets.properties', tk=tk)
     scheda = meta['sheets'][0]['properties']['title']
@@ -144,6 +144,13 @@ def main():
                     {'range': f"'{scheda}'!{lettera(intest.index(k) + 1)}{n}", 'values': [[x]]} for k, x in vals.items() if k in intest]}, tk)
             righe[can] = n
             esito.append(f'NUOVA RIGA {n}: {can} con {len(vals) - len(mancano)} colonne' + (f' (colonne inesistenti ignorate: {", ".join(mancano)})' if mancano else ''))
+    for cc in P.get('copia_celle', []):   # {"da": "KAO PSICOLOGIA", "a": "Storia in Minuti", "colonna": "voice_id"}: si LEGGE da una riga (anche bloccata) e si scrive nell'altra
+        try:
+            v_ = valori[righe[str(cc['da']).strip()] - 1][intest.index(cc['colonna'])]
+            P.setdefault('modifiche', []).append({'canale': cc['a'], 'colonna': cc['colonna'], 'valore': v_})
+            esito.append(f"copiata {cc['colonna']} da {cc['da']} a {cc['a']}")
+        except Exception as e:
+            esito.append(f"copia non riuscita {cc}: {str(e)[:60]}")
     dati = []
     mods = []
     for m in P.get('modifiche', []):   # canale "*" = tutte le righe dei canali
