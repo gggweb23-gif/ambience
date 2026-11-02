@@ -323,6 +323,77 @@ if errori and MIGLIORE and os.path.exists(VIDEO + '.migliore.mp4') and (not os.p
     log(f'si usa la versione migliore: {quota:.0f}% di video in movimento')
 if os.path.exists(VIDEO + '.migliore.mp4'):
     os.remove(VIDEO + '.migliore.mp4')
+# ---------------- REVISIONE DELLE INQUADRATURE (2 nov, Giorgio: "aumenta i controlli, deve uscire un video fatto bene") ----------------
+# Haiku guarda OGNI inquadratura con la frase che la voce dice in quel momento e boccia quelle sbagliate (epoca, spazio/NASA, cartoni,
+# cartelli con scritte, svastiche in primo piano, scena che non c'entra). Le bocciate si tolgono e il montaggio si rifa' (voce gia' pagata).
+def revisione():
+    try:
+        inq = json.load(open('/tmp/lav/inquadrature.json'))
+    except Exception as e:
+        log('revisione: elenco inquadrature non letto', str(e)[:80]); return []
+    argomento = P.get('niche') or P.get('channel_name') or ''
+    bocciate = []
+    for k in range(0, len(inq), 20):
+        g_ = inq[k:k + 20]; cont = []
+        for x in g_:
+            try:
+                b_ = open(x['frame'], 'rb').read()
+            except Exception:
+                continue
+            cont.append({'type': 'text', 'text': f"Shot {x['i']} ({x.get('tipo')}). Narration: \"{x.get('testo', '')[:200]}\""})
+            cont.append({'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/png', 'data': base64.b64encode(b_).decode()}})
+        cont.append({'type': 'text', 'text': f'These are shots of a YouTube documentary about: {argomento}. For each shot decide if it is WRONG for this video. '
+                     'A shot is WRONG if: it shows a different era (modern/after 1950 vehicles, clothes, colour TV look) or space/astronauts/NASA; it is a cartoon, '
+                     'animation, map graphic or drawing; it is a title card, intertitle or has burned-in text/subtitles/timecode; a swastika flag or Nazi banner is '
+                     'the main subject; it is black/empty; or it has NOTHING to do with the narration. Archival black-and-white footage that fits the period is fine '
+                     'even if generic. Answer ONLY JSON: {"sbagliate": [{"i": <shot number>, "motivo": "short reason"}]} (empty list if all are fine).'})
+        try:
+            corpo = {'model': 'claude-haiku-4-5-20251001', 'max_tokens': 1200, 'messages': [{'role': 'user', 'content': cont}]}
+            r_ = get('https://api.anthropic.com/v1/messages', corpo, {'x-api-key': E('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01'}, timeout=300)
+            u_ = r_.get('usage', {}); spendi('claude haiku (revisione inquadrature)', (u_.get('input_tokens', 0) * 1 + u_.get('output_tokens', 0) * 5) / 1e6)
+            t_ = ''.join(b.get('text', '') for b in r_.get('content', []))
+            for b in json_sicuro(t_).get('sbagliate', []):
+                x = next((y for y in g_ if y['i'] == int(b.get('i', -1))), None)
+                if x:
+                    bocciate.append(dict(x, motivo=b.get('motivo', '')))
+        except RuntimeError:
+            raise
+        except Exception as e:
+            log('revisione: gruppo non controllato', str(e)[:100])
+    log(f'REVISIONE: {len(bocciate)} inquadrature bocciate su {len(inq)}' + (': ' + '; '.join(f"{x['i']} {x['motivo']}" for x in bocciate[:12]) if bocciate else ''))
+    return bocciate
+
+
+def segna_in_libreria(bocciate):   # gli spezzoni bocciati non tornano piu' nei video (la libreria impara); file a parte: niente conflitti con il giro notturno
+    if not P.get('libreria'):
+        return
+    f_ = os.path.join('libreria_clip', P['libreria'], 'bocciati.json')
+    try:
+        vecchi = json.load(open(f_)) if os.path.exists(f_) else []
+        nuovi = [{'n': x['lib_n'], 'fonte': x.get('fonte'), 'motivo': x.get('motivo', '')} for x in bocciate if x.get('lib_n') is not None]
+        json.dump(vecchi + nuovi, open(f_, 'w'), ensure_ascii=False, indent=1); log(len(nuovi), 'spezzoni tolti per sempre dalla libreria (bocciati.json)')
+    except Exception as e:
+        log('bocciati non salvati', str(e)[:80])
+
+
+if MONTATO and os.path.exists(VIDEO) and str(P.get('revisione_inquadrature') or 'SI').upper() != 'NO':
+    bocc = revisione()
+    if bocc:
+        segna_in_libreria(bocc)
+        m_ = dict(mont, escludi_lib=[x['lib_n'] for x in bocc if x.get('lib_n') is not None],
+                  escludi_foto=[x['fonte'] for x in bocc if x.get('tipo') == 'foto'])
+        shutil.copy(VIDEO, VIDEO + '.prima_revisione.mp4')
+        r = subprocess.run([sys.executable, 'strumenti/prova_archivio.py'], env=dict(os.environ, PAYLOAD=json.dumps(m_)))
+        if r.returncode == 0 and os.path.exists(VIDEO):
+            quota, media, dur, errori = controlli()
+            bocc2 = revisione()
+            if len(bocc2) > max(3, len(json.load(open('/tmp/lav/inquadrature.json'))) * .04):
+                errori = errori + [f'ancora {len(bocc2)} inquadrature sbagliate dopo la revisione']
+        else:
+            os.replace(VIDEO + '.prima_revisione.mp4', VIDEO); errori = errori + ['revisione: rimontaggio non riuscito']
+        if os.path.exists(VIDEO + '.prima_revisione.mp4'):
+            os.remove(VIDEO + '.prima_revisione.mp4')
+
 if MONTATO and archivio_sbagliato():   # materiale di un altro argomento: mai caricato, nemmeno non in elenco
     raise RuntimeError('VIDEO BLOCCATO: ' + archivio_sbagliato())
 if errori:

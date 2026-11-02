@@ -93,6 +93,7 @@ log('voce', round(te[-1], 1), 's,', len(testo), 'caratteri,', round(len(testo.sp
 
 # ---------------- 2) archivio NASA ----------------
 USATI = set(P.get('escludi') or [])
+USATI.update('File:' + x for x in (P.get('escludi_foto') or []))   # foto Commons bocciate dalla revisione
 SERIE = set()   # foto della stessa serie (iss053e079613 / iss053e079615) = immagine ripetuta -> scartata
 ORBITA = re.compile(r'^(iss\d|s\d{2,3}e|sts\d|nm\d)', re.I)   # foto scattate in orbita (non a Terra, non in addestramento)
 CLIP_CACHE = {}   # nasa_id -> (file, lunghezza, segmenti gia' usati)
@@ -104,7 +105,13 @@ if P.get('libreria'):
         LIB = [x for x in json.load(open(os.path.join('libreria_clip', P['libreria'], 'indice.json'))) if x.get('ok')]
     except Exception as e:
         log('libreria non letta', str(e)[:80])
-LIB_USATI, LIB_FILE, ULTIMA_SORGENTE, PER_SORGENTE = set(), {}, [''], {}   # max 3 spezzoni dalla stessa ripresa per video
+LIB_USATI, LIB_FILE, ULTIMA_SORGENTE, PER_SORGENTE = set(), {}, [''], {}
+LIB_USATI.update(int(x) for x in (P.get('escludi_lib') or []))
+try:   # spezzoni bocciati dalle revisioni dei video precedenti
+    LIB_USATI.update(int(x['n']) for x in json.load(open(os.path.join('libreria_clip', P.get('libreria') or '-', 'bocciati.json'))))
+except Exception:
+    pass   # spezzoni bocciati dalla revisione: mai piu' in questo video
+ULTIMO_N = [None]   # max 3 spezzoni dalla stessa ripresa per video
 
 
 def parole(t):
@@ -146,6 +153,7 @@ def dalla_libreria(s, dur):
             best, bp = x, pt
     if not best:
         return None
+    ULTIMO_N[0] = best['n']
     LIB_USATI.add(best['n']); ULTIMA_SORGENTE[0] = best['nasa_id']; PER_SORGENTE[best['nasa_id']] = PER_SORGENTE.get(best['nasa_id'], 0) + 1
     if best['url'] not in LIB_FILE:
         f = os.path.join(LAV, 'lib_' + re.sub(r'\W', '_', best['nasa_id'])[:60] + '.mp4')
@@ -317,6 +325,7 @@ for n in range(len(piano) - 1):
 trans.append(('fade', 0))
 
 pezzi, fonti, nclip = [], [], 0
+INQ = []   # per la revisione delle inquadrature (video_archivio): cosa c'e' in ogni inquadratura e da dove viene
 MANCANTI = []   # ricerche delle scene senza spezzone adatto in libreria: la libreria le cerchera' nei giri successivi
 for n, (d, s, prima, t0) in enumerate(piano):
     T = trans[n][1]; L = d + T                        # ogni pezzo dura un po' di piu' per la transizione
@@ -331,8 +340,11 @@ for n, (d, s, prima, t0) in enumerate(piano):
         if not c and s.get('_ultima'):
             r = altro_pezzo(s['_ultima'], L)
             c = (r[0], r[1], s['_ultima'], '(altro momento)') if r else None
+    INFO_N = {'i': n, 'testo': s.get('testo', '')[:240], 'lib_n': ULTIMO_N[0] if (c and str(c[3]).startswith('LIBRERIA')) else None}
+    ULTIMO_N[0] = None
     if c:
         p, da, nid, tit = c; s['_ultima'] = nid; nclip += 1
+        INFO_N.update(tipo='clip', fonte=nid)
         spinta = n % 2 == 0                            # una clip si' e una no: leggera spinta in avanti (punch-in)
         vf = (f'[0:v]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={FPS},setsar=1,tpad=stop_mode=clone:stop_duration={L:.2f}'
               + (f",zoompan=z='1+0.06*on/{int(L * FPS)}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s={W}x{H}:fps={FPS}" if spinta else '') + '[v]')
@@ -343,6 +355,7 @@ for n, (d, s, prima, t0) in enumerate(piano):
             or next((r_ for r_ in (foto(q_) for q_ in (P.get('foto_riserva') or ['astronaut International Space Station', 'Earth from International Space Station', 'ISS crew Expedition'])) if r_), None)
         if not f_:   # ultima rete: mai fermarsi per una sola scena
             f_ = (Image.new('RGB', (W * 2, H * 2), (8, 10, 18)), 'nessuna', 'sfondo scuro (nessuna immagine trovata)')
+        INFO_N.update(tipo='foto', fonte=str(f_[1]))
         im, nid, tit = f_
         r = max(W * 2 / im.width, H * 2 / im.height); im = im.resize((int(im.width * r) + 1, int(im.height * r) + 1), Image.LANCZOS)
         x0, y0 = (im.width - W * 2) // 2, (im.height - H * 2) // 3
@@ -357,6 +370,7 @@ for n, (d, s, prima, t0) in enumerate(piano):
         cmd += ['-i', sc]; vf += ';[v][1:v]overlay=0:0[v]'
     run(cmd + ['-filter_complex', vf + ';[v]format=yuv420p[o]', '-map', '[o]', '-frames:v', int(round(L * FPS)), '-an',
                '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '19', out])
+    INQ.append(INFO_N)
     pezzi.append((out, d, trans[n]))
     log(f'{n:02d}', 'CLIP' if c else 'FOTO', round(d, 2), 's', trans[n][0])
 
@@ -431,6 +445,7 @@ for i, q in enumerate(fot):
 G.save(os.path.join(CART, 'fotogrammi.jpg'), quality=85)
 quota = 100 * sum(d for (p, d, _), f in zip(pezzi, fonti) if ' CLIP ' in f) / max(.1, sum(d for p, d, _ in pezzi))
 open(os.path.join(CART, 'fonti.txt'), 'w').write('\n'.join(fonti) + '\n')
+json.dump([dict(x, frame=q) for x, q in zip(INQ, fot)], open(os.path.join(LAV, 'inquadrature.json'), 'w'))
 open(os.path.join(CART, 'mancanti.txt'), 'w').write('\n'.join(sorted(set(m for m in MANCANTI if m))) + '\n')
 open(os.path.join(CART, 'costi.txt'), 'w').write(
     f'ElevenLabs: {len(testo)} crediti dell\'abbonamento | NASA: 0 | Claude: 0 (copione nel payload) | render GitHub: 0\n'
