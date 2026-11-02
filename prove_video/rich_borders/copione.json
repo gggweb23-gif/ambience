@@ -1,3451 +1,1576 @@
 {
- "titolo": "Switzerland Should Be Poor. Here's Why It Isn't",
+ "titolo": "Why Did Spain Rule the Philippines for 300 Years but Leave Almost No Spanish?",
  "numero": {
-  "testo": "500 YEARS",
-  "sotto": "ONE PRODUCT, SOLD IN NEW PACKAGES"
+  "testo": "333",
+  "sotto": "YEARS OF SPANISH RULE, ALMOST NO SPEAKERS"
  },
  "copertina": {
   "testo": "WHY?",
   "oro": [
-   "CHE"
+   "ESP"
   ],
   "verde": [
-   "FRA",
-   "DEU",
-   "ITA",
-   "AUT"
+   "PHL"
   ],
   "vista": {
-   "lon": 8.2,
-   "lat": 46.8,
-   "larghezza": 14
+   "lon": 60,
+   "lat": 20,
+   "larghezza": 200
   }
  },
- "descrizione": "Two hundred years ago, Swiss villagers ate grass and tree bark. Today Switzerland is one of the richest countries on Earth, with no sea, no oil, no gold mines and mountains everywhere. How did that happen? We follow 500 years of one strange product: safety, sold in new packages, from mercenaries to neutrality, vaults and medicine.\n\nWe walk through the lucky accidents that built the Swiss fortune, the bills that came due for banking secrecy, and the skill that keeps the country rich anyway: recovery. Every border has a price, and here is Switzerland's.",
+ "descrizione": "Spain ruled Mexico for 300 years and Mexico speaks Spanish. It ruled the Philippines for 333 years, and almost nobody there speaks it today. What happened? We follow the Manila galleons, a few thousand settlers, hundreds of languages, and friars who guarded their own power.\n\nThen came the American teachers, the destruction of Manila in 1945, and the surprising Spanish words that Filipinos still use every day, from the clock to the calendar to their own surnames.",
  "tag": [
-  "Switzerland",
-  "Swiss economy",
-  "why is Switzerland rich",
-  "Swiss banking",
-  "Swiss neutrality",
-  "animated map history",
-  "economic history",
-  "Credit Suisse collapse",
-  "Swiss mercenaries",
-  "Swiss watches",
-  "geography explained",
-  "Rich Borders"
+  "philippines history",
+  "spanish empire",
+  "why philippines does not speak spanish",
+  "manila galleon",
+  "history explained",
+  "animated maps",
+  "colonial history",
+  "Tagalog",
+  "Chavacano",
+  "Thomasites",
+  "Spanish colonization",
+  "Filipino language"
  ],
  "scene": [
   {
-   "testo": "Shelters for everyone. A bank that fell in one weekend. Soldiers for rent. Gold nobody should have kept. How does a poor mountain rock get this rich?",
+   "testo": "Spain ruled the Philippines for 333 years. Almost nobody there speaks Spanish. A ship of American teachers. A city wiped out. And friars who blocked their own king. Why?",
    "anteprima": true,
    "vista": {
-    "lon": 8.2,
-    "lat": 46.8,
-    "larghezza": 10
+    "lon": 121,
+    "lat": 13,
+    "larghezza": 30
    },
    "epoca": "oggi",
    "oro": [
-    "CHE"
+    "PHL"
    ],
-   "verde": [],
+   "verde": [
+    "ESP"
+   ],
    "eventi": [
     {
      "tipo": "numero",
-     "testo": "370,000",
-     "lon": 8.2,
-     "lat": 46.8,
-     "parola": "Shelters"
-    },
-    {
-     "tipo": "prezzo",
-     "testo": "$200B",
-     "sotto": "STATE GUARANTEES",
-     "ricco": true,
-     "parola": "bank"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "soldier",
-     "n": 5,
-     "lon": 7.2,
-     "lat": 47.4,
-     "parola": "Soldiers"
-    },
-    {
-     "tipo": "icona",
-     "icona": "gold_coins",
-     "lon": 9.5,
-     "lat": 46.2,
-     "parola": "Gold"
+     "testo": "333 YRS",
+     "lon": 121,
+     "lat": 14,
+     "parola": "333"
     },
     {
      "tipo": "scritta",
-     "testo": "HOW?",
-     "parola": "How"
+     "testo": "ALMOST NONE",
+     "parola": "nobody"
+    },
+    {
+     "tipo": "icona",
+     "icona": "cargo_ship",
+     "lon": -130,
+     "lat": 20,
+     "parola": "ship"
+    },
+    {
+     "tipo": "icona",
+     "icona": "grave",
+     "lon": 120.98,
+     "lat": 14.59,
+     "parola": "wiped"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "colonist",
+     "n": 4,
+     "lon": 122,
+     "lat": 12,
+     "parola": "friars"
     }
    ],
    "musica": "mistero",
    "stacco": false,
    "pin": {
-    "lon": 7.0,
-    "lat": 46.2,
+    "lon": 124,
+    "lat": 10,
     "faccia": "stupito"
    }
   },
   {
-   "testo": "In 1817, in the eastern Swiss mountains, people ate grass and tree bark. That year, twice the usual number of Swiss died.",
+   "testo": "Spain ruled Mexico for 300 years, and Mexico speaks Spanish. Peru, Colombia, Cuba, Chile too. So why is the Philippines the exception?",
    "anteprima": false,
    "vista": {
-    "lon": 9.3,
-    "lat": 47.0,
-    "larghezza": 6
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "CHE"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1817",
-     "parola": "1817"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "peasant",
-     "n": 5,
-     "lon": 9.3,
-     "lat": 47.0,
-     "parola": "grass"
-    },
-    {
-     "tipo": "contatore",
-     "testo": "TWICE THE USUAL DEATHS",
-     "su": 2,
-     "di": 1,
-     "personaggio": "peasant",
-     "parola": "twice"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Swiss deaths doubled in 1817",
-     "parola": "died"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": 8.0,
-    "lat": 46.3,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "The summer before, snow had fallen down to the valley floors. A volcano called Tambora, on the other side of the planet, had stolen Europe's summer.",
-   "anteprima": false,
-   "vista": {
-    "lon": 115,
-    "lat": -8,
+    "lon": -75,
+    "lat": 0,
     "larghezza": 120
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "IDN",
-    "CHE"
-   ],
-   "eventi": [
-    {
-     "tipo": "etichetta",
-     "testo": "MOUNT TAMBORA",
-     "lon": 118,
-     "lat": -8.2,
-     "parola": "Tambora"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      118,
-      -8.2
-     ],
-     "a": [
-      8.2,
-      46.8
-     ],
-     "icona": "ship",
-     "parola": "planet"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "NO SUMMER",
-     "parola": "summer"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Volcanic ash dimmed Europe's sun",
-     "parola": "stolen"
-    }
-   ],
-   "musica": "mistero",
-   "stacco": false,
-   "pin": {
-    "lon": 90,
-    "lat": 25,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "The harvest failed. Some villages grew so poor that they later paid their own neighbors to leave for America.",
-   "anteprima": false,
-   "vista": {
-    "lon": 8.2,
-    "lat": 46.8,
-    "larghezza": 14
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "CHE"
-   ],
-   "eventi": [
-    {
-     "tipo": "icono",
-     "icona": "wheat",
-     "lon": 8.0,
-     "lat": 47.2,
-     "parola": "harvest"
-    },
-    {
-     "tipo": "icona",
-     "icona": "chart_down",
-     "lon": 8.0,
-     "lat": 47.2,
-     "parola": "failed"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      8.2,
-      46.8
-     ],
-     "a": [
-      -20,
-      40
-     ],
-     "icona": "ship",
-     "parola": "America"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Villages paid to export people",
-     "parola": "paid"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": 10.5,
-    "lat": 45.8,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Today, that same country is the fourth richest on Earth per person. And that makes no sense.",
-   "anteprima": false,
-   "vista": {
-    "lon": 8.2,
-    "lat": 46.8,
-    "larghezza": 12
    },
    "epoca": "oggi",
    "oro": [
-    "CHE"
+    "MEX",
+    "PER",
+    "COL",
+    "CUB",
+    "CHL"
    ],
    "verde": [],
    "eventi": [
     {
-     "tipo": "anno",
-     "testo": "TODAY",
-     "parola": "Today"
+     "tipo": "conta",
+     "valore": 300,
+     "prefisso": "~",
+     "suffisso": "",
+     "sotto": "YEARS IN MEXICO",
+     "parola": "300"
     },
     {
-     "tipo": "solleva",
-     "paese": [
-      "CHE"
+     "tipo": "conta_paesi",
+     "paesi": [
+      "MEX",
+      "PER",
+      "COL",
+      "CUB",
+      "CHL"
      ],
-     "volte": 8,
-     "testo": "#4",
-     "colore": "oro",
-     "parola": "fourth"
+     "colore": "rojo",
+     "parola": "Peru"
     },
     {
      "tipo": "scritta",
-     "testo": "NO SENSE",
-     "parola": "sense"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Fourth richest per person",
-     "parola": "richest"
+     "testo": "EXCEPTION",
+     "parola": "exception"
     }
    ],
    "musica": "curiosita",
-   "stacco": true,
+   "stacco": false,
    "pin": {
-    "lon": 6.2,
-    "lat": 47.5,
-    "faccia": "stupito"
-   }
+    "lon": -60,
+    "lat": -20,
+    "faccia": "normale"
+   },
+   "nota": null
   },
   {
-   "testo": "Switzerland has no sea, no oil, no gas, no gold mines. About sixty percent of it is mountain, land you can barely farm.",
+   "testo": "Spain held these islands for 333 years, longer than it held Mexico. Yet land in Manila and speak Spanish, and you get blank looks.",
    "anteprima": false,
    "vista": {
-    "lon": 8.2,
-    "lat": 46.8,
-    "larghezza": 8
+    "lon": 121,
+    "lat": 14,
+    "larghezza": 14
    },
    "epoca": "oggi",
    "oro": [
-    "CHE"
+    "PHL"
    ],
    "verde": [],
    "eventi": [
     {
-     "tipo": "icona",
-     "icona": "port",
-     "lon": 6.1,
-     "lat": 46.2,
-     "parola": "sea"
+     "tipo": "conta",
+     "valore": 333,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "YEARS OF SPANISH RULE",
+     "parola": "333"
     },
     {
-     "tipo": "icona",
-     "icona": "oil_derrick",
-     "lon": 8.6,
-     "lat": 47.4,
-     "parola": "oil"
+     "tipo": "etichetta",
+     "testo": "MANILA",
+     "lon": 120.98,
+     "lat": 14.6,
+     "parola": "Manila"
     },
     {
-     "tipo": "icona",
-     "icona": "mine",
-     "lon": 9.4,
-     "lat": 46.7,
-     "parola": "gold"
-    },
+     "tipo": "nota",
+     "testo": "Longer rule than Mexico",
+     "parola": "longer"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 123.5,
+    "lat": 12,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Fewer than half a percent of Filipinos speak it well. You might guess the Americans swapped it for English in 1898.",
+   "anteprima": false,
+   "vista": {
+    "lon": 121,
+    "lat": 13,
+    "larghezza": 20
+   },
+   "epoca": "oggi",
+   "oro": [
+    "PHL"
+   ],
+   "verde": [
+    "USA"
+   ],
+   "eventi": [
     {
      "tipo": "griglia",
      "paese": [
-      "CHE"
+      "PHL"
      ],
-     "pieni": 0.6,
-     "testo": "60% MOUNTAIN",
-     "colore": "verde",
-     "parola": "mountain"
+     "pieni": 0.005,
+     "testo": "UNDER 0.5% SPEAK IT",
+     "colore": "oro",
+     "parola": "half"
+    },
+    {
+     "tipo": "anno",
+     "testo": "1898",
+     "parola": "1898"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Under half a percent today",
+     "parola": "Fewer"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 124,
+    "lat": 9,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "That is only part of it. Spanish was barely spoken even while Spain was in charge, and some Spaniards themselves stopped it spreading.",
+   "anteprima": false,
+   "vista": {
+    "lon": 121,
+    "lat": 13,
+    "larghezza": 16
+   },
+   "epoca": "antica",
+   "oro": [
+    "PHL"
+   ],
+   "verde": [
+    "ESP"
+   ],
+   "eventi": [
+    {
+     "tipo": "scritta",
+     "testo": "BARELY SPOKEN",
+     "parola": "barely"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "colonist",
+     "n": 4,
+     "lon": 121,
+     "lat": 14,
+     "parola": "Spaniards"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Spaniards blocked their own language",
+     "parola": "stopped"
+    }
+   ],
+   "musica": "mistero",
+   "stacco": false,
+   "pin": {
+    "lon": 124,
+    "lat": 10,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "To see why, look at the map. The Philippines is about as far from Madrid as you can possibly get.",
+   "anteprima": false,
+   "vista": {
+    "lon": 60,
+    "lat": 25,
+    "larghezza": 160
+   },
+   "epoca": "antica",
+   "oro": [
+    "ESP"
+   ],
+   "verde": [
+    "PHL"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      -3.7,
+      40.4
+     ],
+     "a": [
+      121,
+      14.6
+     ],
+     "icona": "ship",
+     "parola": "far"
+    },
+    {
+     "tipo": "conta",
+     "valore": 11000,
+     "prefisso": "~",
+     "suffisso": " KM",
+     "sotto": "MADRID TO MANILA",
+     "parola": "Madrid"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "MADRID",
+     "lon": -3.7,
+     "lat": 40.4,
+     "parola": "Madrid"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Opposite side of the world",
+     "parola": "far"
     }
    ],
    "musica": "curiosita",
    "stacco": false,
    "pin": {
-    "lon": 6.0,
-    "lat": 47.3,
+    "lon": 60,
+    "lat": 45,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Four languages. No colonies. Surrounded for centuries by empires far bigger than itself. So how does this landlocked rock end up so rich?",
+   "testo": "In 1565, Miguel López de Legazpi set up camp on the island of Cebu. He had sailed from Mexico, and that detail matters a lot.",
    "anteprima": false,
    "vista": {
-    "lon": 9,
-    "lat": 47,
-    "larghezza": 24
+    "lon": 123.9,
+    "lat": 10.3,
+    "larghezza": 10
    },
-   "epoca": "oggi",
+   "epoca": "antica",
    "oro": [
-    "CHE"
+    "MEX"
    ],
    "verde": [
-    "FRA",
-    "DEU",
-    "ITA",
-    "AUT"
+    "PHL"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1565",
+     "parola": "1565"
+    },
+    {
+     "tipo": "personaggio",
+     "nome": "Miguel López de Legazpi",
+     "descrizione": "16th-century Spanish conquistador, beard, armour",
+     "parola": "Legazpi"
+    },
+    {
+     "tipo": "icona",
+     "icona": "galleon",
+     "lon": 123.9,
+     "lat": 10.3,
+     "parola": "Cebu"
+    },
+    {
+     "tipo": "nota",
+     "testo": "He sailed from Mexico",
+     "parola": "Mexico"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": 126,
+    "lat": 8,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "That same year, the friar and navigator Andrés de Urdaneta found a way to sail back east across the Pacific.",
+   "anteprima": false,
+   "vista": {
+    "lon": -150,
+    "lat": 25,
+    "larghezza": 200
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "personaggio",
+     "nome": "Andrés de Urdaneta",
+     "descrizione": "16th-century Spanish friar and navigator, tonsure, dark habit",
+     "parola": "Andrés"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      121,
+      14.6
+     ],
+     "a": [
+      -99.9,
+      16.8
+     ],
+     "icona": "galleon",
+     "parola": "east"
+    },
+    {
+     "tipo": "nota",
+     "testo": "The return route was found",
+     "parola": "sail"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -150,
+    "lat": 45,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "That opened the Manila galleon route. For 250 years, one or two ships a year sailed between Manila and Acapulco.",
+   "anteprima": false,
+   "vista": {
+    "lon": -150,
+    "lat": 25,
+    "larghezza": 200
+   },
+   "epoca": "antica",
+   "oro": [
+    "MEX"
+   ],
+   "verde": [
+    "PHL"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      120.9,
+      14.6
+     ],
+     "a": [
+      -99.9,
+      16.85
+     ],
+     "icona": "galleon",
+     "parola": "route"
+    },
+    {
+     "tipo": "conta",
+     "valore": 250,
+     "prefisso": "",
+     "suffisso": " YRS",
+     "sotto": "OF GALLEON TRADE",
+     "parola": "250"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "ACAPULCO",
+     "lon": -99.9,
+     "lat": 16.85,
+     "parola": "Acapulco"
+    },
+    {
+     "tipo": "nota",
+     "testo": "One or two ships a year",
+     "parola": "ships"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": -150,
+    "lat": 40,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Each crossing took around four months. For most of that time, the islands were run from Mexico City, not from Spain.",
+   "anteprima": false,
+   "vista": {
+    "lon": -20,
+    "lat": 25,
+    "larghezza": 280
+   },
+   "epoca": "antica",
+   "oro": [
+    "MEX"
+   ],
+   "verde": [
+    "PHL"
    ],
    "eventi": [
     {
      "tipo": "conta",
      "valore": 4,
-     "prefisso": "",
-     "suffisso": "",
-     "sotto": "OFFICIAL LANGUAGES",
-     "parola": "languages"
-    },
-    {
-     "tipo": "contorno",
-     "paese": "FRA",
-     "parola": "empires"
-    },
-    {
-     "tipo": "contorno",
-     "paese": "DEU",
-     "parola": "bigger"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "WHY?",
-     "parola": "how"
-    }
-   ],
-   "musica": "mistero",
-   "stacco": false,
-   "pin": {
-    "lon": 5.0,
-    "lat": 44.5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "We need three answers. What did Switzerland sell when it had nothing? Why did the richest people trust it? And why is the model cracking?",
-   "anteprima": false,
-   "vista": {
-    "lon": 8.2,
-    "lat": 46.8,
-    "larghezza": 16
-   },
-   "epoca": "oggi",
-   "oro": [
-    "CHE"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "question",
-     "lon": 6.5,
-     "lat": 46.5,
-     "parola": "sell"
+     "prefisso": "~",
+     "suffisso": " MONTHS",
+     "sotto": "PER CROSSING",
+     "parola": "four"
     },
     {
      "tipo": "icona",
-     "icona": "money_bag",
-     "lon": 8.5,
-     "lat": 47.4,
-     "parola": "trust"
+     "icona": "castle",
+     "lon": -99.1,
+     "lat": 19.4,
+     "parola": "Mexico"
     },
     {
-     "tipo": "icona",
-     "icona": "chart_down",
-     "lon": 10.0,
-     "lat": 46.4,
-     "parola": "cracking"
+     "tipo": "freccia",
+     "da": [
+      -99.1,
+      19.4
+     ],
+     "a": [
+      121,
+      14.6
+     ],
+     "icona": "scroll_law",
+     "parola": "run"
     },
     {
      "tipo": "nota",
-     "testo": "Three questions, one answer",
-     "parola": "three"
+     "testo": "Ruled from Mexico City",
+     "parola": "run"
     }
    ],
-   "musica": "curiosita",
+   "musica": "",
    "stacco": false,
    "pin": {
-    "lon": 11.5,
-    "lat": 47.8,
+    "lon": -20,
+    "lat": 50,
     "faccia": "normale"
    }
   },
   {
-   "testo": "The answer is strange. For 500 years, Switzerland has sold the world the same product, only in different packages.",
+   "testo": "So the islands were a colony of a colony, hanging at the far end of a very long rope.",
    "anteprima": false,
    "vista": {
-    "lon": 8.2,
-    "lat": 46.8,
-    "larghezza": 10
+    "lon": 60,
+    "lat": 25,
+    "larghezza": 240
    },
-   "epoca": "oggi",
+   "epoca": "antica",
    "oro": [
-    "CHE"
+    "ESP"
    ],
-   "verde": [],
+   "verde": [
+    "PHL"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      -3.7,
+      40.4
+     ],
+     "a": [
+      -99.1,
+      19.4
+     ],
+     "icona": "scroll_law",
+     "parola": "colony"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -99.1,
+      19.4
+     ],
+     "a": [
+      121,
+      14.6
+     ],
+     "icona": "scroll_law",
+     "parola": "rope"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "COLONY OF A COLONY",
+     "parola": "colony"
+    },
+    {
+     "tipo": "nota",
+     "testo": "A very long chain of command",
+     "parola": "rope"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 60,
+    "lat": 50,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "That distance decided who went there, and the answer is hardly anyone. In the 1600s, only about 600 settlers came from Spain itself.",
+   "anteprima": false,
+   "vista": {
+    "lon": 60,
+    "lat": 25,
+    "larghezza": 240
+   },
+   "epoca": "antica",
+   "oro": [
+    "ESP"
+   ],
+   "verde": [
+    "PHL"
+   ],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "colonist",
+     "n": 3,
+     "lon": -3.7,
+     "lat": 40.4,
+     "parola": "Spain"
+    },
+    {
+     "tipo": "conta",
+     "valore": 600,
+     "prefisso": "~",
+     "suffisso": "",
+     "sotto": "SETTLERS FROM SPAIN",
+     "parola": "600"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "HARDLY ANYONE",
+     "parola": "anyone"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Spain sent very few people",
+     "parola": "hardly"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 60,
+    "lat": 50,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "One estimate counts about 15,600 settlers from Mexico and Peru. The islands themselves held roughly 667,000 people.",
+   "anteprima": false,
+   "vista": {
+    "lon": -20,
+    "lat": 15,
+    "larghezza": 280
+   },
+   "epoca": "antica",
+   "oro": [
+    "MEX",
+    "PER"
+   ],
+   "verde": [
+    "PHL"
+   ],
    "eventi": [
     {
      "tipo": "conta",
-     "valore": 500,
-     "prefisso": "",
+     "valore": 15600,
+     "prefisso": "~",
      "suffisso": "",
-     "sotto": "YEARS, ONE PRODUCT",
-     "parola": "500"
+     "sotto": "SETTLERS FROM MEXICO AND PERU",
+     "parola": "15,600"
     },
     {
-     "tipo": "scritta",
-     "testo": "SAME PRODUCT",
-     "parola": "same"
+     "tipo": "conta",
+     "valore": 667000,
+     "prefisso": "~",
+     "suffisso": "",
+     "sotto": "PEOPLE IN THE PHILIPPINES",
+     "parola": "667,000"
     },
     {
-     "tipo": "nota",
-     "testo": "One product, many packages",
-     "parola": "packages"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": true,
-   "pin": {
-    "lon": 6.5,
-    "lat": 47.5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Start with the map. Mountains are a wall. They protect you, but they also trap you.",
-   "anteprima": false,
-   "vista": {
-    "lon": 8.5,
-    "lat": 46.7,
-    "larghezza": 9
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "CHE"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "mountain",
-     "lon": 8.0,
-     "lat": 46.5,
-     "parola": "Mountains"
-    },
-    {
-     "tipo": "confine",
-     "punti": [
-      [
-       6.0,
-       46.4
-      ],
-      [
-       7.5,
-       45.9
-      ],
-      [
-       9.0,
-       46.2
-      ],
-      [
-       10.4,
-       46.6
-      ]
+     "tipo": "freccia",
+     "da": [
+      -99.1,
+      19.4
      ],
-     "parola": "wall"
-    },
-    {
-     "tipo": "icona",
-     "icona": "fortress",
-     "lon": 9.2,
-     "lat": 46.9,
-     "parola": "protect"
+     "a": [
+      121,
+      14.6
+     ],
+     "icona": "galleon",
+     "parola": "Mexico"
     },
     {
      "tipo": "nota",
-     "testo": "Mountains protect and trap",
-     "parola": "trap"
+     "testo": "Settlers outnumbered 40 to 1",
+     "parola": "islands"
     }
    ],
-   "musica": "mistero",
+   "musica": "",
    "stacco": false,
    "pin": {
-    "lon": 6.6,
-    "lat": 47.4,
+    "lon": -20,
+    "lat": 45,
     "faccia": "normale"
    }
   },
   {
-   "testo": "No big river to the sea. No wide plains for huge farms. Every valley was its own little world.",
+   "testo": "Most of those settlers stayed in or around Manila. A Filipino farmer could go a whole life without meeting a Spanish speaker.",
    "anteprima": false,
    "vista": {
-    "lon": 8.2,
-    "lat": 46.8,
-    "larghezza": 7
+    "lon": 121,
+    "lat": 14,
+    "larghezza": 12
    },
    "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "CHE"
+   "oro": [
+    "PHL"
    ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "colonist",
+     "n": 5,
+     "lon": 120.98,
+     "lat": 14.6,
+     "parola": "Manila"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "peasant",
+     "n": 4,
+     "lon": 121.5,
+     "lat": 16.5,
+     "parola": "farmer"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Spanish stayed in Manila",
+     "parola": "stayed"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 123.5,
+    "lat": 12.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In Mexico, Spanish speakers spread across towns, farms, and mines. Spanish became the language people used every day, everywhere.",
+   "anteprima": false,
+   "vista": {
+    "lon": -102,
+    "lat": 23,
+    "larghezza": 30
+   },
+   "epoca": "antica",
+   "oro": [
+    "MEX"
+   ],
+   "verde": [],
    "eventi": [
     {
      "tipo": "icona",
-     "icona": "river",
-     "lon": 7.6,
-     "lat": 47.5,
-     "parola": "river"
+     "icona": "mine",
+     "lon": -101,
+     "lat": 21,
+     "parola": "mines"
     },
     {
      "tipo": "icona",
      "icona": "farm",
-     "lon": 8.0,
-     "lat": 47.0,
+     "lon": -99.5,
+     "lat": 19.8,
      "parola": "farms"
     },
     {
      "tipo": "folla",
-     "personaggio": "peasant",
-     "n": 4,
-     "lon": 9.0,
-     "lat": 46.7,
-     "parola": "valley"
+     "personaggio": "colonist",
+     "n": 5,
+     "lon": -103.3,
+     "lat": 20.7,
+     "parola": "towns"
     },
     {
      "tipo": "nota",
-     "testo": "Each valley lived alone",
-     "parola": "world"
+     "testo": "Spanish spread across Mexico",
+     "parola": "spread"
     }
    ],
-   "musica": "quotidiano",
+   "musica": "",
    "stacco": false,
    "pin": {
-    "lon": 6.4,
-    "lat": 46.3,
+    "lon": -95,
+    "lat": 28,
     "faccia": "normale"
    }
   },
   {
-   "testo": "So for most of its history, Switzerland was poor. Too many people, too little land. And poor mountain countries export what they have too much of: young men.",
+   "testo": "Then there is the geography. The Philippines has more than 7,000 islands, and before the Spanish came, they did not share one language.",
    "anteprima": false,
    "vista": {
-    "lon": 8.2,
-    "lat": 46.8,
-    "larghezza": 14
+    "lon": 122,
+    "lat": 12,
+    "larghezza": 22
    },
    "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "CHE"
+   "oro": [
+    "PHL"
    ],
+   "verde": [],
    "eventi": [
     {
+     "tipo": "conta",
+     "valore": 7000,
+     "prefisso": "",
+     "suffisso": "+",
+     "sotto": "ISLANDS",
+     "parola": "7,000"
+    },
+    {
      "tipo": "icona",
-     "icona": "hourglass",
-     "lon": 8.2,
-     "lat": 46.8,
-     "parola": "history"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "peasant",
-     "n": 6,
-     "lon": 8.3,
-     "lat": 46.8,
-     "parola": "people"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      8.2,
-      46.8
-     ],
-     "a": [
-      2.3,
-      48.8
-     ],
-     "icona": "soldier",
-     "parola": "export"
+     "icona": "mountain",
+     "lon": 125.2,
+     "lat": 7.0,
+     "parola": "geography"
     },
     {
      "tipo": "scritta",
-     "testo": "YOUNG MEN",
-     "parola": "men"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": 11.0,
-    "lat": 47.8,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Swiss pikemen became the most feared soldiers in Europe. Kings, dukes and popes rented them by the thousand.",
-   "anteprima": false,
-   "vista": {
-    "lon": 9,
-    "lat": 46.5,
-    "larghezza": 30
-   },
-   "epoca": "antica",
-   "oro": [
-    "CHE"
-   ],
-   "verde": [
-    "FRA",
-    "ITA",
-    "DEU"
-   ],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "soldier",
-     "n": 6,
-     "lon": 8.3,
-     "lat": 46.9,
-     "parola": "pikemen"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      8.3,
-      46.9
-     ],
-     "a": [
-      2.3,
-      48.8
-     ],
-     "icona": "swords",
-     "parola": "Kings"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      8.3,
-      46.9
-     ],
-     "a": [
-      12.5,
-      41.9
-     ],
-     "icona": "church",
-     "parola": "popes"
+     "testo": "NO COMMON TONGUE",
+     "parola": "share"
     },
     {
      "tipo": "nota",
-     "testo": "Soldiers rented by the thousand",
-     "parola": "rented"
+     "testo": "No shared language",
+     "parola": "language"
     }
    ],
-   "musica": "epico",
+   "musica": "curiosita",
    "stacco": false,
    "pin": {
-    "lon": 15.0,
-    "lat": 50.0,
+    "lon": 127,
+    "lat": 8,
     "faccia": "normale"
    }
   },
   {
-   "testo": "This was no side business. Around 1500, about one in eight Swiss was serving as a soldier for someone else.",
+   "testo": "Over 100 languages are still spoken there today. Mountains and sea kept every island group, and sometimes every valley, apart.",
    "anteprima": false,
    "vista": {
-    "lon": 8.2,
-    "lat": 46.8,
-    "larghezza": 14
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "CHE"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1500",
-     "parola": "1500"
-    },
-    {
-     "tipo": "contatore",
-     "testo": "ABOUT 1 IN 8 SERVED ABROAD",
-     "su": 1,
-     "di": 8,
-     "personaggio": "soldier",
-     "parola": "one"
-    },
-    {
-     "tipo": "conta",
-     "valore": 12,
-     "prefisso": "~",
-     "suffisso": "%",
-     "sotto": "OF SWISS AS SOLDIERS",
-     "parola": "eight"
-    }
-   ],
-   "musica": "azione",
-   "stacco": false,
-   "pin": {
-    "lon": 10.8,
-    "lat": 47.9,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Over the centuries, about one and a half million Swiss men marched off to foreign wars. Up to forty percent never came home.",
-   "anteprima": false,
-   "vista": {
-    "lon": 9,
-    "lat": 46.5,
-    "larghezza": 30
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "CHE"
-   ],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 1500000,
-     "prefisso": "~",
-     "suffisso": "",
-     "sotto": "MEN IN FOREIGN ARMIES",
-     "parola": "million"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      8.2,
-      46.8
-     ],
-     "a": [
-      2.5,
-      48.5
-     ],
-     "icona": "soldier",
-     "parola": "marched"
-    },
-    {
-     "tipo": "icona",
-     "icona": "grave",
-     "lon": 4.0,
-     "lat": 47.5,
-     "parola": "never"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Up to 40% never returned",
-     "parola": "forty"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": 14.0,
-    "lat": 49.0,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "In 1506, a pope hired a unit of them as bodyguards. That unit still guards the Vatican today.",
-   "anteprima": false,
-   "vista": {
-    "lon": 12.5,
-    "lat": 42.5,
-    "larghezza": 10
-   },
-   "epoca": "antica",
-   "oro": [
-    "VAT"
-   ],
-   "verde": [
-    "ITA",
-    "CHE"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1506",
-     "parola": "1506"
-    },
-    {
-     "tipo": "icona",
-     "icona": "church",
-     "lon": 12.45,
-     "lat": 41.9,
-     "parola": "pope"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "soldier",
-     "n": 4,
-     "lon": 12.45,
-     "lat": 41.9,
-     "parola": "bodyguards"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Swiss Guard still serves",
-     "parola": "today"
-    }
-   ],
-   "musica": "epico",
-   "stacco": false,
-   "pin": {
-    "lon": 14.8,
-    "lat": 44.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Sometimes Swiss mercenaries even faced each other in one battle, paid by two different kings to kill one another.",
-   "anteprima": false,
-   "vista": {
-    "lon": 5,
-    "lat": 46,
+    "lon": 122,
+    "lat": 12,
     "larghezza": 20
    },
    "epoca": "antica",
    "oro": [
-    "FRA"
-   ],
-   "verde": [
-    "ITA"
-   ],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "soldier",
-     "n": 4,
-     "lon": 2.5,
-     "lat": 47.0,
-     "parola": "mercenaries"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "soldier",
-     "n": 4,
-     "lon": 8.5,
-     "lat": 45.5,
-     "parola": "other"
-    },
-    {
-     "tipo": "icona",
-     "icona": "swords",
-     "lon": 5.5,
-     "lat": 46.2,
-     "parola": "kill"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "SAME SIDE?",
-     "parola": "different"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": 12.0,
-    "lat": 48.5,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "The money came home in the pockets of survivors. By the 1800s, less than fifteen percent of Swiss coins were actually Swiss.",
-   "anteprima": false,
-   "vista": {
-    "lon": 8.2,
-    "lat": 46.8,
-    "larghezza": 14
-   },
-   "epoca": "antica",
-   "oro": [
-    "CHE"
+    "PHL"
    ],
    "verde": [],
    "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      2.3,
-      48.8
-     ],
-     "a": [
-      8.2,
-      46.8
-     ],
-     "icona": "gold_coins",
-     "parola": "came"
-    },
-    {
-     "tipo": "anno",
-     "testo": "1800s",
-     "parola": "1800s"
-    },
     {
      "tipo": "conta",
-     "valore": 15,
-     "prefisso": "<",
-     "suffisso": "%",
-     "sotto": "COINS WERE SWISS",
-     "parola": "fifteen"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Most coins came from abroad",
-     "parola": "abroad"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": 10.6,
-    "lat": 47.8,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "So Switzerland's first export wasn't cheese or watches. It was safety, paid for in blood.",
-   "anteprima": false,
-   "vista": {
-    "lon": 8.2,
-    "lat": 46.8,
-    "larghezza": 10
-   },
-   "epoca": "antica",
-   "oro": [
-    "CHE"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "cannon",
-     "lon": 7.0,
-     "lat": 47.0,
-     "parola": "cheese"
-    },
-    {
-     "tipo": "icona",
-     "icona": "fortress",
-     "lon": 8.6,
-     "lat": 47.0,
-     "parola": "safety"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "IN BLOOD",
-     "parola": "blood"
-    },
-    {
-     "tipo": "nota",
-     "testo": "First export: safety",
-     "parola": "export"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": true,
-   "pin": {
-    "lon": 6.4,
-    "lat": 47.5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Then, in 1515, at Marignano in northern Italy, the Swiss lost badly to the French.",
-   "anteprima": false,
-   "vista": {
-    "lon": 9.2,
-    "lat": 45.4,
-    "larghezza": 10
-   },
-   "epoca": "antica",
-   "oro": [
-    "FRA"
-   ],
-   "verde": [
-    "CHE"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1515",
-     "parola": "1515"
+     "valore": 100,
+     "prefisso": "",
+     "suffisso": "+",
+     "sotto": "LANGUAGES TODAY",
+     "parola": "100"
     },
     {
      "tipo": "etichetta",
-     "testo": "MARIGNANO",
-     "lon": 9.3,
-     "lat": 45.4,
-     "parola": "Marignano"
+     "testo": "TAGALOG",
+     "lon": 121,
+     "lat": 14,
+     "parola": "island"
     },
     {
-     "tipo": "icona",
-     "icona": "swords",
-     "lon": 9.3,
-     "lat": 45.4,
-     "parola": "lost"
+     "tipo": "etichetta",
+     "testo": "CEBUANO",
+     "lon": 123.9,
+     "lat": 10.3,
+     "parola": "valley"
     },
     {
-     "tipo": "nota",
-     "testo": "Swiss defeated by France",
-     "parola": "French"
+     "tipo": "etichetta",
+     "testo": "ILOCANO",
+     "lon": 120.5,
+     "lat": 17.5,
+     "parola": "sea"
     }
    ],
-   "musica": "azione",
+   "musica": "",
    "stacco": false,
    "pin": {
-    "lon": 11.2,
-    "lat": 46.3,
+    "lon": 126,
+    "lat": 15,
     "faccia": "normale"
    }
   },
   {
-   "testo": "And instead of revenge, they did something almost no power did. They stopped expanding and chose to stay out of other people's wars.",
+   "testo": "For a tiny colonial government, that was a nightmare. The obvious fix was to teach everyone Spanish so they had something in common.",
    "anteprima": false,
    "vista": {
-    "lon": 8.2,
-    "lat": 46.8,
-    "larghezza": 12
+    "lon": 121,
+    "lat": 13,
+    "larghezza": 16
    },
    "epoca": "antica",
    "oro": [
-    "CHE"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "contorno",
-     "paese": "CHE",
-     "parola": "stopped"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "NEUTRAL",
-     "parola": "stay"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Neutrality begins here",
-     "parola": "wars"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": true,
-   "pin": {
-    "lon": 6.0,
-    "lat": 47.4,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "For three centuries, neutrality was only a habit. Then Napoleon's armies swept through anyway, proving a habit is not a shield.",
-   "anteprima": false,
-   "vista": {
-    "lon": 7,
-    "lat": 46.5,
-    "larghezza": 22
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "CHE"
-   ],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 300,
-     "prefisso": "",
-     "suffisso": "",
-     "sotto": "YEARS OF HABIT",
-     "parola": "three"
-    },
-    {
-     "tipo": "personaggio",
-     "nombre": "Napoleon",
-     "nome": "Napoleon Bonaparte",
-     "descrizione": "French emperor, bicorne hat, grey coat",
-     "parola": "Napoleon's"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      2.3,
-      48.8
-     ],
-     "a": [
-      8.2,
-      46.8
-     ],
-     "icona": "cannon",
-     "parola": "swept"
-    },
-    {
-     "tipo": "nota",
-     "testo": "A habit is not a shield",
-     "parola": "shield"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": 11.5,
-    "lat": 48.0,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "But when Napoleon fell, Europe's great powers redrew the map. On November 20, 1815, they signed a guarantee that Switzerland would stay neutral forever.",
-   "anteprima": false,
-   "vista": {
-    "lon": 10,
-    "lat": 47,
-    "larghezza": 40
-   },
-   "epoca": "antica",
-   "oro": [
-    "CHE"
+    "PHL"
    ],
    "verde": [
-    "FRA",
-    "GBR",
-    "AUT",
-    "RUS",
-    "PRT",
     "ESP"
    ],
    "eventi": [
     {
-     "tipo": "anno",
-     "testo": "1815",
-     "parola": "1815"
-    },
-    {
-     "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": 8.2,
-     "lat": 46.8,
-     "parola": "guarantee"
-    },
-    {
-     "tipo": "contorno",
-     "paese": "CHE",
-     "parola": "neutral"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Neutrality guaranteed by treaty",
-     "parola": "signed"
-    }
-   ],
-   "musica": "epico",
-   "stacco": false,
-   "pin": {
-    "lon": 20.0,
-    "lat": 52.0,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Think about that. On a continent that went to war every generation, one country held a legal promise to stay out.",
-   "anteprima": false,
-   "vista": {
-    "lon": 10,
-    "lat": 48,
-    "larghezza": 40
-   },
-   "epoca": "antica",
-   "oro": [
-    "CHE"
-   ],
-   "verde": [
-    "FRA",
-    "DEU",
-    "ITA",
-    "AUT",
-    "ESP",
-    "GBR"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "swords",
-     "lon": 2.3,
-     "lat": 48.8,
-     "parola": "war"
-    },
-    {
-     "tipo": "icona",
-     "icona": "swords",
-     "lon": 13.4,
-     "lat": 52.5,
-     "parola": "generation"
-    },
-    {
-     "tipo": "icona",
-     "icona": "fortress",
-     "lon": 8.2,
-     "lat": 46.8,
-     "parola": "promise"
-    },
-    {
-     "tipo": "nota",
-     "testo": "One country exempt from war",
-     "parola": "exempt"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": 22.0,
-    "lat": 42.0,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "If you are rich and your country might burn, where do you keep your money? Switzerland now sold the promise that nothing would happen there.",
-   "anteprima": false,
-   "vista": {
-    "lon": 8.2,
-    "lat": 46.8,
-    "larghezza": 16
-   },
-   "epoca": "antica",
-   "oro": [
-    "CHE"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "landowner",
-     "n": 4,
-     "lon": 2.3,
-     "lat": 48.8,
-     "parola": "rich"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      2.3,
-      48.8
-     ],
-     "a": [
-      8.5,
-      47.3
-     ],
-     "icona": "money_bag",
-     "parola": "money"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "NOTHING HAPPENS",
-     "parola": "nothing"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": 11.2,
-    "lat": 47.9,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "But a promise feeds no one. As late as 1855, one Swiss village paid for 305 of its people to leave for America. More than one in ten.",
-   "anteprima": false,
-   "vista": {
-    "lon": -20,
-    "lat": 42,
-    "larghezza": 120
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [
-    "CHE"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1855",
-     "parola": "1855"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      8.2,
-      46.8
-     ],
-     "a": [
-      -74,
-      40.7
-     ],
-     "icona": "cargo_ship",
-     "parola": "America"
-    },
-    {
-     "tipo": "conta",
-     "valore": 305,
-     "prefisso": "",
-     "suffisso": "",
-     "sotto": "VILLAGERS SENT AWAY",
-     "parola": "305"
-    },
-    {
-     "tipo": "contatore",
-     "testo": "MORE THAN 1 IN 10 LEFT",
-     "su": 1,
-     "di": 10,
-     "personaggio": "peasant",
-     "parola": "ten"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": -45,
-    "lat": 55,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Over the century, more than half a million Swiss left. Neutral? Yes. Rich? Not even close.",
-   "anteprima": false,
-   "vista": {
-    "lon": 8.2,
-    "lat": 46.8,
-    "larghezza": 14
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "CHE"
-   ],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 500000,
-     "prefisso": "+",
-     "suffisso": "",
-     "sotto": "SWISS EMIGRATED",
-     "parola": "half"
-    },
-    {
-     "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": 8.2,
-     "lat": 46.8,
-     "parola": "Neutral"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "NOT RICH",
-     "parola": "Rich"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": 10.5,
-    "lat": 47.9,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "To get rich, Switzerland needed a few lucky accidents. The first happened in Geneva. In 1541, the reformer John Calvin banned jewelry as sinful.",
-   "anteprima": false,
-   "vista": {
-    "lon": 6.15,
-    "lat": 46.2,
-    "larghezza": 5
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "CHE"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1541",
-     "parola": "1541"
-    },
-    {
-     "tipo": "personaggio",
-     "nome": "John Calvin",
-     "descrizione": "16th-century Protestant reformer, black robe, stern face",
-     "parola": "Calvin"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "GENEVA",
-     "lon": 6.15,
-     "lat": 46.2,
-     "parola": "Geneva"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Calvin banned jewelry",
-     "parola": "banned"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": 7.4,
-    "lat": 46.9,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Geneva's goldsmiths suddenly had no market. So they turned their tiny tools to something Calvin could not object to: clocks.",
-   "anteprima": false,
-   "vista": {
-    "lon": 6.15,
-    "lat": 46.2,
-    "larghezza": 4
-   },
-   "epoca": "antica",
-   "oro": [
-    "CHE"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "worker",
-     "n": 4,
-     "lon": 6.15,
-     "lat": 46.2,
-     "parola": "goldsmiths"
-    },
-    {
-     "tipo": "icona",
-     "icona": "hourglass",
-     "lon": 6.2,
-     "lat": 46.25,
-     "parola": "clocks"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Jewelers became watchmakers",
-     "parola": "turned"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": 7.0,
-    "lat": 46.7,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "French Protestant refugees brought even more skill. By 1601, Geneva had the world's first watchmakers guild. A religious ban had created an industry built on precision.",
-   "anteprima": false,
-   "vista": {
-    "lon": 6.15,
-    "lat": 46.2,
-    "larghezza": 10
-   },
-   "epoca": "antica",
-   "oro": [
-    "CHE"
-   ],
-   "verde": [
-    "FRA"
-   ],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      2.3,
-      46.5
-     ],
-     "a": [
-      6.15,
-      46.2
-     ],
-     "icona": "hourglass",
-     "parola": "refugees"
-    },
-    {
-     "tipo": "anno",
-     "testo": "1601",
-     "parola": "1601"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "PRECISION",
-     "parola": "precision"
-    },
-    {
-     "tipo": "nota",
-     "testo": "World's first watchmakers guild",
-     "parola": "guild"
-    }
-   ],
-   "musica": "quotidiano",
-   "stacco": false,
-   "pin": {
-    "lon": 8.0,
-    "lat": 47.0,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Keep those watchmakers in mind. Four hundred years later, they almost disappear.",
-   "anteprima": false,
-   "vista": {
-    "lon": 7,
-    "lat": 47.2,
-    "larghezza": 6
-   },
-   "epoca": "antica",
-   "oro": [
-    "CHE"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "hourglass",
-     "lon": 6.9,
-     "lat": 47.1,
-     "parola": "watchmakers"
-    },
-    {
-     "tipo": "icona",
-     "icona": "chart_down",
-     "lon": 6.9,
-     "lat": 47.1,
-     "parola": "disappear"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Remember: they nearly vanish",
-     "parola": "Four"
-    }
-   ],
-   "musica": "mistero",
-   "stacco": false,
-   "pin": {
-    "lon": 8.2,
-    "lat": 47.6,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Accident number two: chaos. Before 1850, Switzerland had no single money. About eight thousand different coins and banknotes circulated.",
-   "anteprima": false,
-   "vista": {
-    "lon": 8.2,
-    "lat": 46.8,
-    "larghezza": 8
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "CHE"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1850",
-     "parola": "1850"
-    },
-    {
-     "tipo": "conta",
-     "valore": 8000,
-     "prefisso": "~",
-     "suffisso": "",
-     "sotto": "DIFFERENT COINS AND NOTES",
-     "parola": "eight"
-    },
-    {
-     "tipo": "icona",
-     "icona": "banknotes",
-     "lon": 7.4,
-     "lat": 46.9,
-     "parola": "banknotes"
-    },
-    {
-     "tipo": "icona",
-     "icona": "gold_coins",
-     "lon": 9.2,
-     "lat": 47.2,
-     "parola": "coins"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": 6.5,
-    "lat": 47.5,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Then the new federal state created one currency, the franc. It sounds boring, but it became one of the most trusted currencies on Earth.",
-   "anteprima": false,
-   "vista": {
-    "lon": 8.2,
-    "lat": 46.8,
-    "larghezza": 9
-   },
-   "epoca": "antica",
-   "oro": [
-    "CHE"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": 7.45,
-     "lat": 46.95,
-     "parola": "federal"
-    },
-    {
-     "tipo": "icona",
-     "icona": "banknotes",
-     "lon": 8.2,
-     "lat": 46.8,
-     "parola": "franc"
-    },
-    {
-     "tipo": "nota",
-     "testo": "One franc replaced thousands",
-     "parola": "currency"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "TRUSTED",
-     "parola": "trusted"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": 10.2,
-    "lat": 47.6,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "It would be so trusted that one day it would become a problem. Hold that thought.",
-   "anteprima": false,
-   "vista": {
-    "lon": 8.2,
-    "lat": 46.8,
-    "larghezza": 9
-   },
-   "epoca": "antica",
-   "oro": [
-    "CHE"
-   ],
-   "verde": [],
-   "eventi": [
-    {
      "tipo": "icona",
      "icona": "question",
-     "lon": 8.2,
-     "lat": 46.8,
-     "parola": "problem"
+     "lon": 121,
+     "lat": 14,
+     "parola": "nightmare"
+    },
+    {
+     "tipo": "icona",
+     "icona": "school",
+     "lon": 120.98,
+     "lat": 14.6,
+     "parola": "teach"
     },
     {
      "tipo": "nota",
-     "testo": "Too much trust, later",
-     "parola": "thought"
+     "testo": "Plan: teach everyone Spanish",
+     "parola": "fix"
     }
    ],
-   "musica": "mistero",
+   "musica": "",
    "stacco": false,
    "pin": {
-    "lon": 6.4,
-    "lat": 47.4,
+    "lon": 124,
+    "lat": 11,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Accident number three: the wall became a road. In 1882, the Swiss opened a 15 kilometer railway tunnel under the Gotthard Pass, the longest in the world.",
+   "testo": "Spain's kings agreed. Over the centuries, the crown sent order after order saying the locals must learn Spanish. Most went nowhere.",
    "anteprima": false,
    "vista": {
-    "lon": 8.6,
-    "lat": 46.7,
-    "larghezza": 6
+    "lon": 60,
+    "lat": 25,
+    "larghezza": 240
    },
    "epoca": "antica",
    "oro": [
-    "CHE"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1882",
-     "parola": "1882"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      8.6,
-      46.55
-     ],
-     "a": [
-      8.6,
-      46.9
-     ],
-     "icona": "steam_train",
-     "parola": "tunnel"
-    },
-    {
-     "tipo": "conta",
-     "valore": 15,
-     "prefisso": "",
-     "suffisso": " KM",
-     "sotto": "GOTTHARD TUNNEL",
-     "parola": "15"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "GOTTHARD PASS",
-     "lon": 8.55,
-     "lat": 46.65,
-     "parola": "Gotthard"
-    }
-   ],
-   "musica": "epico",
-   "stacco": false,
-   "pin": {
-    "lon": 10.0,
-    "lat": 47.6,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "It cost at least 177 workers their lives. When workers went on strike, the army opened fire and killed four.",
-   "anteprima": false,
-   "vista": {
-    "lon": 8.6,
-    "lat": 46.7,
-    "larghezza": 5
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "CHE"
-   ],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 177,
-     "prefisso": "+",
-     "suffisso": "",
-     "sotto": "WORKERS DIED",
-     "parola": "177"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "worker",
-     "n": 5,
-     "lon": 8.6,
-     "lat": 46.6,
-     "parola": "strike"
-    },
-    {
-     "tipo": "icona",
-     "icona": "grave",
-     "lon": 8.6,
-     "lat": 46.7,
-     "parola": "killed"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Army fired on strikers",
-     "parola": "fire"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": 10.0,
-    "lat": 47.3,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "But once open, the mountain wall was suddenly a toll road between northern and southern Europe.",
-   "anteprima": false,
-   "vista": {
-    "lon": 9,
-    "lat": 47,
-    "larghezza": 18
-   },
-   "epoca": "antica",
-   "oro": [
-    "CHE"
+    "ESP"
    ],
    "verde": [
-    "DEU",
-    "ITA"
+    "PHL"
    ],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      9.0,
-      52.0
-     ],
-     "a": [
-      9.2,
-      45.5
-     ],
-     "icona": "steam_train",
-     "parola": "between"
-    },
-    {
-     "tipo": "icona",
-     "icona": "gold_coins",
-     "lon": 8.6,
-     "lat": 46.8,
-     "parola": "toll"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "TOLL ROAD",
-     "parola": "road"
-    },
-    {
-     "tipo": "nota",
-     "testo": "The wall became a trade route",
-     "parola": "suddenly"
-    }
-   ],
-   "musica": "trionfo",
-   "stacco": true,
-   "pin": {
-    "lon": 13.0,
-    "lat": 48.5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Accident number four came in Basel, on the Rhine. In 1859, a silk dyer began making the new artificial dyes just discovered in England.",
-   "anteprima": false,
-   "vista": {
-    "lon": 7.6,
-    "lat": 47.55,
-    "larghezza": 5
-   },
-   "epoca": "antica",
-   "oro": [
-    "CHE"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1859",
-     "parola": "1859"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "BASEL",
-     "lon": 7.6,
-     "lat": 47.56,
-     "parola": "Basel"
-    },
-    {
-     "tipo": "icona",
-     "icona": "factory",
-     "lon": 7.65,
-     "lat": 47.55,
-     "parola": "dyes"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Silk dyer turned chemist",
-     "parola": "England"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": 8.9,
-    "lat": 48.0,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Others followed. Dye factories became chemical companies, and chemical companies grew into some of the biggest pharmaceutical firms in the world.",
-   "anteprima": false,
-   "vista": {
-    "lon": 7.6,
-    "lat": 47.55,
-    "larghezza": 6
-   },
-   "epoca": "antica",
-   "oro": [
-    "CHE"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "factory",
-     "lon": 7.6,
-     "lat": 47.55,
-     "parola": "factories"
-    },
-    {
-     "tipo": "icona",
-     "icona": "chart_up",
-     "lon": 7.8,
-     "lat": 47.6,
-     "parola": "grew"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Dyes became medicine",
-     "parola": "pharmaceutical"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": 9.0,
-    "lat": 48.0,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Accident number five happened in the lakeside town of Vevey. In 1875, Daniel Peter finally mixed cocoa with condensed milk: milk chocolate.",
-   "anteprima": false,
-   "vista": {
-    "lon": 6.84,
-    "lat": 46.46,
-    "larghezza": 4
-   },
-   "epoca": "antica",
-   "oro": [
-    "CHE"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1875",
-     "parola": "1875"
-    },
-    {
-     "tipo": "personaggio",
-     "nome": "Daniel Peter",
-     "descrizione": "19th-century Swiss chocolate maker, mustache, apron",
-     "parola": "Daniel"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "VEVEY",
-     "lon": 6.84,
-     "lat": 46.46,
-     "parola": "Vevey"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Milk chocolate invented",
-     "parola": "chocolate"
-    }
-   ],
-   "musica": "quotidiano",
-   "stacco": false,
-   "pin": {
-    "lon": 7.9,
-    "lat": 46.9,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "His neighbor, by the way, was a man named Henri Nestlé.",
-   "anteprima": false,
-   "vista": {
-    "lon": 6.84,
-    "lat": 46.46,
-    "larghezza": 3
-   },
-   "epoca": "antica",
-   "oro": [
-    "CHE"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "personaggio",
-     "nome": "Henri Nestlé",
-     "descrizione": "19th-century German-Swiss merchant, beard, dark suit",
-     "parola": "Henri"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Daniel Peter's neighbor: Nestlé",
-     "parola": "neighbor"
-    }
-   ],
-   "musica": "quotidiano",
-   "stacco": false,
-   "pin": {
-    "lon": 7.6,
-    "lat": 46.8,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Watches, a trusted franc, a tunnel, medicine, chocolate. Notice the pattern. None needs oil, a port or an empire.",
-   "anteprima": false,
-   "vista": {
-    "lon": 8.2,
-    "lat": 46.8,
-    "larghezza": 9
-   },
-   "epoca": "antica",
-   "oro": [
-    "CHE"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "hourglass",
-     "lon": 6.15,
-     "lat": 46.2,
-     "parola": "Watches"
-    },
-    {
-     "tipo": "icona",
-     "icona": "steam_train",
-     "lon": 8.6,
-     "lat": 46.7,
-     "parola": "tunnel"
-    },
-    {
-     "tipo": "icona",
-     "icona": "factory",
-     "lon": 7.6,
-     "lat": 47.55,
-     "parola": "medicine"
-    },
-    {
-     "tipo": "icona",
-     "icona": "gold_coins",
-     "lon": 6.84,
-     "lat": 46.46,
-     "parola": "chocolate"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": 10.4,
-    "lat": 47.6,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "They are small, expensive things you buy because you trust they will not fail. If you like seeing how maps decide who gets rich, subscribe.",
-   "anteprima": false,
-   "vista": {
-    "lon": 8.2,
-    "lat": 46.8,
-    "larghezza": 10
-   },
-   "epoca": "antica",
-   "oro": [
-    "CHE"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "scritta",
-     "testo": "TRUST",
-     "parola": "trust"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Small, costly, never fail",
-     "parola": "expensive"
-    },
-    {
-     "tipo": "icona",
-     "icona": "question",
-     "lon": 8.2,
-     "lat": 46.8,
-     "parola": "maps"
-    }
-   ],
-   "musica": "quotidiano",
-   "stacco": false,
-   "pin": {
-    "lon": 6.3,
-    "lat": 47.4,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "But none of that explains the real Swiss fortune. For that, we have to go underground, into the vaults.",
-   "anteprima": false,
-   "vista": {
-    "lon": 8.5,
-    "lat": 47.37,
-    "larghezza": 4
-   },
-   "epoca": "antica",
-   "oro": [
-    "CHE"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "etichetta",
-     "testo": "ZURICH VAULTS",
-     "lon": 8.54,
-     "lat": 47.37,
-     "parola": "underground"
-    },
-    {
-     "tipo": "icona",
-     "icona": "treasure_chest",
-     "lon": 8.54,
-     "lat": 47.37,
-     "parola": "vaults"
-    },
-    {
-     "tipo": "nota",
-     "testo": "The real fortune: secrecy",
-     "parola": "fortune"
-    }
-   ],
-   "musica": "mistero",
-   "stacco": true,
-   "pin": {
-    "lon": 9.4,
-    "lat": 47.8,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "In 1932, France launched a campaign against its own tax evaders. Rich French families panicked, and Switzerland answered.",
-   "anteprima": false,
-   "vista": {
-    "lon": 5,
-    "lat": 47,
-    "larghezza": 12
-   },
-   "epoca": "oggi",
-   "oro": [
-    "CHE"
-   ],
-   "verde": [
-    "FRA"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1932",
-     "parola": "1932"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "landowner",
-     "n": 4,
-     "lon": 2.3,
-     "lat": 48.8,
-     "parola": "panicked"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      2.3,
-      48.8
-     ],
-     "a": [
-      8.5,
-      47.4
-     ],
-     "icona": "money_bag",
-     "parola": "answered"
-    },
-    {
-     "tipo": "nota",
-     "testo": "French savings fled to Switzerland",
-     "parola": "evaders"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": 9.8,
-    "lat": 48.4,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "In 1934, a new banking law made revealing a client's information a federal crime. A banker who talked could go to prison.",
-   "anteprima": false,
-   "vista": {
-    "lon": 8.5,
-    "lat": 47.2,
-    "larghezza": 6
-   },
-   "epoca": "oggi",
-   "oro": [
-    "CHE"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1934",
-     "parola": "1934"
-    },
-    {
-     "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": 7.45,
-     "lat": 46.95,
-     "parola": "law"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "banker",
-     "n": 3,
-     "lon": 8.54,
-     "lat": 47.37,
-     "parola": "banker"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "SILENCE",
-     "parola": "prison"
-    }
-   ],
-   "musica": "mistero",
-   "stacco": false,
-   "pin": {
-    "lon": 10.0,
-    "lat": 47.9,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Even your own government could ask. Even your tax office could ask. The answer was silence.",
-   "anteprima": false,
-   "vista": {
-    "lon": 8.5,
-    "lat": 47.2,
-    "larghezza": 8
-   },
-   "epoca": "oggi",
-   "oro": [
-    "CHE"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "parliament",
-     "lon": 7.45,
-     "lat": 46.95,
-     "parola": "government"
-    },
-    {
-     "tipo": "icona",
-     "icona": "banknotes",
-     "lon": 8.54,
-     "lat": 47.37,
-     "parola": "tax"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Even tax offices got silence",
-     "parola": "silence"
-    }
-   ],
-   "musica": "mistero",
-   "stacco": false,
-   "pin": {
-    "lon": 10.4,
-    "lat": 46.4,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "In June 1940, days after France fell, Germany drew up a plan to invade Switzerland. Up to half a million men.",
-   "anteprima": false,
-   "vista": {
-    "lon": 8.5,
-    "lat": 47.5,
-    "larghezza": 16
-   },
-   "epoca": "oggi",
-   "oro": [
-    "CHE"
-   ],
-   "verde": [
-    "DEU"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1940",
-     "parola": "1940"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      9.0,
-      50.0
-     ],
-     "a": [
-      8.5,
-      47.4
-     ],
-     "icona": "cannon",
-     "parola": "invade"
-    },
-    {
-     "tipo": "conta",
-     "valore": 500000,
-     "prefisso": "UP TO ",
-     "suffisso": "",
-     "sotto": "GERMAN SOLDIERS PLANNED",
-     "parola": "half"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": 12.5,
-    "lat": 46.2,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "After conquest, the country would be carved up by language. German part to Germany, Italian to Italy, French to France.",
-   "anteprima": false,
-   "vista": {
-    "lon": 8.2,
-    "lat": 46.8,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "CHE"
-   ],
-   "eventi": [
-    {
-     "tipo": "confine",
-     "punti": [
-      [
-       7.2,
-       47.5
-      ],
-      [
-       7.2,
-       46.2
-      ]
-     ],
-     "parola": "carved"
-    },
-    {
-     "tipo": "icona",
-     "tipo2": "x",
-     "icona": "flag:DE",
-     "lon": 9.0,
-     "lat": 47.3,
-     "parola": "German"
-    },
-    {
-     "tipo": "icona",
-     "icona": "flag:IT",
-     "lon": 8.9,
-     "lat": 46.2,
-     "parola": "Italian"
-    },
-    {
-     "tipo": "icona",
-     "icona": "flag:FR",
-     "lon": 6.4,
-     "lat": 46.7,
-     "parola": "French"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": 10.6,
-    "lat": 47.9,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "The Swiss answer was to pull the army back into the mountains, into a fortress carved inside the Alps, ready to fight for years.",
-   "anteprima": false,
-   "vista": {
-    "lon": 8.6,
-    "lat": 46.7,
-    "larghezza": 8
-   },
-   "epoca": "oggi",
-   "oro": [
-    "CHE"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "soldier",
-     "n": 5,
-     "lon": 8.6,
-     "lat": 46.7,
-     "parola": "army"
-    },
-    {
-     "tipo": "icona",
-     "icona": "fortress",
-     "lon": 8.6,
-     "lat": 46.7,
-     "parola": "fortress"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Army retreated into the Alps",
-     "parola": "Alps"
-    }
-   ],
-   "musica": "epico",
-   "stacco": false,
-   "pin": {
-    "lon": 6.6,
-    "lat": 47.4,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "The invasion never came, but that fortress mindset never left. In 1963, a law promised every resident a place in a nuclear shelter.",
-   "anteprima": false,
-   "vista": {
-    "lon": 8.2,
-    "lat": 46.8,
-    "larghezza": 9
-   },
-   "epoca": "oggi",
-   "oro": [
-    "CHE"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1963",
-     "parola": "1963"
-    },
-    {
-     "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": 7.45,
-     "lat": 46.95,
-     "parola": "law"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "family",
-     "n": 4,
-     "lon": 8.5,
-     "lat": 47.0,
-     "parola": "resident"
-    },
-    {
-     "tipo": "nota",
-     "testo": "A shelter spot for everyone",
-     "parola": "shelter"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": 10.4,
-    "lat": 47.6,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Today there are around 370,000 shelters. That is enough to fit the whole population, so a country that sells safety also buys it for everyone.",
-   "anteprima": false,
-   "vista": {
-    "lon": 8.2,
-    "lat": 46.8,
-    "larghezza": 9
-   },
-   "epoca": "oggi",
-   "oro": [
-    "CHE"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 370000,
-     "prefisso": "~",
-     "suffisso": "",
-     "sotto": "NUCLEAR SHELTERS",
-     "parola": "370,000"
-    },
-    {
-     "tipo": "icona",
-     "icona": "fortress",
-     "lon": 8.2,
-     "lat": 46.8,
-     "parola": "shelters"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "SAFE",
-     "parola": "safety"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": 6.2,
-    "lat": 47.4,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "During the war, Switzerland kept doing business with everyone, including Nazi Germany. A later commission found its national bank took in about 1.6 billion francs in German gold.",
-   "anteprima": false,
-   "vista": {
-    "lon": 9,
-    "lat": 48,
-    "larghezza": 14
-   },
-   "epoca": "oggi",
-   "oro": [
-    "CHE"
-   ],
-   "verde": [
-    "DEU"
-   ],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      13.4,
-      52.5
-     ],
-     "a": [
-      7.45,
-      46.95
-     ],
-     "icona": "silver_bars",
-     "parola": "German"
-    },
-    {
-     "tipo": "prezzo",
-     "testo": "1.6B FRANCS",
-     "sotto": "NAZI GOLD ACCEPTED",
-     "ricco": true,
-     "parola": "billion"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Swiss bank took Nazi gold",
-     "parola": "gold"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": 11.8,
-    "lat": 46.0,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "About three quarters of that gold had been looted from other countries. And the bank's leaders knew early on where it came from.",
-   "anteprima": false,
-   "vista": {
-    "lon": 7.45,
-    "lat": 46.95,
-    "larghezza": 6
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "CHE"
-   ],
-   "eventi": [
-    {
-     "tipo": "griglia",
-     "paese": [
-      "CHE"
-     ],
-     "pieni": 0.75,
-     "testo": "3 IN 4 LOOTED",
-     "colore": "verde",
-     "parola": "three"
-    },
-    {
-     "tipo": "icona",
-     "icona": "treasure_chest",
-     "lon": 7.45,
-     "lat": 46.95,
-     "parola": "looted"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Leaders knew its origin",
-     "parola": "knew"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": true,
-   "pin": {
-    "lon": 9.0,
-    "lat": 47.5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "The same mountains that sheltered refugees' savings also stored stolen gold. The vaults did not ask questions. That was the product.",
-   "anteprima": false,
-   "vista": {
-    "lon": 8.54,
-    "lat": 47.37,
-    "larghezza": 4
-   },
-   "epoca": "oggi",
-   "oro": [
-    "CHE"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "treasure_chest",
-     "lon": 8.54,
-     "lat": 47.37,
-     "parola": "vaults"
-    },
-    {
-     "tipo": "icona",
-     "icona": "question",
-     "lon": 8.7,
-     "lat": 47.45,
-     "parola": "questions"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "NO QUESTIONS",
-     "parola": "product"
-    }
-   ],
-   "musica": "mistero",
-   "stacco": false,
-   "pin": {
-    "lon": 9.4,
-    "lat": 47.8,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "But the thing that made Switzerland rich was about to become its biggest problem. Because secrets have a price, and the bill was coming.",
-   "anteprima": false,
-   "vista": {
-    "lon": 8.2,
-    "lat": 46.8,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [
-    "CHE"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "banknotes",
-     "lon": 8.5,
-     "lat": 47.4,
-     "parola": "price"
-    },
-    {
-     "tipo": "icona",
-     "icona": "chart_down",
-     "lon": 7.2,
-     "lat": 46.7,
-     "parola": "problem"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "THE BILLS",
-     "parola": "bill"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": true,
-   "pin": {
-    "lon": 10.2,
-    "lat": 47.6,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Bill number one arrived in 1995. Families of Holocaust victims asked: where is the money our relatives left in your banks?",
-   "anteprima": false,
-   "vista": {
-    "lon": 8.5,
-    "lat": 47.3,
-    "larghezza": 8
-   },
-   "epoca": "oggi",
-   "oro": [
-    "CHE"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1995",
-     "parola": "1995"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "family",
-     "n": 4,
-     "lon": 8.5,
-     "lat": 47.4,
-     "parola": "families"
-    },
-    {
-     "tipo": "icona",
-     "icona": "question",
-     "lon": 8.6,
-     "lat": 47.4,
-     "parola": "where"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Families demanded their money",
-     "parola": "money"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": 10.4,
-    "lat": 47.8,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Swiss secrecy made even that hard to answer. It became the country's biggest diplomatic crisis since the war.",
-   "anteprima": false,
-   "vista": {
-    "lon": 8.2,
-    "lat": 46.8,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "CHE"
-   ],
-   "eventi": [
-    {
-     "tipo": "scritta",
-     "testo": "CRISIS",
-     "parola": "crisis"
-    },
-    {
-     "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": 8.2,
-     "lat": 46.8,
-     "parola": "secrecy"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Worst crisis since the war",
-     "parola": "diplomatic"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": 6.4,
-    "lat": 47.4,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "In 1998, its two giant banks agreed to pay one and a quarter billion dollars, eventually reaching more than 450,000 claimants.",
-   "anteprima": false,
-   "vista": {
-    "lon": 8.5,
-    "lat": 47.3,
-    "larghezza": 8
-   },
-   "epoca": "oggi",
-   "oro": [
-    "CHE"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1998",
-     "parola": "1998"
-    },
-    {
-     "tipo": "prezzo",
-     "testo": "$1.25B",
-     "sotto": "SETTLEMENT PAID",
-     "ricco": true,
-     "parola": "quarter"
-    },
-    {
-     "tipo": "conta",
-     "valore": 450000,
-     "prefisso": "+",
-     "suffisso": "",
-     "sotto": "CLAIMANTS PAID",
-     "parola": "450,000"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": 10.4,
-    "lat": 47.9,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Bill number two came in 2009. America caught UBS running secret accounts for about 20,000 US clients, around 17,000 of them hiding money from the tax office.",
-   "anteprima": false,
-   "vista": {
-    "lon": -20,
-    "lat": 42,
-    "larghezza": 110
-   },
-   "epoca": "oggi",
-   "oro": [
-    "USA"
-   ],
-   "verde": [
-    "CHE"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "2009",
-     "parola": "2009"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -77,
-      38.9
-     ],
-     "a": [
-      8.54,
-      47.37
-     ],
-     "icona": "banknotes",
-     "parola": "accounts"
-    },
-    {
-     "tipo": "conta",
-     "valore": 20000,
-     "prefisso": "~",
-     "suffisso": "",
-     "sotto": "SECRET US CLIENTS",
-     "parola": "20,000"
-    },
-    {
-     "tipo": "contatore",
-     "testo": "ABOUT 17,000 HID TAXES",
-     "su": 17,
-     "di": 20,
-     "personaggio": "banker",
-     "parola": "17,000"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": -45,
-    "lat": 58,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "UBS paid 780 million dollars. And then it did the unthinkable: it handed over client names.",
-   "anteprima": false,
-   "vista": {
-    "lon": 8.54,
-    "lat": 47.37,
-    "larghezza": 6
-   },
-   "epoca": "oggi",
-   "oro": [
-    "CHE"
-   ],
-   "verde": [
-    "USA"
-   ],
-   "eventi": [
-    {
-     "tipo": "prezzo",
-     "testo": "$780M",
-     "sotto": "UBS PAID",
-     "ricco": false,
-     "parola": "780"
-    },
-    {
-     "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": 8.54,
-     "lat": 47.37,
-     "parola": "handed"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "UNTHINKABLE",
-     "parola": "unthinkable"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": true,
-   "pin": {
-    "lon": 10.4,
-    "lat": 47.9,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Bill number three, 2018. Switzerland began automatically sending account data to tax authorities across Europe and beyond. About two million accounts in the first round.",
-   "anteprima": false,
-   "vista": {
-    "lon": 10,
-    "lat": 48,
-    "larghezza": 40
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "CHE",
-    "FRA",
-    "DEU",
-    "ITA",
-    "GBR"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "2018",
-     "parola": "2018"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      8.54,
-      47.37
-     ],
-     "a": [
-      2.3,
-      48.8
-     ],
-     "icona": "scroll_law",
-     "parola": "sending"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      8.54,
-      47.37
-     ],
-     "a": [
-      13.4,
-      52.5
-     ],
-     "icona": "scroll_law",
-     "parola": "Europe"
-    },
-    {
-     "tipo": "conta",
-     "valore": 2000000,
-     "prefisso": "~",
-     "suffisso": "",
-     "sotto": "ACCOUNTS SHARED",
-     "parola": "two"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": 20,
-    "lat": 43,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "The secret was over. And bill number four came in March 2023, when Credit Suisse, one of the oldest names in Swiss banking, began to fall.",
-   "anteprima": false,
-   "vista": {
-    "lon": 8.54,
-    "lat": 47.37,
-    "larghezza": 6
-   },
-   "epoca": "oggi",
-   "oro": [
-    "CHE"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "scritta",
-     "testo": "SECRET OVER",
-     "parola": "over"
-    },
-    {
-     "tipo": "anno",
-     "testo": "2023",
-     "parola": "2023"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "CREDIT SUISSE",
-     "lon": 8.54,
-     "lat": 47.37,
-     "parola": "Credit"
-    },
-    {
-     "tipo": "icona",
-     "icona": "chart_down",
-     "lon": 8.54,
-     "lat": 47.37,
-     "parola": "fall"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": 10.2,
-    "lat": 47.9,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "In just three months, clients pulled out 61 billion francs. Then, over one weekend, the government pushed UBS to buy it for 3 billion.",
-   "anteprima": false,
-   "vista": {
-    "lon": 8.54,
-    "lat": 47.2,
-    "larghezza": 6
-   },
-   "epoca": "oggi",
-   "oro": [
-    "CHE"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 61,
-     "prefisso": "",
-     "suffisso": "B",
-     "sotto": "FRANCS WITHDRAWN IN 3 MONTHS",
-     "parola": "61"
-    },
-    {
-     "tipo": "prezzo",
-     "testo": "3B FRANCS",
-     "sotto": "UBS BUYS CREDIT SUISSE",
-     "ricco": false,
-     "parola": "3"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "ONE WEEKEND",
-     "parola": "weekend"
-    }
-   ],
-   "musica": "azione",
-   "stacco": true,
-   "pin": {
-    "lon": 10.2,
-    "lat": 47.9,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "It came with up to 200 billion francs in state guarantees. The country that sold trust watched one of its biggest banks collapse in two days.",
-   "anteprima": false,
-   "vista": {
-    "lon": 8.2,
-    "lat": 46.8,
-    "larghezza": 9
-   },
-   "epoca": "oggi",
-   "oro": [
-    "CHE"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 200,
-     "prefisso": "UP TO ",
-     "suffisso": "B",
-     "sotto": "STATE GUARANTEES",
-     "parola": "200"
-    },
-    {
-     "tipo": "icona",
-     "icona": "chart_down",
-     "lon": 8.54,
-     "lat": 47.37,
-     "parola": "collapse"
-    },
-    {
-     "tipo": "nota",
-     "testo": "The trust seller lost its bank",
-     "parola": "trust"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": 6.3,
-    "lat": 47.4,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "And in 2025, for the first time, Hong Kong caught up with Switzerland as the world's biggest hub for money from abroad.",
-   "anteprima": false,
-   "vista": {
-    "lon": 70,
-    "lat": 35,
-    "larghezza": 160
-   },
-   "epoca": "oggi",
-   "oro": [
-    "HKG"
-   ],
-   "verde": [
-    "CHE"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "2025",
-     "parola": "2025"
-    },
-    {
-     "tipo": "colonna",
-     "testo": "SWITZERLAND",
-     "valore": 0.9,
-     "lon": 8.2,
-     "lat": 46.8,
-     "parola": "Switzerland"
-    },
-    {
-     "tipo": "colonna",
-     "testo": "HONG KONG",
-     "valore": 0.9,
-     "lon": 114.2,
-     "lat": 22.3,
-     "parola": "Hong"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Hong Kong caught up",
-     "parola": "caught"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": 40,
-    "lat": 60,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "So the secret is gone. One giant bank is gone. The crown is slipping. Why is Switzerland still this rich?",
-   "anteprima": false,
-   "vista": {
-    "lon": 8.2,
-    "lat": 46.8,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [
-    "CHE"
-   ],
-   "verde": [],
    "eventi": [
     {
      "tipo": "icona",
      "icona": "crown",
-     "lon": 8.2,
-     "lat": 46.8,
-     "parola": "crown"
+     "lon": -3.7,
+     "lat": 40.4,
+     "parola": "kings"
     },
     {
-     "tipo": "icona",
-     "icona": "chart_down",
-     "lon": 8.2,
-     "lat": 46.8,
-     "parola": "slipping"
+     "tipo": "freccia",
+     "da": [
+      -3.7,
+      40.4
+     ],
+     "a": [
+      121,
+      14.6
+     ],
+     "icona": "scroll_law",
+     "parola": "order"
     },
     {
      "tipo": "scritta",
-     "testo": "STILL RICH?",
-     "parola": "rich"
+     "testo": "IGNORED",
+     "parola": "nowhere"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Royal orders mostly ignored",
+     "parola": "nowhere"
     }
    ],
-   "musica": "curiosita",
-   "stacco": true,
+   "musica": "",
+   "stacco": false,
    "pin": {
-    "lon": 6.2,
-    "lat": 47.4,
-    "faccia": "stupito"
+    "lon": 60,
+    "lat": 50,
+    "faccia": "normale"
    }
   },
   {
-   "testo": "Because banking was never the whole story. Remember Basel? That one city is home to two of the ten biggest pharmaceutical companies on Earth.",
+   "testo": "To see why, meet the people who really ran the islands. Outside Manila, Spain barely had a government at all.",
    "anteprima": false,
    "vista": {
-    "lon": 7.6,
-    "lat": 47.55,
-    "larghezza": 5
+    "lon": 121,
+    "lat": 14,
+    "larghezza": 16
    },
-   "epoca": "oggi",
+   "epoca": "antica",
    "oro": [
-    "CHE"
+    "PHL"
    ],
    "verde": [],
    "eventi": [
     {
      "tipo": "etichetta",
-     "testo": "BASEL",
-     "lon": 7.6,
-     "lat": 47.56,
-     "parola": "Basel"
-    },
-    {
-     "tipo": "contatore",
-     "testo": "2 OF THE TOP 10 PHARMA FIRMS",
-     "su": 2,
-     "di": 10,
-     "personaggio": "worker",
-     "parola": "two"
+     "testo": "MANILA",
+     "lon": 120.98,
+     "lat": 14.6,
+     "parola": "Manila"
     },
     {
      "tipo": "icona",
-     "icona": "factory",
-     "lon": 7.65,
-     "lat": 47.55,
-     "parola": "pharmaceutical"
+     "icona": "question",
+     "lon": 122.5,
+     "lat": 12.5,
+     "parola": "government"
+    },
+    {
+     "tipo": "nota",
+     "testo": "No real government outside Manila",
+     "parola": "barely"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 124,
+    "lat": 11,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "What it had were friars, Catholic missionaries from the Augustinians, Franciscans, Dominicans, and Jesuits. In many towns, the friar was the only Spaniard anyone saw.",
+   "anteprima": false,
+   "vista": {
+    "lon": 121.5,
+    "lat": 13,
+    "larghezza": 16
+   },
+   "epoca": "antica",
+   "oro": [
+    "PHL"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "colonist",
+     "n": 3,
+     "lon": 121.2,
+     "lat": 14.1,
+     "parola": "friars"
+    },
+    {
+     "tipo": "icona",
+     "icona": "church",
+     "lon": 122.5,
+     "lat": 13,
+     "parola": "missionaries"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "4 ORDERS",
+     "lon": 123,
+     "lat": 11.5,
+     "parola": "Jesuits"
+    },
+    {
+     "tipo": "nota",
+     "testo": "The friar was the only Spaniard",
+     "parola": "only"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 125,
+    "lat": 10,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Spaniards were banned from living in native villages unless they were friars. So the friar was the government, the school, and the church at once.",
+   "anteprima": false,
+   "vista": {
+    "lon": 121.5,
+    "lat": 13,
+    "larghezza": 14
+   },
+   "epoca": "antica",
+   "oro": [
+    "PHL"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "church",
+     "lon": 121.5,
+     "lat": 13.5,
+     "parola": "church"
+    },
+    {
+     "tipo": "icona",
+     "icona": "school",
+     "lon": 122,
+     "lat": 12.8,
+     "parola": "school"
+    },
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": 121,
+     "lat": 12.5,
+     "parola": "government"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "ONE MAN",
+     "parola": "banned"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Friar: law, school, church",
+     "parola": "friar"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 124,
+    "lat": 11,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "To convert people, friars learned local languages, and the crown required it. In 1593, one of the first books printed there was in Spanish and Tagalog.",
+   "anteprima": false,
+   "vista": {
+    "lon": 121,
+    "lat": 14.3,
+    "larghezza": 8
+   },
+   "epoca": "antica",
+   "oro": [
+    "PHL"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1593",
+     "parola": "1593"
+    },
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": 120.98,
+     "lat": 14.6,
+     "parola": "books"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "SPANISH + TAGALOG",
+     "lon": 121.3,
+     "lat": 14.0,
+     "parola": "Tagalog"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Early book in two languages",
+     "parola": "printed"
     }
    ],
    "musica": "curiosita",
    "stacco": false,
    "pin": {
-    "lon": 8.8,
-    "lat": 48.0,
+    "lon": 122.6,
+    "lat": 13,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Medicines alone make up more than a third of everything Switzerland exports. Safety still sells, it just comes in a pill bottle now.",
+   "testo": "Over time, many friars noticed something. Being the only person who spoke both languages gave them real power.",
    "anteprima": false,
    "vista": {
-    "lon": 8.2,
-    "lat": 46.8,
-    "larghezza": 10
+    "lon": 121.5,
+    "lat": 13.5,
+    "larghezza": 12
    },
-   "epoca": "oggi",
+   "epoca": "antica",
    "oro": [
-    "CHE"
+    "PHL"
    ],
    "verde": [],
    "eventi": [
     {
-     "tipo": "griglia",
-     "paese": [
-      "CHE"
-     ],
-     "pieni": 0.35,
-     "testo": "OVER 1 IN 3 EXPORTS",
-     "colore": "oro",
-     "parola": "third"
+     "tipo": "folla",
+     "personaggio": "colonist",
+     "n": 2,
+     "lon": 121.5,
+     "lat": 13.5,
+     "parola": "friars"
     },
     {
-     "tipo": "icona",
-     "icona": "factory",
-     "lon": 7.6,
-     "lat": 47.55,
-     "parola": "Medicines"
+     "tipo": "scritta",
+     "testo": "POWER",
+     "parola": "power"
     },
     {
      "tipo": "nota",
-     "testo": "Medicine is a third of exports",
-     "parola": "exports"
+     "testo": "Two languages meant control",
+     "parola": "both"
     }
    ],
-   "musica": "trionfo",
+   "musica": "tensione",
    "stacco": false,
    "pin": {
-    "lon": 10.4,
-    "lat": 47.6,
+    "lon": 123,
+    "lat": 12,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Remember the watchmakers? In 1969, a Japanese company released the first quartz watch, cheaper and more accurate than any Swiss one.",
+   "testo": "A villager with a complaint about a tax or a landlord went through the friar. A Spanish official's message went through him, too.",
    "anteprima": false,
    "vista": {
-    "lon": 100,
-    "lat": 40,
-    "larghezza": 120
+    "lon": 121.5,
+    "lat": 13.5,
+    "larghezza": 10
    },
-   "epoca": "oggi",
+   "epoca": "antica",
    "oro": [
-    "JPN"
+    "PHL"
    ],
-   "verde": [
-    "CHE"
-   ],
+   "verde": [],
    "eventi": [
     {
-     "tipo": "anno",
-     "testo": "1969",
-     "parola": "1969"
+     "tipo": "folla",
+     "personaggio": "peasant",
+     "n": 4,
+     "lon": 120.9,
+     "lat": 13.2,
+     "parola": "villager"
     },
     {
-     "tipo": "icona",
-     "icona": "flag:JP",
-     "lon": 139.7,
-     "lat": 35.7,
-     "parola": "Japanese"
+     "tipo": "freccia",
+     "da": [
+      120.9,
+      13.2
+     ],
+     "a": [
+      121.5,
+      13.8
+     ],
+     "icona": "scroll_law",
+     "parola": "complaint"
     },
     {
-     "tipo": "icona",
-     "icona": "hourglass",
-     "lon": 139.7,
-     "lat": 35.7,
-     "parola": "quartz"
+     "tipo": "freccia",
+     "da": [
+      120.98,
+      14.6
+     ],
+     "a": [
+      121.5,
+      13.8
+     ],
+     "icona": "scroll_law",
+     "parola": "official's"
     },
     {
      "tipo": "nota",
-     "testo": "Quartz beat Swiss craftsmanship",
-     "parola": "cheaper"
+     "testo": "Every message passed the friar",
+     "parola": "through"
     }
    ],
-   "musica": "tensione",
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 123,
+    "lat": 12,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "If everyone learned Spanish, nobody would need the friar. Some also feared that readers would find Spanish ideas about rights and equality.",
+   "anteprima": false,
+   "vista": {
+    "lon": 121.5,
+    "lat": 13.5,
+    "larghezza": 12
+   },
+   "epoca": "antica",
+   "oro": [
+    "PHL"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "question",
+     "lon": 121.5,
+     "lat": 13.8,
+     "parola": "nobody"
+    },
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": 122,
+     "lat": 13,
+     "parola": "rights"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Friars feared losing control",
+     "parola": "feared"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 123.5,
+    "lat": 11.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "So when orders came to teach the language, many friars dragged their feet or quietly ignored them. That surprised me most.",
+   "anteprima": false,
+   "vista": {
+    "lon": 121.5,
+    "lat": 13.5,
+    "larghezza": 14
+   },
+   "epoca": "antica",
+   "oro": [
+    "PHL"
+   ],
+   "verde": [
+    "ESP"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      -3.7,
+      40.4
+     ],
+     "a": [
+      121.5,
+      13.5
+     ],
+     "icona": "scroll_law",
+     "parola": "orders"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "IGNORED",
+     "parola": "ignored"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Friars slowed their own king's plan",
+     "parola": "ignored"
+    }
+   ],
+   "musica": "",
+   "stacco": true,
+   "pin": {
+    "lon": 123.5,
+    "lat": 11.5,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "One of the biggest brakes on Spanish in the Philippines was Spain's own missionaries.",
+   "anteprima": false,
+   "vista": {
+    "lon": 121.5,
+    "lat": 13,
+    "larghezza": 20
+   },
+   "epoca": "antica",
+   "oro": [
+    "PHL"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "scritta",
+     "testo": "THE BRAKE",
+     "parola": "brakes"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "colonist",
+     "n": 3,
+     "lon": 121.5,
+     "lat": 13,
+     "parola": "missionaries"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Spain's friars held it back",
+     "parola": "own"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 125,
+    "lat": 10,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "In 1863, Spain finally opened free public primary schools taught in Spanish. Even then, fewer than 3 percent of Filipinos could speak it.",
+   "anteprima": false,
+   "vista": {
+    "lon": 121,
+    "lat": 14,
+    "larghezza": 14
+   },
+   "epoca": "antica",
+   "oro": [
+    "PHL"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1863",
+     "parola": "1863"
+    },
+    {
+     "tipo": "icona",
+     "icona": "school",
+     "lon": 120.98,
+     "lat": 14.6,
+     "parola": "schools"
+    },
+    {
+     "tipo": "contatore",
+     "testo": "UNDER 3 IN 100",
+     "su": 3,
+     "di": 100,
+     "personaggio": "student",
+     "parola": "percent"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Under 3 percent spoke Spanish",
+     "parola": "fewer"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 123.5,
+    "lat": 12,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "By the end of Spanish rule, estimates ranged from 3 to 10 percent. Almost all were educated people living in towns.",
+   "anteprima": false,
+   "vista": {
+    "lon": 121,
+    "lat": 14,
+    "larghezza": 14
+   },
+   "epoca": "antica",
+   "oro": [
+    "PHL"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "contatore",
+     "testo": "3 TO 10 IN 100",
+     "su": 10,
+     "di": 100,
+     "personaggio": "student",
+     "parola": "percent"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "student",
+     "n": 4,
+     "lon": 120.98,
+     "lat": 14.6,
+     "parola": "educated"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Mostly educated townspeople",
+     "parola": "towns"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 123.5,
+    "lat": 12,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Yet that small group made it count. Filipinos like Jose Rizal wrote books and newspapers in Spanish. They were called the ilustrados.",
+   "anteprima": false,
+   "vista": {
+    "lon": 10,
+    "lat": 35,
+    "larghezza": 240
+   },
+   "epoca": "antica",
+   "oro": [
+    "PHL"
+   ],
+   "verde": [
+    "ESP"
+   ],
+   "eventi": [
+    {
+     "tipo": "personaggio",
+     "nome": "Jose Rizal",
+     "descrizione": "19th-century Filipino doctor and writer, round glasses, dark suit",
+     "parola": "Rizal"
+    },
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": 120.98,
+     "lat": 14.6,
+     "parola": "newspapers"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "ILUSTRADOS",
+     "lon": 2,
+     "lat": 41,
+     "parola": "ilustrados"
+    },
+    {
+     "tipo": "nota",
+     "testo": "The enlightened ones wrote in Spanish",
+     "parola": "ilustrados"
+    }
+   ],
+   "musica": "epico",
    "stacco": false,
    "pin": {
     "lon": 60,
@@ -3454,373 +1579,1422 @@
    }
   },
   {
-   "testo": "Within 15 years, Swiss watchmaking jobs fell from 90,000 to about 30,000. The industry Calvin accidentally created was dying.",
+   "testo": "They used Spanish to push for reform and then independence. On June 12, 1898, Emilio Aguinaldo declared independence in Spanish.",
    "anteprima": false,
    "vista": {
-    "lon": 7,
-    "lat": 47,
+    "lon": 120.9,
+    "lat": 14.2,
     "larghezza": 8
    },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "CHE"
-   ],
-   "eventi": [
-    {
-     "tipo": "barre",
-     "titolo": "WATCHMAKING JOBS",
-     "voci": [
-      {
-       "testo": "BEFORE",
-       "valore": 90,
-       "lato": "oro"
-      },
-      {
-       "testo": "AFTER",
-       "valore": 30,
-       "lato": "verde"
-      }
-     ],
-     "parola": "jobs"
-    },
-    {
-     "tipo": "icona",
-     "icona": "chart_down",
-     "lon": 6.9,
-     "lat": 47.1,
-     "parola": "fell"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Two thirds of the jobs vanished",
-     "parola": "dying"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": 9.2,
-    "lat": 47.8,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Then, in 1983, it came back with a cheap, colorful, plastic watch: the Swatch. That is the real Swiss skill. Not the secret. The recovery.",
-   "anteprima": false,
-   "vista": {
-    "lon": 7.2,
-    "lat": 47.1,
-    "larghezza": 6
-   },
-   "epoca": "oggi",
+   "epoca": "antica",
    "oro": [
-    "CHE"
+    "PHL"
    ],
    "verde": [],
    "eventi": [
     {
      "tipo": "anno",
-     "testo": "1983",
-     "parola": "1983"
+     "testo": "1898",
+     "parola": "1898"
+    },
+    {
+     "tipo": "personaggio",
+     "nome": "Emilio Aguinaldo",
+     "descrizione": "Filipino revolutionary leader, 1898, uniform, mustache",
+     "parola": "Aguinaldo"
     },
     {
      "tipo": "icona",
-     "icona": "hourglass",
-     "lon": 7.25,
-     "lat": 47.15,
-     "parola": "Swatch"
+     "icona": "flag:PH",
+     "lon": 120.78,
+     "lat": 14.18,
+     "parola": "independence"
     },
     {
-     "tipo": "icona",
-     "icona": "chart_up",
-     "lon": 7.25,
-     "lat": 47.15,
-     "parola": "recovery"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "RECOVERY",
-     "parola": "recovery"
+     "tipo": "nota",
+     "testo": "Independence declared in Spanish",
+     "parola": "Spanish"
     }
    ],
    "musica": "trionfo",
-   "stacco": true,
-   "pin": {
-    "lon": 9.0,
-    "lat": 47.8,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "It is built into the system. About two thirds of Swiss teenagers choose an apprenticeship, learning a trade inside a real company while they study.",
-   "anteprima": false,
-   "vista": {
-    "lon": 8.2,
-    "lat": 46.8,
-    "larghezza": 9
-   },
-   "epoca": "oggi",
-   "oro": [
-    "CHE"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "contatore",
-     "testo": "ABOUT 2 IN 3 CHOOSE A TRADE",
-     "su": 2,
-     "di": 3,
-     "personaggio": "student",
-     "parola": "two"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "worker",
-     "n": 4,
-     "lon": 8.5,
-     "lat": 47.3,
-     "parola": "company"
-    },
-    {
-     "tipo": "icona",
-     "icona": "school",
-     "lon": 8.0,
-     "lat": 47.0,
-     "parola": "study"
-    }
-   ],
-   "musica": "quotidiano",
    "stacco": false,
    "pin": {
-    "lon": 10.2,
-    "lat": 47.6,
+    "lon": 122.5,
+    "lat": 12.5,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Citizens also vote directly on laws several times a year, which makes wild political swings rare.",
+   "testo": "The new republic even wrote its government in Spanish. By 1898, it was becoming the language of a Filipino nation, at least among its leaders.",
    "anteprima": false,
    "vista": {
-    "lon": 8.2,
-    "lat": 46.8,
-    "larghezza": 9
+    "lon": 121,
+    "lat": 14,
+    "larghezza": 14
    },
-   "epoca": "oggi",
+   "epoca": "antica",
    "oro": [
-    "CHE"
+    "PHL"
    ],
    "verde": [],
    "eventi": [
     {
-     "tipo": "folla",
-     "personaggio": "voter",
-     "n": 5,
-     "lon": 8.3,
-     "lat": 47.0,
-     "parola": "vote"
+     "tipo": "icona",
+     "icona": "parliament",
+     "lon": 120.9,
+     "lat": 14.8,
+     "parola": "republic"
     },
     {
-     "tipo": "icona",
-     "icona": "ballot_box",
-     "lon": 7.45,
-     "lat": 46.95,
-     "parola": "directly"
+     "tipo": "folla",
+     "personaggio": "politician",
+     "n": 4,
+     "lon": 120.9,
+     "lat": 14.8,
+     "parola": "leaders"
     },
     {
      "tipo": "nota",
-     "testo": "Voters decide laws directly",
-     "parola": "laws"
+     "testo": "Spanish for a Filipino republic",
+     "parola": "nation"
     }
    ],
-   "musica": "quotidiano",
+   "musica": "",
    "stacco": false,
    "pin": {
-    "lon": 6.3,
-    "lat": 47.5,
+    "lon": 123.5,
+    "lat": 12,
     "faccia": "normale"
    }
   },
   {
-   "testo": "And the franc became so trusted that the central bank had to hold it down by force. In January 2015, it let go.",
+   "testo": "Then the Americans arrived. In May 1898, a US fleet destroyed the Spanish fleet in Manila Bay.",
    "anteprima": false,
    "vista": {
-    "lon": 8.2,
-    "lat": 46.8,
-    "larghezza": 9
+    "lon": 120.8,
+    "lat": 14.5,
+    "larghezza": 6
    },
-   "epoca": "oggi",
+   "epoca": "antica",
    "oro": [
-    "CHE"
+    "USA"
    ],
-   "verde": [],
+   "verde": [
+    "ESP"
+   ],
    "eventi": [
     {
-     "tipo": "icona",
-     "icona": "banknotes",
-     "lon": 7.45,
-     "lat": 46.95,
-     "parola": "franc"
-    },
-    {
      "tipo": "anno",
-     "testo": "2015",
-     "parola": "2015"
+     "testo": "1898",
+     "parola": "May"
     },
     {
      "tipo": "icona",
-     "icona": "chart_up",
-     "lon": 8.5,
-     "lat": 47.3,
-     "parola": "let"
+     "icona": "cannon",
+     "lon": 120.75,
+     "lat": 14.5,
+     "parola": "destroyed"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      119.5,
+      13.8
+     ],
+     "a": [
+      120.8,
+      14.5
+     ],
+     "icona": "cargo_ship",
+     "parola": "fleet"
+    },
+    {
+     "tipo": "nota",
+     "testo": "US fleet sank Spain's fleet",
+     "parola": "destroyed"
     }
    ],
    "musica": "azione",
    "stacco": false,
    "pin": {
-    "lon": 10.2,
-    "lat": 47.6,
+    "lon": 122.5,
+    "lat": 15.5,
     "faccia": "normale"
    }
   },
   {
-   "testo": "The franc jumped about twenty percent within minutes. Most countries fear their money collapsing. Switzerland's problem is that the whole world wants its.",
+   "testo": "After the war, Spain handed the islands to the United States. The Americans then fought the new Filipino republic until 1902.",
    "anteprima": false,
    "vista": {
-    "lon": 8.2,
-    "lat": 46.8,
-    "larghezza": 10
+    "lon": 121,
+    "lat": 14,
+    "larghezza": 16
    },
-   "epoca": "oggi",
+   "epoca": "antica",
    "oro": [
-    "CHE"
+    "USA"
+   ],
+   "verde": [
+    "PHL"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      -3.7,
+      40.4
+     ],
+     "a": [
+      -77,
+      38.9
+     ],
+     "icona": "scroll_law",
+     "parola": "handed"
+    },
+    {
+     "tipo": "icona",
+     "icona": "swords",
+     "lon": 121,
+     "lat": 14.6,
+     "parola": "fought"
+    },
+    {
+     "tipo": "anno",
+     "testo": "1902",
+     "parola": "1902"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Spain handed islands to the US",
+     "parola": "handed"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 123.5,
+    "lat": 12,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "That war cost hundreds of thousands of lives. Once in control, America did what Spain never managed. It went after the schools.",
+   "anteprima": false,
+   "vista": {
+    "lon": 121,
+    "lat": 14,
+    "larghezza": 14
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "PHL"
+   ],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 200000,
+     "prefisso": "HUNDREDS OF ",
+     "suffisso": "S",
+     "sotto": "LIVES LOST",
+     "parola": "hundreds"
+    },
+    {
+     "tipo": "icona",
+     "icona": "school",
+     "lon": 120.98,
+     "lat": 14.6,
+     "parola": "schools"
+    },
+    {
+     "tipo": "nota",
+     "testo": "America targeted the schools",
+     "parola": "schools"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 123.5,
+    "lat": 12,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In July 1901, a US Army transport called the Thomas left San Francisco carrying about 500 American teachers.",
+   "anteprima": false,
+   "vista": {
+    "lon": -140,
+    "lat": 30,
+    "larghezza": 120
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
    ],
    "verde": [],
    "eventi": [
     {
-     "tipo": "conta",
-     "valore": 20,
-     "prefisso": "+~",
-     "suffisso": "%",
-     "sotto": "FRANC JUMP IN MINUTES",
-     "parola": "twenty"
+     "tipo": "anno",
+     "testo": "1901",
+     "parola": "1901"
     },
     {
-     "tipo": "scritta",
-     "testo": "TOO WANTED",
-     "parola": "wants"
-    },
-    {
-     "tipo": "nota",
-     "testo": "The world wants Swiss francs",
-     "parola": "world"
-    }
-   ],
-   "musica": "trionfo",
-   "stacco": true,
-   "pin": {
-    "lon": 6.3,
-    "lat": 47.5,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "When Switzerland had nothing, it sold safety. The rich trusted it because it was the one place in Europe where nothing happened.",
-   "anteprima": false,
-   "vista": {
-    "lon": 8.2,
-    "lat": 46.8,
-    "larghezza": 16
-   },
-   "epoca": "oggi",
-   "oro": [
-    "CHE"
-   ],
-   "verde": [
-    "FRA",
-    "DEU",
-    "ITA",
-    "AUT"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "fortress",
-     "lon": 8.2,
-     "lat": 46.8,
-     "parola": "safety"
+     "tipo": "freccia",
+     "da": [
+      -122.4,
+      37.8
+     ],
+     "a": [
+      -157.9,
+      21.3
+     ],
+     "icona": "cargo_ship",
+     "parola": "left"
     },
     {
      "tipo": "folla",
-     "personaggio": "landowner",
-     "n": 4,
-     "lon": 8.5,
-     "lat": 47.4,
-     "parola": "rich"
+     "personaggio": "student",
+     "n": 5,
+     "lon": -122.4,
+     "lat": 37.8,
+     "parola": "teachers"
+    },
+    {
+     "tipo": "conta",
+     "valore": 500,
+     "prefisso": "~",
+     "suffisso": "",
+     "sotto": "AMERICAN TEACHERS",
+     "parola": "500"
     },
     {
      "tipo": "nota",
-     "testo": "Trust came from nothing happening",
-     "parola": "nothing"
+     "testo": "The ship USAT Thomas",
+     "parola": "Thomas"
     }
    ],
    "musica": "epico",
    "stacco": false,
    "pin": {
-    "lon": 12.0,
-    "lat": 48.0,
+    "lon": -140,
+    "lat": 50,
     "faccia": "normale"
    }
   },
   {
-   "testo": "The model cracks because the world stopped accepting silence. Yet safety still sells. Pikes, neutrality, vaults, medicine: 500 years, one product, from grass to riches.",
+   "testo": "It stopped in Hawaii and reached Manila on August 21. Filipinos called the teachers the Thomasites, after the ship.",
    "anteprima": false,
    "vista": {
-    "lon": 8.2,
-    "lat": 46.8,
-    "larghezza": 10
+    "lon": -10,
+    "lat": 20,
+    "larghezza": 330
    },
-   "epoca": "oggi",
+   "epoca": "antica",
    "oro": [
-    "CHE"
+    "USA"
+   ],
+   "verde": [
+    "PHL"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      -157.9,
+      21.3
+     ],
+     "a": [
+      120.98,
+      14.6
+     ],
+     "icona": "cargo_ship",
+     "parola": "reached"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "HAWAII",
+     "lon": -157.9,
+     "lat": 21.3,
+     "parola": "Hawaii"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "THOMASITES",
+     "parola": "Thomasites"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Arrived in Manila August 21",
+     "parola": "Manila"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -10,
+    "lat": 50,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "By 1902, over a thousand American teachers were in the islands. They took over the schools Spain had started and switched them to English.",
+   "anteprima": false,
+   "vista": {
+    "lon": 121,
+    "lat": 14,
+    "larghezza": 14
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "PHL"
+   ],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 1000,
+     "prefisso": "",
+     "suffisso": "+",
+     "sotto": "US TEACHERS BY 1902",
+     "parola": "thousand"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "student",
+     "n": 6,
+     "lon": 120.98,
+     "lat": 14.6,
+     "parola": "teachers"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "ENGLISH",
+     "lon": 121.5,
+     "lat": 13.2,
+     "parola": "English"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Schools switched to English",
+     "parola": "switched"
+    }
+   ],
+   "musica": "azione",
+   "stacco": false,
+   "pin": {
+    "lon": 123.5,
+    "lat": 12,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Spain had relied on about 2,000 clergy, many unwilling to share their language. America sent teachers whose whole job was to spread theirs.",
+   "anteprima": false,
+   "vista": {
+    "lon": 121,
+    "lat": 13.5,
+    "larghezza": 16
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "ESP"
+   ],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 2000,
+     "prefisso": "~",
+     "suffisso": "",
+     "sotto": "SPANISH CLERGY",
+     "parola": "2,000"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "colonist",
+     "n": 3,
+     "lon": 121.3,
+     "lat": 14.2,
+     "parola": "clergy"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "student",
+     "n": 4,
+     "lon": 120.7,
+     "lat": 13.2,
+     "parola": "teachers"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Teachers, not friars, spread English",
+     "parola": "teachers"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 123.5,
+    "lat": 11.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "English was also the key to jobs in the new government, giving every family a reason to learn it.",
+   "anteprima": false,
+   "vista": {
+    "lon": 121,
+    "lat": 14,
+    "larghezza": 12
+   },
+   "epoca": "antica",
+   "oro": [
+    "PHL"
    ],
    "verde": [],
    "eventi": [
     {
      "tipo": "icona",
-     "icona": "swords",
-     "lon": 7.0,
-     "lat": 47.2,
-     "parola": "Pikes"
+     "icona": "parliament",
+     "lon": 120.98,
+     "lat": 14.58,
+     "parola": "government"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "family",
+     "n": 4,
+     "lon": 121.2,
+     "lat": 14.3,
+     "parola": "family"
+    },
+    {
+     "tipo": "nota",
+     "testo": "English meant government jobs",
+     "parola": "jobs"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 123,
+    "lat": 12.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "It worked fast. Within a couple of generations, English was the language of school, law, and business.",
+   "anteprima": false,
+   "vista": {
+    "lon": 121,
+    "lat": 14,
+    "larghezza": 16
+   },
+   "epoca": "oggi",
+   "oro": [
+    "PHL"
+   ],
+   "verde": [
+    "USA"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "school",
+     "lon": 120.98,
+     "lat": 14.6,
+     "parola": "school"
     },
     {
      "tipo": "icona",
-     "icona": "treasure_chest",
-     "lon": 8.5,
-     "lat": 47.4,
-     "parola": "vaults"
+     "icona": "scroll_law",
+     "lon": 121.3,
+     "lat": 14.3,
+     "parola": "law"
     },
     {
      "tipo": "icona",
-     "icona": "factory",
-     "lon": 7.6,
-     "lat": 47.55,
-     "parola": "medicine"
+     "icona": "banknotes",
+     "lon": 121.03,
+     "lat": 14.55,
+     "parola": "business"
+    },
+    {
+     "tipo": "nota",
+     "testo": "English took over public life",
+     "parola": "English"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 123.5,
+    "lat": 12,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Spanish did not vanish at once. It stayed official alongside English, and old families in parts of Manila kept speaking it at home.",
+   "anteprima": false,
+   "vista": {
+    "lon": 120.98,
+    "lat": 14.58,
+    "larghezza": 3
+   },
+   "epoca": "antica",
+   "oro": [
+    "PHL"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "family",
+     "n": 4,
+     "lon": 120.97,
+     "lat": 14.59,
+     "parola": "families"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "INTRAMUROS",
+     "lon": 120.97,
+     "lat": 14.59,
+     "parola": "Manila"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Spanish lived on at home",
+     "parola": "home"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": 121.05,
+    "lat": 14.52,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Then came the Second World War. In February 1945, American and Japanese forces fought street by street for Manila.",
+   "anteprima": false,
+   "vista": {
+    "lon": 120.98,
+    "lat": 14.58,
+    "larghezza": 3
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "JPN"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1945",
+     "parola": "1945"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "soldier",
+     "n": 5,
+     "lon": 120.97,
+     "lat": 14.59,
+     "parola": "fought"
+    },
+    {
+     "tipo": "icona",
+     "icona": "cannon",
+     "lon": 120.98,
+     "lat": 14.58,
+     "parola": "street"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Battle of Manila, February 1945",
+     "parola": "February"
+    }
+   ],
+   "musica": "tension",
+   "stacco": false,
+   "pin": {
+    "lon": 121.05,
+    "lat": 14.52,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Around 100,000 civilians were killed. By some counts, Manila became the second most destroyed city of the war, after Warsaw.",
+   "anteprima": false,
+   "vista": {
+    "lon": 120.98,
+    "lat": 14.58,
+    "larghezza": 3
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 100000,
+     "prefisso": "~",
+     "suffisso": "",
+     "sotto": "CIVILIANS KILLED",
+     "parola": "100,000"
+    },
+    {
+     "tipo": "icona",
+     "icona": "grave",
+     "lon": 120.99,
+     "lat": 14.57,
+     "parola": "killed"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "NO.2 AFTER WARSAW",
+     "parola": "Warsaw"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Second most destroyed city",
+     "parola": "second"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": true,
+   "pin": {
+    "lon": 121.05,
+    "lat": 14.53,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "The worst fighting hit Intramuros, Ermita, and Malate. According to historian Florentino Rodao, only there was Spanish still the everyday street language.",
+   "anteprima": false,
+   "vista": {
+    "lon": 120.98,
+    "lat": 14.58,
+    "larghezza": 1.5
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "INTRAMUROS",
+     "lon": 120.97,
+     "lat": 14.59,
+     "parola": "Intramuros"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "ERMITA",
+     "lon": 120.985,
+     "lat": 14.58,
+     "parola": "Ermita"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "MALATE",
+     "lon": 120.99,
+     "lat": 14.57,
+     "parola": "Malate"
+    },
+    {
+     "tipo": "personaggio",
+     "nome": "Florentino Rodao",
+     "descrizione": "Spanish historian of the Philippines, glasses, grey hair",
+     "parola": "Rodao"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Last Spanish-speaking streets",
+     "parola": "only"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 121.02,
+    "lat": 14.55,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Hundreds of Spaniards died, along with many Filipino families who spoke Spanish at home. The neighborhoods that kept the language alive were gone.",
+   "anteprima": false,
+   "vista": {
+    "lon": 120.98,
+    "lat": 14.58,
+    "larghezza": 3
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "grave",
+     "lon": 120.97,
+     "lat": 14.59,
+     "parola": "died"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "family",
+     "n": 4,
+     "lon": 120.99,
+     "lat": 14.57,
+     "parola": "families"
+    },
+    {
+     "tipo": "nota",
+     "testo": "The Spanish-speaking districts vanished",
+     "parola": "gone"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": 121.05,
+    "lat": 14.53,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "After that, Spanish faded quickly. In 1987, a new constitution dropped it as an official language.",
+   "anteprima": false,
+   "vista": {
+    "lon": 121,
+    "lat": 13,
+    "larghezza": 20
+   },
+   "epoca": "oggi",
+   "oro": [
+    "PHL"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1987",
+     "parola": "1987"
+    },
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": 121,
+     "lat": 14.6,
+     "parola": "constitution"
+    },
+    {
+     "tipo": "chart_down",
+     "tipo2": "",
+     "parola": "faded"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Spanish lost official status",
+     "parola": "dropped"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 124,
+    "lat": 10,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Today, around 400,000 Filipinos speak it well. In a country of over 100 million, that is a tiny fraction.",
+   "anteprima": false,
+   "vista": {
+    "lon": 121,
+    "lat": 13,
+    "larghezza": 20
+   },
+   "epoca": "oggi",
+   "oro": [
+    "PHL"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 400000,
+     "prefisso": "~",
+     "suffisso": "",
+     "sotto": "FLUENT SPANISH SPEAKERS",
+     "parola": "400,000"
+    },
+    {
+     "tipo": "numero",
+     "testo": "100M+",
+     "lon": 121,
+     "lat": 13,
+     "parola": "million"
+    },
+    {
+     "tipo": "nota",
+     "testo": "A tiny fraction of the country",
+     "parola": "tiny"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 124,
+    "lat": 10,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "That sounds like the end of the story. Except Filipinos still use Spanish every day without noticing.",
+   "anteprima": false,
+   "vista": {
+    "lon": 121,
+    "lat": 13,
+    "larghezza": 16
+   },
+   "epoca": "oggi",
+   "oro": [
+    "PHL"
+   ],
+   "verde": [
+    "ESP"
+   ],
+   "eventi": [
+    {
+     "tipo": "scritta",
+     "testo": "NOT OVER",
+     "parola": "Except"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "family",
+     "n": 4,
+     "lon": 121,
+     "lat": 14.3,
+     "parola": "Filipinos"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Spanish lives on in daily speech",
+     "parola": "everyday"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 124,
+    "lat": 10,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Ask the time in Manila and you will hear alas dos for 2:00, from the Spanish. Prices use Spanish numbers too, so 12 pesos is dos.",
+   "anteprima": false,
+   "vista": {
+    "lon": 121,
+    "lat": 14.5,
+    "larghezza": 6
+   },
+   "epoca": "oggi",
+   "oro": [
+    "PHL"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "ALAS DOS = 2:00",
+     "lon": 120.98,
+     "lat": 14.6,
+     "parola": "alas"
+    },
+    {
+     "tipo": "icona",
+     "icona": "banknotes",
+     "lon": 121.05,
+     "lat": 14.55,
+     "parola": "pesos"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "12 PESOS = DOS",
+     "lon": 121.1,
+     "lat": 14.5,
+     "parola": "dos"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Spanish time and prices",
+     "parola": "Spanish"
+    }
+   ],
+   "musica": "quotidiano",
+   "stacco": false,
+   "pin": {
+    "lon": 121.3,
+    "lat": 14.3,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Six of the seven days of the week in Tagalog come from Spanish, and all twelve months do.",
+   "anteprima": false,
+   "vista": {
+    "lon": 121,
+    "lat": 14,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "PHL"
+   ],
+   "verde": [
+    "ESP"
+   ],
+   "eventi": [
+    {
+     "tipo": "contatore",
+     "testo": "6 IN 7 DAYS",
+     "su": 6,
+     "di": 7,
+     "personaggio": "worker",
+     "parola": "Six"
     },
     {
      "tipo": "conta",
-     "valore": 500,
+     "valore": 12,
      "prefisso": "",
+     "suffisso": " OF 12",
+     "sotto": "MONTHS FROM SPANISH",
+     "parola": "twelve"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Calendar words are Spanish",
+     "parola": "months"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 123,
+    "lat": 12,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Tagalog holds thousands of Spanish words, like mesa for table, kotse for car, and pamilya for family.",
+   "anteprima": false,
+   "vista": {
+    "lon": 121,
+    "lat": 14,
+    "larghezza": 8
+   },
+   "epoca": "oggi",
+   "oro": [
+    "PHL"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "MESA = TABLE",
+     "lon": 120.9,
+     "lat": 14.8,
+     "parola": "mesa"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "KOTSE = CAR",
+     "lon": 121.1,
+     "lat": 14.5,
+     "parola": "kotse"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "PAMILYA = FAMILY",
+     "lon": 121.3,
+     "lat": 14.2,
+     "parola": "pamilya"
+    },
+    {
+     "tipo": "conta",
+     "valore": 4000,
+     "prefisso": "~",
+     "suffisso": "+",
+     "sotto": "SPANISH WORDS IN TAGALOG",
+     "parola": "thousands"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 122.8,
+    "lat": 13,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Then there are surnames. In 1849, Governor Narciso Claveria ordered families to pick fixed surnames from an official catalog, mostly Spanish.",
+   "anteprima": false,
+   "vista": {
+    "lon": 121,
+    "lat": 14,
+    "larghezza": 12
+   },
+   "epoca": "antica",
+   "oro": [
+    "PHL"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1849",
+     "parola": "1849"
+    },
+    {
+     "tipo": "personaggio",
+     "nome": "Narciso Claveria",
+     "descrizione": "19th-century Spanish governor-general, uniform, side whiskers",
+     "parola": "Claveria"
+    },
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": 120.98,
+     "lat": 14.6,
+     "parola": "catalog"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Surnames assigned from a catalog",
+     "parola": "catalog"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 123,
+    "lat": 12,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "That is why so many Filipinos are named Santos, Reyes, or de la Cruz without a drop of Spanish ancestry.",
+   "anteprima": false,
+   "vista": {
+    "lon": 121,
+    "lat": 14,
+    "larghezza": 12
+   },
+   "epoca": "oggi",
+   "oro": [
+    "PHL"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "SANTOS",
+     "lon": 120.9,
+     "lat": 14.8,
+     "parola": "Santos"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "REYES",
+     "lon": 121.2,
+     "lat": 14.4,
+     "parola": "Reyes"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "DE LA CRUZ",
+     "lon": 121.4,
+     "lat": 14.0,
+     "parola": "Cruz"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "family",
+     "n": 4,
+     "lon": 121,
+     "lat": 14.3,
+     "parola": "Filipinos"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Spanish names, local ancestry",
+     "parola": "ancestry"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 123,
+    "lat": 12,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "And in Zamboanga, at the southwestern tip of Mindanao, people speak Chavacano, a language of Spanish words with local grammar.",
+   "anteprima": false,
+   "vista": {
+    "lon": 122,
+    "lat": 7.5,
+    "larghezza": 8
+   },
+   "epoca": "oggi",
+   "oro": [
+    "PHL"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "ZAMBOANGA",
+     "lon": 122.08,
+     "lat": 6.91,
+     "parola": "Zamboanga"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "family",
+     "n": 4,
+     "lon": 122.08,
+     "lat": 6.95,
+     "parola": "people"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "CHAVACANO",
+     "parola": "Chavacano"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Spanish words, local grammar",
+     "parola": "grammar"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 124.5,
+    "lat": 9,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "It is the only Spanish-based Creole in Asia. Roughly a million people still speak it, though counts vary.",
+   "anteprima": false,
+   "vista": {
+    "lon": 100,
+    "lat": 20,
+    "larghezza": 120
+   },
+   "epoca": "oggi",
+   "oro": [
+    "PHL"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "contorno",
+     "paese": "PHL",
+     "parola": "Asia"
+    },
+    {
+     "tipo": "conta",
+     "valore": 1000000,
+     "prefisso": "~",
      "suffisso": "",
-     "sotto": "YEARS, ONE PRODUCT",
-     "parola": "500"
+     "sotto": "CHAVACANO SPEAKERS",
+     "parola": "million"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "ONLY ONE",
+     "parola": "only"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Asia's only Spanish Creole",
+     "parola": "only"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 100,
+    "lat": 40,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Compare that with Mexico, where about 99 in 100 people speak Spanish. Same empire, same centuries, utterly different result.",
+   "anteprima": false,
+   "vista": {
+    "lon": 10,
+    "lat": 15,
+    "larghezza": 330
+   },
+   "epoca": "oggi",
+   "oro": [
+    "MEX"
+   ],
+   "verde": [
+    "PHL"
+   ],
+   "eventi": [
+    {
+     "tipo": "barre",
+     "titolo": "SPANISH SPEAKERS (%)",
+     "voci": [
+      {
+       "testo": "MEXICO",
+       "valore": 99,
+       "lato": "oro"
+      },
+      {
+       "tipo": "",
+       "testo": "PHILIPPINES",
+       "valore": 0.5,
+       "lato": "verde"
+      }
+     ],
+     "parola": "Mexico"
+    },
+    {
+     "tipo": "contatore",
+     "testo": "99 IN 100",
+     "su": 99,
+     "di": 100,
+     "personaggio": "family",
+     "parola": "99"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Same empire, opposite outcome",
+     "parola": "opposite"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 10,
+    "lat": 45,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "So Spain spent 333 years in the Philippines and never got most people speaking Spanish. Its words got in anyway, through the clock, the calendar, and people's own names.",
+   "anteprima": false,
+   "vista": {
+    "lon": 121,
+    "lat": 13,
+    "larghezza": 24
+   },
+   "epoca": "oggi",
+   "oro": [
+    "PHL"
+   ],
+   "verde": [
+    "ESP"
+   ],
+   "eventi": [
+    {
+     "tipo": "numero",
+     "testo": "333",
+     "lon": 121,
+     "lat": 14,
+     "parola": "333"
+    },
+    {
+     "tipo": "icona",
+     "icona": "hourglass",
+     "lon": 120.9,
+     "lat": 14.6,
+     "parola": "clock"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "SANTOS",
+     "lon": 121.5,
+     "lat": 13.2,
+     "parola": "names"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Words stayed, speakers did not",
+     "parola": "words"
     }
    ],
    "musica": "trionfo",
    "stacco": false,
    "pin": {
-    "lon": 10.4,
-    "lat": 47.6,
+    "lon": 125,
+    "lat": 10,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "A Filipino who says they speak no Spanish has probably used a dozen Spanish words before lunch. Next time, why Brazil was only meant to be a thin strip of coast.",
+   "anteprima": false,
+   "vista": {
+    "lon": 121,
+    "lat": 13,
+    "larghezza": 24
+   },
+   "epoca": "oggi",
+   "oro": [
+    "PHL"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 12,
+     "prefisso": "~",
+     "suffisso": "+",
+     "sotto": "SPANISH WORDS BEFORE LUNCH",
+     "parola": "dozen"
+    },
+    {
+     "tipo": "icona",
+     "icona": "question",
+     "lon": -48,
+     "lat": -15,
+     "parola": "Brazil"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Next: Brazil's thin coastal strip",
+     "parola": "Next"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 125,
+    "lat": 10,
     "faccia": "normale"
    }
   }
