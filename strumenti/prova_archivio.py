@@ -137,6 +137,8 @@ def dalla_libreria(s, dur):
             continue
         et = parole(' '.join(x.get('tag') or []) + ' ' + str(x.get('cosa') or '') + ' ' + str(x.get('luogo') or '').replace('_', ' '))
         pt = len(chiave & et) * 10 + int(x.get('qualita') or 0) + min(3, float(x.get('movimento') or 0) / 5)
+        if anno_s and not x.get('anno'):   # scena con anno: prima i film con la data giusta, quelli senza data solo se non c'e' di meglio
+            pt -= 8
         obbligo = parole(' '.join(s.get('obbligo') or []))   # parole che DEVONO esserci (es. l'apertura deve far capire subito l'argomento)
         if obbligo and not (obbligo & et):
             continue
@@ -220,7 +222,7 @@ CLIP_ORBITA = re.compile(r'^iss\d{3}m', re.I)   # riprese grezze girate in orbit
 
 def bande_nere(p, da, dur):
     """True se il pezzo ha bande nere (video 4:3 o con cornice): da scartare."""
-    o = subprocess.run(['ffmpeg', '-v', 'info', '-ss', f'{da:.2f}', '-t', f'{min(dur, 3):.2f}', '-i', p, '-vf', 'cropdetect=limit=24:round=2:reset=0',
+    o = subprocess.run(['ffmpeg', '-v', 'info', '-ss', f'{da:.2f}', '-t', f'{min(dur, 3):.2f}', '-i', p, '-vf', f"cropdetect=limit={40 if ARCHIVIO != 'nasa' else 24}:round=2:reset=0",
                         '-an', '-f', 'null', '-'], capture_output=True, text=True).stderr
     m = re.findall(r'crop=(\d+):(\d+):', o)
     if not m:

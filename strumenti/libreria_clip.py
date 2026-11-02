@@ -176,7 +176,7 @@ for nid, tit, href in sorgenti:
                     # bande nere: righe/colonne ai bordi quasi nere
                     bordo = min(ImageStat.Stat(i1.crop((0, 0, 30, i1.height))).mean[0], ImageStat.Stat(i1.crop((i1.width - 30, 0, i1.width, i1.height))).mean[0])
                     centro = ImageStat.Stat(i1.crop((i1.width // 3, 0, 2 * i1.width // 3, i1.height))).mean[0]
-                    bande = bordo < 6 and centro > 30
+                    bande = bordo < (6 if ARCHIVIO == 'nasa' else 22) and centro > 30   # pellicole d'epoca: bande grigio scuro, anche da un lato solo
                     if mov >= 2.5 and luce > 18 and not bande:          # niente spezzoni fermi, neri o con bande
                         # inizio e fine dello spezzone affiancati: una scritta o una persona che entra a meta' si vede
                         mid = os.path.join(LAV, f'sp_{len(spezzoni):04d}.jpg')
