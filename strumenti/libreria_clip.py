@@ -241,7 +241,8 @@ EPOCHE_OK = [e.lower() for e in (P.get('epoche') or ['1930s', '1940s'])]
 def buono(s):
     if ARCHIVIO != 'nasa':   # archivi storici: ripresa vera dell'epoca giusta, senza scritte, nessuno che parla in camera
         return bool(s.get('cosa') and not s.get('parla_in_camera') and not s.get('scritte') and not s.get('animazione')
-                    and int(s.get('qualita') or 0) >= 3 and str(s.get('epoca') or '').lower() in EPOCHE_OK)
+                    and int(s.get('qualita') or 0) >= int(P.get('qualita_minima') or 2) and str(s.get('epoca') or '').lower() in EPOCHE_OK)
+    # (archivi storici: qualita' minima 2 e non 3: Haiku giudica "sfocate" quasi tutte le pellicole degli anni '40, che sono cosi' anche nei canali che copiamo)
     if re.search(r'airplane|aircraft|jet|plane|satellite imagery|map|chart|diagram', str(s.get('cosa')), re.I):
         return False
     return (s.get('cosa') and not s.get('parla_in_camera') and not s.get('scritte') and not s.get('animazione') and int(s.get('qualita') or 0) >= 3
@@ -250,6 +251,9 @@ def buono(s):
 
 for s in spezzoni:
     s['ok'] = bool(buono(s))
+for s in VECCHI:   # regole aggiornate valgono anche per gli spezzoni gia' etichettati (gratis)
+    if s.get('cosa'):
+        s['ok'] = bool(buono(s))
 ok = [s for s in spezzoni if s['ok']]
 if not SOLO_PROVA:
     json.dump(VECCHI + [{k: v for k, v in s.items() if k != 'img'} for s in spezzoni], open(F_IND, 'w'), ensure_ascii=False, indent=1)
