@@ -27,10 +27,10 @@ def numero(x, base):   # numeri del foglio: 1,08 / 1.08 / "01:08" (cella formatt
 
 
 MIN_M = numero(P.get('durata_min_minuti'), 8.5); MAX_M = numero(P.get('durata_max_minuti'), 9)
-PAROLE_SEC = 3.3                                     # largo apposta (misurato 3,1-3,23 parole/s a 1.08): il video deve stare SEMPRE sopra la durata minima del foglio (1 nov, Giorgio: mai sotto 8 minuti)
+PAROLE_SEC = numero(P.get('parole_al_secondo'), 3.3)                                     # largo apposta (misurato 3,1-3,23 parole/s a 1.08): il video deve stare SEMPRE sopra la durata minima del foglio (1 nov, Giorgio: mai sotto 8 minuti)
 P_MIN, P_MAX = int(MIN_M * 60 * PAROLE_SEC), int(MAX_M * 60 * PAROLE_SEC)
 N_SCENE = round((P_MIN + P_MAX) / 2 / 36)   # numero di scene: Sonnet rispetta il numero di scene meglio del numero di parole
-P_OK = int(max(P_MIN * .92, MIN_M * 60 * .95 * 3.25))   # minimo accettato: sopra la durata minima del foglio anche con la voce piu' veloce misurata
+P_OK = int(max(P_MIN * .92, MIN_M * 60 * .95 * PAROLE_SEC * .985))   # minimo accettato: sopra la durata minima del foglio anche con la voce piu' veloce misurata
 BUDGET_USD = float(str(P.get('coach_budget_video') or P.get('budget_video') or 1).replace(',', '.').replace('€', '') or 1) * 1.08
 SPESA = {'usd': 0.0, 'voci': []}
 log = lambda *a: print(time.strftime('%H:%M:%S'), *a, flush=True)
@@ -254,9 +254,22 @@ os.makedirs(RIP, exist_ok=True); json.dump(c, open(os.path.join(RIP, 'copione.js
 mont = {'nome': NOME, 'voce': P.get('voice_id'), 'velocita': numero(P.get('voice_speed'), 1.08),
         'stabilita': numero(P.get('voce_stabilita'), .4), 'stile_voce': numero(P.get('voce_stile'), .25),
         'musica': P.get('musica_file') or 'epico_002.mp3', 'volume_musica': 0.07, 'max_secondi': 3.3, 'solo_video_fino_a': 30,
-        'libreria': P.get('libreria') or '', 'scene': [{k: s.get(k) for k in ('testo', 'q', 'tag', 'scritta', 'obbligo', 'anno') if s.get(k)} for s in c['scene']]}
+        'libreria': P.get('libreria') or '', 'archivio': str(P.get('libreria_archivio') or 'nasa').strip().lower(),
+        'foto_riserva': [x.strip() for x in str(P.get('foto_riserva') or '').split(';') if x.strip()] or None, 'scene': [{k: s.get(k) for k in ('testo', 'q', 'tag', 'scritta', 'obbligo', 'anno') if s.get(k)} for s in c['scene']]}
 VIDEO = os.path.join(CART, 'prova.mp4')
 MIN_VIDEO = numero(P.get('video_movimento_minimo'), 80)   # colonna del foglio (decide Giorgio): sotto questa quota un video pubblico si blocca
+
+
+def archivio_sbagliato():
+    if mont['archivio'] == 'nasa':
+        return ''
+    try:
+        f_ = open(os.path.join(CART, 'fonti.txt')).read()
+    except Exception:
+        return ''
+    import re as _re
+    n_ = len(_re.findall(r'\b(iss\d{3}|jsc\d|ksc|nasa|expedition|astronaut|space station)', f_, _re.I))
+    return f'{n_} inquadrature da archivio NASA/spazio in un canale storico' if n_ else ''
 
 
 def controlli():
@@ -269,6 +282,8 @@ def controlli():
         err.append(f'durata {dur / 60:.1f} min fuori da {MIN_M:g}-{MAX_M:g}')
     if quota < MIN_VIDEO:
         err.append(f'solo {quota:.0f}% di video in movimento (minimo {MIN_VIDEO:g}%)')
+    if archivio_sbagliato():
+        err.append(archivio_sbagliato())
     if media > 3.6:
         err.append(f'inquadratura media {media:.1f} s (massimo 3,3)')
     log(f'CONTROLLI: durata {dur / 60:.1f} min, video in movimento {quota:.0f}%, inquadratura media {media:.1f} s' + (' | DA RIPARARE: ' + '; '.join(err) if err else ' | OK'))
@@ -308,6 +323,8 @@ if errori and MIGLIORE and os.path.exists(VIDEO + '.migliore.mp4') and (not os.p
     log(f'si usa la versione migliore: {quota:.0f}% di video in movimento')
 if os.path.exists(VIDEO + '.migliore.mp4'):
     os.remove(VIDEO + '.migliore.mp4')
+if MONTATO and archivio_sbagliato():   # materiale di un altro argomento: mai caricato, nemmeno non in elenco
+    raise RuntimeError('VIDEO BLOCCATO: ' + archivio_sbagliato())
 if errori:
     if not MONTATO or not os.path.exists(VIDEO) or (P.get('privacy') or 'unlisted') == 'public':
         raise RuntimeError('VIDEO BLOCCATO (controlli, anche dopo la riparazione): ' + '; '.join(errori))
@@ -438,6 +455,9 @@ def capitoli():
         if tit and (not righe or a - ultimo >= 15):
             tt = 0 if not righe else int(a)
             righe.append(f'{tt // 60}:{tt % 60:02d} ' + tit[:60]); ultimo = a
+    if len(righe) > 10:   # troppi capitoli confondono: se ne tengono 10 distribuiti (il primo a 0:00 resta)
+        passo = (len(righe) - 1) / 9
+        righe = [righe[0]] + [righe[round(1 + i * passo)] for i in range(9)]
     if len(righe) < 3:
         log('capitoli: meno di 3, non inseriti'); return ''
     log('capitoli:', len(righe))
