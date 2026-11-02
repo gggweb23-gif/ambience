@@ -10,8 +10,8 @@ WWII Testimony tells these stories in their own words: one question, one answer,
 New videos every day.
 Interrogations · Prisoners of War · World War II History · Documented Sources
 
-## Parole chiave del canale (Impostazioni > Canale > Informazioni di base > Parole chiave)
-"world war 2" "ww2" "wwii" "world war ii history" "ww2 documentary" "ww2 history" "nazi interrogation" "german pows" "prisoners of war" "german prisoners of war in america" "hermann goering" "albert speer" "karl donitz" "nuremberg trials" "luftwaffe" "u-boats" "d-day" "battle of the bulge" "allied interrogation" "military history" "history documentary" "archival footage" "wwii stories" "wwii testimony"
+## Parole chiave del canale (Impostazioni > Canale > Parole chiave: separate da VIRGOLA, senza virgolette)
+world war 2, ww2, wwii, world war ii history, ww2 documentary, ww2 history, nazi interrogation, german pows, prisoners of war, german prisoners of war in america, hermann goering, albert speer, karl donitz, nuremberg trials, luftwaffe, u-boats, d-day, battle of the bulge, allied interrogation, military history, history documentary, archival footage, wwii stories, wwii testimony
 
 ## Altre impostazioni
 - Lingua del canale: Inglese
