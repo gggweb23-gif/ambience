@@ -112,6 +112,7 @@ def parole(t):
 # parole troppo generiche per dire che una clip e' coerente con la frase (prima: pomodori in un video sul freddo)
 GENERICHE = {'space', 'station', 'astronaut', 'astronauts', 'iss', 'earth', 'inside', 'outside', 'orbit', 'crew', 'nasa', 'view', 'module',
              'spacecraft', 'international', 'working', 'work', 'activity', 'activities', 'equipment', 'onboard', 'aboard'}
+GENERICHE |= {'military', 'wartime', 'war', 'world', 'ii', 'ww2', 'wwii'} | set(P.get('generiche') or [])   # archivi di guerra: parole che stanno su quasi tutte le clip
 
 
 def dalla_libreria(s, dur):
