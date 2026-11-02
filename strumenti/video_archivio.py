@@ -330,21 +330,67 @@ else:
                   ' The astronaut is a FICTIONAL person who does not resemble any real astronaut. Unbranded suit and clothes: NO NASA logo, no agency insignia, '
                   'no flags, no patches. Photorealistic cinematic film still, dramatic light, high contrast. The astronaut is very big, head and shoulders filling '
                   'the RIGHT 60% of the frame. The LEFT 40% darker and simple. No text, no letters, no logos.')
-if E('FAL_KEY') and SPESA['usd'] + 0.04 <= BUDGET_USD:
+def senza_bordi_neri(img):   # bande nere ai lati del fotogramma (pellicole d'epoca): via prima del ritocco
+    g_ = img.convert('L'); w_, h_ = g_.size; px = g_.load()
+    col = lambda x: sum(px[x, y] for y in range(0, h_, 8)) / len(range(0, h_, 8))
+    sx, dx = 0, w_ - 1
+    while sx < w_ * .2 and col(sx) < 22:
+        sx += 1
+    while dx > w_ * .8 and col(dx) < 22:
+        dx -= 1
+    if sx > 4 or dx < w_ - 5:
+        c_ = img.crop((sx, 0, dx + 1, h_)); nh_ = int(c_.width * 9 / 16)
+        c_ = c_.crop((0, (c_.height - nh_) // 2, c_.width, (c_.height - nh_) // 2 + nh_)) if c_.height > nh_ else c_
+        log('copertina: tolte le bande nere del fotogramma'); return c_.resize((1280, 720))
+    return img
+
+
+def ritocca(img, prompt):
+    if not E('FAL_KEY') or SPESA['usd'] + 0.04 > BUDGET_USD:
+        return None
     spendi('fal seedream (copertina)', 0.04)
-    buf = io.BytesIO(); im.save(buf, 'JPEG', quality=90); h = {'Authorization': 'Key ' + E('FAL_KEY')}
+    buf = io.BytesIO(); img.save(buf, 'JPEG', quality=90); h = {'Authorization': 'Key ' + E('FAL_KEY')}
     try:
         inv = get('https://queue.fal.run/fal-ai/bytedance/seedream/v4.5/edit', {
-            'prompt': PROMPT_COP,
-            'image_urls': ['data:image/jpeg;base64,' + base64.b64encode(buf.getvalue()).decode()], 'image_size': {'width': 2560, 'height': 1440}, 'num_images': 1}, h)
+            'prompt': prompt, 'image_urls': ['data:image/jpeg;base64,' + base64.b64encode(buf.getvalue()).decode()],
+            'image_size': {'width': 2560, 'height': 1440}, 'num_images': 1}, h)
         for _ in range(120):
             time.sleep(4); st = get(inv['status_url'], h=h)
             if st.get('status') == 'COMPLETED':
-                im = Image.open(io.BytesIO(get(get(inv['response_url'], h=h)['images'][0]['url'], raw=True))).convert('RGB').resize((1280, 720)); break
+                return Image.open(io.BytesIO(get(get(inv['response_url'], h=h)['images'][0]['url'], raw=True))).convert('RGB').resize((1280, 720))
             if st.get('status') not in ('IN_QUEUE', 'IN_PROGRESS'):
                 break
     except Exception as e:
         log('ritocco copertina non riuscito:', str(e)[:150])
+    return None
+
+
+def ha_svastica(img):   # CONTROLLO (2 nov, Giorgio): mai simboli nazisti in copertina (l'AI a volte li disegna lo stesso)
+    try:
+        buf = io.BytesIO(); x_ = img.copy(); x_.thumbnail((900, 900)); x_.save(buf, 'JPEG', quality=85)
+        t_ = claude('Is a swastika (or any Nazi symbol: swastika armband, Nazi flag, SS runes) visible ANYWHERE in this image, even small or in the background? '
+                    'Answer ONLY {"svastica": true} or {"svastica": false}.', modello='claude-haiku-4-5-20251001', max_tokens=30, immagine=buf.getvalue())
+        return bool(json_sicuro(t_).get('svastica'))
+    except Exception as e:
+        log('controllo simboli non riuscito:', str(e)[:100]); return True   # nel dubbio: niente immagine ritoccata
+
+
+if STILE_COP == 'etichetta_rossa':
+    im = senza_bordi_neri(im)
+r_im = ritocca(im, PROMPT_COP)
+if r_im is not None and STILE_COP == 'etichetta_rossa' and ha_svastica(r_im):
+    log('copertina: il ritocco ha disegnato una svastica, rifaccio')
+    r_im = ritocca(im, PROMPT_COP + ' ABSOLUTELY NO swastika or Nazi symbol anywhere: plain uniforms with no armbands.')
+    if r_im is not None and ha_svastica(r_im):
+        log('copertina: ancora simboli nazisti, uso il fotogramma vero senza ritocco'); r_im = None
+if r_im is not None:
+    im = r_im
+elif STILE_COP == 'etichetta_rossa':   # senza ritocco: anche il fotogramma vero non deve avere simboli nazisti
+    for sec_ in (25, 45, 70):
+        if not ha_svastica(im):
+            break
+        subprocess.run(['ffmpeg', '-y', '-v', 'error', '-ss', str(sec_), '-i', VIDEO, '-frames:v', '1', base])
+        im = senza_bordi_neri(Image.open(base).convert('RGB').resize((1280, 720)))
 TESTO_COP = str(P.get('testo_copertina') or '').strip() or str(c.get('testo_copertina') or '').strip() or 'WHY?'
 if STILE_COP == 'etichetta_rossa':
     # STILE B (2 nov, Giorgio): bianco e nero d'archivio, fascia rossa con la frase in bianco. Leggibile da telefono:
@@ -356,13 +402,13 @@ if STILE_COP == 'etichetta_rossa':
     s_ = 120
     while s_ > 80 and max(d.textlength(r_, font=ImageFont.truetype(FP, s_)) for r_ in righe) > 700:
         s_ -= 4
-    fnt = ImageFont.truetype(FP, s_); alt = int(s_ * 1.18)
-    y = 720 - 60 - alt * len(righe)
+    fnt = ImageFont.truetype(FP, s_); hb = d.textbbox((0, 0), 'ABC', font=fnt)
+    y = 720 - 50 - ((hb[3] - hb[1]) + 46) * len(righe)
     for r_ in righe:
-        w_ = d.textlength(r_, font=fnt)
-        d.rectangle((40, y, 40 + w_ + 44, y + alt - 6), fill=(200, 22, 22))
-        d.text((62, y + int(s_ * .02)), r_, font=fnt, fill='white')
-        y += alt
+        l_, t_, rr_, b_ = d.textbbox((0, 0), r_, font=fnt)
+        d.rectangle((40, y, 40 + (rr_ - l_) + 44, y + (b_ - t_) + 36), fill=(200, 22, 22))
+        d.text((62 - l_, y + 18 - t_), r_, font=fnt, fill='white')
+        y += (b_ - t_) + 36 + 10
     log('testo copertina:', TESTO_COP, '| altezza lettere', s_, 'px')
 else:
     g = Image.new('L', (1280, 1))

@@ -55,9 +55,13 @@ for k, cp in enumerate(P['copertine'], 1):
     s_ = 120
     while s_ > 80 and max(d.textlength(r_, font=ImageFont.truetype(FP, s_)) for r_ in righe) > 700:
         s_ -= 4
-    fnt = ImageFont.truetype(FP, s_); alt = int(s_ * 1.18); y = 720 - 60 - alt * len(righe)
+    fnt = ImageFont.truetype(FP, s_); hb = d.textbbox((0, 0), 'ABC', font=fnt)
+    y = 720 - 50 - ((hb[3] - hb[1]) + 46) * len(righe)
     for r_ in righe:
-        w_ = d.textlength(r_, font=fnt); d.rectangle((40, y, 40 + w_ + 44, y + alt - 6), fill=(200, 22, 22)); d.text((62, y + int(s_ * .02)), r_, font=fnt, fill='white'); y += alt
+        l_, t_, rr_, b_ = d.textbbox((0, 0), r_, font=fnt)
+        d.rectangle((40, y, 40 + (rr_ - l_) + 44, y + (b_ - t_) + 36), fill=(200, 22, 22))
+        d.text((62 - l_, y + 18 - t_), r_, font=fnt, fill='white')
+        y += (b_ - t_) + 36 + 10
     im.save(os.path.join(CART, f'copertina_{k}.jpg'), quality=92); fatte.append((im, cp['titolo']))
     log(k, cp['titolo'], '| spesa finora', f'{spesa:.2f} $')
 # come da telefono: copertina larga 340 px con il titolo sotto
