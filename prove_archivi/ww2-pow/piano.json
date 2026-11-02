@@ -1,7 +1,114 @@
-{"filoni": [{"id": "storico", "nome": "ARCHIVIO WW2", "archivio": "commons", "colore": "#FFD400", "righe": [
-  {"k": 1, "titolo": "They Asked Speer Why Germany Lost the War. He Named One Day.", "testo": "ONE DAY.", "query": ["Albert Speer 1945 Flensburg arrest", "Albert Speer Nuremberg", "Albert Speer portrait"], "scelta": 0},
-  {"k": 2, "titolo": "German POWs in America Were Shown One Newsreel. Many Refused to Believe It.", "testo": "THEY DIDN'T BELIEVE IT", "query": ["German prisoners of war camp United States", "German prisoners of war 1945 Camp", "prisoner of war camp Texas"], "scelta": 0},
-  {"k": 3, "titolo": "German POWs Got Christmas Dinner in America. They Thought It Was a Trick.", "testo": "A TRICK?", "query": ["German prisoners of war eating", "prisoners of war mess hall 1944", "German POW farm work United States"], "scelta": 0},
-  {"k": 4, "titolo": "German POWs Expected New York in Ruins. Then They Saw the Skyline.", "testo": "NOT BOMBED?!", "query": ["Manhattan skyline 1944", "New York harbor 1943 troopship", "German prisoners of war arrive New York"], "scelta": 0},
-  {"k": 5, "titolo": "They Asked Goring Why the Luftwaffe Lost. He Named One Fighter.", "testo": "ONE FIGHTER.", "query": ["Hermann Goering 1945 captured", "Hermann Goering Nuremberg trial", "P-51 Mustang 1944 escort"], "scelta": 0}
-]}]}
+{
+ "filoni": [
+  {
+   "id": "storico",
+   "nome": "ARCHIVIO WW2",
+   "archivio": "commons",
+   "colore": "#FFD400",
+   "righe": [
+    {
+     "k": 1,
+     "titolo": "They Asked Speer Why Germany Lost the War. He Named One Day.",
+     "testo": "ONE DAY.",
+     "query": [
+      "Albert Speer 1945 Flensburg arrest",
+      "Albert Speer Nuremberg",
+      "Albert Speer portrait"
+     ],
+     "scelta": 0,
+     "candidati": [
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/208-PU-52-P-6_%2834027842860%29.jpg/1920px-208-PU-52-P-6_%2834027842860%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Nuremberg_laws_Racial_Chart.jpg/1920px-Nuremberg_laws_Racial_Chart.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "https://upload.wikimedia.org/wikipedia/commons/5/5c/African_Man_with_Weapons%2C_Brazil.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Adolf_Hitler_and_staff_-_Berghof_-_New_Year_1938-1939_%28242-EB-28-18%29.jpg/1920px-Adolf_Hitler_and_staff_-_Berghof_-_New_Year_1938-1939_%28242-EB-28-18%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/242-EB-13-27C_-_DPLA_-_b3cbd7948599eb75b259cf2465c5acb5.jpg/1920px-242-EB-13-27C_-_DPLA_-_b3cbd7948599eb75b259cf2465c5acb5.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+     ]
+    },
+    {
+     "k": 2,
+     "titolo": "German POWs in America Were Shown One Newsreel. Many Refused to Believe It.",
+     "testo": "THEY DIDN'T BELIEVE IT",
+     "query": [
+      "German prisoners of war camp United States",
+      "German prisoners of war 1945 Camp",
+      "prisoner of war camp Texas"
+     ],
+     "scelta": 0,
+     "candidati": [
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/Camp_for_German_prisoners_of_war._Unidentified_location_in_Germany_-_NARA_-_292564.jpg/1920px-Camp_for_German_prisoners_of_war._Unidentified_location_in_Germany_-_NARA_-_292564.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "https://upload.wikimedia.org/wikipedia/commons/c/cd/Russian_prisoners_of_war_from_the_Stallup%C3%B6nen_camp_at_midday_prayer_%281916%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "https://upload.wikimedia.org/wikipedia/commons/e/ed/Soviet_soldiers_mass_grave%2C_German_war_prisoners_concentration_camp_in_Deblin%2C_German-occupied_Poland.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "https://upload.wikimedia.org/wikipedia/commons/0/06/Prisoners_of_war_of_the_Tublauken-Gumbinnen_camp_in_their_camp_having_their_morning_coffee_%281916%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "https://upload.wikimedia.org/wikipedia/commons/5/56/St._Clement%27s_camp_for_prisoners_of_war%2C_Fort_Verdala%2C_Cospicua%2C_Malta_%2812%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/SC_171629_-_Aerial_view_of_German_prisoner_of_war_camp_4_miles_west_of_Mateur%2C_North_Africa._%2852280535277%29.jpg/1920px-SC_171629_-_Aerial_view_of_German_prisoner_of_war_camp_4_miles_west_of_Mateur%2C_North_Africa._%2852280535277%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "https://upload.wikimedia.org/wikipedia/commons/f/f8/St._Clement%27s_camp_for_prisoners_of_war%2C_Fort_Verdala%2C_Cospicua%2C_Malta_%288%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/SC_171630_-_Aerial_view_of_German_Prisoner_of_War_camp%2C_4_miles_west_of_Mateur%2C_Tunisia%2C_North_Africa._%2852271953447%29.jpg/1920px-SC_171630_-_Aerial_view_of_German_Prisoner_of_War_camp%2C_4_miles_west_of_Mateur%2C_Tunisia%2C_North_Africa._%2852271953447%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+     ]
+    },
+    {
+     "k": 3,
+     "titolo": "German POWs Got Christmas Dinner in America. They Thought It Was a Trick.",
+     "testo": "A TRICK?",
+     "query": [
+      "German prisoners of war eating",
+      "prisoners of war mess hall 1944",
+      "German POW farm work United States"
+     ],
+     "scelta": 0,
+     "candidati": [
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/%22This_Nazi_officer_is_eating_his_words%2C_and_a_can_of_C-rations%2C_in_the_ruins_of_Saarbrucken._The_day_we_hung_our..._-_NARA_-_535981.tif/lossy-page1-1920px-%22This_Nazi_officer_is_eating_his_words%2C_and_a_can_of_C-rations%2C_in_the_ruins_of_Saarbrucken._The_day_we_hung_our..._-_NARA_-_535981.tif.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/German_POWs_aboard_HMS_JERVIS_off_Tunisia%2C_May_1943._A16824.jpg/1920px-German_POWs_aboard_HMS_JERVIS_off_Tunisia%2C_May_1943._A16824.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Last_Supper_Before_Returning_Feb._1919_Art.IWMART17054.jpg/1920px-Last_Supper_Before_Returning_Feb._1919_Art.IWMART17054.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/The_Liberation_of_Bergen-belsen_Concentration_Camp%2C_April_1945_BU4007.jpg/1920px-The_Liberation_of_Bergen-belsen_Concentration_Camp%2C_April_1945_BU4007.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "https://upload.wikimedia.org/wikipedia/commons/d/d9/The_Liberation_of_Bergen-belsen_Concentration_Camp%2C_April_1945_BU4072.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/The_Liberation_of_Bergen-belsen_Concentration_Camp%2C_April_1945_BU3752.jpg/1920px-The_Liberation_of_Bergen-belsen_Concentration_Camp%2C_April_1945_BU3752.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/The_Liberation_of_Bergen-belsen_Concentration_Camp%2C_April_1945_BU3794.jpg/1920px-The_Liberation_of_Bergen-belsen_Concentration_Camp%2C_April_1945_BU3794.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/The_Liberation_of_Bergen-belsen_Concentration_Camp%2C_April_1945_BU3803.jpg/1920px-The_Liberation_of_Bergen-belsen_Concentration_Camp%2C_April_1945_BU3803.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+     ]
+    },
+    {
+     "k": 4,
+     "titolo": "German POWs Expected New York in Ruins. Then They Saw the Skyline.",
+     "testo": "NOT BOMBED?!",
+     "query": [
+      "Manhattan skyline 1944",
+      "New York harbor 1943 troopship",
+      "German prisoners of war arrive New York"
+     ],
+     "scelta": 0,
+     "candidati": [
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Panorama_of_Manhattan%27s_West_Side_from_Across_the_Hudson%2C_restored.jpg/1920px-Panorama_of_Manhattan%27s_West_Side_from_Across_the_Hudson%2C_restored.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/MANHATTAN_SKYLINE_SEEN_FROM_THE_SOUTH_-_NARA_-_548384.jpg/1920px-MANHATTAN_SKYLINE_SEEN_FROM_THE_SOUTH_-_NARA_-_548384.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/MANHATTAN_SKYLINE._WORLD_TRADE_BUILDING_AT_FAR_RIGHT_-_NARA_-_548385.jpg/1920px-MANHATTAN_SKYLINE._WORLD_TRADE_BUILDING_AT_FAR_RIGHT_-_NARA_-_548385.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/STATUE_OF_LIBERTY_AND_MANHATTAN_SKYLINE_-_NARA_-_548349.jpg/1920px-STATUE_OF_LIBERTY_AND_MANHATTAN_SKYLINE_-_NARA_-_548349.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/EAST_RIVER_AND_MANHATTAN_SKYLINE_IN_HEAVY_SMOG_-_NARA_-_548365_%28restored%29.jpg/1920px-EAST_RIVER_AND_MANHATTAN_SKYLINE_IN_HEAVY_SMOG_-_NARA_-_548365_%28restored%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/MANHATTAN_SKYLINE_LOOKING_SOUTH_FROM_THE_HUDSON_RIVER_-_NARA_-_548392.jpg/1920px-MANHATTAN_SKYLINE_LOOKING_SOUTH_FROM_THE_HUDSON_RIVER_-_NARA_-_548392.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/MANHATTAN_SKYLINE_SEEN_FROM_THE_NORTH._CENTRAL_PARK_LAKE_ON_THE_RIGHT_-_NARA_-_548323.jpg/1920px-MANHATTAN_SKYLINE_SEEN_FROM_THE_NORTH._CENTRAL_PARK_LAKE_ON_THE_RIGHT_-_NARA_-_548323.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/MANHATTAN_SKYLINE_FROM_THE_STATEN_ISLAND_FERRY_-_NARA_-_547967.jpg/1920px-MANHATTAN_SKYLINE_FROM_THE_STATEN_ISLAND_FERRY_-_NARA_-_547967.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+     ]
+    },
+    {
+     "k": 5,
+     "titolo": "They Asked Goring Why the Luftwaffe Lost. He Named One Fighter.",
+     "testo": "ONE FIGHTER.",
+     "query": [
+      "Hermann Goering 1945 captured",
+      "Hermann Goering Nuremberg trial",
+      "P-51 Mustang 1944 escort"
+     ],
+     "scelta": 0,
+     "candidati": [
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Dollar_bill_signed_by_Hermann_Goering_and_other_defendants_at_the_Nuremberg_Trials%2C_1946_-_Old_Colony_History_Museum_-_Taunton%2C_Massachusetts_-_DSC03943.jpg/1920px-Dollar_bill_signed_by_Hermann_Goering_and_other_defendants_at_the_Nuremberg_Trials%2C_1946_-_Old_Colony_History_Museum_-_Taunton%2C_Massachusetts_-_DSC03943.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "https://upload.wikimedia.org/wikipedia/commons/0/0e/Goering_on_trial_%28color%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "https://upload.wikimedia.org/wikipedia/commons/6/67/Nuremberg_Trials_defendants_in_the_dock_1945.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Nuremberg_trials_28-1431M_original.jpg/1920px-Nuremberg_trials_28-1431M_original.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "https://upload.wikimedia.org/wikipedia/commons/5/5a/Alleged_hess_double_at_nuremberg_trials.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "https://upload.wikimedia.org/wikipedia/commons/9/91/The_defendants_in_the_dock_at_nuremberg_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/German_War_Crimes_Trials._Nuernberg_%26_Dachau_-_NARA_-_292601.jpg/1920px-German_War_Crimes_Trials._Nuernberg_%26_Dachau_-_NARA_-_292601.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/C-1098_-_A_stacked-down_echelon_of_P-51_Mustang_fighters_heading_homeward_after_an_uneventful_bomber_escort_mission_over_Europe%2C_%2852289765424%29.jpg/1920px-C-1098_-_A_stacked-down_echelon_of_P-51_Mustang_fighters_heading_homeward_after_an_uneventful_bomber_escort_mission_over_Europe%2C_%2852289765424%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+     ]
+    }
+   ]
+  }
+ ]
+}
