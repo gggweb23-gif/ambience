@@ -31,6 +31,7 @@ concurrency:   # un video alla volta PER CANALE: canali diversi lavorano in para
 
 permissions:
   contents: write
+  actions: write
 
 jobs:
   video:
@@ -85,6 +86,37 @@ jobs:
           curl -sSfL --retry 3 --max-time 60 -o risorse_mappe/Poppins-ExtraBold.ttf https://raw.githubusercontent.com/google/fonts/main/ofl/poppins/Poppins-ExtraBold.ttf
           ls -la risorse_mappe
 
+      - name: Recupera copione e voce di un giro fallito (stesso canale, stesso video da copiare, stessa voce)
+        id: rid
+        env:
+          PAYLOAD: ${{ inputs.payload }}
+          LINK_COMPETITOR: ${{ inputs.link_competitor }}
+          PROVA: ${{ inputs.prova }}
+          VOCE: ${{ inputs.voce }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ID=$(python3 - <<'PY'
+          import json, os, re
+          try:
+              p = json.loads(os.environ.get('PAYLOAD') or '{}')
+          except Exception:
+              p = {}
+          link = str(p.get('link') or os.environ.get('LINK_COMPETITOR') or '')
+          m = re.search(r'(?:v=|youtu\.be/|shorts/)([A-Za-z0-9_-]{11})', link)
+          can = str(p.get('channel_name') or p.get('canale') or 'rich_borders')
+          voce = str(p.get('voce') or os.environ.get('VOCE') or '')[:8]
+          print(re.sub(r'[^A-Za-z0-9_-]+', '_', f"{can}_{m.group(1) if m else ''}_{os.environ.get('PROVA') or ''}_{voce}") if m else '')
+          PY
+          )
+          echo "id=$ID" >> "$GITHUB_OUTPUT"
+          [ -n "$ID" ] || { echo "nessun video da copiare riconosciuto: si parte da zero"; exit 0; }
+          AID=$(gh api "repos/$GITHUB_REPOSITORY/actions/artifacts?name=lavoro-mappe-$ID&per_page=10" --jq '[.artifacts[] | select(.expired==false)] | sort_by(.created_at) | last | .id // empty')
+          if [ -z "$AID" ]; then echo "nessun lavoro salvato per $ID: si parte da zero"; exit 0; fi
+          mkdir -p lavoro_mappe
+          gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$AID/zip" > lavoro.zip && unzip -o -q lavoro.zip -d lavoro_mappe && rm lavoro.zip
+          rm -f lavoro_mappe/costi_video.jsonl   # i costi del giro fallito sono gia' stati registrati
+          echo "RIPRESA di $ID:"; ls lavoro_mappe | head -50
+
       - name: Crea il video
         env:
           LINK_COMPETITOR: ${{ inputs.link_competitor }}
@@ -115,6 +147,28 @@ jobs:
           git config user.name "render-bot"; git config user.email "render-bot@users.noreply.github.com"
           git add coach/costi; git commit -m "Costo video" || exit 0
           for i in 1 2 3 4 5; do git pull --rebase --autostash -q && git push && break; sleep $((i * 5)); done
+
+      - name: Salva copione e voce per ripartire senza ripagarli (solo se il giro non e' finito bene)
+        if: ${{ (failure() || cancelled()) && steps.rid.outputs.id != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: lavoro-mappe-${{ steps.rid.outputs.id }}
+          path: |
+            lavoro_mappe/copione.json
+            lavoro_mappe/voce_*.mp3
+            lavoro_mappe/voce_*.json
+          if-no-files-found: ignore
+          retention-days: 3
+          overwrite: true
+
+      - name: Video riuscito, cancella il lavoro salvato
+        if: ${{ success() && steps.rid.outputs.id != '' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for A in $(gh api "repos/$GITHUB_REPOSITORY/actions/artifacts?name=lavoro-mappe-${{ steps.rid.outputs.id }}&per_page=20" --jq '.artifacts[].id'); do
+            gh api -X DELETE "repos/$GITHUB_REPOSITORY/actions/artifacts/$A" && echo "cancellato lavoro $A"
+          done
 
       - name: Salva il risultato
         if: ${{ always() }}
