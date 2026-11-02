@@ -150,25 +150,41 @@ if vid and not str(P.get('testo_copertina') or '').strip():
             pass
 
 # ---------------- 2) copione ----------------
+# regole del canale dal foglio (colonne regole_fatti, footage_descrizione, footage_esempi_q, footage_esempi_tag, obbligo_apertura):
+# vuote = quelle di Orbital Days (NASA)
+R_FATTI = P.get('regole_fatti') or 'only documented facts about real space missions and astronauts; never invent names, quotes or numbers. No real astronaut names unless they are famous and the fact is documented.'
+R_FOOTAGE = P.get('footage_descrizione') or 'the video is made ONLY of real NASA footage.'
+R_Q = P.get('footage_esempi_q') or '"astronaut eating food space station", "spacewalk", "Soyuz landing", "sleeping bag crew quarters"'
+R_TAG = P.get('footage_esempi_tag') or '["food", "eating"], ["spacewalk", "suit"]; never only space, station, astronaut, earth'
+_ob = str(P.get('obbligo_apertura') or 'astronaut').strip()
+R_OBBLIGO = '' if _ob.upper() == 'NO' else f' - the first 3 scenes must make it obvious in one second what the video is about: add "obbligo": ["{_ob}"] to them\n'
 regole = f"""You write the narration of a YouTube documentary for the channel "{P.get('channel_name')}".
 Title of the video: "{P['titolo']}". Language: {LINGUA} ONLY (every word of the narration, on-screen texts, title, description and tags).
 Audience and units: {P.get('cultural_localization') or ''}
 Voice style: {P.get('language_register') or ''}
 Structure: {P.get('narrative_angle') or ''}
 LENGTH: the narration must be between {P_MIN} and {P_MAX} words in total (count them). This is a HARD limit.
-FACTS: only documented facts about real space missions and astronauts; never invent names, quotes or numbers. No real astronaut names unless they are famous and the fact is documented.
-FOOTAGE: the video is made ONLY of real NASA footage. For EACH scene give the archive search that shows EXACTLY what the narration says:
- - "q": 2-5 English words for the NASA video archive (e.g. "astronaut eating food space station", "spacewalk", "Soyuz landing", "sleeping bag crew quarters")
- - "tag": 2-4 specific lowercase English keywords of what must be visible (e.g. ["food", "eating"], ["spacewalk", "suit"]); NEVER only generic words like space, station, astronaut, earth
- - the first 3 scenes must make it obvious in one second that the video is about astronauts (astronauts in the station or on a spacewalk): add "obbligo": ["astronaut"] to them
- - "anno" (only for history videos): the year the scene talks about (e.g. 1944), so the archive footage is from the right year; 0 if the scene has no precise year
+FACTS: {R_FATTI}
+FOOTAGE: {R_FOOTAGE} For EACH scene give the archive search that shows EXACTLY what the narration says:
+ - "q": 2-5 English words for the video archive (e.g. {R_Q})
+ - "tag": 2-4 specific lowercase English keywords of what must be visible (e.g. {R_TAG}); NEVER only generic words
+{R_OBBLIGO} - "anno" (only for history videos): the year the scene talks about (e.g. 1944), so the archive footage is from the right year; 0 if the scene has no precise year
  - "capitolo" (YouTube chapters): on the FIRST scene and then on the scene that opens each new part of the story, about one every 60-90 seconds (6-9 in total): a chapter title of 2-5 words in the channel language; every other scene "capitolo": ""
  - "scritta" (optional, about 1 scene in 4): 1-3 words in CAPS shown on screen, a number or a strong word said in that scene (US units: -250°F, 17,500 MPH, 250 MILES)
 Scenes: EXACTLY {N_SCENE} scenes, each 32-40 words (Sonnet tends to write too little: count the scenes)."""
-if riferimento:
+METODO = str(P.get('metodo') or 'impronta').strip().lower()   # copia (stesso argomento del competitor) | impronta (stessa struttura, altro argomento)
+if riferimento and METODO == 'copia':
+    PCT = int(numero(P.get('copia_percentuale'), 80))
     regole += f"""
 
-REFERENCE VIDEO (copy its STRUCTURE, rhythm, hooks and kind of questions — NOT its topic): a successful video about ancient Rome.
+REFERENCE VIDEO (same topic, a successful video of the channel we copy): keep about {PCT}% of its content (the same story, facts, order, hooks,
+questions and reveals), rewritten in your own words, never copying sentences word by word. The other {100 - PCT}% is new, documented material
+that fits the same pattern and makes the video better. Never add facts, quotes, dates or numbers that are not in the reference or in documented history.
+{' '.join(riferimento.split()[:6000])}"""
+elif riferimento:
+    regole += f"""
+
+REFERENCE VIDEO (copy its STRUCTURE, rhythm, hooks and kind of questions — NOT its topic): {P.get('riferimento_descrizione') or 'a successful video about ancient Rome.'}
 {' '.join(riferimento.split()[:6000])}"""
 if not str(P.get('testo_copertina') or '').strip():
     regole += """
@@ -183,7 +199,7 @@ Answer ONLY with valid JSON:
  "descrizione": "YouTube description, 3 short paragraphs (~120 words) with the words people search, then a line with 4-6 hashtags",
  "tag": ["20-30 YouTube tags"],
  "testo_copertina": "1-3 WORDS (only if asked above, else empty)",
- "copertina_prompt": "one sentence: the scene of the thumbnail, a FICTIONAL astronaut in close-up with a strong readable emotion matching the title, setting and light"}"""
+ "copertina_prompt": "one sentence: the scene of the thumbnail, """ + (P.get('copertina_soggetto') or 'a FICTIONAL astronaut') + """ in close-up with a strong readable emotion matching the title, setting and light"}"""
 c = None; n = 0; VOCE_RIPRESA = False
 # RIPRESA (2 nov, Giorgio: non buttare soldi nei giri falliti): se un giro precedente sullo STESSO titolo si e' fermato dopo aver
 # pagato copione e voce, il workflow li ha salvati in lavoro_archivio/: si riusano (stesso testo = stessa voce, zero crediti ElevenLabs)
@@ -303,15 +319,23 @@ FP = os.path.join(LAV, 'anton.ttf'); open(FP, 'wb').write(get('https://github.co
 base = os.path.join(LAV, 'base.jpg')
 subprocess.run(['ffmpeg', '-y', '-v', 'error', '-ss', '6', '-i', VIDEO, '-frames:v', '1', base])
 im = Image.open(base).convert('RGB').resize((1280, 720))
+STILE_COP = str(P.get('copertina_stile') or 'C').strip().lower()   # C = Orbital Days | etichetta_rossa = WWII Testimony (B dello studio copertine)
+if STILE_COP == 'etichetta_rossa':
+    PROMPT_COP = ('Use the reference photo only for the setting and the era. ' + c.get('copertina_prompt', '') +
+                  ' Black and white 1940s archival photograph look, real film grain, documentary realism. The person is FICTIONAL and does not resemble any real '
+                  'historical figure. No swastikas, no Nazi flags or armbands, no insignia, no text, no letters, no logos. The face is big and sharp, head and shoulders '
+                  'filling the RIGHT 60% of the frame, strong readable emotion; the LEFT 40% simpler and darker.')
+else:
+    PROMPT_COP = ('Use the reference photo only for the setting. ' + c.get('copertina_prompt', '') +
+                  ' The astronaut is a FICTIONAL person who does not resemble any real astronaut. Unbranded suit and clothes: NO NASA logo, no agency insignia, '
+                  'no flags, no patches. Photorealistic cinematic film still, dramatic light, high contrast. The astronaut is very big, head and shoulders filling '
+                  'the RIGHT 60% of the frame. The LEFT 40% darker and simple. No text, no letters, no logos.')
 if E('FAL_KEY') and SPESA['usd'] + 0.04 <= BUDGET_USD:
     spendi('fal seedream (copertina)', 0.04)
     buf = io.BytesIO(); im.save(buf, 'JPEG', quality=90); h = {'Authorization': 'Key ' + E('FAL_KEY')}
     try:
         inv = get('https://queue.fal.run/fal-ai/bytedance/seedream/v4.5/edit', {
-            'prompt': 'Use the reference photo only for the setting. ' + c.get('copertina_prompt', '') +
-                      ' The astronaut is a FICTIONAL person who does not resemble any real astronaut. Unbranded suit and clothes: NO NASA logo, no agency insignia, '
-                      'no flags, no patches. Photorealistic cinematic film still, dramatic light, high contrast. The astronaut is very big, head and shoulders filling '
-                      'the RIGHT 60% of the frame. The LEFT 40% darker and simple. No text, no letters, no logos.',
+            'prompt': PROMPT_COP,
             'image_urls': ['data:image/jpeg;base64,' + base64.b64encode(buf.getvalue()).decode()], 'image_size': {'width': 2560, 'height': 1440}, 'num_images': 1}, h)
         for _ in range(120):
             time.sleep(4); st = get(inv['status_url'], h=h)
@@ -321,20 +345,39 @@ if E('FAL_KEY') and SPESA['usd'] + 0.04 <= BUDGET_USD:
                 break
     except Exception as e:
         log('ritocco copertina non riuscito:', str(e)[:150])
-g = Image.new('L', (1280, 1))
-for x in range(1280):
-    g.putpixel((x, 0), int(170 * max(0, ((1 - x / 1280) - .5) / .5)))
-im.paste(Image.new('RGB', (1280, 720)), (0, 0), g.resize((1280, 720))); d = ImageDraw.Draw(im)
 TESTO_COP = str(P.get('testo_copertina') or '').strip() or str(c.get('testo_copertina') or '').strip() or 'WHY?'
-log('testo copertina:', TESTO_COP, '(dal foglio)' if str(P.get('testo_copertina') or '').strip() else '(creato dal titolo e dalla copertina del competitor)')
-parole = TESTO_COP.upper().split(); righe = [' '.join(parole[:-1]), parole[-1]] if len(parole) > 1 else parole
-y = 110
-for i, rr in enumerate(righe):
-    s_ = 240
-    while s_ > 60 and d.textlength(rr, font=ImageFont.truetype(FP, s_)) > 600:
+if STILE_COP == 'etichetta_rossa':
+    # STILE B (2 nov, Giorgio): bianco e nero d'archivio, fascia rossa con la frase in bianco. Leggibile da telefono:
+    # al massimo 2 righe, lettere alte almeno 80 px su 720 (ad anteprima piccola restano leggibili)
+    from PIL import ImageOps as _IO, ImageEnhance as _IE
+    im = _IE.Contrast(_IO.grayscale(im).convert('RGB')).enhance(1.25)
+    d = ImageDraw.Draw(im); parole = TESTO_COP.upper().split()
+    righe = [' '.join(parole)] if len(parole) <= 3 else [' '.join(parole[:len(parole) // 2]), ' '.join(parole[len(parole) // 2:])]
+    s_ = 120
+    while s_ > 80 and max(d.textlength(r_, font=ImageFont.truetype(FP, s_)) for r_ in righe) > 700:
         s_ -= 4
-    d.text((50, y), rr, font=ImageFont.truetype(FP, s_), fill='#4FD2FF' if i == len(righe) - 1 and len(righe) > 1 else 'white', stroke_width=max(8, s_ // 11), stroke_fill=(0, 0, 0))
-    y += int(s_ * 1.02)
+    fnt = ImageFont.truetype(FP, s_); alt = int(s_ * 1.18)
+    y = 720 - 60 - alt * len(righe)
+    for r_ in righe:
+        w_ = d.textlength(r_, font=fnt)
+        d.rectangle((40, y, 40 + w_ + 44, y + alt - 6), fill=(200, 22, 22))
+        d.text((62, y + int(s_ * .02)), r_, font=fnt, fill='white')
+        y += alt
+    log('testo copertina:', TESTO_COP, '| altezza lettere', s_, 'px')
+else:
+    g = Image.new('L', (1280, 1))
+    for x in range(1280):
+        g.putpixel((x, 0), int(170 * max(0, ((1 - x / 1280) - .5) / .5)))
+    im.paste(Image.new('RGB', (1280, 720)), (0, 0), g.resize((1280, 720))); d = ImageDraw.Draw(im)
+    log('testo copertina:', TESTO_COP, '(dal foglio)' if str(P.get('testo_copertina') or '').strip() else '(creato dal titolo e dalla copertina del competitor)')
+    parole = TESTO_COP.upper().split(); righe = [' '.join(parole[:-1]), parole[-1]] if len(parole) > 1 else parole
+    y = 110
+    for i, rr in enumerate(righe):
+        s_ = 240
+        while s_ > 60 and d.textlength(rr, font=ImageFont.truetype(FP, s_)) > 600:
+            s_ -= 4
+        d.text((50, y), rr, font=ImageFont.truetype(FP, s_), fill='#4FD2FF' if i == len(righe) - 1 and len(righe) > 1 else 'white', stroke_width=max(8, s_ // 11), stroke_fill=(0, 0, 0))
+        y += int(s_ * 1.02)
 COP = os.path.join(CART, 'copertina.jpg'); im.save(COP, quality=92)
 
 # ---------------- capitoli (tempi VERI della voce, come Storia in Minuti e Rich Borders) ----------------
