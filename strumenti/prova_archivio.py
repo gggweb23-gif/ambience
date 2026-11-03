@@ -344,7 +344,7 @@ for n, (d, s, prima, t0) in enumerate(piano):
         if not c and s.get('_ultima'):
             r = altro_pezzo(s['_ultima'], L)
             c = (r[0], r[1], s['_ultima'], '(altro momento)') if r else None
-    INFO_N = {'i': n, 'testo': s.get('testo', ''), 'lib_n': ULTIMO_N[0] if (c and str(c[3]).startswith('LIBRERIA')) else None}
+    INFO_N = {'i': n, 'testo': s.get('testo', ''), 'scritta': s['scritta'] if sc else '', 'lib_n': ULTIMO_N[0] if (c and str(c[3]).startswith('LIBRERIA')) else None}
     ULTIMO_N[0] = None
     if c:
         p, da, nid, tit = c; s['_ultima'] = nid; nclip += 1

@@ -341,13 +341,15 @@ def revisione():
                 b_ = open(x['frame'], 'rb').read()
             except Exception:
                 continue
-            cont.append({'type': 'text', 'text': f"Shot {x['i']} ({x.get('tipo')}). Narration: \"{x.get('testo', '')[:600]}\""})
+            cont.append({'type': 'text', 'text': f"Shot {x['i']} ({x.get('tipo')}). Narration: \"{x.get('testo', '')[:600]}\"" + (f" OUR OWN on-screen text added on purpose: '{x['scritta']}' (ignore it)." if x.get('scritta') else '')})
             cont.append({'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/png', 'data': base64.b64encode(b_).decode()}})
         cont.append({'type': 'text', 'text': f'These are shots of a YouTube documentary about: {argomento}. For each shot decide if it is WRONG for this video. '
-                     'A shot is WRONG if: it shows a different era (modern/after 1950 vehicles, clothes, colour TV look) or space/astronauts/NASA; it is a cartoon, '
+                     'A shot is WRONG if: ' + ('it shows a different era (modern/after 1950 vehicles, clothes, colour TV look) or space/astronauts/NASA; '
+                     if str(P.get('libreria_archivio') or '').strip().lower() == 'storico' else '') + 'it is a cartoon, '
                      'animation, map graphic or drawing; it is a title card, intertitle or has burned-in text/subtitles/timecode; a swastika flag or Nazi banner is '
-                     'the main subject; it is black/empty; or it has NOTHING to do with the narration. Archival black-and-white footage that fits the period is fine '
-                     'even if generic. Judge ONLY the image: the narration is given just as context and may be cut, never reject a shot because of the narration text. Answer ONLY JSON: {"sbagliate": [{"i": <shot number>, "motivo": "short reason"}]} (empty list if all are fine).'})
+                     'the main subject; it is black/empty; or it clearly belongs to ANOTHER subject (e.g. a horse show or a reindeer in a war video, a car on Earth in a space video). '
+                     'Footage that fits the channel topic and period is fine even if generic or not literally what the sentence says (archival black-and-white footage, '
+                     'space/station/mission control footage for a space video). Text we added on purpose (listed per shot) is fine. Judge ONLY the image: the narration is given just as context and may be cut, never reject a shot because of the narration text. Answer ONLY JSON: {"sbagliate": [{"i": <shot number>, "motivo": "short reason"}]} (empty list if all are fine).'})
         try:
             corpo = {'model': 'claude-haiku-4-5-20251001', 'max_tokens': 1200, 'messages': [{'role': 'user', 'content': cont}]}
             r_ = get('https://api.anthropic.com/v1/messages', corpo, {'x-api-key': E('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01'}, timeout=300)
