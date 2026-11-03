@@ -341,7 +341,7 @@ def revisione():
                 b_ = open(x['frame'], 'rb').read()
             except Exception:
                 continue
-            cont.append({'type': 'text', 'text': f"Shot {x['i']} ({x.get('tipo')}). Narration: \"{x.get('testo', '')[:600]}\"" + (f" OUR OWN on-screen text added on purpose: '{x['scritta']}' (ignore it)." if x.get('scritta') else '')})
+            cont.append({'type': 'text', 'text': f"Shot {x['i']} ({x.get('tipo')}). Narration: \"{x.get('testo', '')[:600]}\"" + (f" (our own on-screen text was cut out of this image: only the top part is shown)." if x.get('scritta') else '')})
             cont.append({'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/png', 'data': base64.b64encode(b_).decode()}})
         cont.append({'type': 'text', 'text': f'These are shots of a YouTube documentary about: {argomento}. For each shot decide if it is WRONG for this video. '
                      'A shot is WRONG if: ' + ('it shows a different era (modern/after 1950 vehicles, clothes, colour TV look) or space/astronauts/NASA; '
@@ -374,6 +374,7 @@ def segna_in_libreria(bocciate):   # gli spezzoni bocciati non tornano piu' nei 
     try:
         vecchi = json.load(open(f_)) if os.path.exists(f_) else []
         nuovi = [{'n': x['lib_n'], 'fonte': x.get('fonte'), 'motivo': x.get('motivo', '')} for x in bocciate if x.get('lib_n') is not None]
+        nuovi += [{'foto': x['fonte'], 'motivo': x.get('motivo', '')} for x in bocciate if x.get('lib_n') is None and x.get('tipo') == 'foto' and x.get('fonte')]
         json.dump(vecchi + nuovi, open(f_, 'w'), ensure_ascii=False, indent=1); log(len(nuovi), 'spezzoni tolti per sempre dalla libreria (bocciati.json)')
     except Exception as e:
         log('bocciati non salvati', str(e)[:80])

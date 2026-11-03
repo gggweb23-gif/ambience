@@ -108,7 +108,9 @@ if P.get('libreria'):
 LIB_USATI, LIB_FILE, ULTIMA_SORGENTE, PER_SORGENTE = set(), {}, [''], {}
 LIB_USATI.update(int(x) for x in (P.get('escludi_lib') or []))
 try:   # spezzoni bocciati dalle revisioni dei video precedenti
-    LIB_USATI.update(int(x['n']) for x in json.load(open(os.path.join('libreria_clip', P.get('libreria') or '-', 'bocciati.json'))))
+    _bo = json.load(open(os.path.join('libreria_clip', P.get('libreria') or '-', 'bocciati.json')))
+    LIB_USATI.update(int(x['n']) for x in _bo if x.get('n') is not None)
+    USATI.update('File:' + x['foto'] for x in _bo if x.get('foto'))   # foto bocciate nei video precedenti
 except Exception:
     pass   # spezzoni bocciati dalla revisione: mai piu' in questo video
 ULTIMO_N = [None]   # max 3 spezzoni dalla stessa ripresa per video
@@ -450,7 +452,11 @@ for i, q in enumerate(fot):
 G.save(os.path.join(CART, 'fotogrammi.jpg'), quality=85)
 quota = 100 * sum(d for (p, d, _), f in zip(pezzi, fonti) if ' CLIP ' in f) / max(.1, sum(d for p, d, _ in pezzi))
 open(os.path.join(CART, 'fonti.txt'), 'w').write('\n'.join(fonti) + '\n')
-json.dump([dict(x, frame=q) for x, q in zip(INQ, fot)], open(os.path.join(LAV, 'inquadrature.json'), 'w'))
+for x, (p, d, _) in zip(INQ, pezzi):   # per la revisione: le inquadrature con la NOSTRA scritta (in basso) si guardano senza la scritta
+    if x.get('scritta'):
+        q = p[:-4] + '_rev.png'
+        run(['ffmpeg', '-y', '-v', 'error', '-ss', f'{d / 2:.2f}', '-i', p, '-frames:v', 1, '-vf', 'crop=iw:ih*0.55:0:0,scale=384:-2', q]); x['frame_rev'] = q
+json.dump([dict(x, frame=x.get('frame_rev') or q) for x, q in zip(INQ, fot)], open(os.path.join(LAV, 'inquadrature.json'), 'w'))
 open(os.path.join(CART, 'mancanti.txt'), 'w').write('\n'.join(sorted(set(m for m in MANCANTI if m))) + '\n')
 open(os.path.join(CART, 'costi.txt'), 'w').write(
     f'ElevenLabs: {len(testo)} crediti dell\'abbonamento | NASA: 0 | Claude: 0 (copione nel payload) | render GitHub: 0\n'
