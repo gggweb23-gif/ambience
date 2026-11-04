@@ -1,0 +1,15 @@
+name: Verifica canali (sola lettura, gratis)
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: read
+jobs:
+  verifica:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verifica
+        env:
+          GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
+        run: pip install -q google-auth requests && python3 strumenti/verifica_canali.py
