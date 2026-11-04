@@ -39,9 +39,14 @@ jobs:
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
           SOLO_CANALE: ${{ inputs.canale }}
           PROVA: ${{ inputs.prova }}
-        run: pip install -q google-auth requests && python3 strumenti/performance.py
+        run: pip install -q google-auth requests openpyxl && python3 strumenti/performance.py
+      - name: Riepilogo per Giorgio (tabella con le decisioni del Coach)
+        if: ${{ inputs.prova != 'SI' }}
+        env:
+          GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
+        run: python3 strumenti/analisi_performance.py
       - name: Salva il riepilogo
         if: ${{ always() }}
         run: |
           git config user.name render-bot && git config user.email render-bot@users.noreply.github.com
-          git add coach/performance_ultimo.txt coach/canali && git commit -m "Performance video" && for i in 1 2 3; do git pull --rebase -q && git push && break; sleep 5; done || true
+          git add coach/performance_ultimo.txt coach/canali coach/riepilogo_performance.md && git commit -m "Performance video" && for i in 1 2 3; do git pull --rebase -q && git push && break; sleep 5; done || true
