@@ -3,11 +3,15 @@ Competitor letti dal foglio: 25 video
 Video dal 2026-09-21 senza copertina nuova: 1
               pISyy7Lcpbs  La psicologia delle persone che non vogliono figli  [nuovo stile]
 copia competitor ykJmty5boDs -> pISyy7Lcpbs (100% uguale): NON VOGLIONO / FIGLI
-  controllo immagine: {"testa_alta": 4, "scritte": false}
-zona libera troppo piccola: [0.52, 0.005, 0.86, 0.1]
-  controllo finale scritta: {"copre": true, "cosa": "The white card partially hides people sitting on a bench behind it"}
-zona libera troppo piccola: [0.53, 0.0, 0.85, 0.13]
+  controllo immagine: {"testa_alta": 7, "scritte": false}
+zona libera troppo piccola: [0.565, 0.015, 0.735, 0.32]
+  controllo finale scritta: {"copre": true, "cosa": "The white card partially obscures two people (a woman and man) sitting on a bench who are holding a baby"}
+zona libera troppo piccola: [0.5660000000000001, 0.01, 0.735, 0.33]
+  rifaccio l'immagine una volta: persone tutte a LEFT
+  KAO era alto il 81%: zoom 1.09x
+zona libera troppo piccola: [0.6, 0.01, 0.99, 0.22]
+  controllo finale scritta: {"copre": true, "cosa": "The white card partially covers the family sitting on the bench behind it"}
   ATTENZIONE: la scritta copre ancora parte della scena, copertina da controllare a mano
 copertina pronta: pISyy7Lcpbs NON VOGLIONO / FIGLI
-CARICATA pISyy7Lcpbs La psicologia delle persone che non vogliono figli
-FATTO: 1 caricate su 1 | APPLICA = True
+solo anteprima pISyy7Lcpbs La psicologia delle persone che non vogliono figli
+FATTO: 0 caricate su 1 | APPLICA = False
