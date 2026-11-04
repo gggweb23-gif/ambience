@@ -570,6 +570,9 @@ def scritta_cartoncino(im, frase, lato='destra', zona=None, limite=None):
         zx0, zx1 = int(W * zona[0]), int(W * zona[2])
         if zx1 - zx0 > W * .38:   # la zona libera restringe la scritta solo se resta comunque grande
             x0, x1 = max(x0, zx0), min(x1, zx1)
+        zy0, zy1 = int(Hh * zona[1]), int(Hh * zona[3])   # 4 nov (Giorgio): anche in altezza, mai sopra le persone della scena
+        if min(y1, zy1) - max(y0, zy0) >= Hh * .30:
+            y0, y1 = max(y0, zy0), min(y1, zy1)
     pad = int(W * .016)
     larg, alt = x1 - x0 - 2 * pad, y1 - y0 - 2 * pad
     F = lambda k: ImageFont.truetype(FONT, k)
@@ -711,6 +714,25 @@ def riferimento_stile(vid):
         if f in VECCHIE_INIZIO and os.path.exists(pth) and stile_vecchio(pth):
             return pth, f == vid + '.jpg'
     return None, False
+
+
+def copre_soggetti(path):
+    """4 nov (Giorgio): controllo finale della copertina (~0,002 $). True se il riquadro della scritta copre persone, volti
+    o oggetti che danno senso alla scena (anche in parte). None se il controllo non riesce."""
+    try:
+        buf = io.BytesIO(); Image.open(path).convert('RGB').resize((768, 432)).save(buf, 'JPEG', quality=85)
+        rr = http('https://api.anthropic.com/v1/messages', {'model': 'claude-haiku-4-5-20251001', 'max_tokens': 200, 'messages': [{'role': 'user', 'content': [
+            {'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}},
+            {'type': 'text', 'text': 'This YouTube thumbnail has a title on a white card. Does the white card hide or cut any PERSON (face, body, legs, hands), '
+                                     'even partially, or an object that is important to understand the scene (e.g. people sitting on a bench behind the card)? '
+                                     'Answer ONLY JSON: {"copre": true|false, "cosa": "short description"}'}]}]},
+                  {'x-api-key': E('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01'}, timeout=120)
+        tt = ''.join(b.get('text', '') for b in rr.get('content', []))
+        z = json.loads(tt[tt.find('{'): tt.rfind('}') + 1])
+        log('  controllo finale scritta:', json.dumps(z, ensure_ascii=False))
+        return bool(z.get('copre'))
+    except Exception as e:
+        log('  controllo finale scritta non riuscito:', str(e)[:100]); return None
 
 
 def controllo(im, diviso):
@@ -900,6 +922,19 @@ def fai(i):
                 th_ = float(ck['testa_alta']); th_ = th_ / 100 if th_ > 1 else th_
                 limite = max(.14, th_ - .03)
             scritta_cartoncino(im, f"{t['riga1']} {t['riga2']}", lato, None if lato in ('alto', 'basso') else zona_libera(im, lato), limite).save(p, quality=90)
+            if lato not in ('alto', 'basso') and copre_soggetti(p):   # 4 nov (Giorgio): la scritta non deve mai coprire chi da' senso alla scena
+                z2 = zona_libera(im, lato)
+                if z2:
+                    scritta_cartoncino(im, f"{t['riga1']} {t['riga2']}", lato, z2, limite).save(p, quality=90)
+                if not z2 or copre_soggetti(p):   # ultima strada: fascia in alto sopra le teste
+                    th_ = None
+                    if ck and isinstance(ck.get('testa_alta'), (int, float)):
+                        th_ = float(ck['testa_alta']); th_ = th_ / 100 if th_ > 1 else th_
+                    if th_ and th_ > .22:
+                        scritta_cartoncino(im, f"{t['riga1']} {t['riga2']}", 'alto', None, max(.14, th_ - .03)).save(p, quality=90)
+                        log('  scritta spostata in alto, sopra le teste')
+                    else:
+                        log('  ATTENZIONE: la scritta copre ancora parte della scena, copertina da controllare a mano')
         else:
             scritta(im, [str(t['riga1']).upper(), str(t['riga2']).upper()], lato, zona_libera(im, lato)).save(p, quality=90)
         log('copertina pronta:', c['id'], t['riga1'], '/', t['riga2'])
