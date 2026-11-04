@@ -137,7 +137,7 @@ def canale(cfg):
     if not cid or not fid or not chiave:
         return
     log('===', cid)
-    rt = SEGRETI.get(chiave)
+    rt = SEGRETI.get(chiave) or E(chiave)
     if not rt:
         log('  manca il segreto', chiave, 'su GitHub: salto'); return
     tk, scope = token(rt)

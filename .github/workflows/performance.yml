@@ -28,7 +28,13 @@ jobs:
       - name: Performance
         env:
           GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
-          SEGRETI: ${{ toJSON(secrets) }}
+          # un segreto per canale (nome = colonna chiave_youtube di Channel Configs): canale nuovo = aggiungere qui la sua riga
+          YT_REFRESH_TOKEN_KAO: ${{ secrets.YT_REFRESH_TOKEN_KAO }}
+          YT_REFRESH_TOKEN_AGORA_OF_SAGES: ${{ secrets.YT_REFRESH_TOKEN_AGORA_OF_SAGES }}
+          YT_REFRESH_TOKEN_MAIN_STREET_ATLAS: ${{ secrets.YT_REFRESH_TOKEN_MAIN_STREET_ATLAS }}
+          YT_REFRESH_TOKEN_STORIA: ${{ secrets.YT_REFRESH_TOKEN_STORIA }}
+          YT_REFRESH_TOKEN_ORBITAL_DAYS: ${{ secrets.YT_REFRESH_TOKEN_ORBITAL_DAYS }}
+          YT_REFRESH_TOKEN_WWII_TESTIMONY: ${{ secrets.YT_REFRESH_TOKEN_WWII_TESTIMONY }}
           YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
           SOLO_CANALE: ${{ inputs.canale }}
