@@ -1,2344 +1,124 @@
 {
- "titolo": "Why Did Spain Rule the Philippines for 300 Years but Leave Almost No Spanish?",
+ "titolo": "The Extreme Geography Behind The Richest Countries On Earth",
  "numero": {
-  "testo": "333",
-  "sotto": "YEARS OF SPANISH RULE, ALMOST NO SPEAKERS"
+  "testo": "8",
+  "sotto": "IMPOSSIBLE PLACES, ONE RICH SECRET"
  },
  "copertina": {
   "testo": "WHY?",
   "oro": [
-   "ESP"
+   "NOR",
+   "SGP",
+   "QAT",
+   "GUY"
   ],
   "verde": [
-   "PHL"
+   "AUS"
   ],
   "vista": {
    "lon": 60,
    "lat": 20,
-   "larghezza": 200
+   "larghezza": 240
   }
  },
- "descrizione": "Spain ruled Mexico for 300 years and Mexico speaks Spanish. It ruled the Philippines for 333 years, and almost nobody there speaks it today. What happened? We follow the Manila galleons, a few thousand settlers, hundreds of languages, and friars who guarded their own power.\n\nThen came the American teachers, the destruction of Manila in 1945, and the surprising Spanish words that Filipinos still use every day, from the clock to the calendar to their own surnames.",
+ "descrizione": "Good land should make a country rich. So why are some of the richest nations on Earth frozen, dry, flooded, jungle-covered, or almost out of land? We look at eight countries where terrible geography turned into the money itself.\n\nFrom Australian iron and Icelandic volcanoes to Dutch dikes, Guyana's oil, Qatar's gas, Norway's fund, Luxembourg's finance and Singapore's strait, we follow the maps, the numbers and the surprising stories behind each fortune.",
  "tag": [
-  "philippines history",
-  "spanish empire",
-  "why philippines does not speak spanish",
-  "manila galleon",
-  "history explained",
+  "richest countries",
+  "geography",
+  "economics explained",
   "animated maps",
-  "colonial history",
-  "Tagalog",
-  "Chavacano",
-  "Thomasites",
-  "Spanish colonization",
-  "Filipino language"
+  "Singapore",
+  "Norway",
+  "Qatar",
+  "Guyana",
+  "Netherlands",
+  "Iceland",
+  "Luxembourg",
+  "Australia"
  ],
  "scene": [
   {
-   "testo": "Spain ruled the Philippines for 333 years. Almost nobody there speaks Spanish. A ship of American teachers. A city wiped out. And friars who blocked their own king. Why?",
+   "testo": "A country that earned less than Ecuador. A gas giant that lost a sixth of its exports in two days. And the richest place has almost no land.",
    "anteprima": true,
    "vista": {
-    "lon": 121,
-    "lat": 13,
+    "lon": -58,
+    "lat": 6,
     "larghezza": 30
    },
    "epoca": "oggi",
    "oro": [
-    "PHL"
+    "GUY"
    ],
    "verde": [
-    "ESP"
+    "ECU"
    ],
+   "eventi": [
+    {
+     "tipo": "prezzo",
+     "testo": "$99,000",
+     "sotto": "GUYANA · PER PERSON",
+     "ricco": true,
+     "parola": "Ecuador"
+    },
+    {
+     "tipo": "conta",
+     "valore": 17,
+     "prefisso": "-",
+     "suffisso": "%",
+     "sotto": "GAS EXPORTS LOST",
+     "parola": "sixth"
+    }
+   ],
+   "musica": "mistero",
+   "stacco": false,
+   "pin": {
+    "lon": -55,
+    "lat": 4,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "How do the worst places on Earth become the richest?",
+   "anteprima": true,
+   "vista": {
+    "lon": 103.8,
+    "lat": 1.35,
+    "larghezza": 8
+   },
+   "epoca": "oggi",
+   "oro": [
+    "SGP"
+   ],
+   "verde": [],
    "eventi": [
     {
      "tipo": "numero",
-     "testo": "333 YRS",
-     "lon": 121,
-     "lat": 14,
-     "parola": "333"
+     "testo": "$177,000",
+     "lon": 103.8,
+     "lat": 1.35,
+     "parola": "richest"
     },
     {
      "tipo": "scritta",
-     "testo": "ALMOST NONE",
-     "parola": "nobody"
-    },
-    {
-     "tipo": "icona",
-     "icona": "cargo_ship",
-     "lon": -130,
-     "lat": 20,
-     "parola": "ship"
-    },
-    {
-     "tipo": "icona",
-     "icona": "grave",
-     "lon": 120.98,
-     "lat": 14.59,
-     "parola": "wiped"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "colonist",
-     "n": 4,
-     "lon": 122,
-     "lat": 12,
-     "parola": "friars"
+     "testo": "WHY?",
+     "parola": "worst"
     }
    ],
-   "musica": "mistero",
+   "musica": "",
    "stacco": false,
    "pin": {
-    "lon": 124,
-    "lat": 10,
+    "lon": 104.5,
+    "lat": 2.2,
     "faccia": "stupito"
    }
   },
   {
-   "testo": "Spain ruled Mexico for 300 years, and Mexico speaks Spanish. Peru, Colombia, Cuba, Chile too. So why is the Philippines the exception?",
-   "anteprima": false,
-   "vista": {
-    "lon": -75,
-    "lat": 0,
-    "larghezza": 120
-   },
-   "epoca": "oggi",
-   "oro": [
-    "MEX",
-    "PER",
-    "COL",
-    "CUB",
-    "CHL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 300,
-     "prefisso": "~",
-     "suffisso": "",
-     "sotto": "YEARS IN MEXICO",
-     "parola": "300"
-    },
-    {
-     "tipo": "conta_paesi",
-     "paesi": [
-      "MEX",
-      "PER",
-      "COL",
-      "CUB",
-      "CHL"
-     ],
-     "colore": "rojo",
-     "parola": "Peru"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "EXCEPTION",
-     "parola": "exception"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": -60,
-    "lat": -20,
-    "faccia": "normale"
-   },
-   "nota": null
-  },
-  {
-   "testo": "Spain held these islands for 333 years, longer than it held Mexico. Yet land in Manila and speak Spanish, and you get blank looks.",
-   "anteprima": false,
-   "vista": {
-    "lon": 121,
-    "lat": 14,
-    "larghezza": 14
-   },
-   "epoca": "oggi",
-   "oro": [
-    "PHL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 333,
-     "prefisso": "",
-     "suffisso": "",
-     "sotto": "YEARS OF SPANISH RULE",
-     "parola": "333"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "MANILA",
-     "lon": 120.98,
-     "lat": 14.6,
-     "parola": "Manila"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Longer rule than Mexico",
-     "parola": "longer"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 123.5,
-    "lat": 12,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Fewer than half a percent of Filipinos speak it well. You might guess the Americans swapped it for English in 1898.",
-   "anteprima": false,
-   "vista": {
-    "lon": 121,
-    "lat": 13,
-    "larghezza": 20
-   },
-   "epoca": "oggi",
-   "oro": [
-    "PHL"
-   ],
-   "verde": [
-    "USA"
-   ],
-   "eventi": [
-    {
-     "tipo": "griglia",
-     "paese": [
-      "PHL"
-     ],
-     "pieni": 0.005,
-     "testo": "UNDER 0.5% SPEAK IT",
-     "colore": "oro",
-     "parola": "half"
-    },
-    {
-     "tipo": "anno",
-     "testo": "1898",
-     "parola": "1898"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Under half a percent today",
-     "parola": "Fewer"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 124,
-    "lat": 9,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "That is only part of it. Spanish was barely spoken even while Spain was in charge, and some Spaniards themselves stopped it spreading.",
-   "anteprima": false,
-   "vista": {
-    "lon": 121,
-    "lat": 13,
-    "larghezza": 16
-   },
-   "epoca": "antica",
-   "oro": [
-    "PHL"
-   ],
-   "verde": [
-    "ESP"
-   ],
-   "eventi": [
-    {
-     "tipo": "scritta",
-     "testo": "BARELY SPOKEN",
-     "parola": "barely"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "colonist",
-     "n": 4,
-     "lon": 121,
-     "lat": 14,
-     "parola": "Spaniards"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Spaniards blocked their own language",
-     "parola": "stopped"
-    }
-   ],
-   "musica": "mistero",
-   "stacco": false,
-   "pin": {
-    "lon": 124,
-    "lat": 10,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "To see why, look at the map. The Philippines is about as far from Madrid as you can possibly get.",
-   "anteprima": false,
-   "vista": {
-    "lon": 60,
-    "lat": 25,
-    "larghezza": 160
-   },
-   "epoca": "antica",
-   "oro": [
-    "ESP"
-   ],
-   "verde": [
-    "PHL"
-   ],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      -3.7,
-      40.4
-     ],
-     "a": [
-      121,
-      14.6
-     ],
-     "icona": "ship",
-     "parola": "far"
-    },
-    {
-     "tipo": "conta",
-     "valore": 11000,
-     "prefisso": "~",
-     "suffisso": " KM",
-     "sotto": "MADRID TO MANILA",
-     "parola": "Madrid"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "MADRID",
-     "lon": -3.7,
-     "lat": 40.4,
-     "parola": "Madrid"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Opposite side of the world",
-     "parola": "far"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": 60,
-    "lat": 45,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "In 1565, Miguel López de Legazpi set up camp on the island of Cebu. He had sailed from Mexico, and that detail matters a lot.",
-   "anteprima": false,
-   "vista": {
-    "lon": 123.9,
-    "lat": 10.3,
-    "larghezza": 10
-   },
-   "epoca": "antica",
-   "oro": [
-    "MEX"
-   ],
-   "verde": [
-    "PHL"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1565",
-     "parola": "1565"
-    },
-    {
-     "tipo": "personaggio",
-     "nome": "Miguel López de Legazpi",
-     "descrizione": "16th-century Spanish conquistador, beard, armour",
-     "parola": "Legazpi"
-    },
-    {
-     "tipo": "icona",
-     "icona": "galleon",
-     "lon": 123.9,
-     "lat": 10.3,
-     "parola": "Cebu"
-    },
-    {
-     "tipo": "nota",
-     "testo": "He sailed from Mexico",
-     "parola": "Mexico"
-    }
-   ],
-   "musica": "epico",
-   "stacco": false,
-   "pin": {
-    "lon": 126,
-    "lat": 8,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "That same year, the friar and navigator Andrés de Urdaneta found a way to sail back east across the Pacific.",
-   "anteprima": false,
-   "vista": {
-    "lon": -150,
-    "lat": 25,
-    "larghezza": 200
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "personaggio",
-     "nome": "Andrés de Urdaneta",
-     "descrizione": "16th-century Spanish friar and navigator, tonsure, dark habit",
-     "parola": "Andrés"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      121,
-      14.6
-     ],
-     "a": [
-      -99.9,
-      16.8
-     ],
-     "icona": "galleon",
-     "parola": "east"
-    },
-    {
-     "tipo": "nota",
-     "testo": "The return route was found",
-     "parola": "sail"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -150,
-    "lat": 45,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "That opened the Manila galleon route. For 250 years, one or two ships a year sailed between Manila and Acapulco.",
-   "anteprima": false,
-   "vista": {
-    "lon": -150,
-    "lat": 25,
-    "larghezza": 200
-   },
-   "epoca": "antica",
-   "oro": [
-    "MEX"
-   ],
-   "verde": [
-    "PHL"
-   ],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      120.9,
-      14.6
-     ],
-     "a": [
-      -99.9,
-      16.85
-     ],
-     "icona": "galleon",
-     "parola": "route"
-    },
-    {
-     "tipo": "conta",
-     "valore": 250,
-     "prefisso": "",
-     "suffisso": " YRS",
-     "sotto": "OF GALLEON TRADE",
-     "parola": "250"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "ACAPULCO",
-     "lon": -99.9,
-     "lat": 16.85,
-     "parola": "Acapulco"
-    },
-    {
-     "tipo": "nota",
-     "testo": "One or two ships a year",
-     "parola": "ships"
-    }
-   ],
-   "musica": "epico",
-   "stacco": false,
-   "pin": {
-    "lon": -150,
-    "lat": 40,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Each crossing took around four months. For most of that time, the islands were run from Mexico City, not from Spain.",
-   "anteprima": false,
-   "vista": {
-    "lon": -20,
-    "lat": 25,
-    "larghezza": 280
-   },
-   "epoca": "antica",
-   "oro": [
-    "MEX"
-   ],
-   "verde": [
-    "PHL"
-   ],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 4,
-     "prefisso": "~",
-     "suffisso": " MONTHS",
-     "sotto": "PER CROSSING",
-     "parola": "four"
-    },
-    {
-     "tipo": "icona",
-     "icona": "castle",
-     "lon": -99.1,
-     "lat": 19.4,
-     "parola": "Mexico"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -99.1,
-      19.4
-     ],
-     "a": [
-      121,
-      14.6
-     ],
-     "icona": "scroll_law",
-     "parola": "run"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Ruled from Mexico City",
-     "parola": "run"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -20,
-    "lat": 50,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "So the islands were a colony of a colony, hanging at the far end of a very long rope.",
-   "anteprima": false,
-   "vista": {
-    "lon": 60,
-    "lat": 25,
-    "larghezza": 240
-   },
-   "epoca": "antica",
-   "oro": [
-    "ESP"
-   ],
-   "verde": [
-    "PHL"
-   ],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      -3.7,
-      40.4
-     ],
-     "a": [
-      -99.1,
-      19.4
-     ],
-     "icona": "scroll_law",
-     "parola": "colony"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -99.1,
-      19.4
-     ],
-     "a": [
-      121,
-      14.6
-     ],
-     "icona": "scroll_law",
-     "parola": "rope"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "COLONY OF A COLONY",
-     "parola": "colony"
-    },
-    {
-     "tipo": "nota",
-     "testo": "A very long chain of command",
-     "parola": "rope"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 60,
-    "lat": 50,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "That distance decided who went there, and the answer is hardly anyone. In the 1600s, only about 600 settlers came from Spain itself.",
-   "anteprima": false,
-   "vista": {
-    "lon": 60,
-    "lat": 25,
-    "larghezza": 240
-   },
-   "epoca": "antica",
-   "oro": [
-    "ESP"
-   ],
-   "verde": [
-    "PHL"
-   ],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "colonist",
-     "n": 3,
-     "lon": -3.7,
-     "lat": 40.4,
-     "parola": "Spain"
-    },
-    {
-     "tipo": "conta",
-     "valore": 600,
-     "prefisso": "~",
-     "suffisso": "",
-     "sotto": "SETTLERS FROM SPAIN",
-     "parola": "600"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "HARDLY ANYONE",
-     "parola": "anyone"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Spain sent very few people",
-     "parola": "hardly"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": 60,
-    "lat": 50,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "One estimate counts about 15,600 settlers from Mexico and Peru. The islands themselves held roughly 667,000 people.",
-   "anteprima": false,
-   "vista": {
-    "lon": -20,
-    "lat": 15,
-    "larghezza": 280
-   },
-   "epoca": "antica",
-   "oro": [
-    "MEX",
-    "PER"
-   ],
-   "verde": [
-    "PHL"
-   ],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 15600,
-     "prefisso": "~",
-     "suffisso": "",
-     "sotto": "SETTLERS FROM MEXICO AND PERU",
-     "parola": "15,600"
-    },
-    {
-     "tipo": "conta",
-     "valore": 667000,
-     "prefisso": "~",
-     "suffisso": "",
-     "sotto": "PEOPLE IN THE PHILIPPINES",
-     "parola": "667,000"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -99.1,
-      19.4
-     ],
-     "a": [
-      121,
-      14.6
-     ],
-     "icona": "galleon",
-     "parola": "Mexico"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Settlers outnumbered 40 to 1",
-     "parola": "islands"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -20,
-    "lat": 45,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Most of those settlers stayed in or around Manila. A Filipino farmer could go a whole life without meeting a Spanish speaker.",
-   "anteprima": false,
-   "vista": {
-    "lon": 121,
-    "lat": 14,
-    "larghezza": 12
-   },
-   "epoca": "antica",
-   "oro": [
-    "PHL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "colonist",
-     "n": 5,
-     "lon": 120.98,
-     "lat": 14.6,
-     "parola": "Manila"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "peasant",
-     "n": 4,
-     "lon": 121.5,
-     "lat": 16.5,
-     "parola": "farmer"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Spanish stayed in Manila",
-     "parola": "stayed"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 123.5,
-    "lat": 12.5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "In Mexico, Spanish speakers spread across towns, farms, and mines. Spanish became the language people used every day, everywhere.",
-   "anteprima": false,
-   "vista": {
-    "lon": -102,
-    "lat": 23,
-    "larghezza": 30
-   },
-   "epoca": "antica",
-   "oro": [
-    "MEX"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "mine",
-     "lon": -101,
-     "lat": 21,
-     "parola": "mines"
-    },
-    {
-     "tipo": "icona",
-     "icona": "farm",
-     "lon": -99.5,
-     "lat": 19.8,
-     "parola": "farms"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "colonist",
-     "n": 5,
-     "lon": -103.3,
-     "lat": 20.7,
-     "parola": "towns"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Spanish spread across Mexico",
-     "parola": "spread"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -95,
-    "lat": 28,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Then there is the geography. The Philippines has more than 7,000 islands, and before the Spanish came, they did not share one language.",
-   "anteprima": false,
-   "vista": {
-    "lon": 122,
-    "lat": 12,
-    "larghezza": 22
-   },
-   "epoca": "antica",
-   "oro": [
-    "PHL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 7000,
-     "prefisso": "",
-     "suffisso": "+",
-     "sotto": "ISLANDS",
-     "parola": "7,000"
-    },
-    {
-     "tipo": "icona",
-     "icona": "mountain",
-     "lon": 125.2,
-     "lat": 7.0,
-     "parola": "geography"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "NO COMMON TONGUE",
-     "parola": "share"
-    },
-    {
-     "tipo": "nota",
-     "testo": "No shared language",
-     "parola": "language"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": 127,
-    "lat": 8,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Over 100 languages are still spoken there today. Mountains and sea kept every island group, and sometimes every valley, apart.",
-   "anteprima": false,
-   "vista": {
-    "lon": 122,
-    "lat": 12,
-    "larghezza": 20
-   },
-   "epoca": "antica",
-   "oro": [
-    "PHL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 100,
-     "prefisso": "",
-     "suffisso": "+",
-     "sotto": "LANGUAGES TODAY",
-     "parola": "100"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "TAGALOG",
-     "lon": 121,
-     "lat": 14,
-     "parola": "island"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "CEBUANO",
-     "lon": 123.9,
-     "lat": 10.3,
-     "parola": "valley"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "ILOCANO",
-     "lon": 120.5,
-     "lat": 17.5,
-     "parola": "sea"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 126,
-    "lat": 15,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "For a tiny colonial government, that was a nightmare. The obvious fix was to teach everyone Spanish so they had something in common.",
-   "anteprima": false,
-   "vista": {
-    "lon": 121,
-    "lat": 13,
-    "larghezza": 16
-   },
-   "epoca": "antica",
-   "oro": [
-    "PHL"
-   ],
-   "verde": [
-    "ESP"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "question",
-     "lon": 121,
-     "lat": 14,
-     "parola": "nightmare"
-    },
-    {
-     "tipo": "icona",
-     "icona": "school",
-     "lon": 120.98,
-     "lat": 14.6,
-     "parola": "teach"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Plan: teach everyone Spanish",
-     "parola": "fix"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 124,
-    "lat": 11,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Spain's kings agreed. Over the centuries, the crown sent order after order saying the locals must learn Spanish. Most went nowhere.",
-   "anteprima": false,
-   "vista": {
-    "lon": 60,
-    "lat": 25,
-    "larghezza": 240
-   },
-   "epoca": "antica",
-   "oro": [
-    "ESP"
-   ],
-   "verde": [
-    "PHL"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "crown",
-     "lon": -3.7,
-     "lat": 40.4,
-     "parola": "kings"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -3.7,
-      40.4
-     ],
-     "a": [
-      121,
-      14.6
-     ],
-     "icona": "scroll_law",
-     "parola": "order"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "IGNORED",
-     "parola": "nowhere"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Royal orders mostly ignored",
-     "parola": "nowhere"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 60,
-    "lat": 50,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "To see why, meet the people who really ran the islands. Outside Manila, Spain barely had a government at all.",
-   "anteprima": false,
-   "vista": {
-    "lon": 121,
-    "lat": 14,
-    "larghezza": 16
-   },
-   "epoca": "antica",
-   "oro": [
-    "PHL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "etichetta",
-     "testo": "MANILA",
-     "lon": 120.98,
-     "lat": 14.6,
-     "parola": "Manila"
-    },
-    {
-     "tipo": "icona",
-     "icona": "question",
-     "lon": 122.5,
-     "lat": 12.5,
-     "parola": "government"
-    },
-    {
-     "tipo": "nota",
-     "testo": "No real government outside Manila",
-     "parola": "barely"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": 124,
-    "lat": 11,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "What it had were friars, Catholic missionaries from the Augustinians, Franciscans, Dominicans, and Jesuits. In many towns, the friar was the only Spaniard anyone saw.",
-   "anteprima": false,
-   "vista": {
-    "lon": 121.5,
-    "lat": 13,
-    "larghezza": 16
-   },
-   "epoca": "antica",
-   "oro": [
-    "PHL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "colonist",
-     "n": 3,
-     "lon": 121.2,
-     "lat": 14.1,
-     "parola": "friars"
-    },
-    {
-     "tipo": "icona",
-     "icona": "church",
-     "lon": 122.5,
-     "lat": 13,
-     "parola": "missionaries"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "4 ORDERS",
-     "lon": 123,
-     "lat": 11.5,
-     "parola": "Jesuits"
-    },
-    {
-     "tipo": "nota",
-     "testo": "The friar was the only Spaniard",
-     "parola": "only"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 125,
-    "lat": 10,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Spaniards were banned from living in native villages unless they were friars. So the friar was the government, the school, and the church at once.",
-   "anteprima": false,
-   "vista": {
-    "lon": 121.5,
-    "lat": 13,
-    "larghezza": 14
-   },
-   "epoca": "antica",
-   "oro": [
-    "PHL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "church",
-     "lon": 121.5,
-     "lat": 13.5,
-     "parola": "church"
-    },
-    {
-     "tipo": "icona",
-     "icona": "school",
-     "lon": 122,
-     "lat": 12.8,
-     "parola": "school"
-    },
-    {
-     "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": 121,
-     "lat": 12.5,
-     "parola": "government"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "ONE MAN",
-     "parola": "banned"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Friar: law, school, church",
-     "parola": "friar"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 124,
-    "lat": 11,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "To convert people, friars learned local languages, and the crown required it. In 1593, one of the first books printed there was in Spanish and Tagalog.",
-   "anteprima": false,
-   "vista": {
-    "lon": 121,
-    "lat": 14.3,
-    "larghezza": 8
-   },
-   "epoca": "antica",
-   "oro": [
-    "PHL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1593",
-     "parola": "1593"
-    },
-    {
-     "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": 120.98,
-     "lat": 14.6,
-     "parola": "books"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "SPANISH + TAGALOG",
-     "lon": 121.3,
-     "lat": 14.0,
-     "parola": "Tagalog"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Early book in two languages",
-     "parola": "printed"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": 122.6,
-    "lat": 13,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Over time, many friars noticed something. Being the only person who spoke both languages gave them real power.",
-   "anteprima": false,
-   "vista": {
-    "lon": 121.5,
-    "lat": 13.5,
-    "larghezza": 12
-   },
-   "epoca": "antica",
-   "oro": [
-    "PHL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "colonist",
-     "n": 2,
-     "lon": 121.5,
-     "lat": 13.5,
-     "parola": "friars"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "POWER",
-     "parola": "power"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Two languages meant control",
-     "parola": "both"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": 123,
-    "lat": 12,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "A villager with a complaint about a tax or a landlord went through the friar. A Spanish official's message went through him, too.",
-   "anteprima": false,
-   "vista": {
-    "lon": 121.5,
-    "lat": 13.5,
-    "larghezza": 10
-   },
-   "epoca": "antica",
-   "oro": [
-    "PHL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "peasant",
-     "n": 4,
-     "lon": 120.9,
-     "lat": 13.2,
-     "parola": "villager"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      120.9,
-      13.2
-     ],
-     "a": [
-      121.5,
-      13.8
-     ],
-     "icona": "scroll_law",
-     "parola": "complaint"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      120.98,
-      14.6
-     ],
-     "a": [
-      121.5,
-      13.8
-     ],
-     "icona": "scroll_law",
-     "parola": "official's"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Every message passed the friar",
-     "parola": "through"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 123,
-    "lat": 12,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "If everyone learned Spanish, nobody would need the friar. Some also feared that readers would find Spanish ideas about rights and equality.",
-   "anteprima": false,
-   "vista": {
-    "lon": 121.5,
-    "lat": 13.5,
-    "larghezza": 12
-   },
-   "epoca": "antica",
-   "oro": [
-    "PHL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "question",
-     "lon": 121.5,
-     "lat": 13.8,
-     "parola": "nobody"
-    },
-    {
-     "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": 122,
-     "lat": 13,
-     "parola": "rights"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Friars feared losing control",
-     "parola": "feared"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 123.5,
-    "lat": 11.5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "So when orders came to teach the language, many friars dragged their feet or quietly ignored them. That surprised me most.",
-   "anteprima": false,
-   "vista": {
-    "lon": 121.5,
-    "lat": 13.5,
-    "larghezza": 14
-   },
-   "epoca": "antica",
-   "oro": [
-    "PHL"
-   ],
-   "verde": [
-    "ESP"
-   ],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      -3.7,
-      40.4
-     ],
-     "a": [
-      121.5,
-      13.5
-     ],
-     "icona": "scroll_law",
-     "parola": "orders"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "IGNORED",
-     "parola": "ignored"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Friars slowed their own king's plan",
-     "parola": "ignored"
-    }
-   ],
-   "musica": "",
-   "stacco": true,
-   "pin": {
-    "lon": 123.5,
-    "lat": 11.5,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "One of the biggest brakes on Spanish in the Philippines was Spain's own missionaries.",
-   "anteprima": false,
-   "vista": {
-    "lon": 121.5,
-    "lat": 13,
-    "larghezza": 20
-   },
-   "epoca": "antica",
-   "oro": [
-    "PHL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "scritta",
-     "testo": "THE BRAKE",
-     "parola": "brakes"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "colonist",
-     "n": 3,
-     "lon": 121.5,
-     "lat": 13,
-     "parola": "missionaries"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Spain's friars held it back",
-     "parola": "own"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 125,
-    "lat": 10,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "In 1863, Spain finally opened free public primary schools taught in Spanish. Even then, fewer than 3 percent of Filipinos could speak it.",
-   "anteprima": false,
-   "vista": {
-    "lon": 121,
-    "lat": 14,
-    "larghezza": 14
-   },
-   "epoca": "antica",
-   "oro": [
-    "PHL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1863",
-     "parola": "1863"
-    },
-    {
-     "tipo": "icona",
-     "icona": "school",
-     "lon": 120.98,
-     "lat": 14.6,
-     "parola": "schools"
-    },
-    {
-     "tipo": "contatore",
-     "testo": "UNDER 3 IN 100",
-     "su": 3,
-     "di": 100,
-     "personaggio": "student",
-     "parola": "percent"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Under 3 percent spoke Spanish",
-     "parola": "fewer"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 123.5,
-    "lat": 12,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "By the end of Spanish rule, estimates ranged from 3 to 10 percent. Almost all were educated people living in towns.",
-   "anteprima": false,
-   "vista": {
-    "lon": 121,
-    "lat": 14,
-    "larghezza": 14
-   },
-   "epoca": "antica",
-   "oro": [
-    "PHL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "contatore",
-     "testo": "3 TO 10 IN 100",
-     "su": 10,
-     "di": 100,
-     "personaggio": "student",
-     "parola": "percent"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "student",
-     "n": 4,
-     "lon": 120.98,
-     "lat": 14.6,
-     "parola": "educated"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Mostly educated townspeople",
-     "parola": "towns"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 123.5,
-    "lat": 12,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Yet that small group made it count. Filipinos like Jose Rizal wrote books and newspapers in Spanish. They were called the ilustrados.",
+   "testo": "If good land made countries rich, the richest places would be green and gentle, with deep soil, big rivers and mild weather.",
    "anteprima": false,
    "vista": {
     "lon": 10,
-    "lat": 35,
-    "larghezza": 240
-   },
-   "epoca": "antica",
-   "oro": [
-    "PHL"
-   ],
-   "verde": [
-    "ESP"
-   ],
-   "eventi": [
-    {
-     "tipo": "personaggio",
-     "nome": "Jose Rizal",
-     "descrizione": "19th-century Filipino doctor and writer, round glasses, dark suit",
-     "parola": "Rizal"
-    },
-    {
-     "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": 120.98,
-     "lat": 14.6,
-     "parola": "newspapers"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "ILUSTRADOS",
-     "lon": 2,
-     "lat": 41,
-     "parola": "ilustrados"
-    },
-    {
-     "tipo": "nota",
-     "testo": "The enlightened ones wrote in Spanish",
-     "parola": "ilustrados"
-    }
-   ],
-   "musica": "epico",
-   "stacco": false,
-   "pin": {
-    "lon": 60,
-    "lat": 55,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "They used Spanish to push for reform and then independence. On June 12, 1898, Emilio Aguinaldo declared independence in Spanish.",
-   "anteprima": false,
-   "vista": {
-    "lon": 120.9,
-    "lat": 14.2,
-    "larghezza": 8
-   },
-   "epoca": "antica",
-   "oro": [
-    "PHL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1898",
-     "parola": "1898"
-    },
-    {
-     "tipo": "personaggio",
-     "nome": "Emilio Aguinaldo",
-     "descrizione": "Filipino revolutionary leader, 1898, uniform, mustache",
-     "parola": "Aguinaldo"
-    },
-    {
-     "tipo": "icona",
-     "icona": "flag:PH",
-     "lon": 120.78,
-     "lat": 14.18,
-     "parola": "independence"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Independence declared in Spanish",
-     "parola": "Spanish"
-    }
-   ],
-   "musica": "trionfo",
-   "stacco": false,
-   "pin": {
-    "lon": 122.5,
-    "lat": 12.5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "The new republic even wrote its government in Spanish. By 1898, it was becoming the language of a Filipino nation, at least among its leaders.",
-   "anteprima": false,
-   "vista": {
-    "lon": 121,
-    "lat": 14,
-    "larghezza": 14
-   },
-   "epoca": "antica",
-   "oro": [
-    "PHL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "parliament",
-     "lon": 120.9,
-     "lat": 14.8,
-     "parola": "republic"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "politician",
-     "n": 4,
-     "lon": 120.9,
-     "lat": 14.8,
-     "parola": "leaders"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Spanish for a Filipino republic",
-     "parola": "nation"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 123.5,
-    "lat": 12,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Then the Americans arrived. In May 1898, a US fleet destroyed the Spanish fleet in Manila Bay.",
-   "anteprima": false,
-   "vista": {
-    "lon": 120.8,
-    "lat": 14.5,
-    "larghezza": 6
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [
-    "ESP"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1898",
-     "parola": "May"
-    },
-    {
-     "tipo": "icona",
-     "icona": "cannon",
-     "lon": 120.75,
-     "lat": 14.5,
-     "parola": "destroyed"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      119.5,
-      13.8
-     ],
-     "a": [
-      120.8,
-      14.5
-     ],
-     "icona": "cargo_ship",
-     "parola": "fleet"
-    },
-    {
-     "tipo": "nota",
-     "testo": "US fleet sank Spain's fleet",
-     "parola": "destroyed"
-    }
-   ],
-   "musica": "azione",
-   "stacco": false,
-   "pin": {
-    "lon": 122.5,
-    "lat": 15.5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "After the war, Spain handed the islands to the United States. The Americans then fought the new Filipino republic until 1902.",
-   "anteprima": false,
-   "vista": {
-    "lon": 121,
-    "lat": 14,
-    "larghezza": 16
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [
-    "PHL"
-   ],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      -3.7,
-      40.4
-     ],
-     "a": [
-      -77,
-      38.9
-     ],
-     "icona": "scroll_law",
-     "parola": "handed"
-    },
-    {
-     "tipo": "icona",
-     "icona": "swords",
-     "lon": 121,
-     "lat": 14.6,
-     "parola": "fought"
-    },
-    {
-     "tipo": "anno",
-     "testo": "1902",
-     "parola": "1902"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Spain handed islands to the US",
-     "parola": "handed"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": 123.5,
-    "lat": 12,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "That war cost hundreds of thousands of lives. Once in control, America did what Spain never managed. It went after the schools.",
-   "anteprima": false,
-   "vista": {
-    "lon": 121,
-    "lat": 14,
-    "larghezza": 14
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [
-    "PHL"
-   ],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 200000,
-     "prefisso": "HUNDREDS OF ",
-     "suffisso": "S",
-     "sotto": "LIVES LOST",
-     "parola": "hundreds"
-    },
-    {
-     "tipo": "icona",
-     "icona": "school",
-     "lon": 120.98,
-     "lat": 14.6,
-     "parola": "schools"
-    },
-    {
-     "tipo": "nota",
-     "testo": "America targeted the schools",
-     "parola": "schools"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 123.5,
-    "lat": 12,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "In July 1901, a US Army transport called the Thomas left San Francisco carrying about 500 American teachers.",
-   "anteprima": false,
-   "vista": {
-    "lon": -140,
     "lat": 30,
-    "larghezza": 120
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1901",
-     "parola": "1901"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -122.4,
-      37.8
-     ],
-     "a": [
-      -157.9,
-      21.3
-     ],
-     "icona": "cargo_ship",
-     "parola": "left"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "student",
-     "n": 5,
-     "lon": -122.4,
-     "lat": 37.8,
-     "parola": "teachers"
-    },
-    {
-     "tipo": "conta",
-     "valore": 500,
-     "prefisso": "~",
-     "suffisso": "",
-     "sotto": "AMERICAN TEACHERS",
-     "parola": "500"
-    },
-    {
-     "tipo": "nota",
-     "testo": "The ship USAT Thomas",
-     "parola": "Thomas"
-    }
-   ],
-   "musica": "epico",
-   "stacco": false,
-   "pin": {
-    "lon": -140,
-    "lat": 50,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "It stopped in Hawaii and reached Manila on August 21. Filipinos called the teachers the Thomasites, after the ship.",
-   "anteprima": false,
-   "vista": {
-    "lon": -10,
-    "lat": 20,
-    "larghezza": 330
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [
-    "PHL"
-   ],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      -157.9,
-      21.3
-     ],
-     "a": [
-      120.98,
-      14.6
-     ],
-     "icona": "cargo_ship",
-     "parola": "reached"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "HAWAII",
-     "lon": -157.9,
-     "lat": 21.3,
-     "parola": "Hawaii"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "THOMASITES",
-     "parola": "Thomasites"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Arrived in Manila August 21",
-     "parola": "Manila"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -10,
-    "lat": 50,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "By 1902, over a thousand American teachers were in the islands. They took over the schools Spain had started and switched them to English.",
-   "anteprima": false,
-   "vista": {
-    "lon": 121,
-    "lat": 14,
-    "larghezza": 14
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [
-    "PHL"
-   ],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 1000,
-     "prefisso": "",
-     "suffisso": "+",
-     "sotto": "US TEACHERS BY 1902",
-     "parola": "thousand"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "student",
-     "n": 6,
-     "lon": 120.98,
-     "lat": 14.6,
-     "parola": "teachers"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "ENGLISH",
-     "lon": 121.5,
-     "lat": 13.2,
-     "parola": "English"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Schools switched to English",
-     "parola": "switched"
-    }
-   ],
-   "musica": "azione",
-   "stacco": false,
-   "pin": {
-    "lon": 123.5,
-    "lat": 12,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Spain had relied on about 2,000 clergy, many unwilling to share their language. America sent teachers whose whole job was to spread theirs.",
-   "anteprima": false,
-   "vista": {
-    "lon": 121,
-    "lat": 13.5,
-    "larghezza": 16
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [
-    "ESP"
-   ],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 2000,
-     "prefisso": "~",
-     "suffisso": "",
-     "sotto": "SPANISH CLERGY",
-     "parola": "2,000"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "colonist",
-     "n": 3,
-     "lon": 121.3,
-     "lat": 14.2,
-     "parola": "clergy"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "student",
-     "n": 4,
-     "lon": 120.7,
-     "lat": 13.2,
-     "parola": "teachers"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Teachers, not friars, spread English",
-     "parola": "teachers"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 123.5,
-    "lat": 11.5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "English was also the key to jobs in the new government, giving every family a reason to learn it.",
-   "anteprima": false,
-   "vista": {
-    "lon": 121,
-    "lat": 14,
-    "larghezza": 12
-   },
-   "epoca": "antica",
-   "oro": [
-    "PHL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "parliament",
-     "lon": 120.98,
-     "lat": 14.58,
-     "parola": "government"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "family",
-     "n": 4,
-     "lon": 121.2,
-     "lat": 14.3,
-     "parola": "family"
-    },
-    {
-     "tipo": "nota",
-     "testo": "English meant government jobs",
-     "parola": "jobs"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 123,
-    "lat": 12.5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "It worked fast. Within a couple of generations, English was the language of school, law, and business.",
-   "anteprima": false,
-   "vista": {
-    "lon": 121,
-    "lat": 14,
-    "larghezza": 16
-   },
-   "epoca": "oggi",
-   "oro": [
-    "PHL"
-   ],
-   "verde": [
-    "USA"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "school",
-     "lon": 120.98,
-     "lat": 14.6,
-     "parola": "school"
-    },
-    {
-     "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": 121.3,
-     "lat": 14.3,
-     "parola": "law"
-    },
-    {
-     "tipo": "icona",
-     "icona": "banknotes",
-     "lon": 121.03,
-     "lat": 14.55,
-     "parola": "business"
-    },
-    {
-     "tipo": "nota",
-     "testo": "English took over public life",
-     "parola": "English"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 123.5,
-    "lat": 12,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Spanish did not vanish at once. It stayed official alongside English, and old families in parts of Manila kept speaking it at home.",
-   "anteprima": false,
-   "vista": {
-    "lon": 120.98,
-    "lat": 14.58,
-    "larghezza": 3
-   },
-   "epoca": "antica",
-   "oro": [
-    "PHL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "family",
-     "n": 4,
-     "lon": 120.97,
-     "lat": 14.59,
-     "parola": "families"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "INTRAMUROS",
-     "lon": 120.97,
-     "lat": 14.59,
-     "parola": "Manila"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Spanish lived on at home",
-     "parola": "home"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": 121.05,
-    "lat": 14.52,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Then came the Second World War. In February 1945, American and Japanese forces fought street by street for Manila.",
-   "anteprima": false,
-   "vista": {
-    "lon": 120.98,
-    "lat": 14.58,
-    "larghezza": 3
-   },
-   "epoca": "oggi",
-   "oro": [
-    "USA"
-   ],
-   "verde": [
-    "JPN"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1945",
-     "parola": "1945"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "soldier",
-     "n": 5,
-     "lon": 120.97,
-     "lat": 14.59,
-     "parola": "fought"
-    },
-    {
-     "tipo": "icona",
-     "icona": "cannon",
-     "lon": 120.98,
-     "lat": 14.58,
-     "parola": "street"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Battle of Manila, February 1945",
-     "parola": "February"
-    }
-   ],
-   "musica": "tension",
-   "stacco": false,
-   "pin": {
-    "lon": 121.05,
-    "lat": 14.52,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Around 100,000 civilians were killed. By some counts, Manila became the second most destroyed city of the war, after Warsaw.",
-   "anteprima": false,
-   "vista": {
-    "lon": 120.98,
-    "lat": 14.58,
-    "larghezza": 3
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 100000,
-     "prefisso": "~",
-     "suffisso": "",
-     "sotto": "CIVILIANS KILLED",
-     "parola": "100,000"
-    },
-    {
-     "tipo": "icona",
-     "icona": "grave",
-     "lon": 120.99,
-     "lat": 14.57,
-     "parola": "killed"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "NO.2 AFTER WARSAW",
-     "parola": "Warsaw"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Second most destroyed city",
-     "parola": "second"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": true,
-   "pin": {
-    "lon": 121.05,
-    "lat": 14.53,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "The worst fighting hit Intramuros, Ermita, and Malate. According to historian Florentino Rodao, only there was Spanish still the everyday street language.",
-   "anteprima": false,
-   "vista": {
-    "lon": 120.98,
-    "lat": 14.58,
-    "larghezza": 1.5
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "etichetta",
-     "testo": "INTRAMUROS",
-     "lon": 120.97,
-     "lat": 14.59,
-     "parola": "Intramuros"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "ERMITA",
-     "lon": 120.985,
-     "lat": 14.58,
-     "parola": "Ermita"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "MALATE",
-     "lon": 120.99,
-     "lat": 14.57,
-     "parola": "Malate"
-    },
-    {
-     "tipo": "personaggio",
-     "nome": "Florentino Rodao",
-     "descrizione": "Spanish historian of the Philippines, glasses, grey hair",
-     "parola": "Rodao"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Last Spanish-speaking streets",
-     "parola": "only"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 121.02,
-    "lat": 14.55,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Hundreds of Spaniards died, along with many Filipino families who spoke Spanish at home. The neighborhoods that kept the language alive were gone.",
-   "anteprima": false,
-   "vista": {
-    "lon": 120.98,
-    "lat": 14.58,
-    "larghezza": 3
+    "larghezza": 300
    },
    "epoca": "oggi",
    "oro": [],
@@ -2346,655 +126,3560 @@
    "eventi": [
     {
      "tipo": "icona",
-     "icona": "grave",
-     "lon": 120.97,
-     "lat": 14.59,
-     "parola": "died"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "family",
-     "n": 4,
-     "lon": 120.99,
-     "lat": 14.57,
-     "parola": "families"
-    },
-    {
-     "tipo": "nota",
-     "testo": "The Spanish-speaking districts vanished",
-     "parola": "gone"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": 121.05,
-    "lat": 14.53,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "After that, Spanish faded quickly. In 1987, a new constitution dropped it as an official language.",
-   "anteprima": false,
-   "vista": {
-    "lon": 121,
-    "lat": 13,
-    "larghezza": 20
-   },
-   "epoca": "oggi",
-   "oro": [
-    "PHL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1987",
-     "parola": "1987"
+     "icona": "farm",
+     "lon": 2,
+     "lat": 47,
+     "parola": "green"
     },
     {
      "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": 121,
-     "lat": 14.6,
-     "parola": "constitution"
-    },
-    {
-     "tipo": "chart_down",
-     "tipo2": "",
-     "parola": "faded"
+     "icona": "river",
+     "lon": 30,
+     "lat": 0,
+     "parola": "rivers"
     },
     {
      "tipo": "nota",
-     "testo": "Spanish lost official status",
-     "parola": "dropped"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 124,
-    "lat": 10,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Today, around 400,000 Filipinos speak it well. In a country of over 100 million, that is a tiny fraction.",
-   "anteprima": false,
-   "vista": {
-    "lon": 121,
-    "lat": 13,
-    "larghezza": 20
-   },
-   "epoca": "oggi",
-   "oro": [
-    "PHL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 400000,
-     "prefisso": "~",
-     "suffisso": "",
-     "sotto": "FLUENT SPANISH SPEAKERS",
-     "parola": "400,000"
-    },
-    {
-     "tipo": "numero",
-     "testo": "100M+",
-     "lon": 121,
-     "lat": 13,
-     "parola": "million"
-    },
-    {
-     "tipo": "nota",
-     "testo": "A tiny fraction of the country",
-     "parola": "tiny"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 124,
-    "lat": 10,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "That sounds like the end of the story. Except Filipinos still use Spanish every day without noticing.",
-   "anteprima": false,
-   "vista": {
-    "lon": 121,
-    "lat": 13,
-    "larghezza": 16
-   },
-   "epoca": "oggi",
-   "oro": [
-    "PHL"
-   ],
-   "verde": [
-    "ESP"
-   ],
-   "eventi": [
-    {
-     "tipo": "scritta",
-     "testo": "NOT OVER",
-     "parola": "Except"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "family",
-     "n": 4,
-     "lon": 121,
-     "lat": 14.3,
-     "parola": "Filipinos"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Spanish lives on in daily speech",
-     "parola": "everyday"
+     "testo": "Good land should mean riches",
+     "parola": "rich"
     }
    ],
    "musica": "curiosita",
    "stacco": false,
    "pin": {
-    "lon": 124,
-    "lat": 10,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Ask the time in Manila and you will hear alas dos for 2:00, from the Spanish. Prices use Spanish numbers too, so 12 pesos is dos.",
-   "anteprima": false,
-   "vista": {
-    "lon": 121,
-    "lat": 14.5,
-    "larghezza": 6
-   },
-   "epoca": "oggi",
-   "oro": [
-    "PHL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "etichetta",
-     "testo": "ALAS DOS = 2:00",
-     "lon": 120.98,
-     "lat": 14.6,
-     "parola": "alas"
-    },
-    {
-     "tipo": "icona",
-     "icona": "banknotes",
-     "lon": 121.05,
-     "lat": 14.55,
-     "parola": "pesos"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "12 PESOS = DOS",
-     "lon": 121.1,
-     "lat": 14.5,
-     "parola": "dos"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Spanish time and prices",
-     "parola": "Spanish"
-    }
-   ],
-   "musica": "quotidiano",
-   "stacco": false,
-   "pin": {
-    "lon": 121.3,
-    "lat": 14.3,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Six of the seven days of the week in Tagalog come from Spanish, and all twelve months do.",
-   "anteprima": false,
-   "vista": {
-    "lon": 121,
-    "lat": 14,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [
-    "PHL"
-   ],
-   "verde": [
-    "ESP"
-   ],
-   "eventi": [
-    {
-     "tipo": "contatore",
-     "testo": "6 IN 7 DAYS",
-     "su": 6,
-     "di": 7,
-     "personaggio": "worker",
-     "parola": "Six"
-    },
-    {
-     "tipo": "conta",
-     "valore": 12,
-     "prefisso": "",
-     "suffisso": " OF 12",
-     "sotto": "MONTHS FROM SPANISH",
-     "parola": "twelve"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Calendar words are Spanish",
-     "parola": "months"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 123,
-    "lat": 12,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Tagalog holds thousands of Spanish words, like mesa for table, kotse for car, and pamilya for family.",
-   "anteprima": false,
-   "vista": {
-    "lon": 121,
-    "lat": 14,
-    "larghezza": 8
-   },
-   "epoca": "oggi",
-   "oro": [
-    "PHL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "etichetta",
-     "testo": "MESA = TABLE",
-     "lon": 120.9,
-     "lat": 14.8,
-     "parola": "mesa"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "KOTSE = CAR",
-     "lon": 121.1,
-     "lat": 14.5,
-     "parola": "kotse"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "PAMILYA = FAMILY",
-     "lon": 121.3,
-     "lat": 14.2,
-     "parola": "pamilya"
-    },
-    {
-     "tipo": "conta",
-     "valore": 4000,
-     "prefisso": "~",
-     "suffisso": "+",
-     "sotto": "SPANISH WORDS IN TAGALOG",
-     "parola": "thousands"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 122.8,
-    "lat": 13,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Then there are surnames. In 1849, Governor Narciso Claveria ordered families to pick fixed surnames from an official catalog, mostly Spanish.",
-   "anteprima": false,
-   "vista": {
-    "lon": 121,
-    "lat": 14,
-    "larghezza": 12
-   },
-   "epoca": "antica",
-   "oro": [
-    "PHL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1849",
-     "parola": "1849"
-    },
-    {
-     "tipo": "personaggio",
-     "nome": "Narciso Claveria",
-     "descrizione": "19th-century Spanish governor-general, uniform, side whiskers",
-     "parola": "Claveria"
-    },
-    {
-     "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": 120.98,
-     "lat": 14.6,
-     "parola": "catalog"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Surnames assigned from a catalog",
-     "parola": "catalog"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 123,
-    "lat": 12,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "That is why so many Filipinos are named Santos, Reyes, or de la Cruz without a drop of Spanish ancestry.",
-   "anteprima": false,
-   "vista": {
-    "lon": 121,
-    "lat": 14,
-    "larghezza": 12
-   },
-   "epoca": "oggi",
-   "oro": [
-    "PHL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "etichetta",
-     "testo": "SANTOS",
-     "lon": 120.9,
-     "lat": 14.8,
-     "parola": "Santos"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "REYES",
-     "lon": 121.2,
-     "lat": 14.4,
-     "parola": "Reyes"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "DE LA CRUZ",
-     "lon": 121.4,
-     "lat": 14.0,
-     "parola": "Cruz"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "family",
-     "n": 4,
-     "lon": 121,
-     "lat": 14.3,
-     "parola": "Filipinos"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Spanish names, local ancestry",
-     "parola": "ancestry"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 123,
-    "lat": 12,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "And in Zamboanga, at the southwestern tip of Mindanao, people speak Chavacano, a language of Spanish words with local grammar.",
-   "anteprima": false,
-   "vista": {
-    "lon": 122,
-    "lat": 7.5,
-    "larghezza": 8
-   },
-   "epoca": "oggi",
-   "oro": [
-    "PHL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "etichetta",
-     "testo": "ZAMBOANGA",
-     "lon": 122.08,
-     "lat": 6.91,
-     "parola": "Zamboanga"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "family",
-     "n": 4,
-     "lon": 122.08,
-     "lat": 6.95,
-     "parola": "people"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "CHAVACANO",
-     "parola": "Chavacano"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Spanish words, local grammar",
-     "parola": "grammar"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": 124.5,
-    "lat": 9,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "It is the only Spanish-based Creole in Asia. Roughly a million people still speak it, though counts vary.",
-   "anteprima": false,
-   "vista": {
-    "lon": 100,
+    "lon": -30,
     "lat": 20,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "But look where the money actually is: a frozen coast, a desert with no rivers, a jungle, and land below the sea.",
+   "anteprima": false,
+   "vista": {
+    "lon": 20,
+    "lat": 40,
     "larghezza": 120
    },
    "epoca": "oggi",
    "oro": [
-    "PHL"
+    "NOR",
+    "QAT",
+    "GUY",
+    "NLD"
    ],
    "verde": [],
    "eventi": [
     {
      "tipo": "contorno",
-     "paese": "PHL",
-     "parola": "Asia"
+     "paese": "NOR",
+     "parola": "frozen"
     },
     {
-     "tipo": "conta",
-     "valore": 1000000,
-     "prefisso": "~",
-     "suffisso": "",
-     "sotto": "CHAVACANO SPEAKERS",
-     "parola": "million"
+     "tipo": "contorno",
+     "paese": "QAT",
+     "parola": "desert"
     },
     {
-     "tipo": "scritta",
-     "testo": "ONLY ONE",
-     "parola": "only"
+     "tipo": "contorno",
+     "paese": "NLD",
+     "parola": "below"
     },
     {
      "tipo": "nota",
-     "testo": "Asia's only Spanish Creole",
-     "parola": "only"
+     "testo": "Rich places, awful land",
+     "parola": "money"
     }
    ],
    "musica": "",
    "stacco": false,
    "pin": {
-    "lon": 100,
-    "lat": 40,
+    "lon": 0,
+    "lat": 55,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Compare that with Mexico, where about 99 in 100 people speak Spanish. Same empire, same centuries, utterly different result.",
+   "testo": "And one island was so short of land that it had to build more of itself. These are eight of the richest countries on Earth.",
    "anteprima": false,
    "vista": {
-    "lon": 10,
-    "lat": 15,
-    "larghezza": 330
+    "lon": 103.8,
+    "lat": 1.35,
+    "larghezza": 10
    },
    "epoca": "oggi",
    "oro": [
-    "MEX"
+    "SGP"
    ],
-   "verde": [
-    "PHL"
-   ],
+   "verde": [],
    "eventi": [
     {
-     "tipo": "barre",
-     "titolo": "SPANISH SPEAKERS (%)",
-     "voci": [
-      {
-       "testo": "MEXICO",
-       "valore": 99,
-       "lato": "oro"
-      },
-      {
-       "tipo": "",
-       "testo": "PHILIPPINES",
-       "valore": 0.5,
-       "lato": "verde"
-      }
-     ],
-     "parola": "Mexico"
+     "tipo": "icona",
+     "icona": "cargo_ship",
+     "lon": 103.9,
+     "lat": 1.25,
+     "parola": "island"
     },
     {
-     "tipo": "contatore",
-     "testo": "99 IN 100",
-     "su": 99,
-     "di": 100,
-     "personaggio": "family",
-     "parola": "99"
+     "tipo": "conta",
+     "valore": 8,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "RICHEST COUNTRIES",
+     "parola": "eight"
     },
     {
      "tipo": "nota",
-     "testo": "Same empire, opposite outcome",
-     "parola": "opposite"
+     "testo": "Ranked by buying power",
+     "parola": "richest"
     }
    ],
    "musica": "",
    "stacco": false,
    "pin": {
+    "lon": 104.6,
+    "lat": 2,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Here is the strange part. The terrible geography is not what they overcame. It is where the money came from.",
+   "anteprima": false,
+   "vista": {
     "lon": 10,
-    "lat": 45,
+    "lat": 30,
+    "larghezza": 300
+   },
+   "epoca": "oggi",
+   "oro": [
+    "AUS",
+    "ISL",
+    "NLD",
+    "GUY",
+    "QAT",
+    "NOR",
+    "LUX",
+    "SGP"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "scritta",
+     "testo": "STRANGE?",
+     "parola": "strange"
+    },
+    {
+     "tipo": "nota",
+     "testo": "The handicap became the fortune",
+     "parola": "money"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": true,
+   "pin": {
+    "lon": -100,
+    "lat": 30,
     "faccia": "stupito"
    }
   },
   {
-   "testo": "So Spain spent 333 years in the Philippines and never got most people speaking Spanish. Its words got in anyway, through the clock, the calendar, and people's own names.",
+   "testo": "Number eight. In 1938, Australia banned the export of its own iron ore, believing it simply did not have enough.",
    "anteprima": false,
    "vista": {
-    "lon": 121,
-    "lat": 13,
-    "larghezza": 24
+    "lon": 134,
+    "lat": -26,
+    "larghezza": 60
    },
    "epoca": "oggi",
    "oro": [
-    "PHL"
+    "AUS"
    ],
-   "verde": [
-    "ESP"
-   ],
+   "verde": [],
    "eventi": [
     {
-     "tipo": "numero",
-     "testo": "333",
-     "lon": 121,
-     "lat": 14,
-     "parola": "333"
+     "tipo": "anno",
+     "testo": "1938",
+     "parola": "1938"
     },
     {
      "tipo": "icona",
-     "icona": "hourglass",
-     "lon": 120.9,
-     "lat": 14.6,
-     "parola": "clock"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "SANTOS",
-     "lon": 121.5,
-     "lat": 13.2,
-     "parola": "names"
+     "icona": "mine",
+     "lon": 118,
+     "lat": -22.5,
+     "parola": "iron"
     },
     {
      "tipo": "nota",
-     "testo": "Words stayed, speakers did not",
-     "parola": "words"
+     "testo": "Australia banned iron exports",
+     "parola": "banned"
     }
    ],
-   "musica": "trionfo",
+   "musica": "curiosita",
    "stacco": false,
    "pin": {
-    "lon": 125,
-    "lat": 10,
+    "lon": 146,
+    "lat": -35,
     "faccia": "normale"
    }
   },
   {
-   "testo": "A Filipino who says they speak no Spanish has probably used a dozen Spanish words before lunch. Next time, why Brazil was only meant to be a thin strip of coast.",
+   "testo": "In truth it sat on one of the biggest iron deposits on Earth. The problem was the land on top.",
    "anteprima": false,
    "vista": {
-    "lon": 121,
-    "lat": 13,
+    "lon": 122,
+    "lat": -24,
+    "larghezza": 30
+   },
+   "epoca": "oggi",
+   "oro": [
+    "AUS"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "PILBARA",
+     "lon": 118.5,
+     "lat": -22.5,
+     "parola": "biggest"
+    },
+    {
+     "tipo": "icona",
+     "icona": "treasure_chest",
+     "lon": 119,
+     "lat": -23,
+     "parola": "deposits"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Treasure under empty land",
+     "parola": "land"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 130,
+    "lat": -30,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Australia is the driest inhabited continent, and its ten biggest deserts alone cover eighteen percent of the mainland.",
+   "anteprima": false,
+   "vista": {
+    "lon": 134,
+    "lat": -26,
+    "larghezza": 50
+   },
+   "epoca": "oggi",
+   "oro": [
+    "AUS"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "griglia",
+     "paese": [
+      "AUS"
+     ],
+     "pieni": 0.18,
+     "testo": "18% DESERT",
+     "colore": "oro",
+     "parola": "deserts"
+    },
+    {
+     "tipo": "conta",
+     "valore": 18,
+     "prefisso": "",
+     "suffisso": "%",
+     "sotto": "OF THE MAINLAND",
+     "parola": "eighteen"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Driest inhabited continent",
+     "parola": "driest"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 145,
+    "lat": -20,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Under that empty interior lies rock more than three billion years old, where iron built up into whole mountains of ore.",
+   "anteprima": false,
+   "vista": {
+    "lon": 120,
+    "lat": -23,
     "larghezza": 24
    },
    "epoca": "oggi",
    "oro": [
-    "PHL"
+    "AUS"
    ],
    "verde": [],
    "eventi": [
     {
      "tipo": "conta",
-     "valore": 12,
-     "prefisso": "~",
-     "suffisso": "+",
-     "sotto": "SPANISH WORDS BEFORE LUNCH",
-     "parola": "dozen"
+     "valore": 3,
+     "prefisso": "3+",
+     "suffisso": "B",
+     "sotto": "YEARS OLD",
+     "parola": "three"
     },
     {
      "tipo": "icona",
-     "icona": "question",
-     "lon": -48,
-     "lat": -15,
-     "parola": "Brazil"
+     "icona": "mountain",
+     "lon": 119.5,
+     "lat": -22.7,
+     "parola": "mountains"
     },
     {
      "tipo": "nota",
-     "testo": "Next: Brazil's thin coastal strip",
-     "parola": "Next"
+     "testo": "Mountains of iron ore",
+     "parola": "ore"
     }
    ],
    "musica": "",
    "stacco": false,
    "pin": {
-    "lon": 125,
+    "lon": 126,
+    "lat": -27,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In 1952, rancher Lang Hancock, forced by bad weather to fly low through a Pilbara gorge, saw walls of rust-red iron.",
+   "anteprima": false,
+   "vista": {
+    "lon": 118,
+    "lat": -22.5,
+    "larghezza": 12
+   },
+   "epoca": "oggi",
+   "oro": [
+    "AUS"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1952",
+     "parola": "1952"
+    },
+    {
+     "tipo": "personaggio",
+     "nome": "Lang Hancock",
+     "descrizione": "1950s Australian sheep rancher and pilot, weathered face, hat",
+     "parola": "Hancock"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      116,
+      -20.5
+     ],
+     "a": [
+      118.3,
+      -22.6
+     ],
+     "icona": "ship",
+     "parola": "fly"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Rust-red walls of iron",
+     "parola": "walls"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": 121,
+    "lat": -25,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "The export ban ended in 1960, and mines opened soon after. Today, iron ore is Australia's biggest export, worth 116 billion Australian dollars in a year.",
+   "anteprima": false,
+   "vista": {
+    "lon": 118,
+    "lat": -22.5,
+    "larghezza": 14
+   },
+   "epoca": "oggi",
+   "oro": [
+    "AUS"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1960",
+     "parola": "1960"
+    },
+    {
+     "tipo": "icona",
+     "icona": "mine",
+     "lon": 118.6,
+     "lat": -22.3,
+     "parola": "mines"
+    },
+    {
+     "tipo": "conta",
+     "valore": 116,
+     "prefisso": "A$",
+     "suffisso": "B",
+     "sotto": "IRON ORE IN A YEAR",
+     "parola": "116"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Biggest export by far",
+     "parola": "biggest"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 123,
+    "lat": -26,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Australia ships over half of all iron ore traded worldwide, and about eighty-five percent of it goes to one customer: China.",
+   "anteprima": false,
+   "vista": {
+    "lon": 115,
+    "lat": -10,
+    "larghezza": 90
+   },
+   "epoca": "oggi",
+   "oro": [
+    "AUS"
+   ],
+   "verde": [
+    "CHN"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      118,
+      -20
+     ],
+     "a": [
+      121,
+      31
+     ],
+     "icona": "cargo_ship",
+     "parola": "ships"
+    },
+    {
+     "tipo": "contatore",
+     "testo": "8.5 IN 10 TO CHINA",
+     "su": 8.5,
+     "di": 10,
+     "personaggio": "merchant",
+     "parola": "eighty-five"
+    },
+    {
+     "tipo": "nota",
+     "testo": "One customer buys most",
+     "parola": "customer"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 135,
+    "lat": -10,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "The desert was never the problem. It was the vault. Adjusted for prices, that is about 75,000 dollars for every Australian.",
+   "anteprima": false,
+   "vista": {
+    "lon": 134,
+    "lat": -26,
+    "larghezza": 50
+   },
+   "epoca": "oggi",
+   "oro": [
+    "AUS"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "scritta",
+     "testo": "THE VAULT",
+     "parola": "vault"
+    },
+    {
+     "tipo": "prezzo",
+     "testo": "$75,000",
+     "sotto": "AUSTRALIA · PER PERSON",
+     "ricco": true,
+     "parola": "75,000"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Desert hid the treasure",
+     "parola": "desert"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": true,
+   "pin": {
+    "lon": 146,
+    "lat": -34,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Some of what Australia digs up travels north. And one island makes aluminum without a single aluminum mine. Number seven: Iceland.",
+   "anteprima": false,
+   "vista": {
+    "lon": -18,
+    "lat": 65,
+    "larghezza": 22
+   },
+   "epoca": "oggi",
+   "oro": [
+    "ISL"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "contorno",
+     "paese": "ISL",
+     "parola": "Iceland"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Aluminum with no mines",
+     "parola": "aluminum"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -14,
+    "lat": 67.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Every year ships bring in alumina, the white powder aluminum is made from, from as far as Australia and Brazil.",
+   "anteprima": false,
+   "vista": {
+    "lon": -20,
+    "lat": 20,
+    "larghezza": 160
+   },
+   "epoca": "oggi",
+   "oro": [
+    "ISL"
+   ],
+   "verde": [
+    "AUS",
+    "BRA"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      -43,
+      -23
+     ],
+     "a": [
+      -21,
+      64
+     ],
+     "icona": "cargo_ship",
+     "parola": "Brazil"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      115,
+      -32
+     ],
+     "a": [
+      -20,
+      64
+     ],
+     "icona": "cargo_ship",
+     "parola": "Australia"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Powder shipped halfway round",
+     "parola": "powder"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -60,
+    "lat": 40,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Why haul it so far? Because of what sits under Iceland: over thirty active volcanic systems, and glaciers covering a tenth of the country.",
+   "anteprima": false,
+   "vista": {
+    "lon": -18.5,
+    "lat": 64.8,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "ISL"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 30,
+     "prefisso": "30+",
+     "suffisso": "",
+     "sotto": "VOLCANIC SYSTEMS",
+     "parola": "thirty"
+    },
+    {
+     "tipo": "icona",
+     "icona": "mountain",
+     "lon": -19,
+     "lat": 64.1,
+     "parola": "volcanic"
+    },
+    {
+     "tipo": "griglia",
+     "paese": [
+      "ISL"
+     ],
+     "pieni": 0.1,
+     "testo": "1 IN 10 GLACIER",
+     "colore": "oro",
+     "parola": "tenth"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -14.5,
+    "lat": 66.2,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Glacier meltwater spins its hydro plants, and volcanic heat drives its geothermal ones. Together they make almost all of Iceland's electricity.",
+   "anteprima": false,
+   "vista": {
+    "lon": -19,
+    "lat": 64.8,
+    "larghezza": 9
+   },
+   "epoca": "oggi",
+   "oro": [
+    "ISL"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "river",
+     "lon": -18,
+     "lat": 64.5,
+     "parola": "meltwater"
+    },
+    {
+     "tipo": "icona",
+     "icona": "factory",
+     "lon": -21.3,
+     "lat": 64,
+     "parola": "geothermal"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Almost all power is clean",
+     "parola": "electricity"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -15,
+    "lat": 66,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "That is far more power than 394,000 people need. So Iceland exports it in the one form a ship can carry: melted into metal.",
+   "anteprima": false,
+   "vista": {
+    "lon": -19,
+    "lat": 64.8,
+    "larghezza": 9
+   },
+   "epoca": "oggi",
+   "oro": [
+    "ISL"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "family",
+     "n": 4,
+     "lon": -21.9,
+     "lat": 64.1,
+     "parola": "394,000"
+    },
+    {
+     "tipo": "conta",
+     "valore": 394000,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "PEOPLE",
+     "parola": "394,000"
+    },
+    {
+     "tipo": "icona",
+     "icona": "silver_bars",
+     "lon": -21.8,
+     "lat": 64.2,
+     "parola": "metal"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -15,
+    "lat": 66,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Each ingot leaving Iceland is Icelandic electricity in solid form. In 2025, aluminum was about a third of all goods Iceland sold abroad.",
+   "anteprima": false,
+   "vista": {
+    "lon": -19,
+    "lat": 64.8,
+    "larghezza": 14
+   },
+   "epoca": "oggi",
+   "oro": [
+    "ISL"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "silver_bars",
+     "lon": -22,
+     "lat": 64.1,
+     "parola": "ingot"
+    },
+    {
+     "tipo": "griglia",
+     "paese": [
+      "ISL"
+     ],
+     "pieni": 0.33,
+     "testo": "1 IN 3 EXPORTS",
+     "colore": "oro",
+     "parola": "third"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Power sold as metal",
+     "parola": "third"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -15,
+    "lat": 66,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Isolation gave Iceland something else: the sea. It fought Britain three times over fishing waters and, in 1975, pushed its limit to 200 miles.",
+   "anteprima": false,
+   "vista": {
+    "lon": -18,
+    "lat": 64.5,
+    "larghezza": 30
+   },
+   "epoca": "oggi",
+   "oro": [
+    "ISL"
+   ],
+   "verde": [
+    "GBR"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1975",
+     "parola": "1975"
+    },
+    {
+     "tipo": "conta",
+     "valore": 200,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "MILES OF SEA",
+     "parola": "200"
+    },
+    {
+     "tipo": "icona",
+     "icona": "swords",
+     "lon": -14,
+     "lat": 63.5,
+     "parola": "fought"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -28,
+    "lat": 60,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Fish is still its biggest goods export, just ahead of aluminum. Per person, that is around 83,000 dollars, ahead of the United States.",
+   "anteprima": false,
+   "vista": {
+    "lon": -60,
+    "lat": 50,
+    "larghezza": 120
+   },
+   "epoca": "oggi",
+   "oro": [
+    "ISL"
+   ],
+   "verde": [
+    "USA"
+   ],
+   "eventi": [
+    {
+     "tipo": "prezzo",
+     "testo": "$83,000",
+     "sotto": "ICELAND · PER PERSON",
+     "ricco": true,
+     "parola": "83,000"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Fish edges out aluminum",
+     "parola": "Fish"
+    },
+    {
+     "tipo": "solleva",
+     "paese": [
+      "ISL"
+     ],
+     "volte": 3,
+     "testo": "AHEAD OF USA",
+     "colore": "oro",
+     "parola": "ahead"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -90,
+    "lat": 40,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Number six comes with a number you have probably heard wrong. People say over half the Netherlands lies below sea level. Even a UN report printed it.",
+   "anteprima": false,
+   "vista": {
+    "lon": 5.3,
+    "lat": 52.2,
+    "larghezza": 8
+   },
+   "epoca": "oggi",
+   "oro": [
+    "NLD"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "contorno",
+     "paese": "NLD",
+     "parola": "Netherlands"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "WRONG",
+     "parola": "wrong"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Even a UN report erred",
+     "parola": "UN"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 7,
+    "lat": 51,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "The real figure is about a quarter. But almost sixty percent of the country could flood, from the sea or from its rivers.",
+   "anteprima": false,
+   "vista": {
+    "lon": 5.3,
+    "lat": 52.2,
+    "larghezza": 8
+   },
+   "epoca": "oggi",
+   "oro": [
+    "NLD"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "griglia",
+     "paese": [
+      "NLD"
+     ],
+     "pieni": 0.25,
+     "testo": "1 IN 4 BELOW SEA",
+     "colore": "verde",
+     "parola": "quarter"
+    },
+    {
+     "tipo": "conta",
+     "valore": 60,
+     "prefisso": "~",
+     "suffisso": "%",
+     "sotto": "COULD FLOOD",
+     "parola": "sixty"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Most land is at risk",
+     "parola": "flood"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 7,
+    "lat": 51,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "So why build a rich country here? Because this soggy corner is where three rivers reach the sea: the Rhine, the Meuse and the Scheldt.",
+   "anteprima": false,
+   "vista": {
+    "lon": 5,
+    "lat": 51.5,
+    "larghezza": 8
+   },
+   "epoca": "oggi",
+   "oro": [
+    "NLD"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "scritta",
+     "testo": "WHY?",
+     "parola": "why"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      7.5,
+      50.5
+     ],
+     "a": [
+      4.1,
+      51.95
+     ],
+     "icona": "cargo_ship",
+     "parola": "Rhine"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "MEUSE · SCHELDT",
+     "lon": 4.3,
+     "lat": 51.5,
+     "parola": "Meuse"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 6.5,
+    "lat": 52.8,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "The Rhine runs straight into the industrial heart of Europe. Whoever holds the river mouth holds the trade. That is Rotterdam.",
+   "anteprima": false,
+   "vista": {
+    "lon": 6,
+    "lat": 50.5,
+    "larghezza": 14
+   },
+   "epoca": "oggi",
+   "oro": [
+    "NLD"
+   ],
+   "verde": [
+    "DEU"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      4.1,
+      51.95
+     ],
+     "a": [
+      8,
+      49.5
+     ],
+     "icona": "cargo_ship",
+     "parola": "Rhine"
+    },
+    {
+     "tipo": "icona",
+     "icona": "port",
+     "lon": 4.1,
+     "lat": 51.95,
+     "parola": "Rotterdam"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Rivermouth equals trade power",
+     "parola": "trade"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 2,
+    "lat": 53,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Rotterdam is Europe's biggest port, handling about one in every eight tons of cargo moving through EU ports.",
+   "anteprima": false,
+   "vista": {
+    "lon": 4.1,
+    "lat": 51.95,
+    "larghezza": 6
+   },
+   "epoca": "oggi",
+   "oro": [
+    "NLD"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "contatore",
+     "testo": "1 IN 8 TONS",
+     "su": 1,
+     "di": 8,
+     "personaggio": "merchant",
+     "parola": "eight"
+    },
+    {
+     "tipo": "icona",
+     "icona": "cargo_ship",
+     "lon": 3.9,
+     "lat": 51.95,
+     "parola": "cargo"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Europe's biggest port",
+     "parola": "biggest"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 5.5,
+    "lat": 52.8,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Holding back the sea also forced people to cooperate. Dutch water boards go back to the 1200s, among the oldest democratic bodies in the country.",
+   "anteprima": false,
+   "vista": {
+    "lon": 5.3,
+    "lat": 52.2,
+    "larghezza": 8
+   },
+   "epoca": "antica",
+   "oro": [
+    "NLD"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1200",
+     "parola": "1200s"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "peasant",
+     "n": 5,
+     "lon": 4.9,
+     "lat": 52.4,
+     "parola": "cooperate"
+    },
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": 5.1,
+     "lat": 52.1,
+     "parola": "democratic"
+    }
+   ],
+   "musica": "quotidiano",
+   "stacco": false,
+   "pin": {
+    "lon": 6.3,
+    "lat": 52.8,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In 1953, the sea broke through anyway and killed more than 1,800 people. The Dutch answered with the Delta Works, a giant wall of dams and storm barriers.",
+   "anteprima": false,
+   "vista": {
+    "lon": 4,
+    "lat": 51.7,
+    "larghezza": 6
+   },
+   "epoca": "oggi",
+   "oro": [
+    "NLD"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1953",
+     "parola": "1953"
+    },
+    {
+     "tipo": "conta",
+     "valore": 1800,
+     "prefisso": "1,800+",
+     "suffisso": "",
+     "sotto": "PEOPLE KILLED",
+     "parola": "1,800"
+    },
+    {
+     "tipo": "confine",
+     "punti": [
+      [
+       3.6,
+       51.65
+      ],
+      [
+       3.9,
+       51.75
+      ],
+      [
+       4.2,
+       51.7
+      ],
+      [
+       4.0,
+       51.55
+      ]
+     ],
+     "parola": "Delta"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Dams and storm barriers",
+     "parola": "barriers"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": 5.6,
+    "lat": 52.6,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "The land won from the sea became a food machine. In 2025, Dutch agricultural exports hit a record 137 billion euros, counting goods passing through its ports.",
+   "anteprima": false,
+   "vista": {
+    "lon": 5.3,
+    "lat": 52.2,
+    "larghezza": 8
+   },
+   "epoca": "oggi",
+   "oro": [
+    "NLD"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "farm",
+     "lon": 5.4,
+     "lat": 52.5,
+     "parola": "food"
+    },
+    {
+     "tipo": "conta",
+     "valore": 137,
+     "prefisso": "€",
+     "suffisso": "B",
+     "sotto": "FOOD EXPORTS 2025",
+     "parola": "137"
+    },
+    {
+     "tipo": "nota",
+     "testo": "A record year",
+     "parola": "record"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": false,
+   "pin": {
+    "lon": 6.6,
+    "lat": 51.4,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In the 1600s, the Dutch Republic was likely the richest place on Earth per person, for the same reason: everything flowed through its water.",
+   "anteprima": false,
+   "vista": {
+    "lon": 5,
+    "lat": 52,
+    "larghezza": 14
+   },
+   "epoca": "antica",
+   "oro": [
+    "NLD"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1600",
+     "parola": "1600s"
+    },
+    {
+     "tipo": "icona",
+     "icona": "galleon",
+     "lon": 4.8,
+     "lat": 52.4,
+     "parola": "water"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Richest place on Earth",
+     "parola": "richest"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": 8,
+    "lat": 53.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Today the Netherlands sits at about 88,000 dollars per person. Quick favor: these videos take long to make, so if you enjoy this one, subscribing helps.",
+   "anteprima": false,
+   "vista": {
+    "lon": 5.3,
+    "lat": 52.2,
+    "larghezza": 8
+   },
+   "epoca": "oggi",
+   "oro": [
+    "NLD"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "prezzo",
+     "testo": "$88,000",
+     "sotto": "NETHERLANDS · PER PERSON",
+     "ricco": true,
+     "parola": "88,000"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Please subscribe",
+     "parola": "subscribing"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 6.6,
+    "lat": 51.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "The Dutch took their dikes across the Atlantic. On a swampy South American coast, planters forced enslaved Africans to dig dikes, canals and polders.",
+   "anteprima": false,
+   "vista": {
+    "lon": -30,
+    "lat": 25,
+    "larghezza": 120
+   },
+   "epoca": "antica",
+   "oro": [
+    "NLD"
+   ],
+   "verde": [
+    "GUY"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      4.5,
+      52
+     ],
+     "a": [
+      -58,
+      6.8
+     ],
+     "icona": "galleon",
+     "parola": "Atlantic"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "native_worker",
+     "n": 5,
+     "lon": -58,
+     "lat": 6.8,
+     "parola": "enslaved"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Dikes dug by enslaved people",
+     "parola": "dikes"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": -20,
+    "lat": 40,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "That colony is number five: Guyana. In 2015, the average Guyanese earned less than the average person in Ecuador or Colombia.",
+   "anteprima": false,
+   "vista": {
+    "lon": -62,
+    "lat": 4,
+    "larghezza": 40
+   },
+   "epoca": "oggi",
+   "oro": [
+    "GUY"
+   ],
+   "verde": [
+    "ECU",
+    "COL"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "2015",
+     "parola": "2015"
+    },
+    {
+     "tipo": "contorno",
+     "paese": "GUY",
+     "parola": "Guyana"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Poorer than Ecuador back then",
+     "parola": "less"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -70,
+    "lat": -5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Today, adjusted for prices, Guyana earns more per person than the United States.",
+   "anteprima": false,
+   "vista": {
+    "lon": -62,
+    "lat": 4,
+    "larghezza": 40
+   },
+   "epoca": "oggi",
+   "oro": [
+    "GUY"
+   ],
+   "verde": [
+    "USA"
+   ],
+   "eventi": [
+    {
+     "tipo": "prezzo",
+     "testo": "$99,000",
+     "sotto": "GUYANA · PER PERSON",
+     "ricco": true,
+     "parola": "Guyana"
+    },
+    {
+     "tipo": "prezzo",
+     "testo": "$95,000",
+     "sotto": "USA · PER PERSON",
+     "ricco": false,
+     "parola": "States"
+    }
+   ],
+   "musica": "",
+   "stacco": true,
+   "pin": {
+    "lon": -70,
+    "lat": -5,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Most of Guyana is rainforest. Nine in ten people live on a thin coastal strip, and the capital, Georgetown, sits below high tide behind a seawall.",
+   "anteprima": false,
+   "vista": {
+    "lon": -58.5,
+    "lat": 5.5,
+    "larghezza": 14
+   },
+   "epoca": "oggi",
+   "oro": [
+    "GUY"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "forest",
+     "lon": -59,
+     "lat": 4.5,
+     "parola": "rainforest"
+    },
+    {
+     "tipo": "contatore",
+     "testo": "9 IN 10 ON THE COAST",
+     "su": 9,
+     "di": 10,
+     "personaggio": "family",
+     "parola": "Nine"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "GEORGETOWN",
+     "lon": -58.15,
+     "lat": 6.8,
+     "parola": "Georgetown"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -60.5,
+    "lat": 3.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "The jungle kept the country empty and poor. Then, in May 2015, ExxonMobil drilled off that coast and found a huge oil field.",
+   "anteprima": false,
+   "vista": {
+    "lon": -57,
+    "lat": 8,
+    "larghezza": 14
+   },
+   "epoca": "oggi",
+   "oro": [
+    "GUY"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "2015",
+     "parola": "2015"
+    },
+    {
+     "tipo": "icona",
+     "icona": "oil_derrick",
+     "lon": -57,
+     "lat": 8.2,
+     "parola": "oil"
+    },
+    {
+     "tipo": "nota",
+     "testo": "ExxonMobil strikes oil",
+     "parola": "ExxonMobil"
+    }
+   ],
+   "musica": "epico",
+   "stacco": true,
+   "pin": {
+    "lon": -59.5,
+    "lat": 5,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "The first oil flowed in December 2019. Now Guyana pumps around 900,000 barrels a day for only about a million people.",
+   "anteprima": false,
+   "vista": {
+    "lon": -57.5,
+    "lat": 7.5,
+    "larghezza": 16
+   },
+   "epoca": "oggi",
+   "oro": [
+    "GUY"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "2019",
+     "parola": "2019"
+    },
+    {
+     "tipo": "conta",
+     "valore": 900000,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "BARRELS A DAY",
+     "parola": "900,000"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "worker",
+     "n": 5,
+     "lon": -58.2,
+     "lat": 6.8,
+     "parola": "million"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -60,
+    "lat": 4,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In 2022, its economy grew sixty-two percent in a single year, the fastest in the world.",
+   "anteprima": false,
+   "vista": {
+    "lon": -58,
+    "lat": 5,
+    "larghezza": 30
+   },
+   "epoca": "oggi",
+   "oro": [
+    "GUY"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "2022",
+     "parola": "2022"
+    },
+    {
+     "tipo": "numero",
+     "testo": "+62%",
+     "lon": -58.9,
+     "lat": 4.8,
+     "parola": "sixty-two"
+    },
+    {
+     "tipo": "solleva",
+     "paese": [
+      "GUY"
+     ],
+     "volte": 6,
+     "testo": "FASTEST",
+     "colore": "oro",
+     "parola": "fastest"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": false,
+   "pin": {
+    "lon": -68,
+    "lat": 0,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Here is what almost nobody mentions: the jungle pays, too. In 2022, Guyana became the first country to issue a carbon credit for forest it does not cut.",
+   "anteprima": false,
+   "vista": {
+    "lon": -59,
+    "lat": 4.5,
+    "larghezza": 16
+   },
+   "epoca": "oggi",
+   "oro": [
+    "GUY"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "forest",
+     "lon": -59.2,
+     "lat": 4.2,
+     "parola": "jungle"
+    },
+    {
+     "tipo": "icona",
+     "icona": "banknotes",
+     "lon": -58.5,
+     "lat": 5.5,
+     "parola": "credit"
+    },
+    {
+     "tipo": "nota",
+     "testo": "First forest carbon credit",
+     "parola": "first"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -62,
+    "lat": 3,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "The oil company Hess agreed to buy at least 750 million dollars of them. The forest that kept Guyana poor is now paid to stand still.",
+   "anteprima": false,
+   "vista": {
+    "lon": -59,
+    "lat": 4.5,
+    "larghezza": 16
+   },
+   "epoca": "oggi",
+   "oro": [
+    "GUY"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 750,
+     "prefisso": "$",
+     "suffisso": "M",
+     "sotto": "HESS CREDIT DEAL",
+     "parola": "750"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "PAID",
+     "parola": "paid"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Standing forest earns money",
+     "parola": "stand"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -62,
+    "lat": 3,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "There is one catch. Venezuela claims about two thirds of the country, and the World Court's ruling is expected within months.",
+   "anteprima": false,
+   "vista": {
+    "lon": -62,
+    "lat": 6,
+    "larghezza": 16
+   },
+   "epoca": "oggi",
+   "oro": [
+    "GUY"
+   ],
+   "verde": [
+    "VEN"
+   ],
+   "eventi": [
+    {
+     "tipo": "confine",
+     "punti": [
+      [
+       -61.4,
+       8.5
+      ],
+      [
+       -60.4,
+       7.6
+      ],
+      [
+       -60.0,
+       6.6
+      ],
+      [
+       -59.8,
+       5.5
+      ],
+      [
+       -59.9,
+       4.4
+      ]
+     ],
+     "parola": "claims"
+    },
+    {
+     "tipo": "griglia",
+     "paese": [
+      "GUY"
+     ],
+     "pieni": 0.66,
+     "testo": "2 IN 3 CLAIMED",
+     "colore": "verde",
+     "parola": "two"
+    },
+    {
+     "tipo": "nota",
+     "testo": "World Court ruling looms",
+     "parola": "ruling"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -56,
+    "lat": 3,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Number four shares the biggest gas field on Earth with Iran, and earns about eighteen times more per person. This is Qatar.",
+   "anteprima": false,
+   "vista": {
+    "lon": 51.5,
+    "lat": 25.5,
+    "larghezza": 14
+   },
+   "epoca": "oggi",
+   "oro": [
+    "QAT"
+   ],
+   "verde": [
+    "IRN"
+   ],
+   "eventi": [
+    {
+     "tipo": "contorno",
+     "paese": "QAT",
+     "parola": "Qatar"
+    },
+    {
+     "tipo": "numero",
+     "testo": "x18",
+     "lon": 51.2,
+     "lat": 25.3,
+     "parola": "eighteen"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Shares giant gas field",
+     "parola": "shares"
+    }
+   ],
+   "musica": "mistero",
+   "stacco": false,
+   "pin": {
+    "lon": 54,
+    "lat": 27,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "It has no rivers, and under two percent of it is farmland. Almost all tap water comes from desalination, and the record heat tops fifty degrees Celsius.",
+   "anteprima": false,
+   "vista": {
+    "lon": 51.2,
+    "lat": 25.3,
+    "larghezza": 6
+   },
+   "epoca": "oggi",
+   "oro": [
+    "QAT"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 50,
+     "prefisso": "50+",
+     "suffisso": "°C",
+     "sotto": "RECORD HEAT",
+     "parola": "fifty"
+    },
+    {
+     "tipo": "icona",
+     "icona": "factory",
+     "lon": 51.5,
+     "lat": 25.6,
+     "parola": "desalination"
+    },
+    {
+     "tipo": "nota",
+     "testo": "No rivers, almost no farms",
+     "parola": "rivers"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 52.3,
+    "lat": 24.6,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "For centuries, the main money was under the water: men diving for pearls. Then, around 1930, Japan began selling cheap cultured pearls.",
+   "anteprima": false,
+   "vista": {
+    "lon": 51.5,
+    "lat": 25.5,
+    "larghezza": 10
+   },
+   "epoca": "antica",
+   "oro": [
+    "QAT"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "sailor",
+     "n": 5,
+     "lon": 51.7,
+     "lat": 25.7,
+     "parola": "diving"
+    },
+    {
+     "tipo": "anno",
+     "testo": "1930",
+     "parola": "1930"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      136.9,
+      34.5
+     ],
+     "a": [
+      51.5,
+      25.4
+     ],
+     "icona": "ship",
+     "parola": "Japan"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": 52.5,
+    "lat": 24.8,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "The Great Depression hit, the pearl trade collapsed, and Qatar sank into decades of hardship. Whole families packed up and left.",
+   "anteprima": false,
+   "vista": {
+    "lon": 51.2,
+    "lat": 25.3,
+    "larghezza": 6
+   },
+   "epoca": "antica",
+   "oro": [
+    "QAT"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": 51.5,
+     "lat": 25.5,
+     "parola": "collapsed"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "family",
+     "n": 4,
+     "lon": 51.2,
+     "lat": 25.3,
+     "parola": "families"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Pearl trade collapsed",
+     "parola": "collapsed"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 52.2,
+    "lat": 24.6,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Later came something far bigger under Qatar's own sea, the North Field. But it does not stop at the border: it runs into Iran, which calls it South Pars.",
+   "anteprima": false,
+   "vista": {
+    "lon": 51.8,
+    "lat": 26.5,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "QAT"
+   ],
+   "verde": [
+    "IRN"
+   ],
+   "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "NORTH FIELD",
+     "lon": 51.8,
+     "lat": 26.2,
+     "parola": "North"
+    },
+    {
+     "tipo": "confine",
+     "punti": [
+      [
+       51.0,
+       26.8
+      ],
+      [
+       52.2,
+       26.8
+      ],
+      [
+       52.8,
+       26.4
+      ]
+     ],
+     "parola": "border"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "SOUTH PARS",
+     "lon": 52.5,
+     "lat": 27.2,
+     "parola": "South"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": 50.5,
+    "lat": 24.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Qatar chilled its gas into liquid and shipped it worldwide. In 2024, it supplied almost a fifth of all liquefied natural gas traded on Earth.",
+   "anteprima": false,
+   "vista": {
+    "lon": 70,
+    "lat": 20,
+    "larghezza": 100
+   },
+   "epoca": "oggi",
+   "oro": [
+    "QAT"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      51.6,
+      25.9
+     ],
+     "a": [
+      139,
+      35
+     ],
+     "icona": "cargo_ship",
+     "parola": "shipped"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      51.6,
+      25.9
+     ],
+     "a": [
+      5,
+      52
+     ],
+     "icona": "cargo_ship",
+     "parola": "worldwide"
+    },
+    {
+     "tipo": "griglia",
+     "paese": [
+      "QAT"
+     ],
+     "pieni": 0.2,
+     "testo": "1 IN 5 LNG",
+     "colore": "oro",
+     "parola": "fifth"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 90,
+    "lat": 0,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "There are not many Qataris to share it. Only about one resident in nine is a citizen.",
+   "anteprima": false,
+   "vista": {
+    "lon": 51.2,
+    "lat": 25.3,
+    "larghezza": 6
+   },
+   "epoca": "oggi",
+   "oro": [
+    "QAT"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "contatore",
+     "testo": "1 IN 9 IS A CITIZEN",
+     "su": 1,
+     "di": 9,
+     "personaggio": "family",
+     "parola": "nine"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "worker",
+     "n": 6,
+     "lon": 51.5,
+     "lat": 25.3,
+     "parola": "resident"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 52.3,
+    "lat": 24.7,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "But this year, the geography that made Qatar rich turned on it. Every tanker must squeeze through one narrow gate, the Strait of Hormuz.",
+   "anteprima": false,
+   "vista": {
+    "lon": 54,
+    "lat": 26,
+    "larghezza": 14
+   },
+   "epoca": "oggi",
+   "oro": [
+    "QAT"
+   ],
+   "verde": [
+    "IRN"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      51.6,
+      25.9
+     ],
+     "a": [
+      56.4,
+      26.5
+     ],
+     "icona": "cargo_ship",
+     "parola": "tanker"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "STRAIT OF HORMUZ",
+     "lon": 56.4,
+     "lat": 26.5,
+     "parola": "Hormuz"
+    },
+    {
+     "tipo": "nota",
+     "testo": "One narrow gate out",
+     "parola": "gate"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 58,
+    "lat": 24.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In March, during the war with Iran, missiles hit Ras Laffan, the heart of Qatar's gas industry. Qatar Energy says it lost about seventeen percent of export capacity.",
+   "anteprima": false,
+   "vista": {
+    "lon": 51.5,
+    "lat": 25.9,
+    "larghezza": 6
+   },
+   "epoca": "oggi",
+   "oro": [
+    "QAT"
+   ],
+   "verde": [
+    "IRN"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "cannon",
+     "lon": 51.55,
+     "lat": 25.9,
+     "parola": "missiles"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "RAS LAFFAN",
+     "lon": 51.55,
+     "lat": 25.9,
+     "parola": "Ras"
+    },
+    {
+     "tipo": "conta",
+     "valore": 17,
+     "prefisso": "-",
+     "suffisso": "%",
+     "sotto": "EXPORT CAPACITY",
+     "parola": "seventeen"
+    }
+   ],
+   "musica": "azione",
+   "stacco": true,
+   "pin": {
+    "lon": 50.5,
+    "lat": 24.8,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "That is roughly 20 billion dollars a year, and repairs could take three to five years. Even now, income is around 104,000 per head, adjusted for prices.",
+   "anteprima": false,
+   "vista": {
+    "lon": 51.2,
+    "lat": 25.3,
+    "larghezza": 8
+   },
+   "epoca": "oggi",
+   "oro": [
+    "QAT"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 20,
+     "prefisso": "$",
+     "suffisso": "B",
+     "sotto": "LOST EVERY YEAR",
+     "parola": "20"
+    },
+    {
+     "tipo": "prezzo",
+     "testo": "$104,000",
+     "sotto": "QATAR · PER PERSON",
+     "ricco": true,
+     "parola": "104,000"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Rich behind a locked door",
+     "parola": "repairs"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": 52.4,
+    "lat": 24.6,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In 1969, Phillips Petroleum was about to give up on Norway. Its North Sea wells kept coming up dry.",
+   "anteprima": false,
+   "vista": {
+    "lon": 4,
+    "lat": 58,
+    "larghezza": 18
+   },
+   "epoca": "oggi",
+   "oro": [
+    "NOR"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1969",
+     "parola": "1969"
+    },
+    {
+     "tipo": "icona",
+     "icona": "oil_derrick",
+     "lon": 3.2,
+     "lat": 56.5,
+     "parola": "wells"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": 3.2,
+     "lat": 57.5,
+     "parola": "dry"
+    }
+   ],
+   "musica": "mistero",
+   "stacco": false,
+   "pin": {
+    "lon": 9,
+    "lat": 61,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "It drilled one last well, mainly because it was stuck with a hired rig and drilling cost less than walking away. That well found Ekofisk.",
+   "anteprima": false,
+   "vista": {
+    "lon": 3,
+    "lat": 56.5,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "NOR"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "oil_derrick",
+     "lon": 3.2,
+     "lat": 56.55,
+     "parola": "well"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "EKOFISK",
+     "lon": 3.2,
+     "lat": 56.55,
+     "parola": "Ekofisk"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "JACKPOT",
+     "parola": "found"
+    }
+   ],
+   "musica": "epico",
+   "stacco": true,
+   "pin": {
+    "lon": 6,
+    "lat": 58.5,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "The first giant oil field in Western Europe turned number three, Norway, into an oil country, on a frozen, rocky coast that held one more gift.",
+   "anteprima": false,
+   "vista": {
+    "lon": 10,
+    "lat": 63,
+    "larghezza": 30
+   },
+   "epoca": "oggi",
+   "oro": [
+    "NOR"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "contorno",
+     "paese": "NOR",
+     "parola": "Norway"
+    },
+    {
+     "tipo": "nota",
+     "testo": "First giant Western European field",
+     "parola": "first"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 20,
+    "lat": 66,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Its mountains and all that rain give Norway hydropower for almost nine tenths of its electricity. So it barely burns its own oil and gas, and sells almost all of it.",
+   "anteprima": false,
+   "vista": {
+    "lon": 9,
+    "lat": 62,
+    "larghezza": 16
+   },
+   "epoca": "oggi",
+   "oro": [
+    "NOR"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "mountain",
+     "lon": 8,
+     "lat": 61.5,
+     "parola": "mountains"
+    },
+    {
+     "tipo": "griglia",
+     "paese": [
+      "NOR"
+     ],
+     "pieni": 0.9,
+     "testo": "9 IN 10 HYDRO",
+     "colore": "oro",
+     "parola": "nine"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      3,
+      60
+     ],
+     "a": [
+      -1,
+      52
+     ],
+     "icona": "oil_derrick",
+     "parola": "sells"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 15,
+    "lat": 65,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In 2025, Norwegian gas covered more than thirty percent of what the EU and Britain used.",
+   "anteprima": false,
+   "vista": {
+    "lon": 5,
+    "lat": 55,
+    "larghezza": 30
+   },
+   "epoca": "oggi",
+   "oro": [
+    "NOR"
+   ],
+   "verde": [
+    "GBR",
+    "DEU",
+    "FRA"
+   ],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 30,
+     "prefisso": "30+",
+     "suffisso": "%",
+     "sotto": "OF EU+UK GAS",
+     "parola": "thirty"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      4.5,
+      60.5
+     ],
+     "a": [
+      8.7,
+      53.9
+     ],
+     "icona": "oil_derrick",
+     "parola": "gas"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Europe runs on Norwegian gas",
+     "parola": "gas"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -4,
+    "lat": 50,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Even the fjords played a part. Troll A, a gas platform 472 meters tall, was built in one piece and towed out to sea in 1995.",
+   "anteprima": false,
+   "vista": {
+    "lon": 5,
+    "lat": 60.8,
+    "larghezza": 6
+   },
+   "epoca": "oggi",
+   "oro": [
+    "NOR"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1995",
+     "parola": "1995"
+    },
+    {
+     "tipo": "conta",
+     "valore": 472,
+     "prefisso": "",
+     "suffisso": " M",
+     "sotto": "TALL",
+     "parola": "472"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      5.5,
+      60.8
+     ],
+     "a": [
+      3.7,
+      60.6
+     ],
+     "icona": "oil_derrick",
+     "parola": "towed"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 7.5,
+    "lat": 62,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "It is the tallest structure humans have ever moved. And the money was not spent. It was saved.",
+   "anteprima": false,
+   "vista": {
+    "lon": 5,
+    "lat": 60.8,
+    "larghezza": 8
+   },
+   "epoca": "oggi",
+   "oro": [
+    "NOR"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "scritta",
+     "testo": "TALLEST",
+     "parola": "tallest"
+    },
+    {
+     "tipo": "icona",
+     "icona": "money_bag",
+     "lon": 10.7,
+     "lat": 59.9,
+     "parola": "saved"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Profits saved, not spent",
+     "parola": "saved"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 8,
+    "lat": 62,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Norway's oil fund is worth about 23 trillion kroner, around 4 million for every Norwegian, and it owns about one and a half percent of every listed company on Earth.",
+   "anteprima": false,
+   "vista": {
+    "lon": 10,
+    "lat": 60,
+    "larghezza": 120
+   },
+   "epoca": "oggi",
+   "oro": [
+    "NOR"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 23,
+     "prefisso": "",
+     "suffisso": "T KR",
+     "sotto": "OIL FUND",
+     "parola": "23"
+    },
+    {
+     "tipo": "numero",
+     "testo": "4M KR",
+     "lon": 10.7,
+     "lat": 59.9,
+     "parola": "million"
+    },
+    {
+     "tipo": "conta_paesi",
+     "paesi": [
+      "USA",
+      "GBR",
+      "JPN",
+      "DEU",
+      "FRA",
+      "CHN"
+     ],
+     "colore": "oro",
+     "parola": "company"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": false,
+   "pin": {
+    "lon": 30,
+    "lat": 45,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "A cold, rocky edge of Europe built the largest national savings fund on Earth. Per Norwegian, about 116,000 dollars.",
+   "anteprima": false,
+   "vista": {
+    "lon": 10,
+    "lat": 62,
+    "larghezza": 30
+   },
+   "epoca": "oggi",
+   "oro": [
+    "NOR"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "prezzo",
+     "testo": "$116,000",
+     "sotto": "NORWAY · PER PERSON",
+     "ricco": true,
+     "parola": "116,000"
+    },
+    {
+     "tipo": "nota",
+     "testo": "World's largest national fund",
+     "parola": "largest"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 20,
+    "lat": 66,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Every morning, more than 200,000 people cross into number two from France, Germany and Belgium. Every evening, they go home.",
+   "anteprima": false,
+   "vista": {
+    "lon": 6.1,
+    "lat": 49.7,
+    "larghezza": 7
+   },
+   "epoca": "oggi",
+   "oro": [
+    "LUX"
+   ],
+   "verde": [
+    "FRA",
+    "DEU",
+    "BEL"
+   ],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 200000,
+     "prefisso": "200,000+",
+     "suffisso": "",
+     "sotto": "COMMUTERS DAILY",
+     "parola": "200,000"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      6.3,
+      49.2
+     ],
+     "a": [
+      6.13,
+      49.61
+     ],
+     "icona": "steam_train",
+     "parola": "cross"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      6.7,
+      49.9
+     ],
+     "a": [
+      6.13,
+      49.61
+     ],
+     "icona": "steam_train",
+     "parola": "Germany"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 7.4,
+    "lat": 50.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Almost half of everyone who works in Luxembourg lives in another country. It is smaller than Rhode Island, with no coast, squeezed between three neighbors.",
+   "anteprima": false,
+   "vista": {
+    "lon": 6.1,
+    "lat": 49.7,
+    "larghezza": 7
+   },
+   "epoca": "oggi",
+   "oro": [
+    "LUX"
+   ],
+   "verde": [
+    "FRA",
+    "DEU",
+    "BEL"
+   ],
+   "eventi": [
+    {
+     "tipo": "contatore",
+     "testo": "ALMOST 1 IN 2 COMMUTES",
+     "su": 4.5,
+     "di": 10,
+     "personaggio": "worker",
+     "parola": "half"
+    },
+    {
+     "tipo": "contorno",
+     "paese": "LUX",
+     "parola": "smaller"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Tiny, landlocked, surrounded",
+     "parola": "landlocked"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 7.2,
+    "lat": 49.2,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Under its southern hills lay iron ore so full of phosphorus it was almost useless, until a new British steel method in 1879 made it workable.",
+   "anteprima": false,
+   "vista": {
+    "lon": 5.95,
+    "lat": 49.5,
+    "larghezza": 3
+   },
+   "epoca": "antica",
+   "oro": [
+    "LUX"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1879",
+     "parola": "1879"
+    },
+    {
+     "tipo": "icona",
+     "icona": "mine",
+     "lon": 5.9,
+     "lat": 49.5,
+     "parola": "iron"
+    },
+    {
+     "tipo": "nota",
+     "testo": "British method unlocks the ore",
+     "parola": "British"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 6.4,
+    "lat": 49.9,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Luxembourg became a steel country. When the ore ran out and European steel crashed, it turned to finance.",
+   "anteprima": false,
+   "vista": {
+    "lon": 6.1,
+    "lat": 49.7,
+    "larghezza": 4
+   },
+   "epoca": "oggi",
+   "oro": [
+    "LUX"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "factory",
+     "lon": 5.95,
+     "lat": 49.5,
+     "parola": "steel"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": 5.9,
+     "lat": 49.55,
+     "parola": "crashed"
+    },
+    {
+     "tipo": "icona",
+     "icona": "banknotes",
+     "lon": 6.13,
+     "lat": 49.61,
+     "parola": "finance"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 6.5,
+    "lat": 49.9,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Today, more than 8 trillion euros in investment funds are based in Luxembourg, more than anywhere except the United States. That gives about 157,000 per resident.",
+   "anteprima": false,
+   "vista": {
+    "lon": 6.1,
+    "lat": 49.7,
+    "larghezza": 4
+   },
+   "epoca": "oggi",
+   "oro": [
+    "LUX"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 8,
+     "prefisso": "€8+",
+     "suffisso": "T",
+     "sotto": "IN FUNDS",
+     "parola": "8"
+    },
+    {
+     "tipo": "prezzo",
+     "testo": "$157,000",
+     "sotto": "LUXEMBOURG · PER PERSON",
+     "ricco": true,
+     "parola": "157,000"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Second only to the US",
+     "parola": "anywhere"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": false,
+   "pin": {
+    "lon": 6.6,
+    "lat": 49.9,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "But remember those commuters? They help produce the income, yet they do not count as residents. So the figure per person is inflated.",
+   "anteprima": false,
+   "vista": {
+    "lon": 6.1,
+    "lat": 49.7,
+    "larghezza": 6
+   },
+   "epoca": "oggi",
+   "oro": [
+    "LUX"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "worker",
+     "n": 6,
+     "lon": 6.13,
+     "lat": 49.61,
+     "parola": "commuters"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "INFLATED",
+     "parola": "inflated"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Commuters boost the average",
+     "parola": "commuters"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 6.9,
+    "lat": 49.3,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In 1965, Malaysia voted number one out of its federation. On the ninth of August, it was on its own.",
+   "anteprima": false,
+   "vista": {
+    "lon": 104,
+    "lat": 3,
+    "larghezza": 14
+   },
+   "epoca": "oggi",
+   "oro": [
+    "SGP"
+   ],
+   "verde": [
+    "MYS"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1965",
+     "parola": "1965"
+    },
+    {
+     "tipo": "contorno",
+     "paese": "SGP",
+     "parola": "own"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Expelled on August 9",
+     "parola": "ninth"
+    }
+   ],
+   "musica": "mistero",
+   "stacco": false,
+   "pin": {
+    "lon": 101,
+    "lat": 5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Its central bank described what it had: an island of about 580 square kilometers, no resources, no hinterland, and not even enough water.",
+   "anteprima": false,
+   "vista": {
+    "lon": 103.8,
+    "lat": 1.35,
+    "larghezza": 3
+   },
+   "epoca": "oggi",
+   "oro": [
+    "SGP"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 580,
+     "prefisso": "~",
+     "suffisso": "",
+     "sotto": "SQ KM OF ISLAND",
+     "parola": "580"
+    },
+    {
+     "tipo": "icona",
+     "icona": "question",
+     "lon": 103.8,
+     "lat": 1.35,
+     "parola": "water"
+    },
+    {
+     "tipo": "nota",
+     "testo": "No land, no resources",
+     "parola": "resources"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": 104.2,
+    "lat": 1.6,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "What it had was a spot on the map. Singapore sits at the end of the Strait of Malacca, the busiest oil choke point on Earth.",
+   "anteprima": false,
+   "vista": {
+    "lon": 100,
+    "lat": 3,
+    "larghezza": 16
+   },
+   "epoca": "oggi",
+   "oro": [
+    "SGP"
+   ],
+   "verde": [
+    "MYS",
+    "IDN"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      96,
+      5.5
+     ],
+     "a": [
+      103.8,
+      1.3
+     ],
+     "icona": "cargo_ship",
+     "parola": "Malacca"
+    },
+    {
+     "tipo": "conta",
+     "valore": 22,
+     "prefisso": "22M+",
+     "suffisso": "",
+     "sotto": "BARRELS A DAY",
+     "parola": "busiest"
+    },
+    {
+     "tipo": "nota",
+     "testo": "More oil than Hormuz",
+     "parola": "oil"
+    }
+   ],
+   "musica": "epico",
+   "stacco": true,
+   "pin": {
+    "lon": 98,
+    "lat": 0,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "So it built a port. Last year it handled a record 44.7 million containers, second only to Shanghai.",
+   "anteprima": false,
+   "vista": {
+    "lon": 103.8,
+    "lat": 1.3,
+    "larghezza": 4
+   },
+   "epoca": "oggi",
+   "oro": [
+    "SGP"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "port",
+     "lon": 103.75,
+     "lat": 1.27,
+     "parola": "port"
+    },
+    {
+     "tipo": "conta",
+     "valore": 44.7,
+     "prefisso": "",
+     "suffisso": "M",
+     "sotto": "CONTAINERS",
+     "parola": "44.7"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Second only to Shanghai",
+     "parola": "Shanghai"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 104.2,
+    "lat": 1.55,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "It had no land, so it made some. Singapore is now about a quarter bigger than in 1965, built out into the sea with imported sand.",
+   "anteprima": false,
+   "vista": {
+    "lon": 103.8,
+    "lat": 1.3,
+    "larghezza": 3
+   },
+   "epoca": "oggi",
+   "oro": [
+    "SGP"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1965",
+     "parola": "1965"
+    },
+    {
+     "tipo": "numero",
+     "testo": "+25%",
+     "lon": 103.65,
+     "lat": 1.28,
+     "parola": "quarter"
+    },
+    {
+     "tipo": "icona",
+     "icona": "cargo_ship",
+     "lon": 103.9,
+     "lat": 1.22,
+     "parola": "sand"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 104.1,
+    "lat": 1.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "By the UN's count, it became the world's biggest importer of sand. It also had no water, so it buys some from Malaysia under a deal that runs until 2061.",
+   "anteprima": false,
+   "vista": {
+    "lon": 103.8,
+    "lat": 1.8,
+    "larghezza": 5
+   },
+   "epoca": "oggi",
+   "oro": [
+    "SGP"
+   ],
+   "verde": [
+    "MYS"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      103.6,
+      2.0
+     ],
+     "a": [
+      103.8,
+      1.4
+     ],
+     "icona": "river",
+     "parola": "buys"
+    },
+    {
+     "tipo": "anno",
+     "testo": "2061",
+     "parola": "2061"
+    },
+    {
+     "tipo": "nota",
+     "testo": "World's biggest sand importer",
+     "parola": "importer"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 104.3,
+    "lat": 1.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "And it recycles its own sewage into water clean enough to drink. In 1965, a Singaporean earned about 500 dollars, against 300 for a Malaysian.",
+   "anteprima": false,
+   "vista": {
+    "lon": 103,
+    "lat": 2.5,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "SGP"
+   ],
+   "verde": [
+    "MYS"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "factory",
+     "lon": 103.8,
+     "lat": 1.35,
+     "parola": "recycles"
+    },
+    {
+     "tipo": "prezzo",
+     "testo": "$500",
+     "sotto": "SINGAPORE · 1965",
+     "ricco": true,
+     "parola": "500"
+    },
+    {
+     "tipo": "prezzo",
+     "testo": "$300",
+     "sotto": "MALAYSIA · 1965",
+     "ricco": false,
+     "parola": "300"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 101,
+    "lat": 4,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Today, a Singaporean earns almost seven times more than a Malaysian: almost 177,000 dollars per person, the highest of any country with over a million people.",
+   "anteprima": false,
+   "vista": {
+    "lon": 103,
+    "lat": 2.5,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "SGP"
+   ],
+   "verde": [
+    "MYS"
+   ],
+   "eventi": [
+    {
+     "tipo": "solleva",
+     "paese": [
+      "SGP"
+     ],
+     "volte": 7,
+     "testo": "x7",
+     "colore": "oro",
+     "parola": "seven"
+    },
+    {
+     "tipo": "prezzo",
+     "testo": "$177,000",
+     "sotto": "SINGAPORE · PER PERSON",
+     "ricco": true,
+     "parola": "177,000"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Richest big country on Earth",
+     "parola": "highest"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": true,
+   "pin": {
+    "lon": 101,
+    "lat": 4,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Eight of the worst places to build a country, and in almost every one, the handicap turned into the money.",
+   "anteprima": false,
+   "vista": {
+    "lon": 20,
+    "lat": 30,
+    "larghezza": 300
+   },
+   "epoca": "oggi",
+   "oro": [
+    "AUS",
+    "ISL",
+    "NLD",
+    "GUY",
+    "QAT",
+    "NOR",
+    "LUX",
+    "SGP"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "conta_paesi",
+     "paesi": [
+      "AUS",
+      "ISL",
+      "NLD",
+      "GUY",
+      "QAT",
+      "NOR",
+      "LUX",
+      "SGP"
+     ],
+     "colore": "oro",
+     "parola": "Eight"
+    },
+    {
+     "tipo": "nota",
+     "testo": "The handicap became the money",
+     "parola": "handicap"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": -40,
+    "lat": 20,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Treasure under the handicap: Australia, Guyana, Qatar and Norway. Location over land: the Netherlands, Luxembourg and Singapore. The handicap as a power plant: Iceland.",
+   "anteprima": false,
+   "vista": {
+    "lon": 20,
+    "lat": 30,
+    "larghezza": 300
+   },
+   "epoca": "oggi",
+   "oro": [
+    "AUS",
+    "GUY",
+    "QAT",
+    "NOR",
+    "NLD",
+    "LUX",
+    "SGP",
+    "ISL"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "treasure_chest",
+     "lon": 134,
+     "lat": -25,
+     "parola": "Treasure"
+    },
+    {
+     "tipo": "icona",
+     "icona": "port",
+     "lon": 4,
+     "lat": 52,
+     "parola": "Location"
+    },
+    {
+     "tipo": "icona",
+     "icona": "factory",
+     "lon": -19,
+     "lat": 65,
+     "parola": "power"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -60,
+    "lat": 0,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "And the handicap that forced them to get good: the Dutch against the sea, Singapore against having no land or water. Most also share very few people to split the money between.",
+   "anteprima": false,
+   "vista": {
+    "lon": 60,
+    "lat": 30,
+    "larghezza": 240
+   },
+   "epoca": "oggi",
+   "oro": [
+    "NLD",
+    "SGP"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "fortress",
+     "lon": 4.5,
+     "lat": 52,
+     "parola": "sea"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "family",
+     "n": 3,
+     "lon": 103.8,
+     "lat": 1.35,
+     "parola": "people"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Few people share the wealth",
+     "parola": "few"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 60,
     "lat": 10,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Qatar got rich behind a strait. Singapore got rich by sitting on one. And the richest country in the world is not even on this list.",
+   "anteprima": false,
+   "vista": {
+    "lon": 78,
+    "lat": 15,
+    "larghezza": 100
+   },
+   "epoca": "oggi",
+   "oro": [
+    "QAT",
+    "SGP"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "HORMUZ",
+     "lon": 56.4,
+     "lat": 26.5,
+     "parola": "Qatar"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "MALACCA",
+     "lon": 101,
+     "lat": 3,
+     "parola": "Singapore"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "NOT LISTED",
+     "parola": "not"
+    }
+   ],
+   "musica": "mistero",
+   "stacco": true,
+   "pin": {
+    "lon": 80,
+    "lat": -5,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Liechtenstein beats all eight, and its money has almost nothing to do with geography. Its neighbor Switzerland is the purest version of this story, with no sea, no oil, nothing to dig, and still among the richest on Earth.",
+   "anteprima": false,
+   "vista": {
+    "lon": 8.5,
+    "lat": 47,
+    "larghezza": 8
+   },
+   "epoca": "oggi",
+   "oro": [
+    "LIE",
+    "CHE"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "contorno",
+     "paese": "LIE",
+     "parola": "Liechtenstein"
+    },
+    {
+     "tipo": "contorno",
+     "paese": "CHE",
+     "parola": "Switzerland"
+    },
+    {
+     "tipo": "icona",
+     "icona": "banknotes",
+     "lon": 8.5,
+     "lat": 47.4,
+     "parola": "richest"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 10.5,
+    "lat": 46,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "The countries that got rich did not escape their geography. They found the price tag hidden inside it.",
+   "anteprima": false,
+   "vista": {
+    "lon": 10,
+    "lat": 30,
+    "larghezza": 300
+   },
+   "epoca": "oggi",
+   "oro": [
+    "AUS",
+    "ISL",
+    "NLD",
+    "GUY",
+    "QAT",
+    "NOR",
+    "LUX",
+    "SGP"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "scritta",
+     "testo": "HIDDEN PRICE",
+     "parola": "price"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Every border has a price",
+     "parola": "price"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": false,
+   "pin": {
+    "lon": -100,
+    "lat": 30,
     "faccia": "normale"
    }
   }
