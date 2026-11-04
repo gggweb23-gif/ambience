@@ -125,11 +125,17 @@ def scrivi(fid, valori):
         log('  verrebbe scritto:', json.dumps(valori[-2:], ensure_ascii=False)[:600]); return
     meta = A.api(fid, 'GET', '?fields=sheets.properties')
     nomi = [s['properties']['title'] for s in meta['sheets']]
+    for s_ in meta['sheets']:   # le schede Performance mai in prima posizione (tutti i programmi leggono i video dalla prima scheda)
+        if s_['properties']['title'].startswith('Performance') and s_['properties'].get('index', 0) == 0 and len(nomi) > 1:
+            A.api(fid, 'POST', ':batchUpdate', {'requests': [{'updateSheetProperties': {'properties': {'sheetId': s_['properties']['sheetId'], 'index': len(nomi)},
+                                                                                       'fields': 'index'}}]})
+            log('  scheda', s_['properties']['title'], 'spostata in fondo')
     if 'Performance' not in nomi:
-        A.api(fid, 'POST', ':batchUpdate', {'requests': [{'addSheet': {'properties': {'title': 'Performance'}}}]})
+        A.api(fid, 'POST', ':batchUpdate', {'requests': [{'addSheet': {'properties': {'title': 'Performance', 'index': len(nomi)}}}]})
     elif 'Performance storico n8n' not in nomi:   # la prima volta: lo storico scritto da n8n si conserva in una scheda a parte
         sid = next(s_['properties']['sheetId'] for s_ in meta['sheets'] if s_['properties']['title'] == 'Performance')
-        A.api(fid, 'POST', ':batchUpdate', {'requests': [{'duplicateSheet': {'sourceSheetId': sid, 'newSheetName': 'Performance storico n8n'}}]})
+        A.api(fid, 'POST', ':batchUpdate', {'requests': [{'duplicateSheet': {'sourceSheetId': sid, 'newSheetName': 'Performance storico n8n',
+                                                                               'insertSheetIndex': len(nomi)}}]})   # in fondo: la prima scheda resta quella dei video
         log('  storico di n8n copiato nella scheda "Performance storico n8n"')
     A.api(fid, 'POST', '/values/' + urllib.parse.quote("'Performance'!A1:Z2000") + ':clear', {})
     A.api(fid, 'PUT', '/values/' + urllib.parse.quote("'Performance'!A1") + '?valueInputOption=RAW', {'values': valori})

@@ -30,7 +30,8 @@ def api(foglio, metodo, percorso, corpo=None):
 
 
 def righe(foglio, con_gid=False):
-    pr = api(foglio, 'GET', '?fields=sheets.properties')['sheets'][0]['properties']
+    tutte = api(foglio, 'GET', '?fields=sheets.properties')['sheets']
+    pr = next((x['properties'] for x in tutte if not x['properties']['title'].startswith('Performance')), tutte[0]['properties'])   # mai le schede Performance
     v = api(foglio, 'GET', '/values/' + urllib.parse.quote(f"'{pr['title']}'!A1:AZZ3000")).get('values', [])
     h = [str(x).strip() for x in v[0]]
     rr = [dict(zip(h, r + [''] * (len(h) - len(r)))) for r in v[1:]]

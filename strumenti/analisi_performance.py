@@ -13,7 +13,7 @@ import coach_calcola as C
 def valori(fid, scheda=None):
     pr = A.api(fid, 'GET', '?fields=sheets.properties')['sheets']
     nomi = [s['properties']['title'] for s in pr]
-    t = scheda or nomi[0]
+    t = scheda or next((n for n in nomi if not n.startswith('Performance')), nomi[0])
     if t not in nomi:
         return None
     return A.api(fid, 'GET', '/values/' + urllib.parse.quote(f"'{t}'!A1:AZZ3000")).get('values', [])
