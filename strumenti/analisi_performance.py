@@ -53,12 +53,12 @@ for r in cfgv[1:]:
             print('  calcolo coach non riuscito:', str(ex)[:200])
     if perf and len(perf) > 1:   # medie semplici sugli ultimi 5 video con almeno 3 giorni
         ph = perf[0]; rows = [dict(zip(ph, x + [''] * (len(ph) - len(x)))) for x in perf[1:]]
-        mat = [x for x in rows if A.num(x.get('giorni_dalla_pubblicazione')) >= 3][-5:]
-        imp = sum(A.num(x.get('impression'), 0) for x in mat); clic = sum(A.num(x.get('impression'), 0) * A.num(x.get('ctr'), 0) / 100 for x in mat)
-        vw = [x for x in mat if A.num(x.get('views'), 0) >= 30]
-        pv = sum(A.num(x.get('views'), 0) for x in vw)
-        r30 = sum(A.num(x.get('ritenzione_30s'), 0) * A.num(x.get('views'), 0) for x in vw if A.num(x.get('ritenzione_30s')) is not None) / pv if pv else None
-        r60 = sum(A.num(x.get('ritenzione_60s'), 0) * A.num(x.get('views'), 0) for x in vw if A.num(x.get('ritenzione_60s')) is not None) / pv if pv else None
+        mat = [x for x in rows if C.num(x.get('giorni_dalla_pubblicazione')) >= 3][-5:]
+        imp = sum(C.num(x.get('impression'), 0) for x in mat); clic = sum(C.num(x.get('impression'), 0) * C.num(x.get('ctr'), 0) / 100 for x in mat)
+        vw = [x for x in mat if C.num(x.get('views'), 0) >= 30]
+        pv = sum(C.num(x.get('views'), 0) for x in vw)
+        r30 = sum(C.num(x.get('ritenzione_30s'), 0) * C.num(x.get('views'), 0) for x in vw if C.num(x.get('ritenzione_30s')) is not None) / pv if pv else None
+        r60 = sum(C.num(x.get('ritenzione_60s'), 0) * C.num(x.get('views'), 0) for x in vw if C.num(x.get('ritenzione_60s')) is not None) / pv if pv else None
         print(f"  ultimi {len(mat)} video (>=3 giorni): impression {imp:.0f} | CTR {clic / imp * 100 if imp else 0:.2f}% (obiettivo {cfg.get('coach_obiettivo_ctr') or 3.5}) | "
               f"ret30 {r30 if r30 is None else round(r30, 1)} (obiettivo {cfg.get('coach_obiettivo_ret30') or 65}) | ret60 {r60 if r60 is None else round(r60, 1)} "
               f"(obiettivo {cfg.get('coach_obiettivo_ret60') or 50}) | video con >=30 views: {len(vw)} | pubblici in tutto: {len(rows)}")
