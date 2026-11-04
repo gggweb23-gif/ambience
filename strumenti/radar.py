@@ -431,7 +431,8 @@ def prepara_ricerche(S, cassa, canali_scelta):
 
 
 STOP = set('a an the of in on at to and or for with by from is are be this that it its into over under near up down out off new old video videos footage stock '
-           'close shot view man woman person people young two one three background slow motion'.split())
+           'close shot view man woman person people young two one three background slow motion each other while looking using holding sitting standing '
+           'walking wearing working talking playing apple iphone phone laptop computer screen digital projection hand hands face top side'.split())
 CALMI = set('rain ocean waves sea beach forest fire fireplace snow waterfall night sky clouds sunset sunrise lake river nature relaxing ambience'.split())
 
 
@@ -845,7 +846,7 @@ def main():
         best = max(vids.values(), key=lambda r: num(r.get('views')))
         altri = [r.get('titolo') for r in sorted(vids.values(), key=lambda r: -num(r.get('views'))) if r is not best][:3]
         ult = max(rr, key=lambda r: data(r.get('data_rilevazione')) or dt.date(2000, 1, 1))
-        s = snap.get(cid, {'canale': ult.get('canale'), 'iscritti': num(ult.get('iscritti')), 'views': num(ult.get('views_canale'))})
+        s = snap.get(cid, {'canale': ult.get('canale'), 'iscritti': int(num(ult.get('iscritti'))), 'views': int(num(ult.get('views_canale')))})
         ser = serie.get(cid, {})
         def a(gg):
             ds = [d for d in ser if d <= OGGI_D - dt.timedelta(days=gg)]
@@ -860,7 +861,7 @@ def main():
                 vp = round((p7[1][0] - p14[1][0]) / max(1, (p7[0] - p14[0]).days))
         if vu != '' and vp != '':
             rap = (vu / vp) if vp > 0 else (99.0 if vu > 0 else 1.0)
-            cx = round(rap, 2)
+            cx = round(rap, 2) if vp > 0 else ''
             cresc = ORDINE_CRESCITA[0] if rap >= s_espl else ORDINE_CRESCITA[1] if rap >= s_cresc else ORDINE_CRESCITA[4] if rap <= s_calo else ORDINE_CRESCITA[2]
         else:
             cresc = ORDINE_CRESCITA[3]
