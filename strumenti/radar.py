@@ -523,17 +523,21 @@ def argomenti(cassa, S, canali, cache):
     if len(usati) > 30:
         prompt = ("Questi sono argomenti di canali YouTube (tra parentesi quanti canali). Sono troppi e troppo simili: riuniscili in AL MASSIMO 25 argomenti ampi "
                   "(es. tutti i documentari sulla seconda guerra mondiale insieme, tutti i suoni/musica per dormire e rilassarsi insieme), in italiano, massimo 5 parole. "
-                  "Rispondi SOLO con JSON {\"numero\":\"argomento ampio\"} per ogni riga.\n\n"
+                  "Rispondi SOLO con JSON compatto {\"argomento ampio\":[numeri delle righe]}: ogni numero compare una sola volta.\n\n"
                   + '\n'.join(f'{k} | {a} ({n})' for k, (a, n) in enumerate(usati.most_common())))
         try:
-            t = cassa.chiedi(modello, prompt, 20 * len(usati) + 200, len(prompt) // 3 + 50)
-            j = coppie(t)
-            mappa = {a: str(j.get(str(k)) or '').strip()[:60] for k, (a, _) in enumerate(usati.most_common()) if str(j.get(str(k)) or '').strip()}
+            t = cassa.chiedi(modello, prompt, 4 * len(usati) + 600, len(prompt) // 3 + 50)
+            vecchi = [a for a, _ in usati.most_common()]
+            mappa = {}
+            for nuovo, nums in (json_da(t).items() if t else []):
+                for k in nums if isinstance(nums, list) else []:
+                    if str(k).isdigit() and int(k) < len(vecchi) and str(nuovo).strip():
+                        mappa[vecchi[int(k)]] = str(nuovo).strip()[:60]
             if mappa:
                 for v in cache.values():
                     if v.get('argomento') in mappa:
                         v['argomento'] = mappa[v['argomento']]
-                log(f'Argomenti riuniti: da {len(usati)} a {len(set(mappa.values()) | (set(usati) - set(mappa)))}')
+                log(f'Argomenti riuniti: da {len(usati)} a {len(set(mappa.values()) | (set(usati) - set(mappa)))} ({len(mappa)} rinominati)')
         except Exception as e:
             log('Riunione argomenti non riuscita:', pulito(e)[:120])
     out = {}
