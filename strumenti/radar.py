@@ -19,7 +19,8 @@ E = os.environ.get
 FOGLIO = E('RADAR_FOGLIO', '1cOLkymyVmU2SQYZWMNMPb99AHkk4qdH8RKMUPtwhcLI')
 PROVA = (E('PROVA') or 'NO').strip().upper() == 'SI'
 SENZA_CLAUDE = (E('SENZA_CLAUDE') or 'NO').strip().upper() == 'SI'
-MAX_RICERCHE = int(re.sub(r'\D', '', E('MAX_RICERCHE') or '') or 0)
+_MR = re.sub(r'\D', '', E('MAX_RICERCHE') or '')
+MAX_RICERCHE = int(_MR) if _MR else None   # vuoto = tutte; 0 = nessuna ricerca (si ricalcolano solo Canali e TREND)
 YT_KEY = E('YT_API_KEY_RADAR', '')
 CART = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'radar')
 F_VAL = os.path.join(CART, 'valutazioni.json')    # valutazioni gia' pagate: un canale si valuta UNA volta sola
@@ -491,8 +492,9 @@ def argomenti(cassa, S, canali, cache):
     esistenti = sorted({v.get('argomento') for v in cache.values() if v.get('argomento')})
     for i in range(0, len(nuovi), 120):
         blocco = nuovi[i:i + 120]
-        prompt = ("Raggruppa questi canali YouTube per ARGOMENTO di contenuto (cosa raccontano, non lo stile). Un argomento deve essere abbastanza preciso "
-                  "da diventare un canale (es. \"Stoicismo e sviluppo personale\", \"Mitologia e divinita' antiche\"), in italiano, massimo 5 parole.\n"
+        prompt = ("Raggruppa questi canali YouTube per ARGOMENTO di contenuto (cosa raccontano, non lo stile). Argomenti AMPI come una categoria di canali "
+                  "(es. \"Stoicismo e sviluppo personale\", \"Mitologia e divinita' antiche\", \"Seconda guerra mondiale\"), in italiano, massimo 5 parole. "
+                  "Usa il meno possibile argomenti nuovi.\n"
                   + ("Argomenti gia' esistenti: se un canale rientra in uno di questi usa ESATTAMENTE lo stesso nome: " + ' ; '.join(esistenti) + "\n" if esistenti else '')
                   + "Rispondi SOLO con JSON {\"numero\":\"argomento\"} per ogni canale.\n\n"
                   + '\n'.join(f"{k} | {c['nicchia']} | {c['canale']} | {str(c['video_migliore'])[:90]}" for k, c in enumerate(blocco)))
@@ -511,6 +513,25 @@ def argomenti(cassa, S, canali, cache):
             if a:
                 cache.setdefault(c['channel_id'], {})['argomento'] = a[:60]
                 esistenti = sorted(set(esistenti) | {a[:60]})
+    # troppi argomenti piccoli = nessun TREND: Claude li riunisce in argomenti ampi (una chiamata, pochi centesimi)
+    import collections
+    usati = collections.Counter(cache.get(c['channel_id'], {}).get('argomento') for c in canali if cache.get(c['channel_id'], {}).get('argomento'))
+    if len(usati) > 30:
+        prompt = ("Questi sono argomenti di canali YouTube (tra parentesi quanti canali). Sono troppi e troppo simili: riuniscili in AL MASSIMO 25 argomenti ampi "
+                  "(es. tutti i documentari sulla seconda guerra mondiale insieme, tutti i suoni/musica per dormire e rilassarsi insieme), in italiano, massimo 5 parole. "
+                  "Rispondi SOLO con JSON {\"numero\":\"argomento ampio\"} per ogni riga.\n\n"
+                  + '\n'.join(f'{k} | {a} ({n})' for k, (a, n) in enumerate(usati.most_common())))
+        try:
+            t = cassa.chiedi(modello, prompt, 20 * len(usati) + 200, len(prompt) // 3 + 50)
+            j = json_da(t) if t else {}
+            mappa = {a: str(j.get(str(k)) or '').strip()[:60] for k, (a, _) in enumerate(usati.most_common()) if str(j.get(str(k)) or '').strip()}
+            if mappa:
+                for v in cache.values():
+                    if v.get('argomento') in mappa:
+                        v['argomento'] = mappa[v['argomento']]
+                log(f'Argomenti riuniti: da {len(usati)} a {len(set(mappa.values()) | (set(usati) - set(mappa)))}')
+        except Exception as e:
+            log('Riunione argomenti non riuscita:', pulito(e)[:120])
     out = {}
     for c in canali:
         a = cache.get(c['channel_id'], {}).get('argomento')
@@ -579,7 +600,7 @@ def main():
     # 1) RICERCHE
     ricerche = prepara_ricerche(S, cassa, simili)
     tot = len(ricerche)
-    limite = 2 if PROVA else (MAX_RICERCHE or 10 ** 6)
+    limite = min(2, MAX_RICERCHE if MAX_RICERCHE is not None else 2) if PROVA else (MAX_RICERCHE if MAX_RICERCHE is not None else 10 ** 6)
     ricerche = ricerche[:limite]
     log(f'Ricerche preparate: {tot}, fatte oggi: {len(ricerche)} (circa {len(ricerche) * 100} unita\' di quota)')
     trovati = {}   # video_id -> (ricerca, item)

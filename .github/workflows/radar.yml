@@ -12,7 +12,7 @@ on:
         default: 'NO'
         type: string
       max_ricerche:
-        description: 'Numero massimo di ricerche YouTube (vuoto = tutte quelle delle Impostazioni)'
+        description: 'Numero massimo di ricerche YouTube (vuoto = tutte quelle delle Impostazioni, 0 = nessuna: ricalcola solo Canali e TREND)'
         default: ''
         type: string
       senza_claude:
