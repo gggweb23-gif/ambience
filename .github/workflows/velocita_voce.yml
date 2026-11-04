@@ -1,0 +1,26 @@
+name: Velocita' della voce di video pubblicati (gratis)
+on:
+  workflow_dispatch:
+    inputs:
+      chiave_youtube:
+        required: true
+        type: string
+      video:
+        description: 'ID dei video separati da virgola'
+        required: true
+        type: string
+permissions:
+  contents: read
+jobs:
+  velocita:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Velocita'
+        env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets[inputs.chiave_youtube] }}
+          VIDEO: ${{ inputs.video }}
+        run: python3 strumenti/velocita_voce.py
