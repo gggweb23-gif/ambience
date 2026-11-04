@@ -926,7 +926,23 @@ def fai(i):
                 z2 = zona_libera(im, lato)
                 if z2:
                     scritta_cartoncino(im, f"{t['riga1']} {t['riga2']}", lato, z2, limite).save(p, quality=90)
-                if not z2 or copre_soggetti(p):   # ultima strada: fascia in alto sopra le teste
+                if (not z2 or copre_soggetti(p)) and not t.get('composizione'):   # immagine rifatta UNA volta: tutte le persone lontane dal lato della scritta
+                    lt, lp = ('LEFT', 'RIGHT') if lato == 'sinistra' else ('RIGHT', 'LEFT')
+                    log('  rifaccio l\'immagine una volta: persone tutte a', lp)
+                    try:
+                        r2 = fal('fal-ai/nano-banana-2/edit', {'prompt': f'IMPORTANT: ALL people and characters (KAO and every other person, also people sitting on benches or in the background) '
+                                                               f'stay in the {lp} 50% of the image. The {lt} 50% shows ONLY empty background (sky, trees, wall, grass): '
+                                                               'no person, no face, no body, no legs, no bench with people there. ' + prompt,
+                                                               'image_urls': refs, 'aspect_ratio': '16:9', 'resolution': '2K', 'output_format': 'jpeg', 'num_images': 1})
+                        im2 = ImageOps.fit(Image.open(io.BytesIO(http(r2['images'][0]['url'], raw=True))).convert('RGB'), (2560, 1440), Image.LANCZOS)
+                        if e_kao(im2):
+                            im = ingrandisci_kao(im2, lato)
+                            scritta_cartoncino(im, f"{t['riga1']} {t['riga2']}", lato, zona_libera(im, lato), limite).save(p, quality=90)
+                            if APPLICA and not c.get('suff'):
+                                im.save(os.path.join(BASI, c['id'] + '.jpg'), quality=92)
+                    except Exception as e2:
+                        log('  immagine rifatta non riuscita:', str(e2)[:100])
+                if copre_soggetti(p):   # ultima strada: fascia in alto sopra le teste
                     th_ = None
                     if ck and isinstance(ck.get('testa_alta'), (int, float)):
                         th_ = float(ck['testa_alta']); th_ = th_ / 100 if th_ > 1 else th_
