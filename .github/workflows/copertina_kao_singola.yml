@@ -9,6 +9,9 @@ on:
       link_competitor:
         description: "(facoltativo) link del video competitor da copiare; vuoto = cercato per titolo"
         default: ""
+      applica:
+        description: "SI = carica su YouTube; NO = solo anteprima (kao_copertine/piatto_prova), da far vedere a Giorgio"
+        default: "SI"
 permissions:
   contents: write
 concurrency:
@@ -24,7 +27,7 @@ jobs:
         env:
           SOLO: ${{ inputs.video_id }}
           LINK_COMPETITOR: ${{ inputs.link_competitor }}
-          APPLICA: "SI"
+          APPLICA: ${{ inputs.applica || 'SI' }}
           STILE: "piatto"
           SFONDO_TESTO: "fumetto"
           PROVA_SFONDI: "NO"

@@ -1,0 +1,41 @@
+name: Carica una copertina gia' pronta (gratis)
+# Carica su YouTube un'immagine gia' presente nel repository (es. un'anteprima approvata da Giorgio).
+on:
+  workflow_dispatch:
+    inputs:
+      chiave_youtube:
+        description: 'Segreto YouTube del canale, es. YT_REFRESH_TOKEN_KAO'
+        required: true
+        type: string
+      video_id:
+        required: true
+        type: string
+      file:
+        description: 'Percorso dell immagine nel repository, es. kao_copertine/piatto_prova/ID.jpg'
+        required: true
+        type: string
+permissions:
+  contents: read
+jobs:
+  carica:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Carica
+        env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets[inputs.chiave_youtube] }}
+          VIDEO: ${{ inputs.video_id }}
+          FILE: ${{ inputs.file }}
+        run: |
+          python3 - <<'PY'
+          import json, os, urllib.parse, urllib.request
+          E = os.environ.get
+          d = urllib.parse.urlencode({'client_id': E('YT_CLIENT_ID'), 'client_secret': E('YT_CLIENT_SECRET'), 'refresh_token': E('YT_REFRESH_TOKEN'), 'grant_type': 'refresh_token'}).encode()
+          tk = json.loads(urllib.request.urlopen(urllib.request.Request('https://oauth2.googleapis.com/token', data=d), timeout=30).read())['access_token']
+          r = urllib.request.urlopen(urllib.request.Request(f"https://www.googleapis.com/upload/youtube/v3/thumbnails/set?videoId={E('VIDEO')}", data=open(E('FILE'), 'rb').read(),
+                                     headers={'Authorization': 'Bearer ' + tk, 'Content-Type': 'image/jpeg'}, method='POST'), timeout=60).read()
+          print('CARICATA', E('VIDEO'), E('FILE'))
+          PY
