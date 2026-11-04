@@ -1,0 +1,37 @@
+name: Sposta l'uscita di un video (gratis)
+on:
+  workflow_dispatch:
+    inputs:
+      chiave_youtube:
+        description: 'Nome del segreto YouTube del canale, es. YT_REFRESH_TOKEN_MAIN_STREET_ATLAS'
+        required: true
+        type: string
+      video_id:
+        required: true
+        type: string
+      quando:
+        description: 'Nuova uscita, ora italiana: 2026-11-05 17:00'
+        required: true
+        type: string
+      foglio:
+        description: 'ID del file di produzione (vuoto = solo YouTube)'
+        default: ''
+        type: string
+permissions:
+  contents: read
+jobs:
+  sposta:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Sposta
+        env:
+          GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets[inputs.chiave_youtube] }}
+          VIDEO_ID: ${{ inputs.video_id }}
+          QUANDO: ${{ inputs.quando }}
+          FOGLIO: ${{ inputs.foglio }}
+        run: pip install -q google-auth requests && python3 strumenti/sposta_uscita.py
