@@ -27,7 +27,7 @@ F_SPESA = os.path.join(CART, 'spesa_claude.json')   # spesa Claude giorno per gi
 OGGI_D = dt.datetime.now(ZoneInfo('Europe/Rome')).date()
 OGGI = OGGI_D.isoformat()
 ORA = dt.datetime.now(dt.timezone.utc)
-MAX_PEXELS = 100       # richieste Pexels per giro (la chiave e' la stessa dei video: limite 200 all'ora)
+MAX_PEXELS = 60       # richieste Pexels per giro (la chiave e' la stessa dei video: limite 200 all'ora)
 QUOTA_YT = 9300        # unita' YouTube massime per giro (limite giornaliero 10000)
 LINGUA = {'IT': 'it', 'US': 'en', 'GB': 'en', 'CA': 'en', 'AU': 'en', 'ES': 'es', 'FR': 'fr', 'DE': 'de', 'BR': 'pt', 'PT': 'pt'}
 CAT = {1: 'Film e animazione', 2: 'Auto e veicoli', 10: 'Musica', 15: 'Animali', 17: 'Sport', 19: 'Viaggi ed eventi', 20: 'Videogiochi',
@@ -497,7 +497,7 @@ def argomenti(cassa, S, canali, cache):
                   + "Rispondi SOLO con JSON {\"numero\":\"argomento\"} per ogni canale.\n\n"
                   + '\n'.join(f"{k} | {c['nicchia']} | {c['canale']} | {str(c['video_migliore'])[:90]}" for k, c in enumerate(blocco)))
         try:
-            t = cassa.chiedi(modello, prompt, 12 * len(blocco) + 200, len(prompt) // 3 + 50)
+            t = cassa.chiedi(modello, prompt, 20 * len(blocco) + 200, len(prompt) // 3 + 50)
         except Exception as e:
             log('Claude argomenti errore:', pulito(e)[:120]); t = None
         if not t:
@@ -859,6 +859,9 @@ def main():
             vu = round((oggi_v[0] - p7[1][0]) / gg); isg = round((oggi_v[1] - p7[1][1]) / gg)
             if p14:
                 vp = round((p7[1][0] - p14[1][0]) / max(1, (p7[0] - p14[0]).days))
+            # numeri incoerenti (views che calano: dati vecchi o pulizia di YouTube) = non affidabili
+            vu = vu if vu >= 0 else ''
+            vp = vp if vp != '' and vp > 0 else ''
         if vu != '' and vp != '':
             rap = (vu / vp) if vp > 0 else (99.0 if vu > 0 else 1.0)
             cx = round(rap, 2) if vp > 0 else ''
