@@ -283,7 +283,10 @@ def conta_archivio(q):
         return None
     STAT['archivio'] += 1
     try:
-        parole = ' AND '.join('(' + w + ')' for w in re.findall(r"[\w']+", q)[:6])
+        GEN = {'archive', 'archival', 'footage', 'video', 'videos', 'film', 'films', 'photo', 'photos', 'photograph', 'photographs', 'historical',
+               'historic', 'vintage', 'old', 'original', 'rare', 'real', 'documentary', 'images', 'pictures', 'the', 'of', 'and', 'in'}
+        w = [x for x in re.findall(r"[\w']+", q.lower()) if x not in GEN] or re.findall(r"[\w']+", q.lower())
+        parole = ' AND '.join('(' + x + ')' for x in w[:4])   # le parole generiche ("footage", "archive"...) non servono su Archive.org
         r = http('https://archive.org/advancedsearch.php?' + urllib.parse.urlencode({'q': f'({parole}) AND mediatype:(movies OR image)', 'rows': 0, 'output': 'json'}),
                  timeout=25, tentativi=2)
         STAT['archivio_ko'] = 0
@@ -308,7 +311,7 @@ def controlla_materiale(v, S):
         v['da_contare'] = True; return v   # Pexels/Archive non rispondono: si riconta al prossimo giro (gratis)
     med = sorted(ok)[(len(ok) - 1) // 2]
     soglia = num(S.get('min_clip_pexels'), 200) if pex else num(S.get('min_risultati_archivio'), 100)
-    v.update({'materiale_trovato': med, 'fonte_materiale': 'pexels' if pex else 'archivio', 'da_contare': len(ok) < len(qs),
+    v.update({'conteggio_v': 2, 'materiale_trovato': med, 'fonte_materiale': 'pexels' if pex else 'archivio', 'da_contare': len(ok) < len(qs),
               'materiale_dettaglio': ' | '.join(f'{q}: {n if n is not None else "?"}' for q, n in cont),
               'esito_replica': 'COPIA' if med >= soglia else 'POCO MATERIALE'})
     return v
@@ -792,6 +795,9 @@ def main():
             return attesa[cid]['potenziale']
         rr2 = [r for r in storia_vt.get(cid, []) if (data(r.get('data_rilevazione')) or dt.date(2000, 1, 1)) >= lim_can]
         return max([num(r.get('views_al_giorno')) for r in rr2] or [-1])
+    for v in cache.values():   # conteggi Archive.org fatti con il metodo vecchio (tutte le parole, anche "footage"): si rifanno una volta, gratis
+        if v.get('esito_replica') == 'POCO MATERIALE' and v.get('formato_replica') == 'ARCHIVIO' and v.get('conteggio_v') != 2 and v.get('ricerche'):
+            v['da_contare'] = True
     riconta = sorted((cid for cid, v in cache.items() if v.get('da_contare') and v.get('esito_replica') and potenziale(cid) >= 0), key=lambda c: -potenziale(c))
     rifatti = cambiati = 0
     t_fine = time.time() + 600   # al massimo 10 minuti di riconteggi per giro
