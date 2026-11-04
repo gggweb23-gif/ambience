@@ -1,4 +1,4 @@
-name: Rimetti una riga di produzione a Pronto (gratis)
+name: Rimetti una riga di produzione a Pronto o scrivi l'esito (gratis)
 on:
   workflow_dispatch:
     inputs:
@@ -9,6 +9,10 @@ on:
       link:
         description: 'Link video (colonna Link video) della riga'
         required: true
+        type: string
+      esito:
+        description: 'Vuoto = la riga torna Pronto; oppure JSON esito del motore (es. stato PUBBLICATO, video_id, titolo, pubblica_il)'
+        default: ''
         type: string
 permissions:
   contents: read
@@ -22,5 +26,5 @@ jobs:
         env:
           GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
           PAYLOAD: '{"foglio_produzione": "${{ inputs.foglio }}", "link": "${{ inputs.link }}", "canale": "riga"}'
-          ESITO: '{"stato": "RIMANDATO"}'
+          ESITO: ${{ inputs.esito || '{"stato": "RIMANDATO"}' }}
         run: pip install -q google-auth requests && python3 strumenti/esito_foglio.py
