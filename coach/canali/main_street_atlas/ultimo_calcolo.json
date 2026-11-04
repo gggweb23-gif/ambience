@@ -7,19 +7,32 @@
   "ret60": 50.0
  },
  "finestra": 3,
- "video_versione": 2,
- "video_maturi": 0,
- "video_finestra": [],
+ "video_versione": 3,
+ "video_maturi": 1,
+ "video_finestra": [
+  {
+   "id": "QH4PbuC02xU",
+   "titolo": "Why Britain's Slide Is Making Ireland Rich",
+   "versione": 1,
+   "pubblicato": "2026-10-31 17:00:00",
+   "ore": 85.7,
+   "impression": 4.0,
+   "ctr": 0.0,
+   "views": 0,
+   "ret30": null,
+   "ret60": null
+  }
+ ],
  "tutti_i_video": [
   {
    "id": "AnUwtqZUJFI",
    "titolo": "Why Did Russia Unify as a Country But Europe Never Did?",
    "versione": null,
    "pubblicato": "2026-10-30 17:00:00",
-   "ore": 37.7,
-   "impression": 2.0,
+   "ore": 109.7,
+   "impression": 5.0,
    "ctr": 0.0,
-   "views": 0,
+   "views": 3.0,
    "ret30": null,
    "ret60": null
   },
@@ -28,9 +41,9 @@
    "titolo": "Why Britain's Slide Is Making Ireland Rich",
    "versione": 1,
    "pubblicato": "2026-10-31 17:00:00",
-   "ore": 13.7,
-   "impression": 0,
-   "ctr": null,
+   "ore": 85.7,
+   "impression": 4.0,
+   "ctr": 0.0,
    "views": 0,
    "ret30": null,
    "ret60": null
@@ -40,7 +53,19 @@
    "titolo": "Switzerland Should Be Poor. Here's Why It Isn't",
    "versione": 1,
    "pubblicato": "2026-11-01 17:00:00",
-   "ore": -10.3,
+   "ore": 61.7,
+   "impression": 0,
+   "ctr": null,
+   "views": 0,
+   "ret30": null,
+   "ret60": null
+  },
+  {
+   "id": "3PVpiOAZCKc",
+   "titolo": "Why Did Spain Rule the Philippines for 300 Years but Leave Almost No S",
+   "versione": 1,
+   "pubblicato": "2026-11-02 17:00:00",
+   "ore": 37.7,
    "impression": 0,
    "ctr": null,
    "views": 0,
@@ -49,11 +74,12 @@
   }
  ],
  "budget_video": 1.0,
- "costo_medio_ultimi": 0.479,
+ "costo_medio_ultimi": 0.616,
  "costi_ultimi": [
   0.427,
-  0.53
+  0.53,
+  0.89
  ],
  "stato": "ATTESA",
- "motivo": "servono 3 video con almeno 72 ore nella versione 1, ce ne sono 0"
+ "motivo": "servono 3 video con almeno 72 ore nella versione 1, ce ne sono 1"
 }
