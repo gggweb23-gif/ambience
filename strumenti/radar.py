@@ -255,6 +255,11 @@ class Cassa:
         json.dump(dict(sorted(self.storico.items())[-120:]), open(F_SPESA, 'w'), indent=1)
 
 
+def coppie(testo):
+    """{"0":"argomento", ...} anche se Claude scrive piu' oggetti o righe separate."""
+    return {k: v for k, v in re.findall(r'"(\d+)"\s*:\s*"([^"]+)"', testo or '')}
+
+
 def json_da(testo, a='{', b='}'):
     t = (testo or '').replace('```json', '').replace('```', '')
     return json.loads(t[t.index(a):t.rindex(b) + 1])
@@ -417,7 +422,7 @@ def prepara_ricerche(S, cassa, canali_scelta):
         except Exception as e:
             log('SIMILI: canale', cid, 'non letto', str(e)[:100])
     # TREND PEXELS: dai video piu' popolari di Pexels in questo periodo
-    if str(S.get('trend_pexels') or '').strip().upper() == 'SI':
+    if str(S.get('trend_pexels') or '').strip().upper() == 'SI' and MAX_RICERCHE != 0:
         for x in trend_pexels(S, cassa):
             for p in paesi_semi:
                 add('parola: ' + x['q'] + ' (trend Pexels)', p, {'q': x['q'], 'videoDuration': dur(x.get('durata'), durate_semi[0])})
@@ -504,9 +509,8 @@ def argomenti(cassa, S, canali, cache):
             log('Claude argomenti errore:', pulito(e)[:120]); t = None
         if not t:
             break
-        try:
-            j = json_da(t)
-        except Exception:
+        j = coppie(t)
+        if not j:
             log('Risposta argomenti non leggibile'); break
         for k, c in enumerate(blocco):
             a = str(j.get(str(k)) or '').strip()
@@ -523,7 +527,7 @@ def argomenti(cassa, S, canali, cache):
                   + '\n'.join(f'{k} | {a} ({n})' for k, (a, n) in enumerate(usati.most_common())))
         try:
             t = cassa.chiedi(modello, prompt, 20 * len(usati) + 200, len(prompt) // 3 + 50)
-            j = json_da(t) if t else {}
+            j = coppie(t)
             mappa = {a: str(j.get(str(k)) or '').strip()[:60] for k, (a, _) in enumerate(usati.most_common()) if str(j.get(str(k)) or '').strip()}
             if mappa:
                 for v in cache.values():
