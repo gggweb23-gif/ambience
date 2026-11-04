@@ -1,1001 +1,580 @@
 {
- "titolo": "The Extreme Geography Behind The Richest Countries On Earth",
+ "titolo": "Why America Got Rich While Canada Fell Behind",
  "numero": {
-  "testo": "8",
-  "sotto": "IMPOSSIBLE PLACES, ONE RICH SECRET"
+  "testo": "75%",
+  "sotto": "CANADA'S INCOME VS AMERICA'S TODAY"
  },
  "copertina": {
   "testo": "WHY?",
   "oro": [
-   "NOR",
-   "SGP",
-   "QAT",
-   "GUY"
+   "USA"
   ],
   "verde": [
-   "AUS"
+   "CAN"
   ],
   "vista": {
-   "lon": 60,
-   "lat": 20,
-   "larghezza": 240
+   "lon": -98,
+   "lat": 50,
+   "larghezza": 70
   }
  },
- "descrizione": "Good land should make a country rich. So why are some of the richest nations on Earth frozen, dry, flooded, jungle-covered, or almost out of land? We look at eight countries where terrible geography turned into the money itself.\n\nFrom Australian iron and Icelandic volcanoes to Dutch dikes, Guyana's oil, Qatar's gas, Norway's fund, Luxembourg's finance and Singapore's strait, we follow the maps, the numbers and the surprising stories behind each fortune.",
+ "descrizione": "Canada and the United States share the longest border on Earth, a language, and legal roots from Britain. In 1980 Canadians were almost as rich as Americans. Today the gap is wide, and one province is now poorer per person than most US states. What happened?\n\nWe follow the money: weak competition, thin investment in machines, talent leaving for Silicon Valley and Seattle, oil sold to one buyer, and a housing boom that swallowed more capital than every factory and software program combined. The lesson reaches far beyond Canada.",
  "tag": [
-  "richest countries",
-  "geography",
-  "economics explained",
+  "canada vs usa",
+  "why canada is poorer",
+  "canada economy",
+  "american economy",
+  "productivity gap",
+  "canada housing crisis",
+  "economic history",
   "animated maps",
-  "Singapore",
-  "Norway",
-  "Qatar",
-  "Guyana",
-  "Netherlands",
-  "Iceland",
-  "Luxembourg",
-  "Australia"
+  "gdp per capita",
+  "bank of canada",
+  "canadian oil",
+  "history explained"
  ],
  "scene": [
   {
-   "testo": "A country that earned less than Ecuador. A gas giant that lost a sixth of its exports in two days. And the richest place has almost no land.",
+   "testo": "A border where a nation fell behind its twin. Banks nobody dares to shake up. Houses that swallowed everything. So why did Canada slip?",
    "anteprima": true,
    "vista": {
-    "lon": -58,
-    "lat": 6,
-    "larghezza": 30
+    "lon": -98,
+    "lat": 50,
+    "larghezza": 70
    },
    "epoca": "oggi",
    "oro": [
-    "GUY"
+    "USA"
    ],
    "verde": [
-    "ECU"
+    "CAN"
    ],
    "eventi": [
     {
-     "tipo": "prezzo",
-     "testo": "$99,000",
-     "sotto": "GUYANA · PER PERSON",
-     "ricco": true,
-     "parola": "Ecuador"
+     "tipo": "numero",
+     "testo": "75%",
+     "lon": -100,
+     "lat": 56,
+     "parola": "fell"
     },
     {
-     "tipo": "conta",
-     "valore": 17,
-     "prefisso": "-",
-     "suffisso": "%",
-     "sotto": "GAS EXPORTS LOST",
-     "parola": "sixth"
+     "tipo": "colonna",
+     "testo": "BANKS",
+     "valore": 0.9,
+     "lon": -79,
+     "lat": 44,
+     "parola": "Banks"
+    },
+    {
+     "tipo": "icona",
+     "icona": "cabin",
+     "lon": -123,
+     "lat": 49.2,
+     "parola": "Houses"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "WHY?",
+     "parola": "why"
     }
    ],
    "musica": "mistero",
    "stacco": false,
    "pin": {
-    "lon": -55,
-    "lat": 4,
+    "lon": -110,
+    "lat": 42,
     "faccia": "stupito"
    }
   },
   {
-   "testo": "How do the worst places on Earth become the richest?",
+   "testo": "Same language, same laws, twin economies. How did one pull away?",
    "anteprima": true,
    "vista": {
-    "lon": 103.8,
-    "lat": 1.35,
-    "larghezza": 8
-   },
-   "epoca": "oggi",
-   "oro": [
-    "SGP"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "numero",
-     "testo": "$177,000",
-     "lon": 103.8,
-     "lat": 1.35,
-     "parola": "richest"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "WHY?",
-     "parola": "worst"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 104.5,
-    "lat": 2.2,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "If good land made countries rich, the richest places would be green and gentle, with deep soil, big rivers and mild weather.",
-   "anteprima": false,
-   "vista": {
-    "lon": 10,
-    "lat": 30,
-    "larghezza": 300
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "farm",
-     "lon": 2,
-     "lat": 47,
-     "parola": "green"
-    },
-    {
-     "tipo": "icona",
-     "icona": "river",
-     "lon": 30,
-     "lat": 0,
-     "parola": "rivers"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Good land should mean riches",
-     "parola": "rich"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": -30,
-    "lat": 20,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "But look where the money actually is: a frozen coast, a desert with no rivers, a jungle, and land below the sea.",
-   "anteprima": false,
-   "vista": {
-    "lon": 20,
-    "lat": 40,
-    "larghezza": 120
-   },
-   "epoca": "oggi",
-   "oro": [
-    "NOR",
-    "QAT",
-    "GUY",
-    "NLD"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "contorno",
-     "paese": "NOR",
-     "parola": "frozen"
-    },
-    {
-     "tipo": "contorno",
-     "paese": "QAT",
-     "parola": "desert"
-    },
-    {
-     "tipo": "contorno",
-     "paese": "NLD",
-     "parola": "below"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Rich places, awful land",
-     "parola": "money"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 0,
-    "lat": 55,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "And one island was so short of land that it had to build more of itself. These are eight of the richest countries on Earth.",
-   "anteprima": false,
-   "vista": {
-    "lon": 103.8,
-    "lat": 1.35,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [
-    "SGP"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "cargo_ship",
-     "lon": 103.9,
-     "lat": 1.25,
-     "parola": "island"
-    },
-    {
-     "tipo": "conta",
-     "valore": 8,
-     "prefisso": "",
-     "suffisso": "",
-     "sotto": "RICHEST COUNTRIES",
-     "parola": "eight"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Ranked by buying power",
-     "parola": "richest"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 104.6,
-    "lat": 2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Here is the strange part. The terrible geography is not what they overcame. It is where the money came from.",
-   "anteprima": false,
-   "vista": {
-    "lon": 10,
-    "lat": 30,
-    "larghezza": 300
-   },
-   "epoca": "oggi",
-   "oro": [
-    "AUS",
-    "ISL",
-    "NLD",
-    "GUY",
-    "QAT",
-    "NOR",
-    "LUX",
-    "SGP"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "scritta",
-     "testo": "STRANGE?",
-     "parola": "strange"
-    },
-    {
-     "tipo": "nota",
-     "testo": "The handicap became the fortune",
-     "parola": "money"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": true,
-   "pin": {
-    "lon": -100,
-    "lat": 30,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Number eight. In 1938, Australia banned the export of its own iron ore, believing it simply did not have enough.",
-   "anteprima": false,
-   "vista": {
-    "lon": 134,
-    "lat": -26,
+    "lon": -98,
+    "lat": 50,
     "larghezza": 60
    },
    "epoca": "oggi",
    "oro": [
-    "AUS"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1938",
-     "parola": "1938"
-    },
-    {
-     "tipo": "icona",
-     "icona": "mine",
-     "lon": 118,
-     "lat": -22.5,
-     "parola": "iron"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Australia banned iron exports",
-     "parola": "banned"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": 146,
-    "lat": -35,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "In truth it sat on one of the biggest iron deposits on Earth. The problem was the land on top.",
-   "anteprima": false,
-   "vista": {
-    "lon": 122,
-    "lat": -24,
-    "larghezza": 30
-   },
-   "epoca": "oggi",
-   "oro": [
-    "AUS"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "etichetta",
-     "testo": "PILBARA",
-     "lon": 118.5,
-     "lat": -22.5,
-     "parola": "biggest"
-    },
-    {
-     "tipo": "icona",
-     "icona": "treasure_chest",
-     "lon": 119,
-     "lat": -23,
-     "parola": "deposits"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Treasure under empty land",
-     "parola": "land"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 130,
-    "lat": -30,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Australia is the driest inhabited continent, and its ten biggest deserts alone cover eighteen percent of the mainland.",
-   "anteprima": false,
-   "vista": {
-    "lon": 134,
-    "lat": -26,
-    "larghezza": 50
-   },
-   "epoca": "oggi",
-   "oro": [
-    "AUS"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "griglia",
-     "paese": [
-      "AUS"
-     ],
-     "pieni": 0.18,
-     "testo": "18% DESERT",
-     "colore": "oro",
-     "parola": "deserts"
-    },
-    {
-     "tipo": "conta",
-     "valore": 18,
-     "prefisso": "",
-     "suffisso": "%",
-     "sotto": "OF THE MAINLAND",
-     "parola": "eighteen"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Driest inhabited continent",
-     "parola": "driest"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 145,
-    "lat": -20,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Under that empty interior lies rock more than three billion years old, where iron built up into whole mountains of ore.",
-   "anteprima": false,
-   "vista": {
-    "lon": 120,
-    "lat": -23,
-    "larghezza": 24
-   },
-   "epoca": "oggi",
-   "oro": [
-    "AUS"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 3,
-     "prefisso": "3+",
-     "suffisso": "B",
-     "sotto": "YEARS OLD",
-     "parola": "three"
-    },
-    {
-     "tipo": "icona",
-     "icona": "mountain",
-     "lon": 119.5,
-     "lat": -22.7,
-     "parola": "mountains"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Mountains of iron ore",
-     "parola": "ore"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 126,
-    "lat": -27,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "In 1952, rancher Lang Hancock, forced by bad weather to fly low through a Pilbara gorge, saw walls of rust-red iron.",
-   "anteprima": false,
-   "vista": {
-    "lon": 118,
-    "lat": -22.5,
-    "larghezza": 12
-   },
-   "epoca": "oggi",
-   "oro": [
-    "AUS"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1952",
-     "parola": "1952"
-    },
-    {
-     "tipo": "personaggio",
-     "nome": "Lang Hancock",
-     "descrizione": "1950s Australian sheep rancher and pilot, weathered face, hat",
-     "parola": "Hancock"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      116,
-      -20.5
-     ],
-     "a": [
-      118.3,
-      -22.6
-     ],
-     "icona": "ship",
-     "parola": "fly"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Rust-red walls of iron",
-     "parola": "walls"
-    }
-   ],
-   "musica": "epico",
-   "stacco": false,
-   "pin": {
-    "lon": 121,
-    "lat": -25,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "The export ban ended in 1960, and mines opened soon after. Today, iron ore is Australia's biggest export, worth 116 billion Australian dollars in a year.",
-   "anteprima": false,
-   "vista": {
-    "lon": 118,
-    "lat": -22.5,
-    "larghezza": 14
-   },
-   "epoca": "oggi",
-   "oro": [
-    "AUS"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1960",
-     "parola": "1960"
-    },
-    {
-     "tipo": "icona",
-     "icona": "mine",
-     "lon": 118.6,
-     "lat": -22.3,
-     "parola": "mines"
-    },
-    {
-     "tipo": "conta",
-     "valore": 116,
-     "prefisso": "A$",
-     "suffisso": "B",
-     "sotto": "IRON ORE IN A YEAR",
-     "parola": "116"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Biggest export by far",
-     "parola": "biggest"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 123,
-    "lat": -26,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Australia ships over half of all iron ore traded worldwide, and about eighty-five percent of it goes to one customer: China.",
-   "anteprima": false,
-   "vista": {
-    "lon": 115,
-    "lat": -10,
-    "larghezza": 90
-   },
-   "epoca": "oggi",
-   "oro": [
-    "AUS"
+    "USA"
    ],
    "verde": [
-    "CHN"
+    "CAN"
    ],
    "eventi": [
     {
-     "tipo": "freccia",
-     "da": [
-      118,
-      -20
+     "tipo": "confine",
+     "punti": [
+      [
+       -123,
+       49
+      ],
+      [
+       -95,
+       49
+      ],
+      [
+       -83,
+       46
+      ],
+      [
+       -67,
+       45
+      ]
      ],
-     "a": [
-      121,
-      31
-     ],
-     "icona": "cargo_ship",
-     "parola": "ships"
+     "parola": "border"
     },
     {
-     "tipo": "contatore",
-     "testo": "8.5 IN 10 TO CHINA",
-     "su": 8.5,
-     "di": 10,
-     "personaggio": "merchant",
-     "parola": "eighty-five"
-    },
-    {
-     "tipo": "nota",
-     "testo": "One customer buys most",
-     "parola": "customer"
+     "tipo": "solleva",
+     "paese": [
+      "USA"
+     ],
+     "volte": 4,
+     "testo": "",
+     "colore": "oro",
+     "parola": "pull"
     }
    ],
    "musica": "",
    "stacco": false,
    "pin": {
-    "lon": 135,
-    "lat": -10,
+    "lon": -115,
+    "lat": 38,
     "faccia": "normale"
    }
   },
   {
-   "testo": "The desert was never the problem. It was the vault. Adjusted for prices, that is about 75,000 dollars for every Australian.",
+   "testo": "Two countries share the longest border on Earth, the same language, laws inherited from Britain, and more natural resources than almost anyone.",
    "anteprima": false,
    "vista": {
-    "lon": 134,
-    "lat": -26,
-    "larghezza": 50
+    "lon": -98,
+    "lat": 49,
+    "larghezza": 80
    },
    "epoca": "oggi",
    "oro": [
-    "AUS"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "scritta",
-     "testo": "THE VAULT",
-     "parola": "vault"
-    },
-    {
-     "tipo": "prezzo",
-     "testo": "$75,000",
-     "sotto": "AUSTRALIA · PER PERSON",
-     "ricco": true,
-     "parola": "75,000"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Desert hid the treasure",
-     "parola": "desert"
-    }
-   ],
-   "musica": "trionfo",
-   "stacco": true,
-   "pin": {
-    "lon": 146,
-    "lat": -34,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Some of what Australia digs up travels north. And one island makes aluminum without a single aluminum mine. Number seven: Iceland.",
-   "anteprima": false,
-   "vista": {
-    "lon": -18,
-    "lat": 65,
-    "larghezza": 22
-   },
-   "epoca": "oggi",
-   "oro": [
-    "ISL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "contorno",
-     "paese": "ISL",
-     "parola": "Iceland"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Aluminum with no mines",
-     "parola": "aluminum"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": -14,
-    "lat": 67.5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Every year ships bring in alumina, the white powder aluminum is made from, from as far as Australia and Brazil.",
-   "anteprima": false,
-   "vista": {
-    "lon": -20,
-    "lat": 20,
-    "larghezza": 160
-   },
-   "epoca": "oggi",
-   "oro": [
-    "ISL"
+    "USA"
    ],
    "verde": [
-    "AUS",
-    "BRA"
+    "CAN"
    ],
    "eventi": [
     {
-     "tipo": "freccia",
-     "da": [
-      -43,
-      -23
+     "tipo": "confine",
+     "punti": [
+      [
+       -123,
+       49
+      ],
+      [
+       -95,
+       49
+      ],
+      [
+       -83,
+       46
+      ],
+      [
+       -67,
+       45
+      ]
      ],
-     "a": [
-      -21,
-      64
-     ],
-     "icona": "cargo_ship",
-     "parola": "Brazil"
+     "parola": "longest"
     },
     {
-     "tipo": "freccia",
-     "da": [
-      115,
-      -32
-     ],
-     "a": [
-      -20,
-      64
-     ],
-     "icona": "cargo_ship",
-     "parola": "Australia"
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": -75,
+     "lat": 45,
+     "parola": "laws"
     },
     {
      "tipo": "nota",
-     "testo": "Powder shipped halfway round",
-     "parola": "powder"
+     "testo": "Longest border on Earth",
+     "parola": "border"
     }
    ],
    "musica": "",
    "stacco": false,
    "pin": {
-    "lon": -60,
-    "lat": 40,
+    "lon": -110,
+    "lat": 36,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Why haul it so far? Because of what sits under Iceland: over thirty active volcanic systems, and glaciers covering a tenth of the country.",
+   "testo": "For most of the last century, they looked like twins. In 2011, measured in dollars, the average Canadian actually out-produced the average American.",
    "anteprima": false,
    "vista": {
-    "lon": -18.5,
-    "lat": 64.8,
-    "larghezza": 10
+    "lon": -98,
+    "lat": 49,
+    "larghezza": 70
    },
    "epoca": "oggi",
    "oro": [
-    "ISL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 30,
-     "prefisso": "30+",
-     "suffisso": "",
-     "sotto": "VOLCANIC SYSTEMS",
-     "parola": "thirty"
-    },
-    {
-     "tipo": "icona",
-     "icona": "mountain",
-     "lon": -19,
-     "lat": 64.1,
-     "parola": "volcanic"
-    },
-    {
-     "tipo": "griglia",
-     "paese": [
-      "ISL"
-     ],
-     "pieni": 0.1,
-     "testo": "1 IN 10 GLACIER",
-     "colore": "oro",
-     "parola": "tenth"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -14.5,
-    "lat": 66.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Glacier meltwater spins its hydro plants, and volcanic heat drives its geothermal ones. Together they make almost all of Iceland's electricity.",
-   "anteprima": false,
-   "vista": {
-    "lon": -19,
-    "lat": 64.8,
-    "larghezza": 9
-   },
-   "epoca": "oggi",
-   "oro": [
-    "ISL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "river",
-     "lon": -18,
-     "lat": 64.5,
-     "parola": "meltwater"
-    },
-    {
-     "tipo": "icona",
-     "icona": "factory",
-     "lon": -21.3,
-     "lat": 64,
-     "parola": "geothermal"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Almost all power is clean",
-     "parola": "electricity"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -15,
-    "lat": 66,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "That is far more power than 394,000 people need. So Iceland exports it in the one form a ship can carry: melted into metal.",
-   "anteprima": false,
-   "vista": {
-    "lon": -19,
-    "lat": 64.8,
-    "larghezza": 9
-   },
-   "epoca": "oggi",
-   "oro": [
-    "ISL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "family",
-     "n": 4,
-     "lon": -21.9,
-     "lat": 64.1,
-     "parola": "394,000"
-    },
-    {
-     "tipo": "conta",
-     "valore": 394000,
-     "prefisso": "",
-     "suffisso": "",
-     "sotto": "PEOPLE",
-     "parola": "394,000"
-    },
-    {
-     "tipo": "icona",
-     "icona": "silver_bars",
-     "lon": -21.8,
-     "lat": 64.2,
-     "parola": "metal"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -15,
-    "lat": 66,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Each ingot leaving Iceland is Icelandic electricity in solid form. In 2025, aluminum was about a third of all goods Iceland sold abroad.",
-   "anteprima": false,
-   "vista": {
-    "lon": -19,
-    "lat": 64.8,
-    "larghezza": 14
-   },
-   "epoca": "oggi",
-   "oro": [
-    "ISL"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "silver_bars",
-     "lon": -22,
-     "lat": 64.1,
-     "parola": "ingot"
-    },
-    {
-     "tipo": "griglia",
-     "paese": [
-      "ISL"
-     ],
-     "pieni": 0.33,
-     "testo": "1 IN 3 EXPORTS",
-     "colore": "oro",
-     "parola": "third"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Power sold as metal",
-     "parola": "third"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -15,
-    "lat": 66,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Isolation gave Iceland something else: the sea. It fought Britain three times over fishing waters and, in 1975, pushed its limit to 200 miles.",
-   "anteprima": false,
-   "vista": {
-    "lon": -18,
-    "lat": 64.5,
-    "larghezza": 30
-   },
-   "epoca": "oggi",
-   "oro": [
-    "ISL"
-   ],
-   "verde": [
-    "GBR"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1975",
-     "parola": "1975"
-    },
-    {
-     "tipo": "conta",
-     "valore": 200,
-     "prefisso": "",
-     "suffisso": "",
-     "sotto": "MILES OF SEA",
-     "parola": "200"
-    },
-    {
-     "tipo": "icona",
-     "icona": "swords",
-     "lon": -14,
-     "lat": 63.5,
-     "parola": "fought"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": -28,
-    "lat": 60,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Fish is still its biggest goods export, just ahead of aluminum. Per person, that is around 83,000 dollars, ahead of the United States.",
-   "anteprima": false,
-   "vista": {
-    "lon": -60,
-    "lat": 50,
-    "larghezza": 120
-   },
-   "epoca": "oggi",
-   "oro": [
-    "ISL"
+    "CAN"
    ],
    "verde": [
     "USA"
    ],
    "eventi": [
     {
-     "tipo": "prezzo",
-     "testo": "$83,000",
-     "sotto": "ICELAND · PER PERSON",
-     "ricco": true,
-     "parola": "83,000"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Fish edges out aluminum",
-     "parola": "Fish"
+     "tipo": "anno",
+     "testo": "2011",
+     "parola": "2011"
     },
     {
      "tipo": "solleva",
      "paese": [
-      "ISL"
+      "CAN"
      ],
      "volte": 3,
-     "testo": "AHEAD OF USA",
+     "testo": "CANADA AHEAD",
      "colore": "oro",
-     "parola": "ahead"
+     "parola": "Canadian"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Canada briefly ahead in 2011",
+     "parola": "out-produced"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -105,
+    "lat": 38,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Today, in those same dollars, Canada produces about as much per person as Mississippi, America's poorest state.",
+   "anteprima": false,
+   "vista": {
+    "lon": -90,
+    "lat": 40,
+    "larghezza": 50
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "CAN"
+   ],
+   "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "MISSISSIPPI",
+     "lon": -89.7,
+     "lat": 32.7,
+     "parola": "Mississippi"
+    },
+    {
+     "tipo": "barre",
+     "titolo": "OUTPUT PER PERSON",
+     "voci": [
+      {
+       "testo": "CANADA",
+       "valore": 55,
+       "lato": "verde"
+      },
+      {
+       "testo": "MISSISSIPPI",
+       "valore": 55,
+       "lato": "oro"
+      }
+     ],
+     "parola": "same"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Canada equals poorest US state",
+     "parola": "poorest"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": true,
+   "pin": {
+    "lon": -100,
+    "lat": 45,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "The Bank of Canada itself has called it an emergency. So how did two countries with the same start end up this far apart?",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 49,
+    "larghezza": 70
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "CAN"
+   ],
+   "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "BANK OF CANADA",
+     "lon": -75.7,
+     "lat": 45.4,
+     "parola": "Bank"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "EMERGENCY",
+     "parola": "emergency"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Central bank calls it an emergency",
+     "parola": "called"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -110,
+    "lat": 40,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "The answer runs through bankers in Toronto, oil in Alberta, a coder in Vancouver, and one thing almost nobody in Canada wants to fix.",
+   "anteprima": false,
+   "vista": {
+    "lon": -100,
+    "lat": 50,
+    "larghezza": 50
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CAN"
+   ],
+   "verde": [
+    "USA"
+   ],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "banker",
+     "n": 4,
+     "lon": -79.4,
+     "lat": 43.7,
+     "parola": "bankers"
+    },
+    {
+     "tipo": "icona",
+     "icona": "oil_derrick",
+     "lon": -113.5,
+     "lat": 53.5,
+     "parola": "oil"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "student",
+     "n": 4,
+     "lon": -123.1,
+     "lat": 49.3,
+     "parola": "coder"
+    },
+    {
+     "tipo": "icona",
+     "icona": "question",
+     "lon": -95,
+     "lat": 52,
+     "parola": "fix"
+    }
+   ],
+   "musica": "mistero",
+   "stacco": false,
+   "pin": {
+    "lon": -100,
+    "lat": 40,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "That 2011 number was an illusion. The Canadian dollar was strong, and oil was selling for close to one hundred dollars a barrel.",
+   "anteprima": false,
+   "vista": {
+    "lon": -110,
+    "lat": 53,
+    "larghezza": 40
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CAN"
+   ],
+   "verde": [
+    "USA"
+   ],
+   "eventi": [
+    {
+     "tipo": "scritta",
+     "testo": "ILLUSION",
+     "parola": "illusion"
+    },
+    {
+     "tipo": "icona",
+     "icona": "oil_derrick",
+     "lon": -112,
+     "lat": 55,
+     "parola": "oil"
+    },
+    {
+     "tipo": "prezzo",
+     "testo": "$100",
+     "sotto": "OIL PER BARREL",
+     "ricco": true,
+     "parola": "hundred"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -122,
+    "lat": 48,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "When oil crashed in 2014, the illusion went with it. Measured by what money really buys, the story is slower and clearer.",
+   "anteprima": false,
+   "vista": {
+    "lon": -110,
+    "lat": 53,
+    "larghezza": 40
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CAN"
+   ],
+   "verde": [
+    "USA"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "2014",
+     "parola": "2014"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": -112,
+     "lat": 54,
+     "parola": "crashed"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Oil crash ends the illusion",
+     "parola": "illusion"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": -122,
+    "lat": 48,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In 1980, Canadians were about 95 percent as rich as Americans. For years after 2000, about 83. Today, about three quarters.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 49,
+    "larghezza": 70
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "CAN"
+   ],
+   "eventi": [
+    {
+     "tipo": "barre",
+     "titulo": "CANADA VS USA",
+     "titolo": "CANADA AS % OF US",
+     "voci": [
+      {
+       "testo": "1980",
+       "valore": 95,
+       "lato": "verde"
+      },
+      {
+       "testo": "2000S",
+       "valore": 83,
+       "lato": "verde"
+      },
+      {
+       "testo": "TODAY",
+       "valore": 75,
+       "lato": "verde"
+      }
+     ],
+     "parola": "1980"
+    },
+    {
+     "tipo": "conta",
+     "valore": 75,
+     "prefisso": "",
+     "suffisso": "%",
+     "sotto": "OF US INCOME TODAY",
+     "parola": "Today"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -110,
+    "lat": 38,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "And on the map, it gets worse. Ontario, the country's economic engine, is now poorer per person than 43 US states.",
+   "anteprima": false,
+   "vista": {
+    "lon": -82,
+    "lat": 44,
+    "larghezza": 30
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "CAN"
+   ],
+   "eventi": [
+    {
+     "tipo": "contorno",
+     "paese": "CAN",
+     "parola": "Ontario"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "ONTARIO",
+     "lon": -84,
+     "lat": 50,
+     "parola": "Ontario"
+    },
+    {
+     "tipo": "conta",
+     "valore": 43,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "US STATES RICHER",
+     "parola": "43"
     }
    ],
    "musica": "",
@@ -1003,647 +582,1479 @@
    "pin": {
     "lon": -90,
     "lat": 40,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Number six comes with a number you have probably heard wrong. People say over half the Netherlands lies below sea level. Even a UN report printed it.",
-   "anteprima": false,
-   "vista": {
-    "lon": 5.3,
-    "lat": 52.2,
-    "larghezza": 8
-   },
-   "epoca": "oggi",
-   "oro": [
-    "NLD"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "contorno",
-     "paese": "NLD",
-     "parola": "Netherlands"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "WRONG",
-     "parola": "wrong"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Even a UN report erred",
-     "parola": "UN"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": 7,
-    "lat": 51,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "The real figure is about a quarter. But almost sixty percent of the country could flood, from the sea or from its rivers.",
-   "anteprima": false,
-   "vista": {
-    "lon": 5.3,
-    "lat": 52.2,
-    "larghezza": 8
-   },
-   "epoca": "oggi",
-   "oro": [
-    "NLD"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "griglia",
-     "paese": [
-      "NLD"
-     ],
-     "pieni": 0.25,
-     "testo": "1 IN 4 BELOW SEA",
-     "colore": "verde",
-     "parola": "quarter"
-    },
-    {
-     "tipo": "conta",
-     "valore": 60,
-     "prefisso": "~",
-     "suffisso": "%",
-     "sotto": "COULD FLOOD",
-     "parola": "sixty"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Most land is at risk",
-     "parola": "flood"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": 7,
-    "lat": 51,
     "faccia": "stupito"
    }
   },
   {
-   "testo": "So why build a rich country here? Because this soggy corner is where three rivers reach the sea: the Rhine, the Meuse and the Scheldt.",
+   "testo": "Quebec beats just one, Mississippi. Put all 60 states and provinces on one board, and seven of the bottom ten are Canadian.",
    "anteprima": false,
    "vista": {
-    "lon": 5,
-    "lat": 51.5,
-    "larghezza": 8
+    "lon": -85,
+    "lat": 47,
+    "larghezza": 60
    },
    "epoca": "oggi",
    "oro": [
-    "NLD"
+    "USA"
    ],
-   "verde": [],
+   "verde": [
+    "CAN"
+   ],
    "eventi": [
-    {
-     "tipo": "scritta",
-     "testo": "WHY?",
-     "parola": "why"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      7.5,
-      50.5
-     ],
-     "a": [
-      4.1,
-      51.95
-     ],
-     "icona": "cargo_ship",
-     "parola": "Rhine"
-    },
     {
      "tipo": "etichetta",
-     "testo": "MEUSE · SCHELDT",
-     "lon": 4.3,
-     "lat": 51.5,
-     "parola": "Meuse"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 6.5,
-    "lat": 52.8,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "The Rhine runs straight into the industrial heart of Europe. Whoever holds the river mouth holds the trade. That is Rotterdam.",
-   "anteprima": false,
-   "vista": {
-    "lon": 6,
-    "lat": 50.5,
-    "larghezza": 14
-   },
-   "epoca": "oggi",
-   "oro": [
-    "NLD"
-   ],
-   "verde": [
-    "DEU"
-   ],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      4.1,
-      51.95
-     ],
-     "a": [
-      8,
-      49.5
-     ],
-     "icona": "cargo_ship",
-     "parola": "Rhine"
+     "testo": "QUEBEC",
+     "lon": -72,
+     "lat": 47,
+     "parola": "Quebec"
     },
-    {
-     "tipo": "icona",
-     "icona": "port",
-     "lon": 4.1,
-     "lat": 51.95,
-     "parola": "Rotterdam"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Rivermouth equals trade power",
-     "parola": "trade"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 2,
-    "lat": 53,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Rotterdam is Europe's biggest port, handling about one in every eight tons of cargo moving through EU ports.",
-   "anteprima": false,
-   "vista": {
-    "lon": 4.1,
-    "lat": 51.95,
-    "larghezza": 6
-   },
-   "epoca": "oggi",
-   "oro": [
-    "NLD"
-   ],
-   "verde": [],
-   "eventi": [
     {
      "tipo": "contatore",
-     "testo": "1 IN 8 TONS",
-     "su": 1,
-     "di": 8,
-     "personaggio": "merchant",
-     "parola": "eight"
-    },
-    {
-     "tipo": "icona",
-     "icona": "cargo_ship",
-     "lon": 3.9,
-     "lat": 51.95,
-     "parola": "cargo"
+     "tipo2": "x",
+     "testo": "7 IN 10",
+     "su": 7,
+     "di": 10,
+     "personaggio": "worker",
+     "parola": "seven"
     },
     {
      "tipo": "nota",
-     "testo": "Europe's biggest port",
-     "parola": "biggest"
+     "testo": "Seven of bottom ten are Canadian",
+     "parola": "bottom"
     }
    ],
    "musica": "",
    "stacco": false,
    "pin": {
-    "lon": 5.5,
-    "lat": 52.8,
+    "lon": -100,
+    "lat": 38,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Holding back the sea also forced people to cooperate. Dutch water boards go back to the 1200s, among the oldest democratic bodies in the country.",
+   "testo": "Even Alberta, the oil province, slid from seventh place in 1999 to twenty-fifth. Same board, same start.",
    "anteprima": false,
    "vista": {
-    "lon": 5.3,
-    "lat": 52.2,
-    "larghezza": 8
-   },
-   "epoca": "antica",
-   "oro": [
-    "NLD"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1200",
-     "parola": "1200s"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "peasant",
-     "n": 5,
-     "lon": 4.9,
-     "lat": 52.4,
-     "parola": "cooperate"
-    },
-    {
-     "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": 5.1,
-     "lat": 52.1,
-     "parola": "democratic"
-    }
-   ],
-   "musica": "quotidiano",
-   "stacco": false,
-   "pin": {
-    "lon": 6.3,
-    "lat": 52.8,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "In 1953, the sea broke through anyway and killed more than 1,800 people. The Dutch answered with the Delta Works, a giant wall of dams and storm barriers.",
-   "anteprima": false,
-   "vista": {
-    "lon": 4,
-    "lat": 51.7,
-    "larghezza": 6
+    "lon": -113,
+    "lat": 54,
+    "larghezza": 30
    },
    "epoca": "oggi",
    "oro": [
-    "NLD"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1953",
-     "parola": "1953"
-    },
-    {
-     "tipo": "conta",
-     "valore": 1800,
-     "prefisso": "1,800+",
-     "suffisso": "",
-     "sotto": "PEOPLE KILLED",
-     "parola": "1,800"
-    },
-    {
-     "tipo": "confine",
-     "punti": [
-      [
-       3.6,
-       51.65
-      ],
-      [
-       3.9,
-       51.75
-      ],
-      [
-       4.2,
-       51.7
-      ],
-      [
-       4.0,
-       51.55
-      ]
-     ],
-     "parola": "Delta"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Dams and storm barriers",
-     "parola": "barriers"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": 5.6,
-    "lat": 52.6,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "The land won from the sea became a food machine. In 2025, Dutch agricultural exports hit a record 137 billion euros, counting goods passing through its ports.",
-   "anteprima": false,
-   "vista": {
-    "lon": 5.3,
-    "lat": 52.2,
-    "larghezza": 8
-   },
-   "epoca": "oggi",
-   "oro": [
-    "NLD"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "farm",
-     "lon": 5.4,
-     "lat": 52.5,
-     "parola": "food"
-    },
-    {
-     "tipo": "conta",
-     "valore": 137,
-     "prefisso": "€",
-     "suffisso": "B",
-     "sotto": "FOOD EXPORTS 2025",
-     "parola": "137"
-    },
-    {
-     "tipo": "nota",
-     "testo": "A record year",
-     "parola": "record"
-    }
-   ],
-   "musica": "trionfo",
-   "stacco": false,
-   "pin": {
-    "lon": 6.6,
-    "lat": 51.4,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "In the 1600s, the Dutch Republic was likely the richest place on Earth per person, for the same reason: everything flowed through its water.",
-   "anteprima": false,
-   "vista": {
-    "lon": 5,
-    "lat": 52,
-    "larghezza": 14
-   },
-   "epoca": "antica",
-   "oro": [
-    "NLD"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1600",
-     "parola": "1600s"
-    },
-    {
-     "tipo": "icona",
-     "icona": "galleon",
-     "lon": 4.8,
-     "lat": 52.4,
-     "parola": "water"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Richest place on Earth",
-     "parola": "richest"
-    }
-   ],
-   "musica": "epico",
-   "stacco": false,
-   "pin": {
-    "lon": 8,
-    "lat": 53.5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Today the Netherlands sits at about 88,000 dollars per person. Quick favor: these videos take long to make, so if you enjoy this one, subscribing helps.",
-   "anteprima": false,
-   "vista": {
-    "lon": 5.3,
-    "lat": 52.2,
-    "larghezza": 8
-   },
-   "epoca": "oggi",
-   "oro": [
-    "NLD"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "prezzo",
-     "testo": "$88,000",
-     "sotto": "NETHERLANDS · PER PERSON",
-     "ricco": true,
-     "parola": "88,000"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Please subscribe",
-     "parola": "subscribing"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 6.6,
-    "lat": 51.5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "The Dutch took their dikes across the Atlantic. On a swampy South American coast, planters forced enslaved Africans to dig dikes, canals and polders.",
-   "anteprima": false,
-   "vista": {
-    "lon": -30,
-    "lat": 25,
-    "larghezza": 120
-   },
-   "epoca": "antica",
-   "oro": [
-    "NLD"
-   ],
-   "verde": [
-    "GUY"
-   ],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      4.5,
-      52
-     ],
-     "a": [
-      -58,
-      6.8
-     ],
-     "icona": "galleon",
-     "parola": "Atlantic"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "native_worker",
-     "n": 5,
-     "lon": -58,
-     "lat": 6.8,
-     "parola": "enslaved"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Dikes dug by enslaved people",
-     "parola": "dikes"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": -20,
-    "lat": 40,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "That colony is number five: Guyana. In 2015, the average Guyanese earned less than the average person in Ecuador or Colombia.",
-   "anteprima": false,
-   "vista": {
-    "lon": -62,
-    "lat": 4,
-    "larghezza": 40
-   },
-   "epoca": "oggi",
-   "oro": [
-    "GUY"
-   ],
-   "verde": [
-    "ECU",
-    "COL"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "2015",
-     "parola": "2015"
-    },
-    {
-     "tipo": "contorno",
-     "paese": "GUY",
-     "parola": "Guyana"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Poorer than Ecuador back then",
-     "parola": "less"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": -70,
-    "lat": -5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Today, adjusted for prices, Guyana earns more per person than the United States.",
-   "anteprima": false,
-   "vista": {
-    "lon": -62,
-    "lat": 4,
-    "larghezza": 40
-   },
-   "epoca": "oggi",
-   "oro": [
-    "GUY"
+    "CAN"
    ],
    "verde": [
     "USA"
    ],
    "eventi": [
     {
-     "tipo": "prezzo",
-     "testo": "$99,000",
-     "sotto": "GUYANA · PER PERSON",
-     "ricco": true,
-     "parola": "Guyana"
-    },
-    {
-     "tipo": "prezzo",
-     "testo": "$95,000",
-     "sotto": "USA · PER PERSON",
-     "ricco": false,
-     "parola": "States"
-    }
-   ],
-   "musica": "",
-   "stacco": true,
-   "pin": {
-    "lon": -70,
-    "lat": -5,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Most of Guyana is rainforest. Nine in ten people live on a thin coastal strip, and the capital, Georgetown, sits below high tide behind a seawall.",
-   "anteprima": false,
-   "vista": {
-    "lon": -58.5,
-    "lat": 5.5,
-    "larghezza": 14
-   },
-   "epoca": "oggi",
-   "oro": [
-    "GUY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "forest",
-     "lon": -59,
-     "lat": 4.5,
-     "parola": "rainforest"
-    },
-    {
-     "tipo": "contatore",
-     "testo": "9 IN 10 ON THE COAST",
-     "su": 9,
-     "di": 10,
-     "personaggio": "family",
-     "parola": "Nine"
-    },
-    {
      "tipo": "etichetta",
-     "testo": "GEORGETOWN",
-     "lon": -58.15,
-     "lat": 6.8,
-     "parola": "Georgetown"
+     "testo": "ALBERTA",
+     "lon": -114,
+     "lat": 54,
+     "parola": "Alberta"
+    },
+    {
+     "tipo": "barre",
+     "titolo": "ALBERTA RANK",
+     "voci": [
+      {
+       "testo": "1999: 7TH",
+       "valore": 54,
+       "lato": "oro"
+      },
+      {
+       "testo": "NOW: 25TH",
+       "valore": 36,
+       "lato": "verde"
+      }
+     ],
+     "parola": "slid"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Alberta falls from 7th to 25th",
+     "parola": "twenty-fifth"
     }
    ],
    "musica": "",
    "stacco": false,
    "pin": {
-    "lon": -60.5,
-    "lat": 3.5,
+    "lon": -122,
+    "lat": 47,
     "faccia": "normale"
    }
   },
   {
-   "testo": "The jungle kept the country empty and poor. Then, in May 2015, ExxonMobil drilled off that coast and found a huge oil field.",
+   "testo": "Here's the strange part. Canada is the most educated country in the OECD. Almost two in three adults hold a college degree.",
    "anteprima": false,
    "vista": {
-    "lon": -57,
-    "lat": 8,
+    "lon": -98,
+    "lat": 50,
+    "larghezza": 60
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CAN"
+   ],
+   "verde": [
+    "USA"
+   ],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "student",
+     "n": 5,
+     "lon": -79.4,
+     "lat": 43.7,
+     "parola": "educated"
+    },
+    {
+     "tipo": "contatore",
+     "testo": "ALMOST 2 IN 3",
+     "su": 2,
+     "di": 3,
+     "personaggio": "student",
+     "parola": "two"
+    },
+    {
+     "tipo": "icona",
+     "icona": "school",
+     "lon": -73.6,
+     "lat": 45.5,
+     "parola": "college"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -110,
+    "lat": 40,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "And yet every hour a Canadian works produces about 71 cents for every American dollar. In 1984, it was 88.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 49,
+    "larghezza": 70
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "CAN"
+   ],
+   "eventi": [
+    {
+     "tipo": "prezzo",
+     "testo": "$1.00",
+     "sotto": "USA · ONE HOUR",
+     "ricco": true,
+     "parola": "dollar"
+    },
+    {
+     "tipo": "prezzo",
+     "testo": "71¢",
+     "sotto": "CANADA · ONE HOUR",
+     "ricco": false,
+     "parola": "71"
+    },
+    {
+     "tipo": "barre",
+     "titolo": "CENTS PER US DOLLAR",
+     "voci": [
+      {
+       "testo": "1984",
+       "valore": 88,
+       "lato": "verde"
+      },
+      {
+       "testo": "NOW",
+       "valore": 71,
+       "lato": "verde"
+      }
+     ],
+     "parola": "1984"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -112,
+    "lat": 40,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Since 2000, Canadian productivity has grown about eight tenths of a percent a year, less than half the American pace.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 49,
+    "larghezza": 70
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "CAN"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "2000",
+     "parola": "2000"
+    },
+    {
+     "tipo": "conta",
+     "valore": 0.8,
+     "prefisso": "",
+     "suffisso": "%",
+     "sotto": "CANADA PER YEAR",
+     "parola": "eight"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_up",
+     "lon": -95,
+     "lat": 40,
+     "parola": "American"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -112,
+    "lat": 42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In March 2024, the Bank of Canada's number two told business leaders in Halifax, it's an emergency, time to break the glass.",
+   "anteprima": false,
+   "vista": {
+    "lon": -63.5,
+    "lat": 45,
+    "larghezza": 20
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CAN"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "2024",
+     "parola": "2024"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "HALIFAX",
+     "lon": -63.6,
+     "lat": 44.65,
+     "parola": "Halifax"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "BREAK GLASS",
+     "parola": "glass"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -70,
+    "lat": 42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "The problem isn't the workers. It's what they're given to work with. For every dollar of new capital an American gets, a Canadian gets 55 cents.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 49,
+    "larghezza": 70
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "CAN"
+   ],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "worker",
+     "n": 4,
+     "lon": -80,
+     "lat": 43,
+     "parola": "workers"
+    },
+    {
+     "tipo": "icona",
+     "icona": "factory",
+     "lon": -83,
+     "lat": 42.3,
+     "parola": "capital"
+    },
+    {
+     "tipo": "barre",
+     "titolo": "CAPITAL PER WORKER",
+     "voci": [
+      {
+       "testo": "USA",
+       "valore": 100,
+       "lato": "oro"
+      },
+      {
+       "testo": "CANADA",
+       "valore": 55,
+       "lato": "verde"
+      }
+     ],
+     "parola": "cents"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -112,
+    "lat": 40,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "For machinery alone, it's 41 cents. In 2007, firms on both sides invested almost the same per worker.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 49,
+    "larghezza": 70
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "CAN"
+   ],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 41,
+     "prefisso": "",
+     "suffisso": "¢",
+     "sotto": "MACHINERY PER US $1",
+     "parola": "machinery"
+    },
+    {
+     "tipo": "anno",
+     "testo": "2007",
+     "parola": "2007"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Equal investment in 2007",
+     "parola": "same"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -112,
+    "lat": 40,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "By 2024, American companies were investing nearly twice as much per worker. Better educated workers, worse equipped.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 49,
+    "larghezza": 70
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "CAN"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "2024",
+     "parola": "2024"
+    },
+    {
+     "tipo": "solleva",
+     "paese": [
+      "USA"
+     ],
+     "volte": 2,
+     "testo": "x2",
+     "colore": "oro",
+     "parola": "twice"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Educated but under-equipped",
+     "parola": "equipped"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": true,
+   "pin": {
+    "lon": -112,
+    "lat": 40,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "So why aren't Canadian companies buying the machines? To see why, look at who a Canadian company actually has to fight.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 50,
+    "larghezza": 60
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CAN"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "question",
+     "lon": -98,
+     "lat": 52,
+     "parola": "why"
+    },
+    {
+     "tipo": "icona",
+     "icona": "swords",
+     "lon": -90,
+     "lat": 48,
+     "parola": "fight"
+    }
+   ],
+   "musica": "mistero",
+   "stacco": false,
+   "pin": {
+    "lon": -112,
+    "lat": 46,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Often, not many. Six banks hold 94 percent of all banking assets in the country, and came through 2008 without a single failure.",
+   "anteprima": false,
+   "vista": {
+    "lon": -85,
+    "lat": 46,
+    "larghezza": 50
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CAN"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "money_bag",
+     "lon": -79.4,
+     "lat": 43.7,
+     "parola": "banks"
+    },
+    {
+     "tipo": "griglia",
+     "paese": [
+      "CAN"
+     ],
+     "pieni": 0.94,
+     "testo": "6 BANKS: 94%",
+     "colore": "oro",
+     "parola": "94"
+    },
+    {
+     "tipo": "nota",
+     "testo": "No bank failed in 2008",
+     "parola": "failure"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -100,
+    "lat": 42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "But safe and dominant also means little pressure to bet on new companies. Two airlines control about 80 percent of domestic flying.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 50,
+    "larghezza": 60
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CAN"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      -123,
+      49.2
+     ],
+     "a": [
+      -79.4,
+      43.7
+     ],
+     "icona": "ship",
+     "parola": "airlines"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -114,
+      51
+     ],
+     "a": [
+      -73.6,
+      45.5
+     ],
+     "icona": "ship",
+     "parola": "two"
+    },
+    {
+     "tipo": "conta",
+     "valore": 80,
+     "prefisso": "~",
+     "suffisso": "%",
+     "sotto": "OF DOMESTIC FLYING",
+     "parola": "80"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -100,
+    "lat": 58,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In 1986, Canada had at least eight separately owned grocery chains. Five of them were bought by rivals.",
+   "anteprima": false,
+   "vista": {
+    "lon": -95,
+    "lat": 50,
+    "larghezza": 60
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CAN"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1986",
+     "parola": "1986"
+    },
+    {
+     "tipo": "contatore",
+     "testo": "5 OF 8 BOUGHT",
+     "su": 5,
+     "di": 8,
+     "personaggio": "merchant",
+     "parola": "Five"
+    },
+    {
+     "tipo": "icona",
+     "icona": "wheat",
+     "lon": -97,
+     "lat": 50,
+     "parola": "grocery"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -110,
+    "lat": 58,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "For years, three companies took about nine in ten mobile phone dollars. Even provinces trade behind barriers, with different rules at every line.",
+   "anteprima": false,
+   "vista": {
+    "lon": -100,
+    "lat": 52,
+    "larghezza": 60
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CAN"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "contatore",
+     "testo": "ABOUT 9 IN 10",
+     "su": 9,
+     "di": 10,
+     "personaggio": "family",
+     "parola": "nine"
+    },
+    {
+     "tipo": "confine",
+     "punti": [
+      [
+       -120,
+       60
+      ],
+      [
+       -120,
+       49
+      ]
+     ],
+     "parola": "barriers"
+    },
+    {
+     "tipo": "confine",
+     "punti": [
+      [
+       -110,
+       60
+      ],
+      [
+       -110,
+       49
+      ]
+     ],
+     "parola": "line"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -90,
+    "lat": 58,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "The IMF estimated that removing those internal barriers could make Canadians about four percent richer. And when profits are protected, nobody needs a new machine.",
+   "anteprima": false,
+   "vista": {
+    "lon": -100,
+    "lat": 52,
+    "larghezza": 60
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CAN"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 4,
+     "prefisso": "+",
+     "suffisso": "%",
+     "sotto": "RICHER, SAYS THE IMF",
+     "parola": "four"
+    },
+    {
+     "tipo": "solleva",
+     "paese": [
+      "CAN"
+     ],
+     "volte": 2,
+     "testo": "+4%",
+     "colore": "oro",
+     "parola": "richer"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Protected profits, no pressure",
+     "parola": "protected"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -90,
+    "lat": 58,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "South of the border, it works the other way. In 2024, American startups raised over 200 billion dollars in venture capital.",
+   "anteprima": false,
+   "vista": {
+    "lon": -110,
+    "lat": 40,
+    "larghezza": 60
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "CAN"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "2024",
+     "parola": "2024"
+    },
+    {
+     "tipo": "conta",
+     "valore": 200,
+     "prefisso": "$",
+     "suffisso": "B",
+     "sotto": "US VENTURE CAPITAL",
+     "parola": "200"
+    },
+    {
+     "tipo": "icona",
+     "icona": "gold_coins",
+     "lon": -122.4,
+     "lat": 37.8,
+     "parola": "venture"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": -98,
+    "lat": 32,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "That is roughly four times more per head than in Canada. Most of those bets fail, but the few that win build entire industries.",
+   "anteprima": false,
+   "vista": {
+    "lon": -110,
+    "lat": 42,
+    "larghezza": 60
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "CAN"
+   ],
+   "eventi": [
+    {
+     "tipo": "solleva",
+     "paese": [
+      "USA"
+     ],
+     "volte": 4,
+     "testo": "x4",
+     "colore": "oro",
+     "parola": "four"
+    },
+    {
+     "tipo": "icona",
+     "icona": "factory",
+     "lon": -122,
+     "lat": 37.4,
+     "parola": "industries"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Most bets fail, winners build industries",
+     "parola": "fail"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -98,
+    "lat": 32,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "So a lot of Canada's best talent follows the money. One study found two thirds of software engineering graduates from top programs had left for America.",
+   "anteprima": false,
+   "vista": {
+    "lon": -105,
+    "lat": 45,
+    "larghezza": 60
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "CAN"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      -79.4,
+      43.7
+     ],
+     "a": [
+      -122.4,
+      37.8
+     ],
+     "icona": "ship",
+     "parola": "follows"
+    },
+    {
+     "tipo": "contatore",
+     "testo": "2 IN 3 LEFT",
+     "su": 2,
+     "di": 3,
+     "personaggio": "student",
+     "parola": "two"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Top graduates head south",
+     "parola": "left"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -98,
+    "lat": 55,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Canada's own statistics agency found computer science and math graduates are the most likely to stop filing taxes at home within three years.",
+   "anteprima": false,
+   "vista": {
+    "lon": -105,
+    "lat": 45,
+    "larghezza": 60
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "CAN"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": -75.7,
+     "lat": 45.4,
+     "parola": "statistics"
+    },
+    {
+     "tipo": "conta",
+     "valore": 3,
+     "prefisso": "",
+     "suffisso": " YRS",
+     "sotto": "UNTIL THEY LEAVE",
+     "parola": "three"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Coders are the likeliest to leave",
+     "parola": "likely"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -98,
+    "lat": 55,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "You can see why. In Seattle, the typical software developer earns about 167,000 dollars a year.",
+   "anteprima": false,
+   "vista": {
+    "lon": -123,
+    "lat": 48.5,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "CAN"
+   ],
+   "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "SEATTLE",
+     "lon": -122.3,
+     "lat": 47.6,
+     "parola": "Seattle"
+    },
+    {
+     "tipo": "prezzo",
+     "testo": "$167,000",
+     "sotto": "SEATTLE · DEVELOPER",
+     "ricco": true,
+     "parola": "167,000"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -124.5,
+    "lat": 46.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Drive 230 kilometers north to Vancouver, and a software engineer earns about 95,000. Down in San Francisco, it's closer to 187,000.",
+   "anteprima": false,
+   "vista": {
+    "lon": -123,
+    "lat": 43,
+    "larghezza": 24
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "CAN"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      -122.3,
+      47.6
+     ],
+     "a": [
+      -123.1,
+      49.3
+     ],
+     "icona": "ship",
+     "parola": "north"
+    },
+    {
+     "tipo": "prezzo",
+     "testo": "$95,000",
+     "sotto": "VANCOUVER · ENGINEER",
+     "ricco": false,
+     "parola": "95,000"
+    },
+    {
+     "tipo": "prezzo",
+     "testo": "$187,000",
+     "sotto": "SAN FRANCISCO · ENGINEER",
+     "ricco": true,
+     "parola": "187,000"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -128,
+    "lat": 42,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Hold on to that number. We'll come back to what that Vancouver engineer pays for a house.",
+   "anteprima": false,
+   "vista": {
+    "lon": -123.1,
+    "lat": 49.3,
+    "larghezza": 8
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "CAN"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "cabin",
+     "lon": -123.1,
+     "lat": 49.25,
+     "parola": "house"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "worker",
+     "n": 3,
+     "lon": -123.0,
+     "lat": 49.35,
+     "parola": "engineer"
+    }
+   ],
+   "musica": "mistero",
+   "stacco": false,
+   "pin": {
+    "lon": -122.5,
+    "lat": 49.6,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Canada did build giants. In 2000, Nortel was worth about a third of the entire Toronto stock market.",
+   "anteprima": false,
+   "vista": {
+    "lon": -80,
+    "lat": 44,
     "larghezza": 14
    },
    "epoca": "oggi",
    "oro": [
-    "GUY"
+    "CAN"
    ],
    "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "2000",
+     "parola": "2000"
+    },
+    {
+     "tipo": "icona",
+     "icona": "factory",
+     "lon": -75.9,
+     "lat": 45.3,
+     "parola": "Nortel"
+    },
+    {
+     "tipo": "contatore",
+     "testo": "ABOUT 1 IN 3",
+     "su": 1,
+     "di": 3,
+     "personaggio": "banker",
+     "parola": "third"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": -84,
+    "lat": 42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In 2009, BlackBerry sold a fifth of the world's smartphones. Both collapsed, and nothing that big replaced them.",
+   "anteprima": false,
+   "vista": {
+    "lon": -80.5,
+    "lat": 43.5,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CAN"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "2009",
+     "parola": "2009"
+    },
+    {
+     "tipo": "contatore",
+     "testo": "1 IN 5 PHONES",
+     "su": 1,
+     "di": 5,
+     "personaggio": "family",
+     "parola": "fifth"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": -80.5,
+     "lat": 43.5,
+     "parola": "collapsed"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": -83,
+    "lat": 42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Without rivals forcing them to change, the companies that stayed big were the protected ones. So where was Canada's money going?",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 50,
+    "larghezza": 70
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CAN"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "fortress",
+     "lon": -79.4,
+     "lat": 43.7,
+     "parola": "protected"
+    },
+    {
+     "tipo": "icona",
+     "icona": "question",
+     "lon": -98,
+     "lat": 52,
+     "parola": "where"
+    }
+   ],
+   "musica": "mistero",
+   "stacco": false,
+   "pin": {
+    "lon": -112,
+    "lat": 42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Canada sits on one of the largest oil reserves on Earth. In 2024, it pumped a record five million barrels a day, mostly from Alberta.",
+   "anteprima": false,
+   "vista": {
+    "lon": -112,
+    "lat": 55,
+    "larghezza": 24
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CAN"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "oil_derrick",
+     "lon": -111.4,
+     "lat": 56.7,
+     "parola": "oil"
+    },
+    {
+     "tipo": "conta",
+     "valore": 5,
+     "prefisso": "",
+     "suffisso": "M",
+     "sotto": "BARRELS PER DAY",
+     "parola": "five"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Record output in 2024",
+     "parola": "record"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": -118,
+    "lat": 51,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Energy is Canada's biggest export, about a quarter of all goods it sells abroad. That came to roughly 195 billion Canadian dollars in 2024.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 50,
+    "larghezza": 70
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CAN"
+   ],
+   "verde": [
+    "USA"
+   ],
+   "eventi": [
+    {
+     "tipo": "contatore",
+     "testo": "ABOUT 1 IN 4",
+     "su": 1,
+     "di": 4,
+     "personaggio": "worker",
+     "parola": "quarter"
+    },
+    {
+     "tipo": "conta",
+     "valore": 195,
+     "prefisso": "C$",
+     "suffisso": "B",
+     "sotto": "ENERGY EXPORTS",
+     "parola": "195"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -112,
+      55
+     ],
+     "a": [
+      -95,
+      38
+     ],
+     "icona": "oil_derrick",
+     "parola": "export"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -125,
+    "lat": 45,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "And about 93 percent of the crude it exports goes to one customer, the United States.",
+   "anteprima": false,
+   "vista": {
+    "lon": -100,
+    "lat": 47,
+    "larghezza": 60
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "CAN"
+   ],
+   "eventi": [
+    {
+     "tipo": "griglia",
+     "paese": [
+      "USA"
+     ],
+     "pieni": 0.93,
+     "testo": "93% TO ONE BUYER",
+     "colore": "oro",
+     "parola": "93"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -112,
+      55
+     ],
+     "a": [
+      -100,
+      36
+     ],
+     "icona": "oil_derrick",
+     "parola": "customer"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -122,
+    "lat": 55,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Having one customer is dangerous. In November 2018, without enough pipelines to reach anyone else, Alberta's heavy crude sold for just 13 dollars a barrel.",
+   "anteprima": false,
+   "vista": {
+    "lon": -112,
+    "lat": 53,
+    "larghezza": 30
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CAN"
+   ],
+   "verde": [
+    "USA"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "2018",
+     "parola": "2018"
+    },
+    {
+     "tipo": "confine",
+     "punti": [
+      [
+       -114,
+       53
+      ],
+      [
+       -100,
+       49
+      ]
+     ],
+     "parola": "pipelines"
+    },
+    {
+     "tipo": "prezzo",
+     "testo": "$13",
+     "sotto": "ALBERTA CRUDE · BARREL",
+     "ricco": false,
+     "parola": "13"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": true,
+   "pin": {
+    "lon": -120,
+    "lat": 49,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "That was 43 dollars less than American oil. Alberta had to order producers to cut output just to stop the price falling further.",
+   "anteprima": false,
+   "vista": {
+    "lon": -112,
+    "lat": 53,
+    "larghezza": 30
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "CAN"
+   ],
+   "eventi": [
+    {
+     "tipo": "barre",
+     "titolo": "PRICE PER BARREL",
+     "voci": [
+      {
+       "testo": "US OIL",
+       "valore": 56,
+       "lato": "oro"
+      },
+      {
+       "testo": "ALBERTA",
+       "valore": 13,
+       "lato": "verde"
+      }
+     ],
+     "parola": "less"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": -113.5,
+     "lat": 53.5,
+     "parola": "cut"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Alberta forced to cut output",
+     "parola": "order"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -120,
+    "lat": 49,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Oil can make a country rich. It doesn't make it productive. An hour of work in Alberta produces almost twice as much as in Nova Scotia.",
+   "anteprima": false,
+   "vista": {
+    "lon": -90,
+    "lat": 50,
+    "larghezza": 80
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CAN"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "colonna",
+     "testo": "ALBERTA",
+     "valore": 1.0,
+     "lon": -114,
+     "lat": 54,
+     "parola": "Alberta"
+    },
+    {
+     "tipo": "colonna",
+     "testo": "NOVA SCOTIA",
+     "valore": 0.55,
+     "lon": -63,
+     "lat": 45,
+     "parola": "Nova"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Oil, not machines, explains the gap",
+     "parola": "productive"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -95,
+    "lat": 60,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "After the oil crash of 2015, the stock of machinery per Canadian worker actually shrank. On research, Canada spends about half the American share.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 49,
+    "larghezza": 70
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "CAN"
+   ],
    "eventi": [
     {
      "tipo": "anno",
@@ -1652,80 +2063,269 @@
     },
     {
      "tipo": "icona",
-     "icona": "oil_derrick",
-     "lon": -57,
-     "lat": 8.2,
-     "parola": "oil"
+     "icona": "chart_down",
+     "lon": -100,
+     "lat": 54,
+     "parola": "shrank"
     },
     {
-     "tipo": "nota",
-     "testo": "ExxonMobil strikes oil",
-     "parola": "ExxonMobil"
-    }
-   ],
-   "musica": "epico",
-   "stacco": true,
-   "pin": {
-    "lon": -59.5,
-    "lat": 5,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "The first oil flowed in December 2019. Now Guyana pumps around 900,000 barrels a day for only about a million people.",
-   "anteprima": false,
-   "vista": {
-    "lon": -57.5,
-    "lat": 7.5,
-    "larghezza": 16
-   },
-   "epoca": "oggi",
-   "oro": [
-    "GUY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "2019",
-     "parola": "2019"
-    },
-    {
-     "tipo": "conta",
-     "valore": 900000,
-     "prefisso": "",
-     "suffisso": "",
-     "sotto": "BARRELS A DAY",
-     "parola": "900,000"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "worker",
-     "n": 5,
-     "lon": -58.2,
-     "lat": 6.8,
-     "parola": "million"
+     "tipo": "barre",
+     "titolo": "R&D SHARE OF ECONOMY",
+     "voci": [
+      {
+       "testo": "USA",
+       "valore": 100,
+       "lato": "oro"
+      },
+      {
+       "testo": "CANADA",
+       "valore": 50,
+       "lato": "verde"
+      }
+     ],
+     "parola": "half"
     }
    ],
    "musica": "",
    "stacco": false,
    "pin": {
-    "lon": -60,
-    "lat": 4,
+    "lon": -112,
+    "lat": 40,
     "faccia": "normale"
    }
   },
   {
-   "testo": "In 2022, its economy grew sixty-two percent in a single year, the fastest in the world.",
+   "testo": "But oil isn't where most of Canada's money went. The biggest pile went somewhere much closer to home.",
    "anteprima": false,
    "vista": {
-    "lon": -58,
-    "lat": 5,
-    "larghezza": 30
+    "lon": -98,
+    "lat": 50,
+    "larghezza": 70
    },
    "epoca": "oggi",
    "oro": [
-    "GUY"
+    "CAN"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "cabin",
+     "lon": -79.4,
+     "lat": 43.7,
+     "parola": "home"
+    },
+    {
+     "tipo": "icona",
+     "icona": "cabin",
+     "lon": -123.1,
+     "lat": 49.3,
+     "parola": "closer"
+    }
+   ],
+   "musica": "mistero",
+   "stacco": false,
+   "pin": {
+    "lon": -105,
+    "lat": 58,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In 2021, something happened that never had before. According to the Bank of Montreal, Canada put more money into housing than into every factory, machine, and piece of software combined.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 50,
+    "larghezza": 70
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CAN"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "2021",
+     "parola": "2021"
+    },
+    {
+     "tipo": "barre",
+     "titolo": "INVESTMENT",
+     "voci": [
+      {
+       "testo": "HOUSING",
+       "valore": 100,
+       "lato": "oro"
+      },
+      {
+       "testo": "MACHINES+SOFTWARE",
+       "valore": 90,
+       "lato": "verde"
+      }
+     ],
+     "parola": "housing"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "FIRST EVER",
+     "parola": "never"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": true,
+   "pin": {
+    "lon": -112,
+    "lat": 42,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "At that peak, housing took over ten percent of the economy, more than America at the height of its own bubble.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 49,
+    "larghezza": 70
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "CAN"
+   ],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 10,
+     "prefisso": ">",
+     "suffisso": "%",
+     "sotto": "OF THE ECONOMY IN HOMES",
+     "parola": "ten"
+    },
+    {
+     "tipo": "solleva",
+     "paese": [
+      "CAN"
+     ],
+     "volte": 6,
+     "testo": "HOUSING PEAK",
+     "colore": "oro",
+     "parola": "more"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Bigger than America's bubble",
+     "parola": "bubble"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -112,
+    "lat": 40,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "It wasn't one year. From 2018 to 2023, Canada spent a bigger share of its economy on homes than any of 35 advanced economies, about twice the American share.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 49,
+    "larghezza": 70
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CAN"
+   ],
+   "verde": [
+    "USA"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "2018-2023",
+     "parola": "2018"
+    },
+    {
+     "tipo": "conta",
+     "valore": 35,
+     "prefisso": "#1 OF ",
+     "suffisso": "",
+     "sotto": "ADVANCED ECONOMIES",
+     "parola": "35"
+    },
+    {
+     "tipo": "solleva",
+     "paese": [
+      "CAN"
+     ],
+     "volte": 2,
+     "testo": "x2 USA",
+     "colore": "oro",
+     "parola": "twice"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -112,
+    "lat": 40,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Houses are bought with borrowed money. Canadian households owe about one dollar seventy-six for every dollar they earn after tax.",
+   "anteprima": false,
+   "vista": {
+    "lon": -95,
+    "lat": 50,
+    "larghezza": 60
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CAN"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "family",
+     "n": 5,
+     "lon": -79.4,
+     "lat": 43.7,
+     "parola": "households"
+    },
+    {
+     "tipo": "prezzo",
+     "testo": "$1.76",
+     "sotto": "DEBT PER $1 EARNED",
+     "ricco": false,
+     "parola": "seventy-six"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": -110,
+    "lat": 45,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "At the 2022 peak, it was almost one ninety. Mortgages make up about three quarters of it.",
+   "anteprima": false,
+   "vista": {
+    "lon": -95,
+    "lat": 50,
+    "larghezza": 60
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CAN"
    ],
    "verde": [],
    "eventi": [
@@ -1735,1951 +2335,767 @@
      "parola": "2022"
     },
     {
-     "tipo": "numero",
-     "testo": "+62%",
-     "lon": -58.9,
-     "lat": 4.8,
-     "parola": "sixty-two"
-    },
-    {
-     "tipo": "solleva",
-     "paese": [
-      "GUY"
-     ],
-     "volte": 6,
-     "testo": "FASTEST",
-     "colore": "oro",
-     "parola": "fastest"
-    }
-   ],
-   "musica": "trionfo",
-   "stacco": false,
-   "pin": {
-    "lon": -68,
-    "lat": 0,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Here is what almost nobody mentions: the jungle pays, too. In 2022, Guyana became the first country to issue a carbon credit for forest it does not cut.",
-   "anteprima": false,
-   "vista": {
-    "lon": -59,
-    "lat": 4.5,
-    "larghezza": 16
-   },
-   "epoca": "oggi",
-   "oro": [
-    "GUY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "forest",
-     "lon": -59.2,
-     "lat": 4.2,
-     "parola": "jungle"
-    },
-    {
-     "tipo": "icona",
-     "icona": "banknotes",
-     "lon": -58.5,
-     "lat": 5.5,
-     "parola": "credit"
-    },
-    {
-     "tipo": "nota",
-     "testo": "First forest carbon credit",
-     "parola": "first"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": -62,
-    "lat": 3,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "The oil company Hess agreed to buy at least 750 million dollars of them. The forest that kept Guyana poor is now paid to stand still.",
-   "anteprima": false,
-   "vista": {
-    "lon": -59,
-    "lat": 4.5,
-    "larghezza": 16
-   },
-   "epoca": "oggi",
-   "oro": [
-    "GUY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 750,
-     "prefisso": "$",
-     "suffisso": "M",
-     "sotto": "HESS CREDIT DEAL",
-     "parola": "750"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "PAID",
-     "parola": "paid"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Standing forest earns money",
-     "parola": "stand"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -62,
-    "lat": 3,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "There is one catch. Venezuela claims about two thirds of the country, and the World Court's ruling is expected within months.",
-   "anteprima": false,
-   "vista": {
-    "lon": -62,
-    "lat": 6,
-    "larghezza": 16
-   },
-   "epoca": "oggi",
-   "oro": [
-    "GUY"
-   ],
-   "verde": [
-    "VEN"
-   ],
-   "eventi": [
-    {
-     "tipo": "confine",
-     "punti": [
-      [
-       -61.4,
-       8.5
-      ],
-      [
-       -60.4,
-       7.6
-      ],
-      [
-       -60.0,
-       6.6
-      ],
-      [
-       -59.8,
-       5.5
-      ],
-      [
-       -59.9,
-       4.4
-      ]
-     ],
-     "parola": "claims"
-    },
-    {
-     "tipo": "griglia",
-     "paese": [
-      "GUY"
-     ],
-     "pieni": 0.66,
-     "testo": "2 IN 3 CLAIMED",
-     "colore": "verde",
-     "parola": "two"
-    },
-    {
-     "tipo": "nota",
-     "testo": "World Court ruling looms",
-     "parola": "ruling"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": -56,
-    "lat": 3,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Number four shares the biggest gas field on Earth with Iran, and earns about eighteen times more per person. This is Qatar.",
-   "anteprima": false,
-   "vista": {
-    "lon": 51.5,
-    "lat": 25.5,
-    "larghezza": 14
-   },
-   "epoca": "oggi",
-   "oro": [
-    "QAT"
-   ],
-   "verde": [
-    "IRN"
-   ],
-   "eventi": [
-    {
-     "tipo": "contorno",
-     "paese": "QAT",
-     "parola": "Qatar"
-    },
-    {
-     "tipo": "numero",
-     "testo": "x18",
-     "lon": 51.2,
-     "lat": 25.3,
-     "parola": "eighteen"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Shares giant gas field",
-     "parola": "shares"
-    }
-   ],
-   "musica": "mistero",
-   "stacco": false,
-   "pin": {
-    "lon": 54,
-    "lat": 27,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "It has no rivers, and under two percent of it is farmland. Almost all tap water comes from desalination, and the record heat tops fifty degrees Celsius.",
-   "anteprima": false,
-   "vista": {
-    "lon": 51.2,
-    "lat": 25.3,
-    "larghezza": 6
-   },
-   "epoca": "oggi",
-   "oro": [
-    "QAT"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 50,
-     "prefisso": "50+",
-     "suffisso": "°C",
-     "sotto": "RECORD HEAT",
-     "parola": "fifty"
-    },
-    {
-     "tipo": "icona",
-     "icona": "factory",
-     "lon": 51.5,
-     "lat": 25.6,
-     "parola": "desalination"
-    },
-    {
-     "tipo": "nota",
-     "testo": "No rivers, almost no farms",
-     "parola": "rivers"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 52.3,
-    "lat": 24.6,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "For centuries, the main money was under the water: men diving for pearls. Then, around 1930, Japan began selling cheap cultured pearls.",
-   "anteprima": false,
-   "vista": {
-    "lon": 51.5,
-    "lat": 25.5,
-    "larghezza": 10
-   },
-   "epoca": "antica",
-   "oro": [
-    "QAT"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "sailor",
-     "n": 5,
-     "lon": 51.7,
-     "lat": 25.7,
-     "parola": "diving"
-    },
-    {
-     "tipo": "anno",
-     "testo": "1930",
-     "parola": "1930"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      136.9,
-      34.5
-     ],
-     "a": [
-      51.5,
-      25.4
-     ],
-     "icona": "ship",
-     "parola": "Japan"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": 52.5,
-    "lat": 24.8,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "The Great Depression hit, the pearl trade collapsed, and Qatar sank into decades of hardship. Whole families packed up and left.",
-   "anteprima": false,
-   "vista": {
-    "lon": 51.2,
-    "lat": 25.3,
-    "larghezza": 6
-   },
-   "epoca": "antica",
-   "oro": [
-    "QAT"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "chart_down",
-     "lon": 51.5,
-     "lat": 25.5,
-     "parola": "collapsed"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "family",
-     "n": 4,
-     "lon": 51.2,
-     "lat": 25.3,
-     "parola": "families"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Pearl trade collapsed",
-     "parola": "collapsed"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 52.2,
-    "lat": 24.6,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Later came something far bigger under Qatar's own sea, the North Field. But it does not stop at the border: it runs into Iran, which calls it South Pars.",
-   "anteprima": false,
-   "vista": {
-    "lon": 51.8,
-    "lat": 26.5,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [
-    "QAT"
-   ],
-   "verde": [
-    "IRN"
-   ],
-   "eventi": [
-    {
-     "tipo": "etichetta",
-     "testo": "NORTH FIELD",
-     "lon": 51.8,
-     "lat": 26.2,
-     "parola": "North"
-    },
-    {
-     "tipo": "confine",
-     "punti": [
-      [
-       51.0,
-       26.8
-      ],
-      [
-       52.2,
-       26.8
-      ],
-      [
-       52.8,
-       26.4
-      ]
-     ],
-     "parola": "border"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "SOUTH PARS",
-     "lon": 52.5,
-     "lat": 27.2,
-     "parola": "South"
-    }
-   ],
-   "musica": "epico",
-   "stacco": false,
-   "pin": {
-    "lon": 50.5,
-    "lat": 24.5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Qatar chilled its gas into liquid and shipped it worldwide. In 2024, it supplied almost a fifth of all liquefied natural gas traded on Earth.",
-   "anteprima": false,
-   "vista": {
-    "lon": 70,
-    "lat": 20,
-    "larghezza": 100
-   },
-   "epoca": "oggi",
-   "oro": [
-    "QAT"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      51.6,
-      25.9
-     ],
-     "a": [
-      139,
-      35
-     ],
-     "icona": "cargo_ship",
-     "parola": "shipped"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      51.6,
-      25.9
-     ],
-     "a": [
-      5,
-      52
-     ],
-     "icona": "cargo_ship",
-     "parola": "worldwide"
-    },
-    {
-     "tipo": "griglia",
-     "paese": [
-      "QAT"
-     ],
-     "pieni": 0.2,
-     "testo": "1 IN 5 LNG",
-     "colore": "oro",
-     "parola": "fifth"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 90,
-    "lat": 0,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "There are not many Qataris to share it. Only about one resident in nine is a citizen.",
-   "anteprima": false,
-   "vista": {
-    "lon": 51.2,
-    "lat": 25.3,
-    "larghezza": 6
-   },
-   "epoca": "oggi",
-   "oro": [
-    "QAT"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "contatore",
-     "testo": "1 IN 9 IS A CITIZEN",
-     "su": 1,
-     "di": 9,
-     "personaggio": "family",
-     "parola": "nine"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "worker",
-     "n": 6,
-     "lon": 51.5,
-     "lat": 25.3,
-     "parola": "resident"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 52.3,
-    "lat": 24.7,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "But this year, the geography that made Qatar rich turned on it. Every tanker must squeeze through one narrow gate, the Strait of Hormuz.",
-   "anteprima": false,
-   "vista": {
-    "lon": 54,
-    "lat": 26,
-    "larghezza": 14
-   },
-   "epoca": "oggi",
-   "oro": [
-    "QAT"
-   ],
-   "verde": [
-    "IRN"
-   ],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      51.6,
-      25.9
-     ],
-     "a": [
-      56.4,
-      26.5
-     ],
-     "icona": "cargo_ship",
-     "parola": "tanker"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "STRAIT OF HORMUZ",
-     "lon": 56.4,
-     "lat": 26.5,
-     "parola": "Hormuz"
-    },
-    {
-     "tipo": "nota",
-     "testo": "One narrow gate out",
-     "parola": "gate"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": 58,
-    "lat": 24.5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "In March, during the war with Iran, missiles hit Ras Laffan, the heart of Qatar's gas industry. Qatar Energy says it lost about seventeen percent of export capacity.",
-   "anteprima": false,
-   "vista": {
-    "lon": 51.5,
-    "lat": 25.9,
-    "larghezza": 6
-   },
-   "epoca": "oggi",
-   "oro": [
-    "QAT"
-   ],
-   "verde": [
-    "IRN"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "cannon",
-     "lon": 51.55,
-     "lat": 25.9,
-     "parola": "missiles"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "RAS LAFFAN",
-     "lon": 51.55,
-     "lat": 25.9,
-     "parola": "Ras"
-    },
-    {
-     "tipo": "conta",
-     "valore": 17,
-     "prefisso": "-",
-     "suffisso": "%",
-     "sotto": "EXPORT CAPACITY",
-     "parola": "seventeen"
-    }
-   ],
-   "musica": "azione",
-   "stacco": true,
-   "pin": {
-    "lon": 50.5,
-    "lat": 24.8,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "That is roughly 20 billion dollars a year, and repairs could take three to five years. Even now, income is around 104,000 per head, adjusted for prices.",
-   "anteprima": false,
-   "vista": {
-    "lon": 51.2,
-    "lat": 25.3,
-    "larghezza": 8
-   },
-   "epoca": "oggi",
-   "oro": [
-    "QAT"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 20,
-     "prefisso": "$",
-     "suffisso": "B",
-     "sotto": "LOST EVERY YEAR",
-     "parola": "20"
-    },
-    {
      "tipo": "prezzo",
-     "testo": "$104,000",
-     "sotto": "QATAR · PER PERSON",
-     "ricco": true,
-     "parola": "104,000"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Rich behind a locked door",
-     "parola": "repairs"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": 52.4,
-    "lat": 24.6,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "In 1969, Phillips Petroleum was about to give up on Norway. Its North Sea wells kept coming up dry.",
-   "anteprima": false,
-   "vista": {
-    "lon": 4,
-    "lat": 58,
-    "larghezza": 18
-   },
-   "epoca": "oggi",
-   "oro": [
-    "NOR"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1969",
-     "parola": "1969"
-    },
-    {
-     "tipo": "icona",
-     "icona": "oil_derrick",
-     "lon": 3.2,
-     "lat": 56.5,
-     "parola": "wells"
-    },
-    {
-     "tipo": "icona",
-     "icona": "chart_down",
-     "lon": 3.2,
-     "lat": 57.5,
-     "parola": "dry"
-    }
-   ],
-   "musica": "mistero",
-   "stacco": false,
-   "pin": {
-    "lon": 9,
-    "lat": 61,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "It drilled one last well, mainly because it was stuck with a hired rig and drilling cost less than walking away. That well found Ekofisk.",
-   "anteprima": false,
-   "vista": {
-    "lon": 3,
-    "lat": 56.5,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [
-    "NOR"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "oil_derrick",
-     "lon": 3.2,
-     "lat": 56.55,
-     "parola": "well"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "EKOFISK",
-     "lon": 3.2,
-     "lat": 56.55,
-     "parola": "Ekofisk"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "JACKPOT",
-     "parola": "found"
-    }
-   ],
-   "musica": "epico",
-   "stacco": true,
-   "pin": {
-    "lon": 6,
-    "lat": 58.5,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "The first giant oil field in Western Europe turned number three, Norway, into an oil country, on a frozen, rocky coast that held one more gift.",
-   "anteprima": false,
-   "vista": {
-    "lon": 10,
-    "lat": 63,
-    "larghezza": 30
-   },
-   "epoca": "oggi",
-   "oro": [
-    "NOR"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "contorno",
-     "paese": "NOR",
-     "parola": "Norway"
-    },
-    {
-     "tipo": "nota",
-     "testo": "First giant Western European field",
-     "parola": "first"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 20,
-    "lat": 66,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Its mountains and all that rain give Norway hydropower for almost nine tenths of its electricity. So it barely burns its own oil and gas, and sells almost all of it.",
-   "anteprima": false,
-   "vista": {
-    "lon": 9,
-    "lat": 62,
-    "larghezza": 16
-   },
-   "epoca": "oggi",
-   "oro": [
-    "NOR"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "mountain",
-     "lon": 8,
-     "lat": 61.5,
-     "parola": "mountains"
+     "testo": "$1.90",
+     "sotto": "DEBT PER $1 · PEAK",
+     "ricco": false,
+     "parola": "ninety"
     },
     {
      "tipo": "griglia",
      "paese": [
-      "NOR"
+      "CAN"
      ],
-     "pieni": 0.9,
-     "testo": "9 IN 10 HYDRO",
+     "pieni": 0.75,
+     "testo": "3 IN 4 IS MORTGAGE",
      "colore": "oro",
-     "parola": "nine"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      3,
-      60
-     ],
-     "a": [
-      -1,
-      52
-     ],
-     "icona": "oil_derrick",
-     "parola": "sells"
+     "parola": "three"
     }
    ],
    "musica": "",
    "stacco": false,
    "pin": {
-    "lon": 15,
-    "lat": 65,
+    "lon": -110,
+    "lat": 45,
     "faccia": "normale"
    }
   },
   {
-   "testo": "In 2025, Norwegian gas covered more than thirty percent of what the EU and Britain used.",
+   "testo": "For a bank, a mortgage is safer than a loan to a new company. So Canadian banks lend far more to home buyers than to businesses.",
    "anteprima": false,
    "vista": {
-    "lon": 5,
-    "lat": 55,
-    "larghezza": 30
+    "lon": -85,
+    "lat": 46,
+    "larghezza": 50
    },
    "epoca": "oggi",
    "oro": [
-    "NOR"
+    "CAN"
    ],
-   "verde": [
-    "GBR",
-    "DEU",
-    "FRA"
-   ],
+   "verde": [],
    "eventi": [
     {
-     "tipo": "conta",
-     "valore": 30,
-     "prefisso": "30+",
-     "suffisso": "%",
-     "sotto": "OF EU+UK GAS",
-     "parola": "thirty"
+     "tipo": "folla",
+     "personaggio": "banker",
+     "n": 4,
+     "lon": -79.4,
+     "lat": 43.7,
+     "parola": "bank"
     },
     {
      "tipo": "freccia",
      "da": [
-      4.5,
-      60.5
+      -79.4,
+      43.7
      ],
      "a": [
-      8.7,
-      53.9
+      -80.5,
+      44.5
      ],
-     "icona": "oil_derrick",
-     "parola": "gas"
+     "icona": "cabin",
+     "parola": "home"
     },
     {
      "tipo": "nota",
-     "testo": "Europe runs on Norwegian gas",
-     "parola": "gas"
+     "testo": "Banks prefer mortgages to startups",
+     "parola": "safer"
     }
    ],
    "musica": "",
    "stacco": false,
    "pin": {
-    "lon": -4,
+    "lon": -95,
     "lat": 50,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Even the fjords played a part. Troll A, a gas platform 472 meters tall, was built in one piece and towed out to sea in 1995.",
+   "testo": "Now back to our engineer in Vancouver. In Seattle, a software developer's salary buys a typical house in under six years.",
    "anteprima": false,
    "vista": {
-    "lon": 5,
-    "lat": 60.8,
-    "larghezza": 6
+    "lon": -123,
+    "lat": 48.5,
+    "larghezza": 10
    },
    "epoca": "oggi",
    "oro": [
-    "NOR"
+    "USA"
    ],
-   "verde": [],
+   "verde": [
+    "CAN"
+   ],
    "eventi": [
     {
-     "tipo": "anno",
-     "testo": "1995",
-     "parola": "1995"
+     "tipo": "etichetta",
+     "testo": "SEATTLE",
+     "lon": -122.3,
+     "lat": 47.6,
+     "parola": "Seattle"
     },
     {
      "tipo": "conta",
-     "valore": 472,
-     "prefisso": "",
-     "suffisso": " M",
-     "sotto": "TALL",
-     "parola": "472"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      5.5,
-      60.8
-     ],
-     "a": [
-      3.7,
-      60.6
-     ],
-     "icona": "oil_derrick",
-     "parola": "towed"
+     "valore": 6,
+     "prefisso": "<",
+     "suffisso": " YRS",
+     "sotto": "OF PAY BUYS A HOUSE",
+     "parola": "six"
     }
    ],
-   "musica": "",
+   "musica": "quotidiano",
    "stacco": false,
    "pin": {
-    "lon": 7.5,
-    "lat": 62,
-    "faccia": "stupito"
+    "lon": -124.5,
+    "lat": 47,
+    "faccia": "normale"
    }
   },
   {
-   "testo": "It is the tallest structure humans have ever moved. And the money was not spent. It was saved.",
+   "testo": "In Vancouver, the same kind of house costs nearly 14 years of pay. He earns less and pays more.",
    "anteprima": false,
    "vista": {
-    "lon": 5,
-    "lat": 60.8,
+    "lon": -123.1,
+    "lat": 49.3,
     "larghezza": 8
    },
    "epoca": "oggi",
    "oro": [
-    "NOR"
+    "USA"
    ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "scritta",
-     "testo": "TALLEST",
-     "parola": "tallest"
-    },
-    {
-     "tipo": "icona",
-     "icona": "money_bag",
-     "lon": 10.7,
-     "lat": 59.9,
-     "parola": "saved"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Profits saved, not spent",
-     "parola": "saved"
-    }
+   "verde": [
+    "CAN"
    ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 8,
-    "lat": 62,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Norway's oil fund is worth about 23 trillion kroner, around 4 million for every Norwegian, and it owns about one and a half percent of every listed company on Earth.",
-   "anteprima": false,
-   "vista": {
-    "lon": 10,
-    "lat": 60,
-    "larghezza": 120
-   },
-   "epoca": "oggi",
-   "oro": [
-    "NOR"
-   ],
-   "verde": [],
    "eventi": [
     {
      "tipo": "conta",
-     "valore": 23,
-     "prefisso": "",
-     "suffisso": "T KR",
-     "sotto": "OIL FUND",
-     "parola": "23"
+     "valore": 14,
+     "prefisso": "~",
+     "suffisso": " YRS",
+     "sotto": "OF PAY FOR A HOUSE",
+     "parola": "14"
     },
     {
-     "tipo": "numero",
-     "testo": "4M KR",
-     "lon": 10.7,
-     "lat": 59.9,
-     "parola": "million"
+     "tipo": "icona",
+     "icona": "cabin",
+     "lon": -123.1,
+     "lat": 49.25,
+     "parola": "house"
     },
     {
-     "tipo": "conta_paesi",
-     "paesi": [
-      "USA",
-      "GBR",
-      "JPN",
-      "DEU",
-      "FRA",
-      "CHN"
-     ],
-     "colore": "oro",
-     "parola": "company"
+     "tipo": "scritta",
+     "testo": "LESS, PAYS MORE",
+     "parola": "less"
     }
    ],
-   "musica": "trionfo",
-   "stacco": false,
+   "musica": "tensione",
+   "stacco": true,
    "pin": {
-    "lon": 30,
-    "lat": 45,
+    "lon": -122.4,
+    "lat": 49.7,
     "faccia": "stupito"
    }
   },
   {
-   "testo": "A cold, rocky edge of Europe built the largest national savings fund on Earth. Per Norwegian, about 116,000 dollars.",
+   "testo": "And the young are being pushed out. Among Canadians in their late twenties, home ownership fell from 44 to 36 percent in just ten years.",
    "anteprima": false,
    "vista": {
-    "lon": 10,
-    "lat": 62,
-    "larghezza": 30
+    "lon": -98,
+    "lat": 50,
+    "larghezza": 60
    },
    "epoca": "oggi",
    "oro": [
-    "NOR"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "prezzo",
-     "testo": "$116,000",
-     "sotto": "NORWAY · PER PERSON",
-     "ricco": true,
-     "parola": "116,000"
-    },
-    {
-     "tipo": "nota",
-     "testo": "World's largest national fund",
-     "parola": "largest"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 20,
-    "lat": 66,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Every morning, more than 200,000 people cross into number two from France, Germany and Belgium. Every evening, they go home.",
-   "anteprima": false,
-   "vista": {
-    "lon": 6.1,
-    "lat": 49.7,
-    "larghezza": 7
-   },
-   "epoca": "oggi",
-   "oro": [
-    "LUX"
-   ],
-   "verde": [
-    "FRA",
-    "DEU",
-    "BEL"
-   ],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 200000,
-     "prefisso": "200,000+",
-     "suffisso": "",
-     "sotto": "COMMUTERS DAILY",
-     "parola": "200,000"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      6.3,
-      49.2
-     ],
-     "a": [
-      6.13,
-      49.61
-     ],
-     "icona": "steam_train",
-     "parola": "cross"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      6.7,
-      49.9
-     ],
-     "a": [
-      6.13,
-      49.61
-     ],
-     "icona": "steam_train",
-     "parola": "Germany"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": 7.4,
-    "lat": 50.5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Almost half of everyone who works in Luxembourg lives in another country. It is smaller than Rhode Island, with no coast, squeezed between three neighbors.",
-   "anteprima": false,
-   "vista": {
-    "lon": 6.1,
-    "lat": 49.7,
-    "larghezza": 7
-   },
-   "epoca": "oggi",
-   "oro": [
-    "LUX"
-   ],
-   "verde": [
-    "FRA",
-    "DEU",
-    "BEL"
-   ],
-   "eventi": [
-    {
-     "tipo": "contatore",
-     "testo": "ALMOST 1 IN 2 COMMUTES",
-     "su": 4.5,
-     "di": 10,
-     "personaggio": "worker",
-     "parola": "half"
-    },
-    {
-     "tipo": "contorno",
-     "paese": "LUX",
-     "parola": "smaller"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Tiny, landlocked, surrounded",
-     "parola": "landlocked"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 7.2,
-    "lat": 49.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Under its southern hills lay iron ore so full of phosphorus it was almost useless, until a new British steel method in 1879 made it workable.",
-   "anteprima": false,
-   "vista": {
-    "lon": 5.95,
-    "lat": 49.5,
-    "larghezza": 3
-   },
-   "epoca": "antica",
-   "oro": [
-    "LUX"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1879",
-     "parola": "1879"
-    },
-    {
-     "tipo": "icona",
-     "icona": "mine",
-     "lon": 5.9,
-     "lat": 49.5,
-     "parola": "iron"
-    },
-    {
-     "tipo": "nota",
-     "testo": "British method unlocks the ore",
-     "parola": "British"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 6.4,
-    "lat": 49.9,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Luxembourg became a steel country. When the ore ran out and European steel crashed, it turned to finance.",
-   "anteprima": false,
-   "vista": {
-    "lon": 6.1,
-    "lat": 49.7,
-    "larghezza": 4
-   },
-   "epoca": "oggi",
-   "oro": [
-    "LUX"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "factory",
-     "lon": 5.95,
-     "lat": 49.5,
-     "parola": "steel"
-    },
-    {
-     "tipo": "icona",
-     "icona": "chart_down",
-     "lon": 5.9,
-     "lat": 49.55,
-     "parola": "crashed"
-    },
-    {
-     "tipo": "icona",
-     "icona": "banknotes",
-     "lon": 6.13,
-     "lat": 49.61,
-     "parola": "finance"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 6.5,
-    "lat": 49.9,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Today, more than 8 trillion euros in investment funds are based in Luxembourg, more than anywhere except the United States. That gives about 157,000 per resident.",
-   "anteprima": false,
-   "vista": {
-    "lon": 6.1,
-    "lat": 49.7,
-    "larghezza": 4
-   },
-   "epoca": "oggi",
-   "oro": [
-    "LUX"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 8,
-     "prefisso": "€8+",
-     "suffisso": "T",
-     "sotto": "IN FUNDS",
-     "parola": "8"
-    },
-    {
-     "tipo": "prezzo",
-     "testo": "$157,000",
-     "sotto": "LUXEMBOURG · PER PERSON",
-     "ricco": true,
-     "parola": "157,000"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Second only to the US",
-     "parola": "anywhere"
-    }
-   ],
-   "musica": "trionfo",
-   "stacco": false,
-   "pin": {
-    "lon": 6.6,
-    "lat": 49.9,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "But remember those commuters? They help produce the income, yet they do not count as residents. So the figure per person is inflated.",
-   "anteprima": false,
-   "vista": {
-    "lon": 6.1,
-    "lat": 49.7,
-    "larghezza": 6
-   },
-   "epoca": "oggi",
-   "oro": [
-    "LUX"
+    "CAN"
    ],
    "verde": [],
    "eventi": [
     {
      "tipo": "folla",
-     "personaggio": "worker",
-     "n": 6,
-     "lon": 6.13,
-     "lat": 49.61,
-     "parola": "commuters"
+     "personaggio": "student",
+     "n": 5,
+     "lon": -79.4,
+     "lat": 43.7,
+     "parola": "young"
     },
     {
-     "tipo": "scritta",
-     "testo": "INFLATED",
-     "parola": "inflated"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Commuters boost the average",
-     "parola": "commuters"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 6.9,
-    "lat": 49.3,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "In 1965, Malaysia voted number one out of its federation. On the ninth of August, it was on its own.",
-   "anteprima": false,
-   "vista": {
-    "lon": 104,
-    "lat": 3,
-    "larghezza": 14
-   },
-   "epoca": "oggi",
-   "oro": [
-    "SGP"
-   ],
-   "verde": [
-    "MYS"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1965",
-     "parola": "1965"
-    },
-    {
-     "tipo": "contorno",
-     "paese": "SGP",
-     "parola": "own"
+     "tipo": "barre",
+     "titolo": "OWN A HOME, AGES 25-29",
+     "voci": [
+      {
+       "testo": "10 YRS AGO",
+       "valore": 44,
+       "lato": "oro"
+      },
+      {
+       "testo": "NOW",
+       "valore": 36,
+       "lato": "verde"
+      }
+     ],
+     "parola": "fell"
     },
     {
      "tipo": "nota",
-     "testo": "Expelled on August 9",
-     "parola": "ninth"
-    }
-   ],
-   "musica": "mistero",
-   "stacco": false,
-   "pin": {
-    "lon": 101,
-    "lat": 5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Its central bank described what it had: an island of about 580 square kilometers, no resources, no hinterland, and not even enough water.",
-   "anteprima": false,
-   "vista": {
-    "lon": 103.8,
-    "lat": 1.35,
-    "larghezza": 3
-   },
-   "epoca": "oggi",
-   "oro": [
-    "SGP"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 580,
-     "prefisso": "~",
-     "suffisso": "",
-     "sotto": "SQ KM OF ISLAND",
-     "parola": "580"
-    },
-    {
-     "tipo": "icona",
-     "icona": "question",
-     "lon": 103.8,
-     "lat": 1.35,
-     "parola": "water"
-    },
-    {
-     "tipo": "nota",
-     "testo": "No land, no resources",
-     "parola": "resources"
+     "testo": "Young owners fell from 44% to 36%",
+     "parola": "home"
     }
    ],
    "musica": "malinconia",
    "stacco": false,
    "pin": {
-    "lon": 104.2,
-    "lat": 1.6,
+    "lon": -110,
+    "lat": 45,
     "faccia": "normale"
    }
   },
   {
-   "testo": "What it had was a spot on the map. Singapore sits at the end of the Strait of Malacca, the busiest oil choke point on Earth.",
+   "testo": "Which brings us to the problem hardly anyone dares to fix. Two in three Canadian households own their home.",
    "anteprima": false,
    "vista": {
-    "lon": 100,
-    "lat": 3,
-    "larghezza": 16
+    "lon": -98,
+    "lat": 50,
+    "larghezza": 60
    },
    "epoca": "oggi",
    "oro": [
-    "SGP"
-   ],
-   "verde": [
-    "MYS",
-    "IDN"
-   ],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      96,
-      5.5
-     ],
-     "a": [
-      103.8,
-      1.3
-     ],
-     "icona": "cargo_ship",
-     "parola": "Malacca"
-    },
-    {
-     "tipo": "conta",
-     "valore": 22,
-     "prefisso": "22M+",
-     "suffisso": "",
-     "sotto": "BARRELS A DAY",
-     "parola": "busiest"
-    },
-    {
-     "tipo": "nota",
-     "testo": "More oil than Hormuz",
-     "parola": "oil"
-    }
-   ],
-   "musica": "epico",
-   "stacco": true,
-   "pin": {
-    "lon": 98,
-    "lat": 0,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "So it built a port. Last year it handled a record 44.7 million containers, second only to Shanghai.",
-   "anteprima": false,
-   "vista": {
-    "lon": 103.8,
-    "lat": 1.3,
-    "larghezza": 4
-   },
-   "epoca": "oggi",
-   "oro": [
-    "SGP"
+    "CAN"
    ],
    "verde": [],
    "eventi": [
     {
+     "tipo": "scritta",
+     "testo": "TABOO",
+     "parola": "fix"
+    },
+    {
+     "tipo": "contatore",
+     "testo": "2 IN 3 OWN",
+     "su": 2,
+     "di": 3,
+     "personaggio": "family",
+     "parola": "two"
+    },
+    {
      "tipo": "icona",
-     "icona": "port",
-     "lon": 103.75,
-     "lat": 1.27,
-     "parola": "port"
+     "icona": "cabin",
+     "lon": -100,
+     "lat": 52,
+     "parola": "home"
+    }
+   ],
+   "musica": "mistero",
+   "stacco": false,
+   "pin": {
+    "lon": -112,
+    "lat": 45,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Nearly half of all household wealth in Canada is the house itself. In America, it's about a quarter.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 49,
+    "larghezza": 70
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "CAN"
+   ],
+   "eventi": [
+    {
+     "tipo": "barre",
+     "titolo": "HOUSE SHARE OF WEALTH",
+     "voci": [
+      {
+       "testo": "CANADA",
+       "valore": 48,
+       "lato": "verde"
+      },
+      {
+       "testo": "USA",
+       "valore": 25,
+       "lato": "oro"
+      }
+     ],
+     "parola": "half"
     },
     {
-     "tipo": "conta",
-     "valore": 44.7,
-     "prefisso": "",
-     "suffisso": "M",
-     "sotto": "CONTAINERS",
-     "parola": "44.7"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Second only to Shanghai",
-     "parola": "Shanghai"
+     "tipo": "griglia",
+     "paese": [
+      "CAN"
+     ],
+     "pieni": 0.48,
+     "testo": "NEARLY HALF IS HOUSING",
+     "colore": "verde",
+     "parola": "Nearly"
     }
    ],
    "musica": "",
    "stacco": false,
    "pin": {
-    "lon": 104.2,
-    "lat": 1.55,
+    "lon": -112,
+    "lat": 42,
     "faccia": "normale"
    }
   },
   {
-   "testo": "It had no land, so it made some. Singapore is now about a quarter bigger than in 1965, built out into the sea with imported sand.",
+   "testo": "Make houses cheaper, and you make most homeowners poorer, at least on paper. So prices stay high, and money stays in houses instead of factories.",
    "anteprima": false,
    "vista": {
-    "lon": 103.8,
-    "lat": 1.3,
-    "larghezza": 3
+    "lon": -98,
+    "lat": 50,
+    "larghezza": 70
    },
    "epoca": "oggi",
    "oro": [
-    "SGP"
+    "CAN"
    ],
    "verde": [],
    "eventi": [
     {
-     "tipo": "anno",
-     "testo": "1965",
-     "parola": "1965"
-    },
-    {
-     "tipo": "numero",
-     "testo": "+25%",
-     "lon": 103.65,
-     "lat": 1.28,
-     "parola": "quarter"
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": -100,
+     "lat": 52,
+     "parola": "cheaper"
     },
     {
      "tipo": "icona",
-     "icona": "cargo_ship",
-     "lon": 103.9,
-     "lat": 1.22,
-     "parola": "sand"
+     "icona": "cabin",
+     "lon": -79.4,
+     "lat": 43.7,
+     "parola": "houses"
+    },
+    {
+     "tipo": "icona",
+     "icona": "factory",
+     "lon": -83,
+     "lat": 42.3,
+     "parola": "factories"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -112,
+    "lat": 44,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "So is Canada doomed? Not quite. Canadians live about three years longer, and are around two and a half times less likely to be murdered.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 49,
+    "larghezza": 70
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CAN"
+   ],
+   "verde": [
+    "USA"
+   ],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 3,
+     "prefisso": "+",
+     "suffisso": " YRS",
+     "sotto": "LONGER LIFE",
+     "parola": "three"
+    },
+    {
+     "tipo": "conta",
+     "valore": 2.5,
+     "prefisso": "x",
+     "suffisso": "",
+     "sotto": "SAFER FROM MURDER",
+     "parola": "murdered"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Canada wins on life and safety",
+     "parola": "longer"
     }
    ],
    "musica": "curiosita",
    "stacco": false,
    "pin": {
-    "lon": 104.1,
-    "lat": 1.5,
+    "lon": -112,
+    "lat": 42,
     "faccia": "normale"
    }
   },
   {
-   "testo": "By the UN's count, it became the world's biggest importer of sand. It also had no water, so it buys some from Malaysia under a deal that runs until 2061.",
+   "testo": "It also carries one of the lowest net public debts in the G7, and its income is shared more evenly than in America.",
    "anteprima": false,
    "vista": {
-    "lon": 103.8,
-    "lat": 1.8,
-    "larghezza": 5
+    "lon": -98,
+    "lat": 49,
+    "larghezza": 70
    },
    "epoca": "oggi",
    "oro": [
-    "SGP"
+    "CAN"
    ],
    "verde": [
-    "MYS"
-   ],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      103.6,
-      2.0
-     ],
-     "a": [
-      103.8,
-      1.4
-     ],
-     "icona": "river",
-     "parola": "buys"
-    },
-    {
-     "tipo": "anno",
-     "testo": "2061",
-     "parola": "2061"
-    },
-    {
-     "tipo": "nota",
-     "testo": "World's biggest sand importer",
-     "parola": "importer"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 104.3,
-    "lat": 1.5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "And it recycles its own sewage into water clean enough to drink. In 1965, a Singaporean earned about 500 dollars, against 300 for a Malaysian.",
-   "anteprima": false,
-   "vista": {
-    "lon": 103,
-    "lat": 2.5,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [
-    "SGP"
-   ],
-   "verde": [
-    "MYS"
+    "USA"
    ],
    "eventi": [
     {
      "tipo": "icona",
-     "icona": "factory",
-     "lon": 103.8,
-     "lat": 1.35,
-     "parola": "recycles"
+     "icona": "banknotes",
+     "lon": -75.7,
+     "lat": 45.4,
+     "parola": "debts"
     },
     {
-     "tipo": "prezzo",
-     "testo": "$500",
-     "sotto": "SINGAPORE · 1965",
-     "ricco": true,
-     "parola": "500"
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": -100,
+     "lat": 52,
+     "parola": "evenly"
     },
     {
-     "tipo": "prezzo",
-     "testo": "$300",
-     "sotto": "MALAYSIA · 1965",
-     "ricco": false,
-     "parola": "300"
+     "tipo": "nota",
+     "testo": "Low debt, fairer incomes",
+     "parola": "lowest"
     }
    ],
    "musica": "",
    "stacco": false,
    "pin": {
-    "lon": 101,
-    "lat": 4,
+    "lon": -112,
+    "lat": 42,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Today, a Singaporean earns almost seven times more than a Malaysian: almost 177,000 dollars per person, the highest of any country with over a million people.",
+   "testo": "But the trend is hard to ignore. In 2021, the OECD projected Canadian living standards would grow more slowly over 40 years than any other member.",
    "anteprima": false,
    "vista": {
-    "lon": 103,
-    "lat": 2.5,
-    "larghezza": 10
+    "lon": -98,
+    "lat": 50,
+    "larghezza": 70
    },
    "epoca": "oggi",
    "oro": [
-    "SGP"
+    "USA"
    ],
    "verde": [
-    "MYS"
+    "CAN"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "2021",
+     "parola": "2021"
+    },
+    {
+     "tipo": "conta",
+     "valore": 40,
+     "prefisso": "",
+     "suffisso": " YRS",
+     "sotto": "OF SLOWEST GROWTH",
+     "parola": "40"
+    },
+    {
+     "tipo": "icona",
+     "icona": "hourglass",
+     "lon": -100,
+     "lat": 52,
+     "parola": "trend"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": -112,
+    "lat": 42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Here is a number few expect: Canada has about four times more land per person than America, and far more beneath it.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 50,
+    "larghezza": 90
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CAN"
+   ],
+   "verde": [
+    "USA"
    ],
    "eventi": [
     {
      "tipo": "solleva",
      "paese": [
-      "SGP"
+      "CAN"
      ],
-     "volte": 7,
-     "testo": "x7",
+     "volte": 4,
+     "testo": "x4 LAND PER PERSON",
      "colore": "oro",
-     "parola": "seven"
+     "parola": "four"
     },
     {
-     "tipo": "prezzo",
-     "testo": "$177,000",
-     "sotto": "SINGAPORE · PER PERSON",
-     "ricco": true,
-     "parola": "177,000"
+     "tipo": "icona",
+     "icona": "mine",
+     "lon": -100,
+     "lat": 55,
+     "parola": "beneath"
     },
     {
      "tipo": "nota",
-     "testo": "Richest big country on Earth",
-     "parola": "highest"
+     "testo": "Plenty of land and resources",
+     "parola": "land"
     }
    ],
-   "musica": "trionfo",
-   "stacco": true,
+   "musica": "curiosita",
+   "stacco": false,
    "pin": {
-    "lon": 101,
-    "lat": 4,
+    "lon": -112,
+    "lat": 42,
     "faccia": "stupito"
    }
   },
   {
-   "testo": "Eight of the worst places to build a country, and in almost every one, the handicap turned into the money.",
+   "testo": "So why did two neighbors who started level drift so far apart? Not because of the land.",
    "anteprima": false,
    "vista": {
-    "lon": 20,
-    "lat": 30,
-    "larghezza": 300
+    "lon": -98,
+    "lat": 49,
+    "larghezza": 80
    },
    "epoca": "oggi",
    "oro": [
-    "AUS",
-    "ISL",
-    "NLD",
-    "GUY",
-    "QAT",
-    "NOR",
-    "LUX",
-    "SGP"
+    "USA"
    ],
-   "verde": [],
+   "verde": [
+    "CAN"
+   ],
    "eventi": [
     {
-     "tipo": "conta_paesi",
-     "paesi": [
-      "AUS",
-      "ISL",
-      "NLD",
-      "GUY",
-      "QAT",
-      "NOR",
-      "LUX",
-      "SGP"
-     ],
-     "colore": "oro",
-     "parola": "Eight"
+     "tipo": "scritta",
+     "testo": "NOT LAND",
+     "parola": "land"
     },
     {
-     "tipo": "nota",
-     "testo": "The handicap became the money",
-     "parola": "handicap"
+     "tipo": "confine",
+     "punti": [
+      [
+       -123,
+       49
+      ],
+      [
+       -95,
+       49
+      ],
+      [
+       -83,
+       46
+      ],
+      [
+       -67,
+       45
+      ]
+     ],
+     "parola": "apart"
     }
    ],
    "musica": "epico",
    "stacco": false,
    "pin": {
-    "lon": -40,
-    "lat": 20,
+    "lon": -112,
+    "lat": 40,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Treasure under the handicap: Australia, Guyana, Qatar and Norway. Location over land: the Netherlands, Luxembourg and Singapore. The handicap as a power plant: Iceland.",
+   "testo": "It was because of where the money went. None of it is fixed by geography, and the IMF's four percent from free trade between provinces is still on the table.",
    "anteprima": false,
    "vista": {
-    "lon": 20,
-    "lat": 30,
-    "larghezza": 300
+    "lon": -98,
+    "lat": 50,
+    "larghezza": 70
    },
    "epoca": "oggi",
    "oro": [
-    "AUS",
-    "GUY",
-    "QAT",
-    "NOR",
-    "NLD",
-    "LUX",
-    "SGP",
-    "ISL"
+    "CAN"
    ],
    "verde": [],
    "eventi": [
     {
      "tipo": "icona",
-     "icona": "treasure_chest",
-     "lon": 134,
-     "lat": -25,
-     "parola": "Treasure"
-    },
-    {
-     "tipo": "icona",
-     "icona": "port",
-     "lon": 4,
+     "icona": "money_bag",
+     "lon": -100,
      "lat": 52,
-     "parola": "Location"
+     "parola": "money"
     },
     {
-     "tipo": "icona",
-     "icona": "factory",
-     "lon": -19,
-     "lat": 65,
-     "parola": "power"
+     "tipo": "conta",
+     "valore": 4,
+     "prefisso": "+",
+     "suffisso": "%",
+     "sotto": "STILL ON THE TABLE",
+     "parola": "four"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Free internal trade is still unused",
+     "parola": "table"
     }
    ],
    "musica": "",
-   "stacco": false,
+   "stacco": true,
    "pin": {
-    "lon": -60,
-    "lat": 0,
+    "lon": -112,
+    "lat": 44,
     "faccia": "normale"
    }
   },
   {
-   "testo": "And the handicap that forced them to get good: the Dutch against the sea, Singapore against having no land or water. Most also share very few people to split the money between.",
+   "testo": "America sent its capital into machines, software, and risky new companies, and made them fight each other.",
    "anteprima": false,
    "vista": {
-    "lon": 60,
-    "lat": 30,
-    "larghezza": 240
+    "lon": -105,
+    "lat": 40,
+    "larghezza": 60
    },
    "epoca": "oggi",
    "oro": [
-    "NLD",
-    "SGP"
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "factory",
+     "lon": -83,
+     "lat": 42.3,
+     "parola": "machines"
+    },
+    {
+     "tipo": "icona",
+     "icona": "gold_coins",
+     "lon": -122.4,
+     "lat": 37.8,
+     "parola": "software"
+    },
+    {
+     "tipo": "icona",
+     "icona": "swords",
+     "lon": -98,
+     "lat": 36,
+     "parola": "fight"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": false,
+   "pin": {
+    "lon": -115,
+    "lat": 32,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Canada sent much of its capital into protected companies, oil it could sell to only one buyer, and houses.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 50,
+    "larghezza": 70
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CAN"
    ],
    "verde": [],
    "eventi": [
     {
      "tipo": "icona",
      "icona": "fortress",
-     "lon": 4.5,
-     "lat": 52,
-     "parola": "sea"
+     "lon": -79.4,
+     "lat": 43.7,
+     "parola": "protected"
     },
     {
-     "tipo": "folla",
-     "personaggio": "family",
-     "n": 3,
-     "lon": 103.8,
-     "lat": 1.35,
-     "parola": "people"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Few people share the wealth",
-     "parola": "few"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 60,
-    "lat": 10,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Qatar got rich behind a strait. Singapore got rich by sitting on one. And the richest country in the world is not even on this list.",
-   "anteprima": false,
-   "vista": {
-    "lon": 78,
-    "lat": 15,
-    "larghezza": 100
-   },
-   "epoca": "oggi",
-   "oro": [
-    "QAT",
-    "SGP"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "etichetta",
-     "testo": "HORMUZ",
-     "lon": 56.4,
-     "lat": 26.5,
-     "parola": "Qatar"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "MALACCA",
-     "lon": 101,
-     "lat": 3,
-     "parola": "Singapore"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "NOT LISTED",
-     "parola": "not"
-    }
-   ],
-   "musica": "mistero",
-   "stacco": true,
-   "pin": {
-    "lon": 80,
-    "lat": -5,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Liechtenstein beats all eight, and its money has almost nothing to do with geography. Its neighbor Switzerland is the purest version of this story, with no sea, no oil, nothing to dig, and still among the richest on Earth.",
-   "anteprima": false,
-   "vista": {
-    "lon": 8.5,
-    "lat": 47,
-    "larghezza": 8
-   },
-   "epoca": "oggi",
-   "oro": [
-    "LIE",
-    "CHE"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "contorno",
-     "paese": "LIE",
-     "parola": "Liechtenstein"
-    },
-    {
-     "tipo": "contorno",
-     "paese": "CHE",
-     "parola": "Switzerland"
+     "tipo": "freccia",
+     "da": [
+      -112,
+      55
+     ],
+     "a": [
+      -100,
+      40
+     ],
+     "icona": "oil_derrick",
+     "parola": "oil"
     },
     {
      "tipo": "icona",
-     "icona": "banknotes",
-     "lon": 8.5,
-     "lat": 47.4,
-     "parola": "richest"
+     "icona": "cabin",
+     "lon": -123.1,
+     "lat": 49.3,
+     "parola": "houses"
     }
    ],
-   "musica": "curiosita",
+   "musica": "malinconia",
    "stacco": false,
    "pin": {
-    "lon": 10.5,
-    "lat": 46,
+    "lon": -110,
+    "lat": 58,
     "faccia": "normale"
    }
   },
   {
-   "testo": "The countries that got rich did not escape their geography. They found the price tag hidden inside it.",
+   "testo": "That's the warning for every rich country. When owning things pays more than building things, the building slows down.",
    "anteprima": false,
    "vista": {
-    "lon": 10,
-    "lat": 30,
-    "larghezza": 300
+    "lon": -98,
+    "lat": 49,
+    "larghezza": 120
    },
    "epoca": "oggi",
    "oro": [
-    "AUS",
-    "ISL",
-    "NLD",
-    "GUY",
-    "QAT",
-    "NOR",
-    "LUX",
-    "SGP"
+    "USA"
    ],
-   "verde": [],
+   "verde": [
+    "CAN"
+   ],
    "eventi": [
     {
      "tipo": "scritta",
-     "testo": "HIDDEN PRICE",
-     "parola": "price"
+     "testo": "OWN OR BUILD?",
+     "parola": "owning"
+    },
+    {
+     "tipo": "icona",
+     "icona": "hourglass",
+     "lon": -98,
+     "lat": 55,
+     "parola": "slows"
     },
     {
      "tipo": "nota",
-     "testo": "Every border has a price",
-     "parola": "price"
+     "testo": "Owning beats building, growth stalls",
+     "parola": "building"
     }
    ],
-   "musica": "trionfo",
+   "musica": "epico",
    "stacco": false,
    "pin": {
-    "lon": -100,
-    "lat": 30,
+    "lon": -112,
+    "lat": 40,
     "faccia": "normale"
    }
   }
