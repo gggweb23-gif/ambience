@@ -1,0 +1,36 @@
+name: Avvio canali (al posto dell'orchestratore n8n)
+
+# Ogni ora di notte lancia il video del giorno dei canali con motore GitHub (strumenti/avvio_canali.py):
+# github_workflow = video_produzione.yml (KAO, Agora...) oppure render_workflow = video_storia.yml / video_mappe.yml.
+# Un video Pexels alla volta: i canali Pexels in attesa partono al giro successivo. I canali d'archivio restano su avvio_archivio.yml.
+on:
+  schedule:
+    - cron: '47 23 * * *'   # 00:47 ora italiana
+    - cron: '47 0-5 * * *'  # 01:47 ... 06:47: giri successivi per i canali Pexels in attesa
+  workflow_dispatch:
+    inputs:
+      canale:
+        description: 'Solo questo canale (channel_id), vuoto = tutti'
+        default: ''
+        type: string
+
+permissions:
+  contents: read
+  actions: write
+
+concurrency:
+  group: avvio-canali
+  cancel-in-progress: false
+
+jobs:
+  avvio:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Avvio
+        env:
+          GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
+          GH_TOKEN: ${{ github.token }}
+          SOLO_CANALE: ${{ inputs.canale }}
+        run: pip install -q google-auth requests && python3 strumenti/avvio_canali.py

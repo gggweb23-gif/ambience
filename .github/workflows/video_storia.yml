@@ -84,6 +84,13 @@ jobs:
           PROVA: ${{ inputs.prova }}
           WORKFLOW_PEXELS: video_storia.yml,video_kao.yml,video_agora.yml,video_produzione.yml,filosofo.yml,kao_render.yml
         run: python3 strumenti/turno_pexels.py
+      - name: Rimandato -> la riga torna Pronto (avvio senza n8n)
+        if: ${{ steps.t.outputs.ok != 'true' }}
+        env:
+          GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
+          PAYLOAD: ${{ inputs.payload }}
+          ESITO: '{"stato": "RIMANDATO"}'
+        run: pip install -q google-auth requests && python3 strumenti/esito_foglio.py || echo "esito non scritto nel foglio"
 
   video:
     needs: turno
@@ -167,6 +174,12 @@ jobs:
         run: |
           set -o pipefail
           python3 video_storia.py 2>&1 | tee storia.log
+      - name: Esito nel file di produzione (avvio senza n8n)
+        if: ${{ always() }}
+        env:
+          GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
+          PAYLOAD: ${{ inputs.payload }}
+        run: (python3 -c "import google.auth" 2>/dev/null || pip install -q google-auth requests) && python3 strumenti/esito_foglio.py || echo "esito non scritto nel foglio"
 
       - name: Costo del video (storico per il coach automatico)
         if: ${{ always() }}

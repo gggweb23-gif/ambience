@@ -278,6 +278,7 @@ async function avvisa(esito) {
       .map(([k, v]) => `${k}: ${v[1].toFixed(3)} $ (${v[0]} chiamate)` + (v[2] ? `, ${v[2]} crediti` : '')).join(' | '));
   } catch (e) { }
   log('esito:', JSON.stringify(esito).slice(0, 600));
+  try { fs.writeFileSync(path.join(ROOT, 'esito_video.json'), JSON.stringify(esito)); } catch (e) { }   // per strumenti/esito_foglio.py (avvio senza n8n)
   if (!P.callback_url) return;
   for (let k = 0; k < 3; k++) {
     try { await richiesta(P.callback_url, { metodo: 'POST', corpo: { id: P.id, foglio: P.foglio || '', gid: P.gid || '', ...esito }, tentativi: 1 }); return; }

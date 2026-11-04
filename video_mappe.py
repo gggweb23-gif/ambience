@@ -1916,6 +1916,10 @@ def avvisa(esito):
     for k, v in INFO_COMP.items():
         esito.setdefault(k, v)
     log('esito:', json.dumps(esito, ensure_ascii=False)[:500])
+    try:   # per strumenti/esito_foglio.py (avvio senza n8n)
+        json.dump(esito, open(os.path.join(ROOT, 'esito_video.json'), 'w'), ensure_ascii=False)
+    except Exception:
+        pass
     if not P.get('callback_url'):
         return
     for k in range(3):

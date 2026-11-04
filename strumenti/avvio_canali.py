@@ -9,7 +9,8 @@ import datetime as dt, json, os, re, urllib.parse, urllib.request
 from zoneinfo import ZoneInfo
 CONFIGS = os.environ.get('FOGLIO_CONFIGS', '1COMpgHJshcmz_a9s-WsjCO5xbhwxBazt-ZB0G_C7Rb0')
 REPO = os.environ.get('GITHUB_REPOSITORY', 'gggweb23-gif/ambience')
-PEXELS = {'video_produzione.yml', 'video_storia.yml'}   # come WORKFLOW_PEXELS dei workflow
+PEXELS = {'video_produzione.yml', 'video_storia.yml'}   # motori che usano Pexels (si lanciano uno alla volta)
+PEXELS_IN_CORSO = PEXELS | {'video_kao.yml', 'video_agora.yml', 'filosofo.yml', 'kao_render.yml'}   # come WORKFLOW_PEXELS dei workflow
 _TK = {}
 
 
@@ -78,7 +79,7 @@ def gh(metodo, percorso, corpo=None):
 
 def pexels_in_corso():
     n = 0
-    for wf in PEXELS:
+    for wf in PEXELS_IN_CORSO:
         for st in ('in_progress', 'queued'):
             n += gh('GET', f'/actions/workflows/{wf}/runs?status={st}&per_page=20').get('total_count', 0)
     return n
@@ -88,8 +89,7 @@ def pubblica_il(cfg, ora):
     m = re.match(r'(\d{1,2})[:.](\d{2})', str(cfg.get('publish_time') or '17:00'))
     tz = ZoneInfo('Europe/Rome'); loc = ora.astimezone(tz)
     q = loc.replace(hour=int(m.group(1)) if m else 17, minute=int(m.group(2)) if m else 0, second=0, microsecond=0)
-    if q < loc + dt.timedelta(hours=4):   # non c'e' tempo per farlo oggi: esce domani alla stessa ora
-        q += dt.timedelta(days=1)
+    # come faceva n8n: oggi all'ora del foglio; se il video finisce dopo quell'ora, il motore lo pubblica subito
     return q.astimezone(dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%S.000Z')
 
 
