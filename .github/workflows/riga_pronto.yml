@@ -1,0 +1,26 @@
+name: Rimetti una riga di produzione a Pronto (gratis)
+on:
+  workflow_dispatch:
+    inputs:
+      foglio:
+        description: 'ID del file di produzione'
+        required: true
+        type: string
+      link:
+        description: 'Link video (colonna Link video) della riga'
+        required: true
+        type: string
+permissions:
+  contents: read
+jobs:
+  pronto:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Riga di nuovo Pronto
+        env:
+          GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
+          PAYLOAD: '{"foglio_produzione": "${{ inputs.foglio }}", "link": "${{ inputs.link }}", "canale": "riga"}'
+          ESITO: '{"stato": "RIMANDATO"}'
+        run: pip install -q google-auth requests && python3 strumenti/esito_foglio.py
