@@ -1,0 +1,41 @@
+name: Performance video (al posto di n8n, gratis)
+
+# Ogni mattina alle 06:03 (ora italiana) riscrive la scheda Performance di ogni file di produzione con gli ultimi 20 video
+# pubblicati: views, impression, CTR, ritenzione a 30 s e 60 s (strumenti/performance.py). La legge il Coach automatico.
+on:
+  schedule:
+    - cron: '3 5 * * *'
+  workflow_dispatch:
+    inputs:
+      canale:
+        description: 'Solo questo canale (channel_id), vuoto = tutti'
+        default: ''
+        type: string
+      prova:
+        description: 'SI = sola lettura, non scrive nel foglio'
+        default: 'NO'
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  performance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Performance
+        env:
+          GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
+          SEGRETI: ${{ toJSON(secrets) }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          SOLO_CANALE: ${{ inputs.canale }}
+          PROVA: ${{ inputs.prova }}
+        run: pip install -q google-auth requests && python3 strumenti/performance.py
+      - name: Salva il riepilogo
+        if: ${{ always() }}
+        run: |
+          git config user.name render-bot && git config user.email render-bot@users.noreply.github.com
+          git add coach/performance_ultimo.txt && git commit -m "Performance video" && for i in 1 2 3; do git pull --rebase -q && git push && break; sleep 5; done || true
