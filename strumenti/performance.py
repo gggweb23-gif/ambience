@@ -14,8 +14,9 @@ E = os.environ.get
 SEGRETI = json.loads(E('SEGRETI', '') or '{}')
 N_VIDEO = int(E('N_VIDEO', '20'))
 SOLO = E('SOLO_CANALE', '').strip()
-COLONNE = ['data_rilevazione', 'youtube_video_id', 'titolo', 'data_pubblicazione', 'ore_online', 'durata_video_s', 'views', 'impression', 'ctr',
-           'ritenzione_30s', 'ritenzione_60s', 'durata_media_s', 'percentuale_media', 'mi_piace', 'iscritti_guadagnati']
+# stessi nomi di colonna che usava n8n (li legge il Coach), piu' qualche colonna in fondo
+COLONNE = ['data_rilevazione', 'youtube_video_id', 'titolo', 'giorni_dalla_pubblicazione', 'views', 'durata_media_sec', 'perc_media_guardata',
+           'ritenzione_30s', 'iscritti', 'impression', 'ctr', 'ritenzione_60s', 'data_pubblicazione', 'durata_video_sec', 'mi_piace']
 REPORT = []
 
 
@@ -126,13 +127,18 @@ def scrivi(fid, valori):
     nomi = [s['properties']['title'] for s in meta['sheets']]
     if 'Performance' not in nomi:
         A.api(fid, 'POST', ':batchUpdate', {'requests': [{'addSheet': {'properties': {'title': 'Performance'}}}]})
+    elif 'Performance storico n8n' not in nomi:   # la prima volta: lo storico scritto da n8n si conserva in una scheda a parte
+        sid = next(s_['properties']['sheetId'] for s_ in meta['sheets'] if s_['properties']['title'] == 'Performance')
+        A.api(fid, 'POST', ':batchUpdate', {'requests': [{'duplicateSheet': {'sourceSheetId': sid, 'newSheetName': 'Performance storico n8n'}}]})
+        log('  storico di n8n copiato nella scheda "Performance storico n8n"')
     A.api(fid, 'POST', '/values/' + urllib.parse.quote("'Performance'!A1:Z2000") + ':clear', {})
     A.api(fid, 'PUT', '/values/' + urllib.parse.quote("'Performance'!A1") + '?valueInputOption=RAW', {'values': valori})
 
 
 def canale(cfg):
     cid = str(cfg.get('channel_id') or '').strip()
-    chiave = str(cfg.get('chiave_youtube') or '').strip() or {'Storia in Minuti': 'YT_REFRESH_TOKEN_STORIA', 'KAO PSICOLOGIA': 'YT_REFRESH_TOKEN_KAO'}.get(cid, '')
+    chiave = str(cfg.get('chiave_youtube') or '').strip() or {'Storia in Minuti': 'YT_REFRESH_TOKEN_STORIA', 'KAO PSICOLOGIA': 'YT_REFRESH_TOKEN_KAO'}.get(cid, '') \
+        or 'YT_REFRESH_TOKEN_' + re.sub(r'[^A-Z0-9]+', '_', cid.upper()).strip('_')
     fid = str(cfg.get('scout_production_sheet_id') or '').strip()
     if not cid or not fid or not chiave:
         return
@@ -193,14 +199,14 @@ def canale(cfg):
         t = tot.get(v, [0, None, None, None, None])
         ic = (imp or {}).get(v)
         ctr = round(ic[1] / ic[0] * 100, 2) if ic and ic[0] else None
-        righe.append([oggi, v, x['snippet']['title'], pub.astimezone(A.ZoneInfo('Europe/Rome')).strftime('%Y-%m-%d %H:%M'),
-                      round((ora - pub).total_seconds() / 3600, 1), dur, int(t[0] or 0), int(ic[0]) if ic else '', ctr if ctr is not None else '',
-                      r30 if r30 is not None else '', r60 if r60 is not None else '', t[1] if t[1] is not None else '',
-                      round(t[2], 1) if t[2] is not None else '', t[3] if t[3] is not None else '', t[4] if t[4] is not None else ''])
+        vuoto = lambda z: '' if z is None else z
+        righe.append([oggi, v, x['snippet']['title'], round((ora - pub).total_seconds() / 86400, 1), int(t[0] or 0), vuoto(t[1]),
+                      round(t[2], 1) if t[2] is not None else '', vuoto(r30), vuoto(t[4]), int(ic[0]) if ic else '', vuoto(ctr), vuoto(r60),
+                      pub.astimezone(A.ZoneInfo('Europe/Rome')).strftime('%Y-%m-%d %H:%M'), dur, vuoto(t[3])])
     scrivi(fid, righe)
     ultimi = righe[-5:]
-    imp5 = sum(num(x[7], 0) for x in ultimi); clic5 = sum(num(x[7], 0) * num(x[8], 0) / 100 for x in ultimi)
-    log(f'  scritti {len(righe) - 1} video | ultimi 5: views {sum(num(x[6], 0) for x in ultimi):.0f}, impression {imp5:.0f}, '
+    imp5 = sum(num(x[9], 0) for x in ultimi); clic5 = sum(num(x[9], 0) * num(x[10], 0) / 100 for x in ultimi)
+    log(f'  scritti {len(righe) - 1} video | ultimi 5: views {sum(num(x[4], 0) for x in ultimi):.0f}, impression {imp5:.0f}, '
         f'CTR medio {clic5 / imp5 * 100:.2f}%' if imp5 else f'  scritti {len(righe) - 1} video | impression non ancora disponibili')
 
 
