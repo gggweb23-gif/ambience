@@ -48,6 +48,8 @@ for r in cfgv[1:]:
         try:
             e, _ = C.main(fcfg, fp, cid)
             stato_coach = f"{e.get('stato')}: {e.get('motivo')}"
+            for v in e.get('tutti_i_video', [])[-6:]:
+                print('    video', v['pubblicato'][:16], 'versione', v['versione'], 'ore', v['ore'], '|', v['titolo'][:40])
             print(json.dumps({k: v for k, v in e.items() if k in ('stato', 'motivo', 'misure', 'versione_attiva', 'video_maturi', 'costo_medio_ultimi', 'budget_video')},
                              ensure_ascii=False, default=str))
             for v in e.get('video_finestra', []):
@@ -68,10 +70,11 @@ for r in cfgv[1:]:
         oc, o30, o60 = (C.num(cfg.get(k), dflt) for k, dflt in (('coach_obiettivo_ctr', 3.5), ('coach_obiettivo_ret30', 65), ('coach_obiettivo_ret60', 50)))
         ok = lambda v, o: '—' if v is None else (f"{v:.1f}%".replace('.', ',') + (' ✅' if v >= o else ' ❌'))
         ctr = clic / imp * 100 if imp else None
-        TAB.append(f"| **{cid}** | {len(mat)} video, {imp:,.0f} impression".replace(',', '.') + f" | {ok(ctr, oc) if imp >= 100 else '— (poche impression)'} | "
+        nome = str(cfg.get('channel_name') or cid).strip()
+        TAB.append(f"| **{nome}** | {len(mat)} video, " + f"{imp:,.0f}".replace(',', '.') + f" impression | {ok(ctr, oc) if imp >= 100 else '— (poche impression)'} | "
                    f"{ok(r30, o30)} / {ok(r60, o60)} | {stato_coach} |")
     else:
-        TAB.append(f"| **{cid}** | nessun dato | — | — | {stato_coach} |")
+        TAB.append(f"| **{str(cfg.get('channel_name') or cid).strip()}** | nessun dato | — | — | {stato_coach} |")
 
 os.makedirs('coach', exist_ok=True)
 import datetime as _dt
