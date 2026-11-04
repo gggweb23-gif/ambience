@@ -210,8 +210,38 @@ def canale(cfg):
         f'CTR medio {clic5 / imp5 * 100:.2f}%' if imp5 else f'  scritti {len(righe) - 1} video | impression non ancora disponibili')
 
 
+def coach_per_tutti(sch, h, canali):
+    """Regola di Giorgio (4 nov 2026): ogni canale, presente e futuro, ha il controllo delle metriche.
+    Canali attivi senza coach_auto -> SI nel foglio + ricetta di partenza. KAO escluso (regola di Giorgio del 30 ott)."""
+    sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'coach'))
+    import ricetta as R
+    for i, cfg in enumerate(canali):
+        cid = str(cfg.get('channel_id') or '').strip()
+        if not cid or cid == 'KAO PSICOLOGIA' or A.num(cfg.get('videos_per_day')) < 1:
+            continue
+        if str(cfg.get('coach_auto') or '').strip().upper() != 'SI' and 'coach_auto' in h:
+            A.api(A.CONFIGS, 'POST', '/values:batchUpdate', {'valueInputOption': 'RAW', 'data': [
+                {'range': f"'{sch}'!{A.lettera(h.index('coach_auto') + 1)}{i + 2}", 'values': [['SI']]}]})
+            log(f'coach_auto = SI messo per {cid}')
+        f = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'coach', 'canali', R.slug(cid), 'ricetta.json')
+        if not os.path.exists(f):
+            os.makedirs(os.path.dirname(f), exist_ok=True)
+            oggi = dt.datetime.now(A.ZoneInfo('Europe/Rome')).strftime('%Y-%m-%d %H:%M')
+            json.dump({'channel_id': cid, 'competitor': str(cfg.get('competitor_1_name') or ''), 'stile_base': 'stile attuale del canale al ' + oggi[:10],
+                       'versione_attiva': 1, 'migliore': None, 'stato': 'in_prova',
+                       'versioni': [{'n': 1, 'dal': oggi, 'cosa': 'Stile di partenza del canale', 'leva': 'partenza', 'parametri': {}, 'risultati': None, 'decisione': None}],
+                       'registro': [oggi[:10] + ': versione 1 di partenza creata in automatico (controllo delle metriche per ogni canale).']},
+                      open(f, 'w'), ensure_ascii=False, indent=2)
+            log(f'ricetta di partenza creata per {cid}')
+
+
 def main():
-    _, _, canali = A.righe(A.CONFIGS)
+    sch, h, canali = A.righe(A.CONFIGS)
+    if E('PROVA') != 'SI':
+        try:
+            coach_per_tutti(sch, h, canali)
+        except Exception as e:
+            log('coach per tutti non riuscito:', str(e)[:150])
     for cfg in canali:
         if SOLO and str(cfg.get('channel_id') or '').strip() != SOLO:
             continue

@@ -15,6 +15,9 @@ from PIL import Image, ImageDraw, ImageEnhance, ImageFont
 
 E = os.environ.get
 P = json.loads(E('PAYLOAD') or '{}')
+sys.path.insert(0, os.path.join(os.getcwd(), 'coach'))
+import ricetta as _RIC   # coach automatico: parametri della versione attiva della ricetta del canale (coach_auto = SI)
+P = _RIC.applica(P)
 NOME = re.sub(r'[^a-z0-9_]+', '_', (P.get('nome') or P.get('titolo') or 'video').lower())[:60]
 CART = os.path.join('prove_video', 'archivio', NOME); os.makedirs(CART, exist_ok=True)
 LAV = '/tmp/va'; os.makedirs(LAV, exist_ok=True)
