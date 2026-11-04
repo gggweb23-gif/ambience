@@ -142,6 +142,7 @@ jobs:
         env:
           GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
           PAYLOAD: ${{ inputs.payload }}
+          STATO_JOB: ${{ job.status }}
         run: (python3 -c "import google.auth" 2>/dev/null || pip install -q google-auth requests) && python3 strumenti/esito_foglio.py || echo "esito non scritto nel foglio"
 
       - name: Costo del video (storico per il coach automatico)
