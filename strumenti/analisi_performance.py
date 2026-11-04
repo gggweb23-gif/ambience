@@ -29,6 +29,7 @@ def xlsx(fogli, path):
 
 
 d = tempfile.mkdtemp()
+TAB = []   # riepilogo giornaliero per Giorgio (coach/riepilogo_performance.md)
 cfgv = valori(A.CONFIGS); fcfg = os.path.join(d, 'cfg.xlsx'); xlsx({'Configs': cfgv}, fcfg)
 h = cfgv[0]
 for r in cfgv[1:]:
@@ -41,10 +42,12 @@ for r in cfgv[1:]:
         prod = valori(fid); perf = valori(fid, 'Performance')
     except Exception as e:
         print('  file non leggibile', str(e)[:100]); continue
+    stato_coach = 'escluso dal Coach (regola di Giorgio)' if cid == 'KAO PSICOLOGIA' else 'ricetta non ancora presente'
     fp = os.path.join(d, C.slug(cid) + '.xlsx'); xlsx({'Foglio1': prod, 'Performance': perf or [[]]}, fp)
     if os.path.exists(os.path.join('coach', 'canali', C.slug(cid), 'ricetta.json')):
         try:
             e, _ = C.main(fcfg, fp, cid)
+            stato_coach = f"{e.get('stato')}: {e.get('motivo')}"
             print(json.dumps({k: v for k, v in e.items() if k in ('stato', 'motivo', 'misure', 'versione_attiva', 'video_maturi', 'costo_medio_ultimi', 'budget_video')},
                              ensure_ascii=False, default=str))
             for v in e.get('video_finestra', []):
@@ -62,3 +65,17 @@ for r in cfgv[1:]:
         print(f"  ultimi {len(mat)} video (>=3 giorni): impression {imp:.0f} | CTR {clic / imp * 100 if imp else 0:.2f}% (obiettivo {cfg.get('coach_obiettivo_ctr') or 3.5}) | "
               f"ret30 {r30 if r30 is None else round(r30, 1)} (obiettivo {cfg.get('coach_obiettivo_ret30') or 65}) | ret60 {r60 if r60 is None else round(r60, 1)} "
               f"(obiettivo {cfg.get('coach_obiettivo_ret60') or 50}) | video con >=30 views: {len(vw)} | pubblici in tutto: {len(rows)}")
+        oc, o30, o60 = (C.num(cfg.get(k), dflt) for k, dflt in (('coach_obiettivo_ctr', 3.5), ('coach_obiettivo_ret30', 65), ('coach_obiettivo_ret60', 50)))
+        ok = lambda v, o: '—' if v is None else (f"{v:.1f}%".replace('.', ',') + (' ✅' if v >= o else ' ❌'))
+        ctr = clic / imp * 100 if imp else None
+        TAB.append(f"| **{cid}** | {len(mat)} video, {imp:,.0f} impression".replace(',', '.') + f" | {ok(ctr, oc) if imp >= 100 else '— (poche impression)'} | "
+                   f"{ok(r30, o30)} / {ok(r60, o60)} | {stato_coach} |")
+    else:
+        TAB.append(f"| **{cid}** | nessun dato | — | — | {stato_coach} |")
+
+os.makedirs('coach', exist_ok=True)
+import datetime as _dt
+open('coach/riepilogo_performance.md', 'w').write(
+    f"Riepilogo performance del {_dt.datetime.now(A.ZoneInfo('Europe/Rome')).strftime('%d/%m/%Y %H:%M')} (ultimi 5 video con almeno 3 giorni; obiettivi CTR 3,5% · ret30 65% · ret60 50%)\n\n"
+    "| Canale | Ultimi video | CTR | Ritenzione 30 s / 60 s | Decisione del Coach |\n|---|---|---|---|---|\n" + "\n".join(TAB) + "\n")
+print(open('coach/riepilogo_performance.md').read())

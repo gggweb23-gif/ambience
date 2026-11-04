@@ -103,6 +103,12 @@ Media CTR della finestra (ultimi 3 video) e storico del canale:
   (formula delle scritte, colori, grandezza del personaggio, gesto/espressione...).
 - SOPRA l'obiettivo: non toccare (vedi stato stabile).
 
+## Voce (Giorgio, 4 nov 2026)
+- Quando la retention a 30 s o a 60 s e' sotto obiettivo, la VOCE e' una delle prime cose da analizzare (oltre a gancio e ritmo):
+  confrontala con la voce del competitor (energia, sicurezza, ritmo, piacevolezza).
+- Il coach NON sceglie voci nuove da solo: usa solo voci gia' approvate da Giorgio per quel canale (campo `voci_approvate` della
+  ricetta). Se serve una voce nuova, la PROPONE a Giorgio con le anteprime (workflow "Voci ElevenLabs") e aspetta il suo ok.
+
 ## Catalogo delle leve (parametri che il motore legge già)
 I nomi nei `parametri` della ricetta devono essere quelli che il MOTORE legge dal payload (controlla nel codice: per esempio
 video_storia.py legge `voce`, `max_minuti`... oltre ai nomi delle colonne). Motore di ogni canale: colonna `render_workflow` /
