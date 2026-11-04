@@ -26,5 +26,7 @@ jobs:
         env:
           GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
           PAYLOAD: '{"foglio_produzione": "${{ inputs.foglio }}", "link": "${{ inputs.link }}", "canale": "riga"}'
-          ESITO: ${{ inputs.esito || '{"stato": "RIMANDATO"}' }}
-        run: pip install -q google-auth requests && python3 strumenti/esito_foglio.py
+          ESITO_IN: ${{ inputs.esito }}
+        run: |
+          if [ -n "$ESITO_IN" ]; then export ESITO="$ESITO_IN"; else export ESITO='{"stato": "RIMANDATO"}'; fi
+          pip install -q google-auth requests && python3 strumenti/esito_foglio.py
