@@ -120,6 +120,21 @@ def main():
                     pass
         if occupata:
             print(cid, ': un video e\' gia\' in produzione'); continue
+        # quanti video di questo canale sono gia' partiti OGGI (ora italiana): mai piu' di videos_per_day al giorno
+        oggi = ora.astimezone(ZoneInfo('Europe/Rome')).date(); fatti_oggi = tentativi_oggi = 0
+        for r in prod:
+            try:
+                ini = dt.datetime.fromisoformat(str(r.get('data_inizio_produzione')).strip().replace('Z', '+00:00').replace(' ', 'T'))
+                ini = ini if ini.tzinfo else ini.replace(tzinfo=ZoneInfo('Europe/Rome'))
+            except Exception:
+                continue
+            if ini.astimezone(ZoneInfo('Europe/Rome')).date() == oggi:
+                tentativi_oggi += 1
+                fatti_oggi += str(r.get('status')).strip() in ('Completato', 'In produzione', 'Prova')
+        if fatti_oggi >= num(cfg.get('videos_per_day')):
+            print(cid, ': video di oggi gia\' fatto'); continue
+        if tentativi_oggi >= num(cfg.get('videos_per_day')) + 2:
+            print(cid, ': troppi tentativi falliti oggi, si riprova domani'); continue
         k = next((i for i, r in enumerate(prod) if str(r.get('status')).strip() == 'Pronto'), None)
         if k is None:
             print(cid, ': nessuna riga Pronto'); continue

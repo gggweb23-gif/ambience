@@ -21,6 +21,8 @@ def main():
         esito = json.loads(os.environ['ESITO'])
     elif os.path.exists('esito_video.json'):
         esito = json.load(open('esito_video.json'))
+    elif os.environ.get('STATO_JOB') == 'cancelled':   # giro annullato a mano: la riga torna Pronto
+        esito = {'stato': 'RIMANDATO'}
     else:
         esito = {'stato': 'ERRORE', 'errore': 'il motore si e\' fermato senza esito (vedi il registro del workflow)'}
     fid, link = P['foglio_produzione'], str(P.get('link') or '').strip()
