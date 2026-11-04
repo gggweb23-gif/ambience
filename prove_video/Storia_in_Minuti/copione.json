@@ -1,0 +1,859 @@
+{
+ "titolo": "L'INTERA Storia dell'Australia in 20 Minuti",
+ "titolo_mappa": "AUSTRALIA",
+ "paese_mappa": "Australia",
+ "date": "60000 a.C. – 2026",
+ "texture": "stropicciata",
+ "font_carte": "classico",
+ "riserva_pexels": [
+  "Uluru red rock Australia",
+  "Australia outback red desert",
+  "Great Barrier Reef aerial",
+  "Sydney Opera House harbour",
+  "Blue Mountains Australia valley",
+  "Twelve Apostles Victoria coast",
+  "Australia eucalyptus forest",
+  "Kakadu wetlands Australia"
+ ],
+ "luoghi_paese": "australia, australian, outback, sydney, melbourne, canberra, uluru, ayers rock, darwin, tasmania, queensland, victoria, kimberley, kakadu, blue mountains, great barrier reef, nullarbor, bondi, ballarat, snowy mountains, perth, twelve apostles",
+ "fondi_carte": [],
+ "colori_carte": [
+  "#8b3a1a",
+  "#1d3557"
+ ],
+ "sfondi": [],
+ "scene": [
+  {
+   "capitolo": "Le origini",
+   "testo": "Immagina un'isola gigantesca all'estremo sud del mondo, isolata da migliaia di chilometri di oceano violento. Per decine di migliaia di anni, il resto del mondo non seppe nemmeno che esistesse. Poi, in un paio di secoli, questa terra misteriosa passò da antica wilderness a prigione brutale, e infine a una delle democrazie più ricche del pianeta.",
+   "anno": -60000,
+   "visivi": [
+    {
+     "tipo": "mappa",
+     "frase": "Immagina un'isola gigantesca"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "isolata da migliaia",
+     "q": "Australia remote coast stormy ocean"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Per decine di migliaia",
+     "q": "Uluru red rock sunrise Australia"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Poi, in un paio",
+     "q": "Australia outback red desert landscape",
+     "suono": "desert wind howling"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "antica wilderness",
+     "q": "Australia eucalyptus bushland wilderness"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "una delle democrazie",
+     "q": "Sydney Opera House harbour"
+    }
+   ]
+  },
+  {
+   "testo": "Oltre 65.000 anni fa, durante l'ultima era glaciale, coraggiosi cacciatori-raccoglitori attraversarono il mare dal Sud-est asiatico su rozze zattere. Divennero gli aborigeni e gli isolani dello Stretto di Torres: la cultura vivente ininterrotta più antica del pianeta.",
+   "anno": -65000,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Oltre 65.000 anni fa",
+     "q": "Kimberley coast Australia sea",
+     "didascalia": "Oltre 65.000 anni fa"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "attraversarono il mare",
+     "q": "Torres Strait islands turquoise sea"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "la cultura vivente",
+     "q": "Kakadu rock art Australia"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "più antica del pianeta",
+     "q": "Uluru base ancient rock Australia"
+    }
+   ]
+  },
+  {
+   "testo": "Non costruirono castelli di pietra: non avevano senso in un ambiente dominato da siccità estreme e piene improvvise. Dominarono la terra con l'agricoltura del bastone di fuoco: incendi controllati per prevenire roghi catastrofici e far crescere erba fresca per cacciare i canguri.",
+   "anno": -30000,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Non costruirono castelli",
+     "q": "Australia outback drought dry land"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "incendi controllati",
+     "q": "bushfire flames Australia grass",
+     "suono": "crackling fire"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "erba fresca",
+     "q": "Australia green grass plain after fire"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "cacciare i canguri",
+     "q": "kangaroos grassland Australia"
+    }
+   ]
+  },
+  {
+   "testo": "Vivevano nel Tempo del Sogno, un universo spirituale dove spiriti creatori come il gigantesco Serpente Arcobaleno plasmarono la realtà. Lo sapevi? Gli esseri umani prosperavano in Australia molto prima delle piramidi. Formarono oltre 250 nazioni, con centinaia di lingue e usanze.",
+   "anno": -20000,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "Vivevano nel Tempo",
+     "q": "Kakadu sunset billabong Australia"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Serpente Arcobaleno",
+     "q": "rainbow over Australian waterfall"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Lo sapevi?",
+     "q": "Egypt pyramids Giza desert"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Formarono oltre 250",
+     "q": "Australia red desert sand dunes",
+     "didascalia": "Oltre 250 nazioni"
+    }
+   ]
+  },
+  {
+   "capitolo": "L'arrivo degli europei",
+   "testo": "I cartografi europei cercavano ossessivamente un'enorme terra australe, che credevano necessaria a impedire alla Terra di sbilanciarsi nello spazio. Esploratori olandesi toccarono la costa nei primi anni del Seicento, ma la abbandonarono: niente oro, argento o spezie.",
+   "anno": 1606,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "I cartografi europei",
+     "q": "old world map antique parchment"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Esploratori olandesi",
+     "q": "old sailing ship sea waves",
+     "suono": "wooden ship creaking, waves"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "toccarono la costa",
+     "q": "Western Australia remote coastline"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "niente oro, argento",
+     "q": "empty dry Australian shore"
+    }
+   ]
+  },
+  {
+   "testo": "Nel 1770 il tenente di marina inglese James Cook navigò lungo la lussureggiante costa orientale e rivendicò l'intera metà orientale per re Giorgio III. Cook vide chiaramente gli indigeni pescare da canoe di corteccia e stare sulle spiagge con le lance.",
+   "anno": 1770,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Nel 1770 il tenente",
+     "q": "tall ship sailing sea sunrise",
+     "didascalia": "1770"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "James Cook navigò",
+     "q": "Botany Bay Sydney coastline"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "lussureggiante costa orientale",
+     "q": "eastern Australia coast green cliffs"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "pescare da canoe",
+     "q": "bark canoe river Australia"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "stare sulle spiagge",
+     "q": "empty Australian beach waves"
+    }
+   ]
+  },
+  {
+   "testo": "Il governo britannico reclamò il territorio con una menzogna legale: terra nullius, cioè \"terra di nessuno\". Questa falsa dottrina ignorò le nazioni indigene che vivevano da sempre sul continente. Quale impatto pensi abbia avuto? Senza il concetto di proprietà della terra, gli aborigeni erano legalmente invisibili: due secoli di tragedia.",
+   "anno": 1770,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "Il governo britannico",
+     "q": "old legal documents quill parchment"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "terra nullius",
+     "q": "vast empty Australian outback"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Quale impatto pensi",
+     "q": "Uluru sunset lone landscape"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "due secoli di tragedia",
+     "q": "Australia dark storm clouds outback"
+    }
+   ]
+  },
+  {
+   "capitolo": "I forzati e la Prima Flotta",
+   "testo": "La Rivoluzione Industriale creò masse di poveri che rubavano pane e vestiti, e finivano in carceri sovraffollate. Il governo stipò i detenuti in navi marcescenti, le hulks, sul Tamigi, tra malattie e miseria. Dopo aver perso la guerra d'indipendenza americana, la Gran Bretagna non poteva più mandarli in America.",
+   "anno": 1780,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "La Rivoluzione Industriale",
+     "q": "old factory chimneys smoke vintage"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "finivano in carceri",
+     "q": "old prison cell stone bars"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "navi marcescenti",
+     "q": "rotting old ship wreck"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "sul Tamigi",
+     "q": "Thames river fog old",
+     "suono": "water lapping, foghorn"
+    }
+   ]
+  },
+  {
+   "testo": "Nel maggio 1787, la Prima Flotta di 11 navi con oltre 700 detenuti salpò verso il luogo più lontano e isolato della Terra. Dopo otto mesi e 24.000 chilometri, la flotta arrivò a Sydney Cove il 26 gennaio 1788, fondando una colonia.",
+   "anno": 1788,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Nel maggio 1787",
+     "q": "tall ships sailing open ocean",
+     "didascalia": "11 navi, 700 detenuti"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Dopo otto mesi",
+     "q": "sailing ship rough sea storm"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "arrivò a Sydney Cove",
+     "q": "Sydney Harbour bay sunrise",
+     "didascalia": "26 gennaio 1788"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "fondando una colonia",
+     "q": "Sydney Cove The Rocks historic"
+    }
+   ]
+  },
+  {
+   "testo": "Per gli indigeni, quella data fu un'apocalisse, non una festa. La colonia rischiò la fame: le sementi inglesi marcirono e i detenuti di città non sapevano coltivare il duro suolo australiano. In un anno, un misterioso vaiolo devastò il popolo Eora. Oltre metà degli indigeni morì di malattie europee, senza difese naturali.",
+   "anno": 1789,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Per gli indigeni",
+     "q": "Australia dark sky dusk coast"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "le sementi inglesi",
+     "q": "dry cracked soil farm field"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "In un anno",
+     "q": "misty bush Sydney sunrise silence"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Oltre metà degli indigeni",
+     "q": "lonely eucalyptus tree sunset",
+     "didascalia": "Oltre metà degli indigeni morì"
+    }
+   ]
+  },
+  {
+   "capitolo": "Le guerre di frontiera",
+   "testo": "Scoppiarono le Guerre di Frontiera: i coloni abbattevano alberi sacri e occupavano le terre, e il conflitto durò oltre un secolo. Guerrieri come Pemulwuy usarono brillanti tattiche di guerriglia, ma i britannici avevano moschetti, cavalli e rinforzi infiniti. Decine di migliaia di indigeni furono uccisi nei massacri e cacciati dalle terre ancestrali.",
+   "anno": 1790,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Scoppiarono le Guerre",
+     "q": "Australian bush forest dense trees",
+     "suono": "distant gunshots echo valley"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "abbattevano alberi sacri",
+     "q": "felled tree stump eucalyptus forest"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Pemulwuy usarono",
+     "q": "Australian bushland creek ambush"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Decine di migliaia",
+     "q": "empty hunting ground Australia plain"
+    }
+   ]
+  },
+  {
+   "capitolo": "Lana e febbre dell'oro",
+   "testo": "Nel 1813 gli esploratori scoprirono un passaggio attraverso le Montagne Blu, rivelando milioni di ettari di pianure erbose perfette per le pecore. La lana divenne il biglietto d'oro dell'Australia, con navi cariche di velli dirette alle fabbriche tessili britanniche.",
+   "anno": 1813,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Nel 1813 gli esploratori",
+     "q": "Blue Mountains Australia valley mist",
+     "didascalia": "1813"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "pianure erbose",
+     "q": "Australia grassy plains pasture"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "perfette per le pecore",
+     "q": "sheep grazing Australian farm"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "La lana divenne",
+     "q": "raw wool fleece bales"
+    }
+   ]
+  },
+  {
+   "testo": "Nel 1851 fu scoperto l'oro nel Nuovo Galles del Sud e nel Victoria, scatenando una delle più grandi corse all'oro della storia. Navi da tutto il mondo arrivarono a Melbourne, mentre marinai, poliziotti e impiegati abbandonavano il lavoro per correre ai giacimenti.",
+   "anno": 1851,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "Nel 1851 fu scoperto",
+     "q": "gold nuggets panning stream",
+     "didascalia": "1851"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "una delle più grandi",
+     "q": "gold mine old Ballarat Victoria"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Navi da tutto il mondo",
+     "q": "Melbourne port harbour ships"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "correre ai giacimenti",
+     "q": "Victoria goldfields dry hills"
+    }
+   ]
+  },
+  {
+   "testo": "La popolazione australiana quasi triplicò in soli dieci anni, trasformando Melbourne in una delle città vittoriane più ricche del mondo: la \"Meravigliosa Melbourne\". Decine di migliaia di minatori cinesi arrivarono e ebbero successo, scatenando violente rivolte razziali. I minatori europei chiesero lo stop all'immigrazione asiatica, piantando semi tossici di politiche razziali.",
+   "anno": 1855,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "La popolazione australiana",
+     "q": "Melbourne Victorian architecture historic buildings",
+     "didascalia": "Popolazione quasi triplicata in 10 anni"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Decine di migliaia",
+     "q": "Chinese lanterns old goldfield"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "violente rivolte razziali",
+     "q": "dark Victorian street night lamp"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "piantando semi tossici",
+     "q": "old Melbourne town hall"
+    }
+   ]
+  },
+  {
+   "testo": "Nel 1854 i minatori di Ballarat costruirono la palizzata di Eureka e combatterono i soldati britannici contro polizia corrotta e licenze minerarie carissime. Persero la battaglia, ma la rabbia pubblica portò all'abolizione delle licenze e al diritto di voto: nacque la democrazia australiana.",
+   "anno": 1854,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Nel 1854 i minatori",
+     "q": "Ballarat Victoria old gold town",
+     "didascalia": "1854"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "palizzata di Eureka",
+     "q": "wooden stockade fence old"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "la rabbia pubblica",
+     "q": "Australian flag waving sky"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "nacque la democrazia",
+     "q": "ballot box vote vintage"
+    }
+   ]
+  },
+  {
+   "testo": "Ned Kelly, il bushranger più leggendario, indossò un'armatura artigianale di 40 chili, fatta con lame d'aratro rubate, in una sparatoria del 1880, prima di essere impiccato.",
+   "anno": 1880,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "Ned Kelly, il bushranger",
+     "q": "Victoria bush outback dusk"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "un'armatura artigianale",
+     "q": "blacksmith forge hammer iron sparks",
+     "didascalia": "40 chili di armatura"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "lame d'aratro",
+     "q": "old rusty plough blade"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "prima di essere impiccato",
+     "q": "old gallows prison stone Melbourne"
+    }
+   ]
+  },
+  {
+   "capitolo": "Nasce la nazione",
+   "testo": "Negli anni Ottanta dell'Ottocento l'Australia era divisa in sei colonie, ciascuna con proprio esercito, tasse e perfino scartamento ferroviario diverso. I passeggeri dovevano cambiare treno a ogni confine, una follia che i leader capirono di dover eliminare.",
+   "anno": 1885,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Negli anni Ottanta",
+     "q": "old steam train railway Australia"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "proprio esercito, tasse",
+     "q": "railway tracks gauge close up"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "cambiare treno a ogni",
+     "q": "railway station old platform steam"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "una follia che",
+     "q": "Australia railway line outback"
+    }
+   ]
+  },
+  {
+   "testo": "Il 1° gennaio 1901 le sei colonie si unirono nel Commonwealth d'Australia con voto pacifico e leggi. Per placare le dispute tra Sydney e Melbourne costruirono Canberra, capitale di compromesso a metà strada. Ma la prima legge fu la discriminatoria politica dell'Australia Bianca, con test ingiusti per bloccare gli immigrati non europei.",
+   "anno": 1901,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Il 1° gennaio 1901",
+     "q": "Australian flag parliament Canberra",
+     "didascalia": "1° gennaio 1901"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Sydney e Melbourne",
+     "q": "Canberra Lake Burley Griffin"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "capitale di compromesso",
+     "q": "Old Parliament House Canberra"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "la discriminatoria politica",
+     "q": "old Australian immigration documents"
+    }
+   ]
+  },
+  {
+   "testo": "Il governo tolse con la forza i bambini aborigeni alle famiglie per decenni, creando le Generazioni Rubate, il cui trauma persiste ancora oggi.",
+   "anno": 1910,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "Il governo tolse",
+     "q": "empty rural Australian homestead"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "creando le Generazioni",
+     "q": "lonely dirt road outback dusk"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "il cui trauma",
+     "q": "red earth cracked silence Australia"
+    }
+   ]
+  },
+  {
+   "capitolo": "Le guerre mondiali",
+   "testo": "Nel 1914 l'Australia giurò fedeltà all'Impero britannico ed entrò nella Prima guerra mondiale. Il 25 aprile 1915 i soldati australiani sbarcarono a Gallipoli, sotto il fuoco devastante delle mitragliatrici, nelle trincee fangose. Oltre 8.000 australiani morirono, ma il loro coraggio forgiò la leggenda degli Anzac: il 25 aprile è la festa più sacra.",
+   "anno": 1915,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Nel 1914 l'Australia",
+     "q": "Australian flag Union Jack old"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "sbarcarono a Gallipoli",
+     "q": "Gallipoli coast cliffs Turkey sea"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "trincee fangose",
+     "q": "muddy trench field rain",
+     "didascalia": "Oltre 8.000 morti"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "la leggenda degli Anzac",
+     "q": "Australian War Memorial Canberra"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "la festa più sacra",
+     "q": "war memorial poppies dawn",
+     "suono": "bugle last post, quiet dawn"
+    }
+   ]
+  },
+  {
+   "testo": "Negli anni Trenta la Grande Depressione gettò un terzo dei lavoratori nella povertà. Fu anche l'epoca della bizzarra Grande Guerra degli Emù del 1932: soldati con mitragliatrici non riuscirono a sterminare migliaia di emù che distruggevano il grano nell'Australia Occidentale. I veloci uccelli si dispersero e vinsero la guerra.",
+   "anno": 1932,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "Negli anni Trenta",
+     "q": "abandoned old house dry farm"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "la bizzarra Grande Guerra",
+     "q": "emu running field Australia",
+     "didascalia": "Guerra degli Emù, 1932"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "distruggevano il grano",
+     "q": "wheat field Western Australia"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "I veloci uccelli",
+     "q": "emu bird close up outback"
+    }
+   ]
+  },
+  {
+   "testo": "Poi scoppiò la Seconda guerra mondiale, portando i giapponesi alle porte dell'Australia. All'inizio del 1942 oltre 15.000 soldati australiani furono catturati dopo la resa di Singapore, subendo trattamenti orribili sulla Ferrovia della Morte tra Thailandia e Birmania.",
+   "anno": 1942,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Poi scoppiò la Seconda",
+     "q": "dark storm clouds over ocean war"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "dopo la resa di Singapore",
+     "q": "Singapore harbour old colonial"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "sulla Ferrovia della Morte",
+     "q": "Thailand jungle railway bridge river",
+     "didascalia": "Oltre 15.000 prigionieri"
+    }
+   ]
+  },
+  {
+   "testo": "Nel febbraio 1942 gli aerei giapponesi bombardarono Darwin, sganciando più bombe di quelle di Pearl Harbor, mentre i sommergibili lanciarono siluri nel porto di Sydney. L'Australia si staccò dalla Gran Bretagna e strinse un'alleanza permanente con gli Stati Uniti.",
+   "anno": 1942,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Nel febbraio 1942",
+     "q": "Darwin harbour Northern Territory sea",
+     "suono": "propeller planes flying over",
+     "didascalia": "Febbraio 1942"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "mentre i sommergibili",
+     "q": "Sydney Harbour night dark water"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "strinse un'alleanza",
+     "q": "American flag Australian flag together"
+    }
+   ]
+  },
+  {
+   "capitolo": "Dopoguerra e multiculturalismo",
+   "testo": "Dopo la guerra, nel 1945, i leader capirono che una nazione di 7 milioni di abitanti doveva crescere, e lanciarono lo slogan \"Popolare o perire\". Milioni di migranti europei da Italia, Grecia, Polonia, Germania e Paesi Bassi arrivarono, cambiando la cultura e costruendo opere come lo Snowy Mountains Hydroelectric Scheme.",
+   "anno": 1945,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Dopo la guerra, nel 1945",
+     "q": "ocean liner ship port arrival"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Popolare o perire",
+     "q": "Australian suburb vintage houses",
+     "didascalia": "7 milioni di abitanti"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Milioni di migranti",
+     "q": "Melbourne Italian quarter Lygon street"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Snowy Mountains Hydroelectric",
+     "q": "Snowy Mountains dam lake Australia"
+    }
+   ]
+  },
+  {
+   "testo": "La razzista politica dell'Australia Bianca fu abolita negli anni Settanta, e i rifugiati asiatici crearono una società multiculturale vivace. Nel 1973 aprì la celebre Opera House di Sydney, tra gli edifici più riconosciuti al mondo.",
+   "anno": 1973,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "La razzista politica",
+     "q": "Sydney Chinatown lanterns Haymarket"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Nel 1973 aprì",
+     "q": "Sydney Opera House close roof sails",
+     "didascalia": "1973"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "tra gli edifici",
+     "q": "Sydney Harbour Bridge Opera House aerial"
+    }
+   ]
+  },
+  {
+   "capitolo": "L'Australia di oggi",
+   "testo": "Nel 1992 Eddie Mabo vinse una storica causa all'Alta Corte che ribaltò la terra nullius, riconoscendo ufficialmente la proprietà della terra ai popoli indigeni. Nel 2008 il Primo Ministro presentò le scuse ufficiali alle Generazioni Rubate a nome della nazione.",
+   "anno": 1992,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "Nel 1992 Eddie Mabo",
+     "q": "Murray Island Torres Strait beach",
+     "didascalia": "1992"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "riconoscendo ufficialmente",
+     "q": "Aboriginal flag waving blue sky"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Nel 2008 il Primo",
+     "q": "Parliament House Canberra facade",
+     "didascalia": "2008"
+    }
+   ]
+  },
+  {
+   "testo": "L'Australia si guadagnò il soprannome di \"paese fortunato\" grazie a enormi giacimenti di ferro, oro, carbone e gas naturale nell'Outback. Visse quasi tre decenni di crescita economica ininterrotta, con città costiere tra le più vivibili del mondo.",
+   "anno": 2000,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "paese fortunato",
+     "q": "Pilbara iron ore mine red earth"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "ferro, oro, carbone",
+     "q": "open cut mine Western Australia"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "città costiere tra",
+     "q": "Melbourne skyline Yarra river",
+     "didascalia": "Quasi 30 anni di crescita"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "più vivibili del mondo",
+     "q": "Bondi beach Sydney coast"
+    }
+   ]
+  },
+  {
+   "testo": "Eppure oggi l'Australia affronta sfide enormi: siccità devastanti, incendi catastrofici e lo sbiancamento della Grande Barriera Corallina. Il paese discute ancora se tagliare i legami con la monarchia britannica e diventare una repubblica indipendente.",
+   "anno": 2026,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "siccità devastanti",
+     "q": "drought cracked earth Australia",
+     "suono": "crackling fire"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "incendi catastrofici",
+     "q": "bushfire smoke orange sky Australia"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "lo sbiancamento della Grande",
+     "q": "bleached coral Great Barrier Reef"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "tagliare i legami",
+     "q": "Australian flag flying Canberra"
+    }
+   ]
+  },
+  {
+   "testo": "L'Australia è un affascinante paradosso: una nazione modernissima costruita sulla terra più antica del pianeta. La sua storia è fatta di resistenza, umorismo e spirito di mateship. Gli esseri umani hanno dimostrato che anche al margine estremo della mappa si può costruire una casa viva e prospera.",
+   "anno": 2026,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "un affascinante paradosso",
+     "q": "Sydney skyline sunset aerial"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "la terra più antica",
+     "q": "Uluru sunset glowing red"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Gli esseri umani",
+     "q": "Twelve Apostles Victoria coast waves"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "una casa viva",
+     "q": "Australia outback starry night sky"
+    }
+   ]
+  }
+ ],
+ "copertina": {
+  "testo": "AUSTRALIA 60000 A.C. – 2026",
+  "personaggio": ""
+ },
+ "descrizione": "L'intera storia dell'Australia in 20 minuti: un viaggio dai primi popoli aborigeni, la cultura vivente più antica del mondo, fino all'Australia moderna. Scopri l'arrivo di James Cook nel 1770, la Prima Flotta di detenuti a Sydney nel 1788 e le tragiche Guerre di Frontiera.\n\nSegui la corsa all'oro del 1851, la ribellione di Eureka, la leggenda di Ned Kelly, la nascita del Commonwealth nel 1901, Gallipoli, la Seconda guerra mondiale, la Grande Guerra degli Emù e l'immigrazione del dopoguerra.\n\nInfine, la sentenza Mabo del 1992, le scuse alle Generazioni Rubate nel 2008 e le sfide di oggi: siccità, incendi e Grande Barriera Corallina.\n\n#Australia #StoriaDellAustralia #StoriaMondiale #JamesCook #PrimaFlotta",
+ "tag": [
+  "Australia",
+  "Storia dell'Australia",
+  "L'intera storia dell'Australia",
+  "Storia mondiale",
+  "Documentario storico",
+  "Capitano James Cook",
+  "Prima Flotta",
+  "Sydney",
+  "Storia spiegata",
+  "storia facile",
+  "storia",
+  "storia completa",
+  "storia di Australia",
+  "aborigeni",
+  "aborigeni australiani",
+  "Tempo del Sogno",
+  "terra nullius",
+  "Generazioni Rubate",
+  "corsa all'oro australiana",
+  "Ned Kelly",
+  "Eureka Stockade",
+  "Gallipoli",
+  "Anzac",
+  "Grande Guerra degli Emù",
+  "Melbourne",
+  "Canberra",
+  "Sydney Opera House",
+  "White Australia Policy",
+  "Eddie Mabo",
+  "Grande Barriera Corallina",
+  "Outback"
+ ],
+ "personaggi_mancanti": [
+  "James Cook",
+  "Pemulwuy",
+  "Ned Kelly",
+  "Eddie Mabo",
+  "aborigeno cacciatore"
+ ],
+ "categoria_originale": "27"
+}
