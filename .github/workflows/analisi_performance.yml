@@ -1,0 +1,15 @@
+name: Analisi performance (sola lettura, gratis)
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: read
+jobs:
+  analisi:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Analisi
+        env:
+          GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
+        run: pip install -q google-auth requests openpyxl && python3 strumenti/analisi_performance.py
