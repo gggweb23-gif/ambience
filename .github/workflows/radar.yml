@@ -1,0 +1,52 @@
+name: RADAR (scoperta canali da copiare, al posto di n8n)
+
+# Ogni mattina alle 06:41 (ora italiana) aggiorna il foglio RADAR (strumenti/radar.py), guidato dalla scheda Impostazioni.
+# Unica spesa: Claude (valutazione dei fotogrammi e argomenti), mai oltre budget_giorno delle Impostazioni (vuoto o 0 = niente Claude).
+on:
+  schedule:
+    - cron: '41 5 * * *'
+  workflow_dispatch:
+    inputs:
+      prova:
+        description: 'SI = massimo 2 ricerche, stampa cosa scriverebbe e non scrive niente'
+        default: 'NO'
+        type: string
+      max_ricerche:
+        description: 'Numero massimo di ricerche YouTube (vuoto = tutte quelle delle Impostazioni)'
+        default: ''
+        type: string
+      senza_claude:
+        description: 'SI = nessuna chiamata a Claude, qualunque sia budget_giorno (per le prove)'
+        default: 'NO'
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: radar
+  cancel-in-progress: false
+
+jobs:
+  radar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: RADAR
+        env:
+          GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
+          YT_API_KEY_RADAR: ${{ secrets.YT_API_KEY_RADAR }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          PROVA: ${{ inputs.prova }}
+          MAX_RICERCHE: ${{ inputs.max_ricerche }}
+          SENZA_CLAUDE: ${{ inputs.senza_claude }}
+        run: pip install -q google-auth requests && python3 strumenti/radar.py
+      - name: Salva valutazioni e spesa Claude
+        if: ${{ always() && inputs.prova != 'SI' }}
+        run: |
+          git config user.name render-bot && git config user.email render-bot@users.noreply.github.com
+          git add radar/valutazioni.json radar/spesa_claude.json 2>/dev/null || true
+          git commit -m "RADAR: valutazioni e spesa Claude" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase --autostash -q && git push && break; sleep $((i * 5)); done
