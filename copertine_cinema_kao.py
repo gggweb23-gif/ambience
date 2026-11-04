@@ -380,7 +380,7 @@ def zona_libera(im, lato):
     """Claude guarda l'immagine finita e indica il rettangolo LIBERO piu' grande (niente volto, corpo, braccia od oggetti) per il testo."""
     buf = io.BytesIO(); im.resize((768, 432)).save(buf, 'JPEG', quality=85)
     dom = (f'This is a YouTube thumbnail without text. We must add a 2-line title on the {"LEFT" if lato == "sinistra" else "RIGHT"} side. '
-           'Find the LARGEST rectangle on that side that is EMPTY background: it must NOT cover the face, body, arms, hands or any object, not even partially. '
+           'Find the LARGEST rectangle on that side that is EMPTY background: it must NOT cover the face, body, arms, hands, any person or object, nor any ARROW or graphic element (an arrow must stay fully visible up to its tip), not even partially. '
            'Keep a small margin from them, but make the rectangle as BIG as possible (the title must be huge, readable on a phone). Avoid the bottom-right corner (last 25% of height on the right 30% of width: video timestamp). '
            'Answer ONLY JSON with percentages of width/height: {"x0": 0, "y0": 0, "x1": 0, "y1": 0}')
     try:
@@ -724,7 +724,7 @@ def copre_soggetti(path):
         rr = http('https://api.anthropic.com/v1/messages', {'model': 'claude-haiku-4-5-20251001', 'max_tokens': 200, 'messages': [{'role': 'user', 'content': [
             {'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}},
             {'type': 'text', 'text': 'This YouTube thumbnail has a title on a white card. Does the white card hide or cut any PERSON (face, body, legs, hands), '
-                                     'even partially, or an object that is important to understand the scene (e.g. people sitting on a bench behind the card)? '
+                                     'even partially, or an object that is important to understand the scene (e.g. people sitting on a bench behind the card), or the TIP/END of an arrow or other graphic element (the whole arrow must be visible up to its tip)? '
                                      'Answer ONLY JSON: {"copre": true|false, "cosa": "short description"}'}]}]},
                   {'x-api-key': E('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01'}, timeout=120)
         tt = ''.join(b.get('text', '') for b in rr.get('content', []))
@@ -913,6 +913,8 @@ def fai(i):
         im = ingrandisci_kao(im, t.get('lato_testo') if t.get('lato_testo') in ('sinistra', 'alto', 'basso') else 'destra')   # KAO quasi a tutta altezza (zoom), poi 1280x720
         if APPLICA and not c.get('suff'):
             im.save(os.path.join(BASI, c['id'] + '.jpg'), quality=92)
+        elif not APPLICA:
+            im.save(os.path.join(NUOVE, c['id'] + '_base.jpg'), quality=92)   # anteprima: immagine senza scritta, per ritoccare solo la scritta
         lato = t.get('lato_testo') if t.get('lato_testo') in ('sinistra', 'alto', 'basso') else 'destra'
         if STILE == 'piatto' and str(E('TESTO_STILE', '') or 'cartoncino').lower() == 'evidenziata':   # come il competitor: lettere nere su strisce gialle, copertina tutta visibile
             scritta_evidenziata(im, f"{t['riga1']} {t['riga2']}", lato, zona_libera(im, lato)).save(p, quality=90)
@@ -926,7 +928,18 @@ def fai(i):
                 z2 = zona_libera(im, lato)
                 if z2:
                     scritta_cartoncino(im, f"{t['riga1']} {t['riga2']}", lato, z2, limite).save(p, quality=90)
-                if (not z2 or copre_soggetti(p)) and not t.get('composizione'):   # immagine rifatta UNA volta: tutte le persone lontane dal lato della scritta
+                for dx, dy in ((.06, .06), (.12, .10)):   # prima si prova a restringere il riquadro (gratis): via dal bordo interno e dall'alto
+                    if not copre_soggetti(p):
+                        break
+                    zb = list(z2) if z2 else ([.47, .04, .975, .76] if lato != 'sinistra' else [.025, .04, .53, .90])
+                    if lato == 'sinistra':
+                        zb[2] -= dx
+                    else:
+                        zb[0] += dx
+                    zb[1] += dy
+                    scritta_cartoncino(im, f"{t['riga1']} {t['riga2']}", lato, zb, limite).save(p, quality=90)
+                    log('  riquadro ristretto', dx, dy)
+                if copre_soggetti(p) and not t.get('composizione'):   # immagine rifatta UNA volta: tutte le persone lontane dal lato della scritta
                     lt, lp = ('LEFT', 'RIGHT') if lato == 'sinistra' else ('RIGHT', 'LEFT')
                     log('  rifaccio l\'immagine una volta: persone tutte a', lp)
                     try:
@@ -940,6 +953,8 @@ def fai(i):
                             scritta_cartoncino(im, f"{t['riga1']} {t['riga2']}", lato, zona_libera(im, lato), limite).save(p, quality=90)
                             if APPLICA and not c.get('suff'):
                                 im.save(os.path.join(BASI, c['id'] + '.jpg'), quality=92)
+                            elif not APPLICA:
+                                im.save(os.path.join(NUOVE, c['id'] + '_base.jpg'), quality=92)
                     except Exception as e2:
                         log('  immagine rifatta non riuscita:', str(e2)[:100])
                 if copre_soggetti(p):   # ultima strada: fascia in alto sopra le teste
