@@ -1,38 +1,37 @@
 {
  "scene": [
   {
-   "testo": "They asked him one question. Why us? Why not the Russians, the British, or the French? The man being questioned had built the most advanced weapon of the war. In May 1945, American officers wanted to know why he had walked into their hands.",
-   "q": "American interrogation officers 1945",
+   "testo": "They asked him a simple question. Why us? Why not the Russians, the British, or the French? In May 1945, American officers put that question to the man who built the V-2 rocket. His answer took only a few sentences.",
+   "q": "Wernher von Braun 1945",
    "tag": [
-    "interrogation",
-    "officers",
-    "table"
+    "von braun",
+    "rocket",
+    "scientist"
    ],
-   "scritta": "WHY US?",
+   "scritta": "",
    "obbligo": [],
    "capitolo": "The Question",
    "anno": 1945
   },
   {
-   "testo": "On May 2, 1945, a young German rode a bicycle down a mountain road near the Austrian border. He was looking for American troops. He found one, and he spoke to him in careful English.",
+   "testo": "It was Wednesday, May 2, 1945. A young German pedaled a bicycle down a mountain road near the Austrian border. He was searching for American soldiers. He had a message that would sound absurd to any sentry on duty.",
    "q": "bicycle mountain road 1945",
    "tag": [
     "bicycle",
-    "mountain",
-    "road"
+    "mountain road"
    ],
-   "scritta": "",
+   "scritta": "MAY 2, 1945",
    "obbligo": [],
    "capitolo": "",
    "anno": 1945
   },
   {
-   "testo": "He told the private that his brother had invented the V-2 rocket and wanted to surrender. The American thought the man was out of his mind. Within days, the brother was sitting in front of American interrogators.",
-   "q": "American soldier German civilian 1945",
+   "testo": "He found one. In careful English, he told the American that his brother had invented the V-2 rocket and wanted to surrender. The soldier assumed the man was insane. Within days, though, the brother sat before American interrogators.",
+   "q": "American soldier checkpoint 1945",
    "tag": [
     "soldier",
-    "civilian",
-    "road"
+    "checkpoint",
+    "germans"
    ],
    "scritta": "",
    "obbligo": [],
@@ -40,20 +39,33 @@
    "anno": 1945
   },
   {
-   "testo": "The brother was Wernher von Braun. The officers who questioned him wanted more than a surrender. They wanted his reasoning. Of every Allied nation, he had chosen one. They needed to know why.",
-   "q": "German scientists surrender 1945",
+   "testo": "His name was Wernher von Braun. He was thirty-three years old. He had built the first long-range ballistic missile ever used in war. Now he faced a question that every German specialist was asking himself that spring.",
+   "q": "V-2 rocket launch 1944",
    "tag": [
-    "scientists",
-    "surrender",
-    "prisoners"
+    "v-2",
+    "rocket",
+    "launch"
    ],
    "scritta": "",
    "obbligo": [],
    "capitolo": "",
-   "anno": 1945
+   "anno": 1944
   },
   {
-   "testo": "To understand his answer, we have to go back to the last days of April. Von Braun and about a dozen of his senior engineers were waiting out the war in a ski hotel high in the Bavarian Alps.",
+   "testo": "Why surrender to the Americans? Von Braun had an answer ready. But it was not the whole truth. To understand what he said, and what he left out, we have to go back to the last days of April.",
+   "q": "German rocket test 1943",
+   "tag": [
+    "rocket",
+    "test",
+    "germans"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 1943
+  },
+  {
+   "testo": "At the end of April 1945, von Braun and about a dozen of his top engineers waited out the war in a ski hotel at Oberjoch, high in the Bavarian Alps. They had not chosen to be there.",
    "q": "Bavarian Alps hotel 1945",
    "tag": [
     "alps",
@@ -62,16 +74,16 @@
    ],
    "scritta": "",
    "obbligo": [],
-   "capitolo": "A Ski Hotel",
+   "capitolo": "The Ski Hotel",
    "anno": 1945
   },
   {
-   "testo": "They were not there by choice. An SS general named Hans Kammler had moved the rocket team south from central Germany. SS guards watched over them. And the engineers feared what those guards might do.",
-   "q": "SS guards Germany 1945",
+   "testo": "SS General Hans Kammler had moved the rocket team south from central Germany. SS guards watched them. Among the engineers, a rumor spread that the SS would rather shoot them than let them fall into enemy hands.",
+   "q": "SS guards 1945",
    "tag": [
-    "SS",
+    "ss",
     "guards",
-    "soldiers"
+    "germans"
    ],
    "scritta": "",
    "obbligo": [],
@@ -79,25 +91,12 @@
    "anno": 1945
   },
   {
-   "testo": "A rumor spread among the engineers. The SS, they believed, would shoot them before letting them fall into enemy hands. No such order has ever been found. But the men in that hotel believed it.",
-   "q": "German officers retreat 1945",
-   "tag": [
-    "officers",
-    "retreat",
-    "column"
-   ],
-   "scritta": "",
-   "obbligo": [],
-   "capitolo": "",
-   "anno": 1945
-  },
-  {
-   "testo": "On May 1, the radio announced that Hitler was dead. The guards scattered and left. The next morning, the engineers decided not to wait for someone else to find them. They chose to go first.",
-   "q": "German radio Hitler dead announcement",
+   "testo": "No such order has ever been found. But the men in that hotel believed it. They were isolated, frightened, and running out of time. Then, on May 1, the radio announced that Adolf Hitler was dead.",
+   "q": "German radio announcement 1945",
    "tag": [
     "radio",
     "announcement",
-    "Germany"
+    "germans"
    ],
    "scritta": "",
    "obbligo": [],
@@ -105,12 +104,25 @@
    "anno": 1945
   },
   {
-   "testo": "They sent Magnus von Braun, Wernher's younger brother, because his English was the best in the group. The American who stopped him was Private First Class Frederick Schneikert of the 44th Infantry Division.",
-   "q": "44th Infantry Division soldiers 1945",
+   "testo": "The guards scattered and left. The next morning, the engineers decided not to wait for anyone to find them. They sent Magnus von Braun, Wernher's younger brother, because his English was the best in the group.",
+   "q": "German soldiers retreating 1945",
+   "tag": [
+    "germans",
+    "retreat",
+    "road"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 1945
+  },
+  {
+   "testo": "The American who stopped him was Private First Class Frederick Schneikert, of the 44th Infantry Division. Schneikert passed the matter to division counterintelligence. They sent Magnus back up the mountain with instructions: bring the others with you.",
+   "q": "44th Infantry Division 1945",
    "tag": [
     "infantry",
-    "division",
-    "soldiers"
+    "jeep",
+    "american soldiers"
    ],
    "scritta": "",
    "obbligo": [],
@@ -118,12 +130,12 @@
    "anno": 1945
   },
   {
-   "testo": "Schneikert passed the matter up to the division's counterintelligence men. They gave Magnus instructions and sent him back up the mountain. Bring the others with you. That evening, a small convoy of German cars rolled down toward American lines.",
-   "q": "German convoy cars surrender 1945",
+   "testo": "That evening, a small convoy of German cars rolled down the road toward the American lines. In one of them sat the man who built the V-2, his left arm in a huge cast from a car accident weeks earlier.",
+   "q": "German convoy surrender 1945",
    "tag": [
     "convoy",
-    "cars",
-    "surrender"
+    "surrender",
+    "cars"
    ],
    "scritta": "",
    "obbligo": [],
@@ -131,38 +143,25 @@
    "anno": 1945
   },
   {
-   "testo": "In one of the cars sat the man who had built the V-2. His left arm was in a huge cast, from a car accident a few weeks earlier. At Reutte, Austria, the rocket team gave itself up.",
-   "q": "German prisoners Austria May 1945",
+   "testo": "At Reutte, in Austria, the rocket team gave itself up. The prisoners were not what the soldiers expected. Von Braun was tall, cheerful, and talkative. He grinned for the cameras, posed with American troops, and shook hands.",
+   "q": "von Braun surrender Reutte",
    "tag": [
+    "von braun",
+    "surrender",
+    "americans"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "The Surrender",
+   "anno": 1945
+  },
+  {
+   "testo": "He asked for nothing except permission to keep working. One American who watched him that week said they had captured either the greatest scientist in the Third Reich, or its greatest liar. So the Americans asked him directly.",
+   "q": "German scientists captured 1945",
+   "tag": [
+    "scientists",
     "prisoners",
-    "Austria",
-    "surrender"
-   ],
-   "scritta": "REUTTE, AUSTRIA",
-   "obbligo": [],
-   "capitolo": "",
-   "anno": 1945
-  },
-  {
-   "testo": "The prisoners were not what the soldiers expected. Von Braun was thirty-three years old, tall, cheerful, and talkative. The cast held his broken arm away from his body. Still, he smiled for the cameras.",
-   "q": "German prisoner smiling photographers 1945",
-   "tag": [
-    "prisoner",
-    "smiling",
-    "cast"
-   ],
-   "scritta": "",
-   "obbligo": [],
-   "capitolo": "A Cheerful Prisoner",
-   "anno": 1945
-  },
-  {
-   "testo": "He posed for photographs with American soldiers. He shook their hands. He asked for nothing except permission to keep working. One American who watched him that week said they had either captured the greatest scientist of the Reich, or its biggest liar.",
-   "q": "American soldiers German scientist photograph",
-   "tag": [
-    "soldiers",
-    "scientist",
-    "photograph"
+    "americans"
    ],
    "scritta": "",
    "obbligo": [],
@@ -170,12 +169,12 @@
    "anno": 1945
   },
   {
-   "testo": "So the Americans asked the question. Why did you surrender to us? The answer did not come from one sentence. It came in three parts, and later one member of the team put the group's reasoning into a single line.",
-   "q": "American officer questioning German prisoner",
+   "testo": "Why did you surrender to us? Von Braun did not answer with one sentence. He gave three reasons. They were not his alone. They reflected how the whole rocket team had weighed its choices in the final weeks.",
+   "q": "military interrogation 1945",
    "tag": [
-    "officer",
-    "questioning",
-    "prisoner"
+    "interrogation",
+    "officers",
+    "table"
    ],
    "scritta": "",
    "obbligo": [],
@@ -183,12 +182,12 @@
    "anno": 1945
   },
   {
-   "testo": "We despise the French, he said. We are mortally afraid of the Soviets. We do not believe the British can afford us. That leaves only the Americans. Three nations ruled out, one by one.",
-   "q": "Allied flags Europe 1945",
+   "testo": "Years later, one member of the group put the team's reasoning in a single line. We despise the French. We are mortally afraid of the Soviets. We do not think the British can afford us. That leaves the Americans.",
+   "q": "German engineers 1945",
    "tag": [
-    "flags",
-    "Allied",
-    "Europe"
+    "engineers",
+    "germans",
+    "prisoners"
    ],
    "scritta": "",
    "obbligo": [],
@@ -196,25 +195,25 @@
    "anno": 1945
   },
   {
-   "testo": "Each reason had a basis in fact. France had spent four years under German occupation. The Soviet Union had lost millions of people to the German invasion, and the engineers expected no mercy there.",
-   "q": "Soviet troops Berlin 1945",
+   "testo": "Three nations were ruled out, one after another, and each had its reasons. France had been occupied by Germany for four years. The engineers could expect little goodwill there, and they said so among themselves.",
+   "q": "Paris occupation 1940",
    "tag": [
-    "Soviet",
-    "troops",
-    "Berlin"
+    "paris",
+    "occupation",
+    "germans"
    ],
    "scritta": "",
    "obbligo": [],
    "capitolo": "",
-   "anno": 1945
+   "anno": 1940
   },
   {
-   "testo": "Britain had been hit by more than a thousand V-2 rockets, and it was close to bankruptcy. Only one country had the money, the factories, and the empty desert needed to keep building rockets.",
-   "q": "London V-2 rocket damage",
+   "testo": "The Soviet Union had lost millions of people to the German invasion. The engineers expected no mercy there. Britain had been struck by more than a thousand V-2 rockets, and it was close to bankruptcy.",
+   "q": "Soviet ruins 1944",
    "tag": [
-    "London",
-    "rocket",
-    "damage"
+    "ruins",
+    "soviet",
+    "destroyed city"
    ],
    "scritta": "1,000+ V-2S",
    "obbligo": [],
@@ -222,38 +221,12 @@
    "anno": 1944
   },
   {
-   "testo": "When von Braun wrote for his captors, he was more careful. He called it a moral decision. Which victorious nation, he asked, should be trusted with what his team had created? He gave an answer with a Bible in it.",
-   "q": "von Braun portrait 1945",
+   "testo": "Only one country still had the money, the factories, and the empty desert needed to keep building rockets. When von Braun wrote it down for his captors, he put it in more careful language.",
+   "q": "American factory production 1944",
    "tag": [
-    "von Braun",
-    "portrait",
-    "scientist"
-   ],
-   "scritta": "",
-   "obbligo": [],
-   "capitolo": "",
-   "anno": 1945
-  },
-  {
-   "testo": "The team wanted to spare the world another war like the one Germany had just endured. That, he said, could only be assured by handing the weapon to a people guided by the Bible. It was a noble explanation. But it left something out.",
-   "q": "German rocket scientists group photograph",
-   "tag": [
-    "rocket",
-    "scientists",
-    "group"
-   ],
-   "scritta": "",
-   "obbligo": [],
-   "capitolo": "What He Left Out",
-   "anno": 1945
-  },
-  {
-   "testo": "The V-2 had been built underground, in tunnels dug into a mountain near Nordhausen called the Mittelwerk. The work was done by prisoners from the Mittelbau-Dora concentration camp.",
-   "q": "Nordhausen Mittelwerk tunnel V-2",
-   "tag": [
-    "Nordhausen",
-    "tunnel",
-    "V-2"
+    "factory",
+    "production",
+    "workers"
    ],
    "scritta": "",
    "obbligo": [],
@@ -261,12 +234,38 @@
    "anno": 1944
   },
   {
-   "testo": "About 60,000 prisoners passed through that camp. About 20,000 of them died. More people died building the V-2 than were killed by it. None of this appeared in the statement he gave the Americans.",
-   "q": "Dora concentration camp prisoners liberated",
+   "testo": "He wrote that the choice of which victorious nation to entrust with this invention was, above all, a moral decision. He said the team wanted to spare the world another war like the one Germany had just lived through.",
+   "q": "American flag Germany 1945",
+   "tag": [
+    "american flag",
+    "germany",
+    "occupation"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 1945
+  },
+  {
+   "testo": "It was a noble explanation. But it left out one thing. The V-2 had been built underground, in tunnels dug into a mountain near Nordhausen. The factory was called the Mittelwerk. Its workers were prisoners.",
+   "q": "Nordhausen Mittelwerk tunnel",
+   "tag": [
+    "tunnel",
+    "nordhausen",
+    "factory"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "What He Left Out",
+   "anno": 1945
+  },
+  {
+   "testo": "They came from the Mittelbau-Dora concentration camp. About sixty thousand prisoners passed through that camp, and about twenty thousand died. More people died building the V-2 than were killed by it.",
+   "q": "Dora concentration camp 1945",
    "tag": [
     "concentration camp",
     "prisoners",
-    "liberated"
+    "dora"
    ],
    "scritta": "20,000 DEAD",
    "obbligo": [],
@@ -274,10 +273,10 @@
    "anno": 1945
   },
   {
-   "testo": "Von Braun had joined the Nazi Party in 1937 and became an SS officer in 1940. He visited the tunnels. In the summer of 1944, he went to Buchenwald to select skilled prisoners to work on the rockets.",
-   "q": "Buchenwald prisoners 1945",
+   "testo": "Von Braun had been a member of the Nazi Party since 1937, and an officer in the SS since 1940. He had visited the tunnels. In the summer of 1944, he went to Buchenwald to select skilled prisoners.",
+   "q": "Buchenwald prisoners liberation",
    "tag": [
-    "Buchenwald",
+    "buchenwald",
     "prisoners",
     "camp"
    ],
@@ -287,12 +286,12 @@
    "anno": 1944
   },
   {
-   "testo": "There was another story he told them. In March 1944, the Gestapo arrested him in the middle of the night. The charge was defeatism. Informants reported that he had said the war was going badly.",
-   "q": "Gestapo arrest Germany 1944",
+   "testo": "None of this appeared in the statement he gave the Americans. But there was something else he told them. A year earlier, in March 1944, the Gestapo had arrested him in the middle of the night.",
+   "q": "Gestapo arrest 1944",
    "tag": [
-    "Gestapo",
+    "gestapo",
     "arrest",
-    "Germany"
+    "germany"
    ],
    "scritta": "",
    "obbligo": [],
@@ -300,12 +299,12 @@
    "anno": 1944
   },
   {
-   "testo": "They also reported that he cared more about spaceflight than about building weapons. He spent two weeks in a cell at Stettin before General Walter Dornberger and Albert Speer secured his release.",
-   "q": "Stettin Germany 1944 prison",
+   "testo": "The charge was defeatism. Informers reported that he said the war was going badly, and that he cared more about spaceflight than weapons. He spent two weeks in a cell at Stettin before being released.",
+   "q": "Stettin prison 1944",
    "tag": [
-    "Stettin",
     "prison",
-    "cell"
+    "cell",
+    "germany"
    ],
    "scritta": "",
    "obbligo": [],
@@ -313,25 +312,25 @@
    "anno": 1944
   },
   {
-   "testo": "To the Americans, the Gestapo story carried the meaning he wanted. He had never been just a weapons man. Now he had to prove it. The interrogators moved the team to Garmisch-Partenkirchen.",
-   "q": "Garmisch-Partenkirchen 1945 Army",
+   "testo": "General Walter Dornberger and Albert Speer secured his release. To the Americans, the Gestapo story carried the meaning he wanted them to take from it. He was never merely a weapons man. And now he had to prove it.",
+   "q": "Albert Speer Dornberger 1943",
    "tag": [
-    "Garmisch",
-    "Army",
-    "Bavaria"
+    "speer",
+    "officers",
+    "germany"
    ],
    "scritta": "",
    "obbligo": [],
    "capitolo": "",
-   "anno": 1945
+   "anno": 1943
   },
   {
-   "testo": "There they asked von Braun to put on paper where rockets would go next. He did not write a technical summary. He wrote a vision of the future, and he described the V-2 as only a beginning.",
-   "q": "man writing report 1945 desk",
+   "testo": "Interrogators moved the team to Garmisch-Partenkirchen and asked von Braun to put on paper where rockets would go next. He did not write a technical summary. He wrote a vision of the future.",
+   "q": "Garmisch-Partenkirchen 1945",
    "tag": [
-    "writing",
-    "report",
-    "desk"
+    "garmisch",
+    "alps",
+    "town"
    ],
    "scritta": "",
    "obbligo": [],
@@ -339,12 +338,12 @@
    "anno": 1945
   },
   {
-   "testo": "He wrote of multistage rockets, of rockets that could cross the Atlantic, of a satellite circling the Earth. He wrote of a manned station in orbit. From there, he said, a voyage to the Moon might one day be possible.",
-   "q": "rocket launch V-2 test",
+   "testo": "He described the V-2 as only a beginning. He wrote of multistage rockets, of rockets that could cross the Atlantic, of an artificial satellite circling the Earth, and of a manned station in orbit.",
+   "q": "rocket launch experiment 1940s",
    "tag": [
     "rocket",
     "launch",
-    "V-2"
+    "test"
    ],
    "scritta": "",
    "obbligo": [],
@@ -352,12 +351,12 @@
    "anno": 1945
   },
   {
-   "testo": "It was a remarkable document to come from a prisoner of war. The war against Japan was still being fought. The atomic bomb had not yet been used. Yet a German engineer in a Bavarian camp was promising the Moon.",
-   "q": "Pacific war 1945 newsreel",
+   "testo": "From there, he said, a voyage to the Moon would someday be possible. The war with Japan was still being fought. The atomic bomb had not yet been used. Yet a prisoner was describing flight to the Moon.",
+   "q": "Pacific war bombers 1945",
    "tag": [
-    "Pacific",
-    "ships",
-    "fleet"
+    "bombers",
+    "pacific",
+    "aircraft"
    ],
    "scritta": "",
    "obbligo": [],
@@ -365,12 +364,12 @@
    "anno": 1945
   },
   {
-   "testo": "It was also a sales pitch. The report told the Americans exactly what they would lose if they let this team walk away. And they already knew who else was looking for it.",
-   "q": "Soviet soldiers Peenemunde 1945",
+   "testo": "It was also a sales pitch. The report told the Americans what they would lose if they let this team go. And they already knew who else was looking. The Red Army reached Peenemuende, the rocket center on the Baltic coast, on May 5.",
+   "q": "Red Army Baltic 1945",
    "tag": [
-    "Soviet",
+    "red army",
     "soldiers",
-    "Peenemunde"
+    "baltic"
    ],
    "scritta": "",
    "obbligo": [],
@@ -378,25 +377,25 @@
    "anno": 1945
   },
   {
-   "testo": "The Red Army reached Peenemunde, the rocket center on the Baltic coast, on May 5. The underground plant at Nordhausen sat in territory that would be handed to the Soviets in July.",
-   "q": "Baltic coast Peenemunde ruins",
+   "testo": "The underground plant at Nordhausen lay inside the zone that would be turned over to the Soviets in July. American officers worked fast. Before the handover, they shipped out parts for about one hundred V-2 rockets.",
+   "q": "railroad cars rocket parts 1945",
    "tag": [
-    "Peenemunde",
-    "ruins",
-    "Baltic"
+    "railroad",
+    "rocket parts",
+    "freight"
    ],
-   "scritta": "",
+   "scritta": "100 V-2S",
    "obbligo": [],
    "capitolo": "",
    "anno": 1945
   },
   {
-   "testo": "American officers worked fast. They shipped out parts for about one hundred V-2 rockets before the handover. Major Robert Staver tracked down fourteen tons of Peenemunde documents, hidden by the engineers in a mine, and moved them out in time.",
-   "q": "Army trucks loading rocket parts 1945",
+   "testo": "Major Robert Staver tracked down fourteen tons of Peenemuende documents that the engineers had hidden in a mine, and moved them out of the area days before the British took control of it.",
+   "q": "documents mine recovery 1945",
    "tag": [
-    "trucks",
-    "rocket parts",
-    "railcars"
+    "documents",
+    "mine",
+    "soldiers"
    ],
    "scritta": "14 TONS",
    "obbligo": [],
@@ -404,11 +403,11 @@
    "anno": 1945
   },
   {
-   "testo": "In October 1946, the Soviets ran their own recruitment. In one night, they put more than 2,000 German specialists and their families on trains to the Soviet Union, whether they wanted to go or not.",
-   "q": "German specialists trains Soviet Union 1946",
+   "testo": "In October 1946, the Soviets ran their own recruitment. In a single night, they put more than two thousand German specialists and their families on trains to the Soviet Union, whether the Germans wanted to go or not.",
+   "q": "German specialists trains Soviet 1946",
    "tag": [
-    "trains",
-    "families",
+    "train",
+    "germans",
     "deportation"
    ],
    "scritta": "2,000+",
@@ -417,24 +416,24 @@
    "anno": 1946
   },
   {
-   "testo": "Von Braun never had to make that trip. In September 1945 he landed in the United States under a secret military program, called Operation Overcast and later Paperclip. By early 1946, over a hundred of his team were at Fort Bliss, Texas.",
+   "testo": "Von Braun never had to make that trip. In September 1945, he landed in the United States under a secret military program, first called Overcast and later Paperclip. By early 1946, over one hundred of his team were at Fort Bliss, Texas.",
    "q": "Fort Bliss Texas 1946",
    "tag": [
-    "Fort Bliss",
-    "Texas",
-    "Army"
+    "fort bliss",
+    "texas",
+    "army"
    ],
    "scritta": "",
    "obbligo": [],
-   "capitolo": "Across the Atlantic",
+   "capitolo": "The Consequence",
    "anno": 1946
   },
   {
-   "testo": "Officially they were prisoners of war, and could not leave the base without an escort. In April 1946, at White Sands Proving Ground in New Mexico, they began firing V-2 rockets rebuilt from the parts shipped out of Nordhausen.",
-   "q": "White Sands V-2 launch 1946",
+   "testo": "They were officially prisoners of war and could not leave the post without an escort. In April 1946, at White Sands Proving Ground in New Mexico, they began firing V-2 rockets rebuilt from parts shipped out of Nordhausen.",
+   "q": "White Sands V-2 launch",
    "tag": [
-    "White Sands",
-    "V-2",
+    "v-2",
+    "white sands",
     "launch"
    ],
    "scritta": "",
@@ -443,66 +442,52 @@
    "anno": 1946
   },
   {
-   "testo": "On January 31, 1958, von Braun's team launched Explorer 1, the first American satellite. Then they built the Saturn V. On July 16, 1969, Apollo 11 lifted off for the Moon, the journey he had described at Garmisch twenty-four years earlier.",
-   "q": "Explorer 1 launch Saturn V",
+   "testo": "Twelve years later, on January 31, 1958, von Braun's team launched Explorer 1, the first American satellite. Then they built the Saturn V. On July 16, 1969, Apollo 11 rose toward the Moon, the voyage he had described at Garmisch.",
+   "q": "Saturn V Apollo 11 launch",
    "tag": [
-    "rocket",
-    "launch",
-    "Saturn"
+    "saturn v",
+    "apollo",
+    "launch"
    ],
    "scritta": "JULY 16, 1969",
    "obbligo": [],
-   "capitolo": "The Consequence",
-   "anno": 1958
-  },
-  {
-   "testo": "The man who rode the bicycle down the mountain was never asked to explain his brother's choice. The man who built the rocket spent the rest of his life explaining it. He spoke of the Bible, of peace, of France, Britain, and the Soviet Union. He spoke very little of the tunnels at Nordhausen. In May 1945, Americans asked why he chose them. They never publicly asked him the price paid to build the rocket he brought with him.",
-   "q": "Nordhausen tunnel prisoners bodies 1945",
-   "tag": [
-    "Nordhausen",
-    "prisoners",
-    "tunnel"
-   ],
-   "scritta": "",
-   "obbligo": [],
    "capitolo": "",
-   "anno": 1945
+   "anno": 1969
   }
  ],
- "descrizione": "In May 1945, American officers asked Wernher von Braun a simple question: why did he surrender to the United States? His answer, and the report he wrote for his captors, shaped the American space program. This documentary follows the surrender of the V-2 rocket team in Austria, the reasoning behind their choice, and the human cost of the weapon they built at Mittelbau-Dora.\n\nUsing documented history, interrogation records, and archival film, we trace von Braun's path from a Bavarian ski hotel to Fort Bliss, Texas, and from Operation Paperclip to Explorer 1 and Apollo 11. We also examine what his statement left out: the Nordhausen tunnels, the prisoners who died there, and his own record in the SS.\n\nWatch to the end, and subscribe to WWII Testimony for more stories told through the words of the men who lived them.\n\n#WernherVonBraun #OperationPaperclip #V2Rocket #WWII #WWIIHistory",
+ "descrizione": "In May 1945, American officers asked Wernher von Braun why he and his rocket team surrendered to the United States instead of the Soviets, British, or French. This documentary follows the documented story: the ski hotel in the Bavarian Alps, the bicycle ride of Magnus von Braun, the surrender at Reutte, and the three-nation reasoning behind the choice.\n\nWe also examine what von Braun left out of his statement: the Mittelwerk tunnels near Nordhausen, the Mittelbau-Dora prisoners, and the human cost of building the V-2. His Garmisch report, the race with the Red Army, and Operation Paperclip explain how a captured rocket team became the foundation of the American space program.\n\nWatch to the end for the consequence, from Fort Bliss and White Sands to Explorer 1 and Apollo 11.\n\n#WWII #VonBraun #V2Rocket #OperationPaperclip #WWIIHistory #Apollo11",
  "tag": [
   "Wernher von Braun",
   "von Braun surrender",
-  "Operation Paperclip",
   "V-2 rocket",
-  "WWII documentary",
-  "World War II",
+  "Operation Paperclip",
+  "Operation Overcast",
+  "Mittelwerk",
   "Mittelbau-Dora",
   "Nordhausen",
-  "Mittelwerk",
-  "Peenemunde",
-  "Apollo 11",
-  "Saturn V",
-  "Explorer 1",
+  "Peenemuende",
+  "WWII documentary",
+  "World War II",
+  "WWII testimony",
+  "German rocket scientists",
   "Fort Bliss",
   "White Sands",
-  "German rocket scientists",
+  "Explorer 1",
+  "Saturn V",
+  "Apollo 11",
   "Magnus von Braun",
-  "Reutte Austria",
-  "Garmisch-Partenkirchen",
-  "WWII history",
-  "WWII Testimony",
-  "Space race origins",
-  "Nazi scientists",
-  "Operation Overcast",
   "Hans Kammler",
   "Walter Dornberger",
-  "Cold War history",
-  "American interrogation 1945",
-  "archival footage WWII",
-  "rocket history"
+  "Garmisch-Partenkirchen",
+  "1945 surrender",
+  "Allied interrogation",
+  "rocket history",
+  "space race origins",
+  "WWII history",
+  "Reutte Austria",
+  "American space program"
  ],
  "testo_copertina": "WHY US?",
- "copertina_prompt": "Close-up of a fictional American Army interrogator in 1945, leaning forward over a wooden table in a dim Bavarian room, stern and demanding expression, harsh lamplight, black-and-white film grain",
+ "copertina_prompt": "Close-up of a fictional 1940s German scientist in a rumpled coat, one arm in a cast, looking tense and guarded across a table from a shadowed American interrogator, harsh desk lamp light, black-and-white film grain, dim Army office.",
  "titolo_video": "They Asked Von Braun Why He Surrendered to America. He Gave Three Reasons."
 }
