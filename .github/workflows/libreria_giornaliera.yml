@@ -3,7 +3,7 @@ name: Libreria clip che cresce ogni giorno
 # Ogni notte aggiunge spezzoni nuovi alle librerie dei canali (colonne libreria, libreria_budget_giorno, libreria_ricerche di Channel Configs).
 on:
   schedule:
-    - cron: '23 23 * * *'   # 03:23 / 04:23 ora italiana
+    - cron: '23 22 * * *'   # 23:23 ora italiana (00:23 d'estate): pronta prima dei video d'archivio delle 00:41
   workflow_dispatch:
     inputs:
       spinta:

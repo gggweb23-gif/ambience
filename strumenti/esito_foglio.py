@@ -2,7 +2,8 @@
 """FINE VIDEO -> FILE DI PRODUZIONE (al posto del workflow n8n "MULTICHANNEL - GitHub Video").
 Legge l'esito che il motore ha scritto in esito_video.json (oppure ESITO dall'ambiente, es. RIMANDATO dal turno Pexels)
 e aggiorna la riga del video nel file di produzione: stato, titolo, descrizione, tag, copertina, id YouTube, data di uscita, playlist.
-Vale solo per i video lanciati da strumenti/avvio_canali.py (payload con foglio_produzione e senza callback_url)."""
+Vale solo per i video lanciati da strumenti/avvio_canali.py (payload con foglio_produzione e riga_produzione, anche se la riga di
+Channel Configs ha ancora un callback_url n8n: n8n non risponde piu' e la riga restava "In produzione", bloccando i giri successivi)."""
 import datetime as dt, json, os, sys, urllib.parse
 from zoneinfo import ZoneInfo
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -15,7 +16,7 @@ CAMPI = {'titolo': 'titolo_italiano', 'descrizione': 'descrizione_youtube', 'tag
 
 def main():
     P = json.loads(os.environ.get('PAYLOAD') or '{}')
-    if not P.get('foglio_produzione') or P.get('callback_url') or str(P.get('prova') or '').upper() == 'SI':
+    if not P.get('foglio_produzione') or (P.get('callback_url') and not P.get('riga_produzione')) or str(P.get('prova') or '').upper() == 'SI':
         print('video non lanciato da avvio_canali: niente da scrivere'); return
     if os.environ.get('ESITO'):
         esito = json.loads(os.environ['ESITO'])

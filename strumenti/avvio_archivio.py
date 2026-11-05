@@ -2,8 +2,11 @@
 """AVVIO GIORNALIERO dei canali fatti con archivi gratuiti (motore video_archivio.yml), per tutti i canali.
 Ogni giorno, per ogni riga di Channel Configs con render_workflow = video_archivio.yml e videos_per_day >= 1 (lo decide Giorgio):
 prende la prima riga "Pronto" del file di produzione (scout_production_sheet_id), la mette "In produzione" e lancia il video.
-Se una riga e' gia' "In produzione" da meno di production_timeout_hours (default 4) non lancia niente (mai due video insieme)."""
+Se una riga e' gia' "In produzione" da meno di production_timeout_hours (default 4) non lancia niente (mai due video insieme).
+Gira piu' volte a notte (avvio_archivio.yml): se il video di oggi e' gia' fatto non rilancia; se e' fallito (la riga torna Pronto)
+lo riprova, al massimo videos_per_day + 2 tentativi al giorno per canale (contati dai run "Video Archivio <canale>" di oggi)."""
 import datetime as dt, json, os, re, urllib.parse, urllib.request
+from zoneinfo import ZoneInfo
 CONFIGS = os.environ.get('FOGLIO_CONFIGS', '1COMpgHJshcmz_a9s-WsjCO5xbhwxBazt-ZB0G_C7Rb0')
 REPO = os.environ.get('GITHUB_REPOSITORY', 'gggweb23-gif/ambience')
 
@@ -45,8 +48,29 @@ def num(x):
         return 0.0
 
 
+def run_oggi(cid):   # run di video_archivio.yml creati oggi (ora italiana) per questo canale
+    inizio = dt.datetime.now(ROMA).replace(hour=0, minute=0, second=0, microsecond=0).astimezone(dt.timezone.utc)
+    u = (f'https://api.github.com/repos/{REPO}/actions/workflows/video_archivio.yml/runs?per_page=100&created='
+         + urllib.parse.quote('>=' + inizio.strftime('%Y-%m-%dT%H:%M:%SZ')))
+    try:
+        runs = json.loads(urllib.request.urlopen(urllib.request.Request(u, headers={'Authorization': 'Bearer ' + os.environ['GH_TOKEN'], 'Accept': 'application/vnd.github+json'}), timeout=60).read()).get('workflow_runs', [])
+    except Exception as e:
+        print(cid, ': run di oggi non letti', str(e)[:100]); return []
+    return [r for r in runs if str(r.get('display_title') or '').strip() == f'Video Archivio {cid}']
+
+
+def data(x):
+    try:
+        d = dt.datetime.fromisoformat(str(x).strip().replace('Z', '+00:00').replace(' ', 'T'))
+        return d if d.tzinfo else d.replace(tzinfo=dt.timezone.utc)
+    except Exception:
+        return None
+
+
+ROMA = ZoneInfo('Europe/Rome')
 _, _, canali = righe(CONFIGS)
 ora = dt.datetime.now(dt.timezone.utc)
+oggi = ora.astimezone(ROMA).date()
 SOLO = os.environ.get('SOLO_CANALE', '').strip()          # lancio a mano di un solo canale (es. primo video di un canale nuovo)
 PRIVACY = os.environ.get('PRIVACY_FORZATA', '').strip()   # es. unlisted per il primo video da controllare
 for cfg in canali:
@@ -69,6 +93,14 @@ for cfg in canali:
                 pass
     if occupata:
         print(cfg['channel_id'], ': un video e\' gia\' in produzione, oggi niente'); continue
+    fatti = sum(1 for r in prod if str(r.get('status')).strip() == 'Completato' and data(r.get('data_inizio_produzione')) and data(r.get('data_inizio_produzione')).astimezone(ROMA).date() == oggi)
+    if not SOLO and fatti >= num(cfg.get('videos_per_day')):
+        print(cfg['channel_id'], ': video di oggi gia\' fatto'); continue
+    giri = [] if SOLO else run_oggi(cfg['channel_id'])
+    if any(r.get('status') != 'completed' for r in giri):
+        print(cfg['channel_id'], ': un video e\' ancora in lavorazione su GitHub'); continue
+    if len(giri) >= num(cfg.get('videos_per_day')) + 2:
+        print(cfg['channel_id'], ': troppi tentativi falliti oggi, si riprova domani'); continue
     k = next((i for i, r in enumerate(prod) if str(r.get('status')).strip() == 'Pronto'), None)
     if k is None:
         print(cfg['channel_id'], ': nessuna riga Pronto'); continue

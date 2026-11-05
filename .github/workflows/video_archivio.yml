@@ -1,4 +1,5 @@
 name: Video Archivio (video vero da archivi gratuiti)
+run-name: Video Archivio ${{ fromJSON(inputs.payload).channel_id }}   # avvio_archivio.py conta i tentativi del giorno per canale
 
 # Video completo per i canali fatti con archivi gratuiti (strumenti/video_archivio.py): copione, montaggio, controlli, copertina, caricamento.
 on:
@@ -13,14 +14,14 @@ permissions:
   contents: write
   actions: write
 
-concurrency:
-  group: prova-archivio
+concurrency:   # un video alla volta PER CANALE: canali diversi lavorano in parallelo (prima erano in fila e l'ultimo finiva dopo le 7)
+  group: archivio-${{ fromJSON(inputs.payload).channel_id || 'prova' }}
   cancel-in-progress: false
 
 jobs:
   video:
     runs-on: ubuntu-latest
-    timeout-minutes: 240
+    timeout-minutes: 330   # montaggio + riparazione possono superare le 4 ore (WWII 05/11 fermato a 240)
     steps:
       - name: Nascondi chiavi e token del payload (repository pubblico)
         run: "python3 - <<'PY'\nimport json, os\nev = json.load(open(os.environ['GITHUB_EVENT_PATH']))\nraw = (ev.get('inputs') or {}).get('payload') or (ev.get('inputs') or {}).get('config') or ''\ntry:\n    p = json.loads(raw)\nexcept Exception:\n    p = {}\nfor k, v in (p.items() if isinstance(p, dict) else []):\n    if any(w in str(k).lower() for w in ('token', 'secret', 'password', 'api_key', 'apikey')) and len(str(v).strip()) > 8:\n        print('::add-mask::' + str(v).strip())\nPY"
@@ -92,7 +93,7 @@ jobs:
       - name: Salva nel repository (senza il video)
         if: ${{ always() }}
         run: |
-          find prove_video/archivio -name 'prova.mp4' -size +40M -delete || true
+          find prove_video/archivio -name 'prova.mp4*' -size +40M -delete || true   # anche prova.mp4.migliore.mp4 (oltre 100 MB GitHub rifiuta il salvataggio)
           if [ -n "$(git status --porcelain prove_video/archivio coach/costi)" ]; then
             git config user.name "render-bot"; git config user.email "render-bot@users.noreply.github.com"
             git add prove_video/archivio coach/costi libreria_clip/*/ricerche_mancanti.txt libreria_clip/*/bocciati.json 2>/dev/null || git add prove_video/archivio coach/costi; git commit -m "Video archivio"

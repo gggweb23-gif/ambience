@@ -79,10 +79,11 @@ def gh(metodo, percorso, corpo=None):
 
 
 def pexels_in_corso():
+    escludi = str(os.environ.get('ESCLUDI_RUN') or '').strip()   # il video Pexels che ha appena finito e ha lanciato questo avvio
     n = 0
     for wf in PEXELS_IN_CORSO:
         for st in ('in_progress', 'queued'):
-            n += gh('GET', f'/actions/workflows/{wf}/runs?status={st}&per_page=20').get('total_count', 0)
+            n += sum(1 for r in gh('GET', f'/actions/workflows/{wf}/runs?status={st}&per_page=50').get('workflow_runs', []) if str(r.get('id')) != escludi)
     return n
 
 
@@ -147,6 +148,8 @@ def main():
             dati.append({'range': f"'{sch}'!{lettera(h.index('data_inizio_produzione') + 1)}{n}", 'values': [[ora.isoformat(timespec='seconds')]]})
         api(fid, 'POST', '/values:batchUpdate', {'valueInputOption': 'RAW', 'data': dati})
         P = {k_: v for k_, v in cfg.items() if not re.search(r'token|secret|password|api_key', k_, re.I)}
+        if wf == 'video_storia.yml':
+            P.pop('callback_url', None)   # n8n Storia non risponde piu': 3 tentativi = 7 minuti persi a fine video
         riga = {'row_number': n, **{k_: v for k_, v in r.items() if str(v).strip() != ''}}
         fatti = [f"{x.get('paese')} = {x.get('Link video')}" for x in prod if str(x.get('paese') or '').strip() and str(x.get('youtube_video_id') or '').strip()]
         P.update({'iscrizione': {'img': cfg.get('subscribe_overlay_url') or '', 'sec': cfg.get('subscribe_overlay_second') or '',

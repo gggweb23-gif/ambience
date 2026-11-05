@@ -3,7 +3,8 @@ name: Avvio giornaliero canali archivio
 # Ogni giorno lancia il video del giorno per i canali con render_workflow = video_archivio.yml e videos_per_day >= 1 (strumenti/avvio_archivio.py).
 on:
   schedule:
-    - cron: '41 0 * * *'   # 01:41 ora italiana (dopo la libreria delle 00:23): video pronto di notte, esce alle 17 (publish_time)
+    - cron: '41 23 * * *'   # 00:41 ora italiana (dopo la libreria delle 23:23): video pronto di notte, esce alle 17 (publish_time)
+    - cron: '41 0-3 * * *'  # 01:41 ... 04:41: riprova i canali il cui video e' fallito (max 3 tentativi al giorno, voce gia' pagata riusata)
   workflow_dispatch:
     inputs:
       canale:

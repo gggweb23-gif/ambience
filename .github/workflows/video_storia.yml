@@ -260,3 +260,9 @@ jobs:
           for i in 1 2 3 4 5; do git pull --rebase --autostash -q && git push && break; sleep $((i * 5)); done
         env:
           PAYLOAD: ${{ inputs.payload }}
+
+      - name: Lancia subito il prossimo canale in attesa del turno Pexels (non aspetta il cron, che su GitHub arriva anche con un'ora di ritardo)
+        if: ${{ always() && inputs.prova != 'SI' && contains(inputs.payload, 'riga_produzione') }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run avvio_canali.yml --ref main -R "$GITHUB_REPOSITORY" -f escludi_run="$GITHUB_RUN_ID" || true

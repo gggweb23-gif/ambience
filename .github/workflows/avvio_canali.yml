@@ -5,12 +5,17 @@ name: Avvio canali (al posto dell'orchestratore n8n)
 # Un video Pexels alla volta: i canali Pexels in attesa partono al giro successivo. I canali d'archivio restano su avvio_archivio.yml.
 on:
   schedule:
-    - cron: '47 23 * * *'   # 00:47 ora italiana
-    - cron: '47 0-5 * * *'  # 01:47 ... 06:47: giri successivi per i canali Pexels in attesa
+    - cron: '7,37 23 * * *'   # 00:07 e 00:37 ora italiana (GitHub spesso parte con 30-70 minuti di ritardo)
+    - cron: '7,37 0-4 * * *'  # ogni mezz'ora fino alle 05:37: giri successivi per i canali Pexels in attesa e per i video falliti
+    # inoltre video_produzione.yml e video_storia.yml rilanciano questo avvio appena finiscono (turno Pexels senza attese)
   workflow_dispatch:
     inputs:
       canale:
         description: 'Solo questo canale (channel_id), vuoto = tutti'
+        default: ''
+        type: string
+      escludi_run:
+        description: 'Uso interno: id del video Pexels appena finito che ha lanciato questo avvio'
         default: ''
         type: string
 
@@ -33,4 +38,5 @@ jobs:
           GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
           GH_TOKEN: ${{ github.token }}
           SOLO_CANALE: ${{ inputs.canale }}
+          ESCLUDI_RUN: ${{ inputs.escludi_run }}
         run: pip install -q google-auth requests && python3 strumenti/avvio_canali.py
