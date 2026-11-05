@@ -1,0 +1,42 @@
+name: Carica su YouTube un video Storia gia' fatto (gratis)
+
+# Per i video creati da video_storia.yml ma non caricati (es. sotto la soglia di durata): niente nuova voce, niente immagini.
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: 'ID del run di Video Storia che ha creato il video (artifact video-storia)'
+        required: true
+        type: string
+      canale:
+        description: 'channel_id del canale in Channel Configs'
+        default: 'Storia in Minuti'
+        type: string
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  carica:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - name: Scarica il video gia' fatto
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_ID: ${{ inputs.run_id }}
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null
+          gh run download "$RUN_ID" -n video-storia -D . -R "$GITHUB_REPOSITORY"
+          ls -la video_storia.mp4 titolo.txt copione.json
+      - name: Carica
+        env:
+          CANALE: ${{ inputs.canale }}
+          GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN_STORIA }}
+        run: pip install -q google-auth requests pillow numpy json-repair && python3 strumenti/carica_storia_pronta.py

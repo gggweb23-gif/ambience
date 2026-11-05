@@ -516,7 +516,7 @@ Scegli la texture piu' coerente (washi per Giappone/Cina/Corea, papiro per Egitt
             if not c.get('scene'):
                 raise ValueError('copione senza scene')
             n_par = sum(len(str(s_.get('testo', '')).split()) for s_ in c['scene'])
-            if not PROVA and (n_par > massimo * 1.10 or (minimo and n_par < minimo * 0.85)):   # 31 ott: 2495 parole invece di 1300 = video da 16 min
+            if not PROVA and (n_par > massimo * 1.10 or (minimo and n_par < minimo * 0.95)):   # 31 ott: 2495 parole invece di 1300 = video da 16 min; 5 nov: 1128 parole (-12%) = 7 min 56 s, sotto gli 8 minuti
                 contenuto_extra = (f"\n\nATTENZIONE: il tentativo precedente aveva {n_par} parole di parlato: FUORI LIMITE. "
                                    f"Il parlato totale deve essere tra {minimo} e {massimo} parole (conta le parole del campo testo di tutte le scene).")
                 prompt = prompt.split('\n\nATTENZIONE: il tentativo precedente')[0] + contenuto_extra
@@ -4329,7 +4329,7 @@ def main():
             log('copertina ufficiale non riuscita:', str(e)[:150])
     open(os.path.join(ROOT, 'titolo.txt'), 'w').write(titolo_finale)
     prepara_extra(c, titolo_finale, finale, cop)
-    corto = durata(finale) < MIN_SEC_YT   # video di prova (1 minuto): MAI su YouTube, resta solo su Drive
+    corto = PROVA or durata(finale) < (MIN_SEC_YT if MIN_MINUTI < 8 else 420)   # prove (1 minuto): MAI su YouTube; un video vero da 7-8 minuti si carica lo stesso (5 nov: Iraq di 7:56 perso)
     if CARICA and corto:
         log(f'video di {durata(finale):.0f} secondi (sotto {MIN_SEC_YT} s): e\' una prova, NON lo carico su YouTube')
     if CARICA and not corto:
