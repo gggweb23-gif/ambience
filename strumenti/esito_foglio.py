@@ -8,6 +8,7 @@ import datetime as dt, json, os, sys, urllib.parse
 from zoneinfo import ZoneInfo
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import avvio_canali as A
+import manuale as M
 
 STATI = {'PUBBLICATO': 'Completato', 'CREATO': 'Completato', 'PROVA OK': 'Prova', 'ERRORE': 'Errore', 'DOPPIONE': 'Simile a Esistente', 'RIMANDATO': 'Pronto'}
 CAMPI = {'titolo': 'titolo_italiano', 'descrizione': 'descrizione_youtube', 'tag': 'tag_seo', 'testo_copertina': 'titolo_thumbnail',
@@ -44,6 +45,13 @@ def main():
             v['data_pubblicazione'] = dt.datetime.fromisoformat(str(esito['pubblica_il']).replace('Z', '+00:00')).astimezone(ZoneInfo('Europe/Rome')).strftime('%Y-%m-%d %H:%M')
         except Exception:
             v['data_pubblicazione'] = str(esito['pubblica_il'])
+    if M.attivo(P) and stato == 'CREATO':   # carica = MANUALE: video pronto, lo carica Giorgio (testi da copiare in questa riga)
+        v['status'] = M.STATO
+        v['data_pubblicazione'] = M.orario(P)
+        mancanti = [c for c in ('playlist', 'descrizione_youtube', 'tag_seo', 'titolo_thumbnail', 'data_pubblicazione') if c not in h and str(v.get(c) or '').strip()]
+        for c in mancanti:   # colonne che il file di produzione non ha ancora: si aggiungono in fondo
+            A.api(fid, 'POST', '/values:batchUpdate', {'valueInputOption': 'RAW', 'data': [{'range': f"'{sch}'!{A.lettera(len(h) + 1)}1", 'values': [[c]]}]})
+            h.append(c)
     if stato == 'RIMANDATO':
         v['data_inizio_produzione'] = ''
     dati = [{'range': f"'{sch}'!{A.lettera(h.index(c) + 1)}{n}", 'values': [[x if isinstance(x, str) else json.dumps(x, ensure_ascii=False)]]} for c, x in v.items() if c in h]

@@ -208,3 +208,11 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: gh workflow run avvio_canali.yml --ref main -R "$GITHUB_REPOSITORY" -f escludi_run="$GITHUB_RUN_ID" || true
+      - name: DA CARICARE A MANO (colonna carica = MANUALE) - video e copertina da scaricare
+        if: ${{ always() && hashFiles('da_caricare/*') != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: DA CARICARE ${{ fromJSON(inputs.payload || '{}').channel_id || fromJSON(inputs.payload || '{}').canale || 'video' }}
+          path: da_caricare/
+          retention-days: 7
+          compression-level: 0

@@ -24,6 +24,8 @@ LAV = os.path.join(ROOT, 'lavoro_storia')
 os.makedirs(LAV, exist_ok=True)
 os.environ.setdefault('COSTI_FILE', os.path.join(LAV, 'costi_video.jsonl'))   # resta nel lavoro salvato: una ripresa somma i costi
 import costi as CO
+sys.path.insert(0, os.path.join(ROOT, 'strumenti'))
+import manuale as MAN   # colonna carica = MANUALE: tutto pronto ma il video lo carica Giorgio
 KIT = os.path.join(ROOT, 'kit_storia')
 FONT = os.path.join(ROOT, 'font')
 GEO = os.path.join(ROOT, 'geo')
@@ -4400,6 +4402,14 @@ def main():
                 'testo_copertina': str((c.get('copertina') or {}).get('testo') or ''), 'pubblica_il': P.get('pubblica_il') or '',
                 'minuti_video': round(durata(finale) / 60, 1), 'minuti_lavoro': round((time.time() - T_INIZIO) / 60, 1),
                 'errore': '; '.join(note)})
+    elif MAN.attivo(P) and not corto and not PROVA:   # caricamento a mano: video + copertina in da_caricare/, testi nel file di produzione
+        pl = playlist_video(None, titolo_finale)
+        if pl and not pl.startswith('playlist non'):
+            EXTRA['playlist'] = pl
+        MAN.prepara(finale, cop, titolo_finale, ROOT)
+        avvisa({'stato': 'CREATO', 'minuti_video': round(durata(finale) / 60, 1), 'minuti_lavoro': round((time.time() - T_INIZIO) / 60, 1),
+                'titolo': titolo_finale, 'testo_copertina': str((c.get('copertina') or {}).get('testo') or ''),
+                'errore': '' if cop else 'COPERTINA MANCANTE: da rifare prima di caricare'})
     elif P.get('id'):
         avvisa({'stato': 'PROVA OK' if (PROVA or corto) else 'CREATO', 'minuti_video': round(durata(finale) / 60, 1),
                 'minuti_lavoro': round((time.time() - T_INIZIO) / 60, 1), 'titolo': titolo_finale})
@@ -4548,6 +4558,8 @@ def playlist_video(video_id, titolo):
             nome = next((a for a in argomenti if a.lower() == nome.lower()), argomenti[0])
             scelte = [nome[:150]]
             log('playlist scelta:', nome)
+        if video_id is None:   # caricamento a mano: solo il nome della playlist (da scegliere in YouTube Studio)
+            return ' || '.join(scelte)
         for nome in scelte:
             pid = esistenti.get(nome.lower())
             if not pid:

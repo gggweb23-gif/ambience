@@ -23,6 +23,8 @@ LAV = os.path.join(ROOT, 'lavoro_mappe')
 os.makedirs(LAV, exist_ok=True)
 os.environ.setdefault('COSTI_FILE', os.path.join(LAV, 'costi_video.jsonl'))
 import costi as CO
+sys.path.insert(0, os.path.join(ROOT, 'strumenti'))
+import manuale as MAN   # colonna carica = MANUALE: tutto pronto ma il video lo carica Giorgio
 RIS = os.path.join(ROOT, 'risorse_mappe')          # mappa, confini, font e icone (scaricati dal workflow)
 E = os.environ.get
 try:
@@ -1906,6 +1908,8 @@ def metti_in_playlist(video_id, titolo, descr):
         nome = claude(domanda, 300).strip().strip('"').strip()[:140]
         if not nome:
             return ''
+        if video_id is None:   # caricamento a mano: solo il nome (se non esiste, Giorgio la crea in YouTube Studio)
+            return nome + ('' if nome in esistenti else ' (nuova: da creare)')
         pid = esistenti.get(nome)
         if not pid:
             r = http('https://www.googleapis.com/youtube/v3/playlists?part=snippet,status',
@@ -2176,6 +2180,11 @@ def main():
         extra['playlist'] = metti_in_playlist(vid, titolo, descr_yt)
         avvisa({'stato': 'PUBBLICATO', 'video_id': vid, 'link': 'https://www.youtube.com/watch?v=' + vid, 'titolo': titolo,
                 'pubblica_il': P.get('pubblica_il') or '', 'minuti_video': round(dur_v / 60, 1), 'minuti_lavoro': round((time.time() - T_INIZIO) / 60, 1), 'errore': nota, **extra})
+    elif MAN.attivo(P) and not PROVA and dur_v >= MIN_SEC_YT:   # caricamento a mano: video + copertina in da_caricare/, testi nel file di produzione
+        extra['playlist'] = metti_in_playlist(None, titolo, descr_yt)
+        MAN.prepara(finale, cop, titolo, ROOT)
+        avvisa({'stato': 'CREATO', 'titolo': titolo, 'minuti_video': round(dur_v / 60, 1), 'minuti_lavoro': round((time.time() - T_INIZIO) / 60, 1),
+                'errore': '' if cop else 'COPERTINA MANCANTE (nessuna copertina nello stile del canale): da rifare prima di caricare', **extra})
     else:
         if CARICA:
             log(f'video di {dur_v:.0f} s (sotto {MIN_SEC_YT} s): e\' una prova, NON lo carico')

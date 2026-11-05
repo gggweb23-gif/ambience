@@ -16,6 +16,8 @@ from PIL import Image, ImageDraw, ImageEnhance, ImageFont
 E = os.environ.get
 P = json.loads(E('PAYLOAD') or '{}')
 sys.path.insert(0, os.path.join(os.getcwd(), 'coach'))
+sys.path.insert(0, os.path.join(os.getcwd(), 'strumenti'))
+import manuale as MAN   # colonna carica = MANUALE: tutto pronto ma il video lo carica Giorgio
 import ricetta as _RIC   # coach automatico: parametri della versione attiva della ricetta del canale (coach_auto = SI)
 P = _RIC.applica(P)
 NOME = re.sub(r'[^a-z0-9_]+', '_', (P.get('nome') or P.get('titolo') or 'video').lower())[:60]
@@ -68,6 +70,9 @@ def riga_produzione(valori):
         cr.refresh(Request()); h_ = {'Authorization': 'Bearer ' + cr.token}
         sch = get(f'https://sheets.googleapis.com/v4/spreadsheets/{fid}?fields=sheets.properties', h=h_)['sheets'][0]['properties']['title']
         intest = get(f'https://sheets.googleapis.com/v4/spreadsheets/{fid}/values/' + urllib.parse.quote(f"'{sch}'!A1:AZ1"), h=h_)['values'][0]
+        for k in [k for k, v in valori.items() if k == 'playlist' and str(v or '').strip() and k not in intest]:   # colonna nuova in fondo
+            get(f'https://sheets.googleapis.com/v4/spreadsheets/{fid}/values:batchUpdate', {'valueInputOption': 'RAW', 'data': [{'range': f"'{sch}'!" + ''.join(chr(65 + x) for x in ([len(intest) // 26 - 1] if len(intest) >= 26 else []) + [len(intest) % 26]) + '1', 'values': [[k]]}]}, h=h_)
+            intest.append(k)
         col = lambda k: ''.join(chr(65 + x) for x in ([intest.index(k) // 26 - 1] if intest.index(k) >= 26 else []) + [intest.index(k) % 26])
         dati = [{'range': f"'{sch}'!{col(k)}{n}", 'values': [[v]]} for k, v in valori.items() if k in intest]
         get(f'https://sheets.googleapis.com/v4/spreadsheets/{fid}/values:batchUpdate', {'valueInputOption': 'RAW', 'data': dati}, h=h_)
@@ -574,6 +579,8 @@ def playlist(vid_id_, tk_):
         nome = claude(domanda, modello='claude-haiku-4-5-20251001', max_tokens=60).strip().strip('"').strip()[:140]
         if not nome:
             return ''
+        if vid_id_ is None:   # caricamento a mano: solo il nome (se non esiste, Giorgio la crea in YouTube Studio)
+            return nome + ('' if nome in esistenti else ' (nuova: da creare)')
         pid = esistenti.get(nome)
         if not pid:
             pid = get('https://www.googleapis.com/youtube/v3/playlists?part=snippet,status', {'snippet': {'title': nome}, 'status': {'privacyStatus': 'public'}}, h=H_)['id']
@@ -630,6 +637,15 @@ if str(P.get('carica') or '').upper() == 'SI' and E('YT_REFRESH_TOKEN'):
     except Exception as e:
         log('copertina non caricata (canale da verificare per le miniature personalizzate?):', str(e)[:150])
     playlist(vid_id, tk)
+NOME_PLAYLIST = ''
+if MAN.attivo(P):   # caricamento a mano: video + copertina in da_caricare/ (artifact da scaricare), testi nel file di produzione
+    try:
+        tk = json.loads(urllib.request.urlopen(urllib.request.Request('https://oauth2.googleapis.com/token', data=urllib.parse.urlencode({
+            'client_id': E('YT_CLIENT_ID'), 'client_secret': E('YT_CLIENT_SECRET'), 'refresh_token': E('YT_REFRESH_TOKEN'), 'grant_type': 'refresh_token'}).encode()), timeout=60).read())['access_token']
+        NOME_PLAYLIST = playlist(None, tk)
+    except Exception as e:
+        log('playlist per il caricamento a mano non scelta:', str(e)[:150])
+    MAN.prepara(VIDEO, COP, P['titolo'], os.getcwd())
 
 # ---------------- 7) costi e riepilogo ----------------
 crediti = 0 if VOCE_RIPRESA else len(' '.join(s['testo'] for s in c['scene']))   # voce ripresa da un giro fallito: gia' contata li'
@@ -644,7 +660,11 @@ with open(f, 'a') as o:
     o.write('\t'.join([time.strftime('%Y-%m-%d %H:%M'), f"{SPESA['usd']:.3f}", str(crediti), 'NO', 'https://www.youtube.com/watch?v=' + vid_id if vid_id else '',
                        json.dumps(SPESA['voci']), 'OK']) + '\n')
 SPESA['fatto'] = True
-riga_produzione({'status': 'Completato', 'youtube_video_id': vid_id, 'titolo_thumbnail': TESTO_COP, 'descrizione_youtube': c.get('descrizione', ''),
+if MAN.attivo(P) and not vid_id:
+    riga_produzione({'status': MAN.STATO, 'titolo_italiano': P['titolo'], 'titolo_thumbnail': TESTO_COP, 'descrizione_youtube': c.get('descrizione', ''),
+                     'tag_seo': ', '.join(c.get('tag', [])), 'playlist': NOME_PLAYLIST, 'data_pubblicazione': MAN.orario(P)})
+else:
+  riga_produzione({'status': 'Completato', 'youtube_video_id': vid_id, 'titolo_thumbnail': TESTO_COP, 'descrizione_youtube': c.get('descrizione', ''),
                  'tag_seo': ', '.join(c.get('tag', [])), 'data_pubblicazione': (meta['status'].get('publishAt', '') if vid_id else '') or time.strftime('%Y-%m-%d %H:%M') + (' (non in elenco)' if (P.get('privacy') or 'unlisted') != 'public' else '')})
 print('VIDEO_ID=' + vid_id)
 log('FATTO', NOME, f"{SPESA['usd']:.3f} $")

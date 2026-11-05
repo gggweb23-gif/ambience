@@ -93,7 +93,7 @@ for cfg in canali:
                 pass
     if occupata:
         print(cfg['channel_id'], ': un video e\' gia\' in produzione, oggi niente'); continue
-    fatti = sum(1 for r in prod if str(r.get('status')).strip() == 'Completato' and data(r.get('data_inizio_produzione')) and data(r.get('data_inizio_produzione')).astimezone(ROMA).date() == oggi)
+    fatti = sum(1 for r in prod if str(r.get('status')).strip() in ('Completato', 'Da caricare a mano') and data(r.get('data_inizio_produzione')) and data(r.get('data_inizio_produzione')).astimezone(ROMA).date() == oggi)
     if not SOLO and fatti >= num(cfg.get('videos_per_day')):
         print(cfg['channel_id'], ': video di oggi gia\' fatto'); continue
     giri = [] if SOLO else run_oggi(cfg['channel_id'])

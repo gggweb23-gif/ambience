@@ -132,7 +132,7 @@ def main():
                 continue
             if ini.astimezone(ZoneInfo('Europe/Rome')).date() == oggi:
                 tentativi_oggi += 1
-                fatti_oggi += str(r.get('status')).strip() in ('Completato', 'In produzione', 'Prova')
+                fatti_oggi += str(r.get('status')).strip() in ('Completato', 'In produzione', 'Prova', 'Da caricare a mano')
         if fatti_oggi >= num(cfg.get('videos_per_day')):
             print(cid, ': video di oggi gia\' fatto'); continue
         if tentativi_oggi >= num(cfg.get('videos_per_day')) + 2:

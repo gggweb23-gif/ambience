@@ -560,7 +560,8 @@ async function main() {
   const nTd = Number(td.replace(',', '.'));
   const privProva = String(cfg.privacy || '').trim().toLowerCase();
   // prova: si carica solo come NON IN ELENCO (colonna prova_github = NON IN ELENCO); con prova_github = SI il video va solo su Drive
-  const carica = (!PROVA || privProva === 'unlisted') && String(cfg.carica || '').trim().toUpperCase() !== 'NO' && !/test|prova/i.test(td) && !(nTd > 0 && nTd < 8)
+  const manuale = !PROVA && String(cfg.carica || '').trim().toUpperCase() === 'MANUALE';   // 5 nov (Giorgio): tutto pronto, il video lo carica lui
+  const carica = (!PROVA || privProva === 'unlisted') && !['NO', 'MANUALE'].includes(String(cfg.carica || '').trim().toUpperCase()) && !/test|prova/i.test(td) && !(nTd > 0 && nTd < 8)
     && String(cfg.youtube_upload_enabled || '').trim() !== '';
   const extra = { titolo: colonne.titolo_italiano || sw.titolo_italiano, descrizione: colonne.descrizione_youtube || '', tag: colonne.tag_seo || '',
     testo_copertina: colonne.titolo_thumbnail || '', video_url: movie.url, copertina_url: urlCop,
@@ -570,6 +571,14 @@ async function main() {
   if (!carica) {
     const temi = String(cfg.playlist_topics || '').split('|').map(s => s.trim()).filter(Boolean);
     if (temi.length) extra.playlist = 'scegli tra: ' + temi.join(' / ');
+    if (manuale) {   // video + copertina in da_caricare/ (artifact "DA CARICARE" da scaricare), testi nel file di produzione (stato Da caricare a mano)
+      try { const pl = await playlist(null, cfg, extra.titolo, extra.descrizione); if (pl) extra.playlist = pl; } catch (e) { log('playlist per il caricamento a mano non scelta:', e.message.slice(0, 100)); }
+      const dir = path.join(ROOT, 'da_caricare'); fs.mkdirSync(dir, { recursive: true });
+      const nome = String(extra.titolo || 'video').replace(/[^A-Za-z0-9]+/g, '_').replace(/^_+|_+$/g, '').slice(0, 70) || 'video';
+      fs.copyFileSync(fileVideo, path.join(dir, nome + '.mp4'));
+      if (copertina) fs.writeFileSync(path.join(dir, nome + '_COPERTINA' + (tipoCop === 'image/png' ? '.png' : '.jpg')), copertina);
+      log('DA CARICARE A MANO:', nome);
+    }
     await avvisa({ stato: PROVA ? 'PROVA OK' : 'CREATO', ...(COP_STILE_MANCANTE ? { errore: 'COPERTINA MANCANTE (nessuna copertina nello stile del canale): da rifare' } : {}), ...extra }); return;
   }
   const vid = await caricaYouTube(fileVideo, cfg, colonne);
@@ -681,6 +690,7 @@ async function playlist(vid, cfg, titolo, descr) {   // stessa logica del Publis
   const risp = testoClaude(r);
   const tema = temi.find(t => norm(t) === norm(risp)) || temi.find(t => norm(risp).includes(norm(t)));
   if (!tema) { log('playlist: argomento non riconosciuto', risp); return ''; }
+  if (vid === null) return tema;   // caricamento a mano: solo il nome della playlist
   const lista = await yt('https://www.googleapis.com/youtube/v3/playlists?part=snippet&mine=true&maxResults=50');
   let pl = (lista.items || []).find(p => norm(p.snippet && p.snippet.title) === norm(tema));
   if (!pl) {
