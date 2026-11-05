@@ -198,7 +198,8 @@ def foto_commons(q):
         t = pg.get('title', ''); ii = (pg.get('imageinfo') or [{}])[0]; m = ii.get('extmetadata') or {}
         lic = ((m.get('LicenseShortName') or {}).get('value', '') + ' ' + (m.get('License') or {}).get('value', '')).strip()
         if t in USATI or not LIBERE.search(lic) or ii.get('width', 0) < 900 or ii.get('width', 0) < ii.get('height', 1) * .9 \
-                or re.search(r'\.(svg|pdf|tif|tiff|gif)$|map|chart|diagram|flag|logo|coat of arms|document|poster|stamp|coin|page', t, re.I):
+                or re.search(r'\.(svg|pdf|tif|tiff|gif)$|map|chart|diagram|flag|logo|coat of arms|document|poster|stamp|coin|page', t, re.I) \
+                or re.search(r'\b(nasa|ksc|jsc\d|iss\d{3}|spacex|artemis|expedition|astronaut|space station|shuttle)', t, re.I):   # 5 nov: mai foto NASA/spazio in un canale storico
             continue
         try:
             im = Image.open(io.BytesIO(get(ii.get('thumburl') or ii['url'], raw=True))).convert('RGB')
