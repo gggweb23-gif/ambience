@@ -251,7 +251,13 @@ def canale(cfg):
     else:
         cand = [(i + 2, r) for i, r in enumerate(prod) if str(r.get('status')).strip() == 'Completato' and str(r.get('youtube_video_id') or '').strip()
                 and not str(r.get('shorts') or '').strip()]
-        cand = cand[-1:]   # solo l'ultimo video lungo: 4 Short per video, uno al giorno
+        def recente(r):   # il file del video resta su GitHub 3 giorni: i video piu' vecchi non si toccano
+            try:
+                ini = dt.datetime.fromisoformat(str(r.get('data_inizio_produzione')).strip().replace('Z', '+00:00').replace(' ', 'T'))
+                return (oggi - (ini if ini.tzinfo else ini.replace(tzinfo=ROMA))).days < 3
+            except Exception:
+                return False
+        cand = [x for x in cand if recente(x[1])][-1:]   # solo l'ultimo video lungo: 4 Short per video, uno al giorno
     if not cand:
         log('  nessun video lungo nuovo da cui fare gli Short'); return
     n, riga = cand[0]
