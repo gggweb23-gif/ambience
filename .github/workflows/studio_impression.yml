@@ -13,6 +13,10 @@ on:
         description: 'Solo questo segreto (es. YT_REFRESH_TOKEN_ORBITAL_DAYS), vuoto = tutti'
         default: ''
         type: string
+      solo_foglio:
+        description: 'SI = copia solo le schede Performance dei fogli (nessuna chiamata YouTube)'
+        default: 'NO'
+        type: string
 
 permissions:
   contents: write
@@ -37,6 +41,7 @@ jobs:
           YT_REFRESH_TOKEN_WWII_TESTIMONY: ${{ secrets.YT_REFRESH_TOKEN_WWII_TESTIMONY }}
           CAPTIONS: ${{ inputs.captions }}
           SOLO: ${{ inputs.solo }}
+          SOLO_FOGLIO: ${{ inputs.solo_foglio }}
         run: pip install -q google-auth requests pillow && python3 strumenti/studio_impression.py
       - name: Salva nel repository
         if: ${{ always() }}

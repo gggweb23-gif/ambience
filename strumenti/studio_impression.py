@@ -296,8 +296,26 @@ def canale(chiave, rt, A, cc, gia):
     return nome, dati
 
 
+def schede_performance(A, cc):
+    """copia della scheda Performance di ogni file di produzione (quello che vede Giorgio), per confrontarla col report reach."""
+    out = {}
+    for cfg in cc:
+        fid = str(cfg.get('scout_production_sheet_id') or '').strip()
+        if not fid:
+            continue
+        try:
+            out[str(cfg.get('channel_id'))] = A.api(fid, 'GET', '/values/' + urllib.parse.quote("'Performance'!A1:Z300")).get('values', [])
+        except Exception as e:
+            out[str(cfg.get('channel_id'))] = 'non letta: ' + str(e)[:80]
+    json.dump(out, open(os.path.join(OUT, 'schede_performance.json'), 'w'), ensure_ascii=False, indent=1)
+
+
 def main():
     A, cc = configs()
+    if A:
+        schede_performance(A, cc)
+    if E('SOLO_FOGLIO') == 'SI':
+        return
     gia, riep = {}, []
     chiavi = sorted(k for k in os.environ if k.startswith('YT_REFRESH_TOKEN') and os.environ[k].strip())
     chiavi = [k for k in chiavi if k != 'YT_REFRESH_TOKEN'] + (['YT_REFRESH_TOKEN'] if 'YT_REFRESH_TOKEN' in chiavi else [])
