@@ -261,7 +261,8 @@ mont = {'nome': NOME, 'voce': P.get('voice_id'), 'velocita': numero(P.get('voice
         'libreria': P.get('libreria') or '', 'archivio': str(P.get('libreria_archivio') or 'nasa').strip().lower(),
         'foto_riserva': [x.strip() for x in str(P.get('foto_riserva') or '').split(';') if x.strip()] or None, 'scene': [{k: s.get(k) for k in ('testo', 'q', 'tag', 'scritta', 'obbligo', 'anno') if s.get(k)} for s in c['scene']]}
 VIDEO = os.path.join(CART, 'prova.mp4')
-MIN_VIDEO = numero(P.get('video_movimento_minimo'), 80)   # colonna del foglio (decide Giorgio): sotto questa quota un video pubblico si blocca
+MIN_VIDEO = numero(P.get('video_movimento_minimo'), 80)   # colonna del foglio (decide Giorgio): OBIETTIVO di video in movimento (le riparazioni puntano qui)
+BLOCCO_VIDEO = numero(P.get('video_movimento_blocco'), MIN_VIDEO)   # 5 nov (Giorgio): sotto questa quota si blocca; tra blocco e obiettivo si pubblica lo stesso (es. 50)
 
 
 def archivio_sbagliato():
@@ -410,6 +411,11 @@ if MONTATO and os.path.exists(VIDEO) and str(P.get('revisione_inquadrature') or 
 
 if MONTATO and archivio_sbagliato():   # materiale di un altro argomento: mai caricato, nemmeno non in elenco
     raise RuntimeError('VIDEO BLOCCATO: ' + archivio_sbagliato())
+if errori and quota >= BLOCCO_VIDEO:   # movimento sotto l'obiettivo ma sopra la soglia di blocco: non si butta il video
+    sotto = [e for e in errori if 'di video in movimento' in e]
+    if sotto:
+        log(f'MOVIMENTO {quota:.0f}%: sotto l\'obiettivo {MIN_VIDEO:g}% ma sopra la soglia di blocco {BLOCCO_VIDEO:g}%: si pubblica')
+        errori = [e for e in errori if e not in sotto]
 if errori:
     if not MONTATO or not os.path.exists(VIDEO) or (P.get('privacy') or 'unlisted') == 'public':
         raise RuntimeError('VIDEO BLOCCATO (controlli, anche dopo la riparazione): ' + '; '.join(errori))
