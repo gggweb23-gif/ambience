@@ -9,6 +9,10 @@ on:
         description: 'SI = legge anche i sottotitoli (50 unita di quota per video, max 4+4 per canale)'
         default: 'NO'
         type: string
+      solo:
+        description: 'Solo questo segreto (es. YT_REFRESH_TOKEN_ORBITAL_DAYS), vuoto = tutti'
+        default: ''
+        type: string
 
 permissions:
   contents: write
@@ -32,6 +36,7 @@ jobs:
           YT_REFRESH_TOKEN_ORBITAL_DAYS: ${{ secrets.YT_REFRESH_TOKEN_ORBITAL_DAYS }}
           YT_REFRESH_TOKEN_WWII_TESTIMONY: ${{ secrets.YT_REFRESH_TOKEN_WWII_TESTIMONY }}
           CAPTIONS: ${{ inputs.captions }}
+          SOLO: ${{ inputs.solo }}
         run: pip install -q google-auth requests pillow && python3 strumenti/studio_impression.py
       - name: Salva nel repository
         if: ${{ always() }}

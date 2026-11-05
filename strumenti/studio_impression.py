@@ -18,9 +18,16 @@ CAP_MAX = int(E('CAPTIONS_MAX', '4') or 4)
 
 
 def http(url, h=None, raw=False, dati=None):
-    req = urllib.request.Request(url, data=dati, headers=dict({'User-Agent': 'ambience-studio/1.0'}, **(h or {})))
-    r = urllib.request.urlopen(req, timeout=90).read()
-    return r if raw else json.loads(r or b'{}')
+    import time
+    for prova in range(6):   # 429/5xx: si riprova con attesa crescente
+        req = urllib.request.Request(url, data=dati, headers=dict({'User-Agent': 'ambience-studio/1.0'}, **(h or {})))
+        try:
+            r = urllib.request.urlopen(req, timeout=90).read()
+            return r if raw else json.loads(r or b'{}')
+        except urllib.error.HTTPError as e:
+            if e.code not in (429, 500, 502, 503) or prova == 5:
+                raise
+            time.sleep(10 * (prova + 1))
 
 
 def errore(e):
@@ -294,6 +301,8 @@ def main():
     gia, riep = {}, []
     chiavi = sorted(k for k in os.environ if k.startswith('YT_REFRESH_TOKEN') and os.environ[k].strip())
     chiavi = [k for k in chiavi if k != 'YT_REFRESH_TOKEN'] + (['YT_REFRESH_TOKEN'] if 'YT_REFRESH_TOKEN' in chiavi else [])
+    if E('SOLO'):
+        chiavi = [k for k in chiavi if k == E('SOLO')]
     for k in chiavi:
         try:
             r = canale(k, os.environ[k].strip(), A, cc, gia)
@@ -318,7 +327,7 @@ def main():
                          'playlist': len(v.get('playlist') or []), 'fonti': json.dumps(v.get('fonti_traffico') or [], ensure_ascii=False)[:300],
                          'motore_foglio': pd.get('_foglio_config', ''), 'titolo': (v['titolo'] or '')[:90]})
     if riep:
-        with open(os.path.join(OUT, 'riepilogo.csv'), 'w', newline='') as f:
+        with open(os.path.join(OUT, 'riepilogo.csv' if not E('SOLO') else 'riepilogo_' + slug(E('SOLO')) + '.csv'), 'w', newline='') as f:
             w = csv.DictWriter(f, fieldnames=list(riep[0])); w.writeheader(); w.writerows(riep)
         for r in riep:
             print('|'.join(str(r[k]) for k in ('canale', 'id', 'privacy', 'publishedAt', 'impression_reach', 'views', 'cop_personalizzata', 'titolo')))
