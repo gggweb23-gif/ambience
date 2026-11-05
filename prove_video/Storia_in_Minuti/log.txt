@@ -1,45 +1,230 @@
 voce ElevenLabs usata: glnsgBC77wt5zOYU0szz
-03:37:25 competitor: categoria 27 , 28 tag
-03:37:29 testo originale: 2494 parole (RapidAPI)
-03:37:29 VIDEO DA COPIARE: ZnHi5lq_pNY - The ENTIRE History of Russia in 16 Minutes | titolo usato: The ENTIRE History of Russia in 16 Minutes
-03:37:30 paese del video: Russia
-03:37:43 originale condensato a blocchi: 2494 -> 930 parole in 6 blocchi (obiettivo 1312)
-Traceback (most recent call last):
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 4631, in <module>
-    main()
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 3975, in main
-    c = copione(comp)
-        ^^^^^^^^^^^^^
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 386, in copione
-    orig = condensa_originale(orig, (minimo + massimo) // 2 if minimo else massimo)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 374, in condensa_originale
-    raise RuntimeError(f'VIDEO BLOCCATO: testo del competitor condensato a {n} parole invece di {obiettivo} (nessuna spesa per voce e immagini)')
-RuntimeError: VIDEO BLOCCATO: testo del competitor condensato a 930 parole invece di 1312 (nessuna spesa per voce e immagini)
-03:37:43 esito: {"stato": "ERRORE", "errore": "VIDEO BLOCCATO: testo del competitor condensato a 930 parole invece di 1312 (nessuna spesa per voce e immagini)", "minuti_lavoro": 0.3, "paese": "Russia", "categoria_originale": "27", "tag_originali": "history of russia, russian history, russia documentary, history documentary, russia, russian empire, soviet union, ussr, ivan the terrible, tsar, romanov, mongol empire, napoleon, napoleon bonaparte, napoleonic wars, world war 2, tunguska event, siberia, putin, ukrai
-03:39:56 avviso a n8n non riuscito: <urlopen error [Errno 110] Connection timed out>
-03:42:19 avviso a n8n non riuscito: <urlopen error [Errno 110] Connection timed out>
-03:44:43 avviso a n8n non riuscito: <urlopen error [Errno 110] Connection timed out>
+09:54:38 competitor: categoria 27 , 0 tag
+09:54:45 testo originale: 2178 parole (RapidAPI)
+09:54:45 VIDEO DA COPIARE: Hupkw5jhi2I - History of Iraq: From Ancient Mesopotamia to Modern Iraq | titolo usato: History of Iraq: From Ancient Mesopotamia to Modern Iraq
+09:54:45 paese del video: Iraq
+09:55:03 originale condensato a blocchi: 2178 -> 1067 parole in 5 blocchi (obiettivo 1312)
+09:55:03 budget 0 EUR: nessun disegno, solo clip e foto Pexels controllate (+ mappa)
+09:55:50 copione ricevuto: 16502 caratteri, fine: end_turn | blocchi di ragionamento: 0
+09:55:50 copione non valido, riprovo: copione di 1013 parole, fuori da 1275-1350
+09:56:49 copione ricevuto: 19066 caratteri, fine: end_turn | blocchi di ragionamento: 0
+09:56:49 copione: 1128 parole (limite 1275-1350)
+09:56:49 preventivo dopo copione: speso 0.41 $ su 1.08 $ di budget
+09:56:49 copione: 30 scene, 1128 parole
+09:57:08 capitoli: 13
+09:57:08 voce pronta: 7.9 minuti
+09:57:08 luoghi del paese per i paesaggi Pexels: (nessuno: controllo solo visivo)
+09:57:08 senza texture: 0 carte/schede diventate disegni, strisce di carta tolte
+09:57:08 ritmo: 131 immagini | cartone 0% (quota 0%) | sfondi usati: 0/0, max 0 volte
+09:57:08 disegni ripetuti: nessuno scambio (ogni immagine resta sulla sua frase)
+09:57:08 senza texture: 0 carte/schede diventate disegni, strisce di carta tolte
+09:57:08 controllo immagini: 0 guardate, 0 rifatte
+09:57:08 visivi: 131 | primi 10 s: 3
+10:05:19 clip Pexels bocciate e ricordate (mai ricontrollate): 0
+10:05:19 ricerche Pexels usate: 125 (limite 190 l'ora, attesa 0 min); pezzi con clip riusata: 0
+10:05:19 pezzi pronti: 131 in 490 s
+10:05:19 SPESA immagini: 0 immagini, circa 0.00 $
+10:05:46 tasti macchina da scrivere: 146
+10:05:46 suono cambio non generato: fast cinematic whoosh transition suono non in libreria (generazione ElevenLabs spenta)
+10:05:46 suono cambio non generato: deep whoosh with a soft low boom suono non in libreria (generazione ElevenLabs spenta)
+10:05:46 suono cambio non generato: paper page turning quickly suono non in libreria (generazione ElevenLabs spenta)
+10:05:46 suono cambio non generato: soft airy swish, quick camera pan suono non in libreria (generazione ElevenLabs spenta)
+10:05:46 suono cambio non generato: short wooden tap, warm and soft suono non in libreria (generazione ElevenLabs spenta)
+10:05:46 suono cambio non generato: short cinematic impact hit, deep suono non in libreria (generazione ElevenLabs spenta)
+10:05:46 suono cambio non generato: soft bubble pop, cartoon suono non in libreria (generazione ElevenLabs spenta)
+10:05:46 suono cambio non generato: reverse whoosh riser, short suono non in libreria (generazione ElevenLabs spenta)
+10:05:46 suono cambio non generato: soft low whoosh, warm and muffled suono non in libreria (generazione ElevenLabs spenta)
+10:05:46 suono cambio non generato: soft cloth flutter, flag in the wind, short suono non in libreria (generazione ElevenLabs spenta)
+10:05:46 suono cambio non generato: soft muffled thump, low and warm suono non in libreria (generazione ElevenLabs spenta)
+10:05:46 suono cambio non generato: drum hit with short reverb, epic suono non in libreria (generazione ElevenLabs spenta)
+10:05:46 suono di scatto non generato: suono non in libreria (generazione ElevenLabs spenta)
+10:05:46 suoni di cambio immagine: 0 | libreria: 8 suoni (generati)
+10:12:45 invito iscrizione al secondo 10.0 con 2 suoni
+10:12:48 copertina foto: {"nome": "IRAQ", "anni": "3500 a.C. → 2026", "simboli": ["Ziggurat of Ur Iraq", "Babylon ruins Ishtar Gate Iraq", "Great Mosque of Samarra spiral minaret", "Imam Ali Shrine Najaf", "Baghdad Tigris river skyline", "Iraq Mesopotamian marshes"]}
+10:12:52 controllo foto non riuscito Ziggurat of Ur Iraq Expecting value: line 1 column 1 (char 0)
+10:12:56 controllo foto non riuscito Ziggurat of Ur Iraq Unterminated string starting at: line 1 column 10 (char 9)
+10:13:00 controllo foto non riuscito Ziggurat of Ur Iraq Expecting ',' delimiter: line 8 column 1 (char 262)
+10:13:02 foto copertina: IRAQ | Ziggurat of Ur Iraq | Capitello a protome di toro (o con figure animali) in cima a una colonna dell'Apadana a Persepoli, Iran. Non si trova in Iraq. | paese False | simbolo 2 | visibile 7 | htt
+10:13:06 controllo foto non riuscito Babylon ruins Ishtar Gate Iraq Expecting property name enclosed in double quotes: line 5 column 3 (char 165)
+10:13:10 controllo foto non riuscito Babylon ruins Ishtar Gate Iraq Unterminated string starting at: line 1 column 10 (char 9)
+10:13:15 controllo foto non riuscito Babylon ruins Ishtar Gate Iraq Expecting value: line 1 column 1 (char 0)
+10:13:18 foto copertina: IRAQ | Babylon ruins Ishtar Gate Iraq | Rovine di Persepoli (portale in pietra con bassorilievi di dignitari, probabilmente il Palazzo di Dario/Hadish o Tachara), vicino a Shiraz, Iran. Non si trova i
+10:13:22 controllo foto non riuscito Great Mosque of Samarra spiral minaret Unterminated string starting at: line 1 column 10 (char 9)
+10:13:25 foto copertina: IRAQ | Great Mosque of Samarra spiral minaret | Parte superiore di un minareto moderno in pietra chiara con cuspide scura e mezzaluna in cima, ripreso dal basso contro il cielo. Non ci sono elementi c
+10:13:28 foto copertina: IRAQ | Great Mosque of Samarra spiral minaret | Il complesso Poi Kalon (moschea Kalon, minareto Kalon e madrasa Mir-i-Arab) a Bukhara, Uzbekistan | paese False | simbolo 1 | visibile 7 | https://www.p
+10:13:33 controllo foto non riuscito Great Mosque of Samarra spiral minaret Expecting value: line 1 column 1 (char 0)
+10:13:36 foto copertina: IRAQ | Imam Ali Shrine Najaf | Primo piano di un bambino con capelli scuri e vestiti neri, che guarda in camera. Sfondo notturno sfocato con persone vestite di nero e luci. Sembra un raduno o una ceri
+10:13:41 controllo foto non riuscito Imam Ali Shrine Najaf Expecting value: line 1 column 1 (char 0)
+10:13:45 controllo foto non riuscito Imam Ali Shrine Najaf Unterminated string starting at: line 1 column 10 (char 9)
+10:13:50 controllo foto non riuscito Imam Ali Shrine Najaf Unterminated string starting at: line 1 column 10 (char 9)
+10:13:54 controllo foto non riuscito Baghdad Tigris river skyline Expecting value: line 1 column 1 (char 0)
+10:13:58 controllo foto non riuscito Baghdad Tigris river skyline Expecting ',' delimiter: line 1 column 294 (char 293)
+10:14:03 controllo foto non riuscito Baghdad Tigris river skyline Unterminated string starting at: line 1 column 284 (char 283)
+10:14:06 foto copertina: IRAQ | Baghdad Tigris river skyline | Due tralicci dell'alta tensione con linee elettriche in controluce al tramonto, sole arancione basso all'orizzonte e uno specchio d'acqua in campagna. Non ci sono
+10:14:11 controllo foto non riuscito Iraq Mesopotamian marshes Expecting value: line 1 column 1 (char 0)
+10:14:14 controllo foto non riuscito Iraq Mesopotamian marshes Expecting ',' delimiter: line 1 column 405 (char 404)
+10:14:19 controllo foto non riuscito Iraq Mesopotamian marshes Expecting value: line 1 column 1 (char 0)
+10:14:23 controllo foto non riuscito Iraq Mesopotamian marshes Unterminated string starting at: line 1 column 10 (char 9)
+10:14:23 copertina foto: nessuna foto ha superato il controllo
+prova <-  | IRAQ / 3500 a.C. – 2026 | uomo: an ancient Mesopotamian Assyrian king with a long curled black beard, a tall conical royal crown, a richly embroidered fringed robe in deep red and blue, and gold bracelets and earrings | donna: an ancient Mesopotamian Assyrian queen with a golden crown with turrets, long black braided hair, a fringed embroidered robe in red and cream, a golden necklace and large gold earrings | the Great Ziggurat of Ur | authentic native Mesopotamian Iraqi (Arab and Assyrian) facial features: olive to tan skin, strong straight nose, dark deep-set almond eyes, thick dark eyebrows, dark wavy hair
+  copertina 1 (coppia): Hammurabi, ancient Babylonian king with a long cur | a modern Iraqi woman, around 30 years old, olive s
+  solo anteprima | parte con: uomo
+FATTO | APPLICA = False
+10:14:54 copertina ufficiale pronta: copertina.jpg
+10:17:15 video_url pronto per Drive
+10:17:16 copertina_url pronto per Drive
+10:17:16 video di 476 secondi (sotto 480 s): e' una prova, NON lo carico su YouTube
+10:17:17 esito: {"stato": "PROVA OK", "minuti_video": 7.9, "minuti_lavoro": 22.7, "titolo": "Storia dell'IRAQ: dall'antica Mesopotamia all'Iraq moderno", "descrizione": "Storia dell'IRAQ: dall'antica Mesopotamia all'Iraq moderno\n\nStoria dell'Iraq dall'antica Mesopotamia all'Iraq moderno: un viaggio nella terra dove nacquero le prime città, la scrittura cuneiforme e le prime leggi. Dai Sumeri a Hammurabi, da Babilonia all'Assiria.\n\nSegui la nascita di Bagdad abbaside e della Casa della Saggezza, la devastazi
+10:17:17 FATTO: /home/runner/work/ambience/ambience/video_storia.mp4 7.9 minuti
+10:17:17 COSTO VIDEO (stima): 0.78 $ + 7306 crediti voce | claude claude-haiku-4-5-20251001: 0.441 $ (181 chiamate) | claude claude-sonnet-5-5: 0.337 $ (2 chiamate) | elevenlabs eleven_multilingual_v2: 0.000 $ (30 chiamate), 7306 crediti
 ...
-voce ElevenLabs usata: glnsgBC77wt5zOYU0szz
-03:37:25 competitor: categoria 27 , 28 tag
-03:37:29 testo originale: 2494 parole (RapidAPI)
-03:37:29 VIDEO DA COPIARE: ZnHi5lq_pNY - The ENTIRE History of Russia in 16 Minutes | titolo usato: The ENTIRE History of Russia in 16 Minutes
-03:37:30 paese del video: Russia
-03:37:43 originale condensato a blocchi: 2494 -> 930 parole in 6 blocchi (obiettivo 1312)
-Traceback (most recent call last):
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 4631, in <module>
-    main()
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 3975, in main
-    c = copione(comp)
-        ^^^^^^^^^^^^^
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 386, in copione
-    orig = condensa_originale(orig, (minimo + massimo) // 2 if minimo else massimo)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 374, in condensa_originale
-    raise RuntimeError(f'VIDEO BLOCCATO: testo del competitor condensato a {n} parole invece di {obiettivo} (nessuna spesa per voce e immagini)')
-RuntimeError: VIDEO BLOCCATO: testo del competitor condensato a 930 parole invece di 1312 (nessuna spesa per voce e immagini)
-03:37:43 esito: {"stato": "ERRORE", "errore": "VIDEO BLOCCATO: testo del competitor condensato a 930 parole invece di 1312 (nessuna spesa per voce e immagini)", "minuti_lavoro": 0.3, "paese": "Russia", "categoria_originale": "27", "tag_originali": "history of russia, russian history, russia documentary, history documentary, russia, russian empire, soviet union, ussr, ivan the terrible, tsar, romanov, mongol empire, napoleon, napoleon bonaparte, napoleonic wars, world war 2, tunguska event, siberia, putin, ukrai
-03:39:56 avviso a n8n non riuscito: <urlopen error [Errno 110] Connection timed out>
-03:42:19 avviso a n8n non riuscito: <urlopen error [Errno 110] Connection timed out>
-03:44:43 avviso a n8n non riuscito: <urlopen error [Errno 110] Connection timed out>
+10:02:31 Pexels 'oil wells burning smoke desert' -> scelta 3
+10:02:34 Pexels 'oil wells burning smoke desert' -> scartate 2 riprese quasi uguali a una gia' usata
+10:02:35 Pexels 'oil wells burning smoke desert' -> scelta 3
+10:02:36 Pexels 'burning oil wells desert smoke' -> scelta 2
+10:02:40 Pexels 'burning oil wells desert smoke' -> scelta 1
+10:02:51 Pexels 'empty market street Middle East' -> scartate tutte
+10:02:51 Pexels scartate tutte per: empty market street Middle East
+10:02:51 Pexels 'empty market street Middle East' -> scartate tutte
+10:02:51 Pexels scartate tutte per: empty market street Middle East
+10:02:54 Pexels 'empty market street Middle East ancient' -> scartate tutte
+10:02:54 Pexels scartate tutte per: empty market street Middle East ancient
+10:02:54 Pexels 'empty market street Middle East ancient' -> scartate tutte
+10:02:54 Pexels scartate tutte per: empty market street Middle East ancient
+10:02:55 Pexels 'burning oil wells desert smoke' -> scartate 2 riprese quasi uguali a una gia' usata
+10:02:55 Pexels 'burning oil wells desert smoke' -> scartate 2 riprese quasi uguali a una gia' usata
+10:02:56 Pexels 'burning oil wells desert smoke' -> scelta 0
+10:02:56 Pexels 'burning oil wells desert smoke' -> scelta 0
+10:02:58 Pexels 'burning oil wells desert smoke ancient' -> scelta 0
+10:03:02 Pexels 'Baghdad palace dome dusk' -> scartate tutte
+10:03:02 Pexels scartate tutte per: Baghdad palace dome dusk
+10:03:03 Pexels 'desert convoy dust road' -> scelta 2
+10:03:03 Pexels 'Baghdad palace dome dusk ancient' -> scartate 1 riprese quasi uguali a una gia' usata
+10:03:05 Pexels 'Baghdad palace dome dusk ancient' -> scartate tutte
+10:03:05 Pexels scartate tutte per: Baghdad palace dome dusk ancient
+10:03:05 Pexels 'burning oil wells desert smoke' -> scartate 2 riprese quasi uguali a una gia' usata
+10:03:06 Pexels 'burning oil wells desert smoke' -> scelta 2
+10:03:10 Pexels 'Baghdad bridge Tigris night' -> scartate tutte
+10:03:10 Pexels scartate tutte per: Baghdad bridge Tigris night
+10:03:11 Pexels 'Baghdad skyline smoke' -> scelta 0
+10:03:12 Pexels 'Baghdad bridge Tigris night ancient' -> scartate 2 riprese quasi uguali a una gia' usata
+10:03:13 Pexels 'Baghdad bridge Tigris night ancient' -> scelta 0
+10:03:21 Pexels 'Baghdad bridge Tigris night' -> scartate tutte
+10:03:21 Pexels scartate tutte per: Baghdad bridge Tigris night
+10:03:22 Pexels 'Baghdad bridge Tigris night ancient' -> scartate 3 riprese quasi uguali a una gia' usata
+10:03:23 Pexels 'Baghdad bridge Tigris night ancient' -> scelta 3
+10:03:24 Pexels 'empty street Iraq old city' -> scartate tutte
+10:03:24 Pexels scartate tutte per: empty street Iraq old city
+10:03:26 Pexels 'empty street Iraq old city' -> scartate tutte
+10:03:26 Pexels scartate tutte per: empty street Iraq old city
+10:03:26 Pexels 'empty street Iraq old city ancient' -> scelta 0
+10:03:27 Pexels 'empty street Iraq old city ancient' -> scelta 2
+10:03:37 Pexels 'dark smoke over city skyline' -> scartate 2 riprese quasi uguali a una gia' usata
+10:03:38 Pexels 'Baghdad skyline hazy dusk' -> scelta 3
+10:03:39 Pexels 'dark smoke over city skyline' -> scartate tutte
+10:03:39 Pexels scartate tutte per: dark smoke over city skyline
+10:03:40 Pexels 'dark smoke over city skyline ancient' -> scartate 2 riprese quasi uguali a una gia' usata
+10:03:41 Pexels 'dark smoke over city skyline ancient' -> scelta 1
+10:03:43 Pexels 'Iraq desert road horizon' -> scartate 1 riprese quasi uguali a una gia' usata
+10:03:44 Pexels 'Iraq desert road horizon' -> scartate tutte
+10:03:44 Pexels scartate tutte per: Iraq desert road horizon
+10:03:45 Pexels 'Iraq desert road horizon ancient' -> scartate 1 riprese quasi uguali a una gia' usata
+10:03:46 Pexels 'Iraq desert road horizon ancient' -> scelta 3
+10:03:47 Pexels 'Mosul ruins Iraq destruction' -> scelta 0
+10:03:50 Pexels 'Mosul ruins Iraq destruction' -> scartate 1 riprese quasi uguali a una gia' usata
+10:03:51 Pexels 'Mosul ruins Iraq destruction' -> scelta 1
+10:03:56 Pexels 'Iraq desert plain aerial' -> scelta 3
+10:03:57 Pexels 'Basra oil refinery sunset' -> scelta 1
+10:04:02 Pexels 'Mosul Tigris bridge reconstruction' -> scelta 3
+10:04:08 Pexels 'Mosul Tigris bridge reconstruction' -> scartate tutte
+10:04:08 Pexels scartate tutte per: Mosul Tigris bridge reconstruction
+10:04:09 Pexels 'Basra Shatt al-Arab skyline' -> scartate tutte
+10:04:09 Pexels scartate tutte per: Basra Shatt al-Arab skyline
+10:04:11 Pexels 'Basra Shatt al-Arab skyline ancient' -> scartate 1 riprese quasi uguali a una gia' usata
+10:04:11 Pexels 'Mosul Tigris bridge reconstruction ancient' -> scartate 1 riprese quasi uguali a una gia' usata
+10:04:12 Pexels 'Basra Shatt al-Arab skyline ancient' -> scelta 3
+10:04:13 Pexels 'Mosul Tigris bridge reconstruction ancient' -> scartate tutte
+10:04:13 Pexels scartate tutte per: Mosul Tigris bridge reconstruction ancient
+10:04:14 Pexels 'Basra oil refinery sunset' -> scelta 0
+10:04:18 Pexels 'Ur ziggurat Iraq sunrise' -> scelta 0
+10:04:18 Pexels 'Ur ziggurat Iraq sunrise' -> scelta 0
+10:04:20 Pexels 'Ur ziggurat Iraq sunrise ancient' -> scelta 0
+10:04:25 Pexels 'Babylon ruins Iraq sky' -> scartate 2 riprese quasi uguali a una gia' usata
+10:04:26 Pexels 'Babylon ruins Iraq sky' -> scelta 0
+10:04:27 Pexels 'Arabic manuscript calligraphy old' -> scartate 1 riprese quasi uguali a una gia' usata
+10:04:28 Pexels 'Arabic manuscript calligraphy old' -> scelta 0
+10:04:32 Pexels 'Iraq marshes reeds sunrise' -> scelta 1
+10:04:35 Pexels 'Tigris river sunset Baghdad' -> scartate tutte
+10:04:35 Pexels scartate tutte per: Tigris river sunset Baghdad
+10:04:35 Pexels 'Tigris river sunset Baghdad' -> scelta 0
+10:04:37 Pexels 'Tigris river sunset Baghdad ancient' -> scelta 3
+10:04:45 Pexels 'desert horizon clouds Iraq' -> scelta 0
+10:04:45 Pexels 'Euphrates river palms Iraq' -> scartate 1 riprese quasi uguali a una gia' usata
+10:04:46 Pexels 'Euphrates river palms Iraq' -> scelta 1
+10:04:49 Pexels 'Tigris river flowing water' -> scelta 0
+10:04:52 Pexels 'ancient Mesopotamian ruins dusk' -> scelta 0
+10:04:53 Pexels 'Tigris river flowing water' -> scelta 2
+10:05:01 Pexels 'Iraq sunset desert ruins' -> scelta 3
+10:05:01 Pexels 'Iraq sunset desert ruins' -> scelta 3
+10:05:04 Pexels 'Iraq sunset desert ruins ancient' -> scelta 1
+10:05:12 Pexels 'Tigris river dawn mist' -> scelta 0
+10:05:13 Pexels 'stars night sky desert' -> scartate 2 riprese quasi uguali a una gia' usata
+10:05:15 Pexels 'stars night sky desert' -> scelta 0
+10:05:15 Pexels 'Tigris river dawn mist' -> scelta 0
+10:05:19 clip Pexels bocciate e ricordate (mai ricontrollate): 0
+10:05:19 ricerche Pexels usate: 125 (limite 190 l'ora, attesa 0 min); pezzi con clip riusata: 0
+10:05:19 pezzi pronti: 131 in 490 s
+10:05:19 SPESA immagini: 0 immagini, circa 0.00 $
+10:05:46 tasti macchina da scrivere: 146
+10:05:46 suono cambio non generato: fast cinematic whoosh transition suono non in libreria (generazione ElevenLabs spenta)
+10:05:46 suono cambio non generato: deep whoosh with a soft low boom suono non in libreria (generazione ElevenLabs spenta)
+10:05:46 suono cambio non generato: paper page turning quickly suono non in libreria (generazione ElevenLabs spenta)
+10:05:46 suono cambio non generato: soft airy swish, quick camera pan suono non in libreria (generazione ElevenLabs spenta)
+10:05:46 suono cambio non generato: short wooden tap, warm and soft suono non in libreria (generazione ElevenLabs spenta)
+10:05:46 suono cambio non generato: short cinematic impact hit, deep suono non in libreria (generazione ElevenLabs spenta)
+10:05:46 suono cambio non generato: soft bubble pop, cartoon suono non in libreria (generazione ElevenLabs spenta)
+10:05:46 suono cambio non generato: reverse whoosh riser, short suono non in libreria (generazione ElevenLabs spenta)
+10:05:46 suono cambio non generato: soft low whoosh, warm and muffled suono non in libreria (generazione ElevenLabs spenta)
+10:05:46 suono cambio non generato: soft cloth flutter, flag in the wind, short suono non in libreria (generazione ElevenLabs spenta)
+10:05:46 suono cambio non generato: soft muffled thump, low and warm suono non in libreria (generazione ElevenLabs spenta)
+10:05:46 suono cambio non generato: drum hit with short reverb, epic suono non in libreria (generazione ElevenLabs spenta)
+10:05:46 suono di scatto non generato: suono non in libreria (generazione ElevenLabs spenta)
+10:05:46 suoni di cambio immagine: 0 | libreria: 8 suoni (generati)
+10:12:45 invito iscrizione al secondo 10.0 con 2 suoni
+10:12:48 copertina foto: {"nome": "IRAQ", "anni": "3500 a.C. → 2026", "simboli": ["Ziggurat of Ur Iraq", "Babylon ruins Ishtar Gate Iraq", "Great Mosque of Samarra spiral minaret", "Imam Ali Shrine Najaf", "Baghdad Tigris river skyline", "Iraq Mesopotamian marshes"]}
+10:12:52 controllo foto non riuscito Ziggurat of Ur Iraq Expecting value: line 1 column 1 (char 0)
+10:12:56 controllo foto non riuscito Ziggurat of Ur Iraq Unterminated string starting at: line 1 column 10 (char 9)
+10:13:00 controllo foto non riuscito Ziggurat of Ur Iraq Expecting ',' delimiter: line 8 column 1 (char 262)
+10:13:02 foto copertina: IRAQ | Ziggurat of Ur Iraq | Capitello a protome di toro (o con figure animali) in cima a una colonna dell'Apadana a Persepoli, Iran. Non si trova in Iraq. | paese False | simbolo 2 | visibile 7 | htt
+10:13:06 controllo foto non riuscito Babylon ruins Ishtar Gate Iraq Expecting property name enclosed in double quotes: line 5 column 3 (char 165)
+10:13:10 controllo foto non riuscito Babylon ruins Ishtar Gate Iraq Unterminated string starting at: line 1 column 10 (char 9)
+10:13:15 controllo foto non riuscito Babylon ruins Ishtar Gate Iraq Expecting value: line 1 column 1 (char 0)
+10:13:18 foto copertina: IRAQ | Babylon ruins Ishtar Gate Iraq | Rovine di Persepoli (portale in pietra con bassorilievi di dignitari, probabilmente il Palazzo di Dario/Hadish o Tachara), vicino a Shiraz, Iran. Non si trova i
+10:13:22 controllo foto non riuscito Great Mosque of Samarra spiral minaret Unterminated string starting at: line 1 column 10 (char 9)
+10:13:25 foto copertina: IRAQ | Great Mosque of Samarra spiral minaret | Parte superiore di un minareto moderno in pietra chiara con cuspide scura e mezzaluna in cima, ripreso dal basso contro il cielo. Non ci sono elementi c
+10:13:28 foto copertina: IRAQ | Great Mosque of Samarra spiral minaret | Il complesso Poi Kalon (moschea Kalon, minareto Kalon e madrasa Mir-i-Arab) a Bukhara, Uzbekistan | paese False | simbolo 1 | visibile 7 | https://www.p
+10:13:33 controllo foto non riuscito Great Mosque of Samarra spiral minaret Expecting value: line 1 column 1 (char 0)
+10:13:36 foto copertina: IRAQ | Imam Ali Shrine Najaf | Primo piano di un bambino con capelli scuri e vestiti neri, che guarda in camera. Sfondo notturno sfocato con persone vestite di nero e luci. Sembra un raduno o una ceri
+10:13:41 controllo foto non riuscito Imam Ali Shrine Najaf Expecting value: line 1 column 1 (char 0)
+10:13:45 controllo foto non riuscito Imam Ali Shrine Najaf Unterminated string starting at: line 1 column 10 (char 9)
+10:13:50 controllo foto non riuscito Imam Ali Shrine Najaf Unterminated string starting at: line 1 column 10 (char 9)
+10:13:54 controllo foto non riuscito Baghdad Tigris river skyline Expecting value: line 1 column 1 (char 0)
+10:13:58 controllo foto non riuscito Baghdad Tigris river skyline Expecting ',' delimiter: line 1 column 294 (char 293)
+10:14:03 controllo foto non riuscito Baghdad Tigris river skyline Unterminated string starting at: line 1 column 284 (char 283)
+10:14:06 foto copertina: IRAQ | Baghdad Tigris river skyline | Due tralicci dell'alta tensione con linee elettriche in controluce al tramonto, sole arancione basso all'orizzonte e uno specchio d'acqua in campagna. Non ci sono
+10:14:11 controllo foto non riuscito Iraq Mesopotamian marshes Expecting value: line 1 column 1 (char 0)
+10:14:14 controllo foto non riuscito Iraq Mesopotamian marshes Expecting ',' delimiter: line 1 column 405 (char 404)
+10:14:19 controllo foto non riuscito Iraq Mesopotamian marshes Expecting value: line 1 column 1 (char 0)
+10:14:23 controllo foto non riuscito Iraq Mesopotamian marshes Unterminated string starting at: line 1 column 10 (char 9)
+10:14:23 copertina foto: nessuna foto ha superato il controllo
+prova <-  | IRAQ / 3500 a.C. – 2026 | uomo: an ancient Mesopotamian Assyrian king with a long curled black beard, a tall conical royal crown, a richly embroidered fringed robe in deep red and blue, and gold bracelets and earrings | donna: an ancient Mesopotamian Assyrian queen with a golden crown with turrets, long black braided hair, a fringed embroidered robe in red and cream, a golden necklace and large gold earrings | the Great Ziggurat of Ur | authentic native Mesopotamian Iraqi (Arab and Assyrian) facial features: olive to tan skin, strong straight nose, dark deep-set almond eyes, thick dark eyebrows, dark wavy hair
+  copertina 1 (coppia): Hammurabi, ancient Babylonian king with a long cur | a modern Iraqi woman, around 30 years old, olive s
+  solo anteprima | parte con: uomo
+FATTO | APPLICA = False
+10:14:54 copertina ufficiale pronta: copertina.jpg
+10:17:15 video_url pronto per Drive
+10:17:16 copertina_url pronto per Drive
+10:17:16 video di 476 secondi (sotto 480 s): e' una prova, NON lo carico su YouTube
+10:17:17 esito: {"stato": "PROVA OK", "minuti_video": 7.9, "minuti_lavoro": 22.7, "titolo": "Storia dell'IRAQ: dall'antica Mesopotamia all'Iraq moderno", "descrizione": "Storia dell'IRAQ: dall'antica Mesopotamia all'Iraq moderno\n\nStoria dell'Iraq dall'antica Mesopotamia all'Iraq moderno: un viaggio nella terra dove nacquero le prime città, la scrittura cuneiforme e le prime leggi. Dai Sumeri a Hammurabi, da Babilonia all'Assiria.\n\nSegui la nascita di Bagdad abbaside e della Casa della Saggezza, la devastazi
+10:17:17 FATTO: /home/runner/work/ambience/ambience/video_storia.mp4 7.9 minuti
+10:17:17 COSTO VIDEO (stima): 0.78 $ + 7306 crediti voce | claude claude-haiku-4-5-20251001: 0.441 $ (181 chiamate) | claude claude-sonnet-5-5: 0.337 $ (2 chiamate) | elevenlabs eleven_multilingual_v2: 0.000 $ (30 chiamate), 7306 crediti
