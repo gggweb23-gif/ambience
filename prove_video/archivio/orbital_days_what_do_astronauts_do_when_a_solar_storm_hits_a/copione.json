@@ -1,0 +1,631 @@
+{
+ "scene": [
+  {
+   "testo": "A single burst of the sun can hurl 1,000,000,000 tons of superheated gas toward Earth at over 1,000,000 mph. Right now, six humans floating 250 miles above you may have to hide from it. Not for an hour. For days.",
+   "q": "astronaut floating space station",
+   "tag": [
+    "astronaut",
+    "floating",
+    "module"
+   ],
+   "scritta": "1,000,000 MPH",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "The Alarm",
+   "anno": 0
+  },
+  {
+   "testo": "Why would a crew ever pack into the smallest, darkest corner of their own home and wait there? To understand that, you first have to live the hours before the warning, floating inside the station at 6 AM.",
+   "q": "astronaut inside space station",
+   "tag": [
+    "astronaut",
+    "cabin",
+    "module"
+   ],
+   "scritta": "",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Imagine you are floating in a sleeping bag clipped to the wall. No up, no down. The station hums around you. Outside, the sun is rising, and it will rise sixteen times before your day is over.",
+   "q": "astronaut sleeping bag crew quarters",
+   "tag": [
+    "sleeping bag",
+    "crew quarters",
+    "astronaut"
+   ],
+   "scritta": "16 SUNRISES",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "The International Space Station circles Earth at about 17,500 mph. That is one full lap every 90 minutes or so. Sixteen sunrises and sixteen sunsets a day, all of them racing across your window.",
+   "q": "space station orbiting earth",
+   "tag": [
+    "station",
+    "orbit",
+    "solar array"
+   ],
+   "scritta": "17,500 MPH",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "So what do astronauts actually do when a solar storm hits and lasts all week? The answer is not what the movies show you. Every detail here comes from NASA, ESA, and the astronauts themselves.",
+   "q": "astronaut working space station",
+   "tag": [
+    "astronaut",
+    "laptop",
+    "work"
+   ],
+   "scritta": "",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Here is the first thing almost nobody guesses. The danger is mostly invisible. You will not see it, hear it, or feel it. And one tiny sign of it may appear right behind your own eyelids.",
+   "q": "astronaut eyes closed rest",
+   "tag": [
+    "astronaut",
+    "face",
+    "rest"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Our star is not calm. It is a ball of burning gas about 865,000 miles wide. That is roughly 109 Earths lined up side by side. And every so often, its surface tears open and throws out a storm.",
+   "q": "sun solar flare",
+   "tag": [
+    "sun",
+    "flare",
+    "eruption"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "What a Solar Storm Is",
+   "anno": 0
+  },
+  {
+   "testo": "Two things come from a storm. A flare is a flash of light and radiation that reaches Earth in about 8 minutes. A coronal mass ejection is a cloud of charged particles that takes roughly one to three days to arrive.",
+   "q": "coronal mass ejection sun",
+   "tag": [
+    "coronal mass ejection",
+    "sun",
+    "plasma"
+   ],
+   "scritta": "8 MINUTES",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "On the ground, you are protected by two shields. Earth's magnetic field bends most charged particles away. And the atmosphere above you, about 62 miles of it, soaks up most of the rest. Out in orbit, one of those shields is only partly there.",
+   "q": "earth magnetic field aurora",
+   "tag": [
+    "magnetic field",
+    "aurora",
+    "earth"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "The station flies about 250 miles up. That is still inside Earth's magnetic field, which helps a lot. But it is far above most of the atmosphere. So the crew gets more radiation than anyone standing on the ground.",
+   "q": "space station earth atmosphere",
+   "tag": [
+    "station",
+    "atmosphere",
+    "horizon"
+   ],
+   "scritta": "250 MILES",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Here is a number to hold on to. NASA says astronauts on the station absorb about 80 millisieverts of radiation in six months. A typical person on the ground absorbs roughly 3 millisieverts in a whole year.",
+   "q": "astronaut radiation monitor",
+   "tag": [
+    "radiation",
+    "monitor",
+    "dosimeter"
+   ],
+   "scritta": "80 MSV",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Now back to the morning. Somewhere on Earth, a monitoring center spots a violent eruption on the sun. Forecasters at NOAA's Space Weather Prediction Center start watching a clock. And so does mission control in Houston.",
+   "q": "mission control Houston",
+   "tag": [
+    "mission control",
+    "console",
+    "flight controllers"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "The Warning",
+   "anno": 0
+  },
+  {
+   "testo": "Space weather forecasters rate storms on scales from one to five. A minor storm is a one. A severe radiation storm is a four or five. Those are rare. Most storms are mild, and the crew barely notices them.",
+   "q": "space weather forecast sun",
+   "tag": [
+    "space weather",
+    "sun",
+    "forecast"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "But when forecasters see a big one coming, the call goes up. Flight controllers talk to the crew, and the plan is simple. No guessing. The crew follows a written procedure that has been rehearsed on the ground many times.",
+   "q": "astronaut talking mission control",
+   "tag": [
+    "astronaut",
+    "communication",
+    "headset"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Here is what is different from the movies. There is no countdown to doom. Particles from a coronal mass ejection take hours or days. The first sign is often just an alert on a screen and a calm voice from the ground.",
+   "q": "astronaut computer screen station",
+   "tag": [
+    "astronaut",
+    "computer",
+    "screen"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Scientists track one more thing. Fast protons from a flare can arrive in under an hour. That is the reason the crew keeps a plan ready at all times. Not panic. Preparation, written down step by step.",
+   "q": "astronaut checklist procedure",
+   "tag": [
+    "checklist",
+    "astronaut",
+    "procedure"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "So where do you go? The crew has a rule of thumb. More material between you and the radiation means less radiation reaches you. So the best spot is wherever the walls are thickest and the equipment is packed densely.",
+   "q": "space station module interior equipment",
+   "tag": [
+    "module",
+    "interior",
+    "equipment"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "The Shelter",
+   "anno": 0
+  },
+  {
+   "testo": "On the station, that usually means the crew quarters on the Russian side, or other well-shielded areas. Crew sleep cabins have extra material around them. NASA has tested added shielding in areas where the crew sleeps.",
+   "q": "space station crew quarters",
+   "tag": [
+    "crew quarters",
+    "cabin",
+    "shielding"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Water is a natural shield. NASA and ESA have studied how water and polyethylene plastic block particles. Hydrogen-rich materials stop radiation well. That is why researchers test water walls and plastic panels for future spacecraft.",
+   "q": "water bags space station",
+   "tag": [
+    "water",
+    "bags",
+    "shielding"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Now imagine you float into the shelter with your crewmates. It is cramped. Cables, laptops, and a few snacks drift around you. There is no window to see the storm. You only know it is there because the instruments say so.",
+   "q": "astronauts crowded module",
+   "tag": [
+    "astronauts",
+    "crew",
+    "module"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "How long do you stay? It depends on the storm. For a strong event, it can be hours. For a long one, the crew may limit time in the least protected areas for a day or more. Reports of a full week hiding are rare.",
+   "q": "astronaut waiting station",
+   "tag": [
+    "astronaut",
+    "waiting",
+    "cabin"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Here we need to be honest. A full seven days sealed in a shelter has not been documented on the station. What is documented is the plan, the shielding, and the monitoring. The rest is how a long storm week would be managed.",
+   "q": "astronaut daily schedule station",
+   "tag": [
+    "astronaut",
+    "schedule",
+    "laptop"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Day one, you adjust. Crews work from a timeline. Sleep is about eight hours. Exercise is about two hours a day. Meals are fixed. A storm does not cancel any of that, because muscles and bones keep wasting away in orbit.",
+   "q": "astronaut exercise treadmill station",
+   "tag": [
+    "treadmill",
+    "exercise",
+    "astronaut"
+   ],
+   "scritta": "2 HOURS",
+   "obbligo": [],
+   "capitolo": "Day One",
+   "anno": 0
+  },
+  {
+   "testo": "Breakfast is still breakfast. Food comes in sealed pouches. Add water, heat it, and eat with a spoon. Tortillas replace bread because crumbs float and can clog vents. Salt and pepper come as liquids so nothing drifts into your eyes.",
+   "q": "astronaut eating food space station",
+   "tag": [
+    "food",
+    "eating",
+    "pouch"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Water on the station is precious. The system recycles about 90 percent of the water on board, including moisture from the air and from urine. NASA says the crew drinks recycled water every day, and it is cleaner than most tap water.",
+   "q": "astronaut drinking water station",
+   "tag": [
+    "drinking",
+    "water",
+    "bag"
+   ],
+   "scritta": "90 PERCENT",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Day two, the instruments matter. Dosimeters, small radiation badges, are worn or placed around the station. They record how much radiation each area receives. Ground teams read the data and tell the crew which rooms are safest.",
+   "q": "radiation detector space station",
+   "tag": [
+    "dosimeter",
+    "radiation",
+    "detector"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "Day Two",
+   "anno": 0
+  },
+  {
+   "testo": "Some experiments continue even in a storm. Others pause. If a piece of equipment is sensitive, controllers may shut it down. Electronics can suffer from high-energy particles, causing glitches, so the crew watches the computers closely.",
+   "q": "astronaut experiment laboratory station",
+   "tag": [
+    "experiment",
+    "laboratory",
+    "astronaut"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "One effect astronauts have described is flashes of light. With their eyes closed, they sometimes see streaks and sparks. NASA explains these are likely single particles of radiation passing through the eye. It has been reported since the Apollo flights.",
+   "q": "astronaut eye flash light",
+   "tag": [
+    "astronaut",
+    "eye",
+    "face"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Day three, no spacewalks. This is a firm rule. Out in a spacesuit, an astronaut has far less shielding than inside the station. Controllers will not send anyone outside during a radiation storm. Spacewalks wait until the sky is calm.",
+   "q": "spacewalk astronaut suit",
+   "tag": [
+    "spacewalk",
+    "suit",
+    "astronaut"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "Day Three",
+   "anno": 0
+  },
+  {
+   "testo": "A spacewalk can last about six and a half hours. The suit protects against temperatures from minus 250°F in shadow to plus 250°F in sunlight. But it is not a radiation shield, so storms mean the airlock stays shut.",
+   "q": "spacewalk suit airlock",
+   "tag": [
+    "spacewalk",
+    "suit",
+    "airlock"
+   ],
+   "scritta": "-250°F",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Day four, sleep. Sleeping in a storm is strange. You are strapped to a wall, arms floating in front of you. The station hums, fans blow, and the crew sleeps in shifts or in quiet corners. Rest is critical for staying sharp.",
+   "q": "astronaut sleeping station",
+   "tag": [
+    "sleeping",
+    "astronaut",
+    "bag"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "Day Four",
+   "anno": 0
+  },
+  {
+   "testo": "The crew also stays in touch with home. Video calls and emails keep morale up. Families on the ground watch the news and worry. Astronauts have said that hearing a familiar voice makes a long, tense week much easier.",
+   "q": "astronaut video call family station",
+   "tag": [
+    "astronaut",
+    "video call",
+    "screen"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Day five, think about the rest of the planet. A big solar storm can also disturb satellites, radio, and power grids. In March 1989, a geomagnetic storm knocked out power across Quebec, Canada, for about nine hours.",
+   "q": "aurora borealis earth",
+   "tag": [
+    "aurora",
+    "earth",
+    "northern lights"
+   ],
+   "scritta": "9 HOURS",
+   "obbligo": [],
+   "capitolo": "Day Five",
+   "anno": 1989
+  },
+  {
+   "testo": "The biggest storm on record is the Carrington Event of September 1859. Telegraph systems failed and some operators got shocks. Auroras were seen far south of normal. Scientists say a similar storm today could do serious damage.",
+   "q": "aurora sky red",
+   "tag": [
+    "aurora",
+    "sky",
+    "red"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 1859
+  },
+  {
+   "testo": "More recently, a strong storm hit in May 2024. Auroras appeared across much of the United States, far from their usual northern home. Space weather agencies called it the strongest in about 20 years. The station crew was monitored throughout.",
+   "q": "aurora from space station",
+   "tag": [
+    "aurora",
+    "station",
+    "earth"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 2024
+  },
+  {
+   "testo": "Day six, the crew checks the station itself. Solar panels can degrade in storms. Sensors can misread. Engineers on the ground review data from every system, and the crew inspects what they can reach from inside.",
+   "q": "solar array space station",
+   "tag": [
+    "solar array",
+    "panels",
+    "station"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "Day Six",
+   "anno": 0
+  },
+  {
+   "testo": "Now compare this with life on Earth. On the ground, a solar storm is a light show. You step outside, look up, and see green ribbons in the sky. In orbit, the same storm is a reason to move rooms and watch a dosimeter.",
+   "q": "astronaut looking window earth",
+   "tag": [
+    "astronaut",
+    "window",
+    "cupola"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "Earth Comparison",
+   "anno": 0
+  },
+  {
+   "testo": "Think of a school bus. The station is about as big as a football field from end to end, roughly 357 feet. And the crew has less living space than a six-bedroom house. All of it flies at 17,500 mph, protected by walls only inches thick.",
+   "q": "international space station full view",
+   "tag": [
+    "station",
+    "exterior",
+    "modules"
+   ],
+   "scritta": "357 FEET",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Day seven, the storm fades. Instruments show radiation levels dropping. Forecasters confirm the all-clear. The crew floats out of the shelter, stretches, and goes back to normal. Exercise, experiments, meals, and one more look at Earth.",
+   "q": "astronaut cupola window earth",
+   "tag": [
+    "cupola",
+    "astronaut",
+    "window"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "Day Seven",
+   "anno": 0
+  },
+  {
+   "testo": "So what is the real answer? Astronauts do not fight the sun. They watch it, plan for it, and use shielding and time to stay safe. The key is calm procedure, constant monitoring, and never taking an unnecessary risk.",
+   "q": "astronaut smiling station",
+   "tag": [
+    "astronaut",
+    "smile",
+    "station"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "The Real Answer",
+   "anno": 0
+  },
+  {
+   "testo": "Here is what NASA keeps studying. The Moon has no magnetic field and no atmosphere. Astronauts there would face storms with far less protection. That is why the agency works on shelters, forecasts, and shielding for the Artemis missions.",
+   "q": "Artemis Moon mission astronaut",
+   "tag": [
+    "moon",
+    "artemis",
+    "astronaut"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "A trip to Mars would take about six to nine months each way. That means months in deep space, outside Earth's magnetic shield. Radiation is one of the biggest unsolved problems of going to Mars, and NASA says so openly.",
+   "q": "Mars spacecraft concept",
+   "tag": [
+    "mars",
+    "spacecraft",
+    "deep space"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Back to the cramped shelter. Picture the crew packed together, snacks floating, a laptop glowing, a dosimeter blinking. No drama, no alarms. Just people calmly waiting for the sun to quiet down. That is how real safety looks.",
+   "q": "astronauts group station crew",
+   "tag": [
+    "astronauts",
+    "crew",
+    "group"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "And here is the most surprising detail. The station is protected not by one giant shield, but by habits. Rooms chosen, jobs delayed, instruments watched. Billions of miles of sunlight, and what keeps people safe is a checklist.",
+   "q": "astronaut reading checklist",
+   "tag": [
+    "checklist",
+    "astronaut",
+    "procedure"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "That is life 250 miles above you. If this changed how you see the night sky, the video on your screen right now shows another side of life in orbit. Click it. I will see you there.",
+   "q": "earth from space station",
+   "tag": [
+    "earth",
+    "horizon",
+    "station"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  }
+ ],
+ "descrizione": "What do astronauts really do when a solar storm hits the International Space Station and lasts all week? In this Orbital Days documentary, we float inside the station and follow the plan step by step: the warning from mission control, the best shelter, radiation monitoring, canceled spacewalks, sleep, food, and exercise.\n\nWe explain how solar flares and coronal mass ejections work, why Earth's magnetic field helps, and how NASA and ESA protect crews. We also look at real storms like the Carrington Event of September 1859, the March 1989 Quebec blackout, and the May 2024 aurora storm, and what it means for the Moon and Mars.\n\nEvery fact comes from NASA, ESA, and astronaut accounts, and we say clearly when something is uncertain.\n\n#SolarStorm #SpaceStation #NASA #Astronauts #SpaceWeather #OrbitalDays",
+ "tag": [
+  "solar storm",
+  "solar storm astronauts",
+  "space station",
+  "International Space Station",
+  "ISS",
+  "astronaut life",
+  "space radiation",
+  "solar flare",
+  "coronal mass ejection",
+  "space weather",
+  "NASA",
+  "ESA",
+  "life in space",
+  "what do astronauts do",
+  "astronaut shelter",
+  "radiation shielding",
+  "Carrington Event",
+  "geomagnetic storm",
+  "aurora",
+  "Artemis",
+  "Mars mission",
+  "space documentary",
+  "Orbital Days",
+  "astronaut daily life",
+  "Houston mission control",
+  "NOAA space weather",
+  "spacewalk safety",
+  "space facts"
+ ],
+ "testo_copertina": "SOLAR STORM",
+ "copertina_prompt": "A fictional astronaut in close-up, helmet off, face lit by a harsh orange glow from a window, eyes wide with tense, focused alarm inside a cramped dim space station module.",
+ "titolo_video": "What Do Astronauts Do When a Solar Storm Hits All Week?"
+}
