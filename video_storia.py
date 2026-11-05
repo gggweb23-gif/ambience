@@ -4339,7 +4339,8 @@ def main():
             import copertina_foto as CF
             CF.log = log
             cop = CF.crea(titolo_finale, LINGUA, os.path.join(ROOT, 'copertina.jpg'),
-                          f"Periodo raccontato: {c.get('date') or ''}. Paese in cui si trova (solo contesto: in copertina va il soggetto del titolo, non il paese se il titolo parla di una citta'): {c.get('titolo_mappa') or c.get('paese_mappa') or ''}.")
+                          f"Periodo raccontato: {c.get('date') or ''}. Paese in cui si trova (solo contesto: in copertina va il soggetto del titolo, non il paese se il titolo parla di una citta'): {c.get('titolo_mappa') or c.get('paese_mappa') or ''}.",
+                          riserva_max=P.get('copertina_riserva_max') or E('COPERTINA_RISERVA_MAX', ''))   # colonna copertina_riserva_max: $ per il 2o tentativo AI (vuota/0 = nessuno)
             if cop:
                 log('copertina foto pronta: copertina.jpg')
         except Exception as e:
@@ -4347,7 +4348,8 @@ def main():
     if COP_STILE == 'foto' and cop:
         pass
     elif COP_STILE == 'foto':   # 5 nov (Giorgio): la copertina resta SEMPRE nello stile del canale, qualunque sia il competitor: mai ripiegare su un altro stile
-        log('COPERTINA MANCANTE: nessuna foto valida per lo stile del canale; nessuna copertina di altro stile. Rifarla con "Copertine foto simbolo".')
+        log('COPERTINA MANCANTE: nessuna foto valida per lo stile del canale (anche col 2o tentativo AI, se copertina_riserva_max lo permette); '
+            'nessuna copertina di altro stile. Rifarla con "Copertine foto simbolo".')
     elif str(P.get('copertina_formato') or '').strip().lower() == 'primo_piano':   # stile Faces of Rome
         cop = copertina_primo_piano(comp, c)
     elif not COP_VIDEO:   # copertina UFFICIALE (bandiera + figura): fatta qui, prima del caricamento, e caricata insieme al video

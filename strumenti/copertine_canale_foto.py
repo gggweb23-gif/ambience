@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Rifa' con lo stile "foto simbolo" (copertina_foto.py) le copertine dei video GIA' presenti in un canale e le carica su YouTube.
-PAYLOAD = {"lingua": "it", "carica": "SI", "solo": ["id1", ...] (vuoto = tutti), "escludi": [...], "cartella": "prove_video/Storia_in_Minuti/copertine_canale"}
+PAYLOAD = {"lingua": "it", "carica": "SI", "solo": ["id1", ...] (vuoto = tutti), "escludi": [...], "cartella": "prove_video/Storia_in_Minuti/copertine_canale",
+           "copertina_riserva_max": 0.10 (facoltativo: $ a copertina per la foto AI quando Pexels non ha foto valide; vuoto/0 = nessuna)}
 Ogni copertina caricata viene salvata anche in copertine_storia/<id>_1.jpg (cosi' "Copertine Storia" non la rifa')."""
 import json, os, shutil, sys, urllib.parse, urllib.request
 sys.path.insert(0, os.getcwd())
@@ -40,7 +41,7 @@ for vid, titolo in lista:
         continue
     path = os.path.join(CART, f'{vid}.jpg')
     try:
-        if not CF.crea(titolo, P.get('lingua') or 'it', path):
+        if not CF.crea(titolo, P.get('lingua') or 'it', path, riserva_max=P.get('copertina_riserva_max') or 0):
             esiti.append(f'{vid} | {titolo} | NESSUNA FOTO superata al controllo: copertina lasciata com\'era'); continue
     except Exception as e:
         esiti.append(f'{vid} | {titolo} | errore: {str(e)[:150]}'); continue

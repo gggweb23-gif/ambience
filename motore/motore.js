@@ -490,9 +490,21 @@ async function main() {
   else {
     // copertina_stile = statua: copertina e immagine del video dalla STESSA statua nuova (copertina_statua.py), prima del montaggio
     if (String(cfg.copertina_stile || '').trim().toLowerCase() === 'statua' && !saltaCop) {
-      const cs = await python('copertina_statua.py', { PAYLOAD: JSON.stringify({ titolo: sw.titolo_italiano,
-        testo_copertina: (OUT['SEO Generator'][0].json.output || {}).titolo_thumbnail || '', cartella: 'lavoro_statua', config: cfg }) });
-      try { statuaRis = JSON.parse(fs.readFileSync(path.join(ROOT, 'lavoro_statua', 'risultato.json'), 'utf8')); } catch (e) { statuaRis = { ok: false, errore: 'nessun risultato (codice ' + cs.code + ')' }; }
+      // 2o tentativo nello STESSO stile statua solo se la colonna copertina_riserva_max ($ a video) copre il costo stimato (vuota/0 = nessun 2o tentativo)
+      const riserva = Number(String(cfg.copertina_riserva_max ?? '').replace(',', '.').replace(/[$€\s]/g, '')) || 0, COSTO_STATUA = 0.10;
+      for (let tent = 1; tent <= 2; tent++) {
+        if (tent === 2) {
+          if (riserva <= 0) break;
+          if (COSTO_STATUA > riserva + 1e-9) { log('copertina statua: 2o tentativo saltato (costo stimato ' + COSTO_STATUA.toFixed(2) + ' $ > copertina_riserva_max ' + riserva.toFixed(2) + ' $)'); break; }
+          log('copertina statua: 2o tentativo nello STESSO stile (costo stimato ' + COSTO_STATUA.toFixed(2) + ' $, tetto ' + riserva.toFixed(2) + ' $)');
+          try { fs.rmSync(path.join(ROOT, 'lavoro_statua', 'risultato.json')); } catch (e) {}
+        }
+        const cs = await python('copertina_statua.py', { PAYLOAD: JSON.stringify({ titolo: sw.titolo_italiano,
+          testo_copertina: (OUT['SEO Generator'][0].json.output || {}).titolo_thumbnail || '', cartella: 'lavoro_statua', config: cfg }) });
+        try { statuaRis = JSON.parse(fs.readFileSync(path.join(ROOT, 'lavoro_statua', 'risultato.json'), 'utf8')); } catch (e) { statuaRis = { ok: false, errore: 'nessun risultato (codice ' + cs.code + ')' }; }
+        if (statuaRis.ok) break;
+        log('copertina statua non riuscita al tentativo ' + tent + ' (' + statuaRis.errore + ')');
+      }
       if (statuaRis.ok) { dati.statua_video = path.join(ROOT, statuaRis.statua_video); log('statua di copertina e video pronta'); }
       else log('ATTENZIONE: copertina statua non riuscita (' + statuaRis.errore + '): video con lo stile di sempre; COPERTINA MANCANTE (mai una copertina di altro stile)');
     }

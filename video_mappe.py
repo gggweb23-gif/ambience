@@ -1716,6 +1716,20 @@ def piano_copertina(comp, c):
     return cp
 
 
+def piano_titolo_mappa(comp, c):
+    """2o tentativo della copertina titolo_mappa: Claude ricava dal titolo il paese, gli anni e 4 disegni della libreria (stessa regola del copione)."""
+    lib_img = LIB_IND.get('immagini') or {}
+    icone = ', '.join(sorted(n for n, k in lib_img.items() if k != 'persona')) if lib_img else ', '.join(sorted(ICONE))
+    dom = (f'YouTube video "{c.get("titolo") or comp.get("titolo") or ""}" (language: {LINGUE.get(LINGUA, LINGUA)}). Icon list: {icone}.\n'
+           'Answer ONLY JSON: {"titolo": the main country/empire name, 1-2 words, as written in the video language, CAPS, "fascia": the years covered (e.g. "1492 → 2026"), '
+           '"paese": [ISO-3 of today\'s country], "icone": exactly 4 items [name from the icon list, lon, lat] telling the story in order, each well INSIDE the country, spread from one side to the other}')
+    rr = http('https://api.anthropic.com/v1/messages', {'model': MODELLO_AI, 'max_tokens': 800, 'messages': [{'role': 'user', 'content': dom}]},
+              {'x-api-key': E('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01'}, timeout=300)
+    CO.registra('claude', MODELLO_AI, rr.get('usage'), nota='copertina riserva')
+    t = ''.join(b_.get('text', '') for b_ in rr.get('content', []))
+    return json.JSONDecoder().raw_decode(t[t.find('{'):])[0]
+
+
 def presentatore():
     """Volto del canale in copertina (colonna copertina_presentatore: file del repository o link a un PNG senza sfondo). None se non c'e'."""
     src = str(P.get('copertina_presentatore') or '').strip()
@@ -2096,31 +2110,49 @@ def main():
     finale = os.path.join(ROOT, 'video_mappe.mp4')
     invito_iscriviti(muto, audio, finale, totale)
     stile_cop = str(P.get('copertina_stile') or '').strip().lower()
-    try:   # copertina 90% come quella del competitor (schema diviso, colori fluo, stessa scritta); se non riesce, quella di prima
-        if stile_cop == 'titolo_mappa' and not c.get('copertina_titolo'):   # 5 nov (Giorgio): mai un altro stile al posto di quello del canale
-            raise RuntimeError('il copione non ha copertina_titolo')
-        if stile_cop == 'titolo_mappa' and c.get('copertina_titolo'):   # nome del paese enorme + paese sulla mappa con i disegni del video
-            import copertina_cartellino as CC
-            CC.VM = sys.modules[__name__]; ct = c['copertina_titolo']; log('copertina titolo su mappa:', json.dumps(ct, ensure_ascii=False)[:300])
-            ic = [(nome_lib(x[0]) or 'question', float(x[1]), float(x[2])) for x in (ct.get('icone') or [])[:4] if len(x) >= 3]
-            cop = CC.copertina_titolo(ct.get('paese') or [], ct.get('titolo') or '', ct.get('fascia') or '', ic, os.path.join(ROOT, 'copertina.jpg'))
-        elif stile_cop == 'cartellino':   # stile scelto per Rich Borders (29 ott): cartellini del prezzo + parola gigante
-            import copertina_cartellino as CC
-            CC.VM = sys.modules[__name__]
-            pc = CC.piano(comp); log('copertina cartellino:', json.dumps(pc, ensure_ascii=False)[:300])
-            cop = CC.copertina_b2(pc.get('luoghi') or [], pc.get('scritta') or 'WHY?', os.path.join(ROOT, 'copertina.jpg'))
-            if not PROVA:
-                CC.segna_parola(pc.get('scritta') or 'WHY?')
-        else:
-            cop = copertina_nuova(piano_copertina(comp, c), os.path.join(ROOT, 'copertina.jpg'))
-    except Exception as e:
-        if stile_cop in ('cartellino', 'titolo_mappa'):   # 5 nov (Giorgio): la copertina resta SEMPRE nello stile del canale (copertina_stile), qualunque sia il competitor: niente copertina di altro stile
-            log(f'COPERTINA MANCANTE: copertina "{stile_cop}" non riuscita ({str(e)[:150]}); nessuna copertina di altro stile. '
-                'Rifarla nello stesso stile (es. "Copertine mappe (rifai e carica)" per il cartellino).')
-            cop = None
-        else:
-            log('copertina nuova non riuscita, uso quella semplice:', str(e)[:150])
-            cop = copertina(c, os.path.join(ROOT, 'copertina.jpg'))
+    try:
+        riserva = float(str(P.get('copertina_riserva_max') or 0).replace(',', '.').replace('$', '').replace('€', '').strip() or 0)   # colonna copertina_riserva_max ($ a video)
+    except ValueError:
+        riserva = 0.0
+    COSTO_RIPROVA = 0.03   # $ stimati del 2o tentativo: solo un piano nuovo con Claude, la mappa e la grafica sono nostre (gratis)
+    cop = None
+    for tent in (1, 2):
+        if tent == 2:
+            if stile_cop not in ('cartellino', 'titolo_mappa') or riserva <= 0:
+                break
+            if COSTO_RIPROVA > riserva + 1e-9:
+                log(f'copertina: 2o tentativo saltato (costo stimato {COSTO_RIPROVA:.2f} $ > copertina_riserva_max {riserva:.2f} $)'); break
+            log(f'copertina "{stile_cop}": 2o tentativo nello STESSO stile, piano nuovo (costo stimato {COSTO_RIPROVA:.2f} $, tetto {riserva:.2f} $)')
+        try:   # copertina 90% come quella del competitor (schema diviso, colori fluo, stessa scritta); se non riesce, quella di prima
+            if stile_cop == 'titolo_mappa' and tent == 2:   # piano nuovo dal titolo (il primo era quello del copione)
+                c['copertina_titolo'] = piano_titolo_mappa(comp, c)
+            if stile_cop == 'titolo_mappa' and not c.get('copertina_titolo'):   # 5 nov (Giorgio): mai un altro stile al posto di quello del canale
+                raise RuntimeError('il copione non ha copertina_titolo')
+            if stile_cop == 'titolo_mappa' and c.get('copertina_titolo'):   # nome del paese enorme + paese sulla mappa con i disegni del video
+                import copertina_cartellino as CC
+                CC.VM = sys.modules[__name__]; ct = c['copertina_titolo']; log('copertina titolo su mappa:', json.dumps(ct, ensure_ascii=False)[:300])
+                ic = [(nome_lib(x[0]) or 'question', float(x[1]), float(x[2])) for x in (ct.get('icone') or [])[:4] if len(x) >= 3]
+                cop = CC.copertina_titolo(ct.get('paese') or [], ct.get('titolo') or '', ct.get('fascia') or '', ic, os.path.join(ROOT, 'copertina.jpg'))
+            elif stile_cop == 'cartellino':   # stile scelto per Rich Borders (29 ott): cartellini del prezzo + parola gigante
+                import copertina_cartellino as CC
+                CC.VM = sys.modules[__name__]
+                pc = CC.piano(comp); log('copertina cartellino:', json.dumps(pc, ensure_ascii=False)[:300])
+                cop = CC.copertina_b2(pc.get('luoghi') or [], pc.get('scritta') or 'WHY?', os.path.join(ROOT, 'copertina.jpg'))
+                if not PROVA:
+                    CC.segna_parola(pc.get('scritta') or 'WHY?')
+            else:
+                cop = copertina_nuova(piano_copertina(comp, c), os.path.join(ROOT, 'copertina.jpg'))
+            break
+        except Exception as e:
+            if stile_cop in ('cartellino', 'titolo_mappa'):   # 5 nov (Giorgio): la copertina resta SEMPRE nello stile del canale (copertina_stile), qualunque sia il competitor: niente copertina di altro stile
+                log(f'copertina "{stile_cop}" non riuscita al tentativo {tent} ({str(e)[:150]})')
+                cop = None
+            else:
+                log('copertina nuova non riuscita, uso quella semplice:', str(e)[:150])
+                cop = copertina(c, os.path.join(ROOT, 'copertina.jpg')); break
+    if not cop and stile_cop in ('cartellino', 'titolo_mappa'):
+        log(f'COPERTINA MANCANTE: copertina "{stile_cop}" non riuscita; nessuna copertina di altro stile. '
+            'Rifarla nello stesso stile (es. "Copertine mappe (rifai e carica)" per il cartellino).')
     titolo = str(c.get('titolo') or comp.get('titolo') or 'Rich Borders')[:100]
     c['capitoli_testo'] = capitoli(scene, durs)
     open(os.path.join(ROOT, 'titolo.txt'), 'w').write(titolo)

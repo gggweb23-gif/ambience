@@ -3,7 +3,8 @@
 pannello blu a sinistra con "TUTTA LA STORIA" (giallo), il NOME del paese enorme (bianco) e gli anni (rosso), a destra la foto
 di un luogo SIMBOLO del paese presa da Pexels, ritagliata sul monumento. Ogni foto e' CONTROLLATA da Claude: paese giusto,
 simbolo riconoscibile, ben visibile. Le scritte stanno sempre dentro i loro rettangoli. Mai nulla nell'angolo del timer.
-Uso: crea(titolo_video, lingua, path, info_extra='') -> path (o None se nessuna foto supera il controllo)."""
+Uso: crea(titolo_video, lingua, path, info_extra='', riserva_max=0) -> path (o None se nessuna foto supera il controllo).
+riserva_max = colonna copertina_riserva_max ($ a video): se > 0 e copre il costo, senza foto Pexels valida si fa UNA foto AI dello stesso simbolo."""
 import base64, io, json, os, urllib.parse, urllib.request
 from PIL import Image, ImageDraw, ImageEnhance, ImageFont, ImageOps
 
@@ -189,7 +190,55 @@ def disegna(nome, anni, foto, box, path, testo_alto='TUTTA LA STORIA', tappe=Non
     return path
 
 
-def crea(titolo, lingua, path, extra=''):
+COSTO_AI = 0.08   # $ stimati per 1 immagine fal nano-banana-2 a 1K (la parte foto della copertina e' 742x720: basta e avanza)
+
+
+def _fal_immagine(prompt):
+    """Una immagine fal nano-banana-2 (FAL_KEY), 16:9, senza testo. Restituisce PIL.Image."""
+    import time
+    h = {'Authorization': 'Key ' + os.environ.get('FAL_KEY', ''), 'Content-Type': 'application/json'}
+    rq = lambda u, d=None: json.loads(urllib.request.urlopen(urllib.request.Request(u, data=json.dumps(d).encode() if d is not None else None, headers=h), timeout=120).read())
+    inv = rq('https://queue.fal.run/fal-ai/nano-banana-2', {'prompt': prompt, 'aspect_ratio': '16:9', 'resolution': '1K', 'output_format': 'jpeg', 'num_images': 1})
+    for _ in range(100):
+        time.sleep(4); st = rq(inv['status_url'])
+        if st.get('status') == 'COMPLETED':
+            url = rq(inv['response_url'])['images'][0]['url']
+            return Image.open(io.BytesIO(urllib.request.urlopen(urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'}), timeout=120).read())).convert('RGB')
+        if st.get('status') not in ('IN_QUEUE', 'IN_PROGRESS'):
+            raise RuntimeError(json.dumps(st)[:200])
+    raise RuntimeError('fal: tempo scaduto')
+
+
+def foto_ai(nome, simboli, riserva_max=0.0):
+    """SECONDO TENTATIVO (5 nov, Giorgio): nessuna foto Pexels valida -> UNA foto fotorealistica creata con l'AI del simbolo del soggetto,
+    disegnata poi con lo STESSO pannello A3a. Solo se riserva_max (colonna copertina_riserva_max, $ a video) copre il costo stimato."""
+    try:
+        riserva_max = float(str(riserva_max or 0).replace(',', '.').replace('$', '').replace('€', '').strip() or 0)
+    except ValueError:
+        riserva_max = 0.0
+    if riserva_max <= 0:
+        return None, None
+    if COSTO_AI > riserva_max + 1e-9 or not os.environ.get('FAL_KEY'):
+        log(f'copertina foto: secondo tentativo AI saltato (costo stimato {COSTO_AI:.2f} $ > copertina_riserva_max {riserva_max:.2f} $ o FAL_KEY mancante)')
+        return None, None
+    soggetto = (simboli or [nome])[0]
+    prompt = (f'Photorealistic professional travel photograph of {soggetto} ({nome}), the most famous and recognizable landmark, exactly as it really looks, '
+              'shown WHOLE, big and sharp in the centre of the frame, golden hour light, clear sky, vivid natural colours, high contrast. '
+              'No people in the foreground, no cars, no signs, no scaffolding. Absolutely NO text, letters, numbers, logos or watermark.')
+    log(f'copertina foto: secondo tentativo con foto AI di "{soggetto}" (costo stimato {COSTO_AI:.2f} $, tetto {riserva_max:.2f} $)')
+    try:
+        im = _fal_immagine(prompt)
+    except Exception as e:
+        log('copertina foto: foto AI non riuscita:', str(e)[:150]); return None, None
+    try:
+        import costi as CO
+        CO.registra('fal', 'fal-ai/nano-banana-2', dollari=COSTO_AI, nota='copertina foto riserva AI')
+    except Exception:
+        pass
+    return im, [.15, .1, .85, .9]
+
+
+def crea(titolo, lingua, path, extra='', riserva_max=0.0):
     p = piano(titolo, lingua, extra)
     if not nome_nel_titolo(p.get('nome') or '', titolo):   # CONTROLLO: mai in copertina un soggetto diverso dal titolo (31 ott: Las Vegas -> STATI UNITI)
         log('copertina foto: nome', p.get('nome'), 'non e\' il soggetto del titolo, rifaccio')
@@ -198,7 +247,10 @@ def crea(titolo, lingua, path, extra=''):
             log('COPERTINA BLOCCATA: il nome', p.get('nome'), 'non corrisponde al titolo', titolo); return None
     log('copertina foto:', json.dumps(p, ensure_ascii=False)[:300])
     foto, box = foto_simbolo(p.get('nome') or titolo, p.get('simboli') or [])
+    if foto is None:   # stesso stile del canale: solo la foto cambia origine (AI), mai un'altra grafica
+        log('copertina foto: nessuna foto ha superato il controllo')
+        foto, box = foto_ai(p.get('nome') or titolo, p.get('simboli') or [], riserva_max)
     if foto is None:
-        log('copertina foto: nessuna foto ha superato il controllo'); return None
+        return None
     return disegna(str(p.get('nome') or '').upper(), str(p.get('anni') or ''), foto, box, path,
                    'TUTTA LA STORIA' if lingua == 'it' else 'THE WHOLE HISTORY')
