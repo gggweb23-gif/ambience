@@ -4299,7 +4299,7 @@ def main():
             os.replace(alto, finale); log('video finale a 1440p')
         except Exception as e:
             log('1440p non riuscito, resta 1080p:', str(e)[:150])
-    cop = copertina(comp, c) if COP_VIDEO else None
+    cop = copertina(comp, c) if (COP_VIDEO and COP_STILE != 'foto') else None   # con stile del canale 'foto' non si copia mai la copertina del competitor
     if COP_STILE == 'foto':   # copertina_stile = foto: pannello con il nome del paese + foto SIMBOLO da Pexels controllata da Claude (stile A3a, 30 ott)
         try:
             import copertina_foto as CF
@@ -4312,6 +4312,8 @@ def main():
             log('copertina foto non riuscita:', str(e)[:200]); cop = None
     if COP_STILE == 'foto' and cop:
         pass
+    elif COP_STILE == 'foto':   # 5 nov (Giorgio): la copertina resta SEMPRE nello stile del canale, qualunque sia il competitor: mai ripiegare su un altro stile
+        log('COPERTINA MANCANTE: nessuna foto valida per lo stile del canale; nessuna copertina di altro stile. Rifarla con "Copertine foto simbolo".')
     elif str(P.get('copertina_formato') or '').strip().lower() == 'primo_piano':   # stile Faces of Rome
         cop = copertina_primo_piano(comp, c)
     elif not COP_VIDEO:   # copertina UFFICIALE (bandiera + figura): fatta qui, prima del caricamento, e caricata insieme al video
