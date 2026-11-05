@@ -2095,13 +2095,16 @@ def main():
     run(['ffmpeg', '-y', '-v', 'error', *mix_in, '-filter_complex', mix_f + f';[m]atrim=0:{totale:.3f}[o]', '-map', '[o]', '-c:a', 'aac', '-b:a', '192k', audio])
     finale = os.path.join(ROOT, 'video_mappe.mp4')
     invito_iscriviti(muto, audio, finale, totale)
+    stile_cop = str(P.get('copertina_stile') or '').strip().lower()
     try:   # copertina 90% come quella del competitor (schema diviso, colori fluo, stessa scritta); se non riesce, quella di prima
-        if str(P.get('copertina_stile') or '').strip().lower() == 'titolo_mappa' and c.get('copertina_titolo'):   # nome del paese enorme + paese sulla mappa con i disegni del video
+        if stile_cop == 'titolo_mappa' and not c.get('copertina_titolo'):   # 5 nov (Giorgio): mai un altro stile al posto di quello del canale
+            raise RuntimeError('il copione non ha copertina_titolo')
+        if stile_cop == 'titolo_mappa' and c.get('copertina_titolo'):   # nome del paese enorme + paese sulla mappa con i disegni del video
             import copertina_cartellino as CC
             CC.VM = sys.modules[__name__]; ct = c['copertina_titolo']; log('copertina titolo su mappa:', json.dumps(ct, ensure_ascii=False)[:300])
             ic = [(nome_lib(x[0]) or 'question', float(x[1]), float(x[2])) for x in (ct.get('icone') or [])[:4] if len(x) >= 3]
             cop = CC.copertina_titolo(ct.get('paese') or [], ct.get('titolo') or '', ct.get('fascia') or '', ic, os.path.join(ROOT, 'copertina.jpg'))
-        elif str(P.get('copertina_stile') or '').strip().lower() == 'cartellino':   # stile scelto per Rich Borders (29 ott): cartellini del prezzo + parola gigante
+        elif stile_cop == 'cartellino':   # stile scelto per Rich Borders (29 ott): cartellini del prezzo + parola gigante
             import copertina_cartellino as CC
             CC.VM = sys.modules[__name__]
             pc = CC.piano(comp); log('copertina cartellino:', json.dumps(pc, ensure_ascii=False)[:300])
@@ -2111,8 +2114,13 @@ def main():
         else:
             cop = copertina_nuova(piano_copertina(comp, c), os.path.join(ROOT, 'copertina.jpg'))
     except Exception as e:
-        log('copertina nuova non riuscita, uso quella semplice:', str(e)[:150])
-        cop = copertina(c, os.path.join(ROOT, 'copertina.jpg'))
+        if stile_cop in ('cartellino', 'titolo_mappa'):   # 5 nov (Giorgio): la copertina resta SEMPRE nello stile del canale (copertina_stile), qualunque sia il competitor: niente copertina di altro stile
+            log(f'COPERTINA MANCANTE: copertina "{stile_cop}" non riuscita ({str(e)[:150]}); nessuna copertina di altro stile. '
+                'Rifarla nello stesso stile (es. "Copertine mappe (rifai e carica)" per il cartellino).')
+            cop = None
+        else:
+            log('copertina nuova non riuscita, uso quella semplice:', str(e)[:150])
+            cop = copertina(c, os.path.join(ROOT, 'copertina.jpg'))
     titolo = str(c.get('titolo') or comp.get('titolo') or 'Rich Borders')[:100]
     c['capitoli_testo'] = capitoli(scene, durs)
     open(os.path.join(ROOT, 'titolo.txt'), 'w').write(titolo)
@@ -2125,12 +2133,14 @@ def main():
     extra = {'descrizione': descr_yt, 'tag': ', '.join(tag_yt), 'cartella_video': P.get('cartella_video') or '', 'cartella_copertine': P.get('cartella_copertine') or ''}
     if P.get('callback_url') and E('FAL_KEY') and dur_v >= MIN_SEC_YT:   # copia per n8n: video e copertina finiscono nella cartella Drive del canale
         try:
-            extra['video_url'] = carica_file(finale, 'video/mp4'); extra['copertina_url'] = carica_file(cop, 'image/jpeg')
+            extra['video_url'] = carica_file(finale, 'video/mp4')
+            if cop:
+                extra['copertina_url'] = carica_file(cop, 'image/jpeg')
             log('video e copertina pronti per il Drive')
         except Exception as e:
             log('copia per il Drive non riuscita:', str(e)[:150])
     if CARICA and dur_v >= MIN_SEC_YT:
-        vid = carica_youtube(finale, c, titolo); nota = carica_copertina(vid, cop)
+        vid = carica_youtube(finale, c, titolo); nota = carica_copertina(vid, cop) if cop else 'COPERTINA MANCANTE (nessuna copertina nello stile del canale): da rifare'
         extra['playlist'] = metti_in_playlist(vid, titolo, descr_yt)
         avvisa({'stato': 'PUBBLICATO', 'video_id': vid, 'link': 'https://www.youtube.com/watch?v=' + vid, 'titolo': titolo,
                 'pubblica_il': P.get('pubblica_il') or '', 'minuti_video': round(dur_v / 60, 1), 'minuti_lavoro': round((time.time() - T_INIZIO) / 60, 1), 'errore': nota, **extra})

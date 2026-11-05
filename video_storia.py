@@ -94,6 +94,10 @@ BUDGET = _bud_n   # euro massimi a video per i disegni
 PREZZO_DISEGNO = 0.12   # $ per disegno Nano Banana 2 a 2K (con i rifatti si conta +25%)
 SPESA = {'fal': 0.0, 'disegni': 0}
 COP_VIDEO = str(P.get('copertina_video') or E('COPERTINA_VIDEO', '') or 'NO').strip().upper() == 'SI'
+# colonna copertina_rif_stile (5 nov, Giorgio): link (o file del repository) di UNA copertina NOSTRA che fissa lo stile del canale.
+# Con copertina_video = SI o copertina_formato = primo_piano il competitor da' solo COSA (soggetto, scena, testo); colori, caratteri,
+# riquadro della scritta e impaginazione vengono da questa copertina, qualunque sia il competitor del video.
+COP_RIF_STILE = str(P.get('copertina_rif_stile') or E('COPERTINA_RIF_STILE', '')).strip()
 RISERVA_COP = 0.15 if COP_VIDEO else 0.55   # $ tenuti da parte nel budget per le copertine: 1a (fino a 3 tentativi) + la 2a se servira'
 LINEA_TEMPO = str(P.get('linea_tempo') or E('LINEA_TEMPO', '') or 'NO').strip().lower()   # colonna linea_tempo: alto | basso | NO (vuota) = linea del tempo sempre visibile
 LINEA_TEMPO = 'alto' if LINEA_TEMPO in ('si', 'alto', 'sopra') else 'basso' if LINEA_TEMPO in ('basso', 'sotto') else ''
@@ -1310,6 +1314,27 @@ Rispondi SOLO con JSON: {{"tieni": "cosa resta uguale, in inglese, 1 frase", "ca
         return f'Change about {100 - COP_COPIA}% of the secondary elements (background details, small objects, camera angle) while keeping the main subject and layout. '
 
 
+def rif_stile():
+    """URL della copertina di riferimento dello stile del canale (colonna copertina_rif_stile), '' se manca o non si carica."""
+    if not COP_RIF_STILE:
+        log('ATTENZIONE: colonna copertina_rif_stile vuota: lo stile della copertina puo\' cambiare a seconda del competitor. '
+            'Scrivere nella colonna il link di una copertina approvata del canale.')
+        return ''
+    m = re.search(r'drive\.google\.com/.*?(?:/d/|id=)([-\w]{25,})', COP_RIF_STILE)
+    if re.match(r'https?://', COP_RIF_STILE) and not m:
+        return COP_RIF_STILE
+    try:
+        if m:   # link Drive: si scarica e si passa a fal (fal non apre bene i link Drive)
+            f_ = os.path.join(LAV, 'rif_stile.jpg')
+            open(f_, 'wb').write(http(f'https://drive.usercontent.google.com/download?id={m.group(1)}&export=download&confirm=t', raw=True))
+            Image.open(f_).convert('RGB').save(f_, 'JPEG', quality=92)
+            return carica_fal(f_, 'image/jpeg')
+        return carica_fal(os.path.join(ROOT, COP_RIF_STILE), 'image/jpeg' if COP_RIF_STILE.lower().endswith(('.jpg', '.jpeg')) else 'image/png')
+    except Exception as e:
+        log('copertina di riferimento dello stile non caricata (' + str(e)[:120] + ')')
+        return ''
+
+
 def copertina(comp, c):
     if not comp.get('copertina') or not E('FAL_KEY'):
         return None
@@ -1324,19 +1349,27 @@ def copertina(comp, c):
             log('personaggio copertina non caricato:', e)
     stile = STILE_COP.get(COP_STILE, STILE_COP['cartone'])
     cambio = analizza_copertina(comp, testo)
-    if COP_COPIA >= 100:
+    rif = rif_stile()
+    if rif:   # 5 nov: dal competitor solo soggetto, scena e idea; l'aspetto grafico e' sempre quello del canale (ultima immagine allegata)
+        img.append(rif)
+        base = (f'Create a NEW YouTube thumbnail for our channel. From the FIRST image take ONLY the subject, the scene and the idea (about {COP_COPIA}% the same), {stile}. '
+                'The LAST image is a thumbnail of OUR channel: copy EXACTLY its graphic style: same colour palette and colour grading, same font, same text colours, '
+                'same text box / band shape, same text position and size, same layout of image and text. Never use the colours, font or layout of the FIRST image. '
+                + (cambio if COP_COPIA < 100 else ''))
+    elif COP_COPIA >= 100:
         base = ('Recreate the YouTube thumbnail of the FIRST image almost identically: same composition, same layout, same framing, same place '
                 f'and same kind of scene, same colour palette and same title position and size, {stile}. '
                 'Small differences only: slightly different camera angle, different small details in the background. ')
     else:
         base = (f'Recreate the YouTube thumbnail of the FIRST image keeping about {COP_COPIA}% of it: same main composition, same layout, same colour palette '
                 f'and same title position and size, {stile}. ' + cambio)
-    prompt = (base + ('The main figure is the character of the SECOND image (same face, clothes and style), placed where the main figure is in the first image. ' if len(img) > 1 else '')
+    prompt = (base + ('The main figure is the character of the SECOND image (same face, clothes and style), placed where the main figure is in the first image. ' if len(img) > (2 if rif else 1) else '')
               + 'NO big person or character in the foreground: if the first image has a large figure, REMOVE it and fill that area with the landscape, '
               'monuments and scenery of the place (people may appear only tiny and far away). Keep the TOP-LEFT corner (about 28% of the width and 40% of the height) '
               'free of text and of important elements, only sky or background, because the channel logo will be placed there; if the title was there, move it to the right side. '
               + 'Keep the BOTTOM-RIGHT corner (last 30% of the width and last 28% of the height) free of any text: YouTube shows the video duration there. '
-              + f'Replace ALL the text with exactly this text, same font style, same colours and same position (but never in the bottom-right corner): "{testo}". '
+              + (f'Write exactly this text, in the font, colours and text box of OUR channel thumbnail (the LAST image), never in the bottom-right corner: "{testo}". ' if rif else
+                 f'Replace ALL the text with exactly this text, same font style, same colours and same position (but never in the bottom-right corner): "{testo}". ')
               + (f'Every word, number and date written on the image must be in {LINGUA_NOME}' + (' (dates as "a.C." / "d.C." written EXACTLY like this with lowercase a and d, even if the rest of the title is uppercase; never BC, AD or A.C.)' if LINGUA == 'it' else '') + '. '
               + 'No other text, no logos, no watermark.'))
     try:
@@ -1366,11 +1399,12 @@ def copertina_primo_piano(comp, c):
             {'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}}, {'type': 'text', 'text': dom}]}]},
             {'x-api-key': E('ANTHROPIC_API_KEY'), 'anthropic-version': '2023-06-01'}, timeout=300)
         t = ''.join(x.get('text', '') for x in r.get('content', [])); j = json.loads(t[t.find('{'): t.rfind('}') + 1])
+        rif = rif_stile()   # 5 nov: lo stile del disegno viene dalla copertina del NOSTRO canale (se c'e'), mai da quella del competitor di turno
         prompt = ('The reference image shows ONLY the drawing style to copy (lines, colours, faces): do NOT copy its composition. YouTube thumbnail, FOCUSED CLOSE-UP: '
                   + str(j.get('scena') or '') + ' ' + STILE_SCENA + ' The TOP 25% of the image stays simple (a big title will go there), no face there.'
                   + ' Everything historically accurate for the era: no modern symbols or signs (no $ or currency signs on bags or coins), no modern objects, no text.')
         p = os.path.join(ROOT, 'copertina.jpg')
-        _immagine_fal(prompt, [comp['copertina']], p)
+        _immagine_fal(prompt, [rif or comp['copertina']], p)
         im = Image.open(p).convert('RGB').resize((1280, 720), Image.LANCZOS)
         fp = os.path.join(LAV, 'cinzel.ttf')
         if not os.path.exists(fp):

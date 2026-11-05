@@ -36,6 +36,7 @@ const P = JSON.parse(E('PAYLOAD', '{}') || '{}');
 const PROVA = String(P.prova || E('PROVA', 'NO')).trim().toUpperCase() === 'SI';
 const T0 = Date.now();
 const RUN_ID = E('GITHUB_RUN_ID', String(Date.now()));
+let COP_STILE_MANCANTE = false;   // copertina nello stile del canale non riuscita: niente copertina di altro stile (5 nov)
 let COP_MANCANTE = false;   // copertina nuova (copertina_github = SI) non riuscita: niente copertina vecchia
 const log = (...a) => console.log('[motore]', ...a);
 const sleep = (ms) => new Promise(r => setTimeout(r, ms));
@@ -493,7 +494,7 @@ async function main() {
         testo_copertina: (OUT['SEO Generator'][0].json.output || {}).titolo_thumbnail || '', cartella: 'lavoro_statua', config: cfg }) });
       try { statuaRis = JSON.parse(fs.readFileSync(path.join(ROOT, 'lavoro_statua', 'risultato.json'), 'utf8')); } catch (e) { statuaRis = { ok: false, errore: 'nessun risultato (codice ' + cs.code + ')' }; }
       if (statuaRis.ok) { dati.statua_video = path.join(ROOT, statuaRis.statua_video); log('statua di copertina e video pronta'); }
-      else log('ATTENZIONE: copertina statua non riuscita (' + statuaRis.errore + '): video e copertina con lo stile di sempre');
+      else log('ATTENZIONE: copertina statua non riuscita (' + statuaRis.errore + '): video con lo stile di sempre; COPERTINA MANCANTE (mai una copertina di altro stile)');
     }
     dati.config = { ...(dati.config || {}), ...cfg };
     fs.writeFileSync(path.join(SERVER_DIR, 'dati_render.json'), JSON.stringify(dati));
@@ -526,7 +527,10 @@ async function main() {
     if (!copertina) { COP_MANCANTE = true; log('ATTENZIONE: copertina nuova non riuscita due volte: NIENTE copertina vecchia, il video esce programmato e la copertina si rifa\' subito (Copertina KAO singola)'); }
   }
   // copertina "di sempre" (come n8n: Nano Banana Thumbnail -> Build Thumbnail Payload -> immagine della pagina HTML): solo per i canali SENZA copertina_github
-  if (!copertina && !saltaCop && !copGithub) {
+  // 5 nov (Giorgio): la copertina resta SEMPRE nello stile del canale: con copertina_stile = statua niente ripiego sulla copertina "di sempre" (altro stile)
+  const stileStatua = String(cfg.copertina_stile || '').trim().toLowerCase() === 'statua';
+  if (!copertina && !saltaCop && !copGithub && stileStatua) { COP_STILE_MANCANTE = true; log('COPERTINA MANCANTE: copertina statua non pronta; nessuna copertina di altro stile, va rifatta nello stile statua'); }
+  if (!copertina && !saltaCop && !copGithub && !stileStatua) {
     try { const c = await copertinaN8n(cfg); copertina = c; tipoCop = 'image/png'; urlCop = await falCarica(c, 'image/png', 'copertina.png'); log('copertina pronta (stile di sempre)'); }
     catch (e) { log('ATTENZIONE: copertina non creata (' + e.message.slice(0, 150) + '): il video viene caricato con la copertina automatica di YouTube'); }
   }
@@ -554,10 +558,11 @@ async function main() {
   if (!carica) {
     const temi = String(cfg.playlist_topics || '').split('|').map(s => s.trim()).filter(Boolean);
     if (temi.length) extra.playlist = 'scegli tra: ' + temi.join(' / ');
-    await avvisa({ stato: PROVA ? 'PROVA OK' : 'CREATO', ...extra }); return;
+    await avvisa({ stato: PROVA ? 'PROVA OK' : 'CREATO', ...(COP_STILE_MANCANTE ? { errore: 'COPERTINA MANCANTE (nessuna copertina nello stile del canale): da rifare' } : {}), ...extra }); return;
   }
   const vid = await caricaYouTube(fileVideo, cfg, colonne);
   const note = [];
+  if (COP_STILE_MANCANTE) note.push('COPERTINA MANCANTE (nessuna copertina nello stile del canale): da rifare');
   if (copertina) { try { await yt('https://www.googleapis.com/upload/youtube/v3/thumbnails/set?videoId=' + vid, { metodo: 'POST', corpo: copertina, headers: { 'Content-Type': tipoCop } }); }
     catch (e) { note.push('copertina non caricata: ' + e.message.slice(0, 120)); } }
   if (COP_MANCANTE) {   // copertina rifatta subito sul video gia' caricato (prima dell'uscita programmata)
