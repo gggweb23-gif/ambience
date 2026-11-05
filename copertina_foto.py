@@ -77,7 +77,7 @@ def foto_simbolo(nome, simboli, modello='claude-sonnet-5-5', pulita=True):
                '"pulita": true/false (false se davanti o attorno al soggetto ci sono negozi, insegne, auto, cartelli, cantieri, impalcature, cavi o folle che rovinano la foto; '
                'ma se le insegne o le luci SONO il simbolo stesso, es. le insegne al neon di Las Vegas, allora e\' pulita), '
                '"box": [x0, y0, x1, y1] (riquadro del soggetto principale, frazioni 0-1 della foto)}')
-    candidati = []
+    candidati, riserva = [], []
     for q in simboli[:8]:
         try:
             foto = _pexels(q)
@@ -95,9 +95,14 @@ def foto_simbolo(nome, simboli, modello='claude-sonnet-5-5', pulita=True):
             log('foto copertina:', REGISTRO[-1][:200])
             if g.get('paese_giusto') and (g.get('pulita', True) or not pulita) and (g.get('visibile') or 0) >= 7:
                 candidati.append(((g.get('simbolo') or 0) + (g.get('visibile') or 0), g.get('simbolo') or 0, im, g.get('box') or [.2, .2, .8, .8]))
+            elif g.get('paese_giusto') and (g.get('visibile') or 0) >= 5 and (g.get('simbolo') or 0) >= 6:   # riserva: luogo giusto ma foto meno perfetta
+                riserva.append(((g.get('simbolo') or 0) + (g.get('visibile') or 0), g.get('simbolo') or 0, im, g.get('box') or [.2, .2, .8, .8]))
         if any(c[1] >= 9 and c[0] >= 17 for c in candidati):
             break
     buoni = [c for c in candidati if c[1] >= 8] or [c for c in candidati if c[1] >= 5]   # prima i simboli famosi, poi almeno il paese giusto
+    if not buoni and riserva:   # 5 nov: meglio una foto giusta un po' meno perfetta che una copertina in uno stile diverso dal canale
+        log('copertina foto: uso la foto di riserva (luogo giusto, meno perfetta)')
+        buoni = riserva
     if not buoni:
         return None, None
     m = max(buoni, key=lambda c: c[0])
