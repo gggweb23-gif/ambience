@@ -289,17 +289,7 @@ for c in CANALI:
               and v['status'].get('privacyStatus') == 'public']
     lunghi.sort(key=lambda v: v['snippet']['publishedAt'])
     ordine = {v['id']: i for i, v in enumerate(lunghi)}
-    # 1 nov, Giorgio: si lavora sulle copertine solo con almeno 5 video pubblicati E 1000 impression totali sul canale
-    MIN_VID = int(num(c.get('coach_video_prima_di_cambiare'), 5)); MIN_IMP_CANALE = num(c.get('coach_min_impression'), 1000)
-    imp_canale = 0
-    if len(lunghi) >= MIN_VID:
-        try:
-            imp_canale = sum(g[0] for gv in ctr_giornaliero(auth, c).values() for g in gv.values())
-        except Exception as e:
-            log('  impression del canale non lette:', str(e)[:120])
-    if len(lunghi) < MIN_VID or imp_canale < MIN_IMP_CANALE:
-        log(f'  copertine FERME: {len(lunghi)} video pubblicati (minimo {MIN_VID}), {int(imp_canale)} impression (minimo {int(MIN_IMP_CANALE)}): la leva non e\' la copertina')
-        json.dump(S, open(sp, 'w'), ensure_ascii=False, indent=1); continue
+    # 5 nov, Giorgio: tolto il blocco "5 video + 1000 impression totali" del 1 nov; regola unica per tutti = 3 video con almeno 72 ore (coach_calcola.py)
 
     # fase del canale (dai risultati dei test chiusi)
     chiusi = [x for x in S['video'].values() if x.get('ctr_finale') is not None]

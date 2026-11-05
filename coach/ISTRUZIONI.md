@@ -6,7 +6,7 @@ finché i parametri sono rispettati, senza buttare il lavoro fatto. Rispondi e s
 ## Regole fisse (decise con Giorgio il 30 ott 2026)
 - Vale solo per i canali con `coach_auto = SI` in Channel Configs.
 - Parametri (colonne di Channel Configs, default tra parentesi): `coach_obiettivo_ctr` (3,5), `coach_obiettivo_ret30` (65),
-  `coach_obiettivo_ret60` (50), `coach_finestra_video` (3), `coach_min_impression` (1000), `coach_budget_video`
+  `coach_obiettivo_ret60` (50), `coach_finestra_video` (3), `coach_budget_video`
   (costo massimo per video in $ ≈ €, voce ElevenLabs esclusa perche' e' un abbonamento).
 - LUCCHETTO BUDGET (Giorgio, 30 ott 2026): i BUDGET li decide SOLO Giorgio (`coach_budget_video`, `budget_video`): il coach non li
   cambia mai, ne' nel foglio ne' nella ricetta (motore e ricetta li ignorano comunque). DENTRO il budget il coach decide da solo
@@ -61,7 +61,8 @@ finché i parametri sono rispettati, senza buttare il lavoro fatto. Rispondi e s
 3. Per ogni canale: scarica come xlsx il suo file di produzione (colonna `scout_production_sheet_id`) e lancia
    `python3 coach/coach_calcola.py <configs.xlsx> <produzione.xlsx> "<channel_id>"`.
 4. Decidi in base a `stato`:
-   - `ATTESA` (meno di N video con 72 ore nella versione attiva): non cambiare nulla.
+   - `ATTESA` (meno di N video con 72 ore nella versione attiva): non cambiare nulla. E' l'unica condizione di attesa,
+     uguale per tutti i canali (Giorgio, 5 nov 2026: tolto il blocco "5 video + 1000 impression").
    - `OK`: scrivi i risultati nella versione attiva. Se anche il controllo precedente era OK -> `stato` = `stabile`,
      `migliore` = versione attiva. Nessuna modifica.
    - `LEVA_COSTO`: riporta il costo sotto `coach_budget_video` restando nello stile (es. meno disegni e piu' riuso di ogni
