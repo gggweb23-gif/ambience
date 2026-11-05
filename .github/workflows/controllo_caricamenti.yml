@@ -4,7 +4,8 @@ name: Controllo caricamenti YouTube (gratis)
 # Per aggiungere un canale basta un nuovo segreto che inizia per YT_REFRESH_TOKEN e una riga qui sotto in env.
 on:
   schedule:
-    - cron: '7 6 * * *'
+    - cron: '41 5 * * *'   # 06:41 ora italiana: GitHub parte spesso 30-70 min dopo, cosi' il report c'e' prima che Giorgio lo legga
+    - cron: '7 6 * * *'    # 07:07: secondo giro, aggiorna il report con gli ultimi caricamenti della notte
   workflow_dispatch: {}
 
 permissions:
