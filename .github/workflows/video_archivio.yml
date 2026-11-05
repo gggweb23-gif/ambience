@@ -58,13 +58,13 @@ jobs:
         run: |
           set -o pipefail
           mkdir -p prove_video/archivio/registri
-          python3 strumenti/video_archivio.py 2>&1 | tee prove_video/archivio/registri/video_archivio.log
+          python3 strumenti/video_archivio.py 2>&1 | tee "prove_video/archivio/registri/video_archivio_${{ steps.rid.outputs.id || 'prova' }}.log"   # un registro per canale: i canali ora girano in parallelo
       - name: Salva copione e voce per ripartire senza ripagarli (solo se il giro non e' finito bene)
-        if: ${{ (failure() || cancelled()) && steps.rid.outputs.id != '' && steps.rid.outputs.ripreso != 'SI' }}
+        if: ${{ (failure() || cancelled()) && steps.rid.outputs.id != '' }}   # anche se si era ripreso un lavoro vecchio (titolo diverso): la voce nuova non va persa
         run: |
           mkdir -p lavoro_archivio; cp /tmp/lav/voce_*.json lavoro_archivio/ 2>/dev/null || true; ls -la lavoro_archivio
       - name: Carica il lavoro salvato
-        if: ${{ (failure() || cancelled()) && steps.rid.outputs.id != '' && steps.rid.outputs.ripreso != 'SI' }}
+        if: ${{ (failure() || cancelled()) && steps.rid.outputs.id != '' }}   # anche se si era ripreso un lavoro vecchio (titolo diverso): la voce nuova non va persa
         uses: actions/upload-artifact@v4
         with:
           name: lavoro-archivio-${{ steps.rid.outputs.id }}
