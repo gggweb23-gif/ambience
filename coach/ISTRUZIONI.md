@@ -16,7 +16,11 @@ finché i parametri sono rispettati, senza buttare il lavoro fatto. Rispondi e s
 - La DURATA la decide Giorgio nel foglio (`durata_min_minuti`, `durata_max_minuti`): il coach non la cambia mai.
 - Il calcolo lo fa `coach/coach_calcola.py` (gratis). Ordine fisso delle leve: COSTO (se il costo medio degli ultimi video supera
   coach_budget_video) -> CTR -> retention 30 s -> retention 60 s.
-- UNA modifica alla volta per canale e per controllo. Ogni modifica = nuova VERSIONE nella ricetta del canale
+- DUE FRONTI IN PARALLELO (Giorgio, 5 nov 2026): copertina/CTR e retention. Appena il canale arriva a
+  `coach_min_views_retention` views TOTALI (default 50, sommando tutti i video), si lavora ANCHE sulla retention senza aspettare
+  che la copertina sia risolta: YouTube non spinge un video con poco coinvolgimento anche se il CTR e' buono. La decisione sulla
+  retention e' in `esito['retention']` di coach_calcola.py (ATTESA_VIEWS / LEVA_RET30 / LEVA_RET60 / OK).
+- UNA modifica alla volta per canale e per FRONTE a ogni controllo (al massimo una sulla copertina e una sulla retention). Ogni modifica = nuova VERSIONE nella ricetta del canale
   (`coach/canali/<slug>/ricetta.json`): numero, data `dal`, cosa, leva, parametri, risultati, decisione.
 - I parametri della versione attiva valgono SOPRA la riga di Channel Configs (li legge il motore). Il foglio non si tocca.
 - Mai superare `coach_budget_video`. Preferire SEMPRE le modifiche a costo zero: meno costa un video, più canali si aprono.

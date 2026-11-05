@@ -15,6 +15,8 @@ Regole (decise con Giorgio il 30 ott 2026, valgono per tutti i canali con coach_
 - retention 30 s e 60 s = media pesata sulle views, solo video con almeno 30 views (se non bastano si allarga a 5 video)
   >= coach_obiettivo_ret30 (default 65) e coach_obiettivo_ret60 (default 50)
 - ordine fisso delle leve: CTR -> retention 30 s -> retention 60 s
+- 5 nov 2026, Giorgio: esito['retention'] = decisione PARALLELA sulla retention, attiva da coach_min_views_retention (default 50)
+  views totali del canale (tutti i video sommati), anche quando la copertina e' ancora in ATTESA o in LEVA_CTR
 - STABILE quando i parametri tengono per 2 controlli di fila"""
 import datetime as dt, json, os, re, sys, unicodedata
 import openpyxl
@@ -100,6 +102,25 @@ def main(f_cfg, f_prod, canale):
     if BUD and costi and esito['costo_medio_ultimi'] > BUD * 1.05:   # il budget e' una regola fissa: prima si rientra nel budget
         esito.update({'stato': 'LEVA_COSTO', 'motivo': f"costo medio {esito['costo_medio_ultimi']} $ sopra il budget {BUD} $ a video"})
         return esito, fr
+    # 5 nov 2026, Giorgio: da coach_min_views_retention (default 50) views TOTALI del canale (tutti i video sommati) si lavora ANCHE
+    # sulla retention, in parallelo alla copertina: YouTube non spinge un video con poco coinvolgimento anche se il CTR e' buono.
+    MIN_VR = num(cfg.get('coach_min_views_retention'), 50)
+    tot_views = sum(v['views'] for v in video)
+    conr = [v for v in video if v['views'] > 0 and (v['ret30'] is not None or v['ret60'] is not None)]
+    def ret_tutti(k):
+        b = [v for v in conr if v[k] is not None]; pv = sum(v['views'] for v in b)
+        return round(sum(v[k] * v['views'] for v in b) / pv, 1) if pv else None
+    R30, R60 = ret_tutti('ret30'), ret_tutti('ret60')
+    if tot_views < MIN_VR:
+        rt = {'stato': 'ATTESA_VIEWS', 'motivo': f'retention: {int(tot_views)} views totali su {int(MIN_VR)} necessarie'}
+    elif R30 is None or R30 < O['ret30']:
+        rt = {'stato': 'LEVA_RET30', 'motivo': f'retention 30 s {R30}% su {int(tot_views)} views totali (obiettivo {O["ret30"]}%)'}
+    elif R60 is None or R60 < O['ret60']:
+        rt = {'stato': 'LEVA_RET60', 'motivo': f'retention 60 s {R60}% su {int(tot_views)} views totali (obiettivo {O["ret60"]}%)'}
+    else:
+        rt = {'stato': 'OK', 'motivo': f'retention 30 s {R30}% / 60 s {R60}% su {int(tot_views)} views totali'}
+    rt.update(views_totali=tot_views, ret30=R30, ret60=R60, minimo_views=MIN_VR)
+    esito['retention'] = rt
     if len(fin) < N:
         esito.update({'stato': 'ATTESA', 'motivo': f'servono {N} video con almeno 72 ore nella versione {attiva}, ce ne sono {len(fin)}'})
         return esito, fr

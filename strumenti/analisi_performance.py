@@ -43,11 +43,14 @@ for r in cfgv[1:]:
     except Exception as e:
         print('  file non leggibile', str(e)[:100]); continue
     stato_coach = 'escluso dal Coach (regola di Giorgio)' if cid == 'KAO PSICOLOGIA' else 'ricetta non ancora presente'
+    stato_ret = '—'
     fp = os.path.join(d, C.slug(cid) + '.xlsx'); xlsx({'Foglio1': prod, 'Performance': perf or [[]]}, fp)
     if os.path.exists(os.path.join('coach', 'canali', C.slug(cid), 'ricetta.json')):
         try:
             e, _ = C.main(fcfg, fp, cid)
             stato_coach = f"{e.get('stato')}: {e.get('motivo')}"
+            rt = e.get('retention') or {}
+            stato_ret = f"{rt.get('stato', '—')}: {rt.get('motivo', '')}"
             for v in e.get('tutti_i_video', [])[-6:]:
                 print('    video', v['pubblicato'][:16], 'versione', v['versione'], 'ore', v['ore'], '|', v['titolo'][:40])
             print(json.dumps({k: v for k, v in e.items() if k in ('stato', 'motivo', 'misure', 'versione_attiva', 'video_maturi', 'costo_medio_ultimi', 'budget_video')},
@@ -72,13 +75,13 @@ for r in cfgv[1:]:
         ctr = clic / imp * 100 if imp else None
         nome = str(cfg.get('channel_name') or cid).strip()
         TAB.append(f"| **{nome}** | {len(mat)} video, " + f"{imp:,.0f}".replace(',', '.') + f" impression | {ok(ctr, oc) if imp >= 100 else '— (poche impression)'} | "
-                   f"{ok(r30, o30)} / {ok(r60, o60)} | {stato_coach} |")
+                   f"{ok(r30, o30)} / {ok(r60, o60)} | {stato_coach} | {stato_ret} |")
     else:
-        TAB.append(f"| **{str(cfg.get('channel_name') or cid).strip()}** | nessun dato | — | — | {stato_coach} |")
+        TAB.append(f"| **{str(cfg.get('channel_name') or cid).strip()}** | nessun dato | — | — | {stato_coach} | {stato_ret} |")
 
 os.makedirs('coach', exist_ok=True)
 import datetime as _dt
 open('coach/riepilogo_performance.md', 'w').write(
     f"Riepilogo performance del {_dt.datetime.now(A.ZoneInfo('Europe/Rome')).strftime('%d/%m/%Y %H:%M')} (ultimi 5 video con almeno 3 giorni; obiettivi CTR 3,5% · ret30 65% · ret60 50%)\n\n"
-    "| Canale | Ultimi video | CTR | Ritenzione 30 s / 60 s | Decisione del Coach |\n|---|---|---|---|---|\n" + "\n".join(TAB) + "\n")
+    "| Canale | Ultimi video | CTR | Ritenzione 30 s / 60 s | Coach: copertina | Coach: retention (da 50 views totali) |\n|---|---|---|---|---|---|\n" + "\n".join(TAB) + "\n")
 print(open('coach/riepilogo_performance.md').read())
