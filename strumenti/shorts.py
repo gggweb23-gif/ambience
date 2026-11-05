@@ -241,7 +241,7 @@ def canale(cfg):
     fid = str(cfg.get('scout_production_sheet_id') or '').strip()
     if not cid or n_giorno < 1 or not fid or (SOLO and cid != SOLO):
         return
-    log('===', cid)
+    log('===', cid, f"| shorts_al_giorno={cfg.get('shorts_al_giorno')!r} shorts_orari={cfg.get('shorts_orari')!r} shorts_budget_giorno={cfg.get('shorts_budget_giorno')!r}")
     if budget <= 0:
         log('  shorts_budget_giorno vuota: niente Short (nessuna spesa senza il tuo ok)'); return
     sch, h, prod = A.righe(fid)
