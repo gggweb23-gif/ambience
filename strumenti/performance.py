@@ -5,8 +5,12 @@ Per ogni canale di Channel Configs con chiave_youtube e file di produzione: pren
 views, impression, CTR, ritenzione a 30 s e a 60 s (le colonne che legge il Coach, coach/coach_calcola.py).
 - views, durata media, ritenzione: YouTube Analytics API (dati con 1-3 giorni di ritardo)
 - impression e CTR della copertina: report "reach" della YouTube Reporting API (il primo report arriva ~2 giorni dopo l'attivazione)
-Il token YouTube del canale deve avere il permesso yt-analytics.readonly."""
-import csv, datetime as dt, io, json, os, re, sys, urllib.error, urllib.parse, urllib.request
+Il token YouTube del canale deve avere il permesso yt-analytics.readonly.
+5 nov 2026 (Giorgio, proposta 1 dello studio impression): i download dei report che falliscono (429/5xx) si riprovano con attesa
+crescente e un giorno mancante non si salta mai in silenzio; colonne in fondo giorni_report / copertura_report: quanti giorni di
+report coprono il video e se sono completi. Video senza giorni di report: impression e ctr = "in attesa report" (non 0).
+Il job dei report impression si crea appena il canale ha il token, anche senza video (proposta 2)."""
+import csv, datetime as dt, io, json, os, re, sys, time, urllib.error, urllib.parse, urllib.request
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import avvio_canali as A
 
@@ -16,7 +20,10 @@ N_VIDEO = int(E('N_VIDEO', '20'))
 SOLO = E('SOLO_CANALE', '').strip()
 # stessi nomi di colonna che usava n8n (li legge il Coach), piu' qualche colonna in fondo
 COLONNE = ['data_rilevazione', 'youtube_video_id', 'titolo', 'giorni_dalla_pubblicazione', 'views', 'durata_media_sec', 'perc_media_guardata',
-           'ritenzione_30s', 'iscritti', 'impression', 'ctr', 'ritenzione_60s', 'data_pubblicazione', 'durata_video_sec', 'mi_piace']
+           'ritenzione_30s', 'iscritti', 'impression', 'ctr', 'ritenzione_60s', 'data_pubblicazione', 'durata_video_sec', 'mi_piace',
+           'giorni_report', 'copertura_report']   # ultime 2 (5 nov): giorni di report reach sul video (il Coach usa solo video con >= 3 giorni completi)
+IN_ATTESA = 'in attesa report'
+PT = A.ZoneInfo('America/Los_Angeles')   # i giorni dei report reach di YouTube sono in ora del Pacifico
 REPORT = []
 
 
@@ -24,11 +31,21 @@ def log(*a):
     s = ' '.join(str(x) for x in a); print(s, flush=True); REPORT.append(s)
 
 
-def http(url, corpo=None, headers=None, metodo=None, raw=False):
-    req = urllib.request.Request(url, data=json.dumps(corpo).encode() if corpo is not None else None, method=metodo,
-                                 headers=dict({'Content-Type': 'application/json'}, **(headers or {})))
-    r = urllib.request.urlopen(req, timeout=90).read()
-    return r if raw else json.loads(r or b'{}')
+def http(url, corpo=None, headers=None, metodo=None, raw=False, tentativi=6):
+    """429 / 5xx / errori di rete: si riprova con attesa crescente (5, 10, 20, 40, 60 s) prima di arrendersi."""
+    for prova in range(tentativi):
+        req = urllib.request.Request(url, data=json.dumps(corpo).encode() if corpo is not None else None, method=metodo,
+                                     headers=dict({'Content-Type': 'application/json'}, **(headers or {})))
+        try:
+            r = urllib.request.urlopen(req, timeout=90).read()
+            return r if raw else json.loads(r or b'{}')
+        except urllib.error.HTTPError as e:
+            if e.code not in (429, 500, 502, 503, 504) or prova == tentativi - 1:
+                raise
+        except (urllib.error.URLError, TimeoutError, ConnectionError):
+            if prova == tentativi - 1:
+                raise
+        time.sleep(min(60, 5 * 2 ** prova))
 
 
 def num(v, d=None):
@@ -52,17 +69,29 @@ def secondi(iso):
     return g * 86400 + h * 3600 + mi * 60 + s
 
 
-def impression_ctr(auth, cfg):
-    """{video: [impression, clic]} sommati su tutti i giorni dei report reach disponibili."""
+def job_reach(auth, cfg):
+    """Il job del report impression/CTR (reach); se il canale non ce l'ha si crea subito (anche senza video: i report
+    partono ~2 giorni dopo la creazione, prima si attiva meglio e'). Restituisce il job o None se appena creato."""
     jobs = http('https://youtubereporting.googleapis.com/v1/jobs', headers=auth).get('jobs', [])
     job = next((j for j in jobs if j.get('id') == str(cfg.get('reach_job_id') or '').strip()), None) or \
         next((j for j in jobs if 'reach' in str(j.get('reportTypeId', ''))), None)
     if not job:
         tipi = http('https://youtubereporting.googleapis.com/v1/reportTypes', headers=auth).get('reportTypes', [])
         tipo = next((t['id'] for t in tipi if t['id'] == 'channel_reach_basic_a1'), None) or next((t['id'] for t in tipi if 'reach' in t['id']), None)
-        if tipo:
+        if tipo and E('PROVA') != 'SI':
             http('https://youtubereporting.googleapis.com/v1/jobs', {'reportTypeId': tipo, 'name': 'reach_ctr'}, auth, metodo='POST')
             log('  attivato il report impression/CTR: i primi dati arrivano tra circa 2 giorni')
+        elif tipo:
+            log('  (prova) il report impression/CTR non e\' attivo: nel giro vero verrebbe attivato')
+    return job
+
+
+def impression_ctr(auth, cfg):
+    """{'per': {video: [impression, clic, {giorni con dati}]}, 'giorni': giorni scaricati, 'mancanti': giorni non scaricati
+    nonostante i tentativi, 'primo'/'ultimo': primo e ultimo giorno disponibile} dai report reach (ultimi 60 giorni).
+    None se il canale non ha ancora il job."""
+    job = job_reach(auth, cfg)
+    if not job:
         return None
     reps, pg = [], ''
     for _ in range(10):
@@ -75,21 +104,45 @@ def impression_ctr(auth, cfg):
         g = str(rp.get('startTime', ''))[:10]
         if g and rp.get('downloadUrl') and (g not in giorno or str(rp.get('createTime')) > str(giorno[g].get('createTime'))):
             giorno[g] = rp
-    per = {}
-    for g, rp in sorted(giorno.items())[-60:]:
+    per, fatti, mancanti = {}, set(), []
+    scelti = sorted(giorno.items())[-60:]
+    for g, rp in scelti:
         try:
             righe = list(csv.reader(io.StringIO(http(rp['downloadUrl'], headers=auth, raw=True).decode('utf-8', 'ignore'))))
-        except Exception:
+        except Exception as e:   # mai piu' saltato in silenzio: il giorno resta segnato come mancante
+            mancanti.append(g); log(f'  !! report del {g} NON scaricato dopo i tentativi ({str(e)[:80]}): i video di quel giorno risultano "incompleto"')
             continue
         if not righe or 'video_thumbnail_impressions' not in righe[0]:
-            continue
+            fatti.add(g); continue   # giorno senza impression (report vuoto): e' un dato, non un buco
         h = righe[0]; iV, iI, iC = h.index('video_id'), h.index('video_thumbnail_impressions'), h.index('video_thumbnail_impressions_ctr')
         dati = [(x[iV], num(x[iI], 0), num(x[iC], 0)) for x in righe[1:] if len(x) > iC and x[iV]]
         scala = 100 if any(d[2] > 1 for d in dati) else 1
         for v, imp, ctr in dati:
             z = per.setdefault(v, [0.0, 0.0]); z[0] += imp; z[1] += imp * ctr / scala
-    log(f'  report impression/CTR: {len(giorno)} giorni disponibili')
-    return per
+        fatti.add(g)
+    giorni = sorted(g for g, _ in scelti)
+    if giorni:   # giorni che YouTube non ha (ancora) pubblicato in mezzo all'intervallo: anche questi sono buchi
+        a, b = dt.date.fromisoformat(giorni[0]), dt.date.fromisoformat(giorni[-1])
+        mancanti += [x for x in ((a + dt.timedelta(i)).isoformat() for i in range((b - a).days + 1)) if x not in giorno and x not in mancanti]
+    log(f'  report impression/CTR: {len(giorno)} giorni disponibili, {len(fatti)} letti, ultimo {giorni[-1] if giorni else "-"}'
+        + (f' | GIORNI MANCANTI: {", ".join(sorted(mancanti))}' if mancanti else ''))
+    return {'per': per, 'fatti': fatti, 'mancanti': set(mancanti), 'primo': giorni[0] if giorni else None, 'ultimo': giorni[-1] if giorni else None}
+
+
+def copertura(rep, pub):
+    """(giorni_report, testo) per un video pubblicato a pub (datetime UTC): giorni di report dal giorno di uscita (ora del Pacifico)
+    all'ultimo report disponibile; 'incompleto' se in mezzo manca un giorno."""
+    if not rep or not rep.get('ultimo'):
+        return 0, 'report non attivo'
+    g0 = pub.astimezone(PT).date(); ult = dt.date.fromisoformat(rep['ultimo']); primo = dt.date.fromisoformat(rep['primo'])
+    if g0 > ult:
+        return 0, 'non ancora disponibile (report fino al ' + ult.strftime('%d/%m') + ')'
+    giorni = [(max(g0, primo) + dt.timedelta(i)).isoformat() for i in range((ult - max(g0, primo)).days + 1)]
+    buchi = [x for x in giorni if x in rep['mancanti'] or x not in rep['fatti']]
+    n = len(giorni) - len(buchi)
+    if buchi:
+        return n, 'incompleto: mancano ' + ', '.join(dt.date.fromisoformat(x).strftime('%d/%m') for x in buchi[:6])
+    return n, 'completa fino al ' + ult.strftime('%d/%m') + (' (ultimi 60 giorni)' if g0 < primo else '')
 
 
 def analytics(auth, params):
@@ -122,7 +175,10 @@ def scrivi(fid, valori):
             log('  scheda Performance attuale:', json.dumps(v, ensure_ascii=False)[:800])
         except Exception as e:
             log('  scheda Performance non presente', str(e)[:80])
-        log('  verrebbe scritto:', json.dumps(valori[-2:], ensure_ascii=False)[:600]); return
+        log('  verrebbe scritto (video | impression | ctr | giorni_report | copertura_report):')
+        for r in valori[1:]:
+            log(f'    {r[1]} | {r[9]} | {r[10]} | {r[15]} | {r[16]}')
+        return
     meta = A.api(fid, 'GET', '?fields=sheets.properties')
     nomi = [s['properties']['title'] for s in meta['sheets']]
     for s_ in meta['sheets']:   # le schede Performance mai in prima posizione (tutti i programmi leggono i video dalla prima scheda)
@@ -156,6 +212,10 @@ def canale(cfg):
     if 'yt-analytics' not in scope:
         log('  IL TOKEN NON HA IL PERMESSO yt-analytics.readonly: va rigenerato (salto)'); return
     auth = {'Authorization': 'Bearer ' + tk}
+    try:   # proposta 2 (5 nov): il report impression si attiva appena c'e' il token, anche se il canale non ha ancora video
+        job_reach(auth, cfg)
+    except urllib.error.HTTPError as e:
+        log('  job report impression non verificato:', e.code, e.read().decode()[:150])
     _, _, prod = A.righe(fid)
     ids = []
     for r in prod:
@@ -203,14 +263,22 @@ def canale(cfg):
         except Exception:
             r30 = r60 = None
         t = tot.get(v, [0, None, None, None, None])
-        ic = (imp or {}).get(v)
+        ic = ((imp or {}).get('per') or {}).get(v)
         ctr = round(ic[1] / ic[0] * 100, 2) if ic and ic[0] else None
         vuoto = lambda z: '' if z is None else z
+        ng, cop = copertura(imp, pub)
+        if ng == 0:   # nessun giorno di report sul video: non e' zero, e' in attesa
+            c_imp = c_ctr = IN_ATTESA
+        else:
+            c_imp = int(ic[0]) if ic else 0; c_ctr = vuoto(ctr)
         righe.append([oggi, v, x['snippet']['title'], round((ora - pub).total_seconds() / 86400, 1), int(t[0] or 0), vuoto(t[1]),
-                      round(t[2], 1) if t[2] is not None else '', vuoto(r30), vuoto(t[4]), int(ic[0]) if ic else '', vuoto(ctr), vuoto(r60),
-                      pub.astimezone(A.ZoneInfo('Europe/Rome')).strftime('%Y-%m-%d %H:%M'), dur, vuoto(t[3])])
+                      round(t[2], 1) if t[2] is not None else '', vuoto(r30), vuoto(t[4]), c_imp, c_ctr, vuoto(r60),
+                      pub.astimezone(A.ZoneInfo('Europe/Rome')).strftime('%Y-%m-%d %H:%M'), dur, vuoto(t[3]), ng, cop])
     scrivi(fid, righe)
-    ultimi = righe[-5:]
+    ultimi = [x for x in righe[1:] if num(x[15], 0) >= 3 and not str(x[16]).startswith('incompleto')][-5:]   # solo video con >= 3 giorni di report
+    attesa = sum(1 for x in righe[1:] if num(x[15], 0) < 3 or str(x[16]).startswith('incompleto'))
+    if attesa:
+        log(f'  {attesa} video in attesa di report (meno di 3 giorni completi): esclusi da impression/CTR')
     imp5 = sum(num(x[9], 0) for x in ultimi); clic5 = sum(num(x[9], 0) * num(x[10], 0) / 100 for x in ultimi)
     log(f'  scritti {len(righe) - 1} video | ultimi 5: views {sum(num(x[4], 0) for x in ultimi):.0f}, impression {imp5:.0f}, '
         f'CTR medio {clic5 / imp5 * 100:.2f}%' if imp5 else f'  scritti {len(righe) - 1} video | impression non ancora disponibili')

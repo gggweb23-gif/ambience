@@ -61,7 +61,12 @@ for r in cfgv[1:]:
             print('  calcolo coach non riuscito:', str(ex)[:200])
     if perf and len(perf) > 1:   # medie semplici sugli ultimi 5 video con almeno 3 giorni
         ph = perf[0]; rows = [dict(zip(ph, x + [''] * (len(ph) - len(x)))) for x in perf[1:]]
-        mat = [x for x in rows if C.num(x.get('giorni_dalla_pubblicazione')) >= 3][-5:]
+        if 'giorni_report' in ph:   # 5 nov: impression/CTR solo sui video con >= 3 giorni di report completi
+            okr = lambda x: (C.num(x.get('giorni_report'), 0) or 0) >= 3 and not str(x.get('copertura_report') or '').startswith('incompleto')
+        else:
+            okr = lambda x: (C.num(x.get('giorni_dalla_pubblicazione'), 0) or 0) >= 3
+        mat = [x for x in rows if okr(x)][-5:]
+        n_att = sum(1 for x in rows if not okr(x))
         imp = sum(C.num(x.get('impression'), 0) for x in mat); clic = sum(C.num(x.get('impression'), 0) * C.num(x.get('ctr'), 0) / 100 for x in mat)
         vw = [x for x in mat if C.num(x.get('views'), 0) >= 30]
         pv = sum(C.num(x.get('views'), 0) for x in vw)
@@ -69,12 +74,13 @@ for r in cfgv[1:]:
         r60 = sum(C.num(x.get('ritenzione_60s'), 0) * C.num(x.get('views'), 0) for x in vw if C.num(x.get('ritenzione_60s')) is not None) / pv if pv else None
         print(f"  ultimi {len(mat)} video (>=3 giorni): impression {imp:.0f} | CTR {clic / imp * 100 if imp else 0:.2f}% (obiettivo {cfg.get('coach_obiettivo_ctr') or 3.5}) | "
               f"ret30 {r30 if r30 is None else round(r30, 1)} (obiettivo {cfg.get('coach_obiettivo_ret30') or 65}) | ret60 {r60 if r60 is None else round(r60, 1)} "
-              f"(obiettivo {cfg.get('coach_obiettivo_ret60') or 50}) | video con >=30 views: {len(vw)} | pubblici in tutto: {len(rows)}")
+              f"(obiettivo {cfg.get('coach_obiettivo_ret60') or 50}) | video con >=30 views: {len(vw)} | pubblici in tutto: {len(rows)} | in attesa di report: {n_att}")
         oc, o30, o60 = (C.num(cfg.get(k), dflt) for k, dflt in (('coach_obiettivo_ctr', 3.5), ('coach_obiettivo_ret30', 65), ('coach_obiettivo_ret60', 50)))
         ok = lambda v, o: '—' if v is None else (f"{v:.1f}%".replace('.', ',') + (' ✅' if v >= o else ' ❌'))
         ctr = clic / imp * 100 if imp else None
         nome = str(cfg.get('channel_name') or cid).strip()
-        TAB.append(f"| **{nome}** | {len(mat)} video, " + f"{imp:,.0f}".replace(',', '.') + f" impression | {ok(ctr, oc) if imp >= 100 else '— (poche impression)'} | "
+        TAB.append(f"| **{nome}** | {len(mat)} video, " + f"{imp:,.0f}".replace(',', '.') + " impression" + (f" (+{n_att} in attesa di report)" if n_att else '')
+                   + f" | {ok(ctr, oc) if imp >= 100 else '— (poche impression)'} | "
                    f"{ok(r30, o30)} / {ok(r60, o60)} | {stato_coach} | {stato_ret} |")
     else:
         TAB.append(f"| **{str(cfg.get('channel_name') or cid).strip()}** | nessun dato | — | — | {stato_coach} | {stato_ret} |")
@@ -82,6 +88,6 @@ for r in cfgv[1:]:
 os.makedirs('coach', exist_ok=True)
 import datetime as _dt
 open('coach/riepilogo_performance.md', 'w').write(
-    f"Riepilogo performance del {_dt.datetime.now(A.ZoneInfo('Europe/Rome')).strftime('%d/%m/%Y %H:%M')} (ultimi 5 video con almeno 3 giorni; obiettivi CTR 3,5% · ret30 65% · ret60 50%)\n\n"
+    f"Riepilogo performance del {_dt.datetime.now(A.ZoneInfo('Europe/Rome')).strftime('%d/%m/%Y %H:%M')} (ultimi 5 video con almeno 3 giorni di report impression; obiettivi CTR 3,5% · ret30 65% · ret60 50%)\n\n"
     "| Canale | Ultimi video | CTR | Ritenzione 30 s / 60 s | Coach: copertina | Coach: retention (da 50 views totali) |\n|---|---|---|---|---|---|\n" + "\n".join(TAB) + "\n")
 print(open('coach/riepilogo_performance.md').read())

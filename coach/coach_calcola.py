@@ -17,7 +17,10 @@ Regole (decise con Giorgio il 30 ott 2026, valgono per tutti i canali con coach_
 - ordine fisso delle leve: CTR -> retention 30 s -> retention 60 s
 - 5 nov 2026, Giorgio: esito['retention'] = decisione PARALLELA sulla retention, attiva da coach_min_views_retention (default 50)
   views totali del canale (tutti i video sommati), anche quando la copertina e' ancora in ATTESA o in LEVA_CTR
-- STABILE quando i parametri tengono per 2 controlli di fila"""
+- STABILE quando i parametri tengono per 2 controlli di fila
+- 5 nov 2026, Giorgio (studio impression): impression e CTR si valutano SOLO sui video con almeno 3 giorni di report YouTube
+  completi (colonne giorni_report / copertura_report della scheda Performance); gli altri sono "in attesa di report"
+  (esito['in_attesa_report']) e non contano, perche' i report arrivano 2-5 giorni dopo. La retention resta come prima."""
 import datetime as dt, json, os, re, sys, unicodedata
 import openpyxl
 
@@ -65,6 +68,12 @@ def main(f_cfg, f_prod, canale):
         v = str(p.get('youtube_video_id') or '').strip()
         if v and (v not in ultimo or (data(p.get('data_rilevazione')) or dt.datetime.min) >= (data(ultimo[v].get('data_rilevazione')) or dt.datetime.min)):
             ultimo[v] = p
+    nuovo = any('giorni_report' in p for p in perf)   # scheda Performance con la copertura dei report (dal 5 nov)
+
+    def report_ok(p):
+        if not nuovo:   # scheda vecchia senza la colonna: come prima
+            return True
+        return bool(p) and (num(p.get('giorni_report'), 0) or 0) >= 3 and not str(p.get('copertura_report') or '').startswith('incompleto')
     fr = os.path.join(os.path.dirname(__file__), 'canali', slug(canale), 'ricetta.json')
     ric = json.load(open(fr))
     vers = sorted(ric['versioni'], key=lambda x: data(x['dal']) or dt.datetime.min)
@@ -82,7 +91,9 @@ def main(f_cfg, f_prod, canale):
         video.append({'id': vid, 'titolo': str(r.get('titolo_italiano') or r.get('titolo_originale') or '')[:70], 'versione': ver,
                       'pubblicato': str(pub), 'ore': round((ADESSO - pub).total_seconds() / 3600, 1) if pub else 0,
                       'impression': num(p.get('impression'), 0), 'ctr': num(p.get('ctr')), 'views': num(p.get('views'), 0),
-                      'ret30': num(p.get('ritenzione_30s')), 'ret60': num(p.get('ritenzione_60s'))})
+                      'ret30': num(p.get('ritenzione_30s')), 'ret60': num(p.get('ritenzione_60s')),
+                      'report_ok': report_ok(p), 'giorni_report': num(p.get('giorni_report')), 'copertura_report': str(p.get('copertura_report') or ''),
+                      'in_performance': bool(p)})
     # costo reale degli ultimi video (coach/costi/<slug>.tsv, scritto dai workflow), prove escluse
     costi = []
     ft = os.path.join(os.path.dirname(__file__), 'costi', slug(canale) + '.tsv')
@@ -95,10 +106,12 @@ def main(f_cfg, f_prod, canale):
     attiva = ric['versione_attiva']
     maturi = sorted([v for v in video if v['versione'] == attiva and v['ore'] >= 72], key=lambda v: v['pubblicato'])
     fin = maturi[-N:]
+    fin_imp = [v for v in maturi if v['report_ok']][-N:]   # impression/CTR: solo video con >= 3 giorni di report completi
+    attesa_rep = [v for v in video if v['in_performance'] and not v['report_ok']]
     esito = {'canale': canale, 'versione_attiva': attiva, 'obiettivi': O, 'finestra': N, 'video_versione': len([v for v in video if v['versione'] == attiva]),
              'video_maturi': len(maturi), 'video_finestra': fin, 'tutti_i_video': video,
              'budget_video': BUD, 'costo_medio_ultimi': round(sum(costi[-N:]) / len(costi[-N:]), 3) if costi else None,
-             'costi_ultimi': costi[-N:]}
+             'costi_ultimi': costi[-N:], 'in_attesa_report': len(attesa_rep), 'video_in_attesa_report': [v['id'] for v in attesa_rep]}
     if BUD and costi and esito['costo_medio_ultimi'] > BUD * 1.05:   # il budget e' una regola fissa: prima si rientra nel budget
         esito.update({'stato': 'LEVA_COSTO', 'motivo': f"costo medio {esito['costo_medio_ultimi']} $ sopra il budget {BUD} $ a video"})
         return esito, fr
@@ -124,8 +137,12 @@ def main(f_cfg, f_prod, canale):
     if len(fin) < N:
         esito.update({'stato': 'ATTESA', 'motivo': f'servono {N} video con almeno 72 ore nella versione {attiva}, ce ne sono {len(fin)}'})
         return esito, fr
-    imp = sum(v['impression'] for v in fin)
-    clic = sum(v['impression'] * (v['ctr'] or 0) / 100 for v in fin)
+    if len(fin_imp) < N:
+        esito.update({'stato': 'ATTESA', 'motivo': f'servono {N} video con almeno 3 giorni di report impression nella versione {attiva}, ce ne sono {len(fin_imp)} '
+                                                    f'({len(attesa_rep)} video in attesa di report)'})
+        return esito, fr
+    imp = sum(v['impression'] for v in fin_imp)
+    clic = sum(v['impression'] * (v['ctr'] or 0) / 100 for v in fin_imp)
     ctr = round(clic / imp * 100, 2) if imp else 0.0
 
     def ret(k):
@@ -136,9 +153,9 @@ def main(f_cfg, f_prod, canale):
         return (round(sum(v[k] * v['views'] for v in base) / pv, 1) if pv else None), len(base)
     r30, n30 = ret('ret30'); r60, n60 = ret('ret60')
     esito['misure'] = {'ctr': ctr, 'impression_totali': imp, 'ret30': r30, 'video_ret30': n30, 'ret60': r60, 'video_ret60': n60}
-    ultimi5 = sorted([v for v in video if v['ore'] >= 72], key=lambda v: v['pubblicato'])[-5:]   # ultimi 5 video del canale con almeno 72 ore
+    ultimi5 = sorted([v for v in video if v['ore'] >= 72 and v['report_ok']], key=lambda v: v['pubblicato'])[-5:]   # ultimi 5 video con 72 ore e >= 3 giorni di report
     imp5 = sum(v['impression'] for v in ultimi5)
-    esito['misure'].update(video_ultimi5=len(ultimi5), impression_ultimi5=imp5)
+    esito['misure'].update(video_ultimi5=len(ultimi5), impression_ultimi5=imp5, in_attesa_report=len(attesa_rep))
     if imp5 < MIN_IMP:   # poche impression = YouTube non spinge, la leva non e' la copertina: non si cambia
         esito.update({'stato': 'ATTESA_IMPRESSION', 'motivo': f'copertine ferme: {int(imp5)} impression negli ultimi {len(ultimi5)} video (minimo {int(MIN_IMP)}); se restano basse la leva e\' titolo/argomento, non la copertina'})
     elif ctr < O['ctr']:

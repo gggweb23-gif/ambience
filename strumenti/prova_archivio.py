@@ -333,6 +333,7 @@ pezzi, fonti, nclip = [], [], 0
 MOVIMENTI = str(P.get('movimenti_camera') or 'NO').strip().upper() == 'SI'
 SUONO_FOTO = str(P.get('suono_foto') or 'NO').strip().upper() == 'SI'
 INQ = []   # per la revisione delle inquadrature (video_archivio): cosa c'e' in ogni inquadratura e da dove viene
+ULTIME_CLIP = []   # clip gia' usate nel video: riserva quando una scena non trova foto
 MANCANTI = []   # ricerche delle scene senza spezzone adatto in libreria: la libreria le cerchera' nei giri successivi
 for n, (d, s, prima, t0) in enumerate(piano):
     T = trans[n][1]; L = d + T                        # ogni pezzo dura un po' di piu' per la transizione
@@ -349,8 +350,19 @@ for n, (d, s, prima, t0) in enumerate(piano):
             c = (r[0], r[1], s['_ultima'], '(altro momento)') if r else None
     INFO_N = {'i': n, 'testo': s.get('testo', ''), 'scritta': s['scritta'] if sc else '', 'lib_n': ULTIMO_N[0] if (c and str(c[3]).startswith('LIBRERIA')) else None}
     ULTIMO_N[0] = None
+    f_ = None
+    if not c:   # prima la foto; se non c'e' nessuna foto adatta, un altro momento di una clip gia' usata (mai sfondo nero)
+        f_ = foto(s['q'], bool(s.get('a_terra'))) or foto(' '.join(s['q'].split()[:3]), bool(s.get('a_terra'))) \
+            or next((r_ for r_ in (foto(q_) for q_ in (P.get('foto_riserva') or (['astronaut International Space Station', 'Earth from International Space Station', 'ISS crew Expedition'] if ARCHIVIO == 'nasa' else []))) if r_), None)
+        if not f_:
+            for nid_ in ([s.get('_ultima')] if s.get('_ultima') else []) + ULTIME_CLIP[::-1]:
+                r = altro_pezzo(nid_, L) if nid_ else None
+                if r:
+                    c = (r[0], r[1], nid_, '(altro momento: nessuna foto adatta)'); break
     if c:
         p, da, nid, tit = c; s['_ultima'] = nid; nclip += 1
+        if nid not in ULTIME_CLIP:
+            ULTIME_CLIP.append(nid)
         INFO_N.update(tipo='clip', fonte=nid)
         spinta = MOVIMENTI and n % 2 == 0              # una clip si' e una no: leggera spinta in avanti (punch-in), solo con movimenti_camera = SI
         vf = (f'[0:v]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={FPS},setsar=1,tpad=stop_mode=clone:stop_duration={L:.2f}'
@@ -358,8 +370,6 @@ for n, (d, s, prima, t0) in enumerate(piano):
         cmd = ['ffmpeg', '-y', '-v', 'error', '-ss', round(da, 2), '-t', round(L, 3), '-i', p]
         fonti.append(f'{n:03d} CLIP {nid} da {da:.1f}s | {tit}')
     else:
-        f_ = foto(s['q'], bool(s.get('a_terra'))) or foto(' '.join(s['q'].split()[:3]), bool(s.get('a_terra'))) \
-            or next((r_ for r_ in (foto(q_) for q_ in (P.get('foto_riserva') or ['astronaut International Space Station', 'Earth from International Space Station', 'ISS crew Expedition'])) if r_), None)
         if not f_:   # ultima rete: mai fermarsi per una sola scena
             f_ = (Image.new('RGB', (W * 2, H * 2), (8, 10, 18)), 'nessuna', 'sfondo scuro (nessuna immagine trovata)')
         INFO_N.update(tipo='foto', fonte=str(f_[1]))

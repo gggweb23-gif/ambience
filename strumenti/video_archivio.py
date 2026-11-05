@@ -406,7 +406,8 @@ if MONTATO and os.path.exists(VIDEO) and str(P.get('revisione_inquadrature') or 
         bocc = revisione()
     if giri and bocc:
         segna_in_libreria(bocc)   # anche le bocciate dell'ultimo giro non tornano piu'
-    if len(bocc) > soglia:
+    toll = max(soglia, len(json.load(open('/tmp/lav/inquadrature.json'))) * numero(P.get('revisione_tolleranza'), 4) / 100)   # 5 nov (Giorgio): blocco solo oltre la tolleranza del canale
+    if len(bocc) > toll:
         errori = errori + [f'ancora {len(bocc)} inquadrature sbagliate dopo {giri} rimontaggi']
 
 if MONTATO and archivio_sbagliato():   # materiale di un altro argomento: mai caricato, nemmeno non in elenco
