@@ -289,7 +289,19 @@ for c in CANALI:
               and v['status'].get('privacyStatus') == 'public']
     lunghi.sort(key=lambda v: v['snippet']['publishedAt'])
     ordine = {v['id']: i for i, v in enumerate(lunghi)}
-    # 5 nov, Giorgio: tolto il blocco "5 video + 1000 impression totali" del 1 nov; regola unica per tutti = 3 video con almeno 72 ore (coach_calcola.py)
+    # 5 nov, Giorgio: copertine ferme se gli ultimi 5 video (con almeno 72 ore) non sommano almeno 1000 impression (niente piu' minimo di 5 video)
+    MIN_IMP = num(c.get('coach_min_impression'), 1000)
+    ult5 = [v['id'] for v in lunghi if (ORA - datetime.fromisoformat(v['snippet']['publishedAt'].replace('Z', '+00:00'))).total_seconds() >= 72 * 3600][-5:]
+    imp5 = 0
+    if ult5:
+        try:
+            cg = ctr_giornaliero(auth, c)
+            imp5 = sum(g[0] for vid in ult5 for g in cg.get(vid, {}).values())
+        except Exception as e:
+            log('  impression degli ultimi video non lette:', str(e)[:120])
+    if imp5 < MIN_IMP:
+        log(f'  copertine FERME: {int(imp5)} impression negli ultimi {len(ult5)} video (minimo {int(MIN_IMP)}): la leva non e\' la copertina')
+        json.dump(S, open(sp, 'w'), ensure_ascii=False, indent=1); continue
 
     # fase del canale (dai risultati dei test chiusi)
     chiusi = [x for x in S['video'].values() if x.get('ctr_finale') is not None]
