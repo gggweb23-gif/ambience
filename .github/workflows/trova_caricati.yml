@@ -1,0 +1,28 @@
+name: Trova i video caricati a mano
+
+# Gratis (solo lettura su YouTube): le righe "Da caricare a mano" diventano Completato con youtube_video_id appena Giorgio carica il video
+# (strumenti/trova_caricati.py). Ogni ora dalle 8 alle 22 circa (ora italiana); si puo' lanciare anche a mano.
+on:
+  schedule:
+    - cron: '13 6-20 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: trova-caricati
+
+jobs:
+  trova:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Trova
+        env:
+          GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
+          SEGRETI: ${{ toJSON(secrets) }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+        run: pip install -q google-auth requests && python3 strumenti/trova_caricati.py
