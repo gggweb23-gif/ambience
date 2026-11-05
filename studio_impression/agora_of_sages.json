@@ -1,10 +1,10 @@
 {
- "raccolto": "2026-11-05T16:28:19.478299Z",
+ "raccolto": "2026-11-05T16:40:08.977562Z",
  "chiave": "YT_REFRESH_TOKEN_AGORA_OF_SAGES",
- "scope_token": "https://www.googleapis.com/auth/yt-analytics.readonly https://www.googleapis.com/auth/youtube.upload https://www.googleapis.com/auth/youtube.force-ssl",
+ "scope_token": "https://www.googleapis.com/auth/youtube.force-ssl https://www.googleapis.com/auth/youtube.upload https://www.googleapis.com/auth/yt-analytics.readonly",
  "canale": {
   "kind": "youtube#channel",
-  "etag": "g-jEPgTgjwsq8p7o2EP2UphRULc",
+  "etag": "K0ravQqGW1Q_7hNqKLQPWNzOqCE",
   "id": "UCucsRJyeCc6P9BMlG7TW5Mg",
   "snippet": {
    "title": "Agora of Sages",
@@ -48,14 +48,14 @@
   },
   "topicDetails": {
    "topicIds": [
-    "/m/01k8wb",
+    "/m/098wr",
     "/m/06bvp",
-    "/m/098wr"
+    "/m/01k8wb"
    ],
    "topicCategories": [
-    "https://en.wikipedia.org/wiki/Knowledge",
+    "https://en.wikipedia.org/wiki/Society",
     "https://en.wikipedia.org/wiki/Religion",
-    "https://en.wikipedia.org/wiki/Society"
+    "https://en.wikipedia.org/wiki/Knowledge"
    ]
   },
   "status": {
@@ -811,7 +811,8 @@
    {
     "giorno": "2026-10-30",
     "job": "channel_reach_basic_a1",
-    "errore": "HTTP Error 429: Too Many Requests"
+    "creato": "2026-11-01T04:27:34.270518Z",
+    "righe": 9
    },
    {
     "giorno": "2026-10-31",
@@ -2758,9 +2759,10 @@
    "privacy": "public",
    "publishAt": null,
    "durata_sec": 712,
-   "impression_reach": 18.0,
-   "clic_stimati": 0.0,
+   "impression_reach": 75.0,
+   "clic_stimati": 1.0,
    "reach_giorni": {
+    "2026-10-30": 57.0,
     "2026-10-31": 15.0,
     "2026-11-01": 1.0,
     "2026-11-02": 1.0,
@@ -3035,10 +3037,11 @@
    "privacy": "public",
    "publishAt": null,
    "durata_sec": 687,
-   "impression_reach": 89.0,
+   "impression_reach": 90.0,
    "clic_stimati": 2.0,
    "reach_giorni": {
     "2026-10-29": 55.0,
+    "2026-10-30": 1.0,
     "2026-10-31": 3.0,
     "2026-11-01": 8.0,
     "2026-11-02": 12.0,
@@ -3317,11 +3320,12 @@
    "privacy": "public",
    "publishAt": null,
    "durata_sec": 1073,
-   "impression_reach": 89.0,
+   "impression_reach": 93.0,
    "clic_stimati": 4.0,
    "reach_giorni": {
     "2026-10-28": 67.0,
     "2026-10-29": 2.0,
+    "2026-10-30": 4.0,
     "2026-10-31": 6.0,
     "2026-11-01": 7.0,
     "2026-11-02": 3.0,
@@ -3609,13 +3613,14 @@
    "privacy": "public",
    "publishAt": null,
    "durata_sec": 932,
-   "impression_reach": 69.0,
+   "impression_reach": 74.0,
    "clic_stimati": 1.0,
    "reach_giorni": {
     "2026-10-26": 45.0,
     "2026-10-27": 2.0,
     "2026-10-28": 2.0,
     "2026-10-29": 1.0,
+    "2026-10-30": 5.0,
     "2026-10-31": 3.0,
     "2026-11-01": 6.0,
     "2026-11-02": 5.0,
@@ -3894,7 +3899,7 @@
    "privacy": "public",
    "publishAt": null,
    "durata_sec": 836,
-   "impression_reach": 1020.0,
+   "impression_reach": 1033.0,
    "clic_stimati": 51.0,
    "reach_giorni": {
     "2026-10-23": 445.0,
@@ -3904,6 +3909,7 @@
     "2026-10-27": 6.0,
     "2026-10-28": 2.0,
     "2026-10-29": 18.0,
+    "2026-10-30": 13.0,
     "2026-10-31": 6.0,
     "2026-11-01": 5.0,
     "2026-11-02": 3.0,
@@ -3969,7 +3975,7 @@
    ],
    "api": {
     "kind": "youtube#video",
-    "etag": "nHn9j0AKlU6_gktSmWqZn_GvQbM",
+    "etag": "yzYP2SGhqkKtxtz0ck9vHnWQnuU",
     "id": "PjIUgRxhjoE",
     "snippet": {
      "publishedAt": "2026-10-23T12:15:25Z",
@@ -4078,16 +4084,39 @@
     },
     "recordingDetails": {},
     "fileDetails": {
-     "fileSize": "435964490"
+     "fileSize": "435964490",
+     "fileType": "video",
+     "container": "mov",
+     "videoStreams": [
+      {
+       "widthPixels": 1920,
+       "heightPixels": 1080,
+       "frameRateFps": 30,
+       "aspectRatio": 1.7777777777777777,
+       "codec": "h264",
+       "bitrateBps": "2759601",
+       "vendor": "[0][0][0][0]"
+      }
+     ],
+     "audioStreams": [
+      {
+       "channelCount": 1,
+       "codec": "aac",
+       "bitrateBps": "172800",
+       "vendor": "[0][0][0][0]"
+      }
+     ],
+     "bitrateBps": "2932401"
     },
     "processingDetails": {
      "processingStatus": "succeeded",
-     "fileDetailsAvailability": "inProgress",
-     "processingIssuesAvailability": "inProgress",
+     "fileDetailsAvailability": "available",
+     "processingIssuesAvailability": "available",
      "tagSuggestionsAvailability": "inProgress",
      "editorSuggestionsAvailability": "inProgress",
-     "thumbnailsAvailability": "inProgress"
+     "thumbnailsAvailability": "available"
     },
+    "suggestions": {},
     "localizations": {
      "en": {
       "title": "5 Signs You're Dealing With An Evil Person | STOICISM — MARCUS AURELIUS",
@@ -4199,8 +4228,8 @@
    "privacy": "public",
    "publishAt": null,
    "durata_sec": 977,
-   "impression_reach": 102.0,
-   "clic_stimati": 6.0,
+   "impression_reach": 113.0,
+   "clic_stimati": 7.0,
    "reach_giorni": {
     "2026-10-21": 2.0,
     "2026-10-22": 1.0,
@@ -4208,6 +4237,7 @@
     "2026-10-27": 2.0,
     "2026-10-28": 12.0,
     "2026-10-29": 15.0,
+    "2026-10-30": 11.0,
     "2026-10-31": 20.0,
     "2026-11-01": 19.0,
     "2026-11-02": 17.0,
@@ -4440,7 +4470,7 @@
    "privacy": "public",
    "publishAt": null,
    "durata_sec": 608,
-   "impression_reach": 55.0,
+   "impression_reach": 57.0,
    "clic_stimati": 2.0,
    "reach_giorni": {
     "2026-10-16": 6.0,
@@ -4454,6 +4484,7 @@
     "2026-10-25": 8.0,
     "2026-10-27": 3.0,
     "2026-10-29": 5.0,
+    "2026-10-30": 2.0,
     "2026-10-31": 1.0,
     "2026-11-01": 1.0,
     "2026-11-02": 2.0,
@@ -4746,7 +4777,7 @@
    "privacy": "public",
    "publishAt": null,
    "durata_sec": 684,
-   "impression_reach": 172.0,
+   "impression_reach": 179.0,
    "clic_stimati": 2.0,
    "reach_giorni": {
     "2026-10-15": 102.0,
@@ -4763,6 +4794,7 @@
     "2026-10-27": 1.0,
     "2026-10-28": 4.0,
     "2026-10-29": 8.0,
+    "2026-10-30": 7.0,
     "2026-10-31": 4.0,
     "2026-11-02": 3.0
    },
@@ -5047,7 +5079,7 @@
    "privacy": "public",
    "publishAt": null,
    "durata_sec": 667,
-   "impression_reach": 1496.0,
+   "impression_reach": 1500.0,
    "clic_stimati": 31.0,
    "reach_giorni": {
     "2026-10-14": 373.0,
@@ -5063,6 +5095,7 @@
     "2026-10-25": 6.0,
     "2026-10-27": 4.0,
     "2026-10-29": 5.0,
+    "2026-10-30": 4.0,
     "2026-11-02": 1.0
    },
    "reach_fonti": {},

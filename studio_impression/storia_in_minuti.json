@@ -1,5 +1,5 @@
 {
- "raccolto": "2026-11-05T16:35:02.312723Z",
+ "raccolto": "2026-11-05T16:46:57.345325Z",
  "chiave": "YT_REFRESH_TOKEN_STORIA",
  "scope_token": "https://www.googleapis.com/auth/youtube.force-ssl https://www.googleapis.com/auth/yt-analytics.readonly https://www.googleapis.com/auth/youtube.readonly https://www.googleapis.com/auth/youtube.upload",
  "canale": {
@@ -2780,7 +2780,7 @@
    ],
    "api": {
     "kind": "youtube#video",
-    "etag": "Xwr8sz9Pb2kslXY3rS5ghJt7kps",
+    "etag": "hyFqAklP43h3VYFF-HwwSU_NI6M",
     "id": "_MJ_vMC475M",
     "snippet": {
      "publishedAt": "2026-10-28T16:00:26Z",
@@ -2872,7 +2872,7 @@
      "selfDeclaredMadeForKids": false
     },
     "statistics": {
-     "viewCount": "16",
+     "viewCount": "15",
      "likeCount": "0",
      "dislikeCount": "0",
      "favoriteCount": "0",
@@ -3382,7 +3382,7 @@
    ],
    "api": {
     "kind": "youtube#video",
-    "etag": "2yDJ17HBkyOyhKl3-67koq1eVAo",
+    "etag": "wu0DSK9DaP9cdYwuKelWYe2r8Jw",
     "id": "FjcR2z7ebt0",
     "snippet": {
      "publishedAt": "2026-10-24T15:00:23Z",
@@ -3491,15 +3491,41 @@
     },
     "recordingDetails": {},
     "fileDetails": {
-     "fileSize": "567091831"
+     "fileSize": "567091831",
+     "fileType": "video",
+     "container": "mov",
+     "videoStreams": [
+      {
+       "widthPixels": 1920,
+       "heightPixels": 1080,
+       "frameRateFps": 24,
+       "aspectRatio": 1.7777777777777777,
+       "codec": "h264",
+       "bitrateBps": "1810355"
+      }
+     ],
+     "audioStreams": [
+      {
+       "channelCount": 1,
+       "codec": "aac",
+       "bitrateBps": "204934"
+      }
+     ],
+     "durationMs": "1033958",
+     "bitrateBps": "2015289"
     },
     "processingDetails": {
      "processingStatus": "succeeded",
-     "fileDetailsAvailability": "inProgress",
-     "processingIssuesAvailability": "inProgress",
+     "fileDetailsAvailability": "available",
+     "processingIssuesAvailability": "available",
      "tagSuggestionsAvailability": "inProgress",
      "editorSuggestionsAvailability": "inProgress",
-     "thumbnailsAvailability": "inProgress"
+     "thumbnailsAvailability": "available"
+    },
+    "suggestions": {
+     "processingHints": [
+      "nonStreamableMov"
+     ]
     },
     "localizations": {
      "it": {

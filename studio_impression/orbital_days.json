@@ -1,7 +1,7 @@
 {
- "raccolto": "2026-11-05T16:37:58.741361Z",
+ "raccolto": "2026-11-05T16:45:53.789368Z",
  "chiave": "YT_REFRESH_TOKEN_ORBITAL_DAYS",
- "scope_token": "https://www.googleapis.com/auth/youtube.force-ssl https://www.googleapis.com/auth/youtube.upload https://www.googleapis.com/auth/yt-analytics.readonly",
+ "scope_token": "https://www.googleapis.com/auth/yt-analytics.readonly https://www.googleapis.com/auth/youtube.upload https://www.googleapis.com/auth/youtube.force-ssl",
  "canale": {
   "kind": "youtube#channel",
   "etag": "yA9Nuu6joljkFqfDj8U48oVyac4",
@@ -736,7 +736,7 @@
    ],
    "api": {
     "kind": "youtube#video",
-    "etag": "Qd_XJclc5a_AOvJXquv-W5I1RNo",
+    "etag": "qMwUTBLetny5Pcbux7wD17CP-qU",
     "id": "-g9Jbm4apes",
     "snippet": {
      "publishedAt": "2026-11-04T16:00:01Z",
@@ -826,7 +826,7 @@
      "selfDeclaredMadeForKids": false
     },
     "statistics": {
-     "viewCount": "26",
+     "viewCount": "22",
      "likeCount": "0",
      "dislikeCount": "0",
      "favoriteCount": "0",

@@ -1,7 +1,7 @@
 {
- "raccolto": "2026-11-05T16:34:03.355720Z",
+ "raccolto": "2026-11-05T16:45:28.924425Z",
  "chiave": "YT_REFRESH_TOKEN_MAIN_STREET_ATLAS",
- "scope_token": "https://www.googleapis.com/auth/youtube.force-ssl https://www.googleapis.com/auth/youtube.upload https://www.googleapis.com/auth/yt-analytics.readonly",
+ "scope_token": "https://www.googleapis.com/auth/yt-analytics.readonly https://www.googleapis.com/auth/youtube.upload https://www.googleapis.com/auth/youtube.force-ssl",
  "canale": {
   "kind": "youtube#channel",
   "etag": "-TIo9Di1tEe1kefuLJNrVoUUvzs",
@@ -1609,7 +1609,7 @@
    ],
    "api": {
     "kind": "youtube#video",
-    "etag": "aOcnlc6zZ-utCSFb_sh4O5BHLmU",
+    "etag": "HpiWb6e6qHz3Kwx_chYY-hSFvfs",
     "id": "3PVpiOAZCKc",
     "snippet": {
      "publishedAt": "2026-11-02T16:00:35Z",
@@ -1688,7 +1688,7 @@
      "selfDeclaredMadeForKids": false
     },
     "statistics": {
-     "viewCount": "4",
+     "viewCount": "7",
      "likeCount": "0",
      "dislikeCount": "0",
      "favoriteCount": "0",
@@ -2090,7 +2090,7 @@
    ],
    "api": {
     "kind": "youtube#video",
-    "etag": "Duu52CcydL0PKZ9au1TAHUcgm74",
+    "etag": "VQ7S76MEdnH8GzDz9DA_GJi0zyc",
     "id": "QH4PbuC02xU",
     "snippet": {
      "publishedAt": "2026-10-31T16:00:19Z",
@@ -2169,7 +2169,7 @@
      "selfDeclaredMadeForKids": false
     },
     "statistics": {
-     "viewCount": "6",
+     "viewCount": "7",
      "likeCount": "0",
      "dislikeCount": "0",
      "favoriteCount": "0",
@@ -3276,7 +3276,7 @@
    "produzione": [],
    "api": {
     "kind": "youtube#video",
-    "etag": "kDEzH0Np45hFD9tgNB66x-Xx2lY",
+    "etag": "syysbX8kvbRShtau46X9KoIEvyU",
     "id": "mc-acAMqYgI",
     "snippet": {
      "publishedAt": "2026-10-25T16:17:59Z",
@@ -3369,39 +3369,16 @@
     },
     "recordingDetails": {},
     "fileDetails": {
-     "fileSize": "526592166",
-     "fileType": "video",
-     "container": "mov",
-     "videoStreams": [
-      {
-       "widthPixels": 1920,
-       "heightPixels": 1080,
-       "frameRateFps": 30,
-       "aspectRatio": 1.7777777777777777,
-       "codec": "h264",
-       "bitrateBps": "5957413",
-       "vendor": "[0][0][0][0]"
-      }
-     ],
-     "audioStreams": [
-      {
-       "channelCount": 1,
-       "codec": "aac",
-       "bitrateBps": "190155",
-       "vendor": "[0][0][0][0]"
-      }
-     ],
-     "bitrateBps": "6147568"
+     "fileSize": "526592166"
     },
     "processingDetails": {
      "processingStatus": "succeeded",
-     "fileDetailsAvailability": "available",
-     "processingIssuesAvailability": "available",
+     "fileDetailsAvailability": "inProgress",
+     "processingIssuesAvailability": "inProgress",
      "tagSuggestionsAvailability": "inProgress",
      "editorSuggestionsAvailability": "inProgress",
-     "thumbnailsAvailability": "available"
+     "thumbnailsAvailability": "inProgress"
     },
-    "suggestions": {},
     "localizations": {
      "en": {
       "title": "Why Half of America is Empty? NOBODY Lives in these 9 VACANT States",
