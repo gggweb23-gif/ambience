@@ -107,3 +107,13 @@ jobs:
           path: da_caricare/
           retention-days: 7
           compression-level: 0
+      - name: File del video per gli Short (colonna shorts_al_giorno; 3 giorni)
+        if: ${{ always() && inputs.prova != 'SI' && contains(inputs.payload, 'riga_produzione') }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: shorts-${{ fromJSON(inputs.payload || '{}').channel_id }}-riga${{ fromJSON(inputs.payload || '{}').riga_produzione }}
+          path: |
+            prove_video/archivio/*/prova.mp4
+          if-no-files-found: ignore
+          retention-days: 3
+          compression-level: 0

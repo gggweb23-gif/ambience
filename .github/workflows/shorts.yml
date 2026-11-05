@@ -1,0 +1,72 @@
+name: Shorts dai video lunghi
+
+# strumenti/shorts.py: 4 Short al giorno per canale (colonne shorts_al_giorno, shorts_orari, shorts_budget_giorno di Channel Configs),
+# tagliati dai nostri video lunghi gia' su YouTube e caricati programmati dopo l'uscita del video lungo. Spesa: solo la scelta dei momenti.
+on:
+  # schedule (si attiva dopo che Giorgio ha approvato le prove):
+  #   - cron: '29 6-20 * * *'   # ogni ora dalle 07:29 alle 21:29 circa (ora italiana): parte appena il video lungo e' su YouTube
+  workflow_dispatch:
+    inputs:
+      canale:
+        description: 'Solo questo canale (channel_id), vuoto = tutti'
+        default: ''
+      prova:
+        description: 'SI = fa gli Short ma NON li carica (artifact da guardare)'
+        default: 'NO'
+      riga:
+        description: 'Solo con un canale: riga del file di produzione del video lungo (vuoto = ultimo video)'
+        default: ''
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: shorts
+
+jobs:
+  shorts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - name: Modello per la trascrizione (si scarica una volta sola)
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: whisper-small
+      - name: Installa
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg && pip install -q faster-whisper google-auth requests
+      - name: Short
+        env:
+          GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
+          GH_TOKEN: ${{ github.token }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN_KAO: ${{ secrets.YT_REFRESH_TOKEN_KAO }}
+          YT_REFRESH_TOKEN_AGORA_OF_SAGES: ${{ secrets.YT_REFRESH_TOKEN_AGORA_OF_SAGES }}
+          YT_REFRESH_TOKEN_MAIN_STREET_ATLAS: ${{ secrets.YT_REFRESH_TOKEN_MAIN_STREET_ATLAS }}
+          YT_REFRESH_TOKEN_STORIA: ${{ secrets.YT_REFRESH_TOKEN_STORIA }}
+          YT_REFRESH_TOKEN_ORBITAL_DAYS: ${{ secrets.YT_REFRESH_TOKEN_ORBITAL_DAYS }}
+          YT_REFRESH_TOKEN_WWII_TESTIMONY: ${{ secrets.YT_REFRESH_TOKEN_WWII_TESTIMONY }}
+          SOLO_CANALE: ${{ inputs.canale }}
+          PROVA: ${{ inputs.prova || 'NO' }}
+          RIGA: ${{ inputs.riga }}
+          WHISPER_MODEL: small
+        run: python3 strumenti/shorts.py
+      - name: Short di prova da guardare
+        if: ${{ always() && inputs.prova == 'SI' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: shorts-prova
+          path: shorts_prova/
+          if-no-files-found: ignore
+          retention-days: 7
+      - name: Salva costi
+        if: ${{ always() }}
+        run: |
+          [ -n "$(git status --porcelain coach/costi)" ] || exit 0
+          git config user.name "render-bot"; git config user.email "render-bot@users.noreply.github.com"
+          git add coach/costi; git commit -m "Costi Short" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase --autostash -q && git push && break; sleep $((i * 5)); done
