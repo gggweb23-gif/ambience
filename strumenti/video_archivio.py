@@ -384,23 +384,29 @@ def segna_in_libreria(bocciate):   # gli spezzoni bocciati non tornano piu' nei 
 
 
 if MONTATO and os.path.exists(VIDEO) and str(P.get('revisione_inquadrature') or 'SI').upper() != 'NO':
-    bocc = revisione()
-    if bocc:
+    # 5 nov: con UN solo rimontaggio Orbital Days e WWII venivano bloccati 3 volte al giorno (9-21 inquadrature ancora sbagliate):
+    # ogni giro toglie le nuove bocciate e rimonta, fino a 3 giri (voce gia' pagata). La soglia resta il 4% (min 3).
+    soglia = max(3, len(json.load(open('/tmp/lav/inquadrature.json'))) * .04)
+    bocc = revisione(); giri = 0; via_lib, via_foto = [], []
+    while bocc and len(bocc) > (soglia if giri else 0) and giri < int(float(str(P.get('giri_revisione') or 3))):
+        giri += 1
         segna_in_libreria(bocc)
-        m_ = dict(mont, escludi_lib=[x['lib_n'] for x in bocc if x.get('lib_n') is not None],
-                  escludi_foto=[x['fonte'] for x in bocc if x.get('tipo') == 'foto'])
+        via_lib += [x['lib_n'] for x in bocc if x.get('lib_n') is not None]
+        via_foto += [x['fonte'] for x in bocc if x.get('tipo') == 'foto']
+        m_ = dict(mont, escludi_lib=via_lib, escludi_foto=via_foto)
         shutil.copy(VIDEO, VIDEO + '.prima_revisione.mp4')
+        log(f'RIMONTAGGIO {giri}: tolte {len(via_lib)} clip e {len(via_foto)} foto bocciate')
         r = subprocess.run([sys.executable, 'strumenti/prova_archivio.py'], env=dict(os.environ, PAYLOAD=json.dumps(m_)))
-        if r.returncode == 0 and os.path.exists(VIDEO):
-            quota, media, dur, errori = controlli()
-            bocc2 = revisione()
-            segna_in_libreria(bocc2)   # anche le bocciate del secondo giro non tornano piu'
-            if len(bocc2) > max(3, len(json.load(open('/tmp/lav/inquadrature.json'))) * .04):
-                errori = errori + [f'ancora {len(bocc2)} inquadrature sbagliate dopo la revisione']
-        else:
-            os.replace(VIDEO + '.prima_revisione.mp4', VIDEO); errori = errori + ['revisione: rimontaggio non riuscito']
-        if os.path.exists(VIDEO + '.prima_revisione.mp4'):
-            os.remove(VIDEO + '.prima_revisione.mp4')
+        if r.returncode != 0 or not os.path.exists(VIDEO):
+            os.replace(VIDEO + '.prima_revisione.mp4', VIDEO); errori = errori + ['revisione: rimontaggio non riuscito']; bocc = []
+            break
+        os.remove(VIDEO + '.prima_revisione.mp4')
+        quota, media, dur, errori = controlli()
+        bocc = revisione()
+    if giri and bocc:
+        segna_in_libreria(bocc)   # anche le bocciate dell'ultimo giro non tornano piu'
+    if len(bocc) > soglia:
+        errori = errori + [f'ancora {len(bocc)} inquadrature sbagliate dopo {giri} rimontaggi']
 
 if MONTATO and archivio_sbagliato():   # materiale di un altro argomento: mai caricato, nemmeno non in elenco
     raise RuntimeError('VIDEO BLOCCATO: ' + archivio_sbagliato())
