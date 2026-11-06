@@ -13,6 +13,9 @@ on:
       prova:
         description: 'SI = fa gli Short ma NON li carica (artifact da guardare)'
         default: 'NO'
+      registra:
+        description: 'Solo correzioni: JSON {"canale": {"riga": "valore colonna shorts"}}'
+        default: ''
       riga:
         description: 'Solo con un canale: riga del file di produzione del video lungo (vuoto = ultimo video)'
         default: ''
@@ -53,6 +56,7 @@ jobs:
           SOLO_CANALE: ${{ inputs.canale }}
           PROVA: ${{ inputs.prova || 'NO' }}
           RIGA: ${{ inputs.riga }}
+          REGISTRA: ${{ inputs.registra }}
           WHISPER_MODEL: small
         run: python3 strumenti/shorts.py
       - name: Short di prova da guardare

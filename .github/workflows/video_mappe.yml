@@ -1,4 +1,5 @@
 name: Video Mappe
+run-name: Video Mappe ${{ fromJSON(inputs.payload || '{}').channel_id || '(prova)' }}   # nome del canale nell'elenco delle Actions
 
 on:
   workflow_dispatch:

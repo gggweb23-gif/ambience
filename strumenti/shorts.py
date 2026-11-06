@@ -71,11 +71,14 @@ def scarica_sorgente(cid, riga, r, dur_yt):
     """Il file del video lungo: prima l'artifact con il suo nome (shorts-<canale>-riga<N>, poi DA CARICARE <canale>);
     per i video fatti prima degli Short, gli artifact dei motori (video-storia, video-mappe, video-archivio) dei giorni del video.
     Si usa solo se la durata coincide con quella del video su YouTube (cosi' non si prende mai il video sbagliato)."""
-    def giusto(v):
+    slug = re.sub(r'[^a-z0-9]+', '_', cid.lower()).strip('_')
+    def giusto(v, generico=False):
         if not v:
             return False
+        if generico and '/archivio/' in v and '/archivio/' + slug + '_' not in v:   # video-archivio contiene i video di piu' canali
+            return False
         d = durata(v)
-        ok = d >= 180 and (not dur_yt or abs(d - dur_yt) <= 3)
+        ok = d >= 180 and (not dur_yt or abs(d - dur_yt) <= 1.5)
         if not ok:
             log(f'  file scartato: dura {d / 60:.1f} min' + (f', su YouTube {dur_yt / 60:.1f} min' if dur_yt else ''))
         return ok
@@ -93,7 +96,7 @@ def scarica_sorgente(cid, riga, r, dur_yt):
             c = dt.datetime.fromisoformat(a['created_at'].replace('Z', '+00:00'))
             if ini - dt.timedelta(hours=1) <= c <= ini + dt.timedelta(hours=36):
                 for v in _scarica(a, tutti=True):
-                    if giusto(v):
+                    if giusto(v, True):
                         return v
     return None
 
@@ -286,6 +289,10 @@ def carica(tk, f, x, cfg, riga, vid_lungo, quando):
 
 def scrivi(fid, sch, h, n, colonna, valore):
     if colonna not in h:
+        pr = next(x['properties'] for x in A.api(fid, 'GET', '?fields=sheets.properties')['sheets'] if x['properties']['title'] == sch)
+        manca = len(h) + 1 - pr['gridProperties']['columnCount']
+        if manca > 0:   # il foglio non ha abbastanza colonne: se ne aggiungono (altrimenti Google risponde 400)
+            A.api(fid, 'POST', ':batchUpdate', {'requests': [{'appendDimension': {'sheetId': pr['sheetId'], 'dimension': 'COLUMNS', 'length': manca + 2}}]})
         A.api(fid, 'POST', '/values:batchUpdate', {'valueInputOption': 'RAW', 'data': [{'range': f"'{sch}'!{A.lettera(len(h) + 1)}1", 'values': [[colonna]]}]})
         h.append(colonna)
     A.api(fid, 'POST', '/values:batchUpdate', {'valueInputOption': 'RAW', 'data': [{'range': f"'{sch}'!{A.lettera(h.index(colonna) + 1)}{n}", 'values': [[valore]]}]})
@@ -386,6 +393,12 @@ def canale(cfg):
 def main():
     os.makedirs(LAV, exist_ok=True)
     _, _, canali = A.righe(A.CONFIGS)
+    if E('REGISTRA', '').strip():   # correzione a mano della colonna shorts: {"canale": {"riga": "valore"}}
+        for cfg in canali:
+            for n, v in json.loads(E('REGISTRA')).get(str(cfg.get('channel_id')), {}).items():
+                fid = str(cfg.get('scout_production_sheet_id')).strip(); sch, h, _ = A.righe(fid)
+                scrivi(fid, sch, h, int(n), 'shorts', v); log(cfg.get('channel_id'), 'riga', n, 'shorts =', v or '(vuota)')
+        return
     errori = []
     for cfg in canali:
         try:

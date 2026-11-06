@@ -1,4 +1,5 @@
 name: Video Produzione
+run-name: Video Produzione ${{ fromJSON(inputs.payload || '{}').channel_id || '(prova)' }}   # nome del canale nell'elenco delle Actions
 
 # MOTORE DI PRODUZIONE: un solo workflow per tutti i canali che prima passavano dal PRODUCTION di n8n (KAO PSICOLOGIA, Agora of Sages, i prossimi...).
 # Lo lancia n8n ("MULTICHANNEL - GitHub Video") quando nella riga del canale in Channel Configs: github_workflow = video_produzione.yml.
