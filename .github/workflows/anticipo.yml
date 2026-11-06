@@ -33,7 +33,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           R: ${{ github.repository }}
-          VOCI: ${{ inputs[matrix.quale] }}
+          VOCI: ${{ github.event.inputs[matrix.quale] }}
         run: |
           # le voci sono separate da " avvio_" (i nomi dei canali hanno spazi)
           python3 - <<'PY' > voci.txt
