@@ -1,0 +1,47 @@
+name: Video da caricare a mano (pagina unica)
+
+# Raccoglie gli zip "DA CARICARE <canale>" delle ultime 30 ore in UNA pagina (Release "Video da caricare"):
+# per ogni canale il video e la copertina con il nome del canale davanti. Link fisso per Giorgio:
+# https://github.com/gggweb23-gif/ambience/releases/tag/da-caricare
+on:
+  schedule:
+    - cron: '50 5 * * *'    # 06:50 ora italiana, quando i video della notte sono pronti
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: da-caricare
+
+jobs:
+  pagina:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Prepara la pagina
+        env:
+          GH_TOKEN: ${{ github.token }}
+          R: ${{ github.repository }}
+        run: |
+          set -e
+          mkdir -p z f
+          LIMITE=$(date -u -d '30 hours ago' +%Y-%m-%dT%H:%M:%SZ)
+          gh api "repos/$R/actions/artifacts?per_page=100" --jq ".artifacts[] | select(.expired|not) | select(.name|startswith(\"DA CARICARE \")) | select(.created_at > \"$LIMITE\") | \"\(.id)\t\(.name)\"" > elenco.tsv
+          cat elenco.tsv
+          # per ogni canale solo l'ultimo zip
+          sort -t$'\t' -k2,2 -u elenco.tsv | while IFS=$'\t' read id nome; do
+            canale="${nome#DA CARICARE }"; c=$(echo "$canale" | tr ' ' '_')
+            gh api "repos/$R/actions/artifacts/$id/zip" > "z/$id.zip"
+            mkdir -p "z/$id"; unzip -q -o "z/$id.zip" -d "z/$id"; rm "z/$id.zip"
+            for x in z/$id/*; do b=$(basename "$x"); mv "$x" "f/${c}__${b}"; done
+          done
+          ls -la f
+          gh release delete da-caricare -R "$R" --yes --cleanup-tag || true
+          {
+            echo "Video pronti da caricare a mano (aggiornato $(TZ=Europe/Rome date '+%d/%m %H:%M')). Clicca un file per scaricarlo."
+            echo
+            echo "Il nome di ogni file inizia con il CANALE. Titolo, descrizione, tag, playlist e orario: nel file di produzione del canale (stato Da caricare a mano)."
+          } > note.md
+          gh release create da-caricare -R "$R" --title "VIDEO DA CARICARE - $(TZ=Europe/Rome date '+%d/%m')" --notes-file note.md f/*
