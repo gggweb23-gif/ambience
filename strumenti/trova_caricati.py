@@ -25,6 +25,7 @@ def get(url, auth):
 
 def main():
     _, _, canali = A.righe(A.CONFIGS)
+    errori = []
     for cfg in canali:
         cid = str(cfg.get('channel_id') or '').strip()
         fid = str(cfg.get('scout_production_sheet_id') or '').strip()
@@ -56,9 +57,13 @@ def main():
         rt = PF.SEGRETI.get(chiave) or E(chiave)
         if not rt:
             print(cid, ': manca il segreto', chiave); continue
-        auth = {'Authorization': 'Bearer ' + PF.token(rt)[0]}
-        up = get('https://www.googleapis.com/youtube/v3/channels?part=contentDetails&mine=true', auth)['items'][0]['contentDetails']['relatedPlaylists']['uploads']
-        voci = get('https://www.googleapis.com/youtube/v3/playlistItems?' + urllib.parse.urlencode({'part': 'snippet', 'playlistId': up, 'maxResults': 50}), auth).get('items', [])
+        try:   # 6 nov: un canale con errore (es. quota YouTube finita) non deve fermare il controllo degli altri
+            auth = {'Authorization': 'Bearer ' + PF.token(rt)[0]}
+            up = get('https://www.googleapis.com/youtube/v3/channels?part=contentDetails&mine=true', auth)['items'][0]['contentDetails']['relatedPlaylists']['uploads']
+            voci = get('https://www.googleapis.com/youtube/v3/playlistItems?' + urllib.parse.urlencode({'part': 'snippet', 'playlistId': up, 'maxResults': 50}), auth).get('items', [])
+        except Exception as e:
+            corpo = e.read().decode(errors='ignore')[:300] if hasattr(e, 'read') else ''
+            print(cid, ': YouTube non leggibile ora |', str(e)[:100], corpo); errori.append(cid); continue
         video = {norm(x['snippet']['title']): x['snippet']['resourceId']['videoId'] for x in voci}
         gia = {str(r.get('youtube_video_id') or '').strip() for r in prod}
         for n, r in attesa:
@@ -79,6 +84,8 @@ def main():
                 {'range': f"'{sch}'!{A.lettera(h.index(c) + 1)}{n}", 'values': [[x]]} for c, x in v.items() if c in h]})
             gia.add(vid)
             print(cid, 'riga', n, ': TROVATO', vid, '| esce', quando, '|', r.get('titolo_italiano'))
+    if errori:
+        sys.exit('YouTube non leggibile per: ' + ', '.join(errori))
 
 
 if __name__ == '__main__':
