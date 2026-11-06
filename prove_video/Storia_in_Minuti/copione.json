@@ -1,0 +1,821 @@
+{
+ "titolo": "Come 5.000 Spartani vendicarono BRUTALMENTE i 300",
+ "titolo_mappa": "GRECIA",
+ "paese_mappa": "Greece",
+ "date": "480 a.C. – 479 a.C.",
+ "texture": "pergamena",
+ "font_carte": "antico",
+ "riserva_pexels": [
+  "Greece rocky coastline sea",
+  "Mount Olympus Greece mountains",
+  "ancient Greek ruins Acropolis",
+  "Aegean sea waves Greece",
+  "Greek temple columns sunset",
+  "Peloponnese hills Greece landscape",
+  "stormy sky over sea",
+  "bronze ancient weapons museum"
+ ],
+ "luoghi_paese": "greece, greek, hellas, sparta, laconia, athens, attica, thermopylae, salamis, plataea, peloponnese, aegean, olympus, delphi, corinth, marathon, boeotia, taygetus, mediterranean, acropolis",
+ "fondi_carte": [],
+ "colori_carte": [
+  "#6b1e1e",
+  "#1d3557"
+ ],
+ "sfondi": [],
+ "scene": [
+  {
+   "capitolo": "Il tradimento",
+   "testo": "L'esercito greco era stato tradito. Ventimila Persiani avevano aggirato le linee greche per un sentiero segreto di montagna. Alle Termopili, millequattrocento Greci guidati da re Leonida e dai suoi 300 Spartani restarono indietro per coprire la ritirata. Sapevano che sarebbero morti.",
+   "anno": -480,
+   "visivi": [
+    {
+     "tipo": "mappa",
+     "frase": "L'esercito greco era",
+     "suono": "distant war horns, wind"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Ventimila Persiani avevano aggirato",
+     "q": "Greece mountain path rocky pass"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Alle Termopili, millequattrocento Greci",
+     "q": "Thermopylae pass Greece landscape"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Sapevano che sarebbero morti",
+     "q": "Greece sunset dark clouds mountains"
+    }
+   ]
+  },
+  {
+   "testo": "Gli Spartani combatterono finché le armi si spezzarono e le mani si sporcarono di sangue. Morirono tutti. Il re persiano Serse umiliò i Greci: tagliò la testa di Leonida e la infilò su un palo.",
+   "anno": -480,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Gli Spartani combatterono finché",
+     "q": "ancient bronze weapons museum"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Morirono tutti",
+     "q": "Greece battlefield ruins stones"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Il re persiano Serse",
+     "q": "fire burning dark smoke sky"
+    }
+   ]
+  },
+  {
+   "testo": "L'esercito persiano, ormai forte di 200.000 uomini, dilagò in Grecia bruciando città e distruggendo templi. Serse credeva di aver vinto, ma aveva firmato la condanna a morte del suo impero. Sparta stava per mandare 5.000 guerrieri scelti a vendicarsi: il più grande esercito che avesse mai radunato.",
+   "anno": -480,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "L'esercito persiano, ormai forte",
+     "q": "burning fire flames night"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "bruciando città e distruggendo",
+     "q": "ancient Greek temple ruins columns"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Serse credeva di aver",
+     "q": "stormy sky clouds dark Greece"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Sparta stava per mandare",
+     "q": "Sparta Laconia landscape Taygetus mountains",
+     "didascalia": "5.000 guerrieri scelti"
+    }
+   ]
+  },
+  {
+   "capitolo": "L'impero persiano",
+   "testo": "All'inizio del V secolo a.C. l'impero persiano aveva inghiottito tutto. Babilonia, Egitto, Fenicia e decine di regni erano ormai semplici province. L'impero andava dal fiume Indo ai confini dell'Europa.",
+   "anno": -500,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "All'inizio del V secolo",
+     "q": "Persepolis ruins Iran columns"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Babilonia, Egitto, Fenicia e",
+     "q": "Egypt desert pyramids ancient"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "L'impero andava dal fiume",
+     "q": "Indus river valley landscape"
+    }
+   ]
+  },
+  {
+   "testo": "La ricchezza del re persiano era inimmaginabile. Ogni anno tonnellate di oro e argento affluivano nella capitale da tutto il mondo. Le entrate annuali del re erano 30 volte più grandi dell'intero bilancio della Grecia.",
+   "anno": -490,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "La ricchezza del re",
+     "q": "ancient gold coins treasure"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Ogni anno tonnellate di",
+     "q": "gold bars silver coins closeup"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Le entrate annuali del",
+     "q": "ancient silver coins museum",
+     "didascalia": "30 volte il bilancio greco"
+    }
+   ]
+  },
+  {
+   "testo": "L'esercito persiano era il migliore della Terra, con al centro i 10.000 Immortali. Serse guidò questa macchina enorme verso la Grecia con oltre 1.000 navi. Suo padre aveva tentato di conquistarla dieci anni prima, ma era stato umiliato da una forza greca più piccola. Serse voleva finire il lavoro.",
+   "anno": -480,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "L'esercito persiano era il migliore",
+     "q": "Persepolis relief ancient stone"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Serse guidò questa macchina",
+     "q": "Aegean sea ships horizon"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Suo padre aveva tentato",
+     "q": "Marathon Greece plain landscape",
+     "didascalia": "10 anni prima"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Serse voleva finire il lavoro",
+     "q": "dark waves stormy sea"
+    }
+   ]
+  },
+  {
+   "capitolo": "La macchina di Serse",
+   "testo": "Quando il primo ponte crollò, Serse ordinò ai soldati di frustare il mare 300 volte con catene. Poi fece giustiziare gli ingegneri responsabili. Una volta ricostruito, l'esercito impiegò 7 giorni e 7 notti di marcia ininterrotta per passare in Europa.",
+   "anno": -480,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Quando il primo ponte crollò",
+     "q": "Hellespont Dardanelles strait waves"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Poi fece giustiziare gli",
+     "q": "heavy iron chains rusty"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Una volta ricostruito, l'esercito",
+     "q": "sea strait sunrise calm water",
+     "didascalia": "7 giorni e 7 notti"
+    }
+   ]
+  },
+  {
+   "testo": "Per evitare un capo pericoloso dove suo padre aveva perso 300 navi, Serse ordinò agli schiavi di scavare un canale attraverso una penisola montuosa. Era lungo 2 chilometri e abbastanza largo da far passare due grandi navi da guerra affiancate. Gli scienziati l'hanno scoperto sepolto sotto terra: non era un mito.",
+   "anno": -480,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Per evitare un capo pericoloso",
+     "q": "Mount Athos Greece peninsula coast"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Serse ordinò agli schiavi",
+     "q": "Corinth canal Greece cliffs",
+     "didascalia": "Canale lungo 2 km"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Gli scienziati l'hanno scoperto",
+     "q": "Greece earth excavation ground aerial"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Era questa l'immensa potenza",
+     "q": "ancient warship replica sea"
+    }
+   ]
+  },
+  {
+   "capitolo": "Terra e acqua",
+   "testo": "Mentre i Persiani marciavano verso sud, molte città greche si arresero subito. Serse mandò messaggeri a chiedere terra e acqua, simboli di resa totale. Anni prima Atene e Sparta avevano risposto in modo molto diverso. Gli Ateniesi giustiziarono i messaggeri. Gli Spartani li gettarono in un pozzo, dicendo loro di trovarci terra e acqua.",
+   "anno": -491,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Mentre i Persiani marciavano verso",
+     "q": "Greece road mountains dust"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Serse mandò messaggeri a",
+     "q": "ancient Greek amphora earth water"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Gli Ateniesi giustiziarono i",
+     "q": "Acropolis Athens hill sunset"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Gli Spartani li gettarono",
+     "q": "ancient stone well dark"
+    }
+   ]
+  },
+  {
+   "testo": "Solo una trentina di città greche decisero di resistere, scegliendo di difendere lo stretto passo delle Termopili. Era l'unica via per entrare nella Grecia centrale. I Greci radunarono 7.000 uomini, e gli Spartani erano i più importanti.",
+   "anno": -480,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Solo una trentina di",
+     "q": "Thermopylae coast mountains Greece"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Era l'unica via per",
+     "q": "narrow mountain pass Greece cliffs"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "I Greci radunarono 7.000",
+     "q": "Greek hills dry grass wind",
+     "didascalia": "7.000 uomini"
+    }
+   ]
+  },
+  {
+   "capitolo": "Il metodo spartano",
+   "testo": "Sparta era uno Stato guerriero dove ogni cittadino era soldato dalla nascita. A sette anni i ragazzi venivano strappati alle famiglie e sottoposti a un addestramento brutale, pensato per eliminare paura, dolore e pietà. Ricevevano di proposito pochissimo cibo e dovevano rubare per sopravvivere.",
+   "anno": -480,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Sparta era uno Stato",
+     "q": "Sparta ruins Greece stones"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "A sette anni i",
+     "q": "Taygetus mountains Greece rugged",
+     "didascalia": "A 7 anni"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Ricevevano di proposito pochissimo",
+     "q": "dry rocky hillside Greece wind"
+    }
+   ]
+  },
+  {
+   "testo": "La frusta puniva la pigrizia di chi si faceva scoprire, non il furto in sé. A vent'anni gli Spartani erano macchine da guerra perfette. A Termopili ne furono mandati 300, vincolati da una legge che vietava la ritirata.",
+   "anno": -480,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "La frusta puniva la",
+     "q": "old leather whip rope"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "A vent'anni gli Spartani",
+     "q": "bronze helmet ancient museum",
+     "didascalia": "A 20 anni"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "A Termopili ne furono",
+     "q": "ancient spear shield bronze"
+    }
+   ]
+  },
+  {
+   "capitolo": "La battaglia delle Termopili",
+   "testo": "Il passo era largo solo 15 metri, e il numero dei Persiani non contava più. Al primo assalto i Persiani mandarono fanteria leggera con scudi di vimini e lance corte. Si aspettavano che i Greci fuggissero, ma trovarono un muro di bronzo.",
+   "anno": -480,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Il passo era largo",
+     "q": "narrow gorge cliffs sea Greece",
+     "didascalia": "Largo solo 15 metri"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Al primo assalto i",
+     "q": "woven wicker shield basket"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Si aspettavano che i",
+     "q": "bronze shield reflection sunlight"
+    }
+   ]
+  },
+  {
+   "testo": "I Greci combattevano in falange, una formazione compatta con gli scudi sovrapposti a formare un muro indistruttibile. Le loro lance erano lunghe il doppio di quelle persiane. I Persiani morivano a centinaia, incapaci di avvicinarsi abbastanza per colpire.",
+   "anno": -480,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "I Greci combattevano in",
+     "q": "ancient hoplite shields museum"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Le loro lance erano",
+     "q": "long spear tips bronze closeup"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "I Persiani morivano a",
+     "q": "dust cloud battlefield dry ground"
+    }
+   ]
+  },
+  {
+   "testo": "Gli Spartani usavano un trucco: fingevano di fuggire, poi si voltavano all'improvviso schiacciando i Persiani che li inseguivano. Serse osservava da un trono d'oro su una collina e, a quanto si dice, balzò in piedi tre volte per il terrore. Nemmeno i suoi Immortali riuscirono a spezzare la linea greca.",
+   "anno": -480,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Gli Spartani usavano un",
+     "q": "Greek hillside dust wind"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Serse osservava da un",
+     "q": "golden ancient throne ornate"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Nemmeno i suoi Immortali",
+     "q": "Persepolis immortals relief stone"
+    }
+   ]
+  },
+  {
+   "testo": "Un traditore del posto, Efialte, rivelò un sentiero di montagna che passava alle spalle dei Greci. Leonida lo scoprì troppo tardi. Mandò via al sicuro la maggior parte dell'esercito e rimase con i suoi 300 Spartani e poche centinaia di alleati.",
+   "anno": -480,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Un traditore del posto",
+     "q": "forest mountain trail Greece dawn"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Leonida lo scoprì troppo",
+     "q": "Thermopylae monument Greece"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Mandò via al sicuro",
+     "q": "Greek hills evening light"
+    }
+   ]
+  },
+  {
+   "testo": "Nell'ultima resistenza gli Spartani combatterono con le spade corte quando le lance si spezzarono. Quando si ruppero anche quelle, usarono mani e denti. Furono infine uccisi da migliaia di frecce, perché i Persiani temevano il corpo a corpo.",
+   "anno": -480,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Nell'ultima resistenza gli Spartani",
+     "q": "ancient short sword bronze museum"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Quando si ruppero anche",
+     "q": "broken spear ancient"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Furono infine uccisi da",
+     "q": "arrows flying sky dusk",
+     "suono": "arrows whistling through the air"
+    }
+   ]
+  },
+  {
+   "capitolo": "Salamina",
+   "testo": "Serse conquistò il passo, ma perse 20.000 uomini. Bruciò Atene fino alle fondamenta, ma la città era vuota: gli abitanti erano fuggiti sulle isole vicine. Una tempesta gigantesca aveva già distrutto un quarto delle navi persiane.",
+   "anno": -480,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Serse conquistò il passo",
+     "q": "Athens Acropolis ruins dusk",
+     "didascalia": "20.000 uomini persi"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Bruciò Atene fino alle",
+     "q": "burning fire embers dark"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Una tempesta gigantesca aveva",
+     "q": "huge storm waves sea thunder",
+     "suono": "heavy rain and thunder"
+    }
+   ]
+  },
+  {
+   "testo": "Temistocle attirò la flotta persiana nelle acque strette vicino a Salamina con un trucco geniale. Le navi persiane, ammassate, si scontrarono tra loro spezzandosi i remi. Le navi greche ne affondarono molte speronandole. Serse, in preda al panico, fuggì verso nord con gran parte dell'esercito.",
+   "anno": -480,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Temistocle attirò la flotta",
+     "q": "Salamis strait Greece narrow sea"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Le navi persiane, ammassate",
+     "q": "ancient wooden ship oars replica"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Le navi greche ne",
+     "q": "wooden ship sinking waves",
+     "suono": "wooden ship creaking, waves crashing"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Serse, in preda al",
+     "q": "sea horizon north dark clouds"
+    }
+   ]
+  },
+  {
+   "capitolo": "La marcia di Sparta",
+   "testo": "Serse lasciò il generale Mardonio con 120.000 soldati scelti per chiudere la guerra. Mardonio tentò di corrompere Atene perché si unisse ai Persiani, ma gli Ateniesi rifiutarono. Nella sua rabbia, bruciò di nuovo Atene.",
+   "anno": -479,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Serse lasciò il generale",
+     "q": "Greek plain dust dry fields",
+     "didascalia": "120.000 soldati scelti"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Mardonio tentò di corrompere",
+     "q": "ancient gold coins pile"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Nella sua rabbia, bruciò",
+     "q": "Athens Acropolis smoke fire"
+    }
+   ]
+  },
+  {
+   "testo": "Gli Ateniesi minacciarono gli Spartani di arrendersi se non fossero marciati subito verso nord. Finalmente gli Spartani si mossero: mandarono 5.000 cittadini scelti e 35.000 servi armati. Con le altre città greche raccolsero 110.000 uomini, il più grande esercito greco mai radunato.",
+   "anno": -479,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Gli Ateniesi minacciarono gli",
+     "q": "Peloponnese hills road Greece"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Finalmente gli Spartani si",
+     "q": "Sparta landscape olive trees",
+     "didascalia": "5.000 Spartani e 35.000 servi"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Con le altre città",
+     "q": "Greek countryside wide valley",
+     "didascalia": "110.000 uomini"
+    }
+   ]
+  },
+  {
+   "testo": "Tra loro c'era Aristodemo, sopravvissuto alle Termopili per un'infezione agli occhi. A Sparta lo trattavano come un fantasma, perché tutti lo chiamavano codardo. Voleva disperatamente morire in battaglia per riscattare il proprio nome.",
+   "anno": -479,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Tra loro c'era Aristodemo",
+     "q": "lonely path Greece hills dusk"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "A Sparta lo trattavano",
+     "q": "Sparta ruins dusk shadows"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Voleva disperatamente morire in",
+     "q": "red sunset Greek hills"
+    }
+   ]
+  },
+  {
+   "capitolo": "La battaglia di Platea",
+   "testo": "I due eserciti si incontrarono a Platea. Mardonio restò in pianura perché aveva 15.000 cavalieri micidiali. I Greci rimasero sulle colline, dove i cavalli non potevano caricare. Per 10 giorni nessuno dei due si mosse.",
+   "anno": -479,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "I due eserciti si",
+     "q": "Boeotia plain Greece landscape"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Mardonio restò in pianura",
+     "q": "Greece flat plain wheat fields"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "I Greci rimasero sulle",
+     "q": "rocky hills Greece slope",
+     "didascalia": "10 giorni di stallo"
+    }
+   ]
+  },
+  {
+   "testo": "I Persiani avvelenarono la sorgente d'acqua dei Greci e bloccarono i rifornimenti di cibo. Affamati, i Greci decisero di spostare l'accampamento di notte, ma nel buio l'esercito si divise in tre tronconi.",
+   "anno": -479,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "I Persiani avvelenarono la",
+     "q": "spring water rock Greece"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Affamati, i Greci decisero",
+     "q": "night sky stars Greece hills"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "nel buio l'esercito si",
+     "q": "dark night fog mountains"
+    }
+   ]
+  },
+  {
+   "testo": "Mardonio pensò che i Greci sparpagliati stessero fuggendo per paura. Ordinò una carica totale con migliaia di arcieri persiani. Gli Spartani restarono fermi, in attesa di un segno religioso dai loro sacerdoti. Alla fine il segno arrivò e la falange spartana iniziò ad avanzare.",
+   "anno": -479,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Mardonio pensò che i",
+     "q": "dust cloud plain galloping",
+     "suono": "horses galloping on dry ground"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Ordinò una carica totale",
+     "q": "bow arrows ancient closeup"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Gli Spartani restarono fermi",
+     "q": "sacrificial fire altar flames"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Alla fine il segno",
+     "q": "bronze shield spear sunlight",
+     "suono": "swords clashing, distant battle shouts"
+    }
+   ]
+  },
+  {
+   "testo": "Gli scudi di legno dei Persiani erano inutili contro le lance di bronzo spartane. Il generale Mardonio guidava le sue truppe da un cavallo bianco, circondato da 1.000 guardie scelte. Lo Spartano Arimnesto afferrò un grosso masso e lo scagliò con forza incredibile: colpì Mardonio in testa e gli fracassò il cranio.",
+   "anno": -479,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Gli scudi di legno",
+     "q": "wooden shield old cracked"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Il generale Mardonio guidava",
+     "q": "white horse Greece field"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Lo Spartano Arimnesto afferrò",
+     "q": "large rock boulder hillside"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "colpì Mardonio in testa",
+     "q": "ancient bronze helmet cracked"
+    }
+   ]
+  },
+  {
+   "testo": "Caduto il generale, l'esercito persiano perse il cuore e fuggì in preda al panico. I Greci lo inseguirono fin dentro il campo fortificato e iniziarono un massacro: uccisero 40.000 Persiani senza fare prigionieri. Finalmente si vendicavano di Leonida e delle città bruciate.",
+   "anno": -479,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Caduto il generale, l'esercito",
+     "q": "dust storm fleeing plain"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "I Greci lo inseguirono",
+     "q": "ancient wooden palisade fort"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "uccisero 40.000 Persiani senza",
+     "q": "fire smoke ruins dusk",
+     "didascalia": "40.000 Persiani uccisi"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Finalmente si vendicavano di",
+     "q": "Thermopylae monument sunset"
+    }
+   ]
+  },
+  {
+   "testo": "Nella tenda del generale persiano trovarono montagne di oro, argento e oggetti di lusso. Il generale spartano Pausania fece preparare ai cuochi persiani un banchetto reale, poi mostrò ai suoi ufficiali il contrasto con una normale cena spartana a base di zuppa nera. Rise, dicendo che i Persiani erano stolti: avevano tanta ricchezza ma erano venuti a prendersi la loro povertà.",
+   "anno": -479,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "Nella tenda del generale",
+     "q": "ancient gold silver treasure"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Il generale spartano Pausania",
+     "q": "banquet table gold dishes ancient"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "poi mostrò ai suoi",
+     "q": "black soup clay bowl rustic"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Rise, dicendo che i",
+     "q": "ancient gold jewelry museum"
+    }
+   ]
+  },
+  {
+   "capitolo": "La fine dell'invasione",
+   "testo": "Mentre gli Spartani vincevano a Platea, la flotta greca attaccò le navi persiane sulla costa dell'Asia. I Persiani, terrorizzati, non uscirono in mare: tirarono le navi sulla spiaggia e costruirono un muro intorno. I Greci sfondarono il muro e bruciarono fino all'ultima nave persiana.",
+   "anno": -479,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Mentre gli Spartani vincevano",
+     "q": "Aegean sea coast Turkey ships"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "I Persiani, terrorizzati, non",
+     "q": "wooden ships beach ancient"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "I Greci sfondarono il",
+     "q": "burning ship fire sea night",
+     "suono": "crackling fire, wood burning"
+    }
+   ]
+  },
+  {
+   "testo": "In un solo giorno, su due continenti, l'invasione persiana fu spazzata via. L'immenso esercito di Serse non c'era più, e i Persiani non tentarono mai più di invadere la Grecia. Le città furono ricostruite e i Greci entrarono in un'età d'oro di arte e filosofia.",
+   "anno": -479,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "In un solo giorno",
+     "q": "sunrise Aegean sea calm"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Le città furono ricostruite",
+     "q": "Parthenon Athens Acropolis"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "i Greci entrarono in",
+     "q": "Greek temple columns golden light"
+    }
+   ]
+  },
+  {
+   "testo": "Sul luogo delle Termopili posero una famosa iscrizione, per dire al mondo che gli Spartani erano morti lì obbedendo alle loro leggi. Ma la vera lezione arrivò a Platea: se uccidi un re spartano e bruci le loro case, distruggeranno tutto ciò che hai costruito.",
+   "anno": -479,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "Sul luogo delle Termopili",
+     "q": "Leonidas monument Thermopylae"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Ma la vera lezione",
+     "q": "Greek ruins sunset clouds"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "se uccidi un re",
+     "q": "fire flames dark closeup"
+    }
+   ]
+  },
+  {
+   "testo": "Centocinquant'anni dopo, Alessandro Magno avrebbe finito il lavoro, guidando un esercito greco nel cuore della Persia.",
+   "anno": -330,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Centocinquant'anni dopo, Alessandro Magno",
+     "q": "Persepolis ruins sunset Iran",
+     "didascalia": "150 anni dopo"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "guidando un esercito greco",
+     "q": "Iran desert horizon dust"
+    }
+   ]
+  }
+ ],
+ "copertina": {
+  "testo": "10000 VS 100000",
+  "personaggio": ""
+ },
+ "descrizione": "Come 5.000 Spartani vendicarono brutalmente i 300 delle Termopili? In questo video ricostruiamo la storia completa: il tradimento di Efialte, la morte di re Leonida, l'invasione persiana di Serse, la vittoria navale di Salamina e la battaglia decisiva di Platea nel 479 a.C.\n\nScopri come funzionava l'addestramento spartano, perché la falange greca era invincibile, come morì il generale Mardonio e come i Greci distrussero l'esercito persiano in un solo giorno, su due continenti.\n\nUna storia di tradimento, coraggio e vendetta che cambiò per sempre la storia dell'Occidente. Guarda fino alla fine per scoprire la lezione di Platea.\n\n#Sparta #Termopili #StoriaAntica #Persia #Platea",
+ "tag": [
+  "sparta",
+  "spartani",
+  "300 spartani",
+  "termopili",
+  "battaglia delle termopili",
+  "leonida",
+  "re leonida",
+  "serse",
+  "impero persiano",
+  "persiani",
+  "immortali persiani",
+  "guerre persiane",
+  "battaglia di platea",
+  "platea",
+  "mardonio",
+  "salamina",
+  "temistocle",
+  "falange greca",
+  "antica grecia",
+  "storia antica",
+  "storia di sparta",
+  "storia della grecia",
+  "storia completa",
+  "vendetta spartana",
+  "efialte",
+  "pausania",
+  "aristodemo",
+  "479 a.C.",
+  "480 a.C.",
+  "storia a cartone"
+ ],
+ "personaggi_mancanti": [
+  "Leonida re spartano",
+  "Serse re persiano",
+  "Mardonio generale persiano",
+  "oplita spartano generico",
+  "Temistocle ateniese"
+ ],
+ "categoria_originale": "27"
+}

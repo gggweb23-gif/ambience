@@ -1,45 +1,201 @@
 voce ElevenLabs usata: glnsgBC77wt5zOYU0szz
-15:28:51 competitor: categoria 27 , 30 tag
-15:28:53 testo originale: 2083 parole (RapidAPI)
-15:28:53 VIDEO DA COPIARE: p000f2w5xSA - How 5,000 Spartans BRUTALLY Avenged the 300 | titolo usato: How 5,000 Spartans BRUTALLY Avenged the 300
-15:28:53 paese del video: Greece
-15:28:59 originale condensato a blocchi: 2083 -> 1127 parole in 5 blocchi (obiettivo 1312)
-15:29:04 originale condensato a blocchi: 2083 -> 1172 parole in 5 blocchi (obiettivo 1312)
-15:29:04 budget 0 EUR: nessun disegno, solo clip e foto Pexels controllate (+ mappa)
-15:30:08 copione ricevuto: 23460 caratteri, fine: end_turn | blocchi di ragionamento: 0
-15:30:08 copione non valido, riprovo: copione di 1181 parole, fuori da 1275-1350
-15:31:10 copione ricevuto: 21085 caratteri, fine: end_turn | blocchi di ragionamento: 0
-15:31:10 copione non valido, riprovo: copione di 1174 parole, fuori da 1275-1350
-Traceback (most recent call last):
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 4689, in <module>
-    main()
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 4014, in main
-    c = copione(comp)
-        ^^^^^^^^^^^^^
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 516, in copione
-    raise RuntimeError('VIDEO BLOCCATO: copione fuori lunghezza dopo 2 tentativi (nessuna spesa per voce e immagini)')
-RuntimeError: VIDEO BLOCCATO: copione fuori lunghezza dopo 2 tentativi (nessuna spesa per voce e immagini)
-15:31:15 esito: {"stato": "ERRORE", "errore": "VIDEO BLOCCATO: copione fuori lunghezza dopo 2 tentativi (nessuna spesa per voce e immagini)", "minuti_lavoro": 2.4, "paese": "Greece", "categoria_originale": "27", "tag_originali": "Battle of Plataea, Plataea 479 BCE, Thermopylae, 300 Spartans, King Leonidas, Sparta, Spartan Army, 5000 Spartans, Xerxes, Persian Empire, Greco Persian Wars, Ancient Greece, Ancient Warfare, Military History, Greek Hoplites, Greek Phalanx, Pausanias, Mardonius, Battle of Salamis, Pers
+16:22:21 tag/categoria del competitor non letti da YouTube: HTTP Error 403: Forbidden
+16:22:21 competitor: categoria 27 , 0 tag
+16:22:23 testo originale: 2083 parole (RapidAPI)
+16:22:23 VIDEO DA COPIARE: p000f2w5xSA - How 5,000 Spartans BRUTALLY Avenged the 300 | titolo usato: How 5,000 Spartans BRUTALLY Avenged the 300
+16:22:23 paese del video: Greece
+16:22:29 originale condensato a blocchi: 2083 -> 1101 parole in 5 blocchi (obiettivo 1350)
+16:22:34 originale condensato a blocchi: 2083 -> 1337 parole in 5 blocchi (obiettivo 1350)
+16:22:34 budget 0 EUR: nessun disegno, solo clip e foto Pexels controllate (+ mappa)
+16:23:38 copione ricevuto: 22496 caratteri, fine: end_turn | blocchi di ragionamento: 0
+16:23:38 copione: 1315 parole (limite 1275-1350)
+16:23:38 preventivo dopo copione: speso 0.24 $ su 1.08 $ di budget
+16:23:38 copione: 32 scene, 1315 parole
+16:23:58 capitoli: 10
+16:23:58 voce pronta: 8.9 minuti
+16:23:58 luoghi del paese per i paesaggi Pexels: (nessuno: controllo solo visivo)
+16:23:58 senza texture: 0 carte/schede diventate disegni, strisce di carta tolte
+16:23:58 ritmo: 137 immagini | cartone 0% (quota 0%) | sfondi usati: 0/0, max 0 volte
+16:23:58 disegni ripetuti: nessuno scambio (ogni immagine resta sulla sua frase)
+16:23:58 senza texture: 0 carte/schede diventate disegni, strisce di carta tolte
+16:23:58 controllo immagini: 0 guardate, 0 rifatte
+16:23:58 visivi: 137 | primi 10 s: 4
+16:31:59 clip Pexels bocciate e ricordate (mai ricontrollate): 0
+16:31:59 ricerche Pexels usate: 133 (limite 190 l'ora, attesa 0 min); pezzi con clip riusata: 0
+16:31:59 pezzi pronti: 137 in 481 s
+16:31:59 SPESA immagini: 0 immagini, circa 0.00 $
+16:32:23 tasti macchina da scrivere: 200
+16:32:23 suono cambio non generato: deep whoosh with a soft low boom suono non in libreria (generazione ElevenLabs spenta)
+16:32:23 suono cambio non generato: soft airy swish, quick camera pan suono non in libreria (generazione ElevenLabs spenta)
+16:32:23 suono cambio non generato: fast cinematic whoosh transition suono non in libreria (generazione ElevenLabs spenta)
+16:32:23 suono cambio non generato: paper page turning quickly suono non in libreria (generazione ElevenLabs spenta)
+16:32:23 suono cambio non generato: short wooden tap, warm and soft suono non in libreria (generazione ElevenLabs spenta)
+16:32:23 suono cambio non generato: soft bubble pop, cartoon suono non in libreria (generazione ElevenLabs spenta)
+16:32:23 suono cambio non generato: short cinematic impact hit, deep suono non in libreria (generazione ElevenLabs spenta)
+16:32:23 suono cambio non generato: soft low whoosh, warm and muffled suono non in libreria (generazione ElevenLabs spenta)
+16:32:23 suono cambio non generato: reverse whoosh riser, short suono non in libreria (generazione ElevenLabs spenta)
+16:32:23 suono cambio non generato: soft muffled thump, low and warm suono non in libreria (generazione ElevenLabs spenta)
+16:32:23 suono cambio non generato: soft cloth flutter, flag in the wind, short suono non in libreria (generazione ElevenLabs spenta)
+16:32:23 suono cambio non generato: drum hit with short reverb, epic suono non in libreria (generazione ElevenLabs spenta)
+16:32:23 suono di scatto non generato: suono non in libreria (generazione ElevenLabs spenta)
+16:32:23 suoni di cambio immagine: 0 | libreria: 8 suoni (generati)
+16:39:01 invito iscrizione al secondo 10.0 con 2 suoni
+16:39:03 copertina foto: nome SPARTA non e' il soggetto del titolo, rifaccio
+16:39:06 copertina foto non riuscita: Unterminated string starting at: line 1 column 22 (char 21)
+16:39:06 COPERTINA MANCANTE: nessuna foto valida per lo stile del canale (anche col 2o tentativo AI, se copertina_riserva_max lo permette); nessuna copertina di altro stile. Rifarla con "Copertine foto simbolo".
+16:40:06 video_url pronto per Drive
+DA CARICARE A MANO: Come_5_000_Spartani_vendicarono_BRUTALMENTE_i_300.mp4
+16:40:07 esito: {"stato": "CREATO", "minuti_video": 8.9, "minuti_lavoro": 17.8, "titolo": "Come 5.000 Spartani vendicarono BRUTALMENTE i 300", "testo_copertina": "10000 VS 100000", "errore": "COPERTINA MANCANTE: da rifare prima di caricare", "descrizione": "Come 5.000 Spartani vendicarono BRUTALMENTE i 300\n\nCome 5.000 Spartani vendicarono brutalmente i 300 delle Termopili? In questo video ricostruiamo la storia completa: il tradimento di Efialte, la morte di re Leonida, l'invasione persiana di Serse, la vitto
+16:40:07 FATTO: /home/runner/work/ambience/ambience/video_storia.mp4 8.9 minuti
+16:40:07 COSTO VIDEO (stima): 0.61 $ + 8393 crediti voce | claude claude-haiku-4-5-20251001: 0.416 $ (190 chiamate) | claude claude-sonnet-5-5: 0.192 $ (1 chiamate) | elevenlabs eleven_multilingual_v2: 0.000 $ (32 chiamate), 8393 crediti
 ...
-voce ElevenLabs usata: glnsgBC77wt5zOYU0szz
-15:28:51 competitor: categoria 27 , 30 tag
-15:28:53 testo originale: 2083 parole (RapidAPI)
-15:28:53 VIDEO DA COPIARE: p000f2w5xSA - How 5,000 Spartans BRUTALLY Avenged the 300 | titolo usato: How 5,000 Spartans BRUTALLY Avenged the 300
-15:28:53 paese del video: Greece
-15:28:59 originale condensato a blocchi: 2083 -> 1127 parole in 5 blocchi (obiettivo 1312)
-15:29:04 originale condensato a blocchi: 2083 -> 1172 parole in 5 blocchi (obiettivo 1312)
-15:29:04 budget 0 EUR: nessun disegno, solo clip e foto Pexels controllate (+ mappa)
-15:30:08 copione ricevuto: 23460 caratteri, fine: end_turn | blocchi di ragionamento: 0
-15:30:08 copione non valido, riprovo: copione di 1181 parole, fuori da 1275-1350
-15:31:10 copione ricevuto: 21085 caratteri, fine: end_turn | blocchi di ragionamento: 0
-15:31:10 copione non valido, riprovo: copione di 1174 parole, fuori da 1275-1350
-Traceback (most recent call last):
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 4689, in <module>
-    main()
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 4014, in main
-    c = copione(comp)
-        ^^^^^^^^^^^^^
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 516, in copione
-    raise RuntimeError('VIDEO BLOCCATO: copione fuori lunghezza dopo 2 tentativi (nessuna spesa per voce e immagini)')
-RuntimeError: VIDEO BLOCCATO: copione fuori lunghezza dopo 2 tentativi (nessuna spesa per voce e immagini)
-15:31:15 esito: {"stato": "ERRORE", "errore": "VIDEO BLOCCATO: copione fuori lunghezza dopo 2 tentativi (nessuna spesa per voce e immagini)", "minuti_lavoro": 2.4, "paese": "Greece", "categoria_originale": "27", "tag_originali": "Battle of Plataea, Plataea 479 BCE, Thermopylae, 300 Spartans, King Leonidas, Sparta, Spartan Army, 5000 Spartans, Xerxes, Persian Empire, Greco Persian Wars, Ancient Greece, Ancient Warfare, Military History, Greek Hoplites, Greek Phalanx, Pausanias, Mardonius, Battle of Salamis, Pers
+16:27:59 Pexels 'Thermopylae monument Greece' -> scartate tutte
+16:27:59 Pexels scartate tutte per: Thermopylae monument Greece
+16:28:00 Pexels 'Thermopylae monument Greece ancient' -> scartate 2 riprese quasi uguali a una gia' usata
+16:28:01 Pexels 'Thermopylae monument Greece ancient' -> scelta 2
+16:28:02 Pexels 'ancient short sword bronze museum' -> scartate 1 riprese quasi uguali a una gia' usata
+16:28:03 Pexels 'ancient short sword bronze museum' -> scelta 0
+16:28:08 Pexels 'broken spear ancient' -> scelta 0
+16:28:09 Pexels 'arrows flying sky dusk' -> scelta 0
+16:28:15 Pexels 'Athens Acropolis ruins dusk' -> scelta 3
+16:28:16 Pexels 'burning fire embers dark' -> scelta 0
+16:28:24 Pexels 'huge storm waves sea thunder' -> scelta 0
+16:28:25 Pexels 'huge storm waves sea thunder' -> scelta 0
+16:28:27 Pexels 'huge storm waves sea thunder ancient' -> scelta 0
+16:28:28 Pexels 'Salamis strait Greece narrow sea' -> scartate 1 riprese quasi uguali a una gia' usata
+16:28:29 Pexels 'Salamis strait Greece narrow sea' -> scelta 1
+16:28:32 Pexels 'ancient wooden ship oars replica' -> scelta 0
+16:28:33 Pexels 'wooden ship sinking waves' -> scelta 2
+16:28:38 Pexels 'sea horizon north dark clouds' -> scelta 0
+16:28:41 Pexels 'Greek plain dust dry fields' -> scelta 0
+16:28:42 Pexels 'ancient gold coins pile' -> scartate tutte
+16:28:42 Pexels scartate tutte per: ancient gold coins pile
+16:28:43 Pexels 'ancient gold coins pile ancient' -> scelta 3
+16:28:53 Pexels 'Athens Acropolis smoke fire' -> scartate tutte
+16:28:53 Pexels scartate tutte per: Athens Acropolis smoke fire
+16:28:54 Pexels 'Peloponnese hills road Greece' -> scartate 1 riprese quasi uguali a una gia' usata
+16:28:54 Pexels 'Athens Acropolis smoke fire ancient' -> scartate 1 riprese quasi uguali a una gia' usata
+16:28:55 Pexels 'Athens Acropolis smoke fire ancient' -> scartate tutte
+16:28:55 Pexels scartate tutte per: Athens Acropolis smoke fire ancient
+16:28:55 Pexels 'Peloponnese hills road Greece' -> scelta 1
+16:28:55 Pexels 'Greek plain dust dry fields' -> scelta 0
+16:28:59 Pexels 'Peloponnese hills road Greece' -> scartate 1 riprese quasi uguali a una gia' usata
+16:29:00 Pexels 'Sparta landscape olive trees' -> scelta 3
+16:29:00 Pexels 'Peloponnese hills road Greece' -> scelta 3
+16:29:04 Pexels 'Greek countryside wide valley' -> scartate 1 riprese quasi uguali a una gia' usata
+16:29:05 Pexels 'Greek countryside wide valley' -> scelta 1
+16:29:08 Pexels 'Sparta landscape olive trees' -> scelta 1
+16:29:11 Pexels 'lonely path Greece hills dusk' -> scelta 0
+16:29:15 Pexels 'red sunset Greek hills' -> scelta 2
+16:29:16 Pexels 'Sparta ruins dusk shadows' -> scelta 2
+16:29:16 Pexels 'red sunset Greek hills' -> scartate 2 riprese quasi uguali a una gia' usata
+16:29:17 Pexels 'red sunset Greek hills' -> scelta 0
+16:29:22 Pexels 'Boeotia plain Greece landscape' -> scartate 2 riprese quasi uguali a una gia' usata
+16:29:23 Pexels 'Boeotia plain Greece landscape' -> scelta 0
+16:29:24 Pexels 'Greece flat plain wheat fields' -> scelta 3
+16:29:26 Pexels 'rocky hills Greece slope' -> scartate 1 riprese quasi uguali a una gia' usata
+16:29:27 Pexels 'rocky hills Greece slope' -> scelta 0
+16:29:31 Pexels 'Boeotia plain Greece landscape' -> scartate 2 riprese quasi uguali a una gia' usata
+16:29:32 Pexels 'Boeotia plain Greece landscape' -> scelta 0
+16:29:36 Pexels 'spring water rock Greece' -> scartate 1 riprese quasi uguali a una gia' usata
+16:29:37 Pexels 'spring water rock Greece' -> scelta 0
+16:29:39 Pexels 'night sky stars Greece hills' -> scartate 1 riprese quasi uguali a una gia' usata
+16:29:39 Pexels 'night sky stars Greece hills' -> scelta 3
+16:29:46 Pexels 'dark night fog mountains' -> scelta 0
+16:29:50 Pexels 'dust cloud plain galloping' -> scelta 0
+16:29:55 Pexels 'bow arrows ancient closeup' -> scelta 3
+16:30:04 Pexels 'sacrificial fire altar flames' -> scelta 2
+16:30:04 Pexels 'bronze shield spear sunlight' -> scelta 2
+16:30:10 Pexels 'wooden shield old cracked' -> scelta 0
+16:30:11 Pexels 'white horse Greece field' -> scelta 3
+16:30:16 Pexels 'large rock boulder hillside' -> scelta 3
+16:30:20 Pexels 'ancient bronze helmet cracked' -> scartate 1 riprese quasi uguali a una gia' usata
+16:30:21 Pexels 'ancient bronze helmet cracked' -> scelta 0
+16:30:23 Pexels 'dust storm fleeing plain' -> scelta 1
+16:30:27 Pexels 'ancient wooden palisade fort' -> scelta 0
+16:30:28 Pexels 'fire smoke ruins dusk' -> scelta 0
+16:30:37 Pexels 'ancient gold silver treasure' -> scartate 1 riprese quasi uguali a una gia' usata
+16:30:38 Pexels 'ancient gold silver treasure' -> scelta 1
+16:30:38 Pexels 'Thermopylae monument sunset' -> scelta 3
+16:30:44 Pexels 'banquet table gold dishes ancient' -> scartate tutte
+16:30:44 Pexels scartate tutte per: banquet table gold dishes ancient
+16:30:44 Pexels 'banquet table gold dishes ancient' -> scartate tutte
+16:30:44 Pexels scartate tutte per: banquet table gold dishes ancient
+16:30:46 Pexels 'banquet table gold dishes ancient ancient' -> scartate tutte
+16:30:46 Pexels scartate tutte per: banquet table gold dishes ancient ancient
+16:30:46 Pexels 'banquet table gold dishes ancient ancient' -> scartate tutte
+16:30:46 Pexels scartate tutte per: banquet table gold dishes ancient ancient
+16:30:48 Pexels 'ancient gold silver treasure' -> scelta 0
+16:30:48 Pexels 'ancient gold silver treasure' -> scelta 0
+16:30:49 Pexels 'ancient gold silver treasure ancient' -> scartate 2 riprese quasi uguali a una gia' usata
+16:30:50 Pexels 'ancient gold silver treasure ancient' -> scelta 2
+16:30:53 Pexels 'black soup clay bowl rustic' -> scelta 0
+16:30:54 Pexels 'black soup clay bowl rustic' -> scelta 0
+16:30:55 Pexels 'black soup clay bowl rustic ancient' -> scelta 0
+16:30:58 Pexels 'ancient gold jewelry museum' -> scartate 1 riprese quasi uguali a una gia' usata
+16:30:59 Pexels 'ancient gold jewelry museum' -> scartate 1 riprese quasi uguali a una gia' usata
+16:31:00 Pexels 'ancient gold jewelry museum' -> scelta 2
+16:31:00 Pexels 'ancient gold jewelry museum' -> scelta 2
+16:31:01 Pexels 'ancient gold jewelry museum ancient' -> scartate 2 riprese quasi uguali a una gia' usata
+16:31:02 Pexels 'ancient gold jewelry museum ancient' -> scelta 2
+16:31:06 Pexels 'wooden ships beach ancient' -> scartate tutte
+16:31:06 Pexels scartate tutte per: wooden ships beach ancient
+16:31:07 Pexels 'wooden ships beach ancient ancient' -> scartate tutte
+16:31:07 Pexels scartate tutte per: wooden ships beach ancient ancient
+16:31:08 Pexels 'wooden ships beach ancient' -> scartate tutte
+16:31:08 Pexels scartate tutte per: wooden ships beach ancient
+16:31:10 Pexels 'wooden ships beach ancient ancient' -> scartate tutte
+16:31:10 Pexels scartate tutte per: wooden ships beach ancient ancient
+16:31:15 Pexels 'burning ship fire sea night' -> scartate 1 riprese quasi uguali a una gia' usata
+16:31:16 Pexels 'burning ship fire sea night' -> scelta 2
+16:31:18 Pexels 'burning ship fire sea night' -> scartate 2 riprese quasi uguali a una gia' usata
+16:31:19 Pexels 'burning ship fire sea night' -> scelta 3
+16:31:24 Pexels 'sunrise Aegean sea calm' -> scelta 1
+16:31:25 Pexels 'sunrise Aegean sea calm' -> scelta 1
+16:31:26 Pexels 'sunrise Aegean sea calm ancient' -> scartate 5 riprese quasi uguali a una gia' usata
+16:31:27 Pexels 'sunrise Aegean sea calm ancient' -> scelta 0
+16:31:30 Pexels 'Parthenon Athens Acropolis' -> scelta 0
+16:31:31 Pexels 'Parthenon Athens Acropolis' -> scelta 0
+16:31:32 Pexels 'Parthenon Athens Acropolis ancient' -> scelta 0
+16:31:37 Pexels 'Leonidas monument Thermopylae' -> scartate 1 riprese quasi uguali a una gia' usata
+16:31:37 Pexels 'Greek temple columns golden light' -> scartate 3 riprese quasi uguali a una gia' usata
+16:31:38 Pexels 'Leonidas monument Thermopylae' -> scelta 0
+16:31:38 Pexels 'Greek temple columns golden light' -> scelta 1
+16:31:41 Pexels 'fire flames dark closeup' -> scartate 4 riprese quasi uguali a una gia' usata
+16:31:42 Pexels 'fire flames dark closeup' -> scelta 2
+16:31:45 Pexels 'Greek ruins sunset clouds' -> scartate 15 riprese quasi uguali a una gia' usata
+16:31:45 Pexels 'fire flames dark closeup' -> scartate 5 riprese quasi uguali a una gia' usata
+16:31:46 Pexels 'Greek ruins sunset clouds' -> scelta 1
+16:31:46 Pexels 'fire flames dark closeup' -> scelta 2
+16:31:49 Pexels 'Leonidas monument Thermopylae' -> scartate 1 riprese quasi uguali a una gia' usata
+16:31:50 Pexels 'Leonidas monument Thermopylae' -> scelta 0
+16:31:52 Pexels 'Persepolis ruins sunset Iran' -> scelta 2
+16:31:57 Pexels 'Iran desert horizon dust' -> scelta 0
+16:31:59 clip Pexels bocciate e ricordate (mai ricontrollate): 0
+16:31:59 ricerche Pexels usate: 133 (limite 190 l'ora, attesa 0 min); pezzi con clip riusata: 0
+16:31:59 pezzi pronti: 137 in 481 s
+16:31:59 SPESA immagini: 0 immagini, circa 0.00 $
+16:32:23 tasti macchina da scrivere: 200
+16:32:23 suono cambio non generato: deep whoosh with a soft low boom suono non in libreria (generazione ElevenLabs spenta)
+16:32:23 suono cambio non generato: soft airy swish, quick camera pan suono non in libreria (generazione ElevenLabs spenta)
+16:32:23 suono cambio non generato: fast cinematic whoosh transition suono non in libreria (generazione ElevenLabs spenta)
+16:32:23 suono cambio non generato: paper page turning quickly suono non in libreria (generazione ElevenLabs spenta)
+16:32:23 suono cambio non generato: short wooden tap, warm and soft suono non in libreria (generazione ElevenLabs spenta)
+16:32:23 suono cambio non generato: soft bubble pop, cartoon suono non in libreria (generazione ElevenLabs spenta)
+16:32:23 suono cambio non generato: short cinematic impact hit, deep suono non in libreria (generazione ElevenLabs spenta)
+16:32:23 suono cambio non generato: soft low whoosh, warm and muffled suono non in libreria (generazione ElevenLabs spenta)
+16:32:23 suono cambio non generato: reverse whoosh riser, short suono non in libreria (generazione ElevenLabs spenta)
+16:32:23 suono cambio non generato: soft muffled thump, low and warm suono non in libreria (generazione ElevenLabs spenta)
+16:32:23 suono cambio non generato: soft cloth flutter, flag in the wind, short suono non in libreria (generazione ElevenLabs spenta)
+16:32:23 suono cambio non generato: drum hit with short reverb, epic suono non in libreria (generazione ElevenLabs spenta)
+16:32:23 suono di scatto non generato: suono non in libreria (generazione ElevenLabs spenta)
+16:32:23 suoni di cambio immagine: 0 | libreria: 8 suoni (generati)
+16:39:01 invito iscrizione al secondo 10.0 con 2 suoni
+16:39:03 copertina foto: nome SPARTA non e' il soggetto del titolo, rifaccio
+16:39:06 copertina foto non riuscita: Unterminated string starting at: line 1 column 22 (char 21)
+16:39:06 COPERTINA MANCANTE: nessuna foto valida per lo stile del canale (anche col 2o tentativo AI, se copertina_riserva_max lo permette); nessuna copertina di altro stile. Rifarla con "Copertine foto simbolo".
+16:40:06 video_url pronto per Drive
+DA CARICARE A MANO: Come_5_000_Spartani_vendicarono_BRUTALMENTE_i_300.mp4
+16:40:07 esito: {"stato": "CREATO", "minuti_video": 8.9, "minuti_lavoro": 17.8, "titolo": "Come 5.000 Spartani vendicarono BRUTALMENTE i 300", "testo_copertina": "10000 VS 100000", "errore": "COPERTINA MANCANTE: da rifare prima di caricare", "descrizione": "Come 5.000 Spartani vendicarono BRUTALMENTE i 300\n\nCome 5.000 Spartani vendicarono brutalmente i 300 delle Termopili? In questo video ricostruiamo la storia completa: il tradimento di Efialte, la morte di re Leonida, l'invasione persiana di Serse, la vitto
+16:40:07 FATTO: /home/runner/work/ambience/ambience/video_storia.mp4 8.9 minuti
+16:40:07 COSTO VIDEO (stima): 0.61 $ + 8393 crediti voce | claude claude-haiku-4-5-20251001: 0.416 $ (190 chiamate) | claude claude-sonnet-5-5: 0.192 $ (1 chiamate) | elevenlabs eleven_multilingual_v2: 0.000 $ (32 chiamate), 8393 crediti
