@@ -52,15 +52,16 @@ for a in sorted(arts, key=lambda x: x['created_at'], reverse=True):
             continue
         v = glob.glob(f'{d}/{s}.mp4'); cop = glob.glob(f'{d}/{s}_COPERTINA.*')
         if v:
-            shutil.move(v[0], f'{OUT}/{s}.mp4')
+            nome_v = f"{slug(nome_canale.get(c, c))}__{s}.mp4"   # canale davanti per riconoscerlo (il titolo su YouTube si incolla sempre dal foglio)
+            shutil.move(v[0], f'{OUT}/{nome_v}')
             nome_cop = ''
             if cop:
                 nome_cop = f"{slug(nome_canale.get(c, c))}__{s[:60]}__COPERTINA{os.path.splitext(cop[0])[1]}"
                 shutil.move(cop[0], f'{OUT}/{nome_cop}')
-            trovati[s] = (usc, c, t, f'{s}.mp4', nome_cop)
+            trovati[s] = (usc, c, t, nome_v, nome_cop)
     shutil.rmtree(d, ignore_errors=True)
 righe = ['PRIMA di caricare controlla in alto a sinistra in YouTube Studio di essere sul CANALE giusto.',
-         'Il titolo va sempre INCOLLATO dal file di produzione (colonna titolo_italiano, o la prima riga della descrizione), insieme a descrizione, tag, playlist e orario.', '',
+         'Il nome dei file inizia con il CANALE: su YouTube CANCELLA il titolo proposto e INCOLLA quello del file di produzione (colonna titolo_italiano, o la prima riga della descrizione), insieme a descrizione, tag, playlist e orario.', '',
          '| Uscita | Canale | Titolo | Video | Copertina |', '|---|---|---|---|---|']
 for usc, c, t, s in sorted(attesa):
     if s in trovati:
