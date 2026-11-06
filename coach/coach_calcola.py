@@ -9,9 +9,9 @@ Uscita: JSON su stdout (e coach/canali/<slug>/ultimo_calcolo.json).
 Regole (decise con Giorgio il 30 ott 2026, valgono per tutti i canali con coach_auto = SI):
 - finestra = ultimi N video della versione attiva (colonna coach_finestra_video, default 3), solo video con almeno 72 ore
 - CTR = clic totali / impression totali della finestra (media pesata) >= coach_obiettivo_ctr (default 3,5)
-- 5 nov 2026, Giorgio: regola unica per tutti i canali = 3 video con almeno 72 ore nella versione attiva E almeno
-  coach_min_impression (default 1000) impression sommando gli ultimi 5 video con almeno 72 ore (stato ATTESA_IMPRESSION);
-  tolto il minimo di 5 video del 1 nov
+- 6 nov 2026, Giorgio: regola unica per tutti i canali = 3 video con almeno 72 ore nella versione attiva E almeno
+  coach_min_impression (default 1000) impression sommando QUEGLI STESSI 3 video della versione attiva (stato ATTESA_IMPRESSION);
+  prima (5 nov) si sommavano gli ultimi 5 video di qualsiasi versione
 - retention 30 s e 60 s = media pesata sulle views, solo video con almeno 30 views (se non bastano si allarga a 5 video)
   >= coach_obiettivo_ret30 (default 65) e coach_obiettivo_ret60 (default 50)
 - ordine fisso delle leve: CTR -> retention 30 s -> retention 60 s
@@ -59,7 +59,7 @@ def main(f_cfg, f_prod, canale):
         raise SystemExit('canale non trovato in Channel Configs: ' + canale)
     O = {'ctr': num(cfg.get('coach_obiettivo_ctr'), 3.5), 'ret30': num(cfg.get('coach_obiettivo_ret30'), 65),
          'ret60': num(cfg.get('coach_obiettivo_ret60'), 50)}
-    N = int(num(cfg.get('coach_finestra_video'), 3)); MIN_IMP = num(cfg.get('coach_min_impression'), 1000)   # 5 nov, Giorgio: N video con 72 ore E 1000 impression negli ultimi 5 video
+    N = int(num(cfg.get('coach_finestra_video'), 3)); MIN_IMP = num(cfg.get('coach_min_impression'), 1000)   # 6 nov, Giorgio: N video con 72 ore E 1000 impression su quegli N video della versione attiva
     wb = openpyxl.load_workbook(f_prod, data_only=True)
     prod = righe(wb.worksheets[0])
     perf = righe(wb['Performance']) if 'Performance' in wb.sheetnames else []
@@ -153,11 +153,9 @@ def main(f_cfg, f_prod, canale):
         return (round(sum(v[k] * v['views'] for v in base) / pv, 1) if pv else None), len(base)
     r30, n30 = ret('ret30'); r60, n60 = ret('ret60')
     esito['misure'] = {'ctr': ctr, 'impression_totali': imp, 'ret30': r30, 'video_ret30': n30, 'ret60': r60, 'video_ret60': n60}
-    ultimi5 = sorted([v for v in video if v['ore'] >= 72 and v['report_ok']], key=lambda v: v['pubblicato'])[-5:]   # ultimi 5 video con 72 ore e >= 3 giorni di report
-    imp5 = sum(v['impression'] for v in ultimi5)
-    esito['misure'].update(video_ultimi5=len(ultimi5), impression_ultimi5=imp5, in_attesa_report=len(attesa_rep))
-    if imp5 < MIN_IMP:   # poche impression = YouTube non spinge, la leva non e' la copertina: non si cambia
-        esito.update({'stato': 'ATTESA_IMPRESSION', 'motivo': f'copertine ferme: {int(imp5)} impression negli ultimi {len(ultimi5)} video (minimo {int(MIN_IMP)}); se restano basse la leva e\' titolo/argomento, non la copertina'})
+    esito['misure'].update(in_attesa_report=len(attesa_rep))
+    if imp < MIN_IMP:   # 6 nov, Giorgio: poche impression sui video della copertina attuale = dati insufficienti, non si cambia
+        esito.update({'stato': 'ATTESA_IMPRESSION', 'motivo': f'copertine ferme: {int(imp)} impression sui {len(fin_imp)} video della versione {attiva} (minimo {int(MIN_IMP)}); se restano basse la leva e\' titolo/argomento, non la copertina'})
     elif ctr < O['ctr']:
         esito.update({'stato': 'LEVA_CTR', 'motivo': f'CTR {ctr}% su {int(imp)} impression (obiettivo {O["ctr"]}%)'})
     elif r30 is None or r30 < O['ret30']:

@@ -66,8 +66,9 @@ finché i parametri sono rispettati, senza buttare il lavoro fatto. Rispondi e s
    `python3 coach/coach_calcola.py <configs.xlsx> <produzione.xlsx> "<channel_id>"`.
 4. Decidi in base a `stato`:
    - `ATTESA` (meno di N video con 72 ore nella versione attiva): non cambiare nulla.
-   - `ATTESA_IMPRESSION` (gli ultimi 5 video con almeno 72 ore sommano meno di `coach_min_impression`, default 1000):
-     non cambiare nulla. Regole uguali per tutti i canali (Giorgio, 5 nov 2026; tolto il minimo di 5 video).
+   - `ATTESA_IMPRESSION` (gli N video della versione attiva con almeno 72 ore sommano meno di `coach_min_impression`,
+     default 1000): non cambiare nulla. Regole uguali per tutti i canali (Giorgio, 6 nov 2026: le impression si contano
+     solo sui video della copertina attuale, non piu' sugli ultimi 5 di qualsiasi versione).
    - `OK`: scrivi i risultati nella versione attiva. Se anche il controllo precedente era OK -> `stato` = `stabile`,
      `migliore` = versione attiva. Nessuna modifica.
    - `LEVA_COSTO`: riporta il costo sotto `coach_budget_video` restando nello stile (es. meno disegni e piu' riuso di ogni
