@@ -1,0 +1,761 @@
+{
+ "riserva_pexels": [
+  "Neuschwanstein castle Bavaria",
+  "Black Forest Germany trees",
+  "Rhine river valley castle",
+  "Cologne cathedral gothic spires",
+  "Bavarian Alps mountains Germany",
+  "half-timbered houses Germany old town",
+  "Brandenburg Gate Berlin",
+  "Baltic Sea coast Germany"
+ ],
+ "luoghi_paese": "germany german germania deutschland berlin munich bavaria cologne hamburg dresden wittenberg rhine danube black forest alps neuschwanstein brandenburg reichstag potsdam heidelberg nuremberg frankfurt saxony prussia versailles",
+ "titolo": "L'INTERA Storia della Germania in 21 Minuti",
+ "titolo_mappa": "GERMANIA",
+ "paese_mappa": "Germany",
+ "date": "9 d.C. – 2026",
+ "texture": "pergamena",
+ "font_carte": "classico",
+ "fondi_carte": [],
+ "colori_carte": [
+  "#1d1d1d",
+  "#7a1f1f"
+ ],
+ "sfondi": [],
+ "scene": [
+  {
+   "capitolo": "Le origini",
+   "testo": "Nel cuore dell'Europa si trova un paese che è stato il più grande motore di genio del continente e il suo incubo più terrificante. Ha dato al mondo la stampa, le sinfonie, l'automobile e la fisica quantistica, ma ha anche scatenato le due guerre più sanguinose della storia umana.",
+   "anno": 2026,
+   "visivi": [
+    {
+     "tipo": "mappa",
+     "frase": "Nel cuore dell'Europa"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Ha dato al mondo",
+     "q": "Germany old printing press museum"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "l'automobile e la fisica",
+     "q": "vintage car Germany museum"
+    }
+   ]
+  },
+  {
+   "testo": "Per gran parte della sua esistenza questo luogo non è stato un paese unico, ma un caotico puzzle di centinaia di piccoli regni in lotta fra loro. Questa è l'intera storia della Germania.",
+   "anno": 800,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Per gran parte della sua esistenza",
+     "q": "Germany medieval castle hilltop Rhine"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "centinaia di piccoli regni",
+     "q": "Germany half-timbered old town houses"
+    }
+   ]
+  },
+  {
+   "testo": "Tutto comincia 2.000 anni fa, nelle fitte foreste a est del fiume Reno, che Roma chiamava Germania. Nel 9 d.C. tre legioni romane, oltre 20.000 soldati, entrarono nei boschi al comando del governatore Varo, attirate in una trappola dal capo germanico Arminio.",
+   "anno": 9,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Tutto comincia 2.000 anni fa",
+     "q": "Teutoburg Forest Germany misty trees",
+     "suono": "forest wind, distant war horns"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "a est del fiume Reno",
+     "q": "Rhine river Germany landscape",
+     "didascalia": "2.000 anni fa"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Nel 9 d.C. tre legioni",
+     "q": "Roman helmet sword museum Germany",
+     "didascalia": "9 d.C. – 20.000 soldati"
+    }
+   ]
+  },
+  {
+   "testo": "Per quattro giorni, nella foresta di Teutoburgo, i guerrieri germanici attaccarono e annientarono le tre legioni in brutali scontri corpo a corpo. Roma rinunciò per sempre al sogno di conquistare le foreste tedesche e fissò il Reno e il Danubio come confini permanenti dell'impero.",
+   "anno": 9,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Per quattro giorni",
+     "q": "dark dense forest Germany fog",
+     "suono": "swords clashing, distant battle shouts"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Roma rinunciò per sempre",
+     "q": "Roman ruins Germany Limes wall"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "il Reno e il Danubio",
+     "q": "Danube river Germany valley"
+    }
+   ]
+  },
+  {
+   "capitolo": "Carlo Magno e l'Impero",
+   "testo": "Secoli dopo, le tribù germaniche dilagarono oltre quei confini e fecero a pezzi l'Impero romano d'Occidente. Intorno all'800 i Franchi si imposero sulle altre tribù, quando Carlo Magno riunì sotto di sé gran parte dell'Europa occidentale.",
+   "anno": 476,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Secoli dopo, le tribù",
+     "q": "ancient Roman ruins sunset"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Intorno all'800 i Franchi",
+     "q": "Aachen cathedral Charlemagne"
+    }
+   ]
+  },
+  {
+   "testo": "A Natale, a Roma, il Papa incoronò Carlo Magno imperatore. Ma alla sua morte l'impero fu spartito tra tre nipoti: la parte occidentale diventò la Francia, quella orientale la Germania.",
+   "anno": 800,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "A Natale, a Roma",
+     "q": "Rome cathedral interior candles",
+     "didascalia": "Natale dell'800"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "la parte occidentale diventò",
+     "q": "old map parchment Europe antique"
+    }
+   ]
+  },
+  {
+   "testo": "Nel 962 Ottone il Grande fu incoronato imperatore e fondò il Sacro Romano Impero, che non era né sacro, né romano, né davvero un impero. Era un insieme di oltre 300 territori indipendenti, governati da un imperatore elettivo senza quasi alcun potere.",
+   "anno": 962,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Nel 962 Ottone il Grande",
+     "q": "medieval cathedral Germany gothic interior",
+     "didascalia": "962 – Sacro Romano Impero"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Era un insieme di oltre 300",
+     "q": "Germany medieval castle ruins hills",
+     "didascalia": "Oltre 300 territori"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Diversamente da Francia e Inghilterra",
+     "q": "Bavaria countryside castle valley"
+    }
+   ]
+  },
+  {
+   "capitolo": "Gutenberg e la Riforma",
+   "testo": "Eppure questa regione frammentata produsse Johannes Gutenberg, che negli anni 1440 inventò la moderna stampa a caratteri mobili. I suoi caratteri metallici permisero di stampare idee, notizie e conoscenza in migliaia di copie, in fretta e a basso costo.",
+   "anno": 1440,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Eppure questa regione frammentata",
+     "q": "Mainz Germany old town cathedral"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Johannes Gutenberg",
+     "q": "movable metal type printing press",
+     "didascalia": "Anni 1440"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "in migliaia di copie",
+     "q": "old books manuscripts library pages"
+    }
+   ]
+  },
+  {
+   "testo": "Nel 1517 Martin Lutero affisse alle porte della chiesa di Wittenberg 95 critiche contro la Chiesa cattolica, attaccando pratiche corrotte come la vendita delle indulgenze. Le sue idee volarono grazie alla stampa e accesero la Riforma protestante.",
+   "anno": 1517,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Nel 1517 Martin Lutero",
+     "q": "Wittenberg church door Germany",
+     "didascalia": "1517 – 95 tesi"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "vendita delle indulgenze",
+     "q": "old Bible manuscript candle"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "accesero la Riforma",
+     "q": "Germany church interior stained glass"
+    }
+   ]
+  },
+  {
+   "testo": "I principi tedeschi si divisero tra protestanti e cattolici, e le tensioni esplosero nel 1618 nella devastante Guerra dei Trent'anni, che finì per coinvolgere tutte le grandi potenze europee. Un terzo della popolazione tedesca morì di violenza, fame o malattia.",
+   "anno": 1618,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "I principi tedeschi si divisero",
+     "q": "Germany medieval fortress storm clouds"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "nel 1618 nella devastante",
+     "q": "old cannon fortress Germany",
+     "suono": "distant cannon fire, wind",
+     "didascalia": "1618 – 1648"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Un terzo della popolazione",
+     "q": "burning ruins smoke abandoned village",
+     "didascalia": "Un terzo dei tedeschi morì"
+    }
+   ]
+  },
+  {
+   "capitolo": "Prussia e Napoleone",
+   "testo": "Con la Pace di Vestfalia del 1648 l'indebolito Sacro Romano Impero si frantumò in centinaia di pezzi. Il Brandeburgo-Prussia, piccolo territorio del nordest con terra povera e senza confini naturali, sopravvisse costruendo il più disciplinato esercito d'Europa.",
+   "anno": 1648,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Con la Pace di Vestfalia",
+     "q": "old treaty document parchment quill"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Il Brandeburgo-Prussia",
+     "q": "Potsdam Sanssouci palace Prussia"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "costruendo il più disciplinato",
+     "q": "Prussian cannons museum Berlin"
+    }
+   ]
+  },
+  {
+   "testo": "Sotto il geniale condottiero Federico il Grande, nel Settecento, la Prussia divenne una potenza europea rispettata. Poi, nel 1806, gli eserciti di Napoleone la schiacciarono e abolirono il millenario Sacro Romano Impero.",
+   "anno": 1740,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Sotto il geniale condottiero",
+     "q": "Sanssouci gardens Potsdam palace"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Poi, nel 1806",
+     "q": "Napoleon era battlefield cannon museum",
+     "didascalia": "1806 – Napoleone"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "abolirono il millenario",
+     "q": "Holy Roman Empire crown jewels"
+    }
+   ]
+  },
+  {
+   "testo": "Quella disfatta costrinse la Prussia a reinventarsi del tutto. L'occupazione francese fece nascere una domanda decisiva: perché i popoli di lingua tedesca erano divisi in tanti Stati? Il sogno di una Germania unita nacque scoprendo di condividere lingua, letteratura e cultura.",
+   "anno": 1810,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Quella disfatta costrinse",
+     "q": "Berlin Brandenburg Gate old architecture"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "perché i popoli di lingua",
+     "q": "old German books literature library"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Il sogno di una Germania",
+     "q": "Germany landscape river castle sunrise"
+    }
+   ]
+  },
+  {
+   "capitolo": "Bismarck e il Reich",
+   "testo": "Dopo la sconfitta di Napoleone, i principi formarono una debole confederazione di 39 Stati, lacerata dalla rivalità tra Austria e Prussia. La rivoluzione del 1848 chiese democrazia e unità, ma fallì contro le truppe monarchiche.",
+   "anno": 1815,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Dopo la sconfitta di Napoleone",
+     "q": "Vienna palace Austria old architecture"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "La rivoluzione del 1848",
+     "q": "Frankfurt St Paul's church parliament",
+     "didascalia": "1848 – 39 Stati"
+    }
+   ]
+  },
+  {
+   "testo": "Otto von Bismarck, nominato primo ministro prussiano nel 1862, credeva che le grandi questioni si risolvessero con «ferro e sangue», non con i discorsi. Orchestrò tre guerre brillanti: la Danimarca nel 1864, l'Austria nel 1866 e, con l'inganno, la Francia nel 1870.",
+   "anno": 1862,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Otto von Bismarck",
+     "q": "Berlin Reichstag historic building"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "ferro e sangue",
+     "q": "iron cannon steel old museum",
+     "didascalia": "1864 – 1866 – 1870"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "la Francia nel 1870",
+     "q": "Alsace Lorraine fortress landscape"
+    }
+   ]
+  },
+  {
+   "testo": "Il 18 gennaio 1871, nel Palazzo di Versailles, in Francia, i principi tedeschi proclamarono l'impero e incoronarono Guglielmo Kaiser. Da un giorno all'altro, un debole insieme di Stati divenne un gigante industriale e militare di 40 milioni di abitanti.",
+   "anno": 1871,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Il 18 gennaio 1871",
+     "q": "Versailles Hall of Mirrors palace",
+     "didascalia": "18 gennaio 1871"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Da un giorno all'altro",
+     "q": "Germany 19th century factory chimneys steel",
+     "didascalia": "40 milioni di abitanti"
+    }
+   ]
+  },
+  {
+   "testo": "Le fabbriche tedesche superarono la Gran Bretagna per acciaio, chimica e macchinari, mentre le università tedesche guidavano il mondo in fisica, medicina e ingegneria. Nel 1888 Guglielmo II salì al trono, licenziò Bismarck e volle costruire un impero globale.",
+   "anno": 1888,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Le fabbriche tedesche superarono",
+     "q": "steel mill furnace molten metal",
+     "suono": "heavy industrial machinery clanging"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "le università tedesche",
+     "q": "Heidelberg university old building"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Nel 1888 Guglielmo II",
+     "q": "Berlin Stadtschloss Prussian palace"
+    }
+   ]
+  },
+  {
+   "capitolo": "La Grande Guerra",
+   "testo": "Guglielmo costruì una enorme flotta per sfidare la Gran Bretagna, si inimicò mezza Europa e spinse Francia, Russia e Britannia in un'alleanza militare contro la Germania. La scintilla fu l'assassinio dell'arciduca austriaco a Sarajevo, nel giugno 1914.",
+   "anno": 1914,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Guglielmo costruì una enorme",
+     "q": "battleship naval museum steel hull"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "l'assassinio dell'arciduca",
+     "q": "Sarajevo old bridge Latin Bridge",
+     "didascalia": "Giugno 1914"
+    }
+   ]
+  },
+  {
+   "testo": "La Germania si ritrovò nella guerra su due fronti che temeva: la Russia a est, Gran Bretagna e Francia a ovest. Nel 1918, affamata dal blocco navale, con gli alleati crollati, vide il Kaiser abdicare.",
+   "anno": 1918,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "La Germania si ritrovò",
+     "q": "World War 1 trenches battlefield memorial",
+     "suono": "distant artillery rumbling"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "affamata dal blocco navale",
+     "q": "North Sea stormy waves grey"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "vide il Kaiser abdicare",
+     "q": "Berlin Reichstag building facade"
+    }
+   ]
+  },
+  {
+   "capitolo": "Weimar e la crisi",
+   "testo": "Nacque la Repubblica di Weimar, prima democrazia tedesca, con un enorme bersaglio sulla schiena. Il Trattato di Versailles impose alla Germania la colpa totale, la perdita del 10% del territorio e riparazioni astronomiche.",
+   "anno": 1919,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Nacque la Repubblica di Weimar",
+     "q": "Weimar Germany city old theatre"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Il Trattato di Versailles",
+     "q": "treaty signing pen document old",
+     "didascalia": "10% del territorio perso"
+    }
+   ]
+  },
+  {
+   "testo": "Milioni di tedeschi umiliati credettero alla menzogna che l'esercito fosse stato pugnalato alla schiena da socialisti, comunisti ed ebrei. Il governo stampò trilioni di marchi, e l'iperinflazione distrusse i risparmi in poche ore.",
+   "anno": 1923,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Milioni di tedeschi umiliati",
+     "q": "old Berlin street gloomy rain"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Il governo stampò trilioni",
+     "q": "old banknotes paper money stacks",
+     "didascalia": "Trilioni di marchi"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "l'iperinflazione distrusse",
+     "q": "burning paper money fire embers"
+    }
+   ]
+  },
+  {
+   "testo": "Nei Ruggenti anni Venti Berlino divenne la capitale culturale progressista d'Europa, ma il crollo della Borsa americana del 1929 innescò la Grande Depressione e devastò la Germania. Con 6 milioni di disoccupati disperati, milioni di persone abbandonarono la democrazia.",
+   "anno": 1929,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Nei Ruggenti anni Venti",
+     "q": "Berlin architecture 1920s theatre facade"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "il crollo della Borsa",
+     "q": "Wall Street stock exchange old building",
+     "didascalia": "6 milioni di disoccupati"
+    }
+   ]
+  },
+  {
+   "capitolo": "Il Terzo Reich",
+   "testo": "Si affidarono ad Adolf Hitler, oratore ipnotico che accusava ebrei e minoranze dei problemi del paese. Nel gennaio 1933 le élite conservatrici, in modo sciagurato, lo nominarono cancelliere.",
+   "anno": 1933,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Si affidarono ad Adolf Hitler",
+     "q": "Nuremberg rally grounds empty stone"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "nel gennaio 1933",
+     "q": "Reichstag Berlin building dark clouds",
+     "didascalia": "Gennaio 1933"
+    }
+   ]
+  },
+  {
+   "testo": "Hitler smantellò subito la democrazia: vietò i partiti, sospese le libertà civili e aprì i campi di concentramento. Riarmò segretamente la Germania e nel 1938 annesse Austria e Cecoslovacchia, mentre i leader occidentali lo assecondavano.",
+   "anno": 1938,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Hitler smantellò subito",
+     "q": "barbed wire fence camp dark"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "annesse Austria e Cecoslovacchia",
+     "q": "Prague old town Czech architecture",
+     "didascalia": "1938 – Austria e Cecoslovacchia"
+    }
+   ]
+  },
+  {
+   "capitolo": "La Seconda guerra mondiale",
+   "testo": "Il 1° settembre 1939 i carri armati tedeschi invasero la Polonia, dando inizio alla Seconda guerra mondiale con la rivoluzionaria tattica della Blitzkrieg. Nel 1941 Hitler dominava quasi tutta l'Europa e lanciò la più grande invasione militare di sempre, con 3 milioni di soldati contro l'Unione Sovietica.",
+   "anno": 1939,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Il 1° settembre 1939",
+     "q": "Poland border fields dawn mist",
+     "didascalia": "1° settembre 1939",
+     "suono": "tanks rumbling, distant explosions"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Nel 1941 Hitler dominava",
+     "q": "old Europe map war antique"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "contro l'Unione Sovietica",
+     "q": "Russian steppe snow winter vast",
+     "didascalia": "3 milioni di soldati"
+    }
+   ]
+  },
+  {
+   "testo": "Allo stesso tempo il regime nazista compiva l'Olocausto, il crimine più oscuro della storia, in fabbriche di morte industriali come Auschwitz. Furono sterminati sistematicamente 6 milioni di ebrei europei, insieme a milioni di altre persone considerate indegne di vivere.",
+   "anno": 1942,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Allo stesso tempo il regime",
+     "q": "Auschwitz memorial railway tracks",
+     "suono": "cold wind, silence"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Furono sterminati sistematicamente",
+     "q": "Holocaust memorial Berlin stelae",
+     "didascalia": "6 milioni di ebrei"
+    }
+   ]
+  },
+  {
+   "testo": "Nel 1943 la marea cambiò: le forze sovietiche distrussero un intero esercito tedesco a Stalingrado. L'Armata Rossa marciò verso Berlino da est, mentre americani e britannici avanzavano da ovest.",
+   "anno": 1943,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Nel 1943 la marea cambiò",
+     "q": "Volgograd Volga river winter ruins"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "L'Armata Rossa marciò",
+     "q": "Soviet war memorial Berlin Treptow"
+    }
+   ]
+  },
+  {
+   "testo": "I bombardieri alleati ridussero in macerie le storiche città tedesche, e ad aprile 1945 i sovietici combattevano tra le rovine di Berlino. Hitler si sparò nel suo bunker e l'8 maggio 1945 la Germania firmò la resa incondizionata.",
+   "anno": 1945,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "I bombardieri alleati ridussero",
+     "q": "bombed church ruins Dresden Frauenkirche",
+     "suono": "propeller planes flying over"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "l'8 maggio 1945",
+     "q": "Berlin Brandenburg Gate historic",
+     "didascalia": "8 maggio 1945"
+    }
+   ]
+  },
+  {
+   "capitolo": "La Guerra Fredda",
+   "testo": "Il paese fu diviso in quattro zone di occupazione: era la Stunde Null, l'ora zero, un azzeramento totale. La Guerra Fredda spaccò la Germania in due: all'ovest la Germania Ovest, sostenuta dalla democrazia e dal miracolo economico del Piano Marshall; all'est la Germania Est, satellite comunista dominato dalla Stasi.",
+   "anno": 1949,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Il paese fu diviso",
+     "q": "post war Germany ruins rebuilding old"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "La Guerra Fredda spaccò",
+     "q": "East Berlin Alexanderplatz TV tower",
+     "didascalia": "1949 – due Germanie"
+    }
+   ]
+  },
+  {
+   "testo": "Per impedire le fughe verso l'Ovest prospero, i leader comunisti costruirono il Muro di Berlino nell'agosto 1961. Per quasi 30 anni quella barriera di cemento simboleggiò un mondo diviso, finché l'impero sovietico non iniziò a crollare, alla fine degli anni Ottanta.",
+   "anno": 1961,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Per impedire le fughe",
+     "q": "Berlin Wall remains concrete graffiti",
+     "didascalia": "Agosto 1961"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Per quasi 30 anni",
+     "q": "Berlin Wall memorial Bernauer Strasse",
+     "didascalia": "Quasi 30 anni"
+    }
+   ]
+  },
+  {
+   "capitolo": "La caduta del Muro",
+   "testo": "Alla fine del 1989 centinaia di migliaia di tedeschi dell'Est protestarono pacificamente, scandendo «Noi siamo il popolo». Il 9 novembre 1989 un funzionario annunciò per errore che le restrizioni di viaggio erano abolite con effetto immediato.",
+   "anno": 1989,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Alla fine del 1989",
+     "q": "Leipzig Nikolaikirche church Germany"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Il 9 novembre 1989",
+     "q": "Berlin Wall segment Checkpoint",
+     "didascalia": "9 novembre 1989"
+    }
+   ]
+  },
+  {
+   "testo": "Decine di migliaia di berlinesi dell'Est, in festa, si riversarono al confine, e le guardie sconcertate aprirono i varchi senza ordine di sparare. La gente piangeva, si abbracciava e ballava sul Muro, riducendolo a pezzi a colpi di martello.",
+   "anno": 1989,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Decine di migliaia di berlinesi",
+     "q": "Brandenburg Gate night lights Berlin",
+     "suono": "crowd cheering, hammers striking concrete"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "riducendolo a pezzi",
+     "q": "broken concrete wall pieces graffiti"
+    }
+   ]
+  },
+  {
+   "capitolo": "La Germania di oggi",
+   "testo": "Il 3 ottobre 1990 la Germania tornò ufficialmente unita in un'unica nazione democratica. Ricostruire gli impoveriti Stati orientali costò migliaia di miliardi di euro e richiese decenni di duro lavoro.",
+   "anno": 1990,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Il 3 ottobre 1990",
+     "q": "German flag Reichstag dome Berlin",
+     "didascalia": "3 ottobre 1990"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Ricostruire gli impoveriti",
+     "q": "Dresden rebuilt old town skyline"
+    }
+   ]
+  },
+  {
+   "testo": "Oggi la Germania è la quarta economia del mondo e il pilastro democratico dell'Europa. Ha fatto i conti con i propri fantasmi storici con più onestà forse di qualsiasi altra società sulla Terra.",
+   "anno": 2026,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Oggi la Germania è",
+     "q": "Frankfurt skyline Germany financial district",
+     "didascalia": "4ª economia mondiale"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Ha fatto i conti",
+     "q": "Berlin Holocaust memorial concrete"
+    }
+   ]
+  },
+  {
+   "testo": "Da quel crogiolo oscuro il popolo tedesco è riuscito a costruire una casa pacifica, prospera e democratica, dimostrando che una nazione può ritrovare la strada verso la luce.",
+   "anno": 2026,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Da quel crogiolo oscuro",
+     "q": "Reichstag glass dome Berlin sunset"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "dimostrando che una nazione",
+     "q": "Neuschwanstein castle Bavaria sunrise"
+    }
+   ]
+  }
+ ],
+ "copertina": {
+  "testo": "GERMANIA 9 – 2026",
+  "personaggio": ""
+ },
+ "descrizione": "L'intera storia della Germania in 21 minuti: dalla battaglia della foresta di Teutoburgo nel 9 d.C. fino alla Germania di oggi. Scopri Carlo Magno, il Sacro Romano Impero, Gutenberg, Martin Lutero e la Riforma protestante, la Guerra dei Trent'anni, l'ascesa della Prussia e l'unificazione tedesca guidata da Otto von Bismarck.\n\nSegui il racconto della Prima guerra mondiale, della Repubblica di Weimar, dell'ascesa di Adolf Hitler e della Germania nazista, della Seconda guerra mondiale e dell'Olocausto. Poi la Guerra Fredda, la Germania Est e la Germania Ovest, la costruzione e la caduta del Muro di Berlino e la riunificazione del 1990.\n\nUna storia completa della Germania, spiegata in modo semplice, con date, fatti e protagonisti, per capire come un paese diviso sia diventato il cuore dell'Europa.\n\n#Germania #StoriaDellaGermania #StoriaCompleta #MuroDiBerlino #SecondaGuerraMondiale",
+ "tag": [
+  "Germania",
+  "Storia della Germania",
+  "L'intera storia della Germania",
+  "Storia",
+  "Documentario storico",
+  "Antica Germania",
+  "Carlo Magno",
+  "Martin Lutero",
+  "Prussia",
+  "Otto von Bismarck",
+  "Unificazione tedesca",
+  "Impero tedesco",
+  "Prima guerra mondiale",
+  "Seconda guerra mondiale",
+  "Germania nazista",
+  "Adolf Hitler",
+  "Guerra Fredda",
+  "Germania Est",
+  "Germania Ovest",
+  "Riunificazione tedesca",
+  "Storia spiegata",
+  "storia di Germania",
+  "storia completa",
+  "Sacro Romano Impero",
+  "Muro di Berlino",
+  "Olocausto",
+  "Repubblica di Weimar",
+  "Gutenberg",
+  "Riforma protestante",
+  "Guerra dei Trent'anni"
+ ],
+ "personaggi_mancanti": [
+  "Arminio capo germanico",
+  "Carlo Magno",
+  "Martin Lutero",
+  "Johannes Gutenberg",
+  "Federico il Grande",
+  "Otto von Bismarck",
+  "Kaiser Guglielmo II",
+  "Adolf Hitler",
+  "Ottone il Grande"
+ ],
+ "categoria_originale": "27"
+}
