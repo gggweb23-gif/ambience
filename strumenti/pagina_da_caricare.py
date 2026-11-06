@@ -21,11 +21,13 @@ def slug(t):
 
 os.makedirs(OUT, exist_ok=True)
 attesa = []   # (uscita, canale, titolo, slug)
+nome_canale = {}
 _, _, canali = A.righe(A.CONFIGS)
 for cfg in canali:
     if not M.attivo(cfg):
         continue
     cid = str(cfg.get('channel_id')).strip(); fid = str(cfg.get('scout_production_sheet_id') or '').strip()
+    nome_canale[cid] = str(cfg.get('channel_name') or '').strip() or cid   # nome pubblico (es. Rich Borders); channel_id resta la chiave tecnica
     try:
         _, _, prod = A.righe(fid)
     except Exception as e:
@@ -53,7 +55,7 @@ for a in sorted(arts, key=lambda x: x['created_at'], reverse=True):
             shutil.move(v[0], f'{OUT}/{s}.mp4')
             nome_cop = ''
             if cop:
-                nome_cop = f"{slug(c)}__{usc[:10]}__COPERTINA{os.path.splitext(cop[0])[1]}"
+                nome_cop = f"{slug(nome_canale.get(c, c))}__{s[:60]}__COPERTINA{os.path.splitext(cop[0])[1]}"
                 shutil.move(cop[0], f'{OUT}/{nome_cop}')
             trovati[s] = (usc, c, t, f'{s}.mp4', nome_cop)
     shutil.rmtree(d, ignore_errors=True)
@@ -63,8 +65,8 @@ righe = ['PRIMA di caricare controlla in alto a sinistra in YouTube Studio di es
 for usc, c, t, s in sorted(attesa):
     if s in trovati:
         _, _, _, fv, fc = trovati[s]
-        righe.append(f'| {usc} | **{c}** | {t.replace("|", "\\|")} | `{fv}` | `{fc}` |')
+        righe.append(f'| {usc} | **{nome_canale.get(c, c)}** | {t.replace("|", "\\|")} | `{fv}` | `{fc}` |')
     else:
-        righe.append(f'| {usc} | **{c}** | {t} | (file non trovato) | |')
+        righe.append(f'| {usc} | **{nome_canale.get(c, c)}** | {t} | (file non trovato) | |')
 open('note.md', 'w').write('\n'.join(righe) + '\n')
 print('\n'.join(righe))
