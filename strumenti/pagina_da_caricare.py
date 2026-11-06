@@ -63,7 +63,7 @@ righe = ['PRIMA di caricare controlla in alto a sinistra in YouTube Studio di es
 for usc, c, t, s in sorted(attesa):
     if s in trovati:
         _, _, _, fv, fc = trovati[s]
-        righe.append(f'| {usc} | **{c}** | {t} | `{fv}` | `{fc}` |')
+        righe.append(f'| {usc} | **{c}** | {t.replace("|", "\\|")} | `{fv}` | `{fc}` |')
     else:
         righe.append(f'| {usc} | **{c}** | {t} | (file non trovato) | |')
 open('note.md', 'w').write('\n'.join(righe) + '\n')
