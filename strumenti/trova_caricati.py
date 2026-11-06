@@ -9,6 +9,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import avvio_canali as A
 import performance as PF
 import manuale as M
+import descrizione as DESCR
 
 E = os.environ.get
 
@@ -36,6 +37,14 @@ def main():
         attesa = [(i + 2, r) for i, r in enumerate(prod) if str(r.get('status')).strip() == M.STATO]
         if not attesa:
             continue
+        for n, r in attesa:   # titolo giusto (con accenti e punteggiatura) in cima alla descrizione e come primo tag
+            t = str(r.get('titolo_italiano') or '').strip()
+            nuovi = {'descrizione_youtube': DESCR.con_titolo(t, r.get('descrizione_youtube')), 'tag_seo': ', '.join(DESCR.tag_con_titolo(t, str(r.get('tag_seo') or '')))}
+            nuovi = {c: v for c, v in nuovi.items() if c in h and v != str(r.get(c) or '').strip()}
+            if t and nuovi:
+                A.api(fid, 'POST', '/values:batchUpdate', {'valueInputOption': 'RAW', 'data': [
+                    {'range': f"'{sch}'!{A.lettera(h.index(c) + 1)}{n}", 'values': [[v]]} for c, v in nuovi.items()]})
+                print(cid, 'riga', n, ': titolo aggiunto in', ', '.join(nuovi))
         chiave = str(cfg.get('chiave_youtube') or '').strip() or {'Storia in Minuti': 'YT_REFRESH_TOKEN_STORIA', 'KAO PSICOLOGIA': 'YT_REFRESH_TOKEN_KAO'}.get(cid, '') \
             or 'YT_REFRESH_TOKEN_' + re.sub(r'[^A-Z0-9]+', '_', cid.upper()).strip('_')
         rt = PF.SEGRETI.get(chiave) or E(chiave)
