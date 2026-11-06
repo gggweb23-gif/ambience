@@ -86,7 +86,7 @@ jobs:
         with:
           name: video-archivio
           path: |
-            per_shorts/video.mp4
+            prove_video/archivio/*/prova.mp4
             prove_video/archivio/*/copertina.jpg
           if-no-files-found: ignore
           retention-days: 7
