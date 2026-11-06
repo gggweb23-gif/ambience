@@ -1,39 +1,43 @@
 voce ElevenLabs usata: glnsgBC77wt5zOYU0szz
-13:29:24 competitor: categoria 27 , 0 tag
-13:29:31 testo originale: 2272 parole (RapidAPI)
-13:29:31 VIDEO DA COPIARE: 0YeP2-v2k8k - History of Algeria: From 3000 BC to 2026 | The Complete History of Algeria | titolo usato: History of Algeria: From 3000 BC to 2026 | The Complete History of Algeria
-13:29:32 paese del video: Algeria
-13:29:46 originale condensato a blocchi: 2272 -> 967 parole in 6 blocchi (obiettivo 1312)
+14:02:11 competitor: categoria 27 , 30 tag
+14:02:18 testo originale: 2083 parole (RapidAPI)
+14:02:18 VIDEO DA COPIARE: p000f2w5xSA - How 5,000 Spartans BRUTALLY Avenged the 300 | titolo usato: How 5,000 Spartans BRUTALLY Avenged the 300
+14:02:19 paese del video: Greece
+14:02:25 originale condensato a blocchi: 2083 -> 1108 parole in 5 blocchi (obiettivo 1312)
+14:02:25 budget 0 EUR: nessun disegno, solo clip e foto Pexels controllate (+ mappa)
+14:03:13 copione ricevuto: 17612 caratteri, fine: end_turn | blocchi di ragionamento: 0
+14:03:13 copione non valido, riprovo: Extra data: line 1 column 17442 (char 17441)
+14:04:19 copione ricevuto: 21531 caratteri, fine: end_turn | blocchi di ragionamento: 0
+14:04:19 copione non valido, riprovo: copione di 1142 parole, fuori da 1275-1350
 Traceback (most recent call last):
   File "/home/runner/work/ambience/ambience/video_storia.py", line 4687, in <module>
     main()
   File "/home/runner/work/ambience/ambience/video_storia.py", line 4012, in main
     c = copione(comp)
         ^^^^^^^^^^^^^
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 393, in copione
-    orig = condensa_originale(orig, (minimo + massimo) // 2 if minimo else massimo)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 381, in condensa_originale
-    raise RuntimeError(f'VIDEO BLOCCATO: testo del competitor condensato a {n} parole invece di {obiettivo} (nessuna spesa per voce e immagini)')
-RuntimeError: VIDEO BLOCCATO: testo del competitor condensato a 967 parole invece di 1312 (nessuna spesa per voce e immagini)
-13:29:46 esito: {"stato": "ERRORE", "errore": "VIDEO BLOCCATO: testo del competitor condensato a 967 parole invece di 1312 (nessuna spesa per voce e immagini)", "minuti_lavoro": 0.4, "paese": "Algeria", "categoria_originale": "27"}
+  File "/home/runner/work/ambience/ambience/video_storia.py", line 514, in copione
+    raise RuntimeError('VIDEO BLOCCATO: copione fuori lunghezza dopo 2 tentativi (nessuna spesa per voce e immagini)')
+RuntimeError: VIDEO BLOCCATO: copione fuori lunghezza dopo 2 tentativi (nessuna spesa per voce e immagini)
+14:04:24 esito: {"stato": "ERRORE", "errore": "VIDEO BLOCCATO: copione fuori lunghezza dopo 2 tentativi (nessuna spesa per voce e immagini)", "minuti_lavoro": 2.2, "paese": "Greece", "categoria_originale": "27", "tag_originali": "Battle of Plataea, Plataea 479 BCE, Thermopylae, 300 Spartans, King Leonidas, Sparta, Spartan Army, 5000 Spartans, Xerxes, Persian Empire, Greco Persian Wars, Ancient Greece, Ancient Warfare, Military History, Greek Hoplites, Greek Phalanx, Pausanias, Mardonius, Battle of Salamis, Pers
 ...
 voce ElevenLabs usata: glnsgBC77wt5zOYU0szz
-13:29:24 competitor: categoria 27 , 0 tag
-13:29:31 testo originale: 2272 parole (RapidAPI)
-13:29:31 VIDEO DA COPIARE: 0YeP2-v2k8k - History of Algeria: From 3000 BC to 2026 | The Complete History of Algeria | titolo usato: History of Algeria: From 3000 BC to 2026 | The Complete History of Algeria
-13:29:32 paese del video: Algeria
-13:29:46 originale condensato a blocchi: 2272 -> 967 parole in 6 blocchi (obiettivo 1312)
+14:02:11 competitor: categoria 27 , 30 tag
+14:02:18 testo originale: 2083 parole (RapidAPI)
+14:02:18 VIDEO DA COPIARE: p000f2w5xSA - How 5,000 Spartans BRUTALLY Avenged the 300 | titolo usato: How 5,000 Spartans BRUTALLY Avenged the 300
+14:02:19 paese del video: Greece
+14:02:25 originale condensato a blocchi: 2083 -> 1108 parole in 5 blocchi (obiettivo 1312)
+14:02:25 budget 0 EUR: nessun disegno, solo clip e foto Pexels controllate (+ mappa)
+14:03:13 copione ricevuto: 17612 caratteri, fine: end_turn | blocchi di ragionamento: 0
+14:03:13 copione non valido, riprovo: Extra data: line 1 column 17442 (char 17441)
+14:04:19 copione ricevuto: 21531 caratteri, fine: end_turn | blocchi di ragionamento: 0
+14:04:19 copione non valido, riprovo: copione di 1142 parole, fuori da 1275-1350
 Traceback (most recent call last):
   File "/home/runner/work/ambience/ambience/video_storia.py", line 4687, in <module>
     main()
   File "/home/runner/work/ambience/ambience/video_storia.py", line 4012, in main
     c = copione(comp)
         ^^^^^^^^^^^^^
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 393, in copione
-    orig = condensa_originale(orig, (minimo + massimo) // 2 if minimo else massimo)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 381, in condensa_originale
-    raise RuntimeError(f'VIDEO BLOCCATO: testo del competitor condensato a {n} parole invece di {obiettivo} (nessuna spesa per voce e immagini)')
-RuntimeError: VIDEO BLOCCATO: testo del competitor condensato a 967 parole invece di 1312 (nessuna spesa per voce e immagini)
-13:29:46 esito: {"stato": "ERRORE", "errore": "VIDEO BLOCCATO: testo del competitor condensato a 967 parole invece di 1312 (nessuna spesa per voce e immagini)", "minuti_lavoro": 0.4, "paese": "Algeria", "categoria_originale": "27"}
+  File "/home/runner/work/ambience/ambience/video_storia.py", line 514, in copione
+    raise RuntimeError('VIDEO BLOCCATO: copione fuori lunghezza dopo 2 tentativi (nessuna spesa per voce e immagini)')
+RuntimeError: VIDEO BLOCCATO: copione fuori lunghezza dopo 2 tentativi (nessuna spesa per voce e immagini)
+14:04:24 esito: {"stato": "ERRORE", "errore": "VIDEO BLOCCATO: copione fuori lunghezza dopo 2 tentativi (nessuna spesa per voce e immagini)", "minuti_lavoro": 2.2, "paese": "Greece", "categoria_originale": "27", "tag_originali": "Battle of Plataea, Plataea 479 BCE, Thermopylae, 300 Spartans, King Leonidas, Sparta, Spartan Army, 5000 Spartans, Xerxes, Persian Empire, Greco Persian Wars, Ancient Greece, Ancient Warfare, Military History, Greek Hoplites, Greek Phalanx, Pausanias, Mardonius, Battle of Salamis, Pers
