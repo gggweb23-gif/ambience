@@ -1,0 +1,45 @@
+name: Scout video da copiare
+
+# strumenti/scout.py: solo i video del filone del canale (scout_filone), mai un soggetto gia' fatto (scout_un_video_per),
+# righe Pronto fino a scout_coda. Spesa (lettura titoli) entro scout_budget_giorno; colonna vuota = non gira.
+on:
+  schedule:
+    - cron: '13 20 * * *'   # 21:13 ora italiana, prima della produzione della notte
+  workflow_dispatch:
+    inputs:
+      canale:
+        description: 'Solo questo canale (channel_id), vuoto = tutti quelli con scout_filone'
+        default: ''
+      prova:
+        description: 'SI = mostra cosa aggiungerebbe, senza scrivere nel foglio'
+        default: 'NO'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: scout
+
+jobs:
+  scout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Scout
+        env:
+          GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN_ORBITAL_DAYS }}
+          SOLO_CANALE: ${{ inputs.canale }}
+          PROVA: ${{ inputs.prova || 'NO' }}
+        run: pip install -q google-auth requests && python3 strumenti/scout.py
+      - name: Salva costi
+        if: ${{ always() }}
+        run: |
+          [ -n "$(git status --porcelain coach/costi)" ] || exit 0
+          git config user.name "render-bot"; git config user.email "render-bot@users.noreply.github.com"
+          git add coach/costi; git commit -m "Costi scout" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase --autostash -q && git push && break; sleep $((i * 5)); done
