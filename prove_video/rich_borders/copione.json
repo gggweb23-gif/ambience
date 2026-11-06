@@ -1,1824 +1,2592 @@
 {
- "titolo": "Could America Survive Another Great Depression? Here's the Truth",
+ "titolo": "Why Did the Dutch Rule Indonesia for 350 Years but Leave No Dutch?",
  "numero": {
-  "testo": "89%",
-  "sotto": "HOW MUCH THE DOW LOST BY 1932"
+  "testo": "1 IN 100",
+  "sotto": "SPOKE DUTCH AT THE END OF RULE"
  },
  "copertina": {
-  "testo": "AGAIN?",
+  "testo": "WHY?",
   "oro": [
-   "USA"
+   "NLD"
   ],
   "verde": [
-   "JPN"
+   "IDN"
   ],
   "vista": {
-   "lon": -98,
-   "lat": 39,
+   "lon": 105,
+   "lat": -3,
    "larghezza": 60
   }
  },
- "descrizione": "The stock market lost almost nine tenths of its value. Thousands of banks failed. One worker in four lost a job. So could it happen again? We break down the four things that turned a crash into a catastrophe in 1929, and check which ones have been fixed.\n\nFrom bank runs and a shrinking money supply to the gold standard, plus the Japanese finance minister who escaped the Depression early, we follow the story on animated maps. And we look at the one safety net that is getting thinner every year: the national debt.",
+ "descrizione": "Indonesia has more than 280 million people, and many say they were ruled by the Dutch for 350 years. So why does almost nobody there speak Dutch? Spain left Spanish across Latin America, Britain left English, France left French. The Dutch left almost nothing.\n\nWe follow the story from the spice company VOC and the founding of Batavia, through the Malay language, the elite Dutch schools, the 1928 Youth Pledge and the Japanese occupation, to the 5,000 Dutch words that still live inside Indonesian today.",
  "tag": [
-  "great depression",
-  "could america survive another great depression",
-  "1929 stock market crash",
-  "economic history",
+  "indonesia history",
+  "dutch colonialism",
+  "VOC",
+  "dutch east india company",
+  "batavia",
+  "jakarta history",
+  "malay language",
+  "indonesian language",
+  "youth pledge 1928",
   "animated maps",
-  "national debt",
-  "bank run",
-  "gold standard",
-  "federal reserve",
-  "silicon valley bank",
-  "2008 financial crisis",
-  "takahashi korekiyo"
+  "history explained",
+  "colonial history"
  ],
  "scene": [
   {
-   "testo": "A bank run in a single day. A gold promise that drowned a nation. And a debt cushion getting thinner. Could America survive again?",
+   "testo": "Almost 300 years of Dutch rule on Java. Not one word kept. A company that wanted only money, a pledge in 1928, and one big question: why?",
    "anteprima": true,
    "vista": {
-    "lon": -90,
-    "lat": 38,
-    "larghezza": 70
+    "lon": 110,
+    "lat": -6,
+    "larghezza": 30
    },
    "epoca": "oggi",
    "oro": [
-    "USA"
+    "NLD"
    ],
    "verde": [
-    "JPN"
+    "IDN"
    ],
    "eventi": [
     {
-     "tipo": "numero",
-     "testo": "$42B",
-     "lon": -122,
-     "lat": 37.5,
-     "parola": "bank"
+     "tipo": "conta",
+     "valore": 350,
+     "prefisso": "",
+     "suffisso": " YRS",
+     "sotto": "OF DUTCH RULE",
+     "lon": 110,
+     "lat": -6,
+     "parola": "300"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "ZERO DUTCH",
+     "parola": "word"
     },
     {
      "tipo": "icona",
      "icona": "gold_coins",
-     "lon": -77,
-     "lat": 39,
-     "parola": "gold"
+     "lon": 106.8,
+     "lat": -6.2,
+     "parola": "money"
     },
     {
-     "tipo": "conta",
-     "valore": 101,
-     "prefisso": "",
-     "suffisso": "%",
-     "sotto": "DEBT VS ECONOMY",
-     "parola": "debt"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "AGAIN?",
-     "parola": "again"
+     "tipo": "anno",
+     "testo": "1928",
+     "parola": "1928"
     }
    ],
    "musica": "mistero",
    "stacco": false,
    "pin": {
-    "lon": -100,
-    "lat": 30,
+    "lon": 118,
+    "lat": -2,
     "faccia": "stupito"
    }
   },
   {
-   "testo": "In October 1929, the American stock market began to fall, and it kept falling for almost three years.",
-   "anteprima": false,
+   "testo": "Nearly 42 million people live in the city they built. So why does hardly anyone there speak their language?",
+   "anteprima": true,
    "vista": {
-    "lon": -74,
-    "lat": 40.7,
-    "larghezza": 12
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1929",
-     "parola": "October"
-    },
-    {
-     "tipo": "icona",
-     "icona": "chart_down",
-     "lon": -74,
-     "lat": 40.7,
-     "parola": "stock"
-    },
-    {
-     "tipo": "conta",
-     "valore": 3,
-     "prefisso": "~",
-     "suffisso": "",
-     "sotto": "YEARS OF FALLING",
-     "parola": "three"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": -72,
-    "lat": 41.5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "By the summer of 1932, the Dow had lost 89 percent of its value. More than 9,000 banks had failed.",
-   "anteprima": false,
-   "vista": {
-    "lon": -90,
-    "lat": 38,
-    "larghezza": 50
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 89,
-     "prefisso": "",
-     "suffisso": "%",
-     "sotto": "DOW LOST",
-     "parola": "89"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "banker",
-     "n": 5,
-     "lon": -80,
-     "lat": 40,
-     "parola": "banks"
-    },
-    {
-     "tipo": "conta",
-     "valore": 9000,
-     "prefisso": "+",
-     "suffisso": "",
-     "sotto": "BANKS FAILED",
-     "parola": "9,000"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Banks failed by the thousands",
-     "parola": "failed"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -105,
-    "lat": 33,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "The economy shrank by nearly a third, and about one in four workers had no job.",
-   "anteprima": false,
-   "vista": {
-    "lon": -95,
-    "lat": 38,
-    "larghezza": 45
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "contatore",
-     "testo": "1 IN 4 JOBLESS",
-     "su": 1,
-     "di": 4,
-     "personaggio": "worker",
-     "parola": "four"
-    },
-    {
-     "tipo": "icona",
-     "icona": "factory",
-     "lon": -83,
-     "lat": 42.3,
-     "parola": "economy"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Economy shrank by a third",
-     "parola": "third"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -110,
-    "lat": 42,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "It would take the market 25 years to get back to where it started.",
-   "anteprima": false,
-   "vista": {
-    "lon": -74,
-    "lat": 40.7,
+    "lon": 106.8,
+    "lat": -6.2,
     "larghezza": 10
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 25,
-     "prefisso": "",
-     "suffisso": "",
-     "sotto": "YEARS TO RECOVER",
-     "parola": "25"
-    },
-    {
-     "tipo": "icona",
-     "icona": "hourglass",
-     "lon": -74,
-     "lat": 40.7,
-     "parola": "years"
-    },
-    {
-     "tipo": "nota",
-     "testo": "A 25-year wait",
-     "parola": "started"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -72,
-    "lat": 41.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Now jump to 2020. Unemployment leaped to 14.7 percent in a single month, the highest on record. Yet the economy bounced back.",
-   "anteprima": false,
-   "vista": {
-    "lon": -95,
-    "lat": 38,
-    "larghezza": 50
    },
    "epoca": "oggi",
    "oro": [
-    "USA"
+    "NLD"
    ],
-   "verde": [],
+   "verde": [
+    "IDN"
+   ],
    "eventi": [
     {
-     "tipo": "anno",
-     "testo": "2020",
-     "parola": "2020"
-    },
-    {
-     "tipo": "conta",
-     "valore": 14.7,
-     "prefisso": "",
-     "suffisso": "%",
-     "sotto": "UNEMPLOYMENT",
-     "parola": "14.7"
+     "tipo": "numero",
+     "testo": "42M",
+     "lon": 106.8,
+     "lat": -6.2,
+     "parola": "million"
     },
     {
      "tipo": "scritta",
-     "testo": "BOUNCED BACK",
-     "parola": "bounced"
+     "testo": "WHY?",
+     "parola": "why"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 109,
+    "lat": -4,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Indonesia has more than 280 million people, and many will tell you they were colonized by the Dutch for 350 years. Kids learn it at school.",
+   "anteprima": false,
+   "vista": {
+    "lon": 115,
+    "lat": -2,
+    "larghezza": 60
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IDN"
+   ],
+   "verde": [
+    "NLD"
+   ],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 280,
+     "prefisso": ">",
+     "suffisso": "M",
+     "sotto": "PEOPLE IN INDONESIA",
+     "lon": 115,
+     "lat": -2,
+     "parola": "280"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "student",
+     "n": 5,
+     "lon": 110,
+     "lat": -7,
+     "parola": "school"
     },
     {
      "tipo": "nota",
-     "testo": "Highest since records began",
-     "parola": "record"
+     "testo": "350 years of Dutch rule, they say",
+     "parola": "350"
     }
    ],
    "musica": "curiosita",
    "stacco": false,
    "pin": {
-    "lon": -115,
-    "lat": 45,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "So could America survive another Great Depression? It comes down to four things that broke in 1929.",
-   "anteprima": false,
-   "vista": {
-    "lon": -98,
-    "lat": 39,
-    "larghezza": 60
-   },
-   "epoca": "oggi",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "question",
-     "lon": -98,
-     "lat": 39,
-     "parola": "survive"
-    },
-    {
-     "tipo": "conta",
-     "valore": 4,
-     "prefisso": "",
-     "suffisso": "",
-     "sotto": "THINGS THAT BROKE",
-     "parola": "four"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Four things broke in 1929",
-     "parola": "broke"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -85,
-    "lat": 30,
+    "lon": 125,
+    "lat": 2,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Three of them have been fixed. One is in worse shape than at any time since World War Two.",
+   "testo": "So you would expect plenty of Dutch to have stuck. Spain left Spanish across Latin America. Britain left English everywhere. France left French across half of Africa.",
    "anteprima": false,
    "vista": {
-    "lon": -98,
-    "lat": 39,
-    "larghezza": 60
+    "lon": -20,
+    "lat": 10,
+    "larghezza": 240
    },
    "epoca": "oggi",
    "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "chart_up",
-     "lon": -77,
-     "lat": 38.9,
-     "parola": "worse"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Three fixed, one much worse",
-     "parola": "fixed"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "ONE LEFT",
-     "parola": "One"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -105,
-    "lat": 32,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "And one country found the way out long before America did. But first, the thing that can still break in a single day.",
-   "anteprima": false,
-   "vista": {
-    "lon": 139,
-    "lat": 36,
-    "larghezza": 30
-   },
-   "epoca": "antica",
-   "oro": [
-    "JPN"
+    "ESP",
+    "GBR",
+    "FRA"
    ],
    "verde": [
-    "USA"
+    "MEX",
+    "COL",
+    "ARG",
+    "IND",
+    "AUS",
+    "SEN",
+    "CIV",
+    "MLI"
    ],
    "eventi": [
     {
-     "tipo": "contorno",
-     "paese": "JPN",
-     "parola": "country"
+     "tipo": "icona",
+     "icona": "flag:ES",
+     "lon": -3.7,
+     "lat": 40,
+     "parola": "Spain"
     },
     {
      "tipo": "freccia",
      "da": [
-      139.7,
-      35.7
+      -3.7,
+      40
      ],
      "a": [
-      -74,
-      40.7
+      -70,
+      -10
      ],
-     "icona": "cargo_ship",
-     "parola": "before"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Japan escaped first",
-     "parola": "found"
-    }
-   ],
-   "musica": "mistero",
-   "stacco": false,
-   "pin": {
-    "lon": 150,
-    "lat": 42,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "In 1930, a rumor was enough to empty a bank. Deposits had no federal insurance whatsoever.",
-   "anteprima": false,
-   "vista": {
-    "lon": -74,
-    "lat": 40.7,
-    "larghezza": 10
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1930",
-     "parola": "1930"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "family",
-     "n": 6,
-     "lon": -74,
-     "lat": 40.7,
-     "parola": "rumor"
+     "icona": "galleon",
+     "parola": "Latin"
     },
     {
      "tipo": "icona",
-     "icona": "banknotes",
-     "lon": -73.9,
-     "lat": 40.75,
-     "parola": "deposits"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": -72.5,
-    "lat": 41.5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "If you heard your bank was in trouble, you ran to get your money out before everyone else did.",
-   "anteprima": false,
-   "vista": {
-    "lon": -74,
-    "lat": 40.7,
-    "larghezza": 8
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
+     "icona": "flag:GB",
+     "lon": -2,
+     "lat": 54,
+     "parola": "Britain"
+    },
     {
-     "tipo": "folla",
-     "personaggio": "worker",
-     "n": 7,
-     "lon": -74,
-     "lat": 40.7,
-     "parola": "ran"
+     "tipo": "icona",
+     "icona": "flag:FR",
+     "lon": 2,
+     "lat": 47,
+     "parola": "France"
     },
     {
      "tipo": "freccia",
      "da": [
-      -74.05,
-      40.68
+      2,
+      47
      ],
      "a": [
-      -73.95,
-      40.75
+      5,
+      12
      ],
-     "icona": "banknotes",
-     "parola": "money"
+     "icona": "ship",
+     "parola": "Africa"
     },
     {
      "tipo": "nota",
-     "testo": "Everyone ran for the door",
-     "parola": "everyone"
+     "testo": "Empires usually leave a language",
+     "parola": "France"
     }
    ],
-   "musica": "",
+   "musica": "curiosita",
    "stacco": false,
    "pin": {
-    "lon": -73,
-    "lat": 41.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "When one bank closed its doors, the line formed at the next one.",
-   "anteprima": false,
-   "vista": {
-    "lon": -74,
-    "lat": 40.7,
-    "larghezza": 9
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "fortress",
-     "lon": -74.01,
-     "lat": 40.71,
-     "parola": "closed"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "family",
-     "n": 5,
-     "lon": -73.95,
-     "lat": 40.76,
-     "parola": "line"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Panic spreads bank to bank",
-     "parola": "next"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -72.8,
-    "lat": 41.3,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "In December 1930, the Bank of United States in New York collapsed. It served hundreds of thousands of ordinary families.",
-   "anteprima": false,
-   "vista": {
-    "lon": -74,
-    "lat": 40.7,
-    "larghezza": 8
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1930",
-     "parola": "December"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "BANK OF UNITED STATES",
-     "lon": -74,
-     "lat": 40.72,
-     "parola": "Bank"
-    },
-    {
-     "tipo": "contatore",
-     "testo": "HUNDREDS OF THOUSANDS",
-     "su": 7,
-     "di": 10,
-     "personaggio": "family",
-     "parola": "families"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -72.8,
-    "lat": 41.5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Its name made many believe the government stood behind it. It didn't.",
-   "anteprima": false,
-   "vista": {
-    "lon": -74,
-    "lat": 40.7,
-    "larghezza": 8
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "flag:US",
-     "lon": -74,
-     "lat": 40.72,
-     "parola": "government"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "NOT BACKED",
-     "parola": "didn't"
-    },
-    {
-     "tipo": "nota",
-     "testo": "The name misled depositors",
-     "parola": "name"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -72.8,
-    "lat": 41.4,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "With about 200 million dollars in deposits, it was the biggest bank failure in American history up to then.",
-   "anteprima": false,
-   "vista": {
-    "lon": -74,
-    "lat": 40.7,
-    "larghezza": 9
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 200,
-     "prefisso": "~$",
-     "suffisso": "M",
-     "sotto": "IN DEPOSITS",
-     "parola": "200"
-    },
-    {
-     "tipo": "icona",
-     "icona": "money_bag",
-     "lon": -74,
-     "lat": 40.72,
-     "parola": "deposits"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Biggest failure so far",
-     "parola": "biggest"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -72.8,
-    "lat": 41.4,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "It was one of more than 9,000 banks that failed by 1933. Depositors lost over 1.3 billion dollars.",
-   "anteprima": false,
-   "vista": {
-    "lon": -95,
-    "lat": 38,
-    "larghezza": 50
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1933",
-     "parola": "1933"
-    },
-    {
-     "tipo": "conta",
-     "valore": 9000,
-     "prefisso": "+",
-     "suffisso": "",
-     "sotto": "BANKS FAILED",
-     "parola": "9,000"
-    },
-    {
-     "tipo": "conta",
-     "valore": 1.3,
-     "prefisso": "$",
-     "suffisso": "B",
-     "sotto": "LOST BY SAVERS",
-     "parola": "1.3"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -108,
-    "lat": 34,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Families who had done nothing wrong lost their savings overnight.",
-   "anteprima": false,
-   "vista": {
-    "lon": -90,
-    "lat": 38,
-    "larghezza": 40
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "family",
-     "n": 6,
-     "lon": -87.6,
-     "lat": 41.9,
-     "parola": "Families"
-    },
-    {
-     "tipo": "icona",
-     "icona": "banknotes",
-     "lon": -90,
-     "lat": 38.6,
-     "parola": "savings"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Savings gone overnight",
-     "parola": "overnight"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": -100,
-    "lat": 34,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "By March 1933, the new president closed every bank in the country for a week to stop the panic.",
-   "anteprima": false,
-   "vista": {
-    "lon": -98,
-    "lat": 39,
-    "larghezza": 55
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1933",
-     "parola": "March"
-    },
-    {
-     "tipo": "personaggio",
-     "nome": "Franklin D. Roosevelt",
-     "descrizione": "1930s American president, round glasses, smiling, suit",
-     "parola": "president"
-    },
-    {
-     "tipo": "conta",
-     "valore": 7,
-     "prefisso": "",
-     "suffisso": "",
-     "sotto": "DAYS ALL BANKS CLOSED",
-     "parola": "week"
-    },
-    {
-     "tipo": "contorno",
-     "paese": "USA",
-     "parola": "country"
-    }
-   ],
-   "musica": "",
-   "stacco": true,
-   "pin": {
-    "lon": -112,
-    "lat": 47,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Then he went on the radio and said your money was safer in a reopened bank than under the mattress.",
-   "anteprima": false,
-   "vista": {
-    "lon": -77,
-    "lat": 38.9,
-    "larghezza": 14
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": -77,
-     "lat": 38.9,
-     "parola": "radio"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "family",
-     "n": 4,
-     "lon": -77.2,
-     "lat": 39.3,
-     "parola": "mattress"
-    },
-    {
-     "tipo": "nota",
-     "testo": "First fireside chat",
-     "parola": "safer"
-    }
-   ],
-   "musica": "epico",
-   "stacco": false,
-   "pin": {
-    "lon": -74.5,
+    "lon": 60,
     "lat": 40,
     "faccia": "normale"
    }
   },
   {
-   "testo": "When the banks reopened, people lined up again. This time, to put their money back in.",
+   "testo": "But Dutch in Indonesia is a memory for a few elderly people, plus some historians and lawyers who need it to read old records.",
    "anteprima": false,
    "vista": {
-    "lon": -85,
-    "lat": 38,
+    "lon": 110,
+    "lat": -4,
     "larghezza": 40
    },
-   "epoca": "antica",
+   "epoca": "oggi",
    "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "worker",
-     "n": 6,
-     "lon": -87.6,
-     "lat": 41.9,
-     "parola": "lined"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -84,
-      36
-     ],
-     "a": [
-      -87.6,
-      41.9
-     ],
-     "icona": "banknotes",
-     "parola": "back"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "TRUST",
-     "parola": "again"
-    }
-   ],
-   "musica": "trionfo",
-   "stacco": false,
-   "pin": {
-    "lon": -95,
-    "lat": 45,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "That's the first thing that broke: trust in the banks. But a failed bank took something even bigger with it.",
-   "anteprima": false,
-   "vista": {
-    "lon": -98,
-    "lat": 39,
-    "larghezza": 55
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 1,
-     "prefisso": "#",
-     "suffisso": "",
-     "sotto": "TRUST IN BANKS",
-     "parola": "first"
-    },
-    {
-     "tipo": "icona",
-     "icona": "fortress",
-     "lon": -98,
-     "lat": 39,
-     "parola": "bank"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Banks took something bigger",
-     "parola": "bigger"
-    }
-   ],
-   "musica": "mistero",
-   "stacco": false,
-   "pin": {
-    "lon": -110,
-    "lat": 32,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "When a bank fails, its deposits vanish, and so does all the money it would have lent.",
-   "anteprima": false,
-   "vista": {
-    "lon": -98,
-    "lat": 39,
-    "larghezza": 50
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "banknotes",
-     "lon": -90,
-     "lat": 38,
-     "parola": "deposits"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -90,
-      38
-     ],
-     "a": [
-      -100,
-      40
-     ],
-     "icona": "money_bag",
-     "parola": "lent"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Deposits and loans both vanish",
-     "parola": "vanish"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -108,
-    "lat": 45,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Between 1929 and 1933, the amount of money in America fell by more than a third.",
-   "anteprima": false,
-   "vista": {
-    "lon": -98,
-    "lat": 39,
-    "larghezza": 55
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1929",
-     "parola": "1929"
-    },
-    {
-     "tipo": "conta",
-     "valore": 33,
-     "prefisso": "-",
-     "suffisso": "%",
-     "sotto": "MONEY SUPPLY",
-     "parola": "third"
-    },
-    {
-     "tipo": "icona",
-     "icona": "chart_down",
-     "lon": -98,
-     "lat": 39,
-     "parola": "fell"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": -110,
-    "lat": 33,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Fewer dollars meant falling prices. Falling prices sound good, until your loan stays the same size.",
-   "anteprima": false,
-   "vista": {
-    "lon": -98,
-    "lat": 39,
-    "larghezza": 40
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "chart_down",
-     "lon": -98,
-     "lat": 41,
-     "parola": "falling"
-    },
-    {
-     "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": -96,
-     "lat": 38,
-     "parola": "loan"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "WHY?",
-     "parola": "good"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -108,
-    "lat": 45,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Picture a farmer selling wheat for less every year, while the bank still wants the same payment.",
-   "anteprima": false,
-   "vista": {
-    "lon": -98,
-    "lat": 39,
-    "larghezza": 25
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
+    "IDN"
    ],
    "verde": [],
    "eventi": [
     {
      "tipo": "folla",
      "personaggio": "peasant",
-     "n": 4,
-     "lon": -98,
-     "lat": 38.5,
-     "parola": "farmer"
+     "n": 3,
+     "lon": 110,
+     "lat": -7.5,
+     "parola": "elderly"
     },
     {
      "tipo": "icona",
-     "icona": "wheat",
-     "lon": -97,
-     "lat": 39.5,
-     "parola": "wheat"
+     "icona": "scroll_law",
+     "lon": 106.8,
+     "lat": -6.2,
+     "parola": "lawyers"
     },
     {
      "tipo": "nota",
-     "testo": "Prices fall, debts don't",
-     "parola": "same"
+     "testo": "Dutch survives only in old records",
+     "parola": "records"
     }
    ],
    "musica": "malinconia",
    "stacco": false,
    "pin": {
-    "lon": -103,
-    "lat": 42,
+    "lon": 120,
+    "lat": 0,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Businesses cut wages, then jobs. People without jobs spent less, so more businesses cut. The spiral kept going.",
+   "testo": "Even near the end of Dutch rule, only about one person in a hundred spoke any of it.",
    "anteprima": false,
    "vista": {
-    "lon": -85,
-    "lat": 41,
-    "larghezza": 25
+    "lon": 113,
+    "lat": -4,
+    "larghezza": 40
    },
-   "epoca": "antica",
+   "epoca": "oggi",
    "oro": [
-    "USA"
+    "IDN"
    ],
    "verde": [],
    "eventi": [
     {
+     "tipo": "anno",
+     "testo": "1940",
+     "parola": "end"
+    },
+    {
+     "tipo": "contatore",
+     "testo": "1 IN 100",
+     "su": 1,
+     "di": 100,
+     "personaggio": "peasant",
+     "parola": "one"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "ONLY 1%",
+     "parola": "hundred"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Only 1 in 100 spoke Dutch",
+     "parola": "spoke"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": true,
+   "pin": {
+    "lon": 122,
+    "lat": 2,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "My wife's mother was born in Palembang on Sumatra. Her family out there is more than 50 people, and not one speaks a word of Dutch.",
+   "anteprima": false,
+   "vista": {
+    "lon": 104.8,
+    "lat": -3,
+    "larghezza": 14
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IDN"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "PALEMBANG",
+     "lon": 104.76,
+     "lat": -2.98,
+     "parola": "Palembang"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "family",
+     "n": 6,
+     "lon": 104.76,
+     "lat": -2.98,
+     "parola": "family"
+    },
+    {
+     "tipo": "conta",
+     "valore": 50,
+     "prefisso": ">",
+     "suffisso": "",
+     "sotto": "FAMILY MEMBERS",
+     "parola": "50"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Zero Dutch speakers in the family",
+     "parola": "word"
+    }
+   ],
+   "musica": "quotidiano",
+   "stacco": false,
+   "pin": {
+    "lon": 107,
+    "lat": -1,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Many of them do speak decent English. And last time, in the Philippines, Spain stayed 333 years and Spanish never really caught on. Next to Indonesia, that looks like a success.",
+   "anteprima": false,
+   "vista": {
+    "lon": 120,
+    "lat": 8,
+    "larghezza": 50
+   },
+   "epoca": "oggi",
+   "oro": [
+    "PHL"
+   ],
+   "verde": [
+    "IDN"
+   ],
+   "eventi": [
+    {
      "tipo": "icona",
-     "icona": "factory",
-     "lon": -83,
-     "lat": 42.3,
-     "parola": "Businesses"
+     "icona": "flag:PH",
+     "lon": 122,
+     "lat": 12,
+     "parola": "Philippines"
+    },
+    {
+     "tipo": "conta",
+     "valore": 333,
+     "prefisso": "",
+     "suffisso": " YRS",
+     "sotto": "SPAIN IN PHILIPPINES",
+     "parola": "333"
+    },
+    {
+     "tipo": "contorno",
+     "paese": "PHL",
+     "parola": "Spanish"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Philippines looks like a success",
+     "parola": "success"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 133,
+    "lat": -2,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Digging in, I found the Dutch mostly never tried to spread their language. For a long time, many were happy to keep it that way.",
+   "anteprima": false,
+   "vista": {
+    "lon": 110,
+    "lat": -4,
+    "larghezza": 50
+   },
+   "epoca": "antica",
+   "oro": [
+    "NLD"
+   ],
+   "verde": [
+    "IDN"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "question",
+     "lon": 110,
+     "lat": -7,
+     "parola": "never"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "colonist",
+     "n": 4,
+     "lon": 112,
+     "lat": -7,
+     "parola": "Dutch"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "NEVER TRIED",
+     "parola": "tried"
+    },
+    {
+     "tipo": "nota",
+     "testo": "They kept Dutch to themselves",
+     "parola": "keep"
+    }
+   ],
+   "musica": "mistero",
+   "stacco": false,
+   "pin": {
+    "lon": 122,
+    "lat": 0,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "First, that 350 years. It runs from 1596, when the first Dutch ships reached Java, to independence in 1945.",
+   "anteprima": false,
+   "vista": {
+    "lon": 108,
+    "lat": -6,
+    "larghezza": 30
+   },
+   "epoca": "antica",
+   "oro": [
+    "NLD"
+   ],
+   "verde": [
+    "IDN"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1596",
+     "parola": "1596"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      4.9,
+      52.4
+     ],
+     "a": [
+      106,
+      -6
+     ],
+     "icona": "galleon",
+     "parola": "ships"
+    },
+    {
+     "tipo": "anno",
+     "testo": "1945",
+     "parola": "1945"
+    },
+    {
+     "tipo": "nota",
+     "testo": "1596 to 1945",
+     "parola": "independence"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": 118,
+    "lat": -1,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In 1968, historian G.J. Resink studied old treaties and argued that much of Indonesia stayed independent for most of that time.",
+   "anteprima": false,
+   "vista": {
+    "lon": 115,
+    "lat": -3,
+    "larghezza": 60
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IDN"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1968",
+     "parola": "1968"
+    },
+    {
+     "tipo": "personaggio",
+     "nome": "G.J. Resink",
+     "descrizione": "20th-century Dutch-Indonesian historian, glasses, suit",
+     "parola": "Resink"
+    },
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": 106.8,
+     "lat": -6.2,
+     "parola": "treaties"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Much of Indonesia stayed independent",
+     "parola": "independent"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 125,
+    "lat": 3,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Aceh, at the northern tip of Sumatra, was not conquered until 1903. The kingdom of Klungkung on Bali held out until 1908.",
+   "anteprima": false,
+   "vista": {
+    "lon": 105,
+    "lat": 0,
+    "larghezza": 40
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "IDN"
+   ],
+   "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "ACEH",
+     "lon": 96.5,
+     "lat": 4.7,
+     "parola": "Aceh"
+    },
+    {
+     "tipo": "anno",
+     "testo": "1903",
+     "parola": "1903"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "KLUNGKUNG, BALI",
+     "lon": 115.4,
+     "lat": -8.5,
+     "parola": "Klungkung"
+    },
+    {
+     "tipo": "anno",
+     "testo": "1908",
+     "parola": "1908"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Conquered only in 1903 and 1908",
+     "parola": "held"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 110,
+    "lat": 5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "So plenty of Indonesians lived under the Dutch for a few decades at most. That is part of the answer, but it does not explain Java.",
+   "anteprima": false,
+   "vista": {
+    "lon": 110,
+    "lat": -7.5,
+    "larghezza": 14
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "IDN"
+   ],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 30,
+     "prefisso": "~",
+     "suffisso": " YRS",
+     "sotto": "UNDER DUTCH RULE, SOME PLACES",
+     "lon": 110,
+     "lat": -7.5,
+     "parola": "decades"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "JAVA",
+     "lon": 110,
+     "lat": -7.5,
+     "parola": "Java"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "JAVA?",
+     "parola": "explain"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Java had 300 years of rule",
+     "parola": "Java"
+    }
+   ],
+   "musica": "mistero",
+   "stacco": false,
+   "pin": {
+    "lon": 116,
+    "lat": -4,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "The Dutch ran parts of Java for well over 300 years, and Dutch never took hold there either. To see why, look at who actually showed up.",
+   "anteprima": false,
+   "vista": {
+    "lon": 109,
+    "lat": -7,
+    "larghezza": 16
+   },
+   "epoca": "antica",
+   "oro": [
+    "NLD"
+   ],
+   "verde": [
+    "IDN"
+   ],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 300,
+     "prefisso": ">",
+     "suffisso": " YRS",
+     "sotto": "DUTCH CONTROL ON JAVA",
+     "lon": 109,
+     "lat": -7,
+     "parola": "300"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "merchant",
+     "n": 5,
+     "lon": 106.8,
+     "lat": -6.2,
+     "parola": "showed"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Who showed up matters",
+     "parola": "who"
+    }
+   ],
+   "musica": "mistero",
+   "stacco": false,
+   "pin": {
+    "lon": 114,
+    "lat": -4,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In 1602, the Dutch merged their spice firms into one giant company, the VOC. The government gave it a monopoly on Dutch trade in Asia.",
+   "anteprima": false,
+   "vista": {
+    "lon": 60,
+    "lat": 10,
+    "larghezza": 140
+   },
+   "epoca": "antica",
+   "oro": [
+    "NLD"
+   ],
+   "verde": [
+    "IDN",
+    "IND",
+    "LKA"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1602",
+     "parola": "1602"
+    },
+    {
+     "tipo": "icona",
+     "icona": "cargo_ship",
+     "lon": 4.9,
+     "lat": 52.4,
+     "parola": "spice"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "VOC",
+     "lon": 106,
+     "lat": -6,
+     "parola": "VOC"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      4.9,
+      52.4
+     ],
+     "a": [
+      106,
+      -6
+     ],
+     "icona": "galleon",
+     "parola": "monopoly"
+    },
+    {
+     "tipo": "nota",
+     "testo": "VOC: Dutch East India Company",
+     "parola": "company"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": 75,
+    "lat": 30,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In 1619, Governor-General Jan Pieterszoon Coen attacked Jayakarta, drove out the Banten troops, and built a new town on the ruins.",
+   "anteprima": false,
+   "vista": {
+    "lon": 106.8,
+    "lat": -6.2,
+    "larghezza": 8
+   },
+   "epoca": "antica",
+   "oro": [
+    "NLD"
+   ],
+   "verde": [
+    "IDN"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1619",
+     "parola": "1619"
+    },
+    {
+     "tipo": "personaggio",
+     "nome": "Jan Pieterszoon Coen",
+     "descrizione": "17th-century Dutch governor-general, black hat, stern face",
+     "parola": "Coen"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "soldier",
+     "n": 5,
+     "lon": 106.8,
+     "lat": -6.15,
+     "parola": "attacked"
+    },
+    {
+     "tipo": "icona",
+     "icona": "cannon",
+     "lon": 106.82,
+     "lat": -6.13,
+     "parola": "drove"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Coen razed Jayakarta",
+     "parola": "ruins"
+    }
+   ],
+   "musica": "azione",
+   "stacco": false,
+   "pin": {
+    "lon": 107.6,
+    "lat": -5.6,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Coen wanted to call it New Hoorn, after his hometown. His bosses picked Batavia instead. Today it is Jakarta, the capital of Indonesia.",
+   "anteprima": false,
+   "vista": {
+    "lon": 106.8,
+    "lat": -6.2,
+    "larghezza": 8
+   },
+   "epoca": "antica",
+   "oro": [
+    "NLD"
+   ],
+   "verde": [
+    "IDN"
+   ],
+   "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "NEW HOORN?",
+     "lon": 106.8,
+     "lat": -6.2,
+     "parola": "Hoorn"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "BATAVIA",
+     "lon": 106.85,
+     "lat": -6.15,
+     "parola": "Batavia"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "JAKARTA",
+     "lon": 106.75,
+     "lat": -6.25,
+     "parola": "Jakarta"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Batavia became Jakarta",
+     "parola": "capital"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 107.7,
+    "lat": -5.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "And a fun fact: with nearly 42 million people in its urban area, it is now the most populous city on Earth.",
+   "anteprima": false,
+   "vista": {
+    "lon": 106.8,
+    "lat": -6.2,
+    "larghezza": 12
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IDN"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 42,
+     "prefisso": "~",
+     "suffisso": "M",
+     "sotto": "PEOPLE IN JAKARTA AREA",
+     "lon": 106.8,
+     "lat": -6.2,
+     "parola": "42"
     },
     {
      "tipo": "folla",
      "personaggio": "worker",
-     "n": 6,
-     "lon": -83,
-     "lat": 42.3,
-     "parola": "jobs"
+     "n": 7,
+     "lon": 106.8,
+     "lat": -6.2,
+     "parola": "people"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "NUMBER ONE",
+     "parola": "most"
     },
     {
      "tipo": "nota",
-     "testo": "A downward spiral",
-     "parola": "spiral"
+     "testo": "World's biggest urban area",
+     "parola": "populous"
     }
    ],
-   "musica": "",
+   "musica": "trionfo",
    "stacco": false,
    "pin": {
-    "lon": -90,
-    "lat": 45,
+    "lon": 108.5,
+    "lat": -5,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "The VOC was there for profit: spices, safe ports, and as little trouble as possible. Making people Dutch would have cost a lot and earned nothing.",
+   "anteprima": false,
+   "vista": {
+    "lon": 122,
+    "lat": -3,
+    "larghezza": 50
+   },
+   "epoca": "antica",
+   "oro": [
+    "NLD"
+   ],
+   "verde": [
+    "IDN"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "gold_coins",
+     "lon": 128,
+     "lat": -3.5,
+     "parola": "profit"
+    },
+    {
+     "tipo": "icona",
+     "icona": "port",
+     "lon": 106.8,
+     "lat": -6.2,
+     "parola": "ports"
+    },
+    {
+     "tipo": "icona",
+     "icona": "school",
+     "lon": 110,
+     "lat": -7,
+     "parola": "Dutch"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": 112,
+     "lat": -6,
+     "parola": "nothing"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Teaching Dutch earned nothing",
+     "parola": "earned"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 135,
+    "lat": 3,
     "faccia": "normale"
    }
   },
   {
-   "testo": "The Federal Reserve had the power to stop the money from shrinking. Mostly, it didn't use it.",
+   "testo": "And it did not need to. The islands already shared a trade language: Malay.",
    "anteprima": false,
    "vista": {
-    "lon": -77,
-    "lat": 38.9,
-    "larghezza": 14
+    "lon": 112,
+    "lat": -1,
+    "larghezza": 60
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "IDN",
+    "MYS",
+    "SGP",
+    "BRN"
+   ],
+   "eventi": [
+    {
+     "tipo": "scritta",
+     "testo": "MALAY",
+     "parola": "Malay"
+    },
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": 104,
+     "lat": 2,
+     "parola": "language"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Malay was already the trade language",
+     "parola": "trade"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": true,
+   "pin": {
+    "lon": 125,
+    "lat": 5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "For centuries, Arab, Indian, Chinese and local merchants used it to do business from Sumatra all the way to the Spice Islands.",
+   "anteprima": false,
+   "vista": {
+    "lon": 114,
+    "lat": -1,
+    "larghezza": 50
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "IDN"
+   ],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "merchant",
+     "n": 5,
+     "lon": 104,
+     "lat": -2,
+     "parola": "merchants"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      101,
+      0
+     ],
+     "a": [
+      128,
+      -1
+     ],
+     "icona": "cargo_ship",
+     "parola": "Sumatra"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "SPICE ISLANDS",
+     "lon": 128,
+     "lat": -1,
+     "parola": "Spice"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Malay linked Sumatra to Spice Islands",
+     "parola": "business"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": 118,
+    "lat": 6,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "It is an old language, too. The oldest dated Malay writing is on a stone from the year 683, found in Palembang.",
+   "anteprima": false,
+   "vista": {
+    "lon": 104.8,
+    "lat": -3,
+    "larghezza": 10
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "IDN"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "683",
+     "parola": "683"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "PALEMBANG",
+     "lon": 104.76,
+     "lat": -2.98,
+     "parola": "Palembang"
+    },
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": 104.76,
+     "lat": -2.98,
+     "parola": "stone"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Oldest dated Malay stone: 683",
+     "parola": "oldest"
+    }
+   ],
+   "musica": "mistero",
+   "stacco": false,
+   "pin": {
+    "lon": 106.2,
+    "lat": -1.8,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "So the Dutch learned Malay. It was far cheaper for company staff to pick up Malay than to teach millions of people Dutch.",
+   "anteprima": false,
+   "vista": {
+    "lon": 108,
+    "lat": -5,
+    "larghezza": 30
    },
    "epoca": "antica",
    "oro": [
-    "USA"
+    "NLD"
+   ],
+   "verde": [
+    "IDN"
+   ],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "colonist",
+     "n": 4,
+     "lon": 106.8,
+     "lat": -6.2,
+     "parola": "learned"
+    },
+    {
+     "tipo": "conta",
+     "valore": 1,
+     "prefisso": "",
+     "suffisso": " SIDE",
+     "sotto": "LEARNED, NOT THE MILLIONS",
+     "lon": 108,
+     "lat": -5,
+     "parola": "cheaper"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Cheaper to learn Malay",
+     "parola": "cheaper"
+    }
+   ],
+   "musica": "quotidiano",
+   "stacco": false,
+   "pin": {
+    "lon": 116,
+    "lat": -2,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "You can see how tunnel-visioned they were: money, money, and more money. Even inside Batavia, Dutch struggled to get a look in.",
+   "anteprima": false,
+   "vista": {
+    "lon": 106.8,
+    "lat": -6.2,
+    "larghezza": 8
+   },
+   "epoca": "antica",
+   "oro": [
+    "NLD"
+   ],
+   "verde": [
+    "IDN"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "money_bag",
+     "lon": 106.8,
+     "lat": -6.2,
+     "parola": "money"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "MONEY",
+     "parola": "more"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Even Batavia barely spoke Dutch",
+     "parola": "Batavia"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 107.7,
+    "lat": -5.6,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "The company brought enslaved people to the city from across Asia. Many came from India and Sri Lanka, where the Portuguese had ruled for a century.",
+   "anteprima": false,
+   "vista": {
+    "lon": 90,
+    "lat": 2,
+    "larghezza": 100
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "IND",
+    "LKA",
+    "IDN"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      80,
+      10
+     ],
+     "a": [
+      106.8,
+      -6.2
+     ],
+     "icona": "galleon",
+     "parola": "India"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      80.7,
+      7.8
+     ],
+     "a": [
+      106.8,
+      -6.2
+     ],
+     "icona": "galleon",
+     "parola": "Lanka"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "native_worker",
+     "n": 5,
+     "lon": 80,
+     "lat": 10,
+     "parola": "enslaved"
+    },
+    {
+     "tipo": "icona",
+     "icona": "flag:PT",
+     "lon": 79.8,
+     "lat": 6.9,
+     "parola": "Portuguese"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Enslaved people brought to Batavia",
+     "parola": "enslaved"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": 70,
+    "lat": 20,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Many spoke a Portuguese Creole. A creole is a new language that people with no shared tongue build, usually from the language of whoever rules.",
+   "anteprima": false,
+   "vista": {
+    "lon": 106.8,
+    "lat": -6.2,
+    "larghezza": 8
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "IDN"
+   ],
+   "eventi": [
+    {
+     "tipo": "scritta",
+     "testo": "CREOLE",
+     "parola": "Creole"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "family",
+     "n": 4,
+     "lon": 106.8,
+     "lat": -6.2,
+     "parola": "people"
+    },
+    {
+     "tipo": "nota",
+     "testo": "A creole is a brand new language",
+     "parola": "language"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 107.7,
+    "lat": -5.6,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Their kids grew up speaking it as a language of its own, mostly Portuguese words mixed with bits of local Asian languages.",
+   "anteprima": false,
+   "vista": {
+    "lon": 106.8,
+    "lat": -6.2,
+    "larghezza": 8
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "IDN"
+   ],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "family",
+     "n": 5,
+     "lon": 106.8,
+     "lat": -6.2,
+     "parola": "kids"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "PORTUGUESE CREOLE",
+     "lon": 106.8,
+     "lat": -6.1,
+     "parola": "Portuguese"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Portuguese words, Asian grammar",
+     "parola": "mixed"
+    }
+   ],
+   "musica": "quotidiano",
+   "stacco": false,
+   "pin": {
+    "lon": 107.7,
+    "lat": -5.6,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Over time many were freed and became known as the Mardijkers, from a word meaning free people. Their Creole spread fast.",
+   "anteprima": false,
+   "vista": {
+    "lon": 106.8,
+    "lat": -6.2,
+    "larghezza": 8
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "IDN"
+   ],
+   "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "MARDIJKERS",
+     "lon": 106.8,
+     "lat": -6.2,
+     "parola": "Mardijkers"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "merchant",
+     "n": 5,
+     "lon": 106.82,
+     "lat": -6.18,
+     "parola": "freed"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Mardijkers means free people",
+     "parola": "free"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 107.7,
+    "lat": -5.6,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Dutch families spoke it at home, and the church preached in it. I love that the Dutch built an Asian capital where a rival's tongue filled the streets.",
+   "anteprima": false,
+   "vista": {
+    "lon": 106.8,
+    "lat": -6.2,
+    "larghezza": 8
+   },
+   "epoca": "antica",
+   "oro": [
+    "NLD"
+   ],
+   "verde": [
+    "IDN"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "church",
+     "lon": 106.81,
+     "lat": -6.13,
+     "parola": "church"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "colonist",
+     "n": 4,
+     "lon": 106.8,
+     "lat": -6.2,
+     "parola": "families"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "IRONY",
+     "parola": "rival's"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Portuguese Creole ruled Dutch streets",
+     "parola": "streets"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 107.7,
+    "lat": -5.6,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Through the 1700s and 1800s, Malay slowly pushed the Creole out. One village near Jakarta, Kampung Tugu, held on; its last fluent speaker died in 2012.",
+   "anteprima": false,
+   "vista": {
+    "lon": 106.9,
+    "lat": -6.1,
+    "larghezza": 6
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IDN"
    ],
    "verde": [],
    "eventi": [
     {
-     "tipo": "icona",
-     "icona": "parliament",
-     "lon": -77.04,
-     "lat": 38.89,
-     "parola": "Federal"
+     "tipo": "anno",
+     "testo": "1800",
+     "parola": "1800s"
     },
     {
-     "tipo": "scritta",
-     "testo": "DID NOTHING",
-     "parola": "didn't"
+     "tipo": "etichetta",
+     "testo": "KAMPUNG TUGU",
+     "lon": 106.9,
+     "lat": -6.12,
+     "parola": "Tugu"
+    },
+    {
+     "tipo": "anno",
+     "testo": "2012",
+     "parola": "2012"
+    },
+    {
+     "tipo": "icona",
+     "icona": "grave",
+     "lon": 106.9,
+     "lat": -6.12,
+     "parola": "died"
     },
     {
      "tipo": "nota",
-     "testo": "The Fed had the power",
+     "testo": "Last Creole speaker died in 2012",
+     "parola": "fluent"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": 107.8,
+    "lat": -5.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "By 1800, the VOC was hopelessly in debt. The Dutch state shut it down and took over its territory.",
+   "anteprima": false,
+   "vista": {
+    "lon": 100,
+    "lat": 0,
+    "larghezza": 100
+   },
+   "epoca": "antica",
+   "oro": [
+    "NLD"
+   ],
+   "verde": [
+    "IDN"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1800",
+     "parola": "1800"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": 106.8,
+     "lat": -6.2,
+     "parola": "debt"
+    },
+    {
+     "tipo": "icona",
+     "icona": "crown",
+     "lon": 4.9,
+     "lat": 52.4,
+     "parola": "state"
+    },
+    {
+     "tipo": "nota",
+     "testo": "The VOC went bankrupt",
+     "parola": "shut"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 85,
+    "lat": 15,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "The new colonial government kept the company's habits, including running things in Malay. Dutch schools existed, but few, mostly for European children and the sons of local aristocrats.",
+   "anteprima": false,
+   "vista": {
+    "lon": 109,
+    "lat": -6,
+    "larghezza": 24
+   },
+   "epoca": "antica",
+   "oro": [
+    "NLD"
+   ],
+   "verde": [
+    "IDN"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "school",
+     "lon": 106.8,
+     "lat": -6.2,
+     "parola": "schools"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "student",
+     "n": 4,
+     "lon": 107,
+     "lat": -6.5,
+     "parola": "children"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "landowner",
+     "n": 3,
+     "lon": 110.4,
+     "lat": -7.8,
+     "parola": "aristocrats"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Dutch schools for the elite only",
+     "parola": "few"
+    }
+   ],
+   "musica": "quotidiano",
+   "stacco": false,
+   "pin": {
+    "lon": 115,
+    "lat": -3,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In 1900, about 1,500 Indonesians attended European schools, compared with 13,000 European pupils, in a colony of tens of millions.",
+   "anteprima": false,
+   "vista": {
+    "lon": 110,
+    "lat": -5,
+    "larghezza": 40
+   },
+   "epoca": "antica",
+   "oro": [
+    "NLD"
+   ],
+   "verde": [
+    "IDN"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1900",
+     "parola": "1900"
+    },
+    {
+     "tipo": "barre",
+     "titolo": "PUPILS IN EUROPEAN SCHOOLS",
+     "voci": [
+      {
+       "testo": "EUROPEANS",
+       "valore": 13000,
+       "lato": "oro"
+      },
+      {
+       "tipo": "x",
+       "testo": "INDONESIANS",
+       "valore": 1500,
+       "lato": "verde"
+      }
+     ],
+     "parola": "1,500"
+    },
+    {
+     "tipo": "nota",
+     "testo": "1,500 Indonesians vs 13,000 Europeans",
+     "parola": "compared"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 120,
+    "lat": 0,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Teaching Dutch to everyone would have cost money, and some officials worried it would give people ideas.",
+   "anteprima": false,
+   "vista": {
+    "lon": 110,
+    "lat": -6,
+    "larghezza": 30
+   },
+   "epoca": "antica",
+   "oro": [
+    "NLD"
+   ],
+   "verde": [
+    "IDN"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "money_bag",
+     "lon": 106.8,
+     "lat": -6.2,
+     "parola": "money"
+    },
+    {
+     "tipo": "icona",
+     "icona": "question",
+     "lon": 110,
+     "lat": -7,
+     "parola": "ideas"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Officials feared educated natives",
+     "parola": "worried"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 118,
+    "lat": -2,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Some Dutch people did not even like being spoken to in Dutch. In 1900, a young Javanese woman named Kartini wrote about it in her letters.",
+   "anteprima": false,
+   "vista": {
+    "lon": 110.7,
+    "lat": -6.6,
+    "larghezza": 8
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "IDN"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1900",
+     "parola": "1900"
+    },
+    {
+     "tipo": "personaggio",
+     "nome": "Kartini",
+     "descrizione": "young Javanese noblewoman, 1900, traditional kebaya, writing letters",
+     "parola": "Kartini"
+    },
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": 110.7,
+     "lat": -6.6,
+     "parola": "letters"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Kartini's letters, 1900",
+     "parola": "letters"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": 112,
+    "lat": -5.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "She described an official who kept speaking Malay to a senior Javanese aristocrat who knew good Dutch. Another Dutchman told her natives ought not to know Dutch.",
+   "anteprima": false,
+   "vista": {
+    "lon": 110.7,
+    "lat": -6.6,
+    "larghezza": 8
+   },
+   "epoca": "antica",
+   "oro": [
+    "NLD"
+   ],
+   "verde": [
+    "IDN"
+   ],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "colonist",
+     "n": 3,
+     "lon": 110.6,
+     "lat": -6.6,
+     "parola": "official"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "landowner",
+     "n": 3,
+     "lon": 110.8,
+     "lat": -6.6,
+     "parola": "aristocrat"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "NOT FOR NATIVES",
+     "parola": "ought"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Natives ought not know Dutch",
+     "parola": "natives"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 112,
+    "lat": -5.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "So Dutch stayed the language of the top. If you spoke it, you were European, or one of the few Indonesians let into that world.",
+   "anteprima": false,
+   "vista": {
+    "lon": 110,
+    "lat": -6,
+    "larghezza": 30
+   },
+   "epoca": "antica",
+   "oro": [
+    "NLD"
+   ],
+   "verde": [
+    "IDN"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "crown",
+     "lon": 106.8,
+     "lat": -6.2,
+     "parola": "top"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "landowner",
+     "n": 4,
+     "lon": 108,
+     "lat": -6.5,
+     "parola": "European"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Dutch was an elite club",
+     "parola": "elite"
+    }
+   ],
+   "musica": "quotidiano",
+   "stacco": false,
+   "pin": {
+    "lon": 118,
+    "lat": -3,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Around 1900, things shifted. In 1899, a Dutch lawyer named Van Deventer wrote that the Netherlands owed the Indies a debt of honor.",
+   "anteprima": false,
+   "vista": {
+    "lon": 100,
+    "lat": 0,
+    "larghezza": 120
+   },
+   "epoca": "antica",
+   "oro": [
+    "NLD"
+   ],
+   "verde": [
+    "IDN"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1899",
+     "parola": "1899"
+    },
+    {
+     "tipo": "personaggio",
+     "nome": "C. Th. van Deventer",
+     "descrizione": "Dutch lawyer, 1899, mustache, dark suit",
+     "parola": "Deventer"
+    },
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": 4.9,
+     "lat": 52.4,
+     "parola": "wrote"
+    },
+    {
+     "tipo": "nota",
+     "testo": "A 'debt of honor' after decades of profit",
+     "parola": "debt"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 80,
+    "lat": 20,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Two years later, Queen Wilhelmina told Parliament the Netherlands had a moral calling toward the people there. It became known as the Ethical Policy.",
+   "anteprima": false,
+   "vista": {
+    "lon": 4.9,
+    "lat": 52.3,
+    "larghezza": 12
+   },
+   "epoca": "antica",
+   "oro": [
+    "NLD"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1901",
+     "parola": "later"
+    },
+    {
+     "tipo": "personaggio",
+     "nome": "Queen Wilhelmina",
+     "descrizione": "young Dutch queen, 1901, crown, formal dress",
+     "parola": "Wilhelmina"
+    },
+    {
+     "tipo": "icona",
+     "icona": "parliament",
+     "lon": 4.3,
+     "lat": 52.08,
+     "parola": "Parliament"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "ETHICAL POLICY",
+     "parola": "Ethical"
+    },
+    {
+     "tipo": "nota",
+     "testo": "The Ethical Policy began",
+     "parola": "calling"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": 7,
+    "lat": 51,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "One way to repay that debt was schools. In 1914, the Dutch opened a new primary school taught in Dutch, mostly for nobles' and officials' children.",
+   "anteprima": false,
+   "vista": {
+    "lon": 110,
+    "lat": -6,
+    "larghezza": 30
+   },
+   "epoca": "antica",
+   "oro": [
+    "NLD"
+   ],
+   "verde": [
+    "IDN"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1914",
+     "parola": "1914"
+    },
+    {
+     "tipo": "icona",
+     "icona": "school",
+     "lon": 106.8,
+     "lat": -6.2,
+     "parola": "primary"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "student",
+     "n": 5,
+     "lon": 107,
+     "lat": -6.4,
+     "parola": "children"
+    },
+    {
+     "tipo": "nota",
+     "testo": "New Dutch-language primary schools",
+     "parola": "opened"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 118,
+    "lat": -2,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "By 1928, about 75,000 Indonesians had finished a Western-style primary school. A big jump, but tiny in a colony of about 60 million.",
+   "anteprima": false,
+   "vista": {
+    "lon": 112,
+    "lat": -3,
+    "larghezza": 50
+   },
+   "epoca": "antica",
+   "oro": [
+    "NLD"
+   ],
+   "verde": [
+    "IDN"
+   ],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 75000,
+     "prefisso": "~",
+     "suffisso": "",
+     "sotto": "GRADUATES BY 1928",
+     "lon": 112,
+     "lat": -5,
+     "parola": "75,000"
+    },
+    {
+     "tipo": "conta",
+     "valore": 60,
+     "prefisso": "~",
+     "suffisso": "M",
+     "sotto": "PEOPLE IN THE COLONY",
+     "parola": "60"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "TINY",
+     "parola": "tiny"
+    },
+    {
+     "tipo": "nota",
+     "testo": "75,000 graduates among 60 million",
+     "parola": "jump"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 122,
+    "lat": 1,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Here is a striking comparison: that is about one graduate for every 800 people. Dutch schooling only reached beyond a tiny elite from 1914, and it all stopped in 1942.",
+   "anteprima": false,
+   "vista": {
+    "lon": 110,
+    "lat": -6,
+    "larghezza": 30
+   },
+   "epoca": "antica",
+   "oro": [
+    "NLD"
+   ],
+   "verde": [
+    "IDN"
+   ],
+   "eventi": [
+    {
+     "tipo": "contatore",
+     "testo": "1 IN 800",
+     "su": 1,
+     "di": 800,
+     "personaggio": "student",
+     "parola": "800"
+    },
+    {
+     "tipo": "anno",
+     "testo": "1942",
+     "parola": "1942"
+    },
+    {
+     "tipo": "nota",
+     "testo": "One graduate per 800 people",
+     "parola": "comparison"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": true,
+   "pin": {
+    "lon": 118,
+    "lat": -2,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "And some people it produced used Dutch to organize against the Dutch. In October 1928, young nationalists from across the islands met in Batavia.",
+   "anteprima": false,
+   "vista": {
+    "lon": 106.8,
+    "lat": -6.2,
+    "larghezza": 8
+   },
+   "epoca": "antica",
+   "oro": [
+    "IDN"
+   ],
+   "verde": [
+    "NLD"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1928",
+     "parola": "1928"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      98,
+      3
+     ],
+     "a": [
+      106.8,
+      -6.2
+     ],
+     "icona": "steam_train",
+     "parola": "across"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "student",
+     "n": 7,
+     "lon": 106.8,
+     "lat": -6.2,
+     "parola": "nationalists"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Youth Congress in Batavia",
+     "parola": "met"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": 107.7,
+    "lat": -5.6,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Many groups there had Dutch names, like Jong Java, and many leaders came from Dutch schools. Most meetings were held in Dutch.",
+   "anteprima": false,
+   "vista": {
+    "lon": 106.8,
+    "lat": -6.2,
+    "larghezza": 8
+   },
+   "epoca": "antica",
+   "oro": [
+    "IDN"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "JONG JAVA",
+     "lon": 106.8,
+     "lat": -6.2,
+     "parola": "Jong"
+    },
+    {
+     "tipo": "icona",
+     "icona": "school",
+     "lon": 106.82,
+     "lat": -6.18,
+     "parola": "schools"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Meetings held mostly in Dutch",
+     "parola": "meetings"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 107.7,
+    "lat": -5.6,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "One speaker, Siti Sundari, gave her speech in Dutch, and someone translated it into Malay.",
+   "anteprima": false,
+   "vista": {
+    "lon": 106.8,
+    "lat": -6.2,
+    "larghezza": 6
+   },
+   "epoca": "antica",
+   "oro": [
+    "IDN"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "personaggio",
+     "nome": "Siti Sundari",
+     "descrizione": "young Indonesian woman, 1928, kebaya, speaking at a podium",
+     "parola": "Sundari"
+    },
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": 106.8,
+     "lat": -6.2,
+     "parola": "translated"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Speech in Dutch, translated to Malay",
+     "parola": "translated"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 107.4,
+    "lat": -5.7,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "On the 28th, they made a pledge Indonesians still celebrate yearly: one motherland, one nation, and one language of unity, which they called Indonesian.",
+   "anteprima": false,
+   "vista": {
+    "lon": 115,
+    "lat": -2,
+    "larghezza": 60
+   },
+   "epoca": "antica",
+   "oro": [
+    "IDN"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1928",
+     "parola": "28th"
+    },
+    {
+     "tipo": "contorno",
+     "paese": "IDN",
+     "parola": "motherland"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "ONE LANGUAGE",
+     "parola": "language"
+    },
+    {
+     "tipo": "nota",
+     "testo": "The Youth Pledge, 28 October 1928",
+     "parola": "pledge"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": true,
+   "pin": {
+    "lon": 128,
+    "lat": 4,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "It was just Malay with a new name. The obvious alternative was Javanese, the language of nearly half the population.",
+   "anteprima": false,
+   "vista": {
+    "lon": 110,
+    "lat": -7.5,
+    "larghezza": 14
+   },
+   "epoca": "antica",
+   "oro": [
+    "IDN"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "MALAY = INDONESIAN",
+     "lon": 104,
+     "lat": 0,
+     "parola": "Malay"
+    },
+    {
+     "tipo": "contatore",
+     "testo": "NEARLY 1 IN 2",
+     "su": 1,
+     "di": 2,
+     "personaggio": "peasant",
+     "parola": "half"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "JAVANESE",
+     "lon": 110,
+     "lat": -7.5,
+     "parola": "Javanese"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Javanese: nearly half the people",
+     "parola": "half"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 115,
+    "lat": -4,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "But Javanese changes its words depending on whether you speak to someone above or below you, which makes it hard for outsiders. And it would have handed the biggest group even more power.",
+   "anteprima": false,
+   "vista": {
+    "lon": 110,
+    "lat": -7.5,
+    "larghezza": 14
+   },
+   "epoca": "antica",
+   "oro": [
+    "IDN"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "landowner",
+     "n": 3,
+     "lon": 110.4,
+     "lat": -7.4,
+     "parola": "above"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "peasant",
+     "n": 4,
+     "lon": 110.4,
+     "lat": -7.8,
+     "parola": "below"
+    },
+    {
+     "tipo": "icona",
+     "icona": "crown",
+     "lon": 110.4,
+     "lat": -7.6,
+     "parola": "power"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Javanese would favor one group",
      "parola": "power"
     }
    ],
    "musica": "tensione",
    "stacco": false,
    "pin": {
-    "lon": -75.5,
-    "lat": 39.8,
+    "lon": 114,
+    "lat": -4,
     "faccia": "normale"
    }
   },
   {
-   "testo": "In 1963, economists Milton Friedman and Anna Schwartz showed exactly how much damage that inaction did.",
+   "testo": "Malay was the first language of fewer than 5 percent of people, so it belonged to no single group. And because of trade, people everywhere already knew some.",
    "anteprima": false,
    "vista": {
-    "lon": -77,
-    "lat": 39,
-    "larghezza": 20
+    "lon": 115,
+    "lat": -2,
+    "larghezza": 60
    },
    "epoca": "antica",
    "oro": [
-    "USA"
+    "IDN"
    ],
    "verde": [],
    "eventi": [
     {
-     "tipo": "anno",
-     "testo": "1963",
-     "parola": "1963"
+     "tipo": "contatore",
+     "testo": "UNDER 5 IN 100",
+     "su": 5,
+     "di": 100,
+     "personaggio": "merchant",
+     "parola": "fewer"
     },
     {
-     "tipo": "personaggio",
-     "nome": "Milton Friedman",
-     "descrizione": "20th-century American economist, glasses, bald, suit",
-     "parola": "Friedman"
+     "tipo": "scritta",
+     "testo": "NEUTRAL",
+     "parola": "single"
     },
     {
-     "tipo": "personaggio",
-     "nome": "Anna Schwartz",
-     "descrizione": "20th-century American economist, woman, glasses, short hair",
-     "parola": "Schwartz"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -73,
-    "lat": 41,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Almost 40 years later, a future Fed chairman, Ben Bernanke, told them: you're right, we did it, and we're sorry.",
-   "anteprima": false,
-   "vista": {
-    "lon": -77,
-    "lat": 39,
-    "larghezza": 16
-   },
-   "epoca": "oggi",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 40,
-     "prefisso": "~",
-     "suffisso": "",
-     "ssotto": "YEARS LATER",
-     "sotto": "YEARS LATER",
-     "parola": "40"
-    },
-    {
-     "tipo": "personaggio",
-     "nome": "Ben Bernanke",
-     "descrizione": "American economist, gray beard, glasses, suit",
-     "parola": "Bernanke"
+     "tipo": "freccia",
+     "da": [
+      101,
+      0
+     ],
+     "a": [
+      128,
+      -1
+     ],
+     "icona": "cargo_ship",
+     "parola": "trade"
     },
     {
      "tipo": "nota",
-     "testo": "\"We did it. We're sorry.\"",
-     "parola": "sorry"
-    }
-   ],
-   "musica": "",
-   "stacco": true,
-   "pin": {
-    "lon": -74.5,
-    "lat": 40.3,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Thanks to you, he added, we won't do it again. That's the second thing that broke: the money itself.",
-   "anteprima": false,
-   "vista": {
-    "lon": -98,
-    "lat": 39,
-    "larghezza": 55
-   },
-   "epoca": "oggi",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 2,
-     "prefisso": "#",
-     "suffisso": "",
-     "sotto": "THE MONEY SUPPLY",
-     "parola": "second"
-    },
-    {
-     "tipo": "icona",
-     "icona": "banknotes",
-     "lon": -98,
-     "lat": 39,
-     "parola": "money"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Second break: the money",
-     "parola": "broke"
+     "testo": "Malay belonged to nobody",
+     "parola": "belonged"
     }
    ],
    "musica": "curiosita",
    "stacco": false,
    "pin": {
-    "lon": -110,
-    "lat": 33,
+    "lon": 128,
+    "lat": 4,
     "faccia": "normale"
    }
   },
   {
-   "testo": "And part of the reason the Fed held back was the third thing: a promise made of gold.",
+   "testo": "Just before the pledge was read, a 25-year-old journalist, Wage Rudolf Supratman, stood up with his violin and played a song he had written.",
    "anteprima": false,
    "vista": {
-    "lon": -98,
-    "lat": 39,
-    "larghezza": 55
+    "lon": 106.8,
+    "lat": -6.2,
+    "larghezza": 6
    },
    "epoca": "antica",
    "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "gold_coins",
-     "lon": -85,
-     "lat": 38,
-     "parola": "gold"
-    },
-    {
-     "tipo": "conta",
-     "valore": 3,
-     "prefisso": "#",
-     "suffisso": "",
-     "sotto": "THE GOLD PROMISE",
-     "parola": "third"
-    },
-    {
-     "tipo": "nota",
-     "testo": "A promise made of gold",
-     "parola": "promise"
-    }
-   ],
-   "musica": "mistero",
-   "stacco": false,
-   "pin": {
-    "lon": -110,
-    "lat": 33,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "In 1929, every dollar could be swapped for a fixed amount of gold. To keep that promise, a country couldn't just print money.",
-   "anteprima": false,
-   "vista": {
-    "lon": -98,
-    "lat": 39,
-    "larghezza": 50
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1929",
-     "parola": "1929"
-    },
-    {
-     "tipo": "icona",
-     "icona": "silver_bars",
-     "lon": -77,
-     "lat": 38.9,
-     "parola": "gold"
-    },
-    {
-     "tipo": "icona",
-     "icona": "banknotes",
-     "lon": -90,
-     "lat": 38,
-     "parola": "dollar"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Dollar tied to gold",
-     "parola": "swapped"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -108,
-    "lat": 45,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "When gold started leaving, a country had to raise interest rates, even in the middle of a collapse.",
-   "anteprima": false,
-   "vista": {
-    "lon": -40,
-    "lat": 45,
-    "larghezza": 120
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [
-    "GBR"
-   ],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      -74,
-      40.7
-     ],
-     "a": [
-      -0.1,
-      51.5
-     ],
-     "icona": "gold_coins",
-     "parola": "leaving"
-    },
-    {
-     "tipo": "icona",
-     "icona": "chart_up",
-     "lon": -77,
-     "lat": 38.9,
-     "parola": "raise"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Gold leaves, rates must rise",
-     "parola": "rates"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": -40,
-    "lat": 60,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "In September 1931, Britain let go of gold. Investors feared America was next and began pulling gold out.",
-   "anteprima": false,
-   "vista": {
-    "lon": -40,
-    "lat": 45,
-    "larghezza": 120
-   },
-   "epoca": "antica",
-   "oro": [
-    "GBR"
-   ],
-   "verde": [
-    "USA"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1931",
-     "parola": "September"
-    },
-    {
-     "tipo": "contorno",
-     "paese": "GBR",
-     "parola": "Britain"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -74,
-      40.7
-     ],
-     "a": [
-      -3,
-      51.5
-     ],
-     "icona": "gold_coins",
-     "parola": "pulling"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -35,
-    "lat": 58,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "So in October 1931, with banks failing everywhere, the Fed raised interest rates to defend the dollar.",
-   "anteprima": false,
-   "vista": {
-    "lon": -90,
-    "lat": 38,
-    "larghezza": 50
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1931",
-     "parola": "October"
-    },
-    {
-     "tipo": "icona",
-     "icona": "chart_up",
-     "lon": -77,
-     "lat": 38.9,
-     "parola": "raised"
-    },
-    {
-     "tipo": "icona",
-     "icona": "fortress",
-     "lon": -87,
-     "lat": 41.9,
-     "parola": "banks"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -108,
-    "lat": 44,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "It was like being handcuffed while you're drowning. Meanwhile, Japan made the same bet at the worst moment.",
-   "anteprima": false,
-   "vista": {
-    "lon": 139,
-    "lat": 36,
-    "larghezza": 40
-   },
-   "epoca": "antica",
-   "oro": [
-    "JPN"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "scritta",
-     "testo": "HANDCUFFED",
-     "parola": "handcuffed"
-    },
-    {
-     "tipo": "contorno",
-     "paese": "JPN",
-     "parola": "Japan"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Japan made the same bet",
-     "parola": "bet"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 150,
-    "lat": 42,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "In January 1930, three months after the crash, Japan tied the yen back to gold at its old value.",
-   "anteprima": false,
-   "vista": {
-    "lon": 139,
-    "lat": 36,
-    "larghezza": 25
-   },
-   "epoca": "antica",
-   "oro": [
-    "JPN"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1930",
-     "parola": "January"
-    },
-    {
-     "tipo": "icona",
-     "icona": "gold_coins",
-     "lon": 139.7,
-     "lat": 35.7,
-     "parola": "gold"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Yen tied back to gold",
-     "parola": "yen"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 146,
-    "lat": 40,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Prices collapsed and the Japanese countryside was devastated. Then, in December 1931, a new finance minister took over.",
-   "anteprima": false,
-   "vista": {
-    "lon": 138,
-    "lat": 37,
-    "larghezza": 14
-   },
-   "epoca": "antica",
-   "oro": [
-    "JPN"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "chart_down",
-     "lon": 138,
-     "lat": 37,
-     "parola": "collapsed"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "peasant",
-     "n": 5,
-     "lon": 138.5,
-     "lat": 36.5,
-     "parola": "countryside"
-    },
-    {
-     "tipo": "anno",
-     "testo": "1931",
-     "parola": "December"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": 142,
-    "lat": 40,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "His name was Takahashi Korekiyo, and he was 77 years old. On his very first day, he took Japan off gold.",
-   "anteprima": false,
-   "vista": {
-    "lon": 139.7,
-    "lat": 35.7,
-    "larghezza": 10
-   },
-   "epoca": "antica",
-   "oro": [
-    "JPN"
+    "IDN"
    ],
    "verde": [],
    "eventi": [
     {
      "tipo": "personaggio",
-     "nome": "Takahashi Korekiyo",
-     "descrizione": "elderly Japanese finance minister, white mustache, 1930s suit",
-     "parola": "Takahashi"
+     "nome": "Wage Rudolf Supratman",
+     "descrizione": "25-year-old Indonesian journalist, 1928, violin, white suit",
+     "parola": "Supratman"
     },
     {
      "tipo": "conta",
-     "valore": 77,
+     "valore": 25,
      "prefisso": "",
-     "suffisso": "",
-     "sotto": "YEARS OLD",
-     "parola": "77"
+     "suffisso": " YRS",
+     "sotto": "HIS AGE",
+     "parola": "25-year-old"
     },
     {
      "tipo": "nota",
-     "testo": "Day one: off gold",
-     "parola": "off"
+     "testo": "A violin song, no words",
+     "parola": "violin"
     }
    ],
-   "musica": "epico",
-   "stacco": true,
-   "pin": {
-    "lon": 141.2,
-    "lat": 36.5,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Then he did something almost nobody dared in a depression. He spent. And to pay for it, he borrowed.",
-   "anteprima": false,
-   "vista": {
-    "lon": 139.7,
-    "lat": 35.7,
-    "larghezza": 12
-   },
-   "epoca": "antica",
-   "oro": [
-    "JPN"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "money_bag",
-     "lon": 139.7,
-     "lat": 35.7,
-     "parola": "spent"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "HE SPENT",
-     "parola": "spent"
-    },
-    {
-     "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": 139.9,
-     "lat": 35.9,
-     "parola": "borrowed"
-    }
-   ],
-   "musica": "",
+   "musica": "malinconia",
    "stacco": false,
    "pin": {
-    "lon": 141.5,
-    "lat": 37,
+    "lon": 107.4,
+    "lat": -5.7,
     "faccia": "normale"
    }
   },
   {
-   "testo": "From November 1932, the Bank of Japan bought the new government bonds directly. The yen fell, and Japanese goods got cheaper abroad.",
+   "testo": "He played only the tune, with no words, because Dutch authorities were watching. That song became Indonesia's national anthem.",
    "anteprima": false,
    "vista": {
-    "lon": 139,
-    "lat": 36,
-    "larghezza": 40
+    "lon": 106.8,
+    "lat": -6.2,
+    "larghezza": 6
+   },
+   "epoca": "antica",
+   "oro": [
+    "IDN"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "flag:ID",
+     "lon": 106.8,
+     "lat": -6.2,
+     "parola": "anthem"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "NO WORDS",
+     "parola": "words"
+    },
+    {
+     "tipo": "nota",
+     "testo": "The tune became the national anthem",
+     "parola": "anthem"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": false,
+   "pin": {
+    "lon": 107.4,
+    "lat": -5.7,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "The Dutch were still in charge and could have carried on for decades. Then, in early 1942, Japan invaded.",
+   "anteprima": false,
+   "vista": {
+    "lon": 115,
+    "lat": -3,
+    "larghezza": 100
    },
    "epoca": "antica",
    "oro": [
     "JPN"
    ],
-   "verde": [],
+   "verde": [
+    "IDN"
+   ],
    "eventi": [
     {
      "tipo": "anno",
-     "testo": "1932",
-     "parola": "November"
-    },
-    {
-     "tipo": "icona",
-     "icona": "chart_down",
-     "lon": 139.7,
-     "lat": 35.7,
-     "parola": "yen"
+     "testo": "1942",
+     "parola": "1942"
     },
     {
      "tipo": "freccia",
@@ -1827,883 +2595,716 @@
       35.7
      ],
      "a": [
-      125,
-      30
+      110,
+      -7
      ],
      "icona": "cargo_ship",
-     "parola": "abroad"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 150,
-    "lat": 40,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Japan became one of the first major economies to climb out of the depression. America held on until April 1933.",
-   "anteprima": false,
-   "vista": {
-    "lon": 0,
-    "lat": 40,
-    "larghezza": 300
-   },
-   "epoca": "antica",
-   "oro": [
-    "JPN"
-   ],
-   "verde": [
-    "USA"
-   ],
-   "eventi": [
-    {
-     "tipo": "conta_paesi",
-     "paesi": [
-      "JPN",
-      "USA"
-     ],
-     "colore": "oro",
-     "parola": "first"
+     "parola": "Japan"
     },
     {
-     "tipo": "anno",
-     "testo": "1933",
-     "parola": "April"
+     "tipo": "icona",
+     "icona": "swords",
+     "lon": 110,
+     "lat": -7,
+     "parola": "invaded"
     },
     {
      "tipo": "nota",
-     "testo": "Japan exited first",
-     "parola": "climb"
-    }
-   ],
-   "musica": "trionfo",
-   "stacco": false,
-   "pin": {
-    "lon": -40,
-    "lat": 10,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "That was a year and a half after Britain. Economists later found the pattern: the first to leave gold were the first to recover.",
-   "anteprima": false,
-   "vista": {
-    "lon": -30,
-    "lat": 45,
-    "larghezza": 120
-   },
-   "epoca": "antica",
-   "oro": [
-    "GBR"
-   ],
-   "verde": [
-    "USA"
-   ],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 18,
-     "prefisso": "~",
-     "suffisso": "",
-     "sotto": "MONTHS BEHIND BRITAIN",
-     "parola": "half"
-    },
-    {
-     "tipo": "barre",
-     "titolo": "LEFT GOLD",
-     "voci": [
-      {
-       "testo": "BRITAIN 1931",
-       "valore": 100,
-       "lato": "oro"
-      },
-      {
-       "testo": "USA 1933",
-       "valore": 40,
-       "lato": "verde"
-      }
-     ],
-     "parola": "pattern"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Leave gold first, recover first",
-     "parola": "first"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -40,
-    "lat": 62,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Takahashi's own story ended badly. When he tried to rein in military spending, army officers killed him in February 1936.",
-   "anteprima": false,
-   "vista": {
-    "lon": 139.7,
-    "lat": 35.7,
-    "larghezza": 10
-   },
-   "epoca": "antica",
-   "oro": [
-    "JPN"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1936",
-     "parola": "February"
-    },
-    {
-     "tipo": "icona",
-     "icona": "grave",
-     "lon": 139.7,
-     "lat": 35.7,
-     "parola": "killed"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "soldier",
-     "n": 5,
-     "lon": 139.75,
-     "lat": 35.68,
-     "parola": "officers"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": 141,
-    "lat": 36.8,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "He was 81. So that's three things that broke: the banks, the money, and the gold. Have we fixed them?",
-   "anteprima": false,
-   "vista": {
-    "lon": -98,
-    "lat": 39,
-    "larghezza": 60
-   },
-   "epoca": "oggi",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 81,
-     "prefisso": "",
-     "suffisso": "",
-     "sotto": "HIS AGE",
-     "parola": "81"
-    },
-    {
-     "tipo": "icona",
-     "icona": "question",
-     "lon": -98,
-     "lat": 39,
-     "parola": "fixed"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Banks, money, gold: fixed?",
-     "parola": "gold"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": -110,
-    "lat": 32,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "The banks first. In 1933, Congress created federal deposit insurance. In 1934, only nine banks failed.",
-   "anteprima": false,
-   "vista": {
-    "lon": -77,
-    "lat": 38.9,
-    "larghezza": 14
-   },
-   "epoca": "oggi",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1933",
-     "parola": "1933"
-    },
-    {
-     "tipo": "icona",
-     "icona": "parliament",
-     "lon": -77.01,
-     "lat": 38.89,
-     "parola": "Congress"
-    },
-    {
-     "tipo": "conta",
-     "valore": 9,
-     "prefisso": "",
-     "suffisso": "",
-     "sotto": "BANKS FAILED IN 1934",
-     "parola": "nine"
-    }
-   ],
-   "musica": "epico",
-   "stacco": false,
-   "pin": {
-    "lon": -74.5,
-    "lat": 40,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "In the four years before, more than 9,000 had failed. Nine, against thousands. That's what insurance did.",
-   "anteprima": false,
-   "vista": {
-    "lon": -98,
-    "lat": 39,
-    "larghezza": 50
-   },
-   "epoca": "oggi",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "barre",
-     "titolo": "BANK FAILURES",
-     "voci": [
-      {
-       "testo": "1930-33",
-       "valore": 9000,
-       "lato": "verde"
-      },
-      {
-       "testo": "1934",
-       "valore": 9,
-       "lato": "oro"
-      }
-     ],
-     "parola": "9,000"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "9 VS 9,000",
-     "parola": "Nine"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Insurance stopped the runs",
-     "parola": "insurance"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -108,
-    "lat": 44,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Today, deposits are insured up to 250,000 dollars per person, per bank. Can a rumor still sink a bank?",
-   "anteprima": false,
-   "vista": {
-    "lon": -98,
-    "lat": 39,
-    "larghezza": 50
-   },
-   "epoca": "oggi",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "numero",
-     "testo": "$250,000",
-     "lon": -98,
-     "lat": 39,
-     "parola": "250,000"
-    },
-    {
-     "tipo": "icona",
-     "icona": "banknotes",
-     "lon": -90,
-     "lat": 38,
-     "parola": "insured"
-    },
-    {
-     "tipo": "icona",
-     "icona": "question",
-     "lon": -105,
-     "lat": 42,
-     "parola": "rumor"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -110,
-    "lat": 32,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Yes. In March 2023, Silicon Valley Bank customers tried to pull out 42 billion dollars in a single day, mostly from their phones.",
-   "anteprima": false,
-   "vista": {
-    "lon": -122,
-    "lat": 37.4,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "2023",
-     "parola": "March"
-    },
-    {
-     "tipo": "conta",
-     "valore": 42,
-     "prefisso": "$",
-     "suffisso": "B",
-     "sotto": "WITHDRAWN IN A DAY",
-     "parola": "42"
-    },
-    {
-     "tipo": "icona",
-     "icona": "banknotes",
-     "lon": -122,
-     "lat": 37.4,
-     "parola": "phones"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": -120,
-    "lat": 38.5,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "It was the biggest bank run in history. The bank failed the next morning.",
-   "anteprima": false,
-   "vista": {
-    "lon": -122,
-    "lat": 37.4,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "scritta",
-     "testo": "BIGGEST EVER",
-     "parola": "biggest"
-    },
-    {
-     "tipo": "icona",
-     "icona": "fortress",
-     "lon": -122,
-     "lat": 37.4,
-     "parola": "failed"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Failed the next morning",
-     "parola": "morning"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -120.2,
-    "lat": 38.4,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "But two days later, the government promised every depositor would get their money back. A rumor can sink a bank, not the savers.",
-   "anteprima": false,
-   "vista": {
-    "lon": -95,
-    "lat": 39,
-    "larghezza": 50
-   },
-   "epoca": "oggi",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "parliament",
-     "lon": -77,
-     "lat": 38.9,
-     "parola": "government"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "family",
-     "n": 5,
-     "lon": -122,
-     "lat": 37.4,
-     "parola": "depositor"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Every depositor was repaid",
-     "parola": "back"
-    }
-   ],
-   "musica": "trionfo",
-   "stacco": false,
-   "pin": {
-    "lon": -105,
-    "lat": 45,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Next, the gold. In 1971, the United States cut the dollar's last link to gold.",
-   "anteprima": false,
-   "vista": {
-    "lon": -98,
-    "lat": 39,
-    "larghezza": 60
-   },
-   "epoca": "oggi",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1971",
-     "parola": "1971"
-    },
-    {
-     "tipo": "icona",
-     "icona": "gold_coins",
-     "lon": -85,
-     "lat": 38,
-     "parola": "gold"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Dollar freed from gold",
-     "parola": "link"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -110,
-    "lat": 32,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Today, when the system freezes, the Fed can create the money to unfreeze it. In 2008, it did exactly that.",
-   "anteprima": false,
-   "vista": {
-    "lon": -77,
-    "lat": 39,
-    "larghezza": 16
-   },
-   "epoca": "oggi",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "parliament",
-     "lon": -77.04,
-     "lat": 38.89,
-     "parola": "Fed"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -77.04,
-      38.89
-     ],
-     "a": [
-      -74,
-      40.7
-     ],
-     "icona": "banknotes",
-     "parola": "create"
-    },
-    {
-     "tipo": "anno",
-     "testo": "2008",
-     "parola": "2008"
+     "testo": "Japan invades in early 1942",
+     "parola": "invaded"
     }
    ],
    "musica": "azione",
    "stacco": false,
    "pin": {
-    "lon": -74.8,
-    "lat": 40.2,
-    "faccia": "normale"
+    "lon": 125,
+    "lat": 15,
+    "faccia": "stupito"
    }
   },
   {
-   "testo": "In September 2008, Lehman Brothers, a giant Wall Street bank, went bankrupt, and the whole financial system seized up.",
+   "testo": "Java was the last big prize, and about a week after the Japanese landed there, the Dutch surrendered.",
    "anteprima": false,
    "vista": {
-    "lon": -74,
-    "lat": 40.7,
-    "larghezza": 8
+    "lon": 110,
+    "lat": -7.5,
+    "larghezza": 16
    },
-   "epoca": "oggi",
+   "epoca": "antica",
    "oro": [
-    "USA"
+    "JPN"
    ],
-   "verde": [],
+   "verde": [
+    "IDN"
+   ],
    "eventi": [
     {
-     "tipo": "anno",
-     "testo": "2008",
-     "parola": "September"
+     "tipo": "folla",
+     "personaggio": "soldier",
+     "n": 6,
+     "lon": 108,
+     "lat": -6.8,
+     "parola": "landed"
     },
     {
-     "tipo": "etichetta",
-     "testo": "LEHMAN BROTHERS",
-     "lon": -74.01,
-     "lat": 40.71,
-     "parola": "Lehman"
+     "tipo": "conta",
+     "valore": 7,
+     "prefisso": "~",
+     "suffisso": " DAYS",
+     "sotto": "UNTIL DUTCH SURRENDER",
+     "parola": "week"
     },
     {
-     "tipo": "icona",
-     "icona": "chart_down",
-     "lon": -73.95,
-     "lat": 40.75,
-     "parola": "bankrupt"
+     "tipo": "nota",
+     "testo": "Dutch surrender on Java",
+     "parola": "surrendered"
     }
    ],
    "musica": "tensione",
    "stacco": false,
    "pin": {
-    "lon": -72.8,
-    "lat": 41.4,
+    "lon": 114,
+    "lat": -4,
     "faccia": "stupito"
    }
   },
   {
-   "testo": "This time, nobody watched. Within weeks, Congress gave the Treasury up to 700 billion dollars, and the Fed flooded the system with money.",
+   "testo": "The Japanese banned Dutch from public life. Within months, Indonesian took over schools, offices, and newspapers. Japan pushed its own language too, but almost nobody had time to learn it.",
    "anteprima": false,
    "vista": {
-    "lon": -77,
-    "lat": 39,
-    "larghezza": 16
+    "lon": 110,
+    "lat": -6.5,
+    "larghezza": 24
    },
-   "epoca": "oggi",
+   "epoca": "antica",
    "oro": [
-    "USA"
+    "IDN"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "scritta",
+     "testo": "DUTCH BANNED",
+     "parola": "banned"
+    },
+    {
+     "tipo": "icona",
+     "icona": "school",
+     "lon": 106.8,
+     "lat": -6.2,
+     "parola": "schools"
+    },
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": 110.4,
+     "lat": -7,
+     "parola": "newspapers"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Indonesian replaced Dutch in months",
+     "parola": "months"
+    }
+   ],
+   "musica": "azione",
+   "stacco": false,
+   "pin": {
+    "lon": 116,
+    "lat": -3,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "That created a problem: Indonesian lacked words for many modern things. Japan set up a language commission, and writer Sutan Takdir Alisjahbana did most of the work.",
+   "anteprima": false,
+   "vista": {
+    "lon": 106.8,
+    "lat": -6.2,
+    "larghezza": 8
+   },
+   "epoca": "antica",
+   "oro": [
+    "IDN"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "question",
+     "lon": 106.8,
+     "lat": -6.2,
+     "parola": "words"
+    },
+    {
+     "tipo": "personaggio",
+     "nome": "Sutan Takdir Alisjahbana",
+     "descrizione": "Indonesian writer, 1940s, round glasses, formal suit",
+     "parola": "Alisjahbana"
+    },
+    {
+     "tipo": "nota",
+     "testo": "A commission to modernize the language",
+     "parola": "commission"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 107.7,
+    "lat": -5.6,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "By his own count, they invented about 7,000 new terms. He later called the occupation the most decisive moment in the development of Indonesian.",
+   "anteprima": false,
+   "vista": {
+    "lon": 110,
+    "lat": -5,
+    "larghezza": 30
+   },
+   "epoca": "antica",
+   "oro": [
+    "IDN"
    ],
    "verde": [],
    "eventi": [
     {
      "tipo": "conta",
-     "valore": 700,
-     "prefisso": "$",
-     "suffisso": "B",
-     "sotto": "BANK RESCUE FUND",
-     "parola": "700"
+     "valore": 7000,
+     "prefisso": "~",
+     "suffisso": "",
+     "sotto": "NEW TERMS COINED",
+     "lon": 110,
+     "lat": -5,
+     "parola": "7,000"
     },
     {
-     "tipo": "icona",
-     "icona": "money_bag",
-     "lon": -77.04,
-     "lat": 38.89,
-     "parola": "Treasury"
+     "tipo": "scritta",
+     "testo": "3 YEARS",
+     "parola": "decisive"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Occupation was the decisive moment",
+     "parola": "decisive"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": 118,
+    "lat": -1,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "In just three years, Indonesian had to replace everything Dutch had done, and it managed it. On August 17, 1945, two days after Japan surrendered, Sukarno and Hatta declared independence.",
+   "anteprima": false,
+   "vista": {
+    "lon": 115,
+    "lat": -2,
+    "larghezza": 60
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IDN"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1945",
+     "parola": "1945"
+    },
+    {
+     "tipo": "personaggio",
+     "nome": "Sukarno",
+     "descrizione": "first president of Indonesia, black peci cap, white suit",
+     "parola": "Sukarno"
+    },
+    {
+     "tipo": "contorno",
+     "paese": "IDN",
+     "parola": "independence"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Independence declared 17 August 1945",
+     "parola": "declared"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": true,
+   "pin": {
+    "lon": 128,
+    "lat": 4,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "The Dutch came back and spent four years trying to retake the colony, with talks, ceasefires, and two big military offensives.",
+   "anteprima": false,
+   "vista": {
+    "lon": 112,
+    "lat": -5,
+    "larghezza": 40
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IDN"
+   ],
+   "verde": [
+    "NLD"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      4.9,
+      52.4
+     ],
+     "a": [
+      110,
+      -7
+     ],
+     "icona": "cargo_ship",
+     "parola": "came"
+    },
+    {
+     "tipo": "conta",
+     "valore": 4,
+     "prefisso": "",
+     "suffisso": " YRS",
+     "sotto": "OF FIGHTING AND TALKS",
+     "parola": "four"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "soldier",
+     "n": 5,
+     "lon": 110,
+     "lat": -7,
+     "parola": "offensives"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Two Dutch offensives failed",
+     "parola": "offensives"
+    }
+   ],
+   "musica": "azione",
+   "stacco": false,
+   "pin": {
+    "lon": 122,
+    "lat": 0,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "They finally handed over sovereignty on December 27, 1949. Even then they kept Western New Guinea, and in 1957 that dispute boiled over.",
+   "anteprima": false,
+   "vista": {
+    "lon": 125,
+    "lat": -3,
+    "larghezza": 60
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IDN"
+   ],
+   "verde": [
+    "NLD"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1949",
+     "parola": "1949"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "WESTERN NEW GUINEA",
+     "lon": 136,
+     "lat": -4,
+     "parola": "Guinea"
+    },
+    {
+     "tipo": "anno",
+     "testo": "1957",
+     "parola": "1957"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Sovereignty handed over in 1949",
+     "parola": "sovereignty"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 115,
+    "lat": 4,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Workers and soldiers seized Dutch businesses, which Indonesia then nationalized, and around 46,000 Dutch citizens were told to leave.",
+   "anteprima": false,
+   "vista": {
+    "lon": 100,
+    "lat": 0,
+    "larghezza": 120
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IDN"
+   ],
+   "verde": [
+    "NLD"
+   ],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "worker",
+     "n": 6,
+     "lon": 106.8,
+     "lat": -6.2,
+     "parola": "seized"
+    },
+    {
+     "tipo": "conta",
+     "valore": 46000,
+     "prefisso": "~",
+     "suffisso": "",
+     "sotto": "DUTCH TOLD TO LEAVE",
+     "parola": "46,000"
     },
     {
      "tipo": "freccia",
      "da": [
-      -77.04,
-      38.89
+      106.8,
+      -6.2
      ],
      "a": [
-      -74,
-      40.7
+      4.9,
+      52.4
      ],
-     "icona": "banknotes",
-     "parola": "flooded"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -75,
-    "lat": 40.3,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "The economy shrank by 4.3 percent and unemployment peaked at 10 percent. Painful, but nothing like losing a third of everything.",
-   "anteprima": false,
-   "vista": {
-    "lon": -98,
-    "lat": 39,
-    "larghezza": 50
-   },
-   "epoca": "oggi",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "barre",
-     "titolo": "ECONOMY SHRANK",
-     "voci": [
-      {
-       "testo": "1929-33",
-       "valore": 30,
-       "lato": "verde"
-      },
-      {
-       "testo": "2008-09",
-       "valore": 4.3,
-       "lato": "oro"
-      }
-     ],
-     "parola": "shrank"
+     "icona": "cargo_ship",
+     "parola": "leave"
     },
     {
-     "tipo": "conta",
-     "valore": 10,
-     "prefisso": "",
-     "suffisso": "%",
-     "sotto": "PEAK UNEMPLOYMENT",
-     "parola": "10"
+     "tipo": "nota",
+     "testo": "Dutch businesses nationalized",
+     "parola": "nationalized"
     }
    ],
-   "musica": "",
+   "musica": "azione",
    "stacco": false,
    "pin": {
-    "lon": -110,
-    "lat": 45,
+    "lon": 60,
+    "lat": 30,
     "faccia": "normale"
    }
   },
   {
-   "testo": "In 2020, the pandemic shut the country down. Congress passed a 2.2 trillion dollar relief package, the largest in history.",
+   "testo": "Even the spelling changed. Indonesian was once written with Dutch rules, so guru, meaning teacher, was spelled g, o, e, r, o, e. Reforms in 1947 and 1972 cleaned it up.",
    "anteprima": false,
    "vista": {
-    "lon": -98,
-    "lat": 39,
-    "larghezza": 50
+    "lon": 110,
+    "lat": -6,
+    "larghezza": 30
    },
    "epoca": "oggi",
    "oro": [
-    "USA"
+    "IDN"
    ],
    "verde": [],
    "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "GOEROE → GURU",
+     "lon": 110,
+     "lat": -6,
+     "parola": "guru"
+    },
     {
      "tipo": "anno",
-     "testo": "2020",
-     "parola": "2020"
+     "testo": "1947",
+     "parola": "1947"
     },
-    {
-     "tipo": "conta",
-     "valore": 2.2,
-     "prefisso": "$",
-     "suffisso": "T",
-     "sotto": "RELIEF PACKAGE",
-     "parola": "2.2"
-    },
-    {
-     "tipo": "icona",
-     "icona": "parliament",
-     "lon": -77.01,
-     "lat": 38.89,
-     "parola": "Congress"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -110,
-    "lat": 32,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Unemployment hit 14.7 percent in a single month, then started falling the very next month. That's a safety net working.",
-   "anteprima": false,
-   "vista": {
-    "lon": -98,
-    "lat": 39,
-    "larghezza": 50
-   },
-   "epoca": "oggi",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 14.7,
-     "prefisso": "",
-     "suffisso": "%",
-     "sotto": "PEAK, THEN FALLING",
-     "parola": "14.7"
-    },
-    {
-     "tipo": "icona",
-     "icona": "chart_down",
-     "lon": -98,
-     "lat": 41,
-     "parola": "falling"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Falling again next month",
-     "parola": "next"
-    }
-   ],
-   "musica": "trionfo",
-   "stacco": false,
-   "pin": {
-    "lon": -108,
-    "lat": 45,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "And then there's the fourth thing, the one nobody fixed. Look at how both crises were stopped: the government borrowed and spent.",
-   "anteprima": false,
-   "vista": {
-    "lon": -98,
-    "lat": 39,
-    "larghezza": 50
-   },
-   "epoca": "oggi",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 4,
-     "prefisso": "#",
-     "suffisso": "",
-     "sotto": "THE ONE NOT FIXED",
-     "parola": "fourth"
-    },
-    {
-     "tipo": "icona",
-     "icona": "money_bag",
-     "lon": -77,
-     "lat": 38.9,
-     "parola": "borrowed"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Both rescues ran on borrowing",
-     "parola": "spent"
-    }
-   ],
-   "musica": "mistero",
-   "stacco": false,
-   "pin": {
-    "lon": -108,
-    "lat": 33,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "That only works if there's room to borrow. In 1929, federal debt was less than a fifth of the American economy.",
-   "anteprima": false,
-   "vista": {
-    "lon": -98,
-    "lat": 39,
-    "larghezza": 50
-   },
-   "epoca": "oggi",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
     {
      "tipo": "anno",
-     "testo": "1929",
-     "parola": "1929"
-    },
-    {
-     "tipo": "griglia",
-     "paese": [
-      "USA"
-     ],
-     "pieni": 0.18,
-     "testo": "DEBT: UNDER 1 IN 5",
-     "colore": "oro",
-     "parola": "fifth"
+     "testo": "1972",
+     "parola": "1972"
     },
     {
      "tipo": "nota",
-     "testo": "Plenty of room to borrow",
-     "parola": "room"
+     "testo": "Dutch spelling dropped by 1972",
+     "parola": "spelling"
     }
    ],
-   "musica": "",
+   "musica": "curiosita",
    "stacco": false,
    "pin": {
-    "lon": -112,
-    "lat": 47,
+    "lon": 118,
+    "lat": -2,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Today, debt held by the public is on track to reach 101 percent of the entire economy by the end of 2026.",
+   "testo": "So spoken Dutch left with the Dutch, but it left a lot of itself behind. Indonesian borrowed more than 5,000 Dutch words, more than any other language.",
    "anteprima": false,
    "vista": {
-    "lon": -98,
-    "lat": 39,
+    "lon": 110,
+    "lat": -4,
     "larghezza": 50
    },
    "epoca": "oggi",
-   "oro": [],
+   "oro": [
+    "IDN"
+   ],
    "verde": [
-    "USA"
+    "NLD"
    ],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 5000,
+     "prefisso": ">",
+     "suffisso": "",
+     "sotto": "DUTCH WORDS IN INDONESIAN",
+     "lon": 110,
+     "lat": -4,
+     "parola": "5,000"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "MOST EVER",
+     "parola": "any"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Most Dutch loanwords of any language",
+     "parola": "borrowed"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 120,
+    "lat": 3,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "An office is a kantor, from kantoor. A towel is a handuk, from handdoek. And a fridge is a kulkas, from koelkast.",
+   "anteprima": false,
+   "vista": {
+    "lon": 110,
+    "lat": -5,
+    "larghezza": 30
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IDN"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "KANTOR = OFFICE",
+     "lon": 106.8,
+     "lat": -6.2,
+     "parola": "kantor"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "HANDUK = TOWEL",
+     "lon": 110,
+     "lat": -7.5,
+     "parola": "handuk"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "KULKAS = FRIDGE",
+     "lon": 112.7,
+     "lat": -7.3,
+     "parola": "kulkas"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Office, towel, fridge: all Dutch",
+     "parola": "fridge"
+    }
+   ],
+   "musica": "quotidiano",
+   "stacco": false,
+   "pin": {
+    "lon": 118,
+    "lat": -2,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Car gears are persneling, from versnelling. A carrot is a wortel, exactly like Dutch. A cinema is a bioskop, and if something is free, it is gratis.",
+   "anteprima": false,
+   "vista": {
+    "lon": 110,
+    "lat": -5,
+    "larghezza": 30
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IDN"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "PERSNELING = GEARS",
+     "lon": 106.8,
+     "lat": -6.2,
+     "parola": "persneling"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "WORTEL = CARROT",
+     "lon": 110,
+     "lat": -7.5,
+     "parola": "wortel"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "BIOSKOP = CINEMA",
+     "lon": 112.7,
+     "lat": -7.3,
+     "parola": "bioskop"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "GRATIS = FREE",
+     "lon": 107.6,
+     "lat": -6.9,
+     "parola": "gratis"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Gears, carrot, cinema, free",
+     "parola": "gratis"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 118,
+    "lat": -2,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Some older Dutch words now sound old-fashioned, and new words tend to come from English. The law held on to Dutch even longer.",
+   "anteprima": false,
+   "vista": {
+    "lon": 110,
+    "lat": -5,
+    "larghezza": 40
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IDN"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "flag:GB",
+     "lon": 106.8,
+     "lat": -6.2,
+     "parola": "English"
+    },
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": 110,
+     "lat": -7,
+     "parola": "law"
+    },
+    {
+     "tipo": "nota",
+     "testo": "English now feeds new words",
+     "parola": "English"
+    }
+   ],
+   "musica": "quotidiano",
+   "stacco": false,
+   "pin": {
+    "lon": 120,
+    "lat": 0,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Indonesia's criminal code was a Dutch colonial law from 1918, and the government never settled on one official translation, so lawyers used competing versions.",
+   "anteprima": false,
+   "vista": {
+    "lon": 106.8,
+    "lat": -6.2,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IDN"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1918",
+     "parola": "1918"
+    },
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": 106.8,
+     "lat": -6.2,
+     "parola": "code"
+    },
+    {
+     "tipo": "icona",
+     "icona": "question",
+     "lon": 106.9,
+     "lat": -6.3,
+     "parola": "translation"
+    },
+    {
+     "tipo": "nota",
+     "testo": "No single official translation",
+     "parola": "translation"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 107.8,
+    "lat": -5.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "It was only replaced on January 2, 2026, and parts of the Dutch Civil Code from 1848 are still in force today.",
+   "anteprima": false,
+   "vista": {
+    "lon": 106.8,
+    "lat": -6.2,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IDN"
+   ],
+   "verde": [],
    "eventi": [
     {
      "tipo": "anno",
@@ -2711,468 +3312,174 @@
      "parola": "2026"
     },
     {
-     "tipo": "solleva",
-     "paese": [
-      "USA"
-     ],
-     "volte": 8,
-     "testo": "101%",
-     "colore": "verde",
-     "parola": "101"
-    },
-    {
      "tipo": "conta",
-     "valore": 101,
-     "prefisso": "",
-     "suffisso": "%",
-     "sotto": "DEBT VS ECONOMY",
-     "parola": "percent"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": -112,
-    "lat": 47,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "That's the highest since just after World War Two. The all-time record is 106 percent, set in 1946.",
-   "anteprima": false,
-   "vista": {
-    "lon": -98,
-    "lat": 39,
-    "larghezza": 50
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "USA"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1946",
-     "parola": "1946"
-    },
-    {
-     "tipo": "barre",
-     "titolo": "DEBT VS ECONOMY",
-     "voci": [
-      {
-       "testo": "1929",
-       "valore": 18,
-       "lato": "oro"
-      },
-      {
-       "testo": "2026",
-       "valore": 101,
-       "lato": "verde"
-      },
-      {
-       "testo": "1946",
-       "valore": 106,
-       "lato": "verde"
-      }
-     ],
-     "parola": "record"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Record: 106% in 1946",
-     "parola": "106"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -112,
-    "lat": 46,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "It's projected to pass that record and reach around 120 percent by 2036. This year alone, the government borrows about 1.9 trillion dollars more than it collects.",
-   "anteprima": false,
-   "vista": {
-    "lon": -98,
-    "lat": 39,
-    "larghezza": 50
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "USA"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "2036",
-     "parola": "2036"
-    },
-    {
-     "tipo": "conta",
-     "valore": 120,
+     "valore": 178,
      "prefisso": "~",
-     "suffisso": "%",
-     "sotto": "PROJECTED DEBT",
-     "parola": "120"
+     "suffisso": " YRS",
+     "sotto": "CIVIL CODE STILL IN FORCE",
+     "parola": "1848"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "STILL ALIVE",
+     "parola": "still"
+    },
+    {
+     "tipo": "nota",
+     "testo": "1848 Civil Code partly in force",
+     "parola": "Civil"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": 107.8,
+    "lat": -5.5,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "So, depending on which island you stand on, Dutch rule lasted anywhere from about 30 years to well over 300.",
+   "anteprima": false,
+   "vista": {
+    "lon": 115,
+    "lat": -3,
+    "larghezza": 60
+   },
+   "epoca": "oggi",
+   "oro": [
+    "IDN"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "colonna",
+     "testo": "BALI",
+     "valore": 0.1,
+     "lon": 115.4,
+     "lat": -8.5,
+     "parola": "island"
+    },
+    {
+     "tipo": "colonna",
+     "testo": "JAVA",
+     "valore": 1.0,
+     "lon": 110,
+     "lat": -7.5,
+     "parola": "over"
     },
     {
      "tipo": "conta",
-     "valore": 1.9,
-     "prefisso": "$",
-     "suffisso": "T",
-     "sotto": "BORROWED THIS YEAR",
-     "parola": "1.9"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -112,
-    "lat": 46,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "And debt costs money. This year, America will spend about a trillion dollars just on interest, more than on its entire military.",
-   "anteprima": false,
-   "vista": {
-    "lon": -77,
-    "lat": 39,
-    "larghezza": 20
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "USA"
-   ],
-   "eventi": [
-    {
-     "tipo": "prezzo",
-     "testo": "$1 TRILLION",
-     "sotto": "INTEREST · THIS YEAR",
-     "ricco": false,
-     "parola": "trillion"
-    },
-    {
-     "tipo": "icona",
-     "icona": "cannon",
-     "lon": -77.05,
-     "lat": 38.87,
-     "parola": "military"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "MORE THAN DEFENSE",
-     "parola": "more"
-    }
-   ],
-   "musica": "",
-   "stacco": true,
-   "pin": {
-    "lon": -74.5,
-    "lat": 40.3,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "By 2036, interest is projected to cost almost twice as much as defense. Picture your phone bill doubling while your pay stays flat.",
-   "anteprima": false,
-   "vista": {
-    "lon": -77,
-    "lat": 39,
-    "larghezza": 20
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "USA"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "2036",
-     "parola": "2036"
-    },
-    {
-     "tipo": "barre",
-     "titolo": "INTEREST VS DEFENSE",
-     "voci": [
-      {
-       "testo": "INTEREST",
-       "valore": 190,
-       "lato": "verde"
-      },
-      {
-       "testo": "DEFENSE",
-       "valore": 100,
-       "lato": "oro"
-      }
-     ],
-     "parola": "twice"
+     "valore": 30,
+     "prefisso": "~",
+     "suffisso": " YRS",
+     "sotto": "SHORTEST RULE",
+     "parola": "30"
     },
     {
      "tipo": "nota",
-     "testo": "Interest nearly doubles defense",
-     "parola": "twice"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -74.8,
-    "lat": 40.4,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "A big debt doesn't cause a depression by itself. But it's the cushion that saved America twice, and every year it gets thinner.",
-   "anteprima": false,
-   "vista": {
-    "lon": -98,
-    "lat": 39,
-    "larghezza": 50
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "USA"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "hourglass",
-     "lon": -98,
-     "lat": 39,
-     "parola": "cushion"
-    },
-    {
-     "tipo": "nota",
-     "testo": "The cushion saved America twice",
-     "parola": "twice"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "THINNER",
-     "parola": "thinner"
+     "testo": "30 to 300+ years of rule",
+     "parola": "anywhere"
     }
    ],
    "musica": "malinconia",
    "stacco": false,
    "pin": {
-    "lon": -110,
-    "lat": 33,
+    "lon": 125,
+    "lat": 3,
     "faccia": "normale"
    }
   },
   {
-   "testo": "So let's score it. Banks fixed, since insured savings are protected. Money fixed, since the Fed has shown it will step in.",
+   "testo": "They ran the place in Malay because it was cheaper and kept Dutch for a small elite. Then that elite chose Malay as the language of a new country.",
    "anteprima": false,
    "vista": {
-    "lon": -98,
-    "lat": 39,
-    "larghezza": 55
+    "lon": 112,
+    "lat": -3,
+    "larghezza": 50
    },
    "epoca": "oggi",
    "oro": [
-    "USA"
+    "IDN"
    ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "fortress",
-     "lon": -87,
-     "lat": 41.9,
-     "parola": "Banks"
-    },
-    {
-     "tipo": "icona",
-     "icona": "banknotes",
-     "lon": -77,
-     "lat": 38.9,
-     "parola": "Money"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Banks and money: fixed",
-     "parola": "fixed"
-    }
+   "verde": [
+    "NLD"
    ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": -110,
-    "lat": 33,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Gold is gone, since the dollar isn't tied to it anymore. And debt is worse than at any time since World War Two.",
-   "anteprima": false,
-   "vista": {
-    "lon": -98,
-    "lat": 39,
-    "larghezza": 55
-   },
-   "epoca": "oggi",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
    "eventi": [
     {
      "tipo": "icona",
      "icona": "gold_coins",
-     "lon": -85,
-     "lat": 38,
-     "parola": "Gold"
+     "lon": 106.8,
+     "lat": -6.2,
+     "parola": "cheaper"
     },
     {
-     "tipo": "icona",
-     "icona": "chart_up",
-     "lon": -77,
-     "lat": 38.9,
-     "parola": "debt"
+     "tipo": "folla",
+     "personaggio": "student",
+     "n": 5,
+     "lon": 108,
+     "lat": -6.5,
+     "parola": "elite"
+    },
+    {
+     "tipo": "contorno",
+     "paese": "IDN",
+     "parola": "country"
     },
     {
      "tipo": "nota",
-     "testo": "Gold gone, debt worse",
-     "parola": "worse"
+     "testo": "The elite chose Malay",
+     "parola": "chose"
     }
    ],
-   "musica": "",
+   "musica": "trionfo",
    "stacco": false,
    "pin": {
-    "lon": -110,
-    "lat": 45,
+    "lon": 122,
+    "lat": 1,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Could America survive another Great Depression? Probably, yes. Three of the four things that turned a crash into a catastrophe are fixed.",
+   "testo": "Almost by accident, the Dutch helped give more than 280 million people the language that holds their country together.",
    "anteprima": false,
    "vista": {
-    "lon": -98,
-    "lat": 39,
+    "lon": 115,
+    "lat": -2,
     "larghezza": 60
    },
    "epoca": "oggi",
    "oro": [
-    "USA"
+    "IDN"
    ],
    "verde": [],
    "eventi": [
     {
-     "tipo": "scritta",
-     "testo": "PROBABLY YES",
-     "parola": "Probably"
+     "tipo": "conta",
+     "valore": 280,
+     "prefisso": ">",
+     "suffisso": "M",
+     "sotto": "PEOPLE, ONE LANGUAGE",
+     "lon": 115,
+     "lat": -2,
+     "parola": "280"
     },
     {
-     "tipo": "conta",
-     "valore": 3,
-     "prefisso": "",
-     "suffisso": " OF 4",
-     "sotto": "PROBLEMS FIXED",
-     "parola": "Three"
+     "tipo": "scritta",
+     "testo": "BY ACCIDENT",
+     "parola": "accident"
     },
     {
      "tipo": "nota",
-     "testo": "Three of four are fixed",
-     "parola": "fixed"
+     "testo": "The Dutch accidentally united a nation",
+     "parola": "together"
     }
    ],
    "musica": "trionfo",
-   "stacco": true,
-   "pin": {
-    "lon": -112,
-    "lat": 33,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "But the fourth one is the safety net itself. In 1929, it took the market 25 years to come back.",
-   "anteprima": false,
-   "vista": {
-    "lon": -98,
-    "lat": 39,
-    "larghezza": 60
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "USA"
-   ],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 25,
-     "prefisso": "",
-     "suffisso": "",
-     "sotto": "YEARS TO RECOVER IN 1929",
-     "parola": "25"
-    },
-    {
-     "tipo": "icona",
-     "icona": "hourglass",
-     "lon": -98,
-     "lat": 39,
-     "parola": "net"
-    },
-    {
-     "tipo": "nota",
-     "testo": "The net is the weak point",
-     "parola": "safety"
-    }
-   ],
-   "musica": "malinconia",
    "stacco": false,
    "pin": {
-    "lon": -112,
-    "lat": 46,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "The real question isn't whether America would survive the next one. It's how much of the cushion would be left when it comes.",
-   "anteprima": false,
-   "vista": {
-    "lon": -98,
-    "lat": 39,
-    "larghezza": 70
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "USA"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "question",
-     "lon": -98,
-     "lat": 39,
-     "parola": "question"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "HOW MUCH?",
-     "parola": "much"
-    },
-    {
-     "tipo": "nota",
-     "testo": "How much cushion is left?",
-     "parola": "cushion"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -115,
-    "lat": 33,
+    "lon": 128,
+    "lat": 4,
     "faccia": "normale"
    }
   }
