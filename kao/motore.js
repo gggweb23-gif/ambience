@@ -532,6 +532,7 @@ async function caricaYouTube(file, cfg, col) {
   const status = ['private', 'unlisted'].includes(priv) ? { privacyStatus: priv }
     : (P.pubblica_il && new Date(P.pubblica_il).getTime() > Date.now() + 20 * 60000 ? { privacyStatus: 'private', publishAt: new Date(P.pubblica_il).toISOString() } : { privacyStatus: 'public' });
   status.selfDeclaredMadeForKids = false;
+  status.containsSyntheticMedia = false;   // 6 nov (Giorgio): domanda "Utilizzo dell'AI" = No
   const lingua = String(cfg.language || 'it');
   const meta = { snippet: { title: String(col.titolo_italiano || '').slice(0, 100), description: String(col.descrizione_youtube || '').slice(0, 4900),
     categoryId: String(cfg.categoria || cfg.youtube_category_id || '27').replace(/\.0+$/, ''), defaultLanguage: lingua, defaultAudioLanguage: lingua, tags }, status };

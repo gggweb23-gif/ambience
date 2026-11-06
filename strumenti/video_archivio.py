@@ -615,7 +615,7 @@ if str(P.get('carica') or '').upper() == 'SI' and E('YT_REFRESH_TOKEN'):
     meta = {'snippet': {'title': pulisci(P['titolo'])[:100], 'description': pulisci(c.get('descrizione', ''))[:4900], 'tags': tags,
                         'categoryId': str(P.get('youtube_category_id') or 27), 'defaultLanguage': str(P.get('language') or 'en')[:2],
                         'defaultAudioLanguage': str(P.get('language') or 'en')[:2]},
-            'status': {'privacyStatus': P.get('privacy') or 'unlisted', 'selfDeclaredMadeForKids': False}}
+            'status': {'privacyStatus': P.get('privacy') or 'unlisted', 'selfDeclaredMadeForKids': False, 'containsSyntheticMedia': False}}
     # canale pubblico: esce all'ora del foglio (publish_time, ora italiana), oggi se c'e' tempo, altrimenti domani
     ora_pub = re.match(r'(\d{1,2})[:.](\d{2})', str(P.get('publish_time') or ''))
     if meta['status']['privacyStatus'] == 'public' and ora_pub and not DA_CONTROLLARE:

@@ -285,7 +285,7 @@ def carica(tk, f, x, cfg, riga, vid_lungo, quando):
     meta = {'snippet': {'title': (x['titolo'] or riga.get('titolo_italiano') or '')[:90].strip() + ' #shorts',
                         'description': f"{x['frase']}\n\n▶ {link}: https://youtu.be/{vid_lungo}\n\n#shorts",
                         'tags': tag, 'categoryId': str(cfg.get('youtube_category_id') or 27), 'defaultLanguage': lingua, 'defaultAudioLanguage': lingua},
-            'status': {'privacyStatus': 'private', 'publishAt': quando.astimezone(dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'), 'selfDeclaredMadeForKids': False}}
+            'status': {'privacyStatus': 'private', 'publishAt': quando.astimezone(dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'), 'selfDeclaredMadeForKids': False, 'containsSyntheticMedia': False}}
     req = urllib.request.Request('https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&part=snippet,status', data=json.dumps(meta).encode(),
                                  headers={'Authorization': 'Bearer ' + tk, 'Content-Type': 'application/json', 'X-Upload-Content-Type': 'video/mp4'})
     up = urllib.request.urlopen(req, timeout=60).headers['Location']

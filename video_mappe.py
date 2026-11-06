@@ -1853,7 +1853,7 @@ def carica_youtube(path, c, titolo):
     tok = token(); descr, tags_ = dati_youtube(c, titolo)
     snippet = {'title': titolo[:100], 'description': descr, 'tags': tags_, 'categoryId': str(P.get('categoria') or '27'),
                'defaultLanguage': LINGUA, 'defaultAudioLanguage': LINGUA}
-    status = {'privacyStatus': P.get('privacy') or 'public', 'selfDeclaredMadeForKids': False}
+    status = {'privacyStatus': P.get('privacy') or 'public', 'selfDeclaredMadeForKids': False, 'containsSyntheticMedia': False}
     if P.get('pubblica_il') and str(P.get('privacy') or 'public').strip().lower() == 'public':
         status['privacyStatus'] = 'private'; status['publishAt'] = P['pubblica_il']
     size = os.path.getsize(path)
