@@ -6,6 +6,7 @@ name: Video da caricare a mano (pagina unica)
 on:
   schedule:
     - cron: '50 5 * * *'    # 06:50 ora italiana, quando i video della notte sono pronti
+    - cron: '40 6-21 * * *' # e ogni ora di giorno: i video fatti in anticipo compaiono appena pronti
   workflow_dispatch:
 
 permissions:
