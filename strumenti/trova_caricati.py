@@ -34,6 +34,12 @@ def main():
             sch, h, prod = A.righe(fid)
         except Exception as e:
             print(cid, ': file di produzione non leggibile', str(e)[:100]); continue
+        rip = json.loads(E('RIPRISTINA', '') or '{}').get(cid)   # correzione: riga rimessa "Da caricare a mano"
+        if rip:
+            A.api(fid, 'POST', '/values:batchUpdate', {'valueInputOption': 'RAW', 'data': [
+                {'range': f"'{sch}'!{A.lettera(h.index(c) + 1)}{rip}", 'values': [[v]]} for c, v in (('status', M.STATO), ('youtube_video_id', '')) if c in h]})
+            prod[int(rip) - 2]['status'] = M.STATO; prod[int(rip) - 2]['youtube_video_id'] = ''
+            print(cid, 'riga', rip, ': rimessa Da caricare a mano')
         attesa = [(i + 2, r) for i, r in enumerate(prod) if str(r.get('status')).strip() == M.STATO]
         if not attesa:
             continue
@@ -61,6 +67,8 @@ def main():
             if not vid or vid in gia:
                 print(cid, 'riga', n, ': non ancora caricato |', r.get('titolo_italiano')); continue
             st = get('https://www.googleapis.com/youtube/v3/videos?part=status,snippet&id=' + vid, auth)['items'][0]
+            if st['status'].get('privacyStatus') != 'public' and not st['status'].get('publishAt'):
+                print(cid, 'riga', n, ': caricato ma ancora privato e non programmato, aspetto |', r.get('titolo_italiano')); continue   # gli Short partono solo da video pubblici o programmati
             quando = st['status'].get('publishAt') or st['snippet'].get('publishedAt') or ''
             try:
                 quando = dt.datetime.fromisoformat(quando.replace('Z', '+00:00')).astimezone(M.ROMA).strftime('%Y-%m-%d %H:%M')

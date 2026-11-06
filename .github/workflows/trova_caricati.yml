@@ -6,6 +6,10 @@ on:
   schedule:
     - cron: '13 6-20 * * *'
   workflow_dispatch:
+    inputs:
+      ripristina:
+        description: 'Solo correzioni: JSON {"canale": riga}'
+        default: ''
 
 permissions:
   contents: read
@@ -29,4 +33,5 @@ jobs:
           YT_REFRESH_TOKEN_WWII_TESTIMONY: ${{ secrets.YT_REFRESH_TOKEN_WWII_TESTIMONY }}
           YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          RIPRISTINA: ${{ inputs.ripristina }}
         run: pip install -q google-auth requests && python3 strumenti/trova_caricati.py
