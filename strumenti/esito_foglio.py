@@ -10,7 +10,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import avvio_canali as A
 import manuale as M
 
-STATI = {'PUBBLICATO': 'Completato', 'CREATO': 'Completato', 'PROVA OK': 'Prova', 'ERRORE': 'Errore', 'DOPPIONE': 'Simile a Esistente', 'RIMANDATO': 'Pronto'}
+STATI = {'PUBBLICATO': 'Completato', 'CREATO': 'Completato', 'PROVA OK': 'Prova', 'ERRORE': 'Errore', 'DOPPIONE': 'Simile a Esistente', 'RIMANDATO': 'Pronto', 'SCARTATO': 'Scartato'}
 CAMPI = {'titolo': 'titolo_italiano', 'descrizione': 'descrizione_youtube', 'tag': 'tag_seo', 'testo_copertina': 'titolo_thumbnail',
          'video_id': 'youtube_video_id', 'playlist': 'playlist', 'video_url': 'video_anteprima', 'copertina_url': 'thumbnail_anteprima', 'paese': 'paese'}
 
