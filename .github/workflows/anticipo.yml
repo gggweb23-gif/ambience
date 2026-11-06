@@ -4,16 +4,16 @@ name: Video in anticipo (a mano)
 # Mappe e archivio in parallelo. La notte non si rifa' un video per un giorno che ne ha gia' uno (avvio: "gia' pronto").
 on:
   workflow_dispatch:
-    inputs:
+    inputs:   # 7 nov: corsie vuote = non fanno niente (prima un valore vuoto prendeva i video di prova e lanciava video non richiesti)
       pexels:
-        description: 'Corsia Pexels (spazio tra le voci launcher|canale|giorni|etichetta)'
-        default: 'avvio_canali.yml|Storia in Minuti|1|Video Storia avvio_canali.yml|Agora of Sages|1|Video Produzione avvio_canali.yml|Storia in Minuti|2|Video Storia avvio_canali.yml|Agora of Sages|2|Video Produzione'
+        description: 'Corsia Pexels, es. avvio_canali.yml|Storia in Minuti|1|Video Storia (spazio tra le voci launcher|canale|giorni|etichetta)'
+        default: ''
       mappe:
-        default: 'avvio_canali.yml|Main Street Atlas|1|Video Mappe avvio_canali.yml|Main Street Atlas|2|Video Mappe'
+        default: ''
       archivio1:
-        default: 'avvio_archivio.yml|WWII Testimony|1|Video Archivio avvio_archivio.yml|WWII Testimony|2|Video Archivio'
+        default: ''
       archivio2:
-        default: 'avvio_archivio.yml|Orbital Days|1|Video Archivio avvio_archivio.yml|Orbital Days|2|Video Archivio'
+        default: ''
 
 permissions:
   contents: read
