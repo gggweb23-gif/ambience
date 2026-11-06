@@ -1,0 +1,634 @@
+{
+ "scene": [
+  {
+   "testo": "Picture a piece of metal the size of a pea. It is moving at 17,500 miles per hour, ten times faster than a rifle bullet. And right now, thousands of pieces like it are circling the planet above your head.",
+   "q": "astronaut floating space station",
+   "tag": [
+    "astronaut",
+    "floating",
+    "module"
+   ],
+   "scritta": "17,500 MPH",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "The Pea Problem",
+   "anno": 0
+  },
+  {
+   "testo": "Now imagine you are floating inside the International Space Station at 6 AM. The air hums softly. The walls are cluttered with cables, laptops, and checklists. And just a few inches of metal separate you from that storm of debris.",
+   "q": "astronaut inside space station",
+   "tag": [
+    "astronaut",
+    "cabin",
+    "cables"
+   ],
+   "scritta": "",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Here is the question. Why doesn't space junk hit the station? NASA tracks more than 27,000 pieces of orbital debris, and yet the crew eats breakfast, exercises, and sleeps. Tonight, we go inside the system that keeps them alive.",
+   "q": "astronaut looking out window Earth",
+   "tag": [
+    "astronaut",
+    "window",
+    "cupola"
+   ],
+   "scritta": "27,000 PIECES",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "The station orbits about 250 miles above Earth. That is roughly the distance from New York City to Washington, D.C., straight up. It circles the planet every 90 minutes, which means the crew sees 16 sunrises every single day.",
+   "q": "space station orbiting Earth",
+   "tag": [
+    "station",
+    "orbit",
+    "solar panels"
+   ],
+   "scritta": "250 MILES",
+   "obbligo": [],
+   "capitolo": "Life at 250 Miles",
+   "anno": 0
+  },
+  {
+   "testo": "Sixteen sunrises. Sixteen sunsets. So your 6 AM wake-up is just a number on a clock. The crew follows Greenwich Mean Time, and the lights inside the station are dimmed and brightened to fake a normal day.",
+   "q": "sunrise from space station",
+   "tag": [
+    "sunrise",
+    "horizon",
+    "atmosphere"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "You unzip your sleeping bag. It is fastened to the wall, because in weightlessness you would drift around the cabin all night. Your arms float up in front of you, and your hair stands out like it is underwater.",
+   "q": "sleeping bag crew quarters",
+   "tag": [
+    "sleeping bag",
+    "crew quarters",
+    "sleeping"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "But here is what you cannot see. Beyond the walls, the temperature swings wildly. In sunlight, the outside of the station can reach about 250 degrees Fahrenheit. In shadow, it plunges to around minus 250 degrees Fahrenheit.",
+   "q": "space station sunlight shadow",
+   "tag": [
+    "station",
+    "sunlight",
+    "solar panels"
+   ],
+   "scritta": "-250°F",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "And somewhere out there, in that brutal environment, drift the leftovers of 60 years of spaceflight. Dead satellites. Spent rocket stages. Bolts, paint flecks, and fragments of exploded engines. All of it is still circling Earth.",
+   "q": "orbital debris illustration",
+   "tag": [
+    "debris",
+    "satellite",
+    "orbit"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "The Junk Cloud",
+   "anno": 0
+  },
+  {
+   "testo": "How much is out there? NASA estimates about 27,000 pieces larger than a softball are tracked. Around 500,000 pieces are marble-sized or bigger. And more than 100 million are smaller than a grain of salt.",
+   "q": "space debris tracking",
+   "tag": [
+    "debris",
+    "tracking",
+    "radar"
+   ],
+   "scritta": "100 MILLION",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Those numbers sound terrifying. And honestly, they should. But here is the first secret. Space is enormous. The station sits inside a volume of space so vast that most debris never comes anywhere near it.",
+   "q": "Earth orbit view station",
+   "tag": [
+    "Earth",
+    "orbit",
+    "station"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Think of it like this. Imagine 27,000 footballs scattered across a sphere wrapped around the whole planet. Even with that many, the odds of any one of them hitting a single school bus are small on any given day.",
+   "q": "football field stadium aerial",
+   "tag": [
+    "football",
+    "stadium",
+    "field"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "But small is not zero. Over decades, small chances add up. So NASA doesn't rely on luck. It runs a full-time watch, and the people who run it never sleep in shifts that matter to the crew.",
+   "q": "mission control room",
+   "tag": [
+    "mission control",
+    "consoles",
+    "flight controllers"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "The Watchers",
+   "anno": 0
+  },
+  {
+   "testo": "The tracking work is done mostly by the U.S. Space Surveillance Network. Ground radars and optical telescopes watch the sky. They follow objects as small as about four inches across in low Earth orbit, roughly the size of a softball.",
+   "q": "radar dish tracking",
+   "tag": [
+    "radar",
+    "dish",
+    "antenna"
+   ],
+   "scritta": "4 INCHES",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Every tracked object gets a catalog entry. Its position, its speed, its path. Computers predict where each piece will be days into the future. And they compare those paths against the path of the space station.",
+   "q": "computer screen orbit prediction",
+   "tag": [
+    "screen",
+    "orbit",
+    "trajectory"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "When a piece looks like it will pass too close, the system raises a flag. NASA uses a rule of thumb: a zone around the station, roughly 15 miles wide, 15 miles long, and a mile deep in some directions.",
+   "q": "flight controllers monitoring station",
+   "tag": [
+    "flight controllers",
+    "monitor",
+    "station"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "If a piece will enter that zone, controllers study the odds of a hit. If the odds are high enough, they call for action. And the action is dramatic: the whole station has to move.",
+   "q": "space station thrusters firing",
+   "tag": [
+    "thrusters",
+    "station",
+    "reboost"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "The Dodge",
+   "anno": 0
+  },
+  {
+   "testo": "It is called a debris avoidance maneuver. Engines on the Russian segment of the station, or on a docked cargo ship, fire for a short burst. The push is gentle, but it slightly changes the orbit.",
+   "q": "cargo spacecraft docked station",
+   "tag": [
+    "cargo",
+    "docked",
+    "spacecraft"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Does that really work? Yes. The station has dodged debris many times. Often the plan is made a day or more ahead. A small change in speed now becomes a safe gap of miles later.",
+   "q": "station orbit raising burn",
+   "tag": [
+    "station",
+    "orbit",
+    "burn"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "But sometimes there isn't enough warning. On April 15, 2012, a piece of debris was spotted too late for a dodge. So the crew did something simple. They climbed into their Soyuz spacecraft and waited.",
+   "q": "Soyuz spacecraft docked station",
+   "tag": [
+    "Soyuz",
+    "docked",
+    "spacecraft"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "The Lifeboat",
+   "anno": 2012
+  },
+  {
+   "testo": "Imagine you are one of those crew members. You float through the hatch. You strap in. The countdown to the close approach ticks on a screen. And all you can do is sit in a cramped capsule and wait.",
+   "q": "astronaut inside Soyuz capsule",
+   "tag": [
+    "astronaut",
+    "Soyuz",
+    "capsule"
+   ],
+   "scritta": "",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "The Soyuz is the crew's lifeboat. If a hit happened, they could undock and fall back to Earth. The fragment passed, nothing happened, and the crew floated back out. They had been inside for about a quarter hour.",
+   "q": "astronauts exit Soyuz hatch",
+   "tag": [
+    "astronauts",
+    "hatch",
+    "Soyuz"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Now, why bother? Because of speed. At 17,500 miles per hour, even a tiny object carries enormous energy. A fleck of paint hitting at that speed can hit with the force of a bowling ball moving at about 60 miles per hour.",
+   "q": "impact test hypervelocity",
+   "tag": [
+    "impact",
+    "test",
+    "hypervelocity"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "Why Speed Kills",
+   "anno": 0
+  },
+  {
+   "testo": "That is not a made-up scare. NASA has documented it. The space shuttle windows were chipped by tiny paint flecks again and again. Some windows had to be replaced after flights. A speck can crack glass.",
+   "q": "space shuttle window damage",
+   "tag": [
+    "shuttle",
+    "window",
+    "damage"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "One famous example: during the shuttle program, a small fragment left a pit in a window. Engineers examined it afterward and found paint. Not a rock. Just a fleck of paint from another spacecraft, traveling at orbital speed.",
+   "q": "shuttle orbiter in orbit",
+   "tag": [
+    "shuttle",
+    "orbiter",
+    "payload bay"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "The station has its own scars. On its solar arrays and hull, small pits and holes have been found. In May 2021, the Canadarm2 robotic arm was hit by a piece of debris, leaving a hole you can see in photos.",
+   "q": "Canadarm2 robotic arm station",
+   "tag": [
+    "Canadarm2",
+    "robotic arm",
+    "station"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 2021
+  },
+  {
+   "testo": "The arm kept working. The damage was real, but it was small. Because the station is not a thin-skinned balloon. It is built to take hits, and that brings us to the second big secret: armor.",
+   "q": "station module exterior shielding",
+   "tag": [
+    "module",
+    "shield",
+    "exterior"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "The Armor",
+   "anno": 0
+  },
+  {
+   "testo": "The modules wear shields called Whipple shields, named after astronomer Fred Whipple, who proposed the idea in 1947. It is simple: a thin outer layer, a gap, and then the main wall behind it.",
+   "q": "Whipple shield diagram",
+   "tag": [
+    "shield",
+    "layers",
+    "diagram"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 1947
+  },
+  {
+   "testo": "Here is how it works. A fast particle hits the thin outer layer and shatters into a cloud of tiny, hot fragments. That cloud spreads across the gap. By the time it hits the inner wall, the force is spread thin.",
+   "q": "impact shield test",
+   "tag": [
+    "shield",
+    "impact",
+    "test"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Newer shields add layers of Kevlar-like and Nextel ceramic fabric. NASA built them to stop objects up to about half an inch across at orbital speeds in the most exposed areas. Think of a thick marble.",
+   "q": "space station module construction",
+   "tag": [
+    "module",
+    "construction",
+    "hull"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "The shielding is not equal everywhere. The most exposed parts, the front of the station as it flies, get the thickest protection. Places that face away get less. Engineers worked out the risk for each module.",
+   "q": "station modules truss",
+   "tag": [
+    "station",
+    "truss",
+    "modules"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "And if something does punch through? The crew trains for it. The station is divided into sections with hatches that close. A leak in one module can be sealed off, and the crew can retreat to safety.",
+   "q": "astronaut closing hatch station",
+   "tag": [
+    "astronaut",
+    "hatch",
+    "module"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "The Leak",
+   "anno": 0
+  },
+  {
+   "testo": "It has actually happened. On August 30, 2018, the crew found a tiny hole in a Soyuz spacecraft docked to the station. Air was slowly leaking out. It was about the size of a pinhead, a fraction of an inch wide.",
+   "q": "Soyuz docked station crew",
+   "tag": [
+    "Soyuz",
+    "docked",
+    "crew"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 2018
+  },
+  {
+   "testo": "Imagine the moment. A sensor shows pressure dropping. The crew hunts for the source. They find it, and an astronaut plugs the hole with a finger, then with tape and a sealant patch. That is not a movie. That is documented.",
+   "q": "astronaut repairing leak station",
+   "tag": [
+    "astronaut",
+    "repair",
+    "leak"
+   ],
+   "scritta": "",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "The cause was later investigated. NASA and Russian officials said the hole looked like it was made by a drill, not by debris. Beyond that, the exact cause was not publicly settled, and we should be honest about that.",
+   "q": "Soyuz spacecraft close up",
+   "tag": [
+    "Soyuz",
+    "spacecraft",
+    "hull"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "The lesson is the same either way. A small hole in orbit is a serious thing. And the crew has the tools, the training, and the time to respond, because the air does not vanish in an instant.",
+   "q": "astronauts training emergency",
+   "tag": [
+    "astronauts",
+    "training",
+    "emergency"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Now for a darker chapter. Sometimes the junk is made worse by humans. On January 11, 2007, China destroyed one of its own weather satellites in a test. It created more than 3,000 trackable pieces.",
+   "q": "satellite breakup debris cloud",
+   "tag": [
+    "satellite",
+    "debris",
+    "breakup"
+   ],
+   "scritta": "3,000 PIECES",
+   "obbligo": [],
+   "capitolo": "Made Worse",
+   "anno": 2007
+  },
+  {
+   "testo": "Then on February 10, 2009, two satellites collided by accident. An American Iridium communications satellite and a defunct Russian military satellite hit each other about 490 miles above Siberia, creating thousands more fragments.",
+   "q": "satellite collision illustration",
+   "tag": [
+    "satellite",
+    "collision",
+    "debris"
+   ],
+   "scritta": "490 MILES",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 2009
+  },
+  {
+   "testo": "And on November 15, 2021, Russia destroyed one of its old satellites in a test. The station crew was told to shelter in their spacecraft for part of the day, as the debris cloud passed near their orbit.",
+   "q": "astronauts shelter spacecraft",
+   "tag": [
+    "astronauts",
+    "shelter",
+    "spacecraft"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 2021
+  },
+  {
+   "testo": "That is why the station flies where it does. Debris tends to stay longer at higher altitudes, where the thin air barely drags on it. At the station's altitude, the thin air still pulls things down slowly.",
+   "q": "Earth atmosphere limb orbit",
+   "tag": [
+    "atmosphere",
+    "limb",
+    "Earth"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "The Clean-Up",
+   "anno": 0
+  },
+  {
+   "testo": "Meanwhile, the station itself keeps sinking. The faint air at that height drags it down by a couple of miles every month or so. So engines must fire regularly to lift it back up. It is a constant balancing act.",
+   "q": "station reboost burn",
+   "tag": [
+    "station",
+    "reboost",
+    "engine"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Here is where debris and gravity do us a favor. Old junk in low orbits falls back on its own. It slows, drops, and burns up as a streak of light. A small piece might last months. A big one, years.",
+   "q": "spacecraft reentry fireball",
+   "tag": [
+    "reentry",
+    "fireball",
+    "atmosphere"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Now compare that to life on Earth. On a highway, you check mirrors, signal, and brake. In orbit, the crew relies on a team of thousands. It is like driving a school bus through traffic that moves ten times faster than bullets.",
+   "q": "school bus highway",
+   "tag": [
+    "school bus",
+    "highway",
+    "road"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "Orbit Versus Highway",
+   "anno": 0
+  },
+  {
+   "testo": "And the station is big. Its solar arrays and truss stretch about 357 feet, longer than a football field with the end zones. That is a huge target, yet it keeps avoiding trouble, year after year, crew after crew.",
+   "q": "station solar arrays truss",
+   "tag": [
+    "solar arrays",
+    "truss",
+    "station"
+   ],
+   "scritta": "357 FEET",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "So why doesn't space junk hit the station? Space is vast. Radars watch the sky. Engines dodge threats. Armor stops small hits. Crews train for leaks. And when danger is close, they shelter in the lifeboat.",
+   "q": "astronauts station crew portrait",
+   "tag": [
+    "astronauts",
+    "crew",
+    "portrait"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "The Answer",
+   "anno": 0
+  },
+  {
+   "testo": "And here is the most surprising detail. Once, in 2012, controllers moved the station not for a big rock, but for a piece of a satellite. The dodge worked. The crew barely felt anything. Safety in orbit often feels like nothing happened.",
+   "q": "astronaut smiling space station",
+   "tag": [
+    "astronaut",
+    "smiling",
+    "station"
+   ],
+   "scritta": "",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "",
+   "anno": 2012
+  }
+ ],
+ "descrizione": "Why doesn't space junk hit the International Space Station? Tens of thousands of pieces of orbital debris race around Earth at 17,500 mph, yet the crew lives safely 250 miles up. In this video, we go inside the station at 6 AM and uncover the radar tracking, the debris avoidance maneuvers, the Soyuz lifeboat, and the armor that protects astronauts.\n\nWe look at documented events from NASA and ESA: the 2007 and 2009 debris-creating events, the 2012 close call, the 2018 Soyuz leak, and the 2021 shelter alert. Every number comes from real sources, and when something is uncertain, we say so.\n\nSubscribe to Orbital Days for more answers about real life in space, one curiosity at a time.\n#spacejunk #spacestation #orbitaldebris #nasa #astronaut #spacedocumentary",
+ "tag": [
+  "space junk",
+  "orbital debris",
+  "space station",
+  "ISS",
+  "International Space Station",
+  "space debris",
+  "NASA",
+  "astronaut",
+  "life in space",
+  "debris avoidance maneuver",
+  "Soyuz",
+  "space documentary",
+  "Orbital Days",
+  "Whipple shield",
+  "space collision",
+  "satellite debris",
+  "Kessler syndrome",
+  "how astronauts live",
+  "space facts",
+  "low Earth orbit",
+  "space safety",
+  "micrometeoroids",
+  "space tracking",
+  "Space Surveillance Network",
+  "astronaut life",
+  "space science",
+  "space explained"
+ ],
+ "testo_copertina": "SPACE JUNK",
+ "copertina_prompt": "A fictional astronaut in close-up inside the space station cupola, eyes wide with alarm, reflecting a glowing field of tiny debris sparks against Earth's blue curve, dramatic cool light with an orange warning glow on the helmet.",
+ "titolo_video": "Why Doesn't Space Junk Hit the Space Station?"
+}
