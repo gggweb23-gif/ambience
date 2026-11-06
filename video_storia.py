@@ -345,7 +345,7 @@ def lista_kit(kit):
     return ', '.join(k + (f' ({KIT_DESCR[k]})' if k in KIT_DESCR else '') for k in kit) or '(nessuno)'
 
 
-def condensa_originale(orig, obiettivo):
+def condensa_originale(orig, obiettivo, minimo=0):
     """Prima del copione: il testo del competitor viene condensato alla lunghezza del NOSTRO video (stesso ordine, ganci,
     domande, numeri e finale). A BLOCCHI: un modello non accorcia mai un testo lungo del 70% in un colpo solo (31 ott: 5.014 -> 4.200
     in 6 passaggi), ma riassume bene un pezzo breve in poche frasi. Ogni blocco di ~400 parole diventa N frasi; si verifica il totale."""
@@ -358,7 +358,7 @@ def condensa_originale(orig, obiettivo):
     def uno(k):
         b = blocchi[k]
         n = max(20, round(len(b.split()) * quota))
-        frasi = max(2, round(n / 15))
+        frasi = max(2, round(n / 12))   # 6 nov: con n/15 le frasi corte davano testi piu' brevi del chiesto (1127-1172 su 1312)
         for t in range(3):
             r = http('https://api.anthropic.com/v1/messages', {'model': MODELLO_CONTROLLO, 'max_tokens': 1500, 'messages': [{'role': 'user', 'content':
                 f"""This is part {k + 1} of {len(blocchi)} of a YouTube video transcript. Rewrite it as EXACTLY {frasi} short sentences (about {n} words in total), in the same language.
@@ -372,15 +372,19 @@ PART {k + 1}:
             if len(txt.split()) <= n * 1.3:
                 return txt
         return txt
-    for giro in range(2):   # 6 nov: 967 invece di 1312 -> un secondo giro con la quota corretta (pochi centesimi, modello di controllo)
+    for giro in range(3):   # 6 nov: 967 invece di 1312 -> altri giri con la quota corretta (pochi centesimi, modello di controllo)
         with ThreadPoolExecutor(4) as ex:
             pezzi = list(ex.map(uno, range(len(blocchi))))
         txt = ' '.join(pezzi)
         n = len(txt.split())
         log(f'originale condensato a blocchi: {len(parole)} -> {n} parole in {len(blocchi)} blocchi (obiettivo {obiettivo})')
-        if obiettivo * (.92 if giro == 0 else .80) <= n <= obiettivo * 1.15:   # 6 nov: 1069 su 1312 (81%) -> copione di 1144 parole, 2 volte fuori misura
+        # 6 nov (Grecia): il copione resta lungo come il testo condensato (1172 -> 1174/1181, sotto il minimo 1275): il condensato deve gia' arrivare al minimo
+        basso = max(obiettivo * .92, minimo * .98) if minimo else obiettivo * .92
+        if basso <= n <= obiettivo * 1.08:
             return txt
         quota = min(0.95, quota * obiettivo / max(n, 1))
+    if obiettivo * .80 <= n <= obiettivo * 1.15:   # come prima: si prova comunque il copione (chiede di allungare)
+        return txt
     raise RuntimeError(f'VIDEO BLOCCATO: testo del competitor condensato a {n} parole invece di {obiettivo} (nessuna spesa per voce e immagini)')
 
 
@@ -393,7 +397,7 @@ def copione(comp):
     massimo = int(MAX_MINUTI * 150); minimo = 0 if PROVA else int(MIN_MINUTI * 150)
     condensa = parole > massimo
     if condensa and orig and not PROVA:   # 31 ott: Sonnet NON condensa da solo (5.000 parole -> 2.500 per 4 volte di fila)
-        orig = condensa_originale(orig, (minimo + massimo) // 2 if minimo else massimo)
+        orig = condensa_originale(orig, massimo, minimo)
         parole = int(len(orig.split()) * 1.05); condensa = parole > massimo
     espandi = parole < minimo
     parole = max(min(parole, massimo), minimo)
@@ -528,7 +532,8 @@ Scegli la texture piu' coerente (washi per Giappone/Cina/Corea, papiro per Egitt
             n_par = sum(len(str(s_.get('testo', '')).split()) for s_ in c['scene'])
             if not PROVA and (n_par > massimo * 1.10 or (minimo and n_par < minimo * 0.95)):   # 31 ott: 2495 parole invece di 1300 = video da 16 min; 5 nov: 1128 parole (-12%) = 7 min 56 s, sotto gli 8 minuti
                 contenuto_extra = (f"\n\nATTENZIONE: il tentativo precedente aveva {n_par} parole di parlato: FUORI LIMITE. "
-                                   f"Il parlato totale deve essere tra {minimo} e {massimo} parole (conta le parole del campo testo di tutte le scene).")
+                                   f"Il parlato totale deve essere tra {minimo} e {massimo} parole (conta le parole del campo testo di tutte le scene)."
+                                   + (f" Ne mancano almeno {minimo - n_par}: allunga le scene aggiungendo fatti, date, numeri e dettagli veri (non ripetere)." if n_par < minimo else ""))
                 prompt = prompt.split('\n\nATTENZIONE: il tentativo precedente')[0] + contenuto_extra
                 errore_lunghezza = True; n_lunghezza += 1
                 raise ValueError(f'copione di {n_par} parole, fuori da {minimo}-{massimo}')
