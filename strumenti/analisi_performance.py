@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """ANALISI DELLE PERFORMANCE (sola lettura, gratis): per ogni canale legge Channel Configs, file di produzione e scheda Performance,
 li mette in xlsx temporanei e lancia il calcolo del Coach (coach/coach_calcola.py) per i canali con ricetta.
-Per i canali senza ricetta (es. KAO) calcola le stesse medie sugli ultimi video con almeno 72 ore. Non cambia niente."""
+Il riepilogo usa, per i canali col Coach, solo i video della copertina attuale (ultimi N, come il Coach);
+per i canali senza ricetta (es. KAO) gli ultimi 5 video. Non cambia niente."""
 import json, os, subprocess, sys, tempfile, urllib.parse
 import openpyxl
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -44,6 +45,7 @@ for r in cfgv[1:]:
         print('  file non leggibile', str(e)[:100]); continue
     stato_coach = 'escluso dal Coach (regola di Giorgio)' if cid == 'KAO PSICOLOGIA' else 'ricetta non ancora presente'
     stato_ret = '—'
+    solo_ids = None; fin_n = 5; etich = ''   # 6 nov, Giorgio: per i canali col Coach si contano solo i video della copertina attuale
     fp = os.path.join(d, C.slug(cid) + '.xlsx'); xlsx({'Foglio1': prod, 'Performance': perf or [[]]}, fp)
     if os.path.exists(os.path.join('coach', 'canali', C.slug(cid), 'ricetta.json')):
         try:
@@ -51,6 +53,8 @@ for r in cfgv[1:]:
             stato_coach = f"{e.get('stato')}: {e.get('motivo')}"
             rt = e.get('retention') or {}
             stato_ret = f"{rt.get('stato', '—')}: {rt.get('motivo', '')}"
+            solo_ids = {v['id'] for v in e.get('tutti_i_video', []) if v['versione'] == e.get('versione_attiva')}
+            fin_n = int(e.get('finestra') or 3); etich = f" copertina v{e.get('versione_attiva')}"
             for v in e.get('tutti_i_video', [])[-6:]:
                 print('    video', v['pubblicato'][:16], 'versione', v['versione'], 'ore', v['ore'], '|', v['titolo'][:40])
             print(json.dumps({k: v for k, v in e.items() if k in ('stato', 'motivo', 'misure', 'versione_attiva', 'video_maturi', 'costo_medio_ultimi', 'budget_video')},
@@ -59,13 +63,15 @@ for r in cfgv[1:]:
                 print('   ', v['pubblicato'][:16], '|', v['titolo'][:50], '| imp', v['impression'], '| ctr', v['ctr'], '| ret30', v['ret30'], '| ret60', v['ret60'], '| views', v['views'])
         except Exception as ex:
             print('  calcolo coach non riuscito:', str(ex)[:200])
-    if perf and len(perf) > 1:   # medie semplici sugli ultimi 5 video con almeno 3 giorni
+    if perf and len(perf) > 1:   # medie sugli stessi video che guarda il Coach (copertina attuale), KAO ultimi 5
         ph = perf[0]; rows = [dict(zip(ph, x + [''] * (len(ph) - len(x)))) for x in perf[1:]]
         if 'giorni_report' in ph:   # 5 nov: impression/CTR solo sui video con >= 3 giorni di report completi
             okr = lambda x: (C.num(x.get('giorni_report'), 0) or 0) >= 3 and not str(x.get('copertura_report') or '').startswith('incompleto')
         else:
             okr = lambda x: (C.num(x.get('giorni_dalla_pubblicazione'), 0) or 0) >= 3
-        mat = [x for x in rows if okr(x)][-5:]
+        if solo_ids is not None:
+            rows = [x for x in rows if str(x.get('youtube_video_id') or '').strip() in solo_ids]
+        mat = [x for x in rows if okr(x)][-fin_n:]
         n_att = sum(1 for x in rows if not okr(x))
         imp = sum(C.num(x.get('impression'), 0) for x in mat); clic = sum(C.num(x.get('impression'), 0) * C.num(x.get('ctr'), 0) / 100 for x in mat)
         vw = [x for x in mat if C.num(x.get('views'), 0) >= 30]
@@ -79,7 +85,7 @@ for r in cfgv[1:]:
         ok = lambda v, o: '—' if v is None else (f"{v:.1f}%".replace('.', ',') + (' ✅' if v >= o else ' ❌'))
         ctr = clic / imp * 100 if imp else None
         nome = str(cfg.get('channel_name') or cid).strip()
-        TAB.append(f"| **{nome}** | {len(mat)} video, " + f"{imp:,.0f}".replace(',', '.') + " impression" + (f" (+{n_att} in attesa di report)" if n_att else '')
+        TAB.append(f"| **{nome}** | {len(mat)} video{etich}, " + f"{imp:,.0f}".replace(',', '.') + " impression" + (f" (+{n_att} in attesa di report)" if n_att else '')
                    + f" | {ok(ctr, oc) if imp >= 100 else '— (poche impression)'} | "
                    f"{ok(r30, o30)} / {ok(r60, o60)} | {stato_coach} | {stato_ret} |")
     else:
@@ -88,6 +94,6 @@ for r in cfgv[1:]:
 os.makedirs('coach', exist_ok=True)
 import datetime as _dt
 open('coach/riepilogo_performance.md', 'w').write(
-    f"Riepilogo performance del {_dt.datetime.now(A.ZoneInfo('Europe/Rome')).strftime('%d/%m/%Y %H:%M')} (ultimi 5 video con almeno 3 giorni di report impression; obiettivi CTR 3,5% · ret30 65% · ret60 50%)\n\n"
+    f"Riepilogo performance del {_dt.datetime.now(A.ZoneInfo('Europe/Rome')).strftime('%d/%m/%Y %H:%M')} (canali col Coach: ultimi 3 video della copertina attuale; KAO: ultimi 5 video; solo video con almeno 3 giorni di report impression; obiettivi CTR 3,5% · ret30 65% · ret60 50%)\n\n"
     "| Canale | Ultimi video | CTR | Ritenzione 30 s / 60 s | Coach: copertina | Coach: retention (da 50 views totali) |\n|---|---|---|---|---|---|\n" + "\n".join(TAB) + "\n")
 print(open('coach/riepilogo_performance.md').read())
