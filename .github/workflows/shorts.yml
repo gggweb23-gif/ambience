@@ -66,7 +66,7 @@ jobs:
       - name: Salva costi
         if: ${{ always() }}
         run: |
-          [ -n "$(git status --porcelain coach/costi)" ] || exit 0
+          [ -n "$(git status --porcelain coach/costi prove_video/shorts)" ] || exit 0
           git config user.name "render-bot"; git config user.email "render-bot@users.noreply.github.com"
-          git add coach/costi; git commit -m "Costi Short" || exit 0
+          git add coach/costi prove_video/shorts; git commit -m "Costi Short" || exit 0
           for i in 1 2 3 4 5; do git pull --rebase --autostash -q && git push && break; sleep $((i * 5)); done

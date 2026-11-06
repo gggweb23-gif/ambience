@@ -249,8 +249,8 @@ def canale(cfg):
     if RIGA:
         cand = [(int(RIGA), prod[int(RIGA) - 2])]
     else:
-        cand = [(i + 2, r) for i, r in enumerate(prod) if str(r.get('status')).strip() == 'Completato' and str(r.get('youtube_video_id') or '').strip()
-                and not str(r.get('shorts') or '').strip()]
+        cand = [(i + 2, r) for i, r in enumerate(prod) if (str(r.get('status')).strip() == 'Completato' and str(r.get('youtube_video_id') or '').strip()
+                or PROVA and str(r.get('status')).strip() == 'Da caricare a mano') and not str(r.get('shorts') or '').strip()]   # in prova anche i video ancora da caricare a mano
         def recente(r):   # il file del video resta su GitHub 3 giorni: i video piu' vecchi non si toccano
             try:
                 ini = dt.datetime.fromisoformat(str(r.get('data_inizio_produzione')).strip().replace('Z', '+00:00').replace(' ', 'T'))
@@ -283,9 +283,12 @@ def canale(cfg):
     if PROVA:
         os.makedirs(OUT_PROVA, exist_ok=True)
         slug = re.sub(r'[^A-Za-z0-9]+', '_', cid).strip('_')
+        fot = os.path.join('prove_video', 'shorts', slug); os.makedirs(fot, exist_ok=True)   # fotogrammi nel repository, da mostrare in chat
         for k, (f, x) in enumerate(fatti, 1):
             shutil.copy(f, os.path.join(OUT_PROVA, f'{slug}_{k}.mp4'))
-        open(os.path.join(OUT_PROVA, f'{slug}_testi.txt'), 'w', encoding='utf-8').write(
+            run(['ffmpeg', '-y', '-v', 'error', '-ss', '2.5', '-i', f, '-frames:v', '1', '-vf', 'scale=540:-2', os.path.join(fot, f'short_{k}.jpg')])
+        for dove in (OUT_PROVA, fot):
+          open(os.path.join(dove, f'{slug}_testi.txt'), 'w', encoding='utf-8').write(
             '\n\n'.join(f"Short {k}: {x['a']:.0f}-{x['b']:.0f} s\nGANCIO: {x['gancio']}\nTITOLO: {x['titolo']} #shorts\nDESCRIZIONE: {x['frase']}" for k, (f, x) in enumerate(fatti, 1)))
         costo_registro(cid, costo, f'prova, {len(fatti)} Short')
         return
