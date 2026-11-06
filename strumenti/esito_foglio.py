@@ -33,6 +33,10 @@ def main():
     if not n:
         raise SystemExit('riga non trovata nel file di produzione: ' + link)
     stato = str(esito.get('stato') or 'ERRORE').upper()
+    if stato == 'SPOSTA':   # 7 nov: cambia solo il giorno di uscita della riga (es. due video pronti in ordine inverso), lo stato resta
+        A.api(fid, 'POST', '/values:batchUpdate', {'valueInputOption': 'RAW', 'data': [
+            {'range': f"'{sch}'!{A.lettera(h.index('data_pubblicazione') + 1)}{n}", 'values': [[str(esito['data'])]]}]})
+        print(P.get('canale'), 'riga', n, '| uscita spostata a', esito['data']); return
     v = {'status': STATI.get(stato, 'Errore')}
     for k, col in CAMPI.items():
         if str(esito.get(k) or '').strip():
