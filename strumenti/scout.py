@@ -85,14 +85,17 @@ def video_canale(cid, pagine):
     return nome, out
 
 
-def classifica(cand, filone, per, budget):
+def classifica(cand, filone, per, budget, fatti=()):
     elenco = '\n'.join(f"{i}. {c['titolo']}" for i, c in enumerate(cand))
     domanda = (f'Our YouTube channel only publishes this format: "{filone}".\n'
                f'Below are video titles from competitor channels (any language). For EACH title say if it fits our format exactly '
                f'(other topics or other formats of the same channel = false)' +
                (f', and give its subject as ONE {per} name in English (e.g. "Iran", "Ottoman Empire", "Maya civilization", "Japan"); '
                 f'a city, a war, an organisation, a person, a company or a period that is not a whole {per} = false' if per else '') +
-               '.\nAnswer ONLY with JSON: [{"i": number, "ok": true/false, "soggetto": "..."}]\n\n' + elenco)
+               (f'.\nOur channel ALREADY made (or has queued) these {per}s: {"; ".join(sorted(fatti))}. '
+                f'Set "gia": true when the title is about the SAME {per} as one of them, even with a different name '
+                f'(e.g. Persia = Iran, Russian Empire = Russia, Ottoman Empire = Turkey, Roman Empire = Ancient Rome)' if per and fatti else '') +
+               '.\nAnswer ONLY with JSON: [{"i": number, "ok": true/false, "soggetto": "...", "gia": true/false}]\n\n' + elenco)
     r = get('https://api.anthropic.com/v1/messages', json.dumps({'model': MODELLO, 'max_tokens': 8000, 'messages': [{'role': 'user', 'content': domanda}]}).encode(),
             {'x-api-key': E('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01', 'content-type': 'application/json'})
     u = r.get('usage', {}); costo = (u.get('input_tokens', 0) * 1.0 + u.get('output_tokens', 0) * 5.0) / 1e6
@@ -146,7 +149,9 @@ def canale(cfg):
     cand = cand[:200]
     if not cand:
         log('  nessun video nuovo'); return
-    giudizi, costo = classifica(cand, filone, per, budget)
+    fatti_nomi = [str(r.get('paese')).strip() for r in prod if str(r.get('paese') or '').strip()]
+    log('  gia\' fatti:', ', '.join(fatti_nomi))
+    giudizi, costo = classifica(cand, filone, per, budget, set(fatti_nomi))
     scelti, presi = [], set()
     for g in sorted(giudizi, key=lambda g: cand[int(g.get('i', 0))]['views'] if str(g.get('i', '')).isdigit() and int(g['i']) < len(cand) else 0, reverse=True):
         try:
@@ -156,7 +161,7 @@ def canale(cfg):
         if not g.get('ok'):
             continue
         s = norm(g.get('soggetto')) if per else ''
-        if per and (not s or s in gia_sogg or s in presi):
+        if per and (not s or s in gia_sogg or s in presi or g.get('gia')):
             continue
         presi.add(s); v['soggetto'] = str(g.get('soggetto') or '').strip(); scelti.append(v)
     scartati = sum(1 for g in giudizi if not g.get('ok'))
