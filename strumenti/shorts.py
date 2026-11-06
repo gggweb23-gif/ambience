@@ -67,7 +67,8 @@ def data_ini(r):
         return None
 
 
-def scarica_sorgente(cid, riga, r, dur_yt):
+def scarica_sorgente(cid, riga, r, dur_yt, cfg_corrente=None):
+    cfg_corrente = cfg_corrente or {}
     """Il file del video lungo: prima l'artifact con il suo nome (shorts-<canale>-riga<N>, poi DA CARICARE <canale>);
     per i video fatti prima degli Short, gli artifact dei motori (video-storia, video-mappe, video-archivio) dei giorni del video.
     Si usa solo se la durata coincide con quella del video su YouTube (cosi' non si prende mai il video sbagliato)."""
@@ -91,7 +92,9 @@ def scarica_sorgente(cid, riga, r, dur_yt):
     ini = data_ini(r)
     if not ini:
         return None
-    for nome in ('video-storia', 'video-mappe', 'video-archivio'):
+    motore = str(cfg_corrente.get('render_workflow') or cfg_corrente.get('github_workflow') or '').strip()
+    generici = {'video_storia.yml': 'video-storia', 'video_mappe.yml': 'video-mappe', 'video_archivio.yml': 'video-archivio'}
+    for nome in [generici[motore]] if motore in generici else []:   # solo i file del motore di QUESTO canale (mai il video di un altro canale)
         for a in reversed(elenco(nome)):
             c = dt.datetime.fromisoformat(a['created_at'].replace('Z', '+00:00'))
             if ini - dt.timedelta(hours=1) <= c <= ini + dt.timedelta(hours=36):
@@ -157,7 +160,8 @@ def scegli(frasi, n, titolo, lingua, budget):
                f'- for each moment write in {lingua_nome}: "gancio" = on-screen hook, max 6 words, punchy, in CAPITAL letters; '
                '"titolo" = Short title, max 70 characters, curiosity-driven, no hashtags; '
                '"frase" = one sentence for the description.\n'
-               'Answer ONLY with JSON: [{"inizio": seconds, "fine": seconds, "gancio": "...", "titolo": "...", "frase": "..."}]')
+               'Answer ONLY with JSON: [{"inizio": seconds, "fine": seconds, "gancio": "...", "titolo": "...", "frase": "..."}]\n'
+               'IMPORTANT: if the transcript is clearly NOT about the video title (wrong video), answer only the word DIVERSO.')
     r = http('https://api.anthropic.com/v1/messages', {'model': MODELLO, 'max_tokens': 2000, 'messages': [{'role': 'user', 'content': domanda}]},
              {'x-api-key': E('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01'}, timeout=300)
     u = r.get('usage', {})
@@ -166,6 +170,8 @@ def scegli(frasi, n, titolo, lingua, budget):
     if costo > budget:
         raise RuntimeError(f'spesa {costo:.4f} $ oltre shorts_budget_giorno {budget} $: Short non fatti')
     t = ''.join(b.get('text', '') for b in r.get('content', []))
+    if t.strip().upper().startswith('DIVERSO'):
+        raise RuntimeError('il file non corrisponde al titolo del video: Short non fatti')
     m = re.search(r'\[.*\]', t, re.S)
     scelte = json.loads(m.group(0)) if m else []
     # aggancio ai confini delle frasi e controllo delle durate
@@ -342,7 +348,7 @@ def canale(cfg):
     video = None
     for n, riga in cand:
         vid = str(riga.get('youtube_video_id') or '').strip()
-        video = scarica_sorgente(cid, n, riga, durata_yt(vid, tk) if vid else None)
+        video = scarica_sorgente(cid, n, riga, durata_yt(vid, tk) if vid else None, cfg)
         if video:
             break
         log(f'  riga {n}: file del video non trovato su GitHub')
