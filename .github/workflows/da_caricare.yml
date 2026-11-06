@@ -20,38 +20,16 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
+      - uses: actions/checkout@v4
       - name: Prepara la pagina
         env:
           GH_TOKEN: ${{ github.token }}
           R: ${{ github.repository }}
+          GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
         run: |
           set -e
-          mkdir -p z f
-          : > canali.md
-          LIMITE=$(date -u -d '30 hours ago' +%Y-%m-%dT%H:%M:%SZ)
-          gh api "repos/$R/actions/artifacts?per_page=100" --jq ".artifacts[] | select(.expired|not) | select(.name|startswith(\"DA CARICARE \")) | select(.created_at > \"$LIMITE\") | \"\(.id)\t\(.name)\"" > elenco.tsv
-          cat elenco.tsv
-          # per ogni canale solo l'ultimo zip
-          sort -t$'\t' -k2,2 -u elenco.tsv | while IFS=$'\t' read id nome; do
-            canale="${nome#DA CARICARE }"; c=$(echo "$canale" | tr ' ' '_')
-            gh api "repos/$R/actions/artifacts/$id/zip" > "z/$id.zip"
-            mkdir -p "z/$id"; unzip -q -o "z/$id.zip" -d "z/$id"; rm "z/$id.zip"
-            for x in z/$id/*; do
-              b=$(basename "$x")
-              case "$b" in
-                *_COPERTINA.*) mv "$x" "f/${c}__COPERTINA.${b##*.}" ;;   # copertina: nome del canale
-                *) mv "$x" "f/${b}"; echo "- **${canale}**: video \`${b}\` + copertina \`${c}__COPERTINA\`" >> canali.md ;;   # video: solo il titolo
-              esac
-            done
-          done
-          ls -la f
+          pip install -q google-auth requests
+          python3 strumenti/pagina_da_caricare.py
           gh release delete da-caricare -R "$R" --yes --cleanup-tag || true
-          {
-            echo "Video pronti da caricare a mano (aggiornato $(TZ=Europe/Rome date '+%d/%m %H:%M')). Clicca un file per scaricarlo."
-            echo
-            echo "PRIMA di caricare controlla in alto a sinistra in YouTube Studio di essere sul CANALE giusto."
-            echo "Il titolo va sempre INCOLLATO dal file di produzione (colonna titolo_italiano), insieme a descrizione, tag, playlist e orario."
-            echo
-            sort -u canali.md
-          } > note.md
-          gh release create da-caricare -R "$R" --title "VIDEO DA CARICARE - $(TZ=Europe/Rome date '+%d/%m')" --notes-file note.md f/*
+          if ls f/* >/dev/null 2>&1; then F=(f/*); else F=(); fi
+          gh release create da-caricare -R "$R" --title "VIDEO DA CARICARE - aggiornato $(TZ=Europe/Rome date '+%d/%m %H:%M')" --notes-file note.md "${F[@]}"
