@@ -647,6 +647,11 @@ if MAN.attivo(P):   # caricamento a mano: video + copertina in da_caricare/ (art
         log('playlist per il caricamento a mano non scelta:', str(e)[:150])
     MAN.prepara(VIDEO, COP, P['titolo'], os.getcwd())
 
+try:   # file del video per gli Short (artifact shorts-<canale>-riga<N>): solo questo video, non le vecchie prove nel repository
+    os.makedirs('per_shorts', exist_ok=True); shutil.copy(VIDEO, os.path.join('per_shorts', 'video.mp4'))
+except Exception as e:
+    log('file per gli Short non preparato:', str(e)[:120])
+
 # ---------------- 7) costi e riepilogo ----------------
 crediti = 0 if VOCE_RIPRESA else len(' '.join(s['testo'] for s in c['scene']))   # voce ripresa da un giro fallito: gia' contata li'
 open(os.path.join(CART, 'riepilogo.txt'), 'w').write(f"titolo: {P['titolo']}\nyoutube: {vid_id}\n" + (f"DA CONTROLLARE: {DA_CONTROLLARE}\n" if DA_CONTROLLARE else '') + f"spesa: {SPESA['usd']:.3f} $ ({'; '.join(SPESA['voci'])}) + {crediti} crediti voce\n"

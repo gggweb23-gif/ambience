@@ -86,7 +86,7 @@ jobs:
         with:
           name: video-archivio
           path: |
-            prove_video/archivio/*/prova.mp4
+            per_shorts/video.mp4
             prove_video/archivio/*/copertina.jpg
           if-no-files-found: ignore
           retention-days: 7
@@ -113,7 +113,7 @@ jobs:
         with:
           name: shorts-${{ fromJSON(inputs.payload || '{}').channel_id }}-riga${{ fromJSON(inputs.payload || '{}').riga_produzione }}
           path: |
-            prove_video/archivio/*/prova.mp4
+            per_shorts/video.mp4
           if-no-files-found: ignore
           retention-days: 3
           compression-level: 0
