@@ -27,6 +27,7 @@ jobs:
         run: |
           set -e
           mkdir -p z f
+          : > canali.md
           LIMITE=$(date -u -d '30 hours ago' +%Y-%m-%dT%H:%M:%SZ)
           gh api "repos/$R/actions/artifacts?per_page=100" --jq ".artifacts[] | select(.expired|not) | select(.name|startswith(\"DA CARICARE \")) | select(.created_at > \"$LIMITE\") | \"\(.id)\t\(.name)\"" > elenco.tsv
           cat elenco.tsv
@@ -35,13 +36,23 @@ jobs:
             canale="${nome#DA CARICARE }"; c=$(echo "$canale" | tr ' ' '_')
             gh api "repos/$R/actions/artifacts/$id/zip" > "z/$id.zip"
             mkdir -p "z/$id"; unzip -q -o "z/$id.zip" -d "z/$id"; rm "z/$id.zip"
-            for x in z/$id/*; do b=$(basename "$x"); mv "$x" "f/${c}__${b}"; done
+            for x in z/$id/*; do
+              b=$(basename "$x")
+              case "$b" in
+                *_COPERTINA.*) mv "$x" "f/${c}__COPERTINA.${b##*.}" ;;   # copertina: nome del canale
+                *) mv "$x" "f/${b}" ;;                                     # video: solo il titolo (YouTube lo usa come titolo provvisorio)
+              esac
+              echo "- **${canale}**: video \`${b%_COPERTINA*}\`" >> canali.md
+            done
           done
           ls -la f
           gh release delete da-caricare -R "$R" --yes --cleanup-tag || true
           {
             echo "Video pronti da caricare a mano (aggiornato $(TZ=Europe/Rome date '+%d/%m %H:%M')). Clicca un file per scaricarlo."
             echo
-            echo "Il nome di ogni file inizia con il CANALE. Titolo, descrizione, tag, playlist e orario: nel file di produzione del canale (stato Da caricare a mano)."
+            echo "PRIMA di caricare controlla in alto a sinistra in YouTube Studio di essere sul CANALE giusto."
+            echo "Il titolo va sempre INCOLLATO dal file di produzione (colonna titolo_italiano), insieme a descrizione, tag, playlist e orario."
+            echo
+            sort -u canali.md
           } > note.md
           gh release create da-caricare -R "$R" --title "VIDEO DA CARICARE - $(TZ=Europe/Rome date '+%d/%m')" --notes-file note.md f/*
