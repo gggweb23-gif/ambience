@@ -428,6 +428,12 @@ if errori:
     DA_CONTROLLARE = '; '.join(errori)   # video non in elenco: si carica comunque e lo si segnala, Giorgio lo vede prima di pubblicare
     log('CARICATO DA CONTROLLARE (non in elenco):', DA_CONTROLLARE)
 
+# ---------------- 4b) pulsante Mi piace/Iscriviti + campanella con i suoni (6 nov, Giorgio: su tutti i video di tutti i canali) ----------------
+if MONTATO and os.path.exists(VIDEO):
+    sys.path.insert(0, 'strumenti'); import iscrizione as ISC
+    if ISC.applica(VIDEO, VIDEO + '.isc.mp4', P, LAV, log=log, enc=['-c:v', 'libx264', '-preset', 'medium', '-crf', '18']):
+        os.replace(VIDEO + '.isc.mp4', VIDEO)
+
 # ---------------- 5) copertina stile C ----------------
 FP = os.path.join(LAV, 'anton.ttf'); open(FP, 'wb').write(get('https://github.com/google/fonts/raw/main/ofl/anton/Anton-Regular.ttf', raw=True))
 base = os.path.join(LAV, 'base.jpg')

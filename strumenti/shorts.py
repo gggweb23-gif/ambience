@@ -12,6 +12,7 @@ PROVA = SI: fa gli Short ma NON li carica (cartella shorts_prova/ -> artifact da
 import datetime as dt, glob, json, os, re, shutil, subprocess, sys, time, urllib.parse, urllib.request, zipfile
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import avvio_canali as A
+import iscrizione as ISC
 import performance as PF
 
 E = os.environ.get
@@ -148,7 +149,7 @@ def trascrivi(video, lingua):
 
 
 # ---------------------------------------------------------------- scelta dei momenti (Claude, entro il budget)
-def scegli(frasi, n, titolo, lingua, budget):
+def scegli(frasi, n, titolo, lingua, budget, evita=None):
     testo = '\n'.join(f"[{f['s']:.1f}-{f['e']:.1f}] {f['t']}" for f in frasi)
     lingua_nome = {'it': 'Italian', 'en': 'English'}.get((lingua or 'en')[:2], 'the language of the transcript')
     domanda = (f'This is the timed transcript of our YouTube video "{titolo}".\n\n{testo}\n\n'
@@ -183,6 +184,8 @@ def scegli(frasi, n, titolo, lingua, budget):
             b = min(fini, key=lambda v: abs(v - float(x['fine'])))
         except Exception:
             continue
+        if evita and a < evita[1] and b > evita[0]:   # dentro il pulsante iscriviti del video lungo: si parte dalla prima frase dopo
+            a = min([v for v in inizi if v >= evita[1]] or [b])
         if b - a > DUR_MAX:   # troppo lungo: si chiude all'ultima frase che sta dentro
             b = max([v for v in fini if a + DUR_MIN <= v <= a + DUR_MAX] or [a + DUR_MAX])
         if b - a < DUR_MIN or any(not (b <= o['a'] or a >= o['b']) for o in out):
@@ -362,12 +365,16 @@ def canale(cfg):
     titolo = str(riga.get('titolo_italiano') or riga.get('titolo_originale') or '')
     log(f'  riga {n}: {titolo} | {durata(video) / 60:.1f} min')
     frasi, parole = trascrivi(video, str(cfg.get('language') or 'en'))
-    momenti, costo = scegli(frasi, n_giorno, titolo, str(cfg.get('language') or 'en'), budget)
+    isc = ISC.impostazioni(cfg)   # nel video lungo il pulsante compare per 4 s: lo Short parte dopo (mai due pulsanti nello stesso Short)
+    momenti, costo = scegli(frasi, n_giorno, titolo, str(cfg.get('language') or 'en'), budget, evita=(isc['sec'] - 0.5, isc['sec'] + 4.5))
     if not momenti:
         raise RuntimeError('nessun momento valido scelto')
     fatti = []
     for k, x in enumerate(momenti, 1):
         f = monta(video, x, parole, os.path.join(LAV, f'short_{k}.mp4'), str(cfg.get('shorts_sottotitoli') or '').strip().upper() == 'SI')
+        f2 = f[:-4] + '_isc.mp4'   # 6 nov (Giorgio): pulsante Mi piace/Iscriviti + campanella con i suoni su tutti gli Short, nella lingua del canale
+        if ISC.applica(f, f2, cfg, LAV, short=True, log=log):
+            f = f2
         prob = controlla(f)
         log(f"  Short {k}: {x['a']:.0f}-{x['b']:.0f} s | {x['gancio']} | {x['titolo']}" + (f' | SCARTATO: {prob}' if prob else ''))
         if not prob:

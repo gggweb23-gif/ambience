@@ -7,6 +7,9 @@ render_workflow = video_storia.yml / video_mappe.yml): prende la prima riga "Pro
 Mai due video Pexels insieme: se un video Pexels e' gia' in lavorazione, gli altri canali Pexels aspettano il giro successivo."""
 import datetime as dt, json, os, re, urllib.parse, urllib.request
 from zoneinfo import ZoneInfo
+import sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import iscrizione as ISC
 CONFIGS = os.environ.get('FOGLIO_CONFIGS', '1COMpgHJshcmz_a9s-WsjCO5xbhwxBazt-ZB0G_C7Rb0')
 REPO = os.environ.get('GITHUB_REPOSITORY', 'gggweb23-gif/ambience')
 PEXELS = {'video_produzione.yml', 'video_storia.yml'}   # motori che usano Pexels (si lanciano uno alla volta)
@@ -166,9 +169,10 @@ def main():
             P.pop('callback_url', None)   # n8n Storia non risponde piu': 3 tentativi = 7 minuti persi a fine video
         riga = {'row_number': n, **{k_: v for k_, v in r.items() if str(v).strip() != ''}}
         fatti = [f"{x.get('paese')} = {x.get('Link video')}" for x in prod if str(x.get('paese') or '').strip() and str(x.get('youtube_video_id') or '').strip()]
-        P.update({'iscrizione': {'img': cfg.get('subscribe_overlay_url') or '', 'sec': cfg.get('subscribe_overlay_second') or '',
-                                 'clic': cfg.get('subscribe_overlay_sound_url') or '', 'clic_ritardo': '',
-                                 'campana': cfg.get('subscribe_overlay_bell_url') or '', 'campana_ritardo': ''},
+        isc = ISC.impostazioni(cfg)   # 6 nov (Giorgio): pulsante con i suoni su tutti i video; colonne vuote = quelli standard nella lingua del canale
+        P.update({'iscrizione': {'img': isc['img'], 'sec': cfg.get('subscribe_overlay_second') or '',
+                                 'clic': isc['clic'], 'clic_ritardo': '',
+                                 'campana': isc['campana'], 'campana_ritardo': ''},
                   'id': link, 'foglio': fid, 'gid': str(gid), 'link': link, 'canale': cid, 'pubblica_il': pubblica_il(cfg, ora), 'prova': 'NO',
                   'titolo_originale': r.get('titolo_originale') or '', 'paesi_fatti': fatti, 'riga': riga,
                   'categoria_originale': str(r.get('competitor_category_id') or '').replace('.0', ''),
