@@ -40,9 +40,8 @@ jobs:
               b=$(basename "$x")
               case "$b" in
                 *_COPERTINA.*) mv "$x" "f/${c}__COPERTINA.${b##*.}" ;;   # copertina: nome del canale
-                *) mv "$x" "f/${b}" ;;                                     # video: solo il titolo (YouTube lo usa come titolo provvisorio)
+                *) mv "$x" "f/${b}"; echo "- **${canale}**: video \`${b}\` + copertina \`${c}__COPERTINA\`" >> canali.md ;;   # video: solo il titolo
               esac
-              echo "- **${canale}**: video \`${b%_COPERTINA*}\`" >> canali.md
             done
           done
           ls -la f
