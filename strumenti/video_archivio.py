@@ -566,6 +566,7 @@ if CAPITOLI:
     c['descrizione'] = str(c.get('descrizione') or '').strip() + '\n\n' + CAPITOLI
 import descrizione as DESCR
 c['descrizione'] = DESCR.con_titolo(P['titolo'], c.get('descrizione'))   # 6 nov (Giorgio): la prima frase della descrizione e' sempre il titolo
+c['tag'] = DESCR.tag_con_titolo(P['titolo'], c.get('tag', []))   # 6 nov (Giorgio): il titolo e' anche uno dei tag
 
 
 def playlist(vid_id_, tk_):
@@ -608,7 +609,7 @@ if str(P.get('carica') or '').upper() == 'SI' and E('YT_REFRESH_TOKEN'):
     pulisci = lambda t: re.sub(r'[<>]', '', str(t)).strip()
     tags, tot = [], 0
     for t in c.get('tag', []):   # YouTube: massimo 500 caratteri di tag in tutto, niente < >
-        t = pulisci(t)[:60]
+        t = pulisci(t)[:100]   # il primo tag e' il titolo intero
         if t and tot + len(t) + 3 <= 450:
             tags.append(t); tot += len(t) + 3
     meta = {'snippet': {'title': pulisci(P['titolo'])[:100], 'description': pulisci(c.get('descrizione', ''))[:4900], 'tags': tags,

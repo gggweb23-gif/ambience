@@ -564,6 +564,7 @@ async function main() {
   const carica = (!PROVA || privProva === 'unlisted') && !['NO', 'MANUALE'].includes(String(cfg.carica || '').trim().toUpperCase()) && !/test|prova/i.test(td) && !(nTd > 0 && nTd < 8)
     && String(cfg.youtube_upload_enabled || '').trim() !== '';
   colonne.descrizione_youtube = conTitolo(colonne.titolo_italiano || sw.titolo_italiano, colonne.descrizione_youtube);   // 6 nov (Giorgio): prima frase = titolo
+  colonne.tag_seo = tagConTitolo(colonne.titolo_italiano || sw.titolo_italiano, colonne.tag_seo);   // 6 nov (Giorgio): il titolo e' anche uno dei tag
   const extra = { titolo: colonne.titolo_italiano || sw.titolo_italiano, descrizione: colonne.descrizione_youtube || '', tag: colonne.tag_seo || '',
     testo_copertina: colonne.titolo_thumbnail || '', video_url: movie.url, copertina_url: urlCop,
     cartella_video: cfg.output_video_folder_id || '', cartella_copertine: cfg.output_thumbnail_folder_id || '', minuti_video: Math.round(movie.duration / 6) / 10,
@@ -715,4 +716,17 @@ function conTitolo(titolo, descr) {
   const t = String(titolo || '').trim(), d = String(descr || '').trim();
   if (!t || d.toLowerCase().startsWith(t.toLowerCase())) return d;
   return t + '\n\n' + d;
+}
+
+// Regola di Giorgio (tutti i canali): il titolo e' sempre anche uno dei tag (il primo); YouTube accetta max 500 caratteri.
+function tagConTitolo(titolo, tag) {
+  const t = String(titolo || '').replace(/[,<>]/g, ' ').replace(/\s+/g, ' ').trim();
+  const out = []; let lung = 0;
+  for (const x of [t, ...String(tag || '').split(',').map(s => s.trim())]) {
+    if (!x || out.some(y => y.toLowerCase() === x.toLowerCase())) continue;
+    const costo = x.length + (x.includes(' ') ? 2 : 0) + (out.length ? 1 : 0);
+    if (lung + costo > 480) continue;
+    out.push(x); lung += costo;
+  }
+  return out.join(', ');
 }

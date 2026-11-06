@@ -1838,7 +1838,7 @@ def lista_tag(titolo, tag):
 
 def dati_youtube(c, titolo):   # 6 nov (Giorgio): la prima frase della descrizione e' sempre il titolo
     d, t = _dati_youtube(c, titolo)
-    return DESCR.con_titolo(titolo, d), t
+    return DESCR.con_titolo(titolo, d), DESCR.tag_con_titolo(titolo, t)   # e il titolo e' anche il primo tag
 
 
 def _dati_youtube(c, titolo):
