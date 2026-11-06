@@ -11,6 +11,10 @@ on:
         description: 'Solo questo canale (channel_id), vuoto = tutti'
         default: ''
         type: string
+      anticipo:
+        description: 'Video in anticipo: esce tra N giorni (vuoto = oggi)'
+        default: ''
+        type: string
       privacy:
         description: 'Privacy forzata (es. unlisted), vuoto = quella del foglio'
         default: ''
@@ -31,5 +35,6 @@ jobs:
           GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
           GH_TOKEN: ${{ github.token }}
           SOLO_CANALE: ${{ inputs.canale }}
+          ANTICIPO_GIORNI: ${{ inputs.anticipo }}
           PRIVACY_FORZATA: ${{ inputs.privacy }}
         run: pip install -q google-auth requests && python3 strumenti/avvio_archivio.py

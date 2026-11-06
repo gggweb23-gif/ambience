@@ -87,9 +87,18 @@ def pexels_in_corso():
     return n
 
 
+ANTICIPO = int(float(os.environ.get('ANTICIPO_GIORNI', '') or 0))   # video in anticipo (6 nov, Giorgio): esce tra N giorni
+
+
+def gia_pronto(prod, quando):
+    """C'e' gia' un video per quel giorno di uscita (es. fatto in anticipo)? Allora stanotte non se ne fa un altro."""
+    g = quando[:10]
+    return any(str(r.get('status')).strip() in ('Completato', 'Da caricare a mano', 'In produzione') and str(r.get('data_pubblicazione') or '').strip()[:10] == g for r in prod)
+
+
 def pubblica_il(cfg, ora):
     m = re.match(r'(\d{1,2})[:.](\d{2})', str(cfg.get('publish_time') or '17:00'))
-    tz = ZoneInfo('Europe/Rome'); loc = ora.astimezone(tz)
+    tz = ZoneInfo('Europe/Rome'); loc = ora.astimezone(tz) + dt.timedelta(days=ANTICIPO)
     q = loc.replace(hour=int(m.group(1)) if m else 17, minute=int(m.group(2)) if m else 0, second=0, microsecond=0)
     # come faceva n8n: oggi all'ora del foglio; se il video finisce dopo quell'ora, il motore lo pubblica subito
     return q.astimezone(dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%S.000Z')
@@ -133,9 +142,12 @@ def main():
             if ini.astimezone(ZoneInfo('Europe/Rome')).date() == oggi:
                 tentativi_oggi += 1
                 fatti_oggi += str(r.get('status')).strip() in ('Completato', 'In produzione', 'Prova', 'Da caricare a mano')
-        if fatti_oggi >= num(cfg.get('videos_per_day')):
+        uscita = dt.datetime.fromisoformat(pubblica_il(cfg, ora).replace('Z', '+00:00')).astimezone(ZoneInfo('Europe/Rome')).strftime('%Y-%m-%d %H:%M')
+        if gia_pronto(prod, uscita):
+            print(cid, ': video per il', uscita[:10], 'gia\' pronto'); continue
+        if fatti_oggi >= num(cfg.get('videos_per_day')) and not ANTICIPO:
             print(cid, ': video di oggi gia\' fatto'); continue
-        if tentativi_oggi >= num(cfg.get('videos_per_day')) + 2:
+        if tentativi_oggi >= num(cfg.get('videos_per_day')) + 2 and not ANTICIPO:
             print(cid, ': troppi tentativi falliti oggi, si riprova domani'); continue
         k = next((i for i, r in enumerate(prod) if str(r.get('status')).strip() == 'Pronto'), None)
         if k is None:
@@ -146,6 +158,8 @@ def main():
         dati = [{'range': f"'{sch}'!{lettera(h.index('status') + 1)}{n}", 'values': [['In produzione']]}]
         if 'data_inizio_produzione' in h:
             dati.append({'range': f"'{sch}'!{lettera(h.index('data_inizio_produzione') + 1)}{n}", 'values': [[ora.isoformat(timespec='seconds')]]})
+        if ANTICIPO and 'data_pubblicazione' in h:
+            dati.append({'range': f"'{sch}'!{lettera(h.index('data_pubblicazione') + 1)}{n}", 'values': [[uscita]]})
         api(fid, 'POST', '/values:batchUpdate', {'valueInputOption': 'RAW', 'data': dati})
         P = {k_: v for k_, v in cfg.items() if not re.search(r'token|secret|password|api_key', k_, re.I)}
         if wf == 'video_storia.yml':

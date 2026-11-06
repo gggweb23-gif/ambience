@@ -1,0 +1,44 @@
+name: Video in anticipo (a mano)
+
+# 6 nov 2026 (Giorgio): video gia' pronti per i giorni successivi. I video Pexels (Storia, Agora) vanno uno alla volta,
+# Mappe e archivio in parallelo. La notte non si rifa' un video per un giorno che ne ha gia' uno (avvio: "gia' pronto").
+on:
+  workflow_dispatch:
+    inputs:
+      pexels:
+        description: 'Corsia Pexels (spazio tra le voci launcher|canale|giorni|etichetta)'
+        default: 'avvio_canali.yml|Storia in Minuti|1|Video Storia avvio_canali.yml|Agora of Sages|1|Video Produzione avvio_canali.yml|Storia in Minuti|2|Video Storia avvio_canali.yml|Agora of Sages|2|Video Produzione'
+      mappe:
+        default: 'avvio_canali.yml|Main Street Atlas|1|Video Mappe avvio_canali.yml|Main Street Atlas|2|Video Mappe'
+      archivio1:
+        default: 'avvio_archivio.yml|WWII Testimony|1|Video Archivio avvio_archivio.yml|WWII Testimony|2|Video Archivio'
+      archivio2:
+        default: 'avvio_archivio.yml|Orbital Days|1|Video Archivio avvio_archivio.yml|Orbital Days|2|Video Archivio'
+
+permissions:
+  contents: read
+  actions: write
+
+jobs:
+  corsia:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      matrix:
+        quale: [pexels, mappe, archivio1, archivio2]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Video uno dopo l'altro
+        env:
+          GH_TOKEN: ${{ github.token }}
+          R: ${{ github.repository }}
+          VOCI: ${{ inputs[matrix.quale] }}
+        run: |
+          # le voci sono separate da " avvio_" (i nomi dei canali hanno spazi)
+          python3 - <<'PY' > voci.txt
+          import os, re
+          print('\n'.join(re.split(r' (?=avvio_)', os.environ['VOCI'].strip())))
+          PY
+          mapfile -t V < voci.txt
+          bash strumenti/anticipo.sh "${V[@]}"

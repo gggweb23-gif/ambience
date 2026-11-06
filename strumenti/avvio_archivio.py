@@ -68,9 +68,18 @@ def data(x):
 
 
 ROMA = ZoneInfo('Europe/Rome')
+
+
+def ora_uscita(giorno, cfg):   # 'AAAA-MM-GG' + publish_time del canale (ora italiana) -> ISO UTC
+    m = re.match(r'(\d{1,2})[:.](\d{2})', str(cfg.get('publish_time') or '17:00'))
+    q = dt.datetime.fromisoformat(giorno).replace(hour=int(m.group(1)) if m else 17, minute=int(m.group(2)) if m else 0, tzinfo=ROMA)
+    return q.astimezone(dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
+
+
 _, _, canali = righe(CONFIGS)
 ora = dt.datetime.now(dt.timezone.utc)
 oggi = ora.astimezone(ROMA).date()
+ANTICIPO = int(float(os.environ.get('ANTICIPO_GIORNI', '') or 0))   # video in anticipo (6 nov, Giorgio): esce tra N giorni
 SOLO = os.environ.get('SOLO_CANALE', '').strip()          # lancio a mano di un solo canale (es. primo video di un canale nuovo)
 PRIVACY = os.environ.get('PRIVACY_FORZATA', '').strip()   # es. unlisted per il primo video da controllare
 for cfg in canali:
@@ -93,10 +102,13 @@ for cfg in canali:
                 pass
     if occupata:
         print(cfg['channel_id'], ': un video e\' gia\' in produzione, oggi niente'); continue
+    uscita_d = (dt.datetime.now(ROMA) + dt.timedelta(days=ANTICIPO)).strftime('%Y-%m-%d')
+    if any(str(r.get('status')).strip() in ('Completato', 'Da caricare a mano', 'In produzione') and str(r.get('data_pubblicazione') or '').strip()[:10] == uscita_d for r in prod):
+        print(cfg['channel_id'], ': video per il', uscita_d, 'gia\' pronto'); continue
     fatti = sum(1 for r in prod if str(r.get('status')).strip() in ('Completato', 'Da caricare a mano') and data(r.get('data_inizio_produzione')) and data(r.get('data_inizio_produzione')).astimezone(ROMA).date() == oggi)
-    if not SOLO and fatti >= num(cfg.get('videos_per_day')):
+    if not SOLO and not ANTICIPO and fatti >= num(cfg.get('videos_per_day')):
         print(cfg['channel_id'], ': video di oggi gia\' fatto'); continue
-    giri = [] if SOLO else run_oggi(cfg['channel_id'])
+    giri = [] if (SOLO or ANTICIPO) else run_oggi(cfg['channel_id'])
     if any(r.get('status') != 'completed' for r in giri):
         print(cfg['channel_id'], ': un video e\' ancora in lavorazione su GitHub'); continue
     if len(giri) >= num(cfg.get('videos_per_day')) + 2:
@@ -107,10 +119,12 @@ for cfg in canali:
     r = prod[k]; n = k + 2
     api(fid, 'POST', '/values:batchUpdate', {'valueInputOption': 'RAW', 'data': [
         {'range': f"'{sch}'!{lettera(h.index('status') + 1)}{n}", 'values': [['In produzione']]},
-        {'range': f"'{sch}'!{lettera(h.index('data_inizio_produzione') + 1)}{n}", 'values': [[ora.isoformat(timespec='seconds')]]}]})
+        {'range': f"'{sch}'!{lettera(h.index('data_inizio_produzione') + 1)}{n}", 'values': [[ora.isoformat(timespec='seconds')]]}]
+        + ([{'range': f"'{sch}'!{lettera(h.index('data_pubblicazione') + 1)}{n}", 'values': [[uscita_d + ' 17:00']]}] if ANTICIPO and 'data_pubblicazione' in h else [])})
     payload = {k_: v for k_, v in cfg.items() if v not in ('', None) and not re.search(r'token|secret|password|api_key', k_, re.I)}
     titolo = r.get('titolo_italiano') or r.get('titolo_originale')
     payload.update({'titolo': titolo, 'testo_copertina': r.get('titolo_thumbnail') or '', 'link_competitor': r.get('Link video') or '',
+                    **({'pubblica_il': ora_uscita(uscita_d, cfg)} if ANTICIPO else {}),
                     'nome': re.sub(r'[^a-z0-9]+', '_', (cfg['channel_id'] + '_' + titolo).lower())[:60], 'foglio_produzione': fid, 'riga_produzione': n})
     req = urllib.request.Request(f'https://api.github.com/repos/{REPO}/actions/workflows/video_archivio.yml/dispatches',
                                  data=json.dumps({'ref': 'main', 'inputs': {'payload': json.dumps(payload, ensure_ascii=False)}}).encode(),
