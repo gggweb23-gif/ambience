@@ -60,7 +60,16 @@ def durata(f):
 
 # ---------------------------------------------------------------- sorgente
 def scarica_sorgente(cid, riga):
-    nome = f'shorts-{cid}-riga{riga}'   # stesso nome che scrivono i workflow dei video (channel_id + riga del file di produzione)
+    for nome in (f'shorts-{cid}-riga{riga}', f'DA CARICARE {cid}'):   # stesso nome dei workflow dei video; di riserva lo zip del caricamento a mano
+        v = _scarica(nome)
+        if v and durata(v) >= 180:   # mai una vecchia prova da 1 minuto al posto del video vero
+            return v
+        if v:
+            log(f'  {nome}: il file trovato dura {durata(v) / 60:.1f} min, non e\' il video lungo')
+    return None
+
+
+def _scarica(nome):
     arts = [a for a in gh_json(f'repos/{REPO}/actions/artifacts?name={urllib.parse.quote(nome)}&per_page=10').get('artifacts', []) if not a.get('expired')]
     if not arts:
         return None
@@ -79,8 +88,11 @@ def trascrivi(video, lingua):
     from faster_whisper import WhisperModel
     wav = os.path.join(LAV, 'audio.wav')
     run(['ffmpeg', '-y', '-v', 'error', '-i', video, '-ac', '1', '-ar', '16000', wav])
+    import numpy as np, wave
+    with wave.open(wav) as w:   # audio letto senza PyAV (la versione nuova di av non accetta piu' metadata_errors)
+        audio = np.frombuffer(w.readframes(w.getnframes()), np.int16).astype(np.float32) / 32768.0
     m = WhisperModel(E('WHISPER_MODEL', 'small'), device='cpu', compute_type='int8')
-    segs, _ = m.transcribe(wav, language=(lingua or 'en')[:2], word_timestamps=True, vad_filter=True)
+    segs, _ = m.transcribe(audio, language=(lingua or 'en')[:2], word_timestamps=True, vad_filter=True)
     frasi, parole = [], []
     for s in segs:
         ws = [{'w': w.word.strip(), 's': w.start, 'e': w.end} for w in (s.words or []) if w.word.strip()]
