@@ -5,6 +5,8 @@ on:
     inputs:
       quanti:
         default: '25'
+      dettagli:
+        default: ''
 
 permissions:
   contents: read
@@ -26,4 +28,5 @@ jobs:
           YT_REFRESH_TOKEN_ORBITAL_DAYS: ${{ secrets.YT_REFRESH_TOKEN_ORBITAL_DAYS }}
           YT_REFRESH_TOKEN_WWII_TESTIMONY: ${{ secrets.YT_REFRESH_TOKEN_WWII_TESTIMONY }}
           QUANTI: ${{ inputs.quanti }}
+          DETTAGLI: ${{ inputs.dettagli }}
         run: pip install -q google-auth requests && python3 strumenti/elenco_video_canali.py
