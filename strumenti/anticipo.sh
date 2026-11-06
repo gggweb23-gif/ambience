@@ -4,6 +4,10 @@
 set -u
 for voce in "$@"; do
   IFS='|' read -r launcher canale giorni etichetta <<< "$voce"
+  [ -z "$launcher" ] && continue
+  if [ "$launcher" = "avvio_canali.yml" ]; then   # i video Pexels (Storia, Agora/KAO) vanno uno alla volta: si aspetta che finisca quello in corso
+    while [ "$(gh api "repos/$R/actions/runs?status=in_progress&per_page=50" --jq '[.workflow_runs[] | select(.path | test("video_storia.yml|video_produzione.yml"))] | length')" != "0" ]; do sleep 60; done
+  fi
   inizio=$(date -u +%Y-%m-%dT%H:%M:%SZ)
   echo "== $(date +%H:%M) $canale: video in anticipo di $giorni giorni ($launcher)"
   gh api "repos/$R/actions/workflows/$launcher/dispatches" -f ref=main -f "inputs[canale]=$canale" -f "inputs[anticipo]=$giorni" || { echo "  lancio non riuscito"; continue; }

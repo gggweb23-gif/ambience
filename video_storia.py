@@ -371,13 +371,15 @@ PART {k + 1}:
             if len(txt.split()) <= n * 1.3:
                 return txt
         return txt
-    with ThreadPoolExecutor(4) as ex:
-        pezzi = list(ex.map(uno, range(len(blocchi))))
-    txt = ' '.join(pezzi)
-    n = len(txt.split())
-    log(f'originale condensato a blocchi: {len(parole)} -> {n} parole in {len(blocchi)} blocchi (obiettivo {obiettivo})')
-    if obiettivo * .80 <= n <= obiettivo * 1.15:
-        return txt
+    for giro in range(2):   # 6 nov: 967 invece di 1312 -> un secondo giro con la quota corretta (pochi centesimi, modello di controllo)
+        with ThreadPoolExecutor(4) as ex:
+            pezzi = list(ex.map(uno, range(len(blocchi))))
+        txt = ' '.join(pezzi)
+        n = len(txt.split())
+        log(f'originale condensato a blocchi: {len(parole)} -> {n} parole in {len(blocchi)} blocchi (obiettivo {obiettivo})')
+        if obiettivo * .80 <= n <= obiettivo * 1.15:
+            return txt
+        quota = min(0.95, quota * obiettivo / max(n, 1))
     raise RuntimeError(f'VIDEO BLOCCATO: testo del competitor condensato a {n} parole invece di {obiettivo} (nessuna spesa per voce e immagini)')
 
 
@@ -503,16 +505,16 @@ Scegli la texture piu' coerente (washi per Giappone/Cina/Corea, papiro per Egitt
     chiave = E('ANTHROPIC_API_KEY', '')
     if not chiave:
         raise RuntimeError('manca il secret ANTHROPIC_API_KEY')
-    errore_lunghezza = False
+    errore_lunghezza = False; n_lunghezza = 0   # 6 nov: un JSON rotto non conta come tentativo di lunghezza
     for k in range(3):
         try:
             contenuto = [{'type': 'text', 'text': prompt}]
             if comp.get('copertina'):
                 contenuto.insert(0, {'type': 'image', 'source': {'type': 'url', 'url': comp['copertina']}})
                 contenuto.insert(1, {'type': 'text', 'text': 'Questa sopra e\' la COPERTINA del video originale.'})
-            if k == 2 and errore_lunghezza:   # mai il modello piu' caro per un problema di lunghezza: si ferma prima della voce
+            if n_lunghezza >= 2:   # mai il modello piu' caro per un problema di lunghezza: si ferma prima della voce
                 raise RuntimeError('VIDEO BLOCCATO: copione fuori lunghezza dopo 2 tentativi (nessuna spesa per voce e immagini)')
-            richiesta = {'model': MODELLO_AI if k < 2 else MODELLO_RISERVA, 'max_tokens': 64000, 'messages': [{'role': 'user', 'content': contenuto}]}
+            richiesta = {'model': MODELLO_AI if (k < 2 or errore_lunghezza) else MODELLO_RISERVA, 'max_tokens': 64000, 'messages': [{'role': 'user', 'content': contenuto}]}
             if 'sonnet-5' in richiesta['model']:   # poco ragionamento: i token servono al copione lungo (prima finivano a meta')
                 richiesta.update(thinking={'type': 'between_tools'}, output_config={'effort': 'low'})
             testo, fine = claude_stream(richiesta, chiave)
@@ -527,7 +529,7 @@ Scegli la texture piu' coerente (washi per Giappone/Cina/Corea, papiro per Egitt
                 contenuto_extra = (f"\n\nATTENZIONE: il tentativo precedente aveva {n_par} parole di parlato: FUORI LIMITE. "
                                    f"Il parlato totale deve essere tra {minimo} e {massimo} parole (conta le parole del campo testo di tutte le scene).")
                 prompt = prompt.split('\n\nATTENZIONE: il tentativo precedente')[0] + contenuto_extra
-                errore_lunghezza = True
+                errore_lunghezza = True; n_lunghezza += 1
                 raise ValueError(f'copione di {n_par} parole, fuori da {minimo}-{massimo}')
             log(f'copione: {n_par} parole (limite {minimo}-{massimo})')
             if not c.get('sfondi') and not SOLO_PEXELS:
