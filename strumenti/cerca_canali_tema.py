@@ -60,7 +60,7 @@ for c in canali:
     det = []
     for i in range(0, len(video), 50):
         det += yt('videos', part='snippet,statistics,contentDetails', id=','.join(video[i:i + 50])).get('items', [])
-    lunghi = [v for v in det if not re.match(r'PT(\d+S|[0-2]M\d*S?)$', v['contentDetails']['duration'])]   # niente Short / sotto i 3 min
+    lunghi = [v for v in det if not re.match(r'PT(\d+S|[0-2]M\d*S?)$', v.get('contentDetails', {}).get('duration', 'PT0S'))]   # niente Short / sotto i 3 min
     fil = [v for v in lunghi if FILTRO.search(v['snippet']['title'])]
     if not fil:
         continue
