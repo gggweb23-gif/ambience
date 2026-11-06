@@ -59,28 +59,67 @@ def durata(f):
 
 
 # ---------------------------------------------------------------- sorgente
-def scarica_sorgente(cid, riga):
-    for nome in (f'shorts-{cid}-riga{riga}', f'DA CARICARE {cid}'):   # stesso nome dei workflow dei video; di riserva lo zip del caricamento a mano
-        v = _scarica(nome)
-        if v and durata(v) >= 180:   # mai una vecchia prova da 1 minuto al posto del video vero
-            return v
-        if v:
-            log(f'  {nome}: il file trovato dura {durata(v) / 60:.1f} min, non e\' il video lungo')
+def data_ini(r):
+    try:
+        ini = dt.datetime.fromisoformat(str(r.get('data_inizio_produzione')).strip().replace('Z', '+00:00').replace(' ', 'T'))
+        return ini if ini.tzinfo else ini.replace(tzinfo=ROMA)
+    except Exception:
+        return None
+
+
+def scarica_sorgente(cid, riga, r, dur_yt):
+    """Il file del video lungo: prima l'artifact con il suo nome (shorts-<canale>-riga<N>, poi DA CARICARE <canale>);
+    per i video fatti prima degli Short, gli artifact dei motori (video-storia, video-mappe, video-archivio) dei giorni del video.
+    Si usa solo se la durata coincide con quella del video su YouTube (cosi' non si prende mai il video sbagliato)."""
+    def giusto(v):
+        if not v:
+            return False
+        d = durata(v)
+        ok = d >= 180 and (not dur_yt or abs(d - dur_yt) <= 3)
+        if not ok:
+            log(f'  file scartato: dura {d / 60:.1f} min' + (f', su YouTube {dur_yt / 60:.1f} min' if dur_yt else ''))
+        return ok
+    for nome in (f'shorts-{cid}-riga{riga}', f'DA CARICARE {cid}'):
+        arts = elenco(nome)[-1:]
+        for a in arts:
+            v = _scarica(a)
+            if giusto(v):
+                return v
+    ini = data_ini(r)
+    if not ini:
+        return None
+    for nome in ('video-storia', 'video-mappe', 'video-archivio'):
+        for a in reversed(elenco(nome)):
+            c = dt.datetime.fromisoformat(a['created_at'].replace('Z', '+00:00'))
+            if ini - dt.timedelta(hours=1) <= c <= ini + dt.timedelta(hours=36):
+                for v in _scarica(a, tutti=True):
+                    if giusto(v):
+                        return v
     return None
 
 
-def _scarica(nome):
-    arts = [a for a in gh_json(f'repos/{REPO}/actions/artifacts?name={urllib.parse.quote(nome)}&per_page=10').get('artifacts', []) if not a.get('expired')]
-    if not arts:
-        return None
-    a = sorted(arts, key=lambda x: x['created_at'])[-1]
+def elenco(nome):
+    arts = gh_json(f'repos/{REPO}/actions/artifacts?name={urllib.parse.quote(nome)}&per_page=100').get('artifacts', [])
+    return sorted([a for a in arts if not a.get('expired')], key=lambda x: x['created_at'])
+
+
+def _scarica(a, tutti=False):
     d = os.path.join(LAV, 'sorgente'); shutil.rmtree(d, ignore_errors=True); os.makedirs(d)
     z = os.path.join(LAV, 'sorgente.zip')
     with open(z, 'wb') as f:
         subprocess.run(['gh', 'api', f'repos/{REPO}/actions/artifacts/{a["id"]}/zip'], stdout=f, check=True)
     zipfile.ZipFile(z).extractall(d); os.remove(z)
-    mp4 = sorted(glob.glob(os.path.join(d, '**', '*.mp4'), recursive=True), key=os.path.getsize)
-    return mp4[-1] if mp4 else None
+    mp4 = sorted(glob.glob(os.path.join(d, '**', '*.mp4'), recursive=True), key=os.path.getsize, reverse=True)
+    return mp4 if tutti else (mp4[0] if mp4 else None)
+
+
+def durata_yt(vid, tk):
+    try:
+        it = http('https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id=' + vid, h={'Authorization': 'Bearer ' + tk})['items'][0]
+        m = re.match(r'PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?', it['contentDetails']['duration'])
+        return int(m.group(1) or 0) * 3600 + int(m.group(2) or 0) * 60 + int(m.group(3) or 0)
+    except Exception:
+        return None
 
 
 # ---------------------------------------------------------------- trascrizione (gratis)
@@ -141,7 +180,23 @@ def scegli(frasi, n, titolo, lingua, budget):
             log('momento scartato:', x.get('titolo'), f'{a:.0f}-{b:.0f}'); continue
         out.append({'a': a, 'b': b, 'gancio': str(x.get('gancio') or '').strip()[:60], 'titolo': str(x.get('titolo') or '').strip()[:90],
                     'frase': str(x.get('frase') or '').strip()[:300]})
+    testo_tutto = ' '.join(f['t'] for f in frasi).lower()
+    for x in out[:n]:   # gancio con parole sbagliate o tagliate (es. "CAD"): meglio senza gancio che con un errore
+        sbagliate = [w for w in errori_ortografia(x['gancio'], lingua) if w.lower() not in testo_tutto]
+        if sbagliate:
+            log(f"  gancio scartato per parole sbagliate {sbagliate}: {x['gancio']}"); x['gancio'] = ''
     return out[:n], costo
+
+
+def errori_ortografia(testo, lingua):
+    if not testo:
+        return []
+    diz = {'it': 'it_IT', 'en': 'en_US'}.get((lingua or 'en')[:2], 'en_US')
+    try:
+        r = subprocess.run(['hunspell', '-d', diz, '-l'], input=testo.lower(), capture_output=True, text=True, timeout=30)
+        return [w for w in r.stdout.split() if not w.isdigit()]
+    except Exception as e:
+        log('  controllo ortografia non disponibile:', str(e)[:80]); return []
 
 
 # ---------------------------------------------------------------- montaggio verticale
@@ -155,7 +210,7 @@ def sottotitoli(parole, a, b, gancio, file):
     righe = ['[Script Info]', 'ScriptType: v4.00+', 'PlayResX: 1080', 'PlayResY: 1920', '',
              '[V4+ Styles]',
              'Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding',
-             'Style: Gancio,Anton,96,&H00FFFFFF,&H00FFFFFF,&H00000000,&H64000000,0,0,0,0,100,100,1,0,1,7,3,8,60,60,330,1',
+             'Style: Gancio,Anton,124,&H00FFFFFF,&H00FFFFFF,&H00000000,&H64000000,0,0,0,0,100,100,1,0,1,8,3,8,70,70,250,1',
              'Style: Sotto,Anton,92,&H00FFFFFF,&H00FFFFFF,&H00000000,&H64000000,0,0,0,0,100,100,1,0,1,7,3,2,60,60,520,1', '',
              '[Events]', 'Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text']
     if gancio:
@@ -172,9 +227,9 @@ def sottotitoli(parole, a, b, gancio, file):
     open(file, 'w', encoding='utf-8').write('\n'.join(righe) + '\n')
 
 
-def monta(video, x, parole, out):
+def monta(video, x, parole, out, con_sottotitoli=True):
     ass = out[:-4] + '.ass'
-    sottotitoli(parole, x['a'], x['b'], x['gancio'], ass)
+    sottotitoli(parole if con_sottotitoli else [], x['a'], x['b'], x['gancio'], ass)
     d = x['b'] - x['a'] + 0.25
     fd = os.path.dirname(FONT)
     fl = ('[0:v]split[s1][s2];[s1]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,boxblur=24:2,eq=brightness=-0.18[bg];'
@@ -258,26 +313,35 @@ def canale(cfg):
         log('  shorts_budget_giorno vuota: niente Short (nessuna spesa senza il tuo ok)'); return
     sch, h, prod = A.righe(fid)
     oggi = dt.datetime.now(ROMA)
+    chiave = str(cfg.get('chiave_youtube') or '').strip() or {'Storia in Minuti': 'YT_REFRESH_TOKEN_STORIA', 'KAO PSICOLOGIA': 'YT_REFRESH_TOKEN_KAO'}.get(cid, '') \
+        or 'YT_REFRESH_TOKEN_' + re.sub(r'[^A-Z0-9]+', '_', cid.upper()).strip('_')
+    rt = PF.SEGRETI.get(chiave) or E(chiave)
+    if not rt:
+        raise RuntimeError('manca il segreto ' + chiave)
+    tk = PF.token(rt)[0]
+    # gia' in coda: se ci sono abbastanza Short programmati nei prossimi giorni non se ne fanno altri (ritmo = shorts_al_giorno)
+    futuri = [q for q in re.findall(r'@(\d{4}-\d\d-\d\d \d\d:\d\d)', ' '.join(str(r.get('shorts') or '') for r in prod)) if q > oggi.strftime('%Y-%m-%d %H:%M')]
+    if not PROVA and not RIGA and len(futuri) >= 2 * n_giorno:
+        log(f'  {len(futuri)} Short gia\' programmati: per ora basta'); return
     if RIGA:
         cand = [(int(RIGA), prod[int(RIGA) - 2])]
     else:
         cand = [(i + 2, r) for i, r in enumerate(prod) if (str(r.get('status')).strip() == 'Completato' and str(r.get('youtube_video_id') or '').strip()
                 or PROVA and str(r.get('status')).strip() == 'Da caricare a mano') and not str(r.get('shorts') or '').strip()]   # in prova anche i video ancora da caricare a mano
-        def recente(r):   # il file del video resta su GitHub 3 giorni: i video piu' vecchi non si toccano
-            try:
-                ini = dt.datetime.fromisoformat(str(r.get('data_inizio_produzione')).strip().replace('Z', '+00:00').replace(' ', 'T'))
-                return (oggi - (ini if ini.tzinfo else ini.replace(tzinfo=ROMA))).days < 3
-            except Exception:
-                return False
-        cand = [x for x in cand if recente(x[1])][-1:]   # solo l'ultimo video lungo: 4 Short per video, uno al giorno
+        # i file dei video restano su GitHub 7 giorni: si parte dal video piu' recente e, se manca il file, si passa ai giorni prima
+        cand = [x for x in cand if data_ini(x[1]) and (oggi - data_ini(x[1])).days < 7][::-1][:4]
     if not cand:
-        log('  nessun video lungo nuovo da cui fare gli Short'); return
-    n, riga = cand[0]
-    video = scarica_sorgente(cid, n)
-    if not video:
-        log(f'  riga {n}: file del video non trovato su GitHub (artifact scaduto o video fatto prima degli Short)')
-        if not PROVA:
+        log('  nessun video lungo da cui fare gli Short'); return
+    video = None
+    for n, riga in cand:
+        vid = str(riga.get('youtube_video_id') or '').strip()
+        video = scarica_sorgente(cid, n, riga, durata_yt(vid, tk) if vid else None)
+        if video:
+            break
+        log(f'  riga {n}: file del video non trovato su GitHub')
+        if not PROVA and not RIGA:
             scrivi(fid, sch, h, n, 'shorts', 'saltato: file del video non disponibile')
+    if not video:
         return
     titolo = str(riga.get('titolo_italiano') or riga.get('titolo_originale') or '')
     log(f'  riga {n}: {titolo} | {durata(video) / 60:.1f} min')
@@ -287,7 +351,7 @@ def canale(cfg):
         raise RuntimeError('nessun momento valido scelto')
     fatti = []
     for k, x in enumerate(momenti, 1):
-        f = monta(video, x, parole, os.path.join(LAV, f'short_{k}.mp4'))
+        f = monta(video, x, parole, os.path.join(LAV, f'short_{k}.mp4'), str(cfg.get('shorts_sottotitoli') or '').strip().upper() == 'SI')
         prob = controlla(f)
         log(f"  Short {k}: {x['a']:.0f}-{x['b']:.0f} s | {x['gancio']} | {x['titolo']}" + (f' | SCARTATO: {prob}' if prob else ''))
         if not prob:
@@ -310,12 +374,6 @@ def canale(cfg):
     except Exception:
         uscita_lungo = oggi
     slot = orari_liberi(cfg, prod, max(oggi + dt.timedelta(minutes=45), uscita_lungo + dt.timedelta(minutes=30)), len(fatti))
-    chiave = str(cfg.get('chiave_youtube') or '').strip() or {'Storia in Minuti': 'YT_REFRESH_TOKEN_STORIA', 'KAO PSICOLOGIA': 'YT_REFRESH_TOKEN_KAO'}.get(cid, '') \
-        or 'YT_REFRESH_TOKEN_' + re.sub(r'[^A-Z0-9]+', '_', cid.upper()).strip('_')
-    rt = PF.SEGRETI.get(chiave) or E(chiave)
-    if not rt:
-        raise RuntimeError('manca il segreto ' + chiave)
-    tk = PF.token(rt)[0]
     caricati = []
     for (f, x), q in zip(fatti, slot):
         sid = carica(tk, f, x, cfg, riga, str(riga.get('youtube_video_id')).strip(), q)

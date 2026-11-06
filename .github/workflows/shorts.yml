@@ -3,8 +3,8 @@ name: Shorts dai video lunghi
 # strumenti/shorts.py: 4 Short al giorno per canale (colonne shorts_al_giorno, shorts_orari, shorts_budget_giorno di Channel Configs),
 # tagliati dai nostri video lunghi gia' su YouTube e caricati programmati dopo l'uscita del video lungo. Spesa: solo la scelta dei momenti.
 on:
-  # schedule (si attiva dopo che Giorgio ha approvato le prove):
-  #   - cron: '29 6-20 * * *'   # ogni ora dalle 07:29 alle 21:29 circa (ora italiana): parte appena il video lungo e' su YouTube
+  schedule:
+    - cron: '29 6-20 * * *'   # ogni ora dalle 07:29 alle 21:29 circa (ora italiana): parte appena il video lungo e' su YouTube (6 nov: acceso da Giorgio)
   workflow_dispatch:
     inputs:
       canale:
@@ -27,7 +27,7 @@ concurrency:
 jobs:
   shorts:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 300
     steps:
       - uses: actions/checkout@v4
       - name: Modello per la trascrizione (si scarica una volta sola)
@@ -36,7 +36,7 @@ jobs:
           path: ~/.cache/huggingface
           key: whisper-small
       - name: Installa
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg && pip install -q faster-whisper google-auth requests
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg hunspell hunspell-it hunspell-en-us && pip install -q faster-whisper google-auth requests
       - name: Short
         env:
           GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
