@@ -1,3551 +1,3178 @@
 {
- "titolo": "Egypt Is Bigger Than Texas… So Why Does Everyone Live Here?",
+ "titolo": "Could America Survive Another Great Depression? Here's the Truth",
  "numero": {
-  "testo": "95%",
-  "sotto": "OF EGYPTIANS LIVE ON 5% OF THE LAND"
+  "testo": "89%",
+  "sotto": "HOW MUCH THE DOW LOST BY 1932"
  },
  "copertina": {
-  "testo": "WHY?",
+  "testo": "AGAIN?",
   "oro": [
-   "EGY"
+   "USA"
   ],
   "verde": [
-   "ETH",
-   "SDN"
+   "JPN"
   ],
   "vista": {
-   "lon": 31,
-   "lat": 27,
-   "larghezza": 24
+   "lon": -98,
+   "lat": 39,
+   "larghezza": 60
   }
  },
- "descrizione": "Egypt is one and a half times the size of Texas, yet almost everyone squeezes onto a thin green ribbon along the Nile. Why would a giant country crowd into a strip of mud? We follow the river from the pharaohs to the Aswan High Dam, from bread riots to a brand new capital in the desert, and all the way to a huge dam in Ethiopia.\n\nEvery border has a price, and so does every river. Watch how geography, population, debt and water shape the fate of 109 million people, and why the Nile is both Egypt's lifeline and its greatest risk.",
+ "descrizione": "The stock market lost almost nine tenths of its value. Thousands of banks failed. One worker in four lost a job. So could it happen again? We break down the four things that turned a crash into a catastrophe in 1929, and check which ones have been fixed.\n\nFrom bank runs and a shrinking money supply to the gold standard, plus the Japanese finance minister who escaped the Depression early, we follow the story on animated maps. And we look at the one safety net that is getting thinner every year: the national debt.",
  "tag": [
-  "egypt",
-  "nile river",
-  "egypt geography",
-  "why egypt is empty",
-  "grand ethiopian renaissance dam",
-  "aswan high dam",
-  "history explained",
+  "great depression",
+  "could america survive another great depression",
+  "1929 stock market crash",
+  "economic history",
   "animated maps",
-  "egypt population",
-  "new administrative capital",
-  "water scarcity",
-  "geopolitics"
+  "national debt",
+  "bank run",
+  "gold standard",
+  "federal reserve",
+  "silicon valley bank",
+  "2008 financial crisis",
+  "takahashi korekiyo"
  ],
  "scene": [
   {
-   "testo": "A desert giant with one thin green line. A new capital almost nobody lives in. A dam two thousand kilometers away. Why does everyone squeeze in here?",
+   "testo": "A bank run in a single day. A gold promise that drowned a nation. And a debt cushion getting thinner. Could America survive again?",
    "anteprima": true,
    "vista": {
-    "lon": 31,
-    "lat": 27,
-    "larghezza": 20
+    "lon": -90,
+    "lat": 38,
+    "larghezza": 70
    },
    "epoca": "oggi",
    "oro": [
-    "EGY"
+    "USA"
    ],
-   "verde": [],
+   "verde": [
+    "JPN"
+   ],
    "eventi": [
-    {
-     "tipo": "contorno",
-     "paese": "EGY",
-     "parola": "giant"
-    },
     {
      "tipo": "numero",
-     "testo": "109M",
-     "lon": 31.2,
-     "lat": 30,
-     "parola": "capital"
+     "testo": "$42B",
+     "lon": -122,
+     "lat": 37.5,
+     "parola": "bank"
     },
-    {
-     "tipo": "icona",
-     "icona": "hourglass",
-     "lon": 36,
-     "lat": 30,
-     "parola": "almost"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "WHY?",
-     "parola": "why"
-    }
-   ],
-   "musica": "mistero",
-   "stacco": false,
-   "pin": {
-    "lon": 27,
-    "lat": 24,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Egypt is huge. It is almost one and a half times the size of Texas. Yet most of it is empty.",
-   "anteprima": false,
-   "vista": {
-    "lon": 30,
-    "lat": 27,
-    "larghezza": 22
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "contorno",
-     "paese": "EGY",
-     "parola": "huge"
-    },
-    {
-     "tipo": "conta",
-     "valore": 1.5,
-     "prefisso": "~",
-     "suffisso": "x",
-     "sotto": "THE SIZE OF TEXAS",
-     "parola": "half"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Bigger than Texas, mostly empty",
-     "parola": "empty"
-    }
-   ],
-   "musica": "mistero",
-   "stacco": false,
-   "pin": {
-    "lon": 26,
-    "lat": 23,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Turn off the sun and most of it vanishes. All that is left is one thin line of light, with a flower at the top.",
-   "anteprima": false,
-   "vista": {
-    "lon": 31,
-    "lat": 27,
-    "larghezza": 20
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "confine",
-     "punti": [
-      [
-       32.9,
-       24
-      ],
-      [
-       32.5,
-       26
-      ],
-      [
-       31.2,
-       28
-      ],
-      [
-       31.2,
-       30
-      ],
-      [
-       31.2,
-       31.4
-      ]
-     ],
-     "parola": "line"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "THE NILE DELTA",
-     "lon": 31,
-     "lat": 31,
-     "parola": "flower"
-    },
-    {
-     "tipo": "nota",
-     "testo": "One thin line of light",
-     "parola": "light"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 27,
-    "lat": 25,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "That line is the Nile. Around ninety-five percent of Egypt's 109 million people live along it, on roughly five percent of the land.",
-   "anteprima": false,
-   "vista": {
-    "lon": 31,
-    "lat": 27,
-    "larghezza": 16
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "contador_placeholder_removed",
-     "parola": "line"
-    },
-    {
-     "tipo": "contatore",
-     "testo": "9 IN 10",
-     "su": 9,
-     "di": 10,
-     "personaggio": "family",
-     "parola": "ninety-five"
-    },
-    {
-     "tipo": "conta",
-     "valore": 109,
-     "prefisso": "",
-     "suffisso": "M",
-     "sotto": "EGYPTIANS",
-     "parola": "million"
-    },
-    {
-     "tipo": "nota",
-     "testo": "95% of people, 5% of land",
-     "parola": "land"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": 28,
-    "lat": 25,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "So why would a country this big squeeze into a strip this thin? The long answer involves bread riots and a ghost capital.",
-   "anteprima": false,
-   "vista": {
-    "lon": 31.5,
-    "lat": 29,
-    "larghezza": 14
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "scritta",
-     "testo": "WHY?",
-     "parola": "why"
-    },
-    {
-     "tipo": "icona",
-     "icona": "wheat",
-     "lon": 31.2,
-     "lat": 30,
-     "parola": "bread"
-    },
-    {
-     "tipo": "icona",
-     "icona": "castle",
-     "lon": 31.8,
-     "lat": 30.0,
-     "parola": "capital"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Bread, a ghost capital, a dam",
-     "parola": "riots"
-    }
-   ],
-   "musica": "mistero",
-   "stacco": false,
-   "pin": {
-    "lon": 28,
-    "lat": 28,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "It also involves a dam more than two thousand kilometers away, finished in 2025, which Egypt calls a threat to its very existence.",
-   "anteprima": false,
-   "vista": {
-    "lon": 34,
-    "lat": 20,
-    "larghezza": 40
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [
-    "ETH"
-   ],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      31.2,
-      30
-     ],
-     "a": [
-      35,
-      10.6
-     ],
-     "icona": "river",
-     "parola": "away"
-    },
-    {
-     "tipo": "conta",
-     "valore": 2000,
-     "prefisso": "+",
-     "suffisso": " KM",
-     "sotto": "TO THE DAM",
-     "parola": "thousand"
-    },
-    {
-     "tipo": "anno",
-     "testo": "2025",
-     "parola": "2025"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Egypt calls it existential",
-     "parola": "existence"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": 24,
-    "lat": 16,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Start with the sky. Cairo gets about two and a half centimeters of rain a year, roughly half of what falls on Death Valley.",
-   "anteprima": false,
-   "vista": {
-    "lon": 31.2,
-    "lat": 30,
-    "larghezza": 12
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "etichetta",
-     "testo": "CAIRO",
-     "lon": 31.24,
-     "lat": 30.04,
-     "parola": "Cairo"
-    },
-    {
-     "tipo": "conta",
-     "valore": 2.5,
-     "prefisso": "",
-     "suffisso": " CM",
-     "sotto": "RAIN PER YEAR",
-     "parola": "centimeters"
-    },
-    {
-     "tipo": "icona",
-     "icona": "hourglass",
-     "lon": 30.2,
-     "lat": 29.2,
-     "parola": "Death"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Half of Death Valley's rain",
-     "parola": "half"
-    }
-   ],
-   "musica": "mistero",
-   "stacco": false,
-   "pin": {
-    "lon": 33.5,
-    "lat": 28.5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "No rain means no rivers of your own. Not one permanent river starts inside Egypt. About ninety-seven percent of its water comes from the Nile.",
-   "anteprima": false,
-   "vista": {
-    "lon": 31,
-    "lat": 26,
-    "larghezza": 22
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "question",
-     "lon": 27,
-     "lat": 26,
-     "parola": "rivers"
-    },
-    {
-     "tipo": "conta",
-     "valore": 97,
-     "prefisso": "~",
-     "suffisso": "%",
-     "sotto": "WATER FROM THE NILE",
-     "parola": "ninety-seven"
-    },
-    {
-     "tipo": "nota",
-     "testo": "One source of water",
-     "parola": "Nile"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 27,
-    "lat": 22,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Once it crosses into Egypt, no other river ever joins it. Not one, all the way to the sea.",
-   "anteprima": false,
-   "vista": {
-    "lon": 31.5,
-    "lat": 27,
-    "larghezza": 16
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      32.9,
-      24
-     ],
-     "a": [
-      31.2,
-      31.4
-     ],
-     "icona": "river",
-     "parola": "crosses"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "NOT ONE",
-     "parola": "Not"
-    },
-    {
-     "tipo": "nota",
-     "testo": "No tributaries inside Egypt",
-     "parola": "joins"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 28,
-    "lat": 26,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Everything else is the Sahara. Seas of sand, rocky plateaus, and oases hundreds of kilometers apart.",
-   "anteprima": false,
-   "vista": {
-    "lon": 27,
-    "lat": 27,
-    "larghezza": 24
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "etichetta",
-     "testo": "SAHARA",
-     "lon": 25,
-     "lat": 27,
-     "parola": "Sahara"
-    },
-    {
-     "tipo": "icona",
-     "icona": "mountain",
-     "lon": 29.5,
-     "lat": 28,
-     "parola": "plateaus"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "SIWA OASIS",
-     "lon": 25.5,
-     "lat": 29.2,
-     "parola": "oases"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "KHARGA OASIS",
-     "lon": 30.5,
-     "lat": 25.4,
-     "parola": "hundreds"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": 22,
-    "lat": 24,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "From space, Egypt looks like a desert with one green thread running through it. Follow that thread and you find almost every farm and most cities.",
-   "anteprima": false,
-   "vista": {
-    "lon": 31,
-    "lat": 27,
-    "larghezza": 14
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "confine",
-     "punti": [
-      [
-       32.9,
-       24
-      ],
-      [
-       32.5,
-       26
-      ],
-      [
-       31.2,
-       28
-      ],
-      [
-       31.2,
-       30
-      ],
-      [
-       31.2,
-       31.4
-      ]
-     ],
-     "parola": "thread"
-    },
-    {
-     "tipo": "icona",
-     "icona": "farm",
-     "lon": 31.1,
-     "lat": 27.2,
-     "parola": "farm"
-    },
-    {
-     "tipo": "icona",
-     "icona": "port",
-     "lon": 29.9,
-     "lat": 31.2,
-     "parola": "cities"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 27.5,
-    "lat": 26,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "The ancient Egyptians saw their world the same way. They had two names for it: Kemet, the black land, and Deshet, the red land.",
-   "anteprima": false,
-   "vista": {
-    "lon": 31,
-    "lat": 27,
-    "larghezza": 14
-   },
-   "epoca": "antica",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "etichetta",
-     "testo": "KEMET: BLACK LAND",
-     "lon": 31.3,
-     "lat": 27,
-     "parola": "Kemet"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "DESHET: RED LAND",
-     "lon": 27.5,
-     "lat": 26,
-     "parola": "Deshet"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Two lands: black and red",
-     "parola": "two"
-    }
-   ],
-   "musica": "mistero",
-   "stacco": false,
-   "pin": {
-    "lon": 34.5,
-    "lat": 24,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Every summer, heavy rain fell on mountains far to the south. Weeks later, the Nile rose and spilled over the whole valley.",
-   "anteprima": false,
-   "vista": {
-    "lon": 34,
-    "lat": 20,
-    "larghezza": 36
-   },
-   "epoca": "antica",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [
-    "ETH"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "mountain",
-     "lon": 38,
-     "lat": 11,
-     "parola": "mountains"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      37,
-      11
-     ],
-     "a": [
-      31.3,
-      27
-     ],
-     "icona": "river",
-     "parola": "Nile"
-    },
-    {
-     "tipo": "icona",
-     "icona": "farm",
-     "lon": 31.1,
-     "lat": 26,
-     "parola": "valley"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 24,
-    "lat": 14,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "When the water drained away, it left a fresh layer of black mud. Free fertilizer, delivered every single year.",
-   "anteprima": false,
-   "vista": {
-    "lon": 31.2,
-    "lat": 26.5,
-    "larghezza": 10
-   },
-   "epoca": "antica",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "peasant",
-     "n": 4,
-     "lon": 31.2,
-     "lat": 26.5,
-     "parola": "mud"
-    },
-    {
-     "tipo": "icona",
-     "icona": "wheat",
-     "lon": 31.4,
-     "lat": 27.4,
-     "parola": "fertilizer"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Free fertilizer every year",
-     "parola": "year"
-    }
-   ],
-   "musica": "quotidiano",
-   "stacco": false,
-   "pin": {
-    "lon": 33.5,
-    "lat": 25,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "The pharaohs measured the flood with stone staircases called nilometers. Too low and people starved. Too high and villages washed away.",
-   "anteprima": false,
-   "vista": {
-    "lon": 32.9,
-    "lat": 24.1,
-    "larghezza": 8
-   },
-   "epoca": "antica",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "etichetta",
-     "testo": "NILOMETER",
-     "lon": 32.89,
-     "lat": 24.08,
-     "parola": "nilometers"
-    },
-    {
-     "tipo": "icona",
-     "icona": "chart_down",
-     "lon": 32.5,
-     "lat": 24.6,
-     "parola": "low"
-    },
-    {
-     "tipo": "icona",
-     "icona": "chart_up",
-     "lon": 33.3,
-     "lat": 24.6,
-     "parola": "high"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 34.2,
-    "lat": 23.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Just right and the harvest was great, and so were the taxes. Pharaohs, Greeks, Romans, Arabs, Ottomans, the British. Rulers came and went. The people stayed.",
-   "anteprima": false,
-   "vista": {
-    "lon": 31,
-    "lat": 27,
-    "larghezza": 16
-   },
-   "epoca": "antica",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
     {
      "tipo": "icona",
      "icona": "gold_coins",
-     "lon": 31.2,
-     "lat": 27,
-     "parola": "taxes"
-    },
-    {
-     "tipo": "icona",
-     "icona": "crown",
-     "lon": 31.0,
-     "lat": 29,
-     "parola": "Pharaohs"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "peasant",
-     "n": 5,
-     "lon": 31.3,
-     "lat": 26,
-     "parola": "stayed"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Rulers changed, the strip didn't",
-     "parola": "went"
-    }
-   ],
-   "musica": "epico",
-   "stacco": false,
-   "pin": {
-    "lon": 27.5,
-    "lat": 24,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Then in 1970, Egypt did something no pharaoh ever could. It switched the flood off.",
-   "anteprima": false,
-   "vista": {
-    "lon": 32.9,
-    "lat": 24.2,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1970",
-     "parola": "1970"
-    },
-    {
-     "tipo": "icona",
-     "icona": "bridge",
-     "lon": 32.88,
-     "lat": 23.97,
-     "parola": "switched"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "FLOOD OFF",
-     "parola": "off"
-    }
-   ],
-   "musica": "epico",
-   "stacco": true,
-   "pin": {
-    "lon": 34.5,
-    "lat": 25.5,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "The Aswan High Dam blocked the river with a wall of rock and clay, creating one of the biggest artificial lakes on Earth.",
-   "anteprima": false,
-   "vista": {
-    "lon": 32.8,
-    "lat": 23,
-    "larghezza": 9
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "etichetta",
-     "testo": "ASWAN HIGH DAM",
-     "lon": 32.88,
-     "lat": 23.97,
-     "parola": "Aswan"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "LAKE NASSER",
-     "lon": 32.9,
-     "lat": 22.5,
-     "parola": "lakes"
-    },
-    {
-     "tipo": "nota",
-     "testo": "A giant artificial lake",
-     "parola": "lake"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 31.2,
-    "lat": 24.5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "The water rose so high it would have drowned ancient temples. So the world cut Abu Simbel into blocks and moved it up the hill.",
-   "anteprima": false,
-   "vista": {
-    "lon": 31.6,
-    "lat": 22.4,
-    "larghezza": 6
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "castle",
-     "lon": 31.62,
-     "lat": 22.34,
-     "parola": "temples"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      31.62,
-      22.34
-     ],
-     "a": [
-      31.65,
-      22.5
-     ],
-     "icona": "castle",
-     "parola": "moved"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Abu Simbel cut into blocks",
-     "parola": "blocks"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": 32.8,
-    "lat": 21.8,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "No more floods, and no more hungry years when the river ran low. Farmers could now grow two or three crops a year instead of one.",
-   "anteprima": false,
-   "vista": {
-    "lon": 31.2,
-    "lat": 27,
-    "larghezza": 12
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "wheat",
-     "lon": 31.1,
-     "lat": 26,
-     "parola": "crops"
-    },
-    {
-     "tipo": "numero",
-     "testo": "1 TO 3",
-     "lon": 31.5,
-     "lat": 28.2,
-     "parola": "three"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "peasant",
-     "n": 4,
-     "lon": 31.0,
-     "lat": 27.5,
-     "parola": "Farmers"
-    }
-   ],
-   "musica": "trionfo",
-   "stacco": false,
-   "pin": {
-    "lon": 28,
-    "lat": 25,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "But the mud stopped coming. It now settles at the bottom of the lake, so farmers buy fertilizer instead.",
-   "anteprima": false,
-   "vista": {
-    "lon": 32,
-    "lat": 24.5,
-    "larghezza": 12
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "scritta",
-     "testo": "NO MUD",
-     "parola": "mud"
-    },
-    {
-     "tipo": "icona",
-     "icona": "money_bag",
-     "lon": 31.3,
-     "lat": 26,
-     "parola": "buy"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Mud now sinks behind the dam",
-     "parola": "lake"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": 34.2,
-    "lat": 25.5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "And the delta, the land that mud built, is slowly being eaten by the sea.",
-   "anteprima": false,
-   "vista": {
-    "lon": 31,
-    "lat": 31,
-    "larghezza": 6
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "etichetta",
-     "testo": "NILE DELTA",
-     "lon": 31,
-     "lat": 31,
-     "parola": "delta"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      31,
-      32.4
-     ],
-     "a": [
-      31,
-      31.2
-     ],
-     "icona": "cargo_ship",
-     "parola": "sea"
-    },
-    {
-     "tipo": "nota",
-     "testo": "The delta is shrinking",
-     "parola": "eaten"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 29.5,
-    "lat": 30.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "So that is the short answer. Egyptians live by the Nile because there is nowhere else to get water. The real story is what happens when a nation packs onto one strip of mud.",
-   "anteprima": false,
-   "vista": {
-    "lon": 31,
-    "lat": 27,
-    "larghezza": 18
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "confine",
-     "punti": [
-      [
-       32.9,
-       24
-      ],
-      [
-       32.5,
-       26
-      ],
-      [
-       31.2,
-       28
-      ],
-      [
-       31.2,
-       30
-      ],
-      [
-       31.2,
-       31.4
-      ]
-     ],
-     "parola": "Nile"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "family",
-     "n": 6,
-     "lon": 31.2,
-     "lat": 28,
-     "parola": "strip"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Water decides where people live",
-     "parola": "water"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": 27,
-    "lat": 25,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "In 1950, Egypt had about twenty-one million people. Today it has 109 million, and the United Nations expects around 160 million by 2050.",
-   "anteprima": false,
-   "vista": {
-    "lon": 31,
-    "lat": 27,
-    "larghezza": 18
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1950",
-     "parola": "1950"
+     "lon": -77,
+     "lat": 39,
+     "parola": "gold"
     },
     {
      "tipo": "conta",
-     "valore": 21,
-     "prefisso": "~",
-     "suffisso": "M",
-     "sotto": "PEOPLE IN 1950",
-     "parola": "twenty-one"
-    },
-    {
-     "tipo": "barre",
-     "titolo": "EGYPT POPULATION (M)",
-     "voci": [
-      {
-       "testo": "1950",
-       "valore": 21,
-       "lato": "verde"
-      },
-      {
-       "testo": "TODAY",
-       "valore": 109,
-       "lato": "oro"
-      },
-      {
-       "testo": "2050",
-       "valore": 160,
-       "lato": "oro"
-      }
-     ],
-     "parola": "expects"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": 27,
-    "lat": 25,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Egypt adds a million people roughly every nine months. That is one more person about every twenty-three seconds.",
-   "anteprima": false,
-   "vista": {
-    "lon": 31,
-    "lat": 28,
-    "larghezza": 14
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "family",
-     "n": 7,
-     "lon": 31.2,
-     "lat": 29.5,
-     "parola": "million"
-    },
-    {
-     "tipo": "conta",
-     "valore": 23,
-     "prefisso": "1 / ",
-     "suffisso": " SEC",
-     "sotto": "NEW EGYPTIAN",
-     "parola": "twenty-three"
-    },
-    {
-     "tipo": "nota",
-     "testo": "A million more every 9 months",
-     "parola": "nine"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 28,
-    "lat": 26,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Nearly all of them have to fit along that one line. All of Egypt's farmland together covers about the area of Switzerland.",
-   "anteprima": false,
-   "vista": {
-    "lon": 20,
-    "lat": 38,
-    "larghezza": 40
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [
-    "CHE"
-   ],
-   "eventi": [
-    {
-     "tipo": "contorno",
-     "paese": "CHE",
-     "parola": "Switzerland"
-    },
-    {
-     "tipo": "icona",
-     "icona": "farm",
-     "lon": 31.1,
-     "lat": 28,
-     "parola": "farmland"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Farmland the size of Switzerland",
-     "parola": "covers"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": 15,
-    "lat": 30,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Switzerland has nine million people. This land has to feed more than one hundred million.",
-   "anteprima": false,
-   "vista": {
-    "lon": 20,
-    "lat": 38,
-    "larghezza": 40
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [
-    "CHE"
-   ],
-   "eventi": [
-    {
-     "tipo": "barre",
-     "titolo": "PEOPLE FED (M)",
-     "voci": [
-      {
-       "testo": "SWISS LAND",
-       "valore": 9,
-       "lato": "verde"
-      },
-      {
-       "testo": "EGYPT FARMS",
-       "valore": 109,
-       "lato": "oro"
-      }
-     ],
-     "parola": "nine"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "100 MILLION",
-     "parola": "hundred"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 12,
-    "lat": 32,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Greater Cairo alone is home to over twenty million people. With empty desert on both sides, the city can only spread one way, onto the fields.",
-   "anteprima": false,
-   "vista": {
-    "lon": 31.3,
-    "lat": 30,
-    "larghezza": 6
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 20,
-     "prefisso": "+",
-     "suffisso": "M",
-     "sotto": "GREATER CAIRO",
-     "parola": "twenty"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "worker",
-     "n": 6,
-     "lon": 31.24,
-     "lat": 30.05,
-     "parola": "city"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      31.24,
-      30.05
-     ],
-     "a": [
-      31.1,
-      29.7
-     ],
-     "icona": "factory",
-     "parola": "fields"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": 32.2,
-    "lat": 29.4,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Building on farmland is illegal in Egypt. People do it anyway. A son gets married, the family needs another floor, and land with a house is worth far more than crops.",
-   "anteprima": false,
-   "vista": {
-    "lon": 31.2,
-    "lat": 30,
-    "larghezza": 5
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": 31.1,
-     "lat": 30.2,
-     "parola": "illegal"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "family",
-     "n": 4,
-     "lon": 31.3,
-     "lat": 29.9,
-     "parola": "married"
-    },
-    {
-     "tipo": "prezzo",
-     "testo": "HOUSE > CROPS",
-     "sotto": "LAND VALUE",
-     "ricco": true,
-     "parola": "worth"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 32.2,
-    "lat": 30.6,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "In about forty years, Egypt has lost roughly 1700 square kilometers of farmland to illegal buildings. That is more or less the whole city of Houston.",
-   "anteprima": false,
-   "vista": {
-    "lon": 31,
-    "lat": 29,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 1700,
-     "prefisso": "~",
-     "suffisso": " KM²",
-     "sotto": "FARMLAND LOST",
-     "parola": "1700"
-    },
-    {
-     "tipo": "icona",
-     "icona": "factory",
-     "lon": 31.1,
-     "lat": 29.5,
-     "parola": "buildings"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Lost land equals Houston",
-     "parola": "Houston"
-    }
-   ],
-   "musica": "azione",
-   "stacco": false,
-   "pin": {
-    "lon": 33,
-    "lat": 28,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "And it is not just any land. It is the black mud the river spent thousands of years laying down.",
-   "anteprima": false,
-   "vista": {
-    "lon": 31,
-    "lat": 29,
-    "larghezza": 8
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "etichetta",
-     "testo": "BLACK MUD, BURIED",
-     "lon": 31.1,
-     "lat": 29.6,
-     "parola": "mud"
-    },
-    {
-     "tipo": "icona",
-     "icona": "hourglass",
-     "lon": 31.5,
-     "lat": 28.8,
-     "parola": "thousands"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Best soil gets built over",
-     "parola": "laying"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": 32.8,
-    "lat": 28.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Here is the trap. More Egyptians need more homes, and every home on the river buries the land meant to feed them.",
-   "anteprima": false,
-   "vista": {
-    "lon": 31.2,
-    "lat": 29.5,
-    "larghezza": 8
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "scritta",
-     "testo": "THE TRAP",
-     "parola": "trap"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "family",
-     "n": 5,
-     "lon": 31.2,
-     "lat": 29.8,
-     "parola": "homes"
-    },
-    {
-     "tipo": "icona",
-     "icona": "wheat",
-     "lon": 31.0,
-     "lat": 29.2,
-     "parola": "feed"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": 32.5,
-    "lat": 28.3,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "So Egypt buys food from abroad, a lot of it. It is among the biggest wheat buyers on the planet, about thirteen million tons a year.",
-   "anteprima": false,
-   "vista": {
-    "lon": 35,
-    "lat": 42,
-    "larghezza": 60
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [
-    "RUS",
-    "UKR"
-   ],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 13,
-     "prefisso": "~",
-     "suffisso": "M T",
-     "sotto": "WHEAT PER YEAR",
-     "parola": "thirteen"
-    },
-    {
-     "tipo": "icona",
-     "icona": "cargo_ship",
-     "lon": 30,
-     "lat": 33,
-     "parola": "abroad"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Top wheat importer",
-     "parola": "biggest"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": 20,
-    "lat": 28,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Until 2022, most of it came from just two countries, Russia and Ukraine.",
-   "anteprima": false,
-   "vista": {
-    "lon": 35,
-    "lat": 42,
-    "larghezza": 60
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [
-    "RUS",
-    "UKR"
-   ],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      37,
-      47
-     ],
-     "a": [
-      31,
-      31.2
-     ],
-     "icona": "cargo_ship",
-     "parola": "Russia"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      31,
-      46
-     ],
-     "a": [
-      30,
-      31.2
-     ],
-     "icona": "cargo_ship",
-     "parola": "Ukraine"
-    },
-    {
-     "tipo": "anno",
-     "testo": "2022",
-     "parola": "2022"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 18,
-    "lat": 30,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "You know what happened next. When the war started, wheat prices shot up, and so did Egypt's bill.",
-   "anteprima": false,
-   "vista": {
-    "lon": 33,
-    "lat": 38,
-    "larghezza": 40
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [
-    "UKR"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "swords",
-     "lon": 32,
-     "lat": 48,
-     "parola": "war"
-    },
-    {
-     "tipo": "icona",
-     "icona": "chart_up",
-     "lon": 31,
-     "lat": 31,
-     "parola": "prices"
-    },
-    {
-     "tipo": "nota",
-     "testo": "War pushed wheat prices up",
-     "parola": "bill"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": 22,
-    "lat": 32,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Much of that wheat becomes one thing, a round flatbread called aish baladi. In Egyptian Arabic, the word for bread also means life.",
-   "anteprima": false,
-   "vista": {
-    "lon": 31.2,
-    "lat": 30,
-    "larghezza": 8
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "wheat",
-     "lon": 31.24,
-     "lat": 30.04,
-     "parola": "wheat"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "BREAD = LIFE",
-     "lon": 31.3,
-     "lat": 30.5,
-     "parola": "life"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Same word: bread and life",
-     "parola": "means"
-    }
-   ],
-   "musica": "quotidiano",
-   "stacco": false,
-   "pin": {
-    "lon": 33.2,
-    "lat": 29,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Around seventy million Egyptians buy it at a price fixed by the state. And that price is political dynamite.",
-   "anteprima": false,
-   "vista": {
-    "lon": 31,
-    "lat": 28,
-    "larghezza": 16
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 70,
-     "prefisso": "~",
-     "suffisso": "M",
-     "sotto": "BUY SUBSIDIZED BREAD",
-     "parola": "seventy"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "worker",
-     "n": 5,
-     "lon": 31.2,
-     "lat": 28.5,
-     "parola": "Egyptians"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "DYNAMITE",
-     "parola": "dynamite"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": 27,
-    "lat": 26,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "In 1977, the government tried to raise it. Riots broke out across the country, and within days the president backed down.",
-   "anteprima": false,
-   "vista": {
-    "lon": 31,
-    "lat": 28,
-    "larghezza": 14
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1977",
-     "parola": "1977"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "peasant",
-     "n": 6,
-     "lon": 31.24,
-     "lat": 30.04,
-     "parola": "Riots"
-    },
-    {
-     "tipo": "icona",
-     "icona": "swords",
-     "lon": 29.9,
-     "lat": 31.2,
-     "parola": "broke"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Riots forced a U-turn",
-     "parola": "backed"
-    }
-   ],
-   "musica": "azione",
-   "stacco": false,
-   "pin": {
-    "lon": 27.5,
-    "lat": 27,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "For more than thirty years, a subsidized loaf cost the same five piastres. In 2024, the government finally quadrupled it to twenty.",
-   "anteprima": false,
-   "vista": {
-    "lon": 31,
-    "lat": 28,
-    "larghezza": 14
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "prezzo",
-     "testo": "5 PIASTRES",
-     "sotto": "LOAF FOR 30+ YEARS",
-     "ricco": false,
-     "parola": "five"
-    },
-    {
-     "tipo": "anno",
-     "testo": "2024",
-     "parola": "2024"
-    },
-    {
-     "tipo": "prezzo",
-     "testo": "20 PIASTRES",
-     "sotto": "LOAF SINCE 2024",
-     "ricco": true,
-     "parola": "twenty"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 28,
-    "lat": 26,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "That is still less than half a US cent. So the strip is full, the fields are shrinking, and the bread depends on foreign harvests.",
-   "anteprima": false,
-   "vista": {
-    "lon": 31,
-    "lat": 28,
-    "larghezza": 18
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "numero",
-     "testo": "<0.5¢",
-     "lon": 31.2,
-     "lat": 29.5,
-     "parola": "cent"
-    },
-    {
-     "tipo": "icona",
-     "icona": "chart_down",
-     "lon": 31.0,
-     "lat": 27,
-     "parola": "shrinking"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Full strip, shrinking fields",
-     "parola": "full"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": 27,
-    "lat": 25,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "So the government chose one way out: build a second Egypt in the desert. Forty-five kilometers east of Cairo, where there was only sand, there is now this.",
-   "anteprima": false,
-   "vista": {
-    "lon": 31.8,
-    "lat": 30.0,
-    "larghezza": 6
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "etichetta",
-     "testo": "CAIRO",
-     "lon": 31.24,
-     "lat": 30.04,
-     "parola": "Cairo"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      31.24,
-      30.04
-     ],
-     "a": [
-      32.0,
-      30.0
-     ],
-     "icona": "steam_train",
-     "parola": "east"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "NEW CAPITAL",
-     "lon": 32.0,
-     "lat": 30.0,
-     "parola": "now"
-    }
-   ],
-   "musica": "epico",
-   "stacco": false,
-   "pin": {
-    "lon": 32.8,
-    "lat": 30.9,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Egypt's new capital covers around seven hundred square kilometers, about the size of Singapore. It has the tallest skyscraper in Africa and the biggest cathedral in the Middle East.",
-   "anteprima": false,
-   "vista": {
-    "lon": 32,
-    "lat": 30,
-    "larghezza": 5
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 700,
-     "prefisso": "~",
-     "suffisso": " KM²",
-     "sotto": "SIZE OF SINGAPORE",
-     "parola": "seven"
-    },
-    {
-     "tipo": "icona",
-     "icona": "castle",
-     "lon": 32.0,
-     "lat": 30.0,
-     "parola": "skyscraper"
-    },
-    {
-     "tipo": "icona",
-     "icona": "church",
-     "lon": 32.05,
-     "lat": 30.03,
-     "parola": "cathedral"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 32.9,
-    "lat": 30.8,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "The estimated bill is up to 58 billion dollars. In 2023, the ministries moved in, and tens of thousands of workers now commute into the desert.",
-   "anteprima": false,
-   "vista": {
-    "lon": 31.8,
-    "lat": 30,
-    "larghezza": 6
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "prezzo",
-     "testo": "$58 BILLION",
-     "sotto": "NEW CAPITAL · BILL",
-     "ricco": true,
-     "parola": "billion"
-    },
-    {
-     "tipo": "anno",
-     "testo": "2023",
-     "parola": "2023"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "worker",
-     "n": 5,
-     "lon": 31.9,
-     "lat": 30.0,
-     "parola": "commute"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": 32.8,
-    "lat": 30.8,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "It is not the only one. The government is building more than twenty new cities and says the inhabited share of Egypt has doubled from seven to fourteen percent.",
-   "anteprima": false,
-   "vista": {
-    "lon": 30,
-    "lat": 27,
-    "larghezza": 22
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 20,
-     "prefisso": "+",
-     "suffisso": "",
-     "sotto": "NEW CITIES",
-     "parola": "twenty"
-    },
-    {
-     "tipo": "barre",
-     "titolo": "INHABITED SHARE OF EGYPT",
-     "voci": [
-      {
-       "testo": "BEFORE",
-       "valore": 7,
-       "lato": "verde"
-      },
-      {
-       "testo": "PLAN",
-       "valore": 14,
-       "lato": "oro"
-      }
-     ],
-     "parola": "doubled"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 26,
-    "lat": 24,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "So did Egyptians finally leave the river? The new capital was planned for six and a half million people. In 2025, its developer said a little over 30,000 lived there.",
-   "anteprima": false,
-   "vista": {
-    "lon": 32,
-    "lat": 30,
-    "larghezza": 5
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "numero",
-     "testo": "6.5M",
-     "lon": 32.0,
-     "lat": 30.1,
-     "parola": "six"
-    },
-    {
-     "tipo": "anno",
-     "testo": "2025",
-     "parola": "2025"
-    },
-    {
-     "tipo": "numero",
-     "testo": "30,000",
-     "lon": 31.9,
-     "lat": 29.9,
-     "parola": "30,000"
-    }
-   ],
-   "musica": "mistero",
-   "stacco": true,
-   "pin": {
-    "lon": 32.9,
-    "lat": 30.8,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Egypt's population grows by that much in about eight days. The new capital is a city built for millions that feels like a ghost town.",
-   "anteprima": false,
-   "vista": {
-    "lon": 32,
-    "lat": 30,
-    "larghezza": 6
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 8,
+     "valore": 101,
      "prefisso": "",
-     "suffisso": " DAYS",
-     "sotto": "EGYPT GROWS BY 30,000",
-     "parola": "eight"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "GHOST TOWN",
-     "parola": "ghost"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 32.9,
-    "lat": 30.8,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "The reason is simple. The apartments cost far more than a government worker earns, and the jobs, schools and relatives are still back in the valley.",
-   "anteprima": false,
-   "vista": {
-    "lon": 31.6,
-    "lat": 30,
-    "larghezza": 7
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "banknotes",
-     "lon": 32.0,
-     "lat": 30.0,
-     "parola": "cost"
-    },
-    {
-     "tipo": "icona",
-     "icona": "school",
-     "lon": 31.24,
-     "lat": 30.04,
-     "parola": "schools"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "family",
-     "n": 4,
-     "lon": 31.2,
-     "lat": 29.9,
-     "parola": "relatives"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": 32.9,
-    "lat": 30.8,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Even the new desert farms cannot escape the river. To water them, Egypt built the largest water treatment plant in the world, a Guinness record.",
-   "anteprima": false,
-   "vista": {
-    "lon": 30,
-    "lat": 30,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "farm",
-     "lon": 29.5,
-     "lat": 30.3,
-     "parola": "farms"
-    },
-    {
-     "tipo": "icona",
-     "icona": "factory",
-     "lon": 32.4,
-     "lat": 31.1,
-     "parola": "plant"
-    },
-    {
-     "tipo": "nota",
-     "testo": "World's largest treatment plant",
-     "parola": "largest"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": 33,
-    "lat": 29,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "It cleans dirty drainage water from the delta's fields, water that came from the Nile in the first place, and sends it into the desert.",
-   "anteprima": false,
-   "vista": {
-    "lon": 31,
-    "lat": 30.5,
-    "larghezza": 9
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      31,
-      31
-     ],
-     "a": [
-      29.5,
-      30.3
-     ],
-     "icona": "river",
-     "parola": "sends"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "NILE WATER, REUSED",
-     "lon": 31,
-     "lat": 31.3,
-     "parola": "Nile"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Escape from the Nile runs on the Nile",
-     "parola": "desert"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 33.3,
-    "lat": 29.6,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "All of this costs money, much of it borrowed in dollars. In 2015, one dollar bought about eight Egyptian pounds. Today it buys around fifty.",
-   "anteprima": false,
-   "vista": {
-    "lon": 31,
-    "lat": 28,
-    "larghezza": 16
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "prezzo",
-     "testo": "8 POUNDS",
-     "sotto": "PER DOLLAR · 2015",
-     "ricco": true,
-     "parola": "eight"
-    },
-    {
-     "tipo": "prezzo",
-     "testo": "50 POUNDS",
-     "sotto": "PER DOLLAR · TODAY",
-     "ricco": false,
-     "parola": "fifty"
-    },
-    {
-     "tipo": "icona",
-     "icona": "chart_down",
-     "lon": 31.2,
-     "lat": 29,
-     "parola": "buys"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": 27,
-    "lat": 25,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "For a country that pays for wheat in dollars, almost everything gets more expensive. Shopping for bread means paying a price set abroad.",
-   "anteprima": false,
-   "vista": {
-    "lon": 31,
-    "lat": 28,
-    "larghezza": 16
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "money_bag",
-     "lon": 31.2,
-     "lat": 30,
-     "parola": "dollars"
-    },
-    {
-     "tipo": "icona",
-     "icona": "chart_up",
-     "lon": 31,
-     "lat": 27,
-     "parola": "expensive"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Weak pound makes wheat dearer",
-     "parola": "abroad"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 27,
-    "lat": 25,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "In 2024, desperate for dollars, Egypt sold the United Arab Emirates the rights to develop a Mediterranean coastline. A deal worth 35 billion dollars.",
-   "anteprima": false,
-   "vista": {
-    "lon": 30,
-    "lat": 31,
-    "larghezza": 14
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [
-    "ARE"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "2024",
-     "parola": "2024"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "RAS EL-HEKMA",
-     "lon": 27.9,
-     "lat": 31.2,
-     "parola": "Mediterranean"
-    },
-    {
-     "tipo": "prezzo",
-     "testo": "$35 BILLION",
-     "sotto": "BIGGEST FOREIGN DEAL",
-     "ricco": true,
-     "parola": "billion"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 31.5,
-    "lat": 28.5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "It was the biggest foreign investment in Egyptian history. Crowded cities, debt, the price of bread: Egypt can at least try to fix these alone.",
-   "anteprima": false,
-   "vista": {
-    "lon": 31,
-    "lat": 28,
-    "larghezza": 16
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "banknotes",
-     "lon": 28,
-     "lat": 31.2,
-     "parola": "investment"
-    },
-    {
-     "tipo": "icona",
-     "icona": "hourglass",
-     "lon": 31.2,
-     "lat": 29,
+     "suffisso": "%",
+     "sotto": "DEBT VS ECONOMY",
      "parola": "debt"
     },
     {
-     "tipo": "nota",
-     "testo": "Problems Egypt can tackle alone",
-     "parola": "alone"
+     "tipo": "scritta",
+     "testo": "AGAIN?",
+     "parola": "again"
     }
    ],
-   "musica": "",
+   "musica": "mistero",
    "stacco": false,
    "pin": {
-    "lon": 27,
-    "lat": 25,
-    "faccia": "normale"
+    "lon": -100,
+    "lat": 30,
+    "faccia": "stupito"
    }
   },
   {
-   "testo": "The last problem it cannot fix, because Egypt's water does not fall in Egypt. Follow the river south, past Aswan, to Khartoum in Sudan.",
+   "testo": "In October 1929, the American stock market began to fall, and it kept falling for almost three years.",
    "anteprima": false,
    "vista": {
-    "lon": 33,
-    "lat": 20,
-    "larghezza": 30
+    "lon": -74,
+    "lat": 40.7,
+    "larghezza": 12
    },
-   "epoca": "oggi",
+   "epoca": "antica",
    "oro": [
-    "EGY"
+    "USA"
    ],
-   "verde": [
-    "SDN"
-   ],
+   "verde": [],
    "eventi": [
     {
-     "tipo": "freccia",
-     "da": [
-      32.9,
-      24
-     ],
-     "a": [
-      32.5,
-      15.6
-     ],
-     "icona": "river",
-     "parola": "south"
+     "tipo": "anno",
+     "testo": "1929",
+     "parola": "October"
     },
     {
-     "tipo": "etichetta",
-     "testo": "KHARTOUM",
-     "lon": 32.5,
-     "lat": 15.6,
-     "parola": "Khartoum"
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": -74,
+     "lat": 40.7,
+     "parola": "stock"
     },
     {
-     "tipo": "nota",
-     "testo": "Egypt's water falls elsewhere",
-     "parola": "fall"
+     "tipo": "conta",
+     "valore": 3,
+     "prefisso": "~",
+     "suffisso": "",
+     "sotto": "YEARS OF FALLING",
+     "parola": "three"
     }
    ],
    "musica": "tensione",
    "stacco": false,
    "pin": {
-    "lon": 26,
-    "lat": 19,
+    "lon": -72,
+    "lat": 41.5,
     "faccia": "normale"
    }
   },
   {
-   "testo": "There two rivers meet. The White Nile is steady, but about half of it evaporates in South Sudan's swamps.",
+   "testo": "By the summer of 1932, the Dow had lost 89 percent of its value. More than 9,000 banks had failed.",
    "anteprima": false,
    "vista": {
-    "lon": 32,
-    "lat": 9,
-    "larghezza": 24
+    "lon": -90,
+    "lat": 38,
+    "larghezza": 50
    },
-   "epoca": "oggi",
+   "epoca": "antica",
    "oro": [
-    "EGY"
+    "USA"
    ],
-   "verde": [
-    "SSD",
-    "SDN"
-   ],
+   "verde": [],
    "eventi": [
     {
-     "tipo": "etichetta",
-     "testo": "WHITE NILE",
-     "lon": 31,
-     "lat": 13,
-     "parola": "White"
+     "tipo": "conta",
+     "valore": 89,
+     "prefisso": "",
+     "suffisso": "%",
+     "sotto": "DOW LOST",
+     "parola": "89"
     },
     {
-     "tipo": "etichetta",
-     "testo": "SUDD SWAMPS",
-     "lon": 30.5,
-     "lat": 7.5,
-     "parola": "swamps"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Half evaporates in the swamps",
-     "parola": "half"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 24,
-    "lat": 12,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "The other, the Blue Nile, crashes down from the mountains of Ethiopia. Remember that summer rain that flooded the valley? This is where it falls.",
-   "anteprima": false,
-   "vista": {
-    "lon": 37,
-    "lat": 11,
-    "larghezza": 18
-   },
-   "epoca": "oggi",
-   "oro": [
-    "ETH"
-   ],
-   "verde": [
-    "EGY"
-   ],
-   "eventi": [
-    {
-     "tipo": "etichetta",
-     "testo": "BLUE NILE",
-     "lon": 36.5,
-     "lat": 11.5,
-     "parola": "Blue"
-    },
-    {
-     "tipo": "icona",
-     "icona": "mountain",
-     "lon": 38,
-     "lat": 10.5,
-     "parola": "mountains"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      37.5,
-      11.5
-     ],
-     "a": [
-      33,
-      15
-     ],
-     "icona": "river",
-     "parola": "falls"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 43,
-    "lat": 8,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Around eighty-five percent of the Nile water reaching Egypt starts as rain in Ethiopia. And Egypt has a river whose source it does not own.",
-   "anteprima": false,
-   "vista": {
-    "lon": 35,
-    "lat": 18,
-    "larghezza": 36
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [
-    "ETH"
-   ],
-   "eventi": [
-    {
-     "tipo": "contatore",
-     "testo": "MORE THAN 8 IN 10",
-     "su": 8,
-     "di": 10,
-     "personaggio": "farmer_placeholder",
-     "parola": "eighty-five"
+     "tipo": "folla",
+     "personaggio": "banker",
+     "n": 5,
+     "lon": -80,
+     "lat": 40,
+     "parola": "banks"
     },
     {
      "tipo": "conta",
-     "valore": 85,
-     "prefisso": "~",
-     "suffisso": "%",
-     "sotto": "OF NILE WATER IN EGYPT",
-     "parola": "percent"
+     "valore": 9000,
+     "prefisso": "+",
+     "suffisso": "",
+     "sotto": "BANKS FAILED",
+     "parola": "9,000"
     },
     {
-     "tipo": "contorno",
-     "paese": "ETH",
-     "parola": "Ethiopia"
+     "tipo": "nota",
+     "testo": "Banks failed by the thousands",
+     "parola": "failed"
     }
    ],
    "musica": "",
    "stacco": false,
    "pin": {
-    "lon": 24,
-    "lat": 15,
+    "lon": -105,
+    "lat": 33,
     "faccia": "stupito"
    }
   },
   {
-   "testo": "In 1959, Egypt and Sudan divided the river between themselves: fifty-five and a half billion cubic meters a year for Egypt, eighteen and a half for Sudan.",
+   "testo": "The economy shrank by nearly a third, and about one in four workers had no job.",
    "anteprima": false,
    "vista": {
-    "lon": 32,
-    "lat": 22,
-    "larghezza": 24
+    "lon": -95,
+    "lat": 38,
+    "larghezza": 45
    },
-   "epoca": "oggi",
+   "epoca": "antica",
    "oro": [
-    "EGY"
+    "USA"
    ],
-   "verde": [
-    "SDN"
-   ],
+   "verde": [],
    "eventi": [
     {
-     "tipo": "anno",
-     "testo": "1959",
-     "parola": "1959"
+     "tipo": "contatore",
+     "testo": "1 IN 4 JOBLESS",
+     "su": 1,
+     "di": 4,
+     "personaggio": "worker",
+     "parola": "four"
     },
     {
-     "tipo": "barre",
-     "titolo": "NILE SHARE (BN M³)",
-     "voci": [
-      {
-       "testo": "EGYPT",
-       "valore": 55.5,
-       "lato": "oro"
-      },
-      {
-       "testo": "SUDAN",
-       "valore": 18.5,
-       "lato": "verde"
-      },
-      {
-       "testo": "ETHIOPIA",
-       "valore": 0,
-       "lato": "verde"
-      }
-     ],
-     "parola": "billion"
+     "tipo": "icona",
+     "icona": "factory",
+     "lon": -83,
+     "lat": 42.3,
+     "parola": "economy"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Economy shrank by a third",
+     "parola": "third"
     }
    ],
    "musica": "",
    "stacco": false,
    "pin": {
-    "lon": 38,
-    "lat": 26,
+    "lon": -110,
+    "lat": 42,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Ethiopia got nothing. It was not even part of the deal. So in 2011, it started building the Grand Ethiopian Renaissance Dam.",
+   "testo": "It would take the market 25 years to get back to where it started.",
    "anteprima": false,
    "vista": {
-    "lon": 36,
-    "lat": 11,
-    "larghezza": 14
+    "lon": -74,
+    "lat": 40.7,
+    "larghezza": 10
    },
-   "epoca": "oggi",
+   "epoca": "antica",
    "oro": [
-    "ETH"
+    "USA"
    ],
    "verde": [],
    "eventi": [
     {
-     "tipo": "scritta",
-     "testo": "NOTHING",
-     "parola": "nothing"
+     "tipo": "conta",
+     "valore": 25,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "YEARS TO RECOVER",
+     "parola": "25"
     },
-    {
-     "tipo": "anno",
-     "testo": "2011",
-     "parola": "2011"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "GERD DAM",
-     "lon": 35.09,
-     "lat": 11.21,
-     "parola": "Dam"
-    }
-   ],
-   "musica": "epico",
-   "stacco": false,
-   "pin": {
-    "lon": 40,
-    "lat": 8.5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "It is Africa's biggest hydroelectric power plant and it took more than a decade. From 2020, Ethiopia filled the lake behind it stage by stage.",
-   "anteprima": false,
-   "vista": {
-    "lon": 35.1,
-    "lat": 11.2,
-    "larghezza": 6
-   },
-   "epoca": "oggi",
-   "oro": [
-    "ETH"
-   ],
-   "verde": [],
-   "eventi": [
     {
      "tipo": "icona",
-     "icona": "bridge",
-     "lon": 35.09,
-     "lat": 11.21,
-     "parola": "hydroelectric"
+     "icona": "hourglass",
+     "lon": -74,
+     "lat": 40.7,
+     "parola": "years"
     },
+    {
+     "tipo": "nota",
+     "testo": "A 25-year wait",
+     "parola": "started"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -72,
+    "lat": 41.2,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Now jump to 2020. Unemployment leaped to 14.7 percent in a single month, the highest on record. Yet the economy bounced back.",
+   "anteprima": false,
+   "vista": {
+    "lon": -95,
+    "lat": 38,
+    "larghezza": 50
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
     {
      "tipo": "anno",
      "testo": "2020",
      "parola": "2020"
     },
     {
-     "tipo": "etichetta",
-     "testo": "RESERVOIR FILLING",
-     "lon": 35.3,
-     "lat": 11.0,
-     "parola": "lake"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 36.5,
-    "lat": 10.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "That lake can hold 74 billion cubic meters, more than Egypt's entire yearly share of the Nile.",
-   "anteprima": false,
-   "vista": {
-    "lon": 35,
-    "lat": 15,
-    "larghezza": 30
-   },
-   "epoca": "oggi",
-   "oro": [
-    "ETH"
-   ],
-   "verde": [
-    "EGY"
-   ],
-   "eventi": [
-    {
-     "tipo": "barre",
-     "titolo": "BILLION CUBIC METERS",
-     "voci": [
-      {
-       "testo": "GERD LAKE",
-       "valore": 74,
-       "lato": "oro"
-      },
-      {
-       "testo": "EGYPT SHARE",
-       "valore": 55.5,
-       "lato": "verde"
-      }
-     ],
-     "parola": "billion"
+     "tipo": "conta",
+     "valore": 14.7,
+     "prefisso": "",
+     "suffisso": "%",
+     "sotto": "UNEMPLOYMENT",
+     "parola": "14.7"
     },
     {
      "tipo": "scritta",
-     "testo": "MORE",
-     "parola": "more"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": true,
-   "pin": {
-    "lon": 44,
-    "lat": 20,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "For Ethiopia, this was never really about Egypt. In 2023, almost half of Ethiopians still had no electricity.",
-   "anteprima": false,
-   "vista": {
-    "lon": 39,
-    "lat": 9,
-    "larghezza": 16
-   },
-   "epoca": "oggi",
-   "oro": [
-    "ETH"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "contatore",
-     "testo": "ALMOST 5 IN 10",
-     "su": 5,
-     "di": 10,
-     "personaggio": "family",
-     "parola": "half"
-    },
-    {
-     "tipo": "icona",
-     "icona": "question",
-     "lon": 39,
-     "lat": 9,
-     "parola": "electricity"
+     "testo": "BOUNCED BACK",
+     "parola": "bounced"
     },
     {
      "tipo": "nota",
-     "testo": "Half had no electricity",
-     "parola": "electricity"
+     "testo": "Highest since records began",
+     "parola": "record"
     }
    ],
    "musica": "curiosita",
    "stacco": false,
    "pin": {
-    "lon": 44,
-    "lat": 6,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Ethiopia paid for most of the dam itself, partly with bonds bought by ordinary citizens. And it now has some 135 million people, more than Egypt.",
-   "anteprima": false,
-   "vista": {
-    "lon": 38,
-    "lat": 9,
-    "larghezza": 16
-   },
-   "epoca": "oggi",
-   "oro": [
-    "ETH"
-   ],
-   "verde": [
-    "EGY"
-   ],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "worker",
-     "n": 5,
-     "lon": 38.7,
-     "lat": 9.0,
-     "parola": "citizens"
-    },
-    {
-     "tipo": "barre",
-     "titolo": "POPULATION (M)",
-     "voci": [
-      {
-       "testo": "ETHIOPIA",
-       "valore": 135,
-       "lato": "oro"
-      },
-      {
-       "testo": "EGYPT",
-       "valore": 109,
-       "lato": "verde"
-      }
-     ],
-     "parola": "135"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 44,
-    "lat": 5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Egypt sees it very differently. Its foreign minister told the UN Security Council the dam was an existential threat.",
-   "anteprima": false,
-   "vista": {
-    "lon": 33,
-    "lat": 20,
-    "larghezza": 36
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [
-    "ETH"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "flag:EG",
-     "lon": 31.2,
-     "lat": 30,
-     "parola": "Egypt"
-    },
-    {
-     "tipo": "icona",
-     "icona": "parliament",
-     "lon": -74,
-     "lat": 40.7,
-     "parola": "Council"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "EXISTENTIAL",
-     "parola": "existential"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": 24,
-    "lat": 14,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "In September 2025, Ethiopia officially inaugurated the dam. Within weeks, the river flooded villages in Sudan and even in Egypt's delta.",
-   "anteprima": false,
-   "vista": {
-    "lon": 32,
-    "lat": 20,
-    "larghezza": 30
-   },
-   "epoca": "oggi",
-   "oro": [
-    "ETH"
-   ],
-   "verde": [
-    "SDN",
-    "EGY"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "2025",
-     "parola": "September"
-    },
-    {
-     "tipo": "icona",
-     "icona": "river",
-     "lon": 32.5,
-     "lat": 15.5,
-     "parola": "flooded"
-    },
-    {
-     "tipo": "icona",
-     "icona": "river",
-     "lon": 31,
-     "lat": 31,
-     "parola": "delta"
-    }
-   ],
-   "musica": "azione",
-   "stacco": false,
-   "pin": {
-    "lon": 40,
-    "lat": 24,
+    "lon": -115,
+    "lat": 45,
     "faccia": "stupito"
    }
   },
   {
-   "testo": "Egypt blamed sudden, unannounced releases from the dam. Ethiopia said the dam had actually made the flood smaller. Same river, same water, two stories.",
+   "testo": "So could America survive another Great Depression? It comes down to four things that broke in 1929.",
    "anteprima": false,
    "vista": {
-    "lon": 34,
-    "lat": 20,
-    "larghezza": 34
+    "lon": -98,
+    "lat": 39,
+    "larghezza": 60
    },
    "epoca": "oggi",
    "oro": [
-    "ETH"
+    "USA"
    ],
-   "verde": [
-    "EGY"
-   ],
+   "verde": [],
    "eventi": [
     {
-     "tipo": "etichetta",
-     "testo": "EGYPT: RELEASES",
-     "lon": 31,
-     "lat": 28,
-     "parola": "blamed"
+     "tipo": "icona",
+     "icona": "question",
+     "lon": -98,
+     "lat": 39,
+     "parola": "survive"
     },
     {
-     "tipo": "etichetta",
-     "testo": "ETHIOPIA: SMALLER FLOOD",
-     "lon": 38,
-     "lat": 10,
-     "parola": "smaller"
+     "tipo": "conta",
+     "valore": 4,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "THINGS THAT BROKE",
+     "parola": "four"
     },
     {
-     "tipo": "scritta",
-     "testo": "TWO STORIES",
-     "parola": "two"
+     "tipo": "nota",
+     "testo": "Four things broke in 1929",
+     "parola": "broke"
     }
    ],
    "musica": "",
    "stacco": false,
    "pin": {
-    "lon": 24,
-    "lat": 14,
+    "lon": -85,
+    "lat": 30,
     "faccia": "normale"
    }
   },
   {
-   "testo": "But the real fear in Cairo is not a flood. It is a drought. If dry years come back to back, a dam in another country decides how much flows down.",
+   "testo": "Three of them have been fixed. One is in worse shape than at any time since World War Two.",
    "anteprima": false,
    "vista": {
-    "lon": 33,
-    "lat": 20,
-    "larghezza": 36
+    "lon": -98,
+    "lat": 39,
+    "larghezza": 60
    },
    "epoca": "oggi",
    "oro": [
-    "EGY"
+    "USA"
    ],
-   "verde": [
-    "ETH"
-   ],
+   "verde": [],
    "eventi": [
     {
      "tipo": "icona",
-     "icona": "hourglass",
-     "lon": 31.2,
-     "lat": 28,
-     "parola": "drought"
+     "icona": "chart_up",
+     "lon": -77,
+     "lat": 38.9,
+     "parola": "worse"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Three fixed, one much worse",
+     "parola": "fixed"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "ONE LEFT",
+     "parola": "One"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -105,
+    "lat": 32,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "And one country found the way out long before America did. But first, the thing that can still break in a single day.",
+   "anteprima": false,
+   "vista": {
+    "lon": 139,
+    "lat": 36,
+    "larghezza": 30
+   },
+   "epoca": "antica",
+   "oro": [
+    "JPN"
+   ],
+   "verde": [
+    "USA"
+   ],
+   "eventi": [
+    {
+     "tipo": "contorno",
+     "paese": "JPN",
+     "parola": "country"
     },
     {
      "tipo": "freccia",
      "da": [
-      35.1,
-      11.2
+      139.7,
+      35.7
      ],
      "a": [
-      31.2,
-      28
+      -74,
+      40.7
      ],
-     "icona": "river",
-     "parola": "flows"
+     "icona": "cargo_ship",
+     "parola": "before"
     },
     {
      "tipo": "nota",
-     "testo": "Another country controls the tap",
-     "parola": "decides"
+     "testo": "Japan escaped first",
+     "parola": "found"
+    }
+   ],
+   "musica": "mistero",
+   "stacco": false,
+   "pin": {
+    "lon": 150,
+    "lat": 42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In 1930, a rumor was enough to empty a bank. Deposits had no federal insurance whatsoever.",
+   "anteprima": false,
+   "vista": {
+    "lon": -74,
+    "lat": 40.7,
+    "larghezza": 10
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1930",
+     "parola": "1930"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "family",
+     "n": 6,
+     "lon": -74,
+     "lat": 40.7,
+     "parola": "rumor"
+    },
+    {
+     "tipo": "icona",
+     "icona": "banknotes",
+     "lon": -73.9,
+     "lat": 40.75,
+     "parola": "deposits"
     }
    ],
    "musica": "tensione",
    "stacco": false,
    "pin": {
-    "lon": 24,
-    "lat": 14,
+    "lon": -72.5,
+    "lat": 41.5,
     "faccia": "normale"
    }
   },
   {
-   "testo": "And there is still no binding agreement on the rules. Egypt's best protection is, ironically, its own dam.",
+   "testo": "If you heard your bank was in trouble, you ran to get your money out before everyone else did.",
    "anteprima": false,
    "vista": {
-    "lon": 32.8,
-    "lat": 23,
-    "larghezza": 10
+    "lon": -74,
+    "lat": 40.7,
+    "larghezza": 8
    },
-   "epoca": "oggi",
+   "epoca": "antica",
    "oro": [
-    "EGY"
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "worker",
+     "n": 7,
+     "lon": -74,
+     "lat": 40.7,
+     "parola": "ran"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -74.05,
+      40.68
+     ],
+     "a": [
+      -73.95,
+      40.75
+     ],
+     "icona": "banknotes",
+     "parola": "money"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Everyone ran for the door",
+     "parola": "everyone"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -73,
+    "lat": 41.2,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "When one bank closed its doors, the line formed at the next one.",
+   "anteprima": false,
+   "vista": {
+    "lon": -74,
+    "lat": 40.7,
+    "larghezza": 9
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "fortress",
+     "lon": -74.01,
+     "lat": 40.71,
+     "parola": "closed"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "family",
+     "n": 5,
+     "lon": -73.95,
+     "lat": 40.76,
+     "parola": "line"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Panic spreads bank to bank",
+     "parola": "next"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -72.8,
+    "lat": 41.3,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In December 1930, the Bank of United States in New York collapsed. It served hundreds of thousands of ordinary families.",
+   "anteprima": false,
+   "vista": {
+    "lon": -74,
+    "lat": 40.7,
+    "larghezza": 8
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1930",
+     "parola": "December"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "BANK OF UNITED STATES",
+     "lon": -74,
+     "lat": 40.72,
+     "parola": "Bank"
+    },
+    {
+     "tipo": "contatore",
+     "testo": "HUNDREDS OF THOUSANDS",
+     "su": 7,
+     "di": 10,
+     "personaggio": "family",
+     "parola": "families"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -72.8,
+    "lat": 41.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Its name made many believe the government stood behind it. It didn't.",
+   "anteprima": false,
+   "vista": {
+    "lon": -74,
+    "lat": 40.7,
+    "larghezza": 8
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "flag:US",
+     "lon": -74,
+     "lat": 40.72,
+     "parola": "government"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "NOT BACKED",
+     "parola": "didn't"
+    },
+    {
+     "tipo": "nota",
+     "testo": "The name misled depositors",
+     "parola": "name"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -72.8,
+    "lat": 41.4,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "With about 200 million dollars in deposits, it was the biggest bank failure in American history up to then.",
+   "anteprima": false,
+   "vista": {
+    "lon": -74,
+    "lat": 40.7,
+    "larghezza": 9
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 200,
+     "prefisso": "~$",
+     "suffisso": "M",
+     "sotto": "IN DEPOSITS",
+     "parola": "200"
+    },
+    {
+     "tipo": "icona",
+     "icona": "money_bag",
+     "lon": -74,
+     "lat": 40.72,
+     "parola": "deposits"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Biggest failure so far",
+     "parola": "biggest"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -72.8,
+    "lat": 41.4,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "It was one of more than 9,000 banks that failed by 1933. Depositors lost over 1.3 billion dollars.",
+   "anteprima": false,
+   "vista": {
+    "lon": -95,
+    "lat": 38,
+    "larghezza": 50
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1933",
+     "parola": "1933"
+    },
+    {
+     "tipo": "conta",
+     "valore": 9000,
+     "prefisso": "+",
+     "suffisso": "",
+     "sotto": "BANKS FAILED",
+     "parola": "9,000"
+    },
+    {
+     "tipo": "conta",
+     "valore": 1.3,
+     "prefisso": "$",
+     "suffisso": "B",
+     "sotto": "LOST BY SAVERS",
+     "parola": "1.3"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -108,
+    "lat": 34,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Families who had done nothing wrong lost their savings overnight.",
+   "anteprima": false,
+   "vista": {
+    "lon": -90,
+    "lat": 38,
+    "larghezza": 40
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "family",
+     "n": 6,
+     "lon": -87.6,
+     "lat": 41.9,
+     "parola": "Families"
+    },
+    {
+     "tipo": "icona",
+     "icona": "banknotes",
+     "lon": -90,
+     "lat": 38.6,
+     "parola": "savings"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Savings gone overnight",
+     "parola": "overnight"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": -100,
+    "lat": 34,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "By March 1933, the new president closed every bank in the country for a week to stop the panic.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 39,
+    "larghezza": 55
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1933",
+     "parola": "March"
+    },
+    {
+     "tipo": "personaggio",
+     "nome": "Franklin D. Roosevelt",
+     "descrizione": "1930s American president, round glasses, smiling, suit",
+     "parola": "president"
+    },
+    {
+     "tipo": "conta",
+     "valore": 7,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "DAYS ALL BANKS CLOSED",
+     "parola": "week"
+    },
+    {
+     "tipo": "contorno",
+     "paese": "USA",
+     "parola": "country"
+    }
+   ],
+   "musica": "",
+   "stacco": true,
+   "pin": {
+    "lon": -112,
+    "lat": 47,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Then he went on the radio and said your money was safer in a reopened bank than under the mattress.",
+   "anteprima": false,
+   "vista": {
+    "lon": -77,
+    "lat": 38.9,
+    "larghezza": 14
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
    ],
    "verde": [],
    "eventi": [
     {
      "tipo": "icona",
      "icona": "scroll_law",
-     "lon": 31.2,
-     "lat": 30,
-     "parola": "agreement"
-    },
-    {
-     "tipo": "icona",
-     "icona": "bridge",
-     "lon": 32.88,
-     "lat": 23.97,
-     "parola": "dam"
-    },
-    {
-     "tipo": "nota",
-     "testo": "No binding deal on filling rules",
-     "parola": "binding"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 34.5,
-    "lat": 22,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "The lake behind Aswan is one of the largest reservoirs on Earth, a savings account for dry years. The dam that switched off the flood is now Egypt's insurance policy.",
-   "anteprima": false,
-   "vista": {
-    "lon": 32.8,
-    "lat": 22.5,
-    "larghezza": 9
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "etichetta",
-     "testo": "LAKE NASSER",
-     "lon": 32.9,
-     "lat": 22.5,
-     "parola": "lake"
-    },
-    {
-     "tipo": "icona",
-     "icona": "money_bag",
-     "lon": 32.6,
-     "lat": 23.5,
-     "parola": "savings"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Aswan lake is Egypt's insurance",
-     "parola": "insurance"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": 34.4,
-    "lat": 21.5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Even so, the math is worrying. Egypt's yearly water divided by its people comes to about 500 cubic meters each, right at the UN line for absolute scarcity.",
-   "anteprima": false,
-   "vista": {
-    "lon": 31,
-    "lat": 27,
-    "larghezza": 18
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 500,
-     "prefisso": "~",
-     "suffisso": " M³",
-     "sotto": "WATER PER PERSON, PER YEAR",
-     "parola": "500"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "SCARCITY",
-     "parola": "scarcity"
-    },
-    {
-     "tipo": "nota",
-     "testo": "At the UN absolute-scarcity line",
-     "parola": "line"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": true,
-   "pin": {
-    "lon": 27,
-    "lat": 25,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Compare that with a thousand cubic meters, the point where a country is already called water stressed. Egypt sits at half of even that.",
-   "anteprima": false,
-   "vista": {
-    "lon": 31,
-    "lat": 27,
-    "larghezza": 18
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "barre",
-     "titolo": "WATER PER PERSON (M³)",
-     "voci": [
-      {
-       "testo": "STRESSED LINE",
-       "valore": 1000,
-       "lato": "verde"
-      },
-      {
-       "testo": "EGYPT",
-       "valore": 500,
-       "lato": "oro"
-      }
-     ],
-     "parola": "thousand"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Half the water-stress threshold",
-     "parola": "half"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 27,
-    "lat": 24,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "So the scorecard. Geography: a river through a desert, which gave Egypt everything and nowhere else to go. History: fifty centuries on one strip of mud.",
-   "anteprima": false,
-   "vista": {
-    "lon": 31,
-    "lat": 27,
-    "larghezza": 18
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "etichetta",
-     "testo": "GEOGRAPHY: ONE RIVER",
-     "lon": 31.2,
-     "lat": 28,
-     "parola": "Geography"
-    },
-    {
-     "tipo": "conta",
-     "valore": 50,
-     "prefisso": "",
-     "suffisso": " CENTURIES",
-     "sotto": "ON THE SAME MUD",
-     "parola": "fifty"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Everything, and nowhere else",
-     "parola": "nowhere"
-    }
-   ],
-   "musica": "epico",
-   "stacco": false,
-   "pin": {
-    "lon": 27,
-    "lat": 25,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Decisions: taming the river and building cities few people moved to. And one source of water that Egypt does not control.",
-   "anteprima": false,
-   "vista": {
-    "lon": 32,
-    "lat": 25,
-    "larghezza": 28
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [
-    "ETH"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "bridge",
-     "lon": 32.88,
-     "lat": 23.97,
-     "parola": "taming"
-    },
-    {
-     "tipo": "icona",
-     "icona": "castle",
-     "lon": 32.0,
-     "lat": 30.0,
-     "parola": "cities"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Water source not in its hands",
-     "parola": "control"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 24,
-    "lat": 20,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Why does everyone live here? Because this thin green line is the only place in Egypt where the desert lets people live.",
-   "anteprima": false,
-   "vista": {
-    "lon": 31,
-    "lat": 27,
-    "larghezza": 16
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "confine",
-     "punti": [
-      [
-       32.9,
-       24
-      ],
-      [
-       32.5,
-       26
-      ],
-      [
-       31.2,
-       28
-      ],
-      [
-       31.2,
-       30
-      ],
-      [
-       31.2,
-       31.4
-      ]
-     ],
-     "parola": "line"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "family",
-     "n": 6,
-     "lon": 31.2,
-     "lat": 28,
-     "parola": "live"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "ONLY PLACE",
-     "parola": "only"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": 27,
-    "lat": 25,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Since this video began, Egypt has gained more than two dozen people, and almost every one of them will live right here.",
-   "anteprima": false,
-   "vista": {
-    "lon": 31,
-    "lat": 28,
-    "larghezza": 14
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 24,
-     "prefisso": "+",
-     "suffisso": "",
-     "sotto": "NEW EGYPTIANS",
-     "parola": "two"
+     "lon": -77,
+     "lat": 38.9,
+     "parola": "radio"
     },
     {
      "tipo": "folla",
      "personaggio": "family",
      "n": 4,
-     "lon": 31.2,
-     "lat": 29,
-     "parola": "right"
+     "lon": -77.2,
+     "lat": 39.3,
+     "parola": "mattress"
     },
     {
      "tipo": "nota",
-     "testo": "Almost all will live on the Nile",
-     "parola": "here"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": 27.5,
-    "lat": 25,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "A country can be as big as Texas, yet if only a ribbon of it has water, that ribbon is the whole country.",
-   "anteprima": false,
-   "vista": {
-    "lon": 31,
-    "lat": 27,
-    "larghezza": 20
-   },
-   "epoca": "oggi",
-   "oro": [
-    "EGY"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "contorno",
-     "paese": "EGY",
-     "parola": "country"
-    },
-    {
-     "tipo": "numero",
-     "testo": "5%",
-     "lon": 31.2,
-     "lat": 27.5,
-     "parola": "ribbon"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "WATER = LAND",
-     "parola": "water"
+     "testo": "First fireside chat",
+     "parola": "safer"
     }
    ],
    "musica": "epico",
    "stacco": false,
    "pin": {
-    "lon": 26,
-    "lat": 24,
+    "lon": -74.5,
+    "lat": 40,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "When the banks reopened, people lined up again. This time, to put their money back in.",
+   "anteprima": false,
+   "vista": {
+    "lon": -85,
+    "lat": 38,
+    "larghezza": 40
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "worker",
+     "n": 6,
+     "lon": -87.6,
+     "lat": 41.9,
+     "parola": "lined"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -84,
+      36
+     ],
+     "a": [
+      -87.6,
+      41.9
+     ],
+     "icona": "banknotes",
+     "parola": "back"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "TRUST",
+     "parola": "again"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": false,
+   "pin": {
+    "lon": -95,
+    "lat": 45,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "That's the first thing that broke: trust in the banks. But a failed bank took something even bigger with it.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 39,
+    "larghezza": 55
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 1,
+     "prefisso": "#",
+     "suffisso": "",
+     "sotto": "TRUST IN BANKS",
+     "parola": "first"
+    },
+    {
+     "tipo": "icona",
+     "icona": "fortress",
+     "lon": -98,
+     "lat": 39,
+     "parola": "bank"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Banks took something bigger",
+     "parola": "bigger"
+    }
+   ],
+   "musica": "mistero",
+   "stacco": false,
+   "pin": {
+    "lon": -110,
+    "lat": 32,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "When a bank fails, its deposits vanish, and so does all the money it would have lent.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 39,
+    "larghezza": 50
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "banknotes",
+     "lon": -90,
+     "lat": 38,
+     "parola": "deposits"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -90,
+      38
+     ],
+     "a": [
+      -100,
+      40
+     ],
+     "icona": "money_bag",
+     "parola": "lent"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Deposits and loans both vanish",
+     "parola": "vanish"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -108,
+    "lat": 45,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Between 1929 and 1933, the amount of money in America fell by more than a third.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 39,
+    "larghezza": 55
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1929",
+     "parola": "1929"
+    },
+    {
+     "tipo": "conta",
+     "valore": 33,
+     "prefisso": "-",
+     "suffisso": "%",
+     "sotto": "MONEY SUPPLY",
+     "parola": "third"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": -98,
+     "lat": 39,
+     "parola": "fell"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -110,
+    "lat": 33,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Fewer dollars meant falling prices. Falling prices sound good, until your loan stays the same size.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 39,
+    "larghezza": 40
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": -98,
+     "lat": 41,
+     "parola": "falling"
+    },
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": -96,
+     "lat": 38,
+     "parola": "loan"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "WHY?",
+     "parola": "good"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -108,
+    "lat": 45,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Picture a farmer selling wheat for less every year, while the bank still wants the same payment.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 39,
+    "larghezza": 25
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "peasant",
+     "n": 4,
+     "lon": -98,
+     "lat": 38.5,
+     "parola": "farmer"
+    },
+    {
+     "tipo": "icona",
+     "icona": "wheat",
+     "lon": -97,
+     "lat": 39.5,
+     "parola": "wheat"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Prices fall, debts don't",
+     "parola": "same"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": -103,
+    "lat": 42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Businesses cut wages, then jobs. People without jobs spent less, so more businesses cut. The spiral kept going.",
+   "anteprima": false,
+   "vista": {
+    "lon": -85,
+    "lat": 41,
+    "larghezza": 25
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "factory",
+     "lon": -83,
+     "lat": 42.3,
+     "parola": "Businesses"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "worker",
+     "n": 6,
+     "lon": -83,
+     "lat": 42.3,
+     "parola": "jobs"
+    },
+    {
+     "tipo": "nota",
+     "testo": "A downward spiral",
+     "parola": "spiral"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -90,
+    "lat": 45,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "The Federal Reserve had the power to stop the money from shrinking. Mostly, it didn't use it.",
+   "anteprima": false,
+   "vista": {
+    "lon": -77,
+    "lat": 38.9,
+    "larghezza": 14
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "parliament",
+     "lon": -77.04,
+     "lat": 38.89,
+     "parola": "Federal"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "DID NOTHING",
+     "parola": "didn't"
+    },
+    {
+     "tipo": "nota",
+     "testo": "The Fed had the power",
+     "parola": "power"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -75.5,
+    "lat": 39.8,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In 1963, economists Milton Friedman and Anna Schwartz showed exactly how much damage that inaction did.",
+   "anteprima": false,
+   "vista": {
+    "lon": -77,
+    "lat": 39,
+    "larghezza": 20
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1963",
+     "parola": "1963"
+    },
+    {
+     "tipo": "personaggio",
+     "nome": "Milton Friedman",
+     "descrizione": "20th-century American economist, glasses, bald, suit",
+     "parola": "Friedman"
+    },
+    {
+     "tipo": "personaggio",
+     "nome": "Anna Schwartz",
+     "descrizione": "20th-century American economist, woman, glasses, short hair",
+     "parola": "Schwartz"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -73,
+    "lat": 41,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Almost 40 years later, a future Fed chairman, Ben Bernanke, told them: you're right, we did it, and we're sorry.",
+   "anteprima": false,
+   "vista": {
+    "lon": -77,
+    "lat": 39,
+    "larghezza": 16
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 40,
+     "prefisso": "~",
+     "suffisso": "",
+     "ssotto": "YEARS LATER",
+     "sotto": "YEARS LATER",
+     "parola": "40"
+    },
+    {
+     "tipo": "personaggio",
+     "nome": "Ben Bernanke",
+     "descrizione": "American economist, gray beard, glasses, suit",
+     "parola": "Bernanke"
+    },
+    {
+     "tipo": "nota",
+     "testo": "\"We did it. We're sorry.\"",
+     "parola": "sorry"
+    }
+   ],
+   "musica": "",
+   "stacco": true,
+   "pin": {
+    "lon": -74.5,
+    "lat": 40.3,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Thanks to you, he added, we won't do it again. That's the second thing that broke: the money itself.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 39,
+    "larghezza": 55
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 2,
+     "prefisso": "#",
+     "suffisso": "",
+     "sotto": "THE MONEY SUPPLY",
+     "parola": "second"
+    },
+    {
+     "tipo": "icona",
+     "icona": "banknotes",
+     "lon": -98,
+     "lat": 39,
+     "parola": "money"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Second break: the money",
+     "parola": "broke"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -110,
+    "lat": 33,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "And part of the reason the Fed held back was the third thing: a promise made of gold.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 39,
+    "larghezza": 55
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "gold_coins",
+     "lon": -85,
+     "lat": 38,
+     "parola": "gold"
+    },
+    {
+     "tipo": "conta",
+     "valore": 3,
+     "prefisso": "#",
+     "suffisso": "",
+     "sotto": "THE GOLD PROMISE",
+     "parola": "third"
+    },
+    {
+     "tipo": "nota",
+     "testo": "A promise made of gold",
+     "parola": "promise"
+    }
+   ],
+   "musica": "mistero",
+   "stacco": false,
+   "pin": {
+    "lon": -110,
+    "lat": 33,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In 1929, every dollar could be swapped for a fixed amount of gold. To keep that promise, a country couldn't just print money.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 39,
+    "larghezza": 50
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1929",
+     "parola": "1929"
+    },
+    {
+     "tipo": "icona",
+     "icona": "silver_bars",
+     "lon": -77,
+     "lat": 38.9,
+     "parola": "gold"
+    },
+    {
+     "tipo": "icona",
+     "icona": "banknotes",
+     "lon": -90,
+     "lat": 38,
+     "parola": "dollar"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Dollar tied to gold",
+     "parola": "swapped"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -108,
+    "lat": 45,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "When gold started leaving, a country had to raise interest rates, even in the middle of a collapse.",
+   "anteprima": false,
+   "vista": {
+    "lon": -40,
+    "lat": 45,
+    "larghezza": 120
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "GBR"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      -74,
+      40.7
+     ],
+     "a": [
+      -0.1,
+      51.5
+     ],
+     "icona": "gold_coins",
+     "parola": "leaving"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_up",
+     "lon": -77,
+     "lat": 38.9,
+     "parola": "raise"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Gold leaves, rates must rise",
+     "parola": "rates"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -40,
+    "lat": 60,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In September 1931, Britain let go of gold. Investors feared America was next and began pulling gold out.",
+   "anteprima": false,
+   "vista": {
+    "lon": -40,
+    "lat": 45,
+    "larghezza": 120
+   },
+   "epoca": "antica",
+   "oro": [
+    "GBR"
+   ],
+   "verde": [
+    "USA"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1931",
+     "parola": "September"
+    },
+    {
+     "tipo": "contorno",
+     "paese": "GBR",
+     "parola": "Britain"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -74,
+      40.7
+     ],
+     "a": [
+      -3,
+      51.5
+     ],
+     "icona": "gold_coins",
+     "parola": "pulling"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -35,
+    "lat": 58,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "So in October 1931, with banks failing everywhere, the Fed raised interest rates to defend the dollar.",
+   "anteprima": false,
+   "vista": {
+    "lon": -90,
+    "lat": 38,
+    "larghezza": 50
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1931",
+     "parola": "October"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_up",
+     "lon": -77,
+     "lat": 38.9,
+     "parola": "raised"
+    },
+    {
+     "tipo": "icona",
+     "icona": "fortress",
+     "lon": -87,
+     "lat": 41.9,
+     "parola": "banks"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -108,
+    "lat": 44,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "It was like being handcuffed while you're drowning. Meanwhile, Japan made the same bet at the worst moment.",
+   "anteprima": false,
+   "vista": {
+    "lon": 139,
+    "lat": 36,
+    "larghezza": 40
+   },
+   "epoca": "antica",
+   "oro": [
+    "JPN"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "scritta",
+     "testo": "HANDCUFFED",
+     "parola": "handcuffed"
+    },
+    {
+     "tipo": "contorno",
+     "paese": "JPN",
+     "parola": "Japan"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Japan made the same bet",
+     "parola": "bet"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 150,
+    "lat": 42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In January 1930, three months after the crash, Japan tied the yen back to gold at its old value.",
+   "anteprima": false,
+   "vista": {
+    "lon": 139,
+    "lat": 36,
+    "larghezza": 25
+   },
+   "epoca": "antica",
+   "oro": [
+    "JPN"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1930",
+     "parola": "January"
+    },
+    {
+     "tipo": "icona",
+     "icona": "gold_coins",
+     "lon": 139.7,
+     "lat": 35.7,
+     "parola": "gold"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Yen tied back to gold",
+     "parola": "yen"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 146,
+    "lat": 40,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Prices collapsed and the Japanese countryside was devastated. Then, in December 1931, a new finance minister took over.",
+   "anteprima": false,
+   "vista": {
+    "lon": 138,
+    "lat": 37,
+    "larghezza": 14
+   },
+   "epoca": "antica",
+   "oro": [
+    "JPN"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": 138,
+     "lat": 37,
+     "parola": "collapsed"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "peasant",
+     "n": 5,
+     "lon": 138.5,
+     "lat": 36.5,
+     "parola": "countryside"
+    },
+    {
+     "tipo": "anno",
+     "testo": "1931",
+     "parola": "December"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": 142,
+    "lat": 40,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "His name was Takahashi Korekiyo, and he was 77 years old. On his very first day, he took Japan off gold.",
+   "anteprima": false,
+   "vista": {
+    "lon": 139.7,
+    "lat": 35.7,
+    "larghezza": 10
+   },
+   "epoca": "antica",
+   "oro": [
+    "JPN"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "personaggio",
+     "nome": "Takahashi Korekiyo",
+     "descrizione": "elderly Japanese finance minister, white mustache, 1930s suit",
+     "parola": "Takahashi"
+    },
+    {
+     "tipo": "conta",
+     "valore": 77,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "YEARS OLD",
+     "parola": "77"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Day one: off gold",
+     "parola": "off"
+    }
+   ],
+   "musica": "epico",
+   "stacco": true,
+   "pin": {
+    "lon": 141.2,
+    "lat": 36.5,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Then he did something almost nobody dared in a depression. He spent. And to pay for it, he borrowed.",
+   "anteprima": false,
+   "vista": {
+    "lon": 139.7,
+    "lat": 35.7,
+    "larghezza": 12
+   },
+   "epoca": "antica",
+   "oro": [
+    "JPN"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "money_bag",
+     "lon": 139.7,
+     "lat": 35.7,
+     "parola": "spent"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "HE SPENT",
+     "parola": "spent"
+    },
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": 139.9,
+     "lat": 35.9,
+     "parola": "borrowed"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 141.5,
+    "lat": 37,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "From November 1932, the Bank of Japan bought the new government bonds directly. The yen fell, and Japanese goods got cheaper abroad.",
+   "anteprima": false,
+   "vista": {
+    "lon": 139,
+    "lat": 36,
+    "larghezza": 40
+   },
+   "epoca": "antica",
+   "oro": [
+    "JPN"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1932",
+     "parola": "November"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": 139.7,
+     "lat": 35.7,
+     "parola": "yen"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      139.7,
+      35.7
+     ],
+     "a": [
+      125,
+      30
+     ],
+     "icona": "cargo_ship",
+     "parola": "abroad"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 150,
+    "lat": 40,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Japan became one of the first major economies to climb out of the depression. America held on until April 1933.",
+   "anteprima": false,
+   "vista": {
+    "lon": 0,
+    "lat": 40,
+    "larghezza": 300
+   },
+   "epoca": "antica",
+   "oro": [
+    "JPN"
+   ],
+   "verde": [
+    "USA"
+   ],
+   "eventi": [
+    {
+     "tipo": "conta_paesi",
+     "paesi": [
+      "JPN",
+      "USA"
+     ],
+     "colore": "oro",
+     "parola": "first"
+    },
+    {
+     "tipo": "anno",
+     "testo": "1933",
+     "parola": "April"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Japan exited first",
+     "parola": "climb"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": false,
+   "pin": {
+    "lon": -40,
+    "lat": 10,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "That was a year and a half after Britain. Economists later found the pattern: the first to leave gold were the first to recover.",
+   "anteprima": false,
+   "vista": {
+    "lon": -30,
+    "lat": 45,
+    "larghezza": 120
+   },
+   "epoca": "antica",
+   "oro": [
+    "GBR"
+   ],
+   "verde": [
+    "USA"
+   ],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 18,
+     "prefisso": "~",
+     "suffisso": "",
+     "sotto": "MONTHS BEHIND BRITAIN",
+     "parola": "half"
+    },
+    {
+     "tipo": "barre",
+     "titolo": "LEFT GOLD",
+     "voci": [
+      {
+       "testo": "BRITAIN 1931",
+       "valore": 100,
+       "lato": "oro"
+      },
+      {
+       "testo": "USA 1933",
+       "valore": 40,
+       "lato": "verde"
+      }
+     ],
+     "parola": "pattern"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Leave gold first, recover first",
+     "parola": "first"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -40,
+    "lat": 62,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Takahashi's own story ended badly. When he tried to rein in military spending, army officers killed him in February 1936.",
+   "anteprima": false,
+   "vista": {
+    "lon": 139.7,
+    "lat": 35.7,
+    "larghezza": 10
+   },
+   "epoca": "antica",
+   "oro": [
+    "JPN"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1936",
+     "parola": "February"
+    },
+    {
+     "tipo": "icona",
+     "icona": "grave",
+     "lon": 139.7,
+     "lat": 35.7,
+     "parola": "killed"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "soldier",
+     "n": 5,
+     "lon": 139.75,
+     "lat": 35.68,
+     "parola": "officers"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": 141,
+    "lat": 36.8,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "He was 81. So that's three things that broke: the banks, the money, and the gold. Have we fixed them?",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 39,
+    "larghezza": 60
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 81,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "HIS AGE",
+     "parola": "81"
+    },
+    {
+     "tipo": "icona",
+     "icona": "question",
+     "lon": -98,
+     "lat": 39,
+     "parola": "fixed"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Banks, money, gold: fixed?",
+     "parola": "gold"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -110,
+    "lat": 32,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "The banks first. In 1933, Congress created federal deposit insurance. In 1934, only nine banks failed.",
+   "anteprima": false,
+   "vista": {
+    "lon": -77,
+    "lat": 38.9,
+    "larghezza": 14
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1933",
+     "parola": "1933"
+    },
+    {
+     "tipo": "icona",
+     "icona": "parliament",
+     "lon": -77.01,
+     "lat": 38.89,
+     "parola": "Congress"
+    },
+    {
+     "tipo": "conta",
+     "valore": 9,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "BANKS FAILED IN 1934",
+     "parola": "nine"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": -74.5,
+    "lat": 40,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In the four years before, more than 9,000 had failed. Nine, against thousands. That's what insurance did.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 39,
+    "larghezza": 50
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "barre",
+     "titolo": "BANK FAILURES",
+     "voci": [
+      {
+       "testo": "1930-33",
+       "valore": 9000,
+       "lato": "verde"
+      },
+      {
+       "testo": "1934",
+       "valore": 9,
+       "lato": "oro"
+      }
+     ],
+     "parola": "9,000"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "9 VS 9,000",
+     "parola": "Nine"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Insurance stopped the runs",
+     "parola": "insurance"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -108,
+    "lat": 44,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Today, deposits are insured up to 250,000 dollars per person, per bank. Can a rumor still sink a bank?",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 39,
+    "larghezza": 50
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "numero",
+     "testo": "$250,000",
+     "lon": -98,
+     "lat": 39,
+     "parola": "250,000"
+    },
+    {
+     "tipo": "icona",
+     "icona": "banknotes",
+     "lon": -90,
+     "lat": 38,
+     "parola": "insured"
+    },
+    {
+     "tipo": "icona",
+     "icona": "question",
+     "lon": -105,
+     "lat": 42,
+     "parola": "rumor"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -110,
+    "lat": 32,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Yes. In March 2023, Silicon Valley Bank customers tried to pull out 42 billion dollars in a single day, mostly from their phones.",
+   "anteprima": false,
+   "vista": {
+    "lon": -122,
+    "lat": 37.4,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "2023",
+     "parola": "March"
+    },
+    {
+     "tipo": "conta",
+     "valore": 42,
+     "prefisso": "$",
+     "suffisso": "B",
+     "sotto": "WITHDRAWN IN A DAY",
+     "parola": "42"
+    },
+    {
+     "tipo": "icona",
+     "icona": "banknotes",
+     "lon": -122,
+     "lat": 37.4,
+     "parola": "phones"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -120,
+    "lat": 38.5,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "It was the biggest bank run in history. The bank failed the next morning.",
+   "anteprima": false,
+   "vista": {
+    "lon": -122,
+    "lat": 37.4,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "scritta",
+     "testo": "BIGGEST EVER",
+     "parola": "biggest"
+    },
+    {
+     "tipo": "icona",
+     "icona": "fortress",
+     "lon": -122,
+     "lat": 37.4,
+     "parola": "failed"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Failed the next morning",
+     "parola": "morning"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -120.2,
+    "lat": 38.4,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "But two days later, the government promised every depositor would get their money back. A rumor can sink a bank, not the savers.",
+   "anteprima": false,
+   "vista": {
+    "lon": -95,
+    "lat": 39,
+    "larghezza": 50
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "parliament",
+     "lon": -77,
+     "lat": 38.9,
+     "parola": "government"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "family",
+     "n": 5,
+     "lon": -122,
+     "lat": 37.4,
+     "parola": "depositor"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Every depositor was repaid",
+     "parola": "back"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": false,
+   "pin": {
+    "lon": -105,
+    "lat": 45,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Next, the gold. In 1971, the United States cut the dollar's last link to gold.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 39,
+    "larghezza": 60
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1971",
+     "parola": "1971"
+    },
+    {
+     "tipo": "icona",
+     "icona": "gold_coins",
+     "lon": -85,
+     "lat": 38,
+     "parola": "gold"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Dollar freed from gold",
+     "parola": "link"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -110,
+    "lat": 32,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Today, when the system freezes, the Fed can create the money to unfreeze it. In 2008, it did exactly that.",
+   "anteprima": false,
+   "vista": {
+    "lon": -77,
+    "lat": 39,
+    "larghezza": 16
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "parliament",
+     "lon": -77.04,
+     "lat": 38.89,
+     "parola": "Fed"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -77.04,
+      38.89
+     ],
+     "a": [
+      -74,
+      40.7
+     ],
+     "icona": "banknotes",
+     "parola": "create"
+    },
+    {
+     "tipo": "anno",
+     "testo": "2008",
+     "parola": "2008"
+    }
+   ],
+   "musica": "azione",
+   "stacco": false,
+   "pin": {
+    "lon": -74.8,
+    "lat": 40.2,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In September 2008, Lehman Brothers, a giant Wall Street bank, went bankrupt, and the whole financial system seized up.",
+   "anteprima": false,
+   "vista": {
+    "lon": -74,
+    "lat": 40.7,
+    "larghezza": 8
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "2008",
+     "parola": "September"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "LEHMAN BROTHERS",
+     "lon": -74.01,
+     "lat": 40.71,
+     "parola": "Lehman"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": -73.95,
+     "lat": 40.75,
+     "parola": "bankrupt"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -72.8,
+    "lat": 41.4,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "This time, nobody watched. Within weeks, Congress gave the Treasury up to 700 billion dollars, and the Fed flooded the system with money.",
+   "anteprima": false,
+   "vista": {
+    "lon": -77,
+    "lat": 39,
+    "larghezza": 16
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 700,
+     "prefisso": "$",
+     "suffisso": "B",
+     "sotto": "BANK RESCUE FUND",
+     "parola": "700"
+    },
+    {
+     "tipo": "icona",
+     "icona": "money_bag",
+     "lon": -77.04,
+     "lat": 38.89,
+     "parola": "Treasury"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -77.04,
+      38.89
+     ],
+     "a": [
+      -74,
+      40.7
+     ],
+     "icona": "banknotes",
+     "parola": "flooded"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -75,
+    "lat": 40.3,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "The economy shrank by 4.3 percent and unemployment peaked at 10 percent. Painful, but nothing like losing a third of everything.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 39,
+    "larghezza": 50
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "barre",
+     "titolo": "ECONOMY SHRANK",
+     "voci": [
+      {
+       "testo": "1929-33",
+       "valore": 30,
+       "lato": "verde"
+      },
+      {
+       "testo": "2008-09",
+       "valore": 4.3,
+       "lato": "oro"
+      }
+     ],
+     "parola": "shrank"
+    },
+    {
+     "tipo": "conta",
+     "valore": 10,
+     "prefisso": "",
+     "suffisso": "%",
+     "sotto": "PEAK UNEMPLOYMENT",
+     "parola": "10"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -110,
+    "lat": 45,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In 2020, the pandemic shut the country down. Congress passed a 2.2 trillion dollar relief package, the largest in history.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 39,
+    "larghezza": 50
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "2020",
+     "parola": "2020"
+    },
+    {
+     "tipo": "conta",
+     "valore": 2.2,
+     "prefisso": "$",
+     "suffisso": "T",
+     "sotto": "RELIEF PACKAGE",
+     "parola": "2.2"
+    },
+    {
+     "tipo": "icona",
+     "icona": "parliament",
+     "lon": -77.01,
+     "lat": 38.89,
+     "parola": "Congress"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -110,
+    "lat": 32,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Unemployment hit 14.7 percent in a single month, then started falling the very next month. That's a safety net working.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 39,
+    "larghezza": 50
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 14.7,
+     "prefisso": "",
+     "suffisso": "%",
+     "sotto": "PEAK, THEN FALLING",
+     "parola": "14.7"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": -98,
+     "lat": 41,
+     "parola": "falling"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Falling again next month",
+     "parola": "next"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": false,
+   "pin": {
+    "lon": -108,
+    "lat": 45,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "And then there's the fourth thing, the one nobody fixed. Look at how both crises were stopped: the government borrowed and spent.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 39,
+    "larghezza": 50
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 4,
+     "prefisso": "#",
+     "suffisso": "",
+     "sotto": "THE ONE NOT FIXED",
+     "parola": "fourth"
+    },
+    {
+     "tipo": "icona",
+     "icona": "money_bag",
+     "lon": -77,
+     "lat": 38.9,
+     "parola": "borrowed"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Both rescues ran on borrowing",
+     "parola": "spent"
+    }
+   ],
+   "musica": "mistero",
+   "stacco": false,
+   "pin": {
+    "lon": -108,
+    "lat": 33,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "That only works if there's room to borrow. In 1929, federal debt was less than a fifth of the American economy.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 39,
+    "larghezza": 50
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1929",
+     "parola": "1929"
+    },
+    {
+     "tipo": "griglia",
+     "paese": [
+      "USA"
+     ],
+     "pieni": 0.18,
+     "testo": "DEBT: UNDER 1 IN 5",
+     "colore": "oro",
+     "parola": "fifth"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Plenty of room to borrow",
+     "parola": "room"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -112,
+    "lat": 47,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Today, debt held by the public is on track to reach 101 percent of the entire economy by the end of 2026.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 39,
+    "larghezza": 50
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "USA"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "2026",
+     "parola": "2026"
+    },
+    {
+     "tipo": "solleva",
+     "paese": [
+      "USA"
+     ],
+     "volte": 8,
+     "testo": "101%",
+     "colore": "verde",
+     "parola": "101"
+    },
+    {
+     "tipo": "conta",
+     "valore": 101,
+     "prefisso": "",
+     "suffisso": "%",
+     "sotto": "DEBT VS ECONOMY",
+     "parola": "percent"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -112,
+    "lat": 47,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "That's the highest since just after World War Two. The all-time record is 106 percent, set in 1946.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 39,
+    "larghezza": 50
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "USA"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1946",
+     "parola": "1946"
+    },
+    {
+     "tipo": "barre",
+     "titolo": "DEBT VS ECONOMY",
+     "voci": [
+      {
+       "testo": "1929",
+       "valore": 18,
+       "lato": "oro"
+      },
+      {
+       "testo": "2026",
+       "valore": 101,
+       "lato": "verde"
+      },
+      {
+       "testo": "1946",
+       "valore": 106,
+       "lato": "verde"
+      }
+     ],
+     "parola": "record"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Record: 106% in 1946",
+     "parola": "106"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -112,
+    "lat": 46,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "It's projected to pass that record and reach around 120 percent by 2036. This year alone, the government borrows about 1.9 trillion dollars more than it collects.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 39,
+    "larghezza": 50
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "USA"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "2036",
+     "parola": "2036"
+    },
+    {
+     "tipo": "conta",
+     "valore": 120,
+     "prefisso": "~",
+     "suffisso": "%",
+     "sotto": "PROJECTED DEBT",
+     "parola": "120"
+    },
+    {
+     "tipo": "conta",
+     "valore": 1.9,
+     "prefisso": "$",
+     "suffisso": "T",
+     "sotto": "BORROWED THIS YEAR",
+     "parola": "1.9"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -112,
+    "lat": 46,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "And debt costs money. This year, America will spend about a trillion dollars just on interest, more than on its entire military.",
+   "anteprima": false,
+   "vista": {
+    "lon": -77,
+    "lat": 39,
+    "larghezza": 20
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "USA"
+   ],
+   "eventi": [
+    {
+     "tipo": "prezzo",
+     "testo": "$1 TRILLION",
+     "sotto": "INTEREST · THIS YEAR",
+     "ricco": false,
+     "parola": "trillion"
+    },
+    {
+     "tipo": "icona",
+     "icona": "cannon",
+     "lon": -77.05,
+     "lat": 38.87,
+     "parola": "military"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "MORE THAN DEFENSE",
+     "parola": "more"
+    }
+   ],
+   "musica": "",
+   "stacco": true,
+   "pin": {
+    "lon": -74.5,
+    "lat": 40.3,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "By 2036, interest is projected to cost almost twice as much as defense. Picture your phone bill doubling while your pay stays flat.",
+   "anteprima": false,
+   "vista": {
+    "lon": -77,
+    "lat": 39,
+    "larghezza": 20
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "USA"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "2036",
+     "parola": "2036"
+    },
+    {
+     "tipo": "barre",
+     "titolo": "INTEREST VS DEFENSE",
+     "voci": [
+      {
+       "testo": "INTEREST",
+       "valore": 190,
+       "lato": "verde"
+      },
+      {
+       "testo": "DEFENSE",
+       "valore": 100,
+       "lato": "oro"
+      }
+     ],
+     "parola": "twice"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Interest nearly doubles defense",
+     "parola": "twice"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -74.8,
+    "lat": 40.4,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "A big debt doesn't cause a depression by itself. But it's the cushion that saved America twice, and every year it gets thinner.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 39,
+    "larghezza": 50
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "USA"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "hourglass",
+     "lon": -98,
+     "lat": 39,
+     "parola": "cushion"
+    },
+    {
+     "tipo": "nota",
+     "testo": "The cushion saved America twice",
+     "parola": "twice"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "THINNER",
+     "parola": "thinner"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": -110,
+    "lat": 33,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "So let's score it. Banks fixed, since insured savings are protected. Money fixed, since the Fed has shown it will step in.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 39,
+    "larghezza": 55
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "fortress",
+     "lon": -87,
+     "lat": 41.9,
+     "parola": "Banks"
+    },
+    {
+     "tipo": "icona",
+     "icona": "banknotes",
+     "lon": -77,
+     "lat": 38.9,
+     "parola": "Money"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Banks and money: fixed",
+     "parola": "fixed"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -110,
+    "lat": 33,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Gold is gone, since the dollar isn't tied to it anymore. And debt is worse than at any time since World War Two.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 39,
+    "larghezza": 55
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "gold_coins",
+     "lon": -85,
+     "lat": 38,
+     "parola": "Gold"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_up",
+     "lon": -77,
+     "lat": 38.9,
+     "parola": "debt"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Gold gone, debt worse",
+     "parola": "worse"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -110,
+    "lat": 45,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Could America survive another Great Depression? Probably, yes. Three of the four things that turned a crash into a catastrophe are fixed.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 39,
+    "larghezza": 60
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "scritta",
+     "testo": "PROBABLY YES",
+     "parola": "Probably"
+    },
+    {
+     "tipo": "conta",
+     "valore": 3,
+     "prefisso": "",
+     "suffisso": " OF 4",
+     "sotto": "PROBLEMS FIXED",
+     "parola": "Three"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Three of four are fixed",
+     "parola": "fixed"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": true,
+   "pin": {
+    "lon": -112,
+    "lat": 33,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "But the fourth one is the safety net itself. In 1929, it took the market 25 years to come back.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 39,
+    "larghezza": 60
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "USA"
+   ],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 25,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "YEARS TO RECOVER IN 1929",
+     "parola": "25"
+    },
+    {
+     "tipo": "icona",
+     "icona": "hourglass",
+     "lon": -98,
+     "lat": 39,
+     "parola": "net"
+    },
+    {
+     "tipo": "nota",
+     "testo": "The net is the weak point",
+     "parola": "safety"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": -112,
+    "lat": 46,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "The real question isn't whether America would survive the next one. It's how much of the cushion would be left when it comes.",
+   "anteprima": false,
+   "vista": {
+    "lon": -98,
+    "lat": 39,
+    "larghezza": 70
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "USA"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "question",
+     "lon": -98,
+     "lat": 39,
+     "parola": "question"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "HOW MUCH?",
+     "parola": "much"
+    },
+    {
+     "tipo": "nota",
+     "testo": "How much cushion is left?",
+     "parola": "cushion"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -115,
+    "lat": 33,
     "faccia": "normale"
    }
   }
