@@ -633,6 +633,8 @@ if str(P.get('carica') or '').upper() == 'SI' and E('YT_REFRESH_TOKEN'):
     req = urllib.request.Request(up, data=open(VIDEO, 'rb').read(), method='PUT', headers={'Authorization': 'Bearer ' + tk, 'Content-Type': 'video/mp4'})
     vid_id = json.loads(urllib.request.urlopen(req, timeout=3600).read())['id']
     log('caricato su YouTube:', vid_id, '(' + (P.get('privacy') or 'unlisted') + ')')
+    import dichiarazioni_yt as DICH
+    DICH.nessuna_promozione(vid_id, tk)
     try:
         req = urllib.request.Request(f'https://www.googleapis.com/upload/youtube/v3/thumbnails/set?videoId={vid_id}', data=open(COP, 'rb').read(),
                                      headers={'Authorization': 'Bearer ' + tk, 'Content-Type': 'image/jpeg'})

@@ -27,6 +27,7 @@ import costi as CO
 sys.path.insert(0, os.path.join(ROOT, 'strumenti'))
 import manuale as MAN   # colonna carica = MANUALE: tutto pronto ma il video lo carica Giorgio
 import descrizione as DESCR
+import dichiarazioni_yt as DICH
 KIT = os.path.join(ROOT, 'kit_storia')
 FONT = os.path.join(ROOT, 'font')
 GEO = os.path.join(ROOT, 'geo')
@@ -4510,6 +4511,7 @@ def carica_youtube(path, c, titolo):
             with urllib.request.urlopen(put, timeout=1800) as r:
                 vid = json.loads(r.read().decode())['id']
                 log('caricato su YouTube:', vid)
+                DICH.nessuna_promozione(vid, tok)
                 return vid
         except urllib.error.HTTPError as e:
             if e.code == 401:

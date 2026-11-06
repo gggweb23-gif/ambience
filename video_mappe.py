@@ -26,6 +26,7 @@ import costi as CO
 sys.path.insert(0, os.path.join(ROOT, 'strumenti'))
 import manuale as MAN   # colonna carica = MANUALE: tutto pronto ma il video lo carica Giorgio
 import descrizione as DESCR
+import dichiarazioni_yt as DICH
 RIS = os.path.join(ROOT, 'risorse_mappe')          # mappa, confini, font e icone (scaricati dal workflow)
 E = os.environ.get
 try:
@@ -1868,6 +1869,7 @@ def carica_youtube(path, c, titolo):
             put = urllib.request.Request(sessione, data=open(path, 'rb').read(), method='PUT', headers={'Authorization': 'Bearer ' + tok, 'Content-Type': 'video/mp4'})
             with urllib.request.urlopen(put, timeout=1800) as r:
                 vid = json.loads(r.read().decode())['id']; log('caricato su YouTube:', vid)
+                DICH.nessuna_promozione(vid, tok)
                 return vid
         except urllib.error.HTTPError as e:
             if e.code == 401:

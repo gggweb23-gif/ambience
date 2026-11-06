@@ -7,6 +7,8 @@ on:
         default: '25'
       dettagli:
         default: ''
+      promo_no:
+        default: ''
 
 permissions:
   contents: read
@@ -29,4 +31,5 @@ jobs:
           YT_REFRESH_TOKEN_WWII_TESTIMONY: ${{ secrets.YT_REFRESH_TOKEN_WWII_TESTIMONY }}
           QUANTI: ${{ inputs.quanti }}
           DETTAGLI: ${{ inputs.dettagli }}
+          PROMO_NO: ${{ inputs.promo_no }}
         run: pip install -q google-auth requests && python3 strumenti/elenco_video_canali.py

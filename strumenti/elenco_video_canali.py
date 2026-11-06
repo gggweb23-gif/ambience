@@ -3,6 +3,7 @@
 import json, os, re, sys, urllib.parse, urllib.request
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import avvio_canali as A
+import dichiarazioni_yt as DICH
 import performance as PF
 
 E = os.environ.get
@@ -19,6 +20,9 @@ for cfg in canali:
     up = g('channels', part='contentDetails', mine='true')['items'][0]['contentDetails']['relatedPlaylists']['uploads']
     ids = [x['contentDetails']['videoId'] for x in g('playlistItems', part='contentDetails', playlistId=up, maxResults=int(E('QUANTI', '25'))).get('items', [])]
     print('=====', cid)
+    if E('PROMO_NO'):   # 6 nov: "Promozione a pagamento" = No anche sui video gia' caricati
+        for vid in ids:
+            print('  ', vid, end=' '); DICH.nessuna_promozione(vid, h['Authorization'][7:])
     for v in g('videos', part='snippet,status,contentDetails,statistics', id=','.join(ids)).get('items', []):
         print(f"  {v['id']} | {v['contentDetails']['duration']:>9} | {v['status']['privacyStatus']:>8} | {v['status'].get('publishAt', v['snippet']['publishedAt'])[:16]} | {v['snippet']['title'][:95]}")
         if E('DETTAGLI'):   # tutte le impostazioni che possono frenare le impression

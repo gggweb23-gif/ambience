@@ -290,7 +290,10 @@ def carica(tk, f, x, cfg, riga, vid_lungo, quando):
                                  headers={'Authorization': 'Bearer ' + tk, 'Content-Type': 'application/json', 'X-Upload-Content-Type': 'video/mp4'})
     up = urllib.request.urlopen(req, timeout=60).headers['Location']
     req = urllib.request.Request(up, data=open(f, 'rb').read(), method='PUT', headers={'Authorization': 'Bearer ' + tk, 'Content-Type': 'video/mp4'})
-    return json.loads(urllib.request.urlopen(req, timeout=900).read())['id']
+    sid = json.loads(urllib.request.urlopen(req, timeout=900).read())['id']
+    import dichiarazioni_yt as DICH
+    DICH.nessuna_promozione(sid, tk)
+    return sid
 
 
 def scrivi(fid, sch, h, n, colonna, valore):

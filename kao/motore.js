@@ -542,6 +542,10 @@ async function caricaYouTube(file, cfg, col) {
   const dove = ini.headers.get('location');
   const r = await richiesta(dove, { metodo: 'PUT', corpo: fs.readFileSync(file), headers: { 'Content-Type': 'video/mp4' }, timeout: 3600000, tentativi: 3 });
   log('caricato su YouTube:', r.id, '|', JSON.stringify(status));
+  try {   // 6 nov (Giorgio): "Promozione a pagamento" = No (mai bloccante)
+    await yt('https://www.googleapis.com/youtube/v3/videos?part=paidProductPlacementDetails', { metodo: 'PUT', corpo: { id: r.id, paidProductPlacementDetails: { hasPaidProductPlacement: false } } });
+    log('promozione a pagamento: No');
+  } catch (e) { log('promozione a pagamento non impostata:', String(e.message || e).slice(0, 150)); }
   return r.id;
 }
 async function playlist(vid, cfg, titolo, descr) {   // stessa logica del Publisher (Scegli Argomento + Prepara Playlist)
