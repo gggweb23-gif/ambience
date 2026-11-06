@@ -377,7 +377,7 @@ PART {k + 1}:
         txt = ' '.join(pezzi)
         n = len(txt.split())
         log(f'originale condensato a blocchi: {len(parole)} -> {n} parole in {len(blocchi)} blocchi (obiettivo {obiettivo})')
-        if obiettivo * .80 <= n <= obiettivo * 1.15:
+        if obiettivo * (.92 if giro == 0 else .80) <= n <= obiettivo * 1.15:   # 6 nov: 1069 su 1312 (81%) -> copione di 1144 parole, 2 volte fuori misura
             return txt
         quota = min(0.95, quota * obiettivo / max(n, 1))
     raise RuntimeError(f'VIDEO BLOCCATO: testo del competitor condensato a {n} parole invece di {obiettivo} (nessuna spesa per voce e immagini)')
