@@ -25,6 +25,7 @@ os.environ.setdefault('COSTI_FILE', os.path.join(LAV, 'costi_video.jsonl'))
 import costi as CO
 sys.path.insert(0, os.path.join(ROOT, 'strumenti'))
 import manuale as MAN   # colonna carica = MANUALE: tutto pronto ma il video lo carica Giorgio
+import descrizione as DESCR
 RIS = os.path.join(ROOT, 'risorse_mappe')          # mappa, confini, font e icone (scaricati dal workflow)
 E = os.environ.get
 try:
@@ -1835,7 +1836,12 @@ def lista_tag(titolo, tag):
     return out
 
 
-def dati_youtube(c, titolo):
+def dati_youtube(c, titolo):   # 6 nov (Giorgio): la prima frase della descrizione e' sempre il titolo
+    d, t = _dati_youtube(c, titolo)
+    return DESCR.con_titolo(titolo, d), t
+
+
+def _dati_youtube(c, titolo):
     descr = '\n\n'.join(x for x in [titolo, str(c.get('descrizione') or '').strip(), str(c.get('capitoli_testo') or '').strip(),
                                      str(P.get('descrizione_base') or '').strip()] if x)
     return descr[:4900], lista_tag(titolo, c.get('tag'))

@@ -563,6 +563,7 @@ async function main() {
   const manuale = !PROVA && String(cfg.carica || '').trim().toUpperCase() === 'MANUALE';   // 5 nov (Giorgio): tutto pronto, il video lo carica lui
   const carica = (!PROVA || privProva === 'unlisted') && !['NO', 'MANUALE'].includes(String(cfg.carica || '').trim().toUpperCase()) && !/test|prova/i.test(td) && !(nTd > 0 && nTd < 8)
     && String(cfg.youtube_upload_enabled || '').trim() !== '';
+  colonne.descrizione_youtube = conTitolo(colonne.titolo_italiano || sw.titolo_italiano, colonne.descrizione_youtube);   // 6 nov (Giorgio): prima frase = titolo
   const extra = { titolo: colonne.titolo_italiano || sw.titolo_italiano, descrizione: colonne.descrizione_youtube || '', tag: colonne.tag_seo || '',
     testo_copertina: colonne.titolo_thumbnail || '', video_url: movie.url, copertina_url: urlCop,
     cartella_video: cfg.output_video_folder_id || '', cartella_copertine: cfg.output_thumbnail_folder_id || '', minuti_video: Math.round(movie.duration / 6) / 10,
@@ -670,7 +671,7 @@ async function caricaYouTube(file, cfg, col) {
   if (COP_MANCANTE && status.privacyStatus === 'public') { status.privacyStatus = 'private'; status.publishAt = new Date(Date.now() + 3 * 3600000).toISOString(); }
   status.selfDeclaredMadeForKids = false;
   const lingua = String(cfg.language || 'it');
-  const meta = { snippet: { title: String(col.titolo_italiano || '').slice(0, 100), description: String(col.descrizione_youtube || '').slice(0, 4900),
+  const meta = { snippet: { title: String(col.titolo_italiano || '').slice(0, 100), description: conTitolo(col.titolo_italiano, col.descrizione_youtube).slice(0, 4900),
     categoryId: String(cfg.categoria || cfg.youtube_category_id || '27').replace(/\.0+$/, ''), defaultLanguage: lingua, defaultAudioLanguage: lingua, tags }, status };
   const dim = fs.statSync(file).size;
   const ini = await yt('https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&part=snippet,status', { metodo: 'POST', corpo: meta, tipo: 'risposta',
@@ -708,3 +709,10 @@ main().then(() => { server.close(); process.exit(0); }).catch(async (e) => {
   await avvisa({ stato: 'ERRORE', errore: String(e.message || e).slice(0, 400) });
   server.close(); process.exit(1);
 });
+
+// Regola di Giorgio (tutti i canali): la prima frase della descrizione YouTube e' sempre il titolo del video.
+function conTitolo(titolo, descr) {
+  const t = String(titolo || '').trim(), d = String(descr || '').trim();
+  if (!t || d.toLowerCase().startsWith(t.toLowerCase())) return d;
+  return t + '\n\n' + d;
+}

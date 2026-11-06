@@ -564,6 +564,8 @@ def capitoli():
 CAPITOLI = capitoli()
 if CAPITOLI:
     c['descrizione'] = str(c.get('descrizione') or '').strip() + '\n\n' + CAPITOLI
+import descrizione as DESCR
+c['descrizione'] = DESCR.con_titolo(P['titolo'], c.get('descrizione'))   # 6 nov (Giorgio): la prima frase della descrizione e' sempre il titolo
 
 
 def playlist(vid_id_, tk_):
