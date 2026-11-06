@@ -61,7 +61,7 @@ for a in sorted(arts, key=lambda x: x['created_at'], reverse=True):
             trovati[s] = (usc, c, t, nome_v, nome_cop)
     shutil.rmtree(d, ignore_errors=True)
 righe = ['PRIMA di caricare controlla in alto a sinistra in YouTube Studio di essere sul CANALE giusto.',
-         'Il nome dei file inizia con il CANALE: su YouTube CANCELLA il titolo proposto e INCOLLA quello del file di produzione (colonna titolo_italiano, o la prima riga della descrizione), insieme a descrizione, tag, playlist e orario. In "Utilizzo dell\'AI" scegli No.', '',
+         'Il nome dei file inizia con il CANALE: su YouTube CANCELLA il titolo proposto e INCOLLA quello del file di produzione (colonna titolo_italiano, o la prima riga della descrizione), insieme a descrizione, tag, playlist e orario. In "Utilizzo dell\'AI" e "Promozione a pagamento" scegli No.', '',
          '| Uscita | Canale | Titolo | Video | Copertina |', '|---|---|---|---|---|']
 for usc, c, t, s in sorted(attesa):
     if s in trovati:
