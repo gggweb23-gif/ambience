@@ -322,7 +322,7 @@ def main():
         try:
             canale(cfg)
         except Exception as e:
-            log('  ERRORE', cfg.get('channel_id'), str(e)[:200])
+            log('  ERRORE', cfg.get('channel_id'), str(e)[:200], (e.read().decode('utf-8', 'ignore')[:300] if hasattr(e, 'read') else ''))   # 7 nov: motivo del 403 nel registro
     os.makedirs('coach', exist_ok=True)
     open('coach/performance_ultimo.txt', 'w').write(dt.datetime.now().strftime('%Y-%m-%d %H:%M') + '\n' + '\n'.join(REPORT) + '\n')
 
