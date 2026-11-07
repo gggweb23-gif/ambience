@@ -96,7 +96,7 @@ def main():
         msg = '\n'.join(riga_produzione(R, tk) for R in (P['riga_produzione'] if isinstance(P['riga_produzione'], list) else [P['riga_produzione']])); print(msg)
         with open('coach/modifiche_foglio.log', 'a') as f:
             f.write(time.strftime('%Y-%m-%d %H:%M') + ' ' + msg + '\n')
-        if not P.get('modifiche') and not P.get('nuove_colonne') and not P.get('nuova_riga') and not P.get('copia_celle'):
+        if not P.get('modifiche') and not P.get('nuove_colonne') and not P.get('nuova_riga') and not P.get('copia_celle') and not P.get('rinomina'):
             return
     meta = api('GET', '?fields=sheets.properties', tk=tk)
     scheda = meta['sheets'][0]['properties']['title']
@@ -152,6 +152,13 @@ def main():
         except Exception as e:
             esito.append(f"copia non riuscita {cc}: {str(e)[:60]}")
     dati = []
+    for rn in P.get('rinomina', []):   # 8 nov (Giorgio): {"da": "Main Street Atlas", "a": "Rich Borders"} cambia il channel_id, SOLO su sua richiesta esplicita
+        da, a_ = str(rn.get('da') or '').strip(), str(rn.get('a') or '').strip()
+        if P.get('richiesta_di_giorgio') != 'SI' or da in RIGHE_BLOCCATE or not a_ or da not in righe or a_ in righe:
+            esito.append(f'rinomina NON fatta: {da} -> {a_} (serve richiesta di Giorgio, canale esistente e nome nuovo libero; mai KAO)'); continue
+        r = righe.pop(da); righe[a_] = r
+        dati.append({'range': f"'{scheda}'!{lettera(intest.index('channel_id') + 1)}{r}", 'values': [[a_]]})
+        esito.append(f'RINOMINATO channel_id riga {r}: "{da}" -> "{a_}"')
     mods = []
     for m in P.get('modifiche', []):   # canale "*" = tutte le righe dei canali
         mods += [dict(m, canale=k) for k in righe] if str(m.get('canale')).strip() == '*' else [m]

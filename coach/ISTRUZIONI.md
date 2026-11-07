@@ -124,7 +124,7 @@ video_storia.py legge `voce`, `max_minuti`... oltre ai nomi delle colonne). Moto
 Motore video_storia.py (Faces of Rome = channel_id Roma Senza Filtri, Storia in Minuti): `modo_immagini` (cartoni | pexels | misto:
 pochi disegni per gancio e persone + Pexels; sceglie lo STILE, il tetto di spesa resta il budget di Giorgio), `quota_cartoni` (% cartone), `ritmo` (secondi per immagine nei primi 10 s / 10-30 s / dopo), `secondi_per_immagine`,
 `sfondi_max`, `copertina_stile` (foto, primo_piano...), `copertina_copia`, `cornice`, `linea_tempo`, musica.
-Motore video_mappe.py (Rich Borders = channel_id Main Street Atlas): `copertina_stile`, `tema_colori`, `font_titoli`, `font_testi`,
+Motore video_mappe.py (Rich Borders, ex channel_id Main Street Atlas): `copertina_stile`, `tema_colori`, `font_titoli`, `font_testi`,
 `angoli_tondi`, `voce_stabilita`, `voce_stile`, `voice_speed`, `musica_cartella`, `musica_ritmo`.
 
 Motore "github" (Agora of Sages: motore.js + copertina_statua.py + render_filosofo.py):
