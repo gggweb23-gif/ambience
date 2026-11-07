@@ -77,8 +77,8 @@ def scarica_sorgente(cid, riga, r, dur_yt, cfg_corrente=None):
     def giusto(v, generico=False):
         if not v:
             return False
-        if generico and '/archivio/' in v and '/archivio/' + slug + '_' not in v:   # video-archivio contiene i video di piu' canali
-            return False
+        if generico == 'archivio' and '/archivio/' + slug + '_' not in v:   # 7 nov: video-archivio ha i video di piu' canali (WWII e Orbital): senza il nome
+            log('  file scartato: non e\' di questo canale', v.split('sorgente')[-1][:80]); return False   # del canale nel percorso non si usa MAI (prima per_shorts/ passava)
         d = durata(v)
         ok = d >= 180 and (not dur_yt or abs(d - dur_yt) <= 1.5)
         if not ok:
@@ -100,7 +100,7 @@ def scarica_sorgente(cid, riga, r, dur_yt, cfg_corrente=None):
             c = dt.datetime.fromisoformat(a['created_at'].replace('Z', '+00:00'))
             if ini - dt.timedelta(hours=1) <= c <= ini + dt.timedelta(hours=36):
                 for v in _scarica(a, tutti=True):
-                    if giusto(v, True):
+                    if giusto(v, 'archivio' if nome == 'video-archivio' else True):
                         return v
     return None
 
