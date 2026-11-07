@@ -1,0 +1,43 @@
+Traceback (most recent call last):
+  File "/home/runner/work/ambience/ambience/video_cartoni.py", line 413, in <module>
+    main()
+  File "/home/runner/work/ambience/ambience/video_cartoni.py", line 344, in main
+    c = pulisci(copione())
+                ^^^^^^^^^
+  File "/home/runner/work/ambience/ambience/video_cartoni.py", line 163, in copione
+    c = json_da(claude(prompt))
+        ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/ambience/ambience/video_cartoni.py", line 122, in json_da
+    return json.loads(repair_json(s))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+22:10:02 esito: {"stato": "ERRORE", "errore": "Expecting value: line 1 column 1 (char 0)"}
+Traceback (most recent call last):
+  File "/home/runner/work/ambience/ambience/video_cartoni.py", line 413, in <module>
+    main()
+  File "/home/runner/work/ambience/ambience/video_cartoni.py", line 344, in main
+    c = pulisci(copione())
+                ^^^^^^^^^
+  File "/home/runner/work/ambience/ambience/video_cartoni.py", line 163, in copione
+    c = json_da(claude(prompt))
+        ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/ambience/ambience/video_cartoni.py", line 122, in json_da
+    return json.loads(repair_json(s))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
