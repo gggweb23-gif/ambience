@@ -630,6 +630,40 @@ def voce(i, testo, prima='', dopo='', velocita=None):
     raise RuntimeError('ElevenLabs non risponde')
 
 
+def ritmo_voce(voci, durs, testi):
+    """7 nov (Giorgio): voce di Storia in Minuti alla stessa velocita' di KAO (stessa voce ElevenLabs). Colonna voce_ritmo di Channel Configs =
+    caratteri al secondo da raggiungere (KAO ~17,3; vuota = voce com'e'). Le scene lunghe con il contesto vengono lette piu' piano (15,5 car/s):
+    si accelera tutto lo stesso tanto (atempo, la voce non cambia tono) e le scene piu' lente della media (spesso la prima) un po' di piu'.
+    Gratis: nessuna voce rifatta. I tempi delle parole (.json) si scalano insieme, cosi' immagini e sottotitoli restano a tempo."""
+    obiettivo = float(str(P.get('voce_ritmo') or E('VOCE_RITMO', '') or 0).replace(',', '.') or 0)
+    if obiettivo <= 0 or not voci or not sum(durs):
+        return voci, durs
+    attuale = sum(len(t) for t in testi) / max(1.0, sum(durs))
+    base = obiettivo / attuale
+    ritmi = sorted(len(t) / max(.5, d) for t, d in zip(testi, durs))
+    medio = ritmi[len(ritmi) // 2]
+    log(f'ritmo voce: {attuale:.1f} caratteri/s, obiettivo {obiettivo:.1f} (voce_ritmo) -> x{base:.2f}')
+    if base <= 1.01:
+        return voci, durs
+    nuove, nd = [], []
+    for v, d, t in zip(voci, durs, testi):
+        r = len(t) / max(.5, d)
+        f = round(max(1.0, min(1.35, base * min(1.10, max(1.0, medio / max(r, .1))))), 3)   # scena lenta: fino al 10% in piu' per arrivare alla media
+        q = v[:-4] + '_ritmo.mp3'
+        try:
+            run(['ffmpeg', '-y', '-v', 'error', '-i', v, '-filter:a', f'atempo={f}', '-c:a', 'libmp3lame', '-b:a', '128k', q])
+            al = json.load(open(v[:-4] + '.json')) if os.path.exists(v[:-4] + '.json') else {}
+            for k in ('character_start_times_seconds', 'character_end_times_seconds'):
+                if isinstance(al.get(k), list):
+                    al[k] = [x / f for x in al[k]]
+            json.dump(al, open(q[:-4] + '.json', 'w'))
+            nuove.append(q); nd.append(durata(q))
+        except Exception as e:
+            log('ritmo voce non applicato a', os.path.basename(v), str(e)[:100]); nuove.append(v); nd.append(d)
+    log(f'voce accelerata: {sum(durs) / 60:.1f} -> {sum(nd) / 60:.1f} minuti ({sum(len(t) for t in testi) / max(1.0, sum(nd)):.1f} caratteri/s)')
+    return nuove, nd
+
+
 _U = ['zero', 'uno', 'due', 'tre', 'quattro', 'cinque', 'sei', 'sette', 'otto', 'nove', 'dieci', 'undici', 'dodici', 'tredici',
       'quattordici', 'quindici', 'sedici', 'diciassette', 'diciotto', 'diciannove']
 _D = ['', '', 'venti', 'trenta', 'quaranta', 'cinquanta', 'sessanta', 'settanta', 'ottanta', 'novanta']
@@ -4038,6 +4072,7 @@ def main():
             s_['testo_voce'] = t_
         voci = list(ex.map(lambda i: voce(i, testi[i], ' '.join(testi[:i])[-400:], ' '.join(testi[i + 1:])[:400]), range(len(testi))))
     durs = [durata(v) for v in voci]
+    voci, durs = ritmo_voce(voci, durs, testi)
     # ritmo della voce uguale dall'inizio alla fine: una scena letta piu' lenta delle altre (succede spesso alla prima) si rifa' un po' piu' veloce
     ritmi = [len(t.split()) / max(.5, d) for t, d in zip(testi, durs)]
     medio = sorted(ritmi)[len(ritmi) // 2] if ritmi else 0
