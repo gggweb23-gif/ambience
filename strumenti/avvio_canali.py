@@ -18,12 +18,13 @@ _TK = {}
 
 
 def token(scopes=('https://www.googleapis.com/auth/spreadsheets',)):
-    if scopes not in _TK:
+    import time as _t
+    if scopes not in _TK or _t.time() - _TK[scopes][1] > 45 * 60:   # 7 nov: il token dura 1 ora, i lavori lunghi (Short) lo superavano (401)
         from google.oauth2 import service_account
         from google.auth.transport.requests import Request
         cr = service_account.Credentials.from_service_account_info(json.loads(os.environ['GOOGLE_SA_KEY']), scopes=list(scopes))
-        cr.refresh(Request()); _TK[scopes] = cr.token
-    return _TK[scopes]
+        cr.refresh(Request()); _TK[scopes] = (cr.token, _t.time())
+    return _TK[scopes][0]
 
 
 def api(foglio, metodo, percorso, corpo=None):
