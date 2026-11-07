@@ -1,43 +1,15 @@
-Traceback (most recent call last):
-  File "/home/runner/work/ambience/ambience/video_cartoni.py", line 413, in <module>
-    main()
-  File "/home/runner/work/ambience/ambience/video_cartoni.py", line 344, in main
-    c = pulisci(copione())
-                ^^^^^^^^^
-  File "/home/runner/work/ambience/ambience/video_cartoni.py", line 163, in copione
-    c = json_da(claude(prompt))
-        ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/ambience/ambience/video_cartoni.py", line 122, in json_da
-    return json.loads(repair_json(s))
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.12/json/__init__.py", line 346, in loads
-    return _default_decoder.decode(s)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.12/json/decoder.py", line 337, in decode
-    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.12/json/decoder.py", line 355, in raw_decode
-    raise JSONDecodeError("Expecting value", s, err.value) from None
-json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-22:10:02 esito: {"stato": "ERRORE", "errore": "Expecting value: line 1 column 1 (char 0)"}
-Traceback (most recent call last):
-  File "/home/runner/work/ambience/ambience/video_cartoni.py", line 413, in <module>
-    main()
-  File "/home/runner/work/ambience/ambience/video_cartoni.py", line 344, in main
-    c = pulisci(copione())
-                ^^^^^^^^^
-  File "/home/runner/work/ambience/ambience/video_cartoni.py", line 163, in copione
-    c = json_da(claude(prompt))
-        ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/ambience/ambience/video_cartoni.py", line 122, in json_da
-    return json.loads(repair_json(s))
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.12/json/__init__.py", line 346, in loads
-    return _default_decoder.decode(s)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.12/json/decoder.py", line 337, in decode
-    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.12/json/decoder.py", line 355, in raw_decode
-    raise JSONDecodeError("Expecting value", s, err.value) from None
-json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+22:13:12 Claude: 18729 caratteri, fine: end_turn
+22:13:12 copione: 31 scene, 6237 caratteri
+22:14:19 Claude: 20621 caratteri, fine: end_turn
+22:14:51 voce: 6976 caratteri, 470 s naturali, atempo 1.111, video 7.5 minuti
+22:14:51 inquadrature: 68 | media 6.6 s
+22:15:14 scena 1 di 31
+22:16:58 scena 6 di 31
+22:18:46 scena 11 di 31
+22:20:35 scena 16 di 31
+22:22:27 scena 21 di 31
+22:24:20 scena 26 di 31
+22:26:20 scena 31 di 31
+22:29:04 pulsante iscriviti al secondo 106.44 con 2 suoni
+22:29:04 FATTO: /home/runner/work/ambience/ambience/video_cartoni.mp4 7.5 minuti | COSTO VIDEO (stima): 0.31 $ + 6976 crediti voce | claude claude-sonnet-5-5: 0.313 $ (2 chiamate) | elevenlabs eleven_multilingual_v2: 0.000 $ (31 chiamate), 6976 crediti
+22:29:04 esito: {"stato": "PROVA OK", "titolo": "Quanto guadagna davvero un bar su un caffè da 1,20 €?", "descrizione": "Quanto guadagna davvero un bar su un caffè da 1,20 €?\n\nUn caffè costa pochi centesimi e lo vendi a un euro e venti. Sembra la miniera d'oro perfetta, vero? Con Luca, che ha aperto il suo bar, scopriamo quanti caffè servono davvero ogni giorno per non rimetterci. Margini, costi fissi, personale e orari: tutti i conti veri, passo passo. Numeri di esempio, ma la logica vale anche per te.\n\n00:00 Un caffè costa al bar un euro e venti\n00:14 Il sogno del bar\n00:52 Il costo del caffè\n01:21 P
