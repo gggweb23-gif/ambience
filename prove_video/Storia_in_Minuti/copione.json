@@ -1,21 +1,21 @@
 {
- "titolo": "Come 5.000 Spartani vendicarono BRUTALMENTE i 300",
- "titolo_mappa": "GRECIA",
- "paese_mappa": "Greece",
- "date": "480 a.C. – 479 a.C.",
- "texture": "pergamena",
- "font_carte": "antico",
  "riserva_pexels": [
-  "Greece rocky coastline sea",
-  "Mount Olympus Greece mountains",
-  "ancient Greek ruins Acropolis",
-  "Aegean sea waves Greece",
-  "Greek temple columns sunset",
-  "Peloponnese hills Greece landscape",
-  "stormy sky over sea",
-  "bronze ancient weapons museum"
+  "Russia snowy forest landscape",
+  "Moscow Kremlin domes",
+  "Saint Petersburg palace architecture",
+  "Siberia frozen river",
+  "Volga river Russia",
+  "Russian orthodox church golden domes",
+  "Ural mountains Russia",
+  "Russia steppe horizon sky"
  ],
- "luoghi_paese": "greece, greek, hellas, sparta, laconia, athens, attica, thermopylae, salamis, plataea, peloponnese, aegean, olympus, delphi, corinth, marathon, boeotia, taygetus, mediterranean, acropolis",
+ "luoghi_paese": "russia, russian, moscow, kremlin, saint petersburg, siberia, volga, ural, kiev, novgorod, neva, baikal, kazan, red square, steppe, taiga, tundra, orthodox, onion domes, winter palace, peterhof",
+ "titolo": "1500 anni di storia russa in 27 minuti [NO AI]",
+ "titolo_mappa": "RUSSIA",
+ "paese_mappa": "Russia",
+ "date": "VI secolo – 2026",
+ "texture": "stropicciata",
+ "font_carte": "classico",
  "fondi_carte": [],
  "colori_carte": [
   "#6b1e1e",
@@ -24,798 +24,902 @@
  "sfondi": [],
  "scene": [
   {
-   "capitolo": "Il tradimento",
-   "testo": "L'esercito greco era stato tradito. Ventimila Persiani avevano aggirato le linee greche per un sentiero segreto di montagna. Alle Termopili, millequattrocento Greci guidati da re Leonida e dai suoi 300 Spartani restarono indietro per coprire la ritirata. Sapevano che sarebbero morti.",
-   "anno": -480,
+   "capitolo": "Le origini",
+   "testo": "La Russia è il paese più grande della Terra: undici fusi orari, quattordici confini. Nel 1983 un ufficiale russo decise di non premere un pulsante e salvò l'umanità. In 1.500 anni mongoli, Napoleone e Hitler l'hanno distrutta, ma lei è sempre tornata più grande e più temibile.",
+   "anno": 1983,
    "visivi": [
     {
      "tipo": "mappa",
-     "frase": "L'esercito greco era",
-     "suono": "distant war horns, wind"
+     "frase": "La Russia è il paese"
     },
     {
      "tipo": "pexels_video",
-     "frase": "Ventimila Persiani avevano aggirato",
-     "q": "Greece mountain path rocky pass"
+     "frase": "undici fusi orari",
+     "q": "Russia vast snowy landscape aerial"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "Alle Termopili, millequattrocento Greci",
-     "q": "Thermopylae pass Greece landscape"
+     "frase": "Nel 1983 un ufficiale",
+     "q": "old Soviet control panel red button",
+     "didascalia": "1983"
     },
     {
      "tipo": "pexels_video",
-     "frase": "Sapevano che sarebbero morti",
-     "q": "Greece sunset dark clouds mountains"
+     "frase": "In 1.500 anni",
+     "q": "Moscow Kremlin walls snow",
+     "didascalia": "1.500 anni"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "sempre tornata più grande",
+     "q": "Russia Red Square cathedral"
     }
    ]
   },
   {
-   "testo": "Gli Spartani combatterono finché le armi si spezzarono e le mani si sporcarono di sangue. Morirono tutti. Il re persiano Serse umiliò i Greci: tagliò la testa di Leonida e la infilò su un palo.",
-   "anno": -480,
+   "testo": "Circa 1.500 anni fa le tribù slave erano così stanche di farsi la guerra che invitarono i vichinghi a governarle. Un vichingo, Rurik, fondò la Rus' di Kiev, un regno dal Baltico al Mar Nero.",
+   "anno": 862,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "Gli Spartani combatterono finché",
-     "q": "ancient bronze weapons museum"
+     "frase": "Circa 1.500 anni fa",
+     "q": "Russia ancient forest river mist",
+     "didascalia": "1.500 anni fa"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "Morirono tutti",
-     "q": "Greece battlefield ruins stones"
+     "frase": "invitarono i vichinghi",
+     "q": "viking longship replica sea"
     },
     {
      "tipo": "pexels_video",
-     "frase": "Il re persiano Serse",
-     "q": "fire burning dark smoke sky"
+     "frase": "Un vichingo, Rurik",
+     "q": "Novgorod kremlin river"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "dal Baltico al Mar Nero",
+     "q": "Baltic sea coast Russia"
     }
    ]
   },
   {
-   "testo": "L'esercito persiano, ormai forte di 200.000 uomini, dilagò in Grecia bruciando città e distruggendo templi. Serse credeva di aver vinto, ma aveva firmato la condanna a morte del suo impero. Sparta stava per mandare 5.000 guerrieri scelti a vendicarsi: il più grande esercito che avesse mai radunato.",
-   "anno": -480,
+   "testo": "Il principe Vladimir ascoltò le offerte delle grandi religioni, e vinse il cristianesimo, soprattutto perché permetteva di bere. Un intero paese diventò cristiano perché lo disse il capo.",
+   "anno": 988,
    "visivi": [
     {
-     "tipo": "pexels_video",
-     "frase": "L'esercito persiano, ormai forte",
-     "q": "burning fire flames night"
-    },
-    {
      "tipo": "pexels_foto",
-     "frase": "bruciando città e distruggendo",
-     "q": "ancient Greek temple ruins columns"
+     "frase": "Il principe Vladimir",
+     "q": "Kiev Saint Sophia cathedral"
     },
     {
      "tipo": "pexels_video",
-     "frase": "Serse credeva di aver",
-     "q": "stormy sky clouds dark Greece"
+     "frase": "vinse il cristianesimo",
+     "q": "Russian orthodox church interior candles"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "Sparta stava per mandare",
-     "q": "Sparta Laconia landscape Taygetus mountains",
-     "didascalia": "5.000 guerrieri scelti"
+     "frase": "permetteva di bere",
+     "q": "old wine goblet wooden table"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Un intero paese",
+     "q": "orthodox church golden domes sky"
     }
    ]
   },
   {
-   "capitolo": "L'impero persiano",
-   "testo": "All'inizio del V secolo a.C. l'impero persiano aveva inghiottito tutto. Babilonia, Egitto, Fenicia e decine di regni erano ormai semplici province. L'impero andava dal fiume Indo ai confini dell'Europa.",
-   "anno": -500,
+   "testo": "La Rus' di Kiev crebbe fino a diventare una potenza medievale. Ma alla morte della famiglia di Vladimir il regno si spezzò in decine di principati litigiosi.",
+   "anno": 1054,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "All'inizio del V secolo",
-     "q": "Persepolis ruins Iran columns"
+     "frase": "La Rus' di Kiev",
+     "q": "medieval Russian fortress wooden walls"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "Babilonia, Egitto, Fenicia e",
-     "q": "Egypt desert pyramids ancient"
+     "frase": "una potenza medievale",
+     "q": "Kiev Pechersk Lavra monastery"
     },
     {
      "tipo": "pexels_video",
-     "frase": "L'impero andava dal fiume",
-     "q": "Indus river valley landscape"
+     "frase": "si spezzò in decine",
+     "q": "cracked ice breaking river"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "principati litigiosi",
+     "q": "old medieval map manuscript"
     }
    ]
   },
   {
-   "testo": "La ricchezza del re persiano era inimmaginabile. Ogni anno tonnellate di oro e argento affluivano nella capitale da tutto il mondo. Le entrate annuali del re erano 30 volte più grandi dell'intero bilancio della Grecia.",
-   "anno": -490,
+   "capitolo": "Il giogo mongolo",
+   "testo": "Nel 1237 arrivarono i mongoli di Batu Khan, mentre i principi russi si combattevano tra loro. Avevano già conquistato un impero dalla Cina all'Europa orientale. Per 240 anni ogni principe aveva bisogno del permesso del Khan per governare, rischiando la morte a ogni visita.",
+   "anno": 1237,
    "visivi": [
     {
+     "tipo": "pexels_video",
+     "frase": "Nel 1237 arrivarono",
+     "q": "Mongolia steppe horizon storm clouds",
+     "didascalia": "1237"
+    },
+    {
      "tipo": "pexels_foto",
-     "frase": "La ricchezza del re",
-     "q": "ancient gold coins treasure"
+     "frase": "un impero dalla Cina",
+     "q": "Asian steppe grassland sunset"
     },
     {
      "tipo": "pexels_video",
-     "frase": "Ogni anno tonnellate di",
-     "q": "gold bars silver coins closeup"
+     "frase": "Per 240 anni",
+     "q": "Russia snowy steppe wind",
+     "didascalia": "240 anni"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "Le entrate annuali del",
-     "q": "ancient silver coins museum",
-     "didascalia": "30 volte il bilancio greco"
+     "frase": "rischiando la morte",
+     "q": "ancient dagger medieval museum"
     }
    ]
   },
   {
-   "testo": "L'esercito persiano era il migliore della Terra, con al centro i 10.000 Immortali. Serse guidò questa macchina enorme verso la Grecia con oltre 1.000 navi. Suo padre aveva tentato di conquistarla dieci anni prima, ma era stato umiliato da una forza greca più piccola. Serse voleva finire il lavoro.",
-   "anno": -480,
+   "testo": "I principi di Mosca furono astuti: raccoglievano l'oro per i mongoli e ne trattenevano una parte per sé. Anno dopo anno Mosca diventò silenziosamente, pericolosamente ricca.",
+   "anno": 1328,
    "visivi": [
     {
-     "tipo": "pexels_video",
-     "frase": "L'esercito persiano era il migliore",
-     "q": "Persepolis relief ancient stone"
+     "tipo": "pexels_foto",
+     "frase": "I principi di Mosca",
+     "q": "Moscow Kremlin medieval cathedral"
     },
     {
      "tipo": "pexels_video",
-     "frase": "Serse guidò questa macchina",
-     "q": "Aegean sea ships horizon"
+     "frase": "raccoglievano l'oro",
+     "q": "gold coins pouring"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "Suo padre aveva tentato",
-     "q": "Marathon Greece plain landscape",
-     "didascalia": "10 anni prima"
+     "frase": "Anno dopo anno",
+     "q": "old Russian silver coins"
     },
     {
      "tipo": "pexels_video",
-     "frase": "Serse voleva finire il lavoro",
-     "q": "dark waves stormy sea"
+     "frase": "pericolosamente ricca",
+     "q": "Kremlin domes golden light"
     }
    ]
   },
   {
-   "capitolo": "La macchina di Serse",
-   "testo": "Quando il primo ponte crollò, Serse ordinò ai soldati di frustare il mare 300 volte con catene. Poi fece giustiziare gli ingegneri responsabili. Una volta ricostruito, l'esercito impiegò 7 giorni e 7 notti di marcia ininterrotta per passare in Europa.",
-   "anno": -480,
+   "testo": "Nel 1480 Ivan III rifiutò di pagare il tributo, e il comandante mongolo se ne tornò a casa senza combattere. Ivan prese il titolo di Zar, preso in prestito dagli imperatori romani. Mosca aveva imparato per secoli come funziona il potere, e finalmente lo possedeva.",
+   "anno": 1480,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "Quando il primo ponte crollò",
-     "q": "Hellespont Dardanelles strait waves"
+     "frase": "Nel 1480 Ivan III",
+     "q": "Ugra river Russia autumn",
+     "didascalia": "1480"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "Poi fece giustiziare gli",
-     "q": "heavy iron chains rusty"
+     "frase": "il comandante mongolo",
+     "q": "empty winter field fog"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "prese il titolo di Zar",
+     "q": "Kremlin Cathedral Square Moscow"
     },
     {
      "tipo": "pexels_video",
-     "frase": "Una volta ricostruito, l'esercito",
-     "q": "sea strait sunrise calm water",
-     "didascalia": "7 giorni e 7 notti"
+     "frase": "imperatori romani",
+     "q": "ancient Roman ruins columns"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Mosca aveva imparato",
+     "q": "Kremlin towers red brick"
     }
    ]
   },
   {
-   "testo": "Per evitare un capo pericoloso dove suo padre aveva perso 300 navi, Serse ordinò agli schiavi di scavare un canale attraverso una penisola montuosa. Era lungo 2 chilometri e abbastanza largo da far passare due grandi navi da guerra affiancate. Gli scienziati l'hanno scoperto sepolto sotto terra: non era un mito.",
-   "anno": -480,
+   "capitolo": "Ivan il Terribile",
+   "testo": "Nel 1547 il nipote di Ivan III divenne il primo zar incoronato ufficialmente: Ivan IV. A sedici anni era ambizioso: costruì scuole, vinse guerre e allargò rapidamente il territorio.",
+   "anno": 1547,
    "visivi": [
     {
-     "tipo": "pexels_video",
-     "frase": "Per evitare un capo pericoloso",
-     "q": "Mount Athos Greece peninsula coast"
-    },
-    {
      "tipo": "pexels_foto",
-     "frase": "Serse ordinò agli schiavi",
-     "q": "Corinth canal Greece cliffs",
-     "didascalia": "Canale lungo 2 km"
+     "frase": "Nel 1547 il nipote",
+     "q": "Saint Basil's Cathedral Moscow",
+     "didascalia": "1547"
     },
     {
      "tipo": "pexels_video",
-     "frase": "Gli scienziati l'hanno scoperto",
-     "q": "Greece earth excavation ground aerial"
+     "frase": "A sedici anni",
+     "q": "Russian icon painting gold"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "Era questa l'immensa potenza",
-     "q": "ancient warship replica sea"
+     "frase": "allargò rapidamente il territorio",
+     "q": "Russia old map parchment"
     }
    ]
   },
   {
-   "capitolo": "Terra e acqua",
-   "testo": "Mentre i Persiani marciavano verso sud, molte città greche si arresero subito. Serse mandò messaggeri a chiedere terra e acqua, simboli di resa totale. Anni prima Atene e Sparta avevano risposto in modo molto diverso. Gli Ateniesi giustiziarono i messaggeri. Gli Spartani li gettarono in un pozzo, dicendo loro di trovarci terra e acqua.",
-   "anno": -491,
+   "testo": "Quando morì la moglie Anastasia, Ivan credette che i nobili l'avessero avvelenata e creò una terribile polizia segreta, l'Opričnina. Cavalieri vestiti di nero uccidevano chiunque Ivan odiasse, e gli diedero il soprannome di Grozny: quello con cui non devi assolutamente litigare.",
+   "anno": 1565,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "Mentre i Persiani marciavano verso",
-     "q": "Greece road mountains dust"
+     "frase": "Quando morì la moglie",
+     "q": "candles dark church flames"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "Serse mandò messaggeri a",
-     "q": "ancient Greek amphora earth water"
+     "frase": "una terribile polizia segreta",
+     "q": "dark castle gate night"
     },
     {
      "tipo": "pexels_video",
-     "frase": "Gli Ateniesi giustiziarono i",
-     "q": "Acropolis Athens hill sunset"
+     "frase": "Cavalieri vestiti di nero",
+     "q": "black horse galloping fog"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "Gli Spartani li gettarono",
-     "q": "ancient stone well dark"
+     "frase": "Grozny",
+     "q": "old iron crown medieval"
     }
    ]
   },
   {
-   "testo": "Solo una trentina di città greche decisero di resistere, scegliendo di difendere lo stretto passo delle Termopili. Era l'unica via per entrare nella Grecia centrale. I Greci radunarono 7.000 uomini, e gli Spartani erano i più importanti.",
-   "anno": -480,
+   "testo": "Il momento peggiore: durante una lite Ivan colpì con il bastone reale il figlio maggiore, uccidendolo. Alla sua morte l'altro figlio, debole, morì senza eredi, e la Russia restò senza guida.",
+   "anno": 1584,
    "visivi": [
     {
-     "tipo": "pexels_video",
-     "frase": "Solo una trentina di",
-     "q": "Thermopylae coast mountains Greece"
-    },
-    {
      "tipo": "pexels_foto",
-     "frase": "Era l'unica via per",
-     "q": "narrow mountain pass Greece cliffs"
+     "frase": "Il momento peggiore",
+     "q": "royal wooden staff ornate"
     },
     {
      "tipo": "pexels_video",
-     "frase": "I Greci radunarono 7.000",
-     "q": "Greek hills dry grass wind",
-     "didascalia": "7.000 uomini"
+     "frase": "Alla sua morte",
+     "q": "candle burning out dark"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "la Russia restò senza guida",
+     "q": "empty throne room palace"
     }
    ]
   },
   {
-   "capitolo": "Il metodo spartano",
-   "testo": "Sparta era uno Stato guerriero dove ogni cittadino era soldato dalla nascita. A sette anni i ragazzi venivano strappati alle famiglie e sottoposti a un addestramento brutale, pensato per eliminare paura, dolore e pietà. Ricevevano di proposito pochissimo cibo e dovevano rubare per sopravvivere.",
-   "anno": -480,
+   "capitolo": "I Romanov",
+   "testo": "Cominciò il Periodo dei Torbidi: quindici anni di carestia, peste, guerra civile e invasione polacca. I nobili disperati fecero zar il sedicenne Michele Romanov per fermare il caos. I Romanov governarono la Russia per trecento anni.",
+   "anno": 1613,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "Sparta era uno Stato",
-     "q": "Sparta ruins Greece stones"
+     "frase": "Cominciò il Periodo",
+     "q": "burnt ruins smoke village",
+     "didascalia": "15 anni"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "A sette anni i",
-     "q": "Taygetus mountains Greece rugged",
-     "didascalia": "A 7 anni"
+     "frase": "carestia, peste",
+     "q": "barren frozen field winter"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Michele Romanov",
+     "q": "Ipatiev monastery Kostroma"
     },
     {
      "tipo": "pexels_video",
-     "frase": "Ricevevano di proposito pochissimo",
-     "q": "dry rocky hillside Greece wind"
+     "frase": "trecento anni",
+     "q": "Romanov palace gold interior",
+     "didascalia": "300 anni"
     }
    ]
   },
   {
-   "testo": "La frusta puniva la pigrizia di chi si faceva scoprire, non il furto in sé. A vent'anni gli Spartani erano macchine da guerra perfette. A Termopili ne furono mandati 300, vincolati da una legge che vietava la ritirata.",
-   "anno": -480,
+   "capitolo": "Pietro il Grande",
+   "testo": "Alla fine del Seicento la Russia era ancora medievale, mentre l'Europa aveva navi, cannoni, scienza e palazzi. Pietro il Grande, nato nel 1672, era alto due metri e tre: sovrastava gli europei. Si travestì per lavorare nei cantieri navali europei, imparando a costruire navi con le sue mani.",
+   "anno": 1697,
    "visivi": [
     {
+     "tipo": "pexels_video",
+     "frase": "Alla fine del Seicento",
+     "q": "old Russian wooden village snow"
+    },
+    {
      "tipo": "pexels_foto",
-     "frase": "La frusta puniva la",
-     "q": "old leather whip rope"
+     "frase": "navi, cannoni, scienza",
+     "q": "antique cannon sailing ship museum"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "era alto due metri",
+     "q": "shipyard wooden ship construction",
+     "didascalia": "2,03 metri"
     },
     {
      "tipo": "pexels_video",
-     "frase": "A vent'anni gli Spartani",
-     "q": "bronze helmet ancient museum",
-     "didascalia": "A 20 anni"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "A Termopili ne furono",
-     "q": "ancient spear shield bronze"
+     "frase": "cantieri navali europei",
+     "q": "Dutch harbor old ships"
     }
    ]
   },
   {
-   "capitolo": "La battaglia delle Termopili",
-   "testo": "Il passo era largo solo 15 metri, e il numero dei Persiani non contava più. Al primo assalto i Persiani mandarono fanteria leggera con scudi di vimini e lance corte. Si aspettavano che i Greci fuggissero, ma trovarono un muro di bronzo.",
-   "anno": -480,
+   "testo": "Tornato zar a venticinque anni, Pietro era ossessionato dal modernizzare la Russia. Introdusse una tassa sulla barba per i nobili, che la portavano da secoli, e talvolta la tagliava lui stesso. Vietò gli abiti tradizionali e impose giacche e parrucche europee.",
+   "anno": 1698,
    "visivi": [
     {
+     "tipo": "pexels_foto",
+     "frase": "Tornato zar a venticinque",
+     "q": "Peterhof palace fountains"
+    },
+    {
      "tipo": "pexels_video",
-     "frase": "Il passo era largo",
-     "q": "narrow gorge cliffs sea Greece",
-     "didascalia": "Largo solo 15 metri"
+     "frase": "una tassa sulla barba",
+     "q": "vintage razor scissors closeup"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "Al primo assalto i",
-     "q": "woven wicker shield basket"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "Si aspettavano che i",
-     "q": "bronze shield reflection sunlight"
+     "frase": "giacche e parrucche",
+     "q": "18th century powdered wig museum"
     }
    ]
   },
   {
-   "testo": "I Greci combattevano in falange, una formazione compatta con gli scudi sovrapposti a formare un muro indistruttibile. Le loro lance erano lunghe il doppio di quelle persiane. I Persiani morivano a centinaia, incapaci di avvicinarsi abbastanza per colpire.",
-   "anno": -480,
+   "testo": "Cambiò il calendario da un giorno all'altro, saltando dall'anno 7207 al sistema europeo. Decise che serviva una capitale nuova, moderna, sul mare, e scelse una palude gelida e piena di zanzare.",
+   "anno": 1700,
    "visivi": [
     {
      "tipo": "pexels_foto",
-     "frase": "I Greci combattevano in",
-     "q": "ancient hoplite shields museum"
+     "frase": "Cambiò il calendario",
+     "q": "old calendar manuscript pages"
     },
     {
      "tipo": "pexels_video",
-     "frase": "Le loro lance erano",
-     "q": "long spear tips bronze closeup"
+     "frase": "una capitale nuova",
+     "q": "Neva river Saint Petersburg dawn"
     },
     {
      "tipo": "pexels_video",
-     "frase": "I Persiani morivano a",
-     "q": "dust cloud battlefield dry ground"
+     "frase": "una palude gelida",
+     "q": "foggy marsh swamp reeds"
     }
    ]
   },
   {
-   "testo": "Gli Spartani usavano un trucco: fingevano di fuggire, poi si voltavano all'improvviso schiacciando i Persiani che li inseguivano. Serse osservava da un trono d'oro su una collina e, a quanto si dice, balzò in piedi tre volte per il terrore. Nemmeno i suoi Immortali riuscirono a spezzare la linea greca.",
-   "anno": -480,
+   "testo": "Pietro costruì San Pietroburgo sul bordo del Baltico, anche se decine di migliaia di lavoratori forzati morirono nei cantieri. Nel 1725 aveva una flotta, aveva battuto la Svezia e trasformato la Russia in un impero moderno.",
+   "anno": 1725,
    "visivi": [
     {
-     "tipo": "pexels_video",
-     "frase": "Gli Spartani usavano un",
-     "q": "Greek hillside dust wind"
-    },
-    {
      "tipo": "pexels_foto",
-     "frase": "Serse osservava da un",
-     "q": "golden ancient throne ornate"
+     "frase": "Pietro costruì San Pietroburgo",
+     "q": "Peter and Paul Fortress Saint Petersburg"
     },
     {
      "tipo": "pexels_video",
-     "frase": "Nemmeno i suoi Immortali",
-     "q": "Persepolis immortals relief stone"
+     "frase": "decine di migliaia",
+     "q": "Saint Petersburg canals bridges",
+     "didascalia": "decine di migliaia di morti"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Nel 1725 aveva una flotta",
+     "q": "sailing ship Baltic sea waves",
+     "didascalia": "1725"
     }
    ]
   },
   {
-   "testo": "Un traditore del posto, Efialte, rivelò un sentiero di montagna che passava alle spalle dei Greci. Leonida lo scoprì troppo tardi. Mandò via al sicuro la maggior parte dell'esercito e rimase con i suoi 300 Spartani e poche centinaia di alleati.",
-   "anno": -480,
+   "capitolo": "Caterina la Grande",
+   "testo": "Dopo la sua morte la Russia visse quarant'anni di caos, finché nel 1762 prese il potere Caterina la Grande. Allargò enormemente i confini: Polonia, Crimea strappata agli ottomani e quasi tutta l'Ucraina. Scriveva ai filosofi francesi di libertà e diritti umani, ma non liberò mai i servi della gleba.",
+   "anno": 1762,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "Un traditore del posto",
-     "q": "forest mountain trail Greece dawn"
+     "frase": "Dopo la sua morte",
+     "q": "Winter Palace Saint Petersburg"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "Leonida lo scoprì troppo",
-     "q": "Thermopylae monument Greece"
+     "frase": "nel 1762 prese il potere",
+     "q": "Hermitage museum golden staircase",
+     "didascalia": "1762"
     },
     {
      "tipo": "pexels_video",
-     "frase": "Mandò via al sicuro",
-     "q": "Greek hills evening light"
+     "frase": "Crimea strappata",
+     "q": "Crimea coast cliffs sea"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "non liberò mai",
+     "q": "old wooden Russian village fields"
     }
    ]
   },
   {
-   "testo": "Nell'ultima resistenza gli Spartani combatterono con le spade corte quando le lance si spezzarono. Quando si ruppero anche quelle, usarono mani e denti. Furono infine uccisi da migliaia di frecce, perché i Persiani temevano il corpo a corpo.",
-   "anno": -480,
+   "capitolo": "Napoleone",
+   "testo": "Nel 1812 Napoleone invase la Russia con 600.000 soldati, il più grande esercito europeo della storia. I russi bruciarono Mosca piuttosto che arrendersi, e l'inverno distrusse le sue truppe. Degli invasori sopravvissero circa 30.000: gli altri morirono di freddo o di fame.",
+   "anno": 1812,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "Nell'ultima resistenza gli Spartani",
-     "q": "ancient short sword bronze museum"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "Quando si ruppero anche",
-     "q": "broken spear ancient"
+     "frase": "Nel 1812 Napoleone",
+     "q": "Russia snowstorm road forest",
+     "didascalia": "600.000 soldati"
     },
     {
      "tipo": "pexels_video",
-     "frase": "Furono infine uccisi da",
-     "q": "arrows flying sky dusk",
-     "suono": "arrows whistling through the air"
+     "frase": "bruciarono Mosca",
+     "q": "city burning fire smoke night"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "l'inverno distrusse",
+     "q": "frozen snowy battlefield field"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "sopravvissero circa 30.000",
+     "q": "snow covered cemetery crosses",
+     "didascalia": "30.000 sopravvissuti"
     }
    ]
   },
   {
-   "capitolo": "Salamina",
-   "testo": "Serse conquistò il passo, ma perse 20.000 uomini. Bruciò Atene fino alle fondamenta, ma la città era vuota: gli abitanti erano fuggiti sulle isole vicine. Una tempesta gigantesca aveva già distrutto un quarto delle navi persiane.",
-   "anno": -480,
+   "testo": "La Russia sconfisse Napoleone usando l'inverno come arma, ma rifiutò di risolvere i suoi veri problemi.",
+   "anno": 1815,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "Serse conquistò il passo",
-     "q": "Athens Acropolis ruins dusk",
-     "didascalia": "20.000 uomini persi"
+     "frase": "La Russia sconfisse Napoleone",
+     "q": "winter blizzard Russia trees"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "Bruciò Atene fino alle",
-     "q": "burning fire embers dark"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "Una tempesta gigantesca aveva",
-     "q": "huge storm waves sea thunder",
-     "suono": "heavy rain and thunder"
+     "frase": "rifiutò di risolvere",
+     "q": "cracked old wall peeling paint"
     }
    ]
   },
   {
-   "testo": "Temistocle attirò la flotta persiana nelle acque strette vicino a Salamina con un trucco geniale. Le navi persiane, ammassate, si scontrarono tra loro spezzandosi i remi. Le navi greche ne affondarono molte speronandole. Serse, in preda al panico, fuggì verso nord con gran parte dell'esercito.",
-   "anno": -480,
+   "capitolo": "Nicola II e Rasputin",
+   "testo": "Nel 1894 salì al trono il debole Nicola II, facilmente manipolato da tutti. Sua moglie Alessandra era ossessionata da Rasputin, un rozzo monaco contadino che diceva di guarire magicamente il figlio malato. Attraverso di lei, Rasputin governava di fatto il paese mentre la Russia cadeva a pezzi.",
+   "anno": 1894,
    "visivi": [
     {
-     "tipo": "pexels_video",
-     "frase": "Temistocle attirò la flotta",
-     "q": "Salamis strait Greece narrow sea"
-    },
-    {
      "tipo": "pexels_foto",
-     "frase": "Le navi persiane, ammassate",
-     "q": "ancient wooden ship oars replica"
+     "frase": "Nel 1894 salì al trono",
+     "q": "Catherine Palace Tsarskoye Selo",
+     "didascalia": "1894"
     },
     {
      "tipo": "pexels_video",
-     "frase": "Le navi greche ne",
-     "q": "wooden ship sinking waves",
-     "suono": "wooden ship creaking, waves crashing"
+     "frase": "Rasputin, un rozzo monaco",
+     "q": "Siberian village wooden church"
     },
     {
      "tipo": "pexels_video",
-     "frase": "Serse, in preda al",
-     "q": "sea horizon north dark clouds"
+     "frase": "la Russia cadeva a pezzi",
+     "q": "crumbling old building ruins"
     }
    ]
   },
   {
-   "capitolo": "La marcia di Sparta",
-   "testo": "Serse lasciò il generale Mardonio con 120.000 soldati scelti per chiudere la guerra. Mardonio tentò di corrompere Atene perché si unisse ai Persiani, ma gli Ateniesi rifiutarono. Nella sua rabbia, bruciò di nuovo Atene.",
-   "anno": -479,
+   "testo": "Nel 1914 Nicola prese la peggiore decisione possibile: entrare nella Prima guerra mondiale, del tutto impreparato. I soldati non avevano fucili, cappotti o stivali, e la Russia perse quasi due milioni di uomini, più di ogni altro paese. A Tannenberg i tedeschi uccisero o catturarono 170.000 russi in soli tre giorni.",
+   "anno": 1914,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "Serse lasciò il generale",
-     "q": "Greek plain dust dry fields",
-     "didascalia": "120.000 soldati scelti"
+     "frase": "Nel 1914 Nicola prese",
+     "q": "old World War trench mud field"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "Mardonio tentò di corrompere",
-     "q": "ancient gold coins pile"
+     "frase": "non avevano fucili",
+     "q": "antique rifle worn boots museum"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "quasi due milioni",
+     "q": "war cemetery crosses fog",
+     "didascalia": "2 milioni di morti"
     },
     {
      "tipo": "pexels_video",
-     "frase": "Nella sua rabbia, bruciò",
-     "q": "Athens Acropolis smoke fire"
+     "frase": "A Tannenberg i tedeschi",
+     "q": "misty forest lake Poland",
+     "didascalia": "170.000 russi in 3 giorni"
     }
    ]
   },
   {
-   "testo": "Gli Ateniesi minacciarono gli Spartani di arrendersi se non fossero marciati subito verso nord. Finalmente gli Spartani si mossero: mandarono 5.000 cittadini scelti e 35.000 servi armati. Con le altre città greche raccolsero 110.000 uomini, il più grande esercito greco mai radunato.",
-   "anno": -479,
+   "testo": "La morte di Rasputin fu la più strana della storia russa: i nobili lo avvelenarono con il cianuro, gli spararono quattro volte e lo gettarono in un fiume ghiacciato. Giorni dopo la polizia ripescò il corpo, con le mani artigliate per aver cercato di nuotare sotto il ghiaccio.",
+   "anno": 1916,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "Gli Ateniesi minacciarono gli",
-     "q": "Peloponnese hills road Greece"
+     "frase": "La morte di Rasputin",
+     "q": "dark palace corridor night"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "Finalmente gli Spartani si",
-     "q": "Sparta landscape olive trees",
-     "didascalia": "5.000 Spartani e 35.000 servi"
+     "frase": "lo avvelenarono con il cianuro",
+     "q": "old poison bottle glass"
     },
     {
      "tipo": "pexels_video",
-     "frase": "Con le altre città",
-     "q": "Greek countryside wide valley",
-     "didascalia": "110.000 uomini"
+     "frase": "un fiume ghiacciato",
+     "q": "frozen river ice winter night"
     }
    ]
   },
   {
-   "testo": "Tra loro c'era Aristodemo, sopravvissuto alle Termopili per un'infezione agli occhi. A Sparta lo trattavano come un fantasma, perché tutti lo chiamavano codardo. Voleva disperatamente morire in battaglia per riscattare il proprio nome.",
-   "anno": -479,
+   "capitolo": "La rivoluzione",
+   "testo": "Nel febbraio 1917 operai e soldati assaltarono il palazzo, e i generali fermarono il treno di Nicola per dirgli che non era più zar. Trecento anni di Romanov finirono in silenzio, con un uomo confuso che firmava un foglio in un vagone.",
+   "anno": 1917,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "Tra loro c'era Aristodemo",
-     "q": "lonely path Greece hills dusk"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "A Sparta lo trattavano",
-     "q": "Sparta ruins dusk shadows"
+     "frase": "Nel febbraio 1917",
+     "q": "Saint Petersburg winter snow street",
+     "didascalia": "febbraio 1917"
     },
     {
      "tipo": "pexels_video",
-     "frase": "Voleva disperatamente morire in",
-     "q": "red sunset Greek hills"
+     "frase": "fermarono il treno",
+     "q": "old steam train snowy railway"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "firmava un foglio",
+     "q": "fountain pen paper old document"
     }
    ]
   },
   {
-   "capitolo": "La battaglia di Platea",
-   "testo": "I due eserciti si incontrarono a Platea. Mardonio restò in pianura perché aveva 15.000 cavalieri micidiali. I Greci rimasero sulle colline, dove i cavalli non potevano caricare. Per 10 giorni nessuno dei due si mosse.",
-   "anno": -479,
+   "testo": "Il nuovo governo provvisorio commise l'errore di continuare la guerra, che tutti in Russia odiavano. Lenin, brillante comunista nascosto in Svizzera, fu rimandato in Russia di nascosto dalla Germania per distruggere il paese dall'interno.",
+   "anno": 1917,
    "visivi": [
     {
-     "tipo": "pexels_video",
-     "frase": "I due eserciti si",
-     "q": "Boeotia plain Greece landscape"
-    },
-    {
      "tipo": "pexels_foto",
-     "frase": "Mardonio restò in pianura",
-     "q": "Greece flat plain wheat fields"
+     "frase": "Il nuovo governo provvisorio",
+     "q": "Tauride Palace Saint Petersburg"
     },
     {
      "tipo": "pexels_video",
-     "frase": "I Greci rimasero sulle",
-     "q": "rocky hills Greece slope",
-     "didascalia": "10 giorni di stallo"
+     "frase": "Lenin, brillante comunista",
+     "q": "Swiss Alps lake Zurich"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "rimandato in Russia",
+     "q": "vintage steam train tracks"
     }
    ]
   },
   {
-   "testo": "I Persiani avvelenarono la sorgente d'acqua dei Greci e bloccarono i rifornimenti di cibo. Affamati, i Greci decisero di spostare l'accampamento di notte, ma nel buio l'esercito si divise in tre tronconi.",
-   "anno": -479,
+   "testo": "I bolscevichi promettevano tre cose: pace, terra e pane, un'offerta irresistibile per una nazione affamata, gelata ed esausta. Nell'ottobre 1917 entrarono nel palazzo del governo a Pietrogrado quasi senza resistenza. La più potente rivoluzione comunista nacque da uomini arrabbiati che passano da una porta aperta.",
+   "anno": 1917,
    "visivi": [
     {
-     "tipo": "pexels_video",
-     "frase": "I Persiani avvelenarono la",
-     "q": "spring water rock Greece"
-    },
-    {
      "tipo": "pexels_foto",
-     "frase": "Affamati, i Greci decisero",
-     "q": "night sky stars Greece hills"
+     "frase": "I bolscevichi promettevano",
+     "q": "loaf of bread wooden table"
     },
     {
      "tipo": "pexels_video",
-     "frase": "nel buio l'esercito si",
-     "q": "dark night fog mountains"
+     "frase": "Nell'ottobre 1917",
+     "q": "Winter Palace gates Saint Petersburg",
+     "didascalia": "ottobre 1917"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "una porta aperta",
+     "q": "old open door light corridor"
     }
    ]
   },
   {
-   "testo": "Mardonio pensò che i Greci sparpagliati stessero fuggendo per paura. Ordinò una carica totale con migliaia di arcieri persiani. Gli Spartani restarono fermi, in attesa di un segno religioso dai loro sacerdoti. Alla fine il segno arrivò e la falange spartana iniziò ad avanzare.",
-   "anno": -479,
+   "testo": "Seguì una guerra civile brutale tra rossi comunisti e bianchi anticomunisti. Quattordici paesi, tra cui Gran Bretagna, Francia e America, mandarono truppe per fermare i bolscevichi. I bolscevichi giustiziarono lo zar Nicola, la moglie e tutti e cinque i figli in uno scantinato.",
+   "anno": 1918,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "Mardonio pensò che i",
-     "q": "dust cloud plain galloping",
-     "suono": "horses galloping on dry ground"
+     "frase": "Seguì una guerra civile",
+     "q": "Russia winter forest railway"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "Ordinò una carica totale",
-     "q": "bow arrows ancient closeup"
+     "frase": "Quattordici paesi",
+     "q": "vintage world map old",
+     "didascalia": "14 paesi"
     },
     {
      "tipo": "pexels_video",
-     "frase": "Gli Spartani restarono fermi",
-     "q": "sacrificial fire altar flames"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "Alla fine il segno",
-     "q": "bronze shield spear sunlight",
-     "suono": "swords clashing, distant battle shouts"
+     "frase": "in uno scantinato",
+     "q": "dark stone basement stairs"
     }
    ]
   },
   {
-   "testo": "Gli scudi di legno dei Persiani erano inutili contro le lance di bronzo spartane. Il generale Mardonio guidava le sue truppe da un cavallo bianco, circondato da 1.000 guardie scelte. Lo Spartano Arimnesto afferrò un grosso masso e lo scagliò con forza incredibile: colpì Mardonio in testa e gli fracassò il cranio.",
-   "anno": -479,
+   "capitolo": "L'Unione Sovietica",
+   "testo": "Cinque anni dopo i rossi vinsero, creando l'Unione Sovietica: una massa rossa enorme, un sesto del pianeta. Lenin morì nel 1924, e Stalin, paranoico georgiano, prese il controllo assoluto nonostante l'avvertimento di Lenin sul letto di morte.",
+   "anno": 1924,
    "visivi": [
     {
-     "tipo": "pexels_video",
-     "frase": "Gli scudi di legno",
-     "q": "wooden shield old cracked"
-    },
-    {
      "tipo": "pexels_foto",
-     "frase": "Il generale Mardonio guidava",
-     "q": "white horse Greece field"
+     "frase": "Cinque anni dopo",
+     "q": "Red Square Moscow Lenin Mausoleum",
+     "didascalia": "1/6 del pianeta"
     },
     {
      "tipo": "pexels_video",
-     "frase": "Lo Spartano Arimnesto afferrò",
-     "q": "large rock boulder hillside"
+     "frase": "Lenin morì nel 1924",
+     "q": "Moscow Kremlin wall snow"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "colpì Mardonio in testa",
-     "q": "ancient bronze helmet cracked"
+     "frase": "Stalin, paranoico",
+     "q": "old Soviet star red metal"
     }
    ]
   },
   {
-   "testo": "Caduto il generale, l'esercito persiano perse il cuore e fuggì in preda al panico. I Greci lo inseguirono fin dentro il campo fortificato e iniziarono un massacro: uccisero 40.000 Persiani senza fare prigionieri. Finalmente si vendicavano di Leonida e delle città bruciate.",
-   "anno": -479,
+   "testo": "Nel 1929 Stalin era dittatore di tutta la terra dall'Europa orientale al Pacifico. Costrinse milioni di contadini nelle fattorie statali: chi resisteva veniva fucilato o mandato nei campi siberiani, e ci fu una fame di massa. Eliminò generali, scienziati e amici sospetti, lasciando la Russia quasi senza ufficiali esperti.",
+   "anno": 1929,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "Caduto il generale, l'esercito",
-     "q": "dust storm fleeing plain"
+     "frase": "Nel 1929 Stalin",
+     "q": "vast wheat field Russia empty"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "campi siberiani",
+     "q": "Siberia frozen wasteland snow",
+     "didascalia": "1929"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "I Greci lo inseguirono",
-     "q": "ancient wooden palisade fort"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "uccisero 40.000 Persiani senza",
-     "q": "fire smoke ruins dusk",
-     "didascalia": "40.000 Persiani uccisi"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "Finalmente si vendicavano di",
-     "q": "Thermopylae monument sunset"
+     "frase": "generali, scienziati",
+     "q": "barbed wire fence snow"
     }
    ]
   },
   {
-   "testo": "Nella tenda del generale persiano trovarono montagne di oro, argento e oggetti di lusso. Il generale spartano Pausania fece preparare ai cuochi persiani un banchetto reale, poi mostrò ai suoi ufficiali il contrasto con una normale cena spartana a base di zuppa nera. Rise, dicendo che i Persiani erano stolti: avevano tanta ricchezza ma erano venuti a prendersi la loro povertà.",
-   "anno": -479,
+   "capitolo": "La Seconda guerra mondiale",
+   "testo": "Nel 1941 Hitler invase con tre milioni di soldati: l'Operazione Barbarossa fu la più grande invasione terrestre della storia, e assediò Leningrado per 900 giorni. Quasi un milione di persone morì di fame solo lì. I tedeschi arrivarono alle porte di Mosca, ma l'inverno congelò i motori dei carri armati.",
+   "anno": 1941,
    "visivi": [
     {
-     "tipo": "pexels_foto",
-     "frase": "Nella tenda del generale",
-     "q": "ancient gold silver treasure"
-    },
-    {
      "tipo": "pexels_video",
-     "frase": "Il generale spartano Pausania",
-     "q": "banquet table gold dishes ancient"
+     "frase": "Nel 1941 Hitler invase",
+     "q": "Russian field smoke dark sky",
+     "didascalia": "3 milioni di soldati"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "poi mostrò ai suoi",
-     "q": "black soup clay bowl rustic"
+     "frase": "assediò Leningrado",
+     "q": "Saint Petersburg winter snow canal",
+     "didascalia": "900 giorni"
     },
     {
      "tipo": "pexels_video",
-     "frase": "Rise, dicendo che i",
-     "q": "ancient gold jewelry museum"
+     "frase": "Quasi un milione",
+     "q": "empty snowy street winter city"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "l'inverno congelò",
+     "q": "frozen engine ice snow metal"
     }
    ]
   },
   {
-   "capitolo": "La fine dell'invasione",
-   "testo": "Mentre gli Spartani vincevano a Platea, la flotta greca attaccò le navi persiane sulla costa dell'Asia. I Persiani, terrorizzati, non uscirono in mare: tirarono le navi sulla spiaggia e costruirono un muro intorno. I Greci sfondarono il muro e bruciarono fino all'ultima nave persiana.",
-   "anno": -479,
+   "testo": "I russi, abituati al freddo estremo, respinsero i tedeschi, ripetendo l'errore di Napoleone di 130 anni prima. Il fronte orientale divenne il luogo più sanguinoso della Terra, con 2 milioni di morti a Stalingrado.",
+   "anno": 1942,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "Mentre gli Spartani vincevano",
-     "q": "Aegean sea coast Turkey ships"
+     "frase": "I russi, abituati al freddo",
+     "q": "snowy forest Russia blizzard"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "I Persiani, terrorizzati, non",
-     "q": "wooden ships beach ancient"
+     "frase": "il luogo più sanguinoso",
+     "q": "Volgograd Mamayev Kurgan monument"
     },
     {
      "tipo": "pexels_video",
-     "frase": "I Greci sfondarono il",
-     "q": "burning ship fire sea night",
-     "suono": "crackling fire, wood burning"
+     "frase": "2 milioni di morti",
+     "q": "Volga river Volgograd",
+     "didascalia": "2 milioni di morti"
     }
    ]
   },
   {
-   "testo": "In un solo giorno, su due continenti, l'invasione persiana fu spazzata via. L'immenso esercito di Serse non c'era più, e i Persiani non tentarono mai più di invadere la Grecia. Le città furono ricostruite e i Greci entrarono in un'età d'oro di arte e filosofia.",
-   "anno": -479,
+   "testo": "Nella battaglia di Kursk del 1943 si scontrarono 6.000 carri armati, e la Germania perse per sempre l'iniziativa. Quattro soldati tedeschi su cinque morti nella guerra caddero contro i sovietici, non in Normandia. L'Unione Sovietica perse 27 milioni di persone ma uscì superpotenza, con metà Europa sotto controllo.",
+   "anno": 1943,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "In un solo giorno",
-     "q": "sunrise Aegean sea calm"
+     "frase": "Nella battaglia di Kursk",
+     "q": "old tank museum Russia",
+     "didascalia": "6.000 carri armati"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "Le città furono ricostruite",
-     "q": "Parthenon Athens Acropolis"
+     "frase": "Quattro soldati tedeschi",
+     "q": "war memorial eternal flame"
     },
     {
      "tipo": "pexels_video",
-     "frase": "i Greci entrarono in",
-     "q": "Greek temple columns golden light"
+     "frase": "perse 27 milioni",
+     "q": "Moscow Victory Park monument",
+     "didascalia": "27 milioni di morti"
     }
    ]
   },
   {
-   "testo": "Sul luogo delle Termopili posero una famosa iscrizione, per dire al mondo che gli Spartani erano morti lì obbedendo alle loro leggi. Ma la vera lezione arrivò a Platea: se uccidi un re spartano e bruci le loro case, distruggeranno tutto ciò che hai costruito.",
-   "anno": -479,
+   "capitolo": "La Guerra fredda",
+   "testo": "Per 45 anni URSS e America si fronteggiarono nella Guerra fredda, con migliaia di armi nucleari. Due volte il mondo fu a poche ore dall'annientamento, anche quando nel 1983 l'ufficiale Stanislav Petrov impedì una rappresaglia. L'istinto di un uomo salvò il pianeta quella notte.",
+   "anno": 1983,
    "visivi": [
     {
+     "tipo": "pexels_video",
+     "frase": "Per 45 anni",
+     "q": "missile launch silo rocket",
+     "didascalia": "45 anni"
+    },
+    {
      "tipo": "pexels_foto",
-     "frase": "Sul luogo delle Termopili",
-     "q": "Leonidas monument Thermopylae"
+     "frase": "migliaia di armi nucleari",
+     "q": "nuclear mushroom cloud archive"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Stanislav Petrov",
+     "q": "old radar screen alarm red"
     },
     {
      "tipo": "pexels_video",
-     "frase": "Ma la vera lezione",
-     "q": "Greek ruins sunset clouds"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "se uccidi un re",
-     "q": "fire flames dark closeup"
+     "frase": "salvò il pianeta",
+     "q": "earth night sky stars"
     }
    ]
   },
   {
-   "testo": "Centocinquant'anni dopo, Alessandro Magno avrebbe finito il lavoro, guidando un esercito greco nel cuore della Persia.",
-   "anno": -330,
+   "testo": "Stalin morì nel 1953, e i successori furono meno assassini, ma l'Unione Sovietica marciva dall'interno: negozi vuoti, fabbriche rotte, code di ore per il pane. Nel 1985 il sistema si reggeva con vodka e preghiere.",
+   "anno": 1985,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "Centocinquant'anni dopo, Alessandro Magno",
-     "q": "Persepolis ruins sunset Iran",
-     "didascalia": "150 anni dopo"
+     "frase": "Stalin morì nel 1953",
+     "q": "Soviet concrete apartment blocks winter"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "negozi vuoti",
+     "q": "empty shop shelves old"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "vodka e preghiere",
+     "q": "vodka bottle glass table"
+    }
+   ]
+  },
+  {
+   "testo": "Gorbaciov cercò di salvarlo con apertura e riforme economiche, ma si ritorcero contro: la gente cominciò a criticare il governo. Polonia, Germania Est e Ungheria se ne andarono, e l'intera Unione si frantumò in 15 paesi quasi dall'oggi al domani.",
+   "anno": 1989,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Gorbaciov cercò di salvarlo",
+     "q": "Moscow Kremlin snow lights"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Polonia, Germania Est",
+     "q": "Berlin Wall remains graffiti"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "15 paesi",
+     "q": "broken stone cracked statue",
+     "didascalia": "15 paesi"
+    }
+   ]
+  },
+  {
+   "capitolo": "L'era Putin",
+   "testo": "Il 25 dicembre 1991 la bandiera sovietica fu ammainata dal Cremlino per l'ultima volta, sostituita dal tricolore russo senza alcuna cerimonia. Il paese che sconfisse la Germania nazista e tenne mezzo pianeta sotto tiro per 45 anni semplicemente cessò di esistere.",
+   "anno": 1991,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Il 25 dicembre 1991",
+     "q": "Kremlin flag waving sky",
+     "didascalia": "25 dicembre 1991"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "senza alcuna cerimonia",
+     "q": "empty Red Square snow night"
     },
     {
      "tipo": "pexels_video",
-     "frase": "guidando un esercito greco",
-     "q": "Iran desert horizon dust"
+     "frase": "semplicemente cessò di esistere",
+     "q": "abandoned Soviet building decay"
+    }
+   ]
+  },
+  {
+   "testo": "Poi Vladimir Putin, ex agente del KGB dai modi sommessi, diventò presidente nel 1999 e chiuse la presa su media, tribunali e rivali. Tutto ciò che ha plasmato la Russia parte dai mongoli: se salti quella parte, ti manca l'intera storia.",
+   "anno": 2026,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Poi Vladimir Putin",
+     "q": "Moscow city skyline night",
+     "didascalia": "1999"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "chiuse la presa su media",
+     "q": "Kremlin tower red star night"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "parte dai mongoli",
+     "q": "Mongolian steppe vast sunset"
     }
    ]
   }
  ],
  "copertina": {
-  "testo": "10000 VS 100000",
+  "testo": "1279 – 2026 – COME?",
   "personaggio": ""
  },
- "descrizione": "Come 5.000 Spartani vendicarono brutalmente i 300 delle Termopili? In questo video ricostruiamo la storia completa: il tradimento di Efialte, la morte di re Leonida, l'invasione persiana di Serse, la vittoria navale di Salamina e la battaglia decisiva di Platea nel 479 a.C.\n\nScopri come funzionava l'addestramento spartano, perché la falange greca era invincibile, come morì il generale Mardonio e come i Greci distrussero l'esercito persiano in un solo giorno, su due continenti.\n\nUna storia di tradimento, coraggio e vendetta che cambiò per sempre la storia dell'Occidente. Guarda fino alla fine per scoprire la lezione di Platea.\n\n#Sparta #Termopili #StoriaAntica #Persia #Platea",
+ "descrizione": "Come è diventata la Russia il paese più grande del mondo? In questo video animato percorriamo 1.500 anni di storia russa: dai vichinghi di Rurik e la Rus' di Kiev al giogo mongolo, da Ivan il Terribile a Pietro il Grande e Caterina la Grande.\n\nVediamo la sconfitta di Napoleone, la caduta dei Romanov, la rivoluzione bolscevica di Lenin, la dittatura di Stalin, la Seconda guerra mondiale, la Guerra fredda e il crollo dell'Unione Sovietica nel 1991, fino all'ascesa di Vladimir Putin.\n\nUna storia della Russia completa, spiegata in modo semplice e coinvolgente, con date, fatti e personaggi reali. Iscriviti per altre storie dei grandi imperi.\n\n#storiadellarussia #storia #impero #unionesovietica #mongoli #documentario",
  "tag": [
-  "sparta",
-  "spartani",
-  "300 spartani",
-  "termopili",
-  "battaglia delle termopili",
-  "leonida",
-  "re leonida",
-  "serse",
-  "impero persiano",
-  "persiani",
-  "immortali persiani",
-  "guerre persiane",
-  "battaglia di platea",
-  "platea",
-  "mardonio",
-  "salamina",
-  "temistocle",
-  "falange greca",
-  "antica grecia",
-  "storia antica",
-  "storia di sparta",
-  "storia della grecia",
+  "storia della russia",
+  "storia animata",
+  "impero mongolo",
+  "storia del mondo",
+  "storia europea",
+  "storia russa",
+  "documentario storico",
+  "storia spiegata",
+  "storia di Russia",
   "storia completa",
-  "vendetta spartana",
-  "efialte",
-  "pausania",
-  "aristodemo",
-  "479 a.C.",
-  "480 a.C.",
-  "storia a cartone"
+  "Rurik",
+  "Rus' di Kiev",
+  "Ivan il Terribile",
+  "Pietro il Grande",
+  "Caterina la Grande",
+  "Napoleone in Russia",
+  "Rasputin",
+  "Nicola II",
+  "rivoluzione russa",
+  "Lenin",
+  "Stalin",
+  "Unione Sovietica",
+  "Guerra fredda",
+  "Stanislav Petrov",
+  "Gorbaciov",
+  "Putin",
+  "Romanov",
+  "giogo mongolo",
+  "Mosca",
+  "San Pietroburgo"
  ],
- "personaggi_mancanti": [
-  "Leonida re spartano",
-  "Serse re persiano",
-  "Mardonio generale persiano",
-  "oplita spartano generico",
-  "Temistocle ateniese"
- ],
+ "personaggi_mancanti": [],
  "categoria_originale": "27"
 }
