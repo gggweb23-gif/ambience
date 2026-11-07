@@ -1,16 +1,23 @@
-Canale: KAO PSICOLOGIA
-Competitor letti dal foglio: 25 video
-Video dal 2026-09-21 senza copertina nuova: 1
-              pISyy7Lcpbs  La psicologia delle persone che non vogliono figli  [nuovo stile]
-copia competitor ykJmty5boDs -> pISyy7Lcpbs (100% uguale): NON VOGLIONO / FIGLI
-  controllo immagine: {"testa_alta": 16, "scritte": false}
-  KAO era alto il 82%: zoom 1.08x
-zona libera troppo piccola: [0.62, 0.02, 0.76, 0.25]
-  controllo finale scritta: {"copre": true, "cosa": "The white card partially obscures the tall man in the magenta shirt, covering his torso and upper body"}
-zona libera troppo piccola: [0.445, 0.575, 0.88, 0.75]
-  controllo finale scritta: {"copre": false, "cosa": "The white card does not hide or obscure any person, important objects, or graphic elements in the scene"}
-  controllo finale scritta: {"copre": false, "cosa": "The white card does not hide or cut any person or important object. The family is clearly visible on the left side, and all graphic elements are fully visible."}
-  controllo finale scritta: {"copre": false, "cosa": "The white card does not hide any persons or important objects. The family on the left is fully visible, and the man in the magenta shirt is completely shown. No important elements are obscured."}
-copertina pronta: pISyy7Lcpbs NON VOGLIONO / FIGLI
-solo anteprima pISyy7Lcpbs La psicologia delle persone che non vogliono figli
-FATTO: 0 caricate su 1 | APPLICA = False
+Traceback (most recent call last):
+  File "/home/runner/work/ambience/ambience/copertine_cinema_kao.py", line 60, in <module>
+    ch = http('https://www.googleapis.com/youtube/v3/channels?part=contentDetails,snippet&mine=true', headers=AUTH)['items'][0]
+         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/ambience/ambience/copertine_cinema_kao.py", line 42, in http
+    with urllib.request.urlopen(urllib.request.Request(url, data=body, headers=h, method=metodo), timeout=timeout) as r:
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 187, in urlopen
+    return opener.open(url, data, timeout)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 493, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.14/urllib/request.py", line 602, in http_response
+    response = self.parent.error(
+        'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.14/urllib/request.py", line 531, in error
+    return self._call_chain(*args)
+           ~~~~~~~~~~~~~~~~^^^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 464, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.14/urllib/request.py", line 611, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 403: Forbidden
