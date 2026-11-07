@@ -1,6 +1,13 @@
 """Regola di Giorgio (tutti i canali): la prima frase della descrizione YouTube e' sempre il titolo del video."""
 
 
+def pulisci_titolo(t):
+    """7 nov: via le etichette dei competitor che non sono nostre ([NO AI], (4K), [HD], [FULL DOCUMENTARY]...)."""
+    import re
+    t = re.sub(r'\s*[\[(]\s*(no\s*ai|4k|hd|full\s*documentary|documentary|documentario( completo)?|animated|animazione)\s*[\])]', '', str(t or ''), flags=re.I)
+    return ' '.join(t.split()).strip(' |-')
+
+
 def con_titolo(titolo, descr):
     t, d = str(titolo or '').strip(), str(descr or '').strip()
     if not t or d.lower().startswith(t.lower()):

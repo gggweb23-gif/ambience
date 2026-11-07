@@ -37,6 +37,20 @@ def main():
         A.api(fid, 'POST', '/values:batchUpdate', {'valueInputOption': 'RAW', 'data': [
             {'range': f"'{sch}'!{A.lettera(h.index('data_pubblicazione') + 1)}{n}", 'values': [[str(esito['data'])]]}]})
         print(P.get('canale'), 'riga', n, '| uscita spostata a', esito['data']); return
+    if stato == 'CORREGGI':   # 7 nov: correzione di testo nelle colonne della riga (es. via "[NO AI]" da titolo, descrizione e tag), lo stato resta
+        r = prod[n - 2]; dati = []
+        for col in esito.get('colonne') or ('titolo_italiano', 'descrizione_youtube', 'tag_seo'):
+            if col not in h:
+                continue
+            x = str(r.get(col) or '')
+            for a, b in (esito.get('sostituisci') or {}).items():
+                x = x.replace(a, b)
+            x = '\n'.join(' '.join(riga.split()) if riga.strip() else '' for riga in x.split('\n')).replace(' ,', ',')
+            if x != str(r.get(col) or ''):
+                dati.append({'range': f"'{sch}'!{A.lettera(h.index(col) + 1)}{n}", 'values': [[x]]})
+        if dati:
+            A.api(fid, 'POST', '/values:batchUpdate', {'valueInputOption': 'RAW', 'data': dati})
+        print(P.get('canale'), 'riga', n, '| corrette', len(dati), 'colonne'); return
     v = {'status': STATI.get(stato, 'Errore')}
     for k, col in CAMPI.items():
         if str(esito.get(k) or '').strip():

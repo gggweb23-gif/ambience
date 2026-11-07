@@ -4053,6 +4053,7 @@ def main():
     # titolo e copertina copiati al 100%: se citano i minuti del video originale, si mettono i minuti VERI del nostro video
     minuti_veri = max(1, int(round(sum(durs) / 60)))
     titolo_finale = minuti_giusti(titolo_finale, minuti_veri)
+    titolo_finale = DESCR.pulisci_titolo(titolo_finale)   # 7 nov: era uscito '1500 anni di storia russa in 10 minuti [NO AI]' (etichetta del competitor)
     if isinstance(c.get('copertina'), dict) and c['copertina'].get('testo'):
         c['copertina']['testo'] = minuti_giusti(str(c['copertina']['testo']), minuti_veri)
     c['titolo'] = titolo_finale
