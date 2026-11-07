@@ -49,7 +49,7 @@ function luogo(tipo, t, C, insegna) {
   const n = String(tipo || '').toLowerCase(), k = C.i;
   const muro = PALETTE[(k * 7 + n.length) % PALETTE.length];
   let s = BG(muro) + floor(820, ['#E8B97A', '#C9CED9', '#D9B98A', '#B8C1D9', '#C98A4B'][(k + n.length) % 5]);
-  const scritta = insegna ? `<rect x="1360" y="80" width="500" height="100" rx="20" fill="${INK}"/>` + T(1610, 150, S(insegna).slice(0, 18).toUpperCase(), insegna.length > 14 ? 40 : 52, Y) : '';
+  const scritta = insegna ? `<rect x="1360" y="80" width="500" height="100" rx="20" fill="${INK}"/>` + T(1610, 150, S(insegna).toUpperCase().slice(0, 22), insegna.length > 14 ? 40 : 52, Y) : '';
   if (/bar|caff/.test(n)) s += `<rect x="140" y="260" width="300" height="300" rx="26" fill="${GR}" ${SW}/><rect x="180" y="300" width="220" height="80" rx="12" fill="#5A5F73" ${SW5}/>` + [0, 1, 2].map(i => `<path d="M${270 + i * 20} ${250 - ((t * 60 + i * 30) % 90)} q-14 -20 0 -40" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" opacity=".8"/>`).join('') + [0, 1, 2, 3, 4].map(i => cup(560 + i * 110, 300, .4)).join('');
   else if (/pizz|ristorant|cucin|sushi|kebab|food/.test(n)) s += `<rect x="1100" y="260" width="560" height="420" rx="200" fill="#8B5A2B" ${SW}/><path d="M1200 640 q180 -240 360 0z" fill="#3A1E10" ${SW}/><path d="M1240 640 q140 -180 280 0z" fill="${OR}" opacity="${.6 + .3 * Math.sin(t * 6)}"/>` + `<rect y="0" width="1920" height="110" fill="${R}"/>` + [...Array(24)].map((_, i) => `<rect x="${i * 80}" y="0" width="40" height="110" fill="#fff" opacity=".5"/>`).join('');
   else if (/parrucch|barbier|estet/.test(n)) s += `<rect x="1150" y="180" width="460" height="380" rx="190" fill="#CDEBFF" ${SW}/><path d="M260 240 v380" stroke="${R}" stroke-width="40"/><path d="M260 240 v380" stroke="#fff" stroke-width="40" stroke-dasharray="30 30" stroke-dashoffset="${t * 60}"/><rect x="1220" y="620" width="320" height="200" rx="30" fill="${INK}"/>`;
@@ -301,7 +301,9 @@ TPL.leve = (t, d, p, C) => {
 TPL.riepilogo = (t, d, p, C) => {
   const V = (p.voci || []).slice(0, 4), n = V.length || 1;
   let s = sfondo(C) + titoletto(p.titolo || 'DA RICORDARE', t, 140);
-  V.forEach((v, i) => { const x = 960 + (i - (n - 1) / 2) * 440; s += card(x, 580, tappa(t, d, i, n), 400, 460, String(i + 1), T(0, 40, S(v).slice(0, 18), String(v).length > 12 ? 40 : 52, INK) + (String(v).length > 18 ? T(0, 100, S(v).slice(18, 36), 40, INK) : ''), COLS[i]) });
+  // frase a capo per parole intere (mai tagliata a meta' parola): max 5 righe da ~15 caratteri
+  const capo = v => { const r = ['']; String(v).split(/\s+/).forEach(w => { const l = r[r.length - 1]; if (l && (l + ' ' + w).length > 15) r.push(w); else r[r.length - 1] = l ? l + ' ' + w : w }); return r.slice(0, 5) };
+  V.forEach((v, i) => { const x = 960 + (i - (n - 1) / 2) * 440, R = capo(v), fs = R.length > 3 ? 38 : 44; s += card(x, 580, tappa(t, d, i, n), 400, 460, String(i + 1), R.map((l, k) => T(0, 20 + (k - (R.length - 1) / 2) * fs * 1.25, S(l), fs, INK)).join(''), COLS[i]) });
   return s;
 };
 

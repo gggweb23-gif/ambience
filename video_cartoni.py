@@ -80,7 +80,7 @@ formula {titolo, a: "3.000 €", op: "÷"|"×"|"−"|"+", b: "9,40 €", risulta
 conteggio {oggetto, icone: 1-60, testo: "13 al giorno"} = tanti oggetti che si riempiono + numero grande
 pareggio {titolo, fissi: 3000, margine: 9.4, nuovo_margine (facoltativo), unita: "magliette vendute", oggetto, perdita: true/false, guadagno: true/false} = grafico del punto di pareggio (fissi/margine = pareggio)
 mesi {titolo, valori: [12 numeri], evidenzia: [numeri dei mesi 1-12], nota} = barre dei 12 mesi
-confronto {titolo, a: {titolo, valore, oggetto}, b: {titolo, valore, oggetto}, vincitore: "a"|"b"|""} = due opzioni a confronto
+confronto {titolo, a: {titolo, valore, oggetto}, b: {titolo, valore, oggetto}, vincitore: "a"|"b"|""} = due opzioni a confronto (oggetto SEMPRE compilato e coerente con il suo titolo: scarpe per un negozio di scarpe, mai il caffe' per tutto)
 lista {titolo, voci: [max 6 frasi brevi]} = foglio con le spunte
 costi {voci: [{nome, valore, testo}], totale, periodo: "al mese"} = costi fissi che spuntano intorno al protagonista preoccupato (max 6)
 domanda {testo (max 30 caratteri), emozione: stupito|preoccupato|felice|calmo, scuro: true/false} = protagonista grande con fumetto (gancio, colpo di scena)
@@ -167,7 +167,7 @@ Lingua: {'italiano' if LINGUA == 'it' else LINGUA}, dai del tu allo spettatore.
 PUNTATA: "{titolo}"
 Attivita protagonista: {attivita or 'quella del titolo'}. Concetti da insegnare: {lezione or 'margine, costi fissi, punto di pareggio'}.
 
-Scrivi la puntata completa per un video di {dmin:g}-{dmax:g} minuti: in totale circa {car} caratteri di testo parlato (non meno di {int(car * .92)}).
+Scrivi la puntata completa per un video di {dmin:g}-{dmax:g} minuti: in totale circa {int(car * 1.2)} caratteri di testo parlato (non meno di {car}: conta i caratteri, i testi brevi rendono il video troppo corto).
 REGOLE DEL TESTO
 - Inizia con un gancio forte nei primi 10 secondi (un problema o un numero che sorprende), niente saluti, niente "in questo video".
 - Una storia con UN protagonista (nome italiano) e la sua attivita; ogni concetto spiegato con i suoi numeri, poi con 1-2 esempi DIVERSI di altre attivita (mai ripetere lo stesso esempio).
@@ -175,7 +175,7 @@ REGOLE DEL TESTO
 - Numeri realistici e coerenti fra loro (ricontrolla ogni calcolo: totali, divisioni, percentuali). Sono esempi: non presentarli come dati ufficiali.
 - Nel testo parlato TUTTI i numeri scritti in lettere (es. "tremila euro", "nove euro e quaranta", "il trenta per cento"), mai cifre.
 - Frasi brevi, ritmo vivace, qualche domanda allo spettatore, una battuta ogni tanto. Chiudi con un riassunto e un gancio al prossimo episodio, poi "Iscriviti".
-- 26-34 scene, ognuna da 180 a 330 caratteri.
+- 32-40 scene, ognuna da 220 a 330 caratteri.
 INQUADRATURE (il video e' tutto disegnato: ogni scena ha 2-4 inquadrature, una nuova ogni 4-6 secondi di voce)
 - La prima inquadratura di ogni scena ha "parola": "". Le altre hanno "parola": una parola ESATTA del testo della scena (la prima volta che compare) in cui l'inquadratura deve partire.
 - Modelli disponibili (tipo e parametri p):
@@ -184,7 +184,7 @@ INQUADRATURE (il video e' tutto disegnato: ogni scena ha 2-4 inquadrature, una n
 - I numeri nei grafici devono essere gli STESSI detti dalla voce.
 PROTAGONISTA: definiscilo una volta: {{"nome", "capelli": marco|giulia|short|long|curly|bun|bald|cap|chef, "colore_capelli": "#hex", "pelle": chiara|media|scura, "maglia": "#hex", "grembiule": "#hex" o "", "occhiali": true/false}}.
 CAPITOLI: in 6-9 scene metti "capitolo": "titolo breve del capitolo" (la prima scena NO, e' il gancio).
-COPERTINA: "copertina": {{"righe": [3 righe brevi e grammaticalmente corrette, max 16 caratteri l'una, maiuscole, es. "400 MAGLIETTE", "VENDUTE...", "E IN ROSSO"], "emozione": stupito|preoccupato, "oggetto": "...", "prezzo": "20 €", "fondo": scuro|chiaro}}.
+COPERTINA: "copertina": {{"righe": [3 righe brevi e grammaticalmente corrette, max 16 caratteri l'una, maiuscole CON gli accenti (CAFFÈ, PERCHÉ), es. "400 MAGLIETTE", "VENDUTE...", "E IN ROSSO"], "emozione": stupito|preoccupato, "oggetto": "...", "prezzo": "20 €", "fondo": scuro|chiaro}}.
 YOUTUBE: "descrizione" (3-5 frasi che invogliano, senza capitoli), "tag" (12-18 tag in italiano), "oggetto" (l'oggetto simbolo della puntata, es. "caffe", "pizza").
 
 Rispondi SOLO con il JSON:
@@ -193,8 +193,8 @@ Rispondi SOLO con il JSON:
     c = json_da(claude(prompt))
     tot = sum(len(s.get('testo', '')) for s in c.get('scene', []))
     log('copione:', len(c.get('scene', [])), 'scene,', tot, 'caratteri')
-    if tot < car * .8:   # troppo corto: si chiede di allungare (stesse regole)
-        c2 = json_da(claude(prompt + f'\n\nATTENZIONE: una versione precedente era troppo corta ({tot} caratteri). Scrivila di almeno {car} caratteri, con piu\' scene ed esempi.'))
+    if tot < car * .9:   # troppo corto: si chiede di allungare (stesse regole)
+        c2 = json_da(claude(prompt + f'\n\nATTENZIONE: una versione precedente era troppo corta ({tot} caratteri). Scrivila di almeno {int(car * 1.2)} caratteri, con piu\' scene ed esempi.'))
         if sum(len(s.get('testo', '')) for s in c2.get('scene', [])) > tot:
             c = c2
     c['titolo'] = titolo or c.get('titolo')
