@@ -71,7 +71,7 @@ def motore(cfg):
         return None   # avvio_archivio.py
     if gw == 'video_produzione.yml':
         return 'video_produzione.yml'
-    if rw in ('video_storia.yml', 'video_mappe.yml'):
+    if rw in ('video_storia.yml', 'video_mappe.yml', 'video_cartoni.yml'):   # 7 nov: video_cartoni.yml = cartoni + grafici in codice (Quanto Ti Resta)
         return rw
     return None
 

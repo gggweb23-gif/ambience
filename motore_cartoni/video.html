@@ -1,0 +1,82 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:B;src:url(fonts/baloo-2-latin-800-normal.woff2) format('woff2');font-weight:800}
+@font-face{font-family:B;src:url(fonts/baloo-2-latin-600-normal.woff2) format('woff2');font-weight:600}
+html,body{margin:0;overflow:hidden;background:#fff}
+svg{display:block}text{font-family:B,Inter,sans-serif}
+</style></head>
+<body><svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="lib.js"></script>
+<script src="tpl.js"></script>
+<script>
+// MONTAGGIO: la timeline delle inquadrature arriva da video_cartoni.py (scene con tempi delle parole, inquadrature con parola di partenza)
+const nrm = s => s.toLowerCase().replace(/[^a-zàèéìòù0-9]/g, '');
+function trova(words, key) {
+  const k = nrm(key || ''); if (!k) return null;
+  for (const [w, a] of words) if (w === k) return a;
+  if (k.length > 4) for (const [w, a] of words) if (w.startsWith(k) || k.startsWith(w) && w.length > 4) return a;
+  for (const [w, a] of words) if (w.includes(k) && k.length > 3) return a;
+  return null;
+}
+let TL = [], SCN = [], CTX = {};
+window.init = (order, ctx) => {
+  SCN = order; CTX = ctx || {}; TL = [];
+  let n = 0;
+  order.forEach(sc => {
+    const words = sc.words.map(([w, a]) => [nrm(w), a]);
+    let shots = (sc.shots || []).map((s, j) => ({ ...s, st: j === 0 ? 0 : trova(words, s.parola) }));
+    // inquadrature senza parola trovata: a meta' tra le vicine (mai due nello stesso istante, mai piu' corte di 1,8 s)
+    shots.forEach((s, j) => { if (s.st === null) s.st = j ? null : 0 });
+    for (let j = 1; j < shots.length; j++) if (shots[j].st === null) { const nx = shots.slice(j + 1).find(x => x.st !== null); const a = shots[j - 1].st, b = nx ? nx.st : sc.dur; shots[j].st = a + (b - a) / 2 }
+    shots.sort((a, b) => a.st - b.st);
+    const ok = []; for (const s of shots) { if (!ok.length || s.st - ok[ok.length - 1].st >= 1.8) ok.push(s) }
+    ok.forEach((s, j) => { s.g = sc.off + Math.max(0, s.st - .15); s.sc = sc; s.n = n++; const nx = ok[j + 1]; s.d = (nx ? nx.st : sc.dur) - s.st; TL.push(s) });
+  });
+  return TL.map(s => [s.sc.id, s.tipo, s.parola || '', +s.g.toFixed(2), +s.d.toFixed(2)]);
+};
+function disegna(s, gT) {
+  const t = gT - s.g, C = { i: s.n, prot: CTX.protagonista, attivita: CTX.attivita, oggetto: CTX.oggetto };
+  const f = TPL[s.tipo] || TPL.domanda;
+  try { return f(t, Math.max(1.5, s.d), s.p || {}, C) } catch (e) { console.log('errore', s.sc.id, s.tipo, e.message); return TPL.domanda(t, s.d, { testo: '' }, C) }
+}
+const TR = .38;
+function sottotitolo(gT) {
+  for (const sc of SCN) { if (gT < sc.off || gT > sc.off + sc.dur) continue;
+    const t = gT - sc.off; for (const c of sc.sub) if (t >= c.a && t <= c.b + .25) { const w = Math.min(1760, c.txt.length * 29 + 80); return `<rect x="${960 - w / 2}" y="996" width="${w}" height="68" rx="20" fill="${INK}" opacity=".88"/>` + T(960, 1043, S(c.txt), 46, '#fff', { w: 600 }) } }
+  return '';
+}
+function capitolo(gT) {
+  for (const sc of SCN) { const t = gT - sc.off; if (!sc.capitolo || t < 0 || t > 3.4) continue;
+    const p = pop(t, .1, .5) * (1 - pr(t, 3, .4)); const w = sc.capitolo.length * 30 + 90;
+    return tr(60, 60, 1, `<g transform="translate(${-(1 - cl(p)) * 900} 0)"><rect x="0" y="0" width="${w}" height="84" rx="42" fill="${INK}"/><rect x="0" y="0" width="84" height="84" rx="42" fill="${Y}"/>` + T(42, 58, '▶', 40, INK) + T(110, 58, S(sc.capitolo), 48, '#fff', { a: 'start' }) + `</g>`) }
+  return '';
+}
+window.draw = (gT) => {
+  let j = 0; while (j + 1 < TL.length && TL[j + 1].g <= gT) j++;
+  const s = TL[j]; let out;
+  if (j > 0 && gT - s.g < TR) {
+    const p = E((gT - s.g) / TR), d = j % 2 ? 1 : -1;
+    out = tr(-1920 * p * d, 0, 1, disegna(TL[j - 1], gT)) + tr(1920 * (1 - p) * d, 0, 1, disegna(s, gT));
+  } else out = disegna(s, gT);
+  document.getElementById('s').innerHTML = out + capitolo(gT) + sottotitolo(gT);
+};
+// COPERTINA 1280x720: scritta grande su 2-3 righe + protagonista + oggetto + cartellino
+window.copertina = (c, ctx) => {
+  const sv = document.getElementById('s'); sv.setAttribute('width', 1280); sv.setAttribute('height', 720); sv.setAttribute('viewBox', '0 0 1280 720');
+  const C = { i: 3, prot: ctx.protagonista, attivita: ctx.attivita, oggetto: ctx.oggetto }, r = c.righe || [];
+  const fondo = c.fondo === 'chiaro' ? '#FFE9C7' : '#2A3366';
+  let s = `<rect width="1280" height="720" fill="${fondo}"/>` + (c.fondo === 'chiaro' ? '' : stars(1));
+  s += prot(C, 960, 880, 1.25, .9, { mood: mood(c.emozione || 'stupito'), sweat: true, aL: 150, aR: -150 });
+  if (c.oggetto) s += oggetto(c.oggetto, 1150, 250, .8, 0);
+  if (c.prezzo) s += tr(1000, 140, .8, tag(0, 0, 1, S(c.prezzo)), -10);
+  const yy = [60, 250, 400];
+  r.slice(0, 3).forEach((x, i) => {
+    const txt = S(String(x).toUpperCase()), w = Math.min(740, txt.length * (i === 1 ? 58 : 54) + 60);
+    if (i === 0) s += `<rect x="40" y="${yy[0]}" width="${w}" height="150" rx="24" fill="${Y}" ${SW}/>` + T(40 + w / 2, yy[0] + 105, txt, txt.length > 13 ? 76 : 92, INK);
+    else if (i === 1) s += T(60, yy[1] + 70, txt, txt.length > 13 ? 84 : 104, '#fff', { a: 'start', st: INK, sw: 18 });
+    else s += `<rect x="40" y="${yy[2]}" width="${w}" height="170" rx="24" fill="${R}" ${SW}/>` + T(40 + w / 2, yy[2] + 125, txt, txt.length > 12 ? 92 : 116, '#fff');
+  });
+  sv.innerHTML = s;
+};
+</script></body></html>
