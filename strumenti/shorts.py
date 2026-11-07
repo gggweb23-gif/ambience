@@ -425,6 +425,14 @@ def rifai(canali):
             for i, r in enumerate(prod):
                 voci = [x.strip() for x in str(r.get('shorts') or '').split('|') if re.match(r'^[\w-]{11}@\d{4}-', x.strip())]
                 futuri = [x for x in voci if x.split('@')[1] > limite]
+                if futuri:   # gia' col pulsante: caricati dopo il 6/11 16:35 UTC (codice del pulsante) -> si tengono
+                    try:
+                        dati = json.loads(urllib.request.urlopen(urllib.request.Request('https://www.googleapis.com/youtube/v3/videos?part=snippet&id=' +
+                               ','.join(x.split('@')[0] for x in futuri), headers={'Authorization': 'Bearer ' + tk}), timeout=60).read())
+                        nuovi = {v['id'] for v in dati.get('items', []) if v['snippet'].get('publishedAt', '') > '2026-11-06T16:35'}
+                        futuri = [x for x in futuri if x.split('@')[0] not in nuovi]
+                    except Exception as e:
+                        log(cid, 'controllo date non riuscito, salto la riga:', str(e)[:100]); continue
                 if not futuri:
                     continue
                 for x in futuri:
