@@ -53,6 +53,9 @@ for r in cfgv[1:]:
             stato_coach = f"{e.get('stato')}: {e.get('motivo')}"
             rt = e.get('retention') or {}
             stato_ret = f"{rt.get('stato', '—')}: {rt.get('motivo', '')}"
+            cc = e.get('copertine_canale') or {}   # 8 nov: studio copertine sul CTR di tutto il canale
+            if cc.get('stato') == 'STUDIO_COPERTINE':
+                stato_coach += f" — 🔎 {cc.get('stato')}: {cc.get('motivo', '')}"
             solo_ids = {v['id'] for v in e.get('tutti_i_video', []) if v['versione'] == e.get('versione_attiva')}
             fin_n = int(e.get('finestra') or 3); etich = f" copertina v{e.get('versione_attiva')}"
             for v in e.get('tutti_i_video', [])[-6:]:

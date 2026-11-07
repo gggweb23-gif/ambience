@@ -20,7 +20,10 @@ Regole (decise con Giorgio il 30 ott 2026, valgono per tutti i canali con coach_
 - STABILE quando i parametri tengono per 2 controlli di fila
 - 5 nov 2026, Giorgio (studio impression): impression e CTR si valutano SOLO sui video con almeno 3 giorni di report YouTube
   completi (colonne giorni_report / copertura_report della scheda Performance); gli altri sono "in attesa di report"
-  (esito['in_attesa_report']) e non contano, perche' i report arrivano 2-5 giorni dopo. La retention resta come prima."""
+  (esito['in_attesa_report']) e non contano, perche' i report arrivano 2-5 giorni dopo. La retention resta come prima.
+- 8 nov 2026, Giorgio: esito['copertine_canale'] = decisione PARALLELA sul CTR di TUTTO il canale: se il canale ha almeno
+  coach_min_impression impression totali con CTR sotto obiettivo -> STUDIO_COPERTINE da mostrare a Giorgio (mai cambi automatici),
+  cosi' il Coach non resta fermo quando gli ultimi video non ricevono impression."""
 import datetime as dt, json, os, re, sys, unicodedata
 import openpyxl
 
@@ -134,6 +137,21 @@ def main(f_cfg, f_prod, canale):
         rt = {'stato': 'OK', 'motivo': f'retention 30 s {R30}% / 60 s {R60}% su {int(tot_views)} views totali'}
     rt.update(views_totali=tot_views, ret30=R30, ret60=R60, minimo_views=MIN_VR)
     esito['retention'] = rt
+    # 8 nov 2026, Giorgio: il Coach non deve restare fermo quando YouTube smette di mostrare i video nuovi. Se il CANALE ha gia'
+    # raccolto almeno coach_min_impression impression (tutti i video con >= 3 giorni di report) con CTR sotto obiettivo -> si prepara
+    # lo STUDIO COPERTINE da mostrare a Giorgio (decisione parallela, come la retention). Non cambia niente da solo: decide Giorgio.
+    rep = [v for v in video if v['report_ok']]
+    imp_c = sum(v['impression'] for v in rep); clic_c = sum(v['impression'] * (v['ctr'] or 0) / 100 for v in rep)
+    ctr_c = round(clic_c / imp_c * 100, 2) if imp_c else None
+    if imp_c >= MIN_IMP and ctr_c is not None and ctr_c < O['ctr']:
+        cc = {'stato': 'STUDIO_COPERTINE', 'motivo': f'canale: CTR {ctr_c}% su {int(imp_c)} impression totali (obiettivo {O["ctr"]}%): '
+                                                      f'preparare lo studio copertine da mostrare a Giorgio (nessun cambio automatico)'}
+    elif imp_c >= MIN_IMP:
+        cc = {'stato': 'OK', 'motivo': f'canale: CTR {ctr_c}% su {int(imp_c)} impression totali'}
+    else:
+        cc = {'stato': 'ATTESA', 'motivo': f'canale: {int(imp_c)} impression totali su {int(MIN_IMP)} necessarie'}
+    cc.update(impression_totali=imp_c, ctr=ctr_c)
+    esito['copertine_canale'] = cc
     if len(fin) < N:
         esito.update({'stato': 'ATTESA', 'motivo': f'servono {N} video con almeno 72 ore nella versione {attiva}, ce ne sono {len(fin)}'})
         return esito, fr
