@@ -30,6 +30,22 @@ def main():
     val = FC.api('GET', '/values/' + urllib.parse.quote(f"'{sch}'!A1:AZ500"), tk=tk).get('values', [])
     ph = [str(x).strip() for x in val[0]]
     il = ph.index('Link video')
+    if P.get('ordine'):   # 8 nov (Giorgio): {"ordine": [link, link, ...]} -> quelle righe diventano le PRIME "Pronto" della coda, in quell'ordine
+        sheet_id = meta['sheets'][0]['properties']['sheetId']; ist = ph.index('status'); esito = []
+        for link in reversed(P['ordine']):   # al contrario: l'ultima messa in cima finisce prima
+            val = FC.api('GET', '/values/' + urllib.parse.quote(f"'{sch}'!A1:AZ500"), tk=tk).get('values', [])
+            primo = next((i for i, r in enumerate(val) if i and len(r) > ist and str(r[ist]).strip() == 'Pronto'), None)
+            k = next((i for i, r in enumerate(val) if i and len(r) > il and str(r[il]).strip() == str(link).strip()), None)
+            if k is None or primo is None or str(val[k][ist]).strip() != 'Pronto':
+                esito.append(f'non spostata (non trovata o non Pronto): {link}'); continue
+            if k != primo and P.get('prova') != 'SI':
+                FC.api('POST', ':batchUpdate', {'requests': [{'moveDimension': {'source': {'sheetId': sheet_id, 'dimension': 'ROWS', 'startIndex': k, 'endIndex': k + 1},
+                                                                                'destinationIndex': primo}}]}, tk)
+            esito.append(f'{can}: in cima alla coda -> {link}')
+        print('\n'.join(esito))
+        with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'modifiche_foglio.log'), 'a') as f:
+            f.write(time.strftime('%Y-%m-%d %H:%M') + ' [produzione, ordine coda]\n' + '\n'.join('  ' + e for e in esito) + '\n')
+        return
     n = next((i + 1 for i, r in enumerate(val) if i and len(r) > il and str(r[il]).strip() == str(P['link']).strip()), None)
     if not n:
         raise SystemExit('riga non trovata: ' + P['link'])
