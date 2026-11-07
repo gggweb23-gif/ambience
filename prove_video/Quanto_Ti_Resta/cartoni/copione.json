@@ -3,59 +3,59 @@
  "protagonista": {
   "nome": "Luca",
   "capelli": "short",
-  "colore_capelli": "#3b2a1e",
+  "colore_capelli": "#3b2a20",
   "pelle": "media",
-  "maglia": "#ffffff",
-  "grembiule": "#2b2b2b",
+  "maglia": "#2f5d8a",
+  "grembiule": "#222222",
   "occhiali": false
  },
  "oggetto": "caffe",
  "copertina": {
   "righe": [
-   "UN CAFFE",
-   "COSTA POCO.",
-   "IL BAR NO"
+   "UN CAFFÈ",
+   "COSTA DIECI",
+   "CENTESIMI"
   ],
   "emozione": "stupito",
   "oggetto": "caffe",
   "prezzo": "1,20 €",
   "fondo": "scuro"
  },
- "descrizione": "Un caffè costa pochi centesimi e lo vendi a un euro e venti. Sembra la miniera d'oro perfetta, vero? Con Luca, che ha aperto il suo bar, scopriamo quanti caffè servono davvero ogni giorno per non rimetterci. Margini, costi fissi, personale e orari: tutti i conti veri, passo passo. Numeri di esempio, ma la logica vale anche per te.",
+ "descrizione": "Un caffè costa al bar un euro e venti, ma costa a chi lo fa meno di venti centesimi. Allora perché tanti bar faticano? Seguiamo Luca, che ha aperto il suo bar in città, e facciamo i conti veri: margine, affitto, personale, orari e quanti caffè servono ogni giorno per stare in piedi.",
  "tag": [
   "bar",
   "caffè",
   "margine",
-  "costi fissi",
-  "punto di pareggio",
+  "costo del caffè",
   "aprire un bar",
-  "partita iva",
+  "conti di un bar",
+  "punto di pareggio",
+  "costi fissi",
+  "personale bar",
+  "affitto locale",
+  "aprire un'attività",
   "economia pratica",
-  "commercianti",
-  "conti del bar",
-  "quanto guadagna un bar",
-  "personale",
-  "affitto",
-  "attività commerciale",
-  "imprenditoria",
-  "quanto ti resta"
+  "gestione bar",
+  "guadagno bar",
+  "piccole imprese",
+  "commercianti"
  ],
  "scene": [
   {
-   "testo": "Un caffè costa al bar un euro e venti. A farlo, gli costa ventidue centesimi. Quasi un euro di guadagno su ogni tazzina. Allora perché Luca, ogni sera, chiude la cassa e si chiede dove sono finiti i soldi?",
+   "testo": "Un caffè costa un euro e venti. A farlo, al bar, costa meno di venti centesimi. Se guadagni un euro su ogni tazzina, perché tanti bar chiudono? La risposta è nei conti che nessuno fa. Oggi li facciamo insieme.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "domanda",
      "p": {
-      "testo": "Dove sono finiti i soldi?",
+      "testo": "Un euro di margine?",
       "emozione": "stupito",
       "scuro": true
      }
     },
     {
-     "parola": "Quasi",
+     "parola": "Se",
      "tipo": "prezzo",
      "p": {
       "oggetto": "caffe",
@@ -64,257 +64,165 @@
      }
     },
     {
-     "parola": "Allora",
-     "tipo": "luogo",
+     "parola": "perché",
+     "tipo": "timbro",
      "p": {
-      "luogo": "bar",
-      "insegna": "Bar Luca",
-      "azione": "preoccupato",
-      "clienti": 1,
-      "testo": "Cassa chiusa, conti che non tornano"
+      "oggetto": "caffe",
+      "testo": "CHIUDE",
+      "colore": "rosso",
+      "nota": "con margine altissimo"
      }
     }
    ]
   },
   {
-   "testo": "Luca ha trentotto anni e ha aperto un bar in una via di passaggio, tra un ufficio e una fermata del bus. Faceva il dipendente, ora è il titolare. Pensava: il caffè costa niente, lo vendo a un euro e venti, è fatta.",
-   "capitolo": "Il sogno del bar",
+   "testo": "Lui è Luca. Ha quarant'anni e per quindici ha lavorato come dipendente in un'agenzia. Poi ha rilevato un bar in una via di passaggio, vicino a una stazione. Ha messo i risparmi e un prestito. Vuole fare le cose bene.",
+   "capitolo": "Il bar di Luca",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "luogo",
      "p": {
       "luogo": "bar",
-      "insegna": "Bar Luca",
+      "insegna": "Bar Stazione",
       "azione": "felice",
       "clienti": 2,
-      "testo": "Il primo giorno da titolare"
+      "testo": "Luca e il suo bar"
      }
     },
     {
-     "parola": "Faceva",
+     "parola": "Poi",
      "tipo": "luogo",
      "p": {
       "luogo": "bar",
-      "insegna": "Bar Luca",
+      "insegna": "Bar Stazione",
       "azione": "lavora",
       "clienti": 3,
-      "testo": "Da dipendente a titolare"
-     }
-    },
-    {
-     "parola": "Pensava",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Costa niente, è fatta!",
-      "emozione": "felice",
-      "scuro": false
+      "testo": "Il primo giorno"
      }
     }
    ]
   },
   {
-   "testo": "Facciamo il conto del singolo caffè. Il prezzo è un euro e venti. Ma di quel prezzo una parte è Iva, e quella non è tua: la incassi e la giri allo Stato. Il caffè al banco ha l'Iva al dieci per cento.",
+   "testo": "Prima domanda di Luca: quanto costa davvero una tazzina? Prendiamo i numeri. Caffè, circa sette grammi, costa otto centesimi. Zucchero, tazza che si lava, acqua e corrente: altri quattro. Più un tovagliolino. Sono circa quindici centesimi.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "prezzo",
+     "tipo": "fette",
      "p": {
-      "oggetto": "caffe",
-      "prezzo": "1,20 €",
-      "nota": "scontrino"
+      "titolo": "Dove vanno i soldi di un caffè",
+      "totale": 1.2,
+      "totale_testo": "1,20 €",
+      "fette": [
+       {
+        "nome": "Caffè",
+        "valore": 0.08,
+        "testo": "0,08 €"
+       },
+       {
+        "nome": "Zucchero e acqua",
+        "valore": 0.04,
+        "testo": "0,04 €"
+       },
+       {
+        "nome": "Tovagliolo e tazza",
+        "valore": 0.03,
+        "testo": "0,03 €"
+       },
+       {
+        "nome": "Resta per il bar",
+        "valore": 1.05,
+        "testo": "1,05 €"
+       }
+      ],
+      "evidenzia": 3
      }
     },
     {
-     "parola": "Ma",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Togli l'Iva",
-      "a": "1,20 €",
-      "op": "÷",
-      "b": "1,10",
-      "risultato": "1,09 €",
-      "nota": "prezzo senza Iva"
-     }
-    },
-    {
-     "parola": "Il",
+     "parola": "Zucchero",
      "tipo": "lista",
      "p": {
-      "titolo": "Prima regola",
+      "titolo": "Costi vivi di una tazzina",
       "voci": [
-       "Il prezzo non è tutto tuo",
-       "L'Iva la giri allo Stato",
-       "Conta solo il netto"
+       "Caffè: otto centesimi",
+       "Zucchero e acqua: quattro",
+       "Tovagliolo e usura: tre",
+       "Totale: quindici centesimi"
       ]
      }
     }
    ]
   },
   {
-   "testo": "Un euro e venti diviso uno virgola uno fa un euro e nove centesimi. Quindi dei tuoi centoventi centesimi, undici se ne vanno in Iva. Ti restano un euro e nove. Già qui il caffè è un po' meno ricco di quanto sembrava.",
+   "testo": "Fai il conto. Un euro e venti, meno quindici centesimi, fa un euro e cinque. Cioè l'ottantasette per cento del prezzo. Sembra un affare! Un margine così non lo trovi quasi da nessuna parte. Ma attenzione: è un margine lordo.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "formula",
      "p": {
-      "titolo": "Il netto del caffè",
+      "titolo": "Margine su un caffè",
       "a": "1,20 €",
       "op": "−",
-      "b": "0,11 €",
-      "risultato": "1,09 €",
-      "nota": "Iva circa undici centesimi"
+      "b": "0,15 €",
+      "risultato": "1,05 €",
+      "nota": "circa l'ottantasette per cento"
      }
     },
     {
-     "parola": "Quindi",
-     "tipo": "fette",
-     "p": {
-      "titolo": "Un caffè da un euro e venti",
-      "totale": 1.2,
-      "totale_testo": "1,20 €",
-      "fette": [
-       {
-        "nome": "Iva",
-        "valore": 0.11,
-        "testo": "0,11 €"
-       },
-       {
-        "nome": "Netto",
-        "valore": 1.09,
-        "testo": "1,09 €"
-       }
-      ],
-      "evidenzia": 1
-     }
-    },
-    {
-     "parola": "Già",
+     "parola": "Sembra",
      "tipo": "domanda",
      "p": {
-      "testo": "Meno ricco del previsto",
-      "emozione": "preoccupato",
+      "testo": "Affare vero?",
+      "emozione": "felice",
       "scuro": false
      }
-    }
-   ]
-  },
-  {
-   "testo": "Adesso i costi veri della tazzina. Caffè in grani, circa dodici centesimi. Zucchero, tazzina, cucchiaino e acqua, altri quattro. Un po' di corrente per la macchina, due centesimi. Totale: diciotto centesimi, diciamo venti con gli sprechi.",
-   "capitolo": "Il costo del caffè",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "fette",
-     "p": {
-      "titolo": "Costo di una tazzina",
-      "totale": 0.2,
-      "totale_testo": "0,20 €",
-      "fette": [
-       {
-        "nome": "Caffè in grani",
-        "valore": 0.12,
-        "testo": "0,12 €"
-       },
-       {
-        "nome": "Zucchero e tazzina",
-        "valore": 0.04,
-        "testo": "0,04 €"
-       },
-       {
-        "nome": "Corrente e acqua",
-        "valore": 0.02,
-        "testo": "0,02 €"
-       },
-       {
-        "nome": "Sprechi",
-        "valore": 0.02,
-        "testo": "0,02 €"
-       }
-      ],
-      "evidenzia": 0
-     }
     },
     {
-     "parola": "Totale",
-     "tipo": "prezzo",
-     "p": {
-      "oggetto": "caffe",
-      "prezzo": "0,20 €",
-      "nota": "costo vivo della tazzina"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Un euro e nove di netto, meno venti centesimi di costo. Il margine di un caffè è ottantanove centesimi. Su un euro e nove, sono l'ottantadue per cento circa. Un margine altissimo. Pochi prodotti al mondo fanno meglio.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Margine per caffè",
-      "a": "1,09 €",
-      "op": "−",
-      "b": "0,20 €",
-      "risultato": "0,89 €",
-      "nota": "quello che resta per tazzina"
-     }
-    },
-    {
-     "parola": "Su",
-     "tipo": "timbro",
-     "p": {
-      "oggetto": "caffe",
-      "testo": "MARGINE 82%",
-      "colore": "verde",
-      "nota": "altissimo, ma attenzione"
-     }
-    },
-    {
-     "parola": "Pochi",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "bar",
-      "insegna": "Bar Luca",
-      "azione": "felice",
-      "clienti": 2,
-      "testo": "Un margine da sogno"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Ma attenzione: il margine in percentuale non paga l'affitto. Quello che paga le bollette sono gli euro. E ottantanove centesimi, da soli, non comprano nemmeno un cornetto. Il problema è: quanti ne servono?",
-   "capitolo": "Percentuale o euro?",
-   "inquadrature": [
-    {
-     "parola": "",
+     "parola": "Ma",
      "tipo": "bilancia",
      "p": {
-      "titolo": "Cosa pesa di più?",
-      "sinistra": "Margine in percentuale",
-      "destra": "Euro in cassa",
+      "titolo": "Margine lordo contro costi",
+      "sinistra": "Un euro e cinque",
+      "destra": "Tutto il resto",
       "pende": "destra"
-     }
-    },
-    {
-     "parola": "E",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Quanti ne servono?",
-      "emozione": "stupito",
-      "scuro": false
      }
     }
    ]
   },
   {
-   "testo": "Per saperlo, guardiamo i costi fissi di Luca. Affitto del locale: duemila euro al mese. Due dipendenti part time, tremilacinquecento in totale con i contributi. Luce, gas e acqua, seicento. Commercialista, assicurazione e varie, quattrocento.",
-   "capitolo": "I costi fissi",
+   "testo": "Ecco il punto. Quel margine serve a pagare tutto il resto: affitto, stipendi, luce, tasse, macchina, banca. Se il caffè lo vendi solo a metà dei clienti, non basta. Il margine è alto, ma ogni caffè lo porta a casa il locale, non tu.",
+   "capitolo": "Il margine non è il guadagno",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "soldi",
+     "p": {
+      "centro": "1,05 €",
+      "destinazioni": [
+       "Affitto",
+       "Personale",
+       "Utenze",
+       "Tasse"
+      ]
+     }
+    },
+    {
+     "parola": "Se",
+     "tipo": "persone",
+     "p": {
+      "n": 5,
+      "azione": "fila",
+      "escono": 0,
+      "testo": "Pochi clienti, pochi euro"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Mettiamo i costi fissi di Luca, mese per mese. Affitto del locale: duemila euro. Utenze e gas: quattrocento. Una dipendente part time: mille e quattrocento. Commercialista, assicurazioni, rata del prestito: seicento. Totale: quattromila e quattrocento euro.",
+   "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
@@ -327,116 +235,84 @@
         "testo": "2.000 €"
        },
        {
-        "nome": "Dipendenti",
-        "valore": 3500,
-        "testo": "3.500 €"
-       },
-       {
-        "nome": "Luce, gas, acqua",
-        "valore": 600,
-        "testo": "600 €"
-       },
-       {
-        "nome": "Commercialista e varie",
+        "nome": "Utenze",
         "valore": 400,
         "testo": "400 €"
+       },
+       {
+        "nome": "Dipendente part time",
+        "valore": 1400,
+        "testo": "1.400 €"
+       },
+       {
+        "nome": "Commercialista, assicurazioni, rata",
+        "valore": 600,
+        "testo": "600 €"
        }
       ],
-      "totale": 6500,
+      "totale": 4400,
       "periodo": "al mese"
      }
     },
     {
-     "parola": "Luce",
-     "tipo": "luogo",
+     "parola": "Totale",
+     "tipo": "timbro",
      "p": {
-      "luogo": "bar",
-      "insegna": "Bar Luca",
-      "azione": "preoccupato",
-      "clienti": 0,
-      "testo": "I costi arrivano anche a bar vuoto"
+      "oggetto": "bar",
+      "testo": "4.400 €",
+      "colore": "rosso",
+      "nota": "da pagare prima di guadagnare"
      }
     }
    ]
   },
   {
-   "testo": "Poi c'è la macchina del caffè. Costa dodicimila euro e Luca la paga a rate: duecento euro al mese. Altre rate per banco e arredi: trecento. Quindi cinquecento euro in più. I costi fissi salgono a settemila euro al mese.",
+   "testo": "E lo stipendio di Luca? Non c'è ancora. Questi sono solo i costi per tenere aperto. Prima di portare a casa un euro, ci sono quattromilaquattrocento euro da coprire. Ogni mese, anche d'agosto, anche se piove.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Aggiungi le rate",
-      "a": "6.500 €",
-      "op": "+",
-      "b": "500 €",
-      "risultato": "7.000 €",
-      "nota": "costi fissi al mese"
-     }
-    },
-    {
-     "parola": "Quindi",
-     "tipo": "soldi",
-     "p": {
-      "centro": "7.000 €",
-      "destinazioni": [
-       "Padrone di casa",
-       "Dipendenti",
-       "Fornitori luce e gas",
-       "Banca"
-      ]
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Hai sentito? Settemila euro al mese, tutti i mesi, che il bar venda o no. Sono i costi fissi: non dipendono da quanti caffè fai. Il lunedì di pioggia, a Luca costano come il sabato di sole.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "calendario",
-     "p": {
-      "titolo": "Ogni mese, vendi o non vendi",
-      "giorni": 30,
-      "testo": "Sette mila euro da coprire"
-     }
-    },
-    {
-     "parola": "Sono",
      "tipo": "domanda",
      "p": {
-      "testo": "Pioggia o sole, pagano uguale",
+      "testo": "E il mio stipendio?",
       "emozione": "preoccupato",
       "scuro": true
      }
+    },
+    {
+     "parola": "Prima",
+     "tipo": "calendario",
+     "p": {
+      "titolo": "Giorni per coprire i costi",
+      "giorni": 30,
+      "testo": "Un mese intero da pagare"
+     }
     }
    ]
   },
   {
-   "testo": "Adesso il calcolo chiave: il punto di pareggio. Costi fissi diviso margine per caffè. Settemila diviso zero virgola ottantanove fa circa settemilaottocentosessantasei caffè al mese. Solo per arrivare a zero.",
-   "capitolo": "Il pareggio",
+   "testo": "Ora la domanda giusta: quanti caffè servono per pareggiare? Dividi i costi fissi per il margine. Quattromilaquattrocento diviso uno virgola zero cinque fa circa quattromiladuecento caffè. Al mese. Ma attenzione: solo per non perdere.",
+   "capitolo": "Il punto di pareggio",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "formula",
      "p": {
       "titolo": "Punto di pareggio",
-      "a": "7.000 €",
+      "a": "4.400 €",
       "op": "÷",
-      "b": "0,89 €",
-      "risultato": "7.866 caffè",
-      "nota": "al mese, solo per stare a zero"
+      "b": "1,05 €",
+      "risultato": "4.190 caffè",
+      "nota": "circa quattromiladuecento al mese"
      }
     },
     {
-     "parola": "Solo",
+     "parola": "Ma",
      "tipo": "pareggio",
      "p": {
       "titolo": "Pareggio del bar",
-      "fissi": 7000,
-      "margine": 0.89,
+      "fissi": 4400,
+      "margine": 1.05,
       "unita": "caffè venduti",
       "oggetto": "caffe",
       "perdita": true,
@@ -446,135 +322,160 @@
    ]
   },
   {
-   "testo": "Il bar apre ventisei giorni al mese. Settemilaottocentosessantasei diviso ventisei fa trecentodue caffè al giorno. Trecento caffè, ogni giorno, solo per non perdere. Ancora zero euro di stipendio per Luca.",
+   "testo": "Quattromiladuecento caffè al mese, in trenta giorni, sono circa centoquaranta al giorno. Ti sembrano tanti? Se il bar è aperto tutti i giorni, sono centoquaranta tazzine solo per arrivare a zero. Dal centoquarantunesimo, finalmente, Luca guadagna.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Caffè al giorno",
-      "a": "7.866",
-      "op": "÷",
-      "b": "26 giorni",
-      "risultato": "302 al giorno",
-      "nota": "solo per arrivare a zero"
-     }
-    },
-    {
-     "parola": "Trecento",
      "tipo": "conteggio",
      "p": {
       "oggetto": "caffe",
-      "icone": 60,
-      "testo": "302 al giorno"
+      "icone": 40,
+      "testo": "140 al giorno"
      }
     },
     {
-     "parola": "Ancora",
-     "tipo": "domanda",
+     "parola": "Ti",
+     "tipo": "persone",
      "p": {
-      "testo": "E il mio stipendio?",
-      "emozione": "preoccupato",
-      "scuro": false
+      "n": 8,
+      "azione": "entrano",
+      "escono": 0,
+      "testo": "Servono tanti clienti"
      }
     }
    ]
   },
   {
-   "testo": "Trecentodue caffè in una giornata. Il bar di Luca è aperto dalle sei e mezza alle diciannove e mezza: tredici ore. Fa circa ventitré caffè all'ora, uno ogni due minuti e mezzo, senza mai fermarsi. Senza pause.",
-   "capitolo": "Le ore del bar",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "orologio",
-     "p": {
-      "ore": 13,
-      "piene": 13,
-      "testo": "Tredici ore di apertura"
-     }
-    },
-    {
-     "parola": "Fa",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Caffè all'ora",
-      "a": "302",
-      "op": "÷",
-      "b": "13 ore",
-      "risultato": "23 all'ora",
-      "nota": "uno ogni due minuti e mezzo"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Ma i clienti non arrivano a ritmo costante. La mattina, dalle sette alle nove e mezza, c'è la corsa: fila fino alla porta. Poi il vuoto. Dalle undici alle dodici e mezza passa una persona ogni dieci minuti. Le ore vuote costano uguale.",
+   "testo": "Però il bar non vende solo caffè. Fai attenzione: Luca vende anche cornetti, aperitivi e acqua. Ma facciamo prima il conto del solo caffè, perché è il motore del bar. Capiremo poi cosa cambia quando aggiungi il resto.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "persone",
-     "p": {
-      "n": 9,
-      "azione": "fila",
-      "escono": 0,
-      "testo": "Sette e mezza: tutti insieme"
-     }
-    },
-    {
-     "parola": "Poi",
-     "tipo": "orologio",
-     "p": {
-      "ore": 13,
-      "piene": 4,
-      "testo": "Solo quattro ore piene su tredici"
-     }
-    },
-    {
-     "parola": "Dalle",
      "tipo": "luogo",
      "p": {
       "luogo": "bar",
-      "insegna": "Bar Luca",
-      "azione": "preoccupato",
-      "clienti": 0,
-      "testo": "Mezzogiorno: nessuno"
+      "insegna": "Bar Stazione",
+      "azione": "lavora",
+      "clienti": 4,
+      "testo": "Il banco lavora"
+     }
+    },
+    {
+     "parola": "Ma",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Cosa vende un bar",
+      "voci": [
+       "Caffè al banco",
+       "Cornetti e colazioni",
+       "Aperitivi",
+       "Acqua e bibite"
+      ]
      }
     }
    ]
   },
   {
-   "testo": "Qui entra il personale. Se Luca apre da solo, risparmia ma non regge la fila della mattina e perde clienti. Se mette due persone tutto il giorno, paga stipendi anche quando il bar è vuoto. Il turno giusto è un equilibrio.",
-   "capitolo": "Il personale",
+   "testo": "Ora il tempo. Un barista serve un caffè in circa trenta secondi. Con la pressione del banco, con il rumore, con il resto. Quindi in un'ora al massimo può fare circa centoventi caffè, se la fila è continua. Ma la fila non è mai continua.",
+   "capitolo": "Tempo e orari",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "orologio",
+     "p": {
+      "ore": 16,
+      "piene": 3,
+      "testo": "Le ore piene sono poche"
+     }
+    },
+    {
+     "parola": "Ma",
+     "tipo": "andamento",
+     "p": {
+      "titolo": "Clienti nella giornata",
+      "valori": [
+       5,
+       40,
+       70,
+       25,
+       35,
+       60,
+       20,
+       10
+      ],
+      "etichette": [
+       "6",
+       "8",
+       "10",
+       "12",
+       "14",
+       "16",
+       "18",
+       "20"
+      ],
+      "colore": "verde"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Guarda la giornata di Luca. Il bar apre alle sei e chiude alle venti: quattordici ore. Ma i clienti non sono distribuiti. Hai la colazione, la pausa del pranzo, il caffè delle quattro. Nelle altre ore, il bar è quasi vuoto. Ma le luci sono accese.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "orologio",
+     "p": {
+      "ore": 14,
+      "piene": 5,
+      "testo": "Cinque ore piene su quattordici"
+     }
+    },
+    {
+     "parola": "Hai",
+     "tipo": "persone",
+     "p": {
+      "n": 2,
+      "azione": "entrano",
+      "escono": 0,
+      "testo": "Metà giornata quasi vuota"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Qui sta il trucco dei bar. Si guadagna in tre finestre di tempo, e tutto il resto serve a farsi trovare aperti. Per questo molti locali che chiudono alle tredici in realtà risparmiano personale, affitto di luce, stress. A volte l'orario corto vale più di una vetrina.",
+   "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "confronto",
      "p": {
-      "titolo": "Quanti in turno?",
+      "titolo": "Orari lunghi o orari corti?",
       "a": {
-       "titolo": "Da solo",
-       "valore": "Fila persa",
+       "titolo": "Aperto quattordici ore",
+       "valore": "Costi alti",
        "oggetto": "caffe"
       },
       "b": {
-       "titolo": "In due sempre",
-       "valore": "Ore sprecate",
+       "titolo": "Aperto otto ore",
+       "valore": "Costi più bassi",
        "oggetto": "caffe"
       },
       "vincitore": ""
      }
     },
     {
-     "parola": "Il",
+     "parola": "Per",
      "tipo": "leve",
      "p": {
-      "titolo": "Turni intelligenti",
+      "titolo": "Cosa si può regolare",
       "voci": [
-       "Due persone nell'ora di punta",
-       "Una sola nelle ore morte",
-       "Part time sulle fasce piene"
+       "Orari",
+       "Personale",
+       "Prezzi",
+       "Menu"
       ],
       "evidenzia": 0
      }
@@ -582,268 +483,493 @@
    ]
   },
   {
-   "testo": "Un esempio da un altro mondo: una palestra. Costi fissi alti, istruttori, affitto, e i clienti vanno tutti alle sei di sera. Ma lì gli abbonati pagano anche quando non vengono. Il bar no: paga solo chi passa, caffè dopo caffè.",
+   "testo": "Facciamo un esempio fuori dal bar. Una pizzeria al taglio vende l'ottanta per cento del suo incasso tra mezzogiorno e le due. Il resto della giornata prepara l'impasto. Ha capito che il tempo morto è un costo, e lo usa per produrre, non per aspettare.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "luogo",
      "p": {
-      "luogo": "palestra",
-      "insegna": "Palestra Forma",
+      "luogo": "pizzeria",
+      "insegna": "Pizza al Taglio",
       "azione": "lavora",
-      "clienti": 4,
-      "testo": "Tutti alle sei di sera"
+      "clienti": 5,
+      "testo": "Un'ora di fuoco"
+     }
+    },
+    {
+     "parola": "Ha",
+     "tipo": "fette",
+     "p": {
+      "titolo": "Incasso della pizzeria",
+      "totale": 100,
+      "totale_testo": "100 %",
+      "fette": [
+       {
+        "nome": "Pranzo",
+        "valore": 80,
+        "testo": "80 %"
+       },
+       {
+        "nome": "Resto del giorno",
+        "valore": 20,
+        "testo": "20 %"
+       }
+      ],
+      "evidenzia": 0
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Torniamo a Luca e al personale. Il costo più pesante, dopo l'affitto, è chi sta dietro il banco. La dipendente part time costa milleequattrocento euro al mese. Ma se Luca fa tutto da solo, stanchezza, errori, ferie che non esistono. Qual è il vero costo di una persona in meno?",
+   "capitolo": "Il peso del personale",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Quanto costa una persona?",
+      "emozione": "preoccupato",
+      "scuro": false
      }
     },
     {
      "parola": "Ma",
-     "tipo": "confronto",
+     "tipo": "bilancia",
      "p": {
-      "titolo": "Chi incassa a vuoto?",
-      "a": {
-       "titolo": "Palestra",
-       "valore": "Incassa anche se non vengono",
-       "oggetto": "caffe"
-      },
-      "b": {
-       "titolo": "Bar",
-       "valore": "Incassa solo chi passa",
-       "oggetto": "caffe"
-      },
-      "vincitore": "a"
+      "titolo": "Aiuto o da solo",
+      "sinistra": "Stipendio",
+      "destra": "Stanchezza",
+      "pende": "destra"
      }
     }
    ]
   },
   {
-   "testo": "Torniamo a Luca. Per fortuna al bar non si vende solo il caffè. Il cornetto costa uno e trenta, lo compra a settanta centesimi dal laboratorio. Cappuccino a un euro e ottanta, costa trentacinque. Queste vendite aiutano, e tanto.",
-   "capitolo": "Oltre il caffè",
+   "testo": "Pensa a un salone di parrucchiere. Una dipendente costa duemila euro al mese. Se ogni taglio rende venti euro di margine, le servono cento tagli solo per pagarla. Cento! Prima che il salone guadagni un euro. Il personale si calcola in clienti, non in ore.",
+   "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Una dipendente nel salone",
+      "a": "2.000 €",
+      "op": "÷",
+      "b": "20 €",
+      "risultato": "100 tagli",
+      "nota": "solo per pagare lo stipendio"
+     }
+    },
+    {
+     "parola": "Cento",
+     "tipo": "conteggio",
+     "p": {
+      "oggetto": "forbici",
+      "icone": 30,
+      "testo": "100 tagli al mese"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Applica lo stesso metodo a Luca. La dipendente costa milleequattrocento euro. Diviso uno virgola zero cinque, fa milletrecentotrentatré caffè solo per lei. Quasi quarantaquattro al giorno. Chiediti se la persona che assumi ne porta almeno altrettanti.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Il costo della dipendente",
+      "a": "1.400 €",
+      "op": "÷",
+      "b": "1,05 €",
+      "risultato": "1.333 caffè",
+      "nota": "circa quarantaquattro al giorno"
+     }
+    },
+    {
+     "parola": "Chiediti",
+     "tipo": "leve",
+     "p": {
+      "titolo": "Quando conviene assumere",
+      "voci": [
+       "Clienti in coda",
+       "Ore di punta",
+       "Vendite perse",
+       "Tempo libero"
+      ],
+      "evidenzia": 0
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ora il lato più importante. Un solo caffè fa poco, ma il caffè porta il cliente. Chi entra per un caffè spesso prende anche altro. Una brioche, una bottiglietta d'acqua. Quel caffè a un euro e venti serve ad attirare, e altrove si guadagna di più.",
+   "capitolo": "Il caffè come amo",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "persone",
+     "p": {
+      "n": 6,
+      "azione": "entrano",
+      "escono": 0,
+      "testo": "Il caffè fa entrare"
+     }
+    },
+    {
+     "parola": "Una",
      "tipo": "prezzo",
      "p": {
       "oggetto": "cornetto",
-      "prezzo": "1,30 €",
-      "nota": "costo vivo settanta centesimi"
+      "prezzo": "1,40 €",
+      "nota": "il secondo acquisto"
      }
-    },
+    }
+   ]
+  },
+  {
+   "testo": "Un altro esempio. Un negozio di scarpe vende i lacci a tre euro, costano cinquanta centesimi. Nessuno apre un negozio per i lacci. Ma chi compra le scarpe li prende quasi sempre. Il piccolo prodotto a margine alto sta dentro lo scontrino più grande.",
+   "capitolo": "",
+   "inquadrature": [
     {
-     "parola": "Cappuccino",
+     "parola": "",
      "tipo": "prezzo",
      "p": {
-      "oggetto": "cappuccino",
-      "prezzo": "1,80 €",
-      "nota": "costo vivo trentacinque centesimi"
-     }
-    },
-    {
-     "parola": "Queste",
-     "tipo": "lista",
-     "p": {
-      "titolo": "Cosa vende il bar",
-      "voci": [
-       "Caffè: margine alto, prezzo basso",
-       "Cappuccino: più euro per tazza",
-       "Cornetto: margine più basso",
-       "Aperitivo: margine buono la sera"
-      ]
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Mettiamo che un cliente su tre prenda anche un cornetto. Il cornetto, tolta l'Iva, rende circa quarantotto centesimi netti. Aggiunto ai caffè, fa salire lo scontrino medio. Più euro per cliente significa meno clienti necessari.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Cornetto netto",
-      "a": "1,30 €",
-      "op": "−",
-      "b": "0,82 €",
-      "risultato": "0,48 €",
-      "nota": "tolta l'Iva e il costo vivo"
-     }
-    },
-    {
-     "parola": "Aggiunto",
-     "tipo": "leve",
-     "p": {
-      "titolo": "Come alzare lo scontrino",
-      "voci": [
-       "Cornetto con il caffè",
-       "Cappuccino invece del caffè",
-       "Acqua e succhi",
-       "Panini a pranzo"
-      ],
-      "evidenzia": 1
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Facciamo un caso. Luca alza il margine medio per cliente da ottantanove centesimi a un euro e cinquanta, grazie a cappuccini e cornetti. Il pareggio scende da settemilaottocentosessantasei a quattromilaseicentosessantasei vendite al mese.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Nuovo pareggio",
-      "a": "7.000 €",
-      "op": "÷",
-      "b": "1,50 €",
-      "risultato": "4.666 clienti",
-      "nota": "al mese, con margine medio più alto"
+      "oggetto": "lacci",
+      "prezzo": "3 €",
+      "nota": "costano cinquanta centesimi"
      }
     },
     {
      "parola": "Il",
-     "tipo": "pareggio",
-     "p": {
-      "titolo": "Pareggio con più margine",
-      "fissi": 7000,
-      "margine": 0.89,
-      "nuovo_margine": 1.5,
-      "unita": "clienti serviti",
-      "oggetto": "caffe",
-      "perdita": false,
-      "guadagno": true
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Quattromilaseicentosessantasei diviso ventisei giorni fa circa centottanta clienti al giorno. Prima ne servivano trecento. Con la stessa fatica, il bar si avvicina allo zero molto più in fretta. Ecco perché conta cosa vendi, non solo quanto.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "conteggio",
-     "p": {
-      "oggetto": "caffe",
-      "icone": 36,
-      "testo": "180 clienti al giorno"
-     }
-    },
-    {
-     "parola": "Prima",
      "tipo": "confronto",
      "p": {
-      "titolo": "Clienti al giorno per pareggiare",
+      "titolo": "Scarpe contro lacci",
       "a": {
-       "titolo": "Solo caffè",
-       "valore": "302",
-       "oggetto": "caffe"
+       "titolo": "Scarpe",
+       "valore": "Margine grande",
+       "oggetto": "scarpe"
       },
       "b": {
-       "titolo": "Caffè e cornetti",
-       "valore": "180",
-       "oggetto": "caffe"
+       "titolo": "Lacci",
+       "valore": "Margine alto",
+       "oggetto": "lacci"
       },
-      "vincitore": "b"
+      "vincitore": ""
      }
     }
    ]
   },
   {
-   "testo": "Ora lo stipendio. Luca vuole almeno duemila euro netti al mese per sé. Sommiamo duemila ai settemila di costi: nove mila euro da coprire. Novemila diviso uno e cinquanta fa seimila clienti al mese, duecentotrentuno al giorno.",
-   "capitolo": "Il tuo stipendio",
+   "testo": "Torniamo al bar. Se ogni cliente che prende il caffè compra una brioche ogni quattro, e la brioche lascia ottanta centesimi di margine, ogni cento clienti Luca aggiunge venti euro in più. Sono piccole cifre, ma al mese diventano seicento euro.",
+   "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "formula",
      "p": {
-      "titolo": "Con il tuo stipendio",
-      "a": "9.000 €",
-      "op": "÷",
-      "b": "1,50 €",
-      "risultato": "6.000 clienti",
-      "nota": "al mese, circa duecentotrentuno al giorno"
+      "titolo": "Brioche in più",
+      "a": "25",
+      "op": "×",
+      "b": "0,80 €",
+      "risultato": "20 €",
+      "nota": "ogni cento clienti"
      }
     },
     {
-     "parola": "Sommiamo",
-     "tipo": "lista",
+     "parola": "Sono",
+     "tipo": "salvadanaio",
      "p": {
-      "titolo": "Cosa devi coprire",
-      "voci": [
-       "Costi fissi: settemila euro",
-       "Il tuo stipendio: duemila euro",
-       "Totale: novemila euro al mese"
-      ]
-     }
-    },
-    {
-     "parola": "Novemila",
-     "tipo": "persone",
-     "p": {
-      "n": 8,
-      "azione": "entrano",
-      "escono": 0,
-      "testo": "Duecentotrentuno clienti al giorno"
+      "direzione": "riempie",
+      "testo": "Seicento euro in più al mese"
      }
     }
    ]
   },
   {
-   "testo": "Errore classico: dimenticare di pagare se stessi. Molti aprono un bar, chiudono il mese in pari e pensano di aver vinto. Ma hanno lavorato dodici ore al giorno gratis. Lo stipendio del titolare è un costo, mettilo sempre in conto.",
+   "testo": "Mettiamo i numeri completi per un mese tipo. Luca serve cento ottanta caffè al giorno, cioè cinquemilaquattrocento al mese. Margine: cinquemilaseicentosettanta euro. Più le brioche, seicento. Totale circa seimiladuecentosettanta euro.",
+   "capitolo": "Il mese di Luca",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Margine dai caffè",
+      "a": "5.400",
+      "op": "×",
+      "b": "1,05 €",
+      "risultato": "5.670 €",
+      "nota": "cinquemilaquattrocento caffè al mese"
+     }
+    },
+    {
+     "parola": "Più",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Con le brioche",
+      "a": "5.670 €",
+      "op": "+",
+      "b": "600 €",
+      "risultato": "6.270 €",
+      "nota": "margine totale del mese"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ora togli i costi fissi. Seimiladuecentosettanta meno quattromilaquattrocento fa milleottocentosettanta euro. È quello che resta a Luca, prima delle tasse sul reddito. Non è male, ma non è nemmeno un tesoro. Dipende da quanto lavora lui.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "timbro",
+     "tipo": "formula",
      "p": {
-      "oggetto": "caffe",
-      "testo": "STIPENDIO ZERO",
-      "colore": "rosso",
-      "nota": "pari non è guadagno"
+      "titolo": "Cosa resta a Luca",
+      "a": "6.270 €",
+      "op": "−",
+      "b": "4.400 €",
+      "risultato": "1.870 €",
+      "nota": "prima delle tasse"
      }
     },
     {
-     "parola": "Molti",
-     "tipo": "salvadanaio",
+     "parola": "Non",
+     "tipo": "soldi",
      "p": {
-      "direzione": "svuota",
-      "testo": "Lavori e non ti resta niente"
+      "centro": "1.870 €",
+      "destinazioni": [
+       "Tasse",
+       "Stipendio di Luca",
+       "Scorte",
+       "Imprevisti"
+      ]
      }
     }
    ]
   },
   {
-   "testo": "Cosa devi guardare, se hai un bar. Primo, lo scontrino medio, non solo il numero di clienti. Secondo, i clienti per ora di apertura. Terzo, quanto pesa il personale sugli incassi. Sono i tre numeri che raccontano come stai.",
+   "testo": "Considera anche le ore. Luca lavora tutti i giorni dalle sei alle venti, o quasi. Circa trecento ore al mese. Milleottocentosettanta diviso trecento fa poco più di sei euro l'ora. Prima di tasse. Un dipendente con contratto guadagna spesso di più.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Quanto vale un'ora di Luca",
+      "a": "1.870 €",
+      "op": "÷",
+      "b": "300 ore",
+      "risultato": "6,20 € all'ora",
+      "nota": "circa sei euro e venti"
+     }
+    },
+    {
+     "parola": "Un",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "bar",
+      "testo": "POCO",
+      "colore": "rosso",
+      "nota": "per chi lavora trecento ore"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Cosa può fare Luca? Una leva è il prezzo. Se porta il caffè da un euro e venti a un euro e trenta, dieci centesimi in più su cinquemilaquattrocento caffè sono cinquecentoquaranta euro. Quasi nessuno nota dieci centesimi. Il bilancio sì.",
+   "capitolo": "Le leve",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "caffe",
+      "prezzo": "1,20 €",
+      "nuovo_prezzo": "1,30 €",
+      "nota": "dieci centesimi in più"
+     }
+    },
+    {
+     "parola": "Quasi",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Effetto sul mese",
+      "a": "5.400",
+      "op": "×",
+      "b": "0,10 €",
+      "risultato": "540 €",
+      "nota": "in più ogni mese"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Seconda leva: i costi fissi. Se Luca rinegozia l'affitto e scende da duemila a milleottocento, risparmia duecento euro al mese. Sono duemilaquattrocento euro all'anno. Chiedere costa zero, e a volte il proprietario preferisce un affittuario sicuro a un locale vuoto.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "costi",
+     "p": {
+      "voci": [
+       {
+        "nome": "Affitto nuovo",
+        "valore": 1800,
+        "testo": "1.800 €"
+       },
+       {
+        "nome": "Utenze",
+        "valore": 400,
+        "testo": "400 €"
+       },
+       {
+        "nome": "Dipendente",
+        "valore": 1400,
+        "testo": "1.400 €"
+       },
+       {
+        "nome": "Altro",
+        "valore": 600,
+        "testo": "600 €"
+       }
+      ],
+      "totale": 4200,
+      "periodo": "al mese"
+     }
+    },
+    {
+     "parola": "Chiedere",
+     "tipo": "salvadanaio",
+     "p": {
+      "direzione": "riempie",
+      "testo": "Duecento euro al mese"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Terza leva: chi viene al bar. Un bar con molte ore morte può pensare agli aperitivi serali o ai pranzi veloci. Un bar vicino agli uffici ha pieno il mattino e il pranzo. Dove sei messo conta più di quanto sei bravo. Il passaggio, in un bar, vale oro.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "leve",
+     "p": {
+      "titolo": "Come migliorare i conti",
+      "voci": [
+       "Alzare il prezzo",
+       "Ridurre i costi fissi",
+       "Riempire le ore morte",
+       "Vendere di più a ogni cliente"
+      ],
+      "evidenzia": 2
+     }
+    },
+    {
+     "parola": "Dove",
+     "tipo": "mesi",
+     "p": {
+      "titolo": "Incassi durante l'anno",
+      "valori": [
+       80,
+       85,
+       90,
+       95,
+       100,
+       95,
+       60,
+       40,
+       95,
+       100,
+       95,
+       90
+      ],
+      "evidenzia": [
+       7,
+       8
+      ],
+      "nota": "estate e agosto deboli in città"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Guarda i mesi. In una città d'ufficio, luglio e agosto sono deboli: la gente è in ferie. Se Luca spende come a maggio e incassa metà, rischia. Chi ha un'attività stagionale deve mettere da parte nei mesi buoni, altrimenti i mesi magri si pagano a debito.",
+   "capitolo": "Stagioni e scorta",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "mesi",
+     "p": {
+      "titolo": "Incassi in percentuale",
+      "valori": [
+       80,
+       85,
+       90,
+       95,
+       100,
+       95,
+       60,
+       40,
+       95,
+       100,
+       95,
+       90
+      ],
+      "evidenzia": [
+       7,
+       8
+      ],
+      "nota": "luglio e agosto: crollo"
+     }
+    },
+    {
+     "parola": "Chi",
+     "tipo": "salvadanaio",
+     "p": {
+      "direzione": "svuota",
+      "testo": "Senza scorta, i mesi magri bruciano"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Cosa devi guardare, se hai un bar o ci pensi. Primo: i costi fissi del mese. Secondo: il margine per ogni prodotto. Terzo: quanti clienti servono per pareggiare. Quarto: quante ore tieni aperto. Se uno di questi quattro non lo conosci, vai alla cieca.",
    "capitolo": "Cosa guardare",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "cruscotto",
      "p": {
-      "titolo": "Il cruscotto del bar",
+      "titolo": "Cosa tenere d'occhio",
       "voci": [
        {
-        "nome": "Scontrino medio",
+        "nome": "Costi fissi",
+        "valore": 0.8
+       },
+       {
+        "nome": "Margine per prodotto",
         "valore": 0.6
        },
        {
-        "nome": "Clienti per ora",
-        "valore": 0.5
+        "nome": "Caffè al giorno",
+        "valore": 0.7
        },
        {
-        "nome": "Personale sugli incassi",
-        "valore": 0.4
+        "nome": "Ore aperte",
+        "valore": 0.5
        }
       ]
      }
     },
     {
-     "parola": "Sono",
+     "parola": "Se",
      "tipo": "domanda",
      "p": {
-      "testo": "Li conosci i tuoi tre?",
+      "testo": "Li conosci tutti e quattro?",
       "emozione": "calmo",
       "scuro": false
      }
@@ -851,231 +977,103 @@
    ]
   },
   {
-   "testo": "E cosa non guardare. Non guardare solo il margine alto del caffè: è un'illusione ottica. Non guardare gli incassi lordi, che includono l'Iva. E non guardare il giorno migliore: conta la media del mese, compresi i lunedì di pioggia.",
+   "testo": "E cosa non guardare. Non guardare solo il margine in percentuale: l'ottantasette per cento fa bella figura, ma non paga l'affitto. Non guardare solo l'incasso giornaliero: un incasso alto con costi alti è un'illusione. Guarda quello che resta, non quello che entra.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "lista",
      "p": {
-      "titolo": "Da non guardare",
+      "titolo": "Cosa NON guardare da solo",
       "voci": [
-       "Solo il margine in percentuale",
-       "Gli incassi con l'Iva dentro",
-       "Il giorno più pieno",
-       "Il bar del vicino"
+       "Il margine in percentuale",
+       "L'incasso della giornata",
+       "Il prezzo dei concorrenti",
+       "La fila delle otto"
       ]
      }
     },
     {
-     "parola": "E",
-     "tipo": "mesi",
+     "parola": "Guarda",
+     "tipo": "timbro",
      "p": {
-      "titolo": "Incassi del bar nei mesi",
-      "valori": [
-       6,
-       6,
-       7,
-       8,
-       9,
-       9,
-       6,
-       3,
-       8,
-       9,
-       9,
-       10
-      ],
-      "evidenzia": [
-       8
-      ],
-      "nota": "agosto: città vuota, costi uguali"
+      "oggetto": "bar",
+      "testo": "QUELLO CHE RESTA",
+      "colore": "verde",
+      "nota": "non quello che entra"
      }
     }
    ]
   },
   {
-   "testo": "Guarda i mesi. Luca ha scoperto che ad agosto gli uffici chiudono e i clienti spariscono. Ma l'affitto resta. Un bar sano mette da parte nei mesi buoni per coprire quelli deboli. Altrimenti i conti non tornano mai.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "andamento",
-     "p": {
-      "titolo": "Clienti al giorno nell'anno",
-      "valori": [
-       220,
-       230,
-       240,
-       250,
-       255,
-       250,
-       200,
-       120,
-       240,
-       255,
-       250,
-       260
-      ],
-      "etichette": [
-       "Gen",
-       "Feb",
-       "Mar",
-       "Apr",
-       "Mag",
-       "Giu",
-       "Lug",
-       "Ago",
-       "Set",
-       "Ott",
-       "Nov",
-       "Dic"
-      ],
-      "colore": "rosso"
-     }
-    },
-    {
-     "parola": "Un",
-     "tipo": "salvadanaio",
-     "p": {
-      "direzione": "riempie",
-      "testo": "Accantona nei mesi buoni"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Un altro esempio, da un negozio di scarpe. Margine enorme su ogni paio, ma ne vendi poche e a stagioni. Se non sai quando incassi, rischi di restare a secco proprio quando devi pagare il fornitore. Il bar incassa ogni mattina, e questo è un vantaggio vero.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "negozio",
-      "insegna": "Scarpe & Co",
-      "azione": "preoccupato",
-      "clienti": 0,
-      "testo": "Margine alto, vendite a stagioni"
-     }
-    },
-    {
-     "parola": "Il",
-     "tipo": "confronto",
-     "p": {
-      "titolo": "Quando entrano i soldi?",
-      "a": {
-       "titolo": "Negozio di scarpe",
-       "valore": "A ondate",
-       "oggetto": "caffe"
-      },
-      "b": {
-       "titolo": "Bar",
-       "valore": "Ogni mattina",
-       "oggetto": "caffe"
-      },
-      "vincitore": "b"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Come migliora Luca i suoi numeri? Quattro leve. Alza lo scontrino medio con cappuccini e colazioni. Riempie le ore morte con pranzi veloci. Sistema i turni del personale. E rinegozia l'affitto, o lo sceglie meglio all'inizio.",
-   "capitolo": "Le leve",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "leve",
-     "p": {
-      "titolo": "Le leve del bar",
-      "voci": [
-       "Scontrino medio più alto",
-       "Riempire le ore morte",
-       "Turni su misura",
-       "Affitto sostenibile"
-      ],
-      "evidenzia": 1
-     }
-    },
-    {
-     "parola": "Riempie",
-     "tipo": "orologio",
-     "p": {
-      "ore": 13,
-      "piene": 8,
-      "testo": "Con i pranzi, otto ore piene su tredici"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Dopo sei mesi di aggiustamenti, Luca arriva a duecentoquaranta clienti al giorno con uno scontrino medio che fa un euro e cinquanta di margine. Il conto: duecentoquaranta per ventisei per uno e cinquanta fa novemilatrecentosessanta euro. Meno settemila, restano duemilatrecentosessanta.",
-   "capitolo": "Il conto finale",
+   "testo": "Prova tu adesso. Prendi la tua attività, o quella che sogni. Scrivi i costi fissi del mese. Scrivi il margine di un prodotto. Dividi i primi per il secondo. Il risultato è quante vendite ti servono per non perdere. Fallo stasera: ti serve una calcolatrice e dieci minuti.",
+   "capitolo": "Fallo anche tu",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "formula",
      "p": {
-      "titolo": "Margine totale del mese",
-      "a": "240 × 26",
-      "op": "×",
-      "b": "1,50 €",
-      "risultato": "9.360 €",
-      "nota": "seimiladuecentoquaranta clienti"
+      "titolo": "Il tuo pareggio",
+      "a": "Costi fissi",
+      "op": "÷",
+      "b": "Margine",
+      "risultato": "Vendite minime",
+      "nota": "tre numeri, dieci minuti"
      }
     },
     {
-     "parola": "Meno",
-     "tipo": "formula",
+     "parola": "Fallo",
+     "tipo": "domanda",
      "p": {
-      "titolo": "Cosa resta a Luca",
-      "a": "9.360 €",
-      "op": "−",
-      "b": "7.000 €",
-      "risultato": "2.360 €",
-      "nota": "al mese, prima delle tasse"
+      "testo": "Quante vendite ti servono?",
+      "emozione": "stupito",
+      "scuro": true
      }
-    },
+    }
+   ]
+  },
+  {
+   "testo": "Luca, intanto, ha capito. Non gli serviva un caffè migliore, gli serviva sapere i numeri. Ha ritoccato il prezzo, trattato l'affitto, riempito le ore deboli con aperitivi. Oggi chiude il mese con più di duemilaquattrocento euro. E dorme meglio.",
+   "capitolo": "",
+   "inquadrature": [
     {
-     "parola": "Dopo",
+     "parola": "",
      "tipo": "luogo",
      "p": {
       "luogo": "bar",
-      "insegna": "Bar Luca",
+      "insegna": "Bar Stazione",
       "azione": "festa",
       "clienti": 5,
-      "testo": "Finalmente in positivo"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Duemilatrecentosessanta euro, per tredici ore al giorno, sei giorni a settimana. E ci vanno tolte ancora le tasse. Non è poco, non è una miniera d'oro. Il caffè a un euro e venti è un buon prodotto, ma il bar è un mestiere di fatica e di numeri.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "bilancia",
-     "p": {
-      "titolo": "Ne vale la pena?",
-      "sinistra": "Duemilatrecentosessanta euro",
-      "destra": "Tredici ore al giorno",
-      "pende": "destra"
+      "testo": "Luca ha capito i numeri"
      }
     },
     {
-     "parola": "Non",
-     "tipo": "salvadanaio",
+     "parola": "Oggi",
+     "tipo": "andamento",
      "p": {
-      "direzione": "riempie",
-      "testo": "Si può vivere, ma si lavora"
+      "titolo": "Utile mensile di Luca",
+      "valori": [
+       900,
+       1300,
+       1870,
+       2200,
+       2450
+      ],
+      "etichette": [
+       "Mese 1",
+       "Mese 2",
+       "Mese 3",
+       "Mese 4",
+       "Mese 5"
+      ],
+      "colore": "verde"
      }
     }
    ]
   },
   {
-   "testo": "Riassumiamo. Primo: il caffè ha un margine altissimo, ma sono centesimi, non euro. Secondo: i costi fissi decidono il pareggio. Terzo: conta lo scontrino medio, non solo i clienti. Quarto: ricordati di pagare te stesso.",
-   "capitolo": "Riassunto",
+   "testo": "Ricapitoliamo. Un caffè costa quindici centesimi e rende un euro e cinque di margine. Ma quel margine paga tutto il resto. Servono centoquaranta caffè al giorno solo per pareggiare. Chi conosce il suo pareggio decide, gli altri sperano.",
+   "capitolo": "Riepilogo",
    "inquadrature": [
     {
      "parola": "",
@@ -1083,46 +1081,46 @@
      "p": {
       "titolo": "Da ricordare",
       "voci": [
-       "Il caffè rende ottantanove centesimi",
-       "Costi fissi diviso margine uguale pareggio",
-       "Alza lo scontrino medio",
-       "Metti in conto il tuo stipendio"
+       "Margine alto non è guadagno",
+       "Pareggio: costi fissi diviso margine",
+       "Personale e orari pesano",
+       "Leve: prezzo, affitto, ore morte"
       ]
      }
     },
     {
-     "parola": "Quarto",
+     "parola": "Chi",
      "tipo": "timbro",
      "p": {
       "oggetto": "caffe",
-      "testo": "CONTI FATTI",
+      "testo": "CONTI CHIARI",
       "colore": "verde",
-      "nota": "adesso sai quanto ti resta"
+      "nota": "si decide, non si spera"
      }
     }
    ]
   },
   {
-   "testo": "Ora tocca a te. Se hai un bar, calcola il tuo pareggio: costi fissi diviso margine medio. Se sogni di aprirlo, fai questo conto prima di firmare l'affitto. Prossima volta: una pizzeria che vende cento pizze a sera e non guadagna. Iscriviti!",
+   "testo": "E la prossima volta? Una pizzeria da asporto ti dice che con un impasto da pochi centesimi si fa una pizza da otto euro. Sembra facile, e invece i numeri nascondono una trappola. Scopriamo quanti pizzaioli servono davvero. Iscriviti, così non ti perdi la puntata.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Il tuo pareggio qual è?",
-      "emozione": "calmo",
-      "scuro": false
-     }
-    },
-    {
-     "parola": "Prossima",
      "tipo": "prossimo",
      "p": {
       "luogo": "pizzeria",
-      "insegna": "Pizzeria da Gino",
+      "insegna": "Pizza da Asporto",
       "oggetto": "pizza",
-      "testo": "Cento pizze a sera e zero guadagno"
+      "testo": "Quanto resta su una pizza da otto euro?"
+     }
+    },
+    {
+     "parola": "Iscriviti",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Iscriviti al canale!",
+      "emozione": "felice",
+      "scuro": false
      }
     }
    ]
