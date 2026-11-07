@@ -577,6 +577,12 @@ def main():
         + (' | SENZA_CLAUDE: budget forzato a 0' if SENZA_CLAUDE else ''))
 
     h_vt, vt = tab[n_vt]; h_sto, sto = tab[n_sto]; h_can, can_old = tab[n_can]; h_tr, tr_old = tab[n_tr]
+    if 'Video nel canale' not in h_can and 'Video esplosi trovati' in h_can and not PROVA:   # 7 nov (Giorgio): colonna nuova subito dopo Video esplosi
+        k = h_can.index('Video esplosi trovati') + 1
+        sh('POST', ':batchUpdate', {'requests': [{'insertDimension': {'range': {'sheetId': props[n_can]['sheetId'], 'dimension': 'COLUMNS', 'startIndex': k, 'endIndex': k + 1},
+                                                                       'inheritFromBefore': True}}]})
+        sh('PUT', '/values/' + urllib.parse.quote(f"'{n_can}'!{A.lettera(k + 1)}1") + '?valueInputOption=RAW', {'values': [['Video nel canale']]})
+        h_can.insert(k, 'Video nel canale'); log('Canali: aggiunta la colonna Video nel canale')
     # cache delle valutazioni: dal foglio (ultima riga valutata per canale) + file del repository (piu' recente)
     cache = {}
     primo_cache = {}
@@ -915,7 +921,7 @@ def main():
                                 'Primo video': d0.isoformat(), 'Giorni dal primo video': eta, 'Views al giorno (ultima settimana)': vu,
                                 'Views al giorno (settimana prima)': vp, 'Crescita x': cx, 'Iscritti al giorno': isg, 'Video migliore': T(best.get('titolo')),
                                 'Guadagno stimato $/mese': guad, 'Views video migliore': num(best.get('views')),
-                                'Link video migliore': link('https://www.youtube.com/watch?v=' + str(best.get('video_id'))), 'Video esplosi trovati': len(vids),
+                                'Link video migliore': link('https://www.youtube.com/watch?v=' + str(best.get('video_id'))), 'Video esplosi trovati': len(vids), 'Video nel canale': s.get('n_video') or int(num(ult.get('n_video_canale'))) or '',
                                 'Altri video': T(' | '.join(str(t) for t in altri)), 'Link canale': link('https://www.youtube.com/channel/' + cid),
                                 'Motivo': T(ev.get('motivo_replica', '')), 'Materiale gratis trovato': ev.get('materiale_trovato', ''), 'Trovato con': T(ult.get('seme')),
                                 'Prima volta trovato': prima.isoformat(), 'Ultima volta trovato': ultima[cid].isoformat(), 'channel_id': T(cid)}})
