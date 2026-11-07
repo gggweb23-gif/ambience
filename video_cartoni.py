@@ -98,18 +98,48 @@ riepilogo {titolo, voci: [max 4 frasi brevi]} = schede finali da ricordare
 prossimo {luogo, insegna, oggetto, testo} = gancio al prossimo episodio"""
 
 
-def claude(prompt, max_tokens=24000):
-    d = {'model': MODELLO, 'max_tokens': max_tokens, 'messages': [{'role': 'user', 'content': prompt}]}
-    if re.search(r'(sonnet|opus|haiku)-5', MODELLO):
-        d['output_config'] = {'effort': 'medium'}
+def claude(prompt, max_tokens=64000):
+    """Streaming + ragionamento ridotto (come video_storia.py): i modelli 5.5 ragionano dentro max_tokens e senza
+    streaming la risposta lunga arrivava VUOTA ('Expecting value'). Senza JSON si riprova (max 3 volte)."""
+    d = {'model': MODELLO, 'max_tokens': max_tokens, 'stream': True, 'messages': [{'role': 'user', 'content': prompt}]}
+    if 'sonnet-5' in MODELLO:
+        d.update(thinking={'type': 'between_tools'}, output_config={'effort': 'low'})
+    elif re.search(r'(opus|fable|mythos)-5', MODELLO):
+        d['output_config'] = {'effort': 'low'}
     for k in range(3):
         try:
-            j = http('https://api.anthropic.com/v1/messages', d, {'x-api-key': E('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01'})
-            CO.registra('claude', MODELLO, j.get('usage'))
-            return ''.join(b.get('text', '') for b in j.get('content', []) if b.get('type') == 'text')
+            req = urllib.request.Request('https://api.anthropic.com/v1/messages', data=json.dumps(d).encode(),
+                                         headers={'content-type': 'application/json', 'x-api-key': E('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01'})
+            pezzi, fine, uso = [], '', {}
+            with urllib.request.urlopen(req, timeout=600) as r:
+                for riga in r:
+                    riga = riga.decode('utf-8', 'ignore').strip()
+                    if not riga.startswith('data:'):
+                        continue
+                    try:
+                        ev = json.loads(riga[5:].strip())
+                    except Exception:
+                        continue
+                    t = ev.get('type')
+                    if t == 'content_block_delta' and (ev.get('delta') or {}).get('type') == 'text_delta':
+                        pezzi.append(ev['delta'].get('text', ''))
+                    elif t == 'message_start':
+                        uso = dict((ev.get('message') or {}).get('usage') or {})
+                    elif t == 'message_delta':
+                        fine = (ev.get('delta') or {}).get('stop_reason') or fine
+                        uso.update({a: b for a, b in (ev.get('usage') or {}).items() if isinstance(b, int)})
+                    elif t == 'error':
+                        raise RuntimeError('Claude: ' + json.dumps(ev.get('error'))[:200])
+            CO.registra('claude', MODELLO, uso)
+            testo = ''.join(pezzi)
+            log('Claude:', len(testo), 'caratteri, fine:', fine)
+            if '{' in testo:
+                return testo
+            log('risposta senza JSON, riprovo:', testo[:200])
         except Exception as e:
-            log('Claude non risponde, riprovo:', str(e)[:200]); time.sleep(20 * (k + 1))
-    raise RuntimeError('Claude non risponde')
+            log('Claude non risponde, riprovo:', str(e)[:200])
+        time.sleep(20 * (k + 1))
+    raise RuntimeError('Claude non risponde (nessun copione): niente spesa per la voce')
 
 
 def json_da(testo):
