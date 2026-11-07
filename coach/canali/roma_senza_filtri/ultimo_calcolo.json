@@ -18,6 +18,16 @@
   0.059,
   0.846
  ],
+ "in_attesa_report": 0,
+ "video_in_attesa_report": [],
+ "retention": {
+  "stato": "ATTESA_VIEWS",
+  "motivo": "retention: 0 views totali su 50 necessarie",
+  "views_totali": 0,
+  "ret30": null,
+  "ret60": null,
+  "minimo_views": 50
+ },
  "stato": "ATTESA",
  "motivo": "servono 3 video con almeno 72 ore nella versione 5, ce ne sono 0"
 }

@@ -2,7 +2,7 @@
   "channel_id": "Agora of Sages",
   "competitor": "Stoic Journal (UC0Od76N74LscCptfxvpGk9A)",
   "stile_base": "Stile Stoic Journal: statue di marmo grigio, giovani e muscolose, gesto forte, fondo scuro; testo Anton bianco. Tratto distintivo nostro: verde fluo #39FF14 (blocco parola chiave in copertina, parola detta nel video), etichetta RULE #, firma AGORA OF SAGES. Video: la statua della copertina ferma a sinistra + cenere, testo karaoke a destra, voce David.",
-  "versione_attiva": 1,
+  "versione_attiva": 2,
   "migliore": null,
   "stato": "in_prova",
   "versioni": [
@@ -12,11 +12,33 @@
       "cosa": "Stile statua + karaoke + cenere, voce David, volume -14 LUFS, musica a rotazione (6 brani)",
       "leva": "partenza",
       "parametri": {},
+      "risultati": {
+        "controllo": "2026-11-07",
+        "ctr_finestra": 1.06,
+        "impression_finestra": 94,
+        "stato_copertina": "ATTESA_IMPRESSION",
+        "ret30_canale": 61.0,
+        "ret60_canale": 45.8,
+        "views_totali": 453,
+        "nota": "retention misurata solo su 2 video: \"5 Signs Evil Person\" ret30 78,6% / ret60 64,6% (gancio sulla vita dello spettatore) vs \"10 Stoic Principles Epictetus\" ret30 50% / ret60 34,1% (apertura generica a elenco)"
+      },
+      "decisione": "retention 30 s sotto obiettivo (61 < 65): nuova versione 2 sul gancio (narrative_angle), copertina invariata"
+    },
+    {
+      "n": 2,
+      "dal": "2026-11-07 10:00",
+      "cosa": "Gancio dei primi 30 s: prima frase in seconda persona su una situazione concreta della vita dello spettatore legata al titolo, promessa del video entro 10 s, niente biografia/contesto prima dei 30 s (copertina, voce David e render invariati)",
+      "leva": "retention_30s",
+      "parametri": {
+        "narrative_angle": "Each video is ONE philosopher and ONE life lesson. Open with a strong, relatable hook about the viewer's own life (people who drain you, loneliness, being underestimated, losing respect), then reveal what the philosopher said about it with real quotes from his works, explain the idea simply with everyday examples, and close with 2-3 practical takeaways. Tone: calm, wise, lucid, slightly dark, never preachy. Never invent quotes or biography facts. OPENING RULE (first 30 seconds, most important): the very first sentence speaks directly to the viewer with 'you' and puts him inside a concrete, painful situation from his own life that matches the title (e.g. 'Someone in your life is quietly draining you, and you haven't noticed yet.'). Within the first 10 seconds state the promise of the video in one line (what he will be able to do or recognize by the end, using the number in the title if there is one). No greetings, no channel intro, no philosopher biography and no historical context before the 30-second mark: the philosopher enters only as the answer to the viewer's problem. Short sentences in the opening, one idea per sentence."
+      },
       "risultati": null,
-      "decisione": null
+      "decisione": null,
+      "motivo": "ret30 61% su 453 views (obiettivo 65%). Il video con gancio sulla vita dello spettatore (5 Signs Evil Person) tiene 78,6% a 30 s, quello con apertura generica a elenco (Epictetus) 50%. Modifica a costo zero, solo testo del copione."
     }
   ],
   "registro": [
-    "2026-10-30: versione 1 di partenza impostata a mano con Giorgio (copertina V2 statua verde + video karaoke)."
+    "2026-10-30: versione 1 di partenza impostata a mano con Giorgio (copertina V2 statua verde + video karaoke).",
+    "2026-11-07: controllo coach. Copertina: ATTESA_IMPRESSION (94 impression sui 3 video maturi, CTR 1,06%), nessuna modifica. Retention: LEVA_RET30 (61,0% / 60 s 45,8% su 453 views) -> versione 2 = nuovo gancio nel narrative_angle (costo 0). Prove: nessuna (modifica solo di testo)."
   ]
 }
