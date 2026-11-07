@@ -26,6 +26,13 @@ for coppia in [x.strip() for x in E('LINK', '').split(',') if '=' in x]:
     corpo['snippet']['description'] = nuova
     urllib.request.urlopen(urllib.request.Request('https://www.googleapis.com/youtube/v3/videos?part=snippet', method='PUT', data=json.dumps(corpo).encode(), headers=H), timeout=60)
     print('link corretto', sid, '->', giusto)
+for coppia in [x for x in E('TITOLO', '').split('||') if '=' in x]:   # TITOLO="idShort=Titolo giusto||..."
+    sid, nuovo = coppia.split('=', 1); sid = sid.strip()
+    sn = g('videos', part='snippet', id=sid)['items'][0]['snippet']
+    corpo = {'id': sid, 'snippet': {k: sn[k] for k in ('categoryId', 'tags', 'defaultLanguage', 'defaultAudioLanguage', 'description') if k in sn}}
+    corpo['snippet']['title'] = nuovo.strip()
+    urllib.request.urlopen(urllib.request.Request('https://www.googleapis.com/youtube/v3/videos?part=snippet', method='PUT', data=json.dumps(corpo).encode(), headers=H), timeout=60)
+    print('titolo corretto', sid, '->', nuovo.strip())
 if E('CONTROLLA', '').upper() == 'SI':
     up = g('channels', part='contentDetails', mine='true')['items'][0]['contentDetails']['relatedPlaylists']['uploads']
     ids = [x['contentDetails']['videoId'] for x in g('playlistItems', part='contentDetails', playlistId=up, maxResults=50).get('items', [])]

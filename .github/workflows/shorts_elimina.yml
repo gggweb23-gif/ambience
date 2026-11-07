@@ -11,6 +11,9 @@ on:
       link:
         description: 'Correggi il link al video intero: idShort=idVideo,...'
         default: ''
+      titolo:
+        description: 'Correggi il titolo: idShort=Titolo giusto||...'
+        default: ''
       controlla:
         description: 'SI = elenca gli Short e il video intero collegato'
         default: 'NO'
@@ -38,4 +41,5 @@ jobs:
           IDS: ${{ inputs.ids }}
           LINK: ${{ inputs.link }}
           CONTROLLA: ${{ inputs.controlla }}
+          TITOLO: ${{ inputs.titolo }}
         run: pip install -q google-auth requests && python3 strumenti/shorts_elimina.py

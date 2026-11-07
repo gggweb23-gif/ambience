@@ -152,6 +152,34 @@ def trascrivi(video, lingua):
     return frasi, parole
 
 
+GENERICHE = set("""history storia documentary documentario video shorts short complete completa explained spiegata spiegato world mondo story
+storie stories intera entire minutes minuti psicologia psychology people persone life vita daily facts fatti channel canale testimony orbital days
+interrogation interrogations documentary wwii world war guerra mondiale""".split())
+
+
+def _norm(t):
+    import unicodedata
+    return unicodedata.normalize('NFKD', str(t or '')).encode('ascii', 'ignore').decode().lower()
+
+
+def stesso_video(frasi, riga):
+    """Il file e' davvero il video di questa riga? Le parole chiave dei suoi tag (nomi, luoghi, temi) devono comparire nel parlato.
+    Un video dello stesso canale ma di un altro argomento (es. Goring al posto di Guderian) ne contiene poche: si blocca tutto."""
+    parlato = ' ' + re.sub(r'[^a-z0-9]+', ' ', _norm(' '.join(f['t'] for f in frasi))) + ' '
+    voci = [x.strip() for x in re.split(r'[,|]', str(riga.get('tag_seo') or '')) if x.strip()]
+    termini = []
+    for v in voci[1:]:   # il primo tag e' il titolo
+        for w in re.sub(r'[^a-z0-9]+', ' ', _norm(v)).split():
+            if len(w) >= 5 and w not in GENERICHE and not w.isdigit() and w not in termini:
+                termini.append(w)
+    termini = termini[:25]
+    if len(termini) < 4:
+        return True, f'solo {len(termini)} parole chiave nei tag: controllo non applicabile'
+    trovati = [w for w in termini if ' ' + w in parlato]
+    quota = len(trovati) / len(termini)
+    return quota >= .4, f'{len(trovati)}/{len(termini)} parole chiave del video nel parlato ({quota:.0%}, minimo 40%)'
+
+
 # ---------------------------------------------------------------- scelta dei momenti (Claude, entro il budget)
 def scegli(frasi, n, titolo, lingua, budget, evita=None):
     testo = '\n'.join(f"[{f['s']:.1f}-{f['e']:.1f}] {f['t']}" for f in frasi)
@@ -369,6 +397,10 @@ def canale(cfg):
     titolo = str(riga.get('titolo_italiano') or riga.get('titolo_originale') or '')
     log(f'  riga {n}: {titolo} | {durata(video) / 60:.1f} min')
     frasi, parole = trascrivi(video, str(cfg.get('language') or 'en'))
+    ok_file, motivo = stesso_video(frasi, riga)   # 7 nov: controllo in piu', senza IA: il parlato deve contenere le parole chiave di QUEL video
+    log('  controllo video giusto:', motivo)
+    if not ok_file:
+        raise RuntimeError('VIDEO SBAGLIATO, nessuno Short: ' + motivo)
     isc = ISC.impostazioni(cfg)   # nel video lungo il pulsante compare per 4 s: lo Short parte dopo (mai due pulsanti nello stesso Short)
     momenti, costo = scegli(frasi, n_giorno, titolo, str(cfg.get('language') or 'en'), budget, evita=(isc['sec'] - 0.5, isc['sec'] + 4.5))
     if not momenti:
