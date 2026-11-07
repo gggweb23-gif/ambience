@@ -10,8 +10,10 @@ def pulisci_titolo(t):
 
 def con_titolo(titolo, descr):
     t, d = str(titolo or '').strip(), str(descr or '').strip()
-    if not t or d.lower().startswith(t.lower()):
+    if not t or d.startswith(t):
         return d
+    if d.lower().startswith(t.lower()):   # 7 nov: stesso titolo ma maiuscole/minuscole diverse -> si rimette il titolo esatto (Giorgio lo copia da qui)
+        return t + d[len(t):]
     return t + '\n\n' + d
 
 

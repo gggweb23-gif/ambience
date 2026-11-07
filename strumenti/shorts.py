@@ -74,9 +74,13 @@ def scarica_sorgente(cid, riga, r, dur_yt, cfg_corrente=None):
     per i video fatti prima degli Short, gli artifact dei motori (video-storia, video-mappe, video-archivio) dei giorni del video.
     Si usa solo se la durata coincide con quella del video su YouTube (cosi' non si prende mai il video sbagliato)."""
     slug = re.sub(r'[^a-z0-9]+', '_', cid.lower()).strip('_')
+    tit = str(r.get('titolo_italiano') or r.get('titolo_originale') or '')
+    nome_file = re.sub(r'[^a-z0-9]+', '_', (cid + '_' + tit).lower())[:60] if tit else ''   # come lo chiama avvio_archivio
     def giusto(v, generico=False):
         if not v:
             return False
+        if generico == 'archivio' and nome_file and nome_file not in v:   # 7 nov: anche il TITOLO del video nel nome del file (Short di Guderian legati a Goring)
+            log('  file scartato: e\' di un altro video del canale', v.split('sorgente')[-1][:80]); return False
         if generico == 'archivio' and '/archivio/' + slug + '_' not in v:   # 7 nov: video-archivio ha i video di piu' canali (WWII e Orbital): senza il nome
             log('  file scartato: non e\' di questo canale', v.split('sorgente')[-1][:80]); return False   # del canale nel percorso non si usa MAI (prima per_shorts/ passava)
         d = durata(v)
