@@ -638,14 +638,13 @@ if str(P.get('carica') or '').upper() == 'SI' and E('YT_REFRESH_TOKEN'):
             quando += dt_.timedelta(days=1)
         meta['status'].update(privacyStatus='private', publishAt=quando.astimezone(dt_.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'))
         log('esce il', quando.strftime('%d/%m alle %H:%M'), '(ora italiana)')
-    req = urllib.request.Request('https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&part=snippet,status', data=json.dumps(meta).encode(),
-                                 headers={'Authorization': 'Bearer ' + tk, 'Content-Type': 'application/json', 'X-Upload-Content-Type': 'video/mp4'})
-    up = urllib.request.urlopen(req, timeout=60).headers['Location']
+    import dichiarazioni_yt as DICH   # 8 nov: dichiarazione dentro il caricamento (niente modifica dopo da 50 unita')
+    up = DICH.sessione('https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&part=snippet,status', meta,
+                       {'Authorization': 'Bearer ' + tk, 'Content-Type': 'application/json', 'X-Upload-Content-Type': 'video/mp4'}, 60)
     req = urllib.request.Request(up, data=open(VIDEO, 'rb').read(), method='PUT', headers={'Authorization': 'Bearer ' + tk, 'Content-Type': 'video/mp4'})
-    vid_id = json.loads(urllib.request.urlopen(req, timeout=3600).read())['id']
+    ris = json.loads(urllib.request.urlopen(req, timeout=3600).read()); vid_id = ris['id']
     log('caricato su YouTube:', vid_id, '(' + (P.get('privacy') or 'unlisted') + ')')
-    import dichiarazioni_yt as DICH
-    DICH.nessuna_promozione(vid_id, tk)
+    DICH.nessuna_promozione(vid_id, tk, ris)
     try:
         req = urllib.request.Request(f'https://www.googleapis.com/upload/youtube/v3/thumbnails/set?videoId={vid_id}', data=open(COP, 'rb').read(),
                                      headers={'Authorization': 'Bearer ' + tk, 'Content-Type': 'image/jpeg'})

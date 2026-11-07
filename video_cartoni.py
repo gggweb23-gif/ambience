@@ -342,14 +342,17 @@ def carica_youtube(path, titolo, descr, tags, cop):
     if P.get('pubblica_il') and status['privacyStatus'] == 'public':
         status['privacyStatus'] = 'private'; status['publishAt'] = P['pubblica_il']
     snip = {'title': titolo[:100], 'description': descr, 'tags': tags, 'categoryId': str(P.get('youtube_category_id') or '27'), 'defaultLanguage': LINGUA, 'defaultAudioLanguage': LINGUA}
-    req = urllib.request.Request('https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&part=snippet,status', data=json.dumps({'snippet': snip, 'status': status}).encode(),
-                                 method='POST', headers={'Authorization': 'Bearer ' + tok, 'Content-Type': 'application/json; charset=UTF-8', 'X-Upload-Content-Length': str(os.path.getsize(path)), 'X-Upload-Content-Type': 'video/mp4'})
-    with urllib.request.urlopen(req, timeout=120) as r:
-        sess = r.headers['Location']
+    hd = {'Authorization': 'Bearer ' + tok, 'Content-Type': 'application/json; charset=UTF-8', 'X-Upload-Content-Length': str(os.path.getsize(path)), 'X-Upload-Content-Type': 'video/mp4'}
+    if DICH:   # 8 nov: dichiarazione dentro il caricamento (niente modifica dopo da 50 unita')
+        sess = DICH.sessione('https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&part=snippet,status', {'snippet': snip, 'status': status}, hd, 120)
+    else:
+        with urllib.request.urlopen(urllib.request.Request('https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&part=snippet,status',
+                                                           data=json.dumps({'snippet': snip, 'status': status}).encode(), method='POST', headers=hd), timeout=120) as r:
+            sess = r.headers['Location']
     for k in range(6):
         try:
             with urllib.request.urlopen(urllib.request.Request(sess, data=open(path, 'rb').read(), method='PUT', headers={'Authorization': 'Bearer ' + tok, 'Content-Type': 'video/mp4'}), timeout=1800) as r:
-                vid = json.loads(r.read().decode())['id']
+                ris = json.loads(r.read().decode()); vid = ris['id']
             break
         except Exception as e:
             log('upload, riprovo:', str(e)[:150]); time.sleep(15 * (k + 1)); tok = token()
@@ -357,7 +360,7 @@ def carica_youtube(path, titolo, descr, tags, cop):
         raise RuntimeError('caricamento su YouTube non riuscito')
     if DICH:
         try:
-            DICH.nessuna_promozione(vid, tok)
+            DICH.nessuna_promozione(vid, tok, ris)
         except Exception:
             pass
     nota = ''

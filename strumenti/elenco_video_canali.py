@@ -33,8 +33,9 @@ for cfg in canali:
                 print('   limite di modifiche raggiunto per oggi (quota YouTube): il resto domani'); break
             vid, st = v['id'], v['status']
             if (v.get('paidProductPlacementDetails') or {}).get('hasPaidProductPlacement') is not False:
+                if not DICH.finestra_ok(): continue   # 8 nov: modifiche solo dopo le 09:00
                 print('  ', vid, end=' '); DICH.nessuna_promozione(vid, h['Authorization'][7:]); MODIFICHE[0] += 1
-            if st.get('containsSyntheticMedia') is not False:
+            if st.get('containsSyntheticMedia') is not False and DICH.finestra_ok():   # 8 nov: modifiche solo dopo le 09:00
                 nuovo = {k: st[k] for k in ('privacyStatus', 'publishAt', 'embeddable', 'license', 'publicStatsViewable') if k in st}
                 nuovo.update({'selfDeclaredMadeForKids': bool(st.get('selfDeclaredMadeForKids', False)), 'containsSyntheticMedia': False})
                 try:

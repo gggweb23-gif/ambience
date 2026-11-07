@@ -14,6 +14,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import avvio_canali as A
 import iscrizione as ISC
 import performance as PF
+from dichiarazioni_yt import finestra_ok as DICH_ORA
 
 E = os.environ.get
 ROMA = A.ZoneInfo('Europe/Rome')
@@ -321,13 +322,12 @@ def carica(tk, f, x, cfg, riga, vid_lungo, quando):
                         'description': f"{x['frase']}\n\n▶ {link}: https://youtu.be/{vid_lungo}\n\n#shorts",
                         'tags': tag, 'categoryId': str(cfg.get('youtube_category_id') or 27), 'defaultLanguage': lingua, 'defaultAudioLanguage': lingua},
             'status': {'privacyStatus': 'private', 'publishAt': quando.astimezone(dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'), 'selfDeclaredMadeForKids': False, 'containsSyntheticMedia': False}}
-    req = urllib.request.Request('https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&part=snippet,status', data=json.dumps(meta).encode(),
-                                 headers={'Authorization': 'Bearer ' + tk, 'Content-Type': 'application/json', 'X-Upload-Content-Type': 'video/mp4'})
-    up = urllib.request.urlopen(req, timeout=60).headers['Location']
+    import dichiarazioni_yt as DICH   # 8 nov: dichiarazione dentro il caricamento (niente modifica dopo da 50 unita')
+    up = DICH.sessione('https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&part=snippet,status', meta,
+                       {'Authorization': 'Bearer ' + tk, 'Content-Type': 'application/json', 'X-Upload-Content-Type': 'video/mp4'}, 60)
     req = urllib.request.Request(up, data=open(f, 'rb').read(), method='PUT', headers={'Authorization': 'Bearer ' + tk, 'Content-Type': 'video/mp4'})
-    sid = json.loads(urllib.request.urlopen(req, timeout=900).read())['id']
-    import dichiarazioni_yt as DICH
-    DICH.nessuna_promozione(sid, tk)
+    ris = json.loads(urllib.request.urlopen(req, timeout=900).read()); sid = ris['id']
+    DICH.nessuna_promozione(sid, tk, ris)
     return sid
 
 
@@ -504,6 +504,8 @@ def main():
                 scrivi(fid, sch, h, int(n), 'shorts', v); log(cfg.get('channel_id'), 'riga', n, 'shorts =', v or '(vuota)')
         return
     if E('RIFAI', '').strip().upper() == 'SI':   # 7 nov (Giorgio): gli Short programmati e non ancora usciti si cancellano e si rifanno col pulsante iscriviti
+        if not DICH_ORA():   # 8 nov: cancella-e-rifai solo dopo le 09:00 (la quota della notte serve ai caricamenti)
+            log('Prima delle 09:00: rifacimento rimandato (oppure FORZA_QUOTA=SI)'); return
         return rifai(canali)
     errori = []
     for cfg in canali:

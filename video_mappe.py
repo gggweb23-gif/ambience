@@ -1858,18 +1858,16 @@ def carica_youtube(path, c, titolo):
     if P.get('pubblica_il') and str(P.get('privacy') or 'public').strip().lower() == 'public':
         status['privacyStatus'] = 'private'; status['publishAt'] = P['pubblica_il']
     size = os.path.getsize(path)
-    req = urllib.request.Request('https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&part=snippet,status',
-                                 data=json.dumps({'snippet': snippet, 'status': status}).encode(), method='POST',
-                                 headers={'Authorization': 'Bearer ' + tok, 'Content-Type': 'application/json; charset=UTF-8',
-                                          'X-Upload-Content-Length': str(size), 'X-Upload-Content-Type': 'video/mp4'})
-    with urllib.request.urlopen(req, timeout=120) as r:
-        sessione = r.headers['Location']
+    sessione = DICH.sessione('https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&part=snippet,status',   # 8 nov: dichiarazione dentro il caricamento
+                             {'snippet': snippet, 'status': status},
+                             {'Authorization': 'Bearer ' + tok, 'Content-Type': 'application/json; charset=UTF-8',
+                              'X-Upload-Content-Length': str(size), 'X-Upload-Content-Type': 'video/mp4'}, 120)
     for tentativo in range(6):
         try:
             put = urllib.request.Request(sessione, data=open(path, 'rb').read(), method='PUT', headers={'Authorization': 'Bearer ' + tok, 'Content-Type': 'video/mp4'})
             with urllib.request.urlopen(put, timeout=1800) as r:
-                vid = json.loads(r.read().decode())['id']; log('caricato su YouTube:', vid)
-                DICH.nessuna_promozione(vid, tok)
+                ris = json.loads(r.read().decode()); vid = ris['id']; log('caricato su YouTube:', vid)
+                DICH.nessuna_promozione(vid, tok, ris)
                 return vid
         except urllib.error.HTTPError as e:
             if e.code == 401:
