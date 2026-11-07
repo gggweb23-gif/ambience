@@ -7,6 +7,13 @@ on:
         description: 'channel_id'
       ids:
         description: 'ID YouTube separati da virgola'
+        default: ''
+      link:
+        description: 'Correggi il link al video intero: idShort=idVideo,...'
+        default: ''
+      controlla:
+        description: 'SI = elenca gli Short e il video intero collegato'
+        default: 'NO'
 
 permissions:
   contents: read
@@ -29,4 +36,6 @@ jobs:
           YT_REFRESH_TOKEN_WWII_TESTIMONY: ${{ secrets.YT_REFRESH_TOKEN_WWII_TESTIMONY }}
           CANALE: ${{ inputs.canale }}
           IDS: ${{ inputs.ids }}
+          LINK: ${{ inputs.link }}
+          CONTROLLA: ${{ inputs.controlla }}
         run: pip install -q google-auth requests && python3 strumenti/shorts_elimina.py
