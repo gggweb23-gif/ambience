@@ -27,6 +27,8 @@ COPPIE = [(x.strip().split(':', 1) + [''])[:2] for x in (E('VIDEO', '') or '').s
 OUT = os.path.join(os.getcwd(), 'copertine_storia'); os.makedirs(OUT, exist_ok=True)
 FAL = {'Authorization': 'Key ' + E('FAL_KEY', ''), 'Content-Type': 'application/json'}
 BOLLINO = os.path.join(os.getcwd(), 'bollino_storia_in_minuti.png')
+TRATTO = (' ' + str(E('TRATTO_COPERTINA', '') or '').strip()) if str(E('TRATTO_COPERTINA', '') or '').strip() else ''   # 8 nov: tratto distintivo del canale (prove copertine)
+TENTATIVI = max(1, int(str(E('TENTATIVI', '') or '3').strip() or 3))   # tentativi per la scritta disegnata (le prove ne usano 1: costo sotto controllo)
 FORMATO = str(E('COPERTINA_FORMATO', '') or 'coppia').strip().lower()   # coppia (figura antica + persona di oggi) | illustrato (come i competitor: personaggio + nome nero con grazie) | prima_dopo (aerea antico -> oggi) | bandiera
 
 
@@ -250,7 +252,7 @@ def prompt_ill(figura, antico, moderno, paese, bandiera, date):
             f'the biggest element of the image, with a waving national flag of {bandiera} next to it about half the height of the letters. '
             f'Under it, BIG and bold (about 60% of the height of the word {paese}): "{da}" in black with a thin white outline (lowercase "a" in "a.C."), '
             f'a thick RED arrow pointing right, and "{a}" in bright GOLD with a black outline. '
-            'Keep the bottom-right corner free of text. No other text, no logo, no watermark.')
+            'Keep the bottom-right corner free of text. No other text, no logo, no watermark.' + TRATTO)
 
 
 def prompt_scena_ill(figura, antico, moderno):
@@ -260,7 +262,7 @@ def prompt_scena_ill(figura, antico, moderno):
             f'strong warm golden light on the face and a golden rim light on the outline. {POPOLO.get("tratti", "")} '
             f'BACKGROUND behind and to the right: on the left side {antico} under a warm golden sky, blending towards the right into {moderno} '
             'with city lights turning on, under a dramatic sunset sky with orange and deep blue clouds. '
-            'The upper right area (top 45%, right 55%) is open sky: a big title will be added there. Absolutely NO text, letters, numbers, logos or watermark anywhere.')
+            'The upper right area (top 45%, right 55%) is open sky: a big title will be added there. Absolutely NO text, letters, numbers, logos or watermark anywhere.' + TRATTO)
 
 
 def titolo_ill(im, paese, date):
@@ -293,7 +295,7 @@ def titolo_ill(im, paese, date):
 
 
 def crea_ill(figura, antico, moderno, paese, bandiera, date):
-    for tentativo in range(3):
+    for tentativo in range(TENTATIVI):
         r = fal('fal-ai/nano-banana-2', {'prompt': prompt_ill(figura, antico, moderno, paese, bandiera, date), 'aspect_ratio': '16:9', 'resolution': '2K',
                                          'output_format': 'jpeg', 'num_images': 1})
         prova = ImageOps.fit(Image.open(io.BytesIO(http(r['images'][0]['url'], raw=True))).convert('RGB'), (1280, 720), Image.LANCZOS)
@@ -351,7 +353,7 @@ def titolo_pd(im, paese, date):
 
 def crea_pd(antico, moderno, paese, bandiera, date):
     """Copertina PRIMA_DOPO: scritta disegnata dall'AI e controllata lettera per lettera (3 tentativi), poi riserva con scritte dello script."""
-    for tentativo in range(3):
+    for tentativo in range(TENTATIVI):
         r = fal('fal-ai/nano-banana-2', {'prompt': prompt_pd(antico, moderno, paese, bandiera, date), 'aspect_ratio': '16:9', 'resolution': '2K',
                                          'output_format': 'jpeg', 'num_images': 1})
         prova = ImageOps.fit(Image.open(io.BytesIO(http(r['images'][0]['url'], raw=True))).convert('RGB'), (1280, 720), Image.LANCZOS)
