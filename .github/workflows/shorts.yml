@@ -19,6 +19,9 @@ on:
       riga:
         description: 'Solo con un canale: riga del file di produzione del video lungo (vuoto = ultimo video)'
         default: ''
+      rifai:
+        description: 'SI = cancella gli Short programmati non ancora usciti e li rifa col pulsante iscriviti'
+        default: 'NO'
 
 permissions:
   contents: write
@@ -57,6 +60,7 @@ jobs:
           PROVA: ${{ inputs.prova || 'NO' }}
           RIGA: ${{ inputs.riga }}
           REGISTRA: ${{ inputs.registra }}
+          RIFAI: ${{ inputs.rifai || 'NO' }}
           WHISPER_MODEL: small
         run: python3 strumenti/shorts.py
       - name: Short di prova da guardare

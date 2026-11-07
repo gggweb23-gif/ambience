@@ -373,9 +373,10 @@ def canale(cfg):
     for k, x in enumerate(momenti, 1):
         f = monta(video, x, parole, os.path.join(LAV, f'short_{k}.mp4'), str(cfg.get('shorts_sottotitoli') or '').strip().upper() == 'SI')
         f2 = f[:-4] + '_isc.mp4'   # 6 nov (Giorgio): pulsante Mi piace/Iscriviti + campanella con i suoni su tutti gli Short, nella lingua del canale
-        if ISC.applica(f, f2, cfg, LAV, short=True, log=log):
+        con_pulsante = ISC.applica(f, f2, cfg, LAV, short=True, log=log)
+        if con_pulsante:
             f = f2
-        prob = controlla(f)
+        prob = controlla(f) or ('' if con_pulsante else 'pulsante iscriviti non applicato (7 nov: tutti gli Short devono averlo)')
         log(f"  Short {k}: {x['a']:.0f}-{x['b']:.0f} s | {x['gancio']} | {x['titolo']}" + (f' | SCARTATO: {prob}' if prob else ''))
         if not prob:
             fatti.append((f, x))
@@ -402,8 +403,51 @@ def canale(cfg):
         sid = carica(tk, f, x, cfg, riga, str(riga.get('youtube_video_id')).strip(), q)
         caricati.append(f"{sid}@{q.strftime('%Y-%m-%d %H:%M')}")
         log('  caricato', sid, '| esce', q.strftime('%d/%m %H:%M'))
-    scrivi(fid, sch, h, n, 'shorts', ' | '.join(caricati) or 'nessuno Short superato i controlli')
+    tenuti = [x.strip() for x in str(riga.get('shorts') or '').split('|') if re.match(r'^[\w-]{11}@\d{4}-', x.strip())] if RIGA else []   # rifacimento: restano quelli gia' usciti
+    scrivi(fid, sch, h, n, 'shorts', ' | '.join(tenuti + caricati) or 'nessuno Short superato i controlli')
     costo_registro(cid, costo, f'{len(caricati)} Short caricati')
+
+
+def rifai(canali):
+    global RIGA
+    limite = (dt.datetime.now(ROMA) + dt.timedelta(minutes=45)).strftime('%Y-%m-%d %H:%M')
+    errori = []
+    for cfg in canali:
+        cid = str(cfg.get('channel_id') or '').strip(); fid = str(cfg.get('scout_production_sheet_id') or '').strip()
+        if not cid or not fid or (SOLO and cid != SOLO) or int(num(cfg.get('shorts_al_giorno'))) < 1:
+            continue
+        try:
+            sch, h, prod = A.righe(fid)
+            chiave = str(cfg.get('chiave_youtube') or '').strip() or {'Storia in Minuti': 'YT_REFRESH_TOKEN_STORIA', 'KAO PSICOLOGIA': 'YT_REFRESH_TOKEN_KAO'}.get(cid, '') \
+                or 'YT_REFRESH_TOKEN_' + re.sub(r'[^A-Z0-9]+', '_', cid.upper()).strip('_')
+            tk = PF.token(PF.SEGRETI.get(chiave) or E(chiave))[0]
+            righe = []
+            for i, r in enumerate(prod):
+                voci = [x.strip() for x in str(r.get('shorts') or '').split('|') if re.match(r'^[\w-]{11}@\d{4}-', x.strip())]
+                futuri = [x for x in voci if x.split('@')[1] > limite]
+                if not futuri:
+                    continue
+                for x in futuri:
+                    try:
+                        urllib.request.urlopen(urllib.request.Request('https://www.googleapis.com/youtube/v3/videos?id=' + x.split('@')[0], method='DELETE',
+                                                                      headers={'Authorization': 'Bearer ' + tk}), timeout=60)
+                        log(cid, 'riga', i + 2, ': Short senza pulsante eliminato', x)
+                    except Exception as e:
+                        log(cid, 'riga', i + 2, ': NON eliminato', x, str(e)[:100])
+                scrivi(fid, sch, h, i + 2, 'shorts', ' | '.join(v for v in voci if v not in futuri) or '')
+                righe.append(i + 2)
+            for n in righe:
+                RIGA = str(n)
+                log('===', cid, 'riga', n, ': rifaccio gli Short con il pulsante')
+                try:
+                    canale(cfg)
+                finally:
+                    shutil.rmtree(os.path.join(LAV, 'sorgente'), ignore_errors=True)
+        except Exception as e:
+            log('  ERRORE', cid, str(e)[:300]); errori.append(cid)
+    RIGA = ''
+    if errori:
+        sys.exit('Short non rifatti per: ' + ', '.join(errori))
 
 
 def main():
@@ -415,6 +459,8 @@ def main():
                 fid = str(cfg.get('scout_production_sheet_id')).strip(); sch, h, _ = A.righe(fid)
                 scrivi(fid, sch, h, int(n), 'shorts', v); log(cfg.get('channel_id'), 'riga', n, 'shorts =', v or '(vuota)')
         return
+    if E('RIFAI', '').strip().upper() == 'SI':   # 7 nov (Giorgio): gli Short programmati e non ancora usciti si cancellano e si rifanno col pulsante iscriviti
+        return rifai(canali)
     errori = []
     for cfg in canali:
         try:
