@@ -31,6 +31,7 @@ jobs:
           YT_REFRESH_TOKEN_STORIA: ${{ secrets.YT_REFRESH_TOKEN_STORIA }}
           YT_REFRESH_TOKEN_ORBITAL_DAYS: ${{ secrets.YT_REFRESH_TOKEN_ORBITAL_DAYS }}
           YT_REFRESH_TOKEN_WWII_TESTIMONY: ${{ secrets.YT_REFRESH_TOKEN_WWII_TESTIMONY }}
+          YT_REFRESH_TOKEN_FACES_OF_ROME: ${{ secrets.YT_REFRESH_TOKEN_FACES_OF_ROME }}   # 7 nov: canale YouTube ex Faces of Rome, ora Quanto Ti Resta
           YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
           RIPRISTINA: ${{ inputs.ripristina }}

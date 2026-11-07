@@ -1,0 +1,39 @@
+name: File del video per gli Short (video fatti fuori da GitHub)
+
+# Per un video lungo montato fuori dai motori (es. primo episodio fatto in chat e caricato a mano): il file sta in un ramo
+# temporaneo (sorgente.mp4) e qui diventa l'artifact "shorts-<canale>-riga<N>" che strumenti/shorts.py usa per gli Short.
+on:
+  workflow_dispatch:
+    inputs:
+      canale:
+        description: 'channel_id (Channel Configs)'
+        required: true
+      riga:
+        description: 'Riga del file di produzione del video lungo'
+        required: true
+      ramo:
+        description: 'Ramo con il file sorgente.mp4'
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  sorgente:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ramo }}
+      - name: Controllo del file
+        run: ls -la sorgente.mp4
+      - uses: actions/upload-artifact@v4
+        with:
+          name: shorts-${{ inputs.canale }}-riga${{ inputs.riga }}
+          path: sorgente.mp4
+          retention-days: 7
+          compression-level: 0
+          overwrite: true
+      - name: Cancella il ramo temporaneo (il file resta nell'artifact)
+        run: git push origin --delete "${{ inputs.ramo }}" || true
