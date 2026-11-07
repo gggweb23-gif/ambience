@@ -579,7 +579,12 @@ def playlist(vid_id_, tk_):
     """Come gli altri canali: playlist per argomento (colonna playlist_topics se compilata), creata se non esiste. Scelta con Haiku."""
     try:
         H_ = {'Authorization': 'Bearer ' + tk_, 'Content-Type': 'application/json'}
-        esistenti = {x['snippet']['title'].strip(): x['id'] for x in get('https://www.googleapis.com/youtube/v3/playlists?part=snippet&mine=true&maxResults=50', h=H_).get('items', [])}
+        try:
+            esistenti = {x['snippet']['title'].strip(): x['id'] for x in get('https://www.googleapis.com/youtube/v3/playlists?part=snippet&mine=true&maxResults=50', h=H_).get('items', [])}
+        except Exception as e_:   # 7 nov: con la quota YouTube finita la playlist restava vuota; si sceglie lo stesso tra quelle gia' usate nel foglio
+            log('elenco playlist non letto:', str(e_)[:80]); esistenti = {x: '' for x in P.get('playlist_usate') or []}
+            if vid_id_ is not None:
+                raise
         lista = [x.strip() for x in re.split(r'[,;|\n]', str(P.get('playlist_topics') or '')) if x.strip()]
         domanda = (f'YouTube channel "{P.get("channel_name")}". Video title: "{P["titolo"]}".\nExisting playlists: {json.dumps(list(esistenti), ensure_ascii=False)}\n'
                    + (f'Allowed playlist names (choose EXACTLY one, same spelling): {json.dumps(lista, ensure_ascii=False)}\n' if lista else

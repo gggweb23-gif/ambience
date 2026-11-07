@@ -125,7 +125,8 @@ for cfg in canali:
     titolo = r.get('titolo_italiano') or r.get('titolo_originale')
     payload.update({'titolo': titolo, 'testo_copertina': r.get('titolo_thumbnail') or '', 'link_competitor': r.get('Link video') or '',
                     **({'pubblica_il': ora_uscita(uscita_d, cfg)} if ANTICIPO else {}),
-                    'nome': re.sub(r'[^a-z0-9]+', '_', (cfg['channel_id'] + '_' + titolo).lower())[:60], 'foglio_produzione': fid, 'riga_produzione': n})
+                    'nome': re.sub(r'[^a-z0-9]+', '_', (cfg['channel_id'] + '_' + titolo).lower())[:60], 'foglio_produzione': fid, 'riga_produzione': n,
+                    'playlist_usate': sorted({re.sub(r'\s*\(nuova.*$', '', str(x.get('playlist') or '')).strip() for x in prod} - {''})[:30]})   # 7 nov: per scegliere la playlist anche senza quota YouTube
     req = urllib.request.Request(f'https://api.github.com/repos/{REPO}/actions/workflows/video_archivio.yml/dispatches',
                                  data=json.dumps({'ref': 'main', 'inputs': {'payload': json.dumps(payload, ensure_ascii=False)}}).encode(),
                                  headers={'Authorization': 'Bearer ' + os.environ['GH_TOKEN'], 'Accept': 'application/vnd.github+json'})
