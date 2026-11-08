@@ -530,8 +530,13 @@ if STILE_COP == 'etichetta_rossa':
     s_ = 120
     while s_ > 80 and max(d.textlength(r_, font=ImageFont.truetype(FP, s_)) for r_ in righe) > 700:
         s_ -= 4
-    fnt = ImageFont.truetype(FP, s_); hb = d.textbbox((0, 0), 'ABC', font=fnt)
     alto_ = VOLTO_SX or _VAR == 0   # fascia in alto (a destra mai in basso: c'e' la durata del video)
+    if alto_ and len(righe) == 1 and len(parole) > 1 and d.textlength(righe[0], font=ImageFont.truetype(FP, s_)) > 1280 * .36:
+        # 8 nov (Giorgio): in alto la fascia resta nel 40% libero, mai sopra la testa: su due righe
+        righe = [' '.join(parole[:(len(parole) + 1) // 2]), ' '.join(parole[(len(parole) + 1) // 2:])]
+    while alto_ and s_ > 80 and max(d.textlength(r_, font=ImageFont.truetype(FP, s_)) for r_ in righe) > 1280 * .36 - 44:
+        s_ -= 4
+    fnt = ImageFont.truetype(FP, s_); hb = d.textbbox((0, 0), 'ABC', font=fnt)
     y = 50 if alto_ else 720 - 50 - ((hb[3] - hb[1]) + 46) * len(righe)
     for r_ in righe:
         l_, t_, rr_, b_ = d.textbbox((0, 0), r_, font=fnt)
