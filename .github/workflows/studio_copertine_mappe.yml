@@ -67,9 +67,9 @@ jobs:
 
       - name: Terra di notte NASA (Black Marble, pubblico dominio)
         run: |
-          curl -sSfL --retry 3 --max-time 300 -o risorse_mappe/blackmarble.jpg https://eoimages.gsfc.nasa.gov/images/imagerecords/144000/144898/BlackMarble_2016_3km.jpg \
-            || curl -sSfL --retry 3 --max-time 120 -o risorse_mappe/blackmarble.jpg https://eoimages.gsfc.nasa.gov/images/imagerecords/144000/144898/BlackMarble_2016_01deg.jpg
-          ls -la risorse_mappe/blackmarble.jpg
+          curl -sSfL --retry 1 --max-time 60 -o risorse_mappe/blackmarble.jpg https://eoimages.gsfc.nasa.gov/images/imagerecords/144000/144898/BlackMarble_2016_3km.jpg \
+            || curl -sSfL --retry 3 --max-time 120 -o risorse_mappe/blackmarble.jpg https://eoimages.gsfc.nasa.gov/images/imagerecords/144000/144898/BlackMarble_2016_01deg.jpg \
+            || echo 'Terra di notte non scaricata (serve solo all idea 2 dello studio)'
 
       - name: Copertine nelle 3 idee
         env:
