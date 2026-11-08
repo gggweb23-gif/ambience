@@ -17,10 +17,15 @@ def http(url, dati=None, raw=False):
     return b if raw else json.loads(b or b'{}')
 
 
-base = Image.open(P['base']).convert('RGB'); buf = io.BytesIO(); base.save(buf, 'JPEG', quality=92)
-ref = 'data:image/jpeg;base64,' + base64.b64encode(buf.getvalue()).decode()
-fatte, spesa = [('BOZZA', base)], 0.0
+def leggi(p):
+    im = Image.open(p).convert('RGB'); buf = io.BytesIO(); im.save(buf, 'JPEG', quality=92)
+    return im, 'data:image/jpeg;base64,' + base64.b64encode(buf.getvalue()).decode()
+
+
+base, ref0 = leggi(P['base']) if P.get('base') else (None, None)   # una bozza per tutte, oppure "base" dentro ogni prova
+fatte, spesa = ([('BOZZA', base)] if base is not None else []), 0.0
 for pr in P['prove']:
+    ref = leggi(pr['base'])[1] if pr.get('base') else ref0
     try:
         inv = http('https://queue.fal.run/fal-ai/nano-banana-2/edit', {'prompt': pr['prompt'], 'image_urls': [ref], 'aspect_ratio': '16:9',
                                                                         'resolution': '2K', 'output_format': 'jpeg', 'num_images': 1})
