@@ -8,7 +8,8 @@ E = os.environ.get
 if not DICH.finestra_ok():   # 8 nov: cancellazioni solo dopo le 09:00 (la quota della notte serve ai caricamenti)
     print('Prima delle 09:00: niente cancellazioni, rilanciare dopo le 09:00 (oppure FORZA_QUOTA=SI)'); sys.exit(0)
 cid = E('CANALE', '').strip()
-chiave = {'Storia in Minuti': 'YT_REFRESH_TOKEN_STORIA', 'KAO PSICOLOGIA': 'YT_REFRESH_TOKEN_KAO'}.get(cid) or 'YT_REFRESH_TOKEN_' + re.sub(r'[^A-Z0-9]+', '_', cid.upper()).strip('_')
+chiave = {'Storia in Minuti': 'YT_REFRESH_TOKEN_STORIA', 'KAO PSICOLOGIA': 'YT_REFRESH_TOKEN_KAO', 'KAO': 'YT_REFRESH_TOKEN_KAO',
+          'Rich Borders': 'YT_REFRESH_TOKEN_MAIN_STREET_ATLAS', 'Quanto Ti Resta': 'YT_REFRESH_TOKEN_FACES_OF_ROME'}.get(cid)   # 8 nov: canali rinominati or 'YT_REFRESH_TOKEN_' + re.sub(r'[^A-Z0-9]+', '_', cid.upper()).strip('_')
 tk = PF.token(E(chiave))[0]
 for vid in [x.strip() for x in E('IDS', '').split(',') if x.strip()]:
     try:
