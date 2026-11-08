@@ -526,24 +526,24 @@ if STILE_COP == 'etichetta_rossa':
     from PIL import ImageOps as _IO, ImageEnhance as _IE
     im = _IE.Contrast(_IO.grayscale(im).convert('RGB')).enhance(1.25)
     d = ImageDraw.Draw(im); parole = TESTO_COP.upper().split()
-    righe = [' '.join(parole)] if len(parole) <= 3 else [' '.join(parole[:len(parole) // 2]), ' '.join(parole[len(parole) // 2:])]
-    s_ = 120
-    while s_ > 80 and max(d.textlength(r_, font=ImageFont.truetype(FP, s_)) for r_ in righe) > 700:
-        s_ -= 4
+    # 8 nov (Giorgio): scritte PIU' GRANDI, fondamentale per leggerle da telefono
     alto_ = VOLTO_SX or _VAR == 0   # fascia in alto (a destra mai in basso: c'e' la durata del video)
-    if alto_ and len(righe) == 1 and len(parole) > 1 and d.textlength(righe[0], font=ImageFont.truetype(FP, s_)) > 1280 * .36:
-        # 8 nov (Giorgio): in alto la fascia resta nel 40% libero, mai sopra la testa: su due righe
-        righe = [' '.join(parole[:(len(parole) + 1) // 2]), ' '.join(parole[(len(parole) + 1) // 2:])]
-    while alto_ and s_ > 80 and max(d.textlength(r_, font=ImageFont.truetype(FP, s_)) for r_ in righe) > 1280 * .36 - 44:
+    if alto_:   # nel 40% libero accanto al volto: una parola per riga (max 3 righe), lettere grandi
+        righe = parole if len(parole) <= 3 else [' '.join(parole[:(len(parole) + 1) // 2]), ' '.join(parole[(len(parole) + 1) // 2:])]
+        s_, larg_max = 175, 1280 * .40 - 44
+    else:
+        righe = [' '.join(parole)] if len(parole) <= 2 else [' '.join(parole[:(len(parole) + 1) // 2]), ' '.join(parole[(len(parole) + 1) // 2:])]
+        s_, larg_max = 165, 760
+    while s_ > 100 and max(d.textlength(r_, font=ImageFont.truetype(FP, s_)) for r_ in righe) > larg_max:
         s_ -= 4
     fnt = ImageFont.truetype(FP, s_); hb = d.textbbox((0, 0), 'ABC', font=fnt)
-    y = 50 if alto_ else 720 - 50 - ((hb[3] - hb[1]) + 46) * len(righe)
+    y = 40 if alto_ else 720 - 50 - ((hb[3] - hb[1]) + 38) * len(righe)
     for r_ in righe:
         l_, t_, rr_, b_ = d.textbbox((0, 0), r_, font=fnt)
         x_ = (1280 - 40 - ((rr_ - l_) + 44)) if VOLTO_SX else 40
-        d.rectangle((x_, y, x_ + (rr_ - l_) + 44, y + (b_ - t_) + 36), fill=(200, 22, 22))
-        d.text((x_ + 22 - l_, y + 18 - t_), r_, font=fnt, fill='white')
-        y += (b_ - t_) + 36 + 10
+        d.rectangle((x_, y, x_ + (rr_ - l_) + 44, y + (b_ - t_) + 30), fill=(200, 22, 22))
+        d.text((x_ + 22 - l_, y + 15 - t_), r_, font=fnt, fill='white')
+        y += (b_ - t_) + 30 + 8
     log('testo copertina:', TESTO_COP, '| altezza lettere', s_, 'px')
 else:
     g = Image.new('L', (1280, 1))
