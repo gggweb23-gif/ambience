@@ -665,7 +665,8 @@ for nostro, comp in COPPIE:
             except Exception as e:
                 log(f'  copertina {k} non riuscita:', str(e)[:200]); return k, 0, None, [antica, oggi]
         if FORMATO == 'illustrato':
-            LATO_FIG[0] = 'right' if sum(map(ord, nostro)) % 2 else 'left'   # 8 nov: lato del personaggio diverso da video a video
+            # 8 nov: lato del personaggio diverso da video a video (video nuovi = TITOLO_PROVA: a giorni alterni, cosi' mai uguale al precedente)
+            LATO_FIG[0] = 'right' if (__import__('datetime').date.today().toordinal() if nostro == 'prova' else sum(map(ord, nostro))) % 2 else 'left'
             ant = an.get('antico') or f'ancient {band} with its most famous ancient monument'
             mod = an.get('moderno') or f'{band} today with its most famous landmark and a modern city skyline'
             fig = figure[0]
