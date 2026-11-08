@@ -1,0 +1,34 @@
+name: Prove copertina con AI da una bozza
+
+# strumenti/prova_copertina_ai.py: varianti AI (fal) di una bozza di copertina, per tutti i canali. ~0,08 $ a immagine.
+on:
+  workflow_dispatch:
+    inputs:
+      payload:
+        description: 'JSON: cartella, base, prove [{nome, prompt}]'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  prove:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Programmi
+        run: pip install -q --break-system-packages pillow
+      - name: Prove
+        env:
+          PAYLOAD: ${{ inputs.payload }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          FAL_KEY: ${{ secrets.FAL_KEY }}
+        run: python3 strumenti/prova_copertina_ai.py
+      - name: Salva nel repository
+        if: ${{ always() }}
+        run: |
+          git config user.name "render-bot"; git config user.email "render-bot@users.noreply.github.com"
+          git add prove_video; git commit -m "Prove copertina AI" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase --autostash -q && git push && break; sleep $((i * 5)); done
