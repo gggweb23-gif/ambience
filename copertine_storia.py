@@ -240,8 +240,19 @@ def scelta_coppia(an, primo, scambia=False):
     return antica, oggi
 
 
+SIMBOLI_NO = (' No skulls or death\'s-head badges, no swastikas, no SS runes, no extremist or offensive symbols or insignia anywhere'
+             ' (8 nov, Giorgio: un teschio sul colbacco puo\' sembrare un simbolo nazista).')
+
+
+def pulisci_figura(figura):
+    """8 nov (Giorgio): niente teschi/simboli che possano sembrare nazisti sulla figura della copertina."""
+    f = re.sub(r"(?i)\b(with |and )?(a |an )?(silver |golden |gold |black )?(skull|death'?s[- ]head|totenkopf)[\w\s-]*?(badge|emblem|insignia)?(?=[,.]|$| and )", '', str(figura))
+    return re.sub(r'\s+,', ',', re.sub(r'\s{2,}', ' ', f)).strip()
+
+
 def prompt_ill(figura, antico, moderno, paese, bandiera, date):
     da, a = date_freccia(date)
+    figura = pulisci_figura(figura)
     return ('YouTube thumbnail, 16:9, detailed hand-painted digital illustration in the style of a history documentary thumbnail, rich vivid colours, '
             'very high contrast, very sharp, readable on a phone, slightly darker vignette on the edges. '
             f'LEFT 40%: {figura}, waist-up, close to the camera, looking straight into the viewer\'s eyes with an INTENSE, serious, determined gaze, '
@@ -252,17 +263,18 @@ def prompt_ill(figura, antico, moderno, paese, bandiera, date):
             f'the biggest element of the image, with a waving national flag of {bandiera} next to it about half the height of the letters. '
             f'Under it, BIG and bold (about 60% of the height of the word {paese}): "{da}" in black with a thin white outline (lowercase "a" in "a.C."), '
             f'a thick RED arrow pointing right, and "{a}" in bright GOLD with a black outline. '
-            'Keep the bottom-right corner free of text. No other text, no logo, no watermark.' + TRATTO)
+            'Keep the bottom-right corner free of text. No other text, no logo, no watermark.' + SIMBOLI_NO + TRATTO)
 
 
 def prompt_scena_ill(figura, antico, moderno):
+    figura = pulisci_figura(figura)
     return ('YouTube thumbnail background, 16:9, detailed hand-painted digital illustration in the style of a history documentary thumbnail, rich vivid colours, '
             'very high contrast, very sharp, slightly darker vignette on the edges. '
             f'LEFT 40%: {figura}, waist-up, close to the camera, looking straight into the viewer\'s eyes with an INTENSE, serious, determined gaze, '
             f'strong warm golden light on the face and a golden rim light on the outline. {POPOLO.get("tratti", "")} '
             f'BACKGROUND behind and to the right: on the left side {antico} under a warm golden sky, blending towards the right into {moderno} '
             'with city lights turning on, under a dramatic sunset sky with orange and deep blue clouds. '
-            'The upper right area (top 45%, right 55%) is open sky: a big title will be added there. Absolutely NO text, letters, numbers, logos or watermark anywhere.' + TRATTO)
+            'The upper right area (top 45%, right 55%) is open sky: a big title will be added there. Absolutely NO text, letters, numbers, logos or watermark anywhere.' + SIMBOLI_NO + TRATTO)
 
 
 def titolo_ill(im, paese, date):
