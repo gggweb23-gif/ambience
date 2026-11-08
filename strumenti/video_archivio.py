@@ -207,7 +207,7 @@ Answer ONLY with valid JSON:
  "descrizione": "YouTube description, 3 short paragraphs (~120 words) with the words people search, then a line with 4-6 hashtags",
  "tag": ["20-30 YouTube tags"],
  "testo_copertina": "1-3 WORDS (only if asked above, else empty)",
- "copertina_prompt": "one sentence: the scene of the thumbnail, """ + (P.get('copertina_soggetto') or 'a FICTIONAL astronaut') + """ in close-up with a strong readable emotion matching the title, setting and light"}"""
+ "copertina_prompt": "one sentence: the scene of the thumbnail, """ + (P.get('copertina_soggetto') or 'a FICTIONAL astronaut') + """ with a strong readable emotion matching the title: setting, action, key object and light (the framing is decided later)"}"""
 c = None; n = 0; VOCE_RIPRESA = False
 # RIPRESA (2 nov, Giorgio: non buttare soldi nei giri falliti): se un giro precedente sullo STESSO titolo si e' fermato dopo aver
 # pagato copione e voce, il workflow li ha salvati in lavoro_archivio/: si riusano (stesso testo = stessa voce, zero crediti ElevenLabs)
@@ -448,16 +448,27 @@ VOLTO_SX = _VAR == 1
 TESTO_BASSO = _VAR == 2
 LATO_V, LATO_T = ('LEFT', 'RIGHT') if VOLTO_SX else ('RIGHT', 'LEFT')
 log('impaginazione copertina:', _VAR, '| volto', LATO_V, '| scritta', 'in basso' if TESTO_BASSO else 'in alto', 'a', LATO_T)
+# 8 nov (Giorgio, MANO LIBERA): non sempre il viso grande. Cambia anche l'inquadratura, su un giro di 4 giorni diverso da quello del lato (3):
+# le combinazioni si ripetono solo ogni 12 video e la copertina non e' mai uguale alla precedente.
+INQ = int(str(P.get('copertina_inquadratura') or __import__('datetime').date.today().toordinal() % 4)) % 4
+INQUADRATURE = [
+    ('primo piano', 'The face is big and sharp, head and shoulders filling the {V} 60% of the frame, strong readable emotion'),
+    ('mezzo busto', 'Medium shot from the waist up: the person is doing something meaningful for the story (hands and objects visible), filling the {V} 55% of the frame, readable emotion'),
+    ('scena larga', 'Wide shot: the whole person is small-medium in a dramatic environment that tells the story (the place dominates), placed in the {V} 60% of the frame'),
+    ('dettaglio', 'Close-up of the key object or action of the story (hands, a tool, a document, a visor or a window) with the person partly visible behind, filling the {V} 60% of the frame'),
+]
+INQ_NOME, INQ_TXT = INQUADRATURE[INQ][0], INQUADRATURE[INQ][1].format(V=LATO_V)
+log('inquadratura copertina:', INQ_NOME)
 if STILE_COP == 'etichetta_rossa':
     PROMPT_COP = ('Use the reference photo only for the setting and the era. ' + c.get('copertina_prompt', '') +
                   ' Black and white 1940s archival photograph look, real film grain, documentary realism. The person is FICTIONAL and does not resemble any real '
-                  'historical figure. No swastikas, no Nazi flags or armbands, no insignia, no text, no letters, no logos. The face is big and sharp, head and shoulders '
-                  f'filling the {LATO_V} 60% of the frame, strong readable emotion; the {LATO_T} 40% simpler and darker.')
+                  'historical figure. No swastikas, no Nazi flags or armbands, no insignia, no text, no letters, no logos. '
+                  f'{INQ_TXT}; the {LATO_T} 40% simpler and darker.')
 else:
     PROMPT_COP = ('Use the reference photo only for the setting. ' + c.get('copertina_prompt', '') +
                   ' The astronaut is a FICTIONAL person who does not resemble any real astronaut. Unbranded suit and clothes: NO NASA logo, no agency insignia, '
-                  'no flags, no patches. Photorealistic cinematic film still, dramatic light, high contrast. The astronaut is very big, head and shoulders filling '
-                  f'the {LATO_V} 60% of the frame. The {LATO_T} 40% darker and simple. No text, no letters, no logos.')
+                  'no flags, no patches. Photorealistic cinematic film still, dramatic light, high contrast. '
+                  f'{INQ_TXT}. The {LATO_T} 40% darker and simple. No text, no letters, no logos.')
 def senza_bordi_neri(img):   # bande nere ai lati del fotogramma (pellicole d'epoca): via prima del ritocco
     g_ = img.convert('L'); w_, h_ = g_.size; px = g_.load()
     col = lambda x: sum(px[x, y] for y in range(0, h_, 8)) / len(range(0, h_, 8))

@@ -28,7 +28,7 @@ for nome in ('get', 'spendi', 'json_sicuro', 'claude'):
     exec(blocco('def ' + nome + '(', '\n\n\n'), g)
 # il soggetto della scena: lo scrive Claude dal titolo (come fa il copione del video)
 sogg = P.get('copertina_soggetto') or 'a FICTIONAL astronaut'
-t = g['claude'](f'YouTube video title: "{P.get("titolo", "")}". Write ONE sentence in English: the scene of the thumbnail, {sogg} in close-up with a strong readable emotion '
+t = g['claude'](f'YouTube video title: "{P.get("titolo", "")}". Write ONE sentence in English: the scene of the thumbnail, {sogg} with a strong readable emotion, the setting, the action and the key object '
                 'that matches the title. Only the sentence.', modello='claude-haiku-4-5-20251001', max_tokens=200)
 c = {'copertina_prompt': t.strip(), 'testo_copertina': P.get('testo_copertina', '')}
 log('scena:', c['copertina_prompt'])
