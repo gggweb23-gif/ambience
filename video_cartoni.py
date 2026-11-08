@@ -287,7 +287,7 @@ def copertina_ai(pg, ca, ctx, cop):
             open(img, 'wb').write(r.read())
         # controllo scritte (Claude guarda l'immagine): solo COSTA, LO VENDI e i due valori, scritti giusti
         dom = ('Look at this thumbnail image. Answer ONLY with JSON {"ok": true|false, "motivo": "..."}. ok = true ONLY if: the texts "COSTA", "LO VENDI", '
-               f'"{vs}" and "{vd}" are present and spelled exactly, there is NO other readable word or label anywhere, and the dark band is empty.')
+               f'"{vs}" and "{vd}" are present and spelled exactly, there is NO other readable word or label anywhere, and the dark band is at the ' + ('TOP' if alto else 'BOTTOM') + ' (about 30% of the height), empty, and no drawing or value enters it.')
         j = http('https://api.anthropic.com/v1/messages', {'model': MODELLO, 'max_tokens': 300, 'messages': [{'role': 'user', 'content': [
             {'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(open(img, 'rb').read()).decode()}},
             {'type': 'text', 'text': dom}]}]}, {'x-api-key': E('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01'})
