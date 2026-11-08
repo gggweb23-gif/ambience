@@ -1,0 +1,47 @@
+Canale: KAO PSICOLOGIA
+Traceback (most recent call last):
+  File "/home/runner/work/ambience/ambience/copertine_cinema_kao.py", line 64, in <module>
+    r = http('https://www.googleapis.com/youtube/v3/playlistItems?' + urllib.parse.urlencode(
+        {'part': 'contentDetails', 'playlistId': uploads, 'maxResults': 50, 'pageToken': pg}), headers=AUTH)
+  File "/home/runner/work/ambience/ambience/copertine_cinema_kao.py", line 42, in http
+    with urllib.request.urlopen(urllib.request.Request(url, data=body, headers=h, method=metodo), timeout=timeout) as r:
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 187, in urlopen
+    return opener.open(url, data, timeout)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 493, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.14/urllib/request.py", line 602, in http_response
+    response = self.parent.error(
+        'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.14/urllib/request.py", line 531, in error
+    return self._call_chain(*args)
+           ~~~~~~~~~~~~~~~~^^^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 464, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.14/urllib/request.py", line 611, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 403: Forbidden
+Canale: KAO PSICOLOGIA
+modo n8n: copertina per Dove vai quando dormi? | competitor: s8Hkd7FWNhg
+Video dal 2026-09-21 senza copertina nuova: 1
+              n8n_42425970269  Dove vai quando dormi?  [n8n]
+copia competitor s8Hkd7FWNhg -> n8n_42425970269 (100% uguale): DOVE / VAI?
+  controllo immagine: {"testa_alta": 12, "scritte": false}
+  KAO era alto il 26%: zoom 1.60x
+zona libera troppo piccola: [0.01, 0.28, 0.17, 0.79]
+  controllo finale scritta: {"copre": true, "cosa": "The white card with 'DOVE VAI?' text partially covers a person's body/torso area in the scene"}
+zona libera troppo piccola: [0.005, 0.29, 0.175, 0.96]
+  controllo finale scritta: {"copre": true, "cosa": "The white card partially covers a person's body/torso area in the scene"}
+  riquadro ristretto 0.06 0.06
+  controllo finale scritta: {"copre": true, "cosa": "The white card with 'DOVE VAI?' text partially obscures a person's body/torso who is lying on the couch/bed"}
+  riquadro ristretto 0.12 0.1
+  controllo finale scritta: {"copre": true, "cosa": "The white card partially covers the person's body and legs who is lying on the bed"}
+  rifaccio l'immagine una volta: persone tutte a RIGHT
+  KAO era alto il 29%: zoom 1.60x
+  controllo finale scritta: {"copre": true, "cosa": "The white card with 'DOVE VAI?' text partially covers the person's torso and upper body area"}
+  ATTENZIONE: la scritta copre ancora parte della scena, copertina da controllare a mano
+copertina pronta: n8n_42425970269 DOVE / VAI?
+solo anteprima n8n_42425970269 Dove vai quando dormi?
+risposta a n8n: {'status': 'done', 'url': 'https://v3b.fal.media/files/b/0ab193e4/OJAaJfk_RrmPpvZ7_qBLh_copertina_kao.jpg'}
+FATTO: 0 caricate su 1 | APPLICA = False
