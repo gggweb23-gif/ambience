@@ -12,7 +12,7 @@ on:
         required: true
         type: string
       copertina:
-        description: 'Percorso dell immagine nel repository (vuoto = non toccare la copertina)'
+        description: 'Percorso dell immagine nel repository o indirizzo https (vuoto = non toccare la copertina)'
         default: ''
         type: string
       playlist:

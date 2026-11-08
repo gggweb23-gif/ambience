@@ -21,7 +21,8 @@ def api(url, corpo=None, tipo='application/json'):
 errori = 0
 if COP:
     try:
-        api(f'https://www.googleapis.com/upload/youtube/v3/thumbnails/set?videoId={VID}', open(COP, 'rb').read(), 'image/jpeg')
+        dati = urllib.request.urlopen(COP, timeout=120).read() if COP.startswith('http') else open(COP, 'rb').read()   # percorso nel repository oppure indirizzo (es. fal)
+        api(f'https://www.googleapis.com/upload/youtube/v3/thumbnails/set?videoId={VID}', dati, 'image/png' if dati[:4] == b'\x89PNG' else 'image/jpeg')
         print('copertina caricata:', COP)
     except Exception as e:
         errori += 1; print('copertina NON caricata:', e, getattr(e, 'read', lambda: b'')().decode()[:200])
