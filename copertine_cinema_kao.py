@@ -553,6 +553,9 @@ def ingrandisci_kao(im, lato_testo='destra'):
     return im.resize((1280, 720), Image.LANCZOS)
 
 
+ARIA_X, ARIA_Y = .12, .09   # 8 nov (Giorgio): carattere un po' piu' piccolo per lasciare aria tra la scritta e il bordo del cartoncino
+
+
 def scritta_cartoncino(im, frase, lato='destra', zona=None, limite=None):
     """Riserva nello stile approvato: frase magenta su cartoncino bianco arrotondato con bordo nero e ombra, grande, mai negli angoli bassi."""
     W, Hh = im.size
@@ -590,7 +593,7 @@ def scritta_cartoncino(im, frase, lato='destra', zona=None, limite=None):
         lo, hi = 20, 300
         while lo < hi:
             k = (lo + hi + 1) // 2
-            if max(F(k).getlength(r) for r in righe) <= larg and altezza_righe(F(k), righe)[2] <= alt:
+            if max(F(k).getlength(r) for r in righe) + 2 * k * ARIA_X <= larg and altezza_righe(F(k), righe)[2] + 2 * k * ARIA_Y <= alt:   # 8 nov: aria intorno
                 lo = k
             else:
                 hi = k - 1
@@ -604,14 +607,14 @@ def scritta_cartoncino(im, frase, lato='destra', zona=None, limite=None):
         bn = [f.getbbox(senza(r), anchor='ls') for r in righe]
         ext = [max(0, n[1] - a[1]) for n, a in zip(bn, bb)]
         hn = sum(n[3] - n[1] for n in bn) + sum(gap + e for e in ext[1:])
-        vpad = max(pad * .7, ext[0] + max(4, k // 18) + 2)   # margine stretto come le copertine di sempre: solo lo spazio per l'accento e il bordo
+        vpad = max(pad * .7, ext[0] + max(4, k // 18) + 2) + k * ARIA_Y   # 8 nov (Giorgio): un minimo d'aria tra le lettere e il bordo del cartoncino
         return f, gap, bn, ext, hn, vpad
     f, gap, bn, ext, hn, vpad = misure(k)
     while hn + 2 * vpad > (y1 - y0) and k > 24:   # con il margine per l'accento deve stare comunque nello spazio
         k -= 2; f, gap, bn, ext, hn, vpad = misure(k)
     wt = max(f.getlength(r) for r in righe)
     cx, cy = (x0 + x1) / 2, (y0 + y1) / 2
-    box = (cx - wt / 2 - pad, cy - hn / 2 - vpad, cx + wt / 2 + pad, cy + hn / 2 + vpad)
+    box = (cx - wt / 2 - pad - k * ARIA_X, cy - hn / 2 - vpad, cx + wt / 2 + pad + k * ARIA_X, cy + hn / 2 + vpad)
     base = im.convert('RGBA')
     sh = Image.new('RGBA', base.size, (0, 0, 0, 0)); ImageDraw.Draw(sh).rounded_rectangle((box[0] + 8, box[1] + 10, box[2] + 8, box[3] + 10), radius=int(pad * 1.4), fill=(0, 0, 0, 110))
     base.alpha_composite(sh.filter(ImageFilter.GaussianBlur(8)))
