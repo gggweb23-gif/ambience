@@ -38,6 +38,7 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
           pip install -q pillow json-repair
+          mkdir -p /tmp/va && (curl -sSfL --retry 4 -o /tmp/va/anton.ttf https://cdn.jsdelivr.net/gh/google/fonts@main/ofl/anton/Anton-Regular.ttf || curl -sSfL --retry 4 -o /tmp/va/anton.ttf https://raw.githubusercontent.com/google/fonts/main/ofl/anton/Anton-Regular.ttf)
           export VIDEO="$(ls sorgente/*.mp4 | head -1)"
           python3 strumenti/copertina_archivio.py
       - name: Salva

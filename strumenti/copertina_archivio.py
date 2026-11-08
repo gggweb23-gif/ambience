@@ -34,6 +34,8 @@ c = {'copertina_prompt': t.strip(), 'testo_copertina': P.get('testo_copertina', 
 log('scena:', c['copertina_prompt'])
 g.update(P=P, c=c, VIDEO=VIDEO, LAV=LAV, CART=CART, SPESA=SPESA, BUDGET_USD=BUDGET_USD, log=log, E=E)
 codice = blocco('# ---------------- 5) copertina stile C', "COP = os.path.join(CART, 'copertina.jpg'); im.save(COP, quality=92)")
+codice = codice.replace("open(FP, 'wb').write(get('https://github.com/google/fonts/raw/main/ofl/anton/Anton-Regular.ttf', raw=True))",
+                        "None if os.path.exists(FP) else open(FP, 'wb').write(get('https://cdn.jsdelivr.net/gh/google/fonts@main/ofl/anton/Anton-Regular.ttf', raw=True))")
 exec(codice, g)
 out = os.path.join(CART, NOME + '.jpg'); g['im'].save(out, quality=92)
 log('copertina pronta:', out, '| spesa', round(SPESA['usd'], 3), '$')
