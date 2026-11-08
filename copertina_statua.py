@@ -212,14 +212,14 @@ def ImageChops_multiply(a, b):
     return ImageChops.multiply(a, b)
 
 
-def scena_destra(png, scena, w, h):
+def scena_destra(png, scena, w, h, zoom_extra=1.0):
     """statua a DESTRA, lato sinistro scurito per il testo (copertina). Il video usa la stessa scena specchiata."""
     src = Image.open(png)
     if src.mode == 'RGBA' and src.getchannel('A').getextrema()[0] < 20:   # scontornata: fondo del canale (grigio scuro + fumo in basso)
         a = src.getchannel('A'); im = grigio(src.convert('RGB')); im.putalpha(a)
         bb = a.getbbox() or (0, 0, im.width, im.height)
         im = im.crop(bb)   # solo la statua, senza margini vuoti
-        zoom = float(str(CFG.get('statua_zoom') or 1.5).replace(',', '.'))   # >1 = primo piano: testa e busto grandi (da mobile si vede)
+        zoom = float(str(CFG.get('statua_zoom') or 1.5).replace(',', '.')) * zoom_extra   # >1 = primo piano: testa e busto grandi (da mobile si vede)
         im = scala(im, int(h * zoom))
         if im.width > w * .56:   # mai oltre ~56% della larghezza: a sinistra resta lo spazio delle scritte
             im = im.crop(((im.width - int(w * .56)) // 2, 0, (im.width + int(w * .56)) // 2, im.height))
@@ -235,12 +235,14 @@ def scena_destra(png, scena, w, h):
         im = scala(im, h); im = im.crop((max(0, im.width - w), 0, im.width, h)).resize((w, h))
         c = im; buio = .42
     else:
-        im = scala(im, int(h * 1.08)); bg = im.getpixel((8, im.height // 3))
+        im = scala(im, int(h * 1.08 * zoom_extra)); bg = im.getpixel((8, im.height // 3))   # 8 nov: zoom_extra = filosofo piu' grande o piu' piccolo
         c = Image.new('RGB', (w, h), bg)
         m = Image.new('L', im.size, 255); dm = ImageDraw.Draw(m)
         for x in range(int(w * .09)):
             dm.line([(x, 0), (x, im.height)], fill=int(255 * x / (w * .09)))
-        c.paste(im, (w - im.width, -int(h * .02)), m); buio = .5
+        if im.height < h:   # piu' piccolo: appoggiato in basso, sopra si allunga il fondo della foto (niente stacchi di colore)
+            c.paste(im.crop((0, 0, im.width, 2)).resize((im.width, h - im.height + 2)), (w - im.width, 0), m.crop((0, 0, m.width, 2)).resize((im.width, h - im.height + 2)))
+        c.paste(im, (w - im.width, -int(h * .02) if im.height >= h else h - im.height), m); buio = .5
     v = Image.new('L', (w, h), 0); ImageDraw.Draw(v).rectangle([0, 0, w * buio, h], fill=160)
     return Image.composite(Image.new('RGB', (w, h), (8, 8, 10)), c, v.filter(ImageFilter.GaussianBlur(w * .09)))
 
@@ -276,13 +278,41 @@ def blocco(d, pn, x, y0, larg, y1):
         y = riga(d, t, x, y, larg, BIANCO, ACC if i == pn['evidenza'] else None, sm)
 
 
+# 8 nov (Giorgio): mai la stessa impaginazione tutti i giorni (YouTube la vede come un modello ripetitivo):
+# il filosofo cambia lato, grandezza e altezza delle scritte; colori, carattere e verde del canale restano sempre uguali.
+IMPAGINAZIONI = [
+    {'nome': 'destra', 'specchia': False, 'zoom': 1.0, 'testo': (.04, .96)},
+    {'nome': 'sinistra', 'specchia': True, 'zoom': 1.0, 'testo': (.04, .96)},
+    {'nome': 'destra_grande', 'specchia': False, 'zoom': 1.45, 'testo': (.04, .96)},
+    {'nome': 'sinistra_piccola', 'specchia': True, 'zoom': .82, 'testo': (.04, .96)},
+    {'nome': 'destra_testo_alto', 'specchia': False, 'zoom': 1.0, 'testo': (.04, .62)},
+]
+
+
+def impaginazione():
+    forz = str(CFG.get('statua_impaginazione') or E('STATUA_IMPAGINAZIONE', '') or '').strip().lower()
+    for im_ in IMPAGINAZIONI:
+        if im_['nome'] == forz:
+            return im_
+    return IMPAGINAZIONI[__import__('datetime').date.today().toordinal() % len(IMPAGINAZIONI)]
+
+
 def copertina(png, pn):
-    c = scena_destra(png, pn['scena'], W, H); d = ImageDraw.Draw(c)
-    x = 55; larg = (440 if pn['scena'] == 'antagonisti' else 600)
+    imp = impaginazione(); log('impaginazione copertina:', imp['nome'])
+    c = scena_destra(png, pn['scena'], W, H, imp['zoom'])
+    if imp['specchia']:   # filosofo a sinistra, scritte a destra
+        c = ImageOps.mirror(c)
+    d = ImageDraw.Draw(c)
+    larg = (440 if pn['scena'] == 'antagonisti' else 600)
+    if imp['zoom'] < 1:
+        larg = int(larg * 1.12)   # filosofo piu' piccolo: scritte piu' grandi
+    elif imp['zoom'] > 1:
+        larg = int(larg * .8)   # filosofo in primo piano: scritte piu' strette, mai sopra il volto
+    x = (W - 55 - larg) if imp['specchia'] else 55
     if pn.get('regola'):
         f = ImageFont.truetype(FONT, 54); t = f'RULE #{pn["regola"]}'; b = f.getbbox(t)
         d.rounded_rectangle([x, 60, x + b[2] + 36, 138], radius=10, outline=ACC, width=5); d.text((x + 18, 66), t, font=f, fill=ACC)
-    blocco(d, pn, x, 160 if pn.get('regola') else 70, larg, H - 90)
+    blocco(d, pn, x, 160 if pn.get('regola') else 70, larg, int(H * imp['testo'][1]) - (90 if imp['testo'][1] > .9 else 0))
     firma = str(CFG.get('thumbnail_firma_testo') or '').strip()
     if firma:
         d.text((x + 2, H - 50), firma, font=ImageFont.truetype(FONT, 26), fill=ACC)
