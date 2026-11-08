@@ -1,227 +1,739 @@
 {
- "titolo": "Quanto guadagna davvero un bar su un caffè da 1,20 €?",
+ "titolo": "Quanto resta al pizzaiolo su una margherita da 8 €?",
  "protagonista": {
-  "nome": "Luca",
-  "capelli": "short",
+  "nome": "Gennaro",
+  "capelli": "chef",
   "colore_capelli": "#3b2a20",
   "pelle": "media",
-  "maglia": "#2f5d8a",
-  "grembiule": "#222222",
+  "maglia": "#f2f2f2",
+  "grembiule": "#c0392b",
   "occhiali": false
  },
- "oggetto": "caffe",
+ "oggetto": "pizza",
  "copertina": {
   "righe": [
-   "UN CAFFÈ",
-   "COSTA DIECI",
-   "CENTESIMI"
+   "MARGHERITA",
+   "DA OTTO EURO.",
+   "QUANTO RESTA?"
   ],
   "emozione": "stupito",
-  "oggetto": "caffe",
-  "prezzo": "1,20 €",
+  "oggetto": "pizza",
+  "prezzo": "8 €",
   "fondo": "scuro"
  },
- "descrizione": "Un caffè costa al bar un euro e venti, ma costa a chi lo fa meno di venti centesimi. Allora perché tanti bar faticano? Seguiamo Luca, che ha aperto il suo bar in città, e facciamo i conti veri: margine, affitto, personale, orari e quanti caffè servono ogni giorno per stare in piedi.",
+ "copertina_ai": {
+  "valore_sx": "1,90 €",
+  "valore_dx": "8 €",
+  "oggetto_sx": "a small heap of pizza ingredients: flour bag, tomato can, mozzarella, basil",
+  "oggetto_dx": "a big hot margherita pizza on a wooden peel",
+  "domanda": [
+   "SE COSTA UNO",
+   "E LA VENDI OTTO..."
+  ]
+ },
+ "descrizione": "Una margherita da otto euro costa poco di ingredienti. Allora perché tanti pizzaioli chiudono? Con Gennaro scopriamo food cost, spreco, forno, personale e scontrino medio, con numeri veri passo passo. Se hai o vuoi aprire una pizzeria, questo video ti fa fare i conti prima che li faccia la realtà.",
  "tag": [
-  "bar",
-  "caffè",
-  "margine",
-  "costo del caffè",
-  "aprire un bar",
-  "conti di un bar",
+  "pizzeria",
+  "food cost",
+  "margherita",
+  "costi pizzeria",
+  "aprire una pizzeria",
+  "margine pizzeria",
   "punto di pareggio",
-  "costi fissi",
-  "personale bar",
-  "affitto locale",
+  "scontrino medio",
+  "spreco alimentare",
+  "costo del personale",
+  "ristorazione",
   "aprire un'attività",
   "economia pratica",
-  "gestione bar",
-  "guadagno bar",
-  "piccole imprese",
-  "commercianti"
+  "pizzaiolo",
+  "conti dell'attività"
  ],
  "scene": [
   {
-   "testo": "Un caffè costa un euro e venti. A farlo, al bar, costa meno di venti centesimi. Se guadagni un euro su ogni tazzina, perché tanti bar chiudono? La risposta è nei conti che nessuno fa. Oggi li facciamo insieme.",
+   "testo": "Una margherita costa otto euro. Gli ingredienti, meno di due. Quindi il pizzaiolo ne guadagna sei, giusto? Sbagliato. Alla fine del mese, a Gennaro restano pochi centesimi per pizza. Ti faccio vedere dove spariscono.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "domanda",
      "p": {
-      "testo": "Un euro di margine?",
+      "testo": "Otto euro: quanto resta?",
       "emozione": "stupito",
       "scuro": true
      }
     },
     {
-     "parola": "Se",
+     "parola": "Gli",
      "tipo": "prezzo",
      "p": {
-      "oggetto": "caffe",
-      "prezzo": "1,20 €",
-      "nota": "il prezzo al banco"
+      "oggetto": "pizza",
+      "prezzo": "8 €",
+      "nota": "prezzo in menu"
      }
     },
     {
-     "parola": "perché",
+     "parola": "centesimi",
      "tipo": "timbro",
      "p": {
-      "oggetto": "caffe",
-      "testo": "CHIUDE",
+      "oggetto": "pizza",
+      "testo": "POCHI CENTESIMI",
       "colore": "rosso",
-      "nota": "con margine altissimo"
+      "nota": "il netto vero"
      }
     }
    ]
   },
   {
-   "testo": "Lui è Luca. Ha quarant'anni e per quindici ha lavorato come dipendente in un'agenzia. Poi ha rilevato un bar in una via di passaggio, vicino a una stazione. Ha messo i risparmi e un prestito. Vuole fare le cose bene.",
-   "capitolo": "Il bar di Luca",
+   "testo": "Lui è Gennaro. Ha una pizzeria in un quartiere di una città media: quaranta posti, un forno a legna, due pizzaioli, un cameriere e tanta passione. Come tutti, ha aperto pensando: la pizza costa poco, la vendo bene.",
+   "capitolo": "La pizzeria di Gennaro",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "luogo",
      "p": {
-      "luogo": "bar",
-      "insegna": "Bar Stazione",
+      "luogo": "pizzeria",
+      "insegna": "Da Gennaro",
       "azione": "felice",
       "clienti": 2,
-      "testo": "Luca e il suo bar"
+      "testo": "quaranta posti"
      }
     },
     {
-     "parola": "Poi",
+     "parola": "forno",
      "tipo": "luogo",
      "p": {
-      "luogo": "bar",
-      "insegna": "Bar Stazione",
+      "luogo": "pizzeria",
+      "insegna": "Da Gennaro",
       "azione": "lavora",
       "clienti": 3,
-      "testo": "Il primo giorno"
+      "testo": "forno a legna"
+     }
+    },
+    {
+     "parola": "costa",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "pizza",
+      "prezzo": "8 €",
+      "nota": "la margherita"
      }
     }
    ]
   },
   {
-   "testo": "Prima domanda di Luca: quanto costa davvero una tazzina? Prendiamo i numeri. Caffè, circa sette grammi, costa otto centesimi. Zucchero, tazza che si lava, acqua e corrente: altri quattro. Più un tovagliolino. Sono circa quindici centesimi.",
+   "testo": "Partiamo dal primo numero: il food cost, cioè quanto costano gli ingredienti di una pizza. Farina, pomodoro, mozzarella, olio, basilico. Facciamo il conto vero, un ingrediente alla volta, come lo fa lui.",
+   "capitolo": "Il food cost",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Ingredienti della margherita",
+      "voci": [
+       "Impasto di farina e lievito",
+       "Pomodoro",
+       "Mozzarella",
+       "Olio e basilico",
+       "Sale e un pizzico di cura"
+      ]
+     }
+    },
+    {
+     "parola": "conto",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Quanto costa davvero?",
+      "emozione": "calmo",
+      "scuro": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "L'impasto, tra farina, acqua, sale e lievito, costa trenta centesimi. Il pomodoro, sessanta centesimi: lo prende buono. La mozzarella, un euro. Olio e basilico, venti centesimi. Totale: due euro e dieci.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "fette",
      "p": {
-      "titolo": "Dove vanno i soldi di un caffè",
-      "totale": 1.2,
-      "totale_testo": "1,20 €",
+      "titolo": "Gli ingredienti di una margherita",
+      "totale": 2.1,
+      "totale_testo": "2,10 €",
       "fette": [
        {
-        "nome": "Caffè",
-        "valore": 0.08,
-        "testo": "0,08 €"
+        "nome": "Impasto",
+        "valore": 0.3,
+        "testo": "0,30 €"
        },
        {
-        "nome": "Zucchero e acqua",
-        "valore": 0.04,
-        "testo": "0,04 €"
+        "nome": "Pomodoro",
+        "valore": 0.6,
+        "testo": "0,60 €"
        },
        {
-        "nome": "Tovagliolo e tazza",
-        "valore": 0.03,
-        "testo": "0,03 €"
+        "nome": "Mozzarella",
+        "valore": 1,
+        "testo": "1,00 €"
        },
        {
-        "nome": "Resta per il bar",
-        "valore": 1.05,
-        "testo": "1,05 €"
+        "nome": "Olio e basilico",
+        "valore": 0.2,
+        "testo": "0,20 €"
        }
       ],
-      "evidenzia": 3
+      "evidenzia": 2
      }
     },
     {
-     "parola": "Zucchero",
-     "tipo": "lista",
+     "parola": "Totale",
+     "tipo": "formula",
      "p": {
-      "titolo": "Costi vivi di una tazzina",
-      "voci": [
-       "Caffè: otto centesimi",
-       "Zucchero e acqua: quattro",
-       "Tovagliolo e usura: tre",
-       "Totale: quindici centesimi"
-      ]
+      "titolo": "Somma degli ingredienti",
+      "a": "1,20 €",
+      "op": "+",
+      "b": "0,90 €",
+      "risultato": "2,10 €",
+      "nota": "impasto, pomodoro, olio e basilico più mozzarella"
      }
     }
    ]
   },
   {
-   "testo": "Fai il conto. Un euro e venti, meno quindici centesimi, fa un euro e cinque. Cioè l'ottantasette per cento del prezzo. Sembra un affare! Un margine così non lo trovi quasi da nessuna parte. Ma attenzione: è un margine lordo.",
+   "testo": "Il food cost si calcola così: costo degli ingredienti diviso prezzo di vendita. Due euro e dieci diviso otto fa circa ventisei per cento. Nel settore si considera buono un valore tra venticinque e trenta. Gennaro è a posto. Per ora.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "formula",
      "p": {
-      "titolo": "Margine su un caffè",
-      "a": "1,20 €",
-      "op": "−",
-      "b": "0,15 €",
-      "risultato": "1,05 €",
-      "nota": "circa l'ottantasette per cento"
+      "titolo": "Food cost",
+      "a": "2,10 €",
+      "op": "÷",
+      "b": "8 €",
+      "risultato": "26 %",
+      "nota": "circa ventisei per cento"
      }
     },
     {
-     "parola": "Sembra",
-     "tipo": "domanda",
+     "parola": "buono",
+     "tipo": "cruscotto",
      "p": {
-      "testo": "Affare vero?",
-      "emozione": "felice",
-      "scuro": false
-     }
-    },
-    {
-     "parola": "Ma",
-     "tipo": "bilancia",
-     "p": {
-      "titolo": "Margine lordo contro costi",
-      "sinistra": "Un euro e cinque",
-      "destra": "Tutto il resto",
-      "pende": "destra"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Ecco il punto. Quel margine serve a pagare tutto il resto: affitto, stipendi, luce, tasse, macchina, banca. Se il caffè lo vendi solo a metà dei clienti, non basta. Il margine è alto, ma ogni caffè lo porta a casa il locale, non tu.",
-   "capitolo": "Il margine non è il guadagno",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "soldi",
-     "p": {
-      "centro": "1,05 €",
-      "destinazioni": [
-       "Affitto",
-       "Personale",
-       "Utenze",
-       "Tasse"
+      "titolo": "Cosa guardare",
+      "voci": [
+       {
+        "nome": "Food cost",
+        "valore": 0.26
+       },
+       {
+        "nome": "Soglia buona",
+        "valore": 0.3
+       }
       ]
      }
     },
     {
-     "parola": "Se",
-     "tipo": "persone",
+     "parola": "Per",
+     "tipo": "domanda",
      "p": {
-      "n": 5,
-      "azione": "fila",
-      "escono": 0,
-      "testo": "Pochi clienti, pochi euro"
+      "testo": "Per ora...",
+      "emozione": "preoccupato",
+      "scuro": true
      }
     }
    ]
   },
   {
-   "testo": "Mettiamo i costi fissi di Luca, mese per mese. Affitto del locale: duemila euro. Utenze e gas: quattrocento. Una dipendente part time: mille e quattrocento. Commercialista, assicurazioni, rata del prestito: seicento. Totale: quattromila e quattrocento euro.",
+   "testo": "E qui molti si fermano. Pensano: otto meno due e dieci fa cinque e novanta, tutto guadagno. Ma se ti fermi qui, stai guardando solo la farina. Il resto della cucina lo hai dimenticato. Spoiler: il resto è molto più grosso.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Il conto sbagliato",
+      "a": "8 €",
+      "op": "−",
+      "b": "2,10 €",
+      "risultato": "5,90 €",
+      "nota": "sembra tutto guadagno"
+     }
+    },
+    {
+     "parola": "Ma",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "pizza",
+      "testo": "CONTO SBAGLIATO",
+      "colore": "rosso",
+      "nota": "mancano i costi veri"
+     }
+    },
+    {
+     "parola": "Spoiler",
+     "tipo": "persone",
+     "p": {
+      "n": 5,
+      "azione": "entrano",
+      "escono": 0,
+      "testo": "i costi arrivano"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Primo costo nascosto: lo spreco. Gennaro prepara l'impasto la mattina. Se la sera ne avanza, il giorno dopo non è più buono. Mozzarella aperta, pomodoro avanzato, basilico appassito. Tutto va nel bidone.",
+   "capitolo": "Lo spreco",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "pizzeria",
+      "insegna": "Da Gennaro",
+      "azione": "preoccupato",
+      "clienti": 0,
+      "testo": "impasto avanzato"
+     }
+    },
+    {
+     "parola": "Mozzarella",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "mozzarella",
+      "prezzo": "1 €",
+      "nota": "a pizza, se finisce nel bidone"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Gennaro prepara l'impasto per cento pizze al giorno. Ne vende novanta. Dieci pizze di ingredienti buttate, ogni giorno. Dieci per due euro e dieci fa ventuno euro. Al giorno. Sembra poco? Aspetta.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "conteggio",
+     "p": {
+      "oggetto": "pizza",
+      "icone": 10,
+      "testo": "dieci pizze buttate al giorno"
+     }
+    },
+    {
+     "parola": "Dieci",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Spreco al giorno",
+      "a": "10",
+      "op": "×",
+      "b": "2,10 €",
+      "risultato": "21 €",
+      "nota": "ventuno euro al giorno"
+     }
+    },
+    {
+     "parola": "Aspetta",
+     "tipo": "calendario",
+     "p": {
+      "titolo": "Pizzeria aperta",
+      "giorni": 26,
+      "testo": "ventisei giorni al mese"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ventuno euro per ventisei giorni fa cinquecentoquarantasei euro al mese. Buttati. Quasi seimilacinquecento all'anno nel bidone. E il food cost vero? Non è più ventisei per cento, perché gli ingredienti li paghi anche quando non li vendi.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Spreco al mese",
+      "a": "21 €",
+      "op": "×",
+      "b": "26 giorni",
+      "risultato": "546 €",
+      "nota": "cinquecentoquarantasei euro"
+     }
+    },
+    {
+     "parola": "Quasi",
+     "tipo": "salvadanaio",
+     "p": {
+      "direzione": "svuota",
+      "testo": "seimila euro l'anno nel bidone"
+     }
+    },
+    {
+     "parola": "food",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Il food cost è più alto?",
+      "emozione": "preoccupato",
+      "scuro": true
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Il food cost reale si calcola su tutto quello che compri, non solo su quello che vendi. Gennaro compra ingredienti per cento pizze e ne incassa novanta. Dividi: due euro e dieci per cento, diviso novanta pizze, fa due euro e trentatré.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Costo reale per pizza venduta",
+      "a": "210 €",
+      "op": "÷",
+      "b": "90 pizze",
+      "risultato": "2,33 €",
+      "nota": "ingredienti di cento pizze, vendute novanta"
+     }
+    },
+    {
+     "parola": "Gennaro",
+     "tipo": "confronto",
+     "p": {
+      "titolo": "Food cost",
+      "a": {
+       "titolo": "Sulla carta",
+       "valore": "2,10 €",
+       "oggetto": "pizza"
+      },
+      "b": {
+       "titolo": "Reale",
+       "valore": "2,33 €",
+       "oggetto": "pizza"
+      },
+      "vincitore": ""
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Come si riduce lo spreco? Un pizzaiolo furbo prepara l'impasto in due volte: mattina e pomeriggio. Annota ogni sera quante pizze avanzano. Con i dati, la prossima settimana prepara meno. Non serve un software, basta un quaderno.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Contro lo spreco",
+      "voci": [
+       "Impasto in due infornate",
+       "Quaderno serale dei dati",
+       "Mozzarella aperta in piccole dosi",
+       "Ordini calibrati sui giorni",
+       "Specialità del giorno con gli avanzi"
+      ]
+     }
+    },
+    {
+     "parola": "quaderno",
+     "tipo": "cruscotto",
+     "p": {
+      "titolo": "Cosa tenere d'occhio",
+      "voci": [
+       {
+        "nome": "Pizze vendute",
+        "valore": 0.9
+       },
+       {
+        "nome": "Impasto avanzato",
+        "valore": 0.1
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Un esempio da un'altra attività: un fruttivendolo che compra cento chili di fragole e ne vende ottanta. Quelle venti chili marciscono. Per lui lo spreco è il nemico numero uno, perché il suo prodotto ha una scadenza di due giorni.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "fruttivendolo",
+      "insegna": "Frutta Fresca",
+      "azione": "stupito",
+      "clienti": 1,
+      "testo": "fragole che marciscono"
+     }
+    },
+    {
+     "parola": "cento",
+     "tipo": "confronto",
+     "p": {
+      "titolo": "Fragole comprate e vendute",
+      "a": {
+       "titolo": "Comprate",
+       "valore": "100 kg",
+       "oggetto": "fragole"
+      },
+      "b": {
+       "titolo": "Vendute",
+       "valore": "80 kg",
+       "oggetto": "fragole"
+      },
+      "vincitore": ""
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Secondo costo: il forno. Il forno a legna di Gennaro è bellissimo, ma resta acceso otto ore al giorno. Legna e manutenzione costano seicentoquaranta euro al mese. Pizze o non pizze, il forno si scalda comunque.",
+   "capitolo": "Il costo del forno",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "pizzeria",
+      "insegna": "Da Gennaro",
+      "azione": "lavora",
+      "clienti": 1,
+      "testo": "forno sempre acceso"
+     }
+    },
+    {
+     "parola": "otto",
+     "tipo": "orologio",
+     "p": {
+      "ore": 16,
+      "piene": 8,
+      "testo": "otto ore di forno acceso"
+     }
+    },
+    {
+     "parola": "seicentoquaranta",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "forno",
+      "prezzo": "640 €",
+      "nota": "legna e manutenzione al mese"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Dividiamo il forno sulle pizze. Gennaro ne vende novanta al giorno per ventisei giorni: duemilatrecentoquaranta al mese. Seicentoquaranta diviso duemilatrecentoquaranta fa ventisette centesimi a pizza.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "conteggio",
+     "p": {
+      "oggetto": "pizza",
+      "icone": 45,
+      "testo": "duemilatrecentoquaranta pizze al mese"
+     }
+    },
+    {
+     "parola": "Seicentoquaranta",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Forno per ogni pizza",
+      "a": "640 €",
+      "op": "÷",
+      "b": "2.340 pizze",
+      "risultato": "0,27 €",
+      "nota": "ventisette centesimi"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ventisette centesimi sembrano niente. Ma attenzione: se un martedì piovoso vende solo trenta pizze, il forno costa lo stesso. Il costo fisso a pizza sale. Questo è il segreto dei costi fissi: pesano di più quando vendi di meno.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "persone",
+     "p": {
+      "n": 2,
+      "azione": "escono",
+      "escono": 1,
+      "testo": "martedì di pioggia"
+     }
+    },
+    {
+     "parola": "trenta",
+     "tipo": "andamento",
+     "p": {
+      "titolo": "Costo del forno per pizza al calare delle vendite",
+      "valori": [
+       0.27,
+       0.4,
+       0.7,
+       1.2
+      ],
+      "etichette": [
+       "novanta",
+       "sessanta",
+       "trenta",
+       "quindici"
+      ],
+      "colore": "rosso"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Terzo costo, il più pesante: il personale. Gennaro ha due pizzaioli e un cameriere. Con stipendi e contributi, costano settemilacinquecento euro al mese in tutto. Non è lusso: senza di loro la pizzeria non apre.",
+   "capitolo": "Il personale",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "costi",
+     "p": {
+      "voci": [
+       {
+        "nome": "Pizzaiolo uno",
+        "valore": 2700,
+        "testo": "2.700 €"
+       },
+       {
+        "nome": "Pizzaiolo due",
+        "valore": 2700,
+        "testo": "2.700 €"
+       },
+       {
+        "nome": "Cameriere",
+        "valore": 2100,
+        "testo": "2.100 €"
+       }
+      ],
+      "totale": 7500,
+      "periodo": "al mese"
+     }
+    },
+    {
+     "parola": "lusso",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Si può fare a meno?",
+      "emozione": "preoccupato",
+      "scuro": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Dividi il personale sulle pizze: settemilacinquecento diviso duemilatrecentoquaranta fa circa tre euro e venti a pizza. Da solo, il personale mangia quasi metà del prezzo della margherita. Altro che sei euro di guadagno.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Personale per ogni pizza",
+      "a": "7.500 €",
+      "op": "÷",
+      "b": "2.340 pizze",
+      "risultato": "3,20 €",
+      "nota": "circa tre euro e venti"
+     }
+    },
+    {
+     "parola": "metà",
+     "tipo": "bilancia",
+     "p": {
+      "titolo": "Personale contro prezzo",
+      "sinistra": "3,20 € di personale",
+      "destra": "8 € di prezzo",
+      "pende": "sinistra"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Un esempio diverso: un parrucchiere. Il suo prodotto è il tempo. Se una cliente taglia in quarantacinque minuti e la collaboratrice costa quindici euro l'ora, il costo del lavoro su quel taglio è più di undici euro. Sempre il personale pesa.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "salone",
+      "insegna": "Hair Studio",
+      "azione": "lavora",
+      "clienti": 2,
+      "testo": "taglio da quarantacinque minuti"
+     }
+    },
+    {
+     "parola": "quindici",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Lavoro su un taglio",
+      "a": "15 €/ora",
+      "op": "×",
+      "b": "0,75 ore",
+      "risultato": "11,25 €",
+      "nota": "undici euro e venticinque"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Mettiamo insieme i pezzi. Ingredienti reali: due euro e trentatré. Forno: ventisette centesimi. Personale: tre euro e venti. Fin qui fa cinque euro e ottanta. Da otto euro restano due euro e venti. E non abbiamo finito.",
+   "capitolo": "Mettiamo insieme i conti",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "fette",
+     "p": {
+      "titolo": "Dove vanno gli otto euro",
+      "totale": 8,
+      "totale_testo": "8 €",
+      "fette": [
+       {
+        "nome": "Ingredienti",
+        "valore": 2.33,
+        "testo": "2,33 €"
+       },
+       {
+        "nome": "Forno",
+        "valore": 0.27,
+        "testo": "0,27 €"
+       },
+       {
+        "nome": "Personale",
+        "valore": 3.2,
+        "testo": "3,20 €"
+       },
+       {
+        "nome": "Resta",
+        "valore": 2.2,
+        "testo": "2,20 €"
+       }
+      ],
+      "evidenzia": 3
+     }
+    },
+    {
+     "parola": "Fin",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Cosa resta finora",
+      "a": "8 €",
+      "op": "−",
+      "b": "5,80 €",
+      "risultato": "2,20 €",
+      "nota": "due euro e venti"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Mancano i costi fissi della sala: affitto, bollette, commercialista, tasse. Per Gennaro fanno quattromilacinquecento euro al mese, forno escluso. Li ripartiamo sulle pizze: quattromilacinquecento diviso duemilatrecentoquaranta, uno euro e novantadue.",
    "capitolo": "",
    "inquadrature": [
     {
@@ -235,741 +747,504 @@
         "testo": "2.000 €"
        },
        {
-        "nome": "Utenze",
+        "nome": "Bollette",
+        "valore": 1000,
+        "testo": "1.000 €"
+       },
+       {
+        "nome": "Commercialista",
         "valore": 400,
         "testo": "400 €"
        },
        {
-        "nome": "Dipendente part time",
-        "valore": 1400,
-        "testo": "1.400 €"
+        "nome": "Tasse e imposte",
+        "valore": 800,
+        "testo": "800 €"
        },
        {
-        "nome": "Commercialista, assicurazioni, rata",
-        "valore": 600,
-        "testo": "600 €"
+        "nome": "Varie",
+        "valore": 300,
+        "testo": "300 €"
        }
       ],
-      "totale": 4400,
+      "totale": 4500,
       "periodo": "al mese"
      }
     },
     {
-     "parola": "Totale",
-     "tipo": "timbro",
+     "parola": "quattromilacinquecento",
+     "tipo": "formula",
      "p": {
-      "oggetto": "bar",
-      "testo": "4.400 €",
-      "colore": "rosso",
-      "nota": "da pagare prima di guadagnare"
+      "titolo": "Costi fissi per pizza",
+      "a": "4.500 €",
+      "op": "÷",
+      "b": "2.340 pizze",
+      "risultato": "1,92 €",
+      "nota": "uno euro e novantadue"
      }
     }
    ]
   },
   {
-   "testo": "E lo stipendio di Luca? Non c'è ancora. Questi sono solo i costi per tenere aperto. Prima di portare a casa un euro, ci sono quattromilaquattrocento euro da coprire. Ogni mese, anche d'agosto, anche se piove.",
+   "testo": "Facciamo il conto finale: due euro e venti meno uno euro e novantadue fa ventotto centesimi. Su una margherita da otto euro, a Gennaro restano ventotto centesimi. Il tre e mezzo per cento. Ecco dove finiscono i soldi.",
    "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "domanda",
-     "p": {
-      "testo": "E il mio stipendio?",
-      "emozione": "preoccupato",
-      "scuro": true
-     }
-    },
-    {
-     "parola": "Prima",
-     "tipo": "calendario",
-     "p": {
-      "titolo": "Giorni per coprire i costi",
-      "giorni": 30,
-      "testo": "Un mese intero da pagare"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Ora la domanda giusta: quanti caffè servono per pareggiare? Dividi i costi fissi per il margine. Quattromilaquattrocento diviso uno virgola zero cinque fa circa quattromiladuecento caffè. Al mese. Ma attenzione: solo per non perdere.",
-   "capitolo": "Il punto di pareggio",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "formula",
      "p": {
-      "titolo": "Punto di pareggio",
-      "a": "4.400 €",
-      "op": "÷",
-      "b": "1,05 €",
-      "risultato": "4.190 caffè",
-      "nota": "circa quattromiladuecento al mese"
+      "titolo": "Cosa resta davvero",
+      "a": "2,20 €",
+      "op": "−",
+      "b": "1,92 €",
+      "risultato": "0,28 €",
+      "nota": "ventotto centesimi a pizza"
      }
     },
     {
-     "parola": "Ma",
-     "tipo": "pareggio",
+     "parola": "Ecco",
+     "tipo": "fette",
      "p": {
-      "titolo": "Pareggio del bar",
-      "fissi": 4400,
-      "margine": 1.05,
-      "unita": "caffè venduti",
-      "oggetto": "caffe",
-      "perdita": true,
-      "guadagno": false
+      "titolo": "Una margherita da otto euro",
+      "totale": 8,
+      "totale_testo": "8 €",
+      "fette": [
+       {
+        "nome": "Ingredienti",
+        "valore": 2.33,
+        "testo": "2,33 €"
+       },
+       {
+        "nome": "Forno",
+        "valore": 0.27,
+        "testo": "0,27 €"
+       },
+       {
+        "nome": "Personale",
+        "valore": 3.2,
+        "testo": "3,20 €"
+       },
+       {
+        "nome": "Costi fissi",
+        "valore": 1.92,
+        "testo": "1,92 €"
+       },
+       {
+        "nome": "Resta a Gennaro",
+        "valore": 0.28,
+        "testo": "0,28 €"
+       }
+      ],
+      "evidenzia": 4
+     }
+    },
+    {
+     "parola": "tre",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "pizza",
+      "testo": "28 CENTESIMI",
+      "colore": "rosso",
+      "nota": "il guadagno vero"
      }
     }
    ]
   },
   {
-   "testo": "Quattromiladuecento caffè al mese, in trenta giorni, sono circa centoquaranta al giorno. Ti sembrano tanti? Se il bar è aperto tutti i giorni, sono centoquaranta tazzine solo per arrivare a zero. Dal centoquarantunesimo, finalmente, Luca guadagna.",
+   "testo": "Moltiplichiamo: ventotto centesimi per duemilatrecentoquaranta pizze fa seicentocinquantacinque euro al mese. Per un uomo che lavora dieci ore al giorno, sei giorni su sette. È quello che resta, prima del suo stipendio.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "conteggio",
+     "tipo": "formula",
      "p": {
-      "oggetto": "caffe",
-      "icone": 40,
-      "testo": "140 al giorno"
+      "titolo": "Utile del mese",
+      "a": "0,28 €",
+      "op": "×",
+      "b": "2.340 pizze",
+      "risultato": "655 €",
+      "nota": "seicentocinquantacinque euro"
      }
     },
     {
-     "parola": "Ti",
-     "tipo": "persone",
-     "p": {
-      "n": 8,
-      "azione": "entrano",
-      "escono": 0,
-      "testo": "Servono tanti clienti"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Però il bar non vende solo caffè. Fai attenzione: Luca vende anche cornetti, aperitivi e acqua. Ma facciamo prima il conto del solo caffè, perché è il motore del bar. Capiremo poi cosa cambia quando aggiungi il resto.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "bar",
-      "insegna": "Bar Stazione",
-      "azione": "lavora",
-      "clienti": 4,
-      "testo": "Il banco lavora"
-     }
-    },
-    {
-     "parola": "Ma",
-     "tipo": "lista",
-     "p": {
-      "titolo": "Cosa vende un bar",
-      "voci": [
-       "Caffè al banco",
-       "Cornetti e colazioni",
-       "Aperitivi",
-       "Acqua e bibite"
-      ]
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Ora il tempo. Un barista serve un caffè in circa trenta secondi. Con la pressione del banco, con il rumore, con il resto. Quindi in un'ora al massimo può fare circa centoventi caffè, se la fila è continua. Ma la fila non è mai continua.",
-   "capitolo": "Tempo e orari",
-   "inquadrature": [
-    {
-     "parola": "",
+     "parola": "dieci",
      "tipo": "orologio",
      "p": {
       "ore": 16,
-      "piene": 3,
-      "testo": "Le ore piene sono poche"
+      "piene": 10,
+      "testo": "dieci ore al giorno"
      }
     },
     {
-     "parola": "Ma",
-     "tipo": "andamento",
+     "parola": "stipendio",
+     "tipo": "domanda",
      "p": {
-      "titolo": "Clienti nella giornata",
-      "valori": [
-       5,
-       40,
-       70,
-       25,
-       35,
-       60,
-       20,
-       10
-      ],
-      "etichette": [
-       "6",
-       "8",
-       "10",
-       "12",
-       "14",
-       "16",
-       "18",
-       "20"
-      ],
-      "colore": "verde"
+      "testo": "E il suo stipendio?",
+      "emozione": "preoccupato",
+      "scuro": true
      }
     }
    ]
   },
   {
-   "testo": "Guarda la giornata di Luca. Il bar apre alle sei e chiude alle venti: quattordici ore. Ma i clienti non sono distribuiti. Hai la colazione, la pausa del pranzo, il caffè delle quattro. Nelle altre ore, il bar è quasi vuoto. Ma le luci sono accese.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "orologio",
-     "p": {
-      "ore": 14,
-      "piene": 5,
-      "testo": "Cinque ore piene su quattordici"
-     }
-    },
-    {
-     "parola": "Hai",
-     "tipo": "persone",
-     "p": {
-      "n": 2,
-      "azione": "entrano",
-      "escono": 0,
-      "testo": "Metà giornata quasi vuota"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Qui sta il trucco dei bar. Si guadagna in tre finestre di tempo, e tutto il resto serve a farsi trovare aperti. Per questo molti locali che chiudono alle tredici in realtà risparmiano personale, affitto di luce, stress. A volte l'orario corto vale più di una vetrina.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "confronto",
-     "p": {
-      "titolo": "Orari lunghi o orari corti?",
-      "a": {
-       "titolo": "Aperto quattordici ore",
-       "valore": "Costi alti",
-       "oggetto": "caffe"
-      },
-      "b": {
-       "titolo": "Aperto otto ore",
-       "valore": "Costi più bassi",
-       "oggetto": "caffe"
-      },
-      "vincitore": ""
-     }
-    },
-    {
-     "parola": "Per",
-     "tipo": "leve",
-     "p": {
-      "titolo": "Cosa si può regolare",
-      "voci": [
-       "Orari",
-       "Personale",
-       "Prezzi",
-       "Menu"
-      ],
-      "evidenzia": 0
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Facciamo un esempio fuori dal bar. Una pizzeria al taglio vende l'ottanta per cento del suo incasso tra mezzogiorno e le due. Il resto della giornata prepara l'impasto. Ha capito che il tempo morto è un costo, e lo usa per produrre, non per aspettare.",
-   "capitolo": "",
+   "testo": "Qui sta l'errore di molti pizzaioli: pensano di guadagnare con la margherita, ma la margherita è il prodotto che fa venire la gente, non quello che fa guadagnare. Il vero margine è altrove. Vediamo dove.",
+   "capitolo": "Lo scontrino medio",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "luogo",
      "p": {
       "luogo": "pizzeria",
-      "insegna": "Pizza al Taglio",
-      "azione": "lavora",
-      "clienti": 5,
-      "testo": "Un'ora di fuoco"
+      "insegna": "Da Gennaro",
+      "azione": "stupito",
+      "clienti": 4,
+      "testo": "la gente arriva"
      }
     },
     {
-     "parola": "Ha",
-     "tipo": "fette",
-     "p": {
-      "titolo": "Incasso della pizzeria",
-      "totale": 100,
-      "totale_testo": "100 %",
-      "fette": [
-       {
-        "nome": "Pranzo",
-        "valore": 80,
-        "testo": "80 %"
-       },
-       {
-        "nome": "Resto del giorno",
-        "valore": 20,
-        "testo": "20 %"
-       }
-      ],
-      "evidenzia": 0
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Torniamo a Luca e al personale. Il costo più pesante, dopo l'affitto, è chi sta dietro il banco. La dipendente part time costa milleequattrocento euro al mese. Ma se Luca fa tutto da solo, stanchezza, errori, ferie che non esistono. Qual è il vero costo di una persona in meno?",
-   "capitolo": "Il peso del personale",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Quanto costa una persona?",
-      "emozione": "preoccupato",
-      "scuro": false
-     }
-    },
-    {
-     "parola": "Ma",
-     "tipo": "bilancia",
-     "p": {
-      "titolo": "Aiuto o da solo",
-      "sinistra": "Stipendio",
-      "destra": "Stanchezza",
-      "pende": "destra"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Pensa a un salone di parrucchiere. Una dipendente costa duemila euro al mese. Se ogni taglio rende venti euro di margine, le servono cento tagli solo per pagarla. Cento! Prima che il salone guadagni un euro. Il personale si calcola in clienti, non in ore.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Una dipendente nel salone",
-      "a": "2.000 €",
-      "op": "÷",
-      "b": "20 €",
-      "risultato": "100 tagli",
-      "nota": "solo per pagare lo stipendio"
-     }
-    },
-    {
-     "parola": "Cento",
-     "tipo": "conteggio",
-     "p": {
-      "oggetto": "forbici",
-      "icone": 30,
-      "testo": "100 tagli al mese"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Applica lo stesso metodo a Luca. La dipendente costa milleequattrocento euro. Diviso uno virgola zero cinque, fa milletrecentotrentatré caffè solo per lei. Quasi quarantaquattro al giorno. Chiediti se la persona che assumi ne porta almeno altrettanti.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Il costo della dipendente",
-      "a": "1.400 €",
-      "op": "÷",
-      "b": "1,05 €",
-      "risultato": "1.333 caffè",
-      "nota": "circa quarantaquattro al giorno"
-     }
-    },
-    {
-     "parola": "Chiediti",
+     "parola": "margine",
      "tipo": "leve",
      "p": {
-      "titolo": "Quando conviene assumere",
+      "titolo": "Dove si guadagna",
       "voci": [
-       "Clienti in coda",
-       "Ore di punta",
-       "Vendite perse",
-       "Tempo libero"
+       "Margherita",
+       "Bibite",
+       "Birra",
+       "Dolci"
       ],
-      "evidenzia": 0
+      "evidenzia": 1
      }
     }
    ]
   },
   {
-   "testo": "Ora il lato più importante. Un solo caffè fa poco, ma il caffè porta il cliente. Chi entra per un caffè spesso prende anche altro. Una brioche, una bottiglietta d'acqua. Quel caffè a un euro e venti serve ad attirare, e altrove si guadagna di più.",
-   "capitolo": "Il caffè come amo",
+   "testo": "Lo scontrino medio è quanto spende in media ogni cliente. Se uno ordina solo la margherita, Gennaro incassa otto euro. Ma se prende anche una birra da cinque euro, il discorso cambia. Una birra costa quaranta centesimi di ingrediente, cioè il liquido.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "confronto",
+     "p": {
+      "titolo": "Cliente con e senza birra",
+      "a": {
+       "titolo": "Solo pizza",
+       "valore": "8 €",
+       "oggetto": "pizza"
+      },
+      "b": {
+       "titolo": "Pizza e birra",
+       "valore": "13 €",
+       "oggetto": "birra"
+      },
+      "vincitore": "b"
+     }
+    },
+    {
+     "parola": "Una",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Margine sulla birra",
+      "a": "5 €",
+      "op": "−",
+      "b": "1,60 €",
+      "risultato": "3,40 €",
+      "nota": "birra da cinque euro, costo bottiglia uno euro e sessanta"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Una birra da cinque euro costa a Gennaro uno euro e sessanta, bottiglia compresa. Gli restano tre euro e quaranta. Dieci volte di più della margherita! Ecco perché le pizzerie vivono di bibite, birre e dolci, non solo di pizze.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "pareggio",
+     "p": {
+      "titolo": "Margine per cliente",
+      "fissi": 0,
+      "margine": 3.4,
+      "unita": "euro netti dalla birra",
+      "oggetto": "birra",
+      "perdita": false,
+      "guadagno": true
+     }
+    },
+    {
+     "parola": "Ecco",
+     "tipo": "soldi",
+     "p": {
+      "centro": "13 €",
+      "destinazioni": [
+       "Ingredienti",
+       "Personale",
+       "Costi fissi",
+       "Utile"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Facciamo un esperimento. Gennaro cambia una cosa sola: propone sempre una bibita o una birra. Su cento clienti, la metà accetta. Lo scontrino medio passa da otto euro a dieci euro e cinquanta. È una scelta semplice, ma cambia il mese.",
+   "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "persone",
      "p": {
-      "n": 6,
+      "n": 8,
       "azione": "entrano",
       "escono": 0,
-      "testo": "Il caffè fa entrare"
+      "testo": "la metà ordina anche da bere"
      }
     },
     {
-     "parola": "Una",
-     "tipo": "prezzo",
+     "parola": "Lo",
+     "tipo": "formula",
      "p": {
-      "oggetto": "cornetto",
-      "prezzo": "1,40 €",
-      "nota": "il secondo acquisto"
+      "titolo": "Scontrino medio",
+      "a": "8 €",
+      "op": "+",
+      "b": "2,50 €",
+      "risultato": "10,50 €",
+      "nota": "metà dei clienti prende anche da bere"
      }
     }
    ]
   },
   {
-   "testo": "Un altro esempio. Un negozio di scarpe vende i lacci a tre euro, costano cinquanta centesimi. Nessuno apre un negozio per i lacci. Ma chi compra le scarpe li prende quasi sempre. Il piccolo prodotto a margine alto sta dentro lo scontrino più grande.",
+   "testo": "Un esempio da un altro mondo: un cinema. Il biglietto lascia poco al gestore. Ma popcorn e bibite costano pochi centesimi e si vendono a quattro euro. Il gestore guadagna al bar, non alla cassa. Stessa logica della pizzeria.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "prezzo",
+     "tipo": "luogo",
      "p": {
-      "oggetto": "lacci",
-      "prezzo": "3 €",
-      "nota": "costano cinquanta centesimi"
+      "luogo": "cinema",
+      "insegna": "Cinema Aurora",
+      "azione": "felice",
+      "clienti": 4,
+      "testo": "il vero margine è al bar"
      }
     },
     {
-     "parola": "Il",
+     "parola": "popcorn",
      "tipo": "confronto",
      "p": {
-      "titolo": "Scarpe contro lacci",
+      "titolo": "Cosa rende di più",
       "a": {
-       "titolo": "Scarpe",
-       "valore": "Margine grande",
-       "oggetto": "scarpe"
+       "titolo": "Biglietto",
+       "valore": "poco",
+       "oggetto": "biglietto"
       },
       "b": {
-       "titolo": "Lacci",
-       "valore": "Margine alto",
-       "oggetto": "lacci"
+       "titolo": "Popcorn",
+       "valore": "molto",
+       "oggetto": "popcorn"
       },
-      "vincitore": ""
+      "vincitore": "b"
      }
     }
    ]
   },
   {
-   "testo": "Torniamo al bar. Se ogni cliente che prende il caffè compra una brioche ogni quattro, e la brioche lascia ottanta centesimi di margine, ogni cento clienti Luca aggiunge venti euro in più. Sono piccole cifre, ma al mese diventano seicento euro.",
+   "testo": "Quanto cambia il mese di Gennaro? Con scontrino medio più alto, per ogni cliente entrano due euro e cinquanta in più, di cui circa un euro e settanta restano. Su quattromila clienti al mese sono seimilaottocento euro in più. Ma è un caso ideale.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "formula",
      "p": {
-      "titolo": "Brioche in più",
-      "a": "25",
+      "titolo": "Margine in più al mese",
+      "a": "1,70 €",
       "op": "×",
-      "b": "0,80 €",
-      "risultato": "20 €",
-      "nota": "ogni cento clienti"
+      "b": "4.000 clienti",
+      "risultato": "6.800 €",
+      "nota": "seimilaottocento euro"
      }
     },
     {
-     "parola": "Sono",
-     "tipo": "salvadanaio",
+     "parola": "caso",
+     "tipo": "mesi",
      "p": {
-      "direzione": "riempie",
-      "testo": "Seicento euro in più al mese"
+      "titolo": "Utile mensile prima e dopo",
+      "valori": [
+       655,
+       655,
+       655,
+       655,
+       655,
+       655,
+       6800,
+       6800,
+       6800,
+       6800,
+       6800,
+       6800
+      ],
+      "evidenzia": [
+       7,
+       8,
+       9
+      ],
+      "nota": "caso ideale, non sempre replicabile"
      }
     }
    ]
   },
   {
-   "testo": "Mettiamo i numeri completi per un mese tipo. Luca serve cento ottanta caffè al giorno, cioè cinquemilaquattrocento al mese. Margine: cinquemilaseicentosettanta euro. Più le brioche, seicento. Totale circa seimiladuecentosettanta euro.",
-   "capitolo": "Il mese di Luca",
+   "testo": "Attento però: non devi mai guardare il fatturato. Gennaro può incassare trentamila euro al mese e perdere soldi. Quello che conta è il margine, non l'incasso. Un locale pieno non è un locale che guadagna.",
+   "capitolo": "Cosa guardare e cosa no",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Margine dai caffè",
-      "a": "5.400",
-      "op": "×",
-      "b": "1,05 €",
-      "risultato": "5.670 €",
-      "nota": "cinquemilaquattrocento caffè al mese"
-     }
-    },
-    {
-     "parola": "Più",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Con le brioche",
-      "a": "5.670 €",
-      "op": "+",
-      "b": "600 €",
-      "risultato": "6.270 €",
-      "nota": "margine totale del mese"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Ora togli i costi fissi. Seimiladuecentosettanta meno quattromilaquattrocento fa milleottocentosettanta euro. È quello che resta a Luca, prima delle tasse sul reddito. Non è male, ma non è nemmeno un tesoro. Dipende da quanto lavora lui.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Cosa resta a Luca",
-      "a": "6.270 €",
-      "op": "−",
-      "b": "4.400 €",
-      "risultato": "1.870 €",
-      "nota": "prima delle tasse"
-     }
-    },
-    {
-     "parola": "Non",
-     "tipo": "soldi",
-     "p": {
-      "centro": "1.870 €",
-      "destinazioni": [
-       "Tasse",
-       "Stipendio di Luca",
-       "Scorte",
-       "Imprevisti"
-      ]
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Considera anche le ore. Luca lavora tutti i giorni dalle sei alle venti, o quasi. Circa trecento ore al mese. Milleottocentosettanta diviso trecento fa poco più di sei euro l'ora. Prima di tasse. Un dipendente con contratto guadagna spesso di più.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Quanto vale un'ora di Luca",
-      "a": "1.870 €",
-      "op": "÷",
-      "b": "300 ore",
-      "risultato": "6,20 € all'ora",
-      "nota": "circa sei euro e venti"
-     }
-    },
-    {
-     "parola": "Un",
      "tipo": "timbro",
      "p": {
-      "oggetto": "bar",
-      "testo": "POCO",
+      "oggetto": "incasso",
+      "testo": "NON È UTILE",
       "colore": "rosso",
-      "nota": "per chi lavora trecento ore"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Cosa può fare Luca? Una leva è il prezzo. Se porta il caffè da un euro e venti a un euro e trenta, dieci centesimi in più su cinquemilaquattrocento caffè sono cinquecentoquaranta euro. Quasi nessuno nota dieci centesimi. Il bilancio sì.",
-   "capitolo": "Le leve",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "prezzo",
-     "p": {
-      "oggetto": "caffe",
-      "prezzo": "1,20 €",
-      "nuovo_prezzo": "1,30 €",
-      "nota": "dieci centesimi in più"
+      "nota": "incasso diverso da guadagno"
      }
     },
     {
-     "parola": "Quasi",
-     "tipo": "formula",
+     "parola": "locale",
+     "tipo": "persone",
      "p": {
-      "titolo": "Effetto sul mese",
-      "a": "5.400",
-      "op": "×",
-      "b": "0,10 €",
-      "risultato": "540 €",
-      "nota": "in più ogni mese"
+      "n": 9,
+      "azione": "fila",
+      "escono": 0,
+      "testo": "locale pieno, tasca vuota?"
      }
     }
    ]
   },
   {
-   "testo": "Seconda leva: i costi fissi. Se Luca rinegozia l'affitto e scende da duemila a milleottocento, risparmia duecento euro al mese. Sono duemilaquattrocento euro all'anno. Chiedere costa zero, e a volte il proprietario preferisce un affittuario sicuro a un locale vuoto.",
+   "testo": "Tre numeri da guardare ogni settimana: il food cost reale, lo scontrino medio e il costo del personale sul totale incassato. Se uno dei tre sfugge di mano, lo vedi subito. Non aspettare il commercialista a fine anno.",
    "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "costi",
-     "p": {
-      "voci": [
-       {
-        "nome": "Affitto nuovo",
-        "valore": 1800,
-        "testo": "1.800 €"
-       },
-       {
-        "nome": "Utenze",
-        "valore": 400,
-        "testo": "400 €"
-       },
-       {
-        "nome": "Dipendente",
-        "valore": 1400,
-        "testo": "1.400 €"
-       },
-       {
-        "nome": "Altro",
-        "valore": 600,
-        "testo": "600 €"
-       }
-      ],
-      "totale": 4200,
-      "periodo": "al mese"
-     }
-    },
-    {
-     "parola": "Chiedere",
-     "tipo": "salvadanaio",
-     "p": {
-      "direzione": "riempie",
-      "testo": "Duecento euro al mese"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Terza leva: chi viene al bar. Un bar con molte ore morte può pensare agli aperitivi serali o ai pranzi veloci. Un bar vicino agli uffici ha pieno il mattino e il pranzo. Dove sei messo conta più di quanto sei bravo. Il passaggio, in un bar, vale oro.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "leve",
-     "p": {
-      "titolo": "Come migliorare i conti",
-      "voci": [
-       "Alzare il prezzo",
-       "Ridurre i costi fissi",
-       "Riempire le ore morte",
-       "Vendere di più a ogni cliente"
-      ],
-      "evidenzia": 2
-     }
-    },
-    {
-     "parola": "Dove",
-     "tipo": "mesi",
-     "p": {
-      "titolo": "Incassi durante l'anno",
-      "valori": [
-       80,
-       85,
-       90,
-       95,
-       100,
-       95,
-       60,
-       40,
-       95,
-       100,
-       95,
-       90
-      ],
-      "evidenzia": [
-       7,
-       8
-      ],
-      "nota": "estate e agosto deboli in città"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Guarda i mesi. In una città d'ufficio, luglio e agosto sono deboli: la gente è in ferie. Se Luca spende come a maggio e incassa metà, rischia. Chi ha un'attività stagionale deve mettere da parte nei mesi buoni, altrimenti i mesi magri si pagano a debito.",
-   "capitolo": "Stagioni e scorta",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "mesi",
-     "p": {
-      "titolo": "Incassi in percentuale",
-      "valori": [
-       80,
-       85,
-       90,
-       95,
-       100,
-       95,
-       60,
-       40,
-       95,
-       100,
-       95,
-       90
-      ],
-      "evidenzia": [
-       7,
-       8
-      ],
-      "nota": "luglio e agosto: crollo"
-     }
-    },
-    {
-     "parola": "Chi",
-     "tipo": "salvadanaio",
-     "p": {
-      "direzione": "svuota",
-      "testo": "Senza scorta, i mesi magri bruciano"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Cosa devi guardare, se hai un bar o ci pensi. Primo: i costi fissi del mese. Secondo: il margine per ogni prodotto. Terzo: quanti clienti servono per pareggiare. Quarto: quante ore tieni aperto. Se uno di questi quattro non lo conosci, vai alla cieca.",
-   "capitolo": "Cosa guardare",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "cruscotto",
      "p": {
-      "titolo": "Cosa tenere d'occhio",
+      "titolo": "I tre numeri della settimana",
       "voci": [
        {
-        "nome": "Costi fissi",
-        "valore": 0.8
+        "nome": "Food cost reale",
+        "valore": 0.3
        },
        {
-        "nome": "Margine per prodotto",
+        "nome": "Scontrino medio",
         "valore": 0.6
        },
        {
-        "nome": "Caffè al giorno",
-        "valore": 0.7
-       },
-       {
-        "nome": "Ore aperte",
-        "valore": 0.5
+        "nome": "Personale sugli incassi",
+        "valore": 0.4
        }
       ]
      }
     },
     {
-     "parola": "Se",
+     "parola": "commercialista",
+     "tipo": "calendario",
+     "p": {
+      "titolo": "Controllo ogni lunedì",
+      "giorni": 4,
+      "testo": "quattro controlli al mese"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ora il pareggio. Con tutti i costi fissi, quante pizze deve vendere Gennaro per non perdere? Forno e sala fanno cinquemilacentoquaranta euro al mese. Il margine su pizza, prima dei fissi, è tre euro e cinquanta. Dividi.",
+   "capitolo": "Il punto di pareggio",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Pareggio in pizze",
+      "a": "5.140 €",
+      "op": "÷",
+      "b": "3,50 €",
+      "risultato": "1.469 pizze",
+      "nota": "millequattrocentosessantanove pizze al mese"
+     }
+    },
+    {
+     "parola": "Dividi",
+     "tipo": "pareggio",
+     "p": {
+      "titolo": "Pizze necessarie al mese",
+      "fissi": 5140,
+      "margine": 3.5,
+      "unita": "pizze vendute",
+      "oggetto": "pizza",
+      "perdita": true,
+      "guadagno": true
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Millequattrocentosessantanove pizze per coprire i costi fissi. Gennaro ne vende duemilatrecentoquaranta, quindi è sopra il pareggio. Ma di pochissimo margine di sicurezza: se le pizze calano di un terzo, passa in perdita.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "bilancia",
+     "p": {
+      "titolo": "Pizze vendute contro pareggio",
+      "sinistra": "2.340 pizze vendute",
+      "destra": "1.469 pizze di pareggio",
+      "pende": "sinistra"
+     }
+    },
+    {
+     "parola": "calano",
+     "tipo": "andamento",
+     "p": {
+      "titolo": "Utile al calare delle pizze vendute",
+      "valori": [
+       655,
+       200,
+       -300,
+       -800
+      ],
+      "etichette": [
+       "tutte",
+       "meno dieci",
+       "meno venti",
+       "meno trenta"
+      ],
+      "colore": "rosso"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Cosa può fare, allora? Ha quattro leve: ridurre lo spreco, alzare lo scontrino medio, rivedere il menu, contenere il personale con turni ben calibrati. Una sola leva ben tirata vale più di dieci pizze in più.",
+   "capitolo": "Le leve",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "leve",
+     "p": {
+      "titolo": "Le leve di Gennaro",
+      "voci": [
+       "Meno spreco",
+       "Scontrino più alto",
+       "Menu rivisto",
+       "Turni più calibrati"
+      ],
+      "evidenzia": 1
+     }
+    },
+    {
+     "parola": "Una",
      "tipo": "domanda",
      "p": {
-      "testo": "Li conosci tutti e quattro?",
+      "testo": "Quale tiri tu?",
       "emozione": "calmo",
       "scuro": false
      }
@@ -977,102 +1252,77 @@
    ]
   },
   {
-   "testo": "E cosa non guardare. Non guardare solo il margine in percentuale: l'ottantasette per cento fa bella figura, ma non paga l'affitto. Non guardare solo l'incasso giornaliero: un incasso alto con costi alti è un'illusione. Guarda quello che resta, non quello che entra.",
+   "testo": "Nel menu, Gennaro ha sostituito la margherita da otto euro con una margherita da otto e cinquanta, e ha inserito due pizze speciali da dodici euro, con margine molto più alto. La margherita resta, ma non è più la star.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "lista",
+     "tipo": "prezzo",
      "p": {
-      "titolo": "Cosa NON guardare da solo",
-      "voci": [
-       "Il margine in percentuale",
-       "L'incasso della giornata",
-       "Il prezzo dei concorrenti",
-       "La fila delle otto"
-      ]
+      "oggetto": "pizza",
+      "prezzo": "8 €",
+      "nuovo_prezzo": "8,50 €",
+      "nota": "margherita ritoccata"
      }
     },
     {
-     "parola": "Guarda",
-     "tipo": "timbro",
+     "parola": "speciali",
+     "tipo": "confronto",
      "p": {
-      "oggetto": "bar",
-      "testo": "QUELLO CHE RESTA",
-      "colore": "verde",
-      "nota": "non quello che entra"
+      "titolo": "Margine per pizza",
+      "a": {
+       "titolo": "Margherita",
+       "valore": "0,28 €",
+       "oggetto": "pizza"
+      },
+      "b": {
+       "titolo": "Speciale",
+       "valore": "1,50 €",
+       "oggetto": "pizza"
+      },
+      "vincitore": "b"
      }
     }
    ]
   },
   {
-   "testo": "Prova tu adesso. Prendi la tua attività, o quella che sogni. Scrivi i costi fissi del mese. Scrivi il margine di un prodotto. Dividi i primi per il secondo. Il risultato è quante vendite ti servono per non perdere. Fallo stasera: ti serve una calcolatrice e dieci minuti.",
-   "capitolo": "Fallo anche tu",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Il tuo pareggio",
-      "a": "Costi fissi",
-      "op": "÷",
-      "b": "Margine",
-      "risultato": "Vendite minime",
-      "nota": "tre numeri, dieci minuti"
-     }
-    },
-    {
-     "parola": "Fallo",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Quante vendite ti servono?",
-      "emozione": "stupito",
-      "scuro": true
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Luca, intanto, ha capito. Non gli serviva un caffè migliore, gli serviva sapere i numeri. Ha ritoccato il prezzo, trattato l'affitto, riempito le ore deboli con aperitivi. Oggi chiude il mese con più di duemilaquattrocento euro. E dorme meglio.",
+   "testo": "Dopo tre mesi di lavoro, lo spreco è sceso a cinque pizze al giorno, lo scontrino medio è salito a dieci euro e cinquanta, e l'utile mensile è arrivato a oltre tremila euro. Non è magia: è aver guardato i numeri giusti.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "bar",
-      "insegna": "Bar Stazione",
-      "azione": "festa",
-      "clienti": 5,
-      "testo": "Luca ha capito i numeri"
-     }
-    },
-    {
-     "parola": "Oggi",
      "tipo": "andamento",
      "p": {
-      "titolo": "Utile mensile di Luca",
+      "titolo": "Utile mensile di Gennaro",
       "valori": [
-       900,
-       1300,
-       1870,
+       655,
+       1100,
        2200,
-       2450
+       3100
       ],
       "etichette": [
-       "Mese 1",
-       "Mese 2",
-       "Mese 3",
-       "Mese 4",
-       "Mese 5"
+       "inizio",
+       "primo mese",
+       "secondo mese",
+       "terzo mese"
       ],
       "colore": "verde"
      }
+    },
+    {
+     "parola": "Non",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "pizza",
+      "testo": "IN CRESCITA",
+      "colore": "verde",
+      "nota": "i numeri giusti pagano"
+     }
     }
    ]
   },
   {
-   "testo": "Ricapitoliamo. Un caffè costa quindici centesimi e rende un euro e cinque di margine. Ma quel margine paga tutto il resto. Servono centoquaranta caffè al giorno solo per pareggiare. Chi conosce il suo pareggio decide, gli altri sperano.",
+   "testo": "Ricapitoliamo. Una margherita da otto euro costa due euro e trentatré di ingredienti reali, ventisette centesimi di forno, tre e venti di personale, uno e novantadue di costi fissi. Resta una manciata di centesimi.",
    "capitolo": "Riepilogo",
    "inquadrature": [
     {
@@ -1081,46 +1331,103 @@
      "p": {
       "titolo": "Da ricordare",
       "voci": [
-       "Margine alto non è guadagno",
-       "Pareggio: costi fissi diviso margine",
-       "Personale e orari pesano",
-       "Leve: prezzo, affitto, ore morte"
+       "Food cost reale, non solo sulla carta",
+       "Spreco e forno pesano ogni giorno",
+       "Il personale è il costo più grande",
+       "Lo scontrino medio fa la differenza"
       ]
      }
     },
     {
-     "parola": "Chi",
-     "tipo": "timbro",
+     "parola": "Resta",
+     "tipo": "fette",
      "p": {
-      "oggetto": "caffe",
-      "testo": "CONTI CHIARI",
-      "colore": "verde",
-      "nota": "si decide, non si spera"
+      "titolo": "Otto euro di margherita",
+      "totale": 8,
+      "totale_testo": "8 €",
+      "fette": [
+       {
+        "nome": "Ingredienti",
+        "valore": 2.33,
+        "testo": "2,33 €"
+       },
+       {
+        "nome": "Forno",
+        "valore": 0.27,
+        "testo": "0,27 €"
+       },
+       {
+        "nome": "Personale",
+        "valore": 3.2,
+        "testo": "3,20 €"
+       },
+       {
+        "nome": "Costi fissi",
+        "valore": 1.92,
+        "testo": "1,92 €"
+       },
+       {
+        "nome": "Utile",
+        "valore": 0.28,
+        "testo": "0,28 €"
+       }
+      ],
+      "evidenzia": 4
      }
     }
    ]
   },
   {
-   "testo": "E la prossima volta? Una pizzeria da asporto ti dice che con un impasto da pochi centesimi si fa una pizza da otto euro. Sembra facile, e invece i numeri nascondono una trappola. Scopriamo quanti pizzaioli servono davvero. Iscriviti, così non ti perdi la puntata.",
+   "testo": "Se hai una pizzeria, o un'attività qualsiasi, fai questo esercizio stasera: prendi il tuo prodotto più venduto e calcola quanto resta davvero. Se il risultato ti spaventa, hai appena trovato il tuo prossimo lavoro: sistemarlo.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Quanto resta a te?",
+      "emozione": "calmo",
+      "scuro": false
+     }
+    },
+    {
+     "parola": "prendi",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Esercizio di stasera",
+      "voci": [
+       "Prendi il prodotto più venduto",
+       "Calcola gli ingredienti reali",
+       "Aggiungi lavoro e costi fissi",
+       "Guarda cosa resta"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "E la prossima volta? Un bar con un caffè a un euro e venti. Tutti dicono che il caffè sia oro, che costi pochi centesimi. Ma quanto resta davvero al barista, tra macchina, latte, cassa e personale? Iscriviti.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "prossimo",
      "p": {
-      "luogo": "pizzeria",
-      "insegna": "Pizza da Asporto",
-      "oggetto": "pizza",
-      "testo": "Quanto resta su una pizza da otto euro?"
+      "luogo": "bar",
+      "insegna": "Bar Centrale",
+      "oggetto": "caffe",
+      "testo": "Quanto resta al barista su un caffè da un euro e venti?"
      }
     },
     {
      "parola": "Iscriviti",
-     "tipo": "domanda",
+     "tipo": "luogo",
      "p": {
-      "testo": "Iscriviti al canale!",
-      "emozione": "felice",
-      "scuro": false
+      "luogo": "pizzeria",
+      "insegna": "Da Gennaro",
+      "azione": "festa",
+      "clienti": 5,
+      "testo": "Iscriviti!"
      }
     }
    ]
