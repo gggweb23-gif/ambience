@@ -336,6 +336,29 @@ def token():
     return json.loads(urllib.request.urlopen(urllib.request.Request('https://oauth2.googleapis.com/token', data=d), timeout=60).read())['access_token']
 
 
+def metti_in_playlist(vid, titolo, tok):
+    """Colonna playlist:  Nome playlist: parola1, parola2 || Altra playlist  (senza parole = tutti i video). Crea la playlist se manca."""
+    regole = [x.strip() for x in str(P.get('playlist') or '').split('||') if x.strip()]
+    scelte = [n.strip()[:150] for n, _, p in (r.partition(':') for r in regole)
+              if n.strip() and (not p.strip() or any(w.strip().lower() in titolo.lower() for w in p.split(',') if w.strip()))]
+    if not scelte:
+        return 'nessuna playlist nel foglio (colonna playlist)'
+    h = {'Authorization': 'Bearer ' + tok}
+    try:
+        tutte = http('https://www.googleapis.com/youtube/v3/playlists?part=snippet&mine=true&maxResults=50', headers=h).get('items', [])
+        esistenti = {it['snippet']['title'].strip().lower(): it['id'] for it in tutte}
+        for nome in scelte:
+            pid = esistenti.get(nome.lower())
+            if not pid:
+                pid = http('https://www.googleapis.com/youtube/v3/playlists?part=snippet,status', {'snippet': {'title': nome}, 'status': {'privacyStatus': 'public'}}, h)['id']
+                time.sleep(8)
+            http('https://www.googleapis.com/youtube/v3/playlistItems?part=snippet', {'snippet': {'playlistId': pid, 'resourceId': {'kind': 'youtube#video', 'videoId': vid}}}, h)
+            log('playlist:', nome)
+        return ''
+    except Exception as e:
+        return 'playlist non aggiornata: ' + str(e)[:150]
+
+
 def carica_youtube(path, titolo, descr, tags, cop):
     tok = token()
     status = {'privacyStatus': P.get('privacy') or 'public', 'selfDeclaredMadeForKids': False, 'containsSyntheticMedia': False}
@@ -363,12 +386,12 @@ def carica_youtube(path, titolo, descr, tags, cop):
             DICH.nessuna_promozione(vid, tok, ris)
         except Exception:
             pass
-    nota = ''
+    nota = metti_in_playlist(vid, titolo, tok)   # 8 nov (Giorgio): ogni video va in una playlist
     try:
         urllib.request.urlopen(urllib.request.Request(f'https://www.googleapis.com/upload/youtube/v3/thumbnails/set?videoId={vid}', data=open(cop, 'rb').read(), method='POST',
                                                       headers={'Authorization': 'Bearer ' + tok, 'Content-Type': 'image/jpeg'}), timeout=120).read()
     except Exception as e:
-        nota = 'copertina non caricata: ' + str(e)[:150]
+        nota = (nota + ' | ' if nota else '') + 'copertina non caricata: ' + str(e)[:150]
     return vid, nota
 
 

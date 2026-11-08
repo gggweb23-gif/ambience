@@ -72,10 +72,13 @@ window.copertina = (c, ctx) => {
   if (c.prezzo) s += tr(1000, 140, .8, tag(0, 0, 1, S(c.prezzo)), -10);
   const yy = [60, 250, 400];
   r.slice(0, 3).forEach((x, i) => {
-    const txt = S(String(x).toUpperCase()), w = Math.min(740, txt.length * (i === 1 ? 58 : 54) + 60);
-    if (i === 0) s += `<rect x="40" y="${yy[0]}" width="${w}" height="150" rx="24" fill="${Y}" ${SW}/>` + T(40 + w / 2, yy[0] + 105, txt, txt.length > 13 ? 76 : 92, INK);
-    else if (i === 1) s += T(60, yy[1] + 70, txt, txt.length > 13 ? 84 : 104, '#fff', { a: 'start', st: INK, sw: 18 });
-    else s += `<rect x="40" y="${yy[2]}" width="${w}" height="170" rx="24" fill="${R}" ${SW}/>` + T(40 + w / 2, yy[2] + 125, txt, txt.length > 12 ? 92 : 116, '#fff');
+    const txt = S(String(x).toUpperCase());
+    // 8 nov: riquadro largo quanto la scritta (prima "CENTESIMI" usciva dal riquadro rosso); scritta piu' piccola se non ci sta
+    const fit = (fs) => { let f = fs; while (f > 56 && String(x).length * f * 0.64 + 80 > 760) f -= 4; return f; };
+    const f0 = fit(txt.length > 13 ? 76 : 92), f2 = fit(txt.length > 12 ? 92 : 116), larg = (fs) => Math.min(780, String(x).length * fs * 0.64 + 80);
+    if (i === 0) { const w = larg(f0); s += `<rect x="40" y="${yy[0]}" width="${w}" height="150" rx="24" fill="${Y}" ${SW}/>` + T(40 + w / 2, yy[0] + 105, txt, f0, INK); }
+    else if (i === 1) s += T(60, yy[1] + 70, txt, fit(txt.length > 13 ? 84 : 104), '#fff', { a: 'start', st: INK, sw: 18 });
+    else { const w = larg(f2); s += `<rect x="40" y="${yy[2]}" width="${w}" height="170" rx="24" fill="${R}" ${SW}/>` + T(40 + w / 2, yy[2] + 125, txt, f2, '#fff'); }
   });
   sv.innerHTML = s;
 };
