@@ -115,6 +115,19 @@ async function codice(nome, items, opz = {}) {
   return metti(nome, out);
 }
 // ---------------- nodo Set (Edit Fields)
+const RETENTION = `
+
+============================
+REGOLE DI RETENTION (PRIORITARIE: la gente deve restare fino alla fine)
+============================
+1. PROMESSA ENTRO 20 SECONDI: dopo l'hook, nelle scene 2-4 di' chiaramente cosa otterra' lo spettatore restando, e ANNUNCIA che il punto piu' forte arriva alla fine (es. "the last one is the one almost nobody sees coming"). Poi mantieni la promessa: il punto piu' forte e' davvero l'ultimo.
+2. ANELLI APERTI: circa ogni 2 minuti (ogni 20-25 scene) apri una curiosita' che si chiude piu' avanti ("but there is one detail that changes everything, we'll get there in a moment"; "remember this, because it comes back at the end"). Chiudi sempre gli anelli che apri. Mai frasi del tipo "in this video".
+3. OGNI PUNTO E' UNA MINI-STORIA: situazione concreta che lo spettatore riconosce nella sua vita (una persona precisa, un momento preciso) -> cosa disse il filosofo (citazione vera, con il nome) -> cosa fare da oggi, in una frase pratica. Niente elenchi astratti di principi.
+4. CRESCENDO: i punti vanno dal meno forte al piu' forte; l'ultimo e' il piu' emotivo.
+5. RITMO: frasi brevi, seconda persona, una domanda diretta allo spettatore ogni tanto; vietati riassunti, ripetizioni e frasi riempitive. Ogni scena porta un'informazione nuova.
+6. CHIUSURA: l'ultima scena chiude la promessa e lascia una frase che resta in testa; nessuna lunga richiesta di iscrizione.`;
+
+
 function setNodo(nome, items, opz = {}) {
   const p = WF[nome].params, ass = (p.assignments && p.assignments.assignments) || [];
   const out = items.map((it, i) => {
@@ -342,6 +355,13 @@ async function main() {
     ultimo = metti('Ricerca Azienda', [J(r)]); log('dossier di ricerca web pronto');
   }
   setNodo('System Scriptwriter', ultimo);
+  // 8 nov 2026 (Giorgio, Agora: la gente esce dopo 1-2 minuti): colonna script_retention = SI aggiunge le regole di struttura per la retention
+  // (anelli aperti, promessa mantenuta, mini-storie, crescendo). Cella vuota = prompt di sempre (KAO non cambia).
+  if (String(cfg.script_retention || '').trim().toUpperCase() === 'SI') {
+    const o = OUT['System Scriptwriter'][0].json;
+    o.system_message = String(o.system_message || '') + RETENTION;
+    log('regole di retention aggiunte al copione');
+  }
 
   // ---- 3) copione a blocchi (Prepara Blocchi -> Loop Blocchi -> Costruisci Prompt Blocco -> Chiama Claude -> Accumula Blocco)
   const blocchiItems = await codice('Prepara Blocchi', [J({})]);

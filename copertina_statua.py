@@ -84,7 +84,8 @@ def piano():
               "Scegli l'ASPETTO (indice 0-5): " + ' | '.join(f'{i}: {a}' for i, a in enumerate(ASPETTI)) + ". " +
               ("Dai anche un numero di regola da 1 a 12 coerente col titolo (se il titolo ha un numero di principi, usalo). " if regola else '') +
               (f"ISTRUZIONI DEL CANALE (hanno la precedenza): {CFG.get('copertina_istruzioni')}. " if str(CFG.get('copertina_istruzioni') or '').strip() else '') +
-              'Rispondi SOLO con JSON: {"righe": ["...", "..."], "evidenza": 0, "scena": "sola", "gesto": 0, "aspetto": 0, "regola": 1}')
+              ('Indica anche "filosofo": il filosofo nominato nel titolo, altrimenti quello piu\' adatto al tema (Marcus Aurelius, Seneca, Epictetus, Schopenhauer, Nietzsche...). ' if ROTAZIONE else '') +
+              'Rispondi SOLO con JSON: {"righe": ["...", "..."], "evidenza": 0, "scena": "sola", "gesto": 0, "aspetto": 0, "regola": 1' + (', "filosofo": "..."' if ROTAZIONE else '') + '}')
     try:
         mod = E('MODELLO_COPERTINA', 'claude-sonnet-5-5')
         r = http('https://api.anthropic.com/v1/messages', {'model': mod, 'max_tokens': 400,
@@ -103,6 +104,18 @@ def piano():
         forza = str(CFG.get('statua_scena') or '').strip().lower()   # colonna statua_scena: sola | antagonisti (vuota = decide Claude)
         if forza in ('sola', 'antagonisti'):
             pn['scena'] = forza
+        if ROTAZIONE:   # 8 nov (Giorgio): copertine che si alternano un giorno si' e uno no (colonna statua_rotazione, es. "busto, antagonisti")
+            modo = ROTAZIONE[__import__('datetime').date.today().toordinal() % len(ROTAZIONE)]
+            pn['modo'] = modo
+            if modo == 'antagonisti':
+                pn['scena'] = 'antagonisti'
+            elif modo == 'busto':
+                pn['scena'] = 'sola'
+                fil = str(j.get('filosofo') or 'Marcus Aurelius').strip()[:40]
+                pn['figura'] = (f'A classical marble BUST-style statue of the Stoic philosopher {fil}: an older, wise man with a full beard, faithful to his known '
+                                'ancient busts, solemn and severe, strong but NOT a bodybuilder, wearing a draped toga.')
+            elif modo == 'sola':
+                pn['scena'] = 'sola'
         ammessi = [int(x) for x in re.findall(r'\d+', str(CFG.get('statua_gesti') or '')) if int(x) < len(GESTI)]   # es. "0,2,3"
         if ammessi and pn['gesto'] not in ammessi:
             pn['gesto'] = ammessi[sum(map(ord, P.get('titolo', ''))) % len(ammessi)]
@@ -129,6 +142,9 @@ FIGURA = str(CFG.get('statua_figura') or '').strip() or ('A YOUNG, vigorous, pow
                                                           'massive chest, broad shoulders, enormous arms, thick neck, deeply carved abs and visible veins.')
 
 
+ROTAZIONE = [x.strip().lower() for x in re.split(r'[,;|]', str(CFG.get('statua_rotazione') or '')) if x.strip().lower() in ('busto', 'antagonisti', 'sola')]
+
+
 def fal(modello, dati):
     CO.registra('fal', modello, dollari=0.08 if 'nano-banana' in modello else 0.005)
     h = {'Authorization': 'Key ' + E('FAL_KEY')}
@@ -153,7 +169,7 @@ def statua(pn):
     else:
         posa = 'Waist-up, big in the frame, ' + GESTI[pn['gesto']]
         fondo, formato = 'Plain dark-grey gradient studio background with a little soft smoke at the bottom, nothing else.', '3:4'
-    r = fal(E('MODELLO_STATUA', 'fal-ai/nano-banana-2'), {'prompt': STATUA.format(figura=FIGURA, aspetto=aspetto[0].upper() + aspetto[1:], posa=posa, fondo=fondo),
+    r = fal(E('MODELLO_STATUA', 'fal-ai/nano-banana-2'), {'prompt': STATUA.format(figura=pn.get('figura') or FIGURA, aspetto=aspetto[0].upper() + aspetto[1:], posa=posa, fondo=fondo),
                                                           'aspect_ratio': formato, 'resolution': '1K', 'output_format': 'png', 'num_images': 1})
     f = os.path.join(CART, 'statua.png')
     open(f, 'wb').write(http(r['images'][0]['url'], raw=True))
