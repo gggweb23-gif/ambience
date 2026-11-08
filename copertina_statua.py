@@ -215,6 +215,9 @@ def ImageChops_multiply(a, b):
     return ImageChops.multiply(a, b)
 
 
+STATUA_X = [10 ** 6]
+
+
 def scena_destra(png, scena, w, h, zoom_extra=1.0):
     """statua a DESTRA, lato sinistro scurito per il testo (copertina). Il video usa la stessa scena specchiata."""
     src = Image.open(png)
@@ -231,6 +234,8 @@ def scena_destra(png, scena, w, h, zoom_extra=1.0):
             al.paste(ImageChops_multiply(al.crop((0, 0, fade, im.height)), gr), (0, 0)); im.putalpha(al)
         c = fondo_canale(w, h)
         c.paste(im, (w - im.width + int(w * .02), int(h * .03)), im)   # testa in alto, il corpo esce dal fondo
+        bb = im.getchannel('A').point(lambda v: 255 if v > 40 else 0).getbbox()
+        STATUA_X[0] = w - im.width + int(w * .02) + (bb[0] if bb else 0)   # 8 nov: dove inizia la statua -> le scritte non ci vanno sopra
         v = Image.new('L', (w, h), 0); ImageDraw.Draw(v).rectangle([0, 0, w * .45, h], fill=120)
         return Image.composite(Image.new('RGB', (w, h), (8, 8, 10)), c, v.filter(ImageFilter.GaussianBlur(w * .08)))
     im = grigio(src.convert('RGB'))
@@ -246,6 +251,7 @@ def scena_destra(png, scena, w, h, zoom_extra=1.0):
         if im.height < h:   # piu' piccolo: appoggiato in basso, sopra si allunga il fondo della foto (niente stacchi di colore)
             c.paste(im.crop((0, 0, im.width, 2)).resize((im.width, h - im.height + 2)), (w - im.width, 0), m.crop((0, 0, m.width, 2)).resize((im.width, h - im.height + 2)))
         c.paste(im, (w - im.width, -int(h * .02) if im.height >= h else h - im.height), m); buio = .5
+        STATUA_X[0] = w - im.width + int(im.width * .1)
     v = Image.new('L', (w, h), 0); ImageDraw.Draw(v).rectangle([0, 0, w * buio, h], fill=160)
     return Image.composite(Image.new('RGB', (w, h), (8, 8, 10)), c, v.filter(ImageFilter.GaussianBlur(w * .09)))
 
@@ -302,6 +308,7 @@ def impaginazione():
 
 def copertina(png, pn):
     imp = impaginazione(); log('impaginazione copertina:', imp['nome'])
+    STATUA_X[0] = 10 ** 6
     c = scena_destra(png, pn['scena'], W, H, imp['zoom'])
     if imp['specchia']:   # filosofo a sinistra, scritte a destra
         c = ImageOps.mirror(c)
@@ -311,6 +318,7 @@ def copertina(png, pn):
         larg = int(larg * 1.12)   # filosofo piu' piccolo: scritte piu' grandi
     elif imp['zoom'] > 1:
         larg = int(larg * .78)   # filosofo in primo piano: scritte piu' strette, mai sopra il volto
+    larg = max(320, min(larg, STATUA_X[0] - 55 - 25))   # 8 nov (Giorgio): mai scritte sopra il personaggio
     x = (W - 55 - larg) if imp['specchia'] else 55
     if pn.get('regola'):
         f = ImageFont.truetype(FONT, 54); t = f'RULE #{pn["regola"]}'; b = f.getbbox(t)
