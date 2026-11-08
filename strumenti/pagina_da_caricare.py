@@ -47,10 +47,17 @@ for a in sorted(arts, key=lambda x: x['created_at'], reverse=True):
     with open('z.zip', 'wb') as f:
         subprocess.run(['gh', 'api', f"repos/{R}/actions/artifacts/{a['id']}/zip"], stdout=f, check=True)
     zipfile.ZipFile('z.zip').extractall(d); os.remove('z.zip')
+    print('  artifact', a['name'], a['created_at'][:16], '->', sorted(os.path.basename(x) for x in glob.glob(f'{d}/*'))[:6])
+    tutti_mp4 = glob.glob(f'{d}/*.mp4')
     for usc, c, t, s in attesa:
         if c != cid or s in trovati:
             continue
         v = glob.glob(f'{d}/{s}.mp4'); cop = glob.glob(f'{d}/{s}_COPERTINA.*')
+        # 8 nov: titolo nel foglio diverso dal nome del file (es. titolo corretto dopo la produzione): se per quel canale c'e' UN solo video
+        # in attesa e l'artifact ha UN solo video, e' quello
+        if not v and len(tutti_mp4) == 1 and sum(1 for _, c2, _, _ in attesa if c2 == c) == 1:
+            v = tutti_mp4; b0 = os.path.splitext(v[0])[0]; cop = glob.glob(b0 + '_COPERTINA.*')
+            print('  preso per esclusione:', os.path.basename(v[0]))
         if v:
             nome_v = f"{slug(nome_canale.get(c, c))}__{s}.mp4"   # canale davanti per riconoscerlo (il titolo su YouTube si incolla sempre dal foglio)
             shutil.move(v[0], f'{OUT}/{nome_v}')
