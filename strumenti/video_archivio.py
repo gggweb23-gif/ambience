@@ -440,16 +440,24 @@ base = os.path.join(LAV, 'base.jpg')
 subprocess.run(['ffmpeg', '-y', '-v', 'error', '-ss', '6', '-i', VIDEO, '-frames:v', '1', base])
 im = Image.open(base).convert('RGB').resize((1280, 720))
 STILE_COP = str(P.get('copertina_stile') or 'C').strip().lower()   # C = Orbital Days | etichetta_rossa = WWII Testimony (B dello studio copertine)
+# 8 nov (Giorgio): copertine MAI tutte uguali (YouTube penalizza quelle fatte in serie): stile e colori fissi, ma a rotazione
+# cambiano il lato del volto e la posizione della scritta. 0 = volto a destra, scritta in alto a sinistra (come prima);
+# 1 = volto a sinistra, scritta in alto a destra; 2 = volto a destra, scritta in basso a sinistra (in basso a destra mai: c'e' la durata del video)
+_VAR = int(str(P.get('copertina_variante') or __import__('datetime').date.today().toordinal() % 3)) % 3
+VOLTO_SX = _VAR == 1
+TESTO_BASSO = _VAR == 2
+LATO_V, LATO_T = ('LEFT', 'RIGHT') if VOLTO_SX else ('RIGHT', 'LEFT')
+log('impaginazione copertina:', _VAR, '| volto', LATO_V, '| scritta', 'in basso' if TESTO_BASSO else 'in alto', 'a', LATO_T)
 if STILE_COP == 'etichetta_rossa':
     PROMPT_COP = ('Use the reference photo only for the setting and the era. ' + c.get('copertina_prompt', '') +
                   ' Black and white 1940s archival photograph look, real film grain, documentary realism. The person is FICTIONAL and does not resemble any real '
                   'historical figure. No swastikas, no Nazi flags or armbands, no insignia, no text, no letters, no logos. The face is big and sharp, head and shoulders '
-                  'filling the RIGHT 60% of the frame, strong readable emotion; the LEFT 40% simpler and darker.')
+                  f'filling the {LATO_V} 60% of the frame, strong readable emotion; the {LATO_T} 40% simpler and darker.')
 else:
     PROMPT_COP = ('Use the reference photo only for the setting. ' + c.get('copertina_prompt', '') +
                   ' The astronaut is a FICTIONAL person who does not resemble any real astronaut. Unbranded suit and clothes: NO NASA logo, no agency insignia, '
                   'no flags, no patches. Photorealistic cinematic film still, dramatic light, high contrast. The astronaut is very big, head and shoulders filling '
-                  'the RIGHT 60% of the frame. The LEFT 40% darker and simple. No text, no letters, no logos.')
+                  f'the {LATO_V} 60% of the frame. The {LATO_T} 40% darker and simple. No text, no letters, no logos.')
 def senza_bordi_neri(img):   # bande nere ai lati del fotogramma (pellicole d'epoca): via prima del ritocco
     g_ = img.convert('L'); w_, h_ = g_.size; px = g_.load()
     col = lambda x: sum(px[x, y] for y in range(0, h_, 8)) / len(range(0, h_, 8))
@@ -523,26 +531,33 @@ if STILE_COP == 'etichetta_rossa':
     while s_ > 80 and max(d.textlength(r_, font=ImageFont.truetype(FP, s_)) for r_ in righe) > 700:
         s_ -= 4
     fnt = ImageFont.truetype(FP, s_); hb = d.textbbox((0, 0), 'ABC', font=fnt)
-    y = 720 - 50 - ((hb[3] - hb[1]) + 46) * len(righe)
+    alto_ = VOLTO_SX or _VAR == 0   # fascia in alto (a destra mai in basso: c'e' la durata del video)
+    y = 50 if alto_ else 720 - 50 - ((hb[3] - hb[1]) + 46) * len(righe)
     for r_ in righe:
         l_, t_, rr_, b_ = d.textbbox((0, 0), r_, font=fnt)
-        d.rectangle((40, y, 40 + (rr_ - l_) + 44, y + (b_ - t_) + 36), fill=(200, 22, 22))
-        d.text((62 - l_, y + 18 - t_), r_, font=fnt, fill='white')
+        x_ = (1280 - 40 - ((rr_ - l_) + 44)) if VOLTO_SX else 40
+        d.rectangle((x_, y, x_ + (rr_ - l_) + 44, y + (b_ - t_) + 36), fill=(200, 22, 22))
+        d.text((x_ + 22 - l_, y + 18 - t_), r_, font=fnt, fill='white')
         y += (b_ - t_) + 36 + 10
     log('testo copertina:', TESTO_COP, '| altezza lettere', s_, 'px')
 else:
     g = Image.new('L', (1280, 1))
     for x in range(1280):
-        g.putpixel((x, 0), int(170 * max(0, ((1 - x / 1280) - .5) / .5)))
+        g.putpixel((x, 0), int(170 * max(0, (((x / 1280) if VOLTO_SX else (1 - x / 1280)) - .5) / .5)))   # scuro dal lato della scritta
     im.paste(Image.new('RGB', (1280, 720)), (0, 0), g.resize((1280, 720))); d = ImageDraw.Draw(im)
     log('testo copertina:', TESTO_COP, '(dal foglio)' if str(P.get('testo_copertina') or '').strip() else '(creato dal titolo e dalla copertina del competitor)')
     parole = TESTO_COP.upper().split(); righe = [' '.join(parole[:-1]), parole[-1]] if len(parole) > 1 else parole
-    y = 110
-    for i, rr in enumerate(righe):
+    misure = []
+    for rr in righe:
         s_ = 240
         while s_ > 60 and d.textlength(rr, font=ImageFont.truetype(FP, s_)) > 600:
             s_ -= 4
-        d.text((50, y), rr, font=ImageFont.truetype(FP, s_), fill='#4FD2FF' if i == len(righe) - 1 and len(righe) > 1 else 'white', stroke_width=max(8, s_ // 11), stroke_fill=(0, 0, 0))
+        misure.append(s_)
+    y = (720 - 70 - int(sum(misure) * 1.02)) if TESTO_BASSO else 110
+    for i, (rr, s_) in enumerate(zip(righe, misure)):
+        f_ = ImageFont.truetype(FP, s_)
+        x_ = (1280 - 50 - d.textlength(rr, font=f_)) if VOLTO_SX else 50
+        d.text((x_, y), rr, font=f_, fill='#4FD2FF' if i == len(righe) - 1 and len(righe) > 1 else 'white', stroke_width=max(8, s_ // 11), stroke_fill=(0, 0, 0))
         y += int(s_ * 1.02)
 COP = os.path.join(CART, 'copertina.jpg'); im.save(COP, quality=92)
 
