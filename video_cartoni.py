@@ -261,12 +261,13 @@ def copertina_ai(pg, ca, ctx, cop):
     """Bozza disegnata (gratis) -> fal nano-banana-2/edit (~0,08 $) -> controllo delle scritte con Claude (1 riprova) -> banda con targa e domanda.
     Se qualcosa non va resta la copertina disegnata: mai una copertina con scritte sbagliate."""
     bozza = os.path.join(LAV, 'bozza_copertina.jpg')
-    pg.evaluate('c => bozza_ai(c)', dict(ca, oggetto=ctx.get('oggetto'))); pg.wait_for_timeout(300)
+    alto = __import__('datetime').date.today().toordinal() % 2 == 1   # 8 nov (MANO LIBERA): banda sopra a giorni alterni
+    pg.evaluate('c => bozza_ai(c)', dict(ca, oggetto=ctx.get('oggetto'), alto=alto)); pg.wait_for_timeout(300)
     pg.screenshot(path=bozza, type='jpeg', quality=92)
     vs, vd = str(ca.get('valore_sx') or '').strip(), str(ca.get('valore_dx') or '').strip()
     prompt = ('Redesign this rough YouTube thumbnail draft for an Italian channel about how much businesses really earn, as a polished 2D cartoon / flat vector explainer thumbnail: '
               'clean thick dark outlines, bright friendly colours, soft gradients and subtle shadows, very readable on a phone, 16:9. Keep the same layout: red left half, green right half '
-              'with a slightly diagonal split, a big glossy yellow-orange arrow from left to right, and a plain dark navy band across the bottom 30% of the image. '
+              'with a slightly diagonal split, a big glossy yellow-orange arrow from left to right, and a plain dark navy band across the ' + ('TOP' if alto else 'bottom') + ' 30% of the image. '
               f'LEFT (red): {ca.get("oggetto_sx") or "what it costs"}. RIGHT (green): {ca.get("oggetto_dx") or "what it is sold for"}. '
               f'The ONLY texts in the image, spelled EXACTLY like this: "COSTA" at the top left and "LO VENDI" at the top right, both WHITE with a dark outline; '
               f'the values "{vs}" (left) and "{vd}" (right) in bold rounded YELLOW lettering with a dark outline, small sparkles around the right value. '
@@ -286,7 +287,7 @@ def copertina_ai(pg, ca, ctx, cop):
             open(img, 'wb').write(r.read())
         # controllo scritte (Claude guarda l'immagine): solo COSTA, LO VENDI e i due valori, scritti giusti
         dom = ('Look at this thumbnail image. Answer ONLY with JSON {"ok": true|false, "motivo": "..."}. ok = true ONLY if: the texts "COSTA", "LO VENDI", '
-               f'"{vs}" and "{vd}" are present and spelled exactly, there is NO other readable word or label anywhere, and the bottom dark band is empty.')
+               f'"{vs}" and "{vd}" are present and spelled exactly, there is NO other readable word or label anywhere, and the dark band is empty.')
         j = http('https://api.anthropic.com/v1/messages', {'model': MODELLO, 'max_tokens': 300, 'messages': [{'role': 'user', 'content': [
             {'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(open(img, 'rb').read()).decode()}},
             {'type': 'text', 'text': dom}]}]}, {'x-api-key': E('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01'})
@@ -297,7 +298,7 @@ def copertina_ai(pg, ca, ctx, cop):
         if esito_c.get('ok'):
             d = (ca.get('domanda') or ['', '']) + ['', '']
             pg.goto('file://' + os.path.join(MOT, 'video.html')); pg.wait_for_timeout(300)
-            pg.evaluate('([a, b, c]) => finale_ai(a, b, c)', ['file://' + img, d[0], d[1]]); pg.evaluate('document.fonts.ready'); pg.wait_for_timeout(700)
+            pg.evaluate('([a, b, c, e]) => finale_ai(a, b, c, e)', ['file://' + img, d[0], d[1], alto]); pg.evaluate('document.fonts.ready'); pg.wait_for_timeout(700)
             pg.screenshot(path=cop, type='jpeg', quality=92)
             log('copertina AI pronta (COSTA / LO VENDI + targa)')
             return
