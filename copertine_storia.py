@@ -250,16 +250,26 @@ def pulisci_figura(figura):
     return re.sub(r'\s+,', ',', re.sub(r'\s{2,}', ' ', f)).strip()
 
 
+LATO_FIG = ['left']   # 8 nov (Giorgio): mai la stessa impaginazione: personaggio una volta a sinistra e una a destra (scritte dall'altra parte)
+
+
+def _lati():
+    sx = LATO_FIG[0] != 'right'
+    return ('LEFT', 'right', 'on the left side', 'towards the right', 'top right', 'bottom-right') if sx else \
+           ('RIGHT', 'left', 'on the right side', 'towards the left', 'top left', 'bottom-right')
+
+
 def prompt_ill(figura, antico, moderno, paese, bandiera, date):
     da, a = date_freccia(date)
     figura = pulisci_figura(figura)
+    L, altro, dove_ant, verso, testo_pos, angolo = _lati()
     return ('YouTube thumbnail, 16:9, detailed hand-painted digital illustration in the style of a history documentary thumbnail, rich vivid colours, '
             'very high contrast, very sharp, readable on a phone, slightly darker vignette on the edges. '
-            f'LEFT 40%: {figura}, waist-up, close to the camera, looking straight into the viewer\'s eyes with an INTENSE, serious, determined gaze, '
+            f'{L} 40%: {figura}, waist-up, close to the camera, looking straight into the viewer\'s eyes with an INTENSE, serious, determined gaze, '
             f'strong warm golden light on the face and a golden rim light on the outline. {POPOLO.get("tratti", "")} '
-            f'BACKGROUND behind and to the right: on the left side {antico} under a warm golden sky, blending towards the right into {moderno} '
+            f'BACKGROUND behind and to the {altro}: {dove_ant} {antico} under a warm golden sky, blending {verso} into {moderno} '
             'with city lights turning on, under a dramatic sunset sky with orange and deep blue clouds, like a journey through thousands of years. '
-            f'TEXT at the top right: "{paese}" enormous, VERY THICK heavy black classical Roman serif font (like Cinzel Black) with a thin white outline, '
+            f'TEXT at the {testo_pos}: "{paese}" enormous, VERY THICK heavy black classical Roman serif font (like Cinzel Black) with a thin white outline, '
             f'the biggest element of the image, with a waving national flag of {bandiera} next to it about half the height of the letters. '
             f'Under it, BIG and bold (about 60% of the height of the word {paese}): "{da}" in black with a thin white outline (lowercase "a" in "a.C."), '
             f'a thick RED arrow pointing right, and "{a}" in bright GOLD with a black outline. '
@@ -268,13 +278,14 @@ def prompt_ill(figura, antico, moderno, paese, bandiera, date):
 
 def prompt_scena_ill(figura, antico, moderno):
     figura = pulisci_figura(figura)
+    L, altro, dove_ant, verso, testo_pos, angolo = _lati()
     return ('YouTube thumbnail background, 16:9, detailed hand-painted digital illustration in the style of a history documentary thumbnail, rich vivid colours, '
             'very high contrast, very sharp, slightly darker vignette on the edges. '
-            f'LEFT 40%: {figura}, waist-up, close to the camera, looking straight into the viewer\'s eyes with an INTENSE, serious, determined gaze, '
+            f'{L} 40%: {figura}, waist-up, close to the camera, looking straight into the viewer\'s eyes with an INTENSE, serious, determined gaze, '
             f'strong warm golden light on the face and a golden rim light on the outline. {POPOLO.get("tratti", "")} '
-            f'BACKGROUND behind and to the right: on the left side {antico} under a warm golden sky, blending towards the right into {moderno} '
+            f'BACKGROUND behind and to the {altro}: {dove_ant} {antico} under a warm golden sky, blending {verso} into {moderno} '
             'with city lights turning on, under a dramatic sunset sky with orange and deep blue clouds. '
-            'The upper right area (top 45%, right 55%) is open sky: a big title will be added there. Absolutely NO text, letters, numbers, logos or watermark anywhere.' + SIMBOLI_NO + TRATTO)
+            f'The upper {altro} area (top 45%, {altro} 55%) is open sky: a big title will be added there. Absolutely NO text, letters, numbers, logos or watermark anywhere.' + SIMBOLI_NO + TRATTO)
 
 
 def titolo_ill(im, paese, date):
@@ -282,7 +293,7 @@ def titolo_ill(im, paese, date):
     W, H = im.size
     da, a = date_freccia(date)
     d = ImageDraw.Draw(im)
-    x0, x1 = int(W * .45), int(W * .97)
+    x0, x1 = (int(W * .03), int(W * .55)) if LATO_FIG[0] == 'right' else (int(W * .45), int(W * .97))   # scritte dal lato opposto al personaggio
     k = 230
     while k > 60:
         f1 = ImageFont.truetype(font('slab'), k)
@@ -654,6 +665,7 @@ for nostro, comp in COPPIE:
             except Exception as e:
                 log(f'  copertina {k} non riuscita:', str(e)[:200]); return k, 0, None, [antica, oggi]
         if FORMATO == 'illustrato':
+            LATO_FIG[0] = 'right' if sum(map(ord, nostro)) % 2 else 'left'   # 8 nov: lato del personaggio diverso da video a video
             ant = an.get('antico') or f'ancient {band} with its most famous ancient monument'
             mod = an.get('moderno') or f'{band} today with its most famous landmark and a modern city skyline'
             fig = figure[0]
