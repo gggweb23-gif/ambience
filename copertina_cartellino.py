@@ -184,9 +184,17 @@ def testo_fit(d, testo, nome_font, fs, larg):
     return f, fs
 
 
+# 8 nov (Giorgio, Rich Borders): YouTube non deve vedere sempre la stessa copertina. Senza stravolgere lo stile:
+# a rotazione giornaliera cambiano il lato del paese ricco e il colore della parola grande (crema / giallo).
+_G = __import__('datetime').date.today().toordinal()
+VARIANTE = {'scambia': _G % 2 == 1, 'colore_parola': (255, 214, 0) if (_G // 2) % 2 else (252, 240, 222)}   # 4 combinazioni che si ripetono ogni 4 giorni
+
+
 def riflettore_base(luoghi, alto):
     meta = W // 2
     ordina = sorted(luoghi[:2], key=lambda l: 0 if l.get('ricco') else 1)
+    if VARIANTE['scambia']:   # 8 nov (Giorgio): piccolo ritocco a giorni alterni, il paese ricco una volta a sinistra e una a destra
+        ordina = ordina[::-1]
     im = Image.new('RGBA', (W, H)); maschere = []
     for k, l in enumerate(ordina):
         mi, mm = mezza([str(c) for c in l.get('iso') or []], LIME if l.get('ricco') else RUGGINE, meta, True, alto)
@@ -213,7 +221,7 @@ def copertina_b2(luoghi, domanda, path):
         y2 = 30
     f2, fs2 = testo_fit(d, grande, 'Poppins-ExtraBold.ttf', 270, W - 140)
     d.text((W / 2 + 10, y2 + fs2 * .55 + 12), grande, font=f2, fill=(0, 0, 0, 170), anchor='mm')
-    d.text((W / 2, y2 + fs2 * .55), grande, font=f2, fill=(252, 240, 222), anchor='mm', stroke_width=4, stroke_fill=(20, 40, 30))
+    d.text((W / 2, y2 + fs2 * .55), grande, font=f2, fill=VARIANTE['colore_parola'], anchor='mm', stroke_width=4, stroke_fill=(20, 40, 30))
     for k, l in enumerate(ordina):
         metti_cartellino(im, mm[k], k * meta, meta, str(l.get('prezzo') or ''), bool(l.get('ricco')), [(0, 0, W, y2 + fs2 * 1.1)])
     im.convert('RGB').resize((1280, 720), Image.LANCZOS).save(path, quality=93)
@@ -225,7 +233,8 @@ Our thumbnail shows the TWO places of the video with a price tag each (true GDP 
 {{"luoghi": [{{"nome": "USA", "iso": ["USA"], "prezzo": "$82,000", "ricco": true}}, {{"nome": "LATIN AMERICA", "iso": ["MEX","BRA","ARG","COL","PER","CHL","VEN","ECU","BOL","PRY","URY"], "prezzo": "$9,000", "ricco": false}}],
  "scritta": "2-3 words in CAPS, the LAST word is the big one, e.g. SAME CONTINENT?  SAME ALPS?  2X RICHER?", "fonte": "one line: data used (GDP per capita, year, source)"}}
 Rules: exactly 2 places, the rich one first; "prezzo" = GDP per capita in current US$, rounded, with $ and comma; ISO-3 codes of every country of each place;
-for a single country video use that country and the most meaningful neighbour; for a world video use the richest countries vs the poorest ones."""
+for a single country video use that country and the most meaningful neighbour; for a world video use the richest countries vs the poorest ones.
+The "scritta" must be about the REAL question of THIS video (the same promise as the title), so the viewer finds in the video exactly what the thumbnail asks."""
 
 
 def _file_parole():

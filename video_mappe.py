@@ -257,6 +257,19 @@ def claude(prompt, max_tokens=32000):
     return ''.join(pezzi)
 
 
+# 8 nov (Giorgio, Rich Borders: la gente esce dopo 20-50 secondi): colonna script_retention = SI aggiunge queste regole al copione.
+SCRIPT_RETENTION = str(P.get('script_retention') or E('SCRIPT_RETENTION', '')).strip().upper() == 'SI'
+RETENTION_MAPPE = """
+RETENTION RULES (TOP PRIORITY: viewers must stay until the end):
+1. THE FIRST SENTENCE ANSWERS THE CLICK: it states the exact question/promise of the title and thumbnail with the most surprising number. In the first 30 seconds give the first surprising fact and say clearly what the viewer will understand by the end. No slow background, no "many people think...", no context before the hook.
+2. NEVER copy personal stories of the original creator ("my wife", "my family", "I visited", "last time on this channel"): we are a different channel. Turn them into neutral facts or drop them.
+3. The video must deliver EXACTLY what the title and thumbnail promise (same countries, same question): every scene moves towards that answer. No long side stories.
+4. OPEN LOOPS: about every 90 seconds open a curiosity that is closed later ("but the real reason is something else, and it comes from one single decision in 1928"). Always close the loops you open.
+5. CRESCENDO: reveal the causes from the weakest to the strongest; the strongest reason and the final answer come at the end.
+6. RHYTHM: short sentences, one new fact in every scene, a direct question to the viewer from time to time; no summaries, no repetitions, no filler.
+"""
+
+
 ANTEPRIMA = '''THE FIRST {sec} SECONDS ARE A "COMING UP" TEASER (like MrBeast): the first 1-2 scenes (about {parole} words in total) have "anteprima": true.
   Their narration teases the most surprising moments of the WHOLE video in quick fragments (e.g. "A border where one step makes you eight times richer. A gold rush that made one side poor. And the single decision that changed everything."), ending with the big question.
   Their map shows those moments: change "vista" to a DIFFERENT place for each fragment and put one event every 3-4 words (prezzo, numero, colonna, freccia, scritta): fast and spectacular.
@@ -293,6 +306,7 @@ WRITE: an {LINGUE.get(LINGUA, LINGUA)} narration of about {parole} words, split 
 Tone: curious, punchy, simple words, short sentences, questions that create suspense. The first scene is a strong hook (a paradox or a shocking number). No greeting, no "in this video". End with a one-sentence takeaway.
 Narration must be easy to read aloud: write numbers as people say them ("eight times", "300 years", "1700"), never use symbols like × or %.
 Use only facts you are confident are true; round numbers are fine ("about", "almost").
+{RETENTION_MAPPE if SCRIPT_RETENTION else ''}
 
 For EVERY scene you also direct the MAP (equirectangular world map with shaded relief):
 - "vista": camera {{"lon": center longitude, "lat": center latitude, "larghezza": degrees of longitude visible (8 = one small country, 30 = a region, 120 = a continent, 300 = whole world)}}. Change it often (zoom in / out / pan), like a documentary.
