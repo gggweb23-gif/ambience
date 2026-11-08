@@ -10,7 +10,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import avvio_canali as A
 
 CANALE = os.environ.get('CANALE', 'Storia in Minuti').strip()
-titolo = open('titolo.txt', encoding='utf-8').read().strip()
+titolo = re.sub(r'\s*\[NO AI\]\s*$', '', open('titolo.txt', encoding='utf-8').read().strip())   # 8 nov: il segno [NO AI] e' solo per il caricamento a mano
 c = json.load(open('copione.json', encoding='utf-8'))
 cfg = next(x for x in A.righe(A.CONFIGS)[2] if str(x.get('channel_id') or '').strip() == CANALE)
 fid = str(cfg.get('scout_production_sheet_id') or '').strip()
