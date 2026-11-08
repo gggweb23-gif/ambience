@@ -118,11 +118,15 @@ def piano():
 
 # ------------------------------------------------------------------ 2) statua (fal)
 STATUA = ('Hyper-detailed photorealistic statue carved in smooth dark-grey and charcoal marble, monochrome stone, in the style of epic Stoic YouTube thumbnails. '
-          'A YOUNG, vigorous, powerful Greek warrior-philosopher in his early 30s, with a HUGE bodybuilder physique: massive chest, broad shoulders, '
-          'enormous arms, thick neck, deeply carved abs and visible veins. {aspetto}, strong jaw. '
+          '{figura} {aspetto}, strong jaw. '
           'Intense, fierce, dominant stare with a deep frown, the eyes look straight at the viewer. {posa}. '
           'Dramatic cinematic light from above and the side, strong rim light on the muscles, deep black shadows, very high contrast, '
           'polished clean stone surface with fine sculpted detail, conveys perfection and raw power. {fondo} No text, no logo, no watermark.')
+
+
+# 8 nov 2026 (Giorgio, copertine tutte uguali): colonna statua_figura = chi e' la statua (vuota = il giovane muscoloso di sempre)
+FIGURA = str(CFG.get('statua_figura') or '').strip() or ('A YOUNG, vigorous, powerful Greek warrior-philosopher in his early 30s, with a HUGE bodybuilder physique: '
+                                                          'massive chest, broad shoulders, enormous arms, thick neck, deeply carved abs and visible veins.')
 
 
 def fal(modello, dati):
@@ -149,7 +153,7 @@ def statua(pn):
     else:
         posa = 'Waist-up, big in the frame, ' + GESTI[pn['gesto']]
         fondo, formato = 'Plain dark-grey gradient studio background with a little soft smoke at the bottom, nothing else.', '3:4'
-    r = fal(E('MODELLO_STATUA', 'fal-ai/nano-banana-2'), {'prompt': STATUA.format(aspetto=aspetto[0].upper() + aspetto[1:], posa=posa, fondo=fondo),
+    r = fal(E('MODELLO_STATUA', 'fal-ai/nano-banana-2'), {'prompt': STATUA.format(figura=FIGURA, aspetto=aspetto[0].upper() + aspetto[1:], posa=posa, fondo=fondo),
                                                           'aspect_ratio': formato, 'resolution': '1K', 'output_format': 'png', 'num_images': 1})
     f = os.path.join(CART, 'statua.png')
     open(f, 'wb').write(http(r['images'][0]['url'], raw=True))
