@@ -256,6 +256,9 @@ def scena_destra(png, scena, w, h, zoom_extra=1.0):
     return Image.composite(Image.new('RGB', (w, h), (8, 8, 10)), c, v.filter(ImageFilter.GaussianBlur(w * .09)))
 
 
+EVIDENZA_BOX = [True]   # True = parola chiave nel riquadro verde | False = parola scritta in verde
+
+
 def riga(d, txt, x, y, larg, col, box, sz_max):
     sz = sz_max
     while sz > 30:
@@ -264,6 +267,8 @@ def riga(d, txt, x, y, larg, col, box, sz_max):
             break
         sz -= 3
     b = f.getbbox(txt); tw = b[2] - b[0]
+    if box and not EVIDENZA_BOX[0]:   # 8 nov (MANO LIBERA): parola chiave scritta in verde, senza riquadro (come fanno i competitor col giallo)
+        col, box = box, None
     if box:
         p = sz * .1
         d.rectangle([x - p, y + b[1] - p * .7, x + tw + p, y + b[3] + p * .7], fill=box)
@@ -307,7 +312,9 @@ def impaginazione():
 
 
 def copertina(png, pn):
-    imp = impaginazione(); log('impaginazione copertina:', imp['nome'])
+    imp = impaginazione()
+    EVIDENZA_BOX[0] = __import__('datetime').date.today().toordinal() % 2 == 0   # 8 nov: riquadro verde e parola verde a giorni alterni
+    log('impaginazione copertina:', imp['nome'], '| parola chiave', 'nel riquadro verde' if EVIDENZA_BOX[0] else 'scritta in verde')
     STATUA_X[0] = 10 ** 6
     c = scena_destra(png, pn['scena'], W, H, imp['zoom'])
     if imp['specchia']:   # filosofo a sinistra, scritte a destra
