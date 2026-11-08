@@ -89,6 +89,7 @@ jobs:
           VOCE: ${{ inputs.voce }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          FAL_KEY: ${{ secrets.FAL_KEY }}   # 8 nov: copertina AI (colonna copertina_ai = SI)
           YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
           YT_REFRESH_TOKEN: ${{ secrets[(inputs.payload != '' && fromJSON(inputs.payload).chiave_youtube) || 'NESSUNA_CHIAVE'] }}

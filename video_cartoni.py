@@ -185,10 +185,11 @@ INQUADRATURE (il video e' tutto disegnato: ogni scena ha 2-4 inquadrature, una n
 PROTAGONISTA: definiscilo una volta: {{"nome", "capelli": marco|giulia|short|long|curly|bun|bald|cap|chef, "colore_capelli": "#hex", "pelle": chiara|media|scura, "maglia": "#hex", "grembiule": "#hex" o "", "occhiali": true/false}}.
 CAPITOLI: in 6-9 scene metti "capitolo": "titolo breve del capitolo" (la prima scena NO, e' il gancio).
 COPERTINA: "copertina": {{"righe": [3 righe brevi e grammaticalmente corrette, max 16 caratteri l'una, maiuscole CON gli accenti (CAFFÈ, PERCHÉ), es. "400 MAGLIETTE", "VENDUTE...", "E IN ROSSO"], "emozione": stupito|preoccupato, "oggetto": "...", "prezzo": "20 €", "fondo": scuro|chiaro}}.
+COPERTINA AI: "copertina_ai": {{"valore_sx": quanto COSTA (prezzo di costo, es. "0,10 €", "2,40 €", "18 €/ORA"), "valore_dx": a quanto LO VENDI (es. "1,20 €", "8 €", "40 €/MESE"), "oggetto_sx": "in inglese: cosa disegnare dal lato del costo (es. a small heap of pizza ingredients: flour bag, tomato, mozzarella)", "oggetto_dx": "in inglese: cosa disegnare dal lato della vendita (es. a big hot margherita pizza on a wooden peel)", "domanda": ["prima riga, max 18 caratteri, maiuscole con accenti", "seconda riga max 18 caratteri"] (la domanda che fa cliccare, es. ["E ALLORA PERCHÉ", "IL BAR CHIUDE?"])}}. I valori devono essere numeri veri del video.
 YOUTUBE: "descrizione" (3-5 frasi che invogliano, senza capitoli), "tag" (12-18 tag in italiano), "oggetto" (l'oggetto simbolo della puntata, es. "caffe", "pizza").
 
 Rispondi SOLO con il JSON:
-{{"titolo": "{titolo}", "protagonista": {{...}}, "oggetto": "...", "copertina": {{...}}, "descrizione": "...", "tag": [...],
+{{"titolo": "{titolo}", "protagonista": {{...}}, "oggetto": "...", "copertina": {{...}}, "copertina_ai": {{...}}, "descrizione": "...", "tag": [...],
  "scene": [{{"testo": "...", "capitolo": "", "inquadrature": [{{"parola": "", "tipo": "luogo", "p": {{...}}}}, ...]}}, ...]}}"""
     c = json_da(claude(prompt))
     tot = sum(len(s.get('testo', '')) for s in c.get('scene', []))
@@ -256,6 +257,53 @@ def parole(al, atempo, lead):
 
 
 # ============================================================ 3) MONTAGGIO
+def copertina_ai(pg, ca, ctx, cop):
+    """Bozza disegnata (gratis) -> fal nano-banana-2/edit (~0,08 $) -> controllo delle scritte con Claude (1 riprova) -> banda con targa e domanda.
+    Se qualcosa non va resta la copertina disegnata: mai una copertina con scritte sbagliate."""
+    bozza = os.path.join(LAV, 'bozza_copertina.jpg')
+    pg.evaluate('c => bozza_ai(c)', dict(ca, oggetto=ctx.get('oggetto'))); pg.wait_for_timeout(300)
+    pg.screenshot(path=bozza, type='jpeg', quality=92)
+    vs, vd = str(ca.get('valore_sx') or '').strip(), str(ca.get('valore_dx') or '').strip()
+    prompt = ('Redesign this rough YouTube thumbnail draft for an Italian channel about how much businesses really earn, as a polished 2D cartoon / flat vector explainer thumbnail: '
+              'clean thick dark outlines, bright friendly colours, soft gradients and subtle shadows, very readable on a phone, 16:9. Keep the same layout: red left half, green right half '
+              'with a slightly diagonal split, a big glossy yellow-orange arrow from left to right, and a plain dark navy band across the bottom 30% of the image. '
+              f'LEFT (red): {ca.get("oggetto_sx") or "what it costs"}. RIGHT (green): {ca.get("oggetto_dx") or "what it is sold for"}. '
+              f'The ONLY texts in the image, spelled EXACTLY like this: "COSTA" at the top left and "LO VENDI" at the top right, both WHITE with a dark outline; '
+              f'the values "{vs}" (left) and "{vd}" (right) in bold rounded YELLOW lettering with a dark outline, small sparkles around the right value. '
+              'No other words, letters or labels anywhere (no English words, no brand names). The dark bottom band must stay COMPLETELY EMPTY. No logo, no watermark.')
+    H = {'Authorization': 'Key ' + E('FAL_KEY', ''), 'Content-Type': 'application/json'}
+    rif = 'data:image/jpeg;base64,' + base64.b64encode(open(bozza, 'rb').read()).decode()
+    for tentativo in range(2):
+        inv = http('https://queue.fal.run/fal-ai/nano-banana-2/edit', {'prompt': prompt, 'image_urls': [rif], 'aspect_ratio': '16:9', 'resolution': '2K', 'output_format': 'jpeg', 'num_images': 1}, H)
+        CO.registra('fal', 'fal-ai/nano-banana-2/edit', dollari=0.08, nota='copertina AI')
+        for _ in range(150):
+            time.sleep(4)
+            if http(inv['status_url'], headers=H).get('status') == 'COMPLETED':
+                break
+        url = http(inv['response_url'], headers=H)['images'][0]['url']
+        img = os.path.join(LAV, f'copertina_ai_{tentativo}.jpg')
+        with urllib.request.urlopen(url, timeout=120) as r:
+            open(img, 'wb').write(r.read())
+        # controllo scritte (Claude guarda l'immagine): solo COSTA, LO VENDI e i due valori, scritti giusti
+        dom = ('Look at this thumbnail image. Answer ONLY with JSON {"ok": true|false, "motivo": "..."}. ok = true ONLY if: the texts "COSTA", "LO VENDI", '
+               f'"{vs}" and "{vd}" are present and spelled exactly, there is NO other readable word or label anywhere, and the bottom dark band is empty.')
+        j = http('https://api.anthropic.com/v1/messages', {'model': MODELLO, 'max_tokens': 300, 'messages': [{'role': 'user', 'content': [
+            {'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(open(img, 'rb').read()).decode()}},
+            {'type': 'text', 'text': dom}]}]}, {'x-api-key': E('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01'})
+        CO.registra('claude', MODELLO, j.get('usage'), nota='controllo copertina AI')
+        t = ''.join(b.get('text', '') for b in j.get('content', []) if b.get('type') == 'text')
+        esito_c = json_da(t) if '{' in t else {'ok': False, 'motivo': t[:100]}
+        log(f'copertina AI tentativo {tentativo + 1}:', 'OK' if esito_c.get('ok') else 'scritte da rifare (' + str(esito_c.get('motivo'))[:120] + ')')
+        if esito_c.get('ok'):
+            d = (ca.get('domanda') or ['', '']) + ['', '']
+            pg.goto('file://' + os.path.join(MOT, 'video.html')); pg.wait_for_timeout(300)
+            pg.evaluate('([a, b, c]) => finale_ai(a, b, c)', ['file://' + img, d[0], d[1]]); pg.evaluate('document.fonts.ready'); pg.wait_for_timeout(700)
+            pg.screenshot(path=cop, type='jpeg', quality=92)
+            log('copertina AI pronta (COSTA / LO VENDI + targa)')
+            return
+    raise RuntimeError('scritte sbagliate anche al secondo tentativo')
+
+
 def monta(c, order, ctx):
     from playwright.sync_api import sync_playwright
     os.makedirs(os.path.join(LAV, 'scene'), exist_ok=True)
@@ -289,6 +337,11 @@ def monta(c, order, ctx):
         pg.set_viewport_size({'width': 1280, 'height': 720})
         pg.evaluate('([c, x]) => copertina(c, x)', [c.get('copertina') or {}, ctx]); pg.wait_for_timeout(200)
         pg.screenshot(path=cop, type='jpeg', quality=92)
+        if str(P.get('copertina_ai') or '').strip().upper() == 'SI' and c.get('copertina_ai'):   # 8 nov (Giorgio): stile COSTA / LO VENDI rifinito con l'AI
+            try:
+                copertina_ai(pg, c['copertina_ai'], ctx, cop)
+            except Exception as e:
+                log('copertina AI non riuscita, resta quella disegnata:', str(e)[:200])
         br.close()
     errori = [m for m in msg if m.startswith('errore')]
     if errori:

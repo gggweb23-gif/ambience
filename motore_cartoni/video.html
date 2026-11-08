@@ -82,4 +82,24 @@ window.copertina = (c, ctx) => {
   });
   sv.innerHTML = s;
 };
+// ===== COPERTINA AI (8 nov 2026, Giorgio): bozza "COSTA / LO VENDI" che l'AI rifinisce, poi banda con targa e domanda (scritte sempre dal codice)
+window.bozza_ai = (c) => {
+  const sv = document.getElementById('s'); sv.setAttribute('width', 1280); sv.setAttribute('height', 720); sv.setAttribute('viewBox', '0 0 1920 1080');
+  let s = `<rect width="1920" height="1080" fill="#1F2A44"/><path d="M0 0 H1060 L860 760 H0z" fill="#E8484F"/><path d="M1060 0 H1920 V760 H860z" fill="#23A866"/>`;
+  s += T(330, 140, 'COSTA', 110, '#fff', {st: INK, sw: 22}) + oggetto(c.oggetto_sx || c.oggetto || 'scatola', 330, 380, 1.6, 0) + T(330, 640, S(c.valore_sx || ''), 120, Y, {st: INK, sw: 24});
+  s += T(1480, 140, 'LO VENDI', 110, '#fff', {st: INK, sw: 22}) + oggetto(c.oggetto_dx || c.oggetto || 'scatola', 1480, 380, 1.9, 0) + T(1480, 640, S(c.valore_dx || ''), 130, Y, {st: INK, sw: 24});
+  s += arrow(600, 400, 1160, 400, Y, 34) + `<rect x="0" y="760" width="1920" height="320" fill="${INK}"/>`;
+  sv.innerHTML = s;
+};
+window.finale_ai = (img, r1, r2) => {
+  const sv = document.getElementById('s'); sv.setAttribute('width', 1280); sv.setAttribute('height', 720); sv.setAttribute('viewBox', '0 0 1280 720');
+  const V = '#23A866', t = (x, y, txt, fs, fill) => `<text x="${x}" y="${y}" font-size="${fs}" font-weight="800" fill="${fill}" text-anchor="middle">${txt}</text>`;
+  const fit = (txt, fs, max) => { while (fs > 30 && String(txt).length * fs * .6 > max) fs -= 2; return fs; };
+  let s = `<image href="${img}" x="0" y="0" width="1280" height="720"/><rect x="0" y="508" width="1280" height="212" fill="${INK}"/>`;
+  s += `<g transform="translate(285 614) scale(1.02)"><rect x="-230" y="-62" width="460" height="124" rx="24" fill="#fff" stroke="${INK}" stroke-width="6"/><rect x="-230" y="-62" width="118" height="124" rx="24" fill="${V}" stroke="${INK}" stroke-width="6"/>`
+    + `<g transform="translate(-171 4)"><g stroke="${INK}" stroke-width="5" fill="#fff"><rect x="-38" y="0" width="20" height="34"/><rect x="-11" y="-18" width="20" height="52"/><rect x="16" y="-38" width="20" height="72"/></g><path d="M-41 -14 L-9 -36 L17 -52 L31 -60" stroke="${Y}" stroke-width="6" fill="none" stroke-linecap="round"/></g>`
+    + t(60, -6, "ECONOMIA D'IMPRESA", 29, INK) + t(60, 34, 'SPIEGATA FACILE', 28, V) + `</g>`;
+  s += t(910, 598, S(String(r1 || '').toUpperCase()), fit(r1, 58, 560), '#fff') + t(910, 668, S(String(r2 || '').toUpperCase()), fit(r2, 66, 560), Y);
+  sv.innerHTML = s;
+};
 </script></body></html>
