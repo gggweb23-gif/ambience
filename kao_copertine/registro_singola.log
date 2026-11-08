@@ -1,7 +1,12 @@
+Canale: KAO PSICOLOGIA
+Competitor letti dal foglio: 29 video
+Video dal 2026-09-21 senza copertina nuova: 1
+              FdUCMaZwLKI  Dove vai quando dormi?  [nuovo stile]
+copia competitor s8Hkd7FWNhg -> FdUCMaZwLKI (100% uguale): DOVE / VAI?
 Traceback (most recent call last):
-  File "/home/runner/work/ambience/ambience/copertine_cinema_kao.py", line 60, in <module>
-    ch = http('https://www.googleapis.com/youtube/v3/channels?part=contentDetails,snippet&mine=true', headers=AUTH)['items'][0]
-         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/ambience/ambience/copertine_cinema_kao.py", line 301, in <module>
+    FONT = os.path.join(BASE, 'Anton.ttf'); open(FONT, 'wb').write(http('https://github.com/google/fonts/raw/main/ofl/anton/Anton-Regular.ttf', raw=True))
+                                                                   ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/home/runner/work/ambience/ambience/copertine_cinema_kao.py", line 42, in http
     with urllib.request.urlopen(urllib.request.Request(url, data=body, headers=h, method=metodo), timeout=timeout) as r:
          ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -20,4 +25,4 @@ Traceback (most recent call last):
     result = func(*args)
   File "/usr/lib/python3.14/urllib/request.py", line 611, in http_error_default
     raise HTTPError(req.full_url, code, msg, hdrs, fp)
-urllib.error.HTTPError: HTTP Error 403: Forbidden
+urllib.error.HTTPError: HTTP Error 504: Gateway Time-out
