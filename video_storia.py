@@ -4402,7 +4402,8 @@ def main():
     elif not COP_VIDEO:   # copertina UFFICIALE (bandiera + figura): fatta qui, prima del caricamento, e caricata insieme al video
         try:
             dir_cop = os.path.join(ROOT, 'copertine_storia')
-            env = dict(os.environ, TITOLO_PROVA=titolo_finale, COPERTINA_FORMATO=str(P.get('copertina_formato') or 'coppia'))
+            env = dict(os.environ, TITOLO_PROVA=titolo_finale, COPERTINA_FORMATO=str(P.get('copertina_formato') or 'coppia'),
+                       TRATTO_COPERTINA=str(P.get('copertina_tratto') or os.environ.get('TRATTO_COPERTINA', '')))   # 8 nov: tratto distintivo (es. cornice oro) dalla colonna copertina_tratto
             subprocess.run([sys.executable, os.path.join(ROOT, 'copertine_storia.py')], env=env, cwd=ROOT, timeout=900)
             src_ = os.path.join(dir_cop, 'prova_1.jpg')
             if os.path.exists(src_):
