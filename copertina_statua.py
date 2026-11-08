@@ -303,11 +303,11 @@ def copertina(png, pn):
     if imp['specchia']:   # filosofo a sinistra, scritte a destra
         c = ImageOps.mirror(c)
     d = ImageDraw.Draw(c)
-    larg = (440 if pn['scena'] == 'antagonisti' else 600)
+    larg = (480 if pn['scena'] == 'antagonisti' else 690)   # 8 nov: senza firma e senza RULE c'e' piu' spazio: scritte piu' grandi per il telefono
     if imp['zoom'] < 1:
         larg = int(larg * 1.12)   # filosofo piu' piccolo: scritte piu' grandi
     elif imp['zoom'] > 1:
-        larg = int(larg * .8)   # filosofo in primo piano: scritte piu' strette, mai sopra il volto
+        larg = int(larg * .78)   # filosofo in primo piano: scritte piu' strette, mai sopra il volto
     x = (W - 55 - larg) if imp['specchia'] else 55
     if pn.get('regola'):
         f = ImageFont.truetype(FONT, 54); t = f'RULE #{pn["regola"]}'; b = f.getbbox(t)
