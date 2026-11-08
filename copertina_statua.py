@@ -65,7 +65,8 @@ GESTI = ['pointing his index finger DIRECTLY at the viewer with the arm extended
          'arms crossed firmly on his massive chest, chin slightly raised',
          'one fist clenched in front of his chest, jaw tight',
          'one hand on his chin, thinking deeply, eyes locked on the viewer',
-         'leaning forward with both elbows on his knees, seated, hands clasped']
+         'leaning forward with both elbows on his knees, seated, hands clasped',
+         'one index finger pressed vertically on his lips in a silence gesture, eyes locked on the viewer']
 ASPETTI = ['thick voluminous curly hair and a full thick curly beard', 'short curly hair and a short sculpted beard',
            'long wavy hair tied back and a long flowing beard', 'shaved head and a dense square beard',
            'wild curly hair and a rough beard', 'neat short hair and a thick trimmed beard']
@@ -79,7 +80,7 @@ def piano():
               "2 o 3 righe, MASSIMO 5 parole in tutto, ogni riga al massimo 11 caratteri, tutto MAIUSCOLO. "
               "Una sola riga e' la parola chiave da evidenziare (la piu' emotiva).\n"
               "Scegli anche la SCENA: \"antagonisti\" se il titolo parla di persone che provocano, manipolano, mancano di rispetto, nemici, rabbia verso altri; "
-              "altrimenti \"sola\". Scegli il GESTO della statua (indice 0-7) piu' adatto al messaggio: " +
+              "altrimenti \"sola\". Scegli il GESTO della statua (indice 0-" + str(len(GESTI) - 1) + ") piu' adatto al messaggio: " +
               ' | '.join(f'{i}: {g}' for i, g in enumerate(GESTI)) + ". "
               "Scegli l'ASPETTO (indice 0-5): " + ' | '.join(f'{i}: {a}' for i, a in enumerate(ASPETTI)) + ". " +
               ("Dai anche un numero di regola da 1 a 12 coerente col titolo (se il titolo ha un numero di principi, usalo). " if regola else '') +
@@ -112,8 +113,9 @@ def piano():
             elif modo == 'busto':
                 pn['scena'] = 'sola'
                 fil = str(j.get('filosofo') or 'Marcus Aurelius').strip()[:40]
-                pn['figura'] = (f'A classical marble BUST-style statue of the Stoic philosopher {fil}: an older, wise man with a full beard, faithful to his known '
-                                'ancient busts, solemn and severe, strong but NOT a bodybuilder, wearing a draped toga.')
+                # 8 nov (Giorgio): niente vecchi deboli: il filosofo idealizzato GIOVANE e potente, come le statue dei canali che funzionano
+                pn['figura'] = (f'An idealized heroic statue of the Stoic philosopher {fil} as a YOUNG, disciplined, powerful man in his early 30s, recognisable by his '
+                                'hair and beard style, with a HUGE muscular athletic physique (massive chest, broad shoulders, big arms, carved abs), a draped toga over one shoulder only.')
             elif modo == 'sola':
                 pn['scena'] = 'sola'
         ammessi = [int(x) for x in re.findall(r'\d+', str(CFG.get('statua_gesti') or '')) if int(x) < len(GESTI)]   # es. "0,2,3"
@@ -130,7 +132,8 @@ def piano():
 
 
 # ------------------------------------------------------------------ 2) statua (fal)
-STATUA = ('Hyper-detailed photorealistic statue carved in smooth dark-grey and charcoal marble, monochrome stone, in the style of epic Stoic YouTube thumbnails. '
+# 8 nov (Giorgio, come Stoic Journal e Psychoresto): marmo BIANCO lucido e luminoso, uomini giovani, enormi, potenti, disciplinati
+STATUA = ('Hyper-detailed photorealistic statue carved in brilliant polished WHITE Carrara marble with bright glowing highlights, monochrome, in the style of the most successful epic Stoic YouTube thumbnails. '
           '{figura} {aspetto}, strong jaw. '
           'Intense, fierce, dominant stare with a deep frown, the eyes look straight at the viewer. {posa}. '
           'Dramatic cinematic light from above and the side, strong rim light on the muscles, deep black shadows, very high contrast, '
