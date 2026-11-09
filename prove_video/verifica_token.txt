@@ -1,2 +1,6 @@
 segreto: YT_REFRESH_TOKEN_COSTO_VERO
-ERRORE: HTTP Error 400: Bad Request
+token presente: SI | inizia con 1//: NO | spazi/virgolette tolti: NO
+ERRORE: HTTP Error 400: Bad Request {
+  "error": "invalid_grant",
+  "error_description": "Bad Request"
+}
