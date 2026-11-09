@@ -164,6 +164,7 @@ def copione():
     if str(P.get('formato') or '').strip().lower() == 'possesso':
         REGOLE_STORIA = """- Una storia con UN protagonista (nome italiano) che compra la cosa del titolo: il prezzo sul cartellino contro quanto gli costa DAVVERO in tutti gli anni (acquisto o rate e interessi, svalutazione, assicurazione, tasse, manutenzione, consumi, imprevisti), voce per voce.
 - Resta SEMPRE sulla cosa del titolo: niente negozi, margini o punto di pareggio; gli esempi sono solo varianti della stessa cosa (nuova contro usata, piu' piccola, a noleggio).
+- COSTO VERO = tutto quello che paghi in quegli anni (anticipo, rate con interessi, assicurazione, tasse, manutenzione, consumi) MENO quanto ricavi rivendendola alla fine (la svalutazione e' gia' dentro questa sottrazione: mai contarla due volte). Fai e ricontrolla i conti PRIMA di scrivere: ogni totale detto deve tornare con le voci; mai correzioni a voce ("no, aspetta"). Nella ciambella solo le voci che compongono il costo vero.
 - Il colpo di scena e' il costo vero totale e al mese (o al giorno) confrontato col prezzo del cartellino; chiudi con 2-3 trucchi concreti per spendere meno."""
     else:
         REGOLE_STORIA = """- Una storia con UN protagonista (nome italiano) e la sua attivita; ogni concetto spiegato con i suoi numeri, poi con 1-2 esempi DIVERSI di altre attivita (mai ripetere lo stesso esempio).
