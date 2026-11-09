@@ -36,7 +36,7 @@ VOCI_COSTO = str(RIGA.get('voci_costo') or '').strip()
 W, H, FPS = PV.W, PV.H, PV.FPS
 log = YT.log
 MODELLO = 'claude-sonnet-5-5'
-SEC_IMG = 5.0   # Giorgio, 9 nov: un'immagine nuova ogni 5 secondi
+SEC_IMG = 4.0   # 9 nov sera (Giorgio: "il ritmo e' lento"): un'immagine nuova ogni 4 secondi (se il budget lo permette)
 MIN_PAROLE, MAX_PAROLE = 1300, 1450   # 9-10 minuti
 
 
@@ -82,8 +82,10 @@ def leggi_json(t):
 
 # ============================================================ 1) COPIONE (controllato prima di spendere)
 STRUTTURA = """Scene in quest'ordine (tipo e dati):
-1. "cartellino": gancio forte con il prezzo. dati {"prezzo": <prezzo>, "domanda": "MA QUANTO COSTA DAVVERO?"}
-2. "racconto": il protagonista e la sua scelta, perche' la gente sbaglia i conti (crea curiosita').
+1. "cartellino": GANCIO FORTE nei primi 15 secondi (circa 35 parole): prima LA FINE, poi si spiega come ci si arriva. Il prezzo sul cartellino,
+   SUBITO il costo vero e quanto costa al mese, poi la promessa ("ti mostro voce per voce da dove esce questo numero"). Niente introduzioni lente.
+   dati {"prezzo": <prezzo>, "costo_vero": <costo vero = somma delle voci dei dettagli - rivendita>, "al_mese": <costo vero / mesi, arrotondato>, "domanda": "MA QUANTO COSTA DAVVERO?"}
+2. "racconto": max 40 parole, veloce: il protagonista e la sua scelta (la trappola in cui cadono tutti).
 3-8. "dettaglio" (una scena per OGNI voce di spesa, 4-6 scene): dati {"nome": "Assicurazione", "per_anno": <euro all'anno>, "anni": <anni>, "nota": "max 6 parole"}
    (per le rate: "per_anno" = rata annua, il totale rate + interessi e' SEMPRE piu' del prezzo per un acquisto a rate). Spiega bene perche' costa cosi'.
 9. "scontrini": il riepilogo di tutte le voci. dati {"anni": <anni>} (le voci le prende il programma dalle scene "dettaglio")
@@ -102,6 +104,7 @@ def controlla(c):
         for x in c['scene']:
             S_.setdefault(x['tipo'], []).append(x.get('dati') or {})
         prezzo = num(S_['cartellino'][0].get('prezzo')); val = [num(v) for v in S_['valore'][0]['valori']]
+        cv_g = num(S_['cartellino'][0].get('costo_vero'))
         det = [(str(d.get('nome') or ''), num(d.get('per_anno')) * num(d.get('anni'))) for d in S_['dettaglio']]
         tot = sum(v for _, v in det); rate = sum(v for n, v in det if re.search(r'rat|finanz|mutuo', n.lower()))
         if len(det) < 4:
@@ -119,6 +122,8 @@ def controlla(c):
             prob.append(f'tutte le voci devono usare lo stesso numero di anni ({sorted(anni)})')
         if anni and len(val) - 1 != int(list(anni)[0]):
             prob.append(f'i valori anno per anno ({len(val)}) devono essere anni + 1 ({int(list(anni)[0]) + 1})')
+        if abs(cv_g - (tot - val[-1])) > max(50, (tot - val[-1]) * .01):   # il gancio dice la fine: deve essere il numero giusto
+            prob.append(f'il costo vero del gancio ({cv_g:.0f}) deve essere uguale a somma delle voci - rivendita ({tot - val[-1]:.0f})')
         parole = sum(len(str(x.get('voce') or '').split()) for x in c['scene'])
         if parole < MIN_PAROLE - 60:
             prob.append(f'il copione ha {parole} parole: ne servono {MIN_PAROLE}-{MAX_PAROLE} (video di 9-10 minuti)')
@@ -146,13 +151,13 @@ Ogni immagine: {{"persone": true/false, "descr": "...", "frase": "max 5 parole i
 persone=true solo con il protagonista (stesso viso e vestiti); persone=false = oggetti e luoghi SENZA persone{' e SENZA automobili' if AUTO else ''}
 (es. polizza e chiavi su un tavolo, bollettino e penna, salvadanaio, calcolatrice, attrezzi in officina, ciotola e guinzaglio, documenti del notaio).
 {'Il SUV compare SOLO nelle immagini con persone=true, sempre all aperto, in salone o in officina, mai in casa, sempre di lato o di tre quarti da dietro.' if AUTO else ''}
-Almeno 60% delle immagini con persone=false. Tutto da classe media italiana.
+Almeno 75% delle immagini con persone=false. Mai immagini di fogli scritti, scontrini, banconote, schermi o cartelli (le scritte escono illeggibili): oggetti semplici (chiavi, salvadanaio, monete, calcolatrice, gomme, attrezzi, garage, strade). Tutto da classe media italiana.
 Aggiungi: "titolo", "descrizione" (2 brevi paragrafi per YouTube, in italiano), "tag" (12-15 tag in italiano), "protagonista" (descrizione fisica in inglese: eta', capelli, vestiti),
 "riferimento" (in inglese: il protagonista accanto alla cosa, all'aperto o nel posto giusto), "copertina": {{"oggetto": "in inglese: la cosa grande e ben visibile, sfondo semplice"}}.
 Rispondi SOLO con JSON: {{"titolo": "...", "descrizione": "...", "tag": [...], "protagonista": "...", "riferimento": "...", "copertina": {{...}}, "scene": [...]}}"""
     errore = ''
     for tentativo in range(3):
-        c = leggi_json(claude(prompt + errore))
+        c = leggi_json(claude(prompt + errore, sforzo='low'))   # 9 nov: sforzo basso (i conti li controlla il programma): Claude costava 0,46 $
         prob = controlla(c)
         if not prob:
             break
@@ -167,7 +172,7 @@ def copione_finto():
     v = 'Questa e una frase di prova per controllare i tempi del montaggio del video. '
     sf = lambda n, p=False: [{'persone': p, 'descr': 'test', 'frase': f'FRASE DI PROVA {k + 1}'} for k in range(n)]
     det = [('Rate + interessi', 9800, 5), ('Assicurazione', 900, 5), ('Bollo', 420, 5), ('Tagliandi e gomme', 650, 5)]
-    S = [{'tipo': 'cartellino', 'capitolo': 'Il prezzo', 'voce': v * 2, 'dati': {'prezzo': 45000}, 'sfondi': sf(4, True)},
+    S = [{'tipo': 'cartellino', 'capitolo': 'Il prezzo', 'voce': v * 2, 'dati': {'prezzo': 45000, 'costo_vero': 37850}, 'sfondi': sf(4, True)},
          {'tipo': 'racconto', 'capitolo': 'La scelta', 'voce': v * 3, 'dati': {}, 'sfondi': sf(6)}]
     S += [{'tipo': 'dettaglio', 'capitolo': n, 'voce': v * 2, 'dati': {'nome': n, 'per_anno': a, 'anni': y, 'nota': 'nota di prova'}, 'sfondi': sf(4)} for n, a, y in det]
     S += [{'tipo': 'scontrini', 'capitolo': 'Riepilogo', 'voce': v * 2, 'dati': {'anni': 5}, 'sfondi': sf(4)},
@@ -279,6 +284,26 @@ def grafica(im, sc, t, d, dati, passo_t, passo_d, passo_i):
     sf = (sc.get('sfondi') or [{}])
     fr_txt = (sf[min(passo_i, len(sf) - 1)] or {}).get('frase') if sf else ''
     sl = lambda a: int(-700 * (1 - ease((t - a) / .45)))
+    if tipo == 'cartellino':   # GANCIO: prima la fine (Giorgio, 9 nov sera)
+        x = sl(.1)
+        pannello(im, (100 + x, 120, 760 + x, 400), (255, 255, 255, 245))
+        scritta(im, (140 + x, 150), 'PREZZO SUL CARTELLINO', 44, GRIGIO)
+        scritta(im, (140 + x, 215), eur(dati['prezzo']), 130, INK, maxw=580)
+        u = ease((t - .9) / .3)
+        if u > 0:
+            ImageDraw.Draw(im).line((130 + x, 360, 130 + x + 600 * u, 250), fill=R, width=14)
+        q = pop((t - 1.3) / .4)
+        if q:
+            pannello(im, (100, 450, 100 + 860 * min(q, 1.05), 720), R + (255,))
+            if q > .9:
+                k = ease((t - 1.5) / 1.2)
+                scritta(im, (140, 470), 'COSTO VERO', 56, BIANCO)
+                scritta(im, (140, 540), eur(dati['costo_vero'] * k), 140, BIANCO, maxw=780)
+        if t > 3.2:
+            a = ease((t - 3.2) / .3)
+            pannello(im, (100, 770, 760, 900), Y + (255,), alpha=a)
+            scritta(im, (140, 785), f"{eur(dati['mese'])} AL MESE", 90, INK, alpha=a, maxw=580)
+        return
     if tipo == 'racconto':
         frase(im, fr_txt, passo_t, passo_d); return
     if tipo == 'dettaglio':
@@ -330,6 +355,14 @@ def grafica(im, sc, t, d, dati, passo_t, passo_d, passo_i):
     PV.grafica(im, sc, t, d, dati)   # cartellino, scontrini, valore, calcolo, prossimo: come nella prova approvata
 
 
+def muovi(bg, t, d, i):
+    """Movimento dello sfondo piu' vivo della v6 (9 nov sera, "ritmo lento"): spinta 1,00 -> 1,10 alternata dentro/fuori + scorrimento laterale."""
+    k = t / max(d, .1); k = k if i % 2 == 0 else 1 - k
+    z = 1 + .10 * k; w, h = int(W / z), int(H / z)
+    x0 = int((W - w) * (.5 + (.35 if i % 3 else -.35) * (k - .5))); y0 = int((H - h) * (.5 + .2 * (k - .5)))
+    return bg.crop((x0, y0, x0 + w, y0 + h)).resize((W, H), Image.BICUBIC).convert('RGBA')
+
+
 SCENE, DATI = [], {}
 
 
@@ -344,9 +377,9 @@ def rendi_scena(i):
                             '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20', '-pix_fmt', 'yuv420p', out], stdin=subprocess.PIPE)
     for k in range(int(round(d * FPS))):
         t = k / FPS; j = min(n - 1, int(t / p)); tl = t - j * p
-        fr = PV.sfondo_frame(bgs[j], tl, p, i + j)
-        if j > 0 and tl < .3:
-            fr = Image.blend(PV.sfondo_frame(bgs[j - 1], p, p, i + j - 1), fr, tl / .3)
+        fr = muovi(bgs[j], tl, p, i + j)
+        if j > 0 and tl < .25:
+            fr = Image.blend(muovi(bgs[j - 1], p, p, i + j - 1), fr, tl / .25)
         grafica(fr, s, t, d, DATI, tl, p, j)
         enc.stdin.write(fr.convert('RGB').tobytes())
     enc.stdin.close(); enc.wait()
