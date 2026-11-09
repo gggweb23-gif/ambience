@@ -11,7 +11,7 @@ from PIL import Image, ImageDraw, ImageFont
 E = os.environ.get
 OUT = 'prove_video/Prova_Gloam3'; os.makedirs(OUT, exist_ok=True)
 LAV = '/tmp/gloam3'; os.makedirs(LAV, exist_ok=True)
-VOCE = E('VOCE') or 'pNInz6obpgDQGcFmaJgB'
+VOCE = E('VOCE') or 'Gfpl8Yo74Is0W6cPUWWT'   # 9 nov: voce Max scelta da Giorgio per Gloam
 TEMA = E('TEMA') or 'How Knight Capital Lost $440,000,000 in 45 Minutes (August 1, 2012)'
 FONT = 'ctr_test/Anton.ttf'
 W, H = 1920, 1080
