@@ -12,7 +12,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import iscrizione as ISC
 CONFIGS = os.environ.get('FOGLIO_CONFIGS', '1COMpgHJshcmz_a9s-WsjCO5xbhwxBazt-ZB0G_C7Rb0')
 REPO = os.environ.get('GITHUB_REPOSITORY', 'gggweb23-gif/ambience')
-PEXELS = {'video_produzione.yml', 'video_storia.yml'}   # motori che usano Pexels (si lanciano uno alla volta)
+PEXELS = {'video_produzione.yml', 'video_storia.yml', 'video_gloam.yml'}   # motori che usano Pexels (si lanciano uno alla volta; 9 nov: + Gloam / Billion Ruin)
 PEXELS_IN_CORSO = PEXELS | {'video_kao.yml', 'video_agora.yml', 'filosofo.yml', 'kao_render.yml'}   # come WORKFLOW_PEXELS dei workflow
 _TK = {}
 
@@ -71,7 +71,7 @@ def motore(cfg):
         return None   # avvio_archivio.py
     if gw == 'video_produzione.yml':
         return 'video_produzione.yml'
-    if rw in ('video_storia.yml', 'video_mappe.yml', 'video_cartoni.yml'):   # 7 nov: video_cartoni.yml = cartoni + grafici in codice (Quanto Ti Resta)
+    if rw in ('video_storia.yml', 'video_mappe.yml', 'video_cartoni.yml', 'video_gloam.yml', 'video_possesso.yml'):   # 7 nov: video_cartoni.yml = cartoni + grafici in codice (Quanto Ti Resta); 9 nov: video_gloam.yml (Billion Ruin), video_possesso.yml (Costo Vero)
         return rw
     return None
 
