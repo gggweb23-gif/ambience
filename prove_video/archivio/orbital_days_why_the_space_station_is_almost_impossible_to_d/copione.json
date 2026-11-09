@@ -1,0 +1,632 @@
+{
+ "scene": [
+  {
+   "testo": "The International Space Station has been hit by space debris hundreds of times. It is still flying. It travels at 17,500 mph, circles Earth every 90 minutes, and has been crewed without a break since November 2, 2000.",
+   "q": "astronaut floating space station",
+   "tag": [
+    "astronaut",
+    "floating",
+    "module"
+   ],
+   "scritta": "17,500 MPH",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "A Target in Orbit",
+   "anno": 0
+  },
+  {
+   "testo": "Imagine you are floating inside it at 6 AM. The alarm sounds. Your sleeping bag is strapped to a wall. Outside a window, 250 miles below, Earth glows blue. And everything out there is trying to kill you.",
+   "q": "astronaut sleeping bag crew quarters",
+   "tag": [
+    "sleeping bag",
+    "crew",
+    "quarters"
+   ],
+   "scritta": "",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "No air outside. Temperatures swing from about minus 250 degrees Fahrenheit in shadow to plus 250 degrees in sunlight. Radiation pours in. Tiny bits of debris fly past at speeds faster than any bullet. So why is this place still alive?",
+   "q": "astronaut looking window earth",
+   "tag": [
+    "window",
+    "astronaut",
+    "cupola"
+   ],
+   "scritta": "-250°F / +250°F",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Here is what most people get wrong. The station is not indestructible. Nothing in space is. It is fragile, built from metal skin only fractions of an inch thick in places. It survives because of how it is built, watched, and repaired.",
+   "q": "space station exterior orbit",
+   "tag": [
+    "station",
+    "solar arrays",
+    "truss"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Start with its size. The station stretches about 357 feet end to end, roughly the length of a football field including the end zones. It weighs around 925,000 pounds. Picture 200 pickup trucks, all floating above your head.",
+   "q": "international space station flyby",
+   "tag": [
+    "station",
+    "solar panels",
+    "orbit"
+   ],
+   "scritta": "357 FEET",
+   "obbligo": [],
+   "capitolo": "A Floating Giant",
+   "anno": 0
+  },
+  {
+   "testo": "It was not launched in one piece. No rocket could carry it. Starting in November 1998, crews bolted it together in orbit, module by module, over more than a decade. The first crew moved in on November 2, 2000.",
+   "q": "station assembly construction orbit",
+   "tag": [
+    "assembly",
+    "module",
+    "robotic arm"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 1998
+  },
+  {
+   "testo": "That slow, piece by piece design is a survival trick. If one module is damaged, hatches can be closed to seal it off. The crew can retreat to another section and keep breathing while the problem is fixed.",
+   "q": "astronaut hatch module station",
+   "tag": [
+    "hatch",
+    "module",
+    "astronaut"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Now imagine the first danger. It is smaller than a grain of rice. Space is full of leftover rocket parts, dead satellites, and flecks of paint, all racing around Earth at several miles per second.",
+   "q": "space debris orbit animation",
+   "tag": [
+    "debris",
+    "orbit",
+    "satellites"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "Bullets in Orbit",
+   "anno": 0
+  },
+  {
+   "testo": "At that speed, a paint flake hits harder than a rifle round. NASA has documented chips in station windows from tiny impacts. You can see a pit in the glass, small, but real, and a reminder of what is out there.",
+   "q": "window chip debris impact",
+   "tag": [
+    "window",
+    "impact",
+    "glass"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "So engineers built armor. The station wears shields called Whipple shields. The idea is simple: a thin outer sheet makes a speeding particle shatter into a cloud, and that weaker cloud is stopped by the layers behind.",
+   "q": "debris shield test impact",
+   "tag": [
+    "shield",
+    "impact test",
+    "armor"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Think of it like a bullet hitting a pillow of water balloons. The first layer breaks the object apart. The next layers catch the pieces. NASA tests this by firing small projectiles at shield samples at extreme speeds.",
+   "q": "hypervelocity impact test lab",
+   "tag": [
+    "impact test",
+    "projectile",
+    "shield"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "The most critical modules get the heaviest shielding. Crew living areas are protected better than less important parts. It is a trade-off, because every pound of armor costs a fortune to launch. Nothing is perfectly safe, and NASA says so.",
+   "q": "station module interior crew",
+   "tag": [
+    "module",
+    "interior",
+    "crew"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "But armor only works against the small stuff. What about something bigger, say a piece of dead satellite the size of a baseball? Shields cannot stop that. So the station does something clever. It dodges.",
+   "q": "station orbit earth view",
+   "tag": [
+    "station",
+    "orbit",
+    "earth limb"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "Dodging the Danger",
+   "anno": 0
+  },
+  {
+   "testo": "Ground teams track thousands of pieces of debris. When a large piece is predicted to pass too close to the station, controllers can fire thrusters to nudge it out of the way. Flight controllers call this a debris avoidance maneuver.",
+   "q": "mission control room flight controllers",
+   "tag": [
+    "mission control",
+    "controllers",
+    "screens"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "These moves are real and documented. They use a rocket engine, either on the station itself or on a docked cargo ship, and they can be planned hours or days ahead. The change in speed is small, but over time it moves the station clear.",
+   "q": "cargo spacecraft docked station",
+   "tag": [
+    "cargo ship",
+    "docked",
+    "thrusters"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Sometimes the warning comes too late to move. Then the crew does something that sounds odd. They climb into their escape ships, close hatches, and wait. If the station is hit, they can leave. Then they wait for the object to pass.",
+   "q": "astronauts docked capsule shelter",
+   "tag": [
+    "capsule",
+    "astronaut",
+    "hatch"
+   ],
+   "scritta": "",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "NASA has documented these shelter events on the station. Crews have been told to move into their return capsules as a precaution while debris passed close by. In every documented case, the crew came out safe.",
+   "q": "astronauts inside soyuz capsule",
+   "tag": [
+    "soyuz",
+    "capsule",
+    "astronaut"
+   ],
+   "scritta": "",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Now step back. The station sits about 250 miles up. That is roughly the distance from New York City to Washington, D.C., but straight up. At that height, there is still a trace of air, and that matters too.",
+   "q": "earth horizon atmosphere thin line",
+   "tag": [
+    "atmosphere",
+    "horizon",
+    "earth limb"
+   ],
+   "scritta": "250 MILES",
+   "obbligo": [],
+   "capitolo": "A Slow Fall",
+   "anno": 0
+  },
+  {
+   "testo": "That faint air drags on the station, and it slowly sinks. Over time the orbit drops. Left alone, the station would eventually fall back into the atmosphere. To prevent that, it needs a regular push upward, called a reboost.",
+   "q": "station reboost thrusters",
+   "tag": [
+    "thrusters",
+    "reboost",
+    "firing"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Docked cargo ships fire their engines to lift the station higher. Fuel arrives on supply flights, and the whole system depends on the next delivery. In a way, staying in orbit is a constant, quiet fight against gravity and air.",
+   "q": "cargo ship approaching station",
+   "tag": [
+    "cargo ship",
+    "approach",
+    "docking"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Then there is the heat problem. Imagine one side of the station baking in sunlight while the other side freezes. Every 90 minutes, the station goes from day to night and back. That is about 16 sunrises every 24 hours.",
+   "q": "sunrise from space station",
+   "tag": [
+    "sunrise",
+    "orbit",
+    "earth horizon"
+   ],
+   "scritta": "16 SUNRISES",
+   "obbligo": [],
+   "capitolo": "Fire and Ice",
+   "anno": 0
+  },
+  {
+   "testo": "Metal expands when hot and shrinks when cold. A structure that swings between plus 250 degrees and minus 250 degrees Fahrenheit, 16 times a day, should crack. Engineers had to design every joint to flex, and every material to handle that stress.",
+   "q": "station truss solar array structure",
+   "tag": [
+    "truss",
+    "solar array",
+    "structure"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "To manage the heat, the station uses radiators, big panels that dump extra heat into space. A liquid ammonia loop outside carries heat away from the modules. Inside, water loops do the same job. Your coffee stays warm, and your computer stays cool.",
+   "q": "station radiator panels",
+   "tag": [
+    "radiator",
+    "panels",
+    "cooling"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Inside, the air is kept at a comfortable room temperature. Astronauts wear t-shirts and shorts. Yet a few inches away, past the wall, the temperature is deadly. A thin shell separates a cozy cabin from an outside that would kill you.",
+   "q": "astronaut cabin interior working",
+   "tag": [
+    "astronaut",
+    "interior",
+    "cabin"
+   ],
+   "scritta": "",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Next, the real nightmare, a leak. The cabin air is held at about 14.7 pounds per square inch, the same as at sea level on Earth. Outside it is zero. Any hole is a path for your air to escape into space.",
+   "q": "station interior modules air",
+   "tag": [
+    "interior",
+    "module",
+    "crew"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "Fighting the Leak",
+   "anno": 0
+  },
+  {
+   "testo": "This has actually happened. In August 2018, the crew noticed a slow drop in cabin pressure. They found a hole about two millimeters wide in a docked Soyuz spacecraft. The leak was small, but it was real.",
+   "q": "soyuz docked station leak",
+   "tag": [
+    "soyuz",
+    "docked",
+    "spacecraft"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 2018
+  },
+  {
+   "testo": "The crew patched it with sealant and tape as a temporary fix. Specialists on the ground helped them decide what to do. The spacecraft stayed attached, and the crew returned home on schedule. The cause of the hole was investigated afterward.",
+   "q": "astronaut repair work station",
+   "tag": [
+    "astronaut",
+    "repair",
+    "tools"
+   ],
+   "scritta": "",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "",
+   "anno": 2018
+  },
+  {
+   "testo": "Another slow leak was tracked for years in a Russian module. Crews and engineers monitored a small crack, sealing and checking it. NASA has said the leak rate changed over time, and teams kept watching it closely.",
+   "q": "astronaut inspecting module",
+   "tag": [
+    "astronaut",
+    "inspection",
+    "module"
+   ],
+   "scritta": "",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Notice the pattern. Leaks are found early, because sensors watch pressure all the time. The crew can close hatches between sections and test each one. A problem is isolated before it becomes a disaster. That is the station's greatest defense.",
+   "q": "astronaut closing hatch",
+   "tag": [
+    "hatch",
+    "astronaut",
+    "closing"
+   ],
+   "scritta": "",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Fire is another fear. A fire in a sealed metal can with no escape is terrifying. The station has smoke detectors, fire extinguishers, and breathing masks. Crews practice fire drills, just like you did in school, only with real stakes.",
+   "q": "astronaut emergency training",
+   "tag": [
+    "astronaut",
+    "training",
+    "emergency"
+   ],
+   "scritta": "",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "Fire and Poison",
+   "anno": 0
+  },
+  {
+   "testo": "Air quality matters too. The station scrubs carbon dioxide out of the air, and machines make oxygen from water. If those systems fail, crews have backups. Without fresh air, a crew has only a limited time, so repairs come first.",
+   "q": "station life support equipment",
+   "tag": [
+    "life support",
+    "equipment",
+    "rack"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Now imagine the day something breaks. A pump dies, a computer crashes, a cable fails. No technician can drive over. So astronauts train for years to fix almost anything themselves, guided by experts on the ground over radio.",
+   "q": "astronaut fixing equipment station",
+   "tag": [
+    "astronaut",
+    "repair",
+    "wrench"
+   ],
+   "scritta": "",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "Fix It Yourself",
+   "anno": 0
+  },
+  {
+   "testo": "Sometimes the fix is outside. Spacewalkers float out in suits, tethered to the station. They swap parts, run cables, and replace broken gear. Each spacewalk can last around six or seven hours, in a suit that is basically a tiny spaceship.",
+   "q": "spacewalk astronaut suit",
+   "tag": [
+    "spacewalk",
+    "suit",
+    "tether"
+   ],
+   "scritta": "",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Spacewalks are dangerous. Suits can leak, helmets can fog, and a drifting tool can become a projectile. In July 2013, water began leaking into an astronaut's helmet during a spacewalk, and the walk was ended early. He got back inside safely.",
+   "q": "spacewalk astronaut helmet",
+   "tag": [
+    "spacewalk",
+    "helmet",
+    "astronaut"
+   ],
+   "scritta": "",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "",
+   "anno": 2013
+  },
+  {
+   "testo": "The station even has a giant robot arm. Canadarm2 is about 57 feet long. It can grab cargo ships, move astronauts, and inspect hull damage. The crew can use it to look at spots no human could reach safely.",
+   "q": "robotic arm canadarm station",
+   "tag": [
+    "robotic arm",
+    "canadarm",
+    "grapple"
+   ],
+   "scritta": "57 FEET",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Spare parts are stored aboard, some of them outside on platforms, ready for a swap. Cargo flights bring new ones. That is how a station launched in pieces over a decade ago keeps flying, one repair at a time.",
+   "q": "cargo delivery station unloading",
+   "tag": [
+    "cargo",
+    "unloading",
+    "supplies"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Radiation is another invisible threat. Above the protection of the atmosphere, particles from the Sun and deep space pass through the walls. Astronauts wear small badges that measure their exposure, and doctors track it over a career.",
+   "q": "astronaut radiation dosimeter",
+   "tag": [
+    "radiation",
+    "dosimeter",
+    "astronaut"
+   ],
+   "scritta": "",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "Invisible Threats",
+   "anno": 0
+  },
+  {
+   "testo": "The station orbits low enough to sit inside part of Earth's magnetic shield, which helps. But solar storms can still raise the danger. Crews can move to better protected areas of the station, and teams on the ground watch the Sun.",
+   "q": "solar flare sun observation",
+   "tag": [
+    "solar flare",
+    "sun",
+    "eruption"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Then there is the human body. In weightlessness, muscles shrink and bones lose density. So astronauts exercise about two hours every day on a treadmill, a bike, and a weight machine, strapped in so they do not float away.",
+   "q": "astronaut exercise treadmill station",
+   "tag": [
+    "exercise",
+    "treadmill",
+    "astronaut"
+   ],
+   "scritta": "2 HOURS",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "The Human Factor",
+   "anno": 0
+  },
+  {
+   "testo": "Compare that to life on Earth. Your house will not survive a hurricane without a roof, strong walls, and repairs. The station is the same idea, only the storm never ends and the nearest hardware store is 250 miles straight up.",
+   "q": "astronaut working laptop station",
+   "tag": [
+    "astronaut",
+    "laptop",
+    "work"
+   ],
+   "scritta": "",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Think of it as a ship at sea. Salt, storms, and wear attack a ship every day. Yet ships last decades because crews repair them nonstop. The station works the same way, only the ocean around it is the vacuum of space.",
+   "q": "space station earth background",
+   "tag": [
+    "station",
+    "earth",
+    "orbit"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "That is the secret. The station is not a fortress. It is a patient. Every day, teams on the ground and astronauts in orbit check it, test it, patch it, and tune it. Survival is a daily job, not a one time design.",
+   "q": "astronaut crew working together station",
+   "tag": [
+    "crew",
+    "astronauts",
+    "working"
+   ],
+   "scritta": "",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "The Real Secret",
+   "anno": 0
+  },
+  {
+   "testo": "And here is the most surprising detail. The station has been occupied continuously since November 2, 2000. People have lived there every single day for more than two decades. It is not almost impossible to destroy because it is strong. It survives because people never stop caring for it.",
+   "q": "astronaut waving camera station",
+   "tag": [
+    "astronaut",
+    "smile",
+    "camera"
+   ],
+   "scritta": "",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "",
+   "anno": 0
+  }
+ ],
+ "descrizione": "The International Space Station travels at 17,500 mph, 250 miles above Earth, surrounded by space debris, radiation, and temperatures from -250°F to +250°F. So why is it so hard to destroy? In this documentary, we float inside the station and look at how shields, thrusters, repairs, and constant monitoring keep astronauts alive.\n\nWe cover debris shields, avoidance maneuvers, air leaks, spacewalk repairs, radiation, and the daily work that keeps the orbiting laboratory flying. Every fact comes from documented NASA and ESA sources and astronaut accounts, and we say so when something is uncertain.\n\nSubscribe to Orbital Days for more stories about real life in space.\n\n#ISS #SpaceStation #NASA #Astronauts #SpaceDocumentary",
+ "tag": [
+  "international space station",
+  "ISS",
+  "space station",
+  "NASA",
+  "astronaut",
+  "space debris",
+  "life in space",
+  "space documentary",
+  "spacewalk",
+  "orbital debris",
+  "Whipple shield",
+  "debris avoidance maneuver",
+  "space station leak",
+  "Soyuz",
+  "Canadarm2",
+  "microgravity",
+  "astronaut life",
+  "space survival",
+  "how the ISS works",
+  "Orbital Days",
+  "space facts",
+  "ISS repairs",
+  "low Earth orbit",
+  "space radiation",
+  "space station history",
+  "astronaut training",
+  "space engineering"
+ ],
+ "testo_copertina": "UNBREAKABLE?",
+ "copertina_prompt": "A fictional astronaut in a white suit floating inside a space station module with a shocked, wide-eyed expression, pointing at a small glowing crack in a window where blue Earth light streams in, dramatic warm light on the face.",
+ "titolo_video": "Why the Space Station Is Almost Impossible to Destroy"
+}
