@@ -1,0 +1,192 @@
+name: Video Gloam
+run-name: Video Gloam ${{ fromJSON(inputs.payload || '{}').channel_id || '(prova)' }}
+
+# Motore "Gloam" (video_gloam.py, 9 nov 2026): disastri finanziari stile indagine/dossier, foto e clip Pexels controllate, oggetti 3D Klein.
+# Lo lancia strumenti/avvio_canali.py per i canali con render_workflow = video_gloam.yml (es. Billion Ruin). secco = SI: prova gratis.
+on:
+  workflow_dispatch:
+    inputs:
+      link_competitor:
+        description: 'Id della riga del file di produzione (lo mette l avvio)'
+        default: ''
+        type: string
+      prova:
+        description: 'SI = non carica e non scrive nel foglio'
+        default: 'NO'
+        type: string
+      carica:
+        description: 'SI = carica su YouTube (serve la chiave del canale)'
+        default: 'NO'
+        type: string
+      voce:
+        description: 'Voce ElevenLabs (ID)'
+        default: ''
+        type: string
+      payload:
+        description: 'Impostazioni del canale e riga (lo mette l avvio)'
+        default: ''
+        type: string
+      secco:
+        description: 'SI = prova a secco gratis (copione finto, niente voce, niente immagini AI)'
+        default: 'NO'
+        type: string
+      tema:
+        description: 'Titolo per una prova a mano (senza riga)'
+        default: ''
+        type: string
+
+concurrency:
+  group: gloam-${{ inputs.payload != '' && (fromJSON(inputs.payload).channel_id || 'prova') || 'prova' }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  video:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 300
+    steps:
+      - name: Nascondi chiavi e token del payload (repository pubblico)
+        run: |
+          python3 - <<'PY'
+          import json, os
+          ev = json.load(open(os.environ['GITHUB_EVENT_PATH']))
+          raw = (ev.get('inputs') or {}).get('payload') or ''
+          try:
+              p = json.loads(raw)
+          except Exception:
+              p = {}
+          for k, v in (p.items() if isinstance(p, dict) else []):
+              if any(w in str(k).lower() for w in ('token', 'secret', 'password', 'api_key', 'apikey')) and len(str(v).strip()) > 8:
+                  print('::add-mask::' + str(v).strip())
+          PY
+      - uses: actions/checkout@v4
+
+      - name: FFmpeg
+        uses: FedericoCarboni/setup-ffmpeg@v3
+        with:
+          ffmpeg-version: release
+
+      - name: Programmi
+        timeout-minutes: 10
+        run: pip install --quiet --break-system-packages pillow json-repair google-auth requests
+
+      - name: Riprendi copione e voce di un giro fallito (stessa riga)
+        id: rid
+        env:
+          PAYLOAD: ${{ inputs.payload }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ID=$(python3 -c "import json,os,re;p=json.loads(os.environ.get('PAYLOAD') or '{}');print(re.sub(r'[^A-Za-z0-9_-]+','_',str(p.get('channel_id') or 'prova')+'_'+str(p.get('riga_produzione') or 'x')))")
+          echo "id=$ID" >> "$GITHUB_OUTPUT"
+          AID=$(gh api "repos/$GITHUB_REPOSITORY/actions/artifacts?name=lavoro-gloam-$ID&per_page=10" --jq '[.artifacts[] | select(.expired==false)] | sort_by(.created_at) | last | .id // empty')
+          [ -z "$AID" ] && { echo "si parte da zero"; exit 0; }
+          mkdir -p lavoro_gloam && gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$AID/zip" > l.zip && unzip -o -q l.zip -d lavoro_gloam && rm l.zip
+          gh api -X DELETE "repos/$GITHUB_REPOSITORY/actions/artifacts/$AID" || true
+          rm -f lavoro_gloam/costi_video.jsonl; echo "ripreso=SI" >> "$GITHUB_OUTPUT"; ls lavoro_gloam | head
+
+      - name: Crea il video
+        env:
+          PAYLOAD: ${{ inputs.payload }}
+          PROVA: ${{ inputs.prova }}
+          CARICA: ${{ inputs.carica }}
+          VOCE: ${{ inputs.voce }}
+          SECCO: ${{ inputs.secco }}
+          TEMA: ${{ inputs.tema }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          FAL_KEY: ${{ secrets.FAL_KEY }}   # oggetti 3D e copertina (Klein)
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets[(inputs.payload != '' && fromJSON(inputs.payload).chiave_youtube) || 'NESSUNA_CHIAVE'] }}
+        run: |
+          set -o pipefail
+          python3 video_gloam.py 2>&1 | tee gloam.log
+
+      - name: Esito nel file di produzione
+        if: ${{ always() && inputs.prova != 'SI' && inputs.secco != 'SI' }}
+        env:
+          GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
+          PAYLOAD: ${{ inputs.payload }}
+          STATO_JOB: ${{ job.status }}
+        run: python3 strumenti/esito_foglio.py || echo "esito non scritto nel foglio"
+
+      - name: Costo del video (controllo di gestione)
+        if: ${{ always() && inputs.prova != 'SI' && inputs.secco != 'SI' }}
+        env:
+          ESITO: ${{ job.status }}
+          PAYLOAD: ${{ inputs.payload }}
+        run: |
+          python3 coach/registra_costo.py lavoro_gloam/costi_video.jsonl || exit 0
+          [ -n "$(git status --porcelain coach/costi)" ] || exit 0
+          git config user.name "render-bot"; git config user.email "render-bot@users.noreply.github.com"
+          git add coach/costi; git commit -m "Costo video" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase --autostash -q && git push && break; sleep $((i * 5)); done
+
+      - name: Salva copione e voce per ripartire senza ripagarli
+        if: ${{ failure() || cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: lavoro-gloam-${{ steps.rid.outputs.id }}
+          path: |
+            lavoro_gloam/scaletta.json
+            lavoro_gloam/capitolo_*.json
+            lavoro_gloam/voce_*.mp3
+          if-no-files-found: ignore
+          retention-days: 3
+          overwrite: true
+
+      - name: Anteprima nel repository (copertina, fotogrammi, copione, registro)
+        if: ${{ always() }}
+        env:
+          PAYLOAD: ${{ inputs.payload }}
+        run: |
+          C=$(python3 -c "import json,os,re;p=json.loads(os.environ.get('PAYLOAD') or '{}');print(re.sub(r'\W+','_',str(p.get('channel_name') or 'prova')).strip('_'))")
+          D=prove_video/$C/gloam; mkdir -p "$D" && find "$D" -maxdepth 1 -type f -delete
+          [ -f copertina.jpg ] && cp copertina.jpg "$D/"
+          [ -f lavoro_gloam/scaletta.json ] && cp lavoro_gloam/scaletta.json "$D/"
+          cp lavoro_gloam/capitolo_*.json "$D/" 2>/dev/null || true
+          [ -f gloam.log ] && grep -v -i -E "key|token|secret|authorization" gloam.log | tail -n 400 > "$D/log.txt"
+          if [ -f video_gloam.mp4 ]; then
+            DUR=$(ffprobe -v error -show_entries format=duration -of csv=p=0 video_gloam.mp4)
+            for i in 1 2 3 4 5 6 7 8; do T=$(python3 -c "print(round($DUR*($i-0.5)/8,2))"); ffmpeg -v error -y -ss $T -i video_gloam.mp4 -frames:v 1 -vf scale=960:-1 "$D/fotogramma_$i.jpg"; done
+            ffmpeg -v error -y -i video_gloam.mp4 -t 60 -vn -ac 1 -b:a 64k "$D/audio_primo_minuto.mp3"
+            # 9 nov: nelle prove brevi (sotto i 3 minuti) anche il video, per guardarlo subito
+            python3 -c "import sys;sys.exit(0 if float('$DUR') < 180 else 1)" && cp video_gloam.mp4 "$D/video_prova.mp4" || true
+          fi
+          git config user.name "render-bot"; git config user.email "render-bot@users.noreply.github.com"
+          git add "$D"; git commit -m "Anteprima video gloam" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase --autostash -q && git push && break; sleep $((i * 5)); done
+
+      - name: Video completo (7 giorni)
+        if: ${{ always() && hashFiles('video_gloam.mp4') != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: video-gloam-${{ steps.rid.outputs.id }}
+          path: |
+            video_gloam.mp4
+            copertina.jpg
+          retention-days: 7
+          compression-level: 0
+          overwrite: true
+
+      - name: DA CARICARE A MANO (colonna carica = MANUALE)
+        if: ${{ always() && hashFiles('da_caricare/*') != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: DA CARICARE ${{ fromJSON(inputs.payload || '{}').channel_id || 'video' }}
+          path: da_caricare/
+          retention-days: 7
+          compression-level: 0
+
+      - name: File del video per gli Short (3 giorni)
+        if: ${{ always() && inputs.prova != 'SI' && contains(inputs.payload, 'riga_produzione') && hashFiles('video_gloam.mp4') != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: shorts-${{ fromJSON(inputs.payload || '{}').channel_id }}-riga${{ fromJSON(inputs.payload || '{}').riga_produzione }}
+          path: video_gloam.mp4
+          retention-days: 3
+          compression-level: 0
