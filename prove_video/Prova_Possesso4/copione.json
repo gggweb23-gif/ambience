@@ -1,0 +1,94 @@
+{
+ "titolo": "Quanto costa DAVVERO un'auto nuova da 25.000 euro a rate?",
+ "protagonista": "Marco, 38-year-old Italian man, short dark brown hair, light stubble, wearing a light blue shirt and beige chinos",
+ "copertina": {
+  "scritta": "AUTO: 36.000 EURO?",
+  "sfondo": "Marco, 38-year-old Italian man with short dark brown hair, light stubble, light blue shirt and beige chinos, looking shocked next to a brand new small silver city car, with a large price tag and euro banknotes flying around"
+ },
+ "immagini": [
+  "Marco, 38-year-old Italian man, short dark brown hair, light stubble, light blue shirt and beige chinos, smiling happily in a car dealership next to a brand new small silver city car with a price tag of 25,000 euros",
+  "Marco, 38-year-old Italian man, short dark brown hair, light stubble, light blue shirt and beige chinos, sitting worried at his home kitchen table covered with bills, receipts and a calculator, the small silver city car keys beside him",
+  "Marco, 38-year-old Italian man, short dark brown hair, light stubble, light blue shirt and beige chinos, standing next to his old, scratched and faded small silver city car after five years, looking disappointed",
+  "Marco, 38-year-old Italian man, short dark brown hair, light stubble, light blue shirt and beige chinos, relaxed and smiling serenely at his tidy home table with a notebook of savings, small silver city car visible through the window"
+ ],
+ "scene": [
+  {
+   "tipo": "cartellino",
+   "voce": "Marco compra un'auto nuova. Venticinquemila euro, a rate. Sembra un affare. Ma quanto costa davvero?",
+   "dati": {
+    "prezzo": 25000,
+    "domanda": "MA QUANTO COSTA DAVVERO?"
+   }
+  },
+  {
+   "tipo": "scontrini",
+   "voce": "In cinque anni Marco paga ventisettemilaseicento euro di rate e interessi. Tremilacinquecento di assicurazione. Settemiladuecento di benzina. Quattromilacinquecento tra tagliandi e gomme. Milleottocento di bollo. Milletrecento di parcheggi e pedaggi. Totale: quarantaseimila euro.",
+   "dati": {
+    "anni": 5,
+    "voci": [
+     [
+      "Rate + interessi",
+      27600
+     ],
+     [
+      "Assicurazione",
+      3500
+     ],
+     [
+      "Carburante",
+      7200
+     ],
+     [
+      "Manutenzione e gomme",
+      4500
+     ],
+     [
+      "Bollo",
+      1800
+     ],
+     [
+      "Parcheggi e pedaggi",
+      1400
+     ]
+    ]
+   }
+  },
+  {
+   "tipo": "valore",
+   "voce": "Intanto l'auto perde valore. Dopo un anno vale ventimila euro. Dopo cinque, appena diecimila.",
+   "dati": {
+    "valori": [
+     25000,
+     20000,
+     16500,
+     14000,
+     12000,
+     10000
+    ]
+   }
+  },
+  {
+   "tipo": "calcolo",
+   "voce": "Quarantaseimila pagati, diecimila recuperati. Il costo vero è trentaseimila euro. Seicento euro al mese. Venti euro al giorno, anche quando l'auto sta ferma.",
+   "dati": {}
+  },
+  {
+   "tipo": "consigli",
+   "voce": "Come spendere meno? Compra un'auto usata di due anni. Confronta le assicurazioni ogni anno. E usa l'auto solo quando serve.",
+   "dati": {
+    "voci": [
+     "Compra usata di due anni",
+     "Confronta assicurazioni ogni anno",
+     "Usa l'auto meno spesso"
+    ]
+   }
+  },
+  {
+   "tipo": "prossimo",
+   "voce": "Ti è piaciuto? Nella prossima puntata scopriamo quanto costa davvero un cane.",
+   "dati": {
+    "testo": "PROSSIMA PUNTATA: IL CANE"
+   }
+  }
+ ]
+}
