@@ -93,7 +93,8 @@ def leggi_json(t):
 # ============================================================ 1) COPIONE
 TIPI = """- "foto": full-screen real photo. "etichetta" = "PLACE · DATE"; "titolo" = max 5 words headline on a paper strip; "sotto" = max 8 words detail line (typed).
 - "clip": full-screen stock footage of "sfondo" (must be filmable). "cartello" = 2-4 words CAPITALS, first word is the key word (red).
-- "dossier": file card. "scheda" (tab, e.g. "COMPANY FILE"), "nome", "righe": 3-5 [label, value] (short, factual), "timbro" (max 2 words or "").
+- "dossier": file card. "scheda" (tab, e.g. "COMPANY FILE"), "nome", "persona": true only if the card is about ONE real person, "righe": 3-5 [label, value]
+  (short, factual, every value is a real fact: never placeholders like "see next shot", "TBD", "?"), "timbro" (max 2 words or "").
 - "dato": huge number. "numero" (e.g. "$440M", "397M", "45 MIN"), "didascalia" (max 8 words), "fonte".
 - "calendario": "mese" (3 letters), "giorno", "titolo" (max 4 words), "sotto" (max 10 words), "timbro" (max 3 words or "").
 - "classifica": "titolo", "barre": 2-4 [label, NUMBER > 0, value text] (every bar MUST have a real positive number), "timbro", "fonte".
@@ -162,6 +163,11 @@ Reply ONLY with JSON: {{"shots": [{{"voce": "...", "tipo": "...", "sfondo": "...
             sh['barre'] = ok
             if len(ok) < 2:
                 sh.update({'tipo': 'dato', 'numero': str(ok[0][2]) if ok else '?', 'didascalia': sh.get('titolo') or ''})
+        if sh.get('tipo') == 'dossier':   # righe senza un fatto vero (es. "See next shot") via
+            sh['righe'] = [r for r in (sh.get('righe') or []) if isinstance(r, (list, tuple)) and len(r) >= 2 and str(r[1]).strip()
+                           and not re.search(r'next shot|see next|tbd|n/a|unknown|\?\?', str(r[1]), re.I)]
+            if len(sh['righe']) < 2:
+                sh.update({'tipo': 'foto', 'titolo': sh.get('nome') or '', 'etichetta': str(sh.get('scheda') or '').upper()})
         sh['capitolo'] = cap['titolo']
     json.dump(shots, open(f, 'w'), ensure_ascii=False, indent=1)
     return shots
@@ -342,6 +348,8 @@ def rendi_una(i):
         return out
     if s.get('_bgf'):
         s['_bg'] = Image.open(s['_bgf']).convert('RGB')
+    if s['tipo'] == 'dossier':
+        s['_ph'] = Image.open(s['_phf']).convert('RGB') if s.get('_phf') else None
     try:
         if s['tipo'] == 'clip':
             G6.scena_clip(i, s, dur, out)
@@ -453,12 +461,15 @@ def main():
             continue
         if s.get('tipo') not in DISEGNA:
             s['tipo'] = 'foto'
-        if s['tipo'] == 'dossier':
-            s['_ph'] = None
-        f = os.path.join(LAV, f'bg_{i:03d}.jpg')
+        f = os.path.join(LAV, f'bg_{i:03d}.jpg'); fp = os.path.join(LAV, f'ph_{i:03d}.jpg')
         if not os.path.exists(f):
-            G6.prepara(foto(s.get('sfondo') or 'wall street', s['voce'], i), sfoca=(s['tipo'] != 'foto')).save(f, quality=90)
+            im = foto(s.get('sfondo') or 'wall street', s['voce'], i)
+            G6.prepara(im, sfoca=(s['tipo'] != 'foto')).save(f, quality=90)
+            if s['tipo'] == 'dossier':
+                im.save(fp, quality=88)
         s['_bgf'] = f
+        if s['tipo'] == 'dossier':   # scheda di una persona: sagoma "No photograph"; di un'azienda o un sistema: la foto del luogo/oggetto
+            s['_phf'] = fp if (not s.get('persona') and os.path.exists(fp)) else None
     log('immagini pronte | spesa finora', round(CO.totale(), 3), '$')
     # disegno delle scene in parallelo (4 alla volta)
     with mp.get_context('fork').Pool(max(2, (os.cpu_count() or 4))) as pool:
