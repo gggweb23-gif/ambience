@@ -1,0 +1,44 @@
+name: Carica i video pronti (da caricare a mano -> automatico)
+
+# 9 nov (Giorgio): basta caricare a mano. Prende l'artifact "DA CARICARE <canale>" di un run e carica su YouTube con i dati della riga.
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: 'ID del run che ha fatto il video (artifact DA CARICARE <canale>)'
+        required: true
+      canale:
+        description: 'channel_id (Channel Configs)'
+        required: true
+      chiave:
+        description: 'Nome del segreto YouTube del canale (es. YT_REFRESH_TOKEN_ORBITAL_DAYS)'
+        required: true
+      copertina_repo:
+        description: 'Facoltativo: copertina nel repository da usare al posto di quella dell artifact'
+        default: ''
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  carica:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - name: Scarica il video pronto
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh run download "${{ inputs.run_id }}" -n "DA CARICARE ${{ inputs.canale }}" -D pronti -R "$GITHUB_REPOSITORY"
+          find pronti -type f | head; for z in $(find pronti -name '*.zip'); do unzip -o -q "$z" -d pronti; done; find pronti -type f -name '*.mp4' -o -type f -name '*.jpg'
+      - name: Carica
+        env:
+          CANALE: ${{ inputs.canale }}
+          COPERTINA_REPO: ${{ inputs.copertina_repo }}
+          GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets[inputs.chiave] }}
+        run: pip install -q google-auth requests && python3 strumenti/carica_pronti.py
