@@ -1,0 +1,19 @@
+name: Verifica nomi canali
+on:
+  workflow_dispatch:
+    inputs:
+      nomi:
+        description: 'Nomi separati da virgola'
+        type: string
+permissions:
+  contents: read
+jobs:
+  v:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - env:
+          NOMI: ${{ inputs.nomi }}
+          YT_API_KEY_RADAR: ${{ secrets.YT_API_KEY_RADAR }}
+        run: python3 strumenti/verifica_handle.py
