@@ -1,0 +1,1077 @@
+{
+ "titolo": "Quanto costa davvero un'auto da 25.000 euro in 5 anni?",
+ "protagonista": {
+  "nome": "Davide",
+  "capelli": "short",
+  "colore_capelli": "#3b2a20",
+  "pelle": "media",
+  "maglia": "#2f6fb5",
+  "grembiule": "",
+  "occhiali": false
+ },
+ "oggetto": "auto",
+ "copertina": {
+  "righe": [
+   "AUTO DA 25.000",
+   "COSTA IL DOPPIO?",
+   "FACCIAMO I CONTI"
+  ],
+  "emozione": "stupito",
+  "oggetto": "auto",
+  "prezzo": "25.000 €",
+  "fondo": "scuro"
+ },
+ "copertina_ai": {
+  "valore_sx": "25.000 €",
+  "valore_dx": "41.000 €",
+  "oggetto_sx": "a shiny new compact car with a price tag",
+  "oggetto_dx": "a pile of bills, fuel pump, insurance papers and car keys",
+  "domanda": [
+   "E ALLORA QUANTO",
+   "COSTA DAVVERO?"
+  ]
+ },
+ "descrizione": "Davide compra un'auto da venticinquemila euro. Ma quanto spende davvero in cinque anni? Tra assicurazione, benzina, bollo, tagliandi e valore che sparisce, il conto sorprende. Impari a calcolare costi fissi, costo al chilometro e punto di pareggio, anche per la tua attività.",
+ "tag": [
+  "costo auto",
+  "quanto costa un'auto",
+  "costi fissi",
+  "punto di pareggio",
+  "margine",
+  "economia pratica",
+  "risparmiare",
+  "assicurazione auto",
+  "svalutazione",
+  "costo al chilometro",
+  "noleggio o acquisto",
+  "conti veri",
+  "finanza personale",
+  "partita iva",
+  "costi attività"
+ ],
+ "scene": [
+  {
+   "testo": "Davide ha comprato un'auto da venticinquemila euro. Pensa di aver speso venticinquemila euro. Sbagliato: in cinque anni gliene costerà quarantunomila. Vuoi sapere dove finiscono quei soldi?",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Costa 25.000 €? Davvero?",
+      "emozione": "stupito",
+      "scuro": true
+     }
+    },
+    {
+     "parola": "quarantunomila",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "auto",
+      "prezzo": "25.000 €",
+      "nuovo_prezzo": "41.000 €",
+      "nota": "costo vero in 5 anni"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Il prezzo sul cartellino è solo l'inizio. Il resto sono costi che arrivano ogni mese, anche quando l'auto sta ferma nel box. Come l'affitto di un negozio: lo paghi comunque.",
+   "capitolo": "Il prezzo non basta",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "garage",
+      "insegna": "Box di Davide",
+      "azione": "preoccupato",
+      "clienti": 0,
+      "testo": "L'auto sta ferma, i costi no"
+     }
+    },
+    {
+     "parola": "affitto",
+     "tipo": "bilancia",
+     "p": {
+      "titolo": "Auto ferma",
+      "sinistra": "Zero chilometri",
+      "destra": "Costi che corrono",
+      "pende": "destra"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Partiamo dai costi fissi, quelli che paghi sempre. Assicurazione seicento euro l'anno, bollo centoventi, tagliando e gomme duecentottanta. In totale mille euro l'anno.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "costi",
+     "p": {
+      "voci": [
+       {
+        "nome": "Assicurazione",
+        "valore": 600,
+        "testo": "600 €"
+       },
+       {
+        "nome": "Bollo",
+        "valore": 120,
+        "testo": "120 €"
+       },
+       {
+        "nome": "Tagliando e gomme",
+        "valore": 280,
+        "testo": "280 €"
+       }
+      ],
+      "totale": 1000,
+      "periodo": "all'anno"
+     }
+    },
+    {
+     "parola": "mille",
+     "tipo": "conteggio",
+     "p": {
+      "oggetto": "monete",
+      "icone": 10,
+      "testo": "1.000 € all'anno"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "In cinque anni sono cinquemila euro, solo per tenere l'auto in vita. Non hai ancora fatto un chilometro. Come un bar che paga affitto e luce prima di vendere il primo caffè.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Costi fissi in 5 anni",
+      "a": "1.000 €",
+      "op": "×",
+      "b": "5 anni",
+      "risultato": "5.000 €",
+      "nota": "senza muovere l'auto"
+     }
+    },
+    {
+     "parola": "bar",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "bar",
+      "insegna": "Bar Aurora",
+      "azione": "preoccupato",
+      "clienti": 0,
+      "testo": "Affitto e luce, zero caffè"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Poi c'è il costo che si muove con te: la benzina. Davide fa dodicimila chilometri all'anno. L'auto consuma sette litri ogni cento chilometri, e la benzina costa un euro e novanta al litro.",
+   "capitolo": "I costi che corrono",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "distributore",
+      "insegna": "Distributore",
+      "azione": "stupito",
+      "clienti": 0,
+      "testo": "12.000 km all'anno"
+     }
+    },
+    {
+     "parola": "consuma",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "benzina",
+      "prezzo": "1,90 €",
+      "nota": "al litro"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Facciamo il conto. Sette litri ogni cento chilometri: per dodicimila chilometri servono ottocentoquaranta litri. Per un euro e novanta, fanno milleseicentoquindici euro l'anno.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Litri all'anno",
+      "a": "120 × 7",
+      "op": "=",
+      "b": "litri",
+      "risultato": "840 litri",
+      "nota": "12.000 km ÷ 100 = 120"
+     }
+    },
+    {
+     "parola": "Per",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Spesa benzina",
+      "a": "840 litri",
+      "op": "×",
+      "b": "1,90 €",
+      "risultato": "1.596 €",
+      "nota": "circa 1.600 € l'anno"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Facciamo cifra tonda: milleseicento euro l'anno, ottomila in cinque anni. Quasi il doppio dei costi fissi. Ecco la prima sorpresa: la benzina pesa più dell'assicurazione.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "confronto",
+     "p": {
+      "titolo": "Costi in 5 anni",
+      "a": {
+       "titolo": "Fissi",
+       "valore": "5.000 €",
+       "oggetto": "auto"
+      },
+      "b": {
+       "titolo": "Benzina",
+       "valore": "8.000 €",
+       "oggetto": "benzina"
+      },
+      "vincitore": "b"
+     }
+    },
+    {
+     "parola": "sorpresa",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Più della assicurazione!",
+      "emozione": "stupito",
+      "scuro": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ma il costo più grosso non lo vedi mai in fattura: la svalutazione. Dopo cinque anni l'auto di Davide vale diecimila euro. Ne aveva pagati venticinquemila. Quindici sono spariti.",
+   "capitolo": "Il costo invisibile",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "andamento",
+     "p": {
+      "titolo": "Valore dell'auto",
+      "valori": [
+       25000,
+       19500,
+       15500,
+       13000,
+       11500,
+       10000
+      ],
+      "etichette": [
+       "Oggi",
+       "1",
+       "2",
+       "3",
+       "4",
+       "5 anni"
+      ],
+      "colore": "rosso"
+     }
+    },
+    {
+     "parola": "quindici",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Valore perso",
+      "a": "25.000 €",
+      "op": "−",
+      "b": "10.000 €",
+      "risultato": "15.000 €",
+      "nota": "spariti dal tuo conto"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "È come un negozio di scarpe che compra la merce e poi non la vende: i soldi sono fermi sugli scaffali e perdono valore ogni stagione. Il magazzino invenduto è un costo, anche se non lo paghi.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "negozio",
+      "insegna": "Scarpe Rossi",
+      "azione": "preoccupato",
+      "clienti": 0,
+      "testo": "Magazzino fermo, valore che cala"
+     }
+    },
+    {
+     "parola": "costo",
+     "tipo": "salvadanaio",
+     "p": {
+      "direzione": "svuota",
+      "testo": "Valore che evapora"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Mettiamo tutto insieme. Quindicimila di svalutazione, cinquemila di costi fissi, ottomila di benzina. Totale ventottomila euro. E ne mancano ancora tre tipi di costi.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "fette",
+     "p": {
+      "titolo": "Costo auto in 5 anni",
+      "totale": 28000,
+      "totale_testo": "28.000 €",
+      "fette": [
+       {
+        "nome": "Svalutazione",
+        "valore": 15000,
+        "testo": "15.000 €"
+       },
+       {
+        "nome": "Benzina",
+        "valore": 8000,
+        "testo": "8.000 €"
+       },
+       {
+        "nome": "Costi fissi",
+        "valore": 5000,
+        "testo": "5.000 €"
+       }
+      ],
+      "evidenzia": 0
+     }
+    },
+    {
+     "parola": "Totale",
+     "tipo": "soldi",
+     "p": {
+      "centro": "28.000 €",
+      "destinazioni": [
+       "Perdita valore",
+       "Benzinaio",
+       "Assicurazione",
+       "Officina"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Aggiungi parcheggi, pedaggi e le riparazioni fuori garanzia: duemila euro l'anno. In cinque anni sono diecimila. Tutto questo non era nel cartellino. Quanto sei stato bravo a dimenticarlo?",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "costi",
+     "p": {
+      "voci": [
+       {
+        "nome": "Parcheggi",
+        "valore": 700,
+        "testo": "700 €"
+       },
+       {
+        "nome": "Pedaggi",
+        "valore": 500,
+        "testo": "500 €"
+       },
+       {
+        "nome": "Riparazioni",
+        "valore": 800,
+        "testo": "800 €"
+       }
+      ],
+      "totale": 2000,
+      "periodo": "all'anno"
+     }
+    },
+    {
+     "parola": "Quanto",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Te lo eri scordato?",
+      "emozione": "stupito",
+      "scuro": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ricapitoliamo. Ventottomila più tredicimila fa quarantunomila? No: i conti veri sono ventottomila più tredicimila. Aspetta, uso i numeri giusti: quindicimila, cinquemila, ottomila, e infine tredicimila di extra tra cinque anni.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Ricontrolliamo i conti",
+      "emozione": "calmo",
+      "scuro": false
+     }
+    },
+    {
+     "parola": "Aspetta",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Voci da sommare",
+      "voci": [
+       "Svalutazione",
+       "Costi fissi",
+       "Benzina",
+       "Extra e riparazioni"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Facciamo ordine. Svalutazione quindicimila, costi fissi cinquemila, benzina ottomila, extra diecimila. Totale trentottomila euro. Dal valore finale di diecimila non si tolgono: la svalutazione li considera già.",
+   "capitolo": "Il conto finale",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "fette",
+     "p": {
+      "titolo": "Costo vero in 5 anni",
+      "totale": 38000,
+      "totale_testo": "38.000 €",
+      "fette": [
+       {
+        "nome": "Svalutazione",
+        "valore": 15000,
+        "testo": "15.000 €"
+       },
+       {
+        "nome": "Extra",
+        "valore": 10000,
+        "testo": "10.000 €"
+       },
+       {
+        "nome": "Benzina",
+        "valore": 8000,
+        "testo": "8.000 €"
+       },
+       {
+        "nome": "Costi fissi",
+        "valore": 5000,
+        "testo": "5.000 €"
+       }
+      ],
+      "evidenzia": 0
+     }
+    },
+    {
+     "parola": "Totale",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "auto",
+      "testo": "38.000 €",
+      "colore": "rosso",
+      "nota": "costo vero in 5 anni"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Dividiamo per sessantamila chilometri, cioè dodicimila per cinque anni. Trentottomila diviso sessantamila fa sessantatré centesimi al chilometro. Ogni viaggio di cento chilometri costa sessantatré euro.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Costo al chilometro",
+      "a": "38.000 €",
+      "op": "÷",
+      "b": "60.000 km",
+      "risultato": "0,63 €",
+      "nota": "per ogni chilometro"
+     }
+    },
+    {
+     "parola": "cento",
+     "tipo": "conteggio",
+     "p": {
+      "oggetto": "chilometri",
+      "icone": 20,
+      "testo": "100 km = 63 €"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Davide usa l'auto per andare in ufficio, quindici chilometri al giorno. Fanno nove euro e quarantacinque al giorno. Eppure lui pensava di spendere solo il costo della benzina: due euro.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "ufficio",
+      "insegna": "Ufficio",
+      "azione": "stupito",
+      "clienti": 0,
+      "testo": "15 km al giorno"
+     }
+    },
+    {
+     "parola": "nove",
+     "tipo": "confronto",
+     "p": {
+      "titolo": "Costo di un giorno",
+      "a": {
+       "titolo": "Pensa",
+       "valore": "2 €",
+       "oggetto": "benzina"
+      },
+      "b": {
+       "titolo": "Reale",
+       "valore": "9,45 €",
+       "oggetto": "auto"
+      },
+      "vincitore": "b"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Questo è lo stesso errore di chi apre un'attività e guarda solo il costo della merce. Una pizzeria che calcola solo farina e mozzarella dimentica forno, affitto e stipendi. E poi si chiede dov'è finito l'utile.",
+   "capitolo": "Lezione per la tua attività",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "pizzeria",
+      "insegna": "Pizzeria Napoli",
+      "azione": "preoccupato",
+      "clienti": 2,
+      "testo": "Solo farina e mozzarella?"
+     }
+    },
+    {
+     "parola": "forno",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Cosa dimentica",
+      "voci": [
+       "Forno",
+       "Affitto",
+       "Stipendi",
+       "Tasse",
+       "Luce e gas"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Prova a ragionare così: quanto costa avere la tua attività aperta un mese senza vendere nulla? Quella cifra sono i tuoi costi fissi. È il peso che porti sulle spalle ogni mattina.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Costi fissi del mese?",
+      "emozione": "calmo",
+      "scuro": false
+     }
+    },
+    {
+     "parola": "peso",
+     "tipo": "salvadanaio",
+     "p": {
+      "direzione": "svuota",
+      "testo": "Ogni mese, anche a zero vendite"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Facciamo un esempio. Una parrucchiera ha costi fissi di duemilaquattrocento euro al mese. Ogni piega incassa venticinque euro e ne costa cinque di prodotti. Il margine è venti euro.",
+   "capitolo": "Il punto di pareggio",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "piega",
+      "prezzo": "25 €",
+      "nota": "prezzo di una piega"
+     }
+    },
+    {
+     "parola": "margine",
+     "tipo": "fette",
+     "p": {
+      "titolo": "Una piega da 25 €",
+      "totale": 25,
+      "totale_testo": "25 €",
+      "fette": [
+       {
+        "nome": "Prodotti",
+        "valore": 5,
+        "testo": "5 €"
+       },
+       {
+        "nome": "Margine",
+        "valore": 20,
+        "testo": "20 €"
+       }
+      ],
+      "evidenzia": 1
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Quante pieghe le servono per pareggiare? Duemilaquattrocento diviso venti fa centoventi pieghe al mese. Sotto quel numero perde, sopra guadagna. È il suo punto di pareggio.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Punto di pareggio",
+      "a": "2.400 €",
+      "op": "÷",
+      "b": "20 €",
+      "risultato": "120 pieghe",
+      "nota": "fissi ÷ margine"
+     }
+    },
+    {
+     "parola": "Sotto",
+     "tipo": "pareggio",
+     "p": {
+      "titolo": "Pareggio parrucchiera",
+      "fissi": 2400,
+      "margine": 20,
+      "unita": "pieghe fatte",
+      "oggetto": "piega",
+      "perdita": true,
+      "guadagno": true
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Applichiamolo all'auto di Davide. Se la usasse per lavoro e guadagnasse due euro al chilometro in più, con sessantatré centesimi di costo, ogni chilometro vale un euro e trentasette di margine.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Margine al chilometro",
+      "a": "2 €",
+      "op": "−",
+      "b": "0,63 €",
+      "risultato": "1,37 €",
+      "nota": "guadagno − costo"
+     }
+    },
+    {
+     "parola": "lavoro",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "strada",
+      "insegna": "In viaggio",
+      "azione": "felice",
+      "clienti": 0,
+      "testo": "Un'auto che rende"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ora il pareggio vero. Costi fissi cinquemila più svalutazione quindicimila: ventimila euro. Diviso un euro e trentasette di margine: circa quattordicimilaseicento chilometri per rientrare dei costi fissi.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Pareggio dell'auto",
+      "a": "20.000 €",
+      "op": "÷",
+      "b": "1,37 €",
+      "risultato": "14.600 km",
+      "nota": "circa, fissi ÷ margine"
+     }
+    },
+    {
+     "parola": "Diviso",
+     "tipo": "pareggio",
+     "p": {
+      "titolo": "Pareggio auto da lavoro",
+      "fissi": 20000,
+      "margine": 1.37,
+      "unita": "chilometri a pagamento",
+      "oggetto": "auto",
+      "perdita": true,
+      "guadagno": true
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Nota una cosa: più chilometri fai, più il costo fisso si spalma. Con sessantamila chilometri i ventimila euro fissi pesano trentatré centesimi al chilometro. Con ventimila, un euro. Stesso costo, uso diverso.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "confronto",
+     "p": {
+      "titolo": "Costo fisso al km",
+      "a": {
+       "titolo": "20.000 km",
+       "valore": "1 €",
+       "oggetto": "auto"
+      },
+      "b": {
+       "titolo": "60.000 km",
+       "valore": "0,33 €",
+       "oggetto": "auto"
+      },
+      "vincitore": "b"
+     }
+    },
+    {
+     "parola": "Stesso",
+     "tipo": "cruscotto",
+     "p": {
+      "titolo": "Da tenere d'occhio",
+      "voci": [
+       {
+        "nome": "Chilometri fatti",
+        "valore": 0.6
+       },
+       {
+        "nome": "Costi fissi",
+        "valore": 0.8
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Succede ai ristoranti: un tavolo vuoto costa quanto uno pieno. Quindici coperti la sera, ma ne servono venti per pareggiare. Il locale non è un fallimento: è un problema di quantità.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "persone",
+     "p": {
+      "n": 5,
+      "azione": "entrano",
+      "escono": 0,
+      "testo": "Pochi coperti"
+     }
+    },
+    {
+     "parola": "locale",
+     "tipo": "orologio",
+     "p": {
+      "ore": 8,
+      "piene": 3,
+      "testo": "Ore piene contro ore vuote"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Quindi comprare l'auto era sbagliato? Non per forza. Dipende da quanto la usi. Se fai poca strada, il noleggio o l'auto usata possono costare meno. Decide il tuo punto di pareggio.",
+   "capitolo": "Cosa fare",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "bilancia",
+     "p": {
+      "titolo": "Poca strada",
+      "sinistra": "Auto nuova",
+      "destra": "Noleggio o usato",
+      "pende": "destra"
+     }
+    },
+    {
+     "parola": "punto",
+     "tipo": "leve",
+     "p": {
+      "titolo": "Come ridurre il costo",
+      "voci": [
+       "Compra usata",
+       "Più chilometri",
+       "Assicurazione bassa",
+       "Pochi extra"
+      ],
+      "evidenzia": 0
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Una piccola dimostrazione: un'auto usata da quindicimila euro perde meno valore. Dopo cinque anni ne vale nove mila: ne perdi seimila, non quindicimila. Risparmi novemila euro solo sul valore.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Svalutazione usata",
+      "a": "15.000 €",
+      "op": "−",
+      "b": "9.000 €",
+      "risultato": "6.000 €",
+      "nota": "contro 15.000 € della nuova"
+     }
+    },
+    {
+     "parola": "Risparmi",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "auto usata",
+      "testo": "RISPARMI 9.000 €",
+      "colore": "verde",
+      "nota": "solo sul valore perso"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Guarda anche i mesi. Le spese non arrivano uguali: assicurazione e bollo pesano in certi mesi, i tagliandi in altri. Chi non li prevede va in rosso. Metti da parte ogni mese una piccola quota.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "mesi",
+     "p": {
+      "titolo": "Spese auto nei mesi",
+      "valori": [
+       80,
+       80,
+       700,
+       80,
+       80,
+       120,
+       80,
+       80,
+       80,
+       300,
+       80,
+       80
+      ],
+      "evidenzia": [
+       3,
+       6,
+       10
+      ],
+      "nota": "picchi di assicurazione, bollo e tagliando"
+     }
+    },
+    {
+     "parola": "Metti",
+     "tipo": "salvadanaio",
+     "p": {
+      "direzione": "riempie",
+      "testo": "Accantona ogni mese"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Qui la cosa si fa utile. Per sapere se un acquisto conviene, guarda questi tre numeri: costo fisso totale, costo per unità e margine per unità. Poi chiediti: quante volte devo usarlo per pareggiare?",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "lista",
+     "p": {
+      "titolo": "I tre numeri",
+      "voci": [
+       "Costo fisso totale",
+       "Costo per unità",
+       "Margine per unità",
+       "Quante volte per pareggiare"
+      ]
+     }
+    },
+    {
+     "parola": "Poi",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Quanto devo usarlo?",
+      "emozione": "calmo",
+      "scuro": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Cosa non guardare? Il prezzo del cartellino da solo. Non guardare la rata mensile da sola. Una rata bassa può nascondere un costo totale alto. Davide l'aveva scelta così, e adesso lo sa.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Da non guardare da soli",
+      "voci": [
+       "Prezzo del cartellino",
+       "Rata mensile bassa",
+       "Sconto del venditore"
+      ]
+     }
+    },
+    {
+     "parola": "Davide",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "concessionaria",
+      "insegna": "Concessionaria",
+      "azione": "stupito",
+      "clienti": 1,
+      "testo": "Rata bassa, conto alto"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Tornando a Davide: ora fa i conti prima di ogni acquisto. L'auto resta, ma l'abbonamento al treno per tre giorni a settimana gli fa risparmiare mille e duecento euro l'anno. Non male come battuta finale.",
+   "capitolo": "Il finale",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "andamento",
+     "p": {
+      "titolo": "Risparmio di Davide",
+      "valori": [
+       0,
+       300,
+       600,
+       900,
+       1200
+      ],
+      "etichette": [
+       "Inizio",
+       "3 mesi",
+       "6 mesi",
+       "9 mesi",
+       "1 anno"
+      ],
+      "colore": "verde"
+     }
+    },
+    {
+     "parola": "Non",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "stazione",
+      "insegna": "Stazione",
+      "azione": "felice",
+      "clienti": 3,
+      "testo": "Treno tre giorni a settimana"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "E tu? Pensa alla tua attività o al tuo prossimo acquisto. Quanto costa davvero ogni mese, anche a zero vendite? Se non lo sai, il tuo punto di pareggio è ancora un mistero.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Conosci i tuoi fissi?",
+      "emozione": "calmo",
+      "scuro": true
+     }
+    },
+    {
+     "parola": "mistero",
+     "tipo": "calendario",
+     "p": {
+      "titolo": "Un mese di costi",
+      "giorni": 30,
+      "testo": "Costi tutti i trenta giorni"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Riassumiamo. Il prezzo non è il costo. I costi fissi si pagano sempre. Il margine è quello che resta per ogni unità. E il punto di pareggio è costi fissi diviso margine.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "riepilogo",
+     "p": {
+      "titolo": "Da ricordare",
+      "voci": [
+       "Prezzo non è costo",
+       "Fissi sempre da pagare",
+       "Margine per unità",
+       "Pareggio = fissi ÷ margine"
+      ]
+     }
+    },
+    {
+     "parola": "punto",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "conti",
+      "testo": "CONTI VERI",
+      "colore": "verde",
+      "nota": "fissi ÷ margine"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Nel prossimo episodio: una gelateria vende mille coni a settimana ma a fine stagione si ritrova senza un euro. Dove sono finiti i soldi? Iscriviti.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "prossimo",
+     "p": {
+      "luogo": "gelateria",
+      "insegna": "Gelateria Dolce",
+      "oggetto": "gelato",
+      "testo": "Mille coni e zero soldi?"
+     }
+    },
+    {
+     "parola": "Iscriviti",
+     "tipo": "persone",
+     "p": {
+      "n": 6,
+      "azione": "fila",
+      "escono": 0,
+      "testo": "Iscriviti al canale"
+     }
+    }
+   ]
+  }
+ ]
+}
