@@ -1,0 +1,122 @@
+{
+ "titolo": "How Knight Capital Lost $440 Million in 45 Minutes",
+ "copertina": {
+  "immagine": "glossy 3D red falling stock arrow shattering a glass skyscraper, dramatic dark background",
+  "scritta": "45 MINUTES"
+ },
+ "shots": [
+  {
+   "voce": "Four hundred forty million dollars. Gone in forty-five minutes.",
+   "tipo": "numero",
+   "da": 0,
+   "a": 440,
+   "prefisso": "$",
+   "suffisso": "M",
+   "cerca": "stock market screen",
+   "colore": "red"
+  },
+  {
+   "voce": "August first, twenty twelve. A normal morning on Wall Street.",
+   "tipo": "clip",
+   "cerca": "new york street morning",
+   "etichetta": "AUG 1, 2012",
+   "colore": "gold"
+  },
+  {
+   "voce": "Knight Capital was one of the biggest traders in America.",
+   "tipo": "clip",
+   "cerca": "trading floor screens",
+   "etichetta": "",
+   "colore": "blue"
+  },
+  {
+   "voce": "A new trading program had been installed overnight.",
+   "tipo": "clip",
+   "cerca": "server room lights",
+   "etichetta": "",
+   "colore": "blue"
+  },
+  {
+   "voce": "But one server was never updated. Old code woke up.",
+   "tipo": "3d",
+   "immagine": "single glowing red server rack among dark identical server racks, faceless technician figure beside it"
+  },
+  {
+   "voce": "Nine thirty. The market opens. Something is very wrong.",
+   "tipo": "clip",
+   "cerca": "clock ticking",
+   "etichetta": "9:30 AM",
+   "colore": "red"
+  },
+  {
+   "voce": "The software began buying and selling stocks nonstop, at wild prices.",
+   "tipo": "clip",
+   "cerca": "stock market screen",
+   "etichetta": "",
+   "colore": "red"
+  },
+  {
+   "voce": "Millions of unwanted orders flooded the market.",
+   "tipo": "numero",
+   "da": 0,
+   "a": 4,
+   "prefisso": "",
+   "suffisso": " MILLION TRADES",
+   "cerca": "stock ticker numbers",
+   "colore": "red"
+  },
+  {
+   "voce": "Nobody could find the off switch fast enough.",
+   "tipo": "clip",
+   "cerca": "trader stressed office",
+   "etichetta": "",
+   "colore": "red"
+  },
+  {
+   "voce": "Every minute, the losses grew by millions.",
+   "tipo": "numero",
+   "da": 0,
+   "a": 10,
+   "prefisso": "$",
+   "suffisso": "M / MIN",
+   "cerca": "money counting machine",
+   "colore": "red"
+  },
+  {
+   "voce": "Forty-five minutes later, the machine was finally stopped.",
+   "tipo": "numero",
+   "da": 0,
+   "a": 45,
+   "prefisso": "",
+   "suffisso": " MIN",
+   "cerca": "clock ticking",
+   "colore": "gold"
+  },
+  {
+   "voce": "The company's entire value was erased. It needed a rescue.",
+   "tipo": "3d",
+   "immagine": "cracked golden piggy bank with coins spilling out, faceless hands reaching to catch them"
+  },
+  {
+   "voce": "Within months, Knight Capital was sold.",
+   "tipo": "clip",
+   "cerca": "empty office night",
+   "etichetta": "SOLD",
+   "colore": "gold"
+  },
+  {
+   "voce": "The twist? One forgotten server, one missing update. That's all.",
+   "tipo": "clip",
+   "cerca": "server room lights",
+   "etichetta": "ONE SERVER",
+   "colore": "red"
+  },
+  {
+   "voce": "Subscribe for the next one.",
+   "tipo": "clip",
+   "cerca": "new york street night",
+   "etichetta": "",
+   "colore": "blue"
+  }
+ ]
+}
