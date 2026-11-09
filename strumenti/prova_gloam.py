@@ -39,11 +39,16 @@ Each shot: "voce" (16-24 spoken words, numbers written as words, e.g. "four hund
 "etichetta" (on-screen label, max 3 words, CAPITALS, e.g. "$440,000,000", "45 MINUTES", "9:30 AM"), "colore" (red|gold|blue).
 Also "copertina": {{"immagine": "...", "scritta": "max 3 words, CAPITALS"}} and "titolo".
 Reply ONLY with JSON: {{"titolo": "...", "copertina": {{...}}, "shots": [{{"voce": "...", "immagine": "...", "etichetta": "...", "colore": "red"}}]}}"""
-    j = http('https://api.anthropic.com/v1/messages', {'model': 'claude-sonnet-5-5', 'max_tokens': 4000, 'messages': [{'role': 'user', 'content': prompt}]},
-             {'x-api-key': E('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01'})
-    u = j.get('usage') or {}
-    COSTO['claude'] += u.get('input_tokens', 0) * 3e-6 + u.get('output_tokens', 0) * 15e-6
-    t = ''.join(b.get('text', '') for b in j['content'] if b.get('type') == 'text')
+    for k in range(3):   # come video_cartoni: ragionamento ridotto, altrimenti la risposta puo' arrivare senza testo
+        j = http('https://api.anthropic.com/v1/messages', {'model': 'claude-sonnet-5-5', 'max_tokens': 16000, 'thinking': {'type': 'between_tools'},
+                                                            'output_config': {'effort': 'low'}, 'messages': [{'role': 'user', 'content': prompt}]},
+                 {'x-api-key': E('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01'})
+        u = j.get('usage') or {}
+        COSTO['claude'] += u.get('input_tokens', 0) * 3e-6 + u.get('output_tokens', 0) * 15e-6
+        t = ''.join(b.get('text', '') for b in j['content'] if b.get('type') == 'text')
+        if '{' in t:
+            break
+        log('risposta senza JSON, riprovo:', j.get('stop_reason'), t[:200])
     m = re.search(r'\{.*\}', t, re.S).group(0)
     try:
         c = json.loads(m)
