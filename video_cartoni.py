@@ -276,7 +276,7 @@ def copertina_ai(pg, ca, ctx, cop):
               f'LEFT (red): {ca.get("oggetto_sx") or "what it costs"}. RIGHT (green): {ca.get("oggetto_dx") or "what it is sold for"}. '
               f'The ONLY texts in the image, spelled EXACTLY like this: "COSTA" at the top left and "LO VENDI" at the top right, both WHITE with a dark outline; '
               f'the values "{vs}" (left) and "{vd}" (right) in bold rounded YELLOW lettering with a dark outline, small sparkles around the right value. '
-              'No other words, letters or labels anywhere (no English words, no brand names). The dark bottom band must stay COMPLETELY EMPTY. No logo, no watermark.')
+              'No other words, letters or labels anywhere (no English words, no brand names, no writing on bags, cans, boxes or packages: plain unlabelled packaging). The dark band must stay COMPLETELY EMPTY. No logo, no watermark.')
     H = {'Authorization': 'Key ' + E('FAL_KEY', ''), 'Content-Type': 'application/json'}
     rif = 'data:image/jpeg;base64,' + base64.b64encode(open(bozza, 'rb').read()).decode()
     for tentativo in range(3):   # 9 nov (Giorgio): un terzo tentativo prima di tornare alla copertina disegnata
