@@ -1,0 +1,114 @@
+{
+ "titolo": "Auto nuova a rate: quanto costa DAVVERO in 5 anni?",
+ "protagonista": "Marco, 38-year-old Italian man, short dark brown hair, light stubble, wearing a navy polo shirt and jeans, middle-class look",
+ "copertina": {
+  "scritta": "COSTA TRENTAMILA?",
+  "sfondo": "Marco, 38-year-old Italian man with short dark brown hair and stubble, navy polo shirt, shocked face standing next to a brand new compact city car in a middle-class Italian street, bold dramatic lighting"
+ },
+ "scene": [
+  {
+   "tipo": "cartellino",
+   "voce": "Marco compra un'utilitaria nuova. Venticinquemila euro, a rate. Sembra un affare. Ma quanto costa davvero?",
+   "sfondi": [
+    "Marco, 38-year-old Italian man with short dark brown hair and stubble, navy polo shirt and jeans, standing in an Italian car dealership next to a new compact city car with a price tag on the windshield",
+    "Marco, 38-year-old Italian man with short dark brown hair and stubble, navy polo shirt and jeans, standing thoughtful in the dealership with a hand on his chin, looking at the price tag of the new compact car"
+   ],
+   "dati": {
+    "prezzo": 25000,
+    "domanda": "MA QUANTO COSTA DAVVERO?"
+   }
+  },
+  {
+   "tipo": "scontrini",
+   "voce": "In cinque anni paga ventisettemilaseicento euro tra rate e interessi. Tremilacinquecento di assicurazione. Quattromilaottocento di benzina. Duemilaquattrocento di tagliandi. Millecento di bollo. E milleseicento tra parcheggi e pedaggi. Totale: quarantunmila euro.",
+   "sfondi": [
+    "Marco, 38-year-old Italian man with short dark brown hair and stubble, navy polo shirt and jeans, signing papers at an Italian insurance agency desk, his new compact city car visible through the window",
+    "Marco, 38-year-old Italian man with short dark brown hair and stubble, navy polo shirt and jeans, refueling his new compact city car at an Italian gas station, looking at the pump display",
+    "Marco, 38-year-old Italian man with short dark brown hair and stubble, navy polo shirt and jeans, in an Italian auto repair workshop talking to a mechanic next to his compact city car on a lift"
+   ],
+   "dati": {
+    "anni": 5,
+    "voci": [
+     [
+      "Rate + interessi",
+      27600
+     ],
+     [
+      "Assicurazione",
+      3500
+     ],
+     [
+      "Carburante",
+      4800
+     ],
+     [
+      "Manutenzione",
+      2400
+     ],
+     [
+      "Bollo",
+      1100
+     ],
+     [
+      "Parcheggi e pedaggi",
+      1600
+     ]
+    ]
+   }
+  },
+  {
+   "tipo": "valore",
+   "voce": "Ma l'auto perde valore. Oggi ne vale venticinquemila. Dopo cinque anni, solo undicimila.",
+   "sfondi": [
+    "Marco, 38-year-old Italian man with short dark brown hair and stubble, navy polo shirt and jeans, proudly standing next to his shiny brand new compact city car in front of an Italian apartment building",
+    "Marco, 38-year-old Italian man with short dark brown hair and stubble, navy polo shirt and jeans, standing next to his same compact city car now five years older, dusty with small scratches, in front of the same Italian apartment building"
+   ],
+   "dati": {
+    "valori": [
+     25000,
+     20000,
+     17000,
+     14500,
+     12500,
+     11000
+    ]
+   }
+  },
+  {
+   "tipo": "calcolo",
+   "voce": "Facciamo i conti. Hai pagato quarantunmila euro. Rivendi a undicimila. Il costo vero è trentamila euro. Cioè cinquecento euro al mese. Sedici euro al giorno, anche se non la usi.",
+   "sfondi": [
+    "Marco, 38-year-old Italian man with short dark brown hair and stubble, navy polo shirt and jeans, sitting at a kitchen table in an Italian home with a calculator, receipts and a notebook",
+    "Marco, 38-year-old Italian man with short dark brown hair and stubble, navy polo shirt and jeans, with a stunned wide-eyed face looking at the calculator display at the kitchen table",
+    "Marco, 38-year-old Italian man with short dark brown hair and stubble, navy polo shirt and jeans, holding an empty wallet next to a wall calendar in his Italian living room, worried expression"
+   ],
+   "dati": {}
+  },
+  {
+   "tipo": "consigli",
+   "voce": "Come spendere meno? Compra un'auto usata di due anni. Confronta almeno cinque assicurazioni. E tieni l'auto più a lungo.",
+   "sfondi": [
+    "Marco, 38-year-old Italian man with short dark brown hair and stubble, navy polo shirt and jeans, looking happily at a two-year-old used compact city car in an Italian used car lot",
+    "Marco, 38-year-old Italian man with short dark brown hair and stubble, navy polo shirt and jeans, comparing insurance quotes on a laptop at his Italian living room table, smiling",
+    "Marco, 38-year-old Italian man with short dark brown hair and stubble, navy polo shirt and jeans, washing his older but well-kept compact city car in front of his Italian apartment building, content"
+   ],
+   "dati": {
+    "voci": [
+     "Compra usata di due anni",
+     "Confronta cinque assicurazioni",
+     "Tienila più a lungo"
+    ]
+   }
+  },
+  {
+   "tipo": "prossimo",
+   "voce": "Nella prossima puntata: quanto costa davvero un cane?",
+   "sfondi": [
+    "Marco, 38-year-old Italian man with short dark brown hair and stubble, navy polo shirt and jeans, smiling in an Italian park while petting a friendly golden retriever puppy on a leash"
+   ],
+   "dati": {
+    "testo": "PROSSIMA PUNTATA: IL CANE"
+   }
+  }
+ ]
+}
