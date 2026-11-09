@@ -389,7 +389,12 @@ def copertina_luminosa(pl, path, giorno=None):
     url = VM.http(inv['response_url'], headers=H)['images'][0]['url']
     im = Image.open(io.BytesIO(VM.http(url, raw=True))).convert('RGB').resize((1280, 720))
     d = ImageDraw.Draw(im)
-    righe = [str(r).upper() for r in (pl.get('righe') or ['WHY?'])][:3]
+    righe, n = [], 0
+    for r in [str(r).upper() for r in (pl.get('righe') or ['WHY?'])][:3]:   # massimo 4 parole: grandi e leggibili dal telefono
+        if n + len(r.split()) > 4:
+            break
+        righe.append(r); n += len(r.split())
+    righe = righe or ['WHY?']
     ev = int(pl.get('evidenza') or 0) % len(righe)
     grande = pos == 'top-left-big' or len(' '.join(righe)) <= 8
     fs = 150 if grande else 112
