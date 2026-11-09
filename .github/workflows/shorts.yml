@@ -57,6 +57,7 @@ jobs:
           YT_REFRESH_TOKEN_ORBITAL_DAYS: ${{ secrets.YT_REFRESH_TOKEN_ORBITAL_DAYS }}
           YT_REFRESH_TOKEN_WWII_TESTIMONY: ${{ secrets.YT_REFRESH_TOKEN_WWII_TESTIMONY }}
           YT_REFRESH_TOKEN_FACES_OF_ROME: ${{ secrets.YT_REFRESH_TOKEN_FACES_OF_ROME }}   # 7 nov: canale YouTube ex Faces of Rome, ora Quanto Ti Resta
+          YT_REFRESH_TOKEN_COSTO_VERO: ${{ secrets.YT_REFRESH_TOKEN_COSTO_VERO }}   # 9 nov: canale Costo Vero
           SOLO_CANALE: ${{ inputs.canale }}
           PROVA: ${{ inputs.prova || 'NO' }}
           RIGA: ${{ inputs.riga }}
