@@ -261,7 +261,7 @@ os.makedirs(RIP, exist_ok=True); json.dump(c, open(os.path.join(RIP, 'copione.js
 # ---------------- 3) montaggio (strumenti/prova_archivio.py) ----------------
 mont = {'nome': NOME, 'voce': P.get('voice_id'), 'velocita': numero(P.get('voice_speed'), 1.08),
         'stabilita': numero(P.get('voce_stabilita'), .4), 'stile_voce': numero(P.get('voce_stile'), .25),
-        'musica': P.get('musica_file') or 'epico_002.mp3', 'volume_musica': 0.07, 'max_secondi': 3.3, 'solo_video_fino_a': 30,
+        'musica': P.get('musica_file') or 'epico_002.mp3', 'volume_musica': 0.07, 'volume_voce': numero(P.get('volume_voce'), 1.0),   # 9 nov: colonna volume_voce (WWII: voce piu' alta) 'max_secondi': 3.3, 'solo_video_fino_a': 30,
         'movimenti_camera': P.get('movimenti_camera') or 'NO', 'suono_foto': P.get('suono_foto') or 'NO',
         'libreria': P.get('libreria') or '', 'archivio': str(P.get('libreria_archivio') or 'nasa').strip().lower(),
         'foto_riserva': [x.strip() for x in str(P.get('foto_riserva') or '').split(';') if x.strip()] or None, 'scene': [{k: s.get(k) for k in ('testo', 'q', 'tag', 'scritta', 'obbligo', 'anno') if s.get(k)} for s in c['scene']]}
