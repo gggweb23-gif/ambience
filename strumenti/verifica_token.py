@@ -7,9 +7,11 @@ def post(u, d):
 def get(u, tk):
     return json.loads(urllib.request.urlopen(urllib.request.Request(u, headers={'Authorization': 'Bearer ' + tk}), timeout=30).read())
 righe = [f"segreto: {E('NOME')}"]
+RT = (E('YT_REFRESH_TOKEN') or '').strip().strip('"').strip("'").strip()
+righe.append(f"token presente: {'SI' if RT else 'NO (segreto vuoto o nome sbagliato)'} | inizia con 1//: {'SI' if RT.startswith('1//') else 'NO'} | spazi/virgolette tolti: {'SI' if RT != (E('YT_REFRESH_TOKEN') or '') else 'NO'}")
 try:
     t = post('https://oauth2.googleapis.com/token', {'client_id': E('YT_CLIENT_ID'), 'client_secret': E('YT_CLIENT_SECRET'),
-                                                       'refresh_token': E('YT_REFRESH_TOKEN'), 'grant_type': 'refresh_token'})
+                                                       'refresh_token': RT, 'grant_type': 'refresh_token'})
     tk = t['access_token']
     righe.append('permessi: ' + ' '.join(s.rsplit('/', 1)[-1] for s in t.get('scope', '').split()))
     c = get('https://www.googleapis.com/youtube/v3/channels?part=snippet,brandingSettings,statistics&mine=true', tk).get('items', [])
@@ -20,6 +22,11 @@ try:
     if not c:
         righe.append('ATTENZIONE: il token non apre nessun canale')
 except Exception as e:
-    righe.append('ERRORE: ' + str(e)[:200])
+    corpo = ''
+    try:
+        corpo = e.read().decode()[:200]   # es. {"error": "invalid_grant"} / "unauthorized_client": mai il token
+    except Exception:
+        pass
+    righe.append('ERRORE: ' + str(e)[:200] + ' ' + corpo)
 print('\n'.join(righe))
 open('verifica_token.txt', 'w').write('\n'.join(righe) + '\n')
