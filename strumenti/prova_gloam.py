@@ -11,7 +11,7 @@ OUT = 'prove_video/Prova_Gloam'; os.makedirs(OUT, exist_ok=True)
 LAV = '/tmp/gloam'; os.makedirs(LAV, exist_ok=True)
 VOCE = E('VOCE') or 'pNInz6obpgDQGcFmaJgB'
 TEMA = E('TEMA') or 'How Knight Capital Lost $440,000,000 in 45 Minutes (August 1, 2012)'
-FONT = 'Anton-Regular.ttf'
+FONT = 'ctr_test/Anton.ttf'
 W, H = 1920, 1080
 COSTO = {'claude': 0.0, 'fal_immagini': 0, 'voce_caratteri': 0}
 log = lambda *a: print(time.strftime('%H:%M:%S'), *a, flush=True)
