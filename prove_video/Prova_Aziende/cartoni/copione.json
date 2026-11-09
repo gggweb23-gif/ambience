@@ -1,0 +1,832 @@
+{
+ "titolo": "Come guadagna davvero IKEA con le polpette a 1 euro?",
+ "protagonista": {
+  "nome": "Luca",
+  "capelli": "short",
+  "colore_capelli": "#5a3a1e",
+  "pelle": "media",
+  "maglia": "#1e5fb4",
+  "grembiule": "#f2c200",
+  "occhiali": false
+ },
+ "oggetto": "polpette",
+ "copertina": {
+  "righe": [
+   "POLPETTE",
+   "A UN EURO",
+   "E IKEA GUADAGNA"
+  ],
+  "emozione": "stupito",
+  "oggetto": "polpette",
+  "prezzo": "1 €",
+  "fondo": "scuro"
+ },
+ "copertina_ai": {
+  "valore_sx": "0,60 €",
+  "valore_dx": "1 €",
+  "oggetto_sx": "a small heap of meatball ingredients: minced meat, bread, egg, onion",
+  "oggetto_dx": "a plate of Swedish meatballs with cream sauce and lingonberry jam, with a small price tag",
+  "domanda": [
+   "POLPETTE A UN EURO",
+   "E IKEA GUADAGNA?"
+  ]
+ },
+ "descrizione": "Un piatto di polpette a un euro sembra una follia: eppure funziona. Con la storia di Luca e del suo ristorante scopri margine, costi fissi e punto di pareggio, con numeri semplici e facili da rifare per la tua attività. Alla fine sai cosa guardare e cosa ignorare nei tuoi conti. Guardalo fino in fondo!",
+ "tag": [
+  "margine",
+  "costi fissi",
+  "punto di pareggio",
+  "IKEA",
+  "polpette",
+  "ristorazione",
+  "aprire un'attività",
+  "conti",
+  "guadagno",
+  "prezzo civetta",
+  "commercianti",
+  "economia pratica",
+  "imprenditori",
+  "ristorante",
+  "bar",
+  "negozio"
+ ],
+ "scene": [
+  {
+   "testo": "Un piatto di polpette a un euro. Costa meno di un caffè! Ma allora chi ci guadagna? Ti dico subito una cosa: le polpette non sono il vero affare. Il vero affare lo scopri tra pochissimo.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Chi ci guadagna?",
+      "emozione": "stupito",
+      "scuro": true
+     }
+    },
+    {
+     "parola": "caffè",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "polpette",
+      "prezzo": "1 €",
+      "nota": "meno di un caffè"
+     }
+    },
+    {
+     "parola": "affare",
+     "tipo": "persone",
+     "p": {
+      "n": 5,
+      "azione": "entrano",
+      "escono": 0,
+      "testo": "Clienti in arrivo"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Facciamo finta che Luca apra un ristorante con le polpette a un euro. Ogni piatto gli costa sessanta centesimi tra carne, pane e salsa. Il resto dei soldi dove va a finire?",
+   "capitolo": "Il margine",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "ristorante",
+      "insegna": "Da Luca",
+      "azione": "lavora",
+      "clienti": 2,
+      "testo": "Polpette a un euro"
+     }
+    },
+    {
+     "parola": "sessanta",
+     "tipo": "fette",
+     "p": {
+      "titolo": "Un piatto da un euro",
+      "totale": 1,
+      "totale_testo": "1 €",
+      "fette": [
+       {
+        "nome": "Ingredienti",
+        "valore": 0.6,
+        "testo": "0,60 €"
+       },
+       {
+        "nome": "Margine",
+        "valore": 0.4,
+        "testo": "0,40 €"
+       }
+      ],
+      "evidenzia": 1
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Un euro meno sessanta centesimi fa quaranta centesimi. Quello è il margine: quello che ti resta dopo i costi del prodotto. Quaranta su cento, quindi il quaranta per cento.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Il margine",
+      "a": "1 €",
+      "op": "−",
+      "b": "0,60 €",
+      "risultato": "0,40 €",
+      "nota": "il margine su un piatto"
+     }
+    },
+    {
+     "parola": "quaranta",
+     "tipo": "fette",
+     "p": {
+      "titolo": "Margine in percentuale",
+      "totale": 100,
+      "totale_testo": "100 %",
+      "fette": [
+       {
+        "nome": "Costo prodotto",
+        "valore": 60,
+        "testo": "60 %"
+       },
+       {
+        "nome": "Margine",
+        "valore": 40,
+        "testo": "40 %"
+       }
+      ],
+      "evidenzia": 1
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Luca pensa di essere ricco: quaranta centesimi a piatto! Ma attenzione: il margine non è il guadagno. Prima di festeggiare, c'è una lista di spese che arriva ogni mese, anche se non vende niente.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "ristorante",
+      "insegna": "Da Luca",
+      "azione": "felice",
+      "clienti": 3,
+      "testo": "Che margine!"
+     }
+    },
+    {
+     "parola": "attenzione",
+     "tipo": "bilancia",
+     "p": {
+      "titolo": "Margine contro spese",
+      "sinistra": "Margine 0,40 €",
+      "destra": "Spese del mese",
+      "pende": "destra"
+     }
+    },
+    {
+     "parola": "lista",
+     "tipo": "domanda",
+     "p": {
+      "testo": "E le altre spese?",
+      "emozione": "preoccupato",
+      "scuro": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Sono i costi fissi: si pagano sempre, vendi tanto o niente. Per Luca sono quattromila euro al mese: affitto, stipendi, bollette. Sono tutte spese che non dipendono dai piatti venduti.",
+   "capitolo": "I costi fissi",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "costi",
+     "p": {
+      "voci": [
+       {
+        "nome": "Affitto",
+        "valore": 1800,
+        "testo": "1.800 €"
+       },
+       {
+        "nome": "Stipendi",
+        "valore": 1700,
+        "testo": "1.700 €"
+       },
+       {
+        "nome": "Bollette",
+        "valore": 500,
+        "testo": "500 €"
+       }
+      ],
+      "totale": 4000,
+      "periodo": "al mese"
+     }
+    },
+    {
+     "parola": "sempre",
+     "tipo": "calendario",
+     "p": {
+      "titolo": "Le spese arrivano ogni mese",
+      "giorni": 30,
+      "testo": "Ogni giorno costa"
+     }
+    },
+    {
+     "parola": "affitto",
+     "tipo": "soldi",
+     "p": {
+      "centro": "4.000 €",
+      "destinazioni": [
+       "Affitto",
+       "Stipendi",
+       "Bollette"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "E tu che hai un'attività, lo sai quanto paghi di costi fissi ogni mese? Fermati un attimo e fai il conto. Moltissimi commercianti non sanno rispondere, e così lavorano al buio.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Sai i tuoi costi fissi?",
+      "emozione": "calmo",
+      "scuro": false
+     }
+    },
+    {
+     "parola": "conto",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Cosa sommare",
+      "voci": [
+       "Affitto",
+       "Stipendi",
+       "Bollette",
+       "Assicurazioni",
+       "Rate e prestiti"
+      ]
+     }
+    },
+    {
+     "parola": "buio",
+     "tipo": "orologio",
+     "p": {
+      "ore": 12,
+      "piene": 3,
+      "testo": "Lavori tanto, ma i conti?"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ora il punto chiave: il punto di pareggio. Quanti piatti deve vendere Luca per coprire le spese? Dividi i costi fissi per il margine: quattromila diviso zero virgola quaranta.",
+   "capitolo": "Il pareggio",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Punto di pareggio",
+      "a": "4.000 €",
+      "op": "÷",
+      "b": "0,40 €",
+      "risultato": "10.000 piatti",
+      "nota": "al mese, solo per pareggiare"
+     }
+    },
+    {
+     "parola": "quattromila",
+     "tipo": "pareggio",
+     "p": {
+      "titolo": "Pareggio di Luca",
+      "fissi": 4000,
+      "margine": 0.4,
+      "unita": "piatti venduti",
+      "oggetto": "polpette",
+      "perdita": true,
+      "guadagno": true
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Diecimila piatti al mese! In un mese di trenta giorni sono trecentotrentatré piatti al giorno. Con un ristorante piccolo è impossibile. Luca, così, chiude in perdita.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "conteggio",
+     "p": {
+      "oggetto": "polpette",
+      "icone": 60,
+      "testo": "333 al giorno"
+     }
+    },
+    {
+     "parola": "impossibile",
+     "tipo": "persone",
+     "p": {
+      "n": 4,
+      "azione": "fila",
+      "escono": 0,
+      "testo": "Troppo pochi clienti"
+     }
+    },
+    {
+     "parola": "perdita",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "polpette",
+      "testo": "PERDITA",
+      "colore": "rosso",
+      "nota": "con soli piatti da un euro"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ecco il trucco di IKEA: le polpette non sono il prodotto, sono l'esca. Chi mangia resta più tempo nel negozio, e più tempo vuol dire più mobili nel carrello. È un prezzo civetta.",
+   "capitolo": "Il trucco",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "polpette",
+      "prezzo": "1 €",
+      "nota": "il prezzo civetta"
+     }
+    },
+    {
+     "parola": "mobili",
+     "tipo": "persone",
+     "p": {
+      "n": 6,
+      "azione": "entrano",
+      "escono": 0,
+      "testo": "Più tempo, più carrelli"
+     }
+    },
+    {
+     "parola": "civetta",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Prezzo civetta",
+      "voci": [
+       "Attira i clienti",
+       "Li fa restare",
+       "Vendi altro con più margine"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Facciamo i conti anche per Luca. Se un cliente su cinque compra anche un dolce da quattro euro con margine di due euro e quaranta, il margine medio per cliente cambia. Vediamo come.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "ristorante",
+      "insegna": "Da Luca",
+      "azione": "stupito",
+      "clienti": 4,
+      "testo": "Ora con i dolci"
+     }
+    },
+    {
+     "parola": "dolce",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "dolce",
+      "prezzo": "4 €",
+      "nota": "margine 2,40 €"
+     }
+    },
+    {
+     "parola": "cinque",
+     "tipo": "persone",
+     "p": {
+      "n": 5,
+      "azione": "fila",
+      "escono": 0,
+      "testo": "Uno su cinque lo compra"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Un cliente su cinque compra il dolce: due euro e quaranta diviso cinque fa quarantotto centesimi in più a cliente. Con le polpette sono quaranta più quarantotto: ottantotto centesimi.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Dolce per cliente",
+      "a": "2,40 €",
+      "op": "÷",
+      "b": "5",
+      "risultato": "0,48 €",
+      "nota": "in più per ogni cliente"
+     }
+    },
+    {
+     "parola": "ottantotto",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Margine totale",
+      "a": "0,40 €",
+      "op": "+",
+      "b": "0,48 €",
+      "risultato": "0,88 €",
+      "nota": "per cliente"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Rifai il pareggio: quattromila diviso zero virgola ottantotto fa circa quattromilacinquecento clienti al mese. Sono centocinquanta al giorno: molto più vicino alla realtà di un ristorante.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Nuovo pareggio",
+      "a": "4.000 €",
+      "op": "÷",
+      "b": "0,88 €",
+      "risultato": "4.545 clienti",
+      "nota": "circa, al mese"
+     }
+    },
+    {
+     "parola": "centocinquanta",
+     "tipo": "pareggio",
+     "p": {
+      "titolo": "Pareggio con i dolci",
+      "fissi": 4000,
+      "margine": 0.4,
+      "nuovo_margine": 0.88,
+      "unita": "clienti",
+      "oggetto": "polpette",
+      "perdita": true,
+      "guadagno": true
+     }
+    },
+    {
+     "parola": "realtà",
+     "tipo": "conteggio",
+     "p": {
+      "oggetto": "polpette",
+      "icone": 30,
+      "testo": "150 al giorno"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Un altro esempio: la palestra. L'abbonamento base costa poco, ma i costi fissi sono enormi. Il guadagno vero arriva da integratori, personal trainer e chi si iscrive e non viene mai.",
+   "capitolo": "Altri esempi",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "confronto",
+     "p": {
+      "titolo": "Palestra: cosa rende",
+      "a": {
+       "titolo": "Abbonamento base",
+       "valore": "20 €",
+       "oggetto": "manubri"
+      },
+      "b": {
+       "titolo": "Personal trainer",
+       "valore": "50 €",
+       "oggetto": "manubri"
+      },
+      "vincitore": "b"
+     }
+    },
+    {
+     "parola": "integratori",
+     "tipo": "salvadanaio",
+     "p": {
+      "direzione": "riempie",
+      "testo": "Il guadagno extra"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "E la stampante? Le stampanti costano poco, anche sotto i cento euro, ma le cartucce di ricambio costano tanto. Vendono la macchina quasi in pareggio e guadagnano sul consumabile.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "bilancia",
+     "p": {
+      "titolo": "Stampante contro cartucce",
+      "sinistra": "Stampante: margine basso",
+      "destra": "Cartucce: margine alto",
+      "pende": "destra"
+     }
+    },
+    {
+     "parola": "cartucce",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "cartuccia",
+      "prezzo": "35 €",
+      "nota": "il vero guadagno"
+     }
+    },
+    {
+     "parola": "consumabile",
+     "tipo": "andamento",
+     "p": {
+      "titolo": "Guadagno nel tempo",
+      "valori": [
+       0,
+       10,
+       25,
+       45,
+       70
+      ],
+      "etichette": [
+       "Mese 1",
+       "Mese 2",
+       "Mese 3",
+       "Mese 4",
+       "Mese 5"
+      ],
+      "colore": "verde"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Cosa guardare nei tuoi conti? Il margine di ogni prodotto, i costi fissi totali e il punto di pareggio. Cosa non guardare? Solo il prezzo: un prezzo basso non dice nulla se non sai i costi.",
+   "capitolo": "Cosa guardare",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "cruscotto",
+     "p": {
+      "titolo": "Da tenere d'occhio",
+      "voci": [
+       {
+        "nome": "Margine",
+        "valore": 0.6
+       },
+       {
+        "nome": "Costi fissi",
+        "valore": 0.4
+       },
+       {
+        "nome": "Pareggio",
+        "valore": 0.8
+       }
+      ]
+     }
+    },
+    {
+     "parola": "prezzo",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Non guardare solo",
+      "voci": [
+       "Il prezzo basso",
+       "Gli incassi",
+       "Il numero di clienti"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Gli incassi ingannano. Se incassi diecimila euro ma ne spendi nove e mezzo, ti restano cinquecento euro. L'incasso non è guadagno: conta quello che avanza dopo tutti i costi.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "soldi",
+     "p": {
+      "centro": "10.000 €",
+      "destinazioni": [
+       "Prodotti",
+       "Affitto",
+       "Stipendi",
+       "Bollette"
+      ]
+     }
+    },
+    {
+     "parola": "cinquecento",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Cosa resta davvero",
+      "a": "10.000 €",
+      "op": "−",
+      "b": "9.500 €",
+      "risultato": "500 €",
+      "nota": "questo è il guadagno"
+     }
+    },
+    {
+     "parola": "incasso",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "incasso",
+      "testo": "NON È GUADAGNO",
+      "colore": "rosso",
+      "nota": "guarda cosa resta"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Luca ora ha capito. Non vende polpette per guadagnarci tanto: le usa per far entrare la gente. Poi guarda i margini di dolci, bibite e piatti più ricchi. Lì costruisce il vero guadagno.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "ristorante",
+      "insegna": "Da Luca",
+      "azione": "festa",
+      "clienti": 5,
+      "testo": "Locale pieno"
+     }
+    },
+    {
+     "parola": "margini",
+     "tipo": "leve",
+     "p": {
+      "titolo": "Le leve di Luca",
+      "voci": [
+       "Prezzo",
+       "Costo prodotto",
+       "Costi fissi",
+       "Vendite extra"
+      ],
+      "evidenzia": 3
+     }
+    },
+    {
+     "parola": "guadagno",
+     "tipo": "mesi",
+     "p": {
+      "titolo": "Guadagno dopo i cambiamenti",
+      "valori": [
+       0,
+       200,
+       500,
+       800,
+       1100,
+       1400,
+       1600,
+       1800,
+       2000,
+       2100,
+       2200,
+       2400
+      ],
+      "evidenzia": [
+       12
+      ],
+      "nota": "esempio inventato"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Una settimana dopo Luca fa un'altra prova: sposta i dolci vicino alla cassa. Le vendite del dolce salgono da uno su cinque a due su cinque. Il margine per cliente cresce ancora!",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "persone",
+     "p": {
+      "n": 5,
+      "azione": "fila",
+      "escono": 0,
+      "testo": "Due su cinque lo prendono"
+     }
+    },
+    {
+     "parola": "cassa",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "dolce",
+      "prezzo": "4 €",
+      "nota": "vicino alla cassa"
+     }
+    },
+    {
+     "parola": "margine",
+     "tipo": "andamento",
+     "p": {
+      "titolo": "Margine per cliente",
+      "valori": [
+       0.4,
+       0.88,
+       1.36
+      ],
+      "etichette": [
+       "Solo polpette",
+       "Un dolce su cinque",
+       "Due su cinque"
+      ],
+      "colore": "verde"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Riassunto veloce. Margine: prezzo meno costo del prodotto. Costi fissi: quello che paghi sempre. Punto di pareggio: costi fissi diviso margine. E un prezzo basso può servire a vendere altro.",
+   "capitolo": "Riassunto",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "riepilogo",
+     "p": {
+      "titolo": "Da ricordare",
+      "voci": [
+       "Margine = prezzo meno costo",
+       "Costi fissi: si pagano sempre",
+       "Pareggio = fissi diviso margine",
+       "Prezzo civetta: vendi altro"
+      ]
+     }
+    },
+    {
+     "parola": "Punto",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Il pareggio",
+      "a": "4.000 €",
+      "op": "÷",
+      "b": "0,40 €",
+      "risultato": "10.000 piatti",
+      "nota": "solo con le polpette"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Prima di salutarti: stasera calcola il pareggio della tua attività. Prendi i costi fissi del mese, dividili per il margine medio e guarda il numero. Se ti spaventa, hai appena scoperto dove lavorare.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Quanto è il tuo pareggio?",
+      "emozione": "calmo",
+      "scuro": false
+     }
+    },
+    {
+     "parola": "spaventa",
+     "tipo": "salvadanaio",
+     "p": {
+      "direzione": "riempie",
+      "testo": "Conoscere i numeri protegge"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Nel prossimo episodio scopriamo come guadagna un negozio di scarpe che fa sconti del cinquanta per cento: davvero conviene, o i conti vanno in rosso? Iscriviti!",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "prossimo",
+     "p": {
+      "luogo": "negozio",
+      "insegna": "Scarpe Rossi",
+      "oggetto": "scarpe",
+      "testo": "Sconti al cinquanta per cento: conviene?"
+     }
+    }
+   ]
+  }
+ ]
+}
