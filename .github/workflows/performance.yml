@@ -55,20 +55,7 @@ jobs:
           GMAIL_UTENTE: ${{ secrets.GMAIL_UTENTE }}
           GMAIL_PASSWORD_APP: ${{ secrets.GMAIL_PASSWORD_APP }}
           DESTINATARIO: ${{ secrets.EMAIL_REPORT }}
-        run: |
-          [ -n "$GMAIL_UTENTE" ] && [ -n "$GMAIL_PASSWORD_APP" ] || { echo "email non configurata: salto"; exit 0; }
-          python3 - <<'PY'
-          import glob, os, smtplib, datetime as dt
-          from email.message import EmailMessage
-          f = sorted(glob.glob('report/Performance_*.xlsx'))[-1]
-          m = EmailMessage(); m['Subject'] = 'Performance canali ' + dt.date.today().strftime('%d/%m/%Y')
-          m['From'] = os.environ['GMAIL_UTENTE']; m['To'] = os.environ.get('DESTINATARIO') or os.environ['GMAIL_UTENTE']
-          m.set_content('In allegato il foglio delle performance: ultimi 10 video di ogni canale (impression, CTR, ritenzione 30 s e 60 s).')
-          m.add_attachment(open(f, 'rb').read(), maintype='application', subtype='vnd.openxmlformats-officedocument.spreadsheetml.sheet', filename=os.path.basename(f))
-          with smtplib.SMTP_SSL('smtp.gmail.com', 465) as s:
-              s.login(os.environ['GMAIL_UTENTE'], os.environ['GMAIL_PASSWORD_APP']); s.send_message(m)
-          print('email inviata')
-          PY
+        run: python3 strumenti/invia_report.py || echo "email non inviata"
       - name: Salva il riepilogo
         if: ${{ always() }}
         run: |
