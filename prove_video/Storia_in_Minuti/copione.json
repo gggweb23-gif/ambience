@@ -1,925 +1,818 @@
 {
  "riserva_pexels": [
-  "Russia snowy forest landscape",
-  "Moscow Kremlin domes",
-  "Saint Petersburg palace architecture",
-  "Siberia frozen river",
-  "Volga river Russia",
-  "Russian orthodox church golden domes",
-  "Ural mountains Russia",
-  "Russia steppe horizon sky"
+  "Korean peninsula mountains",
+  "Pyongyang river Taedong",
+  "Baekdu mountain lake",
+  "Korea rice terraces",
+  "Korean coast sea cliffs",
+  "DMZ Korea barbed wire fence",
+  "Korea snowy mountains winter",
+  "Korean traditional palace roof"
  ],
- "luoghi_paese": "russia, russian, moscow, kremlin, saint petersburg, siberia, volga, ural, kiev, novgorod, neva, baikal, kazan, red square, steppe, taiga, tundra, orthodox, onion domes, winter palace, peterhof",
- "titolo": "1500 anni di storia russa in 27 minuti [NO AI]",
- "titolo_mappa": "RUSSIA",
- "paese_mappa": "Russia",
- "date": "VI secolo – 2026",
- "texture": "stropicciata",
+ "luoghi_paese": "korea korean north korea pyongyang peninsula joseon silla goguryeo baekje hermit kingdom baekdu paektu taedong yalu imjin busan seoul incheon inchon dmz 38th parallel panmunjom kaesong wonsan hamhung chongjin korean hanbok",
+ "titolo": "2000 ANNI di Storia della COREA DEL NORD in 14 Minuti [NO AI]",
+ "titolo_mappa": "COREA DEL NORD",
+ "paese_mappa": "North Korea",
+ "date": "57 a.C. – 2026",
+ "texture": "washi",
  "font_carte": "classico",
  "fondi_carte": [],
  "colori_carte": [
-  "#6b1e1e",
-  "#1d3557"
+  "#7a1e1e",
+  "#1d2a44"
  ],
  "sfondi": [],
  "scene": [
   {
    "capitolo": "Le origini",
-   "testo": "La Russia è il paese più grande della Terra: undici fusi orari, quattordici confini. Nel 1983 un ufficiale russo decise di non premere un pulsante e salvò l'umanità. In 1.500 anni mongoli, Napoleone e Hitler l'hanno distrutta, ma lei è sempre tornata più grande e più temibile.",
-   "anno": 1983,
+   "testo": "Da oltre 70 anni una sola famiglia governa la Corea del Nord come se fosse divina. Questa ossessione per il controllo non nasce dal nulla. Nasce in un'antica terra divisa da re rivali. Oggi ogni famiglia nordcoreana deve raccogliere una tonnellata di escrementi umani all'anno. Sì, escrementi, e la gente litiga per averli.",
+   "anno": 2026,
    "visivi": [
     {
      "tipo": "mappa",
-     "frase": "La Russia è il paese"
+     "frase": "Da oltre 70 anni",
+     "suono": "low ominous drone"
     },
     {
      "tipo": "pexels_video",
-     "frase": "undici fusi orari",
-     "q": "Russia vast snowy landscape aerial"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "Nel 1983 un ufficiale",
-     "q": "old Soviet control panel red button",
-     "didascalia": "1983"
+     "frase": "Questa ossessione per",
+     "q": "Pyongyang monument night lights"
     },
     {
      "tipo": "pexels_video",
-     "frase": "In 1.500 anni",
-     "q": "Moscow Kremlin walls snow",
-     "didascalia": "1.500 anni"
+     "frase": "Nasce in un'antica",
+     "q": "Korea ancient fortress wall mountains"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "sempre tornata più grande",
-     "q": "Russia Red Square cathedral"
+     "frase": "Oggi ogni famiglia",
+     "q": "Korea vegetable field fertilizer farm",
+     "didascalia": "1 tonnellata all'anno"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "e la gente litiga",
+     "q": "Korea rural village dirt road"
     }
    ]
   },
   {
-   "testo": "Circa 1.500 anni fa le tribù slave erano così stanche di farsi la guerra che invitarono i vichinghi a governarle. Un vichingo, Rurik, fondò la Rus' di Kiev, un regno dal Baltico al Mar Nero.",
-   "anno": 862,
+   "testo": "Per capire la storia della Corea del Nord dobbiamo tornare al 57 a.C. Prima che esistesse, questa terra fu un campo di battaglia per oltre 2.000 anni. Come hanno fatto secoli di guerre e isolamento a piantare il seme della dittatura più estrema del mondo?",
+   "anno": -57,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "Circa 1.500 anni fa",
-     "q": "Russia ancient forest river mist",
-     "didascalia": "1.500 anni fa"
+     "frase": "Per capire la storia",
+     "q": "Korean peninsula aerial mountains mist",
+     "didascalia": "57 a.C."
     },
     {
      "tipo": "pexels_foto",
-     "frase": "invitarono i vichinghi",
-     "q": "viking longship replica sea"
+     "frase": "Prima che esistesse",
+     "q": "Korea ancient stone fortress ruins"
     },
     {
      "tipo": "pexels_video",
-     "frase": "Un vichingo, Rurik",
-     "q": "Novgorod kremlin river"
+     "frase": "Come hanno fatto",
+     "q": "Baekdu mountain volcanic lake"
     },
     {
-     "tipo": "pexels_foto",
-     "frase": "dal Baltico al Mar Nero",
-     "q": "Baltic sea coast Russia"
+     "tipo": "pexels_video",
+     "frase": "la dittatura più estrema",
+     "q": "Korea barbed wire fence sunset"
     }
    ]
   },
   {
-   "testo": "Il principe Vladimir ascoltò le offerte delle grandi religioni, e vinse il cristianesimo, soprattutto perché permetteva di bere. Un intero paese diventò cristiano perché lo disse il capo.",
-   "anno": 988,
-   "visivi": [
-    {
-     "tipo": "pexels_foto",
-     "frase": "Il principe Vladimir",
-     "q": "Kiev Saint Sophia cathedral"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "vinse il cristianesimo",
-     "q": "Russian orthodox church interior candles"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "permetteva di bere",
-     "q": "old wine goblet wooden table"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "Un intero paese",
-     "q": "orthodox church golden domes sky"
-    }
-   ]
-  },
-  {
-   "testo": "La Rus' di Kiev crebbe fino a diventare una potenza medievale. Ma alla morte della famiglia di Vladimir il regno si spezzò in decine di principati litigiosi.",
-   "anno": 1054,
+   "testo": "Nel 57 a.C. la Corea non era un paese ma tre regni in guerra continua. Goguryeo, Baekje e Silla si combatterono per 700 anni, come tre fratelli che litigano per una sola camera. Chi comandava pretendeva lealtà assoluta. Se non obbedivi, probabilmente finivi morto.",
+   "anno": -57,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "La Rus' di Kiev",
-     "q": "medieval Russian fortress wooden walls"
+     "frase": "Nel 57 a.C. la Corea",
+     "q": "Korea mountain valley ancient landscape"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "una potenza medievale",
-     "q": "Kiev Pechersk Lavra monastery"
+     "frase": "Goguryeo, Baekje e Silla",
+     "q": "Korean ancient tomb mural"
     },
     {
      "tipo": "pexels_video",
-     "frase": "si spezzò in decine",
-     "q": "cracked ice breaking river"
+     "frase": "come tre fratelli",
+     "q": "Korea river fog morning",
+     "didascalia": "700 anni di guerre"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "principati litigiosi",
-     "q": "old medieval map manuscript"
+     "frase": "Chi comandava pretendeva",
+     "q": "ancient Korean bronze sword museum"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Se non obbedivi",
+     "q": "dark storm clouds mountains Korea"
     }
    ]
   },
   {
-   "capitolo": "Il giogo mongolo",
-   "testo": "Nel 1237 arrivarono i mongoli di Batu Khan, mentre i principi russi si combattevano tra loro. Avevano già conquistato un impero dalla Cina all'Europa orientale. Per 240 anni ogni principe aveva bisogno del permesso del Khan per governare, rischiando la morte a ogni visita.",
-   "anno": 1237,
+   "capitolo": "Il Regno Eremita",
+   "testo": "Nel 668 d.C. Silla unificò la Corea, ma arrivò una dura lezione. Una potenza enorme, la Cina, osservava dalla porta accanto. I re coreani capirono che dovevano inchinarsi agli imperatori cinesi e pagare tributi per sopravvivere. La Corea diventò bravissima a dire «sissignore» restando indipendente dentro.",
+   "anno": 668,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "Nel 1237 arrivarono",
-     "q": "Mongolia steppe horizon storm clouds",
-     "didascalia": "1237"
+     "frase": "Nel 668 d.C. Silla",
+     "q": "Gyeongju ancient royal tombs Korea",
+     "didascalia": "668 d.C."
     },
     {
      "tipo": "pexels_foto",
-     "frase": "un impero dalla Cina",
-     "q": "Asian steppe grassland sunset"
+     "frase": "Una potenza enorme, la Cina",
+     "q": "Great Wall China mountains"
     },
     {
      "tipo": "pexels_video",
-     "frase": "Per 240 anni",
-     "q": "Russia snowy steppe wind",
-     "didascalia": "240 anni"
+     "frase": "I re coreani capirono",
+     "q": "Korean traditional palace roof"
     },
     {
-     "tipo": "pexels_foto",
-     "frase": "rischiando la morte",
-     "q": "ancient dagger medieval museum"
+     "tipo": "pexels_video",
+     "frase": "La Corea diventò bravissima",
+     "q": "Korea mountain temple mist"
     }
    ]
   },
   {
-   "testo": "I principi di Mosca furono astuti: raccoglievano l'oro per i mongoli e ne trattenevano una parte per sé. Anno dopo anno Mosca diventò silenziosamente, pericolosamente ricca.",
-   "anno": 1328,
-   "visivi": [
-    {
-     "tipo": "pexels_foto",
-     "frase": "I principi di Mosca",
-     "q": "Moscow Kremlin medieval cathedral"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "raccoglievano l'oro",
-     "q": "gold coins pouring"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "Anno dopo anno",
-     "q": "old Russian silver coins"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "pericolosamente ricca",
-     "q": "Kremlin domes golden light"
-    }
-   ]
-  },
-  {
-   "testo": "Nel 1480 Ivan III rifiutò di pagare il tributo, e il comandante mongolo se ne tornò a casa senza combattere. Ivan prese il titolo di Zar, preso in prestito dagli imperatori romani. Mosca aveva imparato per secoli come funziona il potere, e finalmente lo possedeva.",
-   "anno": 1480,
+   "testo": "Nel 1392 una nuova dinastia, la Joseon, prese il potere e durò oltre 500 anni. La Corea divenne nota come il Regno Eremita, tagliandosi deliberatamente fuori dal mondo. Per secoli la strategia funzionò, ma i vicini non la lasciavano in pace.",
+   "anno": 1392,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "Nel 1480 Ivan III",
-     "q": "Ugra river Russia autumn",
-     "didascalia": "1480"
+     "frase": "Nel 1392 una nuova",
+     "q": "Gyeongbokgung palace Seoul",
+     "didascalia": "Joseon: oltre 500 anni"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "il comandante mongolo",
-     "q": "empty winter field fog"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "prese il titolo di Zar",
-     "q": "Kremlin Cathedral Square Moscow"
+     "frase": "La Corea divenne nota",
+     "q": "Korean traditional hanok village"
     },
     {
      "tipo": "pexels_video",
-     "frase": "imperatori romani",
-     "q": "ancient Roman ruins columns"
+     "frase": "Per secoli la strategia",
+     "q": "Korea mountain fortress wall"
     },
     {
      "tipo": "pexels_video",
-     "frase": "Mosca aveva imparato",
-     "q": "Kremlin towers red brick"
+     "frase": "ma i vicini non",
+     "q": "Korea sea coast stormy waves"
     }
    ]
   },
   {
-   "capitolo": "Ivan il Terribile",
-   "testo": "Nel 1547 il nipote di Ivan III divenne il primo zar incoronato ufficialmente: Ivan IV. A sedici anni era ambizioso: costruì scuole, vinse guerre e allargò rapidamente il territorio.",
-   "anno": 1547,
-   "visivi": [
-    {
-     "tipo": "pexels_foto",
-     "frase": "Nel 1547 il nipote",
-     "q": "Saint Basil's Cathedral Moscow",
-     "didascalia": "1547"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "A sedici anni",
-     "q": "Russian icon painting gold"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "allargò rapidamente il territorio",
-     "q": "Russia old map parchment"
-    }
-   ]
-  },
-  {
-   "testo": "Quando morì la moglie Anastasia, Ivan credette che i nobili l'avessero avvelenata e creò una terribile polizia segreta, l'Opričnina. Cavalieri vestiti di nero uccidevano chiunque Ivan odiasse, e gli diedero il soprannome di Grozny: quello con cui non devi assolutamente litigare.",
-   "anno": 1565,
+   "testo": "Il Giappone invase il paese negli anni Novanta del Cinquecento, devastandolo. Poi Cina, Giappone e Russia vollero tutti influenza sulla Corea. Nel 1910 la Corea aveva trascorso duemila anni a imparare una sola strategia di sopravvivenza.",
+   "anno": 1592,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "Quando morì la moglie",
-     "q": "candles dark church flames"
+     "frase": "Il Giappone invase il paese",
+     "q": "Korean coast ocean ships horizon"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "una terribile polizia segreta",
-     "q": "dark castle gate night"
+     "frase": "devastandolo. Poi Cina",
+     "q": "old map Asia antique"
     },
     {
      "tipo": "pexels_video",
-     "frase": "Cavalieri vestiti di nero",
-     "q": "black horse galloping fog"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "Grozny",
-     "q": "old iron crown medieval"
+     "frase": "Nel 1910 la Corea",
+     "q": "Korea old stone gate sunset",
+     "didascalia": "2.000 anni di sopravvivenza"
     }
    ]
   },
   {
-   "testo": "Il momento peggiore: durante una lite Ivan colpì con il bastone reale il figlio maggiore, uccidendolo. Alla sua morte l'altro figlio, debole, morì senza eredi, e la Russia restò senza guida.",
-   "anno": 1584,
+   "capitolo": "L'occupazione giapponese",
+   "testo": "Nel 1910 la Corea sparì dalle mappe per 35 anni, sotto una brutale occupazione giapponese. Il Giappone annesse ufficialmente il paese, cancellando la cultura coreana. I coreani furono costretti ad adottare nomi giapponesi, parlare giapponese e venerare l'imperatore. Parlare coreano in pubblico poteva farti arrestare.",
+   "anno": 1910,
    "visivi": [
     {
      "tipo": "pexels_foto",
-     "frase": "Il momento peggiore",
-     "q": "royal wooden staff ornate"
+     "frase": "Nel 1910 la Corea sparì",
+     "q": "old Korea map vintage",
+     "didascalia": "1910: 35 anni di occupazione"
     },
     {
      "tipo": "pexels_video",
-     "frase": "Alla sua morte",
-     "q": "candle burning out dark"
+     "frase": "Il Giappone annesse",
+     "q": "Japanese shrine torii gate"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "I coreani furono costretti",
+     "q": "vintage black white documents seal"
     },
     {
      "tipo": "pexels_video",
-     "frase": "la Russia restò senza guida",
-     "q": "empty throne room palace"
+     "frase": "Parlare coreano in pubblico",
+     "q": "empty street dark night rain"
     }
    ]
   },
   {
-   "capitolo": "I Romanov",
-   "testo": "Cominciò il Periodo dei Torbidi: quindici anni di carestia, peste, guerra civile e invasione polacca. I nobili disperati fecero zar il sedicenne Michele Romanov per fermare il caos. I Romanov governarono la Russia per trecento anni.",
-   "anno": 1613,
+   "testo": "Un ragazzo di nome Kim Il-sung vide tutto questo e si unì alla resistenza come guerrigliero. Studiò esattamente come il Giappone controllava milioni di persone con un culto della personalità attorno all'imperatore. Imparò il loro modello per riscrivere la storia ed eliminare chiunque dissentisse.",
+   "anno": 1930,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "Cominciò il Periodo",
-     "q": "burnt ruins smoke village",
-     "didascalia": "15 anni"
+     "frase": "Un ragazzo di nome",
+     "q": "Manchuria forest snow mountains"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "carestia, peste",
-     "q": "barren frozen field winter"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "Michele Romanov",
-     "q": "Ipatiev monastery Kostroma"
+     "frase": "Studiò esattamente come",
+     "q": "Japan imperial palace moat"
     },
     {
      "tipo": "pexels_video",
-     "frase": "trecento anni",
-     "q": "Romanov palace gold interior",
-     "didascalia": "300 anni"
+     "frase": "Imparò il loro modello",
+     "q": "old book pages burning fire"
     }
    ]
   },
   {
-   "capitolo": "Pietro il Grande",
-   "testo": "Alla fine del Seicento la Russia era ancora medievale, mentre l'Europa aveva navi, cannoni, scienza e palazzi. Pietro il Grande, nato nel 1672, era alto due metri e tre: sovrastava gli europei. Si travestì per lavorare nei cantieri navali europei, imparando a costruire navi con le sue mani.",
-   "anno": 1697,
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "Alla fine del Seicento",
-     "q": "old Russian wooden village snow"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "navi, cannoni, scienza",
-     "q": "antique cannon sailing ship museum"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "era alto due metri",
-     "q": "shipyard wooden ship construction",
-     "didascalia": "2,03 metri"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "cantieri navali europei",
-     "q": "Dutch harbor old ships"
-    }
-   ]
-  },
-  {
-   "testo": "Tornato zar a venticinque anni, Pietro era ossessionato dal modernizzare la Russia. Introdusse una tassa sulla barba per i nobili, che la portavano da secoli, e talvolta la tagliava lui stesso. Vietò gli abiti tradizionali e impose giacche e parrucche europee.",
-   "anno": 1698,
+   "capitolo": "La divisione",
+   "testo": "Quando la Seconda guerra mondiale finì, nell'agosto 1945, il Giappone si arrese e la Corea fu finalmente libera. Americani e sovietici tracciarono una linea sul 38° parallelo per accettare la resa giapponese. Il Nord ai sovietici, il Sud agli americani. Doveva essere temporaneo, pochi mesi prima di elezioni libere.",
+   "anno": 1945,
    "visivi": [
     {
      "tipo": "pexels_foto",
-     "frase": "Tornato zar a venticinque",
-     "q": "Peterhof palace fountains"
+     "frase": "Quando la Seconda guerra",
+     "q": "vintage newspaper 1945 war end"
     },
     {
      "tipo": "pexels_video",
-     "frase": "una tassa sulla barba",
-     "q": "vintage razor scissors closeup"
+     "frase": "Americani e sovietici tracciarono",
+     "q": "DMZ Korea border fence",
+     "didascalia": "38° parallelo"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Il Nord ai sovietici",
+     "q": "Korea mountains aerial north"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "giacche e parrucche",
-     "q": "18th century powdered wig museum"
+     "frase": "Doveva essere temporaneo",
+     "q": "Panmunjom Korea border line"
     }
    ]
   },
   {
-   "testo": "Cambiò il calendario da un giorno all'altro, saltando dall'anno 7207 al sistema europeo. Decise che serviva una capitale nuova, moderna, sul mare, e scelse una palude gelida e piena di zanzare.",
-   "anno": 1700,
-   "visivi": [
-    {
-     "tipo": "pexels_foto",
-     "frase": "Cambiò il calendario",
-     "q": "old calendar manuscript pages"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "una capitale nuova",
-     "q": "Neva river Saint Petersburg dawn"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "una palude gelida",
-     "q": "foggy marsh swamp reeds"
-    }
-   ]
-  },
-  {
-   "testo": "Pietro costruì San Pietroburgo sul bordo del Baltico, anche se decine di migliaia di lavoratori forzati morirono nei cantieri. Nel 1725 aveva una flotta, aveva battuto la Svezia e trasformato la Russia in un impero moderno.",
-   "anno": 1725,
-   "visivi": [
-    {
-     "tipo": "pexels_foto",
-     "frase": "Pietro costruì San Pietroburgo",
-     "q": "Peter and Paul Fortress Saint Petersburg"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "decine di migliaia",
-     "q": "Saint Petersburg canals bridges",
-     "didascalia": "decine di migliaia di morti"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "Nel 1725 aveva una flotta",
-     "q": "sailing ship Baltic sea waves",
-     "didascalia": "1725"
-    }
-   ]
-  },
-  {
-   "capitolo": "Caterina la Grande",
-   "testo": "Dopo la sua morte la Russia visse quarant'anni di caos, finché nel 1762 prese il potere Caterina la Grande. Allargò enormemente i confini: Polonia, Crimea strappata agli ottomani e quasi tutta l'Ucraina. Scriveva ai filosofi francesi di libertà e diritti umani, ma non liberò mai i servi della gleba.",
-   "anno": 1762,
+   "testo": "I sovietici misero Kim Il-sung a capo del Nord. Gli americani sostennero Syngman Rhee al Sud. Entrambi capirono che elezioni libere significavano perdere il potere. La linea temporanea restò un anno, poi due, poi cinque. Nel 1950 c'erano due paesi, due eserciti che si odiavano profondamente.",
+   "anno": 1948,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "Dopo la sua morte",
-     "q": "Winter Palace Saint Petersburg"
+     "frase": "I sovietici misero Kim",
+     "q": "Pyongyang skyline river"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "nel 1762 prese il potere",
-     "q": "Hermitage museum golden staircase",
-     "didascalia": "1762"
+     "frase": "Gli americani sostennero",
+     "q": "Seoul skyline vintage"
     },
     {
      "tipo": "pexels_video",
-     "frase": "Crimea strappata",
-     "q": "Crimea coast cliffs sea"
+     "frase": "La linea temporanea restò",
+     "q": "barbed wire fence snow Korea",
+     "didascalia": "1945 – 1950"
     },
     {
-     "tipo": "pexels_foto",
-     "frase": "non liberò mai",
-     "q": "old wooden Russian village fields"
+     "tipo": "pexels_video",
+     "frase": "Nel 1950 c'erano due",
+     "q": "Korea border watchtower"
     }
    ]
   },
   {
-   "capitolo": "Napoleone",
-   "testo": "Nel 1812 Napoleone invase la Russia con 600.000 soldati, il più grande esercito europeo della storia. I russi bruciarono Mosca piuttosto che arrendersi, e l'inverno distrusse le sue truppe. Degli invasori sopravvissero circa 30.000: gli altri morirono di freddo o di fame.",
-   "anno": 1812,
+   "testo": "Kim Il-sung aveva ora il suo territorio, l'appoggio sovietico e il modello giapponese di controllo totale. Gli serviva solo una cosa: conquistare il Sud e governare tutta la Corea.",
+   "anno": 1950,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "Nel 1812 Napoleone",
-     "q": "Russia snowstorm road forest",
-     "didascalia": "600.000 soldati"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "bruciarono Mosca",
-     "q": "city burning fire smoke night"
+     "frase": "Kim Il-sung aveva ora",
+     "q": "red flag waving dark sky"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "l'inverno distrusse",
-     "q": "frozen snowy battlefield field"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "sopravvissero circa 30.000",
-     "q": "snow covered cemetery crosses",
-     "didascalia": "30.000 sopravvissuti"
+     "frase": "Gli serviva solo una",
+     "q": "Korean peninsula map relief"
     }
    ]
   },
   {
-   "testo": "La Russia sconfisse Napoleone usando l'inverno come arma, ma rifiutò di risolvere i suoi veri problemi.",
-   "anno": 1815,
+   "capitolo": "La guerra di Corea",
+   "testo": "All'inizio del 1950 Kim decise di muoversi. Andò a Mosca con un piano astuto per invadere il Sud. Credeva di poter vincere in sole 3 settimane. Quando gli chiesero dell'intervento americano, era sicuro che non avrebbero combattuto per la Corea.",
+   "anno": 1950,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "La Russia sconfisse Napoleone",
-     "q": "winter blizzard Russia trees"
+     "frase": "All'inizio del 1950 Kim",
+     "q": "Moscow Kremlin snow winter"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "rifiutò di risolvere",
-     "q": "cracked old wall peeling paint"
+     "frase": "Credeva di poter vincere",
+     "q": "vintage military map table",
+     "didascalia": "3 settimane"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "era sicuro che non",
+     "q": "storm clouds over Korea mountains"
     }
    ]
   },
   {
-   "capitolo": "Nicola II e Rasputin",
-   "testo": "Nel 1894 salì al trono il debole Nicola II, facilmente manipolato da tutti. Sua moglie Alessandra era ossessionata da Rasputin, un rozzo monaco contadino che diceva di guarire magicamente il figlio malato. Attraverso di lei, Rasputin governava di fatto il paese mentre la Russia cadeva a pezzi.",
-   "anno": 1894,
-   "visivi": [
-    {
-     "tipo": "pexels_foto",
-     "frase": "Nel 1894 salì al trono",
-     "q": "Catherine Palace Tsarskoye Selo",
-     "didascalia": "1894"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "Rasputin, un rozzo monaco",
-     "q": "Siberian village wooden church"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "la Russia cadeva a pezzi",
-     "q": "crumbling old building ruins"
-    }
-   ]
-  },
-  {
-   "testo": "Nel 1914 Nicola prese la peggiore decisione possibile: entrare nella Prima guerra mondiale, del tutto impreparato. I soldati non avevano fucili, cappotti o stivali, e la Russia perse quasi due milioni di uomini, più di ogni altro paese. A Tannenberg i tedeschi uccisero o catturarono 170.000 russi in soli tre giorni.",
-   "anno": 1914,
+   "testo": "Il 25 giugno 1950 la Corea del Nord invase. All'inizio l'invasione sembrò brillante, mentre i carri armati sovietici scendevano verso sud. Seul cadde in soli 3 giorni e l'esercito sudcoreano si disperse. Ad agosto le forze ONU e sudcoreane erano intrappolate in un piccolo angolo attorno a Busan.",
+   "anno": 1950,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "Nel 1914 Nicola prese",
-     "q": "old World War trench mud field"
+     "frase": "Il 25 giugno 1950",
+     "q": "Korea border dawn fog",
+     "didascalia": "25 giugno 1950"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "non avevano fucili",
-     "q": "antique rifle worn boots museum"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "quasi due milioni",
-     "q": "war cemetery crosses fog",
-     "didascalia": "2 milioni di morti"
+     "frase": "mentre i carri armati",
+     "q": "old tank museum Korea war"
     },
     {
      "tipo": "pexels_video",
-     "frase": "A Tannenberg i tedeschi",
-     "q": "misty forest lake Poland",
-     "didascalia": "170.000 russi in 3 giorni"
+     "frase": "Seul cadde in soli",
+     "q": "Seoul Han river bridge sunrise",
+     "didascalia": "Seul cade in 3 giorni"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Ad agosto le forze",
+     "q": "Busan harbor coast Korea"
     }
    ]
   },
   {
-   "testo": "La morte di Rasputin fu la più strana della storia russa: i nobili lo avvelenarono con il cianuro, gli spararono quattro volte e lo gettarono in un fiume ghiacciato. Giorni dopo la polizia ripescò il corpo, con le mani artigliate per aver cercato di nuotare sotto il ghiaccio.",
-   "anno": 1916,
+   "testo": "Una spinta in più e Kim avrebbe avuto la vittoria totale. Poi il generale MacArthur cambiò tutto, il 15 settembre, con uno sbarco rischioso a Incheon. La strategia funzionò perfettamente e i nordcoreani andarono nel panico. In 2 settimane Seul fu riconquistata dalle forze ONU.",
+   "anno": 1950,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "La morte di Rasputin",
-     "q": "dark palace corridor night"
+     "frase": "Una spinta in più",
+     "q": "Korean coast tide mudflats"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "lo avvelenarono con il cianuro",
-     "q": "old poison bottle glass"
+     "frase": "Poi il generale MacArthur",
+     "q": "Incheon harbor Korea sea",
+     "didascalia": "15 settembre 1950"
     },
     {
      "tipo": "pexels_video",
-     "frase": "un fiume ghiacciato",
-     "q": "frozen river ice winter night"
+     "frase": "La strategia funzionò perfettamente",
+     "q": "ocean waves landing shore dawn"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "In 2 settimane Seul",
+     "q": "Seoul mountains city ruins"
     }
    ]
   },
   {
-   "capitolo": "La rivoluzione",
-   "testo": "Nel febbraio 1917 operai e soldati assaltarono il palazzo, e i generali fermarono il treno di Nicola per dirgli che non era più zar. Trecento anni di Romanov finirono in silenzio, con un uomo confuso che firmava un foglio in un vagone.",
-   "anno": 1917,
+   "testo": "A ottobre le forze ONU erano penetrate in profondità nel Nord. La guerra facile di Kim era diventata un disastro totale. All'improvviso, a fine ottobre, centinaia di migliaia di soldati cinesi attraversarono il confine. Si dichiararono «volontari», e non ingannarono nessuno.",
+   "anno": 1950,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "Nel febbraio 1917",
-     "q": "Saint Petersburg winter snow street",
-     "didascalia": "febbraio 1917"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "fermarono il treno",
-     "q": "old steam train snowy railway"
+     "frase": "A ottobre le forze ONU",
+     "q": "Yalu river Korea China border"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "firmava un foglio",
-     "q": "fountain pen paper old document"
+     "frase": "La guerra facile di Kim",
+     "q": "burnt landscape winter Korea mountains"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "All'improvviso, a fine ottobre",
+     "q": "snowstorm mountains frozen river",
+     "didascalia": "Centinaia di migliaia di soldati"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Si dichiararono «volontari»",
+     "q": "Korea snow forest dark"
     }
    ]
   },
   {
-   "testo": "Il nuovo governo provvisorio commise l'errore di continuare la guerra, che tutti in Russia odiavano. Lenin, brillante comunista nascosto in Svizzera, fu rimandato in Russia di nascosto dalla Germania per distruggere il paese dall'interno.",
-   "anno": 1917,
-   "visivi": [
-    {
-     "tipo": "pexels_foto",
-     "frase": "Il nuovo governo provvisorio",
-     "q": "Tauride Palace Saint Petersburg"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "Lenin, brillante comunista",
-     "q": "Swiss Alps lake Zurich"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "rimandato in Russia",
-     "q": "vintage steam train tracks"
-    }
-   ]
-  },
-  {
-   "testo": "I bolscevichi promettevano tre cose: pace, terra e pane, un'offerta irresistibile per una nazione affamata, gelata ed esausta. Nell'ottobre 1917 entrarono nel palazzo del governo a Pietrogrado quasi senza resistenza. La più potente rivoluzione comunista nacque da uomini arrabbiati che passano da una porta aperta.",
-   "anno": 1917,
-   "visivi": [
-    {
-     "tipo": "pexels_foto",
-     "frase": "I bolscevichi promettevano",
-     "q": "loaf of bread wooden table"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "Nell'ottobre 1917",
-     "q": "Winter Palace gates Saint Petersburg",
-     "didascalia": "ottobre 1917"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "una porta aperta",
-     "q": "old open door light corridor"
-    }
-   ]
-  },
-  {
-   "testo": "Seguì una guerra civile brutale tra rossi comunisti e bianchi anticomunisti. Quattordici paesi, tra cui Gran Bretagna, Francia e America, mandarono truppe per fermare i bolscevichi. I bolscevichi giustiziarono lo zar Nicola, la moglie e tutti e cinque i figli in uno scantinato.",
-   "anno": 1918,
+   "testo": "La guerra si impantanò in una brutale situazione di stallo sul 38° parallelo. Per altri 2 anni gli eserciti si contesero le stesse colline ghiacciate. Il 27 luglio 1953 firmarono un armistizio, non un trattato di pace. Nel conflitto morirono oltre 3 milioni di persone.",
+   "anno": 1953,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "Seguì una guerra civile",
-     "q": "Russia winter forest railway"
+     "frase": "La guerra si impantanò",
+     "q": "frozen hills Korea winter"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "Quattordici paesi",
-     "q": "vintage world map old",
-     "didascalia": "14 paesi"
+     "frase": "Per altri 2 anni",
+     "q": "Korea mountain ridge snow trench"
     },
     {
      "tipo": "pexels_video",
-     "frase": "in uno scantinato",
-     "q": "dark stone basement stairs"
+     "frase": "Il 27 luglio 1953",
+     "q": "Panmunjom blue buildings DMZ",
+     "didascalia": "27 luglio 1953"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Nel conflitto morirono oltre",
+     "q": "Korean war memorial cemetery",
+     "didascalia": "Oltre 3 milioni di morti"
     }
    ]
   },
   {
-   "capitolo": "L'Unione Sovietica",
-   "testo": "Cinque anni dopo i rossi vinsero, creando l'Unione Sovietica: una massa rossa enorme, un sesto del pianeta. Lenin morì nel 1924, e Stalin, paranoico georgiano, prese il controllo assoluto nonostante l'avvertimento di Lenin sul letto di morte.",
-   "anno": 1924,
-   "visivi": [
-    {
-     "tipo": "pexels_foto",
-     "frase": "Cinque anni dopo",
-     "q": "Red Square Moscow Lenin Mausoleum",
-     "didascalia": "1/6 del pianeta"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "Lenin morì nel 1924",
-     "q": "Moscow Kremlin wall snow"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "Stalin, paranoico",
-     "q": "old Soviet star red metal"
-    }
-   ]
-  },
-  {
-   "testo": "Nel 1929 Stalin era dittatore di tutta la terra dall'Europa orientale al Pacifico. Costrinse milioni di contadini nelle fattorie statali: chi resisteva veniva fucilato o mandato nei campi siberiani, e ci fu una fame di massa. Eliminò generali, scienziati e amici sospetti, lasciando la Russia quasi senza ufficiali esperti.",
-   "anno": 1929,
+   "testo": "Dopo tutto quel sangue, il confine finì esattamente dov'era nel 1945. La guerra di 3 settimane di Kim durò 3 anni e non ottenne nulla, se non rendere permanente la divisione. Incredibilmente Kim sopravvisse e governò altri 46 anni eliminando chiunque potesse sfidarlo.",
+   "anno": 1953,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "Nel 1929 Stalin",
-     "q": "vast wheat field Russia empty"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "campi siberiani",
-     "q": "Siberia frozen wasteland snow",
-     "didascalia": "1929"
+     "frase": "Dopo tutto quel sangue",
+     "q": "DMZ Korea fence mist"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "generali, scienziati",
-     "q": "barbed wire fence snow"
+     "frase": "La guerra di 3 settimane",
+     "q": "Korea barbed wire rusted"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Incredibilmente Kim sopravvisse",
+     "q": "Pyongyang monument hill dusk",
+     "didascalia": "46 anni di potere"
     }
    ]
   },
   {
-   "capitolo": "La Seconda guerra mondiale",
-   "testo": "Nel 1941 Hitler invase con tre milioni di soldati: l'Operazione Barbarossa fu la più grande invasione terrestre della storia, e assediò Leningrado per 900 giorni. Quasi un milione di persone morì di fame solo lì. I tedeschi arrivarono alle porte di Mosca, ma l'inverno congelò i motori dei carri armati.",
-   "anno": 1941,
+   "capitolo": "Il culto dei Kim",
+   "testo": "Kim Il-sung non voleva solo il potere; voleva essere adorato. Negli anni Sessanta suo figlio Kim Jong-il prese in mano la propaganda e insieme riscrissero la storia. Dissero che Kim era nato su una montagna sacra, con un doppio arcobaleno e rondini che cantavano. Bugie totali. Metterle in dubbio significava morte.",
+   "anno": 1960,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "Nel 1941 Hitler invase",
-     "q": "Russian field smoke dark sky",
-     "didascalia": "3 milioni di soldati"
+     "frase": "Kim Il-sung non voleva",
+     "q": "Pyongyang statue monument"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "assediò Leningrado",
-     "q": "Saint Petersburg winter snow canal",
-     "didascalia": "900 giorni"
+     "frase": "Negli anni Sessanta suo figlio",
+     "q": "propaganda poster vintage red"
     },
     {
      "tipo": "pexels_video",
-     "frase": "Quasi un milione",
-     "q": "empty snowy street winter city"
+     "frase": "Dissero che Kim era nato",
+     "q": "Baekdu mountain sacred peak rainbow"
     },
     {
      "tipo": "pexels_video",
-     "frase": "l'inverno congelò",
-     "q": "frozen engine ice snow metal"
+     "frase": "Metterle in dubbio",
+     "q": "dark prison corridor"
     }
    ]
   },
   {
-   "testo": "I russi, abituati al freddo estremo, respinsero i tedeschi, ripetendo l'errore di Napoleone di 130 anni prima. Il fronte orientale divenne il luogo più sanguinoso della Terra, con 2 milioni di morti a Stalingrado.",
-   "anno": 1942,
+   "testo": "Azzerarono il calendario: l'anno uno divenne quello della nascita di Kim. Statue giganti apparvero ovunque e ogni casa doveva avere il suo ritratto. La gente doveva inchinarsi ogni mattina, e in caso d'incendio salvare prima il ritratto. Cominciarono a cancellare la lingua stessa, eliminando la parola «io».",
+   "anno": 1970,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "I russi, abituati al freddo",
-     "q": "snowy forest Russia blizzard"
+     "frase": "Azzerarono il calendario",
+     "q": "old calendar pages flipping"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "il luogo più sanguinoso",
-     "q": "Volgograd Mamayev Kurgan monument"
+     "frase": "Statue giganti apparvero ovunque",
+     "q": "giant bronze statue Pyongyang"
     },
     {
      "tipo": "pexels_video",
-     "frase": "2 milioni di morti",
-     "q": "Volga river Volgograd",
-     "didascalia": "2 milioni di morti"
+     "frase": "La gente doveva inchinarsi",
+     "q": "empty apartment window light"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Cominciarono a cancellare la lingua",
+     "q": "typewriter keys typing"
     }
    ]
   },
   {
-   "testo": "Nella battaglia di Kursk del 1943 si scontrarono 6.000 carri armati, e la Germania perse per sempre l'iniziativa. Quattro soldati tedeschi su cinque morti nella guerra caddero contro i sovietici, non in Normandia. L'Unione Sovietica perse 27 milioni di persone ma uscì superpotenza, con metà Europa sotto controllo.",
-   "anno": 1943,
+   "testo": "Si poteva dire solo «amiamo l'acqua», non «io amo l'acqua». Ai cittadini fu insegnato di essere la razza di Kim Il-sung, non coreani né asiatici. La lingua nordcoreana non aveva parole per amore, libertà, diritti umani o stress. Ogni casa ebbe una radio impossibile da spegnere, fissa sulla propaganda.",
+   "anno": 1975,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "Nella battaglia di Kursk",
-     "q": "old tank museum Russia",
-     "didascalia": "6.000 carri armati"
+     "frase": "Si poteva dire solo",
+     "q": "old radio speaker vintage"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "Quattro soldati tedeschi",
-     "q": "war memorial eternal flame"
+     "frase": "La lingua nordcoreana non",
+     "q": "old dictionary pages"
     },
     {
      "tipo": "pexels_video",
-     "frase": "perse 27 milioni",
-     "q": "Moscow Victory Park monument",
-     "didascalia": "27 milioni di morti"
+     "frase": "Ogni casa ebbe una radio",
+     "q": "loudspeaker pole sky"
     }
    ]
   },
   {
-   "capitolo": "La Guerra fredda",
-   "testo": "Per 45 anni URSS e America si fronteggiarono nella Guerra fredda, con migliaia di armi nucleari. Due volte il mondo fu a poche ore dall'annientamento, anche quando nel 1983 l'ufficiale Stanislav Petrov impedì una rappresaglia. L'istinto di un uomo salvò il pianeta quella notte.",
-   "anno": 1983,
+   "testo": "I bambini imparavano che uccelli e topi potevano sentirli, così la sorveglianza sembrava ovunque. Se commettevi un reato, finivano nei campi di prigionia anche i tuoi figli, i genitori e i nonni. Nel 1974 Kim designò il figlio Kim Jong-il come successore, scioccando i comunisti di tutto il mondo.",
+   "anno": 1974,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "Per 45 anni",
-     "q": "missile launch silo rocket",
-     "didascalia": "45 anni"
+     "frase": "I bambini imparavano che",
+     "q": "sparrow bird branch winter"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "migliaia di armi nucleari",
-     "q": "nuclear mushroom cloud archive"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "Stanislav Petrov",
-     "q": "old radar screen alarm red"
+     "frase": "Se commettevi un reato",
+     "q": "prison barbed wire watchtower"
     },
     {
      "tipo": "pexels_video",
-     "frase": "salvò il pianeta",
-     "q": "earth night sky stars"
+     "frase": "Nel 1974 Kim designò",
+     "q": "Pyongyang monument red flags",
+     "didascalia": "1974"
     }
    ]
   },
   {
-   "testo": "Stalin morì nel 1953, e i successori furono meno assassini, ma l'Unione Sovietica marciva dall'interno: negozi vuoti, fabbriche rotte, code di ore per il pane. Nel 1985 il sistema si reggeva con vodka e preghiere.",
-   "anno": 1985,
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "Stalin morì nel 1953",
-     "q": "Soviet concrete apartment blocks winter"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "negozi vuoti",
-     "q": "empty shop shelves old"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "vodka e preghiere",
-     "q": "vodka bottle glass table"
-    }
-   ]
-  },
-  {
-   "testo": "Gorbaciov cercò di salvarlo con apertura e riforme economiche, ma si ritorcero contro: la gente cominciò a criticare il governo. Polonia, Germania Est e Ungheria se ne andarono, e l'intera Unione si frantumò in 15 paesi quasi dall'oggi al domani.",
-   "anno": 1989,
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "Gorbaciov cercò di salvarlo",
-     "q": "Moscow Kremlin snow lights"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "Polonia, Germania Est",
-     "q": "Berlin Wall remains graffiti"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "15 paesi",
-     "q": "broken stone cracked statue",
-     "didascalia": "15 paesi"
-    }
-   ]
-  },
-  {
-   "capitolo": "L'era Putin",
-   "testo": "Il 25 dicembre 1991 la bandiera sovietica fu ammainata dal Cremlino per l'ultima volta, sostituita dal tricolore russo senza alcuna cerimonia. Il paese che sconfisse la Germania nazista e tenne mezzo pianeta sotto tiro per 45 anni semplicemente cessò di esistere.",
+   "capitolo": "La carestia",
+   "testo": "Nel 1991 l'Unione Sovietica crollò e tutti gli aiuti cessarono. Kim Il-sung morì nel 1994 dopo 46 anni di potere. Kim Jong-il ereditò un perfetto sistema di controllo. Senza gli aiuti alimentari sovietici l'economia si sgretolò. Niente elettricità significava niente fertilizzanti e niente cibo.",
    "anno": 1991,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "Il 25 dicembre 1991",
-     "q": "Kremlin flag waving sky",
-     "didascalia": "25 dicembre 1991"
+     "frase": "Nel 1991 l'Unione Sovietica",
+     "q": "Soviet monument abandoned"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "senza alcuna cerimonia",
-     "q": "empty Red Square snow night"
+     "frase": "Kim Il-sung morì nel 1994",
+     "q": "funeral flowers white chrysanthemum",
+     "didascalia": "1994"
     },
     {
      "tipo": "pexels_video",
-     "frase": "semplicemente cessò di esistere",
-     "q": "abandoned Soviet building decay"
+     "frase": "Senza gli aiuti alimentari",
+     "q": "abandoned factory rust"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Niente elettricità significava",
+     "q": "dry barren farmland Korea"
     }
    ]
   },
   {
-   "testo": "Poi Vladimir Putin, ex agente del KGB dai modi sommessi, diventò presidente nel 1999 e chiuse la presa su media, tribunali e rivali. Tutto ciò che ha plasmato la Russia parte dai mongoli: se salti quella parte, ti manca l'intera storia.",
+   "testo": "Le inondazioni del 1995 e 1996 distrussero i campi mentre il governo taceva. La gente mangiava cavallette, corteccia e topi per sopravvivere. Tra 2 e 3,5 milioni di persone morirono di fame. Oggi i nordcoreani sono più bassi dei sudcoreani di 8-10 centimetri, per anni di carestia.",
+   "anno": 1996,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Le inondazioni del 1995",
+     "q": "flood river muddy brown fields"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "La gente mangiava cavallette",
+     "q": "tree bark dry grass"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Tra 2 e 3,5 milioni",
+     "q": "empty field winter fog",
+     "didascalia": "2–3,5 milioni di morti"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Oggi i nordcoreani sono",
+     "q": "empty rural road Korea",
+     "didascalia": "8-10 cm più bassi"
+    }
+   ]
+  },
+  {
+   "capitolo": "L'arma nucleare",
+   "testo": "La risposta di Kim Jong-il fu nascondere al mondo le debolezze della Corea del Nord. Imparò che se non puoi sfamare la gente, puoi rendere il mondo troppo spaventato per invaderti. La Corea del Nord testò la prima bomba atomica nel 2006, come polizza assicurativa.",
+   "anno": 2006,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "La risposta di Kim Jong-il",
+     "q": "dark clouds mountain tunnel"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Imparò che se non",
+     "q": "missile silo concrete"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "La Corea del Nord testò",
+     "q": "explosion smoke cloud desert",
+     "didascalia": "Primo test nucleare, 2006"
+    }
+   ]
+  },
+  {
+   "capitolo": "Kim Jong-un",
+   "testo": "Kim Jong-il morì nel 2011 e il figlio Kim Jong-un prese il potere a soli 27 anni. Gli esperti prevedevano che avrebbe fallito, ma si sbagliavano completamente. Si dimostrò ancora più spietato del padre: fece giustiziare lo zio e, a quanto pare, uccise il fratellastro con un agente nervino.",
+   "anno": 2011,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Kim Jong-il morì nel 2011",
+     "q": "Pyongyang snow winter monument",
+     "didascalia": "2011"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Gli esperti prevedevano che",
+     "q": "chess board king pieces dark"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Si dimostrò ancora più",
+     "q": "dark corridor red light"
+    }
+   ]
+  },
+  {
+   "testo": "Accelerò il programma nucleare, causando vere paure di guerra atomica nel 2017. Oggi ogni famiglia nordcoreana deve raccogliere una tonnellata di escrementi umani all'anno come fertilizzante. La gente chiude a chiave i bagni perché i vicini non la rubino. Non ci sono cestini, perché nulla viene mai buttato.",
+   "anno": 2017,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Accelerò il programma nucleare",
+     "q": "missile launch smoke sky",
+     "didascalia": "2017"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Oggi ogni famiglia nordcoreana",
+     "q": "rural Korea vegetable farm field"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "La gente chiude a chiave",
+     "q": "wooden shed door lock rural"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Non ci sono cestini",
+     "q": "empty street Korea village"
+    }
+   ]
+  },
+  {
+   "testo": "Lo stipendio medio è di appena 2 dollari al mese. A volte la gente deve spingere i treni perché manca l'elettricità. Il regime gestisce campi di lavoro forzato in condizioni terribili. Le donne che fuggono in Cina spesso restano intrappolate per sempre. Centinaia di migliaia di nordcoreane sono bloccate là.",
+   "anno": 2020,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Lo stipendio medio è",
+     "q": "old coins money close up",
+     "didascalia": "2 dollari al mese"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "A volte la gente",
+     "q": "old train railway tracks rural"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Il regime gestisce campi",
+     "q": "prison fence snow watchtower"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Le donne che fuggono",
+     "q": "Tumen river border fence"
+    }
+   ]
+  },
+  {
+   "testo": "Si può essere giustiziati per crimi minimi, come lasciare la polvere sul ritratto di Kim o guardare film stranieri. Nel 2014 le Nazioni Unite dichiararono che le violazioni dei diritti umani nordcoreane erano peggiori di quasi tutto dopo la Seconda guerra mondiale.",
+   "anno": 2014,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Si può essere giustiziati",
+     "q": "dust particles light dark room"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Nel 2014 le Nazioni",
+     "q": "United Nations building flags",
+     "didascalia": "2014"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "peggiori di quasi tutto",
+     "q": "foggy Korean mountains dark"
+    }
+   ]
+  },
+  {
+   "testo": "Ventisei milioni di persone vivono oggi sotto questo sistema. Mentre guardavi questo video, nulla è cambiato. Scrivi nei commenti quale fatto ti ha sconvolto di più. Duemila anni di guerre, isolamento e paura hanno creato un regime. Ma la domanda resta: quanto ancora durerà?",
    "anno": 2026,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "Poi Vladimir Putin",
-     "q": "Moscow city skyline night",
-     "didascalia": "1999"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "chiuse la presa su media",
-     "q": "Kremlin tower red star night"
+     "frase": "Ventisei milioni di persone",
+     "q": "Pyongyang city night lights",
+     "didascalia": "26 milioni di persone"
     },
     {
      "tipo": "pexels_video",
-     "frase": "parte dai mongoli",
-     "q": "Mongolian steppe vast sunset"
+     "frase": "Mentre guardavi questo video",
+     "q": "clock ticking close up"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Duemila anni di guerre",
+     "q": "Korean peninsula mountains sunrise"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Ma la domanda resta",
+     "q": "DMZ Korea sunset fence"
     }
    ]
   }
  ],
  "copertina": {
-  "testo": "1279 – 2026 – COME?",
+  "testo": "57 A.C. 2026 MALVAGIO? NO AI",
   "personaggio": ""
  },
- "descrizione": "Come è diventata la Russia il paese più grande del mondo? In questo video animato percorriamo 1.500 anni di storia russa: dai vichinghi di Rurik e la Rus' di Kiev al giogo mongolo, da Ivan il Terribile a Pietro il Grande e Caterina la Grande.\n\nVediamo la sconfitta di Napoleone, la caduta dei Romanov, la rivoluzione bolscevica di Lenin, la dittatura di Stalin, la Seconda guerra mondiale, la Guerra fredda e il crollo dell'Unione Sovietica nel 1991, fino all'ascesa di Vladimir Putin.\n\nUna storia della Russia completa, spiegata in modo semplice e coinvolgente, con date, fatti e personaggi reali. Iscriviti per altre storie dei grandi imperi.\n\n#storiadellarussia #storia #impero #unionesovietica #mongoli #documentario",
+ "descrizione": "Duemila anni di storia della Corea del Nord in 14 minuti: dai tre regni di Goguryeo, Baekje e Silla alla dinastia Joseon, dal Regno Eremita all'occupazione giapponese, dalla divisione del 1945 alla guerra di Corea del 1950-1953.\n\nScopri come Kim Il-sung costruì il culto della personalità, come la carestia degli anni Novanta uccise milioni di persone e come Kim Jong-il e Kim Jong-un hanno trasformato la paura e le armi nucleari in strumenti di sopravvivenza del regime.\n\nUn documentario in ordine cronologico con date, fatti e numeri sulla vita dentro la Corea del Nord di oggi. Dicci nei commenti quale fatto ti ha colpito di più.\n\n#CoreaDelNord #KimJongUn #Storia #Documentario #GuerraDiCorea",
  "tag": [
-  "storia della russia",
-  "storia animata",
-  "impero mongolo",
-  "storia del mondo",
-  "storia europea",
-  "storia russa",
-  "documentario storico",
-  "storia spiegata",
-  "storia di Russia",
+  "kim jong un",
+  "dentro la corea del nord",
+  "storia",
+  "documentario",
+  "corea del nord",
+  "nord",
+  "USA",
+  "usa",
+  "storia della corea del nord",
   "storia completa",
-  "Rurik",
-  "Rus' di Kiev",
-  "Ivan il Terribile",
-  "Pietro il Grande",
-  "Caterina la Grande",
-  "Napoleone in Russia",
-  "Rasputin",
-  "Nicola II",
-  "rivoluzione russa",
-  "Lenin",
-  "Stalin",
-  "Unione Sovietica",
-  "Guerra fredda",
-  "Stanislav Petrov",
-  "Gorbaciov",
-  "Putin",
-  "Romanov",
-  "giogo mongolo",
-  "Mosca",
-  "San Pietroburgo"
+  "Kim Il-sung",
+  "Kim Jong-il",
+  "guerra di Corea",
+  "38° parallelo",
+  "Regno Eremita",
+  "dinastia Joseon",
+  "Goguryeo",
+  "Baekje",
+  "Silla",
+  "occupazione giapponese",
+  "carestia Corea del Nord",
+  "dittatura",
+  "culto della personalità",
+  "armi nucleari",
+  "Corea del Sud",
+  "Pyongyang",
+  "storia della Corea",
+  "documentario storia",
+  "diritti umani Corea del Nord",
+  "regime nordcoreano"
  ],
- "personaggi_mancanti": [],
+ "personaggi_mancanti": [
+  "Kim Il-sung",
+  "Kim Jong-il",
+  "Kim Jong-un",
+  "Re coreano antico con corona",
+  "Generale MacArthur",
+  "Soldato coreano"
+ ],
  "categoria_originale": "27"
 }
