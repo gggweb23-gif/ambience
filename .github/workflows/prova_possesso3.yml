@@ -1,0 +1,36 @@
+name: Prova Possesso 3
+# 9 nov: prova possesso v3 (classe media, uno sfondo per ogni passo della grafica). Non carica niente su YouTube.
+on:
+  workflow_dispatch:
+    inputs:
+      tema:
+        description: 'Cosa da possedere (vuoto = auto da 25.000 euro)'
+        default: ''
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  prova:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Programmi
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null
+          pip install -q --break-system-packages pillow json-repair
+      - name: Video di prova
+        env:
+          COSA: ${{ inputs.tema }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          FAL_KEY: ${{ secrets.FAL_KEY }}
+        run: python3 strumenti/prova_possesso3.py
+      - name: Salva nel repository
+        if: ${{ always() }}
+        run: |
+          git config user.name "render-bot"; git config user.email "render-bot@users.noreply.github.com"
+          git add prove_video/Prova_Possesso3; git commit -m "Prova Possesso 3" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase --autostash -q && git push && break; sleep $((i * 5)); done
