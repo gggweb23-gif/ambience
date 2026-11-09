@@ -59,30 +59,50 @@ Struttura FISSA di 6 scene (non cambiarla). Per ogni scena: "voce" (testo parlat
 Ogni elemento di "sfondi" e' {{"persone": true/false, "descr": "..."}}: persone=true solo se nella scena c'e' il protagonista (stesso viso e vestiti), persone=false per oggetti e luoghi SENZA nessuna persona e SENZA nessuna automobile (es. pistola della pompa di benzina da vicino col display dei litri, polizza e chiavi su un tavolo, attrezzi e gomme in officina, bollettino del bollo e penna, parchimetro, salvadanaio, calcolatrice). Il SUV compare SOLO nelle immagini con persone=true, sempre all'aperto o in salone/officina, mai in casa.
 Numero di "sfondi" per scena = numero di passi della grafica: cartellino 2, scontrini = una per OGNI voce di spesa (4-6), valore 2 (SUV nuovo lucido, SUV dopo anni), calcolo 3 (conti al tavolo, faccia stupita, portafoglio/calendario), consigli 3 (uno per consiglio), prossimo 1 (un cane). Almeno meta' degli sfondi con persone=false.
 Voci di spesa REALISTICHE per un italiano medio (es. carburante per 12.000 km l'anno, assicurazione media italiana): mai cifre troppo basse.
-1. "cartellino": gancio forte. dati {{"prezzo": 25000, "domanda": "MA QUANTO COSTA DAVVERO?"}}
-2. "scontrini": tutto quello che paga in N anni. dati {{"anni": 5, "voci": [["Rate + interessi", 27600], ["Assicurazione", 3500], ...]}} (4-6 voci; NON mettere la svalutazione: e' nella scena 3)
-3. "valore": quanto vale la cosa anno per anno. dati {{"valori": [25000, 20000, ...]}} (da oggi all'ultimo anno; l'ultimo e' la rivendita)
+1. "cartellino": gancio forte. dati {{"prezzo": <prezzo della cosa>, "domanda": "MA QUANTO COSTA DAVVERO?"}}
+2. "scontrini": tutto quello che paga in N anni. dati {{"anni": 5, "voci": [["Rate + interessi", <numero>], ["Assicurazione", <numero>], ...]}} (le rate con interessi di un acquisto a rate sono SEMPRE piu' del prezzo) (4-6 voci; NON mettere la svalutazione: e' nella scena 3)
+3. "valore": quanto vale la cosa anno per anno. dati {{"valori": [<prezzo>, <valore dopo 1 anno>, ...]}} (da oggi all'ultimo anno; l'ultimo e' la rivendita)
 4. "calcolo": costo vero = totale pagato meno rivendita; poi al mese e al giorno. dati {{}} (i numeri li calcola il programma: nella voce usa ESATTAMENTE totale = somma delle voci della scena 2, rivendita = ultimo valore della scena 3, costo vero = differenza, al mese = costo vero / mesi, al giorno = costo vero / giorni, tutti arrotondati all'euro intero)
 5. "consigli": 3 trucchi concreti per spendere meno. dati {{"voci": ["...", "...", "..."]}} (max 5 parole ciascuno)
 6. "prossimo": gancio alla prossima puntata (un'altra cosa da possedere, es. il cane). dati {{"testo": "PROSSIMA PUNTATA: IL CANE"}}
 Fai TUTTI i conti prima di scrivere e ricontrollali. Mai correzioni a voce.
 Aggiungi "titolo" e "copertina": {{"scritta": "max 3 parole MAIUSCOLE", "sfondo": "in inglese"}} e "protagonista": descrizione fisica in inglese (eta', capelli, vestiti) da ripetere in ogni immagine.
 Rispondi SOLO con JSON: {{"titolo": "...", "protagonista": "...", "copertina": {{...}}, "scene": [{{"tipo": "cartellino", "voce": "...", "sfondi": [{{"persone": true, "descr": "..."}}], "dati": {{...}}}}, ...]}}"""
-    for k in range(3):
+    errore = ''
+    for tentativo in range(3):
+      for k in range(3):
         j = http('https://api.anthropic.com/v1/messages', {'model': 'claude-sonnet-5-5', 'max_tokens': 16000, 'thinking': {'type': 'between_tools'},
-                                                            'output_config': {'effort': 'medium'}, 'messages': [{'role': 'user', 'content': prompt}]},
+                                                            'output_config': {'effort': 'medium'}, 'messages': [{'role': 'user', 'content': prompt + errore}]},
                  {'x-api-key': E('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01'})
         u = j.get('usage') or {}
         COSTO['claude'] += u.get('input_tokens', 0) * 3e-6 + u.get('output_tokens', 0) * 15e-6
         t = ''.join(b.get('text', '') for b in j['content'] if b.get('type') == 'text')
         if '{' in t:
             break
-    m = re.search(r'\{.*\}', t, re.S).group(0)
-    try:
-        c = json.loads(m)
-    except Exception:
-        from json_repair import repair_json
-        c = json.loads(repair_json(m))
+      m = re.search(r'\{.*\}', t, re.S).group(0)
+      try:
+          c = json.loads(m)
+      except Exception:
+          from json_repair import repair_json
+          c = json.loads(repair_json(m))
+      # controllo dei numeri PRIMA di spendere in immagini e voce
+      try:
+          S_ = {x['tipo']: x.get('dati') or {} for x in c['scene']}
+          prezzo = float(S_['cartellino'].get('prezzo') or 0); val = [float(v) for v in S_['valore']['valori']]
+          voci = [(str(a).lower(), float(b)) for a, b in S_['scontrini']['voci']]; tot = sum(b for _, b in voci)
+          rate = sum(b for a, b in voci if 'rat' in a or 'finanz' in a)
+          prob = []
+          if abs(prezzo - val[0]) > 1:
+              prob.append(f'il prezzo del cartellino ({prezzo:.0f}) deve essere uguale al primo valore ({val[0]:.0f})')
+          if rate and rate < prezzo:
+              prob.append(f'rate + interessi ({rate:.0f}) non possono essere meno del prezzo ({prezzo:.0f})')
+          if tot - val[-1] < prezzo * .3:
+              prob.append(f'costo vero ({tot - val[-1]:.0f}) irrealistico rispetto al prezzo ({prezzo:.0f})')
+      except Exception as e:
+          prob = [f'struttura dati non valida: {e}']
+      if not prob:
+          break
+      log('copione scartato:', prob); errore = '\n\nATTENZIONE, il tentativo precedente era sbagliato: ' + '; '.join(prob) + '. Rifai tutti i conti.'
     json.dump(c, open(fc, 'w'), ensure_ascii=False, indent=1)
     log('copione:', c['titolo'], sum(len(s['voce'].split()) for s in c['scene']), 'parole')
     return c
@@ -99,6 +119,9 @@ def fal(endpoint, dati):
     return http(inv['response_url'], headers=hd)['images'][0]['url']
 
 
+STILE_OGGETTI = ('DIGITAL PAINTED ILLUSTRATION, NOT a photograph: warm editorial illustration style with soft painted shading. Ordinary Italian middle-class setting. '
+                 'A close, simple still-life of the objects described: NO people, NO cars, NO vehicles anywhere in the image. '
+                 'Keep the LEFT 50% of the frame calm and uncluttered; main objects on the RIGHT half. No text, no letters, no numbers, no logos. ')
 KLEIN_T2I, KLEIN_EDIT = 'fal-ai/flux-2/klein/4b', 'fal-ai/flux-2/klein/4b/edit'
 PREZZO = {'t2i': 0.009, 'edit': 0.017}
 
@@ -111,7 +134,7 @@ def immagini(c):
     for i, x in enumerate(voci):
         d = x.get('descr') if isinstance(x, dict) else str(x); con = bool(x.get('persone')) if isinstance(x, dict) else True
         f = os.path.join(LAV, f'sfondo_{i}.jpg')
-        p = STILE + (f'Main character (always the same person): {prot}. ' if con else 'NO people and NO cars or vehicles at all in this image, only the objects and the place. ') + f'Scene: {d}'
+        p = (STILE + f'Main character (always the same person): {prot}. Scene: {d}') if con else (STILE_OGGETTI + f'Scene (objects and place only): {d}')
         for k in range(3):
             try:
                 if rif is None:
