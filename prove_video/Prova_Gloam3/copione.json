@@ -1,0 +1,187 @@
+{
+ "titolo": "The 45 Minutes That Destroyed a Wall Street Giant",
+ "copertina": {
+  "immagine": "glossy red stock chart plunging off a cliff above a tiny faceless trader",
+  "scritta": "$440 MILLION GONE"
+ },
+ "shots": [
+  {
+   "voce": "Four hundred forty million dollars, gone in forty five minutes. Not stolen. Just lost.",
+   "tipo": "numero",
+   "da": 0,
+   "a": 440,
+   "prefisso": "$",
+   "suffisso": "M",
+   "cerca": "stock market screen",
+   "colore": "red",
+   "ora": "9:30 AM",
+   "perdita": 0,
+   "capitolo": ""
+  },
+  {
+   "voce": "But the worst part wasn't the money. Stay until the end.",
+   "tipo": "clip",
+   "cerca": "trader stressed office",
+   "etichetta": "AUGUST 1, 2012",
+   "colore": "gold",
+   "ora": "9:30 AM",
+   "perdita": 0,
+   "capitolo": ""
+  },
+  {
+   "voce": "Knight Capital was a giant, handling billions of shares every single day.",
+   "tipo": "clip",
+   "cerca": "new york street",
+   "etichetta": "",
+   "colore": "blue",
+   "ora": "9:30 AM",
+   "perdita": 0,
+   "capitolo": "THE GLITCH"
+  },
+  {
+   "voce": "That morning, new trading software went live on its servers.",
+   "tipo": "clip",
+   "cerca": "server room lights",
+   "etichetta": "",
+   "colore": "blue",
+   "ora": "9:30 AM",
+   "perdita": 0,
+   "capitolo": ""
+  },
+  {
+   "voce": "One server still ran old, forgotten code. Nobody noticed.",
+   "tipo": "3d",
+   "immagine": "single glowing server rack with a cracked red warning light, faceless technician beside it",
+   "ora": "9:30 AM",
+   "perdita": 0,
+   "capitolo": ""
+  },
+  {
+   "voce": "The market opened, and the algorithm woke up.",
+   "tipo": "clip",
+   "cerca": "stock market screen",
+   "etichetta": "",
+   "colore": "gold",
+   "ora": "9:30 AM",
+   "perdita": 0,
+   "capitolo": "THE CRASH"
+  },
+  {
+   "voce": "It began buying and selling at furious speed.",
+   "tipo": "clip",
+   "cerca": "digital numbers flashing",
+   "etichetta": "",
+   "colore": "red",
+   "ora": "9:31 AM",
+   "perdita": 5,
+   "capitolo": ""
+  },
+  {
+   "voce": "Prices on dozens of stocks started jumping.",
+   "tipo": "clip",
+   "cerca": "trading screen",
+   "etichetta": "",
+   "colore": "red",
+   "ora": "9:34 AM",
+   "perdita": 20,
+   "capitolo": ""
+  },
+  {
+   "voce": "Traders across Wall Street stared in disbelief.",
+   "tipo": "clip",
+   "cerca": "trader stressed office",
+   "etichetta": "",
+   "colore": "red",
+   "ora": "9:40 AM",
+   "perdita": 60,
+   "capitolo": ""
+  },
+  {
+   "voce": "Every minute, millions more vanished.",
+   "tipo": "numero",
+   "da": 60,
+   "a": 150,
+   "prefisso": "$",
+   "suffisso": "M",
+   "cerca": "clock ticking",
+   "colore": "red",
+   "ora": "9:45 AM",
+   "perdita": 150,
+   "capitolo": ""
+  },
+  {
+   "voce": "Engineers scrambled but couldn't find the cause.",
+   "tipo": "clip",
+   "cerca": "server room lights",
+   "etichetta": "",
+   "colore": "red",
+   "ora": "9:50 AM",
+   "perdita": 230,
+   "capitolo": ""
+  },
+  {
+   "voce": "Knight's own stock began to collapse.",
+   "tipo": "borsa",
+   "ticker": "KCG",
+   "da": 10,
+   "a": 6,
+   "colore": "red",
+   "ora": "9:55 AM",
+   "perdita": 300,
+   "capitolo": ""
+  },
+  {
+   "voce": "Still the machine kept trading.",
+   "tipo": "clip",
+   "cerca": "stock market screen",
+   "etichetta": "",
+   "colore": "red",
+   "ora": "10:00 AM",
+   "perdita": 360,
+   "capitolo": ""
+  },
+  {
+   "voce": "Forty five minutes. Four hundred forty million lost.",
+   "tipo": "numero",
+   "da": 360,
+   "a": 440,
+   "prefisso": "$",
+   "suffisso": "M",
+   "cerca": "money counting machine",
+   "colore": "red",
+   "ora": "10:15 AM",
+   "perdita": 440,
+   "capitolo": "THE AFTERMATH"
+  },
+  {
+   "voce": "It was more than the company earned in a year.",
+   "tipo": "clip",
+   "cerca": "empty office night",
+   "etichetta": "",
+   "colore": "gold",
+   "ora": "10:15 AM",
+   "perdita": 440,
+   "capitolo": ""
+  },
+  {
+   "voce": "Here's the worst part: no one hit stop. A missing safeguard doomed it.",
+   "tipo": "clip",
+   "cerca": "red emergency button",
+   "etichetta": "",
+   "colore": "red",
+   "ora": "10:15 AM",
+   "perdita": 440,
+   "capitolo": ""
+  },
+  {
+   "voce": "Within months, Knight was sold. Subscribe for the next one.",
+   "tipo": "clip",
+   "cerca": "city skyline dusk",
+   "etichetta": "",
+   "colore": "blue",
+   "ora": "10:15 AM",
+   "perdita": 440,
+   "capitolo": ""
+  }
+ ]
+}
