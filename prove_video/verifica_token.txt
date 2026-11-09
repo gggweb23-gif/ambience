@@ -1,6 +1,5 @@
 segreto: YT_REFRESH_TOKEN_COSTO_VERO
-token presente: SI | inizia con 1//: NO | spazi/virgolette tolti: NO
-ERRORE: HTTP Error 400: Bad Request {
-  "error": "invalid_grant",
-  "error_description": "Bad Request"
-}
+token presente: SI | inizia con 1//: SI | spazi/virgolette tolti: NO
+permessi: yt-analytics.readonly youtube.upload youtube.force-ssl
+canale: 1 canale vuoto | handle: @gggweb232canalevuotono | id: UC6Xdtx3qQl3T1N5ARMoitgQ | paese: None | lingua: None | iscritti: 0
+descrizione: '' | parole chiave: ''
