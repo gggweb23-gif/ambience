@@ -457,7 +457,7 @@ INQUADRATURE = [
     ('scena larga', 'Wide shot: the whole person is small-medium in a dramatic environment that tells the story (the place dominates), placed in the {V} 60% of the frame'),
     ('dettaglio', 'Close-up of the key object or action of the story (hands, a tool, a document, a visor or a window) with the person partly visible behind, filling the {V} 60% of the frame'),
 ]
-INQ_NOME, INQ_TXT = INQUADRATURE[INQ][0], INQUADRATURE[INQ][1].format(V=LATO_V)
+INQ_NOME, INQ_TXT = INQUADRATURE[INQ][0], INQUADRATURE[INQ][1].format(V=LATO_V) + f'. NOBODY else in the {LATO_T} 40% (that side is kept empty for the title: no faces, no heads there)'
 log('inquadratura copertina:', INQ_NOME)
 if STILE_COP == 'etichetta_rossa':
     PROMPT_COP = ('Use the reference photo only for the setting and the era. ' + c.get('copertina_prompt', '') +
