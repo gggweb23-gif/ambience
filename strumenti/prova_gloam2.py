@@ -30,6 +30,9 @@ def http(url, data=None, headers=None, raw=False, timeout=300):
 
 
 def copione():
+    fc = os.path.join(OUT, 'copione.json')
+    if os.path.exists(fc) and not E('TEMA'):   # copione gia' pagato in un giro fallito: si riusa
+        c = json.load(open(fc)); log('copione ripreso:', c['titolo']); return c
     prompt = f"""You write for a new English YouTube channel in the style of "Gloam" (finance disasters told minute by minute; fast documentary editing that ALTERNATES real footage, animated numbers and a few 3D illustrations).
 Topic: {TEMA}. Only well documented facts; no invented quotes.
 Write a 60-second test episode, 120-140 spoken words in total, split into 13-16 shots of 6-12 words each (one cut every 3-5 seconds).
@@ -70,7 +73,7 @@ def pexels(cerca, i):
     for q in [cerca, ' '.join(cerca.split()[:2]), 'stock market', 'city night']:
         try:
             j = http('https://api.pexels.com/videos/search?' + urllib.parse.urlencode({'query': q, 'orientation': 'landscape', 'per_page': 15, 'size': 'medium'}),
-                     headers={'Authorization': E('PEXELS_API_KEY', '')})
+                     headers={'Authorization': E('PEXELS_API_KEY', ''), 'User-Agent': 'Mozilla/5.0'})
         except Exception as e:
             log('pexels:', e); continue
         for v in j.get('videos', []):
