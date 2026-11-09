@@ -227,7 +227,11 @@ def immagine(f, prompt, rif=None):
             else:
                 url = fal(PV.KLEIN_T2I, {'prompt': prompt, 'image_size': {'width': 1280, 'height': 720}, 'num_images': 1, 'output_format': 'jpeg'})
                 CO.registra('fal', 'flux-2-klein-4b', dollari=PV.PREZZO['t2i'])
-            Image.open(io.BytesIO(YT.http(url, raw=True, timeout=120))).convert('RGB').resize((W, H), Image.LANCZOS).save(f, quality=92)
+            im = Image.open(io.BytesIO(YT.http(url, raw=True, timeout=120))).convert('RGB')
+            from PIL import ImageStat
+            if max(ImageStat.Stat(im.resize((64, 36))).mean) < 18:   # immagine nera (filtro di sicurezza del fornitore): si rifa', mai uno sfondo nero nel video
+                log('immagine nera scartata, la rifaccio'); prompt = prompt + ' Bright, warm daylight scene.'; continue
+            im.resize((W, H), Image.LANCZOS).save(f, quality=92)
             return f, url
         except Exception as e:
             log('immagine non riuscita, riprovo:', str(e)[:150]); time.sleep(5)
@@ -303,7 +307,8 @@ def grafica(im, sc, t, d, dati, passo_t, passo_d, passo_i):
             pannello(im, (x0, 270, x0 + 440 * min(q, 1.05), 640), (255, 255, 255, 245))
             if q > .9:
                 scritta(im, (x0 + 30, 300), str(n_).upper(), 50, GRIGIO, maxw=380)
-                v = str(v_); v = v if '€' in v else v + ' €'
+                v = str(v_).replace('€', '').strip()
+                v = eur(num(v.replace('.', ''))) if re.fullmatch(r'[\d.]+', v) else (v + ' €')
                 scritta(im, (x0 + 30, 400), v, 96, col, maxw=380)
         if t > d * .75:
             frase(im, fr_txt, t - d * .75, d * .25)
@@ -421,7 +426,9 @@ def main():
             p = (('Same illustration style, SAME person (same face, hair, clothes)' + (' and SAME SUV' if AUTO else '') + ' as in the reference image. ' + stile +
                   f'Main character (always the same person): {prot}. Scene: {x.get("descr")}') if con else (STILE_OGG + f'Scene (objects and place only): {x.get("descr")}'))
             ok = immagine(f, p, rif_url if con else None)
-            s['_img'].append(f if ok and os.path.exists(f) else os.path.join(LAV, 'riferimento.jpg')); n_img += 1
+            if not (ok and os.path.exists(f)):   # immagine non riuscita: la precedente della scena (mai uno sfondo nero), altrimenti il riferimento
+                f = s['_img'][-1] if s['_img'] else os.path.join(LAV, 'riferimento.jpg')
+            s['_img'].append(f); n_img += 1
     log(f'immagini: {n_img} | spesa finora {CO.totale():.3f} $')
     with mp.get_context('fork').Pool(max(2, os.cpu_count() or 4)) as pool:
         parti = pool.map(rendi_scena, range(len(SCENE)))
