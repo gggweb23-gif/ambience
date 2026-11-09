@@ -1,0 +1,168 @@
+{
+ "titolo": "SUV a rate da 45.000 euro: quanto costa DAVVERO in 5 anni",
+ "protagonista": "Marco, 38-year-old Italian man, short dark brown hair, light stubble, wearing a navy blue polo shirt and beige chino trousers",
+ "copertina": {
+  "scritta": "COSTA DI PIÙ",
+  "sfondo": "Marco in navy polo shirt standing proudly next to a new shiny mid-size SUV in a car dealership showroom, shocked expression, bright lighting"
+ },
+ "scene": [
+  {
+   "tipo": "cartellino",
+   "voce": "Marco compra un SUV nuovo. Prezzo: quarantacinquemila euro. A rate, comodo. Ma quanto gli costa davvero?",
+   "sfondi": [
+    {
+     "persone": true,
+     "descr": "Marco in navy polo shirt and beige chinos smiling next to a brand new shiny mid-size SUV in a bright Italian car dealership showroom, price tag on the windshield"
+    },
+    {
+     "persone": true,
+     "descr": "Close-up of Marco in navy polo shirt holding a price tag reading 45.000 euro in front of a new SUV in a dealership, curious worried expression"
+    }
+   ],
+   "dati": {
+    "prezzo": 45000,
+    "domanda": "MA QUANTO COSTA DAVVERO?"
+   }
+  },
+  {
+   "tipo": "scontrini",
+   "voce": "In cinque anni paga cinquantatremila euro di rate con interessi. Cinquemila di assicurazione. Ottomila di benzina. Milleottocento di bollo. Tremilacinquecento tra tagliandi e gomme. Duemila di parcheggi e pedaggi.",
+   "sfondi": [
+    {
+     "persone": false,
+     "descr": "Close-up of a bank loan contract with monthly installments table and a pen on a wooden desk, Italian documents, no people, no cars"
+    },
+    {
+     "persone": false,
+     "descr": "Car insurance policy papers and car keys on a kitchen table, Italian insurance document, no people, no cars"
+    },
+    {
+     "persone": false,
+     "descr": "Close-up of a gasoline pump nozzle with the display showing liters and euros at an Italian gas station, no people, no cars"
+    },
+    {
+     "persone": false,
+     "descr": "Italian vehicle road tax payment slip (bollettino del bollo auto) and a pen on a table, no people, no cars"
+    },
+    {
+     "persone": false,
+     "descr": "Tools and new tires stacked in a car repair workshop, service invoice on a workbench, no people, no cars"
+    },
+    {
+     "persone": false,
+     "descr": "Italian parking meter on a city street with coins and a motorway toll ticket, no people, no cars"
+    }
+   ],
+   "dati": {
+    "anni": 5,
+    "voci": [
+     [
+      "Rate + interessi",
+      53000
+     ],
+     [
+      "Assicurazione",
+      5000
+     ],
+     [
+      "Carburante",
+      8000
+     ],
+     [
+      "Bollo",
+      1800
+     ],
+     [
+      "Tagliandi e gomme",
+      3500
+     ],
+     [
+      "Parcheggi e pedaggi",
+      2000
+     ]
+    ]
+   }
+  },
+  {
+   "tipo": "valore",
+   "voce": "Intanto il SUV perde valore. Oggi vale quarantacinquemila euro. Dopo cinque anni, ventunomila.",
+   "sfondi": [
+    {
+     "persone": true,
+     "descr": "Marco in navy polo shirt and beige chinos next to a brand new shiny mid-size SUV outdoors on a sunny Italian street, proud smile"
+    },
+    {
+     "persone": true,
+     "descr": "Marco in navy polo shirt and beige chinos next to the same mid-size SUV now five years old with small scratches and dull paint, outdoors, sad resigned look"
+    }
+   ],
+   "dati": {
+    "valori": [
+     45000,
+     36000,
+     31000,
+     27000,
+     24000,
+     21000
+    ]
+   }
+  },
+  {
+   "tipo": "calcolo",
+   "voce": "Totale pagato: settantatremilatrecento euro. Rivendita: ventunomila. Costo vero: cinquantaduemilatrecento euro. Fanno ottocentosettantadue euro al mese. Ventinove euro al giorno.",
+   "sfondi": [
+    {
+     "persone": true,
+     "descr": "Marco in navy polo shirt sitting at a kitchen table with a calculator, papers and receipts spread out, focused expression"
+    },
+    {
+     "persone": true,
+     "descr": "Close-up of Marco in navy polo shirt with a shocked wide-eyed face looking at a calculator in his hand, kitchen background"
+    },
+    {
+     "persone": false,
+     "descr": "Open empty wallet with a few coins next to a wall calendar on a table, no people, no cars"
+    }
+   ],
+   "dati": {}
+  },
+  {
+   "tipo": "consigli",
+   "voce": "Come spendere meno? Compra usato di due anni. Versa un anticipo più alto. E confronta le assicurazioni ogni anno.",
+   "sfondi": [
+    {
+     "persone": true,
+     "descr": "Marco in navy polo shirt and beige chinos next to a clean two-year-old mid-size SUV at an Italian used car dealership outdoors, thumbs up"
+    },
+    {
+     "persone": false,
+     "descr": "Piggy bank with euro banknotes and coins on a table next to a calculator, no people, no cars"
+    },
+    {
+     "persone": false,
+     "descr": "Laptop-free desk with several insurance quote brochures spread out and a pen, comparing offers, no people, no cars"
+    }
+   ],
+   "dati": {
+    "voci": [
+     "Compra usato di due anni",
+     "Anticipo più alto",
+     "Confronta le assicurazioni"
+    ]
+   }
+  },
+  {
+   "tipo": "prossimo",
+   "voce": "E il prossimo? Un amico a quattro zampe. Quanto costa davvero un cane?",
+   "sfondi": [
+    {
+     "persone": false,
+     "descr": "Cute golden retriever puppy sitting in a cozy Italian living room with a leash and food bowl, no people, no cars"
+    }
+   ],
+   "dati": {
+    "testo": "PROSSIMA PUNTATA: IL CANE"
+   }
+  }
+ ]
+}
