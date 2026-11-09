@@ -17,12 +17,13 @@ if not E('EMAIL_REPORT', '').strip():
     m.replace_header('To', utente)
 else:
     m.replace_header('To', E('EMAIL_REPORT').strip())
-print('lunghezza password (deve essere 16):', len(pw))
+print('lunghezza password (deve essere 16):', len(pw), '| utente valido:', utente.count('@') == 1 and ' ' not in utente, '| dominio:', utente.split('@')[-1] if '@' in utente else '?')
 try:
     with smtplib.SMTP_SSL('smtp.gmail.com', 465, timeout=30) as s:
         s.login(utente, pw); s.send_message(m)
 except Exception as e:
     print('porta 465 non riuscita:', type(e).__name__, '- provo la 587')
     with smtplib.SMTP('smtp.gmail.com', 587, timeout=30) as s:
-        s.starttls(); s.login(utente, pw); s.send_message(m)
+        s.ehlo(); s.starttls(); s.ehlo(); s.user, s.password = utente, pw
+        s.auth('LOGIN', s.auth_login); s.send_message(m)
 print('email inviata:', os.path.basename(f))
