@@ -1,0 +1,30 @@
+name: Rifornisci titoli
+# 9 nov: aggiunge titoli nuovi dello stesso filone nel file di produzione di un canale (strumenti/rifornisci_titoli.py).
+# righe = JSON con titoli gia' decisi (niente Claude); vuoto = li propone Claude (circa 0,03 $).
+on:
+  workflow_dispatch:
+    inputs:
+      canale:
+        description: 'channel_id'
+        required: true
+        type: string
+      righe:
+        description: 'JSON [{"titolo","playlist","titolo_thumbnail",...}] (vuoto = li propone Claude)'
+        default: ''
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  titoli:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Titoli
+        env:
+          GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          RIGHE: ${{ inputs.righe }}
+        run: pip install -q google-auth requests json-repair && python3 strumenti/rifornisci_titoli.py "${{ inputs.canale }}" forza

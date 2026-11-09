@@ -173,6 +173,12 @@ def main():
             print(cid, ': video di oggi gia\' fatto'); continue
         if tentativi_oggi >= num(cfg.get('videos_per_day')) + 2 and not ANTICIPO:
             print(cid, ': troppi tentativi falliti oggi, si riprova domani'); continue
+        try:   # 9 nov (Giorgio): se i titoli stanno finendo se ne aggiungono altri dello stesso filone (colonna titoli_auto = SI)
+            import rifornisci_titoli as RT
+            if RT.rifornisci(cfg, fid, sys.modules[__name__]):
+                sch, h, prod, gid = righe(fid, con_gid=True)
+        except Exception as e:
+            print(cid, ': rifornimento titoli non riuscito', str(e)[:150])
         k = next((i for i, r in enumerate(prod) if str(r.get('status')).strip() == 'Pronto'), None)
         while k is not None and not nel_filone(cfg, prod[k]):   # 9 nov: fuori filone -> Scartato, si passa alla riga dopo
             print(cid, ': FUORI FILONE, scartato:', prod[k].get('titolo_originale'))
