@@ -33,7 +33,7 @@ def main():
     ws['A2'] = 'OBIETTIVI DA SUPERARE:'; ws['A2'].font = Font(bold=True)
     ws['B2'] = f"CTR copertina > {OBIETTIVI['ctr']:.1f}%   |   Ritenzione 30 s > {OBIETTIVI['ritenzione_30s']:.0f}%   |   Ritenzione 60 s > {OBIETTIVI['ritenzione_60s']:.0f}%"
     ws['B2'].font = Font(bold=True, color='B91C1C')
-    ws['A3'] = 'Dati totali da quando il video e\' uscito. Verde = sopra obiettivo, rosso = sotto, grigio = dato non ancora arrivato (YouTube li da\' con 2-3 giorni di ritardo).'
+    ws['A3'] = 'Dati totali da quando il video e\' uscito. Verde = sopra obiettivo, rosso = sotto, grigio = dato non ancora arrivato (YouTube li da\' con 2-3 giorni di ritardo) o troppe poche visualizzazioni per calcolare la ritenzione.'
     ws['A3'].font = Font(italic=True, color='666666', size=9)
     r = 5
     for nome in sorted(dati):
@@ -53,7 +53,8 @@ def main():
             ws.cell(r, 2, str(v.get('titolo') or ''))
             ws.cell(r, 3, int(imp) if imp is not None else 'in arrivo')
             for c, (val, ob) in zip((4, 5, 6), ((ctr, OBIETTIVI['ctr']), (r30, OBIETTIVI['ritenzione_30s']), (r60, OBIETTIVI['ritenzione_60s']))):
-                x = ws.cell(r, c, round(val, 1) if val is not None else 'in arrivo')
+                vuoto = 'in arrivo' if (c == 4 or not imp or num(v.get('giorni_dalla_pubblicazione')) is None or num(v.get('giorni_dalla_pubblicazione')) < 3) else 'poche views'
+                x = ws.cell(r, c, round(val, 1) if val is not None else vuoto)
                 x.fill = GRIGIO if val is None or (c == 4 and not imp) else (VERDE if val >= ob else ROSSO)
                 x.alignment = Alignment(horizontal='center')
             ws.cell(r, 3).alignment = Alignment(horizontal='center')
