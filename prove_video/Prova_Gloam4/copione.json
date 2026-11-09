@@ -1,0 +1,156 @@
+{
+ "titolo": "How Knight Capital Lost $440 Million in 45 Minutes",
+ "copertina": {
+  "cerca": "trading floor traders",
+  "scritta": "45 MINUTES"
+ },
+ "shots": [
+  {
+   "voce": "Four hundred forty million dollars. Gone in forty-five minutes.",
+   "tipo": "dato",
+   "numero": "$440M",
+   "didascalia": "Lost in under one trading morning",
+   "fonte": "SEC FILING 2013"
+  },
+  {
+   "voce": "One company. One morning. And a question nobody could answer: what was the machine doing?",
+   "tipo": "clip",
+   "cerca": "trading floor traders",
+   "cartello": "WHAT WAS IT DOING"
+  },
+  {
+   "voce": "It was August first, twenty twelve.",
+   "tipo": "calendario",
+   "mese": "AUG",
+   "giorno": "1",
+   "titolo": "Wednesday, New York",
+   "sotto": "Regular trading opens at nine thirty",
+   "timbro": "DAY ZERO"
+  },
+  {
+   "voce": "Knight Capital was a major market maker, based in Jersey City.",
+   "tipo": "foto",
+   "cerca": "jersey city office",
+   "etichetta": "JERSEY CITY · AUG 1, 2012"
+  },
+  {
+   "voce": "Its job: handle huge volumes of stock orders for other firms.",
+   "tipo": "dossier",
+   "scheda": "COMPANY FILE",
+   "nome": "Knight Capital Group",
+   "righe": [
+    [
+     "Role",
+     "Market maker"
+    ],
+    [
+     "Base",
+     "Jersey City, New Jersey"
+    ],
+    [
+     "Exposure",
+     "Very high-volume trading"
+    ],
+    [
+     "Trigger",
+     "New NYSE retail program"
+    ]
+   ],
+   "cerca_foto": ""
+  },
+  {
+   "voce": "That day, the New York Stock Exchange launched a new program for retail orders. Knight rushed new software to take part.",
+   "tipo": "foto",
+   "cerca": "new york stock exchange",
+   "etichetta": "NEW YORK · AUG 1, 2012"
+  },
+  {
+   "voce": "But one of eight servers never received the update. It still held old, retired code.",
+   "tipo": "dossier",
+   "scheda": "THE CODE",
+   "nome": "Server number eight",
+   "righe": [
+    [
+     "Servers",
+     "Eight"
+    ],
+    [
+     "Updated",
+     "Seven"
+    ],
+    [
+     "Missed",
+     "One"
+    ],
+    [
+     "Old code",
+     "Reactivated by new flag"
+    ]
+   ],
+   "cerca_foto": "server room"
+  },
+  {
+   "voce": "When the market opened, that old code began sending orders. Millions of them.",
+   "tipo": "clip",
+   "cerca": "stock market screens",
+   "cartello": "NOBODY PRESSED STOP"
+  },
+  {
+   "voce": "The firm bought high and sold low, again and again, across about one hundred forty stocks.",
+   "tipo": "foto",
+   "cerca": "wall street sign",
+   "etichetta": "NEW YORK · AUG 1, 2012"
+  },
+  {
+   "voce": "In about forty-five minutes, it traded over four million shares it never meant to trade.",
+   "tipo": "dato",
+   "numero": "45 MIN",
+   "didascalia": "From the opening bell to the shutdown",
+   "fonte": "SEC FILING 2013"
+  },
+  {
+   "voce": "Knight's own stock collapsed, falling more than sixty percent in two days.",
+   "tipo": "borsa",
+   "ticker": "KCG",
+   "da": "10.33",
+   "a": "3.07"
+  },
+  {
+   "voce": "The loss was larger than the firm's entire cash reserves.",
+   "tipo": "classifica",
+   "titolo": "Knight Capital, August 2012",
+   "barre": [
+    [
+     "Trading loss",
+     440,
+     "$440M"
+    ],
+    [
+     "Net income, 2011",
+     0,
+     "far smaller"
+    ]
+   ],
+   "timbro": "LOSS EXCEEDED EQUITY",
+   "fonte": "SEC FILING 2013"
+  },
+  {
+   "voce": "Investors stepped in with a rescue, and within months Knight was acquired.",
+   "tipo": "foto",
+   "cerca": "business meeting boardroom",
+   "etichetta": "NEW YORK · AUG 2012"
+  },
+  {
+   "voce": "So what was the machine doing? Running code nobody remembered to remove.",
+   "tipo": "clip",
+   "cerca": "programmer computer code",
+   "cartello": "DEAD CODE, LIVE MARKET"
+  },
+  {
+   "voce": "Subscribe for the next one.",
+   "tipo": "foto",
+   "cerca": "empty trading floor",
+   "etichetta": "NEW YORK · AUG 2012"
+  }
+ ]
+}
