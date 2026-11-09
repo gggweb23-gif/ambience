@@ -1,0 +1,45 @@
+{
+ "titolo": "How Knight Capital Lost $440,000,000 in 45 Minutes",
+ "copertina": {
+  "immagine": "A single dark server in a vast empty trading office, glowing red and cracking open, with golden coins pouring out onto the floor and a giant clock behind it",
+  "scritta": "$440 MILLION GONE"
+ },
+ "shots": [
+  {
+   "voce": "Four hundred forty million dollars. Gone in forty-five minutes. One company, one broken software update, and nobody able to stop it.",
+   "immagine": "A towering stack of golden coins melting into a glowing red puddle in front of a huge clock face, dark studio background",
+   "etichetta": "$440,000,000",
+   "colore": "red"
+  },
+  {
+   "voce": "August first, twenty twelve. Knight Capital is among the biggest traders on Wall Street, handling a large share of American stock orders.",
+   "immagine": "A glossy 3D skyscraper trading floor at dawn, faceless figures at desks with glowing blue screens showing abstract charts without readable text",
+   "etichetta": "AUGUST 1, 2012",
+   "colore": "blue"
+  },
+  {
+   "voce": "That morning, engineers roll out new trading software to eight servers. But one server never receives the update. It still runs old code.",
+   "immagine": "A row of eight servers in a dark room, seven glowing blue and one dim server in the middle with a faint gold light",
+   "etichetta": "1 OF 8",
+   "colore": "gold"
+  },
+  {
+   "voce": "Before the opening bell, ninety-seven automated emails flag a problem. They are not treated as alarms. At nine thirty, the market opens.",
+   "immagine": "A pile of floating glowing envelopes drifting unread above an empty desk, a large clock behind them pointing to nine thirty",
+   "etichetta": "9:30 AM",
+   "colore": "gold"
+  },
+  {
+   "voce": "A reused setting wakes a dead program, unused for years. The eighth server buys and sells at full speed, never knowing when to stop.",
+   "immagine": "A single server with a glowing red button on its front, an old dusty gear mechanism inside it spinning to life",
+   "etichetta": "OLD CODE",
+   "colore": "red"
+  },
+  {
+   "voce": "The machine buys high and sells low, again and again. In total, about four million trades hit one hundred fifty-four stocks.",
+   "immagine": "A massive wall of trading screens with red zigzag lines and no readable text, a stream of golden coins flying out of a server into the dark",
+   "etichetta": "4,000,000 TRADES",
+   "colore": "red"
+  }
+ ]
+}
