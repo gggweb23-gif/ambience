@@ -46,8 +46,31 @@ jobs:
         env:
           GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
         run: python3 strumenti/analisi_performance.py
+      - name: Foglio Excel del mattino (9 nov, Giorgio)
+        if: ${{ inputs.prova != 'SI' }}
+        run: python3 strumenti/report_excel.py || echo "foglio Excel non creato"
+      - name: Foglio Excel anche per email (solo se ci sono i segreti GMAIL_UTENTE e GMAIL_PASSWORD_APP)
+        if: ${{ inputs.prova != 'SI' }}
+        env:
+          GMAIL_UTENTE: ${{ secrets.GMAIL_UTENTE }}
+          GMAIL_PASSWORD_APP: ${{ secrets.GMAIL_PASSWORD_APP }}
+          DESTINATARIO: ${{ secrets.EMAIL_REPORT }}
+        run: |
+          [ -n "$GMAIL_UTENTE" ] && [ -n "$GMAIL_PASSWORD_APP" ] || { echo "email non configurata: salto"; exit 0; }
+          python3 - <<'PY'
+          import glob, os, smtplib, datetime as dt
+          from email.message import EmailMessage
+          f = sorted(glob.glob('report/Performance_*.xlsx'))[-1]
+          m = EmailMessage(); m['Subject'] = 'Performance canali ' + dt.date.today().strftime('%d/%m/%Y')
+          m['From'] = os.environ['GMAIL_UTENTE']; m['To'] = os.environ.get('DESTINATARIO') or os.environ['GMAIL_UTENTE']
+          m.set_content('In allegato il foglio delle performance: ultimi 10 video di ogni canale (impression, CTR, ritenzione 30 s e 60 s).')
+          m.add_attachment(open(f, 'rb').read(), maintype='application', subtype='vnd.openxmlformats-officedocument.spreadsheetml.sheet', filename=os.path.basename(f))
+          with smtplib.SMTP_SSL('smtp.gmail.com', 465) as s:
+              s.login(os.environ['GMAIL_UTENTE'], os.environ['GMAIL_PASSWORD_APP']); s.send_message(m)
+          print('email inviata')
+          PY
       - name: Salva il riepilogo
         if: ${{ always() }}
         run: |
           git config user.name render-bot && git config user.email render-bot@users.noreply.github.com
-          git add coach/performance_ultimo.txt coach/canali coach/riepilogo_performance.md && git commit -m "Performance video" && for i in 1 2 3; do git pull --rebase -q && git push && break; sleep 5; done || true
+          git add coach/performance_ultimo.txt coach/performance_dati.json coach/canali coach/riepilogo_performance.md report && git commit -m "Performance video" && for i in 1 2 3; do git pull --rebase -q && git push && break; sleep 5; done || true

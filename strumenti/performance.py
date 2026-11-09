@@ -25,6 +25,7 @@ COLONNE = ['data_rilevazione', 'youtube_video_id', 'titolo', 'giorni_dalla_pubbl
 IN_ATTESA = 'in attesa report'
 PT = A.ZoneInfo('America/Los_Angeles')   # i giorni dei report reach di YouTube sono in ora del Pacifico
 REPORT = []
+DATI_EXCEL = {}   # 9 nov: dati per il foglio Excel del mattino (strumenti/report_excel.py)
 
 
 def log(*a):
@@ -275,6 +276,7 @@ def canale(cfg):
                       round(t[2], 1) if t[2] is not None else '', vuoto(r30), vuoto(t[4]), c_imp, c_ctr, vuoto(r60),
                       pub.astimezone(A.ZoneInfo('Europe/Rome')).strftime('%Y-%m-%d %H:%M'), dur, vuoto(t[3]), ng, cop])
     scrivi(fid, righe)
+    DATI_EXCEL[str(cfg.get('channel_name') or cid)] = [dict(zip(COLONNE, r)) for r in righe[1:]]
     ultimi = [x for x in righe[1:] if num(x[15], 0) >= 3 and not str(x[16]).startswith('incompleto')][-5:]   # solo video con >= 3 giorni di report
     attesa = sum(1 for x in righe[1:] if num(x[15], 0) < 3 or str(x[16]).startswith('incompleto'))
     if attesa:
@@ -324,6 +326,7 @@ def main():
         except Exception as e:
             log('  ERRORE', cfg.get('channel_id'), str(e)[:200], (e.read().decode('utf-8', 'ignore')[:300] if hasattr(e, 'read') else ''))   # 7 nov: motivo del 403 nel registro
     os.makedirs('coach', exist_ok=True)
+    json.dump(DATI_EXCEL, open('coach/performance_dati.json', 'w'), ensure_ascii=False, indent=1)
     open('coach/performance_ultimo.txt', 'w').write(dt.datetime.now().strftime('%Y-%m-%d %H:%M') + '\n' + '\n'.join(REPORT) + '\n')
 
 
