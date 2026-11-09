@@ -1,0 +1,284 @@
+{
+ "titolo": "Quanto costa DAVVERO un'auto da 25.000 euro?",
+ "protagonista": {
+  "nome": "Luca",
+  "capelli": "short",
+  "colore_capelli": "#3b2a20",
+  "pelle": "media",
+  "maglia": "#2e6fbf",
+  "grembiule": "",
+  "occhiali": false
+ },
+ "oggetto": "auto",
+ "copertina": {
+  "righe": [
+   "25.000 € SUL",
+   "CARTELLINO.",
+   "COSTA 41.000 €"
+  ],
+  "emozione": "stupito",
+  "oggetto": "auto",
+  "prezzo": "25.000 €",
+  "fondo": "scuro"
+ },
+ "copertina_ai": {
+  "valore_sx": "25.000 €",
+  "valore_dx": "41.000 €",
+  "oggetto_sx": "a small new city car with a price tag on the windshield",
+  "oggetto_dx": "a huge pile of euro banknotes and bills next to the same car",
+  "domanda": [
+   "E ALLORA QUANTO",
+   "COSTA DAVVERO?"
+  ]
+ },
+ "descrizione": "Luca compra un'auto nuova da venticinquemila euro a rate. Il cartellino dice una cosa, il conto dopo cinque anni ne dice un'altra. Scopri voce per voce rate, interessi, svalutazione, assicurazione, bollo, tagliandi e carburante. E alla fine tre trucchi per spendere molto meno.",
+ "tag": [
+  "costo auto",
+  "quanto costa un'auto",
+  "costo totale auto",
+  "auto a rate",
+  "svalutazione auto",
+  "assicurazione auto",
+  "bollo auto",
+  "carburante",
+  "tagliando",
+  "auto nuova o usata",
+  "noleggio auto",
+  "risparmiare auto",
+  "finanziamento auto",
+  "interessi finanziamento",
+  "spese auto",
+  "budget famiglia"
+ ],
+ "scene": [
+  {
+   "testo": "Luca compra un'auto da venticinquemila euro. Pensa: costa venticinquemila euro. Sbagliato! In cinque anni gli costerà quarantunomila euro. Sedicimila euro in più del cartellino. Dove spariscono? Te lo mostro voce per voce.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Costa 25.000 euro, giusto?",
+      "emozione": "stupito",
+      "scuro": true
+     }
+    },
+    {
+     "parola": "venticinquemila",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "auto",
+      "prezzo": "25.000 €",
+      "nota": "Il prezzo del cartellino"
+     }
+    },
+    {
+     "parola": "quarantunomila",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "auto",
+      "testo": "41.000 €",
+      "colore": "rosso",
+      "nota": "Il costo vero in cinque anni"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Luca paga a rate: cinque anni, interessi compresi. Totale ventisettemila euro, duemila in più per gli interessi. Poi la svalutazione: dopo cinque anni l'auto vale undicimila euro. Ne ha persi quattordicimila!",
+   "capitolo": "Rate e svalutazione",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Rate più interessi",
+      "a": "25.000 €",
+      "op": "+",
+      "b": "2.000 €",
+      "risultato": "27.000 €",
+      "nota": "Cinque anni di rate"
+     }
+    },
+    {
+     "parola": "svalutazione",
+     "tipo": "andamento",
+     "p": {
+      "titolo": "Valore dell'auto",
+      "valori": [
+       25000,
+       20000,
+       16500,
+       13500,
+       11000
+      ],
+      "etichette": [
+       "Oggi",
+       "1 anno",
+       "2 anni",
+       "3 anni",
+       "5 anni"
+      ],
+      "colore": "rosso"
+     }
+    },
+    {
+     "parola": "persi",
+     "tipo": "bilancia",
+     "p": {
+      "titolo": "Valore perso",
+      "sinistra": "25.000 € pagati",
+      "destra": "11.000 € rimasti",
+      "pende": "sinistra"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Poi c'è il resto. Assicurazione, ottocento euro all'anno. Bollo, duecento. Tagliandi e gomme, seicento. Benzina, millequattrocento. Fanno tremila euro all'anno, quindicimila in cinque anni. Quasi non te ne accorgi, vero?",
+   "capitolo": "Le spese di ogni anno",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "costi",
+     "p": {
+      "voci": [
+       {
+        "nome": "Assicurazione",
+        "valore": 800,
+        "testo": "800 €"
+       },
+       {
+        "nome": "Bollo",
+        "valore": 200,
+        "testo": "200 €"
+       },
+       {
+        "nome": "Tagliandi e gomme",
+        "valore": 600,
+        "testo": "600 €"
+       },
+       {
+        "nome": "Benzina",
+        "valore": 1400,
+        "testo": "1.400 €"
+       }
+      ],
+      "totale": "3.000 €",
+      "periodo": "all'anno"
+     }
+    },
+    {
+     "parola": "quindicimila",
+     "tipo": "conteggio",
+     "p": {
+      "oggetto": "auto",
+      "icone": 15,
+      "testo": "15.000 € in 5 anni"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Facciamo il conto. Quattordicimila persi con la svalutazione, duemila di interessi, quindicimila di spese: trentunomila. Più i diecimila euro di acconto... no, aspetta: il conto vero è quarantunomila euro. Cioè settecento euro al mese, ventitré euro al giorno!",
+   "capitolo": "Il conto vero",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "fette",
+     "p": {
+      "titolo": "Dove vanno i soldi",
+      "totale": 41000,
+      "totale_testo": "41.000 €",
+      "fette": [
+       {
+        "nome": "Svalutazione",
+        "valore": 14000,
+        "testo": "14.000 €"
+       },
+       {
+        "nome": "Interessi",
+        "valore": 2000,
+        "testo": "2.000 €"
+       },
+       {
+        "nome": "Spese annuali",
+        "valore": 15000,
+        "testo": "15.000 €"
+       },
+       {
+        "nome": "Valore rimasto",
+        "valore": 10000,
+        "testo": "10.000 €"
+       }
+      ],
+      "evidenzia": 0
+     }
+    },
+    {
+     "parola": "settecento",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Costo al mese",
+      "a": "41.000 €",
+      "op": "÷",
+      "b": "60 mesi",
+      "risultato": "683 € al mese",
+      "nota": "Circa 23 € al giorno"
+     }
+    },
+    {
+     "parola": "giorno",
+     "tipo": "calendario",
+     "p": {
+      "titolo": "Ogni giorno",
+      "giorni": 30,
+      "testo": "23 € al giorno"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Come spendere meno? Primo: compra un'auto usata di due anni. Secondo: scegli una più piccola. Terzo: confronta le assicurazioni ogni anno. Riassumendo: il cartellino mente. Prossima volta: quanto costa davvero un cane? Iscriviti!",
+   "capitolo": "Trucchi per spendere meno",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Tre trucchi",
+      "voci": [
+       "Usata di due anni",
+       "Auto più piccola",
+       "Confronta le assicurazioni"
+      ]
+     }
+    },
+    {
+     "parola": "Riassumendo",
+     "tipo": "riepilogo",
+     "p": {
+      "titolo": "Da ricordare",
+      "voci": [
+       "Cartellino: 25.000 €",
+       "Costo vero: 41.000 €",
+       "Al mese: 683 €",
+       "Al giorno: 23 €"
+      ]
+     }
+    },
+    {
+     "parola": "Prossima",
+     "tipo": "prossimo",
+     "p": {
+      "luogo": "casa",
+      "insegna": "Il cane",
+      "oggetto": "cane",
+      "testo": "Quanto costa davvero un cane?"
+     }
+    }
+   ]
+  }
+ ]
+}
