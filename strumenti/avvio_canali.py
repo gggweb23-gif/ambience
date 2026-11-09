@@ -94,6 +94,24 @@ def pexels_in_corso():
 ANTICIPO = int(float(os.environ.get('ANTICIPO_GIORNI', '') or 0))   # video in anticipo (6 nov, Giorgio): esce tra N giorni
 
 
+def nel_filone(cfg, r):
+    """9 nov (Giorgio): entra in produzione SOLO un video del filone del canale (colonna scout_filone). Claude Haiku legge il titolo
+    (meno di 0,001 $). Senza filone o senza chiave: si va avanti come prima."""
+    fil = str(cfg.get('scout_filone') or '').strip(); key = os.environ.get('ANTHROPIC_API_KEY', '')
+    tit = str(r.get('titolo_originale') or r.get('titolo_italiano') or '').strip()
+    if not fil or not key or not tit:
+        return True
+    try:
+        req = urllib.request.Request('https://api.anthropic.com/v1/messages', method='POST', data=json.dumps({
+            'model': 'claude-haiku-4-5-20251001', 'max_tokens': 20, 'messages': [{'role': 'user', 'content':
+            f'Channel topic (filone): {fil}\nVideo title: "{tit}"\nIs this video clearly about the SAME topic/filone of the channel? Answer only SI or NO.'}]}).encode(),
+            headers={'x-api-key': key, 'anthropic-version': '2023-06-01', 'content-type': 'application/json'})
+        t = ''.join(b.get('text', '') for b in json.loads(urllib.request.urlopen(req, timeout=60).read()).get('content', []))
+        return not t.strip().upper().startswith('NO')
+    except Exception as e:
+        print('controllo filone non riuscito (vado avanti):', str(e)[:120]); return True
+
+
 def gia_pronto(prod, quando):
     """C'e' gia' un video per quel giorno di uscita (es. fatto in anticipo)? Allora stanotte non se ne fa un altro."""
     g = quando[:10]
@@ -154,6 +172,11 @@ def main():
         if tentativi_oggi >= num(cfg.get('videos_per_day')) + 2 and not ANTICIPO:
             print(cid, ': troppi tentativi falliti oggi, si riprova domani'); continue
         k = next((i for i, r in enumerate(prod) if str(r.get('status')).strip() == 'Pronto'), None)
+        while k is not None and not nel_filone(cfg, prod[k]):   # 9 nov: fuori filone -> Scartato, si passa alla riga dopo
+            print(cid, ': FUORI FILONE, scartato:', prod[k].get('titolo_originale'))
+            api(fid, 'POST', '/values:batchUpdate', {'valueInputOption': 'RAW', 'data': [{'range': f"'{sch}'!{lettera(h.index('status') + 1)}{k + 2}", 'values': [['Scartato (fuori filone)']]}]})
+            prod[k]['status'] = 'Scartato (fuori filone)'
+            k = next((i for i, r in enumerate(prod) if str(r.get('status')).strip() == 'Pronto'), None)
         if k is None:
             print(cid, ': nessuna riga Pronto'); continue
         if wf in PEXELS and pex:

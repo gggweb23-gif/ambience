@@ -40,6 +40,7 @@ jobs:
       - name: Avvio
         env:
           GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}   # 9 nov: controllo che il video sia del filone del canale
           GH_TOKEN: ${{ github.token }}
           SOLO_CANALE: ${{ inputs.canale }}
           ANTICIPO_GIORNI: ${{ inputs.anticipo }}
