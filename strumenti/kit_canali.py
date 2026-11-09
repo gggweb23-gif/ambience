@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """KIT DI APERTURA dei 2 nuovi canali (9 nov, Giorgio): avatar 800x800 e banner 2560x1440 (zona sicura centrale 1546x423, visibile su telefono).
-COSTO VERO (italiano, stile copertina 3 "scontrino") e il canale stile Gloam in inglese (nome provvisorio RUIN ARCHIVE, si rigenera col nome scelto: NOME_EN).
+COSTO VERO (italiano, stile copertina 3 "scontrino") e il canale stile Gloam in inglese (nome scelto BILLION RUIN, si rigenera col nome scelto: NOME_EN).
 Sfondi dei banner con FLUX.2 Klein 4B (circa 0,01 $ l'uno); loghi e scritte in codice. Uscita: prove_video/Kit_Canali/"""
 import io, os, sys, time
 from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageOps
@@ -11,7 +11,7 @@ E = os.environ.get
 OUT = 'prove_video/Kit_Canali'; os.makedirs(OUT, exist_ok=True)
 MB = 'fonts_gloam/montserrat_black.woff'; SERIF = 'fonts_gloam/serif.woff'; MONO = 'fonts_gloam/mono.woff'
 F = lambda f, s: ImageFont.truetype(f, s)
-NOME_EN = (E('NOME_EN') or 'Ruin Archive').upper()
+NOME_EN = (E('NOME_EN') or 'Billion Ruin').upper()
 ROSSO, GIALLO, ARANCIO, BIANCO, NERO, ORO = (225, 35, 45), (255, 210, 40), (255, 140, 40), (255, 255, 255), (20, 20, 25), (232, 182, 60)
 
 
