@@ -1,0 +1,160 @@
+{
+ "titolo": "Il SUV da 45.000 euro costa DAVVERO 27.100 euro? Il conto reale dopo 5 anni",
+ "protagonista": "Marco, Italian man about 42 years old, short dark brown hair, light stubble, wearing a navy blue polo shirt, beige chino trousers and white sneakers",
+ "copertina": {
+  "scritta": "COSTA PIU' DI COSI'",
+  "sfondo": "Marco, Italian man about 42 years old, short dark brown hair, light stubble, navy blue polo shirt, shocked expression, standing next to a brand new shiny mid-size SUV in a car dealership showroom, price tag on the windshield"
+ },
+ "scene": [
+  {
+   "tipo": "cartellino",
+   "voce": "Marco compra un SUV nuovo. Quarantacinquemila euro, a rate. Ma il prezzo sul cartellino non è il costo vero. Quanto costa davvero?",
+   "sfondi": [
+    {
+     "persone": true,
+     "descr": "Marco, Italian man about 42 years old, short dark brown hair, light stubble, navy blue polo shirt, beige chino trousers, white sneakers, smiling in front of a brand new shiny mid-size SUV in a bright car dealership showroom, price tag on the windshield"
+    },
+    {
+     "persone": false,
+     "descr": "Close-up of a car price tag on a car window in a dealership showroom, showing a large price, no people, no cars visible except the glass edge"
+    }
+   ],
+   "dati": {
+    "prezzo": 25000,
+    "domanda": "MA QUANTO COSTA DAVVERO?"
+   }
+  },
+  {
+   "tipo": "scontrini",
+   "voce": "In cinque anni Marco paga ventisettemilaseicento euro tra rate e interessi. Settemilacinquecento di benzina. Tremilacinquecento di assicurazione. Quattromila tra bollo, tagliandi e gomme. Duemilacinquecento tra parcheggi e pedaggi. Totale: quarantacinquemilacento euro.",
+   "sfondi": [
+    {
+     "persone": true,
+     "descr": "Marco, Italian man about 42 years old, short dark brown hair, light stubble, navy blue polo shirt, beige chino trousers, white sneakers, signing a car financing contract at a desk in a car dealership, a new SUV visible through the glass behind him"
+    },
+    {
+     "persone": false,
+     "descr": "Close-up of a petrol pump nozzle with the display showing liters and euros, at an Italian gas station, no people, no cars"
+    },
+    {
+     "persone": false,
+     "descr": "Car insurance policy document and car keys on a wooden table, no people, no cars"
+    },
+    {
+     "persone": false,
+     "descr": "Tools and tires in a mechanic workshop, an invoice on a workbench, no people, no cars"
+    },
+    {
+     "persone": false,
+     "descr": "Coin-operated parking meter on an Italian city street with a toll ticket slip next to it, no people, no cars"
+    }
+   ],
+   "dati": {
+    "anni": 5,
+    "voci": [
+     [
+      "Rate + interessi",
+      27600
+     ],
+     [
+      "Carburante",
+      7500
+     ],
+     [
+      "Assicurazione",
+      3500
+     ],
+     [
+      "Bollo, tagliandi, gomme",
+      4000
+     ],
+     [
+      "Parcheggi e pedaggi",
+      2500
+     ]
+    ]
+   }
+  },
+  {
+   "tipo": "valore",
+   "voce": "E intanto il SUV perde valore. Oggi vale quarantacinquemila euro. Dopo cinque anni, solo diciottomila.",
+   "sfondi": [
+    {
+     "persone": true,
+     "descr": "Marco, Italian man about 42 years old, short dark brown hair, light stubble, navy blue polo shirt, beige chino trousers, white sneakers, proudly standing next to a brand new, perfectly shiny mid-size SUV outdoors in front of his apartment building on a sunny day"
+    },
+    {
+     "persone": true,
+     "descr": "Marco, Italian man about 47 years old, short dark brown hair with a few grey hairs, light stubble, navy blue polo shirt, beige chino trousers, white sneakers, standing next to the same mid-size SUV, now dusty with small scratches and dents, outdoors in a used car lot"
+    }
+   ],
+   "dati": {
+    "valori": [
+     45000,
+     37000,
+     31000,
+     26000,
+     22000,
+     18000
+    ]
+   }
+  },
+  {
+   "tipo": "calcolo",
+   "voce": "Facciamo il conto. Pagato: quarantacinquemilacento euro. Rivendita: diciottomila. Il costo vero è ventisettemilacento euro. Sono quattrocentocinquantadue euro al mese. Quindici euro al giorno, ogni giorno.",
+   "sfondi": [
+    {
+     "persone": true,
+     "descr": "Marco, Italian man about 42 years old, short dark brown hair, light stubble, navy blue polo shirt, sitting at a kitchen table at home with papers, receipts and a calculator, looking focused"
+    },
+    {
+     "persone": true,
+     "descr": "Close-up of Marco, Italian man about 42 years old, short dark brown hair, light stubble, navy blue polo shirt, with a stunned, wide-eyed shocked face looking at a calculator in his hand, at home"
+    },
+    {
+     "persone": false,
+     "descr": "An open empty wallet next to a wall calendar with days crossed out on a wooden table, no people, no cars"
+    }
+   ],
+   "dati": {}
+  },
+  {
+   "tipo": "consigli",
+   "voce": "Come spendere meno? Compra un'auto usata di due anni. Confronta le assicurazioni ogni anno. E chiediti se ti serve davvero un SUV.",
+   "sfondi": [
+    {
+     "persone": true,
+     "descr": "Marco, Italian man about 42 years old, short dark brown hair, light stubble, navy blue polo shirt, beige chino trousers, white sneakers, looking at a two-year-old mid-size SUV in a used car dealership lot outdoors"
+    },
+    {
+     "persone": false,
+     "descr": "Laptop screen showing an insurance price comparison website with several quotes, on a desk next to a coffee cup, no people, no cars"
+    },
+    {
+     "persone": false,
+     "descr": "A piggy bank and a calculator on a kitchen table, no people, no cars"
+    }
+   ],
+   "dati": {
+    "voci": [
+     "Compra usato di due anni",
+     "Confronta le assicurazioni",
+     "Ti serve davvero un SUV?"
+    ]
+   }
+  },
+  {
+   "tipo": "prossimo",
+   "voce": "Prossima puntata: quanto costa davvero un cane?",
+   "sfondi": [
+    {
+     "persone": false,
+     "descr": "A cute medium-sized mixed-breed dog sitting in a living room next to a food bowl and a leash, no people, no cars"
+    }
+   ],
+   "dati": {
+    "testo": "PROSSIMA PUNTATA: IL CANE"
+   }
+  }
+ ]
+}
