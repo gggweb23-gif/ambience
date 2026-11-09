@@ -37,7 +37,7 @@ W, H, FPS = PV.W, PV.H, PV.FPS
 log = YT.log
 MODELLO = 'claude-sonnet-5-5'
 SEC_IMG = 4.0   # 9 nov sera (Giorgio: "il ritmo e' lento"): un'immagine nuova ogni 4 secondi (se il budget lo permette)
-MIN_PAROLE, MAX_PAROLE = 1300, 1450   # 9-10 minuti
+MIN_PAROLE, MAX_PAROLE = 1500, 1650   # 9-10 minuti con la voce accelerata come Quanto Ti Resta
 
 
 def num(x, d=0.0):
