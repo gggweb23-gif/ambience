@@ -97,6 +97,8 @@ ANTICIPO = int(float(os.environ.get('ANTICIPO_GIORNI', '') or 0))   # video in a
 def nel_filone(cfg, r):
     """9 nov (Giorgio): entra in produzione SOLO un video del filone del canale (colonna scout_filone). Claude Haiku legge il titolo
     (meno di 0,001 $). Senza filone o senza chiave: si va avanti come prima."""
+    if str(cfg.get('channel_id') or '').strip().upper().startswith('KAO'):   # regola filone esclusa per KAO (Giorgio, 2 nov)
+        return True
     fil = str(cfg.get('scout_filone') or '').strip(); key = os.environ.get('ANTHROPIC_API_KEY', '')
     tit = str(r.get('titolo_originale') or r.get('titolo_italiano') or '').strip()
     if not fil or not key or not tit:
