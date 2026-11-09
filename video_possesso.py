@@ -363,7 +363,7 @@ def muovi(bg, t, d, i):
     return bg.crop((x0, y0, x0 + w, y0 + h)).resize((W, H), Image.BICUBIC).convert('RGBA')
 
 
-SCENE, DATI = [], {}
+SCENE, DATI, ATEMPO = [], {}, 1.0
 
 
 def rendi_scena(i):
@@ -407,6 +407,42 @@ def voce(i, testo, prima, dopo):
 
 
 # ============================================================ 5) COPERTINA (stile 3 scontrino, QUANTO COSTA? fisso)
+def scontrino_libero(CP, img, vero, k):
+    """Copertina stile 3 "scontrino" a MANO LIBERA (9 nov sera, Giorgio): lato dello scontrino, inclinazione, altezza e posizione/grandezza di
+    QUANTO COSTA? cambiano da un video all'altro. Regola per tutti i canali: MAI scritte nell'angolo in basso a destra (lo copre la durata del video)."""
+    from PIL import ImageFilter
+    W_, H_ = CP.W, CP.H
+    im = img.copy().convert('RGBA')
+    sx = k % 2 == 0                       # scontrino a sinistra o a destra
+    alto = (k // 2) % 2 == 0              # scritta in alto o a meta' altezza
+    ang = (5, -7, 4, -5)[k % 4] * (1 if sx else -1); dy = (-10, 30, 0, 50)[(k // 3) % 4]
+    sc = Image.new('RGBA', (420, 760), (250, 248, 240, 255)); d = ImageDraw.Draw(sc)
+    for i in range(0, 420, 20):
+        d.polygon([(i, 0), (i + 10, 14), (i + 20, 0)], fill=(0, 0, 0, 0))
+    d.text((210, 70), 'SCONTRINO', font=CP.F(44), fill=CP.NERO, anchor='mm')
+    for j in range(5):
+        d.line((40, 140 + j * 70, 380, 140 + j * 70), fill=(200, 200, 200), width=4)
+        d.rectangle((40, 115 + j * 70, 40 + 120 + (j * 37 + k * 11) % 120, 130 + j * 70), fill=(150, 150, 150))
+    d.text((210, 520), 'TOTALE', font=CP.F(54), fill=CP.NERO, anchor='mm')
+    s_ = CP.adatta(vero, 90, 380); d.text((210, 610), vero, font=CP.F(s_), fill=CP.ROSSO, anchor='mm')
+    sc = sc.rotate(ang, expand=True, resample=Image.BICUBIC)
+    ombra = Image.new('RGBA', sc.size, (0, 0, 0, 0)); ombra.putalpha(sc.split()[3].point(lambda a: int(a * .5)))
+    x = -30 if sx else W_ - sc.width + 30
+    im.alpha_composite(ombra.filter(ImageFilter.GaussianBlur(14)), (x + 14, dy + 10)); im.alpha_composite(sc, (x, dy - 10))
+    d = ImageDraw.Draw(im)
+    size = (104, 92, 116)[k % 3]
+    # la scritta va dal lato opposto allo scontrino, in alto o a meta' altezza: mai sotto H-170 (il timer della copertina)
+    y1 = 50 if alto else H_ // 2 - size - 20
+    if sx:   # scontrino a sinistra -> scritta a destra, allineata a destra ma lontana dal basso
+        tx, anc = W_ - 50, 'ra'
+    else:
+        tx, anc = 50, 'la'
+    CP.scritta_bordo(d, (tx, y1), 'QUANTO', size, CP.BIANCO, anchor=anc)
+    CP.scritta_bordo(d, (tx, y1 + size + 10), 'COSTA?', size, CP.GIALLO, anchor=anc)
+    assert y1 + 2 * size + 10 < H_ - 170
+    return im.convert('RGB')
+
+
 def copertina(c, rif_url):
     import copertine_possesso as CP
     f = os.path.join(LAV, 'copertina_sfondo.jpg')
@@ -416,14 +452,14 @@ def copertina(c, rif_url):
         f = os.path.join(LAV, 'riferimento.jpg')
     img = Image.open(f).convert('RGB').resize((CP.W, CP.H))
     k = int(num(P.get('riga_produzione'), 0) or random.randint(0, 9))
-    cop = CP.stile_scontrino(img, {'vero': eur(DATI['costo_vero'])}, k)   # MANO LIBERA: lato dello scontrino che cambia
+    cop = scontrino_libero(CP, img, eur(DATI['costo_vero']), k)
     out = os.path.join(ROOT, 'copertina.jpg'); cop.save(out, quality=92)
     return out
 
 
 # ============================================================ MAIN
 def main():
-    global SCENE, DATI
+    global SCENE, DATI, ATEMPO
     if not TITOLO and not SECCO:
         raise RuntimeError('manca il titolo della riga')
     c = copione(); SCENE = c['scene']
@@ -436,7 +472,14 @@ def main():
     # voce
     for i, s in enumerate(SCENE):
         v = voce(i, str(s['voce']), ' '.join(str(x['voce']) for x in SCENE[:i]), ' '.join(str(x['voce']) for x in SCENE[i + 1:]))
-        s['_voce'] = v; s['_dur'] = round(durata(v) + .4, 3); s['_out'] = os.path.join(LAV, f'scena_{i:02d}.mp4')
+        s['_voce'] = v; s['_nat'] = durata(v); s['_out'] = os.path.join(LAV, f'scena_{i:02d}.mp4')
+    # ritmo della voce come Quanto Ti Resta (9 nov sera, Giorgio: "Quanto Ti Resta ha un bel ritmo, Costo Vero e' piu' lento"):
+    # stessa velocita' di lettura (colonna voce_ritmo, caratteri al secondo; vuota = 16,5) accelerando la voce fino a +15%
+    car = sum(len(str(s['voce'])) for s in SCENE); nat = sum(s['_nat'] for s in SCENE)
+    ATEMPO = max(1.0, min(1.15, (num(P.get('voce_ritmo'), 16.5) or 16.5) / max(1.0, car / max(nat, 1))))
+    for s in SCENE:
+        s['_dur'] = round(s['_nat'] / ATEMPO + .25, 3)
+    log(f'voce: {car / max(nat, 1):.1f} caratteri/s naturali -> accelerata x{ATEMPO:.3f}')
     tot_voce = sum(s['_dur'] for s in SCENE)
     log(f'voce: {tot_voce / 60:.1f} minuti')
     if tot_voce < 480 and not SECCO:
@@ -470,7 +513,7 @@ def main():
     audio = []
     for i, s in enumerate(SCENE):
         a = os.path.join(LAV, f'a_{i:02d}.wav')
-        subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', s['_voce'], '-af', f'adelay=150|150,apad,atrim=0:{s["_dur"]:.3f}', '-ar', '44100', '-ac', '2', a], check=True)
+        subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', s['_voce'], '-af', f'atempo={ATEMPO:.4f},adelay=100|100,apad,atrim=0:{s["_dur"]:.3f}', '-ar', '44100', '-ac', '2', a], check=True)
         audio.append(a)
     open(os.path.join(LAV, 'v.txt'), 'w').write(''.join(f"file '{p}'\n" for p in parti))
     open(os.path.join(LAV, 'a.txt'), 'w').write(''.join(f"file '{p}'\n" for p in audio))
