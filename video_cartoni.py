@@ -279,7 +279,7 @@ def copertina_ai(pg, ca, ctx, cop):
               'No other words, letters or labels anywhere (no English words, no brand names). The dark bottom band must stay COMPLETELY EMPTY. No logo, no watermark.')
     H = {'Authorization': 'Key ' + E('FAL_KEY', ''), 'Content-Type': 'application/json'}
     rif = 'data:image/jpeg;base64,' + base64.b64encode(open(bozza, 'rb').read()).decode()
-    for tentativo in range(2):
+    for tentativo in range(3):   # 9 nov (Giorgio): un terzo tentativo prima di tornare alla copertina disegnata
         inv = http('https://queue.fal.run/fal-ai/nano-banana-2/edit', {'prompt': prompt, 'image_urls': [rif], 'aspect_ratio': '16:9', 'resolution': '2K', 'output_format': 'jpeg', 'num_images': 1}, H)
         CO.registra('fal', 'fal-ai/nano-banana-2/edit', dollari=0.08, nota='copertina AI')
         for _ in range(150):
@@ -307,7 +307,7 @@ def copertina_ai(pg, ca, ctx, cop):
             pg.screenshot(path=cop, type='jpeg', quality=92)
             log('copertina AI pronta (COSTA / LO VENDI + targa)')
             return
-    raise RuntimeError('scritte sbagliate anche al secondo tentativo')
+    raise RuntimeError('scritte sbagliate anche al terzo tentativo')
 
 
 def monta(c, order, ctx):
