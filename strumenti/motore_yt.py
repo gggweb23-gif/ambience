@@ -107,6 +107,21 @@ def carica_youtube(P, path, titolo, descr, tags, cop, lingua):
     return vid, nota
 
 
+def nitido(video, uscita):
+    """9 nov (Giorgio: "tutti i canali devono avere video limpidi, altrimenti veniamo penalizzati"): il video finale si carica a 1440p
+    (2560x1440, ingrandimento lanczos + nitidezza leggera, qualita' alta). YouTube ai video 1440p da' la codifica migliore (VP9/AV1):
+    anche chi guarda a 1080p vede un'immagine piu' pulita. Se qualcosa va storto resta il video di prima."""
+    import subprocess
+    try:
+        subprocess.run(['ffmpeg', '-y', '-v', 'error', '-i', video, '-vf', 'scale=2560:1440:flags=lanczos,unsharp=5:5:0.6:5:5:0.0',
+                        '-c:v', 'libx264', '-preset', 'faster', '-crf', '17', '-pix_fmt', 'yuv420p', '-c:a', 'copy', '-movflags', '+faststart', uscita], check=True)
+        log('video finale a 1440p (piu\' nitido su YouTube)')
+        return uscita
+    except Exception as e:
+        log('1440p non riuscito, resta 1080p:', str(e)[:150])
+        return video
+
+
 def testi(P, titolo, descr_breve, capitoli, tag, nota_finale=''):
     """Descrizione: titolo (prima riga) + testo + capitoli + nota + chiusura del canale. Tag: quelli del copione + del canale, titolo compreso."""
     cap = '\n'.join(capitoli) if len(capitoli) >= 3 else ''

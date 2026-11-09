@@ -33,7 +33,7 @@ RIGA = P.get('riga') or {}
 SECCO = str(E('SECCO') or 'NO').upper() == 'SI'
 PROVA = SECCO or str(E('PROVA') or P.get('prova') or 'NO').upper() == 'SI'
 CARICA = str(E('CARICA') or 'NO').upper() == 'SI'
-VOCE = str(E('VOCE') or P.get('voice_id') or 'Gfpl8Yo74Is0W6cPUWWT').strip()   # Max
+VOCE = str(E('VOCE') or P.get('voice_id') or 'pNInz6obpgDQGcFmaJgB').strip()   # 9 nov sera (Giorgio): di nuovo la voce di prima (Adam), non piu' Max
 VOCE_MOD = str(P.get('voice_model_id') or 'eleven_multilingual_v2')
 LINGUA = str(P.get('language') or 'en')[:2]
 TITOLO = str(E('TEMA') or RIGA.get('titolo_italiano') or RIGA.get('titolo_originale') or P.get('titolo_originale') or '').strip()
@@ -139,7 +139,7 @@ def scene_capitolo(s, k):
     prec = ' | '.join(c['titolo'] for c in s['capitoli'][:k]) or '(this is the first chapter)'
     p = f"""Write chapter {k + 1} of {n} of the documentary "{s.get('titolo')}" for the YouTube channel {P.get('channel_name') or 'Billion Ruin'} (style of Gloam).
 Chapters already told: {prec}. This chapter: "{cap['titolo']}". Use ONLY these verified facts (do not add other numbers or claims): {json.dumps(cap.get('fatti') or [], ensure_ascii=False)}.
-About {int(num(cap.get('parole'), 150))} spoken words, split into shots of 8-13 words (3-5 seconds each). Never repeat a sentence of a previous chapter.
+About {int(num(cap.get('parole'), 150))} spoken words, split into SHORT shots of 6-10 words (2-4 seconds each: fast rhythm, the picture changes often). Never repeat a sentence of a previous chapter.
 {'Shot 1 = hook with the biggest number; open a question the viewer wants answered.' if k == 0 else 'First shot: tipo "foto" with etichetta "CHAPTER ' + str(k + 1) + '" and titolo = the chapter title.'}
 {'Close the open question of the cold open, then the last words are: Subscribe for the next one.' if k == n - 1 else 'End with a line that makes the viewer want the next chapter.'}
 Each shot: "voce" (spoken text, numbers in words) + ONE "tipo" with its fields + "sfondo" = 2-4 plain English words for a COHERENT, SERIOUS editorial stock image
@@ -147,7 +147,7 @@ Each shot: "voce" (spoken text, numbers in words) + ONE "tipo" with its fields +
 NEVER people with emotional faces or gestures, posed models, handshakes, playful images. "chiave" = 1-2 words of the on-screen text to underline in red.
 Types:
 {TIPI}
-Mix: about half "foto"/"clip"; at most 2 "oggetto3d" in this chapter; never two identical types in a row; every shot has something on screen tied to its words.
+Mix: at least 60% "clip"/"foto" (prefer "clip": moving footage); at most 2 "oggetto3d" in this chapter; never two identical types in a row; every shot has something on screen tied to its words.
 Reply ONLY with JSON: {{"shots": [{{"voce": "...", "tipo": "...", "sfondo": "...", "chiave": "...", ...}}]}}"""
     c = leggi_json(claude(p, sforzo='low'))
     shots = c['shots'] if isinstance(c, dict) else c
@@ -180,6 +180,21 @@ def copione():
     shots = []
     for k in range(len(s['capitoli'])):
         shots += scene_capitolo(s, k)
+    # ritmo (9 nov, Giorgio: "il ritmo e' lento"): una scena con piu' di 11 parole si divide in due, la seconda e' una clip
+    corte = []
+    for sh in shots:
+        w = str(sh.get('voce') or '').split()
+        if len(w) > 11:
+            m = len(w) // 2
+            for k in range(m - 3, m + 4):   # taglio dopo una virgola o un punto vicino alla meta', se c'e'
+                if 0 < k < len(w) - 2 and w[k - 1][-1:] in ',.;:':
+                    m = k; break
+            a = dict(sh, voce=' '.join(w[:m]))
+            b = {'tipo': 'clip', 'sfondo': sh.get('sfondo') or 'stock exchange', 'voce': ' '.join(w[m:]), 'cartello': '', 'capitolo': sh.get('capitolo')}
+            corte += [a, b]
+        else:
+            corte.append(sh)
+    shots = corte
     # una sola schermata di borsa in tutto il video
     visti = False
     for sh in shots:
@@ -243,6 +258,14 @@ def giudice(img, cerca, voce):
     return claude(G6.GIUDICE.format(cerca=cerca, voce=voce), modello=HAIKU, immagine=img, max_tokens=5).strip().upper().startswith('SI')
 
 
+def prepara(img, scura=False):
+    """Fondo a tutto schermo NITIDO (9 nov, Giorgio: "tutti i canali devono avere video limpidi"): mai sfocato; sotto le schede solo un po' scurito."""
+    b = ImageOps.fit(img, (int(W * 1.12) + 2, int(H * 1.12) + 2), Image.LANCZOS)
+    if scura:
+        b = Image.blend(b, Image.new('RGB', b.size, (12, 11, 10)), .45)
+    return b
+
+
 def scarica_img(url):
     return Image.open(io.BytesIO(YT.http(url, raw=True, headers={'User-Agent': 'Mozilla/5.0'}, timeout=120))).convert('RGB')
 
@@ -255,7 +278,7 @@ def foto(cerca, voce, i):
                 continue
             prove += 1
             try:
-                im = scarica_img(p['src']['large2x'])
+                im = scarica_img(p['src'].get('original') or p['src']['large2x']); im.thumbnail((2600, 2600))   # foto alla massima qualita' (mai sgranate)
             except Exception:
                 continue
             USATE.add(p['id'])
@@ -363,7 +386,7 @@ def rendi_una(i):
             enc.stdin.close(); enc.wait()
     except Exception as e:   # una scena che non si disegna non ferma il video: diventa una foto con la stessa durata
         log(f'scena {i} ({s["tipo"]}) non riuscita: {str(e)[:120]} -> foto')
-        s['tipo'] = 'foto'; s['_bg'] = s.get('_bg') or G6.prepara(Image.new('RGB', (W, H), (20, 18, 16)))
+        s['tipo'] = 'foto'; s['_bg'] = s.get('_bg') or prepara(Image.new('RGB', (W, H), (20, 18, 16)))
         enc = subprocess.Popen(['ffmpeg', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-r', str(FPS), '-i', '-',
                                 '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20', '-pix_fmt', 'yuv420p', out], stdin=subprocess.PIPE)
         for k in range(int(dur * FPS) + 1):
@@ -451,7 +474,7 @@ def main():
                 if im is None:
                     s.update({'tipo': 'foto', 'titolo': ' '.join(s.get('etichette') or [])[:40]})
                 else:
-                    n3d += 1; f = os.path.join(LAV, f'bg_{i:03d}.jpg'); G6.prepara(im).save(f, quality=90); s['_bgf'] = f; continue
+                    n3d += 1; f = os.path.join(LAV, f'bg_{i:03d}.jpg'); prepara(im.filter(ImageFilter.UnsharpMask(radius=2, percent=60, threshold=2))).save(f, quality=95); s['_bgf'] = f; continue
         if s.get('tipo') == 'clip':
             r = clip(s.get('sfondo') or 'stock exchange', s['voce'], i)
             if r:
@@ -464,7 +487,7 @@ def main():
         f = os.path.join(LAV, f'bg_{i:03d}.jpg'); fp = os.path.join(LAV, f'ph_{i:03d}.jpg')
         if not os.path.exists(f):
             im = foto(s.get('sfondo') or 'wall street', s['voce'], i)
-            G6.prepara(im, sfoca=(s['tipo'] != 'foto')).save(f, quality=90)
+            prepara(im, scura=(s['tipo'] != 'foto')).save(f, quality=95)
             if s['tipo'] == 'dossier':
                 im.save(fp, quality=88)
         s['_bgf'] = f
@@ -504,6 +527,9 @@ def main():
     if not ISC.applica(base, finale, dict(P, subscribe_overlay_second=P.get('subscribe_overlay_second') or 95), os.path.join(LAV, 'isc'), short=False, log=log, enc=['-c:v', 'libx264', '-preset', 'veryfast', '-crf', '19']):
         shutil.copy(base, finale)
     cop = copertina(c)
+    finale = YT.nitido(finale, os.path.join(ROOT, 'video_gloam_1440.mp4'))
+    if finale.endswith('_1440.mp4'):
+        shutil.move(finale, os.path.join(ROOT, 'video_gloam.mp4')); finale = os.path.join(ROOT, 'video_gloam.mp4')
     dur_v = durata(finale)
     # capitoli per la descrizione (dove inizia ogni capitolo)
     capitoli, off, visto = [], 0.0, None

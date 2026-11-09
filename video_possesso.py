@@ -231,7 +231,8 @@ def immagine(f, prompt, rif=None):
             from PIL import ImageStat
             if max(ImageStat.Stat(im.resize((64, 36))).mean) < 18:   # immagine nera (filtro di sicurezza del fornitore): si rifa', mai uno sfondo nero nel video
                 log('immagine nera scartata, la rifaccio'); prompt = prompt + ' Bright, warm daylight scene.'; continue
-            im.resize((W, H), Image.LANCZOS).save(f, quality=92)
+            from PIL import ImageFilter
+            im.resize((W, H), Image.LANCZOS).filter(ImageFilter.UnsharpMask(radius=2, percent=70, threshold=2)).save(f, quality=95)   # ingrandita e resa nitida
             return f, url
         except Exception as e:
             log('immagine non riuscita, riprovo:', str(e)[:150]); time.sleep(5)
@@ -454,6 +455,9 @@ def main():
     if not ISC.applica(base, finale, dict(P, subscribe_overlay_second=P.get('subscribe_overlay_second') or 95), os.path.join(LAV, 'isc'), short=False, log=log, enc=['-c:v', 'libx264', '-preset', 'veryfast', '-crf', '19']):
         shutil.copy(base, finale)
     cop = copertina(c, rif_url)
+    finale = YT.nitido(finale, os.path.join(ROOT, 'video_possesso_1440.mp4'))
+    if finale.endswith('_1440.mp4'):
+        shutil.move(finale, os.path.join(ROOT, 'video_possesso.mp4')); finale = os.path.join(ROOT, 'video_possesso.mp4')
     dur_v = durata(finale)
     capitoli, off, visto = [], 0.0, None
     for s in SCENE:
