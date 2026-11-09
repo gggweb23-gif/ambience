@@ -12,13 +12,19 @@ tok = json.loads(urllib.request.urlopen(urllib.request.Request('https://oauth2.g
 H = {'Authorization': 'Bearer ' + tok}
 
 
-def api(url, corpo=None, tipo='application/json'):
+def api(url, corpo=None, tipo='application/json', metodo=None):
     dati = corpo if isinstance(corpo, bytes) else (json.dumps(corpo).encode() if corpo is not None else None)
-    req = urllib.request.Request(url, data=dati, headers=dict(H, **({'Content-Type': tipo} if dati else {})), method='POST' if dati else 'GET')
+    req = urllib.request.Request(url, data=dati, headers=dict(H, **({'Content-Type': tipo} if dati else {})), method=metodo or ('POST' if dati else 'GET'))
     return json.loads(urllib.request.urlopen(req, timeout=120).read() or b'{}')
 
 
 errori = 0
+if E('PRIVATO', '').strip().upper() == 'SI':   # 9 nov: toglie la programmazione e lascia il video privato (non lo cancella)
+    try:
+        api('https://www.googleapis.com/youtube/v3/videos?part=status', {'id': VID, 'status': {'privacyStatus': 'private', 'selfDeclaredMadeForKids': False}}, metodo='PUT')
+        print('video lasciato PRIVATO, uscita programmata tolta:', VID)
+    except Exception as e:
+        errori += 1; print('privato NON impostato:', e, getattr(e, 'read', lambda: b'')().decode()[:200])
 if COP:
     try:
         dati = urllib.request.urlopen(COP, timeout=120).read() if COP.startswith('http') else open(COP, 'rb').read()   # percorso nel repository oppure indirizzo (es. fal)
