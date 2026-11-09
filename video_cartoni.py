@@ -160,6 +160,15 @@ def copione():
     attivita, lezione = str(RIGA.get('attivita') or '').strip(), str(RIGA.get('lezione') or '').strip()
     dmin, dmax = num(P.get('durata_min_minuti'), 8.5), num(P.get('durata_max_minuti'), 9.5)
     car = int((dmin + dmax) / 2 * 60 * 15.5)   # caratteri di voce per la durata voluta (circa 15,5 caratteri al secondo)
+    # 9 nov: formato "possesso" (filone "Quanto costa davvero possedere qualcosa") e video brevi; Quanto Ti Resta resta identico
+    if str(P.get('formato') or '').strip().lower() == 'possesso':
+        REGOLE_STORIA = """- Una storia con UN protagonista (nome italiano) che compra la cosa del titolo: il prezzo sul cartellino contro quanto gli costa DAVVERO in tutti gli anni (acquisto o rate e interessi, svalutazione, assicurazione, tasse, manutenzione, consumi, imprevisti), voce per voce.
+- Resta SEMPRE sulla cosa del titolo: niente negozi, margini o punto di pareggio; gli esempi sono solo varianti della stessa cosa (nuova contro usata, piu' piccola, a noleggio).
+- Il colpo di scena e' il costo vero totale e al mese (o al giorno) confrontato col prezzo del cartellino; chiudi con 2-3 trucchi concreti per spendere meno."""
+    else:
+        REGOLE_STORIA = """- Una storia con UN protagonista (nome italiano) e la sua attivita; ogni concetto spiegato con i suoi numeri, poi con 1-2 esempi DIVERSI di altre attivita (mai ripetere lo stesso esempio).
+- Insegna cosa guardare, cosa non guardare e come si calcola, passo passo; fai pensare chi ha un'attivita."""
+    N_SCENE = '32-40' if dmax >= 3 else f'{max(3, round(car * 1.1 / 275) - 1)}-{round(car * 1.1 / 275) + 1}'
     prompt = f"""Sei l'autore del canale YouTube "{NOME}" ({P.get('niche') or ''}). Pubblico: {P.get('target_audience') or 'titolari di attivita, commercianti, chi vuole aprirne una'}.
 Stile: {P.get('narrative_angle') or 'storytelling a cartoni animati: una storia con un protagonista e i suoi numeri veri, spiegati in modo semplice, utile e divertente'}.
 Lingua: {'italiano' if LINGUA == 'it' else LINGUA}, dai del tu allo spettatore.
@@ -170,12 +179,11 @@ Attivita protagonista: {attivita or 'quella del titolo'}. Concetti da insegnare:
 Scrivi la puntata completa per un video di {dmin:g}-{dmax:g} minuti: in totale circa {int(car * 1.2)} caratteri di testo parlato (non meno di {car}: conta i caratteri, i testi brevi rendono il video troppo corto).
 REGOLE DEL TESTO
 - Inizia con un gancio forte nei primi 10 secondi (un problema o un numero che sorprende), niente saluti, niente "in questo video".
-- Una storia con UN protagonista (nome italiano) e la sua attivita; ogni concetto spiegato con i suoi numeri, poi con 1-2 esempi DIVERSI di altre attivita (mai ripetere lo stesso esempio).
-- Insegna cosa guardare, cosa non guardare e come si calcola, passo passo; fai pensare chi ha un'attivita.
+{REGOLE_STORIA}
 - Numeri realistici e coerenti fra loro (ricontrolla ogni calcolo: totali, divisioni, percentuali). Sono esempi: non presentarli come dati ufficiali.
 - Nel testo parlato TUTTI i numeri scritti in lettere (es. "tremila euro", "nove euro e quaranta", "il trenta per cento"), mai cifre.
 - Frasi brevi, ritmo vivace, qualche domanda allo spettatore, una battuta ogni tanto. Chiudi con un riassunto e un gancio al prossimo episodio, poi "Iscriviti".
-- 32-40 scene, ognuna da 220 a 330 caratteri.
+- {N_SCENE} scene, ognuna da 220 a 330 caratteri.
 INQUADRATURE (il video e' tutto disegnato: ogni scena ha 2-4 inquadrature, una nuova ogni 4-6 secondi di voce)
 - La prima inquadratura di ogni scena ha "parola": "". Le altre hanno "parola": una parola ESATTA del testo della scena (la prima volta che compare) in cui l'inquadratura deve partire.
 - Modelli disponibili (tipo e parametri p):
