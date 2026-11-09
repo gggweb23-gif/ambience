@@ -145,6 +145,8 @@ jobs:
             DUR=$(ffprobe -v error -show_entries format=duration -of csv=p=0 video_cartoni.mp4)
             for i in 1 2 3 4 5 6 7 8; do T=$(python3 -c "print(round($DUR*($i-0.5)/8,2))"); ffmpeg -v error -y -ss $T -i video_cartoni.mp4 -frames:v 1 -vf scale=960:-1 "$D/fotogramma_$i.jpg"; done
             ffmpeg -v error -y -i video_cartoni.mp4 -t 60 -vn -ac 1 -b:a 64k "$D/audio_primo_minuto.mp3"
+            # 9 nov: nelle prove brevi (sotto i 3 minuti) anche il video, per guardarlo subito
+            python3 -c "import sys;sys.exit(0 if float('$DUR') < 180 else 1)" && cp video_cartoni.mp4 "$D/video_prova.mp4" || true
           fi
           git config user.name "render-bot"; git config user.email "render-bot@users.noreply.github.com"
           git add "$D"; git commit -m "Anteprima video cartoni" || exit 0
