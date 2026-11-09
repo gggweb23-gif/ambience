@@ -43,13 +43,13 @@ function disegna(s, gT) {
 const TR = .38;
 function sottotitolo(gT) {
   for (const sc of SCN) { if (gT < sc.off || gT > sc.off + sc.dur) continue;
-    const t = gT - sc.off; for (const c of sc.sub) if (t >= c.a && t <= c.b + .25) { const w = Math.min(1760, c.txt.length * 29 + 80); return `<rect x="${960 - w / 2}" y="996" width="${w}" height="68" rx="20" fill="${INK}" opacity=".88"/>` + T(960, 1043, S(c.txt), 46, '#fff', { w: 600 }) } }
+    const t = gT - sc.off; for (const c of sc.sub) if (t >= c.a && t <= c.b + .25) { const fs = fit(S(c.txt), 46, 1700, 600), w = larg(S(c.txt), fs, 600) + 70; return `<rect x="${960 - w / 2}" y="996" width="${w}" height="68" rx="20" fill="${INK}" opacity=".88"/>` + T(960, 1043, S(c.txt), fs, '#fff', { w: 600 }) } }
   return '';
 }
 function capitolo(gT) {
   for (const sc of SCN) { const t = gT - sc.off; if (!sc.capitolo || t < 0 || t > 3.4) continue;
-    const p = pop(t, .1, .5) * (1 - pr(t, 3, .4)); const w = sc.capitolo.length * 30 + 90;
-    return tr(60, 60, 1, `<g transform="translate(${-(1 - cl(p)) * 900} 0)"><rect x="0" y="0" width="${w}" height="84" rx="42" fill="${INK}"/><rect x="0" y="0" width="84" height="84" rx="42" fill="${Y}"/>` + T(42, 58, '▶', 40, INK) + T(110, 58, S(sc.capitolo), 48, '#fff', { a: 'start' }) + `</g>`) }
+    const p = pop(t, .1, .5) * (1 - pr(t, 3, .4)); const fc = fit(S(sc.capitolo), 48, 1200), w = larg(S(sc.capitolo), fc) + 140;
+    return tr(60, 60, 1, `<g transform="translate(${-(1 - cl(p)) * 900} 0)"><rect x="0" y="0" width="${w}" height="84" rx="42" fill="${INK}"/><rect x="0" y="0" width="84" height="84" rx="42" fill="${Y}"/>` + T(42, 58, '▶', 40, INK) + T(110, 58, S(sc.capitolo), fc, '#fff', { a: 'start' }) + `</g>`) }
   return '';
 }
 window.draw = (gT) => {

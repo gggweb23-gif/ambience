@@ -49,7 +49,7 @@ function luogo(tipo, t, C, insegna) {
   const n = String(tipo || '').toLowerCase(), k = C.i;
   const muro = PALETTE[(k * 7 + n.length) % PALETTE.length];
   let s = BG(muro) + floor(820, ['#E8B97A', '#C9CED9', '#D9B98A', '#B8C1D9', '#C98A4B'][(k + n.length) % 5]);
-  const scritta = insegna ? `<rect x="1360" y="80" width="500" height="100" rx="20" fill="${INK}"/>` + T(1610, 150, S(insegna).toUpperCase().slice(0, 22), insegna.length > 14 ? 40 : 52, Y) : '';
+  const scritta = insegna ? `<rect x="1360" y="80" width="500" height="100" rx="20" fill="${INK}"/>` + TF(1610, 150, S(insegna).toUpperCase(), 52, 450, Y, {}, 36) : '';
   if (/bar|caff/.test(n)) s += `<rect x="140" y="260" width="300" height="300" rx="26" fill="${GR}" ${SW}/><rect x="180" y="300" width="220" height="80" rx="12" fill="#5A5F73" ${SW5}/>` + [0, 1, 2].map(i => `<path d="M${270 + i * 20} ${250 - ((t * 60 + i * 30) % 90)} q-14 -20 0 -40" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" opacity=".8"/>`).join('') + [0, 1, 2, 3, 4].map(i => cup(560 + i * 110, 300, .4)).join('');
   else if (/pizz|ristorant|cucin|sushi|kebab|food/.test(n)) s += `<rect x="1100" y="260" width="560" height="420" rx="200" fill="#8B5A2B" ${SW}/><path d="M1200 640 q180 -240 360 0z" fill="#3A1E10" ${SW}/><path d="M1240 640 q140 -180 280 0z" fill="${OR}" opacity="${.6 + .3 * Math.sin(t * 6)}"/>` + `<rect y="0" width="1920" height="110" fill="${R}"/>` + [...Array(24)].map((_, i) => `<rect x="${i * 80}" y="0" width="40" height="110" fill="#fff" opacity=".5"/>`).join('');
   else if (/parrucch|barbier|estet/.test(n)) s += `<rect x="1150" y="180" width="460" height="380" rx="190" fill="#CDEBFF" ${SW}/><path d="M260 240 v380" stroke="${R}" stroke-width="40"/><path d="M260 240 v380" stroke="#fff" stroke-width="40" stroke-dasharray="30 30" stroke-dashoffset="${t * 60}"/><rect x="1220" y="620" width="320" height="200" rx="30" fill="${INK}"/>`;
@@ -122,7 +122,7 @@ TPL.fette = (t, d, p, C) => {
   s += `<g transform="translate(560 560) rotate(-90)"><circle r="200" fill="none" stroke="${INK}" stroke-width="104"/><circle r="200" fill="none" stroke="#E6E8F0" stroke-width="90"/>`;
   F.forEach((f, i) => { const v = (+f.valore || 0) / tot * pr(t, .3 + i * .45, .5); s += `<circle r="200" fill="none" stroke="${cols[i]}" stroke-width="90" stroke-dasharray="${Cc * v} ${Cc}" stroke-dashoffset="${-Cc * acc}"/>`; acc += (+f.valore || 0) / tot });
   s += `</g>` + T(560, 590, S(p.totale_testo || (p.totale ? eur(+p.totale) : '')), 70, INK);
-  F.forEach((f, i) => { const q = pop(t, .3 + i * .45); if (q) s += tr(1000, 300 + i * 105, q, `<rect x="0" y="-36" width="60" height="60" rx="14" fill="${cols[i]}" ${SW5}/>` + T(90, 10, S(f.nome), 50, INK, { a: 'start' }) + T(800, 10, S(f.testo || eur(+f.valore || 0)), 54, i === (p.evidenzia ?? F.length - 1) ? DG : INK, { a: 'end' })) });
+  F.forEach((f, i) => { const q = pop(t, .3 + i * .45); if (q) s += tr(1000, 300 + i * 105, q, `<rect x="0" y="-36" width="60" height="60" rx="14" fill="${cols[i]}" ${SW5}/>` + T(90, 10, S(f.nome), fit(S(f.nome), 50, 790 - 90 - larg(S(f.testo || eur(+f.valore || 0)), 54) - 30), INK, { a: 'start' }) + T(800, 10, S(f.testo || eur(+f.valore || 0)), fit(S(f.testo || eur(+f.valore || 0)), 54, 300), i === (p.evidenzia ?? F.length - 1) ? DG : INK, { a: 'end' })) });
   return s;
 };
 
@@ -130,11 +130,11 @@ TPL.fette = (t, d, p, C) => {
 TPL.formula = (t, d, p, C) => {
   const n = 4, w = Math.max(420, Math.min(620, 50 * Math.max(String(p.a).length, String(p.b).length)));
   let s = sfondo(C) + titoletto(p.titolo, t);
-  s += tr(560, 440, tappa(t, d, 0, n), rr(-w / 2, -110, w, 220, 40, R) + T(0, 34, S(p.a), 90, '#fff'));
+  s += tr(560, 440, tappa(t, d, 0, n), rr(-w / 2, -110, w, 220, 40, R) + TF(0, 34, S(p.a), 90, w - 60, '#fff'));
   s += T(960, 470, S(p.op || '÷'), 140, INK, { op: tappa(t, d, 1, n) });
-  s += tr(1360, 440, tappa(t, d, 1, n), rr(-w / 2, -110, w, 220, 40, G) + T(0, 34, S(p.b), 90, '#fff'));
-  const r = String(p.risultato || ''); s += tr(960, 780, tappa(t, d, 2, n), rr(-Math.max(380, r.length * 30), -110, Math.max(760, r.length * 60), 220, 50, Y) + T(0, 34, '= ' + S(r), r.length > 18 ? 70 : 90, INK));
-  if (p.nota) s += T(960, 960, S(p.nota), 44, '#3A3F58', { op: tappa(t, d, 3, n) });
+  s += tr(1360, 440, tappa(t, d, 1, n), rr(-w / 2, -110, w, 220, 40, G) + TF(0, 34, S(p.b), 90, w - 60, '#fff'));
+  const r = String(p.risultato || ''), wr = Math.min(1700, Math.max(760, larg('= ' + S(r), 90) + 120)); s += tr(960, 780, tappa(t, d, 2, n), rr(-wr / 2, -110, wr, 220, 50, Y) + TF(0, 34, '= ' + S(r), 90, wr - 80, INK));
+  if (p.nota) s += TF(960, 960, S(p.nota), 44, 1700, '#3A3F58', { op: tappa(t, d, 3, n) });
   return s;
 };
 
@@ -144,7 +144,7 @@ TPL.conteggio = (t, d, p, C) => {
   const cols = Math.min(12, Math.ceil(Math.sqrt(N * 2.2))), sz = Math.min(1, 9 / cols) * .55;
   let s = sfondo(C);
   for (let i = 0; i < k; i++) s += oggetto(p.oggetto || C.oggetto, 960 - (cols - 1) * 75 * sz / .55 + (i % cols) * 150 * sz / .55, 220 + Math.floor(i / cols) * 140 * sz / .55, sz, t, COLS[i % COLS.length]);
-  s += tr(960, 870, pop(t, .4), rr(-520, -80, 1040, 160, 50, INK) + T(0, 26, S(p.testo || ''), (p.testo || '').length > 30 ? 52 : 64, Y));
+  s += tr(960, 870, pop(t, .4), rr(-520, -80, 1040, 160, 50, INK) + TF(0, 26, S(p.testo || ''), 64, 960, Y, {}, 44));
   return s;
 };
 
@@ -174,7 +174,7 @@ TPL.confronto = (t, d, p, C) => {
   let s = sfondo(C) + titoletto(p.titolo, t, 120);
   [[A, 520, 0], [B, 1400, 1]].forEach(([o, x, j]) => {
     const q = tappa(t, d, j, 3);
-    s += tr(x, 560, q, rr(-330, -300, 660, 600, 40, '#fff') + oggetto(o.oggetto || C.oggetto, 0, -110, 1, t, j ? PU : Y) + T(0, 90, S(o.titolo || ''), 50, INK) + T(0, 200, S(o.valore || ''), 84, j ? PU : DG));
+    s += tr(x, 560, q, rr(-330, -300, 660, 600, 40, '#fff') + oggetto(o.oggetto || C.oggetto, 0, -110, 1, t, j ? PU : Y) + TF(0, 90, S(o.titolo || ''), 50, 600, INK, {}, 36) + TF(0, 200, S(o.valore || ''), 84, 600, j ? PU : DG));
     if ((v === 'a' && !j) || (v === 'b' && j)) s += tr(x, 200, pop(t, d * .6), `<path d="M-80 30 l-20 -80 l50 40 l50 -60 l50 60 l50 -40 l-20 80z" fill="${Y}" ${SW}/>`);
   });
   s += T(960, 600, 'VS', 110, R, { st: '#fff', sw: 14 });
@@ -184,9 +184,13 @@ TPL.confronto = (t, d, p, C) => {
 // elenco con le spunte (cose da guardare, voci di costo, passi)
 TPL.lista = (t, d, p, C) => {
   const V = (p.voci || []).slice(0, 6);
-  let s = sfondo(C) + bill(C.i % 2 ? 640 : 1280, 540, 1.75, S(p.titolo || ''), '', 0, '#fff');
-  const x0 = C.i % 2 ? 420 : 1060;
-  V.forEach((v, i) => { const q = pr(t, .3 + i * Math.min(1, d * .7 / Math.max(1, V.length)), .3); s += T(x0 + 70, 440 + i * 86, S(v), V.length > 4 ? 40 : 46, INK, { a: 'start', op: q }) + (q >= 1 ? tick(x0, 425 + i * 86, .32) : '') });
+  const W = 820, cx = C.i % 2 ? 700 : 1220, L = cx - W / 2, top = 150, bot = 860, z = 20, nz = Math.round(W / z);
+  let carta = `M${L} ${top} h${W} V${bot}`;
+  for (let k = 0; k < nz; k++) carta += ` l${-W / nz} ${k % 2 ? -z : z}`;   // bordo strappato in basso
+  carta += ` L${L} ${bot} Z`;
+  let s = sfondo(C) + `<path d="${carta}" fill="#fff" ${SW}/>` + TF(cx, top + 95, S(p.titolo || ''), 64, W - 80, INK, {}, 44);
+  const passo = Math.min(100, (bot - 70 - (top + 200)) / Math.max(1, V.length - 1 || 1)), x0 = L + 70, maxW = W - 140;
+  V.forEach((v, i) => { const q = pr(t, .3 + i * Math.min(1, d * .7 / Math.max(1, V.length)), .3), y = top + 200 + i * passo; s += op(q, TF(x0 + 60, y + 16, S(v), V.length > 4 ? 44 : 52, maxW, INK, { a: 'start' }, 40)) + (q >= 1 ? tick(x0, y, .32) : '') });
   s += prot(C, C.i % 2 ? 1520 : 380, 1000, .8, t, { mood: 'calm', aR: -120 });
   return s;
 };
@@ -209,7 +213,7 @@ TPL.domanda = (t, d, p, C) => {
   let s = sfondo(C, !!p.scuro) + `<circle cx="${L > 0 ? 1300 : 620}" cy="560" r="${380 + 16 * Math.sin(t * 3)}" fill="#fff" opacity=".5"/>`;
   s += prot(C, L > 0 ? 1300 : 620, 1010, 1.2, t, { mood: m, sweat: m === 'worried' || m === 'wow', aL: m === 'happy' ? 150 : 120, aR: m === 'happy' ? -150 : -120 });
   if (m === 'wow' || m === 'worried') for (let i = 0; i < 6; i++) { const ph = (t * .5 + i / 6) % 1; s += T(L > 0 ? 300 + (i * 173) % 600 : 1100 + (i * 173) % 600, -60 + ph * 1100, '?', 90 + (i % 3) * 30, [R, BL, PU][i % 3], { op: .7 }) }
-  if (p.testo) s += tr(L > 0 ? 560 : 1360, 420, pop(t, .4), bubble(0, 0, Math.min(820, 120 + p.testo.length * 26), 220, T(0, 22, S(p.testo), p.testo.length > 24 ? 50 : 66, INK)));
+  if (p.testo) s += tr(L > 0 ? 560 : 1360, 420, pop(t, .4), bubble(0, 0, Math.min(860, larg(S(p.testo), 66) + 120), 220, TF(0, 22, S(p.testo), 66, 760, INK, {}, 46)));
   return s;
 };
 
@@ -217,13 +221,13 @@ TPL.domanda = (t, d, p, C) => {
 TPL.bilancia = (t, d, p, C) => {
   const tilt = lerp(0, p.pende === 'sinistra' ? 12 : p.pende === 'destra' ? -12 : 0, E(pr(t, d * .4, .8)));
   return sfondo(C) + titoletto(p.titolo, t, 140) + `<path d="M960 320 V900" ${SW} stroke-width="16"/><path d="M820 900 h280" ${SW} stroke-width="16"/>` +
-    tr(960, 320, 1, `<path d="M-500 0 H500" ${SW} stroke-width="16"/>` + [[-500, p.sinistra, DG], [500, p.destra, PU]].map(([x, txt, c]) => tr(x, 60, 1, `<path d="M-170 0 h340 l-40 80 h-260z" fill="${GR}" ${SW}/>` + T(0, 170, S(txt || ''), String(txt || '').length > 10 ? 60 : 90, c), -tilt)).join(''), tilt);
+    tr(960, 320, 1, `<path d="M-500 0 H500" ${SW} stroke-width="16"/>` + [[-500, p.sinistra, DG], [500, p.destra, PU]].map(([x, txt, c]) => tr(x, 60, 1, `<path d="M-170 0 h340 l-40 80 h-260z" fill="${GR}" ${SW}/>` + TF(0, 170, S(txt || ''), 90, 400, c, {}, 52), -tilt)).join(''), tilt);
 };
 
 // calendario del mese con i giorni accesi
 TPL.calendario = (t, d, p, C) => {
   const n = Math.max(1, Math.min(31, +p.giorni || 25));
-  let s = sfondo(C) + `<rect x="360" y="140" width="1200" height="760" rx="30" fill="#fff" ${SW}/><rect x="360" y="140" width="1200" height="110" rx="30" fill="${BL}" ${SW}/>` + T(960, 215, S(p.titolo || 'UN MESE'), 56, '#fff');
+  let s = sfondo(C) + `<rect x="360" y="140" width="1200" height="760" rx="30" fill="#fff" ${SW}/><rect x="360" y="140" width="1200" height="110" rx="30" fill="${BL}" ${SW}/>` + TF(960, 215, S(p.titolo || 'UN MESE'), 56, 1120, '#fff');
   for (let i = 0; i < 30; i++) { const lit = i < n && pr(t, .4 + i * .04, .2) >= 1; s += `<rect x="${410 + (i % 7) * 160}" y="${290 + Math.floor(i / 7) * 120}" width="130" height="100" rx="14" fill="${lit ? G : '#F6F7FB'}" ${SW5}/>` + T(475 + (i % 7) * 160, 355 + Math.floor(i / 7) * 120, i + 1, 40, lit ? '#fff' : '#9AA3C0') }
   if (p.testo) s += label(1500, 920, pop(t, d * .6), S(p.testo), G, '#fff', 44);
   return s;
@@ -241,7 +245,7 @@ TPL.soldi = (t, d, p, C) => {
 TPL.cruscotto = (t, d, p, C) => {
   const V = (p.voci || []).slice(0, 4), n = V.length || 1;
   let s = BG(SCURI[C.i % SCURI.length]) + `<path d="M120 900 q840 -900 1680 0z" fill="#2E3550" ${SW}/>` + titoletto(p.titolo, t, 180, Y, INK);
-  V.forEach((v, i) => { const on = tappa(t, d, i, n); const x = 960 + (i - (n - 1) / 2) * 400; s += tr(x, 620, 1, gauge(0, 0, .8, .15 + .6 * cl(on) * (+v.valore || .7), '', on > .5 ? COLS[i] : '#5A5F73') + T(0, 80, S(v.nome || v), 38, on > .5 ? '#fff' : '#5A5F73')) });
+  V.forEach((v, i) => { const on = tappa(t, d, i, n); const x = 960 + (i - (n - 1) / 2) * 400; s += tr(x, 620, 1, gauge(0, 0, .8, .15 + .6 * cl(on) * (+v.valore || .7), '', on > .5 ? COLS[i] : '#5A5F73') + TF(0, 80, S(v.nome || v), 38, 360, on > .5 ? '#fff' : '#5A5F73', {}, 28)) });
   return s;
 };
 
@@ -292,7 +296,7 @@ TPL.salvadanaio = (t, d, p, C) => {
 // tre leve (prezzo, fornitore, costi fissi o altre)
 TPL.leve = (t, d, p, C) => {
   const V = (p.voci || ['PREZZO', 'FORNITORE', 'COSTI FISSI']).slice(0, 4), n = V.length;
-  let s = sfondo(C) + `<rect x="${960 - n * 210}" y="360" width="${n * 420}" height="520" rx="40" fill="#5A5F73" ${SW}/>` + T(960, 300, S(p.titolo || 'LE LEVE'), 70, INK);
+  let s = sfondo(C) + `<rect x="${960 - n * 210}" y="360" width="${n * 420}" height="520" rx="40" fill="#5A5F73" ${SW}/>` + TF(960, 300, S(p.titolo || 'LE LEVE'), 70, 1700, INK);
   V.forEach((v, i) => s += lever(960 + (i - (n - 1) / 2) * 400, 700, tappa(t, d, i, n), -20 + 20 * Math.sin(t * 2 + i) + (i === +p.evidenzia ? -30 : 0), S(v).toUpperCase(), COLS[i]));
   return s;
 };
@@ -303,7 +307,7 @@ TPL.riepilogo = (t, d, p, C) => {
   let s = sfondo(C) + titoletto(p.titolo || 'DA RICORDARE', t, 140);
   // frase a capo per parole intere (mai tagliata a meta' parola): max 5 righe da ~15 caratteri
   const capo = v => { const r = ['']; String(v).split(/\s+/).forEach(w => { const l = r[r.length - 1]; if (l && (l + ' ' + w).length > 15) r.push(w); else r[r.length - 1] = l ? l + ' ' + w : w }); return r.slice(0, 5) };
-  V.forEach((v, i) => { const x = 960 + (i - (n - 1) / 2) * 440, R = capo(v), fs = R.length > 3 ? 38 : 44; s += card(x, 580, tappa(t, d, i, n), 400, 460, String(i + 1), R.map((l, k) => T(0, 20 + (k - (R.length - 1) / 2) * fs * 1.25, S(l), fs, INK)).join(''), COLS[i]) });
+  V.forEach((v, i) => { const x = 960 + (i - (n - 1) / 2) * 440, R = capo(v), fs = Math.min(R.length > 3 ? 38 : 44, ...R.map(l => fit(S(l), 44, 350))); s += card(x, 580, tappa(t, d, i, n), 400, 460, String(i + 1), R.map((l, k) => T(0, 20 + (k - (R.length - 1) / 2) * fs * 1.25, S(l), fs, INK)).join(''), COLS[i]) });
   return s;
 };
 
@@ -311,7 +315,7 @@ TPL.riepilogo = (t, d, p, C) => {
 TPL.prossimo = (t, d, p, C) => {
   let s = luogo(p.luogo || 'negozio', t, C, p.insegna);
   s += comparsa(C, 2, 1300, 1000, 1, t, { mood: 'wow' }) + oggetto(p.oggetto || 'scatola', 700, 600, 1.2, t);
-  s += tr(960, 280, pop(t, Math.min(d * .5, 2)), `<rect x="-560" y="-100" width="1120" height="200" rx="50" fill="${R}" ${SW}/>` + T(0, 34, S(p.testo || 'NEL PROSSIMO EPISODIO'), 80, '#fff'), -2);
+  s += tr(960, 280, pop(t, Math.min(d * .5, 2)), `<rect x="-560" y="-100" width="1120" height="200" rx="50" fill="${R}" ${SW}/>` + TF(0, 34, S(p.testo || 'NEL PROSSIMO EPISODIO'), 80, 1040, '#fff', {}, 56), -2);
   return s;
 };
 
