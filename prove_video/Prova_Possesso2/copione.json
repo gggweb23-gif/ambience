@@ -1,0 +1,94 @@
+{
+ "titolo": "Auto nuova da 25.000 euro: quanto costa DAVVERO in 5 anni?",
+ "protagonista": "Marco, a 35-year-old Italian man with short dark brown hair and light stubble, wearing a navy blue polo shirt and jeans",
+ "copertina": {
+  "scritta": "COSTA 25.000?",
+  "sfondo": "Marco, a 35-year-old Italian man with short dark brown hair, stubble, navy polo shirt, looking shocked next to a brand new small silver city car, huge price tag hanging on the car, bright red and yellow background"
+ },
+ "scene": [
+  {
+   "tipo": "cartellino",
+   "voce": "Marco compra un'auto nuova. Utilitaria. Venticinquemila euro, a rate. Sembra un affare. Ma quanto costa davvero?",
+   "sfondo": "Marco, a 35-year-old Italian man with short dark brown hair, light stubble, navy blue polo shirt and jeans, smiling proudly in a car dealership next to a brand new small silver city car with a big price tag on the windshield",
+   "dati": {
+    "prezzo": 25000,
+    "domanda": "MA QUANTO COSTA DAVVERO?"
+   }
+  },
+  {
+   "tipo": "scontrini",
+   "voce": "Facciamo i conti su cinque anni. Rate e interessi: ventisettemilaseicento. Assicurazione: tremilacinquecento. Carburante: duemilaquattrocento. Manutenzione: millecinquecento. Bollo: millecento. Parcheggi e pedaggi: novecento. Totale: trentasettemila euro.",
+   "sfondo": "Marco, a 35-year-old Italian man with short dark brown hair, light stubble, navy blue polo shirt and jeans, looking worried while holding a long pile of receipts, his small silver city car parked behind him",
+   "dati": {
+    "anni": 5,
+    "voci": [
+     [
+      "Rate + interessi",
+      27600
+     ],
+     [
+      "Assicurazione",
+      3500
+     ],
+     [
+      "Carburante",
+      2400
+     ],
+     [
+      "Manutenzione",
+      1500
+     ],
+     [
+      "Bollo",
+      1100
+     ],
+     [
+      "Parcheggi e pedaggi",
+      900
+     ]
+    ]
+   }
+  },
+  {
+   "tipo": "valore",
+   "voce": "Intanto l'auto perde valore. Appena esci dal concessionario, già meno. Dopo cinque anni, la rivendi a dodicimila euro.",
+   "sfondo": "Marco, a 35-year-old Italian man with short dark brown hair, light stubble, navy blue polo shirt and jeans, sadly watching his small silver city car getting older and more scratched across five stages, a descending arrow beside it",
+   "dati": {
+    "valori": [
+     25000,
+     20000,
+     17000,
+     15000,
+     13500,
+     12000
+    ]
+   }
+  },
+  {
+   "tipo": "calcolo",
+   "voce": "Hai pagato trentasettemila euro. La rivendi a dodicimila. Il costo vero? Venticinquemila euro. Sono quattrocentodiciassette euro al mese. Quattordici euro al giorno.",
+   "sfondo": "Marco, a 35-year-old Italian man with short dark brown hair, light stubble, navy blue polo shirt and jeans, staring wide-eyed at a calculator in his hand, his small silver city car in the background and euro coins flying away",
+   "dati": {}
+  },
+  {
+   "tipo": "consigli",
+   "voce": "Come risparmiare? Compra un'auto usata di due anni. Confronta le assicurazioni ogni anno. E chiedi un anticipo più alto, così paghi meno interessi.",
+   "sfondo": "Marco, a 35-year-old Italian man with short dark brown hair, light stubble, navy blue polo shirt and jeans, smiling confidently and giving a thumbs up next to his small silver city car, a lightbulb above his head",
+   "dati": {
+    "voci": [
+     "Compra usata di due anni",
+     "Confronta assicurazioni ogni anno",
+     "Anticipo più alto"
+    ]
+   }
+  },
+  {
+   "tipo": "prossimo",
+   "voce": "E il cane? Quanto costa davvero? Lo scopriamo nella prossima puntata.",
+   "sfondo": "Marco, a 35-year-old Italian man with short dark brown hair, light stubble, navy blue polo shirt and jeans, kneeling in a park and petting a happy golden retriever, his small silver city car parked in the background",
+   "dati": {
+    "testo": "PROSSIMA PUNTATA: IL CANE"
+   }
+  }
+ ]
+}
