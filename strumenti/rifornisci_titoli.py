@@ -44,11 +44,13 @@ def rifornisci(cfg, fid, A, forza=False):
     lingua = str(cfg.get('language') or 'en')[:2]
     extra = [c for c in ('oggetto', 'voci_costo') if c in h]
     esempi = [{k: r.get(k) for k in ['titolo_italiano', 'playlist', 'titolo_thumbnail'] + extra} for r in prod[:5]]
-    playlist = sorted({str(r.get('playlist') or '').strip() for r in prod if str(r.get('playlist') or '').strip()})
+    playlist = sorted({str(r.get('playlist') or '').strip() for r in prod if str(r.get('playlist') or '').strip()}
+                      | {x.split(':')[0].strip() for x in str(cfg.get('playlist') or '').split('||') if x.strip()}
+                      | {x.strip() for x in str(cfg.get('playlist_previste') or '').split(',') if x.strip()})
     p = f"""YouTube channel "{cfg.get('channel_name') or cid}" (language: {lingua}). Topic (filone, NEVER go outside it): {cfg.get('scout_filone') or cfg.get('niche')}.
 Titles already in the production file (do NOT repeat them or make near-duplicates): {json.dumps(esistenti, ensure_ascii=False)}.
 Examples of rows (same title pattern, same style): {json.dumps(esempi, ensure_ascii=False)}.
-Existing playlists (reuse them; create a new one only if really needed): {json.dumps(playlist, ensure_ascii=False)}.
+Playlists of the channel (use ONLY these names, exactly as written; a new one only if none fits at all): {json.dumps(playlist, ensure_ascii=False)}.
 Propose 10 NEW videos on the same filone, with real proven demand (topics people already search and watch), each one a strong hook, same title pattern as the examples,
 correct facts and numbers only (no invented events), title max 70 characters, in the channel language.
 Fields per video: "titolo", "playlist", "titolo_thumbnail" (short text for the thumbnail, as in the examples){''.join(f', "{c}"' for c in extra)}.
