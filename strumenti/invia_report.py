@@ -13,7 +13,7 @@ m.set_content('In allegato il foglio delle performance: ultimi 10 video di ogni 
 m.add_attachment(open(f, 'rb').read(), maintype='application', subtype='vnd.openxmlformats-officedocument.spreadsheetml.sheet', filename=os.path.basename(f))
 utente = E('GMAIL_UTENTE').strip(); pw = ''.join(E('GMAIL_PASSWORD_APP').split())   # Google mostra la password con gli spazi: si tolgono
 m.replace_header('From', utente)
-if not E('EMAIL_REPORT', '').strip():
+if '@' not in E('EMAIL_REPORT', ''):   # destinatario mancante o non valido: lo mando all'indirizzo del mittente
     m.replace_header('To', utente)
 else:
     m.replace_header('To', E('EMAIL_REPORT').strip())
