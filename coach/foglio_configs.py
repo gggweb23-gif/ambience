@@ -77,10 +77,15 @@ def riga_produzione(R, tk):
 
 
 def main():
+    global FOGLIO
     P = json.loads(os.environ.get('PAYLOAD') or '{}')
     tk = token()
+    if P.get('leggi_scheda'):   # 9 nov: sola lettura di una scheda qualsiasi (es. Performance) -> stampata nel registro del giro
+        vecchio, FOGLIO = FOGLIO, P['leggi_scheda']['foglio']
+        val = api('GET', '/values/' + urllib.parse.quote(f"'{P['leggi_scheda'].get('scheda') or 'Performance'}'!A1:Z300"), tk=tk).get('values', [])
+        FOGLIO = vecchio
+        print('\n'.join(' | '.join(str(x) for x in r) for r in val)); return
     if P.get('leggi_produzione'):   # sola lettura: titolo, testo copertina e stato di ogni riga del file di produzione
-        global FOGLIO
         vecchio, FOGLIO = FOGLIO, P['leggi_produzione']
         sch = api('GET', '?fields=sheets.properties', tk=tk)['sheets'][0]['properties']['title']
         val = api('GET', '/values/' + urllib.parse.quote(f"'{sch}'!A1:AZ200"), tk=tk).get('values', [])
