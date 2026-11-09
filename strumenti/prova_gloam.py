@@ -44,7 +44,12 @@ Reply ONLY with JSON: {{"titolo": "...", "copertina": {{...}}, "shots": [{{"voce
     u = j.get('usage') or {}
     COSTO['claude'] += u.get('input_tokens', 0) * 3e-6 + u.get('output_tokens', 0) * 15e-6
     t = ''.join(b.get('text', '') for b in j['content'] if b.get('type') == 'text')
-    c = json.loads(re.search(r'\{.*\}', t, re.S).group(0))
+    m = re.search(r'\{.*\}', t, re.S).group(0)
+    try:
+        c = json.loads(m)
+    except Exception:
+        from json_repair import repair_json
+        c = json.loads(repair_json(m))
     json.dump(c, open(os.path.join(OUT, 'copione.json'), 'w'), ensure_ascii=False, indent=1)
     log('copione:', c['titolo'], len(c['shots']), 'scene')
     return c
