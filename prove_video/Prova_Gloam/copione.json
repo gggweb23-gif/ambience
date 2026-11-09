@@ -1,45 +1,63 @@
 {
  "titolo": "How Knight Capital Lost $440,000,000 in 45 Minutes",
  "copertina": {
-  "immagine": "A single dark server in a vast empty trading office, glowing red and cracking open, with golden coins pouring out onto the floor and a giant clock behind it",
+  "immagine": "A glowing red button on a dark trading desk, golden coins melting and pouring off the edge into darkness",
   "scritta": "$440 MILLION GONE"
  },
  "shots": [
   {
-   "voce": "Four hundred forty million dollars. Gone in forty-five minutes. One company, one broken software update, and nobody able to stop it.",
-   "immagine": "A towering stack of golden coins melting into a glowing red puddle in front of a huge clock face, dark studio background",
+   "voce": "In forty-five minutes, one of Wall Street's biggest traders lost four hundred forty million dollars. No hack. No fraud. Just one forgotten piece of old code.",
+   "immagine": "A giant stack of golden coins collapsing and dissolving into red sparks inside a dark vault",
    "etichetta": "$440,000,000",
    "colore": "red"
   },
   {
-   "voce": "August first, twenty twelve. Knight Capital is among the biggest traders on Wall Street, handling a large share of American stock orders.",
-   "immagine": "A glossy 3D skyscraper trading floor at dawn, faceless figures at desks with glowing blue screens showing abstract charts without readable text",
-   "etichetta": "AUGUST 1, 2012",
+   "voce": "August first, twenty twelve. Knight Capital was a market maker, handling billions of dollars in stock trades every single day, and it had just upgraded its trading software.",
+   "immagine": "A sleek glass trading floor with rows of faceless 3D figures at glowing blue screens showing abstract charts",
+   "etichetta": "AUG 1, 2012",
    "colore": "blue"
   },
   {
-   "voce": "That morning, engineers roll out new trading software to eight servers. But one server never receives the update. It still runs old code.",
-   "immagine": "A row of eight servers in a dark room, seven glowing blue and one dim server in the middle with a faint gold light",
-   "etichetta": "1 OF 8",
+   "voce": "Technicians had installed the new software on seven of eight servers. On the eighth, the old code stayed behind, and nobody noticed the mistake.",
+   "immagine": "A row of eight server racks, seven glowing blue and one dim, flickering amber at the end",
+   "etichetta": "1 SERVER MISSED",
    "colore": "gold"
   },
   {
-   "voce": "Before the opening bell, ninety-seven automated emails flag a problem. They are not treated as alarms. At nine thirty, the market opens.",
-   "immagine": "A pile of floating glowing envelopes drifting unread above an empty desk, a large clock behind them pointing to nine thirty",
+   "voce": "At nine thirty a.m., the market opened. The new system's trigger woke the old code on that eighth server, a dormant function from years before.",
+   "immagine": "A giant analog clock striking nine thirty as a single server door swings open releasing red light",
    "etichetta": "9:30 AM",
+   "colore": "red"
+  },
+  {
+   "voce": "The old code began firing orders nonstop, buying and selling stocks at a furious pace. Within minutes, prices of dozens of stocks started jumping strangely.",
+   "immagine": "A wall of trading screens without readable text, spiking red lines multiplying across every display",
+   "etichetta": "CHAOS BEGINS",
+   "colore": "red"
+  },
+  {
+   "voce": "Inside Knight, engineers scrambled to find the cause. The machine kept trading millions of shares, losing money on almost every single order it sent.",
+   "immagine": "Faceless 3D figures running between desks in a bright office as streams of golden coins pour out of a server",
+   "etichetta": "MILLIONS LOST",
    "colore": "gold"
   },
   {
-   "voce": "A reused setting wakes a dead program, unused for years. The eighth server buys and sells at full speed, never knowing when to stop.",
-   "immagine": "A single server with a glowing red button on its front, an old dusty gear mechanism inside it spinning to life",
-   "etichetta": "OLD CODE",
+   "voce": "Someone rolled back the new software, which made things worse. The old code now ran on every server, and the losses grew faster.",
+   "immagine": "A glowing red button being pressed by a faceless figure, red cracks spreading across eight server racks",
+   "etichetta": "IT GOT WORSE",
    "colore": "red"
   },
   {
-   "voce": "The machine buys high and sells low, again and again. In total, about four million trades hit one hundred fifty-four stocks.",
-   "immagine": "A massive wall of trading screens with red zigzag lines and no readable text, a stream of golden coins flying out of a server into the dark",
-   "etichetta": "4,000,000 TRADES",
+   "voce": "At ten fifteen, the trading finally stopped. Knight was left holding positions worth billions, and its loss stood at about four hundred forty million dollars.",
+   "immagine": "A clock reading ten fifteen above a heap of dull, tarnished coins in a silent, darkened trading room",
+   "etichetta": "45 MINUTES",
    "colore": "red"
+  },
+  {
+   "voce": "Knight's whole profit for a year was far smaller than that loss. Within months, the company needed a rescue and was soon sold. Subscribe to see how the next one happened.",
+   "immagine": "An empty office at dusk, one dark monitor and a single fallen golden coin on the floor",
+   "etichetta": "SUBSCRIBE",
+   "colore": "blue"
   }
  ]
 }
