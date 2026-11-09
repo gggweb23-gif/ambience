@@ -2142,7 +2142,7 @@ def main():
     cop = None
     for tent in (1, 2):
         if tent == 2:
-            if stile_cop not in ('cartellino', 'titolo_mappa') or riserva <= 0:
+            if stile_cop not in ('cartellino', 'titolo_mappa', 'mappa_luminosa') or riserva <= 0:
                 break
             if COSTO_RIPROVA > riserva + 1e-9:
                 log(f'copertina: 2o tentativo saltato (costo stimato {COSTO_RIPROVA:.2f} $ > copertina_riserva_max {riserva:.2f} $)'); break
@@ -2157,6 +2157,11 @@ def main():
                 CC.VM = sys.modules[__name__]; ct = c['copertina_titolo']; log('copertina titolo su mappa:', json.dumps(ct, ensure_ascii=False)[:300])
                 ic = [(nome_lib(x[0]) or 'question', float(x[1]), float(x[2])) for x in (ct.get('icone') or [])[:4] if len(x) >= 3]
                 cop = CC.copertina_titolo(ct.get('paese') or [], ct.get('titolo') or '', ct.get('fascia') or '', ic, os.path.join(ROOT, 'copertina.jpg'))
+            elif stile_cop == 'mappa_luminosa':   # 9 nov (Giorgio): stile nuovo per Rich Borders, MANO LIBERA (vedi copertina_cartellino.py)
+                import copertina_cartellino as CC
+                CC.VM = sys.modules[__name__]
+                pl = CC.piano_luminosa(comp, str(c.get('titolo') or '')); log('copertina mappa luminosa:', json.dumps(pl, ensure_ascii=False)[:300])
+                cop = CC.copertina_luminosa(pl, os.path.join(ROOT, 'copertina.jpg'))
             elif stile_cop == 'cartellino':   # stile scelto per Rich Borders (29 ott): cartellini del prezzo + parola gigante
                 import copertina_cartellino as CC
                 CC.VM = sys.modules[__name__]
@@ -2168,13 +2173,13 @@ def main():
                 cop = copertina_nuova(piano_copertina(comp, c), os.path.join(ROOT, 'copertina.jpg'))
             break
         except Exception as e:
-            if stile_cop in ('cartellino', 'titolo_mappa'):   # 5 nov (Giorgio): la copertina resta SEMPRE nello stile del canale (copertina_stile), qualunque sia il competitor: niente copertina di altro stile
+            if stile_cop in ('cartellino', 'titolo_mappa', 'mappa_luminosa'):   # 5 nov (Giorgio): la copertina resta SEMPRE nello stile del canale (copertina_stile), qualunque sia il competitor: niente copertina di altro stile
                 log(f'copertina "{stile_cop}" non riuscita al tentativo {tent} ({str(e)[:150]})')
                 cop = None
             else:
                 log('copertina nuova non riuscita, uso quella semplice:', str(e)[:150])
                 cop = copertina(c, os.path.join(ROOT, 'copertina.jpg')); break
-    if not cop and stile_cop in ('cartellino', 'titolo_mappa'):
+    if not cop and stile_cop in ('cartellino', 'titolo_mappa', 'mappa_luminosa'):
         log(f'COPERTINA MANCANTE: copertina "{stile_cop}" non riuscita; nessuna copertina di altro stile. '
             'Rifarla nello stesso stile (es. "Copertine mappe (rifai e carica)" per il cartellino).')
     titolo = str(c.get('titolo') or comp.get('titolo') or 'Rich Borders')[:100]

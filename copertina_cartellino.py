@@ -338,3 +338,73 @@ def copertina_titolo(isos, titolo, fascia, icone, path):
         d.text((70 + 35 + tw / 2, y + 82), fascia, font=f2, fill=VM.LUCE, anchor='mm')
     im.convert('RGB').resize((1280, 720), Image.LANCZOS).save(path, quality=92)
     return path
+
+
+# ============================================================ COPERTINA "MAPPA LUMINOSA" (colonna copertina_stile = mappa_luminosa)
+# 9 nov (Giorgio, Rich Borders senza impression): basta cartellini del prezzo tutti uguali. Mappa geografica in rilievo luminosa (stile
+# Fortune of Nations, solo il filone "perche' un paese e' ricco/povero"), paesi evidenziati, scritta corta in un riquadro nero.
+# MANO LIBERA: ogni video cambia posizione della scritta, colore della parola chiave, inquadratura della mappa e freccia sì/no.
+LUMINOSA_DOMANDA = '''YouTube video title: "{t}"
+Plan a thumbnail on a bright 3D relief map. Answer ONLY with JSON:
+{{"regione": "the geographic area to show, in English (e.g. 'North and South America', 'Western Europe and Russia', 'the Nile valley')",
+  "paesi": [{{"nome": "English country/region name", "colore": "green|red|yellow"}}],
+  "freccia": "short description of ONE arrow between two places, or empty",
+  "righe": ["1 to 3 lines, max 4 words total, UPPERCASE, the real question/promise of THIS video (e.g. 'WHY?', '$3 TRILLION', 'BREXIT WINNER', '109M PEOPLE')"],
+  "evidenza": 0}}
+Rules: 1 or 2 highlighted places (green = rich/winner, red = poor/loser or the place in question, yellow = neutral). "evidenza" = index of the line to colour.
+No price tags. The words must fit the video's real topic.'''
+
+POS_LUMINOSA = ['top-left', 'top-right', 'bottom-left', 'top-left-big']
+COLORI_PAROLA = [(255, 214, 0), (235, 40, 40), (70, 220, 100)]
+
+
+def piano_luminosa(comp, titolo=''):
+    import os
+    rr = VM.http('https://api.anthropic.com/v1/messages', {'model': VM.MODELLO_AI, 'max_tokens': 800, 'messages': [{'role': 'user', 'content':
+                 LUMINOSA_DOMANDA.format(t=titolo or comp.get('titolo') or '')}]},
+                 {'x-api-key': os.environ.get('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01'}, timeout=300)
+    t = ''.join(b.get('text', '') for b in rr.get('content', []))
+    return json.JSONDecoder().raw_decode(t[t.find('{'):])[0]
+
+
+def copertina_luminosa(pl, path, giorno=None):
+    import os, time, datetime
+    g = giorno if giorno is not None else datetime.date.today().toordinal()
+    pos = POS_LUMINOSA[g % len(POS_LUMINOSA)]; col = COLORI_PAROLA[(g // 2) % len(COLORI_PAROLA)]
+    vista = ['a close regional view', 'a wider continental view', 'a slightly tilted 3D perspective view'][(g // 3) % 3]
+    lato = {'top-left': 'top-left', 'top-left-big': 'top-left', 'top-right': 'top-right', 'bottom-left': 'bottom-left'}[pos]
+    colmap = {'green': 'glowing bright green', 'red': 'glowing bright red', 'yellow': 'glowing golden yellow'}
+    paesi = '; '.join(f"{p.get('nome')} raised and {colmap.get(str(p.get('colore')).lower(), 'glowing bright red')} with a soft glow" for p in (pl.get('paesi') or [])[:2])
+    prompt = (f"A bright, colourful 3D relief map like a geography documentary YouTube thumbnail, {vista} of {pl.get('regione') or 'the world'}: deep blue sea, "
+              f"sunlit beige and yellow land with mountains in relief, soft shadows, crisp borders. {paesi}. "
+              + (f"A thick curved white arrow: {pl['freccia']}. " if str(pl.get('freccia') or '').strip() and g % 2 == 0 else '')
+              + f"Keep the {lato} quarter of the image calm (open sea or plain land, no highlighted country there). "
+              "Absolutely NO text, NO letters, NO labels, NO country names, NO numbers, no logo, no watermark. 16:9.")
+    H = {'Authorization': 'Key ' + os.environ.get('FAL_KEY', ''), 'Content-Type': 'application/json'}
+    inv = VM.http('https://queue.fal.run/fal-ai/nano-banana-2', {'prompt': prompt, 'aspect_ratio': '16:9', 'resolution': '2K', 'output_format': 'jpeg', 'num_images': 1}, H)
+    for _ in range(150):
+        time.sleep(4)
+        if VM.http(inv['status_url'], headers=H).get('status') == 'COMPLETED':
+            break
+    url = VM.http(inv['response_url'], headers=H)['images'][0]['url']
+    im = Image.open(io.BytesIO(VM.http(url, raw=True))).convert('RGB').resize((1280, 720))
+    d = ImageDraw.Draw(im)
+    righe = [str(r).upper() for r in (pl.get('righe') or ['WHY?'])][:3]
+    ev = int(pl.get('evidenza') or 0) % len(righe)
+    grande = pos == 'top-left-big' or len(' '.join(righe)) <= 8
+    fs = 150 if grande else 112
+    while fs > 70 and max(VM.font('Anton-Regular.ttf', fs).getlength(r) for r in righe) > 1280 * .48:
+        fs -= 4
+    f = VM.font('Anton-Regular.ttf', fs)
+    alt = [f.getbbox(r) for r in righe]
+    tot = sum(b[3] - b[1] + 34 for b in alt) + 10 * (len(righe) - 1)
+    y = 40 if pos != 'bottom-left' else 720 - 60 - tot
+    for i, (r, b) in enumerate(zip(righe, alt)):
+        w = b[2] - b[0]; h = b[3] - b[1]
+        x = 40 if pos != 'top-right' else 1280 - 40 - (w + 44)
+        d.rectangle((x, y, x + w + 44, y + h + 34), fill=(10, 10, 12))
+        d.text((x + 22 - b[0], y + 17 - b[1]), r, font=f, fill=col if i == ev else (255, 255, 255))
+        y += h + 34 + 10
+    im.save(path, quality=92)
+    VM.log(f'copertina mappa luminosa: scritta {pos}, parola chiave {col}, {vista}')
+    return path
