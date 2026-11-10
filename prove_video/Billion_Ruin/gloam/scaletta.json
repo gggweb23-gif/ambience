@@ -1,0 +1,155 @@
+{
+ "titolo": "Barings – How One Trader Broke the Queen's Bank",
+ "descrizione": "In February 1995, Barings, Britain's oldest merchant bank, founded in 1762, collapsed after losses of about £827 million on futures and options positions in Singapore. This documentary retraces how a single trader, Nick Leeson, hid his losses in an error account numbered 88888, and how weak internal controls let the problem grow unseen.\n\nWe follow the timeline from his arrival in Singapore, through the Kobe earthquake of 17 January 1995, to the bank's sale to ING for £1 on 6 March 1995. Sources include the Bank of England's Board of Banking Supervision report of July 1995 and the reporting of major newspapers.",
+ "tag": [
+  "Barings Bank",
+  "Nick Leeson",
+  "rogue trader",
+  "financial disaster",
+  "bank collapse",
+  "Barings collapse 1995",
+  "Singapore SIMEX",
+  "Nikkei futures",
+  "error account 88888",
+  "ING Barings",
+  "financial documentary",
+  "banking scandal",
+  "derivatives",
+  "operational risk"
+ ],
+ "copertina": {
+  "oggetto": "BARINGS",
+  "rosso": "ROGUE TRADER",
+  "blu": "BANK DIRECTORS",
+  "scena_rosso": "A lone trader in a red suit stands at a trading desk, frantically stacking glowing contracts higher and higher while hiding a ledger behind his back",
+  "scena_blu": "A group of blue-suited bankers in a distant London boardroom look the other way at charts and reports, unaware of the danger behind them",
+  "scena_oro": "A gold crest of an old bank cracks down the middle and begins to crumble into falling coins"
+ },
+ "capitoli": [
+  {
+   "titolo": "The £827 Million Hole",
+   "parole": 150,
+   "fatti": [
+    "Barings Bank was founded in 1762 and was Britain's oldest merchant bank",
+    "It collapsed in late February 1995, with losses of about £827 million",
+    "The losses exceeded the bank's total capital, per the Bank of England report",
+    "The losses came from a single trader in Singapore",
+    "Open question: how could one young trader hide a hole that size from an entire bank? (answered at the end)"
+   ]
+  },
+  {
+   "titolo": "A Bank Older Than America",
+   "parole": 150,
+   "fatti": [
+    "Barings was founded in London in 1762",
+    "It had financed governments and major historical events, including the Louisiana Purchase of 1803",
+    "It was a famous name in British finance",
+    "By the 1990s the securities business was a growing part of the group, including operations in Asia"
+   ]
+  },
+  {
+   "titolo": "The Man in Singapore",
+   "parole": 150,
+   "fatti": [
+    "Nick Leeson was born in 1967 and joined Barings in 1992",
+    "He was sent to Singapore, where Barings Futures (Singapore) traded on SIMEX, the Singapore International Monetary Exchange",
+    "He was both head of trading and head of settlement operations, a combination that removed the normal separation of duties",
+    "The Bank of England report identified this lack of segregation as a key failure"
+   ]
+  },
+  {
+   "titolo": "Account 88888",
+   "parole": 150,
+   "fatti": [
+    "Error account number 88888 was opened in July 1992",
+    "Such accounts normally record small trading mistakes",
+    "Leeson used it to hide losing trades from London",
+    "Barings headquarters did not detect the growing losses held there",
+    "The hidden losses increased through 1993 and 1994"
+   ]
+  },
+  {
+   "titolo": "Doubling Down",
+   "parole": 150,
+   "fatti": [
+    "Leeson traded Nikkei 225 futures and options on SIMEX and Osaka",
+    "He had been authorised for arbitrage, small price differences between markets, which is low-risk",
+    "Instead he took large directional bets on the direction of the Nikkei, per the Bank of England report",
+    "When bets lost, he increased positions hoping to recover, a pattern of doubling down",
+    "Barings sent large sums to fund his margin calls, in part because London misunderstood the nature of the business"
+   ]
+  },
+  {
+   "titolo": "The Kobe Earthquake",
+   "parole": 150,
+   "fatti": [
+    "Leeson held a large short straddle position betting the Nikkei would stay stable",
+    "The Kobe earthquake struck on 17 January 1995",
+    "The Nikkei 225 fell sharply afterwards",
+    "He responded by buying huge numbers of Nikkei futures contracts, betting on a rebound",
+    "The market continued to fall and his losses grew"
+   ]
+  },
+  {
+   "titolo": "The Money Runs Out",
+   "parole": 150,
+   "fatti": [
+    "Losses grew to hundreds of millions of pounds in a few weeks",
+    "Barings had sent hundreds of millions of pounds to Singapore to cover margin calls, per the Bank of England report",
+    "Auditors and internal staff had raised concerns earlier, but they were not acted on decisively",
+    "Leeson left Singapore on 23 February 1995, leaving a note saying he was sorry",
+    "Barings discovered the full scale of the problem after his departure"
+   ]
+  },
+  {
+   "titolo": "The Sale for One Pound",
+   "parole": 150,
+   "fatti": [
+    "The Bank of England tried to arrange a rescue over the weekend of 25–26 February 1995 but failed",
+    "Barings was placed into administration on 26 February 1995",
+    "Dutch financial group ING bought Barings on 6 March 1995 for a symbolic £1 and took on its liabilities",
+    "Final losses were reported at about £827 million",
+    "Leeson was arrested in Frankfurt on 2 March 1995 and was sentenced in Singapore in December 1995 to six and a half years in prison; he was released in 1999"
+   ]
+  },
+  {
+   "titolo": "How It Was Possible",
+   "parole": 150,
+   "fatti": [
+    "The Board of Banking Supervision published its report in July 1995",
+    "It found senior management failed to understand the business and did not enforce controls",
+    "Leeson's dual role as trader and back-office head was never separated",
+    "London treated profits reported from Singapore as proof of success without checking the risk behind them",
+    "Answer to the opening loop: no single control stopped him, because the bank had removed the checks that should have"
+   ]
+  },
+  {
+   "titolo": "The Lesson",
+   "parole": 150,
+   "fatti": [
+    "Separation of trading and settlement became a basic rule of risk control across banking",
+    "Barings became a standard case study in operational risk",
+    "Later rogue trader cases, such as Société Générale in 2008, showed similar control failures",
+    "Unusually high profits from low-risk strategies should trigger questions, not applause",
+    "End with: Subscribe for the next one."
+   ]
+  }
+ ],
+ "_correzioni": [
+  "Description: 'collapsed after losses of about £827 million' kept (well documented); Kobe earthquake date 17 January 1995 and sale to ING 6 March 1995 for £1 confirmed",
+  "Chapter 1: 'roughly twice the bank's available capital' corrected to 'exceeded the bank's total capital' (losses were about 2x its capital is widely cited, but the BoE report wording is that they exceeded capital; made safer)",
+  "Chapter 1: 'one 28-year-old' kept (Leeson was 28 in Feb 1995, born 25 Feb 1967 so he turned 28 on 25 Feb 1995; changed to 'a young trader' for safety)",
+  "Chapter 2: Louisiana Purchase of 1803 kept (Barings and Hope & Co financed it); 'Royal family' clients claim removed as unverified",
+  "Chapter 3: Leeson joined Barings in 1992 and went to Singapore in 1992 - confirmed; 'head of settlement operations' kept (documented)",
+  "Chapter 4: error account 88888 opened in July 1992 confirmed (reported opened 1992); 'increased through 1993 and 1994' kept",
+  "Chapter 5: 'Barings sent large sums to fund margin calls, in part because London misunderstood the business' kept; BoE finding on unauthorised directional trades kept",
+  "Chapter 6: 'short straddle' on Nikkei kept, confirmed by BoE report",
+  "Chapter 7: £742 million sent to Singapore is not reliably documented; replaced with 'more than £700 million' wording avoided and changed to 'hundreds of millions of pounds', as the commonly cited figure is about £742m but sources vary; removed specific figure",
+  "Chapter 7: Leeson left Singapore on 23 February 1995 confirmed; note saying 'I'm sorry' confirmed",
+  "Chapter 8: Barings placed in administration on 26 February 1995 confirmed; rescue attempt over weekend 25-26 Feb confirmed",
+  "Chapter 8: Leeson arrested in Frankfurt on 2 March 1995 confirmed; sentenced 2 December 1995 to six and a half years confirmed; released in 1999 (July 1999) confirmed",
+  "Chapter 9: BoE Board of Banking Supervision report published July 1995 confirmed",
+  "Chapter 10: Société Générale 2008 (Jérôme Kerviel) confirmed",
+  "Tag 'Billion Ruin' removed as unverifiable/non-standard term"
+ ]
+}
