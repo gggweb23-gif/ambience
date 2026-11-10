@@ -503,6 +503,9 @@ def main():
     sec = next((g + 1 for sid, tipo, par, g, d in tl if g > 90 and d >= 5 and tipo in ('prezzo', 'luogo', 'domanda', 'persone')), num(P.get('subscribe_overlay_second'), 100))
     if not ISC.applica(base, finale, dict(P, subscribe_overlay_second=sec), os.path.join(LAV, 'isc'), short=False, log=log, enc=['-c:v', 'libx264', '-preset', 'veryfast', '-crf', '19']):
         shutil.copy(base, finale)
+    import motore_yt as _YT   # 10 nov (Giorgio: massima qualita' su tutti i canali): video finale a 1440p
+    if _YT.nitido(finale, finale[:-4] + '_1440.mp4') == finale[:-4] + '_1440.mp4':
+        os.replace(finale[:-4] + '_1440.mp4', finale)
     dur_v = durata(finale)
     # descrizione: titolo, testo, capitoli, chiusura
     titolo = str(c.get('titolo') or '')[:100]

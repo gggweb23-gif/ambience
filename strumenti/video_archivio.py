@@ -433,6 +433,10 @@ if MONTATO and os.path.exists(VIDEO):
     sys.path.insert(0, 'strumenti'); import iscrizione as ISC
     if ISC.applica(VIDEO, VIDEO + '.isc.mp4', P, LAV, log=log, enc=['-c:v', 'libx264', '-preset', 'medium', '-crf', '18']):
         os.replace(VIDEO + '.isc.mp4', VIDEO)
+    # 10 nov (Giorgio: "su tutti i canali in massima qualita'"): video finale a 1440p, YouTube gli da' la codifica migliore
+    import motore_yt as _YT
+    if _YT.nitido(VIDEO, VIDEO + '.1440.mp4') == VIDEO + '.1440.mp4':
+        os.replace(VIDEO + '.1440.mp4', VIDEO)
 
 # ---------------- 5) copertina stile C ----------------
 FP = os.path.join(LAV, 'anton.ttf'); open(FP, 'wb').write(get('https://github.com/google/fonts/raw/main/ofl/anton/Anton-Regular.ttf', raw=True))

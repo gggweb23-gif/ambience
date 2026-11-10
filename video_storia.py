@@ -154,7 +154,7 @@ TAVOLE = str(P.get('tavole') or E('TAVOLE', '') or 'NO').strip().upper() == 'SI'
 if TAVOLE and not (P.get('immagini_nuove') or E('IMMAGINI_NUOVE', '')):
     NUOVE_QUOTA = .3   # una tavola ogni ~4 inquadrature: le altre 3 sono gli altri pannelli
 COMING_UP = float(str(P.get('coming_up_secondi') or E('COMING_UP_SECONDI', '') or 0).replace(',', '.'))   # scene: anteprima iniziale "COMING UP..." (0 = spenta)
-ALTA_RIS = str(P.get('risoluzione') or E('RISOLUZIONE', '') or '').strip() == '1440'   # video finale a 2560x1440 (YouTube lo comprime meglio)
+ALTA_RIS = str(P.get('risoluzione') or E('RISOLUZIONE', '') or '').strip() != '1080'   # 10 nov (Giorgio: massima qualita' su tutti i canali): video finale SEMPRE a 2560x1440 (salvo risoluzione = 1080)
 PEXELS_DA = float(str(P.get('pexels_da_secondi') or E('PEXELS_DA_SECONDI', '') or 60).replace(',', '.'))   # regia: prima di questo secondo solo cartoni
 REGIA_PEXELS = _perc(P.get('regia_pexels') or E('REGIA_PEXELS', ''), 0)   # regia: % di inquadrature Pexels (clip e foto d'epoca) dopo PEXELS_DA
 ATMOSFERA = str(P.get('atmosfera') or E('ATMOSFERA', '') or ('SI' if TAVOLE else 'NO')).strip().upper() == 'SI'   # pioggia, neve, polvere, braci, nebbia animate sopra l'immagine quando la scena le ha
