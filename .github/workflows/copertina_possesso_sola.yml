@@ -1,0 +1,27 @@
+name: Copertina Costo Vero (rifai solo la copertina)
+# 10 nov: rifa' la copertina di un video Costo Vero gia' pubblicato (circa 0,009 $), non la carica.
+on:
+  workflow_dispatch:
+    inputs:
+      payload:
+        description: 'JSON: nome, titolo, oggetto, costo_vero, k'
+        required: true
+permissions:
+  contents: write
+jobs:
+  copertina:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Copertina
+        env:
+          PAYLOAD: ${{ inputs.payload }}
+          FAL_KEY: ${{ secrets.FAL_KEY }}
+        run: |
+          pip install -q --break-system-packages pillow json-repair
+          python3 strumenti/copertina_possesso_sola.py
+      - name: Salva
+        run: |
+          git config user.name render-bot && git config user.email render-bot@users.noreply.github.com
+          git add prove_video/Costo_Vero/rifatte && git commit -m 'Copertina Costo Vero' && (for i in 1 2 3; do git pull --rebase -q && git push && break; sleep 5; done) || echo niente da salvare

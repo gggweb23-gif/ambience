@@ -408,38 +408,60 @@ def voce(i, testo, prima, dopo):
 
 # ============================================================ 5) COPERTINA (stile 3 scontrino, QUANTO COSTA? fisso)
 def scontrino_libero(CP, img, vero, k):
-    """Copertina stile 3 "scontrino" a MANO LIBERA (9 nov sera, Giorgio): lato dello scontrino, inclinazione, altezza e posizione/grandezza di
-    QUANTO COSTA? cambiano da un video all'altro. Regola per tutti i canali: MAI scritte nell'angolo in basso a destra (lo copre la durata del video)."""
+    """Copertina stile 3 "scontrino" a MANO LIBERA (9 nov sera, Giorgio): lato dello scontrino, inclinazione, righe, altezza, posizione e
+    grandezza di QUANTO COSTA? cambiano da un video all'altro (mai copertine in serie).
+    10 nov (Giorgio): il TOTALE non deve mai finire dietro la durata del video (angolo in basso a destra) e la scritta non deve coprire
+    l'oggetto: l'oggetto e' disegnato nella parte bassa, la scritta sta nella fascia alta libera, lo scontrino da un lato."""
     from PIL import ImageFilter
+    import math
     W_, H_ = CP.W, CP.H
     im = img.copy().convert('RGBA')
     sx = k % 2 == 0                       # scontrino a sinistra o a destra
-    alto = (k // 2) % 2 == 0              # scritta in alto o a meta' altezza
-    ang = (5, -7, 4, -5)[k % 4] * (1 if sx else -1); dy = (-10, 30, 0, 50)[(k // 3) % 4]
-    sc = Image.new('RGBA', (420, 760), (250, 248, 240, 255)); d = ImageDraw.Draw(sc)
+    ang = (5, -7, 4, -6, 3)[k % 5] * (1 if sx else -1)
+    n = (5, 3, 4)[k % 3] if sx else (3, 2, 3)[k % 3]          # a destra meno righe: scontrino piu' corto, il totale resta alto
+    base_ = 140 + n * 70
+    hs = base_ + 210
+    sc = Image.new('RGBA', (420, hs), (250, 248, 240, 255)); d = ImageDraw.Draw(sc)
     for i in range(0, 420, 20):
         d.polygon([(i, 0), (i + 10, 14), (i + 20, 0)], fill=(0, 0, 0, 0))
     d.text((210, 70), 'SCONTRINO', font=CP.F(44), fill=CP.NERO, anchor='mm')
-    for j in range(5):
+    for j in range(n):
         d.line((40, 140 + j * 70, 380, 140 + j * 70), fill=(200, 200, 200), width=4)
         d.rectangle((40, 115 + j * 70, 40 + 120 + (j * 37 + k * 11) % 120, 130 + j * 70), fill=(150, 150, 150))
-    d.text((210, 520), 'TOTALE', font=CP.F(54), fill=CP.NERO, anchor='mm')
-    s_ = CP.adatta(vero, 90, 380); d.text((210, 610), vero, font=CP.F(s_), fill=CP.ROSSO, anchor='mm')
+    d.text((210, base_ + 40), 'TOTALE', font=CP.F(54), fill=CP.NERO, anchor='mm')
+    s_ = CP.adatta(vero, 90, 380); d.text((210, base_ + 130), vero, font=CP.F(s_), fill=CP.ROSSO, anchor='mm')
+    w0, h0 = sc.size
     sc = sc.rotate(ang, expand=True, resample=Image.BICUBIC)
-    ombra = Image.new('RGBA', sc.size, (0, 0, 0, 0)); ombra.putalpha(sc.split()[3].point(lambda a: int(a * .5)))
+    # dove finisce il totale dopo la rotazione (punto in basso del numero)
+    a_ = math.radians(-ang); cx, cy = 210 - w0 / 2, base_ + 130 + 55 - h0 / 2
+    fondo_tot = sc.height / 2 + cx * math.sin(a_) + cy * math.cos(a_)
     x = -30 if sx else W_ - sc.width + 30
-    im.alpha_composite(ombra.filter(ImageFilter.GaussianBlur(14)), (x + 14, dy + 10)); im.alpha_composite(sc, (x, dy - 10))
+    y = (-10, 25, 5, 40)[(k // 3) % 4]
+    if not sx:   # lato destro: il totale deve finire sopra la durata del video (ultimi 180 px)
+        y = min(y, int(H_ - 185 - fondo_tot))
+    ombra = Image.new('RGBA', sc.size, (0, 0, 0, 0)); ombra.putalpha(sc.split()[3].point(lambda a: int(a * .5)))
+    im.alpha_composite(ombra.filter(ImageFilter.GaussianBlur(14)), (x + 14, y + 20)); im.alpha_composite(sc, (x, y))
+    assert sx or y + fondo_tot <= H_ - 180, 'totale dietro la durata del video'
     d = ImageDraw.Draw(im)
-    size = (104, 92, 116)[k % 3]
-    # la scritta va dal lato opposto allo scontrino, in alto o a meta' altezza: mai sotto H-170 (il timer della copertina)
-    y1 = 50 if alto else H_ // 2 - size - 20
-    if sx:   # scontrino a sinistra -> scritta a destra, allineata a destra ma lontana dal basso
-        tx, anc = W_ - 50, 'ra'
+    # QUANTO COSTA? nella fascia alta libera, dal lato opposto allo scontrino; a rotazione su una o due righe e con grandezze diverse
+    libero = W_ - (sc.width - 30) - 90          # larghezza libera accanto allo scontrino
+    una_riga = (k // 2) % 2 == 1
+    if una_riga:
+        size = CP.adatta('QUANTO COSTA?', (100, 88, 110)[k % 3], libero)
+        if sx:   # allineata a destra: COSTA? sul bordo, QUANTO prima
+            CP.scritta_bordo(d, (W_ - 50, 40), 'COSTA?', size, CP.GIALLO, anchor='ra')
+            CP.scritta_bordo(d, (W_ - 50 - CP.F(size).getlength('COSTA? '), 40), 'QUANTO', size, CP.BIANCO, anchor='ra')
+        else:
+            CP.scritta_bordo(d, (50, 40), 'QUANTO', size, CP.BIANCO, anchor='la')
+            CP.scritta_bordo(d, (50 + CP.F(size).getlength('QUANTO '), 40), 'COSTA?', size, CP.GIALLO, anchor='la')
+        fondo_txt = 40 + size * 1.2
     else:
-        tx, anc = 50, 'la'
-    CP.scritta_bordo(d, (tx, y1), 'QUANTO', size, CP.BIANCO, anchor=anc)
-    CP.scritta_bordo(d, (tx, y1 + size + 10), 'COSTA?', size, CP.GIALLO, anchor=anc)
-    assert y1 + 2 * size + 10 < H_ - 170
+        size = CP.adatta('QUANTO', (104, 92, 116)[k % 3], libero)
+        tx = W_ - 50 if sx else 50; anc = 'ra' if sx else 'la'
+        CP.scritta_bordo(d, (tx, 34), 'QUANTO', size, CP.BIANCO, anchor=anc)
+        CP.scritta_bordo(d, (tx, 34 + size + 10), 'COSTA?', size, CP.GIALLO, anchor=anc)
+        fondo_txt = 34 + 2 * size + 10
+    assert fondo_txt < H_ - 180
     return im.convert('RGB')
 
 
@@ -447,7 +469,8 @@ def copertina(c, rif_url):
     import copertine_possesso as CP
     f = os.path.join(LAV, 'copertina_sfondo.jpg')
     ogg = str((c.get('copertina') or {}).get('oggetto') or OGGETTO or TITOLO)
-    immagine(f, CP.STILE + ogg + ', filling the frame, simple warm gradient background')
+    immagine(f, CP.STILE + ogg + ', big and sharp, placed in the LOWER TWO THIRDS of the frame and slightly toward the center; '
+                          'the TOP THIRD of the image is EMPTY plain warm gradient background (space for the title); simple warm gradient background')   # 10 nov: la scritta non copre l'oggetto
     if not os.path.exists(f):
         f = os.path.join(LAV, 'riferimento.jpg')
     img = Image.open(f).convert('RGB').resize((CP.W, CP.H))
