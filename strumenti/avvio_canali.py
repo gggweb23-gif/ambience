@@ -120,6 +120,9 @@ def gia_pronto(prod, quando):
     return any(str(r.get('status')).strip() in ('Completato', 'Da caricare a mano', 'In produzione') and str(r.get('data_pubblicazione') or '').strip()[:10] == g for r in prod)
 
 
+FORZA = os.environ.get('FORZA', '').strip().upper() == 'SI'   # 10 nov: lancio a mano anche se oggi c'e' gia' stata una prova
+
+
 def pubblica_il(cfg, ora):
     m = re.match(r'(\d{1,2})[:.](\d{2})', str(cfg.get('publish_time') or '17:00'))
     tz = ZoneInfo('Europe/Rome'); loc = ora.astimezone(tz) + dt.timedelta(days=ANTICIPO)
@@ -169,9 +172,9 @@ def main():
         uscita = dt.datetime.fromisoformat(pubblica_il(cfg, ora).replace('Z', '+00:00')).astimezone(ZoneInfo('Europe/Rome')).strftime('%Y-%m-%d %H:%M')
         if gia_pronto(prod, uscita):
             print(cid, ': video per il', uscita[:10], 'gia\' pronto'); continue
-        if fatti_oggi >= num(cfg.get('videos_per_day')) and not ANTICIPO:
+        if fatti_oggi >= num(cfg.get('videos_per_day')) and not ANTICIPO and not FORZA:
             print(cid, ': video di oggi gia\' fatto'); continue
-        if tentativi_oggi >= num(cfg.get('videos_per_day')) + 2 and not ANTICIPO:
+        if tentativi_oggi >= num(cfg.get('videos_per_day')) + 2 and not ANTICIPO and not FORZA:
             print(cid, ': troppi tentativi falliti oggi, si riprova domani'); continue
         try:   # 9 nov (Giorgio): se i titoli stanno finendo se ne aggiungono altri dello stesso filone (colonna titoli_auto = SI)
             import rifornisci_titoli as RT

@@ -22,6 +22,10 @@ on:
         description: 'Vuoto = come da foglio; unlisted = NON IN ELENCO (lo pubblica Giorgio a mano)'
         default: ''
         type: string
+      forza:
+        description: 'SI = lancia anche se oggi il canale ha gia fatto un video o una prova'
+        default: ''
+        type: string
       escludi_run:
         description: 'Uso interno: id del video Pexels appena finito che ha lanciato questo avvio'
         default: ''
@@ -50,4 +54,5 @@ jobs:
           ANTICIPO_GIORNI: ${{ inputs.anticipo }}
           ESCLUDI_RUN: ${{ inputs.escludi_run }}
           PRIVACY: ${{ inputs.privacy }}
+          FORZA: ${{ inputs.forza }}
         run: pip install -q google-auth requests && python3 strumenti/avvio_canali.py
