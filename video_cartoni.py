@@ -272,7 +272,7 @@ def copertina_ai(pg, ca, ctx, cop):
     bozza = os.path.join(LAV, 'bozza_copertina.jpg')
     _g = __import__('datetime').date.today().toordinal()
     alto = _g % 2 == 1   # 8 nov (MANO LIBERA): banda sopra a giorni alterni
-    foto = (_g // 2) % 2 == 1   # 8 nov (Giorgio): oggetti FOTO VERE o cartone, a giro di 2 giorni (4 combinazioni), poi vediamo cosa funziona
+    foto = False   # 10 nov (Giorgio): sempre a DISEGNO come le altre del canale, mai foto
     log('copertina MANO LIBERA:', 'banda sopra' if alto else 'banda sotto', '|', 'foto vere' if foto else 'cartone')
     pg.evaluate('c => bozza_ai(c)', dict(ca, oggetto=ctx.get('oggetto'), alto=alto)); pg.wait_for_timeout(300)
     pg.screenshot(path=bozza, type='jpeg', quality=92)
@@ -282,7 +282,7 @@ def copertina_ai(pg, ca, ctx, cop):
     stile_ = ('as a striking PHOTOREALISTIC thumbnail: the objects are REAL PHOTOGRAPHS, big and sharp, with studio light and soft shadows, on flat coloured backgrounds, very readable on a phone, 16:9. '
               if foto else 'as a polished 2D cartoon / flat vector explainer thumbnail: clean thick dark outlines, bright friendly colours, soft gradients and subtle shadows, very readable on a phone, 16:9. ')
     prompt = ('Redesign this rough YouTube thumbnail draft for an Italian channel about how much businesses really earn, ' + stile_ +
-              'The two objects are BIG (most of their half) but the values stay fully visible above the dark band. Keep the same layout: red left half, green right half '
+              'Each half shows ONE single simple object, big and centered, instantly recognizable like an icon (no people, no faces, no crowded scenes). The two objects are BIG (most of their half) but the values stay fully visible above the dark band. Keep the same layout: red left half, green right half '
               'with a slightly diagonal split, a big glossy yellow-orange arrow from left to right, and a plain dark navy band across the ' + ('TOP' if alto else 'bottom') + ' 30% of the image. '
               f'LEFT (red): {ca.get("oggetto_sx") or "what it costs"}. RIGHT (green): {ca.get("oggetto_dx") or "what it is sold for"}. '
               f'The ONLY texts in the image, spelled EXACTLY like this: "COSTA" at the top left and "LO VENDI" at the top right, both WHITE with a dark outline; '
