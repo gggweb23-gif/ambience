@@ -1,653 +1,219 @@
 {
- "titolo": "Quanto guadagna davvero un parrucchiere in un giorno?",
+ "titolo": "Come guadagna una palestra con chi non ci va mai",
  "protagonista": {
-  "nome": "Sara",
-  "capelli": "long",
-  "colore_capelli": "#7a3b1e",
-  "pelle": "chiara",
-  "maglia": "#2f4f6f",
-  "grembiule": "#222222",
+  "nome": "Davide",
+  "capelli": "short",
+  "colore_capelli": "#3b2a20",
+  "pelle": "media",
+  "maglia": "#2a6fdb",
+  "grembiule": "",
   "occhiali": false
  },
- "oggetto": "forbici",
+ "oggetto": "manubrio",
  "copertina": {
   "righe": [
-   "OTTO CLIENTI",
-   "AL GIORNO...",
-   "E POI?"
+   "PAGANO TUTTI",
+   "MA NON VIENE",
+   "NESSUNO"
   ],
   "emozione": "stupito",
-  "oggetto": "forbici",
-  "prezzo": "35 €",
+  "oggetto": "manubrio",
+  "prezzo": "39 €",
   "fondo": "scuro"
  },
  "copertina_ai": {
-  "valore_sx": "18 €/ORA",
-  "valore_dx": "35 €",
-  "oggetto_sx": "an empty hairdresser chair with a clock above it",
-  "oggetto_dx": "a happy woman with a fresh stylish haircut holding a mirror",
+  "valore_sx": "0 €",
+  "valore_dx": "39 €/MESE",
+  "oggetto_sx": "an empty gym with dusty dumbbells and a lonely treadmill",
+  "oggetto_dx": "a big shiny membership card with a gym logo and a happy smiling face",
   "domanda": [
-   "POLTRONE PIENE",
-   "E CASSA VUOTA?"
+   "PAGANO E NON",
+   "CI VANNO MAI?"
   ]
  },
- "descrizione": "Sara ha un salone con tre poltrone e una agenda piena. Eppure a fine mese i conti non tornano. Scopri quanto vale davvero un'ora di lavoro, perché una poltrona vuota costa quanto una piena e come si calcola il prezzo giusto di un taglio. Una puntata utile se hai un salone, una bottega o qualsiasi attività che vende il tuo tempo.",
+ "descrizione": "Una palestra vive grazie a chi paga e non ci va mai? Con Davide e la sua palestra scopri come funzionano gli abbonamenti ricorrenti, perché i costi fissi pesano tanto e che cosa succede quando arrivano le disdette. Numeri semplici, conti veri e una lezione utile per chi ha o vuole aprire un'attività. Tutti i numeri sono esempi, non dati ufficiali.",
  "tag": [
-  "parrucchiere",
-  "salone",
-  "quanto guadagna un parrucchiere",
-  "aprire un salone",
-  "costi attività",
+  "palestra",
+  "abbonamenti",
+  "costi fissi",
+  "punto di pareggio",
+  "aprire una palestra",
   "margine",
-  "prezzo del servizio",
-  "valore dell'ora",
-  "gestione salone",
+  "disdette",
+  "clienti ricorrenti",
   "economia pratica",
-  "conti attività",
-  "piccola impresa",
-  "commercianti",
+  "aprire un'attività",
+  "fitness business",
+  "conti di un negozio",
+  "imprenditoria",
   "partita iva",
-  "pareggio",
-  "imprenditoria"
+  "guadagno palestra",
+  "quanto guadagna una palestra"
  ],
  "scene": [
   {
-   "testo": "Sara ha un salone sempre pieno. Otto clienti al giorno, agenda strapiena, piedi distrutti. Eppure a fine mese guarda il conto in banca e si chiede: ma i soldi dove sono finiti? Oggi lo scopriamo insieme.",
+   "testo": "Una palestra ha mille iscritti. Ma ogni giorno ne entrano solo duecentocinquanta. E sai una cosa? Se venissero tutti, la palestra fallirebbe. Strano? Adesso ti spiego perché i conti funzionano proprio così.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "domanda",
      "p": {
-      "testo": "Dove sono finiti i soldi?",
+      "testo": "Se venissero tutti? Fallisce!",
       "emozione": "stupito",
       "scuro": true
      }
     },
     {
-     "parola": "Otto",
+     "parola": "mille",
+     "tipo": "conteggio",
+     "p": {
+      "oggetto": "manubrio",
+      "icone": 40,
+      "testo": "mille iscritti"
+     }
+    },
+    {
+     "parola": "duecentocinquanta",
      "tipo": "persone",
      "p": {
-      "n": 8,
-      "azione": "fila",
+      "n": 5,
+      "azione": "entrano",
       "escono": 0,
-      "testo": "Otto clienti al giorno"
-     }
-    },
-    {
-     "parola": "conto",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "salone",
-      "insegna": "Da Sara",
-      "azione": "preoccupato",
-      "clienti": 2,
-      "testo": "Agenda piena, cassa no"
+      "testo": "duecentocinquanta al giorno"
      }
     }
    ]
   },
   {
-   "testo": "Sara ha un salone con tre poltrone. Taglio e piega costano trentacinque euro. Lei fa i conti a modo suo: otto clienti per trentacinque euro fanno duecentottanta euro al giorno. Sembra tantissimo, vero?",
-   "capitolo": "",
+   "testo": "Lui è Davide. Ha aperto una palestra in una città di provincia. Cinquecento metri quadri, sala pesi, un'area cardio, due corsi al giorno. Un sogno, finché non ha aperto la prima bolletta.",
+   "capitolo": "La palestra di Davide",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "luogo",
      "p": {
-      "luogo": "salone",
-      "insegna": "Da Sara",
+      "luogo": "palestra",
+      "insegna": "Fit Davide",
       "azione": "felice",
-      "clienti": 3,
-      "testo": "Tre poltrone, un sogno"
+      "clienti": 2,
+      "testo": "Fit Davide"
      }
     },
     {
-     "parola": "Taglio",
-     "tipo": "prezzo",
+     "parola": "cinquecento",
+     "tipo": "conteggio",
      "p": {
-      "oggetto": "forbici",
-      "prezzo": "35 €",
-      "nota": "Taglio e piega"
+      "oggetto": "manubrio",
+      "icone": 25,
+      "testo": "cinquecento metri quadri"
      }
     },
     {
-     "parola": "otto",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Incasso del giorno",
-      "a": "8 clienti",
-      "op": "×",
-      "b": "35 €",
-      "risultato": "280 €",
-      "nota": "Ma è davvero suo?"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Duecentottanta euro al giorno, per venticinque giorni, fanno settemila euro al mese. Sara si sente quasi ricca. Poi arriva il primo del mese e iniziano ad arrivare le bollette. Eccole.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Incasso del mese",
-      "a": "280 €",
-      "op": "×",
-      "b": "25 giorni",
-      "risultato": "7.000 €",
-      "nota": "Sembra un bel numero"
-     }
-    },
-    {
-     "parola": "Poi",
+     "parola": "bolletta",
      "tipo": "domanda",
      "p": {
-      "testo": "Ma resta tutto a me?",
+      "testo": "Ahi, la bolletta!",
       "emozione": "preoccupato",
       "scuro": false
      }
+    }
+   ]
+  },
+  {
+   "testo": "Davide vende un abbonamento mensile a trentanove euro. Niente di strano: paghi ogni mese, entri quando vuoi. Semplice per te, ma è la formula che tiene in piedi tutto il locale.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "manubrio",
+      "prezzo": "39 €",
+      "nota": "abbonamento mensile"
+     }
     },
     {
-     "parola": "bollette",
+     "parola": "paghi",
+     "tipo": "salvadanaio",
+     "p": {
+      "direzione": "riempie",
+      "testo": "ogni mese, in automatico"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Vediamo i costi fissi di Davide. Affitto del locale: tremila euro al mese. Stipendi di istruttori e reception: quattromila euro. Luce e riscaldamento: millecinquecento. Pulizie: ottocento. Assicurazioni e software: seicento.",
+   "capitolo": "I costi fissi",
+   "inquadrature": [
+    {
+     "parola": "",
      "tipo": "costi",
      "p": {
       "voci": [
        {
         "nome": "Affitto",
-        "valore": 1200,
-        "testo": "1.200 €"
+        "valore": 3000,
+        "testo": "3.000 €"
        },
        {
-        "nome": "Bollette",
-        "valore": 400,
-        "testo": "400 €"
+        "nome": "Stipendi",
+        "valore": 4000,
+        "testo": "4.000 €"
        },
        {
-        "nome": "Prodotti",
-        "valore": 700,
-        "testo": "700 €"
-       },
-       {
-        "nome": "Dipendente",
-        "valore": 1600,
-        "testo": "1.600 €"
-       },
-       {
-        "nome": "Tasse e contributi",
+        "nome": "Luce e caldo",
         "valore": 1500,
         "testo": "1.500 €"
+       },
+       {
+        "nome": "Pulizie",
+        "valore": 800,
+        "testo": "800 €"
+       },
+       {
+        "nome": "Assicurazioni e software",
+        "valore": 600,
+        "testo": "600 €"
        }
       ],
-      "totale": 5400,
+      "totale": 9900,
       "periodo": "al mese"
      }
-    }
-   ]
-  },
-  {
-   "testo": "Facciamo il conto: milleduecento di affitto, quattrocento di bollette, settecento di prodotti, milleseicento per la dipendente e millecinquecento tra tasse e contributi. Totale: cinquemilaquattrocento euro.",
-   "capitolo": "I costi",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "lista",
-     "p": {
-      "titolo": "Cosa esce ogni mese",
-      "voci": [
-       "Affitto: milleduecento",
-       "Bollette: quattrocento",
-       "Prodotti: settecento",
-       "Dipendente: milleseicento",
-       "Tasse: millecinquecento"
-      ]
-     }
     },
     {
-     "parola": "Totale",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Costi del mese",
-      "a": "1.200 + 400 + 700",
-      "op": "+",
-      "b": "1.600 + 1.500",
-      "risultato": "5.400 €",
-      "nota": "Prima del suo stipendio"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Settemila euro di incasso meno cinquemilaquattrocento di costi: restano milleseicento euro. Ed è tutto quello che porta a casa Sara dopo venticinque giorni di lavoro, sabati compresi. Hai capito perché è stanca?",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Quanto resta a Sara",
-      "a": "7.000 €",
-      "op": "−",
-      "b": "5.400 €",
-      "risultato": "1.600 €",
-      "nota": "Al mese, per lei"
-     }
-    },
-    {
-     "parola": "venticinque",
-     "tipo": "calendario",
-     "p": {
-      "titolo": "Giorni lavorati",
-      "giorni": 25,
-      "testo": "Venticinque giorni di lavoro"
-     }
-    },
-    {
-     "parola": "stanca",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "salone",
-      "insegna": "Da Sara",
-      "azione": "preoccupato",
-      "clienti": 0,
-      "testo": "Milleseicento euro"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Facciamo un passo indietro. Su ogni taglio da trentacinque euro, dove vanno i soldi? Una fetta all'affitto, una ai prodotti, una alla dipendente, una alle tasse. E a Sara? Guarda la ciambella.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
+     "parola": "Stipendi",
      "tipo": "fette",
      "p": {
-      "titolo": "Dove vanno i trentacinque euro",
-      "totale": 35,
-      "totale_testo": "35 €",
+      "titolo": "Dove vanno i costi",
+      "totale": 9900,
+      "totale_testo": "9.900 €",
       "fette": [
        {
         "nome": "Affitto",
-        "valore": 6,
-        "testo": "6 €"
+        "valore": 3000,
+        "testo": "3.000 €"
        },
        {
-        "nome": "Bollette",
-        "valore": 2,
-        "testo": "2 €"
+        "nome": "Stipendi",
+        "valore": 4000,
+        "testo": "4.000 €"
        },
        {
-        "nome": "Prodotti",
-        "valore": 3.5,
-        "testo": "3,50 €"
+        "nome": "Luce e caldo",
+        "valore": 1500,
+        "testo": "1.500 €"
        },
        {
-        "nome": "Dipendente",
-        "valore": 8,
-        "testo": "8 €"
+        "nome": "Pulizie",
+        "valore": 800,
+        "testo": "800 €"
        },
        {
-        "nome": "Tasse",
-        "valore": 7.5,
-        "testo": "7,50 €"
-       },
-       {
-        "nome": "Sara",
-        "valore": 8,
-        "testo": "8 €"
-       }
-      ],
-      "evidenzia": 5
-     }
-    },
-    {
-     "parola": "ciambella",
-     "tipo": "soldi",
-     "p": {
-      "centro": "35 €",
-      "destinazioni": [
-       "Affitto",
-       "Dipendente",
-       "Tasse",
-       "Sara"
-      ]
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Su trentacinque euro, a Sara restano otto euro circa. Moltiplica per otto clienti: sessantaquattro euro al giorno. Per venticinque giorni fanno milleseicento euro. I conti tornano, e fanno male.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "La parte di Sara",
-      "a": "8 €",
-      "op": "×",
-      "b": "8 clienti",
-      "risultato": "64 €",
-      "nota": "Al giorno"
-     }
-    },
-    {
-     "parola": "Per",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Nel mese",
-      "a": "64 €",
-      "op": "×",
-      "b": "25 giorni",
-      "risultato": "1.600 €",
-      "nota": "I conti tornano"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Ora il punto chiave: il tempo. Un parrucchiere non vende un prodotto, vende ore. E le ore non si possono mettere in magazzino. Un'ora persa è persa per sempre. Pensaci: un bar può fare più caffè, lei no.",
-   "capitolo": "Il tempo",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "orologio",
-     "p": {
-      "ore": 10,
-      "piene": 10,
-      "testo": "Dieci ore di salone"
-     }
-    },
-    {
-     "parola": "magazzino",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Le ore non si stoccano",
-      "emozione": "calmo",
-      "scuro": false
-     }
-    },
-    {
-     "parola": "bar",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "bar",
-      "insegna": "Bar Centrale",
-      "azione": "lavora",
-      "clienti": 4,
-      "testo": "Più caffè? Sì. Più ore? No"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Il salone di Sara è aperto dieci ore al giorno. Un taglio e piega dura un'ora e un quarto. Quindi in una poltrona ci stanno otto clienti, al massimo. E con tre poltrone? Ventiquattro. Ma lei ne fa otto.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "conteggio",
-     "p": {
-      "oggetto": "forbici",
-      "icone": 8,
-      "testo": "8 clienti per poltrona"
-     }
-    },
-    {
-     "parola": "tre",
-     "tipo": "conteggio",
-     "p": {
-      "oggetto": "forbici",
-      "icone": 24,
-      "testo": "24 possibili al giorno"
-     }
-    },
-    {
-     "parola": "ma",
-     "tipo": "persone",
-     "p": {
-      "n": 8,
-      "azione": "fila",
-      "escono": 0,
-      "testo": "Ne arrivano solo otto"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Aspetta: perché ventiquattro e non otto? Perché Sara lavora su una poltrona, la dipendente su un'altra, e la terza resta spesso vuota. Tre poltrone, di cui una quasi sempre ferma. Ogni giorno.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "domanda",
-     "p": {
-      "testo": "E la terza poltrona?",
-      "emozione": "stupito",
-      "scuro": true
-     }
-    },
-    {
-     "parola": "Tre",
-     "tipo": "orologio",
-     "p": {
-      "ore": 10,
-      "piene": 4,
-      "testo": "Poltrona tre: quattro ore piene"
-     }
-    },
-    {
-     "parola": "ferma",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "salone",
-      "insegna": "Da Sara",
-      "azione": "preoccupato",
-      "clienti": 1,
-      "testo": "Una poltrona vuota"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Una poltrona vuota costa quanto una piena. L'affitto non lo sa che oggi non è venuto nessuno. Le bollette nemmeno. Un'ora vuota è un'ora in cui paghi e non incassi. È la regola più cattiva del tempo.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "bilancia",
-     "p": {
-      "titolo": "Poltrona vuota o piena",
-      "sinistra": "Costo: uguale",
-      "destra": "Incasso: zero",
-      "pende": "sinistra"
-     }
-    },
-    {
-     "parola": "affitto",
-     "tipo": "soldi",
-     "p": {
-      "centro": "1.200 €",
-      "destinazioni": [
-       "Affitto",
-       "Bollette"
-      ]
-     }
-    },
-    {
-     "parola": "regola",
-     "tipo": "timbro",
-     "p": {
-      "oggetto": "poltrona",
-      "testo": "VUOTA = COSTA",
-      "colore": "rosso",
-      "nota": "Anche se non lavori"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Quanto vale quindi un'ora del salone? Prendiamo i costi fissi: affitto, bollette, dipendente e tasse fanno circa quattromilacinquecento euro al mese. Dividi per duecentocinquanta ore di apertura: diciotto euro l'ora.",
-   "capitolo": "Quanto vale un'ora",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Costi fissi del mese",
-      "a": "4.500 €",
-      "op": "÷",
-      "b": "250 ore",
-      "risultato": "18 €/ora",
-      "nota": "Ogni ora aperta costa questo"
-     }
-    },
-    {
-     "parola": "Dividi",
-     "tipo": "orologio",
-     "p": {
-      "ore": 10,
-      "piene": 10,
-      "testo": "Dieci ore al giorno, venticinque giorni"
-     }
-    },
-    {
-     "parola": "diciotto",
-     "tipo": "prezzo",
-     "p": {
-      "oggetto": "orologio",
-      "prezzo": "18 €",
-      "nota": "Costo di un'ora aperta"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Diciotto euro ogni ora, anche se non entra nessuno. Se la poltrona resta vuota un'ora, hai bruciato diciotto euro. Se resta vuota cinque ore al giorno, in un mese sono duemiladuecentocinquanta euro. Una cifra enorme.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Un'ora vuota",
-      "a": "1 ora",
-      "op": "×",
-      "b": "18 €",
-      "risultato": "18 € persi",
-      "nota": "Ogni volta"
-     }
-    },
-    {
-     "parola": "cinque",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Cinque ore vuote al giorno",
-      "a": "90 €",
-      "op": "×",
-      "b": "25 giorni",
-      "risultato": "2.250 €",
-      "nota": "Al mese, buttati"
-     }
-    },
-    {
-     "parola": "enorme",
-     "tipo": "salvadanaio",
-     "p": {
-      "direzione": "svuota",
-      "testo": "Si svuota senza rumore"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Qui tanti sbagliano. Guardano solo i clienti che entrano e mai le ore che restano vuote. Il bar fa lo stesso errore: conta gli scontrini, non le ore morte tra le tre e le cinque del pomeriggio. Le vedi anche tu nella tua attività?",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "lista",
-     "p": {
-      "titolo": "Cosa guardano tutti",
-      "voci": [
-       "Quanti clienti entrano",
-       "Quanto incasso a fine giorno",
-       "L'agenda piena"
-      ]
-     }
-    },
-    {
-     "parola": "bar",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "bar",
-      "insegna": "Bar Centrale",
-      "azione": "preoccupato",
-      "clienti": 0,
-      "testo": "Pomeriggio vuoto"
-     }
-    },
-    {
-     "parola": "Le",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Anche tu le hai?",
-      "emozione": "calmo",
-      "scuro": false
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Cosa devi guardare davvero? La percentuale di ore occupate. Sara ha dieci ore, ma i clienti riempiono solo sei ore della sua poltrona. Fa il sessanta per cento. Il quaranta per cento del tempo è vuoto.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "orologio",
-     "p": {
-      "ore": 10,
-      "piene": 6,
-      "testo": "Sei ore piene su dieci"
-     }
-    },
-    {
-     "parola": "sessanta",
-     "tipo": "cruscotto",
-     "p": {
-      "titolo": "Occupazione di Sara",
-      "voci": [
-       {
-        "nome": "Ore piene",
-        "valore": 0.6
-       },
-       {
-        "nome": "Ore vuote",
-        "valore": 0.4
-       }
-      ]
-     }
-    },
-    {
-     "parola": "quaranta",
-     "tipo": "fette",
-     "p": {
-      "titolo": "Il tempo della poltrona",
-      "totale": 10,
-      "totale_testo": "10 ore",
-      "fette": [
-       {
-        "nome": "Piene",
-        "valore": 6,
-        "testo": "6 ore"
-       },
-       {
-        "nome": "Vuote",
-        "valore": 4,
-        "testo": "4 ore"
+        "nome": "Altro",
+        "valore": 600,
+        "testo": "600 €"
        }
       ],
       "evidenzia": 1
@@ -656,325 +222,842 @@
    ]
   },
   {
-   "testo": "Prima regola: il tempo è il tuo vero prodotto. Come in una palestra a tariffa fissa o in un taxi: puoi vendere solo le ore che hai, e se restano vuote, restano vuote. Il valore sta nel riempirle.",
+   "testo": "Sommiamo: tremila più quattromila fa settemila. Più millecinquecento fa ottomilacinquecento. Più ottocento, novemilatrecento. Più seicento: novemilanovecento euro al mese. E sono fissi: si pagano anche se la palestra è vuota.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "riepilogo",
-     "p": {
-      "titolo": "Prima regola",
-      "voci": [
-       "Vendi ore, non oggetti",
-       "Le ore non si stoccano",
-       "Vuota o piena, costa uguale"
-      ]
-     }
-    },
-    {
-     "parola": "palestra",
-     "tipo": "confronto",
-     "p": {
-      "titolo": "Chi vende ore",
-      "a": {
-       "titolo": "Parrucchiere",
-       "valore": "Ore",
-       "oggetto": "forbici"
-      },
-      "b": {
-       "titolo": "Taxi",
-       "valore": "Ore",
-       "oggetto": "taxi"
-      },
-      "vincitore": ""
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Ora il prezzo. Sara si chiede: trentacinque euro sono troppo pochi? Calcola: ogni ora costa diciotto euro di fissi, più tre e cinquanta di prodotti. Un'ora e un quarto fa ventisei euro e venticinque centesimi di costo.",
-   "capitolo": "Il prezzo giusto",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Trentacinque sono pochi?",
-      "emozione": "preoccupato",
-      "scuro": true
-     }
-    },
-    {
-     "parola": "Calcola",
      "tipo": "formula",
      "p": {
-      "titolo": "Costo fisso di un taglio",
-      "a": "18 €",
-      "op": "×",
-      "b": "1,25 ore",
-      "risultato": "22,50 €",
-      "nota": "Solo il tempo"
-     }
-    },
-    {
-     "parola": "prodotti",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Più i prodotti",
-      "a": "22,50 €",
+      "titolo": "Costi fissi del mese",
+      "a": "3.000 € + 4.000 €",
       "op": "+",
-      "b": "3,50 €",
-      "risultato": "26 €",
-      "nota": "Costo di un taglio"
+      "b": "2.900 €",
+      "risultato": "9.900 €",
+      "nota": "luce, pulizie e altro compresi"
+     }
+    },
+    {
+     "parola": "vuota",
+     "tipo": "orologio",
+     "p": {
+      "ore": 16,
+      "piene": 4,
+      "testo": "anche con la sala vuota si paga"
      }
     }
    ]
   },
   {
-   "testo": "Quindi il costo vero di un taglio è ventisei euro. Venduto a trentacinque, restano nove euro. Ma sono nove euro solo se la poltrona è sempre piena. Se è piena al sessanta per cento, il conto cambia.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Margine di un taglio",
-      "a": "35 €",
-      "op": "−",
-      "b": "26 €",
-      "risultato": "9 €",
-      "nota": "Se tutto è pieno"
-     }
-    },
-    {
-     "parola": "sessanta",
-     "tipo": "cruscotto",
-     "p": {
-      "titolo": "Se la poltrona è piena al sessanta per cento",
-      "voci": [
-       {
-        "nome": "Ore piene",
-        "valore": 0.6
-       },
-       {
-        "nome": "Margine reale",
-        "valore": 0.3
-       }
-      ]
-     }
-    },
-    {
-     "parola": "cambia",
-     "tipo": "bilancia",
-     "p": {
-      "titolo": "Prezzo e riempimento",
-      "sinistra": "Prezzo alto",
-      "destra": "Poltrona piena",
-      "pende": "destra"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Con la poltrona piena al sessanta per cento, ogni taglio deve coprire anche le ore vuote. Il costo del tempo sale: diciotto diviso zero virgola sei fa trenta euro l'ora. Un taglio costa trentasette euro e cinquanta di tempo e prodotti.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Ora vera con ore vuote",
-      "a": "18 €",
-      "op": "÷",
-      "b": "0,6",
-      "risultato": "30 €/ora",
-      "nota": "Un'ora venduta costa trenta"
-     }
-    },
-    {
-     "parola": "taglio",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Costo vero di un taglio",
-      "a": "30 € × 1,25",
-      "op": "+",
-      "b": "3,50 €",
-      "risultato": "41 €",
-      "nota": "Trentasette e cinquanta più tre e cinquanta"
-     }
-    },
-    {
-     "parola": "Un",
-     "tipo": "timbro",
-     "p": {
-      "oggetto": "forbici",
-      "testo": "PERDITA",
-      "colore": "rosso",
-      "nota": "A trentacinque euro"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Quarantuno euro di costo, venduto a trentacinque: perdi sei euro a ogni taglio. Sembra un errore, ma succede ogni giorno. Il prezzo deve coprire anche le ore in cui nessuno si siede. Altrimenti lavori gratis.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "confronto",
-     "p": {
-      "titolo": "Prezzo contro costo vero",
-      "a": {
-       "titolo": "Prezzo",
-       "valore": "35 €",
-       "oggetto": "forbici"
-      },
-      "b": {
-       "titolo": "Costo vero",
-       "valore": "41 €",
-       "oggetto": "orologio"
-      },
-      "vincitore": "b"
-     }
-    },
-    {
-     "parola": "Sembra",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Lavori quasi gratis?",
-      "emozione": "stupito",
-      "scuro": true
-     }
-    },
-    {
-     "parola": "Altrimenti",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "salone",
-      "insegna": "Da Sara",
-      "azione": "preoccupato",
-      "clienti": 2,
-      "testo": "Pieno ma in perdita"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Come fai ad uscirne? Prima domanda: quanti tagli servono per pareggiare? Dividi i costi fissi per il margine di un taglio, quello sopra il solo prodotto. Trentacinque meno tre e cinquanta fa trentuno euro e cinquanta.",
+   "testo": "Quanti abbonati servono per coprirli? Dividi i costi fissi per il prezzo. Novemilanovecento diviso trentanove fa duecentocinquantaquattro abbonati. Sotto quella soglia, Davide perde soldi. Sopra, comincia a guadagnare.",
    "capitolo": "Il pareggio",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "formula",
      "p": {
-      "titolo": "Margine per taglio",
-      "a": "35 €",
-      "op": "−",
-      "b": "3,50 €",
-      "risultato": "31,50 €",
-      "nota": "Dopo i soli prodotti"
+      "titolo": "Abbonati per pareggiare",
+      "a": "9.900 €",
+      "op": "÷",
+      "b": "39 €",
+      "risultato": "254 abbonati",
+      "nota": "un po' arrotondato"
      }
     },
     {
-     "parola": "Dividi",
-     "tipo": "formula",
+     "parola": "Sotto",
+     "tipo": "pareggio",
      "p": {
-      "titolo": "Tagli per pareggiare",
-      "a": "4.500 €",
-      "op": "÷",
-      "b": "31,50 €",
-      "risultato": "143 tagli",
-      "nota": "Circa, al mese"
+      "titolo": "Pareggio della palestra",
+      "fissi": 9900,
+      "margine": 39,
+      "unita": "abbonati",
+      "oggetto": "manubrio",
+      "perdita": true,
+      "guadagno": true
      }
     }
    ]
   },
   {
-   "testo": "Centoquarantatré tagli al mese per non perdere. Divisi per venticinque giorni sono sei tagli al giorno. Sara ne fa otto: sta sopra il pareggio, ma di poco. Due tagli al giorno sono tutto il suo stipendio.",
+   "testo": "Qui c'è un dettaglio: ho usato tutto il prezzo come margine. Perché per un abbonato in più Davide spende quasi niente: un po' di acqua, un po' di corrente. I costi veri sono fissi, e il margine su ogni nuovo iscritto è altissimo.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "pareggio",
+     "tipo": "domanda",
      "p": {
-      "titolo": "Pareggio del salone",
-      "fissi": 4500,
-      "margine": 31.5,
-      "unita": "tagli al mese",
-      "oggetto": "forbici",
-      "perdita": true,
-      "guadagno": true
+      "testo": "Costo per un iscritto in più?",
+      "emozione": "calmo",
+      "scuro": false
      }
     },
     {
-     "parola": "Divisi",
-     "tipo": "formula",
+     "parola": "altissimo",
+     "tipo": "confronto",
      "p": {
-      "titolo": "Tagli al giorno per pareggiare",
-      "a": "143",
-      "op": "÷",
-      "b": "25 giorni",
-      "risultato": "6 tagli",
-      "nota": "Circa"
-     }
-    },
-    {
-     "parola": "Due",
-     "tipo": "conteggio",
-     "p": {
-      "oggetto": "forbici",
-      "icone": 2,
-      "testo": "Due tagli: lo stipendio di Sara"
+      "titolo": "Un iscritto in più",
+      "a": {
+       "titolo": "Costo in più",
+       "valore": "1 €",
+       "oggetto": "manubrio"
+      },
+      "b": {
+       "titolo": "Incasso",
+       "valore": "39 €",
+       "oggetto": "manubrio"
+      },
+      "vincitore": "b"
      }
     }
    ]
   },
   {
-   "testo": "Ecco perché ogni cliente in più conta tantissimo. Dopo il pareggio, ogni taglio lascia trentuno euro e cinquanta nelle tasche di Sara. Con tre clienti in più al giorno, la cassa cambia faccia.",
+   "testo": "Davide arriva a mille iscritti. Mille per trentanove fa trentanovemila euro al mese. Tolti i costi fissi di novemilanovecento, restano ventinovemilacento euro. Sembra una miniera d'oro. Ma c'è un trucco: sono davvero mille persone?",
+   "capitolo": "Mille iscritti, ma quanti vengono?",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Incasso del mese",
+      "a": "1.000 abbonati",
+      "op": "×",
+      "b": "39 €",
+      "risultato": "39.000 €",
+      "nota": "prima di ogni costo"
+     }
+    },
+    {
+     "parola": "Tolti",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Cosa resta",
+      "a": "39.000 €",
+      "op": "−",
+      "b": "9.900 €",
+      "risultato": "29.100 €",
+      "nota": "tolti i costi fissi"
+     }
+    },
+    {
+     "parola": "trucco",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Vengono davvero tutti?",
+      "emozione": "stupito",
+      "scuro": true
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Guardiamo l'ingresso. Su mille iscritti, in una giornata normale ne arrivano circa duecentocinquanta. Gli altri settecentocinquanta pagano ma restano a casa. E Davide, onestamente, ne è contentissimo.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "persone",
      "p": {
-      "n": 9,
-      "azione": "entrano",
-      "escono": 0,
-      "testo": "Tre clienti in più"
+      "n": 8,
+      "azione": "escono",
+      "escono": 6,
+      "testo": "ne vengono pochi, ne pagano tanti"
      }
     },
     {
-     "parola": "trentuno",
+     "parola": "settecentocinquanta",
+     "tipo": "conteggio",
+     "p": {
+      "oggetto": "manubrio",
+      "icone": 45,
+      "testo": "settecentocinquanta non vengono"
+     }
+    },
+    {
+     "parola": "contentissimo",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "palestra",
+      "insegna": "Fit Davide",
+      "azione": "felice",
+      "clienti": 1,
+      "testo": "sala quasi vuota, cassa piena"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Perché è contento? Perché la sala pesi ha novanta posti. Se venissero tutti e mille, in sala non ci starebbero. Davide dovrebbe comprare più attrezzi, più spazio, più istruttori. Il modello regge perché molti non vengono.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "bilancia",
+     "p": {
+      "titolo": "Posti contro iscritti",
+      "sinistra": "Novanta posti",
+      "destra": "Mille iscritti",
+      "pende": "destra"
+     }
+    },
+    {
+     "parola": "istruttori",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "palestra",
+      "insegna": "Fit Davide",
+      "azione": "preoccupato",
+      "clienti": 5,
+      "testo": "sala piena, caos totale"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "È un po' come un'assicurazione. Pagano in molti, usano in pochi. Se tutti avessero un incidente lo stesso giorno, la compagnia salterebbe. Lo stesso vale per un buffet a volontà: conta chi mangia, ma anche quanti ne arrivano insieme.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "confronto",
+     "p": {
+      "titolo": "Pagano e usano",
+      "a": {
+       "titolo": "Assicurazione",
+       "valore": "pagano in molti",
+       "oggetto": "casa"
+      },
+      "b": {
+       "titolo": "Palestra",
+       "valore": "vengono in pochi",
+       "oggetto": "manubrio"
+      },
+      "vincitore": ""
+     }
+    },
+    {
+     "parola": "buffet",
+     "tipo": "persone",
+     "p": {
+      "n": 6,
+      "azione": "fila",
+      "escono": 0,
+      "testo": "tutti insieme? ingorgo"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ora il guaio. Chi non viene, prima o poi se ne accorge. Guarda l'estratto conto e pensa: ma io ci vado mai? E a quel punto manda la disdetta. È il momento in cui la palestra perde soldi senza nemmeno vederlo arrivare.",
+   "capitolo": "Le disdette",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Ma io ci vado mai?",
+      "emozione": "preoccupato",
+      "scuro": true
+     }
+    },
+    {
+     "parola": "disdetta",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "manubrio",
+      "testo": "DISDETTA",
+      "colore": "rosso",
+      "nota": "un abbonato in meno"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Davide ha un tasso di disdetta del cinque per cento al mese. Cinque su cento. Su mille iscritti sono cinquanta persone che se ne vanno ogni mese. Cinquanta per trentanove fa millenovecentocinquanta euro in meno, ogni mese.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "conteggio",
+     "p": {
+      "oggetto": "manubrio",
+      "icone": 50,
+      "testo": "cinquanta disdette al mese"
+     }
+    },
+    {
+     "parola": "Cinquanta",
      "tipo": "formula",
      "p": {
-      "titolo": "Tre tagli in più al giorno",
-      "a": "3 × 31,50 €",
+      "titolo": "Incasso perso",
+      "a": "50 abbonati",
       "op": "×",
-      "b": "25 giorni",
-      "risultato": "2.363 €",
-      "nota": "Al mese, circa"
+      "b": "39 €",
+      "risultato": "1.950 €",
+      "nota": "ogni mese, se non rimpiazzi"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "E la perdita non si ferma. Se non entra nessuno di nuovo, il mese dopo ne perdi altri. Davide deve trovare cinquanta nuovi iscritti ogni mese solo per restare fermo. È come correre sul tapis roulant: se ti fermi, cadi.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "andamento",
+     "p": {
+      "titolo": "Iscritti senza nuovi arrivi",
+      "valori": [
+       1000,
+       950,
+       903,
+       858,
+       815,
+       774
+      ],
+      "etichette": [
+       "Mese uno",
+       "Due",
+       "Tre",
+       "Quattro",
+       "Cinque",
+       "Sei"
+      ],
+      "colore": "rosso"
      }
     },
     {
-     "parola": "cassa",
+     "parola": "tapis",
+     "tipo": "persone",
+     "p": {
+      "n": 4,
+      "azione": "entrano",
+      "escono": 0,
+      "testo": "correre per restare fermi"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Vediamo l'anno intero. A gennaio la palestra scoppia: buoni propositi, tutti iscritti. Poi da marzo si svuota. A luglio il deserto. A settembre si riparte. I mesi non sono tutti uguali, e per Davide è un'altalena.",
+   "capitolo": "Gennaio e il resto dell'anno",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "mesi",
+     "p": {
+      "titolo": "Nuovi iscritti per mese",
+      "valori": [
+       180,
+       90,
+       50,
+       40,
+       35,
+       30,
+       20,
+       15,
+       120,
+       80,
+       50,
+       30
+      ],
+      "evidenzia": [
+       1,
+       9
+      ],
+      "nota": "gennaio e settembre fanno il pieno"
+     }
+    },
+    {
+     "parola": "deserto",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "palestra",
+      "insegna": "Fit Davide",
+      "azione": "preoccupato",
+      "clienti": 0,
+      "testo": "luglio: sala vuota"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Qui c'è un punto che molti sbagliano. Guardare quanta gente c'è in sala non dice se la palestra va bene. Una sala vuota con mille abbonati paganti va benissimo. Una sala piena con pochi abbonati può essere un disastro.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Cosa NON guardare",
+      "voci": [
+       "Quanta gente c'è in sala",
+       "Quanti vengono oggi",
+       "Il numero di borse nello spogliatoio"
+      ]
+     }
+    },
+    {
+     "parola": "disastro",
+     "tipo": "confronto",
+     "p": {
+      "titolo": "Cosa conta di più",
+      "a": {
+       "titolo": "Sala piena, pochi abbonati",
+       "valore": "conti in rosso",
+       "oggetto": "manubrio"
+      },
+      "b": {
+       "titolo": "Sala vuota, tanti abbonati",
+       "valore": "conti in verde",
+       "oggetto": "manubrio"
+      },
+      "vincitore": "b"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Cosa guardare, allora? Primo: quanti abbonati attivi hai. Secondo: quante disdette arrivano ogni mese. Terzo: quanti nuovi iscritti entrano. Quarto: quanto incassi per abbonato. Sono quattro numeri, e bastano.",
+   "capitolo": "Cosa guardare",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "cruscotto",
+     "p": {
+      "titolo": "I quattro numeri della palestra",
+      "voci": [
+       {
+        "nome": "Abbonati attivi",
+        "valore": 0.8
+       },
+       {
+        "nome": "Disdette al mese",
+        "valore": 0.3
+       },
+       {
+        "nome": "Nuovi iscritti",
+        "valore": 0.5
+       },
+       {
+        "nome": "Incasso per abbonato",
+        "valore": 0.6
+       }
+      ]
+     }
+    },
+    {
+     "parola": "Quarto",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Da controllare ogni mese",
+      "voci": [
+       "Abbonati attivi",
+       "Disdette",
+       "Nuovi iscritti",
+       "Incasso per abbonato"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Il tasso di disdetta si calcola facile. Disdette del mese divise per abbonati di inizio mese. Cinquanta diviso mille fa zero virgola zero cinque: il cinque per cento. Segnalo ogni mese: se sale, hai un problema.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Tasso di disdetta",
+      "a": "50 disdette",
+      "op": "÷",
+      "b": "1.000 abbonati",
+      "risultato": "5 %",
+      "nota": "al mese"
+     }
+    },
+    {
+     "parola": "sale",
      "tipo": "andamento",
      "p": {
-      "titolo": "Guadagno di Sara",
+      "titolo": "Disdette, se salgono è un allarme",
       "valori": [
-       1600,
-       2000,
-       2400,
-       2800,
-       3200,
-       3900
+       3,
+       4,
+       5,
+       7,
+       9
       ],
       "etichette": [
-       "Ora",
-       "+1",
-       "+2",
-       "+3",
-       "+4",
-       "+5"
+       "Mese uno",
+       "Due",
+       "Tre",
+       "Quattro",
+       "Cinque"
+      ],
+      "colore": "rosso"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Quanto dura, in media, un abbonato? Basta dividere uno per il tasso di disdetta. Uno diviso zero virgola zero cinque fa venti mesi. Ogni persona resta circa venti mesi. Per trentanove euro: settecentottanta euro a testa.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Durata media di un abbonato",
+      "a": "1",
+      "op": "÷",
+      "b": "0,05",
+      "risultato": "20 mesi",
+      "nota": "un abbonato resta circa venti mesi"
+     }
+    },
+    {
+     "parola": "settecentottanta",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Valore di un abbonato",
+      "a": "20 mesi",
+      "op": "×",
+      "b": "39 €",
+      "risultato": "780 €",
+      "nota": "incasso totale per persona"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Settecentottanta euro. Ecco quanto vale un cliente per Davide. Se per convincerlo a iscriversi spende cento euro tra volantini e promozioni, conviene eccome. Se ne spende ottocento, sta regalando soldi. Sapere quel numero cambia le scelte.",
+   "capitolo": "Quanto vale un cliente",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "bilancia",
+     "p": {
+      "titolo": "Costo per trovarlo contro valore",
+      "sinistra": "Costo 100 €",
+      "destra": "Valore 780 €",
+      "pende": "destra"
+     }
+    },
+    {
+     "parola": "ottocento",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "manubrio",
+      "testo": "PERDITA",
+      "colore": "rosso",
+      "nota": "se spendi più di quanto vale"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Questo vale per ogni attività con clienti che tornano. Una lavanderia a gettoni che vede un cliente a settimana ha un altro calcolo. Un parrucchiere con la tessera fedeltà ne ha uno ancora diverso. Ognuno deve sapere quanto vale un cliente suo.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "confronto",
+     "p": {
+      "titolo": "Quanto vale un cliente",
+      "a": {
+       "titolo": "Lavanderia",
+       "valore": "un cliente a settimana",
+       "oggetto": "camicia"
+      },
+      "b": {
+       "titolo": "Parrucchiere",
+       "valore": "ogni sei settimane",
+       "oggetto": "forbici"
+      },
+      "vincitore": ""
+     }
+    },
+    {
+     "parola": "gettoni",
+     "tipo": "salvadanaio",
+     "p": {
+      "direzione": "riempie",
+      "testo": "i clienti che tornano riempiono"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Torniamo a Davide. C'è un'altra cosa che lo aiuta: le quote di iscrizione. Quando uno si iscrive, paga cinquanta euro di ingresso. Con cinquanta nuovi iscritti al mese, sono duemilacinquecento euro in più, in una volta.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "palestra",
+      "insegna": "Fit Davide",
+      "azione": "lavora",
+      "clienti": 2,
+      "testo": "iscrizione alla reception"
+     }
+    },
+    {
+     "parola": "cinquanta",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Quote di ingresso",
+      "a": "50 nuovi",
+      "op": "×",
+      "b": "50 €",
+      "risultato": "2.500 €",
+      "nota": "una tantum, ogni mese"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Mettiamo tutto in fila per un mese normale. Entrate dagli abbonamenti, trentanovemila euro. Quote d'ingresso, duemilacinquecento. Totale: quarantunmilacinquecento. Meno i costi fissi: restano trentunmiladuecento euro?",
+   "capitolo": "Il conto vero",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Entrate del mese",
+      "a": "39.000 €",
+      "op": "+",
+      "b": "2.500 €",
+      "risultato": "41.500 €",
+      "nota": "abbonamenti e ingressi"
+     }
+    },
+    {
+     "parola": "restano",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Davvero tutto guadagno?",
+      "emozione": "stupito",
+      "scuro": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "No, perché ho barato. Quei mille iscritti con trentanove euro sono il caso più bello. Davide in realtà ha prezzi diversi: promozioni, tariffe annuali scontate, studenti. L'incasso medio vero è ventinove euro a testa.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "manubrio",
+      "prezzo": "39 €",
+      "nuovo_prezzo": "29 €",
+      "nota": "incasso medio reale per abbonato"
+     }
+    },
+    {
+     "parola": "promozioni",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Perché si incassa meno",
+      "voci": [
+       "Promozioni di ingresso",
+       "Tariffe annuali scontate",
+       "Sconti studenti",
+       "Mesi gratis per amici"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Rifacciamo il conto. Mille per ventinove fa ventinovemila euro. Più duemilacinquecento di ingressi: trentunmilacinquecento. Meno novemilanovecento di costi fissi: restano ventunmilaseicento euro. È già più realistico, e ancora bello.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Incasso con prezzo medio",
+      "a": "1.000 abbonati",
+      "op": "×",
+      "b": "29 €",
+      "risultato": "29.000 €",
+      "nota": "prima di ingressi e costi"
+     }
+    },
+    {
+     "parola": "Meno",
+     "tipo": "fette",
+     "p": {
+      "titolo": "Dove vanno i soldi del mese",
+      "totale": 31500,
+      "totale_testo": "31.500 €",
+      "fette": [
+       {
+        "nome": "Affitto",
+        "valore": 3000,
+        "testo": "3.000 €"
+       },
+       {
+        "nome": "Stipendi",
+        "valore": 4000,
+        "testo": "4.000 €"
+       },
+       {
+        "nome": "Luce, pulizie, altro",
+        "valore": 2900,
+        "testo": "2.900 €"
+       },
+       {
+        "nome": "Resta a Davide",
+        "valore": 21600,
+        "testo": "21.600 €"
+       }
+      ],
+      "evidenzia": 3
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ma anche qui un dettaglio: ventunmilaseicento è prima di tasse, rate delle macchine e manutenzione. Un tapis roulant costa ottomila euro e dura cinque anni. Sono circa centotrentatré euro al mese per macchina. Con venti macchine fanno duemilaseicentosessanta.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Costo mensile di una macchina",
+      "a": "8.000 €",
+      "op": "÷",
+      "b": "60 mesi",
+      "risultato": "133 € al mese",
+      "nota": "cinque anni di vita"
+     }
+    },
+    {
+     "parola": "Con",
+     "tipo": "soldi",
+     "p": {
+      "centro": "21.600 €",
+      "destinazioni": [
+       "Macchine",
+       "Tasse",
+       "Manutenzione",
+       "Davide"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Quindi cosa fa Davide per stare tranquillo? Prima cosa: tiene d'occhio le disdette come un falco. Seconda: rende facile andare in palestra. Un cliente che viene due volte a settimana non disdice quasi mai. Chi sparisce, invece, scappa.",
+   "capitolo": "Come migliora",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "leve",
+     "p": {
+      "titolo": "Le leve di Davide",
+      "voci": [
+       "Meno disdette",
+       "Più presenze dei clienti",
+       "Più nuovi iscritti",
+       "Prezzo medio più alto"
+      ],
+      "evidenzia": 0
+     }
+    },
+    {
+     "parola": "sparisce",
+     "tipo": "persone",
+     "p": {
+      "n": 6,
+      "azione": "escono",
+      "escono": 4,
+      "testo": "chi non viene, prima o poi se ne va"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Un trucco furbo: un messaggio a chi non viene da tre settimane. Un invito a un corso gratis, un saluto dall'istruttore. Costa nulla, e se salva anche solo dieci disdette al mese, sono trecentonovanta euro. Ogni mese.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "palestra",
+      "insegna": "Fit Davide",
+      "azione": "lavora",
+      "clienti": 1,
+      "testo": "un messaggio a chi manca"
+     }
+    },
+    {
+     "parola": "dieci",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Disdette evitate",
+      "a": "10 abbonati",
+      "op": "×",
+      "b": "39 €",
+      "risultato": "390 €",
+      "nota": "ogni mese, a costo quasi zero"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Un altro esempio, fuori dalla palestra. Pensa a un servizio di abbonamento di sushi a domicilio. Gli abbonati più sicuri sono quelli che ordinano spesso. Chi dimentica di ordinare, dopo due mesi, cancella. Stesso meccanismo, altro cibo.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "confronto",
+     "p": {
+      "titolo": "Chi resta e chi cancella",
+      "a": {
+       "titolo": "Ordina spesso",
+       "valore": "resta",
+       "oggetto": "sushi"
+      },
+      "b": {
+       "titolo": "Non ordina mai",
+       "valore": "cancella",
+       "oggetto": "sushi"
+      },
+      "vincitore": "a"
+     }
+    },
+    {
+     "parola": "cancella",
+     "tipo": "andamento",
+     "p": {
+      "titolo": "Abbonati che restano nel tempo",
+      "valori": [
+       100,
+       92,
+       85,
+       80,
+       77,
+       75
+      ],
+      "etichette": [
+       "Mese uno",
+       "Due",
+       "Tre",
+       "Quattro",
+       "Cinque",
+       "Sei"
       ],
       "colore": "verde"
      }
@@ -982,151 +1065,63 @@
    ]
   },
   {
-   "testo": "Ma ci sono tre leve per migliorare. Primo: alzare il prezzo. Secondo: riempire le ore vuote. Terzo: aumentare quanto vale ogni ora, vendendo un servizio più pieno, come colore o trattamenti. Vediamole una a una.",
-   "capitolo": "Le leve",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "leve",
-     "p": {
-      "titolo": "Tre leve per un salone",
-      "voci": [
-       "Alzare il prezzo",
-       "Riempire le ore vuote",
-       "Servizi che valgono di più"
-      ],
-      "evidenzia": 0
-     }
-    },
-    {
-     "parola": "Primo",
-     "tipo": "prezzo",
-     "p": {
-      "oggetto": "forbici",
-      "prezzo": "35 €",
-      "nuovo_prezzo": "40 €",
-      "nota": "Piccolo ritocco"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Leva uno: il prezzo. Sara passa da trentacinque a quaranta euro. Cinque euro in più su otto clienti sono quaranta euro al giorno, mille euro al mese. E basta perdere un solo cliente a settimana per accorgersene? No. Spesso nessuno se ne va.",
+   "testo": "Terza leva: il prezzo. Se Davide alza l'abbonamento da trentanove a quarantaquattro euro, cinque euro in più per mille abbonati sono cinquemila euro al mese. Ma qualcuno se ne va. Quanti? Il test è tutto qui.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "manubrio",
+      "prezzo": "39 €",
+      "nuovo_prezzo": "44 €",
+      "nota": "cinque euro in più"
+     }
+    },
+    {
+     "parola": "cinquemila",
      "tipo": "formula",
      "p": {
-      "titolo": "Cinque euro in più",
-      "a": "5 € × 8",
+      "titolo": "Se nessuno se ne va",
+      "a": "1.000 abbonati",
       "op": "×",
-      "b": "25 giorni",
-      "risultato": "1.000 €",
-      "nota": "Al mese, in più"
-     }
-    },
-    {
-     "parola": "Spesso",
-     "tipo": "pareggio",
-     "p": {
-      "titolo": "Pareggio con il prezzo nuovo",
-      "fissi": 4500,
-      "margine": 31.5,
-      "nuovo_margine": 36.5,
-      "unita": "tagli al mese",
-      "oggetto": "forbici",
-      "perdita": true,
-      "guadagno": true
+      "b": "5 €",
+      "risultato": "5.000 €",
+      "nota": "al mese, in più"
      }
     }
    ]
   },
   {
-   "testo": "Leva due: riempire le ore vuote. Sara scopre che il martedì pomeriggio è morto. Propone un taglio con sconto, ma solo in quella fascia. Un'ora vuota rende zero. Un'ora scontata rende comunque qualcosa. Meglio venti euro che niente.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "orologio",
-     "p": {
-      "ore": 10,
-      "piene": 6,
-      "testo": "Martedì pomeriggio vuoto"
-     }
-    },
-    {
-     "parola": "sconto",
-     "tipo": "prezzo",
-     "p": {
-      "oggetto": "forbici",
-      "prezzo": "35 €",
-      "nuovo_prezzo": "28 €",
-      "nota": "Solo martedì pomeriggio"
-     }
-    },
-    {
-     "parola": "Meglio",
-     "tipo": "confronto",
-     "p": {
-      "titolo": "Un'ora di martedì",
-      "a": {
-       "titolo": "Vuota",
-       "valore": "0 €",
-       "oggetto": "poltrona"
-      },
-      "b": {
-       "titolo": "Scontata",
-       "valore": "28 €",
-       "oggetto": "forbici"
-      },
-      "vincitore": "b"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Leva tre: il valore dell'ora. Un taglio rende trentacinque euro in un'ora e un quarto. Un colore con trattamento ne rende ottanta in due ore. Fa quaranta euro l'ora contro ventotto. Stesso tempo, ricavo più alto.",
+   "testo": "Facciamo i conti del rischio. Se con il nuovo prezzo se ne vanno cento abbonati, ne restano novecento. Novecento per quarantaquattro fa trentanovemilaseicento euro. Contro trentanovemila di prima. Conviene, anche perdendo cento persone.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "formula",
      "p": {
-      "titolo": "Taglio: euro all'ora",
-      "a": "35 €",
-      "op": "÷",
-      "b": "1,25 ore",
-      "risultato": "28 €/ora",
-      "nota": "Servizio base"
+      "titolo": "Con il prezzo nuovo",
+      "a": "900 abbonati",
+      "op": "×",
+      "b": "44 €",
+      "risultato": "39.600 €",
+      "nota": "contro 39.000 € di prima"
      }
     },
     {
-     "parola": "colore",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Colore: euro all'ora",
-      "a": "80 €",
-      "op": "÷",
-      "b": "2 ore",
-      "risultato": "40 €/ora",
-      "nota": "Servizio ricco"
-     }
-    },
-    {
-     "parola": "Stesso",
+     "parola": "conviene",
      "tipo": "confronto",
      "p": {
-      "titolo": "Cosa rende di più in un'ora",
+      "titolo": "Prima e dopo",
       "a": {
-       "titolo": "Taglio",
-       "valore": "28 €",
-       "oggetto": "forbici"
+       "titolo": "Mille a trentanove",
+       "valore": "39.000 €",
+       "oggetto": "manubrio"
       },
       "b": {
-       "titolo": "Colore",
-       "valore": "40 €",
-       "oggetto": "colore"
+       "titolo": "Novecento a quarantaquattro",
+       "valore": "39.600 €",
+       "oggetto": "manubrio"
       },
       "vincitore": "b"
      }
@@ -1134,32 +1129,27 @@
    ]
   },
   {
-   "testo": "Pensa a un'officina: cambiare una gomma rende poco, una revisione completa rende molto di più nello stesso tempo. Il meccanico bravo non conta le auto, conta quanto rende ogni ora di ponte sollevatore. Tu come conti?",
+   "testo": "Occhio, però: meno abbonati significa anche meno ingressi futuri e più sala libera. E se i cento che se ne vanno sono quelli che venivano di più, hai perso i tuoi clienti migliori. Prima di alzare il prezzo, controlla chi rischi di perdere.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "confronto",
+     "tipo": "lista",
      "p": {
-      "titolo": "Un'ora in officina",
-      "a": {
-       "titolo": "Cambio gomma",
-       "valore": "25 €",
-       "oggetto": "gomma"
-      },
-      "b": {
-       "titolo": "Revisione",
-       "valore": "60 €",
-       "oggetto": "auto"
-      },
-      "vincitore": "b"
+      "titolo": "Prima di alzare il prezzo",
+      "voci": [
+       "Chi rischi di perdere",
+       "Quanti vengono davvero",
+       "Cosa fa la palestra vicina",
+       "Prova su un gruppo piccolo"
+      ]
      }
     },
     {
-     "parola": "Tu",
+     "parola": "controlla",
      "tipo": "domanda",
      "p": {
-      "testo": "Quanto rende un'ora tua?",
+      "testo": "Chi perdi davvero?",
       "emozione": "calmo",
       "scuro": false
      }
@@ -1167,168 +1157,77 @@
    ]
   },
   {
-   "testo": "Sara prova le tre leve insieme. Prezzo a quaranta euro, tre clienti in più al giorno grazie alle fasce scontate, e un colore ogni giorno. Dopo tre mesi il suo guadagno mensile arriva a quasi quattromila euro.",
-   "capitolo": "Il risultato",
+   "testo": "E il rischio più grande? Dipendere da gennaio. Se Davide spende tutto quello che incassa ai picchi, quando arriva luglio non ha cuscinetto. Il bravo gestore mette da parte nei mesi buoni, per pagare quelli deboli.",
+   "capitolo": "Il cuscinetto",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "salone",
-      "insegna": "Da Sara",
-      "azione": "felice",
-      "clienti": 4,
-      "testo": "Poltrone piene"
-     }
-    },
-    {
-     "parola": "tre",
-     "tipo": "mesi",
-     "p": {
-      "titolo": "Guadagno di Sara in un anno",
-      "valori": [
-       1600,
-       1700,
-       2200,
-       2800,
-       3300,
-       3700,
-       3900,
-       3900,
-       3800,
-       3900,
-       3950,
-       4000
-      ],
-      "evidenzia": [
-       6,
-       7,
-       8,
-       9,
-       10,
-       11,
-       12
-      ],
-      "nota": "Dopo le tre leve"
-     }
-    },
-    {
-     "parola": "quattromila",
      "tipo": "salvadanaio",
      "p": {
       "direzione": "riempie",
-      "testo": "Il conto torna a crescere"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Ricapitoliamo cosa guardare e cosa no. Non guardare l'agenda piena: guarda le ore occupate. Non guardare l'incasso lordo: guarda il margine. Non guardare solo i clienti: guarda quanto rende ogni ora. Segnatelo.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "lista",
-     "p": {
-      "titolo": "Cosa guardare davvero",
-      "voci": [
-       "Ore occupate, non agenda piena",
-       "Margine, non incasso",
-       "Euro all'ora, non solo clienti",
-       "Costo dell'ora vuota"
-      ]
+      "testo": "metti da parte nei mesi buoni"
      }
     },
     {
-     "parola": "Segnatelo",
-     "tipo": "cruscotto",
+     "parola": "luglio",
+     "tipo": "mesi",
      "p": {
-      "titolo": "Gli indicatori del salone",
-      "voci": [
-       {
-        "nome": "Ore occupate",
-        "valore": 0.8
-       },
-       {
-        "nome": "Margine",
-        "valore": 0.6
-       },
-       {
-        "nome": "Valore ora",
-        "valore": 0.7
-       }
-      ]
+      "titolo": "Cassa della palestra, mese per mese",
+      "valori": [
+       45,
+       30,
+       25,
+       20,
+       18,
+       15,
+       5,
+       3,
+       35,
+       28,
+       22,
+       18
+      ],
+      "evidenzia": [
+       7,
+       8
+      ],
+      "nota": "luglio e agosto sono i mesi deboli"
      }
     }
    ]
   },
   {
-   "testo": "E tu? Se hai un'attività dove vendi il tuo tempo, fai questo esercizio stasera. Prendi i costi fissi del mese, dividili per le ore di apertura. Quel numero è quanto ti costa ogni ora. Ne sei sorpreso?",
+   "testo": "Con ventunmila euro di margine e un cuscinetto di sei mesi di costi fissi, Davide dorme tranquillo. Sei per novemilanovecento fa cinquantanovemilaquattrocento euro. Quella cifra lo protegge se un anno le iscrizioni crollano.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "formula",
      "p": {
-      "titolo": "Il tuo esercizio",
-      "a": "Costi fissi",
-      "op": "÷",
-      "b": "Ore aperte",
-      "risultato": "Costo dell'ora",
-      "nota": "Fallo stasera"
+      "titolo": "Cuscinetto di sei mesi",
+      "a": "6 mesi",
+      "op": "×",
+      "b": "9.900 €",
+      "risultato": "59.400 €",
+      "nota": "copre i costi fissi senza incassi"
      }
     },
     {
-     "parola": "Ne",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Ti ha sorpreso?",
-      "emozione": "stupito",
-      "scuro": false
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Torniamo da Sara. Venticinque giorni di lavoro, otto clienti, e milleseicento euro a fine mese. Non per colpa del prezzo, ma delle ore vuote. Oggi lavora uguale, ma con poltrone piene e prezzi giusti.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
+     "parola": "dorme",
      "tipo": "luogo",
      "p": {
-      "luogo": "salone",
-      "insegna": "Da Sara",
+      "luogo": "palestra",
+      "insegna": "Fit Davide",
       "azione": "felice",
-      "clienti": 5,
-      "testo": "Salone pieno, conti giusti"
-     }
-    },
-    {
-     "parola": "Oggi",
-     "tipo": "andamento",
-     "p": {
-      "titolo": "Guadagno mensile di Sara",
-      "valori": [
-       1600,
-       2400,
-       3200,
-       3900
-      ],
-      "etichette": [
-       "Prima",
-       "Mese uno",
-       "Mese due",
-       "Mese tre"
-      ],
-      "colore": "verde"
+      "clienti": 1,
+      "testo": "un cuscinetto fa dormire"
      }
     }
    ]
   },
   {
-   "testo": "Quindi, quanto guadagna davvero un parrucchiere in un giorno? Dipende da quante ore riempie, non da quanti clienti ha. Un'ora vuota costa, un'ora piena rende. E il prezzo giusto copre entrambe.",
-   "capitolo": "",
+   "testo": "Chiudiamo il cerchio. La palestra guadagna perché molti pagano e pochi vengono, ma questo equilibrio è fragile. Se le disdette salgono, se i nuovi iscritti calano, o se tutti vengono insieme, i conti saltano. Servono controllo e numeri.",
+   "capitolo": "Riassunto",
    "inquadrature": [
     {
      "parola": "",
@@ -1336,46 +1235,75 @@
      "p": {
       "titolo": "Da ricordare",
       "voci": [
-       "Vendi ore, non oggetti",
-       "Un'ora vuota costa uguale",
-       "Il prezzo copre anche le ore vuote",
-       "Guarda quanto rende un'ora"
+       "Pagano in molti, vengono in pochi",
+       "Costi fissi alti: serve il pareggio",
+       "Controlla le disdette ogni mese",
+       "Un cliente vale più di un mese"
       ]
      }
     },
     {
-     "parola": "Dipende",
+     "parola": "fragile",
      "tipo": "timbro",
      "p": {
-      "oggetto": "forbici",
-      "testo": "ORE PIENE",
+      "oggetto": "manubrio",
+      "testo": "EQUILIBRIO",
       "colore": "verde",
-      "nota": "La vera risposta"
+      "nota": "se tieni d'occhio i numeri"
      }
     }
    ]
   },
   {
-   "testo": "Nel prossimo episodio entriamo in una pizzeria e scopriamo perché la pizza costa nove euro ma l'impasto ne costa pochissimi. Dove finisce il resto? Iscriviti per non perderti la risposta.",
+   "testo": "E tu? Se hai un'attività con abbonamenti, sai quante disdette hai ogni mese? Sai quanto vale un tuo cliente? Prova a calcolarlo stasera. Basta un foglio e due minuti, e potresti scoprire dove perdi soldi senza accorgertene.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Sai quanto vale un cliente?",
+      "emozione": "calmo",
+      "scuro": false
+     }
+    },
+    {
+     "parola": "foglio",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Stasera, con un foglio",
+      "voci": [
+       "Quanti abbonati hai",
+       "Quante disdette al mese",
+       "Quanto incassi in media",
+       "Quanto vale un cliente"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Nel prossimo episodio entriamo in una lavanderia a gettoni. Macchine che lavorano da sole, clienti che non vedi mai, e un conto che sembra troppo bello per essere vero. Scopriamo quanto resta davvero. Iscriviti!",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "prossimo",
      "p": {
-      "luogo": "pizzeria",
-      "insegna": "Da Gennaro",
-      "oggetto": "pizza",
-      "testo": "Perché la pizza costa nove euro?"
+      "luogo": "lavanderia",
+      "insegna": "Lavanderia Bolle",
+      "oggetto": "camicia",
+      "testo": "La lavanderia che lavora da sola"
      }
     },
     {
      "parola": "Iscriviti",
-     "tipo": "domanda",
+     "tipo": "persone",
      "p": {
-      "testo": "Iscriviti al canale!",
-      "emozione": "felice",
-      "scuro": false
+      "n": 5,
+      "azione": "entrano",
+      "escono": 0,
+      "testo": "iscriviti per il prossimo episodio"
      }
     }
    ]
