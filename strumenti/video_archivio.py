@@ -535,6 +535,7 @@ elif STILE_COP == 'etichetta_rossa':   # senza ritocco: anche il fotogramma vero
         subprocess.run(['ffmpeg', '-y', '-v', 'error', '-ss', str(sec_), '-i', VIDEO, '-frames:v', '1', base])
         im = senza_bordi_neri(Image.open(base).convert('RGB').resize((1280, 720)))
 TESTO_COP = str(P.get('testo_copertina') or '').strip() or str(c.get('testo_copertina') or '').strip() or 'WHY?'
+TESTO_COP = TESTO_COP.rstrip(' .')   # 10 nov (Giorgio): nelle copertine MAI il punto finale
 if STILE_COP == 'etichetta_rossa':
     # STILE B (2 nov, Giorgio): bianco e nero d'archivio, fascia rossa con la frase in bianco. Leggibile da telefono:
     # al massimo 2 righe, lettere alte almeno 80 px su 720 (ad anteprima piccola restano leggibili)
@@ -545,7 +546,7 @@ if STILE_COP == 'etichetta_rossa':
     alto_ = VOLTO_SX or _VAR == 0   # fascia in alto (a destra mai in basso: c'e' la durata del video)
     if alto_:   # nel 40% libero accanto al volto: una parola per riga (max 3 righe), lettere grandi
         righe = parole if len(parole) <= 3 else [' '.join(parole[:(len(parole) + 1) // 2]), ' '.join(parole[(len(parole) + 1) // 2:])]
-        s_, larg_max = 175, 1280 * .40 - 44
+        s_, larg_max = 180, 1280 * .48 - 44   # 10 nov (Giorgio): lettere grandi come la copertina di Guderian (la migliore), circa 175 px
     else:
         righe = [' '.join(parole)] if len(parole) <= 2 else [' '.join(parole[:(len(parole) + 1) // 2]), ' '.join(parole[(len(parole) + 1) // 2:])]
         s_, larg_max = 165, 760
