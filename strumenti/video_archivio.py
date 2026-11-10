@@ -565,22 +565,70 @@ if STILE_COP == 'etichetta_rossa':
         y += (b_ - t_) + 30 + 8
     log('testo copertina:', TESTO_COP, '| altezza lettere', s_, 'px')
 else:
-    g = Image.new('L', (1280, 1))
-    for x in range(1280):
-        g.putpixel((x, 0), int(170 * max(0, (((x / 1280) if VOLTO_SX else (1 - x / 1280)) - .5) / .5)))   # scuro dal lato della scritta
-    im.paste(Image.new('RGB', (1280, 720)), (0, 0), g.resize((1280, 720))); d = ImageDraw.Draw(im)
-    log('testo copertina:', TESTO_COP, '(dal foglio)' if str(P.get('testo_copertina') or '').strip() else '(creato dal titolo e dalla copertina del competitor)')
+    # 10 nov (Giorgio, Orbital Days): la scritta NON deve mai coprire la persona ne' il soggetto, e mai dietro la durata (in basso a destra).
+    # MANO LIBERA resta: stile fisso (bianco + ultima parola azzurra, contorno nero), posto e grandezza cambiano. Haiku dice dov'e' il soggetto
+    # (~0,001 $), poi si prova ogni posto libero (colonna del lato vuoto, in alto o in basso) e si sceglie quello con le lettere piu' grandi.
+    im.save(os.path.join(CART, 'copertina_base.jpg'), quality=92)   # base senza scritta: si riscrive gratis
+    sog = (0, 0, 0, 0)
+    try:
+        buf = io.BytesIO(); x_ = im.copy(); x_.save(buf, 'JPEG', quality=85)
+        t_ = claude('This is a 1280x720 thumbnail. Give the bounding box (pixels) of the MAIN SUBJECT: the person(s) (whole visible body, helmet included) '
+                    'and the key object they interact with. Answer ONLY {"x1":..,"y1":..,"x2":..,"y2":..}.', modello='claude-haiku-4-5-20251001', max_tokens=60, immagine=buf.getvalue())
+        b_ = json_sicuro(t_); sog = tuple(int(b_[k]) for k in ('x1', 'y1', 'x2', 'y2'))
+        log('copertina: soggetto in', sog)
+    except Exception as e:
+        log('posizione soggetto non trovata, uso il lato libero previsto:', str(e)[:100])
+        sog = (0, 0, 640, 720) if VOLTO_SX else (640, 0, 1280, 720)
+    d = ImageDraw.Draw(im)
     parole = TESTO_COP.upper().split(); righe = [' '.join(parole[:-1]), parole[-1]] if len(parole) > 1 else parole
-    misure = []
-    for rr in righe:
-        s_ = 240
-        while s_ > 60 and d.textlength(rr, font=ImageFont.truetype(FP, s_)) > 600:
-            s_ -= 4
-        misure.append(s_)
-    y = (720 - 70 - int(sum(misure) * 1.02)) if TESTO_BASSO else 110
+    def _misure(larg, alt):
+        s0 = 230
+        while s0 > 70:
+            ms = [s0] * len(righe)
+            ms = [min(s0, max(60, int(s0 * larg / max(1, d.textlength(r_, font=ImageFont.truetype(FP, s0)))))) for r_ in righe]
+            if sum(int(m * 1.02) for m in ms) <= alt:
+                return ms
+            s0 -= 6
+        return None
+    candidati = []
+    for lato in ('sx', 'dx'):
+        for vert in ('alto', 'basso'):
+            if lato == 'dx' and vert == 'basso':
+                continue   # mai dietro la durata del video
+            # zona libera: dal bordo fino al soggetto (con aria), oppure sopra/sotto il soggetto
+            x0, x1 = (45, sog[0] - 30) if lato == 'sx' else (sog[2] + 30, 1280 - 45)
+            if x1 - x0 < 240:   # accanto non c'e' spazio: proviamo sopra o sotto il soggetto, su tutta la meta' del lato
+                x0, x1 = (45, 640) if lato == 'sx' else (640, 1280 - 45)
+                y0, y1 = (35, sog[1] - 25) if vert == 'alto' else (sog[3] + 25, 720 - 40)
+            else:
+                y0, y1 = (35, 720 - 40) if lato == 'sx' else (35, 720 - 175)
+            if lato == 'dx':
+                y1 = min(y1, 720 - 175)
+            if x1 - x0 < 240 or y1 - y0 < 150:
+                continue
+            ms = _misure(min(x1 - x0, 600), y1 - y0)
+            if ms:
+                candidati.append((min(ms), lato, vert, x0, x1, y0, y1, ms))
+    # MANO LIBERA: tra i posti buoni (lettere almeno l'85% del migliore) si alterna in base al giorno
+    if candidati:
+        top = max(c_[0] for c_ in candidati)
+        buoni = sorted([c_ for c_ in candidati if c_[0] >= top * .85], key=lambda c_: (c_[1], c_[2]))
+        _, lato, vert, x0, x1, y0, y1, misure = buoni[_VAR % len(buoni)]
+    else:   # nessun posto libero: il lato con piu' spazio accanto al soggetto, in alto, lettere piu' piccole
+        lato = 'sx' if sog[0] >= 1280 - sog[2] else 'dx'; vert = 'alto'
+        x0, x1, y0, y1 = (45, max(200, sog[0] - 25), 35, 680) if lato == 'sx' else (min(1080, sog[2] + 25), 1235, 35, 545)
+        misure = _misure(x1 - x0, y1 - y0) or [80] * len(righe)
+    log('copertina: scritta', lato, vert, '| lettere', misure)
+    # ombra solo sotto la scritta (non piu' meta' immagine scurita): l'immagine resta limpida
+    alt_tot = sum(int(m * 1.02) for m in misure)
+    y = y0 if vert == 'alto' else y1 - alt_tot
+    ombra = Image.new('L', (1280, 720), 0); do = ImageDraw.Draw(ombra)
+    do.rectangle((x0 - 40, y - 30, x1 + 40, y + alt_tot + 30), fill=120)
+    from PIL import ImageFilter as _IF
+    im.paste(Image.new('RGB', (1280, 720)), (0, 0), ombra.filter(_IF.GaussianBlur(45))); d = ImageDraw.Draw(im)
     for i, (rr, s_) in enumerate(zip(righe, misure)):
         f_ = ImageFont.truetype(FP, s_)
-        x_ = (1280 - 50 - d.textlength(rr, font=f_)) if VOLTO_SX else 50
+        x_ = (x1 - d.textlength(rr, font=f_)) if lato == 'dx' else x0
         d.text((x_, y), rr, font=f_, fill='#4FD2FF' if i == len(righe) - 1 and len(righe) > 1 else 'white', stroke_width=max(8, s_ // 11), stroke_fill=(0, 0, 0))
         y += int(s_ * 1.02)
 COP = os.path.join(CART, 'copertina.jpg'); im.save(COP, quality=92)

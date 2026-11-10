@@ -38,6 +38,7 @@ codice = codice.replace("open(FP, 'wb').write(get('https://github.com/google/fon
                         "None if os.path.exists(FP) else open(FP, 'wb').write(get('https://cdn.jsdelivr.net/gh/google/fonts@main/ofl/anton/Anton-Regular.ttf', raw=True))")
 codice = codice.replace("    from PIL import ImageOps as _IO, ImageEnhance as _IE\n",
                         "    im.save(os.path.join(CART, NOME + '_base.jpg'), quality=92)   # base senza scritte: si riscrive gratis\n    from PIL import ImageOps as _IO, ImageEnhance as _IE\n", 1)
+codice = codice.replace("os.path.join(CART, 'copertina_base.jpg')", "os.path.join(CART, NOME + '_base.jpg')")
 exec(codice, g)
 out = os.path.join(CART, NOME + '.jpg'); g['im'].save(out, quality=92)
 log('copertina pronta:', out, '| spesa', round(SPESA['usd'], 3), '$')
