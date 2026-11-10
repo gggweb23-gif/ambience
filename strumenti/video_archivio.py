@@ -572,9 +572,10 @@ else:
     sog = (0, 0, 0, 0)
     try:
         buf = io.BytesIO(); x_ = im.copy(); x_.save(buf, 'JPEG', quality=85)
-        t_ = claude('This is a 1280x720 thumbnail. Give the bounding box (pixels) of the MAIN SUBJECT: the person(s) (whole visible body, helmet included) '
-                    'and the key object they interact with. Answer ONLY {"x1":..,"y1":..,"x2":..,"y2":..}.', modello='claude-haiku-4-5-20251001', max_tokens=60, immagine=buf.getvalue())
-        b_ = json_sicuro(t_); sog = tuple(int(b_[k]) for k in ('x1', 'y1', 'x2', 'y2'))
+        t_ = claude('This is a 1280x720 thumbnail. Give the bounding boxes (pixels) of EVERY person (whole visible body, helmet included) and of the key object '
+                    'they interact with. Answer ONLY {"box": [[x1, y1, x2, y2], ...]}.', modello='claude-haiku-4-5-20251001', max_tokens=300, immagine=buf.getvalue())
+        bx = [[int(float(v)) for v in b_[:4]] for b_ in json_sicuro(t_)['box'] if len(b_) >= 4]
+        sog = (min(b_[0] for b_ in bx), min(b_[1] for b_ in bx), max(b_[2] for b_ in bx), max(b_[3] for b_ in bx))   # tutte le persone insieme
         log('copertina: soggetto in', sog)
     except Exception as e:
         log('posizione soggetto non trovata, uso il lato libero previsto:', str(e)[:100])
