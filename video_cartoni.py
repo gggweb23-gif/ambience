@@ -277,6 +277,8 @@ def copertina_ai(pg, ca, ctx, cop):
     pg.evaluate('c => bozza_ai(c)', dict(ca, oggetto=ctx.get('oggetto'), alto=alto)); pg.wait_for_timeout(300)
     pg.screenshot(path=bozza, type='jpeg', quality=92)
     vs, vd = str(ca.get('valore_sx') or '').strip(), str(ca.get('valore_dx') or '').strip()
+    senza_logo = lambda t: re.sub(r'\s*\b(with|and)?\s*\b(a|an|the)?\s*(?:[\w-]+\s+)?\b(logo|brand|label|writing|text)s?\b', '', str(t or ''), flags=re.I).strip(' ,')   # 10 nov: un "logo" faceva scrivere parole all'AI
+    ca = dict(ca, oggetto_sx=senza_logo(ca.get('oggetto_sx')), oggetto_dx=senza_logo(ca.get('oggetto_dx')))
     stile_ = ('as a striking PHOTOREALISTIC thumbnail: the objects are REAL PHOTOGRAPHS, big and sharp, with studio light and soft shadows, on flat coloured backgrounds, very readable on a phone, 16:9. '
               if foto else 'as a polished 2D cartoon / flat vector explainer thumbnail: clean thick dark outlines, bright friendly colours, soft gradients and subtle shadows, very readable on a phone, 16:9. ')
     prompt = ('Redesign this rough YouTube thumbnail draft for an Italian channel about how much businesses really earn, ' + stile_ +
@@ -301,7 +303,8 @@ def copertina_ai(pg, ca, ctx, cop):
             open(img, 'wb').write(r.read())
         # controllo scritte (Claude guarda l'immagine): solo COSTA, LO VENDI e i due valori, scritti giusti
         dom = ('Look at this thumbnail image. Answer ONLY with JSON {"ok": true|false, "motivo": "..."}. ok = true ONLY if: the texts "COSTA", "LO VENDI", '
-               f'"{vs}" and "{vd}" are present and spelled exactly, there is NO other readable word or label anywhere, and the dark band is at the ' + ('TOP' if alto else 'BOTTOM') + ' (about 30% of the height), empty, and no drawing or value enters it.')
+               f'"{vs}" and "{vd}" are present and spelled exactly, and there is NO other readable word or label anywhere OUTSIDE the ' + ('TOP' if alto else 'BOTTOM') +
+               ' 30% of the image (that strip will be covered by a dark band, so ignore whatever is there).')   # 10 nov: prima bocciava copertine giuste per la fascia
         j = http('https://api.anthropic.com/v1/messages', {'model': MODELLO, 'max_tokens': 300, 'messages': [{'role': 'user', 'content': [
             {'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(open(img, 'rb').read()).decode()}},
             {'type': 'text', 'text': dom}]}]}, {'x-api-key': E('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01'})
@@ -316,7 +319,27 @@ def copertina_ai(pg, ca, ctx, cop):
             pg.screenshot(path=cop, type='jpeg', quality=92)
             log('copertina AI pronta (COSTA / LO VENDI + targa)')
             return
-    raise RuntimeError('scritte sbagliate anche al terzo tentativo')
+    # 10 nov (Giorgio): mai la vecchia copertina fuori stile. Ultima riserva: l'AI disegna la stessa copertina SENZA nessuna scritta
+    # (non sbaglia mai) e COSTA / LO VENDI / i due valori li scrive il codice; poi la banda con la domanda come sempre.
+    log('copertina AI: ultima riserva, immagine senza scritte + scritte dal codice')
+    p2 = re.sub(r'The ONLY texts in the image.*?small sparkles around the right value\. ', 'Absolutely NO text, NO letters, NO numbers anywhere in the image (they are added later); leave the top area of each half above the objects and the area under each object free for them, small sparkles on the right side. ', prompt, flags=re.S)
+    inv = http('https://queue.fal.run/fal-ai/nano-banana-2/edit', {'prompt': p2, 'image_urls': [rif], 'aspect_ratio': '16:9', 'resolution': '2K', 'output_format': 'jpeg', 'num_images': 1}, H)
+    CO.registra('fal', 'fal-ai/nano-banana-2/edit', dollari=0.08, nota='copertina AI senza scritte')
+    for _ in range(150):
+        time.sleep(4)
+        if http(inv['status_url'], headers=H).get('status') == 'COMPLETED':
+            break
+    img = os.path.join(LAV, 'copertina_ai_muta.jpg')
+    with urllib.request.urlopen(http(inv['response_url'], headers=H)['images'][0]['url'], timeout=120) as r:
+        open(img, 'wb').write(r.read())
+    pg.goto('file://' + os.path.join(MOT, 'video.html')); pg.wait_for_timeout(300)
+    pg.evaluate('([a, c]) => scritte_ai(a, c)', ['file://' + img, dict(ca, alto=alto)]); pg.evaluate('document.fonts.ready'); pg.wait_for_timeout(700)
+    img2 = os.path.join(LAV, 'copertina_ai_scritte.jpg'); pg.screenshot(path=img2, type='jpeg', quality=95)
+    d = (ca.get('domanda') or ['', '']) + ['', '']
+    pg.goto('file://' + os.path.join(MOT, 'video.html')); pg.wait_for_timeout(300)
+    pg.evaluate('([a, b, c, e]) => finale_ai(a, b, c, e)', ['file://' + img2, d[0], d[1], alto]); pg.evaluate('document.fonts.ready'); pg.wait_for_timeout(700)
+    pg.screenshot(path=cop, type='jpeg', quality=92)
+    log('copertina AI pronta (riserva: scritte dal codice)')
 
 
 def monta(c, order, ctx):

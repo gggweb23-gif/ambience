@@ -1,0 +1,32 @@
+name: Copertina Quanto Ti Resta (rifai solo la copertina)
+# 10 nov: rifa' la copertina AI COSTA / LO VENDI di un video gia' fatto (0,08 $ a tentativo), non la carica.
+on:
+  workflow_dispatch:
+    inputs:
+      copione:
+        description: 'Percorso del copione.json nel repository'
+        required: true
+      nome:
+        required: true
+permissions:
+  contents: write
+jobs:
+  copertina:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Copertina
+        env:
+          COPIONE: ${{ inputs.copione }}
+          NOME: ${{ inputs.nome }}
+          FAL_KEY: ${{ secrets.FAL_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          pip install -q --break-system-packages playwright pillow json-repair && python3 -m playwright install --with-deps chromium > /dev/null
+          python3 strumenti/copertina_cartoni_sola.py
+      - name: Salva
+        if: ${{ always() }}
+        run: |
+          git config user.name render-bot && git config user.email render-bot@users.noreply.github.com
+          git add prove_video/Quanto_Ti_Resta/rifatte && git commit -m 'Copertina Quanto Ti Resta' && (for i in 1 2 3; do git pull --rebase -q && git push && break; sleep 5; done) || echo niente da salvare

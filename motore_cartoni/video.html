@@ -93,6 +93,15 @@ window.bozza_ai = (c) => {
   s += arrow(600, 400, 1160, 400, Y, 34) + `</g><rect x="0" y="${c.alto ? 0 : 760}" width="1920" height="320" fill="${INK}"/>`;
   sv.innerHTML = s;
 };
+// 10 nov: riserva della copertina AI: immagine senza scritte, COSTA / LO VENDI e i valori scritti dal codice (stesse posizioni della bozza)
+window.scritte_ai = (img, c) => {
+  const sv = document.getElementById('s'); sv.setAttribute('width', 1280); sv.setAttribute('height', 720); sv.setAttribute('viewBox', '0 0 1920 1080');
+  const off = c.alto ? 320 : 0;
+  let s = `<image href="${img}" x="0" y="0" width="1920" height="1080" preserveAspectRatio="xMidYMid slice"/><g transform="translate(0 ${off})">`;
+  s += T(330, 150, 'COSTA', 120, '#fff', {st: INK, sw: 24}) + T(330, 690, S(c.valore_sx || ''), 140, Y, {st: INK, sw: 26});
+  s += T(1480, 150, 'LO VENDI', 120, '#fff', {st: INK, sw: 24}) + T(1480, 690, S(c.valore_dx || ''), 150, Y, {st: INK, sw: 26}) + '</g>';
+  sv.innerHTML = s;
+};
 window.finale_ai = (img, r1, r2, alto) => {
   // 8 nov (Giorgio): niente scritte ripetute (via la targa "Economia d'impresa"): solo la domanda di QUESTO video, grande per il telefono.
   // MANO LIBERA: banda sotto o sopra (alto) a giorni alterni

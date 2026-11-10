@@ -1,0 +1,1312 @@
+{
+ "titolo": "Come guadagna una palestra con chi non ci va mai",
+ "protagonista": {
+  "nome": "Davide",
+  "capelli": "short",
+  "colore_capelli": "#3b2a20",
+  "pelle": "media",
+  "maglia": "#2a6fdb",
+  "grembiule": "",
+  "occhiali": false
+ },
+ "oggetto": "manubrio",
+ "copertina": {
+  "righe": [
+   "PAGANO TUTTI",
+   "MA NON VIENE",
+   "NESSUNO"
+  ],
+  "emozione": "stupito",
+  "oggetto": "manubrio",
+  "prezzo": "39 €",
+  "fondo": "scuro"
+ },
+ "copertina_ai": {
+  "valore_sx": "0 €",
+  "valore_dx": "39 €/MESE",
+  "oggetto_sx": "an empty gym with dusty dumbbells and a lonely treadmill",
+  "oggetto_dx": "a big shiny membership card with a gym logo and a happy smiling face",
+  "domanda": [
+   "PAGANO E NON",
+   "CI VANNO MAI?"
+  ]
+ },
+ "descrizione": "Una palestra vive grazie a chi paga e non ci va mai? Con Davide e la sua palestra scopri come funzionano gli abbonamenti ricorrenti, perché i costi fissi pesano tanto e che cosa succede quando arrivano le disdette. Numeri semplici, conti veri e una lezione utile per chi ha o vuole aprire un'attività. Tutti i numeri sono esempi, non dati ufficiali.",
+ "tag": [
+  "palestra",
+  "abbonamenti",
+  "costi fissi",
+  "punto di pareggio",
+  "aprire una palestra",
+  "margine",
+  "disdette",
+  "clienti ricorrenti",
+  "economia pratica",
+  "aprire un'attività",
+  "fitness business",
+  "conti di un negozio",
+  "imprenditoria",
+  "partita iva",
+  "guadagno palestra",
+  "quanto guadagna una palestra"
+ ],
+ "scene": [
+  {
+   "testo": "Una palestra ha mille iscritti. Ma ogni giorno ne entrano solo duecentocinquanta. E sai una cosa? Se venissero tutti, la palestra fallirebbe. Strano? Adesso ti spiego perché i conti funzionano proprio così.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Se venissero tutti? Fallisce!",
+      "emozione": "stupito",
+      "scuro": true
+     }
+    },
+    {
+     "parola": "mille",
+     "tipo": "conteggio",
+     "p": {
+      "oggetto": "manubrio",
+      "icone": 40,
+      "testo": "mille iscritti"
+     }
+    },
+    {
+     "parola": "duecentocinquanta",
+     "tipo": "persone",
+     "p": {
+      "n": 5,
+      "azione": "entrano",
+      "escono": 0,
+      "testo": "duecentocinquanta al giorno"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Lui è Davide. Ha aperto una palestra in una città di provincia. Cinquecento metri quadri, sala pesi, un'area cardio, due corsi al giorno. Un sogno, finché non ha aperto la prima bolletta.",
+   "capitolo": "La palestra di Davide",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "palestra",
+      "insegna": "Fit Davide",
+      "azione": "felice",
+      "clienti": 2,
+      "testo": "Fit Davide"
+     }
+    },
+    {
+     "parola": "cinquecento",
+     "tipo": "conteggio",
+     "p": {
+      "oggetto": "manubrio",
+      "icone": 25,
+      "testo": "cinquecento metri quadri"
+     }
+    },
+    {
+     "parola": "bolletta",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Ahi, la bolletta!",
+      "emozione": "preoccupato",
+      "scuro": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Davide vende un abbonamento mensile a trentanove euro. Niente di strano: paghi ogni mese, entri quando vuoi. Semplice per te, ma è la formula che tiene in piedi tutto il locale.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "manubrio",
+      "prezzo": "39 €",
+      "nota": "abbonamento mensile"
+     }
+    },
+    {
+     "parola": "paghi",
+     "tipo": "salvadanaio",
+     "p": {
+      "direzione": "riempie",
+      "testo": "ogni mese, in automatico"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Vediamo i costi fissi di Davide. Affitto del locale: tremila euro al mese. Stipendi di istruttori e reception: quattromila euro. Luce e riscaldamento: millecinquecento. Pulizie: ottocento. Assicurazioni e software: seicento.",
+   "capitolo": "I costi fissi",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "costi",
+     "p": {
+      "voci": [
+       {
+        "nome": "Affitto",
+        "valore": 3000,
+        "testo": "3.000 €"
+       },
+       {
+        "nome": "Stipendi",
+        "valore": 4000,
+        "testo": "4.000 €"
+       },
+       {
+        "nome": "Luce e caldo",
+        "valore": 1500,
+        "testo": "1.500 €"
+       },
+       {
+        "nome": "Pulizie",
+        "valore": 800,
+        "testo": "800 €"
+       },
+       {
+        "nome": "Assicurazioni e software",
+        "valore": 600,
+        "testo": "600 €"
+       }
+      ],
+      "totale": 9900,
+      "periodo": "al mese"
+     }
+    },
+    {
+     "parola": "Stipendi",
+     "tipo": "fette",
+     "p": {
+      "titolo": "Dove vanno i costi",
+      "totale": 9900,
+      "totale_testo": "9.900 €",
+      "fette": [
+       {
+        "nome": "Affitto",
+        "valore": 3000,
+        "testo": "3.000 €"
+       },
+       {
+        "nome": "Stipendi",
+        "valore": 4000,
+        "testo": "4.000 €"
+       },
+       {
+        "nome": "Luce e caldo",
+        "valore": 1500,
+        "testo": "1.500 €"
+       },
+       {
+        "nome": "Pulizie",
+        "valore": 800,
+        "testo": "800 €"
+       },
+       {
+        "nome": "Altro",
+        "valore": 600,
+        "testo": "600 €"
+       }
+      ],
+      "evidenzia": 1
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Sommiamo: tremila più quattromila fa settemila. Più millecinquecento fa ottomilacinquecento. Più ottocento, novemilatrecento. Più seicento: novemilanovecento euro al mese. E sono fissi: si pagano anche se la palestra è vuota.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Costi fissi del mese",
+      "a": "3.000 € + 4.000 €",
+      "op": "+",
+      "b": "2.900 €",
+      "risultato": "9.900 €",
+      "nota": "luce, pulizie e altro compresi"
+     }
+    },
+    {
+     "parola": "vuota",
+     "tipo": "orologio",
+     "p": {
+      "ore": 16,
+      "piene": 4,
+      "testo": "anche con la sala vuota si paga"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Quanti abbonati servono per coprirli? Dividi i costi fissi per il prezzo. Novemilanovecento diviso trentanove fa duecentocinquantaquattro abbonati. Sotto quella soglia, Davide perde soldi. Sopra, comincia a guadagnare.",
+   "capitolo": "Il pareggio",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Abbonati per pareggiare",
+      "a": "9.900 €",
+      "op": "÷",
+      "b": "39 €",
+      "risultato": "254 abbonati",
+      "nota": "un po' arrotondato"
+     }
+    },
+    {
+     "parola": "Sotto",
+     "tipo": "pareggio",
+     "p": {
+      "titolo": "Pareggio della palestra",
+      "fissi": 9900,
+      "margine": 39,
+      "unita": "abbonati",
+      "oggetto": "manubrio",
+      "perdita": true,
+      "guadagno": true
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Qui c'è un dettaglio: ho usato tutto il prezzo come margine. Perché per un abbonato in più Davide spende quasi niente: un po' di acqua, un po' di corrente. I costi veri sono fissi, e il margine su ogni nuovo iscritto è altissimo.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Costo per un iscritto in più?",
+      "emozione": "calmo",
+      "scuro": false
+     }
+    },
+    {
+     "parola": "altissimo",
+     "tipo": "confronto",
+     "p": {
+      "titolo": "Un iscritto in più",
+      "a": {
+       "titolo": "Costo in più",
+       "valore": "1 €",
+       "oggetto": "manubrio"
+      },
+      "b": {
+       "titolo": "Incasso",
+       "valore": "39 €",
+       "oggetto": "manubrio"
+      },
+      "vincitore": "b"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Davide arriva a mille iscritti. Mille per trentanove fa trentanovemila euro al mese. Tolti i costi fissi di novemilanovecento, restano ventinovemilacento euro. Sembra una miniera d'oro. Ma c'è un trucco: sono davvero mille persone?",
+   "capitolo": "Mille iscritti, ma quanti vengono?",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Incasso del mese",
+      "a": "1.000 abbonati",
+      "op": "×",
+      "b": "39 €",
+      "risultato": "39.000 €",
+      "nota": "prima di ogni costo"
+     }
+    },
+    {
+     "parola": "Tolti",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Cosa resta",
+      "a": "39.000 €",
+      "op": "−",
+      "b": "9.900 €",
+      "risultato": "29.100 €",
+      "nota": "tolti i costi fissi"
+     }
+    },
+    {
+     "parola": "trucco",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Vengono davvero tutti?",
+      "emozione": "stupito",
+      "scuro": true
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Guardiamo l'ingresso. Su mille iscritti, in una giornata normale ne arrivano circa duecentocinquanta. Gli altri settecentocinquanta pagano ma restano a casa. E Davide, onestamente, ne è contentissimo.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "persone",
+     "p": {
+      "n": 8,
+      "azione": "escono",
+      "escono": 6,
+      "testo": "ne vengono pochi, ne pagano tanti"
+     }
+    },
+    {
+     "parola": "settecentocinquanta",
+     "tipo": "conteggio",
+     "p": {
+      "oggetto": "manubrio",
+      "icone": 45,
+      "testo": "settecentocinquanta non vengono"
+     }
+    },
+    {
+     "parola": "contentissimo",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "palestra",
+      "insegna": "Fit Davide",
+      "azione": "felice",
+      "clienti": 1,
+      "testo": "sala quasi vuota, cassa piena"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Perché è contento? Perché la sala pesi ha novanta posti. Se venissero tutti e mille, in sala non ci starebbero. Davide dovrebbe comprare più attrezzi, più spazio, più istruttori. Il modello regge perché molti non vengono.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "bilancia",
+     "p": {
+      "titolo": "Posti contro iscritti",
+      "sinistra": "Novanta posti",
+      "destra": "Mille iscritti",
+      "pende": "destra"
+     }
+    },
+    {
+     "parola": "istruttori",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "palestra",
+      "insegna": "Fit Davide",
+      "azione": "preoccupato",
+      "clienti": 5,
+      "testo": "sala piena, caos totale"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "È un po' come un'assicurazione. Pagano in molti, usano in pochi. Se tutti avessero un incidente lo stesso giorno, la compagnia salterebbe. Lo stesso vale per un buffet a volontà: conta chi mangia, ma anche quanti ne arrivano insieme.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "confronto",
+     "p": {
+      "titolo": "Pagano e usano",
+      "a": {
+       "titolo": "Assicurazione",
+       "valore": "pagano in molti",
+       "oggetto": "casa"
+      },
+      "b": {
+       "titolo": "Palestra",
+       "valore": "vengono in pochi",
+       "oggetto": "manubrio"
+      },
+      "vincitore": ""
+     }
+    },
+    {
+     "parola": "buffet",
+     "tipo": "persone",
+     "p": {
+      "n": 6,
+      "azione": "fila",
+      "escono": 0,
+      "testo": "tutti insieme? ingorgo"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ora il guaio. Chi non viene, prima o poi se ne accorge. Guarda l'estratto conto e pensa: ma io ci vado mai? E a quel punto manda la disdetta. È il momento in cui la palestra perde soldi senza nemmeno vederlo arrivare.",
+   "capitolo": "Le disdette",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Ma io ci vado mai?",
+      "emozione": "preoccupato",
+      "scuro": true
+     }
+    },
+    {
+     "parola": "disdetta",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "manubrio",
+      "testo": "DISDETTA",
+      "colore": "rosso",
+      "nota": "un abbonato in meno"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Davide ha un tasso di disdetta del cinque per cento al mese. Cinque su cento. Su mille iscritti sono cinquanta persone che se ne vanno ogni mese. Cinquanta per trentanove fa millenovecentocinquanta euro in meno, ogni mese.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "conteggio",
+     "p": {
+      "oggetto": "manubrio",
+      "icone": 50,
+      "testo": "cinquanta disdette al mese"
+     }
+    },
+    {
+     "parola": "Cinquanta",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Incasso perso",
+      "a": "50 abbonati",
+      "op": "×",
+      "b": "39 €",
+      "risultato": "1.950 €",
+      "nota": "ogni mese, se non rimpiazzi"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "E la perdita non si ferma. Se non entra nessuno di nuovo, il mese dopo ne perdi altri. Davide deve trovare cinquanta nuovi iscritti ogni mese solo per restare fermo. È come correre sul tapis roulant: se ti fermi, cadi.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "andamento",
+     "p": {
+      "titolo": "Iscritti senza nuovi arrivi",
+      "valori": [
+       1000,
+       950,
+       903,
+       858,
+       815,
+       774
+      ],
+      "etichette": [
+       "Mese uno",
+       "Due",
+       "Tre",
+       "Quattro",
+       "Cinque",
+       "Sei"
+      ],
+      "colore": "rosso"
+     }
+    },
+    {
+     "parola": "tapis",
+     "tipo": "persone",
+     "p": {
+      "n": 4,
+      "azione": "entrano",
+      "escono": 0,
+      "testo": "correre per restare fermi"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Vediamo l'anno intero. A gennaio la palestra scoppia: buoni propositi, tutti iscritti. Poi da marzo si svuota. A luglio il deserto. A settembre si riparte. I mesi non sono tutti uguali, e per Davide è un'altalena.",
+   "capitolo": "Gennaio e il resto dell'anno",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "mesi",
+     "p": {
+      "titolo": "Nuovi iscritti per mese",
+      "valori": [
+       180,
+       90,
+       50,
+       40,
+       35,
+       30,
+       20,
+       15,
+       120,
+       80,
+       50,
+       30
+      ],
+      "evidenzia": [
+       1,
+       9
+      ],
+      "nota": "gennaio e settembre fanno il pieno"
+     }
+    },
+    {
+     "parola": "deserto",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "palestra",
+      "insegna": "Fit Davide",
+      "azione": "preoccupato",
+      "clienti": 0,
+      "testo": "luglio: sala vuota"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Qui c'è un punto che molti sbagliano. Guardare quanta gente c'è in sala non dice se la palestra va bene. Una sala vuota con mille abbonati paganti va benissimo. Una sala piena con pochi abbonati può essere un disastro.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Cosa NON guardare",
+      "voci": [
+       "Quanta gente c'è in sala",
+       "Quanti vengono oggi",
+       "Il numero di borse nello spogliatoio"
+      ]
+     }
+    },
+    {
+     "parola": "disastro",
+     "tipo": "confronto",
+     "p": {
+      "titolo": "Cosa conta di più",
+      "a": {
+       "titolo": "Sala piena, pochi abbonati",
+       "valore": "conti in rosso",
+       "oggetto": "manubrio"
+      },
+      "b": {
+       "titolo": "Sala vuota, tanti abbonati",
+       "valore": "conti in verde",
+       "oggetto": "manubrio"
+      },
+      "vincitore": "b"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Cosa guardare, allora? Primo: quanti abbonati attivi hai. Secondo: quante disdette arrivano ogni mese. Terzo: quanti nuovi iscritti entrano. Quarto: quanto incassi per abbonato. Sono quattro numeri, e bastano.",
+   "capitolo": "Cosa guardare",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "cruscotto",
+     "p": {
+      "titolo": "I quattro numeri della palestra",
+      "voci": [
+       {
+        "nome": "Abbonati attivi",
+        "valore": 0.8
+       },
+       {
+        "nome": "Disdette al mese",
+        "valore": 0.3
+       },
+       {
+        "nome": "Nuovi iscritti",
+        "valore": 0.5
+       },
+       {
+        "nome": "Incasso per abbonato",
+        "valore": 0.6
+       }
+      ]
+     }
+    },
+    {
+     "parola": "Quarto",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Da controllare ogni mese",
+      "voci": [
+       "Abbonati attivi",
+       "Disdette",
+       "Nuovi iscritti",
+       "Incasso per abbonato"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Il tasso di disdetta si calcola facile. Disdette del mese divise per abbonati di inizio mese. Cinquanta diviso mille fa zero virgola zero cinque: il cinque per cento. Segnalo ogni mese: se sale, hai un problema.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Tasso di disdetta",
+      "a": "50 disdette",
+      "op": "÷",
+      "b": "1.000 abbonati",
+      "risultato": "5 %",
+      "nota": "al mese"
+     }
+    },
+    {
+     "parola": "sale",
+     "tipo": "andamento",
+     "p": {
+      "titolo": "Disdette, se salgono è un allarme",
+      "valori": [
+       3,
+       4,
+       5,
+       7,
+       9
+      ],
+      "etichette": [
+       "Mese uno",
+       "Due",
+       "Tre",
+       "Quattro",
+       "Cinque"
+      ],
+      "colore": "rosso"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Quanto dura, in media, un abbonato? Basta dividere uno per il tasso di disdetta. Uno diviso zero virgola zero cinque fa venti mesi. Ogni persona resta circa venti mesi. Per trentanove euro: settecentottanta euro a testa.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Durata media di un abbonato",
+      "a": "1",
+      "op": "÷",
+      "b": "0,05",
+      "risultato": "20 mesi",
+      "nota": "un abbonato resta circa venti mesi"
+     }
+    },
+    {
+     "parola": "settecentottanta",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Valore di un abbonato",
+      "a": "20 mesi",
+      "op": "×",
+      "b": "39 €",
+      "risultato": "780 €",
+      "nota": "incasso totale per persona"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Settecentottanta euro. Ecco quanto vale un cliente per Davide. Se per convincerlo a iscriversi spende cento euro tra volantini e promozioni, conviene eccome. Se ne spende ottocento, sta regalando soldi. Sapere quel numero cambia le scelte.",
+   "capitolo": "Quanto vale un cliente",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "bilancia",
+     "p": {
+      "titolo": "Costo per trovarlo contro valore",
+      "sinistra": "Costo 100 €",
+      "destra": "Valore 780 €",
+      "pende": "destra"
+     }
+    },
+    {
+     "parola": "ottocento",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "manubrio",
+      "testo": "PERDITA",
+      "colore": "rosso",
+      "nota": "se spendi più di quanto vale"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Questo vale per ogni attività con clienti che tornano. Una lavanderia a gettoni che vede un cliente a settimana ha un altro calcolo. Un parrucchiere con la tessera fedeltà ne ha uno ancora diverso. Ognuno deve sapere quanto vale un cliente suo.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "confronto",
+     "p": {
+      "titolo": "Quanto vale un cliente",
+      "a": {
+       "titolo": "Lavanderia",
+       "valore": "un cliente a settimana",
+       "oggetto": "camicia"
+      },
+      "b": {
+       "titolo": "Parrucchiere",
+       "valore": "ogni sei settimane",
+       "oggetto": "forbici"
+      },
+      "vincitore": ""
+     }
+    },
+    {
+     "parola": "gettoni",
+     "tipo": "salvadanaio",
+     "p": {
+      "direzione": "riempie",
+      "testo": "i clienti che tornano riempiono"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Torniamo a Davide. C'è un'altra cosa che lo aiuta: le quote di iscrizione. Quando uno si iscrive, paga cinquanta euro di ingresso. Con cinquanta nuovi iscritti al mese, sono duemilacinquecento euro in più, in una volta.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "palestra",
+      "insegna": "Fit Davide",
+      "azione": "lavora",
+      "clienti": 2,
+      "testo": "iscrizione alla reception"
+     }
+    },
+    {
+     "parola": "cinquanta",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Quote di ingresso",
+      "a": "50 nuovi",
+      "op": "×",
+      "b": "50 €",
+      "risultato": "2.500 €",
+      "nota": "una tantum, ogni mese"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Mettiamo tutto in fila per un mese normale. Entrate dagli abbonamenti, trentanovemila euro. Quote d'ingresso, duemilacinquecento. Totale: quarantunmilacinquecento. Meno i costi fissi: restano trentunmiladuecento euro?",
+   "capitolo": "Il conto vero",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Entrate del mese",
+      "a": "39.000 €",
+      "op": "+",
+      "b": "2.500 €",
+      "risultato": "41.500 €",
+      "nota": "abbonamenti e ingressi"
+     }
+    },
+    {
+     "parola": "restano",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Davvero tutto guadagno?",
+      "emozione": "stupito",
+      "scuro": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "No, perché ho barato. Quei mille iscritti con trentanove euro sono il caso più bello. Davide in realtà ha prezzi diversi: promozioni, tariffe annuali scontate, studenti. L'incasso medio vero è ventinove euro a testa.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "manubrio",
+      "prezzo": "39 €",
+      "nuovo_prezzo": "29 €",
+      "nota": "incasso medio reale per abbonato"
+     }
+    },
+    {
+     "parola": "promozioni",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Perché si incassa meno",
+      "voci": [
+       "Promozioni di ingresso",
+       "Tariffe annuali scontate",
+       "Sconti studenti",
+       "Mesi gratis per amici"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Rifacciamo il conto. Mille per ventinove fa ventinovemila euro. Più duemilacinquecento di ingressi: trentunmilacinquecento. Meno novemilanovecento di costi fissi: restano ventunmilaseicento euro. È già più realistico, e ancora bello.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Incasso con prezzo medio",
+      "a": "1.000 abbonati",
+      "op": "×",
+      "b": "29 €",
+      "risultato": "29.000 €",
+      "nota": "prima di ingressi e costi"
+     }
+    },
+    {
+     "parola": "Meno",
+     "tipo": "fette",
+     "p": {
+      "titolo": "Dove vanno i soldi del mese",
+      "totale": 31500,
+      "totale_testo": "31.500 €",
+      "fette": [
+       {
+        "nome": "Affitto",
+        "valore": 3000,
+        "testo": "3.000 €"
+       },
+       {
+        "nome": "Stipendi",
+        "valore": 4000,
+        "testo": "4.000 €"
+       },
+       {
+        "nome": "Luce, pulizie, altro",
+        "valore": 2900,
+        "testo": "2.900 €"
+       },
+       {
+        "nome": "Resta a Davide",
+        "valore": 21600,
+        "testo": "21.600 €"
+       }
+      ],
+      "evidenzia": 3
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ma anche qui un dettaglio: ventunmilaseicento è prima di tasse, rate delle macchine e manutenzione. Un tapis roulant costa ottomila euro e dura cinque anni. Sono circa centotrentatré euro al mese per macchina. Con venti macchine fanno duemilaseicentosessanta.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Costo mensile di una macchina",
+      "a": "8.000 €",
+      "op": "÷",
+      "b": "60 mesi",
+      "risultato": "133 € al mese",
+      "nota": "cinque anni di vita"
+     }
+    },
+    {
+     "parola": "Con",
+     "tipo": "soldi",
+     "p": {
+      "centro": "21.600 €",
+      "destinazioni": [
+       "Macchine",
+       "Tasse",
+       "Manutenzione",
+       "Davide"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Quindi cosa fa Davide per stare tranquillo? Prima cosa: tiene d'occhio le disdette come un falco. Seconda: rende facile andare in palestra. Un cliente che viene due volte a settimana non disdice quasi mai. Chi sparisce, invece, scappa.",
+   "capitolo": "Come migliora",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "leve",
+     "p": {
+      "titolo": "Le leve di Davide",
+      "voci": [
+       "Meno disdette",
+       "Più presenze dei clienti",
+       "Più nuovi iscritti",
+       "Prezzo medio più alto"
+      ],
+      "evidenzia": 0
+     }
+    },
+    {
+     "parola": "sparisce",
+     "tipo": "persone",
+     "p": {
+      "n": 6,
+      "azione": "escono",
+      "escono": 4,
+      "testo": "chi non viene, prima o poi se ne va"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Un trucco furbo: un messaggio a chi non viene da tre settimane. Un invito a un corso gratis, un saluto dall'istruttore. Costa nulla, e se salva anche solo dieci disdette al mese, sono trecentonovanta euro. Ogni mese.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "palestra",
+      "insegna": "Fit Davide",
+      "azione": "lavora",
+      "clienti": 1,
+      "testo": "un messaggio a chi manca"
+     }
+    },
+    {
+     "parola": "dieci",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Disdette evitate",
+      "a": "10 abbonati",
+      "op": "×",
+      "b": "39 €",
+      "risultato": "390 €",
+      "nota": "ogni mese, a costo quasi zero"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Un altro esempio, fuori dalla palestra. Pensa a un servizio di abbonamento di sushi a domicilio. Gli abbonati più sicuri sono quelli che ordinano spesso. Chi dimentica di ordinare, dopo due mesi, cancella. Stesso meccanismo, altro cibo.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "confronto",
+     "p": {
+      "titolo": "Chi resta e chi cancella",
+      "a": {
+       "titolo": "Ordina spesso",
+       "valore": "resta",
+       "oggetto": "sushi"
+      },
+      "b": {
+       "titolo": "Non ordina mai",
+       "valore": "cancella",
+       "oggetto": "sushi"
+      },
+      "vincitore": "a"
+     }
+    },
+    {
+     "parola": "cancella",
+     "tipo": "andamento",
+     "p": {
+      "titolo": "Abbonati che restano nel tempo",
+      "valori": [
+       100,
+       92,
+       85,
+       80,
+       77,
+       75
+      ],
+      "etichette": [
+       "Mese uno",
+       "Due",
+       "Tre",
+       "Quattro",
+       "Cinque",
+       "Sei"
+      ],
+      "colore": "verde"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Terza leva: il prezzo. Se Davide alza l'abbonamento da trentanove a quarantaquattro euro, cinque euro in più per mille abbonati sono cinquemila euro al mese. Ma qualcuno se ne va. Quanti? Il test è tutto qui.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "manubrio",
+      "prezzo": "39 €",
+      "nuovo_prezzo": "44 €",
+      "nota": "cinque euro in più"
+     }
+    },
+    {
+     "parola": "cinquemila",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Se nessuno se ne va",
+      "a": "1.000 abbonati",
+      "op": "×",
+      "b": "5 €",
+      "risultato": "5.000 €",
+      "nota": "al mese, in più"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Facciamo i conti del rischio. Se con il nuovo prezzo se ne vanno cento abbonati, ne restano novecento. Novecento per quarantaquattro fa trentanovemilaseicento euro. Contro trentanovemila di prima. Conviene, anche perdendo cento persone.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Con il prezzo nuovo",
+      "a": "900 abbonati",
+      "op": "×",
+      "b": "44 €",
+      "risultato": "39.600 €",
+      "nota": "contro 39.000 € di prima"
+     }
+    },
+    {
+     "parola": "conviene",
+     "tipo": "confronto",
+     "p": {
+      "titolo": "Prima e dopo",
+      "a": {
+       "titolo": "Mille a trentanove",
+       "valore": "39.000 €",
+       "oggetto": "manubrio"
+      },
+      "b": {
+       "titolo": "Novecento a quarantaquattro",
+       "valore": "39.600 €",
+       "oggetto": "manubrio"
+      },
+      "vincitore": "b"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Occhio, però: meno abbonati significa anche meno ingressi futuri e più sala libera. E se i cento che se ne vanno sono quelli che venivano di più, hai perso i tuoi clienti migliori. Prima di alzare il prezzo, controlla chi rischi di perdere.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Prima di alzare il prezzo",
+      "voci": [
+       "Chi rischi di perdere",
+       "Quanti vengono davvero",
+       "Cosa fa la palestra vicina",
+       "Prova su un gruppo piccolo"
+      ]
+     }
+    },
+    {
+     "parola": "controlla",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Chi perdi davvero?",
+      "emozione": "calmo",
+      "scuro": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "E il rischio più grande? Dipendere da gennaio. Se Davide spende tutto quello che incassa ai picchi, quando arriva luglio non ha cuscinetto. Il bravo gestore mette da parte nei mesi buoni, per pagare quelli deboli.",
+   "capitolo": "Il cuscinetto",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "salvadanaio",
+     "p": {
+      "direzione": "riempie",
+      "testo": "metti da parte nei mesi buoni"
+     }
+    },
+    {
+     "parola": "luglio",
+     "tipo": "mesi",
+     "p": {
+      "titolo": "Cassa della palestra, mese per mese",
+      "valori": [
+       45,
+       30,
+       25,
+       20,
+       18,
+       15,
+       5,
+       3,
+       35,
+       28,
+       22,
+       18
+      ],
+      "evidenzia": [
+       7,
+       8
+      ],
+      "nota": "luglio e agosto sono i mesi deboli"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Con ventunmila euro di margine e un cuscinetto di sei mesi di costi fissi, Davide dorme tranquillo. Sei per novemilanovecento fa cinquantanovemilaquattrocento euro. Quella cifra lo protegge se un anno le iscrizioni crollano.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Cuscinetto di sei mesi",
+      "a": "6 mesi",
+      "op": "×",
+      "b": "9.900 €",
+      "risultato": "59.400 €",
+      "nota": "copre i costi fissi senza incassi"
+     }
+    },
+    {
+     "parola": "dorme",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "palestra",
+      "insegna": "Fit Davide",
+      "azione": "felice",
+      "clienti": 1,
+      "testo": "un cuscinetto fa dormire"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Chiudiamo il cerchio. La palestra guadagna perché molti pagano e pochi vengono, ma questo equilibrio è fragile. Se le disdette salgono, se i nuovi iscritti calano, o se tutti vengono insieme, i conti saltano. Servono controllo e numeri.",
+   "capitolo": "Riassunto",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "riepilogo",
+     "p": {
+      "titolo": "Da ricordare",
+      "voci": [
+       "Pagano in molti, vengono in pochi",
+       "Costi fissi alti: serve il pareggio",
+       "Controlla le disdette ogni mese",
+       "Un cliente vale più di un mese"
+      ]
+     }
+    },
+    {
+     "parola": "fragile",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "manubrio",
+      "testo": "EQUILIBRIO",
+      "colore": "verde",
+      "nota": "se tieni d'occhio i numeri"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "E tu? Se hai un'attività con abbonamenti, sai quante disdette hai ogni mese? Sai quanto vale un tuo cliente? Prova a calcolarlo stasera. Basta un foglio e due minuti, e potresti scoprire dove perdi soldi senza accorgertene.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Sai quanto vale un cliente?",
+      "emozione": "calmo",
+      "scuro": false
+     }
+    },
+    {
+     "parola": "foglio",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Stasera, con un foglio",
+      "voci": [
+       "Quanti abbonati hai",
+       "Quante disdette al mese",
+       "Quanto incassi in media",
+       "Quanto vale un cliente"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Nel prossimo episodio entriamo in una lavanderia a gettoni. Macchine che lavorano da sole, clienti che non vedi mai, e un conto che sembra troppo bello per essere vero. Scopriamo quanto resta davvero. Iscriviti!",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "prossimo",
+     "p": {
+      "luogo": "lavanderia",
+      "insegna": "Lavanderia Bolle",
+      "oggetto": "camicia",
+      "testo": "La lavanderia che lavora da sola"
+     }
+    },
+    {
+     "parola": "Iscriviti",
+     "tipo": "persone",
+     "p": {
+      "n": 5,
+      "azione": "entrano",
+      "escono": 0,
+      "testo": "iscriviti per il prossimo episodio"
+     }
+    }
+   ]
+  }
+ ]
+}
