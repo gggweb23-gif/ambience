@@ -545,7 +545,10 @@ if STILE_COP == 'etichetta_rossa':
     else:
         righe = [' '.join(parole)] if len(parole) <= 2 else [' '.join(parole[:(len(parole) + 1) // 2]), ' '.join(parole[(len(parole) + 1) // 2:])]
         s_, larg_max = 165, 760
-    while s_ > 100 and max(d.textlength(r_, font=ImageFont.truetype(FP, s_)) for r_ in righe) > larg_max:
+    def _alt(sz):   # altezza totale delle fasce rosse con lettere di grandezza sz
+        f_ = ImageFont.truetype(FP, sz); b_ = d.textbbox((0, 0), 'ABC', font=f_); return len(righe) * ((b_[3] - b_[1]) + 38)
+    # 10 nov (Giorgio, regola per tutti i canali): mai scritte dietro la durata del video (angolo in basso a destra, ultimi 150 px)
+    while s_ > 100 and (max(d.textlength(r_, font=ImageFont.truetype(FP, s_)) for r_ in righe) > larg_max or (alto_ and 40 + _alt(s_) > 720 - 150)):
         s_ -= 4
     fnt = ImageFont.truetype(FP, s_); hb = d.textbbox((0, 0), 'ABC', font=fnt)
     y = 40 if alto_ else 720 - 50 - ((hb[3] - hb[1]) + 38) * len(righe)
