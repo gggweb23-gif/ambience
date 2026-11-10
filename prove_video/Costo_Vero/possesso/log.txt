@@ -1,22 +1,11 @@
-06:07:00 copione scartato: ['tutte le voci devono usare lo stesso numero di anni ([1.0, 25.0])', 'i valori anno per anno (26) devono essere anni + 1 (2)', 'il copione ha 637 parole: ne servono 1500-1650 (video di 9-10 minuti)']
-06:10:29 copione scartato: ["struttura dati non valida: 'valore'"]
-06:11:10 copione scartato: ['tutte le voci devono usare lo stesso numero di anni ([1.0, 25.0])', 'i valori anno per anno (26) devono essere anni + 1 (2)', 'il costo vero del gancio (340000) deve essere uguale a somma delle voci - rivendita (260000)', 'il copione ha 597 parole: ne servono 1500-1650 (video di 9-10 minuti)']
-Traceback (most recent call last):
-  File "/home/runner/work/ambience/ambience/video_possesso.py", line 555, in <module>
-    main()
-  File "/home/runner/work/ambience/ambience/video_possesso.py", line 465, in main
-    c = copione(); SCENE = c['scene']
-        ^^^^^^^^^
-  File "/home/runner/work/ambience/ambience/video_possesso.py", line 166, in copione
-    raise RuntimeError('copione con numeri non coerenti dopo 3 tentativi: ' + '; '.join(prob))
-RuntimeError: copione con numeri non coerenti dopo 3 tentativi: tutte le voci devono usare lo stesso numero di anni ([1.0, 25.0]); i valori anno per anno (26) devono essere anni + 1 (2); il costo vero del gancio (340000) deve essere uguale a somma delle voci - rivendita (260000); il copione ha 597 parole: ne servono 1500-1650 (video di 9-10 minuti)
-06:11:10 esito: {"stato": "ERRORE", "errore": "copione con numeri non coerenti dopo 3 tentativi: tutte le voci devono usare lo stesso numero di anni ([1.0, 25.0]); i valori anno per anno (26) devono essere anni + 1 (2); il costo vero del gancio (340000) deve essere uguale a somma delle voci - rivendita (260000); il copione ha 597 parole: ne servono 1500-1650 (video di 9-10 minuti)"}
-Traceback (most recent call last):
-  File "/home/runner/work/ambience/ambience/video_possesso.py", line 555, in <module>
-    main()
-  File "/home/runner/work/ambience/ambience/video_possesso.py", line 465, in main
-    c = copione(); SCENE = c['scene']
-        ^^^^^^^^^
-  File "/home/runner/work/ambience/ambience/video_possesso.py", line 166, in copione
-    raise RuntimeError('copione con numeri non coerenti dopo 3 tentativi: ' + '; '.join(prob))
-RuntimeError: copione con numeri non coerenti dopo 3 tentativi: tutte le voci devono usare lo stesso numero di anni ([1.0, 25.0]); i valori anno per anno (26) devono essere anni + 1 (2); il costo vero del gancio (340000) deve essere uguale a somma delle voci - rivendita (260000); il copione ha 597 parole: ne servono 1500-1650 (video di 9-10 minuti)
+06:25:22 numeri: {'prezzo': 8000, 'anni': 5, 'valori': [8000.0, 6400.0, 5500.0, 4800.0, 4100.0, 3500.0], 'totale': 15900, 'rivendita': 3500, 'costo_vero': 12400, 'mese': 207, 'giorno': 7}
+06:26:05 voce: 15.8 caratteri/s naturali -> accelerata x1.047
+06:26:05 voce: 9.8 minuti
+06:26:05 budget: un'immagine ogni 6.0 s (invece di 4) per restare sotto 1.50 euro
+06:31:19 immagini: 107 | spesa finora 1.604 $
+06:49:44 pulsante iscriviti al secondo 95 con 2 suoni
+07:00:27 video finale a 1440p (piu' nitido su YouTube)
+07:00:29 FATTO: /home/runner/work/ambience/ambience/video_possesso.mp4 9.8 minuti | immagini 107 (una ogni 6.0 s) | COSTO VIDEO (stima): 1.61 $ + 9671 crediti voce | fal flux-2-klein-4b: 0.792 $ (88 chiamate) | claude claude-sonnet-5-5: 0.464 $ (1 chiamate) | fal flux-2-klein-4b-edit: 0.357 $ (21 chiamate) | elevenlabs eleven_multilingual_v2: 0.000 $ (13 chiamate), 9671 crediti
+promozione a pagamento: No (gia' nel caricamento, 0 unita' di quota)
+07:00:43 playlist: Moto
+07:00:48 esito: {"stato": "PUBBLICATO", "video_id": "T5aqOJLz8JQ", "link": "https://www.youtube.com/watch?v=T5aqOJLz8JQ", "pubblica_il": "2026-11-10T16:00:00.000Z", "errore": "", "testo_copertina": "QUANTO COSTA? 12.400 €", "titolo": "Quanto costa DAVVERO una moto da 8.000 €?", "descrizione": "Quanto costa DAVVERO una moto da 8.000 €?\n\nUna moto stradale media da 8.000 € sul cartellino: quanto costa davvero possederla per 5 anni? Tra finanziamento con interessi, assicurazione RC, bollo, tagliandi e gomme, casco e abbigliamento, il costo vero arriva a circa 12.400 € dopo la rivendita: 207 € al mese. In questo
