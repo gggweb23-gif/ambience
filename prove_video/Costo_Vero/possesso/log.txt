@@ -1,6 +1,6 @@
-04:38:10 copione scartato: ['il prezzo del cartellino (300) deve essere uguale al primo valore (0)', 'tutte le voci devono usare lo stesso numero di anni ([1.0, 12.0])', 'i valori anno per anno (13) devono essere anni + 1 (2)', 'il costo vero del gancio (26000) deve essere uguale a somma delle voci - rivendita (22660)', 'il copione ha 701 parole: ne servono 1500-1650 (video di 9-10 minuti)']
-04:41:37 copione scartato: ["struttura dati non valida: 'valore'"]
-04:42:21 copione scartato: ['tutte le voci devono usare lo stesso numero di anni ([1.0, 12.0])', 'i valori anno per anno (13) devono essere anni + 1 (2)', 'il costo vero del gancio (24300) deve essere uguale a somma delle voci - rivendita (22740)', 'il copione ha 683 parole: ne servono 1500-1650 (video di 9-10 minuti)']
+06:07:00 copione scartato: ['tutte le voci devono usare lo stesso numero di anni ([1.0, 25.0])', 'i valori anno per anno (26) devono essere anni + 1 (2)', 'il copione ha 637 parole: ne servono 1500-1650 (video di 9-10 minuti)']
+06:10:29 copione scartato: ["struttura dati non valida: 'valore'"]
+06:11:10 copione scartato: ['tutte le voci devono usare lo stesso numero di anni ([1.0, 25.0])', 'i valori anno per anno (26) devono essere anni + 1 (2)', 'il costo vero del gancio (340000) deve essere uguale a somma delle voci - rivendita (260000)', 'il copione ha 597 parole: ne servono 1500-1650 (video di 9-10 minuti)']
 Traceback (most recent call last):
   File "/home/runner/work/ambience/ambience/video_possesso.py", line 555, in <module>
     main()
@@ -9,8 +9,8 @@ Traceback (most recent call last):
         ^^^^^^^^^
   File "/home/runner/work/ambience/ambience/video_possesso.py", line 166, in copione
     raise RuntimeError('copione con numeri non coerenti dopo 3 tentativi: ' + '; '.join(prob))
-RuntimeError: copione con numeri non coerenti dopo 3 tentativi: tutte le voci devono usare lo stesso numero di anni ([1.0, 12.0]); i valori anno per anno (13) devono essere anni + 1 (2); il costo vero del gancio (24300) deve essere uguale a somma delle voci - rivendita (22740); il copione ha 683 parole: ne servono 1500-1650 (video di 9-10 minuti)
-04:42:21 esito: {"stato": "ERRORE", "errore": "copione con numeri non coerenti dopo 3 tentativi: tutte le voci devono usare lo stesso numero di anni ([1.0, 12.0]); i valori anno per anno (13) devono essere anni + 1 (2); il costo vero del gancio (24300) deve essere uguale a somma delle voci - rivendita (22740); il copione ha 683 parole: ne servono 1500-1650 (video di 9-10 minuti)"}
+RuntimeError: copione con numeri non coerenti dopo 3 tentativi: tutte le voci devono usare lo stesso numero di anni ([1.0, 25.0]); i valori anno per anno (26) devono essere anni + 1 (2); il costo vero del gancio (340000) deve essere uguale a somma delle voci - rivendita (260000); il copione ha 597 parole: ne servono 1500-1650 (video di 9-10 minuti)
+06:11:10 esito: {"stato": "ERRORE", "errore": "copione con numeri non coerenti dopo 3 tentativi: tutte le voci devono usare lo stesso numero di anni ([1.0, 25.0]); i valori anno per anno (26) devono essere anni + 1 (2); il costo vero del gancio (340000) deve essere uguale a somma delle voci - rivendita (260000); il copione ha 597 parole: ne servono 1500-1650 (video di 9-10 minuti)"}
 Traceback (most recent call last):
   File "/home/runner/work/ambience/ambience/video_possesso.py", line 555, in <module>
     main()
@@ -19,4 +19,4 @@ Traceback (most recent call last):
         ^^^^^^^^^
   File "/home/runner/work/ambience/ambience/video_possesso.py", line 166, in copione
     raise RuntimeError('copione con numeri non coerenti dopo 3 tentativi: ' + '; '.join(prob))
-RuntimeError: copione con numeri non coerenti dopo 3 tentativi: tutte le voci devono usare lo stesso numero di anni ([1.0, 12.0]); i valori anno per anno (13) devono essere anni + 1 (2); il costo vero del gancio (24300) deve essere uguale a somma delle voci - rivendita (22740); il copione ha 683 parole: ne servono 1500-1650 (video di 9-10 minuti)
+RuntimeError: copione con numeri non coerenti dopo 3 tentativi: tutte le voci devono usare lo stesso numero di anni ([1.0, 25.0]); i valori anno per anno (26) devono essere anni + 1 (2); il costo vero del gancio (340000) deve essere uguale a somma delle voci - rivendita (260000); il copione ha 597 parole: ne servono 1500-1650 (video di 9-10 minuti)
