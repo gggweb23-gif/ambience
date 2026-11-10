@@ -29,7 +29,7 @@ for nome in ('get', 'spendi', 'json_sicuro', 'claude'):
 # il soggetto della scena: lo scrive Claude dal titolo (come fa il copione del video)
 sogg = P.get('copertina_soggetto') or 'a FICTIONAL astronaut'
 t = g['claude'](f'YouTube video title: "{P.get("titolo", "")}". Write ONE sentence in English: the scene of the thumbnail, {sogg} with a strong readable emotion, the setting, the action and the key object '
-                'that matches the title. Only the sentence.', modello='claude-haiku-4-5-20251001', max_tokens=200)
+                'that matches the title. REALISTIC and factual (real places, real equipment, real procedures): NO sci-fi, NO fantasy, NO alien objects, NO glowing magic items. Only the sentence.', modello='claude-haiku-4-5-20251001', max_tokens=200)
 c = {'copertina_prompt': t.strip(), 'testo_copertina': P.get('testo_copertina', '')}
 log('scena:', c['copertina_prompt'])
 g.update(P=P, c=c, VIDEO=VIDEO, LAV=LAV, CART=CART, SPESA=SPESA, BUDGET_USD=BUDGET_USD, log=log, E=E)
