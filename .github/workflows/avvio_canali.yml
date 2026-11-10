@@ -18,6 +18,10 @@ on:
         description: 'Video in anticipo: esce tra N giorni (vuoto = oggi)'
         default: ''
         type: string
+      privacy:
+        description: 'Vuoto = come da foglio; unlisted = NON IN ELENCO (lo pubblica Giorgio a mano)'
+        default: ''
+        type: string
       escludi_run:
         description: 'Uso interno: id del video Pexels appena finito che ha lanciato questo avvio'
         default: ''
@@ -45,4 +49,5 @@ jobs:
           SOLO_CANALE: ${{ inputs.canale }}
           ANTICIPO_GIORNI: ${{ inputs.anticipo }}
           ESCLUDI_RUN: ${{ inputs.escludi_run }}
+          PRIVACY: ${{ inputs.privacy }}
         run: pip install -q google-auth requests && python3 strumenti/avvio_canali.py

@@ -209,6 +209,8 @@ def main():
                   'titolo_originale': r.get('titolo_originale') or '', 'paesi_fatti': fatti, 'riga': riga,
                   'categoria_originale': str(r.get('competitor_category_id') or '').replace('.0', ''),
                   'riga_produzione': n, 'foglio_produzione': fid})
+        if os.environ.get('PRIVACY', '').strip():   # 10 nov (Giorgio): video da guardare prima, es. unlisted = NON IN ELENCO, li pubblica lui
+            P['privacy'] = os.environ['PRIVACY'].strip(); P['pubblica_il'] = ''
         inputs = {'link_competitor': link, 'prova': 'NO', 'carica': str(cfg.get('carica') or 'SI').strip().upper() or 'SI',
                   'voce': str(cfg.get('voice_id') or ''), 'payload': json.dumps(P, ensure_ascii=False)}
         gh('POST', f'/actions/workflows/{wf}/dispatches', {'ref': 'main', 'inputs': inputs})
