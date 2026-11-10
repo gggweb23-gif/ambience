@@ -1,8 +1,22 @@
-17:28:38 numeri: {'prezzo': 45000, 'anni': 5, 'valori': [45000.0, 37000.0, 31000.0, 27000.0, 24000.0, 21000.0], 'totale': 58850, 'rivendita': 21000, 'costo_vero': 37850, 'mese': 631, 'giorno': 21}
-17:28:38 voce: 13.2 caratteri/s naturali -> accelerata x1.150
-17:28:38 voce: 2.2 minuti
-17:28:38 immagini: 37 | spesa finora 0.000 $
-17:31:37 pulsante iscriviti al secondo 95 con 2 suoni
-17:32:41 video finale a 1440p (piu' nitido su YouTube)
-17:32:41 FATTO: /home/runner/work/ambience/ambience/video_possesso.mp4 2.2 minuti | immagini 37 (una ogni 4.0 s) | COSTO VIDEO (stima): 0.00 $ + 0 crediti voce | 
-17:32:41 esito: {"stato": "PROVA OK", "testo_copertina": "QUANTO COSTA? 37.850 €", "titolo": "Quanto costa DAVVERO un SUV da 45.000 €?", "descrizione": "Quanto costa DAVVERO un SUV da 45.000 €?\n\nProva.\n\n00:00 Il prezzo\n00:10 La scelta\n00:25 Rate + interessi\n00:36 Assicurazione\n00:46 Bollo\n00:57 Tagliandi e gomme\n01:07 Riepilogo\n01:18 Il valore\n01:28 Il costo vero\n01:38 Alternativa\n01:49 Come risparmiare\n02:04 Prossima puntata\n\nI numeri del video sono stime realistiche per spiegare i conti: ognuno ha i suoi. Benzina e carburante esclusi.", "tag": "Quanto costa DAVVERO un SUV da 45.000 €?, prov
+04:38:10 copione scartato: ['il prezzo del cartellino (300) deve essere uguale al primo valore (0)', 'tutte le voci devono usare lo stesso numero di anni ([1.0, 12.0])', 'i valori anno per anno (13) devono essere anni + 1 (2)', 'il costo vero del gancio (26000) deve essere uguale a somma delle voci - rivendita (22660)', 'il copione ha 701 parole: ne servono 1500-1650 (video di 9-10 minuti)']
+04:41:37 copione scartato: ["struttura dati non valida: 'valore'"]
+04:42:21 copione scartato: ['tutte le voci devono usare lo stesso numero di anni ([1.0, 12.0])', 'i valori anno per anno (13) devono essere anni + 1 (2)', 'il costo vero del gancio (24300) deve essere uguale a somma delle voci - rivendita (22740)', 'il copione ha 683 parole: ne servono 1500-1650 (video di 9-10 minuti)']
+Traceback (most recent call last):
+  File "/home/runner/work/ambience/ambience/video_possesso.py", line 555, in <module>
+    main()
+  File "/home/runner/work/ambience/ambience/video_possesso.py", line 465, in main
+    c = copione(); SCENE = c['scene']
+        ^^^^^^^^^
+  File "/home/runner/work/ambience/ambience/video_possesso.py", line 166, in copione
+    raise RuntimeError('copione con numeri non coerenti dopo 3 tentativi: ' + '; '.join(prob))
+RuntimeError: copione con numeri non coerenti dopo 3 tentativi: tutte le voci devono usare lo stesso numero di anni ([1.0, 12.0]); i valori anno per anno (13) devono essere anni + 1 (2); il costo vero del gancio (24300) deve essere uguale a somma delle voci - rivendita (22740); il copione ha 683 parole: ne servono 1500-1650 (video di 9-10 minuti)
+04:42:21 esito: {"stato": "ERRORE", "errore": "copione con numeri non coerenti dopo 3 tentativi: tutte le voci devono usare lo stesso numero di anni ([1.0, 12.0]); i valori anno per anno (13) devono essere anni + 1 (2); il costo vero del gancio (24300) deve essere uguale a somma delle voci - rivendita (22740); il copione ha 683 parole: ne servono 1500-1650 (video di 9-10 minuti)"}
+Traceback (most recent call last):
+  File "/home/runner/work/ambience/ambience/video_possesso.py", line 555, in <module>
+    main()
+  File "/home/runner/work/ambience/ambience/video_possesso.py", line 465, in main
+    c = copione(); SCENE = c['scene']
+        ^^^^^^^^^
+  File "/home/runner/work/ambience/ambience/video_possesso.py", line 166, in copione
+    raise RuntimeError('copione con numeri non coerenti dopo 3 tentativi: ' + '; '.join(prob))
+RuntimeError: copione con numeri non coerenti dopo 3 tentativi: tutte le voci devono usare lo stesso numero di anni ([1.0, 12.0]); i valori anno per anno (13) devono essere anni + 1 (2); il costo vero del gancio (24300) deve essere uguale a somma delle voci - rivendita (22740); il copione ha 683 parole: ne servono 1500-1650 (video di 9-10 minuti)
