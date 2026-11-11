@@ -37,7 +37,9 @@ W, H, FPS = PV.W, PV.H, PV.FPS
 log = YT.log
 MODELLO = 'claude-sonnet-5-5'
 SEC_IMG = 4.0   # 9 nov sera (Giorgio: "il ritmo e' lento"): un'immagine nuova ogni 4 secondi (se il budget lo permette)
-MIN_PAROLE, MAX_PAROLE = 1500, 1650   # 9-10 minuti con la voce accelerata come Quanto Ti Resta
+MIN_PAROLE, MAX_PAROLE = 1500, 1650
+DUR_MIN = 510   # 11 nov: almeno 8,5 minuti stimati (mai su YouTube sotto gli 8)
+LUNGO = 'CORTO: '   # 9-10 minuti con la voce accelerata come Quanto Ti Resta
 
 
 def num(x, d=0.0):
@@ -127,12 +129,32 @@ def controlla(c):
             prob.append(f'i valori anno per anno ({len(val)}) devono essere anni + 1 ({int(H) + 1})')
         if abs(cv_g - (tot - val[-1])) > max(50, (tot - val[-1]) * .01):   # il gancio dice la fine: deve essere il numero giusto
             prob.append(f'il costo vero del gancio ({cv_g:.0f}) deve essere uguale a somma delle voci - rivendita ({tot - val[-1]:.0f})')
-        parole = sum(len(str(x.get('voce') or '').split()) for x in c['scene'])
-        if parole < MIN_PAROLE - 60:
-            prob.append(f'il copione ha {parole} parole: ne servono {MIN_PAROLE}-{MAX_PAROLE} (video di 9-10 minuti)')
+        # 11 nov (Giorgio OK): si giudica la DURATA stimata con la velocita' della voce del canale (voce_ritmo, caratteri al secondo), non le parole
+        car = sum(len(str(x.get('voce') or '')) for x in c['scene']); sec = car / (num(P.get('voce_ritmo'), 16.5) or 16.5)
+        if sec < DUR_MIN:
+            prob.append(f'{LUNGO}il copione dura circa {sec / 60:.1f} minuti ({car} caratteri): ne servono almeno {DUR_MIN / 60:.1f}')
     except Exception as e:
         prob.append(f'struttura dati non valida: {e}')
     return prob
+
+
+def allunga(c):
+    """11 nov: il copione ha i conti giusti ma e' un po' corto: Claude allunga il parlato di 3-4 scene (spiegazioni ed esempi concreti),
+    SENZA toccare numeri e dati. Risponde solo con le scene cambiate: costa poco."""
+    car = sum(len(str(x.get('voce') or '')) for x in c['scene']); manca = int(DUR_MIN * (num(P.get('voce_ritmo'), 16.5) or 16.5) - car) + 600
+    elenco = [{'i': i, 'tipo': x.get('tipo'), 'voce': x.get('voce')} for i, x in enumerate(c['scene']) if x.get('tipo') in ('dettaglio', 'confronto', 'consigli', 'calcolo', 'valore')]
+    t = claude(f"""Questo copione di un video YouTube italiano e' troppo corto di circa {manca} caratteri. Allunga il parlato ("voce") di 3-4 di queste scene
+con spiegazioni chiare, esempi concreti di vita quotidiana e un dettaglio utile, stesso tono. NON cambiare nessun numero e non aggiungere cifre nuove.
+Rispondi SOLO con JSON: {{"scene": [{{"i": <numero>, "voce": "<testo completo allungato>"}}]}}
+Scene: {json.dumps(elenco, ensure_ascii=False)}""", sforzo='low', max_tokens=8000)
+    try:
+        for x in leggi_json(t).get('scene', []):
+            i = int(x['i'])
+            if 0 <= i < len(c['scene']) and len(str(x.get('voce') or '')) > len(str(c['scene'][i].get('voce') or '')):
+                c['scene'][i]['voce'] = x['voce']
+    except Exception as e:
+        log('allungamento non riuscito:', str(e)[:100])
+    return c
 
 
 def copione():
@@ -164,6 +186,10 @@ Rispondi SOLO con JSON: {{"titolo": "...", "descrizione": "...", "tag": [...], "
         prob = controlla(c)
         if not prob:
             break
+        if all(x.startswith(LUNGO) for x in prob):   # 11 nov: conti giusti, manca solo lunghezza -> si allungano alcune scene (circa 0,05 $), non si riscrive tutto
+            c = allunga(c); prob = controlla(c)
+            if not prob:
+                break
         log('copione scartato:', prob); errore = '\n\nATTENZIONE, il tentativo precedente era sbagliato: ' + '; '.join(prob) + '. Rifai tutti i conti e correggi.'
     else:
         raise RuntimeError('copione con numeri non coerenti dopo 3 tentativi: ' + '; '.join(prob))
