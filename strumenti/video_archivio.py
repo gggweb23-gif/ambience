@@ -618,8 +618,8 @@ else:
     sog = (0, 0, 0, 0)
     try:
         buf = io.BytesIO(); x_ = im.copy(); x_.save(buf, 'JPEG', quality=85)
-        t_ = claude('This is a 1280x720 thumbnail. Give the bounding boxes (pixels) of EVERY person (whole visible body, helmet included) and of the key object '
-                    'they interact with. Answer ONLY {"box": [[x1, y1, x2, y2], ...]}.', modello='claude-haiku-4-5-20251001', max_tokens=300, immagine=buf.getvalue())
+        t_ = claude('This is a 1280x720 thumbnail. Give the bounding boxes (pixels) of EVERY person (whole visible body, helmet included) and of any object held in their hands '
+                    '(NOT the room, windows or the background). Answer ONLY {"box": [[x1, y1, x2, y2], ...]}.', modello='claude-haiku-4-5-20251001', max_tokens=300, immagine=buf.getvalue())
         bx = [[int(float(v)) for v in b_[:4]] for b_ in json_sicuro(t_)['box'] if len(b_) >= 4]
         sog = (min(b_[0] for b_ in bx), min(b_[1] for b_ in bx), max(b_[2] for b_ in bx), max(b_[3] for b_ in bx))   # tutte le persone insieme
         log('copertina: soggetto in', sog)
@@ -627,7 +627,10 @@ else:
         log('posizione soggetto non trovata, uso il lato libero previsto:', str(e)[:100])
         sog = (0, 0, 640, 720) if VOLTO_SX else (640, 0, 1280, 720)
     d = ImageDraw.Draw(im)
-    parole = TESTO_COP.upper().split(); righe = [' '.join(parole[:-1]), parole[-1]] if len(parole) > 1 else parole
+    parole = TESTO_COP.upper().split()
+    # 11 nov (Giorgio: scritta troppo piccola da mobile): due righe bilanciate (THEY HAD / IT ALL) invece di tutto su una riga e l'ultima parola da sola
+    _k = min(range(1, len(parole)), key=lambda k: abs(len(' '.join(parole[:k])) - len(' '.join(parole[k:])))) if len(parole) > 1 else 1
+    righe = [' '.join(parole[:_k]), ' '.join(parole[_k:])] if len(parole) > 1 else parole
     def _misure(larg, alt):
         s0 = 230
         while s0 > 70:
@@ -653,7 +656,7 @@ else:
                 y1 = min(y1, 720 - 175)
             if x1 - x0 < 240 or y1 - y0 < 150:
                 continue
-            ms = _misure(min(x1 - x0, 600), y1 - y0)
+            ms = _misure(min(x1 - x0, 700), y1 - y0)
             if ms:
                 candidati.append((min(ms), lato, vert, x0, x1, y0, y1, ms))
     # MANO LIBERA: tra i posti buoni (lettere almeno l'85% del migliore) si alterna in base al giorno
