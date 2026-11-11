@@ -27,8 +27,32 @@ def klein(p):
     return Image.open(io.BytesIO(G3.http(u, raw=True))).convert('RGB').resize((W, H), Image.LANCZOS).filter(ImageFilter.UnsharpMask(radius=1.2, percent=60, threshold=2))
 
 
+FONT = {}
+
+
+def font(url):
+    """11 nov (Giorgio: font piu' da avventura per il filone natura): font Google scaricato al volo, sempre ben leggibile."""
+    if not url:
+        return None
+    if url not in FONT:
+        f = os.path.join('/tmp', os.path.basename(url)); open(f, 'wb').write(G3.http(url, raw=True)); FONT[url] = f
+    return FONT[url]
+
+
+BASI = {}
 for p in Q.get('prove', []):
-    im = klein(p['prompt']).convert('RGBA')
+    if p.get('base') and os.path.exists(p['base']):
+        im = Image.open(p['base']).convert('RGBA')
+    elif p.get('stessa') in BASI:
+        im = BASI[p['stessa']].copy()
+    else:
+        im = klein(p['prompt']).convert('RGBA')
+        im.convert('RGB').save(os.path.join(OUT, p['nome'] + '_base.jpg'), quality=95)   # base senza scritta: si riusa per cambiare solo la scritta
+    BASI[p['nome']] = im.copy()
+    ff = font(p.get('font'))
+    if ff:
+        from PIL import ImageFont
+        CP.F = lambda s, ff=ff: ImageFont.truetype(ff, s)
     righe = str(p['testo']).upper().rstrip('.').split('|')
     sx = p.get('lato', 'sx') == 'sx'
     x = 60 if sx else W - 60
