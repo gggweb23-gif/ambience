@@ -54,7 +54,7 @@ Playlists of the channel (use ONLY these names, exactly as written; a new one on
 Propose 10 NEW videos on the same filone, with real proven demand (topics people already search and watch), each one a strong hook, same title pattern as the examples,
 correct facts and numbers only (no invented events), title max 70 characters, in the channel language.
 Fields per video: "titolo", "playlist", "titolo_thumbnail" (short text for the thumbnail, as in the examples){''.join(f', "{c}"' for c in extra)}.
-{'For "voci_costo": the real ownership costs to cover; never fuel/petrol/charging (rule of the channel owner). Every video is about OWNING one thing that you BUY (it has a purchase price and a resale value at the end): never renting, subscriptions or services.' if 'voci_costo' in extra else ''}
+{'For "voci_costo": the real ownership costs to cover; never fuel/petrol/charging (rule of the channel owner). Every video is about OWNING one thing that you BUY (it has a purchase price and a resale value at the end): never renting, subscriptions or services. Every title STARTS with the thing (the keyword: on mobile only the beginning is visible), then the rest, e.g. "PlayStation 5: quanto costa DAVVERO in 7 anni?".' if 'voci_costo' in extra else ''}
 Reply ONLY with JSON: {{"video": [{{...}}]}}"""
     if E('RIGHE'):   # titoli gia' decisi (es. scritti da Claude in chat e approvati): niente chiamata
         nuovi = json.loads(E('RIGHE'))

@@ -181,6 +181,7 @@ persone=true solo con il protagonista (stesso viso e vestiti); persone=false = o
 (es. polizza e chiavi su un tavolo, bollettino e penna, salvadanaio, calcolatrice, attrezzi in officina, ciotola e guinzaglio, documenti del notaio).
 {'Il SUV compare SOLO nelle immagini con persone=true, sempre all aperto, in salone o in officina, mai in casa, sempre di lato o di tre quarti da dietro.' if AUTO else ''}
 Almeno 75% delle immagini con persone=false. Mai immagini di fogli scritti, scontrini, banconote, schermi o cartelli (le scritte escono illeggibili): oggetti semplici (chiavi, salvadanaio, monete, calcolatrice, gomme, attrezzi, garage, strade). Tutto da classe media italiana.
+Il "titolo" inizia SEMPRE con la cosa (la parola chiave del video, da mobile si vede solo l inizio), poi il resto: es. "PlayStation 5: quanto costa DAVVERO in 7 anni?", "Moto da 8.000 €: quanto costa DAVVERO in 5 anni?".
 Aggiungi: "titolo", "descrizione" (2 brevi paragrafi per YouTube, in italiano), "tag" (12-15 tag in italiano), "protagonista" (descrizione fisica in inglese: eta', capelli, vestiti),
 "riferimento" (in inglese: il protagonista accanto alla cosa, all'aperto o nel posto giusto), "copertina": {{"oggetto": "in inglese: la cosa grande e ben visibile, sfondo semplice"}}.
 Rispondi SOLO con JSON: {{"titolo": "...", "descrizione": "...", "tag": [...], "protagonista": "...", "riferimento": "...", "copertina": {{...}}, "scene": [...]}}"""
@@ -519,17 +520,21 @@ def copertina_shock(CP, ogg, rif_url, k):
                  'background with nothing in it. Bright, high contrast, sharp.', rif_url)
     im = Image.open(f).convert('RGB').resize((W_, H_), Image.LANCZOS).convert('RGBA')
     d = ImageDraw.Draw(im)
-    x0, larg = (60, W_ * .50) if dx else (W_ * .50, W_ * .47)
-    prezzo, vero, anni = eur(DATI['prezzo']), eur(DATI['costo_vero']), int(DATI['anni'])
-    sp = CP.adatta(prezzo, 120, larg * .6); y = (60, 80, 70)[k % 3]
-    CP.scritta_bordo(d, (x0, y), prezzo, sp, CP.BIANCO)   # prezzo sul cartellino, barrato
-    wp = CP.F(sp).getlength(prezzo)
-    d.line((x0 - 10, y + sp * .62, x0 + wp + 10, y + sp * .38), fill=CP.ROSSO, width=max(10, sp // 9))
+    x0, larg = (70, W_ * .48) if dx else (W_ * .51, W_ * .44)   # 11 nov: aria dai bordi (il "550 EUR" toccava il bordo in alto)
+    prezzo, vero, anni = eur(DATI.get('prezzo') or 0), eur(DATI['costo_vero']), int(DATI['anni'])
+    y = (95, 110, 100)[k % 3]; sp = 0
+    if (DATI.get('prezzo') or 0) > 0 and DATI['costo_vero'] > DATI['prezzo']:   # barrato solo se il costo vero supera il cartellino
+        sp = CP.adatta(prezzo, 120, larg * .6)
+        CP.scritta_bordo(d, (x0, y), prezzo, sp, CP.BIANCO)   # prezzo sul cartellino, barrato
+        wp = CP.F(sp).getlength(prezzo)
+        d.line((x0 - 10, y + sp * .62, x0 + wp + 10, y + sp * .38), fill=CP.ROSSO, width=max(10, sp // 9))
+    else:
+        y += 40
     sv = CP.adatta(vero, (190, 176, 200)[k % 3], larg)
     tmp = Image.new('RGBA', im.size, (0, 0, 0, 0)); CP.scritta_bordo(ImageDraw.Draw(tmp), (x0, y + sp + 30), vero, sv, CP.ROSSO)
     tmp = tmp.rotate((-3, 2, -2)[k % 3], center=(x0, y + sp + 30), resample=Image.BICUBIC); im.alpha_composite(tmp); d = ImageDraw.Draw(im)
-    tag = f'IN {anni} ANNI'; st = CP.adatta(tag, 84, larg * .7); yt = y + sp + 30 + sv + 30
-    assert yt + st < H_ - 60
+    tag = DATI.get('tag') or f'IN {anni} ANNI'; st = CP.adatta(tag, 84, larg * .8); yt = y + sp + 30 + sv + 30
+    assert yt + st * 1.15 < H_ - (60 if dx else 140)   # lato destro: lontano dalla durata del video
     wt = CP.F(st).getlength(tag); d.rounded_rectangle((x0 - 18, yt - 10, x0 + wt + 18, yt + st * 1.15), 18, fill=CP.GIALLO)
     d.text((x0, yt), tag, font=CP.F(st), fill=CP.NERO)
     out = os.path.join(ROOT, 'copertina.jpg'); im.convert('RGB').save(out, quality=92)

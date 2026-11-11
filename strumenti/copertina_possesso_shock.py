@@ -9,7 +9,7 @@ import video_possesso as V
 import copertine_possesso as CP
 E = os.environ.get
 c = json.load(open(E('COPIONE')))
-V.DATI = {'prezzo': float(E('PREZZO')), 'costo_vero': float(E('COSTO_VERO')), 'anni': int(E('ANNI'))}
+V.DATI = {'prezzo': float(E('PREZZO') or 0), 'costo_vero': float(E('COSTO_VERO')), 'anni': int(E('ANNI')), 'tag': E('TAG', '')}
 os.makedirs(V.LAV, exist_ok=True)
 rif = V.immagine(os.path.join(V.LAV, 'riferimento.jpg'), CP.STILE + f"Main character: {c.get('protagonista')}. Scene: {c.get('riferimento')}")
 url = rif[1] if isinstance(rif, tuple) else None
