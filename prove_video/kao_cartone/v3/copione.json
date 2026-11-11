@@ -1,0 +1,90 @@
+{
+ "titolo": "Perché le persone sensibili si stancano prima degli altri",
+ "quadri": [
+  {
+   "id": "q1",
+   "luogo": "a small Italian open-space office, desks with laptops, big windows, plants, coffee cups, a wall clock, post-it notes on monitors",
+   "azione": "KAO sits at his desk rubbing his tired eyes, the screen full of notifications; a colleague talks loudly on the phone behind him while another laughs",
+   "kao": "left",
+   "secondario": "collega"
+  },
+  {
+   "id": "q2",
+   "luogo": "the same Italian open-space office, late afternoon light, empty coffee cups, crumpled papers, a colleague's desk nearby",
+   "azione": "KAO listens attentively to a colleague venting about a problem, his head tilted, eyes soft but heavy, absorbing every word",
+   "kao": "right",
+   "secondario": "collega"
+  },
+  {
+   "id": "q3",
+   "luogo": "a quiet Italian street at dusk, old building facades, scooters parked, a bar with lit sign, a few passersby",
+   "azione": "KAO walks slowly home carrying his bag, shoulders low, a deep exhausted sigh, looking at the ground",
+   "kao": "left",
+   "secondario": ""
+  },
+  {
+   "id": "q4",
+   "luogo": "a cozy Italian living room, sofa with a plaid blanket, lamp with warm light, bookshelf, moka pot on a small table, phone on the armrest",
+   "azione": "KAO sits on the sofa with his phone lighting up with messages, he looks at it hesitantly with a tired, guilty expression",
+   "kao": "right",
+   "secondario": "amico"
+  },
+  {
+   "id": "q5",
+   "luogo": "the same cozy Italian living room, warm lamp light, a cup of tea steaming, blanket over his legs, window showing evening sky",
+   "azione": "KAO smiles softly with eyes closed, hugging a cushion, phone face down on the table, finally relaxed",
+   "kao": "left",
+   "secondario": ""
+  }
+ ],
+ "scene": [
+  {
+   "testo": "Ti è mai successo di tornare a casa distrutto, mentre gli altri sembravano ancora pieni di energia? Non è debolezza, e adesso ti spiego perché.",
+   "quadro": "q1",
+   "taglio": "largo",
+   "parola": "Stanchezza"
+  },
+  {
+   "testo": "Guarda Kao: in ufficio c'è rumore, telefonate, notifiche. Lui non li sente solo, li assorbe, come una spugna.",
+   "quadro": "q1",
+   "taglio": "kao",
+   "parola": ""
+  },
+  {
+   "testo": "Poi arriva un collega che si sfoga, e Kao ascolta davvero. Capisce le sfumature, sente il suo stato d'animo, quasi lo vive.",
+   "quadro": "q2",
+   "taglio": "altro",
+   "parola": "Empatia"
+  },
+  {
+   "testo": "Il punto è questo: le persone sensibili elaborano più stimoli e più a fondo. Il cervello lavora di più, anche quando sembra che tu stia solo seduto.",
+   "quadro": "q2",
+   "taglio": "kao",
+   "parola": ""
+  },
+  {
+   "testo": "Così, la sera, Kao cammina verso casa con la testa piena e le gambe pesanti. Non ha fatto di più, ha sentito di più.",
+   "quadro": "q3",
+   "taglio": "largo",
+   "parola": "Sentire di più"
+  },
+  {
+   "testo": "A casa un amico lo chiama per uscire, e lui si sente in colpa. Magari pensa: perché io mi stanco subito?",
+   "quadro": "q4",
+   "taglio": "altro",
+   "parola": ""
+  },
+  {
+   "testo": "Forse non c'è niente che non va in te. Hai bisogno di pause, di silenzio, di tempo per scaricare tutto ciò che hai raccolto.",
+   "quadro": "q4",
+   "taglio": "kao",
+   "parola": "Pause"
+  },
+  {
+   "testo": "Quando Kao si concede quel silenzio, qualcosa si scioglie. E capisce che rispettare i suoi tempi non è egoismo: è prendersi cura di sé.",
+   "quadro": "q5",
+   "taglio": "largo",
+   "parola": "Cura"
+  }
+ ]
+}
