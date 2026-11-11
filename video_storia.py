@@ -48,6 +48,8 @@ MINUTI = float(E('MINUTI', '13') or 13)
 MAX_MINUTI = float(str(P.get('durata_max_minuti') or P.get('max_minuti') or E('MAX_MINUTI', '25') or 25).replace(',', '.'))
 MIN_MINUTI = float(str(P.get('durata_min_minuti') or P.get('min_minuti') or E('MIN_MINUTI', '0') or 0).replace(',', '.'))
 PROVA = str(P.get('prova') or E('PROVA', 'NO')).strip().upper() == 'SI'
+if not MIN_MINUTI and not PROVA:   # 11 nov (video natura Agora uscito di 5,4 min: nessun minimo impostato = nessun controllo): video lunghi sempre 9-10 min
+    MIN_MINUTI = max(8.5, min(MINUTI, MAX_MINUTI) - 1)
 CARICA = str(P.get('carica') or E('CARICA', 'NO')).strip().upper() == 'SI' and not PROVA   # SI = carica su YouTube
 MIN_SEC_YT = 480   # video piu' corti di 8 minuti (le prove) non vanno mai su YouTube
 VOCE_VELOCITA = max(.8, min(1.2, float(str(P.get('voce_velocita') or E('VOCE_VELOCITA', '') or 1.06).replace(',', '.'))))   # uguale per tutte le scene

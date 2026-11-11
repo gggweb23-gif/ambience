@@ -232,17 +232,27 @@ def foto(q, a_terra=False):
 CLIP_ORBITA = re.compile(r'^iss\d{3}m', re.I)   # riprese grezze girate in orbita (downlink ISS): niente scritte, studi, addestramenti a Terra
 
 
+RITAGLIO = {}   # 11 nov: file -> "crop=..." delle clip d'epoca 4:3 dentro un 16:9 (bande nere ai lati)
+
+
 def bande_nere(p, da, dur):
-    """True se il pezzo ha bande nere (video 4:3 o con cornice): da scartare."""
+    """True se il pezzo ha bande nere da scartare. 11 nov (Orbital bloccato al 47% di clip: quasi tutti i filmati Mercury/Gemini/Apollo
+    sono 4:3 con le bande ai lati): se la parte buona e' almeno il 60% del fotogramma non si scarta piu', si ritaglia e si riempie lo schermo."""
     o = subprocess.run(['ffmpeg', '-v', 'info', '-ss', f'{da:.2f}', '-t', f'{min(dur, 3):.2f}', '-i', p, '-vf', f"cropdetect=limit={40 if ARCHIVIO != 'nasa' else 24}:round=2:reset=0",
                         '-an', '-f', 'null', '-'], capture_output=True, text=True).stderr
-    m = re.findall(r'crop=(\d+):(\d+):', o)
+    m = re.findall(r'crop=(\d+):(\d+):(\d+):(\d+)', o)
     if not m:
         return False
-    cw, ch = map(int, m[-1])
+    cw, ch, cx, cy = map(int, m[-1])
     w, h = map(int, subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width,height', '-of', 'csv=p=0', p],
                                    capture_output=True, text=True).stdout.strip().split(',')[:2])
-    return cw < w * .92 or ch < h * .88
+    if not (cw < w * .92 or ch < h * .88):
+        return False
+    if cw >= w * .6 and ch >= h * .6 and cw >= 400:
+        RITAGLIO[p] = f'crop={cw}:{ch}:{cx}:{cy},'
+        log('clip con bande nere: ritagliata', os.path.basename(p), f'{cw}x{ch} su {w}x{h}')
+        return False
+    return True
 
 
 def clip(q, dur, a_terra=False):
@@ -366,7 +376,7 @@ for n, (d, s, prima, t0) in enumerate(piano):
             ULTIME_CLIP.append(nid)
         INFO_N.update(tipo='clip', fonte=nid)
         spinta = MOVIMENTI and n % 2 == 0              # una clip si' e una no: leggera spinta in avanti (punch-in), solo con movimenti_camera = SI
-        vf = (f'[0:v]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={FPS},setsar=1,tpad=stop_mode=clone:stop_duration={L:.2f}'
+        vf = (f'[0:v]{RITAGLIO.get(p, "")}scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={FPS},setsar=1,tpad=stop_mode=clone:stop_duration={L:.2f}'
               + (f",zoompan=z='1+0.06*on/{int(L * FPS)}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s={W}x{H}:fps={FPS}" if spinta else '') + '[v]')
         cmd = ['ffmpeg', '-y', '-v', 'error', '-ss', round(da, 2), '-t', round(L, 3), '-i', p]
         fonti.append(f'{n:03d} CLIP {nid} da {da:.1f}s | {tit}')
