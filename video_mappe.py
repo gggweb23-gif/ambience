@@ -1719,7 +1719,7 @@ def piano_copertina(comp, c):
                f'Real numbers said in our video (use one ONLY if it fits and the original has a number or none at all): {numeri or "none"}\n'
                'Describe how to redraw it on our world map. Answer ONLY JSON:\n'
                '{"sinistra":{"vista":{"lon":..,"lat":..,"larghezza":..},"colori":{"lime":[ISO-3],"ruggine":[ISO-3],"rosso":[ISO-3]}},'
-               '"destra":{same as sinistra},"unica":null,"testo":"EXACT words of the original thumbnail text, in CAPS (max 3 words)","testo_lato":"destra or sinistra",'
+               '"destra":{same as sinistra},"unica":null,"testo":"' + ('EXACT words of the original thumbnail text, in CAPS (max 3 words)' if LINGUA == 'en' else f'the original thumbnail text TRANSLATED into {LINGUE.get(LINGUA, LINGUA)}, natural and correct, in CAPS (max 3 short words), never in English') + '","testo_lato":"destra or sinistra",'
                '"extra":"a short real number/comparison from our video (max 12 chars) or empty"}\n'
                'Rules: if the original is NOT split in two, put the whole map in "unica" (same format as sinistra) and set sinistra/destra to null. '
                '"larghezza" = degrees of longitude shown in THAT half (or in the whole image for "unica") so that the countries appear WHOLE and big like in the original '
@@ -1806,10 +1806,13 @@ def copertina_nuova(cp, path):
             im.paste(mezza_mappa(unica.get('vista') or cp.get('vista'), unica.get('colori') or {}, W, H, centro_x=x0 + A // 2), (0, 0))
         linea = x0 + A // 2
         lato_testo = cp.get('testo_lato') or 'destra'
-    testo = str(cp.get('testo') or 'WHY?').upper()[:18]
+    testo = str(cp.get('testo') or 'WHY?').upper().strip().rstrip('.')[:30]   # 11 nov: mai tagliata (prima [:18]) e mai il punto finale
     fs = 260 if len(testo) <= 6 else (200 if len(testo) <= 10 else 150)
     if pr is not None:
         fs = int(fs * .8)
+    _d = ImageDraw.Draw(im)
+    while fs > 70 and _d.textlength(testo, font=font('Anton-Regular.ttf', fs)) > A * .44:   # la scritta sta sempre nella sua meta', intera
+        fs -= 6
     xt = x0 + A * (.74 if lato_testo == 'destra' else .26)
     if pr is not None and (sx and dx) and ((lato_pr == 'destra' and lato_testo == 'destra') or (lato_pr == 'sinistra' and lato_testo == 'sinistra')):
         xt = x0 + A * (.26 if lato_pr == 'destra' else .74)   # mai sotto il presentatore: la scritta va nella meta' libera
