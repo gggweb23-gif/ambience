@@ -505,6 +505,38 @@ def scontrino_libero(CP, img, vero, k):
     return im.convert('RGB')
 
 
+def copertina_shock(CP, ogg, rif_url, k):
+    """11 nov (Giorgio: "il CTR e' molto basso, prova nuove impostazioni" - MANO LIBERA): il protagonista SCONVOLTO in primo piano con l'oggetto
+    + il contrasto che e' il cuore del video: prezzo sul cartellino barrato (piccolo) -> costo vero ENORME in rosso -> "IN N ANNI" giallo.
+    Lato del protagonista, grandezze e inclinazione cambiano da un video all'altro; mai scritte in basso a destra (durata del video)."""
+    from PIL import ImageFilter
+    W_, H_ = CP.W, CP.H
+    dx = k % 2 == 0                       # protagonista a destra (scritte a sinistra) o il contrario
+    lato = 'RIGHT' if dx else 'LEFT'
+    f = os.path.join(LAV, 'copertina_shock.jpg')
+    immagine(f, CP.STILE + f'The SAME man as in the reference image, close-up from the chest up, on the {lato} HALF of the frame, very big, with a SHOCKED face '
+                 f'(eyes wide open, mouth open, one hand on the cheek), holding or next to {ogg}. The other half of the image is EMPTY plain warm gradient '
+                 'background with nothing in it. Bright, high contrast, sharp.', rif_url)
+    im = Image.open(f).convert('RGB').resize((W_, H_), Image.LANCZOS).convert('RGBA')
+    d = ImageDraw.Draw(im)
+    x0, larg = (60, W_ * .50) if dx else (W_ * .50, W_ * .47)
+    prezzo, vero, anni = eur(DATI['prezzo']), eur(DATI['costo_vero']), int(DATI['anni'])
+    sp = CP.adatta(prezzo, 120, larg * .6); y = (60, 80, 70)[k % 3]
+    CP.scritta_bordo(d, (x0, y), prezzo, sp, CP.BIANCO)   # prezzo sul cartellino, barrato
+    wp = CP.F(sp).getlength(prezzo)
+    d.line((x0 - 10, y + sp * .62, x0 + wp + 10, y + sp * .38), fill=CP.ROSSO, width=max(10, sp // 9))
+    sv = CP.adatta(vero, (190, 176, 200)[k % 3], larg)
+    tmp = Image.new('RGBA', im.size, (0, 0, 0, 0)); CP.scritta_bordo(ImageDraw.Draw(tmp), (x0, y + sp + 30), vero, sv, CP.ROSSO)
+    tmp = tmp.rotate((-3, 2, -2)[k % 3], center=(x0, y + sp + 30), resample=Image.BICUBIC); im.alpha_composite(tmp); d = ImageDraw.Draw(im)
+    tag = f'IN {anni} ANNI'; st = CP.adatta(tag, 84, larg * .7); yt = y + sp + 30 + sv + 30
+    assert yt + st < H_ - 60
+    wt = CP.F(st).getlength(tag); d.rounded_rectangle((x0 - 18, yt - 10, x0 + wt + 18, yt + st * 1.15), 18, fill=CP.GIALLO)
+    d.text((x0, yt), tag, font=CP.F(st), fill=CP.NERO)
+    out = os.path.join(ROOT, 'copertina.jpg'); im.convert('RGB').save(out, quality=92)
+    log('copertina shock (MANO LIBERA): protagonista', 'a destra' if dx else 'a sinistra', '|', prezzo, '->', vero, '|', tag)
+    return out
+
+
 def copertina(c, rif_url):
     import copertine_possesso as CP
     f = os.path.join(LAV, 'copertina_sfondo.jpg')
@@ -515,6 +547,11 @@ def copertina(c, rif_url):
         f = os.path.join(LAV, 'riferimento.jpg')
     img = Image.open(f).convert('RGB').resize((CP.W, CP.H))
     k = int(num(P.get('riga_produzione'), 0) or random.randint(0, 9))
+    if str(P.get('copertina_stile') or 'shock').strip().lower() == 'shock' and rif_url:   # 11 nov (Giorgio: CTR basso, prova nuove impostazioni)
+        try:
+            return copertina_shock(CP, ogg, rif_url, k)
+        except Exception as e:
+            log('copertina shock non riuscita, uso lo scontrino:', str(e)[:150])
     cop = scontrino_libero(CP, img, eur(DATI['costo_vero']), k)
     out = os.path.join(ROOT, 'copertina.jpg'); cop.save(out, quality=92)
     return out
