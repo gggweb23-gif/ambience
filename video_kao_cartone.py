@@ -99,7 +99,8 @@ descritti in inglese senza persone. Alterna le inquadrature (mai 3 uguali di fil
 def voce(c):
     prec = ''
     for i, s in enumerate(c['scene']):
-        f = os.path.join(LAV, f'voce_{i:02d}.mp3')
+        os.makedirs(os.path.join(CART, 'voce'), exist_ok=True)
+        f = os.path.join(CART, 'voce', f'voce_{i:02d}.mp3')
         if not os.path.exists(f):
             dopo = ' '.join(x['testo'] for x in c['scene'][i + 1:])[:400]
             for k in range(4):
@@ -217,7 +218,7 @@ def incolla(fr, im, x, y):
         fr.alpha_composite(im.crop((l, t, r, b)), (x + l, y + t))
 
 
-def nuvoletta(fr, testo, t, dx_lato, centro=False):
+def nuvoletta(fr, testo, t, dx_lato, centro=False, posto=None):
     s = ease(t / .22) * (1.0 if t > .22 else 1.08)
     if s <= .05:
         return
@@ -234,6 +235,8 @@ def nuvoletta(fr, testo, t, dx_lato, centro=False):
     card = card.rotate(rot, expand=True, resample=Image.BICUBIC)
     card = card.resize((max(1, int(card.width * s)), max(1, int(card.height * s))), Image.BILINEAR)
     cx = int(W * (.5 if centro else .73 if dx_lato else .27)); cy = int(H * (.13 if centro else .2))
+    if posto:
+        cx, cy = posto
     incolla(fr, card, cx - card.width // 2, cy - card.height // 2)
 
 
@@ -416,7 +419,7 @@ def quadri(c):
                   'outlines, flat colours, simple rounded shapes. The main character is EXACTLY the man of the first reference image: bald round head, peach skin, '
                   'small black oval eyes, thin eyebrows, magenta long-sleeve shirt, black trousers, black shoes - same face and proportions, never change his clothes. '
                   f"Scene: {q['azione']}. Setting: {q['luogo']}.{extra} The main character is on the {lato} third of the frame, big and clearly visible "
-                  '(at least half of the image height), his face and expression very readable. Rich, detailed, realistic Italian everyday environment, warm soft '
+                  '(at least half of the image height), his face and expression very readable. He is the ONLY person wearing magenta or pink: every other person wears completely different colours (grey, blue, green, white, brown). Rich, detailed, realistic Italian everyday environment, warm soft '
                   'cinematic light, 16:9 composition with depth. No text, no letters, no numbers, no speech bubbles, no logos.')
         if not os.path.exists(f):
             for k in range(3):
@@ -438,12 +441,34 @@ def ritaglio(q, taglio):
     im = q['_img']; w, h = im.size
     b = q['_box'].get('kao' if taglio == 'kao' else 'altro') if taglio != 'largo' else None
     if not b:
-        return im.resize((W, H), Image.LANCZOS), .5
-    cx, cy = (b[0] + b[2]) / 2, (b[1] + b[3]) / 2
-    cw = max(w * .5, min(w * .72, (b[2] - b[0]) * 2.3)); ch = cw * 9 / 16
-    terzo = .38 if cx < w / 2 else .62
-    x0 = min(max(0, cx - cw * terzo), w - cw); y0 = min(max(0, cy - ch * .42), h - ch)
-    return im.crop((int(x0), int(y0), int(x0 + cw), int(y0 + ch))).resize((W, H), Image.LANCZOS), (cx - x0) / cw
+        x0, y0, cw, ch = 0, 0, w, h
+    else:
+        cx, cy = (b[0] + b[2]) / 2, (b[1] + b[3]) / 2
+        cw = max(w * .64, min(w * .8, (b[2] - b[0]) * 2.6)); ch = cw * 9 / 16   # 11 nov: primo piano meno stretto (piu' nitido, si vede la scena)
+        terzo = .38 if cx < w / 2 else .62
+        x0 = min(max(0, cx - cw * terzo), w - cw); y0 = min(max(0, cy - ch * .42), h - ch)
+    img = im.crop((int(x0), int(y0), int(x0 + cw), int(y0 + ch))).resize((W, H), Image.LANCZOS)
+    # caselle delle persone nel fotogramma: la nuvoletta non deve MAI coprire una testa
+    k = W / cw; occ = []
+    for v in q['_box'].values():
+        occ.append(((v[0] - x0) * k, (v[1] - y0) * k, (v[2] - x0) * k, (v[3] - y0) * k))
+    return img, occ
+
+
+def posto_nuvoletta(occ, testo):
+    """Il posto per la nuvoletta che non tocca nessuna persona (soprattutto la testa); tra quelli liberi il piu' in alto."""
+    lw = min(W * .42, 60 * len(testo) + 120); lh = 200
+    cand = [(W * .25, H * .17), (W * .75, H * .17), (W * .5, H * .12), (W * .22, H * .42), (W * .78, H * .42), (W * .5, H * .62)]
+    def sovrapp(c):
+        x1, y1, x2, y2 = c[0] - lw / 2, c[1] - lh / 2, c[0] + lw / 2, c[1] + lh / 2
+        tot = 0
+        for a in occ:
+            testa = (a[0], a[1], a[2], a[1] + (a[3] - a[1]) * .45)   # la testa conta il triplo
+            for bb, peso in ((a, 1), (testa, 3)):
+                ix, iy = max(0, min(x2, bb[2]) - max(x1, bb[0])), max(0, min(y2, bb[3]) - max(y1, bb[1]))
+                tot += ix * iy * peso
+        return tot
+    return min(cand, key=lambda c: (sovrapp(c) > 0, sovrapp(c), cand.index(c)))
 
 
 def monta_illustrato(c):
@@ -476,7 +501,7 @@ def monta_illustrato(c):
         k = (id(sh['quadro']), sh['taglio'])
         if k not in cache:
             cache[k] = ritaglio(sh['quadro'], sh['taglio'])
-        base, pos = cache[k]
+        base, occ = cache[k]
         fr = base.convert('RGBA')
         if sh['nuovo_quadro'] and prec is not None and ts < .25:   # dissolvenza breve solo quando cambia il quadro
             kp = (id(prec['quadro']), prec['taglio'])
@@ -485,7 +510,7 @@ def monta_illustrato(c):
             pw = s['parola'].split()[0].lower().strip('.,!?')
             t_par = next((x[1] for x in s['_parole'] if x[0].lower().strip('.,!?;:«»"') == pw), s['_dur'] * .3)
             if tsc >= t_par:
-                nuvoletta(fr, s['parola'], tsc - t_par, pos < .5)
+                nuvoletta(fr, s['parola'], tsc - t_par, True, posto=posto_nuvoletta(occ, s['parola']))
         sottotitolo(fr, s['_parole'], tsc)
         ff.stdin.write(fr.convert('RGB').tobytes())
         if n % (FPS * 15) == 0:
