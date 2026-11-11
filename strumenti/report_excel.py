@@ -22,22 +22,51 @@ def num(v):
         return None
 
 
+def fonti_txt(f):
+    """Percentuali per fonte e DOVE AGIRE (11 nov sera, Giorgio)."""
+    tot = sum(f.values()) if f else 0
+    if not tot:
+        return ['-'] * 4 + ['dati in arrivo']
+    pc = {k: round(f.get(k, 0) / tot * 100) for k in ('home', 'consigliati', 'ricerca', 'shorts')}
+    if tot < 20:
+        cons = 'troppe poche visualizzazioni: dato non ancora affidabile'
+    else:
+        top = max(pc, key=pc.get)
+        cons = {'home': 'HOME: agire sulla COPERTINA (CTR) - il video viene proposto a chi non lo cerca',
+                'consigliati': 'CONSIGLIATI: agire su ARGOMENTO e TITOLO agganciati ai video grandi del filone (stesse figure/eventi, tag simili)',
+                'ricerca': 'RICERCA: agire su TITOLO, DESCRIZIONE e TAG con le parole che la gente cerca',
+                'shorts': 'SHORT: le visite arrivano dagli Short - collegare gli Short al video lungo'}[top]
+        if pc[top] < 40:
+            cons = 'misto (nessuna fonte sopra il 40%): copertina e titolo insieme'
+    return [pc['home'], pc['consigliati'], pc['ricerca'], pc['shorts'], cons]
+
+
 def main():
     dati = json.load(open(sys.argv[1] if len(sys.argv) > 1 else 'coach/performance_dati.json'))
     oggi = dt.date.today().isoformat()
     wb = Workbook(); ws = wb.active; ws.title = 'Performance'
     ws.column_dimensions['A'].width = 18; ws.column_dimensions['B'].width = 52
-    for c in 'CDEFGHIJK':
+    for c in 'CDEFGHIJKLMNO':
         ws.column_dimensions[c].width = 14
+    ws.column_dimensions['P'].width = 70
+    try:
+        fonti_can = json.load(open('coach/performance_fonti_canale.json'))
+    except Exception:
+        fonti_can = {}
     ws['A1'] = f'PERFORMANCE CANALI - {oggi}'; ws['A1'].font = Font(bold=True, size=16)
     ws['A2'] = 'OBIETTIVI DA SUPERARE:'; ws['A2'].font = Font(bold=True)
     ws['B2'] = f"CTR copertina > {OBIETTIVI['ctr']:.1f}%   |   Ritenzione 30 s > {OBIETTIVI['ritenzione_30s']:.0f}%   |   Ritenzione 60 s > {OBIETTIVI['ritenzione_60s']:.0f}%"
     ws['B2'].font = Font(bold=True, color='B91C1C')
     ws['A3'] = 'Dati totali da quando il video e\' uscito. Verde = sopra obiettivo, rosso = sotto, grigio = dato non ancora arrivato (YouTube li da\' con 2-3 giorni di ritardo) o troppe poche visualizzazioni per calcolare la ritenzione.'
     ws['A3'].font = Font(italic=True, color='666666', size=9)
-    r = 5
+    ws['A4'] = ('DA DOVE ARRIVANO LE VISITE -> DOVE AGIRE:  HOME = YouTube lo propone a chi non lo cerca: conta la COPERTINA (CTR).  '
+                'CONSIGLIATI = esce accanto/dopo altri video: conta ARGOMENTO e TITOLO agganciati ai video grandi del filone.  '
+                'RICERCA = conta il TITOLO con le parole cercate.  SHORT = arrivano dagli Short.')
+    ws['A4'].font = Font(italic=True, color='1D4ED8', size=9)
+    r = 6
     COL = ['Pubblicato', 'Titolo', 'Durata media visualizzazione', '% media visualizzata', 'Visualizzazioni', 'Tempo di visualizzazione (ore)',
-           'Iscritti', 'Impression miniatura', 'CTR miniatura %', 'Ritenzione 30 s %', 'Ritenzione 60 s %']
+           'Iscritti', 'Impression miniatura', 'CTR miniatura %', 'Ritenzione 30 s %', 'Ritenzione 60 s %',
+           'Da HOME %', 'Da CONSIGLIATI %', 'Da RICERCA %', 'Da SHORT %', 'DOVE AGIRE']
     NC = len(COL)
     mmss = lambda x: f'{int(x // 60)}:{int(round(x % 60)):02d}'
     for nome in sorted(dati):
@@ -61,12 +90,14 @@ def main():
         vt = sum(g['views'] or 0 for _, g in righe); ore = sum(g['ore'] for _, g in righe)
         imp_t = sum(g['impression'] or 0 for _, g in righe); clic = sum((g['impression'] or 0) * (g['ctr'] or 0) / 100 for _, g in righe)
         perc = sum((g['views'] or 0) * (g['perc_media_guardata'] or 0) for _, g in righe) / vt if vt else None
-        tot = ['TOTALE CANALE', f'ultimi {len(video)} video', mmss(ore * 3600 / vt) if vt else '-', round(perc, 1) if perc is not None else '-', int(vt), round(ore, 1),
+        tot = ['TOTALE CANALE', f'ultimi {len(video)} video (fonti delle visite: tutto il canale, Short compresi, ultimi 28 giorni)', mmss(ore * 3600 / vt) if vt else '-', round(perc, 1) if perc is not None else '-', int(vt), round(ore, 1),
                int(sum(g['iscritti'] or 0 for _, g in righe)), int(imp_t), round(clic / imp_t * 100, 1) if imp_t else '-', '', '']
         for c, val in enumerate(tot, 1):
             x = ws.cell(r, c, val); x.font = Font(bold=True, size=12); x.fill = PatternFill('solid', fgColor='FEF3C7'); x.alignment = Alignment(horizontal='center' if c > 2 else 'left')
         if imp_t:
             ws.cell(r, 9).fill = VERDE if clic / imp_t * 100 >= OBIETTIVI['ctr'] else ROSSO
+        for c, val in enumerate(fonti_txt(fonti_can.get(nome) or {}), 12):   # fonti di TUTTO il canale, ultimi 28 giorni (Short compresi)
+            x = ws.cell(r, c, val); x.font = Font(bold=True); x.fill = PatternFill('solid', fgColor='FEF3C7')
         r += 1
         for v, g in righe:
             ws.cell(r, 1, str(v.get('data_pubblicazione') or '')[:16])
@@ -80,13 +111,15 @@ def main():
                 vuoto = 'in arrivo' if (c == 9 or not imp or g['giorni_dalla_pubblicazione'] is None or g['giorni_dalla_pubblicazione'] < 3) else 'poche views'
                 x = ws.cell(r, c, round(val, 1) if val is not None else vuoto)
                 x.fill = GRIGIO if val is None or (c == 9 and not imp) else (VERDE if val >= ob else ROSSO)
+            for c, val in enumerate(fonti_txt(v.get('fonti') or {}), 12):
+                ws.cell(r, c, val)
             for c in range(1, NC + 1):
                 ws.cell(r, c).border = SOTT
-                if c > 2:
+                if 2 < c < NC:
                     ws.cell(r, c).alignment = Alignment(horizontal='center')
             r += 1
         r += 2   # spazio tra un canale e l'altro
-    ws.freeze_panes = 'A5'
+    ws.freeze_panes = 'A6'
     # 11 nov (Giorgio OK, punto 2 dal metodo Reed): quale RAMO del filone (playlist) guardano davvero, per fare piu' video di quel ramo
     wr = wb.create_sheet('Rami del filone')
     for c, w_ in zip('ABCDEFGH', (18, 40, 10, 14, 14, 12, 16, 16)):

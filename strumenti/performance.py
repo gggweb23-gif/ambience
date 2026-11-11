@@ -150,6 +150,22 @@ def analytics(auth, params):
     return http('https://youtubeanalytics.googleapis.com/v2/reports?' + urllib.parse.urlencode(dict({'ids': 'channel==MINE'}, **params)), headers=auth)
 
 
+FONTI_CANALE = {}
+GRUPPI_FONTE = {'SUBSCRIBER': 'home', 'RELATED_VIDEO': 'consigliati', 'END_SCREEN': 'consigliati', 'YT_SEARCH': 'ricerca', 'SHORTS': 'shorts',
+                'YT_CHANNEL': 'canale', 'NOTIFICATION': 'canale', 'PLAYLIST': 'canale', 'YT_PLAYLIST_PAGE': 'canale'}
+
+
+def fonti_traffico(auth, inizio, vid=None):
+    """Visualizzazioni per fonte (home = "Funzioni di navigazione", consigliati = "Video suggeriti", ricerca, Short, canale, altro)."""
+    q = {'startDate': inizio, 'endDate': dt.date.today().isoformat(), 'dimensions': 'insightTrafficSourceType', 'metrics': 'views'}
+    if vid:
+        q['filters'] = 'video==' + vid
+    out = {}
+    for row in analytics(auth, q).get('rows', []) or []:
+        g = GRUPPI_FONTE.get(row[0], 'altro'); out[g] = out.get(g, 0) + int(row[1] or 0)
+    return out
+
+
 def ritenzione(auth, vid, inizio, durata):
     """% di spettatori ancora presenti a 30 e a 60 secondi (curva audienceWatchRatio di YouTube)."""
     r = analytics(auth, {'startDate': inizio, 'endDate': dt.date.today().isoformat(), 'metrics': 'audienceWatchRatio',
@@ -278,7 +294,20 @@ def canale(cfg):
     scrivi(fid, righe)
     # 11 nov (Giorgio OK, punto 2): il ramo del filone di ogni video (colonna playlist del file di produzione) per vedere quale ramo tira
     ramo = {str(r.get('youtube_video_id') or '').strip(): str(r.get('playlist') or '').strip() for r in prod}
-    DATI_EXCEL[str(cfg.get('channel_name') or cid)] = [dict(dict(zip(COLONNE, r)), playlist=ramo.get(r[1], '')) for r in righe[1:]]
+    # 11 nov sera (Giorgio): DA DOVE arrivano le visualizzazioni (home, consigliati, ricerca, Short...) per ogni video e per il canale,
+    # cosi' si sa se agire sulla copertina (home) o sull'argomento/titolo (consigliati). Analytics in sola lettura, gratis.
+    fonti = {}
+    for _, v, _x in usciti:
+        try:
+            fonti[v] = fonti_traffico(auth, inizio, v)
+        except Exception as e:
+            log('  fonti di traffico non lette per', v, str(e)[:80])
+    try:
+        fonti_canale = fonti_traffico(auth, (dt.date.today() - dt.timedelta(days=28)).isoformat(), None)
+    except Exception as e:
+        fonti_canale = {}; log('  fonti di traffico del canale non lette:', str(e)[:80])
+    DATI_EXCEL[str(cfg.get('channel_name') or cid)] = [dict(dict(zip(COLONNE, r)), playlist=ramo.get(r[1], ''), fonti=fonti.get(r[1], {})) for r in righe[1:]]
+    FONTI_CANALE[str(cfg.get('channel_name') or cid)] = fonti_canale
     ultimi = [x for x in righe[1:] if num(x[15], 0) >= 3 and not str(x[16]).startswith('incompleto')][-5:]   # solo video con >= 3 giorni di report
     attesa = sum(1 for x in righe[1:] if num(x[15], 0) < 3 or str(x[16]).startswith('incompleto'))
     if attesa:
@@ -329,6 +358,7 @@ def main():
             log('  ERRORE', cfg.get('channel_id'), str(e)[:200], (e.read().decode('utf-8', 'ignore')[:300] if hasattr(e, 'read') else ''))   # 7 nov: motivo del 403 nel registro
     os.makedirs('coach', exist_ok=True)
     json.dump(DATI_EXCEL, open('coach/performance_dati.json', 'w'), ensure_ascii=False, indent=1)
+    json.dump(FONTI_CANALE, open('coach/performance_fonti_canale.json', 'w'), ensure_ascii=False, indent=1)
     open('coach/performance_ultimo.txt', 'w').write(dt.datetime.now().strftime('%Y-%m-%d %H:%M') + '\n' + '\n'.join(REPORT) + '\n')
 
 
