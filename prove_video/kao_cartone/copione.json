@@ -1,0 +1,109 @@
+{
+ "titolo": "Perché le persone sensibili si stancano prima degli altri",
+ "luoghi": [
+  {
+   "id": "ufficio",
+   "prompt_en": "a bright Italian open space office with desks, laptops, a window and a coffee machine in the corner, no people"
+  },
+  {
+   "id": "strada",
+   "prompt_en": "a busy Italian city street with traffic, scooters, shop windows and a bus stop, no people"
+  },
+  {
+   "id": "camera",
+   "prompt_en": "a simple cosy Italian bedroom with a bed, a bedside lamp, a window with shutters, no people"
+  }
+ ],
+ "scene": [
+  {
+   "testo": "Alle sei di sera sei già a pezzi, e nessuno capisce perché. Eppure non hai nemmeno fatto chissà cosa.",
+   "luogo": "ufficio",
+   "posa": "stanco",
+   "posa2": "dubbio",
+   "inquadratura": "media",
+   "secondario": "",
+   "parola": "Già a pezzi?"
+  },
+  {
+   "testo": "Il punto è che non ti stanchi per quello che fai. Ti stanchi per tutto quello che senti mentre lo fai.",
+   "luogo": "ufficio",
+   "posa": "spiega",
+   "posa2": "",
+   "inquadratura": "larga",
+   "secondario": "",
+   "parola": ""
+  },
+  {
+   "testo": "Il collega sbuffa, il capo ha un tono strano, il telefono squilla. Tu registri ogni cosa, anche senza volerlo.",
+   "luogo": "ufficio",
+   "posa": "ansioso",
+   "posa2": "sorpreso",
+   "inquadratura": "stretta",
+   "secondario": "collega",
+   "parola": "Registri tutto"
+  },
+  {
+   "testo": "È come avere troppe finestre aperte nel computer: nessuna fa rumore, ma insieme consumano tutta la batteria.",
+   "luogo": "ufficio",
+   "posa": "computer",
+   "posa2": "stanco",
+   "inquadratura": "media",
+   "secondario": "",
+   "parola": "Troppe finestre"
+  },
+  {
+   "testo": "Poi esci, e la strada è un altro carico: clacson, gente di fretta, vetrine, voci ovunque.",
+   "luogo": "strada",
+   "posa": "cammina",
+   "posa2": "",
+   "inquadratura": "larga",
+   "secondario": "",
+   "parola": ""
+  },
+  {
+   "testo": "Magari ti senti dire: dai, non fare il drammatico, sei troppo delicato. Ma non è una debolezza.",
+   "luogo": "strada",
+   "posa": "triste",
+   "posa2": "pensieroso",
+   "inquadratura": "stretta",
+   "secondario": "amico",
+   "parola": "Non è debolezza"
+  },
+  {
+   "testo": "Il tuo sistema elabora più informazioni, più a fondo. Quindi si scarica prima, semplicemente perché lavora di più.",
+   "luogo": "strada",
+   "posa": "parla",
+   "posa2": "",
+   "inquadratura": "media",
+   "secondario": "",
+   "parola": "Elabori di più"
+  },
+  {
+   "testo": "Cosa puoi fare? Dopo una giornata piena, concediti una pausa vera, senza schermi, anche solo dieci minuti.",
+   "luogo": "camera",
+   "posa": "seduto_divano",
+   "posa2": "abbraccia_se",
+   "inquadratura": "larga",
+   "secondario": "",
+   "parola": "Pausa vera"
+  },
+  {
+   "testo": "Non è egoismo, è manutenzione. Come caricare il telefono prima che si spenga del tutto.",
+   "luogo": "camera",
+   "posa": "telefono",
+   "posa2": "pollice_su",
+   "inquadratura": "media",
+   "secondario": "",
+   "parola": ""
+  },
+  {
+   "testo": "Essere sensibili non significa reggere meno. Significa sentire di più, e chiedere il giusto riposo.",
+   "luogo": "camera",
+   "posa": "dorme",
+   "posa2": "",
+   "inquadratura": "stretta",
+   "secondario": "",
+   "parola": "Sentire di più"
+  }
+ ]
+}
