@@ -36,6 +36,7 @@ STILE_LUOGO = ('Flat 2D cartoon background illustration in the SAME style as a s
                'flat colours, soft warm palette, simple shapes, no gradients, no texture. Wide shot at eye level, the floor is visible in the lower '
                'quarter of the image. EMPTY place: no people, no animals, no characters, no text, no letters, no logos. ')
 log = YT.log
+SENZA_SOTTOTITOLI = False   # True quando il montaggio KAO mette i suoi sottotitoli (render_kao.py)
 
 
 def font(nome, url):
@@ -589,6 +590,9 @@ def monta_illustrato(c):
         sh = shots[si]; s = sh['scena']; ts = t - sh['t0']; tsc = t - (sh['t0'] - sh['rel'])
         k = (id(sh['quadro']), sh['taglio'])
         if k not in cache:
+            kp_ = (id(prec['quadro']), prec['taglio']) if prec else None
+            for vecchio in [x for x in cache if x != kp_]:   # memoria: si tengono solo l'immagine attuale e la precedente
+                del cache[vecchio]
             cache[k] = ritaglio(sh['quadro'], sh['taglio'])
         base, occ = cache[k]
         fr = movimento(base, si, ts / max(.1, sh['t1'] - sh['t0'])).convert('RGBA')
@@ -600,7 +604,8 @@ def monta_illustrato(c):
             t_par = next((x[1] for x in s['_parole'] if x[0].lower().strip('.,!?;:«»"') == pw), s['_dur'] * .3)
             if tsc >= t_par:
                 nuvoletta(fr, s['parola'], tsc - t_par, True, posto=posto_nuvoletta(occ, s['parola'], sh['quadro'].get('kao', '')))
-        sottotitolo(fr, s['_parole'], tsc)
+        if not SENZA_SOTTOTITOLI:
+            sottotitolo(fr, s['_parole'], tsc)
         ff.stdin.write(fr.convert('RGB').tobytes())
         if n % (FPS * 15) == 0:
             log(f'montaggio {int(100 * n / n_fr)}%')
@@ -663,3 +668,60 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
+# ============================================================ USO DAL MOTORE KAO (render_kao.py, colonna video_stile = CARTONE)
+def base_cartone(testi, durate, titolo, cartella, budget=3.10):
+    """11 nov (Giorgio: "dal video che esce domani fallo con questo stile"): il video di KAO (copione tradotto dal competitor e voce gia'
+    fatti dal motore) diventa un cartone: un'illustrazione NUOVA ogni ~4 s (mai ripetuta), zoom lento avanti/indietro, nuvolette.
+    Restituisce il video muto 1920x1080 (sottotitoli, iscrizione, musica e audio li mette render_kao.py come sempre).
+    budget = colonna cartone_budget_video ($): se le immagini non ci stanno, si allunga il tempo di ogni immagine (mai oltre il budget)."""
+    global CART, SENZA_SOTTOTITOLI, TEMA
+    CART = cartella; os.makedirs(CART, exist_ok=True); SENZA_SOTTOTITOLI = True; TEMA = titolo or TEMA
+    totale = sum(durate)
+    sec = SEC_IMG
+    spesa_img = PREZZO_QUADRO * 1.12 + 0.003   # quadro + 12% di rifacimenti + controllo
+    fisso = 0.15                                 # regia (Claude)
+    n_max = max(len(testi), int((budget - fisso) / spesa_img))
+    if totale / sec > n_max:
+        sec = totale / n_max
+        log(f'cartone: con il budget di {budget:.2f} $ un\'immagine ogni {sec:.1f} s (invece di {SEC_IMG:g})')
+    n_img = [max(1, round(d / sec)) for d in durate]
+    log('cartone:', len(testi), 'scene,', sum(n_img), 'immagini previste, circa', round(sum(n_img) * spesa_img + fisso, 2), '$')
+    f = os.path.join(CART, 'regia.json')
+    if os.path.exists(f):
+        reg = json.load(open(f))
+    else:
+        elenco = [{'i': i, 'testo': t, 'immagini': n} for i, (t, n) in enumerate(zip(testi, n_img))]
+        prompt = f"""Sei il regista del canale YouTube italiano KAO PSICOLOGIA. Il video "{titolo}" diventa un CARTONE ANIMATO di qualita' cinematografica
+con protagonista KAO (omino calvo, maglia magenta) che VIVE la situazione di cui parla la voce, in una storia di vita quotidiana italiana coerente dall'inizio alla fine.
+Per ogni scena qui sotto (parlato gia' scritto) disegna ESATTAMENTE il numero di immagini indicato. TUTTE le immagini del video sono DIVERSE tra loro
+(mai la stessa immagine, nemmeno con un'altra inquadratura): ognuna mostra QUELLO CHE LA VOCE DICE in quel momento, con KAO che fa un'azione chiara con
+un'espressione chiara. Varia le inquadrature (campo largo, mezza figura, primo piano, dettaglio di mani o oggetti, dall'alto, di spalle) come in un film.
+Stesso luogo per piu' scene di fila quando la storia resta li'. Altre persone solo quando servono: scegli tra {json.dumps(list(SECONDARI), ensure_ascii=False)}.
+Concetti astratti (il cervello, le emozioni): mostrali con KAO in situazioni concrete o con metafore visive semplici, mai schemi o scritte.
+Scene: {json.dumps(elenco, ensure_ascii=False)}
+Rispondi SOLO con JSON: {{"scene": [{{"i": 0, "luogo": "in inglese, il posto con i suoi dettagli", "secondario": "id o ''",
+ "parola": "1-3 parole chiave del parlato da mostrare in una nuvoletta (in circa un terzo delle scene, altrimenti '')",
+ "immagini": [{{"azione": "in inglese: inquadratura + cosa fa KAO e con che espressione + cosa fanno gli altri", "kao": "left|right"}}]}}]}}"""
+        reg = claude(prompt, max_tokens=64000)
+        json.dump(reg, open(f, 'w'), ensure_ascii=False)
+    per_i = {int(x.get('i', -1)): x for x in reg.get('scene', [])}
+    c = {'scene': [], 'quadri': []}
+    luogo_prec = 'a cosy Italian living room'
+    for i, (t, d, n) in enumerate(zip(testi, durate, n_img)):
+        x = per_i.get(i) or {}
+        luogo = x.get('luogo') or luogo_prec; luogo_prec = luogo
+        sec_ = x.get('secondario') if x.get('secondario') in SECONDARI else ''
+        imgs = (x.get('immagini') or [])[:n] or [{'azione': 'KAO listens thoughtfully, ' + t[:120], 'kao': 'left'}]
+        parole = t.split(); passo = d / max(1, len(parole))
+        sc = {'testo': t, '_dur': d, 'parola': x.get('parola') or '', 'secondario': sec_, 'luogo': luogo,
+              '_parole': [[w, k * passo, (k + 1) * passo] for k, w in enumerate(parole)], '_quadri': []}
+        for im in imgs:
+            q = {'id': f"q{len(c['quadri']) + 1}", 'luogo': luogo, 'azione': im.get('azione') or t, 'kao': im.get('kao') or 'left', 'secondario': sec_}
+            c['quadri'].append(q); sc['_quadri'].append(q['id'])
+        sc['quadro'] = sc['_quadri'][0]
+        c['scene'].append(sc)
+    quadri(c)
+    muto, _, _ = monta_illustrato(c)
+    return muto

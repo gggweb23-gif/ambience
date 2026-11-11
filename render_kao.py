@@ -711,111 +711,123 @@ def monta(dati, cartella, out):
     run(['ffmpeg', '-y', '-v', 'error', '-f', 'concat', '-safe', '0', '-i', lista, '-c:a', 'aac', '-b:a', '192k', voce])
     totale_voce = durata(voce)
     log(f'{len(scene)} scene, {totale_voce / 60:.1f} minuti di voce')
-    # 2) piano dei pezzi: una clip nuova ogni N secondi (stock_clip_duration), pezzi uguali dentro la scena
-    passo = max(2.0, num(cfg.get('stock_clip_duration'), 4.0))
-    tipo_pref = {'video': 'video', 'photo': 'photo', 'image': 'photo'}.get(str(cfg.get('stock_media_type') or 'mixed').lower(), 'mixed')
-    texture = [u.strip() for u in str(cfg.get('scene_bg_textures') or '').split(',') if u.strip()]
-    piano = []   # (scena, inizio, fine)
-    for i, (s, (a, b)) in enumerate(zip(scene, tempi)):
-        n = 1 if (s.get('typo') or (EFF and (s.get('effetti') or {}).get('cornice'))) else max(1, math.ceil((b - a) / passo - 0.05))
-        for k in range(n):
-            piano.append((i, a + (b - a) * k / n, a + (b - a) * (k + 1) / n))
-    # 3) ricerche e scelta delle clip (4 controlli)
-    if OFFLINE:
-        media_scena = {i: [{'tipo': s.get('media_tipo_locale', 'video'), 'url': s['media_locale']}] if s.get('media_locale') else []
-                       for i, s in enumerate(scene)}
+    # 11 nov (Giorgio): colonna video_stile = CARTONE -> il video e' un cartone con KAO (video_kao_cartone.py): un'illustrazione nuova ogni ~4 s,
+    # mai ripetuta, zoom lento avanti/indietro, nuvolette; budget nella colonna cartone_budget_video (vuota = 3,10 $, scelta di Giorgio dell'11 nov).
+    CARTONE = str(cfg.get('video_stile') or '').strip().upper() == 'CARTONE'
+    if CARTONE:
+        import video_kao_cartone as VKC
+        pezzi = []; totale = totale_voce
+        bud = num(cfg.get('cartone_budget_video'), 3.10)
+        muto = VKC.base_cartone([s['testo'] for s in scene], [b - a for a, b in tempi], dati.get('titolo') or '', os.path.join(cartella, 'cartone'), bud)
+        base = os.path.join(cartella, 'base.mp4')
+        run(['ffmpeg', '-y', '-v', 'error', '-i', muto, '-c', 'copy', base])
+        log('video a cartone pronto (base)')
     else:
-        ricerche = scrivi_ricerche(scene, dati.get('titolo') or '')
-        def per_scena(i):
+        # 2) piano dei pezzi: una clip nuova ogni N secondi (stock_clip_duration), pezzi uguali dentro la scena
+        passo = max(2.0, num(cfg.get('stock_clip_duration'), 4.0))
+        tipo_pref = {'video': 'video', 'photo': 'photo', 'image': 'photo'}.get(str(cfg.get('stock_media_type') or 'mixed').lower(), 'mixed')
+        texture = [u.strip() for u in str(cfg.get('scene_bg_textures') or '').split(',') if u.strip()]
+        piano = []   # (scena, inizio, fine)
+        for i, (s, (a, b)) in enumerate(zip(scene, tempi)):
+            n = 1 if (s.get('typo') or (EFF and (s.get('effetti') or {}).get('cornice'))) else max(1, math.ceil((b - a) / passo - 0.05))
+            for k in range(n):
+                piano.append((i, a + (b - a) * k / n, a + (b - a) * (k + 1) / n))
+        # 3) ricerche e scelta delle clip (4 controlli)
+        if OFFLINE:
+            media_scena = {i: [{'tipo': s.get('media_tipo_locale', 'video'), 'url': s['media_locale']}] if s.get('media_locale') else []
+                           for i, s in enumerate(scene)}
+        else:
+            ricerche = scrivi_ricerche(scene, dati.get('titolo') or '')
+            def per_scena(i):
+                s = scene[i]
+                if s.get('typo') or (EFF and (s.get('effetti') or {}).get('cornice')):
+                    return i, []
+                quanti = sum(1 for x in piano if x[0] == i)
+                contesto = ' '.join(scene[j]['testo'] for j in (i - 1, i) if 0 <= j < len(scene))[-600:]
+                m = scegli_media(ricerche.get(i) or [], contesto, quanti, tipo_pref)
+                log(f'scena {i + 1}: {len(m)}/{quanti} clip ({", ".join(ricerche.get(i) or [])[:90]})')
+                return i, m
+            with ThreadPoolExecutor(3) as ex:
+                media_scena = dict(ex.map(per_scena, range(len(scene))))
+        # 4) i pezzi di video, tagliati a fotogrammi esatti sulla voce (niente sfasamenti)
+        pezzi, scaricati, ultimo = [], {}, None
+        contatore, liste_eff = {}, {}
+        for n, (i, a, b) in enumerate(piano):
+            nf = int(round(b * FPS)) - int(round(a * FPS))
+            if nf <= 0:
+                continue
+            o = os.path.join(cartella, f'pezzo_{n:04d}.mp4')
             s = scene[i]
-            if s.get('typo') or (EFF and (s.get('effetti') or {}).get('cornice')):
-                return i, []
-            quanti = sum(1 for x in piano if x[0] == i)
-            contesto = ' '.join(scene[j]['testo'] for j in (i - 1, i) if 0 <= j < len(scene))[-600:]
-            m = scegli_media(ricerche.get(i) or [], contesto, quanti, tipo_pref)
-            log(f'scena {i + 1}: {len(m)}/{quanti} clip ({", ".join(ricerche.get(i) or [])[:90]})')
-            return i, m
-        with ThreadPoolExecutor(3) as ex:
-            media_scena = dict(ex.map(per_scena, range(len(scene))))
-    # 4) i pezzi di video, tagliati a fotogrammi esatti sulla voce (niente sfasamenti)
-    pezzi, scaricati, ultimo = [], {}, None
-    contatore, liste_eff = {}, {}
-    for n, (i, a, b) in enumerate(piano):
-        nf = int(round(b * FPS)) - int(round(a * FPS))
-        if nf <= 0:
-            continue
-        o = os.path.join(cartella, f'pezzo_{n:04d}.mp4')
-        s = scene[i]
-        eff = (s.get('effetti') or {}) if EFF else {}
-        try:
-            if eff.get('cornice'):   # foto in cornice su fondo colorato (stessa pagina HTML di json2video), con zoom lento
-                png = EF.foto_cornice(eff['cornice'], eff.get('sfondo'), cartella, f'cornice_{i:03d}')
-                pezzo_foto(png, nf, o, 1)
-                ultimo = None
-            elif s.get('typo'):
-                tex = None
-                if texture:
-                    u = texture[i % len(texture)]
-                    tex = scaricati.get(u) or scarica(u, os.path.join(cartella, f'texture_{i % len(texture)}.jpg'))
-                    scaricati[u] = tex
-                s_typo = dict(s, etichetta='', dati={}) if any(l.get('type') == 'text' for l in eff.get('livelli') or []) else s   # il titolo lo disegna il livello di json2video
-                pezzo_png(immagine_typo(s_typo, cfg, tex, os.path.join(cartella, f'typo_{i:03d}.jpg')), nf, o)
-                ultimo = None
-            else:
-                k = contatore.get(i, 0); contatore[i] = k + 1
-                lista_m = media_scena.get(i) or []
-                if k >= len(lista_m):
-                    raise LookupError('nessuna clip controllata per questo pezzo')
-                m = lista_m[k]
-                foto = m['tipo'] == 'foto'
-                if m['url'] not in scaricati:
-                    scaricati[m['url']] = scarica(m['url'], os.path.join(cartella, f'media_{len(scaricati):04d}' + ('.jpg' if foto else '.mp4')))
-                src = scaricati[m['url']]
-                if foto:
-                    pezzo_foto(src, nf, o, 1 if n % 2 == 0 else -1)
-                    ultimo = ('foto', src, 0.0)
-                else:
-                    pezzo_video(src, nf, o)
-                    ultimo = ('video', src, nf / FPS)
-        except Exception as e:
-            # riserva: si continua la clip precedente (mai un'immagine a caso)
-            if not isinstance(e, LookupError):
-                log(f'pezzo {n} (scena {i + 1}) non riuscito: {str(e)[:120]}')
-            if ultimo and ultimo[0] == 'video':
-                pezzo_video(ultimo[1], nf, o, ultimo[2]); ultimo = ('video', ultimo[1], ultimo[2] + nf / FPS)
-            elif ultimo:
-                pezzo_foto(ultimo[1], nf, o, -1)
-            elif pezzi:
-                run(['ffmpeg', '-y', '-v', 'error', '-sseof', '-0.1', '-i', pezzi[-1], '-frames:v', '1', o + '.png'])
-                pezzo_png(o + '.png', nf, o)
-            else:
-                run(['ffmpeg', '-y', '-v', 'error', '-f', 'lavfi', '-i', f'color=c=0x15121a:s={W}x{H}:r={FPS}', '-frames:v', str(nf)] + ENC + [o])
-        if eff.get('livelli'):   # grafici animati, titoli, cifre in dollari, clip typo_fast_cut sopra il pezzo
+            eff = (s.get('effetti') or {}) if EFF else {}
             try:
-                a_sc, b_sc = tempi[i]
-                if i not in liste_eff:
-                    liste_eff[i] = EF.sovrimpressione(eff['livelli'], b_sc - a_sc, cartella, f'eff_{i:03d}')
-                    for v in eff['livelli']:
-                        if v.get('type') == 'video' and v.get('src') and not v.get('locale'):
-                            try:
-                                v['locale'] = scaricati.get(v['src']) or scarica(v['src'], os.path.join(cartella, f'sopra_{len(scaricati):04d}.mp4'))
-                                scaricati[v['src']] = v['locale']
-                            except Exception as e:
-                                log('clip sopra la scena non scaricata:', str(e)[:80])
-                video_sopra = [v for v in eff['livelli'] if v.get('type') == 'video' and v.get('locale')]
-                o2 = o[:-4] + '_eff.mp4'
-                o = EF.applica(o, o2, liste_eff[i], video_sopra, a - a_sc, nf / FPS, cartella, ENC, vf_cover())
+                if eff.get('cornice'):   # foto in cornice su fondo colorato (stessa pagina HTML di json2video), con zoom lento
+                    png = EF.foto_cornice(eff['cornice'], eff.get('sfondo'), cartella, f'cornice_{i:03d}')
+                    pezzo_foto(png, nf, o, 1)
+                    ultimo = None
+                elif s.get('typo'):
+                    tex = None
+                    if texture:
+                        u = texture[i % len(texture)]
+                        tex = scaricati.get(u) or scarica(u, os.path.join(cartella, f'texture_{i % len(texture)}.jpg'))
+                        scaricati[u] = tex
+                    s_typo = dict(s, etichetta='', dati={}) if any(l.get('type') == 'text' for l in eff.get('livelli') or []) else s   # il titolo lo disegna il livello di json2video
+                    pezzo_png(immagine_typo(s_typo, cfg, tex, os.path.join(cartella, f'typo_{i:03d}.jpg')), nf, o)
+                    ultimo = None
+                else:
+                    k = contatore.get(i, 0); contatore[i] = k + 1
+                    lista_m = media_scena.get(i) or []
+                    if k >= len(lista_m):
+                        raise LookupError('nessuna clip controllata per questo pezzo')
+                    m = lista_m[k]
+                    foto = m['tipo'] == 'foto'
+                    if m['url'] not in scaricati:
+                        scaricati[m['url']] = scarica(m['url'], os.path.join(cartella, f'media_{len(scaricati):04d}' + ('.jpg' if foto else '.mp4')))
+                    src = scaricati[m['url']]
+                    if foto:
+                        pezzo_foto(src, nf, o, 1 if n % 2 == 0 else -1)
+                        ultimo = ('foto', src, 0.0)
+                    else:
+                        pezzo_video(src, nf, o)
+                        ultimo = ('video', src, nf / FPS)
             except Exception as e:
-                log(f'effetti della scena {i + 1} non applicati: {str(e)[:150]}')
-        pezzi.append(o)
-    if EFF:
-        EF.chiudi()
-    # 5) nessuna schermata finale (decisione di Giorgio, 31 ott 2026: mai su nessun canale)
-    totale = totale_voce
-    lista_p = os.path.join(cartella, 'pezzi.txt')
-    open(lista_p, 'w').write(''.join(f"file '{os.path.abspath(p)}'\n" for p in pezzi))
-    base = os.path.join(cartella, 'base.mp4')
-    run(['ffmpeg', '-y', '-v', 'error', '-f', 'concat', '-safe', '0', '-i', lista_p, '-c', 'copy', base])
+                # riserva: si continua la clip precedente (mai un'immagine a caso)
+                if not isinstance(e, LookupError):
+                    log(f'pezzo {n} (scena {i + 1}) non riuscito: {str(e)[:120]}')
+                if ultimo and ultimo[0] == 'video':
+                    pezzo_video(ultimo[1], nf, o, ultimo[2]); ultimo = ('video', ultimo[1], ultimo[2] + nf / FPS)
+                elif ultimo:
+                    pezzo_foto(ultimo[1], nf, o, -1)
+                elif pezzi:
+                    run(['ffmpeg', '-y', '-v', 'error', '-sseof', '-0.1', '-i', pezzi[-1], '-frames:v', '1', o + '.png'])
+                    pezzo_png(o + '.png', nf, o)
+                else:
+                    run(['ffmpeg', '-y', '-v', 'error', '-f', 'lavfi', '-i', f'color=c=0x15121a:s={W}x{H}:r={FPS}', '-frames:v', str(nf)] + ENC + [o])
+            if eff.get('livelli'):   # grafici animati, titoli, cifre in dollari, clip typo_fast_cut sopra il pezzo
+                try:
+                    a_sc, b_sc = tempi[i]
+                    if i not in liste_eff:
+                        liste_eff[i] = EF.sovrimpressione(eff['livelli'], b_sc - a_sc, cartella, f'eff_{i:03d}')
+                        for v in eff['livelli']:
+                            if v.get('type') == 'video' and v.get('src') and not v.get('locale'):
+                                try:
+                                    v['locale'] = scaricati.get(v['src']) or scarica(v['src'], os.path.join(cartella, f'sopra_{len(scaricati):04d}.mp4'))
+                                    scaricati[v['src']] = v['locale']
+                                except Exception as e:
+                                    log('clip sopra la scena non scaricata:', str(e)[:80])
+                    video_sopra = [v for v in eff['livelli'] if v.get('type') == 'video' and v.get('locale')]
+                    o2 = o[:-4] + '_eff.mp4'
+                    o = EF.applica(o, o2, liste_eff[i], video_sopra, a - a_sc, nf / FPS, cartella, ENC, vf_cover())
+                except Exception as e:
+                    log(f'effetti della scena {i + 1} non applicati: {str(e)[:150]}')
+            pezzi.append(o)
+        if EFF:
+            EF.chiudi()
+        # 5) nessuna schermata finale (decisione di Giorgio, 31 ott 2026: mai su nessun canale)
+        totale = totale_voce
+        lista_p = os.path.join(cartella, 'pezzi.txt')
+        open(lista_p, 'w').write(''.join(f"file '{os.path.abspath(p)}'\n" for p in pezzi))
+        base = os.path.join(cartella, 'base.mp4')
+        run(['ffmpeg', '-y', '-v', 'error', '-f', 'concat', '-safe', '0', '-i', lista_p, '-c', 'copy', base])
     # 6) sottotitoli
     ass = None
     if str(cfg.get('show_subtitles', True)).strip().lower() not in ('false', 'no', '0'):
