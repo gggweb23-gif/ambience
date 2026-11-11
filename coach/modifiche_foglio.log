@@ -346,3 +346,7 @@ riga 16 | Pronto | How Do Astronauts Survive Landing in Freezing Winters? | NO E
   WWII Testimony | scout_modo (NG7): "" -> "esplosi"
   WWII Testimony | scout_giorni (NH7): "" -> "30"
   WWII Testimony | scout_moltiplicatore (NI7): "" -> "3"
+2026-11-11 15:49
+  colonne nuove: copertina_regola_testo, scout_priorita (da NJ)
+  WWII Testimony | copertina_regola_testo (NJ7): "" -> "2-3 big words that NAME a famous figure or hint at the answer without giving it (e.g. WHAT HITLER SAID, STALIN'S WARNING, PATTON'S SECRET). NEVER the generic pattern ONE DAY / ONE FIGHTER / 3 REASONS. No final period."
+  WWII Testimony | scout_priorita (NK7): "" -> "Hitler, Patton, D-Day, Rommel, Eisenhower"
