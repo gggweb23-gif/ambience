@@ -1,22 +1,22 @@
-04:11:33 copione scartato: ['tutte le voci devono usare lo stesso numero di anni ([1.0, 15.0])', 'i valori anno per anno (16) devono essere anni + 1 (2)', 'il copione ha 490 parole: ne servono 1500-1650 (video di 9-10 minuti)']
-04:12:19 copione scartato: ['il costo vero del gancio (32400) deve essere uguale a somma delle voci - rivendita (26100)', 'il copione ha 749 parole: ne servono 1500-1650 (video di 9-10 minuti)']
-04:15:47 copione scartato: ["struttura dati non valida: 'valore'"]
+13:23:04 copione scartato: ["struttura dati non valida: 'valore'"]
+13:25:23 copione scartato: ['il copione ha 1133 parole: ne servono 1500-1650 (video di 9-10 minuti)']
+13:28:56 copione scartato: ['il copione ha 1396 parole: ne servono 1500-1650 (video di 9-10 minuti)']
 Traceback (most recent call last):
-  File "/home/runner/work/ambience/ambience/video_possesso.py", line 578, in <module>
+  File "/home/runner/work/ambience/ambience/video_possesso.py", line 581, in <module>
     main()
-  File "/home/runner/work/ambience/ambience/video_possesso.py", line 488, in main
+  File "/home/runner/work/ambience/ambience/video_possesso.py", line 491, in main
     c = copione(); SCENE = c['scene']
         ^^^^^^^^^
-  File "/home/runner/work/ambience/ambience/video_possesso.py", line 166, in copione
+  File "/home/runner/work/ambience/ambience/video_possesso.py", line 169, in copione
     raise RuntimeError('copione con numeri non coerenti dopo 3 tentativi: ' + '; '.join(prob))
-RuntimeError: copione con numeri non coerenti dopo 3 tentativi: struttura dati non valida: 'valore'
-04:15:47 esito: {"stato": "ERRORE", "errore": "copione con numeri non coerenti dopo 3 tentativi: struttura dati non valida: 'valore'"}
+RuntimeError: copione con numeri non coerenti dopo 3 tentativi: il copione ha 1396 parole: ne servono 1500-1650 (video di 9-10 minuti)
+13:28:56 esito: {"stato": "ERRORE", "errore": "copione con numeri non coerenti dopo 3 tentativi: il copione ha 1396 parole: ne servono 1500-1650 (video di 9-10 minuti)"}
 Traceback (most recent call last):
-  File "/home/runner/work/ambience/ambience/video_possesso.py", line 578, in <module>
+  File "/home/runner/work/ambience/ambience/video_possesso.py", line 581, in <module>
     main()
-  File "/home/runner/work/ambience/ambience/video_possesso.py", line 488, in main
+  File "/home/runner/work/ambience/ambience/video_possesso.py", line 491, in main
     c = copione(); SCENE = c['scene']
         ^^^^^^^^^
-  File "/home/runner/work/ambience/ambience/video_possesso.py", line 166, in copione
+  File "/home/runner/work/ambience/ambience/video_possesso.py", line 169, in copione
     raise RuntimeError('copione con numeri non coerenti dopo 3 tentativi: ' + '; '.join(prob))
-RuntimeError: copione con numeri non coerenti dopo 3 tentativi: struttura dati non valida: 'valore'
+RuntimeError: copione con numeri non coerenti dopo 3 tentativi: il copione ha 1396 parole: ne servono 1500-1650 (video di 9-10 minuti)
