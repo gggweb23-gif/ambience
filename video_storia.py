@@ -66,6 +66,7 @@ STILE_RACCONTO = str(P.get('stile_racconto') or E('STILE_RACCONTO', '')).strip()
 STILE_IMMAGINI = str(P.get('stile_immagini') or E('STILE_IMMAGINI', '')).strip()   # vuoto = stile cartone di Storia in Minuti
 MAPPA_SI = str(P.get('mappa') or E('MAPPA', '') or 'SI').strip().upper() != 'NO'    # % della copertina competitor da tenere uguale
 TIT_COPIA = _perc(P.get('titolo_copia') or E('TITOLO_COPIA', ''), 100)          # % del titolo competitor da tenere uguale
+STRUTT = LINGUA == 'en'   # 11 nov (Giorgio): canale inglese che copia un competitor inglese -> solo gancio e struttura, testo e titolo nostri
 COP_STILE = str(P.get('copertina_stile') or E('COPERTINA_STILE', '') or 'cartone').strip().lower()   # cartone | realistico
 RIFERIMENTI = [u for u in (P.get('riferimenti_copertine') or []) if u][:8]      # copertine top della nicchia (dallo Scout)
 MODELLO_AI = E('MODELLO_AI', 'claude-sonnet-5-5').strip()
@@ -445,12 +446,23 @@ def copione(comp):
     if comp.get('titolo'):
         blocco_originale += f'''
 VIDEO ORIGINALE DA COPIARE: "{comp['titolo']}".
-- "titolo": ''' + (f"e' la TRADUZIONE FEDELE al 100% del titolo originale in {lingua} (stessa struttura, stessi numeri e date, stesse parole in maiuscolo), adattata solo dove serve per suonare naturale." if TIT_COPIA >= 100 else
+- "titolo": ''' + (f"NON copiare il titolo originale e non ritoccarlo con sinonimi: scrivi un titolo NOSTRO in {lingua} con lo stesso schema (stesso tipo di promessa, un numero se l'originale ne ha uno, qualche PAROLA IN MAIUSCOLO, stessi separatori) ma parole e angolo diversi, massimo 90 caratteri." if STRUTT else
+       f"e' la TRADUZIONE FEDELE al 100% del titolo originale in {lingua} (stessa struttura, stessi numeri e date, stesse parole in maiuscolo), adattata solo dove serve per suonare naturale." if TIT_COPIA >= 100 else
        f"tieni il {TIT_COPIA}% del titolo originale tradotto in {lingua} (stessa struttura, stesso argomento, stessi numeri e date) e cambia il restante {100 - TIT_COPIA}% per renderlo piu' forte e diverso: un'altra parola d'impatto, una promessa o un dettaglio di curiosita'. Mai un titolo identico all'originale.")
     if comp.get('tag_originali'):
         blocco_originale += f'''
 TAG DEL COMPETITOR (da tradurre in {lingua} e mettere per primi nel campo "tag"): {', '.join(comp['tag_originali'])[:1500]}'''
-    if orig:
+    if orig and STRUTT:   # 11 nov (Giorgio): competitor inglese -> video inglese = doppione per YouTube: solo gancio e struttura, testo nostro
+        blocco_originale += f'''
+- Il PARLATO NON copia il testo originale (stessa lingua e stesso pubblico: YouTube lo vedrebbe come un doppione). Dall'originale prendi SOLO il gancio
+  d'apertura (il meccanismo, non le parole), la STRUTTURA (ordine delle parti, ritmo, tipo di domande e di rivelazioni) e l'argomento. Scrivi tutto DA ZERO
+  in {lingua}: mai frasi, esempi, metafore, aneddoti o giri di frase dell'originale, nemmeno riformulati. Fatti solo veri e documentati (puoi usare quelli
+  dell'originale se sono verificabili, raccontati con parole e ordine di dettagli nostri), lunghezza circa {parole} parole.
+  La prima scena dice subito il risultato o il fatto piu' sorprendente (prima la fine, poi come ci si arriva), poi apre una domanda concreta.
+TESTO ORIGINALE (solo come guida per gancio e struttura):
+{orig[:60000]}
+'''
+    elif orig:
         blocco_originale += f'''
 - Il PARLATO deve COPIARE al {TESTO_COPIA}% il testo originale qui sotto: stessi fatti, stesso ordine, stessi ganci, stesse domande, stessi numeri{(', ma CONDENSATO: il nostro video e\' piu\' corto, quindi tieni i fatti, i ganci e le domande piu\' forti e taglia il resto' if condensa else ', stessa lunghezza')}.{(' Il restante ' + str(100 - TESTO_COPIA) + '% riscrivilo seguendo i pattern vincenti dell originale (stesso tipo di ganci, domande allo spettatore, dettagli concreti e sorprendenti, stesso tono): mai parti a caso.') if TESTO_COPIA < 100 else ''}{' ECCEZIONE: l originale e troppo lungo, quindi CONDENSALO a circa ' + str(parole) + ' parole: stessi fatti principali, stesso ordine, stessi ganci e stesse domande, togli solo dettagli secondari ed esempi ripetuti.' if condensa else ''}{' ECCEZIONE: l originale e troppo corto, quindi ESPANDILO a circa ' + str(parole) + ' parole: stesso ordine e stessi ganci, aggiungi dettagli veri e concreti, esempi e curiosita coerenti con quelli dell originale (mai riempitivi).' if espandi else ''}
   Traducilo in {lingua} naturale e cambia solo piccole cose per non essere una copia identica (sinonimi, ordine delle parole, qualche frase unita o divisa). {'Aggiungi solo dettagli veri e coerenti' if espandi else 'NON aggiungere contenuti'}{' e togli solo il secondario' if condensa else ' e NON toglierne'}.
