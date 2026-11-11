@@ -1,22 +1,11 @@
-13:55:48 copione scartato: ['il prezzo del cartellino (0) deve essere uguale al primo valore (1600)', 'il costo vero del gancio (0) deve essere uguale a somma delle voci - rivendita (163200)', 'CORTO: il copione dura circa 3.7 minuti (3645 caratteri): ne servono almeno 8.5']
-13:57:38 copione scartato: ['CORTO: il copione dura circa 7.8 minuti (7708 caratteri): ne servono almeno 8.5']
-13:58:23 copione scartato: ['il prezzo del cartellino (96000) deve essere uguale al primo valore (0)', 'il costo vero del gancio (144000) deve essere uguale a somma delle voci - rivendita (139060)', 'CORTO: il copione dura circa 4.8 minuti (4727 caratteri): ne servono almeno 8.5']
-Traceback (most recent call last):
-  File "/home/runner/work/ambience/ambience/video_possesso.py", line 607, in <module>
-    main()
-  File "/home/runner/work/ambience/ambience/video_possesso.py", line 517, in main
-    c = copione(); SCENE = c['scene']
-        ^^^^^^^^^
-  File "/home/runner/work/ambience/ambience/video_possesso.py", line 195, in copione
-    raise RuntimeError('copione con numeri non coerenti dopo 3 tentativi: ' + '; '.join(prob))
-RuntimeError: copione con numeri non coerenti dopo 3 tentativi: il prezzo del cartellino (96000) deve essere uguale al primo valore (0); il costo vero del gancio (144000) deve essere uguale a somma delle voci - rivendita (139060); CORTO: il copione dura circa 4.8 minuti (4727 caratteri): ne servono almeno 8.5
-13:58:23 esito: {"stato": "ERRORE", "errore": "copione con numeri non coerenti dopo 3 tentativi: il prezzo del cartellino (96000) deve essere uguale al primo valore (0); il costo vero del gancio (144000) deve essere uguale a somma delle voci - rivendita (139060); CORTO: il copione dura circa 4.8 minuti (4727 caratteri): ne servono almeno 8.5"}
-Traceback (most recent call last):
-  File "/home/runner/work/ambience/ambience/video_possesso.py", line 607, in <module>
-    main()
-  File "/home/runner/work/ambience/ambience/video_possesso.py", line 517, in main
-    c = copione(); SCENE = c['scene']
-        ^^^^^^^^^
-  File "/home/runner/work/ambience/ambience/video_possesso.py", line 195, in copione
-    raise RuntimeError('copione con numeri non coerenti dopo 3 tentativi: ' + '; '.join(prob))
-RuntimeError: copione con numeri non coerenti dopo 3 tentativi: il prezzo del cartellino (96000) deve essere uguale al primo valore (0); il costo vero del gancio (144000) deve essere uguale a somma delle voci - rivendita (139060); CORTO: il copione dura circa 4.8 minuti (4727 caratteri): ne servono almeno 8.5
+15:22:14 numeri: {'prezzo': 550, 'anni': 7, 'valori': [550.0, 400.0, 320.0, 260.0, 220.0, 190.0, 165.0, 150.0], 'totale': 4410, 'rivendita': 150, 'costo_vero': 4260, 'mese': 51, 'giorno': 2}
+15:22:54 voce: 16.4 caratteri/s naturali -> accelerata x1.007
+15:22:54 voce: 9.5 minuti
+15:22:54 budget: un'immagine ogni 5.5 s (invece di 4) per restare sotto 1.50 euro
+15:28:59 immagini: 111 | spesa finora 1.483 $
+15:50:12 pulsante iscriviti al secondo 95 con 2 suoni
+16:03:31 video finale a 1440p (piu' nitido su YouTube)
+16:03:31 FATTO: /home/runner/work/ambience/ambience/video_possesso.mp4 9.5 minuti | immagini 111 (una ogni 5.5 s) | COSTO VIDEO (stima): 1.49 $ + 9378 crediti voce | fal flux-2-klein-4b: 0.684 $ (76 chiamate) | fal flux-2-klein-4b-edit: 0.629 $ (37 chiamate) | claude claude-sonnet-5-5: 0.179 $ (3 chiamate) | elevenlabs eleven_multilingual_v2: 0.000 $ (15 chiamate), 9378 crediti
+promozione a pagamento: No
+16:03:46 playlist: Tecnologia
+16:03:51 esito: {"stato": "PUBBLICATO", "video_id": "XEMzQH3XEDs", "link": "https://www.youtube.com/watch?v=XEMzQH3XEDs", "pubblica_il": "2026-11-11T16:00:00.000Z", "errore": "", "testo_copertina": "QUANTO COSTA? 4.260 €", "titolo": "Quanto costa DAVVERO una PlayStation 5 in 7 anni?", "descrizione": "Quanto costa DAVVERO una PlayStation 5 in 7 anni?\n\nUna PlayStation 5 costa cinquecentocinquanta euro sul cartellino. Ma tra giochi, abbonamento, controller, archiviazione, TV e riparazioni, in sette anni il costo vero sale a quasi quattromiladuecentosessanta euro. In questo video di Costo Vero ti mostriamo voce
