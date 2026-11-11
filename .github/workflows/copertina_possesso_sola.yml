@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       payload:
-        description: 'JSON: nome, titolo, oggetto, costo_vero, k'
+        description: 'JSON: nome, titolo, oggetto, costo_vero, k  (con "shock": true -> stile shock: copione, prezzo, anni)'
         required: true
 permissions:
   contents: write
@@ -20,7 +20,12 @@ jobs:
           FAL_KEY: ${{ secrets.FAL_KEY }}
         run: |
           pip install -q --break-system-packages pillow json-repair
-          python3 strumenti/copertina_possesso_sola.py
+          if python3 -c "import json,os,sys;sys.exit(0 if json.loads(os.environ['PAYLOAD']).get('shock') else 1)"; then
+            eval "$(python3 -c "import json,os;p=json.loads(os.environ['PAYLOAD']);print('; '.join(f'export {k.upper()}=\"{v}\"' for k,v in p.items() if k!='shock'))")"
+            python3 strumenti/copertina_possesso_shock.py
+          else
+            python3 strumenti/copertina_possesso_sola.py
+          fi
       - name: Salva
         run: |
           git config user.name render-bot && git config user.email render-bot@users.noreply.github.com
