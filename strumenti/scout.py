@@ -50,6 +50,10 @@ def id_canale(link):
     m = re.search(r'(UC[\w-]{22})', link)
     if m:
         return m.group(1)
+    m = re.search(r'(?:v=|youtu\.be/|shorts/)([\w-]{11})', link)   # 11 nov: va bene anche il link di un loro video
+    if m:
+        it = yt('videos', part='snippet', id=m.group(1)).get('items', [])
+        return it[0]['snippet']['channelId'] if it else None
     m = re.search(r'@([\w.\-]+)', link)
     if m:
         it = yt('channels', part='id', forHandle='@' + m.group(1)).get('items', [])
