@@ -15,10 +15,15 @@ def api(p, q, corpo=None):
 cambi = json.loads(E('CAMBI') or '[]')
 if not cambi:
     up = api('channels', {'part': 'contentDetails', 'mine': 'true'})['items'][0]['contentDetails']['relatedPlaylists']['uploads']
-    ids = [x['contentDetails']['videoId'] for x in api('playlistItems', {'part': 'contentDetails', 'playlistId': up, 'maxResults': 15})['items']]
-    for v in api('videos', {'part': 'snippet,contentDetails', 'id': ','.join(ids)})['items']:
+    ids = [x['contentDetails']['videoId'] for x in api('playlistItems', {'part': 'contentDetails', 'playlistId': up, 'maxResults': 50})['items']]
+    for v in api('videos', {'part': 'snippet,contentDetails,status,statistics', 'id': ','.join(ids)})['items']:
         if PF.secondi(v['contentDetails']['duration']) > 180:
-            print(json.dumps({'id': v['id'], 'titolo': v['snippet']['title'], 'descrizione': v['snippet'].get('description', '')[:700]}, ensure_ascii=False))
+            sn, st = v['snippet'], v['status']
+            print(json.dumps({'id': v['id'], 'titolo': sn['title'], 'views': v.get('statistics', {}).get('viewCount'), 'pubblicato': sn.get('publishedAt'),
+                              'categoria': sn.get('categoryId'), 'lingua': sn.get('defaultLanguage'), 'lingua_audio': sn.get('defaultAudioLanguage'),
+                              'tag': len(sn.get('tags') or []), 'bambini': st.get('madeForKids'), 'licenza': st.get('license'), 'incorporabile': st.get('embeddable'),
+                              'definizione': v['contentDetails'].get('definition'), 'contenuto_sintetico': st.get('containsSyntheticMedia'),
+                              'descrizione': sn.get('description', '')[:120]}, ensure_ascii=False))
 for c in cambi:
     v = api('videos', {'part': 'snippet', 'id': c['video_id']})['items'][0]; s = v['snippet']
     vecchio, nuovo = s['title'], c['titolo'].strip()[:100]
