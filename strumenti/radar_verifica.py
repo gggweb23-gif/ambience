@@ -25,3 +25,17 @@ for n, (h, rr) in tab.items():
     elif 'TREND' in n:
         for r in rr[:4]:
             print('  ', json.dumps(r, ensure_ascii=False)[:400])
+
+# 11 nov: elenco completo dei canali con il primo video negli ultimi 30 giorni (per scegliere da quale partire)
+for n, (h, rr) in tab.items():
+    if 'Canali' in n and 'channel_id' in h:
+        def _g(r):
+            try:
+                return float(str(r.get('Giorni dal primo video') or 999).replace(',', '.'))
+            except Exception:
+                return 999
+        giovani = sorted([r for r in rr if _g(r) <= 30], key=lambda r: -float(str(r.get('Views al giorno (ultima settimana)') or 0).replace(',', '.') or 0))
+        print(f'\n=== CANALI CON PRIMO VIDEO NEGLI ULTIMI 30 GIORNI: {len(giovani)}')
+        for r in giovani:
+            print(' | '.join(str(r.get(k, '')) for k in ('Canale', 'Crescita', 'Nicchia', 'Si può rifare?', 'Con cosa', 'RPM stimato $', 'Giorni dal primo video',
+                  'Views al giorno (ultima settimana)', 'Views al giorno (settimana prima)', 'Iscritti', 'Video nel canale', 'Video migliore', 'Views video migliore', 'Motivo', 'Link canale'))[:600])
