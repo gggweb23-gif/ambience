@@ -36,6 +36,10 @@ VOCI_COSTO = str(RIGA.get('voci_costo') or '').strip()
 W, H, FPS = PV.W, PV.H, PV.FPS
 log = YT.log
 MODELLO = 'claude-sonnet-5-5'
+# 11 nov (Giorgio: "le immagini non sono mai limpide"): generate direttamente in Full HD PNG (prima 1280x720 JPEG ingrandite = sfocate).
+# Colonna immagini_risoluzione (vuota = 1920x1080). Il costo cresce con i pixel: il piano immagini resta comunque dentro il budget del video.
+RIS = tuple(int(x) for x in str(P.get('immagini_risoluzione') or '1920x1080').lower().split('x'))
+FATT_RIS = RIS[0] * RIS[1] / (1280 * 720)
 SEC_IMG = 4.0   # 9 nov sera (Giorgio: "il ritmo e' lento"): un'immagine nuova ogni 4 secondi (se il budget lo permette)
 MIN_PAROLE, MAX_PAROLE = 1500, 1650
 DUR_MIN = 510   # 11 nov: almeno 8,5 minuti stimati (mai su YouTube sotto gli 8)
@@ -259,17 +263,17 @@ def immagine(f, prompt, rif=None):
     for k in range(3):
         try:
             if rif:
-                url = fal(PV.KLEIN_EDIT, {'prompt': prompt, 'image_urls': [rif], 'image_size': {'width': 1280, 'height': 720}, 'num_images': 1, 'output_format': 'jpeg'})
-                CO.registra('fal', 'flux-2-klein-4b-edit', dollari=PV.PREZZO['edit'])
+                url = fal(PV.KLEIN_EDIT, {'prompt': prompt, 'image_urls': [rif], 'image_size': {'width': RIS[0], 'height': RIS[1]}, 'num_images': 1, 'output_format': 'png'})
+                CO.registra('fal', 'flux-2-klein-4b-edit', dollari=PV.PREZZO['edit'] * FATT_RIS)
             else:
-                url = fal(PV.KLEIN_T2I, {'prompt': prompt, 'image_size': {'width': 1280, 'height': 720}, 'num_images': 1, 'output_format': 'jpeg'})
-                CO.registra('fal', 'flux-2-klein-4b', dollari=PV.PREZZO['t2i'])
+                url = fal(PV.KLEIN_T2I, {'prompt': prompt, 'image_size': {'width': RIS[0], 'height': RIS[1]}, 'num_images': 1, 'output_format': 'png'})
+                CO.registra('fal', 'flux-2-klein-4b', dollari=PV.PREZZO['t2i'] * FATT_RIS)
             im = Image.open(io.BytesIO(YT.http(url, raw=True, timeout=120))).convert('RGB')
             from PIL import ImageStat
             if max(ImageStat.Stat(im.resize((64, 36))).mean) < 18:   # immagine nera (filtro di sicurezza del fornitore): si rifa', mai uno sfondo nero nel video
                 log('immagine nera scartata, la rifaccio'); prompt = prompt + ' Bright, warm daylight scene.'; continue
             from PIL import ImageFilter
-            im.resize((W, H), Image.LANCZOS).filter(ImageFilter.UnsharpMask(radius=2, percent=70, threshold=2)).save(f, quality=95)   # ingrandita e resa nitida
+            (im if im.size == (W, H) else im.resize((W, H), Image.LANCZOS)).filter(ImageFilter.UnsharpMask(radius=1.5, percent=50, threshold=2)).save(f, quality=97)   # ingrandita e resa nitida
             return f, url
         except Exception as e:
             log('immagine non riuscita, riprovo:', str(e)[:150]); time.sleep(5)
@@ -281,7 +285,7 @@ def piano_immagini(c, durate):
     tutte = [x for s in c['scene'] for x in (s.get('sfondi') or [])]
     p_cop = 0.009; claude_usd = CO.totale()
     quota_persone = sum(1 for x in tutte if x.get('persone')) / max(1, len(tutte))
-    medio = quota_persone * PV.PREZZO['edit'] + (1 - quota_persone) * PV.PREZZO['t2i']
+    medio = (quota_persone * PV.PREZZO['edit'] + (1 - quota_persone) * PV.PREZZO['t2i']) * FATT_RIS
     sec = SEC_IMG
     while True:
         n = sum(max(1, math.ceil(d / sec)) for d in durate)
@@ -304,8 +308,11 @@ def frase(im, testo, t, d):
     if not testo:
         return
     a = ease(t / .35); n = int(max(0, t - .2) * 30)
-    pannello(im, (90, 880, 90 + 40 + PV.F(64).getlength(testo[:28]) + 40, 990), INK + (235,), alpha=a)
-    scritta(im, (130, 896), testo[:n][:28], 64, BIANCO, alpha=a)
+    fs = 64
+    while fs > 40 and PV.F(fs).getlength(testo) > 1500:   # 11 nov: mai tagliata ("UNA VOLT"): si rimpicciolisce un poco
+        fs -= 4
+    pannello(im, (90, 880, 90 + 40 + PV.F(fs).getlength(testo) + 40, 990), INK + (235,), alpha=a)
+    scritta(im, (130, 896 + (64 - fs) // 2), testo[:n], fs, BIANCO, alpha=a)
     u = ease((t - .25 - len(testo) / 30) / .35)
     if u > 0:
         ImageDraw.Draw(im).line((130, 978, 130 + (PV.F(64).getlength(testo[:28])) * u, 978), fill=Y, width=6)
@@ -345,7 +352,8 @@ def grafica(im, sc, t, d, dati, passo_t, passo_d, passo_i):
         scritta(im, (140 + x, 290), eur(num(dd.get('per_anno')) * ease((t - .5) / .8)) + (' UNA VOLTA' if int(num(dd.get('anni'))) == 1 else ' ALL\'ANNO'), 80, GRIGIO, maxw=780)
         k = ease((t - d * .35) / .9)
         if k > 0:
-            scritta(im, (140 + x, 400), "UNA TANTUM =" if int(num(dd.get('anni'))) == 1 else f"x {int(num(dd.get('anni')))} ANNI =", 60, GRIGIO, alpha=cl(k * 2))
+            if int(num(dd.get('anni'))) != 1:   # una tantum: c'e' gia' "UNA VOLTA" sopra, niente riga doppia
+                scritta(im, (140 + x, 400), f"x {int(num(dd.get('anni')))} ANNI =", 60, GRIGIO, alpha=cl(k * 2))
             scritta(im, (140 + x, 470), eur(tot * k), 120, R, alpha=cl(k * 2), maxw=780)
             u = ease((t - d * .35 - .9) / .35)
             if u > 0:
