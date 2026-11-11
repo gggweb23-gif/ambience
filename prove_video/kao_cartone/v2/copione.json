@@ -1,0 +1,90 @@
+{
+ "titolo": "Perché le persone sensibili si stancano prima degli altri",
+ "quadri": [
+  {
+   "id": "q1",
+   "luogo": "a small Italian open-space office, desks with laptops, big windows, plants, espresso cups, post-it notes on monitors",
+   "azione": "KAO sits at his desk rubbing his tired eyes with a drained expression, the screen full of notifications; a colleague talks loudly on the phone behind him",
+   "kao": "left",
+   "secondario": "collega"
+  },
+  {
+   "id": "q2",
+   "luogo": "the same Italian open-space office, a coffee machine corner with paper cups and a wall clock showing late afternoon",
+   "azione": "KAO stands holding a paper cup, eyes wide and attentive, noticing the colleague's tense face and a tapping pen, looking overwhelmed",
+   "kao": "right",
+   "secondario": "collega"
+  },
+  {
+   "id": "q3",
+   "luogo": "a cozy Italian apartment living room in the evening, sofa, lamp, bookshelf, moka pot on a side table, rain on the window",
+   "azione": "KAO collapses on the sofa with a sigh and closed eyes, looking exhausted but relieved to be alone in silence",
+   "kao": "left",
+   "secondario": ""
+  },
+  {
+   "id": "q4",
+   "luogo": "a lively Italian pizzeria with friends around a table, checkered tablecloth, pizzas, noisy atmosphere, hanging lights",
+   "azione": "KAO sits at the table smiling politely but with tired eyes, while a friend talks animatedly and gestures; KAO looks gently at him, absorbing everything",
+   "kao": "right",
+   "secondario": "amico"
+  },
+  {
+   "id": "q5",
+   "luogo": "a quiet Italian park bench at sunset, trees, a fountain, a few pigeons, warm golden light",
+   "azione": "KAO sits calmly on the bench with eyes closed and a soft peaceful smile, breathing deeply, hands resting on his knees",
+   "kao": "left",
+   "secondario": ""
+  }
+ ],
+ "scene": [
+  {
+   "testo": "Le persone sensibili non si stancano perché sono deboli. Si stancano prima perché, dentro, stanno lavorando molto più di quanto sembri.",
+   "quadro": "q1",
+   "taglio": "kao",
+   "parola": "Non sei debole"
+  },
+  {
+   "testo": "Pensa a Kao, in ufficio. Una collega parla al telefono a voce alta, le notifiche non smettono, e lui è già stanco alle undici.",
+   "quadro": "q1",
+   "taglio": "largo",
+   "parola": ""
+  },
+  {
+   "testo": "Il punto è che lui non sente solo il rumore. Nota il tono, la tensione, la penna che batte sul tavolo. Il cervello registra tutto, anche quello che non vorresti.",
+   "quadro": "q2",
+   "taglio": "altro",
+   "parola": "Registra tutto"
+  },
+  {
+   "testo": "Ogni dettaglio chiede un pezzettino di energia, e a fine giornata quei pezzettini diventano una montagna.",
+   "quadro": "q2",
+   "taglio": "kao",
+   "parola": ""
+  },
+  {
+   "testo": "Per questo, la sera, Kao crolla sul divano e cerca solo silenzio. Non è antipatia, è il bisogno di far riposare un sistema molto attento.",
+   "quadro": "q3",
+   "taglio": "largo",
+   "parola": "Silenzio"
+  },
+  {
+   "testo": "Anche con gli amici, a cena, ascolta con tutto sé stesso. Ed è bellissimo, ma ha un costo, perché sentire profondamente stanca.",
+   "quadro": "q4",
+   "taglio": "altro",
+   "parola": "Ascolto"
+  },
+  {
+   "testo": "Nessuno ti ha mai detto che puoi darti dei tempi tuoi? Una pausa, una passeggiata, un no gentile: non sono capricci, sono manutenzione.",
+   "quadro": "q5",
+   "taglio": "kao",
+   "parola": "Pause"
+  },
+  {
+   "testo": "La tua sensibilità non è un difetto da correggere. È un dono che chiede solo di essere ricaricato.",
+   "quadro": "q5",
+   "taglio": "largo",
+   "parola": ""
+  }
+ ]
+}
