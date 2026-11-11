@@ -522,7 +522,7 @@ def monta_illustrato(c):
 def audio(c, shots, totale):
     voce_f = os.path.join(LAV, 'voce.wav')
     lista = os.path.join(LAV, 'voci.txt')
-    open(lista, 'w').write(''.join(f"file '{s['_audio']}'\n" for s in c['scene']))
+    open(lista, 'w').write(''.join(f"file '{os.path.abspath(s['_audio'])}'\n" for s in c['scene']))
     subprocess.run(['ffmpeg', '-y', '-v', 'error', '-f', 'concat', '-safe', '0', '-i', lista, '-ar', '44100', '-ac', '2', voce_f], check=True)
     popf = os.path.join(LAV, 'pop.wav')   # "pop" morbido a ogni cambio di inquadratura (fatto in codice, gratis)
     subprocess.run(['ffmpeg', '-y', '-v', 'error', '-f', 'lavfi', '-i', "aevalsrc='0.5*sin(2*PI*(500+900*t)*t)*exp(-28*t)':s=44100:d=0.18", '-ac', '2', popf], check=True)
