@@ -390,14 +390,17 @@ def caselle(f):
         'model': 'claude-haiku-4-5-20251001', 'max_tokens': 200, 'messages': [{'role': 'user', 'content': [
             {'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}},
             {'type': 'text', 'text': 'Image 960x540. Give the bounding box (pixels) of the bald man in the magenta shirt (head and upper body) and of the most '
-                                     'important OTHER person or object. Answer ONLY {"kao": [x1,y1,x2,y2], "altro": [x1,y1,x2,y2]}.'}]}]}).encode(),
+                                     'important OTHER person or object. Also check: ok = true only if the bald man wears a MAGENTA shirt and NOBODY else wears magenta, pink or purple. '
+                                     'Answer ONLY {"kao": [x1,y1,x2,y2], "altro": [x1,y1,x2,y2], "ok": true|false}.'}]}]}).encode(),
         headers={'x-api-key': E('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01', 'content-type': 'application/json'})
     try:
         j = json.loads(urllib.request.urlopen(req, timeout=120).read())
         CO.registra('claude', 'claude-haiku-4-5-20251001', usage=j.get('usage'), nota='caselle quadro')
         t = ''.join(b.get('text', '') for b in j['content'] if b.get('type') == 'text')
         d = json.loads(t[t.find('{'): t.rfind('}') + 1])
-        return {k: [v * 2 for v in d[k][:4]] for k in ('kao', 'altro') if isinstance(d.get(k), list) and len(d[k]) >= 4}
+        out = {k: [v * 2 for v in d[k][:4]] for k in ('kao', 'altro') if isinstance(d.get(k), list) and len(d[k]) >= 4}
+        out['_ok'] = d.get('ok') is not False
+        return out
     except Exception as e:
         log('caselle non trovate:', str(e)[:100]); return {}
 
@@ -432,8 +435,15 @@ def quadri(c):
             log('quadro', i + 1, '/', len(c['quadri']), ':', q['azione'][:80])
         if q.get('_url'):
             ultimo_luogo[q['luogo']] = q['_url']
-        q['_img'] = Image.open(f).convert('RGB')
         q['_box'] = caselle(f)
+        for rif in range(2):   # 11 nov: un altro personaggio vestito di magenta (o KAO con la maglia sbagliata) -> il quadro si rifa'
+            if q['_box'].get('_ok', True):
+                break
+            log('quadro', i + 1, 'bocciato (magenta su un altro personaggio): lo rifaccio')
+            q['_url'] = klein_edit(prompt + ' IMPORTANT: only the bald main character wears magenta.', refs[:1] + refs[2:] if q.get('secondario') and rif else refs, f)
+            q['_box'] = caselle(f)
+        q['_box'].pop('_ok', None)
+        q['_img'] = Image.open(f).convert('RGB')
 
 
 def ritaglio(q, taglio):
@@ -447,6 +457,12 @@ def ritaglio(q, taglio):
         cw = max(w * .64, min(w * .8, (b[2] - b[0]) * 2.6)); ch = cw * 9 / 16   # 11 nov: primo piano meno stretto (piu' nitido, si vede la scena)
         terzo = .38 if cx < w / 2 else .62
         x0 = min(max(0, cx - cw * terzo), w - cw); y0 = min(max(0, cy - ch * .42), h - ch)
+        kb = q['_box'].get('kao')
+        if kb:   # 11 nov: mai una testa tagliata: la testa di KAO (se e' nel taglio) resta tutta dentro, con un po' d'aria sopra
+            if kb[2] > x0 and kb[0] < x0 + cw and kb[1] < y0 + ch * .5:
+                y0 = max(0, min(y0, kb[1] - h * .04))
+            if taglio == 'altro' and kb[2] > x0 and kb[0] < x0 + cw and kb[1] < y0:
+                x0, y0, cw, ch = 0, 0, w, h   # non si riesce a tenere la testa: campo largo
     img = im.crop((int(x0), int(y0), int(x0 + cw), int(y0 + ch))).resize((W, H), Image.LANCZOS)
     # caselle delle persone nel fotogramma: la nuvoletta non deve MAI coprire una testa
     k = W / cw; occ = []
