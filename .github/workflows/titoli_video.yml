@@ -1,0 +1,26 @@
+name: Titoli video (elenca o cambia, gratis)
+# 11 nov: cambia il titolo di video gia' pubblicati (titolo = prima riga della descrizione e tag). Con cambi vuoto elenca gli ultimi video.
+on:
+  workflow_dispatch:
+    inputs:
+      chiave_youtube:
+        required: true
+        type: string
+      cambi:
+        description: 'JSON [{"video_id": "...", "titolo": "..."}]; vuoto = elenco'
+        default: ''
+permissions:
+  contents: read
+jobs:
+  titoli:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Titoli
+        env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets[inputs.chiave_youtube] }}
+          CAMBI: ${{ inputs.cambi }}
+        run: python3 strumenti/titoli_video.py
