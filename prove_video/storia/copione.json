@@ -1,0 +1,239 @@
+{
+ "riserva_pexels": [
+  "Congo River rainforest aerial",
+  "Congo Basin jungle canopy",
+  "African rainforest mist morning",
+  "Virunga volcano Congo",
+  "tropical river Africa sunset",
+  "Congo rainforest waterfall",
+  "African swamp forest water",
+  "Congo jungle rain leaves"
+ ],
+ "luoghi_paese": "congo, congolese, central africa, congo basin, congo river, kinshasa, kisangani, virunga, nyiragongo, ituri, salonga, cuvette centrale, lualaba, kasai, equateur, rainforest, swamp forest, mbandaka, kivu, albertine rift, ubangi",
+ "titolo": "The Congo's DEADLY Secret: Why Nobody Can Cross It",
+ "titolo_mappa": "CONGO",
+ "paese_mappa": "Democratic Republic of the Congo",
+ "date": "1482 – 2026",
+ "texture": "stropicciata",
+ "font_carte": "classico",
+ "fondi_carte": [],
+ "colori_carte": [
+  "#1f3d2b",
+  "#5a3a1a"
+ ],
+ "sfondi": [
+  {
+   "id": "s1",
+   "prompt_en": "Lone explorer in khaki and wide hat paddling a red canoe on a green jungle river at dawn, giant crocodiles circling close, dense rainforest edges, tense mood, aerial wide shot, cartoon style",
+   "personaggi": [
+    "esploratore"
+   ]
+  },
+  {
+   "id": "s2",
+   "prompt_en": "Portuguese navigator ship anchored at the wide mouth of the Congo River in 1482, sailors on deck looking at a stone pillar on the shore, warm sunset light, wide shot, cartoon style",
+   "personaggi": [
+    "navigatore_portoghese"
+   ]
+  },
+  {
+   "id": "s3",
+   "prompt_en": "Congolese villagers in a clearing of the Congo rainforest, fishing nets, wooden canoes on a brown river, huts with thatched roofs, midday light, wide shot, cartoon style",
+   "personaggi": []
+  },
+  {
+   "id": "s4",
+   "prompt_en": "Colonial era 1880s, European officers watching Congolese porters carry loads along a muddy jungle path in heavy rain, exhausted faces, dim green light, cartoon style",
+   "personaggi": [
+    "ufficiale_coloniale"
+   ]
+  }
+ ],
+ "scene": [
+  {
+   "capitolo": "The Green Wall",
+   "testo": "Walk into the Congo Basin and the jungle wins within days. Swamps swallow your legs, rivers hide crocodiles, and no road exists for hundreds of miles. We mapped Mars, yet this forest still hides secrets. Why?",
+   "anno": 2026,
+   "visivi": [
+    {
+     "tipo": "cartone",
+     "frase": "Walk into the Congo",
+     "sfondo": "s1",
+     "personaggio": "esploratore",
+     "data": "Today",
+     "suono": "jungle insects, water splashing"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "swamps swallow your legs",
+     "q": "Congo swamp forest water",
+     "suono": "frogs croaking in swamp"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "no road exists",
+     "q": "Congo River rainforest aerial"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "We mapped Mars",
+     "q": "Congo Basin jungle canopy"
+    }
+   ]
+  },
+  {
+   "capitolo": "First Contact",
+   "testo": "In 1482, Portuguese sailors reached the Congo River's mouth. Rapids soon blocked their ships. For centuries, outsiders stayed near the coast, while the vast interior remained unmapped and unknown to Europe.",
+   "anno": 1482,
+   "visivi": [
+    {
+     "tipo": "mappa",
+     "frase": "In 1482"
+    },
+    {
+     "tipo": "cartone",
+     "frase": "Portuguese sailors reached",
+     "sfondo": "s2",
+     "personaggio": "navigatore_portoghese",
+     "data": "1482"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Rapids soon blocked",
+     "q": "Congo River rapids waterfall",
+     "didascalia": "1482"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "vast interior remained",
+     "q": "African rainforest mist morning"
+    }
+   ]
+  },
+  {
+   "capitolo": "The Forest Defends",
+   "testo": "The basin covers over 1.2 million square miles of dense forest. Rivers flood, soil turns to mud, and disease thrives. Sleeping sickness and malaria killed explorers long before any road reached the heart.",
+   "anno": 1870,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "covers over 1.2 million",
+     "q": "Congo rainforest aerial canopy",
+     "didascalia": "1.2 million square miles"
+    },
+    {
+     "tipo": "cartone",
+     "frase": "Rivers flood, soil",
+     "sfondo": "s3",
+     "personaggio": "",
+     "suono": "heavy rain on leaves"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "disease thrives",
+     "q": "Congo jungle rain leaves"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "killed explorers long",
+     "q": "tropical river Africa sunset"
+    }
+   ]
+  },
+  {
+   "capitolo": "Colonial Scars",
+   "testo": "In 1885, King Leopold of Belgium claimed the Congo as his private property. Rubber quotas brought terror and millions died. War followed independence in 1960, and conflict still blocks entire regions today.",
+   "anno": 1885,
+   "visivi": [
+    {
+     "tipo": "cartone",
+     "frase": "In 1885, King",
+     "sfondo": "s4",
+     "personaggio": "ufficiale_coloniale",
+     "data": "1885",
+     "didascalia": "1885"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Rubber quotas brought",
+     "q": "rubber tree plantation Africa"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "War followed independence",
+     "q": "Virunga volcano Congo",
+     "didascalia": "1960"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "conflict still blocks",
+     "q": "Congo rainforest waterfall"
+    }
+   ]
+  },
+  {
+   "capitolo": "Still Wild",
+   "testo": "Today, the Congo Basin is the planet's second-largest rainforest, home to forest elephants, gorillas and uncontacted peoples. Maybe it is not off limits to us. Maybe we are the ones who must stay careful.",
+   "anno": 2026,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "second-largest rainforest",
+     "q": "Congo Basin jungle canopy"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "forest elephants, gorillas",
+     "q": "Virunga forest mist Congo"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Maybe it is not",
+     "q": "Congo River sunset aerial"
+    }
+   ]
+  }
+ ],
+ "copertina": {
+  "testo": "BACINO DEL CONGO",
+  "personaggio": ""
+ },
+ "descrizione": "Why is the Congo Basin still off limits to humans? Discover how swamps, rivers, disease and history built the world's most impenetrable rainforest in Central Africa.\n\nFrom Portuguese sailors in 1482 to colonial terror under King Leopold and modern conflict, this short documentary explains why the Congo remains largely unmapped, and why that matters for the planet.\n\nWatch to learn how the second-largest rainforest on Earth guards forest elephants, gorillas and secrets we are only beginning to understand.\n\n#CongoBasin #Rainforest #AfricaHistory #Documentary #Exploration",
+ "tag": [
+  "Congo Basin",
+  "Congo rainforest",
+  "why Congo is off limits",
+  "Congo River",
+  "Africa rainforest",
+  "unexplored places",
+  "Central Africa",
+  "Congo jungle",
+  "Congo crocodiles",
+  "Congo history",
+  "Democratic Republic of the Congo",
+  "King Leopold Congo",
+  "Congo colonial history",
+  "Congo independence 1960",
+  "forest elephants",
+  "gorillas Congo",
+  "Virunga",
+  "second largest rainforest",
+  "most dangerous jungle",
+  "unexplored Earth",
+  "Africa documentary",
+  "history of Congo",
+  "storia del Congo",
+  "storia completa",
+  "Congo explained",
+  "Congo mystery",
+  "rainforest documentary",
+  "Portuguese explorers Africa",
+  "Congo wildlife",
+  "Congo swamps"
+ ],
+ "personaggi_mancanti": [
+  "Re Leopoldo II del Belgio",
+  "Congolese villagers generici"
+ ],
+ "categoria_originale": "22"
+}
