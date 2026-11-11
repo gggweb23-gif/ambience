@@ -1,22 +1,22 @@
-13:23:04 copione scartato: ["struttura dati non valida: 'valore'"]
-13:25:23 copione scartato: ['il copione ha 1133 parole: ne servono 1500-1650 (video di 9-10 minuti)']
-13:28:56 copione scartato: ['il copione ha 1396 parole: ne servono 1500-1650 (video di 9-10 minuti)']
+13:55:48 copione scartato: ['il prezzo del cartellino (0) deve essere uguale al primo valore (1600)', 'il costo vero del gancio (0) deve essere uguale a somma delle voci - rivendita (163200)', 'CORTO: il copione dura circa 3.7 minuti (3645 caratteri): ne servono almeno 8.5']
+13:57:38 copione scartato: ['CORTO: il copione dura circa 7.8 minuti (7708 caratteri): ne servono almeno 8.5']
+13:58:23 copione scartato: ['il prezzo del cartellino (96000) deve essere uguale al primo valore (0)', 'il costo vero del gancio (144000) deve essere uguale a somma delle voci - rivendita (139060)', 'CORTO: il copione dura circa 4.8 minuti (4727 caratteri): ne servono almeno 8.5']
 Traceback (most recent call last):
-  File "/home/runner/work/ambience/ambience/video_possesso.py", line 581, in <module>
+  File "/home/runner/work/ambience/ambience/video_possesso.py", line 607, in <module>
     main()
-  File "/home/runner/work/ambience/ambience/video_possesso.py", line 491, in main
+  File "/home/runner/work/ambience/ambience/video_possesso.py", line 517, in main
     c = copione(); SCENE = c['scene']
         ^^^^^^^^^
-  File "/home/runner/work/ambience/ambience/video_possesso.py", line 169, in copione
+  File "/home/runner/work/ambience/ambience/video_possesso.py", line 195, in copione
     raise RuntimeError('copione con numeri non coerenti dopo 3 tentativi: ' + '; '.join(prob))
-RuntimeError: copione con numeri non coerenti dopo 3 tentativi: il copione ha 1396 parole: ne servono 1500-1650 (video di 9-10 minuti)
-13:28:56 esito: {"stato": "ERRORE", "errore": "copione con numeri non coerenti dopo 3 tentativi: il copione ha 1396 parole: ne servono 1500-1650 (video di 9-10 minuti)"}
+RuntimeError: copione con numeri non coerenti dopo 3 tentativi: il prezzo del cartellino (96000) deve essere uguale al primo valore (0); il costo vero del gancio (144000) deve essere uguale a somma delle voci - rivendita (139060); CORTO: il copione dura circa 4.8 minuti (4727 caratteri): ne servono almeno 8.5
+13:58:23 esito: {"stato": "ERRORE", "errore": "copione con numeri non coerenti dopo 3 tentativi: il prezzo del cartellino (96000) deve essere uguale al primo valore (0); il costo vero del gancio (144000) deve essere uguale a somma delle voci - rivendita (139060); CORTO: il copione dura circa 4.8 minuti (4727 caratteri): ne servono almeno 8.5"}
 Traceback (most recent call last):
-  File "/home/runner/work/ambience/ambience/video_possesso.py", line 581, in <module>
+  File "/home/runner/work/ambience/ambience/video_possesso.py", line 607, in <module>
     main()
-  File "/home/runner/work/ambience/ambience/video_possesso.py", line 491, in main
+  File "/home/runner/work/ambience/ambience/video_possesso.py", line 517, in main
     c = copione(); SCENE = c['scene']
         ^^^^^^^^^
-  File "/home/runner/work/ambience/ambience/video_possesso.py", line 169, in copione
+  File "/home/runner/work/ambience/ambience/video_possesso.py", line 195, in copione
     raise RuntimeError('copione con numeri non coerenti dopo 3 tentativi: ' + '; '.join(prob))
-RuntimeError: copione con numeri non coerenti dopo 3 tentativi: il copione ha 1396 parole: ne servono 1500-1650 (video di 9-10 minuti)
+RuntimeError: copione con numeri non coerenti dopo 3 tentativi: il prezzo del cartellino (96000) deve essere uguale al primo valore (0); il costo vero del gancio (144000) deve essere uguale a somma delle voci - rivendita (139060); CORTO: il copione dura circa 4.8 minuti (4727 caratteri): ne servono almeno 8.5
