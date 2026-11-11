@@ -250,7 +250,7 @@ def bande_nere(p, da, dur):
         return False
     if cw >= w * .6 and ch >= h * .6 and cw >= 400:
         RITAGLIO[p] = f'crop={cw}:{ch}:{cx}:{cy},'
-        log('clip con bande nere: ritagliata', os.path.basename(p), f'{cw}x{ch} su {w}x{h}')
+        log('clip 4:3 con bande nere: messa in cornice', os.path.basename(p), f'{cw}x{ch} su {w}x{h}')
         return False
     return True
 
@@ -376,7 +376,13 @@ for n, (d, s, prima, t0) in enumerate(piano):
             ULTIME_CLIP.append(nid)
         INFO_N.update(tipo='clip', fonte=nid)
         spinta = MOVIMENTI and n % 2 == 0              # una clip si' e una no: leggera spinta in avanti (punch-in), solo con movimenti_camera = SI
-        vf = (f'[0:v]{RITAGLIO.get(p, "")}scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={FPS},setsar=1,tpad=stop_mode=clone:stop_duration={L:.2f}'
+        if p in RITAGLIO:   # 11 nov (Giorgio): filmato d'epoca 4:3 -> intero, come una foto con cornice bianca, su sfondo dello stesso filmato sfocato e scuro
+            hf = int(H * .84) // 2 * 2; bc = max(6, H // 90)
+            vf = (f'[0:v]{RITAGLIO[p]}setsar=1,split[a][b];[a]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},boxblur=24:3,eq=brightness=-0.18:saturation=0.7[bg];'
+                  f'[b]scale=-2:{hf},pad=iw+{2 * bc}:ih+{2 * bc}:{bc}:{bc}:color=0xF2EEE4[fg];[bg][fg]overlay=(W-w)/2:(H-h)/2,'
+                  f'fps={FPS},setsar=1,tpad=stop_mode=clone:stop_duration={L:.2f}[v]')
+        else:
+          vf = (f'[0:v]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={FPS},setsar=1,tpad=stop_mode=clone:stop_duration={L:.2f}'
               + (f",zoompan=z='1+0.06*on/{int(L * FPS)}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s={W}x{H}:fps={FPS}" if spinta else '') + '[v]')
         cmd = ['ffmpeg', '-y', '-v', 'error', '-ss', round(da, 2), '-t', round(L, 3), '-i', p]
         fonti.append(f'{n:03d} CLIP {nid} da {da:.1f}s | {tit}')
