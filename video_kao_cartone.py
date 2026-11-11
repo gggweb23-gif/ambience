@@ -236,7 +236,7 @@ def nuvoletta(fr, testo, t, dx_lato, centro=False, posto=None):
     card = card.resize((max(1, int(card.width * s)), max(1, int(card.height * s))), Image.BILINEAR)
     cx = int(W * (.5 if centro else .73 if dx_lato else .27)); cy = int(H * (.13 if centro else .2))
     if posto:
-        cx, cy = posto
+        cx, cy = int(posto[0]), int(posto[1])
     incolla(fr, card, cx - card.width // 2, cy - card.height // 2)
 
 
