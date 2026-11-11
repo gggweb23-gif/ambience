@@ -86,7 +86,8 @@ STRUTTURA = """Scene in quest'ordine (tipo e dati):
    SUBITO il costo vero e quanto costa al mese, poi la promessa ("ti mostro voce per voce da dove esce questo numero"). Niente introduzioni lente.
    dati {"prezzo": <prezzo>, "costo_vero": <costo vero = somma delle voci dei dettagli - rivendita>, "al_mese": <costo vero / mesi, arrotondato>, "domanda": "MA QUANTO COSTA DAVVERO?"}
 2. "racconto": max 40 parole, veloce: il protagonista e la sua scelta (la trappola in cui cadono tutti).
-3-8. "dettaglio" (una scena per OGNI voce di spesa, 4-6 scene): dati {"nome": "Assicurazione", "per_anno": <euro all'anno>, "anni": <anni>, "nota": "max 6 parole"}
+3-8. "dettaglio" (una scena per OGNI voce di spesa, 4-6 scene): dati {"nome": "Assicurazione", "per_anno": <euro all'anno>, "anni": <anni di possesso, UGUALI per tutte le voci annuali>, "nota": "max 6 parole"}
+   (spesa UNA TANTUM, pagata una volta sola, es. passaggio di proprieta', accessori iniziali: "anni": 1 e "per_anno" = il suo costo totale)
    (per le rate: "per_anno" = rata annua, il totale rate + interessi e' SEMPRE piu' del prezzo per un acquisto a rate). Spiega bene perche' costa cosi'.
 9. "scontrini": il riepilogo di tutte le voci. dati {"anni": <anni>} (le voci le prende il programma dalle scene "dettaglio")
 10. "valore": quanto vale la cosa anno per anno. dati {"valori": [<prezzo>, <valore dopo 1 anno>, ...]} (da oggi all'ultimo anno; l'ultimo e' la rivendita)
@@ -117,11 +118,13 @@ def controlla(c):
             prob.append(f'costo vero ({tot - val[-1]:.0f}) irrealistico rispetto al prezzo ({prezzo:.0f})')
         if any(re.search(r'benzin|carbur|gasolio|ricaric|pieno', n.lower()) for n, _ in det):
             prob.append('la benzina / il carburante / la ricarica NON vanno mai nei costi (regola di Giorgio)')
-        anni = {num(d.get('anni')) for d in S_['dettaglio']}
-        if len(anni) > 1:
-            prob.append(f'tutte le voci devono usare lo stesso numero di anni ({sorted(anni)})')
-        if anni and len(val) - 1 != int(list(anni)[0]):
-            prob.append(f'i valori anno per anno ({len(val)}) devono essere anni + 1 ({int(list(anni)[0]) + 1})')
+        # 11 nov (Giorgio OK): le spese una tantum (anni 1, per_anno = il totale) convivono con quelle annuali; l'orizzonte e' il numero di anni piu' alto
+        anni = [num(d.get('anni')) for d in S_['dettaglio']]
+        H = max(anni) if anni else 0
+        if H != int(H) or any(a not in (1, H) for a in anni):
+            prob.append(f'ogni voce usa o gli anni di possesso ({int(H)}) o 1 se e\' una spesa una tantum; trovati {sorted(set(anni))}')
+        if anni and len(val) - 1 != int(H):
+            prob.append(f'i valori anno per anno ({len(val)}) devono essere anni + 1 ({int(H) + 1})')
         if abs(cv_g - (tot - val[-1])) > max(50, (tot - val[-1]) * .01):   # il gancio dice la fine: deve essere il numero giusto
             prob.append(f'il costo vero del gancio ({cv_g:.0f}) deve essere uguale a somma delle voci - rivendita ({tot - val[-1]:.0f})')
         parole = sum(len(str(x.get('voce') or '').split()) for x in c['scene'])
@@ -189,7 +192,7 @@ def numeri(c):
     S = c['scene']
     det = [x['dati'] for x in S if x['tipo'] == 'dettaglio']
     voci = [(str(d.get('nome') or ''), num(d.get('per_anno')) * num(d.get('anni'))) for d in det]
-    anni = int(num(det[0].get('anni'), 5)) if det else 5
+    anni = int(max(num(d.get('anni'), 5) for d in det)) if det else 5   # 11 nov: orizzonte = anni piu' alti (le una tantum hanno 1)
     valori = [num(v) for v in next(x for x in S if x['tipo'] == 'valore')['dati']['valori']]
     tot = sum(v for _, v in voci); cv = tot - valori[-1]
     prezzo = num(next(x for x in S if x['tipo'] == 'cartellino')['dati'].get('prezzo')) or valori[0]
@@ -310,10 +313,10 @@ def grafica(im, sc, t, d, dati, passo_t, passo_d, passo_i):
         x = sl(.2); tot = num(dd.get('per_anno')) * num(dd.get('anni'))
         pannello(im, (100 + x, 150, 960 + x, 640), (255, 255, 255, 245))
         scritta(im, (140 + x, 185), str(dd.get('nome') or '').upper(), 64, INK, maxw=780)
-        scritta(im, (140 + x, 290), eur(num(dd.get('per_anno')) * ease((t - .5) / .8)) + ' ALL\'ANNO', 80, GRIGIO, maxw=780)
+        scritta(im, (140 + x, 290), eur(num(dd.get('per_anno')) * ease((t - .5) / .8)) + (' UNA VOLTA' if int(num(dd.get('anni'))) == 1 else ' ALL\'ANNO'), 80, GRIGIO, maxw=780)
         k = ease((t - d * .35) / .9)
         if k > 0:
-            scritta(im, (140 + x, 400), f"x {int(num(dd.get('anni')))} ANNI =", 60, GRIGIO, alpha=cl(k * 2))
+            scritta(im, (140 + x, 400), "UNA TANTUM =" if int(num(dd.get('anni'))) == 1 else f"x {int(num(dd.get('anni')))} ANNI =", 60, GRIGIO, alpha=cl(k * 2))
             scritta(im, (140 + x, 470), eur(tot * k), 120, R, alpha=cl(k * 2), maxw=780)
             u = ease((t - d * .35 - .9) / .35)
             if u > 0:
