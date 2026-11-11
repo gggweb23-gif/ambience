@@ -545,6 +545,12 @@ Scegli la texture piu' coerente (washi per Giappone/Cina/Corea, papiro per Egitt
             if not c.get('scene'):
                 raise ValueError('copione senza scene')
             n_par = sum(len(str(s_.get('testo', '')).split()) for s_ in c['scene'])
+            for giro in range(2):   # 11 nov (natura Agora: 798-906 parole su 1350 per 3 volte): copione corto -> si ALLUNGA scena per scena (meno caro che rifarlo)
+                if PROVA or not minimo or n_par >= minimo * 0.95:
+                    break
+                c = allunga_copione(c, n_par, minimo, massimo, chiave)
+                n_par = sum(len(str(s_.get('testo', '')).split()) for s_ in c['scene'])
+                log(f'copione allungato (giro {giro + 1}): {n_par} parole')
             if not PROVA and (n_par > massimo * 1.10 or (minimo and n_par < minimo * 0.95)):   # 31 ott: 2495 parole invece di 1300 = video da 16 min; 5 nov: 1128 parole (-12%) = 7 min 56 s, sotto gli 8 minuti
                 contenuto_extra = (f"\n\nATTENZIONE: il tentativo precedente aveva {n_par} parole di parlato: FUORI LIMITE. "
                                    f"Il parlato totale deve essere tra {minimo} e {massimo} parole (conta le parole del campo testo di tutte le scene)."
@@ -584,6 +590,29 @@ def leggi_array(testo):
             raise ValueError(f'regia illeggibile ({str(e)[:80]}), {len(testo)} caratteri')
         log(f'regia: JSON riparato, {len(arr)} righe recuperate')
         return arr
+
+
+def allunga_copione(c, n_par, minimo, massimo, chiave):
+    """Allunga il parlato di ogni scena (stesso stile, stessi fatti, piu' dettagli veri) fino a stare tra minimo e massimo parole."""
+    obiettivo = (minimo + massimo) // 2
+    testi = [{'i': i, 'parole': len(str(s_.get('testo', '')).split()), 'testo': s_.get('testo', '')} for i, s_ in enumerate(c['scene'])]
+    prompt = (f"This is the narration of a YouTube documentary, scene by scene ({n_par} words). It is too SHORT: it must become about {obiettivo} words in total "
+              f"(between {minimo} and {massimo}). Lengthen EVERY scene proportionally (about x{obiettivo / max(1, n_par):.2f}) in the SAME language, tone and style: "
+              "add true, concrete and surprising details, numbers, names and vivid descriptions that fit the scene; never filler, never repetitions, keep the order. "
+              "KEEP EVERY EXISTING SENTENCE WORD FOR WORD (they are synced with the visuals): only ADD new sentences between and after them. "
+              'Reply ONLY with JSON: [{"i": 0, "testo": "..."}, ...] with all the scenes.\n\n' + json.dumps(testi, ensure_ascii=False))
+    richiesta = {'model': MODELLO_AI, 'max_tokens': 32000, 'messages': [{'role': 'user', 'content': prompt}]}
+    if 'sonnet-5' in MODELLO_AI:
+        richiesta.update(thinking={'type': 'between_tools'}, output_config={'effort': 'low'})
+    try:
+        testo, _ = claude_stream(richiesta, chiave)
+        nuovi = {int(x['i']): str(x['testo']) for x in leggi_array(testo) if str(x.get('testo', '')).strip()}
+        for i, s_ in enumerate(c['scene']):
+            if i in nuovi and len(nuovi[i].split()) >= len(str(s_.get('testo', '')).split()):
+                s_['testo'] = nuovi[i]
+    except Exception as e:
+        log('allungamento del copione non riuscito:', str(e)[:150])
+    return c
 
 
 def claude_stream(payload, chiave, timeout=600):
