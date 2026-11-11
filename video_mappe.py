@@ -1719,7 +1719,7 @@ def piano_copertina(comp, c):
                f'Real numbers said in our video (use one ONLY if it fits and the original has a number or none at all): {numeri or "none"}\n'
                'Describe how to redraw it on our world map. Answer ONLY JSON:\n'
                '{"sinistra":{"vista":{"lon":..,"lat":..,"larghezza":..},"colori":{"lime":[ISO-3],"ruggine":[ISO-3],"rosso":[ISO-3]}},'
-               '"destra":{same as sinistra},"unica":null,"testo":"' + ('EXACT words of the original thumbnail text, in CAPS (max 3 words)' if LINGUA == 'en' else f'the original thumbnail text TRANSLATED into {LINGUE.get(LINGUA, LINGUA)}, natural and correct, in CAPS (max 3 short words), never in English') + '","testo_lato":"destra or sinistra",'
+               '"destra":{same as sinistra},"unica":null,"testo":"' + ('the idea of the original thumbnail text in OUR words, in CAPS: max 2 SHORT words, max 12 characters' if LINGUA == 'en' else f'the idea of the original thumbnail text in {LINGUE.get(LINGUA, LINGUA)}, natural and correct, in CAPS: max 2 SHORT words, max 12 characters, never in English') + '","testo_altro":"' + ('only for a split image: ONE opposite word for the OTHER half (e.g. RICH vs POOR?), max 10 characters, same language; else empty') + '","testo_lato":"destra or sinistra",'
                '"extra":"a short real number/comparison from our video (max 12 chars) or empty"}\n'
                'Rules: if the original is NOT split in two, put the whole map in "unica" (same format as sinistra) and set sinistra/destra to null. '
                '"larghezza" = degrees of longitude shown in THAT half (or in the whole image for "unica") so that the countries appear WHOLE and big like in the original '
@@ -1816,7 +1816,17 @@ def copertina_nuova(cp, path):
     xt = x0 + A * (.74 if lato_testo == 'destra' else .26)
     if pr is not None and (sx and dx) and ((lato_pr == 'destra' and lato_testo == 'destra') or (lato_pr == 'sinistra' and lato_testo == 'sinistra')):
         xt = x0 + A * (.26 if lato_pr == 'destra' else .74)   # mai sotto il presentatore: la scritta va nella meta' libera
-    riquadro(im, xt, H * (.80 if pr is not None else .60), testo, fs)   # col presentatore in basso: la meta' mappa e' stretta e il paese resta visibile
+    if fs < 150 and len(testo.split()) > 1:   # 11 nov (Giorgio: "da mobile non si legge"): mai lettere piccole, si tiene la parola piu' forte
+        testo = max(testo.split(), key=len); fs = 200
+        while fs > 150 and _d.textlength(testo, font=font('Anton-Regular.ttf', fs)) > A * .44:
+            fs -= 6
+    riquadro(im, xt, H * (.80 if pr is not None else .60), testo, fs)
+    altro = str(cp.get('testo_altro') or '').upper().strip().rstrip('.')[:12]
+    if altro and sx and dx and pr is None:   # parola opposta sull'altra meta', in alto (mai in basso a destra: c'e' la durata)
+        fa = 200
+        while fa > 120 and _d.textlength(altro, font=font('Anton-Regular.ttf', fa)) > A * .40:
+            fa -= 6
+        riquadro(im, x0 + A * (.26 if xt > x0 + A / 2 else .74), H * .20, altro, fa, LUCE, (0, 0, 0))   # col presentatore in basso: la meta' mappa e' stretta e il paese resta visibile
     extra = str(cp.get('extra') or '').upper()[:14]
     if extra:
         riquadro(im, x0 + A * (.25 if xt > x0 + A / 2 else .75), H * .16, extra, 150 if pr is None else 120, LUCE, (0, 0, 0))
