@@ -825,16 +825,16 @@ def pexels_cerca(tipo, q):
             j = http(base + '?' + urllib.parse.urlencode({'query': q, 'per_page': 40, 'orientation': 'landscape'}), headers={'Authorization': chiave})
             if tipo == 'video':
                 for v in j.get('videos', []):
-                    fs = [f for f in v.get('video_files', []) if 'mp4' in (f.get('file_type') or '') and (f.get('height') or 0) <= 1080]
+                    fs = [f for f in v.get('video_files', []) if 'mp4' in (f.get('file_type') or '') and 0 < (f.get('height') or 0) <= 1440]
                     fs.sort(key=lambda f: -(f.get('height') or 0))
                     if fs and (v.get('duration') or 0) >= 3:
                         pics = [x.get('picture') for x in (v.get('video_pictures') or []) if x.get('picture')]
                         viste = [pics[int(i * (len(pics) - 1) / 3)] for i in range(4)] if len(pics) > 3 else [v.get('image') or ''] + pics
-                        ris.append({'url': fs[0]['link'], 'anteprima': v.get('image') or '', 'viste': [x for x in viste if x],
+                        ris.append({'url': fs[0]['link'], 'alt_px': fs[0].get('height') or 0, 'anteprima': v.get('image') or '', 'viste': [x for x in viste if x],
                                     'desc': (v.get('url') or '').lower(), 'autore': str((v.get('user') or {}).get('id') or '')})
             else:
                 for ph in j.get('photos', []):
-                    ris.append({'url': ph['src'].get('large2x') or ph['src'].get('original'), 'anteprima': ph['src'].get('medium') or '',
+                    ris.append({'url': ph['src'].get('original') or ph['src'].get('large2x'), 'anteprima': ph['src'].get('medium') or '',
                                 'desc': ((ph.get('alt') or '') + ' ' + (ph.get('url') or '')).lower(), 'autore': str(ph.get('photographer_id') or '')})
         except Exception as e:
             log('Pexels:', q, str(e)[:120])
@@ -842,6 +842,7 @@ def pexels_cerca(tipo, q):
     ris = [r for r in ris if r['url'] and not any(re.search(r'(^|[^a-z])' + re.escape(w) + r'([^a-z]|$)', r['desc']) for w in vietate)]
     with _lock:
         _cache[k] = ris
+    ris.sort(key=lambda x: 0 if (x.get('alt_px') or 1080) >= 1080 else 1)   # 11 nov (Giorgio: nitidezza): prima le clip almeno Full HD
     return ris
 
 

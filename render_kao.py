@@ -173,12 +173,12 @@ def pexels_cerca(tipo, q):
                         if fs and (v.get('duration') or 0) >= 3:
                             pics = [x.get('picture') for x in (v.get('video_pictures') or []) if x.get('picture')]
                             viste = [pics[int(i * (len(pics) - 1) / 2)] for i in range(3)] if len(pics) > 2 else [v.get('image') or ''] + pics
-                            ris.append({'tipo': 'video', 'url': fs[0]['link'], 'anteprima': v.get('image') or '', 'viste': [x for x in viste if x][:3],
+                            ris.append({'tipo': 'video', 'url': fs[0]['link'], 'alt_px': fs[0].get('height') or 0, 'anteprima': v.get('image') or '', 'viste': [x for x in viste if x][:3],
                                         'desc': (v.get('url') or '').lower(), 'autore': str((v.get('user') or {}).get('id') or ''),
                                         'durata': float(v.get('duration') or 0)})
                 else:
                     for ph in j.get('photos', []):
-                        ris.append({'tipo': 'foto', 'url': ph['src'].get('large2x') or ph['src'].get('original'), 'anteprima': ph['src'].get('medium') or '',
+                        ris.append({'tipo': 'foto', 'url': ph['src'].get('original') or ph['src'].get('large2x'), 'anteprima': ph['src'].get('medium') or '',
                                     'viste': [ph['src'].get('medium') or ''], 'desc': ((ph.get('alt') or '') + ' ' + (ph.get('url') or '')).lower(),
                                     'autore': str(ph.get('photographer_id') or ''), 'durata': 0})
                 break
@@ -192,6 +192,7 @@ def pexels_cerca(tipo, q):
     ris = [r for r in ris if r['url'] and not any(re.search(r'(^|[^a-z])' + re.escape(w) + r'([^a-z]|$)', r['desc'].replace('-', ' ')) for w in Regole.escludi)]
     with _lock:
         _cache[k] = ris
+    ris.sort(key=lambda x: 0 if (x.get('alt_px') or 1080) >= 1080 else 1)   # 11 nov (Giorgio: nitidezza): prima le clip almeno Full HD
     return ris
 
 

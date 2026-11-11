@@ -326,7 +326,7 @@ def klein(prompt, w=1280, h=720):   # 1280x720 (circa 0,009 $): poi si ingrandis
     hd = {'Authorization': 'Key ' + E('FAL_KEY', '')}
     for k in range(3):
         try:
-            inv = YT.http('https://queue.fal.run/fal-ai/flux-2/klein/4b', {'prompt': prompt, 'image_size': {'width': w, 'height': h}, 'num_images': 1, 'output_format': 'jpeg'}, hd, timeout=120)
+            inv = YT.http('https://queue.fal.run/fal-ai/flux-2/klein/4b', {'prompt': prompt, 'image_size': {'width': w, 'height': h}, 'num_images': 1, 'output_format': 'png'}, hd, timeout=120)
             for _ in range(120):
                 time.sleep(2)
                 if YT.http(inv['status_url'], headers=hd, timeout=60).get('status') == 'COMPLETED':
@@ -431,10 +431,10 @@ def copertina(c):
     prompt = CG.STILE + ' '.join(f'{terzi[k]}: {desc[r]}.' for k, r in enumerate(ordine)) + ' Three groups clearly separated, empty dark space above each.'
     im = None
     for k in range(2):
-        im = klein(prompt, 1280, 720)
+        im = klein(prompt, 1920, 1080)   # 11 nov (Giorgio: immagini sempre limpide): nativa Full HD, non piu' 1280x720 ingrandita
         if im is None:
             break
-        im = im.resize((1280, 720))
+        im = im.resize((1920, 1080), Image.LANCZOS)
         if SECCO or claude('Count the RED mannequin figures in this image. Answer SI if there is exactly one red figure, otherwise NO.', modello=HAIKU, immagine=im, max_tokens=5).strip().upper().startswith('SI'):
             break
         log('copertina: piu\' di una figura rossa, la rifaccio')
