@@ -1,43 +1,230 @@
 voce ElevenLabs usata: pNInz6obpgDQGcFmaJgB
-17:28:15 competitor: categoria 22 , 0 tag
-17:28:17 testo originale: 2852 parole (RapidAPI)
-17:28:17 VIDEO DA COPIARE: UdQr0HaIAB8 - Why the Congo Basin Is Still Off Limits to Humans | titolo usato: Why the Congo Basin Is Still Off Limits to Humans
-17:28:18 paese del video: Congo
-17:28:29 originale condensato a blocchi: 2852 -> 1342 parole in 7 blocchi (obiettivo 1500)
-17:28:35 originale condensato a blocchi: 2852 -> 1410 parole in 7 blocchi (obiettivo 1500)
-17:28:35 budget 0 EUR: nessun disegno, solo clip e foto Pexels controllate (+ mappa)
-17:29:22 copione ricevuto: 15760 caratteri, fine: end_turn | blocchi di ragionamento: 0
-17:29:22 copione non valido, riprovo: copione di 871 parole, fuori da 1350-1500
-17:30:11 copione ricevuto: 16223 caratteri, fine: end_turn | blocchi di ragionamento: 0
-17:30:11 copione non valido, riprovo: copione di 906 parole, fuori da 1350-1500
-Traceback (most recent call last):
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 4747, in <module>
-    main()
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 4070, in main
-    c = copione(comp)
-        ^^^^^^^^^^^^^
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 536, in copione
-    raise RuntimeError('VIDEO BLOCCATO: copione fuori lunghezza dopo 2 tentativi (nessuna spesa per voce e immagini)')
-RuntimeError: VIDEO BLOCCATO: copione fuori lunghezza dopo 2 tentativi (nessuna spesa per voce e immagini)
+17:51:57 competitor: categoria 22 , 0 tag
+17:51:59 testo originale: 2852 parole (RapidAPI)
+17:51:59 VIDEO DA COPIARE: UdQr0HaIAB8 - Why the Congo Basin Is Still Off Limits to Humans | titolo usato: Why the Congo Basin Is Still Off Limits to Humans
+17:51:59 paese del video: Congo
+17:52:05 originale condensato a blocchi: 2852 -> 1375 parole in 7 blocchi (obiettivo 1500)
+17:52:11 originale condensato a blocchi: 2852 -> 1401 parole in 7 blocchi (obiettivo 1500)
+17:52:11 budget 0 EUR: nessun disegno, solo clip e foto Pexels controllate (+ mappa)
+17:53:06 copione ricevuto: 16067 caratteri, fine: end_turn | blocchi di ragionamento: 0
+17:53:29 copione ricevuto: 8818 caratteri, fine: end_turn | blocchi di ragionamento: 0
+17:53:29 copione allungato (giro 1): 1452 parole
+17:53:29 copione: 1452 parole (limite 1350-1500)
+17:53:29 preventivo dopo copione: speso 0.24 $ su 0.00 $ di budget
+17:53:29 copione: 20 scene, 1452 parole
+17:53:49 capitoli: 9
+17:53:49 voce pronta: 9.7 minuti
+17:53:49 luoghi del paese per i paesaggi Pexels: (nessuno: controllo solo visivo)
+17:53:49 senza texture: 0 carte/schede diventate disegni, strisce di carta tolte
+17:53:49 ritmo: 140 immagini | cartone 0% (quota 0%) | sfondi usati: 0/0, max 0 volte
+17:53:49 disegni ripetuti: nessuno scambio (ogni immagine resta sulla sua frase)
+17:53:49 senza texture: 0 carte/schede diventate disegni, strisce di carta tolte
+17:53:49 controllo immagini: 0 guardate, 0 rifatte
+17:53:49 visivi: 140 | primi 10 s: 4
+17:55:02 pezzo 8 mappa non riuscito: paese non trovato sulla mappa: Democratic Republic of the Congo
+18:15:07 pezzo 8: nessuna clip coerente, riuso la clip 139 (altro tratto, specchiata)
+18:15:07 clip Pexels bocciate e ricordate (mai ricontrollate): 0
+18:15:07 ricerche Pexels usate: 90 (limite 190 l'ora, attesa 0 min); pezzi con clip riusata: 1
+18:15:07 pezzi pronti: 140 in 1277 s
+18:15:07 SPESA immagini: 0 immagini, circa 0.00 $
+18:15:44 tasti macchina da scrivere: 123
+18:15:44 suono cambio non generato: soft airy swish, quick camera pan suono non in libreria (generazione ElevenLabs spenta)
+18:15:44 suono cambio non generato: deep whoosh with a soft low boom suono non in libreria (generazione ElevenLabs spenta)
+18:15:44 suono cambio non generato: fast cinematic whoosh transition suono non in libreria (generazione ElevenLabs spenta)
+18:15:44 suono cambio non generato: paper page turning quickly suono non in libreria (generazione ElevenLabs spenta)
+18:15:44 suono cambio non generato: short wooden tap, warm and soft suono non in libreria (generazione ElevenLabs spenta)
+18:15:44 suono cambio non generato: soft bubble pop, cartoon suono non in libreria (generazione ElevenLabs spenta)
+18:15:44 suono cambio non generato: short cinematic impact hit, deep suono non in libreria (generazione ElevenLabs spenta)
+18:15:44 suono cambio non generato: soft low whoosh, warm and muffled suono non in libreria (generazione ElevenLabs spenta)
+18:15:44 suono cambio non generato: reverse whoosh riser, short suono non in libreria (generazione ElevenLabs spenta)
+18:15:44 suono cambio non generato: soft cloth flutter, flag in the wind, short suono non in libreria (generazione ElevenLabs spenta)
+18:15:44 suono cambio non generato: soft muffled thump, low and warm suono non in libreria (generazione ElevenLabs spenta)
+18:15:44 suono cambio non generato: drum hit with short reverb, epic suono non in libreria (generazione ElevenLabs spenta)
+18:15:44 suono di scatto non generato: suono non in libreria (generazione ElevenLabs spenta)
+18:15:44 suoni di cambio immagine: 0 | libreria: 8 suoni (generati)
+18:25:28 video finale a 1440p
+18:25:30 copertina foto: {"nome": "CONGO BASIN", "anni": "TODAY – 2026", "simboli": ["Congo River rapids", "Congo rainforest canopy aerial", "Virunga volcano Nyiragongo", "Kinshasa Congo River city", "Inga Falls Congo River", "Congo swamp wetlands Africa"]}
+18:25:33 foto copertina: CONGO BASIN | Congo River rapids | Rapide di un fiume torbido con grandi rocce scure di arenaria/basalto che emergono dall'acqua e una riva boscosa sullo sfondo. Non ci sono elementi distintivi (carte
+18:25:36 foto copertina: CONGO BASIN | Congo River rapids | Primo piano di acqua turbolenta e schiumosa, probabilmente rapide di un fiume. Non ci sono elementi che indichino un luogo preciso: nessun punto di riferimento, ness
+18:25:39 foto copertina: CONGO BASIN | Congo River rapids | Torrente di montagna con piccole cascate e rapide, ripreso con lunga esposizione (effetto seta) tra massi e ciottoli scuri, con vegetazione di conifere sullo sfondo.
+18:25:42 foto copertina: CONGO BASIN | Congo River rapids | Rapide di un fiume con rocce scure muschiose in primo piano e foresta di latifoglie temperate sullo sfondo, ripreso con lunga esposizione. Sembra il versante orienta
+18:25:46 foto copertina: CONGO BASIN | Congo rainforest canopy aerial | Veduta aerea dall'alto di una fitta volta di foresta, con chiome di alberi verde scuro e qualche palma o felce sparsa. Non ci sono elementi riconoscibili
+18:25:49 foto copertina: CONGO BASIN | Congo rainforest canopy aerial | Veduta ravvicinata della chioma di una fitta foresta pluviale tropicale su un pendio collinare, illuminata dal sole. Nell'immagine non ci sono elementi c
+18:25:53 controllo foto non riuscito Congo rainforest canopy aerial Unterminated string starting at: line 1 column 10 (char 9)
+18:25:55 foto copertina: CONGO BASIN | Congo rainforest canopy aerial | Canopia di foresta pluviale tropicale avvolta dalla nebbia, vista dall'alto. Non ci sono elementi che permettano di identificare un luogo o un paese prec
+18:25:58 foto copertina: CONGO BASIN | Virunga volcano Nyiragongo | Un gorilla di pianura occidentale (silverback) che cammina a quattro zampe su erba e terra, con vegetazione verde attorno. Non ci sono elementi che identific
+18:26:01 foto copertina: CONGO BASIN | Virunga volcano Nyiragongo | Fontana di lava durante un'eruzione vulcanica, di notte. Il luogo esatto non è identificabile dalla foto; l'aspetto ricorda le eruzioni effusive in Islanda (
+18:26:05 controllo foto non riuscito Virunga volcano Nyiragongo Unterminated string starting at: line 1 column 10 (char 9)
+18:26:07 foto copertina: CONGO BASIN | Virunga volcano Nyiragongo | Una montagna scura in controluce al tramonto, con nuvole grandi e drammatiche e cielo blu. Sembra un paesaggio alpino o di una valle montana temperata. Non c
+18:26:13 foto copertina: CONGO BASIN | Kinshasa Congo River city | Veduta panoramica dall'alto di una città dai tetti bassi con colline e un bacino d'acqua in lontananza, probabilmente Holguín (Cuba) vista dalla Loma de la Cr
+18:26:16 controllo foto non riuscito Kinshasa Congo River city Unterminated string starting at: line 1 column 10 (char 9)
+18:26:19 foto copertina: CONGO BASIN | Kinshasa Congo River city | Una donna che cammina di profilo con un ombrello nero e un abito turchese a motivi geometrici, su un terrapieno sabbioso sotto un cielo nuvoloso. Non ci sono 
+18:26:22 foto copertina: CONGO BASIN | Kinshasa Congo River city | Cancello azzurro di una base MONUSCO (missione ONU nella RD Congo) con il logo delle Nazioni Unite, muro in pietra vulcanica e filo spinato; un adesivo sul ca
+18:26:26 foto copertina: CONGO BASIN | Inga Falls Congo River | Un grande albero isolato che emerge da una zona di vegetazione allagata sulla riva di un fiume molto largo, con due piroghe di legno in primo piano. Probabilment
+18:26:29 foto copertina: CONGO BASIN | Inga Falls Congo River | Villaggio di capanne con tetti di paglia sulla riva di un fiume, circondato da foresta pluviale. Persone e piroghe sono visibili sulla riva. Il paesaggio è tipic
+18:26:31 foto copertina: CONGO BASIN | Inga Falls Congo River | Le Cascate del Reno (Rheinfall) a Neuhausen am Rheinfall, vicino a Sciaffusa, in Svizzera. Una barca turistica con passeggeri si trova davanti alla enorme massa 
+18:26:34 controllo foto non riuscito Inga Falls Congo River Unterminated string starting at: line 1 column 195 (char 194)
+18:26:38 foto copertina: CONGO BASIN | Congo swamp wetlands Africa | Un grande albero isolato in una zona allagata lungo la riva di un fiume o lago ampio, con vegetazione tropicale rigogliosa e piroghe di legno in primo piano
+18:26:40 foto copertina: CONGO BASIN | Congo swamp wetlands Africa | Pianura alluvionale allagata con zone umide e vegetazione palustre sotto un cielo nuvoloso, con basse colline sullo sfondo. Sembra la valle dell'Alto Missis
+18:26:43 foto copertina: CONGO BASIN | Congo swamp wetlands Africa | Palude con alberi morti e spogli (probabilmente mangrovie o foresta allagata) che emergono da acqua stagnante sotto un cielo azzurro. Non ci sono elementi c
+18:26:46 foto copertina: CONGO BASIN | Congo swamp wetlands Africa | Zona umida o palude con alberi morti e spogli che spuntano dall'acqua, e prateria in primo piano. Potrebbe essere un bacino idrico o una palude allagata in 
+18:26:46 copertina foto: nessuna foto ha superato il controllo
+18:26:46 COPERTINA MANCANTE: nessuna foto valida per lo stile del canale (anche col 2o tentativo AI, se copertina_riserva_max lo permette); nessuna copertina di altro stile. Rifarla con "Copertine foto simbolo".
+18:29:03 video_url pronto per Drive
+18:29:04 upload di 1321 MB
+18:29:12 caricato su YouTube: 1roHB9G6jGo
+promozione a pagamento: No
+18:29:13 esito: {"stato": "PUBBLICATO", "video_id": "1roHB9G6jGo", "link": "https://www.youtube.com/watch?v=1roHB9G6jGo", "titolo": "Why Nobody Can Cross the Congo Basin: 5 Walls Nature Built", "testo_copertina": "CONGO BASIN", "pubblica_il": "", "minuti_video": 9.7, "minuti_lavoro": 37.3, "errore": "copertina non creata", "descrizione": "Why Nobody Can Cross the Congo Basin: 5 Walls Nature Built\n\nWhy can't humans simply walk into the heart of the Congo Basin? In this animated documentary-style video, we brea
+18:29:13 FATTO: /home/runner/work/ambience/ambience/video_storia.mp4 9.7 minuti
+18:29:13 COSTO VIDEO (stima): 0.60 $ + 8427 crediti voce | claude claude-haiku-4-5-20251001: 0.406 $ (193 chiamate) | claude claude-sonnet-5-5: 0.190 $ (2 chiamate) | elevenlabs eleven_multilingual_v2: 0.000 $ (20 chiamate), 8427 crediti
 ...
-voce ElevenLabs usata: pNInz6obpgDQGcFmaJgB
-17:28:15 competitor: categoria 22 , 0 tag
-17:28:17 testo originale: 2852 parole (RapidAPI)
-17:28:17 VIDEO DA COPIARE: UdQr0HaIAB8 - Why the Congo Basin Is Still Off Limits to Humans | titolo usato: Why the Congo Basin Is Still Off Limits to Humans
-17:28:18 paese del video: Congo
-17:28:29 originale condensato a blocchi: 2852 -> 1342 parole in 7 blocchi (obiettivo 1500)
-17:28:35 originale condensato a blocchi: 2852 -> 1410 parole in 7 blocchi (obiettivo 1500)
-17:28:35 budget 0 EUR: nessun disegno, solo clip e foto Pexels controllate (+ mappa)
-17:29:22 copione ricevuto: 15760 caratteri, fine: end_turn | blocchi di ragionamento: 0
-17:29:22 copione non valido, riprovo: copione di 871 parole, fuori da 1350-1500
-17:30:11 copione ricevuto: 16223 caratteri, fine: end_turn | blocchi di ragionamento: 0
-17:30:11 copione non valido, riprovo: copione di 906 parole, fuori da 1350-1500
-Traceback (most recent call last):
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 4747, in <module>
-    main()
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 4070, in main
-    c = copione(comp)
-        ^^^^^^^^^^^^^
-  File "/home/runner/work/ambience/ambience/video_storia.py", line 536, in copione
-    raise RuntimeError('VIDEO BLOCCATO: copione fuori lunghezza dopo 2 tentativi (nessuna spesa per voce e immagini)')
-RuntimeError: VIDEO BLOCCATO: copione fuori lunghezza dopo 2 tentativi (nessuna spesa per voce e immagini)
+18:06:31 Pexels 'fly macro insect close up' -> scartate 1 riprese quasi uguali a una gia' usata
+18:06:32 Pexels 'fly macro insect close up' -> scelta 0
+18:06:37 Pexels 'mosquito macro water surface' -> scelta 2
+18:06:41 Pexels 'ants marching column forest floor' -> scartate 2 riprese quasi uguali a una gia' usata
+18:06:42 Pexels 'ants marching column forest floor' -> scelta 3
+18:06:45 Pexels 'fly macro insect close up' -> scartate 1 riprese quasi uguali a una gia' usata
+18:06:46 Pexels 'fly macro insect close up' -> scelta 1
+18:06:48 Pexels 'mosquito macro water surface' -> scartate tutte
+18:06:48 Pexels scartate tutte per: mosquito macro water surface
+18:06:51 Pexels 'mosquito macro water surface ancient' -> scelta 2
+18:06:57 Pexels 'ants marching column forest floor' -> scartate 2 riprese quasi uguali a una gia' usata
+18:06:58 Pexels 'ants marching column forest floor' -> scelta 3
+18:07:06 Pexels 'forest elephant Africa jungle' -> scelta 0
+18:07:10 Pexels 'African elephant tusks closeup' -> scelta 0
+18:07:14 Pexels 'thick bush dense leaves movement' -> scartate 1 riprese quasi uguali a una gia' usata
+18:07:16 Pexels 'thick bush dense leaves movement' -> scelta 0
+18:07:20 Pexels 'forest elephant Africa jungle' -> scelta 0
+18:07:26 Pexels 'gorilla Virunga forest' -> scartate 1 riprese quasi uguali a una gia' usata
+18:07:27 Pexels 'gorilla Virunga forest' -> scelta 0
+18:07:35 Pexels 'African elephant tusks closeup' -> scelta 3
+18:07:47 Pexels 'thick bush dense leaves movement' -> scartate 2 riprese quasi uguali a una gia' usata
+18:07:48 Pexels 'thick bush dense leaves movement' -> scelta 0
+18:07:55 Pexels 'misty swamp mysterious morning' -> scelta 0
+18:08:01 Pexels 'dinosaur skeleton museum long neck' -> scelta 2
+18:08:05 Pexels 'dark river jungle boat fog' -> scelta 1
+18:08:12 Pexels 'foggy rainforest silhouette trees' -> scelta 0
+18:08:26 Pexels 'foggy rainforest silhouette trees' -> scelta 0
+18:08:47 Pexels 'misty swamp mysterious morning' -> scelta 2
+18:08:52 Pexels 'Congo forest path sunlight' -> scartate 2 riprese quasi uguali a una gia' usata
+18:08:53 Pexels 'Congo forest path sunlight' -> scelta 0
+18:08:58 Pexels 'medicinal plants tropical leaves' -> scartate 2 riprese quasi uguali a una gia' usata
+18:08:59 Pexels 'medicinal plants tropical leaves' -> scelta 0
+18:08:59 Pexels 'medicinal plants tropical leaves' -> scartate 2 riprese quasi uguali a una gia' usata
+18:09:00 Pexels 'medicinal plants tropical leaves' -> scelta 1
+18:09:11 Pexels 'leaf hut forest tropical' -> scelta 0
+18:09:19 Pexels 'Congo forest light peaceful' -> scelta 3
+18:09:30 Pexels 'leaf hut forest tropical' -> scelta 0
+18:09:39 Pexels 'Congo forest light peaceful' -> scartate 1 riprese quasi uguali a una gia' usata
+18:09:40 Pexels 'Congo forest light peaceful' -> scelta 0
+18:10:03 Pexels 'red dirt road Africa forest' -> scartate 1 riprese quasi uguali a una gia' usata
+18:10:04 Pexels 'red dirt road Africa forest' -> scelta 0
+18:10:12 Pexels 'red dirt road Africa forest' -> scartate 1 riprese quasi uguali a una gia' usata
+18:10:13 Pexels 'red dirt road Africa forest' -> scelta 0
+18:10:13 Pexels 'muddy road jungle tropical' -> scelta 0
+18:10:20 Pexels 'remote river village Africa aerial' -> scelta 0
+18:10:29 Pexels 'forest edge Africa horizon' -> scelta 0
+18:10:39 Pexels 'muddy road jungle tropical' -> scelta 0
+18:10:56 Pexels 'remote river village Africa aerial' -> scelta 0
+18:11:04 Pexels 'Congo peatland swamp aerial' -> scartate 1 riprese quasi uguali a una gia' usata
+18:11:05 Pexels 'Congo peatland swamp aerial' -> scelta 0
+18:11:10 Pexels 'scientist map satellite earth data' -> scartate 1 riprese quasi uguali a una gia' usata
+18:11:11 Pexels 'scientist map satellite earth data' -> scelta 1
+18:11:20 Pexels 'dark wet soil closeup' -> scartate 3 riprese quasi uguali a una gia' usata
+18:11:21 Pexels 'dark wet soil closeup' -> scelta 1
+18:11:23 Pexels 'peat soil dark wet layers' -> scartate 3 riprese quasi uguali a una gia' usata
+18:11:24 Pexels 'peat soil dark wet layers' -> scelta 0
+18:11:34 Pexels 'Congo peatland swamp aerial' -> scartate 1 riprese quasi uguali a una gia' usata
+18:11:35 Pexels 'Congo peatland swamp aerial' -> scelta 0
+18:11:36 Pexels 'dark wet soil closeup' -> scartate 4 riprese quasi uguali a una gia' usata
+18:11:36 Pexels 'dark wet soil closeup' -> scelta 3
+18:11:42 Pexels 'scientist map satellite earth data' -> scartate 1 riprese quasi uguali a una gia' usata
+18:11:43 Pexels 'scientist map satellite earth data' -> scelta 0
+18:12:02 Pexels 'peat soil dark wet layers' -> scartate 6 riprese quasi uguali a una gia' usata
+18:12:03 Pexels 'peat soil dark wet layers' -> scelta 0
+18:12:10 Pexels 'drained peatland burning smoke' -> scartate 1 riprese quasi uguali a una gia' usata
+18:12:11 Pexels 'excavator stuck mud forest' -> scartate tutte
+18:12:11 Pexels scartate tutte per: excavator stuck mud forest
+18:12:11 Pexels 'drained peatland burning smoke' -> scelta 1
+18:12:12 Pexels 'excavator stuck mud forest ancient' -> scartate tutte
+18:12:12 Pexels scartate tutte per: excavator stuck mud forest ancient
+18:12:14 Pexels 'drained peatland burning smoke' -> scelta 2
+18:12:18 Pexels 'Congo swamp green aerial dawn' -> scelta 0
+18:12:24 Pexels 'earth climate forest green' -> scelta 0
+18:12:41 Pexels 'earth climate forest green' -> scelta 3
+18:13:12 Pexels 'drained peatland burning smoke' -> scartate 2 riprese quasi uguali a una gia' usata
+18:13:13 Pexels 'drained peatland burning smoke' -> scelta 0
+18:13:18 Pexels 'excavator stuck mud forest' -> scartate tutte
+18:13:18 Pexels scartate tutte per: excavator stuck mud forest
+18:13:21 Pexels 'excavator stuck mud forest ancient' -> scartate tutte
+18:13:21 Pexels scartate tutte per: excavator stuck mud forest ancient
+18:13:21 Pexels 'drained peatland burning smoke' -> scartate 1 riprese quasi uguali a una gia' usata
+18:13:22 Pexels 'drained peatland burning smoke' -> scelta 3
+18:13:28 Pexels 'Congo river sunset aerial' -> scartate 1 riprese quasi uguali a una gia' usata
+18:13:29 Pexels 'Congo river sunset aerial' -> scelta 1
+18:13:35 Pexels 'Congo rainforest misty morning' -> scelta 1
+18:13:56 Pexels 'jungle canopy fog sunrise' -> scartate 2 riprese quasi uguali a una gia' usata
+18:13:57 Pexels 'jungle canopy fog sunrise' -> scelta 3
+18:14:01 Pexels 'jungle canopy fog sunrise' -> scartate 2 riprese quasi uguali a una gia' usata
+18:14:02 Pexels 'jungle canopy fog sunrise' -> scelta 3
+18:14:08 Pexels 'old wooden door green moss' -> scelta 0
+18:14:36 Pexels 'old wooden door green moss' -> scartate tutte
+18:14:36 Pexels scartate tutte per: old wooden door green moss
+18:14:37 Pexels 'old wooden door green moss ancient' -> scelta 0
+18:14:55 Pexels 'Congo river sunset aerial' -> scartate 1 riprese quasi uguali a una gia' usata
+18:14:55 Pexels 'Congo river sunset aerial' -> scelta 1
+18:15:07 pezzo 8: nessuna clip coerente, riuso la clip 139 (altro tratto, specchiata)
+18:15:07 clip Pexels bocciate e ricordate (mai ricontrollate): 0
+18:15:07 ricerche Pexels usate: 90 (limite 190 l'ora, attesa 0 min); pezzi con clip riusata: 1
+18:15:07 pezzi pronti: 140 in 1277 s
+18:15:07 SPESA immagini: 0 immagini, circa 0.00 $
+18:15:44 tasti macchina da scrivere: 123
+18:15:44 suono cambio non generato: soft airy swish, quick camera pan suono non in libreria (generazione ElevenLabs spenta)
+18:15:44 suono cambio non generato: deep whoosh with a soft low boom suono non in libreria (generazione ElevenLabs spenta)
+18:15:44 suono cambio non generato: fast cinematic whoosh transition suono non in libreria (generazione ElevenLabs spenta)
+18:15:44 suono cambio non generato: paper page turning quickly suono non in libreria (generazione ElevenLabs spenta)
+18:15:44 suono cambio non generato: short wooden tap, warm and soft suono non in libreria (generazione ElevenLabs spenta)
+18:15:44 suono cambio non generato: soft bubble pop, cartoon suono non in libreria (generazione ElevenLabs spenta)
+18:15:44 suono cambio non generato: short cinematic impact hit, deep suono non in libreria (generazione ElevenLabs spenta)
+18:15:44 suono cambio non generato: soft low whoosh, warm and muffled suono non in libreria (generazione ElevenLabs spenta)
+18:15:44 suono cambio non generato: reverse whoosh riser, short suono non in libreria (generazione ElevenLabs spenta)
+18:15:44 suono cambio non generato: soft cloth flutter, flag in the wind, short suono non in libreria (generazione ElevenLabs spenta)
+18:15:44 suono cambio non generato: soft muffled thump, low and warm suono non in libreria (generazione ElevenLabs spenta)
+18:15:44 suono cambio non generato: drum hit with short reverb, epic suono non in libreria (generazione ElevenLabs spenta)
+18:15:44 suono di scatto non generato: suono non in libreria (generazione ElevenLabs spenta)
+18:15:44 suoni di cambio immagine: 0 | libreria: 8 suoni (generati)
+18:25:28 video finale a 1440p
+18:25:30 copertina foto: {"nome": "CONGO BASIN", "anni": "TODAY – 2026", "simboli": ["Congo River rapids", "Congo rainforest canopy aerial", "Virunga volcano Nyiragongo", "Kinshasa Congo River city", "Inga Falls Congo River", "Congo swamp wetlands Africa"]}
+18:25:33 foto copertina: CONGO BASIN | Congo River rapids | Rapide di un fiume torbido con grandi rocce scure di arenaria/basalto che emergono dall'acqua e una riva boscosa sullo sfondo. Non ci sono elementi distintivi (carte
+18:25:36 foto copertina: CONGO BASIN | Congo River rapids | Primo piano di acqua turbolenta e schiumosa, probabilmente rapide di un fiume. Non ci sono elementi che indichino un luogo preciso: nessun punto di riferimento, ness
+18:25:39 foto copertina: CONGO BASIN | Congo River rapids | Torrente di montagna con piccole cascate e rapide, ripreso con lunga esposizione (effetto seta) tra massi e ciottoli scuri, con vegetazione di conifere sullo sfondo.
+18:25:42 foto copertina: CONGO BASIN | Congo River rapids | Rapide di un fiume con rocce scure muschiose in primo piano e foresta di latifoglie temperate sullo sfondo, ripreso con lunga esposizione. Sembra il versante orienta
+18:25:46 foto copertina: CONGO BASIN | Congo rainforest canopy aerial | Veduta aerea dall'alto di una fitta volta di foresta, con chiome di alberi verde scuro e qualche palma o felce sparsa. Non ci sono elementi riconoscibili
+18:25:49 foto copertina: CONGO BASIN | Congo rainforest canopy aerial | Veduta ravvicinata della chioma di una fitta foresta pluviale tropicale su un pendio collinare, illuminata dal sole. Nell'immagine non ci sono elementi c
+18:25:53 controllo foto non riuscito Congo rainforest canopy aerial Unterminated string starting at: line 1 column 10 (char 9)
+18:25:55 foto copertina: CONGO BASIN | Congo rainforest canopy aerial | Canopia di foresta pluviale tropicale avvolta dalla nebbia, vista dall'alto. Non ci sono elementi che permettano di identificare un luogo o un paese prec
+18:25:58 foto copertina: CONGO BASIN | Virunga volcano Nyiragongo | Un gorilla di pianura occidentale (silverback) che cammina a quattro zampe su erba e terra, con vegetazione verde attorno. Non ci sono elementi che identific
+18:26:01 foto copertina: CONGO BASIN | Virunga volcano Nyiragongo | Fontana di lava durante un'eruzione vulcanica, di notte. Il luogo esatto non è identificabile dalla foto; l'aspetto ricorda le eruzioni effusive in Islanda (
+18:26:05 controllo foto non riuscito Virunga volcano Nyiragongo Unterminated string starting at: line 1 column 10 (char 9)
+18:26:07 foto copertina: CONGO BASIN | Virunga volcano Nyiragongo | Una montagna scura in controluce al tramonto, con nuvole grandi e drammatiche e cielo blu. Sembra un paesaggio alpino o di una valle montana temperata. Non c
+18:26:13 foto copertina: CONGO BASIN | Kinshasa Congo River city | Veduta panoramica dall'alto di una città dai tetti bassi con colline e un bacino d'acqua in lontananza, probabilmente Holguín (Cuba) vista dalla Loma de la Cr
+18:26:16 controllo foto non riuscito Kinshasa Congo River city Unterminated string starting at: line 1 column 10 (char 9)
+18:26:19 foto copertina: CONGO BASIN | Kinshasa Congo River city | Una donna che cammina di profilo con un ombrello nero e un abito turchese a motivi geometrici, su un terrapieno sabbioso sotto un cielo nuvoloso. Non ci sono 
+18:26:22 foto copertina: CONGO BASIN | Kinshasa Congo River city | Cancello azzurro di una base MONUSCO (missione ONU nella RD Congo) con il logo delle Nazioni Unite, muro in pietra vulcanica e filo spinato; un adesivo sul ca
+18:26:26 foto copertina: CONGO BASIN | Inga Falls Congo River | Un grande albero isolato che emerge da una zona di vegetazione allagata sulla riva di un fiume molto largo, con due piroghe di legno in primo piano. Probabilment
+18:26:29 foto copertina: CONGO BASIN | Inga Falls Congo River | Villaggio di capanne con tetti di paglia sulla riva di un fiume, circondato da foresta pluviale. Persone e piroghe sono visibili sulla riva. Il paesaggio è tipic
+18:26:31 foto copertina: CONGO BASIN | Inga Falls Congo River | Le Cascate del Reno (Rheinfall) a Neuhausen am Rheinfall, vicino a Sciaffusa, in Svizzera. Una barca turistica con passeggeri si trova davanti alla enorme massa 
+18:26:34 controllo foto non riuscito Inga Falls Congo River Unterminated string starting at: line 1 column 195 (char 194)
+18:26:38 foto copertina: CONGO BASIN | Congo swamp wetlands Africa | Un grande albero isolato in una zona allagata lungo la riva di un fiume o lago ampio, con vegetazione tropicale rigogliosa e piroghe di legno in primo piano
+18:26:40 foto copertina: CONGO BASIN | Congo swamp wetlands Africa | Pianura alluvionale allagata con zone umide e vegetazione palustre sotto un cielo nuvoloso, con basse colline sullo sfondo. Sembra la valle dell'Alto Missis
+18:26:43 foto copertina: CONGO BASIN | Congo swamp wetlands Africa | Palude con alberi morti e spogli (probabilmente mangrovie o foresta allagata) che emergono da acqua stagnante sotto un cielo azzurro. Non ci sono elementi c
+18:26:46 foto copertina: CONGO BASIN | Congo swamp wetlands Africa | Zona umida o palude con alberi morti e spogli che spuntano dall'acqua, e prateria in primo piano. Potrebbe essere un bacino idrico o una palude allagata in 
+18:26:46 copertina foto: nessuna foto ha superato il controllo
+18:26:46 COPERTINA MANCANTE: nessuna foto valida per lo stile del canale (anche col 2o tentativo AI, se copertina_riserva_max lo permette); nessuna copertina di altro stile. Rifarla con "Copertine foto simbolo".
+18:29:03 video_url pronto per Drive
+18:29:04 upload di 1321 MB
+18:29:12 caricato su YouTube: 1roHB9G6jGo
+promozione a pagamento: No
+18:29:13 esito: {"stato": "PUBBLICATO", "video_id": "1roHB9G6jGo", "link": "https://www.youtube.com/watch?v=1roHB9G6jGo", "titolo": "Why Nobody Can Cross the Congo Basin: 5 Walls Nature Built", "testo_copertina": "CONGO BASIN", "pubblica_il": "", "minuti_video": 9.7, "minuti_lavoro": 37.3, "errore": "copertina non creata", "descrizione": "Why Nobody Can Cross the Congo Basin: 5 Walls Nature Built\n\nWhy can't humans simply walk into the heart of the Congo Basin? In this animated documentary-style video, we brea
+18:29:13 FATTO: /home/runner/work/ambience/ambience/video_storia.mp4 9.7 minuti
+18:29:13 COSTO VIDEO (stima): 0.60 $ + 8427 crediti voce | claude claude-haiku-4-5-20251001: 0.406 $ (193 chiamate) | claude claude-sonnet-5-5: 0.190 $ (2 chiamate) | elevenlabs eleven_multilingual_v2: 0.000 $ (20 chiamate), 8427 crediti
