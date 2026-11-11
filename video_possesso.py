@@ -567,6 +567,19 @@ def copertina_shock(CP, ogg, rif_url, k):
 
 def copertina(c, rif_url):
     import copertine_possesso as CP
+    stile = str(P.get('copertina_stile') or 'prodotto').strip().lower()
+    if stile == 'prodotto':   # 11 nov sera (Giorgio: "deve vedersi meglio il prodotto, cambia completamente stile"): prodotto enorme + cartellino
+        try:
+            import copertina_possesso_prodotto as PR
+            k = int(num(P.get('riga_produzione'), 0) or random.randint(0, 9))
+            ogg = re.sub(r',?\s*on a [^,]*background.*$', '', str((c.get('copertina') or {}).get('oggetto') or OGGETTO or TITOLO), flags=re.I)
+            im = PR.crea({'prodotto': ogg, 'prezzo': DATI.get('prezzo') or 0, 'costo_vero': DATI['costo_vero'], 'anni': DATI['anni'],
+                          'stile': str(P.get('copertina_prodotto_stile') or 'foto'), 'fondo': PR.FONDI[k % len(PR.FONDI)], 'lato': 'sx' if k % 2 == 0 else 'dx'})
+            out = os.path.join(ROOT, 'copertina.jpg'); im.save(out, quality=93)
+            log('copertina PRODOTTO:', ogg[:60], '| fondo', PR.FONDI[k % len(PR.FONDI)], '| lato', 'sx' if k % 2 == 0 else 'dx')
+            return out
+        except Exception as e:
+            log('copertina prodotto non riuscita, uso lo stile shock:', str(e)[:150])
     f = os.path.join(LAV, 'copertina_sfondo.jpg')
     ogg = str((c.get('copertina') or {}).get('oggetto') or OGGETTO or TITOLO)
     immagine(f, CP.STILE + ogg + ', big and sharp, placed in the LOWER TWO THIRDS of the frame and slightly toward the center; '
@@ -575,7 +588,7 @@ def copertina(c, rif_url):
         f = os.path.join(LAV, 'riferimento.jpg')
     img = Image.open(f).convert('RGB').resize((CP.W, CP.H))
     k = int(num(P.get('riga_produzione'), 0) or random.randint(0, 9))
-    if str(P.get('copertina_stile') or 'shock').strip().lower() == 'shock' and rif_url:   # 11 nov (Giorgio: CTR basso, prova nuove impostazioni)
+    if stile in ('shock', 'prodotto') and rif_url:   # 11 nov (Giorgio: CTR basso, prova nuove impostazioni)
         try:
             return copertina_shock(CP, ogg, rif_url, k)
         except Exception as e:

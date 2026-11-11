@@ -11,7 +11,7 @@ import prova_gloam3 as G3
 import copertine_possesso as CP
 E = os.environ.get
 Q = json.loads(E('PAYLOAD') or '{}')
-OUT = 'prove_video/Costo_Vero/prodotto'; os.makedirs(OUT, exist_ok=True)
+OUT = 'prove_video/Costo_Vero/prodotto'
 W, H = 1280, 720
 
 
@@ -27,6 +27,10 @@ def klein(p):
         if G3.http(inv['status_url'], headers=hd).get('status') == 'COMPLETED':
             break
     u = G3.http(inv['response_url'], headers=hd)['images'][0]['url']
+    try:
+        import costi as CO; CO.registra('fal', 'flux-2-klein-4b', dollari=0.02, nota='copertina prodotto')
+    except Exception:
+        pass
     return Image.open(io.BytesIO(G3.http(u, raw=True))).convert('RGB').resize((W, H), Image.LANCZOS).filter(ImageFilter.UnsharpMask(1.2, 60, 2))
 
 
@@ -48,12 +52,15 @@ def sistema(im, sx):
     pic = im.resize((int(W * s), int(H * s)), Image.LANCZOS)
     dx = (20 - bx0 * s) if sx else (W - 20 - bx1 * s)
     dy = (H - (by0 + by1) * s) / 2
+    if not sx:   # 11 nov: sul lato destro il prodotto sta piu' in alto, lontano dalla durata del video
+        dy = min(dy, H - 110 - by1 * s)
     maschera = Image.new('L', pic.size, 0); ImageDraw.Draw(maschera).rectangle((40, 40, pic.width - 40, pic.height - 40), fill=255)
     nuovo.paste(pic, (int(dx), int(dy)), maschera.filter(ImageFilter.GaussianBlur(30)))
     return nuovo
 
 
-for p in Q.get('prove', []):
+def crea(p):
+    """p: prodotto (inglese), prezzo, costo_vero, anni, stile foto|disegno, fondo #hex, lato sx|dx -> immagine RGB 1280x720."""
     sx = p.get('lato', 'sx') == 'sx'
     lato = 'LEFT' if sx else 'RIGHT'
     stile = ('Ultra realistic commercial PRODUCT PHOTOGRAPHY, studio light, crisp reflections, razor sharp. ' if p.get('stile') == 'foto'
@@ -70,7 +77,8 @@ for p in Q.get('prove', []):
     prezzo, vero, tag = eur(p['prezzo']), eur(p['costo_vero']), f"IN {int(p['anni'])} ANNI"
     sp = CP.adatta(prezzo, 96, cw - 120); wp = CP.F(sp).getlength(prezzo)
     xp = 20 + (cw - wp) / 2; d.text((xp, 100), prezzo, font=CP.F(sp), fill=CP.NERO)
-    d.line((xp - 14, 100 + sp * .66, xp + wp + 14, 100 + sp * .30), fill=CP.ROSSO, width=12)
+    if float(p['costo_vero']) > float(p['prezzo']):
+        d.line((xp - 14, 100 + sp * .66, xp + wp + 14, 100 + sp * .30), fill=CP.ROSSO, width=12)
     sv = CP.adatta(vero, 150, cw - 60); wv = CP.F(sv).getlength(vero)
     d.text((20 + (cw - wv) / 2, 225), vero, font=CP.F(sv), fill=CP.ROSSO, stroke_width=4, stroke_fill=CP.NERO)
     st = CP.adatta(tag, 70, cw - 160); wt = CP.F(st).getlength(tag); yt = 225 + sv + 30
@@ -82,4 +90,13 @@ for p in Q.get('prove', []):
     im.alpha_composite(ombra.filter(ImageFilter.GaussianBlur(14)), (x0 + 14, y0 + 18))
     im.alpha_composite(card, (x0, y0))
     assert y0 + card.height < H - 20
-    f = os.path.join(OUT, p['nome'] + '.jpg'); im.convert('RGB').save(f, quality=93); print('pronta', f)
+    return im.convert('RGB')
+
+
+FONDI = ['#1E5BFF', '#FFC21A', '#12B76A', '#7B3FF2', '#FF5A36', '#00A3C4']
+
+
+if __name__ == '__main__':
+    os.makedirs(OUT, exist_ok=True)
+    for p in Q.get('prove', []):
+        f = os.path.join(OUT, p['nome'] + '.jpg'); crea(p).save(f, quality=93); print('pronta', f)
