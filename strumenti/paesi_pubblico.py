@@ -8,7 +8,7 @@ E = os.environ.get
 tk, scope = PF.token(E(E('CHIAVE')))
 h = {'Authorization': 'Bearer ' + tk}
 fine = dt.date.today(); ini = fine - dt.timedelta(days=28)
-for dim in ('country', 'insightTrafficSourceType'):
+for dim in ('country', 'insightTrafficSourceType', 'video'):
     r = PF.analytics(h, {'startDate': ini.isoformat(), 'endDate': fine.isoformat(), 'dimensions': dim, 'metrics': 'views,estimatedMinutesWatched', 'sort': '-views', 'maxResults': 15})
     print('\n===', dim); [print('  ', row) for row in r.get('rows', []) or []]
 
