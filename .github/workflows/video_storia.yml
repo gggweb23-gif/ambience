@@ -117,8 +117,9 @@ jobs:
 
       - name: Programmi, caratteri e mappe
         run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y -qq ffmpeg python3-pil python3-numpy python3-fonttools
+          # 11 nov: due giri persi per i server Ubuntu irraggiungibili: si riprova 3 volte, poi ffmpeg statico + pip come riserva
+          ok=0; for i in 1 2 3; do sudo apt-get update -qq -o Acquire::Retries=5 && sudo apt-get install -y -qq -o Acquire::Retries=5 ffmpeg python3-pil python3-numpy python3-fonttools && ok=1 && break; sleep 20; done
+          if [ $ok = 0 ]; then pip install -q --break-system-packages pillow numpy fonttools imageio-ffmpeg && sudo ln -sf "$(python3 -c 'import imageio_ffmpeg;print(imageio_ffmpeg.get_ffmpeg_exe())')" /usr/local/bin/ffmpeg; fi
           pip install --quiet --break-system-packages youtube-transcript-api
           mkdir -p font geo tmp_npm && cd tmp_npm
           npm init -y > /dev/null
