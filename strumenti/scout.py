@@ -165,7 +165,9 @@ def canale(cfg):
             buoni = [v for v in lunghi if v['views'] >= min_views and v['id'] not in gia_link]
             log(f'  {nome or l}: {len(vids)} video, {len(buoni)} candidati')
         cand += buoni
-    cand.sort(key=lambda v: (v.get('volte', 0), v['views']) if ESPLOSI else v['views'], reverse=True)
+    PRIO = [x.strip().lower() for x in str(cfg.get('scout_priorita') or '').split(',') if x.strip()]   # 11 nov (Giorgio): temi con nomi famosi prima
+    prio = lambda v: 1 if any(k in v['titolo'].lower() for k in PRIO) else 0
+    cand.sort(key=lambda v: (prio(v), v.get('volte', 0), v['views']) if ESPLOSI else (prio(v), v['views']), reverse=True)
     cand = cand[:200]
     if not cand:
         log('  nessun video nuovo'); return
@@ -174,7 +176,7 @@ def canale(cfg):
     titoli_fatti = [str(r.get('titolo_italiano') or r.get('titolo_originale') or '').strip()[:90] for r in prod if str(r.get('titolo_italiano') or r.get('titolo_originale') or '').strip()]
     giudizi, costo = classifica(cand, filone, per, budget, set(fatti_nomi), titoli_fatti)
     scelti, presi = [], set()
-    for g in sorted(giudizi, key=lambda g: (cand[int(g.get('i', 0))].get('volte', 0), cand[int(g.get('i', 0))]['views']) if str(g.get('i', '')).isdigit() and int(g['i']) < len(cand) else (0, 0), reverse=True):
+    for g in sorted(giudizi, key=lambda g: (prio(cand[int(g.get('i', 0))]), cand[int(g.get('i', 0))].get('volte', 0), cand[int(g.get('i', 0))]['views']) if str(g.get('i', '')).isdigit() and int(g['i']) < len(cand) else (0, 0, 0), reverse=True):
         try:
             v = cand[int(g['i'])]
         except Exception:

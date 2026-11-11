@@ -148,6 +148,11 @@ if vid and E('RAPIDAPI_KEY'):
     except Exception as e:
         log('testo di riferimento non letto:', str(e)[:120])
 
+REGOLA_COP = str(P.get('copertina_regola_testo') or '').strip()   # 11 nov (Giorgio, WWII): regola del canale per la scritta di copertina
+if REGOLA_COP and P.get('testo_copertina'):
+    log('testo copertina della riga ignorato (', P['testo_copertina'], '): lo scrive Claude con la regola del canale')
+    P['testo_copertina'] = ''
+
 # copertina del video competitor (gratis): il testo della NOSTRA copertina parte dalla sua idea (1 nov, Giorgio)
 COP_COMP = None
 if vid and not str(P.get('testo_copertina') or '').strip():
@@ -236,7 +241,7 @@ if not str(P.get('testo_copertina') or '').strip():
 
 THUMBNAIL TEXT ("testo_copertina"): 1-3 words in CAPS, built on the TITLE of this video. """ + (
         'The attached image is the thumbnail of the successful competitor video: FIRST try to adapt ITS text idea (same mechanism: a short shock word, a question, a contrast, a number) to our title and topic. Only if it cannot be adapted, invent one in the same style. ' if COP_COMP else
-        'No competitor thumbnail for this title: invent one in the style of the channel (examples: NO WEEKENDS, TOO COLD?, NO BED, NO ESCAPE, THE NIGHT SHIFT). ') + """It must complete the title and create curiosity, never repeat it word by word, in the channel language only."""
+        'No competitor thumbnail for this title: invent one in the style of the channel (examples: NO WEEKENDS, TOO COLD?, NO BED, NO ESCAPE, THE NIGHT SHIFT). ') + """It must complete the title and create curiosity, never repeat it word by word, in the channel language only.""" + (f"\nCHANNEL RULE FOR THIS TEXT (PRIORITY): {REGOLA_COP}" if REGOLA_COP else '')
 regole += """
 
 Answer ONLY with valid JSON:
