@@ -329,8 +329,9 @@ def monta(c):
 # altre persone), disegnata da FLUX.2 Klein partendo dall'identikit di KAO. L'immagine resta FERMA: il ritmo viene dai tagli
 # (campo largo / primo piano di KAO / dettaglio) come in un film d'animazione, dalle nuvolette e dai sottotitoli.
 RAW = 'https://raw.githubusercontent.com/' + E('GITHUB_REPOSITORY', 'gggweb23-gif/ambience') + '/main/'
-QW, QH = 1600, 900   # risoluzione dei quadri (spesa) - il video esce comunque a 1440p
-PREZZO_QUADRO = float(P.get('prezzo_quadro') or 0.027)
+QW, QH = [int(x) for x in str(P.get('quadro_risoluzione') or '1280x720').split('x')]   # risoluzione dei quadri (spesa) - il video esce comunque a 1440p
+PREZZO_QUADRO = float(P.get('prezzo_quadro') or round(0.017 * QW * QH / (1280 * 720), 4))
+SEC_IMG = float(P.get('secondi_immagine') or 4)   # 11 nov (Giorgio): mai la stessa immagine due volte, nemmeno zoomata: un'immagine NUOVA ogni ~4 s
 
 
 def copione_illustrato():
@@ -339,6 +340,8 @@ def copione_illustrato():
         return json.load(open(f))
     parole = int(MINUTI * 150)
     n_quadri = max(5, round(MINUTI * float(P.get('quadri_al_minuto') or 4.5)))
+    if SEC_IMG:
+        return copione_unico(f, parole)
     prompt = f"""Sei l'autore e il regista del canale YouTube italiano KAO PSICOLOGIA: psicologia spiegata in modo semplice, caldo e diretto, dando del tu.
 Il video e' un CARTONE ANIMATO di qualita' cinematografica con protagonista KAO (omino calvo, maglia magenta) che VIVE la situazione di cui si parla.
 Tema: "{TEMA}". Lunghezza: circa {parole} parole di parlato in italiano ({MINUTI:g} minuti).
@@ -366,6 +369,43 @@ Rispondi SOLO con JSON:
             q['secondario'] = ''
     json.dump(c, open(f, 'w'), ensure_ascii=False, indent=1)
     log('copione:', len(c['scene']), 'scene,', sum(len(s['testo'].split()) for s in c['scene']), 'parole,', len(c['quadri']), 'quadri')
+    return c
+
+
+def copione_unico(f, parole):
+    """Ogni scena ha le SUE immagini, tutte diverse (circa una ogni SEC_IMG secondi di voce = una ogni ~10 parole)."""
+    per_img = max(6, int(SEC_IMG * 2.5))
+    prompt = f"""Sei l'autore e il regista del canale YouTube italiano KAO PSICOLOGIA: psicologia spiegata in modo semplice, caldo e diretto, dando del tu.
+Il video e' un CARTONE ANIMATO di qualita' cinematografica con protagonista KAO (omino calvo, maglia magenta) che VIVE la situazione di cui si parla.
+Tema: "{TEMA}". Lunghezza: circa {parole} parole di parlato in italiano ({MINUTI:g} minuti).
+COPIONE: parti SUBITO con un gancio forte (la cosa piu' sorprendente prima), racconta il problema con una piccola storia di vita quotidiana italiana
+che si sviluppa (KAO al lavoro, a casa, con gli amici...), spiega cosa succede dentro di noi, dai punti di vista utili, senza giudizi assoluti e senza elenchi di dati.{' A meta video una domanda che invita a rispondere nei commenti.' if MINUTI >= 3 else ''}
+Non chiamare mai il protagonista per nome nel parlato: parla a "te" (lo spettatore si riconosce in lui).
+REGIA: dividi il parlato in scene di 1-2 frasi (8-24 parole). Ogni scena ha UNA immagine ogni circa {per_img} parole (quindi 1-3 immagini),
+TUTTE DIVERSE tra loro in tutto il video (mai la stessa immagine, nemmeno con un'altra inquadratura): ogni immagine mostra QUELLO CHE LA VOCE DICE
+in quel momento, con KAO che fa un'azione chiara con un'espressione chiara. Varia le inquadrature tra le immagini (campo largo, mezza figura, primo piano,
+dettaglio di mani o oggetti, dall'alto, di spalle) come in un film. Stesso luogo per piu' immagini di fila quando la storia resta li'.
+Altre persone solo quando servono alla storia: scegli tra {json.dumps(list(SECONDARI), ensure_ascii=False)}.
+Rispondi SOLO con JSON:
+{{"titolo": "...",
+ "scene": [{{"testo": "parlato", "luogo": "in inglese, il posto con i suoi dettagli (es. 'a small Italian open-space office, desks with laptops, big windows, plants')",
+            "secondario": "id della persona o ''", "parola": "1-3 parole chiave da mostrare grandi in una nuvoletta (in circa meta' delle scene, altrimenti '')",
+            "immagini": [{{"azione": "in inglese: inquadratura + cosa fa KAO e con che espressione + cosa fanno gli altri (es. 'close-up: KAO rubs his tired eyes at his desk, notifications on the screen')",
+                          "kao": "left|right"}}]}}]}}"""
+    c = claude(prompt, max_tokens=32000)
+    c['scene'] = [x for x in c.get('scene', []) if str(x.get('testo') or '').strip()]
+    c['quadri'] = []
+    for x in c['scene']:
+        if x.get('secondario') and x['secondario'] not in SECONDARI:
+            x['secondario'] = ''
+        x['_quadri'] = []
+        for im in (x.get('immagini') or [{'azione': x['testo'], 'kao': 'left'}]):
+            q = {'id': f"q{len(c['quadri']) + 1}", 'luogo': x.get('luogo') or 'an Italian room', 'azione': im.get('azione') or x['testo'],
+                 'kao': im.get('kao') or 'left', 'secondario': x.get('secondario') or ''}
+            c['quadri'].append(q); x['_quadri'].append(q['id'])
+        x['quadro'] = x['_quadri'][0]
+    json.dump(c, open(f, 'w'), ensure_ascii=False, indent=1)
+    log('copione:', len(c['scene']), 'scene,', sum(len(x['testo'].split()) for x in c['scene']), 'parole,', len(c['quadri']), 'immagini tutte diverse')
     return c
 
 
@@ -506,6 +546,12 @@ def monta_illustrato(c):
         if tg == 'altro' and not q['_box'].get('altro'):
             tg = 'kao'
         pezzi = [(0.0, s['_dur'], tg)]
+        if s.get('_quadri'):   # immagini tutte diverse: la scena si divide tra le sue immagini, sempre intere
+            n_ = len(s['_quadri']); dd = s['_dur'] / n_
+            for j, idq in enumerate(s['_quadri']):
+                shots.append({'t0': t0 + j * dd, 't1': t0 + (j + 1) * dd, 'scena': s, 'quadro': qid[idq], 'taglio': 'largo', 'rel': j * dd,
+                              'nuovo_quadro': True})
+            t0 += s['_dur']; continue
         if s['_dur'] > 6.0:   # frase lunga: cambio di taglio a meta' (come un montaggio da film)
             alt = 'kao' if tg == 'largo' else 'largo'
             pezzi = [(0.0, s['_dur'] / 2, tg), (s['_dur'] / 2, s['_dur'], alt)]
@@ -529,9 +575,9 @@ def monta_illustrato(c):
             cache[k] = ritaglio(sh['quadro'], sh['taglio'])
         base, occ = cache[k]
         fr = base.convert('RGBA')
-        if sh['nuovo_quadro'] and prec is not None and ts < .25:   # dissolvenza breve solo quando cambia il quadro
+        if sh['nuovo_quadro'] and prec is not None and ts < .15:   # dissolvenza brevissima tra un'immagine e l'altra
             kp = (id(prec['quadro']), prec['taglio'])
-            fr = Image.blend(cache[kp][0].convert('RGBA'), fr, ts / .25)
+            fr = Image.blend(cache[kp][0].convert('RGBA'), fr, ts / .15)
         if s.get('parola'):
             pw = s['parola'].split()[0].lower().strip('.,!?')
             t_par = next((x[1] for x in s['_parole'] if x[0].lower().strip('.,!?;:«»"') == pw), s['_dur'] * .3)
@@ -542,7 +588,8 @@ def monta_illustrato(c):
         if n % (FPS * 15) == 0:
             log(f'montaggio {int(100 * n / n_fr)}%')
     ff.stdin.close(); ff.wait()
-    return out, [x for x in shots if x['nuovo_quadro']], totale
+    # "pop" solo quando cambia il luogo (con un'immagine nuova ogni 4 s, un suono a ogni cambio stancherebbe)
+    return out, [x for k_, x in enumerate(shots) if k_ == 0 or x['quadro']['luogo'] != shots[k_ - 1]['quadro']['luogo']], totale
 
 
 def audio(c, shots, totale):
