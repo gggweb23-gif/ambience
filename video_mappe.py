@@ -297,7 +297,7 @@ def copione(comp):
     prompt = lingua_txt + f"""You write videos for the YouTube channel {NOME_CANALE} ("{SLOGAN}"): history explained with ANIMATED MAPS, in the style of the channel "Fortune of Nations".
 
 ORIGINAL VIDEO TO COPY (title: "{comp.get('titolo') or ''}"). Keep ~80% of it: the SAME topic, the same story structure, the same facts, numbers and examples, the same hook.
-Rewrite EVERYTHING in your own words (never copy sentences: YouTube penalizes reused content). Add ~20% of our own: one extra striking comparison or number, and clearer explanations.
+Rewrite EVERYTHING in your own words (never copy sentences: YouTube penalizes reused content). Add ~20% of our own: one extra striking comparison or number, and clearer explanations. Make it BETTER than the original, not just different: clearer explanations, one extra surprising and documented fact or comparison, a stronger hook.
 ORIGINAL TRANSCRIPT:
 \"\"\"{orig[:45000]}\"\"\"
 

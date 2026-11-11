@@ -216,7 +216,7 @@ if riferimento and METODO == 'copia' and STRUTT:
 REFERENCE VIDEO (a successful video of a competitor in the SAME language: copying it makes ours a duplicate). Take ONLY its opening hook
 (the mechanism, not the words), its STRUCTURE (order of the parts, rhythm, kind of questions and reveals) and its subject. Write the narration
 FROM SCRATCH: never its sentences, examples, metaphors, anecdotes, lists or turns of phrase, not even reworded with synonyms. Facts only from
-documented history; quotes only if real and documented.
+documented history; quotes only if real and documented. Make it BETTER than the original, not just different: clearer explanations, one extra surprising and documented fact or comparison, a stronger hook.
 {' '.join(riferimento.split()[:6000])}"""
 elif riferimento and METODO == 'copia':
     PCT = int(numero(P.get('copia_percentuale'), 80))
@@ -224,7 +224,7 @@ elif riferimento and METODO == 'copia':
 
 REFERENCE VIDEO (same topic, a successful video of the channel we copy): keep about {PCT}% of its content (the same story, facts, order, hooks,
 questions and reveals), rewritten in your own words, never copying sentences word by word. The other {100 - PCT}% is new, documented material
-that fits the same pattern and makes the video better. Never add facts, quotes, dates or numbers that are not in the reference or in documented history.
+that fits the same pattern and makes the video better. Make it BETTER than the original, not just different: clearer explanations, one extra surprising and documented fact or comparison, a stronger hook. Never add facts, quotes, dates or numbers that are not in the reference or in documented history.
 {' '.join(riferimento.split()[:6000])}"""
 elif riferimento:
     regole += f"""

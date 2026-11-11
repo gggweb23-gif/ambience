@@ -458,6 +458,7 @@ TAG DEL COMPETITOR (da tradurre in {lingua} e mettere per primi nel campo "tag")
   d'apertura (il meccanismo, non le parole), la STRUTTURA (ordine delle parti, ritmo, tipo di domande e di rivelazioni) e l'argomento. Scrivi tutto DA ZERO
   in {lingua}: mai frasi, esempi, metafore, aneddoti o giri di frase dell'originale, nemmeno riformulati. Fatti solo veri e documentati (puoi usare quelli
   dell'originale se sono verificabili, raccontati con parole e ordine di dettagli nostri), lunghezza circa {parole} parole.
+  Rendilo MIGLIORE dell'originale, non solo diverso: spiegazioni piu' chiare, un fatto o un confronto sorprendente e documentato in piu', un gancio piu' forte.
   La prima scena dice subito il risultato o il fatto piu' sorprendente (prima la fine, poi come ci si arriva), poi apre una domanda concreta.
 TESTO ORIGINALE (solo come guida per gancio e struttura):
 {orig[:60000]}
