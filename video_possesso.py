@@ -506,6 +506,26 @@ def scontrino_libero(CP, img, vero, k):
     return im.convert('RGB')
 
 
+def togli_cucitura(im):
+    """11 nov: il modello a volte lascia una riga verticale al centro (dove finisce il protagonista): la si trova (colonna anomala su tutta
+    l'altezza, tra il 40% e il 60% della larghezza) e si sfuma con le colonne vicine solo dove i due lati si somigliano (scritte intatte)."""
+    import numpy as np
+    a = np.asarray(im.convert('RGB')).astype(float); W_ = a.shape[1]
+    m = np.median(np.abs(np.diff(a, axis=1)).sum(2), axis=0)
+    zona = range(int(W_ * .4), int(W_ * .6)); base = np.median(m) + 1
+    col = [x for x in zona if m[x] > 6 * base and m[x] > 40]
+    if not col:
+        return im
+    x1, x2 = max(min(col) - 3, 1), min(max(col) + 5, W_ - 2)
+    L, R = a[:, x1 - 1], a[:, x2 + 1]
+    ok = np.abs(L - R).sum(1) < 90
+    for x in range(x1, x2 + 1):
+        t = (x - x1 + 1) / (x2 - x1 + 2)
+        a[ok, x] = L[ok] * (1 - t) + R[ok] * t
+    log('copertina: tolta la riga verticale al centro', x1, x2)
+    return Image.fromarray(a.clip(0, 255).astype('uint8')).convert(im.mode)
+
+
 def copertina_shock(CP, ogg, rif_url, k):
     """11 nov (Giorgio: "il CTR e' molto basso, prova nuove impostazioni" - MANO LIBERA): il protagonista SCONVOLTO in primo piano con l'oggetto
     + il contrasto che e' il cuore del video: prezzo sul cartellino barrato (piccolo) -> costo vero ENORME in rosso -> "IN N ANNI" giallo.
@@ -516,9 +536,9 @@ def copertina_shock(CP, ogg, rif_url, k):
     lato = 'RIGHT' if dx else 'LEFT'
     f = os.path.join(LAV, 'copertina_shock.jpg')
     immagine(f, CP.STILE + f'The SAME man as in the reference image, close-up from the chest up, on the {lato} HALF of the frame, very big, with a SHOCKED face '
-                 f'(eyes wide open, mouth open, one hand on the cheek), holding or next to {ogg}. The other half of the image is EMPTY plain warm gradient '
-                 'background with nothing in it. Bright, high contrast, sharp.', rif_url)
-    im = Image.open(f).convert('RGB').resize((W_, H_), Image.LANCZOS).convert('RGBA')
+                 f'(eyes wide open, mouth open, one hand on the cheek), holding or next to {ogg}. On the other half the TOP TWO THIRDS are EMPTY plain warm gradient '
+                 'background (space for big text): the object may appear only in the bottom third. ONE single continuous image: no split, no vertical line, no frame. Bright, high contrast, sharp.', rif_url)
+    im = togli_cucitura(Image.open(f).convert('RGB').resize((W_, H_), Image.LANCZOS)).convert('RGBA')
     d = ImageDraw.Draw(im)
     x0, larg = (70, W_ * .48) if dx else (W_ * .51, W_ * .44)   # 11 nov: aria dai bordi (il "550 EUR" toccava il bordo in alto)
     prezzo, vero, anni = eur(DATI.get('prezzo') or 0), eur(DATI['costo_vero']), int(DATI['anni'])
