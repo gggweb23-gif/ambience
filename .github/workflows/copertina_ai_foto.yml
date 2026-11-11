@@ -1,0 +1,28 @@
+name: Copertina AI in stile foto (non carica)
+# 11 nov: copertina foto generata con l'AI quando Pexels non ha foto valide; circa 0,02 $ a prova.
+on:
+  workflow_dispatch:
+    inputs:
+      payload:
+        description: 'JSON: cartella, prove [{nome, prompt, testo (righe separate da |), lato sx/dx}]'
+        required: true
+        type: string
+permissions:
+  contents: write
+jobs:
+  copertina:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Copertina
+        env:
+          PAYLOAD: ${{ inputs.payload }}
+          FAL_KEY: ${{ secrets.FAL_KEY }}
+        run: |
+          pip install -q --break-system-packages pillow
+          python3 strumenti/copertina_ai_foto.py
+      - name: Salva
+        run: |
+          git config user.name render-bot && git config user.email render-bot@users.noreply.github.com
+          git add prove_video && git commit -m 'Copertina AI foto' && (for i in 1 2 3; do git pull --rebase -q && git push && break; sleep 5; done) || echo niente da salvare
