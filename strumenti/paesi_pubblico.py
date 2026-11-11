@@ -11,3 +11,14 @@ fine = dt.date.today(); ini = fine - dt.timedelta(days=28)
 for dim in ('country', 'insightTrafficSourceType'):
     r = PF.analytics(h, {'startDate': ini.isoformat(), 'endDate': fine.isoformat(), 'dimensions': dim, 'metrics': 'views,estimatedMinutesWatched', 'sort': '-views', 'maxResults': 15})
     print('\n===', dim); [print('  ', row) for row in r.get('rows', []) or []]
+
+# 11 nov sera: per ogni video del canale (VIDEO = id separati da virgola) da dove arrivano le visualizzazioni e quanto vengono guardati
+for vid in [v.strip() for v in (E('VIDEO') or '').split(',') if v.strip()]:
+    print('\n=== VIDEO', vid)
+    for dim in ('insightTrafficSourceType', 'country'):
+        try:
+            r = PF.analytics(h, {'startDate': ini.isoformat(), 'endDate': fine.isoformat(), 'dimensions': dim, 'filters': 'video==' + vid,
+                                 'metrics': 'views,estimatedMinutesWatched,averageViewPercentage', 'sort': '-views', 'maxResults': 8})
+            print('  ', dim, [row for row in r.get('rows', []) or []])
+        except Exception as e:
+            print('  ', dim, 'errore', str(e)[:120])

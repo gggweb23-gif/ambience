@@ -5,6 +5,9 @@ on:
       chiave_youtube:
         description: 'Nome del segreto YouTube del canale'
         default: 'YT_REFRESH_TOKEN_STORIA'
+      video:
+        description: 'id dei video separati da virgola (facoltativo)'
+        default: ''
 jobs:
   leggi:
     runs-on: ubuntu-latest
@@ -12,11 +15,13 @@ jobs:
       - uses: actions/checkout@v4
       - env:
           CHIAVE: ${{ inputs.chiave_youtube }}
+          VIDEO: ${{ inputs.video }}
           YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
           YT_REFRESH_TOKEN_STORIA: ${{ secrets.YT_REFRESH_TOKEN_STORIA }}
           YT_REFRESH_TOKEN_KAO: ${{ secrets.YT_REFRESH_TOKEN_KAO }}
           YT_REFRESH_TOKEN_FACES_OF_ROME: ${{ secrets.YT_REFRESH_TOKEN_FACES_OF_ROME }}
           YT_REFRESH_TOKEN_COSTO_VERO: ${{ secrets.YT_REFRESH_TOKEN_COSTO_VERO }}
+          YT_REFRESH_TOKEN_WWII_TESTIMONY: ${{ secrets.YT_REFRESH_TOKEN_WWII_TESTIMONY }}
           GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
         run: pip install -q google-auth requests && python3 strumenti/paesi_pubblico.py
