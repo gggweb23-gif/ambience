@@ -143,7 +143,7 @@ def allunga(c):
     SENZA toccare numeri e dati. Risponde solo con le scene cambiate: costa poco."""
     car = sum(len(str(x.get('voce') or '')) for x in c['scene']); manca = int(DUR_MIN * (num(P.get('voce_ritmo'), 16.5) or 16.5) - car) + 600
     elenco = [{'i': i, 'tipo': x.get('tipo'), 'voce': x.get('voce')} for i, x in enumerate(c['scene']) if x.get('tipo') in ('dettaglio', 'confronto', 'consigli', 'calcolo', 'valore')]
-    t = claude(f"""Questo copione di un video YouTube italiano e' troppo corto di circa {manca} caratteri. Allunga il parlato ("voce") di 3-4 di queste scene
+    t = claude(f"""Questo copione di un video YouTube italiano e' troppo corto di circa {manca} caratteri. Allunga il parlato ("voce") di 5-6 di queste scene, aggiungendo IN TOTALE almeno {manca} caratteri,
 con spiegazioni chiare, esempi concreti di vita quotidiana e un dettaglio utile, stesso tono. NON cambiare nessun numero e non aggiungere cifre nuove.
 Rispondi SOLO con JSON: {{"scene": [{{"i": <numero>, "voce": "<testo completo allungato>"}}]}}
 Scene: {json.dumps(elenco, ensure_ascii=False)}""", sforzo='low', max_tokens=8000)
@@ -187,7 +187,10 @@ Rispondi SOLO con JSON: {{"titolo": "...", "descrizione": "...", "tag": [...], "
         if not prob:
             break
         if all(x.startswith(LUNGO) for x in prob):   # 11 nov: conti giusti, manca solo lunghezza -> si allungano alcune scene (circa 0,05 $), non si riscrive tutto
-            c = allunga(c); prob = controlla(c)
+            for _k in range(2):   # fino a 2 allungamenti (circa 0,05 $ l'uno)
+                c = allunga(c); prob = controlla(c)
+                if not prob or not all(x.startswith(LUNGO) for x in prob):
+                    break
             if not prob:
                 break
         log('copione scartato:', prob); errore = '\n\nATTENZIONE, il tentativo precedente era sbagliato: ' + '; '.join(prob) + '. Rifai tutti i conti e correggi.'
