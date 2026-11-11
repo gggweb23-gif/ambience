@@ -539,6 +539,21 @@ def posto_nuvoletta(occ, testo, lato_kao=''):
     return min(cand, key=lambda c: (sovrapp(c) > 0, sovrapp(c), cand.index(c)))
 
 
+def movimento(img, n, x):
+    """11 nov (Giorgio: "che ci sia sempre un po' di movimento"): ogni immagine si muove piano, e il movimento cambia da un'immagine
+    all'altra: avanti (zoom dentro), indietro (zoom fuori), da sinistra a destra, da destra a sinistra. x = 0..1 dentro l'inquadratura."""
+    x = x * x * (3 - 2 * x)   # partenza e arrivo morbidi
+    tipo = n % 4
+    z = 1.0 + .08 * (x if tipo == 0 else 1 - x if tipo == 1 else .75)
+    cw, ch = W / z, H / z
+    if tipo in (0, 1):
+        x0, y0 = (W - cw) / 2, (H - ch) / 2
+    else:
+        lib = W - cw
+        x0, y0 = (lib * x if tipo == 2 else lib * (1 - x)), (H - ch) / 2
+    return img.resize((W, H), Image.BICUBIC, box=(x0, y0, x0 + cw, y0 + ch))
+
+
 def monta_illustrato(c):
     qid = {q['id']: q for q in c['quadri']}
     shots, t0 = [], 0.0
@@ -576,10 +591,10 @@ def monta_illustrato(c):
         if k not in cache:
             cache[k] = ritaglio(sh['quadro'], sh['taglio'])
         base, occ = cache[k]
-        fr = base.convert('RGBA')
+        fr = movimento(base, si, ts / max(.1, sh['t1'] - sh['t0'])).convert('RGBA')
         if sh['nuovo_quadro'] and prec is not None and ts < .15:   # dissolvenza brevissima tra un'immagine e l'altra
             kp = (id(prec['quadro']), prec['taglio'])
-            fr = Image.blend(cache[kp][0].convert('RGBA'), fr, ts / .15)
+            fr = Image.blend(movimento(cache[kp][0], si - 1, 1.0).convert('RGBA'), fr, ts / .15)
         if s.get('parola'):
             pw = s['parola'].split()[0].lower().strip('.,!?')
             t_par = next((x[1] for x in s['_parole'] if x[0].lower().strip('.,!?;:«»"') == pw), s['_dur'] * .3)
