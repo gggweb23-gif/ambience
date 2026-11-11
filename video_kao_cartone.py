@@ -245,7 +245,7 @@ def sottotitolo(fr, parole, t):
     g = i // 3 * 3; grp = parole[g:g + 3]
     if t > grp[-1][2] + .4 and g + 3 >= len(parole):
         return
-    f = ImageFont.truetype(F_SUB, 64); d = ImageDraw.Draw(fr)
+    f = ImageFont.truetype(F_SUB, 76); d = ImageDraw.Draw(fr)
     testi = [p[0] for p in grp]; tot = sum(f.getlength(x) for x in testi) + 22 * (len(testi) - 1)
     x = (W - tot) / 2; y = H - 150
     for k, x_ in enumerate(testi):
@@ -320,6 +320,180 @@ def monta(c):
     return out, shots, totale
 
 
+# ============================================================ MODO "ILLUSTRATO" (11 nov sera, Giorgio: "e' fastidioso che il personaggio
+# continui a muoversi; migliora nettamente la qualita' sotto ogni punto di vista, fino a 1,50 EUR per 9-10 minuti")
+# Niente piu' figurine incollate che respirano: ogni QUADRO e' un'illustrazione intera (KAO dentro la scena, con luce, oggetti e
+# altre persone), disegnata da FLUX.2 Klein partendo dall'identikit di KAO. L'immagine resta FERMA: il ritmo viene dai tagli
+# (campo largo / primo piano di KAO / dettaglio) come in un film d'animazione, dalle nuvolette e dai sottotitoli.
+RAW = 'https://raw.githubusercontent.com/' + E('GITHUB_REPOSITORY', 'gggweb23-gif/ambience') + '/main/'
+QW, QH = 1600, 900   # risoluzione dei quadri (spesa) - il video esce comunque a 1440p
+PREZZO_QUADRO = float(P.get('prezzo_quadro') or 0.027)
+
+
+def copione_illustrato():
+    f = os.path.join(CART, 'copione.json')
+    if os.path.exists(f):
+        return json.load(open(f))
+    parole = int(MINUTI * 150)
+    n_quadri = max(5, round(MINUTI * float(P.get('quadri_al_minuto') or 4.5)))
+    prompt = f"""Sei l'autore e il regista del canale YouTube italiano KAO PSICOLOGIA: psicologia spiegata in modo semplice, caldo e diretto, dando del tu.
+Il video e' un CARTONE ANIMATO di qualita' cinematografica con protagonista KAO (omino calvo, maglia magenta) che VIVE la situazione di cui si parla.
+Tema: "{TEMA}". Lunghezza: circa {parole} parole di parlato in italiano ({MINUTI:g} minuti).
+COPIONE: parti SUBITO con un gancio forte (la cosa piu' sorprendente prima), racconta il problema con una piccola storia di vita quotidiana italiana
+che si sviluppa (KAO al lavoro, a casa, con gli amici...), spiega cosa succede dentro di noi, dai punti di vista utili, senza giudizi assoluti e senza elenchi di dati.{' A meta video una domanda che invita a rispondere nei commenti.' if MINUTI >= 3 else ''}
+REGIA: esattamente {n_quadri} QUADRI (illustrazioni). Ogni quadro e' un momento della storia che mostra QUELLO CHE LA VOCE DICE in quel momento,
+con KAO che fa un'azione chiara con un'espressione chiara, in un luogo pieno di dettagli realistici italiani. Stesso luogo per piu' quadri di fila
+quando la storia resta li'. Altre persone solo quando servono alla storia: scegli tra {json.dumps(list(SECONDARI), ensure_ascii=False)}.
+Dividi il parlato in scene di 1-2 frasi (8-24 parole); ogni scena appartiene a un quadro (1-3 scene per quadro). Per ogni scena scegli il TAGLIO:
+"largo" (tutta l'illustrazione), "kao" (primo piano di KAO), "altro" (primo piano dell'altra persona o dell'oggetto importante); alterna i tagli come in un film.
+Rispondi SOLO con JSON:
+{{"titolo": "...",
+ "quadri": [{{"id": "q1", "luogo": "in inglese, il posto con i suoi dettagli (es. 'a small Italian open-space office, desks with laptops, big windows, plants')",
+             "azione": "in inglese, cosa fa KAO e con che espressione, e cosa fanno gli altri (es. 'KAO sits at his desk rubbing his tired eyes, the screen full of notifications; a colleague talks loudly on the phone behind him')",
+             "kao": "left|right", "secondario": "id della persona o ''"}}],
+ "scene": [{{"testo": "parlato", "quadro": "q1", "taglio": "largo|kao|altro", "parola": "1-3 parole chiave da mostrare grandi in una nuvoletta (in circa meta' delle scene, altrimenti '')"}}]}}"""
+    c = claude(prompt)
+    c['scene'] = [s for s in c.get('scene', []) if str(s.get('testo') or '').strip()]
+    ids = {q['id'] for q in c.get('quadri', [])}
+    for s in c['scene']:
+        if s.get('quadro') not in ids:
+            s['quadro'] = c['quadri'][0]['id']
+    for q in c['quadri']:
+        if q.get('secondario') and q['secondario'] not in SECONDARI:
+            q['secondario'] = ''
+    json.dump(c, open(f, 'w'), ensure_ascii=False, indent=1)
+    log('copione:', len(c['scene']), 'scene,', sum(len(s['testo'].split()) for s in c['scene']), 'parole,', len(c['quadri']), 'quadri')
+    return c
+
+
+def klein_edit(prompt, refs, f):
+    hd = {'Authorization': 'Key ' + E('FAL_KEY', '')}
+    inv = YT.http('https://queue.fal.run/fal-ai/flux-2/klein/4b/edit', {'prompt': prompt, 'image_urls': refs, 'image_size': {'width': QW, 'height': QH},
+                                                                       'num_images': 1, 'output_format': 'png'}, hd, timeout=120)
+    for _ in range(150):
+        time.sleep(2)
+        if YT.http(inv['status_url'], headers=hd, timeout=60).get('status') == 'COMPLETED':
+            break
+    u = YT.http(inv['response_url'], headers=hd, timeout=60)['images'][0]['url']
+    Image.open(io.BytesIO(YT.http(u, raw=True, timeout=120))).convert('RGB').save(f, quality=95)
+    CO.registra('fal', 'flux-2-klein-4b-edit', dollari=PREZZO_QUADRO, nota='quadro KAO cartone')
+    return u
+
+
+def caselle(f):
+    """Dove sono KAO e l'altra persona/oggetto nel quadro (Haiku, ~0,003 $): servono per i primi piani."""
+    buf = io.BytesIO(); Image.open(f).convert('RGB').resize((960, 540)).save(buf, 'JPEG', quality=85)
+    req = urllib.request.Request('https://api.anthropic.com/v1/messages', data=json.dumps({
+        'model': 'claude-haiku-4-5-20251001', 'max_tokens': 200, 'messages': [{'role': 'user', 'content': [
+            {'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}},
+            {'type': 'text', 'text': 'Image 960x540. Give the bounding box (pixels) of the bald man in the magenta shirt (head and upper body) and of the most '
+                                     'important OTHER person or object. Answer ONLY {"kao": [x1,y1,x2,y2], "altro": [x1,y1,x2,y2]}.'}]}]}).encode(),
+        headers={'x-api-key': E('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01', 'content-type': 'application/json'})
+    try:
+        j = json.loads(urllib.request.urlopen(req, timeout=120).read())
+        CO.registra('claude', 'claude-haiku-4-5-20251001', usage=j.get('usage'), nota='caselle quadro')
+        t = ''.join(b.get('text', '') for b in j['content'] if b.get('type') == 'text')
+        d = json.loads(t[t.find('{'): t.rfind('}') + 1])
+        return {k: [v * 2 for v in d[k][:4]] for k in ('kao', 'altro') if isinstance(d.get(k), list) and len(d[k]) >= 4}
+    except Exception as e:
+        log('caselle non trovate:', str(e)[:100]); return {}
+
+
+def quadri(c):
+    ultimo_luogo = {}
+    for i, q in enumerate(c['quadri']):
+        f = os.path.join(CART, f"quadro_{i:02d}.jpg")
+        lato = 'LEFT' if q.get('kao') == 'left' else 'RIGHT'
+        refs = [RAW + PERS + '/identikit.png']
+        extra = ''
+        if q.get('secondario'):
+            refs.append(RAW + PERS + '/secondari/' + q['secondario'] + '.png')
+            extra += ' The other person is EXACTLY the character of the second reference image (same face, hair and clothes).'
+        if q['luogo'] in ultimo_luogo:
+            refs.append(ultimo_luogo[q['luogo']])
+            extra += ' The place is EXACTLY the same room/street as in the last reference image (same furniture, colours and layout), seen from a slightly different angle.'
+        prompt = ('Flat 2D cartoon illustration, high quality animated film still, in exactly the drawing style of the first reference image: thick clean black '
+                  'outlines, flat colours, simple rounded shapes. The main character is EXACTLY the man of the first reference image: bald round head, peach skin, '
+                  'small black oval eyes, thin eyebrows, magenta long-sleeve shirt, black trousers, black shoes - same face and proportions, never change his clothes. '
+                  f"Scene: {q['azione']}. Setting: {q['luogo']}.{extra} The main character is on the {lato} third of the frame, big and clearly visible "
+                  '(at least half of the image height), his face and expression very readable. Rich, detailed, realistic Italian everyday environment, warm soft '
+                  'cinematic light, 16:9 composition with depth. No text, no letters, no numbers, no speech bubbles, no logos.')
+        if not os.path.exists(f):
+            for k in range(3):
+                try:
+                    q['_url'] = klein_edit(prompt, refs, f); break
+                except Exception as e:
+                    log('quadro non riuscito, riprovo:', str(e)[:120]); time.sleep(5)
+            else:
+                raise RuntimeError('quadro non riuscito: ' + q['id'])
+            log('quadro', i + 1, '/', len(c['quadri']), ':', q['azione'][:80])
+        if q.get('_url'):
+            ultimo_luogo[q['luogo']] = q['_url']
+        q['_img'] = Image.open(f).convert('RGB')
+        q['_box'] = caselle(f)
+
+
+def ritaglio(q, taglio):
+    """Il quadro intero o un primo piano (16:9) con il soggetto su un terzo, l'altro lato libero per la nuvoletta."""
+    im = q['_img']; w, h = im.size
+    b = q['_box'].get('kao' if taglio == 'kao' else 'altro') if taglio != 'largo' else None
+    if not b:
+        return im.resize((W, H), Image.LANCZOS), .5
+    cx, cy = (b[0] + b[2]) / 2, (b[1] + b[3]) / 2
+    cw = max(w * .5, min(w * .72, (b[2] - b[0]) * 2.3)); ch = cw * 9 / 16
+    terzo = .38 if cx < w / 2 else .62
+    x0 = min(max(0, cx - cw * terzo), w - cw); y0 = min(max(0, cy - ch * .42), h - ch)
+    return im.crop((int(x0), int(y0), int(x0 + cw), int(y0 + ch))).resize((W, H), Image.LANCZOS), (cx - x0) / cw
+
+
+def monta_illustrato(c):
+    qid = {q['id']: q for q in c['quadri']}
+    shots, t0 = [], 0.0
+    for i, s in enumerate(c['scene']):
+        q = qid[s['quadro']]
+        tg = s.get('taglio') if s.get('taglio') in ('largo', 'kao', 'altro') else 'largo'
+        if tg == 'altro' and not q['_box'].get('altro'):
+            tg = 'kao'
+        pezzi = [(0.0, s['_dur'], tg)]
+        if s['_dur'] > 6.0:   # frase lunga: cambio di taglio a meta' (come un montaggio da film)
+            alt = 'kao' if tg == 'largo' else 'largo'
+            pezzi = [(0.0, s['_dur'] / 2, tg), (s['_dur'] / 2, s['_dur'], alt)]
+        for a, b, tgl in pezzi:
+            shots.append({'t0': t0 + a, 't1': t0 + b, 'scena': s, 'quadro': q, 'taglio': tgl, 'rel': a,
+                          'nuovo_quadro': not shots or shots[-1]['quadro'] is not q})
+        t0 += s['_dur']
+    totale = t0
+    cache = {}
+    out = os.path.join(LAV, 'video_muto.mp4')
+    ff = subprocess.Popen(['ffmpeg', '-y', '-v', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-r', str(FPS), '-i', '-',
+                           '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '15', '-pix_fmt', 'yuv420p', out], stdin=subprocess.PIPE)
+    n_fr = int(totale * FPS); si = 0; prec = None
+    for n in range(n_fr):
+        t = n / FPS
+        while si < len(shots) - 1 and t >= shots[si]['t1']:
+            prec = shots[si]; si += 1
+        sh = shots[si]; s = sh['scena']; ts = t - sh['t0']; tsc = t - (sh['t0'] - sh['rel'])
+        k = (id(sh['quadro']), sh['taglio'])
+        if k not in cache:
+            cache[k] = ritaglio(sh['quadro'], sh['taglio'])
+        base, pos = cache[k]
+        fr = base.convert('RGBA')
+        if sh['nuovo_quadro'] and prec is not None and ts < .25:   # dissolvenza breve solo quando cambia il quadro
+            kp = (id(prec['quadro']), prec['taglio'])
+            fr = Image.blend(cache[kp][0].convert('RGBA'), fr, ts / .25)
+        if s.get('parola'):
+            pw = s['parola'].split()[0].lower().strip('.,!?')
+            t_par = next((x[1] for x in s['_parole'] if x[0].lower().strip('.,!?;:«»"') == pw), s['_dur'] * .3)
+            if tsc >= t_par:
+                nuvoletta(fr, s['parola'], tsc - t_par, pos < .5)
+        sottotitolo(fr, s['_parole'], tsc)
+        ff.stdin.write(fr.convert('RGB').tobytes())
+        if n % (FPS * 15) == 0:
+            log(f'montaggio {int(100 * n / n_fr)}%')
+    ff.stdin.close(); ff.wait()
+    return out, [x for x in shots if x['nuovo_quadro']], totale
+
+
 def audio(c, shots, totale):
     voce_f = os.path.join(LAV, 'voce.wav')
     lista = os.path.join(LAV, 'voci.txt')
@@ -344,10 +518,16 @@ def audio(c, shots, totale):
 
 
 def main():
-    c = copione()
-    voce(c)
-    luoghi(c)
-    muto, shots, totale = monta(c)
+    if str(P.get('modo') or 'illustrato') == 'illustrato':
+        c = copione_illustrato()
+        voce(c)
+        quadri(c)
+        muto, shots, totale = monta_illustrato(c)
+    else:   # prima versione: figurine della libreria sugli sfondi
+        c = copione()
+        voce(c)
+        luoghi(c)
+        muto, shots, totale = monta(c)
     a = audio(c, shots, totale)
     v1080 = os.path.join(LAV, 'kao_1080.mp4')
     subprocess.run(['ffmpeg', '-y', '-v', 'error', '-i', muto, '-i', a, '-c:v', 'copy', '-c:a', 'copy', '-shortest', v1080], check=True)
