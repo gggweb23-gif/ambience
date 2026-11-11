@@ -14,6 +14,7 @@ E = os.environ.get
 SOLO = E('SOLO_CANALE', '').strip()
 PROVA = E('PROVA', 'NO').strip().upper() == 'SI'
 MODELLO = 'claude-haiku-4-5-20251001'
+ESPLOSI, GIORNI, MOLT = False, 30, 3
 
 
 def log(*a):
@@ -81,7 +82,8 @@ def video_canale(cid, pagine):
         for v in yt('videos', part='snippet,statistics,contentDetails', id=','.join(ids[i:i + 50])).get('items', []):
             out.append({'id': v['id'], 'titolo': v['snippet']['title'], 'views': int(v.get('statistics', {}).get('viewCount', 0)),
                         'sec': secondi(v.get('contentDetails', {}).get('duration')), 'cat': v['snippet'].get('categoryId', ''),
-                        'canale': nome, 'lingua': v['snippet'].get('defaultAudioLanguage') or v['snippet'].get('defaultLanguage') or ''})
+                        'canale': nome, 'lingua': v['snippet'].get('defaultAudioLanguage') or v['snippet'].get('defaultLanguage') or '',
+                        'pub': v['snippet'].get('publishedAt', '')})
     return nome, out
 
 
@@ -129,6 +131,9 @@ def canale(cfg):
     log(f'  righe Pronto: {coda} (obiettivo {obiettivo})')
     if manca <= 0 and not PROVA:
         return
+    global ESPLOSI, GIORNI, MOLT
+    ESPLOSI = str(cfg.get('scout_modo') or '').strip().lower() == 'esplosi'   # vuota = i piu' visti di sempre (come prima)
+    GIORNI = int(num(cfg.get('scout_giorni'), 30) or 30); MOLT = num(cfg.get('scout_moltiplicatore'), 3) or 3
     per = str(cfg.get('scout_un_video_per') or '').strip()
     gia_link = {m.group(1) for r in prod for m in [re.search(r'(?:v=|youtu\.be/)([\w-]{11})', str(r.get(c_link) or ''))] if m}
     gia_sogg = {norm(r.get('paese')) for r in prod if str(r.get('paese') or '').strip()}
@@ -142,10 +147,19 @@ def canale(cfg):
             nome, vids = video_canale(ch, pagine) if ch else ('', [])
         except Exception as e:
             log('  canale non letto', l, str(e)[:100]); continue
-        buoni = [v for v in vids if mn <= v['sec'] <= mx and v['views'] >= min_views and v['id'] not in gia_link]
-        log(f'  {nome or l}: {len(vids)} video, {len(buoni)} candidati')
+        lunghi = [v for v in vids if mn <= v['sec'] <= mx]
+        if ESPLOSI:   # 11 nov (Giorgio OK, metodo Reed): solo i video ESPLOSI di recente = molte piu' views della mediana del loro canale
+            vv = sorted(v['views'] for v in lunghi) or [0]; med = max(1, vv[len(vv) // 2])
+            limite = (dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=GIORNI)).isoformat()
+            for v in lunghi:
+                v['volte'] = round(v['views'] / med, 1)
+            buoni = [v for v in lunghi if v['pub'] >= limite and v['volte'] >= MOLT and v['views'] >= min_views and v['id'] not in gia_link]
+            log(f'  {nome or l}: {len(vids)} video, mediana {med:,} views, {len(buoni)} esplosi negli ultimi {GIORNI} giorni (>= {MOLT}x la mediana)')
+        else:
+            buoni = [v for v in lunghi if v['views'] >= min_views and v['id'] not in gia_link]
+            log(f'  {nome or l}: {len(vids)} video, {len(buoni)} candidati')
         cand += buoni
-    cand.sort(key=lambda v: v['views'], reverse=True)
+    cand.sort(key=lambda v: (v.get('volte', 0), v['views']) if ESPLOSI else v['views'], reverse=True)
     cand = cand[:200]
     if not cand:
         log('  nessun video nuovo'); return
@@ -153,7 +167,7 @@ def canale(cfg):
     log('  gia\' fatti:', ', '.join(fatti_nomi))
     giudizi, costo = classifica(cand, filone, per, budget, set(fatti_nomi))
     scelti, presi = [], set()
-    for g in sorted(giudizi, key=lambda g: cand[int(g.get('i', 0))]['views'] if str(g.get('i', '')).isdigit() and int(g['i']) < len(cand) else 0, reverse=True):
+    for g in sorted(giudizi, key=lambda g: (cand[int(g.get('i', 0))].get('volte', 0), cand[int(g.get('i', 0))]['views']) if str(g.get('i', '')).isdigit() and int(g['i']) < len(cand) else (0, 0), reverse=True):
         try:
             v = cand[int(g['i'])]
         except Exception:
@@ -167,7 +181,7 @@ def canale(cfg):
     scartati = sum(1 for g in giudizi if not g.get('ok'))
     log(f'  del filone: {sum(1 for g in giudizi if g.get("ok"))}, altri filoni scartati: {scartati}, nuovi soggetti: {len(scelti)}')
     for v in scelti[:max(manca, 0) or 10]:
-        log(f"    {v['views']:>10,} | {v['soggetto']} | {v['titolo'][:80]} | {v['canale']}")
+        log(f"    {v['views']:>10,} ({v.get('volte', '-')}x) | {v['soggetto']} | {v['titolo'][:80]} | {v['canale']}")
     if PROVA or manca <= 0:
         return
     righe = []
