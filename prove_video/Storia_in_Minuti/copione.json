@@ -1,884 +1,909 @@
 {
- "titolo": "Tutta la Storia degli Olandesi in 27 Minuti [NO AI]",
- "titolo_mappa": "PAESI BASSI",
- "paese_mappa": "Netherlands",
- "date": "1000 – 2026",
+ "titolo": "Francia: l'INTERA Storia Spiegata su una Mappa",
+ "titolo_mappa": "FRANCIA",
+ "paese_mappa": "France",
+ "riserva_pexels": [
+  "France countryside lavender fields",
+  "Mont Saint-Michel Normandy coast",
+  "Loire valley castle France",
+  "French Alps mountains snow",
+  "Provence village stone houses",
+  "Seine river Paris bridge",
+  "Brittany rocky coast lighthouse",
+  "Carcassonne medieval fortress France"
+ ],
+ "luoghi_paese": "france french gaul gallic paris marseille lyon normandy brittany provence burgundy alsace loire seine rhone versailles chartres reims bordeaux alps pyrenees corsica mont saint-michel carcassonne",
+ "date": "600 a.C. – 2026",
  "texture": "pergamena",
  "font_carte": "classico",
- "riserva_pexels": [
-  "Netherlands windmills canal",
-  "Amsterdam canal houses",
-  "Dutch dike North Sea",
-  "Netherlands tulip fields",
-  "old sailing ship sea",
-  "Zeeland coast waves",
-  "old map manuscript",
-  "Delft old town canal"
- ],
- "luoghi_paese": "netherlands dutch holland amsterdam rotterdam delft utrecht leiden zeeland friesland flevoland delta dike polder windmill canal north sea rhine meuse scheldt haarlem antwerp",
  "fondi_carte": [],
  "colori_carte": [
-  "#8a3b12",
-  "#1d3557"
+  "#1d3557",
+  "#6b1e1e"
  ],
  "sfondi": [],
  "scene": [
   {
-   "capitolo": "Le origini",
-   "testo": "I Paesi Bassi non dovrebbero esistere: gran parte del territorio sta sotto il livello del mare. Eppure costruirono uno degli imperi commerciali più potenti della storia. Arrivarono in Indonesia, Sudafrica, Suriname, nei Caraibi e a Manhattan. Come ha fatto un popolo in lotta con il mare a conquistare terre al di là del mare?",
-   "anno": 1000,
+   "capitolo": "Le origini galliche",
+   "testo": "La Francia si è trasformata più volte con rivoluzioni e rivolte, a volte nel corso di una sola vita. Lo scorso weekend tra 550.000 e 800.000 persone sono scese in piazza contro scuole, carburanti e carovita. Hanno bruciato municipi a Limoges, Marsiglia e Lione: 1.800 arresti.",
+   "anno": 2026,
    "visivi": [
-    {
-     "tipo": "cartone",
-     "frase": "I Paesi Bassi",
-     "sfondo": "",
-     "personaggio": "",
-     "data": "1000 – 2026"
-    },
     {
      "tipo": "mappa",
-     "frase": "gran parte del territorio"
+     "frase": "La Francia si è",
+     "didascalia": ""
     },
     {
      "tipo": "pexels_video",
-     "frase": "Eppure costruirono uno",
-     "q": "Amsterdam canal houses historic"
+     "frase": "Lo scorso weekend",
+     "q": "Paris city hall facade night",
+     "didascalia": "550.000–800.000 manifestanti"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "Arrivarono in Indonesia",
-     "q": "Indonesia volcano Java landscape"
+     "frase": "Hanno bruciato municipi",
+     "q": "burning fire flames dark smoke",
+     "suono": "crackling fire, distant sirens"
     },
     {
      "tipo": "pexels_video",
-     "frase": "a Manhattan",
-     "q": "old sailing ship sea waves",
-     "suono": "wooden ship creaking, waves"
-    },
+     "frase": "1.800 arresti",
+     "q": "Marseille harbour city skyline",
+     "didascalia": "1.800 arresti"
+    }
+   ]
+  },
+  {
+   "testo": "Oggi il debito pubblico francese è al 119% del PIL, il livello più alto dalla Seconda guerra mondiale. Come ha fatto uno dei paesi più antichi d'Europa a stracciare più volte le proprie regole? E perché tutto ruota attorno a Parigi?",
+   "anno": 2026,
+   "visivi": [
     {
      "tipo": "pexels_foto",
+     "frase": "Oggi il debito",
+     "q": "euro coins banknotes stack",
+     "didascalia": "Debito al 119% del PIL"
+    },
+    {
+     "tipo": "pexels_video",
      "frase": "Come ha fatto",
-     "q": "Netherlands dike North Sea"
+     "q": "Paris Eiffel Tower aerial dawn"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "E perché tutto",
+     "q": "Seine river Paris Notre Dame"
     }
    ]
   },
   {
-   "testo": "Intorno al 1000 i Paesi Bassi non esistevano: la regione faceva parte del Sacro Romano Impero. I contadini drenavano le torbiere per ottenere campi, ma la torba asciutta si restringeva mentre i fiumi restavano allo stesso livello, e il terreno affondava.",
-   "anno": 1000,
+   "testo": "Tutto comincia intorno al 600 a.C., quando i Greci fondano Marsiglia, mentre i Galli, popoli celtici, controllano l'interno. Nel 58 a.C. arriva Giulio Cesare con un esercito e sfrutta per sei anni le rivalità tra le tribù galliche.",
+   "anno": -600,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "Intorno al 1000",
-     "q": "Netherlands peat bog marsh"
+     "frase": "Tutto comincia intorno",
+     "q": "Marseille Old Port Mediterranean sea",
+     "didascalia": "600 a.C. – Fondazione di Marsiglia"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "I contadini drenavano",
-     "q": "Netherlands polder drainage canal"
+     "frase": "i Galli, popoli",
+     "q": "ancient Celtic stone ruins France"
     },
     {
      "tipo": "pexels_video",
-     "frase": "i fiumi restavano",
-     "q": "Rhine river Netherlands flowing"
+     "frase": "Nel 58 a.C.",
+     "q": "Roman ruins Provence Pont du Gard",
+     "didascalia": "58 a.C. – Arriva Cesare"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "sfrutta per sei",
+     "q": "ancient Roman sword museum"
     }
    ]
   },
   {
-   "testo": "Le comunità costruirono dighe e canali di drenaggio, e nel 1165 le dispute sull'acqua costrinsero signori rivali a collaborare attraverso i waterschappen, i consigli delle acque. Inondazioni devastanti colpirono nel 1212, 1219 e 1287, ma insegnarono a mettere in comune risorse e potere molto prima di diventare una nazione.",
-   "anno": 1165,
+   "testo": "Nel 52 a.C. il capo Vercingetorige unisce le tribù contro Roma, ma Cesare lo intrappola ad Alesia e lo fa giustiziare. L'indipendenza gallica finisce, però la regione assorbe la cultura romana: strade, città e il latino, che diventerà francese.",
+   "anno": -52,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "Le comunità costruirono dighe",
-     "q": "Dutch dike grass sea Zeeland"
+     "frase": "Nel 52 a.C.",
+     "q": "Burgundy hills fortress site France",
+     "didascalia": "52 a.C. – Assedio di Alesia"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "nel 1165",
-     "q": "old manuscript parchment medieval",
-     "didascalia": "1165: nascono i waterschappen"
+     "frase": "ma Cesare lo",
+     "q": "ancient chains iron museum"
     },
     {
      "tipo": "pexels_video",
-     "frase": "Inondazioni devastanti colpirono",
-     "q": "flooded fields stormy sky Netherlands",
-     "suono": "heavy rain and thunder"
+     "frase": "strade, città e",
+     "q": "Roman amphitheatre Arles France"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "mettere in comune",
-     "q": "Delft old town canal"
+     "frase": "il latino, che",
+     "q": "old Latin manuscript parchment"
     }
    ]
   },
   {
-   "capitolo": "Borgogna e Asburgo",
-   "testo": "Nel Quattrocento i Paesi Bassi, oggi Olanda, Belgio e Lussemburgo, erano un mosaico frammentato dove ogni regione difendeva le proprie leggi e tasse. Nel 1384 Filippo l'Ardito ereditò le Fiandre, e i suoi discendenti, tra matrimoni e conquiste, crearono uno Stato borgognone unito.",
-   "anno": 1384,
+   "capitolo": "Franchi e Carolingi",
+   "testo": "I Franchi germanici conquistano la Gallia. Il loro re Clodoveo la unisce e si fa battezzare cattolico intorno al 496. Verso il 508 sceglie Parigi come capitale e dà al regno il nome del suo popolo.",
+   "anno": 496,
    "visivi": [
     {
-     "tipo": "pexels_foto",
-     "frase": "Nel Quattrocento i Paesi Bassi",
-     "q": "Bruges medieval buildings Flanders"
-    },
-    {
      "tipo": "pexels_video",
-     "frase": "ogni regione difendeva",
-     "q": "Ghent medieval castle Flanders"
+     "frase": "I Franchi germanici",
+     "q": "dark forest mist northern France"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "Nel 1384",
-     "q": "medieval castle Burgundy",
-     "didascalia": "1384: Filippo l'Ardito eredita le Fiandre"
+     "frase": "si fa battezzare",
+     "q": "Reims cathedral stained glass",
+     "didascalia": "496 – Battesimo di Clodoveo"
     },
     {
      "tipo": "pexels_video",
-     "frase": "Stato borgognone unito",
-     "q": "old stone cathedral Belgium"
+     "frase": "Verso il 508",
+     "q": "Paris Seine island aerial",
+     "didascalia": "508 – Parigi capitale"
     }
    ]
   },
   {
-   "testo": "Filippo il Buono convocò nel 1464 i primi Stati Generali, riunendo rappresentanti di diverse province perché imparassero ad agire come un solo corpo. Dopo la morte in battaglia di Carlo il Temerario, nel 1477, la figlia diciannovenne Maria concesse il Gran Privilegio per ottenere sostegno, poi sposò Massimiliano d'Asburgo.",
-   "anno": 1464,
+   "testo": "Nell'800 Carlo Magno, discendente di Clodoveo, governa gran parte dell'Europa occidentale ed è incoronato imperatore dal Papa. Nell'843, col Trattato di Verdun, l'impero si divide in tre: nasce il confine tra Francia e Germania.",
+   "anno": 800,
    "visivi": [
     {
      "tipo": "pexels_foto",
-     "frase": "Filippo il Buono",
-     "q": "medieval town hall Netherlands"
+     "frase": "Nell'800 Carlo Magno",
+     "q": "Aachen cathedral medieval interior",
+     "didascalia": "800 – Carlo Magno imperatore"
     },
     {
      "tipo": "pexels_video",
-     "frase": "Dopo la morte in battaglia",
-     "q": "misty battlefield field fog",
-     "didascalia": "1477: muore Carlo il Temerario"
+     "frase": "Nell'843, col Trattato",
+     "q": "Meuse river valley Verdun",
+     "didascalia": "843 – Trattato di Verdun"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "la figlia diciannovenne Maria",
-     "q": "old royal document seal wax"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "poi sposò Massimiliano",
-     "q": "gothic cathedral interior candles"
+     "frase": "nasce il confine",
+     "q": "old parchment map medieval"
     }
    ]
   },
   {
-   "testo": "Il loro nipote, Carlo V, arrivò a governare Spagna, Italia, Austria e i Paesi Bassi, ma le idee protestanti si diffusero rapidamente nelle città commerciali nonostante i suoi tentativi di fermarle. Nel 1549 la Prammatica Sanzione stabilì che le 17 province passassero insieme a un solo erede, mantenendo i propri privilegi.",
-   "anno": 1549,
+   "testo": "I Vichinghi attaccano Parigi finché, nel 911, il re francese dà al loro capo Rollone le terre lungo la Senna: nasce la Normandia. Nel 987 Ugo Capeto diventa re, ma controlla solo un'area attorno a Parigi, mentre potenti duchi dominano il resto.",
+   "anno": 911,
    "visivi": [
     {
-     "tipo": "pexels_foto",
-     "frase": "Il loro nipote, Carlo V",
-     "q": "Habsburg palace old stone"
-    },
-    {
      "tipo": "pexels_video",
-     "frase": "le idee protestanti si diffusero",
-     "q": "old printing press books"
+     "frase": "I Vichinghi attaccano",
+     "q": "Normandy coast cliffs stormy sea",
+     "suono": "sea waves crashing, wind"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "Nel 1549",
-     "q": "antique manuscript quill ink",
-     "didascalia": "1549: 17 province, un solo erede"
+     "frase": "nasce la Normandia",
+     "q": "Normandy countryside green fields",
+     "didascalia": "911 – Nasce la Normandia"
     },
     {
      "tipo": "pexels_video",
-     "frase": "mantenendo i propri privilegi",
-     "q": "old map antique parchment"
+     "frase": "Nel 987 Ugo",
+     "q": "medieval castle ruins France",
+     "didascalia": "987 – Ugo Capeto re"
     }
    ]
   },
   {
-   "testo": "Carlo aveva riunito tutti i pezzi, ma suo figlio avrebbe scoperto quanto fosse difficile tenerli insieme. Proteggere ciò che è nostro resta un problema ancora oggi, anche se le minacce arrivano di solito via email e non con un esercito. Surfshark controlla se email, carte di credito e documenti compaiono in fughe di dati.",
-   "anno": 1549,
+   "capitolo": "Medioevo e Plantageneti",
+   "testo": "Nel 1066 il duca di Normandia, Guglielmo, diventa re d'Inghilterra: tecnicamente è vassallo del re di Francia. Nel 1152 Eleonora d'Aquitania sposa Enrico Plantageneto, futuro Enrico II d'Inghilterra, che governa più Francia del re francese.",
+   "anno": 1066,
    "visivi": [
     {
+     "tipo": "pexels_foto",
+     "frase": "Nel 1066 il",
+     "q": "Bayeux Normandy medieval town",
+     "didascalia": "1066 – Guglielmo re d'Inghilterra"
+    },
+    {
      "tipo": "pexels_video",
-     "frase": "Carlo aveva riunito",
-     "q": "chess pieces board closeup"
+     "frase": "Nel 1152 Eleonora",
+     "q": "Aquitaine vineyards Bordeaux landscape",
+     "didascalia": "1152 – Eleonora d'Aquitania"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "Proteggere ciò che",
-     "q": "padlock security closeup"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "Surfshark controlla se",
-     "q": "laptop screen email notification"
+     "frase": "che governa più",
+     "q": "medieval stone castle Loire"
     }
    ]
   },
   {
-   "capitolo": "La rivolta",
-   "testo": "Nel 1555 Carlo cedette i Paesi Bassi a Filippo II, che alzò le tasse e perseguitò i protestanti. Nel 1566 la Beeldenstorm vide folle protestanti distruggere le opere d'arte delle chiese cattoliche, e Filippo mandò il duca d'Alba con 10.000 soldati.",
-   "anno": 1566,
+   "testo": "Filippo Augusto cambia tutto: nel 1204 prende la Normandia e nel 1214, a Bouvines, sconfigge inglesi, tedeschi e fiamminghi. Con suo nipote Luigi IX la Francia diventa il regno più potente d'Europa occidentale.",
+   "anno": 1214,
    "visivi": [
     {
-     "tipo": "pexels_foto",
-     "frase": "Nel 1555 Carlo cedette",
-     "q": "Escorial Spain monastery"
-    },
-    {
      "tipo": "pexels_video",
-     "frase": "la Beeldenstorm vide folle",
-     "q": "gothic church stained glass interior",
-     "didascalia": "1566: la Beeldenstorm",
-     "suono": "stone crashing, glass breaking"
+     "frase": "Filippo Augusto cambia",
+     "q": "Normandy medieval fortress walls",
+     "didascalia": "1204 – Presa della Normandia"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "Filippo mandò il duca",
-     "q": "old iron armor museum helmet"
+     "frase": "a Bouvines, sconfigge",
+     "q": "northern France flat battlefield fields",
+     "didascalia": "1214 – Battaglia di Bouvines"
     },
     {
      "tipo": "pexels_video",
-     "frase": "con 10.000 soldati",
-     "q": "dark clouds over fields marching",
-     "didascalia": "10.000 soldati"
+     "frase": "Con suo nipote",
+     "q": "Sainte-Chapelle Paris stained glass"
     }
    ]
   },
   {
-   "testo": "Il Consiglio dei Torbidi di Alba giustiziò oltre mille persone e impose una tassa del 10% sulle vendite, che unì mercanti e ribelli. Guglielmo d'Orange guidò la rivolta, e i Pezzenti del Mare conquistarono Brielle nel 1572, diffondendo l'insurrezione in Olanda e Zelanda.",
-   "anno": 1572,
+   "testo": "Parigi cresce: fioriscono le università sulla riva sinistra della Senna e dal 1163 si costruisce Notre-Dame. Poi, nel 1337, il re inglese Edoardo III rivendica il trono francese e scoppia la Guerra dei Cent'anni, che durerà 116 anni.",
+   "anno": 1337,
    "visivi": [
     {
-     "tipo": "pexels_foto",
-     "frase": "Il Consiglio dei Torbidi",
-     "q": "old medieval prison stone",
-     "didascalia": "Oltre 1.000 giustiziati"
-    },
-    {
      "tipo": "pexels_video",
-     "frase": "una tassa del 10%",
-     "q": "old gold coins closeup",
-     "didascalia": "Tassa del 10%"
+     "frase": "Parigi cresce: fioriscono",
+     "q": "Notre-Dame Paris cathedral exterior",
+     "didascalia": "1163 – Inizia Notre-Dame"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "Guglielmo d'Orange guidò",
-     "q": "Brielle harbor Netherlands"
+     "frase": "Poi, nel 1337",
+     "q": "medieval armor sword museum",
+     "didascalia": "1337 – Guerra dei Cent'anni"
     },
     {
      "tipo": "pexels_video",
-     "frase": "i Pezzenti del Mare",
-     "q": "old sailing ship stormy sea",
-     "suono": "wooden ship creaking, waves",
-     "didascalia": "1572: Brielle conquistata"
+     "frase": "che durerà 116",
+     "q": "burning field smoke countryside",
+     "didascalia": "116 anni di guerra"
     }
    ]
   },
   {
-   "testo": "Il crollo finanziario spagnolo spinse le truppe non pagate ad ammutinarsi e a saccheggiare Anversa nel 1576, uccidendo migliaia di persone. Il nord, in prevalenza protestante, formò l'Unione di Utrecht, mentre il sud cattolico tornò al dominio spagnolo.",
-   "anno": 1576,
+   "capitolo": "Guerra dei Cent'anni",
+   "testo": "Nel 1420 la Francia sta per diventare inglese. Poi, nel 1429, una ragazza arriva alla corte dell'erede al trono: Giovanna d'Arco, convinta che Dio l'abbia mandata. Cosa può fare un'adolescente contro un esercito?",
+   "anno": 1429,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "Nel 1420 la",
+     "q": "old medieval map France parchment",
+     "didascalia": "1420 – Francia quasi inglese"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Poi, nel 1429",
+     "q": "Chinon castle Loire valley",
+     "didascalia": "1429 – Arriva Giovanna d'Arco"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Cosa può fare",
+     "q": "medieval banner flag fabric"
+    }
+   ]
+  },
+  {
+   "testo": "Giovanna fa togliere l'assedio di Orléans e porta Carlo all'incoronazione, ma viene catturata e bruciata sul rogo a 19 anni. I francesi vincono comunque: la guerra finisce nel 1453 a Castillon, anche se perdono Calais.",
+   "anno": 1453,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "Il crollo finanziario spagnolo",
-     "q": "burning fire flames dark",
+     "frase": "Giovanna fa togliere",
+     "q": "Orléans Loire river bridge"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "ma viene catturata",
+     "q": "bonfire flames night",
+     "didascalia": "Bruciata a 19 anni",
      "suono": "crackling fire"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "saccheggiare Anversa",
-     "q": "Antwerp old city skyline"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "Il nord, in prevalenza",
-     "q": "Utrecht Dom tower canal"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "il sud cattolico",
-     "q": "Catholic cathedral Belgium spire"
+     "frase": "la guerra finisce",
+     "q": "Dordogne valley castle landscape",
+     "didascalia": "1453 – Fine della guerra"
     }
    ]
   },
   {
-   "testo": "Nel 1581 i ribelli emanarono l'Atto di Abiura, sostenendo che un sovrano oppressivo diventa un tiranno. Le province olandesi rifiutarono Filippo come re senza decidere chi mettere al suo posto. Nel 1584 Guglielmo d'Orange fu assassinato, ma suo figlio Maurizio continuò la rivolta.",
-   "anno": 1581,
-   "visivi": [
-    {
-     "tipo": "pexels_foto",
-     "frase": "Nel 1581 i ribelli",
-     "q": "old parchment declaration quill",
-     "didascalia": "1581: Atto di Abiura"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "Le province olandesi rifiutarono",
-     "q": "Netherlands flat landscape windmill"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "Nel 1584 Guglielmo",
-     "q": "Delft old church tower",
-     "didascalia": "1584: assassinato Guglielmo d'Orange"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "suo figlio Maurizio",
-     "q": "flag waving wind dark sky"
-    }
-   ]
-  },
-  {
-   "capitolo": "L'Età dell'Oro",
-   "testo": "I rifugiati protestanti in fuga da Anversa, caduta in mano spagnola, portarono ricchezza e competenze ad Amsterdam. Nel 1588 sette province ribelli si costituirono in repubblica senza monarca. La nuova Repubblica Olandese sopravvisse alla Spagna e volle spezzare il controllo portoghese sul commercio delle spezie asiatiche.",
-   "anno": 1588,
-   "visivi": [
-    {
-     "tipo": "pexels_foto",
-     "frase": "I rifugiati protestanti",
-     "q": "Amsterdam canal old merchant houses"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "Nel 1588 sette province",
-     "q": "Amsterdam canal boat water",
-     "didascalia": "1588: sette province, nessun re"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "il commercio delle spezie",
-     "q": "spices cinnamon nutmeg closeup"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "controllo portoghese",
-     "q": "old sailing ship horizon ocean"
-    }
-   ]
-  },
-  {
-   "testo": "Nel 1597 quattro navi olandesi salparono per Giava con 249 uomini e tornarono con soli 87 sopravvissuti. Nonostante i profitti minimi, gli investitori intuirono il potenziale della rotta e la concorrenza si accese. Nel 1602 gli Stati Generali crearono la Compagnia Olandese delle Indie Orientali, con poteri quasi statali: firmare trattati e comandare eserciti.",
-   "anno": 1602,
+   "capitolo": "Re, riforma e guerre di religione",
+   "testo": "Nel 1558 il re di Francia governa per la prima volta quasi tutto il paese e nasce una nuova identità nazionale. Luigi XI e i successori ampliano il regno con Borgogna, Provenza e Bretagna, tra guerre, eredità e matrimoni.",
+   "anno": 1558,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "Nel 1597 quattro navi",
-     "q": "sailing ship ocean waves storm",
-     "didascalia": "249 partiti, 87 tornati",
-     "suono": "wooden ship creaking, waves"
+     "frase": "Nel 1558 il",
+     "q": "Loire valley Chambord castle",
+     "didascalia": "1558 – Prima Francia unita"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "Giava con 249",
-     "q": "Java Indonesia coast tropical"
+     "frase": "Borgogna, Provenza e",
+     "q": "Burgundy vineyards autumn landscape"
     },
     {
      "tipo": "pexels_video",
-     "frase": "gli investitori intuirono",
-     "q": "old gold coins pouring"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "Nel 1602 gli Stati",
-     "q": "old shipping documents antique ledger",
-     "didascalia": "1602: nasce la VOC"
+     "frase": "tra guerre, eredità",
+     "q": "Brittany coast rocks sea"
     }
    ]
   },
   {
-   "testo": "Gli azionisti potevano vendere le quote della VOC sul mercato secondario di Amsterdam, mentre la Banca di Amsterdam facilitava i pagamenti internazionali. Il governatore Coen fondò Batavia come sede asiatica e impose con la violenza i monopoli, uccidendo o riducendo in schiavitù i abitanti di Banda per controllare la noce moscata.",
-   "anno": 1619,
+   "testo": "Nel 1539 l'Ordinanza di Villers-Cotterêts impone che tutti gli atti legali siano scritti in francese e non più in latino. Ma la religione sta per spaccare il paese: ugonotti protestanti e cattolici si combattono per decenni.",
+   "anno": 1539,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "Nel 1539 l'Ordinanza",
+     "q": "old handwritten document quill ink",
+     "didascalia": "1539 – Il francese lingua legale"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Ma la religione",
+     "q": "old church interior candles dark"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "si combattono per",
+     "q": "burning candle flame dark"
+    }
+   ]
+  },
+  {
+   "testo": "Il culmine è la notte di San Bartolomeo, nel 1572: muoiono migliaia di persone. Il protestante Enrico IV chiude la guerra civile convertendosi al cattolicesimo e nel 1598 firma l'Editto di Nantes, che concede ai protestanti il diritto di culto.",
+   "anno": 1572,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "Gli azionisti potevano vendere",
-     "q": "old ledger coins antique desk"
+     "frase": "Il culmine è",
+     "q": "Paris old street night lanterns",
+     "didascalia": "1572 – San Bartolomeo",
+     "suono": "church bells ringing at night"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "Il governatore Coen",
-     "q": "Jakarta old colonial building"
+     "frase": "convertendosi al cattolicesimo",
+     "q": "cathedral altar gold interior"
     },
     {
      "tipo": "pexels_video",
-     "frase": "uccidendo o riducendo",
-     "q": "Banda Islands Indonesia sea volcano"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "la noce moscata",
-     "q": "nutmeg spice closeup",
-     "didascalia": "Banda: monopolio della noce moscata"
+     "frase": "nel 1598 firma",
+     "q": "Nantes castle Dukes of Brittany",
+     "didascalia": "1598 – Editto di Nantes"
     }
    ]
   },
   {
-   "testo": "La Compagnia Olandese delle Indie Occidentali attaccò allo stesso modo le navi e fondò colonie nell'Atlantico, nei Caraibi e in Africa. L'acquisto di Manhattan nel 1626 per 60 fiorini di merci non è storia, ma propaganda ottocentesca che nasconde una colonizzazione complessa.",
-   "anno": 1626,
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "La Compagnia Olandese delle Indie Occidentali",
-     "q": "Caribbean sea sailing ship"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "nei Caraibi e in Africa",
-     "q": "Suriname river rainforest"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "L'acquisto di Manhattan",
-     "q": "old map New Amsterdam antique",
-     "didascalia": "1626: 60 fiorini"
-    }
-   ]
-  },
-  {
-   "testo": "Le navi olandesi trasportarono circa 600.000 africani ridotti in schiavitù verso le piantagioni, e la schiavitù era intrecciata al sistema che arricchiva mercanti e investitori. La VOC restò l'unico commerciante europeo ammesso in Giappone, confinato sull'isola di Dejima. L'espansione coloniale olandese dipendeva da schiavitù e coercizione.",
-   "anno": 1650,
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "Le navi olandesi trasportarono",
-     "q": "dark ocean waves night ship",
-     "didascalia": "600.000 africani schiavizzati"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "verso le piantagioni",
-     "q": "Suriname plantation tropical field"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "La VOC restò",
-     "q": "Nagasaki bay Japan harbor"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "L'espansione coloniale olandese",
-     "q": "old iron chains museum"
-    }
-   ]
-  },
-  {
-   "capitolo": "Guerre e declino",
-   "testo": "La Pace di Münster pose fine nel 1648 alla guerra con la Spagna. L'indipendenza aprì un impero commerciale globale che finanziò artisti come Rembrandt e Vermeer. Nel 1652 la VOC fondò una stazione di rifornimento al Capo di Buona Speranza, che col tempo diventò una colonia.",
+   "capitolo": "Il Re Sole",
+   "testo": "Il cardinale Richelieu rafforza il potere reale: spezza l'autorità dei nobili e manda gli intendenti a governare le province. Poi Parigi si ribella a Luigi XIV durante la Fronda, e il re bambino deve fuggire di notte.",
    "anno": 1648,
    "visivi": [
     {
      "tipo": "pexels_foto",
-     "frase": "La Pace di Münster",
-     "q": "old treaty document seal",
-     "didascalia": "1648: Pace di Münster"
+     "frase": "Il cardinale Richelieu",
+     "q": "baroque palace hall gold ceiling"
     },
     {
      "tipo": "pexels_video",
-     "frase": "finanziò artisti come",
-     "q": "old oil painting museum gallery"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "Nel 1652 la VOC",
-     "q": "Cape of Good Hope coast cliffs",
-     "didascalia": "1652: Capo di Buona Speranza"
+     "frase": "Poi Parigi si",
+     "q": "Paris rooftops night aerial",
+     "didascalia": "1648 – La Fronda"
     },
     {
      "tipo": "pexels_video",
-     "frase": "diventò una colonia",
-     "q": "Table Mountain Cape Town landscape"
+     "frase": "deve fuggire di",
+     "q": "dark road night carriage lantern"
     }
    ]
   },
   {
-   "testo": "Olandesi e inglesi diventarono rivali feroci e combatterono tre guerre per navigazione, colonie e commercio. Quando le navi inglesi arrivarono a Nuova Amsterdam, la colonia si arrese senza ultima resistenza eroica e divenne New York. Nel 1667 l'ammiraglio Michiel de Ruyter risalì il fiume Medway e catturò la nave ammiraglia inglese Royal Charles, per vendetta.",
-   "anno": 1667,
+   "testo": "Luigi XIV non dimentica quel tradimento. Nel 1682 costruisce Versailles per controllare i nobili con cerimonie infinite. Regna 72 anni su 20 milioni di francesi, la popolazione più grande d'Europa, e combatte quasi di continuo.",
+   "anno": 1682,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "Olandesi e inglesi diventarono",
-     "q": "stormy sea sailing ship cannon",
-     "suono": "cannon fire over sea"
+     "frase": "Luigi XIV non",
+     "q": "Versailles palace gardens fountains",
+     "didascalia": "1682 – Versailles"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "Nuova Amsterdam, la colonia",
-     "q": "Manhattan harbor old engraving"
+     "frase": "Regna 72 anni",
+     "q": "Hall of Mirrors Versailles chandeliers",
+     "didascalia": "72 anni di regno"
     },
     {
      "tipo": "pexels_video",
-     "frase": "Michiel de Ruyter",
-     "q": "River Medway Kent estuary",
-     "didascalia": "1667: raid sul Medway"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "Royal Charles",
-     "q": "old wooden warship model museum"
+     "frase": "e combatte quasi",
+     "q": "old cannon fortress wall"
     }
    ]
   },
   {
-   "testo": "Gli olandesi mantennero il Suriname ma persero New York. Nel 1672 Francia, Inghilterra e altre potenze attaccarono insieme, e gli olandesi allagarono la propria terra come arma difensiva. Guglielmo III d'Orange prese il potere e nel 1688 attraversò il mare verso l'Inghilterra, diventando co-sovrano di Inghilterra e Scozia.",
-   "anno": 1672,
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "Nel 1672 Francia",
-     "q": "flooded polder water fields Netherlands",
-     "didascalia": "1672: il paese allagato"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "Guglielmo III d'Orange",
-     "q": "Het Loo palace gardens"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "nel 1688 attraversò",
-     "q": "North Sea waves ship crossing",
-     "didascalia": "1688: Guglielmo III in Inghilterra"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "co-sovrano di Inghilterra",
-     "q": "London old palace Hampton Court"
-    }
-   ]
-  },
-  {
-   "testo": "Il potere olandese si indebolì tra guerre ripetute, concorrenza britannica e forte debito. La quarta guerra anglo-olandese rivelò il declino, mentre le riforme dei Patrioti sfidavano la guida degli Orange.",
-   "anno": 1780,
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "Il potere olandese si indebolì",
-     "q": "old abandoned harbor dock ships"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "La quarta guerra anglo-olandese",
-     "q": "old naval cannon museum"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "le riforme dei Patrioti",
-     "q": "Dutch windmill dark clouds"
-    }
-   ]
-  },
-  {
-   "capitolo": "Napoleone e il Regno",
-   "testo": "Napoleone sostituì la Repubblica Olandese con il Regno d'Olanda nel 1806, mettendo sul trono il fratello Luigi Bonaparte. Luigi, sorprendentemente, resistette alle richieste di Napoleone, imparò l'olandese e antepose gli interessi olandesi agli ordini francesi. Dopo quattro anni Napoleone lo costrinse ad abdicare e annesse il regno alla Francia.",
-   "anno": 1806,
+   "testo": "L'ingegnere militare Vauban costruisce fortezze a forma di stella lungo i confini, ma le guerre continue quasi svuotano il tesoro. Nel 1685 il re annulla l'Editto di Nantes e 200.000 protestanti fuggono, portando via competenze e denaro.",
+   "anno": 1685,
    "visivi": [
     {
      "tipo": "pexels_foto",
-     "frase": "Napoleone sostituì la Repubblica",
-     "q": "Paris Napoleon Invalides dome"
+     "frase": "L'ingegnere militare Vauban",
+     "q": "star shaped fortress aerial Vauban Neuf-Brisach"
     },
     {
      "tipo": "pexels_video",
-     "frase": "Luigi, sorprendentemente, resistette",
-     "q": "Amsterdam royal palace Dam"
+     "frase": "Nel 1685 il",
+     "q": "empty old harbor ships sea",
+     "didascalia": "1685 – 200.000 protestanti in fuga"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "Dopo quattro anni",
-     "q": "old French flag tricolor wind",
-     "didascalia": "1810: annessione alla Francia"
+     "frase": "portando via competenze",
+     "q": "gold coins old treasure"
     }
    ]
   },
   {
-   "testo": "Quando l'impero di Napoleone crollò, Guglielmo Federico tornò come re Guglielmo I dei Paesi Bassi Uniti, unendo il nord con il Belgio. L'unione fallì perché i cattolici del sud si opponevano al re protestante, e nel 1830 il Belgio ottenne l'indipendenza. Nel 1848 Guglielmo II accettò una costituzione: i ministri rispondevano al parlamento, non al monarca.",
+   "capitolo": "Rivoluzione",
+   "testo": "La Francia rivendica vasti territori nordamericani con esploratori come La Salle, ma mancano coloni per difenderli dagli inglesi. Nel 1763 perde il Canada e quasi tutto il continente, poi si rovina finanziariamente sostenendo la Rivoluzione americana.",
+   "anno": 1763,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "La Francia rivendica",
+     "q": "Mississippi river wilderness forest"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Nel 1763 perde",
+     "q": "Quebec old city stone walls",
+     "didascalia": "1763 – Perso il Canada"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "poi si rovina",
+     "q": "old sailing ship ocean waves",
+     "suono": "wooden ship creaking, waves"
+    }
+   ]
+  },
+  {
+   "testo": "Nel 1789 Luigi XVI convoca gli Stati Generali e il popolo si proclama Assemblea Nazionale. Il 14 luglio i parigini assaltano la Bastiglia: la rivoluzione è arrivata. Vengono abolite le vecchie province e create 83 dipartimenti uguali, ancora oggi in uso.",
+   "anno": 1789,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Nel 1789 Luigi",
+     "q": "Versailles palace facade",
+     "didascalia": "1789 – Stati Generali"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Il 14 luglio",
+     "q": "Place de la Bastille Paris column",
+     "didascalia": "14 luglio 1789"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "create 83 dipartimenti",
+     "q": "France map regions aerial landscape",
+     "didascalia": "83 dipartimenti"
+    }
+   ]
+  },
+  {
+   "testo": "Poi la violenza esplode: nel 1793 Luigi XVI viene ghigliottinato, nel 1794 tocca a Robespierre, durante il Terrore. Chi controllerà il caos? Nel 1799 un giovane ufficiale corso d'artiglieria, Napoleone Bonaparte, prende il potere e nel 1804 si incorona imperatore.",
+   "anno": 1793,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "Poi la violenza",
+     "q": "Place de la Concorde Paris obelisk",
+     "didascalia": "1793 – Luigi XVI ghigliottinato"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Chi controllerà il",
+     "q": "dark storm clouds over Paris"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Napoleone Bonaparte, prende",
+     "q": "Napoleon tomb Invalides Paris",
+     "didascalia": "1804 – Napoleone imperatore"
+    }
+   ]
+  },
+  {
+   "capitolo": "Napoleone",
+   "testo": "Nel 1812 l'impero di Napoleone va dalla Spagna alla Russia: la Francia non è mai stata così grande. Ma l'invasione russa, con oltre 500.000 uomini, è un disastro e nel 1814 abdica.",
+   "anno": 1812,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Nel 1812 l'impero",
+     "q": "Arc de Triomphe Paris",
+     "didascalia": "1812 – Apogeo dell'impero"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Ma l'invasione russa",
+     "q": "snowy winter forest Russia blizzard",
+     "didascalia": "500.000 uomini",
+     "suono": "icy wind howling"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "nel 1814 abdica",
+     "q": "Elba island coast Mediterranean"
+    }
+   ]
+  },
+  {
+   "testo": "Fuggito dall'isola d'Elba, perde a Waterloo nel 1815 e muore in esilio. La Francia vive cambi di regime rapidissimi: una Seconda Repubblica nel 1848 e l'imperatore Napoleone III nel 1852, che ricostruisce Parigi con grandi viali, anche per impedire le barricate.",
    "anno": 1815,
    "visivi": [
     {
      "tipo": "pexels_foto",
-     "frase": "Quando l'impero di Napoleone",
-     "q": "Waterloo battlefield monument Belgium"
+     "frase": "Fuggito dall'isola d'Elba",
+     "q": "Waterloo Belgium battlefield green field",
+     "didascalia": "1815 – Waterloo"
     },
     {
      "tipo": "pexels_video",
-     "frase": "L'unione fallì perché",
-     "q": "Brussels Grand Place old buildings",
-     "didascalia": "1830: indipendenza del Belgio"
+     "frase": "una Seconda Repubblica",
+     "q": "Paris Haussmann buildings boulevard",
+     "didascalia": "1852 – Napoleone III"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "Nel 1848 Guglielmo II",
-     "q": "The Hague Binnenhof parliament"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "i ministri rispondevano al parlamento",
-     "q": "old parliament hall wooden benches"
+     "frase": "anche per impedire",
+     "q": "Paris wide avenue Haussmann architecture"
     }
    ]
   },
   {
-   "capitolo": "Colonie e Ottocento",
-   "testo": "La democrazia esisteva, ma all'inizio votavano solo gli uomini ricchi. Ferrovie e fabbriche trasformarono il paese, e i profitti coloniali di Giava finanziarono lo sviluppo. Il romanzo Max Havelaar denunciò lo sfruttamento dei contadini giavanesi sotto il sistema delle colture forzate.",
-   "anno": 1860,
+   "capitolo": "Sconfitte e guerre mondiali",
+   "testo": "L'impero crolla quando dichiara guerra alla Prussia nel 1870: si arrende a Sedan e perde Alsazia e Lorena, pagando 5 miliardi di franchi. Una ferita che brucerà per 47 anni. Nel 1871 la Comune di Parigi governa brevemente, prima di essere schiacciata nella Settimana di sangue.",
+   "anno": 1870,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "Ferrovie e fabbriche",
-     "q": "old steam train railway tracks",
-     "suono": "steam train passing"
+     "frase": "L'impero crolla quando",
+     "q": "Sedan Ardennes castle fortress",
+     "didascalia": "1870 – Resa a Sedan"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "i profitti coloniali di Giava",
-     "q": "Java coffee plantation hills"
+     "frase": "perde Alsazia e",
+     "q": "Alsace vineyards villages Strasbourg",
+     "didascalia": "5 miliardi di franchi"
     },
     {
      "tipo": "pexels_video",
-     "frase": "Il romanzo Max Havelaar",
-     "q": "Java rice terraces green"
+     "frase": "Nel 1871 la",
+     "q": "Montmartre Sacré-Cœur Paris hill",
+     "didascalia": "1871 – La Comune"
     }
    ]
   },
   {
-   "testo": "I Paesi Bassi abolirono la schiavitù nel 1863, ma risarcirono i proprietari, non gli schiavi. Nel 1873 gli olandesi invasero Aceh, indipendente, scatenando una brutale resistenza lunga decenni che uccise decine di migliaia di persone.",
-   "anno": 1873,
-   "visivi": [
-    {
-     "tipo": "pexels_foto",
-     "frase": "abolirono la schiavitù nel 1863",
-     "q": "old chains rust closeup",
-     "didascalia": "1863: abolita la schiavitù"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "gli olandesi invasero Aceh",
-     "q": "Aceh Sumatra coast jungle",
-     "didascalia": "1873: invasione di Aceh"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "decine di migliaia",
-     "q": "Sumatra mountains misty jungle"
-    }
-   ]
-  },
-  {
-   "testo": "Alla morte di Guglielmo III la giovane figlia Guglielmina ereditò il trono sotto la reggenza della madre. Raggiunta la maggiore età, divenne il volto di un piccolo regno europeo con un vasto potere imperiale.",
-   "anno": 1890,
-   "visivi": [
-    {
-     "tipo": "pexels_foto",
-     "frase": "Alla morte di Guglielmo III",
-     "q": "Noordeinde palace The Hague"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "un piccolo regno europeo",
-     "q": "Netherlands tulip fields aerial"
-    }
-   ]
-  },
-  {
-   "capitolo": "Le guerre mondiali",
-   "testo": "Nella Prima guerra mondiale i Paesi Bassi restarono neutrali, pur ospitando oltre un milione di profughi belgi e soffrendo la scarsità di cibo. Più tardi l'imperatore tedesco Guglielmo II vi cercò asilo. Quando Hitler invase il 10 maggio 1940, la neutralità fallì e Rotterdam fu devastata dai bombardamenti.",
+   "testo": "Nel 1914 la Francia ha il secondo impero coloniale del mondo, tra Africa e Asia. Ma la Prima guerra mondiale la devasta: 1,4 milioni di soldati morti e il nord in rovina.",
    "anno": 1914,
    "visivi": [
     {
      "tipo": "pexels_foto",
-     "frase": "Nella Prima guerra mondiale",
-     "q": "old barbed wire fence field"
+     "frase": "Nel 1914 la",
+     "q": "old world map vintage colonial"
     },
     {
      "tipo": "pexels_video",
-     "frase": "oltre un milione di profughi",
-     "q": "foggy road countryside Belgium",
-     "didascalia": "Oltre 1 milione di profughi belgi"
+     "frase": "Ma la Prima",
+     "q": "Verdun battlefield memorial cemetery crosses",
+     "didascalia": "1,4 milioni di morti",
+     "suono": "distant artillery rumble"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "Quando Hitler invase",
-     "q": "Rotterdam ruins black white",
-     "didascalia": "10 maggio 1940"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "Rotterdam fu devastata",
-     "q": "smoke fire ruins city night",
-     "suono": "bombers flying, explosions"
+     "frase": "il nord in",
+     "q": "Somme war memorial field France"
     }
    ]
   },
   {
-   "testo": "La regina Guglielmina fuggì a Londra, e i suoi messaggi radio ispirarono la resistenza, ma circa 102.000 ebrei olandesi furono uccisi nell'Olocausto. Nell'ultimo inverno di occupazione uno sciopero ferroviario e le restrizioni sul cibo uccisero circa 20.000 persone di fame e freddo.",
+   "testo": "Nel 1940 la Germania invade e la Francia firma l'armistizio nello stesso vagone ferroviario in cui i tedeschi si erano arresi nel 1918. Il maresciallo Pétain crea il regime di Vichy, mentre Charles de Gaulle chiama alla resistenza da Londra.",
+   "anno": 1940,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Nel 1940 la",
+     "q": "Compiègne forest railway tracks",
+     "didascalia": "1940 – Armistizio"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Il maresciallo Pétain",
+     "q": "Vichy spa town old buildings"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "mentre Charles de",
+     "q": "London Big Ben fog vintage",
+     "suono": "old radio static broadcast"
+    }
+   ]
+  },
+  {
+   "testo": "Nel 1940 la Francia vara leggi antiebraiche. Il 16 e 17 luglio 1942 la polizia francese arresta oltre 13.000 ebrei a Parigi, tra cui 4.000 bambini. Circa 75.000 ebrei sono deportati dalla Francia ad Auschwitz, e la maggior parte non tornerà.",
+   "anno": 1942,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "Nel 1940 la",
+     "q": "old documents stamped paper archive"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Il 16 e",
+     "q": "empty Paris street dawn fog",
+     "didascalia": "13.000 arrestati, 4.000 bambini"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "deportati dalla Francia",
+     "q": "railway tracks empty fog",
+     "didascalia": "75.000 deportati"
+    }
+   ]
+  },
+  {
+   "capitolo": "Decolonizzazione e Europa",
+   "testo": "La liberazione inizia il 6 giugno 1944, ma la Quarta Repubblica è caotica: più di 20 governi in 12 anni. Dal 1954 una guerra brutale in Algeria porta la Francia vicino al collasso, finché de Gaulle negozia l'indipendenza con gli accordi di Évian nel 1962.",
    "anno": 1944,
    "visivi": [
     {
+     "tipo": "pexels_video",
+     "frase": "La liberazione inizia",
+     "q": "Normandy beach coast sunrise",
+     "didascalia": "6 giugno 1944"
+    },
+    {
      "tipo": "pexels_foto",
-     "frase": "La regina Guglielmina fuggì",
-     "q": "vintage radio old microphone"
+     "frase": "Dal 1954 una",
+     "q": "Algiers coast Mediterranean old buildings",
+     "didascalia": "1954 – Guerra d'Algeria"
     },
     {
      "tipo": "pexels_video",
-     "frase": "circa 102.000 ebrei",
-     "q": "Amsterdam canal night quiet",
-     "didascalia": "102.000 ebrei olandesi uccisi"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "uno sciopero ferroviario",
-     "q": "snow winter empty railway tracks",
-     "didascalia": "20.000 morti nell'inverno 1944"
+     "frase": "negozia l'indipendenza",
+     "q": "Evian Lake Geneva shore",
+     "didascalia": "1962 – Accordi di Évian"
     }
    ]
   },
   {
-   "capitolo": "Dopoguerra",
-   "testo": "Dopo la conquista giapponese delle Indie Orientali Olandesi, l'Indonesia dichiarò l'indipendenza alla resa del Giappone, e i Paesi Bassi rifiutarono di accettarla. Le forze olandesi combatterono quattro anni di guerra brutale, con violenza estrema che danneggiò la reputazione internazionale del paese.",
-   "anno": 1945,
-   "visivi": [
-    {
-     "tipo": "pexels_video",
-     "frase": "Dopo la conquista giapponese",
-     "q": "Indonesia archipelago sea aerial"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "l'Indonesia dichiarò l'indipendenza",
-     "q": "Indonesia red white flag"
-    },
-    {
-     "tipo": "pexels_video",
-     "frase": "quattro anni di guerra",
-     "q": "Java jungle rain tropical",
-     "didascalia": "4 anni di guerra"
-    }
-   ]
-  },
-  {
-   "testo": "Le minacce americane di tagliare gli aiuti e la pressione dell'ONU resero impossibile la riconquista. Nel 1949 i Paesi Bassi trasferirono la sovranità all'Indonesia, tenendo la Nuova Guinea Occidentale fino ai primi anni Sessanta. In una generazione l'occupazione aveva distrutto la libertà in Europa e l'impero in Asia.",
-   "anno": 1949,
+   "testo": "In meno di 20 anni il grande impero scompare quasi del tutto, lasciando solo l'Esagono e territori d'oltremare sparsi. La Francia punta allora sull'Europa. Il 9 maggio 1950 Francia e Germania mettono in comune carbone e acciaio: il primo passo verso l'Unione Europea.",
+   "anno": 1950,
    "visivi": [
     {
      "tipo": "pexels_foto",
-     "frase": "Le minacce americane",
-     "q": "United Nations building flags"
+     "frase": "In meno di",
+     "q": "old atlas map pages vintage"
     },
     {
      "tipo": "pexels_video",
-     "frase": "Nel 1949 i Paesi Bassi",
-     "q": "Indonesia Borobudur temple sunrise",
-     "didascalia": "1949: sovranità all'Indonesia"
+     "frase": "Il 9 maggio",
+     "q": "Strasbourg European Parliament building",
+     "didascalia": "9 maggio 1950 – Carbone e acciaio"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "la Nuova Guinea Occidentale",
-     "q": "New Guinea highlands jungle"
+     "frase": "il primo passo",
+     "q": "European Union flags blue stars"
     }
    ]
   },
   {
-   "capitolo": "Il presente",
-   "testo": "I Paesi Bassi abbandonarono la neutralità, diventarono membro fondatore della NATO e aiutarono a creare la Comunità Economica Europea. Una tempesta devastante nel Mare del Nord, nel 1953, uccise 1.836 persone e portò al sistema difensivo dei Delta Works. Nel 2001 fu il primo paese a legalizzare il matrimonio tra persone dello stesso sesso.",
-   "anno": 1953,
+   "testo": "Nel 1960 la Francia diventa potenza nucleare e nel 1963 firma con la Germania il Trattato dell'Eliseo. Nel maggio 1968 le proteste studentesche e uno sciopero generale di 10 milioni di lavoratori quasi fanno cadere il governo.",
+   "anno": 1968,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Nel 1960 la",
+     "q": "Sahara desert dunes wind",
+     "didascalia": "1960 – Potenza nucleare"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "firma con la",
+     "q": "Elysée Palace Paris facade",
+     "didascalia": "1963 – Trattato dell'Eliseo"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Nel maggio 1968",
+     "q": "Sorbonne Paris Latin Quarter",
+     "didascalia": "10 milioni di scioperanti"
+    }
+   ]
+  },
+  {
+   "capitolo": "La Francia di oggi",
+   "testo": "Nel 1981 François Mitterrand è il primo presidente socialista e abolisce la pena di morte. Nel 2017 Emmanuel Macron diventa il più giovane presidente a 39 anni, ma nel 2024 scioglie il Parlamento e crea tre blocchi senza maggioranza.",
+   "anno": 1981,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Nel 1981 François",
+     "q": "Paris Louvre pyramid sunset",
+     "didascalia": "1981 – Mitterrand presidente"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Nel 2017 Emmanuel",
+     "q": "Paris National Assembly building",
+     "didascalia": "2017 – Macron a 39 anni"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "ma nel 2024",
+     "q": "Palais Bourbon Paris Seine bridge"
+    }
+   ]
+  },
+  {
+   "testo": "Da allora sono caduti tre primi ministri e nel 2025 Macron nomina il settimo, Sébastien Lecornu. Il bilancio è di 54 miliardi di euro, con un obiettivo di deficit al 5% che l'Assemblea discute senza maggioranza: rischio di punizione dei mercati e scioperi in tutto il paese il 5 novembre.",
+   "anno": 2025,
    "visivi": [
     {
      "tipo": "pexels_foto",
-     "frase": "diventarono membro fondatore",
-     "q": "Brussels European Union flags"
+     "frase": "Da allora sono",
+     "q": "Hôtel de Matignon Paris government"
     },
     {
      "tipo": "pexels_video",
-     "frase": "Una tempesta devastante",
-     "q": "North Sea storm waves dike",
-     "didascalia": "1953: 1.836 morti",
-     "suono": "heavy rain and thunder"
-    },
-    {
-     "tipo": "pexels_foto",
-     "frase": "sistema difensivo dei Delta Works",
-     "q": "Delta Works storm surge barrier"
+     "frase": "Il bilancio è",
+     "q": "stock market screen charts red",
+     "didascalia": "Deficit al 5%"
     },
     {
      "tipo": "pexels_video",
-     "frase": "Nel 2001 fu il primo",
-     "q": "Amsterdam rainbow flag canal",
-     "didascalia": "2001: primo paese al mondo"
+     "frase": "scioperi in tutto",
+     "q": "Paris train station empty platform",
+     "didascalia": "Sciopero il 5 novembre"
     }
    ]
   },
   {
-   "testo": "Il potere olandese non nacque dall'acqua soltanto, ma dalla posizione alla foce dei fiumi, che collegava i mercati europei. Gli olandesi organizzarono investitori per finanziare flotte e banche, usando VOC e WIC per monopoli e sfruttamento oltremare. I Paesi Bassi sopravvissero grazie all'organizzazione contro l'acqua e portarono quel modello oltre il mare, plasmando la finanza moderna e lasciando conseguenze con cui oggi fanno i conti.",
+   "testo": "Il mandato di Macron finisce nel maggio 2027 e non potrà ricandidarsi: le elezioni sono fissate per il 18 aprile e il 2 maggio, con Marine Le Pen in testa ai sondaggi dopo che il divieto di candidarsi è stato accorciato.",
+   "anno": 2027,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "Il mandato di",
+     "q": "French flag waving blue white red"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "le elezioni sono",
+     "q": "ballot box voting booth",
+     "didascalia": "Elezioni: 18 aprile e 2 maggio"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "con Marine Le",
+     "q": "Paris Palais de Justice facade"
+    }
+   ]
+  },
+  {
+   "testo": "Con 551.000 chilometri quadrati e 69 milioni di abitanti, la Francia è il paese più grande dell'Unione Europea e ha la seconda zona marittima del mondo: 10,7 milioni di chilometri quadrati.",
    "anno": 2026,
    "visivi": [
     {
      "tipo": "pexels_video",
-     "frase": "Il potere olandese non nacque",
-     "q": "Rhine delta river mouth aerial"
+     "frase": "Con 551.000 chilometri",
+     "q": "France aerial countryside fields",
+     "didascalia": "551.000 km² – 69 milioni di abitanti"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "Gli olandesi organizzarono investitori",
-     "q": "Amsterdam old stock exchange building"
+     "frase": "e ha la",
+     "q": "French Polynesia lagoon ocean aerial",
+     "didascalia": "10,7 milioni di km² di mare"
+    }
+   ]
+  },
+  {
+   "testo": "Messa insieme da re, rivoluzionari, imperatori e presidenti attorno a Parigi, la Francia pretende che il suo centro risponda, e quando non lo fa la gente scende in strada invece di scrivere lettere. Il regime cambierà anche stavolta? Macron chiede un dibattito calmo. Quale paese mettiamo sulla mappa la prossima volta?",
+   "anno": 2026,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Messa insieme da",
+     "q": "Paris aerial Eiffel Tower golden hour"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "il suo centro",
+     "q": "Paris Arc de Triomphe twilight"
     },
     {
      "tipo": "pexels_video",
-     "frase": "I Paesi Bassi sopravvissero",
-     "q": "Netherlands windmills sunset polder"
+     "frase": "Il regime cambierà",
+     "q": "Seine river Paris night reflections"
     },
     {
      "tipo": "pexels_foto",
-     "frase": "plasmando la finanza moderna",
-     "q": "Zeeland coast sunset waves"
+     "frase": "Quale paese mettiamo",
+     "q": "old world map globe vintage"
     }
    ]
   }
  ],
  "copertina": {
-  "testo": "1000 2026 PERCHÉ?",
+  "testo": "FRANCIA",
   "personaggio": ""
  },
- "descrizione": "La storia completa degli olandesi in 27 minuti: come un paese in gran parte sotto il livello del mare è diventato una potenza commerciale mondiale. Dalle prime dighe e dai waterschappen del 1165 alla dinastia borgognona, dagli Asburgo di Carlo V alla rivolta contro Filippo II e Guglielmo d'Orange.\n\nScopri la nascita della Repubblica Olandese, la VOC e la WIC, Batavia, la Nuova Amsterdam diventata New York, la Golden Age di Rembrandt e Vermeer, ma anche il lato oscuro del colonialismo e della schiavitù.\n\nPoi Napoleone, il Belgio, la Seconda guerra mondiale, la perdita dell'Indonesia, i Delta Works e il primo matrimonio gay al mondo nel 2001. Una storia animata chiara e completa dei Paesi Bassi.\n#storiaolanda #paesibassi #storiaanimata #olandesi #VOC",
+ "descrizione": "Come ha fatto la Francia, uno dei paesi più antichi d'Europa, a cambiare regime così tante volte? In questo video percorriamo l'intera storia francese su una mappa: dai Galli e Giulio Cesare ai Franchi di Clodoveo, da Carlo Magno alla Guerra dei Cent'anni e Giovanna d'Arco.\n\nVedremo il Re Sole e Versailles, la Rivoluzione del 1789, l'ascesa e la caduta di Napoleone, le due guerre mondiali, il regime di Vichy, la perdita dell'impero coloniale e la nascita dell'Europa unita.\n\nInfine arriviamo a oggi: debito record, crisi di governo, proteste in piazza e le elezioni del 2027. Perché tutto ruota attorno a Parigi?\n\n#Francia #StoriaDellaFrancia #Napoleone #RivoluzioneFrancese #StoriaCompleta",
  "tag": [
-  "storia",
-  "storia animata",
-  "documentario",
-  "storia olandese",
-  "storia dei Paesi Bassi",
-  "Paesi Bassi",
-  "Olanda",
-  "storia dell'Olanda",
-  "storia completa",
-  "storia di Olanda",
-  "VOC",
-  "Compagnia Olandese delle Indie Orientali",
-  "Guglielmo d'Orange",
-  "Repubblica Olandese",
-  "Età dell'Oro olandese",
-  "Rembrandt",
-  "Vermeer",
-  "Carlo V",
-  "Filippo II",
-  "Nuova Amsterdam",
-  "Batavia",
-  "Delta Works",
-  "colonialismo olandese",
-  "rivolta olandese",
+  "storia della Francia",
+  "Francia storia completa",
+  "France history explained",
+  "storia francese",
+  "Francia mappa",
+  "Giulio Cesare",
+  "Vercingetorige",
+  "Clodoveo",
+  "Carlo Magno",
+  "Guerra dei Cent'anni",
+  "Giovanna d'Arco",
+  "Luigi XIV",
+  "Versailles",
+  "Rivoluzione francese",
   "Napoleone",
-  "Indonesia olandese",
-  "Amsterdam",
-  "Sacro Romano Impero",
-  "Seconda guerra mondiale Paesi Bassi"
+  "Napoleone Bonaparte",
+  "Napoleone III",
+  "Prima guerra mondiale",
+  "Regime di Vichy",
+  "Charles de Gaulle",
+  "guerra d'Algeria",
+  "Maggio 1968",
+  "Emmanuel Macron",
+  "Marine Le Pen",
+  "proteste Francia",
+  "debito pubblico Francia",
+  "Parigi",
+  "storia d'Europa",
+  "storia di Parigi",
+  "storia della Gallia",
+  "impero coloniale francese",
+  "storia spiegata sulla mappa"
  ],
  "personaggi_mancanti": [
-  "Filippo il Buono e Carlo il Temerario",
-  "Guglielmo d'Orange",
-  "Carlo V",
-  "Filippo II",
-  "Michiel de Ruyter",
-  "Luigi Bonaparte",
-  "Regina Guglielmina"
+  "Vercingetorige capo gallo",
+  "Clodoveo re dei Franchi",
+  "Carlo Magno",
+  "Giovanna d'Arco",
+  "Luigi XIV",
+  "Robespierre",
+  "Napoleone Bonaparte",
+  "Charles de Gaulle",
+  "Emmanuel Macron"
  ],
- "categoria_originale": "27"
+ "categoria_originale": "24"
 }
