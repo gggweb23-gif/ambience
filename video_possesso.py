@@ -181,7 +181,7 @@ persone=true solo con il protagonista (stesso viso e vestiti); persone=false = o
 (es. polizza e chiavi su un tavolo, bollettino e penna, salvadanaio, calcolatrice, attrezzi in officina, ciotola e guinzaglio, documenti del notaio).
 {'Il SUV compare SOLO nelle immagini con persone=true, sempre all aperto, in salone o in officina, mai in casa, sempre di lato o di tre quarti da dietro.' if AUTO else ''}
 Almeno 75% delle immagini con persone=false. Mai immagini di fogli scritti, scontrini, banconote, schermi o cartelli (le scritte escono illeggibili): oggetti semplici (chiavi, salvadanaio, monete, calcolatrice, gomme, attrezzi, garage, strade). Tutto da classe media italiana.
-Il "titolo" inizia SEMPRE con la cosa (la parola chiave del video, da mobile si vede solo l inizio), poi il resto: es. "PlayStation 5: quanto costa DAVVERO in 7 anni?", "Moto da 8.000 €: quanto costa DAVVERO in 5 anni?".
+Il "titolo" inizia SEMPRE con la cosa (la parola chiave del video, da mobile si vede solo l inizio), poi il resto: la cosa scritta TUTTA IN MAIUSCOLO perche si legga e si noti subito: es. "PLAYSTATION 5: quanto costa DAVVERO in 7 anni?", "MOTO da 8.000 €: quanto costa DAVVERO in 5 anni?".
 Aggiungi: "titolo", "descrizione" (2 brevi paragrafi per YouTube, in italiano), "tag" (12-15 tag in italiano), "protagonista" (descrizione fisica in inglese: eta', capelli, vestiti),
 "riferimento" (in inglese: il protagonista accanto alla cosa, all'aperto o nel posto giusto), "copertina": {{"oggetto": "in inglese: la cosa grande e ben visibile, sfondo semplice"}}.
 Rispondi SOLO con JSON: {{"titolo": "...", "descrizione": "...", "tag": [...], "protagonista": "...", "riferimento": "...", "copertina": {{...}}, "scene": [...]}}"""
