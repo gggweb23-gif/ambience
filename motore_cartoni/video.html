@@ -103,14 +103,17 @@ window.scritte_ai = (img, c) => {
   sv.innerHTML = s;
 };
 window.finale_ai = (img, r1, r2, alto) => {
-  // 8 nov (Giorgio): niente scritte ripetute (via la targa "Economia d'impresa"): solo la domanda di QUESTO video, grande per il telefono.
-  // MANO LIBERA: banda sotto o sopra (alto) a giorni alterni
+  // 11 nov (Giorgio): di nuovo come i primi 2 video (CTR migliore): banda sotto, targa "ECONOMIA D'IMPRESA / SPIEGATA FACILE" a sinistra,
+  // domanda a destra della targa ma FERMA prima dell'angolo in basso a destra (mai dietro la durata del video).
   const sv = document.getElementById('s'); sv.setAttribute('width', 1280); sv.setAttribute('height', 720); sv.setAttribute('viewBox', '0 0 1280 720');
-  const t = (x, y, txt, fs, fill) => `<text x="${x}" y="${y}" font-size="${fs}" font-weight="800" fill="${fill}" text-anchor="middle">${txt}</text>`;
-  const fit = (txt, fs, max) => { while (fs > 34 && String(txt).length * fs * .6 > max) fs -= 2; return fs; };
-  const y0 = alto ? 0 : 508;
-  let s = `<image href="${img}" x="0" y="0" width="1280" height="720"/><rect x="0" y="${y0}" width="1280" height="212" fill="${INK}"/>`;
-  s += t(640, y0 + 92, S(String(r1 || '').toUpperCase()), fit(r1, 74, 1180), '#fff') + t(640, y0 + 178, S(String(r2 || '').toUpperCase()), fit(r2, 84, 1180), Y);
+  const V = '#23A866', t = (x, y, txt, fs, fill) => `<text x="${x}" y="${y}" font-size="${fs}" font-weight="800" fill="${fill}" text-anchor="middle">${txt}</text>`;
+  const fit = (txt, fs, max) => { while (fs > 30 && String(txt).length * fs * .6 > max) fs -= 2; return fs; };
+  let s = `<image href="${img}" x="0" y="0" width="1280" height="720"/><rect x="0" y="508" width="1280" height="212" fill="${INK}"/>`;
+  s += `<g transform="translate(270 614) scale(1.0)"><rect x="-230" y="-62" width="460" height="124" rx="24" fill="#fff" stroke="${INK}" stroke-width="6"/><rect x="-230" y="-62" width="118" height="124" rx="24" fill="${V}" stroke="${INK}" stroke-width="6"/>`
+    + `<g transform="translate(-171 4)"><g stroke="${INK}" stroke-width="5" fill="#fff"><rect x="-38" y="0" width="20" height="34"/><rect x="-11" y="-18" width="20" height="52"/><rect x="16" y="-38" width="20" height="72"/></g><path d="M-41 -14 L-9 -36 L17 -52 L31 -60" stroke="${Y}" stroke-width="6" fill="none" stroke-linecap="round"/></g>`
+    + t(60, -6, "ECONOMIA D'IMPRESA", 29, INK) + t(60, 34, 'SPIEGATA FACILE', 28, V) + `</g>`;
+  // zona libera per la domanda: da x 520 a x 1110 (oltre c'e' la durata del video)
+  s += t(815, 592, S(String(r1 || '').toUpperCase()), fit(r1, 58, 580), '#fff') + t(815, 664, S(String(r2 || '').toUpperCase()), fit(r2, 64, 580), Y);
   sv.innerHTML = s;
 };
 </script></body></html>

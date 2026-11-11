@@ -271,7 +271,7 @@ def copertina_ai(pg, ca, ctx, cop):
     Se qualcosa non va resta la copertina disegnata: mai una copertina con scritte sbagliate."""
     bozza = os.path.join(LAV, 'bozza_copertina.jpg')
     _g = __import__('datetime').date.today().toordinal()
-    alto = _g % 2 == 1   # 8 nov (MANO LIBERA): banda sopra a giorni alterni
+    alto = False   # 11 nov (Giorgio): si torna alle copertine dei primi 2 video (CTR migliore): banda sempre sotto con la targa "Economia d'impresa"
     foto = False   # 10 nov (Giorgio): sempre a DISEGNO come le altre del canale, mai foto
     log('copertina MANO LIBERA:', 'banda sopra' if alto else 'banda sotto', '|', 'foto vere' if foto else 'cartone')
     pg.evaluate('c => bozza_ai(c)', dict(ca, oggetto=ctx.get('oggetto'), alto=alto)); pg.wait_for_timeout(300)
