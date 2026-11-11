@@ -87,6 +87,42 @@ def main():
             r += 1
         r += 2   # spazio tra un canale e l'altro
     ws.freeze_panes = 'A5'
+    # 11 nov (Giorgio OK, punto 2 dal metodo Reed): quale RAMO del filone (playlist) guardano davvero, per fare piu' video di quel ramo
+    wr = wb.create_sheet('Rami del filone')
+    for c, w_ in zip('ABCDEFGH', (18, 40, 10, 14, 14, 12, 16, 16)):
+        wr.column_dimensions[c].width = w_
+    wr['A1'] = 'RAMI DEL FILONE - quale sotto-argomento funziona (tutti i video pubblici letti, non solo gli ultimi 10)'; wr['A1'].font = Font(bold=True, size=14)
+    wr['A2'] = 'Il ramo e\' la playlist del video. Fare piu\' video del ramo con CTR e ritenzione piu\' alti.'; wr['A2'].font = Font(italic=True, color='666666', size=9)
+    rr_ = 4
+    for nome in sorted(dati):
+        gruppi = {}
+        for v in dati[nome]:
+            gruppi.setdefault(str(v.get('playlist') or '').strip() or '(senza playlist)', []).append(v)
+        if not gruppi:
+            continue
+        wr.cell(rr_, 1, nome.upper()).font = Font(bold=True, size=12)
+        rr_ += 1
+        for c, t in enumerate(['', 'Ramo (playlist)', 'Video', 'Visualizzazioni', 'Impression', 'CTR %', 'Ritenzione 30 s %', 'Ritenzione 60 s %'], 1):
+            x = wr.cell(rr_, c, t); x.font = Font(bold=True, color='FFFFFF'); x.fill = TESTA
+        rr_ += 1
+        stat = []
+        for g, vv in gruppi.items():
+            imp = sum(num(v.get('impression')) or 0 for v in vv); clic = sum((num(v.get('impression')) or 0) * (num(v.get('ctr')) or 0) / 100 for v in vv)
+            r30 = [num(v.get('ritenzione_30s')) for v in vv if num(v.get('ritenzione_30s')) is not None]
+            r60 = [num(v.get('ritenzione_60s')) for v in vv if num(v.get('ritenzione_60s')) is not None]
+            stat.append((clic / imp * 100 if imp else -1, g, len(vv), int(sum(num(v.get('views')) or 0 for v in vv)), int(imp),
+                         round(clic / imp * 100, 1) if imp else '-', round(sum(r30) / len(r30), 1) if r30 else '-', round(sum(r60) / len(r60), 1) if r60 else '-'))
+        for st in sorted(stat, reverse=True):
+            for c, val in enumerate(['', *st[1:]], 1):
+                x = wr.cell(rr_, c, val)
+                if c == 6 and isinstance(val, float):
+                    x.fill = VERDE if val >= OBIETTIVI['ctr'] else ROSSO
+                if c == 7 and isinstance(val, float):
+                    x.fill = VERDE if val >= OBIETTIVI['ritenzione_30s'] else ROSSO
+                if c == 8 and isinstance(val, float):
+                    x.fill = VERDE if val >= OBIETTIVI['ritenzione_60s'] else ROSSO
+            rr_ += 1
+        rr_ += 1
     os.makedirs('report', exist_ok=True)
     out = f'report/Performance_{oggi}.xlsx'
     wb.save(out); print(out)

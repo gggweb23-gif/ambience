@@ -276,7 +276,9 @@ def canale(cfg):
                       round(t[2], 1) if t[2] is not None else '', vuoto(r30), vuoto(t[4]), c_imp, c_ctr, vuoto(r60),
                       pub.astimezone(A.ZoneInfo('Europe/Rome')).strftime('%Y-%m-%d %H:%M'), dur, vuoto(t[3]), ng, cop])
     scrivi(fid, righe)
-    DATI_EXCEL[str(cfg.get('channel_name') or cid)] = [dict(zip(COLONNE, r)) for r in righe[1:]]
+    # 11 nov (Giorgio OK, punto 2): il ramo del filone di ogni video (colonna playlist del file di produzione) per vedere quale ramo tira
+    ramo = {str(r.get('youtube_video_id') or '').strip(): str(r.get('playlist') or '').strip() for r in prod}
+    DATI_EXCEL[str(cfg.get('channel_name') or cid)] = [dict(dict(zip(COLONNE, r)), playlist=ramo.get(r[1], '')) for r in righe[1:]]
     ultimi = [x for x in righe[1:] if num(x[15], 0) >= 3 and not str(x[16]).startswith('incompleto')][-5:]   # solo video con >= 3 giorni di report
     attesa = sum(1 for x in righe[1:] if num(x[15], 0) < 3 or str(x[16]).startswith('incompleto'))
     if attesa:
