@@ -1,179 +1,222 @@
 [
  {
-  "voce": "Eight hundred twenty-seven million pounds. Gone in a matter of weeks.",
+  "voce": "Eight billion dollars of customer money. Gone.",
   "tipo": "dato",
-  "sfondo": "banknotes pile",
-  "chiave": "827",
-  "numero": "£827M",
-  "didascalia": "The size of the hole",
-  "fonte": "Bank of England report",
-  "capitolo": "The £827 Million Hole"
+  "sfondo": "dark financial district",
+  "chiave": "EIGHT BILLION",
+  "numero": "$8B",
+  "didascalia": "Owed to customers. Not in the vault.",
+  "fonte": "US prosecutors",
+  "capitolo": "The $8 Billion Hole"
  },
  {
-  "voce": "How does one young trader hide a hole that size?",
+  "voce": "Where did it go?",
   "tipo": "clip",
-  "sfondo": "trading floor screens",
-  "chiave": "HIDE",
-  "cartello": "HIDDEN HOLE",
-  "capitolo": "The £827 Million Hole"
+  "sfondo": "city skyline night",
+  "chiave": "WHERE",
+  "cartello": "WHERE DID IT GO",
+  "capitolo": "The $8 Billion Hole"
  },
  {
-  "voce": "This is the story of Barings Bank.",
-  "tipo": "foto",
-  "sfondo": "London financial district",
-  "chiave": "Barings",
-  "etichetta": "LONDON · BISHOPSGATE",
-  "titolo": "The Queen's Bank",
-  "sotto": "Britain's oldest merchant bank",
-  "capitolo": "The £827 Million Hole"
+  "voce": "In January twenty twenty-two, FTX was worth thirty-two billion dollars.",
+  "tipo": "dato",
+  "sfondo": "trading screens",
+  "chiave": "$32B",
+  "numero": "$32B",
+  "didascalia": "FTX valuation, January 2022 funding round",
+  "fonte": "FTX funding round",
+  "capitolo": "The $8 Billion Hole"
  },
  {
-  "voce": "Founded in seventeen sixty-two.",
+  "voce": "Ten months later, it was bankrupt.",
+  "tipo": "clip",
+  "sfondo": "stock exchange floor",
+  "chiave": "BANKRUPT",
+  "cartello": "BANKRUPT IN DAYS",
+  "capitolo": "The $8 Billion Hole"
+ },
+ {
+  "voce": "Not ten months. About ten days.",
   "tipo": "calendario",
-  "sfondo": "old documents",
-  "chiave": "1762",
-  "mese": "JAN",
-  "giorno": "1762",
-  "titolo": "Barings is founded",
-  "sotto": "A merchant bank begins in London",
-  "timbro": "ESTABLISHED",
-  "capitolo": "The £827 Million Hole"
+  "sfondo": "city skyline",
+  "chiave": "TEN DAYS",
+  "mese": "NOV",
+  "giorno": "2022",
+  "titolo": "Ten days to collapse",
+  "sotto": "From a thirty-two billion dollar valuation to bankruptcy.",
+  "timbro": "COLLAPSE",
+  "capitolo": "The $8 Billion Hole"
  },
  {
-  "voce": "Britain's oldest merchant bank, trusted for generations.",
-  "tipo": "clip",
-  "sfondo": "historic bank building",
-  "chiave": "OLDEST",
-  "cartello": "OLDEST MERCHANT BANK",
-  "capitolo": "The £827 Million Hole"
- },
- {
-  "voce": "It had outlasted wars, panics and empires.",
+  "voce": "November eleventh, twenty twenty-two.",
   "tipo": "foto",
-  "sfondo": "old city skyline",
-  "chiave": "outlasted",
-  "etichetta": "LONDON · CITY",
-  "titolo": "Centuries of survival",
-  "sotto": "A name that meant safety",
-  "capitolo": "The £827 Million Hole"
+  "sfondo": "courthouse building exterior",
+  "chiave": "NOVEMBER ELEVENTH",
+  "etichetta": "DELAWARE · NOV 11, 2022",
+  "titolo": "FTX Files for Chapter Eleven",
+  "sotto": "Filing covers Alameda Research and affiliates",
+  "capitolo": "The $8 Billion Hole"
  },
  {
-  "voce": "Then, in late February nineteen ninety-five, it collapsed.",
-  "tipo": "calendario",
-  "sfondo": "newspaper headlines",
-  "chiave": "COLLAPSED",
-  "mese": "FEB",
-  "giorno": "1995",
-  "titolo": "Barings collapses",
-  "sotto": "Late February, nineteen ninety-five",
-  "timbro": "COLLAPSED",
-  "capitolo": "The £827 Million Hole"
- },
- {
-  "voce": "The losses were about eight hundred twenty-seven million pounds.",
+  "voce": "FTX files for Chapter Eleven bankruptcy protection.",
   "tipo": "clip",
-  "sfondo": "falling stock charts",
-  "chiave": "LOSSES",
-  "cartello": "LOSSES MOUNT",
-  "capitolo": "The £827 Million Hole"
+  "sfondo": "legal documents desk",
+  "chiave": "CHAPTER ELEVEN",
+  "cartello": "CHAPTER ELEVEN FILED",
+  "capitolo": "The $8 Billion Hole"
  },
  {
-  "voce": "More than the bank was worth.",
-  "tipo": "oggetto3d",
-  "sfondo": "golden vault",
-  "chiave": "worth",
-  "oggetto": "A golden vault cracking open with coins spilling out",
-  "etichetas": [],
-  "etichette": [
-   "TOTAL CAPITAL",
-   "EXCEEDED"
-  ],
-  "capitolo": "The £827 Million Hole"
- },
- {
-  "voce": "The Bank of England report said it plainly:",
-  "tipo": "foto",
-  "sfondo": "official report document",
-  "chiave": "Bank of England",
-  "etichetta": "LONDON · 1995",
-  "titolo": "Official report published",
-  "sotto": "Losses exceeded the bank's total capital",
-  "capitolo": "The £827 Million Hole"
- },
- {
-  "voce": "The losses exceeded the bank's entire capital.",
+  "voce": "Alameda Research goes down with it.",
   "tipo": "dossier",
-  "sfondo": "financial documents",
-  "chiave": "capital",
-  "scheda": "COMPANY FILE",
-  "nome": "Barings Bank",
+  "sfondo": "office building",
+  "chiave": "ALAMEDA",
+  "scheda": "BANKRUPTCY FILING",
+  "nome": "ALAMEDA RESEARCH",
   "persona": false,
   "righe": [
    [
-    "Founded",
-    "1762"
-   ],
-   [
     "Status",
-    "Britain's oldest merchant bank"
+    "Chapter 11 filed"
    ],
    [
-    "Collapsed",
-    "February 1995"
+    "Date",
+    "November 11, 2022"
    ],
    [
-    "Losses",
-    "About £827 million"
+    "Filed with",
+    "FTX"
+   ],
+   [
+    "Affiliates",
+    "About 130 entities"
    ]
   ],
-  "timbro": "INSOLVENT",
-  "capitolo": "The £827 Million Hole"
+  "timbro": "FILED",
+  "capitolo": "The $8 Billion Hole"
  },
  {
-  "voce": "And it all came from one trader.",
-  "tipo": "oggetto3d",
-  "sfondo": "red mannequin",
-  "chiave": "one trader",
-  "oggetto": "A single red faceless mannequin standing before a crumbling tower of gold coins",
-  "etichette": [
-   "ONE TRADER"
+  "voce": "Along with about one hundred thirty affiliated entities.",
+  "tipo": "dato",
+  "sfondo": "corporate documents stack",
+  "chiave": "ONE HUNDRED THIRTY",
+  "numero": "~130",
+  "didascalia": "Affiliated entities filed alongside FTX",
+  "fonte": "Chapter 11 filing",
+  "capitolo": "The $8 Billion Hole"
+ },
+ {
+  "voce": "A new CEO takes over the wreckage.",
+  "tipo": "clip",
+  "sfondo": "empty corporate office",
+  "chiave": "NEW CEO",
+  "cartello": "NEW CEO APPOINTED",
+  "capitolo": "The $8 Billion Hole"
+ },
+ {
+  "voce": "John J. Ray the Third.",
+  "tipo": "dossier",
+  "sfondo": "boardroom table",
+  "chiave": "RAY",
+  "scheda": "NEW CEO",
+  "nome": "JOHN J. RAY III",
+  "persona": true,
+  "righe": [
+   [
+    "Role",
+    "FTX CEO"
+   ],
+   [
+    "Appointed",
+    "November 2022"
+   ],
+   [
+    "Previous",
+    "Oversaw Enron's liquidation"
+   ]
   ],
-  "etichette_": [],
-  "etichette_extra": [],
-  "capitolo": "The £827 Million Hole"
+  "timbro": "",
+  "capitolo": "The $8 Billion Hole"
  },
  {
-  "voce": "Not in London. Thousands of miles away, in Singapore.",
+  "voce": "He had overseen the liquidation of Enron.",
   "tipo": "clip",
-  "sfondo": "Singapore skyline",
-  "chiave": "Singapore",
-  "cartello": "SINGAPORE OFFICE",
-  "capitolo": "The £827 Million Hole"
+  "sfondo": "financial documents closeup",
+  "chiave": "ENRON",
+  "cartello": "ENRON LIQUIDATOR",
+  "capitolo": "The $8 Billion Hole"
  },
  {
-  "voce": "A young trader, far from head office.",
+  "voce": "And he had never seen anything like this.",
   "tipo": "foto",
-  "sfondo": "Singapore financial district",
-  "chiave": "far",
-  "etichetta": "SINGAPORE · 1995",
-  "titolo": "One desk, one market",
-  "sotto": "A single trader behind the losses",
-  "capitolo": "The £827 Million Hole"
+  "sfondo": "newspaper headline",
+  "chiave": "NEVER SEEN",
+  "etichetta": "NEW YORK · NOV 2022",
+  "titolo": "Complete Failure of Corporate Controls",
+  "sotto": "Ray: never seen such a failure in his career",
+  "capitolo": "The $8 Billion Hole"
  },
  {
-  "voce": "How did nobody see a hole this big?",
+  "voce": "A complete failure of corporate controls, he said.",
   "tipo": "clip",
-  "sfondo": "trading screens close-up",
-  "chiave": "nobody",
-  "cartello": "NOBODY SAW",
-  "capitolo": "The £827 Million Hole"
+  "sfondo": "server room",
+  "chiave": "CONTROLS",
+  "cartello": "CONTROLS FAILED COMPLETELY",
+  "capitolo": "The $8 Billion Hole"
  },
  {
-  "voce": "The answer is stranger than you think. Stay with me.",
+  "voce": "Later, prosecutors put a number on the hole.",
+  "tipo": "foto",
+  "sfondo": "federal courthouse columns",
+  "chiave": "PROSECUTORS",
+  "etichetta": "NEW YORK · LATER",
+  "titolo": "Prosecutors Quantify the Shortfall",
+  "sotto": "Customers owed money the company did not have",
+  "capitolo": "The $8 Billion Hole"
+ },
+ {
+  "voce": "About eight billion dollars owed to customers.",
+  "tipo": "oggetto3d",
+  "sfondo": "golden vault",
+  "chiave": "EIGHT BILLION",
+  "oggetto": "A golden vault with a huge crack splitting its door, empty darkness inside",
+  "etichette": [
+   "$8 BILLION",
+   "MISSING"
+  ],
+  "capitolo": "The $8 Billion Hole"
+ },
+ {
+  "voce": "Money the company simply did not have.",
   "tipo": "clip",
-  "sfondo": "London city night",
-  "chiave": "stranger",
-  "cartello": "STRANGER THAN FICTION",
-  "capitolo": "The £827 Million Hole"
+  "sfondo": "banknotes counting",
+  "chiave": "DID NOT HAVE",
+  "cartello": "MONEY NOT THERE",
+  "capitolo": "The $8 Billion Hole"
+ },
+ {
+  "voce": "But customer funds were supposed to sit untouched.",
+  "tipo": "clip",
+  "sfondo": "bank vault door",
+  "chiave": "UNTOUCHED",
+  "cartello": "UNTOUCHED, IN THEORY",
+  "capitolo": "The $8 Billion Hole"
+ },
+ {
+  "voce": "So where did eight billion dollars actually go?",
+  "tipo": "clip",
+  "sfondo": "dark city skyline",
+  "chiave": "WHERE",
+  "cartello": "WHERE DID IT GO",
+  "capitolo": "The $8 Billion Hole"
+ },
+ {
+  "voce": "To find out, we start with the man behind it.",
+  "tipo": "foto",
+  "sfondo": "glass skyscrapers",
+  "chiave": "MAN BEHIND IT",
+  "etichetta": "FINANCIAL DISTRICT · 2022",
+  "titolo": "The Story Starts Before the Fall",
+  "sotto": "Next: how FTX rose so fast",
+  "capitolo": "The $8 Billion Hole"
  }
 ]

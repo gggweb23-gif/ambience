@@ -1,194 +1,209 @@
 [
  {
-  "voce": "Chapter nine. How it was possible.",
+  "voce": "Chapter nine. Where the money went.",
   "tipo": "foto",
-  "sfondo": "London financial district",
-  "chiave": "HOW IT WAS POSSIBLE",
+  "sfondo": "federal court building",
+  "chiave": "CHAPTER 9",
   "etichetta": "CHAPTER 9",
-  "titolo": "How It Was Possible",
-  "sotto": "The question every investigator had to answer",
-  "capitolo": "How It Was Possible"
+  "titolo": "Where the Money Went",
+  "sotto": "The final accounting of customer funds",
+  "capitolo": "Where the Money Went"
  },
  {
-  "voce": "One question remained after the collapse.",
-  "tipo": "clip",
-  "sfondo": "empty trading floor",
-  "chiave": "QUESTION",
-  "cartello": "QUESTION REMAINS UNANSWERED",
-  "capitolo": "How It Was Possible"
- },
- {
-  "voce": "How did one trader hide this for so long?",
-  "tipo": "oggetto3d",
-  "sfondo": "vault",
-  "chiave": "HIDE",
-  "oggetto": "A single red faceless mannequin standing before a golden vault with a hidden crack",
-  "etichette": [
-   "ONE TRADER",
-   "HIDDEN LOSSES"
-  ],
-  "capitolo": "How It Was Possible"
- },
- {
-  "voce": "The Board of Banking Supervision investigated.",
-  "tipo": "clip",
-  "sfondo": "government office building",
-  "chiave": "INVESTIGATED",
-  "cartello": "BOARD INVESTIGATES COLLAPSE",
-  "capitolo": "How It Was Possible"
- },
- {
-  "voce": "Its report was published in July nineteen ninety-five.",
-  "tipo": "calendario",
-  "sfondo": "documents desk",
-  "chiave": "JULY",
-  "mese": "JUL",
-  "giorno": "1995",
-  "titulo": "Official report published",
-  "titolo": "Official report published",
-  "sotto": "The Board of Banking Supervision releases its findings",
-  "timbro": "BOARD REPORT",
-  "capitolo": "How It Was Possible"
- },
- {
-  "voce": "Its verdict was blunt.",
-  "tipo": "clip",
-  "sfondo": "printed report pages",
-  "chiave": "VERDICT",
-  "cartello": "VERDICT: MANAGEMENT FAILURE",
-  "capitolo": "How It Was Possible"
- },
- {
-  "voce": "Senior management failed to understand the business.",
-  "tipo": "foto",
-  "sfondo": "corporate boardroom",
-  "chiave": "UNDERSTAND",
-  "etichetta": "LONDON · 1995",
-  "titolo": "Management Did Not Understand",
-  "sotto": "Senior managers failed to grasp the business",
-  "capitolo": "How It Was Possible"
- },
- {
-  "voce": "And they did not enforce the controls.",
-  "tipo": "clip",
-  "sfondo": "office documents",
-  "chiave": "CONTROLS",
-  "cartello": "CONTROLS NOT ENFORCED",
-  "capitolo": "How It Was Possible"
- },
- {
-  "voce": "Then there was Leeson's double role.",
-  "tipo": "dossier",
-  "sfondo": "office files",
-  "chiave": "DOUBLE ROLE",
-  "scheda": "ROLE FILE",
-  "nome": "Nick Leeson",
-  "persona": true,
-  "righe": [
-   [
-    "Role one",
-    "Trader"
-   ],
-   [
-    "Role two",
-    "Head of back office"
-   ],
-   [
-    "Location",
-    "Singapore"
-   ]
-  ],
-  "timbro": "NO SEPARATION",
-  "capitolo": "How It Was Possible"
- },
- {
-  "voce": "Trader and back-office head, never separated.",
-  "tipo": "clip",
-  "sfondo": "trading screens",
-  "chiave": "NEVER SEPARATED",
-  "cartello": "NEVER SEPARATED",
-  "capitolo": "How It Was Possible"
- },
- {
-  "voce": "He recorded his own trades.",
-  "tipo": "foto",
-  "sfondo": "financial ledger",
-  "chiave": "OWN TRADES",
-  "etichetta": "SINGAPORE · 1994",
-  "titolo": "He Checked His Own Work",
-  "sotto": "The same man traded and recorded",
-  "capitolo": "How It Was Possible"
- },
- {
-  "voce": "Nobody checked the person doing the checking.",
-  "tipo": "clip",
-  "sfondo": "server room",
-  "chiave": "NOBODY",
-  "cartello": "NOBODY CHECKED THE CHECKER",
-  "capitolo": "How It Was Possible"
- },
- {
-  "voce": "Meanwhile, London saw only the profits.",
-  "tipo": "foto",
-  "sfondo": "London skyline",
-  "chiave": "PROFITS",
-  "etichetta": "LONDON · 1994",
-  "titolo": "London Saw Only Profits",
-  "sotto": "Reports from Singapore looked like success",
-  "capitolo": "How It Was Possible"
- },
- {
-  "voce": "Profits from Singapore became proof of success.",
-  "tipo": "clip",
-  "sfondo": "rising stock chart",
-  "chiave": "SUCCESS",
-  "cartello": "PROFITS MEANT SUCCESS",
-  "capitolo": "How It Was Possible"
- },
- {
-  "voce": "Nobody checked the risk behind those profits.",
-  "tipo": "oggetto3d",
-  "sfondo": "coins",
-  "chiave": "RISK",
-  "oggetto": "A glossy golden tower of coins with a dark hollow cavity hidden inside",
-  "etichette": [
-   "PROFIT",
-   "HIDDEN RISK"
-  ],
-  "capitolo": "How It Was Possible"
- },
- {
-  "voce": "So here is the answer to our opening question.",
+  "voce": "So where did customer money actually go?",
   "tipo": "clip",
   "sfondo": "financial district skyline",
-  "chiave": "ANSWER",
-  "cartello": "THE ANSWER",
-  "capitolo": "How It Was Possible"
+  "chiave": "MONEY",
+  "cartello": "MONEY TRAIL",
+  "capitolo": "Where the Money Went"
  },
  {
-  "voce": "No single control stopped him.",
+  "voce": "It was lent to Alameda, the sister firm.",
+  "tipo": "oggetto3d",
+  "sfondo": "two golden vaults connected",
+  "chiave": "ALAMEDA",
+  "oggetto": "two golden vaults linked by a glowing pipe with coins flowing from one to the other",
+  "etichette": [
+   "FTX",
+   "ALAMEDA"
+  ],
+  "capitolo": "Where the Money Went"
+ },
+ {
+  "voce": "Against FTX's own promises, it was spent or lost.",
+  "tipo": "clip",
+  "sfondo": "trading screens red",
+  "chiave": "LOST",
+  "cartello": "LOST ON TRADES",
+  "capitolo": "Where the Money Went"
+ },
+ {
+  "voce": "Alameda's trading losses swallowed a large share.",
+  "tipo": "clip",
+  "sfondo": "stock market charts",
+  "chiave": "LOSSES",
+  "cartello": "LOSSES MOUNTED",
+  "capitolo": "Where the Money Went"
+ },
+ {
+  "voce": "Venture investments took more.",
   "tipo": "foto",
+  "sfondo": "office tower glass",
+  "chiave": "VENTURE",
+  "etichetta": "SILICON VALLEY · 2022",
+  "titolo": "Venture Bets Everywhere",
+  "sotto": "Customer deposits flowed into startup stakes",
+  "capitolo": "Where the Money Went"
+ },
+ {
+  "voce": "Loans went out to executives.",
+  "tipo": "dossier",
+  "sfondo": "legal documents",
+  "chiave": "LOANS",
+  "scheda": "FUNDS FILE",
+  "nome": "Customer Deposits",
+  "persona": false,
+  "righe": [
+   [
+    "Used for",
+    "Loans to executives"
+   ],
+   [
+    "Used for",
+    "Venture investments"
+   ],
+   [
+    "Used for",
+    "Alameda trading losses"
+   ]
+  ],
+  "timbro": "MISUSED",
+  "capitolo": "Where the Money Went"
+ },
+ {
+  "voce": "Real estate in the Bahamas was bought.",
+  "tipo": "clip",
+  "sfondo": "Bahamas coastline aerial",
+  "chiave": "BAHAMAS",
+  "cartello": "BAHAMAS PROPERTY",
+  "capitolo": "Where the Money Went"
+ },
+ {
+  "voce": "And political donations flowed out too.",
+  "tipo": "clip",
+  "sfondo": "capitol building",
+  "chiave": "POLITICAL",
+  "cartello": "POLITICAL DONATIONS",
+  "capitolo": "Where the Money Went"
+ },
+ {
+  "voce": "Then came the bankruptcy estate.",
+  "tipo": "foto",
+  "sfondo": "bankruptcy court documents",
+  "chiave": "BANKRUPTCY",
+  "etichetta": "DELAWARE · CHAPTER 11",
+  "titolo": "The Estate Recovers Assets",
+  "sotto": "Lawyers and liquidators rebuild the balance sheet",
+  "capitolo": "Where the Money Went"
+ },
+ {
+  "voce": "It recovered assets and reported something surprising.",
+  "tipo": "clip",
+  "sfondo": "banknotes counting",
+  "chiave": "RECOVERED",
+  "cartello": "RECOVERED ASSETS",
+  "capitolo": "Where the Money Went"
+ },
+ {
+  "voce": "Creditors could be repaid in full.",
+  "tipo": "clip",
+  "sfondo": "financial documents stack",
+  "chiave": "FULL",
+  "cartello": "PAID IN FULL",
+  "capitolo": "Where the Money Went"
+ },
+ {
+  "voce": "But in full by November twenty twenty-two dollar values.",
+  "tipo": "calendario",
+  "sfondo": "calendar",
+  "chiave": "NOVEMBER",
+  "mese": "NOV",
+  "giorno": "2022",
+  "titulo": "Claims Frozen in Time",
+  "titolo": "Claims Frozen in Time",
+  "sotto": "Repayment was measured at that month's dollar value",
+  "timbro": "VALUED THEN",
+  "capitolo": "Where the Money Went"
+ },
+ {
+  "voce": "Many customers got repayment plus interest.",
+  "tipo": "clip",
   "sfondo": "bank vault door",
-  "chiave": "NO SINGLE CONTROL",
-  "etichetta": "LONDON · 1995",
-  "titolo": "No Single Control Stopped Him",
-  "sotto": "There was nothing left to stop him",
-  "capitolo": "How It Was Possible"
+  "chiave": "INTEREST",
+  "cartello": "PLUS INTEREST",
+  "capitolo": "Where the Money Went"
  },
  {
-  "voce": "The bank had removed the checks that should have.",
+  "voce": "Yet crypto prices had climbed since then.",
   "tipo": "clip",
-  "sfondo": "empty office corridor",
-  "chiave": "REMOVED",
-  "cartello": "CHECKS REMOVED",
-  "capitolo": "How It Was Possible"
+  "sfondo": "crypto trading screen",
+  "chiave": "CLIMBED",
+  "cartello": "PRICES CLIMBED",
+  "capitolo": "Where the Money Went"
  },
  {
-  "voce": "But what happened to the man himself?",
+  "voce": "So they received less than their holdings are worth today.",
+  "tipo": "oggetto3d",
+  "sfondo": "shrinking coin stack",
+  "chiave": "LESS",
+  "oggetto": "a small stack of golden coins beside a much taller stack, glossy 3D scene",
+  "etichettes": [],
+  "etichette": [
+   "PAID",
+   "TODAY'S VALUE"
+  ],
+  "capitolo": "Where the Money Went"
+ },
+ {
+  "voce": "The lesson is simple.",
   "tipo": "clip",
-  "sfondo": "airport departures board",
-  "chiave": "MAN HIMSELF",
-  "cartello": "WHAT HAPPENED NEXT",
-  "capitolo": "How It Was Possible"
+  "sfondo": "stock exchange floor",
+  "chiave": "LESSON",
+  "cartello": "LESSON LEARNED",
+  "capitolo": "Where the Money Went"
+ },
+ {
+  "voce": "Customer assets must be kept separate.",
+  "tipo": "clip",
+  "sfondo": "server room",
+  "chiave": "SEPARATE",
+  "cartello": "KEEP ASSETS SEPARATE",
+  "capitolo": "Where the Money Went"
+ },
+ {
+  "voce": "And audited independently.",
+  "tipo": "foto",
+  "sfondo": "audit documents desk",
+  "chiave": "AUDITED",
+  "etichetta": "NEW YORK · TODAY",
+  "titolo": "Independent Audits Matter",
+  "sotto": "Outside eyes catch what insiders hide",
+  "capitolo": "Where the Money Went"
+ },
+ {
+  "voce": "One founder controlling exchange and trading firm removes every check.",
+  "tipo": "clip",
+  "sfondo": "city skyline dusk",
+  "chiave": "NO CHECKS",
+  "cartello": "NO CHECKS LEFT",
+  "capitolo": "Where the Money Went"
+ },
+ {
+  "voce": "Subscribe for the next one.",
+  "tipo": "clip",
+  "sfondo": "financial district night",
+  "chiave": "SUBSCRIBE",
+  "cartello": "SUBSCRIBE NOW",
+  "capitolo": "Where the Money Went"
  }
 ]

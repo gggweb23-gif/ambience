@@ -1,237 +1,178 @@
 [
  {
-  "voce": "Chapter three. The Man in Singapore.",
+  "voce": "Chapter three. The rise of FTX.",
   "tipo": "foto",
-  "sfondo": "Singapore skyline",
-  "chiave": "Singapore",
+  "sfondo": "financial district skyline",
+  "chiave": "FTX",
   "etichetta": "CHAPTER 3",
-  "titolo": "The Man in Singapore",
-  "sotto": "Where the collapse began",
-  "capitolo": "The Man in Singapore"
+  "titolo": "The Rise of FTX",
+  "sotto": "",
+  "capitolo": "The Rise of FTX"
  },
  {
-  "voce": "Far from London, a young trader arrives.",
-  "tipo": "clip",
-  "sfondo": "Singapore financial district",
-  "chiave": "TRADER",
-  "cartello": "TRADER ARRIVES",
-  "capitolo": "The Man in Singapore"
- },
- {
-  "voce": "His name is Nick Leeson.",
-  "tipo": "dossier",
-  "sfondo": "office building",
-  "chiave": "Leeson",
-  "scheda": "PERSONNEL FILE",
-  "nome": "Nick Leeson",
-  "persona": true,
-  "righe": [
-   [
-    "Born",
-    "1967"
-   ],
-   [
-    "Joined Barings",
-    "1992"
-   ],
-   [
-    "Posted to",
-    "Singapore"
-   ]
-  ],
-  "timbro": "",
-  "capitolo": "The Man in Singapore"
- },
- {
-  "voce": "Born in nineteen sixty-seven.",
-  "tipo": "calendario",
-  "sfondo": "old documents",
-  "chiave": "1967",
-  "mese": "JAN",
-  "giorno": "1",
-  "titolo": "Born 1967",
-  "sotto": "The year Nick Leeson was born",
-  "timbro": "",
-  "capitolo": "The Man in Singapore"
- },
- {
-  "voce": "He joined Barings in nineteen ninety-two.",
-  "tipo": "clip",
-  "sfondo": "London financial district",
-  "chiave": "1992",
-  "cartello": "BARINGS 1992",
-  "capitolo": "The Man in Singapore"
- },
- {
-  "voce": "Then the bank sent him east.",
-  "tipo": "foto",
-  "sfondo": "city map Asia",
-  "chiave": "east",
-  "etichetta": "SINGAPORE · 1992",
-  "titolo": "Posted to the East",
-  "sotto": "A new office, a new market",
-  "capitolo": "The Man in Singapore"
- },
- {
-  "voce": "Barings Futures Singapore opened for business.",
-  "tipo": "clip",
-  "sfondo": "trading floor screens",
-  "chiave": "Singapore",
-  "cartello": "BARINGS FUTURES SINGAPORE",
-  "capitolo": "The Man in Singapore"
- },
- {
-  "voce": "It traded on SIMEX.",
-  "tipo": "dato",
-  "sfondo": "stock exchange",
-  "chiave": "SIMEX",
-  "numero": "SIMEX",
-  "didascalia": "Singapore International Monetary Exchange",
-  "fonte": "Bank of England report",
-  "capitolo": "The Man in Singapore"
- },
- {
-  "voce": "The Singapore International Monetary Exchange.",
-  "tipo": "clip",
-  "sfondo": "stock exchange building",
-  "chiave": "Exchange",
-  "cartello": "EXCHANGE FLOOR",
-  "capitolo": "The Man in Singapore"
- },
- {
-  "voce": "Every bank has one basic rule.",
-  "tipo": "foto",
-  "sfondo": "bank documents",
-  "chiave": "rule",
-  "etichetta": "LONDON · THE RULE",
-  "titolo": "One Basic Rule",
-  "sotto": "Those who trade must never settle",
-  "capitolo": "The Man in Singapore"
- },
- {
-  "voce": "The person who trades never checks the books.",
-  "tipo": "clip",
-  "sfondo": "trading screens",
-  "chiave": "TRADES",
-  "cartello": "TRADES ONLY",
-  "capitolo": "The Man in Singapore"
- },
- {
-  "voce": "Someone else settles. Someone else verifies.",
-  "tipo": "oggetto3d",
-  "sfondo": "vault",
-  "chiave": "verifies",
-  "oggetto": "two glossy golden scales perfectly balanced on a marble table",
-  "etichette": [
-   "TRADING",
-   "SETTLEMENT"
-  ],
-  "capitolo": "The Man in Singapore"
- },
- {
-  "voce": "Leeson was head of trading.",
-  "tipo": "dossier",
-  "sfondo": "office desk",
-  "chiave": "trading",
-  "scheda": "ROLE ONE",
-  "nome": "Head of Trading",
-  "persona": false,
-  "righe": [
-   [
-    "Office",
-    "Barings Futures Singapore"
-   ],
-   [
-    "Market",
-    "SIMEX"
-   ],
-   [
-    "Duty",
-    "Place the trades"
-   ]
-  ],
-  "timbro": "",
-  "capitolo": "The Man in Singapore"
- },
- {
-  "voce": "And also head of settlement operations.",
-  "tipo": "dossier",
-  "sfondo": "office documents",
-  "chiave": "settlement",
-  "scheda": "ROLE TWO",
-  "nome": "Head of Settlement",
-  "persona": false,
-  "righe": [
-   [
-    "Office",
-    "Barings Futures Singapore"
-   ],
-   [
-    "Duty",
-    "Settle and record trades"
-   ],
-   [
-    "Held by",
-    "Nick Leeson"
-   ]
-  ],
-  "timbro": "SAME MAN",
-  "capitolo": "The Man in Singapore"
- },
- {
-  "voce": "One man. Both roles. No separation of duties.",
-  "tipo": "oggetto3d",
-  "sfondo": "vault",
-  "chiave": "No separation",
-  "oggetto": "one red faceless mannequin holding two golden keys to a single vault door",
-  "etichette": [
-   "ONE MAN",
-   "TWO KEYS"
-  ],
-  "capitolo": "The Man in Singapore"
- },
- {
-  "voce": "The Bank of England later investigated.",
-  "tipo": "clip",
-  "sfondo": "Bank of England building",
-  "chiave": "investigated",
-  "cartello": "BANK OF ENGLAND",
-  "capitolo": "The Man in Singapore"
- },
- {
-  "voce": "Its report named this lack of segregation.",
-  "tipo": "foto",
-  "sfondo": "official report document",
-  "chiave": "segregation",
-  "etichetta": "LONDON · BANK OF ENGLAND",
-  "titolo": "A Key Failure",
-  "sotto": "Lack of segregation of duties identified",
-  "capitolo": "The Man in Singapore"
- },
- {
-  "voce": "A key failure.",
+  "voce": "By early twenty twenty-two, FTX looked unstoppable.",
   "tipo": "clip",
   "sfondo": "city skyline night",
-  "chiave": "FAILURE",
-  "cartello": "FAILURE IDENTIFIED",
-  "capitolo": "The Man in Singapore"
+  "chiave": "UNSTOPPABLE",
+  "cartello": "UNSTOPPABLE GROWTH",
+  "capitolo": "The Rise of FTX"
  },
  {
-  "voce": "Nobody was watching the man in Singapore.",
+  "voce": "In January, a funding round valued it at about thirty-two billion dollars.",
+  "tipo": "dato",
+  "sfondo": "trading screens",
+  "chiave": "$32B",
+  "numero": "$32B",
+  "didascalia": "FTX valuation, January 2022 funding round",
+  "fonte": "January 2022 funding round",
+  "capitolo": "The Rise of FTX"
+ },
+ {
+  "voce": "Investors saw the next great financial giant.",
   "tipo": "clip",
-  "sfondo": "empty trading floor",
-  "chiave": "watching",
-  "cartello": "NOBODY WATCHING",
-  "capitolo": "The Man in Singapore"
+  "sfondo": "stock exchange floor",
+  "chiave": "GIANT",
+  "cartello": "GIANT IN THE MAKING",
+  "capitolo": "The Rise of FTX"
  },
  {
-  "voce": "So what did he do with that freedom?",
+  "voce": "And its founder knew how to win trust.",
+  "tipo": "oggetto3d",
+  "sfondo": "golden vault",
+  "chiave": "TRUST",
+  "oggetto": "a glossy red faceless mannequin standing in front of a shining golden vault",
+  "etichette": [
+   "THE FOUNDER",
+   "TRUST"
+  ],
+  "capitolo": "The Rise of FTX"
+ },
+ {
+  "voce": "Sam Bankman-Fried presented himself as an advocate of regulation.",
+  "tipo": "clip",
+  "sfondo": "government building columns",
+  "chiave": "REGULATION",
+  "cartello": "REGULATION ADVOCATE",
+  "capitolo": "The Rise of FTX"
+ },
+ {
+  "voce": "In December twenty twenty-one, he testified before Congress.",
   "tipo": "foto",
-  "sfondo": "trading screens night",
-  "chiave": "freedom",
-  "etichetta": "SINGAPORE · NEXT",
-  "titolo": "What Did He Do?",
-  "sotto": "Chapter four: the secret account",
-  "capitolo": "The Man in Singapore"
+  "sfondo": "capitol building",
+  "chiave": "CONGRESS",
+  "etichetta": "WASHINGTON · DECEMBER 2021",
+  "titolo": "Founder Testifies Before Congress",
+  "sotto": "A public face for regulated crypto",
+  "capitolo": "The Rise of FTX"
+ },
+ {
+  "voce": "For American customers, there was FTX US.",
+  "tipo": "dossier",
+  "sfondo": "documents",
+  "chiave": "REGULATED ARM",
+  "scheda": "COMPANY FILE",
+  "nome": "FTX US",
+  "persona": false,
+  "righe": [
+   [
+    "Role",
+    "Regulated arm"
+   ],
+   [
+    "Customers",
+    "American"
+   ],
+   [
+    "Parent",
+    "FTX"
+   ],
+   [
+    "Founder",
+    "Sam Bankman-Fried"
+   ]
+  ],
+  "timbro": "REGULATED",
+  "capitolo": "The Rise of FTX"
+ },
+ {
+  "voce": "It was positioned as the safe, regulated side.",
+  "tipo": "clip",
+  "sfondo": "office building glass",
+  "chiave": "REGULATED",
+  "cartello": "REGULATED SIDE",
+  "capitolo": "The Rise of FTX"
+ },
+ {
+  "voce": "The promise to customers was simple.",
+  "tipo": "foto",
+  "sfondo": "website on monitor",
+  "chiave": "PROMISE",
+  "etichetta": "FTX · TERMS",
+  "titolo": "The Promise to Customers",
+  "sotto": "Safe custody, in plain words",
+  "capitolo": "The Rise of FTX"
+ },
+ {
+  "voce": "Your assets are held safely, and never lent out.",
+  "tipo": "oggetto3d",
+  "sfondo": "golden vault",
+  "chiave": "NEVER LENT",
+  "oggetto": "a sealed golden vault with blue faceless mannequins standing safely beside it",
+  "etichette": [
+   "HELD SAFELY",
+   "NOT LENT"
+  ],
+  "capitolo": "The Rise of FTX"
+ },
+ {
+  "voce": "The terms of service said it in writing.",
+  "tipo": "clip",
+  "sfondo": "legal documents desk",
+  "chiave": "IN WRITING",
+  "cartello": "WRITTEN IN THE TERMS",
+  "capitolo": "The Rise of FTX"
+ },
+ {
+  "voce": "Customer assets remained the customers' property.",
+  "tipo": "dossier",
+  "sfondo": "contract paper",
+  "chiave": "CUSTOMERS' PROPERTY",
+  "scheda": "TERMS OF SERVICE",
+  "nome": "FTX Terms",
+  "persona": false,
+  "righe": [
+   [
+    "Customer assets",
+    "Remain customers' property"
+   ],
+   [
+    "Custody",
+    "Held safely"
+   ],
+   [
+    "Lending",
+    "Not lent out"
+   ]
+  ],
+  "timbro": "IN WRITING",
+  "capitolo": "The Rise of FTX"
+ },
+ {
+  "voce": "Valuation, regulation, promises, all in place.",
+  "tipo": "clip",
+  "sfondo": "trading screens",
+  "chiave": "ALL IN PLACE",
+  "cartello": "EVERYTHING IN PLACE",
+  "capitolo": "The Rise of FTX"
+ },
+ {
+  "voce": "So what happened to those promises?",
+  "tipo": "foto",
+  "sfondo": "empty office corridor",
+  "chiave": "PROMISES",
+  "etichetta": "NEXT · CHAPTER 4",
+  "titolo": "What Happened To Them?",
+  "sotto": "The answer begins behind closed doors",
+  "capitolo": "The Rise of FTX"
  }
 ]
