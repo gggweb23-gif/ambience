@@ -398,7 +398,8 @@ def caselle(f):
         CO.registra('claude', 'claude-haiku-4-5-20251001', usage=j.get('usage'), nota='caselle quadro')
         t = ''.join(b.get('text', '') for b in j['content'] if b.get('type') == 'text')
         d = json.loads(t[t.find('{'): t.rfind('}') + 1])
-        out = {k: [v * 2 for v in d[k][:4]] for k in ('kao', 'altro') if isinstance(d.get(k), list) and len(d[k]) >= 4}
+        sc = Image.open(f).width / 960   # 11 nov: i quadri sono 1600 px, non 1920 (prima le caselle erano spostate)
+        out = {k: [v * sc for v in d[k][:4]] for k in ('kao', 'altro') if isinstance(d.get(k), list) and len(d[k]) >= 4}
         out['_ok'] = d.get('ok') is not False
         return out
     except Exception as e:
@@ -424,7 +425,8 @@ def quadri(c):
                   f"Scene: {q['azione']}. Setting: {q['luogo']}.{extra} The main character is on the {lato} third of the frame, big and clearly visible "
                   '(at least half of the image height), his face and expression very readable. He is the ONLY person wearing magenta or pink: every other person wears completely different colours (grey, blue, green, white, brown). Rich, detailed, realistic Italian everyday environment, warm soft '
                   'cinematic light, 16:9 composition with depth. No text, no letters, no numbers, no speech bubbles, no logos.')
-        if not os.path.exists(f):
+        nuovo = not os.path.exists(f)
+        if nuovo:
             for k in range(3):
                 try:
                     q['_url'] = klein_edit(prompt, refs, f); break
@@ -435,14 +437,16 @@ def quadri(c):
             log('quadro', i + 1, '/', len(c['quadri']), ':', q['azione'][:80])
         if q.get('_url'):
             ultimo_luogo[q['luogo']] = q['_url']
-        q['_box'] = caselle(f)
-        for rif in range(2):   # 11 nov: un altro personaggio vestito di magenta (o KAO con la maglia sbagliata) -> il quadro si rifa'
+        fb = f[:-4] + '.json'
+        q['_box'] = json.load(open(fb)) if os.path.exists(fb) else caselle(f)
+        for rif in range(2 if nuovo else 0):   # solo i quadri appena fatti: quelli gia' controllati non si ripagano   # 11 nov: un altro personaggio vestito di magenta (o KAO con la maglia sbagliata) -> il quadro si rifa'
             if q['_box'].get('_ok', True):
                 break
             log('quadro', i + 1, 'bocciato (magenta su un altro personaggio): lo rifaccio')
             q['_url'] = klein_edit(prompt + ' IMPORTANT: only the bald main character wears magenta.', refs[:1] + refs[2:] if q.get('secondario') and rif else refs, f)
             q['_box'] = caselle(f)
         q['_box'].pop('_ok', None)
+        json.dump(q['_box'], open(fb, 'w'))
         q['_img'] = Image.open(f).convert('RGB')
 
 
@@ -461,6 +465,12 @@ def ritaglio(q, taglio):
         if kb:   # 11 nov: mai una testa tagliata: la testa di KAO (se e' nel taglio) resta tutta dentro, con un po' d'aria sopra
             if kb[2] > x0 and kb[0] < x0 + cw and kb[1] < y0 + ch * .5:
                 y0 = max(0, min(y0, kb[1] - h * .04))
+            if kb[0] < x0 < kb[2] or kb[0] < x0 + cw < kb[2]:   # KAO tagliato a meta' sul lato: o tutto dentro o tutto fuori
+                dentro = kb[0] - w * .03, kb[2] + w * .03
+                if dentro[1] - dentro[0] <= cw:
+                    x0 = min(max(0, min(x0, dentro[0])), w - cw); x0 = max(x0, dentro[1] - cw)
+                elif taglio == 'altro':
+                    x0, y0, cw, ch = 0, 0, w, h
             if taglio == 'altro' and kb[2] > x0 and kb[0] < x0 + cw and kb[1] < y0:
                 x0, y0, cw, ch = 0, 0, w, h   # non si riesce a tenere la testa: campo largo
     img = im.crop((int(x0), int(y0), int(x0 + cw), int(y0 + ch))).resize((W, H), Image.LANCZOS)
