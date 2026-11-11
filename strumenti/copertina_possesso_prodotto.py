@@ -30,6 +30,29 @@ def klein(p):
     return Image.open(io.BytesIO(G3.http(u, raw=True))).convert('RGB').resize((W, H), Image.LANCZOS).filter(ImageFilter.UnsharpMask(1.2, 60, 2))
 
 
+def sistema(im, sx):
+    """L'AI non rispetta sempre "meta' sinistra": trovo il prodotto (diverso dal colore del fondo) e, se serve, lo rimpicciolisco e lo
+    sposto sul suo lato, su fondo dello stesso colore, cosi' il cartellino non lo copre mai."""
+    import numpy as np
+    a = np.asarray(im).astype(int)
+    bordo = np.concatenate([a[:8].reshape(-1, 3), a[-8:].reshape(-1, 3), a[:, :8].reshape(-1, 3), a[:, -8:].reshape(-1, 3)])
+    fondo = np.median(bordo, axis=0)
+    m = np.abs(a - fondo).sum(2) > 90
+    ys, xs = np.where(m)
+    if len(xs) < 500:
+        return im
+    bx0, bx1 = np.percentile(xs, 1), np.percentile(xs, 99); by0, by1 = np.percentile(ys, 1), np.percentile(ys, 99)
+    serve = 620   # spazio del cartellino
+    s = min(1.0, (W - serve - 40) / max(1, bx1 - bx0), (H - 30) / max(1, by1 - by0))
+    nuovo = Image.new('RGB', (W, H), tuple(int(v) for v in fondo))
+    pic = im.resize((int(W * s), int(H * s)), Image.LANCZOS)
+    dx = (20 - bx0 * s) if sx else (W - 20 - bx1 * s)
+    dy = (H - (by0 + by1) * s) / 2
+    maschera = Image.new('L', pic.size, 0); ImageDraw.Draw(maschera).rectangle((40, 40, pic.width - 40, pic.height - 40), fill=255)
+    nuovo.paste(pic, (int(dx), int(dy)), maschera.filter(ImageFilter.GaussianBlur(30)))
+    return nuovo
+
+
 for p in Q.get('prove', []):
     sx = p.get('lato', 'sx') == 'sx'
     lato = 'LEFT' if sx else 'RIGHT'
@@ -38,7 +61,7 @@ for p in Q.get('prove', []):
     prompt = (stile + f"{p['prodotto']}, HUGE and clearly recognizable, three-quarter view, filling the {lato} HALF of the frame from top to bottom, "
               f"slightly tilted, dramatic but clean. Solid plain background colour {p.get('fondo', '#1E5BFF')} everywhere, the other half of the image is "
               "COMPLETELY EMPTY plain background. No people, no hands, no text, no letters, no numbers, no logos, no brand names.")
-    im = klein(prompt).convert('RGBA')
+    im = sistema(klein(prompt), sx).convert('RGBA')
     # cartellino del prezzo appeso (sull'altra meta', mai nell'angolo in basso a destra della durata)
     x0 = 700 if sx else 70; cw, ch = 520, 470; y0 = 60
     card = Image.new('RGBA', (cw + 40, ch + 40), (0, 0, 0, 0)); d = ImageDraw.Draw(card)

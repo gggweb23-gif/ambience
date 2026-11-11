@@ -18,7 +18,7 @@ jobs:
           PAYLOAD: ${{ inputs.payload }}
           FAL_KEY: ${{ secrets.FAL_KEY }}
         run: |
-          pip install -q --break-system-packages pillow
+          pip install -q --break-system-packages pillow numpy
           python3 strumenti/copertina_possesso_prodotto.py
       - name: Salva
         run: |
