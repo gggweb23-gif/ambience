@@ -1,0 +1,569 @@
+{
+ "titolo": "The Congo Basin: 5 Barriers That Still KEEP Humans Out",
+ "titolo_mappa": "CONGO BASIN",
+ "paese_mappa": "Democratic Republic of the Congo",
+ "date": "1482 – 2026",
+ "texture": "stropicciata",
+ "font_carte": "classico",
+ "riserva_pexels": [
+  "Congo rainforest canopy aerial",
+  "tropical river rapids Africa",
+  "African rainforest mist morning",
+  "dense jungle vines green",
+  "swamp water reflection trees",
+  "Congo River sunset",
+  "rainforest rain leaves",
+  "African forest elephant forest"
+ ],
+ "luoghi_paese": "congo, congolese, democratic republic of the congo, kinshasa, kisangani, congo river, congo basin, cuvette centrale, central africa, africa, african, livingstone falls, inga, virunga, ituri, salonga, mbandaka, lake tumba, equateur, rainforest, jungle",
+ "fondi_carte": [],
+ "colori_carte": [
+  "#1d3b2a",
+  "#6b3a1e"
+ ],
+ "sfondi": [],
+ "scene": [
+  {
+   "capitolo": "The Green Hole",
+   "testo": "Walk into the heart of the Congo Basin and the forest wins within two days. Your machete dulls, the ground swallows you, your GPS dies. We have mapped Mars, yet this green hole on the map still resists us. Why?",
+   "anno": 2026,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Walk into the heart",
+     "q": "Congo rainforest canopy aerial",
+     "suono": "jungle insects humming, distant birds"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Your machete dulls",
+     "q": "dense jungle vines green"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "your GPS dies",
+     "q": "African rainforest mist morning",
+     "didascalia": "2 days to defeat you"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "We have mapped Mars",
+     "q": "Congo River aerial rainforest"
+    }
+   ]
+  },
+  {
+   "testo": "The Congo Basin covers about 1.5 million square miles of Central Africa, the second largest rainforest on Earth. Size is not the issue. Density is. Layered vines, buttress roots and thorny brush turn every mile into a fight.",
+   "anno": 2026,
+   "visivi": [
+    {
+     "tipo": "mappa",
+     "frase": "The Congo Basin covers"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Size is not the issue",
+     "q": "rainforest canopy Congo green"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Layered vines, buttress roots",
+     "q": "jungle roots vines Africa",
+     "didascalia": "1.5 million square miles"
+    }
+   ]
+  },
+  {
+   "capitolo": "Slow Going",
+   "testo": "Progress is measured in feet per hour, not miles per day. Temperatures near 95 degrees, humidity close to 99 percent. Your clothes never dry. Your supplies run out long before the forest ends. And that is just the ground.",
+   "anno": 2026,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Progress is measured in feet",
+     "q": "rainforest undergrowth dense Africa"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Temperatures near 95 degrees",
+     "q": "tropical humidity fog rainforest",
+     "didascalia": "99% humidity"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Your clothes never dry",
+     "q": "rainforest rain leaves",
+     "suono": "heavy tropical rain on leaves"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Your supplies run out",
+     "q": "jungle trail dark forest"
+    }
+   ]
+  },
+  {
+   "capitolo": "The River",
+   "testo": "Rivers are usually the highway into a jungle. The Congo is different. It is the deepest river in the world, plunging past 700 feet. But depth is not the problem. Violence is.",
+   "anno": 2026,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Rivers are usually the highway",
+     "q": "Congo River wide jungle"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "deepest river in the world",
+     "q": "deep river dark water Africa",
+     "didascalia": "Over 700 feet deep"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Violence is",
+     "q": "river rapids whitewater tropical"
+    }
+   ]
+  },
+  {
+   "testo": "Rapids, cataracts and sudden waterfalls tear the river apart. In 1482, the Portuguese navigator Diogo Cao reached its mouth. Later explorers found the lower river blocked by falls, and many turned back or never returned.",
+   "anno": 1482,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Rapids, cataracts and sudden",
+     "q": "waterfall cataract Africa river",
+     "suono": "roaring waterfall"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "In 1482, the Portuguese",
+     "q": "old sailing ship sea horizon",
+     "didascalia": "1482: first European arrival"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Later explorers found",
+     "q": "river gorge rapids Africa"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "many turned back",
+     "q": "old map compass vintage"
+    }
+   ]
+  },
+  {
+   "testo": "Whirlpools in the gorges can smash a boat in seconds. The river is a locked door, and nobody ever found the key. So explorers tried walking instead, straight into the Cuvette Centrale.",
+   "anno": 1870,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Whirlpools in the gorges",
+     "q": "whirlpool river current water"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "locked door",
+     "q": "river mist jungle morning"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Cuvette Centrale",
+     "q": "swamp forest flooded trees"
+    }
+   ]
+  },
+  {
+   "capitolo": "The Swamp",
+   "testo": "The Cuvette Centrale is a vast peat swamp, bigger than England. Peat is thousands of years of dead plants that never fully rotted. The ground looks solid, but it is soggy plant remains in disguise.",
+   "anno": 2026,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "The Cuvette Centrale is",
+     "q": "swamp wetland aerial forest"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Peat is thousands of years",
+     "q": "peat bog dark soil"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "The ground looks solid",
+     "q": "swamp water reflection trees",
+     "didascalia": "Larger than England"
+    }
+   ]
+  },
+  {
+   "testo": "Step on it and you sink to your knees, then your waist. The mud is too thick for a boat and too wet to walk. You cannot even light a fire, because everything is soaked. Walking fails. Boating fails. Only one direction is left: up.",
+   "anno": 2026,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Step on it and you sink",
+     "q": "muddy swamp water bubbles"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "too thick for a boat",
+     "q": "mangrove swamp murky water"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "You cannot even light",
+     "q": "wet firewood smoke rain"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Only one direction is left",
+     "q": "looking up forest canopy trees"
+    }
+   ]
+  },
+  {
+   "capitolo": "The Canopy",
+   "testo": "The Congo is a triple canopy forest, with trees stacked in three dense layers. The emergent giants soar over 150 feet, their branches locked together like a puzzle. A helicopter has no gap to slip through.",
+   "anno": 2026,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "The Congo is a triple",
+     "q": "rainforest canopy layers aerial"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "emergent giants soar over",
+     "q": "tall rainforest trees looking up",
+     "didascalia": "Trees over 150 feet"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "A helicopter has no gap",
+     "q": "helicopter over jungle canopy",
+     "suono": "helicopter rotors distant"
+    }
+   ]
+  },
+  {
+   "testo": "Below, the canopy blocks most sunlight, so noon feels like dusk. Rescue crews cannot see you, and you cannot see the sky. Even a rope drop would tangle in the branches long before touching the ground.",
+   "anno": 2026,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "Below, the canopy blocks",
+     "q": "dark rainforest floor sunbeam"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Rescue crews cannot see",
+     "q": "fog jungle dense trees"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "a rope drop would tangle",
+     "q": "tangled branches vines forest"
+    }
+   ]
+  },
+  {
+   "capitolo": "Invisible Killers",
+   "testo": "The darkness is not the worst part. The Congo is where Ebola was first identified, near the Ebola River in 1976. Marburg virus lurks in the region too. Both are linked to bats and other wildlife that carry them without harm.",
+   "anno": 1976,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "The darkness is not the worst",
+     "q": "dark jungle night mist"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Ebola was first identified",
+     "q": "Congo river village Africa",
+     "didascalia": "Ebola identified in 1976"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "linked to bats",
+     "q": "fruit bats flying dusk",
+     "suono": "bats squeaking at night"
+    }
+   ]
+  },
+  {
+   "testo": "A human has no immune defense against a brand new virus. The deeper you travel into unmapped forest, the likelier you are to meet one. In the deep Congo, getting lost is the best case scenario.",
+   "anno": 2026,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "A human has no immune",
+     "q": "microscope virus laboratory"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "The deeper you travel",
+     "q": "remote jungle valley aerial"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "getting lost is the best",
+     "q": "foggy rainforest trail"
+    }
+   ]
+  },
+  {
+   "capitolo": "Tiny Armies",
+   "testo": "But smaller threats ruin your afternoon first. Tsetse flies bite hard and carry sleeping sickness. Mosquitoes bring severe malaria. And driver ants march in blind columns of up to 50 million, stripping whatever crosses their path.",
+   "anno": 2026,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "But smaller threats ruin",
+     "q": "insects swarm forest light"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Tsetse flies bite hard",
+     "q": "fly macro insect"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Mosquitoes bring severe malaria",
+     "q": "mosquito macro close up"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "driver ants march",
+     "q": "ants column marching forest floor",
+     "didascalia": "Up to 50 million ants"
+    }
+   ]
+  },
+  {
+   "capitolo": "Wild Giants",
+   "testo": "Then there are the giants. African forest elephants are smaller than savanna elephants, but fiercely territorial. In dense brush with almost no visibility, you may stumble onto one that has never seen a human.",
+   "anno": 2026,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Then there are the giants",
+     "q": "forest elephant jungle Africa"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "smaller than savanna elephants",
+     "q": "African elephant tusks closeup"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "almost no visibility",
+     "q": "thick bush dense green",
+     "suono": "elephant trumpet in forest"
+    }
+   ]
+  },
+  {
+   "testo": "For over a century, locals have described Mokele-mbembe, a long-necked beast of the swamps. Expeditions went looking and found nothing. Most likely it is folklore or a mangled elephant tale. But the forest is so vast that nobody can close the case.",
+   "anno": 1913,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "For over a century",
+     "q": "misty swamp lake dawn"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "a long-necked beast",
+     "q": "lake mist jungle silhouette"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "nobody can close the case",
+     "q": "vast rainforest horizon aerial"
+    }
+   ]
+  },
+  {
+   "capitolo": "Living With the Forest",
+   "testo": "Yet people do live here. The Baka, Biaka and Mbuti have thrived in these forests for thousands of years. They travel light, know which plants heal or poison, and build leaf shelters in an hour. The forest is only impenetrable if you fight it.",
+   "anno": 2026,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Yet people do live here",
+     "q": "rainforest path sunlight Africa"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "know which plants heal",
+     "q": "medicinal plants forest leaves"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "build leaf shelters",
+     "q": "leaf hut forest tropical"
+    }
+   ]
+  },
+  {
+   "capitolo": "Tech Fails",
+   "testo": "Technology fails the moment you enter. GPS signals struggle under wet, dense foliage. Satellite phones need open sky. Humidity near 100 percent creeps into cameras, radios and drones, shorting circuits within days.",
+   "anno": 2026,
+   "visivi": [
+    {
+     "tipo": "pexels_foto",
+     "frase": "Technology fails the moment",
+     "q": "GPS device rain jungle"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Satellite phones need open sky",
+     "q": "satellite sky clouds"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "Humidity near 100 percent",
+     "q": "water droplets leaves macro",
+     "didascalia": "Near 100% humidity"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "shorting circuits within days",
+     "q": "old compass paper map"
+    }
+   ]
+  },
+  {
+   "capitolo": "Reaching the Edge",
+   "testo": "Even reaching the forest is hard. The region spans the Democratic Republic of the Congo, the Republic of the Congo and the Central African Republic, with almost no paved roads. Armed groups operate in parts of the area, and no rescue is coming if you are hurt.",
+   "anno": 2026,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Even reaching the forest",
+     "q": "dirt road Africa forest"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "almost no paved roads",
+     "q": "muddy track rainforest Africa"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "no rescue is coming",
+     "q": "Congo River boat horizon"
+    }
+   ]
+  },
+  {
+   "capitolo": "The Vault",
+   "testo": "So why does this wall exist? Researchers mapped part of the Cuvette Centrale and found a stunning secret. Its peatlands hold roughly 30 billion tons of carbon, about three years of global fossil fuel emissions, locked in the mud.",
+   "anno": 2017,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "So why does this wall",
+     "q": "swamp forest aerial Africa"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "Researchers mapped part",
+     "q": "peat soil layers close"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "roughly 30 billion tons",
+     "q": "dark peat wetland trees",
+     "didascalia": "30 billion tons of carbon"
+    }
+   ]
+  },
+  {
+   "testo": "In other forests, solid ground lets loggers build roads. Here the peat is unstable, the river violent, the diseases deadly. The very thing that frustrates explorers has protected this carbon vault from human greed.",
+   "anno": 2026,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "In other forests, solid ground",
+     "q": "logging road forest aerial"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "the river violent",
+     "q": "Congo River rapids"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "protected this carbon vault",
+     "q": "untouched rainforest aerial green"
+    }
+   ]
+  },
+  {
+   "capitolo": "Still Winning",
+   "testo": "Every other wild place got a road, a mine or a resort. The Congo got a river that eats boats and a swamp that eats boots. That green hole is not a gap in our knowledge. It is a door the forest is holding shut.",
+   "anno": 2026,
+   "visivi": [
+    {
+     "tipo": "pexels_video",
+     "frase": "Every other wild place",
+     "q": "rainforest sunrise mist aerial"
+    },
+    {
+     "tipo": "pexels_foto",
+     "frase": "a swamp that eats boots",
+     "q": "swamp water trees dusk"
+    },
+    {
+     "tipo": "pexels_video",
+     "frase": "a door the forest",
+     "q": "Congo rainforest canopy sunset"
+    }
+   ]
+  }
+ ],
+ "copertina": {
+  "testo": "CONGO BASIN",
+  "personaggio": ""
+ },
+ "descrizione": "Why is the Congo Basin still off limits to humans? In this animated documentary we explore the barriers that keep the world's second largest rainforest almost unexplored: violent rapids, a giant peat swamp, a triple canopy, deadly viruses, driver ants and failing technology.\n\nDiscover how Ebola was first identified in 1976, why GPS and drones struggle under the canopy, how the Baka and Mbuti forest peoples live here, and why the Cuvette Centrale peatlands store about 30 billion tons of carbon.\n\nThe Congo is not a gap in our map. It is a natural fortress that has protected one of Earth's most important carbon vaults.\n\n#CongoBasin #Rainforest #Africa #Documentary #Exploration",
+ "tag": [
+  "Congo Basin",
+  "Congo rainforest",
+  "why Congo is off limits",
+  "Congo River",
+  "Cuvette Centrale",
+  "peat swamp",
+  "Congo peatlands",
+  "second largest rainforest",
+  "unexplored places on Earth",
+  "Africa documentary",
+  "triple canopy forest",
+  "Ebola origin",
+  "driver ants",
+  "forest elephant",
+  "Mokele-mbembe",
+  "Baka people",
+  "Mbuti people",
+  "Democratic Republic of the Congo",
+  "Central African Republic",
+  "carbon storage",
+  "rainforest explained",
+  "last wild places",
+  "impenetrable jungle",
+  "Congo vs Amazon",
+  "Congo explained",
+  "geography documentary",
+  "animated documentary",
+  "Congo history",
+  "Congo exploration",
+  "hidden places on Earth"
+ ],
+ "personaggi_mancanti": [
+  "Diogo Cao navigatore portoghese (usato solo come foto)",
+  "esploratore dell'Ottocento in Africa centrale"
+ ],
+ "categoria_originale": "22"
+}
