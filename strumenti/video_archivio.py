@@ -179,7 +179,11 @@ FOOTAGE: {R_FOOTAGE} For EACH scene give the archive search that shows EXACTLY w
 {R_OBBLIGO} - "anno" (only for history videos): the year the scene talks about (e.g. 1944), so the archive footage is from the right year; 0 if the scene has no precise year
  - "capitolo" (YouTube chapters): on the FIRST scene and then on the scene that opens each new part of the story, about one every 60-90 seconds (6-9 in total): a chapter title of 2-5 words in the channel language; every other scene "capitolo": ""
  - "scritta" (optional, about 1 scene in 4): 1-3 words in CAPS shown on screen, a number or a strong word said in that scene (US units: -250°F, 17,500 MPH, 250 MILES)
-Scenes: EXACTLY {N_SCENE} scenes, each 32-40 words (Sonnet tends to write too little: count the scenes)."""
+Scenes: EXACTLY {N_SCENE} scenes, each 32-40 words (Sonnet tends to write too little: count the scenes).
+OPENING (the first 3 scenes, about 30 seconds: this decides if the viewer stays): scene 1 gives the PAYOFF of the title at once, the most surprising
+answer, fact or number (say the end first, then explain how we get there); no greetings, no "in this video", no slow scene-setting, no generic intro.
+Scenes 2-3 open one concrete question the viewer wants answered and promise what is coming ("but the real danger is not the fire. It is what comes next").
+After that, a new small reveal or surprising detail about every 60-90 seconds, so there is always a reason to keep watching."""   # 11 nov (Giorgio): gancio forte, ritenzione a 30 s bassa su Orbital Days
 METODO = str(P.get('metodo') or 'impronta').strip().lower()   # copia (stesso argomento del competitor) | impronta (stessa struttura, altro argomento)
 if riferimento and METODO == 'copia':
     PCT = int(numero(P.get('copia_percentuale'), 80))
@@ -384,6 +388,7 @@ def segna_in_libreria(bocciate):   # gli spezzoni bocciati non tornano piu' nei 
         vecchi = json.load(open(f_)) if os.path.exists(f_) else []
         nuovi = [{'n': x['lib_n'], 'fonte': x.get('fonte'), 'motivo': x.get('motivo', '')} for x in bocciate if x.get('lib_n') is not None]
         nuovi += [{'foto': x['fonte'], 'motivo': x.get('motivo', '')} for x in bocciate if x.get('lib_n') is None and x.get('tipo') == 'foto' and x.get('fonte')]
+        nuovi += [{'clip': x['fonte'], 'motivo': x.get('motivo', '')} for x in bocciate if x.get('lib_n') is None and x.get('tipo') == 'clip' and x.get('fonte')]   # 11 nov: clip prese dall'archivio (non dalla libreria)
         json.dump(vecchi + nuovi, open(f_, 'w'), ensure_ascii=False, indent=1); log(len(nuovi), 'spezzoni tolti per sempre dalla libreria (bocciati.json)')
     except Exception as e:
         log('bocciati non salvati', str(e)[:80])
@@ -393,15 +398,18 @@ if MONTATO and os.path.exists(VIDEO) and str(P.get('revisione_inquadrature') or 
     # 5 nov: con UN solo rimontaggio Orbital Days e WWII venivano bloccati 3 volte al giorno (9-21 inquadrature ancora sbagliate):
     # ogni giro toglie le nuove bocciate e rimonta, fino a 3 giri (voce gia' pagata). La soglia resta il 4% (min 3).
     soglia = max(3, len(json.load(open('/tmp/lav/inquadrature.json'))) * .04)
-    bocc = revisione(); giri = 0; via_lib, via_foto = [], []
+    bocc = revisione(); giri = 0; via_lib, via_foto, via_clip = [], [], []
     while bocc and len(bocc) > (soglia if giri else 0) and giri < int(float(str(P.get('giri_revisione') or 3))):
         giri += 1
         segna_in_libreria(bocc)
         via_lib += [x['lib_n'] for x in bocc if x.get('lib_n') is not None]
         via_foto += [x['fonte'] for x in bocc if x.get('tipo') == 'foto']
-        m_ = dict(mont, escludi_lib=via_lib, escludi_foto=via_foto)
+        # 11 nov: anche le clip prese direttamente dall'archivio (non dalla libreria) si tolgono: prima tornavano sempre uguali
+        # (Orbital Days bloccato con le stesse 3 clip di un lancio di razzo dopo 3 rimontaggi)
+        via_clip += [x['fonte'] for x in bocc if x.get('tipo') == 'clip' and x.get('lib_n') is None and x.get('fonte')]
+        m_ = dict(mont, escludi_lib=via_lib, escludi_foto=via_foto, escludi=list(mont.get('escludi') or []) + via_clip)
         shutil.copy(VIDEO, VIDEO + '.prima_revisione.mp4')
-        log(f'RIMONTAGGIO {giri}: tolte {len(via_lib)} clip e {len(via_foto)} foto bocciate')
+        log(f'RIMONTAGGIO {giri}: tolte {len(via_lib) + len(via_clip)} clip e {len(via_foto)} foto bocciate')
         r = subprocess.run([sys.executable, 'strumenti/prova_archivio.py'], env=dict(os.environ, PAYLOAD=json.dumps(m_)))
         if r.returncode != 0 or not os.path.exists(VIDEO):
             os.replace(VIDEO + '.prima_revisione.mp4', VIDEO); errori = errori + ['revisione: rimontaggio non riuscito']; bocc = []

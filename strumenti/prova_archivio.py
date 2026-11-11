@@ -111,6 +111,7 @@ try:   # spezzoni bocciati dalle revisioni dei video precedenti
     _bo = json.load(open(os.path.join('libreria_clip', P.get('libreria') or '-', 'bocciati.json')))
     LIB_USATI.update(int(x['n']) for x in _bo if x.get('n') is not None)
     USATI.update('File:' + x['foto'] for x in _bo if x.get('foto'))   # foto bocciate nei video precedenti
+    USATI.update(x['clip'] for x in _bo if x.get('clip'))   # 11 nov: clip d'archivio bocciate nei video precedenti
 except Exception:
     pass   # spezzoni bocciati dalla revisione: mai piu' in questo video
 ULTIMO_N = [None]   # max 3 spezzoni dalla stessa ripresa per video
