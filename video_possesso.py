@@ -509,7 +509,10 @@ def scontrino_libero(CP, img, vero, k):
 def togli_cucitura(im):
     """11 nov: il modello a volte lascia una riga verticale al centro (dove finisce il protagonista): la si trova (colonna anomala su tutta
     l'altezza, tra il 40% e il 60% della larghezza) e si sfuma con le colonne vicine solo dove i due lati si somigliano (scritte intatte)."""
-    import numpy as np
+    try:
+        import numpy as np
+    except Exception:
+        log('copertina: numpy assente, riga verticale non controllata'); return im
     a = np.asarray(im.convert('RGB')).astype(float); W_ = a.shape[1]
     m = np.median(np.abs(np.diff(a, axis=1)).sum(2), axis=0)
     zona = range(int(W_ * .4), int(W_ * .6)); base = np.median(m) + 1
