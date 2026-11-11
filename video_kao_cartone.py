@@ -543,8 +543,8 @@ def movimento(img, n, x):
     """11 nov (Giorgio: "che ci sia sempre un po' di movimento"): ogni immagine si muove piano, e il movimento cambia da un'immagine
     all'altra: avanti (zoom dentro), indietro (zoom fuori), da sinistra a destra, da destra a sinistra. x = 0..1 dentro l'inquadratura."""
     x = x * x * (3 - 2 * x)   # partenza e arrivo morbidi
-    tipo = n % 4
-    z = 1.0 + .08 * (x if tipo == 0 else 1 - x if tipo == 1 else .75)
+    tipo = n % 2   # 11 nov (Giorgio): solo avanti e indietro, niente spostamenti di lato, e piu' lento
+    z = 1.0 + .045 * (x if tipo == 0 else 1 - x)
     cw, ch = W / z, H / z
     if tipo in (0, 1):
         x0, y0 = (W - cw) / 2, (H - ch) / 2
