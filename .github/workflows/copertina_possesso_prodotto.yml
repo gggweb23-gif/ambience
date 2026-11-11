@@ -1,0 +1,26 @@
+name: Copertina Costo Vero stile PRODOTTO (prove, non carica)
+on:
+  workflow_dispatch:
+    inputs:
+      payload:
+        required: true
+        type: string
+permissions:
+  contents: write
+jobs:
+  copertina:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Copertine
+        env:
+          PAYLOAD: ${{ inputs.payload }}
+          FAL_KEY: ${{ secrets.FAL_KEY }}
+        run: |
+          pip install -q --break-system-packages pillow
+          python3 strumenti/copertina_possesso_prodotto.py
+      - name: Salva
+        run: |
+          git config user.name render-bot && git config user.email render-bot@users.noreply.github.com
+          git add prove_video/Costo_Vero/prodotto && git commit -m 'Copertine prodotto Costo Vero' && (for i in 1 2 3; do git pull --rebase -q && git push && break; sleep 5; done) || echo niente
