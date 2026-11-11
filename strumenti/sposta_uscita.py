@@ -16,7 +16,7 @@ H = {'Authorization': 'Bearer ' + tk, 'Content-Type': 'application/json'}
 v = json.loads(urllib.request.urlopen(urllib.request.Request(f'https://www.googleapis.com/youtube/v3/videos?part=status&id={vid}', headers=H), timeout=30).read())['items'][0]
 st = v['status']
 if PRIVATO:
-    st['privacyStatus'] = 'private'; st.pop('publishAt', None)
+    st['privacyStatus'] = 'private'; st['publishAt'] = None   # null = toglie l'uscita programmata
 else:
     st.update(privacyStatus='private', publishAt=q.astimezone(dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'))
 r = json.loads(urllib.request.urlopen(urllib.request.Request('https://www.googleapis.com/youtube/v3/videos?part=status', data=json.dumps({'id': vid, 'status': st}).encode(), headers=H, method='PUT'), timeout=30).read())
