@@ -521,7 +521,7 @@ def ritaglio(q, taglio):
     return img, occ
 
 
-def posto_nuvoletta(occ, testo):
+def posto_nuvoletta(occ, testo, lato_kao=''):
     """Il posto per la nuvoletta che non tocca nessuna persona (soprattutto la testa); tra quelli liberi il piu' in alto."""
     lw = min(W * .42, 60 * len(testo) + 120); lh = 200
     cand = [(W * .25, H * .17), (W * .75, H * .17), (W * .5, H * .12), (W * .22, H * .42), (W * .78, H * .42), (W * .5, H * .62)]
@@ -534,6 +534,8 @@ def posto_nuvoletta(occ, testo):
                 ix, iy = max(0, min(x2, bb[2]) - max(x1, bb[0])), max(0, min(y2, bb[3]) - max(y1, bb[1]))
                 tot += ix * iy * peso
         return tot
+    if lato_kao in ('left', 'right'):   # 11 nov: la regia sa da che parte e' KAO: la nuvoletta va SEMPRE dall'altra parte (le caselle possono sbagliare)
+        cand = [c for c in cand if (c[0] > W * .6 if lato_kao == 'left' else c[0] < W * .4)]
     return min(cand, key=lambda c: (sovrapp(c) > 0, sovrapp(c), cand.index(c)))
 
 
@@ -582,7 +584,7 @@ def monta_illustrato(c):
             pw = s['parola'].split()[0].lower().strip('.,!?')
             t_par = next((x[1] for x in s['_parole'] if x[0].lower().strip('.,!?;:«»"') == pw), s['_dur'] * .3)
             if tsc >= t_par:
-                nuvoletta(fr, s['parola'], tsc - t_par, True, posto=posto_nuvoletta(occ, s['parola']))
+                nuvoletta(fr, s['parola'], tsc - t_par, True, posto=posto_nuvoletta(occ, s['parola'], sh['quadro'].get('kao', '')))
         sottotitolo(fr, s['_parole'], tsc)
         ff.stdin.write(fr.convert('RGB').tobytes())
         if n % (FPS * 15) == 0:
