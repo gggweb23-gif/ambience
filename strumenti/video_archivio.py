@@ -157,6 +157,31 @@ if vid and not str(P.get('testo_copertina') or '').strip():
         except Exception:
             pass
 
+# ---------------- 1b) canali in inglese che copiano un competitor in inglese (11 nov, Giorgio) ----------------
+# Stessa lingua e stesso pubblico: YouTube vede i nostri video come doppioni (Agora e WWII quasi senza impression, Orbital con l'IMPRONTA si').
+# Si prende SOLO gancio, struttura e argomento; il TITOLO e il testo si riscrivono da zero. KAO e i canali che traducono da un'altra lingua non cambiano.
+TITOLO_COMP = P['titolo']
+STRUTT = str(P.get('language') or '').strip().lower().startswith('en') and str(P.get('metodo') or 'impronta').strip().lower() == 'copia'
+if STRUTT:
+    try:
+        _c0 = json.load(open(os.path.join('lavoro_archivio', 'copione.json')))
+        if _c0.get('titolo_competitor') == TITOLO_COMP and _c0.get('titolo_video'):
+            P['titolo'] = _c0['titolo_video']; log('titolo nostro RIPRESO dal giro precedente:', P['titolo'])
+    except Exception:
+        pass
+    if P['titolo'] == TITOLO_COMP:
+        try:
+            _t = claude(f"""Successful YouTube title of a competitor channel (same language, same audience as ours): "{TITOLO_COMP}".
+Our channel: "{P.get('channel_name')}". Write OUR title for a video on the same subject: SAME pattern (same kind of promise and twist, a number if it has one,
+same separators like - | : and the same rhythm) but with DIFFERENT words and a different angle on the same documented facts, so that nobody searching
+on YouTube would see the two titles as the same. Never reuse its distinctive phrase (e.g. "He Named One City" -> say it another way).
+Correct {P.get('language') or 'en'} spelling, max 90 characters, no emoji. Answer ONLY the title.""", modello='claude-sonnet-5-5', max_tokens=4000)
+            _t = _t.strip().strip('"').strip()
+            if 15 < len(_t) <= 100:
+                P['titolo'] = _t; log('titolo NOSTRO (struttura del competitor, parole nuove):', TITOLO_COMP, '->', P['titolo'])
+        except Exception as e:
+            log('titolo nuovo non riuscito, resta quello della riga:', str(e)[:100])
+
 # ---------------- 2) copione ----------------
 # regole del canale dal foglio (colonne regole_fatti, footage_descrizione, footage_esempi_q, footage_esempi_tag, obbligo_apertura):
 # vuote = quelle di Orbital Days (NASA)
@@ -185,7 +210,15 @@ answer, fact or number (say the end first, then explain how we get there); no gr
 Scenes 2-3 open one concrete question the viewer wants answered and promise what is coming ("but the real danger is not the fire. It is what comes next").
 After that, a new small reveal or surprising detail about every 60-90 seconds, so there is always a reason to keep watching."""   # 11 nov (Giorgio): gancio forte, ritenzione a 30 s bassa su Orbital Days
 METODO = str(P.get('metodo') or 'impronta').strip().lower()   # copia (stesso argomento del competitor) | impronta (stessa struttura, altro argomento)
-if riferimento and METODO == 'copia':
+if riferimento and METODO == 'copia' and STRUTT:
+    regole += f"""
+
+REFERENCE VIDEO (a successful video of a competitor in the SAME language: copying it makes ours a duplicate). Take ONLY its opening hook
+(the mechanism, not the words), its STRUCTURE (order of the parts, rhythm, kind of questions and reveals) and its subject. Write the narration
+FROM SCRATCH: never its sentences, examples, metaphors, anecdotes, lists or turns of phrase, not even reworded with synonyms. Facts only from
+documented history; quotes only if real and documented.
+{' '.join(riferimento.split()[:6000])}"""
+elif riferimento and METODO == 'copia':
     PCT = int(numero(P.get('copia_percentuale'), 80))
     regole += f"""
 
@@ -258,7 +291,7 @@ if c and not (P_OK <= n <= P_MAX * 1.15):
     c = None
 if not c:
     raise RuntimeError('VIDEO BLOCCATO: copione fuori lunghezza (nessuna spesa per voce e montaggio)')
-c['titolo_video'] = P['titolo']
+c['titolo_video'] = P['titolo']; c['titolo_competitor'] = TITOLO_COMP
 json.dump(c, open(os.path.join(CART, 'copione.json'), 'w'), ensure_ascii=False, indent=1)
 os.makedirs(RIP, exist_ok=True); json.dump(c, open(os.path.join(RIP, 'copione.json'), 'w'), ensure_ascii=False)   # salvato per un'eventuale ripresa
 
