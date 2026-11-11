@@ -1,0 +1,36 @@
+name: KAO a cartone (prova)
+# 11 nov: video KAO interamente a cartone con la libreria del personaggio (video_kao_cartone.py). Non carica su YouTube:
+# il video resta in prove_video/kao_cartone per il controllo di Giorgio.
+on:
+  workflow_dispatch:
+    inputs:
+      payload:
+        description: 'JSON: tema, minuti (1 = prova), voce, cartella'
+        required: true
+        type: string
+permissions:
+  contents: write
+jobs:
+  video:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - name: Programmi
+        run: |
+          ok=0; for i in 1 2 3; do sudo apt-get update -qq -o Acquire::Retries=5 && sudo apt-get install -y -qq -o Acquire::Retries=5 ffmpeg && ok=1 && break; sleep 20; done
+          [ $ok = 1 ] || exit 1
+          pip install -q --break-system-packages pillow
+      - name: Video
+        env:
+          PAYLOAD: ${{ inputs.payload }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          FAL_KEY: ${{ secrets.FAL_KEY }}
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          COSTI_FILE: prove_video/kao_cartone/costi.jsonl
+        run: mkdir -p prove_video/kao_cartone && python3 video_kao_cartone.py
+      - name: Salva
+        if: ${{ always() }}
+        run: |
+          git config user.name render-bot && git config user.email render-bot@users.noreply.github.com
+          git add prove_video/kao_cartone personaggi/kao/luoghi && git commit -m 'KAO a cartone: prova' && (for i in 1 2 3; do git pull --rebase -q && git push && break; sleep 5; done) || echo niente da salvare
