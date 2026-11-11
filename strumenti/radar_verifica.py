@@ -39,3 +39,14 @@ for n, (h, rr) in tab.items():
         for r in giovani:
             print(' | '.join(str(r.get(k, '')) for k in ('Canale', 'Crescita', 'Nicchia', 'Si può rifare?', 'Con cosa', 'RPM stimato $', 'Giorni dal primo video',
                   'Views al giorno (ultima settimana)', 'Views al giorno (settimana prima)', 'Iscritti', 'Video nel canale', 'Video migliore', 'Views video migliore', 'Motivo', 'Link canale'))[:600])
+
+# 11 nov: video dei canali scelti per i nuovi filoni (link da copiare)
+_scelti = [x.strip().lower() for x in os.environ.get('CANALI_VIDEO', 'IntoTheGreen,Untamed Atlas,Mutnan Explains,Rules of the Land,Genius Chronicle,Two Sides').split(',')]
+for n, (h, rr) in tab.items():
+    if 'Video trovati' in n:
+        vis = set()
+        print('\n=== VIDEO DEI CANALI SCELTI')
+        for r in sorted(rr, key=lambda r: -float(str(r.get('views') or 0).replace(',', '.') or 0)):
+            if str(r.get('canale') or '').strip().lower() in _scelti and r.get('video_id') not in vis:
+                vis.add(r.get('video_id'))
+                print(r.get('canale'), '|', r.get('views'), '|', r.get('durata_min'), 'min |', r.get('titolo'), '|', r.get('link'))
