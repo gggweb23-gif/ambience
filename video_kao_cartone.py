@@ -223,15 +223,15 @@ def nuvoletta(fr, testo, t, dx_lato, centro=False, posto=None):
     s = ease(t / .22) * (1.0 if t > .22 else 1.08)
     if s <= .05:
         return
-    testo = testo.upper()
-    size = 110
+    testo = testo.upper(); S = W / 1920   # 12 nov: il cartone si disegna a 2560x1440: misure in proporzione
+    size = int(110 * S)
     f = ImageFont.truetype(F_NUV, size)
-    while f.getlength(testo) > W * .38 and size > 50:
+    while f.getlength(testo) > W * .38 and size > 50 * S:
         size -= 6; f = ImageFont.truetype(F_NUV, size)
     tw = int(f.getlength(testo)); th = size
-    card = Image.new('RGBA', (tw + 90, th + 80), (0, 0, 0, 0)); d = ImageDraw.Draw(card)
-    d.rounded_rectangle((6, 6, card.width - 6, card.height - 6), 36, fill=BIANCO, outline=NERO, width=7)
-    d.text((45, 46), testo, font=f, fill=MAGENTA)
+    card = Image.new('RGBA', (tw + int(90 * S), th + int(80 * S)), (0, 0, 0, 0)); d = ImageDraw.Draw(card)
+    d.rounded_rectangle((6, 6, card.width - 6, card.height - 6), int(36 * S), fill=BIANCO, outline=NERO, width=int(7 * S))
+    d.text((int(45 * S), int(46 * S)), testo, font=f, fill=MAGENTA)
     rot = 3 if dx_lato else -3
     card = card.rotate(rot, expand=True, resample=Image.BICUBIC)
     card = card.resize((max(1, int(card.width * s)), max(1, int(card.height * s))), Image.BILINEAR)
@@ -348,7 +348,7 @@ def copione_illustrato():
     if SEC_IMG:
         return copione_unico(f, parole)
     prompt = f"""Sei l'autore e il regista del canale YouTube italiano KAO PSICOLOGIA: psicologia spiegata in modo semplice, caldo e diretto, dando del tu.
-Il video e' un CARTONE ANIMATO di qualita' cinematografica con protagonista KAO (omino calvo, maglia magenta) che VIVE la situazione di cui si parla.
+Il video e' un CARTONE ANIMATO di qualita' cinematografica con protagonista KAO (omino calvo, maglia magenta a maniche lunghe e pantaloni neri, SEMPRE uguale: mai giacche, cappotti, cappelli o costumi, mai trasformato in robot o altro) che VIVE la situazione di cui si parla.
 Tema: "{TEMA}". Lunghezza: circa {parole} parole di parlato in italiano ({MINUTI:g} minuti).
 COPIONE: parti SUBITO con un gancio forte (la cosa piu' sorprendente prima), racconta il problema con una piccola storia di vita quotidiana italiana
 che si sviluppa (KAO al lavoro, a casa, con gli amici...), spiega cosa succede dentro di noi, dai punti di vista utili, senza giudizi assoluti e senza elenchi di dati.{' A meta video una domanda che invita a rispondere nei commenti.' if MINUTI >= 3 else ''}
@@ -381,7 +381,7 @@ def copione_unico(f, parole):
     """Ogni scena ha le SUE immagini, tutte diverse (circa una ogni SEC_IMG secondi di voce = una ogni ~10 parole)."""
     per_img = max(6, int(SEC_IMG * 2.5))
     prompt = f"""Sei l'autore e il regista del canale YouTube italiano KAO PSICOLOGIA: psicologia spiegata in modo semplice, caldo e diretto, dando del tu.
-Il video e' un CARTONE ANIMATO di qualita' cinematografica con protagonista KAO (omino calvo, maglia magenta) che VIVE la situazione di cui si parla.
+Il video e' un CARTONE ANIMATO di qualita' cinematografica con protagonista KAO (omino calvo, maglia magenta a maniche lunghe e pantaloni neri, SEMPRE uguale: mai giacche, cappotti, cappelli o costumi, mai trasformato in robot o altro) che VIVE la situazione di cui si parla.
 Tema: "{TEMA}". Lunghezza: circa {parole} parole di parlato in italiano ({MINUTI:g} minuti).
 COPIONE: parti SUBITO con un gancio forte (la cosa piu' sorprendente prima), racconta il problema con una piccola storia di vita quotidiana italiana
 che si sviluppa (KAO al lavoro, a casa, con gli amici...), spiega cosa succede dentro di noi, dai punti di vista utili, senza giudizi assoluti e senza elenchi di dati.{' A meta video una domanda che invita a rispondere nei commenti.' if MINUTI >= 3 else ''}
@@ -451,7 +451,7 @@ def caselle(f):
         'model': 'claude-haiku-4-5-20251001', 'max_tokens': 200, 'messages': [{'role': 'user', 'content': [
             {'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}},
             {'type': 'text', 'text': 'Image 960x540. Give the bounding box (pixels) of the bald man in the magenta shirt (head and upper body) and of the most '
-                                     'important OTHER person or object. Also check: ok = true only if the bald man wears a MAGENTA shirt and NOBODY else wears magenta, pink or purple. '
+                                     'important OTHER person or object. Also check: ok = true only if the bald man wears ONLY his MAGENTA long-sleeve shirt and black trousers (NO jacket, coat, hoodie, hat, costume, NOT a robot or other creature), he is the ONLY bald round-headed character (no copies of him) and NOBODY else wears magenta, pink or purple. '
                                      'scritte = true if the image contains ANY written words, letters, captions or fake text (signs, posters, screens, paper included). '
                                      'Answer ONLY {"kao": [x1,y1,x2,y2], "altro": [x1,y1,x2,y2], "ok": true|false, "scritte": true|false}.'}]}]}).encode(),
         headers={'x-api-key': E('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01', 'content-type': 'application/json'})
@@ -529,7 +529,7 @@ def quadri(c):
             extra += ' The place is EXACTLY the same room/street as in the last reference image (same furniture, colours and layout), seen from a slightly different angle.'
         prompt = ('Flat 2D cartoon illustration, high quality animated film still, in exactly the drawing style of the first reference image: thick clean black '
                   'outlines, flat colours, simple rounded shapes. The main character is EXACTLY the man of the first reference image: bald round head, peach skin, '
-                  'small black oval eyes, thin eyebrows, magenta long-sleeve shirt, black trousers, black shoes - same face and proportions, never change his clothes. '
+                  'small black oval eyes, thin eyebrows, magenta long-sleeve shirt, black trousers, black shoes - same face and proportions, never change his clothes: NO jacket, coat, hoodie, hat or costume over the magenta shirt, never a robot or another creature. He is the ONLY bald character: every other person has hair and a different face. '
                   f"Scene: {q['azione']}. Setting: {q['luogo']}.{extra} The main character is on the {lato} third of the frame, big and clearly visible "
                   '(at least half of the image height), his face and expression very readable. He is the ONLY person wearing magenta or pink: every other person wears completely different colours (grey, blue, green, white, brown). Rich, detailed, realistic Italian everyday environment, warm soft '
                   'cinematic light, 16:9 composition with depth. No text, no letters, no numbers, no speech bubbles, no logos.')
@@ -597,7 +597,7 @@ def ritaglio(q, taglio):
 
 def posto_nuvoletta(occ, testo, lato_kao=''):
     """Il posto per la nuvoletta che non tocca nessuna persona (soprattutto la testa); tra quelli liberi il piu' in alto."""
-    lw = min(W * .42, 60 * len(testo) + 120); lh = 200
+    S = W / 1920; lw = min(W * .42, (60 * len(testo) + 120) * S); lh = 200 * S
     cand = [(W * .25, H * .17), (W * .75, H * .17), (W * .5, H * .12), (W * .22, H * .42), (W * .78, H * .42), (W * .5, H * .62)]
     def sovrapp(c):
         x1, y1, x2, y2 = c[0] - lw / 2, c[1] - lh / 2, c[0] + lw / 2, c[1] + lh / 2
@@ -763,7 +763,8 @@ def base_cartone(testi, durate, titolo, cartella, budget=3.10):
     fatti dal motore) diventa un cartone: un'illustrazione NUOVA ogni ~4 s (mai ripetuta), zoom lento avanti/indietro, nuvolette.
     Restituisce il video muto 1920x1080 (sottotitoli, iscrizione, musica e audio li mette render_kao.py come sempre).
     budget = colonna cartone_budget_video ($): se le immagini non ci stanno, si allunga il tempo di ogni immagine (mai oltre il budget)."""
-    global CART, SENZA_SOTTOTITOLI, TEMA
+    global CART, SENZA_SOTTOTITOLI, TEMA, W, H
+    W, H = 2560, 1440   # 12 nov (Giorgio: massima nitidezza): il cartone si disegna gia' a 1440p, niente passaggio a 1920 e reingrandimento
     CART = cartella; os.makedirs(CART, exist_ok=True); SENZA_SOTTOTITOLI = True; TEMA = titolo or TEMA
     totale = sum(durate)
     sec = SEC_IMG
@@ -785,7 +786,7 @@ def base_cartone(testi, durate, titolo, cartella, budget=3.10):
     def _chiedi(idx, storia):
         elenco = [{'i': i, 'testo': testi[i], 'immagini': n_img[i]} for i in idx]
         prompt = f"""Sei il regista del canale YouTube italiano KAO PSICOLOGIA. Il video "{titolo}" diventa un CARTONE ANIMATO di qualita' cinematografica
-con protagonista KAO (omino calvo, maglia magenta) che VIVE la situazione di cui parla la voce, in una storia di vita quotidiana italiana coerente dall'inizio alla fine.
+con protagonista KAO (omino calvo, maglia magenta a maniche lunghe e pantaloni neri, SEMPRE uguale: mai giacche, cappotti, cappelli o costumi, mai trasformato in robot o altro) che VIVE la situazione di cui parla la voce, in una storia di vita quotidiana italiana coerente dall'inizio alla fine.
 {storia}
 Per OGNI scena qui sotto (parlato gia' scritto) disegna ESATTAMENTE il numero di immagini indicato. TUTTE le immagini del video sono DIVERSE tra loro
 (mai la stessa immagine, nemmeno con un'altra inquadratura): ognuna mostra QUELLO CHE LA VOCE DICE in quel momento, con KAO che fa un'azione chiara con

@@ -601,8 +601,12 @@ def componi(base, audio, ass, isc, totale, cartella, out):
             sec = num(isc.get('sec'), 10.0)
             png = scarica(img, os.path.join(cartella, 'iscriviti.png'))
             ins += ['-loop', '1', '-t', f'{totale:.3f}', '-i', png]
-            fl += (f";[{k}:v]scale=900:-1,format=rgba,fade=t=in:st={sec}:d=0.3:alpha=1,fade=t=out:st={sec + 3.6}:d=0.4:alpha=1[isc];"
-                   f"[v0][isc]overlay=x=(W-w)/2:y=640:enable='between(t,{sec},{sec + 4})'[v1]")
+            try:   # 12 nov: il cartone arriva gia' a 2560x1440: l'invito si ingrandisce in proporzione
+                kk = int(subprocess.check_output(['ffprobe', '-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width', '-of', 'csv=p=0', base]).decode().strip()) / 1920
+            except Exception:
+                kk = 1.0
+            fl += (f";[{k}:v]scale={int(900 * kk)}:-1,format=rgba,fade=t=in:st={sec}:d=0.3:alpha=1,fade=t=out:st={sec + 3.6}:d=0.4:alpha=1[isc];"
+                   f"[v0][isc]overlay=x=(W-w)/2:y={int(640 * kk)}:enable='between(t,{sec},{sec + 4})'[v1]")
             vmap = '[v1]'; k += 1
             suoni = []
             clic = num(isc.get('clic_ritardo'), 0.6)
@@ -621,7 +625,7 @@ def componi(base, audio, ass, isc, totale, cartella, out):
         except Exception as e:
             log('invito iscrizione saltato:', str(e)[:120])
     run(['ffmpeg', '-y', '-v', 'error'] + ins + ['-filter_complex', fl, '-map', vmap, '-map', amap,
-         '-c:v', 'libx264', '-preset', 'fast', '-crf', '18', '-s', '2560x1440', '-sws_flags', 'lanczos', '-pix_fmt', 'yuv420p', '-r', str(FPS),
+         '-c:v', 'libx264', '-preset', 'fast', '-crf', '16', '-s', '2560x1440', '-sws_flags', 'lanczos', '-pix_fmt', 'yuv420p', '-r', str(FPS),
          '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', '-t', f'{totale:.3f}', out])
 
 
