@@ -170,7 +170,7 @@ def canale(cfg):
     PRIO = [x.strip().lower() for x in str(cfg.get('scout_priorita') or '').split(',') if x.strip()]   # 11 nov (Giorgio): temi con nomi famosi prima
     prio = lambda v: 1 if any(k in v['titolo'].lower() for k in PRIO) else 0
     cand.sort(key=lambda v: (prio(v), v.get('volte', 0), v['views']) if ESPLOSI else (prio(v), v['views']), reverse=True)
-    cand = cand[:200]
+    cand = cand[:200 if ESPLOSI else 120]   # 12 nov: 200 titoli costavano 0,034 $ (oltre 0,03 di budget): con i piu' visti bastano i primi 120
     if not cand:
         log('  nessun video nuovo'); return
     fatti_nomi = [str(r.get('paese')).strip() for r in prod if str(r.get('paese') or '').strip()]
