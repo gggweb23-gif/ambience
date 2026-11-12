@@ -1,289 +1,184 @@
 {
- "titolo": "Quanto rende davvero un autolavaggio?",
+ "titolo": "Quanto guadagna una gelateria d'inverno?",
  "protagonista": {
-  "nome": "Davide",
-  "capelli": "short",
-  "colore_capelli": "#3b2a1a",
+  "nome": "Luca",
+  "capelli": "curly",
+  "colore_capelli": "#3b2a1e",
   "pelle": "media",
-  "maglia": "#1e6fd9",
-  "grembiule": "",
+  "maglia": "#4aa3c7",
+  "grembiule": "#f4efe6",
   "occhiali": false
  },
- "oggetto": "auto",
+ "oggetto": "gelato",
  "copertina": {
   "righe": [
-   "AUTOLAVAGGIO",
-   "TUTTI I GIORNI",
-   "MA IN ROSSO?"
+   "GELATERIA",
+   "D'INVERNO:",
+   "QUANTO RESTA?"
   ],
-  "emozione": "stupito",
-  "oggetto": "auto",
-  "prezzo": "12 €",
+  "emozione": "preoccupato",
+  "oggetto": "gelato",
+  "prezzo": "2,50 €",
   "fondo": "scuro"
  },
  "copertina_ai": {
-  "valore_sx": "2,40 €",
-  "valore_dx": "12 €",
-  "oggetto_sx": "a small heap of car wash supplies: a bucket, a sponge, a bottle of shampoo and a water drop",
-  "oggetto_dx": "a shiny clean blue car with sparkles at a self-service car wash bay",
+  "valore_sx": "0,70 €",
+  "valore_dx": "2,50 €",
+  "oggetto_sx": "a small heap of gelato ingredients: milk carton, sugar bag, hazelnuts",
+  "oggetto_dx": "a big colorful ice cream cone with two scoops",
   "domanda": [
-   "LO FAI 14 VOLTE",
-   "E NON BASTA?"
+   "E ALLORA PERCHÉ",
+   "A GENNAIO PERDE?"
   ]
  },
- "descrizione": "Davide ha aperto un autolavaggio self-service: file di auto, soldi in cassa, eppure a fine mese i conti non tornano come pensava. Scopri quanto costa davvero partire, come si ammortizzano le macchine e perché la pioggia può decidere il tuo stipendio. Con i numeri passo passo e la formula del pareggio da rifare sulla tua attività.",
+ "descrizione": "Luca ha una gelateria che ad agosto sembra una miniera d'oro. Poi arriva gennaio, e i conti cambiano. Scopri quanto resta davvero, perché i costi fissi non vanno in vacanza e come mettere da parte la cassa d'estate per non andare sotto d'inverno. Numeri semplici, storia a cartoni, una lezione utile per ogni attività stagionale.",
  "tag": [
-  "autolavaggio",
-  "quanto rende un autolavaggio",
-  "aprire un autolavaggio",
-  "ammortamento",
-  "punto di pareggio",
-  "investimento iniziale",
-  "costi fissi",
-  "margine",
+  "gelateria",
   "stagionalità",
-  "meteo e attività",
+  "costi fissi",
+  "punto di pareggio",
+  "margine",
   "aprire un'attività",
-  "self service",
-  "business plan",
+  "gestione cassa",
+  "commercianti",
   "economia pratica",
+  "gelato artigianale",
+  "bilancio",
+  "risparmio",
+  "partita iva",
   "piccola impresa",
-  "commercianti"
+  "conti attività"
  ],
  "scene": [
   {
-   "testo": "Ottantamila euro di investimento e una domanda che non fa dormire: se piove tre settimane di fila, chi paga il mutuo? Davide l'ha scoperto sulla sua pelle. E oggi lo scopri anche tu, con i numeri veri.",
+   "testo": "Luca vende tremila gelati al mese in estate e a gennaio ne vende quattrocento. Gli affitti, però, restano uguali. Sai quanto perde una gelateria nei mesi freddi? Quasi sempre, più di quanto pensi.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "domanda",
      "p": {
-      "testo": "E se piove tre settimane?",
+      "testo": "Quanto perde a gennaio?",
       "emozione": "preoccupato",
       "scuro": true
      }
     },
     {
-     "parola": "Davide",
-     "tipo": "luogo",
+     "parola": "gennaio",
+     "tipo": "mesi",
      "p": {
-      "luogo": "autolavaggio",
-      "insegna": "Autolavaggio Davide",
-      "azione": "preoccupato",
-      "clienti": 0,
-      "testo": "Cielo grigio"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Lui è Davide. Trentacinque anni, ex dipendente in un'officina. Un giorno si dice: apro un autolavaggio self-service. Niente dipendenti, aperto sempre, i soldi entrano da soli. Bello, no? Vediamo se è vero.",
-   "capitolo": "La storia di Davide",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "autolavaggio",
-      "insegna": "Autolavaggio Davide",
-      "azione": "felice",
-      "clienti": 2,
-      "testo": "Il sogno"
+      "titolo": "Gelati venduti al mese",
+      "valori": [
+       400,
+       450,
+       800,
+       1500,
+       2400,
+       3000,
+       3200,
+       3000,
+       2000,
+       1000,
+       500,
+       450
+      ],
+      "evidenzia": [
+       1,
+       12
+      ],
+      "nota": "Estate piena, inverno vuoto"
      }
     },
     {
-     "parola": "Niente",
-     "tipo": "lista",
+     "parola": "Gli",
+     "tipo": "costi",
      "p": {
-      "titolo": "Cosa promette",
       "voci": [
-       "Niente dipendenti",
-       "Aperto sempre",
-       "Incassi automatici",
-       "Poco lavoro"
-      ]
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Ma prima di incassare un euro, bisogna spenderne tanti. Il primo concetto di oggi è l'investimento iniziale: tutto quello che paghi prima di lavare la prima auto. E di solito è più alto di quanto immagini.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Quanto costa partire?",
-      "emozione": "stupito",
-      "scuro": false
-     }
-    },
-    {
-     "parola": "investimento",
-     "tipo": "lista",
-     "p": {
-      "titolo": "Prima del primo cliente",
-      "voci": [
-       "Terreno e permessi",
-       "Macchinari",
-       "Opere e impianti",
-       "Insegna e cassa"
-      ]
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Ecco il conto di Davide. Quattro box di lavaggio con le lance: trentaduemila euro. Impianto idrico e scarichi con depuratore: ventiquattromila euro. Platea, tettoia e allacci: quindicimila. Insegna, cassa automatica e imprevisti: nove mila.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "fette",
-     "p": {
-      "titolo": "Investimento iniziale",
-      "totale": 80,
-      "totale_testo": "80.000 €",
-      "fette": [
        {
-        "nome": "Quattro box",
-        "valore": 32,
-        "testo": "32.000 €"
+        "nome": "Affitto",
+        "valore": 1500,
+        "testo": "1.500 €"
        },
        {
-        "nome": "Impianto idrico",
-        "valore": 24,
-        "testo": "24.000 €"
-       },
-       {
-        "nome": "Platea e tettoia",
-        "valore": 15,
-        "testo": "15.000 €"
-       },
-       {
-        "nome": "Insegna e imprevisti",
-        "valore": 9,
-        "testo": "9.000 €"
+        "nome": "Dipendente",
+        "valore": 1200,
+        "testo": "1.200 €"
        }
       ],
-      "evidenzia": 0
-     }
-    },
-    {
-     "parola": "Impianto",
-     "tipo": "soldi",
-     "p": {
-      "centro": "80.000 €",
-      "destinazioni": [
-       "Macchinari",
-       "Impianto",
-       "Lavori",
-       "Insegna"
-      ]
+      "totale": 2700,
+      "periodo": "al mese"
      }
     }
    ]
   },
   {
-   "testo": "Sommiamo: trentaduemila più ventiquattromila fa cinquantasei. Più quindicimila fa settantuno. Più novemila fa ottantamila euro. Davide ne ha quarantamila suoi e quarantamila li chiede in prestito alla banca.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Il totale",
-      "a": "71.000 €",
-      "op": "+",
-      "b": "9.000 €",
-      "risultato": "80.000 €",
-      "nota": "32 + 24 + 15 + 9"
-     }
-    },
-    {
-     "parola": "banca",
-     "tipo": "bilancia",
-     "p": {
-      "titolo": "Come li copre",
-      "sinistra": "Suoi 40.000 €",
-      "destra": "Prestito 40.000 €",
-      "pende": "destra"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Primo errore da evitare: guardare solo il prezzo delle macchine. Un ristoratore che apre una pizzeria pensa al forno, ma poi servono cappa, canna fumaria, a norma, e la cifra sale del trenta per cento. Metti sempre un cuscinetto per gli imprevisti.",
-   "capitolo": "Errori sull'investimento",
+   "testo": "Lui è Luca. Ha una gelateria in una cittadina di mare. D'estate la fila arriva fino al marciapiede. D'inverno, invece, entra qualcuno ogni tanto, giusto per un caffè e due chiacchiere.",
+   "capitolo": "La storia di Luca",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "luogo",
      "p": {
-      "luogo": "pizzeria",
-      "insegna": "Pizzeria Da Gino",
-      "azione": "stupito",
-      "clienti": 1,
-      "testo": "Cappa e canna fumaria"
+      "luogo": "gelateria",
+      "insegna": "Gelateria da Luca",
+      "azione": "festa",
+      "clienti": 5,
+      "testo": "Luglio"
      }
     },
     {
-     "parola": "cuscinetto",
-     "tipo": "lista",
+     "parola": "D'inverno",
+     "tipo": "luogo",
      "p": {
-      "titolo": "Cuscinetto imprevisti",
-      "voci": [
-       "Allacci in ritardo",
-       "Permessi extra",
-       "Macchina difettosa",
-       "Almeno dieci per cento"
-      ]
+      "luogo": "gelateria",
+      "insegna": "Gelateria da Luca",
+      "azione": "preoccupato",
+      "clienti": 0,
+      "testo": "Gennaio"
      }
     }
    ]
   },
   {
-   "testo": "Ora veniamo al prezzo. Davide mette un lavaggio completo a dodici euro: schiuma, risciacquo e cera. Costa a lui due euro e quaranta tra acqua, elettricità, shampoo e cera. Gli restano nove euro e sessanta di margine per ogni lavaggio.",
+   "testo": "Partiamo dal prezzo. Una coppetta da due palline costa due euro e cinquanta. Sembra tanto, ma non è tutto per lui. Vediamo dove vanno a finire quei soldi, centesimo dopo centesimo.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "prezzo",
      "p": {
-      "oggetto": "auto",
-      "prezzo": "12 €",
-      "nota": "Lavaggio completo"
+      "oggetto": "gelato",
+      "prezzo": "2,50 €",
+      "nota": "Coppetta due palline"
      }
     },
     {
-     "parola": "Costa",
+     "parola": "Vediamo",
      "tipo": "fette",
      "p": {
-      "titolo": "Dove vanno i dodici euro",
-      "totale": 12,
-      "totale_testo": "12 €",
+      "titolo": "Dove vanno i 2,50 €",
+      "totale": 2.5,
+      "totale_testo": "2,50 €",
       "fette": [
        {
-        "nome": "Acqua",
-        "valore": 0.8,
-        "testo": "0,80 €"
+        "nome": "Latte e ingredienti",
+        "valore": 0.55,
+        "testo": "0,55 €"
        },
        {
-        "nome": "Elettricità",
-        "valore": 0.7,
-        "testo": "0,70 €"
+        "nome": "Coppetta e cucchiaino",
+        "valore": 0.15,
+        "testo": "0,15 €"
        },
        {
-        "nome": "Shampoo e cera",
-        "valore": 0.9,
-        "testo": "0,90 €"
+        "nome": "IVA",
+        "valore": 0.23,
+        "testo": "0,23 €"
        },
        {
-        "nome": "Margine",
-        "valore": 9.6,
-        "testo": "9,60 €"
+        "nome": "Margine lordo",
+        "valore": 1.57,
+        "testo": "1,57 €"
        }
       ],
       "evidenzia": 3
@@ -292,546 +187,443 @@
    ]
   },
   {
-   "testo": "Controlliamo: ottanta più settanta più novanta centesimi fa due euro e quaranta. Dodici meno due e quaranta fa nove e sessanta. Il margine è l'ottanta per cento del prezzo! Wow. Ma attenzione: è solo il margine sul singolo lavaggio.",
+   "testo": "Quindi: su ogni coppetta, due euro e cinquanta meno cinquantacinque centesimi di ingredienti, meno quindici di coppetta, meno ventitré di IVA. Restano un euro e cinquantasette. Questo è il margine, non il guadagno.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "formula",
      "p": {
-      "titolo": "Margine per lavaggio",
-      "a": "12 €",
+      "titolo": "Margine per coppetta",
+      "a": "2,50 €",
       "op": "−",
-      "b": "2,40 €",
-      "risultato": "9,60 €",
-      "nota": "L'ottanta per cento del prezzo"
+      "b": "0,93 €",
+      "risultato": "1,57 €",
+      "nota": "Ingredienti, coppetta, IVA"
      }
     },
     {
-     "parola": "attenzione",
+     "parola": "Questo",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "gelato",
+      "testo": "MARGINE, NON UTILE",
+      "colore": "verde",
+      "nota": "Mancano ancora i costi fissi"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Attenzione: margine e guadagno sono due cose diverse. Il margine è quello che resta su ogni gelato. Il guadagno è quello che resta a fine mese, dopo aver pagato tutto il resto. Spesso si confondono. E poi arriva il conto.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "bilancia",
+     "p": {
+      "titolo": "Margine contro guadagno",
+      "sinistra": "Margine per gelato",
+      "destra": "Utile a fine mese",
+      "pende": "sinistra"
+     }
+    },
+    {
+     "parola": "E",
      "tipo": "domanda",
      "p": {
-      "testo": "Ma i costi fissi?",
-      "emozione": "preoccupato",
+      "testo": "Ti resta davvero?",
+      "emozione": "stupito",
       "scuro": false
      }
     }
    ]
   },
   {
-   "testo": "Perché ci sono i costi fissi: quelli che paghi anche se non entra nessuno. Davide ne ha cinque. Rata del prestito, affitto del terreno, assicurazione, utenze minime e manutenzione. Vediamoli uno per uno, senza sconti.",
-   "capitolo": "I costi fissi",
+   "testo": "Ora i costi fissi. Sono quelli che paghi anche se non vendi nemmeno un gelato. Luca paga millecinquecento euro di affitto, milleduecento per la ragazza che lo aiuta, trecento di luce e gas e duecento di altre spese.",
+   "capitolo": "I costi fissi non vanno in vacanza",
    "inquadrature": [
     {
      "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "gelateria",
+      "insegna": "Gelateria da Luca",
+      "azione": "preoccupato",
+      "clienti": 0,
+      "testo": "Costi fissi"
+     }
+    },
+    {
+     "parola": "Luca",
      "tipo": "costi",
      "p": {
       "voci": [
        {
-        "nome": "Rata prestito",
-        "valore": 700,
-        "testo": "700 €"
+        "nome": "Affitto",
+        "valore": 1500,
+        "testo": "1.500 €"
        },
        {
-        "nome": "Affitto terreno",
-        "valore": 900,
-        "testo": "900 €"
+        "nome": "Dipendente",
+        "valore": 1200,
+        "testo": "1.200 €"
        },
        {
-        "nome": "Assicurazione",
-        "valore": 150,
-        "testo": "150 €"
+        "nome": "Luce e gas",
+        "valore": 300,
+        "testo": "300 €"
        },
        {
-        "nome": "Utenze fisse",
-        "valore": 250,
-        "testo": "250 €"
-       },
-       {
-        "nome": "Manutenzione",
-        "valore": 600,
-        "testo": "600 €"
+        "nome": "Altre spese",
+        "valore": 200,
+        "testo": "200 €"
        }
       ],
-      "totale": 2600,
+      "totale": 3200,
       "periodo": "al mese"
-     }
-    },
-    {
-     "parola": "Rata",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "autolavaggio",
-      "insegna": "Autolavaggio Davide",
-      "azione": "preoccupato",
-      "clienti": 0,
-      "testo": "Si paga sempre"
      }
     }
    ]
   },
   {
-   "testo": "Sommiamo: settecento più novecento fa milleseicento. Più centocinquanta fa millesettecentocinquanta. Più duecentocinquanta fa duemila. Più seicento fa duemilaseicento euro al mese. Anche se piove, anche ad agosto, anche col cartello chiuso.",
+   "testo": "Sommiamo: millecinquecento più milleduecento fa duemilasettecento. Più trecento fa tremila. Più duecento fa tremiladuecento. Tremiladuecento euro al mese, a gennaio come ad agosto. Il freddo non ti fa lo sconto.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "formula",
+     "tipo": "soldi",
      "p": {
-      "titolo": "Costi fissi del mese",
-      "a": "2.000 €",
-      "op": "+",
-      "b": "600 €",
-      "risultato": "2.600 €",
-      "nota": "700 + 900 + 150 + 250 = 2.000"
+      "centro": "3.200 €",
+      "destinazioni": [
+       "Proprietario",
+       "Dipendente",
+       "Energia",
+       "Altro"
+      ]
      }
     },
     {
-     "parola": "Anche",
+     "parola": "Il",
      "tipo": "calendario",
      "p": {
-      "titolo": "Si paga ogni mese",
-      "giorni": 30,
-      "testo": "Trenta giorni di costi"
+      "titolo": "Giorni da pagare",
+      "giorni": 31,
+      "testo": "Anche gennaio"
      }
     }
    ]
   },
   {
-   "testo": "Adesso la domanda chiave: quanti lavaggi servono per non andare in perdita? Si chiama punto di pareggio. Costi fissi diviso margine per lavaggio. Duemilaseicento diviso nove euro e sessanta. Fai il conto con me.",
-   "capitolo": "Il punto di pareggio",
+   "testo": "Ti sei mai chiesto quanti gelati servono per pareggiare? Dividi i costi fissi per il margine. Tremiladuecento diviso un euro e cinquantasette fa duemilaquaranta coppette al mese, più o meno.",
+   "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Quanti lavaggi servono?",
-      "emozione": "calmo",
-      "scuro": false
-     }
-    },
-    {
-     "parola": "Duemilaseicento",
      "tipo": "formula",
      "p": {
       "titolo": "Punto di pareggio",
-      "a": "2.600 €",
+      "a": "3.200 €",
       "op": "÷",
-      "b": "9,60 €",
-      "risultato": "271 lavaggi",
-      "nota": "Arrotondato per eccesso"
+      "b": "1,57 €",
+      "risultato": "2.038 coppette",
+      "nota": "Arrotondiamo a duemilaquaranta"
      }
-    }
-   ]
-  },
-  {
-   "testo": "Duemilaseicento diviso nove e sessanta fa duecentosettanta virgola otto. Arrotondiamo: duecentosettantuno lavaggi al mese. Diviso trenta giorni, fa nove lavaggi al giorno. Sotto quella soglia perdi, sopra guadagni.",
-   "capitolo": "",
-   "inquadrature": [
+    },
     {
-     "parola": "",
+     "parola": "Dividi",
      "tipo": "pareggio",
      "p": {
-      "titolo": "Pareggio mensile",
-      "fissi": 2600,
-      "margine": 9.6,
-      "unita": "lavaggi al mese",
-      "oggetto": "auto",
+      "titolo": "Pareggio della gelateria",
+      "fissi": 3200,
+      "margine": 1.57,
+      "unita": "coppette vendute",
+      "oggetto": "gelato",
       "perdita": true,
-      "guadagno": true
-     }
-    },
-    {
-     "parola": "Diviso",
-     "tipo": "conteggio",
-     "p": {
-      "oggetto": "auto",
-      "icone": 9,
-      "testo": "9 al giorno"
+      "guadagno": false
      }
     }
    ]
   },
   {
-   "testo": "Nove auto al giorno, direte voi: facilissimo! E qui c'è la trappola. Davide ne ha quattro box e un'apertura di dodici ore. Quindi la capacità è enorme, ma i clienti arrivano a ondate, non spalmati. E il sabato mattina fa la fila.",
+   "testo": "Duemilaquaranta coppette al mese sono circa sessantotto al giorno. D'estate Luca ne serve cento ogni giorno e supera il pareggio senza fatica. A gennaio ne vende tredici. Tredici contro sessantotto: il buco è enorme.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "persone",
+     "tipo": "conteggio",
      "p": {
-      "n": 8,
-      "azione": "fila",
-      "escono": 0,
-      "testo": "Sabato mattina"
+      "oggetto": "gelato",
+      "icone": 13,
+      "testo": "13 al giorno"
      }
     },
     {
-     "parola": "ondate",
+     "parola": "Tredici",
+     "tipo": "persone",
+     "p": {
+      "n": 4,
+      "azione": "escono",
+      "escono": 3,
+      "testo": "Pochi entrano, tanti passano"
+     }
+    },
+    {
+     "parola": "buco",
      "tipo": "orologio",
      "p": {
       "ore": 12,
-      "piene": 3,
-      "testo": "Solo tre ore piene"
+      "piene": 2,
+      "testo": "Ore con clienti"
      }
     }
    ]
   },
   {
-   "testo": "Prima conclusione: il pareggio non è una media, è una soglia. Se un negozio di scarpe deve vendere dieci paia al giorno e ne vende venti solo il sabato, il conto del mese può non tornare comunque. Controlla come si distribuiscono le vendite.",
+   "testo": "Facciamo il conto di gennaio. Quattrocento coppette per un euro e cinquantasette fanno seicentoventotto euro di margine. Togli tremiladuecento di costi fissi: restano meno duemilacinquecentosettantadue. Luca perde quasi duemilaseicento euro.",
+   "capitolo": "Il conto di gennaio",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Margine di gennaio",
+      "a": "400",
+      "op": "×",
+      "b": "1,57 €",
+      "risultato": "628 €",
+      "nota": "Coppette per margine"
+     }
+    },
+    {
+     "parola": "Togli",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Risultato di gennaio",
+      "a": "628 €",
+      "op": "−",
+      "b": "3.200 €",
+      "risultato": "−2.572 €",
+      "nota": "Perdita del mese"
+     }
+    },
+    {
+     "parola": "Luca",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "gelato",
+      "testo": "PERDITA",
+      "colore": "rosso",
+      "nota": "Meno duemilacinquecentosettantadue euro"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ora guarda luglio. Tremila coppette per un euro e cinquantasette fanno quattromilasettecentodieci euro di margine. Togli tremiladuecento: restano millecinquecentodieci euro. Sembra poco per un mese in cui sei sempre in piedi.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "luogo",
+     "tipo": "formula",
      "p": {
-      "luogo": "negozio di scarpe",
-      "insegna": "Scarpe & Co",
-      "azione": "stupito",
-      "clienti": 4,
-      "testo": "Tutti il sabato"
+      "titolo": "Margine di luglio",
+      "a": "3.000",
+      "op": "×",
+      "b": "1,57 €",
+      "risultato": "4.710 €",
+      "nota": "Coppette per margine"
      }
     },
     {
-     "parola": "soglia",
-     "tipo": "cruscotto",
+     "parola": "Togli",
+     "tipo": "formula",
      "p": {
-      "titolo": "Da guardare",
+      "titolo": "Utile di luglio",
+      "a": "4.710 €",
+      "op": "−",
+      "b": "3.200 €",
+      "risultato": "1.510 €",
+      "nota": "Utile del mese"
+     }
+    },
+    {
+     "parola": "Sembra",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "gelateria",
+      "insegna": "Gelateria da Luca",
+      "azione": "lavora",
+      "clienti": 5,
+      "testo": "Luglio"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Lo so, i numeri di Luca sono semplificati: in estate vende anche coni più grandi, torte, granite. Ma il ragionamento resta lo stesso. L'estate paga i costi fissi e lascia un po' di margine. L'inverno li ripresenta, senza clienti.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "andamento",
+     "p": {
+      "titolo": "Utile mese per mese (€)",
+      "valori": [
+       -2572,
+       -2400,
+       -1500,
+       -300,
+       800,
+       1510,
+       1900,
+       1510,
+       400,
+       -900,
+       -2200,
+       -2400
+      ],
+      "etichette": [
+       "Gen",
+       "Feb",
+       "Mar",
+       "Apr",
+       "Mag",
+       "Giu",
+       "Lug",
+       "Ago",
+       "Set",
+       "Ott",
+       "Nov",
+       "Dic"
+      ],
+      "colore": "rosso"
+     }
+    },
+    {
+     "parola": "Ma",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Cosa non guardare",
       "voci": [
-       {
-        "nome": "Lavaggi al giorno",
-        "valore": 0.6
-       },
-       {
-        "nome": "Ore piene",
-        "valore": 0.3
-       },
-       {
-        "nome": "Margine",
-        "valore": 0.8
-       }
+       "Solo la fila di luglio",
+       "Solo lo scontrino medio",
+       "Il fatturato senza i costi",
+       "Un mese da solo"
       ]
      }
     }
    ]
   },
   {
-   "testo": "Ora il secondo concetto: l'ammortamento. Le macchine di Davide non durano per sempre. Un impianto da trentaduemila euro dura circa otto anni. Dopo, va sostituito. Quel costo non lo vedi nel conto della banca, ma esiste eccome.",
-   "capitolo": "L'ammortamento",
+   "testo": "Qui sta l'errore più comune: guardare solo il mese migliore. A luglio ti senti ricco. Ma un'attività stagionale si valuta su dodici mesi, non su uno. Devi sommare i mesi belli e i mesi brutti, e vedere cosa resta alla fine.",
+   "capitolo": "Guardare tutto l'anno",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "domanda",
      "p": {
-      "testo": "Le macchine durano?",
-      "emozione": "preoccupato",
-      "scuro": true
-     }
-    },
-    {
-     "parola": "trentaduemila",
-     "tipo": "prezzo",
-     "p": {
-      "oggetto": "auto",
-      "prezzo": "32.000 €",
-      "nota": "Quattro box, vita otto anni"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Come si calcola? Trentaduemila euro diviso otto anni fa quattromila euro l'anno. Diviso dodici mesi, fa duecentosessantasei euro e sessantasette al mese. Arrotondiamo a duecentosessantasette. È il costo nascosto delle macchine che si consumano.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Ammortamento annuo",
-      "a": "32.000 €",
-      "op": "÷",
-      "b": "8 anni",
-      "risultato": "4.000 € l'anno",
-      "nota": "Vita utile dell'impianto"
-     }
-    },
-    {
-     "parola": "Diviso",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Ammortamento mensile",
-      "a": "4.000 €",
-      "op": "÷",
-      "b": "12 mesi",
-      "risultato": "333 € al mese",
-      "nota": "Quattromila diviso dodici"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Aspetta, correggo: quattromila diviso dodici fa trecentotrentatré euro, non duecentosessantasette. Sbagliare un conto è umano, ma farlo sul tuo business costa caro. Trecentotrentatré euro al mese che metti da parte per sostituire le macchine.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Trecentotrentatré al mese",
-      "emozione": "stupito",
+      "testo": "Quanto resta in un anno?",
+      "emozione": "calmo",
       "scuro": false
      }
     },
     {
-     "parola": "metti",
-     "tipo": "salvadanaio",
+     "parola": "Devi",
+     "tipo": "mesi",
      "p": {
-      "direzione": "riempie",
-      "testo": "333 € al mese per le macchine"
+      "titolo": "Utile mensile (migliaia di €)",
+      "valori": [
+       -2.6,
+       -2.4,
+       -1.5,
+       -0.3,
+       0.8,
+       1.5,
+       1.9,
+       1.5,
+       0.4,
+       -0.9,
+       -2.2,
+       -2.4
+      ],
+      "evidenzia": [
+       1,
+       2,
+       7
+      ],
+      "nota": "Sommali tutti prima di giudicare"
      }
     }
    ]
   },
   {
-   "testo": "Ora il vero costo fisso mensile: duemilaseicento più trecentotrentatré fa duemilanovecentotrentatré euro. Il pareggio vero diventa duemilanovecentotrentatré diviso nove e sessanta: trecentocinque lavaggi al mese. Dieci al giorno. Cambia poco, ma cambia.",
+   "testo": "Sommiamo l'anno di Luca. I mesi in positivo valgono seimilaseicento euro. Quelli in perdita valgono tredicimilatrecento. Alla fine, meno seimilaseicento euro. Senza altre entrate, la gelateria in un anno brucia soldi.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "formula",
+     "tipo": "confronto",
      "p": {
-      "titolo": "Costi fissi veri",
-      "a": "2.600 €",
-      "op": "+",
-      "b": "333 €",
-      "risultato": "2.933 €",
-      "nota": "Con l'ammortamento"
+      "titolo": "Mesi buoni contro mesi cattivi",
+      "a": {
+       "titolo": "Mesi in positivo",
+       "valore": "+6.600 €",
+       "oggetto": "gelato"
+      },
+      "b": {
+       "titolo": "Mesi in perdita",
+       "valore": "−13.200 €",
+       "oggetto": "gelato"
+      },
+      "vincitore": "a"
      }
     },
     {
-     "parola": "trecentocinque",
-     "tipo": "pareggio",
+     "parola": "Alla",
+     "tipo": "timbro",
      "p": {
-      "titolo": "Pareggio con ammortamento",
-      "fissi": 2933,
-      "margine": 9.6,
-      "unita": "lavaggi al mese",
-      "oggetto": "auto",
-      "perdita": true,
-      "guadagno": true
+      "oggetto": "gelato",
+      "testo": "ANNO IN ROSSO",
+      "colore": "rosso",
+      "nota": "Meno seimilaseicento euro"
      }
     }
    ]
   },
   {
-   "testo": "Esempio diverso: un parrucchiere compra due poltrone, un lavatesta e uno specchio per novemila euro. Durano dieci anni. Fa novecento euro l'anno, settantacinque al mese. Se non li conti, ti sembra di guadagnare di più. Ma tra dieci anni non hai i soldi per cambiarli.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "salone",
-      "insegna": "Salone Giulia",
-      "azione": "lavora",
-      "clienti": 2,
-      "testo": "Poltrone da cambiare"
-     }
-    },
-    {
-     "parola": "novecento",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Ammortamento salone",
-      "a": "9.000 €",
-      "op": "÷",
-      "b": "120 mesi",
-      "risultato": "75 € al mese",
-      "nota": "Dieci anni"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Cosa guardare quindi? Non solo la cassa. Guarda quanto costa ogni mese tenere in vita l'attività, comprese le macchine che invecchiano. Cosa non guardare? Il fatturato da solo. Può essere alto e il conto restare vuoto.",
+   "testo": "Ricontrolliamo, perché i conti vanno sempre ricontrollati. Positivi: ottocento, millecinquecento, millenovecento, millecinquecento e quattrocento fanno seimilacento. Negativi: duemilaseicento, duemilaquattrocento, millecinquecento, trecento, novecento, duemiladuecento, duemilaquattrocento fanno dodicimilatrecento.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "lista",
      "p": {
-      "titolo": "Guarda e non guardare",
+      "titolo": "Ricontrolla sempre",
       "voci": [
-       "Guarda: costi fissi veri",
-       "Guarda: ammortamento",
-       "Guarda: margine per lavaggio",
-       "Non guardare: solo fatturato"
+       "Somma i mesi positivi",
+       "Somma quelli negativi",
+       "Sottrai i due totali",
+       "Confronta con l'anno scorso"
       ]
      }
     },
     {
-     "parola": "fatturato",
-     "tipo": "bilancia",
-     "p": {
-      "titolo": "Fatturato contro utile",
-      "sinistra": "Fatturato alto",
-      "destra": "Utile basso",
-      "pende": "sinistra"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Terzo concetto, il più cattivo: meteo e stagioni. Un autolavaggio vive di sole. Se piove, nessuno lava l'auto. Se è appena piovuto, sì, ma dopo. E d'estate? Tutti in vacanza. Il mese medio non esiste.",
-   "capitolo": "Meteo e stagioni",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "autolavaggio",
-      "insegna": "Autolavaggio Davide",
-      "azione": "preoccupato",
-      "clienti": 0,
-      "testo": "Pioggia battente"
-     }
-    },
-    {
-     "parola": "estate",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Il mese medio esiste?",
-      "emozione": "stupito",
-      "scuro": false
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Ecco i lavaggi di Davide mese per mese, in un anno tipico. Gennaio duecento, febbraio duecentoquaranta, marzo trecentocinquanta, aprile quattrocentocinquanta, maggio quattrocentocinquanta, giugno trecentocinquanta, luglio duecentocinquanta, agosto centocinquanta, settembre quattrocento, ottobre trecentocinquanta, novembre duecentocinquanta, dicembre trecento.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "mesi",
-     "p": {
-      "titolo": "Lavaggi al mese",
-      "valori": [
-       200,
-       240,
-       350,
-       450,
-       450,
-       350,
-       250,
-       150,
-       400,
-       350,
-       250,
-       300
-      ],
-      "evidenzia": [
-       1,
-       2,
-       8,
-       11
-      ],
-      "nota": "Sotto i trecentocinque si perde"
-     }
-    },
-    {
-     "parola": "agosto",
-     "tipo": "andamento",
-     "p": {
-      "titolo": "Un anno di lavaggi",
-      "valori": [
-       200,
-       240,
-       350,
-       450,
-       450,
-       350,
-       250,
-       150,
-       400,
-       350,
-       250,
-       300
-      ],
-      "etichette": [
-       "G",
-       "F",
-       "M",
-       "A",
-       "M",
-       "G",
-       "L",
-       "A",
-       "S",
-       "O",
-       "N",
-       "D"
-      ],
-      "colore": "rosso"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Somma finale: duecento più duecentoquaranta fa quattrocentoquaranta. Più trecentocinquanta fa settecentonovanta. Più quattrocentocinquanta due volte fa millenovecentonovanta. Con le altre voci arrivi a tremilaseicentoquaranta lavaggi l'anno. Media: trecentotre al mese.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "conteggio",
-     "p": {
-      "oggetto": "auto",
-      "icone": 60,
-      "testo": "3.640 lavaggi l'anno"
-     }
-    },
-    {
-     "parola": "Media",
+     "parola": "Positivi",
      "tipo": "formula",
      "p": {
-      "titolo": "Media mensile",
-      "a": "3.640",
-      "op": "÷",
-      "b": "12 mesi",
-      "risultato": "303 lavaggi",
-      "nota": "Sotto il pareggio di 305"
+      "titolo": "Somma dei mesi buoni",
+      "a": "6.100 €",
+      "op": "−",
+      "b": "12.300 €",
+      "risultato": "−6.200 €",
+      "nota": "Esempio semplificato"
      }
     }
    ]
   },
   {
-   "testo": "Trecentotre contro un pareggio di trecentocinque. Davide è in pareggio quasi perfetto, ma sul filo. Però attenzione: ci sono quattro mesi sotto soglia, e sono quelli in cui il conto va in rosso. La media nasconde i mesi difficili.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "bilancia",
-     "p": {
-      "titolo": "Media contro pareggio",
-      "sinistra": "303 lavaggi",
-      "destra": "305 lavaggi",
-      "pende": "destra"
-     }
-    },
-    {
-     "parola": "media",
-     "tipo": "timbro",
-     "p": {
-      "oggetto": "auto",
-      "testo": "SUL FILO",
-      "colore": "rosso",
-      "nota": "Quasi zero di utile"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Esempio diverso: un gelataio vende duemila euro a luglio e trecento a gennaio. Se ragiona sulla media, pensa di stare bene. Ma a gennaio paga l'affitto con i risparmi di luglio. Chi vive di stagione deve fare il conto dell'anno intero, non del mese.",
+   "testo": "Con numeri più precisi il risultato cambia di poco: l'anno si chiude intorno a meno seimila euro. Il punto resta uguale. Se non fai nulla, la stagione buona non basta a coprire quella cattiva. Cosa può fare Luca?",
    "capitolo": "",
    "inquadrature": [
     {
@@ -839,278 +631,107 @@
      "tipo": "luogo",
      "p": {
       "luogo": "gelateria",
-      "insegna": "Gelateria Sole",
+      "insegna": "Gelateria da Luca",
       "azione": "preoccupato",
-      "clienti": 0,
-      "testo": "Gennaio vuoto"
+      "clienti": 1,
+      "testo": "Cosa fare?"
      }
     },
     {
-     "parola": "affitto",
-     "tipo": "salvadanaio",
-     "p": {
-      "direzione": "svuota",
-      "testo": "Gennaio si paga coi risparmi di luglio"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Cosa fa Davide? Primo: riserva di cassa. Mette da parte l'incasso dei mesi forti per coprire quelli deboli. Secondo: abbonamenti mensili. Dieci euro in meno a lavaggio, ma il cliente torna anche con il tempo incerto.",
-   "capitolo": "Come reagire",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "leve",
-     "p": {
-      "titolo": "Le leve di Davide",
-      "voci": [
-       "Riserva di cassa",
-       "Abbonamenti",
-       "Aspirapolvere a gettone",
-       "Orari flessibili"
-      ],
-      "evidenzia": 1
-     }
-    },
-    {
-     "parola": "Abbonamenti",
-     "tipo": "confronto",
-     "p": {
-      "titolo": "Lavaggio singolo o abbonamento",
-      "a": {
-       "titolo": "Singolo",
-       "valore": "12 €",
-       "oggetto": "auto"
-      },
-      "b": {
-       "titolo": "Abbonamento",
-       "valore": "29 € al mese",
-       "oggetto": "auto"
-      },
-      "vincitore": "b"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Terza leva: gli aspirapolvere a gettone. Costano tremila euro in due unità e rendono anche con la pioggia, perché l'interno dell'auto si pulisce comunque. Con trecento euro al mese di incasso, si ripagano in dieci mesi. Fai il conto: tremila diviso trecento.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Ritorno dell'investimento",
-      "a": "3.000 €",
-      "op": "÷",
-      "b": "300 €",
-      "risultato": "10 mesi",
-      "nota": "Due aspirapolvere a gettone"
-     }
-    },
-    {
-     "parola": "pioggia",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "autolavaggio",
-      "insegna": "Autolavaggio Davide",
-      "azione": "lavora",
-      "clienti": 2,
-      "testo": "Aspirapolvere sotto la tettoia"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Con gli aspirapolvere, il margine mensile cresce di trecento euro. Nuovi costi fissi: duemilanovecentotrentatré più cinquanta di ammortamento, perché tremila diviso sessanta mesi fa cinquanta. Totale: duemilanovecentottantatré. Il pareggio resta quasi uguale, ma gli incassi crescono.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "pareggio",
-     "p": {
-      "titolo": "Pareggio con aspirapolvere",
-      "fissi": 2983,
-      "margine": 9.6,
-      "nuovo_margine": 9.6,
-      "unita": "lavaggi al mese",
-      "oggetto": "auto",
-      "perdita": true,
-      "guadagno": true
-     }
-    },
-    {
-     "parola": "cresce",
+     "parola": "Cosa",
      "tipo": "andamento",
      "p": {
-      "titolo": "Utile mensile",
+      "titolo": "Cassa di Luca nell'anno (€)",
       "valori": [
-       -100,
-       50,
-       200,
-       350,
-       500
+       5000,
+       2400,
+       900,
+       600,
+       1400,
+       2900,
+       4800,
+       6300,
+       6700,
+       5800,
+       3600,
+       1200
       ],
       "etichette": [
-       "Prima",
-       "1",
-       "2",
-       "3",
-       "4"
+       "Gen",
+       "Feb",
+       "Mar",
+       "Apr",
+       "Mag",
+       "Giu",
+       "Lug",
+       "Ago",
+       "Set",
+       "Ott",
+       "Nov",
+       "Dic"
       ],
-      "colore": "verde"
+      "colore": "rosso"
      }
     }
    ]
   },
   {
-   "testo": "Un mese buono, per esempio maggio: quattrocentocinquanta lavaggi per nove e sessanta fa quattromilatrecentoventi euro. Meno costi fissi di duemilanovecentotrentatré, restano mille trecentottantasette. Più trecento degli aspirapolvere: circa millesettecento euro di utile.",
+   "testo": "Prima regola: l'estate non è tutta tua. Una parte appartiene all'inverno. Quando incassi tanto, devi mettere da parte i soldi che servono per i mesi vuoti. Non è il tuo guadagno: è la cassa del freddo.",
+   "capitolo": "Mettere da parte",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "salvadanaio",
+     "p": {
+      "direzione": "riempie",
+      "testo": "La cassa del freddo"
+     }
+    },
+    {
+     "parola": "Non",
+     "tipo": "bilancia",
+     "p": {
+      "titolo": "Estate contro inverno",
+      "sinistra": "Incassi d'estate",
+      "destra": "Costi d'inverno",
+      "pende": "destra"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Quanto mettere da parte? Facciamo il calcolo. I mesi in perdita di Luca sono sette e valgono in tutto dodicimilatrecento euro. Quelli buoni ne restituiscono seimilacento. Per stare tranquillo, il buco da coprire è di seimiladuecento euro.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "formula",
      "p": {
-      "titolo": "Maggio, mese forte",
-      "a": "4.320 €",
+      "titolo": "Il buco dell'anno",
+      "a": "12.300 €",
       "op": "−",
-      "b": "2.933 €",
-      "risultato": "1.387 €",
-      "nota": "450 lavaggi × 9,60 €"
+      "b": "6.100 €",
+      "risultato": "6.200 €",
+      "nota": "Da coprire in qualche modo"
      }
     },
     {
-     "parola": "Più",
-     "tipo": "timbro",
-     "p": {
-      "oggetto": "auto",
-      "testo": "UTILE",
-      "colore": "verde",
-      "nota": "Un mese buono"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "E un mese brutto, tipo agosto: centocinquanta lavaggi per nove e sessanta fa millequattrocentoquaranta euro. Meno duemilanovecentotrentatré: perdi millequattrocentonovantatré euro. In un solo mese bruci l'utile di quasi un mese e mezzo buono.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Agosto, mese debole",
-      "a": "1.440 €",
-      "op": "−",
-      "b": "2.933 €",
-      "risultato": "−1.493 €",
-      "nota": "150 lavaggi × 9,60 €"
-     }
-    },
-    {
-     "parola": "perdi",
-     "tipo": "timbro",
-     "p": {
-      "oggetto": "auto",
-      "testo": "PERDITA",
-      "colore": "rosso",
-      "nota": "Agosto"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "E allora il vero rendimento? Dipende dall'anno intero. Con trecentotre lavaggi medi, Davide incassa circa duemilanovecento euro di margine al mese, contro duemilanovecentotrentatré di costi. In pratica lavora per la banca e per le macchine. Lo stipendio arriva con gli extra.",
-   "capitolo": "Il verdetto",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Quanto resta a Davide?",
-      "emozione": "preoccupato",
-      "scuro": true
-     }
-    },
-    {
-     "parola": "banca",
-     "tipo": "soldi",
-     "p": {
-      "centro": "2.909 €",
-      "destinazioni": [
-       "Banca",
-       "Terreno",
-       "Macchine",
-       "Davide quasi 0"
-      ]
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Come si migliora? Alza il prezzo di un euro: da dodici a tredici. Il margine passa da nove e sessanta a dieci e sessanta. Sui trecentotre lavaggi sono trecentotre euro in più al mese. Un euro che nessun cliente nota, ma che sposta tutto.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "prezzo",
-     "p": {
-      "oggetto": "auto",
-      "prezzo": "12 €",
-      "nuovo_prezzo": "13 €",
-      "nota": "Un euro in più"
-     }
-    },
-    {
-     "parola": "trecentotre",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Effetto del rincaro",
-      "a": "303",
-      "op": "×",
-      "b": "1 €",
-      "risultato": "303 € in più",
-      "nota": "Ogni mese"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Il tuo turno. Se hai un'attività, rifai questo esercizio. Uno: somma tutto quello che hai speso per partire. Due: dividi per gli anni di vita utile. Tre: aggiungilo ai costi fissi. Quattro: calcola il pareggio. Cinque: guarda i mesi, non la media.",
-   "capitolo": "Fallo anche tu",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "lista",
-     "p": {
-      "titolo": "Esercizio per te",
-      "voci": [
-       "Somma l'investimento",
-       "Dividi per gli anni",
-       "Aggiungi ai costi fissi",
-       "Calcola il pareggio",
-       "Guarda mese per mese"
-      ]
-     }
-    },
-    {
-     "parola": "mesi",
+     "parola": "Per",
      "tipo": "cruscotto",
      "p": {
-      "titolo": "Il tuo cruscotto",
+      "titolo": "Cosa tenere d'occhio",
       "voci": [
        {
-        "nome": "Pareggio",
-        "valore": 0.7
-       },
-       {
-        "nome": "Mesi sopra soglia",
-        "valore": 0.6
-       },
-       {
-        "nome": "Riserva di cassa",
+        "nome": "Cassa di riserva",
         "valore": 0.4
+       },
+       {
+        "nome": "Costi fissi",
+        "valore": 0.8
+       },
+       {
+        "nome": "Vendite d'inverno",
+        "valore": 0.2
        }
       ]
      }
@@ -1118,8 +739,568 @@
    ]
   },
   {
-   "testo": "Riassumiamo. Primo: l'investimento iniziale pesa e va coperto con un cuscinetto. Secondo: le macchine si consumano, quindi ammortizzale ogni mese. Terzo: il meteo spezza l'anno, quindi ragiona sui dodici mesi e tieni una riserva di cassa.",
-   "capitolo": "Riepilogo",
+   "testo": "Ma attenzione: non basta fare la somma a fine anno. Devi accantonare mese per mese, mentre incassi. Come? Ogni volta che entra un incasso, una quota va nel conto separato. Quota fissa, senza ripensamenti, e senza toccarla.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Come accantonare",
+      "voci": [
+       "Conto separato per la riserva",
+       "Una percentuale ogni settimana",
+       "Non è uno spendibile",
+       "Lo guardi solo d'inverno"
+      ]
+     }
+    },
+    {
+     "parola": "Quota",
+     "tipo": "fette",
+     "p": {
+      "titolo": "Un incasso di luglio: 1.000 €",
+      "totale": 1000,
+      "totale_testo": "1.000 €",
+      "fette": [
+       {
+        "nome": "Costi del mese",
+        "valore": 680,
+        "testo": "680 €"
+       },
+       {
+        "nome": "Cassa del freddo",
+        "valore": 200,
+        "testo": "200 €"
+       },
+       {
+        "nome": "Tuo guadagno",
+        "valore": 120,
+        "testo": "120 €"
+       }
+      ],
+      "evidenzia": 1
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Seconda regola: riduci i costi fissi che si possono ridurre. Un esempio fuori dai gelati: una palestra in montagna ha il boom d'inverno e paga contratti a un istruttore stagionale, non fisso tutto l'anno. Così i costi seguono i clienti.",
+   "capitolo": "Costi che seguono i clienti",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "confronto",
+     "p": {
+      "titolo": "Palestra di montagna: due modi di pagare",
+      "a": {
+       "titolo": "Istruttore fisso",
+       "valore": "1.800 €/mese",
+       "oggetto": "manubri"
+      },
+      "b": {
+       "titolo": "Istruttore stagionale",
+       "valore": "1.800 € solo da dicembre a marzo",
+       "oggetto": "manubri"
+      },
+      "vincitore": "b"
+     }
+    },
+    {
+     "parola": "Così",
+     "tipo": "leve",
+     "p": {
+      "titolo": "Dove puoi tagliare",
+      "voci": [
+       "Orari ridotti",
+       "Personale a stagione",
+       "Affitto rinegoziato",
+       "Utenze più basse"
+      ],
+      "evidenzia": 0
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Luca ci prova. Chiude il lunedì e il martedì d'inverno e riduce l'orario del dipendente: da milleduecento a settecento euro al mese. Risparmia cinquecento euro al mese per cinque mesi. Sono duemilacinquecento euro tenuti in tasca.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "gelateria",
+      "insegna": "Gelateria da Luca",
+      "azione": "lavora",
+      "clienti": 1,
+      "testo": "Orari ridotti"
+     }
+    },
+    {
+     "parola": "Risparmia",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Risparmio sul personale",
+      "a": "500 €",
+      "op": "×",
+      "b": "5 mesi",
+      "risultato": "2.500 €",
+      "nota": "Orari ridotti in inverno"
+     }
+    },
+    {
+     "parola": "Sono",
+     "tipo": "orologio",
+     "p": {
+      "ore": 10,
+      "piene": 6,
+      "testo": "Giornata più corta"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Terza regola: dai al freddo qualcosa da vendere. Se il gelato non va, vendi altro. Un bar al mare, per esempio, d'inverno punta su cornetti e caffè. Luca prova la cioccolata calda, i biscotti e le torte gelato su ordinazione.",
+   "capitolo": "Vendere altro d'inverno",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Cosa può vendere Luca d'inverno",
+      "voci": [
+       "Cioccolata calda",
+       "Torte gelato su ordinazione",
+       "Biscotti e brioche",
+       "Caffè e colazioni"
+      ]
+     }
+    },
+    {
+     "parola": "Se",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "cioccolata",
+      "prezzo": "3 €",
+      "nota": "Cioccolata calda"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "La cioccolata la vende a tre euro e gli costa novanta centesimi. Margine: due euro e dieci. Se ne vende venti al giorno per trenta giorni, sono seicento cioccolate. Per due euro e dieci fanno milleduecentosessanta euro in più al mese.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Margine cioccolata",
+      "a": "3 €",
+      "op": "−",
+      "b": "0,90 €",
+      "risultato": "2,10 €",
+      "nota": "Per ogni tazza"
+     }
+    },
+    {
+     "parola": "Se",
+     "tipo": "conteggio",
+     "p": {
+      "oggetto": "cioccolata",
+      "icone": 20,
+      "testo": "20 al giorno"
+     }
+    },
+    {
+     "parola": "Per",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Margine extra al mese",
+      "a": "600",
+      "op": "×",
+      "b": "2,10 €",
+      "risultato": "1.260 €",
+      "nota": "Seicento tazze"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Con la cioccolata, a gennaio Luca vende ancora quattrocento gelati e guadagna milleduecentosessanta euro in più. Il margine totale sale a milleottocentottantotto euro. Togli tremiladuecento di costi: restano meno milletrecentododici.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Nuovo margine di gennaio",
+      "a": "628 €",
+      "op": "+",
+      "b": "1.260 €",
+      "risultato": "1.888 €",
+      "nota": "Gelati più cioccolata"
+     }
+    },
+    {
+     "parola": "Togli",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Nuovo risultato di gennaio",
+      "a": "1.888 €",
+      "op": "−",
+      "b": "3.200 €",
+      "risultato": "−1.312 €",
+      "nota": "Prima era meno duemilacinquecentosettantadue"
+     }
+    },
+    {
+     "parola": "restano",
+     "tipo": "pareggio",
+     "p": {
+      "titolo": "Pareggio con la cioccolata",
+      "fissi": 3200,
+      "margine": 1.57,
+      "nuovo_margine": 2.1,
+      "unita": "prodotti venduti",
+      "oggetto": "gelato",
+      "perdita": true,
+      "guadagno": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Con gli orari ridotti, i costi fissi scendono di cinquecento euro: da tremiladuecento a duemilasettecento. Il risultato di gennaio diventa milleottocentottantotto meno duemilasettecento: meno ottocentododici euro. Ancora in perdita, ma molto meno.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Costi fissi ridotti",
+      "a": "3.200 €",
+      "op": "−",
+      "b": "500 €",
+      "risultato": "2.700 €",
+      "nota": "Orari ridotti"
+     }
+    },
+    {
+     "parola": "Il",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Gennaio, nuova versione",
+      "a": "1.888 €",
+      "op": "−",
+      "b": "2.700 €",
+      "risultato": "−812 €",
+      "nota": "Perdita più piccola"
+     }
+    },
+    {
+     "parola": "Ancora",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "gelato",
+      "testo": "PERDITA RIDOTTA",
+      "colore": "rosso",
+      "nota": "Da meno duemilacinquecentosettantadue a meno ottocentododici"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Vedi cosa succede? Luca non ha fatto miracoli. Ha ridotto un costo e aggiunto un prodotto. E la perdita invernale è passata da quasi duemilaseicento a meno di mille euro. Piccole mosse, sommate, cambiano l'anno.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "confronto",
+     "p": {
+      "titolo": "Gennaio prima e dopo",
+      "a": {
+       "titolo": "Prima",
+       "valore": "−2.572 €",
+       "oggetto": "gelato"
+      },
+      "b": {
+       "titolo": "Dopo",
+       "valore": "−812 €",
+       "oggetto": "gelato"
+      },
+      "vincitore": "b"
+     }
+    },
+    {
+     "parola": "Piccole",
+     "tipo": "persone",
+     "p": {
+      "n": 6,
+      "azione": "entrano",
+      "escono": 0,
+      "testo": "Più clienti, anche d'inverno"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Qui entra in gioco un secondo esempio: uno stabilimento balneare. Lavora cento giorni l'anno ma paga concessione e tasse per dodici mesi. Chi gestisce bene, calcola il costo di ogni giorno aperto sull'anno intero, non solo sulla stagione.",
+   "capitolo": "Il costo dell'anno intero",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "calendario",
+     "p": {
+      "titolo": "Stabilimento: giorni aperti",
+      "giorni": 31,
+      "testo": "Cento giorni su trecentosessantacinque"
+     }
+    },
+    {
+     "parola": "Chi",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Costo per ogni giorno aperto",
+      "a": "36.500 €",
+      "op": "÷",
+      "b": "100 giorni",
+      "risultato": "365 €",
+      "nota": "Costi annui diviso giorni aperti"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Fai lo stesso con la tua attività. Prendi tutti i costi dell'anno, non del mese. Dividili per i giorni in cui lavori davvero. Quel numero è il costo di ogni giorno aperto. Se un giorno incassi meno, stai pagando per aprire.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Calcolo in tre passi",
+      "voci": [
+       "Somma i costi di dodici mesi",
+       "Conta i giorni davvero aperti",
+       "Dividi i costi per i giorni",
+       "Confronta con l'incasso di un giorno"
+      ]
+     }
+    },
+    {
+     "parola": "Se",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Ogni giorno ti paga?",
+      "emozione": "stupito",
+      "scuro": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Facciamo il calcolo per Luca. Costi fissi dell'anno: tremiladuecento per dodici, trentottomilaquattrocento euro. Dividi per trecentoquaranta giorni di apertura e ottieni centotredici euro al giorno. Ogni giorno aperto deve rendere almeno questo.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Costi fissi dell'anno",
+      "a": "3.200 €",
+      "op": "×",
+      "b": "12 mesi",
+      "risultato": "38.400 €",
+      "nota": "Senza riduzioni"
+     }
+    },
+    {
+     "parola": "Dividi",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Costo di un giorno aperto",
+      "a": "38.400 €",
+      "op": "÷",
+      "b": "340 giorni",
+      "risultato": "113 €",
+      "nota": "Arrotondato"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Un giorno di gennaio, con tredici coppette, fa venti euro di margine. Un giorno di luglio, con cento coppette, ne fa centocinquantasette. Solo il secondo supera i centotredici euro. Ora sai perché l'inverno pesa così tanto.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "confronto",
+     "p": {
+      "titolo": "Margine di un giorno",
+      "a": {
+       "titolo": "Gennaio",
+       "valore": "20 €",
+       "oggetto": "gelato"
+      },
+      "b": {
+       "titolo": "Luglio",
+       "valore": "157 €",
+       "oggetto": "gelato"
+      },
+      "vincitore": "b"
+     }
+    },
+    {
+     "parola": "Ora",
+     "tipo": "bilancia",
+     "p": {
+      "titolo": "Un giorno di gennaio",
+      "sinistra": "Margine 20 €",
+      "destra": "Costo 113 €",
+      "pende": "destra"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Cosa guardare, quindi? Guarda i costi fissi di tutto l'anno. Guarda il margine per ogni prodotto. Guarda quanti giorni servono per pareggiare. E soprattutto guarda la cassa a fine inverno, non lo scontrino di luglio.",
+   "capitolo": "Cosa guardare",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "cruscotto",
+     "p": {
+      "titolo": "I quattro indicatori",
+      "voci": [
+       {
+        "nome": "Costi fissi annui",
+        "valore": 0.8
+       },
+       {
+        "nome": "Margine per prodotto",
+        "valore": 0.6
+       },
+       {
+        "nome": "Giorni al pareggio",
+        "valore": 0.5
+       },
+       {
+        "nome": "Cassa a fine inverno",
+        "valore": 0.3
+       }
+      ]
+     }
+    },
+    {
+     "parola": "E",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Da guardare ogni mese",
+      "voci": [
+       "Costi fissi totali",
+       "Margine per prodotto",
+       "Soglia di pareggio",
+       "Cassa disponibile"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "E cosa non guardare? Non guardare solo il fatturato: tanti incassi con margini bassi non pagano le bollette. Non guardare il mese record. E non fidarti dell'entusiasmo di agosto: l'inverno arriva sempre, puntuale come le tasse.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Cosa non guardare",
+      "voci": [
+       "Solo il fatturato",
+       "Il mese record",
+       "L'entusiasmo di agosto",
+       "Il guadagno senza riserva"
+      ]
+     }
+    },
+    {
+     "parola": "puntuale",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "gelato",
+      "testo": "L'INVERNO ARRIVA",
+      "colore": "rosso",
+      "nota": "Ogni anno, senza eccezioni"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Torniamo a Luca. L'anno dopo, mette da parte duecento euro ogni mille incassati, riduce gli orari e vende cioccolata. A fine inverno il conto è in ordine e la cassa regge. Non è ricco, ma dorme tranquillo.",
+   "capitolo": "Un anno dopo",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "gelateria",
+      "insegna": "Gelateria da Luca",
+      "azione": "felice",
+      "clienti": 2,
+      "testo": "Un anno dopo"
+     }
+    },
+    {
+     "parola": "A",
+     "tipo": "salvadanaio",
+     "p": {
+      "direzione": "svuota",
+      "testo": "La riserva copre l'inverno"
+     }
+    },
+    {
+     "parola": "Non",
+     "tipo": "andamento",
+     "p": {
+      "titolo": "Cassa di Luca, secondo anno (€)",
+      "valori": [
+       6000,
+       5300,
+       4700,
+       4400,
+       5000,
+       6200,
+       7800,
+       9200,
+       9700,
+       9000,
+       7800,
+       6600
+      ],
+      "etichette": [
+       "Gen",
+       "Feb",
+       "Mar",
+       "Apr",
+       "Mag",
+       "Giu",
+       "Lug",
+       "Ago",
+       "Set",
+       "Ott",
+       "Nov",
+       "Dic"
+      ],
+      "colore": "verde"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ricorda le tre lezioni di oggi. Uno: i costi fissi non vanno in vacanza, li paghi anche a gennaio. Due: l'estate non è tutta tua, una parte va messa da parte. Tre: calcola il costo di ogni giorno aperto, sull'anno intero.",
+   "capitolo": "Riassunto",
    "inquadrature": [
     {
      "parola": "",
@@ -1127,61 +1308,65 @@
      "p": {
       "titolo": "Da ricordare",
       "voci": [
-       "Investimento: ottantamila euro",
-       "Ammortamento: trecentotrentatré al mese",
-       "Pareggio: trecentocinque lavaggi",
-       "Meteo: pesa sui mesi"
+       "I costi fissi non vanno in vacanza",
+       "Metti da parte la cassa d'estate",
+       "Costo di un giorno aperto, su tutto l'anno",
+       "Vendi qualcosa anche d'inverno"
       ]
      }
     },
     {
-     "parola": "riserva",
-     "tipo": "luogo",
+     "parola": "Tre",
+     "tipo": "leve",
      "p": {
-      "luogo": "autolavaggio",
-      "insegna": "Autolavaggio Davide",
-      "azione": "felice",
-      "clienti": 3,
-      "testo": "Con la riserva si dorme"
+      "titolo": "Le leve per l'inverno",
+      "voci": [
+       "Riserva",
+       "Costi variabili",
+       "Prodotti d'inverno",
+       "Orari"
+      ],
+      "evidenzia": 0
      }
     }
    ]
   },
   {
-   "testo": "Un autolavaggio rende, ma meno di quanto sembra e con più rischi di quanto pensi. Chi lo sa prima, lo apre con i conti giusti. E tu, sai quanto ti costano davvero le tue macchine ogni mese? Scrivilo nei commenti.",
+   "testo": "E tu? Se hai un'attività stagionale, sai quanto costa ogni tuo giorno aperto? Sai quanto devi accantonare ad agosto per sopravvivere a febbraio? Pensaci stasera, con carta e penna. I numeri non mentono.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "domanda",
      "p": {
-      "testo": "Conosci i tuoi numeri?",
+      "testo": "Sai il tuo giorno?",
       "emozione": "calmo",
       "scuro": false
      }
     },
     {
-     "parola": "commenti",
-     "tipo": "salvadanaio",
+     "parola": "Pensaci",
+     "tipo": "calendario",
      "p": {
-      "direzione": "riempie",
-      "testo": "Conti giusti, notti tranquille"
+      "titolo": "Segna i tuoi giorni aperti",
+      "giorni": 30,
+      "testo": "Quanti sono davvero?"
      }
     }
    ]
   },
   {
-   "testo": "Prossima puntata: una lavanderia a gettoni. Le macchine lavorano da sole, ma quanto resta davvero dopo acqua, gas ed elettricità? Il risultato ti sorprenderà. Iscriviti, così non perdi i numeri veri.",
+   "testo": "Nel prossimo episodio entriamo in una pizzeria al taglio. Prezzo della fetta, costo dell'impasto e quante fette servono davvero per chiudere il mese in verde. Una sorpresa sul forno ti aspetta. Iscriviti.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "prossimo",
      "p": {
-      "luogo": "lavanderia",
-      "insegna": "Lavanderia a gettoni",
-      "oggetto": "lavatrice",
-      "testo": "Quanto resta con il gas?"
+      "luogo": "pizzeria",
+      "insegna": "Pizza al Taglio",
+      "oggetto": "pizza",
+      "testo": "Quante fette per chiudere il mese?"
      }
     },
     {
@@ -1191,7 +1376,7 @@
       "n": 5,
       "azione": "entrano",
       "escono": 0,
-      "testo": "Iscriviti al canale"
+      "testo": "Ti aspettiamo alla prossima"
      }
     }
    ]
