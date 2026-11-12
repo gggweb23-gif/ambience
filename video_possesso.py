@@ -567,7 +567,19 @@ def copertina_shock(CP, ogg, rif_url, k):
 
 def copertina(c, rif_url):
     import copertine_possesso as CP
-    stile = str(P.get('copertina_stile') or 'prodotto').strip().lower()
+    stile = str(P.get('copertina_stile') or 'foto').strip().lower()
+    if stile == 'foto':   # 12 nov sera (Giorgio, "foto font 2c"): foto vera del soggetto + cerchio rosso + prezzo barrato, freccia, costo vero (fino a nuove direttive)
+        try:
+            import copertina_possesso_foto as PF
+            k = int(num(P.get('riga_produzione'), 0) or random.randint(0, 9))
+            ogg = re.sub(r',?\s*on a [^,]*background.*$', '', str((c.get('copertina') or {}).get('oggetto') or OGGETTO or TITOLO), flags=re.I)
+            im = PF.crea({'prodotto': ogg, 'prezzo': DATI.get('prezzo') or 0, 'costo_vero': DATI['costo_vero'], 'anni': DATI['anni'],
+                          'lato': 'sx' if k % 2 == 0 else 'dx', 'seme': k})
+            out = os.path.join(ROOT, 'copertina.jpg'); im.save(out, quality=93)
+            log('copertina FOTO 2C:', ogg[:60], '| scritte a', 'sinistra' if k % 2 == 0 else 'destra')
+            return out
+        except Exception as e:
+            log('copertina foto non riuscita, uso lo stile prodotto:', str(e)[:150]); stile = 'prodotto'
     if stile == 'prodotto':   # 11 nov sera (Giorgio: "deve vedersi meglio il prodotto, cambia completamente stile"): prodotto enorme + cartellino
         try:
             import copertina_possesso_prodotto as PR
