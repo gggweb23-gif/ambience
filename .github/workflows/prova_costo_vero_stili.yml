@@ -28,10 +28,17 @@ jobs:
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           STILI: ${{ inputs.stili }}
         run: python3 strumenti/prova_costo_vero_stili.py
+      - name: Video anche come artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: costo-vero-stili
+          path: prove_video/Costo_Vero/stili/*.mp4
+          if-no-files-found: ignore
       - name: Salva nel repository
         if: always()
         run: |
           git config user.name "render-bot"; git config user.email "render-bot@users.noreply.github.com"
-          git add prove_video/Costo_Vero/stili 2>/dev/null || true; git add prove_video/Costo_Vero/copertine_concetti 2>/dev/null || true
+          find prove_video/Costo_Vero/stili -size +49M -delete 2>/dev/null; git add prove_video/Costo_Vero/stili 2>/dev/null || true; git add prove_video/Costo_Vero/copertine_concetti 2>/dev/null || true
           git commit -m "Costo Vero: prove di stile e copertine" || exit 0
           for i in 1 2 3 4 5; do git pull --rebase --autostash -q && git push && break; sleep $((i * 5)); done

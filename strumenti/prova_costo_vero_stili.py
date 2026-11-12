@@ -422,7 +422,7 @@ def main():
         au = audio(st, T)
         fin = os.path.join(OUT, f'stile_{st}.mp4')
         subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', muto, '-i', au, '-map', '0:v', '-map', '1:a', '-vf', 'scale=2560:1440:flags=lanczos',
-                        '-c:v', 'libx264', '-preset', 'medium', '-crf', '17', '-pix_fmt', 'yuv420p', '-c:a', 'copy', '-shortest', fin], check=True)
+                        '-c:v', 'libx264', '-preset', 'slow', '-crf', '23', '-maxrate', '5M', '-bufsize', '10M', '-pix_fmt', 'yuv420p', '-c:a', 'copy', '-shortest', fin], check=True)   # prova: sotto i 50 MB per GitHub
         for k, tt in enumerate((3, 12, 22, 33, 45)):
             subprocess.run(['ffmpeg', '-v', 'error', '-y', '-ss', str(tt), '-i', fin, '-frames:v', '1', '-vf', 'scale=960:-2', os.path.join(OUT, f'stile_{st}_f{k}.jpg')])
         log('FATTO', fin)
