@@ -35,7 +35,7 @@ jobs:
           E = os.environ.get
           d = urllib.parse.urlencode({'client_id': E('YT_CLIENT_ID'), 'client_secret': E('YT_CLIENT_SECRET'), 'refresh_token': E('YT_REFRESH_TOKEN'), 'grant_type': 'refresh_token'}).encode()
           tk = json.loads(urllib.request.urlopen(urllib.request.Request('https://oauth2.googleapis.com/token', data=d), timeout=30).read())['access_token']
-          r = urllib.request.urlopen(urllib.request.Request(f"https://www.googleapis.com/upload/youtube/v3/thumbnails/set?videoId={E('VIDEO')}", data=open(E('FILE'), 'rb').read(),
+          r = urllib.request.urlopen(urllib.request.Request(f"https://www.googleapis.com/upload/youtube/v3/thumbnails/set?videoId={E('VIDEO')}", data=(urllib.request.urlopen(urllib.request.Request(E('FILE'), headers={'User-Agent': 'Mozilla/5.0'}), timeout=60).read() if E('FILE').startswith('http') else open(E('FILE'), 'rb').read()),
                                      headers={'Authorization': 'Bearer ' + tk, 'Content-Type': 'image/jpeg'}, method='POST'), timeout=60).read()
           print('CARICATA', E('VIDEO'), E('FILE'))
           PY
