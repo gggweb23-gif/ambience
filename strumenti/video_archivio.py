@@ -241,7 +241,8 @@ if not str(P.get('testo_copertina') or '').strip():
 
 THUMBNAIL TEXT ("testo_copertina"): 1-3 words in CAPS, built on the TITLE of this video. """ + (
         'The attached image is the thumbnail of the successful competitor video: FIRST try to adapt ITS text idea (same mechanism: a short shock word, a question, a contrast, a number) to our title and topic. Only if it cannot be adapted, invent one in the same style. ' if COP_COMP else
-        'No competitor thumbnail for this title: invent one in the style of the channel (examples: NO WEEKENDS, TOO COLD?, NO BED, NO ESCAPE, THE NIGHT SHIFT). ') + """It must complete the title and create curiosity, never repeat it word by word, in the channel language only.""" + (f"\nCHANNEL RULE FOR THIS TEXT (PRIORITY): {REGOLA_COP}" if REGOLA_COP else '')
+        'No competitor thumbnail for this title: invent one in the style of the channel (short shock words, a question, a contrast or a number, tied to THIS story). ') + """It must complete the title and create curiosity, never repeat it word by word, in the channel language only.""" + (
+        ('\nNEVER use a text already used on this channel (Giorgio: every thumbnail text must be new): ' + ', '.join(P.get('copertine_usate') or [])) if P.get('copertine_usate') else '') + (f"\nCHANNEL RULE FOR THIS TEXT (PRIORITY): {REGOLA_COP}" if REGOLA_COP else '')
 regole += """
 
 Answer ONLY with valid JSON:
@@ -581,7 +582,21 @@ elif STILE_COP == 'etichetta_rossa':   # senza ritocco: anche il fotogramma vero
         subprocess.run(['ffmpeg', '-y', '-v', 'error', '-ss', str(sec_), '-i', VIDEO, '-frames:v', '1', base])
         im = senza_bordi_neri(Image.open(base).convert('RGB').resize((1280, 720)))
 TESTO_COP = str(P.get('testo_copertina') or '').strip() or str(c.get('testo_copertina') or '').strip() or 'WHY?'
-TESTO_COP = TESTO_COP.rstrip(' .')   # 10 nov (Giorgio): nelle copertine MAI il punto finale
+TESTO_COP = TESTO_COP.rstrip(' .')
+# 12 nov (Giorgio): mai la stessa scritta di un'altra copertina del canale (NO ESCAPE era uscita due volte)
+_USATE = {str(x).strip().upper().rstrip(' .') for x in (P.get('copertine_usate') or [])}
+if TESTO_COP.upper() in _USATE:
+    alt_ = str(c.get('testo_copertina') or '').strip().rstrip(' .')
+    if alt_ and alt_.upper() not in _USATE:
+        log('scritta di copertina gia\' usata (', TESTO_COP, '): uso', alt_); TESTO_COP = alt_
+    else:
+        try:
+            alt_ = claude(f'YouTube video title: "{P.get("titolo", "")}". Write a NEW thumbnail text of 1-3 words in CAPS that completes the title and creates curiosity. '
+                          f'It must NOT be any of these (already used): {", ".join(sorted(_USATE))}. Only the text.', modello='claude-haiku-4-5-20251001', max_tokens=40).strip().strip('"').rstrip(' .')
+            if alt_ and alt_.upper() not in _USATE and len(alt_.split()) <= 4:
+                log('scritta di copertina gia\' usata (', TESTO_COP, '): nuova', alt_); TESTO_COP = alt_
+        except Exception as e_:
+            log('scritta nuova non riuscita:', e_)   # 10 nov (Giorgio): nelle copertine MAI il punto finale
 if STILE_COP == 'etichetta_rossa':
     # STILE B (2 nov, Giorgio): bianco e nero d'archivio, fascia rossa con la frase in bianco. Leggibile da telefono:
     # al massimo 2 righe, lettere alte almeno 80 px su 720 (ad anteprima piccola restano leggibili)
