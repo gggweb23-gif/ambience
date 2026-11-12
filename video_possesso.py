@@ -575,7 +575,7 @@ def copertina(c, rif_url):
             ogg = re.sub(r',?\s*on a [^,]*background.*$', '', str((c.get('copertina') or {}).get('oggetto') or OGGETTO or TITOLO), flags=re.I)
             dopo, sotto = DATI['costo_vero'], None
             if DATI.get('prezzo') and dopo <= DATI['prezzo'] and DATI.get('totale', 0) > DATI['prezzo']:   # 12 nov (Giorgio): sempre un prima e un dopo che fa venire voglia di guardare
-                dopo, sotto = DATI['totale'], f"PAGHI IN {DATI['anni']} ANNI"
+                dopo = DATI['totale']   # sotto resta "IN N ANNI" come in tutte le altre copertine (Giorgio 12 nov: niente PAGHI)
             im = PF.crea({'prodotto': ogg, 'prezzo': DATI.get('prezzo') or 0, 'costo_vero': dopo, 'anni': DATI['anni'], 'sotto': sotto,
                           'lato': 'sx' if k % 2 == 0 else 'dx', 'seme': k})
             out = os.path.join(ROOT, 'copertina.jpg'); im.save(out, quality=93)
