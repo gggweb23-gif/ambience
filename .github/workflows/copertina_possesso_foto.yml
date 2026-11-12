@@ -15,6 +15,7 @@ jobs:
       - name: Copertine
         env:
           FAL_KEY: ${{ secrets.FAL_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           PAYLOAD: ${{ inputs.payload }}
         run: python3 strumenti/copertina_possesso_foto.py
       - name: Salva

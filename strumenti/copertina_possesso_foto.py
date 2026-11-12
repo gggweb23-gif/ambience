@@ -45,6 +45,25 @@ def foto(prodotto, sx):
     raise RuntimeError('foto copertina non riuscita')
 
 
+def box_soggetto(im, cosa):
+    """Dove sta il soggetto nella foto (Claude Haiku, ~0,001 $): il cerchio rosso lo stringe da vicino invece di stare in un punto fisso."""
+    import base64, json, re
+    try:
+        buf = io.BytesIO(); im.convert('RGB').resize((640, 360)).save(buf, 'JPEG', quality=85)
+        r = YT.http('https://api.anthropic.com/v1/messages', {'model': 'claude-haiku-4-5-20251001', 'max_tokens': 120, 'messages': [{'role': 'user', 'content': [
+            {'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}},
+            {'type': 'text', 'text': f'Image 640x360. Bounding box of the main subject ({cosa or "the main object"}). Answer ONLY {{"box": [x1, y1, x2, y2]}}.'}]}]},
+            {'x-api-key': E('ANTHROPIC_API_KEY'), 'anthropic-version': '2023-06-01'}, timeout=60)
+        CO.registra('claude', 'claude-haiku-4-5-20251001', usage=r.get('usage'), nota='box soggetto copertina')
+        b = json.loads(re.search(r'\{.*\}', r['content'][0]['text'], re.S).group(0))['box']
+        x1, y1, x2, y2 = [float(v) * 2 for v in b]
+        mx, my = (x2 - x1) * .12, (y2 - y1) * .12   # un po' d'aria intorno
+        return (max(10, x1 - mx), max(10, y1 - my), min(W - 10, x2 + mx), min(H - 10, y2 + my))
+    except Exception as e:
+        print('box del soggetto non trovato:', str(e)[:100], flush=True)
+        return None
+
+
 def cerchio(d, box, seme=3):
     random.seed(seme)
     cx, cy, rx, ry = (box[0] + box[2]) / 2, (box[1] + box[3]) / 2, (box[2] - box[0]) / 2, (box[3] - box[1]) / 2
@@ -59,7 +78,8 @@ def crea(p):
     scritte_sx = str(p.get('lato') or 'sx') == 'sx'
     im = (p.get('immagine') or foto(p['prodotto'], sx=not scritte_sx)).convert('RGBA')
     d0 = ImageDraw.Draw(im)
-    cerchio(d0, (730, 230, 1250, 640) if scritte_sx else (40, 200, 560, 610), seme=int(p.get('seme') or 3))   # il cerchio sul soggetto
+    box = p.get('box') or (box_soggetto(im, p.get('prodotto')) if E('ANTHROPIC_API_KEY') else None) or ((730, 230, 1250, 640) if scritte_sx else (40, 200, 560, 610))
+    cerchio(d0, box, seme=int(p.get('seme') or 3))   # il cerchio stretto intorno al soggetto
     lay = Image.new('RGBA', im.size, (0, 0, 0, 0)); d = ImageDraw.Draw(lay)
     prezzo, vero, anni = float(p.get('prezzo') or 0), float(p['costo_vero']), int(p.get('anni') or 0)
     x0 = 44 if scritte_sx else 760
