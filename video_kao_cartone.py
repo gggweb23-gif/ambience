@@ -333,8 +333,8 @@ RAW = 'https://raw.githubusercontent.com/' + E('GITHUB_REPOSITORY', 'gggweb23-gi
 QW, QH = [int(x) for x in str(P.get('quadro_risoluzione') or '1280x720').split('x')]   # risoluzione dei quadri (spesa) - il video esce comunque a 1440p
 PREZZO_QUADRO = float(P.get('prezzo_quadro') or round(0.017 * QW * QH / (1280 * 720), 4))
 # 12 nov (Giorgio: "la nitidezza non e' ancora il massimo"): ingrandimento AI x2 di ogni quadro (Real-ESRGAN per disegni, fal, ~0,002 $):
-# il quadro passa da 1280x720 a 2560x1440, poi il video lo RIMPICCIOLISCE (piu' nitido) invece di ingrandirlo. Colonna quadro_ingrandimento = SI.
-INGRANDISCI = str(P.get('quadro_ingrandimento') or E('QUADRO_INGRANDIMENTO', '')).strip().upper() == 'SI'
+# il quadro passa da 1280x720 a 2560x1440, poi il video lo RIMPICCIOLISCE (piu' nitido) invece di ingrandirlo. Sempre attivo (12 nov, Giorgio); colonna quadro_ingrandimento = NO per spegnerlo.
+INGRANDISCI = str(P.get('quadro_ingrandimento') or E('QUADRO_INGRANDIMENTO', '') or 'SI').strip().upper() != 'NO'   # 12 nov (Giorgio: "vai con questa soluzione"): sempre attivo
 PREZZO_INGR = float(P.get('prezzo_ingrandimento') or 0.002)
 SEC_IMG = float(P.get('secondi_immagine') or 4)   # 11 nov (Giorgio): mai la stessa immagine due volte, nemmeno zoomata: un'immagine NUOVA ogni ~4 s
 
