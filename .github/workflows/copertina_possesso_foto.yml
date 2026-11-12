@@ -1,0 +1,24 @@
+name: Costo Vero - copertine FOTO 2C (prova, non carica)
+on:
+  workflow_dispatch:
+    inputs:
+      payload: {type: string, required: true}
+permissions:
+  contents: write
+jobs:
+  copertine:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install -q --break-system-packages pillow json-repair requests
+      - name: Copertine
+        env:
+          FAL_KEY: ${{ secrets.FAL_KEY }}
+          PAYLOAD: ${{ inputs.payload }}
+        run: python3 strumenti/copertina_possesso_foto.py
+      - name: Salva
+        run: |
+          git config user.name "render-bot"; git config user.email "render-bot@users.noreply.github.com"
+          git add prove_video/Costo_Vero/copertine_foto; git commit -m "Copertine Costo Vero foto 2C" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase --autostash -q && git push && break; sleep $((i * 5)); done

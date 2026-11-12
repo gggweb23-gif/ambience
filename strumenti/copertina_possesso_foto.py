@@ -91,8 +91,22 @@ def crea(p):
     return im.convert('RGB')
 
 
+def prove():
+    """Workflow: PAYLOAD {"prove": [{"nome", "prodotto", "prezzo", "costo_vero", "anni", "lato"}]} -> prove_video/Costo_Vero/copertine_foto/<nome>.jpg"""
+    import json
+    out = 'prove_video/Costo_Vero/copertine_foto'; os.makedirs(out, exist_ok=True)
+    for k, p in enumerate(json.loads(E('PAYLOAD') or '{}').get('prove', [])):
+        base = foto(p['prodotto'], sx=str(p.get('lato') or 'sx') != 'sx')
+        base.save(os.path.join(out, p['nome'] + '_base.jpg'), quality=95)
+        crea(dict(p, immagine=base, seme=k + 3)).save(os.path.join(out, p['nome'] + '.jpg'), quality=94)
+        print('FATTO', p['nome'], flush=True)
+
+
+if __name__ == '__main__' and E('PAYLOAD'):
+    prove(); sys.exit(0)
 if __name__ == '__main__':   # prova veloce (gratis con un'immagine gia' pronta)
     base = Image.open(sys.argv[1]) if len(sys.argv) > 1 else Image.new('RGB', (W, H), (80, 140, 90))
     for lato in ('sx', 'dx'):
         crea({'prodotto': 'test', 'prezzo': 35000, 'costo_vero': 60500, 'anni': 10, 'lato': lato, 'immagine': base}).save(f'/tmp/foto2c_{lato}.jpg', quality=92)
     print('ok')
+
