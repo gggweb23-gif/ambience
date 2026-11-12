@@ -1,0 +1,41 @@
+name: Copertina Billion Ruin dei soldi (prove, non carica, gratis)
+on:
+  workflow_dispatch:
+    inputs:
+      cifra: {type: string, default: '$42B'}
+      sotto: {type: string, default: ''}
+      scheda_su: {type: string, default: ''}
+      scheda_1: {type: string, default: ''}
+      scheda_2: {type: string, default: ''}
+      timbro: {type: string, default: ''}
+      foto: {type: string, default: 'bank building night'}
+      lato: {type: string, default: 'sx'}
+      out: {type: string, default: 'prove_video/Copertine_Gloam/soldi'}
+permissions:
+  contents: write
+jobs:
+  prova:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Programmi
+        run: pip install -q --break-system-packages pillow json-repair
+      - name: Copertine
+        env:
+          CIFRA: ${{ inputs.cifra }}
+          SOTTO: ${{ inputs.sotto }}
+          SCHEDA_SU: ${{ inputs.scheda_su }}
+          SCHEDA_1: ${{ inputs.scheda_1 }}
+          SCHEDA_2: ${{ inputs.scheda_2 }}
+          TIMBRO: ${{ inputs.timbro }}
+          FOTO: ${{ inputs.foto }}
+          LATO: ${{ inputs.lato }}
+          OUT: ${{ inputs.out }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+        run: python3 strumenti/copertina_gloam_soldi.py
+      - name: Salva nel repository
+        run: |
+          git config user.name "render-bot"; git config user.email "render-bot@users.noreply.github.com"
+          git add "${{ inputs.out }}"; git commit -m "Copertina Billion Ruin dei soldi" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase --autostash -q && git push && break; sleep $((i * 5)); done
