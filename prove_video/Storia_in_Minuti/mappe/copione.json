@@ -1,3269 +1,2603 @@
 {
- "titolo": "Perché gli USA si Arricchirono e l'America Latina Rimase Indietro?",
+ "titolo": "Haiti Era la Colonia Più Ricca. Perché Oggi è Più Povera del Vicino?",
  "numero": {
-  "testo": "x8",
-  "sotto": "IL DIVARIO TRA DUE AMERICHE"
+  "testo": "x7",
+  "sotto": "QUANTO È PIÙ RICCO IL VICINO"
  },
  "copertina": {
   "testo": "PERCHÉ?",
   "oro": [
-   "USA"
+   "DOM"
   ],
   "verde": [
-   "MEX",
-   "BRA",
-   "ARG",
-   "COL",
-   "PER",
-   "BOL",
-   "CHL"
+   "HTI"
   ],
   "vista": {
-   "lon": -80,
-   "lat": 5,
-   "larghezza": 120
+   "lon": -72.3,
+   "lat": 18.9,
+   "larghezza": 9
   }
  },
- "descrizione": "Trecento anni fa nessuno avrebbe scommesso sul Nord America. Città d'argento, cattedrali e università sorgevano a sud, mentre al nord c'erano villaggi fangosi. Come si è ribaltata la storia? In questo video, con mappe animate, seguiamo le cause: ricchezze che diventano una maledizione, terra concentrata in poche mani, geografia, politica e scuola.\n\nNon è questione di talento o di impegno: l'America Latina ha sempre lavorato duro. A fare la differenza sono state le istituzioni, cioè le regole con cui ogni società ha deciso di produrre e distribuire la ricchezza. Un viaggio dal Potosí a Jamestown, passando per haciendas, fiumi e caudillos.",
+ "descrizione": "Da un lato foreste verdi e resort, dall'altro colline spoglie e bande armate. Haiti e Repubblica Dominicana dividono la stessa isola, lo stesso sole e gli stessi uragani, eppure oggi un dominicano è circa sette volte più ricco di un haitiano. Com'è possibile?\n\nIn questo viaggio con le mappe animate scopri le cinque ferite storiche che hanno separato i due paesi: due padroni coloniali, un riscatto che è durato più di un secolo, un muro invisibile di vento, la ricerca disperata di combustibile per cucinare e due dittatori dal destino diverso.",
  "tag": [
-  "storia",
+  "Haiti",
+  "Repubblica Dominicana",
+  "Hispaniola",
+  "storia di Haiti",
   "mappe animate",
-  "america latina",
-  "stati uniti",
-  "perché i paesi sono ricchi",
-  "economia storia",
+  "storia in minuti",
+  "rivoluzione haitiana",
   "colonialismo",
-  "potosí",
-  "hacienda",
-  "homestead act",
-  "caudillos",
-  "storia dell'economia"
+  "Caribe",
+  "perché Haiti è povera",
+  "deforestazione Haiti",
+  "debito Haiti Francia"
  ],
  "scene": [
   {
-   "testo": "Trecento anni fa, se avessi chiesto quale parte delle Americhe sarebbe diventata la più potente del mondo, nessuno avrebbe risposto: gli Stati Uniti.",
+   "testo": "Una linea sulla mappa: da una parte foreste, dall'altra deserto. Un debito durato un secolo. Un muro di vento. Perché metà isola è ricca e metà no?",
    "anteprima": true,
    "vista": {
-    "lon": -80,
-    "lat": 10,
-    "larghezza": 120
+    "lon": -72.3,
+    "lat": 19,
+    "larghezza": 9
    },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [],
+   "epoca": "oggi",
+   "oro": [
+    "DOM"
+   ],
+   "verde": [
+    "HTI"
+   ],
    "eventi": [
     {
-     "tipo": "anno",
-     "testo": "1700",
-     "parola": "Trecento"
+     "tipo": "confine",
+     "punti": [
+      [
+       -71.75,
+       19.9
+      ],
+      [
+       -71.75,
+       18.0
+      ]
+     ],
+     "parola": "linea"
+    },
+    {
+     "tipo": "numero",
+     "testo": "150M",
+     "lon": -72.3,
+     "lat": 19,
+     "parola": "debito"
     },
     {
      "tipo": "scritta",
-     "testo": "NESSUNO",
-     "parola": "nessuno"
+     "testo": "PERCHÉ?",
+     "parola": "Perché"
     }
    ],
    "musica": "mistero",
    "stacco": false,
    "pin": {
-    "lon": -95,
-    "lat": 30,
+    "lon": -70.5,
+    "lat": 19.2,
     "faccia": "stupito"
    }
   },
   {
-   "testo": "Tutti avrebbero puntato il dito a sud. Città Del Messico, L'Avana e Lima erano metropoli vivaci, con università, cattedrali enormi e teatri.",
+   "testo": "Guarda l'isola dallo spazio: sembra spaccata a metà. Da una parte verde scuro, dall'altra marrone chiaro, come se qualcuno avesse cancellato la vita con una gomma.",
    "anteprima": false,
    "vista": {
-    "lon": -85,
-    "lat": 15,
-    "larghezza": 60
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "MEX",
-    "CUB",
-    "PER"
-   ],
-   "eventi": [
-    {
-     "tipo": "etichetta",
-     "testo": "CITTÀ DEL MESSICO",
-     "lon": -99,
-     "lat": 19.4,
-     "parola": "Messico"
-    },
-    {
-     "tipo": "icona",
-     "icona": "church",
-     "lon": -82.4,
-     "lat": 23.1,
-     "parola": "cattedrali"
-    },
-    {
-     "tipo": "icona",
-     "icona": "school",
-     "lon": -77,
-     "lat": -12,
-     "parola": "università"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Il sud brillava di città",
-     "parola": "Lima"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -110,
-    "lat": 35,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Boston e New York, invece, erano piccoli villaggi freddi e fangosi, aggrappati al margine di una foresta infinita.",
-   "anteprima": false,
-   "vista": {
-    "lon": -73,
-    "lat": 41,
-    "larghezza": 14
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "etichetta",
-     "testo": "BOSTON",
-     "lon": -71,
-     "lat": 42.4,
-     "parola": "Boston"
-    },
-    {
-     "tipo": "icona",
-     "icona": "cabin",
-     "lon": -74,
-     "lat": 40.7,
-     "parola": "villaggi"
-    },
-    {
-     "tipo": "icona",
-     "icona": "forest",
-     "lon": -76,
-     "lat": 43,
-     "parola": "foresta"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Villaggi nel fango",
-     "parola": "fangosi"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -68,
-    "lat": 38,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Il sud poggiava su montagne d'argento e d'oro. Zucchero e tabacco riempivano le casse delle corone di Spagna e Portogallo.",
-   "anteprima": false,
-   "vista": {
-    "lon": -65,
-    "lat": -5,
-    "larghezza": 80
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "BOL",
-    "BRA",
-    "MEX"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "silver_bars",
-     "lon": -65.7,
-     "lat": -19.6,
-     "parola": "argento"
-    },
-    {
-     "tipo": "icona",
-     "icona": "sugar_cane",
-     "lon": -40,
-     "lat": -9,
-     "parola": "zucchero"
-    },
-    {
-     "tipo": "icona",
-     "icona": "crown",
-     "lon": -60,
-     "lat": -15,
-     "parola": "corone"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Metalli e piantagioni",
-     "parola": "Portogallo"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -95,
-    "lat": 15,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Il nord non aveva quasi nulla: niente oro, niente argento, clima ostile e un suolo pieno di pietre.",
-   "anteprima": false,
-   "vista": {
-    "lon": -85,
-    "lat": 42,
-    "larghezza": 40
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "scritta",
-     "testo": "NIENTE",
-     "parola": "niente"
-    },
-    {
-     "tipo": "icona",
-     "icona": "mountain",
-     "lon": -78,
-     "lat": 43,
-     "parola": "pietre"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Nessun tesoro al nord",
-     "parola": "oro"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": -105,
-    "lat": 30,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Com'è possibile che il nord povero e freddo sia diventato la superpotenza più ricca della storia, mentre il sud pieno di tesori è rimasto indietro?",
-   "anteprima": false,
-   "vista": {
-    "lon": -80,
-    "lat": 10,
-    "larghezza": 120
+    "lon": -71.5,
+    "lat": 19,
+    "larghezza": 8
    },
    "epoca": "oggi",
-   "oro": [
-    "USA"
-   ],
-   "verde": [
-    "MEX",
-    "BRA",
-    "ARG",
-    "COL",
-    "PER",
-    "CHL",
-    "BOL"
-   ],
+   "oro": [],
+   "verde": [],
    "eventi": [
     {
-     "tipo": "solleva",
-     "paese": [
-      "USA"
+     "tipo": "confine",
+     "punti": [
+      [
+       -71.75,
+       19.9
+      ],
+      [
+       -71.75,
+       18.0
+      ]
      ],
-     "volte": 8,
-     "testo": "x8",
-     "colore": "oro",
-     "parola": "superpotenza"
+     "parola": "spaccata"
     },
     {
-     "tipo": "icona",
-     "icona": "question",
-     "lon": -60,
-     "lat": -10,
-     "parola": "possibile"
+     "tipo": "etichetta",
+     "testo": "HISPANIOLA",
+     "lon": -71.2,
+     "lat": 19,
+     "parola": "isola"
     },
     {
      "tipo": "nota",
-     "testo": "Il grande ribaltamento",
-     "parola": "indietro"
+     "testo": "Un'isola, due mondi",
+     "parola": "gomma"
     }
    ],
-   "musica": "tensione",
-   "stacco": true,
+   "musica": "",
+   "stacco": false,
    "pin": {
-    "lon": -125,
-    "lat": 20,
+    "lon": -69.8,
+    "lat": 19.6,
     "faccia": "stupito"
    }
   },
   {
-   "testo": "Il divario oggi è enorme: un americano produce in media diverse volte più ricchezza di un latinoamericano. Ma da dove nasce?",
+   "testo": "A est c'è la Repubblica Dominicana: resort, autostrade, grattacieli e un'economia in crescita. A ovest c'è Haiti: fame, bande armate e uno Stato in rovina.",
    "anteprima": false,
    "vista": {
-    "lon": -85,
-    "lat": 15,
-    "larghezza": 100
+    "lon": -71.5,
+    "lat": 19,
+    "larghezza": 8
    },
    "epoca": "oggi",
    "oro": [
-    "USA"
+    "DOM"
    ],
    "verde": [
-    "MEX",
-    "BRA",
-    "COL",
-    "PER"
+    "HTI"
    ],
    "eventi": [
     {
-     "tipo": "prezzo",
-     "testo": "$80,000",
-     "sotto": "USA · PER PERSONA",
-     "ricco": true,
-     "parola": "americano"
+     "tipo": "contorno",
+     "paese": "DOM",
+     "parola": "Dominicana"
     },
     {
-     "tipo": "prezzo",
-     "testo": "$10,000",
-     "sotto": "AMERICA LATINA · PER PERSONA",
-     "ricco": false,
-     "parola": "latinoamericano"
+     "tipo": "icona",
+     "icona": "flag:DO",
+     "lon": -70.2,
+     "lat": 18.9,
+     "parola": "resort"
+    },
+    {
+     "tipo": "contorno",
+     "paese": "HTI",
+     "parola": "Haiti"
+    },
+    {
+     "tipo": "icona",
+     "icona": "flag:HT",
+     "lon": -72.8,
+     "lat": 19,
+     "parola": "fame"
     },
     {
      "tipo": "nota",
-     "testo": "Un divario di circa otto volte",
+     "testo": "Ricchezza contro fragilità",
+     "parola": "rovina"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -69.6,
+    "lat": 19.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Eppure stesso sole, stesso oceano, stessi uragani. Le due capitali distano poche ore di auto. Allora com'è possibile una differenza così enorme?",
+   "anteprima": false,
+   "vista": {
+    "lon": -71.5,
+    "lat": 18.7,
+    "larghezza": 6
+   },
+   "epoca": "oggi",
+   "oro": [
+    "DOM"
+   ],
+   "verde": [
+    "HTI"
+   ],
+   "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "PORT-AU-PRINCE",
+     "lon": -72.34,
+     "lat": 18.54,
+     "parola": "capitali"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "SANTO DOMINGO",
+     "lon": -69.9,
+     "lat": 18.49,
+     "parola": "auto"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -72.34,
+      18.54
+     ],
+     "a": [
+      -69.9,
+      18.49
+     ],
+     "icona": "ship",
+     "parola": "poche"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Capitali a poche ore",
      "parola": "enorme"
     }
    ],
    "musica": "",
    "stacco": false,
    "pin": {
-    "lon": -120,
-    "lat": 30,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "La risposta sta in alcune grandi trappole della storia. Il sud ci è caduto dentro, il nord è riuscito a evitarle.",
-   "anteprima": false,
-   "vista": {
-    "lon": -80,
-    "lat": 10,
-    "larghezza": 120
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [
-    "MEX",
-    "BRA",
-    "ARG",
-    "COL",
-    "PER",
-    "BOL"
-   ],
-   "eventi": [
-    {
-     "tipo": "scritta",
-     "testo": "TRAPPOLE",
-     "parola": "trappole"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Quattro trappole storiche",
-     "parola": "storia"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -125,
-    "lat": 20,
+    "lon": -71.3,
+    "lat": 19.5,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Prima trappola, la più assurda: l'America Latina fu maledetta dalle proprie ricchezze, mentre gli Stati Uniti furono salvati dal non averne.",
+   "testo": "Oggi un dominicano medio guadagna circa sette volte più di un haitiano. Sette volte, sulla stessa isola. Ecco i numeri veri.",
    "anteprima": false,
    "vista": {
-    "lon": -80,
-    "lat": 10,
-    "larghezza": 120
+    "lon": -71.5,
+    "lat": 19,
+    "larghezza": 8
    },
-   "epoca": "antica",
+   "epoca": "oggi",
    "oro": [
-    "USA"
+    "DOM"
    ],
    "verde": [
-    "BOL",
-    "PER",
-    "MEX"
+    "HTI"
    ],
    "eventi": [
     {
-     "tipo": "scritta",
-     "testo": "MALEDIZIONE",
-     "parola": "maledetta"
-    },
-    {
-     "tipo": "icona",
-     "icona": "treasure_chest",
-     "lon": -70,
-     "lat": -15,
-     "parola": "ricchezze"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Ricchezza come maledizione",
-     "parola": "salvati"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -110,
-    "lat": 35,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Quando i conquistadores arrivarono, trovarono imperi enormi e organizzati: gli Aztechi e gli Inca. E soprattutto, trovarono l'argento.",
-   "anteprima": false,
-   "vista": {
-    "lon": -85,
-    "lat": 0,
-    "larghezza": 70
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "MEX",
-    "PER"
-   ],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "conquistador",
-     "n": 4,
-     "lon": -99,
-     "lat": 19.4,
-     "parola": "conquistadores"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "IMPERO AZTECO",
-     "lon": -99,
-     "lat": 19.4,
-     "parola": "Aztechi"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "IMPERO INCA",
-     "lon": -72,
-     "lat": -13.5,
-     "parola": "Inca"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Imperi già pronti da sfruttare",
-     "parola": "organizzati"
-    }
-   ],
-   "musica": "epico",
-   "stacco": false,
-   "pin": {
-    "lon": -110,
-    "lat": 25,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "A Potosí, nell'attuale Bolivia, c'era un'intera montagna quasi tutta d'argento. Tanto metallo da rimodellare l'economia del mondo.",
-   "anteprima": false,
-   "vista": {
-    "lon": -66,
-    "lat": -19,
-    "larghezza": 16
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "BOL"
-   ],
-   "eventi": [
-    {
-     "tipo": "etichetta",
-     "testo": "POTOSÍ",
-     "lon": -65.75,
-     "lat": -19.6,
-     "parola": "Potosí"
-    },
-    {
-     "tipo": "icona",
-     "icona": "mine",
-     "lon": -65.8,
-     "lat": -19.5,
-     "parola": "montagna"
-    },
-    {
-     "tipo": "icona",
-     "icona": "silver_bars",
-     "lon": -65.4,
-     "lat": -19.9,
-     "parola": "argento"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Una montagna d'argento",
-     "parola": "economia"
-    }
-   ],
-   "musica": "",
-   "stacco": true,
-   "pin": {
-    "lon": -62,
-    "lat": -17,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Si calcola che dal Potosí e dalle altre miniere partì più della metà dell'argento prodotto nel mondo, in quei secoli.",
-   "anteprima": false,
-   "vista": {
-    "lon": -60,
-    "lat": -5,
-    "larghezza": 100
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "BOL",
-    "MEX",
-    "PER"
-   ],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      -65.7,
-      -19.6
+     "tipo": "solleva",
+     "paese": [
+      "DOM"
      ],
-     "a": [
-      -77,
-      -12
-     ],
-     "icona": "silver_bars",
-     "parola": "partì"
+     "volte": 7,
+     "testo": "x7",
+     "colore": "oro",
+     "parola": "sette"
     },
     {
-     "tipo": "contatore",
-     "testo": "OLTRE 1 SU 2",
-     "su": 1,
-     "di": 2,
-     "personaggio": "miner",
-     "parola": "metà"
+     "tipo": "prezzo",
+     "testo": "$10.000",
+     "sotto": "DOMINICANA · A TESTA",
+     "ricco": true,
+     "parola": "dominicano"
     },
     {
-     "tipo": "nota",
-     "testo": "Metà dell'argento mondiale",
-     "parola": "mondo"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -95,
-    "lat": 10,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Con ricchezza così facile, la strategia spagnola si ridusse a una parola sola: estrazione. Prendere, caricare sulle navi, spedire a Madrid.",
-   "anteprima": false,
-   "vista": {
-    "lon": -40,
-    "lat": 10,
-    "larghezza": 120
-   },
-   "epoca": "antica",
-   "oro": [
-    "ESP"
-   ],
-   "verde": [
-    "BOL",
-    "PER"
-   ],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      -77,
-      -12
-     ],
-     "a": [
-      -3.7,
-      40.4
-     ],
-     "icona": "galleon",
-     "parola": "navi"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "ESTRAZIONE",
-     "lon": -60,
-     "lat": -5,
-     "parola": "estrazione"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "MADRID",
-     "lon": -3.7,
-     "lat": 40.4,
-     "parola": "Madrid"
+     "tipo": "prezzo",
+     "testo": "$1.500",
+     "sotto": "HAITI · A TESTA",
+     "ricco": false,
+     "parola": "haitiano"
     },
     {
      "tipo": "nota",
-     "testo": "Estrarre e spedire in Spagna",
-     "parola": "strategia"
+     "testo": "Circa sette volte più ricco",
+     "parola": "Sette"
     }
    ],
    "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": -90,
-    "lat": 20,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Perché costruire fabbriche, piccole imprese o scuole, quando basta scavare l'argento dalla terra? Era la via più comoda per chi comandava.",
-   "anteprima": false,
-   "vista": {
-    "lon": -75,
-    "lat": -10,
-    "larghezza": 40
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "PER",
-    "BOL"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "factory",
-     "lon": -72,
-     "lat": -5,
-     "parola": "fabbriche"
-    },
-    {
-     "tipo": "icona",
-     "icona": "school",
-     "lon": -70,
-     "lat": -12,
-     "parola": "scuole"
-    },
-    {
-     "tipo": "icona",
-     "icona": "question",
-     "lon": -75,
-     "lat": -15,
-     "parola": "Perché"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Nessun interesse a costruire",
-     "parola": "comoda"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -85,
-    "lat": -5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "A scavare furono milioni di indigeni, insieme agli africani ridotti in schiavitù. Un sistema brutale, con pochi nobili padroni di tutto.",
-   "anteprima": false,
-   "vista": {
-    "lon": -70,
-    "lat": -15,
-    "larghezza": 40
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "PER",
-    "BOL"
-   ],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "native_worker",
-     "n": 6,
-     "lon": -66,
-     "lat": -19.5,
-     "parola": "indigeni"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "landowner",
-     "n": 3,
-     "lon": -72,
-     "lat": -13,
-     "parola": "nobili"
-    },
-    {
-     "tipo": "conta",
-     "valore": 8000000,
-     "prefisso": "~",
-     "suffisso": "",
-     "sotto": "INDIGENI NEL LAVORO FORZATO",
-     "parola": "milioni"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Lavoro forzato per pochi",
-     "parola": "brutale"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": -80,
-    "lat": -5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Una società costruita per prendere tutto ciò che aveva valore, il più in fretta possibile, e lasciare i profitti a una minuscola élite.",
-   "anteprima": false,
-   "vista": {
-    "lon": -75,
-    "lat": -10,
-    "larghezza": 60
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "PER",
-    "BOL",
-    "MEX"
-   ],
-   "eventi": [
-    {
-     "tipo": "contatore",
-     "testo": "POCHISSIMI SI ARRICCHIVANO",
-     "su": 1,
-     "di": 10,
-     "personaggio": "king",
-     "parola": "élite"
-    },
-    {
-     "tipo": "icona",
-     "icona": "money_bag",
-     "lon": -77,
-     "lat": -12,
-     "parola": "profitti"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Ricchezza in poche mani",
-     "parola": "minuscola"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -100,
-    "lat": 10,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Ora guardiamo gli inglesi in Nordamerica. Volevano fare esattamente lo stesso, e a Jamestown passarono i primi mesi a cercare oro.",
-   "anteprima": false,
-   "vista": {
-    "lon": -77,
-    "lat": 37,
-    "larghezza": 14
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1607",
-     "parola": "Jamestown"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "JAMESTOWN",
-     "lon": -76.8,
-     "lat": 37.2,
-     "parola": "Jamestown"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "colonist",
-     "n": 5,
-     "lon": -76.8,
-     "lat": 37.2,
-     "parola": "inglesi"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Cercavano oro, come gli spagnoli",
-     "parola": "oro"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": -72,
-    "lat": 40,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Ma non c'era oro. Non c'erano montagne d'argento, né grandi imperi da sottomettere al lavoro. I coloni soffrivano la fame.",
-   "anteprima": false,
-   "vista": {
-    "lon": -77,
-    "lat": 37,
-    "larghezza": 12
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "scritta",
-     "testo": "NIENTE ORO",
-     "parola": "oro"
-    },
-    {
-     "tipo": "icona",
-     "icona": "grave",
-     "lon": -76.8,
-     "lat": 37.3,
-     "parola": "fame"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Fame e nessun tesoro",
-     "parola": "coloni"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": -73,
-    "lat": 39,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Le compagnie di Londra capirono in fretta che in Virginia nessuno si sarebbe arricchito con l'oro. Servivano persone comuni disposte a partire.",
-   "anteprima": false,
-   "vista": {
-    "lon": -40,
-    "lat": 45,
-    "larghezza": 80
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA",
-    "GBR"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "etichetta",
-     "testo": "LONDRA",
-     "lon": -0.1,
-     "lat": 51.5,
-     "parola": "Londra"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -0.1,
-      51.5
-     ],
-     "a": [
-      -76.8,
-      37.2
-     ],
-     "icona": "cargo_ship",
-     "parola": "partire"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Servivano coloni comuni",
-     "parola": "comuni"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -30,
-    "lat": 55,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Dovevano convincere gente qualunque ad attraversare un oceano terribile, abbattere alberi, costruirsi la casa e coltivare la terra con le proprie mani.",
-   "anteprima": false,
-   "vista": {
-    "lon": -75,
-    "lat": 40,
-    "larghezza": 30
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "colonist",
-     "n": 6,
-     "lon": -75,
-     "lat": 39,
-     "parola": "gente"
-    },
-    {
-     "tipo": "icona",
-     "icona": "forest",
-     "lon": -78,
-     "lat": 41,
-     "parola": "alberi"
-    },
-    {
-     "tipo": "icona",
-     "icona": "cabin",
-     "lon": -74,
-     "lat": 40,
-     "parola": "casa"
-    },
-    {
-     "tipo": "icona",
-     "icona": "farm",
-     "lon": -72,
-     "lat": 42,
-     "parola": "coltivare"
-    }
-   ],
-   "musica": "quotidiano",
-   "stacco": false,
-   "pin": {
-    "lon": -68,
-    "lat": 44,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "E per riuscirci dovettero offrire ciò che in Europa era impossibile avere: la proprietà della terra e la libertà personale.",
-   "anteprima": false,
-   "vista": {
-    "lon": -75,
-    "lat": 40,
-    "larghezza": 30
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "scritta",
-     "testo": "LA TUA TERRA",
-     "parola": "terra"
-    },
-    {
-     "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": -74,
-     "lat": 40.5,
-     "parola": "proprietà"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Terra e libertà come offerta",
-     "parola": "libertà"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -68,
-    "lat": 43,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Se sgomberavi la foresta e sopravvivevi all'inverno, quella fattoria era tua. Non eri uno schiavo, né un contadino al servizio di un signore.",
-   "anteprima": false,
-   "vista": {
-    "lon": -76,
-    "lat": 41,
-    "larghezza": 20
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "family",
-     "n": 4,
-     "lon": -76,
-     "lat": 41,
-     "parola": "fattoria"
-    },
-    {
-     "tipo": "icona",
-     "icona": "farm",
-     "lon": -74,
-     "lat": 42,
-     "parola": "tua"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Un contadino libero e proprietario",
-     "parola": "schiavo"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -69,
-    "lat": 44,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Tenevi quello che coltivavi e potevi lasciarlo ai figli. Migliaia di proprietari avevano ottimi motivi per lavorare di più e migliorare gli attrezzi.",
-   "anteprima": false,
-   "vista": {
-    "lon": -76,
-    "lat": 41,
-    "larghezza": 24
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "wheat",
-     "lon": -77,
-     "lat": 40,
-     "parola": "coltivavi"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "peasant",
-     "n": 6,
-     "lon": -75,
-     "lat": 41,
-     "parola": "proprietari"
-    },
-    {
-     "tipo": "conta",
-     "valore": 1000,
-     "prefisso": "",
-     "suffisso": "",
-     "sotto": "PICCOLE AZIENDE AGRICOLE",
-     "parola": "Migliaia"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Chi possiede lavora meglio",
-     "parola": "migliorare"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -70,
-    "lat": 43,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "L'assenza di ricchezza facile costrinse gli Stati Uniti a costruire l'economia dal basso. L'America Latina, invece, la costruì dall'alto.",
-   "anteprima": false,
-   "vista": {
-    "lon": -80,
-    "lat": 10,
-    "larghezza": 120
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [
-    "MEX",
-    "BRA",
-    "PER",
-    "BOL"
-   ],
-   "eventi": [
-    {
-     "tipo": "etichetta",
-     "testo": "DAL BASSO",
-     "lon": -95,
-     "lat": 38,
-     "parola": "basso"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "DALL'ALTO",
-     "lon": -65,
-     "lat": -10,
-     "parola": "alto"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Due modelli opposti",
-     "parola": "economia"
-    }
-   ],
-   "musica": "",
    "stacco": true,
    "pin": {
-    "lon": -110,
-    "lat": 15,
-    "faccia": "normale"
+    "lon": -69.7,
+    "lat": 19.7,
+    "faccia": "stupito"
    }
   },
   {
-   "testo": "Da qui nasce la seconda ragione: la terra e chi poteva possederla. Nel mondo preindustriale la ricchezza era soprattutto terra.",
+   "testo": "Non è sfortuna, e non è un caso. La differenza è stata scavata da cinque ferite storiche. Le vediamo una per una.",
    "anteprima": false,
    "vista": {
-    "lon": -75,
-    "lat": -5,
-    "larghezza": 100
+    "lon": -71.5,
+    "lat": 19,
+    "larghezza": 8
    },
-   "epoca": "antica",
+   "epoca": "oggi",
    "oro": [],
-   "verde": [
-    "MEX",
-    "COL",
-    "BRA",
-    "ARG"
-   ],
-   "eventi": [
-    {
-     "tipo": "scritta",
-     "testo": "LA TERRA",
-     "parola": "terra"
-    },
-    {
-     "tipo": "icona",
-     "icona": "wheat",
-     "lon": -60,
-     "lat": -30,
-     "parola": "ricchezza"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Chi ha la terra ha il futuro",
-     "parola": "preindustriale"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": -105,
-    "lat": 20,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "In America Latina la terra era divisa in immense proprietà, le haciendas. Una sola famiglia poteva possedere un'area grande come un paese europeo.",
-   "anteprima": false,
-   "vista": {
-    "lon": -70,
-    "lat": -15,
-    "larghezza": 70
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "MEX",
-    "COL",
-    "BRA",
-    "ARG"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "hacienda",
-     "lon": -99,
-     "lat": 21,
-     "parola": "haciendas"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "landowner",
-     "n": 2,
-     "lon": -99,
-     "lat": 21,
-     "parola": "famiglia"
-    },
-    {
-     "tipo": "icona",
-     "icona": "church",
-     "lon": -100,
-     "lat": 19,
-     "parola": "paese"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Proprietà grandi come stati",
-     "parola": "immense"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -85,
-    "lat": 8,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Milioni di contadini vivevano su quelle tenute senza possedere nulla. Lavoravano per il padrone, compravano nel suo negozio e vivevano nei debiti con lui.",
-   "anteprima": false,
-   "vista": {
-    "lon": -99,
-    "lat": 21,
-    "larghezza": 16
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "MEX"
-   ],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "peasant",
-     "n": 7,
-     "lon": -99,
-     "lat": 21,
-     "parola": "contadini"
-    },
-    {
-     "tipo": "icona",
-     "icona": "money_bag",
-     "lon": -98.5,
-     "lat": 20.5,
-     "parola": "debiti"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Lavoro e debiti verso il padrone",
-     "parola": "negozio"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": -96,
-    "lat": 24,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "In un sistema così l'economia si congela. Chi sta in basso non ha motivo di lavorare di più, perché ogni guadagno extra finisce al padrone.",
-   "anteprima": false,
-   "vista": {
-    "lon": -99,
-    "lat": 21,
-    "larghezza": 14
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "MEX"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "hourglass",
-     "lon": -99,
-     "lat": 21,
-     "parola": "congela"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -100,
-      20
-     ],
-     "a": [
-      -98,
-      22
-     ],
-     "icona": "banknotes",
-     "parola": "guadagno"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Ogni guadagno va al padrone",
-     "parola": "padrone"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -95,
-    "lat": 23,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "E in alto? Anche i ricchi non avevano ragione di innovare: erano già ricchissimi, seduti sulle loro proprietà giganti.",
-   "anteprima": false,
-   "vista": {
-    "lon": -70,
-    "lat": -15,
-    "larghezza": 60
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "ARG",
-    "BRA",
-    "CHL"
-   ],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "landowner",
-     "n": 3,
-     "lon": -60,
-     "lat": -33,
-     "parola": "ricchi"
-    },
-    {
-     "tipo": "icona",
-     "icona": "cattle",
-     "lon": -62,
-     "lat": -35,
-     "parola": "proprietà"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Nessuno aveva bisogno di innovare",
-     "parola": "innovare"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -85,
-    "lat": -10,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Negli Stati Uniti andò al contrario. Il governo scelse di distribuire la terra tra più persone possibile.",
-   "anteprima": false,
-   "vista": {
-    "lon": -98,
-    "lat": 40,
-    "larghezza": 50
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
    "verde": [],
    "eventi": [
     {
-     "tipo": "contorno",
-     "paese": "USA",
-     "parola": "Stati"
-    },
-    {
-     "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": -95,
-     "lat": 39,
-     "parola": "governo"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Terra distribuita a molti",
-     "parola": "distribuire"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -118,
-    "lat": 47,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Più tardi, con l'Homestead Act del 1862, lo Stato regalò terra a ovest a ogni famiglia disposta a coltivarla per cinque anni.",
-   "anteprima": false,
-   "vista": {
-    "lon": -100,
-    "lat": 40,
-    "larghezza": 40
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1862",
-     "parola": "1862"
-    },
-    {
      "tipo": "scritta",
-     "testo": "TERRA GRATIS",
-     "parola": "regalò"
+     "testo": "5 FERITE",
+     "parola": "cinque"
     },
     {
      "tipo": "conta",
      "valore": 5,
      "prefisso": "",
      "suffisso": "",
-     "sotto": "ANNI PER AVERLA",
-     "parola": "cinque"
+     "sotto": "FERITE STORICHE",
+     "parola": "scavata"
     },
     {
-     "tipo": "folla",
-     "personaggio": "family",
-     "n": 4,
-     "lon": -100,
-     "lat": 40,
-     "parola": "famiglia"
+     "tipo": "nota",
+     "testo": "Non è sfortuna: è storia",
+     "parola": "caso"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -69.8,
+    "lat": 19.6,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Primo punto: chi è arrivato per primo. Alla fine del Quattrocento Cristoforo Colombo sbarca sull'isola e la reclama per la Spagna.",
+   "anteprima": false,
+   "vista": {
+    "lon": -60,
+    "lat": 28,
+    "larghezza": 70
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1492",
+     "parola": "Quattrocento"
+    },
+    {
+     "tipo": "personaggio",
+     "nome": "Cristoforo Colombo",
+     "descrizione": "Navigatore genovese del XV secolo, mantello scuro e cappello",
+     "parola": "Cristoforo"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -6.3,
+      36.5
+     ],
+     "a": [
+      -72.5,
+      19.3
+     ],
+     "icona": "galleon",
+     "parola": "sbarca"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Colombo reclama l'isola",
+     "parola": "Spagna"
     }
    ],
    "musica": "epico",
    "stacco": false,
    "pin": {
-    "lon": -118,
-    "lat": 46,
+    "lon": -45,
+    "lat": 40,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Fu una terra enorme: circa duecentocinquanta milioni di acri, più di tutta la Francia e la Germania messe insieme, finirono in mano privata.",
+   "testo": "Ma gli spagnoli si annoiano presto. In Messico e in Perù trovano montagne d'argento e oro, e lasciano l'isola al suo destino.",
    "anteprima": false,
    "vista": {
-    "lon": -100,
-    "lat": 42,
-    "larghezza": 50
+    "lon": -85,
+    "lat": 15,
+    "larghezza": 70
    },
    "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
+   "oro": [],
    "verde": [],
    "eventi": [
     {
-     "tipo": "conta",
-     "valore": 250,
-     "prefisso": "~",
-     "suffisso": "M",
-     "sotto": "ACRI DISTRIBUITI",
-     "parola": "milioni"
+     "tipo": "icona",
+     "icona": "silver_bars",
+     "lon": -100,
+     "lat": 20,
+     "parola": "Messico"
     },
     {
-     "tipo": "griglia",
-     "paese": [
-      "USA"
+     "tipo": "icona",
+     "icona": "gold_coins",
+     "lon": -75,
+     "lat": -10,
+     "parola": "Perù"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -72.5,
+      19
      ],
-     "pieni": 0.1,
-     "testo": "TERRA REGALATA",
-     "colore": "oro",
-     "parola": "privata"
+     "a": [
+      -100,
+      20
+     ],
+     "icona": "galleon",
+     "parola": "lasciano"
     },
     {
      "tipo": "nota",
-     "testo": "Un'area più grande di due nazioni",
-     "parola": "Germania"
+     "testo": "Gli spagnoli puntano altrove",
+     "parola": "oro"
     }
    ],
    "musica": "",
    "stacco": false,
    "pin": {
-    "lon": -120,
-    "lat": 45,
-    "faccia": "stupito"
+    "lon": -60,
+    "lat": 30,
+    "faccia": "normale"
    }
   },
   {
-   "testo": "Con milioni di piccoli proprietari nacque una società di piccoli imprenditori. E questi avevano bisogno di aratri, carri, stivali, asce e chiodi.",
+   "testo": "I due terzi orientali diventano un angolo dimenticato. Restano poche migliaia di coloni, che allevano bestiame nelle pianure e si mescolano con la popolazione locale.",
    "anteprima": false,
    "vista": {
-    "lon": -95,
-    "lat": 40,
-    "larghezza": 40
+    "lon": -70.3,
+    "lat": 18.9,
+    "larghezza": 6
    },
    "epoca": "antica",
    "oro": [
-    "USA"
+    "DOM"
    ],
    "verde": [],
    "eventi": [
     {
+     "tipo": "contorno",
+     "paese": "DOM",
+     "parola": "orientali"
+    },
+    {
      "tipo": "folla",
-     "personaggio": "worker",
-     "n": 5,
-     "lon": -90,
-     "lat": 40,
-     "parola": "imprenditori"
+     "personaggio": "colonist",
+     "n": 4,
+     "lon": -70.3,
+     "lat": 18.9,
+     "parola": "coloni"
     },
     {
      "tipo": "icona",
-     "icona": "wheat",
-     "lon": -97,
-     "lat": 41,
-     "parola": "aratri"
-    },
-    {
-     "tipo": "icona",
-     "icona": "cargo_ship",
-     "lon": -88,
-     "lat": 38,
-     "parola": "carri"
+     "icona": "cattle",
+     "lon": -69.5,
+     "lat": 18.8,
+     "parola": "bestiame"
     },
     {
      "tipo": "nota",
-     "testo": "Milioni di clienti ben forniti",
-     "parola": "chiodi"
+     "testo": "Poche migliaia, tanto bestiame",
+     "parola": "dimenticato"
     }
    ],
    "musica": "quotidiano",
    "stacco": false,
    "pin": {
-    "lon": -105,
-    "lat": 46,
+    "lon": -71.4,
+    "lat": 19.5,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Quella enorme domanda interna fece nascere fabbriche, officine e inventori in cerca di macchine migliori da vendere a milioni di agricoltori.",
+   "testo": "Nel frattempo pirati e mercanti francesi si infilano a ovest, nel terzo occidentale. La Francia, a differenza della Spagna, non lo ignora affatto.",
    "anteprima": false,
    "vista": {
-    "lon": -85,
-    "lat": 40,
-    "larghezza": 30
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "factory",
-     "lon": -83,
-     "lat": 42,
-     "parola": "fabbriche"
-    },
-    {
-     "tipo": "colonna",
-     "testo": "MERCATO USA",
-     "valore": 1.0,
-     "lon": -88,
-     "lat": 40,
-     "parola": "domanda"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Nasce il mercato interno",
-     "parola": "inventori"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -95,
-    "lat": 46,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "L'America Latina, nell'Ottocento, non ebbe mai un mercato così: la grande maggioranza della popolazione era troppo povera per comprare qualsiasi cosa.",
-   "anteprima": false,
-   "vista": {
-    "lon": -70,
-    "lat": -10,
-    "larghezza": 80
+    "lon": -72.5,
+    "lat": 19,
+    "larghezza": 6
    },
    "epoca": "antica",
    "oro": [],
    "verde": [
-    "BRA",
-    "ARG",
-    "PER",
-    "COL",
-    "MEX"
+    "HTI"
    ],
-   "eventi": [
-    {
-     "tipo": "colonna",
-     "testo": "MERCATO LATINO",
-     "valore": 0.2,
-     "lon": -60,
-     "lat": -15,
-     "parola": "mercato"
-    },
-    {
-     "tipo": "icona",
-     "icona": "chart_down",
-     "lon": -62,
-     "lat": -20,
-     "parola": "povera"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Pochi potevano comprare",
-     "parola": "povera"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": -85,
-    "lat": 8,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "La terza causa è quella a cui quasi nessuno pensa: la geografia. Spostare merci sulla terraferma costa tanto ed è lento.",
-   "anteprima": false,
-   "vista": {
-    "lon": -80,
-    "lat": 10,
-    "larghezza": 120
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [
-    "BRA",
-    "COL",
-    "PER"
-   ],
-   "eventi": [
-    {
-     "tipo": "scritta",
-     "testo": "GEOGRAFIA",
-     "parola": "geografia"
-    },
-    {
-     "tipo": "icona",
-     "icona": "mountain",
-     "lon": -75,
-     "lat": -15,
-     "parola": "terraferma"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Via terra: caro e lento",
-     "parola": "costa"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": -110,
-    "lat": 15,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Muoversi sull'acqua, invece, costa poco e va veloce. Prima del treno, far galleggiare le merci lungo un fiume calmo era l'unico modo economico.",
-   "anteprima": false,
-   "vista": {
-    "lon": -90,
-    "lat": 35,
-    "larghezza": 40
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
    "eventi": [
     {
      "tipo": "icona",
-     "icona": "river",
-     "lon": -90,
-     "lat": 35,
-     "parola": "acqua"
+     "icona": "flag:FR",
+     "lon": -72.8,
+     "lat": 19.5,
+     "parola": "francesi"
     },
     {
-     "tipo": "freccia",
-     "da": [
-      -90,
-      42
-     ],
-     "a": [
-      -90,
-      30
-     ],
-     "icona": "cargo_ship",
-     "parola": "galleggiare"
+     "tipo": "contorno",
+     "paese": "HTI",
+     "parola": "occidentale"
     },
     {
      "tipo": "nota",
-     "testo": "Via acqua: economico e veloce",
-     "parola": "economico"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -105,
-    "lat": 42,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Gli Stati Uniti vinsero la lotteria geografica. Il centro del continente ospita il Mississippi: una rete naturale di superstrade d'acqua.",
-   "anteprima": false,
-   "vista": {
-    "lon": -90,
-    "lat": 37,
-    "larghezza": 30
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "confine",
-     "punti": [
-      [
-       -93,
-       45
-      ],
-      [
-       -91,
-       40
-      ],
-      [
-       -90,
-       35
-      ],
-      [
-       -90,
-       30
-      ]
-     ],
-     "parola": "Mississippi"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "MISSISSIPPI",
-     "lon": -90,
-     "lat": 35,
-     "parola": "Mississippi"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Superstrade naturali d'acqua",
-     "parola": "superstrade"
-    }
-   ],
-   "musica": "trionfo",
-   "stacco": false,
-   "pin": {
-    "lon": -105,
-    "lat": 42,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Un contadino dell'Ohio caricava il grano su una zattera, lo faceva scendere fino a New Orleans e lo vendeva al mondo.",
-   "anteprima": false,
-   "vista": {
-    "lon": -88,
-    "lat": 36,
-    "larghezza": 24
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "etichetta",
-     "testo": "OHIO",
-     "lon": -83,
-     "lat": 40,
-     "parola": "Ohio"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -83,
-      40
-     ],
-     "a": [
-      -90,
-      30
-     ],
-     "icona": "cargo_ship",
-     "parola": "zattera"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "NEW ORLEANS",
-     "lon": -90,
-     "lat": 30,
-     "parola": "Orleans"
-    },
-    {
-     "tipo": "icona",
-     "icona": "wheat",
-     "lon": -83,
-     "lat": 40.4,
-     "parola": "grano"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -98,
-    "lat": 43,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "E la terra tra la costa orientale e il Midwest era per lo più piatta: ideale per scavare canali e posare ferrovie.",
-   "anteprima": false,
-   "vista": {
-    "lon": -80,
-    "lat": 41,
-    "larghezza": 24
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "steam_train",
-     "lon": -80,
-     "lat": 41,
-     "parola": "ferrovie"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -74,
-      40.7
-     ],
-     "a": [
-      -87.6,
-      41.9
-     ],
-     "icona": "steam_train",
-     "parola": "Midwest"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Terreno piatto, facile da attraversare",
-     "parola": "piatta"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -90,
-    "lat": 46,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "L'America Latina, al contrario, è un incubo geografico per il commercio. Le Ande tagliano in due il Sudamerica con montagne ripide e frastagliate.",
-   "anteprima": false,
-   "vista": {
-    "lon": -70,
-    "lat": -15,
-    "larghezza": 50
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "PER",
-    "BOL",
-    "CHL",
-    "ARG"
-   ],
-   "eventi": [
-    {
-     "tipo": "confine",
-     "punti": [
-      [
-       -70,
-       5
-      ],
-      [
-       -72,
-       -10
-      ],
-      [
-       -70,
-       -25
-      ],
-      [
-       -71,
-       -40
-      ]
-     ],
-     "parola": "Ande"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "ANDE",
-     "lon": -70,
-     "lat": -15,
-     "parola": "Ande"
-    },
-    {
-     "tipo": "icona",
-     "icona": "mountain",
-     "lon": -69,
-     "lat": -20,
-     "parola": "montagne"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Montagne come barriera",
-     "parola": "ripide"
+     "testo": "La Francia ci vede un affare",
+     "parola": "ignora"
     }
    ],
    "musica": "tensione",
    "stacco": false,
    "pin": {
-    "lon": -85,
-    "lat": -25,
+    "lon": -71.0,
+    "lat": 19.5,
     "faccia": "normale"
    }
   },
   {
-   "testo": "L'interno del continente è coperto dall'Amazzonia, una foresta dove costruire strade è quasi impossibile. E i fiumi spesso sono inutili.",
+   "testo": "La chiamano Saint-Domingue e la trasformano in una macchina da soldi: ogni palmo di terra fertile diventa piantagione di zucchero, caffè e indaco.",
    "anteprima": false,
    "vista": {
-    "lon": -60,
-    "lat": -5,
-    "larghezza": 50
+    "lon": -72.8,
+    "lat": 19,
+    "larghezza": 5
    },
    "epoca": "antica",
    "oro": [],
    "verde": [
-    "BRA"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "forest",
-     "lon": -62,
-     "lat": -4,
-     "parola": "Amazzonia"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "AMAZZONIA",
-     "lon": -62,
-     "lat": -4,
-     "parola": "foresta"
-    },
-    {
-     "tipo": "icona",
-     "icona": "river",
-     "lon": -55,
-     "lat": -8,
-     "parola": "fiumi"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Giungla e cascate fermano i traffici",
-     "parola": "inutili"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -78,
-    "lat": 5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Così le città crebbero isolate. Città Del Messico lontana dalle coste, Lima stretta tra Pacifico e Ande, Bogotá in alto tra le nuvole.",
-   "anteprima": false,
-   "vista": {
-    "lon": -85,
-    "lat": 0,
-    "larghezza": 60
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "MEX",
-    "PER",
-    "COL"
+    "HTI"
    ],
    "eventi": [
     {
      "tipo": "etichetta",
-     "testo": "CITTÀ DEL MESSICO",
-     "lon": -99,
-     "lat": 19.4,
-     "parola": "Messico"
+     "testo": "SAINT-DOMINGUE",
+     "lon": -72.8,
+     "lat": 19.2,
+     "parola": "Saint-Domingue"
     },
     {
-     "tipo": "etichetta",
-     "testo": "LIMA",
-     "lon": -77,
-     "lat": -12,
-     "parola": "Lima"
+     "tipo": "icona",
+     "icona": "sugar_cane",
+     "lon": -72.5,
+     "lat": 19.7,
+     "parola": "zucchero"
     },
     {
-     "tipo": "etichetta",
-     "testo": "BOGOTÁ",
-     "lon": -74,
-     "lat": 4.7,
-     "parola": "Bogotá"
+     "tipo": "icona",
+     "icona": "coffee_sack",
+     "lon": -73.2,
+     "lat": 18.6,
+     "parola": "caffè"
     },
     {
      "tipo": "nota",
-     "testo": "Città isolate tra loro",
-     "parola": "isolate"
+     "testo": "Piantagioni ovunque",
+     "parola": "piantagione"
     }
    ],
-   "musica": "",
+   "musica": "epico",
    "stacco": false,
    "pin": {
-    "lon": -105,
-    "lat": -10,
+    "lon": -71.2,
+    "lat": 19.6,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Spesso a un mercante di Buenos Aires costava meno spedire merci a Londra che a una città a poche centinaia di chilometri nel suo stesso paese.",
+   "testo": "Per massimizzare i profitti la Francia importa quasi ottocentomila africani ridotti in schiavitù. Le condizioni sono così crudeli che centinaia di migliaia muoiono di fatica in pochi anni.",
    "anteprima": false,
    "vista": {
     "lon": -30,
-    "lat": 10,
+    "lat": 15,
+    "larghezza": 100
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "HTI"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      -5,
+      10
+     ],
+     "a": [
+      -72.8,
+      19.2
+     ],
+     "icona": "cargo_ship",
+     "parola": "importa"
+    },
+    {
+     "tipo": "conta",
+     "valore": 800000,
+     "prefisso": "~",
+     "suffisso": "",
+     "sotto": "AFRICANI SCHIAVIZZATI",
+     "parola": "ottocentomila"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "native_worker",
+     "n": 6,
+     "lon": -72.8,
+     "lat": 19.2,
+     "parola": "schiavitù"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Lavoro fino alla morte",
+     "parola": "muoiono"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": -40,
+    "lat": 30,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Alla fine del Settecento questa piccola colonia produce oltre il quaranta per cento dello zucchero e il sessanta per cento del caffè consumati in Europa.",
+   "anteprima": false,
+   "vista": {
+    "lon": -30,
+    "lat": 30,
+    "larghezza": 100
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "HTI"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1790",
+     "parola": "Settecento"
+    },
+    {
+     "tipo": "barre",
+     "titolo": "QUOTA DEL CONSUMO EUROPEO",
+     "voci": [
+      {
+       "testo": "ZUCCHERO",
+       "valore": 40,
+       "lato": "oro"
+      },
+      {
+       "testo": "CAFFÈ",
+       "valore": 60,
+       "lato": "verde"
+      }
+     ],
+     "parola": "quaranta"
+    },
+    {
+     "tipo": "nota",
+     "testo": "La colonia più ricca del pianeta",
+     "parola": "caffè"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -60,
+    "lat": 40,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Era la colonia più ricca del mondo, ma costruita su sangue, torture e sofferenza. E qui comincia il secondo punto: il prezzo della libertà.",
+   "anteprima": false,
+   "vista": {
+    "lon": -72.8,
+    "lat": 19.2,
+    "larghezza": 6
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "HTI"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "gold_coins",
+     "lon": -72.8,
+     "lat": 19.2,
+     "parola": "ricca"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "IL PREZZO",
+     "parola": "prezzo"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Ricchezza costruita sul sangue",
+     "parola": "sangue"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -71.2,
+    "lat": 19.7,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Nel 1791 gli schiavi di Haiti dicono basta. Si ribellano e danno vita all'unica rivoluzione di schiavi riuscita nella storia umana.",
+   "anteprima": false,
+   "vista": {
+    "lon": -72.8,
+    "lat": 19.5,
+    "larghezza": 5
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "HTI"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1791",
+     "parola": "1791"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "native_worker",
+     "n": 7,
+     "lon": -72.6,
+     "lat": 19.6,
+     "parola": "ribellano"
+    },
+    {
+     "tipo": "icona",
+     "icona": "swords",
+     "lon": -72.6,
+     "lat": 19.6,
+     "parola": "rivoluzione"
+    },
+    {
+     "tipo": "nota",
+     "testo": "L'unica rivolta riuscita",
+     "parola": "unica"
+    }
+   ],
+   "musica": "azione",
+   "stacco": false,
+   "pin": {
+    "lon": -71.3,
+    "lat": 19.9,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Contro ogni previsione sconfiggono i piantatori francesi, poi l'esercito britannico e infine le truppe d'élite di Napoleone.",
+   "anteprima": false,
+   "vista": {
+    "lon": -72.8,
+    "lat": 19.2,
+    "larghezza": 6
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "HTI"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "flag:FR",
+     "lon": -73,
+     "lat": 19.5,
+     "parola": "francesi"
+    },
+    {
+     "tipo": "icona",
+     "icona": "flag:GB",
+     "lon": -72.4,
+     "lat": 18.9,
+     "parola": "britannico"
+    },
+    {
+     "tipo": "personaggio",
+     "nome": "Napoleone Bonaparte",
+     "descrizione": "Imperatore francese, bicorno e uniforme blu",
+     "parola": "Napoleone"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Tre eserciti sconfitti",
+     "parola": "sconfiggono"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": -71.2,
+    "lat": 19.7,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Nel 1804 Haiti si proclama repubblica libera e indipendente. Una delle vittorie più eroiche per la libertà umana mai combattute.",
+   "anteprima": false,
+   "vista": {
+    "lon": -72.8,
+    "lat": 19.2,
+    "larghezza": 6
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "HTI"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1804",
+     "parola": "1804"
+    },
+    {
+     "tipo": "contorno",
+     "paese": "HTI",
+     "parola": "repubblica"
+    },
+    {
+     "tipo": "icona",
+     "icona": "flag:HT",
+     "lon": -72.8,
+     "lat": 19.2,
+     "parola": "libera"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Haiti è libera",
+     "parola": "eroiche"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": false,
+   "pin": {
+    "lon": -71.2,
+    "lat": 19.7,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Ma il mondo gliela fa pagare cara. Gli imperi dell'epoca vivono di schiavitù e temono che i loro schiavi prendano esempio da Haiti.",
+   "anteprima": false,
+   "vista": {
+    "lon": -50,
+    "lat": 30,
     "larghezza": 120
    },
    "epoca": "antica",
-   "oro": [
-    "ARG"
+   "oro": [],
+   "verde": [
+    "HTI"
    ],
-   "verde": [],
    "eventi": [
     {
-     "tipo": "etichetta",
-     "testo": "BUENOS AIRES",
-     "lon": -58.4,
-     "lat": -34.6,
-     "parola": "Buenos"
+     "tipo": "icona",
+     "icona": "flag:US",
+     "lon": -95,
+     "lat": 38,
+     "parola": "imperi"
+    },
+    {
+     "tipo": "icona",
+     "icona": "flag:GB",
+     "lon": -2,
+     "lat": 53,
+     "parola": "imperi"
+    },
+    {
+     "tipo": "icona",
+     "icona": "flag:FR",
+     "lon": 2,
+     "lat": 47,
+     "parola": "imperi"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Gli imperi temono il contagio",
+     "parola": "temono"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -30,
+    "lat": 45,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Invece di accoglierla, la isolano come una malattia. Gli Stati Uniti rifiutano di riconoscerla per quasi sessant'anni e le navi commerciali non possono attraccare nei suoi porti.",
+   "anteprima": false,
+   "vista": {
+    "lon": -72.5,
+    "lat": 19,
+    "larghezza": 14
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "HTI"
+   ],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 60,
+     "prefisso": "~",
+     "suffisso": " ANNI",
+     "sotto": "SENZA RICONOSCIMENTO USA",
+     "parola": "sessant'anni"
+    },
+    {
+     "tipo": "icona",
+     "icona": "cargo_ship",
+     "lon": -72.4,
+     "lat": 19.0,
+     "parola": "navi"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "ISOLATA",
+     "parola": "isolano"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Porti chiusi, nessun alleato",
+     "parola": "porti"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": -70.6,
+    "lat": 20.4,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Poi arriva il colpo mortale. Nel 1825 le navi da guerra francesi entrano nel porto di Port-au-Prince con i cannoni puntati sulla città.",
+   "anteprima": false,
+   "vista": {
+    "lon": -72.4,
+    "lat": 18.6,
+    "larghezza": 4
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "HTI"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1825",
+     "parola": "1825"
     },
     {
      "tipo": "freccia",
      "da": [
-      -58.4,
-      -34.6
+      -74.5,
+      17.5
      ],
      "a": [
-      -0.1,
-      51.5
+      -72.34,
+      18.55
      ],
-     "icona": "cargo_ship",
-     "parola": "Londra"
+     "icona": "galleon",
+     "parola": "navi"
     },
     {
-     "tipo": "etichetta",
-     "testo": "LONDRA",
-     "lon": -0.1,
-     "lat": 51.5,
-     "parola": "Londra"
+     "tipo": "icona",
+     "icona": "cannon",
+     "lon": -72.4,
+     "lat": 18.55,
+     "parola": "cannoni"
     },
     {
      "tipo": "nota",
-     "testo": "Più facile esportare che vendere in casa",
-     "parola": "centinaia"
+     "testo": "Cannoni puntati su Port-au-Prince",
+     "parola": "puntati"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -71.8,
+    "lat": 19.0,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Il re di Francia presenta un ultimatum: Haiti risarcisca i proprietari per le terre perdute e per gli schiavi liberati, oppure sarà distrutta e di nuovo schiavizzata.",
+   "anteprima": false,
+   "vista": {
+    "lon": -72.4,
+    "lat": 18.8,
+    "larghezza": 6
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "HTI"
+   ],
+   "eventi": [
+    {
+     "tipo": "personaggio",
+     "nome": "Carlo X di Francia",
+     "descrizione": "Re di Francia del 1825, parrucca bianca e mantello regale",
+     "parola": "re"
+    },
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": -72.4,
+     "lat": 18.6,
+     "parola": "ultimatum"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "ULTIMATUM",
+     "parola": "ultimatum"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Pagare o essere distrutti",
+     "parola": "distrutta"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -71.3,
+    "lat": 19.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Haiti non ha scelta. Accetta di versare alla Francia centocinquanta milioni di franchi oro. Non era un semplice debito: era una condanna economica.",
+   "anteprima": false,
+   "vista": {
+    "lon": -72.4,
+    "lat": 18.8,
+    "larghezza": 6
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "HTI"
+   ],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 150000000,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "FRANCHI ORO",
+     "parola": "centocinquanta"
+    },
+    {
+     "tipo": "icona",
+     "icona": "money_bag",
+     "lon": -72.4,
+     "lat": 18.6,
+     "parola": "franchi"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "CONDANNA",
+     "parola": "condanna"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Libertà in cambio di oro",
+     "parola": "accetta"
     }
    ],
    "musica": "",
    "stacco": true,
    "pin": {
-    "lon": -60,
-    "lat": 15,
+    "lon": -71.3,
+    "lat": 19.5,
     "faccia": "stupito"
    }
   },
   {
-   "testo": "Senza scambi facili tra le regioni, non si poteva unire l'economia. Ogni zona restava un'isola con un piccolo mercato.",
+   "testo": "Per pagare le prime rate, Haiti deve chiedere prestiti a banche francesi e americane, con interessi da usura. Un cappio che si stringe ogni anno.",
    "anteprima": false,
    "vista": {
-    "lon": -65,
-    "lat": -15,
-    "larghezza": 80
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "BRA",
-    "ARG",
-    "PER",
-    "COL",
-    "BOL"
-   ],
-   "eventi": [
-    {
-     "tipo": "scritta",
-     "testo": "ISOLATI",
-     "parola": "isola"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Mercati piccoli e separati",
-     "parola": "regioni"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -90,
-    "lat": -5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "La quarta ragione, forse la più dolorosa, è la politica. Entrambe le Americhe si ribellarono all'Europa: gli Stati Uniti nel 1776, i latinoamericani all'inizio dell'Ottocento.",
-   "anteprima": false,
-   "vista": {
-    "lon": -80,
-    "lat": 10,
-    "larghezza": 120
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [
-    "MEX",
-    "BRA",
-    "ARG",
-    "COL",
-    "PER",
-    "CHL"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1776",
-     "parola": "1776"
-    },
-    {
-     "tipo": "icona",
-     "icona": "swords",
-     "lon": -75,
-     "lat": 40,
-     "parola": "ribellarono"
-    },
-    {
-     "tipo": "anno",
-     "testo": "1810",
-     "parola": "Ottocento"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Due indipendenze, due destini",
-     "parola": "politica"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": -110,
-    "lat": 20,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Quando gli americani vinsero, avevano già più di cent'anni di esperienza con la democrazia locale: consigli cittadini, assemblee elette, tribunali.",
-   "anteprima": false,
-   "vista": {
-    "lon": -73,
-    "lat": 41,
-    "larghezza": 24
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "parliament",
-     "lon": -71,
-     "lat": 42.4,
-     "parola": "assemblee"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "voter",
-     "n": 5,
-     "lon": -73,
-     "lat": 41,
-     "parola": "consigli"
-    },
-    {
-     "tipo": "conta",
-     "valore": 100,
-     "prefisso": "+",
-     "suffisso": "",
-     "sotto": "ANNI DI AUTOGOVERNO",
-     "parola": "cent'anni"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Già abituati a eleggere",
-     "parola": "democrazia"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -67,
-    "lat": 44,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Sapevano già organizzare un'elezione, seguire un codice di leggi e riscuotere le tasse. Il sistema non partì da zero.",
-   "anteprima": false,
-   "vista": {
-    "lon": -75,
-    "lat": 40,
-    "larghezza": 20
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "ballot_box",
-     "lon": -75.2,
-     "lat": 39.9,
-     "parola": "elezione"
-    },
-    {
-     "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": -74,
-     "lat": 40.7,
-     "parola": "leggi"
-    },
-    {
-     "tipo": "icona",
-     "icona": "banknotes",
-     "lon": -77,
-     "lat": 38.9,
-     "parola": "tasse"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Istituzioni già pronte",
-     "parola": "zero"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -69,
-    "lat": 43,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "E c'è di più. Quando George Washington finì il suo mandato, lasciò il potere e se ne andò. Il potere si conquista con le schede, non con i fucili.",
-   "anteprima": false,
-   "vista": {
-    "lon": -77,
-    "lat": 38.9,
-    "larghezza": 10
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "personaggio",
-     "nome": "George Washington",
-     "descrizione": "Primo presidente americano, parrucca bianca, giacca blu",
-     "parola": "Washington"
-    },
-    {
-     "tipo": "anno",
-     "testo": "1797",
-     "parola": "mandato"
-    },
-    {
-     "tipo": "icona",
-     "icona": "ballot_box",
-     "lon": -77,
-     "lat": 38.9,
-     "parola": "schede"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Il potere passa col voto",
-     "parola": "fucili"
-    }
-   ],
-   "musica": "trionfo",
-   "stacco": false,
-   "pin": {
-    "lon": -73,
-    "lat": 41,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "L'America Latina non ebbe mai questa abitudine. Per trecento anni la corona spagnola aveva comandato tutto con controllo assoluto dall'alto.",
-   "anteprima": false,
-   "vista": {
-    "lon": -70,
-    "lat": -10,
+    "lon": -40,
+    "lat": 38,
     "larghezza": 100
    },
    "epoca": "antica",
    "oro": [],
    "verde": [
-    "MEX",
-    "PER",
-    "COL",
-    "ARG",
-    "CHL"
+    "HTI"
    ],
    "eventi": [
     {
-     "tipo": "icona",
-     "icona": "crown",
-     "lon": -70,
-     "lat": -10,
-     "parola": "corona"
+     "tipo": "folla",
+     "personaggio": "banker",
+     "n": 4,
+     "lon": 2.3,
+     "lat": 48.8,
+     "parola": "banche"
     },
     {
-     "tipo": "conta",
-     "valore": 300,
-     "prefisso": "",
-     "suffisso": "",
-     "sotto": "ANNI SENZA AUTOGOVERNO",
-     "parola": "trecento"
+     "tipo": "folla",
+     "personaggio": "banker",
+     "n": 3,
+     "lon": -74,
+     "lat": 40.7,
+     "parola": "americane"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -72.3,
+      18.5
+     ],
+     "a": [
+      2.3,
+      48.8
+     ],
+     "icona": "money_bag",
+     "parola": "interessi"
     },
     {
      "tipo": "nota",
-     "testo": "Nessuna tradizione democratica",
-     "parola": "assoluto"
+     "testo": "Prestiti a tassi da usura",
+     "parola": "usura"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -25,
+    "lat": 50,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Per i successivi centoventi anni quasi tutte le tasse haitiane vanno a banchieri stranieri, invece di finanziare scuole, strade e ospedali. Si paga per essere liberi.",
+   "anteprima": false,
+   "vista": {
+    "lon": -72.4,
+    "lat": 18.8,
+    "larghezza": 6
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "HTI"
+   ],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 120,
+     "prefisso": "~",
+     "suffisso": " ANNI",
+     "sotto": "DI PAGAMENTI",
+     "parola": "centoventi"
+    },
+    {
+     "tipo": "icona",
+     "icona": "school",
+     "lon": -72.9,
+     "lat": 19.1,
+     "parola": "scuole"
+    },
+    {
+     "tipo": "icona",
+     "icona": "bridge",
+     "lon": -72.2,
+     "lat": 18.9,
+     "parola": "strade"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Tasse ai banchieri, non ai servizi",
+     "parola": "banchieri"
     }
    ],
    "musica": "malinconia",
    "stacco": false,
    "pin": {
-    "lon": -90,
-    "lat": 10,
+    "lon": -71.3,
+    "lat": 19.5,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Niente parlamenti locali, niente tradizione di voto. Quando i re spagnoli furono cacciati, si aprì un enorme vuoto di potere e il sistema crollò nel caos.",
+   "testo": "Haiti finisce di pagare solo dopo la Seconda guerra mondiale. La Repubblica Dominicana non ha mai avuto quel peso al collo.",
    "anteprima": false,
    "vista": {
-    "lon": -70,
-    "lat": -10,
-    "larghezza": 100
+    "lon": -71.5,
+    "lat": 19,
+    "larghezza": 8
    },
    "epoca": "antica",
+   "oro": [
+    "DOM"
+   ],
+   "verde": [
+    "HTI"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1947",
+     "parola": "Seconda"
+    },
+    {
+     "tipo": "barre",
+     "titolo": "DEBITO DELLA LIBERTÀ",
+     "voci": [
+      {
+       "testo": "HAITI",
+       "valore": 100,
+       "lato": "verde"
+      },
+      {
+       "testo": "DOMINICANA",
+       "valore": 0,
+       "lato": "oro"
+      }
+     ],
+     "parola": "mai"
+    },
+    {
+     "tipo": "nota",
+     "testo": "La Dominicana non pagò nulla",
+     "parola": "peso"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -69.8,
+    "lat": 19.6,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Terzo punto, quello che quasi nessuno considera: la geografia. Sull'isola i venti alisei soffiano quasi sempre da est verso ovest.",
+   "anteprima": false,
+   "vista": {
+    "lon": -71.5,
+    "lat": 19,
+    "larghezza": 9
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "scritta",
+     "testo": "IL VENTO",
+     "parola": "geografia"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -68.5,
+      19.0
+     ],
+     "a": [
+      -74.5,
+      19.0
+     ],
+     "icona": "cloud",
+     "parola": "est"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Gli alisei soffiano da est",
+     "parola": "alisei"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -69.5,
+    "lat": 20.2,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Lungo la dorsale dell'isola corre una catena di montagne altissime. I venti carichi di umidità la incontrano prima sul lato dominicano.",
+   "anteprima": false,
+   "vista": {
+    "lon": -71.0,
+    "lat": 19,
+    "larghezza": 8
+   },
+   "epoca": "oggi",
+   "oro": [
+    "DOM"
+   ],
+   "verde": [
+    "HTI"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "mountain",
+     "lon": -71.0,
+     "lat": 19.0,
+     "parola": "montagne"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "PICO DUARTE 3098 M",
+     "lon": -70.99,
+     "lat": 19.03,
+     "parola": "altissime"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -69,
+      19.2
+     ],
+     "a": [
+      -71,
+      19.2
+     ],
+     "icona": "cloud",
+     "parola": "umidità"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Le montagne fermano le nuvole",
+     "parola": "dorsale"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -69.6,
+    "lat": 20.2,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Le nuvole salgono, si raffreddano e scaricano piogge abbondanti sulle valli dominicane. Così nascono pianure fertili e foreste tropicali rigogliose.",
+   "anteprima": false,
+   "vista": {
+    "lon": -70.5,
+    "lat": 19,
+    "larghezza": 6
+   },
+   "epoca": "oggi",
+   "oro": [
+    "DOM"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "river",
+     "lon": -70.4,
+     "lat": 19.0,
+     "parola": "piogge"
+    },
+    {
+     "tipo": "icona",
+     "icona": "farm",
+     "lon": -70.0,
+     "lat": 18.9,
+     "parola": "fertili"
+    },
+    {
+     "tipo": "icona",
+     "icona": "forest",
+     "lon": -70.6,
+     "lat": 19.3,
+     "parola": "foreste"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Pioggia, pianure, foreste",
+     "parola": "cadono"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -69.3,
+    "lat": 19.9,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Quando il vento supera le montagne e arriva a Haiti ha già perso quasi tutta l'acqua. Gli scienziati la chiamano ombra pluviometrica.",
+   "anteprima": false,
+   "vista": {
+    "lon": -72.4,
+    "lat": 19,
+    "larghezza": 6
+   },
+   "epoca": "oggi",
    "oro": [],
    "verde": [
-    "MEX",
-    "PER",
-    "COL",
-    "ARG",
-    "CHL",
-    "BOL"
+    "HTI"
    ],
    "eventi": [
     {
      "tipo": "scritta",
-     "testo": "CAOS",
-     "parola": "caos"
+     "testo": "OMBRA DI PIOGGIA",
+     "parola": "ombra"
     },
     {
-     "tipo": "icona",
-     "icona": "swords",
-     "lon": -75,
-     "lat": -10,
-     "parola": "crollò"
+     "tipo": "freccia",
+     "da": [
+      -71.2,
+      19.2
+     ],
+     "a": [
+      -74,
+      19.2
+     ],
+     "icona": "cloud",
+     "parola": "vento"
     },
     {
      "tipo": "nota",
-     "testo": "Un vuoto di potere",
-     "parola": "vuoto"
+     "testo": "Il vento arriva già asciutto",
+     "parola": "acqua"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -71.0,
+    "lat": 20.0,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Così il suolo haitiano è più ripido, roccioso e arido. Milioni di persone si ammassano su colline secche, cercando di strappare un raccolto.",
+   "anteprima": false,
+   "vista": {
+    "lon": -72.6,
+    "lat": 19,
+    "larghezza": 5
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "HTI"
+   ],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "peasant",
+     "n": 6,
+     "lon": -72.6,
+     "lat": 19.1,
+     "parola": "persone"
+    },
+    {
+     "tipo": "icona",
+     "icona": "mountain",
+     "lon": -72.3,
+     "lat": 18.8,
+     "parola": "ripido"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Poca terra piatta, molta gente",
+     "parola": "arido"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": -71.2,
+    "lat": 19.7,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Quarto punto, il motivo per cui il confine si vede dallo spazio: la tragedia degli alberi. Con così poca terra piana si coltivano i fianchi delle montagne.",
+   "anteprima": false,
+   "vista": {
+    "lon": -72.3,
+    "lat": 19,
+    "larghezza": 6
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "HTI"
+   ],
+   "eventi": [
+    {
+     "tipo": "scritta",
+     "testo": "GLI ALBERI",
+     "parola": "alberi"
+    },
+    {
+     "tipo": "confine",
+     "punti": [
+      [
+       -71.75,
+       19.9
+      ],
+      [
+       -71.75,
+       18.0
+      ]
+     ],
+     "parola": "confine"
+    },
+    {
+     "tipo": "icona",
+     "icona": "farm",
+     "lon": -72.4,
+     "lat": 18.9,
+     "parola": "coltivano"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Si coltiva sui pendii",
+     "parola": "montagne"
     }
    ],
    "musica": "tensione",
    "stacco": false,
    "pin": {
-    "lon": -90,
-    "lat": 10,
+    "lon": -71.0,
+    "lat": 19.8,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Haiti è povera: niente rete elettrica nazionale, niente oleodotti, niente carbone. Per cuocere il riso una famiglia ha una sola scelta.",
+   "anteprima": false,
+   "vista": {
+    "lon": -72.6,
+    "lat": 19,
+    "larghezza": 5
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "HTI"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "oil_derrick",
+     "lon": -72.9,
+     "lat": 19.2,
+     "parola": "oleodotti"
+    },
+    {
+     "tipo": "icona",
+     "icona": "factory",
+     "lon": -72.3,
+     "lat": 18.7,
+     "parola": "carbone"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "family",
+     "n": 4,
+     "lon": -72.6,
+     "lat": 19.0,
+     "parola": "famiglia"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Nessuna energia a buon mercato",
+     "parola": "scelta"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -71.2,
+    "lat": 19.7,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Prendere un'ascia, abbattere un albero, trasformarlo in carbone di legna e venderlo al mercato. Giorno dopo giorno, per decenni.",
+   "anteprima": false,
+   "vista": {
+    "lon": -72.6,
+    "lat": 19,
+    "larghezza": 5
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "HTI"
+   ],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "peasant",
+     "n": 5,
+     "lon": -72.7,
+     "lat": 19.0,
+     "parola": "ascia"
+    },
+    {
+     "tipo": "icona",
+     "icona": "forest",
+     "lon": -72.5,
+     "lat": 19.2,
+     "parola": "albero"
+    },
+    {
+     "tipo": "icona",
+     "icona": "banknotes",
+     "lon": -72.3,
+     "lat": 18.6,
+     "parola": "mercato"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Cucinare significa tagliare",
+     "parola": "carbone"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -71.2,
+    "lat": 19.7,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Milioni di persone che tagliano alberi per cucinare hanno spogliato le montagne. Oggi resta meno del due per cento della foresta originaria di Haiti.",
+   "anteprima": false,
+   "vista": {
+    "lon": -72.6,
+    "lat": 19,
+    "larghezza": 5
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "HTI"
+   ],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 2,
+     "prefisso": "<",
+     "suffisso": "%",
+     "sotto": "FORESTA ORIGINARIA RIMASTA",
+     "parola": "due"
+    },
+    {
+     "tipo": "griglia",
+     "paese": [
+      "HTI"
+     ],
+     "pieni": 0.02,
+     "testo": "MENO DI 2 SU 100",
+     "colore": "verde",
+     "parola": "foresta"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Quasi tutta la foresta è sparita",
+     "parola": "spogliato"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -71.2,
+    "lat": 19.7,
     "faccia": "stupito"
    }
   },
   {
-   "testo": "Senza leggi solide, la politica divenne un gioco di pura forza. Il potere finì ai militari, i caudillos, uomini forti con eserciti propri.",
+   "testo": "Senza alberi, su un monte ripido, il disastro è dietro l'angolo. Dal lato dominicano le radici funzionano come spugne: trattengono terra e acqua.",
    "anteprima": false,
    "vista": {
-    "lon": -70,
-    "lat": -10,
-    "larghezza": 100
+    "lon": -71.5,
+    "lat": 19,
+    "larghezza": 8
    },
-   "epoca": "antica",
+   "epoca": "oggi",
+   "oro": [
+    "DOM"
+   ],
+   "verde": [
+    "HTI"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "forest",
+     "lon": -70.7,
+     "lat": 19.0,
+     "parola": "radici"
+    },
+    {
+     "tipo": "icona",
+     "icona": "hourglass",
+     "lon": -72.5,
+     "lat": 19.0,
+     "parola": "disastro"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Le radici fermano il fango",
+     "parola": "spugne"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -69.6,
+    "lat": 19.9,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Sul lato haitiano, senza radici, la pioggia lava via la terra fertile, intasa i fiumi e la scarica in mare. Senza suolo, niente raccolti.",
+   "anteprima": false,
+   "vista": {
+    "lon": -72.6,
+    "lat": 19,
+    "larghezza": 5
+   },
+   "epoca": "oggi",
    "oro": [],
    "verde": [
-    "MEX",
-    "VEN",
-    "ARG",
-    "COL",
-    "PER"
+    "HTI"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      -72.3,
+      19.0
+     ],
+     "a": [
+      -73.2,
+      18.6
+     ],
+     "icona": "river",
+     "parola": "lava"
+    },
+    {
+     "tipo": "icona",
+     "icona": "river",
+     "lon": -72.9,
+     "lat": 18.8,
+     "parola": "fiumi"
+    },
+    {
+     "tipo": "icona",
+     "icona": "wheat",
+     "lon": -72.4,
+     "lat": 19.1,
+     "parola": "raccolti"
+    },
+    {
+     "tipo": "nota",
+     "testo": "La terra fertile finisce in mare",
+     "parola": "mare"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -71.2,
+    "lat": 19.7,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Un uragano che in Repubblica Dominicana abbatte qualche palo della luce, ad Haiti può scatenare frane apocalittiche che seppelliscono villaggi e uccidono migliaia di persone.",
+   "anteprima": false,
+   "vista": {
+    "lon": -72,
+    "lat": 19,
+    "larghezza": 8
+   },
+   "epoca": "oggi",
+   "oro": [
+    "DOM"
+   ],
+   "verde": [
+    "HTI"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "grave",
+     "lon": -72.6,
+     "lat": 18.6,
+     "parola": "seppelliscono"
+    },
+    {
+     "tipo": "numero",
+     "testo": "1000+",
+     "lon": -72.3,
+     "lat": 18.3,
+     "parola": "migliaia"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "FRANE",
+     "parola": "frane"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Stesso uragano, effetti opposti",
+     "parola": "uragano"
+    }
+   ],
+   "musica": "azione",
+   "stacco": false,
+   "pin": {
+    "lon": -69.8,
+    "lat": 19.9,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Un dato che sorprende: l'isola vista dall'alto è un esperimento naturale perfetto. Stesso clima, stessa roccia, stessa storia iniziale. Cambia solo cosa ci hanno fatto gli uomini.",
+   "anteprima": false,
+   "vista": {
+    "lon": -71.5,
+    "lat": 19,
+    "larghezza": 8
+   },
+   "epoca": "oggi",
+   "oro": [
+    "DOM"
+   ],
+   "verde": [
+    "HTI"
+   ],
+   "eventi": [
+    {
+     "tipo": "scritta",
+     "testo": "ESPERIMENTO",
+     "parola": "esperimento"
+    },
+    {
+     "tipo": "confine",
+     "punti": [
+      [
+       -71.75,
+       19.9
+      ],
+      [
+       -71.75,
+       18.0
+      ]
+     ],
+     "parola": "stesso"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Una prova naturale perfetta",
+     "parola": "perfetto"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -69.6,
+    "lat": 19.9,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Dall'altra parte del confine la Repubblica Dominicana era più grande, con più terra coltivabile e molte meno persone per chilometro quadrato.",
+   "anteprima": false,
+   "vista": {
+    "lon": -71.5,
+    "lat": 19,
+    "larghezza": 8
+   },
+   "epoca": "oggi",
+   "oro": [
+    "DOM"
+   ],
+   "verde": [
+    "HTI"
+   ],
+   "eventi": [
+    {
+     "tipo": "solleva",
+     "paese": [
+      "DOM"
+     ],
+     "volte": 2,
+     "testo": "PIÙ GRANDE",
+     "colore": "oro",
+     "parola": "più"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "48.000 KM²",
+     "lon": -70.3,
+     "lat": 18.9,
+     "parola": "grande"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "28.000 KM²",
+     "lon": -72.7,
+     "lat": 19.0,
+     "parola": "meno"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Più spazio, meno densità",
+     "parola": "quadrato"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -69.6,
+    "lat": 19.9,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Più tardi i leader dominicani vedono la distruzione ambientale accanto a casa e reagiscono con decisione. Creano grandi parchi nazionali e mandano soldati a difendere le foreste.",
+   "anteprima": false,
+   "vista": {
+    "lon": -70.6,
+    "lat": 19,
+    "larghezza": 6
+   },
+   "epoca": "oggi",
+   "oro": [
+    "DOM"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "soldier",
+     "n": 4,
+     "lon": -70.7,
+     "lat": 19.0,
+     "parola": "soldati"
+    },
+    {
+     "tipo": "icona",
+     "icona": "forest",
+     "lon": -70.6,
+     "lat": 19.2,
+     "parola": "foreste"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Parchi nazionali protetti",
+     "parola": "parchi"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -69.4,
+    "lat": 19.7,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "E soprattutto sovvenzionano il gas propano, così anche le famiglie povere possono cucinare senza bruciare legna. Una scelta semplice che salva un'intera foresta.",
+   "anteprima": false,
+   "vista": {
+    "lon": -70.3,
+    "lat": 18.9,
+    "larghezza": 6
+   },
+   "epoca": "oggi",
+   "oro": [
+    "DOM"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "banknotes",
+     "lon": -70.3,
+     "lat": 18.9,
+     "parola": "sovvenzionano"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "family",
+     "n": 4,
+     "lon": -70.0,
+     "lat": 18.8,
+     "parola": "famiglie"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Gas a prezzo ridotto",
+     "parola": "propano"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -69.4,
+    "lat": 19.7,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Quinto punto: la politica e la stabilità. Nel Novecento entrambi i paesi soffrono sotto dittatori feroci. Trujillo in Repubblica Dominicana, Papa Doc Duvalier ad Haiti.",
+   "anteprima": false,
+   "vista": {
+    "lon": -71.5,
+    "lat": 19,
+    "larghezza": 8
+   },
+   "epoca": "oggi",
+   "oro": [
+    "DOM"
+   ],
+   "verde": [
+    "HTI"
+   ],
+   "eventi": [
+    {
+     "tipo": "personaggio",
+     "nome": "Rafael Trujillo",
+     "descrizione": "Dittatore dominicano, uniforme militare con decorazioni",
+     "parola": "Trujillo"
+    },
+    {
+     "tipo": "personaggio",
+     "nome": "François Duvalier",
+     "descrizione": "Dittatore haitiano, occhiali spessi e abito nero",
+     "parola": "Duvalier"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Due dittatori, due paesi",
+     "parola": "dittatori"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -69.6,
+    "lat": 19.9,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Entrambi sono spietati assassini che rubano enormi somme al proprio popolo. La differenza sta in quello che succede dopo la loro fine.",
+   "anteprima": false,
+   "vista": {
+    "lon": -71.5,
+    "lat": 19,
+    "larghezza": 8
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "money_bag",
+     "lon": -70.0,
+     "lat": 18.5,
+     "parola": "rubano"
+    },
+    {
+     "tipo": "icona",
+     "icona": "money_bag",
+     "lon": -72.3,
+     "lat": 18.6,
+     "parola": "rubano"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "E DOPO?",
+     "parola": "dopo"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Conta quello che viene dopo",
+     "parola": "differenza"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -69.6,
+    "lat": 19.9,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Dopo l'assassinio di Trujillo nel 1961, la Repubblica Dominicana costruisce lentamente, con fatica, un sistema politico stabile. Si vota, si apre l'economia al mondo.",
+   "anteprima": false,
+   "vista": {
+    "lon": -70.3,
+    "lat": 18.9,
+    "larghezza": 6
+   },
+   "epoca": "oggi",
+   "oro": [
+    "DOM"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1961",
+     "parola": "1961"
+    },
+    {
+     "tipo": "icona",
+     "icona": "ballot_box",
+     "lon": -70.0,
+     "lat": 18.5,
+     "parola": "vota"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "voter",
+     "n": 5,
+     "lon": -70.0,
+     "lat": 18.5,
+     "parola": "vota"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Elezioni ed economia aperta",
+     "parola": "stabile"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -69.4,
+    "lat": 19.7,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Costruiscono porti in acque profonde, aeroporti internazionali e centrali elettriche. Capiscono che il mondo ama le spiagge calde e invitano le aziende straniere.",
+   "anteprima": false,
+   "vista": {
+    "lon": -69.5,
+    "lat": 18.8,
+    "larghezza": 6
+   },
+   "epoca": "oggi",
+   "oro": [
+    "DOM"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "port",
+     "lon": -69.6,
+     "lat": 18.4,
+     "parola": "porti"
+    },
+    {
+     "tipo": "icona",
+     "icona": "factory",
+     "lon": -70.4,
+     "lat": 18.4,
+     "parola": "centrali"
+    },
+    {
+     "tipo": "icona",
+     "icona": "banknotes",
+     "lon": -68.4,
+     "lat": 18.6,
+     "parola": "aziende"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Infrastrutture e investimenti",
+     "parola": "aeroporti"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": false,
+   "pin": {
+    "lon": -69.0,
+    "lat": 19.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Nascono resort all inclusive a Punta Cana e zone franche che attirano fabbriche di tutto il mondo.",
+   "anteprima": false,
+   "vista": {
+    "lon": -68.5,
+    "lat": 18.6,
+    "larghezza": 4
+   },
+   "epoca": "oggi",
+   "oro": [
+    "DOM"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "PUNTA CANA",
+     "lon": -68.4,
+     "lat": 18.58,
+     "parola": "Punta"
+    },
+    {
+     "tipo": "icona",
+     "icona": "factory",
+     "lon": -69.3,
+     "lat": 18.5,
+     "parola": "fabbriche"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Resort e zone franche",
+     "parola": "zone"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -68.0,
+    "lat": 19.1,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Oggi la Repubblica Dominicana è la prima meta turistica dei Caraibi, con miliardi di dollari ogni anno. Circa otto milioni di turisti l'anno, quasi uno ogni abitante e mezzo.",
+   "anteprima": false,
+   "vista": {
+    "lon": -70.3,
+    "lat": 18.9,
+    "larghezza": 6
+   },
+   "epoca": "oggi",
+   "oro": [
+    "DOM"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 8000000,
+     "prefisso": "~",
+     "suffisso": "",
+     "sotto": "TURISTI ALL'ANNO",
+     "parola": "otto"
+    },
+    {
+     "tipo": "colonna",
+     "testo": "DOMINICANA",
+     "valore": 1.0,
+     "lon": -70.3,
+     "lat": 18.9,
+     "parola": "prima"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Prima meta dei Caraibi",
+     "parola": "meta"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": false,
+   "pin": {
+    "lon": -69.0,
+    "lat": 19.7,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Ad Haiti, dopo la cacciata dei Duvalier nel 1986, il paese non ritrova più l'equilibrio. Colpi di Stato, interventi militari stranieri, elezioni rubate, corruzione.",
+   "anteprima": false,
+   "vista": {
+    "lon": -72.5,
+    "lat": 19,
+    "larghezza": 6
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "HTI"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1986",
+     "parola": "1986"
+    },
+    {
+     "tipo": "icona",
+     "icona": "swords",
+     "lon": -72.3,
+     "lat": 18.55,
+     "parola": "Colpi"
+    },
+    {
+     "tipo": "icona",
+     "icona": "ballot_box",
+     "lon": -72.5,
+     "lat": 19.0,
+     "parola": "elezioni"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Instabilità senza fine",
+     "parola": "corruzione"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -71.2,
+    "lat": 19.7,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Con un governo sempre in crisi, nessuno costruisce strade o una rete elettrica moderna. Gli investitori scappano e i turisti restano lontani.",
+   "anteprima": false,
+   "vista": {
+    "lon": -72.5,
+    "lat": 19,
+    "larghezza": 6
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "HTI"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": -72.3,
+     "lat": 18.6,
+     "parola": "investitori"
+    },
+    {
+     "tipo": "icona",
+     "icona": "bridge",
+     "lon": -72.8,
+     "lat": 19.0,
+     "parola": "strade"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Nessuno investe, nessuno viene",
+     "parola": "scappano"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": -71.2,
+    "lat": 19.7,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Senza tribunali né polizia che funzionino, le bande criminali riempiono il vuoto. Oggi controllano gran parte della capitale e rendono quasi impossibile commercio, scuola e vita quotidiana.",
+   "anteprima": false,
+   "vista": {
+    "lon": -72.34,
+    "lat": 18.55,
+    "larghezza": 3
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "HTI"
    ],
    "eventi": [
     {
      "tipo": "folla",
      "personaggio": "soldier",
      "n": 6,
-     "lon": -66,
-     "lat": 8,
-     "parola": "militari"
+     "lon": -72.34,
+     "lat": 18.55,
+     "parola": "bande"
     },
     {
      "tipo": "etichetta",
-     "testo": "CAUDILLOS",
-     "lon": -66,
-     "lat": 8,
-     "parola": "caudillos"
+     "testo": "PORT-AU-PRINCE",
+     "lon": -72.34,
+     "lat": 18.57,
+     "parola": "capitale"
     },
-    {
-     "tipo": "icona",
-     "icona": "cannon",
-     "lon": -58,
-     "lat": -34,
-     "parola": "forza"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Comanda chi ha l'esercito",
-     "parola": "leggi"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -85,
-    "lat": -5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Per quasi un secolo dopo l'indipendenza, quelle nazioni furono dilaniate da guerre civili, colpi di stato e dittature.",
-   "anteprima": false,
-   "vista": {
-    "lon": -70,
-    "lat": -10,
-    "larghezza": 100
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "MEX",
-    "VEN",
-    "ARG",
-    "COL",
-    "PER",
-    "BOL",
-    "CHL"
-   ],
-   "eventi": [
-    {
-     "tipo": "conta_paesi",
-     "paesi": [
-      "MEX",
-      "VEN",
-      "COL",
-      "PER",
-      "BOL",
-      "ARG",
-      "CHL"
-     ],
-     "colore": "rosso",
-     "parola": "nazioni"
-    },
-    {
-     "tipo": "icona",
-     "icona": "swords",
-     "lon": -75,
-     "lat": 0,
-     "parola": "guerre"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Un secolo di instabilità",
-     "parola": "secolo"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -100,
-    "lat": 10,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Pensa a cosa fa questo a un'economia. Costruiresti una fabbrica, una ferrovia o una banca dove ogni due anni un nuovo generale ruba i soldi?",
-   "anteprima": false,
-   "vista": {
-    "lon": -70,
-    "lat": -10,
-    "larghezza": 90
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "ARG",
-    "COL",
-    "PER"
-   ],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "banker",
-     "n": 3,
-     "lon": -58,
-     "lat": -34,
-     "parola": "banca"
-    },
-    {
-     "tipo": "icona",
-     "icona": "steam_train",
-     "lon": -70,
-     "lat": -20,
-     "parola": "ferrovia"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "MAI",
-     "parola": "Costruiresti"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Nessun investimento sicuro",
-     "parola": "generale"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -90,
-    "lat": 0,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Ovviamente no. I capitali scapparono dall'America Latina, mentre i soldi stranieri si riversavano negli Stati Uniti, stabili e prevedibili.",
-   "anteprima": false,
-   "vista": {
-    "lon": -40,
-    "lat": 15,
-    "larghezza": 120
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [
-    "MEX",
-    "ARG",
-    "BRA"
-   ],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      -60,
-      -15
-     ],
-     "a": [
-      -10,
-      40
-     ],
-     "icona": "banknotes",
-     "parola": "scapparono"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -0.1,
-      51.5
-     ],
-     "a": [
-      -75,
-      40
-     ],
-     "icona": "banknotes",
-     "parola": "stranieri"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Il denaro cerca stabilità",
-     "parola": "stabili"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -60,
-    "lat": 50,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Infine c'è l'istruzione. Nel Nordamerica i coloni credevano che ogni persona, anche i contadini poveri, dovesse saper leggere la Bibbia.",
-   "anteprima": false,
-   "vista": {
-    "lon": -73,
-    "lat": 42,
-    "larghezza": 16
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
     {
      "tipo": "icona",
      "icona": "school",
-     "lon": -71.1,
-     "lat": 42.4,
-     "parola": "istruzione"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "student",
-     "n": 5,
-     "lon": -72,
-     "lat": 42,
-     "parola": "leggere"
+     "lon": -72.28,
+     "lat": 18.52,
+     "parola": "scuola"
     },
     {
      "tipo": "nota",
-     "testo": "Leggere per fede, poi per lavoro",
-     "parola": "Bibbia"
+     "testo": "Le bande controllano la capitale",
+     "parola": "controllano"
     }
    ],
-   "musica": "curiosita",
+   "musica": "tensione",
    "stacco": false,
    "pin": {
-    "lon": -68,
-    "lat": 44,
+    "lon": -71.8,
+    "lat": 19.0,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Per questa spinta religiosa gli stati del nord crearono scuole pubbliche molto presto. A metà Ottocento gli Stati Uniti avevano tra i tassi di alfabetizzazione più alti del mondo.",
+   "testo": "Mettiamo insieme i pezzi. La Repubblica Dominicana ha avuto pioggia, terra piatta, un passato coloniale che non l'ha schiacciata e governi che hanno protetto le foreste.",
    "anteprima": false,
    "vista": {
-    "lon": -90,
-    "lat": 38,
-    "larghezza": 50
+    "lon": -71.5,
+    "lat": 19,
+    "larghezza": 8
    },
-   "epoca": "antica",
+   "epoca": "oggi",
    "oro": [
-    "USA"
+    "DOM"
    ],
-   "verde": [],
+   "verde": [
+    "HTI"
+   ],
    "eventi": [
     {
-     "tipo": "anno",
-     "testo": "1850",
-     "parola": "Ottocento"
-    },
-    {
-     "tipo": "contatore",
-     "testo": "CIRCA 9 SU 10 SAPEVANO LEGGERE",
-     "su": 9,
-     "di": 10,
-     "personaggio": "student",
-     "parola": "alfabetizzazione"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Tra i più istruiti al mondo",
-     "parola": "alti"
-    }
-   ],
-   "musica": "trionfo",
-   "stacco": false,
-   "pin": {
-    "lon": -115,
-    "lat": 45,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Con la rivoluzione industriale, gli operai americani sapevano leggere i manuali, usare macchine complesse e inventare nuovi strumenti.",
-   "anteprima": false,
-   "vista": {
-    "lon": -80,
-    "lat": 41,
-    "larghezza": 24
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "worker",
-     "n": 6,
-     "lon": -80,
-     "lat": 41,
-     "parola": "operai"
+     "tipo": "contorno",
+     "paese": "DOM",
+     "parola": "Dominicana"
     },
     {
      "tipo": "icona",
-     "icona": "factory",
-     "lon": -78,
-     "lat": 42,
-     "parola": "macchine"
+     "icona": "farm",
+     "lon": -70.2,
+     "lat": 18.9,
+     "parola": "terra"
+    },
+    {
+     "tipo": "icona",
+     "icona": "forest",
+     "lon": -70.7,
+     "lat": 19.2,
+     "parola": "foreste"
     },
     {
      "tipo": "nota",
-     "testo": "Lavoratori pronti per l'industria",
-     "parola": "inventare"
+     "testo": "Pioggia, terra, stabilità",
+     "parola": "governi"
     }
    ],
-   "musica": "",
+   "musica": "epico",
    "stacco": false,
    "pin": {
-    "lon": -90,
-    "lat": 46,
+    "lon": -69.6,
+    "lat": 19.9,
     "faccia": "normale"
    }
   },
   {
-   "testo": "In America Latina le élite non volevano masse istruite. Un contadino che sa leggere è pericoloso: potrebbe chiedere diritti, salari giusti, terra.",
+   "testo": "Haiti è nata da una battaglia eroica per la libertà, ma è stata punita con l'isolamento, un debito che l'ha dissanguata per un secolo e una terra rovinata dalla povertà.",
    "anteprima": false,
    "vista": {
-    "lon": -70,
-    "lat": -10,
-    "larghezza": 100
+    "lon": -72.5,
+    "lat": 19,
+    "larghezza": 6
    },
-   "epoca": "antica",
+   "epoca": "oggi",
    "oro": [],
    "verde": [
-    "MEX",
-    "PER",
-    "COL",
-    "BRA"
+    "HTI"
    ],
    "eventi": [
     {
-     "tipo": "folla",
-     "personaggio": "landowner",
-     "n": 3,
-     "lon": -99,
-     "lat": 21,
-     "parola": "élite"
+     "tipo": "contorno",
+     "paese": "HTI",
+     "parola": "Haiti"
     },
     {
-     "tipo": "folla",
-     "personaggio": "peasant",
-     "n": 5,
-     "lon": -72,
-     "lat": -13,
-     "parola": "contadino"
+     "tipo": "conta",
+     "valore": 150,
+     "prefisso": "",
+     "suffisso": " MLN FR",
+     "sotto": "IL PREZZO DELLA LIBERTÀ",
+     "parola": "debito"
     },
     {
      "tipo": "nota",
-     "testo": "L'ignoranza proteggeva i privilegi",
-     "parola": "pericoloso"
+     "testo": "Eroica, poi punita",
+     "parola": "punita"
     }
    ],
    "musica": "malinconia",
    "stacco": false,
    "pin": {
-    "lon": -90,
-    "lat": 10,
+    "lon": -71.2,
+    "lat": 19.7,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Le scuole restarono care, religiose e riservate ai figli dei ricchi. Fino al Novecento, gran parte della popolazione non sapeva leggere né scrivere.",
+   "testo": "Stessa isola, stesso oceano davanti agli occhi. Ma la storia ha consegnato due mondi completamente diversi. E il confine dice una cosa sola: il destino si costruisce.",
    "anteprima": false,
    "vista": {
-    "lon": -70,
-    "lat": -10,
-    "larghezza": 100
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "MEX",
-    "PER",
-    "COL",
-    "BRA",
-    "BOL"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "school",
-     "lon": -77,
-     "lat": -12,
-     "parola": "scuole"
-    },
-    {
-     "tipo": "contatore",
-     "testo": "OLTRE 5 SU 10 ANALFABETI",
-     "su": 5,
-     "di": 10,
-     "personaggio": "peasant",
-     "parola": "popolazione"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Metà non sapeva leggere",
-     "parola": "Novecento"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -90,
-    "lat": 10,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Non puoi costruire un'economia moderna e tecnologica quando la maggior parte della gente è tagliata fuori dalla conoscenza di base.",
-   "anteprima": false,
-   "vista": {
-    "lon": -80,
-    "lat": 10,
-    "larghezza": 120
+    "lon": -71.5,
+    "lat": 19,
+    "larghezza": 9
    },
    "epoca": "oggi",
    "oro": [
-    "USA"
+    "DOM"
    ],
    "verde": [
-    "MEX",
-    "BRA",
-    "COL",
-    "PER",
-    "BOL"
+    "HTI"
    ],
    "eventi": [
-    {
-     "tipo": "barre",
-     "titolo": "ALFABETIZZAZIONE 1900",
-     "voci": [
-      {
-       "testo": "USA",
-       "valore": 89,
-       "lato": "oro"
-      },
-      {
-       "testo": "MESSICO",
-       "valore": 22,
-       "lato": "verde"
-      },
-      {
-       "testo": "BRASILE",
-       "valore": 35,
-       "lato": "verde"
-      }
-     ],
-     "parola": "conoscenza"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Senza istruzione, niente tecnologia",
-     "parola": "tecnologica"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -125,
-    "lat": 25,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Mettiamo insieme i pezzi. Gli Stati Uniti non si sono arricchiti perché più intelligenti, e l'America Latina non è rimasta povera per pigrizia.",
-   "anteprima": false,
-   "vista": {
-    "lon": -80,
-    "lat": 10,
-    "larghezza": 120
-   },
-   "epoca": "oggi",
-   "oro": [
-    "USA"
-   ],
-   "verde": [
-    "MEX",
-    "BRA",
-    "ARG",
-    "COL",
-    "PER",
-    "CHL"
-   ],
-   "eventi": [
-    {
-     "tipo": "scritta",
-     "testo": "NON TALENTO",
-     "parola": "intelligenti"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Non una questione di intelligenza",
-     "parola": "pigrizia"
-    }
-   ],
-   "musica": "",
-   "stacco": true,
-   "pin": {
-    "lon": -125,
-    "lat": 25,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "I latinoamericani hanno sempre lavorato duramente, in condizioni spesso durissime. Quello che ha fatto la differenza è stato il sistema.",
-   "anteprima": false,
-   "vista": {
-    "lon": -70,
-    "lat": -10,
-    "larghezza": 100
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "MEX",
-    "BRA",
-    "COL",
-    "PER",
-    "ARG"
-   ],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "worker",
-     "n": 6,
-     "lon": -60,
-     "lat": -15,
-     "parola": "lavorato"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "IL SISTEMA",
-     "parola": "sistema"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Contano le regole, non l'impegno",
-     "parola": "differenza"
-    }
-   ],
-   "musica": "epico",
-   "stacco": false,
-   "pin": {
-    "lon": -90,
-    "lat": 10,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "L'America Latina nacque per estrarre ricchezza a vantaggio di pochi in cima, lasciando agli altri niente terra, niente istruzione e nessuna voce.",
-   "anteprima": false,
-   "vista": {
-    "lon": -70,
-    "lat": -10,
-    "larghezza": 100
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "MEX",
-    "PER",
-    "BOL",
-    "BRA",
-    "COL"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "silver_bars",
-     "lon": -65.7,
-     "lat": -19.6,
-     "parola": "estrarre"
-    },
-    {
-     "tipo": "icona",
-     "icona": "hacienda",
-     "lon": -99,
-     "lat": 21,
-     "parola": "terra"
-    },
-    {
-     "tipo": "icona",
-     "icona": "school",
-     "lon": -77,
-     "lat": -12,
-     "parola": "istruzione"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Estrazione per pochi",
-     "parola": "pochi"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -90,
-    "lat": 10,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Gli Stati Uniti, per puro accidente storico e geografico, furono costretti a costruire un sistema in cui milioni di persone comuni possedevano terra, commerciavano, studiavano e vivevano sotto regole stabili.",
-   "anteprima": false,
-   "vista": {
-    "lon": -98,
-    "lat": 40,
-    "larghezza": 50
-   },
-   "epoca": "antica",
-   "oro": [
-    "USA"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "family",
-     "n": 5,
-     "lon": -90,
-     "lat": 40,
-     "parola": "milioni"
-    },
-    {
-     "tipo": "icona",
-     "icona": "farm",
-     "lon": -97,
-     "lat": 41,
-     "parola": "terra"
-    },
-    {
-     "tipo": "icona",
-     "icona": "school",
-     "lon": -84,
-     "lat": 40,
-     "parola": "studiavano"
-    },
-    {
-     "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": -77,
-     "lat": 39,
-     "parola": "regole"
-    }
-   ],
-   "musica": "trionfo",
-   "stacco": false,
-   "pin": {
-    "lon": -118,
-    "lat": 46,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Un sistema andava avanti con argento e forza. L'altro con terra, incentivi e leggi. Nei secoli, questa differenza ha cambiato il mondo.",
-   "anteprima": false,
-   "vista": {
-    "lon": -80,
-    "lat": 10,
-    "larghezza": 120
-   },
-   "epoca": "oggi",
-   "oro": [
-    "USA"
-   ],
-   "verde": [
-    "MEX",
-    "BRA",
-    "ARG",
-    "COL",
-    "PER",
-    "CHL",
-    "BOL"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "silver_bars",
-     "lon": -65,
-     "lat": -15,
-     "parola": "argento"
-    },
-    {
-     "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": -98,
-     "lat": 40,
-     "parola": "leggi"
-    },
     {
      "tipo": "solleva",
      "paese": [
-      "USA"
+      "DOM"
      ],
-     "volte": 8,
-     "testo": "x8",
+     "volte": 7,
+     "testo": "x7",
      "colore": "oro",
-     "parola": "cambiato"
+     "parola": "mondi"
+    },
+    {
+     "tipo": "confine",
+     "punti": [
+      [
+       -71.75,
+       19.9
+      ],
+      [
+       -71.75,
+       18.0
+      ]
+     ],
+     "parola": "confine"
     },
     {
      "tipo": "scritta",
-     "testo": "IL SISTEMA",
-     "parola": "differenza"
-    }
-   ],
-   "musica": "epico",
-   "stacco": true,
-   "pin": {
-    "lon": -125,
-    "lat": 25,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "A fare un paese ricco non è il tesoro che ha sotto terra, ma le regole con cui le persone possono possedere, lavorare e decidere.",
-   "anteprima": false,
-   "vista": {
-    "lon": -80,
-    "lat": 10,
-    "larghezza": 120
-   },
-   "epoca": "oggi",
-   "oro": [
-    "USA"
-   ],
-   "verde": [
-    "MEX",
-    "BRA",
-    "ARG",
-    "COL",
-    "PER",
-    "CHL"
-   ],
-   "eventi": [
-    {
-     "tipo": "scritta",
-     "testo": "LE REGOLE",
-     "parola": "regole"
+     "testo": "UNA LINEA",
+     "parola": "destino"
     },
     {
      "tipo": "nota",
-     "testo": "Le istituzioni fanno la ricchezza",
-     "parola": "decidere"
+     "testo": "La storia ha tracciato la linea",
+     "parola": "storia"
     }
    ],
-   "musica": "trionfo",
+   "musica": "epico",
    "stacco": false,
    "pin": {
-    "lon": -125,
-    "lat": 25,
+    "lon": -69.6,
+    "lat": 19.9,
     "faccia": "normale"
    }
   }
