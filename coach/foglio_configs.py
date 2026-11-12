@@ -87,6 +87,11 @@ def main():
             sc_ = api('GET', '?fields=sheets.properties', tk=tk)['sheets'][0]['properties']['title']
         val = api('GET', '/values/' + urllib.parse.quote(f"'{sc_}'!A1:AZZ300"), tk=tk).get('values', [])
         FOGLIO = vecchio
+        if P['leggi_scheda'].get('colonne'):   # 12 nov: solo alcune colonne, una riga JSON per riga del foglio (celle su piu' righe comprese)
+            hh = [str(x).strip() for x in val[0]]
+            for r in val[1:]:
+                print('RIGA ' + json.dumps({k: (r[hh.index(k)] if k in hh and hh.index(k) < len(r) else None) for k in P['leggi_scheda']['colonne']}, ensure_ascii=False))
+            return
         print('\n'.join(' | '.join(str(x) for x in r) for r in val)); return
     if P.get('leggi_produzione'):   # sola lettura: titolo, testo copertina e stato di ogni riga del file di produzione
         vecchio, FOGLIO = FOGLIO, P['leggi_produzione']
