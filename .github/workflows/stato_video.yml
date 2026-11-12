@@ -1,0 +1,31 @@
+name: Stato di un video YouTube (gratis, solo lettura)
+on:
+  workflow_dispatch:
+    inputs:
+      chiave_youtube: {type: string, required: true}
+      video_id: {type: string, required: true}
+jobs:
+  stato:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Stato
+        env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets[inputs.chiave_youtube] }}
+          VIDEO_ID: ${{ inputs.video_id }}
+        run: |
+          python3 - <<'PY'
+          import json, os, urllib.request, urllib.parse
+          E = os.environ.get
+          tk = json.loads(urllib.request.urlopen(urllib.request.Request('https://oauth2.googleapis.com/token', data=urllib.parse.urlencode({
+              'client_id': E('YT_CLIENT_ID'), 'client_secret': E('YT_CLIENT_SECRET'), 'refresh_token': E('YT_REFRESH_TOKEN'), 'grant_type': 'refresh_token'}).encode()), timeout=30).read())['access_token']
+          for v in E('VIDEO_ID').split(','):
+              r = json.loads(urllib.request.urlopen(urllib.request.Request('https://www.googleapis.com/youtube/v3/videos?part=status,snippet,processingDetails,contentDetails&id=' + v.strip(),
+                  headers={'Authorization': 'Bearer ' + tk}), timeout=30).read())
+              if not r.get('items'):
+                  print(v, 'NON ESISTE (cancellato o id sbagliato)'); continue
+              it = r['items'][0]
+              print(v, '|', it['snippet']['title'], '|', json.dumps(it['status']), '|', json.dumps(it.get('processingDetails', {})), '|', it['contentDetails'].get('duration'), it['contentDetails'].get('definition'))
+          PY
