@@ -450,7 +450,8 @@ def caselle(f):
             {'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}},
             {'type': 'text', 'text': 'Image 960x540. Give the bounding box (pixels) of the bald man in the magenta shirt (head and upper body) and of the most '
                                      'important OTHER person or object. Also check: ok = true only if the bald man wears a MAGENTA shirt and NOBODY else wears magenta, pink or purple. '
-                                     'Answer ONLY {"kao": [x1,y1,x2,y2], "altro": [x1,y1,x2,y2], "ok": true|false}.'}]}]}).encode(),
+                                     'scritte = true if the image contains ANY written words, letters, captions or fake text (signs, posters, screens, paper included). '
+                                     'Answer ONLY {"kao": [x1,y1,x2,y2], "altro": [x1,y1,x2,y2], "ok": true|false, "scritte": true|false}.'}]}]}).encode(),
         headers={'x-api-key': E('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01', 'content-type': 'application/json'})
     try:
         j = json.loads(urllib.request.urlopen(req, timeout=120).read())
@@ -459,10 +460,20 @@ def caselle(f):
         d = json.loads(t[t.find('{'): t.rfind('}') + 1])
         sc = Image.open(f).width / 960   # 11 nov: i quadri sono 1600 px, non 1920 (prima le caselle erano spostate)
         out = {k: [v * sc for v in d[k][:4]] for k in ('kao', 'altro') if isinstance(d.get(k), list) and len(d[k]) >= 4}
-        out['_ok'] = d.get('ok') is not False
+        out['_ok'] = d.get('ok') is not False and d.get('scritte') is not True   # 12 nov (Giorgio): mai parole finte nei disegni
+        out['_scritte'] = d.get('scritte') is True
         return out
     except Exception as e:
         log('caselle non trovate:', str(e)[:100]); return {}
+
+
+def _troppo_simile(a, b, soglia=9):   # misurato 12 nov: scene uguali ~5, scene diverse di fila >= 11,8
+    """12 nov: due quadri di fila quasi identici (stessa scena) -> differenza media dei pixel su 32x18 in scala di grigi sotto la soglia."""
+    try:
+        A = Image.open(a).convert('L').resize((32, 18)); B = Image.open(b).convert('L').resize((32, 18))
+        return sum(abs(x - y) for x, y in zip(A.getdata(), B.getdata())) / (32 * 18) < soglia
+    except Exception:
+        return False
 
 
 def quadri(c):
@@ -499,12 +510,17 @@ def quadri(c):
         fb = f[:-4] + '.json'
         q['_box'] = json.load(open(fb)) if os.path.exists(fb) else caselle(f)
         for rif in range(2 if nuovo else 0):   # solo i quadri appena fatti: quelli gia' controllati non si ripagano   # 11 nov: un altro personaggio vestito di magenta (o KAO con la maglia sbagliata) -> il quadro si rifa'
-            if q['_box'].get('_ok', True):
+            uguale = i > 0 and _troppo_simile(f, os.path.join(CART, f"quadro_{i - 1:02d}.jpg"))   # 12 nov (Giorgio): mai la stessa scena di fila
+            if q['_box'].get('_ok', True) and not uguale:
                 break
-            log('quadro', i + 1, 'bocciato (magenta su un altro personaggio): lo rifaccio')
-            q['_url'] = klein_edit(prompt + ' IMPORTANT: only the bald main character wears magenta.', refs[:1] + refs[2:] if q.get('secondario') and rif else refs, f)
+            motivo = 'quasi uguale al precedente' if uguale else ('scritte nel disegno' if q['_box'].get('_scritte') else 'magenta su un altro personaggio')
+            log('quadro', i + 1, 'bocciato (' + motivo + '): lo rifaccio')
+            agg = ' IMPORTANT: only the bald main character wears magenta. Absolutely NO writing anywhere: no captions, no words, no letters, blank signs and screens.'
+            if uguale:
+                agg += ' Show a CLEARLY DIFFERENT shot from the previous image: different framing, different angle and a different action.'
+            q['_url'] = klein_edit(prompt + agg, refs[:1] + refs[2:] if (q.get('secondario') and rif) or uguale else refs, f)
             q['_box'] = caselle(f)
-        q['_box'].pop('_ok', None)
+        q['_box'].pop('_ok', None); q['_box'].pop('_scritte', None)
         json.dump(q['_box'], open(fb, 'w'))
         q['_img'] = Image.open(f).convert('RGB')
 
@@ -690,6 +706,18 @@ if __name__ == '__main__':
 
 
 # ============================================================ USO DAL MOTORE KAO (render_kao.py, colonna video_stile = CARTONE)
+RISERVA = ['Medium shot: KAO sits by a window, thoughtful, looking outside at the street',
+           'Close-up: KAO rubs his forehead, tired but calm',
+           'Wide shot: KAO walks along a quiet Italian street at sunset, hands in pockets',
+           'Detail shot: KAO\'s hands holding a warm cup of coffee on a kitchen table',
+           'From behind: KAO stands on a balcony looking at the city lights',
+           'Medium shot: KAO sits on a park bench, watching people pass by, pensive',
+           'Close-up: KAO closes his eyes and breathes slowly, relieved',
+           'Wide shot: KAO alone in a bright kitchen, preparing a simple meal, absorbed',
+           'Top-down shot: KAO lying on his bed, staring at the ceiling, thinking',
+           'Medium shot: KAO talking calmly with a friend at a cafe table']
+
+
 def base_cartone(testi, durate, titolo, cartella, budget=3.10):
     """11 nov (Giorgio: "dal video che esce domani fallo con questo stile"): il video di KAO (copione tradotto dal competitor e voce gia'
     fatti dal motore) diventa un cartone: un'illustrazione NUOVA ogni ~4 s (mai ripetuta), zoom lento avanti/indietro, nuvolette.
@@ -700,7 +728,7 @@ def base_cartone(testi, durate, titolo, cartella, budget=3.10):
     totale = sum(durate)
     sec = SEC_IMG
     spesa_img = (PREZZO_QUADRO + (PREZZO_INGR if INGRANDISCI else 0)) * 1.12 + 0.003   # quadro (+ ingrandimento) + 12% di rifacimenti + controllo
-    fisso = 0.15                                 # regia (Claude)
+    fisso = 0.30                                 # regia (Claude, a blocchi di 15 scene)
     n_max = max(len(testi), int((budget - fisso) / spesa_img))
     if totale / sec > n_max:
         sec = totale / n_max
@@ -708,23 +736,50 @@ def base_cartone(testi, durate, titolo, cartella, budget=3.10):
     n_img = [max(1, round(d / sec)) for d in durate]
     log('cartone:', len(testi), 'scene,', sum(n_img), 'immagini previste, circa', round(sum(n_img) * spesa_img + fisso, 2), '$')
     f = os.path.join(CART, 'regia.json')
-    if os.path.exists(f):
-        reg = json.load(open(f))
-    else:
-        elenco = [{'i': i, 'testo': t, 'immagini': n} for i, (t, n) in enumerate(zip(testi, n_img))]
+    # 12 nov (Giorgio: "scene che non cambiano per minuti e parole non in italiano"): la regia in UNA chiamata per 125 scene si fermava
+    # a ~30 scene e il resto diventava "KAO listens thoughtfully, <frase italiana>" -> stesso salotto per minuti e testo italiano storpiato
+    # disegnato da Klein. Ora: regia a blocchi di 15 scene, ogni scena controllata (numero di immagini giusto), i buchi si richiedono,
+    # e mai frasi italiane nel prompt del disegno.
+    reg = json.load(open(f)) if os.path.exists(f) else {'scene': []}
+    fatte = {int(x.get('i', -1)): x for x in reg.get('scene', []) if 0 <= int(x.get('i', -1)) < len(testi) and len(x.get('immagini') or []) >= 1}
+    def _chiedi(idx, storia):
+        elenco = [{'i': i, 'testo': testi[i], 'immagini': n_img[i]} for i in idx]
         prompt = f"""Sei il regista del canale YouTube italiano KAO PSICOLOGIA. Il video "{titolo}" diventa un CARTONE ANIMATO di qualita' cinematografica
 con protagonista KAO (omino calvo, maglia magenta) che VIVE la situazione di cui parla la voce, in una storia di vita quotidiana italiana coerente dall'inizio alla fine.
-Per ogni scena qui sotto (parlato gia' scritto) disegna ESATTAMENTE il numero di immagini indicato. TUTTE le immagini del video sono DIVERSE tra loro
+{storia}
+Per OGNI scena qui sotto (parlato gia' scritto) disegna ESATTAMENTE il numero di immagini indicato. TUTTE le immagini del video sono DIVERSE tra loro
 (mai la stessa immagine, nemmeno con un'altra inquadratura): ognuna mostra QUELLO CHE LA VOCE DICE in quel momento, con KAO che fa un'azione chiara con
 un'espressione chiara. Varia le inquadrature (campo largo, mezza figura, primo piano, dettaglio di mani o oggetti, dall'alto, di spalle) come in un film.
-Stesso luogo per piu' scene di fila quando la storia resta li'. Altre persone solo quando servono: scegli tra {json.dumps(list(SECONDARI), ensure_ascii=False)}.
-Concetti astratti (il cervello, le emozioni): mostrali con KAO in situazioni concrete o con metafore visive semplici, mai schemi o scritte.
+Cambia luogo spesso (casa, ufficio, strada, bar, parco, auto, cucina, camera, ricordi d'infanzia...): mai piu' di 4 immagini di fila nello stesso posto.
+Altre persone solo quando servono: scegli tra {json.dumps(list(SECONDARI), ensure_ascii=False)}.
+Concetti astratti (il cervello, le emozioni): mostrali con KAO in situazioni concrete o con metafore visive semplici, MAI scritte, cartelli, libri aperti con testo o schermi con parole.
 Scene: {json.dumps(elenco, ensure_ascii=False)}
-Rispondi SOLO con JSON: {{"scene": [{{"i": 0, "luogo": "in inglese, il posto con i suoi dettagli", "secondario": "id o ''",
+Rispondi SOLO con JSON con TUTTE le {len(idx)} scene: {{"scene": [{{"i": numero, "luogo": "in inglese, il posto con i suoi dettagli", "secondario": "id o ''",
  "parola": "1-3 parole chiave del parlato da mostrare in una nuvoletta (in circa un terzo delle scene, altrimenti '')",
  "immagini": [{{"azione": "in inglese: inquadratura + cosa fa KAO e con che espressione + cosa fanno gli altri", "kao": "left|right"}}]}}]}}"""
-        reg = claude(prompt, max_tokens=64000)
-        json.dump(reg, open(f, 'w'), ensure_ascii=False)
+        try:
+            r = claude(prompt, max_tokens=16000)
+            return {int(x.get('i', -1)): x for x in (r.get('scene') or [])}
+        except Exception as e:
+            log('regia: blocco non riuscito', str(e)[:100]); return {}
+    mancanti = [i for i in range(len(testi)) if i not in fatte]
+    for giro in range(3):
+        if not mancanti:
+            break
+        for b in range(0, len(mancanti), 15):
+            idx = mancanti[b:b + 15]
+            prec = [fatte[k] for k in sorted(fatte) if k < idx[0]][-2:]
+            storia = ('Fin qui la storia: ' + json.dumps([{'luogo': x.get('luogo'), 'ultime azioni': [y.get('azione') for y in (x.get('immagini') or [])][-2:]} for x in prec], ensure_ascii=False)
+                      + ' Continua da qui in modo coerente, senza ripetere le stesse immagini.') if prec else 'Questo e\' l\'inizio del video: parti con un gancio visivo forte.'
+            for k, x in _chiedi(idx, storia).items():
+                if k in idx and len(x.get('immagini') or []) >= 1:
+                    fatte[k] = x
+        mancanti = [i for i in range(len(testi)) if i not in fatte]
+        log('regia: scene pronte', len(fatte), '/', len(testi), '| giro', giro + 1)
+    reg = {'scene': [fatte[k] for k in sorted(fatte)]}
+    json.dump(reg, open(f, 'w'), ensure_ascii=False)
+    if mancanti:
+        log('regia: ATTENZIONE', len(mancanti), 'scene senza regia: uso inquadrature di riserva (senza testo)')
     per_i = {int(x.get('i', -1)): x for x in reg.get('scene', [])}
     c = {'scene': [], 'quadri': []}
     luogo_prec = 'a cosy Italian living room'
@@ -732,7 +787,10 @@ Rispondi SOLO con JSON: {{"scene": [{{"i": 0, "luogo": "in inglese, il posto con
         x = per_i.get(i) or {}
         luogo = x.get('luogo') or luogo_prec; luogo_prec = luogo
         sec_ = x.get('secondario') if x.get('secondario') in SECONDARI else ''
-        imgs = (x.get('immagini') or [])[:n] or [{'azione': 'KAO listens thoughtfully, ' + t[:120], 'kao': 'left'}]
+        imgs = (x.get('immagini') or [])[:n]
+        while len(imgs) < n:   # 12 nov: mai un'immagine sola per tante frasi e mai la frase italiana nel prompt (Klein la disegna storpiata)
+            j = (i * 3 + len(imgs)) % len(RISERVA)
+            imgs.append({'azione': RISERVA[j], 'kao': 'left' if j % 2 else 'right'})
         parole = t.split(); passo = d / max(1, len(parole))
         sc = {'testo': t, '_dur': d, 'parola': x.get('parola') or '', 'secondario': sec_, 'luogo': luogo,
               '_parole': [[w, k * passo, (k + 1) * passo] for k, w in enumerate(parole)], '_quadri': []}
