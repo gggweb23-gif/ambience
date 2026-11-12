@@ -498,6 +498,9 @@ async function main() {
     elements: String(cfg.brand_music_url || '').trim() ? [{ type: 'audio', src: String(cfg.brand_music_url).trim(), volume: volMusica }] : [] };
   const prep = await codice('Prepara Render GitHub', [J(j2v)]);
   const dati = JSON.parse(Buffer.from(prep[0].binary.data.data, 'base64').toString('utf8'));
+  // 12 nov: "Prepara Render GitHub" passa solo alcune colonne del canale: aggiungo quelle dello stile a cartone (solo queste due, niente token)
+  dati.config = dati.config || {};
+  for (const k of ['video_stile', 'cartone_budget_video']) if (cfg[k] !== undefined && cfg[k] !== '') dati.config[k] = cfg[k];
   for (const s of dati.scene) { const m = String(s.audio || '').match(/id=(GHAUDIO_[^&]+)/); if (m) s.audio = urlLocale(m[1]); }
   if (String(cfg.effetti_github || '').trim().toUpperCase() === 'SI') log('ATTENZIONE: effetti_github = SI non e\' previsto qui (servirebbe json2video): montaggio senza effetti');
 
