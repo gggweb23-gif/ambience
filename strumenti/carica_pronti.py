@@ -32,8 +32,12 @@ def api(url, corpo=None, tipo='application/json', metodo=None):
 
 
 fatti = 0
-for r in prod:
-    if str(r.get('status') or '').strip() != 'Da caricare a mano' or str(r.get('youtube_video_id') or '').strip():
+RIGA = int(E('RIGA') or 0)   # 12 nov: ricarica di UNA riga precisa (es. video gia' fatto ma cancellato da YouTube per sbaglio), qualunque sia lo stato
+for k_, r in enumerate(prod):
+    if RIGA:
+        if k_ + 2 != RIGA:
+            continue
+    elif str(r.get('status') or '').strip() != 'Da caricare a mano' or str(r.get('youtube_video_id') or '').strip():
         continue
     tit = str(r.get('titolo_italiano') or '').strip()
     f = next((v for v in video if nome(tit)[:60] and nome(os.path.basename(v)).find(nome(tit)[:40]) >= 0), None)
@@ -61,6 +65,8 @@ for r in prod:
         or (glob.glob('pronti/**/*.jpg', recursive=True) or [None])[0]
     if E('COPERTINA_REPO'):
         cop = E('COPERTINA_REPO')
+        if cop.startswith('http'):
+            open('copertina_link.jpg', 'wb').write(urllib.request.urlopen(urllib.request.Request(cop, headers={'User-Agent': 'Mozilla/5.0'}), timeout=60).read()); cop = 'copertina_link.jpg'
     try:
         api(f'https://www.googleapis.com/upload/youtube/v3/thumbnails/set?videoId={vid}', open(cop, 'rb').read(), 'image/jpeg'); print('copertina:', cop, flush=True)
     except Exception as e:
@@ -76,6 +82,14 @@ for r in prod:
             print('playlist:', pl, flush=True)
         except Exception as e:
             print('playlist NON aggiornata:', e, flush=True)
+    if RIGA:   # nuovo id nella riga del file di produzione
+        try:
+            sch_ = A.righe(str(cfg.get('scout_production_sheet_id') or '').strip())[0]
+            A.api(str(cfg.get('scout_production_sheet_id') or '').strip(), 'POST', '/values:batchUpdate', {'valueInputOption': 'RAW', 'data': [
+                {'range': f"'{sch_}'!{A.lettera(h.index('youtube_video_id') + 1)}{RIGA}", 'values': [[vid]]}]})
+            print('foglio: riga', RIGA, 'youtube_video_id =', vid, flush=True)
+        except Exception as e:
+            print('foglio NON aggiornato:', e, flush=True)
     fatti += 1
 print('FATTO', CANALE, fatti, 'video caricati', flush=True)
 sys.exit(0 if fatti else 1)

@@ -13,6 +13,12 @@ on:
       chiave:
         description: 'Nome del segreto YouTube del canale (es. YT_REFRESH_TOKEN_ORBITAL_DAYS)'
         required: true
+      artifact:
+        description: 'Facoltativo: nome dell artifact (default DA CARICARE <canale>)'
+        default: ''
+      riga:
+        description: 'Facoltativo: numero di riga del file di produzione da ricaricare (qualunque stato)'
+        default: ''
       copertina_repo:
         description: 'Facoltativo: copertina nel repository da usare al posto di quella dell artifact'
         default: ''
@@ -31,12 +37,13 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh run download "${{ inputs.run_id }}" -n "DA CARICARE ${{ inputs.canale }}" -D pronti -R "$GITHUB_REPOSITORY"
+          A="${{ inputs.artifact }}"; [ -z "$A" ] && A="DA CARICARE ${{ inputs.canale }}"; gh run download "${{ inputs.run_id }}" -n "$A" -D pronti -R "$GITHUB_REPOSITORY"
           find pronti -type f | head; for z in $(find pronti -name '*.zip'); do unzip -o -q "$z" -d pronti; done; find pronti -type f -name '*.mp4' -o -type f -name '*.jpg'
       - name: Carica
         env:
           CANALE: ${{ inputs.canale }}
           COPERTINA_REPO: ${{ inputs.copertina_repo }}
+          RIGA: ${{ inputs.riga }}
           GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
           YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
