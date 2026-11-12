@@ -22,6 +22,7 @@ jobs:
           FAL_KEY: ${{ secrets.FAL_KEY }}
         run: python3 strumenti/copertine_costo_vero_concetti.py
       - name: Video
+        if: ${{ inputs.stili != 'NO' }}
         env:
           FAL_KEY: ${{ secrets.FAL_KEY }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}

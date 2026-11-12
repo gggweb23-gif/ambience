@@ -16,18 +16,16 @@ E = os.environ.get
 OUT = E('OUT') or 'prove_video/Costo_Vero/copertine_concetti'; os.makedirs(OUT, exist_ok=True)
 FA, FB = 'ctr_test/Anton.ttf', 'fonts_gloam/montserrat_black.woff'
 R, Y, INK, BI = (225, 30, 45), (255, 205, 40), (25, 25, 35), (255, 255, 255)
-STILE = 'Bold glossy 3D-illustration look like a top YouTube thumbnail, saturated colors, sharp details, high contrast. NO text, NO letters, NO numbers, NO logos. '
+# 12 nov sera (Giorgio): "una prova grafica TOTALMENTE diversa dall'attuale" (niente illustrazione colorata + cartellino + numeri come ora)
 CONCETTI = {
-    'iceberg': 'Cutaway view split by the water line of the sea: ABOVE the water a small pretty backyard swimming pool with blue water and a sun lounger sits like the tip of an iceberg; '
-               'BELOW the water line an ENORMOUS iceberg made of tightly stacked green euro banknotes goes deep down into dark blue water. Composition: pool and tip in the upper RIGHT, '
-               'the huge underwater mass fills the lower half; the LEFT third of the image is clean sea and sky.',
-    'scontrino': 'A sunny backyard with a blue in-ground swimming pool on the RIGHT side; an EXTREMELY long white paper shopping receipt comes out of the pool water and unrolls '
-                 'in big curls across the green lawn toward the viewer, blank receipt paper with faint grey lines only. The LEFT third of the image is clear blue sky and lawn.',
-    'soldi': 'A backyard in-ground swimming pool on the RIGHT side completely FILLED with green euro banknotes instead of water, banknotes overflowing on the edge, a pool ladder '
-             'going into the money, sunny Italian garden, dramatic low angle. The LEFT third of the image is clear sky and hedge.',
+    'pennarello': 'Realistic DSLR photograph, natural light, NOT an illustration: a real backyard in-ground swimming pool in an Italian villa garden, '
+                  'pool in the RIGHT half of the frame, the LEFT 40% is plain lawn and hedge. Sharp, high detail. NO text, NO letters, NO logos.',
+    'noir': 'Cinematic dark photograph: a small perfect scale model of a backyard swimming pool with blue glowing water on a black table, lit by a single '
+            'dramatic spotlight from above, deep black background, gold light reflections, luxury product shot, the model is on the RIGHT side. NO text, NO letters.',
+    'progetto': 'Technical BLUEPRINT drawing: thin white lines on deep blue blueprint paper with a fine grid, isometric exploded view of a backyard in-ground swimming pool: '
+                'the pool basin, the pump, the sand filter, the pipes and the winter cover drawn separately, slightly apart, in the RIGHT 65% of the image. '
+                'Blank areas, NO text, NO letters, NO numbers, NO labels.',
 }
-
-
 def fal(ep, dati):
     hd = {'Authorization': 'Key ' + E('FAL_KEY', '')}
     inv = YT.http('https://queue.fal.run/' + ep, dati, hd, timeout=120)
@@ -62,28 +60,70 @@ def barrato(im, xy, txt, size):
     return b[3]
 
 
+def tratto(d, pts, col, w):
+    """Linea "a mano" (pennarello): due passate leggermente sfalsate."""
+    import random
+    for k in range(2):
+        q = [(x + random.uniform(-2, 2), y + random.uniform(-2, 2)) for x, y in pts]
+        d.line(q, fill=col, width=w, joint='curve')
+
+
+def ellisse_mano(d, b, col, w):
+    import math, random
+    cx, cy, rx, ry = (b[0] + b[2]) / 2, (b[1] + b[3]) / 2, (b[2] - b[0]) / 2, (b[3] - b[1]) / 2
+    pts = [(cx + rx * (1 + random.uniform(-.03, .03)) * math.cos(a / 40 * 2 * math.pi + .3), cy + ry * (1 + random.uniform(-.03, .03)) * math.sin(a / 40 * 2 * math.pi + .3)) for a in range(46)]
+    tratto(d, pts, col, w)
+
+
 def main():
+    import random
+    random.seed(7)
+    FM = os.path.join(OUT, 'PermanentMarker.ttf')
+    if not os.path.exists(FM):
+        open(FM, 'wb').write(YT.http('https://raw.githubusercontent.com/google/fonts/main/apache/permanentmarker/PermanentMarker-Regular.ttf', raw=True, timeout=60))
+    FS = 'fonts_gloam/serif.woff'; FMONO = 'fonts_gloam/mono.woff'
     for nome, sc in CONCETTI.items():
         f = os.path.join(OUT, nome + '_base.jpg')
         if not os.path.exists(f):
-            u = fal('fal-ai/flux-2/klein/4b', {'prompt': STILE + sc, 'image_size': {'width': 1920, 'height': 1080}, 'num_images': 1, 'output_format': 'png'})
+            u = fal('fal-ai/flux-2/klein/4b', {'prompt': sc, 'image_size': {'width': 1920, 'height': 1080}, 'num_images': 1, 'output_format': 'png'})
             CO.registra('fal', 'flux-2-klein-4b', dollari=0.02, nota='copertina concetto costo vero')
             Image.open(io.BytesIO(YT.http(u, raw=True, timeout=120))).convert('RGB').resize((1280, 720), Image.LANCZOS).save(f, quality=95)
         im = Image.open(f).convert('RGBA'); d = ImageDraw.Draw(im)
-        # le scritte stanno nel terzo di SINISTRA (libero per costruzione), mai in basso a destra
-        if nome == 'iceberg':
-            etichetta(im, (34, 40), 'PREZZO', FB, 40, INK, Y + (255,), ang=0)
-            barrato(im, (40, 110), '35.000 €', 120)
-            etichetta(im, (34, 300), 'COSTO VERO', FB, 40, BI, R + (255,))
-            d.text((40, 370), '60.500 €', font=F(FA, 170), fill=R, stroke_width=9, stroke_fill=BI)
-        elif nome == 'scontrino':
-            etichetta(im, (34, 40), 'PISCINA', FA, 92, INK, Y + (255,), ang=-3)
-            d.text((40, 230), '60.500 €', font=F(FA, 180), fill=R, stroke_width=10, stroke_fill=BI)
-            etichetta(im, (44, 470), 'IN 10 ANNI', FB, 52, BI, INK + (255,), ang=2)
-        else:
-            barrato(im, (40, 50), '35.000 €', 110)
-            d.text((40, 200), '60.500 €', font=F(FA, 190), fill=Y, stroke_width=11, stroke_fill=INK)
-            etichetta(im, (44, 460), 'IL VERO PREZZO', FB, 50, BI, R + (255,), ang=-2)
+        if nome == 'pennarello':   # foto vera + annotazioni a pennarello rosso, come uno che ha fatto i conti a mano
+            ellisse_mano(d, (730, 230, 1250, 640), (230, 20, 30), 9)
+            lay = Image.new('RGBA', im.size, (0, 0, 0, 0)); dl = ImageDraw.Draw(lay)
+            dl.rectangle((30, 40, 560, 210), fill=(255, 235, 60, 170))   # evidenziatore
+            im.alpha_composite(lay); d = ImageDraw.Draw(im)
+            d.text((50, 30), '35.000 €', font=F(FM, 120), fill=INK)
+            tratto(d, [(45, 150), (540, 90)], (230, 20, 30), 12)
+            d.text((40, 250), '60.500 €', font=F(FM, 150), fill=(230, 20, 30), stroke_width=4, stroke_fill=BI)
+            d.text((60, 470), 'in 10 anni!', font=F(FM, 70), fill=BI, stroke_width=5, stroke_fill=INK)
+        elif nome == 'noir':   # buio, un solo faro, cifra in oro: elegante e "da documentario"
+            lay = Image.new('RGBA', im.size, (0, 0, 0, 0)); dl = ImageDraw.Draw(lay)
+            for k in range(60):
+                dl.rectangle((0, 0, 620 - k * 4, 720), fill=(0, 0, 0, 3))
+            im.alpha_composite(lay); d = ImageDraw.Draw(im)
+            ORO = (232, 190, 95)
+            d.text((60, 70), 'IL VERO PREZZO DI', font=F(FMONO, 36), fill=(220, 220, 220))
+            d.text((60, 115), 'UNA PISCINA', font=F(FA, 96), fill=BI)
+            d.text((52, 270), '60.500€', font=F(FS, 190), fill=ORO)
+            d.line((62, 500, 520, 500), fill=ORO, width=3)
+            d.text((60, 520), 'NON 35.000', font=F(FMONO, 44), fill=(200, 200, 200))
+        else:   # progetto tecnico con le voci di costo come quote del disegno
+            AZ = (235, 245, 255)
+            voci = [('COPERTURA', '4.000 €', (1000, 200)), ('SCAVO E VASCA', '35.000 €', (820, 320)), ('POMPA E FILTRI', '13.000 €', (980, 430)), ('PRODOTTI', '6.000 €', (860, 520))]
+            ys = [150, 250, 350, 450]
+            for (n_, v_, p_), y in zip(voci, ys):
+                d.line((330, y + 30, p_[0], p_[1]), fill=AZ, width=2); d.ellipse((p_[0] - 7, p_[1] - 7, p_[0] + 7, p_[1] + 7), outline=AZ, width=3)
+                d.text((40, y), n_, font=F(FMONO, 26), fill=AZ)
+                d.text((40, y + 30), v_, font=F(FA, 50), fill=BI)
+            lay = Image.new('RGBA', (560, 170), (0, 0, 0, 0)); dl = ImageDraw.Draw(lay)
+            dl.rounded_rectangle((8, 8, 552, 162), 10, outline=(230, 40, 50), width=8)
+            dl.text((280, 52), 'COSTO VERO', font=F(FMONO, 34), fill=(230, 40, 50), anchor='mm')
+            dl.text((280, 112), '60.500 €', font=F(FA, 80), fill=(230, 40, 50), anchor='mm')
+            lay = lay.rotate(8, expand=True, resample=Image.BICUBIC)
+            im.alpha_composite(lay, (20, 455))
+            d.text((40, 40), 'PISCINA', font=F(FA, 84), fill=BI)
         im.convert('RGB').save(os.path.join(OUT, nome + '.jpg'), quality=94)
         print('FATTO', nome, flush=True)
 
