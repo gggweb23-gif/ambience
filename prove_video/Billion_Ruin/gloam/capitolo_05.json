@@ -1,176 +1,167 @@
 [
  {
-  "voce": "Chapter six. The Leak and the Run.",
+  "voce": "Chapter six. The digital run.",
   "tipo": "foto",
-  "sfondo": "financial district skyline",
-  "chiave": "THE LEAK",
+  "sfondo": "bank headquarters building",
+  "chiave": "DIGITAL RUN",
   "etichetta": "CHAPTER 6",
-  "titolo": "The Leak and the Run",
+  "titolo": "The Digital Run",
   "sotto": "",
-  "capitolo": "The Leak and the Run"
+  "capitolo": "The Digital Run"
  },
  {
-  "voce": "For months, the story held together.",
-  "tipo": "clip",
-  "sfondo": "trading screens office",
-  "chiave": "HELD",
-  "cartello": "HELD TOGETHER",
-  "capitolo": "The Leak and the Run"
- },
- {
-  "voce": "Then a single document changed everything.",
-  "tipo": "clip",
-  "sfondo": "documents on desk",
-  "chiave": "DOCUMENT",
-  "cartello": "DOCUMENT LEAKED",
-  "capitolo": "The Leak and the Run"
- },
- {
-  "voce": "On November second, twenty twenty-two, CoinDesk published a report.",
+  "voce": "On March ninth, twenty twenty-three, the withdrawals began.",
   "tipo": "calendario",
-  "sfondo": "newspaper headlines",
-  "chiave": "COINDESK",
-  "mese": "NOV",
-  "giorno": "2",
-  "titolo": "CoinDesk Report",
-  "sotto": "A look inside Alameda's balance sheet",
-  "timbro": "PUBLISHED",
-  "capitolo": "The Leak and the Run"
+  "sfondo": "city skyline",
+  "chiave": "MAR 9",
+  "mese": "MAR",
+  "giorno": "9",
+  "titolo": "The Run Begins",
+  "sotto": "Customers rush to pull their money out",
+  "timbro": "2023",
+  "capitolo": "The Digital Run"
  },
  {
-  "voce": "It examined the balance sheet of Alameda.",
+  "voce": "Customers tried to pull about forty-two billion dollars.",
+  "tipo": "dato",
+  "sfondo": "banknotes closeup",
+  "chiave": "$42B",
+  "numero": "$42B",
+  "didascalia": "Withdrawal attempts in a single day",
+  "fonte": "California regulators",
+  "capitolo": "The Digital Run"
+ },
+ {
+  "voce": "Almost none of it moved through a branch.",
+  "tipo": "clip",
+  "sfondo": "empty bank lobby",
+  "chiave": "BRANCH",
+  "cartello": "NO BRANCH LINES",
+  "capitolo": "The Digital Run"
+ },
+ {
+  "voce": "The transfers were made mostly digitally.",
+  "tipo": "clip",
+  "sfondo": "server room data",
+  "chiave": "DIGITAL",
+  "cartello": "DIGITAL TRANSFERS",
+  "capitolo": "The Digital Run"
+ },
+ {
+  "voce": "Money drained away through phones and laptops.",
+  "tipo": "clip",
+  "sfondo": "trading screens",
+  "chiave": "PHONES",
+  "cartello": "PHONES AND LAPTOPS",
+  "capitolo": "The Digital Run"
+ },
+ {
+  "voce": "By the end of that day, the vault was empty.",
+  "tipo": "oggetto3d",
+  "sfondo": "bank vault",
+  "chiave": "EMPTY",
+  "oggeto": "",
+  "oggetto": "A glossy golden vault door cracked open and completely empty inside",
+  "etichette": [
+   "EMPTY"
+  ],
+  "capitolo": "The Digital Run"
+ },
+ {
+  "voce": "California regulators found a negative cash balance.",
   "tipo": "foto",
-  "sfondo": "financial documents closeup",
-  "chiave": "ALAMEDA",
-  "etichetta": "NEW YORK · NOV 2, 2022",
-  "titolo": "Alameda's balance sheet exposed",
-  "sotto": "Report published by CoinDesk",
-  "capitolo": "The Leak and the Run"
+  "sfondo": "regulatory documents",
+  "chiave": "NEGATIVE",
+  "etichetta": "CALIFORNIA · MARCH 9",
+  "titolo": "Cash Balance Turns Negative",
+  "sotto": "Regulators review the bank's closing position",
+  "capitolo": "The Digital Run"
  },
  {
-  "voce": "Traders read it. And they started to worry.",
+  "voce": "About nine hundred fifty-eight million dollars below zero.",
+  "tipo": "dato",
+  "sfondo": "financial documents",
+  "chiave": "$958M",
+  "numero": "-$958M",
+  "didascalia": "Cash balance at end of day",
+  "fonte": "California regulators",
+  "capitolo": "The Digital Run"
+ },
+ {
+  "voce": "And the worst was still ahead.",
   "tipo": "clip",
-  "sfondo": "stock exchange screens",
-  "chiave": "WORRY",
-  "cartello": "WORRY SPREADS",
-  "capitolo": "The Leak and the Run"
+  "sfondo": "night financial district",
+  "chiave": "WORST",
+  "cartello": "WORST STILL AHEAD",
+  "capitolo": "The Digital Run"
  },
  {
-  "voce": "Four days later, the rival moved.",
+  "voce": "The bank expected another request, around one hundred billion dollars.",
+  "tipo": "dato",
+  "sfondo": "stock exchange floor",
+  "chiave": "$100B",
+  "numero": "$100B",
+  "didascalia": "Further withdrawals expected on March tenth",
+  "fonte": "California regulators",
+  "capitolo": "The Digital Run"
+ },
+ {
+  "voce": "On the morning of March tenth, trading in its shares was halted.",
+  "tipo": "borsa",
+  "sfondo": "trading screens",
+  "chiave": "HALTED",
+  "ticker": "SIVB",
+  "da": "106",
+  "a": "HALT",
+  "capitolo": "The Digital Run"
+ },
+ {
+  "voce": "Regulators closed the bank.",
   "tipo": "clip",
-  "sfondo": "city skyline night",
-  "chiave": "RIVAL",
-  "cartello": "RIVAL MOVES",
-  "capitolo": "The Leak and the Run"
+  "sfondo": "bank entrance doors",
+  "chiave": "CLOSED",
+  "cartello": "CLOSED BY REGULATORS",
+  "capitolo": "The Digital Run"
  },
  {
-  "voce": "On November sixth, Changpeng Zhao spoke.",
+  "voce": "The FDIC took control.",
   "tipo": "dossier",
-  "sfondo": "office building exterior",
-  "chiave": "BINANCE",
-  "scheda": "EXECUTIVE FILE",
-  "nome": "Changpeng Zhao",
-  "persona": true,
+  "sfondo": "government building",
+  "chiave": "FDIC",
+  "scheda": "REGULATOR FILE",
+  "nome": "FDIC",
+  "persona": false,
   "righe": [
    [
-    "Role",
-    "CEO of Binance"
+    "Action",
+    "Took control of the bank"
    ],
    [
     "Date",
-    "November 6, 2022"
+    "March 10, 2023"
    ],
    [
-    "Announcement",
-    "Binance to sell its FTT"
+    "Cause",
+    "Run on deposits"
    ]
   ],
-  "timbro": "ANNOUNCED",
-  "capitolo": "The Leak and the Run"
+  "timbro": "IN CONTROL",
+  "capitolo": "The Digital Run"
  },
  {
-  "voce": "Binance would sell its entire stack of FTT.",
-  "tipo": "oggetto3d",
-  "sfondo": "golden coins",
-  "chiave": "FTT",
-  "oggetto": "a tall stack of golden coins starting to topple over",
-  "etichetas": [],
-  "etichette": [
-   "FTT",
-   "SELLING"
-  ],
-  "capitolo": "The Leak and the Run"
- },
- {
-  "voce": "Confidence cracked. Customers rushed for the exit.",
+  "voce": "A first of its kind: a run driven by social media and mobile banking.",
   "tipo": "clip",
-  "sfondo": "crowded financial district",
-  "chiave": "EXIT",
-  "cartello": "RUSH FOR EXIT",
-  "capitolo": "The Leak and the Run"
+  "sfondo": "smartphone banking app",
+  "chiave": "FIRST",
+  "cartello": "FIRST OF ITS KIND",
+  "capitolo": "The Digital Run"
  },
  {
-  "voce": "Withdrawal requests poured in, nonstop.",
+  "voce": "But who got paid, and who paid the price?",
   "tipo": "clip",
-  "sfondo": "servers data center",
-  "chiave": "WITHDRAWAL",
-  "cartello": "WITHDRAWALS POURING IN",
-  "capitolo": "The Leak and the Run"
- },
- {
-  "voce": "About six billion dollars left FTX in seventy-two hours.",
-  "tipo": "dato",
-  "sfondo": "banknotes closeup",
-  "chiave": "$6B",
-  "numero": "$6B",
-  "didascalia": "Withdrawn from FTX in 72 hours",
-  "fonte": "Later reporting",
-  "capitolo": "The Leak and the Run"
- },
- {
-  "voce": "Sam Bankman-Fried tried to calm the storm.",
-  "tipo": "clip",
-  "sfondo": "smartphone social media",
-  "chiave": "CALM",
-  "cartello": "CALM THE STORM",
-  "capitolo": "The Leak and the Run"
- },
- {
-  "voce": "He tweeted that FTX was fine. Assets were fine.",
-  "tipo": "foto",
-  "sfondo": "social media feed",
-  "chiave": "FINE",
-  "etichetta": "ONLINE · NOV 2022",
-  "titolo": "\"FTX is fine. Assets are fine.\"",
-  "sotto": "Posted by Sam Bankman-Fried",
-  "capitolo": "The Leak and the Run"
- },
- {
-  "voce": "Then he deleted the post.",
-  "tipo": "clip",
-  "sfondo": "computer screen typing",
-  "chiave": "DELETED",
-  "cartello": "DELETED",
-  "capitolo": "The Leak and the Run"
- },
- {
-  "voce": "On November eighth, FTX halted withdrawals.",
-  "tipo": "calendario",
-  "sfondo": "closed office door",
-  "chiave": "HALTED",
-  "mese": "NOV",
-  "giorno": "8",
-  "titolo": "Withdrawals Halted",
-  "sotto": "FTX stops customers from taking out their money",
-  "timbro": "FROZEN",
-  "capitolo": "The Leak and the Run"
- },
- {
-  "voce": "The money was gone. But where? That's next.",
-  "tipo": "clip",
-  "sfondo": "empty vault door",
-  "chiave": "WHERE",
-  "cartello": "WHERE IT WENT",
-  "capitolo": "The Leak and the Run"
+  "sfondo": "newspaper headlines",
+  "chiave": "PRICE",
+  "cartello": "WHO PAID THE PRICE",
+  "capitolo": "The Digital Run"
  }
 ]

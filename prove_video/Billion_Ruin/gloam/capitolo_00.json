@@ -1,222 +1,200 @@
 [
  {
-  "voce": "Eight billion dollars of customer money. Gone.",
+  "voce": "Forty-two billion dollars. Gone from one bank in one day.",
   "tipo": "dato",
-  "sfondo": "dark financial district",
-  "chiave": "EIGHT BILLION",
-  "numero": "$8B",
-  "didascalia": "Owed to customers. Not in the vault.",
-  "fonte": "US prosecutors",
-  "capitolo": "The $8 Billion Hole"
+  "sfondo": "bank vault interior",
+  "chiave": "forty-two billion",
+  "numero": "$42B",
+  "didascalia": "Withdrawal requests at Silicon Valley Bank in a single day",
+  "fonte": "Thursday, March 9, 2023",
+  "capitolo": "$42 Billion in One Day"
  },
  {
-  "voce": "Where did it go?",
+  "voce": "How does a bank this large collapse so fast?",
   "tipo": "clip",
-  "sfondo": "city skyline night",
-  "chiave": "WHERE",
-  "cartello": "WHERE DID IT GO",
-  "capitolo": "The $8 Billion Hole"
+  "sfondo": "financial district skyline",
+  "chiave": "collapse",
+  "cartello": "COLLAPSE IN HOURS",
+  "capitolo": "$42 Billion in One Day"
  },
  {
-  "voce": "In January twenty twenty-two, FTX was worth thirty-two billion dollars.",
-  "tipo": "dato",
-  "sfondo": "trading screens",
-  "chiave": "$32B",
-  "numero": "$32B",
-  "didascalia": "FTX valuation, January 2022 funding round",
-  "fonte": "FTX funding round",
-  "capitolo": "The $8 Billion Hole"
- },
- {
-  "voce": "Ten months later, it was bankrupt.",
-  "tipo": "clip",
-  "sfondo": "stock exchange floor",
-  "chiave": "BANKRUPT",
-  "cartello": "BANKRUPT IN DAYS",
-  "capitolo": "The $8 Billion Hole"
- },
- {
-  "voce": "Not ten months. About ten days.",
+  "voce": "Thursday, March ninth, twenty twenty-three.",
   "tipo": "calendario",
   "sfondo": "city skyline",
-  "chiave": "TEN DAYS",
-  "mese": "NOV",
-  "giorno": "2022",
-  "titolo": "Ten days to collapse",
-  "sotto": "From a thirty-two billion dollar valuation to bankruptcy.",
-  "timbro": "COLLAPSE",
-  "capitolo": "The $8 Billion Hole"
+  "chiave": "March ninth",
+  "mese": "MAR",
+  "giorno": "9",
+  "titolo": "The Withdrawal Rush",
+  "sotto": "Depositors try to pull billions from Silicon Valley Bank",
+  "timbro": "ONE DAY",
+  "capitolo": "$42 Billion in One Day"
  },
  {
-  "voce": "November eleventh, twenty twenty-two.",
-  "tipo": "foto",
-  "sfondo": "courthouse building exterior",
-  "chiave": "NOVEMBER ELEVENTH",
-  "etichetta": "DELAWARE · NOV 11, 2022",
-  "titolo": "FTX Files for Chapter Eleven",
-  "sotto": "Filing covers Alameda Research and affiliates",
-  "capitolo": "The $8 Billion Hole"
- },
- {
-  "voce": "FTX files for Chapter Eleven bankruptcy protection.",
+  "voce": "Depositors wanted their money out, all at once.",
   "tipo": "clip",
-  "sfondo": "legal documents desk",
-  "chiave": "CHAPTER ELEVEN",
-  "cartello": "CHAPTER ELEVEN FILED",
-  "capitolo": "The $8 Billion Hole"
+  "sfondo": "trading screens",
+  "chiave": "all at once",
+  "cartello": "WITHDRAWALS SURGE",
+  "capitolo": "$42 Billion in One Day"
  },
  {
-  "voce": "Alameda Research goes down with it.",
+  "voce": "Forty-two billion dollars in withdrawal requests, in one day.",
+  "tipo": "oggetto3d",
+  "sfondo": "golden vault",
+  "chiave": "forty-two billion",
+  "oggetto": "A golden vault door cracking open with coins spilling out",
+  "etichette": [
+   "$42 BILLION",
+   "ONE DAY"
+  ],
+  "capitolo": "$42 Billion in One Day"
+ },
+ {
+  "voce": "That was about a quarter of all deposits.",
+  "tipo": "classifica",
+  "sfondo": "banknotes stack",
+  "chiave": "quarter",
+  "titolo": "Deposits vs. one-day withdrawals",
+  "barre": [
+   [
+    "Deposits, end 2022",
+    173,
+    "$173B"
+   ],
+   [
+    "Withdrawal requests",
+    42,
+    "$42B"
+   ]
+  ],
+  "timbro": "A QUARTER",
+  "fonte": "End of 2022 deposits",
+  "capitolo": "$42 Billion in One Day"
+ },
+ {
+  "voce": "At the end of twenty twenty-two, deposits stood near one hundred seventy-three billion.",
+  "tipo": "clip",
+  "sfondo": "bank building exterior",
+  "chiave": "deposits",
+  "cartello": "DEPOSITS $173 BILLION",
+  "capitolo": "$42 Billion in One Day"
+ },
+ {
+  "voce": "Then came Friday, March tenth.",
+  "tipo": "calendario",
+  "sfondo": "empty bank lobby",
+  "chiave": "Friday",
+  "mese": "MAR",
+  "giorno": "10",
+  "titolo": "The Bank Is Closed",
+  "sotto": "California regulators shut the bank and name the FDIC receiver",
+  "timbro": "SHUT DOWN",
+  "capitolo": "$42 Billion in One Day"
+ },
+ {
+  "voce": "California regulators closed the bank.",
+  "tipo": "foto",
+  "sfondo": "closed bank entrance",
+  "chiave": "closed",
+  "etichette": "",
+  "etichetta": "SANTA CLARA · MARCH 10, 2023",
+  "titolo": "Regulators Close Silicon Valley Bank",
+  "sotto": "State regulators order the closure of the bank",
+  "capitolo": "$42 Billion in One Day"
+ },
+ {
+  "voce": "The FDIC was appointed receiver.",
   "tipo": "dossier",
-  "sfondo": "office building",
-  "chiave": "ALAMEDA",
-  "scheda": "BANKRUPTCY FILING",
-  "nome": "ALAMEDA RESEARCH",
+  "sfondo": "government documents",
+  "chiave": "FDIC",
+  "scheda": "RECEIVERSHIP FILE",
+  "nome": "Silicon Valley Bank",
   "persona": false,
   "righe": [
    [
-    "Status",
-    "Chapter 11 filed"
+    "Closed by",
+    "California regulators"
+   ],
+   [
+    "Receiver",
+    "FDIC"
    ],
    [
     "Date",
-    "November 11, 2022"
+    "March 10, 2023"
    ],
    [
-    "Filed with",
-    "FTX"
-   ],
-   [
-    "Affiliates",
-    "About 130 entities"
+    "Prior day",
+    "$42B withdrawal requests"
    ]
   ],
-  "timbro": "FILED",
-  "capitolo": "The $8 Billion Hole"
+  "timbro": "CLOSED",
+  "capitolo": "$42 Billion in One Day"
  },
  {
-  "voce": "Along with about one hundred thirty affiliated entities.",
+  "voce": "Two days. That's all it took.",
+  "tipo": "clip",
+  "sfondo": "stock exchange floor",
+  "chiave": "Two days",
+  "cartello": "TWO DAYS ONLY",
+  "capitolo": "$42 Billion in One Day"
+ },
+ {
+  "voce": "It became the second-largest bank failure in American history.",
+  "tipo": "classifica",
+  "sfondo": "newspaper headlines",
+  "chiave": "second-largest",
+  "titolo": "Largest US bank failures",
+  "barre": [
+   [
+    "Washington Mutual, 2008",
+    2,
+    "Largest"
+   ],
+   [
+    "Silicon Valley Bank, 2023",
+    1,
+    "Second"
+   ]
+  ],
+  "timbro": "SECOND LARGEST",
+  "fonte": "Ranking at the time of failure",
+  "capitolo": "$42 Billion in One Day"
+ },
+ {
+  "voce": "Only Washington Mutual, in two thousand eight, was bigger.",
+  "tipo": "foto",
+  "sfondo": "financial crisis newspaper",
+  "chiave": "Washington Mutual",
+  "etichetta": "NEW YORK · 2008",
+  "titolo": "Washington Mutual Failure Of 2008",
+  "sotto": "The only US bank failure larger than SVB",
+  "capitolo": "$42 Billion in One Day"
+ },
+ {
+  "voce": "The bank held two hundred nine billion in assets.",
   "tipo": "dato",
-  "sfondo": "corporate documents stack",
-  "chiave": "ONE HUNDRED THIRTY",
-  "numero": "~130",
-  "didascalia": "Affiliated entities filed alongside FTX",
-  "fonte": "Chapter 11 filing",
-  "capitolo": "The $8 Billion Hole"
+  "sfondo": "financial documents",
+  "chiave": "two hundred nine billion",
+  "numero": "$209B",
+  "didascalia": "Total assets at Silicon Valley Bank",
+  "fonte": "Bank balance sheet",
+  "capitolo": "$42 Billion in One Day"
  },
  {
-  "voce": "A new CEO takes over the wreckage.",
+  "voce": "So how does that fall in two days?",
   "tipo": "clip",
-  "sfondo": "empty corporate office",
-  "chiave": "NEW CEO",
-  "cartello": "NEW CEO APPOINTED",
-  "capitolo": "The $8 Billion Hole"
+  "sfondo": "city skyline dusk",
+  "chiave": "two days",
+  "cartello": "HOW IT FELL",
+  "capitolo": "$42 Billion in One Day"
  },
  {
-  "voce": "John J. Ray the Third.",
-  "tipo": "dossier",
-  "sfondo": "boardroom table",
-  "chiave": "RAY",
-  "scheda": "NEW CEO",
-  "nome": "JOHN J. RAY III",
-  "persona": true,
-  "righe": [
-   [
-    "Role",
-    "FTX CEO"
-   ],
-   [
-    "Appointed",
-    "November 2022"
-   ],
-   [
-    "Previous",
-    "Oversaw Enron's liquidation"
-   ]
-  ],
-  "timbro": "",
-  "capitolo": "The $8 Billion Hole"
- },
- {
-  "voce": "He had overseen the liquidation of Enron.",
+  "voce": "To answer that, we start at the beginning.",
   "tipo": "clip",
-  "sfondo": "financial documents closeup",
-  "chiave": "ENRON",
-  "cartello": "ENRON LIQUIDATOR",
-  "capitolo": "The $8 Billion Hole"
- },
- {
-  "voce": "And he had never seen anything like this.",
-  "tipo": "foto",
-  "sfondo": "newspaper headline",
-  "chiave": "NEVER SEEN",
-  "etichetta": "NEW YORK · NOV 2022",
-  "titolo": "Complete Failure of Corporate Controls",
-  "sotto": "Ray: never seen such a failure in his career",
-  "capitolo": "The $8 Billion Hole"
- },
- {
-  "voce": "A complete failure of corporate controls, he said.",
-  "tipo": "clip",
-  "sfondo": "server room",
-  "chiave": "CONTROLS",
-  "cartello": "CONTROLS FAILED COMPLETELY",
-  "capitolo": "The $8 Billion Hole"
- },
- {
-  "voce": "Later, prosecutors put a number on the hole.",
-  "tipo": "foto",
-  "sfondo": "federal courthouse columns",
-  "chiave": "PROSECUTORS",
-  "etichetta": "NEW YORK · LATER",
-  "titolo": "Prosecutors Quantify the Shortfall",
-  "sotto": "Customers owed money the company did not have",
-  "capitolo": "The $8 Billion Hole"
- },
- {
-  "voce": "About eight billion dollars owed to customers.",
-  "tipo": "oggetto3d",
-  "sfondo": "golden vault",
-  "chiave": "EIGHT BILLION",
-  "oggetto": "A golden vault with a huge crack splitting its door, empty darkness inside",
-  "etichette": [
-   "$8 BILLION",
-   "MISSING"
-  ],
-  "capitolo": "The $8 Billion Hole"
- },
- {
-  "voce": "Money the company simply did not have.",
-  "tipo": "clip",
-  "sfondo": "banknotes counting",
-  "chiave": "DID NOT HAVE",
-  "cartello": "MONEY NOT THERE",
-  "capitolo": "The $8 Billion Hole"
- },
- {
-  "voce": "But customer funds were supposed to sit untouched.",
-  "tipo": "clip",
-  "sfondo": "bank vault door",
-  "chiave": "UNTOUCHED",
-  "cartello": "UNTOUCHED, IN THEORY",
-  "capitolo": "The $8 Billion Hole"
- },
- {
-  "voce": "So where did eight billion dollars actually go?",
-  "tipo": "clip",
-  "sfondo": "dark city skyline",
-  "chiave": "WHERE",
-  "cartello": "WHERE DID IT GO",
-  "capitolo": "The $8 Billion Hole"
- },
- {
-  "voce": "To find out, we start with the man behind it.",
-  "tipo": "foto",
-  "sfondo": "glass skyscrapers",
-  "chiave": "MAN BEHIND IT",
-  "etichetta": "FINANCIAL DISTRICT · 2022",
-  "titolo": "The Story Starts Before the Fall",
-  "sotto": "Next: how FTX rose so fast",
-  "capitolo": "The $8 Billion Hole"
+  "sfondo": "San Francisco skyline",
+  "chiave": "beginning",
+  "cartello": "BEGIN AT START",
+  "capitolo": "$42 Billion in One Day"
  }
 ]

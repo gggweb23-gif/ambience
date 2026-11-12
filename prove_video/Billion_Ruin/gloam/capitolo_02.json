@@ -1,178 +1,150 @@
 [
  {
-  "voce": "Chapter three. The rise of FTX.",
+  "voce": "Too Much Money, Nowhere to Lend.",
   "tipo": "foto",
-  "sfondo": "financial district skyline",
-  "chiave": "FTX",
+  "sfondo": "bank headquarters building",
+  "chiave": "Nowhere to Lend",
   "etichetta": "CHAPTER 3",
-  "titolo": "The Rise of FTX",
+  "titolo": "Too Much Money, Nowhere to Lend",
   "sotto": "",
-  "capitolo": "The Rise of FTX"
+  "capitolo": "Too Much Money, Nowhere to Lend"
  },
  {
-  "voce": "By early twenty twenty-two, FTX looked unstoppable.",
+  "voce": "Deposits kept pouring in faster than loans.",
   "tipo": "clip",
-  "sfondo": "city skyline night",
-  "chiave": "UNSTOPPABLE",
-  "cartello": "UNSTOPPABLE GROWTH",
-  "capitolo": "The Rise of FTX"
+  "sfondo": "banknotes counting machine",
+  "chiave": "DEPOSITS",
+  "cartello": "DEPOSITS OUTPACE LOANS",
+  "capitolo": "Too Much Money, Nowhere to Lend"
  },
  {
-  "voce": "In January, a funding round valued it at about thirty-two billion dollars.",
+  "voce": "A bank cannot let that cash sit idle.",
+  "tipo": "clip",
+  "sfondo": "bank vault interior",
+  "chiave": "IDLE",
+  "cartello": "IDLE CASH",
+  "capitolo": "Too Much Money, Nowhere to Lend"
+ },
+ {
+  "voce": "So SVB bought securities. Heavily.",
+  "tipo": "foto",
+  "sfondo": "trading screens financial data",
+  "chiave": "Securities",
+  "etichetta": "SANTA CLARA · 2021",
+  "titolo": "SVB Buys Securities Heavily",
+  "sotto": "Deposits outgrew loans, cash went into bonds",
+  "capitolo": "Too Much Money, Nowhere to Lend"
+ },
+ {
+  "voce": "By the end of twenty twenty-one,",
+  "tipo": "clip",
+  "sfondo": "financial district skyline",
+  "chiave": "TWENTY TWENTY-ONE",
+  "cartello": "END OF 2021",
+  "capitolo": "Too Much Money, Nowhere to Lend"
+ },
+ {
+  "voce": "the portfolio reached about one hundred twenty-eight billion dollars.",
   "tipo": "dato",
-  "sfondo": "trading screens",
-  "chiave": "$32B",
-  "numero": "$32B",
-  "didascalia": "FTX valuation, January 2022 funding round",
-  "fonte": "January 2022 funding round",
-  "capitolo": "The Rise of FTX"
- },
- {
-  "voce": "Investors saw the next great financial giant.",
-  "tipo": "clip",
   "sfondo": "stock exchange floor",
-  "chiave": "GIANT",
-  "cartello": "GIANT IN THE MAKING",
-  "capitolo": "The Rise of FTX"
+  "chiave": "$128B",
+  "numero": "$128B",
+  "didascalia": "Securities portfolio, end of 2021",
+  "fonte": "SVB filings",
+  "capitolo": "Too Much Money, Nowhere to Lend"
  },
  {
-  "voce": "And its founder knew how to win trust.",
-  "tipo": "oggetto3d",
-  "sfondo": "golden vault",
-  "chiave": "TRUST",
-  "oggetto": "a glossy red faceless mannequin standing in front of a shining golden vault",
-  "etichette": [
-   "THE FOUNDER",
-   "TRUST"
-  ],
-  "capitolo": "The Rise of FTX"
- },
- {
-  "voce": "Sam Bankman-Fried presented himself as an advocate of regulation.",
-  "tipo": "clip",
-  "sfondo": "government building columns",
-  "chiave": "REGULATION",
-  "cartello": "REGULATION ADVOCATE",
-  "capitolo": "The Rise of FTX"
- },
- {
-  "voce": "In December twenty twenty-one, he testified before Congress.",
-  "tipo": "foto",
-  "sfondo": "capitol building",
-  "chiave": "CONGRESS",
-  "etichetta": "WASHINGTON · DECEMBER 2021",
-  "titolo": "Founder Testifies Before Congress",
-  "sotto": "A public face for regulated crypto",
-  "capitolo": "The Rise of FTX"
- },
- {
-  "voce": "For American customers, there was FTX US.",
+  "voce": "Mortgage-backed securities. And United States Treasuries.",
   "tipo": "dossier",
-  "sfondo": "documents",
-  "chiave": "REGULATED ARM",
-  "scheda": "COMPANY FILE",
-  "nome": "FTX US",
+  "sfondo": "financial documents desk",
+  "chiave": "Treasuries",
+  "scheda": "PORTFOLIO FILE",
+  "nome": "SVB Securities",
   "persona": false,
   "righe": [
    [
-    "Role",
-    "Regulated arm"
+    "Holding",
+    "Mortgage-backed securities"
    ],
    [
-    "Customers",
-    "American"
+    "Holding",
+    "US Treasuries"
    ],
    [
-    "Parent",
-    "FTX"
+    "Size",
+    "About $128 billion"
    ],
    [
-    "Founder",
-    "Sam Bankman-Fried"
+    "Date",
+    "End of 2021"
    ]
   ],
-  "timbro": "REGULATED",
-  "capitolo": "The Rise of FTX"
+  "timbro": "LONG-DATED",
+  "capitolo": "Too Much Money, Nowhere to Lend"
  },
  {
-  "voce": "It was positioned as the safe, regulated side.",
+  "voce": "These bonds were bought when rates were near zero.",
   "tipo": "clip",
-  "sfondo": "office building glass",
-  "chiave": "REGULATED",
-  "cartello": "REGULATED SIDE",
-  "capitolo": "The Rise of FTX"
+  "sfondo": "trading screens bonds",
+  "chiave": "NEAR ZERO",
+  "cartello": "RATES NEAR ZERO",
+  "capitolo": "Too Much Money, Nowhere to Lend"
  },
  {
-  "voce": "The promise to customers was simple.",
-  "tipo": "foto",
-  "sfondo": "website on monitor",
-  "chiave": "PROMISE",
-  "etichetta": "FTX · TERMS",
-  "titolo": "The Promise to Customers",
-  "sotto": "Safe custody, in plain words",
-  "capitolo": "The Rise of FTX"
+  "voce": "And long-dated bonds have a weakness.",
+  "tipo": "oggetto3d",
+  "sfondo": "golden coins tower",
+  "chiave": "WEAKNESS",
+  "oggetto": "a tall glossy tower of gold coins beginning to tilt on a dark surface",
+  "etichettes": [],
+  "etichette": [
+   "LONG BONDS"
+  ],
+  "capitolo": "Too Much Money, Nowhere to Lend"
  },
  {
-  "voce": "Your assets are held safely, and never lent out.",
+  "voce": "When rates rise, their market value falls.",
+  "tipo": "clip",
+  "sfondo": "stock market declining screens",
+  "chiave": "VALUE FALLS",
+  "cartello": "RATES UP, VALUE DOWN",
+  "capitolo": "Too Much Money, Nowhere to Lend"
+ },
+ {
+  "voce": "Much of the portfolio sat in held-to-maturity.",
+  "tipo": "dato",
+  "sfondo": "bank ledger documents",
+  "chiave": "$91B",
+  "numero": "$91B",
+  "didascalia": "Held-to-maturity, end of 2022",
+  "fonte": "SVB filings",
+  "capitolo": "Too Much Money, Nowhere to Lend"
+ },
+ {
+  "voce": "That accounting label hides losses from the balance sheet.",
+  "tipo": "clip",
+  "sfondo": "balance sheet documents",
+  "chiave": "HIDES LOSSES",
+  "cartello": "HIDDEN LOSSES",
+  "capitolo": "Too Much Money, Nowhere to Lend"
+ },
+ {
+  "voce": "Unless the bonds are sold.",
   "tipo": "oggetto3d",
   "sfondo": "golden vault",
-  "chiave": "NEVER LENT",
-  "oggetto": "a sealed golden vault with blue faceless mannequins standing safely beside it",
+  "chiave": "SOLD",
+  "oggetto": "a glossy golden vault door with a thin crack beginning to spread across it",
   "etichette": [
-   "HELD SAFELY",
-   "NOT LENT"
+   "HELD-TO-MATURITY"
   ],
-  "capitolo": "The Rise of FTX"
+  "capitolo": "Too Much Money, Nowhere to Lend"
  },
  {
-  "voce": "The terms of service said it in writing.",
+  "voce": "So what happens when the bank must sell?",
   "tipo": "clip",
-  "sfondo": "legal documents desk",
-  "chiave": "IN WRITING",
-  "cartello": "WRITTEN IN THE TERMS",
-  "capitolo": "The Rise of FTX"
- },
- {
-  "voce": "Customer assets remained the customers' property.",
-  "tipo": "dossier",
-  "sfondo": "contract paper",
-  "chiave": "CUSTOMERS' PROPERTY",
-  "scheda": "TERMS OF SERVICE",
-  "nome": "FTX Terms",
-  "persona": false,
-  "righe": [
-   [
-    "Customer assets",
-    "Remain customers' property"
-   ],
-   [
-    "Custody",
-    "Held safely"
-   ],
-   [
-    "Lending",
-    "Not lent out"
-   ]
-  ],
-  "timbro": "IN WRITING",
-  "capitolo": "The Rise of FTX"
- },
- {
-  "voce": "Valuation, regulation, promises, all in place.",
-  "tipo": "clip",
-  "sfondo": "trading screens",
-  "chiave": "ALL IN PLACE",
-  "cartello": "EVERYTHING IN PLACE",
-  "capitolo": "The Rise of FTX"
- },
- {
-  "voce": "So what happened to those promises?",
-  "tipo": "foto",
-  "sfondo": "empty office corridor",
-  "chiave": "PROMISES",
-  "etichetta": "NEXT · CHAPTER 4",
-  "titolo": "What Happened To Them?",
-  "sotto": "The answer begins behind closed doors",
-  "capitolo": "The Rise of FTX"
+  "sfondo": "city skyline dusk",
+  "chiave": "MUST SELL",
+  "cartello": "MUST SELL",
+  "capitolo": "Too Much Money, Nowhere to Lend"
  }
 ]

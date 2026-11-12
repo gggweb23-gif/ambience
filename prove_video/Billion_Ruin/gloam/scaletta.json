@@ -1,146 +1,146 @@
 {
- "titolo": "FTX – Where Did $8 Billion of Customer Money Go?",
- "descrizione": "In November 2022, the crypto exchange FTX collapsed within days, leaving a hole of roughly $8 billion between what customers were owed and what the company held. This documentary follows the money: how customer deposits ended up at a sister trading firm, how a token valued by its own creators became collateral, and how a single leaked balance sheet triggered a run.\n\nThe video is based on court documents from the 2023 criminal trial of Sam Bankman-Fried, SEC and CFTC complaints, the Chapter 11 filings of FTX Trading and the reports of the bankruptcy estate, and coverage by major newspapers. Only facts from these public sources are used.",
+ "titolo": "SVB – The $42 Billion Bank Run That Took One Day",
+ "descrizione": "On March 9, 2023, depositors tried to pull $42 billion out of Silicon Valley Bank in a single day. By the next morning, California regulators had closed the bank, and it became the second-largest bank failure in US history at the time. This documentary follows the investigation: how a fast-growing bank bought long-dated bonds with a deposit boom, what happened when interest rates rose, and how a few days of panic broke it.\n\nAll facts come from SEC filings, the Federal Reserve's April 2023 review by Vice Chair for Supervision Michael Barr, the FDIC and major newspapers. The video explains held-to-maturity accounting, uninsured deposits and the speed of digital bank runs, and what regulators and banks learned afterwards.",
  "tag": [
-  "FTX",
-  "FTX collapse",
-  "Sam Bankman-Fried",
-  "SBF",
-  "Alameda Research",
-  "crypto collapse",
-  "crypto fraud",
-  "FTT token",
-  "Binance",
-  "CZ",
-  "Caroline Ellison",
-  "bankruptcy",
-  "financial documentary",
-  "finance disasters",
-  "customer funds"
+  "SVB",
+  "Silicon Valley Bank",
+  "bank run",
+  "bank collapse",
+  "2023 banking crisis",
+  "SVB collapse explained",
+  "finance documentary",
+  "financial disasters",
+  "interest rate risk",
+  "uninsured deposits",
+  "Signature Bank",
+  "FDIC",
+  "Federal Reserve",
+  "Greg Becker",
+  "Billion Ruin"
  ],
  "copertina": {
-  "oggetto": "FTX",
-  "rosso": "FOUNDER",
-  "blu": "CUSTOMERS",
-  "scena_rosso": "A single red figure stands behind a hidden back door, quietly pulling stacks of cash out of a vault toward a second building",
-  "scena_blu": "A crowd of blue figures lines up at the front, holding phones and deposit slips, waiting to withdraw while the vault shows empty",
-  "scena_oro": "A giant gold FTX coin cracks down the middle and money spills out through the fracture"
+  "oggetto": "SVB",
+  "rosso": "BANK EXECUTIVE",
+  "blu": "DEPOSITORS",
+  "scena_rosso": "A single red figure stands calmly at the top of the bank's steps, holding a bond portfolio folder while the building behind him cracks",
+  "scena_blu": "Many blue figures rush toward the entrance with phones in hand, pulling money out through glowing screens",
+  "scena_oro": "A large gold SVB vault door, half open and cracking, with gold coins pouring out and draining away"
  },
  "capitoli": [
   {
-   "titolo": "The $8 Billion Hole",
+   "titolo": "$42 Billion in One Day",
    "parole": 150,
    "fatti": [
-    "Within about ten days in November 2022, FTX went from a roughly $32 billion valuation (January 2022 funding round) to bankruptcy",
-    "FTX filed for Chapter 11 on November 11, 2022, together with Alameda Research and about 130 affiliated entities",
-    "John J. Ray III, who had overseen Enron's liquidation, became CEO and said he had never seen such a complete failure of corporate controls",
-    "Prosecutors later said customers were owed about $8 billion that the company did not have",
-    "Open question: customer money was supposed to sit untouched, so where did it go?"
+    "On Thursday, March 9, 2023, depositors tried to withdraw $42 billion from Silicon Valley Bank in a single day",
+    "That was about a quarter of the bank's deposits (about $173 billion at end of 2022)",
+    "The next day, Friday, March 10, 2023, California regulators closed the bank and appointed the FDIC as receiver",
+    "It became the second-largest bank failure in US history at the time, after Washington Mutual in 2008",
+    "Open question: how does a bank with $209 billion in assets fall in two days?"
    ]
   },
   {
-   "titolo": "Two Companies, One Founder",
+   "titolo": "The Bank of Startups",
    "parole": 150,
    "fatti": [
-    "Sam Bankman-Fried founded Alameda Research, a crypto trading firm, in 2017",
-    "He launched the FTX exchange in 2019 and moved its headquarters to the Bahamas in 2021",
-    "He owned the majority of Alameda while FTX customers deposited money on the exchange",
-    "Caroline Ellison became co-CEO of Alameda in 2021 and later CEO",
-    "FTX was backed by well-known investors, and its brand appeared in sports sponsorships and Super Bowl advertising"
+    "SVB, founded in 1983 in Santa Clara, California, served venture capital firms and tech startups",
+    "At end of 2022 it had about $209 billion in total assets, the 16th-largest US bank",
+    "Its deposits grew from about $62 billion at end of 2019 to about $189 billion at end of 2021",
+    "Growth was driven by the venture funding boom and low interest rates in 2020-2021",
+    "Most of its deposits were uninsured: above the $250,000 FDIC limit"
    ]
   },
   {
-   "titolo": "The Rise of FTX",
+   "titolo": "Too Much Money, Nowhere to Lend",
    "parole": 150,
    "fatti": [
-    "The January 2022 funding round valued FTX at about $32 billion",
-    "SBF presented himself as an advocate of regulation and testified before Congress in December 2021",
-    "FTX US was positioned as the regulated arm for American customers",
-    "FTX promised customers that their assets were held safely and not lent out",
-    "The FTX terms of service stated that customer assets remained customers' property"
+    "Deposits grew faster than loans, so SVB invested heavily in securities",
+    "Its securities portfolio grew to about $128 billion at end of 2021, including mortgage-backed securities and Treasuries",
+    "Much of it was classified held-to-maturity (about $91 billion at end of 2022)",
+    "Long-dated bonds bought when rates were near zero lose market value when rates rise",
+    "Held-to-maturity accounting means those losses are not shown on the balance sheet unless the bonds are sold"
    ]
   },
   {
-   "titolo": "The Hidden Back Door",
+   "titolo": "Rates Turn Against It",
    "parole": 150,
    "fatti": [
-    "Prosecutors said a feature in the FTX code allowed Alameda to carry a negative balance and withdraw funds without limit",
-    "Alameda was effectively exempt from the automatic liquidation that applied to other traders",
-    "Gary Wang, FTX co-founder, and Nishad Singh, head of engineering, pleaded guilty and testified at trial",
-    "Customer deposits were routed through accounts controlled by Alameda",
-    "Prosecutors said Alameda used customer funds for trading, venture investments, real estate, and political donations"
+    "The Federal Reserve began raising rates in March 2022 and raised them repeatedly through 2022",
+    "SVB's 10-K filed in 2023 showed about $15.1 billion in unrealized losses on held-to-maturity securities at end of 2022",
+    "That loss was nearly as large as the bank's roughly $16 billion in shareholders' equity",
+    "Startups burned cash and venture funding slowed, so deposits began to fall during 2022",
+    "The Fed's April 2023 review found SVB had not hedged its interest-rate risk, and had removed some hedges"
    ]
   },
   {
-   "titolo": "A Token Worth Its Own Word",
+   "titolo": "The Fatal Announcement",
    "parole": 150,
    "fatti": [
-    "FTT was FTX's own exchange token, created by the company",
-    "Alameda held a large amount of FTT on its balance sheet",
-    "Alameda's assets leaked in November 2022 showed about $14.6 billion in total assets, with a big share in FTT and other illiquid holdings",
-    "Much of the value of FTT was therefore only as good as the market's belief in FTX itself",
-    "Alameda borrowed against these assets, so a drop in FTT could trigger a chain of losses"
+    "On March 8, 2023, SVB announced it had sold about $21 billion of available-for-sale securities at a loss of about $1.8 billion",
+    "It also announced plans to raise about $2.25 billion in new capital",
+    "The announcement alarmed investors and venture capital firms",
+    "SVB's stock fell about 60% on March 9, 2023, wiping out billions in market value",
+    "Several venture firms reportedly advised portfolio companies to move their money"
    ]
   },
   {
-   "titolo": "The Leak and the Run",
+   "titolo": "The Digital Run",
    "parole": 150,
    "fatti": [
-    "On November 2, 2022, CoinDesk published a report on Alameda's balance sheet",
-    "On November 6, Binance CEO Changpeng Zhao announced Binance would sell its FTT holdings",
-    "Customers withdrew about $6 billion from FTX in 72 hours, according to later reporting",
-    "SBF tweeted that FTX was fine and assets were fine, then deleted the post",
-    "FTX halted withdrawals on November 8, 2022"
+    "On March 9, 2023, customers tried to withdraw about $42 billion, with the transfers made mostly digitally",
+    "The bank had a negative cash balance of about $958 million at end of that day, according to California regulators",
+    "It expected a further withdrawal request of around $100 billion on March 10",
+    "On the morning of March 10, trading in its shares was halted and regulators closed the bank",
+    "The FDIC took control, in a failure widely seen as a first of its kind: a bank run driven by social media and mobile banking"
    ]
   },
   {
-   "titolo": "The Failed Rescue",
+   "titolo": "The Weekend of Fear",
    "parole": 150,
    "fatti": [
-    "On November 8, Binance signed a non-binding letter of intent to buy FTX",
-    "Binance withdrew from the deal on November 9 after reviewing the books",
-    "FTX sought emergency funding from investors without success",
-    "FTX filed for bankruptcy on November 11, 2022, and SBF resigned as CEO",
-    "Customers lost access to their funds, and the bankruptcy covered over a million creditors"
+    "On March 12, 2023, regulators also closed Signature Bank of New York",
+    "That day the Treasury, Federal Reserve and FDIC announced all SVB depositors, including uninsured ones, would have access to their money on Monday March 13",
+    "The Fed created the Bank Term Funding Program to lend against bonds at face value",
+    "The FDIC said the cost to its Deposit Insurance Fund from SVB's failure was estimated at about $20 billion",
+    "First Republic Bank failed on May 1, 2023 and was sold to JPMorgan Chase"
    ]
   },
   {
-   "titolo": "The Trial",
+   "titolo": "Who Failed",
    "parole": 150,
    "fatti": [
-    "SBF was arrested in the Bahamas in December 2022 and extradited to the US",
-    "Caroline Ellison, Gary Wang, and Nishad Singh pleaded guilty and cooperated",
-    "The jury trial began in October 2023 in Manhattan federal court",
-    "On November 2, 2023, the jury found SBF guilty on all seven counts, including wire fraud and conspiracy",
-    "On March 28, 2024, he was sentenced to 25 years in prison and ordered to forfeit $11 billion"
+    "The Fed's April 2023 review by Michael Barr found SVB's management failed to manage interest-rate and liquidity risk",
+    "It also found supervisors did not take sufficiently forceful action, and that the bank grew rapidly without matching oversight",
+    "SVB's holding company filed for Chapter 11 bankruptcy on March 17, 2023",
+    "First Citizens BancShares agreed on March 26, 2023 to acquire SVB's deposits and loans",
+    "The 2018 law raising the threshold for stricter rules to $250 billion in assets was discussed as a factor, and SVB had about $209 billion"
    ]
   },
   {
-   "titolo": "Where the Money Went",
+   "titolo": "The Answer and the Lesson",
    "parole": 150,
    "fatti": [
-    "The bankruptcy estate recovered assets and reported it could repay creditors in full based on the November 2022 dollar value of claims",
-    "Many customers received repayment plus interest, but crypto prices had risen since 2022, so they received less than their holdings would be worth today",
-    "Money from customer deposits had gone to Alameda's trading losses, venture investments, loans to executives, real estate in the Bahamas, and political donations",
-    "Answer to the loop: customer money was lent to Alameda, a sister firm, and spent or lost, against FTX's own promises",
-    "Lesson: customer assets must be kept separate and audited independently; a founder who controls both exchange and trading firm removes the checks. Subscribe for the next one."
+    "Answer to the opening question: the bank's assets were in long-dated bonds that had lost value, and its depositors were mostly uninsured and highly connected",
+    "A rumor-driven fear spread in hours because transfers were digital",
+    "Hidden losses in held-to-maturity bonds plus concentrated deposits turned a paper problem into a real run",
+    "Regulators and banks reviewed interest-rate risk, uninsured deposits and supervision after 2023",
+    "Ending line: Subscribe for the next one."
    ]
   }
  ],
  "_correzioni": [
-  "Chapter 'The $8 Billion Hole': 'Within about ten days' kept but 'FTX filed ... together with Alameda Research and about 130 affiliated entities' is correct (130+); no change needed",
-  "Chapter 'The Hidden Back Door': 'Alameda was effectively exempt from automatic liquidation' kept (matches trial testimony); 'political donations' retained as documented in the indictment",
-  "Chapter 'Two Companies, One Founder': 'He launched the FTX exchange in 2019, based in the Bahamas by 2021' corrected to say FTX was launched in 2019 and relocated its headquarters to the Bahamas in 2021 (clearer, same facts)",
-  "Chapter 'Two Companies, One Founder': 'He owned the large majority of Alameda' rewritten to 'owned roughly 90% of Alameda per court testimony' replaced with safer wording: 'He owned the majority of Alameda'",
-  "Chapter 'The Rise of FTX': 'testified before Congress in 2021 and 2022' corrected: SBF testified before the House Financial Services Committee in December 2021 and appeared at a Senate hearing in 2022 only as a planned/unrealized item; reworded to 'testified before Congress in December 2021'",
-  "Chapter 'The Leak and the Run': 'Customers withdrew about $6 billion in 72 hours' kept (widely reported); 'Binance announced on November 6' correct; 'FTX halted withdrawals on November 8' correct",
-  "Chapter 'The Leak and the Run': 'Alameda's balance sheet' leak figure $14.6 billion total assets correct (CoinDesk, Nov 2, 2022); 'leaked in November 2022' kept",
-  "Chapter 'The Trial': 'The jury trial began in October 2023' correct (Oct 3); 'ordered to forfeit $11 billion' correct; sentence date March 28, 2024 correct; guilty verdict Nov 2, 2023 on seven counts correct",
-  "Chapter 'The Failed Rescue': 'Binance signed a non-binding letter of intent on November 8' correct; 'withdrew on November 9' correct",
-  "Chapter 'The Failed Rescue': 'over a million creditors' kept (estate reported more than 1 million creditors)",
-  "Chapter 'Where the Money Went': repayment claim reworded to be precise: estate planned to repay 118%-143% of the petition-date claim value, so 'in full' retained with 'plus interest' consistent",
-  "Chapter 'Where the Money Went': 'loans to executives' retained (documented loans to SBF, Singh, Wang)",
-  "Chapter 'The $8 Billion Hole': 'John J. Ray III ... had overseen Enron's liquidation' correct; quote paraphrase retained",
-  "Chapter 'Two Companies, One Founder': 'Caroline Ellison became co-CEO of Alameda in 2021 and later CEO' correct (co-CEO Oct 2021, sole CEO Oct 2022)"
+  "Title/description/ch.1: SVB's closure date was Friday March 10; 'within roughly 48 hours' of the March 9 run is inaccurate (closed ~24 hours later) – changed to 'the next day'",
+  "Description: 'second-largest bank failure' was accurate at the time (later surpassed by First Republic by some measures, but at the time it was the 2nd largest after WaMu); kept but clarified wording in chapter 1",
+  "Ch.1: deposits about $175 billion at end of 2022 (SVB reported ~$173.1B total deposits at Dec 31, 2022); changed to 'about $173 billion' and 'about a quarter' (42/173 ≈ 24%) kept",
+  "Ch.2: 16th-largest US bank is per Fed/FDIC reports (16th) – kept; deposits growth: end 2019 about $62B and end 2021 about $189B – kept",
+  "Ch.3: securities portfolio at end of 2021 about $128 billion; corrected from $120 billion; HTM about $91 billion at end of 2022 kept",
+  "Ch.4: unrealized HTM losses $15.1B kept; equity about $16 billion kept (total equity $16.3B)",
+  "Ch.4: Fed review said SVB had removed hedges – kept; Fed began raising rates March 2022 – kept",
+  "Ch.5: sale was $21 billion of AFS securities at ~$1.8 billion loss – kept; capital raise $2.25 billion kept; stock fell about 60% on March 9 – kept",
+  "Ch.5: removed unsourced claim about venture firms advising portfolio companies? It is widely reported (Founders Fund, Coatue, etc.) – kept with 'reportedly'",
+  "Ch.6: negative cash balance about $958 million kept; expected further outflows of about $100 billion kept; 'withdrawals mostly online and by phone' kept as 'mostly digital'; 'trading halted' on March 10 pre-market – kept",
+  "Ch.6: 'first major bank failure of the social-media era' is interpretive – softened",
+  "Ch.7: Signature Bank closed on March 12 (Sunday) – kept; all depositors access Monday March 13 – kept; BTFP lends against collateral at par value – kept",
+  "Ch.7: FDIC estimated cost of SVB failure about $20.4 billion – kept as about $20 billion",
+  "Ch.8: bankruptcy filed March 17, 2023 – kept; First Citizens agreement March 26 – kept; 2018 law raised threshold to $250 billion – kept; SVB about $209B kept"
  ]
 }

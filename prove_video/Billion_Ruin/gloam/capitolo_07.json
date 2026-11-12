@@ -1,225 +1,207 @@
 [
  {
-  "voce": "Chapter eight. The Trial.",
+  "voce": "Who Failed.",
   "tipo": "foto",
-  "sfondo": "federal courthouse exterior",
-  "chiave": "TRIAL",
+  "sfondo": "federal reserve building",
+  "chiave": "WHO FAILED",
   "etichetta": "CHAPTER 8",
-  "titolo": "The Trial",
-  "sotto": "Manhattan, federal court",
-  "capitolo": "The Trial"
+  "titolo": "Who Failed",
+  "sotto": "",
+  "capitolo": "Who Failed"
  },
  {
-  "voce": "December, twenty twenty-two. Arrested in the Bahamas.",
+  "voce": "Weeks after the collapse, the Federal Reserve ordered a review.",
   "tipo": "clip",
-  "sfondo": "Bahamas coastline aerial",
-  "chiave": "ARRESTED",
-  "cartello": "ARRESTED IN BAHAMAS",
-  "capitolo": "The Trial"
+  "sfondo": "federal reserve building",
+  "chiave": "REVIEW",
+  "cartello": "REVIEW ORDERED",
+  "capitolo": "Who Failed"
  },
  {
-  "voce": "Then extradited to the United States.",
-  "tipo": "calendario",
-  "sfondo": "airport runway",
-  "chiave": "EXTRADITED",
-  "mese": "DEC",
-  "giorno": "2022",
-  "titolo": "Extradited to US",
-  "sotto": "Arrested in the Bahamas, then sent to America",
-  "timbro": "IN CUSTODY",
-  "capitolo": "The Trial"
+  "voce": "Michael Barr delivered it in April, twenty twenty-three.",
+  "tipo": "foto",
+  "sfondo": "government report documents",
+  "chiave": "APRIL 2023",
+  "etichetta": "WASHINGTON · APRIL 2023",
+  "titolo": "The Barr Review",
+  "sotto": "Fed's own review of its supervision",
+  "capitolo": "Who Failed"
  },
  {
-  "voce": "His closest circle began to turn against him.",
+  "voce": "Its first finding was blunt and uncomfortable.",
   "tipo": "clip",
-  "sfondo": "office corridor night",
-  "chiave": "TURN",
-  "cartello": "CIRCLE TURNS",
-  "capitolo": "The Trial"
+  "sfondo": "office documents desk",
+  "chiave": "FINDING",
+  "cartello": "FINDING ONE",
+  "capitolo": "Who Failed"
  },
  {
-  "voce": "Caroline Ellison pleaded guilty, and cooperated.",
+  "voce": "SVB's management failed to manage interest-rate risk.",
   "tipo": "dossier",
-  "sfondo": "legal documents desk",
-  "chiave": "GUILTY",
-  "scheda": "COOPERATING WITNESS",
-  "nome": "Caroline Ellison",
-  "persona": true,
-  "righe": [
-   [
-    "Role",
-    "Alameda Research"
-   ],
-   [
-    "Plea",
-    "Guilty"
-   ],
-   [
-    "Status",
-    "Cooperated"
-   ]
-  ],
-  "timbro": "GUILTY",
-  "capitolo": "The Trial"
- },
- {
-  "voce": "So did Gary Wang, and Nishad Singh.",
-  "tipo": "dossier",
-  "sfondo": "court documents stack",
-  "chiave": "Singh",
-  "scheda": "COOPERATING WITNESSES",
-  "nome": "Gary Wang",
+  "sfondo": "bank headquarters building",
+  "chiave": "RISK",
+  "scheda": "REVIEW FINDINGS",
+  "nome": "SVB Management",
   "persona": false,
   "righe": [
    [
-    "Gary Wang",
-    "Pleaded guilty"
+    "Interest-rate risk",
+    "Not managed"
    ],
    [
-    "Nishad Singh",
-    "Pleaded guilty"
+    "Liquidity risk",
+    "Not managed"
    ],
    [
-    "Both",
-    "Cooperated"
+    "Source",
+    "Fed review"
    ]
   ],
-  "timbro": "GUILTY",
-  "capitolo": "The Trial"
+  "timbro": "FAILED",
+  "capitolo": "Who Failed"
  },
  {
-  "voce": "Three insiders, now on the prosecution's side.",
-  "tipo": "oggetto3d",
-  "sfondo": "blue mannequins",
-  "chiave": "INSIDERS",
-  "oggetto": "one red faceless mannequin facing three blue faceless mannequins on a glossy courtroom floor",
-  "etichette": [
-   "THE FOUNDER",
-   "THE WITNESSES"
-  ],
-  "capitolo": "The Trial"
- },
- {
-  "voce": "October, twenty twenty-three. The jury trial begins.",
-  "tipo": "calendario",
-  "sfondo": "courtroom interior",
-  "chiave": "OCTOBER",
-  "mese": "OCT",
-  "giorno": "2023",
-  "titolo": "Jury trial begins",
-  "sotto": "Manhattan federal court",
-  "timbro": "",
-  "capitolo": "The Trial"
- },
- {
-  "voce": "Inside a Manhattan federal courtroom, evidence piled up.",
+  "voce": "It failed to manage liquidity risk too.",
   "tipo": "clip",
-  "sfondo": "Manhattan courthouse steps",
-  "chiave": "EVIDENCE",
-  "cartello": "EVIDENCE MOUNTS",
-  "capitolo": "The Trial"
+  "sfondo": "trading screens finance",
+  "chiave": "LIQUIDITY",
+  "cartello": "LIQUIDITY RISK IGNORED",
+  "capitolo": "Who Failed"
  },
  {
-  "voce": "Prosecutors laid out the case, document by document.",
-  "tipo": "clip",
-  "sfondo": "documents on table",
-  "chiave": "DOCUMENT",
-  "cartello": "DOCUMENT BY DOCUMENT",
-  "capitolo": "The Trial"
- },
- {
-  "voce": "November second, twenty twenty-three. The verdict.",
+  "voce": "But the review pointed at the regulators as well.",
   "tipo": "foto",
-  "sfondo": "newspaper front page",
-  "chiave": "VERDICT",
-  "etichetta": "MANHATTAN · NOV 2, 2023",
-  "titolo": "Jury Returns Verdict",
-  "sotto": "Federal court, southern Manhattan",
-  "capitolo": "The Trial"
+  "sfondo": "regulatory agency building",
+  "chiave": "REGULATORS",
+  "etichetta": "WASHINGTON · 2023",
+  "titolo": "Supervisors Under Scrutiny",
+  "sotto": "Oversight questioned in the review",
+  "capitolo": "Who Failed"
  },
  {
-  "voce": "Guilty. On all seven counts.",
-  "tipo": "dato",
-  "sfondo": "courthouse columns",
-  "chiave": "7",
-  "numero": "7 OF 7",
-  "didascalia": "Counts: guilty on every one",
-  "fonte": "Federal jury verdict",
-  "capitolo": "The Trial"
- },
- {
-  "voce": "Including wire fraud, and conspiracy.",
-  "tipo": "dossier",
-  "sfondo": "legal charges document",
-  "chiave": "FRAUD",
-  "scheda": "VERDICT FILE",
-  "nome": "Sam Bankman-Fried",
-  "persona": true,
-  "righe": [
-   [
-    "Verdict",
-    "Guilty"
-   ],
-   [
-    "Counts",
-    "Seven of seven"
-   ],
-   [
-    "Includes",
-    "Wire fraud"
-   ],
-   [
-    "Includes",
-    "Conspiracy"
-   ]
-  ],
-  "timbro": "GUILTY",
-  "capitolo": "The Trial"
- },
- {
-  "voce": "March twenty-eighth, twenty twenty-four. Sentencing day.",
-  "tipo": "calendario",
-  "sfondo": "courthouse exterior",
-  "chiave": "SENTENCING",
-  "mese": "MAR",
-  "giorno": "28",
-  "titolo": "Sentencing day",
-  "sotto": "Manhattan federal court, twenty twenty-four",
-  "timbro": "SENTENCED",
-  "capitolo": "The Trial"
- },
- {
-  "voce": "Twenty-five years in prison.",
-  "tipo": "dato",
-  "sfondo": "prison fence",
-  "chiave": "25",
-  "numero": "25 YEARS",
-  "didascalia": "Prison sentence handed down",
-  "fonte": "Federal court",
-  "capitolo": "The Trial"
- },
- {
-  "voce": "And eleven billion dollars to forfeit.",
-  "tipo": "clip",
-  "sfondo": "stacked banknotes",
-  "chiave": "FORFEIT",
-  "cartello": "FORFEIT $11 BILLION",
-  "capitolo": "The Trial"
- },
- {
-  "voce": "The founder was finished. But the money wasn't.",
+  "voce": "Supervisors did not take sufficiently forceful action.",
   "tipo": "clip",
   "sfondo": "financial district skyline",
-  "chiave": "MONEY",
-  "cartello": "MONEY STILL MISSING",
-  "capitolo": "The Trial"
+  "chiave": "FORCEFUL",
+  "cartello": "FORCEFUL ACTION MISSING",
+  "capitolo": "Who Failed"
  },
  {
-  "voce": "Can customers ever get their funds back?",
+  "voce": "The bank grew rapidly, without matching oversight.",
+  "tipo": "oggetto3d",
+  "sfondo": "tower",
+  "chiave": "GREW",
+  "oggetto": "a tall glossy golden tower growing fast beside a tiny thin scaffold that cannot keep up",
+  "etichette": [
+   "RAPID GROWTH",
+   "THIN OVERSIGHT"
+  ],
+  "capitolo": "Who Failed"
+ },
+ {
+  "voce": "Then there was the law behind the rules.",
   "tipo": "clip",
-  "sfondo": "trading screens",
-  "chiave": "FUNDS",
-  "cartello": "FUNDS RECOVERED?",
-  "capitolo": "The Trial"
+  "sfondo": "capitol building exterior",
+  "chiave": "LAW",
+  "cartello": "LAW CHANGED",
+  "capitolo": "Who Failed"
+ },
+ {
+  "voce": "A twenty-eighteen law raised the threshold for stricter rules.",
+  "tipo": "calendario",
+  "sfondo": "capitol building",
+  "chiave": "2018",
+  "mese": "MAY",
+  "giorno": "2018",
+  "titolo": "Threshold Raised",
+  "sotto": "Stricter rules now began at higher asset levels",
+  "timbro": "NEW LAW",
+  "capitolo": "Who Failed"
+ },
+ {
+  "voce": "The new line sat at two hundred fifty billion dollars.",
+  "tipo": "dato",
+  "sfondo": "banknotes closeup",
+  "chiave": "$250B",
+  "numero": "$250B",
+  "didascalia": "Asset threshold for stricter rules",
+  "fonte": "2018 law",
+  "capitolo": "Who Failed"
+ },
+ {
+  "voce": "SVB held about two hundred nine billion.",
+  "tipo": "classifica",
+  "sfondo": "financial charts",
+  "chiave": "$209B",
+  "titolo": "Assets vs. Threshold",
+  "barre": [
+   [
+    "Threshold",
+    250,
+    "$250B"
+   ],
+   [
+    "SVB",
+    209,
+    "~$209B"
+   ]
+  ],
+  "timbro": "BELOW THE LINE",
+  "fonte": "Fed review",
+  "capitolo": "Who Failed"
+ },
+ {
+  "voce": "Below the line, and below the strictest scrutiny.",
+  "tipo": "clip",
+  "sfondo": "stock exchange floor",
+  "chiave": "SCRUTINY",
+  "cartello": "SCRUTINY AVOIDED",
+  "capitolo": "Who Failed"
+ },
+ {
+  "voce": "On March seventeenth, SVB's holding company filed for Chapter Eleven.",
+  "tipo": "calendario",
+  "sfondo": "court building",
+  "chiave": "CHAPTER 11",
+  "mese": "MAR",
+  "giorno": "17",
+  "titolo": "Chapter 11 Filed",
+  "sotto": "SVB's holding company enters bankruptcy",
+  "timbro": "BANKRUPT",
+  "capitolo": "Who Failed"
+ },
+ {
+  "voce": "Nine days later, a buyer stepped forward.",
+  "tipo": "clip",
+  "sfondo": "city skyline dusk",
+  "chiave": "BUYER",
+  "cartello": "BUYER STEPS FORWARD",
+  "capitolo": "Who Failed"
+ },
+ {
+  "voce": "First Citizens agreed to acquire its deposits and loans.",
+  "tipo": "foto",
+  "sfondo": "bank building facade",
+  "chiave": "FIRST CITIZENS",
+  "etichetta": "RALEIGH · MARCH 26, 2023",
+  "titolo": "First Citizens Acquires SVB",
+  "sotto": "Deposits and loans to be acquired",
+  "capitolo": "Who Failed"
+ },
+ {
+  "voce": "The bank was gone. But the real question remained.",
+  "tipo": "clip",
+  "sfondo": "empty office building",
+  "chiave": "QUESTION",
+  "cartello": "QUESTION REMAINS",
+  "capitolo": "Who Failed"
+ },
+ {
+  "voce": "Could it happen again?",
+  "tipo": "clip",
+  "sfondo": "city skyline night",
+  "chiave": "AGAIN",
+  "cartello": "AGAIN?",
+  "capitolo": "Who Failed"
  }
 ]

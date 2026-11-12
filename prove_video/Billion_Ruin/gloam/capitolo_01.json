@@ -1,237 +1,224 @@
 [
  {
-  "voce": "Two Companies, One Founder.",
+  "voce": "The Bank of Startups.",
   "tipo": "foto",
-  "sfondo": "financial district skyline",
-  "chiave": "ONE FOUNDER",
+  "sfondo": "Santa Clara skyline",
+  "chiave": "CHAPTER 2",
   "etichetta": "CHAPTER 2",
-  "titolo": "Two Companies, One Founder",
-  "sotto": "How one man controlled both sides",
-  "capitolo": "Two Companies, One Founder"
+  "titolo": "The Bank of Startups",
+  "sotto": "Santa Clara, California",
+  "capitolo": "The Bank of Startups"
  },
  {
-  "voce": "It begins in twenty seventeen.",
+  "voce": "Santa Clara, California. Nineteen eighty-three.",
   "tipo": "clip",
-  "sfondo": "trading screens",
-  "chiave": "2017",
-  "cartello": "ALAMEDA RESEARCH",
-  "capitolo": "Two Companies, One Founder"
+  "sfondo": "California office buildings",
+  "chiave": "SANTA CLARA",
+  "cartello": "SANTA CLARA 1983",
+  "capitolo": "The Bank of Startups"
  },
  {
-  "voce": "Sam Bankman-Fried founds Alameda Research.",
+  "voce": "A new bank opens with a narrow focus.",
+  "tipo": "clip",
+  "sfondo": "bank building exterior",
+  "chiave": "NARROW",
+  "cartello": "NARROW FOCUS",
+  "capitolo": "The Bank of Startups"
+ },
+ {
+  "voce": "Its clients are venture capital firms and tech startups.",
   "tipo": "dossier",
   "sfondo": "office documents",
-  "chiave": "Alameda",
+  "chiave": "CLIENTS",
   "scheda": "COMPANY FILE",
-  "nome": "Alameda Research",
+  "nome": "SVB",
   "persona": false,
   "righe": [
    [
-    "Type",
-    "Crypto trading firm"
-   ],
-   [
     "Founded",
-    "2017"
+    "1983"
    ],
    [
-    "Founder",
-    "Sam Bankman-Fried"
+    "Based in",
+    "Santa Clara, California"
+   ],
+   [
+    "Clients",
+    "Venture capital firms"
+   ],
+   [
+    "Also serves",
+    "Tech startups"
    ]
   ],
-  "timbro": "TRADING FIRM",
-  "capitolo": "Two Companies, One Founder"
+  "timbro": "",
+  "capitolo": "The Bank of Startups"
  },
  {
-  "voce": "A crypto trading firm, betting its own money.",
+  "voce": "Banks usually spread risk across many industries.",
   "tipo": "clip",
-  "sfondo": "crypto trading screens",
-  "chiave": "TRADING",
-  "cartello": "TRADING FIRM",
-  "capitolo": "Two Companies, One Founder"
+  "sfondo": "financial district skyline",
+  "chiave": "SPREAD",
+  "cartello": "SPREAD RISK",
+  "capitolo": "The Bank of Startups"
  },
  {
-  "voce": "Two years later, he builds something new.",
-  "tipo": "calendario",
-  "sfondo": "city skyline",
-  "chiave": "2019",
-  "mese": "JAN",
-  "giorno": "01",
-  "titolo": "FTX exchange launches",
-  "sotto": "A new crypto exchange opens in twenty nineteen",
-  "timbro": "FTX LAUNCH",
-  "capitolo": "Two Companies, One Founder"
+  "voce": "This one bet everything on a single world.",
+  "tipo": "oggetto3d",
+  "sfondo": "golden coins",
+  "chiave": "SINGLE",
+  "oggetto": "A tall tower of golden coins standing on one narrow pillar",
+  "etichetas": [],
+  "etichette": [
+   "ONE SECTOR"
+  ],
+  "capitolo": "The Bank of Startups"
  },
  {
-  "voce": "The FTX exchange opens its doors.",
+  "voce": "Then twenty twenty arrived, and money got cheap.",
   "tipo": "clip",
   "sfondo": "stock exchange floor",
-  "chiave": "FTX",
-  "cartello": "FTX EXCHANGE",
-  "capitolo": "Two Companies, One Founder"
+  "chiave": "CHEAP",
+  "cartello": "CHEAP MONEY",
+  "capitolo": "The Bank of Startups"
  },
  {
-  "voce": "Customers deposit their money on the platform.",
+  "voce": "Low interest rates fed a venture funding boom.",
   "tipo": "clip",
-  "sfondo": "banknotes counting",
-  "chiave": "DEPOSIT",
-  "cartello": "CUSTOMER DEPOSITS",
-  "capitolo": "Two Companies, One Founder"
+  "sfondo": "trading screens",
+  "chiave": "BOOM",
+  "cartello": "FUNDING BOOM",
+  "capitolo": "The Bank of Startups"
  },
  {
-  "voce": "Then, in twenty twenty-one, headquarters move.",
+  "voce": "Startups raised fortunes, and parked them at SVB.",
   "tipo": "foto",
-  "sfondo": "Bahamas coastline",
-  "chiave": "BAHAMAS",
-  "etichetta": "BAHAMAS · 2021",
-  "titolo": "FTX Moves to the Bahamas",
-  "sotto": "Headquarters relocated offshore in twenty twenty-one",
-  "capitolo": "Two Companies, One Founder"
+  "sfondo": "banknotes stacked",
+  "chiave": "FORTUNES",
+  "etichette": "",
+  "etichetta": "SILICON VALLEY · 2020-2021",
+  "titolo": "Startups Park Their Cash",
+  "sotto": "Venture money flows into one bank",
+  "capitolo": "The Bank of Startups"
  },
  {
-  "voce": "Destination: the Bahamas.",
-  "tipo": "clip",
-  "sfondo": "Bahamas harbor",
-  "chiave": "BAHAMAS",
-  "cartello": "BAHAMAS HEADQUARTERS",
-  "capitolo": "Two Companies, One Founder"
+  "voce": "End of twenty nineteen: sixty-two billion dollars in deposits.",
+  "tipo": "dato",
+  "sfondo": "bank vault",
+  "chiave": "$62B",
+  "numero": "$62B",
+  "didascalia": "SVB deposits, end of 2019",
+  "fonte": "SVB",
+  "capitolo": "The Bank of Startups"
  },
  {
-  "voce": "But here is the detail that matters.",
-  "tipo": "oggetto3d",
-  "sfondo": "dark office",
-  "chiave": "DETAIL",
-  "oggetto": "A red faceless mannequin standing between two glossy golden buildings",
-  "etichette": [
-   "FTX",
-   "ALAMEDA"
-  ],
-  "capitolo": "Two Companies, One Founder"
- },
- {
-  "voce": "He owned the majority of Alameda.",
-  "tipo": "dossier",
-  "sfondo": "company documents",
-  "chiave": "Majority",
-  "scheda": "OWNERSHIP",
-  "nome": "Sam Bankman-Fried",
-  "persona": true,
-  "righe": [
+  "voce": "End of twenty twenty-one: one hundred eighty-nine billion.",
+  "tipo": "classifica",
+  "sfondo": "financial charts",
+  "chiave": "$189B",
+  "titolo": "SVB DEPOSITS",
+  "barre": [
    [
-    "Founded",
-    "Alameda Research, 2017"
+    "End 2019",
+    62,
+    "$62B"
    ],
    [
-    "Launched",
-    "FTX, 2019"
-   ],
-   [
-    "Alameda stake",
-    "Majority owner"
+    "End 2021",
+    189,
+    "$189B"
    ]
   ],
-  "timbro": "MAJORITY OWNER",
-  "capitolo": "Two Companies, One Founder"
+  "timbro": "TRIPLED",
+  "fonte": "SVB",
+  "capitolo": "The Bank of Startups"
  },
  {
-  "voce": "Customers trusted FTX. Alameda traded for profit.",
+  "voce": "Deposits tripled in just two years.",
+  "tipo": "clip",
+  "sfondo": "city skyline timelapse",
+  "chiave": "TRIPLED",
+  "cartello": "TRIPLED IN TWO YEARS",
+  "capitolo": "The Bank of Startups"
+ },
+ {
+  "voce": "By the end of twenty twenty-two, two hundred nine billion in assets.",
+  "tipo": "dato",
+  "sfondo": "bank headquarters",
+  "chiave": "$209B",
+  "numero": "$209B",
+  "didascalia": "Total assets, end of 2022",
+  "fonte": "SVB",
+  "capitolo": "The Bank of Startups"
+ },
+ {
+  "voce": "The sixteenth-largest bank in America.",
+  "tipo": "dossier",
+  "sfondo": "financial newspapers",
+  "chiave": "16TH",
+  "scheda": "BANK RANKING",
+  "nome": "SVB",
+  "persona": false,
+  "righe": [
+   [
+    "Total assets",
+    "$209 billion"
+   ],
+   [
+    "US rank",
+    "16th largest"
+   ],
+   [
+    "Date",
+    "End of 2022"
+   ]
+  ],
+  "timbro": "TOP 20",
+  "capitolo": "The Bank of Startups"
+ },
+ {
+  "voce": "But one detail about those deposits mattered most.",
+  "tipo": "clip",
+  "sfondo": "bank documents",
+  "chiave": "DETAIL",
+  "cartello": "ONE DETAIL",
+  "capitolo": "The Bank of Startups"
+ },
+ {
+  "voce": "The FDIC insures deposits up to two hundred fifty thousand dollars.",
+  "tipo": "dato",
+  "sfondo": "banknotes",
+  "chiave": "$250K",
+  "numero": "$250K",
+  "didascalia": "FDIC insurance limit per depositor",
+  "fonte": "FDIC",
+  "capitolo": "The Bank of Startups"
+ },
+ {
+  "voce": "Most of SVB's money sat above that line.",
   "tipo": "clip",
   "sfondo": "trading floor screens",
-  "chiave": "TRADED",
-  "cartello": "TRADING FOR PROFIT",
-  "capitolo": "Two Companies, One Founder"
+  "chiave": "UNINSURED",
+  "cartello": "UNINSURED DEPOSITS",
+  "capitolo": "The Bank of Startups"
  },
  {
-  "voce": "Same founder. Two companies. One shared world.",
-  "tipo": "clip",
-  "sfondo": "glass office towers",
-  "chiave": "SAME FOUNDER",
-  "cartello": "SAME FOUNDER",
-  "capitolo": "Two Companies, One Founder"
- },
- {
-  "voce": "In twenty twenty-one, Caroline Ellison becomes co-CEO.",
-  "tipo": "dossier",
-  "sfondo": "corporate documents",
-  "chiave": "Co-CEO",
-  "scheda": "EXECUTIVE FILE",
-  "nome": "Caroline Ellison",
-  "persona": true,
-  "righe": [
-   [
-    "Company",
-    "Alameda Research"
-   ],
-   [
-    "Role, 2021",
-    "Co-CEO"
-   ],
-   [
-    "Later role",
-    "CEO"
-   ]
+  "voce": "Uninsured money has no safety net. Only trust.",
+  "tipo": "oggetto3d",
+  "sfondo": "vault",
+  "chiave": "TRUST",
+  "oggetto": "A golden vault door with a thin crack across its surface",
+  "etichette": [
+   "NO SAFETY NET"
   ],
-  "timbro": "ALAMEDA CEO",
-  "capitolo": "Two Companies, One Founder"
+  "capitolo": "The Bank of Startups"
  },
  {
-  "voce": "Later, she runs Alameda as sole CEO.",
+  "voce": "And trust was about to be tested.",
   "tipo": "clip",
-  "sfondo": "office building exterior",
-  "chiave": "CEO",
-  "cartello": "CEO ALAMEDA",
-  "capitolo": "Two Companies, One Founder"
- },
- {
-  "voce": "Meanwhile, FTX becomes impossible to ignore.",
-  "tipo": "clip",
-  "sfondo": "stadium lights",
-  "chiave": "FTX",
-  "cartello": "FTX EVERYWHERE",
-  "capitolo": "Two Companies, One Founder"
- },
- {
-  "voce": "Well-known investors back the exchange.",
-  "tipo": "foto",
-  "sfondo": "investment firm skyscraper",
-  "chiave": "INVESTORS",
-  "etichetta": "NEW YORK · 2021",
-  "titolo": "Big Investors Back FTX",
-  "sotto": "Well-known names lend the exchange credibility",
-  "capitolo": "Two Companies, One Founder"
- },
- {
-  "voce": "Sports sponsorships. Even Super Bowl advertising.",
-  "tipo": "clip",
-  "sfondo": "football stadium",
-  "chiave": "SUPER BOWL",
-  "cartello": "SUPER BOWL ADS",
-  "capitolo": "Two Companies, One Founder"
- },
- {
-  "voce": "To the world, FTX looked untouchable.",
-  "tipo": "clip",
-  "sfondo": "city skyline night",
-  "chiave": "UNTOUCHABLE",
-  "cartello": "UNTOUCHABLE",
-  "capitolo": "Two Companies, One Founder"
- },
- {
-  "voce": "But behind the brand, the two companies were connected.",
-  "tipo": "clip",
-  "sfondo": "server room",
-  "chiave": "CONNECTED",
-  "cartello": "CONNECTED COMPANIES",
-  "capitolo": "Two Companies, One Founder"
- },
- {
-  "voce": "And that connection is where the money vanished.",
-  "tipo": "foto",
-  "sfondo": "financial documents",
-  "chiave": "VANISHED",
-  "etichetta": "NEXT · CHAPTER 3",
-  "titolo": "Where the Money Went",
-  "sotto": "What flowed between the two companies",
-  "capitolo": "Two Companies, One Founder"
+  "sfondo": "empty bank lobby",
+  "chiave": "TESTED",
+  "cartello": "TRUST TESTED",
+  "capitolo": "The Bank of Startups"
  }
 ]

@@ -1,202 +1,180 @@
 [
  {
-  "voce": "Chapter nine. Where the money went.",
+  "voce": "Chapter nine. The answer and the lesson.",
   "tipo": "foto",
-  "sfondo": "federal court building",
+  "sfondo": "bank headquarters building",
   "chiave": "CHAPTER 9",
   "etichetta": "CHAPTER 9",
-  "titolo": "Where the Money Went",
-  "sotto": "The final accounting of customer funds",
-  "capitolo": "Where the Money Went"
+  "titolo": "The Answer and the Lesson",
+  "sotto": "",
+  "capitolo": "The Answer and the Lesson"
  },
  {
-  "voce": "So where did customer money actually go?",
+  "voce": "So, how does a bank vanish in one day?",
   "tipo": "clip",
   "sfondo": "financial district skyline",
-  "chiave": "MONEY",
-  "cartello": "MONEY TRAIL",
-  "capitolo": "Where the Money Went"
+  "chiave": "VANISH",
+  "cartello": "ONE DAY",
+  "capitolo": "The Answer and the Lesson"
  },
  {
-  "voce": "It was lent to Alameda, the sister firm.",
+  "voce": "The assets sat in long-dated bonds.",
+  "tipo": "clip",
+  "sfondo": "bond certificates documents",
+  "chiave": "BONDS",
+  "cartello": "BONDS LOST VALUE",
+  "capitolo": "The Answer and the Lesson"
+ },
+ {
+  "voce": "Those bonds had quietly lost value.",
   "tipo": "oggetto3d",
-  "sfondo": "two golden vaults connected",
-  "chiave": "ALAMEDA",
-  "oggetto": "two golden vaults linked by a glowing pipe with coins flowing from one to the other",
-  "etichette": [
-   "FTX",
-   "ALAMEDA"
-  ],
-  "capitolo": "Where the Money Went"
- },
- {
-  "voce": "Against FTX's own promises, it was spent or lost.",
-  "tipo": "clip",
-  "sfondo": "trading screens red",
+  "sfondo": "golden vault",
   "chiave": "LOST",
-  "cartello": "LOST ON TRADES",
-  "capitolo": "Where the Money Went"
+  "oggetto": "A golden vault with a deep crack running through its door",
+  "etichette": [
+   "LONG-DATED",
+   "BONDS"
+  ],
+  "capitolo": "The Answer and the Lesson"
  },
  {
-  "voce": "Alameda's trading losses swallowed a large share.",
+  "voce": "And the depositors? Mostly uninsured.",
   "tipo": "clip",
-  "sfondo": "stock market charts",
-  "chiave": "LOSSES",
-  "cartello": "LOSSES MOUNTED",
-  "capitolo": "Where the Money Went"
+  "sfondo": "banknotes close up",
+  "chiave": "UNINSURED",
+  "cartello": "UNINSURED DEPOSITS",
+  "capitolo": "The Answer and the Lesson"
  },
  {
-  "voce": "Venture investments took more.",
+  "voce": "Also highly connected to each other.",
   "tipo": "foto",
-  "sfondo": "office tower glass",
-  "chiave": "VENTURE",
-  "etichetta": "SILICON VALLEY · 2022",
-  "titolo": "Venture Bets Everywhere",
-  "sotto": "Customer deposits flowed into startup stakes",
-  "capitolo": "Where the Money Went"
+  "sfondo": "city skyline network",
+  "chiave": "CONNECTED",
+  "etichetta": "SILICON VALLEY · 2023",
+  "titolo": "Depositors Talked To Each Other",
+  "sotto": "A tight network of startups and investors",
+  "capitolo": "The Answer and the Lesson"
  },
  {
-  "voce": "Loans went out to executives.",
+  "voce": "Fear began as a rumor.",
+  "tipo": "clip",
+  "sfondo": "trading screens",
+  "chiave": "RUMOR",
+  "cartello": "RUMOR SPREADS",
+  "capitolo": "The Answer and the Lesson"
+ },
+ {
+  "voce": "Money moved digitally, so fear moved faster.",
+  "tipo": "clip",
+  "sfondo": "servers data center",
+  "chiave": "DIGITAL",
+  "cartello": "DIGITAL TRANSFERS",
+  "capitolo": "The Answer and the Lesson"
+ },
+ {
+  "voce": "It all spread in a matter of hours.",
+  "tipo": "oggetto3d",
+  "sfondo": "stopwatch",
+  "chiave": "HOURS",
+  "oggetto": "A giant glossy stopwatch with its hand racing around",
+  "etichettee": [],
+  "etichette": [
+   "HOURS"
+  ],
+  "capitolo": "The Answer and the Lesson"
+ },
+ {
+  "voce": "Losses were hidden in held-to-maturity bonds.",
   "tipo": "dossier",
-  "sfondo": "legal documents",
-  "chiave": "LOANS",
-  "scheda": "FUNDS FILE",
-  "nome": "Customer Deposits",
+  "sfondo": "financial documents",
+  "chiave": "HIDDEN",
+  "scheda": "BALANCE SHEET",
+  "nome": "Held-to-Maturity Bonds",
   "persona": false,
   "righe": [
    [
-    "Used for",
-    "Loans to executives"
+    "Type",
+    "Long-dated bonds"
    ],
    [
-    "Used for",
-    "Venture investments"
+    "Losses",
+    "Hidden on paper"
    ],
    [
-    "Used for",
-    "Alameda trading losses"
+    "Risk",
+    "Interest rates"
    ]
   ],
-  "timbro": "MISUSED",
-  "capitolo": "Where the Money Went"
+  "timbro": "HIDDEN",
+  "capitolo": "The Answer and the Lesson"
  },
  {
-  "voce": "Real estate in the Bahamas was bought.",
+  "voce": "Deposits were concentrated in one tight group.",
   "tipo": "clip",
-  "sfondo": "Bahamas coastline aerial",
-  "chiave": "BAHAMAS",
-  "cartello": "BAHAMAS PROPERTY",
-  "capitolo": "Where the Money Went"
+  "sfondo": "office buildings glass",
+  "chiave": "CONCENTRATED",
+  "cartello": "CONCENTRATED DEPOSITS",
+  "capitolo": "The Answer and the Lesson"
  },
  {
-  "voce": "And political donations flowed out too.",
-  "tipo": "clip",
-  "sfondo": "capitol building",
-  "chiave": "POLITICAL",
-  "cartello": "POLITICAL DONATIONS",
-  "capitolo": "Where the Money Went"
- },
- {
-  "voce": "Then came the bankruptcy estate.",
-  "tipo": "foto",
-  "sfondo": "bankruptcy court documents",
-  "chiave": "BANKRUPTCY",
-  "etichetta": "DELAWARE · CHAPTER 11",
-  "titolo": "The Estate Recovers Assets",
-  "sotto": "Lawyers and liquidators rebuild the balance sheet",
-  "capitolo": "Where the Money Went"
- },
- {
-  "voce": "It recovered assets and reported something surprising.",
-  "tipo": "clip",
-  "sfondo": "banknotes counting",
-  "chiave": "RECOVERED",
-  "cartello": "RECOVERED ASSETS",
-  "capitolo": "Where the Money Went"
- },
- {
-  "voce": "Creditors could be repaid in full.",
-  "tipo": "clip",
-  "sfondo": "financial documents stack",
-  "chiave": "FULL",
-  "cartello": "PAID IN FULL",
-  "capitolo": "Where the Money Went"
- },
- {
-  "voce": "But in full by November twenty twenty-two dollar values.",
-  "tipo": "calendario",
-  "sfondo": "calendar",
-  "chiave": "NOVEMBER",
-  "mese": "NOV",
-  "giorno": "2022",
-  "titulo": "Claims Frozen in Time",
-  "titolo": "Claims Frozen in Time",
-  "sotto": "Repayment was measured at that month's dollar value",
-  "timbro": "VALUED THEN",
-  "capitolo": "Where the Money Went"
- },
- {
-  "voce": "Many customers got repayment plus interest.",
-  "tipo": "clip",
-  "sfondo": "bank vault door",
-  "chiave": "INTEREST",
-  "cartello": "PLUS INTEREST",
-  "capitolo": "Where the Money Went"
- },
- {
-  "voce": "Yet crypto prices had climbed since then.",
-  "tipo": "clip",
-  "sfondo": "crypto trading screen",
-  "chiave": "CLIMBED",
-  "cartello": "PRICES CLIMBED",
-  "capitolo": "Where the Money Went"
- },
- {
-  "voce": "So they received less than their holdings are worth today.",
-  "tipo": "oggetto3d",
-  "sfondo": "shrinking coin stack",
-  "chiave": "LESS",
-  "oggetto": "a small stack of golden coins beside a much taller stack, glossy 3D scene",
-  "etichettes": [],
-  "etichette": [
-   "PAID",
-   "TODAY'S VALUE"
-  ],
-  "capitolo": "Where the Money Went"
- },
- {
-  "voce": "The lesson is simple.",
+  "voce": "Together, they turned a paper problem real.",
   "tipo": "clip",
   "sfondo": "stock exchange floor",
-  "chiave": "LESSON",
-  "cartello": "LESSON LEARNED",
-  "capitolo": "Where the Money Went"
+  "chiave": "REAL",
+  "cartello": "PAPER PROBLEM, REAL RUN",
+  "capitolo": "The Answer and the Lesson"
  },
  {
-  "voce": "Customer assets must be kept separate.",
-  "tipo": "clip",
-  "sfondo": "server room",
-  "chiave": "SEPARATE",
-  "cartello": "KEEP ASSETS SEPARATE",
-  "capitolo": "Where the Money Went"
- },
- {
-  "voce": "And audited independently.",
+  "voce": "After 2023, the system took a hard look.",
   "tipo": "foto",
-  "sfondo": "audit documents desk",
-  "chiave": "AUDITED",
-  "etichetta": "NEW YORK · TODAY",
-  "titolo": "Independent Audits Matter",
-  "sotto": "Outside eyes catch what insiders hide",
-  "capitolo": "Where the Money Went"
+  "sfondo": "federal reserve building",
+  "chiave": "REVIEW",
+  "etichetta": "WASHINGTON · 2023",
+  "titolo": "Regulators Review The System",
+  "sotto": "Banks and supervisors reassess their exposure",
+  "capitolo": "The Answer and the Lesson"
  },
  {
-  "voce": "One founder controlling exchange and trading firm removes every check.",
+  "voce": "Interest-rate risk came under review.",
+  "tipo": "clip",
+  "sfondo": "rates chart screen",
+  "chiave": "INTEREST-RATE",
+  "cartello": "INTEREST-RATE RISK",
+  "capitolo": "The Answer and the Lesson"
+ },
+ {
+  "voce": "So did uninsured deposits.",
+  "tipo": "clip",
+  "sfondo": "bank vault door",
+  "chiave": "UNINSURED",
+  "cartello": "UNINSURED DEPOSITS",
+  "capitolo": "The Answer and the Lesson"
+ },
+ {
+  "voce": "And so did supervision itself.",
+  "tipo": "foto",
+  "sfondo": "regulatory documents desk",
+  "chiave": "SUPERVISION",
+  "etichetta": "WASHINGTON · 2023",
+  "titolo": "Supervision Under Review",
+  "sotto": "Regulators examined how the warning signs were missed",
+  "capitolo": "The Answer and the Lesson"
+ },
+ {
+  "voce": "The lesson is simple and brutal.",
   "tipo": "clip",
   "sfondo": "city skyline dusk",
-  "chiave": "NO CHECKS",
-  "cartello": "NO CHECKS LEFT",
-  "capitolo": "Where the Money Went"
+  "chiave": "LESSON",
+  "cartello": "LESSON LEARNED",
+  "capitolo": "The Answer and the Lesson"
+ },
+ {
+  "voce": "Confidence is the only thing a bank cannot hold.",
+  "tipo": "clip",
+  "sfondo": "empty bank lobby",
+  "chiave": "CONFIDENCE",
+  "cartello": "CONFIDENCE BREAKS FAST",
+  "capitolo": "The Answer and the Lesson"
  },
  {
   "voce": "Subscribe for the next one.",
@@ -204,6 +182,6 @@
   "sfondo": "financial district night",
   "chiave": "SUBSCRIBE",
   "cartello": "SUBSCRIBE NOW",
-  "capitolo": "Where the Money Went"
+  "capitolo": "The Answer and the Lesson"
  }
 ]

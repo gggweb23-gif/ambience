@@ -1,182 +1,177 @@
 [
  {
-  "voce": "A Token Worth Its Own Word",
+  "voce": "The Fatal Announcement.",
   "tipo": "foto",
-  "sfondo": "financial district skyline",
-  "chiave": "TOKEN",
+  "sfondo": "bank headquarters building",
+  "chiave": "FATAL",
   "etichetta": "CHAPTER 5",
-  "titolo": "A Token Worth Its Own Word",
-  "sotto": "FTT: the coin at the center of everything",
-  "capitolo": "A Token Worth Its Own Word"
+  "titolo": "The Fatal Announcement",
+  "sotto": "The day everything changed for SVB",
+  "capitolo": "The Fatal Announcement"
  },
  {
-  "voce": "Every exchange wants something of its very own.",
+  "voce": "March eighth, twenty twenty-three.",
+  "tipo": "calendario",
+  "sfondo": "financial district skyline",
+  "chiave": "MARCH",
+  "mese": "MAR",
+  "giorno": "8",
+  "titolo": "SVB Makes Announcement",
+  "sotto": "A routine update that became a warning signal",
+  "timbro": "2023",
+  "capitolo": "The Fatal Announcement"
+ },
+ {
+  "voce": "SVB tells the market it sold securities.",
   "tipo": "clip",
   "sfondo": "trading screens",
-  "chiave": "EXCHANGE",
-  "cartello": "EXCHANGE TOKEN",
-  "capitolo": "A Token Worth Its Own Word"
+  "chiave": "SOLD",
+  "cartello": "SECURITIES SOLD",
+  "capitolo": "The Fatal Announcement"
  },
  {
-  "voce": "FTX made one. Its name was FTT.",
+  "voce": "About twenty-one billion dollars of them.",
+  "tipo": "dato",
+  "sfondo": "banknotes closeup",
+  "chiave": "$21B",
+  "numero": "$21B",
+  "didascalia": "Available-for-sale securities sold by SVB",
+  "fonte": "SVB announcement, March 8, 2023",
+  "capitolo": "The Fatal Announcement"
+ },
+ {
+  "voce": "The sale locked in a loss.",
+  "tipo": "clip",
+  "sfondo": "stock market charts",
+  "chiave": "LOSS",
+  "cartello": "LOSS LOCKED IN",
+  "capitolo": "The Fatal Announcement"
+ },
+ {
+  "voce": "About one point eight billion dollars.",
+  "tipo": "dato",
+  "sfondo": "financial documents",
+  "chiave": "$1.8B",
+  "numero": "$1.8B",
+  "didascalia": "Loss on the securities sale",
+  "fonte": "SVB announcement, March 8, 2023",
+  "capitolo": "The Fatal Announcement"
+ },
+ {
+  "voce": "Then came the second part of the message.",
+  "tipo": "clip",
+  "sfondo": "office building windows",
+  "chiave": "SECOND",
+  "cartello": "SECOND SHOCK",
+  "capitolo": "The Fatal Announcement"
+ },
+ {
+  "voce": "SVB planned to raise fresh capital.",
   "tipo": "dossier",
-  "sfondo": "documents desk",
-  "chiave": "FTT",
-  "scheda": "TOKEN FILE",
-  "nome": "FTT",
+  "sfondo": "corporate documents",
+  "chiave": "CAPITAL",
+  "scheda": "CAPITAL PLAN",
+  "nome": "SVB Financial",
   "persona": false,
   "righe": [
    [
-    "Type",
-    "Exchange token"
+    "Action",
+    "Raise new capital"
    ],
    [
-    "Issuer",
-    "FTX"
+    "Amount",
+    "About $2.25 billion"
    ],
    [
-    "Created by",
-    "The company itself"
+    "Announced",
+    "March 8, 2023"
    ]
   ],
-  "timbro": "HOUSE COIN",
-  "capitolo": "A Token Worth Its Own Word"
+  "timbro": "URGENT",
+  "capitolo": "The Fatal Announcement"
  },
  {
-  "voce": "Created by the company. Issued by the company.",
-  "tipo": "clip",
-  "sfondo": "servers data center",
-  "chiave": "COMPANY",
-  "cartello": "COMPANY MADE",
-  "capitolo": "A Token Worth Its Own Word"
- },
- {
-  "voce": "And who held a huge pile of it?",
+  "voce": "About two point two five billion dollars.",
   "tipo": "clip",
   "sfondo": "stock exchange floor",
-  "chiave": "HUGE",
-  "cartello": "HUGE PILE",
-  "capitolo": "A Token Worth Its Own Word"
+  "chiave": "CAPITAL",
+  "cartello": "CAPITAL RAISE NEEDED",
+  "capitolo": "The Fatal Announcement"
  },
  {
-  "voce": "Alameda. Right there on its balance sheet.",
+  "voce": "Investors read it as a distress signal.",
   "tipo": "foto",
-  "sfondo": "financial documents",
-  "chiave": "ALAMEDA",
-  "etichetta": "BALANCE SHEET · 2022",
-  "titolo": "Alameda Holds Large FTT Stack",
-  "sotto": "Listed among its biggest assets",
-  "capitolo": "A Token Worth Its Own Word"
+  "sfondo": "newspaper financial headlines",
+  "chiave": "ALARMED",
+  "etichetta": "NEW YORK · MARCH 2023",
+  "titolo": "Investors Grow Alarmed",
+  "sotto": "Markets question the bank's stability",
+  "capitolo": "The Fatal Announcement"
  },
  {
-  "voce": "In November twenty twenty-two, those numbers leaked.",
-  "tipo": "calendario",
-  "sfondo": "newspapers",
-  "chiave": "LEAKED",
-  "mese": "NOV",
-  "giorno": "2022",
-  "titulo": "",
-  "titolo": "Alameda Numbers Leak",
-  "sotto": "Its balance sheet reaches the public",
-  "timbro": "LEAKED",
-  "capitolo": "A Token Worth Its Own Word"
- },
- {
-  "voce": "About fourteen point six billion dollars in total assets.",
-  "tipo": "dato",
-  "sfondo": "banknotes",
-  "chiave": "$14.6B",
-  "numero": "$14.6B",
-  "didascalia": "Alameda's total assets, per leaked balance sheet",
-  "fonte": "Leaked Alameda balance sheet, Nov 2022",
-  "capitolo": "A Token Worth Its Own Word"
- },
- {
-  "voce": "A big share sat in FTT and other illiquid holdings.",
-  "tipo": "classifica",
-  "sfondo": "trading screens",
-  "chiave": "ILLIQUID",
-  "titolo": "What Alameda Held",
-  "barre": [
-   [
-    "FTT and illiquid holdings",
-    1,
-    "Big share"
-   ],
-   [
-    "Everything else",
-    1,
-    "Remainder"
-   ]
-  ],
-  "timbro": "ILLIQUID",
-  "fonte": "Leaked Alameda balance sheet",
-  "capitolo": "A Token Worth Its Own Word"
- },
- {
-  "voce": "Illiquid means hard to sell without crashing the price.",
-  "tipo": "clip",
-  "sfondo": "stock market ticker",
-  "chiave": "ILLIQUID",
-  "cartello": "ILLIQUID ASSETS",
-  "capitolo": "A Token Worth Its Own Word"
- },
- {
-  "voce": "So what gave FTT its value?",
+  "voce": "Venture capital firms grew alarmed too.",
   "tipo": "clip",
   "sfondo": "city skyline dusk",
-  "chiave": "VALUE",
-  "cartello": "VALUE FROM WHERE",
-  "capitolo": "A Token Worth Its Own Word"
+  "chiave": "ALARMED",
+  "cartello": "VENTURE FIRMS ALARMED",
+  "capitolo": "The Fatal Announcement"
  },
  {
-  "voce": "Mostly belief. Belief in FTX itself.",
+  "voce": "Several firms reportedly urged their startups to withdraw.",
   "tipo": "oggetto3d",
-  "sfondo": "golden vault",
-  "chiave": "BELIEF",
-  "oggetto": "glossy golden coin balanced on a thin glass pillar",
+  "sfondo": "glossy 3D scene",
+  "chiave": "WITHDRAW",
+  "oggetto": "blue faceless mannequins carrying gold coins away from a cracked golden vault",
   "etichette": [
-   "FTT",
-   "BELIEF"
+   "STARTUPS",
+   "MONEY OUT"
   ],
-  "capitolo": "A Token Worth Its Own Word"
+  "capitolo": "The Fatal Announcement"
  },
  {
-  "voce": "If trust in the exchange cracked, the coin would too.",
+  "voce": "Move your money. That was the advice.",
   "tipo": "clip",
-  "sfondo": "office building glass",
-  "chiave": "TRUST",
-  "cartello": "TRUST BREAKS",
-  "capitolo": "A Token Worth Its Own Word"
+  "sfondo": "server room data",
+  "chiave": "MOVE",
+  "cartello": "MOVE YOUR MONEY",
+  "capitolo": "The Fatal Announcement"
  },
  {
-  "voce": "And Alameda borrowed against these assets.",
-  "tipo": "foto",
-  "sfondo": "bank vault documents",
-  "chiave": "BORROWED",
-  "etichetta": "LOAN BOOK · 2022",
-  "titolo": "Assets Pledged Against Loans",
-  "sotto": "FTT-heavy collateral behind the borrowing",
-  "capitolo": "A Token Worth Its Own Word"
+  "voce": "March ninth. The market opens.",
+  "tipo": "calendario",
+  "sfondo": "stock exchange facade",
+  "chiave": "MAR",
+  "mese": "MAR",
+  "giorno": "9",
+  "titolo": "Markets Open Lower",
+  "sotto": "SVB shares come under heavy selling pressure",
+  "timbro": "SELLOFF",
+  "capitolo": "The Fatal Announcement"
  },
  {
-  "voce": "A drop in FTT could trigger a chain of losses.",
-  "tipo": "oggetto3d",
-  "sfondo": "collapsing coins",
-  "chiave": "CHAIN",
-  "oggetto": "tall tower of golden coins beginning to topple in sequence",
-  "etichette": [
-   "FTT DROP",
-   "CHAIN LOSSES"
-  ],
-  "capitolo": "A Token Worth Its Own Word"
+  "voce": "SVB stock collapses about sixty percent.",
+  "tipo": "dato",
+  "sfondo": "red trading screens",
+  "chiave": "60%",
+  "numero": "-60%",
+  "didascalia": "SVB stock decline on March 9, 2023",
+  "fonte": "Market data",
+  "capitolo": "The Fatal Announcement"
  },
  {
-  "voce": "One rival's tweet was about to light the fuse.",
+  "voce": "Billions in market value, gone.",
   "tipo": "clip",
-  "sfondo": "trading screens red",
-  "chiave": "FUSE",
-  "cartello": "FUSE LIT",
-  "capitolo": "A Token Worth Its Own Word"
+  "sfondo": "falling stock chart",
+  "chiave": "GONE",
+  "cartello": "BILLIONS WIPED OUT",
+  "capitolo": "The Fatal Announcement"
+ },
+ {
+  "voce": "But the real run had not even begun.",
+  "tipo": "clip",
+  "sfondo": "empty bank lobby",
+  "chiave": "RUN",
+  "cartello": "THE RUN BEGINS",
+  "capitolo": "The Fatal Announcement"
  }
 ]
