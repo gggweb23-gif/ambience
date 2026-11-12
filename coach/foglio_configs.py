@@ -82,7 +82,10 @@ def main():
     tk = token()
     if P.get('leggi_scheda'):   # 9 nov: sola lettura di una scheda qualsiasi (es. Performance) -> stampata nel registro del giro
         vecchio, FOGLIO = FOGLIO, P['leggi_scheda']['foglio']
-        val = api('GET', '/values/' + urllib.parse.quote(f"'{P['leggi_scheda'].get('scheda') or 'Performance'}'!A1:Z300"), tk=tk).get('values', [])
+        sc_ = P['leggi_scheda'].get('scheda') or 'Performance'
+        if sc_ == 'PRIMA':   # 12 nov: la prima scheda del foglio (es. Channel Configs, senza sapere il nome)
+            sc_ = api('GET', '?fields=sheets.properties', tk=tk)['sheets'][0]['properties']['title']
+        val = api('GET', '/values/' + urllib.parse.quote(f"'{sc_}'!A1:AZZ300"), tk=tk).get('values', [])
         FOGLIO = vecchio
         print('\n'.join(' | '.join(str(x) for x in r) for r in val)); return
     if P.get('leggi_produzione'):   # sola lettura: titolo, testo copertina e stato di ogni riga del file di produzione
