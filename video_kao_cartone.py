@@ -425,6 +425,7 @@ def klein_edit(prompt, refs, f):
     u = YT.http(inv['response_url'], headers=hd, timeout=60)['images'][0]['url']
     Image.open(io.BytesIO(YT.http(u, raw=True, timeout=120))).convert('RGB').save(f, quality=95)
     CO.registra('fal', 'flux-2-klein-4b-edit', dollari=PREZZO_QUADRO, nota='quadro KAO cartone')
+    SPESA[0] += PREZZO_QUADRO
     if INGRANDISCI:
         try:
             shutil.copy(f, f.replace('.jpg', '_orig.jpg'))   # il quadro com'era (per i confronti)
@@ -437,6 +438,7 @@ def klein_edit(prompt, refs, f):
             u2 = (r.get('image') or {}).get('url') or (r.get('images') or [{}])[0].get('url')
             Image.open(io.BytesIO(YT.http(u2, raw=True, timeout=120))).convert('RGB').save(f, quality=96)
             CO.registra('fal', 'esrgan-anime-x2', dollari=PREZZO_INGR, nota='ingrandimento quadro KAO')
+            SPESA[0] += PREZZO_INGR
         except Exception as e:
             log('ingrandimento non riuscito, resta il quadro normale:', str(e)[:120])
     return u
@@ -456,6 +458,7 @@ def caselle(f):
     try:
         j = json.loads(urllib.request.urlopen(req, timeout=120).read())
         CO.registra('claude', 'claude-haiku-4-5-20251001', usage=j.get('usage'), nota='caselle quadro')
+        SPESA[0] += 0.0013
         t = ''.join(b.get('text', '') for b in j['content'] if b.get('type') == 'text')
         d = json.loads(t[t.find('{'): t.rfind('}') + 1])
         sc = Image.open(f).width / 960   # 11 nov: i quadri sono 1600 px, non 1920 (prima le caselle erano spostate)
@@ -465,6 +468,38 @@ def caselle(f):
         return out
     except Exception as e:
         log('caselle non trovate:', str(e)[:100]); return {}
+
+
+SPESA = [0.0]          # 12 nov: spesa VERA delle immagini (disegni + ingrandimenti + controlli), contata mentre si disegna
+BUDGET_IMG = [None]    # tetto per le immagini (budget del video meno la regia): None = nessun tetto (prove)
+
+
+def _tetto(c, i):
+    """12 nov (Giorgio: "tetto rigido, l'importante che avvenga nella fase finale del video"): prima di ogni disegno si stima la spesa finale
+    con la spesa vera fatta finora; se sfora il tetto, si saltano disegni partendo dalla FINE del video (uno si' e uno no): il disegno
+    precedente resta a schermo piu' a lungo (circa 9 s invece di 4,5). Mai immagini ripetute, solo piu' lunghe, e solo nel finale."""
+    if BUDGET_IMG[0] is None or i == 0:
+        return
+    vivi = [k for k in range(i, len(c['quadri'])) if not c['quadri'][k].get('_salta')]
+    medio = max(SPESA[0] / i, PREZZO_QUADRO + (PREZZO_INGR if INGRANDISCI else 0) + 0.0013)
+    sfora = SPESA[0] + len(vivi) * medio - BUDGET_IMG[0]
+    if sfora <= 0:
+        return
+    da_saltare = int(sfora / medio) + 1
+    saltati = 0
+    for passo in (2, 1):   # prima uno si' e uno no dalla fine; solo se non basta, di fila
+        for k in range(len(c['quadri']) - 2, i, -1):
+            if saltati >= da_saltare:
+                break
+            q = c['quadri'][k]
+            if q.get('_salta') or os.path.exists(os.path.join(CART, f"quadro_{k:02d}.jpg")):
+                continue
+            if passo == 2 and (c['quadri'][k + 1].get('_salta') or c['quadri'][k - 1].get('_salta')):
+                continue
+            q['_salta'] = True; saltati += 1
+        if saltati >= da_saltare:
+            break
+    log(f'tetto: spesa vera {SPESA[0]:.2f} $ dopo {i} disegni (media {medio:.3f} $): salto {saltati} disegni nel finale, quelli prima restano di piu\' a schermo')
 
 
 def _troppo_simile(a, b, soglia=9):   # misurato 12 nov: scene uguali ~5, scene diverse di fila >= 11,8
@@ -480,6 +515,9 @@ def quadri(c):
     ultimo_luogo = {}
     for i, q in enumerate(c['quadri']):
         f = os.path.join(CART, f"quadro_{i:02d}.jpg")
+        _tetto(c, i)
+        if q.get('_salta'):
+            continue
         lato = 'LEFT' if q.get('kao') == 'left' else 'RIGHT'
         refs = [RAW + PERS + '/identikit.png']
         extra = ''
@@ -602,6 +640,8 @@ def monta_illustrato(c):
         if s.get('_quadri'):   # immagini tutte diverse: la scena si divide tra le sue immagini, sempre intere
             n_ = len(s['_quadri']); dd = s['_dur'] / n_
             for j, idq in enumerate(s['_quadri']):
+                if qid[idq].get('_salta') and shots:   # tetto di spesa: il disegno precedente resta a schermo piu' a lungo
+                    shots[-1]['t1'] = t0 + (j + 1) * dd; continue
                 shots.append({'t0': t0 + j * dd, 't1': t0 + (j + 1) * dd, 'scena': s, 'quadro': qid[idq], 'taglio': 'largo', 'rel': j * dd,
                               'nuovo_quadro': True})
             t0 += s['_dur']; continue
@@ -799,6 +839,8 @@ Rispondi SOLO con JSON con TUTTE le {len(idx)} scene: {{"scene": [{{"i": numero,
             c['quadri'].append(q); sc['_quadri'].append(q['id'])
         sc['quadro'] = sc['_quadri'][0]
         c['scene'].append(sc)
+    BUDGET_IMG[0] = budget - fisso   # tetto rigido sulle immagini (12 nov)
     quadri(c)
+    log(f'cartone: spesa vera immagini {SPESA[0]:.2f} $ su {BUDGET_IMG[0]:.2f} $ | disegni saltati nel finale:', sum(1 for q in c['quadri'] if q.get('_salta')))
     muto, _, _ = monta_illustrato(c)
     return muto
