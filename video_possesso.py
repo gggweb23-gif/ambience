@@ -169,7 +169,7 @@ def copione():
         log('copione ripreso'); return json.load(open(f))
     regole_auto = (' Per l\'auto: un SUV medio nuovo da circa 45.000 euro (salvo diverso titolo), comprato a rate.' if AUTO else '')
     prompt = f"""Scrivi il copione di un video YouTube italiano di 9-10 minuti ({MIN_PAROLE}-{MAX_PAROLE} parole parlate in tutto) per il canale "Costo Vero"
-("Quanto costa DAVVERO possedere le cose?"). Titolo (tienilo): "{TITOLO}". Cosa: {OGGETTO or TITOLO}. Voci di spesa da coprire: {VOCI_COSTO or 'quelle realistiche'}.
+("Quanto costa DAVVERO possedere le cose?"). Argomento (dal file di produzione): "{TITOLO}" (il titolo finale va riscritto con la regola del titolo qui sotto). Cosa: {OGGETTO or TITOLO}. Voci di spesa da coprire: {VOCI_COSTO or 'quelle realistiche'}.
 Numeri realistici italiani 2026, arrotondati, per un italiano di classe media.{regole_auto} Un protagonista con nome italiano che torna in tutto il video.
 NON includere MAI benzina, carburante, ricarica o consumi d'uso (regola di Giorgio): solo i costi di possesso. Mai cifre troppo basse.
 Tono: chiaro, curioso, mai noioso; frasi brevi; numeri scritti in lettere nella voce; mai correzioni a voce. Fai TUTTI i conti prima di scrivere e ricontrollali.
@@ -685,6 +685,19 @@ def main():
     if capitoli:
         capitoli[0] = '00:00 ' + capitoli[0][6:]
     titolo = str(c.get('titolo') or TITOLO)[:100]
+    # 12 nov (Giorgio): il titolo parte SEMPRE con il soggetto in MAIUSCOLO (es. "PISCINA da 35.000 €: ..."). Se non lo fa, si riscrive solo il titolo (circa 0,005 $).
+    def _titolo_ok(t):
+        w = re.split(r'[\s:]+', t.strip())[0] if t.strip() else ''
+        return len(re.sub(r'[^A-Za-zÀ-ÿ]', '', w)) >= 2 and w == w.upper()
+    if not _titolo_ok(titolo):
+        try:
+            nt = claude(f'Riscrivi questo titolo YouTube italiano mettendo PRIMA il soggetto scritto TUTTO IN MAIUSCOLO, poi il resto, '
+                        f'nello schema "MOTO da 8.000 €: quanto costa DAVVERO in 5 anni?". Prezzo di partenza {eur(DATI.get("prezzo") or 0)}, anni {DATI["anni"]}. '
+                        f'Titolo: "{titolo}". Rispondi SOLO con il nuovo titolo, senza virgolette.', sforzo='low', max_tokens=2000).strip().strip('"').splitlines()[-1].strip()
+            if _titolo_ok(nt) and len(nt) <= 100:
+                log('titolo corretto (soggetto prima):', titolo, '->', nt); titolo = nt
+        except Exception as e:
+            log('titolo non corretto:', e)
     descr, tags = YT.testi(P, titolo, c.get('descrizione'), capitoli, c.get('tag'),
                            'I numeri del video sono stime realistiche per spiegare i conti: ognuno ha i suoi. Benzina e carburante esclusi.')
     log('FATTO:', finale, round(dur_v / 60, 1), 'minuti | immagini', n_img, f'(una ogni {sec:.1f} s) |', CO.testo() if hasattr(CO, 'testo') else '')
