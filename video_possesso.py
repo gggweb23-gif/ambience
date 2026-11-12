@@ -181,7 +181,7 @@ persone=true solo con il protagonista (stesso viso e vestiti); persone=false = o
 (es. polizza e chiavi su un tavolo, bollettino e penna, salvadanaio, calcolatrice, attrezzi in officina, ciotola e guinzaglio, documenti del notaio).
 {'Il SUV compare SOLO nelle immagini con persone=true, sempre all aperto, in salone o in officina, mai in casa, sempre di lato o di tre quarti da dietro.' if AUTO else ''}
 Almeno 75% delle immagini con persone=false. Mai immagini di fogli scritti, scontrini, banconote, schermi o cartelli (le scritte escono illeggibili): oggetti semplici (chiavi, salvadanaio, monete, calcolatrice, gomme, attrezzi, garage, strade). Tutto da classe media italiana.
-Il "titolo" inizia SEMPRE con la cosa (la parola chiave del video, da mobile si vede solo l inizio), poi il resto: la cosa scritta TUTTA IN MAIUSCOLO perche si legga e si noti subito: es. "PLAYSTATION 5: quanto costa DAVVERO in 7 anni?", "MOTO da 8.000 €: quanto costa DAVVERO in 5 anni?".
+Il "titolo" inizia SEMPRE con la cosa (la parola chiave del video, da mobile si vede solo l inizio), poi il resto: la cosa scritta TUTTA IN MAIUSCOLO perche si legga e si noti subito: es. "PLAYSTATION 5: quanto costa in 7 anni?", "MOTO da 8.000 €: quanto costa in 5 anni?". MAI la parola "davvero" nel titolo (12 nov, Giorgio: titolo corto, da mobile si deve leggere tutto).
 Aggiungi: "titolo", "descrizione" (2 brevi paragrafi per YouTube, in italiano), "tag" (12-15 tag in italiano), "protagonista" (descrizione fisica in inglese: eta', capelli, vestiti),
 "riferimento" (in inglese: il protagonista accanto alla cosa, all'aperto o nel posto giusto), "copertina": {{"oggetto": "in inglese: la cosa grande e ben visibile, sfondo semplice"}}.
 Rispondi SOLO con JSON: {{"titolo": "...", "descrizione": "...", "tag": [...], "protagonista": "...", "riferimento": "...", "copertina": {{...}}, "scene": [...]}}"""
@@ -707,12 +707,13 @@ def main():
     if not _titolo_ok(titolo):
         try:
             nt = claude(f'Riscrivi questo titolo YouTube italiano mettendo PRIMA il soggetto scritto TUTTO IN MAIUSCOLO, poi il resto, '
-                        f'nello schema "MOTO da 8.000 €: quanto costa DAVVERO in 5 anni?". Prezzo di partenza {eur(DATI.get("prezzo") or 0)}, anni {DATI["anni"]}. '
+                        f'nello schema "MOTO da 8.000 €: quanto costa in 5 anni?" (senza la parola davvero). Prezzo di partenza {eur(DATI.get("prezzo") or 0)}, anni {DATI["anni"]}. '
                         f'Titolo: "{titolo}". Rispondi SOLO con il nuovo titolo, senza virgolette.', sforzo='low', max_tokens=2000).strip().strip('"').splitlines()[-1].strip()
             if _titolo_ok(nt) and len(nt) <= 100:
                 log('titolo corretto (soggetto prima):', titolo, '->', nt); titolo = nt
         except Exception as e:
             log('titolo non corretto:', e)
+    titolo = re.sub(r'\s{2,}', ' ', re.sub(r'\bdavvero\b', '', titolo, flags=re.I)).strip()   # 12 nov (Giorgio): mai "davvero" nel titolo, piu' corto e leggibile tutto da mobile
     descr, tags = YT.testi(P, titolo, c.get('descrizione'), capitoli, c.get('tag'),
                            'I numeri del video sono stime realistiche per spiegare i conti: ognuno ha i suoi. Benzina e carburante esclusi.')
     log('FATTO:', finale, round(dur_v / 60, 1), 'minuti | immagini', n_img, f'(una ogni {sec:.1f} s) |', CO.testo() if hasattr(CO, 'testo') else '')
