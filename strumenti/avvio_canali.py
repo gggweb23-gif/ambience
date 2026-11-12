@@ -17,6 +17,13 @@ PEXELS_IN_CORSO = PEXELS | {'video_kao.yml', 'video_agora.yml', 'filosofo.yml', 
 _TK = {}
 
 
+def primo_pronto(prod):
+    """12 nov (Giorgio): se lo scout ha trovato un video del filone che sta funzionando da un competitor (riga con data_scoperta),
+    si fa prima quello (solo gancio e struttura, testo nostro); altrimenti la prima riga Pronto (titoli creati da noi). KAO escluso: ha un solo competitor."""
+    pronte = [i for i, r in enumerate(prod) if str(r.get('status')).strip() == 'Pronto']
+    return next((i for i in pronte if str(prod[i].get('data_scoperta') or '').strip()), pronte[0] if pronte else None)
+
+
 def token(scopes=('https://www.googleapis.com/auth/spreadsheets',)):
     import time as _t
     if scopes not in _TK or _t.time() - _TK[scopes][1] > 45 * 60:   # 7 nov: il token dura 1 ora, i lavori lunghi (Short) lo superavano (401)
@@ -182,12 +189,12 @@ def main():
                 sch, h, prod, gid = righe(fid, con_gid=True)
         except Exception as e:
             print(cid, ': rifornimento titoli non riuscito', str(e)[:150])
-        k = next((i for i, r in enumerate(prod) if str(r.get('status')).strip() == 'Pronto'), None)
+        k = primo_pronto(prod) if not cid.upper().startswith('KAO') else next((i for i, r in enumerate(prod) if str(r.get('status')).strip() == 'Pronto'), None)
         while k is not None and not nel_filone(cfg, prod[k]):   # 9 nov: fuori filone -> Scartato, si passa alla riga dopo
             print(cid, ': FUORI FILONE, scartato:', prod[k].get('titolo_originale'))
             api(fid, 'POST', '/values:batchUpdate', {'valueInputOption': 'RAW', 'data': [{'range': f"'{sch}'!{lettera(h.index('status') + 1)}{k + 2}", 'values': [['Scartato (fuori filone)']]}]})
             prod[k]['status'] = 'Scartato (fuori filone)'
-            k = next((i for i, r in enumerate(prod) if str(r.get('status')).strip() == 'Pronto'), None)
+            k = primo_pronto(prod) if not cid.upper().startswith('KAO') else next((i for i, r in enumerate(prod) if str(r.get('status')).strip() == 'Pronto'), None)
         if k is None:
             print(cid, ': nessuna riga Pronto'); continue
         if wf in PEXELS and pex:

@@ -11,6 +11,13 @@ CONFIGS = os.environ.get('FOGLIO_CONFIGS', '1COMpgHJshcmz_a9s-WsjCO5xbhwxBazt-ZB
 REPO = os.environ.get('GITHUB_REPOSITORY', 'gggweb23-gif/ambience')
 
 
+def primo_pronto(prod):
+    """12 nov (Giorgio): se lo scout ha trovato un video del filone che sta funzionando da un competitor (riga con data_scoperta),
+    si fa prima quello (solo gancio e struttura, testo nostro); altrimenti la prima riga Pronto (titoli creati da noi). KAO escluso: ha un solo competitor."""
+    pronte = [i for i, r in enumerate(prod) if str(r.get('status')).strip() == 'Pronto']
+    return next((i for i in pronte if str(prod[i].get('data_scoperta') or '').strip()), pronte[0] if pronte else None)
+
+
 def token():
     from google.oauth2 import service_account
     from google.auth.transport.requests import Request
@@ -113,7 +120,7 @@ for cfg in canali:
         print(cfg['channel_id'], ': un video e\' ancora in lavorazione su GitHub'); continue
     if len(giri) >= num(cfg.get('videos_per_day')) + 2:
         print(cfg['channel_id'], ': troppi tentativi falliti oggi, si riprova domani'); continue
-    k = next((i for i, r in enumerate(prod) if str(r.get('status')).strip() == 'Pronto'), None)
+    k = primo_pronto(prod)
     if k is None:
         print(cfg['channel_id'], ': nessuna riga Pronto'); continue
     r = prod[k]; n = k + 2

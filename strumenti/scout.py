@@ -134,6 +134,8 @@ def canale(cfg):
     coda = sum(1 for r in prod if str(r.get(c_stato)).strip() == 'Pronto')
     obiettivo = int(num(cfg.get('scout_coda'), 7))
     manca = obiettivo - coda
+    if manca <= 0 and str(cfg.get('scout_modo') or '').strip().lower() == 'esplosi':   # 12 nov (Giorgio): se nel filone c'e' qualcosa che sta funzionando, si prende anche con la coda piena (max 2 al giorno)
+        manca = 2
     log(f'  righe Pronto: {coda} (obiettivo {obiettivo})')
     if manca <= 0 and not PROVA:
         return
