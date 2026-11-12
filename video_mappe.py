@@ -61,7 +61,8 @@ COMING_UP = float(str(P.get('coming_up_secondi') or E('COMING_UP_SECONDI', '') o
 MUSICA_REGIA = str(P.get('musica_regia') or E('MUSICA_REGIA', '') or 'NO').strip().upper() == 'SI'   # musica da film a umori (libreria comune)
 MASCOTTE = str(P.get('mascotte') or E('MASCOTTE', '') or 'NO').strip().upper() == 'SI'   # Pin nelle scene: spento (dava fastidio)
 ZOOM_MIN = 34.0                                     # larghezza minima inquadratura in gradi (qualita' della mappa)
-PPM = 150                                           # parole al minuto della voce inglese (stima per la lunghezza del copione)
+PPM = 165 if LINGUA == 'it' else 150   # 12 nov: la voce italiana (KAO) legge ~160 parole al minuto: con 150 il video Haiti e' uscito di 7,8 min
+_PPM_VECCHIO = 150                                           # parole al minuto della voce inglese (stima per la lunghezza del copione)
 
 NAVY, ROSSO, CREMA, ORO, VERDE = (16, 30, 62), (222, 44, 52), (250, 242, 222), (246, 196, 44), (40, 160, 170)
 try:   # colore del secondo lato (colonna colore_secondo, es. #E8641E arancio come il competitor)
@@ -280,7 +281,7 @@ def copione(comp):
     orig = comp['testo']
     if PROVA:
         orig = ' '.join(orig.split()[:200])
-    parole = 170 if PROVA else int(min(MAX_MINUTI * PPM, max(MIN_MINUTI * PPM, len(orig.split()) * 1.0)))
+    parole = 170 if PROVA else int(min(MAX_MINUTI * PPM, max(MIN_MINUTI * PPM * 1.05, len(orig.split()) * 1.0)))   # 12 nov: +5% di margine sul minimo
     n_scene = max(8, round(parole / 20))
     lib_img = LIB_IND.get('immagini') or {}
     personaggi = ', '.join(sorted(n for n, c in lib_img.items() if c == 'persona')) or 'family, soldier, worker'
