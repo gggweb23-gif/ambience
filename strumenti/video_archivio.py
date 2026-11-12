@@ -598,51 +598,60 @@ if TESTO_COP.upper() in _USATE:
         except Exception as e_:
             log('scritta nuova non riuscita:', e_)   # 10 nov (Giorgio): nelle copertine MAI il punto finale
 if STILE_COP == 'etichetta_rossa':
-    # STILE B (2 nov, Giorgio): bianco e nero d'archivio, fascia rossa con la frase in bianco. Leggibile da telefono:
-    # al massimo 2 righe, lettere alte almeno 80 px su 720 (ad anteprima piccola restano leggibili)
+    # STILE B (2 nov, Giorgio): bianco e nero d'archivio, fascia rossa con la frase in bianco, lettere grandi (leggibili da telefono).
+    # 12 nov (Giorgio, Keitel: "la scritta sopra la persona, fare in modo che non succeda piu'"): l'AI non mette sempre il volto dove
+    # chiesto e i riquadri delle teste dati da Haiku o da OpenCV non sono affidabili. Si disegna la scritta in un posto, Haiku GUARDA il
+    # risultato e dice solo si'/no "copre una testa?" (~0,002 $ a controllo); se si', si prova il posto dopo (altro lato, in basso, piu' piccola).
     from PIL import ImageOps as _IO, ImageEnhance as _IE
     im = _IE.Contrast(_IO.grayscale(im).convert('RGB')).enhance(1.25)
-    im.save(os.path.join(CART, 'copertina_base.jpg'), quality=92)   # 12 nov: base senza scritta, si riscrive gratis
-    d = ImageDraw.Draw(im); parole = TESTO_COP.upper().split()
-    # 12 nov (Giorgio, Keitel: "la scritta sopra la persona, fare in modo che non succeda piu'"): l'AI non mette sempre il volto
-    # dal lato chiesto. Haiku dice dove sono le teste (~0,001 $): la scritta va dal lato libero e mai sopra una testa.
-    teste = []
-    try:
-        buf_ = io.BytesIO(); im.save(buf_, 'JPEG', quality=85)
-        t_ = claude('This is a 1280x720 thumbnail. Give the bounding boxes (pixels) of the HEAD of every person (face, hair, cap or helmet included). '
-                    'Answer ONLY {"box": [[x1, y1, x2, y2], ...]}.', modello='claude-haiku-4-5-20251001', max_tokens=200, immagine=buf_.getvalue())
-        teste = [[int(float(v)) for v in b_[:4]] for b_ in json_sicuro(t_)['box'] if len(b_) >= 4]
-        log('copertina: teste in', teste)
-    except Exception as e_:
-        log('teste non trovate:', str(e_)[:80])
-    if teste:
-        hx1, hx2 = min(b_[0] for b_ in teste), max(b_[2] for b_ in teste)
-        VOLTO_SX = (hx1 + hx2) / 2 < 640   # la scritta va dal lato opposto alle teste
-    # 8 nov (Giorgio): scritte PIU' GRANDI, fondamentale per leggerle da telefono
-    alto_ = VOLTO_SX or _VAR == 0   # fascia in alto (a destra mai in basso: c'e' la durata del video)
-    if alto_:   # nel 40% libero accanto al volto: una parola per riga (max 3 righe), lettere grandi
-        righe = parole if len(parole) <= 3 else [' '.join(parole[:(len(parole) + 1) // 2]), ' '.join(parole[(len(parole) + 1) // 2:])]
-        s_, larg_max = 180, 1280 * .48 - 44   # 10 nov (Giorgio): lettere grandi come la copertina di Guderian (la migliore), circa 175 px
-    else:
-        righe = [' '.join(parole)] if len(parole) <= 2 else [' '.join(parole[:(len(parole) + 1) // 2]), ' '.join(parole[(len(parole) + 1) // 2:])]
-        s_, larg_max = 165, 760
-    def _alt(sz):   # altezza totale delle fasce rosse con lettere di grandezza sz
-        f_ = ImageFont.truetype(FP, sz); b_ = d.textbbox((0, 0), 'ABC', font=f_); return len(righe) * ((b_[3] - b_[1]) + 38)
-    # 10 nov (Giorgio, regola per tutti i canali): mai scritte dietro la durata del video (angolo in basso a destra, ultimi 150 px)
-    if teste:   # spazio libero tra il bordo e la testa piu' vicina (con aria): la fascia rossa non ci entra mai
-        libero_ = (1280 - 40 - (hx2 + 30)) if VOLTO_SX else (hx1 - 30 - 40)
-        larg_max = min(larg_max, max(300, libero_) - 44)
-    while s_ > 100 and (max(d.textlength(r_, font=ImageFont.truetype(FP, s_)) for r_ in righe) > larg_max or (alto_ and 40 + _alt(s_) > 720 - 150)):
-        s_ -= 4
-    fnt = ImageFont.truetype(FP, s_); hb = d.textbbox((0, 0), 'ABC', font=fnt)
-    y = 40 if alto_ else 720 - 50 - ((hb[3] - hb[1]) + 38) * len(righe)
-    for r_ in righe:
-        l_, t_, rr_, b_ = d.textbbox((0, 0), r_, font=fnt)
-        x_ = (1280 - 40 - ((rr_ - l_) + 44)) if VOLTO_SX else 40
-        d.rectangle((x_, y, x_ + (rr_ - l_) + 44, y + (b_ - t_) + 30), fill=(200, 22, 22))
-        d.text((x_ + 22 - l_, y + 15 - t_), r_, font=fnt, fill='white')
-        y += (b_ - t_) + 30 + 8
-    log('testo copertina:', TESTO_COP, '| altezza lettere', s_, 'px')
+    im.save(os.path.join(CART, 'copertina_base.jpg'), quality=92)   # base senza scritta: si riscrive gratis
+    parole = TESTO_COP.upper().split()
+
+    def _disegna(base_, dx_, alto_, larg_max, s_):
+        im_ = base_.copy(); d = ImageDraw.Draw(im_)
+        if alto_:   # una parola per riga (max 3 righe)
+            righe = parole if len(parole) <= 3 else [' '.join(parole[:(len(parole) + 1) // 2]), ' '.join(parole[(len(parole) + 1) // 2:])]
+        else:
+            righe = [' '.join(parole)] if len(parole) <= 2 else [' '.join(parole[:(len(parole) + 1) // 2]), ' '.join(parole[(len(parole) + 1) // 2:])]
+        def _alt(sz):
+            f_ = ImageFont.truetype(FP, sz); b_ = d.textbbox((0, 0), 'ABC', font=f_); return len(righe) * ((b_[3] - b_[1]) + 38)
+        # mai dietro la durata del video (in basso a destra) e mai oltre la larghezza decisa
+        while s_ > 90 and (max(d.textlength(r_, font=ImageFont.truetype(FP, s_)) for r_ in righe) > larg_max or (alto_ and 40 + _alt(s_) > 720 - 150)):
+            s_ -= 4
+        fnt = ImageFont.truetype(FP, s_); hb = d.textbbox((0, 0), 'ABC', font=fnt)
+        y = 40 if alto_ else 720 - 50 - ((hb[3] - hb[1]) + 38) * len(righe)
+        for r_ in righe:
+            l_, t_, rr_, b_ = d.textbbox((0, 0), r_, font=fnt)
+            x_ = (1280 - 40 - ((rr_ - l_) + 44)) if dx_ else 40
+            d.rectangle((x_, y, x_ + (rr_ - l_) + 44, y + (b_ - t_) + 30), fill=(200, 22, 22))
+            d.text((x_ + 22 - l_, y + 15 - t_), r_, font=fnt, fill='white')
+            y += (b_ - t_) + 30 + 8
+        return im_, s_
+
+    def _copre(im_):
+        try:
+            buf_ = io.BytesIO(); im_.resize((640, 360)).save(buf_, 'JPEG', quality=85)
+            r_ = claude('Look at this thumbnail. Does any RED LABEL with white text cover or touch any part of a person\'s FACE or HEAD (hair, cap, helmet, ears included)? '
+                        'Answer ONLY yes or no.', modello='claude-haiku-4-5-20251001', max_tokens=5, immagine=buf_.getvalue())
+            return r_.strip().lower().startswith('y')
+        except Exception as e_:
+            log('controllo scritta non riuscito:', str(e_)[:80]); return False
+
+    base_ = im
+    # posti in ordine: quello della variante, l'altro lato in alto, in basso a sinistra; poi gli stessi con lettere piu' piccole
+    posti = [(VOLTO_SX, VOLTO_SX or _VAR == 0), (not VOLTO_SX, True), (False, False)]
+    tent = [(dx_, al_, 1280 * .40 - 44, 180 if al_ else 165) for dx_, al_ in posti] + [(dx_, al_, 1280 * .30 - 44, 140) for dx_, al_ in posti]
+    scelta = None
+    for k_, (dx_, al_, lm_, s0_) in enumerate(tent):
+        im_, s_ = _disegna(base_, dx_, al_, lm_, s0_)
+        if not _copre(im_):
+            scelta = (im_, s_, dx_, al_); break
+        log('copertina: la scritta copre una testa (', 'destra' if dx_ else 'sinistra', 'in alto' if al_ else 'in basso', s_, 'px): provo un altro posto')
+    if scelta is None:   # nessun posto libero: lettere piccole in basso a sinistra (sempre leggibili, mai sulla durata)
+        im_, s_ = _disegna(base_, False, False, 1280 * .30 - 44, 110); scelta = (im_, s_, False, False)
+        log('copertina: ATTENZIONE nessun posto libero sicuro, scritta piccola in basso a sinistra')
+    im, s_ = scelta[0], scelta[1]
+    log('testo copertina:', TESTO_COP, '| altezza lettere', s_, 'px', '| destra' if scelta[2] else '| sinistra', 'in alto' if scelta[3] else 'in basso')
 else:
     # 10 nov (Giorgio, Orbital Days): la scritta NON deve mai coprire la persona ne' il soggetto, e mai dietro la durata (in basso a destra).
     # MANO LIBERA resta: stile fisso (bianco + ultima parola azzurra, contorno nero), posto e grandezza cambiano. Haiku dice dov'e' il soggetto
