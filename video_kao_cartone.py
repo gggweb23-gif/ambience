@@ -10,7 +10,7 @@ rispetto a Pexels, fino a 1 EUR a video"). Il video e' un piccolo cartone con un
      a meta' delle frasi lunghe, nuvoletta bianca con scritta magenta (stile copertine KAO), "pop" a ogni cambio, musica bassa;
   5) video finale a 1440p.
 PAYLOAD: {"tema", "minuti" (1 = prova da un minuto), "voce" (voice_id), "cartella"}."""
-import base64, hashlib, io, json, math, os, random, re, subprocess, sys, time, urllib.request
+import base64, hashlib, shutil, io, json, math, os, random, re, subprocess, sys, time, urllib.request
 from PIL import Image, ImageDraw, ImageFont, ImageFilter, ImageOps
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'strumenti'))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -332,6 +332,10 @@ def monta(c):
 RAW = 'https://raw.githubusercontent.com/' + E('GITHUB_REPOSITORY', 'gggweb23-gif/ambience') + '/main/'
 QW, QH = [int(x) for x in str(P.get('quadro_risoluzione') or '1280x720').split('x')]   # risoluzione dei quadri (spesa) - il video esce comunque a 1440p
 PREZZO_QUADRO = float(P.get('prezzo_quadro') or round(0.017 * QW * QH / (1280 * 720), 4))
+# 12 nov (Giorgio: "la nitidezza non e' ancora il massimo"): ingrandimento AI x2 di ogni quadro (Real-ESRGAN per disegni, fal, ~0,002 $):
+# il quadro passa da 1280x720 a 2560x1440, poi il video lo RIMPICCIOLISCE (piu' nitido) invece di ingrandirlo. Colonna quadro_ingrandimento = SI.
+INGRANDISCI = str(P.get('quadro_ingrandimento') or E('QUADRO_INGRANDIMENTO', '')).strip().upper() == 'SI'
+PREZZO_INGR = float(P.get('prezzo_ingrandimento') or 0.002)
 SEC_IMG = float(P.get('secondi_immagine') or 4)   # 11 nov (Giorgio): mai la stessa immagine due volte, nemmeno zoomata: un'immagine NUOVA ogni ~4 s
 
 
@@ -421,6 +425,20 @@ def klein_edit(prompt, refs, f):
     u = YT.http(inv['response_url'], headers=hd, timeout=60)['images'][0]['url']
     Image.open(io.BytesIO(YT.http(u, raw=True, timeout=120))).convert('RGB').save(f, quality=95)
     CO.registra('fal', 'flux-2-klein-4b-edit', dollari=PREZZO_QUADRO, nota='quadro KAO cartone')
+    if INGRANDISCI:
+        try:
+            shutil.copy(f, f.replace('.jpg', '_orig.jpg'))   # il quadro com'era (per i confronti)
+            inv = YT.http('https://queue.fal.run/fal-ai/esrgan', {'image_url': u, 'scale': 2, 'model': 'RealESRGAN_x4plus_anime_6B', 'output_format': 'png'}, hd, timeout=120)
+            for _ in range(90):
+                time.sleep(2)
+                if YT.http(inv['status_url'], headers=hd, timeout=60).get('status') == 'COMPLETED':
+                    break
+            r = YT.http(inv['response_url'], headers=hd, timeout=60)
+            u2 = (r.get('image') or {}).get('url') or (r.get('images') or [{}])[0].get('url')
+            Image.open(io.BytesIO(YT.http(u2, raw=True, timeout=120))).convert('RGB').save(f, quality=96)
+            CO.registra('fal', 'esrgan-anime-x2', dollari=PREZZO_INGR, nota='ingrandimento quadro KAO')
+        except Exception as e:
+            log('ingrandimento non riuscito, resta il quadro normale:', str(e)[:120])
     return u
 
 
@@ -515,6 +533,7 @@ def ritaglio(q, taglio):
             if taglio == 'altro' and kb[2] > x0 and kb[0] < x0 + cw and kb[1] < y0:
                 x0, y0, cw, ch = 0, 0, w, h   # non si riesce a tenere la testa: campo largo
     img = im.crop((int(x0), int(y0), int(x0 + cw), int(y0 + ch))).resize((W, H), Image.LANCZOS)
+    img = img.filter(ImageFilter.UnsharpMask(radius=1.6, percent=70, threshold=2))   # 12 nov (Giorgio): contorni piu' netti, gratis
     # caselle delle persone nel fotogramma: la nuvoletta non deve MAI coprire una testa
     k = W / cw; occ = []
     for v in q['_box'].values():
@@ -552,7 +571,7 @@ def movimento(img, n, x):
     else:
         lib = W - cw
         x0, y0 = (lib * x if tipo == 2 else lib * (1 - x)), (H - ch) / 2
-    return img.resize((W, H), Image.BICUBIC, box=(x0, y0, x0 + cw, y0 + ch))
+    return img.resize((W, H), Image.LANCZOS, box=(x0, y0, x0 + cw, y0 + ch))   # 12 nov: lanczos (piu' nitido del bicubic)
 
 
 def monta_illustrato(c):
@@ -680,7 +699,7 @@ def base_cartone(testi, durate, titolo, cartella, budget=3.10):
     CART = cartella; os.makedirs(CART, exist_ok=True); SENZA_SOTTOTITOLI = True; TEMA = titolo or TEMA
     totale = sum(durate)
     sec = SEC_IMG
-    spesa_img = PREZZO_QUADRO * 1.12 + 0.003   # quadro + 12% di rifacimenti + controllo
+    spesa_img = (PREZZO_QUADRO + (PREZZO_INGR if INGRANDISCI else 0)) * 1.12 + 0.003   # quadro (+ ingrandimento) + 12% di rifacimenti + controllo
     fisso = 0.15                                 # regia (Claude)
     n_max = max(len(testi), int((budget - fisso) / spesa_img))
     if totale / sec > n_max:
