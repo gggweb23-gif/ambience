@@ -602,7 +602,22 @@ if STILE_COP == 'etichetta_rossa':
     # al massimo 2 righe, lettere alte almeno 80 px su 720 (ad anteprima piccola restano leggibili)
     from PIL import ImageOps as _IO, ImageEnhance as _IE
     im = _IE.Contrast(_IO.grayscale(im).convert('RGB')).enhance(1.25)
+    im.save(os.path.join(CART, 'copertina_base.jpg'), quality=92)   # 12 nov: base senza scritta, si riscrive gratis
     d = ImageDraw.Draw(im); parole = TESTO_COP.upper().split()
+    # 12 nov (Giorgio, Keitel: "la scritta sopra la persona, fare in modo che non succeda piu'"): l'AI non mette sempre il volto
+    # dal lato chiesto. Haiku dice dove sono le teste (~0,001 $): la scritta va dal lato libero e mai sopra una testa.
+    teste = []
+    try:
+        buf_ = io.BytesIO(); im.save(buf_, 'JPEG', quality=85)
+        t_ = claude('This is a 1280x720 thumbnail. Give the bounding boxes (pixels) of the HEAD of every person (face, hair, cap or helmet included). '
+                    'Answer ONLY {"box": [[x1, y1, x2, y2], ...]}.', modello='claude-haiku-4-5-20251001', max_tokens=200, immagine=buf_.getvalue())
+        teste = [[int(float(v)) for v in b_[:4]] for b_ in json_sicuro(t_)['box'] if len(b_) >= 4]
+        log('copertina: teste in', teste)
+    except Exception as e_:
+        log('teste non trovate:', str(e_)[:80])
+    if teste:
+        hx1, hx2 = min(b_[0] for b_ in teste), max(b_[2] for b_ in teste)
+        VOLTO_SX = (hx1 + hx2) / 2 < 640   # la scritta va dal lato opposto alle teste
     # 8 nov (Giorgio): scritte PIU' GRANDI, fondamentale per leggerle da telefono
     alto_ = VOLTO_SX or _VAR == 0   # fascia in alto (a destra mai in basso: c'e' la durata del video)
     if alto_:   # nel 40% libero accanto al volto: una parola per riga (max 3 righe), lettere grandi
@@ -614,6 +629,9 @@ if STILE_COP == 'etichetta_rossa':
     def _alt(sz):   # altezza totale delle fasce rosse con lettere di grandezza sz
         f_ = ImageFont.truetype(FP, sz); b_ = d.textbbox((0, 0), 'ABC', font=f_); return len(righe) * ((b_[3] - b_[1]) + 38)
     # 10 nov (Giorgio, regola per tutti i canali): mai scritte dietro la durata del video (angolo in basso a destra, ultimi 150 px)
+    if teste:   # spazio libero tra il bordo e la testa piu' vicina (con aria): la fascia rossa non ci entra mai
+        libero_ = (1280 - 40 - (hx2 + 30)) if VOLTO_SX else (hx1 - 30 - 40)
+        larg_max = min(larg_max, max(300, libero_) - 44)
     while s_ > 100 and (max(d.textlength(r_, font=ImageFont.truetype(FP, s_)) for r_ in righe) > larg_max or (alto_ and 40 + _alt(s_) > 720 - 150)):
         s_ -= 4
     fnt = ImageFont.truetype(FP, s_); hb = d.textbbox((0, 0), 'ABC', font=fnt)
