@@ -58,7 +58,9 @@ def parole():
         return json.load(open(f))
     from faster_whisper import WhisperModel
     m = WhisperModel('small', device='cpu', compute_type='int8')
-    seg, _ = m.transcribe(AUDIO, language='it', word_timestamps=True)
+    import numpy as np   # l'audio lo decodifica ffmpeg (la libreria av installata non e' compatibile con faster-whisper)
+    pcm = subprocess.run(['ffmpeg', '-v', 'error', '-i', AUDIO, '-f', 's16le', '-ac', '1', '-ar', '16000', '-'], capture_output=True, check=True).stdout
+    seg, _ = m.transcribe(np.frombuffer(pcm, np.int16).astype(np.float32) / 32768.0, language='it', word_timestamps=True)
     pw = [{'w': w.word.strip().lower(), 'a': w.start, 'b': w.end} for s in seg for w in s.words]
     json.dump(pw, open(f, 'w')); log('parole trascritte:', len(pw)); return pw
 
