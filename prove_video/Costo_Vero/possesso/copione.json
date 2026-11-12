@@ -1,449 +1,774 @@
 {
- "titolo": "Quanto costa DAVVERO una PlayStation 5 in 7 anni?",
- "descrizione": "Una PlayStation 5 costa cinquecentocinquanta euro sul cartellino. Ma tra giochi, abbonamento, controller, archiviazione, TV e riparazioni, in sette anni il costo vero sale a quasi quattromiladuecentosessanta euro. In questo video di Costo Vero ti mostriamo voce per voce da dove esce questo numero, seguendo Marco, un ragazzo di trentadue anni di Bologna.\n\nScopri quanto costa al mese e al giorno, come si svaluta la console nel tempo e cinque trucchi concreti per giocare spendendo meno. Se ti piacciono i conti fatti bene, iscriviti al canale e attiva la campanella!",
+ "titolo": "Quanto costa DAVVERO una piscina interrata in giardino?",
+ "descrizione": "Una piscina interrata costa trentacinquemila euro sul preventivo. Ma quanto costa DAVVERO tenerla per dieci anni? In questo video con Marco, un papà di quarantaquattro anni, scopriamo voce per voce: scavo e costruzione, prodotti chimici, pompa e filtri, manutenzione, copertura, assicurazione, tasse e riparazioni. Elettricità e acqua sono escluse dal conto.\n\nAlla fine trovi il costo vero al mese e al giorno, quanto vale la piscina dopo dieci anni, un confronto con la piscina fuori terra e cinque trucchi per spendere meno. Iscriviti a Costo Vero per scoprire quanto costa davvero possedere le cose.",
  "tag": [
-  "PlayStation 5",
-  "PS5",
-  "costo vero",
-  "quanto costa una PS5",
+  "piscina interrata",
+  "costo piscina",
+  "quanto costa una piscina",
+  "piscina in giardino",
   "costi nascosti",
-  "PlayStation Plus",
-  "risparmiare sui videogiochi",
-  "videogiochi usati",
-  "svalutazione console",
-  "spese di possesso",
-  "budget famiglia",
+  "costo vero",
+  "manutenzione piscina",
+  "prodotti chimici piscina",
+  "copertura piscina",
+  "assicurazione piscina",
+  "piscina fuori terra",
+  "risparmiare soldi",
   "finanza personale",
-  "Costo Vero",
-  "gaming risparmio",
-  "console 2026"
+  "costi di possesso",
+  "casa e giardino"
  ],
- "protagonista": "Italian man, 32 years old, short dark brown hair, light stubble, wearing a grey hoodie, jeans and white sneakers",
- "riferimento": "The same Italian man standing outdoors in front of a Bologna porticoed street, holding a white PlayStation 5 box under his arm, smiling",
+ "protagonista": "Marco, 44-year-old Italian man, short dark hair with a little gray at the temples, light blue polo shirt, beige shorts, friendly tired smile",
+ "riferimento": "Marco standing at the edge of a rectangular in-ground swimming pool in a sunny Italian backyard with olive trees and a tiled patio",
  "copertina": {
-  "oggetto": "A white PlayStation 5 console with a black controller, big and clearly visible, on a plain bright blue background"
+  "oggetto": "a big bright blue in-ground swimming pool seen from above, simple green lawn background, no people"
  },
  "scene": [
   {
    "tipo": "cartellino",
-   "capitolo": "Il prezzo vero",
-   "voce": "Cinquecentocinquanta euro. Questo dice il cartellino della PlayStation Cinque. Ma in sette anni ti costerà quattromiladuecentosessanta euro. Cioè cinquantuno euro al mese. Ti mostro voce per voce da dove esce questo numero.",
+   "capitolo": "Il costo vero",
+   "voce": "Una piscina interrata costa trentacinquemila euro. Ma il costo vero, in dieci anni, è sessantamilacinquecento euro. Più di cinquecento euro al mese. Ti mostro voce per voce da dove esce questo numero. Preparati: la vasca è solo l'inizio.",
    "dati": {
-    "prezzo": 550,
-    "costo_vero": 4260,
-    "al_mese": 51,
+    "prezzo": 35000,
+    "costo_vero": 60500,
+    "al_mese": 504,
     "domanda": "MA QUANTO COSTA DAVVERO?"
    },
    "sfondi": [
     {
      "persone": false,
-     "descr": "A white PlayStation 5 console standing on a wooden living room shelf, warm light",
-     "frase": "CINQUECENTOCINQUANTA EURO"
+     "descr": "clear blue in-ground pool in a sunny Italian garden, no people",
+     "frase": "LA PISCINA DEI SOGNI"
     },
     {
      "persone": false,
-     "descr": "A calculator and a pile of coins on a wooden table",
-     "frase": "IL COSTO VERO"
+     "descr": "a calculator and a small pile of coins on a wooden garden table",
+     "frase": "IL CONTO VERO"
     },
     {
-     "persone": true,
-     "descr": "The man looking curiously at a game console on a table, hand on chin",
-     "frase": "DA DOVE ESCE?"
+     "persone": false,
+     "descr": "a piggy bank on a table next to garden keys",
+     "frase": "OGNI MESE, SEMPRE"
     }
    ]
   },
   {
    "tipo": "racconto",
    "capitolo": "La scelta di Marco",
-   "voce": "Lui è Marco. Ha trentadue anni e vive a Bologna. Vede la console in negozio e pensa: cinquecentocinquanta euro, ce la faccio. La trappola è proprio questa. Guarda solo il prezzo, non tutto il resto.",
+   "voce": "Marco ha quarantaquattro anni, una casa con giardino e due figli. Ogni estate sente la stessa frase: papà, facciamo la piscina? Il preventivo è di trentacinquemila euro. Gli sembra fattibile. Firma. Ma quella cifra è solo l'ingresso.",
    "dati": {},
    "sfondi": [
     {
      "persone": true,
-     "descr": "The man standing in an electronics store aisle looking at a white game console on display",
-     "frase": "MARCO E LA PS5"
+     "descr": "Marco in his backyard looking at the bare lawn, hands on hips, thoughtful",
+     "frase": "MARCO E IL GIARDINO"
     },
     {
      "persone": false,
-     "descr": "A shop shelf with several white game console boxes stacked",
-     "frase": "IL PREZZO INGANNA"
+     "descr": "two children's flip-flops and a beach ball on a lawn",
+     "frase": "PAPÀ, FACCIAMO LA PISCINA?"
     },
     {
      "persone": true,
-     "descr": "The man carrying a console box out of a store, smiling",
-     "frase": "SEMBRA FACILE"
+     "descr": "Marco signing with a pen at a kitchen table, a closed folder beside him",
+     "frase": "MARCO FIRMA"
     }
    ]
   },
   {
    "tipo": "dettaglio",
-   "capitolo": "La console",
-   "voce": "Prima voce: la console. Cinquecentocinquanta euro, pagati una volta sola. Marco la compra e la porta a casa felice. Fin qui tutto chiaro. Ma ricorda: questa è solo l'entrata. Il resto della spesa deve ancora arrivare, e pesa molto di più del prezzo di partenza. Pensa a quando compri un'auto: il prezzo del concessionario non è mai il costo vero, perché poi arrivano assicurazione, benzina e tagliandi. Con la console succede la stessa cosa. Il prezzo sullo scaffale è solo il biglietto d'ingresso, e chi si ferma a guardare quello fa un conto parziale. Un dettaglio utile: prima di comprare, scrivi su un foglio tutto ciò che ti servirà davvero, oltre alla scatola. Ti basteranno cinque minuti per evitare sorprese molto più avanti, quando ormai hai già speso.",
+   "capitolo": "Scavo e costruzione",
+   "voce": "Partiamo dallo scavo e dalla costruzione. Trentacinquemila euro, una volta sola, per una vasca di otto metri per quattro. Sembra tanto? Guarda dove vanno. Prima arriva l'escavatore. Poi si porta via la terra, e ogni camion costa. Si gettano cemento e armature, si montano i bordi, il rivestimento e l'impianto idraulico. Pensa a quando ristrutturi un bagno: il preventivo sembra chiaro, poi saltano fuori tubi vecchi, piastrelle da rifare, una parete da sistemare. Con la piscina succede lo stesso, ma in grande. Marco pensa: finita la vasca, finita la spesa. Invece no. Le rifiniture del giardino si pagano a parte, e i materiali sono più cari di qualche anno fa. Un dettaglio utile: quando chiedi il preventivo, fatti scrivere nero su bianco cosa è compreso, dal trasporto della terra alla pavimentazione attorno alla vasca, così non ti trovi sorprese a lavori iniziati. Questa è la cifra più grande, ma attenzione: nei dieci anni pesa solo metà del totale. Il resto arriva piano piano, anno dopo anno, ed è quello che nessuno ti racconta.",
    "dati": {
-    "nome": "Console",
+    "nome": "Scavo e costruzione",
+    "per_anno": 35000,
+    "anni": 1,
+    "nota": "Una tantum, vasca otto per quattro"
+   },
+   "sfondi": [
+    {
+     "persone": false,
+     "descr": "yellow excavator digging a rectangular hole in a residential backyard",
+     "frase": "ARRIVA L'ESCAVATORE"
+    },
+    {
+     "persone": false,
+     "descr": "dump truck loaded with earth parked on an Italian suburban street",
+     "frase": "OGNI CAMION COSTA"
+    },
+    {
+     "persone": false,
+     "descr": "steel rebar framework and wet concrete in an excavated pool shell",
+     "frase": "CEMENTO E ARMATURE"
+    },
+    {
+     "persone": false,
+     "descr": "pool tiles and plumbing pipes stacked next to the pool hole",
+     "frase": "RIVESTIMENTO E IMPIANTO"
+    },
+    {
+     "persone": true,
+     "descr": "Marco watching construction workers from the edge of the pool hole, arms crossed",
+     "frase": "FINITA LA VASCA?"
+    },
+    {
+     "persone": false,
+     "descr": "garden patio with bare soil and paving stones waiting to be laid",
+     "frase": "RIFINITURE A PARTE"
+    },
+    {
+     "persone": false,
+     "descr": "stack of bricks and bags of cement on a pallet",
+     "frase": "MATERIALI PIÙ CARI"
+    },
+    {
+     "persone": false,
+     "descr": "large piggy bank half full beside a calculator",
+     "frase": "METÀ DEL TOTALE"
+    },
+    {
+     "persone": false,
+     "descr": "finished empty in-ground pool shell with blue liner, sunny garden",
+     "frase": "LA VASCA È PRONTA"
+    },
+    {
+     "persone": false,
+     "descr": "row of small coins stacked in ascending towers on a table",
+     "frase": "IL RESTO ARRIVA DOPO"
+    }
+   ]
+  },
+  {
+   "tipo": "dettaglio",
+   "capitolo": "Prodotti chimici",
+   "voce": "Seconda voce: i prodotti chimici. Seicento euro all'anno, per dieci anni. Sono seimila euro. Perché tanto? L'acqua è viva. Senza cloro diventa verde in pochi giorni. Servono pastiglie di cloro, regolatori del pH, antialghe, flocculante. Pensa all'acquario di casa: se trascuri l'acqua per una settimana, te ne accorgi subito. Con una piscina è uguale, solo che i litri sono migliaia. Ogni estate Marco compra bidoni e secchi, e li trova sempre più cari. Un errore di dosaggio? Si butta via l'acqua e si ricomincia. In più, se i bambini fanno il bagno ogni giorno, i consumi salgono. Sono cinquanta euro al mese di sola chimica. Sembra poco, ma escono ogni mese, come una piccola bolletta che non finisce mai. Un consiglio pratico: misura il pH almeno una volta alla settimana e annota i valori su un quaderno, così capisci subito quando qualcosa non va e sprechi meno prodotto. Dopo dieci anni, hai speso seimila euro solo per tenere l'acqua pulita.",
+   "dati": {
+    "nome": "Prodotti chimici",
+    "per_anno": 600,
+    "anni": 10,
+    "nota": "Cloro, pH, antialghe, flocculante"
+   },
+   "sfondi": [
+    {
+     "persone": false,
+     "descr": "white buckets of chlorine tablets and pool chemical jugs on a garage shelf",
+     "frase": "CLORO E PASTIGLIE"
+    },
+    {
+     "persone": false,
+     "descr": "green cloudy pool water with leaves floating, no people",
+     "frase": "SENZA CLORO: VERDE"
+    },
+    {
+     "persone": false,
+     "descr": "pH test kit with small vials on the pool edge",
+     "frase": "IL TEST DEL PH"
+    },
+    {
+     "persone": true,
+     "descr": "Marco pouring a chemical into the pool with gloves, serious face",
+     "frase": "MARCO DOSA IL CLORO"
+    },
+    {
+     "persone": false,
+     "descr": "large blue plastic drums of pool chemicals in a garden shed",
+     "frase": "BIDONI OGNI ESTATE"
+    },
+    {
+     "persone": false,
+     "descr": "clear sparkling blue pool water in sunlight",
+     "frase": "ACQUA LIMPIDA"
+    },
+    {
+     "persone": false,
+     "descr": "two children's towels hanging on a pool fence",
+     "frase": "BAGNI TUTTI I GIORNI"
+    },
+    {
+     "persone": false,
+     "descr": "coins stacked in towers next to a small calendar-less wall clock",
+     "frase": "CINQUANTA EURO AL MESE"
+    },
+    {
+     "persone": false,
+     "descr": "calculator and a stack of coins on a patio table",
+     "frase": "SEIMILA EURO IN DIECI ANNI"
+    }
+   ]
+  },
+  {
+   "tipo": "dettaglio",
+   "capitolo": "Pompa, filtri, manutenzione",
+   "voce": "Terza voce: pompa, filtri e manutenzione. Milletrecento euro all'anno. Tredicimila euro in dieci anni. Luce e acqua le lasciamo fuori dal conto. Qui si paga il cuore della piscina. La pompa fa girare l'acqua. Il filtro la pulisce. È un po' come la caldaia o la lavatrice di casa: finché funziona non ci pensi, ma quando si ferma in piena estate è un problema subito. Dopo qualche anno vanno sostituiti: sabbia, cartucce, guarnizioni, a volte la pompa intera. Poi c'è la manutenzione: apertura e chiusura di stagione, pulizia del fondo, controlli. Un tecnico costa tra i cento e i centocinquanta euro a intervento. Marco pensava di fare tutto da solo. Dopo due estati, il sabato libero non esisteva più. Ha chiamato il tecnico. Un dettaglio utile: pulire il prefiltro della pompa con regolarità è un gesto semplice, richiede pochi minuti e allunga la vita dell'impianto, evitando guasti più costosi.",
+   "dati": {
+    "nome": "Pompa, filtri, manutenzione",
+    "per_anno": 1300,
+    "anni": 10,
+    "nota": "Ricambi e tecnico di stagione"
+   },
+   "sfondi": [
+    {
+     "persone": false,
+     "descr": "pool pump and sand filter in a small technical room, no people",
+     "frase": "IL CUORE DELLA PISCINA"
+    },
+    {
+     "persone": false,
+     "descr": "bag of filter sand and a filter cartridge on a workbench",
+     "frase": "SABBIA E CARTUCCE"
+    },
+    {
+     "persone": false,
+     "descr": "rubber gaskets and spare pump parts on a table",
+     "frase": "GUARNIZIONI E RICAMBI"
+    },
+    {
+     "persone": false,
+     "descr": "pool skimmer net and pole leaning on a fence by the pool",
+     "frase": "PULIZIA DEL FONDO"
+    },
+    {
+     "persone": false,
+     "descr": "pool robot cleaner resting on the pool deck",
+     "frase": "PULIZIA E CONTROLLI"
+    },
+    {
+     "persone": true,
+     "descr": "Marco sweating while cleaning the pool with a long pole, tired",
+     "frase": "MARCO FA DA SOLO"
+    },
+    {
+     "persone": false,
+     "descr": "technician's toolbox and wrench on the pool edge, no people",
+     "frase": "ARRIVA IL TECNICO"
+    },
+    {
+     "persone": false,
+     "descr": "empty lounge chair and unopened sunscreen by the pool",
+     "frase": "SABATO LIBERO? NO"
+    },
+    {
+     "persone": false,
+     "descr": "stack of coins and a calculator beside a wrench",
+     "frase": "TREDICIMILA EURO"
+    },
+    {
+     "persone": false,
+     "descr": "pool pump motor close-up with copper fittings",
+     "frase": "UN IMPIANTO CHE INVECCHIA"
+    }
+   ]
+  },
+  {
+   "tipo": "dettaglio",
+   "capitolo": "Copertura",
+   "voce": "Quarta voce: la copertura. Quattromila euro, una volta sola. Serve davvero? Sì. Senza copertura, d'inverno nell'acqua finiscono foglie, polvere e insetti. In primavera ti aspetta una palude, e ti ritrovi a passare giornate intere con il retino in mano invece di goderti il primo sole. E c'è la sicurezza: una copertura rigida protegge bambini e animali, e se hai un cane o un gatto curioso sai quanto conta. Marco aveva pensato a un semplice telo da duecento euro. Poi ha scoperto che il telo si strappa, e che uno robusto, a barre, costa quattromila euro. Ma dura anni e riduce la pulizia in primavera. Un dettaglio utile: prima di comprarla, controlla che la copertura sia omologata per sostenere un peso, così in caso di emergenza non diventa essa stessa un pericolo. È una spesa che si fa una volta, ma che si sente.",
+   "dati": {
+    "nome": "Copertura",
+    "per_anno": 4000,
+    "anni": 1,
+    "nota": "Copertura rigida invernale a barre"
+   },
+   "sfondi": [
+    {
+     "persone": false,
+     "descr": "pool covered by a dark winter cover, leaves around, no people",
+     "frase": "LA PISCINA D'INVERNO"
+    },
+    {
+     "persone": false,
+     "descr": "autumn leaves and twigs floating on pool water",
+     "frase": "FOGLIE E POLVERE"
+    },
+    {
+     "persone": false,
+     "descr": "green swampy pool water in spring, no people",
+     "frase": "LA PALUDE DI PRIMAVERA"
+    },
+    {
+     "persone": false,
+     "descr": "small dog sitting by a closed pool cover in the garden",
+     "frase": "BAMBINI E ANIMALI AL SICURO"
+    },
+    {
+     "persone": true,
+     "descr": "Marco holding a thin torn plastic sheet and looking disappointed",
+     "frase": "IL TELO SI STRAPPA"
+    },
+    {
+     "persone": false,
+     "descr": "sturdy rigid pool cover with bars stretched over the pool",
+     "frase": "COPERTURA ROBUSTA"
+    },
+    {
+     "persone": false,
+     "descr": "clean pool in spring under a half-open cover",
+     "frase": "MENO PULIZIA"
+    },
+    {
+     "persone": false,
+     "descr": "stack of coins and a garden key on a table",
+     "frase": "QUATTROMILA EURO"
+    }
+   ]
+  },
+  {
+   "tipo": "dettaglio",
+   "capitolo": "Assicurazione e tasse",
+   "voce": "Quinta voce: assicurazione e tasse. Cinquecentocinquanta euro all'anno. Cinquemilacinquecento in dieci anni. Una piscina aumenta il rischio: un vicino che cade, un ospite che si fa male. Pensa alla festa di compleanno in giardino, con dieci bambini che corrono attorno alla vasca: basta un attimo e un piede scivola sul bordo bagnato. La polizza di responsabilità civile costa circa duecentocinquanta euro in più. Poi ci sono le tasse. La piscina fa salire la rendita catastale, e con lei le imposte sulla casa. Parliamo di circa trecento euro l'anno. Marco non ci aveva pensato. Nessuno lo aveva avvisato. Un dettaglio utile: prima di costruire, chiedi al tuo assicuratore e al tuo tecnico comunale come cambieranno polizza e rendita, così sai già cosa ti aspetta. Eppure queste due voci arrivano ogni anno, puntuali, anche d'inverno, quando la piscina è coperta e nessuno fa il bagno.",
+   "dati": {
+    "nome": "Assicurazione e tasse",
     "per_anno": 550,
-    "anni": 1,
-    "nota": "Prezzo di acquisto, una volta"
+    "anni": 10,
+    "nota": "Polizza più imposte sulla casa"
    },
    "sfondi": [
     {
+     "persone": false,
+     "descr": "insurance folder and house keys on a kitchen table, no visible text",
+     "frase": "LA POLIZZA"
+    },
+    {
+     "persone": false,
+     "descr": "neighbor's garden gate opened to the pool area",
+     "frase": "UN VICINO CHE CADE"
+    },
+    {
+     "persone": false,
+     "descr": "wet slippery pool deck with a towel on it",
+     "frase": "IL BORDO SCIVOLOSO"
+    },
+    {
+     "persone": false,
+     "descr": "pen and an envelope on a desk beside a calculator",
+     "frase": "IL BOLLETTINO ARRIVA"
+    },
+    {
      "persone": true,
-     "descr": "The man unboxing a white game console on a living room table, smiling",
-     "frase": "LA CONSOLE"
+     "descr": "Marco at his desk, hands on his head, looking at a stack of envelopes",
+     "frase": "MARCO NON CI AVEVA PENSATO"
     },
     {
      "persone": false,
-     "descr": "An open cardboard box with a white game console inside on a sofa",
-     "frase": "UNA VOLTA SOLA"
+     "descr": "small model house on a desk beside coins",
+     "frase": "SALE LA RENDITA"
     },
     {
      "persone": false,
-     "descr": "A white game console connected on a TV cabinet, cables neatly arranged",
-     "frase": "SOLO L'ENTRATA"
+     "descr": "covered pool in a gray winter garden",
+     "frase": "ANCHE D'INVERNO"
+    },
+    {
+     "persone": false,
+     "descr": "coins stacked in towers next to a pen",
+     "frase": "CINQUEMILACINQUECENTO EURO"
+    },
+    {
+     "persone": false,
+     "descr": "house keys and a stamp on a wooden table",
+     "frase": "PUNTUALI OGNI ANNO"
     }
    ]
   },
   {
    "tipo": "dettaglio",
-   "capitolo": "Controller extra",
-   "voce": "Seconda voce: i controller. Giocare da soli è bello, ma con gli amici servono altri pad. Marco ne compra due, a settanta euro l'uno. Fanno centoquaranta euro. E se un giorno uno si rompe, il conto sale ancora. Piccola spesa, ma c'è sempre. Immagina la serata del sabato: arrivano due amici, si gioca in quattro, e senza pad in più qualcuno resta a guardare. Succede lo stesso quando organizzi una cena e ti accorgi di avere solo due sedie. Alla fine ti tocca comprare quello che manca. Un consiglio pratico: controlla le batterie e la cura dei pad, perché le levette consumate e i tasti che si incastrano sono i guasti più comuni. Una custodia semplice e un po' di pulizia ogni tanto allungano la vita di questi oggetti più di quanto pensi.",
-   "dati": {
-    "nome": "Controller extra",
-    "per_anno": 140,
-    "anni": 1,
-    "nota": "Due pad da settanta euro"
-   },
-   "sfondi": [
-    {
-     "persone": false,
-     "descr": "Two black wireless game controllers lying on a wooden coffee table",
-     "frase": "DUE CONTROLLER"
-    },
-    {
-     "persone": true,
-     "descr": "The man handing a controller to a friend on a sofa, both smiling",
-     "frase": "SERVONO PER GLI AMICI"
-    },
-    {
-     "persone": false,
-     "descr": "A game controller with a worn analog stick close up on a table",
-     "frase": "E SE SI ROMPE"
-    }
-   ]
-  },
-  {
-   "tipo": "dettaglio",
-   "capitolo": "I giochi",
-   "voce": "Terza voce: i giochi. È la spesa più grossa. Un titolo nuovo costa circa sessanta euro. Marco ne compra cinque all'anno. Sono trecento euro ogni anno. In sette anni fanno duemilacento euro. Più della metà del costo totale! Ed è qui che la trappola scatta davvero. Ogni uscita sembra un piccolo acquisto, ma insieme diventano una montagna di soldi. È come la spesa al supermercato: ogni prodotto costa poco, ma arrivi alla cassa e il totale ti sorprende. Con i giochi funziona uguale, perché ogni mese esce qualcosa che sembra imperdibile. Un trucco utile: tieni una lista dei desideri e aspetta una settimana prima di ogni acquisto. Spesso scopri che la voglia passa, oppure che il prezzo è già sceso. Quello che resta è un gioco che vuoi davvero, non uno preso d'impulso.",
-   "dati": {
-    "nome": "Giochi",
-    "per_anno": 300,
-    "anni": 7,
-    "nota": "Cinque giochi da sessanta euro"
-   },
-   "sfondi": [
-    {
-     "persone": false,
-     "descr": "A stack of game cases on a shelf next to a console",
-     "frase": "CINQUE GIOCHI L'ANNO"
-    },
-    {
-     "persone": true,
-     "descr": "The man choosing a game case from a shelf in a store",
-     "frase": "SESSANTA EURO L'UNO"
-    },
-    {
-     "persone": false,
-     "descr": "A tall tower of game cases on a living room floor",
-     "frase": "UNA MONTAGNA DI GIOCHI"
-    },
-    {
-     "persone": false,
-     "descr": "A piggy bank next to a few coins on a wooden table",
-     "frase": "LA SPESA PIÙ GROSSA"
-    }
-   ]
-  },
-  {
-   "tipo": "dettaglio",
-   "capitolo": "PlayStation Plus",
-   "voce": "Quarta voce: l'abbonamento PlayStation Plus. Senza, il gioco online non funziona. Costa circa ottanta euro all'anno. In sette anni sono cinquecentosessanta euro. Marco lo rinnova ogni anno quasi senza pensarci. È proprio questo il problema: una spesa piccola, automatica, che non finisce mai. Funziona come l'abbonamento in palestra che paghi anche quando non ci vai da mesi: il addebito parte da solo e tu nemmeno lo noti. Con gli abbonamenti digitali accade lo stesso, perché il rinnovo automatico lavora contro di te. Un dettaglio utile: guarda ogni tanto la data di scadenza e chiediti se nell'ultimo periodo hai giocato online davvero. Se la risposta è no, puoi sospendere il rinnovo e riattivarlo solo quando serve, magari approfittando di un'offerta.",
-   "dati": {
-    "nome": "PlayStation Plus",
-    "per_anno": 80,
-    "anni": 7,
-    "nota": "Serve per giocare online"
-   },
-   "sfondi": [
-    {
-     "persone": true,
-     "descr": "The man sitting on a sofa playing a console game with a headset on",
-     "frase": "GIOCO ONLINE"
-    },
-    {
-     "persone": false,
-     "descr": "A gaming headset resting on a sofa armrest",
-     "frase": "SENZA ABBONAMENTO NIENTE"
-    },
-    {
-     "persone": false,
-     "descr": "A wall calendar with a pen next to it on a desk",
-     "frase": "OGNI ANNO, SEMPRE"
-    }
-   ]
-  },
-  {
-   "tipo": "dettaglio",
-   "capitolo": "Archiviazione extra",
-   "voce": "Quinta voce: lo spazio. I giochi moderni pesano anche cento giga ciascuno. La memoria della console si riempie in fretta. Marco compra un disco esterno veloce da centocinquanta euro. Una spesa unica, ma quasi obbligata se vuoi tenere più di pochi titoli installati. È come avere un armadio troppo piccolo: all'inizio ci stanno i vestiti, poi arrivano le giacche invernali e devi per forza comprare un secondo mobile. Senza spazio, ogni volta che vuoi giocare a un titolo nuovo devi cancellarne uno vecchio e riscaricarlo dopo, perdendo tempo e consumando la connessione di casa. Un consiglio concreto: scegli un disco veloce e non il più economico in assoluto, perché uno lento rende i caricamenti più pesanti e rovina il gusto di giocare.",
-   "dati": {
-    "nome": "Archiviazione extra",
-    "per_anno": 150,
-    "anni": 1,
-    "nota": "Disco veloce da installare"
-   },
-   "sfondi": [
-    {
-     "persone": false,
-     "descr": "A small black external storage drive on a desk next to a console",
-     "frase": "SPAZIO CHE FINISCE"
-    },
-    {
-     "persone": true,
-     "descr": "The man plugging a small storage drive into a console, concentrated",
-     "frase": "UN DISCO IN PIÙ"
-    },
-    {
-     "persone": false,
-     "descr": "A tidy desk with a console and a small drive side by side",
-     "frase": "SPESA QUASI OBBLIGATA"
-    }
-   ]
-  },
-  {
-   "tipo": "dettaglio",
-   "capitolo": "La TV giusta",
-   "voce": "Sesta voce: la televisione. Per sfruttare la console serve una TV con quattro K e uno schermo veloce. Marco cambia la vecchia e spende settecento euro. Una tantum, ma è una cifra seria. Se hai già una TV adatta, risparmi. Se no, questa voce da sola pesa più della console. È come comprare un'auto sportiva e accorgerti che la strada sotto casa è sterrata: la potenza c'è, ma non la sfrutti. Con una TV vecchia la console funziona lo stesso, solo che l'immagine resta meno nitida e fluida di quanto potrebbe. Un dettaglio utile: prima di spendere, controlla le impostazioni e le porte del televisore che hai già. Spesso basta un cavo adatto o una modifica nel menu per migliorare molto la resa, senza dover cambiare nulla.",
-   "dati": {
-    "nome": "TV compatibile",
-    "per_anno": 700,
-    "anni": 1,
-    "nota": "Schermo quattro K, veloce"
-   },
-   "sfondi": [
-    {
-     "persone": true,
-     "descr": "The man installing a large flat TV on a living room wall with a helper, smiling",
-     "frase": "TV NUOVA"
-    },
-    {
-     "persone": false,
-     "descr": "A large flat TV standing on a wooden cabinet in a bright living room",
-     "frase": "SERVE UNO SCHERMO ADATTO"
-    },
-    {
-     "persone": false,
-     "descr": "An old bulky TV in a corner of a room next to boxes",
-     "frase": "LA VECCHIA NON BASTA"
-    },
-    {
-     "persone": false,
-     "descr": "A calculator and a notepad pen on a table",
-     "frase": "SETTECENTO EURO"
-    }
-   ]
-  },
-  {
-   "tipo": "dettaglio",
-   "capitolo": "Le riparazioni",
-   "voce": "Settima voce: le riparazioni. Dopo qualche anno, ventole rumorose, porte che non leggono, pad che si rompono. Mettiamo una media di trenta euro all'anno. In sette anni sono duecentodieci euro. Non è sempre un guasto grosso. Spesso sono tanti piccoli interventi, ma ci sono. Succede come con la bicicletta o la lavatrice: per un po' va tutto bene, poi arriva la gomma bucata o la guarnizione da cambiare. Piccoli problemi, ma sommati pesano. Un consiglio che fa risparmiare: la polvere è la nemica numero uno della console. Tienila in un punto arieggiato, mai chiusa in un mobile stretto, e ogni tanto pulisci le prese d'aria. Un po' di manutenzione ti evita molte di queste spese e allunga la vita della macchina.",
+   "capitolo": "Riparazioni",
+   "voce": "Ultima voce: le riparazioni. Settecento euro all'anno, in media. Settemila euro in dieci anni. Non arrivano mai uguali. Un anno è il rivestimento che si scolora. L'anno dopo è una perdita nelle tubazioni. Poi i faretti che si fulminano, la scala che si arrugginisce, il bordo che si crepa. È come con l'auto: non sai mai quando, ma sai che prima o poi il tagliando extra arriva. L'acqua trova sempre il modo di fare danni. E in una piscina interrata non puoi spostare nulla: se c'è una perdita, bisogna scavare. Un segnale utile da tenere d'occhio: se il livello dell'acqua cala più del normale anche senza caldo, controlla subito, perché una piccola perdita scoperta in tempo costa molto meno di un danno scoperto tardi. Marco ha messo da parte un fondo. Lo chiama il salvadanaio della piscina. È la mossa più furba che abbia fatto.",
    "dati": {
     "nome": "Riparazioni",
-    "per_anno": 30,
-    "anni": 7,
-    "nota": "Piccoli guasti, pezzi, pad"
+    "per_anno": 700,
+    "anni": 10,
+    "nota": "Rivestimento, perdite, faretti, bordi"
    },
    "sfondi": [
     {
      "persone": false,
-     "descr": "Small screwdrivers and tools laid out on a workshop table next to a console",
-     "frase": "PICCOLI GUASTI"
-    },
-    {
-     "persone": true,
-     "descr": "The man in a repair shop handing a console to a technician at a counter",
-     "frase": "IN ASSISTENZA"
+     "descr": "faded cracked pool liner close-up, blue, no people",
+     "frase": "IL RIVESTIMENTO SI SCOLORA"
     },
     {
      "persone": false,
-     "descr": "A console opened with its cover removed on a workbench",
-     "frase": "VENTOLE E PORTE"
+     "descr": "pool pipe with a small water leak in wet soil",
+     "frase": "UNA PERDITA NEI TUBI"
+    },
+    {
+     "persone": false,
+     "descr": "pool underwater light fixture, one dark",
+     "frase": "FARETTI FULMINATI"
+    },
+    {
+     "persone": false,
+     "descr": "rusty stainless steel pool ladder",
+     "frase": "LA SCALA ARRUGGINISCE"
+    },
+    {
+     "persone": false,
+     "descr": "cracked pool coping tiles at the edge",
+     "frase": "IL BORDO SI CREPA"
+    },
+    {
+     "persone": false,
+     "descr": "small excavator digging next to a patio near the pool",
+     "frase": "SI DEVE SCAVARE"
+    },
+    {
+     "persone": true,
+     "descr": "Marco dropping coins into a ceramic piggy bank at home",
+     "frase": "IL SALVADANAIO DELLA PISCINA"
+    },
+    {
+     "persone": false,
+     "descr": "toolbox and a wet wrench on the pool deck",
+     "frase": "SETTEMILA EURO"
+    },
+    {
+     "persone": false,
+     "descr": "calculator and coins beside a repair toolbox",
+     "frase": "LA MOSSA FURBA"
     }
    ]
   },
   {
    "tipo": "scontrini",
-   "capitolo": "Tutte le spese",
-   "voce": "Mettiamo tutto insieme. Console, controller, giochi, abbonamento, disco, televisione e riparazioni. Il totale è quattromilaquattrocentodieci euro. Quasi otto volte il prezzo del cartellino. Ecco cosa non ti dice nessuno quando guardi la vetrina del negozio.",
+   "capitolo": "Tutte le voci",
+   "voce": "Ora mettiamo tutto insieme. Costruzione: trentacinquemila euro. Prodotti chimici: seimila. Pompa, filtri e manutenzione: tredicimila. Copertura: quattromila. Assicurazione e tasse: cinquemilacinquecento. Riparazioni: settemila. Totale: settantamilacinquecento euro. Il doppio del prezzo del cartellino. Marco pensava di pagare trentacinquemila euro. Ne pagherà più di settanta. Ogni voce da sola sembra piccola. Messe in fila, fanno paura. È questo il trucco: la spesa grande la vedi subito. Le altre le scopri strada facendo.",
    "dati": {
-    "anni": 7
+    "anni": 10
    },
    "sfondi": [
     {
      "persone": false,
-     "descr": "A neat row of small piles of coins of different heights on a wooden table",
-     "frase": "TUTTE LE VOCI"
-    },
-    {
-     "persone": true,
-     "descr": "The man sitting at a table with a calculator, looking surprised",
-     "frase": "IL TOTALE SORPRENDE"
+     "descr": "line of small coin stacks of different heights on a wooden table",
+     "frase": "TUTTE LE VOCI INSIEME"
     },
     {
      "persone": false,
-     "descr": "A large piggy bank empty and open on a table",
-     "frase": "QUATTROMILA EURO"
+     "descr": "calculator next to a stack of coins",
+     "frase": "IL TOTALE"
+    },
+    {
+     "persone": false,
+     "descr": "pool seen from above with a giant coin floating on it",
+     "frase": "SETTANTAMILACINQUECENTO EURO"
+    },
+    {
+     "persone": true,
+     "descr": "Marco sitting with his head in his hands in front of a calculator",
+     "frase": "IL DOPPIO DEL CARTELLINO"
+    },
+    {
+     "persone": false,
+     "descr": "a small stack and a huge stack of coins side by side",
+     "frase": "TRENTACINQUEMILA CONTRO SETTANTA"
+    },
+    {
+     "persone": false,
+     "descr": "many small coin stacks lined up like dominoes",
+     "frase": "PICCOLE SPESE, GRANDE CONTO"
+    },
+    {
+     "persone": false,
+     "descr": "closed garden gate with an open pool beyond it",
+     "frase": "LA SPESA SI SCOPRE DOPO"
     }
    ]
   },
   {
    "tipo": "valore",
    "capitolo": "Quanto vale dopo",
-   "voce": "Ma la console non vale zero. Dopo un anno vale quattrocento euro. Poi trecentoventi, duecentosessanta, duecentoventi, centonovanta e centosessantacinque. Dopo sette anni Marco può rivenderla a circa centocinquanta euro. Si perdono quattrocento euro di valore. Non è poco, ma è una cifra che torna in tasca. Pensa a quando vendi un telefono vecchio o una bicicletta che non usi più: qualcosa recuperi sempre, anche se meno di quanto avevi pagato. Con la console succede lo stesso, ed è una buona notizia, perché il costo totale non è tutto soldi buttati. Un dettaglio utile: tieni la scatola originale, i cavi e i manuali. Chi compra un usato si fida di più quando trova tutto in ordine, e spesso è disposto a pagare qualcosa in più. Anche una console ben pulita e senza graffi si vende meglio e più in fretta di una trascurata.",
+   "voce": "Ma una piscina vale qualcosa, vero? Vediamo. Il primo giorno vale trentacinquemila euro. Dopo un anno, circa trentunomila. Dopo cinque anni, ventimila. Dopo dieci, circa diecimila. Perché? Una piscina non si rivende da sola: si vende con la casa. Dopo dieci anni è usata, ha un rivestimento segnato e impianti che invecchiano. Per un compratore può essere un punto a favore o un problema da gestire. Alcuni la vogliono. Altri vedono solo le spese. In un mercato normale, la piscina fa salire il valore della casa meno di quanto è costata. Marco, tra dieci anni, spera di recuperare diecimila euro. Diecimila, non trentacinquemila.",
    "dati": {
     "valori": [
-     550,
-     400,
-     320,
-     260,
-     220,
-     190,
-     165,
-     150
+     35000,
+     31000,
+     28000,
+     25000,
+     22500,
+     20000,
+     17500,
+     15000,
+     13000,
+     11500,
+     10000
     ]
    },
    "sfondi": [
     {
      "persone": false,
-     "descr": "A white game console with a thin layer of dust on a shelf, soft light",
-     "frase": "IL VALORE SCENDE"
-    },
-    {
-     "persone": true,
-     "descr": "The man holding an old console and checking it from all sides",
-     "frase": "DOPO SETTE ANNI"
+     "descr": "brand new pool, bright blue water, sunny garden, no people",
+     "frase": "IL PRIMO GIORNO"
     },
     {
      "persone": false,
-     "descr": "A few coins in an open hand on a table",
-     "frase": "CENTOCINQUANTA EURO"
+     "descr": "same pool one year later with a few leaves on the water",
+     "frase": "DOPO UN ANNO"
+    },
+    {
+     "persone": false,
+     "descr": "pool with slightly faded liner, five years old, no people",
+     "frase": "DOPO CINQUE ANNI"
+    },
+    {
+     "persone": false,
+     "descr": "old pool with worn tiles and faded liner, no people",
+     "frase": "DOPO DIECI ANNI"
+    },
+    {
+     "persone": false,
+     "descr": "Italian house with garden and pool seen from the street",
+     "frase": "SI VENDE CON LA CASA"
+    },
+    {
+     "persone": false,
+     "descr": "worn pool liner with a visible stain, close-up",
+     "frase": "IL RIVESTIMENTO INVECCHIA"
+    },
+    {
+     "persone": true,
+     "descr": "Marco and a visiting couple looking at the pool, couple seen from behind",
+     "frase": "UN COMPRATORE INDECISO"
+    },
+    {
+     "persone": false,
+     "descr": "a pair of scales with a small pile of coins on one side",
+     "frase": "VALE MENO DI QUANTO COSTA"
+    },
+    {
+     "persone": true,
+     "descr": "Marco looking hopeful at the pool at sunset",
+     "frase": "MARCO SPERA DIECIMILA"
+    },
+    {
+     "persone": false,
+     "descr": "a small stack of coins next to a large stack",
+     "frase": "DIECI, NON TRENTACINQUE"
     }
    ]
   },
   {
    "tipo": "calcolo",
    "capitolo": "Il conto finale",
-   "voce": "Facciamo il conto. Quattromilaquattrocentodieci euro pagati, meno centocinquanta di rivendita. Il costo vero è quattromiladuecentosessanta euro. Divisi in ottantaquattro mesi, sono circa cinquantuno euro al mese. Ogni giorno, un euro e sessantasette. Un caffè e mezzo, tutti i giorni, per sette anni. Detto così sembra poco, ed è proprio per questo che molti non si accorgono di quanto spendono. È come la rata di un telefono o di un elettrodomestico: se la guardi da sola non ti spaventa, ma se la moltiplichi per tutti i mesi il totale cambia faccia. Un consiglio pratico: prova a fare questo stesso calcolo prima di ogni acquisto importante, anche per cose diverse dalla console. Dividere il costo per i mesi o per i giorni di utilizzo ti aiuta a capire se la spesa vale davvero il piacere che ne ricavi.",
+   "voce": "Facciamo il conto finale. Marco in dieci anni spende settantamilacinquecento euro. Se vende la casa, la piscina gli rende diecimila euro. Settantamilacinquecento meno diecimila fa sessantamilacinquecento euro. Questo è il costo vero. Dividiamo per centoventi mesi: più di cinquecento euro al mese. Cinquecentoquattro, per essere precisi. E al giorno? Circa sedici euro e cinquanta. Ogni mattina, anche d'inverno, anche quando piove, anche in vacanza. Sedici euro e mezzo al giorno per un tuffo che dura tre mesi l'anno. Il cartellino diceva trentacinquemila euro. Il costo vero è quasi il doppio. Questo è quello che ti costa davvero.",
    "dati": {},
    "sfondi": [
     {
      "persone": false,
-     "descr": "A calculator on a wooden desk with a pen beside it",
+     "descr": "calculator on a garden table with a pool in the background",
      "frase": "IL CONTO FINALE"
     },
     {
+     "persone": false,
+     "descr": "two stacks of coins, one big one small, side by side",
+     "frase": "MENO LA RIVENDITA"
+    },
+    {
      "persone": true,
-     "descr": "The man at a desk typing on a calculator, focused",
-     "frase": "SOTTRAIAMO LA RIVENDITA"
+     "descr": "Marco pressing buttons on a calculator, concentrated",
+     "frase": "MARCO FA I CONTI"
     },
     {
      "persone": false,
-     "descr": "A coffee cup and a few coins on a bar counter",
-     "frase": "UN CAFFÈ E MEZZO AL GIORNO"
+     "descr": "big stack of coins labeled by nothing, on a wooden table",
+     "frase": "SESSANTAMILACINQUECENTO EURO"
+    },
+    {
+     "persone": false,
+     "descr": "twelve small piggy banks in a row on a shelf",
+     "frase": "CENTOVENTI MESI"
+    },
+    {
+     "persone": false,
+     "descr": "wall clock and a few coins on a table",
+     "frase": "OGNI SINGOLO GIORNO"
+    },
+    {
+     "persone": false,
+     "descr": "pool in the rain, empty garden, no people",
+     "frase": "ANCHE QUANDO PIOVE"
+    },
+    {
+     "persone": false,
+     "descr": "pool covered in winter with snow-free gray garden",
+     "frase": "ANCHE D'INVERNO"
+    },
+    {
+     "persone": false,
+     "descr": "swimsuit and towel on a chair by the pool in summer",
+     "frase": "TRE MESI DI TUFFI"
+    },
+    {
+     "persone": false,
+     "descr": "small coin stack beside a much bigger one",
+     "frase": "QUASI IL DOPPIO"
     }
    ]
   },
   {
    "tipo": "confronto",
-   "capitolo": "Usata contro nuova",
-   "voce": "Si può spendere meno? Sì. Marco può comprare una console usata e pochi giochi, anche usati. Così in sette anni spende circa duemilanovecento euro. Contro i quattromiladuecentosessanta della versione completa. La differenza è oltre milletrecento euro, solo con scelte più furbe. Funziona come quando fai la spesa con una lista e un budget: porti a casa le stesse cose essenziali, ma eviti quello che hai preso solo perché era in vetrina. Con il gaming vale lo stesso principio. Non serve rinunciare al divertimento, basta scegliere con più calma. Un dettaglio utile: cerca negozi dell'usato di fiducia o piattaforme che offrono una garanzia sui prodotti. Una console usata con qualche mese di garanzia ti protegge da brutte sorprese e ti fa risparmiare senza rischi, e molti giochi usati sono praticamente identici a quelli nuovi.",
+   "capitolo": "Interrata o fuori terra",
+   "voce": "Esiste un'alternativa? Sì: la piscina fuori terra. Una vasca rigida, quattro per otto, montata in giardino. Si compra a quattromila euro, installazione compresa. Chimica, filtri, riparazioni e telo: altri novemila euro in dieci anni. Totale: circa tredicimila euro. Meno di un quarto della piscina interrata. Certo, è meno bella. Non fa salire il valore della casa. Ma i bambini si tuffano lo stesso, e il sorriso è identico. Marco ci sta pensando. Con la differenza, ogni anno potrebbe portare tutta la famiglia in vacanza al mare.",
    "dati": {
-    "titolo": "Usata contro nuova",
+    "titolo": "Interrata contro fuori terra",
     "a": [
-     "Usata e pochi giochi",
-     "2900"
+     "Interrata",
+     "60.500 €"
     ],
     "b": [
-     "Nuova e molti giochi",
-     "4260"
+     "Fuori terra",
+     "13.000 €"
     ]
    },
    "sfondi": [
     {
      "persone": false,
-     "descr": "A used white console next to a new boxed console on a table",
-     "frase": "USATA O NUOVA"
-    },
-    {
-     "persone": true,
-     "descr": "The man comparing two console boxes in a shop, thoughtful",
-     "frase": "MARCO CONFRONTA"
+     "descr": "above-ground round rigid pool with a small ladder on a lawn, no people",
+     "frase": "LA PISCINA FUORI TERRA"
     },
     {
      "persone": false,
-     "descr": "A pile of used game cases in a second-hand shop crate",
-     "frase": "GIOCHI USATI"
+     "descr": "installers carrying pool panels in a garden, seen from behind",
+     "frase": "MONTATA IN UNA GIORNATA"
+    },
+    {
+     "persone": false,
+     "descr": "small stack of coins next to filter cartridges",
+     "frase": "SOLO TREDICIMILA EURO"
+    },
+    {
+     "persone": false,
+     "descr": "small stack of coins next to a much bigger stack",
+     "frase": "UN QUARTO DEL COSTO"
+    },
+    {
+     "persone": false,
+     "descr": "two children's flip-flops and a pool float on the grass",
+     "frase": "I BAMBINI SI TUFFANO LO STESSO"
+    },
+    {
+     "persone": true,
+     "descr": "Marco sitting on the lawn thinking, looking at the above-ground pool",
+     "frase": "MARCO CI PENSA"
+    },
+    {
+     "persone": false,
+     "descr": "beach with umbrellas and a sandy shore, no people",
+     "frase": "LA DIFFERENZA È UNA VACANZA"
+    },
+    {
+     "persone": false,
+     "descr": "a beach bag and sunglasses on a towel",
+     "frase": "VACANZA OGNI ANNO"
+    },
+    {
+     "persone": false,
+     "descr": "split view of two pools, one in-ground one above-ground, no people",
+     "frase": "DUE STRADE"
     }
    ]
   },
   {
    "tipo": "consigli",
    "capitolo": "Cinque trucchi",
-   "voce": "Ecco cinque trucchi. Uno: compra i giochi usati o in saldo, mai al lancio. Due: aspetta qualche mese e paga meno. Tre: condividi l'abbonamento con la famiglia. Quattro: usa la TV che hai già, se è adatta. Cinque: vendi i giochi finiti e riparti dal ricavato. Pensa a questi trucchi come alle piccole abitudini di chi fa la spesa con attenzione: da soli sembrano gesti da poco, ma messi insieme fanno una differenza enorme a fine anno. Un esempio concreto: se finisci un gioco e lo rivendi subito, ottieni un prezzo migliore perché è ancora richiesto, e con quei soldi ne compri un altro senza toccare il portafoglio. Un ultimo dettaglio utile: scegli uno solo di questi trucchi e applicalo da oggi. Cambiare tutto insieme è difficile, ma una buona abitudine alla volta diventa naturale e ti accompagna per anni.",
+   "voce": "Cinque trucchi per spendere meno. Primo: chiedi almeno tre preventivi a ditte diverse. Tra uno e l'altro, la differenza può superare cinquemila euro. Secondo: impara a gestire l'acqua da solo. Un kit per il pH costa poco e ti evita bidoni di rimedi. Terzo: compra subito una copertura robusta. Costa di più, ma ti risparmia ore di pulizia e litri di prodotti. Quarto: metti da parte settecento euro all'anno in un fondo riparazioni. Quando arriva la perdita, non è un dramma. Quinto: scegli una pompa a velocità variabile. Costa di più all'inizio, dura di più e si rompe meno. Piccole scelte oggi, migliaia di euro risparmiati tra dieci anni.",
    "dati": {
     "voci": [
-     "Giochi usati o in saldo",
-     "Aspetta, paga meno",
-     "Condividi l'abbonamento",
-     "Usa la TV che hai",
-     "Rivendi i giochi finiti"
+     "Tre preventivi, sempre",
+     "Impara a gestire l'acqua",
+     "Copertura robusta subito",
+     "Fondo riparazioni annuo",
+     "Pompa a velocità variabile"
     ]
    },
    "sfondi": [
     {
      "persone": false,
-     "descr": "A shelf of second-hand game cases in a cozy shop",
-     "frase": "COMPRA USATO"
+     "descr": "three closed folders lined up on a desk with a pen",
+     "frase": "TRE PREVENTIVI"
     },
     {
      "persone": true,
-     "descr": "The man selling a game case to a shop clerk at a counter",
-     "frase": "RIVENDI I GIOCHI"
+     "descr": "Marco shaking hands with a pool contractor in a hard hat, contractor seen partially",
+     "frase": "CONFRONTA LE DITTE"
     },
     {
      "persone": false,
-     "descr": "A small piggy bank with coins next to it on a sunny table",
-     "frase": "RISPARMIA DAVVERO"
+     "descr": "pH test kit vials lined up on the pool edge",
+     "frase": "IMPARA IL PH"
+    },
+    {
+     "persone": false,
+     "descr": "small bottle of pool chemical beside a testing kit",
+     "frase": "MENO BIDONI"
+    },
+    {
+     "persone": false,
+     "descr": "sturdy rigid pool cover over a pool",
+     "frase": "COPERTURA ROBUSTA"
+    },
+    {
+     "persone": false,
+     "descr": "clean pool in spring, bright water",
+     "frase": "MENO PULIZIA"
+    },
+    {
+     "persone": false,
+     "descr": "piggy bank with a coin dropping in",
+     "frase": "IL FONDO RIPARAZIONI"
+    },
+    {
+     "persone": false,
+     "descr": "calendar-less jar full of coins on a kitchen shelf",
+     "frase": "SETTECENTO EURO L'ANNO"
+    },
+    {
+     "persone": false,
+     "descr": "variable speed pool pump in a technical room",
+     "frase": "POMPA A VELOCITÀ VARIABILE"
+    },
+    {
+     "persone": false,
+     "descr": "pool pump close-up, new and clean",
+     "frase": "DURA DI PIÙ"
+    },
+    {
+     "persone": true,
+     "descr": "Marco smiling relaxed by the pool with a drink, evening light",
+     "frase": "SPENDI MENO, VIVI MEGLIO"
     }
    ]
   },
   {
    "tipo": "prossimo",
    "capitolo": "Prossima puntata",
-   "voce": "Hai visto quanto costa davvero una PlayStation Cinque? Nella prossima puntata scopriamo quanto costa possedere uno smartphone di fascia alta. Iscriviti al canale e attiva la campanella, così non perdi i conti di Costo Vero!",
+   "voce": "Quanto costa davvero un cane in casa? Ciotole, veterinario, cibo, assicurazione e imprevisti: tutto in dodici anni. Il numero ti sorprenderà. Se questo video ti è piaciuto, iscriviti a Costo Vero e attiva la campanella. Ci vediamo alla prossima puntata.",
    "dati": {
-    "testo": "PROSSIMA PUNTATA: Quanto costa DAVVERO uno smartphone in 5 anni?"
+    "testo": "PROSSIMA PUNTATA: UN CANE in casa: quanto costa DAVVERO in 12 anni?"
    },
    "sfondi": [
     {
-     "persone": true,
-     "descr": "The man waving goodbye outdoors on a Bologna portico street, smiling",
-     "frase": "ALLA PROSSIMA"
+     "persone": false,
+     "descr": "dog bowl and leash on a kitchen floor, no people",
+     "frase": "QUANTO COSTA UN CANE?"
     },
     {
      "persone": false,
-     "descr": "A modern smartphone lying on a wooden table with a pair of earbuds",
-     "frase": "UNO SMARTPHONE"
+     "descr": "veterinary bag and a small bone toy on a table",
+     "frase": "VETERINARIO E IMPREVISTI"
+    },
+    {
+     "persone": true,
+     "descr": "Marco kneeling in the living room petting a golden retriever puppy, smiling",
+     "frase": "MARCO E IL CUCCIOLO"
+    },
+    {
+     "persone": false,
+     "descr": "stack of coins next to a dog bowl",
+     "frase": "IL NUMERO TI SORPRENDERÀ"
+    },
+    {
+     "persone": false,
+     "descr": "calculator beside a dog leash",
+     "frase": "ISCRIVITI A COSTO VERO"
     }
    ]
   }
