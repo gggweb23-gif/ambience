@@ -99,6 +99,7 @@ def main():
             d.text((40, 250), '60.500 €', font=F(FM, 150), fill=(230, 20, 30), stroke_width=4, stroke_fill=BI)
             d.text((60, 470), 'in 10 anni!', font=F(FM, 70), fill=BI, stroke_width=5, stroke_fill=INK)
         elif nome == 'noir':   # buio, un solo faro, cifra in oro: elegante e "da documentario"
+            p_ = im.convert('RGB').resize((960, 540), Image.LANCZOS); im = Image.new('RGBA', (1280, 720), (8, 8, 10, 255)); mk = Image.new('L', (960, 540), 0); ImageDraw.Draw(mk).rectangle((60, 40, 900, 500), fill=255); im.paste(p_, (320, 150), mk.filter(ImageFilter.GaussianBlur(45))); d = ImageDraw.Draw(im)   # la piscina tutta a destra, la scritta non la tocca
             lay = Image.new('RGBA', im.size, (0, 0, 0, 0)); dl = ImageDraw.Draw(lay)
             for k in range(60):
                 dl.rectangle((0, 0, 620 - k * 4, 720), fill=(0, 0, 0, 3))
@@ -106,23 +107,23 @@ def main():
             ORO = (232, 190, 95)
             d.text((60, 70), 'IL VERO PREZZO DI', font=F(FMONO, 36), fill=(220, 220, 220))
             d.text((60, 115), 'UNA PISCINA', font=F(FA, 96), fill=BI)
-            d.text((52, 270), '60.500€', font=F(FS, 190), fill=ORO)
-            d.line((62, 500, 520, 500), fill=ORO, width=3)
-            d.text((60, 520), 'NON 35.000', font=F(FMONO, 44), fill=(200, 200, 200))
+            d.text((52, 250), '60.500€', font=F(FS, 140), fill=ORO)
+            d.line((62, 440, 470, 440), fill=ORO, width=3)
+            d.text((60, 460), 'NON 35.000', font=F(FMONO, 44), fill=(200, 200, 200))
         else:   # progetto tecnico con le voci di costo come quote del disegno
             AZ = (235, 245, 255)
             voci = [('COPERTURA', '4.000 €', (1000, 200)), ('SCAVO E VASCA', '35.000 €', (820, 320)), ('POMPA E FILTRI', '13.000 €', (980, 430)), ('PRODOTTI', '6.000 €', (860, 520))]
-            ys = [150, 250, 350, 450]
+            ys = [135, 220, 305, 390]
             for (n_, v_, p_), y in zip(voci, ys):
                 d.line((330, y + 30, p_[0], p_[1]), fill=AZ, width=2); d.ellipse((p_[0] - 7, p_[1] - 7, p_[0] + 7, p_[1] + 7), outline=AZ, width=3)
                 d.text((40, y), n_, font=F(FMONO, 26), fill=AZ)
-                d.text((40, y + 30), v_, font=F(FA, 50), fill=BI)
+                d.text((40, y + 28), v_, font=F(FA, 44), fill=BI)
             lay = Image.new('RGBA', (560, 170), (0, 0, 0, 0)); dl = ImageDraw.Draw(lay)
             dl.rounded_rectangle((8, 8, 552, 162), 10, outline=(230, 40, 50), width=8)
             dl.text((280, 52), 'COSTO VERO', font=F(FMONO, 34), fill=(230, 40, 50), anchor='mm')
             dl.text((280, 112), '60.500 €', font=F(FA, 80), fill=(230, 40, 50), anchor='mm')
             lay = lay.rotate(8, expand=True, resample=Image.BICUBIC)
-            im.alpha_composite(lay, (20, 455))
+            im.alpha_composite(lay, (20, 480))
             d.text((40, 40), 'PISCINA', font=F(FA, 84), fill=BI)
         im.convert('RGB').save(os.path.join(OUT, nome + '.jpg'), quality=94)
         print('FATTO', nome, flush=True)
