@@ -39,10 +39,32 @@ def foto(prodotto, sx):
                     break
             u = YT.http(inv['response_url'], headers=hd, timeout=60)['images'][0]['url']
             CO.registra('fal', 'flux-2-klein-4b', dollari=0.02, nota='copertina costo vero foto 2c')
-            return Image.open(io.BytesIO(YT.http(u, raw=True, timeout=120))).convert('RGB').resize((W, H), Image.LANCZOS)
+            im = Image.open(io.BytesIO(YT.http(u, raw=True, timeout=120))).convert('RGB').resize((W, H), Image.LANCZOS)
+            if _ < 2 and difetto(im):   # 13 nov (Giorgio: cavallo a 5 zampe): mai foto con zampe/braccia in piu' o corpi deformi
+                print('foto con un difetto (zampe/corpo), la rifaccio', flush=True); continue
+            return im
         except Exception as e:
             print('foto copertina non riuscita, riprovo:', str(e)[:120], flush=True); time.sleep(4)
     raise RuntimeError('foto copertina non riuscita')
+
+
+def difetto(im):
+    """Claude Haiku (~0,001 $): SI se c'e' un errore evidente dell'immagine AI (zampe o arti in piu' o in meno, corpi fusi o deformi, oggetti impossibili)."""
+    import base64
+    if not E('ANTHROPIC_API_KEY'):
+        return False
+    try:
+        buf = io.BytesIO(); im.convert('RGB').resize((768, 432)).save(buf, 'JPEG', quality=88)
+        r = YT.http('https://api.anthropic.com/v1/messages', {'model': 'claude-haiku-4-5-20251001', 'max_tokens': 5, 'messages': [{'role': 'user', 'content': [
+            {'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}},
+            {'type': 'text', 'text': 'Look carefully at this AI photo. Count the legs of every animal and the arms/legs of every person. Is there ANY anatomical error '
+             '(extra or missing legs, fused or duplicated bodies, deformed parts) or an impossible object? Answer only SI or NO.'}]}]},
+            {'x-api-key': E('ANTHROPIC_API_KEY'), 'anthropic-version': '2023-06-01'}, timeout=60)
+        CO.registra('claude', 'claude-haiku-4-5-20251001', usage=r.get('usage'), nota='controllo difetti copertina')
+        return r['content'][0]['text'].strip().upper().startswith('SI')
+    except Exception as e:
+        print('controllo difetti non riuscito:', str(e)[:100], flush=True)
+        return False
 
 
 def box_soggetto(im, cosa):
