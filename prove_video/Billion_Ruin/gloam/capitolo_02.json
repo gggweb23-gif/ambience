@@ -1,150 +1,212 @@
 [
  {
-  "voce": "Too Much Money, Nowhere to Lend.",
+  "voce": "Chapter three. The Swap Loophole.",
   "tipo": "foto",
-  "sfondo": "bank headquarters building",
-  "chiave": "Nowhere to Lend",
+  "sfondo": "Wall Street financial district",
+  "chiave": "LOOPHOLE",
   "etichetta": "CHAPTER 3",
-  "titolo": "Too Much Money, Nowhere to Lend",
+  "titolo": "The Swap Loophole",
   "sotto": "",
-  "capitolo": "Too Much Money, Nowhere to Lend"
+  "capitolo": "The Swap Loophole"
  },
  {
-  "voce": "Deposits kept pouring in faster than loans.",
+  "voce": "Archegos never actually bought the stocks it bet on.",
   "tipo": "clip",
-  "sfondo": "banknotes counting machine",
-  "chiave": "DEPOSITS",
-  "cartello": "DEPOSITS OUTPACE LOANS",
-  "capitolo": "Too Much Money, Nowhere to Lend"
+  "sfondo": "stock exchange trading floor",
+  "chiave": "NEVER",
+  "cartello": "NEVER OWNED",
+  "capitolo": "The Swap Loophole"
  },
  {
-  "voce": "A bank cannot let that cash sit idle.",
-  "tipo": "clip",
-  "sfondo": "bank vault interior",
-  "chiave": "IDLE",
-  "cartello": "IDLE CASH",
-  "capitolo": "Too Much Money, Nowhere to Lend"
- },
- {
-  "voce": "So SVB bought securities. Heavily.",
-  "tipo": "foto",
-  "sfondo": "trading screens financial data",
-  "chiave": "Securities",
-  "etichetta": "SANTA CLARA · 2021",
-  "titolo": "SVB Buys Securities Heavily",
-  "sotto": "Deposits outgrew loans, cash went into bonds",
-  "capitolo": "Too Much Money, Nowhere to Lend"
- },
- {
-  "voce": "By the end of twenty twenty-one,",
-  "tipo": "clip",
-  "sfondo": "financial district skyline",
-  "chiave": "TWENTY TWENTY-ONE",
-  "cartello": "END OF 2021",
-  "capitolo": "Too Much Money, Nowhere to Lend"
- },
- {
-  "voce": "the portfolio reached about one hundred twenty-eight billion dollars.",
-  "tipo": "dato",
-  "sfondo": "stock exchange floor",
-  "chiave": "$128B",
-  "numero": "$128B",
-  "didascalia": "Securities portfolio, end of 2021",
-  "fonte": "SVB filings",
-  "capitolo": "Too Much Money, Nowhere to Lend"
- },
- {
-  "voce": "Mortgage-backed securities. And United States Treasuries.",
+  "voce": "It used something called total return swaps.",
   "tipo": "dossier",
   "sfondo": "financial documents desk",
-  "chiave": "Treasuries",
-  "scheda": "PORTFOLIO FILE",
-  "nome": "SVB Securities",
+  "chiave": "SWAPS",
+  "scheda": "CONTRACT FILE",
+  "nome": "Total Return Swap",
   "persona": false,
   "righe": [
    [
-    "Holding",
-    "Mortgage-backed securities"
+    "Type",
+    "Derivative contract"
    ],
    [
-    "Holding",
-    "US Treasuries"
+    "Buyer of shares",
+    "The bank"
    ],
    [
-    "Size",
-    "About $128 billion"
+    "Gains and losses",
+    "Go to Archegos"
    ],
    [
-    "Date",
-    "End of 2021"
+    "Stock ownership",
+    "None for Archegos"
    ]
   ],
-  "timbro": "LONG-DATED",
-  "capitolo": "Too Much Money, Nowhere to Lend"
+  "timbro": "LOOPHOLE",
+  "capitolo": "The Swap Loophole"
  },
  {
-  "voce": "These bonds were bought when rates were near zero.",
+  "voce": "The banks bought the shares themselves.",
   "tipo": "clip",
-  "sfondo": "trading screens bonds",
-  "chiave": "NEAR ZERO",
-  "cartello": "RATES NEAR ZERO",
-  "capitolo": "Too Much Money, Nowhere to Lend"
+  "sfondo": "bank headquarters building",
+  "chiave": "BANKS",
+  "cartello": "BANKS BOUGHT SHARES",
+  "capitolo": "The Swap Loophole"
  },
  {
-  "voce": "And long-dated bonds have a weakness.",
+  "voce": "Archegos simply received the gains, or the losses.",
   "tipo": "oggetto3d",
-  "sfondo": "golden coins tower",
-  "chiave": "WEAKNESS",
-  "oggetto": "a tall glossy tower of gold coins beginning to tilt on a dark surface",
+  "sfondo": "golden coins",
+  "chiave": "GAINS",
+  "oggetto": "A glossy golden coin stack split in two halves, one gleaming and one cracked, on a dark reflective surface",
   "etichettes": [],
   "etichette": [
-   "LONG BONDS"
+   "GAINS",
+   "LOSSES"
   ],
-  "capitolo": "Too Much Money, Nowhere to Lend"
+  "capitolo": "The Swap Loophole"
  },
  {
-  "voce": "When rates rise, their market value falls.",
+  "voce": "No ownership meant no public ownership filings.",
   "tipo": "clip",
-  "sfondo": "stock market declining screens",
-  "chiave": "VALUE FALLS",
-  "cartello": "RATES UP, VALUE DOWN",
-  "capitolo": "Too Much Money, Nowhere to Lend"
+  "sfondo": "legal documents filing",
+  "chiave": "NO FILINGS",
+  "cartello": "NO FILINGS",
+  "capitolo": "The Swap Loophole"
  },
  {
-  "voce": "Much of the portfolio sat in held-to-maturity.",
-  "tipo": "dato",
-  "sfondo": "bank ledger documents",
-  "chiave": "$91B",
-  "numero": "$91B",
-  "didascalia": "Held-to-maturity, end of 2022",
-  "fonte": "SVB filings",
-  "capitolo": "Too Much Money, Nowhere to Lend"
- },
- {
-  "voce": "That accounting label hides losses from the balance sheet.",
+  "voce": "The banks held the shares, so nothing appeared.",
   "tipo": "clip",
-  "sfondo": "balance sheet documents",
-  "chiave": "HIDES LOSSES",
-  "cartello": "HIDDEN LOSSES",
-  "capitolo": "Too Much Money, Nowhere to Lend"
+  "sfondo": "city skyline office windows",
+  "chiave": "HIDDEN",
+  "cartello": "HIDDEN POSITIONS",
+  "capitolo": "The Swap Loophole"
  },
  {
-  "voce": "Unless the bonds are sold.",
+  "voce": "Huge, concentrated positions stayed largely hidden from the market.",
+  "tipo": "clip",
+  "sfondo": "trading screens stock charts",
+  "chiave": "HIDDEN",
+  "cartello": "HIDDEN FROM MARKET",
+  "capitolo": "The Swap Loophole"
+ },
+ {
+  "voce": "Hidden from other lenders, too.",
+  "tipo": "foto",
+  "sfondo": "bank vault door",
+  "chiave": "LENDERS",
+  "etichette": "",
+  "etichetta": "NEW YORK · 2020",
+  "titolo": "Lenders Saw Only Their Slice",
+  "sotto": "No bank saw the full picture",
+  "capitolo": "The Swap Loophole"
+ },
+ {
+  "voce": "And the banks asked for very little collateral.",
+  "tipo": "clip",
+  "sfondo": "banknotes counting machine",
+  "chiave": "COLLATERAL",
+  "cartello": "COLLATERAL SHORTFALL",
+  "capitolo": "The Swap Loophole"
+ },
+ {
+  "voce": "Only a fraction of each position's value.",
   "tipo": "oggetto3d",
-  "sfondo": "golden vault",
-  "chiave": "SOLD",
-  "oggetto": "a glossy golden vault door with a thin crack beginning to spread across it",
+  "sfondo": "stacked coins",
+  "chiave": "FRACTION",
+  "oggetto": "A tall precarious tower of golden coins balanced on a single small coin, dark studio background",
   "etichette": [
-   "HELD-TO-MATURITY"
+   "THIN COLLATERAL",
+   "HEAVY LEVERAGE"
   ],
-  "capitolo": "Too Much Money, Nowhere to Lend"
+  "capitolo": "The Swap Loophole"
  },
  {
-  "voce": "So what happens when the bank must sell?",
+  "voce": "That meant heavy leverage, stacked on borrowed money.",
+  "tipo": "clip",
+  "sfondo": "financial charts screens",
+  "chiave": "LEVERAGE",
+  "cartello": "LEVERAGE EVERYWHERE",
+  "capitolo": "The Swap Loophole"
+ },
+ {
+  "voce": "Goldman Sachs. Morgan Stanley. Credit Suisse. Nomura.",
+  "tipo": "dossier",
+  "sfondo": "bank towers",
+  "chiave": "PRIME BROKERS",
+  "scheda": "PRIME BROKERS",
+  "nome": "Banks Behind Archegos",
+  "persona": false,
+  "righe": [
+   [
+    "Bank",
+    "Goldman Sachs"
+   ],
+   [
+    "Bank",
+    "Morgan Stanley"
+   ],
+   [
+    "Bank",
+    "Credit Suisse"
+   ],
+   [
+    "Bank",
+    "Nomura"
+   ],
+   [
+    "Others",
+    "Also involved"
+   ]
+  ],
+  "timbro": "EXPOSED",
+  "capitolo": "The Swap Loophole"
+ },
+ {
+  "voce": "Each one competing for the business.",
+  "tipo": "clip",
+  "sfondo": "financial district skyscrapers",
+  "chiave": "COMPETING",
+  "cartello": "COMPETING FOR BUSINESS",
+  "capitolo": "The Swap Loophole"
+ },
+ {
+  "voce": "Each one blind to what the others had done.",
+  "tipo": "foto",
+  "sfondo": "server room data",
+  "chiave": "BLIND",
+  "etichetta": "NEW YORK · 2021",
+  "titolo": "Every Bank Blind",
+  "sotto": "Nobody saw the whole position",
+  "capitolo": "The Swap Loophole"
+ },
+ {
+  "voce": "At its peak, prosecutors said the exposure reached roughly one hundred sixty billion dollars.",
+  "tipo": "dato",
+  "sfondo": "banknotes",
+  "chiave": "$160B",
+  "numero": "$160B",
+  "didascalia": "Peak exposure, according to prosecutors",
+  "fonte": "U.S. prosecutors",
+  "capitolo": "The Swap Loophole"
+ },
+ {
+  "voce": "A mountain of risk, built in plain sight.",
   "tipo": "clip",
   "sfondo": "city skyline dusk",
-  "chiave": "MUST SELL",
-  "cartello": "MUST SELL",
-  "capitolo": "Too Much Money, Nowhere to Lend"
+  "chiave": "RISK",
+  "cartello": "RISK IN SHADOWS",
+  "capitolo": "The Swap Loophole"
+ },
+ {
+  "voce": "But the first domino was already wobbling.",
+  "tipo": "foto",
+  "sfondo": "stock market screens",
+  "chiave": "DOMINO",
+  "etichetta": "NEW YORK · MARCH 2021",
+  "titolo": "The First Domino Wobbles",
+  "sotto": "Next: the margin call nobody expected",
+  "capitolo": "The Swap Loophole"
  }
 ]

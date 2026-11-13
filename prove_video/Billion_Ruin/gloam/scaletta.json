@@ -1,146 +1,148 @@
 {
- "titolo": "SVB – The $42 Billion Bank Run That Took One Day",
- "descrizione": "On March 9, 2023, depositors tried to pull $42 billion out of Silicon Valley Bank in a single day. By the next morning, California regulators had closed the bank, and it became the second-largest bank failure in US history at the time. This documentary follows the investigation: how a fast-growing bank bought long-dated bonds with a deposit boom, what happened when interest rates rose, and how a few days of panic broke it.\n\nAll facts come from SEC filings, the Federal Reserve's April 2023 review by Vice Chair for Supervision Michael Barr, the FDIC and major newspapers. The video explains held-to-maturity accounting, uninsured deposits and the speed of digital bank runs, and what regulators and banks learned afterwards.",
+ "titolo": "Archegos – How One Man Lost $20 Billion in Days",
+ "descrizione": "In March 2021, Archegos Capital Management, the family office of former hedge fund manager Bill Hwang, collapsed within days. Banks that had financed its giant, concentrated stock bets through total return swaps were left with billions in losses, and the fund's positions were dumped on the market in a matter of days. This documentary follows the investigation step by step: how Hwang built enormous exposure with borrowed money, how the swaps hid his positions from the market, and what happened when ViacomCBS stock turned.\n\nWe rely only on documented sources: the SEC complaint, the US Department of Justice indictment, the 2024 criminal trial, and reporting by major newspapers. We explain the mechanism in plain language and ask what the collapse reveals about leverage, disclosure rules and risk management at the biggest banks.",
  "tag": [
-  "SVB",
-  "Silicon Valley Bank",
-  "bank run",
-  "bank collapse",
-  "2023 banking crisis",
-  "SVB collapse explained",
+  "Archegos",
+  "Bill Hwang",
+  "Archegos Capital",
+  "hedge fund collapse",
+  "total return swaps",
+  "Credit Suisse",
+  "Nomura",
+  "financial disaster",
+  "margin call",
+  "ViacomCBS",
+  "family office",
+  "market manipulation",
+  "Wall Street scandal",
   "finance documentary",
-  "financial disasters",
-  "interest rate risk",
-  "uninsured deposits",
-  "Signature Bank",
-  "FDIC",
-  "Federal Reserve",
-  "Greg Becker",
-  "Billion Ruin"
+  "billion dollar loss"
  ],
  "copertina": {
-  "oggetto": "SVB",
-  "rosso": "BANK EXECUTIVE",
-  "blu": "DEPOSITORS",
-  "scena_rosso": "A single red figure stands calmly at the top of the bank's steps, holding a bond portfolio folder while the building behind him cracks",
-  "scena_blu": "Many blue figures rush toward the entrance with phones in hand, pulling money out through glowing screens",
-  "scena_oro": "A large gold SVB vault door, half open and cracking, with gold coins pouring out and draining away"
+  "oggetto": "ARCHEGOS",
+  "rosso": "FUND MANAGER",
+  "blu": "BANKERS",
+  "scena_rosso": "A lone red figure in a suit stands at the top of a tall tower of stacked borrowed money, still placing one more block on top",
+  "scena_blu": "Blue figures at the base look up in alarm, some holding cracked ledgers and trying to hold the tower steady",
+  "scena_oro": "A gold ARCHEGOS block sits at the base of the tower, cracking down the middle as the tower begins to topple"
  },
  "capitoli": [
   {
-   "titolo": "$42 Billion in One Day",
-   "parole": 150,
+   "titolo": "The Number",
+   "parole": 140,
    "fatti": [
-    "On Thursday, March 9, 2023, depositors tried to withdraw $42 billion from Silicon Valley Bank in a single day",
-    "That was about a quarter of the bank's deposits (about $173 billion at end of 2022)",
-    "The next day, Friday, March 10, 2023, California regulators closed the bank and appointed the FDIC as receiver",
-    "It became the second-largest bank failure in US history at the time, after Washington Mutual in 2008",
-    "Open question: how does a bank with $209 billion in assets fall in two days?"
+    "Archegos Capital Management was the family office of Sung Kook (Bill) Hwang, based in New York",
+    "Reports put its assets at about $10 billion in early 2021, and press accounts say it was reported to have lost about $20 billion within days in March 2021",
+    "The banks that financed it lost more than $10 billion in total, according to major press accounts",
+    "Archegos was a family office, so it was not required to register with the SEC as a hedge fund adviser",
+    "Open question: how could a firm no regulator was watching do this much damage so fast?"
    ]
   },
   {
-   "titolo": "The Bank of Startups",
+   "titolo": "Who Was Bill Hwang",
    "parole": 150,
    "fatti": [
-    "SVB, founded in 1983 in Santa Clara, California, served venture capital firms and tech startups",
-    "At end of 2022 it had about $209 billion in total assets, the 16th-largest US bank",
-    "Its deposits grew from about $62 billion at end of 2019 to about $189 billion at end of 2021",
-    "Growth was driven by the venture funding boom and low interest rates in 2020-2021",
-    "Most of its deposits were uninsured: above the $250,000 FDIC limit"
+    "Hwang worked for Julian Robertson's Tiger Management and later founded Tiger Asia Management",
+    "In 2012 Tiger Asia pleaded guilty to wire fraud related to insider trading in Chinese bank stocks, and paid about $44 million",
+    "The SEC also settled a case against Hwang and Tiger Asia in 2012",
+    "Hwang was barred from managing outside money, and the firm was reorganized as Archegos in 2013",
+    "Archegos managed Hwang's own wealth as a family office"
    ]
   },
   {
-   "titolo": "Too Much Money, Nowhere to Lend",
-   "parole": 150,
+   "titolo": "The Swap Loophole",
+   "parole": 170,
    "fatti": [
-    "Deposits grew faster than loans, so SVB invested heavily in securities",
-    "Its securities portfolio grew to about $128 billion at end of 2021, including mortgage-backed securities and Treasuries",
-    "Much of it was classified held-to-maturity (about $91 billion at end of 2022)",
-    "Long-dated bonds bought when rates were near zero lose market value when rates rise",
-    "Held-to-maturity accounting means those losses are not shown on the balance sheet unless the bonds are sold"
+    "Archegos used total return swaps: banks bought the shares and Archegos received the gains or losses without owning the stock",
+    "Because the banks held the shares, Archegos's positions did not appear in public ownership filings",
+    "This allowed concentrated positions to stay largely hidden from the market and from other lenders",
+    "Banks asked for only a fraction of the position's value as collateral, creating heavy leverage",
+    "Prime brokers included Goldman Sachs, Morgan Stanley, Credit Suisse, Nomura and others",
+    "Prosecutors said Archegos's exposure reached roughly $160 billion at its peak"
    ]
   },
   {
-   "titolo": "Rates Turn Against It",
+   "titolo": "Building the Tower",
    "parole": 150,
    "fatti": [
-    "The Federal Reserve began raising rates in March 2022 and raised them repeatedly through 2022",
-    "SVB's 10-K filed in 2023 showed about $15.1 billion in unrealized losses on held-to-maturity securities at end of 2022",
-    "That loss was nearly as large as the bank's roughly $16 billion in shareholders' equity",
-    "Startups burned cash and venture funding slowed, so deposits began to fall during 2022",
-    "The Fed's April 2023 review found SVB had not hedged its interest-rate risk, and had removed some hedges"
+    "Prosecutors alleged Hwang built huge concentrated positions in a small number of stocks, including ViacomCBS, Discovery and Chinese tech names",
+    "Prosecutors alleged Archegos traded in ways meant to push stock prices up, which inflated the value of its holdings",
+    "The indictment alleges Hwang and colleagues misled banks about the size and concentration of the portfolio",
+    "Because each bank saw only its own slice, none saw the whole picture",
+    "The SEC and DOJ filed their cases in April 2022"
    ]
   },
   {
-   "titolo": "The Fatal Announcement",
-   "parole": 150,
+   "titolo": "ViacomCBS Turns",
+   "parole": 160,
    "fatti": [
-    "On March 8, 2023, SVB announced it had sold about $21 billion of available-for-sale securities at a loss of about $1.8 billion",
-    "It also announced plans to raise about $2.25 billion in new capital",
-    "The announcement alarmed investors and venture capital firms",
-    "SVB's stock fell about 60% on March 9, 2023, wiping out billions in market value",
-    "Several venture firms reportedly advised portfolio companies to move their money"
+    "ViacomCBS shares rose sharply in early 2021 and peaked around $100 in March 2021, after trading around $40 in January",
+    "On March 22, 2021, ViacomCBS announced a stock offering of $3 billion in common shares and convertible preferred stock",
+    "The shares fell sharply over the following days",
+    "Archegos's swaps lost value and banks began to issue margin calls",
+    "Margin calls demanded more cash collateral, which Archegos could not provide"
    ]
   },
   {
-   "titolo": "The Digital Run",
+   "titolo": "The Margin Call",
    "parole": 150,
    "fatti": [
-    "On March 9, 2023, customers tried to withdraw about $42 billion, with the transfers made mostly digitally",
-    "The bank had a negative cash balance of about $958 million at end of that day, according to California regulators",
-    "It expected a further withdrawal request of around $100 billion on March 10",
-    "On the morning of March 10, trading in its shares was halted and regulators closed the bank",
-    "The FDIC took control, in a failure widely seen as a first of its kind: a bank run driven by social media and mobile banking"
+    "On March 25, 2021, banks held an emergency call with Archegos about the margin calls",
+    "The banks were competing: whoever sold first would lose less",
+    "On March 26, 2021, Goldman Sachs and Morgan Stanley began selling billions of dollars of Archegos-linked stock in block trades",
+    "Credit Suisse and Nomura were slower to sell and took much bigger losses",
+    "Other lenders sold on the market as well, feeding a fast downward spiral in the stocks"
    ]
   },
   {
-   "titolo": "The Weekend of Fear",
-   "parole": 150,
+   "titolo": "Who Paid",
+   "parole": 160,
    "fatti": [
-    "On March 12, 2023, regulators also closed Signature Bank of New York",
-    "That day the Treasury, Federal Reserve and FDIC announced all SVB depositors, including uninsured ones, would have access to their money on Monday March 13",
-    "The Fed created the Bank Term Funding Program to lend against bonds at face value",
-    "The FDIC said the cost to its Deposit Insurance Fund from SVB's failure was estimated at about $20 billion",
-    "First Republic Bank failed on May 1, 2023 and was sold to JPMorgan Chase"
+    "Credit Suisse reported losses of about 5.5 billion Swiss francs, around $5.5 billion, from Archegos",
+    "Nomura disclosed a loss of about $2.9 billion",
+    "Morgan Stanley reported losses of roughly $911 million, and Goldman Sachs said it avoided a loss",
+    "Credit Suisse's own review found that its risk management failures were serious",
+    "Credit Suisse's chief risk officer and the head of investment banking left the bank in the aftermath",
+    "Credit Suisse was later taken over by UBS in March 2023, after other troubles"
    ]
   },
   {
-   "titolo": "Who Failed",
-   "parole": 150,
+   "titolo": "Charges and Verdict",
+   "parole": 140,
    "fatti": [
-    "The Fed's April 2023 review by Michael Barr found SVB's management failed to manage interest-rate and liquidity risk",
-    "It also found supervisors did not take sufficiently forceful action, and that the bank grew rapidly without matching oversight",
-    "SVB's holding company filed for Chapter 11 bankruptcy on March 17, 2023",
-    "First Citizens BancShares agreed on March 26, 2023 to acquire SVB's deposits and loans",
-    "The 2018 law raising the threshold for stricter rules to $250 billion in assets was discussed as a factor, and SVB had about $209 billion"
+    "In April 2022, prosecutors in the Southern District of New York charged Hwang and Archegos's CFO Patrick Halligan with fraud and racketeering",
+    "The SEC filed a parallel civil complaint",
+    "Former Archegos executive William Tomita and others pleaded guilty and cooperated",
+    "Hwang's trial began in 2024 in Manhattan",
+    "In July 2024, a jury convicted Hwang of racketeering conspiracy, securities fraud and market manipulation, among other counts",
+    "In November 2024 Hwang was sentenced to 18 years in prison"
    ]
   },
   {
-   "titolo": "The Answer and the Lesson",
-   "parole": 150,
+   "titolo": "The Lesson",
+   "parole": 130,
    "fatti": [
-    "Answer to the opening question: the bank's assets were in long-dated bonds that had lost value, and its depositors were mostly uninsured and highly connected",
-    "A rumor-driven fear spread in hours because transfers were digital",
-    "Hidden losses in held-to-maturity bonds plus concentrated deposits turned a paper problem into a real run",
-    "Regulators and banks reviewed interest-rate risk, uninsured deposits and supervision after 2023",
-    "Ending line: Subscribe for the next one."
+    "Family offices were not required to disclose their positions in the way regulated funds are",
+    "The SEC proposed new rules in 2021 requiring disclosure of large security-based swap positions",
+    "Banks competed for fees and relaxed their checks on a client with a prior fraud history",
+    "The open question is answered: the swaps hid the exposure, no single bank saw the total, and leverage turned a falling stock into a collapse",
+    "Subscribe for the next one."
    ]
   }
  ],
  "_correzioni": [
-  "Title/description/ch.1: SVB's closure date was Friday March 10; 'within roughly 48 hours' of the March 9 run is inaccurate (closed ~24 hours later) – changed to 'the next day'",
-  "Description: 'second-largest bank failure' was accurate at the time (later surpassed by First Republic by some measures, but at the time it was the 2nd largest after WaMu); kept but clarified wording in chapter 1",
-  "Ch.1: deposits about $175 billion at end of 2022 (SVB reported ~$173.1B total deposits at Dec 31, 2022); changed to 'about $173 billion' and 'about a quarter' (42/173 ≈ 24%) kept",
-  "Ch.2: 16th-largest US bank is per Fed/FDIC reports (16th) – kept; deposits growth: end 2019 about $62B and end 2021 about $189B – kept",
-  "Ch.3: securities portfolio at end of 2021 about $128 billion; corrected from $120 billion; HTM about $91 billion at end of 2022 kept",
-  "Ch.4: unrealized HTM losses $15.1B kept; equity about $16 billion kept (total equity $16.3B)",
-  "Ch.4: Fed review said SVB had removed hedges – kept; Fed began raising rates March 2022 – kept",
-  "Ch.5: sale was $21 billion of AFS securities at ~$1.8 billion loss – kept; capital raise $2.25 billion kept; stock fell about 60% on March 9 – kept",
-  "Ch.5: removed unsourced claim about venture firms advising portfolio companies? It is widely reported (Founders Fund, Coatue, etc.) – kept with 'reportedly'",
-  "Ch.6: negative cash balance about $958 million kept; expected further outflows of about $100 billion kept; 'withdrawals mostly online and by phone' kept as 'mostly digital'; 'trading halted' on March 10 pre-market – kept",
-  "Ch.6: 'first major bank failure of the social-media era' is interpretive – softened",
-  "Ch.7: Signature Bank closed on March 12 (Sunday) – kept; all depositors access Monday March 13 – kept; BTFP lends against collateral at par value – kept",
-  "Ch.7: FDIC estimated cost of SVB failure about $20.4 billion – kept as about $20 billion",
-  "Ch.8: bankruptcy filed March 17, 2023 – kept; First Citizens agreement March 26 – kept; 2018 law raised threshold to $250 billion – kept; SVB about $209B kept"
+  "Title: 'Lost $20 Billion in Two Days' is an overstated press figure; changed to 'in Days' wording (fund collapsed March 25-29, losses reported ~ $20bn in about a week)",
+  "Chapter 1: 'assets about $10 billion' is correct for early 2021; kept but removed the 'lost $20 billion within days' certainty by rewording to 'in a matter of days' (the $20bn figure was reported as lost in about a week)",
+  "Chapter 1: banks lost more than $10 billion in total: kept (widely reported ~ $10bn)",
+  "Chapter 2: Tiger Asia pleaded guilty in 2012 (wire fraud, Chinese bank stocks) and paid about $44 million: correct; Archegos founded 2013: correct",
+  "Chapter 3: prosecutors said exposure reached roughly $160 billion: correct per indictment (reported as $160bn at peak)",
+  "Chapter 4: ViacomCBS, Discovery, Chinese tech: correct; SEC and DOJ filed cases in April 2022: correct (April 27, 2022)",
+  "Chapter 5: ViacomCBS peaked around $100 in March 2021 (about $101 on March 22), after about $40 in January: roughly correct; March 22 offering announced on March 22 after close (priced March 23) of $3 billion total ($2.5bn common + $0.5bn convertible preferred): kept as total $3 billion",
+  "Chapter 6: emergency call on March 25 is correct; Goldman began block trades on March 26 morning, Morgan Stanley also March 26: correct",
+  "Chapter 7: Credit Suisse loss was about 5.5 billion Swiss francs (about $5.5 billion at the time, ~$5.5bn): kept; Nomura about $2.9 billion: correct; Morgan Stanley about $911 million: correct; Goldman avoided loss: correct",
+  "Chapter 7: Credit Suisse chief risk officer Lara Warner and investment bank head Brian Chin left: correct; UBS takeover March 2023: correct",
+  "Chapter 8: Halligan was charged with fraud and racketeering: correct; Tomita pleaded guilty: correct; July 2024 conviction: correct; sentenced November 2024 to 18 years: correct",
+  "Chapter 9: SEC proposed security-based swap disclosure rule in December 2021, adopted final rule in 2023; changed 'in 2022' to 'in 2021'",
+  "Chapter 7: 'Credit Suisse's own review found risk management failures were serious': kept (Paul Weiss report)"
  ]
 }

@@ -1,207 +1,206 @@
 [
  {
-  "voce": "Who Failed.",
+  "voce": "Chapter eight. Charges and Verdict.",
   "tipo": "foto",
-  "sfondo": "federal reserve building",
-  "chiave": "WHO FAILED",
+  "sfondo": "federal courthouse exterior",
+  "chiave": "VERDICT",
   "etichetta": "CHAPTER 8",
-  "titolo": "Who Failed",
-  "sotto": "",
-  "capitolo": "Who Failed"
+  "titolo": "Charges and Verdict",
+  "sotto": "The reckoning for Archegos",
+  "capitolo": "Charges and Verdict"
  },
  {
-  "voce": "Weeks after the collapse, the Federal Reserve ordered a review.",
+  "voce": "The collapse was over. The investigation was not.",
   "tipo": "clip",
-  "sfondo": "federal reserve building",
-  "chiave": "REVIEW",
-  "cartello": "REVIEW ORDERED",
-  "capitolo": "Who Failed"
+  "sfondo": "Manhattan financial district",
+  "chiave": "INVESTIGATION",
+  "cartello": "INVESTIGATION BEGINS",
+  "capitolo": "Charges and Verdict"
  },
  {
-  "voce": "Michael Barr delivered it in April, twenty twenty-three.",
-  "tipo": "foto",
-  "sfondo": "government report documents",
-  "chiave": "APRIL 2023",
-  "etichetta": "WASHINGTON · APRIL 2023",
-  "titolo": "The Barr Review",
-  "sotto": "Fed's own review of its supervision",
-  "capitolo": "Who Failed"
+  "voce": "In April twenty twenty-two, prosecutors in Manhattan moved.",
+  "tipo": "calendario",
+  "sfondo": "courthouse columns",
+  "chiave": "APRIL",
+  "mese": "APR",
+  "giorno": "2022",
+  "titolo": "Federal charges filed",
+  "sotto": "Southern District of New York charges Hwang and his CFO",
+  "timbro": "INDICTED",
+  "capitolo": "Charges and Verdict"
  },
  {
-  "voce": "Its first finding was blunt and uncomfortable.",
-  "tipo": "clip",
-  "sfondo": "office documents desk",
-  "chiave": "FINDING",
-  "cartello": "FINDING ONE",
-  "capitolo": "Who Failed"
- },
- {
-  "voce": "SVB's management failed to manage interest-rate risk.",
+  "voce": "Hwang and his CFO, Patrick Halligan, faced fraud charges.",
   "tipo": "dossier",
-  "sfondo": "bank headquarters building",
-  "chiave": "RISK",
-  "scheda": "REVIEW FINDINGS",
-  "nome": "SVB Management",
-  "persona": false,
+  "sfondo": "legal documents",
+  "chiave": "RACKETEERING",
+  "scheda": "CRIMINAL CASE",
+  "nome": "Bill Hwang",
+  "persona": true,
   "righe": [
    [
-    "Interest-rate risk",
-    "Not managed"
+    "Role",
+    "Archegos founder"
    ],
    [
-    "Liquidity risk",
-    "Not managed"
+    "Co-defendant",
+    "Patrick Halligan, CFO"
    ],
    [
-    "Source",
-    "Fed review"
+    "Charges",
+    "Fraud and racketeering"
+   ],
+   [
+    "Court",
+    "Southern District of New York"
    ]
   ],
-  "timbro": "FAILED",
-  "capitolo": "Who Failed"
+  "timbro": "CHARGED",
+  "capitolo": "Charges and Verdict"
  },
  {
-  "voce": "It failed to manage liquidity risk too.",
+  "voce": "Racketeering. A charge usually saved for organized crime.",
   "tipo": "clip",
-  "sfondo": "trading screens finance",
-  "chiave": "LIQUIDITY",
-  "cartello": "LIQUIDITY RISK IGNORED",
-  "capitolo": "Who Failed"
+  "sfondo": "legal documents desk",
+  "chiave": "RACKETEERING",
+  "cartello": "RACKETEERING CHARGE",
+  "capitolo": "Charges and Verdict"
  },
  {
-  "voce": "But the review pointed at the regulators as well.",
+  "voce": "The SEC filed a parallel civil complaint.",
   "tipo": "foto",
-  "sfondo": "regulatory agency building",
-  "chiave": "REGULATORS",
-  "etichetta": "WASHINGTON · 2023",
-  "titolo": "Supervisors Under Scrutiny",
-  "sotto": "Oversight questioned in the review",
-  "capitolo": "Who Failed"
+  "sfondo": "regulator headquarters building",
+  "chiave": "SEC",
+  "etichetta": "WASHINGTON · 2022",
+  "titolo": "SEC files civil complaint",
+  "sotto": "A parallel case alongside the criminal charges",
+  "capitolo": "Charges and Verdict"
  },
  {
-  "voce": "Supervisors did not take sufficiently forceful action.",
-  "tipo": "clip",
-  "sfondo": "financial district skyline",
-  "chiave": "FORCEFUL",
-  "cartello": "FORCEFUL ACTION MISSING",
-  "capitolo": "Who Failed"
- },
- {
-  "voce": "The bank grew rapidly, without matching oversight.",
+  "voce": "Then the inside of the firm began to crack.",
   "tipo": "oggetto3d",
-  "sfondo": "tower",
-  "chiave": "GREW",
-  "oggetto": "a tall glossy golden tower growing fast beside a tiny thin scaffold that cannot keep up",
+  "sfondo": "cracking glass tower",
+  "chiave": "CRACK",
+  "oggetto": "A glossy golden tower with a visible crack running through it",
+  "etichettes": [],
   "etichette": [
-   "RAPID GROWTH",
-   "THIN OVERSIGHT"
+   "ARCHEGOS"
   ],
-  "capitolo": "Who Failed"
+  "capitolo": "Charges and Verdict"
  },
  {
-  "voce": "Then there was the law behind the rules.",
-  "tipo": "clip",
-  "sfondo": "capitol building exterior",
-  "chiave": "LAW",
-  "cartello": "LAW CHANGED",
-  "capitolo": "Who Failed"
- },
- {
-  "voce": "A twenty-eighteen law raised the threshold for stricter rules.",
-  "tipo": "calendario",
-  "sfondo": "capitol building",
-  "chiave": "2018",
-  "mese": "MAY",
-  "giorno": "2018",
-  "titolo": "Threshold Raised",
-  "sotto": "Stricter rules now began at higher asset levels",
-  "timbro": "NEW LAW",
-  "capitolo": "Who Failed"
- },
- {
-  "voce": "The new line sat at two hundred fifty billion dollars.",
-  "tipo": "dato",
-  "sfondo": "banknotes closeup",
-  "chiave": "$250B",
-  "numero": "$250B",
-  "didascalia": "Asset threshold for stricter rules",
-  "fonte": "2018 law",
-  "capitolo": "Who Failed"
- },
- {
-  "voce": "SVB held about two hundred nine billion.",
-  "tipo": "classifica",
-  "sfondo": "financial charts",
-  "chiave": "$209B",
-  "titolo": "Assets vs. Threshold",
-  "barre": [
+  "voce": "Former executive William Tomita pleaded guilty.",
+  "tipo": "dossier",
+  "sfondo": "office documents",
+  "chiave": "GUILTY",
+  "scheda": "COOPERATOR",
+  "nome": "William Tomita",
+  "persona": true,
+  "righe": [
    [
-    "Threshold",
-    250,
-    "$250B"
+    "Former role",
+    "Archegos executive"
    ],
    [
-    "SVB",
-    209,
-    "~$209B"
+    "Plea",
+    "Guilty"
+   ],
+   [
+    "Status",
+    "Cooperating with prosecutors"
    ]
   ],
-  "timbro": "BELOW THE LINE",
-  "fonte": "Fed review",
-  "capitolo": "Who Failed"
+  "timbro": "PLEADED GUILTY",
+  "capitolo": "Charges and Verdict"
  },
  {
-  "voce": "Below the line, and below the strictest scrutiny.",
+  "voce": "Others pleaded guilty too, and agreed to cooperate.",
   "tipo": "clip",
-  "sfondo": "stock exchange floor",
-  "chiave": "SCRUTINY",
-  "cartello": "SCRUTINY AVOIDED",
-  "capitolo": "Who Failed"
+  "sfondo": "courtroom interior empty",
+  "chiave": "COOPERATE",
+  "cartello": "COOPERATION AGREEMENTS",
+  "capitolo": "Charges and Verdict"
  },
  {
-  "voce": "On March seventeenth, SVB's holding company filed for Chapter Eleven.",
-  "tipo": "calendario",
-  "sfondo": "court building",
-  "chiave": "CHAPTER 11",
-  "mese": "MAR",
-  "giorno": "17",
-  "titolo": "Chapter 11 Filed",
-  "sotto": "SVB's holding company enters bankruptcy",
-  "timbro": "BANKRUPT",
-  "capitolo": "Who Failed"
- },
- {
-  "voce": "Nine days later, a buyer stepped forward.",
+  "voce": "Their testimony would be waiting for Hwang in court.",
   "tipo": "clip",
-  "sfondo": "city skyline dusk",
-  "chiave": "BUYER",
-  "cartello": "BUYER STEPS FORWARD",
-  "capitolo": "Who Failed"
+  "sfondo": "courthouse steps",
+  "chiave": "TESTIMONY",
+  "cartello": "TESTIMONY AWAITS",
+  "capitolo": "Charges and Verdict"
  },
  {
-  "voce": "First Citizens agreed to acquire its deposits and loans.",
+  "voce": "Twenty twenty-four. Hwang's trial opened in Manhattan.",
   "tipo": "foto",
-  "sfondo": "bank building facade",
-  "chiave": "FIRST CITIZENS",
-  "etichetta": "RALEIGH · MARCH 26, 2023",
-  "titolo": "First Citizens Acquires SVB",
-  "sotto": "Deposits and loans to be acquired",
-  "capitolo": "Who Failed"
+  "sfondo": "Manhattan courthouse",
+  "chiave": "TRIAL",
+  "etichetta": "MANHATTAN · 2024",
+  "titolo": "Hwang trial begins",
+  "sotto": "Federal court, Southern District of New York",
+  "capitolo": "Charges and Verdict"
  },
  {
-  "voce": "The bank was gone. But the real question remained.",
+  "voce": "Prosecutors laid out the swaps, the leverage, the lies.",
   "tipo": "clip",
-  "sfondo": "empty office building",
+  "sfondo": "trading screens",
+  "chiave": "SWAPS",
+  "cartello": "SWAPS EXPOSED",
+  "capitolo": "Charges and Verdict"
+ },
+ {
+  "voce": "Jurors weighed the evidence. Then came July twenty twenty-four.",
+  "tipo": "calendario",
+  "sfondo": "courtroom",
+  "chiave": "JULY",
+  "mese": "JUL",
+  "giorno": "2024",
+  "titolo": "Jury returns verdict",
+  "sotto": "Hwang convicted on multiple counts after trial in Manhattan",
+  "timbro": "CONVICTED",
+  "capitolo": "Charges and Verdict"
+ },
+ {
+  "voce": "Racketeering conspiracy. Securities fraud. Market manipulation. Among other counts.",
+  "tipo": "clip",
+  "sfondo": "gavel legal documents",
+  "chiave": "CONVICTED",
+  "cartello": "CONVICTED ON COUNTS",
+  "capitolo": "Charges and Verdict"
+ },
+ {
+  "voce": "In November twenty twenty-four, the sentence came.",
+  "tipo": "foto",
+  "sfondo": "federal courthouse",
+  "chiave": "SENTENCED",
+  "etichetta": "MANHATTAN · NOVEMBER 2024",
+  "titolo": "Hwang sentenced",
+  "sotto": "Federal judge delivers the sentence",
+  "capitolo": "Charges and Verdict"
+ },
+ {
+  "voce": "Eighteen years in prison.",
+  "tipo": "dato",
+  "sfondo": "prison walls",
+  "chiave": "18 YEARS",
+  "numero": "18 YRS",
+  "didascalia": "Prison sentence for Bill Hwang",
+  "fonte": "SDNY, November 2024",
+  "capitolo": "Charges and Verdict"
+ },
+ {
+  "voce": "But one question still hangs over Wall Street.",
+  "tipo": "clip",
+  "sfondo": "Wall Street skyline",
   "chiave": "QUESTION",
   "cartello": "QUESTION REMAINS",
-  "capitolo": "Who Failed"
+  "capitolo": "Charges and Verdict"
  },
  {
-  "voce": "Could it happen again?",
+  "voce": "Could it happen again? That is the final chapter.",
   "tipo": "clip",
   "sfondo": "city skyline night",
   "chiave": "AGAIN",
-  "cartello": "AGAIN?",
-  "capitolo": "Who Failed"
+  "cartello": "COULD IT REPEAT",
+  "capitolo": "Charges and Verdict"
  }
 ]

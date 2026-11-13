@@ -1,202 +1,194 @@
 [
  {
-  "voce": "The Weekend of Fear.",
+  "voce": "Who Paid.",
   "tipo": "foto",
-  "sfondo": "bank building night",
-  "chiave": "FEAR",
+  "sfondo": "financial district skyline",
+  "chiave": "Paid",
   "etichetta": "CHAPTER 7",
-  "titolo": "The Weekend of Fear",
-  "sotto": "",
-  "capitolo": "The Weekend of Fear"
+  "titolo": "Who Paid",
+  "sotto": "The banks that lent against the tower",
+  "capitolo": "Who Paid"
  },
  {
-  "voce": "Friday ends. The doors stay locked.",
+  "voce": "The tower fell. Someone had to absorb the loss.",
   "tipo": "clip",
-  "sfondo": "closed bank doors",
-  "chiave": "LOCKED",
-  "cartello": "LOCKED DOORS",
-  "capitolo": "The Weekend of Fear"
+  "sfondo": "city skyline dusk",
+  "chiave": "LOSS",
+  "cartello": "LOSS LANDS ELSEWHERE",
+  "capitolo": "Who Paid"
  },
  {
-  "voce": "Regulators work through the night, searching for answers.",
-  "tipo": "clip",
-  "sfondo": "government building night",
-  "chiave": "NIGHT",
-  "cartello": "NIGHT TALKS",
-  "capitolo": "The Weekend of Fear"
+  "voce": "Credit Suisse took the heaviest blow.",
+  "tipo": "foto",
+  "sfondo": "bank headquarters building",
+  "chiave": "Credit Suisse",
+  "etichetta": "ZURICH · 2021",
+  "titolo": "Credit Suisse Takes Heaviest Hit",
+  "sotto": "Archegos losses reported by the Swiss bank",
+  "capitolo": "Who Paid"
  },
  {
-  "voce": "Every startup, every payroll, frozen over the weekend.",
-  "tipo": "oggetto3d",
-  "sfondo": "vault",
-  "chiave": "FROZEN",
-  "oggetto": "golden vault door sealed with a heavy chain on a dark background",
-  "etichettes": [],
-  "etichette": [
-   "FROZEN"
-  ],
-  "capitolo": "The Weekend of Fear"
+  "voce": "About five point five billion Swiss francs.",
+  "tipo": "dato",
+  "sfondo": "banknotes close up",
+  "chiave": "5.5",
+  "numero": "5.5B CHF",
+  "didascalia": "Credit Suisse losses from Archegos",
+  "fonte": "Credit Suisse",
+  "capitolo": "Who Paid"
  },
  {
-  "voce": "Then, on Sunday, another bank falls.",
-  "tipo": "calendario",
-  "sfondo": "city skyline",
-  "chiave": "SUNDAY",
-  "mese": "MAR",
-  "giorno": "12",
-  "titolo": "Second Bank Closed",
-  "sotto": "Regulators also close Signature Bank of New York.",
-  "timbro": "CLOSED",
-  "capitolo": "The Weekend of Fear"
- },
- {
-  "voce": "Signature Bank of New York, shut down by regulators.",
-  "tipo": "clip",
-  "sfondo": "New York financial district",
-  "chiave": "SIGNATURE",
-  "cartello": "SIGNATURE BANK CLOSED",
-  "capitolo": "The Weekend of Fear"
- },
- {
-  "voce": "Panic could spread to every bank in America.",
+  "voce": "Around five point five billion dollars, gone.",
   "tipo": "clip",
   "sfondo": "trading screens red",
-  "chiave": "PANIC",
-  "cartello": "PANIC SPREADS",
-  "capitolo": "The Weekend of Fear"
+  "chiave": "GONE",
+  "cartello": "GONE IN DAYS",
+  "capitolo": "Who Paid"
  },
  {
-  "voce": "So the government moves, the same evening.",
+  "voce": "Nomura, the Japanese bank, was next.",
   "tipo": "foto",
-  "sfondo": "federal reserve building",
-  "chiave": "TREASURY",
-  "etichetta": "WASHINGTON · MARCH 12, 2023",
-  "titolo": "Joint Emergency Announcement",
-  "sotto": "Treasury, Federal Reserve and FDIC act together",
-  "capitolo": "The Weekend of Fear"
+  "sfondo": "Tokyo financial district",
+  "chiave": "Nomura",
+  "etichetta": "TOKYO · 2021",
+  "titolo": "Nomura Discloses Its Loss",
+  "sotto": "Japanese bank exposed through Archegos trades",
+  "capitolo": "Who Paid"
  },
  {
-  "voce": "Every depositor, even uninsured, gets access Monday.",
-  "tipo": "dossier",
-  "sfondo": "documents",
-  "chiave": "ALL DEPOSITORS",
-  "scheda": "RESCUE FILE",
-  "nome": "SVB Depositors",
-  "persona": false,
-  "righe": [
-   [
-    "Announced by",
-    "Treasury, Fed, FDIC"
-   ],
-   [
-    "Covered",
-    "All depositors"
-   ],
-   [
-    "Includes",
-    "Uninsured deposits"
-   ],
-   [
-    "Access",
-    "Monday, March 13"
-   ]
-  ],
-  "timbro": "PROTECTED",
-  "capitolo": "The Weekend of Fear"
- },
- {
-  "voce": "The Fed also builds a new safety net.",
-  "tipo": "clip",
-  "sfondo": "federal reserve exterior",
-  "chiave": "SAFETY NET",
-  "cartello": "SAFETY NET",
-  "capitolo": "The Weekend of Fear"
- },
- {
-  "voce": "The Bank Term Funding Program lends against bonds at face value.",
-  "tipo": "dossier",
-  "sfondo": "bonds documents",
-  "chiave": "FACE VALUE",
-  "scheda": "FED PROGRAM",
-  "nome": "Bank Term Funding Program",
-  "persona": false,
-  "righe": [
-   [
-    "Created by",
-    "Federal Reserve"
-   ],
-   [
-    "Lends against",
-    "Bonds"
-   ],
-   [
-    "Valued at",
-    "Face value"
-   ]
-  ],
-  "timbro": "NEW",
-  "capitolo": "The Weekend of Fear"
- },
- {
-  "voce": "Banks no longer need to sell bonds at a loss.",
-  "tipo": "clip",
-  "sfondo": "stock exchange floor",
-  "chiave": "NO LOSS",
-  "cartello": "NO FIRE SALES",
-  "capitolo": "The Weekend of Fear"
- },
- {
-  "voce": "But the rescue is not free.",
-  "tipo": "clip",
-  "sfondo": "banknotes counting",
-  "chiave": "NOT FREE",
-  "cartello": "NOT FREE",
-  "capitolo": "The Weekend of Fear"
- },
- {
-  "voce": "The FDIC estimated the cost to its fund.",
+  "voce": "Its disclosed loss: about two point nine billion dollars.",
   "tipo": "dato",
-  "sfondo": "banknotes",
-  "chiave": "$20B",
-  "numero": "$20B",
-  "didascalia": "Estimated cost to the Deposit Insurance Fund",
-  "fonte": "FDIC",
-  "capitolo": "The Weekend of Fear"
+  "sfondo": "documents stacked desk",
+  "chiave": "2.9B",
+  "numero": "$2.9B",
+  "didascalia": "Nomura's disclosed loss from Archegos",
+  "fonte": "Nomura",
+  "capitolo": "Who Paid"
  },
  {
-  "voce": "Monday opens. The panic seems contained.",
+  "voce": "Morgan Stanley lost roughly nine hundred eleven million.",
   "tipo": "clip",
-  "sfondo": "city skyline morning",
-  "chiave": "CONTAINED",
-  "cartello": "CONTAINED?",
-  "capitolo": "The Weekend of Fear"
+  "sfondo": "Manhattan office tower",
+  "chiave": "Morgan Stanley",
+  "cartello": "MORGAN STANLEY LOST MILLIONS",
+  "capitolo": "Who Paid"
  },
  {
-  "voce": "But the damage was never really over.",
+  "voce": "Goldman Sachs said it avoided a loss.",
+  "tipo": "classifica",
+  "sfondo": "stock exchange floor",
+  "chiave": "Goldman",
+  "titolo": "Reported Archegos losses",
+  "barre": [
+   [
+    "Credit Suisse",
+    5.5,
+    "$5.5B"
+   ],
+   [
+    "Nomura",
+    2.9,
+    "$2.9B"
+   ],
+   [
+    "Morgan Stanley",
+    0.911,
+    "$911M"
+   ]
+  ],
+  "timbro": "GOLDMAN: NO LOSS",
+  "fonte": "Company disclosures",
+  "capitolo": "Who Paid"
+ },
+ {
+  "voce": "Credit Suisse then looked inward.",
   "tipo": "clip",
-  "sfondo": "newspapers headlines",
-  "chiave": "DAMAGE",
-  "cartello": "DAMAGE LINGERS",
-  "capitolo": "The Weekend of Fear"
+  "sfondo": "documents review office",
+  "chiave": "inward",
+  "cartello": "INWARD REVIEW BEGINS",
+  "capitolo": "Who Paid"
  },
  {
-  "voce": "On May first, First Republic Bank failed.",
+  "voce": "Its own review found serious risk management failures.",
+  "tipo": "dossier",
+  "sfondo": "report pages",
+  "chiave": "serious",
+  "scheda": "INTERNAL REVIEW",
+  "nome": "Credit Suisse",
+  "persona": false,
+  "righe": [
+   [
+    "Subject",
+    "Archegos losses"
+   ],
+   [
+    "Finding",
+    "Risk management failures"
+   ],
+   [
+    "Severity",
+    "Serious"
+   ]
+  ],
+  "timbro": "FAILURES",
+  "capitolo": "Who Paid"
+ },
+ {
+  "voce": "The chief risk officer left the bank.",
+  "tipo": "clip",
+  "sfondo": "bank lobby empty",
+  "chiave": "left",
+  "cartello": "RISK CHIEF DEPARTS",
+  "capitolo": "Who Paid"
+ },
+ {
+  "voce": "So did the head of investment banking.",
+  "tipo": "foto",
+  "sfondo": "newspaper headlines",
+  "chiave": "left",
+  "etichetta": "ZURICH · 2021",
+  "titolo": "Top Executives Leave Bank",
+  "sotto": "Risk chief and investment banking head exit",
+  "capitolo": "Who Paid"
+ },
+ {
+  "voce": "But the damage did not end there.",
+  "tipo": "clip",
+  "sfondo": "storm over city",
+  "chiave": "damage",
+  "cartello": "DAMAGE LINGERS ON",
+  "capitolo": "Who Paid"
+ },
+ {
+  "voce": "After other troubles, UBS took it over.",
   "tipo": "calendario",
-  "sfondo": "bank building",
-  "chiave": "FIRST REPUBLIC",
-  "mese": "MAY",
-  "giorno": "1",
-  "titolo": "First Republic Fails",
-  "sotto": "The bank was sold to JPMorgan Chase.",
-  "timbro": "SOLD",
-  "capitolo": "The Weekend of Fear"
+  "sfondo": "Swiss bank building",
+  "chiave": "UBS",
+  "mese": "MAR",
+  "giorno": "2023",
+  "titolo": "UBS Takes Over",
+  "sotto": "Credit Suisse absorbed after other troubles",
+  "timbro": "TAKEN OVER",
+  "capitolo": "Who Paid"
  },
  {
-  "voce": "Who pays the price when trust breaks?",
+  "voce": "One man's bets had wounded banks across the world.",
+  "tipo": "oggetto3d",
+  "sfondo": "glossy scene",
+  "chiave": "wounded",
+  "oggetto": "One red faceless mannequin standing before several cracked blue faceless mannequins",
+  "etichette": [
+   "THE CULPRIT",
+   "THE VICTIMS"
+  ],
+  "capitolo": "Who Paid"
+ },
+ {
+  "voce": "But what happened to the man himself?",
   "tipo": "clip",
-  "sfondo": "empty bank lobby",
-  "chiave": "TRUST",
-  "cartello": "TRUST BROKEN",
-  "capitolo": "The Weekend of Fear"
+  "sfondo": "courthouse exterior",
+  "chiave": "himself",
+  "cartello": "HIS FATE AWAITS",
+  "capitolo": "Who Paid"
  }
 ]

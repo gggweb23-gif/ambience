@@ -1,189 +1,165 @@
 [
  {
-  "voce": "Chapter four. Rates turn against it.",
+  "voce": "Chapter four. Building the Tower.",
   "tipo": "foto",
-  "sfondo": "federal reserve building",
-  "chiave": "RATES",
+  "sfondo": "financial district skyline",
+  "chiave": "TOWER",
   "etichetta": "CHAPTER 4",
-  "titolo": "Rates Turn Against It",
-  "sotto": "The bet that broke the bank",
-  "capitolo": "Rates Turn Against It"
+  "titolo": "Building the Tower",
+  "sotto": "How the positions were stacked",
+  "capitolo": "Building the Tower"
  },
  {
-  "voce": "In March twenty twenty-two, the Federal Reserve moved.",
-  "tipo": "calendario",
-  "sfondo": "federal reserve building",
-  "chiave": "MARCH",
-  "mese": "MAR",
-  "giorno": "2022",
-  "titolo": "Fed Raises Rates",
-  "sotto": "The first hike of a long climb",
-  "timbro": "RATES UP",
-  "capitolo": "Rates Turn Against It"
- },
- {
-  "voce": "Then it raised rates again, and again.",
+  "voce": "Prosecutors say Hwang didn't spread his bets.",
   "tipo": "clip",
   "sfondo": "trading screens",
-  "chiave": "RATES",
-  "cartello": "RATES KEEP RISING",
-  "capitolo": "Rates Turn Against It"
+  "chiave": "DIDN'T SPREAD",
+  "cartello": "CONCENTRATED BETS",
+  "capitolo": "Building the Tower"
  },
  {
-  "voce": "Through all of twenty twenty-two, the climb never stopped.",
-  "tipo": "classifica",
-  "sfondo": "financial district",
-  "chiave": "CLIMB",
-  "titulo": "",
-  "titolo": "Fed Rate Hikes, 2022",
-  "barre": [
-   [
-    "Start of 2022",
-    1,
-    "Low"
-   ],
-   [
-    "Mid 2022",
-    2,
-    "Rising"
-   ],
-   [
-    "End of 2022",
-    3,
-    "Much higher"
-   ]
-  ],
-  "timbro": "REPEATEDLY",
-  "fonte": "Federal Reserve",
-  "capitolo": "Rates Turn Against It"
- },
- {
-  "voce": "SVB's bonds were locked in at old, lower rates.",
-  "tipo": "oggetto3d",
-  "sfondo": "bank vault",
-  "chiave": "LOCKED",
-  "oggetto": "golden vault door with a heavy chain and padlock",
-  "etichette": [
-   "OLD BONDS",
-   "LOW RATES"
-  ],
-  "capitolo": "Rates Turn Against It"
- },
- {
-  "voce": "Rising rates made those bonds worth less.",
-  "tipo": "clip",
-  "sfondo": "stock market screens",
-  "chiave": "WORTH LESS",
-  "cartello": "WORTH LESS EVERY DAY",
-  "capitolo": "Rates Turn Against It"
- },
- {
-  "voce": "The twenty twenty-three annual filing exposed the damage.",
-  "tipo": "foto",
-  "sfondo": "financial documents",
-  "chiave": "FILING",
-  "etichetta": "SANTA CLARA · 2023",
-  "titolo": "The 10-K Filing",
-  "sotto": "Losses buried in held-to-maturity securities",
-  "capitolo": "Rates Turn Against It"
- },
- {
-  "voce": "Fifteen point one billion dollars in unrealized losses.",
-  "tipo": "dato",
-  "sfondo": "banknotes",
-  "chiave": "$15.1B",
-  "numero": "$15.1B",
-  "didascalia": "Unrealized losses on held-to-maturity securities, end of 2022",
-  "fonte": "SVB 10-K, 2023",
-  "capitolo": "Rates Turn Against It"
- },
- {
-  "voce": "Shareholders' equity was only about sixteen billion.",
-  "tipo": "classifica",
-  "sfondo": "bank building",
-  "chiave": "EQUITY",
-  "titolo": "Losses vs Equity",
-  "barre": [
-   [
-    "Unrealized losses",
-    15.1,
-    "$15.1B"
-   ],
-   [
-    "Shareholders' equity",
-    16,
-    "~$16B"
-   ]
-  ],
-  "timbro": "NEARLY WIPED OUT",
-  "fonte": "SVB 10-K, 2023",
-  "capitolo": "Rates Turn Against It"
- },
- {
-  "voce": "Meanwhile, startups were burning through their cash.",
-  "tipo": "clip",
-  "sfondo": "office buildings",
-  "chiave": "BURNING",
-  "cartello": "BURNING CASH FAST",
-  "capitolo": "Rates Turn Against It"
- },
- {
-  "voce": "Venture funding slowed, and fewer deposits came in.",
-  "tipo": "clip",
-  "sfondo": "city skyline",
-  "chiave": "FUNDING",
-  "cartello": "FUNDING SLOWS DOWN",
-  "capitolo": "Rates Turn Against It"
- },
- {
-  "voce": "During twenty twenty-two, deposits began to fall.",
-  "tipo": "foto",
-  "sfondo": "bank interior",
-  "chiave": "FALL",
-  "etichetta": "SILICON VALLEY · 2022",
-  "titolo": "Deposits Begin Falling",
-  "sotto": "The money that built the bank starts leaving",
-  "capitolo": "Rates Turn Against It"
- },
- {
-  "voce": "The Fed's April twenty twenty-three review was blunt.",
+  "voce": "He piled into a handful of stocks.",
   "tipo": "dossier",
-  "sfondo": "documents",
-  "chiave": "UNHEDGED",
-  "scheda": "FED REVIEW",
-  "nome": "SVB Risk Findings",
+  "sfondo": "documents desk",
+  "chiave": "HANDFUL",
+  "scheda": "ALLEGED POSITIONS",
+  "nome": "Archegos Portfolio",
   "persona": false,
   "righe": [
    [
-    "Published",
-    "April 2023"
+    "Type",
+    "Concentrated positions"
    ],
    [
-    "Interest-rate risk",
-    "Not hedged"
+    "Spread",
+    "Small number of stocks"
    ],
    [
-    "Existing hedges",
-    "Some removed"
+    "Source",
+    "Prosecutors' allegations"
    ]
   ],
-  "timbro": "NO PROTECTION",
-  "capitolo": "Rates Turn Against It"
+  "timbro": "ALLEGED",
+  "capitolo": "Building the Tower"
  },
  {
-  "voce": "No hedge. Some had even been removed.",
+  "voce": "ViacomCBS. Discovery. Chinese tech names.",
   "tipo": "clip",
-  "sfondo": "empty bank vault",
-  "chiave": "NO HEDGE",
-  "cartello": "NO HEDGE LEFT",
-  "capitolo": "Rates Turn Against It"
+  "sfondo": "stock exchange floor",
+  "chiave": "ViacomCBS",
+  "cartello": "VIACOMCBS DISCOVERY CHINA TECH",
+  "capitolo": "Building the Tower"
  },
  {
-  "voce": "The losses were there. Now someone had to notice.",
+  "voce": "Huge positions, all leaning the same direction.",
+  "tipo": "oggetto3d",
+  "sfondo": "tower of coins",
+  "chiave": "HUGE",
+  "oggetto": "a tall precarious tower of golden coins on a dark glossy surface",
+  "etichette": [
+   "CONCENTRATION"
+  ],
+  "capitolo": "Building the Tower"
+ },
+ {
+  "voce": "Prosecutors also alleged something more aggressive.",
   "tipo": "clip",
-  "sfondo": "city skyline night",
-  "chiave": "NOTICE",
-  "cartello": "NOTICE CAME NEXT",
-  "capitolo": "Rates Turn Against It"
+  "sfondo": "financial district",
+  "chiave": "AGGRESSIVE",
+  "cartello": "ALLEGED MANIPULATION",
+  "capitolo": "Building the Tower"
+ },
+ {
+  "voce": "Trades meant to push stock prices up.",
+  "tipo": "clip",
+  "sfondo": "trading screens",
+  "chiave": "PUSH",
+  "cartello": "PUSHING PRICES UP",
+  "capitolo": "Building the Tower"
+ },
+ {
+  "voce": "Higher prices inflated the value of its holdings.",
+  "tipo": "foto",
+  "sfondo": "stock chart screen",
+  "chiave": "INFLATED",
+  "etichetta": "NEW YORK · 2022",
+  "titolo": "Prices Pushed, Holdings Inflated",
+  "sotto": "Prosecutors allege trades lifted portfolio value",
+  "capitolo": "Building the Tower"
+ },
+ {
+  "voce": "The tower grew taller, and looked stronger.",
+  "tipo": "clip",
+  "sfondo": "skyscraper city skyline",
+  "chiave": "TALLER",
+  "cartello": "TALLER EVERY DAY",
+  "capitolo": "Building the Tower"
+ },
+ {
+  "voce": "The indictment alleges the banks were misled.",
+  "tipo": "foto",
+  "sfondo": "legal documents",
+  "chiave": "MISLED",
+  "etichetta": "NEW YORK · APRIL 2022",
+  "titolo": "Indictment: Banks Were Misled",
+  "sotto": "Size and concentration allegedly hidden",
+  "capitolo": "Building the Tower"
+ },
+ {
+  "voce": "Hwang and colleagues, it says, hid the scale.",
+  "tipo": "clip",
+  "sfondo": "office documents",
+  "chiave": "HID",
+  "cartello": "HIDING THE SCALE",
+  "capitolo": "Building the Tower"
+ },
+ {
+  "voce": "And each bank saw only its own slice.",
+  "tipo": "oggetto3d",
+  "sfondo": "bank buildings",
+  "chiave": "SLICE",
+  "oggetto": "several blue faceless mannequins each holding one small piece of a larger broken puzzle",
+  "etichette": [
+   "ONE SLICE EACH"
+  ],
+  "capitolo": "Building the Tower"
+ },
+ {
+  "voce": "None of them saw the whole picture.",
+  "tipo": "clip",
+  "sfondo": "bank building facade",
+  "chiave": "WHOLE PICTURE",
+  "cartello": "NO WHOLE PICTURE",
+  "capitolo": "Building the Tower"
+ },
+ {
+  "voce": "The SEC and DOJ filed their cases in April, twenty twenty-two.",
+  "tipo": "calendario",
+  "sfondo": "courthouse exterior",
+  "chiave": "APR",
+  "mese": "APR",
+  "giorno": "2022",
+  "titolo": "SEC and DOJ File",
+  "sotto": "Both agencies filed their cases against Hwang.",
+  "timbro": "CASES FILED",
+  "capitolo": "Building the Tower"
+ },
+ {
+  "voce": "But a tower this tall had to stand on something.",
+  "tipo": "clip",
+  "sfondo": "city skyline dusk",
+  "chiave": "STAND",
+  "cartello": "STANDING ON WHAT?",
+  "capitolo": "Building the Tower"
+ },
+ {
+  "voce": "Next: the day the foundations shook.",
+  "tipo": "foto",
+  "sfondo": "trading floor screens",
+  "chiave": "SHOOK",
+  "etichetta": "NEXT · CHAPTER 5",
+  "titolo": "The Foundations Shake",
+  "sotto": "Where the tower began to lean",
+  "capitolo": "Building the Tower"
  }
 ]

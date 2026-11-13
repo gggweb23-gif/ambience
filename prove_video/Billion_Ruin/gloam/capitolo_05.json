@@ -1,167 +1,198 @@
 [
  {
-  "voce": "Chapter six. The digital run.",
+  "voce": "Chapter six. The Margin Call.",
   "tipo": "foto",
-  "sfondo": "bank headquarters building",
-  "chiave": "DIGITAL RUN",
+  "sfondo": "financial district skyline",
+  "chiave": "MARGIN CALL",
   "etichetta": "CHAPTER 6",
-  "titolo": "The Digital Run",
+  "titolo": "The Margin Call",
   "sotto": "",
-  "capitolo": "The Digital Run"
+  "capitolo": "The Margin Call"
  },
  {
-  "voce": "On March ninth, twenty twenty-three, the withdrawals began.",
+  "voce": "The margin calls were landing at every bank.",
+  "tipo": "clip",
+  "sfondo": "trading screens",
+  "chiave": "MARGIN",
+  "cartello": "MARGIN CALLS LANDING",
+  "capitolo": "The Margin Call"
+ },
+ {
+  "voce": "March twenty-fifth, twenty twenty-one.",
   "tipo": "calendario",
   "sfondo": "city skyline",
-  "chiave": "MAR 9",
+  "chiave": "MAR 25",
   "mese": "MAR",
-  "giorno": "9",
-  "titolo": "The Run Begins",
-  "sotto": "Customers rush to pull their money out",
-  "timbro": "2023",
-  "capitolo": "The Digital Run"
+  "giorno": "25",
+  "titolo": "Emergency Call",
+  "sotto": "Banks and Archegos meet to discuss the margin calls",
+  "timbro": "2021",
+  "capitolo": "The Margin Call"
  },
  {
-  "voce": "Customers tried to pull about forty-two billion dollars.",
-  "tipo": "dato",
-  "sfondo": "banknotes closeup",
-  "chiave": "$42B",
-  "numero": "$42B",
-  "didascalia": "Withdrawal attempts in a single day",
-  "fonte": "California regulators",
-  "capitolo": "The Digital Run"
- },
- {
-  "voce": "Almost none of it moved through a branch.",
+  "voce": "The banks held an emergency call with Archegos.",
   "tipo": "clip",
-  "sfondo": "empty bank lobby",
-  "chiave": "BRANCH",
-  "cartello": "NO BRANCH LINES",
-  "capitolo": "The Digital Run"
+  "sfondo": "office tower windows",
+  "chiave": "EMERGENCY",
+  "cartello": "EMERGENCY CALL HELD",
+  "capitolo": "The Margin Call"
  },
  {
-  "voce": "The transfers were made mostly digitally.",
-  "tipo": "clip",
-  "sfondo": "server room data",
-  "chiave": "DIGITAL",
-  "cartello": "DIGITAL TRANSFERS",
-  "capitolo": "The Digital Run"
- },
- {
-  "voce": "Money drained away through phones and laptops.",
-  "tipo": "clip",
-  "sfondo": "trading screens",
-  "chiave": "PHONES",
-  "cartello": "PHONES AND LAPTOPS",
-  "capitolo": "The Digital Run"
- },
- {
-  "voce": "By the end of that day, the vault was empty.",
-  "tipo": "oggetto3d",
-  "sfondo": "bank vault",
-  "chiave": "EMPTY",
-  "oggeto": "",
-  "oggetto": "A glossy golden vault door cracked open and completely empty inside",
-  "etichette": [
-   "EMPTY"
-  ],
-  "capitolo": "The Digital Run"
- },
- {
-  "voce": "California regulators found a negative cash balance.",
+  "voce": "Everyone wanted the same thing: a way out.",
   "tipo": "foto",
-  "sfondo": "regulatory documents",
-  "chiave": "NEGATIVE",
-  "etichetta": "CALIFORNIA · MARCH 9",
-  "titolo": "Cash Balance Turns Negative",
-  "sotto": "Regulators review the bank's closing position",
-  "capitolo": "The Digital Run"
+  "sfondo": "bank headquarters building",
+  "chiave": "WAY OUT",
+  "etichetta": "NEW YORK · MARCH 2021",
+  "titolo": "Banks Want Out",
+  "sotto": "Each lender protects only itself",
+  "capitolo": "The Margin Call"
  },
  {
-  "voce": "About nine hundred fifty-eight million dollars below zero.",
-  "tipo": "dato",
-  "sfondo": "financial documents",
-  "chiave": "$958M",
-  "numero": "-$958M",
-  "didascalia": "Cash balance at end of day",
-  "fonte": "California regulators",
-  "capitolo": "The Digital Run"
+  "voce": "But the banks were not a team.",
+  "tipo": "oggetto3d",
+  "sfondo": "mannequins",
+  "chiave": "NOT A TEAM",
+  "oggetto": "Several blue faceless mannequins racing toward a single glowing exit door",
+  "etichette": [
+   "THE BANKS",
+   "ONE EXIT"
+  ],
+  "capitolo": "The Margin Call"
  },
  {
-  "voce": "And the worst was still ahead.",
+  "voce": "They were competing against each other.",
   "tipo": "clip",
-  "sfondo": "night financial district",
-  "chiave": "WORST",
-  "cartello": "WORST STILL AHEAD",
-  "capitolo": "The Digital Run"
- },
- {
-  "voce": "The bank expected another request, around one hundred billion dollars.",
-  "tipo": "dato",
   "sfondo": "stock exchange floor",
-  "chiave": "$100B",
-  "numero": "$100B",
-  "didascalia": "Further withdrawals expected on March tenth",
-  "fonte": "California regulators",
-  "capitolo": "The Digital Run"
+  "chiave": "COMPETING",
+  "cartello": "COMPETING LENDERS",
+  "capitolo": "The Margin Call"
  },
  {
-  "voce": "On the morning of March tenth, trading in its shares was halted.",
-  "tipo": "borsa",
+  "voce": "Whoever sold first would lose less.",
+  "tipo": "classifica",
   "sfondo": "trading screens",
-  "chiave": "HALTED",
-  "ticker": "SIVB",
-  "da": "106",
-  "a": "HALT",
-  "capitolo": "The Digital Run"
+  "chiave": "FIRST",
+  "titulo": "",
+  "titolo": "Sell First, Lose Less",
+  "barre": [
+   [
+    "Sells first",
+    1,
+    "Smallest loss"
+   ],
+   [
+    "Sells later",
+    3,
+    "Bigger loss"
+   ]
+  ],
+  "timbro": "RACE",
+  "fonte": "Public reporting",
+  "capitolo": "The Margin Call"
  },
  {
-  "voce": "Regulators closed the bank.",
-  "tipo": "clip",
-  "sfondo": "bank entrance doors",
-  "chiave": "CLOSED",
-  "cartello": "CLOSED BY REGULATORS",
-  "capitolo": "The Digital Run"
+  "voce": "March twenty-sixth. The race began.",
+  "tipo": "calendario",
+  "sfondo": "stock exchange facade",
+  "chiave": "MAR 26",
+  "mese": "MAR",
+  "giorno": "26",
+  "titolo": "The Selling Starts",
+  "sotto": "Banks begin dumping Archegos-linked shares into the market",
+  "timbro": "2021",
+  "capitolo": "The Margin Call"
  },
  {
-  "voce": "The FDIC took control.",
+  "voce": "Goldman Sachs and Morgan Stanley moved first.",
   "tipo": "dossier",
-  "sfondo": "government building",
-  "chiave": "FDIC",
-  "scheda": "REGULATOR FILE",
-  "nome": "FDIC",
+  "sfondo": "documents",
+  "chiave": "Goldman Sachs",
+  "scheda": "BANK FILE",
+  "nome": "Goldman Sachs / Morgan Stanley",
   "persona": false,
   "righe": [
    [
-    "Action",
-    "Took control of the bank"
-   ],
-   [
     "Date",
-    "March 10, 2023"
+    "March 26, 2021"
    ],
    [
-    "Cause",
-    "Run on deposits"
+    "Action",
+    "Selling Archegos-linked stock"
+   ],
+   [
+    "Method",
+    "Block trades"
+   ],
+   [
+    "Scale",
+    "Billions of dollars"
    ]
   ],
-  "timbro": "IN CONTROL",
-  "capitolo": "The Digital Run"
+  "timbro": "FIRST",
+  "capitolo": "The Margin Call"
  },
  {
-  "voce": "A first of its kind: a run driven by social media and mobile banking.",
+  "voce": "Billions of dollars of stock, sold in blocks.",
   "tipo": "clip",
-  "sfondo": "smartphone banking app",
-  "chiave": "FIRST",
-  "cartello": "FIRST OF ITS KIND",
-  "capitolo": "The Digital Run"
+  "sfondo": "trading screens red",
+  "chiave": "BLOCKS",
+  "cartello": "BLOCK TRADES DUMPED",
+  "capitolo": "The Margin Call"
  },
  {
-  "voce": "But who got paid, and who paid the price?",
+  "voce": "Credit Suisse and Nomura were slower.",
+  "tipo": "foto",
+  "sfondo": "bank tower skyline",
+  "chiave": "SLOWER",
+  "etichetta": "ZURICH · TOKYO · MARCH 2021",
+  "titolo": "Slower To Sell",
+  "sotto": "Credit Suisse and Nomura hesitated",
+  "capitolo": "The Margin Call"
+ },
+ {
+  "voce": "And they paid for it with much bigger losses.",
   "tipo": "clip",
-  "sfondo": "newspaper headlines",
-  "chiave": "PRICE",
-  "cartello": "WHO PAID THE PRICE",
-  "capitolo": "The Digital Run"
+  "sfondo": "financial documents",
+  "chiave": "BIGGER LOSSES",
+  "cartello": "BIGGER LOSSES TAKEN",
+  "capitolo": "The Margin Call"
+ },
+ {
+  "voce": "Other lenders dumped shares on the market too.",
+  "tipo": "clip",
+  "sfondo": "stock market screens",
+  "chiave": "DUMPED",
+  "cartello": "LENDERS SELL ON MARKET",
+  "capitolo": "The Margin Call"
+ },
+ {
+  "voce": "Every sale pushed prices lower, faster.",
+  "tipo": "oggetto3d",
+  "sfondo": "collapsing coins",
+  "chiave": "LOWER",
+  "oggetto": "A tall tower of golden coins collapsing downward in a rapid chain reaction",
+  "etichettes": [],
+  "etichette": [
+   "DOWNWARD SPIRAL"
+  ],
+  "capitolo": "The Margin Call"
+ },
+ {
+  "voce": "A fast spiral, feeding on itself.",
+  "tipo": "foto",
+  "sfondo": "wall street street sign",
+  "chiave": "SPIRAL",
+  "etichetta": "NEW YORK · MARCH 26, 2021",
+  "titolo": "Stocks In Free Fall",
+  "sotto": "Forced selling feeds more forced selling",
+  "capitolo": "The Margin Call"
+ },
+ {
+  "voce": "But how bad would the final bill be?",
+  "tipo": "clip",
+  "sfondo": "city skyline night",
+  "chiave": "FINAL BILL",
+  "cartello": "THE FINAL BILL",
+  "capitolo": "The Margin Call"
  }
 ]

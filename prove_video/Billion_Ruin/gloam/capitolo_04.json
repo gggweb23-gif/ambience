@@ -1,177 +1,180 @@
 [
  {
-  "voce": "The Fatal Announcement.",
+  "voce": "Chapter five. ViacomCBS Turns.",
   "tipo": "foto",
-  "sfondo": "bank headquarters building",
-  "chiave": "FATAL",
-  "etichetta": "CHAPTER 5",
-  "titolo": "The Fatal Announcement",
-  "sotto": "The day everything changed for SVB",
-  "capitolo": "The Fatal Announcement"
- },
- {
-  "voce": "March eighth, twenty twenty-three.",
-  "tipo": "calendario",
   "sfondo": "financial district skyline",
-  "chiave": "MARCH",
-  "mese": "MAR",
-  "giorno": "8",
-  "titolo": "SVB Makes Announcement",
-  "sotto": "A routine update that became a warning signal",
-  "timbro": "2023",
-  "capitolo": "The Fatal Announcement"
+  "chiave": "TURNS",
+  "etichetta": "CHAPTER 5",
+  "titolo": "ViacomCBS Turns",
+  "sotto": "",
+  "capitolo": "ViacomCBS Turns"
  },
  {
-  "voce": "SVB tells the market it sold securities.",
+  "voce": "In January, the stock traded around forty dollars.",
   "tipo": "clip",
   "sfondo": "trading screens",
-  "chiave": "SOLD",
-  "cartello": "SECURITIES SOLD",
-  "capitolo": "The Fatal Announcement"
+  "chiave": "FORTY",
+  "cartello": "FORTY DOLLARS IN JANUARY",
+  "capitolo": "ViacomCBS Turns"
  },
  {
-  "voce": "About twenty-one billion dollars of them.",
-  "tipo": "dato",
-  "sfondo": "banknotes closeup",
-  "chiave": "$21B",
-  "numero": "$21B",
-  "didascalia": "Available-for-sale securities sold by SVB",
-  "fonte": "SVB announcement, March 8, 2023",
-  "capitolo": "The Fatal Announcement"
- },
- {
-  "voce": "The sale locked in a loss.",
+  "voce": "Then it climbed. Fast. Relentlessly.",
   "tipo": "clip",
-  "sfondo": "stock market charts",
-  "chiave": "LOSS",
-  "cartello": "LOSS LOCKED IN",
-  "capitolo": "The Fatal Announcement"
+  "sfondo": "stock exchange floor",
+  "chiave": "CLIMBED",
+  "cartello": "CLIMBED FAST",
+  "capitolo": "ViacomCBS Turns"
  },
  {
-  "voce": "About one point eight billion dollars.",
+  "voce": "By March, it peaked around one hundred dollars.",
+  "tipo": "dato",
+  "sfondo": "stock chart",
+  "chiave": "$100",
+  "numero": "$100",
+  "didascalia": "ViacomCBS peak price, March twenty twenty-one",
+  "fonte": "Market data",
+  "capitolo": "ViacomCBS Turns"
+ },
+ {
+  "voce": "For Archegos, the tower looked unstoppable.",
+  "tipo": "oggetto3d",
+  "sfondo": "golden tower",
+  "chiave": "TOWER",
+  "oggetto": "Tall glossy golden tower of stacked coins on a dark reflective floor",
+  "etichette": [
+   "ARCHEGOS",
+   "PEAK"
+  ],
+  "capitolo": "ViacomCBS Turns"
+ },
+ {
+  "voce": "Then came March twenty-second.",
+  "tipo": "calendario",
+  "sfondo": "office building",
+  "chiave": "MAR 22",
+  "mese": "MAR",
+  "giorno": "22",
+  "titolo": "Offering Announced",
+  "sotto": "ViacomCBS announces a new share sale",
+  "timbro": "THE TURN",
+  "capitolo": "ViacomCBS Turns"
+ },
+ {
+  "voce": "ViacomCBS announced a stock offering.",
+  "tipo": "foto",
+  "sfondo": "newspaper headline",
+  "chiave": "OFFERING",
+  "etichetta": "NEW YORK · MARCH 22, 2021",
+  "titolo": "ViacomCBS Announces Stock Offering",
+  "sotto": "Common shares and convertible preferred stock",
+  "capitolo": "ViacomCBS Turns"
+ },
+ {
+  "voce": "Three billion dollars, in common shares and convertible preferred stock.",
   "tipo": "dato",
   "sfondo": "financial documents",
-  "chiave": "$1.8B",
-  "numero": "$1.8B",
-  "didascalia": "Loss on the securities sale",
-  "fonte": "SVB announcement, March 8, 2023",
-  "capitolo": "The Fatal Announcement"
+  "chiave": "$3B",
+  "numero": "$3B",
+  "didascalia": "Common shares and convertible preferred stock",
+  "fonte": "ViacomCBS announcement",
+  "capitolo": "ViacomCBS Turns"
  },
  {
-  "voce": "Then came the second part of the message.",
+  "voce": "New shares meant more supply. The market noticed.",
   "tipo": "clip",
-  "sfondo": "office building windows",
-  "chiave": "SECOND",
-  "cartello": "SECOND SHOCK",
-  "capitolo": "The Fatal Announcement"
+  "sfondo": "trading screens red",
+  "chiave": "SUPPLY",
+  "cartello": "SUPPLY HITS MARKET",
+  "capitolo": "ViacomCBS Turns"
  },
  {
-  "voce": "SVB planned to raise fresh capital.",
+  "voce": "The shares fell sharply over the following days.",
+  "tipo": "borsa",
+  "sfondo": "trading screen",
+  "chiave": "FELL",
+  "ticker": "VIAC",
+  "da": "$100",
+  "a": "$60",
+  "capitolo": "ViacomCBS Turns"
+ },
+ {
+  "voce": "Archegos's swaps lost value.",
+  "tipo": "clip",
+  "sfondo": "stock market screens",
+  "chiave": "LOST VALUE",
+  "cartello": "SWAPS LOST VALUE",
+  "capitolo": "ViacomCBS Turns"
+ },
+ {
+  "voce": "The banks on the other side began to react.",
+  "tipo": "clip",
+  "sfondo": "bank skyscrapers",
+  "chiave": "BANKS",
+  "cartello": "BANKS REACT",
+  "capitolo": "ViacomCBS Turns"
+ },
+ {
+  "voce": "Margin calls started to go out.",
   "tipo": "dossier",
-  "sfondo": "corporate documents",
-  "chiave": "CAPITAL",
-  "scheda": "CAPITAL PLAN",
-  "nome": "SVB Financial",
+  "sfondo": "documents desk",
+  "chiave": "MARGIN",
+  "scheda": "MARGIN CALL",
+  "nome": "Archegos Capital",
   "persona": false,
   "righe": [
    [
-    "Action",
-    "Raise new capital"
+    "Issued by",
+    "Counterparty banks"
    ],
    [
-    "Amount",
-    "About $2.25 billion"
+    "Trigger",
+    "Falling share prices"
    ],
    [
-    "Announced",
-    "March 8, 2023"
+    "Demand",
+    "More cash collateral"
+   ],
+   [
+    "Status",
+    "Unpaid"
    ]
   ],
   "timbro": "URGENT",
-  "capitolo": "The Fatal Announcement"
+  "capitolo": "ViacomCBS Turns"
  },
  {
-  "voce": "About two point two five billion dollars.",
+  "voce": "Each call demanded more cash collateral.",
   "tipo": "clip",
-  "sfondo": "stock exchange floor",
-  "chiave": "CAPITAL",
-  "cartello": "CAPITAL RAISE NEEDED",
-  "capitolo": "The Fatal Announcement"
+  "sfondo": "banknotes",
+  "chiave": "CASH",
+  "cartello": "CASH DEMANDED NOW",
+  "capitolo": "ViacomCBS Turns"
  },
  {
-  "voce": "Investors read it as a distress signal.",
-  "tipo": "foto",
-  "sfondo": "newspaper financial headlines",
-  "chiave": "ALARMED",
-  "etichetta": "NEW YORK · MARCH 2023",
-  "titolo": "Investors Grow Alarmed",
-  "sotto": "Markets question the bank's stability",
-  "capitolo": "The Fatal Announcement"
+  "voce": "Archegos could not provide it.",
+  "tipo": "oggetto3d",
+  "sfondo": "cracked vault",
+  "chiave": "COULD NOT",
+  "oggetto": "Glossy golden vault door cracking open, empty inside, dramatic lighting",
+  "etichette": [
+   "NO CASH"
+  ],
+  "capitolo": "ViacomCBS Turns"
  },
  {
-  "voce": "Venture capital firms grew alarmed too.",
+  "voce": "The tower had started to shake.",
   "tipo": "clip",
   "sfondo": "city skyline dusk",
-  "chiave": "ALARMED",
-  "cartello": "VENTURE FIRMS ALARMED",
-  "capitolo": "The Fatal Announcement"
+  "chiave": "SHAKE",
+  "cartello": "THE TOWER SHAKES",
+  "capitolo": "ViacomCBS Turns"
  },
  {
-  "voce": "Several firms reportedly urged their startups to withdraw.",
-  "tipo": "oggetto3d",
-  "sfondo": "glossy 3D scene",
-  "chiave": "WITHDRAW",
-  "oggetto": "blue faceless mannequins carrying gold coins away from a cracked golden vault",
-  "etichette": [
-   "STARTUPS",
-   "MONEY OUT"
-  ],
-  "capitolo": "The Fatal Announcement"
- },
- {
-  "voce": "Move your money. That was the advice.",
+  "voce": "And the banks were about to move.",
   "tipo": "clip",
-  "sfondo": "server room data",
+  "sfondo": "trading floor screens",
   "chiave": "MOVE",
-  "cartello": "MOVE YOUR MONEY",
-  "capitolo": "The Fatal Announcement"
- },
- {
-  "voce": "March ninth. The market opens.",
-  "tipo": "calendario",
-  "sfondo": "stock exchange facade",
-  "chiave": "MAR",
-  "mese": "MAR",
-  "giorno": "9",
-  "titolo": "Markets Open Lower",
-  "sotto": "SVB shares come under heavy selling pressure",
-  "timbro": "SELLOFF",
-  "capitolo": "The Fatal Announcement"
- },
- {
-  "voce": "SVB stock collapses about sixty percent.",
-  "tipo": "dato",
-  "sfondo": "red trading screens",
-  "chiave": "60%",
-  "numero": "-60%",
-  "didascalia": "SVB stock decline on March 9, 2023",
-  "fonte": "Market data",
-  "capitolo": "The Fatal Announcement"
- },
- {
-  "voce": "Billions in market value, gone.",
-  "tipo": "clip",
-  "sfondo": "falling stock chart",
-  "chiave": "GONE",
-  "cartello": "BILLIONS WIPED OUT",
-  "capitolo": "The Fatal Announcement"
- },
- {
-  "voce": "But the real run had not even begun.",
-  "tipo": "clip",
-  "sfondo": "empty bank lobby",
-  "chiave": "RUN",
-  "cartello": "THE RUN BEGINS",
-  "capitolo": "The Fatal Announcement"
+  "cartello": "MOVE FIRST OR LOSE",
+  "capitolo": "ViacomCBS Turns"
  }
 ]

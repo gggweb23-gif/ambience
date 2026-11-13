@@ -1,187 +1,152 @@
 [
  {
-  "voce": "Chapter nine. The answer and the lesson.",
+  "voce": "Chapter nine. The Lesson.",
   "tipo": "foto",
-  "sfondo": "bank headquarters building",
-  "chiave": "CHAPTER 9",
+  "sfondo": "stock exchange",
+  "chiave": "LESSON",
   "etichetta": "CHAPTER 9",
-  "titolo": "The Answer and the Lesson",
-  "sotto": "",
-  "capitolo": "The Answer and the Lesson"
+  "titolo": "The Lesson",
+  "sotto": "What the collapse left behind",
+  "capitolo": "The Lesson"
  },
  {
-  "voce": "So, how does a bank vanish in one day?",
+  "voce": "So, how did one fund hide so much?",
   "tipo": "clip",
-  "sfondo": "financial district skyline",
-  "chiave": "VANISH",
-  "cartello": "ONE DAY",
-  "capitolo": "The Answer and the Lesson"
+  "sfondo": "financial district",
+  "chiave": "HIDE",
+  "cartello": "HIDDEN EXPOSURE",
+  "capitolo": "The Lesson"
  },
  {
-  "voce": "The assets sat in long-dated bonds.",
-  "tipo": "clip",
-  "sfondo": "bond certificates documents",
-  "chiave": "BONDS",
-  "cartello": "BONDS LOST VALUE",
-  "capitolo": "The Answer and the Lesson"
- },
- {
-  "voce": "Those bonds had quietly lost value.",
-  "tipo": "oggetto3d",
-  "sfondo": "golden vault",
-  "chiave": "LOST",
-  "oggetto": "A golden vault with a deep crack running through its door",
-  "etichette": [
-   "LONG-DATED",
-   "BONDS"
-  ],
-  "capitolo": "The Answer and the Lesson"
- },
- {
-  "voce": "And the depositors? Mostly uninsured.",
-  "tipo": "clip",
-  "sfondo": "banknotes close up",
-  "chiave": "UNINSURED",
-  "cartello": "UNINSURED DEPOSITS",
-  "capitolo": "The Answer and the Lesson"
- },
- {
-  "voce": "Also highly connected to each other.",
-  "tipo": "foto",
-  "sfondo": "city skyline network",
-  "chiave": "CONNECTED",
-  "etichetta": "SILICON VALLEY · 2023",
-  "titolo": "Depositors Talked To Each Other",
-  "sotto": "A tight network of startups and investors",
-  "capitolo": "The Answer and the Lesson"
- },
- {
-  "voce": "Fear began as a rumor.",
-  "tipo": "clip",
-  "sfondo": "trading screens",
-  "chiave": "RUMOR",
-  "cartello": "RUMOR SPREADS",
-  "capitolo": "The Answer and the Lesson"
- },
- {
-  "voce": "Money moved digitally, so fear moved faster.",
-  "tipo": "clip",
-  "sfondo": "servers data center",
-  "chiave": "DIGITAL",
-  "cartello": "DIGITAL TRANSFERS",
-  "capitolo": "The Answer and the Lesson"
- },
- {
-  "voce": "It all spread in a matter of hours.",
-  "tipo": "oggetto3d",
-  "sfondo": "stopwatch",
-  "chiave": "HOURS",
-  "oggetto": "A giant glossy stopwatch with its hand racing around",
-  "etichettee": [],
-  "etichette": [
-   "HOURS"
-  ],
-  "capitolo": "The Answer and the Lesson"
- },
- {
-  "voce": "Losses were hidden in held-to-maturity bonds.",
+  "voce": "Family offices were not required to disclose their positions",
   "tipo": "dossier",
-  "sfondo": "financial documents",
-  "chiave": "HIDDEN",
-  "scheda": "BALANCE SHEET",
-  "nome": "Held-to-Maturity Bonds",
+  "sfondo": "documents",
+  "chiave": "family office",
+  "scheda": "REGULATORY FILE",
+  "nome": "Family Office",
   "persona": false,
   "righe": [
    [
     "Type",
-    "Long-dated bonds"
+    "Private investment vehicle"
    ],
    [
-    "Losses",
-    "Hidden on paper"
+    "Disclosure",
+    "Not required like regulated funds"
    ],
    [
-    "Risk",
-    "Interest rates"
+    "Oversight",
+    "Limited"
    ]
   ],
-  "timbro": "HIDDEN",
-  "capitolo": "The Answer and the Lesson"
+  "timbro": "UNDISCLOSED",
+  "capitolo": "The Lesson"
  },
  {
-  "voce": "Deposits were concentrated in one tight group.",
+  "voce": "the way regulated funds are.",
   "tipo": "clip",
-  "sfondo": "office buildings glass",
-  "chiave": "CONCENTRATED",
-  "cartello": "CONCENTRATED DEPOSITS",
-  "capitolo": "The Answer and the Lesson"
+  "sfondo": "office documents",
+  "chiave": "CONFIDENTIAL",
+  "cartello": "CONFIDENTIAL FILINGS",
+  "capitolo": "The Lesson"
  },
  {
-  "voce": "Together, they turned a paper problem real.",
+  "voce": "Banks competed for fees.",
   "tipo": "clip",
-  "sfondo": "stock exchange floor",
-  "chiave": "REAL",
-  "cartello": "PAPER PROBLEM, REAL RUN",
-  "capitolo": "The Answer and the Lesson"
+  "sfondo": "banknotes",
+  "chiave": "FEES",
+  "cartello": "FEES FIRST",
+  "capitolo": "The Lesson"
  },
  {
-  "voce": "After 2023, the system took a hard look.",
+  "voce": "They relaxed their checks on a client with a prior fraud history.",
   "tipo": "foto",
-  "sfondo": "federal reserve building",
-  "chiave": "REVIEW",
-  "etichetta": "WASHINGTON · 2023",
-  "titolo": "Regulators Review The System",
-  "sotto": "Banks and supervisors reassess their exposure",
-  "capitolo": "The Answer and the Lesson"
+  "sfondo": "bank building",
+  "chiave": "fraud history",
+  "etichetta": "NEW YORK · 2021",
+  "titolo": "Banks relaxed their checks",
+  "sotto": "A client with a prior fraud history",
+  "capitolo": "The Lesson"
  },
  {
-  "voce": "Interest-rate risk came under review.",
+  "voce": "Now the open question has its answer.",
   "tipo": "clip",
-  "sfondo": "rates chart screen",
-  "chiave": "INTEREST-RATE",
-  "cartello": "INTEREST-RATE RISK",
-  "capitolo": "The Answer and the Lesson"
+  "sfondo": "trading screens",
+  "chiave": "ANSWER",
+  "cartello": "ANSWER AT LAST",
+  "capitolo": "The Lesson"
  },
  {
-  "voce": "So did uninsured deposits.",
+  "voce": "The swaps hid the exposure.",
+  "tipo": "oggetto3d",
+  "sfondo": "vault",
+  "chiave": "HID",
+  "oggetto": "A glossy golden vault wrapped in opaque dark glass",
+  "etichetas": [
+   "SWAPS"
+  ],
+  "etichette": [
+   "SWAPS",
+   "HIDDEN"
+  ],
+  "capitolo": "The Lesson"
+ },
+ {
+  "voce": "No single bank saw the total.",
   "tipo": "clip",
-  "sfondo": "bank vault door",
-  "chiave": "UNINSURED",
-  "cartello": "UNINSURED DEPOSITS",
-  "capitolo": "The Answer and the Lesson"
+  "sfondo": "city skyline",
+  "chiave": "TOTAL",
+  "cartello": "NO SINGLE VIEW",
+  "capitolo": "The Lesson"
  },
  {
-  "voce": "And so did supervision itself.",
+  "voce": "And leverage turned a falling stock into a collapse.",
+  "tipo": "oggetto3d",
+  "sfondo": "coins tower",
+  "chiave": "COLLAPSE",
+  "oggetto": "A tall tower of golden coins collapsing from its base",
+  "etichette": [
+   "LEVERAGE",
+   "COLLAPSE"
+  ],
+  "capitolo": "The Lesson"
+ },
+ {
+  "voce": "In twenty twenty-one, the SEC proposed new rules.",
+  "tipo": "calendario",
+  "sfondo": "government building",
+  "chiave": "2021",
+  "mese": "JAN",
+  "giorno": "21",
+  "titolo": "SEC Proposes Rules",
+  "sotto": "Disclosure of large security-based swap positions",
+  "timbro": "PROPOSED",
+  "capitolo": "The Lesson"
+ },
+ {
+  "voce": "They would require disclosure of large security-based swap positions.",
+  "tipo": "clip",
+  "sfondo": "regulatory documents",
+  "chiave": "DISCLOSURE",
+  "cartello": "DISCLOSURE REQUIRED",
+  "capitolo": "The Lesson"
+ },
+ {
+  "voce": "Because what nobody sees, nobody can stop.",
   "tipo": "foto",
-  "sfondo": "regulatory documents desk",
-  "chiave": "SUPERVISION",
-  "etichetta": "WASHINGTON · 2023",
-  "titolo": "Supervision Under Review",
-  "sotto": "Regulators examined how the warning signs were missed",
-  "capitolo": "The Answer and the Lesson"
- },
- {
-  "voce": "The lesson is simple and brutal.",
-  "tipo": "clip",
-  "sfondo": "city skyline dusk",
-  "chiave": "LESSON",
-  "cartello": "LESSON LEARNED",
-  "capitolo": "The Answer and the Lesson"
- },
- {
-  "voce": "Confidence is the only thing a bank cannot hold.",
-  "tipo": "clip",
-  "sfondo": "empty bank lobby",
-  "chiave": "CONFIDENCE",
-  "cartello": "CONFIDENCE BREAKS FAST",
-  "capitolo": "The Answer and the Lesson"
+  "sfondo": "empty trading floor",
+  "chiave": "nobody",
+  "etichetta": "WALL STREET · AFTERMATH",
+  "titolo": "What nobody sees",
+  "sotto": "Nobody can stop",
+  "capitolo": "The Lesson"
  },
  {
   "voce": "Subscribe for the next one.",
   "tipo": "clip",
-  "sfondo": "financial district night",
+  "sfondo": "city skyline night",
   "chiave": "SUBSCRIBE",
   "cartello": "SUBSCRIBE NOW",
-  "capitolo": "The Answer and the Lesson"
+  "capitolo": "The Lesson"
  }
 ]

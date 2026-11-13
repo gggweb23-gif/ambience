@@ -1,200 +1,194 @@
 [
  {
-  "voce": "Forty-two billion dollars. Gone from one bank in one day.",
+  "voce": "Twenty billion dollars. Gone in a few days.",
   "tipo": "dato",
-  "sfondo": "bank vault interior",
-  "chiave": "forty-two billion",
-  "numero": "$42B",
-  "didascalia": "Withdrawal requests at Silicon Valley Bank in a single day",
-  "fonte": "Thursday, March 9, 2023",
-  "capitolo": "$42 Billion in One Day"
+  "sfondo": "stock exchange",
+  "chiave": "Twenty billion",
+  "numero": "$20B",
+  "didascalia": "Reported losses within days, March 2021",
+  "fonte": "Major press accounts",
+  "capitolo": "The Number"
  },
  {
-  "voce": "How does a bank this large collapse so fast?",
-  "tipo": "clip",
-  "sfondo": "financial district skyline",
-  "chiave": "collapse",
-  "cartello": "COLLAPSE IN HOURS",
-  "capitolo": "$42 Billion in One Day"
- },
- {
-  "voce": "Thursday, March ninth, twenty twenty-three.",
-  "tipo": "calendario",
-  "sfondo": "city skyline",
-  "chiave": "March ninth",
-  "mese": "MAR",
-  "giorno": "9",
-  "titolo": "The Withdrawal Rush",
-  "sotto": "Depositors try to pull billions from Silicon Valley Bank",
-  "timbro": "ONE DAY",
-  "capitolo": "$42 Billion in One Day"
- },
- {
-  "voce": "Depositors wanted their money out, all at once.",
+  "voce": "How does one firm destroy that much, that fast?",
   "tipo": "clip",
   "sfondo": "trading screens",
-  "chiave": "all at once",
-  "cartello": "WITHDRAWALS SURGE",
-  "capitolo": "$42 Billion in One Day"
+  "chiave": "that fast",
+  "cartello": "HOW? SO FAST",
+  "capitolo": "The Number"
  },
  {
-  "voce": "Forty-two billion dollars in withdrawal requests, in one day.",
-  "tipo": "oggetto3d",
-  "sfondo": "golden vault",
-  "chiave": "forty-two billion",
-  "oggetto": "A golden vault door cracking open with coins spilling out",
-  "etichette": [
-   "$42 BILLION",
-   "ONE DAY"
-  ],
-  "capitolo": "$42 Billion in One Day"
- },
- {
-  "voce": "That was about a quarter of all deposits.",
-  "tipo": "classifica",
-  "sfondo": "banknotes stack",
-  "chiave": "quarter",
-  "titolo": "Deposits vs. one-day withdrawals",
-  "barre": [
-   [
-    "Deposits, end 2022",
-    173,
-    "$173B"
-   ],
-   [
-    "Withdrawal requests",
-    42,
-    "$42B"
-   ]
-  ],
-  "timbro": "A QUARTER",
-  "fonte": "End of 2022 deposits",
-  "capitolo": "$42 Billion in One Day"
- },
- {
-  "voce": "At the end of twenty twenty-two, deposits stood near one hundred seventy-three billion.",
-  "tipo": "clip",
-  "sfondo": "bank building exterior",
-  "chiave": "deposits",
-  "cartello": "DEPOSITS $173 BILLION",
-  "capitolo": "$42 Billion in One Day"
- },
- {
-  "voce": "Then came Friday, March tenth.",
-  "tipo": "calendario",
-  "sfondo": "empty bank lobby",
-  "chiave": "Friday",
-  "mese": "MAR",
-  "giorno": "10",
-  "titolo": "The Bank Is Closed",
-  "sotto": "California regulators shut the bank and name the FDIC receiver",
-  "timbro": "SHUT DOWN",
-  "capitolo": "$42 Billion in One Day"
- },
- {
-  "voce": "California regulators closed the bank.",
+  "voce": "This is Archegos Capital Management, based in New York.",
   "tipo": "foto",
-  "sfondo": "closed bank entrance",
-  "chiave": "closed",
-  "etichette": "",
-  "etichetta": "SANTA CLARA · MARCH 10, 2023",
-  "titolo": "Regulators Close Silicon Valley Bank",
-  "sotto": "State regulators order the closure of the bank",
-  "capitolo": "$42 Billion in One Day"
+  "sfondo": "New York skyline",
+  "chiave": "Archegos",
+  "etichetta": "NEW YORK · 2021",
+  "titolo": "Archegos Capital Management",
+  "sotto": "A family office based in New York",
+  "capitolo": "The Number"
  },
  {
-  "voce": "The FDIC was appointed receiver.",
+  "voce": "It belonged to one man: Sung Kook Hwang.",
   "tipo": "dossier",
-  "sfondo": "government documents",
-  "chiave": "FDIC",
-  "scheda": "RECEIVERSHIP FILE",
-  "nome": "Silicon Valley Bank",
+  "sfondo": "office documents",
+  "chiave": "Hwang",
+  "scheda": "COMPANY FILE",
+  "nome": "Archegos Capital Management",
   "persona": false,
   "righe": [
    [
-    "Closed by",
-    "California regulators"
+    "Type",
+    "Family office"
    ],
    [
-    "Receiver",
-    "FDIC"
+    "Owner",
+    "Sung Kook (Bill) Hwang"
    ],
    [
-    "Date",
-    "March 10, 2023"
-   ],
-   [
-    "Prior day",
-    "$42B withdrawal requests"
+    "Based in",
+    "New York"
    ]
   ],
-  "timbro": "CLOSED",
-  "capitolo": "$42 Billion in One Day"
+  "timbro": "",
+  "capitolo": "The Number"
  },
  {
-  "voce": "Two days. That's all it took.",
+  "voce": "Friends call him Bill. The market never heard of him.",
   "tipo": "clip",
-  "sfondo": "stock exchange floor",
-  "chiave": "Two days",
-  "cartello": "TWO DAYS ONLY",
-  "capitolo": "$42 Billion in One Day"
+  "sfondo": "financial district",
+  "chiave": "never heard",
+  "cartello": "UNKNOWN TO MARKETS",
+  "capitolo": "The Number"
  },
  {
-  "voce": "It became the second-largest bank failure in American history.",
+  "voce": "In early twenty twenty-one, it held about ten billion dollars.",
+  "tipo": "dato",
+  "sfondo": "banknotes",
+  "chiave": "ten billion",
+  "numero": "$10B",
+  "didascalia": "Reported assets of Archegos, early 2021",
+  "fonte": "Press reports",
+  "capitolo": "The Number"
+ },
+ {
+  "voce": "Ten billion in assets. Twenty billion lost.",
   "tipo": "classifica",
-  "sfondo": "newspaper headlines",
-  "chiave": "second-largest",
-  "titolo": "Largest US bank failures",
+  "sfondo": "trading screens",
+  "chiave": "Twenty billion",
+  "titolo": "Assets versus losses",
   "barre": [
    [
-    "Washington Mutual, 2008",
-    2,
-    "Largest"
+    "Assets, early 2021",
+    10,
+    "$10B"
    ],
    [
-    "Silicon Valley Bank, 2023",
-    1,
-    "Second"
+    "Reported losses, March 2021",
+    20,
+    "$20B"
    ]
   ],
-  "timbro": "SECOND LARGEST",
-  "fonte": "Ranking at the time of failure",
-  "capitolo": "$42 Billion in One Day"
+  "timbro": "MARCH 2021",
+  "fonte": "Major press accounts",
+  "capitolo": "The Number"
  },
  {
-  "voce": "Only Washington Mutual, in two thousand eight, was bigger.",
-  "tipo": "foto",
-  "sfondo": "financial crisis newspaper",
-  "chiave": "Washington Mutual",
-  "etichetta": "NEW YORK · 2008",
-  "titolo": "Washington Mutual Failure Of 2008",
-  "sotto": "The only US bank failure larger than SVB",
-  "capitolo": "$42 Billion in One Day"
+  "voce": "The math should not work. Yet the collapse was real.",
+  "tipo": "clip",
+  "sfondo": "stock exchange floor",
+  "chiave": "collapse",
+  "cartello": "COLLAPSE IN DAYS",
+  "capitolo": "The Number"
  },
  {
-  "voce": "The bank held two hundred nine billion in assets.",
+  "voce": "And the damage did not stay inside one firm.",
+  "tipo": "clip",
+  "sfondo": "city skyline",
+  "chiave": "damage",
+  "cartello": "DAMAGE SPREADS",
+  "capitolo": "The Number"
+ },
+ {
+  "voce": "The banks that financed it lost over ten billion.",
   "tipo": "dato",
-  "sfondo": "financial documents",
-  "chiave": "two hundred nine billion",
-  "numero": "$209B",
-  "didascalia": "Total assets at Silicon Valley Bank",
-  "fonte": "Bank balance sheet",
-  "capitolo": "$42 Billion in One Day"
+  "sfondo": "bank buildings",
+  "chiave": "ten billion",
+  "numero": "$10B+",
+  "didascalia": "Total lost by the banks that financed Archegos",
+  "fonte": "Major press accounts",
+  "capitolo": "The Number"
  },
  {
-  "voce": "So how does that fall in two days?",
-  "tipo": "clip",
-  "sfondo": "city skyline dusk",
-  "chiave": "two days",
-  "cartello": "HOW IT FELL",
-  "capitolo": "$42 Billion in One Day"
+  "voce": "Why was nobody watching a firm this dangerous?",
+  "tipo": "foto",
+  "sfondo": "regulator building",
+  "chiave": "nobody watching",
+  "etichetta": "WASHINGTON · 2021",
+  "titolo": "No regulator was watching",
+  "sotto": "Family offices escape hedge fund registration",
+  "capitolo": "The Number"
  },
  {
-  "voce": "To answer that, we start at the beginning.",
+  "voce": "Because Archegos was a family office.",
+  "tipo": "dossier",
+  "sfondo": "legal documents",
+  "chiave": "family office",
+  "scheda": "REGULATORY FILE",
+  "nome": "Family office status",
+  "persona": false,
+  "righe": [
+   [
+    "Structure",
+    "Family office"
+   ],
+   [
+    "SEC registration",
+    "Not required"
+   ],
+   [
+    "Hedge fund adviser",
+    "Exempt"
+   ]
+  ],
+  "timbro": "UNWATCHED",
+  "capitolo": "The Number"
+ },
+ {
+  "voce": "No registration as a hedge fund adviser with the SEC.",
+  "tipo": "oggetto3d",
+  "sfondo": "golden vault",
+  "chiave": "No registration",
+  "oggetto": "A golden vault with a large crack running through its door",
+  "etichette": [
+   "NO REGISTRATION",
+   "NO OVERSIGHT"
+  ],
+  "capitolo": "The Number"
+ },
+ {
+  "voce": "So one open question remains.",
   "tipo": "clip",
-  "sfondo": "San Francisco skyline",
-  "chiave": "beginning",
-  "cartello": "BEGIN AT START",
-  "capitolo": "$42 Billion in One Day"
+  "sfondo": "empty trading floor",
+  "chiave": "open question",
+  "cartello": "OPEN QUESTION",
+  "capitolo": "The Number"
+ },
+ {
+  "voce": "How did an unwatched firm do this much damage?",
+  "tipo": "foto",
+  "sfondo": "Wall Street sign",
+  "chiave": "unwatched",
+  "etichetta": "WALL STREET · MARCH 2021",
+  "titolo": "The Damage Was Real",
+  "sotto": "Banks and markets absorbed the shock",
+  "capitolo": "The Number"
+ },
+ {
+  "voce": "To find out, we start with the man himself.",
+  "tipo": "clip",
+  "sfondo": "city skyline night",
+  "chiave": "the man",
+  "cartello": "THE MAN BEHIND",
+  "capitolo": "The Number"
  }
 ]
