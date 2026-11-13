@@ -79,6 +79,9 @@ def crea(p):
     im = (p.get('immagine') or foto(p['prodotto'], sx=not scritte_sx)).convert('RGBA')
     d0 = ImageDraw.Draw(im)
     box = p.get('box') or (box_soggetto(im, p.get('prodotto')) if E('ANTHROPIC_API_KEY') else None) or ((730, 230, 1250, 640) if scritte_sx else (40, 200, 560, 610))
+    # 13 nov: il cerchio resta nella meta' del soggetto e dentro l'immagine (mai sopra le scritte o tagliato dal bordo)
+    box = (max(20, box[0]), max(20, box[1]), min(W - 20, box[2]), min(H - 20, box[3]))
+    box = (box[0], box[1], min(box[2], 740), box[3]) if scritte_sx is False else (max(box[0], 540), box[1], box[2], box[3])
     cerchio(d0, box, seme=int(p.get('seme') or 3))   # il cerchio stretto intorno al soggetto
     lay = Image.new('RGBA', im.size, (0, 0, 0, 0)); d = ImageDraw.Draw(lay)
     prezzo, vero, anni = float(p.get('prezzo') or 0), float(p['costo_vero']), int(p.get('anni') or 0)
