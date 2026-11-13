@@ -1,184 +1,165 @@
 {
- "titolo": "Quanto guadagna una gelateria d'inverno?",
+ "titolo": "Quante pagnotte deve vendere un panificio per non chiudere?",
  "protagonista": {
-  "nome": "Luca",
-  "capelli": "curly",
-  "colore_capelli": "#3b2a1e",
-  "pelle": "media",
-  "maglia": "#4aa3c7",
-  "grembiule": "#f4efe6",
+  "nome": "Gianni",
+  "capelli": "bald",
+  "colore_capelli": "#8a8a8a",
+  "pelle": "chiara",
+  "maglia": "#f2f2f2",
+  "grembiule": "#e8d9b5",
   "occhiali": false
  },
- "oggetto": "gelato",
+ "oggetto": "pane",
  "copertina": {
   "righe": [
-   "GELATERIA",
-   "D'INVERNO:",
-   "QUANTO RESTA?"
+   "SVEGLIA ALLE 2",
+   "VENDE PANE A",
+   "UN EURO E POI?"
   ],
-  "emozione": "preoccupato",
-  "oggetto": "gelato",
-  "prezzo": "2,50 €",
+  "emozione": "stupito",
+  "oggetto": "pane",
+  "prezzo": "1 €",
   "fondo": "scuro"
  },
  "copertina_ai": {
-  "valore_sx": "0,70 €",
-  "valore_dx": "2,50 €",
-  "oggetto_sx": "a small heap of gelato ingredients: milk carton, sugar bag, hazelnuts",
-  "oggetto_dx": "a big colorful ice cream cone with two scoops",
+  "valore_sx": "0,60 €",
+  "valore_dx": "1 €",
+  "oggetto_sx": "a small pile of bakery ingredients: flour bag, yeast, bottle of water, a pinch of salt",
+  "oggetto_dx": "a big golden crusty Italian bread loaf on a wooden board",
   "domanda": [
    "E ALLORA PERCHÉ",
-   "A GENNAIO PERDE?"
+   "IL FORNAIO CHIUDE?"
   ]
  },
- "descrizione": "Luca ha una gelateria che ad agosto sembra una miniera d'oro. Poi arriva gennaio, e i conti cambiano. Scopri quanto resta davvero, perché i costi fissi non vanno in vacanza e come mettere da parte la cassa d'estate per non andare sotto d'inverno. Numeri semplici, storia a cartoni, una lezione utile per ogni attività stagionale.",
+ "descrizione": "Gianni si sveglia alle due di notte per fare il pane. Eppure ogni pagnotta gli lascia pochi centesimi. Quante ne deve vendere ogni giorno per non chiudere? In questa puntata facciamo i conti veri di un panificio: costi fissi, margine per pagnotta e punto di pareggio. Se hai o vuoi aprire un'attività, guardala fino alla fine.",
  "tag": [
-  "gelateria",
-  "stagionalità",
-  "costi fissi",
+  "panificio",
   "punto di pareggio",
   "margine",
+  "costi fissi",
   "aprire un'attività",
-  "gestione cassa",
-  "commercianti",
+  "pane",
+  "forno",
   "economia pratica",
-  "gelato artigianale",
-  "bilancio",
-  "risparmio",
-  "partita iva",
+  "commercianti",
+  "conti del negozio",
+  "quanto ti resta",
   "piccola impresa",
-  "conti attività"
+  "come aprire un panificio",
+  "budget",
+  "guadagno"
  ],
  "scene": [
   {
-   "testo": "Luca vende tremila gelati al mese in estate e a gennaio ne vende quattrocento. Gli affitti, però, restano uguali. Sai quanto perde una gelateria nei mesi freddi? Quasi sempre, più di quanto pensi.",
+   "testo": "Gianni vende il pane a un euro. Si alza alle due di notte, sette giorni su sette. A fine mese gli restano in tasca pochi centesimi per ogni pagnotta. Ma allora quante ne deve vendere per non chiudere?",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "domanda",
      "p": {
-      "testo": "Quanto perde a gennaio?",
-      "emozione": "preoccupato",
+      "testo": "Un euro a pagnotta?",
+      "emozione": "stupito",
       "scuro": true
      }
     },
     {
-     "parola": "gennaio",
-     "tipo": "mesi",
+     "parola": "Si",
+     "tipo": "orologio",
      "p": {
-      "titolo": "Gelati venduti al mese",
-      "valori": [
-       400,
-       450,
-       800,
-       1500,
-       2400,
-       3000,
-       3200,
-       3000,
-       2000,
-       1000,
-       500,
-       450
-      ],
-      "evidenzia": [
-       1,
-       12
-      ],
-      "nota": "Estate piena, inverno vuoto"
+      "ore": 16,
+      "piene": 14,
+      "testo": "Sveglia alle 2"
      }
     },
     {
-     "parola": "Gli",
-     "tipo": "costi",
+     "parola": "Ma",
+     "tipo": "prezzo",
      "p": {
-      "voci": [
-       {
-        "nome": "Affitto",
-        "valore": 1500,
-        "testo": "1.500 €"
-       },
-       {
-        "nome": "Dipendente",
-        "valore": 1200,
-        "testo": "1.200 €"
-       }
-      ],
-      "totale": 2700,
-      "periodo": "al mese"
+      "oggetto": "pane",
+      "prezzo": "1 €",
+      "nota": "una pagnotta"
      }
     }
    ]
   },
   {
-   "testo": "Lui è Luca. Ha una gelateria in una cittadina di mare. D'estate la fila arriva fino al marciapiede. D'inverno, invece, entra qualcuno ogni tanto, giusto per un caffè e due chiacchiere.",
-   "capitolo": "La storia di Luca",
+   "testo": "Ti presento Gianni. Ha un panificio di quartiere, con un forno a legna e due dipendenti part time. Il pane buono lo sanno fare in tanti. Il difficile è fare i conti, e oggi li facciamo insieme, fino all'ultimo centesimo.",
+   "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "luogo",
      "p": {
-      "luogo": "gelateria",
-      "insegna": "Gelateria da Luca",
-      "azione": "festa",
-      "clienti": 5,
-      "testo": "Luglio"
+      "luogo": "panificio",
+      "insegna": "Forno Gianni",
+      "azione": "felice",
+      "clienti": 2,
+      "testo": "Il forno di Gianni"
      }
     },
     {
-     "parola": "D'inverno",
+     "parola": "Il",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Sai fare i conti?",
+      "emozione": "calmo",
+      "scuro": false
+     }
+    },
+    {
+     "parola": "oggi",
      "tipo": "luogo",
      "p": {
-      "luogo": "gelateria",
-      "insegna": "Gelateria da Luca",
-      "azione": "preoccupato",
+      "luogo": "panificio",
+      "insegna": "Forno Gianni",
+      "azione": "lavora",
       "clienti": 0,
-      "testo": "Gennaio"
+      "testo": "Partiamo dai numeri"
      }
     }
    ]
   },
   {
-   "testo": "Partiamo dal prezzo. Una coppetta da due palline costa due euro e cinquanta. Sembra tanto, ma non è tutto per lui. Vediamo dove vanno a finire quei soldi, centesimo dopo centesimo.",
-   "capitolo": "",
+   "testo": "Prima domanda: quanto costa fare una pagnotta? Farina, acqua, lievito, sale e gas per il forno. Gianni ha calcolato sessanta centesimi di ingredienti ed energia per ogni pagnotta. Il resto, per ora, non lo contiamo.",
+   "capitolo": "Il costo della pagnotta",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "prezzo",
      "p": {
-      "oggetto": "gelato",
-      "prezzo": "2,50 €",
-      "nota": "Coppetta due palline"
+      "oggetto": "pane",
+      "prezzo": "1 €",
+      "nota": "prezzo di vendita"
      }
     },
     {
-     "parola": "Vediamo",
+     "parola": "Farina",
      "tipo": "fette",
      "p": {
-      "titolo": "Dove vanno i 2,50 €",
-      "totale": 2.5,
-      "totale_testo": "2,50 €",
+      "titolo": "Dove vanno i soldi di una pagnotta",
+      "totale": 1,
+      "totale_testo": "1 €",
       "fette": [
        {
-        "nome": "Latte e ingredienti",
-        "valore": 0.55,
-        "testo": "0,55 €"
+        "nome": "Farina",
+        "valore": 0.3,
+        "testo": "0,30 €"
        },
        {
-        "nome": "Coppetta e cucchiaino",
-        "valore": 0.15,
-        "testo": "0,15 €"
+        "nome": "Altri ingredienti",
+        "valore": 0.1,
+        "testo": "0,10 €"
        },
        {
-        "nome": "IVA",
-        "valore": 0.23,
-        "testo": "0,23 €"
+        "nome": "Gas e luce del forno",
+        "valore": 0.2,
+        "testo": "0,20 €"
        },
        {
-        "nome": "Margine lordo",
-        "valore": 1.57,
-        "testo": "1,57 €"
+        "nome": "Margine",
+        "valore": 0.4,
+        "testo": "0,40 €"
        }
       ],
       "evidenzia": 3
@@ -187,75 +168,97 @@
    ]
   },
   {
-   "testo": "Quindi: su ogni coppetta, due euro e cinquanta meno cinquantacinque centesimi di ingredienti, meno quindici di coppetta, meno ventitré di IVA. Restano un euro e cinquantasette. Questo è il margine, non il guadagno.",
+   "testo": "Fai la sottrazione: un euro di prezzo, meno sessanta centesimi di costi variabili. Restano quaranta centesimi. Questo si chiama margine di contribuzione: quello che ogni pagnotta lascia per pagare tutto il resto.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "formula",
      "p": {
-      "titolo": "Margine per coppetta",
-      "a": "2,50 €",
+      "titolo": "Il margine per pagnotta",
+      "a": "1 €",
       "op": "−",
-      "b": "0,93 €",
-      "risultato": "1,57 €",
-      "nota": "Ingredienti, coppetta, IVA"
+      "b": "0,60 €",
+      "risultato": "0,40 €",
+      "nota": "margine di una pagnotta"
      }
     },
     {
      "parola": "Questo",
-     "tipo": "timbro",
+     "tipo": "lista",
      "p": {
-      "oggetto": "gelato",
-      "testo": "MARGINE, NON UTILE",
-      "colore": "verde",
-      "nota": "Mancano ancora i costi fissi"
+      "titolo": "Costi variabili: cambiano con le pagnotte",
+      "voci": [
+       "Farina",
+       "Lievito e sale",
+       "Acqua",
+       "Gas del forno",
+       "Sacchetti di carta"
+      ]
      }
     }
    ]
   },
   {
-   "testo": "Attenzione: margine e guadagno sono due cose diverse. Il margine è quello che resta su ogni gelato. Il guadagno è quello che resta a fine mese, dopo aver pagato tutto il resto. Spesso si confondono. E poi arriva il conto.",
+   "testo": "Quaranta centesimi. Meno di un caffè al bar. E su quelli devono stare l'affitto, gli stipendi, le bollette, le tasse e anche lo stipendio di Gianni. Ti sembra tanto o poco? Ecco perché serve il volume.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "bilancia",
+     "tipo": "domanda",
      "p": {
-      "titolo": "Margine contro guadagno",
-      "sinistra": "Margine per gelato",
-      "destra": "Utile a fine mese",
-      "pende": "sinistra"
+      "testo": "Quaranta centesimi?",
+      "emozione": "preoccupato",
+      "scuro": true
      }
     },
     {
-     "parola": "E",
-     "tipo": "domanda",
+     "parola": "Ti",
+     "tipo": "confronto",
      "p": {
-      "testo": "Ti resta davvero?",
-      "emozione": "stupito",
-      "scuro": false
+      "titolo": "Margine di una vendita",
+      "a": {
+       "titolo": "Pagnotta",
+       "valore": "0,40 €",
+       "oggetto": "pane"
+      },
+      "b": {
+       "titolo": "Pranzo al ristorante",
+       "valore": "12 €",
+       "oggetto": "piatto di pasta"
+      },
+      "vincitore": "b"
+     }
+    },
+    {
+     "parola": "Ecco",
+     "tipo": "persone",
+     "p": {
+      "n": 9,
+      "azione": "fila",
+      "escono": 0,
+      "testo": "Servono tanti clienti"
      }
     }
    ]
   },
   {
-   "testo": "Ora i costi fissi. Sono quelli che paghi anche se non vendi nemmeno un gelato. Luca paga millecinquecento euro di affitto, milleduecento per la ragazza che lo aiuta, trecento di luce e gas e duecento di altre spese.",
-   "capitolo": "I costi fissi non vanno in vacanza",
+   "testo": "Passiamo ai costi fissi, quelli che arrivano anche se non vendi nemmeno una pagnotta. Affitto, stipendi, bollette, commercialista, assicurazione. Gianni li ha sommati con il suo commercialista, voce per voce.",
+   "capitolo": "I costi fissi",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "luogo",
      "p": {
-      "luogo": "gelateria",
-      "insegna": "Gelateria da Luca",
+      "luogo": "panificio",
+      "insegna": "Forno Gianni",
       "azione": "preoccupato",
       "clienti": 0,
-      "testo": "Costi fissi"
+      "testo": "Arrivano le fatture"
      }
     },
     {
-     "parola": "Luca",
+     "parola": "Affitto",
      "tipo": "costi",
      "p": {
       "voci": [
@@ -265,472 +268,384 @@
         "testo": "1.500 €"
        },
        {
-        "nome": "Dipendente",
-        "valore": 1200,
-        "testo": "1.200 €"
+        "nome": "Stipendi",
+        "valore": 3200,
+        "testo": "3.200 €"
        },
        {
-        "nome": "Luce e gas",
-        "valore": 300,
-        "testo": "300 €"
+        "nome": "Bollette fisse",
+        "valore": 700,
+        "testo": "700 €"
        },
        {
-        "nome": "Altre spese",
-        "valore": 200,
-        "testo": "200 €"
+        "nome": "Commercialista e tasse",
+        "valore": 600,
+        "testo": "600 €"
+       },
+       {
+        "nome": "Assicurazioni e varie",
+        "valore": 400,
+        "testo": "400 €"
        }
       ],
-      "totale": 3200,
+      "totale": 6400,
       "periodo": "al mese"
      }
     }
    ]
   },
   {
-   "testo": "Sommiamo: millecinquecento più milleduecento fa duemilasettecento. Più trecento fa tremila. Più duecento fa tremiladuecento. Tremiladuecento euro al mese, a gennaio come ad agosto. Il freddo non ti fa lo sconto.",
+   "testo": "Sommiamo: millecinquecento di affitto, tremiladuecento di stipendi, settecento di bollette, seicento di commercialista e quattrocento tra assicurazioni e varie. Fa seimilaquattrocento euro al mese, con il forno spento.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "soldi",
      "p": {
-      "centro": "3.200 €",
+      "centro": "6.400 €",
       "destinazioni": [
-       "Proprietario",
-       "Dipendente",
-       "Energia",
-       "Altro"
+       "Padrone di casa",
+       "Dipendenti",
+       "Fornitori di luce",
+       "Commercialista"
       ]
      }
     },
     {
-     "parola": "Il",
+     "parola": "Fa",
      "tipo": "calendario",
      "p": {
-      "titolo": "Giorni da pagare",
-      "giorni": 31,
-      "testo": "Anche gennaio"
+      "titolo": "Ogni mese, anche a forno spento",
+      "giorni": 30,
+      "testo": "6.400 € da pagare"
      }
     }
    ]
   },
   {
-   "testo": "Ti sei mai chiesto quanti gelati servono per pareggiare? Dividi i costi fissi per il margine. Tremiladuecento diviso un euro e cinquantasette fa duemilaquaranta coppette al mese, più o meno.",
-   "capitolo": "",
+   "testo": "Ora il calcolo che ti salva la vita. Costi fissi diviso margine per pagnotta. Seimilaquattrocento euro diviso quaranta centesimi. Fa sedicimila pagnotte al mese. Questo è il punto di pareggio.",
+   "capitolo": "Il punto di pareggio",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "formula",
      "p": {
-      "titolo": "Punto di pareggio",
-      "a": "3.200 €",
+      "titolo": "Punto di pareggio mensile",
+      "a": "6.400 €",
       "op": "÷",
-      "b": "1,57 €",
-      "risultato": "2.038 coppette",
-      "nota": "Arrotondiamo a duemilaquaranta"
+      "b": "0,40 €",
+      "risultato": "16.000 pagnotte",
+      "nota": "sotto questa cifra sei in perdita"
      }
     },
     {
-     "parola": "Dividi",
-     "tipo": "pareggio",
-     "p": {
-      "titolo": "Pareggio della gelateria",
-      "fissi": 3200,
-      "margine": 1.57,
-      "unita": "coppette vendute",
-      "oggetto": "gelato",
-      "perdita": true,
-      "guadagno": false
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Duemilaquaranta coppette al mese sono circa sessantotto al giorno. D'estate Luca ne serve cento ogni giorno e supera il pareggio senza fatica. A gennaio ne vende tredici. Tredici contro sessantotto: il buco è enorme.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
+     "parola": "Questo",
      "tipo": "conteggio",
      "p": {
-      "oggetto": "gelato",
-      "icone": 13,
-      "testo": "13 al giorno"
-     }
-    },
-    {
-     "parola": "Tredici",
-     "tipo": "persone",
-     "p": {
-      "n": 4,
-      "azione": "escono",
-      "escono": 3,
-      "testo": "Pochi entrano, tanti passano"
-     }
-    },
-    {
-     "parola": "buco",
-     "tipo": "orologio",
-     "p": {
-      "ore": 12,
-      "piene": 2,
-      "testo": "Ore con clienti"
+      "oggetto": "pane",
+      "icone": 50,
+      "testo": "16.000 al mese"
      }
     }
    ]
   },
   {
-   "testo": "Facciamo il conto di gennaio. Quattrocento coppette per un euro e cinquantasette fanno seicentoventotto euro di margine. Togli tremiladuecento di costi fissi: restano meno duemilacinquecentosettantadue. Luca perde quasi duemilaseicento euro.",
-   "capitolo": "Il conto di gennaio",
+   "testo": "Sedicimila pagnotte al mese sembrano un mare. Dividile per i giorni di apertura. Gianni apre trenta giorni al mese, perché la domenica il pane lo vogliono tutti. Sedicimila diviso trenta fa circa cinquecentotrentatré pagnotte al giorno.",
+   "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "formula",
      "p": {
-      "titolo": "Margine di gennaio",
-      "a": "400",
-      "op": "×",
-      "b": "1,57 €",
-      "risultato": "628 €",
-      "nota": "Coppette per margine"
+      "titolo": "Pareggio al giorno",
+      "a": "16.000",
+      "op": "÷",
+      "b": "30 giorni",
+      "risultato": "533 pagnotte",
+      "nota": "ogni giorno, solo per pareggiare"
      }
     },
     {
-     "parola": "Togli",
-     "tipo": "formula",
+     "parola": "Gianni",
+     "tipo": "calendario",
      "p": {
-      "titolo": "Risultato di gennaio",
-      "a": "628 €",
-      "op": "−",
-      "b": "3.200 €",
-      "risultato": "−2.572 €",
-      "nota": "Perdita del mese"
+      "titolo": "Aperto sette giorni su sette",
+      "giorni": 30,
+      "testo": "Nessun giorno libero"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Cinquecentotrentatré pagnotte al giorno. E non è guadagno: è zero. Con quelle Gianni paga tutti, ma lui non porta a casa nulla. Ogni pagnotta in più vale quaranta centesimi di utile vero.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "pareggio",
+     "p": {
+      "titolo": "Punto di pareggio del panificio",
+      "fissi": 6400,
+      "margine": 0.4,
+      "unita": "pagnotte vendute",
+      "oggetto": "pane",
+      "perdita": true,
+      "guadagno": true
      }
     },
     {
-     "parola": "Luca",
+     "parola": "Ogni",
      "tipo": "timbro",
      "p": {
-      "oggetto": "gelato",
-      "testo": "PERDITA",
+      "oggetto": "pane",
+      "testo": "ZERO UTILE",
       "colore": "rosso",
-      "nota": "Meno duemilacinquecentosettantadue euro"
+      "nota": "a cinquecentotrentatré pagnotte"
      }
     }
    ]
   },
   {
-   "testo": "Ora guarda luglio. Tremila coppette per un euro e cinquantasette fanno quattromilasettecentodieci euro di margine. Togli tremiladuecento: restano millecinquecentodieci euro. Sembra poco per un mese in cui sei sempre in piedi.",
+   "testo": "Guarda cosa succede se Gianni ne vende seicento al giorno. Sono sessantasette pagnotte in più del pareggio. Per quaranta centesimi fa ventisei euro e ottanta al giorno, circa ottocentoquattro euro al mese di utile.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "formula",
      "p": {
-      "titolo": "Margine di luglio",
-      "a": "3.000",
+      "titolo": "Utile oltre il pareggio",
+      "a": "67 pagnotte",
       "op": "×",
-      "b": "1,57 €",
-      "risultato": "4.710 €",
-      "nota": "Coppette per margine"
+      "b": "0,40 €",
+      "risultato": "26,80 € al giorno",
+      "nota": "circa 804 € al mese"
      }
     },
     {
-     "parola": "Togli",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Utile di luglio",
-      "a": "4.710 €",
-      "op": "−",
-      "b": "3.200 €",
-      "risultato": "1.510 €",
-      "nota": "Utile del mese"
-     }
-    },
-    {
-     "parola": "Sembra",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "gelateria",
-      "insegna": "Gelateria da Luca",
-      "azione": "lavora",
-      "clienti": 5,
-      "testo": "Luglio"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Lo so, i numeri di Luca sono semplificati: in estate vende anche coni più grandi, torte, granite. Ma il ragionamento resta lo stesso. L'estate paga i costi fissi e lascia un po' di margine. L'inverno li ripresenta, senza clienti.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
+     "parola": "Per",
      "tipo": "andamento",
      "p": {
-      "titolo": "Utile mese per mese (€)",
+      "titolo": "Utile mensile in base alle pagnotte al giorno",
       "valori": [
-       -2572,
-       -2400,
-       -1500,
-       -300,
-       800,
-       1510,
-       1900,
-       1510,
-       400,
-       -900,
-       -2200,
-       -2400
+       -1600,
+       0,
+       804,
+       1600
       ],
       "etichette": [
-       "Gen",
-       "Feb",
-       "Mar",
-       "Apr",
-       "Mag",
-       "Giu",
-       "Lug",
-       "Ago",
-       "Set",
-       "Ott",
-       "Nov",
-       "Dic"
+       "466",
+       "533",
+       "600",
+       "666"
       ],
-      "colore": "rosso"
-     }
-    },
-    {
-     "parola": "Ma",
-     "tipo": "lista",
-     "p": {
-      "titolo": "Cosa non guardare",
-      "voci": [
-       "Solo la fila di luglio",
-       "Solo lo scontrino medio",
-       "Il fatturato senza i costi",
-       "Un mese da solo"
-      ]
+      "colore": "verde"
      }
     }
    ]
   },
   {
-   "testo": "Qui sta l'errore più comune: guardare solo il mese migliore. A luglio ti senti ricco. Ma un'attività stagionale si valuta su dodici mesi, non su uno. Devi sommare i mesi belli e i mesi brutti, e vedere cosa resta alla fine.",
-   "capitolo": "Guardare tutto l'anno",
+   "testo": "Vedi che margini piccoli e volumi grandi vanno sempre insieme? Quando guadagni poco su ogni pezzo, devi vendere tantissimo. E devi essere sicuro di riuscirci, perché sotto quella soglia ogni giorno perdi soldi.",
+   "capitolo": "Margini piccoli, volumi grandi",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "domanda",
      "p": {
-      "testo": "Quanto resta in un anno?",
+      "testo": "Poco margine, tanti pezzi",
       "emozione": "calmo",
       "scuro": false
      }
     },
     {
-     "parola": "Devi",
-     "tipo": "mesi",
-     "p": {
-      "titolo": "Utile mensile (migliaia di €)",
-      "valori": [
-       -2.6,
-       -2.4,
-       -1.5,
-       -0.3,
-       0.8,
-       1.5,
-       1.9,
-       1.5,
-       0.4,
-       -0.9,
-       -2.2,
-       -2.4
-      ],
-      "evidenzia": [
-       1,
-       2,
-       7
-      ],
-      "nota": "Sommali tutti prima di giudicare"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Sommiamo l'anno di Luca. I mesi in positivo valgono seimilaseicento euro. Quelli in perdita valgono tredicimilatrecento. Alla fine, meno seimilaseicento euro. Senza altre entrate, la gelateria in un anno brucia soldi.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "confronto",
-     "p": {
-      "titolo": "Mesi buoni contro mesi cattivi",
-      "a": {
-       "titolo": "Mesi in positivo",
-       "valore": "+6.600 €",
-       "oggetto": "gelato"
-      },
-      "b": {
-       "titolo": "Mesi in perdita",
-       "valore": "−13.200 €",
-       "oggetto": "gelato"
-      },
-      "vincitore": "a"
-     }
-    },
-    {
-     "parola": "Alla",
-     "tipo": "timbro",
-     "p": {
-      "oggetto": "gelato",
-      "testo": "ANNO IN ROSSO",
-      "colore": "rosso",
-      "nota": "Meno seimilaseicento euro"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Ricontrolliamo, perché i conti vanno sempre ricontrollati. Positivi: ottocento, millecinquecento, millenovecento, millecinquecento e quattrocento fanno seimilacento. Negativi: duemilaseicento, duemilaquattrocento, millecinquecento, trecento, novecento, duemiladuecento, duemilaquattrocento fanno dodicimilatrecento.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "lista",
-     "p": {
-      "titolo": "Ricontrolla sempre",
-      "voci": [
-       "Somma i mesi positivi",
-       "Somma quelli negativi",
-       "Sottrai i due totali",
-       "Confronta con l'anno scorso"
-      ]
-     }
-    },
-    {
-     "parola": "Positivi",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Somma dei mesi buoni",
-      "a": "6.100 €",
-      "op": "−",
-      "b": "12.300 €",
-      "risultato": "−6.200 €",
-      "nota": "Esempio semplificato"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Con numeri più precisi il risultato cambia di poco: l'anno si chiude intorno a meno seimila euro. Il punto resta uguale. Se non fai nulla, la stagione buona non basta a coprire quella cattiva. Cosa può fare Luca?",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "gelateria",
-      "insegna": "Gelateria da Luca",
-      "azione": "preoccupato",
-      "clienti": 1,
-      "testo": "Cosa fare?"
-     }
-    },
-    {
-     "parola": "Cosa",
-     "tipo": "andamento",
-     "p": {
-      "titolo": "Cassa di Luca nell'anno (€)",
-      "valori": [
-       5000,
-       2400,
-       900,
-       600,
-       1400,
-       2900,
-       4800,
-       6300,
-       6700,
-       5800,
-       3600,
-       1200
-      ],
-      "etichette": [
-       "Gen",
-       "Feb",
-       "Mar",
-       "Apr",
-       "Mag",
-       "Giu",
-       "Lug",
-       "Ago",
-       "Set",
-       "Ott",
-       "Nov",
-       "Dic"
-      ],
-      "colore": "rosso"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Prima regola: l'estate non è tutta tua. Una parte appartiene all'inverno. Quando incassi tanto, devi mettere da parte i soldi che servono per i mesi vuoti. Non è il tuo guadagno: è la cassa del freddo.",
-   "capitolo": "Mettere da parte",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "salvadanaio",
-     "p": {
-      "direzione": "riempie",
-      "testo": "La cassa del freddo"
-     }
-    },
-    {
-     "parola": "Non",
+     "parola": "Quando",
      "tipo": "bilancia",
      "p": {
-      "titolo": "Estate contro inverno",
-      "sinistra": "Incassi d'estate",
-      "destra": "Costi d'inverno",
+      "titolo": "Margine contro volume",
+      "sinistra": "Margine piccolo",
+      "destra": "Tanti clienti",
       "pende": "destra"
      }
     }
    ]
   },
   {
-   "testo": "Quanto mettere da parte? Facciamo il calcolo. I mesi in perdita di Luca sono sette e valgono in tutto dodicimilatrecento euro. Quelli buoni ne restituiscono seimilacento. Per stare tranquillo, il buco da coprire è di seimiladuecento euro.",
+   "testo": "Non è solo il panettiere. Un distributore di benzina guadagna pochi centesimi al litro, ma ne vende milioni. Un supermercato guadagna due o tre centesimi ogni euro incassato. Reggono perché girano volumi enormi.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "confronto",
+     "p": {
+      "titolo": "Margine contro volume",
+      "a": {
+       "titolo": "Benzinaio: pochi centesimi al litro",
+       "valore": "tanti litri",
+       "oggetto": "pompa di benzina"
+      },
+      "b": {
+       "titolo": "Gioielleria: tanto per pezzo",
+       "valore": "pochi pezzi",
+       "oggetto": "anello"
+      },
+      "vincitore": ""
+     }
+    },
+    {
+     "parola": "Un",
+     "tipo": "persone",
+     "p": {
+      "n": 8,
+      "azione": "entrano",
+      "escono": 0,
+      "testo": "Il supermercato vive di volume"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "E dall'altra parte c'è chi vive di margini enormi e pochi pezzi. Un gioielliere vende dieci anelli al mese, ma su ognuno guadagna centinaia di euro. Il pane è l'opposto: tanti pezzi, centesimi ciascuno.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "leve",
+     "p": {
+      "titolo": "Due modi di far tornare i conti",
+      "voci": [
+       "Margine alto, pochi clienti",
+       "Margine basso, tantissimi clienti",
+       "Costi fissi bassi",
+       "Prezzo giusto"
+      ],
+      "evidenzia": 1
+     }
+    },
+    {
+     "parola": "Il",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "pane",
+      "prezzo": "1 €",
+      "nota": "centesimi per pezzo"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Adesso il lato che nessuno vede: la notte. Gianni inizia a impastare alle due. Alle quattro il forno è caldo. Alle sei apre la porta ai primi clienti. Il pane buono si fa quando gli altri dormono.",
+   "capitolo": "Il lavoro di notte",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "orologio",
+     "p": {
+      "ore": 16,
+      "piene": 10,
+      "testo": "Dalle 2 alle 12"
+     }
+    },
+    {
+     "parola": "Alle",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "panificio",
+      "insegna": "Forno Gianni",
+      "azione": "lavora",
+      "clienti": 0,
+      "testo": "Impasto alle due di notte"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Fai il conto delle ore. Gianni lavora dieci ore al giorno, trenta giorni al mese: trecento ore. Se a fine mese si porta a casa solo l'utile, quanto si paga all'ora? Spesso meno di quanto pensi.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "formula",
      "p": {
-      "titolo": "Il buco dell'anno",
-      "a": "12.300 €",
-      "op": "−",
-      "b": "6.100 €",
-      "risultato": "6.200 €",
-      "nota": "Da coprire in qualche modo"
+      "titolo": "Le ore di lavoro",
+      "a": "10 ore",
+      "op": "×",
+      "b": "30 giorni",
+      "risultato": "300 ore",
+      "nota": "ore di Gianni ogni mese"
      }
     },
     {
-     "parola": "Per",
+     "parola": "Se",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Quanto ti paghi all'ora?",
+      "emozione": "preoccupato",
+      "scuro": true
+     }
+    }
+   ]
+  },
+  {
+   "testo": "E qui c'è un errore classico: non contare il proprio lavoro. Se Gianni non si dà uno stipendio, il panificio sembra in utile, ma lui lavora gratis. Metti sempre nei costi quanto vale il tuo tempo.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Non dimenticare nei costi",
+      "voci": [
+       "Il tuo stipendio",
+       "Le tasse",
+       "Il pane invenduto",
+       "I guasti del forno",
+       "Le ferie"
+      ]
+     }
+    },
+    {
+     "parola": "Metti",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "pane",
+      "testo": "LAVORI GRATIS",
+      "colore": "rosso",
+      "nota": "se non conti il tuo stipendio"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Gianni se lo dà: millecinquecento euro al mese. Lo aggiunge ai costi fissi. Da seimilaquattrocento salgono a settemilanovecento. Ricalcola: settemilanovecento diviso quaranta centesimi fa diciannovemilasettecentocinquanta pagnotte.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Con lo stipendio di Gianni",
+      "a": "7.900 €",
+      "op": "÷",
+      "b": "0,40 €",
+      "risultato": "19.750 pagnotte",
+      "nota": "pareggio mensile vero"
+     }
+    },
+    {
+     "parola": "Ricalcola",
      "tipo": "cruscotto",
      "p": {
       "titolo": "Cosa tenere d'occhio",
       "voci": [
        {
-        "nome": "Cassa di riserva",
-        "valore": 0.4
+        "nome": "Pagnotte al giorno",
+        "valore": 0.66
        },
        {
         "nome": "Costi fissi",
         "valore": 0.8
        },
        {
-        "nome": "Vendite d'inverno",
+        "nome": "Invenduto",
         "valore": 0.2
        }
       ]
@@ -739,559 +654,118 @@
    ]
   },
   {
-   "testo": "Ma attenzione: non basta fare la somma a fine anno. Devi accantonare mese per mese, mentre incassi. Come? Ogni volta che entra un incasso, una quota va nel conto separato. Quota fissa, senza ripensamenti, e senza toccarla.",
+   "testo": "Diviso trenta giorni, fa seicentocinquantotto pagnotte al giorno. Prima erano cinquecentotrentatré, ora sono seicentocinquantotto. Ecco perché chi non si conta lo stipendio sbaglia il pareggio di quasi centoventicinque pagnotte.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "lista",
+     "tipo": "conteggio",
      "p": {
-      "titolo": "Come accantonare",
-      "voci": [
-       "Conto separato per la riserva",
-       "Una percentuale ogni settimana",
-       "Non è uno spendibile",
-       "Lo guardi solo d'inverno"
-      ]
+      "oggetto": "pane",
+      "icone": 55,
+      "testo": "658 al giorno"
      }
     },
     {
-     "parola": "Quota",
-     "tipo": "fette",
+     "parola": "Ecco",
+     "tipo": "pareggio",
      "p": {
-      "titolo": "Un incasso di luglio: 1.000 €",
-      "totale": 1000,
-      "totale_testo": "1.000 €",
-      "fette": [
-       {
-        "nome": "Costi del mese",
-        "valore": 680,
-        "testo": "680 €"
-       },
-       {
-        "nome": "Cassa del freddo",
-        "valore": 200,
-        "testo": "200 €"
-       },
-       {
-        "nome": "Tuo guadagno",
-        "valore": 120,
-        "testo": "120 €"
-       }
-      ],
-      "evidenzia": 1
+      "titolo": "Pareggio con lo stipendio",
+      "fissi": 7900,
+      "margine": 0.4,
+      "unita": "pagnotte vendute",
+      "oggetto": "pane",
+      "perdita": true,
+      "guadagno": true
      }
     }
    ]
   },
   {
-   "testo": "Seconda regola: riduci i costi fissi che si possono ridurre. Un esempio fuori dai gelati: una palestra in montagna ha il boom d'inverno e paga contratti a un istruttore stagionale, non fisso tutto l'anno. Così i costi seguono i clienti.",
-   "capitolo": "Costi che seguono i clienti",
+   "testo": "Ora il nemico del panettiere: l'invenduto. Il pane di ieri non si vende come quello di oggi. Se Gianni ne produce settecento e ne vende seicento, cento pagnotte finiscono nella spazzatura, con il loro costo.",
+   "capitolo": "Il pane che avanza",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "confronto",
+     "tipo": "persone",
      "p": {
-      "titolo": "Palestra di montagna: due modi di pagare",
-      "a": {
-       "titolo": "Istruttore fisso",
-       "valore": "1.800 €/mese",
-       "oggetto": "manubri"
-      },
-      "b": {
-       "titolo": "Istruttore stagionale",
-       "valore": "1.800 € solo da dicembre a marzo",
-       "oggetto": "manubri"
-      },
-      "vincitore": "b"
-     }
-    },
-    {
-     "parola": "Così",
-     "tipo": "leve",
-     "p": {
-      "titolo": "Dove puoi tagliare",
-      "voci": [
-       "Orari ridotti",
-       "Personale a stagione",
-       "Affitto rinegoziato",
-       "Utenze più basse"
-      ],
-      "evidenzia": 0
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Luca ci prova. Chiude il lunedì e il martedì d'inverno e riduce l'orario del dipendente: da milleduecento a settecento euro al mese. Risparmia cinquecento euro al mese per cinque mesi. Sono duemilacinquecento euro tenuti in tasca.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "gelateria",
-      "insegna": "Gelateria da Luca",
-      "azione": "lavora",
-      "clienti": 1,
-      "testo": "Orari ridotti"
-     }
-    },
-    {
-     "parola": "Risparmia",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Risparmio sul personale",
-      "a": "500 €",
-      "op": "×",
-      "b": "5 mesi",
-      "risultato": "2.500 €",
-      "nota": "Orari ridotti in inverno"
-     }
-    },
-    {
-     "parola": "Sono",
-     "tipo": "orologio",
-     "p": {
-      "ore": 10,
-      "piene": 6,
-      "testo": "Giornata più corta"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Terza regola: dai al freddo qualcosa da vendere. Se il gelato non va, vendi altro. Un bar al mare, per esempio, d'inverno punta su cornetti e caffè. Luca prova la cioccolata calda, i biscotti e le torte gelato su ordinazione.",
-   "capitolo": "Vendere altro d'inverno",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "lista",
-     "p": {
-      "titolo": "Cosa può vendere Luca d'inverno",
-      "voci": [
-       "Cioccolata calda",
-       "Torte gelato su ordinazione",
-       "Biscotti e brioche",
-       "Caffè e colazioni"
-      ]
-     }
-    },
-    {
-     "parola": "Se",
-     "tipo": "prezzo",
-     "p": {
-      "oggetto": "cioccolata",
-      "prezzo": "3 €",
-      "nota": "Cioccolata calda"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "La cioccolata la vende a tre euro e gli costa novanta centesimi. Margine: due euro e dieci. Se ne vende venti al giorno per trenta giorni, sono seicento cioccolate. Per due euro e dieci fanno milleduecentosessanta euro in più al mese.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Margine cioccolata",
-      "a": "3 €",
-      "op": "−",
-      "b": "0,90 €",
-      "risultato": "2,10 €",
-      "nota": "Per ogni tazza"
+      "n": 6,
+      "azione": "escono",
+      "escono": 4,
+      "testo": "I clienti finiscono, il pane no"
      }
     },
     {
      "parola": "Se",
      "tipo": "conteggio",
      "p": {
-      "oggetto": "cioccolata",
-      "icone": 20,
-      "testo": "20 al giorno"
+      "oggetto": "pane",
+      "icone": 10,
+      "testo": "100 pagnotte buttate"
      }
-    },
+    }
+   ]
+  },
+  {
+   "testo": "Cento pagnotte per sessanta centesimi di costo fanno sessanta euro buttati al giorno. In un mese sono milleottocento euro. Un'intera fetta di guadagno che finisce nel cestino, senza che nessuno se ne accorga.",
+   "capitolo": "",
+   "inquadrature": [
     {
-     "parola": "Per",
+     "parola": "",
      "tipo": "formula",
      "p": {
-      "titolo": "Margine extra al mese",
-      "a": "600",
+      "titolo": "Il costo dell'invenduto",
+      "a": "100 pagnotte",
       "op": "×",
-      "b": "2,10 €",
-      "risultato": "1.260 €",
-      "nota": "Seicento tazze"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Con la cioccolata, a gennaio Luca vende ancora quattrocento gelati e guadagna milleduecentosessanta euro in più. Il margine totale sale a milleottocentottantotto euro. Togli tremiladuecento di costi: restano meno milletrecentododici.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Nuovo margine di gennaio",
-      "a": "628 €",
-      "op": "+",
-      "b": "1.260 €",
-      "risultato": "1.888 €",
-      "nota": "Gelati più cioccolata"
+      "b": "0,60 €",
+      "risultato": "60 € al giorno",
+      "nota": "1.800 € al mese"
      }
     },
     {
-     "parola": "Togli",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Nuovo risultato di gennaio",
-      "a": "1.888 €",
-      "op": "−",
-      "b": "3.200 €",
-      "risultato": "−1.312 €",
-      "nota": "Prima era meno duemilacinquecentosettantadue"
-     }
-    },
-    {
-     "parola": "restano",
-     "tipo": "pareggio",
-     "p": {
-      "titolo": "Pareggio con la cioccolata",
-      "fissi": 3200,
-      "margine": 1.57,
-      "nuovo_margine": 2.1,
-      "unita": "prodotti venduti",
-      "oggetto": "gelato",
-      "perdita": true,
-      "guadagno": false
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Con gli orari ridotti, i costi fissi scendono di cinquecento euro: da tremiladuecento a duemilasettecento. Il risultato di gennaio diventa milleottocentottantotto meno duemilasettecento: meno ottocentododici euro. Ancora in perdita, ma molto meno.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Costi fissi ridotti",
-      "a": "3.200 €",
-      "op": "−",
-      "b": "500 €",
-      "risultato": "2.700 €",
-      "nota": "Orari ridotti"
-     }
-    },
-    {
-     "parola": "Il",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Gennaio, nuova versione",
-      "a": "1.888 €",
-      "op": "−",
-      "b": "2.700 €",
-      "risultato": "−812 €",
-      "nota": "Perdita più piccola"
-     }
-    },
-    {
-     "parola": "Ancora",
-     "tipo": "timbro",
-     "p": {
-      "oggetto": "gelato",
-      "testo": "PERDITA RIDOTTA",
-      "colore": "rosso",
-      "nota": "Da meno duemilacinquecentosettantadue a meno ottocentododici"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Vedi cosa succede? Luca non ha fatto miracoli. Ha ridotto un costo e aggiunto un prodotto. E la perdita invernale è passata da quasi duemilaseicento a meno di mille euro. Piccole mosse, sommate, cambiano l'anno.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "confronto",
-     "p": {
-      "titolo": "Gennaio prima e dopo",
-      "a": {
-       "titolo": "Prima",
-       "valore": "−2.572 €",
-       "oggetto": "gelato"
-      },
-      "b": {
-       "titolo": "Dopo",
-       "valore": "−812 €",
-       "oggetto": "gelato"
-      },
-      "vincitore": "b"
-     }
-    },
-    {
-     "parola": "Piccole",
-     "tipo": "persone",
-     "p": {
-      "n": 6,
-      "azione": "entrano",
-      "escono": 0,
-      "testo": "Più clienti, anche d'inverno"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Qui entra in gioco un secondo esempio: uno stabilimento balneare. Lavora cento giorni l'anno ma paga concessione e tasse per dodici mesi. Chi gestisce bene, calcola il costo di ogni giorno aperto sull'anno intero, non solo sulla stagione.",
-   "capitolo": "Il costo dell'anno intero",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "calendario",
-     "p": {
-      "titolo": "Stabilimento: giorni aperti",
-      "giorni": 31,
-      "testo": "Cento giorni su trecentosessantacinque"
-     }
-    },
-    {
-     "parola": "Chi",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Costo per ogni giorno aperto",
-      "a": "36.500 €",
-      "op": "÷",
-      "b": "100 giorni",
-      "risultato": "365 €",
-      "nota": "Costi annui diviso giorni aperti"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Fai lo stesso con la tua attività. Prendi tutti i costi dell'anno, non del mese. Dividili per i giorni in cui lavori davvero. Quel numero è il costo di ogni giorno aperto. Se un giorno incassi meno, stai pagando per aprire.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "lista",
-     "p": {
-      "titolo": "Calcolo in tre passi",
-      "voci": [
-       "Somma i costi di dodici mesi",
-       "Conta i giorni davvero aperti",
-       "Dividi i costi per i giorni",
-       "Confronta con l'incasso di un giorno"
-      ]
-     }
-    },
-    {
-     "parola": "Se",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Ogni giorno ti paga?",
-      "emozione": "stupito",
-      "scuro": false
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Facciamo il calcolo per Luca. Costi fissi dell'anno: tremiladuecento per dodici, trentottomilaquattrocento euro. Dividi per trecentoquaranta giorni di apertura e ottieni centotredici euro al giorno. Ogni giorno aperto deve rendere almeno questo.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Costi fissi dell'anno",
-      "a": "3.200 €",
-      "op": "×",
-      "b": "12 mesi",
-      "risultato": "38.400 €",
-      "nota": "Senza riduzioni"
-     }
-    },
-    {
-     "parola": "Dividi",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Costo di un giorno aperto",
-      "a": "38.400 €",
-      "op": "÷",
-      "b": "340 giorni",
-      "risultato": "113 €",
-      "nota": "Arrotondato"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Un giorno di gennaio, con tredici coppette, fa venti euro di margine. Un giorno di luglio, con cento coppette, ne fa centocinquantasette. Solo il secondo supera i centotredici euro. Ora sai perché l'inverno pesa così tanto.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "confronto",
-     "p": {
-      "titolo": "Margine di un giorno",
-      "a": {
-       "titolo": "Gennaio",
-       "valore": "20 €",
-       "oggetto": "gelato"
-      },
-      "b": {
-       "titolo": "Luglio",
-       "valore": "157 €",
-       "oggetto": "gelato"
-      },
-      "vincitore": "b"
-     }
-    },
-    {
-     "parola": "Ora",
-     "tipo": "bilancia",
-     "p": {
-      "titolo": "Un giorno di gennaio",
-      "sinistra": "Margine 20 €",
-      "destra": "Costo 113 €",
-      "pende": "destra"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Cosa guardare, quindi? Guarda i costi fissi di tutto l'anno. Guarda il margine per ogni prodotto. Guarda quanti giorni servono per pareggiare. E soprattutto guarda la cassa a fine inverno, non lo scontrino di luglio.",
-   "capitolo": "Cosa guardare",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "cruscotto",
-     "p": {
-      "titolo": "I quattro indicatori",
-      "voci": [
-       {
-        "nome": "Costi fissi annui",
-        "valore": 0.8
-       },
-       {
-        "nome": "Margine per prodotto",
-        "valore": 0.6
-       },
-       {
-        "nome": "Giorni al pareggio",
-        "valore": 0.5
-       },
-       {
-        "nome": "Cassa a fine inverno",
-        "valore": 0.3
-       }
-      ]
-     }
-    },
-    {
-     "parola": "E",
-     "tipo": "lista",
-     "p": {
-      "titolo": "Da guardare ogni mese",
-      "voci": [
-       "Costi fissi totali",
-       "Margine per prodotto",
-       "Soglia di pareggio",
-       "Cassa disponibile"
-      ]
-     }
-    }
-   ]
-  },
-  {
-   "testo": "E cosa non guardare? Non guardare solo il fatturato: tanti incassi con margini bassi non pagano le bollette. Non guardare il mese record. E non fidarti dell'entusiasmo di agosto: l'inverno arriva sempre, puntuale come le tasse.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "lista",
-     "p": {
-      "titolo": "Cosa non guardare",
-      "voci": [
-       "Solo il fatturato",
-       "Il mese record",
-       "L'entusiasmo di agosto",
-       "Il guadagno senza riserva"
-      ]
-     }
-    },
-    {
-     "parola": "puntuale",
-     "tipo": "timbro",
-     "p": {
-      "oggetto": "gelato",
-      "testo": "L'INVERNO ARRIVA",
-      "colore": "rosso",
-      "nota": "Ogni anno, senza eccezioni"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Torniamo a Luca. L'anno dopo, mette da parte duecento euro ogni mille incassati, riduce gli orari e vende cioccolata. A fine inverno il conto è in ordine e la cassa regge. Non è ricco, ma dorme tranquillo.",
-   "capitolo": "Un anno dopo",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "gelateria",
-      "insegna": "Gelateria da Luca",
-      "azione": "felice",
-      "clienti": 2,
-      "testo": "Un anno dopo"
-     }
-    },
-    {
-     "parola": "A",
+     "parola": "In",
      "tipo": "salvadanaio",
      "p": {
       "direzione": "svuota",
-      "testo": "La riserva copre l'inverno"
+      "testo": "1.800 € al mese in meno"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Come si combatte? Produci a ondate, non tutto all'alba. Impasti il pane un po' alla volta, così il pomeriggio è ancora caldo. Fai il pane del giorno dopo in altro modo: pangrattato, pane tostato, bruschette.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "leve",
+     "p": {
+      "titolo": "Contro l'invenduto",
+      "voci": [
+       "Infornate a ondate",
+       "Prodotti col pane vecchio",
+       "Sconto a fine giornata",
+       "Ordini prenotati"
+      ],
+      "evidenzia": 0
      }
     },
     {
-     "parola": "Non",
+     "parola": "Fai",
      "tipo": "andamento",
      "p": {
-      "titolo": "Cassa di Luca, secondo anno (€)",
+      "titolo": "Invenduto giornaliero",
       "valori": [
-       6000,
-       5300,
-       4700,
-       4400,
-       5000,
-       6200,
-       7800,
-       9200,
-       9700,
-       9000,
-       7800,
-       6600
+       100,
+       70,
+       40,
+       20
       ],
       "etichette": [
-       "Gen",
-       "Feb",
-       "Mar",
-       "Apr",
-       "Mag",
-       "Giu",
-       "Lug",
-       "Ago",
-       "Set",
-       "Ott",
-       "Nov",
-       "Dic"
+       "Settimana 1",
+       "Settimana 2",
+       "Settimana 3",
+       "Settimana 4"
       ],
       "colore": "verde"
      }
@@ -1299,32 +773,92 @@
    ]
   },
   {
-   "testo": "Ricorda le tre lezioni di oggi. Uno: i costi fissi non vanno in vacanza, li paghi anche a gennaio. Due: l'estate non è tutta tua, una parte va messa da parte. Tre: calcola il costo di ogni giorno aperto, sull'anno intero.",
-   "capitolo": "Riassunto",
+   "testo": "Prendi un esempio diverso: un fruttivendolo con la frutta che marcisce. O un bar con i cornetti avanzati. Chi vende prodotti freschi deve misurare ogni giorno quanto butta. È un costo nascosto, ma pesa.",
+   "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "riepilogo",
+     "tipo": "confronto",
      "p": {
-      "titolo": "Da ricordare",
-      "voci": [
-       "I costi fissi non vanno in vacanza",
-       "Metti da parte la cassa d'estate",
-       "Costo di un giorno aperto, su tutto l'anno",
-       "Vendi qualcosa anche d'inverno"
-      ]
+      "titolo": "Chi butta di più",
+      "a": {
+       "titolo": "Fruttivendolo: frutta matura",
+       "valore": "cassette buttate",
+       "oggetto": "cassetta di frutta"
+      },
+      "b": {
+       "titolo": "Libreria: libri a scaffale",
+       "valore": "non scadono",
+       "oggetto": "libro"
+      },
+      "vincitore": "b"
      }
     },
     {
-     "parola": "Tre",
+     "parola": "Chi",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "pane",
+      "testo": "COSTO NASCOSTO",
+      "colore": "rosso",
+      "nota": "l'invenduto"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ora una buona notizia. Se Gianni vende anche pizza al taglio e focacce, il margine sale. Una focaccia costa un euro e dieci e si vende a tre euro e cinquanta. Margine due euro e quaranta, sei volte la pagnotta.",
+   "capitolo": "Alzare il margine",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "focaccia",
+      "prezzo": "3,50 €",
+      "nota": "costa 1,10 €"
+     }
+    },
+    {
+     "parola": "Margine",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Margine della focaccia",
+      "a": "3,50 €",
+      "op": "−",
+      "b": "1,10 €",
+      "risultato": "2,40 €",
+      "nota": "sei volte la pagnotta"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Se Gianni ne vende cinquanta al giorno, sono centoventi euro di margine in più ogni giorno. In trenta giorni fanno tremilaseicento euro. Con quelli il pareggio sulle pagnotte cala molto: ricalcoliamolo.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Margine delle focacce",
+      "a": "50 focacce",
+      "op": "×",
+      "b": "2,40 €",
+      "risultato": "120 € al giorno",
+      "nota": "3.600 € al mese"
+     }
+    },
+    {
+     "parola": "Con",
      "tipo": "leve",
      "p": {
-      "titolo": "Le leve per l'inverno",
+      "titolo": "Come migliorare il margine",
       "voci": [
-       "Riserva",
-       "Costi variabili",
-       "Prodotti d'inverno",
-       "Orari"
+       "Prodotti con margine alto",
+       "Alzare un po' il prezzo",
+       "Comprare meglio",
+       "Ridurre gli sprechi"
       ],
       "evidenzia": 0
      }
@@ -1332,51 +866,380 @@
    ]
   },
   {
-   "testo": "E tu? Se hai un'attività stagionale, sai quanto costa ogni tuo giorno aperto? Sai quanto devi accantonare ad agosto per sopravvivere a febbraio? Pensaci stasera, con carta e penna. I numeri non mentono.",
+   "testo": "Settemilanovecento meno tremilaseicento fa quattromilatrecento da coprire con le pagnotte. Diviso quaranta centesimi fa diecimilasettecentocinquanta pagnotte al mese, circa trecentocinquantotto al giorno invece di seicentocinquantotto.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Pareggio con le focacce",
+      "a": "4.300 €",
+      "op": "÷",
+      "b": "0,40 €",
+      "risultato": "10.750 pagnotte",
+      "nota": "circa 358 al giorno"
+     }
+    },
+    {
+     "parola": "Diviso",
+     "tipo": "pareggio",
+     "p": {
+      "titolo": "Pareggio con focacce",
+      "fissi": 4300,
+      "margine": 0.4,
+      "unita": "pagnotte vendute",
+      "oggetto": "pane",
+      "perdita": true,
+      "guadagno": true
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Duecento pagnotte in meno da vendere ogni giorno, solo aggiungendo un prodotto con più margine. Ecco la differenza tra faticare di più e ragionare meglio. Non sempre devi vendere di più: a volte devi vendere meglio.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "confronto",
+     "p": {
+      "titolo": "Pareggio al giorno",
+      "a": {
+       "titolo": "Solo pane",
+       "valore": "658 pagnotte",
+       "oggetto": "pane"
+      },
+      "b": {
+       "titolo": "Pane e focacce",
+       "valore": "358 pagnotte",
+       "oggetto": "focaccia"
+      },
+      "vincitore": "b"
+     }
+    },
+    {
+     "parola": "Non",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Vendere meglio, non di più",
+      "emozione": "felice",
+      "scuro": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Altra leva: il prezzo. Se Gianni alza la pagnotta da un euro a un euro e dieci, il margine passa da quaranta a cinquanta centesimi. Dieci centesimi sembrano niente, ma sono un quarto di margine in più.",
+   "capitolo": "La leva del prezzo",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "pane",
+      "prezzo": "1 €",
+      "nota": "con ritocco di dieci centesimi"
+     }
+    },
+    {
+     "parola": "Dieci",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Nuovo margine",
+      "a": "1,10 €",
+      "op": "−",
+      "b": "0,60 €",
+      "risultato": "0,50 €",
+      "nota": "un quarto in più"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Con cinquanta centesimi di margine il pareggio sul pane scende. Prima con settemilanovecento euro di costi servivano diciannovemilasettecentocinquanta pagnotte. Ora servono quindicimilaottocento. Dieci centesimi risparmiano quasi quattromila pagnotte.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "pareggio",
+     "p": {
+      "titolo": "Più margine, meno pagnotte",
+      "fissi": 7900,
+      "margine": 0.4,
+      "nuovo_margine": 0.5,
+      "unita": "pagnotte vendute",
+      "oggetto": "pane",
+      "perdita": true,
+      "guadagno": true
+     }
+    },
+    {
+     "parola": "Prima",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Nuovo pareggio",
+      "a": "7.900 €",
+      "op": "÷",
+      "b": "0,50 €",
+      "risultato": "15.800 pagnotte",
+      "nota": "circa 527 al giorno"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ma attenzione: se alzi il prezzo e perdi clienti, il gioco non vale. La domanda da farti è: quanti clienti perdo con questo ritocco? Se ne perdi meno del venti per cento, di solito ci guadagni.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "bilancia",
+     "p": {
+      "titolo": "Prezzo più alto",
+      "sinistra": "Margine in più",
+      "destra": "Clienti persi",
+      "pende": "sinistra"
+     }
+    },
+    {
+     "parola": "La",
+     "tipo": "persone",
+     "p": {
+      "n": 8,
+      "azione": "escono",
+      "escono": 1,
+      "testo": "Se ne perdi pochi, ci guadagni"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "E per il giorno dopo ti serve un controllo semplice. Ogni sera Gianni segna le pagnotte vendute e le confronta col pareggio. Seicento sono sopra la soglia, quattrocento sotto. Un numero solo, ogni sera, ti dice come stai.",
+   "capitolo": "Cosa guardare ogni giorno",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "mesi",
+     "p": {
+      "titolo": "Pagnotte vendute al giorno nei 12 mesi",
+      "valori": [
+       520,
+       540,
+       600,
+       640,
+       620,
+       580,
+       500,
+       460,
+       600,
+       660,
+       680,
+       720
+      ],
+      "evidenzia": [
+       7,
+       8
+      ],
+      "nota": "in estate si vende meno"
+     }
+    },
+    {
+     "parola": "Un",
+     "tipo": "cruscotto",
+     "p": {
+      "titolo": "Il quadro della sera",
+      "voci": [
+       {
+        "nome": "Pagnotte vendute",
+        "valore": 0.7
+       },
+       {
+        "nome": "Invenduto",
+        "valore": 0.15
+       },
+       {
+        "nome": "Costo ingredienti",
+        "valore": 0.5
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Guarda anche le stagioni. Ad agosto la città si svuota e le vendite crollano. Se hai dei mesi deboli devi mettere da parte nei mesi buoni, perché l'affitto agosto lo vuole lo stesso, come a dicembre.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "andamento",
+     "p": {
+      "titolo": "Vendite giornaliere nell'anno",
+      "valori": [
+       520,
+       600,
+       620,
+       500,
+       460,
+       600,
+       720
+      ],
+      "etichette": [
+       "Gen",
+       "Mar",
+       "Mag",
+       "Lug",
+       "Ago",
+       "Ott",
+       "Dic"
+      ],
+      "colore": "verde"
+     }
+    },
+    {
+     "parola": "Se",
+     "tipo": "salvadanaio",
+     "p": {
+      "direzione": "riempie",
+      "testo": "Metti da parte nei mesi buoni"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Cosa non guardare? Non guardare solo l'incasso. Gianni può incassare tanto e perdere lo stesso, se i costi sono alti. L'incasso non è guadagno. Guarda il margine, il pareggio e quanto ti resta davvero.",
+   "capitolo": "Cosa non guardare",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Guarda e non guardare",
+      "voci": [
+       "Guarda il margine",
+       "Guarda il pareggio",
+       "Guarda l'invenduto",
+       "Non guardare solo l'incasso",
+       "Non contare a occhio"
+      ]
+     }
+    },
+    {
+     "parola": "Non",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "pane",
+      "testo": "INCASSO NON È UTILE",
+      "colore": "rosso",
+      "nota": "conta quanto resta"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Tiriamo le somme di Gianni. Margine di quaranta centesimi per pagnotta. Costi fissi di settemilanovecento euro con il suo stipendio. Pareggio a seicentocinquantotto pagnotte al giorno, che scendono a trecentocinquantotto con le focacce.",
+   "capitolo": "Riepilogo",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "panificio",
+      "insegna": "Forno Gianni",
+      "azione": "felice",
+      "clienti": 4,
+      "testo": "Gianni ha fatto i conti"
+     }
+    },
+    {
+     "parola": "Pareggio",
+     "tipo": "riepilogo",
+     "p": {
+      "titolo": "I numeri di Gianni",
+      "voci": [
+       "Margine: 0,40 € a pagnotta",
+       "Costi fissi: 7.900 € al mese",
+       "Pareggio: 658 pagnotte al giorno",
+       "Con le focacce: 358 al giorno"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ricorda tre cose. Il pareggio è costi fissi diviso margine. Margini piccoli vogliono volumi grandi. E conta sempre il tuo stipendio e l'invenduto. Con questi tre numeri sai se la tua attività sta in piedi.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "riepilogo",
+     "p": {
+      "titolo": "Da ricordare",
+      "voci": [
+       "Pareggio: fissi diviso margine",
+       "Pochi centesimi, tanti pezzi",
+       "Conta il tuo stipendio",
+       "Misura quanto butti"
+      ]
+     }
+    },
+    {
+     "parola": "Con",
+     "tipo": "domanda",
+     "p": {
+      "testo": "E tu, lo sai il tuo?",
+      "emozione": "calmo",
+      "scuro": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Se hai un'attività, fermati e calcola il tuo pareggio oggi. Scrivilo nei commenti: quanti pezzi devi vendere ogni giorno? Ti accorgerai che dormire serenamente dipende da un numero solo, e adesso sai come trovarlo.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "domanda",
      "p": {
-      "testo": "Sai il tuo giorno?",
-      "emozione": "calmo",
-      "scuro": false
+      "testo": "Qual è il tuo pareggio?",
+      "emozione": "stupito",
+      "scuro": true
      }
     },
     {
-     "parola": "Pensaci",
-     "tipo": "calendario",
+     "parola": "Scrivilo",
+     "tipo": "orologio",
      "p": {
-      "titolo": "Segna i tuoi giorni aperti",
-      "giorni": 30,
-      "testo": "Quanti sono davvero?"
+      "ore": 16,
+      "piene": 8,
+      "testo": "Cinque minuti per i tuoi conti"
      }
     }
    ]
   },
   {
-   "testo": "Nel prossimo episodio entriamo in una pizzeria al taglio. Prezzo della fetta, costo dell'impasto e quante fette servono davvero per chiudere il mese in verde. Una sorpresa sul forno ti aspetta. Iscriviti.",
+   "testo": "Nella prossima puntata andiamo in un bar, dove un caffè costa un euro e dieci e la tazzina ne costa quaranta di ingredienti. Ma allora perché il barista fatica ad arrivare a fine mese? Iscriviti, così non perdi i conti veri.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "prossimo",
      "p": {
-      "luogo": "pizzeria",
-      "insegna": "Pizza al Taglio",
-      "oggetto": "pizza",
-      "testo": "Quante fette per chiudere il mese?"
+      "luogo": "bar",
+      "insegna": "Bar Centrale",
+      "oggetto": "caffe",
+      "testo": "Prossima puntata: il bar"
      }
     },
     {
      "parola": "Iscriviti",
-     "tipo": "persone",
+     "tipo": "domanda",
      "p": {
-      "n": 5,
-      "azione": "entrano",
-      "escono": 0,
-      "testo": "Ti aspettiamo alla prossima"
+      "testo": "Iscriviti al canale!",
+      "emozione": "felice",
+      "scuro": false
      }
     }
    ]
