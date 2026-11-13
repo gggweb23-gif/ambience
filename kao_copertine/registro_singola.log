@@ -1,23 +1,11 @@
-Traceback (most recent call last):
-  File "/home/runner/work/ambience/ambience/copertine_cinema_kao.py", line 60, in <module>
-    ch = http('https://www.googleapis.com/youtube/v3/channels?part=contentDetails,snippet&mine=true', headers=AUTH)['items'][0]
-         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/ambience/ambience/copertine_cinema_kao.py", line 42, in http
-    with urllib.request.urlopen(urllib.request.Request(url, data=body, headers=h, method=metodo), timeout=timeout) as r:
-         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.14/urllib/request.py", line 187, in urlopen
-    return opener.open(url, data, timeout)
-           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.14/urllib/request.py", line 493, in open
-    response = meth(req, response)
-  File "/usr/lib/python3.14/urllib/request.py", line 602, in http_response
-    response = self.parent.error(
-        'http', request, response, code, msg, hdrs)
-  File "/usr/lib/python3.14/urllib/request.py", line 531, in error
-    return self._call_chain(*args)
-           ~~~~~~~~~~~~~~~~^^^^^^^
-  File "/usr/lib/python3.14/urllib/request.py", line 464, in _call_chain
-    result = func(*args)
-  File "/usr/lib/python3.14/urllib/request.py", line 611, in http_error_default
-    raise HTTPError(req.full_url, code, msg, hdrs, fp)
-urllib.error.HTTPError: HTTP Error 403: Forbidden
+Canale: KAO PSICOLOGIA
+Competitor letti dal foglio: 34 video
+Video dal 2026-09-21 senza copertina nuova: 1
+              qsOrysGhGwk  La psicologia delle persone pigre ma ambiziose  [nuovo stile]
+copia competitor uErxlq1xW-g -> qsOrysGhGwk (100% uguale): LO FARÒ / DOMANI...
+  controllo immagine: {"testa_alta": 44, "scritte": false}
+  KAO era alto il 51%: zoom 1.60x
+  controllo finale scritta: {"copre": false, "cosa": "The white card is positioned above the person's body and does not hide or cut any important elements of the scene or the person."}
+copertina pronta: qsOrysGhGwk LO FARÒ / DOMANI...
+CARICATA qsOrysGhGwk La psicologia delle persone pigre ma ambiziose
+FATTO: 1 caricate su 1 | APPLICA = True
