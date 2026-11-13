@@ -9,7 +9,7 @@ Budget: colonna coach_budget_video / budget_video (euro). Se le immagini non ci 
 Copertina stile 3 "scontrino" con la scritta fissa QUANTO COSTA?, posizione che cambia da un video all'altro (MANO LIBERA).
 SECCO=SI: prova a secco GRATIS (copione finto, niente Claude, niente voce, niente immagini AI)."""
 import io, json, math, multiprocessing as mp, os, random, re, shutil, subprocess, sys, time
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFilter
 
 ROOT = os.getcwd()
 QUI = os.path.dirname(os.path.abspath(__file__))
@@ -34,6 +34,7 @@ TITOLO = str(E('TEMA') or RIGA.get('titolo_italiano') or RIGA.get('titolo_origin
 OGGETTO = str(RIGA.get('oggetto') or '').strip()
 VOCI_COSTO = str(RIGA.get('voci_costo') or '').strip()
 W, H, FPS = PV.W, PV.H, PV.FPS
+STILE_VIDEO = str(E('STILE_VIDEO') or 'A').strip().upper()[:1]   # 13 nov (Giorgio): stile A "CONTATORE" per tutti i video nuovi (B/C erano le altre prove)
 log = YT.log
 MODELLO = 'claude-sonnet-5-5'
 # 11 nov (Giorgio: "le immagini non sono mai limpide"): generate direttamente in Full HD PNG (prima 1280x720 JPEG ingrandite = sfocate).
@@ -355,7 +356,12 @@ def grafica(im, sc, t, d, dati, passo_t, passo_d, passo_i):
         if k > 0:
             if int(num(dd.get('anni'))) != 1:   # una tantum: c'e' gia' "UNA VOLTA" sopra, niente riga doppia
                 scritta(im, (140 + x, 400), f"x {int(num(dd.get('anni')))} ANNI =", 60, GRIGIO, alpha=cl(k * 2))
-            scritta(im, (140 + x, 470), eur(tot * k), 120, R, alpha=cl(k * 2), maxw=780)
+            if STILE_VIDEO == 'A':   # il numero "sbatte": entra grande e rimbalza, con una scossa
+                dk = t - d * .35; sc_ = 1.6 - .6 * ease(dk / .25) if dk < .25 else 1.0
+                sx = int(16 * math.sin(dk * 60) * cl(1 - dk / .3))
+                scritta(im, (140 + x + sx, 530), eur(tot * k), int(120 * sc_), R, anc='lm', alpha=cl(k * 2), maxw=int(780 * sc_))
+            else:
+                scritta(im, (140 + x, 470), eur(tot * k), 120, R, alpha=cl(k * 2), maxw=780)
             u = ease((t - d * .35 - .9) / .35)
             if u > 0:
                 ImageDraw.Draw(im).line((140 + x, 610, 140 + x + 760 * u, 610), fill=Y, width=8)
@@ -404,6 +410,43 @@ def muovi(bg, t, d, i):
     return bg.crop((x0, y0, x0 + w, y0 + h)).resize((W, H), Image.BICUBIC).convert('RGBA')
 
 
+DIREZ_A = [(.5, .5), (.3, .5), (.7, .5), (.5, .35), (.4, .6), (.6, .4)]
+
+
+def muovi_A(bg, t, d, k):
+    """Stile A (prova approvata il 13 nov): spinta decisa all'inizio dell'inquadratura (punch-in) poi deriva lenta, direzione diversa ogni volta."""
+    t = max(0.0, t); z = 1 + .16 * .45 * ease(t / .35) + .16 * .55 * (t / max(d, .1))
+    w, h = W / z, H / z; dx = DIREZ_A[k % 6]; x0 = (W - w) * dx[0]; y0 = (H - h) * dx[1]
+    return bg.resize((W, H), Image.BICUBIC, box=(x0, y0, x0 + w, y0 + h)).convert('RGBA')
+
+
+def obiettivo():
+    """Il numero d'arrivo in alto a destra (stesso "dopo" della copertina): il costo vero, o il totale pagato se il costo vero non supera il prezzo."""
+    v = DATI['costo_vero']
+    if DATI.get('prezzo') and v <= DATI['prezzo'] and DATI.get('totale', 0) > DATI['prezzo']:
+        v = DATI['totale']
+    a = int(DATI['anni'])
+    return v, ('IN 1 ANNO' if a == 1 else f'IN {a} ANNI')
+
+
+def sovrimpressioni_A(im, sc, t, d):
+    """Stile A: in alto a destra l'obiettivo (rosso) e, nelle voci di spesa, il CONTATORE della spesa che sale voce dopo voce."""
+    if sc['tipo'] not in ('racconto', 'dettaglio'):
+        return
+    v, lab = obiettivo()
+    a = ease(t / .3) if sc.get('_primo_A') else 1.0
+    pannello(im, (1380, 44, 1870, 170), R + (240,), r=22, alpha=a)
+    scritta(im, (1410, 56), lab, 30, BIANCO, alpha=a)
+    scritta(im, (1410, 92), eur(v), 66, BIANCO, alpha=a, maxw=430)
+    if sc['tipo'] == 'dettaglio':
+        dd = sc.get('dati') or {}
+        tot = num(dd.get('per_anno')) * num(dd.get('anni'))
+        sp = sc.get('_spesa_prima', 0) + tot * ease((t - d * .35) / .9)
+        pannello(im, (1380, 190, 1870, 316), INK + (240,), r=22)
+        scritta(im, (1410, 202), 'SPESA FINORA', 30, Y)
+        scritta(im, (1410, 238), eur(sp), 66, BIANCO, maxw=430)
+
+
 SCENE, DATI, ATEMPO = [], {}, 1.0
 
 
@@ -416,12 +459,23 @@ def rendi_scena(i):
     n = len(bgs); p = d / n
     enc = subprocess.Popen(['ffmpeg', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-r', str(FPS), '-i', '-',
                             '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20', '-pix_fmt', 'yuv420p', out], stdin=subprocess.PIPE)
+    # stile A: un taglio ogni ~2,5 s (anche sulla stessa immagine cambia inquadratura e direzione), scivolata veloce a ogni taglio
+    tagli = [(j * p + q * p / m, p / m, j) for j in range(n) for m in [max(1, round(p / 2.5))] for q in range(m)]
     for k in range(int(round(d * FPS))):
         t = k / FPS; j = min(n - 1, int(t / p)); tl = t - j * p
-        fr = muovi(bgs[j], tl, p, i + j)
-        if j > 0 and tl < .25:
-            fr = Image.blend(muovi(bgs[j - 1], p, p, i + j - 1), fr, tl / .25)
+        if STILE_VIDEO == 'A':
+            q = max(x for x in range(len(tagli)) if tagli[x][0] <= t + 1e-6); a0, dq, j = tagli[q]; tq = t - a0; tl = t - j * p
+            fr = muovi_A(bgs[j], tq, dq, i * 7 + q)
+            if (q > 0 or i > 0) and tq < .18:
+                u = ease(tq / .18)
+                fr = fr.transform(fr.size, Image.AFFINE, (1, 0, -int((1 - u) * 260), 0, 1, 0)).filter(ImageFilter.BoxBlur(int((1 - u) * 14)))
+        else:
+            fr = muovi(bgs[j], tl, p, i + j)
+            if j > 0 and tl < .25:
+                fr = Image.blend(muovi(bgs[j - 1], p, p, i + j - 1), fr, tl / .25)
         grafica(fr, s, t, d, DATI, tl, p, j)
+        if STILE_VIDEO == 'A':
+            sovrimpressioni_A(fr, s, t, d)
         enc.stdin.write(fr.convert('RGB').tobytes())
     enc.stdin.close(); enc.wait()
     return out
@@ -625,6 +679,13 @@ def main():
         if s['tipo'] == 'scontrini':
             s['dati'] = dict(s.get('dati') or {}, voci=[[n, v] for n, v in DATI['voci']], anni=DATI['anni'])
     log('numeri:', {k: (round(v) if isinstance(v, float) else v) for k, v in DATI.items() if k != 'voci'})
+    sp_ = 0.0; primo_ = True
+    for s in SCENE:   # stile A: quanto si e' gia' speso prima di ogni voce (il contatore riparte da li') e quando compare la prima volta
+        s['_spesa_prima'] = sp_
+        if s['tipo'] == 'dettaglio':
+            sp_ += num((s.get('dati') or {}).get('per_anno')) * num((s.get('dati') or {}).get('anni'))
+        if s['tipo'] in ('racconto', 'dettaglio'):
+            s['_primo_A'] = primo_; primo_ = False
     # voce
     for i, s in enumerate(SCENE):
         v = voce(i, str(s['voce']), ' '.join(str(x['voce']) for x in SCENE[:i]), ' '.join(str(x['voce']) for x in SCENE[i + 1:]))
@@ -680,8 +741,22 @@ def main():
     brani = sorted(x for x in os.listdir(os.path.join(QUI, 'libreria_musica')) if re.match(r'(curiosita|epico)_\d+\.mp3$', x))
     musica = os.path.join(QUI, 'libreria_musica', brani[int(num(P.get('riga_produzione'), 0)) % len(brani)])
     base = os.path.join(LAV, 'base.mp4')
-    subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', video, '-i', vocew, '-stream_loop', '-1', '-i', musica,
-                    '-filter_complex', f'[2:a]volume=0.09,afade=t=out:st={max(0, tot - 3):.2f}:d=3[m];[1:a][m]amix=inputs=2:duration=first:normalize=0,alimiter=limit=0.95[a]',
+    # stile A: un suono quando i numeri "sbattono" (cassa sul costo vero e su ogni voce, monete sul "al mese")
+    suoni, off_ = [], 0.0
+    for s in SCENE:
+        if STILE_VIDEO == 'A' and s['tipo'] == 'cartellino':
+            suoni += [(off_ + 1.3, 'cassa'), (off_ + 3.2, 'monete')]
+        if STILE_VIDEO == 'A' and s['tipo'] == 'dettaglio':
+            suoni.append((off_ + s['_dur'] * .35, 'cassa'))
+        off_ += s['_dur']
+    ins_s, fil_s, mix_s = [], '', ''
+    for j_, (ts, nome) in enumerate(suoni):
+        f_ = os.path.join(QUI, 'libreria_mappe', 'suoni', nome + '.mp3')
+        if os.path.exists(f_):
+            ins_s += ['-i', f_]; n_ = 3 + len(ins_s) // 2 - 1
+            fil_s += f'[{n_}:a]volume=0.35,adelay={int(ts * 1000)}|{int(ts * 1000)}[s{j_}];'; mix_s += f'[s{j_}]'
+    subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', video, '-i', vocew, '-stream_loop', '-1', '-i', musica] + ins_s +
+                   ['-filter_complex', fil_s + f'[2:a]volume=0.09,afade=t=out:st={max(0, tot - 3):.2f}:d=3[m];[1:a][m]{mix_s}amix=inputs={2 + mix_s.count("[s")}:duration=first:normalize=0,alimiter=limit=0.95[a]',
                     '-map', '0:v', '-map', '[a]', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-t', f'{tot:.2f}', base], check=True)
     finale = os.path.join(ROOT, 'video_possesso.mp4')
     if not ISC.applica(base, finale, dict(P, subscribe_overlay_second=P.get('subscribe_overlay_second') or 95), os.path.join(LAV, 'isc'), short=False, log=log, enc=['-c:v', 'libx264', '-preset', 'veryfast', '-crf', '19']):
