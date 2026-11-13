@@ -21,6 +21,9 @@ for cfg in canali:
     up = g('channels', part='contentDetails', mine='true')['items'][0]['contentDetails']['relatedPlaylists']['uploads']
     ids = [x['contentDetails']['videoId'] for x in g('playlistItems', part='contentDetails', playlistId=up, maxResults=min(int(E('QUANTI', '25')), 50)).get('items', [])]
     print('=====', cid)
+    if str(E('DETTAGLI') or '').upper() == 'PLAYLIST':   # 13 nov: nomi delle playlist del canale (1 unita' di quota), per riparare i video rimasti fuori
+        for pl in g('playlists', part='snippet,contentDetails', mine='true', maxResults=50).get('items', []):
+            print('   PLAYLIST', pl['snippet']['title'], '|', pl['contentDetails'].get('itemCount'))
     elenco = []
     for i in range(0, len(ids), 50):
         elenco += g('videos', part='snippet,status,contentDetails,statistics,paidProductPlacementDetails', id=','.join(ids[i:i + 50])).get('items', [])
@@ -47,7 +50,7 @@ for cfg in canali:
         quanti = len(elenco); elenco = g('videos', part='snippet,status,contentDetails,statistics,paidProductPlacementDetails', id=','.join(ids[:50])).get('items', [])
     for v in elenco:
         print(f"  {v['id']} | {v['contentDetails']['duration']:>9} | {v['status']['privacyStatus']:>8} | {v['status'].get('publishAt', v['snippet']['publishedAt'])[:16]} | {v['snippet']['title'][:95]}")
-        if E('DETTAGLI'):   # tutte le impostazioni che possono frenare le impression
+        if E('DETTAGLI') and str(E('DETTAGLI')).upper() != 'PLAYLIST':   # tutte le impostazioni che possono frenare le impression
             st, sn, cd = v['status'], v['snippet'], v['contentDetails']
             print(f"      upload={st.get('uploadStatus')} kids={st.get('madeForKids')}/{st.get('selfDeclaredMadeForKids')} AI={st.get('containsSyntheticMedia')} promo={(v.get('paidProductPlacementDetails') or {}).get('hasPaidProductPlacement')} "
                   f"embed={st.get('embeddable')} stats={st.get('publicStatsViewable')} lic={st.get('license')} cat={sn.get('categoryId')} "
