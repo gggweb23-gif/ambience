@@ -538,6 +538,7 @@ def ingrandisci_kao(im, lato_testo='destra'):
         z = [v / 100 if max(z) > 1.0 else v for v in z]
         alt = max(0.05, z[3] - z[1])
         s_ = max(1.0, min(1.6, 0.88 / alt))
+        s_ = min(s_, max(1.0, 0.94 / max(0.05, z[2] - z[0])))   # 13 nov (Giorgio): KAO sdraiato o largo: lo zoom non deve mai tagliargli testa o corpo ai lati
         if s_ > 1.03:
             cw, ch = W0 / s_, H0 / s_
             cy = (z[1] + z[3]) / 2 * H0
@@ -545,6 +546,8 @@ def ingrandisci_kao(im, lato_testo='destra'):
             cx = (z[0] + z[2]) / 2 * W0
             # KAO resta nella sua meta': la scritta va dall'altro lato
             x0 = cx - cw * (0.30 if lato_testo == 'destra' else 0.70)
+            x0 = min(x0, z[0] * W0 - cw * .02) if z[0] * W0 < x0 else x0   # tutto KAO dentro l'inquadratura, con un filo d'aria
+            x0 = max(x0, z[2] * W0 + cw * .02 - cw) if z[2] * W0 > x0 + cw else x0
             x0 = max(0, min(W0 - cw, x0))
             im = im.crop((int(x0), int(y0), int(x0 + cw), int(y0 + ch)))
             log(f'  KAO era alto il {alt:.0%}: zoom {s_:.2f}x')
