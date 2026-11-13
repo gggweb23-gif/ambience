@@ -105,7 +105,7 @@ def crea(p):
     while size > 120 and F(size).getlength(eur(vero)) > 470:
         size -= 8
     b = riga(y, eur(vero), size, Y, an)
-    riga(min(b[3] + 18, 590), p.get('sotto') or (f'IN {anni} ANNI' if anni else 'IL COSTO VERO'), 70, BI, an)   # mai sotto i 650 px (durata del video in basso a destra)
+    riga(min(b[3] + 18, 590), p.get('sotto') or (('IN 1 ANNO' if anni == 1 else f'IN {anni} ANNI') if anni else 'IL COSTO VERO'), 70, BI, an)   # mai sotto i 650 px (durata del video in basso a destra)
     sh = Image.new('RGBA', im.size, (0, 0, 0, 0)); sh.paste((0, 0, 0, 150), (0, 0) + im.size, lay.split()[3])
     im.alpha_composite(sh.filter(ImageFilter.GaussianBlur(10)), (6, 8)); im.alpha_composite(lay)
     return im.convert('RGB')
