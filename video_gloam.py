@@ -118,6 +118,10 @@ then the story in chronological order with tension, the mechanism explained simp
 Reply ONLY with JSON: {{"titolo": "{TITOLO}", "descrizione": "2 short paragraphs for the YouTube description (no hashtags)", "tag": ["10-15 English tags"],
 "copertina": {{"oggetto": "name on the gold object, 1-2 words CAPITALS (e.g. the company)", "rosso": "culprit role, max 2 words CAPITALS", "blu": "victims role, max 2 words CAPITALS",
 "scena_rosso": "what the ONE red figure does", "scena_blu": "what the blue figures do", "scena_oro": "the gold object and what happens to it"}},
+"copertina_soldi": {{"cifra": "the single biggest money figure of the story, short (e.g. $20B)", "sotto": "what happened to it, max 4 words CAPITALS (e.g. GONE IN 2 DAYS)",
+"scheda_su": "small label, max 3 words CAPITALS (a date like MARCH 26, 2021 or the event like MARGIN CALL)", "scheda_1": "subject name line 1, max 2 words CAPITALS",
+"scheda_2": "subject name line 2 or empty", "timbro": "stamp word(s), max 2 words CAPITALS (e.g. COLLAPSED, CLOSED, WIPED OUT)",
+"foto": "Pexels search in English for a dark editorial background photo tied to the story (e.g. stock market screen red numbers)"}},
 "capitoli": [{{"titolo": "max 5 words", "parole": 150, "fatti": ["each fact with its exact number/date"]}}]}}"""
     s = leggi_json(claude(p, sforzo='medium'))
     rev = claude("You are a strict fact-checker for a finance documentary. Check EVERY number, unit, date, time, name and claim in this plan against well documented "
@@ -417,6 +421,25 @@ def voce(i, testo, prima, dopo):
 
 # ============================================================ 5) COPERTINA (stile A, MANO LIBERA)
 def copertina(c):
+    # 13 nov (Giorgio): Billion Ruin usa la copertina "dei soldi" (stile B dossier: cifra gigante + scheda con timbro, legata al racconto), gratis
+    cs = c.get('copertina_soldi') or {}
+    if cs.get('cifra'):
+        try:
+            import copertina_gloam_soldi as CS
+            n = int(num(P.get('riga_produzione'), 0) or random.randint(0, 99))
+            for k_, v_ in (('CIFRA', 'cifra'), ('SOTTO', 'sotto'), ('SCHEDA_SU', 'scheda_su'), ('SCHEDA_1', 'scheda_1'), ('SCHEDA_2', 'scheda_2'), ('TIMBRO', 'timbro')):
+                os.environ[k_] = str(cs.get(v_) or '').upper() if k_ != 'CIFRA' else str(cs.get(v_) or '')
+            os.environ['LATO'] = 'dx' if n % 2 else 'sx'   # MANO LIBERA: la cifra cambia lato da un video all'altro
+            im = CS.crea(G4.foto_pexels(cs.get('foto') or 'stock market screen red numbers', n))
+            f = os.path.join(ROOT, 'copertina.jpg'); im.convert('RGB').save(f, quality=92)
+            log('copertina dei soldi:', cs)
+            return f
+        except Exception as e:
+            log('copertina dei soldi non riuscita, uso lo stile A:', str(e)[:150])
+    return copertina_figure(c)
+
+
+def copertina_figure(c):
     import copertine_gloam as CG
     import copertine_gloam_a as CA
     cp = c.get('copertina') or {}
@@ -545,7 +568,7 @@ def main():
     for s in SHOTS:
         tipi[s['tipo']] = tipi.get(s['tipo'], 0) + 1
     log('FATTO:', finale, round(dur_v / 60, 1), 'minuti | scene', len(SHOTS), '|', tipi, '|', CO.testo() if hasattr(CO, 'testo') else '', '| Pexels', N_PEXELS[0], 'ricerche')
-    YT.chiudi(P, finale, cop, titolo, descr, tags, {'testo_copertina': ' / '.join(str((c.get('copertina') or {}).get(k) or '') for k in ('rosso', 'blu', 'oggetto')),
+    YT.chiudi(P, finale, cop, titolo, descr, tags, {'testo_copertina': ' / '.join(str((c.get('copertina_soldi') or {}).get(k) or '') for k in ('cifra', 'sotto', 'scheda_1')) if (c.get('copertina_soldi') or {}).get('cifra') else ' / '.join(str((c.get('copertina') or {}).get(k) or '') for k in ('rosso', 'blu', 'oggetto')),
                                                     'minuti_lavoro': 0}, PROVA, CARICA, dur_v, LINGUA, ROOT)
 
 
