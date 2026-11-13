@@ -1,0 +1,25 @@
+name: Varianti copertina (proposte)
+on:
+  workflow_dispatch:
+    inputs:
+      payload: {type: string, required: true}
+permissions:
+  contents: write
+jobs:
+  copertine:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install -q --break-system-packages pillow json-repair requests
+      - name: Varianti copertina (proposte)
+        env:
+          FAL_KEY: ${{ secrets.FAL_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          PAYLOAD: ${{ inputs.payload }}
+        run: python3 strumenti/copertine_varianti.py
+      - name: Salva
+        run: |
+          git config user.name "render-bot"; git config user.email "render-bot@users.noreply.github.com"
+          git add prove_video; git commit -m "Varianti copertina" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase --autostash -q && git push && break; sleep $((i * 5)); done
