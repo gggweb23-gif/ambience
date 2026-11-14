@@ -1,4 +1,4 @@
-Riepilogo performance del 14/11/2026 07:15 (canali col Coach: ultimi 3 video della copertina attuale; KAO: ultimi 5 video; solo video con almeno 3 giorni di report impression; obiettivi CTR 3,5% · ret30 65% · ret60 50%)
+Riepilogo performance del 14/11/2026 13:07 (canali col Coach: ultimi 3 video della copertina attuale; KAO: ultimi 5 video; solo video con almeno 3 giorni di report impression; obiettivi CTR 3,5% · ret30 65% · ret60 50%)
 
 | Canale | Ultimi video | CTR | Ritenzione 30 s / 60 s | Coach: copertina | Coach: retention (da 50 views totali) |
 |---|---|---|---|---|---|
@@ -9,4 +9,4 @@ Riepilogo performance del 14/11/2026 07:15 (canali col Coach: ultimi 3 video del
 | **Orbital Days** | 3 video copertina v1, 2.792 impression (+5 in attesa di report) | 2,9% ❌ | 54,3% ❌ / 39,9% ❌ | LEVA_CTR: CTR 2.87% su 2792 impression (obiettivo 3.5%) — 🔎 STUDIO_COPERTINE: canale: CTR 3.05% su 6326 impression totali (obiettivo 3.5%): preparare lo studio copertine da mostrare a Giorgio (nessun cambio automatico) | LEVA_RET30: retention 30 s 62.7% su 808 views totali (obiettivo 65%) |
 | **WWII Testimony** | 3 video copertina v1, 2.930 impression (+5 in attesa di report) | 5,9% ✅ | 67,0% ✅ / 57,8% ✅ | OK: tutti i parametri rispettati | OK: retention 30 s 67.0% / 60 s 57.8% su 1645 views totali |
 | **Quanto Ti Resta** | 0 video copertina v1, 0 impression (+5 in attesa di report) | — (poche impression) | — / — | ATTESA: servono 3 video con almeno 72 ore nella versione 1, ce ne sono 2 | ATTESA_VIEWS: retention: 24 views totali su 50 necessarie |
-| **Costo Vero** | 0 video copertina v1, 0 impression (+3 in attesa di report) | — (poche impression) | — / — | LEVA_COSTO: costo medio 2.118 $ sopra il budget 1.5 $ a video | —:  |
+| **Costo Vero** | 0 video copertina v1, 0 impression (+3 in attesa di report) | — (poche impression) | — / — | LEVA_COSTO: costo medio 1.934 $ sopra il budget 1.5 $ a video | —:  |
