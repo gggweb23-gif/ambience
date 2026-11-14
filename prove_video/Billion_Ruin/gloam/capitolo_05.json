@@ -1,198 +1,188 @@
 [
  {
-  "voce": "Chapter six. The Margin Call.",
+  "voce": "Chapter six. Death Spiral.",
   "tipo": "foto",
   "sfondo": "financial district skyline",
-  "chiave": "MARGIN CALL",
+  "chiave": "Death Spiral",
   "etichetta": "CHAPTER 6",
-  "titolo": "The Margin Call",
-  "sotto": "",
-  "capitolo": "The Margin Call"
+  "titolo": "Death Spiral",
+  "sotto": "The fund begins to fall apart",
+  "capitolo": "Death Spiral"
  },
  {
-  "voce": "The margin calls were landing at every bank.",
+  "voce": "By late September nineteen ninety-eight, the fund was bleeding.",
   "tipo": "clip",
-  "sfondo": "trading screens",
-  "chiave": "MARGIN",
-  "cartello": "MARGIN CALLS LANDING",
-  "capitolo": "The Margin Call"
+  "sfondo": "trading screens red",
+  "chiave": "BLEEDING",
+  "cartello": "BLEEDING CAPITAL",
+  "capitolo": "Death Spiral"
  },
  {
-  "voce": "March twenty-fifth, twenty twenty-one.",
-  "tipo": "calendario",
-  "sfondo": "city skyline",
-  "chiave": "MAR 25",
-  "mese": "MAR",
-  "giorno": "25",
-  "titolo": "Emergency Call",
-  "sotto": "Banks and Archegos meet to discuss the margin calls",
-  "timbro": "2021",
-  "capitolo": "The Margin Call"
+  "voce": "Its equity had fallen to about four hundred million dollars.",
+  "tipo": "dato",
+  "sfondo": "banknotes close up",
+  "chiave": "$400M",
+  "numero": "$400M",
+  "didascalia": "LTCM equity, late September nineteen ninety-eight",
+  "fonte": "President's Working Group, 1999",
+  "capitolo": "Death Spiral"
  },
  {
-  "voce": "The banks held an emergency call with Archegos.",
-  "tipo": "clip",
-  "sfondo": "office tower windows",
-  "chiave": "EMERGENCY",
-  "cartello": "EMERGENCY CALL HELD",
-  "capitolo": "The Margin Call"
- },
- {
-  "voce": "Everyone wanted the same thing: a way out.",
-  "tipo": "foto",
-  "sfondo": "bank headquarters building",
-  "chiave": "WAY OUT",
-  "etichetta": "NEW YORK · MARCH 2021",
-  "titolo": "Banks Want Out",
-  "sotto": "Each lender protects only itself",
-  "capitolo": "The Margin Call"
- },
- {
-  "voce": "But the banks were not a team.",
-  "tipo": "oggetto3d",
-  "sfondo": "mannequins",
-  "chiave": "NOT A TEAM",
-  "oggetto": "Several blue faceless mannequins racing toward a single glowing exit door",
-  "etichette": [
-   "THE BANKS",
-   "ONE EXIT"
-  ],
-  "capitolo": "The Margin Call"
- },
- {
-  "voce": "They were competing against each other.",
+  "voce": "The losses kept coming, and the lenders noticed.",
   "tipo": "clip",
   "sfondo": "stock exchange floor",
-  "chiave": "COMPETING",
-  "cartello": "COMPETING LENDERS",
-  "capitolo": "The Margin Call"
+  "chiave": "LENDERS",
+  "cartello": "LENDERS WATCHING",
+  "capitolo": "Death Spiral"
  },
  {
-  "voce": "Whoever sold first would lose less.",
-  "tipo": "classifica",
-  "sfondo": "trading screens",
-  "chiave": "FIRST",
-  "titulo": "",
-  "titolo": "Sell First, Lose Less",
-  "barre": [
-   [
-    "Sells first",
-    1,
-    "Smallest loss"
-   ],
-   [
-    "Sells later",
-    3,
-    "Bigger loss"
-   ]
-  ],
-  "timbro": "RACE",
-  "fonte": "Public reporting",
-  "capitolo": "The Margin Call"
- },
- {
-  "voce": "March twenty-sixth. The race began.",
-  "tipo": "calendario",
-  "sfondo": "stock exchange facade",
-  "chiave": "MAR 26",
-  "mese": "MAR",
-  "giorno": "26",
-  "titolo": "The Selling Starts",
-  "sotto": "Banks begin dumping Archegos-linked shares into the market",
-  "timbro": "2021",
-  "capitolo": "The Margin Call"
- },
- {
-  "voce": "Goldman Sachs and Morgan Stanley moved first.",
+  "voce": "Counterparties demanded more collateral as losses mounted.",
   "tipo": "dossier",
-  "sfondo": "documents",
-  "chiave": "Goldman Sachs",
-  "scheda": "BANK FILE",
-  "nome": "Goldman Sachs / Morgan Stanley",
+  "sfondo": "documents on desk",
+  "chiave": "COLLATERAL",
+  "scheda": "MARGIN FILE",
+  "nome": "Collateral Calls",
   "persona": false,
   "righe": [
    [
-    "Date",
-    "March 26, 2021"
+    "Who",
+    "Counterparties"
    ],
    [
-    "Action",
-    "Selling Archegos-linked stock"
+    "Demand",
+    "More collateral"
    ],
    [
-    "Method",
-    "Block trades"
+    "Cause",
+    "Mounting losses"
    ],
    [
-    "Scale",
-    "Billions of dollars"
+    "Effect",
+    "Cash drained away"
    ]
   ],
-  "timbro": "FIRST",
-  "capitolo": "The Margin Call"
+  "timbro": "URGENT",
+  "capitolo": "Death Spiral"
  },
  {
-  "voce": "Billions of dollars of stock, sold in blocks.",
+  "voce": "Every call drained cash the fund could not spare.",
+  "tipo": "oggetto3d",
+  "sfondo": "golden vault",
+  "chiave": "DRAINED",
+  "oggetto": "A golden vault with a widening crack and coins spilling out",
+  "etichette": [
+   "COLLATERAL",
+   "CASH GONE"
+  ],
+  "capitolo": "Death Spiral"
+ },
+ {
+  "voce": "Selling should have been the obvious escape.",
   "tipo": "clip",
-  "sfondo": "trading screens red",
-  "chiave": "BLOCKS",
-  "cartello": "BLOCK TRADES DUMPED",
-  "capitolo": "The Margin Call"
+  "sfondo": "trading desk monitors",
+  "chiave": "ESCAPE",
+  "cartello": "ESCAPE ROUTE",
+  "capitolo": "Death Spiral"
  },
  {
-  "voce": "Credit Suisse and Nomura were slower.",
+  "voce": "But the positions were enormous.",
   "tipo": "foto",
-  "sfondo": "bank tower skyline",
-  "chiave": "SLOWER",
-  "etichetta": "ZURICH · TOKYO · MARCH 2021",
-  "titolo": "Slower To Sell",
-  "sotto": "Credit Suisse and Nomura hesitated",
-  "capitolo": "The Margin Call"
+  "sfondo": "city skyline towers",
+  "chiave": "ENORMOUS",
+  "etichetta": "GREENWICH · SEPTEMBER 1998",
+  "titolo": "Positions too big to sell",
+  "sotto": "Any exit would move the market itself",
+  "capitolo": "Death Spiral"
  },
  {
-  "voce": "And they paid for it with much bigger losses.",
+  "voce": "Selling them risked moving markets further against the fund.",
   "tipo": "clip",
-  "sfondo": "financial documents",
-  "chiave": "BIGGER LOSSES",
-  "cartello": "BIGGER LOSSES TAKEN",
-  "capitolo": "The Margin Call"
+  "sfondo": "falling stock charts",
+  "chiave": "MARKETS",
+  "cartello": "MARKETS MOVING",
+  "capitolo": "Death Spiral"
  },
  {
-  "voce": "Other lenders dumped shares on the market too.",
-  "tipo": "clip",
-  "sfondo": "stock market screens",
-  "chiave": "DUMPED",
-  "cartello": "LENDERS SELL ON MARKET",
-  "capitolo": "The Margin Call"
- },
- {
-  "voce": "Every sale pushed prices lower, faster.",
+  "voce": "Every exit made the trap tighter.",
   "tipo": "oggetto3d",
   "sfondo": "collapsing coins",
-  "chiave": "LOWER",
-  "oggetto": "A tall tower of golden coins collapsing downward in a rapid chain reaction",
-  "etichettes": [],
+  "chiave": "TRAP",
+  "oggetto": "A tall tower of gold coins beginning to topple",
   "etichette": [
-   "DOWNWARD SPIRAL"
+   "TOO BIG",
+   "NO EXIT"
   ],
-  "capitolo": "The Margin Call"
+  "capitolo": "Death Spiral"
  },
  {
-  "voce": "A fast spiral, feeding on itself.",
-  "tipo": "foto",
-  "sfondo": "wall street street sign",
-  "chiave": "SPIRAL",
-  "etichetta": "NEW YORK · MARCH 26, 2021",
-  "titolo": "Stocks In Free Fall",
-  "sotto": "Forced selling feeds more forced selling",
-  "capitolo": "The Margin Call"
+  "voce": "John Meriwether needed money, and he needed it fast.",
+  "tipo": "dossier",
+  "sfondo": "office building exterior",
+  "chiave": "Meriwether",
+  "scheda": "FOUNDER FILE",
+  "nome": "John Meriwether",
+  "persona": true,
+  "righe": [
+   [
+    "Role",
+    "LTCM founder"
+   ],
+   [
+    "Goal",
+    "Outside capital"
+   ],
+   [
+    "Problem",
+    "Equity shrinking"
+   ]
+  ],
+  "timbro": "",
+  "capitolo": "Death Spiral"
  },
  {
-  "voce": "But how bad would the final bill be?",
+  "voce": "He sought outside capital from anyone who might help.",
   "tipo": "clip",
-  "sfondo": "city skyline night",
-  "chiave": "FINAL BILL",
-  "cartello": "THE FINAL BILL",
-  "capitolo": "The Margin Call"
+  "sfondo": "telephone office night",
+  "chiave": "OUTSIDE CAPITAL",
+  "cartello": "OUTSIDE CAPITAL SOUGHT",
+  "capitolo": "Death Spiral"
+ },
+ {
+  "voce": "That included approaches to Warren Buffett's group.",
+  "tipo": "foto",
+  "sfondo": "Omaha city skyline",
+  "chiave": "Buffett",
+  "etichetta": "OMAHA · SEPTEMBER 1998",
+  "titolo": "Approach to Buffett's group",
+  "sotto": "A rescue offer was explored",
+  "capitolo": "Death Spiral"
+ },
+ {
+  "voce": "It did not result in a deal.",
+  "tipo": "calendario",
+  "sfondo": "documents on desk",
+  "chiave": "NO DEAL",
+  "mese": "SEP",
+  "giorno": "98",
+  "titolo": "No deal reached",
+  "sotto": "Outside capital search came up empty",
+  "timbro": "NO DEAL",
+  "capitolo": "Death Spiral"
+ },
+ {
+  "voce": "The clock was running out, and the whole system was watching.",
+  "tipo": "clip",
+  "sfondo": "Federal Reserve building",
+  "chiave": "WATCHING",
+  "cartello": "WALL STREET WATCHING",
+  "capitolo": "Death Spiral"
+ },
+ {
+  "voce": "Who would step in before it all collapsed?",
+  "tipo": "clip",
+  "sfondo": "New York skyline night",
+  "chiave": "COLLAPSED",
+  "cartello": "COLLAPSE NEAR",
+  "capitolo": "Death Spiral"
  }
 ]

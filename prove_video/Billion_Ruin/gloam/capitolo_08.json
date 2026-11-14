@@ -1,145 +1,124 @@
 [
  {
-  "voce": "Chapter nine. The Lesson.",
+  "voce": "Lessons and the Answer.",
   "tipo": "foto",
-  "sfondo": "stock exchange",
-  "chiave": "LESSON",
+  "sfondo": "financial district skyline",
+  "chiave": "ANSWER",
   "etichetta": "CHAPTER 9",
-  "titolo": "The Lesson",
-  "sotto": "What the collapse left behind",
-  "capitolo": "The Lesson"
+  "titolo": "Lessons and the Answer",
+  "sotto": "",
+  "capitolo": "Lessons and the Answer"
  },
  {
-  "voce": "So, how did one fund hide so much?",
+  "voce": "So, how did genius lose four point six billion?",
   "tipo": "clip",
-  "sfondo": "financial district",
-  "chiave": "HIDE",
-  "cartello": "HIDDEN EXPOSURE",
-  "capitolo": "The Lesson"
+  "sfondo": "trading screens falling",
+  "chiave": "GENIUS",
+  "cartello": "GENIUS FAILED",
+  "capitolo": "Lessons and the Answer"
  },
  {
-  "voce": "Family offices were not required to disclose their positions",
+  "voce": "First, the leverage: about twenty-five to one.",
+  "tipo": "dato",
+  "sfondo": "banknotes closeup",
+  "chiave": "25 TO 1",
+  "numero": "25 TO 1",
+  "didascalia": "Approximate leverage carried by the fund",
+  "fonte": "LTCM",
+  "capitolo": "Lessons and the Answer"
+ },
+ {
+  "voce": "Then the positions. Enormous, and hard to exit.",
+  "tipo": "clip",
+  "sfondo": "stock exchange floor",
+  "chiave": "ENORMOUS",
+  "cartello": "ENORMOUS POSITIONS",
+  "capitolo": "Lessons and the Answer"
+ },
+ {
+  "voce": "And the models assumed normal market conditions.",
+  "tipo": "foto",
+  "sfondo": "financial documents charts",
+  "chiave": "NORMAL",
+  "etichetta": "GREENWICH · 1998",
+  "titolo": "Models Assumed Normal Markets",
+  "sotto": "Calm conditions built into every calculation",
+  "capitolo": "Lessons and the Answer"
+ },
+ {
+  "voce": "Then Russia defaulted, and the world ran for safety.",
+  "tipo": "clip",
+  "sfondo": "city skyline dusk",
+  "chiave": "SAFETY",
+  "cartello": "FLIGHT TO SAFETY",
+  "capitolo": "Lessons and the Answer"
+ },
+ {
+  "voce": "The fund had no room left to move.",
+  "tipo": "oggetto3d",
+  "sfondo": "golden vault",
+  "chiave": "CRACKING",
+  "oggetto": "A golden vault door cracking open with fine fissures spreading across its surface",
+  "etichette": [
+   "LEVERAGE",
+   "EXPOSED"
+  ],
+  "capitolo": "Lessons and the Answer"
+ },
+ {
+  "voce": "Lesson one: risk models are only as good as their assumptions.",
+  "tipo": "clip",
+  "sfondo": "trading screens data",
+  "chiave": "ASSUMPTIONS",
+  "cartello": "ASSUMPTIONS MATTER",
+  "capitolo": "Lessons and the Answer"
+ },
+ {
+  "voce": "Lesson two: liquidity can vanish exactly when it is needed.",
+  "tipo": "foto",
+  "sfondo": "empty trading floor",
+  "chiave": "VANISH",
+  "etichetta": "NEW YORK · 1998",
+  "titolo": "Liquidity Vanishes When Needed",
+  "sotto": "Buyers disappear at the worst moment",
+  "capitolo": "Lessons and the Answer"
+ },
+ {
+  "voce": "Lesson three: size and interconnection can make a private failure a public problem.",
+  "tipo": "clip",
+  "sfondo": "Federal Reserve building",
+  "chiave": "PUBLIC",
+  "cartello": "PUBLIC PROBLEM",
+  "capitolo": "Lessons and the Answer"
+ },
+ {
+  "voce": "That is the answer, and the warning.",
   "tipo": "dossier",
-  "sfondo": "documents",
-  "chiave": "family office",
-  "scheda": "REGULATORY FILE",
-  "nome": "Family Office",
+  "sfondo": "documents desk",
+  "chiave": "WARNING",
+  "scheda": "CASE SUMMARY",
+  "nome": "LTCM",
   "persona": false,
   "righe": [
    [
-    "Type",
-    "Private investment vehicle"
+    "Leverage",
+    "About 25 to 1"
    ],
    [
-    "Disclosure",
-    "Not required like regulated funds"
+    "Trigger",
+    "Russian default"
    ],
    [
-    "Oversight",
-    "Limited"
+    "Assumption",
+    "Normal markets"
+   ],
+   [
+    "Result",
+    "Global flight to safety"
    ]
   ],
-  "timbro": "UNDISCLOSED",
-  "capitolo": "The Lesson"
- },
- {
-  "voce": "the way regulated funds are.",
-  "tipo": "clip",
-  "sfondo": "office documents",
-  "chiave": "CONFIDENTIAL",
-  "cartello": "CONFIDENTIAL FILINGS",
-  "capitolo": "The Lesson"
- },
- {
-  "voce": "Banks competed for fees.",
-  "tipo": "clip",
-  "sfondo": "banknotes",
-  "chiave": "FEES",
-  "cartello": "FEES FIRST",
-  "capitolo": "The Lesson"
- },
- {
-  "voce": "They relaxed their checks on a client with a prior fraud history.",
-  "tipo": "foto",
-  "sfondo": "bank building",
-  "chiave": "fraud history",
-  "etichetta": "NEW YORK · 2021",
-  "titolo": "Banks relaxed their checks",
-  "sotto": "A client with a prior fraud history",
-  "capitolo": "The Lesson"
- },
- {
-  "voce": "Now the open question has its answer.",
-  "tipo": "clip",
-  "sfondo": "trading screens",
-  "chiave": "ANSWER",
-  "cartello": "ANSWER AT LAST",
-  "capitolo": "The Lesson"
- },
- {
-  "voce": "The swaps hid the exposure.",
-  "tipo": "oggetto3d",
-  "sfondo": "vault",
-  "chiave": "HID",
-  "oggetto": "A glossy golden vault wrapped in opaque dark glass",
-  "etichetas": [
-   "SWAPS"
-  ],
-  "etichette": [
-   "SWAPS",
-   "HIDDEN"
-  ],
-  "capitolo": "The Lesson"
- },
- {
-  "voce": "No single bank saw the total.",
-  "tipo": "clip",
-  "sfondo": "city skyline",
-  "chiave": "TOTAL",
-  "cartello": "NO SINGLE VIEW",
-  "capitolo": "The Lesson"
- },
- {
-  "voce": "And leverage turned a falling stock into a collapse.",
-  "tipo": "oggetto3d",
-  "sfondo": "coins tower",
-  "chiave": "COLLAPSE",
-  "oggetto": "A tall tower of golden coins collapsing from its base",
-  "etichette": [
-   "LEVERAGE",
-   "COLLAPSE"
-  ],
-  "capitolo": "The Lesson"
- },
- {
-  "voce": "In twenty twenty-one, the SEC proposed new rules.",
-  "tipo": "calendario",
-  "sfondo": "government building",
-  "chiave": "2021",
-  "mese": "JAN",
-  "giorno": "21",
-  "titolo": "SEC Proposes Rules",
-  "sotto": "Disclosure of large security-based swap positions",
-  "timbro": "PROPOSED",
-  "capitolo": "The Lesson"
- },
- {
-  "voce": "They would require disclosure of large security-based swap positions.",
-  "tipo": "clip",
-  "sfondo": "regulatory documents",
-  "chiave": "DISCLOSURE",
-  "cartello": "DISCLOSURE REQUIRED",
-  "capitolo": "The Lesson"
- },
- {
-  "voce": "Because what nobody sees, nobody can stop.",
-  "tipo": "foto",
-  "sfondo": "empty trading floor",
-  "chiave": "nobody",
-  "etichetta": "WALL STREET · AFTERMATH",
-  "titolo": "What nobody sees",
-  "sotto": "Nobody can stop",
-  "capitolo": "The Lesson"
+  "timbro": "CASE CLOSED",
+  "capitolo": "Lessons and the Answer"
  },
  {
   "voce": "Subscribe for the next one.",
@@ -147,6 +126,6 @@
   "sfondo": "city skyline night",
   "chiave": "SUBSCRIBE",
   "cartello": "SUBSCRIBE NOW",
-  "capitolo": "The Lesson"
+  "capitolo": "Lessons and the Answer"
  }
 ]

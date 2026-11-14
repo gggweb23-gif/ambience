@@ -1,194 +1,131 @@
 [
  {
-  "voce": "Twenty billion dollars. Gone in a few days.",
+  "voce": "Four point six billion dollars. Gone in a single year.",
   "tipo": "dato",
-  "sfondo": "stock exchange",
-  "chiave": "Twenty billion",
-  "numero": "$20B",
-  "didascalia": "Reported losses within days, March 2021",
-  "fonte": "Major press accounts",
-  "capitolo": "The Number"
- },
- {
-  "voce": "How does one firm destroy that much, that fast?",
-  "tipo": "clip",
   "sfondo": "trading screens",
-  "chiave": "that fast",
-  "cartello": "HOW? SO FAST",
-  "capitolo": "The Number"
+  "chiave": "four point six billion",
+  "numero": "$4.6B",
+  "didascalia": "Lost by one fund in 1998",
+  "fonte": "Long-Term Capital Management, 1998",
+  "capitolo": "The $4.6 Billion Question"
  },
  {
-  "voce": "This is Archegos Capital Management, based in New York.",
-  "tipo": "foto",
-  "sfondo": "New York skyline",
-  "chiave": "Archegos",
-  "etichetta": "NEW YORK · 2021",
-  "titolo": "Archegos Capital Management",
-  "sotto": "A family office based in New York",
-  "capitolo": "The Number"
+  "voce": "Not a scam. Not a startup. A fund of geniuses.",
+  "tipo": "clip",
+  "sfondo": "financial district skyline",
+  "chiave": "geniuses",
+  "cartello": "GENIUSES RUNNING THE FUND",
+  "capitolo": "The $4.6 Billion Question"
  },
  {
-  "voce": "It belonged to one man: Sung Kook Hwang.",
+  "voce": "It was called Long-Term Capital Management.",
   "tipo": "dossier",
-  "sfondo": "office documents",
-  "chiave": "Hwang",
+  "sfondo": "documents",
+  "chiave": "Long-Term Capital",
   "scheda": "COMPANY FILE",
-  "nome": "Archegos Capital Management",
+  "nome": "Long-Term Capital Management",
   "persona": false,
   "righe": [
+   [
+    "Short name",
+    "LTCM"
+   ],
    [
     "Type",
-    "Family office"
+    "Hedge fund"
    ],
    [
-    "Owner",
-    "Sung Kook (Bill) Hwang"
+    "Loss in 1998",
+    "About $4.6 billion"
    ],
    [
-    "Based in",
-    "New York"
+    "Run by",
+    "Nobel laureates"
    ]
   ],
-  "timbro": "",
-  "capitolo": "The Number"
+  "timbro": "LOST",
+  "capitolo": "The $4.6 Billion Question"
  },
  {
-  "voce": "Friends call him Bill. The market never heard of him.",
-  "tipo": "clip",
-  "sfondo": "financial district",
-  "chiave": "never heard",
-  "cartello": "UNKNOWN TO MARKETS",
-  "capitolo": "The Number"
- },
- {
-  "voce": "In early twenty twenty-one, it held about ten billion dollars.",
-  "tipo": "dato",
-  "sfondo": "banknotes",
-  "chiave": "ten billion",
-  "numero": "$10B",
-  "didascalia": "Reported assets of Archegos, early 2021",
-  "fonte": "Press reports",
-  "capitolo": "The Number"
- },
- {
-  "voce": "Ten billion in assets. Twenty billion lost.",
-  "tipo": "classifica",
-  "sfondo": "trading screens",
-  "chiave": "Twenty billion",
-  "titolo": "Assets versus losses",
-  "barre": [
-   [
-    "Assets, early 2021",
-    10,
-    "$10B"
-   ],
-   [
-    "Reported losses, March 2021",
-    20,
-    "$20B"
-   ]
-  ],
-  "timbro": "MARCH 2021",
-  "fonte": "Major press accounts",
-  "capitolo": "The Number"
- },
- {
-  "voce": "The math should not work. Yet the collapse was real.",
+  "voce": "Its partners included Nobel Prize winners.",
   "tipo": "clip",
   "sfondo": "stock exchange floor",
-  "chiave": "collapse",
-  "cartello": "COLLAPSE IN DAYS",
-  "capitolo": "The Number"
+  "chiave": "Nobel",
+  "cartello": "NOBEL LAUREATES ON BOARD",
+  "capitolo": "The $4.6 Billion Question"
  },
  {
-  "voce": "And the damage did not stay inside one firm.",
-  "tipo": "clip",
-  "sfondo": "city skyline",
-  "chiave": "damage",
-  "cartello": "DAMAGE SPREADS",
-  "capitolo": "The Number"
- },
- {
-  "voce": "The banks that financed it lost over ten billion.",
-  "tipo": "dato",
-  "sfondo": "bank buildings",
-  "chiave": "ten billion",
-  "numero": "$10B+",
-  "didascalia": "Total lost by the banks that financed Archegos",
-  "fonte": "Major press accounts",
-  "capitolo": "The Number"
- },
- {
-  "voce": "Why was nobody watching a firm this dangerous?",
-  "tipo": "foto",
-  "sfondo": "regulator building",
-  "chiave": "nobody watching",
-  "etichetta": "WASHINGTON · 2021",
-  "titolo": "No regulator was watching",
-  "sotto": "Family offices escape hedge fund registration",
-  "capitolo": "The Number"
- },
- {
-  "voce": "Because Archegos was a family office.",
-  "tipo": "dossier",
-  "sfondo": "legal documents",
-  "chiave": "family office",
-  "scheda": "REGULATORY FILE",
-  "nome": "Family office status",
-  "persona": false,
-  "righe": [
-   [
-    "Structure",
-    "Family office"
-   ],
-   [
-    "SEC registration",
-    "Not required"
-   ],
-   [
-    "Hedge fund adviser",
-    "Exempt"
-   ]
-  ],
-  "timbro": "UNWATCHED",
-  "capitolo": "The Number"
- },
- {
-  "voce": "No registration as a hedge fund adviser with the SEC.",
+  "voce": "Then the fund collapsed. And Washington had to move.",
   "tipo": "oggetto3d",
   "sfondo": "golden vault",
-  "chiave": "No registration",
-  "oggetto": "A golden vault with a large crack running through its door",
-  "etichette": [
-   "NO REGISTRATION",
-   "NO OVERSIGHT"
+  "chiave": "collapsed",
+  "oggetto": "A glossy golden vault door cracking open with fractures spreading across its surface",
+  "etichettes": [
+   "LTCM"
   ],
-  "capitolo": "The Number"
+  "etichette": [
+   "LTCM"
+  ],
+  "capitolo": "The $4.6 Billion Question"
  },
  {
-  "voce": "So one open question remains.",
-  "tipo": "clip",
-  "sfondo": "empty trading floor",
-  "chiave": "open question",
-  "cartello": "OPEN QUESTION",
-  "capitolo": "The Number"
+  "voce": "September twenty-third, nineteen ninety-eight.",
+  "tipo": "calendario",
+  "sfondo": "city skyline",
+  "chiave": "September",
+  "mese": "SEP",
+  "giorno": "23",
+  "titolo": "The Fed steps in",
+  "sotto": "The New York Fed organizes a private rescue of LTCM",
+  "timbro": "1998",
+  "capitolo": "The $4.6 Billion Question"
  },
  {
-  "voce": "How did an unwatched firm do this much damage?",
+  "voce": "The New York Fed gathered fourteen financial institutions.",
   "tipo": "foto",
-  "sfondo": "Wall Street sign",
-  "chiave": "unwatched",
-  "etichetta": "WALL STREET · MARCH 2021",
-  "titolo": "The Damage Was Real",
-  "sotto": "Banks and markets absorbed the shock",
-  "capitolo": "The Number"
+  "sfondo": "Federal Reserve building",
+  "chiave": "fourteen",
+  "etichetta": "NEW YORK · SEPTEMBER 23, 1998",
+  "titolo": "Fed Organizes Rescue",
+  "sotto": "Fourteen financial institutions join the bailout",
+  "capitolo": "The $4.6 Billion Question"
  },
  {
-  "voce": "To find out, we start with the man himself.",
+  "voce": "Together, they put in about three point six five billion.",
+  "tipo": "dato",
+  "sfondo": "banknotes",
+  "chiave": "three point six five billion",
+  "numero": "$3.65B",
+  "didascalia": "Put in by the fourteen firms",
+  "fonte": "New York Fed rescue, 1998",
+  "capitolo": "The $4.6 Billion Question"
+ },
+ {
+  "voce": "A fund run by Nobel laureates, saved by rivals.",
   "tipo": "clip",
-  "sfondo": "city skyline night",
-  "chiave": "the man",
-  "cartello": "THE MAN BEHIND",
-  "capitolo": "The Number"
+  "sfondo": "trading screens",
+  "chiave": "saved",
+  "cartello": "SAVED BY RIVALS",
+  "capitolo": "The $4.6 Billion Question"
+ },
+ {
+  "voce": "So how does genius fail this badly?",
+  "tipo": "oggetto3d",
+  "sfondo": "collapsing coins",
+  "chiave": "genius",
+  "oggetto": "A tall tower of gold coins leaning and beginning to collapse on a dark reflective surface",
+  "etichette": [
+   "GENIUS",
+   "COLLAPSE"
+  ],
+  "capitolo": "The $4.6 Billion Question"
+ },
+ {
+  "voce": "To find out, we start where the story began.",
+  "tipo": "clip",
+  "sfondo": "financial district street",
+  "chiave": "began",
+  "cartello": "BEGINNING OF THE STORY",
+  "capitolo": "The $4.6 Billion Question"
  }
 ]

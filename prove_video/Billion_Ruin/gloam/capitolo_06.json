@@ -1,194 +1,204 @@
 [
  {
-  "voce": "Who Paid.",
+  "voce": "The Fed Calls a Meeting.",
   "tipo": "foto",
-  "sfondo": "financial district skyline",
-  "chiave": "Paid",
+  "sfondo": "New York financial district",
+  "chiave": "FED",
   "etichetta": "CHAPTER 7",
-  "titolo": "Who Paid",
-  "sotto": "The banks that lent against the tower",
-  "capitolo": "Who Paid"
+  "titolo": "The Fed Calls a Meeting",
+  "sotto": "",
+  "capitolo": "The Fed Calls a Meeting"
  },
  {
-  "voce": "The tower fell. Someone had to absorb the loss.",
-  "tipo": "clip",
-  "sfondo": "city skyline dusk",
-  "chiave": "LOSS",
-  "cartello": "LOSS LANDS ELSEWHERE",
-  "capitolo": "Who Paid"
+  "voce": "September twenty-third, nineteen ninety-eight.",
+  "tipo": "calendario",
+  "sfondo": "city skyline",
+  "chiave": "SEP",
+  "mese": "SEP",
+  "giorno": "23",
+  "titolo": "Emergency Summons",
+  "sotto": "New York Fed, nineteen ninety-eight",
+  "timbro": "CRISIS",
+  "capitolo": "The Fed Calls a Meeting"
  },
  {
-  "voce": "Credit Suisse took the heaviest blow.",
-  "tipo": "foto",
-  "sfondo": "bank headquarters building",
-  "chiave": "Credit Suisse",
-  "etichetta": "ZURICH · 2021",
-  "titolo": "Credit Suisse Takes Heaviest Hit",
-  "sotto": "Archegos losses reported by the Swiss bank",
-  "capitolo": "Who Paid"
- },
- {
-  "voce": "About five point five billion Swiss francs.",
-  "tipo": "dato",
-  "sfondo": "banknotes close up",
-  "chiave": "5.5",
-  "numero": "5.5B CHF",
-  "didascalia": "Credit Suisse losses from Archegos",
-  "fonte": "Credit Suisse",
-  "capitolo": "Who Paid"
- },
- {
-  "voce": "Around five point five billion dollars, gone.",
-  "tipo": "clip",
-  "sfondo": "trading screens red",
-  "chiave": "GONE",
-  "cartello": "GONE IN DAYS",
-  "capitolo": "Who Paid"
- },
- {
-  "voce": "Nomura, the Japanese bank, was next.",
-  "tipo": "foto",
-  "sfondo": "Tokyo financial district",
-  "chiave": "Nomura",
-  "etichetta": "TOKYO · 2021",
-  "titolo": "Nomura Discloses Its Loss",
-  "sotto": "Japanese bank exposed through Archegos trades",
-  "capitolo": "Who Paid"
- },
- {
-  "voce": "Its disclosed loss: about two point nine billion dollars.",
-  "tipo": "dato",
-  "sfondo": "documents stacked desk",
-  "chiave": "2.9B",
-  "numero": "$2.9B",
-  "didascalia": "Nomura's disclosed loss from Archegos",
-  "fonte": "Nomura",
-  "capitolo": "Who Paid"
- },
- {
-  "voce": "Morgan Stanley lost roughly nine hundred eleven million.",
-  "tipo": "clip",
-  "sfondo": "Manhattan office tower",
-  "chiave": "Morgan Stanley",
-  "cartello": "MORGAN STANLEY LOST MILLIONS",
-  "capitolo": "Who Paid"
- },
- {
-  "voce": "Goldman Sachs said it avoided a loss.",
-  "tipo": "classifica",
-  "sfondo": "stock exchange floor",
-  "chiave": "Goldman",
-  "titolo": "Reported Archegos losses",
-  "barre": [
-   [
-    "Credit Suisse",
-    5.5,
-    "$5.5B"
-   ],
-   [
-    "Nomura",
-    2.9,
-    "$2.9B"
-   ],
-   [
-    "Morgan Stanley",
-    0.911,
-    "$911M"
-   ]
-  ],
-  "timbro": "GOLDMAN: NO LOSS",
-  "fonte": "Company disclosures",
-  "capitolo": "Who Paid"
- },
- {
-  "voce": "Credit Suisse then looked inward.",
-  "tipo": "clip",
-  "sfondo": "documents review office",
-  "chiave": "inward",
-  "cartello": "INWARD REVIEW BEGINS",
-  "capitolo": "Who Paid"
- },
- {
-  "voce": "Its own review found serious risk management failures.",
+  "voce": "William McDonough runs the New York Fed.",
   "tipo": "dossier",
-  "sfondo": "report pages",
-  "chiave": "serious",
-  "scheda": "INTERNAL REVIEW",
-  "nome": "Credit Suisse",
-  "persona": false,
+  "sfondo": "federal reserve building",
+  "chiave": "McDonough",
+  "scheda": "FED FILE",
+  "nome": "William McDonough",
+  "persona": true,
   "righe": [
    [
-    "Subject",
-    "Archegos losses"
+    "Role",
+    "President, New York Fed"
    ],
    [
-    "Finding",
-    "Risk management failures"
+    "Date",
+    "September 23, 1998"
    ],
    [
-    "Severity",
-    "Serious"
+    "Action",
+    "Convened major bank leaders"
    ]
   ],
-  "timbro": "FAILURES",
-  "capitolo": "Who Paid"
+  "timbro": "CONVENER",
+  "capitolo": "The Fed Calls a Meeting"
  },
  {
-  "voce": "The chief risk officer left the bank.",
+  "voce": "He convenes the leaders of major banks.",
   "tipo": "clip",
-  "sfondo": "bank lobby empty",
-  "chiave": "left",
-  "cartello": "RISK CHIEF DEPARTS",
-  "capitolo": "Who Paid"
+  "sfondo": "bank headquarters lobby",
+  "chiave": "BANKS",
+  "cartello": "BANKS SUMMONED",
+  "capitolo": "The Fed Calls a Meeting"
  },
  {
-  "voce": "So did the head of investment banking.",
+  "voce": "The meeting happens inside the New York Fed.",
+  "tipo": "foto",
+  "sfondo": "federal reserve building",
+  "chiave": "New York Fed",
+  "etichetta": "NEW YORK · SEP 23, 1998",
+  "titolo": "Banks Called To The Fed",
+  "sotto": "Leaders of major banks convened there",
+  "capitolo": "The Fed Calls a Meeting"
+ },
+ {
+  "voce": "The fear is not one fund failing.",
+  "tipo": "clip",
+  "sfondo": "trading screens",
+  "chiave": "FEAR",
+  "cartello": "FEAR OF CONTAGION",
+  "capitolo": "The Fed Calls a Meeting"
+ },
+ {
+  "voce": "It is disorderly liquidation across global markets.",
+  "tipo": "oggetto3d",
+  "sfondo": "collapsing coins",
+  "chiave": "LIQUIDATION",
+  "oggetto": "tall tower of golden coins collapsing across a glossy world map",
+  "etichetta": [
+   "LIQUIDATION",
+   "GLOBAL MARKETS"
+  ],
+  "capitolo": "The Fed Calls a Meeting"
+ },
+ {
+  "voce": "So the Fed makes a decision.",
+  "tipo": "clip",
+  "sfondo": "stock exchange floor",
+  "chiave": "DECISION",
+  "cartello": "DECISION TIME",
+  "capitolo": "The Fed Calls a Meeting"
+ },
+ {
+  "voce": "It will not put in its own money.",
+  "tipo": "clip",
+  "sfondo": "banknotes counting",
+  "chiave": "NOT",
+  "cartello": "NO FED MONEY",
+  "capitolo": "The Fed Calls a Meeting"
+ },
+ {
+  "voce": "It only brokers a private rescue.",
+  "tipo": "foto",
+  "sfondo": "legal documents",
+  "chiave": "private rescue",
+  "etichetta": "NEW YORK · SEP 1998",
+  "titolo": "A Private Rescue",
+  "sotto": "The Fed brokered; it did not fund",
+  "capitolo": "The Fed Calls a Meeting"
+ },
+ {
+  "voce": "Fourteen firms step forward.",
+  "tipo": "classifica",
+  "sfondo": "bank towers",
+  "chiave": "Fourteen",
+  "titulo": "Rescue Consortium",
+  "titolo": "Rescue Consortium",
+  "barre": [
+   [
+    "Firms contributing",
+    14,
+    "14 firms"
+   ],
+   [
+    "Stake taken",
+    90,
+    "about 90%"
+   ]
+  ],
+  "timbro": "BAILOUT",
+  "fonte": "New York Fed",
+  "capitolo": "The Fed Calls a Meeting"
+ },
+ {
+  "voce": "Together they put in about three point six five billion dollars.",
+  "tipo": "dato",
+  "sfondo": "banknotes",
+  "chiave": "$3.65B",
+  "numero": "$3.65B",
+  "didascalia": "Contributed by fourteen firms",
+  "fonte": "Historical records",
+  "capitolo": "The Fed Calls a Meeting"
+ },
+ {
+  "voce": "In return, they take roughly ninety percent of the fund.",
+  "tipo": "clip",
+  "sfondo": "trading floor screens",
+  "chiave": "NINETY",
+  "cartello": "NINETY PERCENT TAKEN",
+  "capitolo": "The Fed Calls a Meeting"
+ },
+ {
+  "voce": "The geniuses are now minority owners.",
+  "tipo": "oggetto3d",
+  "sfondo": "golden vault",
+  "chiave": "MINORITY",
+  "oggetto": "golden vault door mostly sealed by a large glossy padlock",
+  "etichetta": [
+   "90% LOST",
+   "CONTROL"
+  ],
+  "capitolo": "The Fed Calls a Meeting"
+ },
+ {
+  "voce": "September twenty-ninth, the Fed acts again.",
+  "tipo": "calendario",
+  "sfondo": "federal reserve",
+  "chiave": "SEP",
+  "mese": "SEP",
+  "giorno": "29",
+  "titolo": "Rate Cut",
+  "sotto": "Federal funds rate cut by zero point two five points",
+  "timbro": "FIRST OF THREE",
+  "capitolo": "The Fed Calls a Meeting"
+ },
+ {
+  "voce": "A quarter-point cut, the first of three.",
+  "tipo": "clip",
+  "sfondo": "city skyline dusk",
+  "chiave": "THREE",
+  "cartello": "THREE CUTS COMING",
+  "capitolo": "The Fed Calls a Meeting"
+ },
+ {
+  "voce": "The fund is saved from collapse.",
   "tipo": "foto",
   "sfondo": "newspaper headlines",
-  "chiave": "left",
-  "etichetta": "ZURICH · 2021",
-  "titolo": "Top Executives Leave Bank",
-  "sotto": "Risk chief and investment banking head exit",
-  "capitolo": "Who Paid"
+  "chiave": "saved",
+  "etichetta": "GREENWICH · AUTUMN 1998",
+  "titolo": "Fund Rescued By Banks",
+  "sotto": "Markets steadied as the rescue took shape",
+  "capitolo": "The Fed Calls a Meeting"
  },
  {
-  "voce": "But the damage did not end there.",
+  "voce": "But what did it cost the men behind it?",
   "tipo": "clip",
-  "sfondo": "storm over city",
-  "chiave": "damage",
-  "cartello": "DAMAGE LINGERS ON",
-  "capitolo": "Who Paid"
- },
- {
-  "voce": "After other troubles, UBS took it over.",
-  "tipo": "calendario",
-  "sfondo": "Swiss bank building",
-  "chiave": "UBS",
-  "mese": "MAR",
-  "giorno": "2023",
-  "titolo": "UBS Takes Over",
-  "sotto": "Credit Suisse absorbed after other troubles",
-  "timbro": "TAKEN OVER",
-  "capitolo": "Who Paid"
- },
- {
-  "voce": "One man's bets had wounded banks across the world.",
-  "tipo": "oggetto3d",
-  "sfondo": "glossy scene",
-  "chiave": "wounded",
-  "oggetto": "One red faceless mannequin standing before several cracked blue faceless mannequins",
-  "etichette": [
-   "THE CULPRIT",
-   "THE VICTIMS"
-  ],
-  "capitolo": "Who Paid"
- },
- {
-  "voce": "But what happened to the man himself?",
-  "tipo": "clip",
-  "sfondo": "courthouse exterior",
-  "chiave": "himself",
-  "cartello": "HIS FATE AWAITS",
-  "capitolo": "Who Paid"
+  "sfondo": "empty office corridor",
+  "chiave": "COST",
+  "cartello": "COST OF SURVIVAL",
+  "capitolo": "The Fed Calls a Meeting"
  }
 ]

@@ -1,180 +1,157 @@
 [
  {
-  "voce": "Chapter five. ViacomCBS Turns.",
+  "voce": "Chapter five. Russia Defaults.",
   "tipo": "foto",
-  "sfondo": "financial district skyline",
-  "chiave": "TURNS",
+  "sfondo": "Moscow skyline",
+  "chiave": "Russia",
   "etichetta": "CHAPTER 5",
-  "titolo": "ViacomCBS Turns",
+  "titolo": "Russia Defaults",
   "sotto": "",
-  "capitolo": "ViacomCBS Turns"
+  "capitolo": "Russia Defaults"
  },
  {
-  "voce": "In January, the stock traded around forty dollars.",
-  "tipo": "clip",
-  "sfondo": "trading screens",
-  "chiave": "FORTY",
-  "cartello": "FORTY DOLLARS IN JANUARY",
-  "capitolo": "ViacomCBS Turns"
- },
- {
-  "voce": "Then it climbed. Fast. Relentlessly.",
-  "tipo": "clip",
-  "sfondo": "stock exchange floor",
-  "chiave": "CLIMBED",
-  "cartello": "CLIMBED FAST",
-  "capitolo": "ViacomCBS Turns"
- },
- {
-  "voce": "By March, it peaked around one hundred dollars.",
-  "tipo": "dato",
-  "sfondo": "stock chart",
-  "chiave": "$100",
-  "numero": "$100",
-  "didascalia": "ViacomCBS peak price, March twenty twenty-one",
-  "fonte": "Market data",
-  "capitolo": "ViacomCBS Turns"
- },
- {
-  "voce": "For Archegos, the tower looked unstoppable.",
-  "tipo": "oggetto3d",
-  "sfondo": "golden tower",
-  "chiave": "TOWER",
-  "oggetto": "Tall glossy golden tower of stacked coins on a dark reflective floor",
-  "etichette": [
-   "ARCHEGOS",
-   "PEAK"
-  ],
-  "capitolo": "ViacomCBS Turns"
- },
- {
-  "voce": "Then came March twenty-second.",
+  "voce": "August seventeenth, nineteen ninety-eight.",
   "tipo": "calendario",
-  "sfondo": "office building",
-  "chiave": "MAR 22",
-  "mese": "MAR",
-  "giorno": "22",
-  "titolo": "Offering Announced",
-  "sotto": "ViacomCBS announces a new share sale",
-  "timbro": "THE TURN",
-  "capitolo": "ViacomCBS Turns"
+  "sfondo": "Moscow skyline",
+  "chiave": "Default",
+  "mese": "AUG",
+  "giorno": "17",
+  "titolo": "Russia Defaults",
+  "sotto": "Ruble devalued, domestic debt defaulted",
+  "timbro": "DEFAULT",
+  "capitolo": "Russia Defaults"
  },
  {
-  "voce": "ViacomCBS announced a stock offering.",
+  "voce": "Russia devalued the ruble.",
+  "tipo": "clip",
+  "sfondo": "Russian banknotes",
+  "chiave": "RUBLE",
+  "cartello": "RUBLE DEVALUED",
+  "capitolo": "Russia Defaults"
+ },
+ {
+  "voce": "And it defaulted on its domestic debt.",
   "tipo": "foto",
-  "sfondo": "newspaper headline",
-  "chiave": "OFFERING",
-  "etichetta": "NEW YORK · MARCH 22, 2021",
-  "titolo": "ViacomCBS Announces Stock Offering",
-  "sotto": "Common shares and convertible preferred stock",
-  "capitolo": "ViacomCBS Turns"
+  "sfondo": "Moscow financial district",
+  "chiave": "Default",
+  "etichetta": "MOSCOW · AUGUST 1998",
+  "titolo": "Russia Defaults on Debt",
+  "sotto": "Domestic debt left unpaid",
+  "capitolo": "Russia Defaults"
  },
  {
-  "voce": "Three billion dollars, in common shares and convertible preferred stock.",
-  "tipo": "dato",
-  "sfondo": "financial documents",
-  "chiave": "$3B",
-  "numero": "$3B",
-  "didascalia": "Common shares and convertible preferred stock",
-  "fonte": "ViacomCBS announcement",
-  "capitolo": "ViacomCBS Turns"
- },
- {
-  "voce": "New shares meant more supply. The market noticed.",
+  "voce": "Markets around the world seized up.",
   "tipo": "clip",
-  "sfondo": "trading screens red",
-  "chiave": "SUPPLY",
-  "cartello": "SUPPLY HITS MARKET",
-  "capitolo": "ViacomCBS Turns"
+  "sfondo": "Trading screens",
+  "chiave": "MARKETS",
+  "cartello": "MARKETS SEIZE",
+  "capitolo": "Russia Defaults"
  },
  {
-  "voce": "The shares fell sharply over the following days.",
-  "tipo": "borsa",
-  "sfondo": "trading screen",
-  "chiave": "FELL",
-  "ticker": "VIAC",
-  "da": "$100",
-  "a": "$60",
-  "capitolo": "ViacomCBS Turns"
- },
- {
-  "voce": "Archegos's swaps lost value.",
+  "voce": "Investors ran for safety, all at once.",
   "tipo": "clip",
-  "sfondo": "stock market screens",
-  "chiave": "LOST VALUE",
-  "cartello": "SWAPS LOST VALUE",
-  "capitolo": "ViacomCBS Turns"
+  "sfondo": "Stock exchange floor",
+  "chiave": "SAFETY",
+  "cartello": "SAFETY FIRST",
+  "capitolo": "Russia Defaults"
  },
  {
-  "voce": "The banks on the other side began to react.",
-  "tipo": "clip",
-  "sfondo": "bank skyscrapers",
-  "chiave": "BANKS",
-  "cartello": "BANKS REACT",
-  "capitolo": "ViacomCBS Turns"
+  "voce": "They piled into US Treasury bonds.",
+  "tipo": "foto",
+  "sfondo": "US Treasury building",
+  "chiave": "Treasury",
+  "etichetta": "WASHINGTON · AUGUST 1998",
+  "titolo": "Flight to Treasuries",
+  "sotto": "Investors rush into safe assets",
+  "capitolo": "Russia Defaults"
  },
  {
-  "voce": "Margin calls started to go out.",
-  "tipo": "dossier",
-  "sfondo": "documents desk",
-  "chiave": "MARGIN",
-  "scheda": "MARGIN CALL",
-  "nome": "Archegos Capital",
-  "persona": false,
-  "righe": [
-   [
-    "Issued by",
-    "Counterparty banks"
-   ],
-   [
-    "Trigger",
-    "Falling share prices"
-   ],
-   [
-    "Demand",
-    "More cash collateral"
-   ],
-   [
-    "Status",
-    "Unpaid"
-   ]
-  ],
-  "timbro": "URGENT",
-  "capitolo": "ViacomCBS Turns"
- },
- {
-  "voce": "Each call demanded more cash collateral.",
-  "tipo": "clip",
-  "sfondo": "banknotes",
-  "chiave": "CASH",
-  "cartello": "CASH DEMANDED NOW",
-  "capitolo": "ViacomCBS Turns"
- },
- {
-  "voce": "Archegos could not provide it.",
+  "voce": "Spreads LTCM bet would narrow?",
   "tipo": "oggetto3d",
-  "sfondo": "cracked vault",
-  "chiave": "COULD NOT",
-  "oggetto": "Glossy golden vault door cracking open, empty inside, dramatic lighting",
-  "etichette": [
-   "NO CASH"
+  "sfondo": "Financial district",
+  "chiave": "NARROW",
+  "oggetto": "two glossy gold bars drifting apart on a dark reflective surface",
+  "etichettas": [
+   "SPREADS"
   ],
-  "capitolo": "ViacomCBS Turns"
+  "etichette": [
+   "SPREADS",
+   "WIDENING"
+  ],
+  "capitolo": "Russia Defaults"
  },
  {
-  "voce": "The tower had started to shake.",
+  "voce": "They widened. Violently.",
   "tipo": "clip",
-  "sfondo": "city skyline dusk",
-  "chiave": "SHAKE",
-  "cartello": "THE TOWER SHAKES",
-  "capitolo": "ViacomCBS Turns"
+  "sfondo": "Falling stock chart",
+  "chiave": "WIDENED",
+  "cartello": "WIDENED FAST",
+  "capitolo": "Russia Defaults"
  },
  {
-  "voce": "And the banks were about to move.",
+  "voce": "The models had a blind spot.",
   "tipo": "clip",
-  "sfondo": "trading floor screens",
-  "chiave": "MOVE",
-  "cartello": "MOVE FIRST OR LOSE",
-  "capitolo": "ViacomCBS Turns"
+  "sfondo": "Server room",
+  "chiave": "MODELS",
+  "cartello": "MODELS FAILED",
+  "capitolo": "Russia Defaults"
+ },
+ {
+  "voce": "They never accounted for a correlated global flight to safety.",
+  "tipo": "foto",
+  "sfondo": "Trading screens",
+  "chiave": "Correlated",
+  "etichetta": "GREENWICH · AUGUST 1998",
+  "titolo": "Models Missed Correlation",
+  "sotto": "Every market moved in the same direction",
+  "capitolo": "Russia Defaults"
+ },
+ {
+  "voce": "August twenty-first. One single day.",
+  "tipo": "calendario",
+  "sfondo": "Financial district",
+  "chiave": "Loss",
+  "mese": "AUG",
+  "giorno": "21",
+  "titolo": "Worst Single Day",
+  "sotto": "Losses mount across every position",
+  "timbro": "BLEEDING",
+  "capitolo": "Russia Defaults"
+ },
+ {
+  "voce": "About five hundred fifty million dollars, gone.",
+  "tipo": "dato",
+  "sfondo": "Banknotes",
+  "chiave": "$550M",
+  "numero": "$550M",
+  "didascalia": "Lost in one day, August twenty-first",
+  "fonte": "President's Working Group report",
+  "capitolo": "Russia Defaults"
+ },
+ {
+  "voce": "By month's end, forty-four percent of capital had vanished.",
+  "tipo": "dato",
+  "sfondo": "Falling stock chart",
+  "chiave": "44%",
+  "numero": "44%",
+  "didascalia": "Of the fund's capital lost in August",
+  "fonte": "President's Working Group report",
+  "capitolo": "Russia Defaults"
+ },
+ {
+  "voce": "Genius had met a world it never modeled.",
+  "tipo": "clip",
+  "sfondo": "City skyline dusk",
+  "chiave": "GENIUS",
+  "cartello": "GENIUS EXPOSED",
+  "capitolo": "Russia Defaults"
+ },
+ {
+  "voce": "And the fall was only beginning.",
+  "tipo": "clip",
+  "sfondo": "Empty trading floor",
+  "chiave": "BEGINNING",
+  "cartello": "BEGINNING OF END",
+  "capitolo": "Russia Defaults"
  }
 ]

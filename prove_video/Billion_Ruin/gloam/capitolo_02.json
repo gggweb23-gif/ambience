@@ -1,212 +1,194 @@
 [
  {
-  "voce": "Chapter three. The Swap Loophole.",
+  "voce": "Pennies in Front of Steamrollers.",
   "tipo": "foto",
-  "sfondo": "Wall Street financial district",
-  "chiave": "LOOPHOLE",
+  "sfondo": "financial district skyline",
+  "chiave": "STEAMROLLERS",
   "etichetta": "CHAPTER 3",
-  "titolo": "The Swap Loophole",
+  "titolo": "Pennies in Front of Steamrollers",
   "sotto": "",
-  "capitolo": "The Swap Loophole"
+  "capitolo": "Pennies in Front of Steamrollers"
  },
  {
-  "voce": "Archegos never actually bought the stocks it bet on.",
+  "voce": "So what did this dream team actually do?",
   "tipo": "clip",
-  "sfondo": "stock exchange trading floor",
-  "chiave": "NEVER",
-  "cartello": "NEVER OWNED",
-  "capitolo": "The Swap Loophole"
+  "sfondo": "trading floor screens",
+  "chiave": "ACTUALLY",
+  "cartello": "THE STRATEGY",
+  "capitolo": "Pennies in Front of Steamrollers"
  },
  {
-  "voce": "It used something called total return swaps.",
+  "voce": "Their core strategy was convergence arbitrage, also called relative value.",
   "tipo": "dossier",
-  "sfondo": "financial documents desk",
-  "chiave": "SWAPS",
-  "scheda": "CONTRACT FILE",
-  "nome": "Total Return Swap",
+  "sfondo": "documents desk",
+  "chiave": "CONVERGENCE",
+  "scheda": "STRATEGY FILE",
+  "nome": "Relative-Value Arbitrage",
   "persona": false,
   "righe": [
    [
     "Type",
-    "Derivative contract"
+    "Convergence trade"
    ],
    [
-    "Buyer of shares",
-    "The bank"
+    "Bet",
+    "Price gaps will narrow"
    ],
    [
-    "Gains and losses",
-    "Go to Archegos"
-   ],
-   [
-    "Stock ownership",
-    "None for Archegos"
+    "Assets",
+    "Similar bonds"
    ]
   ],
-  "timbro": "LOOPHOLE",
-  "capitolo": "The Swap Loophole"
+  "timbro": "CORE",
+  "capitolo": "Pennies in Front of Steamrollers"
  },
  {
-  "voce": "The banks bought the shares themselves.",
+  "voce": "The bet was simple: similar bonds, priced slightly apart.",
   "tipo": "clip",
-  "sfondo": "bank headquarters building",
-  "chiave": "BANKS",
-  "cartello": "BANKS BOUGHT SHARES",
-  "capitolo": "The Swap Loophole"
+  "sfondo": "bond trading screens",
+  "chiave": "SIMILAR",
+  "cartello": "SIMILAR BONDS",
+  "capitolo": "Pennies in Front of Steamrollers"
  },
  {
-  "voce": "Archegos simply received the gains, or the losses.",
+  "voce": "Sooner or later, they bet, the gap would narrow.",
+  "tipo": "foto",
+  "sfondo": "stock exchange facade",
+  "chiave": "NARROW",
+  "etichetta": "BOND MARKETS · 1990s",
+  "titolo": "Small gaps, expected to close",
+  "sotto": "Convergence: the bet behind every trade",
+  "capitolo": "Pennies in Front of Steamrollers"
+ },
+ {
+  "voce": "But each trade earned only a tiny spread.",
+  "tipo": "clip",
+  "sfondo": "banknotes counting",
+  "chiave": "TINY",
+  "cartello": "TINY SPREAD",
+  "capitolo": "Pennies in Front of Steamrollers"
+ },
+ {
+  "voce": "Pennies. Picked up in front of a steamroller.",
   "tipo": "oggetto3d",
   "sfondo": "golden coins",
-  "chiave": "GAINS",
-  "oggetto": "A glossy golden coin stack split in two halves, one gleaming and one cracked, on a dark reflective surface",
-  "etichettes": [],
+  "chiave": "STEAMROLLER",
+  "oggetto": "A line of gold pennies on asphalt with a giant steamroller approaching",
   "etichette": [
-   "GAINS",
-   "LOSSES"
+   "PENNIES",
+   "STEAMROLLER"
   ],
-  "capitolo": "The Swap Loophole"
+  "capitolo": "Pennies in Front of Steamrollers"
  },
  {
-  "voce": "No ownership meant no public ownership filings.",
+  "voce": "To make pennies matter, they needed leverage.",
   "tipo": "clip",
-  "sfondo": "legal documents filing",
-  "chiave": "NO FILINGS",
-  "cartello": "NO FILINGS",
-  "capitolo": "The Swap Loophole"
+  "sfondo": "city skyline night",
+  "chiave": "LEVERAGE",
+  "cartello": "LEVERAGE",
+  "capitolo": "Pennies in Front of Steamrollers"
  },
  {
-  "voce": "The banks held the shares, so nothing appeared.",
-  "tipo": "clip",
-  "sfondo": "city skyline office windows",
-  "chiave": "HIDDEN",
-  "cartello": "HIDDEN POSITIONS",
-  "capitolo": "The Swap Loophole"
- },
- {
-  "voce": "Huge, concentrated positions stayed largely hidden from the market.",
-  "tipo": "clip",
-  "sfondo": "trading screens stock charts",
-  "chiave": "HIDDEN",
-  "cartello": "HIDDEN FROM MARKET",
-  "capitolo": "The Swap Loophole"
- },
- {
-  "voce": "Hidden from other lenders, too.",
-  "tipo": "foto",
-  "sfondo": "bank vault door",
-  "chiave": "LENDERS",
-  "etichette": "",
-  "etichetta": "NEW YORK · 2020",
-  "titolo": "Lenders Saw Only Their Slice",
-  "sotto": "No bank saw the full picture",
-  "capitolo": "The Swap Loophole"
- },
- {
-  "voce": "And the banks asked for very little collateral.",
-  "tipo": "clip",
-  "sfondo": "banknotes counting machine",
-  "chiave": "COLLATERAL",
-  "cartello": "COLLATERAL SHORTFALL",
-  "capitolo": "The Swap Loophole"
- },
- {
-  "voce": "Only a fraction of each position's value.",
+  "voce": "Heavy leverage. Borrowed money, stacked on borrowed money.",
   "tipo": "oggetto3d",
-  "sfondo": "stacked coins",
-  "chiave": "FRACTION",
-  "oggetto": "A tall precarious tower of golden coins balanced on a single small coin, dark studio background",
+  "sfondo": "tower coins",
+  "chiave": "HEAVY",
+  "oggetto": "A tall unstable tower of gold coins with a small base",
   "etichette": [
-   "THIN COLLATERAL",
    "HEAVY LEVERAGE"
   ],
-  "capitolo": "The Swap Loophole"
+  "capitolo": "Pennies in Front of Steamrollers"
  },
  {
-  "voce": "That meant heavy leverage, stacked on borrowed money.",
+  "voce": "And for a while, it worked brilliantly.",
   "tipo": "clip",
-  "sfondo": "financial charts screens",
-  "chiave": "LEVERAGE",
-  "cartello": "LEVERAGE EVERYWHERE",
-  "capitolo": "The Swap Loophole"
+  "sfondo": "rising stock chart",
+  "chiave": "BRILLIANTLY",
+  "cartello": "IT WORKED",
+  "capitolo": "Pennies in Front of Steamrollers"
  },
  {
-  "voce": "Goldman Sachs. Morgan Stanley. Credit Suisse. Nomura.",
+  "voce": "Returns after fees: about forty-three percent in nineteen ninety-five.",
+  "tipo": "classifica",
+  "sfondo": "charts",
+  "chiave": "43%",
+  "titolo": "Returns after fees",
+  "barre": [
+   [
+    "1995",
+    43,
+    "43%"
+   ],
+   [
+    "1996",
+    41,
+    "41%"
+   ],
+   [
+    "1997",
+    17,
+    "17%"
+   ]
+  ],
+  "timbro": "NET OF FEES",
+  "fonte": "Reported fund returns",
+  "capitolo": "Pennies in Front of Steamrollers"
+ },
+ {
+  "voce": "Forty-one percent in ninety-six. About seventeen in ninety-seven.",
+  "tipo": "dato",
+  "sfondo": "financial documents",
+  "chiave": "17%",
+  "numero": "17%",
+  "didascalia": "Reported 1997 return, after fees",
+  "fonte": "Reported fund returns",
+  "capitolo": "Pennies in Front of Steamrollers"
+ },
+ {
+  "voce": "Investors paid dearly for it, too.",
+  "tipo": "clip",
+  "sfondo": "investment documents signing",
+  "chiave": "PAID",
+  "cartello": "HIGH FEES",
+  "capitolo": "Pennies in Front of Steamrollers"
+ },
+ {
+  "voce": "Two percent of assets, plus twenty-five percent of profits.",
   "tipo": "dossier",
-  "sfondo": "bank towers",
-  "chiave": "PRIME BROKERS",
-  "scheda": "PRIME BROKERS",
-  "nome": "Banks Behind Archegos",
+  "sfondo": "contract papers",
+  "chiave": "25%",
+  "scheda": "FEE SCHEDULE",
+  "nome": "LTCM Investor Terms",
   "persona": false,
   "righe": [
    [
-    "Bank",
-    "Goldman Sachs"
+    "Management fee",
+    "About 2% of assets"
    ],
    [
-    "Bank",
-    "Morgan Stanley"
-   ],
-   [
-    "Bank",
-    "Credit Suisse"
-   ],
-   [
-    "Bank",
-    "Nomura"
-   ],
-   [
-    "Others",
-    "Also involved"
+    "Performance fee",
+    "About 25% of profits"
    ]
   ],
-  "timbro": "EXPOSED",
-  "capitolo": "The Swap Loophole"
+  "timbro": "HIGH FEES",
+  "capitolo": "Pennies in Front of Steamrollers"
  },
  {
-  "voce": "Each one competing for the business.",
-  "tipo": "clip",
-  "sfondo": "financial district skyscrapers",
-  "chiave": "COMPETING",
-  "cartello": "COMPETING FOR BUSINESS",
-  "capitolo": "The Swap Loophole"
- },
- {
-  "voce": "Each one blind to what the others had done.",
+  "voce": "Everyone was getting rich. Nobody was watching the steamroller.",
   "tipo": "foto",
-  "sfondo": "server room data",
-  "chiave": "BLIND",
-  "etichetta": "NEW YORK · 2021",
-  "titolo": "Every Bank Blind",
-  "sotto": "Nobody saw the whole position",
-  "capitolo": "The Swap Loophole"
- },
- {
-  "voce": "At its peak, prosecutors said the exposure reached roughly one hundred sixty billion dollars.",
-  "tipo": "dato",
-  "sfondo": "banknotes",
-  "chiave": "$160B",
-  "numero": "$160B",
-  "didascalia": "Peak exposure, according to prosecutors",
-  "fonte": "U.S. prosecutors",
-  "capitolo": "The Swap Loophole"
- },
- {
-  "voce": "A mountain of risk, built in plain sight.",
-  "tipo": "clip",
   "sfondo": "city skyline dusk",
-  "chiave": "RISK",
-  "cartello": "RISK IN SHADOWS",
-  "capitolo": "The Swap Loophole"
+  "chiave": "STEAMROLLER",
+  "etichetta": "GREENWICH · MID-1990s",
+  "titolo": "Profits everywhere, risk unseen",
+  "sotto": "Then the ground began to shift.",
+  "capitolo": "Pennies in Front of Steamrollers"
  },
  {
-  "voce": "But the first domino was already wobbling.",
-  "tipo": "foto",
-  "sfondo": "stock market screens",
-  "chiave": "DOMINO",
-  "etichetta": "NEW YORK · MARCH 2021",
-  "titolo": "The First Domino Wobbles",
-  "sotto": "Next: the margin call nobody expected",
-  "capitolo": "The Swap Loophole"
+  "voce": "Then Russia made a decision. Everything changed.",
+  "tipo": "clip",
+  "sfondo": "Moscow skyline",
+  "chiave": "RUSSIA",
+  "cartello": "RUSSIA NEXT",
+  "capitolo": "Pennies in Front of Steamrollers"
  }
 ]

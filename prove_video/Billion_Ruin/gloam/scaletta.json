@@ -1,148 +1,155 @@
 {
- "titolo": "Archegos – How One Man Lost $20 Billion in Days",
- "descrizione": "In March 2021, Archegos Capital Management, the family office of former hedge fund manager Bill Hwang, collapsed within days. Banks that had financed its giant, concentrated stock bets through total return swaps were left with billions in losses, and the fund's positions were dumped on the market in a matter of days. This documentary follows the investigation step by step: how Hwang built enormous exposure with borrowed money, how the swaps hid his positions from the market, and what happened when ViacomCBS stock turned.\n\nWe rely only on documented sources: the SEC complaint, the US Department of Justice indictment, the 2024 criminal trial, and reporting by major newspapers. We explain the mechanism in plain language and ask what the collapse reveals about leverage, disclosure rules and risk management at the biggest banks.",
+ "titolo": "LTCM – The Nobel Genius Fund That Lost $4.6 Billion",
+ "descrizione": "In 1994, a hedge fund staffed by Wall Street traders and two future Nobel laureates promised steady, low-risk profits. Four years later, Long-Term Capital Management had lost $4.6 billion in a matter of months and was rescued under the supervision of the New York Fed. This video investigates how the fund's leverage, its trading strategy and the 1998 Russian default combined into a near-systemic crisis.\n\nWe walk through the timeline from the fund's launch in 1994 to the September 1998 bailout, explain the mechanism of leveraged convergence trades in plain language, and look at what the episode taught regulators and investors. Sources include the President's Working Group report (1999), congressional testimony and major newspaper coverage from 1998.",
  "tag": [
-  "Archegos",
-  "Bill Hwang",
-  "Archegos Capital",
+  "LTCM",
+  "Long-Term Capital Management",
   "hedge fund collapse",
-  "total return swaps",
-  "Credit Suisse",
-  "Nomura",
-  "financial disaster",
-  "margin call",
-  "ViacomCBS",
-  "family office",
-  "market manipulation",
-  "Wall Street scandal",
+  "financial disasters",
+  "1998 financial crisis",
+  "Russian default 1998",
+  "John Meriwether",
+  "Myron Scholes",
+  "Robert Merton",
+  "leverage explained",
+  "Federal Reserve bailout",
+  "Wall Street history",
   "finance documentary",
-  "billion dollar loss"
+  "Nobel Prize economists",
+  "Billion Ruin"
  ],
  "copertina": {
-  "oggetto": "ARCHEGOS",
-  "rosso": "FUND MANAGER",
-  "blu": "BANKERS",
-  "scena_rosso": "A lone red figure in a suit stands at the top of a tall tower of stacked borrowed money, still placing one more block on top",
-  "scena_blu": "Blue figures at the base look up in alarm, some holding cracked ledgers and trying to hold the tower steady",
-  "scena_oro": "A gold ARCHEGOS block sits at the base of the tower, cracking down the middle as the tower begins to topple"
+  "oggetto": "LTCM",
+  "rosso": "HEDGE FUND",
+  "blu": "WALL STREET BANKS",
+  "scena_rosso": "One red figure in a suit stands at the edge of a cliff holding a giant stack of leveraged bets, the stack starting to tilt",
+  "scena_blu": "Blue figures in business attire huddle around a table, anxiously reviewing papers and phones as the red figure's stack wobbles",
+  "scena_oro": "A gold trophy engraved LTCM sits on the table and cracks in half as the stack collapses toward it",
+  "scena_oro_nota": ""
+ },
+ "copertina_soldi": {
+  "cifra": "$4.6B",
+  "sotto": "LOST IN 1998",
+  "scheda_su": "SEPTEMBER 1998",
+  "scheda_1": "LONG-TERM",
+  "scheda_2": "CAPITAL",
+  "timbro": "BAILED OUT",
+  "foto": "stock market screen red numbers dark trading floor"
  },
  "capitoli": [
   {
-   "titolo": "The Number",
+   "titolo": "The $4.6 Billion Question",
    "parole": 140,
    "fatti": [
-    "Archegos Capital Management was the family office of Sung Kook (Bill) Hwang, based in New York",
-    "Reports put its assets at about $10 billion in early 2021, and press accounts say it was reported to have lost about $20 billion within days in March 2021",
-    "The banks that financed it lost more than $10 billion in total, according to major press accounts",
-    "Archegos was a family office, so it was not required to register with the SEC as a hedge fund adviser",
-    "Open question: how could a firm no regulator was watching do this much damage so fast?"
+    "Long-Term Capital Management (LTCM) lost about $4.6 billion in 1998",
+    "On September 23, 1998 the New York Fed organized a rescue by 14 financial institutions",
+    "The 14 firms put in about $3.65 billion in total",
+    "Open question: how did a fund run by Nobel laureates fail so badly that the Fed stepped in?"
    ]
   },
   {
-   "titolo": "Who Was Bill Hwang",
-   "parole": 150,
+   "titolo": "The Dream Team",
+   "parole": 160,
    "fatti": [
-    "Hwang worked for Julian Robertson's Tiger Management and later founded Tiger Asia Management",
-    "In 2012 Tiger Asia pleaded guilty to wire fraud related to insider trading in Chinese bank stocks, and paid about $44 million",
-    "The SEC also settled a case against Hwang and Tiger Asia in 2012",
-    "Hwang was barred from managing outside money, and the firm was reorganized as Archegos in 2013",
-    "Archegos managed Hwang's own wealth as a family office"
+    "LTCM was founded in 1994 by John Meriwether, former vice chairman and head of bond arbitrage at Salomon Brothers",
+    "Partners included Myron Scholes and Robert Merton, who shared the 1997 Nobel Memorial Prize in Economic Sciences",
+    "Another partner was David Mullins, former Vice Chairman of the Federal Reserve",
+    "The fund started trading in early 1994 with roughly $1.25 billion in capital",
+    "Based in Greenwich, Connecticut"
    ]
   },
   {
-   "titolo": "The Swap Loophole",
+   "titolo": "Pennies in Front of Steamrollers",
    "parole": 170,
    "fatti": [
-    "Archegos used total return swaps: banks bought the shares and Archegos received the gains or losses without owning the stock",
-    "Because the banks held the shares, Archegos's positions did not appear in public ownership filings",
-    "This allowed concentrated positions to stay largely hidden from the market and from other lenders",
-    "Banks asked for only a fraction of the position's value as collateral, creating heavy leverage",
-    "Prime brokers included Goldman Sachs, Morgan Stanley, Credit Suisse, Nomura and others",
-    "Prosecutors said Archegos's exposure reached roughly $160 billion at its peak"
+    "Core strategy: convergence or relative-value arbitrage, betting that small price gaps between similar bonds would narrow",
+    "Each trade earned only a tiny spread",
+    "To make those spreads meaningful, LTCM used heavy leverage",
+    "Returns after fees were reported at about 43% in 1995 and 41% in 1996 and about 17% in 1997",
+    "Investors were charged high fees, about 2% of assets and 25% of profits"
    ]
   },
   {
-   "titolo": "Building the Tower",
-   "parole": 150,
-   "fatti": [
-    "Prosecutors alleged Hwang built huge concentrated positions in a small number of stocks, including ViacomCBS, Discovery and Chinese tech names",
-    "Prosecutors alleged Archegos traded in ways meant to push stock prices up, which inflated the value of its holdings",
-    "The indictment alleges Hwang and colleagues misled banks about the size and concentration of the portfolio",
-    "Because each bank saw only its own slice, none saw the whole picture",
-    "The SEC and DOJ filed their cases in April 2022"
-   ]
-  },
-  {
-   "titolo": "ViacomCBS Turns",
+   "titolo": "Leverage Piles Up",
    "parole": 160,
    "fatti": [
-    "ViacomCBS shares rose sharply in early 2021 and peaked around $100 in March 2021, after trading around $40 in January",
-    "On March 22, 2021, ViacomCBS announced a stock offering of $3 billion in common shares and convertible preferred stock",
-    "The shares fell sharply over the following days",
-    "Archegos's swaps lost value and banks began to issue margin calls",
-    "Margin calls demanded more cash collateral, which Archegos could not provide"
+    "At the end of 1997 LTCM returned about $2.7 billion to outside investors, keeping the leverage higher relative to its capital",
+    "At the start of 1998 LTCM had about $4.7 billion in equity",
+    "It held assets of more than $120 billion, a leverage ratio of roughly 25 to 1",
+    "Off-balance-sheet derivatives positions had a notional value of about $1.25 trillion",
+    "Notional value is not the same as the amount at risk"
    ]
   },
   {
-   "titolo": "The Margin Call",
-   "parole": 150,
+   "titolo": "Russia Defaults",
+   "parole": 170,
    "fatti": [
-    "On March 25, 2021, banks held an emergency call with Archegos about the margin calls",
-    "The banks were competing: whoever sold first would lose less",
-    "On March 26, 2021, Goldman Sachs and Morgan Stanley began selling billions of dollars of Archegos-linked stock in block trades",
-    "Credit Suisse and Nomura were slower to sell and took much bigger losses",
-    "Other lenders sold on the market as well, feeding a fast downward spiral in the stocks"
+    "On August 17, 1998 Russia devalued the ruble and defaulted on its domestic debt",
+    "Investors fled to safe assets such as US Treasury bonds, widening the spreads LTCM had bet would narrow",
+    "LTCM lost about $550 million on August 21, 1998, according to the President's Working Group report",
+    "In August 1998 the fund lost about 44% of its capital",
+    "Its models had not accounted for such a correlated global flight to safety"
    ]
   },
   {
-   "titolo": "Who Paid",
+   "titolo": "Death Spiral",
    "parole": 160,
    "fatti": [
-    "Credit Suisse reported losses of about 5.5 billion Swiss francs, around $5.5 billion, from Archegos",
-    "Nomura disclosed a loss of about $2.9 billion",
-    "Morgan Stanley reported losses of roughly $911 million, and Goldman Sachs said it avoided a loss",
-    "Credit Suisse's own review found that its risk management failures were serious",
-    "Credit Suisse's chief risk officer and the head of investment banking left the bank in the aftermath",
-    "Credit Suisse was later taken over by UBS in March 2023, after other troubles"
+    "By late September 1998 LTCM's equity had fallen to about $400 million, per the 1999 President's Working Group report",
+    "Counterparties demanded more collateral as losses mounted",
+    "The fund's positions were so large that selling them risked moving markets further",
+    "Meriwether sought outside capital, including approaches to Warren Buffett's group, which did not result in a deal"
    ]
   },
   {
-   "titolo": "Charges and Verdict",
+   "titolo": "The Fed Calls a Meeting",
+   "parole": 170,
+   "fatti": [
+    "On September 23, 1998 William McDonough, president of the New York Fed, convened leaders of major banks at the New York Fed",
+    "The Fed did not put in its own money; it brokered the private rescue",
+    "14 firms contributed about $3.65 billion in exchange for roughly 90% of the fund",
+    "On September 29, 1998 the Fed cut the federal funds rate by 0.25 percentage points, the first of three cuts that autumn",
+    "The concern was the risk of disorderly liquidation across global markets"
+   ]
+  },
+  {
+   "titolo": "Unwinding and Aftermath",
+   "parole": 150,
+   "fatti": [
+    "The consortium unwound the portfolio over the following months",
+    "By early 1999 the creditors had been repaid with a profit, according to reports at the time",
+    "The fund was formally dissolved in early 2000",
+    "Congress held hearings on October 1, 1998 on hedge fund risk",
+    "The President's Working Group on Financial Markets issued a report on hedge funds, leverage and the lessons of LTCM in April 1999"
+   ]
+  },
+  {
+   "titolo": "Lessons and the Answer",
    "parole": 140,
    "fatti": [
-    "In April 2022, prosecutors in the Southern District of New York charged Hwang and Archegos's CFO Patrick Halligan with fraud and racketeering",
-    "The SEC filed a parallel civil complaint",
-    "Former Archegos executive William Tomita and others pleaded guilty and cooperated",
-    "Hwang's trial began in 2024 in Manhattan",
-    "In July 2024, a jury convicted Hwang of racketeering conspiracy, securities fraud and market manipulation, among other counts",
-    "In November 2024 Hwang was sentenced to 18 years in prison"
-   ]
-  },
-  {
-   "titolo": "The Lesson",
-   "parole": 130,
-   "fatti": [
-    "Family offices were not required to disclose their positions in the way regulated funds are",
-    "The SEC proposed new rules in 2021 requiring disclosure of large security-based swap positions",
-    "Banks competed for fees and relaxed their checks on a client with a prior fraud history",
-    "The open question is answered: the swaps hid the exposure, no single bank saw the total, and leverage turned a falling stock into a collapse",
-    "Subscribe for the next one."
+    "Answer to the opening question: heavy leverage of about 25 to 1, huge positions and models assuming normal market conditions left the fund exposed when the Russian default triggered a global flight to safety",
+    "Risk models are only as good as their assumptions",
+    "Liquidity can vanish exactly when it is needed",
+    "Size and interconnection can make a private failure a public problem",
+    "End with: Subscribe for the next one."
    ]
   }
  ],
  "_correzioni": [
-  "Title: 'Lost $20 Billion in Two Days' is an overstated press figure; changed to 'in Days' wording (fund collapsed March 25-29, losses reported ~ $20bn in about a week)",
-  "Chapter 1: 'assets about $10 billion' is correct for early 2021; kept but removed the 'lost $20 billion within days' certainty by rewording to 'in a matter of days' (the $20bn figure was reported as lost in about a week)",
-  "Chapter 1: banks lost more than $10 billion in total: kept (widely reported ~ $10bn)",
-  "Chapter 2: Tiger Asia pleaded guilty in 2012 (wire fraud, Chinese bank stocks) and paid about $44 million: correct; Archegos founded 2013: correct",
-  "Chapter 3: prosecutors said exposure reached roughly $160 billion: correct per indictment (reported as $160bn at peak)",
-  "Chapter 4: ViacomCBS, Discovery, Chinese tech: correct; SEC and DOJ filed cases in April 2022: correct (April 27, 2022)",
-  "Chapter 5: ViacomCBS peaked around $100 in March 2021 (about $101 on March 22), after about $40 in January: roughly correct; March 22 offering announced on March 22 after close (priced March 23) of $3 billion total ($2.5bn common + $0.5bn convertible preferred): kept as total $3 billion",
-  "Chapter 6: emergency call on March 25 is correct; Goldman began block trades on March 26 morning, Morgan Stanley also March 26: correct",
-  "Chapter 7: Credit Suisse loss was about 5.5 billion Swiss francs (about $5.5 billion at the time, ~$5.5bn): kept; Nomura about $2.9 billion: correct; Morgan Stanley about $911 million: correct; Goldman avoided loss: correct",
-  "Chapter 7: Credit Suisse chief risk officer Lara Warner and investment bank head Brian Chin left: correct; UBS takeover March 2023: correct",
-  "Chapter 8: Halligan was charged with fraud and racketeering: correct; Tomita pleaded guilty: correct; July 2024 conviction: correct; sentenced November 2024 to 18 years: correct",
-  "Chapter 9: SEC proposed security-based swap disclosure rule in December 2021, adopted final rule in 2023; changed 'in 2022' to 'in 2021'",
-  "Chapter 7: 'Credit Suisse's own review found risk management failures were serious': kept (Paul Weiss report)"
+  "Title/description/cover/chapter 1: 'lost $4.6 billion in a matter of months' is OK for 1998, but 'in four months' is imprecise (losses mostly May–September 1998); changed cover 'LOST IN FOUR MONTHS' to 'LOST IN 1998'",
+  "Description: 'two future Nobel laureates' fixed to 'two future Nobel laureates' is correct (Scholes and Merton won in 1997, after the 1994 launch), kept; 'Four years later' kept",
+  "Founding: Meriwether was vice chairman of Salomon Brothers and head of bond arbitrage; kept. Starting capital about $1.25 billion kept",
+  "Returns: net returns 1995 ~43%, 1996 ~41%, 1997 ~17% kept",
+  "Fees: 2% of assets and 25% of profits kept",
+  "End 1997: returned about $2.7 billion to investors, leaving about $4.7 billion equity at start of 1998; kept",
+  "Assets: over $120 billion and notional derivatives about $1.25 trillion kept; leverage 'roughly 25 to 1' kept",
+  "Aug 21, 1998 loss of $550 million kept per PWG report; 'lost about 44% in August' changed to 'about 44% of its value in August 1998' retained as documented (equity fell from about $2.9bn to about $2.1bn in August is ~44%? uncertain) so reworded to 'lost about 44% of its capital in August'",
+  "Equity by late September about $400 million kept (PWG)",
+  "Bailout date: the consortium deal was finalized Sept 23, 1998 (meeting at NY Fed, McDonough convened); 'convened leaders' kept",
+  "Consortium: 14 firms contributed $3.65 billion for 90% stake kept",
+  "Fed rate cut: first cut was Sept 29, 1998 by 0.25 points, followed by cuts on Oct 15 and Nov 17; kept",
+  "Congressional hearing: House Banking Committee hearing was October 1, 1998; kept",
+  "Dissolution: fund was liquidated and closed in early 2000; kept",
+  "PWG report issued April 1999; kept"
  ]
 }
