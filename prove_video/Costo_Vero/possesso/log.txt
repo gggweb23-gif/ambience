@@ -1,13 +1,22 @@
-03:08:20 copione scartato: ["struttura dati non valida: 'valore'"]
-03:09:37 numeri: {'prezzo': 3000, 'anni': 5, 'valori': [3000.0, 2300.0, 1900.0, 1600.0, 1400.0, 1200.0], 'totale': 7500, 'rivendita': 1200, 'costo_vero': 6300, 'mese': 105, 'giorno': 3}
-03:10:14 voce: 16.1 caratteri/s naturali -> accelerata x1.022
-03:10:14 voce: 8.9 minuti
-03:10:14 budget: un'immagine ogni 9.0 s (invece di 4) per restare sotto 1.50 euro
-03:14:01 immagini: 67 | spesa finora 2.245 $
-03:36:37 pulsante iscriviti al secondo 95 con 2 suoni
-03:36:41 copertina FOTO 2C: a shiny silver 125cc scooter, large and clearly visible, sim | scritte a sinistra
-03:49:58 video finale a 1440p (piu' nitido su YouTube)
-03:50:00 FATTO: /home/runner/work/ambience/ambience/video_possesso.mp4 8.9 minuti | immagini 67 (una ogni 9.0 s) | COSTO VIDEO (stima): 2.27 $ + 8752 crediti voce | fal flux-2-klein-4b: 1.195 $ (59 chiamate) | claude claude-sonnet-5-5: 0.688 $ (4 chiamate) | fal flux-2-klein-4b-edit: 0.383 $ (10 chiamate) | claude claude-haiku-4-5-20251001: 0.001 $ (2 chiamate) | elevenlabs eleven_multilingual_v2: 0.000 $ (14 chiamate), 8752 crediti
-promozione a pagamento: No
-03:50:10 playlist: Moto
-03:50:12 esito: {"stato": "PUBBLICATO", "video_id": "4DHWPKCQpFo", "link": "https://www.youtube.com/watch?v=4DHWPKCQpFo", "pubblica_il": "2026-11-14T16:00:00.000Z", "errore": "", "testo_copertina": "QUANTO COSTA? 6.300 €", "titolo": "SCOOTER da 3.000 €: quanto costa in 5 anni?", "descrizione": "SCOOTER da 3.000 €: quanto costa in 5 anni?\n\nUno scooter 125 cc da tremila euro sembra un affare. Ma tra assicurazione, bollo, tagliandi, gomme, casco, antifurto e riparazioni, quanto spendi in cinque anni? In questo video, con Marco, facciamo i conti voce per voce, senza contare la benzina: solo i costi di possesso.
+07:24:28 copione scartato: ['il costo vero del gancio (6500) deve essere uguale a somma delle voci - rivendita (3500)', 'CORTO: il copione dura circa 3.7 minuti (3651 caratteri): ne servono almeno 8.5']
+07:25:15 copione scartato: ['il costo vero del gancio (4400) deve essere uguale a somma delle voci - rivendita (3200)', 'CORTO: il copione dura circa 4.6 minuti (4516 caratteri): ne servono almeno 8.5']
+07:25:52 copione scartato: ['il costo vero del gancio (4400) deve essere uguale a somma delle voci - rivendita (2560)', 'CORTO: il copione dura circa 4.0 minuti (3979 caratteri): ne servono almeno 8.5']
+Traceback (most recent call last):
+  File "/home/runner/work/ambience/ambience/video_possesso.py", line 843, in <module>
+    main()
+  File "/home/runner/work/ambience/ambience/video_possesso.py", line 699, in main
+    c = copione(); SCENE = c['scene']
+        ^^^^^^^^^
+  File "/home/runner/work/ambience/ambience/video_possesso.py", line 204, in copione
+    raise RuntimeError('copione con numeri non coerenti dopo 3 tentativi: ' + '; '.join(prob))
+RuntimeError: copione con numeri non coerenti dopo 3 tentativi: il costo vero del gancio (4400) deve essere uguale a somma delle voci - rivendita (2560); CORTO: il copione dura circa 4.0 minuti (3979 caratteri): ne servono almeno 8.5
+07:25:52 esito: {"stato": "ERRORE", "errore": "copione con numeri non coerenti dopo 3 tentativi: il costo vero del gancio (4400) deve essere uguale a somma delle voci - rivendita (2560); CORTO: il copione dura circa 4.0 minuti (3979 caratteri): ne servono almeno 8.5"}
+Traceback (most recent call last):
+  File "/home/runner/work/ambience/ambience/video_possesso.py", line 843, in <module>
+    main()
+  File "/home/runner/work/ambience/ambience/video_possesso.py", line 699, in main
+    c = copione(); SCENE = c['scene']
+        ^^^^^^^^^
+  File "/home/runner/work/ambience/ambience/video_possesso.py", line 204, in copione
+    raise RuntimeError('copione con numeri non coerenti dopo 3 tentativi: ' + '; '.join(prob))
+RuntimeError: copione con numeri non coerenti dopo 3 tentativi: il costo vero del gancio (4400) deve essere uguale a somma delle voci - rivendita (2560); CORTO: il copione dura circa 4.0 minuti (3979 caratteri): ne servono almeno 8.5
