@@ -23,6 +23,10 @@ on:
         description: 'SI = togli la programmazione e lascia il video privato (non lo cancella)'
         default: ''
         type: string
+      titolo:
+        description: 'Titolo nuovo (vuoto = non cambiare)'
+        default: ''
+        type: string
 
 permissions:
   contents: read
@@ -39,6 +43,7 @@ jobs:
           COPERTINA: ${{ inputs.copertina }}
           PLAYLIST: ${{ inputs.playlist }}
           PRIVATO: ${{ inputs.privato }}
+          TITOLO: ${{ inputs.titolo }}
           YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
           YT_REFRESH_TOKEN: ${{ secrets[inputs.chiave_youtube] }}

@@ -25,6 +25,22 @@ if E('PRIVATO', '').strip().upper() == 'SI':   # 9 nov: toglie la programmazione
         print('video lasciato PRIVATO, uscita programmata tolta:', VID)
     except Exception as e:
         errori += 1; print('privato NON impostato:', e, getattr(e, 'read', lambda: b'')().decode()[:200])
+if E('TITOLO', '').strip():   # 14 nov: titolo nuovo; anche la prima frase della descrizione e il tag col titolo (regola di Giorgio)
+    try:
+        nt = E('TITOLO').strip()[:100]
+        sn = api(f'https://www.googleapis.com/youtube/v3/videos?part=snippet&id={VID}')['items'][0]['snippet']; vt = sn['title']
+        de = sn.get('description') or ''
+        de = de.replace(vt, nt, 1) if vt in de else nt + '\n\n' + de
+        tg = [nt if t == vt else t for t in (sn.get('tags') or [])]
+        if nt not in tg:
+            tg = [nt] + tg
+        corpo = {'id': VID, 'snippet': {'title': nt, 'description': de[:4900], 'tags': tg[:40], 'categoryId': sn.get('categoryId') or '27',
+                                        **({'defaultLanguage': sn['defaultLanguage']} if sn.get('defaultLanguage') else {}),
+                                        **({'defaultAudioLanguage': sn['defaultAudioLanguage']} if sn.get('defaultAudioLanguage') else {})}}
+        api('https://www.googleapis.com/youtube/v3/videos?part=snippet', corpo, metodo='PUT')
+        print('titolo cambiato:', vt, '->', nt)
+    except Exception as e:
+        errori += 1; print('titolo NON cambiato:', e, getattr(e, 'read', lambda: b'')().decode()[:200])
 if COP:
     try:
         dati = urllib.request.urlopen(COP, timeout=120).read() if COP.startswith('http') else open(COP, 'rb').read()   # percorso nel repository oppure indirizzo (es. fal)
