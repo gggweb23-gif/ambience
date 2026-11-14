@@ -1,0 +1,28 @@
+name: Coda dai competitor (senza Claude)
+on:
+  workflow_dispatch:
+    inputs:
+      foglio: {description: 'id del file di produzione', required: true, type: string}
+      canali: {description: 'link dei canali competitor (spazio o virgola)', required: true, type: string}
+      modo: {description: 'lista = mostra i candidati; scrivi = aggiunge IDS come Pronto', default: 'lista', type: string}
+      ids: {description: 'id YouTube da aggiungere (virgola)', default: '', type: string}
+      chiave: {description: 'segreto YouTube da usare per leggere', default: 'YT_REFRESH_TOKEN_KAO', type: string}
+permissions:
+  contents: read
+jobs:
+  coda:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Coda
+        env:
+          GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets[inputs.chiave] }}
+          FOGLIO: ${{ inputs.foglio }}
+          CANALI: ${{ inputs.canali }}
+          MODO: ${{ inputs.modo }}
+          IDS: ${{ inputs.ids }}
+        run: pip install -q google-auth requests && python3 strumenti/coda_competitor.py
