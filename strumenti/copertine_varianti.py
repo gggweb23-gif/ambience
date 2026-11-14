@@ -31,20 +31,23 @@ def foto(prompt):
     raise RuntimeError('foto non riuscita')
 
 
-def scritta(im, righe, lato):
+def scritta(im, righe, lato, colori=None, box=False, font=None):
     d = ImageDraw.Draw(im)
     righe = [r.upper() for r in righe]
     size = 200
     while size > 60:
-        f = ImageFont.truetype(FA, size)
+        f = ImageFont.truetype(font or FA, size)
         if max(f.getlength(r) for r in righe) <= 560 and len(righe) * size * 1.02 <= 560:
             break
         size -= 6
-    f = ImageFont.truetype(FA, size); tot = len(righe) * int(size * 1.02)
+    f = ImageFont.truetype(font or FA, size); tot = len(righe) * int(size * 1.02)
     y = max(40, (620 - tot) // 2)
+    if box:   # riquadro pieno dietro la scritta (stile diverso: etichetta)
+        w_ = max(f.getlength(r) for r in righe); x_ = 34 if lato == 'sx' else W - 34 - w_
+        d.rectangle((x_ - 22, y - 10, x_ + w_ + 22, y + tot + 24), fill=box if isinstance(box, str) else (0, 0, 0))
     for i, r in enumerate(righe):
         x = 34 if lato == 'sx' else W - 34 - f.getlength(r)
-        d.text((x, y), r, font=f, fill='#4FD2FF' if i == len(righe) - 1 and len(righe) > 1 else 'white', stroke_width=max(8, size // 11), stroke_fill=(0, 0, 0))
+        d.text((x, y), r, font=f, fill=(colori[i % len(colori)] if colori else ('#4FD2FF' if i == len(righe) - 1 and len(righe) > 1 else 'white')), stroke_width=max(8, size // 11), stroke_fill=(0, 0, 0))
         y += int(size * 1.02)
     return im
 
@@ -60,7 +63,7 @@ def main():
             b = PF.box_soggetto(im, v['cerchio'])
             if b:
                 PF.cerchio(ImageDraw.Draw(im), b, seme=5)
-        scritta(im, v['righe'], v.get('lato') or 'sx').save(os.path.join(out, v['nome'] + '.jpg'), quality=94)
+        scritta(im, v['righe'], v.get('lato') or 'sx', v.get('colori'), v.get('box'), v.get('font')).save(os.path.join(out, v['nome'] + '.jpg'), quality=94)
         print('FATTO', v['nome'], flush=True)
 
 
