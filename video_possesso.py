@@ -447,6 +447,28 @@ def sovrimpressioni_A(im, sc, t, d):
         scritta(im, (1410, 238), eur(sp), 66, BIANCO, maxw=430)
 
 
+def clip_pexels(f, q, sec):
+    """Stile A (13 nov): clip Pexels vera (gratis) sul tema detto in quel momento, tagliata a sec secondi e salvata come fotogrammi jpg."""
+    import urllib.parse, urllib.request
+    r = json.loads(urllib.request.urlopen(urllib.request.Request('https://api.pexels.com/videos/search?' + urllib.parse.urlencode(
+        {'query': q, 'per_page': 10, 'orientation': 'landscape', 'size': 'large'}), headers={'Authorization': E('PEXELS_API_KEY', ''), 'User-Agent': 'Mozilla/5.0'}), timeout=60).read())
+    for v in r.get('videos', []):
+        if v.get('duration', 0) < sec + 1.5 or v.get('id') in CLIP_USATE:
+            continue
+        fs = sorted([x for x in v['video_files'] if (x.get('width') or 0) >= 1920 and x.get('file_type') == 'video/mp4'], key=lambda x: x['width'])
+        if not fs:
+            continue
+        raw = f + '.raw.mp4'
+        open(raw, 'wb').write(urllib.request.urlopen(urllib.request.Request(fs[0]['link'], headers={'User-Agent': 'Mozilla/5.0'}), timeout=180).read())
+        os.makedirs(f, exist_ok=True)
+        subprocess.run(['ffmpeg', '-v', 'error', '-y', '-ss', '1', '-i', raw, '-t', f'{sec + .3:.2f}', '-vf', f'scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={FPS}',
+                        '-q:v', '2', os.path.join(f, '%04d.jpg')], check=True)
+        CLIP_USATE.add(v.get('id'))
+        return f
+    return None
+
+
+CLIP_USATE = set()
 SCENE, DATI, ATEMPO = [], {}, 1.0
 
 
@@ -455,7 +477,7 @@ def rendi_scena(i):
     s = SCENE[i]; out = s['_out']; d = s['_dur']
     if os.path.exists(out) and os.path.getsize(out) > 1000:
         return out
-    bgs = [Image.open(f).convert('RGB') for f in s['_img']]
+    bgs = [sorted(os.path.join(f, x) for x in os.listdir(f)) if os.path.isdir(f) else Image.open(f).convert('RGB') for f in s['_img']]   # cartella = clip Pexels
     n = len(bgs); p = d / n
     enc = subprocess.Popen(['ffmpeg', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-r', str(FPS), '-i', '-',
                             '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20', '-pix_fmt', 'yuv420p', out], stdin=subprocess.PIPE)
@@ -465,14 +487,16 @@ def rendi_scena(i):
         t = k / FPS; j = min(n - 1, int(t / p)); tl = t - j * p
         if STILE_VIDEO == 'A':
             q = max(x for x in range(len(tagli)) if tagli[x][0] <= t + 1e-6); a0, dq, j = tagli[q]; tq = t - a0; tl = t - j * p
-            fr = muovi_A(bgs[j], tq, dq, i * 7 + q)
-            if (q > 0 or i > 0) and tq < .18:
+            if isinstance(bgs[j], list):   # clip Pexels: il fotogramma giusto, niente spinta (il movimento e' gia' nel video)
+                fr = Image.open(bgs[j][min(len(bgs[j]) - 1, int(tl * FPS))]).convert('RGBA')
+            else:
+                fr = muovi_A(bgs[j], tq, dq, i * 7 + q)
+            if (q > 0 or i > 0) and tq < .18 and not (isinstance(bgs[j], list) and tl > .2):
                 u = ease(tq / .18)
                 fr = fr.transform(fr.size, Image.AFFINE, (1, 0, -int((1 - u) * 260), 0, 1, 0)).filter(ImageFilter.BoxBlur(int((1 - u) * 14)))
         else:
-            fr = muovi(bgs[j], tl, p, i + j)
-            if j > 0 and tl < .25:
-                fr = Image.blend(muovi(bgs[j - 1], p, p, i + j - 1), fr, tl / .25)
+            bj = bgs[j] if not isinstance(bgs[j], list) else Image.open(bgs[j][min(len(bgs[j]) - 1, int(tl * FPS))]).convert('RGB')
+            fr = muovi(bj, tl, p, i + j)
         grafica(fr, s, t, d, DATI, tl, p, j)
         if STILE_VIDEO == 'A':
             sovrimpressioni_A(fr, s, t, d)
@@ -724,6 +748,25 @@ def main():
                 f = s['_img'][-1] if s['_img'] else os.path.join(LAV, 'riferimento.jpg')
             s['_img'].append(f); n_img += 1
     log(f'immagini: {n_img} | spesa finora {CO.totale():.3f} $')
+    if STILE_VIDEO == 'A' and E('PEXELS_API_KEY'):   # stile A (Giorgio 13 nov): clip Pexels vere, sempre sul tema, al massimo ~20% del tempo
+        try:
+            cand = [i for i, s in enumerate(SCENE) if s['tipo'] in ('cartellino', 'racconto', 'dettaglio', 'consigli') and s.get('_img')]
+            descr = [str((SCENE[i]['sfondi'][0] or {}).get('descr') or '')[:200] for i in cand]
+            q = leggi_json(claude('For each numbered scene description, give a short Pexels stock VIDEO search query in English (3-5 words, concrete things, '
+                                  f'tied to "{OGGETTO or TITOLO}"), or "" if no real stock footage would fit. Reply ONLY JSON {{"q": ["...", ...]}}.\n' +
+                                  '\n'.join(f'{k}. {d}' for k, d in enumerate(descr)), sforzo='low', max_tokens=3000)).get('q', [])
+            tot_d, clip_t = sum(s['_dur'] for s in SCENE), 0.0
+            for k, i in enumerate(cand):
+                s = SCENE[i]; qq = str(q[k] if k < len(q) else '').strip()
+                p_ = s['_dur'] / (len(s['_img']) + 1)
+                if not qq or clip_t + p_ > tot_d * .18:
+                    continue
+                f = clip_pexels(os.path.join(LAV, f'clip_{i:02d}'), qq, p_)
+                if f:
+                    s['_img'].insert(0 if s['tipo'] != 'cartellino' else 1, f); clip_t += p_
+            log(f'clip Pexels: {clip_t:.0f} s su {tot_d:.0f} s ({clip_t / tot_d * 100:.0f}%)')
+        except Exception as e:
+            log('clip Pexels non riuscite (vado avanti con le sole immagini):', str(e)[:150])
     with mp.get_context('fork').Pool(max(2, os.cpu_count() or 4)) as pool:
         parti = pool.map(rendi_scena, range(len(SCENE)))
     # audio: voci in fila + musica bassa
