@@ -1,928 +1,353 @@
 {
- "titolo": "Quante pagnotte deve vendere un panificio per non chiudere?",
+ "titolo": "Quanto resta davvero su un ordine online da 30 €?",
  "protagonista": {
-  "nome": "Gianni",
-  "capelli": "bald",
-  "colore_capelli": "#8a8a8a",
+  "nome": "Elisa",
+  "capelli": "bun",
+  "colore_capelli": "#5a3825",
   "pelle": "chiara",
-  "maglia": "#f2f2f2",
-  "grembiule": "#e8d9b5",
-  "occhiali": false
+  "maglia": "#e07a5f",
+  "grembiule": "",
+  "occhiali": true
  },
- "oggetto": "pane",
+ "oggetto": "pacco",
  "copertina": {
   "righe": [
-   "SVEGLIA ALLE 2",
-   "VENDE PANE A",
-   "UN EURO E POI?"
+   "ORDINE DA 30 €",
+   "INCASSATO...",
+   "E RESTANO 2"
   ],
   "emozione": "stupito",
-  "oggetto": "pane",
-  "prezzo": "1 €",
+  "oggetto": "pacco",
+  "prezzo": "30 €",
   "fondo": "scuro"
  },
  "copertina_ai": {
-  "valore_sx": "0,60 €",
-  "valore_dx": "1 €",
-  "oggetto_sx": "a small pile of bakery ingredients: flour bag, yeast, bottle of water, a pinch of salt",
-  "oggetto_dx": "a big golden crusty Italian bread loaf on a wooden board",
+  "valore_sx": "27,70 €",
+  "valore_dx": "30 €",
+  "oggetto_sx": "a pile of small costs: a cardboard shipping box, packing tape, a credit card terminal and a price tag, cartoon style",
+  "oggetto_dx": "a happy customer's order, a wrapped candle gift box with a ribbon, cartoon style",
   "domanda": [
-   "E ALLORA PERCHÉ",
-   "IL FORNAIO CHIUDE?"
+   "TRENTA EURO",
+   "E TI RESTA?"
   ]
  },
- "descrizione": "Gianni si sveglia alle due di notte per fare il pane. Eppure ogni pagnotta gli lascia pochi centesimi. Quante ne deve vendere ogni giorno per non chiudere? In questa puntata facciamo i conti veri di un panificio: costi fissi, margine per pagnotta e punto di pareggio. Se hai o vuoi aprire un'attività, guardala fino alla fine.",
+ "descrizione": "Un cliente ordina nel tuo negozio online e paga trenta euro. Evviva? Non tanto: tra pubblicità, spedizione, imballo, commissioni e resi, quanto resta davvero? Seguiamo Elisa, che vende candele fatte a mano, e facciamo i conti veri, passo passo. Alla fine saprai calcolare il margine reale di ogni ordine e dove intervenire.",
  "tag": [
-  "panificio",
-  "punto di pareggio",
+  "negozio online",
+  "ecommerce",
   "margine",
-  "costi fissi",
+  "costo di acquisizione cliente",
+  "spedizione",
+  "resi",
+  "commissioni",
   "aprire un'attività",
-  "pane",
-  "forno",
-  "economia pratica",
-  "commercianti",
-  "conti del negozio",
-  "quanto ti resta",
+  "calcolo margine",
+  "punto di pareggio",
+  "pubblicità online",
+  "costi nascosti",
   "piccola impresa",
-  "come aprire un panificio",
-  "budget",
-  "guadagno"
+  "imprenditoria",
+  "economia pratica",
+  "vendere online"
  ],
  "scene": [
   {
-   "testo": "Gianni vende il pane a un euro. Si alza alle due di notte, sette giorni su sette. A fine mese gli restano in tasca pochi centesimi per ogni pagnotta. Ma allora quante ne deve vendere per non chiudere?",
+   "testo": "Un cliente ordina una candela e paga trenta euro. Tu festeggi. Ma dopo pubblicità, spedizione, imballo e commissioni, sai quanto ti resta in tasca? Spoiler: meno di quanto pensi. Molto meno.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "domanda",
      "p": {
-      "testo": "Un euro a pagnotta?",
+      "testo": "Quanto resta su 30 €?",
       "emozione": "stupito",
       "scuro": true
      }
     },
     {
-     "parola": "Si",
-     "tipo": "orologio",
+     "parola": "festeggi",
+     "tipo": "prezzo",
      "p": {
-      "ore": 16,
-      "piene": 14,
-      "testo": "Sveglia alle 2"
+      "oggetto": "candela",
+      "prezzo": "30 €",
+      "nota": "ordine online"
      }
     },
     {
-     "parola": "Ma",
-     "tipo": "prezzo",
+     "parola": "Spoiler",
+     "tipo": "timbro",
      "p": {
-      "oggetto": "pane",
-      "prezzo": "1 €",
-      "nota": "una pagnotta"
+      "oggetto": "pacco",
+      "testo": "E POI?",
+      "colore": "rosso",
+      "nota": "i conti veri"
      }
     }
    ]
   },
   {
-   "testo": "Ti presento Gianni. Ha un panificio di quartiere, con un forno a legna e due dipendenti part time. Il pane buono lo sanno fare in tanti. Il difficile è fare i conti, e oggi li facciamo insieme, fino all'ultimo centesimo.",
+   "testo": "Lei è Elisa. Vende candele profumate fatte a mano, solo online. Ha un negozio sul web, un laboratorio in garage e una domanda che la sveglia di notte: perché vendo tanto e non resta niente?",
+   "capitolo": "Il negozio di Elisa",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "garage laboratorio",
+      "insegna": "Candele di Elisa",
+      "azione": "lavora",
+      "clienti": 0,
+      "testo": "Elisa e le sue candele"
+     }
+    },
+    {
+     "parola": "Vende",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "candela",
+      "prezzo": "30 €",
+      "nota": "candela grande, profumo vaniglia"
+     }
+    },
+    {
+     "parola": "domanda",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Dove sono finiti?",
+      "emozione": "preoccupato",
+      "scuro": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Facciamo il conto insieme, con calma. Una candela costa trenta euro, Iva compresa. Nei suoi esempi non entrano dati ufficiali: sono numeri realistici, ma tu puoi mettere i tuoi. Parti sempre da qui.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "panificio",
-      "insegna": "Forno Gianni",
-      "azione": "felice",
-      "clienti": 2,
-      "testo": "Il forno di Gianni"
-     }
-    },
-    {
-     "parola": "Il",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Sai fare i conti?",
-      "emozione": "calmo",
-      "scuro": false
-     }
-    },
-    {
-     "parola": "oggi",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "panificio",
-      "insegna": "Forno Gianni",
-      "azione": "lavora",
-      "clienti": 0,
-      "testo": "Partiamo dai numeri"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Prima domanda: quanto costa fare una pagnotta? Farina, acqua, lievito, sale e gas per il forno. Gianni ha calcolato sessanta centesimi di ingredienti ed energia per ogni pagnotta. Il resto, per ora, non lo contiamo.",
-   "capitolo": "Il costo della pagnotta",
-   "inquadrature": [
-    {
-     "parola": "",
      "tipo": "prezzo",
      "p": {
-      "oggetto": "pane",
-      "prezzo": "1 €",
+      "oggetto": "candela",
+      "prezzo": "30 €",
       "nota": "prezzo di vendita"
      }
     },
     {
-     "parola": "Farina",
-     "tipo": "fette",
-     "p": {
-      "titolo": "Dove vanno i soldi di una pagnotta",
-      "totale": 1,
-      "totale_testo": "1 €",
-      "fette": [
-       {
-        "nome": "Farina",
-        "valore": 0.3,
-        "testo": "0,30 €"
-       },
-       {
-        "nome": "Altri ingredienti",
-        "valore": 0.1,
-        "testo": "0,10 €"
-       },
-       {
-        "nome": "Gas e luce del forno",
-        "valore": 0.2,
-        "testo": "0,20 €"
-       },
-       {
-        "nome": "Margine",
-        "valore": 0.4,
-        "testo": "0,40 €"
-       }
-      ],
-      "evidenzia": 3
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Fai la sottrazione: un euro di prezzo, meno sessanta centesimi di costi variabili. Restano quaranta centesimi. Questo si chiama margine di contribuzione: quello che ogni pagnotta lascia per pagare tutto il resto.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Il margine per pagnotta",
-      "a": "1 €",
-      "op": "−",
-      "b": "0,60 €",
-      "risultato": "0,40 €",
-      "nota": "margine di una pagnotta"
-     }
-    },
-    {
-     "parola": "Questo",
+     "parola": "Iva",
      "tipo": "lista",
      "p": {
-      "titolo": "Costi variabili: cambiano con le pagnotte",
+      "titolo": "Cosa c'è nel prezzo",
       "voci": [
-       "Farina",
-       "Lievito e sale",
-       "Acqua",
-       "Gas del forno",
-       "Sacchetti di carta"
+       "Prezzo al cliente: trenta euro",
+       "Dentro c'è anche l'Iva",
+       "L'Iva non è tua",
+       "Parti dal prezzo senza Iva"
       ]
      }
     }
    ]
   },
   {
-   "testo": "Quaranta centesimi. Meno di un caffè al bar. E su quelli devono stare l'affitto, gli stipendi, le bollette, le tasse e anche lo stipendio di Gianni. Ti sembra tanto o poco? Ecco perché serve il volume.",
+   "testo": "Primo colpo: l'Iva. Se vendi a trenta euro, ventidue per cento compreso, l'Iva è cinque euro e quaranta. Quei soldi li incassi per lo Stato, non per te. Quindi il tuo prezzo vero è ventiquattro euro e sessanta.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "domanda",
+     "tipo": "formula",
      "p": {
-      "testo": "Quaranta centesimi?",
-      "emozione": "preoccupato",
-      "scuro": true
+      "titolo": "Togli l'Iva",
+      "a": "30 €",
+      "op": "−",
+      "b": "5,40 €",
+      "risultato": "24,60 €",
+      "nota": "Iva al ventidue per cento"
      }
     },
     {
-     "parola": "Ti",
-     "tipo": "confronto",
+     "parola": "Quei",
+     "tipo": "fette",
      "p": {
-      "titolo": "Margine di una vendita",
-      "a": {
-       "titolo": "Pagnotta",
-       "valore": "0,40 €",
-       "oggetto": "pane"
-      },
-      "b": {
-       "titolo": "Pranzo al ristorante",
-       "valore": "12 €",
-       "oggetto": "piatto di pasta"
-      },
-      "vincitore": "b"
-     }
-    },
-    {
-     "parola": "Ecco",
-     "tipo": "persone",
-     "p": {
-      "n": 9,
-      "azione": "fila",
-      "escono": 0,
-      "testo": "Servono tanti clienti"
+      "titolo": "I trenta euro del cliente",
+      "totale": 30,
+      "totale_testo": "30 €",
+      "fette": [
+       {
+        "nome": "Iva",
+        "valore": 5.4,
+        "testo": "5,40 €"
+       },
+       {
+        "nome": "Resta a te",
+        "valore": 24.6,
+        "testo": "24,60 €"
+       }
+      ],
+      "evidenzia": 1
      }
     }
    ]
   },
   {
-   "testo": "Passiamo ai costi fissi, quelli che arrivano anche se non vendi nemmeno una pagnotta. Affitto, stipendi, bollette, commercialista, assicurazione. Gianni li ha sommati con il suo commercialista, voce per voce.",
-   "capitolo": "I costi fissi",
+   "testo": "Secondo: il prodotto. Cera, profumo, vasetto, stoppino ed etichetta costano a Elisa sei euro per candela. Sembra poco, ed è il costo più facile da vedere. Ma attenzione: è solo l'inizio della lista.",
+   "capitolo": "I costi del prodotto",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "luogo",
      "p": {
-      "luogo": "panificio",
-      "insegna": "Forno Gianni",
-      "azione": "preoccupato",
+      "luogo": "laboratorio",
+      "insegna": "Candele di Elisa",
+      "azione": "lavora",
       "clienti": 0,
-      "testo": "Arrivano le fatture"
+      "testo": "Cera, profumo e vasetto"
      }
     },
     {
-     "parola": "Affitto",
-     "tipo": "costi",
+     "parola": "Cera",
+     "tipo": "conteggio",
      "p": {
-      "voci": [
-       {
-        "nome": "Affitto",
-        "valore": 1500,
-        "testo": "1.500 €"
-       },
-       {
-        "nome": "Stipendi",
-        "valore": 3200,
-        "testo": "3.200 €"
-       },
-       {
-        "nome": "Bollette fisse",
-        "valore": 700,
-        "testo": "700 €"
-       },
-       {
-        "nome": "Commercialista e tasse",
-        "valore": 600,
-        "testo": "600 €"
-       },
-       {
-        "nome": "Assicurazioni e varie",
-        "valore": 400,
-        "testo": "400 €"
-       }
-      ],
-      "totale": 6400,
-      "periodo": "al mese"
+      "oggetto": "candela",
+      "icone": 6,
+      "testo": "6 € di materiali"
+     }
+    },
+    {
+     "parola": "inizio",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Dopo il prodotto",
+      "a": "24,60 €",
+      "op": "−",
+      "b": "6 €",
+      "risultato": "18,60 €",
+      "nota": "restano ancora tutte le altre voci"
      }
     }
    ]
   },
   {
-   "testo": "Sommiamo: millecinquecento di affitto, tremiladuecento di stipendi, settecento di bollette, seicento di commercialista e quattrocento tra assicurazioni e varie. Fa seimilaquattrocento euro al mese, con il forno spento.",
+   "testo": "Terzo: l'imballo. Scatola resistente, carta velina, riempitivo, nastro, biglietto di ringraziamento. Un euro e ottanta in tutto. Chi lo dimentica, di solito dice: sono solo pochi centesimi. Ma centesimi per mille ordini fanno mille e ottocento euro.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "soldi",
+     "tipo": "lista",
      "p": {
-      "centro": "6.400 €",
-      "destinazioni": [
-       "Padrone di casa",
-       "Dipendenti",
-       "Fornitori di luce",
-       "Commercialista"
+      "titolo": "L'imballo di un ordine",
+      "voci": [
+       "Scatola resistente",
+       "Carta velina",
+       "Riempitivo anti-urto",
+       "Nastro adesivo",
+       "Biglietto di ringraziamento"
       ]
      }
     },
     {
-     "parola": "Fa",
-     "tipo": "calendario",
+     "parola": "Un",
+     "tipo": "prezzo",
      "p": {
-      "titolo": "Ogni mese, anche a forno spento",
-      "giorni": 30,
-      "testo": "6.400 € da pagare"
+      "oggetto": "scatola",
+      "prezzo": "1,80 €",
+      "nota": "imballo per ogni ordine"
      }
-    }
-   ]
-  },
-  {
-   "testo": "Ora il calcolo che ti salva la vita. Costi fissi diviso margine per pagnotta. Seimilaquattrocento euro diviso quaranta centesimi. Fa sedicimila pagnotte al mese. Questo è il punto di pareggio.",
-   "capitolo": "Il punto di pareggio",
-   "inquadrature": [
+    },
     {
-     "parola": "",
+     "parola": "mille",
      "tipo": "formula",
      "p": {
-      "titolo": "Punto di pareggio mensile",
-      "a": "6.400 €",
-      "op": "÷",
-      "b": "0,40 €",
-      "risultato": "16.000 pagnotte",
-      "nota": "sotto questa cifra sei in perdita"
-     }
-    },
-    {
-     "parola": "Questo",
-     "tipo": "conteggio",
-     "p": {
-      "oggetto": "pane",
-      "icone": 50,
-      "testo": "16.000 al mese"
+      "titolo": "Su mille ordini",
+      "a": "1,80 €",
+      "op": "×",
+      "b": "1.000",
+      "risultato": "1.800 €",
+      "nota": "i centesimi pesano"
      }
     }
    ]
   },
   {
-   "testo": "Sedicimila pagnotte al mese sembrano un mare. Dividile per i giorni di apertura. Gianni apre trenta giorni al mese, perché la domenica il pane lo vogliono tutti. Sedicimila diviso trenta fa circa cinquecentotrentatré pagnotte al giorno.",
-   "capitolo": "",
+   "testo": "Quarto: la spedizione. Elisa paga il corriere quattro euro e novanta a pacco. Spedizione gratuita sopra venticinque euro, perché così fanno tutti. Ma gratis per il cliente non vuol dire gratis per te: la paghi tu, ogni volta.",
+   "capitolo": "La spedizione",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "formula",
+     "tipo": "prezzo",
      "p": {
-      "titolo": "Pareggio al giorno",
-      "a": "16.000",
-      "op": "÷",
-      "b": "30 giorni",
-      "risultato": "533 pagnotte",
-      "nota": "ogni giorno, solo per pareggiare"
+      "oggetto": "pacco",
+      "prezzo": "4,90 €",
+      "nota": "corriere, per ogni pacco"
      }
     },
     {
-     "parola": "Gianni",
-     "tipo": "calendario",
-     "p": {
-      "titolo": "Aperto sette giorni su sette",
-      "giorni": 30,
-      "testo": "Nessun giorno libero"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Cinquecentotrentatré pagnotte al giorno. E non è guadagno: è zero. Con quelle Gianni paga tutti, ma lui non porta a casa nulla. Ogni pagnotta in più vale quaranta centesimi di utile vero.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "pareggio",
-     "p": {
-      "titolo": "Punto di pareggio del panificio",
-      "fissi": 6400,
-      "margine": 0.4,
-      "unita": "pagnotte vendute",
-      "oggetto": "pane",
-      "perdita": true,
-      "guadagno": true
-     }
-    },
-    {
-     "parola": "Ogni",
+     "parola": "gratuita",
      "tipo": "timbro",
      "p": {
-      "oggetto": "pane",
-      "testo": "ZERO UTILE",
+      "oggetto": "pacco",
+      "testo": "GRATIS?",
       "colore": "rosso",
-      "nota": "a cinquecentotrentatré pagnotte"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Guarda cosa succede se Gianni ne vende seicento al giorno. Sono sessantasette pagnotte in più del pareggio. Per quaranta centesimi fa ventisei euro e ottanta al giorno, circa ottocentoquattro euro al mese di utile.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Utile oltre il pareggio",
-      "a": "67 pagnotte",
-      "op": "×",
-      "b": "0,40 €",
-      "risultato": "26,80 € al giorno",
-      "nota": "circa 804 € al mese"
+      "nota": "per lui sì, per te no"
      }
     },
     {
-     "parola": "Per",
-     "tipo": "andamento",
-     "p": {
-      "titolo": "Utile mensile in base alle pagnotte al giorno",
-      "valori": [
-       -1600,
-       0,
-       804,
-       1600
-      ],
-      "etichette": [
-       "466",
-       "533",
-       "600",
-       "666"
-      ],
-      "colore": "verde"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Vedi che margini piccoli e volumi grandi vanno sempre insieme? Quando guadagni poco su ogni pezzo, devi vendere tantissimo. E devi essere sicuro di riuscirci, perché sotto quella soglia ogni giorno perdi soldi.",
-   "capitolo": "Margini piccoli, volumi grandi",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Poco margine, tanti pezzi",
-      "emozione": "calmo",
-      "scuro": false
-     }
-    },
-    {
-     "parola": "Quando",
+     "parola": "paghi",
      "tipo": "bilancia",
      "p": {
-      "titolo": "Margine contro volume",
-      "sinistra": "Margine piccolo",
-      "destra": "Tanti clienti",
+      "titolo": "Chi paga la spedizione",
+      "sinistra": "Il cliente: zero",
+      "destra": "Tu: 4,90 €",
       "pende": "destra"
      }
     }
    ]
   },
   {
-   "testo": "Non è solo il panettiere. Un distributore di benzina guadagna pochi centesimi al litro, ma ne vende milioni. Un supermercato guadagna due o tre centesimi ogni euro incassato. Reggono perché girano volumi enormi.",
+   "testo": "Ora il conto: dai ventiquattro euro e sessanta togli sei di prodotto, uno e ottanta di imballo e quattro e novanta di spedizione. Fa dodici euro e settanta. Pensi che sia il guadagno? Non ancora, non ancora.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "confronto",
+     "tipo": "costi",
      "p": {
-      "titolo": "Margine contro volume",
-      "a": {
-       "titolo": "Benzinaio: pochi centesimi al litro",
-       "valore": "tanti litri",
-       "oggetto": "pompa di benzina"
-      },
-      "b": {
-       "titolo": "Gioielleria: tanto per pezzo",
-       "valore": "pochi pezzi",
-       "oggetto": "anello"
-      },
-      "vincitore": ""
-     }
-    },
-    {
-     "parola": "Un",
-     "tipo": "persone",
-     "p": {
-      "n": 8,
-      "azione": "entrano",
-      "escono": 0,
-      "testo": "Il supermercato vive di volume"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "E dall'altra parte c'è chi vive di margini enormi e pochi pezzi. Un gioielliere vende dieci anelli al mese, ma su ognuno guadagna centinaia di euro. Il pane è l'opposto: tanti pezzi, centesimi ciascuno.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "leve",
-     "p": {
-      "titolo": "Due modi di far tornare i conti",
-      "voci": [
-       "Margine alto, pochi clienti",
-       "Margine basso, tantissimi clienti",
-       "Costi fissi bassi",
-       "Prezzo giusto"
-      ],
-      "evidenzia": 1
-     }
-    },
-    {
-     "parola": "Il",
-     "tipo": "prezzo",
-     "p": {
-      "oggetto": "pane",
-      "prezzo": "1 €",
-      "nota": "centesimi per pezzo"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Adesso il lato che nessuno vede: la notte. Gianni inizia a impastare alle due. Alle quattro il forno è caldo. Alle sei apre la porta ai primi clienti. Il pane buono si fa quando gli altri dormono.",
-   "capitolo": "Il lavoro di notte",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "orologio",
-     "p": {
-      "ore": 16,
-      "piene": 10,
-      "testo": "Dalle 2 alle 12"
-     }
-    },
-    {
-     "parola": "Alle",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "panificio",
-      "insegna": "Forno Gianni",
-      "azione": "lavora",
-      "clienti": 0,
-      "testo": "Impasto alle due di notte"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Fai il conto delle ore. Gianni lavora dieci ore al giorno, trenta giorni al mese: trecento ore. Se a fine mese si porta a casa solo l'utile, quanto si paga all'ora? Spesso meno di quanto pensi.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Le ore di lavoro",
-      "a": "10 ore",
-      "op": "×",
-      "b": "30 giorni",
-      "risultato": "300 ore",
-      "nota": "ore di Gianni ogni mese"
-     }
-    },
-    {
-     "parola": "Se",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Quanto ti paghi all'ora?",
-      "emozione": "preoccupato",
-      "scuro": true
-     }
-    }
-   ]
-  },
-  {
-   "testo": "E qui c'è un errore classico: non contare il proprio lavoro. Se Gianni non si dà uno stipendio, il panificio sembra in utile, ma lui lavora gratis. Metti sempre nei costi quanto vale il tuo tempo.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "lista",
-     "p": {
-      "titolo": "Non dimenticare nei costi",
-      "voci": [
-       "Il tuo stipendio",
-       "Le tasse",
-       "Il pane invenduto",
-       "I guasti del forno",
-       "Le ferie"
-      ]
-     }
-    },
-    {
-     "parola": "Metti",
-     "tipo": "timbro",
-     "p": {
-      "oggetto": "pane",
-      "testo": "LAVORI GRATIS",
-      "colore": "rosso",
-      "nota": "se non conti il tuo stipendio"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Gianni se lo dà: millecinquecento euro al mese. Lo aggiunge ai costi fissi. Da seimilaquattrocento salgono a settemilanovecento. Ricalcola: settemilanovecento diviso quaranta centesimi fa diciannovemilasettecentocinquanta pagnotte.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Con lo stipendio di Gianni",
-      "a": "7.900 €",
-      "op": "÷",
-      "b": "0,40 €",
-      "risultato": "19.750 pagnotte",
-      "nota": "pareggio mensile vero"
-     }
-    },
-    {
-     "parola": "Ricalcola",
-     "tipo": "cruscotto",
-     "p": {
-      "titolo": "Cosa tenere d'occhio",
       "voci": [
        {
-        "nome": "Pagnotte al giorno",
-        "valore": 0.66
+        "nome": "Prodotto",
+        "valore": 6,
+        "testo": "6 €"
        },
        {
-        "nome": "Costi fissi",
-        "valore": 0.8
+        "nome": "Imballo",
+        "valore": 1.8,
+        "testo": "1,80 €"
        },
        {
-        "nome": "Invenduto",
-        "valore": 0.2
+        "nome": "Spedizione",
+        "valore": 4.9,
+        "testo": "4,90 €"
        }
-      ]
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Diviso trenta giorni, fa seicentocinquantotto pagnotte al giorno. Prima erano cinquecentotrentatré, ora sono seicentocinquantotto. Ecco perché chi non si conta lo stipendio sbaglia il pareggio di quasi centoventicinque pagnotte.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "conteggio",
-     "p": {
-      "oggetto": "pane",
-      "icone": 55,
-      "testo": "658 al giorno"
+      ],
+      "totale": "12,70 €",
+      "periodo": "per ordine"
      }
     },
     {
-     "parola": "Ecco",
-     "tipo": "pareggio",
-     "p": {
-      "titolo": "Pareggio con lo stipendio",
-      "fissi": 7900,
-      "margine": 0.4,
-      "unita": "pagnotte vendute",
-      "oggetto": "pane",
-      "perdita": true,
-      "guadagno": true
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Ora il nemico del panettiere: l'invenduto. Il pane di ieri non si vende come quello di oggi. Se Gianni ne produce settecento e ne vende seicento, cento pagnotte finiscono nella spazzatura, con il loro costo.",
-   "capitolo": "Il pane che avanza",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "persone",
-     "p": {
-      "n": 6,
-      "azione": "escono",
-      "escono": 4,
-      "testo": "I clienti finiscono, il pane no"
-     }
-    },
-    {
-     "parola": "Se",
-     "tipo": "conteggio",
-     "p": {
-      "oggetto": "pane",
-      "icone": 10,
-      "testo": "100 pagnotte buttate"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Cento pagnotte per sessanta centesimi di costo fanno sessanta euro buttati al giorno. In un mese sono milleottocento euro. Un'intera fetta di guadagno che finisce nel cestino, senza che nessuno se ne accorga.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
+     "parola": "Fa",
      "tipo": "formula",
      "p": {
-      "titolo": "Il costo dell'invenduto",
-      "a": "100 pagnotte",
-      "op": "×",
-      "b": "0,60 €",
-      "risultato": "60 € al giorno",
-      "nota": "1.800 € al mese"
-     }
-    },
-    {
-     "parola": "In",
-     "tipo": "salvadanaio",
-     "p": {
-      "direzione": "svuota",
-      "testo": "1.800 € al mese in meno"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Come si combatte? Produci a ondate, non tutto all'alba. Impasti il pane un po' alla volta, così il pomeriggio è ancora caldo. Fai il pane del giorno dopo in altro modo: pangrattato, pane tostato, bruschette.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "leve",
-     "p": {
-      "titolo": "Contro l'invenduto",
-      "voci": [
-       "Infornate a ondate",
-       "Prodotti col pane vecchio",
-       "Sconto a fine giornata",
-       "Ordini prenotati"
-      ],
-      "evidenzia": 0
-     }
-    },
-    {
-     "parola": "Fai",
-     "tipo": "andamento",
-     "p": {
-      "titolo": "Invenduto giornaliero",
-      "valori": [
-       100,
-       70,
-       40,
-       20
-      ],
-      "etichette": [
-       "Settimana 1",
-       "Settimana 2",
-       "Settimana 3",
-       "Settimana 4"
-      ],
-      "colore": "verde"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Prendi un esempio diverso: un fruttivendolo con la frutta che marcisce. O un bar con i cornetti avanzati. Chi vende prodotti freschi deve misurare ogni giorno quanto butta. È un costo nascosto, ma pesa.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "confronto",
-     "p": {
-      "titolo": "Chi butta di più",
-      "a": {
-       "titolo": "Fruttivendolo: frutta matura",
-       "valore": "cassette buttate",
-       "oggetto": "cassetta di frutta"
-      },
-      "b": {
-       "titolo": "Libreria: libri a scaffale",
-       "valore": "non scadono",
-       "oggetto": "libro"
-      },
-      "vincitore": "b"
-     }
-    },
-    {
-     "parola": "Chi",
-     "tipo": "timbro",
-     "p": {
-      "oggetto": "pane",
-      "testo": "COSTO NASCOSTO",
-      "colore": "rosso",
-      "nota": "l'invenduto"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Ora una buona notizia. Se Gianni vende anche pizza al taglio e focacce, il margine sale. Una focaccia costa un euro e dieci e si vende a tre euro e cinquanta. Margine due euro e quaranta, sei volte la pagnotta.",
-   "capitolo": "Alzare il margine",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "prezzo",
-     "p": {
-      "oggetto": "focaccia",
-      "prezzo": "3,50 €",
-      "nota": "costa 1,10 €"
-     }
-    },
-    {
-     "parola": "Margine",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Margine della focaccia",
-      "a": "3,50 €",
+      "titolo": "Dopo i costi diretti",
+      "a": "24,60 €",
       "op": "−",
-      "b": "1,10 €",
-      "risultato": "2,40 €",
-      "nota": "sei volte la pagnotta"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Se Gianni ne vende cinquanta al giorno, sono centoventi euro di margine in più ogni giorno. In trenta giorni fanno tremilaseicento euro. Con quelli il pareggio sulle pagnotte cala molto: ricalcoliamolo.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Margine delle focacce",
-      "a": "50 focacce",
-      "op": "×",
-      "b": "2,40 €",
-      "risultato": "120 € al giorno",
-      "nota": "3.600 € al mese"
+      "b": "12,70 €",
+      "risultato": "11,90 €",
+      "nota": "sei più imballo più spedizione"
      }
     },
     {
-     "parola": "Con",
-     "tipo": "leve",
-     "p": {
-      "titolo": "Come migliorare il margine",
-      "voci": [
-       "Prodotti con margine alto",
-       "Alzare un po' il prezzo",
-       "Comprare meglio",
-       "Ridurre gli sprechi"
-      ],
-      "evidenzia": 0
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Settemilanovecento meno tremilaseicento fa quattromilatrecento da coprire con le pagnotte. Diviso quaranta centesimi fa diecimilasettecentocinquanta pagnotte al mese, circa trecentocinquantotto al giorno invece di seicentocinquantotto.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Pareggio con le focacce",
-      "a": "4.300 €",
-      "op": "÷",
-      "b": "0,40 €",
-      "risultato": "10.750 pagnotte",
-      "nota": "circa 358 al giorno"
-     }
-    },
-    {
-     "parola": "Diviso",
-     "tipo": "pareggio",
-     "p": {
-      "titolo": "Pareggio con focacce",
-      "fissi": 4300,
-      "margine": 0.4,
-      "unita": "pagnotte vendute",
-      "oggetto": "pane",
-      "perdita": true,
-      "guadagno": true
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Duecento pagnotte in meno da vendere ogni giorno, solo aggiungendo un prodotto con più margine. Ecco la differenza tra faticare di più e ragionare meglio. Non sempre devi vendere di più: a volte devi vendere meglio.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "confronto",
-     "p": {
-      "titolo": "Pareggio al giorno",
-      "a": {
-       "titolo": "Solo pane",
-       "valore": "658 pagnotte",
-       "oggetto": "pane"
-      },
-      "b": {
-       "titolo": "Pane e focacce",
-       "valore": "358 pagnotte",
-       "oggetto": "focaccia"
-      },
-      "vincitore": "b"
-     }
-    },
-    {
-     "parola": "Non",
+     "parola": "Pensi",
      "tipo": "domanda",
      "p": {
-      "testo": "Vendere meglio, non di più",
+      "testo": "È tutto guadagno?",
       "emozione": "felice",
       "scuro": false
      }
@@ -930,265 +355,617 @@
    ]
   },
   {
-   "testo": "Altra leva: il prezzo. Se Gianni alza la pagnotta da un euro a un euro e dieci, il margine passa da quaranta a cinquanta centesimi. Dieci centesimi sembrano niente, ma sono un quarto di margine in più.",
-   "capitolo": "La leva del prezzo",
+   "testo": "Quinto: le commissioni. Chi paga con carta o con un sistema online lascia una commissione. Qui è il due virgola nove per cento più trenta centesimi. Su trenta euro fanno un euro e diciassette. Piccolo morso, ma c'è sempre.",
+   "capitolo": "Le commissioni",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "prezzo",
+     "tipo": "soldi",
      "p": {
-      "oggetto": "pane",
-      "prezzo": "1 €",
-      "nota": "con ritocco di dieci centesimi"
+      "centro": "30 €",
+      "destinazioni": [
+       "Stato",
+       "Corriere",
+       "Pagamenti",
+       "Tu"
+      ]
      }
     },
     {
-     "parola": "Dieci",
+     "parola": "Qui",
      "tipo": "formula",
      "p": {
-      "titolo": "Nuovo margine",
-      "a": "1,10 €",
-      "op": "−",
-      "b": "0,60 €",
-      "risultato": "0,50 €",
-      "nota": "un quarto in più"
+      "titolo": "Commissione di pagamento",
+      "a": "0,87 €",
+      "op": "+",
+      "b": "0,30 €",
+      "risultato": "1,17 €",
+      "nota": "due virgola nove per cento di trenta, più trenta centesimi"
+     }
+    },
+    {
+     "parola": "Piccolo",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "carta",
+      "prezzo": "1,17 €",
+      "nota": "per ogni pagamento"
      }
     }
    ]
   },
   {
-   "testo": "Con cinquanta centesimi di margine il pareggio sul pane scende. Prima con settemilanovecento euro di costi servivano diciannovemilasettecentocinquanta pagnotte. Ora servono quindicimilaottocento. Dieci centesimi risparmiano quasi quattromila pagnotte.",
+   "testo": "Cosa resta adesso? Dodici euro e novanta meno uno e diciassette: dieci euro e settantatré. Ecco il margine prima della pubblicità. Per molti negozi sembra già un buon margine. Ma la parte difficile deve ancora arrivare.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Margine prima della pubblicità",
+      "a": "11,90 €",
+      "op": "−",
+      "b": "1,17 €",
+      "risultato": "10,73 €",
+      "nota": "diciamo circa dieci euro e settantatré"
+     }
+    },
+    {
+     "parola": "Ecco",
+     "tipo": "cruscotto",
+     "p": {
+      "titolo": "Cosa abbiamo tolto finora",
+      "voci": [
+       {
+        "nome": "Iva",
+        "valore": 0.18
+       },
+       {
+        "nome": "Prodotto",
+        "valore": 0.2
+       },
+       {
+        "nome": "Spedizione e imballo",
+        "valore": 0.22
+       },
+       {
+        "nome": "Commissioni",
+        "valore": 0.04
+       }
+      ]
+     }
+    },
+    {
+     "parola": "difficile",
+     "tipo": "persone",
+     "p": {
+      "n": 5,
+      "azione": "fila",
+      "escono": 0,
+      "testo": "E il cliente, chi lo porta?"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Sesto, e qui fa male: il costo per trovare il cliente. Nessuno entra nel tuo negozio online per caso. Devi farti trovare: annunci sui social, sulla ricerca, influencer. Ogni clic costa. E non tutti i clic comprano.",
+   "capitolo": "Trovare il cliente",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "scrivania con computer",
+      "insegna": "Candele di Elisa",
+      "azione": "preoccupato",
+      "clienti": 0,
+      "testo": "Annunci e clic"
+     }
+    },
+    {
+     "parola": "clic",
+     "tipo": "conteggio",
+     "p": {
+      "oggetto": "clic",
+      "icone": 50,
+      "testo": "50 clic"
+     }
+    },
+    {
+     "parola": "comprano",
+     "tipo": "persone",
+     "p": {
+      "n": 9,
+      "azione": "escono",
+      "escono": 8,
+      "testo": "Guardano, ma non comprano"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Esempio: Elisa spende cento euro di annunci in una settimana. Arrivano quattrocento visite, e dodici persone comprano. Il costo per cliente è cento diviso dodici: otto euro e trentatré. Lo chiamiamo costo di acquisizione.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Costo per ogni cliente",
+      "a": "100 €",
+      "op": "÷",
+      "b": "12",
+      "risultato": "8,33 €",
+      "nota": "cento euro di annunci, dodici ordini"
+     }
+    },
+    {
+     "parola": "Arrivano",
+     "tipo": "conteggio",
+     "p": {
+      "oggetto": "visita",
+      "icone": 40,
+      "testo": "400 visite, 12 ordini"
+     }
+    },
+    {
+     "parola": "acquisizione",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Costo di acquisizione",
+      "voci": [
+       "Quanto spendi in pubblicità",
+       "Diviso i clienti nuovi",
+       "Non i clic, i clienti",
+       "È il numero che conta"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Per capirci: un parrucchiere con un volantino nei dintorni spende sessanta euro, e ottiene cinque nuovi clienti. Sono dodici euro a cliente. Stessa logica, altro mestiere. Chi non fa questo conto, lavora al buio.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "salone di parrucchiere",
+      "insegna": "Salone Carla",
+      "azione": "lavora",
+      "clienti": 2,
+      "testo": "Volantino di quartiere"
+     }
+    },
+    {
+     "parola": "Sono",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Costo per cliente al salone",
+      "a": "60 €",
+      "op": "÷",
+      "b": "5",
+      "risultato": "12 €",
+      "nota": "sessanta euro, cinque nuovi clienti"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Torniamo a Elisa. Su ogni ordine, la pubblicità costa otto euro e trentatré. Dai dieci euro e settantatré togli otto e trentatré: restano due euro e quaranta. Ecco, trenta euro incassati, e due e quaranta sono suoi.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Dopo la pubblicità",
+      "a": "10,73 €",
+      "op": "−",
+      "b": "8,33 €",
+      "risultato": "2,40 €",
+      "nota": "questo è quello che resta"
+     }
+    },
+    {
+     "parola": "Ecco",
+     "tipo": "fette",
+     "p": {
+      "titolo": "Dove vanno i trenta euro",
+      "totale": 30,
+      "totale_testo": "30 €",
+      "fette": [
+       {
+        "nome": "Iva",
+        "valore": 5.4,
+        "testo": "5,40 €"
+       },
+       {
+        "nome": "Prodotto",
+        "valore": 6,
+        "testo": "6 €"
+       },
+       {
+        "nome": "Spedizione e imballo",
+        "valore": 6.7,
+        "testo": "6,70 €"
+       },
+       {
+        "nome": "Commissioni",
+        "valore": 1.17,
+        "testo": "1,17 €"
+       },
+       {
+        "nome": "Pubblicità",
+        "valore": 8.33,
+        "testo": "8,33 €"
+       },
+       {
+        "nome": "Resta a Elisa",
+        "valore": 2.4,
+        "testo": "2,40 €"
+       }
+      ],
+      "evidenzia": 5
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Due euro e quaranta su trenta è l'otto per cento. Sembra già poco. Ma c'è un'ultima voce, la più subdola: i resi. Perché il cliente ha il diritto di cambiare idea, e tu devi pagare il conto.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Solo l'otto per cento?",
+      "emozione": "preoccupato",
+      "scuro": true
+     }
+    },
+    {
+     "parola": "Due",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Quota che resta",
+      "a": "2,40 €",
+      "op": "÷",
+      "b": "30 €",
+      "risultato": "8%",
+      "nota": "otto per cento del prezzo"
+     }
+    },
+    {
+     "parola": "resi",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "pacco",
+      "testo": "RESO",
+      "colore": "rosso",
+      "nota": "e il conto lo paghi tu"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Settimo: i resi. Elisa ha un reso ogni dieci ordini. Quando un cliente restituisce, tu rimborsi il prezzo, ma la pubblicità l'hai già spesa e la spedizione di andata non torna. E quella di ritorno spesso la paghi tu.",
+   "capitolo": "I resi",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "persone",
+     "p": {
+      "n": 9,
+      "azione": "escono",
+      "escono": 1,
+      "testo": "Un reso ogni dieci ordini"
+     }
+    },
+    {
+     "parola": "rimborsi",
+     "tipo": "bilancia",
+     "p": {
+      "titolo": "Quando un cliente restituisce",
+      "sinistra": "Rimborso: 30 €",
+      "destra": "Spese già fatte",
+      "pende": "destra"
+     }
+    },
+    {
+     "parola": "ritorno",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "pacco",
+      "prezzo": "4,90 €",
+      "nota": "spedizione di ritorno"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Facciamo il conto sul reso. Elisa perde la pubblicità, otto euro e trentatré, l'andata, quattro e novanta, e il ritorno, quattro e novanta. Fanno diciotto euro e tredici. Quel pacco non fa due e quaranta di margine: fa meno diciotto.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "costi",
+     "p": {
+      "voci": [
+       {
+        "nome": "Pubblicità",
+        "valore": 8.33,
+        "testo": "8,33 €"
+       },
+       {
+        "nome": "Andata",
+        "valore": 4.9,
+        "testo": "4,90 €"
+       },
+       {
+        "nome": "Ritorno",
+        "valore": 4.9,
+        "testo": "4,90 €"
+       }
+      ],
+      "totale": "18,13 €",
+      "periodo": "per un reso"
+     }
+    },
+    {
+     "parola": "Fanno",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "pacco",
+      "testo": "PERDITA",
+      "colore": "rosso",
+      "nota": "circa meno diciotto euro"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "E se la candela torna rotta o inutilizzabile? Se non puoi rivenderla, perdi anche i sei euro di prodotto. Ma ipotizziamo che torni intatta: rimane comunque una perdita di oltre diciotto euro. Un reso mangia il margine di molti ordini.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "confronto",
+     "p": {
+      "titolo": "Un ordine contro un reso",
+      "a": {
+       "titolo": "Ordine riuscito",
+       "valore": "+2,40 €",
+       "oggetto": "candela"
+      },
+      "b": {
+       "titolo": "Ordine reso",
+       "valore": "−18,13 €",
+       "oggetto": "candela"
+      },
+      "vincitore": "a"
+     }
+    },
+    {
+     "parola": "Un",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Quanti ordini serve per coprire un reso",
+      "a": "18,13 €",
+      "op": "÷",
+      "b": "2,40 €",
+      "risultato": "7,5 ordini",
+      "nota": "circa sette ordini e mezzo"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ora il vero margine medio. Ogni dieci ordini, nove vanno bene e uno torna. Nove ordini a due euro e quaranta fanno ventuno euro e sessanta. Togli i diciotto e tredici del reso: restano tre euro e quarantasette su dieci ordini.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Nove ordini buoni",
+      "a": "9",
+      "op": "×",
+      "b": "2,40 €",
+      "risultato": "21,60 €",
+      "nota": "margine dei nove ordini"
+     }
+    },
+    {
+     "parola": "Togli",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Meno il reso",
+      "a": "21,60 €",
+      "op": "−",
+      "b": "18,13 €",
+      "risultato": "3,47 €",
+      "nota": "su dieci ordini in tutto"
+     }
+    },
+    {
+     "parola": "restano",
+     "tipo": "conteggio",
+     "p": {
+      "oggetto": "moneta",
+      "icone": 10,
+      "testo": "3,47 € ogni 10 ordini"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Tre euro e quarantasette su dieci ordini sono trentacinque centesimi a ordine. Su trecento euro incassati, restano tre euro e quarantasette. Capisci cosa vuol dire? Vendere tanto non basta: puoi anche lavorare per niente.",
+   "capitolo": "Il vero margine",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Margine medio per ordine",
+      "a": "3,47 €",
+      "op": "÷",
+      "b": "10",
+      "risultato": "0,35 €",
+      "nota": "circa trentacinque centesimi"
+     }
+    },
+    {
+     "parola": "Su",
+     "tipo": "fette",
+     "p": {
+      "titolo": "Dieci ordini, trecento euro",
+      "totale": 300,
+      "totale_testo": "300 €",
+      "fette": [
+       {
+        "nome": "Iva",
+        "valore": 54,
+        "testo": "54 €"
+       },
+       {
+        "nome": "Prodotto e imballo",
+        "valore": 78,
+        "testo": "78 €"
+       },
+       {
+        "nome": "Spedizioni",
+        "valore": 98,
+        "testo": "98 €"
+       },
+       {
+        "nome": "Pubblicità e commissioni",
+        "valore": 66.5,
+        "testo": "66,50 €"
+       },
+       {
+        "nome": "Resta a Elisa",
+        "valore": 3.5,
+        "testo": "3,50 €"
+       }
+      ],
+      "evidenzia": 4
+     }
+    },
+    {
+     "parola": "Capisci",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Lavori per niente?",
+      "emozione": "stupito",
+      "scuro": true
+     }
+    }
+   ]
+  },
+  {
+   "testo": "E i costi fissi? Elisa paga la piattaforma, il programma per le email, il commercialista: trecento euro al mese. Con un margine di trentacinque centesimi a ordine, non li copre nemmeno con mille ordini. Questa è la trappola.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "costi",
+     "p": {
+      "voci": [
+       {
+        "nome": "Piattaforma",
+        "valore": 60,
+        "testo": "60 €"
+       },
+       {
+        "nome": "Email e strumenti",
+        "valore": 40,
+        "testo": "40 €"
+       },
+       {
+        "nome": "Commercialista",
+        "valore": 120,
+        "testo": "120 €"
+       },
+       {
+        "nome": "Altro",
+        "valore": 80,
+        "testo": "80 €"
+       }
+      ],
+      "totale": "300 €",
+      "periodo": "al mese"
+     }
+    },
+    {
+     "parola": "mille",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Con mille ordini",
+      "a": "1.000",
+      "op": "×",
+      "b": "0,35 €",
+      "risultato": "350 €",
+      "nota": "appena sopra i costi fissi"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Guarda il pareggio. Con trecento euro di costi fissi e un margine di trentacinque centesimi, Elisa dovrebbe vendere ottocentocinquantasette ordini al mese solo per non perdere. Una piccola bottega non ci arriva.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "pareggio",
      "p": {
-      "titolo": "Più margine, meno pagnotte",
-      "fissi": 7900,
-      "margine": 0.4,
-      "nuovo_margine": 0.5,
-      "unita": "pagnotte vendute",
-      "oggetto": "pane",
+      "titolo": "Punto di pareggio di Elisa",
+      "fissi": 300,
+      "margine": 0.35,
+      "unita": "ordini al mese",
+      "oggetto": "pacco",
       "perdita": true,
-      "guadagno": true
+      "guadagno": false
      }
     },
     {
-     "parola": "Prima",
+     "parola": "ottocentocinquantasette",
      "tipo": "formula",
      "p": {
-      "titolo": "Nuovo pareggio",
-      "a": "7.900 €",
+      "titolo": "Ordini per non perdere",
+      "a": "300 €",
       "op": "÷",
-      "b": "0,50 €",
-      "risultato": "15.800 pagnotte",
-      "nota": "circa 527 al giorno"
+      "b": "0,35 €",
+      "risultato": "857 ordini",
+      "nota": "circa ottocentocinquantasette al mese"
      }
     }
    ]
   },
   {
-   "testo": "Ma attenzione: se alzi il prezzo e perdi clienti, il gioco non vale. La domanda da farti è: quanti clienti perdo con questo ritocco? Se ne perdi meno del venti per cento, di solito ci guadagni.",
-   "capitolo": "",
+   "testo": "Che fai, allora? Non devi gettare la spugna. Devi guardare le leve giuste. Quattro cose cambiano i conti: il prezzo, il costo del cliente, le spedizioni e i resi. Cambiando una, il margine si muove tantissimo.",
+   "capitolo": "Le leve per cambiare",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "bilancia",
+     "tipo": "leve",
      "p": {
-      "titolo": "Prezzo più alto",
-      "sinistra": "Margine in più",
-      "destra": "Clienti persi",
-      "pende": "sinistra"
-     }
-    },
-    {
-     "parola": "La",
-     "tipo": "persone",
-     "p": {
-      "n": 8,
-      "azione": "escono",
-      "escono": 1,
-      "testo": "Se ne perdi pochi, ci guadagni"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "E per il giorno dopo ti serve un controllo semplice. Ogni sera Gianni segna le pagnotte vendute e le confronta col pareggio. Seicento sono sopra la soglia, quattrocento sotto. Un numero solo, ogni sera, ti dice come stai.",
-   "capitolo": "Cosa guardare ogni giorno",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "mesi",
-     "p": {
-      "titolo": "Pagnotte vendute al giorno nei 12 mesi",
-      "valori": [
-       520,
-       540,
-       600,
-       640,
-       620,
-       580,
-       500,
-       460,
-       600,
-       660,
-       680,
-       720
-      ],
-      "evidenzia": [
-       7,
-       8
-      ],
-      "nota": "in estate si vende meno"
-     }
-    },
-    {
-     "parola": "Un",
-     "tipo": "cruscotto",
-     "p": {
-      "titolo": "Il quadro della sera",
+      "titolo": "Le leve del negozio online",
       "voci": [
-       {
-        "nome": "Pagnotte vendute",
-        "valore": 0.7
-       },
-       {
-        "nome": "Invenduto",
-        "valore": 0.15
-       },
-       {
-        "nome": "Costo ingredienti",
-        "valore": 0.5
-       }
-      ]
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Guarda anche le stagioni. Ad agosto la città si svuota e le vendite crollano. Se hai dei mesi deboli devi mettere da parte nei mesi buoni, perché l'affitto agosto lo vuole lo stesso, come a dicembre.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "andamento",
-     "p": {
-      "titolo": "Vendite giornaliere nell'anno",
-      "valori": [
-       520,
-       600,
-       620,
-       500,
-       460,
-       600,
-       720
+       "Prezzo",
+       "Costo per cliente",
+       "Spedizione",
+       "Resi"
       ],
-      "etichette": [
-       "Gen",
-       "Mar",
-       "Mag",
-       "Lug",
-       "Ago",
-       "Ott",
-       "Dic"
-      ],
-      "colore": "verde"
+      "evidenzia": 0
      }
     },
     {
-     "parola": "Se",
-     "tipo": "salvadanaio",
-     "p": {
-      "direzione": "riempie",
-      "testo": "Metti da parte nei mesi buoni"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Cosa non guardare? Non guardare solo l'incasso. Gianni può incassare tanto e perdere lo stesso, se i costi sono alti. L'incasso non è guadagno. Guarda il margine, il pareggio e quanto ti resta davvero.",
-   "capitolo": "Cosa non guardare",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "lista",
-     "p": {
-      "titolo": "Guarda e non guardare",
-      "voci": [
-       "Guarda il margine",
-       "Guarda il pareggio",
-       "Guarda l'invenduto",
-       "Non guardare solo l'incasso",
-       "Non contare a occhio"
-      ]
-     }
-    },
-    {
-     "parola": "Non",
-     "tipo": "timbro",
-     "p": {
-      "oggetto": "pane",
-      "testo": "INCASSO NON È UTILE",
-      "colore": "rosso",
-      "nota": "conta quanto resta"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Tiriamo le somme di Gianni. Margine di quaranta centesimi per pagnotta. Costi fissi di settemilanovecento euro con il suo stipendio. Pareggio a seicentocinquantotto pagnotte al giorno, che scendono a trecentocinquantotto con le focacce.",
-   "capitolo": "Riepilogo",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "panificio",
-      "insegna": "Forno Gianni",
-      "azione": "felice",
-      "clienti": 4,
-      "testo": "Gianni ha fatto i conti"
-     }
-    },
-    {
-     "parola": "Pareggio",
-     "tipo": "riepilogo",
-     "p": {
-      "titolo": "I numeri di Gianni",
-      "voci": [
-       "Margine: 0,40 € a pagnotta",
-       "Costi fissi: 7.900 € al mese",
-       "Pareggio: 658 pagnotte al giorno",
-       "Con le focacce: 358 al giorno"
-      ]
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Ricorda tre cose. Il pareggio è costi fissi diviso margine. Margini piccoli vogliono volumi grandi. E conta sempre il tuo stipendio e l'invenduto. Con questi tre numeri sai se la tua attività sta in piedi.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "riepilogo",
-     "p": {
-      "titolo": "Da ricordare",
-      "voci": [
-       "Pareggio: fissi diviso margine",
-       "Pochi centesimi, tanti pezzi",
-       "Conta il tuo stipendio",
-       "Misura quanto butti"
-      ]
-     }
-    },
-    {
-     "parola": "Con",
+     "parola": "Quattro",
      "tipo": "domanda",
      "p": {
-      "testo": "E tu, lo sai il tuo?",
+      "testo": "Quale tocchi per prima?",
       "emozione": "calmo",
       "scuro": false
      }
@@ -1196,41 +973,442 @@
    ]
   },
   {
-   "testo": "Se hai un'attività, fermati e calcola il tuo pareggio oggi. Scrivilo nei commenti: quanti pezzi devi vendere ogni giorno? Ti accorgerai che dormire serenamente dipende da un numero solo, e adesso sai come trovarlo.",
+   "testo": "Prima leva: il prezzo. Elisa porta la candela da trenta a trentadue euro. Senza Iva sono ventisei euro e quindici, quindi quasi un euro e mezzo in più. E la pubblicità non cambia. Quello va tutto nel margine.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "candela",
+      "prezzo": "30 €",
+      "nuovo_prezzo": "32 €",
+      "nota": "due euro in più"
+     }
+    },
+    {
+     "parola": "Senza",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Più margine per ordine",
+      "a": "26,15 €",
+      "op": "−",
+      "b": "24,60 €",
+      "risultato": "1,55 €",
+      "nota": "circa un euro e cinquantacinque in più"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Seconda leva: la soglia di spedizione gratuita. Se è a venticinque euro, tutti comprano una candela da trenta. Se la porti a quaranta, molti aggiungono un'altra candela. Più valore per pacco, stessa spedizione. Il corriere costa quasi uguale.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "confronto",
+     "p": {
+      "titolo": "Una candela contro due candele",
+      "a": {
+       "titolo": "Una candela, un pacco",
+       "valore": "2,40 €",
+       "oggetto": "candela"
+      },
+      "b": {
+       "titolo": "Due candele, un pacco",
+       "valore": "9,10 €",
+       "oggetto": "candela"
+      },
+      "vincitore": "b"
+     }
+    },
+    {
+     "parola": "Più",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Alzare lo scontrino medio",
+      "voci": [
+       "Soglia gratuita più alta",
+       "Set di due candele",
+       "Sconto sul secondo",
+       "Un regalo piccolo da aggiungere"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Terza leva: portare i clienti che tornano. Un cliente che ricompra non costa otto euro e trentatré di pubblicità: costa una email, quasi zero. Se la metà ricompra, il margine cambia moltissimo. Ecco perché i negozi si costruiscono con i fedeli.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "persone",
+     "p": {
+      "n": 6,
+      "azione": "entrano",
+      "escono": 0,
+      "testo": "Clienti che tornano"
+     }
+    },
+    {
+     "parola": "email",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Ordine di un cliente che torna",
+      "a": "10,73 €",
+      "op": "−",
+      "b": "0,50 €",
+      "risultato": "10,23 €",
+      "nota": "meno pubblicità, solo una email"
+     }
+    },
+    {
+     "parola": "fedeli",
+     "tipo": "andamento",
+     "p": {
+      "titolo": "Margine medio con più clienti che tornano",
+      "valori": [
+       0.35,
+       1.2,
+       2.6,
+       4.1
+      ],
+      "etichette": [
+       "Mese 1",
+       "Mese 2",
+       "Mese 3",
+       "Mese 4"
+      ],
+      "colore": "verde"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Esempio diverso: una pizzeria con consegna a domicilio. Se usa una piattaforma di delivery paga una commissione, magari il venticinque per cento. Su una pizza da dieci euro sono due e cinquanta. Per questo molti aprono il proprio canale.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "pizzeria",
+      "insegna": "Pizzeria Da Gino",
+      "azione": "lavora",
+      "clienti": 3,
+      "testo": "Consegne a domicilio"
+     }
+    },
+    {
+     "parola": "Su",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Commissione del delivery",
+      "a": "10 €",
+      "op": "×",
+      "b": "25%",
+      "risultato": "2,50 €",
+      "nota": "per ogni pizza consegnata"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Quarta leva: i resi. Descrizioni oneste, foto reali e taglie chiare riducono i resi. Elisa scrive meglio la scheda: peso, durata, profumo. Se i resi scendono da uno su dieci a uno su venti, il margine si sposta di parecchio.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Meno resi",
+      "voci": [
+       "Foto vere del prodotto",
+       "Misure e peso scritti",
+       "Descrizione onesta",
+       "Risposte veloci prima dell'acquisto"
+      ]
+     }
+    },
+    {
+     "parola": "Se",
+     "tipo": "persone",
+     "p": {
+      "n": 9,
+      "azione": "escono",
+      "escono": 0,
+      "testo": "Un reso ogni venti ordini"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Rifacciamo il conto con i nuovi numeri. Prezzo a trentadue euro, un reso ogni venti, e spedizione gratuita sopra quaranta. Il margine a ordine sale da trentacinque centesimi a circa quattro euro. Stessa Elisa, stesse candele, conti diversi.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "confronto",
+     "p": {
+      "titolo": "Prima e dopo",
+      "a": {
+       "titolo": "Prima",
+       "valore": "0,35 €",
+       "oggetto": "candela"
+      },
+      "b": {
+       "titolo": "Dopo",
+       "valore": "4 €",
+       "oggetto": "candela"
+      },
+      "vincitore": "b"
+     }
+    },
+    {
+     "parola": "Stessa",
+     "tipo": "pareggio",
+     "p": {
+      "titolo": "Pareggio dopo le modifiche",
+      "fissi": 300,
+      "margine": 4,
+      "nuovo_margine": 4,
+      "unita": "ordini al mese",
+      "oggetto": "pacco",
+      "perdita": false,
+      "guadagno": true
+     }
+    },
+    {
+     "parola": "conti",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Ordini per non perdere",
+      "a": "300 €",
+      "op": "÷",
+      "b": "4 €",
+      "risultato": "75 ordini",
+      "nota": "settantacinque ordini al mese"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Settantacinque ordini al mese, non ottocentocinquantasette. Sono circa due e mezzo al giorno. Ecco la differenza tra un negozio che soffoca e uno che respira. Non servono miracoli, serve guardare il numero giusto.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "calendario",
+     "p": {
+      "titolo": "Ordini al mese",
+      "giorni": 30,
+      "testo": "Due e mezzo al giorno"
+     }
+    },
+    {
+     "parola": "Ecco",
+     "tipo": "salvadanaio",
+     "p": {
+      "direzione": "riempie",
+      "testo": "Il margine che respira"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Cosa guardare, quindi? Il margine per ordine dopo tutto: Iva, prodotto, imballo, spedizione, commissioni, pubblicità e resi. Cosa non guardare? Il fatturato da solo, il numero di visite e i like. Non pagano niente.",
+   "capitolo": "Cosa guardare",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Cosa guardare",
+      "voci": [
+       "Margine per ordine",
+       "Costo per cliente",
+       "Percentuale di resi",
+       "Scontrino medio",
+       "Clienti che tornano"
+      ]
+     }
+    },
+    {
+     "parola": "non",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "telefono",
+      "testo": "SOLO VISITE?",
+      "colore": "rosso",
+      "nota": "le visite non pagano le bollette"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Pensaci un momento. Se hai un'attività online, o vuoi aprirla, prendi l'ultimo ordine che hai ricevuto. Togli l'Iva, il prodotto, l'imballo, la spedizione, le commissioni, la pubblicità. Quanto resta? Sii onesto: nessuno ti guarda.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "domanda",
      "p": {
-      "testo": "Qual è il tuo pareggio?",
-      "emozione": "stupito",
-      "scuro": true
+      "testo": "Quanto resta a te?",
+      "emozione": "calmo",
+      "scuro": false
      }
     },
     {
-     "parola": "Scrivilo",
-     "tipo": "orologio",
+     "parola": "Togli",
+     "tipo": "cruscotto",
      "p": {
-      "ore": 16,
-      "piene": 8,
-      "testo": "Cinque minuti per i tuoi conti"
+      "titolo": "I numeri da tenere d'occhio",
+      "voci": [
+       {
+        "nome": "Margine per ordine",
+        "valore": 0.3
+       },
+       {
+        "nome": "Costo per cliente",
+        "valore": 0.6
+       },
+       {
+        "nome": "Resi",
+        "valore": 0.1
+       },
+       {
+        "nome": "Clienti fedeli",
+        "valore": 0.4
+       }
+      ]
      }
     }
    ]
   },
   {
-   "testo": "Nella prossima puntata andiamo in un bar, dove un caffè costa un euro e dieci e la tazzina ne costa quaranta di ingredienti. Ma allora perché il barista fatica ad arrivare a fine mese? Iscriviti, così non perdi i conti veri.",
+   "testo": "Un ultimo esempio, lontano dalle candele: un negozio di scarpe online. La scarpa costa novanta euro, ma le taglie sbagliate portano un reso su tre. Lì il costo dei resi è il nemico numero uno. Ogni mestiere ha il suo mostro.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "scarpa",
+      "prezzo": "90 €",
+      "nota": "sneaker online"
+     }
+    },
+    {
+     "parola": "taglie",
+     "tipo": "persone",
+     "p": {
+      "n": 9,
+      "azione": "escono",
+      "escono": 3,
+      "testo": "Un reso ogni tre ordini"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ricapitoliamo. Su un ordine da trenta euro, cinque e quaranta sono Iva, sei il prodotto, sei e settanta spedizione e imballo, uno e diciassette commissioni, otto e trentatré pubblicità. Restano due e quaranta. Poi arrivano i resi.",
+   "capitolo": "Riassunto",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "fette",
+     "p": {
+      "titolo": "Ordine da trenta euro",
+      "totale": 30,
+      "totale_testo": "30 €",
+      "fette": [
+       {
+        "nome": "Iva",
+        "valore": 5.4,
+        "testo": "5,40 €"
+       },
+       {
+        "nome": "Prodotto",
+        "valore": 6,
+        "testo": "6 €"
+       },
+       {
+        "nome": "Spedizione e imballo",
+        "valore": 6.7,
+        "testo": "6,70 €"
+       },
+       {
+        "nome": "Commissioni",
+        "valore": 1.17,
+        "testo": "1,17 €"
+       },
+       {
+        "nome": "Pubblicità",
+        "valore": 8.33,
+        "testo": "8,33 €"
+       },
+       {
+        "nome": "Resta",
+        "valore": 2.4,
+        "testo": "2,40 €"
+       }
+      ],
+      "evidenzia": 5
+     }
+    },
+    {
+     "parola": "Poi",
+     "tipo": "riepilogo",
+     "p": {
+      "titolo": "Da ricordare",
+      "voci": [
+       "Togli sempre l'Iva dal prezzo",
+       "Costo per cliente: pubblicità diviso ordini",
+       "Un reso cancella molti ordini",
+       "Più scontrino e clienti che tornano"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Il fatturato è vanità, il margine è sanità, e il contante è realtà. Vendere trenta euro non vuol dire guadagnarne trenta. Fai il conto di ogni ordine, e le decisioni diventeranno più semplici. Elisa lo ha fatto, e adesso dorme.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "garage laboratorio",
+      "insegna": "Candele di Elisa",
+      "azione": "felice",
+      "clienti": 2,
+      "testo": "Elisa, adesso fa i conti"
+     }
+    },
+    {
+     "parola": "fatturato",
+     "tipo": "salvadanaio",
+     "p": {
+      "direzione": "riempie",
+      "testo": "Il margine è la sanità"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Nel prossimo episodio vediamo un panificio di quartiere: tra farina, forno acceso e pane invenduto, quanto resta davvero su un filone da due euro? Il conto ti sorprenderà. Iscriviti.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "prossimo",
      "p": {
-      "luogo": "bar",
-      "insegna": "Bar Centrale",
-      "oggetto": "caffe",
-      "testo": "Prossima puntata: il bar"
+      "luogo": "panificio",
+      "insegna": "Forno Rossi",
+      "oggetto": "pane",
+      "testo": "Quanto resta su un filone da due euro?"
      }
     },
     {
