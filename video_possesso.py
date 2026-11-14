@@ -162,6 +162,23 @@ Scene: {json.dumps(elenco, ensure_ascii=False)}""", sforzo='low', max_tokens=800
     return c
 
 
+ORDINE_TIPI = ['cartellino', 'racconto', 'dettaglio', 'scontrini', 'valore', 'calcolo', 'confronto', 'consigli', 'prossimo']
+
+
+def aggiungi_scena(c, tipo):
+    """14 nov (Giorgio OK): se manca UNA scena (es. "valore"), Claude scrive solo quella (pochi centesimi) invece di rifare tutto il copione (~0,35 $)."""
+    t = claude(f"""In questo copione di un video YouTube italiano manca la scena di tipo "{tipo}". Scrivila coerente con tutti i numeri gia' presenti
+(stesso protagonista, stesso tono), seguendo queste regole:\n{STRUTTURA}\nCon "tipo", "capitolo", "voce", "dati" e "sfondi" come le altre scene.
+Rispondi SOLO con JSON: {{"scena": {{...}}}}\nCopione: {json.dumps(c, ensure_ascii=False)}""", sforzo='low', max_tokens=6000)
+    sc = leggi_json(t).get('scena') or {}
+    if sc.get('tipo') != tipo:
+        raise ValueError('scena aggiunta non valida')
+    dopo = ORDINE_TIPI[ORDINE_TIPI.index(tipo) + 1:] if tipo in ORDINE_TIPI else []
+    pos = next((i for i, x in enumerate(c['scene']) if x.get('tipo') in dopo), len(c['scene']))
+    c['scene'].insert(pos, sc); log('copione: aggiunta la scena mancante', tipo)
+    return c
+
+
 def copione():
     if SECCO:
         return copione_finto()
@@ -175,6 +192,7 @@ Numeri realistici italiani 2026, arrotondati, per un italiano di classe media.{r
 NON includere MAI benzina, carburante, ricarica o consumi d'uso (regola di Giorgio): solo i costi di possesso. Mai cifre troppo basse.
 Tono: chiaro, curioso, mai noioso; frasi brevi; numeri scritti in lettere nella voce; mai correzioni a voce. Fai TUTTI i conti prima di scrivere e ricontrollali.
 {STRUTTURA}
+OBBLIGATORIO: tutti i tipi di scena qui sopra, ognuno almeno una volta (in particolare "cartellino", "dettaglio" e "valore": senza, il copione non si puo' usare).
 Per OGNI scena: "tipo", "capitolo" (max 4 parole, per i capitoli della descrizione), "voce" (testo parlato), "dati", "sfondi".
 "sfondi" = lista di immagini in INGLESE, UNA ogni 12 parole circa della voce (un'immagine nuova ogni 5 secondi), nell'ordine in cui la voce ne parla.
 Ogni immagine: {{"persone": true/false, "descr": "...", "frase": "max 5 parole in italiano MAIUSCOLE che riassumono quel momento"}}.
@@ -190,6 +208,15 @@ Rispondi SOLO con JSON: {{"titolo": "...", "descrizione": "...", "tag": [...], "
     for tentativo in range(3):
         c = leggi_json(claude(prompt + errore, sforzo='low'))   # 9 nov: sforzo basso (i conti li controlla il programma): Claude costava 0,46 $
         prob = controlla(c)
+        for _k in range(2):   # manca una scena intera (es. "struttura dati non valida: 'valore'"): si aggiunge solo quella
+            m_ = [re.search(r"struttura dati non valida: '(\w+)'", x) for x in prob]
+            m_ = next((x.group(1) for x in m_ if x and x.group(1) in ORDINE_TIPI), None)
+            if not m_:
+                break
+            try:
+                c = aggiungi_scena(c, m_); prob = controlla(c)
+            except Exception as e:
+                log('scena mancante non aggiunta:', str(e)[:100]); break
         if not prob:
             break
         if all(x.startswith(LUNGO) for x in prob):   # 11 nov: conti giusti, manca solo lunghezza -> si allungano alcune scene (circa 0,05 $), non si riscrive tutto
@@ -731,9 +758,28 @@ def main():
     stile = STILE_GEN + (PV.STILE[PV.STILE.index('The car is'):PV.STILE.index('modest apartments')] if AUTO else '')
     r = immagine(os.path.join(LAV, 'riferimento.jpg'), stile + f'Main character: {prot}. Scene: {c.get("riferimento") or "the main character with the thing"}')
     rif_url = r[1] if isinstance(r, tuple) else None
+    if STILE_VIDEO == 'A' and E('PEXELS_API_KEY'):   # stile A (Giorgio 13 nov): clip Pexels vere sul tema, ~18% del tempo; 14 nov: PRENDONO IL POSTO di immagini (gratis)
+        try:
+            cand = [i for i, s in enumerate(SCENE) if s['tipo'] in ('cartellino', 'racconto', 'dettaglio', 'consigli') and s.get('sfondi')]
+            descr = [str((SCENE[i]['sfondi'][0] or {}).get('descr') or '')[:200] for i in cand]
+            q = leggi_json(claude('For each numbered scene description, give a short Pexels stock VIDEO search query in English (3-5 words, concrete things, '
+                                  f'tied to "{OGGETTO or TITOLO}"), or "" if no real stock footage would fit. Reply ONLY JSON {{"q": ["...", ...]}}.\n' +
+                                  '\n'.join(f'{k}. {d}' for k, d in enumerate(descr)), sforzo='low', max_tokens=3000)).get('q', [])
+            tot_d, clip_t = sum(s['_dur'] for s in SCENE), 0.0
+            for k, i in enumerate(cand):
+                s = SCENE[i]; qq = str(q[k] if k < len(q) else '').strip(); n_ = max(1, math.ceil(s['_dur'] / sec))
+                p_ = s['_dur'] / n_
+                if not qq or n_ < 2 or clip_t + p_ > tot_d * .18:
+                    continue
+                f = clip_pexels(os.path.join(LAV, f'clip_{i:02d}'), qq, p_)
+                if f:
+                    s['_clip'] = f; clip_t += p_
+            log(f'clip Pexels: {clip_t:.0f} s su {tot_d:.0f} s ({clip_t / tot_d * 100:.0f}%), al posto di altrettante immagini')
+        except Exception as e:
+            log('clip Pexels non riuscite (vado avanti con le sole immagini):', str(e)[:150])
     n_img = 0
     for i, s in enumerate(SCENE):
-        n = max(1, math.ceil(s['_dur'] / sec)); sf = list(s.get('sfondi') or [])
+        n = max(1, math.ceil(s['_dur'] / sec)) - (1 if s.get('_clip') else 0); sf = list(s.get('sfondi') or [])
         while len(sf) < n:   # meno descrizioni del necessario: si chiedono variazioni delle ultime (mai la stessa immagine)
             base = dict(sf[len(sf) % max(1, len(s.get('sfondi') or [1]))] if sf else {'persone': False, 'descr': OGGETTO or TITOLO})
             base['descr'] = str(base.get('descr')) + ', different angle and different composition'; sf.append(base)
@@ -747,26 +793,10 @@ def main():
             if not (ok and os.path.exists(f)):   # immagine non riuscita: la precedente della scena (mai uno sfondo nero), altrimenti il riferimento
                 f = s['_img'][-1] if s['_img'] else os.path.join(LAV, 'riferimento.jpg')
             s['_img'].append(f); n_img += 1
+    for s in SCENE:
+        if s.get('_clip'):
+            s['_img'].insert(0 if s['tipo'] != 'cartellino' else 1, s['_clip'])
     log(f'immagini: {n_img} | spesa finora {CO.totale():.3f} $')
-    if STILE_VIDEO == 'A' and E('PEXELS_API_KEY'):   # stile A (Giorgio 13 nov): clip Pexels vere, sempre sul tema, al massimo ~20% del tempo
-        try:
-            cand = [i for i, s in enumerate(SCENE) if s['tipo'] in ('cartellino', 'racconto', 'dettaglio', 'consigli') and s.get('_img')]
-            descr = [str((SCENE[i]['sfondi'][0] or {}).get('descr') or '')[:200] for i in cand]
-            q = leggi_json(claude('For each numbered scene description, give a short Pexels stock VIDEO search query in English (3-5 words, concrete things, '
-                                  f'tied to "{OGGETTO or TITOLO}"), or "" if no real stock footage would fit. Reply ONLY JSON {{"q": ["...", ...]}}.\n' +
-                                  '\n'.join(f'{k}. {d}' for k, d in enumerate(descr)), sforzo='low', max_tokens=3000)).get('q', [])
-            tot_d, clip_t = sum(s['_dur'] for s in SCENE), 0.0
-            for k, i in enumerate(cand):
-                s = SCENE[i]; qq = str(q[k] if k < len(q) else '').strip()
-                p_ = s['_dur'] / (len(s['_img']) + 1)
-                if not qq or clip_t + p_ > tot_d * .18:
-                    continue
-                f = clip_pexels(os.path.join(LAV, f'clip_{i:02d}'), qq, p_)
-                if f:
-                    s['_img'].insert(0 if s['tipo'] != 'cartellino' else 1, f); clip_t += p_
-            log(f'clip Pexels: {clip_t:.0f} s su {tot_d:.0f} s ({clip_t / tot_d * 100:.0f}%)')
-        except Exception as e:
-            log('clip Pexels non riuscite (vado avanti con le sole immagini):', str(e)[:150])
     with mp.get_context('fork').Pool(max(2, os.cpu_count() or 4)) as pool:
         parti = pool.map(rendi_scena, range(len(SCENE)))
     # audio: voci in fila + musica bassa
