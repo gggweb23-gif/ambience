@@ -1812,14 +1812,16 @@ def copertina_nuova(cp, path):
     if pr is not None:
         fs = int(fs * .8)
     _d = ImageDraw.Draw(im)
-    while fs > 70 and _d.textlength(testo, font=font('Anton-Regular.ttf', fs)) > A * .44:   # la scritta sta sempre nella sua meta', intera
+    larg_max = A * (.44 if (sx and dx) or pr is not None else .62)   # 14 nov (Giorgio: "scritte grandi, ben visibili da mobile"): con la mappa unica la scritta puo' prendere piu' spazio
+    fs = max(fs, 230) if not ((sx and dx) or pr is not None) else fs
+    while fs > 70 and _d.textlength(testo, font=font('Anton-Regular.ttf', fs)) > larg_max:   # la scritta sta sempre nella sua meta', intera
         fs -= 6
     xt = x0 + A * (.74 if lato_testo == 'destra' else .26)
     if pr is not None and (sx and dx) and ((lato_pr == 'destra' and lato_testo == 'destra') or (lato_pr == 'sinistra' and lato_testo == 'sinistra')):
         xt = x0 + A * (.26 if lato_pr == 'destra' else .74)   # mai sotto il presentatore: la scritta va nella meta' libera
     if fs < 150 and len(testo.split()) > 1:   # 11 nov (Giorgio: "da mobile non si legge"): mai lettere piccole, si tiene la parola piu' forte
         testo = max(testo.split(), key=len); fs = 200
-        while fs > 150 and _d.textlength(testo, font=font('Anton-Regular.ttf', fs)) > A * .44:
+        while fs > 150 and _d.textlength(testo, font=font('Anton-Regular.ttf', fs)) > larg_max:
             fs -= 6
     riquadro(im, xt, H * (.80 if pr is not None else .60), testo, fs)
     altro = str(cp.get('testo_altro') or '').upper().strip().rstrip('.')[:12]
@@ -1830,7 +1832,10 @@ def copertina_nuova(cp, path):
         riquadro(im, x0 + A * (.26 if xt > x0 + A / 2 else .74), H * .20, altro, fa, LUCE, (0, 0, 0))   # col presentatore in basso: la meta' mappa e' stretta e il paese resta visibile
     extra = str(cp.get('extra') or '').upper()[:14]
     if extra:
-        riquadro(im, x0 + A * (.25 if xt > x0 + A / 2 else .75), H * .16, extra, 150 if pr is None else 120, LUCE, (0, 0, 0))
+        fe = 220 if pr is None else 150   # 14 nov: numero/extra grande quanto la scritta principale (prima 150: da telefono non si leggeva)
+        while fe > 120 and _d.textlength(extra, font=font('Anton-Regular.ttf', fe)) > A * .40:
+            fe -= 6
+        riquadro(im, x0 + A * (.25 if xt > x0 + A / 2 else .75), H * .18, extra, fe, LUCE, (0, 0, 0))
     if sx and dx:
         pin(im, linea, H * (.52 if float(cp.get('pin_scala') or 2.4) <= 2.4 else .97), float(cp.get('pin_scala') or 2.4), 'stupito', 0)   # Pin sulla linea rossa
     elif pr is None:   # mappa unica: Pin di lato, mai sopra il paese in evidenza ne' sulla durata del video
