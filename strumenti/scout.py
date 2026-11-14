@@ -122,6 +122,9 @@ def colonna(h, *nomi):
 def canale(cfg):
     cid = str(cfg.get('channel_id') or '').strip(); filone = str(cfg.get('scout_filone') or '').strip()
     links = [x for x in re.split(r'[;,\s]+', str(cfg.get('canali_da_copiare') or '')) if x.strip()]
+    # 14 nov (Giorgio): oltre al competitor (tutti i suoi video), i MIGLIORI video recenti di altri canali dello stesso filone (ultimi scout_giorni, default 90)
+    altri = [x for x in re.split(r'[;,\s]+', str(cfg.get('canali_filone') or '')) if x.strip()]
+    links = links + ['FILONE:' + x for x in altri if x not in links]
     if not filone or not links or (SOLO and cid != SOLO):
         return
     log('===', cid)
@@ -150,12 +153,18 @@ def canale(cfg):
     min_views = num(cfg.get('scout_min_views'), 10000); pagine = int(num(cfg.get('scout_max_pages'), 10)) or 10
     cand = []
     for l in links:
+        recente = l.startswith('FILONE:'); l = l[7:] if recente else l
         try:
             ch = id_canale(l)
             nome, vids = video_canale(ch, pagine) if ch else ('', [])
         except Exception as e:
             log('  canale non letto', l, str(e)[:100]); continue
         lunghi = [v for v in vids if mn <= v['sec'] <= mx]
+        if recente:   # altro canale del filone: solo i video usciti negli ultimi scout_giorni (default 90), dal piu' visto
+            lim_ = (dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=int(num(cfg.get('scout_giorni'), 90) or 90))).isoformat()
+            lunghi = [v for v in lunghi if v['pub'] >= lim_]
+            buoni = [v for v in lunghi if v['views'] >= min_views and v['id'] not in gia_link]
+            log(f'  {nome or l} (altro canale del filone, ultimi giorni): {len(buoni)} candidati'); cand += buoni; continue
         if ESPLOSI:   # 11 nov (Giorgio OK, metodo Reed): solo i video ESPLOSI di recente = molte piu' views della mediana del loro canale
             vv = sorted(v['views'] for v in lunghi) or [0]; med = max(1, vv[len(vv) // 2])
             limite = (dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=GIORNI)).isoformat()
