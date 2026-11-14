@@ -185,6 +185,9 @@ def copione():
     f = os.path.join(LAV, 'copione.json')
     if os.path.exists(f):
         log('copione ripreso'); return json.load(open(f))
+    if P.get('copione_da') and os.path.exists(os.path.join(QUI, P['copione_da'])):   # 14 nov: rifare un video con lo STESSO copione gia' approvato (niente Claude)
+        c = json.load(open(os.path.join(QUI, P['copione_da']))); log('copione riusato da', P['copione_da'])
+        json.dump(c, open(f, 'w'), ensure_ascii=False, indent=1); return c
     regole_auto = (' Per l\'auto: un SUV medio nuovo da circa 45.000 euro (salvo diverso titolo), comprato a rate.' if AUTO else '')
     prompt = f"""Scrivi il copione di un video YouTube italiano di 9-10 minuti ({MIN_PAROLE}-{MAX_PAROLE} parole parlate in tutto) per il canale "Costo Vero"
 ("Quanto costa DAVVERO possedere le cose?"). Argomento (dal file di produzione): "{TITOLO}" (il titolo finale va riscritto con la regola del titolo qui sotto). Cosa: {OGGETTO or TITOLO}. Voci di spesa da coprire: {VOCI_COSTO or 'quelle realistiche'}.
