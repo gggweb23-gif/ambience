@@ -180,7 +180,7 @@ if STRUTT:
 Our channel: "{P.get('channel_name')}". Write OUR title for a video on the same subject: SAME pattern (same kind of promise and twist, a number if it has one,
 same separators like - | : and the same rhythm) but with DIFFERENT words and a different angle on the same documented facts, so that nobody searching
 on YouTube would see the two titles as the same. Never reuse its distinctive phrase (e.g. "He Named One City" -> say it another way).
-Correct {P.get('language') or 'en'} spelling, max 90 characters, no emoji. Answer ONLY the title.""", modello='claude-sonnet-5-5', max_tokens=4000)
+Correct {P.get('language') or 'en'} spelling, max 90 characters, no emoji.{(' Angle of OUR channel (follow it): ' + str(P.get('angolo_titolo')).strip()) if str(P.get('angolo_titolo') or '').strip() else ''} Answer ONLY the title.""", modello='claude-sonnet-5-5', max_tokens=4000)
             _t = _t.strip().strip('"').strip()
             if 15 < len(_t) <= 100:
                 P['titolo'] = _t; log('titolo NOSTRO (struttura del competitor, parole nuove):', TITOLO_COMP, '->', P['titolo'])
@@ -502,6 +502,8 @@ log('impaginazione copertina:', _VAR, '| volto', LATO_V, '| scritta', 'in basso'
 # 8 nov (Giorgio, MANO LIBERA): non sempre il viso grande. Cambia anche l'inquadratura, su un giro di 4 giorni diverso da quello del lato (3):
 # le combinazioni si ripetono solo ogni 12 video e la copertina non e' mai uguale alla precedente.
 INQ = int(str(P.get('copertina_inquadratura') or __import__('datetime').date.today().toordinal() % 4)) % 4
+if STILE_COP != 'etichetta_rossa' and INQ == 2:   # 14 nov (Giorgio OK, dati Orbital): l'astronauta piccolo e lontano non funziona (CTR 0,7-1,8%) -> mezzo busto
+    INQ = 1
 INQUADRATURE = [
     ('primo piano', 'The face is big and sharp, head and shoulders filling the {V} 60% of the frame, strong readable emotion'),
     ('mezzo busto', 'Medium shot from the waist up: the person is doing something meaningful for the story (hands and objects visible), filling the {V} 55% of the frame, readable emotion'),
@@ -518,8 +520,9 @@ if STILE_COP == 'etichetta_rossa':
 else:
     PROMPT_COP = ('Use the reference photo only for the setting. ' + c.get('copertina_prompt', '') +
                   ' The astronaut is a FICTIONAL person who does not resemble any real astronaut. Unbranded suit and clothes: NO NASA logo, no agency insignia, '
-                  'no flags, no patches. Photorealistic cinematic film still, dramatic light, high contrast. '
-                  f'{INQ_TXT}. The {LATO_T} 40% darker and simple. No text, no letters, no logos.')
+                  'no flags, no patches. Photorealistic, bright and clean light, vivid natural colors (14 nov: le copertine scure fanno CTR basso), '
+                  'the astronaut looks into the camera with a clear human emotion (curious, scared, amazed), a personal moment of the story. '
+                  f'{INQ_TXT}. The {LATO_T} 40% simple and plain. No text, no letters, no logos.')
 def senza_bordi_neri(img):   # bande nere ai lati del fotogramma (pellicole d'epoca): via prima del ritocco
     g_ = img.convert('L'); w_, h_ = g_.size; px = g_.load()
     col = lambda x: sum(px[x, y] for y in range(0, h_, 8)) / len(range(0, h_, 8))
