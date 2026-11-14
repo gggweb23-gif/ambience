@@ -388,7 +388,7 @@ def grafica(im, sc, t, d, dati, passo_t, passo_d, passo_i):
                 scritta(im, (140 + x, 400), f"x {int(num(dd.get('anni')))} ANNI =", 60, GRIGIO, alpha=cl(k * 2))
             if STILE_VIDEO == 'A':   # il numero "sbatte": entra grande e rimbalza, con una scossa
                 dk = t - d * .35; sc_ = 1.6 - .6 * ease(dk / .25) if dk < .25 else 1.0
-                sx = int(16 * math.sin(dk * 60) * cl(1 - dk / .3))
+                sx = 0   # 14 nov: niente scossa (niente che tremi)
                 scritta(im, (140 + x + sx, 530), eur(tot * k), int(120 * sc_), R, anc='lm', alpha=cl(k * 2), maxw=int(780 * sc_))
             else:
                 scritta(im, (140 + x, 470), eur(tot * k), 120, R, alpha=cl(k * 2), maxw=780)
@@ -512,7 +512,7 @@ def rendi_scena(i):
     enc = subprocess.Popen(['ffmpeg', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-r', str(FPS), '-i', '-',
                             '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20', '-pix_fmt', 'yuv420p', out], stdin=subprocess.PIPE)
     # stile A: un taglio ogni ~2,5 s (anche sulla stessa immagine cambia inquadratura e direzione), scivolata veloce a ogni taglio
-    tagli = [(j * p + q * p / m, p / m, j) for j in range(n) for m in [max(1, round(p / 2.5))] for q in range(m)]
+    tagli = [(j * p, p, j) for j in range(n)]   # 14 nov (Giorgio): niente piu' tagli sulla STESSA immagine (sembrava che tremasse): scivolata solo quando l'immagine cambia davvero
     for k in range(int(round(d * FPS))):
         t = k / FPS; j = min(n - 1, int(t / p)); tl = t - j * p
         if STILE_VIDEO == 'A':
