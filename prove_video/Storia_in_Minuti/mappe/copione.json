@@ -1,2991 +1,3128 @@
 {
- "titolo": "Haiti Era la Colonia Più Ricca. Perché Oggi È Più Povera della Vicina?",
+ "titolo": "Come il Paese Più Ricco del Mondo Ha Perso il 90% del Suo PIL",
  "numero": {
-  "testo": "x7",
-  "sotto": "QUANTO È PIÙ RICCO UN DOMINICANO"
+  "testo": "-90%",
+  "sotto": "IL CROLLO DEL PAESE PIÙ RICCO"
  },
  "copertina": {
-  "testo": "PERCHÉ?",
+  "testo": "-90%",
   "oro": [
-   "DOM"
+   "NRU"
   ],
   "verde": [
-   "HTI"
+   "AUS"
   ],
   "vista": {
-   "lon": -72.5,
-   "lat": 19,
-   "larghezza": 9
+   "lon": 166.9,
+   "lat": -0.5,
+   "larghezza": 12
   }
  },
- "descrizione": "Una sola isola, due mondi. Dallo spazio si vede una linea netta: da una parte foreste verdi, dall'altra terra spoglia. Haiti e Repubblica Dominicana condividono sole, oceano e uragani, ma oggi un dominicano medio è circa sette volte più ricco di un haitiano. Come è successo?\n\nIn questo viaggio con mappe animate scopriamo le cinque ferite storiche che hanno separato i due paesi: due colonizzatori diversi, un riscatto da 150 milioni di franchi, un muro invisibile di vento, la corsa al carbone di legna e due dittature dal destino opposto.",
+ "descrizione": "Nauru è grande otto miglia quadrate, ma ha dato al mondo una delle lezioni economiche più dure di sempre. Per un breve momento è stato il paese più ricco del pianeta, grazie a un tesoro fatto di guano e microrganismi marini. Poi il tesoro è finito.\n\nIn questo viaggio con le mappe animate scopri come Nauru è diventata ricchissima, quali errori ha commesso e come ha perso quasi tutto: dalle Lamborghini all'obesità, dalle banche offshore al musical su Leonardo, fino ai centri di detenzione. Una storia vera sulla maledizione delle risorse naturali.",
  "tag": [
-  "Haiti",
-  "Repubblica Dominicana",
-  "Hispaniola",
-  "storia di Haiti",
-  "rivoluzione haitiana",
-  "storia con mappe animate",
-  "colonialismo",
-  "debito di Haiti",
-  "deforestazione",
-  "Caraibi",
-  "documentario storia",
-  "perché Haiti è povera"
+  "Nauru",
+  "storia di Nauru",
+  "paese più ricco del mondo",
+  "fosfato",
+  "maledizione delle risorse",
+  "economia spiegata",
+  "crollo economico",
+  "mappe animate",
+  "storia in minuti",
+  "Pacifico",
+  "malattia olandese",
+  "PIL"
  ],
  "scene": [
   {
-   "testo": "Una linea dritta taglia un'isola a metà. Da un lato foreste fitte, dall'altro terra nuda. Una colonia da record, un riscatto infinito, due destini opposti. Perché?",
+   "testo": "Un'isola grande come un parco di Manhattan. Il paese più ricco del mondo. Poi il crollo: novanta per cento di PIL in meno, e un musical flop.",
    "anteprima": true,
    "vista": {
-    "lon": -72.5,
-    "lat": 19,
-    "larghezza": 9
+    "lon": 166.9,
+    "lat": -0.5,
+    "larghezza": 10
    },
    "epoca": "oggi",
    "oro": [
-    "DOM"
+    "NRU"
    ],
-   "verde": [
-    "HTI"
-   ],
+   "verde": [],
    "eventi": [
     {
-     "tipo": "confine",
-     "punti": [
-      [
-       -71.7,
-       19.9
-      ],
-      [
-       -71.7,
-       18.0
-      ]
-     ],
-     "parola": "linea"
-    },
-    {
-     "tipo": "icona",
-     "icona": "forest",
-     "lon": -70.8,
-     "lat": 19.0,
-     "parola": "foreste"
-    },
-    {
-     "tipo": "icona",
-     "icona": "sugar_cane",
-     "lon": -72.7,
-     "lat": 19.2,
-     "parola": "colonia"
+     "tipo": "numero",
+     "testo": "8 MI²",
+     "lon": 166.93,
+     "lat": -0.52,
+     "parola": "parco"
     },
     {
      "tipo": "prezzo",
-     "testo": "150M",
-     "sotto": "FRANCHI D'ORO",
-     "ricco": false,
-     "parola": "riscatto"
+     "testo": "$88.000",
+     "sotto": "NAURU · A PERSONA",
+     "ricco": true,
+     "parola": "ricco"
     },
     {
      "tipo": "scritta",
-     "testo": "PERCHÉ?",
-     "parola": "Perché"
+     "testo": "-90%",
+     "parola": "novanta"
     }
    ],
    "musica": "mistero",
    "stacco": false,
    "pin": {
-    "lon": -71.0,
-    "lat": 19.9,
+    "lon": 167.1,
+    "lat": -0.3,
     "faccia": "stupito"
    }
   },
   {
-   "testo": "Guarda questa isola dallo spazio: sembra un'illusione ottica. Una linea quasi perfetta, da nord a sud, divide il verde dal marrone.",
+   "testo": "Come ha fatto una roccia di escrementi a rendere ricchi gli abitanti? E come ha fatto a lasciarli più poveri di prima?",
+   "anteprima": true,
+   "vista": {
+    "lon": 166.9,
+    "lat": -0.5,
+    "larghezza": 14
+   },
+   "epoca": "oggi",
+   "oro": [
+    "NRU"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "mine",
+     "lon": 166.92,
+     "lat": -0.53,
+     "parola": "roccia"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": 166.95,
+     "lat": -0.5,
+     "parola": "poveri"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 167.2,
+    "lat": -0.2,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Questa è la Repubblica di Nauru. Otto miglia quadrate, meno di undicimila abitanti. È il terzo stato più piccolo del pianeta, dopo Monaco e la Città del Vaticano.",
    "anteprima": false,
    "vista": {
-    "lon": -72.5,
-    "lat": 19,
+    "lon": 166.9,
+    "lat": -0.5,
     "larghezza": 8
    },
    "epoca": "oggi",
    "oro": [
-    "DOM"
+    "NRU"
    ],
-   "verde": [
-    "HTI"
-   ],
-   "eventi": [
-    {
-     "tipo": "confine",
-     "punti": [
-      [
-       -71.7,
-       19.9
-      ],
-      [
-       -71.7,
-       18.0
-      ]
-     ],
-     "parola": "linea"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "HISPANIOLA",
-     "lon": -72.0,
-     "lat": 19.0,
-     "parola": "isola"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Un'isola, due colori",
-     "parola": "verde"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -73.5,
-    "lat": 20.0,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "A destra il verde è intenso, con foreste scure e valli piene d'acqua. A sinistra, di colpo, il verde finisce e il suolo diventa secco e spoglio.",
-   "anteprima": false,
-   "vista": {
-    "lon": -72,
-    "lat": 19,
-    "larghezza": 6
-   },
-   "epoca": "oggi",
-   "oro": [
-    "DOM"
-   ],
-   "verde": [
-    "HTI"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "forest",
-     "lon": -70.6,
-     "lat": 19.0,
-     "parola": "foreste"
-    },
-    {
-     "tipo": "icona",
-     "icona": "mountain",
-     "lon": -73.0,
-     "lat": 19.0,
-     "parola": "secco"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Come cancellato con una gomma",
-     "parola": "spoglio"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -71.0,
-    "lat": 20.0,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "È un'unica isola, Hispaniola. A destra c'è la Repubblica Dominicana, con resort sul mare, autostrade, grattacieli e un'economia che cresce.",
-   "anteprima": false,
-   "vista": {
-    "lon": -70.5,
-    "lat": 18.9,
-    "larghezza": 7
-   },
-   "epoca": "oggi",
-   "oro": [
-    "DOM"
-   ],
-   "verde": [
-    "HTI"
-   ],
+   "verde": [],
    "eventi": [
     {
      "tipo": "contorno",
-     "paese": "DOM",
-     "parola": "Repubblica"
+     "paese": "NRU",
+     "parola": "Nauru"
     },
     {
-     "tipo": "icona",
-     "icona": "flag:DO",
-     "lon": -70.0,
-     "lat": 19.0,
-     "parola": "Dominicana"
+     "tipo": "conta",
+     "valore": 11000,
+     "prefisso": "<",
+     "suffisso": "",
+     "sotto": "ABITANTI",
+     "parola": "undicimila"
     },
     {
-     "tipo": "icona",
-     "icona": "port",
-     "lon": -68.4,
-     "lat": 18.5,
-     "parola": "resort"
+     "tipo": "folla",
+     "personaggio": "family",
+     "n": 4,
+     "lon": 166.93,
+     "lat": -0.52,
+     "parola": "abitanti"
     },
     {
      "tipo": "nota",
-     "testo": "Economia in crescita",
-     "parola": "cresce"
+     "testo": "Terzo stato più piccolo",
+     "parola": "terzo"
     }
    ],
    "musica": "curiosita",
    "stacco": false,
    "pin": {
-    "lon": -71.5,
-    "lat": 20.0,
+    "lon": 167.1,
+    "lat": -0.4,
     "faccia": "normale"
    }
   },
   {
-   "testo": "A sinistra c'è Haiti: uno dei paesi più poveri e fragili del mondo, con bande armate, fame, infrastrutture a pezzi e collasso politico.",
+   "testo": "Ma questa isola nel Pacifico del Sud ha vissuto il tracollo economico più estremo di sempre. Ed è una lezione per tutti gli economisti.",
    "anteprima": false,
    "vista": {
-    "lon": -72.8,
-    "lat": 18.9,
-    "larghezza": 6
+    "lon": 170,
+    "lat": -5,
+    "larghezza": 40
    },
    "epoca": "oggi",
    "oro": [
-    "DOM"
+    "NRU"
    ],
-   "verde": [
-    "HTI"
-   ],
+   "verde": [],
    "eventi": [
     {
-     "tipo": "contorno",
-     "paese": "HTI",
-     "parola": "Haiti"
+     "tipo": "etichetta",
+     "testo": "PACIFICO DEL SUD",
+     "lon": 175,
+     "lat": -10,
+     "parola": "Pacifico"
     },
     {
      "tipo": "icona",
-     "icona": "flag:HT",
-     "lon": -72.8,
-     "lat": 19.0,
-     "parola": "povero"
-    },
-    {
-     "tipo": "icona",
-     "icona": "swords",
-     "lon": -72.3,
-     "lat": 18.55,
-     "parola": "bande"
+     "icona": "chart_down",
+     "lon": 166.9,
+     "lat": -0.5,
+     "parola": "tracollo"
     },
     {
      "tipo": "nota",
-     "testo": "Violenza, fame, collasso",
-     "parola": "fame"
+     "testo": "Il crollo più estremo",
+     "parola": "estremo"
     }
    ],
    "musica": "tensione",
    "stacco": false,
    "pin": {
-    "lon": -71.5,
-    "lat": 20.0,
+    "lon": 180,
+    "lat": 5,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Pensa che assurdo. Stesso sole, stesso oceano, stessi uragani. Le due capitali sono separate da poche ore di macchina.",
+   "testo": "Le risorse naturali possono fare la fortuna di un paese. Pensa al petrolio del Golfo Persico. Ma gestite male, fanno più danni che altro.",
    "anteprima": false,
    "vista": {
-    "lon": -71.5,
-    "lat": 18.8,
-    "larghezza": 5
+    "lon": 52,
+    "lat": 26,
+    "larghezza": 30
    },
    "epoca": "oggi",
    "oro": [
-    "DOM"
+    "SAU",
+    "ARE",
+    "QAT",
+    "KWT"
    ],
-   "verde": [
-    "HTI"
-   ],
+   "verde": [],
    "eventi": [
     {
-     "tipo": "etichetta",
-     "testo": "PORT-AU-PRINCE",
-     "lon": -72.34,
-     "lat": 18.54,
-     "parola": "capitali"
+     "tipo": "icona",
+     "icona": "oil_derrick",
+     "lon": 50,
+     "lat": 26,
+     "parola": "petrolio"
     },
     {
-     "tipo": "etichetta",
-     "testo": "SANTO DOMINGO",
-     "lon": -69.9,
-     "lat": 18.48,
-     "parola": "capitali"
+     "tipo": "icona",
+     "icona": "money_bag",
+     "lon": 54,
+     "lat": 24,
+     "parola": "fortuna"
     },
     {
-     "tipo": "freccia",
-     "da": [
-      -72.34,
-      18.54
-     ],
-     "a": [
-      -69.9,
-      18.48
-     ],
-     "icona": "cargo_ship",
-     "parola": "macchina"
+     "tipo": "nota",
+     "testo": "Risorse: fortuna o condanna?",
+     "parola": "danni"
     }
    ],
-   "musica": "",
+   "musica": "curiosita",
    "stacco": false,
    "pin": {
-    "lon": -71.0,
-    "lat": 19.6,
-    "faccia": "stupito"
+    "lon": 60,
+    "lat": 32,
+    "faccia": "normale"
    }
   },
   {
-   "testo": "Eppure oggi un dominicano medio è circa sette volte più ricco di un haitiano. Come può metà paradiso diventare un polo turistico e l'altra metà una trappola?",
+   "testo": "Gli economisti la chiamano maledizione delle risorse naturali. E Nauru è forse il caso di studio più chiaro che esista.",
    "anteprima": false,
    "vista": {
-    "lon": -71.5,
-    "lat": 19,
-    "larghezza": 6
+    "lon": 166.9,
+    "lat": -0.5,
+    "larghezza": 20
    },
    "epoca": "oggi",
    "oro": [
-    "DOM"
+    "NRU"
    ],
-   "verde": [
-    "HTI"
-   ],
+   "verde": [],
    "eventi": [
     {
-     "tipo": "solleva",
-     "paese": [
-      "DOM"
-     ],
-     "volte": 7,
-     "testo": "x7",
-     "colore": "oro",
-     "parola": "sette"
+     "tipo": "scritta",
+     "testo": "MALEDIZIONE",
+     "parola": "maledizione"
     },
     {
-     "tipo": "prezzo",
-     "testo": "$11,000",
-     "sotto": "DOMINICANA · A PERSONA",
-     "ricco": true,
-     "parola": "dominicano"
+     "tipo": "icona",
+     "icona": "question",
+     "lon": 166.9,
+     "lat": -0.5,
+     "parola": "caso"
     },
     {
-     "tipo": "prezzo",
-     "testo": "$1,700",
-     "sotto": "HAITI · A PERSONA",
-     "ricco": false,
-     "parola": "haitiano"
+     "tipo": "nota",
+     "testo": "Un caso di studio perfetto",
+     "parola": "chiaro"
+    }
+   ],
+   "musica": "mistero",
+   "stacco": false,
+   "pin": {
+    "lon": 168,
+    "lat": 1.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Da zero a miliardario, e poi di nuovo giù, peggio di prima. Come è diventata la più ricca? Quali errori ha fatto? E perché oggi sta peggio?",
+   "anteprima": false,
+   "vista": {
+    "lon": 166.9,
+    "lat": -0.5,
+    "larghezza": 16
+   },
+   "epoca": "oggi",
+   "oro": [
+    "NRU"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "chart_up",
+     "lon": 166.88,
+     "lat": -0.5,
+     "parola": "miliardario"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": 166.98,
+     "lat": -0.55,
+     "parola": "giù"
     },
     {
      "tipo": "scritta",
      "testo": "PERCHÉ?",
-     "parola": "Come"
+     "parola": "perché"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Tre domande, una storia",
+     "parola": "domande"
     }
    ],
-   "musica": "mistero",
-   "stacco": true,
+   "musica": "tensione",
+   "stacco": false,
    "pin": {
-    "lon": -70.0,
-    "lat": 20.0,
+    "lon": 167.5,
+    "lat": 0.5,
     "faccia": "stupito"
    }
   },
   {
-   "testo": "La risposta non è sfortuna né caso. La differenza è stata scavata nella terra da cinque ferite storiche profonde.",
+   "testo": "Nel 1789 una nave britannica passa davanti a un altopiano verde, palme ondeggianti e spiagge bianche. Tanta bellezza che la chiamano Isola Piacevole.",
    "anteprima": false,
    "vista": {
-    "lon": -72,
-    "lat": 19,
+    "lon": 166.9,
+    "lat": -0.5,
     "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [
-    "DOM"
-   ],
-   "verde": [
-    "HTI"
-   ],
-   "eventi": [
-    {
-     "tipo": "scritta",
-     "testo": "5 FERITE",
-     "parola": "cinque"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Non è stato il caso",
-     "parola": "caso"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -74.5,
-    "lat": 21.0,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Due padroni coloniali diversi. Un riscatto che ha richiesto un secolo. Un muro invisibile di vento. La ricerca di combustibile per cucinare. E due dittatori dal destino opposto.",
-   "anteprima": false,
-   "vista": {
-    "lon": -72,
-    "lat": 19,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [
-    "DOM"
-   ],
-   "verde": [
-    "HTI"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "crown",
-     "lon": -70.5,
-     "lat": 19.0,
-     "parola": "padroni"
-    },
-    {
-     "tipo": "icona",
-     "icona": "banknotes",
-     "lon": -72.5,
-     "lat": 19.2,
-     "parola": "riscatto"
-    },
-    {
-     "tipo": "icona",
-     "icona": "mountain",
-     "lon": -71.7,
-     "lat": 19.0,
-     "parola": "vento"
-    },
-    {
-     "tipo": "icona",
-     "icona": "forest",
-     "lon": -73.0,
-     "lat": 18.4,
-     "parola": "combustibile"
-    },
-    {
-     "tipo": "icona",
-     "icona": "swords",
-     "lon": -70.0,
-     "lat": 18.8,
-     "parola": "dittatori"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -74.5,
-    "lat": 21.0,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Si parte da chi è arrivato per primo. Alla fine del Quattrocento Cristoforo Colombo sbarca a Hispaniola e rivendica tutta l'isola per la Spagna.",
-   "anteprima": false,
-   "vista": {
-    "lon": -60,
-    "lat": 28,
-    "larghezza": 60
    },
    "epoca": "antica",
-   "oro": [
-    "ESP"
-   ],
+   "oro": [],
    "verde": [],
    "eventi": [
     {
      "tipo": "anno",
-     "testo": "1492",
-     "parola": "Quattrocento"
-    },
-    {
-     "tipo": "personaggio",
-     "nome": "Cristoforo Colombo",
-     "descrizione": "navigatore genovese del Quattrocento, cappello e mantello",
-     "parola": "Colombo"
+     "testo": "1789",
+     "parola": "1789"
     },
     {
      "tipo": "freccia",
      "da": [
-      -6,
-      37
+      150,
+      -10
      ],
      "a": [
-      -72,
-      19
+      166.8,
+      -0.5
      ],
      "icona": "galleon",
-     "parola": "sbarca"
+     "parola": "nave"
+    },
+    {
+     "tipo": "icona",
+     "icona": "forest",
+     "lon": 166.92,
+     "lat": -0.52,
+     "parola": "palme"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "ISOLA PIACEVOLE",
+     "lon": 166.95,
+     "lat": -0.45,
+     "parola": "Piacevole"
     },
     {
      "tipo": "nota",
-     "testo": "Colombo rivendica l'isola",
-     "parola": "rivendica"
+     "testo": "Scoperta dagli europei",
+     "parola": "bellezza"
     }
    ],
-   "musica": "epico",
+   "musica": "curiosita",
    "stacco": false,
    "pin": {
-    "lon": -45,
-    "lat": 40,
+    "lon": 167.4,
+    "lat": -0.2,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Ma gli spagnoli si annoiano in fretta. In Messico e in Perù trovano montagne di oro e argento, così prendono le navi migliori e se ne vanno.",
+   "testo": "Qualche decennio dopo arrivano i primi coloni. L'isola è un terzo di Manhattan. Si pensa che abbia solo noci di cocco e maiali.",
    "anteprima": false,
    "vista": {
-    "lon": -85,
-    "lat": 15,
-    "larghezza": 70
+    "lon": 166.9,
+    "lat": -0.5,
+    "larghezza": 9
    },
    "epoca": "antica",
-   "oro": [
-    "MEX",
-    "PER"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "gold_coins",
-     "lon": -99,
-     "lat": 19.4,
-     "parola": "Messico"
-    },
-    {
-     "tipo": "icona",
-     "icona": "silver_bars",
-     "lon": -76,
-     "lat": -10,
-     "parola": "Perù"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -72,
-      19
-     ],
-     "a": [
-      -99,
-      19.4
-     ],
-     "icona": "galleon",
-     "parola": "navi"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Oro e argento altrove",
-     "parola": "argento"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -60,
-    "lat": 30,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "I due terzi orientali dell'isola, oggi Repubblica Dominicana, diventano un angolo dimenticato. Restano poche migliaia di coloni, che allevano bestiame su grandi pianure.",
-   "anteprima": false,
-   "vista": {
-    "lon": -70.5,
-    "lat": 18.9,
-    "larghezza": 6
-   },
-   "epoca": "antica",
-   "oro": [
-    "DOM"
-   ],
+   "oro": [],
    "verde": [],
    "eventi": [
     {
      "tipo": "folla",
      "personaggio": "colonist",
      "n": 4,
-     "lon": -70.2,
-     "lat": 18.8,
+     "lon": 166.93,
+     "lat": -0.52,
      "parola": "coloni"
+    },
+    {
+     "tipo": "numero",
+     "testo": "1/3 MANHATTAN",
+     "lon": 166.9,
+     "lat": -0.48,
+     "parola": "Manhattan"
     },
     {
      "tipo": "icona",
      "icona": "cattle",
-     "lon": -69.2,
-     "lat": 18.9,
-     "parola": "bestiame"
-    },
-    {
-     "tipo": "conta",
-     "valore": 10000,
-     "prefisso": "~",
-     "suffisso": "",
-     "sotto": "COLONI SPAGNOLI",
-     "parola": "migliaia"
+     "lon": 166.95,
+     "lat": -0.55,
+     "parola": "maiali"
     },
     {
      "tipo": "nota",
-     "testo": "Un angolo dimenticato",
-     "parola": "dimenticato"
+     "testo": "Solo cocco e maiali",
+     "parola": "cocco"
     }
    ],
    "musica": "quotidiano",
    "stacco": false,
    "pin": {
-    "lon": -71.8,
-    "lat": 19.8,
+    "lon": 167.3,
+    "lat": -0.2,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Intanto pirati e mercanti francesi si insinuano senza clamore nel terzo occidentale, l'attuale Haiti. E la Francia non ignora quella terra.",
+   "testo": "Poi un geologo britannico scopre il fosfato di alta qualità. Non petrolio: guano di uccelli marini e alghe fossilizzate. Eppure vale oro.",
    "anteprima": false,
    "vista": {
-    "lon": -73,
-    "lat": 19,
-    "larghezza": 6
-   },
-   "epoca": "antica",
-   "oro": [
-    "FRA"
-   ],
-   "verde": [
-    "HTI"
-   ],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      2.3,
-      48.8
-     ],
-     "a": [
-      -73,
-      19.4
-     ],
-     "icona": "galleon",
-     "parola": "francesi"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "merchant",
-     "n": 4,
-     "lon": -72.8,
-     "lat": 19.6,
-     "parola": "mercanti"
-    },
-    {
-     "tipo": "nota",
-     "testo": "La Francia entra a ovest",
-     "parola": "occidentale"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -71.5,
-    "lat": 20.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Anzi, ne fa la macchina da soldi più brutale ed efficiente mai vista. La chiamano Saint-Domingue: ogni metro fertile diventa piantagione di zucchero, caffè e indaco.",
-   "anteprima": false,
-   "vista": {
-    "lon": -72.8,
-    "lat": 19.2,
-    "larghezza": 5
-   },
-   "epoca": "antica",
-   "oro": [
-    "HTI"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "etichetta",
-     "testo": "SAINT-DOMINGUE",
-     "lon": -72.8,
-     "lat": 19.3,
-     "parola": "Saint-Domingue"
-    },
-    {
-     "tipo": "icona",
-     "icona": "sugar_cane",
-     "lon": -72.5,
-     "lat": 19.5,
-     "parola": "zucchero"
-    },
-    {
-     "tipo": "icona",
-     "icona": "coffee_sack",
-     "lon": -73.2,
-     "lat": 18.9,
-     "parola": "caffè"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Piantagioni ovunque",
-     "parola": "piantagione"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": -71.3,
-    "lat": 20.1,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Per spremere il massimo profitto, la Francia importa quasi 800.000 africani ridotti in schiavitù, in condizioni così crudeli che centinaia di migliaia muoiono di fatica in pochi anni.",
-   "anteprima": false,
-   "vista": {
-    "lon": -30,
-    "lat": 10,
-    "larghezza": 100
+    "lon": 166.9,
+    "lat": -0.5,
+    "larghezza": 8
    },
    "epoca": "antica",
    "oro": [],
-   "verde": [
-    "HTI"
-   ],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      -5,
-      10
-     ],
-     "a": [
-      -72.8,
-      19.2
-     ],
-     "icona": "cargo_ship",
-     "parola": "importa"
-    },
-    {
-     "tipo": "conta",
-     "valore": 800000,
-     "prefisso": "~",
-     "suffisso": "",
-     "sotto": "AFRICANI RIDOTTI IN SCHIAVITÙ",
-     "parola": "800.000"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "native_worker",
-     "n": 5,
-     "lon": -72.6,
-     "lat": 19.3,
-     "parola": "schiavitù"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Lavorati fino alla morte",
-     "parola": "muoiono"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": -50,
-    "lat": 30,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Alla fine del Settecento questa piccola colonia produce oltre il 40 per cento dello zucchero e il 60 per cento del caffè consumati in Europa.",
-   "anteprima": false,
-   "vista": {
-    "lon": -35,
-    "lat": 28,
-    "larghezza": 90
-   },
-   "epoca": "antica",
-   "oro": [
-    "HTI"
-   ],
    "verde": [],
    "eventi": [
     {
-     "tipo": "anno",
-     "testo": "1780",
-     "parola": "Settecento"
+     "tipo": "personaggio",
+     "nome": "Geologo britannico",
+     "descrizione": "early 1900s British geologist, pith helmet, notebook",
+     "parola": "geologo"
     },
     {
-     "tipo": "numero",
-     "testo": "40%",
-     "lon": -72.8,
-     "lat": 19.3,
-     "parola": "40"
+     "tipo": "icona",
+     "icona": "mine",
+     "lon": 166.93,
+     "lat": -0.52,
+     "parola": "fosfato"
     },
     {
-     "tipo": "numero",
-     "testo": "60%",
-     "lon": -72.0,
-     "lat": 22,
-     "parola": "60"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -72.8,
-      19.5
-     ],
-     "a": [
-      2.3,
-      48.8
-     ],
-     "icona": "cargo_ship",
-     "parola": "Europa"
+     "tipo": "scritta",
+     "testo": "GUANO",
+     "parola": "guano"
     },
     {
      "tipo": "nota",
-     "testo": "Zucchero e caffè d'Europa",
-     "parola": "caffè"
+     "testo": "Guano fossile: valeva oro",
+     "parola": "oro"
     }
    ],
-   "musica": "",
-   "stacco": false,
+   "musica": "mistero",
+   "stacco": true,
    "pin": {
-    "lon": -55,
-    "lat": 42,
+    "lon": 167.3,
+    "lat": -0.3,
     "faccia": "stupito"
    }
   },
   {
-   "testo": "Era la colonia più ricca del pianeta. Ma era costruita interamente su sangue, torture e miseria umana.",
+   "testo": "Serve per i fertilizzanti, ma anche per cosmetici e mangimi. Intorno al 1900, l'ottanta per cento dell'isola era ricco di questo minerale.",
    "anteprima": false,
    "vista": {
-    "lon": -72.8,
-    "lat": 19.2,
-    "larghezza": 5
+    "lon": 166.9,
+    "lat": -0.5,
+    "larghezza": 8
    },
    "epoca": "antica",
-   "oro": [
-    "HTI"
-   ],
+   "oro": [],
    "verde": [],
    "eventi": [
     {
-     "tipo": "scritta",
-     "testo": "LA PIÙ RICCA",
-     "parola": "ricca"
+     "tipo": "icona",
+     "icona": "wheat",
+     "lon": 166.88,
+     "lat": -0.5,
+     "parola": "fertilizzanti"
     },
     {
-     "tipo": "colonna",
-     "testo": "SAINT-DOMINGUE",
-     "valore": 1.0,
-     "lon": -72.8,
-     "lat": 19.3,
-     "parola": "ricca"
+     "tipo": "griglia",
+     "paese": [
+      "NRU"
+     ],
+     "pieni": 0.8,
+     "testo": "80% FOSFATO",
+     "colore": "oro",
+     "parola": "ottanta"
+    },
+    {
+     "tipo": "anno",
+     "testo": "1900",
+     "parola": "1900"
     },
     {
      "tipo": "nota",
-     "testo": "Ricchezza costruita sul sangue",
-     "parola": "sangue"
+     "testo": "Nutre il mondo che cresce",
+     "parola": "cosmetici"
     }
    ],
-   "musica": "malinconia",
-   "stacco": true,
+   "musica": "curiosita",
+   "stacco": false,
    "pin": {
-    "lon": -71.5,
-    "lat": 20.1,
+    "lon": 167.3,
+    "lat": -0.2,
     "faccia": "normale"
    }
   },
   {
-   "testo": "E questo ci porta alla seconda ferita: il prezzo della libertà. Nel 1791 gli schiavi di Haiti dicono basta e si ribellano.",
+   "testo": "Sembra disgustoso, ma sfamare una popolazione mondiale in crescita valeva moltissimo. I diritti di estrazione finiscono alla Germania, che governa l'isola.",
    "anteprima": false,
    "vista": {
-    "lon": -72.8,
-    "lat": 19.5,
-    "larghezza": 5
+    "lon": 150,
+    "lat": -10,
+    "larghezza": 120
    },
    "epoca": "antica",
-   "oro": [],
+   "oro": [
+    "DEU"
+   ],
    "verde": [
-    "HTI"
+    "NRU"
    ],
    "eventi": [
     {
-     "tipo": "anno",
-     "testo": "1791",
-     "parola": "1791"
+     "tipo": "contorno",
+     "paese": "DEU",
+     "parola": "Germania"
     },
     {
-     "tipo": "folla",
-     "personaggio": "native_worker",
-     "n": 6,
-     "lon": -72.7,
-     "lat": 19.7,
-     "parola": "schiavi"
+     "tipo": "freccia",
+     "da": [
+      10,
+      51
+     ],
+     "a": [
+      166.9,
+      -0.5
+     ],
+     "icona": "cargo_ship",
+     "parola": "diritti"
     },
     {
      "tipo": "icona",
-     "icona": "swords",
-     "lon": -72.4,
-     "lat": 19.7,
-     "parola": "ribellano"
+     "icona": "scroll_law",
+     "lon": 166.9,
+     "lat": -0.5,
+     "parola": "estrazione"
     },
     {
      "tipo": "nota",
-     "testo": "Seconda ferita: il riscatto",
-     "parola": "libertà"
+     "testo": "Diritti venduti alla Germania",
+     "parola": "Germania"
     }
    ],
    "musica": "epico",
    "stacco": false,
    "pin": {
-    "lon": -71.5,
-    "lat": 20.3,
+    "lon": 120,
+    "lat": 20,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Lanciano l'unica rivoluzione di schiavi riuscita nella storia. Battono i coloni francesi, poi l'esercito britannico, infine le truppe scelte di Napoleone.",
+   "testo": "Negli anni seguenti partono circa ottanta milioni di tonnellate. Porti, impianti e industrie spuntano su una striscia di terra poco più grande di Central Park.",
    "anteprima": false,
    "vista": {
-    "lon": -60,
-    "lat": 30,
-    "larghezza": 80
+    "lon": 166.9,
+    "lat": -0.5,
+    "larghezza": 8
    },
    "epoca": "antica",
    "oro": [],
    "verde": [
-    "HTI"
+    "NRU"
    ],
    "eventi": [
     {
-     "tipo": "scritta",
-     "testo": "UNICA",
-     "parola": "unica"
+     "tipo": "conta",
+     "valore": 80,
+     "prefisso": "~",
+     "suffisso": "M",
+     "sotto": "TONNELLATE ESPORTATE",
+     "parola": "ottanta"
     },
     {
      "tipo": "icona",
-     "icona": "flag:FR",
-     "lon": -72.4,
-     "lat": 19.5,
-     "parola": "francesi"
+     "icona": "port",
+     "lon": 166.91,
+     "lat": -0.54,
+     "parola": "Porti"
     },
     {
      "tipo": "icona",
-     "icona": "flag:GB",
-     "lon": -73.2,
-     "lat": 18.4,
-     "parola": "britannico"
+     "icona": "factory",
+     "lon": 166.94,
+     "lat": -0.5,
+     "parola": "impianti"
     },
     {
-     "tipo": "personaggio",
-     "nome": "Napoleone Bonaparte",
-     "descrizione": "imperatore francese, cappello bicorno, giubba blu",
-     "parola": "Napoleone"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Sconfitti tre eserciti",
-     "parola": "battono"
+     "tipo": "folla",
+     "personaggio": "miner",
+     "n": 5,
+     "lon": 166.93,
+     "lat": -0.52,
+     "parola": "terra"
     }
    ],
    "musica": "azione",
    "stacco": false,
    "pin": {
-    "lon": -50,
-    "lat": 42,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Nel 1804 Haiti si dichiara repubblica nera libera e indipendente. Fu una delle vittorie più eroiche per la libertà umana.",
-   "anteprima": false,
-   "vista": {
-    "lon": -72.8,
-    "lat": 19,
-    "larghezza": 5
-   },
-   "epoca": "antica",
-   "oro": [
-    "HTI"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1804",
-     "parola": "1804"
-    },
-    {
-     "tipo": "contorno",
-     "paese": "HTI",
-     "parola": "Haiti"
-    },
-    {
-     "tipo": "icona",
-     "icona": "flag:HT",
-     "lon": -72.5,
-     "lat": 19.2,
-     "parola": "libera"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Repubblica nera libera",
-     "parola": "repubblica"
-    }
-   ],
-   "musica": "trionfo",
-   "stacco": true,
-   "pin": {
-    "lon": -71.5,
-    "lat": 20.2,
+    "lon": 167.3,
+    "lat": -0.2,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Ma il resto del mondo fece in modo che Haiti pagasse caro. Gli imperi bianchi dell'epoca vivevano di schiavitù: Stati Uniti, Gran Bretagna, Francia.",
+   "testo": "Poi la Prima guerra mondiale. La Germania è impegnata a combattere, e l'Australia ne approfitta: si prende Nauru per sé.",
    "anteprima": false,
    "vista": {
-    "lon": -50,
-    "lat": 40,
-    "larghezza": 100
+    "lon": 150,
+    "lat": -15,
+    "larghezza": 70
    },
    "epoca": "antica",
    "oro": [
-    "USA",
-    "GBR",
-    "FRA"
+    "AUS"
    ],
    "verde": [
-    "HTI"
+    "NRU"
    ],
    "eventi": [
     {
-     "tipo": "icona",
-     "icona": "flag:US",
-     "lon": -95,
-     "lat": 38,
-     "parola": "Stati"
+     "tipo": "anno",
+     "testo": "1914",
+     "parola": "Prima"
     },
     {
      "tipo": "icona",
-     "icona": "flag:GB",
-     "lon": -2,
-     "lat": 53,
-     "parola": "Gran"
+     "icona": "swords",
+     "lon": 10,
+     "lat": 50,
+     "parola": "guerra"
     },
     {
-     "tipo": "icona",
-     "icona": "flag:FR",
-     "lon": 2.3,
-     "lat": 47,
-     "parola": "Francia"
+     "tipo": "freccia",
+     "da": [
+      135,
+      -25
+     ],
+     "a": [
+      166.9,
+      -0.5
+     ],
+     "icona": "cargo_ship",
+     "parola": "prende"
     },
     {
      "tipo": "nota",
-     "testo": "Imperi fondati sulla schiavitù",
-     "parola": "schiavitù"
+     "testo": "L'Australia si prende Nauru",
+     "parola": "approfitta"
     }
    ],
    "musica": "tensione",
    "stacco": false,
    "pin": {
-    "lon": -40,
-    "lat": 25,
+    "lon": 120,
+    "lat": -5,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Temevano che i loro schiavi vedessero Haiti e prendessero idee. Così la isolarono come un contagio: gli Stati Uniti non la riconobbero per quasi sessant'anni.",
+   "testo": "L'isola è ormai solo una miniera offshore. Il fosfato va a prezzo scontato, i famosi mates rates, ai contadini di Australia, Nuova Zelanda e Gran Bretagna.",
    "anteprima": false,
    "vista": {
-    "lon": -80,
-    "lat": 25,
-    "larghezza": 50
+    "lon": 150,
+    "lat": -20,
+    "larghezza": 100
    },
    "epoca": "antica",
    "oro": [
-    "USA"
+    "AUS",
+    "NZL",
+    "GBR"
    ],
    "verde": [
-    "HTI"
+    "NRU"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      166.9,
+      -0.5
+     ],
+     "a": [
+      148,
+      -33
+     ],
+     "icona": "cargo_ship",
+     "parola": "fosfato"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      166.9,
+      -0.5
+     ],
+     "a": [
+      174,
+      -40
+     ],
+     "icona": "cargo_ship",
+     "parola": "Zelanda"
+    },
+    {
+     "tipo": "icona",
+     "icona": "farm",
+     "lon": 148,
+     "lat": -33,
+     "parola": "contadini"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Prezzi scontati per i coloni",
+     "parola": "scontato"
+    }
+   ],
+   "musica": "quotidiano",
+   "stacco": false,
+   "pin": {
+    "lon": 130,
+    "lat": 10,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Ma decenni di scavi hanno già distrutto il paesaggio. National Geographic descrive l'altopiano come una distesa spettrale. Altro che Isola Piacevole.",
+   "anteprima": false,
+   "vista": {
+    "lon": 166.9,
+    "lat": -0.5,
+    "larghezza": 8
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "mine",
+     "lon": 166.93,
+     "lat": -0.52,
+     "parola": "scavi"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "SPETTRALE",
+     "parola": "spettrale"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": 166.9,
+     "lat": -0.48,
+     "parola": "Piacevole"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Paesaggio devastato",
+     "parola": "distrutto"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": 167.3,
+    "lat": -0.2,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "E peggiora. Nella Seconda guerra mondiale il Giappone invade l'isola: campi di lavoro forzato e annegamenti di massa.",
+   "anteprima": false,
+   "vista": {
+    "lon": 150,
+    "lat": 10,
+    "larghezza": 80
+   },
+   "epoca": "antica",
+   "oro": [
+    "JPN"
+   ],
+   "verde": [
+    "NRU"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1942",
+     "parola": "Seconda"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      139,
+      36
+     ],
+     "a": [
+      166.9,
+      -0.5
+     ],
+     "icona": "cargo_ship",
+     "parola": "invade"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "soldier",
+     "n": 4,
+     "lon": 166.9,
+     "lat": -0.5,
+     "parola": "lavoro"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Occupazione giapponese",
+     "parola": "Giappone"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 160,
+    "lat": 15,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Alla fine della guerra, i nauruani sopravvissuti erano solo seicento. L'isola torna all'Australia, e lo sfruttamento riparte.",
+   "anteprima": false,
+   "vista": {
+    "lon": 166.9,
+    "lat": -0.5,
+    "larghezza": 8
+   },
+   "epoca": "antica",
+   "oro": [
+    "AUS"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 600,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "SOPRAVVISSUTI",
+     "parola": "seicento"
+    },
+    {
+     "tipo": "anno",
+     "testo": "1945",
+     "parola": "guerra"
+    },
+    {
+     "tipo": "icona",
+     "icona": "grave",
+     "lon": 166.92,
+     "lat": -0.5,
+     "parola": "sopravvissuti"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Solo 600 sopravvissuti",
+     "parola": "seicento"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": true,
+   "pin": {
+    "lon": 167.3,
+    "lat": -0.3,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Tra il 1945 e il 1968 l'estrazione tocca record su record. Nel 1968 arriva l'indipendenza. Ormai nessuno costringe più Nauru a scavare.",
+   "anteprima": false,
+   "vista": {
+    "lon": 166.9,
+    "lat": -0.5,
+    "larghezza": 8
+   },
+   "epoca": "oggi",
+   "oro": [
+    "NRU"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1968",
+     "parola": "1968"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_up",
+     "lon": 166.93,
+     "lat": -0.5,
+     "parola": "record"
+    },
+    {
+     "tipo": "icona",
+     "icona": "flag:NR",
+     "lon": 166.92,
+     "lat": -0.52,
+     "parola": "indipendenza"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Indipendente, ma dipendente",
+     "parola": "costringe"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": 167.3,
+    "lat": -0.2,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Ma l'intera economia ruota già attorno al fosfato. Un terzo dell'isola è stato divorato dalle miniere. Resta un paesaggio lunare, arido.",
+   "anteprima": false,
+   "vista": {
+    "lon": 166.9,
+    "lat": -0.5,
+    "larghezza": 7
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "griglia",
+     "paese": [
+      "NRU"
+     ],
+     "pieni": 0.67,
+     "testo": "2/3 DELL'ISOLA RESTA",
+     "colore": "verde",
+     "parola": "terzo"
+    },
+    {
+     "tipo": "icona",
+     "icona": "mountain",
+     "lon": 166.93,
+     "lat": -0.52,
+     "parola": "lunare"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Un terzo scavato via",
+     "parola": "divorato"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": 167.3,
+    "lat": -0.2,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Ogni economia ha tre limiti: terra, lavoro e capitale. A Nauru erano estremi: pochi abitanti, capaci solo di scavare rocce. E isolati dal mondo.",
+   "anteprima": false,
+   "vista": {
+    "lon": 166.9,
+    "lat": -0.5,
+    "larghezza": 14
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "NRU"
+   ],
+   "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "TERRA · LAVORO · CAPITALE",
+     "lon": 166.9,
+     "lat": -0.2,
+     "parola": "terra"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "miner",
+     "n": 5,
+     "lon": 166.93,
+     "lat": -0.52,
+     "parola": "scavare"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Pochi fattori di produzione",
+     "parola": "limiti"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 167.5,
+    "lat": 0.2,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Gran parte dei profitti era finita alle potenze coloniali. Mancavano infrastrutture e competenze per altre industrie. Così si è continuato a spremere la mucca finché dava latte.",
+   "anteprima": false,
+   "vista": {
+    "lon": 166.9,
+    "lat": -0.5,
+    "larghezza": 12
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "NRU"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "money_bag",
+     "lon": 166.9,
+     "lat": -0.5,
+     "parola": "profitti"
+    },
+    {
+     "tipo": "icona",
+     "icona": "cattle",
+     "lon": 166.95,
+     "lat": -0.55,
+     "parola": "mucca"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Nessuna alternativa possibile",
+     "parola": "spremere"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 167.4,
+    "lat": 0,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Era chiaro che il fosfato sarebbe finito in una o due generazioni. Ma i nauruani volevano, giustamente, la loro fetta di torta.",
+   "anteprima": false,
+   "vista": {
+    "lon": 166.9,
+    "lat": -0.5,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "NRU"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "hourglass",
+     "lon": 166.9,
+     "lat": -0.45,
+     "parola": "finito"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "family",
+     "n": 4,
+     "lon": 166.93,
+     "lat": -0.52,
+     "parola": "nauruani"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Una scadenza già scritta",
+     "parola": "generazioni"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 167.3,
+    "lat": -0.2,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Poco più di dieci anni dopo l'indipendenza, Nauru è il paese più ricco del mondo pro capite. Nel 1981 il PIL per abitante è di 27.000 dollari.",
+   "anteprima": false,
+   "vista": {
+    "lon": 166.9,
+    "lat": -0.5,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "NRU"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1981",
+     "parola": "1981"
+    },
+    {
+     "tipo": "solleva",
+     "paese": [
+      "NRU"
+     ],
+     "volte": 10,
+     "testo": "N°1",
+     "colore": "oro",
+     "parola": "ricco"
+    },
+    {
+     "tipo": "prezzo",
+     "testo": "$27.000",
+     "sotto": "NAURU · PER ABITANTE",
+     "ricco": true,
+     "parola": "27.000"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Il più ricco al mondo",
+     "parola": "ricco"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": true,
+   "pin": {
+    "lon": 167.3,
+    "lat": -0.2,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Oggi sarebbero 88.000 dollari. Gli Stati Uniti, allora, ne facevano 14.000. Il nauruano medio era due volte più ricco dell'americano medio.",
+   "anteprima": false,
+   "vista": {
+    "lon": -50,
+    "lat": 20,
+    "larghezza": 300
+   },
+   "epoca": "oggi",
+   "oro": [
+    "NRU",
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "prezzo",
+     "testo": "$14.000",
+     "sotto": "USA · PER PERSONA",
+     "ricco": false,
+     "parola": "14.000"
+    },
+    {
+     "tipo": "barre",
+     "titolo": "PIL PRO CAPITE 1981",
+     "voci": [
+      {
+       "testo": "NAURU",
+       "valore": 27,
+       "lato": "oro"
+      },
+      {
+       "testo": "USA",
+       "valore": 14,
+       "lato": "verde"
+      }
+     ],
+     "parola": "Gli"
+    },
+    {
+     "tipo": "solleva",
+     "paese": [
+      "NRU"
+     ],
+     "volte": 2,
+     "testo": "x2",
+     "colore": "oro",
+     "parola": "due"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Il doppio degli americani",
+     "parola": "ricco"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": false,
+   "pin": {
+    "lon": -100,
+    "lat": 50,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Certo, il PIL pro capite non è una misura perfetta. Ma è il modo più semplice per confrontare le economie, e dà un'idea del tenore di vita.",
+   "anteprima": false,
+   "vista": {
+    "lon": 10,
+    "lat": 20,
+    "larghezza": 300
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "PIL PRO CAPITE",
+     "lon": 0,
+     "lat": 30,
+     "parola": "PIL"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_up",
+     "lon": 30,
+     "lat": 10,
+     "parola": "confrontare"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Misura imperfetta ma utile",
+     "parola": "perfetta"
+    }
+   ],
+   "musica": "quotidiano",
+   "stacco": false,
+   "pin": {
+    "lon": 60,
+    "lat": 45,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Con il fosfato e l'indipendenza, Nauru se la passa benissimo. Istruzione e sanità gratuite, e le royalty ai proprietari dei terreni.",
+   "anteprima": false,
+   "vista": {
+    "lon": 166.9,
+    "lat": -0.5,
+    "larghezza": 8
+   },
+   "epoca": "oggi",
+   "oro": [
+    "NRU"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "school",
+     "lon": 166.9,
+     "lat": -0.48,
+     "parola": "Istruzione"
+    },
+    {
+     "tipo": "icona",
+     "icona": "banknotes",
+     "lon": 166.95,
+     "lat": -0.53,
+     "parola": "royalty"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "landowner",
+     "n": 3,
+     "lon": 166.93,
+     "lat": -0.52,
+     "parola": "proprietari"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Servizi gratis per tutti",
+     "parola": "gratuite"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": false,
+   "pin": {
+    "lon": 167.3,
+    "lat": -0.2,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Gli atleti si ritirano al top, e molti a Nauru li imitano. Tanti possono permettersi di restare disoccupati per scelta.",
+   "anteprima": false,
+   "vista": {
+    "lon": 166.9,
+    "lat": -0.5,
+    "larghezza": 8
+   },
+   "epoca": "oggi",
+   "oro": [
+    "NRU"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "family",
+     "n": 5,
+     "lon": 166.93,
+     "lat": -0.52,
+     "parola": "molti"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "DISOCCUPATI",
+     "parola": "disoccupati"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Disoccupati per scelta",
+     "parola": "scelta"
+    }
+   ],
+   "musica": "quotidiano",
+   "stacco": false,
+   "pin": {
+    "lon": 167.3,
+    "lat": -0.2,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "E succedono cose assurde. Le auto sportive diventano un must, anche se il giro dell'isola si fa in un'ora. Altro che gare di velocità.",
+   "anteprima": false,
+   "vista": {
+    "lon": 166.9,
+    "lat": -0.5,
+    "larghezza": 7
+   },
+   "epoca": "oggi",
+   "oro": [
+    "NRU"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 1,
+     "prefisso": "",
+     "suffisso": " ORA",
+     "sotto": "PER GIRARE L'ISOLA",
+     "parola": "ora"
+    },
+    {
+     "tipo": "confine",
+     "punti": [
+      [
+       166.9,
+       -0.5
+      ],
+      [
+       166.94,
+       -0.52
+      ],
+      [
+       166.95,
+       -0.55
+      ],
+      [
+       166.91,
+       -0.56
+      ],
+      [
+       166.89,
+       -0.52
+      ],
+      [
+       166.9,
+       -0.5
+      ]
+     ],
+     "parola": "giro"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Auto sportive su 21 km",
+     "parola": "sportive"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 167.3,
+    "lat": -0.2,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Un capo della polizia porta una Lamborghini sull'isola. Poi scopre che non entra nell'abitacolo. Il motivo? Una crisi sanitaria in arrivo.",
+   "anteprima": false,
+   "vista": {
+    "lon": 166.9,
+    "lat": -0.5,
+    "larghezza": 7
+   },
+   "epoca": "oggi",
+   "oro": [
+    "NRU"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "personaggio",
+     "nome": "Capo della polizia di Nauru",
+     "descrizione": "1980s island police chief, uniform, next to a Lamborghini",
+     "parola": "polizia"
+    },
+    {
+     "tipo": "icona",
+     "icona": "question",
+     "lon": 166.93,
+     "lat": -0.5,
+     "parola": "entra"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Lamborghini senza guidatore",
+     "parola": "Lamborghini"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 167.3,
+    "lat": -0.2,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Nel 1980 un epidemiologo dichiara l'epidemia di obesità a Nauru. Dietro ci sono ricchezza improvvisa e scelte alimentari sbagliate.",
+   "anteprima": false,
+   "vista": {
+    "lon": 166.9,
+    "lat": -0.5,
+    "larghezza": 7
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "NRU"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1980",
+     "parola": "1980"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "OBESITÀ",
+     "parola": "obesità"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "family",
+     "n": 4,
+     "lon": 166.93,
+     "lat": -0.52,
+     "parola": "scelte"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Epidemia di obesità",
+     "parola": "epidemiologo"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 167.3,
+    "lat": -0.2,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Cocco e pesce spariscono, sostituiti dal cibo importato. Nel 2002 l'OMS mette Nauru ultima su 170 paesi per indice di massa corporea.",
+   "anteprima": false,
+   "vista": {
+    "lon": 166.9,
+    "lat": -0.5,
+    "larghezza": 8
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "NRU"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "2002",
+     "parola": "2002"
+    },
+    {
+     "tipo": "conta",
+     "valore": 170,
+     "prefisso": "",
+     "suffisso": "°",
+     "sotto": "SU 170 PAESI",
+     "parola": "170"
+    },
+    {
+     "tipo": "icona",
+     "icona": "cargo_ship",
+     "lon": 166.85,
+     "lat": -0.55,
+     "parola": "importato"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Ultima per massa corporea",
+     "parola": "Cocco"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": 167.3,
+    "lat": -0.2,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "L'aspettativa di vita supera di poco i sessant'anni. Una forza lavoro malata ha conseguenze economiche gravi: la Lamborghini diventa un problema piccolissimo.",
+   "anteprima": false,
+   "vista": {
+    "lon": 166.9,
+    "lat": -0.5,
+    "larghezza": 8
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "NRU"
    ],
    "eventi": [
     {
      "tipo": "conta",
      "valore": 60,
      "prefisso": "~",
-     "suffisso": "",
-     "sotto": "ANNI SENZA RICONOSCIMENTO USA",
+     "suffisso": " ANNI",
+     "sotto": "ASPETTATIVA DI VITA",
      "parola": "sessant'anni"
     },
     {
-     "tipo": "confine",
-     "punti": [
-      [
-       -74.5,
-       20.2
-      ],
-      [
-       -71.5,
-       20.2
-      ],
-      [
-       -71.5,
-       18.0
-      ],
-      [
-       -74.5,
-       18.0
-      ],
-      [
-       -74.5,
-       20.2
-      ]
-     ],
-     "parola": "isolarono"
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": 166.93,
+     "lat": -0.5,
+     "parola": "economiche"
     },
     {
      "tipo": "nota",
-     "testo": "Haiti isolata come un contagio",
-     "parola": "contagio"
+     "testo": "Vita media: circa 60 anni",
+     "parola": "aspettativa"
     }
    ],
-   "musica": "",
+   "musica": "malinconia",
    "stacco": false,
    "pin": {
-    "lon": -85,
-    "lat": 30,
+    "lon": 167.3,
+    "lat": -0.2,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Alle navi commerciali fu vietato attraccare nei porti haitiani. Haiti era chiusa in una gabbia, completamente sola.",
+   "testo": "Guardiamo meglio. Quasi tutti i pasti sono noodle istantanei, riso bianco, cibo in scatola e bibite gassate. Fumo e alcol sono diffusi.",
    "anteprima": false,
    "vista": {
-    "lon": -73,
-    "lat": 19.2,
-    "larghezza": 6
+    "lon": 166.9,
+    "lat": -0.5,
+    "larghezza": 7
    },
-   "epoca": "antica",
+   "epoca": "oggi",
    "oro": [],
    "verde": [
-    "HTI"
+    "NRU"
    ],
    "eventi": [
     {
      "tipo": "icona",
      "icona": "cargo_ship",
-     "lon": -74.5,
-     "lat": 19.5,
-     "parola": "navi"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "VIETATO",
-     "parola": "vietato"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Porti chiusi al commercio",
-     "parola": "porti"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": -71.5,
-    "lat": 20.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Poi arrivò il colpo mortale. Nel 1825 navi da guerra francesi entrano nel porto di Port-au-Prince con i cannoni puntati sulla città.",
-   "anteprima": false,
-   "vista": {
-    "lon": -72.34,
-    "lat": 18.55,
-    "larghezza": 3
-   },
-   "epoca": "antica",
-   "oro": [
-    "FRA"
-   ],
-   "verde": [
-    "HTI"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1825",
-     "parola": "1825"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -74.5,
-      18.9
-     ],
-     "a": [
-      -72.34,
-      18.55
-     ],
-     "icona": "galleon",
-     "parola": "entrano"
-    },
-    {
-     "tipo": "icona",
-     "icona": "cannon",
-     "lon": -72.4,
-     "lat": 18.57,
-     "parola": "cannoni"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "PORT-AU-PRINCE",
-     "lon": -72.34,
-     "lat": 18.54,
-     "parola": "Port-au-Prince"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": -71.6,
-    "lat": 19.0,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Il re di Francia lancia un ultimatum. O Haiti paga i proprietari per le terre perdute e per il valore degli uomini liberati, o la Francia distrugge il paese e li rende di nuovo schiavi.",
-   "anteprima": false,
-   "vista": {
-    "lon": -72.34,
-    "lat": 18.55,
-    "larghezza": 4
-   },
-   "epoca": "antica",
-   "oro": [
-    "FRA"
-   ],
-   "verde": [
-    "HTI"
-   ],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "king",
-     "n": 1,
-     "lon": -73.5,
-     "lat": 18.9,
-     "parola": "re"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "ULTIMATUM",
-     "parola": "ultimatum"
-    },
-    {
-     "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": -72.5,
-     "lat": 18.7,
-     "parola": "paga"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Pagare o essere distrutti",
-     "parola": "distrugge"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -71.5,
-    "lat": 19.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Haiti non ha scelta e accetta di pagare alla Francia la cifra enorme di 150 milioni di franchi d'oro. Non era un semplice debito: era una condanna economica.",
-   "anteprima": false,
-   "vista": {
-    "lon": -35,
-    "lat": 32,
-    "larghezza": 90
-   },
-   "epoca": "antica",
-   "oro": [
-    "FRA"
-   ],
-   "verde": [
-    "HTI"
-   ],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      -72.3,
-      18.5
-     ],
-     "a": [
-      2.3,
-      48.8
-     ],
-     "icona": "gold_coins",
-     "parola": "pagare"
-    },
-    {
-     "tipo": "prezzo",
-     "testo": "150M",
-     "sotto": "FRANCHI D'ORO",
-     "ricco": false,
-     "parola": "150"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Una condanna economica",
-     "parola": "condanna"
-    }
-   ],
-   "musica": "",
-   "stacco": true,
-   "pin": {
-    "lon": -50,
-    "lat": 45,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Per versare le prime rate Haiti dovette chiedere prestiti a banche francesi e americane, con interessi da strozzini.",
-   "anteprima": false,
-   "vista": {
-    "lon": -45,
-    "lat": 35,
-    "larghezza": 100
-   },
-   "epoca": "antica",
-   "oro": [
-    "FRA",
-    "USA"
-   ],
-   "verde": [
-    "HTI"
-   ],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "banker",
-     "n": 3,
-     "lon": 2.3,
-     "lat": 48.8,
-     "parola": "banche"
+     "lon": 166.85,
+     "lat": -0.55,
+     "parola": "scatola"
     },
     {
      "tipo": "folla",
-     "personaggio": "banker",
-     "n": 3,
-     "lon": -74,
-     "lat": 40.7,
-     "parola": "americane"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -72.3,
-      18.5
-     ],
-     "a": [
-      -74,
-      40.7
-     ],
-     "icona": "money_bag",
-     "parola": "interessi"
+     "personaggio": "family",
+     "n": 4,
+     "lon": 166.93,
+     "lat": -0.52,
+     "parola": "pasti"
     },
     {
      "tipo": "nota",
-     "testo": "Prestiti a tassi da usura",
-     "parola": "interessi"
+     "testo": "Cibo in scatola e soda",
+     "parola": "noodle"
     }
    ],
-   "musica": "",
+   "musica": "quotidiano",
    "stacco": false,
    "pin": {
-    "lon": -55,
-    "lat": 28,
+    "lon": 167.3,
+    "lat": -0.2,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Per i 120 anni successivi quasi tutte le tasse haitiane non servirono per scuole, strade o ospedali. Finirono ai banchieri stranieri, per pagare la propria libertà.",
+   "testo": "L'antropologa Amy McLennan, di Oxford, racconta: ero fortunata se trovavo una verdura a settimana. Non è questione di ignoranza: i nauruani conoscono i rischi.",
    "anteprima": false,
    "vista": {
-    "lon": -45,
-    "lat": 32,
-    "larghezza": 100
-   },
-   "epoca": "antica",
-   "oro": [
-    "FRA"
-   ],
-   "verde": [
-    "HTI"
-   ],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 120,
-     "prefisso": "",
-     "suffisso": "",
-     "sotto": "ANNI DI PAGAMENTI",
-     "parola": "120"
-    },
-    {
-     "tipo": "icona",
-     "icona": "school",
-     "lon": -72.3,
-     "lat": 19.0,
-     "parola": "scuole"
-    },
-    {
-     "tipo": "icona",
-     "icona": "school",
-     "lon": -73.0,
-     "lat": 18.4,
-     "parola": "ospedali"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      -72.3,
-      18.5
-     ],
-     "a": [
-      2.3,
-      48.8
-     ],
-     "icona": "banknotes",
-     "parola": "banchieri"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Tasse mandate all'estero",
-     "parola": "tasse"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": -55,
-    "lat": 28,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Haiti finì di saldare il debito solo dopo la Seconda guerra mondiale. Secondo molti economisti, quei soldi valgono oggi decine di miliardi di dollari.",
-   "anteprima": false,
-   "vista": {
-    "lon": -72.5,
-    "lat": 19,
-    "larghezza": 8
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "HTI"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1947",
-     "parola": "Seconda"
-    },
-    {
-     "tipo": "numero",
-     "testo": "+$20 MLD",
-     "lon": -72.3,
-     "lat": 19.1,
-     "parola": "miliardi"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Debito saldato solo nel 1947",
-     "parola": "debito"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -70.5,
-    "lat": 20.3,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "La Repubblica Dominicana non ebbe mai quell'ancora al collo. Questo conta tantissimo, perché i suoi soldi restarono a casa.",
-   "anteprima": false,
-   "vista": {
-    "lon": -70.5,
-    "lat": 18.9,
-    "larghezza": 6
-   },
-   "epoca": "antica",
-   "oro": [
-    "DOM"
-   ],
-   "verde": [
-    "HTI"
-   ],
-   "eventi": [
-    {
-     "tipo": "contorno",
-     "paese": "DOM",
-     "parola": "Dominicana"
-    },
-    {
-     "tipo": "icona",
-     "icona": "money_bag",
-     "lon": -70.2,
-     "lat": 18.9,
-     "parola": "soldi"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Nessun riscatto da pagare",
-     "parola": "ancora"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -72.0,
-    "lat": 20.0,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "La terza ferita è quella che quasi nessuno considera: la geografia. Sai che i venti alisei dei Caraibi soffiano quasi sempre da est verso ovest?",
-   "anteprima": false,
-   "vista": {
-    "lon": -70,
-    "lat": 19,
-    "larghezza": 18
+    "lon": 166.9,
+    "lat": -0.5,
+    "larghezza": 7
    },
    "epoca": "oggi",
-   "oro": [
-    "DOM"
-   ],
+   "oro": [],
    "verde": [
-    "HTI"
+    "NRU"
    ],
    "eventi": [
     {
-     "tipo": "freccia",
-     "da": [
-      -66,
-      19.5
-     ],
-     "a": [
-      -71,
-      19.5
-     ],
-     "icona": "question",
-     "parola": "venti"
+     "tipo": "personaggio",
+     "nome": "Amy McLennan",
+     "descrizione": "Oxford anthropologist, woman researcher with notebook",
+     "parola": "McLennan"
     },
     {
-     "tipo": "scritta",
-     "testo": "VENTO",
-     "parola": "venti"
+     "tipo": "conta",
+     "valore": 1,
+     "prefisso": "",
+     "suffisso": " VERDURA",
+     "sotto": "A SETTIMANA",
+     "parola": "verdura"
+    },
+    {
+     "tipo": "icona",
+     "icona": "school",
+     "lon": 166.9,
+     "lat": -0.48,
+     "parola": "conoscono"
     },
     {
      "tipo": "nota",
-     "testo": "Venti da est verso ovest",
-     "parola": "ovest"
+     "testo": "Mancano cibi di qualità",
+     "parola": "fortunata"
     }
    ],
    "musica": "curiosita",
    "stacco": false,
    "pin": {
-    "lon": -67,
-    "lat": 21.5,
+    "lon": 167.3,
+    "lat": -0.2,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Lungo la spina dell'isola si alza una catena di montagne altissime. I venti umidi dell'oceano colpiscono per primi il lato dominicano.",
+   "testo": "Il problema è l'accesso al cibo di qualità. Decenni di scavi hanno distrutto l'ambiente, e l'agricoltura è quasi sparita. Dopo il crollo, restano solo cibi economici.",
    "anteprima": false,
    "vista": {
-    "lon": -71.5,
-    "lat": 19,
-    "larghezza": 8
+    "lon": 166.9,
+    "lat": -0.5,
+    "larghezza": 7
    },
    "epoca": "oggi",
-   "oro": [
-    "DOM"
-   ],
+   "oro": [],
    "verde": [
-    "HTI"
+    "NRU"
    ],
    "eventi": [
     {
      "tipo": "icona",
-     "icona": "mountain",
-     "lon": -71.2,
-     "lat": 19.0,
-     "parola": "montagne"
+     "icona": "farm",
+     "lon": 166.92,
+     "lat": -0.52,
+     "parola": "agricoltura"
     },
     {
-     "tipo": "freccia",
-     "da": [
-      -69,
-      19
-     ],
-     "a": [
-      -71,
-      19
-     ],
-     "icona": "river",
-     "parola": "venti"
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": 166.95,
+     "lat": -0.5,
+     "parola": "crollo"
     },
     {
      "tipo": "nota",
-     "testo": "Montagne al centro dell'isola",
-     "parola": "catena"
+     "testo": "Terra devastata, niente colture",
+     "parola": "distrutto"
     }
    ],
-   "musica": "",
+   "musica": "malinconia",
    "stacco": false,
    "pin": {
-    "lon": -72.8,
-    "lat": 20.2,
+    "lon": 167.3,
+    "lat": -0.2,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Le nuvole salgono, si raffreddano e scaricano pioggia a volontà sulle valli dominicane. Nascono pianure fertili e foreste tropicali rigogliose.",
+   "testo": "Sotto i coloni, i nauruani ricevevano solo briciole. Continuare a scavare dopo l'indipendenza fu necessità, non avidità. Importare tutto, anche acqua, non regge.",
    "anteprima": false,
    "vista": {
-    "lon": -70.5,
-    "lat": 19,
-    "larghezza": 6
+    "lon": 166.9,
+    "lat": -0.5,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "NRU"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "cargo_ship",
+     "lon": 166.85,
+     "lat": -0.55,
+     "parola": "Importare"
+    },
+    {
+     "tipo": "icona",
+     "icona": "mine",
+     "lon": 166.93,
+     "lat": -0.52,
+     "parola": "scavare"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Necessità, non avidità",
+     "parola": "necessità"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 167.3,
+    "lat": -0.2,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Tutta l'attenzione andò al fosfato: niente industria, niente agricoltura. È un caso classico di malattia olandese, ma portato all'estremo.",
+   "anteprima": false,
+   "vista": {
+    "lon": 166.9,
+    "lat": -0.5,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "NRU"
+   ],
+   "eventi": [
+    {
+     "tipo": "scritta",
+     "testo": "MALATTIA OLANDESE",
+     "parola": "olandese"
+    },
+    {
+     "tipo": "icona",
+     "icona": "factory",
+     "lon": 166.9,
+     "lat": -0.48,
+     "parola": "industria"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Un'unica risorsa, nient'altro",
+     "parola": "fosfato"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 167.3,
+    "lat": -0.2,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Una cura è diversificare. Lo fanno i paesi del Golfo con i loro progetti faraonici. Se funzioneranno, è ancora un dibattito, ma almeno ci provano.",
+   "anteprima": false,
+   "vista": {
+    "lon": 52,
+    "lat": 25,
+    "larghezza": 25
    },
    "epoca": "oggi",
    "oro": [
-    "DOM"
+    "SAU",
+    "ARE",
+    "QAT"
    ],
    "verde": [],
    "eventi": [
     {
      "tipo": "icona",
-     "icona": "river",
-     "lon": -70.6,
-     "lat": 19.0,
-     "parola": "pioggia"
+     "icona": "factory",
+     "lon": 55,
+     "lat": 25,
+     "parola": "diversificare"
     },
     {
      "tipo": "icona",
-     "icona": "farm",
-     "lon": -70.3,
-     "lat": 19.3,
-     "parola": "fertili"
-    },
-    {
-     "tipo": "icona",
-     "icona": "forest",
-     "lon": -70.9,
-     "lat": 18.8,
-     "parola": "foreste"
+     "icona": "bridge",
+     "lon": 50,
+     "lat": 26,
+     "parola": "progetti"
     },
     {
      "tipo": "nota",
-     "testo": "Pioggia sul lato dominicano",
-     "parola": "pioggia"
+     "testo": "Il Golfo prova a diversificare",
+     "parola": "provano"
     }
    ],
-   "musica": "",
+   "musica": "curiosita",
    "stacco": false,
    "pin": {
-    "lon": -72.5,
-    "lat": 20.2,
+    "lon": 60,
+    "lat": 30,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Quando il vento supera le montagne e arriva a Haiti, ha già perso quasi tutta l'acqua. Haiti sta in quella che gli scienziati chiamano ombra pluviometrica.",
+   "testo": "I leader di Nauru ci provarono. Primo tentativo: la finanza offshore. All'inizio degli anni Novanta, circa quattrocento banche straniere ottengono una licenza.",
    "anteprima": false,
    "vista": {
-    "lon": -72.8,
-    "lat": 19,
-    "larghezza": 6
+    "lon": 166.9,
+    "lat": -0.5,
+    "larghezza": 10
    },
    "epoca": "oggi",
    "oro": [
-    "DOM"
+    "NRU"
    ],
-   "verde": [
-    "HTI"
-   ],
+   "verde": [],
    "eventi": [
     {
-     "tipo": "freccia",
-     "da": [
-      -71,
-      18.9
-     ],
-     "a": [
-      -73.5,
-      18.9
-     ],
-     "icona": "question",
-     "parola": "vento"
+     "tipo": "anno",
+     "testo": "1990",
+     "parola": "Novanta"
+    },
+    {
+     "tipo": "conta",
+     "valore": 400,
+     "prefisso": "~",
+     "suffisso": "",
+     "sotto": "BANCHE STRANIERE",
+     "parola": "quattrocento"
+    },
+    {
+     "tipo": "icona",
+     "icona": "banknotes",
+     "lon": 166.93,
+     "lat": -0.5,
+     "parola": "banche"
+    },
+    {
+     "tipo": "nota",
+     "testo": "400 banche offshore",
+     "parola": "licenza"
+    }
+   ],
+   "musica": "azione",
+   "stacco": false,
+   "pin": {
+    "lon": 167.3,
+    "lat": -0.2,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "I clienti non dovevano nemmeno andare sull'isola. Con la cittadinanza economica si compra un passaporto nauruano: un paradiso per riciclaggio ed evasione fiscale.",
+   "anteprima": false,
+   "vista": {
+    "lon": 166.9,
+    "lat": -0.5,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "NRU"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": 166.9,
+     "lat": -0.48,
+     "parola": "passaporto"
     },
     {
      "tipo": "scritta",
-     "testo": "OMBRA",
-     "parola": "ombra"
+     "testo": "RICICLAGGIO",
+     "parola": "riciclaggio"
     },
     {
      "tipo": "nota",
-     "testo": "Haiti: ombra pluviometrica",
-     "parola": "ombra"
+     "testo": "Passaporti in vendita",
+     "parola": "cittadinanza"
     }
    ],
-   "musica": "",
+   "musica": "mistero",
    "stacco": false,
    "pin": {
-    "lon": -71.0,
-    "lat": 20.3,
+    "lon": 167.3,
+    "lat": -0.2,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Il terreno haitiano è molto più ripido, roccioso e secco. I dominicani avevano pianure da coltivare per poche persone; Haiti, milioni di persone ammassate su pendii aridi.",
+   "testo": "Il governo incassa milioni di commissioni, ma non basta a salvare l'economia. Nel 2005 il business chiude: ora serve una presenza fisica per la licenza.",
    "anteprima": false,
    "vista": {
-    "lon": -71.8,
-    "lat": 19,
-    "larghezza": 7
+    "lon": 166.9,
+    "lat": -0.5,
+    "larghezza": 10
    },
    "epoca": "oggi",
-   "oro": [
-    "DOM"
-   ],
+   "oro": [],
    "verde": [
-    "HTI"
+    "NRU"
    ],
    "eventi": [
     {
-     "tipo": "icona",
-     "icona": "farm",
-     "lon": -70.4,
-     "lat": 19.2,
-     "parola": "pianure"
+     "tipo": "anno",
+     "testo": "2005",
+     "parola": "2005"
     },
     {
-     "tipo": "folla",
-     "personaggio": "peasant",
-     "n": 7,
-     "lon": -72.8,
-     "lat": 18.9,
+     "tipo": "icona",
+     "icona": "banknotes",
+     "lon": 166.92,
+     "lat": -0.5,
      "parola": "milioni"
     },
     {
      "tipo": "icona",
-     "icona": "mountain",
-     "lon": -73.3,
-     "lat": 18.6,
-     "parola": "pendii"
+     "icona": "scroll_law",
+     "lon": 166.95,
+     "lat": -0.52,
+     "parola": "licenza"
     },
     {
      "tipo": "nota",
-     "testo": "Troppa gente su terre ripide",
-     "parola": "pendii"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -71.0,
-    "lat": 20.3,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Qui arriva la quarta ragione, quella che si vede dallo spazio: la tragedia degli alberi. Con poca terra piana, le famiglie povere coltivano i fianchi dei monti.",
-   "anteprima": false,
-   "vista": {
-    "lon": -72.8,
-    "lat": 19,
-    "larghezza": 5
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "HTI"
-   ],
-   "eventi": [
-    {
-     "tipo": "scritta",
-     "testo": "ALBERI",
-     "parola": "alberi"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "family",
-     "n": 4,
-     "lon": -72.7,
-     "lat": 18.9,
-     "parola": "famiglie"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Quarta ferita: gli alberi",
-     "parola": "quarta"
+     "testo": "Banche offshore chiuse",
+     "parola": "chiude"
     }
    ],
    "musica": "tensione",
    "stacco": false,
    "pin": {
-    "lon": -71.4,
-    "lat": 20.1,
+    "lon": 167.3,
+    "lat": -0.2,
     "faccia": "normale"
    }
   },
   {
-   "testo": "E poiché Haiti era povera, non aveva rete elettrica, oleodotti né carbone. Per bollire l'acqua o cuocere il riso c'era una sola scelta: tagliare un albero.",
+   "testo": "Non fu un ripensamento, ma una pressione internazionale enorme. Gli Stati Uniti la classificarono perfino come stato canaglia, dopo il Patriot Act del 2001.",
    "anteprima": false,
    "vista": {
-    "lon": -72.8,
-    "lat": 19,
-    "larghezza": 5
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "HTI"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "oil_derrick",
-     "lon": -72.0,
-     "lat": 19.5,
-     "parola": "oleodotti"
-    },
-    {
-     "tipo": "icona",
-     "icona": "forest",
-     "lon": -72.9,
-     "lat": 18.8,
-     "parola": "albero"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Solo legna per cucinare",
-     "parola": "cuocere"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -71.4,
-    "lat": 20.1,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Si prende l'ascia, si abbatte la pianta, la si trasforma in carbone e la si vende al mercato. Per decenni, milioni di persone hanno spogliato i monti.",
-   "anteprima": false,
-   "vista": {
-    "lon": -72.8,
-    "lat": 19,
-    "larghezza": 5
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "HTI"
-   ],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "peasant",
-     "n": 5,
-     "lon": -72.7,
-     "lat": 18.9,
-     "parola": "ascia"
-    },
-    {
-     "tipo": "icona",
-     "icona": "forest",
-     "lon": -73.1,
-     "lat": 18.7,
-     "parola": "pianta"
-    },
-    {
-     "tipo": "icona",
-     "icona": "mountain",
-     "lon": -72.4,
-     "lat": 19.2,
-     "parola": "monti"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Carbone di legna per vivere",
-     "parola": "carbone"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -71.4,
-    "lat": 20.1,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Oggi a Haiti resta meno del due per cento della foresta originale. E senza alberi, su un monte ripido, il disastro arriva presto.",
-   "anteprima": false,
-   "vista": {
-    "lon": -72.8,
-    "lat": 19,
-    "larghezza": 5
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "HTI"
-   ],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 2,
-     "prefisso": "<",
-     "suffisso": "%",
-     "sotto": "FORESTA ORIGINALE RIMASTA",
-     "parola": "due"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "MENO DEL 2%",
-     "parola": "due"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Quasi nessuna foresta rimasta",
-     "parola": "foresta"
-    }
-   ],
-   "musica": "",
-   "stacco": true,
-   "pin": {
-    "lon": -71.4,
-    "lat": 20.1,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Quando arrivano tempeste e uragani, sul lato dominicano gli alberi fanno da spugne giganti. Le radici tengono la terra ferma, assorbono l'acqua e frenano le frane.",
-   "anteprima": false,
-   "vista": {
-    "lon": -70.5,
-    "lat": 19,
-    "larghezza": 5
+    "lon": -50,
+    "lat": 30,
+    "larghezza": 300
    },
    "epoca": "oggi",
    "oro": [
-    "DOM"
+    "USA"
+   ],
+   "verde": [
+    "NRU"
+   ],
+   "eventi": [
+    {
+     "tipo": "contorno",
+     "paese": "USA",
+     "parola": "Stati"
+    },
+    {
+     "tipo": "anno",
+     "testo": "2001",
+     "parola": "2001"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "STATO CANAGLIA",
+     "parola": "canaglia"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Pressione internazionale",
+     "parola": "pressione"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -100,
+    "lat": 50,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Seconda via, quella norvegese: un fondo sovrano che investa la ricchezza delle risorse per generare dividendi per generazioni.",
+   "anteprima": false,
+   "vista": {
+    "lon": 10,
+    "lat": 62,
+    "larghezza": 30
+   },
+   "epoca": "oggi",
+   "oro": [
+    "NOR"
    ],
    "verde": [],
    "eventi": [
     {
-     "tipo": "icona",
-     "icona": "forest",
-     "lon": -70.7,
-     "lat": 19.0,
-     "parola": "alberi"
+     "tipo": "contorno",
+     "paese": "NOR",
+     "parola": "norvegese"
     },
     {
      "tipo": "icona",
-     "icona": "river",
-     "lon": -70.3,
-     "lat": 18.9,
-     "parola": "acqua"
+     "icona": "money_bag",
+     "lon": 10,
+     "lat": 60,
+     "parola": "fondo"
+    },
+    {
+     "tipo": "icona",
+     "icona": "oil_derrick",
+     "lon": 3,
+     "lat": 60,
+     "parola": "risorse"
     },
     {
      "tipo": "nota",
-     "testo": "Radici che trattengono tutto",
-     "parola": "radici"
+     "testo": "Il modello del fondo sovrano",
+     "parola": "sovrano"
     }
    ],
-   "musica": "",
+   "musica": "curiosita",
    "stacco": false,
    "pin": {
-    "lon": -72.2,
-    "lat": 20.1,
+    "lon": 20,
+    "lat": 65,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Sul lato haitiano, senza alberi né radici, la pioggia trascina il terreno fertile a valle, intasa i fiumi e lo scarica nell'oceano.",
+   "testo": "Nauru investì i guadagni all'estero per i tempi magri. Ottima idea, ma attuata malissimo: investimenti rischiosi e vere e proprie frodi.",
    "anteprima": false,
    "vista": {
-    "lon": -72.8,
-    "lat": 19,
-    "larghezza": 5
+    "lon": 120,
+    "lat": 10,
+    "larghezza": 200
    },
    "epoca": "oggi",
    "oro": [],
    "verde": [
-    "HTI"
+    "NRU"
    ],
    "eventi": [
     {
      "tipo": "freccia",
      "da": [
-      -72.8,
-      19.0
+      166.9,
+      -0.5
      ],
      "a": [
-      -73.6,
-      18.6
+      0,
+      51
      ],
-     "icona": "river",
-     "parola": "trascina"
-    },
-    {
-     "tipo": "icona",
-     "icona": "river",
-     "lon": -73.0,
-     "lat": 18.6,
-     "parola": "fiumi"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Il suolo fertile finisce in mare",
-     "parola": "oceano"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -71.4,
-    "lat": 20.1,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Senza terra fertile non si coltiva più. Un uragano che in Repubblica Dominicana abbatte qualche cavo può causare a Haiti frane apocalittiche che seppelliscono villaggi e uccidono migliaia di persone.",
-   "anteprima": false,
-   "vista": {
-    "lon": -72,
-    "lat": 19,
-    "larghezza": 7
-   },
-   "epoca": "oggi",
-   "oro": [
-    "DOM"
-   ],
-   "verde": [
-    "HTI"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "cabin",
-     "lon": -70.5,
-     "lat": 19.0,
-     "parola": "cavo"
-    },
-    {
-     "tipo": "icona",
-     "icona": "grave",
-     "lon": -72.8,
-     "lat": 18.7,
-     "parola": "seppelliscono"
-    },
-    {
-     "tipo": "conta",
-     "valore": 3000,
-     "prefisso": "~",
-     "suffisso": "",
-     "sotto": "MORTI NELL'URAGANO JEANNE, 2004",
-     "parola": "migliaia"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Stesso uragano, danni opposti",
-     "parola": "uragano"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": -71.0,
-    "lat": 20.3,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Oltre il confine la Repubblica Dominicana era più grande, con più terra coltivabile e molte meno persone per chilometro quadrato.",
-   "anteprima": false,
-   "vista": {
-    "lon": -71.5,
-    "lat": 19,
-    "larghezza": 7
-   },
-   "epoca": "oggi",
-   "oro": [
-    "DOM"
-   ],
-   "verde": [
-    "HTI"
-   ],
-   "eventi": [
-    {
-     "tipo": "solleva",
-     "paese": [
-      "DOM"
-     ],
-     "volte": 2,
-     "testo": "x2",
-     "colore": "oro",
-     "parola": "più"
-    },
-    {
-     "tipo": "numero",
-     "testo": "48.000 KM²",
-     "lon": -70.2,
-     "lat": 18.9,
-     "parola": "grande"
-    },
-    {
-     "tipo": "numero",
-     "testo": "28.000 KM²",
-     "lon": -72.7,
-     "lat": 19.0,
-     "parola": "confine"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Quasi il doppio di territorio",
-     "parola": "grande"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -72.8,
-    "lat": 20.3,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Più tardi i leader dominicani notarono la distruzione ambientale accanto a casa e intervennero con decisione. Crearono grandi parchi nazionali e mandarono i soldati a proteggere le foreste.",
-   "anteprima": false,
-   "vista": {
-    "lon": -70.7,
-    "lat": 19,
-    "larghezza": 6
-   },
-   "epoca": "oggi",
-   "oro": [
-    "DOM"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "soldier",
-     "n": 4,
-     "lon": -70.9,
-     "lat": 19.0,
-     "parola": "soldati"
-    },
-    {
-     "tipo": "icona",
-     "icona": "forest",
-     "lon": -70.6,
-     "lat": 19.0,
-     "parola": "parchi"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Soldati a guardia delle foreste",
-     "parola": "proteggere"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": -72.5,
-    "lat": 20.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "E soprattutto sovvenzionarono il gas propano, così le famiglie povere potevano cucinare senza bruciare legna.",
-   "anteprima": false,
-   "vista": {
-    "lon": -70.5,
-    "lat": 19,
-    "larghezza": 6
-   },
-   "epoca": "oggi",
-   "oro": [
-    "DOM"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "oil_derrick",
-     "lon": -70.3,
-     "lat": 18.9,
-     "parola": "gas"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "family",
-     "n": 4,
-     "lon": -70.6,
-     "lat": 19.2,
-     "parola": "famiglie"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Gas sovvenzionato, foresta salva",
-     "parola": "propano"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -72.3,
-    "lat": 20.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "La quinta ragione è la politica e la stabilità moderna. Nel Novecento entrambi i paesi soffrirono sotto dittatori brutali.",
-   "anteprima": false,
-   "vista": {
-    "lon": -71.5,
-    "lat": 19,
-    "larghezza": 8
-   },
-   "epoca": "oggi",
-   "oro": [
-    "DOM"
-   ],
-   "verde": [
-    "HTI"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1930",
-     "parola": "Novecento"
-    },
-    {
-     "tipo": "icona",
-     "icona": "swords",
-     "lon": -70.0,
-     "lat": 18.8,
-     "parola": "dittatori"
-    },
-    {
-     "tipo": "icona",
-     "icona": "swords",
-     "lon": -72.5,
-     "lat": 18.8,
-     "parola": "dittatori"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Quinta ferita: la politica",
-     "parola": "quinta"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": -73.8,
-    "lat": 20.3,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "La Repubblica Dominicana ebbe Rafael Trujillo, Haiti ebbe François Duvalier, detto Papa Doc. Due spietati assassini che rubarono enormi somme al loro popolo.",
-   "anteprima": false,
-   "vista": {
-    "lon": -71.5,
-    "lat": 19,
-    "larghezza": 8
-   },
-   "epoca": "oggi",
-   "oro": [
-    "DOM"
-   ],
-   "verde": [
-    "HTI"
-   ],
-   "eventi": [
-    {
-     "tipo": "personaggio",
-     "nome": "Rafael Trujillo",
-     "descrizione": "dittatore dominicano, uniforme decorata con medaglie",
-     "parola": "Trujillo"
-    },
-    {
-     "tipo": "personaggio",
-     "nome": "François Duvalier",
-     "descrizione": "dittatore haitiano detto Papa Doc, occhiali scuri e abito nero",
-     "parola": "Duvalier"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Due dittatori, due ladri",
-     "parola": "rubarono"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -73.5,
-    "lat": 20.3,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "La differenza fu quello che accadde dopo. Trujillo venne assassinato nel 1961, e la Repubblica Dominicana costruì piano piano, con fatica, un sistema politico stabile.",
-   "anteprima": false,
-   "vista": {
-    "lon": -70.2,
-    "lat": 18.9,
-    "larghezza": 6
-   },
-   "epoca": "oggi",
-   "oro": [
-    "DOM"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1961",
-     "parola": "1961"
-    },
-    {
-     "tipo": "icona",
-     "icona": "grave",
-     "lon": -70.0,
-     "lat": 18.5,
-     "parola": "assassinato"
-    },
-    {
-     "tipo": "icona",
-     "icona": "ballot_box",
-     "lon": -70.2,
-     "lat": 18.9,
-     "parola": "stabile"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Dopo Trujillo, la stabilità",
-     "parola": "stabile"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -72.0,
-    "lat": 20.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Fecero elezioni, aprirono l'economia al mondo e costruirono porti in acque profonde, aeroporti internazionali e centrali elettriche.",
-   "anteprima": false,
-   "vista": {
-    "lon": -70.2,
-    "lat": 18.9,
-    "larghezza": 6
-   },
-   "epoca": "oggi",
-   "oro": [
-    "DOM"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "ballot_box",
-     "lon": -69.9,
-     "lat": 18.5,
-     "parola": "elezioni"
-    },
-    {
-     "tipo": "icona",
-     "icona": "port",
-     "lon": -69.6,
-     "lat": 18.4,
-     "parola": "porti"
-    },
-    {
-     "tipo": "icona",
-     "icona": "factory",
-     "lon": -70.7,
-     "lat": 19.4,
-     "parola": "centrali"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Porti, aeroporti, energia",
-     "parola": "aeroporti"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": -71.8,
-    "lat": 20.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Capirono che il mondo adora le spiagge calde. Invitarono aziende straniere a costruire grandi resort all inclusive in posti come Punta Cana, e creare zone franche per le fabbriche.",
-   "anteprima": false,
-   "vista": {
-    "lon": -69,
-    "lat": 18.8,
-    "larghezza": 5
-   },
-   "epoca": "oggi",
-   "oro": [
-    "DOM"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "etichetta",
-     "testo": "PUNTA CANA",
-     "lon": -68.4,
-     "lat": 18.58,
-     "parola": "Punta"
-    },
-    {
-     "tipo": "icona",
-     "icona": "port",
-     "lon": -68.7,
-     "lat": 18.6,
-     "parola": "spiagge"
-    },
-    {
-     "tipo": "icona",
-     "icona": "factory",
-     "lon": -70.0,
-     "lat": 18.5,
-     "parola": "fabbriche"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Resort e zone franche",
-     "parola": "resort"
-    }
-   ],
-   "musica": "trionfo",
-   "stacco": false,
-   "pin": {
-    "lon": -70.5,
-    "lat": 19.8,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Oggi è la meta turistica numero uno dei Caraibi, e ogni anno porta miliardi di dollari. Più di dieci milioni di visitatori l'anno.",
-   "anteprima": false,
-   "vista": {
-    "lon": -70.2,
-    "lat": 18.9,
-    "larghezza": 6
-   },
-   "epoca": "oggi",
-   "oro": [
-    "DOM"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 10,
-     "prefisso": ">",
-     "suffisso": "M",
-     "sotto": "TURISTI ALL'ANNO",
-     "parola": "dieci"
-    },
-    {
-     "tipo": "colonna",
-     "testo": "TURISMO DOMINICANO",
-     "valore": 0.9,
-     "lon": -70.0,
-     "lat": 18.9,
-     "parola": "miliardi"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Prima meta dei Caraibi",
-     "parola": "meta"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -71.8,
-    "lat": 20.1,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "A Haiti, dopo la cacciata dei Duvalier nel 1986, il paese non ha mai trovato l'equilibrio. Colpi di stato militari, interventi stranieri, elezioni rubate e corruzione si sono susseguiti senza sosta.",
-   "anteprima": false,
-   "vista": {
-    "lon": -72.8,
-    "lat": 19,
-    "larghezza": 5
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "HTI"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1986",
-     "parola": "1986"
-    },
-    {
-     "tipo": "icona",
-     "icona": "swords",
-     "lon": -72.3,
-     "lat": 18.55,
-     "parola": "Colpi"
-    },
-    {
-     "tipo": "icona",
-     "icona": "ballot_box",
-     "lon": -72.8,
-     "lat": 19.0,
-     "parola": "elezioni"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Colpi di stato senza fine",
-     "parola": "corruzione"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": -71.4,
-    "lat": 20.1,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Con un governo sempre in frantumi, nessuno costruì strade, nessuno realizzò una rete elettrica moderna. Gli investitori scapparono e i turisti rimasero lontani.",
-   "anteprima": false,
-   "vista": {
-    "lon": -72.8,
-    "lat": 19,
-    "larghezza": 5
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "HTI"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "bridge",
-     "lon": -72.5,
-     "lat": 19.0,
-     "parola": "strade"
-    },
-    {
-     "tipo": "icona",
-     "icona": "factory",
-     "lon": -72.9,
-     "lat": 18.7,
-     "parola": "elettrica"
+     "icona": "banknotes",
+     "parola": "estero"
     },
     {
      "tipo": "icona",
      "icona": "chart_down",
-     "lon": -72.3,
-     "lat": 18.55,
-     "parola": "investitori"
+     "lon": 0,
+     "lat": 51,
+     "parola": "rischiosi"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "FRODI",
+     "parola": "frodi"
     },
     {
      "tipo": "nota",
-     "testo": "Niente investimenti, niente turisti",
-     "parola": "turisti"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -71.4,
-    "lat": 20.1,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Senza tribunali né polizia efficienti, le bande criminali hanno riempito il vuoto. Oggi controllano gran parte della capitale e rendono quasi impossibili commercio, scuola e vita quotidiana.",
-   "anteprima": false,
-   "vista": {
-    "lon": -72.34,
-    "lat": 18.55,
-    "larghezza": 2
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "HTI"
-   ],
-   "eventi": [
-    {
-     "tipo": "etichetta",
-     "testo": "PORT-AU-PRINCE",
-     "lon": -72.34,
-     "lat": 18.54,
-     "parola": "capitale"
-    },
-    {
-     "tipo": "conta",
-     "valore": 80,
-     "prefisso": "~",
-     "suffisso": "%",
-     "sotto": "DELLA CAPITALE IN MANO ALLE BANDE",
-     "parola": "gran"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "soldier",
-     "n": 5,
-     "lon": -72.3,
-     "lat": 18.56,
-     "parola": "bande"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Le bande dominano la capitale",
-     "parola": "controllano"
+     "testo": "Soldi persi all'estero",
+     "parola": "investimenti"
     }
    ],
    "musica": "tensione",
    "stacco": false,
    "pin": {
-    "lon": -72.0,
-    "lat": 18.8,
+    "lon": 100,
+    "lat": 30,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Un dato per capire il divario: oggi la Repubblica Dominicana vale circa trentadue volte l'economia di Haiti per abitante da cinque anni di crescita.",
+   "testo": "Nauru rischia la bancarotta. Nemmeno i giacimenti secondari di fosfato cambiano il destino. Fallisce perfino la banca centrale.",
    "anteprima": false,
    "vista": {
-    "lon": -71.5,
-    "lat": 19,
-    "larghezza": 6
+    "lon": 166.9,
+    "lat": -0.5,
+    "larghezza": 10
    },
    "epoca": "oggi",
-   "oro": [
-    "DOM"
-   ],
-   "verde": [
-    "HTI"
-   ],
-   "eventi": [
-    {
-     "tipo": "barre",
-     "titolo": "PIL PER ABITANTE ($)",
-     "voci": [
-      {
-       "testo": "DOMINICANA",
-       "valore": 11,
-       "lato": "oro"
-      },
-      {
-       "testo": "HAITI",
-       "valore": 1.7,
-       "lato": "verde"
-      }
-     ],
-     "parola": "divario"
-    },
-    {
-     "tipo": "solleva",
-     "paese": [
-      "DOM"
-     ],
-     "volte": 7,
-     "testo": "x7",
-     "colore": "oro",
-     "parola": "volte"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -72.8,
-    "lat": 20.3,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Mettendo insieme tutti i pezzi, la linea nella foto satellitare racconta una storia chiara e tragica. La Repubblica Dominicana ebbe il dono della pioggia e della terra piana.",
-   "anteprima": false,
-   "vista": {
-    "lon": -71.5,
-    "lat": 19,
-    "larghezza": 7
-   },
-   "epoca": "oggi",
-   "oro": [
-    "DOM"
-   ],
-   "verde": [
-    "HTI"
-   ],
-   "eventi": [
-    {
-     "tipo": "confine",
-     "punti": [
-      [
-       -71.7,
-       19.9
-      ],
-      [
-       -71.7,
-       18.0
-      ]
-     ],
-     "parola": "linea"
-    },
-    {
-     "tipo": "icona",
-     "icona": "farm",
-     "lon": -70.4,
-     "lat": 19.2,
-     "parola": "terra"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Pioggia e terra piana",
-     "parola": "pioggia"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": -72.8,
-    "lat": 20.3,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Ebbe anche un passato coloniale che non la lasciò in rovina, e un governo moderno che protesse le foreste e costruì un'economia turistica.",
-   "anteprima": false,
-   "vista": {
-    "lon": -70.3,
-    "lat": 18.9,
-    "larghezza": 6
-   },
-   "epoca": "oggi",
-   "oro": [
-    "DOM"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "forest",
-     "lon": -70.7,
-     "lat": 19.0,
-     "parola": "foreste"
-    },
-    {
-     "tipo": "icona",
-     "icona": "port",
-     "lon": -68.5,
-     "lat": 18.6,
-     "parola": "turistica"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Foreste protette, turismo",
-     "parola": "governo"
-    }
-   ],
-   "musica": "",
-   "stacco": false,
-   "pin": {
-    "lon": -72.2,
-    "lat": 20.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Haiti nacque da una battaglia eroica per la libertà umana, ma fu punita con l'isolamento totale e costretta a un debito schiacciante che per un secolo le prosciugò la ricchezza.",
-   "anteprima": false,
-   "vista": {
-    "lon": -72.8,
-    "lat": 19,
-    "larghezza": 6
-   },
-   "epoca": "antica",
    "oro": [],
    "verde": [
-    "HTI"
+    "NRU"
    ],
    "eventi": [
     {
+     "tipo": "scritta",
+     "testo": "BANCAROTTA",
+     "parola": "bancarotta"
+    },
+    {
      "tipo": "icona",
-     "icona": "flag:HT",
-     "lon": -72.6,
-     "lat": 19.1,
-     "parola": "libertà"
+     "icona": "mine",
+     "lon": 166.93,
+     "lat": -0.52,
+     "parola": "secondari"
     },
     {
      "tipo": "icona",
      "icona": "banknotes",
-     "lon": -72.3,
-     "lat": 18.55,
-     "parola": "debito"
-    },
-    {
-     "tipo": "conta",
-     "valore": 120,
-     "prefisso": "",
-     "suffisso": "",
-     "sotto": "ANNI A PAGARE",
-     "parola": "secolo"
+     "lon": 166.9,
+     "lat": -0.48,
+     "parola": "banca"
     },
     {
      "tipo": "nota",
-     "testo": "Libertà pagata a caro prezzo",
-     "parola": "punita"
+     "testo": "Fallisce la banca centrale",
+     "parola": "Fallisce"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": true,
+   "pin": {
+    "lon": 167.3,
+    "lat": -0.2,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "I beni immobiliari all'estero vengono pignorati. Gli aerei sequestrati. Sì, aerei: negli anni Settanta Nauru aveva lanciato la sua compagnia aerea nazionale.",
+   "anteprima": false,
+   "vista": {
+    "lon": 150,
+    "lat": -10,
+    "larghezza": 100
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "NRU"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1970",
+     "parola": "Settanta"
+    },
+    {
+     "tipo": "icona",
+     "icona": "banknotes",
+     "lon": 145,
+     "lat": -37,
+     "parola": "immobiliari"
+    },
+    {
+     "tipo": "icona",
+     "icona": "question",
+     "lon": 166.9,
+     "lat": -0.5,
+     "parola": "aerei"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Aerei e immobili pignorati",
+     "parola": "sequestrati"
     }
    ],
    "musica": "malinconia",
    "stacco": false,
    "pin": {
-    "lon": -71.4,
-    "lat": 20.1,
-    "faccia": "normale"
+    "lon": 140,
+    "lat": 10,
+    "faccia": "stupito"
    }
   },
   {
-   "testo": "Poi la geografia e la povertà le tolsero il suolo, e il caos politico la imprigionò in un circolo vizioso.",
+   "testo": "Ultimo colpo di genio: il musical. Nauru aveva investito in Leonardo, un ritratto d'amore, a Londra. Un triangolo tra Da Vinci, Monna Lisa e un soldato.",
    "anteprima": false,
    "vista": {
-    "lon": -72.8,
-    "lat": 19,
-    "larghezza": 6
+    "lon": -0.1,
+    "lat": 51.5,
+    "larghezza": 12
+   },
+   "epoca": "oggi",
+   "oro": [
+    "GBR"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "personaggio",
+     "nome": "Leonardo da Vinci",
+     "descrizione": "Renaissance painter, long beard, red cap, artist",
+     "parola": "Leonardo"
+    },
+    {
+     "tipo": "icona",
+     "icona": "crown",
+     "lon": -0.12,
+     "lat": 51.51,
+     "parola": "Londra"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "LEONARDO: IL MUSICAL",
+     "lon": -0.1,
+     "lat": 51.5,
+     "parola": "musical"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Musical a Londra: flop",
+     "parola": "triangolo"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 3,
+    "lat": 53,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Fu uno dei più grandi disastri nella storia del teatro londinese. Un flop clamoroso, proprio quando Nauru non poteva permettersi nessuna perdita.",
+   "anteprima": false,
+   "vista": {
+    "lon": -0.1,
+    "lat": 51.5,
+    "larghezza": 10
    },
    "epoca": "oggi",
    "oro": [],
    "verde": [
-    "HTI"
+    "NRU"
    ],
    "eventi": [
     {
-     "tipo": "icona",
-     "icona": "mountain",
-     "lon": -73.0,
-     "lat": 18.8,
-     "parola": "geografia"
+     "tipo": "scritta",
+     "testo": "FLOP",
+     "parola": "flop"
     },
     {
      "tipo": "icona",
      "icona": "chart_down",
-     "lon": -72.4,
-     "lat": 19.0,
-     "parola": "caos"
+     "lon": -0.12,
+     "lat": 51.5,
+     "parola": "perdita"
     },
     {
      "tipo": "nota",
-     "testo": "Suolo perso, politica in frantumi",
-     "parola": "circolo"
+     "testo": "Un disastro da teatro",
+     "parola": "disastri"
     }
    ],
-   "musica": "",
+   "musica": "malinconia",
    "stacco": false,
    "pin": {
-    "lon": -71.4,
-    "lat": 20.1,
+    "lon": 2,
+    "lat": 52.5,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Nel 2001 il fosfato è finito e gli investimenti esteri quasi tutti falliti. Il PIL scende a trentadue milioni di dollari. La disoccupazione sale al novanta per cento.",
+   "anteprima": false,
+   "vista": {
+    "lon": 166.9,
+    "lat": -0.5,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "NRU"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "2001",
+     "parola": "2001"
+    },
+    {
+     "tipo": "prezzo",
+     "testo": "$32M",
+     "sotto": "PIL DI NAURU",
+     "ricco": false,
+     "parola": "trentadue"
+    },
+    {
+     "tipo": "contatore",
+     "testo": "9 SU 10 SENZA LAVORO",
+     "su": 9,
+     "di": 10,
+     "personaggio": "worker",
+     "parola": "novanta"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Il 90% senza lavoro",
+     "parola": "disoccupazione"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": true,
+   "pin": {
+    "lon": 167.3,
+    "lat": -0.2,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Il sistema scolastico quasi collassa. Ricordalo: parliamo del paese più ricco del mondo, solo pochi anni prima. E qui inizia un capitolo ancora più buio.",
+   "anteprima": false,
+   "vista": {
+    "lon": 166.9,
+    "lat": -0.5,
+    "larghezza": 8
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "NRU"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "school",
+     "lon": 166.9,
+     "lat": -0.48,
+     "parola": "scolastico"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "-90%",
+     "parola": "ricco"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Da primo a ultimo",
+     "parola": "solo"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": 167.3,
+    "lat": -0.2,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Condividono la stessa isola e guardano lo stesso oceano. Ma la storia ha dato loro due mondi completamente diversi.",
+   "testo": "Agosto 2001. La nave norvegese MV Tampa ha salvato più di quattrocento rifugiati, quasi tutti afghani, da un barcone che affondava. Vuole attraccare in Australia.",
    "anteprima": false,
    "vista": {
-    "lon": -72,
-    "lat": 19,
-    "larghezza": 9
+    "lon": 115,
+    "lat": -10,
+    "larghezza": 40
    },
    "epoca": "oggi",
    "oro": [
-    "DOM"
+    "AUS"
    ],
    "verde": [
-    "HTI"
+    "AFG"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "2001",
+     "parola": "2001"
+    },
+    {
+     "tipo": "conta",
+     "valore": 400,
+     "prefisso": "+",
+     "suffisso": "",
+     "sotto": "RIFUGIATI SALVATI",
+     "parola": "quattrocento"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      105,
+      -10
+     ],
+     "a": [
+      130,
+      -12
+     ],
+     "icona": "cargo_ship",
+     "parola": "attraccare"
+    },
+    {
+     "tipo": "nota",
+     "testo": "MV Tampa e 400 rifugiati",
+     "parola": "Tampa"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 120,
+    "lat": -20,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "L'Australia rifiuta l'ingresso nelle sue acque e inventa la cosiddetta soluzione del Pacifico: un campo di detenzione offshore proprio a Nauru.",
+   "anteprima": false,
+   "vista": {
+    "lon": 150,
+    "lat": -12,
+    "larghezza": 60
+   },
+   "epoca": "oggi",
+   "oro": [
+    "AUS"
+   ],
+   "verde": [
+    "NRU"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      135,
+      -25
+     ],
+     "a": [
+      166.9,
+      -0.5
+     ],
+     "icona": "cargo_ship",
+     "parola": "offshore"
+    },
+    {
+     "tipo": "icona",
+     "icona": "fortress",
+     "lon": 166.9,
+     "lat": -0.5,
+     "parola": "detenzione"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "SOLUZIONE PACIFICO",
+     "parola": "Pacifico"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Campo di detenzione a Nauru",
+     "parola": "campo"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 140,
+    "lat": -10,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "L'Australia paga Nauru per tenere gli immigrati lontano dalle sue coste. Crea lavoro, ma anche situazioni assurde. Nauru non poteva rifiutare milioni di dollari.",
+   "anteprima": false,
+   "vista": {
+    "lon": 166.9,
+    "lat": -0.5,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "AUS"
+   ],
+   "verde": [
+    "NRU"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      135,
+      -25
+     ],
+     "a": [
+      166.9,
+      -0.5
+     ],
+     "icona": "banknotes",
+     "parola": "paga"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "worker",
+     "n": 4,
+     "lon": 166.93,
+     "lat": -0.52,
+     "parola": "lavoro"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Soldi in cambio di accoglienza",
+     "parola": "milioni"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 167.3,
+    "lat": -0.2,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Stato cliente, troppo legato al grande vicino per dire no. Nemmeno l'ostilità di molti nauruani ha cambiato la politica.",
+   "anteprima": false,
+   "vista": {
+    "lon": 150,
+    "lat": -12,
+    "larghezza": 60
+   },
+   "epoca": "oggi",
+   "oro": [
+    "AUS"
+   ],
+   "verde": [
+    "NRU"
    ],
    "eventi": [
     {
      "tipo": "contorno",
-     "paese": "DOM",
-     "parola": "isola"
+     "paese": "AUS",
+     "parola": "vicino"
     },
     {
-     "tipo": "contorno",
-     "paese": "HTI",
-     "parola": "oceano"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "DUE MONDI",
-     "parola": "mondi"
+     "tipo": "folla",
+     "personaggio": "peasant",
+     "n": 4,
+     "lon": 166.9,
+     "lat": -0.5,
+     "parola": "ostilità"
     },
     {
      "tipo": "nota",
-     "testo": "Stessa isola, due destini",
-     "parola": "storia"
+     "testo": "Dipendente dall'Australia",
+     "parola": "cliente"
     }
    ],
-   "musica": "trionfo",
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": 140,
+    "lat": -10,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Negli ultimi vent'anni l'Australia ha usato i centri di Nauru a fasi alterne, e ospita migranti ancora oggi. Insieme agli aiuti esteri, tiene a galla l'isola.",
+   "anteprima": false,
+   "vista": {
+    "lon": 166.9,
+    "lat": -0.5,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "AUS"
+   ],
+   "verde": [
+    "NRU"
+   ],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 20,
+     "prefisso": "",
+     "suffisso": " ANNI",
+     "sotto": "DI DETENZIONE",
+     "parola": "vent'anni"
+    },
+    {
+     "tipo": "icona",
+     "icona": "fortress",
+     "lon": 166.92,
+     "lat": -0.5,
+     "parola": "centri"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Tenuta a galla da Canberra",
+     "parola": "galla"
+    }
+   ],
+   "musica": "quotidiano",
+   "stacco": false,
+   "pin": {
+    "lon": 167.3,
+    "lat": -0.2,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "James Aingimea, pastore nato nel 1911, ha visto tutto, perfino il musical. Disse al New York Times: vorrei non avessimo mai scoperto quel fosfato.",
+   "anteprima": false,
+   "vista": {
+    "lon": 166.9,
+    "lat": -0.5,
+    "larghezza": 8
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "NRU"
+   ],
+   "eventi": [
+    {
+     "tipo": "personaggio",
+     "nome": "James Aingimea",
+     "descrizione": "elderly Nauruan pastor, born 1911, white hair, church robes",
+     "parola": "Aingimea"
+    },
+    {
+     "tipo": "anno",
+     "testo": "1911",
+     "parola": "1911"
+    },
+    {
+     "tipo": "icona",
+     "icona": "church",
+     "lon": 166.92,
+     "lat": -0.5,
+     "parola": "pastore"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Vorrei mai scoperto il fosfato",
+     "parola": "fosfato"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": 167.3,
+    "lat": -0.2,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Vorrei che Nauru tornasse com'era da bambino: verde ovunque, noci di cocco fresche e frutti dell'albero del pane. Ora vedo com'è ridotta, e voglio piangere.",
+   "anteprima": false,
+   "vista": {
+    "lon": 166.9,
+    "lat": -0.5,
+    "larghezza": 7
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "forest",
+     "lon": 166.92,
+     "lat": -0.5,
+     "parola": "verde"
+    },
+    {
+     "tipo": "icona",
+     "icona": "farm",
+     "lon": 166.95,
+     "lat": -0.53,
+     "parola": "cocco"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Il verde che non c'è più",
+     "parola": "piangere"
+    }
+   ],
+   "musica": "malinconia",
    "stacco": true,
    "pin": {
-    "lon": -74,
-    "lat": 20.6,
+    "lon": 167.3,
+    "lat": -0.2,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Ora la classifica. Dimensione: il PIL è di 133 milioni di dollari, la terza economia più piccola al mondo, appena sopra Montserrat e Tuvalu. Voto: uno su dieci.",
+   "anteprima": false,
+   "vista": {
+    "lon": 170,
+    "lat": -5,
+    "larghezza": 40
+   },
+   "epoca": "oggi",
+   "oro": [
+    "NRU"
+   ],
+   "verde": [
+    "TUV"
+   ],
+   "eventi": [
+    {
+     "tipo": "prezzo",
+     "testo": "$133M",
+     "sotto": "PIL DI NAURU",
+     "ricco": false,
+     "parola": "133"
+    },
+    {
+     "tipo": "barre",
+     "titolo": "VOTO DIMENSIONE",
+     "voci": [
+      {
+       "testo": "NAURU",
+       "valore": 1,
+       "lato": "oro"
+      }
+     ],
+     "parola": "Voto"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Dimensione: 1 su 10",
+     "parola": "uno"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 180,
+    "lat": 5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Ricchezza pro capite: nel 2021 sono 12.000 dollari a testa, quasi esattamente la media mondiale. Voto: cinque su dieci.",
+   "anteprima": false,
+   "vista": {
+    "lon": 166.9,
+    "lat": -0.5,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "NRU"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "2021",
+     "parola": "2021"
+    },
+    {
+     "tipo": "prezzo",
+     "testo": "$12.000",
+     "sotto": "NAURU · PER ABITANTE",
+     "ricco": false,
+     "parola": "12.000"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Ricchezza: 5 su 10",
+     "parola": "cinque"
+    }
+   ],
+   "musica": "quotidiano",
+   "stacco": false,
+   "pin": {
+    "lon": 167.3,
+    "lat": -0.2,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Stabilità e fiducia: la gestione disastrosa del fosfato, le banche non regolate, i centri di detenzione in appalto. Voto: tre su dieci.",
+   "anteprima": false,
+   "vista": {
+    "lon": 166.9,
+    "lat": -0.5,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "NRU"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "banknotes",
+     "lon": 166.9,
+     "lat": -0.48,
+     "parola": "banche"
+    },
+    {
+     "tipo": "icona",
+     "icona": "fortress",
+     "lon": 166.94,
+     "lat": -0.52,
+     "parola": "detenzione"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Stabilità: 3 su 10",
+     "parola": "tre"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 167.3,
+    "lat": -0.2,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Crescita, la voce più curiosa. Fortissima negli anni Settanta e Ottanta. Poi, finito il fosfato negli anni Novanta, il PIL è crollato di oltre il novanta per cento.",
+   "anteprima": false,
+   "vista": {
+    "lon": 166.9,
+    "lat": -0.5,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "NRU"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "chart_up",
+     "lon": 166.88,
+     "lat": -0.48,
+     "parola": "fortissima"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": 166.95,
+     "lat": -0.52,
+     "parola": "crollato"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "-90%",
+     "parola": "novanta"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Crollo oltre il 90%",
+     "parola": "crollato"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 167.3,
+    "lat": -0.2,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Da allora però l'economia cresce in media del sette per cento l'anno. Quasi tutto grazie ai centri di detenzione e agli aiuti esteri. Voto: nove su dieci.",
+   "anteprima": false,
+   "vista": {
+    "lon": 166.9,
+    "lat": -0.5,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "NRU"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 7,
+     "prefisso": "",
+     "suffisso": "%",
+     "sotto": "CRESCITA ANNUA",
+     "parola": "sette"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_up",
+     "lon": 166.92,
+     "lat": -0.5,
+     "parola": "cresce"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Crescita: 9 su 10",
+     "parola": "nove"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 167.3,
+    "lat": -0.2,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Infine l'industria. Oggi il settore principale sono i centri di detenzione in appalto. Ricchi di entrate, ma non creano competenze per industrie avanzate. Voto: due su dieci.",
+   "anteprima": false,
+   "vista": {
+    "lon": 166.9,
+    "lat": -0.5,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "NRU"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "fortress",
+     "lon": 166.93,
+     "lat": -0.5,
+     "parola": "detenzione"
+    },
+    {
+     "tipo": "icona",
+     "icona": "factory",
+     "lon": 166.9,
+     "lat": -0.53,
+     "parola": "industrie"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Industria: 2 su 10",
+     "parola": "due"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": 167.3,
+    "lat": -0.2,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Media finale: quattro su dieci. Un'isola che ha avuto tutto, e non ha costruito niente che durasse oltre il suo tesoro.",
+   "anteprima": false,
+   "vista": {
+    "lon": 166.9,
+    "lat": -0.5,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "NRU"
+   ],
+   "eventi": [
+    {
+     "tipo": "barre",
+     "titolo": "PAGELLA DI NAURU",
+     "voci": [
+      {
+       "testo": "DIMENSIONE",
+       "valore": 1,
+       "lato": "verde"
+      },
+      {
+       "testo": "RICCHEZZA",
+       "valore": 5,
+       "lato": "verde"
+      },
+      {
+       "testo": "STABILITÀ",
+       "valore": 3,
+       "lato": "verde"
+      },
+      {
+       "testo": "CRESCITA",
+       "valore": 9,
+       "lato": "oro"
+      }
+     ],
+     "parola": "Media"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "4 SU 10",
+     "parola": "quattro"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Voto finale: 4 su 10",
+     "parola": "niente"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": true,
+   "pin": {
+    "lon": 167.3,
+    "lat": -0.2,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Una ricchezza che dipende da una sola risorsa, se non la trasformi in altro prima che finisca, svanisce con lei.",
+   "anteprima": false,
+   "vista": {
+    "lon": 166.9,
+    "lat": -0.5,
+    "larghezza": 8
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "NRU"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "hourglass",
+     "lon": 166.92,
+     "lat": -0.5,
+     "parola": "finisca"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "DIVERSIFICA",
+     "parola": "trasformi"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Una sola risorsa non basta",
+     "parola": "sola"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": 167.3,
+    "lat": -0.2,
     "faccia": "normale"
    }
   }
