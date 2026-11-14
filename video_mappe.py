@@ -292,7 +292,7 @@ def copione(comp):
                          if str(P.get('copertina_stile') or '').strip().lower() == 'titolo_mappa' else '')
     lingua_txt = '' if LINGUA == 'en' else (
         f"LANGUAGE: the whole video is in {LINGUE.get(LINGUA, LINGUA)}. Write the narration AND every text that appears on screen (etichetta, nota, scritta, numero, conta 'sotto', "
-        f"prezzo 'sotto', barre, griglia, anno, titolo, descrizione, tag, copertina) in {LINGUE.get(LINGUA, LINGUA)}, with the names of countries and people as they are "
+        f"prezzo 'sotto', barre, griglia, anno, titolo, descrizione, tag, copertina; units always metric for non-English: km, km², m, kg, never miles/feet) in {LINGUE.get(LINGUA, LINGUA)}, with the names of countries and people as they are "
         f"written in {LINGUE.get(LINGUA, LINGUA)}. The JSON keys and the codes (tipo, icona, ISO codes, musica moods) stay as in the examples. "
         + (f"Register and tone: {REGISTRO}. " if REGISTRO else '') + '\n\n')
     prompt = lingua_txt + f"""You write videos for the YouTube channel {NOME_CANALE} ("{SLOGAN}"): history explained with ANIMATED MAPS, in the style of the channel "Fortune of Nations".
@@ -1716,7 +1716,7 @@ def piano_copertina(comp, c):
     buf = io.BytesIO(); Image.open(io.BytesIO(img)).convert('RGB').resize((960, 540)).save(buf, 'JPEG', quality=88)
     numeri = '; '.join(str(e.get('testo')) for s_ in c.get('scene') or [] for e in (s_.get('eventi') or []) if e.get('tipo') in ('numero', 'barre') and e.get('testo'))[:400]
     domanda = (f'This is the thumbnail of a very successful YouTube video ("{comp.get("titolo") or ""}"). Our video copies it: our thumbnail must be 90% IDENTICAL '
-               '(same composition, same places, same colours, same words), 10% ours. ' + str(P.get('copertina_pattern') or PATTERN_COP) + '\n'
+               '(same composition, same places, same colours, same words), 10% ours. ' + ('Units: our audience is Italian, so ALWAYS metric (km, km², m, kg, °C), never miles, feet or square miles; convert the numbers correctly. ' if LINGUA != 'en' else '') + 'The place the video is about must be clearly VISIBLE on the map (zoom in enough; a tiny island gets a close view or a highlight). ' + str(P.get('copertina_pattern') or PATTERN_COP) + '\n'
                f'Real numbers said in our video (use one ONLY if it fits and the original has a number or none at all): {numeri or "none"}\n'
                'Describe how to redraw it on our world map. Answer ONLY JSON:\n'
                '{"sinistra":{"vista":{"lon":..,"lat":..,"larghezza":..},"colori":{"lime":[ISO-3],"ruggine":[ISO-3],"rosso":[ISO-3]}},'
