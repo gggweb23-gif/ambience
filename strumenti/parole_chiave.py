@@ -97,6 +97,57 @@ def main():
         for r in finali:
             f.write(f"{r['parola']} | cercata {r['cercata']} | nei video top {r['video_top_che_la_usano']} | punti {r['punteggio']}\n")
     print(open(f'{out}/{nome}.txt').read())
+    if E('ANTHROPIC_API_KEY') and E('FILONE'):
+        sintesi(vids, cercate, out, nome)
+
+
+def trascrizione(vid):
+    try:
+        req = urllib.request.Request('https://youtube-transcript3.p.rapidapi.com/api/transcript?videoId=' + vid,
+                                     headers={'X-RapidAPI-Key': E('RAPIDAPI_KEY'), 'X-RapidAPI-Host': 'youtube-transcript3.p.rapidapi.com'})
+        j = json.loads(urllib.request.urlopen(req, timeout=120).read())
+        r = j.get('transcript') or []
+        return re.sub(r'\s+', ' ', ' '.join(str(x.get('text', '')) for x in r) if isinstance(r, list) else str(r)).strip()
+    except Exception as e:
+        print('trascrizione non letta', vid, str(e)[:80]); return ''
+
+
+def sintesi(vids, cercate, out, nome):
+    """15 nov (Giorgio): le 30 parole si imparano da chi ha gia' vinto nel filone: titoli, tag e TESTI (trascrizioni) dei loro video migliori,
+    piu' le frasi che la gente scrive nella ricerca. Claude Sonnet sceglie le 30 parole d'impatto nella lingua del NOSTRO canale (~0,02 $)."""
+    lingua = {'it': 'Italian', 'en': 'English'}.get(LING, LING)
+    vv = sorted(vids, key=lambda v: v['views'], reverse=True)
+    testi = ''
+    if E('RAPIDAPI_KEY'):
+        for v in vv[:3]:
+            t = trascrizione(v['id'])
+            if t:
+                testi += f"\n--- script of \"{v['titolo']}\" ({v['views']:,} views):\n" + ' '.join(t.split()[:1500])
+    domanda = (f"Our YouTube channel works in this niche: {E('FILONE')}. Our language: {lingua}.\n"
+               'Below: the most viewed videos of the competitor channels that already WON in this niche (titles, views, tags), the scripts of their top videos, '
+               'and the phrases people really type in YouTube search.\n'
+               f'Give the 30 keywords/short phrases (1-4 words) in {lingua} that make people click and search in THIS niche: words used again and again in the winning titles '
+               'and scripts, emotional/curiosity words that work, the subjects people search. Translate to our language if the competitors use another language. '
+               'NEVER channel names, presenter names, generic platform words (news, video, documentary, shorts, intrattenimento) or words unrelated to the niche. '
+               'Ignore competitor videos that are off-niche. For each keyword say where to use it: titolo, copertina, testo.\n'
+               'Answer ONLY JSON: [{"parola": "...", "perche": "max 12 words", "dove": "titolo|copertina|testo"}]\n\n'
+               + '\n'.join(f"- {v['titolo']} | {v['views']:,} views | tag: {', '.join((v.get('tag') or [])[:8])}" for v in vv[:60])
+               + '\n\nSEARCHED PHRASES: ' + '; '.join(s for s, _ in cercate.most_common(60)) + '\n' + testi)
+    req = urllib.request.Request('https://api.anthropic.com/v1/messages', data=json.dumps({'model': 'claude-sonnet-5-5', 'max_tokens': 6000,
+                                 'thinking': {'type': 'between_tools'}, 'output_config': {'effort': 'low'}, 'messages': [{'role': 'user', 'content': domanda}]}).encode(),
+                                 headers={'x-api-key': E('ANTHROPIC_API_KEY'), 'anthropic-version': '2023-06-01', 'content-type': 'application/json'})
+    try:
+        j = json.loads(urllib.request.urlopen(req, timeout=300).read())
+        u = j.get('usage') or {}
+        print(f"sintesi Claude: {u.get('input_tokens', 0) * 3e-6 + u.get('output_tokens', 0) * 15e-6:.3f} $")
+        t = ''.join(b.get('text', '') for b in j['content'] if b.get('type') == 'text')
+        par = json.loads(t[t.find('['): t.rfind(']') + 1])[:30]
+    except Exception as e:
+        print('sintesi non riuscita:', str(e)[:150]); return
+    with open(f'{out}/{nome}_30.txt', 'w') as f:
+        for k, p in enumerate(par, 1):
+            f.write(f"{k}. {p.get('parola')} | {p.get('dove')} | {p.get('perche')}\n")
+    print(open(f'{out}/{nome}_30.txt').read())
 
 
 if __name__ == '__main__':

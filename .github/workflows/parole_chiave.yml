@@ -6,6 +6,7 @@ on:
       canali: {description: 'canali del filone (link o @handle)', required: true, type: string}
       semi: {description: 'frasi di partenza separate da ;', default: '', type: string}
       lingua: {description: 'en / it', default: 'en', type: string}
+      filone: {description: 'descrizione del filone (colonna scout_filone): attiva la sintesi delle 30 parole con Claude, ~0,02 $', default: '', type: string}
 permissions:
   contents: write
 jobs:
@@ -24,6 +25,9 @@ jobs:
           CANALI: ${{ inputs.canali }}
           SEMI: ${{ inputs.semi }}
           LINGUA: ${{ inputs.lingua }}
+          FILONE: ${{ inputs.filone }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
         run: pip install -q google-auth requests && python3 strumenti/parole_chiave.py
       - name: Salva
-        run: git config user.name render-bot && git config user.email render-bot@users.noreply.github.com && git add prove_video/parole_chiave && git commit -m "Parole chiave" && git pull --rebase -q && git push || true
+        run: git config user.name render-bot && git config user.email render-bot@users.noreply.github.com && git add prove_video/parole_chiave && git commit -m "Parole chiave" && for i in 1 2 3 4 5; do git pull --rebase -q && git push && break; sleep $((i * 4)); done || true
