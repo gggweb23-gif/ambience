@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
-"""Invia per email l'ultimo foglio Excel del mattino (report/Performance_*.xlsx). Segreti GitHub: GMAIL_UTENTE, GMAIL_PASSWORD_APP, EMAIL_REPORT."""
+"""Invia per email l'ultimo foglio Excel del mattino (report/Performance_*.xlsx). Segreti GitHub: GMAIL_UTENTE, GMAIL_PASSWORD_APP, EMAIL_REPORT.
+Con FILE (+ OGGETTO, TESTO) invia quel file: es. la strategia in PDF ogni lunedi' (15 nov, Giorgio)."""
 import datetime as dt, glob, os, smtplib, sys
 from email.message import EmailMessage
 E = os.environ.get
 if not (E('GMAIL_UTENTE') and E('GMAIL_PASSWORD_APP')):
     print('email non configurata: salto'); sys.exit(0)
-f = sorted(glob.glob('report/Performance_*.xlsx'))[-1]
-m = EmailMessage(); m['Subject'] = 'Performance canali ' + dt.date.today().strftime('%d/%m/%Y')
+f = E('FILE') or sorted(glob.glob('report/Performance_*.xlsx'))[-1]
+m = EmailMessage(); m['Subject'] = (E('OGGETTO') or 'Performance canali') + ' ' + dt.date.today().strftime('%d/%m/%Y')
 m['From'] = E('GMAIL_UTENTE'); m['To'] = E('EMAIL_REPORT') or E('GMAIL_UTENTE')
-m.set_content('In allegato il foglio delle performance: ultimi 10 video di ogni canale con la riga TOTALE CANALE '
+m.set_content(E('TESTO') or 'In allegato il foglio delle performance: ultimi 10 video di ogni canale con la riga TOTALE CANALE '
               '(durata media, % vista, visualizzazioni, ore, iscritti, impression, CTR, ritenzione 30 s e 60 s).')
-m.add_attachment(open(f, 'rb').read(), maintype='application', subtype='vnd.openxmlformats-officedocument.spreadsheetml.sheet', filename=os.path.basename(f))
+m.add_attachment(open(f, 'rb').read(), maintype='application', subtype='pdf' if f.endswith('.pdf') else 'vnd.openxmlformats-officedocument.spreadsheetml.sheet', filename=os.path.basename(f))
 utente = E('GMAIL_UTENTE').strip(); pw = ''.join(E('GMAIL_PASSWORD_APP').split())   # Google mostra la password con gli spazi: si tolgono
 m.replace_header('From', utente)
 if '@' not in E('EMAIL_REPORT', ''):   # destinatario mancante o non valido: lo mando all'indirizzo del mittente

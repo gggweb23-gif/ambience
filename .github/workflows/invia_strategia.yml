@@ -1,0 +1,24 @@
+name: Strategia via email (ogni lunedi')
+
+# 15 nov 2026 (Giorgio): ogni lunedi' mattina la strategia in corso (strategia/Strategia_Canali_YouTube.pdf) per email,
+# per rileggerla e dire se qualcosa cambia. Quando la strategia cambia, Claude aggiorna il PDF in questa cartella.
+on:
+  schedule:
+    - cron: '43 6 * * 1'   # lunedi' 07:43 ora italiana (inverno), 08:43 con l'ora legale
+  workflow_dispatch:
+
+jobs:
+  invia:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Email con il PDF
+        env:
+          GMAIL_UTENTE: ${{ secrets.GMAIL_UTENTE }}
+          GMAIL_PASSWORD_APP: ${{ secrets.GMAIL_PASSWORD_APP }}
+          EMAIL_REPORT: ${{ secrets.EMAIL_REPORT }}
+          FILE: strategia/Strategia_Canali_YouTube.pdf
+          OGGETTO: Strategia canali YouTube in corso
+          TESTO: "Ciao Giorgio, in allegato la strategia in corso sui canali. Rileggila: se qualcosa va cambiato, dillo a Claude in chat e il PDF verra' aggiornato."
+        run: python3 strumenti/invia_report.py

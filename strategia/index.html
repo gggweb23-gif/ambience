@@ -1,0 +1,256 @@
+<title>Strategia Canali YouTube</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: una "plancia di regia" — dall'inizio (sinistra/alto) a oggi, poi il ciclo giornaliero, poi le regole per canale */
+:root{
+  --bg:#f3f5f8; --card:#ffffff; --fg:#141a24; --muted:#5b6474; --line:#d9dee7;
+  --red:#e01e2b; --lime:#3fae2a; --yellow:#f5c400; --cyan:#0aa5c4; --cyan-soft:#d5f6fd;
+  --old:#8a93a3; --chip:#eef1f6;
+  --display:'Anton','Impact','Arial Narrow',sans-serif; --body:'Inter',system-ui,-apple-system,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0e131b; --card:#161d28; --fg:#e8edf5; --muted:#9aa5b8; --line:#2a3342;
+  --red:#ff4b55; --lime:#7bdc5e; --yellow:#ffd83d; --cyan:#3fd6f2; --cyan-soft:#0f3a45; --old:#6f7a8c; --chip:#1f2836; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e131b; --card:#161d28; --fg:#e8edf5; --muted:#9aa5b8; --line:#2a3342;
+  --red:#ff4b55; --lime:#7bdc5e; --yellow:#ffd83d; --cyan:#3fd6f2; --cyan-soft:#0f3a45; --old:#6f7a8c; --chip:#1f2836; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.5;margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding-block:28px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:40px}
+h1,h2{font-family:var(--display);font-weight:400;letter-spacing:.01em;text-transform:uppercase;margin:0;text-wrap:balance}
+h1{font-size:clamp(38px,6vw,68px);line-height:1}
+h2{font-size:clamp(26px,3.4vw,36px);line-height:1.05;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+h3{margin:0 0 6px;font-size:16px}
+p{margin:0}
+.lead{color:var(--muted);max-width:68ch;margin-top:10px}
+.tag{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:4px;background:var(--chip);color:var(--muted)}
+.box{display:inline-block;font-family:var(--display);text-transform:uppercase;padding:2px 10px;line-height:1.15}
+.box.k{background:#000;color:#fff;border:3px solid var(--red)}
+.box.y{background:var(--yellow);color:#000;border:3px solid #000}
+.hero{display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:end}
+.hero .thesis{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:clamp(22px,3vw,32px)}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.kpi{background:var(--card);border:1px solid var(--line);padding:12px 14px}
+.kpi b{display:block;font-family:var(--display);font-size:30px;font-weight:400;font-variant-numeric:tabular-nums}
+.kpi span{font-size:12px;color:var(--muted)}
+/* evoluzione */
+.evo{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0;border-top:4px solid var(--fg)}
+.step{padding:14px 14px 16px;border-right:1px solid var(--line);position:relative;min-width:0}
+.step:last-child{border-right:0;background:var(--cyan-soft)}
+.step .d{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.step h3{margin-top:4px}
+.step p{font-size:13.5px;color:var(--muted)}
+.step::before{content:"";position:absolute;top:-10px;left:14px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:4px solid var(--fg)}
+.step:last-child::before{background:var(--cyan);border-color:var(--cyan)}
+.from-to{display:grid;grid-template-columns:1fr auto 1fr;gap:0;background:var(--card);border:1px solid var(--line)}
+.from-to>div{padding:16px 18px;min-width:0}
+.from-to .arrow{display:flex;align-items:center;font-family:var(--display);font-size:34px;color:var(--red);padding:0 6px}
+.from-to ul{margin:8px 0 0;padding-left:18px}
+.from-to li{margin:4px 0}
+.from-to .old li{color:var(--old);text-decoration:line-through;text-decoration-color:color-mix(in srgb,var(--old) 60%,transparent)}
+.from-to .old li.keep{text-decoration:none}
+/* ciclo */
+.cycle{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;counter-reset:c}
+.c{background:var(--card);border:1px solid var(--line);padding:14px;min-width:0;position:relative}
+.c .t{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.c h3{margin:4px 0}
+.c p{font-size:13.5px;color:var(--muted)}
+.c.win{background:var(--cyan-soft);border-color:var(--cyan)}
+.c.win h3{color:var(--cyan)}
+.c:not(:last-child)::after{content:"→";position:absolute;right:-12px;top:50%;transform:translateY(-50%);font-weight:700;color:var(--red);z-index:1}
+.note{font-size:13px;color:var(--muted);margin-top:10px}
+/* 50-50 */
+.fifty{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line)}
+.fifty>div{padding:18px;min-width:0}
+.fifty .a{background:var(--card)}
+.fifty .b{background:var(--cyan-soft)}
+.fifty .big{font-family:var(--display);font-size:56px;line-height:1}
+/* canali */
+.tbl{overflow-x:auto;border:1px solid var(--line);background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:860px;font-size:13.5px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500;background:var(--chip)}
+td:first-child{font-weight:700;white-space:nowrap}
+.pill{display:inline-block;font-size:11.5px;font-weight:600;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.pill.on{background:var(--cyan);color:#001a20}
+.pill.ask{background:var(--yellow);color:#000}
+.pill.off{background:var(--chip);color:var(--muted)}
+/* regole */
+.rules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.r{background:var(--card);border:1px solid var(--line);padding:14px 16px;min-width:0}
+.r ul{margin:6px 0 0;padding-left:18px;font-size:13.5px}
+.r li{margin:3px 0}
+.r.cop{border-top:4px solid var(--red)}
+.r.up{border-top:4px solid var(--fg)}
+.r.vid{border-top:4px solid var(--lime)}
+.r.sold{border-top:4px solid var(--yellow)}
+.r.sec{border-top:4px solid var(--muted)}
+.r.kw{border-top:4px solid var(--cyan)}
+.open{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:0;margin:0;list-style:none}
+.open li{background:var(--card);border:1px dashed var(--line);padding:10px 12px;font-size:13.5px}
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .evo{grid-template-columns:1fr 1fr;border-top:0}
+  .step{border:1px solid var(--line);border-top:4px solid var(--fg)}
+  .step::before{display:none}
+  .cycle{grid-template-columns:1fr 1fr}
+  .c::after{display:none}
+  .rules{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){
+  .evo,.cycle,.rules,.open,.fifty{grid-template-columns:1fr}
+  .from-to{grid-template-columns:1fr}
+  .from-to .arrow{transform:rotate(90deg);justify-content:center;padding:0}
+  .kpis{grid-template-columns:1fr 1fr 1fr}
+}
+</style>
+
+<div class="wrap">
+
+<header class="hero">
+  <div>
+    <span class="tag">Strategia · aggiornata al 15 novembre 2026</span>
+    <h1 style="margin-top:10px">Da dove siamo partiti, cosa facciamo adesso</h1>
+    <p class="lead">Una sola strategia per tutti i canali, così non si riparte da zero ogni volta. Il punto di svolta del 15 novembre: quasi tutte le visite arrivano dalla home di YouTube, quindi contano copertina e titolo, e quando un video funziona si continua su quell'angolo.</p>
+  </div>
+  <div class="kpis" aria-label="Obiettivi">
+    <div class="kpi"><b>3,5%</b><span>CTR copertina da superare</span></div>
+    <div class="kpi"><b>65%</b><span>pubblico ancora lì a 30 s</span></div>
+    <div class="kpi"><b>50%</b><span>pubblico ancora lì a 60 s</span></div>
+  </div>
+</header>
+
+<section>
+  <h2>Come è cambiata la strategia</h2>
+  <div class="evo" style="margin-top:22px">
+    <div class="step"><span class="d">ottobre</span><h3>Copiare chi funziona</h3><p>Ogni canale parte da un competitor. KAO copia al 100% La Psicología Invisible e traduce. Titoli creati da Claude quando la coda finisce.</p></div>
+    <div class="step"><span class="d">4 nov</span><h3>Coach automatico</h3><p>Ogni canale ha il controllo delle metriche: versioni dello stile, si tiene quella che va meglio.</p></div>
+    <div class="step"><span class="d">11 nov</span><h3>Niente doppioni</h3><p>I canali inglesi che copiano un canale inglese prendono solo gancio e struttura: testo e titolo nuovi. Foglio Performance con fonti delle visite e rami del filone.</p></div>
+    <div class="step"><span class="d">12–13 nov</span><h3>Copertine nuove</h3><p>Mai la stessa scritta due volte. Stile per canale: soldi (Billion Ruin), FOTO 2C (Costo Vero), mappe grandi (Storia).</p></div>
+    <div class="step"><span class="d">14 nov</span><h3>Mai fermi</h3><p>Lo scout guarda il competitor e i video migliori degli ultimi 60–90 giorni del filone. Le 30 parole più cercate per canale.</p></div>
+    <div class="step"><span class="d">15 nov · oggi</span><h3>Home e metodo 50-50</h3><p>Visite: 89% dalla home, 0,5% dalla ricerca. Titoli e copertine per la home. Video vincente → video gemelli.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Il cambio di rotta</h2>
+  <div class="from-to" style="margin-top:16px">
+    <div class="old">
+      <span class="tag">Prima</span>
+      <ul>
+        <li>Si cercavano le parole della ricerca di YouTube come fonte principale</li>
+        <li>Ogni video su un argomento nuovo, anche dopo un video andato bene</li>
+        <li>Copertine decise caso per caso, anche con parole deboli (SICURO?)</li>
+        <li class="keep">Competitor come fonte dei titoli (resta)</li>
+      </ul>
+    </div>
+    <div class="arrow" aria-hidden="true">→</div>
+    <div>
+      <span class="tag">Adesso</span>
+      <ul>
+        <li><b>Titolo e copertina per la home</b>: curiosità e contrasto, le parole chiave restano ma vengono dopo</li>
+        <li><b>Video vincente in azzurro</b> nel foglio Performance, e da lì i <b>video gemelli</b></li>
+        <li><b>Copertine con parole d'impatto del filone</b> (RICCHI / POVERI?, PERCHÉ?, BANCAROTTA), mai parole vuote</li>
+        <li>Competitor e filone degli ultimi 60–90 giorni per non restare mai senza video</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Il giro di ogni giorno</h2>
+  <div class="cycle" style="margin-top:16px">
+    <div class="c"><span class="t">notte</span><h3>Scout</h3><p>Competitor prima, poi i video migliori del filone negli ultimi 60–90 giorni. Se manca tutto, titoli di Claude.</p></div>
+    <div class="c"><span class="t">notte</span><h3>Produzione</h3><p>Un video al giorno per canale, 9–10 minuti, 1440p, gancio forte nei primi 30 secondi.</p></div>
+    <div class="c"><span class="t">17:00</span><h3>Caricamento</h3><p>Copertina, playlist, descrizione, tag. Più 4 Short al giorno.</p></div>
+    <div class="c"><span class="t">06:03</span><h3>Performance</h3><p>CTR, ritenzione, da dove arrivano le visite. Foglio Excel per email.</p></div>
+    <div class="c win"><span class="t">06:03</span><h3>Vincente?</h3><p>CTR ≥ 4% con almeno 500 impression, oppure 3 volte le visualizzazioni medie del canale.</p></div>
+    <div class="c win"><span class="t">06:10</span><h3>Gemelli</h3><p>Titoli nuovi sullo schema del vincente, copione rifatto partendo dal suo testo.</p></div>
+  </div>
+  <p class="note">Il messaggio del mattino segnala ogni nuovo video vincente. Sui canali dove il 50-50 non è attivo la domanda è: vuoi iniziare a fare il 50-50?</p>
+</section>
+
+<section>
+  <h2>Metodo 50-50 <span class="box y" style="font-size:22px">gemelli</span></h2>
+  <div class="fifty" style="margin-top:16px">
+    <div class="a"><span class="big">50%</span><h3>Video nuovi</h3><p>Argomenti dalla coda normale: competitor, filone, titoli di Claude. Servono a scoprire il prossimo vincente.</p></div>
+    <div class="b"><span class="big">50%</span><h3>Video gemelli</h3><p>Stesso schema di titolo, stesso tipo di copertina, stesso gancio e struttura del nostro vincente; argomento nuovo e fatti nuovi. La quota si conta sugli ultimi 10 video del canale.</p></div>
+  </div>
+  <p class="note">Su KAO, che traduce La Psicología Invisible al 100%, il gemello è il loro video più simile al nostro vincente (per esempio “la psicologia di chi…”).</p>
+</section>
+
+<section>
+  <h2>Canale per canale</h2>
+  <div class="tbl" style="margin-top:16px">
+    <table>
+      <thead><tr><th>Canale</th><th>Fonte dei video</th><th>Copertina</th><th>Titoli</th><th>Vincente oggi</th><th>50-50</th></tr></thead>
+      <tbody>
+        <tr><td>KAO Psicologia</td><td>La Psicología Invisible copiato al 100% e tradotto + filone 60–90 giorni</td><td>Cinema, persona sempre intera e visibile</td><td>Tradotti dal competitor</td><td>“La psicologia di chi preferisce l'inverno all'estate”, CTR 4,7%</td><td><span class="pill ask">Giorgio scrive 50</span></td></tr>
+        <tr><td>WWII Testimony</td><td>Competitor inglese: solo gancio e struttura</td><td>Regola testo del canale</td><td>Nuovi, stesso schema</td><td>“They Asked Guderian About Patton…”, 2.271 views, CTR 6%</td><td><span class="pill on">attivo 50%</span></td></tr>
+        <tr><td>Orbital Days</td><td>Competitor inglese: solo gancio e struttura</td><td>Fotogramma vero del video, font Orbitron con bagliore azzurro</td><td>Domande da home (“How did…”, “Why…”)</td><td>“How Did Astronauts Survive…”, CTR 5,7%</td><td><span class="pill on">attivo 50%</span></td></tr>
+        <tr><td>Storia in Minuti</td><td>Competitor + filone</td><td>Mappa a schermo diviso, colori fluo, due parole opposte d'impatto, unità metriche</td><td>Contrasto e perché (ricchi/poveri)</td><td>“Perché gli USA si arricchirono…” (POVERI? / RICCHI)</td><td><span class="pill off">da chiedere</span></td></tr>
+        <tr><td>Costo Vero</td><td>Copioni propri, stile A “contatore”</td><td>FOTO 2C prima/dopo, “IN N ANNI”, cerchio sul soggetto</td><td>Mai “davvero”</td><td>—</td><td><span class="pill off">non ancora</span></td></tr>
+        <tr><td>Billion Ruin</td><td>Competitor + filone</td><td>Sempre “soldi”: cifra grande, scheda, timbro</td><td>Cifra e rovina</td><td>—</td><td><span class="pill off">non ancora</span></td></tr>
+        <tr><td>Quanto Ti Resta</td><td>Competitor + filone</td><td>Stile del canale</td><td>—</td><td>—</td><td><span class="pill off">non ancora</span></td></tr>
+        <tr><td>Agora of Sages</td><td colspan="4">In revisione: da sostituire con un filone del radar (decisione di Giorgio)</td><td><span class="pill off">fermo</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Regole fisse</h2>
+  <div class="rules" style="margin-top:16px">
+    <div class="r cop"><h3>Copertine</h3><ul>
+      <li>Stile MANO LIBERA, scritte grandi leggibili da telefono</li>
+      <li>Parole d'impatto del filone, mai parole vuote</li>
+      <li>Niente sopra la durata (in basso a destra), niente punto finale</li>
+      <li>Mai coprire la persona o il soggetto; cerchio o freccia sul soggetto</li>
+      <li>Mai una scritta già usata sul canale</li>
+    </ul></div>
+    <div class="r up"><h3>Ogni caricamento</h3><ul>
+      <li>AI = No, Promozione = No</li>
+      <li>Il titolo è la prima riga della descrizione e uno dei tag</li>
+      <li>Playlist e pulsante Iscriviti</li>
+      <li>4 Short al giorno: 09:00, 13:00, 19:00, 21:30</li>
+    </ul></div>
+    <div class="r vid"><h3>Video</h3><ul>
+      <li>9–10 minuti, mai sotto 8</li>
+      <li>1440p</li>
+      <li>Gancio forte all'inizio: la risposta del titolo subito</li>
+      <li>Mai immagini che tremano o vibrano</li>
+    </ul></div>
+    <div class="r kw"><h3>Parole chiave</h3><ul>
+      <li>Le 30 frasi più cercate del filone per canale</li>
+      <li>Nel titolo, nelle prime righe della descrizione, nel parlato</li>
+      <li>Dopo il 15 novembre vengono dopo il titolo pensato per la home</li>
+    </ul></div>
+    <div class="r sold"><h3>Soldi</h3><ul>
+      <li>Nessuna spesa senza OK di Giorgio</li>
+      <li>Budget, durata e video al giorno li decide solo Giorgio</li>
+      <li>La qualità di KAO non deve mai peggiorare</li>
+    </ul></div>
+    <div class="r sec"><h3>Sicurezza e foglio</h3><ul>
+      <li>Mai segreti in chat: il repository è pubblico</li>
+      <li>I token li inserisce Giorgio nei segreti di GitHub</li>
+      <li>La riga di KAO in Channel Configs la modifica solo Giorgio</li>
+      <li>Ogni colonna nuova viene comunicata; SI/NO parte da NO</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>In attesa di una decisione</h2>
+  <ul class="open" style="margin-top:16px">
+    <li>KAO: scrivere quota_gemelli = 50 nella riga di KAO</li>
+    <li>Storia in Minuti: iniziare il 50-50 sullo schema POVERI? / RICCHI</li>
+    <li>Orbital e WWII: passare al titolo successivo (video di oggi bloccati dal controllo qualità)</li>
+    <li>Agora: The War They Filmed o africaregions, nuovo canale o rinomina</li>
+    <li>Quota YouTube: ricerche libere solo su richiesta, al massimo 2 al giorno</li>
+    <li>Short della sera: ne escono meno del previsto, da verificare</li>
+  </ul>
+</section>
+
+</div>
