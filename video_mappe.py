@@ -1722,6 +1722,7 @@ def piano_copertina(comp, c):
     numeri = '; '.join(str(e.get('testo')) for s_ in c.get('scene') or [] for e in (s_.get('eventi') or []) if e.get('tipo') in ('numero', 'barre') and e.get('testo'))[:400]
     domanda = (f'This is the thumbnail of a very successful YouTube video ("{comp.get("titolo") or ""}"). Our video copies it: our thumbnail must be 90% IDENTICAL '
                '(same composition, same places, same colours, same words), 10% ours. ' + ('Units: our audience is Italian, so ALWAYS metric (km, km², m, kg, °C), never miles, feet or square miles; convert the numbers correctly. ' if LINGUA != 'en' else '') + 'The place the video is about must be clearly VISIBLE on the map (zoom in enough; a tiny island gets a close view or a highlight). ' + str(P.get('copertina_pattern') or PATTERN_COP) + '\n'
+               + (('Keywords that win in this niche (from the competitors; use 1-2 of them in the thumbnail words when they fit THIS story): ' + str(P.get('parole_chiave')) + '\n') if str(P.get('parole_chiave') or '').strip() else '')
                f'Real numbers said in our video (use one ONLY if it fits and the original has a number or none at all): {numeri or "none"}\n'
                'Describe how to redraw it on our world map. Answer ONLY JSON:\n'
                '{"sinistra":{"vista":{"lon":..,"lat":..,"larghezza":..},"colori":{"lime":[ISO-3],"ruggine":[ISO-3],"rosso":[ISO-3]}},'

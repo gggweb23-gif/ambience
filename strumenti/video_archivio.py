@@ -215,6 +215,11 @@ OPENING (the first 3 scenes, about 30 seconds: this decides if the viewer stays)
 answer, fact or number (say the end first, then explain how we get there); no greetings, no "in this video", no slow scene-setting, no generic intro.
 Scenes 2-3 open one concrete question the viewer wants answered and promise what is coming ("but the real danger is not the fire. It is what comes next").
 After that, a new small reveal or surprising detail about every 60-90 seconds, so there is always a reason to keep watching."""   # 11 nov (Giorgio): gancio forte, ritenzione a 30 s bassa su Orbital Days
+if str(P.get('parole_chiave') or '').strip():   # 15 nov (Giorgio): le 30 parole che vincono nel filone (dai competitor) nel parlato e nella copertina
+    regole += f"""
+
+KEYWORDS THAT WIN IN THIS NICHE (learned from the competitors): {P.get('parole_chiave')}. Use the ones that fit this story naturally in the first 30 seconds of narration,
+in the description (first 2 lines) and in the tags; the thumbnail text must use 1-2 of them when they fit (never a generic word like WHY?)."""
 METODO = str(P.get('metodo') or 'impronta').strip().lower()   # copia (stesso argomento del competitor) | impronta (stessa struttura, altro argomento)
 if riferimento and GEMELLO:
     regole += f"""

@@ -207,6 +207,7 @@ Almeno 75% delle immagini con persone=false. Mai immagini di fogli scritti, scon
 Il "titolo" inizia SEMPRE con la cosa (la parola chiave del video, da mobile si vede solo l inizio), poi il resto: la cosa scritta TUTTA IN MAIUSCOLO perche si legga e si noti subito: es. "PLAYSTATION 5: quanto costa in 7 anni?", "MOTO da 8.000 €: quanto costa in 5 anni?". MAI la parola "davvero" nel titolo (12 nov, Giorgio: titolo corto, da mobile si deve leggere tutto).
 Aggiungi: "titolo", "descrizione" (2 brevi paragrafi per YouTube, in italiano), "tag" (12-15 tag in italiano), "protagonista" (descrizione fisica in inglese: eta', capelli, vestiti),
 "riferimento" (in inglese: il protagonista accanto alla cosa, all'aperto o nel posto giusto), "copertina": {{"oggetto": "in inglese: la cosa grande e ben visibile, un modello bello di fascia media-alta con i suoi dettagli di design, sfondo semplice"}}.
+{('Parole che vincono in questo filone (prese dai competitor, 15 nov Giorgio): ' + str(P.get('parole_chiave')) + '. Usa quelle adatte a questo video nei primi 30 secondi della voce, nelle prime 2 righe della descrizione e nei tag.') if str(P.get('parole_chiave') or '').strip() else ''}
 Rispondi SOLO con JSON: {{"titolo": "...", "descrizione": "...", "tag": [...], "protagonista": "...", "riferimento": "...", "copertina": {{...}}, "scene": [...]}}"""
     errore = ''
     for tentativo in range(3):
