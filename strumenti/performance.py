@@ -25,6 +25,7 @@ COLONNE = ['data_rilevazione', 'youtube_video_id', 'titolo', 'giorni_dalla_pubbl
 IN_ATTESA = 'in attesa report'
 PT = A.ZoneInfo('America/Los_Angeles')   # i giorni dei report reach di YouTube sono in ora del Pacifico
 REPORT = []
+VINCENTI = {}   # 15 nov: vincenti degli ultimi 90 giorni per canale (coach/vincenti.json)
 QUOTE = {}   # 15 nov (Giorgio): quota video gemelli per canale, letta dal report Excel
 DATI_EXCEL = {}   # 9 nov: dati per il foglio Excel del mattino (strumenti/report_excel.py)
 
@@ -215,6 +216,37 @@ def scrivi(fid, valori):
     A.api(fid, 'PUT', '/values/' + urllib.parse.quote("'Performance'!A1") + '?valueInputOption=RAW', {'values': valori})
 
 
+def vincenti_90(cfg, cid, fid, auth, tutti, imp, ora):
+    """15 nov 2026 (Giorgio, metodo 50-50): i video VINCENTI del canale negli ultimi 90 giorni.
+    Vincente = CTR >= 4% con almeno 500 impression, oppure almeno 3 volte le views medie (mediana) dei video del periodo (min 100 views).
+    Classifica per views al giorno (cosi' un video vecchio non vince solo perche' e' uscito prima), a parita' il CTR piu' alto.
+    I primi 3 sono i modelli dei video gemelli (strumenti/gemelli.py): circa 50% sul 1o, 30% sul 2o, 20% sul 3o."""
+    v90 = [(pub, v, x) for pub, v, x in tutti if (ora - pub).days <= 90]
+    if not v90:
+        return
+    inizio = (min(p for p, _, _ in v90).date() - dt.timedelta(days=1)).isoformat()
+    vw = {}
+    for k in range(0, len(v90), 150):
+        r = analytics(auth, {'startDate': inizio, 'endDate': dt.date.today().isoformat(), 'dimensions': 'video', 'maxResults': 200, 'metrics': 'views',
+                             'filters': 'video==' + ','.join(v for _, v, _ in v90[k:k + 150])})
+        for row in r.get('rows', []) or []:
+            vw[row[0]] = int(row[1] or 0)
+    views = sorted(vw.get(v, 0) for _, v, _ in v90); med = views[len(views) // 2] if views else 0
+    lista = []
+    for pub, v, x in v90:
+        ic = ((imp or {}).get('per') or {}).get(v); n = vw.get(v, 0)
+        ctr = round(ic[1] / ic[0] * 100, 2) if ic and ic[0] else None; im = int(ic[0]) if ic else 0
+        if (ctr is not None and ctr >= 4.0 and im >= 500) or (med and n >= 100 and n >= 3 * med):
+            gg = max(1.0, (ora - pub).total_seconds() / 86400)
+            lista.append({'id': v, 'titolo': x['snippet']['title'], 'views': n, 'ctr': ctr, 'impression': im, 'views_giorno': round(n / gg, 1),
+                          'pubblicato': pub.astimezone(A.ZoneInfo('Europe/Rome')).strftime('%Y-%m-%d')})
+    lista.sort(key=lambda w: (w['views_giorno'], w['ctr'] or 0), reverse=True)
+    for i, w in enumerate(lista, 1):
+        w['posto'] = i
+    VINCENTI[str(cfg.get('channel_name') or cid)] = {'channel_id': cid, 'quota_gemelli': num(cfg.get('quota_gemelli'), 0), 'foglio': fid, 'mediana_views': med, 'video': lista}
+    log(f'  vincenti ultimi 90 giorni: {len(lista)}' + ''.join(f"\n    {w['posto']}o {w['titolo'][:60]} ({w['views']} views, {w['views_giorno']}/giorno, CTR {w['ctr']})" for w in lista[:3]))
+
+
 def canale(cfg):
     cid = str(cfg.get('channel_id') or '').strip()
     chiave = str(cfg.get('chiave_youtube') or '').strip() or {'Storia in Minuti': 'YT_REFRESH_TOKEN_STORIA', 'KAO PSICOLOGIA': 'YT_REFRESH_TOKEN_KAO'}.get(cid, '') \
@@ -255,7 +287,8 @@ def canale(cfg):
             continue
         pub = dt.datetime.fromisoformat(x['snippet']['publishedAt'].replace('Z', '+00:00'))
         usciti.append((pub, v, x))
-    usciti = sorted(usciti)[-N_VIDEO:]
+    tutti = sorted(usciti)   # 15 nov: per i vincenti si guardano gli ultimi 90 giorni, non solo gli ultimi N_VIDEO
+    usciti = tutti[-N_VIDEO:]
     if not usciti:
         log('  nessun video pubblico'); return
     inizio = (usciti[0][0].date() - dt.timedelta(days=1)).isoformat()
@@ -272,6 +305,10 @@ def canale(cfg):
         imp = impression_ctr(auth, cfg)
     except urllib.error.HTTPError as e:
         imp = None; log('  report impression non letti:', e.code, e.read().decode()[:200])
+    try:
+        vincenti_90(cfg, cid, fid, auth, tutti, imp, ora)
+    except Exception as e:
+        log('  vincenti 90 giorni non calcolati:', str(e)[:150])
     oggi = dt.datetime.now(A.ZoneInfo('Europe/Rome')).strftime('%Y-%m-%d %H:%M')
     righe = [COLONNE]
     for pub, v, x in usciti:
@@ -362,6 +399,8 @@ def main():
     json.dump(DATI_EXCEL, open('coach/performance_dati.json', 'w'), ensure_ascii=False, indent=1)
     json.dump(FONTI_CANALE, open('coach/performance_fonti_canale.json', 'w'), ensure_ascii=False, indent=1)
     json.dump(QUOTE, open('coach/performance_quote.json', 'w'), ensure_ascii=False, indent=1)
+    if VINCENTI:
+        json.dump(VINCENTI, open('coach/vincenti.json', 'w'), ensure_ascii=False, indent=1)
     open('coach/performance_ultimo.txt', 'w').write(dt.datetime.now().strftime('%Y-%m-%d %H:%M') + '\n' + '\n'.join(REPORT) + '\n')
 
 

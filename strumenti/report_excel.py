@@ -74,9 +74,13 @@ def main():
         quote = json.load(open('coach/performance_quote.json'))
     except Exception:
         quote = {}
-    VINCENTI = {}
+    try:   # 15 nov: vincenti degli ultimi 90 giorni calcolati da performance.py (classifica per views al giorno)
+        V90 = {n: {w['id']: w for w in x.get('video') or []} for n, x in json.load(open('coach/vincenti.json')).items()}
+    except Exception:
+        V90 = {}
     ws['A5'] = ('AZZURRO = VIDEO VINCENTE (CTR >= 4% con almeno 500 impression, oppure almeno 3 volte le views medie del canale). '
-                'Da li\' si fanno i video GEMELLI (metodo 50-50): stesso schema di titolo, copertina e gancio, argomento nuovo.')
+                'Classifica degli ultimi 90 giorni per views al giorno: i primi 3 sono i modelli dei video GEMELLI (metodo 50-50), circa 50% sul 1°, 30% sul 2°, 20% sul 3°. '
+                'Foglio "Vincenti 90 giorni" per l\'elenco completo.')
     ws['A5'].font = Font(bold=True, color='0E7490', size=10)
     r = 7
     COL = ['Pubblicato', 'Titolo', 'Durata media visualizzazione', '% media visualizzata', 'Visualizzazioni', 'Tempo di visualizzazione (ore)',
@@ -117,10 +121,8 @@ def main():
         vv_ = sorted(g['views'] or 0 for _, g in righe); mediana = vv_[len(vv_) // 2] if vv_ else 0
         q = quote.get(nome) or {}
         for v, g in righe:
-            vince = vincente(g, mediana)
-            if vince:
-                VINCENTI.setdefault(nome, {'channel_id': q.get('channel_id', nome), 'quota_gemelli': q.get('quota_gemelli', 0), 'foglio': q.get('foglio', ''), 'video': []})['video'].append(
-                    {'id': v.get('youtube_video_id'), 'titolo': v.get('titolo'), 'views': g['views'], 'ctr': g['ctr'], 'impression': g['impression'], 'pubblicato': v.get('data_pubblicazione')})
+            w90 = (V90.get(nome) or {}).get(v.get('youtube_video_id'))
+            vince = bool(w90) if V90.get(nome) is not None else vincente(g, mediana)
             ws.cell(r, 1, str(v.get('data_pubblicazione') or '')[:16])
             ws.cell(r, 2, str(v.get('titolo') or ''))
             ws.cell(r, 3, mmss(g['durata_media_sec']) if g['durata_media_sec'] else '-')
@@ -136,8 +138,9 @@ def main():
                 ws.cell(r, c, val)
             if vince:
                 ws.cell(r, 2).fill = AZZURRO; ws.cell(r, 2).font = Font(bold=True)
-                ws.cell(r, 2, '★ VINCENTE ★  ' + str(v.get('titolo') or ''))
-                x = ws.cell(r, NC, ('VINCENTE - si stanno facendo i gemelli (' + str(int(q.get('quota_gemelli') or 0)) + '%)') if (q.get('quota_gemelli') or 0) > 0
+                posto = (w90 or {}).get('posto')
+                ws.cell(r, 2, (f'★ VINCENTE {posto}° ★  ' if posto else '★ VINCENTE ★  ') + str(v.get('titolo') or ''))
+                x = ws.cell(r, NC, (('VINCENTE ' + str(posto) + '° - modello dei gemelli (' + str(int(q.get('quota_gemelli') or 0)) + '%)') if posto and posto <= 3 else 'VINCENTE (fuori dai primi 3: non fa da modello)') if (q.get('quota_gemelli') or 0) > 0
                             else 'VINCENTE - VUOI INIZIARE A FARE IL 50-50?')
                 x.fill = AZZURRO; x.font = Font(bold=True)
             for c in range(1, NC + 1):
@@ -147,8 +150,31 @@ def main():
             r += 1
         r += 2   # spazio tra un canale e l'altro
     ws.freeze_panes = 'A7'
-    os.makedirs('coach', exist_ok=True)
-    json.dump(VINCENTI, open('coach/vincenti.json', 'w'), ensure_ascii=False, indent=1)   # lo leggono strumenti/gemelli.py e il messaggio del mattino
+    # 15 nov (Giorgio): vincenti degli ultimi 90 giorni, anche quelli piu' vecchi degli ultimi 10 video
+    wv = wb.create_sheet('Vincenti 90 giorni')
+    for c, w_ in zip('ABCDEFGH', (8, 70, 12, 12, 14, 12, 14, 30)):
+        wv.column_dimensions[c].width = w_
+    wv['A1'] = 'VIDEO VINCENTI DEGLI ULTIMI 90 GIORNI - i primi 3 di ogni canale sono i modelli dei video gemelli'; wv['A1'].font = Font(bold=True, size=14)
+    rv = 3
+    try:
+        tutti_v = json.load(open('coach/vincenti.json'))
+    except Exception:
+        tutti_v = {}
+    for nome in sorted(tutti_v):
+        x = tutti_v[nome]; qv = x.get('quota_gemelli') or 0
+        wv.cell(rv, 1, nome.upper() + ('   (50-50 attivo: ' + str(int(qv)) + '% gemelli)' if qv > 0 else '   (50-50 non attivo: vuoi iniziare?)' if x.get('video') else '   (nessun vincente per ora)')).font = Font(bold=True, size=12)
+        rv += 1
+        for c, t in enumerate(['Posto', 'Titolo', 'Pubblicato', 'Views', 'Views al giorno', 'CTR %', 'Impression', 'Ruolo'], 1):
+            y = wv.cell(rv, c, t); y.font = Font(bold=True, color='FFFFFF'); y.fill = TESTA
+        rv += 1
+        for w in x.get('video') or []:
+            for c, val in enumerate([w['posto'], w['titolo'], w['pubblicato'], w['views'], w['views_giorno'], w['ctr'] if w['ctr'] is not None else '-', w['impression'],
+                                     ('MODELLO GEMELLI ' + ('50%' if w['posto'] == 1 else '30%' if w['posto'] == 2 else '20%')) if w['posto'] <= 3 else 'riserva'], 1):
+                y = wv.cell(rv, c, val)
+                if w['posto'] <= 3:
+                    y.fill = AZZURRO
+            rv += 1
+        rv += 1
     # 11 nov (Giorgio OK, punto 2 dal metodo Reed): quale RAMO del filone (playlist) guardano davvero, per fare piu' video di quel ramo
     wr = wb.create_sheet('Rami del filone')
     for c, w_ in zip('ABCDEFGH', (18, 40, 10, 14, 14, 12, 16, 16)):

@@ -46,7 +46,17 @@ def main():
         manca = CODA - len(gem)
         if manca <= 0:
             print(nome, ': coda gemelli piena (', len(gem), ')'); continue
-        vv = sorted(w['video'], key=lambda x: x.get('views') or 0, reverse=True)
+        # 15 nov (Giorgio): mai tutto su un video. Modelli = i primi 3 della classifica degli ultimi 90 giorni (views al giorno), pesi 50/30/20:
+        # ogni riga nuova va al modello piu' "indietro" rispetto al suo peso (contando i gemelli gia' in coda e gia' fatti).
+        vv = sorted(w['video'], key=lambda x: x.get('posto') or 99)[:3]
+        PESI = [0.5, 0.3, 0.2][:len(vv)]; PESI = [p_ / sum(PESI) for p_ in PESI]
+        conta = [sum(1 for r in prod if str(r.get('nome_canale') or '').strip().upper() == 'GEMELLO'
+                     and (str(r.get('gemello_di') or '').strip() == x['titolo'] or x['id'] in str(r.get('Link video') or ''))) for x in vv]
+        modelli = []
+        for _ in range(max(manca, 0)):
+            tot = sum(conta) + 1
+            k = max(range(len(vv)), key=lambda i: PESI[i] * tot - conta[i])
+            conta[k] += 1; modelli.append(vv[k])
         titoli_v = '\n'.join(f"- {x['titolo']} ({int(x.get('views') or 0)} views, CTR {x.get('ctr')}%)" for x in vv)
         fatti = [str(r.get('titolo_italiano') or r.get('titolo_originale') or '').strip() for r in prod][-150:]
         ora = dt.datetime.now(A.ZoneInfo('Europe/Rome')).strftime('%Y-%m-%d %H:%M')
@@ -63,33 +73,44 @@ def main():
             cand = sorted(cand, key=lambda v: v['views'], reverse=True)[:150]
             if not cand:
                 print(nome, ': nessun video del competitor ancora da fare'); continue
-            scelte = claude(f"""Our YouTube channel's best videos (they worked much better than the others):
-{titoli_v}
-Below are videos of the channel we translate (Spanish). Pick the {manca} whose topic and title pattern are the MOST similar to our best videos
-(same kind of promise, e.g. "the psychology of people who..."), never a topic we already made: {' | '.join(fatti[-80:])}
-Answer ONLY JSON: [{{"i": number}}]
+            slot = '\n'.join(f'{j}. twin of our video "{m["titolo"]}"' for j, m in enumerate(modelli))
+            scelte = claude(f"""Below are videos of the channel we translate (Spanish). For EACH slot pick ONE video whose topic and title pattern are the MOST similar
+to OUR video named in that slot (same kind of promise, e.g. "the psychology of people who..."), every pick different, never a topic we already made: {' | '.join(fatti[-80:])}
+Slots:
+{slot}
+Answer ONLY JSON: [{{"slot": number, "i": number}}]
+Videos:
 """ + '\n'.join(f"{i}. {c['titolo']}" for i, c in enumerate(cand)))
+            usati = set()
             for s in scelte[:manca]:
-                c = cand[int(s['i'])] if str(s.get('i', '')).isdigit() and int(s['i']) < len(cand) else None
+                c = cand[int(s['i'])] if str(s.get('i', '')).isdigit() and int(s['i']) < len(cand) and int(s['i']) not in usati else None
+                m = modelli[int(s['slot'])] if str(s.get('slot', '')).isdigit() and int(s['slot']) < len(modelli) else modelli[0]
                 if c:
+                    usati.add(int(s['i']))
                     righe.append({'Link video': f"https://www.youtube.com/watch?v={c['id']}", 'titolo_originale': c['titolo'], 'views_at_discovery': c['views'],
-                                  'nome_canale': 'GEMELLO', 'data_scoperta': ora})
+                                  'nome_canale': 'GEMELLO', 'data_scoperta': ora, 'gemello_di': m['titolo'], '_modello': m['titolo']})
         else:
+            slot = '\n'.join(f'{j}. twin of "{m["titolo"]}"' for j, m in enumerate(modelli))
             titoli = claude(f"""Our YouTube channel "{cfg.get('channel_name')}" ({cfg.get('language') or 'en'}). These are OUR videos that worked much better than the others:
 {titoli_v}
-Write {manca} NEW video titles that are their TWINS: same title pattern (same kind of promise, question and twist, same rhythm and length),
-same filone, but each on a DIFFERENT documented subject. The viewer who loved the winner must want to click them on the YouTube homepage.
-Never a subject we already made: {' | '.join(fatti)}
+Write one NEW video title for EACH slot below: the TWIN of the video named in the slot, same title pattern (same kind of promise, question and twist,
+same rhythm and length), same filone, but on a DIFFERENT documented subject. The viewer who loved that video must want to click it on the YouTube homepage.
+All titles different from each other. Never a subject we already made: {' | '.join(fatti)}
 Language: {cfg.get('language') or 'en'} only, correct spelling, max 90 characters, no emoji, never the word "davvero".
-Answer ONLY JSON: [{{"titolo": "...", "da": "the winner title it is modelled on"}}]""")
+Slots:
+{slot}
+Answer ONLY JSON: [{{"slot": number, "titolo": "..."}}]""")
             for t in titoli[:manca]:
-                da = next((x for x in vv if x['titolo'] == t.get('da')), vv[0])
+                da = modelli[int(t['slot'])] if str(t.get('slot', '')).isdigit() and int(t['slot']) < len(modelli) else modelli[0]
                 if 15 < len(str(t.get('titolo') or '')) <= 100:
                     righe.append({'Link video': f"https://www.youtube.com/watch?v={da['id']}", 'titolo_originale': da['titolo'], 'titolo_italiano': t['titolo'],
-                                  'nome_canale': 'GEMELLO', 'target_durata': '9-10'})
+                                  'nome_canale': 'GEMELLO', 'target_durata': '9-10', 'gemello_di': da['titolo'], '_modello': da['titolo']})
         for r in righe:
             r['status'] = 'Pronto'
-            print(nome, ': GEMELLO aggiunto ->', r.get('titolo_italiano') or r.get('titolo_originale'), '| modello:', r.get('titolo_originale') if r.get('titolo_italiano') else '')
+            print(nome, ': GEMELLO aggiunto ->', r.get('titolo_italiano') or r.get('titolo_originale'), '| gemello di:', r.get('_modello'))
+        if righe and E('PROVA') != 'SI' and 'gemello_di' not in h:   # 15 nov (Giorgio): colonna che dice di quale nostro video vincente e' gemella la riga
+            A.api(fid, 'PUT', f"/values/{urllib.parse.quote(chr(39) + sch + chr(39) + '!' + A.lettera(len(h) + 1) + '1')}?valueInputOption=RAW", {'values': [['gemello_di']]})
+            h = h + ['gemello_di']; print(nome, ': colonna gemello_di aggiunta al file di produzione')
         if righe and E('PROVA') != 'SI':
             A.api(fid, 'POST', f"/values/{urllib.parse.quote(chr(39) + sch + chr(39) + '!A1')}:append?valueInputOption=RAW&insertDataOption=INSERT_ROWS",
                   {'values': [[r.get(x, '') for x in h] for r in righe]})
