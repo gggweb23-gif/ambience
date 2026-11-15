@@ -223,6 +223,8 @@ def scegli(frasi, n, titolo, lingua, budget, evita=None, gia=None):
             a = min([v for v in inizi if v >= evita[1]] or [b])
         if b - a > DUR_MAX:   # troppo lungo: si chiude all'ultima frase che sta dentro
             b = max([v for v in fini if a + DUR_MIN <= v <= a + DUR_MAX] or [a + DUR_MAX])
+        if b - a < DUR_MIN:   # 15 nov: troppo corto -> si allunga fino alla fine della frase che porta almeno a DUR_MIN (invece di buttarlo)
+            b = min([v for v in fini if a + DUR_MIN <= v <= a + DUR_MAX] or [b])
         if b - a < DUR_MIN or any(not (b <= o['a'] or a >= o['b']) for o in out):
             log('momento scartato:', x.get('titolo'), f'{a:.0f}-{b:.0f}'); continue
         out.append({'a': a, 'b': b, 'gancio': str(x.get('gancio') or '').strip()[:60], 'titolo': str(x.get('titolo') or '').strip()[:90],
