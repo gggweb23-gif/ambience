@@ -570,7 +570,42 @@ def ha_svastica(img):   # CONTROLLO (2 nov, Giorgio): mai simboli nazisti in cop
 
 if STILE_COP == 'etichetta_rossa':
     im = senza_bordi_neri(im)
-r_im = ritocca(im, PROMPT_COP)
+def miglior_fotogramma():
+    """15 nov (Giorgio, Orbital): copertina con un fotogramma VERO del video (niente immagini AI): 16 fotogrammi, Haiku sceglie quello con una persona
+    in primo piano, volto ben visibile ed espressivo (~0,002 $). Poi solo nitidezza e colori un po' piu' vivi."""
+    from PIL import ImageEnhance as _IE
+    dur_ = float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', VIDEO], capture_output=True, text=True).stdout.strip() or 300)
+    tempi_ = [dur_ * (.06 + .88 * k / 15) for k in range(16)]; fr_ = []
+    for k, t_ in enumerate(tempi_):
+        f_ = os.path.join(LAV, f'cand_{k:02d}.jpg')
+        subprocess.run(['ffmpeg', '-y', '-v', 'error', '-ss', f'{t_:.2f}', '-i', VIDEO, '-frames:v', '1', f_]); fr_.append(f_)
+    gr = Image.new('RGB', (1280, 720)); dg = ImageDraw.Draw(gr)
+    for k, f_ in enumerate(fr_):
+        try:
+            gr.paste(Image.open(f_).convert('RGB').resize((320, 180)), ((k % 4) * 320, (k // 4) * 180))
+        except Exception:
+            pass
+        dg.rectangle(((k % 4) * 320, (k // 4) * 180, (k % 4) * 320 + 34, (k // 4) * 180 + 26), fill='black'); dg.text(((k % 4) * 320 + 6, (k // 4) * 180 + 6), str(k), fill='yellow')
+    scelto = 0
+    try:
+        buf_ = io.BytesIO(); gr.save(buf_, 'JPEG', quality=85)
+        r_ = claude('These are 16 numbered frames of a documentary. Pick the ONE best frame for a YouTube thumbnail: a real person in the foreground, the FACE clearly '
+                    'visible, big, sharp and expressive (smiling, amazed, intense), ideally a curious detail (floating objects, unusual pose). NO frames with text or '
+                    'subtitles burned in, no black or blurry frames, no wide shots where the person is small. Answer ONLY the number.',
+                    modello='claude-haiku-4-5-20251001', max_tokens=5, immagine=buf_.getvalue())
+        scelto = max(0, min(15, int(re.search(r'\d+', r_).group(0))))
+    except Exception as e_:
+        log('scelta fotogramma non riuscita, uso il primo:', str(e_)[:80])
+    log('copertina: fotogramma vero scelto', scelto, f'({tempi_[scelto]:.0f} s)')
+    im_ = Image.open(fr_[scelto]).convert('RGB').resize((1280, 720), Image.LANCZOS)
+    return _IE.Sharpness(_IE.Color(_IE.Contrast(im_).enhance(1.12)).enhance(1.15)).enhance(1.3)
+
+
+if STILE_COP == 'fotogramma':
+    im = miglior_fotogramma(); r_im = None
+    FP = os.path.join(QUI_ROOT if 'QUI_ROOT' in globals() else os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'fonts_spazio', 'orbitron-latin-900-normal.woff')   # carattere "da missione spaziale"
+else:
+    r_im = ritocca(im, PROMPT_COP)
 if r_im is not None and STILE_COP == 'etichetta_rossa' and ha_svastica(r_im):
     log('copertina: il ritocco ha disegnato una svastica, rifaccio')
     r_im = ritocca(im, PROMPT_COP + ' ABSOLUTELY NO swastika or Nazi symbol anywhere: plain uniforms with no armbands.')
@@ -724,6 +759,9 @@ else:
     for i, (rr, s_) in enumerate(zip(righe, misure)):
         f_ = ImageFont.truetype(FP, s_)
         x_ = (x1 - d.textlength(rr, font=f_)) if lato == 'dx' else x0
+        if STILE_COP == 'fotogramma':   # bagliore azzurro dietro la scritta (stile spaziale scelto da Giorgio il 15 nov)
+            gl_ = Image.new('L', (1280, 720), 0); ImageDraw.Draw(gl_).text((x_, y), rr, font=f_, fill=255, stroke_width=max(8, s_ // 11))
+            im.paste(Image.new('RGB', (1280, 720), (80, 220, 255)), (0, 0), gl_.filter(_IF.GaussianBlur(14)).point(lambda v: int(v * .55))); d = ImageDraw.Draw(im)
         d.text((x_, y), rr, font=f_, fill='#4FD2FF' if i == len(righe) - 1 and len(righe) > 1 else 'white', stroke_width=max(8, s_ // 11), stroke_fill=(0, 0, 0))
         y += int(s_ * 1.02)
 COP = os.path.join(CART, 'copertina.jpg'); im.save(COP, quality=92)
