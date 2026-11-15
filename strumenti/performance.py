@@ -403,6 +403,12 @@ def main():
         except Exception as e:
             log('  ERRORE', cfg.get('channel_id'), str(e)[:200], (e.read().decode('utf-8', 'ignore')[:300] if hasattr(e, 'read') else ''))   # 7 nov: motivo del 403 nel registro
     os.makedirs('coach', exist_ok=True)
+    if SOLO:   # 15 nov: un giro su un solo canale non cancella i dati degli altri canali
+        for f_, d_ in (('coach/performance_dati.json', DATI_EXCEL), ('coach/performance_fonti_canale.json', FONTI_CANALE), ('coach/performance_quote.json', QUOTE), ('coach/vincenti.json', VINCENTI)):
+            try:
+                vecchi = json.load(open(f_)); vecchi.update(d_); d_.clear(); d_.update(vecchi)
+            except Exception:
+                pass
     json.dump(DATI_EXCEL, open('coach/performance_dati.json', 'w'), ensure_ascii=False, indent=1)
     json.dump(FONTI_CANALE, open('coach/performance_fonti_canale.json', 'w'), ensure_ascii=False, indent=1)
     json.dump(QUOTE, open('coach/performance_quote.json', 'w'), ensure_ascii=False, indent=1)
