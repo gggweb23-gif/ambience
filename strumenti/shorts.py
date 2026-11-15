@@ -21,6 +21,7 @@ ROMA = A.ZoneInfo('Europe/Rome')
 SOLO = E('SOLO_CANALE', '').strip()
 PROVA = E('PROVA', 'NO').strip().upper() == 'SI'
 RIGA = E('RIGA', '').strip()
+QUANTI = int(E('QUANTI', '') or 0)   # 15 nov: Short in piu' da una riga (es. 1 Short mancante)
 REPO = E('GITHUB_REPOSITORY', 'gggweb23-gif/ambience')
 FONT = os.path.abspath('ctr_test/Anton.ttf')
 LAV = os.path.abspath('lavoro_shorts')
@@ -182,11 +183,11 @@ def stesso_video(frasi, riga):
 
 
 # ---------------------------------------------------------------- scelta dei momenti (Claude, entro il budget)
-def scegli(frasi, n, titolo, lingua, budget, evita=None):
+def scegli(frasi, n, titolo, lingua, budget, evita=None, gia=None):
     testo = '\n'.join(f"[{f['s']:.1f}-{f['e']:.1f}] {f['t']}" for f in frasi)
     lingua_nome = {'it': 'Italian', 'en': 'English'}.get((lingua or 'en')[:2], 'the language of the transcript')
     domanda = (f'This is the timed transcript of our YouTube video "{titolo}".\n\n{testo}\n\n'
-               f'Pick the {n} best moments to cut as YouTube Shorts. Rules:\n'
+               f'Pick the {n + 2} best moments to cut as YouTube Shorts, the best first (15 nov: 2 in more as a reserve, so we always get {n}). Rules:\n'
                f'- each moment lasts between 35 and 55 seconds, starts exactly at the start of a line and ends exactly at the end of a line;\n'
                '- the FIRST sentence must hook a stranger scrolling (a surprising fact, a question, a strong claim), never a greeting, never "in this video";\n'
                '- the moment must make sense on its own, without the rest of the video, and end on a complete thought (ideally a payoff or a twist);\n'
@@ -195,7 +196,8 @@ def scegli(frasi, n, titolo, lingua, budget, evita=None):
                '"titolo" = Short title, max 70 characters, curiosity-driven, no hashtags; '
                '"frase" = one sentence for the description.\n'
                'Answer ONLY with JSON: [{"inizio": seconds, "fine": seconds, "gancio": "...", "titolo": "...", "frase": "..."}]\n'
-               'IMPORTANT: if the transcript is clearly NOT about the video title (wrong video), answer only the word DIVERSO.')
+               'IMPORTANT: if the transcript is clearly NOT about the video title (wrong video), answer only the word DIVERSO.'
+               + (('\nShorts ALREADY made from this video (never pick the same moments or the same content again): ' + ' | '.join(gia)) if gia else ''))
     r = http('https://api.anthropic.com/v1/messages', {'model': MODELLO, 'max_tokens': 2000, 'messages': [{'role': 'user', 'content': domanda}]},
              {'x-api-key': E('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01'}, timeout=300)
     u = r.get('usage', {})
@@ -226,11 +228,11 @@ def scegli(frasi, n, titolo, lingua, budget, evita=None):
         out.append({'a': a, 'b': b, 'gancio': str(x.get('gancio') or '').strip()[:60], 'titolo': str(x.get('titolo') or '').strip()[:90],
                     'frase': str(x.get('frase') or '').strip()[:300]})
     testo_tutto = ' '.join(f['t'] for f in frasi).lower()
-    for x in out[:n]:   # gancio con parole sbagliate o tagliate (es. "CAD"): meglio senza gancio che con un errore
+    for x in out[:n + 2]:   # gancio con parole sbagliate o tagliate (es. "CAD"): meglio senza gancio che con un errore
         sbagliate = [w for w in errori_ortografia(x['gancio'], lingua) if w.lower() not in testo_tutto]
         if sbagliate:
             log(f"  gancio scartato per parole sbagliate {sbagliate}: {x['gancio']}"); x['gancio'] = ''
-    return out[:n], costo
+    return out[:n + 2], costo   # 15 nov (Giorgio: mancavano gli Short delle 13:00): 2 di riserva, se ne usano n
 
 
 def errori_ortografia(testo, lingua):
@@ -402,11 +404,22 @@ def canale(cfg):
     if not ok_file:
         raise RuntimeError('VIDEO SBAGLIATO, nessuno Short: ' + motivo)
     isc = ISC.impostazioni(cfg)   # nel video lungo il pulsante compare per 4 s: lo Short parte dopo (mai due pulsanti nello stesso Short)
-    momenti, costo = scegli(frasi, n_giorno, titolo, str(cfg.get('language') or 'en'), budget, evita=(isc['sec'] - 0.5, isc['sec'] + 4.5))
+    gia = []
+    if RIGA and QUANTI:   # 15 nov: Short in piu' da un video gia' usato: mai gli stessi momenti (si passano i titoli degli Short gia' fatti)
+        ids_ = re.findall(r'([\w-]{11})@', str(riga.get('shorts') or ''))
+        try:
+            gia = [x['snippet']['title'] for x in json.loads(urllib.request.urlopen(urllib.request.Request('https://www.googleapis.com/youtube/v3/videos?part=snippet&id=' + ','.join(ids_),
+                   headers={'Authorization': 'Bearer ' + tk}), timeout=60).read()).get('items', [])] if ids_ else []
+        except Exception as e:
+            log('  titoli degli Short gia\' fatti non letti:', str(e)[:80])
+        n_giorno = QUANTI
+    momenti, costo = scegli(frasi, n_giorno, titolo, str(cfg.get('language') or 'en'), budget, evita=(isc['sec'] - 0.5, isc['sec'] + 4.5), gia=gia)
     if not momenti:
         raise RuntimeError('nessun momento valido scelto')
     fatti = []
     for k, x in enumerate(momenti, 1):
+        if len(fatti) >= n_giorno:   # 15 nov: bastano n_giorno Short buoni, gli altri momenti sono riserve
+            break
         f = monta(video, x, parole, os.path.join(LAV, f'short_{k}.mp4'), str(cfg.get('shorts_sottotitoli') or '').strip().upper() == 'SI')
         f2 = f[:-4] + '_isc.mp4'   # 6 nov (Giorgio): pulsante Mi piace/Iscriviti + campanella con i suoni su tutti gli Short, nella lingua del canale
         con_pulsante = ISC.applica(f, f2, cfg, LAV, short=True, log=log)
@@ -434,6 +447,8 @@ def canale(cfg):
     except Exception:
         uscita_lungo = oggi
     slot = orari_liberi(cfg, prod, max(oggi + dt.timedelta(minutes=45), uscita_lungo + dt.timedelta(minutes=30)), len(fatti))
+    if RIGA and QUANTI:   # Short mancante: esce subito (tra 30 minuti), senza prendere gli orari dei prossimi giorni
+        slot = [oggi + dt.timedelta(minutes=30 + 20 * k) for k in range(len(fatti))]
     caricati = []
     for (f, x), q in zip(fatti, slot):
         sid = carica(tk, f, x, cfg, riga, str(riga.get('youtube_video_id')).strip(), q)

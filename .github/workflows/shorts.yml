@@ -19,6 +19,9 @@ on:
       riga:
         description: 'Solo con un canale: riga del file di produzione del video lungo (vuoto = ultimo video)'
         default: ''
+      quanti:
+        description: 'Con canale e riga: quanti Short in piu (es. 1 per uno Short mancante), mai sugli stessi momenti di quelli gia fatti'
+        default: ''
       rifai:
         description: 'SI = cancella gli Short programmati non ancora usciti e li rifa col pulsante iscriviti'
         default: 'NO'
@@ -63,6 +66,7 @@ jobs:
           RIGA: ${{ inputs.riga }}
           REGISTRA: ${{ inputs.registra }}
           RIFAI: ${{ inputs.rifai || 'NO' }}
+          QUANTI: ${{ inputs.quanti }}
           WHISPER_MODEL: small
         run: python3 strumenti/shorts.py
       - name: Short di prova da guardare
