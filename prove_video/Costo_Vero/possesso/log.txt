@@ -1,17 +1,29 @@
-02:49:21 copione: aggiunta la scena mancante valore
-02:49:27 copione: aggiunta la scena mancante dettaglio
-02:49:27 copione scartato: ['servono almeno 4 scene "dettaglio" (una per voce di spesa), ce ne sono 1', 'il costo vero del gancio (54480) deve essere uguale a somma delle voci - rivendita (32600)', 'CORTO: il copione dura circa 1.1 minuti (1120 caratteri): ne servono almeno 8.5']
-02:50:04 copione scartato: ['il costo vero del gancio (45400) deve essere uguale a somma delle voci - rivendita (57220)', 'CORTO: il copione dura circa 3.7 minuti (3678 caratteri): ne servono almeno 8.5']
-02:53:53 numeri: {'prezzo': 35000, 'anni': 8, 'valori': [35000.0, 27500.0, 23500.0, 20000.0, 17000.0, 14500.0, 12000.0, 10000.0, 8500.0], 'totale': 62480, 'rivendita': 8500, 'costo_vero': 53980, 'mese': 562, 'giorno': 18}
-02:54:32 voce: 16.3 caratteri/s naturali -> accelerata x1.014
-02:54:32 voce: 9.9 minuti
-02:54:32 budget: un'immagine ogni 9.0 s (invece di 4) per restare sotto 1.50 euro
-02:55:02 clip Pexels: 65 s su 593 s (11%), al posto di altrettante immagini
-02:58:59 immagini: 63 | spesa finora 4.179 $
-03:23:55 pulsante iscriviti al secondo 95 con 2 suoni
-03:24:00 copertina FOTO 2C: A small compact electric car, large and clearly visible, bri | scritte a destra
-03:38:46 video finale a 1440p (piu' nitido su YouTube)
-03:38:47 FATTO: /home/runner/work/ambience/ambience/video_possesso.mp4 9.9 minuti | immagini 63 (una ogni 9.0 s) | COSTO VIDEO (stima): 4.20 $ + 9740 crediti voce | claude claude-sonnet-5-5: 2.631 $ (10 chiamate) | fal flux-2-klein-4b: 1.032 $ (51 chiamate) | fal flux-2-klein-4b-edit: 0.535 $ (14 chiamate) | claude claude-haiku-4-5-20251001: 0.001 $ (2 chiamate) | elevenlabs eleven_multilingual_v2: 0.000 $ (10 chiamate), 9740 crediti
+12:16:24 copione riusato da prove_video/Costo_Vero/copioni/auto_elettrica_CV-15.json
+12:16:24 numeri: {'prezzo': 35000, 'anni': 8, 'valori': [35000.0, 27500.0, 23500.0, 20000.0, 17000.0, 14500.0, 12000.0, 10000.0, 8500.0], 'totale': 62480, 'rivendita': 8500, 'costo_vero': 53980, 'mese': 562, 'giorno': 18}
+12:17:04 voce: 16.5 caratteri/s naturali -> accelerata x1.000
+12:17:04 voce: 9.9 minuti
+12:17:04 budget: un'immagine ogni 9.0 s (invece di 4) per restare sotto 1.50 euro
+12:17:32 clip Pexels: 67 s su 592 s (11%), al posto di altrettante immagini
+12:17:37 immagine con un difetto (ruote, zampe, corpi o oggetti deformi), la rifaccio
+12:17:42 immagine con un difetto (ruote, zampe, corpi o oggetti deformi), la rifaccio
+12:17:52 immagine con un difetto (ruote, zampe, corpi o oggetti deformi), la rifaccio
+12:17:59 immagine con un difetto (ruote, zampe, corpi o oggetti deformi), la rifaccio
+12:18:22 immagine con un difetto (ruote, zampe, corpi o oggetti deformi), la rifaccio
+12:18:27 immagine con un difetto (ruote, zampe, corpi o oggetti deformi), la rifaccio
+12:19:12 immagine con un difetto (ruote, zampe, corpi o oggetti deformi), la rifaccio
+12:19:22 immagine con un difetto (ruote, zampe, corpi o oggetti deformi), la rifaccio
+12:20:11 immagine con un difetto (ruote, zampe, corpi o oggetti deformi), la rifaccio
+12:20:16 immagine con un difetto (ruote, zampe, corpi o oggetti deformi), la rifaccio
+12:20:45 immagine con un difetto (ruote, zampe, corpi o oggetti deformi), la rifaccio
+12:20:49 immagine con un difetto (ruote, zampe, corpi o oggetti deformi), la rifaccio
+12:21:37 immagine con un difetto (ruote, zampe, corpi o oggetti deformi), la rifaccio
+12:21:51 immagine con un difetto (ruote, zampe, corpi o oggetti deformi), la rifaccio
+12:21:55 immagine con un difetto (ruote, zampe, corpi o oggetti deformi), la rifaccio
+12:22:12 immagini: 62 | spesa finora 2.145 $
+12:41:35 pulsante iscriviti al secondo 95 con 2 suoni
+12:41:39 copertina FOTO 2C: an elegant premium pearl-white electric sedan with black roo | scritte a destra
+12:51:21 video finale a 1440p (piu' nitido su YouTube)
+12:51:23 FATTO: /home/runner/work/ambience/ambience/video_possesso.mp4 9.9 minuti | immagini 62 (una ogni 9.0 s) | COSTO VIDEO (stima): 2.17 $ + 9740 crediti voce | fal flux-2-klein-4b-edit: 1.109 $ (29 chiamate) | fal flux-2-klein-4b: 1.012 $ (50 chiamate) | claude claude-haiku-4-5-20251001: 0.041 $ (75 chiamate) | claude claude-sonnet-5-5: 0.003 $ (1 chiamate) | elevenlabs eleven_multilingual_v2: 0.000 $ (10 chiamate), 9740 crediti
 promozione a pagamento: No (gia' nel caricamento, 0 unita' di quota)
-03:38:58 playlist: Auto e SUV
-03:39:00 esito: {"stato": "PUBBLICATO", "video_id": "5k-1_OXLjZs", "link": "https://www.youtube.com/watch?v=5k-1_OXLjZs", "pubblica_il": "2026-11-15T16:00:00.000Z", "errore": "", "testo_copertina": "QUANTO COSTA? 53.980 €", "titolo": "AUTO ELETTRICA da 35.000 €: quanto costa in 8 anni?", "descrizione": "AUTO ELETTRICA da 35.000 €: quanto costa in 8 anni?\n\nUna compatta elettrica da trentacinquemila euro sul cartellino: quanto ti costa in otto anni, tra rate, interessi, assicurazione, bollo, tagliandi, wallbox e batteria? Seguiamo Marco e sommiamo ogni voce, fino al costo vero e a quanto pesa ogni mese e ogni
+12:51:28 playlist: Auto e SUV
+12:51:30 esito: {"stato": "PUBBLICATO", "video_id": "LA9ERr11AVY", "link": "https://www.youtube.com/watch?v=LA9ERr11AVY", "pubblica_il": "2026-11-15T16:00:00.000Z", "errore": "", "testo_copertina": "QUANTO COSTA? 53.980 €", "titolo": "AUTO ELETTRICA da 35.000 €: quanto costa in 8 anni?", "descrizione": "AUTO ELETTRICA da 35.000 €: quanto costa in 8 anni?\n\nUna compatta elettrica da trentacinquemila euro sul cartellino: quanto ti costa in otto anni, tra rate, interessi, assicurazione, bollo, tagliandi, wallbox e batteria? Seguiamo Marco e sommiamo ogni voce, fino al costo vero e a quanto pesa ogni mese e ogni
