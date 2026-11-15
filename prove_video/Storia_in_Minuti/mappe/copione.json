@@ -1,247 +1,1521 @@
 {
- "titolo": "Come il Paese Più Ricco del Mondo Ha Perso il 90% del Suo PIL",
+ "titolo": "Come il Ruanda Sta Diventando la Singapore dell'Africa",
  "numero": {
-  "testo": "-90%",
-  "sotto": "IL CROLLO DEL PAESE PIÙ RICCO"
+  "testo": "100 GIORNI",
+  "sotto": "DAL GENOCIDIO AL MIRACOLO ECONOMICO"
  },
  "copertina": {
-  "testo": "-90%",
+  "testo": "SINGAPORE AFRICANA?",
   "oro": [
-   "NRU"
+   "RWA"
   ],
   "verde": [
-   "AUS"
+   "SGP"
   ],
   "vista": {
-   "lon": 166.9,
-   "lat": -0.5,
-   "larghezza": 12
+   "lon": 30,
+   "lat": -2,
+   "larghezza": 14
   }
  },
- "descrizione": "Nauru è grande otto miglia quadrate, ma ha dato al mondo una delle lezioni economiche più dure di sempre. Per un breve momento è stato il paese più ricco del pianeta, grazie a un tesoro fatto di guano e microrganismi marini. Poi il tesoro è finito.\n\nIn questo viaggio con le mappe animate scopri come Nauru è diventata ricchissima, quali errori ha commesso e come ha perso quasi tutto: dalle Lamborghini all'obesità, dalle banche offshore al musical su Leonardo, fino ai centri di detenzione. Una storia vera sulla maledizione delle risorse naturali.",
+ "descrizione": "Nel 1994 il Ruanda era un cimitero a cielo aperto: in 100 giorni furono uccise 800.000 persone. Oggi è uno dei paesi più sicuri, puliti e facili per fare affari in tutta l'Africa. Come è stato possibile? E a quale prezzo?\n\nIn questo viaggio sulle mappe animate confrontiamo il Ruanda con Singapore, il modello che il presidente Kagame vuole copiare: sicurezza, aerei, burocrazia leggera e investimenti. Ma tra crescita record, libertà limitate e dati contestati, la domanda resta aperta: è un miracolo vero o solo un'ottima vetrina?",
  "tag": [
-  "Nauru",
-  "storia di Nauru",
-  "paese più ricco del mondo",
-  "fosfato",
-  "maledizione delle risorse",
-  "economia spiegata",
-  "crollo economico",
+  "Ruanda",
+  "Singapore",
+  "Africa",
+  "Paul Kagame",
+  "economia africana",
+  "genocidio del Ruanda",
+  "Kigali",
+  "storia economica",
   "mappe animate",
-  "storia in minuti",
-  "Pacifico",
-  "malattia olandese",
-  "PIL"
+  "facilità di fare impresa",
+  "sviluppo",
+  "storia in minuti"
  ],
  "scene": [
   {
-   "testo": "Un'isola grande come un parco di Manhattan. Il paese più ricco del mondo. Poi il crollo: novanta per cento di PIL in meno, e un musical flop.",
+   "testo": "Un paese dove trent'anni fa si uccideva in massa. Oggi è più sicuro degli Stati Uniti. Ma il prezzo da pagare è enorme.",
    "anteprima": true,
    "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
+    "lon": 30,
+    "lat": -2,
     "larghezza": 10
    },
    "epoca": "oggi",
    "oro": [
-    "NRU"
+    "RWA"
    ],
    "verde": [],
    "eventi": [
     {
      "tipo": "numero",
-     "testo": "8 MI²",
-     "lon": 166.93,
-     "lat": -0.52,
-     "parola": "parco"
+     "testo": "800.000",
+     "lon": 29.9,
+     "lat": -1.9,
+     "parola": "massa"
     },
     {
-     "tipo": "prezzo",
-     "testo": "$88.000",
-     "sotto": "NAURU · A PERSONA",
-     "ricco": true,
-     "parola": "ricco"
+     "tipo": "numero",
+     "testo": "2,5",
+     "lon": 30.1,
+     "lat": -2.1,
+     "parola": "sicuro"
     },
     {
      "tipo": "scritta",
-     "testo": "-90%",
-     "parola": "novanta"
+     "testo": "IL PREZZO?",
+     "parola": "prezzo"
     }
    ],
    "musica": "mistero",
    "stacco": false,
    "pin": {
-    "lon": 167.1,
-    "lat": -0.3,
+    "lon": 30.5,
+    "lat": -1.5,
     "faccia": "stupito"
    }
   },
   {
-   "testo": "Come ha fatto una roccia di escrementi a rendere ricchi gli abitanti? E come ha fatto a lasciarli più poveri di prima?",
+   "testo": "Un esercito di spazzini ogni mese, posti di blocco ovunque e crescita da record. Miracolo o vetrina? Nasce la Singapore d'Africa?",
    "anteprima": true,
    "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
-    "larghezza": 14
+    "lon": 103.8,
+    "lat": 1.35,
+    "larghezza": 8
    },
    "epoca": "oggi",
    "oro": [
-    "NRU"
+    "SGP"
    ],
-   "verde": [],
+   "verde": [
+    "RWA"
+   ],
    "eventi": [
     {
      "tipo": "icona",
-     "icona": "mine",
-     "lon": 166.92,
-     "lat": -0.53,
-     "parola": "roccia"
+     "icona": "flag:SG",
+     "lon": 103.8,
+     "lat": 1.35,
+     "parola": "spazzini"
     },
     {
-     "tipo": "icona",
-     "icona": "chart_down",
-     "lon": 166.95,
-     "lat": -0.5,
-     "parola": "poveri"
+     "tipo": "colonna",
+     "testo": "CRESCITA",
+     "valore": 0.9,
+     "lon": 103.9,
+     "lat": 1.4,
+     "parola": "crescita"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "MIRACOLO?",
+     "parola": "Miracolo"
     }
    ],
    "musica": "",
    "stacco": false,
    "pin": {
-    "lon": 167.2,
-    "lat": -0.2,
-    "faccia": "normale"
+    "lon": 104.3,
+    "lat": 1.1,
+    "faccia": "stupito"
    }
   },
   {
-   "testo": "Questa è la Repubblica di Nauru. Otto miglia quadrate, meno di undicimila abitanti. È il terzo stato più piccolo del pianeta, dopo Monaco e la Città del Vaticano.",
+   "testo": "In Ruanda ci sono 2,5 omicidi ogni 100.000 abitanti all'anno. Meno dell'India, meno degli Stati Uniti. Sembra impossibile, vero?",
    "anteprima": false,
    "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
-    "larghezza": 8
+    "lon": 30,
+    "lat": -2,
+    "larghezza": 14
    },
    "epoca": "oggi",
    "oro": [
-    "NRU"
+    "RWA"
    ],
-   "verde": [],
+   "verde": [
+    "IND",
+    "USA"
+   ],
    "eventi": [
     {
-     "tipo": "contorno",
-     "paese": "NRU",
-     "parola": "Nauru"
-    },
-    {
      "tipo": "conta",
-     "valore": 11000,
-     "prefisso": "<",
+     "valore": 2.5,
+     "prefisso": "",
      "suffisso": "",
-     "sotto": "ABITANTI",
-     "parola": "undicimila"
+     "sotto": "OMICIDI OGNI 100.000",
+     "lon": 30,
+     "lat": -2,
+     "parola": "2,5"
     },
     {
-     "tipo": "folla",
-     "personaggio": "family",
-     "n": 4,
-     "lon": 166.93,
-     "lat": -0.52,
-     "parola": "abitanti"
+     "tipo": "contorno",
+     "paese": "RWA",
+     "parola": "Ruanda"
     },
     {
      "tipo": "nota",
-     "testo": "Terzo stato più piccolo",
-     "parola": "terzo"
+     "testo": "Meno di India e USA",
+     "parola": "Stati"
     }
    ],
    "musica": "curiosita",
    "stacco": false,
    "pin": {
-    "lon": 167.1,
-    "lat": -0.4,
+    "lon": 32,
+    "lat": -4,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Ma questa isola nel Pacifico del Sud ha vissuto il tracollo economico più estremo di sempre. Ed è una lezione per tutti gli economisti.",
+   "testo": "Guarda i vicini. L'Uganda ne conta 11,5, la Tanzania 7, il Burundi 6, il Congo 13,6. Il Ruanda è un'isola di calma.",
    "anteprima": false,
    "vista": {
-    "lon": 170,
-    "lat": -5,
+    "lon": 29,
+    "lat": -2,
+    "larghezza": 24
+   },
+   "epoca": "oggi",
+   "oro": [
+    "RWA"
+   ],
+   "verde": [
+    "UGA",
+    "TZA",
+    "BDI",
+    "COD"
+   ],
+   "eventi": [
+    {
+     "tipo": "barre",
+     "titolo": "OMICIDI OGNI 100.000",
+     "voci": [
+      {
+       "testo": "CONGO",
+       "valore": 13.6,
+       "lato": "verde"
+      },
+      {
+       "testo": "UGANDA",
+       "valore": 11.5,
+       "lato": "verde"
+      },
+      {
+       "testo": "TANZANIA",
+       "valore": 7,
+       "lato": "verde"
+      },
+      {
+       "testo": "RUANDA",
+       "valore": 2.5,
+       "lato": "oro"
+      }
+     ],
+     "parola": "vicini"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Isola di calma",
+     "parola": "isola"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 24,
+    "lat": -6,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Anche la corruzione è bassa: è al 48° posto nel mondo come paese meno corrotto. In Africa fa meglio solo il Botswana, molto più ricco.",
+   "anteprima": false,
+   "vista": {
+    "lon": 27,
+    "lat": -10,
     "larghezza": 40
    },
    "epoca": "oggi",
    "oro": [
-    "NRU"
+    "RWA"
+   ],
+   "verde": [
+    "BWA"
+   ],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 48,
+     "prefisso": "",
+     "suffisso": "°",
+     "sotto": "MENO CORROTTO AL MONDO",
+     "parola": "48°"
+    },
+    {
+     "tipo": "contorno",
+     "paese": "BWA",
+     "parola": "Botswana"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Solo il Botswana fa meglio",
+     "parola": "solo"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 20,
+    "lat": -4,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "L'aspettativa di vita è di 67 anni, quarto posto in Africa. Ma venticinque anni fa era appena 28. Cos'era successo?",
+   "anteprima": false,
+   "vista": {
+    "lon": 30,
+    "lat": -2,
+    "larghezza": 12
+   },
+   "epoca": "oggi",
+   "oro": [
+    "RWA"
    ],
    "verde": [],
    "eventi": [
     {
-     "tipo": "etichetta",
-     "testo": "PACIFICO DEL SUD",
-     "lon": 175,
-     "lat": -10,
-     "parola": "Pacifico"
+     "tipo": "conta",
+     "valore": 67,
+     "prefisso": "",
+     "suffisso": " ANNI",
+     "sotto": "ASPETTATIVA DI VITA OGGI",
+     "parola": "67"
+    },
+    {
+     "tipo": "conta",
+     "valore": 28,
+     "prefisso": "",
+     "suffisso": " ANNI",
+     "sotto": "NEL 1994",
+     "parola": "28"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "COSA?",
+     "parola": "successo"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": true,
+   "pin": {
+    "lon": 31.5,
+    "lat": -1,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Nel 1994 il Ruanda viveva uno dei genocidi più orrendi della storia. In soli cento giorni furono uccise 800.000 persone.",
+   "anteprima": false,
+   "vista": {
+    "lon": 29.9,
+    "lat": -1.95,
+    "larghezza": 8
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1994",
+     "parola": "1994"
+    },
+    {
+     "tipo": "conta",
+     "valore": 800000,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "MORTI IN 100 GIORNI",
+     "parola": "800.000"
     },
     {
      "tipo": "icona",
-     "icona": "chart_down",
-     "lon": 166.9,
-     "lat": -0.5,
-     "parola": "tracollo"
+     "icona": "grave",
+     "lon": 29.9,
+     "lat": -1.95,
+     "parola": "orrendi"
     },
     {
      "tipo": "nota",
-     "testo": "Il crollo più estremo",
-     "parola": "estremo"
+     "testo": "800.000 morti in 100 giorni",
+     "parola": "cento"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": 30.6,
+    "lat": -1.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Il bersaglio erano i tutsi. Persero circa il 75 per cento della loro popolazione. Un intero popolo quasi cancellato.",
+   "anteprima": false,
+   "vista": {
+    "lon": 29.9,
+    "lat": -1.95,
+    "larghezza": 6
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "contatore",
+     "testo": "3 SU 4 UCCISI",
+     "su": 3,
+     "di": 4,
+     "personaggio": "family",
+     "parola": "75"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "family",
+     "n": 5,
+     "lon": 29.9,
+     "lat": -1.95,
+     "parola": "popolo"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Tre tutsi su quattro uccisi",
+     "parola": "tutsi"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 30.4,
+    "lat": -1.6,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Poi arrivò la pace. Gli indicatori cominciarono a salire, passo dopo passo. Oggi il Ruanda è la quindicesima economia del mondo per crescita.",
+   "anteprima": false,
+   "vista": {
+    "lon": 30,
+    "lat": -2,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "RWA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "chart_up",
+     "lon": 29.9,
+     "lat": -1.9,
+     "parola": "salire"
+    },
+    {
+     "tipo": "conta",
+     "valore": 15,
+     "prefisso": "",
+     "suffisso": "°",
+     "sotto": "ECONOMIA PIÙ VELOCE",
+     "parola": "quindicesima"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Quindicesima per crescita",
+     "parola": "crescita"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": false,
+   "pin": {
+    "lon": 31,
+    "lat": -3,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Il governo ha una missione chiara: diventare la Singapore d'Africa. Ma per capire cosa significhi, devi prima conoscere Singapore.",
+   "anteprima": false,
+   "vista": {
+    "lon": 50,
+    "lat": -1,
+    "larghezza": 120
+   },
+   "epoca": "oggi",
+   "oro": [
+    "SGP"
+   ],
+   "verde": [
+    "RWA"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      30,
+      -2
+     ],
+     "a": [
+      103.8,
+      1.35
+     ],
+     "icona": "question",
+     "parola": "Singapore"
+    },
+    {
+     "tipo": "icona",
+     "icona": "flag:SG",
+     "lon": 103.8,
+     "lat": 1.35,
+     "parola": "Singapore"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "LA MISSIONE",
+     "parola": "missione"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 60,
+    "lat": 15,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Cent'anni fa l'Asia orientale era povera e arretrata. L'Ottocento fu il secolo della Gran Bretagna, il Novecento dell'America. Il Duemila sarà quello dell'Asia?",
+   "anteprima": false,
+   "vista": {
+    "lon": 105,
+    "lat": 25,
+    "larghezza": 100
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1800",
+     "parola": "Ottocento"
+    },
+    {
+     "tipo": "icona",
+     "icona": "flag:GB",
+     "lon": -2,
+     "lat": 54,
+     "parola": "Gran"
+    },
+    {
+     "tipo": "icona",
+     "icona": "flag:US",
+     "lon": -98,
+     "lat": 39,
+     "parola": "America"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Il secolo dell'Asia?",
+     "parola": "Asia"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": 120,
+    "lat": 35,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Tra i motori di questo secolo c'è Singapore: ottavo paese più sicuro, terzo più ricco, terzo meno corrotto, terzo per longevità.",
+   "anteprima": false,
+   "vista": {
+    "lon": 103.8,
+    "lat": 1.35,
+    "larghezza": 6
+   },
+   "epoca": "oggi",
+   "oro": [
+    "SGP"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 3,
+     "prefisso": "",
+     "suffisso": "°",
+     "sotto": "PIÙ RICCO AL MONDO",
+     "parola": "terzo"
+    },
+    {
+     "tipo": "conta",
+     "valore": 8,
+     "prefisso": "",
+     "suffisso": "°",
+     "sotto": "PIÙ SICURO",
+     "parola": "ottavo"
+    },
+    {
+     "tipo": "nota",
+     "testo": "In cima a ogni classifica",
+     "parola": "sicuro"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": false,
+   "pin": {
+    "lon": 104.2,
+    "lat": 1.6,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Negli anni Sessanta l'economia di Singapore valeva circa 700 milioni di dollari. Oggi vale 320 miliardi. Nell'ultimo decennio è raddoppiata.",
+   "anteprima": false,
+   "vista": {
+    "lon": 103.8,
+    "lat": 1.35,
+    "larghezza": 6
+   },
+   "epoca": "oggi",
+   "oro": [
+    "SGP"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1960",
+     "parola": "Sessanta"
+    },
+    {
+     "tipo": "prezzo",
+     "testo": "$700 MLN",
+     "sotto": "PIL NEL 1960",
+     "ricco": false,
+     "parola": "700"
+    },
+    {
+     "tipo": "prezzo",
+     "testo": "$320 MLD",
+     "sotto": "PIL OGGI",
+     "ricco": true,
+     "parola": "320"
+    },
+    {
+     "tipo": "solleva",
+     "paese": [
+      "SGP"
+     ],
+     "volte": 10,
+     "testo": "x450",
+     "colore": "oro",
+     "parola": "raddoppiata"
+    }
+   ],
+   "musica": "",
+   "stacco": true,
+   "pin": {
+    "lon": 104.1,
+    "lat": 1.5,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Da paese del terzo mondo a paese del primo mondo in meno di una vita. E vuole essere il centro degli affari dell'Asia.",
+   "anteprima": false,
+   "vista": {
+    "lon": 103.8,
+    "lat": 1.35,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "SGP"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "factory",
+     "lon": 103.8,
+     "lat": 1.3,
+     "parola": "mondo"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "UNA VITA",
+     "parola": "vita"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Hub degli affari asiatici",
+     "parola": "affari"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": 105,
+    "lat": 2.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Tra le venti aziende più grandi del pianeta, quindici hanno sedi a Singapore. Hanno fatto qualcosa di quasi impossibile.",
+   "anteprima": false,
+   "vista": {
+    "lon": 103.8,
+    "lat": 1.35,
+    "larghezza": 8
+   },
+   "epoca": "oggi",
+   "oro": [
+    "SGP"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "contatore",
+     "testo": "15 SU 20",
+     "su": 15,
+     "di": 20,
+     "personaggio": "banker",
+     "parola": "quindici"
+    },
+    {
+     "tipo": "icona",
+     "icona": "port",
+     "lon": 103.85,
+     "lat": 1.27,
+     "parola": "sedi"
+    },
+    {
+     "tipo": "nota",
+     "testo": "15 colossi su 20 sono lì",
+     "parola": "venti"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 104.3,
+    "lat": 1.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Ma il metodo ha i suoi critici. La politica di Singapore è definita paternalista: non proprio autoritaria, ma con meno libertà.",
+   "anteprima": false,
+   "vista": {
+    "lon": 103.8,
+    "lat": 1.35,
+    "larghezza": 8
+   },
+   "epoca": "oggi",
+   "oro": [
+    "SGP"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": 103.8,
+     "lat": 1.35,
+     "parola": "paternalista"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "PATERNALISTA",
+     "parola": "paternalista"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Non autoritaria, ma controllata",
+     "parola": "autoritaria"
     }
    ],
    "musica": "tensione",
    "stacco": false,
    "pin": {
-    "lon": 180,
-    "lat": 5,
+    "lon": 104.2,
+    "lat": 1.7,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Le risorse naturali possono fare la fortuna di un paese. Pensa al petrolio del Golfo Persico. Ma gestite male, fanno più danni che altro.",
+   "testo": "È l'unico indicatore dove non è in cima: l'indice di democrazia. Prende 6,4 su 10, 66° posto, democrazia imperfetta.",
    "anteprima": false,
    "vista": {
-    "lon": 52,
-    "lat": 26,
-    "larghezza": 30
+    "lon": 103.8,
+    "lat": 1.35,
+    "larghezza": 8
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "SGP"
+   ],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 6.4,
+     "prefisso": "",
+     "suffisso": "/10",
+     "sotto": "INDICE DI DEMOCRAZIA",
+     "parola": "6,4"
+    },
+    {
+     "tipo": "conta",
+     "valore": 66,
+     "prefisso": "",
+     "suffisso": "°",
+     "sotto": "POSTO NEL MONDO",
+     "parola": "66°"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Democrazia imperfetta",
+     "parola": "imperfetta"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 104.3,
+    "lat": 1.2,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Si va dalle piccole cose, come il divieto di masticare gomme per tenere pulito, alle grandi: limiti a parola, riunioni e stampa.",
+   "anteprima": false,
+   "vista": {
+    "lon": 103.8,
+    "lat": 1.35,
+    "larghezza": 6
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "SGP"
+   ],
+   "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "VIETATO MASTICARE GOMME",
+     "lon": 103.8,
+     "lat": 1.3,
+     "parola": "gomme"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "citizen",
+     "n": 4,
+     "lon": 103.85,
+     "lat": 1.38,
+     "parola": "stampa"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Libertà limitate",
+     "parola": "limiti"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 104.1,
+    "lat": 1.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "I sostenitori rispondono: guarda i risultati. Libertà in cambio di prosperità. E il Ruanda ha preso appunti.",
+   "anteprima": false,
+   "vista": {
+    "lon": 65,
+    "lat": -1,
+    "larghezza": 120
    },
    "epoca": "oggi",
    "oro": [
-    "SAU",
-    "ARE",
-    "QAT",
-    "KWT"
+    "SGP"
+   ],
+   "verde": [
+    "RWA"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      103.8,
+      1.35
+     ],
+     "a": [
+      30,
+      -2
+     ],
+     "icona": "scroll_law",
+     "parola": "appunti"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "LIBERTÀ?",
+     "parola": "Libertà"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Libertà in cambio di prosperità",
+     "parola": "prosperità"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 65,
+    "lat": 15,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Il presidente Paul Kagame ha dichiarato di voler fare del Ruanda la Singapore d'Africa. E in molti modi è già sulla strada.",
+   "anteprima": false,
+   "vista": {
+    "lon": 30,
+    "lat": -2,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "RWA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "personaggio",
+     "nome": "Paul Kagame",
+     "descrizione": "Presidente del Ruanda, ex generale, abito scuro e occhiali",
+     "parola": "Kagame"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "KIGALI",
+     "lon": 30.06,
+     "lat": -1.95,
+     "parola": "Singapore"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Missione: la Singapore d'Africa",
+     "parola": "missione"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": 31,
+    "lat": -3,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Dire che il Ruanda è autoritario è facile. Nello stesso indice dove Singapore prende 6,4, il Ruanda prende 3,4 su 10.",
+   "anteprima": false,
+   "vista": {
+    "lon": 30,
+    "lat": -2,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "RWA"
+   ],
+   "eventi": [
+    {
+     "tipo": "barre",
+     "titolo": "INDICE DI DEMOCRAZIA",
+     "voci": [
+      {
+       "testo": "SINGAPORE",
+       "valore": 6.4,
+       "lato": "oro"
+      },
+      {
+       "testo": "RUANDA",
+       "valore": 3.4,
+       "lato": "verde"
+      }
+     ],
+     "parola": "prende"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Classificato come autoritario",
+     "parola": "autoritario"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 31,
+    "lat": -3,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Kagame è stato eletto nel 2003, nel 2010 e nel 2017 con il 98,8 per cento dei voti. Washington parlò di irregolarità.",
+   "anteprima": false,
+   "vista": {
+    "lon": 30,
+    "lat": -2,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "RWA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "2017",
+     "parola": "2017"
+    },
+    {
+     "tipo": "conta",
+     "valore": 98.8,
+     "prefisso": "",
+     "suffisso": "%",
+     "sotto": "VOTI PER KAGAME",
+     "parola": "98,8"
+    },
+    {
+     "tipo": "icona",
+     "icona": "ballot_box",
+     "lon": 30.06,
+     "lat": -1.95,
+     "parola": "voti"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Irregolarità, secondo gli USA",
+     "parola": "irregolarità"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 31,
+    "lat": -3,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Prima, una modifica costituzionale aveva eliminato i limiti di mandato. Così Kagame ha potuto restare al potere ancora.",
+   "anteprima": false,
+   "vista": {
+    "lon": 30,
+    "lat": -2,
+    "larghezza": 8
+   },
+   "epoca": "oggi",
+   "oro": [
+    "RWA"
    ],
    "verde": [],
    "eventi": [
     {
      "tipo": "icona",
-     "icona": "oil_derrick",
-     "lon": 50,
-     "lat": 26,
-     "parola": "petrolio"
+     "icona": "parliament",
+     "lon": 30.06,
+     "lat": -1.95,
+     "parola": "costituzionale"
     },
     {
-     "tipo": "icona",
-     "icona": "money_bag",
-     "lon": 54,
-     "lat": 24,
-     "parola": "fortuna"
+     "tipo": "scritta",
+     "testo": "NIENTE LIMITI",
+     "parola": "limiti"
     },
     {
      "tipo": "nota",
-     "testo": "Risorse: fortuna o condanna?",
-     "parola": "danni"
+     "testo": "Via i limiti di mandato",
+     "parola": "mandato"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 30.8,
+    "lat": -1.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Eppure è amato e brillante. Ha iniziato nell'esercito e ha contribuito a rovesciare governi oppressivi. Un generale militare geniale.",
+   "anteprima": false,
+   "vista": {
+    "lon": 30,
+    "lat": -1,
+    "larghezza": 16
+   },
+   "epoca": "oggi",
+   "oro": [
+    "RWA"
+   ],
+   "verde": [
+    "UGA",
+    "COD"
+   ],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "soldier",
+     "n": 5,
+     "lon": 30,
+     "lat": -1.5,
+     "parola": "esercito"
+    },
+    {
+     "tipo": "icona",
+     "icona": "swords",
+     "lon": 29.5,
+     "lat": -1.2,
+     "parola": "rovesciare"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Forse il generale più riuscito",
+     "parola": "generale"
+    }
+   ],
+   "musica": "azione",
+   "stacco": false,
+   "pin": {
+    "lon": 34,
+    "lat": -3,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Da quando combatteva ha portato il Ruanda dal caos alla pace e alla prosperità. Ma come leader politico resta oppressivo.",
+   "anteprima": false,
+   "vista": {
+    "lon": 30,
+    "lat": -2,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "RWA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "chart_up",
+     "lon": 30,
+     "lat": -2,
+     "parola": "prosperità"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "MA...",
+     "parola": "oppressivo"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Pace sì, libertà poca",
+     "parola": "oppressivo"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 31,
+    "lat": -3,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Come a Singapore, ci sono gravi limiti a parola, riunioni e stampa. C'è perfino chi accusa Kagame di far eliminare gli avversari.",
+   "anteprima": false,
+   "vista": {
+    "lon": 30,
+    "lat": -2,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "RWA"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": 30.06,
+     "lat": -1.95,
+     "parola": "limiti"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "ACCUSE",
+     "parola": "accusano"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Accuse contro gli oppositori",
+     "parola": "avversari"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 31,
+    "lat": -3,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Guardando agli obiettivi, però, i paralleli con Singapore sono evidenti. Il suo successo si regge su tre fattori. Eccoli.",
+   "anteprima": false,
+   "vista": {
+    "lon": 65,
+    "lat": 0,
+    "larghezza": 120
+   },
+   "epoca": "oggi",
+   "oro": [
+    "SGP"
+   ],
+   "verde": [
+    "RWA"
+   ],
+   "eventi": [
+    {
+     "tipo": "scritta",
+     "testo": "TRE FATTORI",
+     "parola": "tre"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      103.8,
+      1.35
+     ],
+     "a": [
+      30,
+      -2
+     ],
+     "icona": "banknotes",
+     "parola": "paralleli"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Tre pilastri del successo",
+     "parola": "fattori"
     }
    ],
    "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 65,
+    "lat": 18,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Primo: la centralità geografica. Da Singapore, con otto ore di volo, raggiungi Emirati e Qatar, tutta l'India, l'Asia orientale e l'Australia.",
+   "anteprima": false,
+   "vista": {
+    "lon": 95,
+    "lat": 5,
+    "larghezza": 120
+   },
+   "epoca": "oggi",
+   "oro": [
+    "SGP"
+   ],
+   "verde": [
+    "ARE",
+    "QAT",
+    "IND",
+    "AUS"
+   ],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 8,
+     "prefisso": "",
+     "suffisso": " ORE",
+     "sotto": "DI VOLO DA SINGAPORE",
+     "parola": "otto"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      103.8,
+      1.35
+     ],
+     "a": [
+      55,
+      25
+     ],
+     "icona": "ship",
+     "parola": "Emirati"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      103.8,
+      1.35
+     ],
+     "a": [
+      78,
+      22
+     ],
+     "icona": "ship",
+     "parola": "India"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      103.8,
+      1.35
+     ],
+     "a": [
+      134,
+      -25
+     ],
+     "icona": "ship",
+     "parola": "Australia"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 110,
+    "lat": 30,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Il Ruanda dista appena 950 chilometri dal centro geografico dell'Africa. Più centrale di così, su un continente così enorme, non si può.",
+   "anteprima": false,
+   "vista": {
+    "lon": 22,
+    "lat": 3,
+    "larghezza": 60
+   },
+   "epoca": "oggi",
+   "oro": [
+    "RWA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 950,
+     "prefisso": "",
+     "suffisso": " KM",
+     "sotto": "DAL CENTRO DELL'AFRICA",
+     "parola": "950"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      30,
+      -2
+     ],
+     "a": [
+      20,
+      5
+     ],
+     "icona": "question",
+     "parola": "centro"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Quasi al centro dell'Africa",
+     "parola": "centrale"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 38,
+    "lat": 10,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Ma essere centrali non basta se non ci arrivi. Una delle aziende più grandi di Singapore è Singapore Airlines, tra le migliori compagnie al mondo.",
+   "anteprima": false,
+   "vista": {
+    "lon": 103.8,
+    "lat": 1.35,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "SGP"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "flag:SG",
+     "lon": 103.99,
+     "lat": 1.36,
+     "parola": "Singapore"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "SINGAPORE AIRLINES",
+     "lon": 103.9,
+     "lat": 1.45,
+     "parola": "Airlines"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Tra le migliori al mondo",
+     "parola": "migliori"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": 105,
+    "lat": 2.5,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Grazie a lei, in poche ore voli da Singapore verso cinque continenti diversi. Una compagnia globale fa di una città un hub.",
+   "anteprima": false,
+   "vista": {
+    "lon": 70,
+    "lat": 10,
+    "larghezza": 200
+   },
+   "epoca": "oggi",
+   "oro": [
+    "SGP"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      103.8,
+      1.35
+     ],
+     "a": [
+      0,
+      51
+     ],
+     "icona": "ship",
+     "parola": "cinque"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      103.8,
+      1.35
+     ],
+     "a": [
+      151,
+      -33
+     ],
+     "icona": "ship",
+     "parola": "ore"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      103.8,
+      1.35
+     ],
+     "a": [
+      -74,
+      40
+     ],
+     "icona": "ship",
+     "parola": "continenti"
+    },
+    {
+     "tipo": "conta",
+     "valore": 5,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "CONTINENTI RAGGIUNTI",
+     "parola": "cinque"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 110,
+    "lat": 40,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Senza le loro compagnie, anche Dubai e Doha non conterebbero quanto contano oggi. Il Ruanda l'ha capito bene.",
+   "anteprima": false,
+   "vista": {
+    "lon": 52,
+    "lat": 25,
+    "larghezza": 30
+   },
+   "epoca": "oggi",
+   "oro": [
+    "ARE",
+    "QAT"
+   ],
+   "verde": [
+    "RWA"
+   ],
+   "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "DUBAI",
+     "lon": 55.3,
+     "lat": 25.2,
+     "parola": "Dubai"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "DOHA",
+     "lon": 51.5,
+     "lat": 25.3,
+     "parola": "Doha"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Hub grazie alle compagnie aeree",
+     "parola": "compagnie"
+    }
+   ],
+   "musica": "",
    "stacco": false,
    "pin": {
     "lon": 60,
@@ -250,1003 +1524,629 @@
    }
   },
   {
-   "testo": "Gli economisti la chiamano maledizione delle risorse naturali. E Nauru è forse il caso di studio più chiaro che esista.",
+   "testo": "La sua RwandAir, statale, è cresciuta da pochi jet regionali a una compagnia intercontinentale con aerei nuovi di zecca.",
    "anteprima": false,
    "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
-    "larghezza": 20
+    "lon": 30,
+    "lat": -2,
+    "larghezza": 14
    },
    "epoca": "oggi",
    "oro": [
-    "NRU"
+    "RWA"
    ],
    "verde": [],
    "eventi": [
-    {
-     "tipo": "scritta",
-     "testo": "MALEDIZIONE",
-     "parola": "maledizione"
-    },
-    {
-     "tipo": "icona",
-     "icona": "question",
-     "lon": 166.9,
-     "lat": -0.5,
-     "parola": "caso"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Un caso di studio perfetto",
-     "parola": "chiaro"
-    }
-   ],
-   "musica": "mistero",
-   "stacco": false,
-   "pin": {
-    "lon": 168,
-    "lat": 1.5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Da zero a miliardario, e poi di nuovo giù, peggio di prima. Come è diventata la più ricca? Quali errori ha fatto? E perché oggi sta peggio?",
-   "anteprima": false,
-   "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
-    "larghezza": 16
-   },
-   "epoca": "oggi",
-   "oro": [
-    "NRU"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "chart_up",
-     "lon": 166.88,
-     "lat": -0.5,
-     "parola": "miliardario"
-    },
-    {
-     "tipo": "icona",
-     "icona": "chart_down",
-     "lon": 166.98,
-     "lat": -0.55,
-     "parola": "giù"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "PERCHÉ?",
-     "parola": "perché"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Tre domande, una storia",
-     "parola": "domande"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": 167.5,
-    "lat": 0.5,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Nel 1789 una nave britannica passa davanti a un altopiano verde, palme ondeggianti e spiagge bianche. Tanta bellezza che la chiamano Isola Piacevole.",
-   "anteprima": false,
-   "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
-    "larghezza": 10
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1789",
-     "parola": "1789"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      150,
-      -10
-     ],
-     "a": [
-      166.8,
-      -0.5
-     ],
-     "icona": "galleon",
-     "parola": "nave"
-    },
-    {
-     "tipo": "icona",
-     "icona": "forest",
-     "lon": 166.92,
-     "lat": -0.52,
-     "parola": "palme"
-    },
     {
      "tipo": "etichetta",
-     "testo": "ISOLA PIACEVOLE",
-     "lon": 166.95,
-     "lat": -0.45,
-     "parola": "Piacevole"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Scoperta dagli europei",
-     "parola": "bellezza"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": 167.4,
-    "lat": -0.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Qualche decennio dopo arrivano i primi coloni. L'isola è un terzo di Manhattan. Si pensa che abbia solo noci di cocco e maiali.",
-   "anteprima": false,
-   "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
-    "larghezza": 9
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "colonist",
-     "n": 4,
-     "lon": 166.93,
-     "lat": -0.52,
-     "parola": "coloni"
-    },
-    {
-     "tipo": "numero",
-     "testo": "1/3 MANHATTAN",
-     "lon": 166.9,
-     "lat": -0.48,
-     "parola": "Manhattan"
-    },
-    {
-     "tipo": "icona",
-     "icona": "cattle",
-     "lon": 166.95,
-     "lat": -0.55,
-     "parola": "maiali"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Solo cocco e maiali",
-     "parola": "cocco"
-    }
-   ],
-   "musica": "quotidiano",
-   "stacco": false,
-   "pin": {
-    "lon": 167.3,
-    "lat": -0.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Poi un geologo britannico scopre il fosfato di alta qualità. Non petrolio: guano di uccelli marini e alghe fossilizzate. Eppure vale oro.",
-   "anteprima": false,
-   "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
-    "larghezza": 8
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "personaggio",
-     "nome": "Geologo britannico",
-     "descrizione": "early 1900s British geologist, pith helmet, notebook",
-     "parola": "geologo"
-    },
-    {
-     "tipo": "icona",
-     "icona": "mine",
-     "lon": 166.93,
-     "lat": -0.52,
-     "parola": "fosfato"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "GUANO",
-     "parola": "guano"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Guano fossile: valeva oro",
-     "parola": "oro"
-    }
-   ],
-   "musica": "mistero",
-   "stacco": true,
-   "pin": {
-    "lon": 167.3,
-    "lat": -0.3,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Serve per i fertilizzanti, ma anche per cosmetici e mangimi. Intorno al 1900, l'ottanta per cento dell'isola era ricco di questo minerale.",
-   "anteprima": false,
-   "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
-    "larghezza": 8
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "wheat",
-     "lon": 166.88,
-     "lat": -0.5,
-     "parola": "fertilizzanti"
-    },
-    {
-     "tipo": "griglia",
-     "paese": [
-      "NRU"
-     ],
-     "pieni": 0.8,
-     "testo": "80% FOSFATO",
-     "colore": "oro",
-     "parola": "ottanta"
-    },
-    {
-     "tipo": "anno",
-     "testo": "1900",
-     "parola": "1900"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Nutre il mondo che cresce",
-     "parola": "cosmetici"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": 167.3,
-    "lat": -0.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Sembra disgustoso, ma sfamare una popolazione mondiale in crescita valeva moltissimo. I diritti di estrazione finiscono alla Germania, che governa l'isola.",
-   "anteprima": false,
-   "vista": {
-    "lon": 150,
-    "lat": -10,
-    "larghezza": 120
-   },
-   "epoca": "antica",
-   "oro": [
-    "DEU"
-   ],
-   "verde": [
-    "NRU"
-   ],
-   "eventi": [
-    {
-     "tipo": "contorno",
-     "paese": "DEU",
-     "parola": "Germania"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      10,
-      51
-     ],
-     "a": [
-      166.9,
-      -0.5
-     ],
-     "icona": "cargo_ship",
-     "parola": "diritti"
-    },
-    {
-     "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": 166.9,
-     "lat": -0.5,
-     "parola": "estrazione"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Diritti venduti alla Germania",
-     "parola": "Germania"
-    }
-   ],
-   "musica": "epico",
-   "stacco": false,
-   "pin": {
-    "lon": 120,
-    "lat": 20,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Negli anni seguenti partono circa ottanta milioni di tonnellate. Porti, impianti e industrie spuntano su una striscia di terra poco più grande di Central Park.",
-   "anteprima": false,
-   "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
-    "larghezza": 8
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [
-    "NRU"
-   ],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 80,
-     "prefisso": "~",
-     "suffisso": "M",
-     "sotto": "TONNELLATE ESPORTATE",
-     "parola": "ottanta"
+     "testo": "RWANDAIR",
+     "lon": 30.13,
+     "lat": -1.97,
+     "parola": "RwandAir"
     },
     {
      "tipo": "icona",
      "icona": "port",
-     "lon": 166.91,
-     "lat": -0.54,
-     "parola": "Porti"
+     "lon": 30.13,
+     "lat": -1.97,
+     "parola": "jet"
     },
     {
-     "tipo": "icona",
-     "icona": "factory",
-     "lon": 166.94,
-     "lat": -0.5,
-     "parola": "impianti"
+     "tipo": "nota",
+     "testo": "Dai jet regionali ai voli globali",
+     "parola": "intercontinentale"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 32,
+    "lat": -4,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Vola in tutta l'Africa, a Dubai, Bruxelles e Londra. Ha annunciato voli con scalo verso Guangzhou e New York.",
+   "anteprima": false,
+   "vista": {
+    "lon": 20,
+    "lat": 20,
+    "larghezza": 120
+   },
+   "epoca": "oggi",
+   "oro": [
+    "RWA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      30,
+      -2
+     ],
+     "a": [
+      55,
+      25
+     ],
+     "icona": "ship",
+     "parola": "Dubai"
     },
     {
-     "tipo": "folla",
-     "personaggio": "miner",
-     "n": 5,
-     "lon": 166.93,
-     "lat": -0.52,
-     "parola": "terra"
+     "tipo": "freccia",
+     "da": [
+      30,
+      -2
+     ],
+     "a": [
+      4,
+      51
+     ],
+     "icona": "ship",
+     "parola": "Bruxelles"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      30,
+      -2
+     ],
+     "a": [
+      -0.1,
+      51.5
+     ],
+     "icona": "ship",
+     "parola": "Londra"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      30,
+      -2
+     ],
+     "a": [
+      -74,
+      40.7
+     ],
+     "icona": "ship",
+     "parola": "York"
     }
    ],
    "musica": "azione",
    "stacco": false,
    "pin": {
-    "lon": 167.3,
-    "lat": -0.2,
+    "lon": 60,
+    "lat": 40,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Poi la Prima guerra mondiale. La Germania è impegnata a combattere, e l'Australia ne approfitta: si prende Nauru per sé.",
+   "testo": "Non è ancora ai livelli di Ethiopian o South African Airways. Ma fa il suo lavoro: collegare il Ruanda al mondo.",
    "anteprima": false,
    "vista": {
-    "lon": 150,
-    "lat": -15,
-    "larghezza": 70
+    "lon": 30,
+    "lat": 0,
+    "larghezza": 50
    },
-   "epoca": "antica",
+   "epoca": "oggi",
    "oro": [
-    "AUS"
+    "RWA"
    ],
    "verde": [
-    "NRU"
+    "ETH",
+    "ZAF"
    ],
    "eventi": [
     {
-     "tipo": "anno",
-     "testo": "1914",
-     "parola": "Prima"
+     "tipo": "contorno",
+     "paese": "ETH",
+     "parola": "Ethiopian"
     },
     {
-     "tipo": "icona",
-     "icona": "swords",
-     "lon": 10,
-     "lat": 50,
-     "parola": "guerra"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      135,
-      -25
-     ],
-     "a": [
-      166.9,
-      -0.5
-     ],
-     "icona": "cargo_ship",
-     "parola": "prende"
+     "tipo": "contorno",
+     "paese": "ZAF",
+     "parola": "South"
     },
     {
      "tipo": "nota",
-     "testo": "L'Australia si prende Nauru",
-     "parola": "approfitta"
+     "testo": "Collega il Ruanda al mondo",
+     "parola": "collegare"
     }
    ],
-   "musica": "tensione",
+   "musica": "",
    "stacco": false,
    "pin": {
-    "lon": 120,
-    "lat": -5,
+    "lon": 15,
+    "lat": 8,
     "faccia": "normale"
    }
   },
   {
-   "testo": "L'isola è ormai solo una miniera offshore. Il fosfato va a prezzo scontato, i famosi mates rates, ai contadini di Australia, Nuova Zelanda e Gran Bretagna.",
+   "testo": "Secondo fattore: la stabilità politica. La Banca Mondiale la misura, e Singapore è al 99° percentile, meglio di quasi tutti.",
    "anteprima": false,
    "vista": {
-    "lon": 150,
-    "lat": -20,
-    "larghezza": 100
-   },
-   "epoca": "antica",
-   "oro": [
-    "AUS",
-    "NZL",
-    "GBR"
-   ],
-   "verde": [
-    "NRU"
-   ],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      166.9,
-      -0.5
-     ],
-     "a": [
-      148,
-      -33
-     ],
-     "icona": "cargo_ship",
-     "parola": "fosfato"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      166.9,
-      -0.5
-     ],
-     "a": [
-      174,
-      -40
-     ],
-     "icona": "cargo_ship",
-     "parola": "Zelanda"
-    },
-    {
-     "tipo": "icona",
-     "icona": "farm",
-     "lon": 148,
-     "lat": -33,
-     "parola": "contadini"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Prezzi scontati per i coloni",
-     "parola": "scontato"
-    }
-   ],
-   "musica": "quotidiano",
-   "stacco": false,
-   "pin": {
-    "lon": 130,
-    "lat": 10,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Ma decenni di scavi hanno già distrutto il paesaggio. National Geographic descrive l'altopiano come una distesa spettrale. Altro che Isola Piacevole.",
-   "anteprima": false,
-   "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
+    "lon": 103.8,
+    "lat": 1.35,
     "larghezza": 8
    },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "mine",
-     "lon": 166.93,
-     "lat": -0.52,
-     "parola": "scavi"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "SPETTRALE",
-     "parola": "spettrale"
-    },
-    {
-     "tipo": "icona",
-     "icona": "chart_down",
-     "lon": 166.9,
-     "lat": -0.48,
-     "parola": "Piacevole"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Paesaggio devastato",
-     "parola": "distrutto"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": 167.3,
-    "lat": -0.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "E peggiora. Nella Seconda guerra mondiale il Giappone invade l'isola: campi di lavoro forzato e annegamenti di massa.",
-   "anteprima": false,
-   "vista": {
-    "lon": 150,
-    "lat": 10,
-    "larghezza": 80
-   },
-   "epoca": "antica",
+   "epoca": "oggi",
    "oro": [
-    "JPN"
-   ],
-   "verde": [
-    "NRU"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1942",
-     "parola": "Seconda"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      139,
-      36
-     ],
-     "a": [
-      166.9,
-      -0.5
-     ],
-     "icona": "cargo_ship",
-     "parola": "invade"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "soldier",
-     "n": 4,
-     "lon": 166.9,
-     "lat": -0.5,
-     "parola": "lavoro"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Occupazione giapponese",
-     "parola": "Giappone"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": 160,
-    "lat": 15,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Alla fine della guerra, i nauruani sopravvissuti erano solo seicento. L'isola torna all'Australia, e lo sfruttamento riparte.",
-   "anteprima": false,
-   "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
-    "larghezza": 8
-   },
-   "epoca": "antica",
-   "oro": [
-    "AUS"
+    "SGP"
    ],
    "verde": [],
    "eventi": [
     {
      "tipo": "conta",
-     "valore": 600,
+     "valore": 99,
      "prefisso": "",
-     "suffisso": "",
-     "sotto": "SOPRAVVISSUTI",
-     "parola": "seicento"
-    },
-    {
-     "tipo": "anno",
-     "testo": "1945",
-     "parola": "guerra"
+     "suffisso": "°",
+     "sotto": "PERCENTILE DI STABILITÀ",
+     "parola": "99°"
     },
     {
      "tipo": "icona",
-     "icona": "grave",
-     "lon": 166.92,
-     "lat": -0.5,
-     "parola": "sopravvissuti"
+     "icona": "scroll_law",
+     "lon": 103.8,
+     "lat": 1.35,
+     "parola": "stabilità"
     },
     {
      "tipo": "nota",
-     "testo": "Solo 600 sopravvissuti",
-     "parola": "seicento"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": true,
-   "pin": {
-    "lon": 167.3,
-    "lat": -0.3,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Tra il 1945 e il 1968 l'estrazione tocca record su record. Nel 1968 arriva l'indipendenza. Ormai nessuno costringe più Nauru a scavare.",
-   "anteprima": false,
-   "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
-    "larghezza": 8
-   },
-   "epoca": "oggi",
-   "oro": [
-    "NRU"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1968",
-     "parola": "1968"
-    },
-    {
-     "tipo": "icona",
-     "icona": "chart_up",
-     "lon": 166.93,
-     "lat": -0.5,
-     "parola": "record"
-    },
-    {
-     "tipo": "icona",
-     "icona": "flag:NR",
-     "lon": 166.92,
-     "lat": -0.52,
-     "parola": "indipendenza"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Indipendente, ma dipendente",
-     "parola": "costringe"
-    }
-   ],
-   "musica": "epico",
-   "stacco": false,
-   "pin": {
-    "lon": 167.3,
-    "lat": -0.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Ma l'intera economia ruota già attorno al fosfato. Un terzo dell'isola è stato divorato dalle miniere. Resta un paesaggio lunare, arido.",
-   "anteprima": false,
-   "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
-    "larghezza": 7
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "griglia",
-     "paese": [
-      "NRU"
-     ],
-     "pieni": 0.67,
-     "testo": "2/3 DELL'ISOLA RESTA",
-     "colore": "verde",
-     "parola": "terzo"
-    },
-    {
-     "tipo": "icona",
-     "icona": "mountain",
-     "lon": 166.93,
-     "lat": -0.52,
-     "parola": "lunare"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Un terzo scavato via",
-     "parola": "divorato"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": 167.3,
-    "lat": -0.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Ogni economia ha tre limiti: terra, lavoro e capitale. A Nauru erano estremi: pochi abitanti, capaci solo di scavare rocce. E isolati dal mondo.",
-   "anteprima": false,
-   "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
-    "larghezza": 14
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "NRU"
-   ],
-   "eventi": [
-    {
-     "tipo": "etichetta",
-     "testo": "TERRA · LAVORO · CAPITALE",
-     "lon": 166.9,
-     "lat": -0.2,
-     "parola": "terra"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "miner",
-     "n": 5,
-     "lon": 166.93,
-     "lat": -0.52,
-     "parola": "scavare"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Pochi fattori di produzione",
-     "parola": "limiti"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": 167.5,
-    "lat": 0.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Gran parte dei profitti era finita alle potenze coloniali. Mancavano infrastrutture e competenze per altre industrie. Così si è continuato a spremere la mucca finché dava latte.",
-   "anteprima": false,
-   "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
-    "larghezza": 12
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "NRU"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "money_bag",
-     "lon": 166.9,
-     "lat": -0.5,
-     "parola": "profitti"
-    },
-    {
-     "tipo": "icona",
-     "icona": "cattle",
-     "lon": 166.95,
-     "lat": -0.55,
-     "parola": "mucca"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Nessuna alternativa possibile",
-     "parola": "spremere"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": 167.4,
-    "lat": 0,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Era chiaro che il fosfato sarebbe finito in una o due generazioni. Ma i nauruani volevano, giustamente, la loro fetta di torta.",
-   "anteprima": false,
-   "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [
-    "NRU"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "hourglass",
-     "lon": 166.9,
-     "lat": -0.45,
-     "parola": "finito"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "family",
-     "n": 4,
-     "lon": 166.93,
-     "lat": -0.52,
-     "parola": "nauruani"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Una scadenza già scritta",
-     "parola": "generazioni"
+     "testo": "Stabilità quasi perfetta",
+     "parola": "meglio"
     }
    ],
    "musica": "curiosita",
    "stacco": false,
    "pin": {
-    "lon": 167.3,
-    "lat": -0.2,
+    "lon": 104.3,
+    "lat": 1.6,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Poco più di dieci anni dopo l'indipendenza, Nauru è il paese più ricco del mondo pro capite. Nel 1981 il PIL per abitante è di 27.000 dollari.",
+   "testo": "Per questo un amministratore delegato sceglie Singapore e non Hong Kong, ferma al 75° percentile e in calo. Le aziende odiano le sorprese.",
    "anteprima": false,
    "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
+    "lon": 110,
+    "lat": 14,
+    "larghezza": 30
+   },
+   "epoca": "oggi",
+   "oro": [
+    "SGP"
+   ],
+   "verde": [
+    "HKG"
+   ],
+   "eventi": [
+    {
+     "tipo": "barre",
+     "titolo": "STABILITÀ POLITICA",
+     "voci": [
+      {
+       "testo": "SINGAPORE",
+       "valore": 99,
+       "lato": "oro"
+      },
+      {
+       "testo": "HONG KONG",
+       "valore": 75,
+       "lato": "verde"
+      }
+     ],
+     "parola": "Hong"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": 114.2,
+     "lat": 22.3,
+     "parola": "calo"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 120,
+    "lat": 8,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Il Ruanda è al 48° percentile. Non è un risultato brillante, ma la media dell'Africa subsahariana è 31. Quindi se la cava.",
+   "anteprima": false,
+   "vista": {
+    "lon": 30,
+    "lat": -2,
+    "larghezza": 14
+   },
+   "epoca": "oggi",
+   "oro": [
+    "RWA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "barre",
+     "titolo": "STABILITÀ POLITICA",
+     "voci": [
+      {
+       "testo": "RUANDA",
+       "valore": 48,
+       "lato": "oro"
+      },
+      {
+       "testo": "AFRICA SUBSAH.",
+       "valore": 31,
+       "lato": "verde"
+      }
+     ],
+     "parola": "percentile"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Sopra la media regionale",
+     "parola": "media"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 32,
+    "lat": -4,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Ma l'autoritarismo favorisce la stabilità o la frena? Con così pochi anni sotto questo governo, è difficile dirlo.",
+   "anteprima": false,
+   "vista": {
+    "lon": 30,
+    "lat": -2,
     "larghezza": 10
    },
    "epoca": "oggi",
    "oro": [
-    "NRU"
+    "RWA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "question",
+     "lon": 30.06,
+     "lat": -1.95,
+     "parola": "stabilità"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "STABILE?",
+     "parola": "difficile"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Troppo presto per dirlo",
+     "parola": "difficile"
+    }
+   ],
+   "musica": "mistero",
+   "stacco": false,
+   "pin": {
+    "lon": 31,
+    "lat": -3,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Per molti il Ruanda è ormai uno stato di polizia: posti di blocco casuali ovunque e controlli severissimi nella capitale Kigali.",
+   "anteprima": false,
+   "vista": {
+    "lon": 30.06,
+    "lat": -1.95,
+    "larghezza": 5
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "RWA"
+   ],
+   "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "KIGALI",
+     "lon": 30.06,
+     "lat": -1.95,
+     "parola": "Kigali"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "soldier",
+     "n": 4,
+     "lon": 30.1,
+     "lat": -1.93,
+     "parola": "controlli"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Posti di blocco ovunque",
+     "parola": "blocco"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": 30.4,
+    "lat": -1.7,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Kigali è tra le città più pulite al mondo. Vietati sacchetti e plastica monouso. E ogni ultimo sabato del mese tutti puliscono insieme.",
+   "anteprima": false,
+   "vista": {
+    "lon": 30.06,
+    "lat": -1.95,
+    "larghezza": 5
+   },
+   "epoca": "oggi",
+   "oro": [
+    "RWA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "worker",
+     "n": 7,
+     "lon": 30.06,
+     "lat": -1.95,
+     "parola": "puliscono"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "SACCHETTI VIETATI",
+     "lon": 30.1,
+     "lat": -1.98,
+     "parola": "sacchetti"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "ULTIMO SABATO",
+     "parola": "sabato"
+    }
+   ],
+   "musica": "quotidiano",
+   "stacco": false,
+   "pin": {
+    "lon": 30.4,
+    "lat": -1.7,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Secondo un rapporto, per strada ci sono anche detenzioni illegali di persone definite indesiderabili. La pulizia ha un lato oscuro.",
+   "anteprima": false,
+   "vista": {
+    "lon": 30.06,
+    "lat": -1.95,
+    "larghezza": 5
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "fortress",
+     "lon": 30.06,
+     "lat": -1.95,
+     "parola": "detenzioni"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "INDESIDERABILI",
+     "parola": "indesiderabili"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Detenzioni illegali denunciate",
+     "parola": "illegali"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": 30.4,
+    "lat": -1.7,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "La vera prova non c'è ancora stata. Il paese è stabile o solo obbediente per paura? Dal 2000 non c'è stato nessun passaggio di potere.",
+   "anteprima": false,
+   "vista": {
+    "lon": 30,
+    "lat": -2,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "RWA"
    ],
    "verde": [],
    "eventi": [
     {
      "tipo": "anno",
-     "testo": "1981",
-     "parola": "1981"
+     "testo": "2000",
+     "parola": "2000"
     },
     {
-     "tipo": "solleva",
-     "paese": [
-      "NRU"
-     ],
-     "volte": 10,
-     "testo": "N°1",
-     "colore": "oro",
-     "parola": "ricco"
-    },
-    {
-     "tipo": "prezzo",
-     "testo": "$27.000",
-     "sotto": "NAURU · PER ABITANTE",
-     "ricco": true,
-     "parola": "27.000"
+     "tipo": "scritta",
+     "testo": "PAURA?",
+     "parola": "paura"
     },
     {
      "tipo": "nota",
-     "testo": "Il più ricco al mondo",
-     "parola": "ricco"
+     "testo": "Nessuna transizione dal 2000",
+     "parola": "passaggio"
     }
    ],
-   "musica": "trionfo",
+   "musica": "mistero",
    "stacco": true,
    "pin": {
-    "lon": 167.3,
-    "lat": -0.2,
+    "lon": 31,
+    "lat": -3,
     "faccia": "stupito"
    }
   },
   {
-   "testo": "Oggi sarebbero 88.000 dollari. Gli Stati Uniti, allora, ne facevano 14.000. Il nauruano medio era due volte più ricco dell'americano medio.",
+   "testo": "Kagame stesso disse che, senza un successore entro il 2017, sarebbe stato un fallimento personale. Siamo ben oltre il 2017, e lui è ancora lì.",
    "anteprima": false,
    "vista": {
-    "lon": -50,
-    "lat": 20,
-    "larghezza": 300
+    "lon": 30,
+    "lat": -2,
+    "larghezza": 8
    },
    "epoca": "oggi",
    "oro": [
-    "NRU",
-    "USA"
+    "RWA"
    ],
    "verde": [],
    "eventi": [
     {
-     "tipo": "prezzo",
-     "testo": "$14.000",
-     "sotto": "USA · PER PERSONA",
-     "ricco": false,
-     "parola": "14.000"
+     "tipo": "personaggio",
+     "nome": "Paul Kagame",
+     "descrizione": "Presidente del Ruanda, abito scuro, sguardo serio",
+     "parola": "Kagame"
     },
     {
-     "tipo": "barre",
-     "titolo": "PIL PRO CAPITE 1981",
-     "voci": [
-      {
-       "testo": "NAURU",
-       "valore": 27,
-       "lato": "oro"
-      },
-      {
-       "testo": "USA",
-       "valore": 14,
-       "lato": "verde"
-      }
-     ],
-     "parola": "Gli"
-    },
-    {
-     "tipo": "solleva",
-     "paese": [
-      "NRU"
-     ],
-     "volte": 2,
-     "testo": "x2",
-     "colore": "oro",
-     "parola": "due"
+     "tipo": "anno",
+     "testo": "2017",
+     "parola": "2017"
     },
     {
      "tipo": "nota",
-     "testo": "Il doppio degli americani",
-     "parola": "ricco"
+     "testo": "Un successore? Ancora no",
+     "parola": "successore"
     }
    ],
-   "musica": "trionfo",
+   "musica": "",
    "stacco": false,
    "pin": {
-    "lon": -100,
-    "lat": 50,
-    "faccia": "stupito"
+    "lon": 30.8,
+    "lat": -1.5,
+    "faccia": "normale"
    }
   },
   {
-   "testo": "Certo, il PIL pro capite non è una misura perfetta. Ma è il modo più semplice per confrontare le economie, e dà un'idea del tenore di vita.",
+   "testo": "Qualunque sia il motivo, le aziende apprezzano questa stabilità. È uno dei primi fattori che guardano per scegliere dove investire.",
    "anteprima": false,
    "vista": {
-    "lon": 10,
+    "lon": 30,
+    "lat": -2,
+    "larghezza": 14
+   },
+   "epoca": "oggi",
+   "oro": [
+    "RWA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "banker",
+     "n": 4,
+     "lon": 30.06,
+     "lat": -1.95,
+     "parola": "aziende"
+    },
+    {
+     "tipo": "icona",
+     "icona": "money_bag",
+     "lon": 30.1,
+     "lat": -2,
+     "parola": "investire"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Le imprese amano la stabilità",
+     "parola": "stabilità"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": 32,
+    "lat": -4,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Terzo fattore: la facilità di fare impresa. È forse il più importante, e quello in cui il Ruanda eccelle di più.",
+   "anteprima": false,
+   "vista": {
+    "lon": 30,
+    "lat": -2,
+    "larghezza": 14
+   },
+   "epoca": "oggi",
+   "oro": [
+    "RWA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "scritta",
+     "testo": "FARE IMPRESA",
+     "parola": "impresa"
+    },
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": 30.06,
+     "lat": -1.95,
+     "parola": "facilità"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Il fattore chiave del Ruanda",
+     "parola": "eccelle"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 32,
+    "lat": -4,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "La Banca Mondiale lo misura con un indice famoso su dieci aspetti: avviare un'azienda, permessi edilizi, elettricità, proprietà, credito, tasse, commercio estero, contratti e fallimenti.",
+   "anteprima": false,
+   "vista": {
+    "lon": 0,
     "lat": 20,
     "larghezza": 300
    },
@@ -1255,26 +2155,86 @@
    "verde": [],
    "eventi": [
     {
-     "tipo": "etichetta",
-     "testo": "PIL PRO CAPITE",
-     "lon": 0,
-     "lat": 30,
-     "parola": "PIL"
+     "tipo": "conta",
+     "valore": 10,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "CRITERI MISURATI",
+     "parola": "dieci"
     },
     {
      "tipo": "icona",
-     "icona": "chart_up",
-     "lon": 30,
-     "lat": 10,
-     "parola": "confrontare"
+     "icona": "scroll_law",
+     "lon": 0,
+     "lat": 20,
+     "parola": "azienda"
     },
     {
      "tipo": "nota",
-     "testo": "Misura imperfetta ma utile",
-     "parola": "perfetta"
+     "testo": "Indice della Banca Mondiale",
+     "parola": "famoso"
     }
    ],
-   "musica": "quotidiano",
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -60,
+    "lat": 40,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Singapore è seconda al mondo dopo la Nuova Zelanda, seguita da Danimarca, Hong Kong e Corea del Sud.",
+   "anteprima": false,
+   "vista": {
+    "lon": 100,
+    "lat": 20,
+    "larghezza": 160
+   },
+   "epoca": "oggi",
+   "oro": [
+    "SGP",
+    "NZL",
+    "DNK",
+    "HKG",
+    "KOR"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "barre",
+     "titolo": "FARE IMPRESA (POSTO)",
+     "voci": [
+      {
+       "testo": "NUOVA ZELANDA",
+       "valore": 1,
+       "lato": "oro"
+      },
+      {
+       "testo": "SINGAPORE",
+       "valore": 2,
+       "lato": "oro"
+      },
+      {
+       "testo": "DANIMARCA",
+       "valore": 3,
+       "lato": "oro"
+      },
+      {
+       "testo": "HONG KONG",
+       "valore": 4,
+       "lato": "oro"
+      }
+     ],
+     "parola": "seconda"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Singapore è seconda",
+     "parola": "Singapore"
+    }
+   ],
+   "musica": "",
    "stacco": false,
    "pin": {
     "lon": 60,
@@ -1283,740 +2243,663 @@
    }
   },
   {
-   "testo": "Con il fosfato e l'indipendenza, Nauru se la passa benissimo. Istruzione e sanità gratuite, e le royalty ai proprietari dei terreni.",
+   "testo": "Il Ruanda è ventinovesimo. Già bello così, ma pensa al resto del continente: è di gran lunga il primo tra i paesi africani.",
    "anteprima": false,
    "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
-    "larghezza": 8
+    "lon": 20,
+    "lat": 5,
+    "larghezza": 70
    },
    "epoca": "oggi",
    "oro": [
-    "NRU"
+    "RWA"
    ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "school",
-     "lon": 166.9,
-     "lat": -0.48,
-     "parola": "Istruzione"
-    },
-    {
-     "tipo": "icona",
-     "icona": "banknotes",
-     "lon": 166.95,
-     "lat": -0.53,
-     "parola": "royalty"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "landowner",
-     "n": 3,
-     "lon": 166.93,
-     "lat": -0.52,
-     "parola": "proprietari"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Servizi gratis per tutti",
-     "parola": "gratuite"
-    }
+   "verde": [
+    "MAR"
    ],
-   "musica": "trionfo",
-   "stacco": false,
-   "pin": {
-    "lon": 167.3,
-    "lat": -0.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Gli atleti si ritirano al top, e molti a Nauru li imitano. Tanti possono permettersi di restare disoccupati per scelta.",
-   "anteprima": false,
-   "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
-    "larghezza": 8
-   },
-   "epoca": "oggi",
-   "oro": [
-    "NRU"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "folla",
-     "personaggio": "family",
-     "n": 5,
-     "lon": 166.93,
-     "lat": -0.52,
-     "parola": "molti"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "DISOCCUPATI",
-     "parola": "disoccupati"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Disoccupati per scelta",
-     "parola": "scelta"
-    }
-   ],
-   "musica": "quotidiano",
-   "stacco": false,
-   "pin": {
-    "lon": 167.3,
-    "lat": -0.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "E succedono cose assurde. Le auto sportive diventano un must, anche se il giro dell'isola si fa in un'ora. Altro che gare di velocità.",
-   "anteprima": false,
-   "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
-    "larghezza": 7
-   },
-   "epoca": "oggi",
-   "oro": [
-    "NRU"
-   ],
-   "verde": [],
    "eventi": [
     {
      "tipo": "conta",
-     "valore": 1,
-     "prefisso": "",
-     "suffisso": " ORA",
-     "sotto": "PER GIRARE L'ISOLA",
-     "parola": "ora"
-    },
-    {
-     "tipo": "confine",
-     "punti": [
-      [
-       166.9,
-       -0.5
-      ],
-      [
-       166.94,
-       -0.52
-      ],
-      [
-       166.95,
-       -0.55
-      ],
-      [
-       166.91,
-       -0.56
-      ],
-      [
-       166.89,
-       -0.52
-      ],
-      [
-       166.9,
-       -0.5
-      ]
-     ],
-     "parola": "giro"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Auto sportive su 21 km",
-     "parola": "sportive"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": 167.3,
-    "lat": -0.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Un capo della polizia porta una Lamborghini sull'isola. Poi scopre che non entra nell'abitacolo. Il motivo? Una crisi sanitaria in arrivo.",
-   "anteprima": false,
-   "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
-    "larghezza": 7
-   },
-   "epoca": "oggi",
-   "oro": [
-    "NRU"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "personaggio",
-     "nome": "Capo della polizia di Nauru",
-     "descrizione": "1980s island police chief, uniform, next to a Lamborghini",
-     "parola": "polizia"
-    },
-    {
-     "tipo": "icona",
-     "icona": "question",
-     "lon": 166.93,
-     "lat": -0.5,
-     "parola": "entra"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Lamborghini senza guidatore",
-     "parola": "Lamborghini"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": 167.3,
-    "lat": -0.2,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Nel 1980 un epidemiologo dichiara l'epidemia di obesità a Nauru. Dietro ci sono ricchezza improvvisa e scelte alimentari sbagliate.",
-   "anteprima": false,
-   "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
-    "larghezza": 7
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "NRU"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1980",
-     "parola": "1980"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "OBESITÀ",
-     "parola": "obesità"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "family",
-     "n": 4,
-     "lon": 166.93,
-     "lat": -0.52,
-     "parola": "scelte"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Epidemia di obesità",
-     "parola": "epidemiologo"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": 167.3,
-    "lat": -0.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Cocco e pesce spariscono, sostituiti dal cibo importato. Nel 2002 l'OMS mette Nauru ultima su 170 paesi per indice di massa corporea.",
-   "anteprima": false,
-   "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
-    "larghezza": 8
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "NRU"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "2002",
-     "parola": "2002"
-    },
-    {
-     "tipo": "conta",
-     "valore": 170,
+     "valore": 29,
      "prefisso": "",
      "suffisso": "°",
-     "sotto": "SU 170 PAESI",
-     "parola": "170"
+     "sotto": "FARE IMPRESA NEL MONDO",
+     "parola": "ventinovesimo"
     },
-    {
-     "tipo": "icona",
-     "icona": "cargo_ship",
-     "lon": 166.85,
-     "lat": -0.55,
-     "parola": "importato"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Ultima per massa corporea",
-     "parola": "Cocco"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": 167.3,
-    "lat": -0.2,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "L'aspettativa di vita supera di poco i sessant'anni. Una forza lavoro malata ha conseguenze economiche gravi: la Lamborghini diventa un problema piccolissimo.",
-   "anteprima": false,
-   "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
-    "larghezza": 8
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "NRU"
-   ],
-   "eventi": [
     {
      "tipo": "conta",
      "valore": 60,
-     "prefisso": "~",
-     "suffisso": " ANNI",
-     "sotto": "ASPETTATIVA DI VITA",
-     "parola": "sessant'anni"
-    },
-    {
-     "tipo": "icona",
-     "icona": "chart_down",
-     "lon": 166.93,
-     "lat": -0.5,
-     "parola": "economiche"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Vita media: circa 60 anni",
-     "parola": "aspettativa"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": 167.3,
-    "lat": -0.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Guardiamo meglio. Quasi tutti i pasti sono noodle istantanei, riso bianco, cibo in scatola e bibite gassate. Fumo e alcol sono diffusi.",
-   "anteprima": false,
-   "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
-    "larghezza": 7
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "NRU"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "cargo_ship",
-     "lon": 166.85,
-     "lat": -0.55,
-     "parola": "scatola"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "family",
-     "n": 4,
-     "lon": 166.93,
-     "lat": -0.52,
-     "parola": "pasti"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Cibo in scatola e soda",
-     "parola": "noodle"
-    }
-   ],
-   "musica": "quotidiano",
-   "stacco": false,
-   "pin": {
-    "lon": 167.3,
-    "lat": -0.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "L'antropologa Amy McLennan, di Oxford, racconta: ero fortunata se trovavo una verdura a settimana. Non è questione di ignoranza: i nauruani conoscono i rischi.",
-   "anteprima": false,
-   "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
-    "larghezza": 7
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "NRU"
-   ],
-   "eventi": [
-    {
-     "tipo": "personaggio",
-     "nome": "Amy McLennan",
-     "descrizione": "Oxford anthropologist, woman researcher with notebook",
-     "parola": "McLennan"
-    },
-    {
-     "tipo": "conta",
-     "valore": 1,
      "prefisso": "",
-     "suffisso": " VERDURA",
-     "sotto": "A SETTIMANA",
-     "parola": "verdura"
-    },
-    {
-     "tipo": "icona",
-     "icona": "school",
-     "lon": 166.9,
-     "lat": -0.48,
-     "parola": "conoscono"
+     "suffisso": "°",
+     "sotto": "MAROCCO, SECONDO IN AFRICA",
+     "parola": "continente"
     },
     {
      "tipo": "nota",
-     "testo": "Mancano cibi di qualità",
-     "parola": "fortunata"
+     "testo": "Primo in Africa continentale",
+     "parola": "primo"
     }
    ],
-   "musica": "curiosita",
-   "stacco": false,
+   "musica": "trionfo",
+   "stacco": true,
    "pin": {
-    "lon": 167.3,
-    "lat": -0.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Il problema è l'accesso al cibo di qualità. Decenni di scavi hanno distrutto l'ambiente, e l'agricoltura è quasi sparita. Dopo il crollo, restano solo cibi economici.",
-   "anteprima": false,
-   "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
-    "larghezza": 7
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "NRU"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "farm",
-     "lon": 166.92,
-     "lat": -0.52,
-     "parola": "agricoltura"
-    },
-    {
-     "tipo": "icona",
-     "icona": "chart_down",
-     "lon": 166.95,
-     "lat": -0.5,
-     "parola": "crollo"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Terra devastata, niente colture",
-     "parola": "distrutto"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": 167.3,
-    "lat": -0.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Sotto i coloni, i nauruani ricevevano solo briciole. Continuare a scavare dopo l'indipendenza fu necessità, non avidità. Importare tutto, anche acqua, non regge.",
-   "anteprima": false,
-   "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "NRU"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "cargo_ship",
-     "lon": 166.85,
-     "lat": -0.55,
-     "parola": "Importare"
-    },
-    {
-     "tipo": "icona",
-     "icona": "mine",
-     "lon": 166.93,
-     "lat": -0.52,
-     "parola": "scavare"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Necessità, non avidità",
-     "parola": "necessità"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": 167.3,
-    "lat": -0.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Tutta l'attenzione andò al fosfato: niente industria, niente agricoltura. È un caso classico di malattia olandese, ma portato all'estremo.",
-   "anteprima": false,
-   "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "NRU"
-   ],
-   "eventi": [
-    {
-     "tipo": "scritta",
-     "testo": "MALATTIA OLANDESE",
-     "parola": "olandese"
-    },
-    {
-     "tipo": "icona",
-     "icona": "factory",
-     "lon": 166.9,
-     "lat": -0.48,
-     "parola": "industria"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Un'unica risorsa, nient'altro",
-     "parola": "fosfato"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": 167.3,
-    "lat": -0.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Una cura è diversificare. Lo fanno i paesi del Golfo con i loro progetti faraonici. Se funzioneranno, è ancora un dibattito, ma almeno ci provano.",
-   "anteprima": false,
-   "vista": {
-    "lon": 52,
+    "lon": -10,
     "lat": 25,
-    "larghezza": 25
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Batte perfino Paesi Bassi, Svizzera e Giappone. Un piccolo paese senza sbocco sul mare supera potenze mondiali.",
+   "anteprima": false,
+   "vista": {
+    "lon": 30,
+    "lat": 30,
+    "larghezza": 160
    },
    "epoca": "oggi",
    "oro": [
-    "SAU",
-    "ARE",
-    "QAT"
+    "RWA"
+   ],
+   "verde": [
+    "NLD",
+    "CHE",
+    "JPN"
+   ],
+   "eventi": [
+    {
+     "tipo": "contorno",
+     "paese": "NLD",
+     "parola": "Paesi"
+    },
+    {
+     "tipo": "contorno",
+     "paese": "CHE",
+     "parola": "Svizzera"
+    },
+    {
+     "tipo": "contorno",
+     "paese": "JPN",
+     "parola": "Giappone"
+    },
+    {
+     "tipo": "solleva",
+     "paese": [
+      "RWA"
+     ],
+     "volte": 6,
+     "testo": "29°",
+     "colore": "oro",
+     "parola": "batte"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 60,
+    "lat": 10,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Come ci è riuscito? Con riforme economiche e legislative a misura d'impresa, e infrastrutture sia morbide sia concrete.",
+   "anteprima": false,
+   "vista": {
+    "lon": 30,
+    "lat": -2,
+    "larghezza": 12
+   },
+   "epoca": "oggi",
+   "oro": [
+    "RWA"
    ],
    "verde": [],
    "eventi": [
     {
      "tipo": "icona",
-     "icona": "factory",
-     "lon": 55,
-     "lat": 25,
-     "parola": "diversificare"
+     "icona": "scroll_law",
+     "lon": 29.8,
+     "lat": -1.9,
+     "parola": "riforme"
     },
     {
      "tipo": "icona",
      "icona": "bridge",
-     "lon": 50,
-     "lat": 26,
-     "parola": "progetti"
+     "lon": 30.3,
+     "lat": -2.1,
+     "parola": "infrastrutture"
     },
     {
      "tipo": "nota",
-     "testo": "Il Golfo prova a diversificare",
-     "parola": "provano"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": 60,
-    "lat": 30,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "I leader di Nauru ci provarono. Primo tentativo: la finanza offshore. All'inizio degli anni Novanta, circa quattrocento banche straniere ottengono una licenza.",
-   "anteprima": false,
-   "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [
-    "NRU"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1990",
-     "parola": "Novanta"
-    },
-    {
-     "tipo": "conta",
-     "valore": 400,
-     "prefisso": "~",
-     "suffisso": "",
-     "sotto": "BANCHE STRANIERE",
-     "parola": "quattrocento"
-    },
-    {
-     "tipo": "icona",
-     "icona": "banknotes",
-     "lon": 166.93,
-     "lat": -0.5,
-     "parola": "banche"
-    },
-    {
-     "tipo": "nota",
-     "testo": "400 banche offshore",
-     "parola": "licenza"
+     "testo": "Riforme e infrastrutture",
+     "parola": "infrastrutture"
     }
    ],
    "musica": "azione",
    "stacco": false,
    "pin": {
-    "lon": 167.3,
-    "lat": -0.2,
+    "lon": 32,
+    "lat": -4,
     "faccia": "normale"
    }
   },
   {
-   "testo": "I clienti non dovevano nemmeno andare sull'isola. Con la cittadinanza economica si compra un passaporto nauruano: un paradiso per riciclaggio ed evasione fiscale.",
+   "testo": "Con investitori privati ha costruito un centro congressi da 300 milioni di dollari e un hotel Radisson Blu a cinque stelle.",
    "anteprima": false,
    "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
-    "larghezza": 10
+    "lon": 30.1,
+    "lat": -1.95,
+    "larghezza": 4
    },
    "epoca": "oggi",
    "oro": [
-    "NRU"
+    "RWA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "prezzo",
+     "testo": "$300 MLN",
+     "sotto": "CENTRO CONGRESSI",
+     "ricco": true,
+     "parola": "300"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "RADISSON BLU",
+     "lon": 30.09,
+     "lat": -1.95,
+     "parola": "Radisson"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Congressi e hotel a 5 stelle",
+     "parola": "cinque"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 30.4,
+    "lat": -1.7,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Ha costruito anche strade e aeroporti, meno appariscenti ma essenziali. Il Ruanda va a caccia di investimenti stranieri, e funziona.",
+   "anteprima": false,
+   "vista": {
+    "lon": 30,
+    "lat": -2,
+    "larghezza": 12
+   },
+   "epoca": "oggi",
+   "oro": [
+    "RWA"
    ],
    "verde": [],
    "eventi": [
     {
      "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": 166.9,
-     "lat": -0.48,
-     "parola": "passaporto"
+     "icona": "bridge",
+     "lon": 29.7,
+     "lat": -2.2,
+     "parola": "strade"
     },
     {
-     "tipo": "scritta",
-     "testo": "RICICLAGGIO",
-     "parola": "riciclaggio"
+     "tipo": "icona",
+     "icona": "port",
+     "lon": 30.13,
+     "lat": -1.97,
+     "parola": "aeroporti"
     },
     {
      "tipo": "nota",
-     "testo": "Passaporti in vendita",
-     "parola": "cittadinanza"
+     "testo": "A caccia di investitori",
+     "parola": "caccia"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 32,
+    "lat": -4,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Nel 2005 dall'estero arrivarono 10,5 milioni di dollari. Nel 2017 erano 293 milioni. Quasi trenta volte tanto.",
+   "anteprima": false,
+   "vista": {
+    "lon": 30,
+    "lat": -2,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "RWA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "prezzo",
+     "testo": "$10,5 MLN",
+     "sotto": "INVESTIMENTI 2005",
+     "ricco": false,
+     "parola": "2005"
+    },
+    {
+     "tipo": "prezzo",
+     "testo": "$293 MLN",
+     "sotto": "INVESTIMENTI 2017",
+     "ricco": true,
+     "parola": "2017"
+    },
+    {
+     "tipo": "solleva",
+     "paese": [
+      "RWA"
+     ],
+     "volte": 9,
+     "testo": "x28",
+     "colore": "oro",
+     "parola": "trenta"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": true,
+   "pin": {
+    "lon": 31,
+    "lat": -3,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Sembra tutto perfetto: sicuro, pulito, in crescita. Cosa si può volere di più? Eppure da fuori arrivano domande pesanti.",
+   "anteprima": false,
+   "vista": {
+    "lon": 30,
+    "lat": -2,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "RWA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "question",
+     "lon": 30.06,
+     "lat": -1.95,
+     "parola": "domande"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "MA...",
+     "parola": "Eppure"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Crescita etica e reale?",
+     "parola": "domande"
     }
    ],
    "musica": "mistero",
    "stacco": false,
    "pin": {
-    "lon": 167.3,
-    "lat": -0.2,
+    "lon": 31,
+    "lat": -3,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Il governo incassa milioni di commissioni, ma non basta a salvare l'economia. Nel 2005 il business chiude: ora serve una presenza fisica per la licenza.",
+   "testo": "È etica, replicabile, sostenibile, perfino reale? E le apparenze ingannano: il Ruanda resta tra i paesi più poveri, con 750 dollari a testa all'anno.",
    "anteprima": false,
    "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
+    "lon": 30,
+    "lat": -2,
     "larghezza": 10
    },
    "epoca": "oggi",
    "oro": [],
    "verde": [
-    "NRU"
+    "RWA"
    ],
    "eventi": [
     {
-     "tipo": "anno",
-     "testo": "2005",
-     "parola": "2005"
-    },
-    {
-     "tipo": "icona",
-     "icona": "banknotes",
-     "lon": 166.92,
-     "lat": -0.5,
-     "parola": "milioni"
-    },
-    {
-     "tipo": "icona",
-     "icona": "scroll_law",
-     "lon": 166.95,
-     "lat": -0.52,
-     "parola": "licenza"
+     "tipo": "prezzo",
+     "testo": "$750",
+     "sotto": "RUANDA · A PERSONA ALL'ANNO",
+     "ricco": false,
+     "parola": "750"
     },
     {
      "tipo": "nota",
-     "testo": "Banche offshore chiuse",
-     "parola": "chiude"
+     "testo": "Ancora tra i più poveri",
+     "parola": "poveri"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": 31,
+    "lat": -3,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Qualcuno si chiede se sia giusto spendere tanto per compagnia aerea, infrastrutture e capitale, mentre così tanti sono poveri.",
+   "anteprima": false,
+   "vista": {
+    "lon": 30,
+    "lat": -2,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "RWA"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "port",
+     "lon": 30.13,
+     "lat": -1.97,
+     "parola": "compagnia"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "peasant",
+     "n": 6,
+     "lon": 29.7,
+     "lat": -2.3,
+     "parola": "poveri"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Soldi in vetrina, poveri indietro?",
+     "parola": "spendere"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 31,
+    "lat": -3,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Cresce solo la classe media e alta, mentre i poveri delle campagne restano indietro? Una domanda che pesa.",
+   "anteprima": false,
+   "vista": {
+    "lon": 29.8,
+    "lat": -2.2,
+    "larghezza": 8
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "RWA"
+   ],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "peasant",
+     "n": 6,
+     "lon": 29.6,
+     "lat": -2.4,
+     "parola": "campagne"
+    },
+    {
+     "tipo": "icona",
+     "icona": "farm",
+     "lon": 29.9,
+     "lat": -2.3,
+     "parola": "campagne"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Chi resta indietro?",
+     "parola": "indietro"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 30.6,
+    "lat": -1.7,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Intanto i vicini, divisi da violenza e povertà, si chiedono se imitare Kagame. Gli osservatori esterni danno risposte contrastanti.",
+   "anteprima": false,
+   "vista": {
+    "lon": 29,
+    "lat": -2,
+    "larghezza": 24
+   },
+   "epoca": "oggi",
+   "oro": [
+    "RWA"
+   ],
+   "verde": [
+    "UGA",
+    "BDI",
+    "COD",
+    "TZA"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      30,
+      -2
+     ],
+     "a": [
+      32,
+      1
+     ],
+     "icona": "scroll_law",
+     "parola": "imitare"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      30,
+      -2
+     ],
+     "a": [
+      23,
+      -3
+     ],
+     "icona": "scroll_law",
+     "parola": "vicini"
+    },
+    {
+     "tipo": "nota",
+     "testo": "I vicini guardano e valutano",
+     "parola": "vicini"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 24,
+    "lat": -7,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Alcuni temono che il dissenso compresso finisca per esplodere, riportando il paese alla violenza. Altri parlano di semplice facciata.",
+   "anteprima": false,
+   "vista": {
+    "lon": 30,
+    "lat": -2,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "RWA"
+   ],
+   "eventi": [
+    {
+     "tipo": "scritta",
+     "testo": "ESPLOSIONE?",
+     "parola": "esplodere"
+    },
+    {
+     "tipo": "icona",
+     "icona": "swords",
+     "lon": 30.06,
+     "lat": -1.95,
+     "parola": "violenza"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Dissenso compresso, rischio",
+     "parola": "dissenso"
     }
    ],
    "musica": "tensione",
    "stacco": false,
    "pin": {
-    "lon": 167.3,
-    "lat": -0.2,
+    "lon": 31,
+    "lat": -3,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Non fu un ripensamento, ma una pressione internazionale enorme. Gli Stati Uniti la classificarono perfino come stato canaglia, dopo il Patriot Act del 2001.",
+   "testo": "Per loro il regime pensa solo a migliorare gli indicatori, senza cambiamenti reali. C'è perfino chi sospetta numeri del PIL gonfiati.",
    "anteprima": false,
    "vista": {
-    "lon": -50,
+    "lon": 30,
+    "lat": -2,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "RWA"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "chart_up",
+     "lon": 30,
+     "lat": -2,
+     "parola": "indicatori"
+    },
+    {
+     "tipo": "icona",
+     "icona": "question",
+     "lon": 30.2,
+     "lat": -1.8,
+     "parola": "gonfiati"
+    },
+    {
+     "tipo": "nota",
+     "testo": "PIL gonfiato? Dubbi aperti",
+     "parola": "gonfiati"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 31,
+    "lat": -3,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "È certo che il Ruanda sia cresciuto enormemente. Ma davvero così tanto? Qui sta il vero punto interrogativo.",
+   "anteprima": false,
+   "vista": {
+    "lon": 30,
+    "lat": -2,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [
+    "RWA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "scritta",
+     "testo": "DAVVERO?",
+     "parola": "davvero"
+    },
+    {
+     "tipo": "colonna",
+     "testo": "CRESCITA",
+     "valore": 0.8,
+     "lon": 30,
+     "lat": -2,
+     "parola": "cresciuto"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Crescita reale o gonfiata?",
+     "parola": "cresciuto"
+    }
+   ],
+   "musica": "mistero",
+   "stacco": false,
+   "pin": {
+    "lon": 31,
+    "lat": -3,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Non esiste una sola ricetta per crescere. Gli Stati Uniti sono stati la superpotenza del Novecento, la Cina lo sta diventando nel Duemila.",
+   "anteprima": false,
+   "vista": {
+    "lon": 0,
+    "lat": 30,
+    "larghezza": 300
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA",
+    "CHN"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "contorno",
+     "paese": "USA",
+     "parola": "Stati"
+    },
+    {
+     "tipo": "contorno",
+     "paese": "CHN",
+     "parola": "Cina"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Nessuna ricetta unica",
+     "parola": "ricetta"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": -30,
+    "lat": 55,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Crescono gli stati democratici e quelli autocratici. Lo fanno in modi diversi, ma ci sono storie di successo su entrambi i fronti.",
+   "anteprima": false,
+   "vista": {
+    "lon": 10,
     "lat": 30,
     "larghezza": 300
    },
@@ -2025,1104 +2908,203 @@
     "USA"
    ],
    "verde": [
-    "NRU"
+    "CHN",
+    "SGP"
    ],
    "eventi": [
     {
-     "tipo": "contorno",
-     "paese": "USA",
-     "parola": "Stati"
-    },
-    {
-     "tipo": "anno",
-     "testo": "2001",
-     "parola": "2001"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "STATO CANAGLIA",
-     "parola": "canaglia"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Pressione internazionale",
-     "parola": "pressione"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": -100,
-    "lat": 50,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Seconda via, quella norvegese: un fondo sovrano che investa la ricchezza delle risorse per generare dividendi per generazioni.",
-   "anteprima": false,
-   "vista": {
-    "lon": 10,
-    "lat": 62,
-    "larghezza": 30
-   },
-   "epoca": "oggi",
-   "oro": [
-    "NOR"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "contorno",
-     "paese": "NOR",
-     "parola": "norvegese"
-    },
-    {
      "tipo": "icona",
-     "icona": "money_bag",
-     "lon": 10,
-     "lat": 60,
-     "parola": "fondo"
-    },
-    {
-     "tipo": "icona",
-     "icona": "oil_derrick",
-     "lon": 3,
-     "lat": 60,
-     "parola": "risorse"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Il modello del fondo sovrano",
-     "parola": "sovrano"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": 20,
-    "lat": 65,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Nauru investì i guadagni all'estero per i tempi magri. Ottima idea, ma attuata malissimo: investimenti rischiosi e vere e proprie frodi.",
-   "anteprima": false,
-   "vista": {
-    "lon": 120,
-    "lat": 10,
-    "larghezza": 200
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "NRU"
-   ],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      166.9,
-      -0.5
-     ],
-     "a": [
-      0,
-      51
-     ],
-     "icona": "banknotes",
-     "parola": "estero"
-    },
-    {
-     "tipo": "icona",
-     "icona": "chart_down",
-     "lon": 0,
-     "lat": 51,
-     "parola": "rischiosi"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "FRODI",
-     "parola": "frodi"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Soldi persi all'estero",
-     "parola": "investimenti"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": 100,
-    "lat": 30,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Nauru rischia la bancarotta. Nemmeno i giacimenti secondari di fosfato cambiano il destino. Fallisce perfino la banca centrale.",
-   "anteprima": false,
-   "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "NRU"
-   ],
-   "eventi": [
-    {
-     "tipo": "scritta",
-     "testo": "BANCAROTTA",
-     "parola": "bancarotta"
-    },
-    {
-     "tipo": "icona",
-     "icona": "mine",
-     "lon": 166.93,
-     "lat": -0.52,
-     "parola": "secondari"
-    },
-    {
-     "tipo": "icona",
-     "icona": "banknotes",
-     "lon": 166.9,
-     "lat": -0.48,
-     "parola": "banca"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Fallisce la banca centrale",
-     "parola": "Fallisce"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": true,
-   "pin": {
-    "lon": 167.3,
-    "lat": -0.2,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "I beni immobiliari all'estero vengono pignorati. Gli aerei sequestrati. Sì, aerei: negli anni Settanta Nauru aveva lanciato la sua compagnia aerea nazionale.",
-   "anteprima": false,
-   "vista": {
-    "lon": 150,
-    "lat": -10,
-    "larghezza": 100
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "NRU"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "1970",
-     "parola": "Settanta"
-    },
-    {
-     "tipo": "icona",
-     "icona": "banknotes",
-     "lon": 145,
-     "lat": -37,
-     "parola": "immobiliari"
-    },
-    {
-     "tipo": "icona",
-     "icona": "question",
-     "lon": 166.9,
-     "lat": -0.5,
-     "parola": "aerei"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Aerei e immobili pignorati",
-     "parola": "sequestrati"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": 140,
-    "lat": 10,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Ultimo colpo di genio: il musical. Nauru aveva investito in Leonardo, un ritratto d'amore, a Londra. Un triangolo tra Da Vinci, Monna Lisa e un soldato.",
-   "anteprima": false,
-   "vista": {
-    "lon": -0.1,
-    "lat": 51.5,
-    "larghezza": 12
-   },
-   "epoca": "oggi",
-   "oro": [
-    "GBR"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "personaggio",
-     "nome": "Leonardo da Vinci",
-     "descrizione": "Renaissance painter, long beard, red cap, artist",
-     "parola": "Leonardo"
+     "icona": "ballot_box",
+     "lon": -98,
+     "lat": 39,
+     "parola": "democratici"
     },
     {
      "tipo": "icona",
      "icona": "crown",
-     "lon": -0.12,
-     "lat": 51.51,
-     "parola": "Londra"
-    },
-    {
-     "tipo": "etichetta",
-     "testo": "LEONARDO: IL MUSICAL",
-     "lon": -0.1,
-     "lat": 51.5,
-     "parola": "musical"
+     "lon": 104,
+     "lat": 35,
+     "parola": "autocratici"
     },
     {
      "tipo": "nota",
-     "testo": "Musical a Londra: flop",
-     "parola": "triangolo"
+     "testo": "Successi su entrambi i fronti",
+     "parola": "successo"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": 10,
+    "lat": 60,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Il vero nodo è il fine e i mezzi. Va lodata la crescita del Ruanda, dato come è ottenuta? Si può tollerare un po' di male per molto bene?",
+   "anteprima": false,
+   "vista": {
+    "lon": 30,
+    "lat": -2,
+    "larghezza": 14
+   },
+   "epoca": "oggi",
+   "oro": [
+    "RWA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "scritta",
+     "testo": "IL PREZZO?",
+     "parola": "mezzi"
+    },
+    {
+     "tipo": "icona",
+     "icona": "question",
+     "lon": 30.06,
+     "lat": -1.95,
+     "parola": "tollerare"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Il fine giustifica i mezzi?",
+     "parola": "mezzi"
     }
    ],
    "musica": "curiosita",
    "stacco": false,
    "pin": {
-    "lon": 3,
-    "lat": 53,
-    "faccia": "stupito"
+    "lon": 32,
+    "lat": -4,
+    "faccia": "normale"
    }
   },
   {
-   "testo": "Fu uno dei più grandi disastri nella storia del teatro londinese. Un flop clamoroso, proprio quando Nauru non poteva permettersi nessuna perdita.",
+   "testo": "Alla fine, il Ruanda è il paese dei ruandesi, e solo loro contano davvero in queste domande. Se funziona per tutti loro, allora funziona.",
    "anteprima": false,
    "vista": {
-    "lon": -0.1,
-    "lat": 51.5,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "NRU"
-   ],
-   "eventi": [
-    {
-     "tipo": "scritta",
-     "testo": "FLOP",
-     "parola": "flop"
-    },
-    {
-     "tipo": "icona",
-     "icona": "chart_down",
-     "lon": -0.12,
-     "lat": 51.5,
-     "parola": "perdita"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Un disastro da teatro",
-     "parola": "disastri"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": 2,
-    "lat": 52.5,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Nel 2001 il fosfato è finito e gli investimenti esteri quasi tutti falliti. Il PIL scende a trentadue milioni di dollari. La disoccupazione sale al novanta per cento.",
-   "anteprima": false,
-   "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "NRU"
-   ],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "2001",
-     "parola": "2001"
-    },
-    {
-     "tipo": "prezzo",
-     "testo": "$32M",
-     "sotto": "PIL DI NAURU",
-     "ricco": false,
-     "parola": "trentadue"
-    },
-    {
-     "tipo": "contatore",
-     "testo": "9 SU 10 SENZA LAVORO",
-     "su": 9,
-     "di": 10,
-     "personaggio": "worker",
-     "parola": "novanta"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Il 90% senza lavoro",
-     "parola": "disoccupazione"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": true,
-   "pin": {
-    "lon": 167.3,
-    "lat": -0.2,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Il sistema scolastico quasi collassa. Ricordalo: parliamo del paese più ricco del mondo, solo pochi anni prima. E qui inizia un capitolo ancora più buio.",
-   "anteprima": false,
-   "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
+    "lon": 30,
+    "lat": -2,
     "larghezza": 8
    },
    "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "NRU"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "school",
-     "lon": 166.9,
-     "lat": -0.48,
-     "parola": "scolastico"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "-90%",
-     "parola": "ricco"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Da primo a ultimo",
-     "parola": "solo"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": 167.3,
-    "lat": -0.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Agosto 2001. La nave norvegese MV Tampa ha salvato più di quattrocento rifugiati, quasi tutti afghani, da un barcone che affondava. Vuole attraccare in Australia.",
-   "anteprima": false,
-   "vista": {
-    "lon": 115,
-    "lat": -10,
-    "larghezza": 40
-   },
-   "epoca": "oggi",
    "oro": [
-    "AUS"
+    "RWA"
    ],
-   "verde": [
-    "AFG"
-   ],
+   "verde": [],
    "eventi": [
     {
-     "tipo": "anno",
-     "testo": "2001",
-     "parola": "2001"
-    },
-    {
-     "tipo": "conta",
-     "valore": 400,
-     "prefisso": "+",
-     "suffisso": "",
-     "sotto": "RIFUGIATI SALVATI",
-     "parola": "quattrocento"
-    },
-    {
-     "tipo": "freccia",
-     "da": [
-      105,
-      -10
-     ],
-     "a": [
-      130,
-      -12
-     ],
-     "icona": "cargo_ship",
-     "parola": "attraccare"
+     "tipo": "folla",
+     "personaggio": "family",
+     "n": 6,
+     "lon": 30.06,
+     "lat": -1.95,
+     "parola": "ruandesi"
     },
     {
      "tipo": "nota",
-     "testo": "MV Tampa e 400 rifugiati",
-     "parola": "Tampa"
+     "testo": "Conta chi ci vive",
+     "parola": "contano"
     }
    ],
-   "musica": "tensione",
+   "musica": "",
    "stacco": false,
    "pin": {
-    "lon": 120,
-    "lat": -20,
+    "lon": 30.8,
+    "lat": -1.5,
     "faccia": "normale"
    }
   },
   {
-   "testo": "L'Australia rifiuta l'ingresso nelle sue acque e inventa la cosiddetta soluzione del Pacifico: un campo di detenzione offshore proprio a Nauru.",
+   "testo": "Se la crescita è sostenibile, se la politica resta stabile, se gli investimenti rendono, allora la Singapore d'Africa non è un sogno. Quanti se, però.",
    "anteprima": false,
    "vista": {
-    "lon": 150,
-    "lat": -12,
-    "larghezza": 60
-   },
-   "epoca": "oggi",
-   "oro": [
-    "AUS"
-   ],
-   "verde": [
-    "NRU"
-   ],
-   "eventi": [
-    {
-     "tipo": "freccia",
-     "da": [
-      135,
-      -25
-     ],
-     "a": [
-      166.9,
-      -0.5
-     ],
-     "icona": "cargo_ship",
-     "parola": "offshore"
-    },
-    {
-     "tipo": "icona",
-     "icona": "fortress",
-     "lon": 166.9,
-     "lat": -0.5,
-     "parola": "detenzione"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "SOLUZIONE PACIFICO",
-     "parola": "Pacifico"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Campo di detenzione a Nauru",
-     "parola": "campo"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": 140,
-    "lat": -10,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "L'Australia paga Nauru per tenere gli immigrati lontano dalle sue coste. Crea lavoro, ma anche situazioni assurde. Nauru non poteva rifiutare milioni di dollari.",
-   "anteprima": false,
-   "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
+    "lon": 30,
+    "lat": -2,
     "larghezza": 10
    },
    "epoca": "oggi",
    "oro": [
-    "AUS"
+    "RWA"
    ],
-   "verde": [
-    "NRU"
-   ],
+   "verde": [],
    "eventi": [
     {
-     "tipo": "freccia",
-     "da": [
-      135,
-      -25
-     ],
-     "a": [
-      166.9,
-      -0.5
-     ],
-     "icona": "banknotes",
-     "parola": "paga"
+     "tipo": "icona",
+     "icona": "chart_up",
+     "lon": 30,
+     "lat": -2,
+     "parola": "crescita"
     },
     {
-     "tipo": "folla",
-     "personaggio": "worker",
-     "n": 4,
-     "lon": 166.93,
-     "lat": -0.52,
-     "parola": "lavoro"
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": 30.2,
+     "lat": -1.8,
+     "parola": "stabile"
+    },
+    {
+     "tipo": "icona",
+     "icona": "money_bag",
+     "lon": 29.8,
+     "lat": -2.2,
+     "parola": "investimenti"
     },
     {
      "tipo": "nota",
-     "testo": "Soldi in cambio di accoglienza",
-     "parola": "milioni"
+     "testo": "Tanti se, una grande scommessa",
+     "parola": "se"
     }
    ],
-   "musica": "tensione",
+   "musica": "epico",
    "stacco": false,
    "pin": {
-    "lon": 167.3,
-    "lat": -0.2,
+    "lon": 31,
+    "lat": -3,
     "faccia": "normale"
    }
   },
   {
-   "testo": "Stato cliente, troppo legato al grande vicino per dire no. Nemmeno l'ostilità di molti nauruani ha cambiato la politica.",
+   "testo": "Dalle ceneri di un genocidio a una scommessa su Singapore: il Ruanda corre veloce, ma solo il tempo dirà se la sua corsa regge.",
    "anteprima": false,
    "vista": {
-    "lon": 150,
-    "lat": -12,
-    "larghezza": 60
+    "lon": 30,
+    "lat": -2,
+    "larghezza": 12
    },
    "epoca": "oggi",
    "oro": [
-    "AUS"
+    "RWA"
    ],
-   "verde": [
-    "NRU"
-   ],
+   "verde": [],
    "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1994",
+     "parola": "ceneri"
+    },
     {
      "tipo": "contorno",
-     "paese": "AUS",
-     "parola": "vicino"
-    },
-    {
-     "tipo": "folla",
-     "personaggio": "peasant",
-     "n": 4,
-     "lon": 166.9,
-     "lat": -0.5,
-     "parola": "ostilità"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Dipendente dall'Australia",
-     "parola": "cliente"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": 140,
-    "lat": -10,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Negli ultimi vent'anni l'Australia ha usato i centri di Nauru a fasi alterne, e ospita migranti ancora oggi. Insieme agli aiuti esteri, tiene a galla l'isola.",
-   "anteprima": false,
-   "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [
-    "AUS"
-   ],
-   "verde": [
-    "NRU"
-   ],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 20,
-     "prefisso": "",
-     "suffisso": " ANNI",
-     "sotto": "DI DETENZIONE",
-     "parola": "vent'anni"
-    },
-    {
-     "tipo": "icona",
-     "icona": "fortress",
-     "lon": 166.92,
-     "lat": -0.5,
-     "parola": "centri"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Tenuta a galla da Canberra",
-     "parola": "galla"
-    }
-   ],
-   "musica": "quotidiano",
-   "stacco": false,
-   "pin": {
-    "lon": 167.3,
-    "lat": -0.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "James Aingimea, pastore nato nel 1911, ha visto tutto, perfino il musical. Disse al New York Times: vorrei non avessimo mai scoperto quel fosfato.",
-   "anteprima": false,
-   "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
-    "larghezza": 8
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "NRU"
-   ],
-   "eventi": [
-    {
-     "tipo": "personaggio",
-     "nome": "James Aingimea",
-     "descrizione": "elderly Nauruan pastor, born 1911, white hair, church robes",
-     "parola": "Aingimea"
-    },
-    {
-     "tipo": "anno",
-     "testo": "1911",
-     "parola": "1911"
-    },
-    {
-     "tipo": "icona",
-     "icona": "church",
-     "lon": 166.92,
-     "lat": -0.5,
-     "parola": "pastore"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Vorrei mai scoperto il fosfato",
-     "parola": "fosfato"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": 167.3,
-    "lat": -0.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Vorrei che Nauru tornasse com'era da bambino: verde ovunque, noci di cocco fresche e frutti dell'albero del pane. Ora vedo com'è ridotta, e voglio piangere.",
-   "anteprima": false,
-   "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
-    "larghezza": 7
-   },
-   "epoca": "antica",
-   "oro": [],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "forest",
-     "lon": 166.92,
-     "lat": -0.5,
-     "parola": "verde"
-    },
-    {
-     "tipo": "icona",
-     "icona": "farm",
-     "lon": 166.95,
-     "lat": -0.53,
-     "parola": "cocco"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Il verde che non c'è più",
-     "parola": "piangere"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": true,
-   "pin": {
-    "lon": 167.3,
-    "lat": -0.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Ora la classifica. Dimensione: il PIL è di 133 milioni di dollari, la terza economia più piccola al mondo, appena sopra Montserrat e Tuvalu. Voto: uno su dieci.",
-   "anteprima": false,
-   "vista": {
-    "lon": 170,
-    "lat": -5,
-    "larghezza": 40
-   },
-   "epoca": "oggi",
-   "oro": [
-    "NRU"
-   ],
-   "verde": [
-    "TUV"
-   ],
-   "eventi": [
-    {
-     "tipo": "prezzo",
-     "testo": "$133M",
-     "sotto": "PIL DI NAURU",
-     "ricco": false,
-     "parola": "133"
-    },
-    {
-     "tipo": "barre",
-     "titolo": "VOTO DIMENSIONE",
-     "voci": [
-      {
-       "testo": "NAURU",
-       "valore": 1,
-       "lato": "oro"
-      }
-     ],
-     "parola": "Voto"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Dimensione: 1 su 10",
-     "parola": "uno"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": 180,
-    "lat": 5,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Ricchezza pro capite: nel 2021 sono 12.000 dollari a testa, quasi esattamente la media mondiale. Voto: cinque su dieci.",
-   "anteprima": false,
-   "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [
-    "NRU"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "anno",
-     "testo": "2021",
-     "parola": "2021"
-    },
-    {
-     "tipo": "prezzo",
-     "testo": "$12.000",
-     "sotto": "NAURU · PER ABITANTE",
-     "ricco": false,
-     "parola": "12.000"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Ricchezza: 5 su 10",
-     "parola": "cinque"
-    }
-   ],
-   "musica": "quotidiano",
-   "stacco": false,
-   "pin": {
-    "lon": 167.3,
-    "lat": -0.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Stabilità e fiducia: la gestione disastrosa del fosfato, le banche non regolate, i centri di detenzione in appalto. Voto: tre su dieci.",
-   "anteprima": false,
-   "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "NRU"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "banknotes",
-     "lon": 166.9,
-     "lat": -0.48,
-     "parola": "banche"
-    },
-    {
-     "tipo": "icona",
-     "icona": "fortress",
-     "lon": 166.94,
-     "lat": -0.52,
-     "parola": "detenzione"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Stabilità: 3 su 10",
-     "parola": "tre"
-    }
-   ],
-   "musica": "tensione",
-   "stacco": false,
-   "pin": {
-    "lon": 167.3,
-    "lat": -0.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Crescita, la voce più curiosa. Fortissima negli anni Settanta e Ottanta. Poi, finito il fosfato negli anni Novanta, il PIL è crollato di oltre il novanta per cento.",
-   "anteprima": false,
-   "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "NRU"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "chart_up",
-     "lon": 166.88,
-     "lat": -0.48,
-     "parola": "fortissima"
-    },
-    {
-     "tipo": "icona",
-     "icona": "chart_down",
-     "lon": 166.95,
-     "lat": -0.52,
-     "parola": "crollato"
+     "paese": "RWA",
+     "parola": "Ruanda"
     },
     {
      "tipo": "scritta",
-     "testo": "-90%",
-     "parola": "novanta"
+     "testo": "IL TEMPO",
+     "parola": "tempo"
     },
     {
      "tipo": "nota",
-     "testo": "Crollo oltre il 90%",
-     "parola": "crollato"
+     "testo": "Il tempo dirà se regge",
+     "parola": "regge"
     }
    ],
-   "musica": "tensione",
+   "musica": "trionfo",
    "stacco": false,
    "pin": {
-    "lon": 167.3,
-    "lat": -0.2,
-    "faccia": "stupito"
-   }
-  },
-  {
-   "testo": "Da allora però l'economia cresce in media del sette per cento l'anno. Quasi tutto grazie ai centri di detenzione e agli aiuti esteri. Voto: nove su dieci.",
-   "anteprima": false,
-   "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [
-    "NRU"
-   ],
-   "verde": [],
-   "eventi": [
-    {
-     "tipo": "conta",
-     "valore": 7,
-     "prefisso": "",
-     "suffisso": "%",
-     "sotto": "CRESCITA ANNUA",
-     "parola": "sette"
-    },
-    {
-     "tipo": "icona",
-     "icona": "chart_up",
-     "lon": 166.92,
-     "lat": -0.5,
-     "parola": "cresce"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Crescita: 9 su 10",
-     "parola": "nove"
-    }
-   ],
-   "musica": "curiosita",
-   "stacco": false,
-   "pin": {
-    "lon": 167.3,
-    "lat": -0.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Infine l'industria. Oggi il settore principale sono i centri di detenzione in appalto. Ricchi di entrate, ma non creano competenze per industrie avanzate. Voto: due su dieci.",
-   "anteprima": false,
-   "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "NRU"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "fortress",
-     "lon": 166.93,
-     "lat": -0.5,
-     "parola": "detenzione"
-    },
-    {
-     "tipo": "icona",
-     "icona": "factory",
-     "lon": 166.9,
-     "lat": -0.53,
-     "parola": "industrie"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Industria: 2 su 10",
-     "parola": "due"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": 167.3,
-    "lat": -0.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Media finale: quattro su dieci. Un'isola che ha avuto tutto, e non ha costruito niente che durasse oltre il suo tesoro.",
-   "anteprima": false,
-   "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
-    "larghezza": 10
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "NRU"
-   ],
-   "eventi": [
-    {
-     "tipo": "barre",
-     "titolo": "PAGELLA DI NAURU",
-     "voci": [
-      {
-       "testo": "DIMENSIONE",
-       "valore": 1,
-       "lato": "verde"
-      },
-      {
-       "testo": "RICCHEZZA",
-       "valore": 5,
-       "lato": "verde"
-      },
-      {
-       "testo": "STABILITÀ",
-       "valore": 3,
-       "lato": "verde"
-      },
-      {
-       "testo": "CRESCITA",
-       "valore": 9,
-       "lato": "oro"
-      }
-     ],
-     "parola": "Media"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "4 SU 10",
-     "parola": "quattro"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Voto finale: 4 su 10",
-     "parola": "niente"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": true,
-   "pin": {
-    "lon": 167.3,
-    "lat": -0.2,
-    "faccia": "normale"
-   }
-  },
-  {
-   "testo": "Una ricchezza che dipende da una sola risorsa, se non la trasformi in altro prima che finisca, svanisce con lei.",
-   "anteprima": false,
-   "vista": {
-    "lon": 166.9,
-    "lat": -0.5,
-    "larghezza": 8
-   },
-   "epoca": "oggi",
-   "oro": [],
-   "verde": [
-    "NRU"
-   ],
-   "eventi": [
-    {
-     "tipo": "icona",
-     "icona": "hourglass",
-     "lon": 166.92,
-     "lat": -0.5,
-     "parola": "finisca"
-    },
-    {
-     "tipo": "scritta",
-     "testo": "DIVERSIFICA",
-     "parola": "trasformi"
-    },
-    {
-     "tipo": "nota",
-     "testo": "Una sola risorsa non basta",
-     "parola": "sola"
-    }
-   ],
-   "musica": "malinconia",
-   "stacco": false,
-   "pin": {
-    "lon": 167.3,
-    "lat": -0.2,
+    "lon": 31,
+    "lat": -3,
     "faccia": "normale"
    }
   }
