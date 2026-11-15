@@ -1,0 +1,23 @@
+name: Modifica immagine (Nano Banana)
+on:
+  workflow_dispatch:
+    inputs:
+      payload: {type: string, required: true}
+permissions:
+  contents: write
+jobs:
+  modifica:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Modifica
+        env:
+          FAL_KEY: ${{ secrets.FAL_KEY }}
+          PAYLOAD: ${{ inputs.payload }}
+        run: python3 strumenti/modifica_immagine.py
+      - name: Salva
+        run: |
+          git config user.name "render-bot"; git config user.email "render-bot@users.noreply.github.com"
+          git add -A kao_copertine prove_video; git commit -m "Immagine modificata" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase --autostash -q && git push && break; sleep $((i * 5)); done
