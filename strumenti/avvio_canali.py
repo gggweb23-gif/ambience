@@ -190,11 +190,12 @@ def main():
                 tentativi_oggi += 1
                 fatti_oggi += str(r.get('status')).strip() in ('Completato', 'In produzione', 'Prova', 'Da caricare a mano')
         uscita = dt.datetime.fromisoformat(pubblica_il(cfg, ora).replace('Z', '+00:00')).astimezone(ZoneInfo('Europe/Rome')).strftime('%Y-%m-%d %H:%M')
-        if gia_pronto(prod, uscita):
+        RIFAI_RIGA = int(num(os.environ.get('RIFAI_RIGA'), 0) or 0) if SOLO else 0   # 15 nov: rifare il video di una riga gia' fatta (con COPIONE_DA = stesso copione)
+        if gia_pronto(prod, uscita) and not RIFAI_RIGA:
             print(cid, ': video per il', uscita[:10], 'gia\' pronto'); continue
-        if fatti_oggi >= num(cfg.get('videos_per_day')) and not ANTICIPO and not FORZA:
+        if fatti_oggi >= num(cfg.get('videos_per_day')) and not ANTICIPO and not FORZA and not RIFAI_RIGA:
             print(cid, ': video di oggi gia\' fatto'); continue
-        if tentativi_oggi >= num(cfg.get('videos_per_day')) + 2 and not ANTICIPO and not FORZA:
+        if tentativi_oggi >= num(cfg.get('videos_per_day')) + 2 and not ANTICIPO and not FORZA and not RIFAI_RIGA:
             print(cid, ': troppi tentativi falliti oggi, si riprova domani'); continue
         try:   # 9 nov (Giorgio): se i titoli stanno finendo se ne aggiungono altri dello stesso filone (colonna titoli_auto = SI)
             import rifornisci_titoli as RT
@@ -210,6 +211,8 @@ def main():
             k = primo_pronto(prod) if not cid.upper().startswith('KAO') else kao_pronto(prod, num(cfg.get('quota_gemelli')))
         if k is None:
             print(cid, ': nessuna riga Pronto'); continue
+        if RIFAI_RIGA:
+            k = RIFAI_RIGA - 2; print(cid, ': RIFACCIO la riga', RIFAI_RIGA, '-', prod[k].get('titolo_italiano') or prod[k].get('titolo_originale'))
         if wf in PEXELS and pex:
             print(cid, ': aspetta il prossimo giro (un altro video Pexels e\' in lavorazione)'); continue
         r = prod[k]; n = k + 2; link = str(r.get('Link video') or '').strip()
@@ -232,6 +235,8 @@ def main():
                   'titolo_originale': r.get('titolo_originale') or '', 'paesi_fatti': fatti, 'riga': riga,
                   'categoria_originale': str(r.get('competitor_category_id') or '').replace('.0', ''),
                   'riga_produzione': n, 'foglio_produzione': fid})
+        if RIFAI_RIGA and os.environ.get('COPIONE_DA', '').strip():
+            P['copione_da'] = os.environ['COPIONE_DA'].strip()
         if os.environ.get('PRIVACY', '').strip():   # 10 nov (Giorgio): video da guardare prima, es. unlisted = NON IN ELENCO, li pubblica lui
             P['privacy'] = os.environ['PRIVACY'].strip(); P['pubblica_il'] = ''
         inputs = {'link_competitor': link, 'prova': 'NO', 'carica': str(cfg.get('carica') or 'SI').strip().upper() or 'SI',

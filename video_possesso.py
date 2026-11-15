@@ -305,6 +305,13 @@ def immagine(f, prompt, rif=None):
             from PIL import ImageStat
             if max(ImageStat.Stat(im.resize((64, 36))).mean) < 18:   # immagine nera (filtro di sicurezza del fornitore): si rifa', mai uno sfondo nero nel video
                 log('immagine nera scartata, la rifaccio'); prompt = prompt + ' Bright, warm daylight scene.'; continue
+            if k < 2 and E('ANTHROPIC_API_KEY'):   # 15 nov (Giorgio: auto lunga con troppe ruote): controllo Haiku ~0,001 $ a immagine, se sbagliata si rifa'
+                try:
+                    import copertina_possesso_foto as _PF
+                    if _PF.difetto(im):
+                        log('immagine con un difetto (ruote, zampe, corpi o oggetti deformi), la rifaccio'); continue
+                except Exception as e_:
+                    log('controllo difetti immagine non riuscito:', str(e_)[:80])
             from PIL import ImageFilter
             (im if im.size == (W, H) else im.resize((W, H), Image.LANCZOS)).filter(ImageFilter.UnsharpMask(radius=1.5, percent=50, threshold=2)).save(f, quality=97)   # ingrandita e resa nitida
             return f, url

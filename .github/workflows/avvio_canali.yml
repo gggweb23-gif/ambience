@@ -26,6 +26,14 @@ on:
         description: 'SI = lancia anche se oggi il canale ha gia fatto un video o una prova'
         default: ''
         type: string
+      rifai_riga:
+        description: 'Con canale: rifa il video di questa riga del file di produzione (anche se gia fatta)'
+        default: ''
+        type: string
+      copione_da:
+        description: 'Con rifai_riga: file del copione da riusare (es. prove_video/Costo_Vero/copioni/x.json)'
+        default: ''
+        type: string
       escludi_run:
         description: 'Uso interno: id del video Pexels appena finito che ha lanciato questo avvio'
         default: ''
@@ -55,4 +63,6 @@ jobs:
           ESCLUDI_RUN: ${{ inputs.escludi_run }}
           PRIVACY: ${{ inputs.privacy }}
           FORZA: ${{ inputs.forza }}
+          RIFAI_RIGA: ${{ inputs.rifai_riga }}
+          COPIONE_DA: ${{ inputs.copione_da }}
         run: pip install -q google-auth requests && python3 strumenti/avvio_canali.py
