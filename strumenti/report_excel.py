@@ -80,7 +80,7 @@ def main():
         V90 = {}
     ws['A5'] = ('AZZURRO = VIDEO VINCENTE (CTR >= 4% con almeno 500 impression, oppure almeno 3 volte le views medie del canale). '
                 'Classifica degli ultimi 90 giorni per views al giorno: i primi 3 sono i modelli dei video GEMELLI (metodo 50-50), circa 50% sul 1°, 30% sul 2°, 20% sul 3°. '
-                'Foglio "Vincenti 90 giorni" per l\'elenco completo.')
+                'Foglio "Vincenti" per l\'elenco completo.')
     ws['A5'].font = Font(bold=True, color='0E7490', size=10)
     r = 7
     COL = ['Pubblicato', 'Titolo', 'Durata media visualizzazione', '% media visualizzata', 'Visualizzazioni', 'Tempo di visualizzazione (ore)',
@@ -151,10 +151,10 @@ def main():
         r += 2   # spazio tra un canale e l'altro
     ws.freeze_panes = 'A7'
     # 15 nov (Giorgio): vincenti degli ultimi 90 giorni, anche quelli piu' vecchi degli ultimi 10 video
-    wv = wb.create_sheet('Vincenti 90 giorni')
+    wv = wb.create_sheet('Vincenti')
     for c, w_ in zip('ABCDEFGH', (8, 70, 12, 12, 14, 12, 14, 30)):
         wv.column_dimensions[c].width = w_
-    wv['A1'] = 'VIDEO VINCENTI DEGLI ULTIMI 90 GIORNI - i primi 3 di ogni canale sono i modelli dei video gemelli'; wv['A1'].font = Font(bold=True, size=14)
+    wv['A1'] = 'VIDEO VINCENTI (ultimi 90 giorni, o di sempre dove vincenti_giorni = TUTTO) - i primi 3 di ogni canale sono i modelli dei video gemelli'; wv['A1'].font = Font(bold=True, size=14)
     rv = 3
     try:
         tutti_v = json.load(open('coach/vincenti.json'))
@@ -162,7 +162,7 @@ def main():
         tutti_v = {}
     for nome in sorted(tutti_v):
         x = tutti_v[nome]; qv = x.get('quota_gemelli') or 0
-        wv.cell(rv, 1, nome.upper() + ('   (50-50 attivo: ' + str(int(qv)) + '% gemelli)' if qv > 0 else '   (50-50 non attivo: vuoi iniziare?)' if x.get('video') else '   (nessun vincente per ora)')).font = Font(bold=True, size=12)
+        wv.cell(rv, 1, nome.upper() + '  [' + str(x.get('periodo') or 'ultimi 90 giorni') + ']' + ('   (50-50 attivo: ' + str(int(qv)) + '% gemelli)' if qv > 0 else '   (50-50 non attivo: vuoi iniziare?)' if x.get('video') else '   (nessun vincente per ora)')).font = Font(bold=True, size=12)
         rv += 1
         for c, t in enumerate(['Posto', 'Titolo', 'Pubblicato', 'Views', 'Views al giorno', 'CTR %', 'Impression', 'Ruolo'], 1):
             y = wv.cell(rv, c, t); y.font = Font(bold=True, color='FFFFFF'); y.fill = TESTA

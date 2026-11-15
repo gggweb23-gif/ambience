@@ -221,7 +221,11 @@ def vincenti_90(cfg, cid, fid, auth, tutti, imp, ora):
     Vincente = CTR >= 4% con almeno 500 impression, oppure almeno 3 volte le views medie (mediana) dei video del periodo (min 100 views).
     Classifica per views al giorno (cosi' un video vecchio non vince solo perche' e' uscito prima), a parita' il CTR piu' alto.
     I primi 3 sono i modelli dei video gemelli (strumenti/gemelli.py): circa 50% sul 1o, 30% sul 2o, 20% sul 3o."""
-    v90 = [(pub, v, x) for pub, v, x in tutti if (ora - pub).days <= 90]
+    # 15 nov (Giorgio): colonna vincenti_giorni di Channel Configs = quanti giorni guardare (90 per tutti), TUTTO = i migliori di sempre del canale (KAO)
+    per_ = str(cfg.get('vincenti_giorni') or '90').strip().upper()
+    sempre = per_ == 'TUTTO'
+    giorni_ = 100000 if sempre else int(num(per_, 90) or 90)
+    v90 = [(pub, v, x) for pub, v, x in tutti if (ora - pub).days <= giorni_]
     if not v90:
         return
     inizio = (min(p for p, _, _ in v90).date() - dt.timedelta(days=1)).isoformat()
@@ -240,11 +244,14 @@ def vincenti_90(cfg, cid, fid, auth, tutti, imp, ora):
             gg = max(1.0, (ora - pub).total_seconds() / 86400)
             lista.append({'id': v, 'titolo': x['snippet']['title'], 'views': n, 'ctr': ctr, 'impression': im, 'views_giorno': round(n / gg, 1),
                           'pubblicato': pub.astimezone(A.ZoneInfo('Europe/Rome')).strftime('%Y-%m-%d')})
-    lista.sort(key=lambda w: (w['views_giorno'], w['ctr'] or 0), reverse=True)
+    if sempre:   # i migliori di sempre: classifica per views totali
+        lista.sort(key=lambda w: (w['views'], w['ctr'] or 0), reverse=True)
+    else:
+        lista.sort(key=lambda w: (w['views_giorno'], w['ctr'] or 0), reverse=True)
     for i, w in enumerate(lista, 1):
         w['posto'] = i
-    VINCENTI[str(cfg.get('channel_name') or cid)] = {'channel_id': cid, 'quota_gemelli': num(cfg.get('quota_gemelli'), 0), 'foglio': fid, 'mediana_views': med, 'video': lista}
-    log(f'  vincenti ultimi 90 giorni: {len(lista)}' + ''.join(f"\n    {w['posto']}o {w['titolo'][:60]} ({w['views']} views, {w['views_giorno']}/giorno, CTR {w['ctr']})" for w in lista[:3]))
+    VINCENTI[str(cfg.get('channel_name') or cid)] = {'periodo': 'di sempre' if sempre else f'ultimi {giorni_} giorni', 'channel_id': cid, 'quota_gemelli': num(cfg.get('quota_gemelli'), 0), 'foglio': fid, 'mediana_views': med, 'video': lista}
+    log(f"  vincenti {'di sempre' if sempre else f'ultimi {giorni_} giorni'}: {len(lista)}" + ''.join(f"\n    {w['posto']}o {w['titolo'][:60]} ({w['views']} views, {w['views_giorno']}/giorno, CTR {w['ctr']})" for w in lista[:3]))
 
 
 def canale(cfg):
