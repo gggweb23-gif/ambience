@@ -1,1084 +1,295 @@
 {
- "titolo": "Quanto resta davvero su un ordine online da 30 €?",
+ "titolo": "Quanto guadagna davvero un B&B?",
  "protagonista": {
-  "nome": "Elisa",
+  "nome": "Lucia",
   "capelli": "bun",
-  "colore_capelli": "#5a3825",
+  "colore_capelli": "#5a3a22",
   "pelle": "chiara",
-  "maglia": "#e07a5f",
+  "maglia": "#3f7f9f",
   "grembiule": "",
   "occhiali": true
  },
- "oggetto": "pacco",
+ "oggetto": "letto",
  "copertina": {
   "righe": [
-   "ORDINE DA 30 €",
-   "INCASSATO...",
-   "E RESTANO 2"
+   "TRE CAMERE",
+   "SEMPRE PIENE?",
+   "MA IN ROSSO"
   ],
   "emozione": "stupito",
-  "oggetto": "pacco",
-  "prezzo": "30 €",
+  "oggetto": "letto",
+  "prezzo": "90 €",
   "fondo": "scuro"
  },
  "copertina_ai": {
-  "valore_sx": "27,70 €",
-  "valore_dx": "30 €",
-  "oggetto_sx": "a pile of small costs: a cardboard shipping box, packing tape, a credit card terminal and a price tag, cartoon style",
-  "oggetto_dx": "a happy customer's order, a wrapped candle gift box with a ribbon, cartoon style",
+  "valore_sx": "18 €",
+  "valore_dx": "90 €",
+  "oggetto_sx": "a pile of folded towels, a cleaning bucket and a soap bottle",
+  "oggetto_dx": "a cozy double bed with white sheets and a small breakfast tray",
   "domanda": [
-   "TRENTA EURO",
-   "E TI RESTA?"
+   "E ALLORA DOVE",
+   "SPARISCONO I SOLDI?"
   ]
  },
- "descrizione": "Un cliente ordina nel tuo negozio online e paga trenta euro. Evviva? Non tanto: tra pubblicità, spedizione, imballo, commissioni e resi, quanto resta davvero? Seguiamo Elisa, che vende candele fatte a mano, e facciamo i conti veri, passo passo. Alla fine saprai calcolare il margine reale di ogni ordine e dove intervenire.",
+ "descrizione": "Lucia ha aperto un B&B con tre camere a novanta euro a notte e pensava di essere ricca. Poi ha fatto i conti veri: occupazione, pulizie, commissioni delle piattaforme e costi fissi. In questa puntata scopri quanto resta davvero in tasca, come si calcola il pareggio e quali numeri guardare prima di aprire. Se hai o vuoi aprire un B&B, questi conti ti evitano brutte sorprese.",
  "tag": [
-  "negozio online",
-  "ecommerce",
-  "margine",
-  "costo di acquisizione cliente",
-  "spedizione",
-  "resi",
-  "commissioni",
-  "aprire un'attività",
-  "calcolo margine",
+  "b&b",
+  "bed and breakfast",
+  "aprire un b&b",
+  "quanto guadagna un b&b",
+  "tasso di occupazione",
+  "commissioni booking",
+  "pulizie",
+  "costi fissi",
   "punto di pareggio",
-  "pubblicità online",
-  "costi nascosti",
-  "piccola impresa",
-  "imprenditoria",
+  "margine",
+  "affitti brevi",
+  "ospitalità",
+  "aprire un'attività",
   "economia pratica",
-  "vendere online"
+  "partita iva",
+  "conti di un'attività"
  ],
  "scene": [
   {
-   "testo": "Un cliente ordina una candela e paga trenta euro. Tu festeggi. Ma dopo pubblicità, spedizione, imballo e commissioni, sai quanto ti resta in tasca? Spoiler: meno di quanto pensi. Molto meno.",
+   "testo": "Tre camere, novanta euro a notte. Fanno duecentosettanta euro al giorno, più di ottomila al mese. Lucia ci credeva davvero. Poi a fine mese ha guardato il conto in banca. Indovina quanto era rimasto? Te lo dico tra poco.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "domanda",
      "p": {
-      "testo": "Quanto resta su 30 €?",
+      "testo": "Ottomila euro? Davvero?",
       "emozione": "stupito",
       "scuro": true
      }
     },
     {
-     "parola": "festeggi",
+     "parola": "Tre",
      "tipo": "prezzo",
      "p": {
-      "oggetto": "candela",
-      "prezzo": "30 €",
-      "nota": "ordine online"
+      "oggetto": "letto",
+      "prezzo": "90 €",
+      "nota": "a notte, per camera"
      }
     },
     {
-     "parola": "Spoiler",
-     "tipo": "timbro",
-     "p": {
-      "oggetto": "pacco",
-      "testo": "E POI?",
-      "colore": "rosso",
-      "nota": "i conti veri"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Lei è Elisa. Vende candele profumate fatte a mano, solo online. Ha un negozio sul web, un laboratorio in garage e una domanda che la sveglia di notte: perché vendo tanto e non resta niente?",
-   "capitolo": "Il negozio di Elisa",
-   "inquadrature": [
-    {
-     "parola": "",
+     "parola": "Poi",
      "tipo": "luogo",
      "p": {
-      "luogo": "garage laboratorio",
-      "insegna": "Candele di Elisa",
-      "azione": "lavora",
-      "clienti": 0,
-      "testo": "Elisa e le sue candele"
-     }
-    },
-    {
-     "parola": "Vende",
-     "tipo": "prezzo",
-     "p": {
-      "oggetto": "candela",
-      "prezzo": "30 €",
-      "nota": "candela grande, profumo vaniglia"
-     }
-    },
-    {
-     "parola": "domanda",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Dove sono finiti?",
-      "emozione": "preoccupato",
-      "scuro": false
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Facciamo il conto insieme, con calma. Una candela costa trenta euro, Iva compresa. Nei suoi esempi non entrano dati ufficiali: sono numeri realistici, ma tu puoi mettere i tuoi. Parti sempre da qui.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "prezzo",
-     "p": {
-      "oggetto": "candela",
-      "prezzo": "30 €",
-      "nota": "prezzo di vendita"
-     }
-    },
-    {
-     "parola": "Iva",
-     "tipo": "lista",
-     "p": {
-      "titolo": "Cosa c'è nel prezzo",
-      "voci": [
-       "Prezzo al cliente: trenta euro",
-       "Dentro c'è anche l'Iva",
-       "L'Iva non è tua",
-       "Parti dal prezzo senza Iva"
-      ]
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Primo colpo: l'Iva. Se vendi a trenta euro, ventidue per cento compreso, l'Iva è cinque euro e quaranta. Quei soldi li incassi per lo Stato, non per te. Quindi il tuo prezzo vero è ventiquattro euro e sessanta.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Togli l'Iva",
-      "a": "30 €",
-      "op": "−",
-      "b": "5,40 €",
-      "risultato": "24,60 €",
-      "nota": "Iva al ventidue per cento"
-     }
-    },
-    {
-     "parola": "Quei",
-     "tipo": "fette",
-     "p": {
-      "titolo": "I trenta euro del cliente",
-      "totale": 30,
-      "totale_testo": "30 €",
-      "fette": [
-       {
-        "nome": "Iva",
-        "valore": 5.4,
-        "testo": "5,40 €"
-       },
-       {
-        "nome": "Resta a te",
-        "valore": 24.6,
-        "testo": "24,60 €"
-       }
-      ],
-      "evidenzia": 1
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Secondo: il prodotto. Cera, profumo, vasetto, stoppino ed etichetta costano a Elisa sei euro per candela. Sembra poco, ed è il costo più facile da vedere. Ma attenzione: è solo l'inizio della lista.",
-   "capitolo": "I costi del prodotto",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "laboratorio",
-      "insegna": "Candele di Elisa",
-      "azione": "lavora",
-      "clienti": 0,
-      "testo": "Cera, profumo e vasetto"
-     }
-    },
-    {
-     "parola": "Cera",
-     "tipo": "conteggio",
-     "p": {
-      "oggetto": "candela",
-      "icone": 6,
-      "testo": "6 € di materiali"
-     }
-    },
-    {
-     "parola": "inizio",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Dopo il prodotto",
-      "a": "24,60 €",
-      "op": "−",
-      "b": "6 €",
-      "risultato": "18,60 €",
-      "nota": "restano ancora tutte le altre voci"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Terzo: l'imballo. Scatola resistente, carta velina, riempitivo, nastro, biglietto di ringraziamento. Un euro e ottanta in tutto. Chi lo dimentica, di solito dice: sono solo pochi centesimi. Ma centesimi per mille ordini fanno mille e ottocento euro.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "lista",
-     "p": {
-      "titolo": "L'imballo di un ordine",
-      "voci": [
-       "Scatola resistente",
-       "Carta velina",
-       "Riempitivo anti-urto",
-       "Nastro adesivo",
-       "Biglietto di ringraziamento"
-      ]
-     }
-    },
-    {
-     "parola": "Un",
-     "tipo": "prezzo",
-     "p": {
-      "oggetto": "scatola",
-      "prezzo": "1,80 €",
-      "nota": "imballo per ogni ordine"
-     }
-    },
-    {
-     "parola": "mille",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Su mille ordini",
-      "a": "1,80 €",
-      "op": "×",
-      "b": "1.000",
-      "risultato": "1.800 €",
-      "nota": "i centesimi pesano"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Quarto: la spedizione. Elisa paga il corriere quattro euro e novanta a pacco. Spedizione gratuita sopra venticinque euro, perché così fanno tutti. Ma gratis per il cliente non vuol dire gratis per te: la paghi tu, ogni volta.",
-   "capitolo": "La spedizione",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "prezzo",
-     "p": {
-      "oggetto": "pacco",
-      "prezzo": "4,90 €",
-      "nota": "corriere, per ogni pacco"
-     }
-    },
-    {
-     "parola": "gratuita",
-     "tipo": "timbro",
-     "p": {
-      "oggetto": "pacco",
-      "testo": "GRATIS?",
-      "colore": "rosso",
-      "nota": "per lui sì, per te no"
-     }
-    },
-    {
-     "parola": "paghi",
-     "tipo": "bilancia",
-     "p": {
-      "titolo": "Chi paga la spedizione",
-      "sinistra": "Il cliente: zero",
-      "destra": "Tu: 4,90 €",
-      "pende": "destra"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Ora il conto: dai ventiquattro euro e sessanta togli sei di prodotto, uno e ottanta di imballo e quattro e novanta di spedizione. Fa dodici euro e settanta. Pensi che sia il guadagno? Non ancora, non ancora.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "costi",
-     "p": {
-      "voci": [
-       {
-        "nome": "Prodotto",
-        "valore": 6,
-        "testo": "6 €"
-       },
-       {
-        "nome": "Imballo",
-        "valore": 1.8,
-        "testo": "1,80 €"
-       },
-       {
-        "nome": "Spedizione",
-        "valore": 4.9,
-        "testo": "4,90 €"
-       }
-      ],
-      "totale": "12,70 €",
-      "periodo": "per ordine"
-     }
-    },
-    {
-     "parola": "Fa",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Dopo i costi diretti",
-      "a": "24,60 €",
-      "op": "−",
-      "b": "12,70 €",
-      "risultato": "11,90 €",
-      "nota": "sei più imballo più spedizione"
-     }
-    },
-    {
-     "parola": "Pensi",
-     "tipo": "domanda",
-     "p": {
-      "testo": "È tutto guadagno?",
-      "emozione": "felice",
-      "scuro": false
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Quinto: le commissioni. Chi paga con carta o con un sistema online lascia una commissione. Qui è il due virgola nove per cento più trenta centesimi. Su trenta euro fanno un euro e diciassette. Piccolo morso, ma c'è sempre.",
-   "capitolo": "Le commissioni",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "soldi",
-     "p": {
-      "centro": "30 €",
-      "destinazioni": [
-       "Stato",
-       "Corriere",
-       "Pagamenti",
-       "Tu"
-      ]
-     }
-    },
-    {
-     "parola": "Qui",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Commissione di pagamento",
-      "a": "0,87 €",
-      "op": "+",
-      "b": "0,30 €",
-      "risultato": "1,17 €",
-      "nota": "due virgola nove per cento di trenta, più trenta centesimi"
-     }
-    },
-    {
-     "parola": "Piccolo",
-     "tipo": "prezzo",
-     "p": {
-      "oggetto": "carta",
-      "prezzo": "1,17 €",
-      "nota": "per ogni pagamento"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Cosa resta adesso? Dodici euro e novanta meno uno e diciassette: dieci euro e settantatré. Ecco il margine prima della pubblicità. Per molti negozi sembra già un buon margine. Ma la parte difficile deve ancora arrivare.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Margine prima della pubblicità",
-      "a": "11,90 €",
-      "op": "−",
-      "b": "1,17 €",
-      "risultato": "10,73 €",
-      "nota": "diciamo circa dieci euro e settantatré"
-     }
-    },
-    {
-     "parola": "Ecco",
-     "tipo": "cruscotto",
-     "p": {
-      "titolo": "Cosa abbiamo tolto finora",
-      "voci": [
-       {
-        "nome": "Iva",
-        "valore": 0.18
-       },
-       {
-        "nome": "Prodotto",
-        "valore": 0.2
-       },
-       {
-        "nome": "Spedizione e imballo",
-        "valore": 0.22
-       },
-       {
-        "nome": "Commissioni",
-        "valore": 0.04
-       }
-      ]
-     }
-    },
-    {
-     "parola": "difficile",
-     "tipo": "persone",
-     "p": {
-      "n": 5,
-      "azione": "fila",
-      "escono": 0,
-      "testo": "E il cliente, chi lo porta?"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Sesto, e qui fa male: il costo per trovare il cliente. Nessuno entra nel tuo negozio online per caso. Devi farti trovare: annunci sui social, sulla ricerca, influencer. Ogni clic costa. E non tutti i clic comprano.",
-   "capitolo": "Trovare il cliente",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "scrivania con computer",
-      "insegna": "Candele di Elisa",
+      "luogo": "bnb",
+      "insegna": "B&B Lucia",
       "azione": "preoccupato",
       "clienti": 0,
-      "testo": "Annunci e clic"
-     }
-    },
-    {
-     "parola": "clic",
-     "tipo": "conteggio",
-     "p": {
-      "oggetto": "clic",
-      "icone": 50,
-      "testo": "50 clic"
-     }
-    },
-    {
-     "parola": "comprano",
-     "tipo": "persone",
-     "p": {
-      "n": 9,
-      "azione": "escono",
-      "escono": 8,
-      "testo": "Guardano, ma non comprano"
+      "testo": "Il conto in banca"
      }
     }
    ]
   },
   {
-   "testo": "Esempio: Elisa spende cento euro di annunci in una settimana. Arrivano quattrocento visite, e dodici persone comprano. Il costo per cliente è cento diviso dodici: otto euro e trentatré. Lo chiamiamo costo di acquisizione.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Costo per ogni cliente",
-      "a": "100 €",
-      "op": "÷",
-      "b": "12",
-      "risultato": "8,33 €",
-      "nota": "cento euro di annunci, dodici ordini"
-     }
-    },
-    {
-     "parola": "Arrivano",
-     "tipo": "conteggio",
-     "p": {
-      "oggetto": "visita",
-      "icone": 40,
-      "testo": "400 visite, 12 ordini"
-     }
-    },
-    {
-     "parola": "acquisizione",
-     "tipo": "lista",
-     "p": {
-      "titolo": "Costo di acquisizione",
-      "voci": [
-       "Quanto spendi in pubblicità",
-       "Diviso i clienti nuovi",
-       "Non i clic, i clienti",
-       "È il numero che conta"
-      ]
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Per capirci: un parrucchiere con un volantino nei dintorni spende sessanta euro, e ottiene cinque nuovi clienti. Sono dodici euro a cliente. Stessa logica, altro mestiere. Chi non fa questo conto, lavora al buio.",
+   "testo": "Lei è Lucia. Ha una casa di famiglia in un paese di mare e l'ha trasformata in un B&B con tre camere. Colazione inclusa. Niente dipendenti: fa tutto lei. Sembra un sogno. Vediamo i numeri veri.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "luogo",
      "p": {
-      "luogo": "salone di parrucchiere",
-      "insegna": "Salone Carla",
-      "azione": "lavora",
-      "clienti": 2,
-      "testo": "Volantino di quartiere"
+      "luogo": "bnb",
+      "insegna": "B&B Lucia",
+      "azione": "felice",
+      "clienti": 1,
+      "testo": "Tre camere sul mare"
      }
     },
     {
-     "parola": "Sono",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Costo per cliente al salone",
-      "a": "60 €",
-      "op": "÷",
-      "b": "5",
-      "risultato": "12 €",
-      "nota": "sessanta euro, cinque nuovi clienti"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Torniamo a Elisa. Su ogni ordine, la pubblicità costa otto euro e trentatré. Dai dieci euro e settantatré togli otto e trentatré: restano due euro e quaranta. Ecco, trenta euro incassati, e due e quaranta sono suoi.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Dopo la pubblicità",
-      "a": "10,73 €",
-      "op": "−",
-      "b": "8,33 €",
-      "risultato": "2,40 €",
-      "nota": "questo è quello che resta"
-     }
-    },
-    {
-     "parola": "Ecco",
-     "tipo": "fette",
-     "p": {
-      "titolo": "Dove vanno i trenta euro",
-      "totale": 30,
-      "totale_testo": "30 €",
-      "fette": [
-       {
-        "nome": "Iva",
-        "valore": 5.4,
-        "testo": "5,40 €"
-       },
-       {
-        "nome": "Prodotto",
-        "valore": 6,
-        "testo": "6 €"
-       },
-       {
-        "nome": "Spedizione e imballo",
-        "valore": 6.7,
-        "testo": "6,70 €"
-       },
-       {
-        "nome": "Commissioni",
-        "valore": 1.17,
-        "testo": "1,17 €"
-       },
-       {
-        "nome": "Pubblicità",
-        "valore": 8.33,
-        "testo": "8,33 €"
-       },
-       {
-        "nome": "Resta a Elisa",
-        "valore": 2.4,
-        "testo": "2,40 €"
-       }
-      ],
-      "evidenzia": 5
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Due euro e quaranta su trenta è l'otto per cento. Sembra già poco. Ma c'è un'ultima voce, la più subdola: i resi. Perché il cliente ha il diritto di cambiare idea, e tu devi pagare il conto.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Solo l'otto per cento?",
-      "emozione": "preoccupato",
-      "scuro": true
-     }
-    },
-    {
-     "parola": "Due",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Quota che resta",
-      "a": "2,40 €",
-      "op": "÷",
-      "b": "30 €",
-      "risultato": "8%",
-      "nota": "otto per cento del prezzo"
-     }
-    },
-    {
-     "parola": "resi",
-     "tipo": "timbro",
-     "p": {
-      "oggetto": "pacco",
-      "testo": "RESO",
-      "colore": "rosso",
-      "nota": "e il conto lo paghi tu"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Settimo: i resi. Elisa ha un reso ogni dieci ordini. Quando un cliente restituisce, tu rimborsi il prezzo, ma la pubblicità l'hai già spesa e la spedizione di andata non torna. E quella di ritorno spesso la paghi tu.",
-   "capitolo": "I resi",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "persone",
-     "p": {
-      "n": 9,
-      "azione": "escono",
-      "escono": 1,
-      "testo": "Un reso ogni dieci ordini"
-     }
-    },
-    {
-     "parola": "rimborsi",
-     "tipo": "bilancia",
-     "p": {
-      "titolo": "Quando un cliente restituisce",
-      "sinistra": "Rimborso: 30 €",
-      "destra": "Spese già fatte",
-      "pende": "destra"
-     }
-    },
-    {
-     "parola": "ritorno",
+     "parola": "Colazione",
      "tipo": "prezzo",
      "p": {
-      "oggetto": "pacco",
-      "prezzo": "4,90 €",
-      "nota": "spedizione di ritorno"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Facciamo il conto sul reso. Elisa perde la pubblicità, otto euro e trentatré, l'andata, quattro e novanta, e il ritorno, quattro e novanta. Fanno diciotto euro e tredici. Quel pacco non fa due e quaranta di margine: fa meno diciotto.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "costi",
-     "p": {
-      "voci": [
-       {
-        "nome": "Pubblicità",
-        "valore": 8.33,
-        "testo": "8,33 €"
-       },
-       {
-        "nome": "Andata",
-        "valore": 4.9,
-        "testo": "4,90 €"
-       },
-       {
-        "nome": "Ritorno",
-        "valore": 4.9,
-        "testo": "4,90 €"
-       }
-      ],
-      "totale": "18,13 €",
-      "periodo": "per un reso"
+      "oggetto": "colazione",
+      "prezzo": "90 €",
+      "nota": "camera doppia con colazione"
      }
     },
     {
-     "parola": "Fanno",
-     "tipo": "timbro",
-     "p": {
-      "oggetto": "pacco",
-      "testo": "PERDITA",
-      "colore": "rosso",
-      "nota": "circa meno diciotto euro"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "E se la candela torna rotta o inutilizzabile? Se non puoi rivenderla, perdi anche i sei euro di prodotto. Ma ipotizziamo che torni intatta: rimane comunque una perdita di oltre diciotto euro. Un reso mangia il margine di molti ordini.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "confronto",
-     "p": {
-      "titolo": "Un ordine contro un reso",
-      "a": {
-       "titolo": "Ordine riuscito",
-       "valore": "+2,40 €",
-       "oggetto": "candela"
-      },
-      "b": {
-       "titolo": "Ordine reso",
-       "valore": "−18,13 €",
-       "oggetto": "candela"
-      },
-      "vincitore": "a"
-     }
-    },
-    {
-     "parola": "Un",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Quanti ordini serve per coprire un reso",
-      "a": "18,13 €",
-      "op": "÷",
-      "b": "2,40 €",
-      "risultato": "7,5 ordini",
-      "nota": "circa sette ordini e mezzo"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Ora il vero margine medio. Ogni dieci ordini, nove vanno bene e uno torna. Nove ordini a due euro e quaranta fanno ventuno euro e sessanta. Togli i diciotto e tredici del reso: restano tre euro e quarantasette su dieci ordini.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Nove ordini buoni",
-      "a": "9",
-      "op": "×",
-      "b": "2,40 €",
-      "risultato": "21,60 €",
-      "nota": "margine dei nove ordini"
-     }
-    },
-    {
-     "parola": "Togli",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Meno il reso",
-      "a": "21,60 €",
-      "op": "−",
-      "b": "18,13 €",
-      "risultato": "3,47 €",
-      "nota": "su dieci ordini in tutto"
-     }
-    },
-    {
-     "parola": "restano",
-     "tipo": "conteggio",
-     "p": {
-      "oggetto": "moneta",
-      "icone": 10,
-      "testo": "3,47 € ogni 10 ordini"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Tre euro e quarantasette su dieci ordini sono trentacinque centesimi a ordine. Su trecento euro incassati, restano tre euro e quarantasette. Capisci cosa vuol dire? Vendere tanto non basta: puoi anche lavorare per niente.",
-   "capitolo": "Il vero margine",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Margine medio per ordine",
-      "a": "3,47 €",
-      "op": "÷",
-      "b": "10",
-      "risultato": "0,35 €",
-      "nota": "circa trentacinque centesimi"
-     }
-    },
-    {
-     "parola": "Su",
-     "tipo": "fette",
-     "p": {
-      "titolo": "Dieci ordini, trecento euro",
-      "totale": 300,
-      "totale_testo": "300 €",
-      "fette": [
-       {
-        "nome": "Iva",
-        "valore": 54,
-        "testo": "54 €"
-       },
-       {
-        "nome": "Prodotto e imballo",
-        "valore": 78,
-        "testo": "78 €"
-       },
-       {
-        "nome": "Spedizioni",
-        "valore": 98,
-        "testo": "98 €"
-       },
-       {
-        "nome": "Pubblicità e commissioni",
-        "valore": 66.5,
-        "testo": "66,50 €"
-       },
-       {
-        "nome": "Resta a Elisa",
-        "valore": 3.5,
-        "testo": "3,50 €"
-       }
-      ],
-      "evidenzia": 4
-     }
-    },
-    {
-     "parola": "Capisci",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Lavori per niente?",
-      "emozione": "stupito",
-      "scuro": true
-     }
-    }
-   ]
-  },
-  {
-   "testo": "E i costi fissi? Elisa paga la piattaforma, il programma per le email, il commercialista: trecento euro al mese. Con un margine di trentacinque centesimi a ordine, non li copre nemmeno con mille ordini. Questa è la trappola.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "costi",
-     "p": {
-      "voci": [
-       {
-        "nome": "Piattaforma",
-        "valore": 60,
-        "testo": "60 €"
-       },
-       {
-        "nome": "Email e strumenti",
-        "valore": 40,
-        "testo": "40 €"
-       },
-       {
-        "nome": "Commercialista",
-        "valore": 120,
-        "testo": "120 €"
-       },
-       {
-        "nome": "Altro",
-        "valore": 80,
-        "testo": "80 €"
-       }
-      ],
-      "totale": "300 €",
-      "periodo": "al mese"
-     }
-    },
-    {
-     "parola": "mille",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Con mille ordini",
-      "a": "1.000",
-      "op": "×",
-      "b": "0,35 €",
-      "risultato": "350 €",
-      "nota": "appena sopra i costi fissi"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Guarda il pareggio. Con trecento euro di costi fissi e un margine di trentacinque centesimi, Elisa dovrebbe vendere ottocentocinquantasette ordini al mese solo per non perdere. Una piccola bottega non ci arriva.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "pareggio",
-     "p": {
-      "titolo": "Punto di pareggio di Elisa",
-      "fissi": 300,
-      "margine": 0.35,
-      "unita": "ordini al mese",
-      "oggetto": "pacco",
-      "perdita": true,
-      "guadagno": false
-     }
-    },
-    {
-     "parola": "ottocentocinquantasette",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Ordini per non perdere",
-      "a": "300 €",
-      "op": "÷",
-      "b": "0,35 €",
-      "risultato": "857 ordini",
-      "nota": "circa ottocentocinquantasette al mese"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Che fai, allora? Non devi gettare la spugna. Devi guardare le leve giuste. Quattro cose cambiano i conti: il prezzo, il costo del cliente, le spedizioni e i resi. Cambiando una, il margine si muove tantissimo.",
-   "capitolo": "Le leve per cambiare",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "leve",
-     "p": {
-      "titolo": "Le leve del negozio online",
-      "voci": [
-       "Prezzo",
-       "Costo per cliente",
-       "Spedizione",
-       "Resi"
-      ],
-      "evidenzia": 0
-     }
-    },
-    {
-     "parola": "Quattro",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Quale tocchi per prima?",
-      "emozione": "calmo",
-      "scuro": false
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Prima leva: il prezzo. Elisa porta la candela da trenta a trentadue euro. Senza Iva sono ventisei euro e quindici, quindi quasi un euro e mezzo in più. E la pubblicità non cambia. Quello va tutto nel margine.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "prezzo",
-     "p": {
-      "oggetto": "candela",
-      "prezzo": "30 €",
-      "nuovo_prezzo": "32 €",
-      "nota": "due euro in più"
-     }
-    },
-    {
-     "parola": "Senza",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Più margine per ordine",
-      "a": "26,15 €",
-      "op": "−",
-      "b": "24,60 €",
-      "risultato": "1,55 €",
-      "nota": "circa un euro e cinquantacinque in più"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Seconda leva: la soglia di spedizione gratuita. Se è a venticinque euro, tutti comprano una candela da trenta. Se la porti a quaranta, molti aggiungono un'altra candela. Più valore per pacco, stessa spedizione. Il corriere costa quasi uguale.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "confronto",
-     "p": {
-      "titolo": "Una candela contro due candele",
-      "a": {
-       "titolo": "Una candela, un pacco",
-       "valore": "2,40 €",
-       "oggetto": "candela"
-      },
-      "b": {
-       "titolo": "Due candele, un pacco",
-       "valore": "9,10 €",
-       "oggetto": "candela"
-      },
-      "vincitore": "b"
-     }
-    },
-    {
-     "parola": "Più",
+     "parola": "Vediamo",
      "tipo": "lista",
      "p": {
-      "titolo": "Alzare lo scontrino medio",
+      "titolo": "Cosa guarderemo",
       "voci": [
-       "Soglia gratuita più alta",
-       "Set di due candele",
-       "Sconto sul secondo",
-       "Un regalo piccolo da aggiungere"
+       "Occupazione",
+       "Camera vuota",
+       "Pulizie",
+       "Commissioni",
+       "Pareggio"
       ]
      }
     }
    ]
   },
   {
-   "testo": "Terza leva: portare i clienti che tornano. Un cliente che ricompra non costa otto euro e trentatré di pubblicità: costa una email, quasi zero. Se la metà ricompra, il margine cambia moltissimo. Ecco perché i negozi si costruiscono con i fedeli.",
+   "testo": "Primo errore: moltiplicare il prezzo per trenta giorni. Tre camere per novanta euro per trenta notti fa ottomilacento euro. Ma quello è il massimo teorico, con ogni camera piena ogni singola notte. Non esiste.",
+   "capitolo": "Il massimo teorico",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Incasso teorico al mese",
+      "a": "270 €",
+      "op": "×",
+      "b": "30 notti",
+      "risultato": "8.100 €",
+      "nota": "tre camere sempre piene"
+     }
+    },
+    {
+     "parola": "Ma",
+     "tipo": "calendario",
+     "p": {
+      "titolo": "Trenta notti tutte piene?",
+      "giorni": 30,
+      "testo": "Impossibile"
+     }
+    },
+    {
+     "parola": "Non",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "letto",
+      "testo": "IRREALE",
+      "colore": "rosso",
+      "nota": "è solo il massimo"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Qui entra il primo concetto: il tasso di occupazione. È la percentuale di notti in cui le camere sono occupate. Si calcola così: notti vendute diviso notti disponibili. Semplice, ma decide tutto.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Tasso di occupazione",
+      "voci": [
+       "Notti vendute",
+       "Notti disponibili",
+       "Vendute ÷ disponibili",
+       "Il risultato è una percentuale"
+      ]
+     }
+    },
+    {
+     "parola": "Si",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Occupazione",
+      "a": "notti vendute",
+      "op": "÷",
+      "b": "notti disponibili",
+      "risultato": "percentuale",
+      "nota": "da guardare ogni mese"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Lucia ha tre camere, quindi novanta notti disponibili al mese. In media ne vende cinquantaquattro. Cinquantaquattro diviso novanta fa il sessanta per cento. Lei pensava di stare sul novanta. Che botta.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Notti vendute su disponibili",
+      "a": "54",
+      "op": "÷",
+      "b": "90",
+      "risultato": "60 %",
+      "nota": "occupazione media di Lucia"
+     }
+    },
+    {
+     "parola": "Lei",
+     "tipo": "conteggio",
+     "p": {
+      "oggetto": "letto",
+      "icone": 54,
+      "testo": "54 notti su 90"
+     }
+    },
+    {
+     "parola": "Che",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Sessanta, non novanta!",
+      "emozione": "stupito",
+      "scuro": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "E l'occupazione cambia con le stagioni. Ad agosto Lucia è piena, a novembre dorme da sola. Guardare la media dell'anno è utile, ma i soldi si perdono nei mesi vuoti, perché le spese non vanno in vacanza.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "mesi",
+     "p": {
+      "titolo": "Notti vendute al mese (su 90)",
+      "valori": [
+       18,
+       22,
+       36,
+       50,
+       62,
+       78,
+       88,
+       90,
+       70,
+       48,
+       24,
+       20
+      ],
+      "evidenzia": [
+       7,
+       8
+      ],
+      "nota": "estate piena, inverno vuoto"
+     }
+    },
+    {
+     "parola": "Ad",
      "tipo": "persone",
      "p": {
       "n": 6,
       "azione": "entrano",
       "escono": 0,
-      "testo": "Clienti che tornano"
+      "testo": "Agosto: tutto pieno"
      }
     },
     {
-     "parola": "email",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Ordine di un cliente che torna",
-      "a": "10,73 €",
-      "op": "−",
-      "b": "0,50 €",
-      "risultato": "10,23 €",
-      "nota": "meno pubblicità, solo una email"
-     }
-    },
-    {
-     "parola": "fedeli",
+     "parola": "Guardare",
      "tipo": "andamento",
      "p": {
-      "titolo": "Margine medio con più clienti che tornano",
+      "titolo": "Occupazione nell'anno (notti)",
       "valori": [
-       0.35,
-       1.2,
-       2.6,
-       4.1
+       18,
+       36,
+       62,
+       88,
+       70,
+       24
       ],
       "etichette": [
-       "Mese 1",
-       "Mese 2",
-       "Mese 3",
-       "Mese 4"
+       "Gen",
+       "Mar",
+       "Mag",
+       "Lug",
+       "Set",
+       "Nov"
       ],
       "colore": "verde"
      }
@@ -1086,338 +297,1076 @@
    ]
   },
   {
-   "testo": "Esempio diverso: una pizzeria con consegna a domicilio. Se usa una piattaforma di delivery paga una commissione, magari il venticinque per cento. Su una pizza da dieci euro sono due e cinquanta. Per questo molti aprono il proprio canale.",
+   "testo": "Adesso il secondo concetto, il più crudele: il costo di una camera vuota. Una camera vuota non incassa nulla, ma i costi restano uguali. Mutuo, luce, internet, assicurazione: arrivano comunque, dorma qualcuno o no.",
+   "capitolo": "La camera vuota",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Quanto costa il vuoto?",
+      "emozione": "preoccupato",
+      "scuro": true
+     }
+    },
+    {
+     "parola": "Mutuo",
+     "tipo": "costi",
+     "p": {
+      "voci": [
+       {
+        "nome": "Mutuo casa",
+        "valore": 1100,
+        "testo": "1.100 €"
+       },
+       {
+        "nome": "Luce e gas",
+        "valore": 300,
+        "testo": "300 €"
+       },
+       {
+        "nome": "Internet e tv",
+        "valore": 60,
+        "testo": "60 €"
+       },
+       {
+        "nome": "Assicurazione",
+        "valore": 90,
+        "testo": "90 €"
+       },
+       {
+        "nome": "Tasse e rifiuti",
+        "valore": 250,
+        "testo": "250 €"
+       }
+      ],
+      "totale": 1800,
+      "periodo": "al mese"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Sommiamo: mille e cento, più trecento, più sessanta, più novanta, più duecentocinquanta. Fa milleottocento euro al mese di costi fissi. Li paghi anche con il B&B chiuso. Divisi per novanta notti, fanno venti euro a notte per camera.",
    "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Costi fissi al mese",
+      "a": "1.100 + 300 + 60 + 90 + 250",
+      "op": "=",
+      "b": "",
+      "risultato": "1.800 €",
+      "nota": "si pagano sempre"
+     }
+    },
+    {
+     "parola": "Divisi",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Costo fisso per notte disponibile",
+      "a": "1.800 €",
+      "op": "÷",
+      "b": "90 notti",
+      "risultato": "20 €",
+      "nota": "per ogni notte, piena o vuota"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Quindi ogni notte vuota brucia venti euro che hai già speso. Se in un mese hai trentasei notti vuote, hai buttato settecentoventi euro. È come un frigorifero acceso con dentro niente: consuma lo stesso.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "conteggio",
+     "p": {
+      "oggetto": "letto",
+      "icone": 36,
+      "testo": "36 notti vuote"
+     }
+    },
+    {
+     "parola": "Se",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Costo delle notti vuote",
+      "a": "36 notti",
+      "op": "×",
+      "b": "20 €",
+      "risultato": "720 €",
+      "nota": "soldi persi in un mese"
+     }
+    },
+    {
+     "parola": "È",
+     "tipo": "salvadanaio",
+     "p": {
+      "direzione": "svuota",
+      "testo": "Il vuoto consuma"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Succede in ogni attività con costi fissi. Una palestra con l'abbonamento pagato ma l'attrezzatura vuota alle undici di mattina, un parrucchiere con la poltrona ferma il lunedì. Il tempo non venduto non torna più indietro.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "orologio",
+     "p": {
+      "ore": 12,
+      "piene": 5,
+      "testo": "Palestra: sala vuota di mattina"
+     }
+    },
+    {
+     "parola": "un",
+     "tipo": "persone",
+     "p": {
+      "n": 4,
+      "azione": "escono",
+      "escono": 3,
+      "testo": "Parrucchiere: lunedì deserto"
+     }
+    },
+    {
+     "parola": "Il",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "letto",
+      "testo": "NON RECUPERABILE",
+      "colore": "rosso",
+      "nota": "una notte persa è persa"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Terzo concetto: le commissioni delle piattaforme. Le prenotazioni di Lucia arrivano per la maggior parte da una grande piattaforma online. Quella piattaforma trattiene una percentuale su ogni prenotazione. Di solito intorno al quindici per cento.",
+   "capitolo": "Le commissioni",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "luogo",
      "p": {
-      "luogo": "pizzeria",
-      "insegna": "Pizzeria Da Gino",
+      "luogo": "bnb",
+      "insegna": "B&B Lucia",
       "azione": "lavora",
-      "clienti": 3,
-      "testo": "Consegne a domicilio"
+      "clienti": 0,
+      "testo": "Prenotazioni dal telefono"
      }
     },
     {
-     "parola": "Su",
+     "parola": "Quella",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "letto",
+      "prezzo": "90 €",
+      "nota": "prezzo pubblicato"
+     }
+    },
+    {
+     "parola": "Di",
      "tipo": "formula",
      "p": {
-      "titolo": "Commissione del delivery",
-      "a": "10 €",
+      "titolo": "Commissione piattaforma",
+      "a": "90 €",
       "op": "×",
-      "b": "25%",
-      "risultato": "2,50 €",
-      "nota": "per ogni pizza consegnata"
+      "b": "15 %",
+      "risultato": "13,50 €",
+      "nota": "su ogni notte"
      }
     }
    ]
   },
   {
-   "testo": "Quarta leva: i resi. Descrizioni oneste, foto reali e taglie chiare riducono i resi. Elisa scrive meglio la scheda: peso, durata, profumo. Se i resi scendono da uno su dieci a uno su venti, il margine si sposta di parecchio.",
+   "testo": "Su una notte da novanta euro, la piattaforma si prende tredici euro e cinquanta. A Lucia restano settantasei euro e cinquanta. Il prezzo che vedi online non è il prezzo che incassi. Quella differenza è un costo vero.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "lista",
+     "tipo": "fette",
      "p": {
-      "titolo": "Meno resi",
-      "voci": [
-       "Foto vere del prodotto",
-       "Misure e peso scritti",
-       "Descrizione onesta",
-       "Risposte veloci prima dell'acquisto"
-      ]
+      "titolo": "Una notte da novanta euro",
+      "totale": 90,
+      "totale_testo": "90 €",
+      "fette": [
+       {
+        "nome": "Commissione",
+        "valore": 13.5,
+        "testo": "13,50 €"
+       },
+       {
+        "nome": "Resta a Lucia",
+        "valore": 76.5,
+        "testo": "76,50 €"
+       }
+      ],
+      "evidenzia": 1
      }
     },
     {
-     "parola": "Se",
-     "tipo": "persone",
+     "parola": "Il",
+     "tipo": "bilancia",
      "p": {
-      "n": 9,
-      "azione": "escono",
-      "escono": 0,
-      "testo": "Un reso ogni venti ordini"
+      "titolo": "Prezzo online contro incasso",
+      "sinistra": "90 €",
+      "destra": "76,50 €",
+      "pende": "sinistra"
      }
     }
    ]
   },
   {
-   "testo": "Rifacciamo il conto con i nuovi numeri. Prezzo a trentadue euro, un reso ogni venti, e spedizione gratuita sopra quaranta. Il margine a ordine sale da trentacinque centesimi a circa quattro euro. Stessa Elisa, stesse candele, conti diversi.",
+   "testo": "Facciamo il mese. Cinquantaquattro notti a novanta euro fanno quattromilaottocentosessanta euro di prenotazioni. Se tutte passano dalla piattaforma, la commissione al quindici per cento è settecentoventinove euro. Quasi un mutuo intero.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Incasso lordo del mese",
+      "a": "54 notti",
+      "op": "×",
+      "b": "90 €",
+      "risultato": "4.860 €",
+      "nota": "occupazione al sessanta per cento"
+     }
+    },
+    {
+     "parola": "Se",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Commissioni del mese",
+      "a": "4.860 €",
+      "op": "×",
+      "b": "15 %",
+      "risultato": "729 €",
+      "nota": "tutto dalla piattaforma"
+     }
+    },
+    {
+     "parola": "Quasi",
+     "tipo": "soldi",
+     "p": {
+      "centro": "4.860 €",
+      "destinazioni": [
+       "Piattaforma 729 €",
+       "Lucia 4.131 €"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Come si difende Lucia? Spinge le prenotazioni dirette: sito suo, telefono, passaparola. Una prenotazione diretta non paga commissione. Se uno ospite su tre prenota diretto, risparmia più di duecento euro al mese.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "confronto",
      "p": {
-      "titolo": "Prima e dopo",
+      "titolo": "Una notte da novanta euro",
       "a": {
-       "titolo": "Prima",
-       "valore": "0,35 €",
-       "oggetto": "candela"
+       "titolo": "Piattaforma: incassi 76,50 €",
+       "valore": "76,50 €",
+       "oggetto": "letto"
       },
       "b": {
-       "titolo": "Dopo",
-       "valore": "4 €",
-       "oggetto": "candela"
+       "titolo": "Diretta: incassi 90 €",
+       "valore": "90 €",
+       "oggetto": "letto"
       },
       "vincitore": "b"
      }
     },
     {
-     "parola": "Stessa",
+     "parola": "Se",
+     "tipo": "leve",
+     "p": {
+      "titolo": "Prenotazioni dirette",
+      "voci": [
+       "Sito semplice",
+       "Ospiti che tornano",
+       "Passaparola",
+       "Sconto per chi prenota diretto"
+      ],
+      "evidenzia": 1
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Funziona anche altrove. Un ristorante che usa le app di consegna paga commissioni alte su ogni piatto, e spesso lavora per niente. Quello che si porta via il cliente con il proprio numero di telefono invece incassa tutto.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "confronto",
+     "p": {
+      "titolo": "Un menù da trenta euro",
+      "a": {
+       "titolo": "Con app di consegna",
+       "valore": "21 €",
+       "oggetto": "menu"
+      },
+      "b": {
+       "titolo": "Ordine diretto",
+       "valore": "30 €",
+       "oggetto": "menu"
+      },
+      "vincitore": "b"
+     }
+    },
+    {
+     "parola": "Quello",
+     "tipo": "persone",
+     "p": {
+      "n": 3,
+      "azione": "entrano",
+      "escono": 0,
+      "testo": "Clienti che chiamano diretto"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Quarto concetto: le pulizie. Ogni volta che un ospite parte, la camera va rifatta: lenzuola, asciugamani, bagno, pavimenti. Lucia all'inizio faceva tutto da sola, e pensava che il suo tempo fosse gratis. Spoiler: non lo è.",
+   "capitolo": "Le pulizie",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "bnb",
+      "insegna": "B&B Lucia",
+      "azione": "lavora",
+      "clienti": 0,
+      "testo": "Rifare la camera"
+     }
+    },
+    {
+     "parola": "lenzuola",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Ogni cambio camera",
+      "voci": [
+       "Lenzuola nuove",
+       "Asciugamani",
+       "Bagno",
+       "Pavimenti",
+       "Aria e controllo"
+      ]
+     }
+    },
+    {
+     "parola": "Spoiler",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Il mio tempo è gratis?",
+      "emozione": "calmo",
+      "scuro": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Un cambio camera richiede un'ora e mezza. Se lo affidi a una ditta, costa quindici euro l'ora: ventidue euro e cinquanta a cambio, più il lavaggio della biancheria, circa sette euro e cinquanta. In totale trenta euro a cambio.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Pulizia per ogni cambio",
+      "a": "1,5 ore",
+      "op": "×",
+      "b": "15 €",
+      "risultato": "22,50 €",
+      "nota": "manodopera"
+     }
+    },
+    {
+     "parola": "più",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Con la biancheria",
+      "a": "22,50 €",
+      "op": "+",
+      "b": "7,50 €",
+      "risultato": "30 €",
+      "nota": "costo per ogni cambio"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Attenzione a non confondere notti e cambi. Se un ospite resta tre notti, hai un solo cambio. Se resta una notte, un cambio per una notte. Lucia ha in media due notti a prenotazione, quindi ventisette cambi al mese.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "conteggio",
+     "p": {
+      "oggetto": "letto",
+      "icone": 27,
+      "testo": "27 cambi al mese"
+     }
+    },
+    {
+     "parola": "Se",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Cambi al mese",
+      "a": "54 notti",
+      "op": "÷",
+      "b": "2 notti",
+      "risultato": "27 cambi",
+      "nota": "due notti a prenotazione"
+     }
+    },
+    {
+     "parola": "Attenzione",
+     "tipo": "bilancia",
+     "p": {
+      "titolo": "Una notte contro tre notti",
+      "sinistra": "1 cambio ogni notte",
+      "destra": "1 cambio ogni 3 notti",
+      "pende": "sinistra"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ventisette cambi per trenta euro fanno ottocentodieci euro al mese. Ecco perché i soggiorni di una notte sono insidiosi: sembrano pieni, ma con una pulizia da trenta euro, su novanta ne restano poco più di metà dopo piattaforma e cambio.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Pulizie del mese",
+      "a": "27 cambi",
+      "op": "×",
+      "b": "30 €",
+      "risultato": "810 €",
+      "nota": "costo vero delle pulizie"
+     }
+    },
+    {
+     "parola": "Ecco",
+     "tipo": "fette",
+     "p": {
+      "titolo": "Notte singola da novanta euro",
+      "totale": 90,
+      "totale_testo": "90 €",
+      "fette": [
+       {
+        "nome": "Piattaforma",
+        "valore": 13.5,
+        "testo": "13,50 €"
+       },
+       {
+        "nome": "Pulizia",
+        "valore": 30,
+        "testo": "30 €"
+       },
+       {
+        "nome": "Resta",
+        "valore": 46.5,
+        "testo": "46,50 €"
+       }
+      ],
+      "evidenzia": 2
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Qui sta il trucco: puoi alzare il prezzo delle notti singole o imporre un soggiorno minimo di due notti. Non è antipatia, è matematica. Un negozio di abbigliamento lo fa con la spedizione gratuita sopra una certa spesa.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "leve",
+     "p": {
+      "titolo": "Contro le pulizie care",
+      "voci": [
+       "Soggiorno minimo",
+       "Tariffa notte singola",
+       "Costo pulizie separato",
+       "Biancheria in comodato"
+      ],
+      "evidenzia": 0
+     }
+    },
+    {
+     "parola": "Un",
+     "tipo": "confronto",
+     "p": {
+      "titolo": "Spedizione di un negozio di scarpe",
+      "a": {
+       "titolo": "Sempre gratis, ordini piccoli",
+       "valore": "-4 €",
+       "oggetto": "scarpe"
+      },
+      "b": {
+       "titolo": "Gratis sopra sessanta euro",
+       "valore": "+8 €",
+       "oggetto": "scarpe"
+      },
+      "vincitore": "b"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Poi ci sono i piccoli costi che nessuno conta: colazione, carta igienica, sapone, caffè, detersivi, usura di lenzuola e materassi. Lucia li stima in sei euro a notte. Sembra niente, ma cinquantaquattro notti per sei fanno trecentoventiquattro euro.",
+   "capitolo": "I costi nascosti",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "lista",
+     "p": {
+      "titolo": "I costi che non vedi",
+      "voci": [
+       "Colazione",
+       "Sapone e carta",
+       "Detersivi",
+       "Caffè e tè",
+       "Usura biancheria"
+      ]
+     }
+    },
+    {
+     "parola": "Lucia",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Consumi del mese",
+      "a": "54 notti",
+      "op": "×",
+      "b": "6 €",
+      "risultato": "324 €",
+      "nota": "sei euro a notte"
+     }
+    },
+    {
+     "parola": "Sembra",
+     "tipo": "soldi",
+     "p": {
+      "centro": "324 €",
+      "destinazioni": [
+       "Colazione",
+       "Sapone",
+       "Detersivi",
+       "Usura"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Mettiamo tutto insieme. Incasso lordo: quattromilaottocentosessanta euro. Meno commissioni, settecentoventinove. Meno pulizie, ottocentodieci. Meno consumi, trecentoventiquattro. Restano duemilanovantasette euro. Poi i costi fissi.",
+   "capitolo": "Il conto vero",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "fette",
+     "p": {
+      "titolo": "Dove vanno i soldi del mese",
+      "totale": 4860,
+      "totale_testo": "4.860 €",
+      "fette": [
+       {
+        "nome": "Commissioni",
+        "valore": 729,
+        "testo": "729 €"
+       },
+       {
+        "nome": "Pulizie",
+        "valore": 810,
+        "testo": "810 €"
+       },
+       {
+        "nome": "Consumi",
+        "valore": 324,
+        "testo": "324 €"
+       },
+       {
+        "nome": "Costi fissi",
+        "valore": 1800,
+        "testo": "1.800 €"
+       },
+       {
+        "nome": "Resta a Lucia",
+        "valore": 1197,
+        "testo": "1.197 €"
+       }
+      ],
+      "evidenzia": 4
+     }
+    },
+    {
+     "parola": "Restano",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Dopo i costi variabili",
+      "a": "4.860 €",
+      "op": "−",
+      "b": "1.863 €",
+      "risultato": "2.997 €",
+      "nota": "729 più 810 più 324"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ricontiamo bene. Commissioni, pulizie e consumi fanno mille ottocentosessantatré euro. Quattromilaottocentosessanta meno milleottocentosessantatré fa duemilanovantasette euro. Meno milleottocento di costi fissi: restano mille e centonovantasette euro.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Costi che cambiano con le notti",
+      "a": "729 + 810 + 324",
+      "op": "=",
+      "b": "",
+      "risultato": "1.863 €",
+      "nota": "commissioni, pulizie, consumi"
+     }
+    },
+    {
+     "parola": "Quattromilaottocentosessanta",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Margine prima dei costi fissi",
+      "a": "4.860 €",
+      "op": "−",
+      "b": "1.863 €",
+      "risultato": "2.997 €",
+      "nota": "quello che copre i fissi"
+     }
+    },
+    {
+     "parola": "Meno",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Utile del mese",
+      "a": "2.997 €",
+      "op": "−",
+      "b": "1.800 €",
+      "risultato": "1.197 €",
+      "nota": "con occupazione al sessanta per cento"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Mille e centonovantasette euro al mese, per un B&B che sembrava valere ottomila. E non è finita: dentro non c'è il tempo di Lucia, né le tasse sul reddito. Se conti le ore, la paga oraria si abbassa parecchio.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Mille e duecento, non ottomila",
+      "emozione": "preoccupato",
+      "scuro": true
+     }
+    },
+    {
+     "parola": "E",
+     "tipo": "orologio",
+     "p": {
+      "ore": 16,
+      "piene": 9,
+      "testo": "Nove ore di lavoro al giorno"
+     }
+    },
+    {
+     "parola": "Se",
+     "tipo": "salvadanaio",
+     "p": {
+      "direzione": "svuota",
+      "testo": "Tasse e imprevisti"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Per capire quanto vale una notte, calcola il margine per notte. Ogni notte vale novanta euro, meno tredici e cinquanta, meno trenta di pulizie diviso due notti, meno sei di consumi. Fa cinquantacinque euro e cinquanta di margine a notte.",
+   "capitolo": "Il pareggio",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Pulizia per notte",
+      "a": "30 €",
+      "op": "÷",
+      "b": "2 notti",
+      "risultato": "15 €",
+      "nota": "un cambio ogni due notti"
+     }
+    },
+    {
+     "parola": "Ogni",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Margine di una notte",
+      "a": "90 €",
+      "op": "−",
+      "b": "34,50 €",
+      "risultato": "55,50 €",
+      "nota": "13,50 più 15 più 6"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ora il pareggio: costi fissi diviso margine per notte. Milleottocento diviso cinquantacinque e cinquanta fa trentadue notti e quarantadue. Arrotondiamo a trentatré. Sotto trentatré notti vendute al mese, Lucia lavora in perdita.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Punto di pareggio",
+      "a": "1.800 €",
+      "op": "÷",
+      "b": "55,50 €",
+      "risultato": "33 notti",
+      "nota": "sotto, si perde"
+     }
+    },
+    {
+     "parola": "Sotto",
      "tipo": "pareggio",
      "p": {
-      "titolo": "Pareggio dopo le modifiche",
-      "fissi": 300,
-      "margine": 4,
-      "nuovo_margine": 4,
-      "unita": "ordini al mese",
-      "oggetto": "pacco",
+      "titolo": "Pareggio del B&B",
+      "fissi": 1800,
+      "margine": 55.5,
+      "unita": "notti vendute",
+      "oggetto": "letto",
+      "perdita": true,
+      "guadagno": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Trentatré notti su novanta sono il trentasette per cento di occupazione. Lucia è al sessanta, quindi è sopra. Ma a gennaio, con diciotto notti vendute, è in perdita. Il pareggio ti dice quanto puoi permetterti un mese debole.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "cruscotto",
+     "p": {
+      "titolo": "Occupazione contro pareggio",
+      "voci": [
+       {
+        "nome": "Pareggio (37%)",
+        "valore": 0.37
+       },
+       {
+        "nome": "Media annua (60%)",
+        "valore": 0.6
+       },
+       {
+        "nome": "Agosto (100%)",
+        "valore": 1
+       },
+       {
+        "nome": "Gennaio (20%)",
+        "valore": 0.2
+       }
+      ]
+     }
+    },
+    {
+     "parola": "Ma",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "letto",
+      "testo": "GENNAIO IN PERDITA",
+      "colore": "rosso",
+      "nota": "diciotto notti non bastano"
+     }
+    },
+    {
+     "parola": "Il",
+     "tipo": "andamento",
+     "p": {
+      "titolo": "Utile mensile stimato",
+      "valori": [
+       -800,
+       -560,
+       200,
+       1100,
+       1800,
+       2900
+      ],
+      "etichette": [
+       "Gen",
+       "Feb",
+       "Mar",
+       "Apr",
+       "Mag",
+       "Lug"
+      ],
+      "colore": "verde"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Funziona uguale per altre attività. Un pub che deve vendere un tot di pinte per coprire affitto e stipendi, un noleggio di biciclette che deve noleggiarne un tot al giorno. Il pareggio è la prima cosa da sapere, prima di aprire.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "pareggio",
+     "p": {
+      "titolo": "Pareggio di un noleggio bici",
+      "fissi": 2400,
+      "margine": 12,
+      "unita": "noleggi",
+      "oggetto": "bici",
       "perdita": false,
       "guadagno": true
      }
     },
     {
-     "parola": "conti",
-     "tipo": "formula",
+     "parola": "Il",
+     "tipo": "timbro",
      "p": {
-      "titolo": "Ordini per non perdere",
-      "a": "300 €",
-      "op": "÷",
-      "b": "4 €",
-      "risultato": "75 ordini",
-      "nota": "settantacinque ordini al mese"
+      "oggetto": "bici",
+      "testo": "200 NOLEGGI",
+      "colore": "verde",
+      "nota": "duemilaquattrocento diviso dodici"
      }
     }
    ]
   },
   {
-   "testo": "Settantacinque ordini al mese, non ottocentocinquantasette. Sono circa due e mezzo al giorno. Ecco la differenza tra un negozio che soffoca e uno che respira. Non servono miracoli, serve guardare il numero giusto.",
+   "testo": "E se alzi il prezzo? Lucia porta il prezzo da novanta a cento euro. Margine: cento meno quindici di commissione, meno quindici di pulizie, meno sei: sessantaquattro euro. Pareggio: milleottocento diviso sessantaquattro, ventotto notti.",
+   "capitolo": "Le leve",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "letto",
+      "prezzo": "90 €",
+      "nuovo_prezzo": "100 €",
+      "nota": "dieci euro in più a notte"
+     }
+    },
+    {
+     "parola": "Margine",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Nuovo margine a notte",
+      "a": "100 €",
+      "op": "−",
+      "b": "36 €",
+      "risultato": "64 €",
+      "nota": "15 più 15 più 6"
+     }
+    },
+    {
+     "parola": "Pareggio",
+     "tipo": "pareggio",
+     "p": {
+      "titolo": "Pareggio con prezzo a cento euro",
+      "fissi": 1800,
+      "margine": 55.5,
+      "nuovo_margine": 64,
+      "unita": "notti vendute",
+      "oggetto": "letto",
+      "perdita": false,
+      "guadagno": true
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Con il margine che sale da cinquantacinque e cinquanta a sessantaquattro euro, il pareggio scende da trentatré a ventotto notti. Con cinquantaquattro notti, l'utile arriva a milleseicentocinquantasei euro. Dieci euro in più fanno quasi quattrocentocinquanta euro al mese.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "calendario",
+     "tipo": "formula",
      "p": {
-      "titolo": "Ordini al mese",
-      "giorni": 30,
-      "testo": "Due e mezzo al giorno"
+      "titolo": "Nuovo utile del mese",
+      "a": "54 notti × 64 €",
+      "op": "−",
+      "b": "1.800 €",
+      "risultato": "1.656 €",
+      "nota": "tremilaquattrocentocinquantasei meno milleottocento"
      }
     },
     {
-     "parola": "Ecco",
-     "tipo": "salvadanaio",
+     "parola": "Dieci",
+     "tipo": "confronto",
      "p": {
-      "direzione": "riempie",
-      "testo": "Il margine che respira"
+      "titolo": "Utile mensile",
+      "a": {
+       "titolo": "Prezzo novanta euro",
+       "valore": "1.197 €",
+       "oggetto": "letto"
+      },
+      "b": {
+       "titolo": "Prezzo cento euro",
+       "valore": "1.656 €",
+       "oggetto": "letto"
+      },
+      "vincitore": "b"
      }
     }
    ]
   },
   {
-   "testo": "Cosa guardare, quindi? Il margine per ordine dopo tutto: Iva, prodotto, imballo, spedizione, commissioni, pubblicità e resi. Cosa non guardare? Il fatturato da solo, il numero di visite e i like. Non pagano niente.",
+   "testo": "Altre leve: affittare una camera a settimana ai lavoratori in trasferta, dove l'occupazione è stabile anche in inverno, e vendere esperienze, come colazioni speciali o escursioni. Così i mesi vuoti si accorciano.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "leve",
+     "p": {
+      "titolo": "Come riempire l'inverno",
+      "voci": [
+       "Soggiorni lunghi",
+       "Lavoratori in trasferta",
+       "Esperienze e colazioni",
+       "Prezzi più bassi in bassa stagione"
+      ],
+      "evidenzia": 0
+     }
+    },
+    {
+     "parola": "Così",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "bnb",
+      "insegna": "B&B Lucia",
+      "azione": "felice",
+      "clienti": 3,
+      "testo": "Anche a novembre"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Cosa guardare, allora? Occupazione per mese, non solo la media. Margine per notte, non il prezzo. Costo del cambio camera. Pareggio. Cosa non guardare: l'incasso lordo e la bellezza delle foto online. Le foto non pagano il mutuo.",
    "capitolo": "Cosa guardare",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "lista",
      "p": {
-      "titolo": "Cosa guardare",
+      "titolo": "Da guardare",
       "voci": [
-       "Margine per ordine",
-       "Costo per cliente",
-       "Percentuale di resi",
-       "Scontrino medio",
-       "Clienti che tornano"
+       "Occupazione mensile",
+       "Margine per notte",
+       "Costo del cambio",
+       "Punto di pareggio",
+       "Quota prenotazioni dirette"
       ]
      }
     },
     {
-     "parola": "non",
+     "parola": "Cosa",
      "tipo": "timbro",
      "p": {
-      "oggetto": "telefono",
-      "testo": "SOLO VISITE?",
+      "oggetto": "letto",
+      "testo": "NON L'INCASSO",
       "colore": "rosso",
-      "nota": "le visite non pagano le bollette"
+      "nota": "conta quello che resta"
      }
     }
    ]
   },
   {
-   "testo": "Pensaci un momento. Se hai un'attività online, o vuoi aprirla, prendi l'ultimo ordine che hai ricevuto. Togli l'Iva, il prodotto, l'imballo, la spedizione, le commissioni, la pubblicità. Quanto resta? Sii onesto: nessuno ti guarda.",
+   "testo": "Se hai un B&B, o un appartamento da affittare, fermati e rispondi: quante notti ti servono per pareggiare? E quante ne vendi davvero nel mese peggiore? Se non lo sai, non ti sto giudicando. Ma è il momento di scoprirlo.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "domanda",
      "p": {
-      "testo": "Quanto resta a te?",
+      "testo": "Quante notti ti servono?",
       "emozione": "calmo",
       "scuro": false
      }
     },
     {
-     "parola": "Togli",
-     "tipo": "cruscotto",
+     "parola": "E",
+     "tipo": "calendario",
      "p": {
-      "titolo": "I numeri da tenere d'occhio",
-      "voci": [
-       {
-        "nome": "Margine per ordine",
-        "valore": 0.3
-       },
-       {
-        "nome": "Costo per cliente",
-        "valore": 0.6
-       },
-       {
-        "nome": "Resi",
-        "valore": 0.1
-       },
-       {
-        "nome": "Clienti fedeli",
-        "valore": 0.4
-       }
-      ]
+      "titolo": "Il tuo mese più debole",
+      "giorni": 18,
+      "testo": "Quante notti vendi?"
      }
     }
    ]
   },
   {
-   "testo": "Un ultimo esempio, lontano dalle candele: un negozio di scarpe online. La scarpa costa novanta euro, ma le taglie sbagliate portano un reso su tre. Lì il costo dei resi è il nemico numero uno. Ogni mestiere ha il suo mostro.",
-   "capitolo": "",
+   "testo": "Ricapitoliamo. Il prezzo non è l'incasso: tolgono commissioni. La camera vuota costa venti euro a notte. Le pulizie pesano trenta euro a cambio. E il pareggio di Lucia è trentatré notti, cioè il trentasette per cento.",
+   "capitolo": "Riepilogo",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "prezzo",
-     "p": {
-      "oggetto": "scarpa",
-      "prezzo": "90 €",
-      "nota": "sneaker online"
-     }
-    },
-    {
-     "parola": "taglie",
-     "tipo": "persone",
-     "p": {
-      "n": 9,
-      "azione": "escono",
-      "escono": 3,
-      "testo": "Un reso ogni tre ordini"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Ricapitoliamo. Su un ordine da trenta euro, cinque e quaranta sono Iva, sei il prodotto, sei e settanta spedizione e imballo, uno e diciassette commissioni, otto e trentatré pubblicità. Restano due e quaranta. Poi arrivano i resi.",
-   "capitolo": "Riassunto",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "fette",
-     "p": {
-      "titolo": "Ordine da trenta euro",
-      "totale": 30,
-      "totale_testo": "30 €",
-      "fette": [
-       {
-        "nome": "Iva",
-        "valore": 5.4,
-        "testo": "5,40 €"
-       },
-       {
-        "nome": "Prodotto",
-        "valore": 6,
-        "testo": "6 €"
-       },
-       {
-        "nome": "Spedizione e imballo",
-        "valore": 6.7,
-        "testo": "6,70 €"
-       },
-       {
-        "nome": "Commissioni",
-        "valore": 1.17,
-        "testo": "1,17 €"
-       },
-       {
-        "nome": "Pubblicità",
-        "valore": 8.33,
-        "testo": "8,33 €"
-       },
-       {
-        "nome": "Resta",
-        "valore": 2.4,
-        "testo": "2,40 €"
-       }
-      ],
-      "evidenzia": 5
-     }
-    },
-    {
-     "parola": "Poi",
      "tipo": "riepilogo",
      "p": {
       "titolo": "Da ricordare",
       "voci": [
-       "Togli sempre l'Iva dal prezzo",
-       "Costo per cliente: pubblicità diviso ordini",
-       "Un reso cancella molti ordini",
-       "Più scontrino e clienti che tornano"
+       "Occupazione: vendute diviso disponibili",
+       "Camera vuota: venti euro a notte",
+       "Commissioni e pulizie mangiano il prezzo",
+       "Pareggio: fissi diviso margine"
       ]
+     }
+    },
+    {
+     "parola": "E",
+     "tipo": "salvadanaio",
+     "p": {
+      "direzione": "riempie",
+      "testo": "Conti chiari, tasca piena"
      }
     }
    ]
   },
   {
-   "testo": "Il fatturato è vanità, il margine è sanità, e il contante è realtà. Vendere trenta euro non vuol dire guadagnarne trenta. Fai il conto di ogni ordine, e le decisioni diventeranno più semplici. Elisa lo ha fatto, e adesso dorme.",
+   "testo": "Alla fine Lucia ha tenuto il B&B. Ha alzato il prezzo, spinto le prenotazioni dirette e fissato due notti minime. Ora sa quanto le resta davvero. Nella prossima puntata: una gelateria stagionale, che incassa in quattro mesi e vive tutto l'anno. Iscriviti.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "luogo",
      "p": {
-      "luogo": "garage laboratorio",
-      "insegna": "Candele di Elisa",
+      "luogo": "bnb",
+      "insegna": "B&B Lucia",
       "azione": "felice",
-      "clienti": 2,
-      "testo": "Elisa, adesso fa i conti"
+      "clienti": 3,
+      "testo": "Conti chiari"
      }
     },
     {
-     "parola": "fatturato",
-     "tipo": "salvadanaio",
-     "p": {
-      "direzione": "riempie",
-      "testo": "Il margine è la sanità"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Nel prossimo episodio vediamo un panificio di quartiere: tra farina, forno acceso e pane invenduto, quanto resta davvero su un filone da due euro? Il conto ti sorprenderà. Iscriviti.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
+     "parola": "Nella",
      "tipo": "prossimo",
      "p": {
-      "luogo": "panificio",
-      "insegna": "Forno Rossi",
-      "oggetto": "pane",
-      "testo": "Quanto resta su un filone da due euro?"
-     }
-    },
-    {
-     "parola": "Iscriviti",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Iscriviti al canale!",
-      "emozione": "felice",
-      "scuro": false
+      "luogo": "gelateria",
+      "insegna": "Gelateria Estate",
+      "oggetto": "gelato",
+      "testo": "Incassa in quattro mesi, vive dodici"
      }
     }
    ]
