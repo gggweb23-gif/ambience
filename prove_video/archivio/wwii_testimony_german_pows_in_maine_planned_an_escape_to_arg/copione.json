@@ -1,25 +1,25 @@
 {
  "scene": [
   {
-   "testo": "Three German prisoners walked into the Maine woods in March 1945, certain they could reach the ocean and sail to Argentina. They made it about thirty miles. One of them later helped America reach the moon.",
-   "q": "German prisoners walking snow forest",
+   "testo": "Three German prisoners walked away from an American work crew in the Maine woods, carrying a compass made from a sewing needle and a peach can lid. Their goal was Argentina. A single Maine winter ended the plan in five days.",
+   "q": "German prisoners snow forest",
    "tag": [
     "prisoners",
     "snow",
     "forest"
    ],
-   "scritta": "30 MILES",
+   "scritta": "5 DAYS",
    "obbligo": [],
-   "capitolo": "The Question",
+   "capitolo": "The Peach Can Compass",
    "anno": 1945
   },
   {
-   "testo": "Why would prisoners who were fed, paid, and housed decently risk a deadly winter march through the wilderness? And why did they believe a homemade compass would carry them across a hundred miles of frozen country?",
-   "q": "prisoners of war camp winter",
+   "testo": "How do three young men, with no boat, no papers and no English, plan to cross an ocean? And why did they believe a frozen wilderness would let them go?",
+   "q": "German prisoners of war camp",
    "tag": [
     "prisoners",
     "camp",
-    "winter"
+    "barbed wire"
    ],
    "scritta": "",
    "obbligo": [],
@@ -27,12 +27,12 @@
    "anno": 1945
   },
   {
-   "testo": "The answer is not cruelty. It is not hunger. It is something far stranger, and it begins with a guard asleep under a fir tree. But first, you need to see where this happened.",
-   "q": "Maine logging forest winter",
+   "testo": "The answer begins on a frozen lake, with a sleeping guard. But the real danger was not the guard, or the manhunt that followed. It was what waited in the forest itself.",
+   "q": "frozen lake winter logging",
    "tag": [
-    "logging",
-    "forest",
-    "snow"
+    "frozen lake",
+    "winter",
+    "ice"
    ],
    "scritta": "",
    "obbligo": [],
@@ -40,24 +40,24 @@
    "anno": 1945
   },
   {
-   "testo": "March 7th, 1945. A frozen lake in the North Woods of Maine. A crew of German prisoners of war is cutting ice. Their American guard sits down beneath a fir tree. His eyes close. He sleeps.",
-   "q": "men cutting ice frozen lake",
+   "testo": "The date was March 7th, 1945. The place was Spencer Lake, in the North Woods of Maine. A crew of German prisoners of war was cutting ice, watched by one American guard.",
+   "q": "men cutting ice lake",
    "tag": [
-    "ice",
-    "cutting",
-    "lake"
+    "ice cutting",
+    "lake",
+    "workers"
    ],
    "scritta": "MARCH 7, 1945",
    "obbligo": [],
-   "capitolo": "A Guard Falls Asleep",
+   "capitolo": "",
    "anno": 1945
   },
   {
-   "testo": "Three young prisoners look at each other. They look at the guard. They look at the forest. Then they walk into the trees. Nobody calls out. Nobody follows. The woods close behind them.",
-   "q": "prisoners walking into forest",
+   "testo": "The guard sat down under a fir tree and fell asleep. Three prisoners looked at each other, at the guard, and at the forest. Then they walked quietly into the trees.",
+   "q": "soldier guard resting snow",
    "tag": [
-    "prisoners",
-    "walking",
+    "guard",
+    "snow",
     "trees"
    ],
    "scritta": "",
@@ -66,51 +66,12 @@
    "anno": 1945
   },
   {
-   "testo": "They were Franz Keller, eighteen, Horst Schlueter, nineteen, and Anton Gabe, twenty. They carried snowshoes they had built themselves, and a compass made from a sewing needle and the lid of a can of peaches.",
-   "q": "young German prisoners portrait",
+   "testo": "They were Franz Keller, age 18, Horst Schlueter, age 19, and Anton Gabe, age 20. Boys, really. They had been soldiers of a collapsing army, and now they were prisoners a very long way from home.",
+   "q": "young German prisoners captured",
    "tag": [
-    "prisoners",
     "young",
-    "portrait"
-   ],
-   "scritta": "",
-   "obbligo": [],
-   "capitolo": "",
-   "anno": 1945
-  },
-  {
-   "testo": "Their plan was simple, and almost absurd. Reach the Atlantic coast. Board a ship. Sail to Argentina. Between them and that ocean stood the Maine woods in winter. They had no idea what that meant.",
-   "q": "Atlantic coast freighter ship",
-   "tag": [
-    "freighter",
-    "ship",
-    "coast"
-   ],
-   "scritta": "",
-   "obbligo": [],
-   "capitolo": "",
-   "anno": 1945
-  },
-  {
-   "testo": "To understand how three teenagers ended up on that frozen lake, we must go back to 1944. America was at war on two oceans, and it had a problem. It was running out of workers.",
-   "q": "American home front workers 1944",
-   "tag": [
-    "factory",
-    "workers",
-    "home front"
-   ],
-   "scritta": "",
-   "obbligo": [],
-   "capitolo": "Why Prisoners in Maine",
-   "anno": 1944
-  },
-  {
-   "testo": "The young men of Maine were overseas. Yet the paper mills still needed pulpwood. Wartime America ran on paper. Ration books, shipping crates, and the boxes that carried ammunition all depended on it.",
-   "q": "pulpwood logging paper mill",
-   "tag": [
-    "pulpwood",
-    "logging",
-    "mill"
+    "prisoners",
+    "captured"
    ],
    "scritta": "",
    "obbligo": [],
@@ -118,7 +79,20 @@
    "anno": 1944
   },
   {
-   "testo": "At the same time, the United States held hundreds of thousands of German prisoners of war, captured in North Africa and Europe and shipped across the Atlantic. The answer to both problems seemed obvious. Send the prisoners to work.",
+   "testo": "They carried snowshoes they had built themselves. They carried knives, hoarded sugar, and a stolen map. And they carried that compass, a magnetized needle balanced on the tin lid of a peach can.",
+   "q": "homemade snowshoes winter",
+   "tag": [
+    "snowshoes",
+    "winter",
+    "homemade"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 1945
+  },
+  {
+   "testo": "To understand how they got there, we have to go back to 1944. America held hundreds of thousands of German prisoners, and it had a serious problem at home: not enough men.",
    "q": "German prisoners arrive United States",
    "tag": [
     "prisoners",
@@ -127,29 +101,16 @@
    ],
    "scritta": "",
    "obbligo": [],
-   "capitolo": "",
+   "capitolo": "Why Prisoners Came to Maine",
    "anno": 1944
   },
   {
-   "testo": "Maine took in nearly four thousand of them. The main camp stood at Houlton, near the Canadian border. Smaller branch camps spread across the state, each one built close to the timber.",
-   "q": "prisoner of war camp barracks",
+   "testo": "The young men of Maine were overseas. Yet the paper mills still needed pulpwood. Wartime America ran on paper, from ration books to the boxes that carried ammunition to the front.",
+   "q": "paper mill logs wartime",
    "tag": [
-    "barracks",
-    "camp",
-    "barbed wire"
-   ],
-   "scritta": "4,000 POWS",
-   "obbligo": [],
-   "capitolo": "",
-   "anno": 1944
-  },
-  {
-   "testo": "One of them stood at the north end of Spencer Lake, in a township called Hobbstown, deep in the woods west of Moosehead Lake. The paper company Hollingsworth and Whitney built it for the war.",
-   "q": "remote logging camp lake",
-   "tag": [
-    "logging",
-    "camp",
-    "lake"
+    "pulpwood",
+    "logs",
+    "mill"
    ],
    "scritta": "",
    "obbligo": [],
@@ -157,21 +118,47 @@
    "anno": 1944
   },
   {
-   "testo": "Twenty-two buildings. Barbed wire. Guard towers. It was designed for two hundred fifty men. In July 1944, the first prisoners arrived by train at Bingham and rode the rest of the way into the forest.",
-   "q": "prisoners boarding train 1944",
+   "testo": "So the prisoners were sent to the woods. Maine took in nearly 4,000 of them. The main camp stood at Houlton, near the Canadian border, with branch camps scattered across the state.",
+   "q": "prisoners cutting pulpwood forest",
    "tag": [
     "prisoners",
-    "train",
-    "rail"
+    "logging",
+    "woods"
    ],
-   "scritta": "22 BUILDINGS",
+   "scritta": "4,000",
    "obbligo": [],
    "capitolo": "",
    "anno": 1944
   },
   {
-   "testo": "By March 1945, the camp held three hundred ten men. The nearest public road was twelve miles away. In practice, the forest itself was the fence. Everyone in the camp knew it. Almost everyone.",
-   "q": "snowy forest road winter",
+   "testo": "One branch camp stood at the north end of Spencer Lake, in a township called Hobbstown, west of Moosehead Lake. The Hollingsworth and Whitney paper company built it for 250 men.",
+   "q": "logging camp barracks winter",
+   "tag": [
+    "camp",
+    "barracks",
+    "woods"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 1944
+  },
+  {
+   "testo": "It had 22 buildings, barbed wire and guard towers. In July 1944, 250 prisoners arrived by train at Bingham and rode the rest of the way in. By March, the camp held 310.",
+   "q": "prisoners train transport 1944",
+   "tag": [
+    "prisoners",
+    "train",
+    "transport"
+   ],
+   "scritta": "310 MEN",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 1944
+  },
+  {
+   "testo": "The nearest public road was 12 miles away. Remember that number. It matters later, because the isolation was the real fence. The wire was almost an afterthought.",
+   "q": "remote forest road snow",
    "tag": [
     "forest",
     "road",
@@ -179,29 +166,29 @@
    ],
    "scritta": "12 MILES",
    "obbligo": [],
-   "capitolo": "Life Behind the Wire",
-   "anno": 1945
+   "capitolo": "",
+   "anno": 1944
   },
   {
-   "testo": "Life there was not what a German soldier expected from an enemy. Under the Geneva Convention, prisoners were fed like American soldiers and paid for their labor in camp coupons.",
-   "q": "prisoners eating mess hall",
+   "testo": "Life there was not what a German soldier expected from an enemy prison. Under the Geneva Convention, prisoners were fed like American soldiers and paid for their labor in camp coupons.",
+   "q": "prisoners of war mess hall",
    "tag": [
     "prisoners",
     "mess hall",
-    "meal"
+    "food"
    ],
    "scritta": "",
    "obbligo": [],
-   "capitolo": "",
+   "capitolo": "Life Behind the Wire",
    "anno": 1944
   },
   {
-   "testo": "They cut pulpwood all day. In the evenings, there were classes, music, and sports. Across Maine, farmers and foremen were surprised by how hard the prisoners worked, and some came to respect them.",
-   "q": "prisoners cutting logs work",
+   "testo": "They cut pulpwood all day. Evenings brought classes, music and sports. Across Maine, farmers and foremen were surprised by how hard the prisoners worked, and some came to respect them.",
+   "q": "German prisoners working farm",
    "tag": [
     "prisoners",
-    "logs",
-    "cutting"
+    "labor",
+    "farm"
    ],
    "scritta": "",
    "obbligo": [],
@@ -209,50 +196,37 @@
    "anno": 1944
   },
   {
-   "testo": "But a prison in the woods is still a prison. And the camp commander, Major William Marshall, held an unusual attitude. By the accounts that survive, he more or less dared his prisoners to try to escape.",
-   "q": "American army officer prison camp",
+   "testo": "Still, a prison in the woods is a prison. And the camp commander, Major William Marshall, more or less dared his prisoners to try to escape. Three of them decided to accept.",
+   "q": "army officer prison camp",
    "tag": [
     "officer",
     "camp",
-    "inspection"
+    "commander"
    ],
    "scritta": "",
    "obbligo": [],
    "capitolo": "",
-   "anno": 1945
+   "anno": 1944
   },
   {
-   "testo": "Three of them decided to take him up on it. They did not rush. They prepared all winter, quietly, in the evenings, in the barracks, while the snow piled higher against the walls.",
-   "q": "barracks interior winter prisoners",
+   "testo": "They prepared all winter. They saved food from their rations and hid sugar under their clothes. They shaped snowshoes from boards and rail ties, with harnesses of leather belts and stovepipe wire.",
+   "q": "prisoners building tools camp",
    "tag": [
-    "barracks",
-    "interior",
-    "prisoners"
+    "prisoners",
+    "tools",
+    "workshop"
    ],
    "scritta": "",
    "obbligo": [],
-   "capitolo": "The Preparation",
+   "capitolo": "The Winter Plan",
    "anno": 1945
   },
   {
-   "testo": "They saved food from their rations. They hid sugar under their clothes. They made snowshoes from boards and rail ties, and harnesses from leather belts and stovepipe wire. They made knives. On the work detail, they already had axes.",
-   "q": "snowshoes winter soldiers",
+   "testo": "On the work detail they had axes, and they made knives. From a French Canadian woodcutter they got a map. And then came the compass: a sewing needle, magnetized with an electrical coil.",
+   "q": "old map compass",
    "tag": [
-    "snowshoes",
-    "winter",
-    "equipment"
-   ],
-   "scritta": "",
-   "obbligo": [],
-   "capitolo": "",
-   "anno": 1945
-  },
-  {
-   "testo": "From a French Canadian woodcutter, they obtained a map. And they built the compass. A sewing needle, magnetized with an electrical coil, balanced on the tin top of a peach can. It was their only guide.",
-   "q": "compass map navigation 1940s",
-   "tag": [
-    "compass",
     "map",
+    "compass",
     "navigation"
    ],
    "scritta": "",
@@ -261,12 +235,12 @@
    "anno": 1945
   },
   {
-   "testo": "The route was about one hundred miles to the coast. Then a freighter. Then Argentina, a country still friendly to Germany, where they could wait out the war in the sun. On paper, it looked possible.",
-   "q": "map Maine coast route",
+   "testo": "The plan sounded simple. Walk about 100 miles to the coast. Board a freighter. Sail to Argentina, a country still friendly to Germany, and wait out the war in the sun.",
+   "q": "freighter ship harbor 1945",
    "tag": [
-    "map",
-    "route",
-    "coast"
+    "freighter",
+    "ship",
+    "harbor"
    ],
    "scritta": "100 MILES",
    "obbligo": [],
@@ -274,25 +248,12 @@
    "anno": 1945
   },
   {
-   "testo": "On March 7th, the ice-cutting crew went out onto the lake. The guard sat down under his tree and fell asleep. Keller, Schlueter, and Gabe walked away. Nobody noticed until evening roll call.",
-   "q": "frozen lake workers guard",
+   "testo": "On March 7th, the ice-cutting crew went out onto the lake. The guard sat down under his fir tree and slept. Keller, Schlueter and Gabe simply walked away into the forest.",
+   "q": "men walking snowy forest",
    "tag": [
-    "frozen lake",
-    "workers",
-    "guard"
-   ],
-   "scritta": "",
-   "obbligo": [],
-   "capitolo": "The Manhunt",
-   "anno": 1945
-  },
-  {
-   "testo": "Major Marshall called for help. The next morning, about thirty men arrived. The Maine State Police, the Somerset County Sheriff, the Maine Warden Service, and the FBI. They brought bloodhounds.",
-   "q": "police search dogs snow",
-   "tag": [
-    "police",
-    "dogs",
-    "search"
+    "men",
+    "walking",
+    "snow forest"
    ],
    "scritta": "",
    "obbligo": [],
@@ -300,11 +261,89 @@
    "anno": 1945
   },
   {
-   "testo": "It became one of the largest manhunts in the history of Maine. Three planes flew low over Spencer Lake for two days, searching for tracks in the snow, for smoke, for anything. They found nothing.",
-   "q": "airplane flying over snow forest",
+   "testo": "Nobody noticed until evening roll call. Major Marshall called for help. By the next morning, about 30 men had arrived: state police, the sheriff, game wardens and the FBI.",
+   "q": "police search party snow",
+   "tag": [
+    "police",
+    "search",
+    "snow"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "The Manhunt",
+   "anno": 1945
+  },
+  {
+   "testo": "They brought bloodhounds. It became one of the largest manhunts in Maine history. Three planes flew low over Spencer Lake for two days, looking for tracks, smoke, anything at all.",
+   "q": "airplane flying over forest",
    "tag": [
     "airplane",
-    "search",
+    "aerial",
+    "forest"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 1945
+  },
+  {
+   "testo": "They found nothing. The forest had swallowed three men without a trace. So what was happening out there, beneath the pines, while the whole state searched for them?",
+   "q": "deep snow pine forest",
+   "tag": [
+    "snow",
+    "pine",
+    "forest"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 1945
+  },
+  {
+   "testo": "The escapees were learning what the Maine woods are in March. They moved at night and slept by day, in shelters dug from the snow and roofed with pine boughs.",
+   "q": "soldiers snow shelter winter",
+   "tag": [
+    "snow shelter",
+    "winter",
+    "soldiers"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "What the Woods Did",
+   "anno": 1945
+  },
+  {
+   "testo": "The snow was deep. The nights were well below freezing. And the stolen map and the peach can compass could not show them the thing that was about to stop them.",
+   "q": "soldiers trudging deep snow",
+   "tag": [
+    "deep snow",
+    "trudging",
+    "cold"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 1945
+  },
+  {
+   "testo": "Rivers. Spencer Stream and the Dead River lay across their way. In March, beneath thin ice, the water runs black and fast. Three men on homemade snowshoes could not cross.",
+   "q": "river thin ice winter",
+   "tag": [
+    "river",
+    "ice",
+    "winter"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 1945
+  },
+  {
+   "testo": "So they walked along the water, looking for a way over. And the rivers turned them where the rivers wanted them to go. The forest was steering the escape now, not the compass.",
+   "q": "men walking along river snow",
+   "tag": [
+    "river",
+    "walking",
     "snow"
    ],
    "scritta": "",
@@ -313,50 +352,11 @@
    "anno": 1945
   },
   {
-   "testo": "Out in the trees, the escapees were learning what the Maine woods are in March. They moved at night. By day, they slept in shelters dug out of the snow and roofed with pine boughs.",
-   "q": "soldiers snow shelter forest",
+   "testo": "On the third day of the search, the sheriff deputized a man named Bill Hall. Hall was a hermit. Since 1932 he had lived alone in an old trapper's cabin in those woods.",
+   "q": "trapper cabin winter woods",
    "tag": [
-    "snow",
-    "shelter",
-    "forest"
-   ],
-   "scritta": "",
-   "obbligo": [],
-   "capitolo": "What the Woods Did",
-   "anno": 1945
-  },
-  {
-   "testo": "The snow was deep. The nights were well below freezing. And the peach can compass could point north, but it could not show them what stood in their way. Rivers. Spencer Stream. The Dead River.",
-   "q": "frozen river winter forest",
-   "tag": [
-    "river",
-    "frozen",
-    "winter"
-   ],
-   "scritta": "",
-   "obbligo": [],
-   "capitolo": "",
-   "anno": 1945
-  },
-  {
-   "testo": "In March, under thin ice, the water runs black and fast. Three men on homemade snowshoes could not cross it. So they walked along the banks, looking for a way over. The rivers decided their route.",
-   "q": "river ice thaw spring",
-   "tag": [
-    "river",
-    "ice",
-    "thaw"
-   ],
-   "scritta": "",
-   "obbligo": [],
-   "capitolo": "",
-   "anno": 1945
-  },
-  {
-   "testo": "On the third day of the search, the sheriff deputized a man named Bill Hall. Hall was a hermit. Since 1932, he had lived alone in an old trapper's cabin in those woods, avoiding people and publicity.",
-   "q": "trapper cabin woods winter",
-   "tag": [
-    "trapper",
     "cabin",
+    "trapper",
     "woods"
    ],
    "scritta": "",
@@ -365,12 +365,12 @@
    "anno": 1945
   },
   {
-   "testo": "But he knew the country better than any warden. He looked at the map and thought about the rivers. Men on foot with no boat could not cross them in March. They would have to follow the water downstream.",
-   "q": "men studying map search party",
+   "testo": "He avoided people, and publicity even more. But he knew that country better than any warden. He had once tried to shout a warning to the Germans in their own language. It came out as, tie your shoes.",
+   "q": "old woodsman rifle forest",
    "tag": [
-    "map",
-    "search party",
-    "men"
+    "woodsman",
+    "rifle",
+    "forest"
    ],
    "scritta": "",
    "obbligo": [],
@@ -378,85 +378,72 @@
    "anno": 1945
   },
   {
-   "testo": "And the water led to one place. West Forks, a small logging settlement about thirty miles from the camp. Go to West Forks, Bill Hall told the wardens. It was the right answer.",
-   "q": "small logging village winter",
+   "testo": "Now he studied the map and thought about the rivers. Men on foot, without a boat, could not cross them in March. They would have to follow the water downstream. And downstream led to one place.",
+   "q": "map study wardens",
+   "tag": [
+    "map",
+    "wardens",
+    "planning"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 1945
+  },
+  {
+   "testo": "That place was West Forks, a small logging settlement about 30 miles from the camp. Go to West Forks, Bill Hall told the wardens. The wardens listened.",
+   "q": "logging village winter",
    "tag": [
     "village",
     "logging",
     "winter"
    ],
-   "scritta": "WEST FORKS",
+   "scritta": "30 MILES",
    "obbligo": [],
    "capitolo": "",
    "anno": 1945
   },
   {
-   "testo": "On March 12th, 1945, five days after the escape, two game wardens found a makeshift lean-to near West Forks. Inside were three cold, hungry German prisoners. The wardens took their axes and walked them to a country store.",
-   "q": "game wardens capture prisoners",
+   "testo": "On March 12th, 1945, five days after the escape, two Maine game wardens found a makeshift lean-to near West Forks. Inside were three cold, hungry German prisoners.",
+   "q": "prisoners captured winter surrender",
    "tag": [
-    "wardens",
     "prisoners",
-    "captured"
+    "captured",
+    "winter"
    ],
-   "scritta": "5 DAYS",
+   "scritta": "MARCH 12",
    "obbligo": [],
-   "capitolo": "The Real Answer",
+   "capitolo": "Captured at West Forks",
    "anno": 1945
   },
   {
-   "testo": "They had covered about thirty of their hundred miles. The ocean and Argentina were exactly as far away as ever. When the army questioned them, the answers surprised everyone. Nobody had mistreated them.",
-   "q": "prisoners interrogation army officer",
+   "testo": "The wardens took their axes and marched them to a nearby country store, to wait for the army. They had covered about 30 miles of their 100. Argentina was exactly as far away as ever.",
+   "q": "soldiers escort prisoners snow",
    "tag": [
+    "escort",
     "prisoners",
+    "snow"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 1945
+  },
+  {
+   "testo": "When the army questioned them, the answers surprised everyone. Nobody had mistreated them. One said Major Marshall had challenged them. Another simply dreaded another summer of mosquitoes and black flies.",
+   "q": "interrogation prisoner officer 1945",
+   "tag": [
     "interrogation",
+    "prisoner",
     "officer"
    ],
    "scritta": "",
    "obbligo": [],
-   "capitolo": "",
+   "capitolo": "Why They Ran",
    "anno": 1945
   },
   {
-   "testo": "One said Major Marshall had challenged them to try. We wanted to show him it is possible to escape. Another gave a more Maine reason. He did not want another summer of mosquitoes, black flies, and no-see-ums.",
-   "q": "prisoners guarded soldiers rifle",
-   "tag": [
-    "prisoners",
-    "guards",
-    "rifle"
-   ],
-   "scritta": "",
-   "obbligo": [],
-   "capitolo": "",
-   "anno": 1945
-  },
-  {
-   "testo": "Bill Hall never received public credit. That was how he wanted it. He went back to his cabin. The three young men went back behind the wire. Franz Keller spent three weeks in solitary confinement at Houlton.",
-   "q": "prison cell solitary confinement",
-   "tag": [
-    "prison",
-    "cell",
-    "solitary"
-   ],
-   "scritta": "",
-   "obbligo": [],
-   "capitolo": "What Came After",
-   "anno": 1945
-  },
-  {
-   "testo": "But his story did not end there. Back in camp, the eighteen-year-old who had built a compass from a peach can took a correspondence course in astronomy from the University of Maine. The war ended that May.",
-   "q": "V-E Day celebration 1945",
-   "tag": [
-    "victory",
-    "celebration",
-    "1945"
-   ],
-   "scritta": "",
-   "obbligo": [],
-   "capitolo": "",
-   "anno": 1945
-  },
-  {
-   "testo": "The Spencer Lake camp closed in April 1946, and its prisoners went home to a Germany in ruins. Then, in 1957, Franz Keller returned, this time as an engineer. He worked on NASA's Apollo program, and in 1961 became an American citizen. The boy who steered by a needle helped steer America to the moon.",
+   "testo": "Franz Keller spent three weeks in solitary confinement at Houlton. Then he took a correspondence course in astronomy from the University of Maine. The war ended that May, and the Spencer Lake camp closed in April 1946. In 1957 he returned, as an engineer, and helped build America's road to the moon.",
    "q": "Apollo rocket launch Saturn",
    "tag": [
     "rocket",
@@ -465,43 +452,41 @@
    ],
    "scritta": "APOLLO",
    "obbligo": [],
-   "capitolo": "",
+   "capitolo": "The Way Back",
    "anno": 0
   }
  ],
- "descrizione": "In March 1945, three young German prisoners of war walked away from a camp in the Maine woods, planning to reach the Atlantic coast and sail to Argentina. This documentary tells the true story of the Spencer Lake escape, the Maine manhunt, the hermit who guessed their route, and the surprising life of Franz Keller.\n\nDrawing on documented accounts of German POW camps in Maine, the video explains why prisoners were sent to cut pulpwood, how the Hobbstown camp worked, and what the escapees said when questioned about their motives.\n\nSubscribe to WWII Testimony for more true stories from the Second World War. Tell us in the comments: were there prisoners of war working near your town?\n\n#WWII #GermanPOWs #Maine #WorldWarII #History",
+ "descrizione": "In March 1945, three young German prisoners of war walked away from a work crew in the Maine woods with a compass made from a sewing needle and a peach can lid. Their goal was a ship to Argentina. A Maine winter, two frozen rivers and a hermit's guess ended the plan in five days.\n\nThis WWII documentary follows the Spencer Lake escape: the prisoner of war camps in Maine, the pulpwood labor program, one of the largest manhunts in state history, and what the escapees told the army afterward. One of them later worked on the Apollo program.\n\nSubscribe to WWII Testimony for more documented stories. Did prisoners of war work near your town? Tell us in the comments.\n\n#WWII #POW #Maine #History #Documentary",
  "tag": [
   "WWII",
   "World War II",
-  "German POWs",
+  "German prisoners of war",
+  "POW escape",
   "Maine history",
-  "prisoner of war escape",
   "Spencer Lake",
-  "Hobbstown Maine",
+  "Hobbstown",
+  "Houlton POW camp",
+  "prisoner of war camps Maine",
   "Franz Keller",
   "Apollo program",
-  "Houlton POW camp",
-  "pulpwood",
   "Bill Hall hermit",
   "West Forks Maine",
+  "Dead River",
+  "pulpwood POW",
+  "Geneva Convention prisoners",
   "WWII documentary",
-  "POW camps in America",
-  "1945 escape",
-  "Argentina escape",
-  "Maine woods",
+  "American home front",
+  "1945",
+  "escape to Argentina",
   "Moosehead Lake",
-  "Geneva Convention",
-  "home front",
-  "WWII testimony",
-  "Maine manhunt",
-  "German prisoners in America",
-  "history documentary",
-  "NASA engineer",
+  "Maine woods winter",
+  "WWII Testimony",
   "Hollingsworth and Whitney",
-  "war history"
+  "Nazi prisoners America",
+  "POW manhunt"
  ],
  "testo_copertina": "MAINE'S HERMIT",
- "copertina_prompt": "Extreme close-up portrait of a fictional frost-covered young German prisoner in a worn field cap, face huge in frame, wide anxious stare toward the forest, snowflakes on his skin, pale overcast winter light, a dented tin can lid held in a gloved hand at the edge of the frame.",
- "titolo_video": "German POWs in Maine Planned an Escape to Argentina. Then They Saw the Maine Woods.",
+ "copertina_prompt": "Extreme close-up portrait of a fictional frost-bitten 19-year-old German prisoner in a wool cap, face huge and filling the frame, wide desperate stare, snow flakes on his lashes, a battered peach can lid compass held near his chin, cold gray winter light in a Maine forest.",
+ "titolo_video": "Nazi Prisoners Dreamed of Fleeing to South America. A Maine Winter Ended It",
  "titolo_competitor": "German POWs in Maine Planned an Escape to Argentina. Then They Saw the Maine Woods."
 }
