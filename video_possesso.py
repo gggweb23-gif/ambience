@@ -692,10 +692,16 @@ def copertina(c, rif_url):
             dopo, sotto = DATI['costo_vero'], None
             if DATI.get('prezzo') and dopo <= DATI['prezzo'] and DATI.get('totale', 0) > DATI['prezzo']:   # 12 nov (Giorgio): sempre un prima e un dopo che fa venire voglia di guardare
                 dopo = DATI['totale']   # sotto resta "IN N ANNI" come in tutte le altre copertine (Giorgio 12 nov: niente PAGHI)
-            im = PF.crea({'prodotto': ogg, 'prezzo': DATI.get('prezzo') or 0, 'costo_vero': dopo, 'anni': DATI['anni'], 'sotto': sotto,
-                          'lato': 'sx' if k % 2 == 0 else 'dx', 'seme': k})
+            pp = {'prodotto': ogg, 'prezzo': DATI.get('prezzo') or 0, 'costo_vero': dopo, 'anni': DATI['anni'], 'sotto': sotto,
+                  'lato': 'sx' if (k + k // 4) % 2 == 0 else 'dx', 'seme': k, 'voci': sum(1 for s_ in c.get('scene') or [] if s_.get('tipo') == 'dettaglio') or 5}
+            # 15 nov (Giorgio): 4 copertine "curiosita'" a rotazione (domanda, prima, nessuno, scontrino); colonna copertina_curiosita: SI = rotazione, NO = FOTO 2C
+            if str(P.get('copertina_curiosita') or 'NO').strip().upper() == 'SI':
+                st_ = PF.STILI_CURIOSITA[k % len(PF.STILI_CURIOSITA)]
+                im = PF.crea_curiosita(pp, st_)
+            else:
+                st_ = 'foto 2c'; im = PF.crea(pp)
             out = os.path.join(ROOT, 'copertina.jpg'); im.save(out, quality=93)
-            log('copertina FOTO 2C:', ogg[:60], '| scritte a', 'sinistra' if k % 2 == 0 else 'destra')
+            log('copertina', st_, ':', ogg[:60], '| scritte a', 'sinistra' if pp['lato'] == 'sx' else 'destra')
             return out
         except Exception as e:
             log('copertina foto non riuscita, uso lo stile prodotto:', str(e)[:150]); stile = 'prodotto'

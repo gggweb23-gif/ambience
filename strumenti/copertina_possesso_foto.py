@@ -140,6 +140,63 @@ def crea(p):
     return im.convert('RGB')
 
 
+STILI_CURIOSITA = ['domanda', 'prima', 'nessuno', 'scontrino']   # 15 nov (Giorgio): 4 stili a rotazione, poi si guarda quale ha il CTR migliore
+
+
+def crea_curiosita(p, stile):
+    """15 nov (Giorgio: "chi scorre la home e sta per comprare deve dire: aspetta, voglio sapere"). Foto del prodotto + scritta che lascia la risposta
+    in sospeso. stile: domanda (prezzo barrato -> ??.??? EUR), prima (PRIMA DI COMPRARE / FAI I CONTI), nessuno (+X EUR CHE NESSUNO TI DICE),
+    scontrino (scontrino con il totale coperto). MANO LIBERA: il soggetto si alterna a destra/sinistra (p['lato'])."""
+    scritte_sx = str(p.get('lato') or 'sx') == 'sx'
+    im = (p.get('immagine') or foto(p['prodotto'], sx=not scritte_sx)).convert('RGBA')
+    box = p.get('box') or (box_soggetto(im, p.get('prodotto')) if E('ANTHROPIC_API_KEY') else None) or ((730, 230, 1250, 640) if scritte_sx else (40, 200, 560, 610))
+    box = (max(20, box[0]), max(20, box[1]), min(W - 20, box[2]), min(H - 20, box[3]))
+    box = (box[0], box[1], min(box[2], 740), box[3]) if not scritte_sx else (max(box[0], 540), box[1], box[2], box[3])
+    cerchio(ImageDraw.Draw(im), box, seme=int(p.get('seme') or 3))
+    prezzo, vero, anni = float(p.get('prezzo') or 0), float(p['costo_vero']), int(p.get('anni') or 0)
+    in_anni = ('IN 1 ANNO' if anni == 1 else f'IN {anni} ANNI') if anni else ''
+    lay = Image.new('RGBA', im.size, (0, 0, 0, 0)); d = ImageDraw.Draw(lay)
+    an = 'la' if scritte_sx else 'ra'; X = 40 if scritte_sx else W - 40
+
+    def riga(y, txt, size, col, barra=False):
+        while size > 50 and F(size).getlength(txt) > 520:
+            size -= 6
+        d.text((X, y), txt, font=F(size), fill=col, stroke_width=max(5, int(size) // 14), stroke_fill=INK, anchor=an)
+        b = d.textbbox((X, y), txt, font=F(size), anchor=an)
+        if barra:
+            lin = (b[0] - 6, b[3] - 4, b[2] + 6, b[1] + 4); d.line(lin, fill=INK, width=max(10, size // 9)); d.line(lin, fill=R, width=max(6, size // 15))
+        return b
+
+    if stile == 'scontrino':
+        w, h, n = 470, 560, 18; rc = Image.new('RGBA', (w, h), (0, 0, 0, 0)); dr = ImageDraw.Draw(rc)
+        dr.polygon([(0, 0), (w, 0), (w, h - 20)] + [(w - i * w / n, h if i % 2 else h - 20) for i in range(1, n + 1)], fill=(252, 250, 244, 255), outline=(60, 60, 60, 255))
+        dr.text((w / 2, 24), 'SCONTRINO', font=F(56), fill=INK, anchor='ma'); dr.line((24, 96, w - 24, 96), fill=(120, 120, 120), width=3)
+        dr.text((26, 112), 'PREZZO', font=F(72), fill=INK); dr.text((w - 26, 112), eur(prezzo) if prezzo else '?', font=F(72), fill=INK, anchor='ra')
+        dr.text((26, 200), f"+ {int(p.get('voci') or 5)} VOCI", font=F(72), fill=R); dr.text((w - 26, 200), '?', font=F(72), fill=R, anchor='ra')
+        dr.line((26, 296, w - 26, 296), fill=INK, width=5); dr.text((26, 310), 'TOTALE ' + in_anni, font=F(64), fill=INK)
+        dr.rectangle((26, 392, w - 26, 520), fill=(30, 30, 30)); dr.text((w / 2, 456), '???', font=F(120), fill=Y, anchor='mm')
+        rc = rc.rotate(3 if scritte_sx else -3, expand=True, resample=Image.BICUBIC)
+        x0 = 30 if scritte_sx else W - rc.width - 30
+        sh = Image.new('RGBA', im.size, (0, 0, 0, 0)); sh.paste((0, 0, 0, 130), (x0 + 10, 55), rc.split()[3])
+        im.alpha_composite(sh.filter(ImageFilter.GaussianBlur(12))); im.alpha_composite(rc, (x0, 40))
+        return im.convert('RGB')
+    if stile == 'domanda':
+        b = riga(40, eur(prezzo), 110, BI, barra=True) if prezzo else riga(40, 'QUANTO COSTA?', 100, BI)
+        fx = (b[0] + b[2]) / 2; y = b[3] + 14; a = 55
+        d.polygon([(fx - a * .45, y), (fx + a * .45, y), (fx + a * .45, y + a * .5), (fx + a, y + a * .5), (fx, y + a * 1.15), (fx - a, y + a * .5), (fx - a * .45, y + a * .5)], fill=R, outline=INK)
+        b = riga(y + a * 1.3, ''.join('?' if ch.isdigit() else ch for ch in eur(vero)), 200, Y)
+        if in_anni:
+            riga(b[3] + 18, in_anni, 72, BI)
+    elif stile == 'prima':
+        b = riga(40, 'PRIMA DI', 130, BI); b = riga(b[3] + 12, 'COMPRARE', 160, Y); riga(b[3] + 14, 'FAI I CONTI', 95, BI)
+    else:   # nessuno
+        extra = vero - prezzo if prezzo and vero > prezzo else vero
+        b = riga(60, '+' + eur(extra), 190, R); b = riga(b[3] + 14, 'CHE NESSUNO', 90, BI); riga(b[3] + 10, 'TI DICE', 90, BI)
+    sh = Image.new('RGBA', im.size, (0, 0, 0, 0)); sh.paste((0, 0, 0, 150), (0, 0) + im.size, lay.split()[3])
+    im.alpha_composite(sh.filter(ImageFilter.GaussianBlur(10)), (6, 8)); im.alpha_composite(lay)
+    return im.convert('RGB')
+
+
 def prove():
     """Workflow: PAYLOAD {"prove": [{"nome", "prodotto", "prezzo", "costo_vero", "anni", "lato"}]} -> prove_video/Costo_Vero/copertine_foto/<nome>.jpg"""
     import json
