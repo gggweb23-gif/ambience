@@ -190,7 +190,7 @@ def main():
                 tentativi_oggi += 1
                 fatti_oggi += str(r.get('status')).strip() in ('Completato', 'In produzione', 'Prova', 'Da caricare a mano')
         uscita = dt.datetime.fromisoformat(pubblica_il(cfg, ora).replace('Z', '+00:00')).astimezone(ZoneInfo('Europe/Rome')).strftime('%Y-%m-%d %H:%M')
-        RIFAI_RIGA = int(num(os.environ.get('RIFAI_RIGA'), 0) or 0) if SOLO else 0   # 15 nov: rifare il video di una riga gia' fatta (con COPIONE_DA = stesso copione)
+        RIFAI_RIGA = int(num(os.environ.get('RIFAI_RIGA') or 0) or 0) if SOLO else 0   # 15 nov: rifare il video di una riga gia' fatta (con COPIONE_DA = stesso copione)
         if gia_pronto(prod, uscita) and not RIFAI_RIGA:
             print(cid, ': video per il', uscita[:10], 'gia\' pronto'); continue
         if fatti_oggi >= num(cfg.get('videos_per_day')) and not ANTICIPO and not FORZA and not RIFAI_RIGA:
