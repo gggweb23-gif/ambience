@@ -1699,7 +1699,12 @@ def riquadro(im, x, y, testo, fs, col_testo=(255, 255, 255), bordo=(225, 30, 35)
 
 PATTERN_COP = ('Patterns of this niche that get the most clicks (use them for the 10% you change): split screen with a red vertical line comparing two places; '
                'whole country silhouettes filled with flat FLUO colours (lime green = the rich/winner side, rust orange-red = the poor/loser side, red = the one country in focus); '
-               'one huge short word in a black box (WHY?, BREXIT WINNER); a striking real number or comparison (8x RICHER, $3 TRILLION, 109M PEOPLE, 1 vs 18?).')
+               'one huge short word in a black box (WHY?, BREXIT WINNER); a striking real number or comparison (8x RICHER, $3 TRILLION, 109M PEOPLE, 1 vs 18?). '
+               # 15 nov (Giorgio, Storia in Minuti): le copertine che funzionano sono POVERI?/RICCHI e PERCHE? su schermo diviso a colori fluo; SICURO? su mappa pallida no
+               'THE WORDS MUST BE HIGH-IMPACT KEYWORDS of this niche that people know and search (RICH/POOR, WHY?, BANKRUPT, GENOCIDE, EMPIRE, COLLAPSE, WAR, a famous '
+               'name like SINGAPORE or DUBAI, or a real number): they must tell the contrast of the story by themselves. NEVER a vague word that says nothing alone '
+               '(SURE?, REALLY?, HERE, THIS). When the story has a before/after or a contrast, use the SPLIT screen with two opposite words (one per half, like POOR? / RICH) '
+               'and full fluo colours (rust/red on the bad side, lime on the good side), never a pale map.')
 
 
 def piano_copertina(comp, c):
