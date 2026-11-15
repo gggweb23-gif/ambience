@@ -1,5 +1,6 @@
 {
  "KAO PSICOLOGIA": {
+  "periodo": "di sempre",
   "channel_id": "KAO PSICOLOGIA",
   "quota_gemelli": 50.0,
   "foglio": "1FOFsikItiPMHuZJ_zSeHeJA1JSJH9nOiBQUgZB3R7hQ",
@@ -11,7 +12,7 @@
     "views": 160788,
     "ctr": 7.45,
     "impression": 446940,
-    "views_giorno": 6472.0,
+    "views_giorno": 6457.5,
     "pubblicato": "2026-10-21",
     "posto": 1
    },
@@ -21,7 +22,7 @@
     "views": 3258,
     "ctr": 4.37,
     "impression": 15432,
-    "views_giorno": 109.2,
+    "views_giorno": 109.0,
     "pubblicato": "2026-10-16",
     "posto": 2
    },
@@ -31,19 +32,9 @@
     "views": 1970,
     "ctr": 3.2,
     "impression": 12447,
-    "views_giorno": 90.2,
+    "views_giorno": 90.0,
     "pubblicato": "2026-10-24",
     "posto": 3
-   },
-   {
-    "id": "_dHEFQtxFFw",
-    "titolo": "La psicologia di chi non pubblica foto sui social",
-    "views": 1134,
-    "ctr": 5.49,
-    "impression": 4246,
-    "views_giorno": 63.7,
-    "pubblicato": "2026-10-28",
-    "posto": 4
    },
    {
     "id": "ImAq7xnCuNo",
@@ -51,29 +42,19 @@
     "views": 1425,
     "ctr": 3.87,
     "impression": 9438,
-    "views_giorno": 62.4,
+    "views_giorno": 62.2,
     "pubblicato": "2026-10-23",
+    "posto": 4
+   },
+   {
+    "id": "_dHEFQtxFFw",
+    "titolo": "La psicologia di chi non pubblica foto sui social",
+    "views": 1134,
+    "ctr": 5.49,
+    "impression": 4246,
+    "views_giorno": 63.5,
+    "pubblicato": "2026-10-28",
     "posto": 5
-   },
-   {
-    "id": "pISyy7Lcpbs",
-    "titolo": "La psicologia delle persone che non vogliono figli",
-    "views": 619,
-    "ctr": 4.21,
-    "impression": 3180,
-    "views_giorno": 57.3,
-    "pubblicato": "2026-11-04",
-    "posto": 6
-   },
-   {
-    "id": "vJvH-st9iRM",
-    "titolo": "La psicologia di chi preferisce l'inverno all'estate",
-    "views": 422,
-    "ctr": 4.58,
-    "impression": 1549,
-    "views_giorno": 47.9,
-    "pubblicato": "2026-11-06",
-    "posto": 7
    },
    {
     "id": "jBvgwekHy-0",
@@ -81,9 +62,19 @@
     "views": 692,
     "ctr": 4.62,
     "impression": 2859,
-    "views_giorno": 46.7,
+    "views_giorno": 46.6,
     "pubblicato": "2026-10-31",
-    "posto": 8
+    "posto": 6
+   },
+   {
+    "id": "pISyy7Lcpbs",
+    "titolo": "La psicologia delle persone che non vogliono figli",
+    "views": 619,
+    "ctr": 4.21,
+    "impression": 3180,
+    "views_giorno": 57.0,
+    "pubblicato": "2026-11-04",
+    "posto": 7
    },
    {
     "id": "3qDS6PaZdFE",
@@ -91,8 +82,18 @@
     "views": 601,
     "ctr": 4.61,
     "impression": 2387,
-    "views_giorno": 35.8,
+    "views_giorno": 35.7,
     "pubblicato": "2026-10-29",
+    "posto": 8
+   },
+   {
+    "id": "vJvH-st9iRM",
+    "titolo": "La psicologia di chi preferisce l'inverno all'estate",
+    "views": 422,
+    "ctr": 4.58,
+    "impression": 1549,
+    "views_giorno": 47.6,
+    "pubblicato": "2026-11-06",
     "posto": 9
    },
    {
@@ -116,6 +117,178 @@
     "posto": 11
    }
   ]
+ },
+ "Agora of Sages": {
+  "periodo": "ultimi 90 giorni",
+  "channel_id": "Agora of Sages",
+  "quota_gemelli": 0.0,
+  "foglio": "1tkqd82bLKDyYcJYjc0Fz0MC-Nh4E7UJVFPCpQT-0uqA",
+  "mediana_views": 2,
+  "video": [
+   {
+    "id": "-_1IkbvZ-8k",
+    "titolo": "10 Stoic Principles So That NOTHING Can AFFECT YOU | EPICTETUS",
+    "views": 246,
+    "ctr": 2.05,
+    "impression": 1509,
+    "views_giorno": 7.7,
+    "pubblicato": "2026-10-14",
+    "posto": 1
+   },
+   {
+    "id": "PjIUgRxhjoE",
+    "titolo": "5 Signs You're Dealing With An Evil Person | STOICISM — MARCUS AURELIUS",
+    "views": 155,
+    "ctr": 4.86,
+    "impression": 1069,
+    "views_giorno": 6.7,
+    "pubblicato": "2026-10-23",
+    "posto": 2
+   }
+  ]
+ },
+ "Billion Ruin": {
+  "periodo": "ultimi 90 giorni",
+  "channel_id": "Billion Ruin",
+  "quota_gemelli": 0.0,
+  "foglio": "1vG_1rw9qzVyrtUqOVoqgSUn_TdVhqimr5oHqgaOOya8",
+  "mediana_views": 1,
+  "video": []
+ },
+ "Storia in Minuti": {
+  "periodo": "ultimi 90 giorni",
+  "channel_id": "Storia in Minuti",
+  "quota_gemelli": 0.0,
+  "foglio": "1O2XoeNCRH9YOdcFQldodYJzc-fUVr-JMZiZtOQJdISg",
+  "mediana_views": 13,
+  "video": [
+   {
+    "id": "9BOXlNXHk0E",
+    "titolo": "STORIA DELL'AFGHANISTAN | Dal 3000 a.C. al 2026 | La storia completa",
+    "views": 402,
+    "ctr": 1.89,
+    "impression": 10983,
+    "views_giorno": 14.3,
+    "pubblicato": "2026-10-18",
+    "posto": 1
+   },
+   {
+    "id": "VE7QUAgT45A",
+    "titolo": "STORIA DELL'IRAN || La Civiltà di 5.000 Anni che Sopravvisse a Ogni Impero",
+    "views": 298,
+    "ctr": 1.87,
+    "impression": 7796,
+    "views_giorno": 10.2,
+    "pubblicato": "2026-10-17",
+    "posto": 2
+   },
+   {
+    "id": "l1MPYFJuqyk",
+    "titolo": "STORIA DI ISRAELE: DAGLI ANTICHI REGNI ALLO STATO MODERNO (37 a.C. → 2026)",
+    "views": 118,
+    "ctr": 2.24,
+    "impression": 2631,
+    "views_giorno": 7.0,
+    "pubblicato": "2026-10-29",
+    "posto": 3
+   },
+   {
+    "id": "7o1uzkwywMk",
+    "titolo": "L'INTERA Storia dell'India in 18 Minuti",
+    "views": 145,
+    "ctr": 1.92,
+    "impression": 4219,
+    "views_giorno": 6.3,
+    "pubblicato": "2026-10-23",
+    "posto": 4
+   }
+  ]
+ },
+ "Orbital Days": {
+  "periodo": "ultimi 90 giorni",
+  "channel_id": "Orbital Days",
+  "quota_gemelli": 50.0,
+  "foglio": "1W_hIOiCzgdg7IAlvlURBbaOiau2cJvUY5k1gOxyUJ6g",
+  "mediana_views": 46,
+  "video": [
+   {
+    "id": "QJgTxQq75DE",
+    "titolo": "Why the Space Station Is Almost Impossible to Destroy",
+    "views": 184,
+    "ctr": 1.7,
+    "impression": 1473,
+    "views_giorno": 31.4,
+    "pubblicato": "2026-11-09",
+    "posto": 1
+   },
+   {
+    "id": "-g9Jbm4apes",
+    "titolo": "Why Astronauts Fear Re-Entry More Than Anything Else",
+    "views": 189,
+    "ctr": 3.29,
+    "impression": 1730,
+    "views_giorno": 17.4,
+    "pubblicato": "2026-11-04",
+    "posto": 2
+   },
+   {
+    "id": "Jpg9d7OwMak",
+    "titolo": "Why Doesn't Space Junk Hit the Space Station?",
+    "views": 140,
+    "ctr": 2.67,
+    "impression": 1459,
+    "views_giorno": 15.8,
+    "pubblicato": "2026-11-06",
+    "posto": 3
+   },
+   {
+    "id": "5H8JxhSU_GM",
+    "titolo": "How Did Astronauts Survive Their Most Dangerous Emergencies?",
+    "views": 107,
+    "ctr": 5.52,
+    "impression": 851,
+    "views_giorno": 15.6,
+    "pubblicato": "2026-11-08",
+    "posto": 4
+   },
+   {
+    "id": "JXXDJmMvd1g",
+    "titolo": "Why Aren't Astronauts Afraid to Sleep in Space?",
+    "views": 128,
+    "ctr": 4.13,
+    "impression": 1404,
+    "views_giorno": 10.8,
+    "pubblicato": "2026-11-03",
+    "posto": 5
+   }
+  ]
+ },
+ "WWII Testimony": {
+  "periodo": "ultimi 90 giorni",
+  "channel_id": "WWII Testimony",
+  "quota_gemelli": 50.0,
+  "foglio": "1UMxWutex8_S9M5OYHbRPL5DUdFqcRE4XabdWSKjJREo",
+  "mediana_views": 2,
+  "video": [
+   {
+    "id": "gyhnaNmTP5c",
+    "titolo": "They Asked Guderian About Patton. He Repeated What Hitler Said.",
+    "views": 2271,
+    "ctr": 5.94,
+    "impression": 7439,
+    "views_giorno": 330.9,
+    "pubblicato": "2026-11-08",
+    "posto": 1
+   }
+  ]
+ },
+ "Quanto Ti Resta": {
+  "periodo": "ultimi 90 giorni",
+  "channel_id": "Quanto Ti Resta",
+  "quota_gemelli": 0.0,
+  "foglio": "1wGW83Y5ioKkKAPzFX_Czhs84wCLArnBZpUYq3Nj0e8I",
+  "mediana_views": 2,
+  "video": []
  },
  "Costo Vero": {
   "periodo": "ultimi 90 giorni",
