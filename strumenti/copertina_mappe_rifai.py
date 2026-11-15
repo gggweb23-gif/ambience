@@ -12,6 +12,9 @@ canale = re.sub(r'\W+', '_', str(P.get('channel_name') or 'rich_borders')).strip
 cart = os.path.join('prove_video', canale); os.makedirs(cart, exist_ok=True)
 for c in P.get('copertine') or []:
     path = os.path.join(cart, f"copertina_{c['video_id']}.jpg")
-    CC.copertina_b2(c['luoghi'], c['scritta'], path)
+    if c.get('piano'):   # 15 nov: copertina nello schema diviso dei video vincenti (POVERI?/RICCHI): piano gia' pronto per VM.copertina_nuova
+        VM.copertina_nuova(c['piano'], path)
+    else:
+        CC.copertina_b2(c['luoghi'], c['scritta'], path)
     esito = VM.carica_copertina(c['video_id'], path) if str(P.get('carica') or 'SI').upper() == 'SI' else 'non caricata (carica=NO)'
-    VM.log('copertina', c['video_id'], c['scritta'], '->', esito or 'CARICATA su YouTube')
+    VM.log('copertina', c['video_id'], c.get('scritta') or c.get('piano'), '->', esito or 'CARICATA su YouTube')
