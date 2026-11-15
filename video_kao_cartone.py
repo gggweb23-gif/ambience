@@ -453,7 +453,9 @@ def caselle(f):
             {'type': 'text', 'text': 'Image 960x540. Give the bounding box (pixels) of the bald man in the magenta shirt (head and upper body) and of the most '
                                      'important OTHER person or object. Also check: ok = true only if the bald man wears ONLY his MAGENTA long-sleeve shirt and black trousers (NO jacket, coat, hoodie, hat, costume, NOT a robot or other creature), he is the ONLY bald round-headed character (no copies of him) and NOBODY else wears magenta, pink or purple. '
                                      'scritte = true if the image contains ANY written words, letters, captions or fake text (signs, posters, screens, paper included). '
-                                     'Answer ONLY {"kao": [x1,y1,x2,y2], "altro": [x1,y1,x2,y2], "ok": true|false, "scritte": true|false}.'}]}]}).encode(),
+                                     'braccia = how many ARMS the bald man has (count every arm and every hand you can see, carefully, also hands resting on knees or holding things); '
+                                     'mostri = true if ANY person has extra or missing arms, hands, legs or fingers, or a deformed body. '
+                                     'Answer ONLY {"kao": [x1,y1,x2,y2], "altro": [x1,y1,x2,y2], "ok": true|false, "scritte": true|false, "braccia": number, "mostri": true|false}.'}]}]}).encode(),
         headers={'x-api-key': E('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01', 'content-type': 'application/json'})
     try:
         j = json.loads(urllib.request.urlopen(req, timeout=120).read())
@@ -463,8 +465,10 @@ def caselle(f):
         d = json.loads(t[t.find('{'): t.rfind('}') + 1])
         sc = Image.open(f).width / 960   # 11 nov: i quadri sono 1600 px, non 1920 (prima le caselle erano spostate)
         out = {k: [v * sc for v in d[k][:4]] for k in ('kao', 'altro') if isinstance(d.get(k), list) and len(d[k]) >= 4}
-        out['_ok'] = d.get('ok') is not False and d.get('scritte') is not True   # 12 nov (Giorgio): mai parole finte nei disegni
+        braccia_ok = str(d.get('braccia', 2)).strip() in ('2', '2.0', '') and d.get('mostri') is not True   # 15 nov (Giorgio): KAO sempre con 2 braccia, mai 3
+        out['_ok'] = d.get('ok') is not False and d.get('scritte') is not True and braccia_ok   # 12 nov (Giorgio): mai parole finte nei disegni
         out['_scritte'] = d.get('scritte') is True
+        out['_braccia'] = not braccia_ok
         return out
     except Exception as e:
         log('caselle non trovate:', str(e)[:100]); return {}
@@ -532,7 +536,7 @@ def quadri(c):
                   'small black oval eyes, thin eyebrows, magenta long-sleeve shirt, black trousers, black shoes - same face and proportions, never change his clothes: NO jacket, coat, hoodie, hat or costume over the magenta shirt, never a robot or another creature. He is the ONLY bald character: every other person has hair and a different face. '
                   f"Scene: {q['azione']}. Setting: {q['luogo']}.{extra} The main character is on the {lato} third of the frame, big and clearly visible "
                   '(at least half of the image height), his face and expression very readable. He is the ONLY person wearing magenta or pink: every other person wears completely different colours (grey, blue, green, white, brown). Rich, detailed, realistic Italian everyday environment, warm soft '
-                  'cinematic light, 16:9 composition with depth. No text, no letters, no numbers, no speech bubbles, no logos.')
+                  'cinematic light, 16:9 composition with depth. Normal anatomy: every person has exactly two arms, two hands and two legs. No text, no letters, no numbers, no speech bubbles, no logos.')
         nuovo = not os.path.exists(f)
         if nuovo:
             for k in range(3):
@@ -551,14 +555,15 @@ def quadri(c):
             uguale = i > 0 and _troppo_simile(f, os.path.join(CART, f"quadro_{i - 1:02d}.jpg"))   # 12 nov (Giorgio): mai la stessa scena di fila
             if q['_box'].get('_ok', True) and not uguale:
                 break
-            motivo = 'quasi uguale al precedente' if uguale else ('scritte nel disegno' if q['_box'].get('_scritte') else 'magenta su un altro personaggio')
+            motivo = 'quasi uguale al precedente' if uguale else ('scritte nel disegno' if q['_box'].get('_scritte') else ('braccia in piu o corpo deforme' if q['_box'].get('_braccia') else 'magenta su un altro personaggio'))
             log('quadro', i + 1, 'bocciato (' + motivo + '): lo rifaccio')
-            agg = ' IMPORTANT: only the bald main character wears magenta. Absolutely NO writing anywhere: no captions, no words, no letters, blank signs and screens.'
+            agg = (' IMPORTANT: only the bald main character wears magenta. Absolutely NO writing anywhere: no captions, no words, no letters, blank signs and screens.'
+                   ' Every person has EXACTLY two arms, two hands and two legs, normal anatomy: the bald man uses only his two arms (a simple pose).')
             if uguale:
                 agg += ' Show a CLEARLY DIFFERENT shot from the previous image: different framing, different angle and a different action.'
             q['_url'] = klein_edit(prompt + agg, refs[:1] + refs[2:] if (q.get('secondario') and rif) or uguale else refs, f)
             q['_box'] = caselle(f)
-        q['_box'].pop('_ok', None); q['_box'].pop('_scritte', None)
+        q['_box'].pop('_ok', None); q['_box'].pop('_scritte', None); q['_box'].pop('_braccia', None)
         json.dump(q['_box'], open(fb, 'w'))
         q['_img'] = Image.open(f).convert('RGB')
 
