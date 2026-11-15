@@ -1,11 +1,22 @@
 Canale: KAO PSICOLOGIA
-Competitor letti dal foglio: 34 video
+Competitor letti dal foglio: 36 video
 Video dal 2026-09-21 senza copertina nuova: 1
-              qsOrysGhGwk  La psicologia delle persone pigre ma ambiziose  [nuovo stile]
-copia competitor uErxlq1xW-g -> qsOrysGhGwk (100% uguale): LO FARÒ / DOMANI...
-  controllo immagine: {"testa_alta": 46, "scritte": false}
-zona libera troppo piccola: [0.01, 0.11, 0.38, 0.17]
-  controllo finale scritta: {"copre": false, "cosa": "The white card does not hide any person, body parts, or important objects. All graphic elements (trophy, rocket, money, clock) are fully visible in the thought bubble."}
-copertina pronta: qsOrysGhGwk LO FARÒ / DOMANI...
-CARICATA qsOrysGhGwk La psicologia delle persone pigre ma ambiziose
-FATTO: 1 caricate su 1 | APPLICA = True
+              iLa2gfG8FWY  La psicologia delle persone che tacciono quando sono fe  [nuovo stile]
+copia competitor yVRLeO1YIGo -> iLa2gfG8FWY (100% uguale): SE LO TENGONO / DENTRO
+  controllo immagine: {"testa_alta": 3.5, "scritte": false, "vestiti_uguali": false, "luoghi_uguali": true}
+  difetti trovati, rifaccio una volta: The two parts MUST be completely different kinds of places (e.g. a home living room vs a city street at night).
+  controllo immagine: {"testa_alta": 6, "scritte": false, "vestiti_uguali": false, "luoghi_uguali": false}
+  KAO era alto il 75%: zoom 1.18x
+zona libera troppo piccola: [0.785, 0.25, 0.985, 0.6]
+  controllo finale scritta: {"copre": true, "cosa": "The white card partially obscures the silhouette figure's body and the shadow cast on the wall behind it"}
+zona libera troppo piccola: [0.775, 0.255, 0.985, 0.6]
+  controllo finale scritta: {"copre": true, "cosa": "The white card partially hides the body and legs of the figure holding it"}
+  riquadro ristretto 0.06 0.06
+  controllo finale scritta: {"copre": true, "cosa": "The white card partially covers the person's body and the shadow figure behind them"}
+  riquadro ristretto 0.12 0.1
+  controllo finale scritta: {"copre": true, "cosa": "The white card partially covers the person's body and the shadow figure behind them"}
+  controllo finale scritta: {"copre": true, "cosa": "The white card partially hides the person's upper body and head area where the heart symbol is located on their chest."}
+  ATTENZIONE: la scritta copre ancora parte della scena, copertina da controllare a mano
+copertina pronta: iLa2gfG8FWY SE LO TENGONO / DENTRO
+solo anteprima iLa2gfG8FWY La psicologia delle persone che tacciono quando so
+FATTO: 0 caricate su 1 | APPLICA = False
