@@ -25,7 +25,10 @@ def eur(v):
 def foto(prodotto, sx):
     """Foto realistica: il soggetto nella meta' indicata, l'altra meta' libera (prato, cielo, muro) per le scritte."""
     lato_ogg = 'LEFT' if sx else 'RIGHT'; libero = 'RIGHT' if sx else 'LEFT'
-    prompt = (f'Realistic DSLR photograph, natural daylight, NOT an illustration: {prodotto}, in a real ordinary Italian setting. '
+    # 15 nov (Giorgio): sempre prodotti di fascia media-alta e BELLI da vedere, altrimenti nessuno clicca (mai l'utilitaria piccola e anonima)
+    prompt = (f'Realistic DSLR photograph, natural daylight, NOT an illustration: {prodotto}. Show a BEAUTIFUL, desirable, mid-to-high-end model with an '
+              'attractive modern design, new, clean and glossy, photographed like a premium advertisement: never a cheap, small, old, dirty or ugly version. '
+              'Elegant real Italian setting (stylish street, villa driveway, seaside promenade). '
               f'The subject is big, sharp and fully visible in the {lato_ogg} HALF of the frame, vertically centered. '
               f'The {libero} 45% of the image is calm, simple background without objects (lawn, wall, sky, road). '
               'High detail, vivid but natural colors. NO text, NO letters, NO numbers, NO logos, NO brand names.')
@@ -58,7 +61,8 @@ def difetto(im):
         r = YT.http('https://api.anthropic.com/v1/messages', {'model': 'claude-haiku-4-5-20251001', 'max_tokens': 5, 'messages': [{'role': 'user', 'content': [
             {'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}},
             {'type': 'text', 'text': 'Look carefully at this AI photo. Count the legs of every animal and the arms/legs of every person. Is there ANY anatomical error '
-             '(extra or missing legs, fused or duplicated bodies, deformed parts) or an impossible object? Answer only SI or NO.'}]}]},
+             '(extra or missing legs, fused or duplicated bodies, deformed parts) or an impossible object (a vehicle too long or with too many wheels, '
+             'duplicated doors, warped shapes)? Answer only SI or NO.'}]}]},
             {'x-api-key': E('ANTHROPIC_API_KEY'), 'anthropic-version': '2023-06-01'}, timeout=60)
         CO.registra('claude', 'claude-haiku-4-5-20251001', usage=r.get('usage'), nota='controllo difetti copertina')
         return r['content'][0]['text'].strip().upper().startswith('SI')

@@ -202,10 +202,11 @@ Ogni immagine: {{"persone": true/false, "descr": "...", "frase": "max 5 parole i
 persone=true solo con il protagonista (stesso viso e vestiti); persone=false = oggetti e luoghi SENZA persone{' e SENZA automobili' if AUTO else ''}
 (es. polizza e chiavi su un tavolo, bollettino e penna, salvadanaio, calcolatrice, attrezzi in officina, ciotola e guinzaglio, documenti del notaio).
 {'Il SUV compare SOLO nelle immagini con persone=true, sempre all aperto, in salone o in officina, mai in casa, sempre di lato o di tre quarti da dietro.' if AUTO else ''}
+La cosa del video (auto, moto, barca, cane...) e' SEMPRE un modello BELLO e desiderabile di fascia media-alta, moderno, nuovo e lucido, descritto con 2-3 dettagli di design (15 nov, Giorgio: niente utilitarie piccole e anonime, altrimenti nessuno clicca); stessa descrizione in "riferimento", nella copertina e in ogni immagine dove compare.
 Almeno 75% delle immagini con persone=false. Mai immagini di fogli scritti, scontrini, banconote, schermi o cartelli (le scritte escono illeggibili): oggetti semplici (chiavi, salvadanaio, monete, calcolatrice, gomme, attrezzi, garage, strade). Tutto da classe media italiana.
 Il "titolo" inizia SEMPRE con la cosa (la parola chiave del video, da mobile si vede solo l inizio), poi il resto: la cosa scritta TUTTA IN MAIUSCOLO perche si legga e si noti subito: es. "PLAYSTATION 5: quanto costa in 7 anni?", "MOTO da 8.000 €: quanto costa in 5 anni?". MAI la parola "davvero" nel titolo (12 nov, Giorgio: titolo corto, da mobile si deve leggere tutto).
 Aggiungi: "titolo", "descrizione" (2 brevi paragrafi per YouTube, in italiano), "tag" (12-15 tag in italiano), "protagonista" (descrizione fisica in inglese: eta', capelli, vestiti),
-"riferimento" (in inglese: il protagonista accanto alla cosa, all'aperto o nel posto giusto), "copertina": {{"oggetto": "in inglese: la cosa grande e ben visibile, sfondo semplice"}}.
+"riferimento" (in inglese: il protagonista accanto alla cosa, all'aperto o nel posto giusto), "copertina": {{"oggetto": "in inglese: la cosa grande e ben visibile, un modello bello di fascia media-alta con i suoi dettagli di design, sfondo semplice"}}.
 Rispondi SOLO con JSON: {{"titolo": "...", "descrizione": "...", "tag": [...], "protagonista": "...", "riferimento": "...", "copertina": {{...}}, "scene": [...]}}"""
     errore = ''
     for tentativo in range(3):
