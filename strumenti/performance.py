@@ -25,6 +25,7 @@ COLONNE = ['data_rilevazione', 'youtube_video_id', 'titolo', 'giorni_dalla_pubbl
 IN_ATTESA = 'in attesa report'
 PT = A.ZoneInfo('America/Los_Angeles')   # i giorni dei report reach di YouTube sono in ora del Pacifico
 REPORT = []
+QUOTE = {}   # 15 nov (Giorgio): quota video gemelli per canale, letta dal report Excel
 DATI_EXCEL = {}   # 9 nov: dati per il foglio Excel del mattino (strumenti/report_excel.py)
 
 
@@ -308,6 +309,7 @@ def canale(cfg):
         fonti_canale = {}; log('  fonti di traffico del canale non lette:', str(e)[:80])
     DATI_EXCEL[str(cfg.get('channel_name') or cid)] = [dict(dict(zip(COLONNE, r)), playlist=ramo.get(r[1], ''), fonti=fonti.get(r[1], {})) for r in righe[1:]]
     FONTI_CANALE[str(cfg.get('channel_name') or cid)] = fonti_canale
+    QUOTE[str(cfg.get('channel_name') or cid)] = {'channel_id': cid, 'quota_gemelli': num(cfg.get('quota_gemelli'), 0), 'foglio': fid}   # 15 nov: metodo 50-50
     ultimi = [x for x in righe[1:] if num(x[15], 0) >= 3 and not str(x[16]).startswith('incompleto')][-5:]   # solo video con >= 3 giorni di report
     attesa = sum(1 for x in righe[1:] if num(x[15], 0) < 3 or str(x[16]).startswith('incompleto'))
     if attesa:
@@ -359,6 +361,7 @@ def main():
     os.makedirs('coach', exist_ok=True)
     json.dump(DATI_EXCEL, open('coach/performance_dati.json', 'w'), ensure_ascii=False, indent=1)
     json.dump(FONTI_CANALE, open('coach/performance_fonti_canale.json', 'w'), ensure_ascii=False, indent=1)
+    json.dump(QUOTE, open('coach/performance_quote.json', 'w'), ensure_ascii=False, indent=1)
     open('coach/performance_ultimo.txt', 'w').write(dt.datetime.now().strftime('%Y-%m-%d %H:%M') + '\n' + '\n'.join(REPORT) + '\n')
 
 

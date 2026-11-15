@@ -15,6 +15,16 @@ def primo_pronto(prod):
     """12 nov (Giorgio): se lo scout ha trovato un video del filone che sta funzionando da un competitor (riga con data_scoperta),
     si fa prima quello (solo gancio e struttura, testo nostro); altrimenti la prima riga Pronto (titoli creati da noi). KAO escluso: ha un solo competitor."""
     pronte = [i for i, r in enumerate(prod) if str(r.get('status')).strip() == 'Pronto']
+    gem = lambda r: str(r.get('nome_canale') or '').strip().upper() == 'GEMELLO'
+    if QUOTA_GEM > 0:   # 15 nov (Giorgio, 50-50): tra gli ultimi 10 video fatti, la quota dei gemelli decide se ora tocca a un gemello
+        fatti = [r for r in prod if str(r.get('status')).strip() in ('Completato', 'Da caricare a mano')][-10:]
+        quota_ora = (sum(1 for r in fatti if gem(r)) / len(fatti) * 100) if fatti else 0
+        g_ = [i for i in pronte if gem(prod[i])]
+        if g_ and quota_ora < QUOTA_GEM:
+            return g_[0]
+        pronte = [i for i in pronte if not gem(prod[i])] or pronte
+    else:
+        pronte = [i for i in pronte if not gem(prod[i])]
     return next((i for i in pronte if str(prod[i].get('data_scoperta') or '').strip()), pronte[0] if pronte else None)
 
 
@@ -120,6 +130,7 @@ for cfg in canali:
         print(cfg['channel_id'], ': un video e\' ancora in lavorazione su GitHub'); continue
     if len(giri) >= num(cfg.get('videos_per_day')) + 2:
         print(cfg['channel_id'], ': troppi tentativi falliti oggi, si riprova domani'); continue
+    QUOTA_GEM = num(cfg.get('quota_gemelli'))
     k = primo_pronto(prod)
     if k is None:
         print(cfg['channel_id'], ': nessuna riga Pronto'); continue
@@ -130,7 +141,9 @@ for cfg in canali:
         + ([{'range': f"'{sch}'!{lettera(h.index('data_pubblicazione') + 1)}{n}", 'values': [[uscita_d + ' 17:00']]}] if ANTICIPO and 'data_pubblicazione' in h else [])})
     payload = {k_: v for k_, v in cfg.items() if v not in ('', None) and not re.search(r'token|secret|password|api_key', k_, re.I)}
     titolo = r.get('titolo_italiano') or r.get('titolo_originale')
+    gem = str(r.get('nome_canale') or '').strip().upper() == 'GEMELLO'   # 15 nov (Giorgio, 50-50): riga gemella di un nostro video vincente
     payload.update({'titolo': titolo, 'testo_copertina': r.get('titolo_thumbnail') or '', 'link_competitor': r.get('Link video') or '',
+                    **({'gemello': 'SI', 'titolo_vincente': r.get('titolo_originale') or '', 'metodo': 'impronta'} if gem else {}),
                     **({'pubblica_il': ora_uscita(uscita_d, cfg)} if ANTICIPO else {}),
                     'nome': re.sub(r'[^a-z0-9]+', '_', (cfg['channel_id'] + '_' + titolo).lower())[:60], 'foglio_produzione': fid, 'riga_produzione': n,
                     'copertine_usate': sorted({str(x.get('titolo_thumbnail') or '').strip().upper() for i_, x in enumerate(prod) if i_ != k} - {''})[:80],   # 12 nov (Giorgio): mai due copertine con la stessa scritta

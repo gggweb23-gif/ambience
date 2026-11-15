@@ -12,6 +12,7 @@ OBIETTIVI = {'ctr': 3.5, 'ritenzione_30s': 65.0, 'ritenzione_60s': 50.0}
 N = 10
 VERDE, ROSSO, GRIGIO = PatternFill('solid', fgColor='C6EFCE'), PatternFill('solid', fgColor='FFC7CE'), PatternFill('solid', fgColor='EDEDED')
 TESTA = PatternFill('solid', fgColor='1F2937'); CANALE = PatternFill('solid', fgColor='DBEAFE')
+AZZURRO = PatternFill('solid', fgColor='67E8F9')   # 15 nov (Giorgio): video VINCENTE, deve saltare all'occhio (diverso dal celeste dei titoli canale)
 SOTT = Border(bottom=Side(style='thin', color='BBBBBB'))
 
 
@@ -41,6 +42,12 @@ def fonti_txt(f):
     return [pc['home'], pc['consigliati'], pc['ricerca'], pc['shorts'], cons]
 
 
+def vincente(g, mediana):
+    """15 nov (Giorgio): un video "funziona" se CTR >= 4% con almeno 500 impression, oppure fa almeno 3 volte le views medie del canale (min 100)."""
+    v, ctr, imp = g.get('views') or 0, g.get('ctr'), g.get('impression') or 0
+    return bool((ctr is not None and ctr >= 4.0 and imp >= 500) or (mediana and v >= 100 and v >= 3 * mediana))
+
+
 def main():
     dati = json.load(open(sys.argv[1] if len(sys.argv) > 1 else 'coach/performance_dati.json'))
     oggi = dt.date.today().isoformat()
@@ -63,7 +70,15 @@ def main():
                 'CONSIGLIATI = esce accanto/dopo altri video: conta ARGOMENTO e TITOLO agganciati ai video grandi del filone.  '
                 'RICERCA = conta il TITOLO con le parole cercate.  SHORT = arrivano dagli Short.')
     ws['A4'].font = Font(italic=True, color='1D4ED8', size=9)
-    r = 6
+    try:
+        quote = json.load(open('coach/performance_quote.json'))
+    except Exception:
+        quote = {}
+    VINCENTI = {}
+    ws['A5'] = ('AZZURRO = VIDEO VINCENTE (CTR >= 4% con almeno 500 impression, oppure almeno 3 volte le views medie del canale). '
+                'Da li\' si fanno i video GEMELLI (metodo 50-50): stesso schema di titolo, copertina e gancio, argomento nuovo.')
+    ws['A5'].font = Font(bold=True, color='0E7490', size=10)
+    r = 7
     COL = ['Pubblicato', 'Titolo', 'Durata media visualizzazione', '% media visualizzata', 'Visualizzazioni', 'Tempo di visualizzazione (ore)',
            'Iscritti', 'Impression miniatura', 'CTR miniatura %', 'Ritenzione 30 s %', 'Ritenzione 60 s %',
            'Da HOME %', 'Da CONSIGLIATI %', 'Da RICERCA %', 'Da SHORT %', 'DOVE AGIRE']
@@ -99,7 +114,13 @@ def main():
         for c, val in enumerate(fonti_txt(fonti_can.get(nome) or {}), 12):   # fonti di TUTTO il canale, ultimi 28 giorni (Short compresi)
             x = ws.cell(r, c, val); x.font = Font(bold=True); x.fill = PatternFill('solid', fgColor='FEF3C7')
         r += 1
+        vv_ = sorted(g['views'] or 0 for _, g in righe); mediana = vv_[len(vv_) // 2] if vv_ else 0
+        q = quote.get(nome) or {}
         for v, g in righe:
+            vince = vincente(g, mediana)
+            if vince:
+                VINCENTI.setdefault(nome, {'channel_id': q.get('channel_id', nome), 'quota_gemelli': q.get('quota_gemelli', 0), 'foglio': q.get('foglio', ''), 'video': []})['video'].append(
+                    {'id': v.get('youtube_video_id'), 'titolo': v.get('titolo'), 'views': g['views'], 'ctr': g['ctr'], 'impression': g['impression'], 'pubblicato': v.get('data_pubblicazione')})
             ws.cell(r, 1, str(v.get('data_pubblicazione') or '')[:16])
             ws.cell(r, 2, str(v.get('titolo') or ''))
             ws.cell(r, 3, mmss(g['durata_media_sec']) if g['durata_media_sec'] else '-')
@@ -113,13 +134,21 @@ def main():
                 x.fill = GRIGIO if val is None or (c == 9 and not imp) else (VERDE if val >= ob else ROSSO)
             for c, val in enumerate(fonti_txt(v.get('fonti') or {}), 12):
                 ws.cell(r, c, val)
+            if vince:
+                ws.cell(r, 2).fill = AZZURRO; ws.cell(r, 2).font = Font(bold=True)
+                ws.cell(r, 2, '★ VINCENTE ★  ' + str(v.get('titolo') or ''))
+                x = ws.cell(r, NC, ('VINCENTE - si stanno facendo i gemelli (' + str(int(q.get('quota_gemelli') or 0)) + '%)') if (q.get('quota_gemelli') or 0) > 0
+                            else 'VINCENTE - VUOI INIZIARE A FARE IL 50-50?')
+                x.fill = AZZURRO; x.font = Font(bold=True)
             for c in range(1, NC + 1):
                 ws.cell(r, c).border = SOTT
                 if 2 < c < NC:
                     ws.cell(r, c).alignment = Alignment(horizontal='center')
             r += 1
         r += 2   # spazio tra un canale e l'altro
-    ws.freeze_panes = 'A6'
+    ws.freeze_panes = 'A7'
+    os.makedirs('coach', exist_ok=True)
+    json.dump(VINCENTI, open('coach/vincenti.json', 'w'), ensure_ascii=False, indent=1)   # lo leggono strumenti/gemelli.py e il messaggio del mattino
     # 11 nov (Giorgio OK, punto 2 dal metodo Reed): quale RAMO del filone (playlist) guardano davvero, per fare piu' video di quel ramo
     wr = wb.create_sheet('Rami del filone')
     for c, w_ in zip('ABCDEFGH', (18, 40, 10, 14, 14, 12, 16, 16)):

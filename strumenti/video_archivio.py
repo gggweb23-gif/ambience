@@ -166,7 +166,8 @@ if vid and not str(P.get('testo_copertina') or '').strip():
 # Stessa lingua e stesso pubblico: YouTube vede i nostri video come doppioni (Agora e WWII quasi senza impression, Orbital con l'IMPRONTA si').
 # Si prende SOLO gancio, struttura e argomento; il TITOLO e il testo si riscrivono da zero. KAO e i canali che traducono da un'altra lingua non cambiano.
 TITOLO_COMP = P['titolo']
-STRUTT = str(P.get('language') or '').strip().lower().startswith('en') and str(P.get('metodo') or 'impronta').strip().lower() == 'copia'
+GEMELLO = str(P.get('gemello') or '').strip().upper() == 'SI'   # 15 nov (Giorgio, metodo 50-50): video gemello di un NOSTRO video vincente, il titolo e' gia' nuovo
+STRUTT = str(P.get('language') or '').strip().lower().startswith('en') and str(P.get('metodo') or 'impronta').strip().lower() == 'copia' and not GEMELLO
 if STRUTT:
     try:
         _c0 = json.load(open(os.path.join('lavoro_archivio', 'copione.json')))
@@ -215,7 +216,15 @@ answer, fact or number (say the end first, then explain how we get there); no gr
 Scenes 2-3 open one concrete question the viewer wants answered and promise what is coming ("but the real danger is not the fire. It is what comes next").
 After that, a new small reveal or surprising detail about every 60-90 seconds, so there is always a reason to keep watching."""   # 11 nov (Giorgio): gancio forte, ritenzione a 30 s bassa su Orbital Days
 METODO = str(P.get('metodo') or 'impronta').strip().lower()   # copia (stesso argomento del competitor) | impronta (stessa struttura, altro argomento)
-if riferimento and METODO == 'copia' and STRUTT:
+if riferimento and GEMELLO:
+    regole += f"""
+
+REFERENCE VIDEO = OUR OWN BEST VIDEO on this channel ("{P.get('titolo_vincente') or ''}"): it worked much better than the others, so this new video is its TWIN.
+Copy what made it work: the same kind of opening hook (same mechanism), the same STRUCTURE (order of the parts, rhythm, kind of questions and reveals,
+where the surprises fall), the same tone and voice. The SUBJECT is the new title: every fact, name, number and quote must be about the NEW subject
+and documented; never reuse its facts, examples or sentences. Make it even BETTER: a stronger first 30 seconds, one extra surprising documented fact.
+{' '.join(riferimento.split()[:6000])}"""
+elif riferimento and METODO == 'copia' and STRUTT:
     regole += f"""
 
 REFERENCE VIDEO (a successful video of a competitor in the SAME language: copying it makes ours a duplicate). Take ONLY its opening hook

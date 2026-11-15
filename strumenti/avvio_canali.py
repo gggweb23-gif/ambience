@@ -17,6 +17,19 @@ PEXELS_IN_CORSO = PEXELS | {'video_kao.yml', 'video_agora.yml', 'filosofo.yml', 
 _TK = {}
 
 
+def kao_pronto(prod, quota):
+    """15 nov (Giorgio, 50-50): KAO copia al 100%. I gemelli sono video di La Psicologia Invisible simili al nostro vincente (nome_canale = GEMELLO):
+    se la quota dei gemelli negli ultimi 10 video e' sotto quota_gemelli si fa un gemello, altrimenti la prima riga Pronto normale."""
+    pronte = [i for i, r in enumerate(prod) if str(r.get('status')).strip() == 'Pronto']
+    gem = [i for i in pronte if str(prod[i].get('nome_canale') or '').strip().upper() == 'GEMELLO']
+    fatti = [r for r in prod if str(r.get('status')).strip() in ('Completato', 'Da caricare a mano')][-10:]
+    ora = (sum(1 for r in fatti if str(r.get('nome_canale') or '').strip().upper() == 'GEMELLO') / len(fatti) * 100) if fatti else 0
+    if quota > 0 and gem and ora < quota:
+        return gem[0]
+    altre = [i for i in pronte if i not in gem]
+    return altre[0] if altre else (gem[0] if quota > 0 and gem else None)
+
+
 def primo_pronto(prod):
     """12 nov (Giorgio): se lo scout ha trovato un video del filone che sta funzionando da un competitor (riga con data_scoperta),
     si fa prima quello (solo gancio e struttura, testo nostro); altrimenti la prima riga Pronto (titoli creati da noi). KAO escluso: ha un solo competitor."""
@@ -189,12 +202,12 @@ def main():
                 sch, h, prod, gid = righe(fid, con_gid=True)
         except Exception as e:
             print(cid, ': rifornimento titoli non riuscito', str(e)[:150])
-        k = primo_pronto(prod) if not cid.upper().startswith('KAO') else next((i for i, r in enumerate(prod) if str(r.get('status')).strip() == 'Pronto'), None)
+        k = primo_pronto(prod) if not cid.upper().startswith('KAO') else kao_pronto(prod, num(cfg.get('quota_gemelli')))
         while k is not None and not nel_filone(cfg, prod[k]):   # 9 nov: fuori filone -> Scartato, si passa alla riga dopo
             print(cid, ': FUORI FILONE, scartato:', prod[k].get('titolo_originale'))
             api(fid, 'POST', '/values:batchUpdate', {'valueInputOption': 'RAW', 'data': [{'range': f"'{sch}'!{lettera(h.index('status') + 1)}{k + 2}", 'values': [['Scartato (fuori filone)']]}]})
             prod[k]['status'] = 'Scartato (fuori filone)'
-            k = primo_pronto(prod) if not cid.upper().startswith('KAO') else next((i for i, r in enumerate(prod) if str(r.get('status')).strip() == 'Pronto'), None)
+            k = primo_pronto(prod) if not cid.upper().startswith('KAO') else kao_pronto(prod, num(cfg.get('quota_gemelli')))
         if k is None:
             print(cid, ': nessuna riga Pronto'); continue
         if wf in PEXELS and pex:
