@@ -544,7 +544,7 @@ def main():
     musica = os.path.join(QUI, 'libreria_musica', brani[int(num(P.get('riga_produzione'), 0)) % len(brani)])
     base = os.path.join(LAV, 'base.mp4')
     subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', video, '-i', vocew, '-stream_loop', '-1', '-i', musica,
-                    '-filter_complex', f'[2:a]volume=0.09,afade=t=out:st={max(0, tot - 3):.2f}:d=3[m];[1:a][m]amix=inputs=2:duration=first:normalize=0,alimiter=limit=0.95[a]',
+                    '-filter_complex', f'[1:a]asplit=2[vo][vk];[2:a]loudnorm=I=-24:TP=-3,volume=0.16,afade=t=out:st={max(0, tot - 3):.2f}:d=3[m0];[m0][vk]sidechaincompress=threshold=0.03:ratio=6:attack=30:release=500[m];[vo][m]amix=inputs=2:duration=first:normalize=0,alimiter=limit=0.95[a]',
                     '-map', '0:v', '-map', '[a]', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-t', f'{tot:.2f}', base], check=True)
     finale = os.path.join(ROOT, 'video_gloam.mp4')
     if not ISC.applica(base, finale, dict(P, subscribe_overlay_second=P.get('subscribe_overlay_second') or 95), os.path.join(LAV, 'isc'), short=False, log=log, enc=['-c:v', 'libx264', '-preset', 'veryfast', '-crf', '19']):

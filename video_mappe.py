@@ -2150,7 +2150,7 @@ def main():
         log('musica:', os.path.basename(mus))
         mix_in += ['-stream_loop', '-1', '-i', mus]
         # stesso volume per ogni brano (loudnorm), poi basso sotto la voce e ancora piu' basso mentre la voce parla
-        mix_f = (f'[0:a]apad,asplit=2[v0][vk];[2:a]loudnorm=I=-24:TP=-3,volume={MUSICA_VOL / .04 * .45:.3f},afade=t=in:d=2,'
+        mix_f = (f'[0:a]apad,asplit=2[v0][vk];[2:a]loudnorm=I=-24:TP=-3,volume={MUSICA_VOL / .04 * .20:.3f},afade=t=in:d=2,'
                  f'afade=t=out:st={max(0, totale - 3):.2f}:d=3[mu0];[mu0][vk]sidechaincompress=threshold=0.03:ratio=6:attack=30:release=500[mu];'
                  f'[v0][1:a][mu]amix=inputs=3:duration=first:normalize=0[m]')
     audio = os.path.join(LAV, 'audio.m4a')

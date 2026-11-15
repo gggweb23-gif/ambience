@@ -462,7 +462,7 @@ with wave.open(SCATTI, 'wb') as w_:
 log('scatti di macchina fotografica:', nscatti)
 run(['ffmpeg', '-y', '-v', 'error', '-i', muto, '-i', VOCE, '-stream_loop', '-1', '-i', mus, '-i', SCATTI, '-filter_complex',
      f'[1:a]aformat=sample_rates=44100:channel_layouts=stereo,volume={VV}[v];'
-     f'[2:a]aformat=sample_rates=44100:channel_layouts=stereo,volume={vm},afade=t=in:d=1,afade=t=out:st={fine_tot - 1.5:.2f}:d=1.5[m];'
+     f'[2:a]aformat=sample_rates=44100:channel_layouts=stereo,loudnorm=I=-24:TP=-3,volume={0.16 * vm / 0.07:.3f},afade=t=in:d=1,afade=t=out:st={fine_tot - 1.5:.2f}:d=1.5[m];'
      f'[3:a]aformat=sample_rates=44100:channel_layouts=stereo[s];'
      f'[v][m][s]amix=inputs=3:duration=first:normalize=0,alimiter=limit=0.95[a]',   # 9 nov: limitatore, mai distorsione con la voce alzata
      '-map', '0:v', '-map', '[a]', '-t', round(fine_tot, 2), '-c:v', 'copy', '-c:a', 'aac', '-b:a', '160k', '-movflags', '+faststart', OUT])
