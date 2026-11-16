@@ -1,0 +1,538 @@
+{
+ "titolo": "Zelensky's Record Drone Strike: 1,336 'Intercepted', Bridge Still Hit",
+ "angolo": "Russia says it shot down a record 1,336 drones, yet the Kerch Bridge was still hit. Meanwhile Zelensky says Starshield speed limits are weakening Ukraine's own defenses.",
+ "descrizione": "Zelensky's Record Drone Strike: 1,336 'Intercepted', Bridge Still Hit. Russia's Defense Ministry says it intercepted 1,336 Ukrainian drones overnight, the highest claimed number of the war, yet Russian officials confirm the Crimean Bridge was struck and traffic was halted. The Kremlin says the damage was 'insignificant'; Ukraine's General Staff did not acknowledge the bridge strike. Figures come from Russia's ministry and could not be independently verified. Subscribe: this story is still moving.",
+ "tag": [
+  "Zelensky's Record Drone Strike: 1,336 'Intercepted', Bridge Still Hit",
+  "Zelensky",
+  "Kerch Bridge",
+  "Crimean Bridge",
+  "Ukraine drone attack",
+  "Russia Ukraine war",
+  "record drone attack",
+  "Crimea",
+  "Starshield",
+  "Moscow drones",
+  "Peskov",
+  "Aksyonov",
+  "Ukraine war news",
+  "Ukraine war update",
+  "world conflicts"
+ ],
+ "fonti_link": [
+  "https://www.news4jax.com/news/world/2026/11/16/russia-says-its-air-defenses-intercept-over-1300-ukrainian-drones-in-massive-aerial-attack/",
+  "https://www.pbs.org/newshour/world/russia-says-its-defenses-intercepted-over-1300-ukrainian-drones-in-a-major-attack",
+  "https://www.ktsm.com/news/international/ap-russia-says-its-air-defenses-intercept-over-1300-ukrainian-drones-in-massive-aerial-attack/",
+  "https://www.nbcnews.com/world/ukraine/ukraine-launches-biggest-drone-attack-russia-war-began-rcna609555",
+  "https://www.yahoo.com/news/world/articles/ukraine-hits-crimean-bridge-russia-120014789.html",
+  "https://www.kyivpost.com/post/90199",
+  "https://www.irishtimes.com/world/europe/2026/11/16/ukraine-strikes-crimean-bridge-in-record-drone-attack/",
+  "https://www.yahoo.com/news/world/articles/ukraine-strikes-key-bridge-crimea-103805744.html",
+  "https://thedefensepost.com/2026/11/16/ukraine-strikes-crimean-bridge/",
+  "https://www.themoscowtimes.com/2026/11/16/ukraine-hits-crimean-bridge-amid-record-overnight-drone-attack-a94265",
+  "https://kyivindependent.com/ukraine-war-latest-crimean-bridge-hit-in-reported-attack-traffic-restrictions-imposed/",
+  "https://www.theepochtimes.com/world/ukrainian-forces-hit-crimean-bridge-causing-minor-damage-kremlin-says-6125444",
+  "https://aa.com.tr/en/eurasia/zelenskyy-accuses-spacex-of-restricting-starshield-terminal-speeds-for-ukraine/4125933",
+  "https://kyivindependent.com/i-havent-heard-that-trump-on-starshield-restrictions-after-zelenskys-repeated-warnings-2",
+  "https://www.france24.com/en/europe/20261116-live-600-ukrainian-drones-target-moscow-strike-crimea-bridge-halts-traffic",
+  "https://www.themoscowtimes.com/2026/11/12/zelensky-says-starshield-speed-limited-again-hampering-ukraines-defenses-a94241",
+  "https://dronexl.co/2026/11/16/crimean-bridge-hit-russia-1336-ukrainian-drones-refining/",
+  "https://meduza.io/en/feature/2026/11/16/ukrainian-drone-attack-damages-crimea-bridge-shutting-down-road-traffic-for-hours-kremlin-says-damage-is-minor"
+ ],
+ "personaggi": {
+  "zelensky": {
+   "commons": "Volodymyr Zelenskyy",
+   "chi": "Volodymyr Zelensky, President of Ukraine",
+   "pose": {
+    "serio": {
+     "posa": "standing straight in olive military-style sweatshirt, arms at sides, grave determined expression"
+    },
+    "mappa": {
+     "posa": "leaning over a table pointing down with one hand, focused expression"
+    },
+    "parla": {
+     "posa": "one hand raised mid-speech, intense expression, looking forward"
+    },
+    "preoccupato": {
+     "posa": "arms crossed, looking to the side, worried expression"
+    }
+   }
+  },
+  "peskov": {
+   "commons": "Dmitry Peskov",
+   "chi": "Dmitry Peskov, Kremlin spokesman",
+   "pose": {
+    "calmo": {
+     "posa": "standing in dark suit, hands clasped in front, composed expression"
+    }
+   }
+  },
+  "aksyonov": {
+   "commons": "Sergey Aksyonov",
+   "chi": "Sergey Aksyonov, Russian-installed head of Crimea",
+   "pose": {
+    "serio": {
+     "posa": "standing in dark jacket holding a phone, stern expression"
+    }
+   }
+  }
+ },
+ "sets": {
+  "ponte_notte": {
+   "descr": "The long Kerch Strait road and rail bridge at night seen from the water, a fireball glowing on one arch, thick smoke drifting over black sea, searchlight beams crossing the sky, no people",
+   "luogo": "KERCH STRAIT, CRIMEA",
+   "effetto": "none",
+   "cast": []
+  },
+  "cielo_droni": {
+   "descr": "Dark night sky over a Russian city skyline with hundreds of small drone silhouettes and tracer lines, orange glows on the horizon, no people",
+   "luogo": "MOSCOW REGION, RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "ufficio_zelensky": {
+   "descr": "Ukrainian presidential office in Kyiv at night, large desk, a big wall map table, dim lamps, windows showing dark city, no text anywhere",
+   "luogo": "KYIV, UKRAINE",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "zelensky",
+     "posa": "serio",
+     "lato": "sx"
+    }
+   ]
+  },
+  "strada_ponte_coda": {
+   "descr": "Cold dawn at the approach to the Crimean Bridge, long queue of cars and trucks stopped on the road, warming tents with steam, grey sky, no people",
+   "luogo": "KERCH STRAIT, RUSSIA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "aksyonov",
+     "posa": "serio",
+     "lato": "dx"
+    }
+   ]
+  },
+  "cremlino": {
+   "descr": "Grand Kremlin press room corridor with tall windows, polished floor, heavy curtains, cold morning light, no people, no text",
+   "luogo": "MOSCOW, RUSSIA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "peskov",
+     "posa": "calmo",
+     "lato": "dx"
+    }
+   ]
+  },
+  "sala_strategia": {
+   "descr": "Dim Ukrainian command room with a large table map lit from above, satellite dish silhouettes visible through window, tense atmosphere, no text",
+   "luogo": "UKRAINE",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "zelensky",
+     "posa": "parla",
+     "lato": "sx"
+    }
+   ]
+  }
+ },
+ "scene": [
+  {
+   "testo": "One night. Thirteen hundred and thirty-six drones. That is the number Russia's own Defense Ministry says it shot down. The figure could not be independently verified.",
+   "fonti": [
+    "https://www.pbs.org/newshour/world/russia-says-its-defenses-intercepted-over-1300-ukrainian-drones-in-a-major-attack",
+    "https://www.ktsm.com/news/international/ap-russia-says-its-air-defenses-intercept-over-1300-ukrainian-drones-in-massive-aerial-attack/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "cielo_droni"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 1336,
+    "decimali": 0,
+    "prefisso": "",
+    "unita": "DRONES",
+    "sopra": "RUSSIA SAYS IT INTERCEPTED"
+   }
+  },
+  {
+   "testo": "By Russia's own count, the most intercepts claimed since the full-scale invasion began. And Russian officials say the Crimean Bridge was still hit.",
+   "fonti": [
+    "https://www.news4jax.com/news/world/2026/11/16/russia-says-its-air-defenses-intercept-over-1300-ukrainian-drones-in-massive-aerial-attack/",
+    "https://www.nbcnews.com/world/ukraine/ukraine-launches-biggest-drone-attack-russia-war-began-rcna609555"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "ponte_notte"
+   },
+   "grafica": {
+    "tipo": "titolo",
+    "testo": "THE BRIDGE WAS HIT",
+    "sotto": "Confirmed by Russian-installed officials"
+   }
+  },
+  {
+   "testo": "Crimea's Russian-installed governor, Sergei Aksyonov, confirmed the bridge had been struck.",
+   "fonti": [
+    "https://www.yahoo.com/news/world/articles/ukraine-strikes-key-bridge-crimea-103805744.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "strada_ponte_coda"
+   }
+  },
+  {
+   "testo": "How can a record number of claimed intercepts be reached, and a bridge still be struck? That is the question.",
+   "fonti": [
+    "https://dronexl.co/2026/11/16/crimean-bridge-hit-russia-1336-ukrainian-drones-refining/"
+   ],
+   "titolo_card": true,
+   "visivo": {
+    "tipo": "set",
+    "set": "ponte_notte"
+   },
+   "grafica": {
+    "tipo": "titolo",
+    "testo": "STOPPED, YET HIT?",
+    "sotto": "Russia's count could not be independently verified"
+   }
+  },
+  {
+   "testo": "Kerch matters. AP describes the Kerch Bridge as a key span for moving military and civilian supplies from Russia to Crimea. Moscow seized Crimea from Ukraine in 2014.",
+   "fonti": [
+    "https://www.news4jax.com/news/world/2026/11/16/russia-says-its-air-defenses-intercept-over-1300-ukrainian-drones-in-massive-aerial-attack/",
+    "https://www.yahoo.com/news/world/articles/ukraine-hits-crimean-bridge-russia-120014789.html"
+   ],
+   "visivo": {
+    "tipo": "mappa",
+    "centro": [
+     36.5,
+     45.2
+    ],
+    "larghezza": 14,
+    "paesi": [
+     {
+      "iso": "UKR",
+      "colore": "blu"
+     },
+     {
+      "iso": "RUS",
+      "colore": "rosso"
+     }
+    ],
+    "punti": [
+     {
+      "lon": 36.51,
+      "lat": 45.31,
+      "nome": "KERCH BRIDGE"
+     },
+     {
+      "lon": 34.1,
+      "lat": 44.95,
+      "nome": "SIMFEROPOL"
+     },
+     {
+      "lon": 37.62,
+      "lat": 55.75,
+      "nome": "MOSCOW"
+     }
+    ],
+    "frecce": [
+     {
+      "da": [
+       33.0,
+       47.5
+      ],
+      "a": [
+       36.51,
+       45.31
+      ],
+      "colore": "giallo"
+     }
+    ],
+    "zoom_su": [
+     36.51,
+     45.31
+    ]
+   }
+  },
+  {
+   "testo": "Kyiv Post counts it as the fourth time Ukraine has targeted the span since the full-scale invasion began.",
+   "fonti": [
+    "https://www.kyivpost.com/post/90199"
+   ],
+   "capitolo": "A NIGHT OF DRONES",
+   "visivo": {
+    "tipo": "set",
+    "set": "strada_ponte_coda"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 4,
+    "decimali": 0,
+    "prefisso": "",
+    "unita": "TIMES",
+    "sopra": "BRIDGE TARGETED SINCE 2022"
+   }
+  },
+  {
+   "testo": "About 600 drones approached the Moscow region, Moscow Mayor Sergei Sobyanin said. Six people were wounded in Krasnodar, local authorities said.",
+   "fonti": [
+    "https://www.news4jax.com/news/world/2026/11/16/russia-says-its-air-defenses-intercept-over-1300-ukrainian-drones-in-massive-aerial-attack/"
+   ],
+   "visivo": {
+    "tipo": "mappa",
+    "centro": [
+     40,
+     52
+    ],
+    "larghezza": 30,
+    "paesi": [
+     {
+      "iso": "UKR",
+      "colore": "blu"
+     },
+     {
+      "iso": "RUS",
+      "colore": "rosso"
+     }
+    ],
+    "punti": [
+     {
+      "lon": 37.62,
+      "lat": 55.75,
+      "nome": "MOSCOW"
+     },
+     {
+      "lon": 38.97,
+      "lat": 45.04,
+      "nome": "KRASNODAR"
+     },
+     {
+      "lon": 36.51,
+      "lat": 45.31,
+      "nome": "KERCH"
+     }
+    ],
+    "frecce": [
+     {
+      "da": [
+       32,
+       49
+      ],
+      "a": [
+       37.62,
+       55.75
+      ],
+      "colore": "arancio"
+     },
+     {
+      "da": [
+       34,
+       47
+      ],
+      "a": [
+       38.97,
+       45.04
+      ],
+      "colore": "arancio"
+     }
+    ],
+    "zoom_su": [
+     38,
+     50
+    ]
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 600,
+    "decimali": 0,
+    "prefisso": "~",
+    "unita": "DRONES",
+    "sopra": "TOWARD MOSCOW REGION"
+   }
+  },
+  {
+   "testo": "The Kremlin's answer? Spokesman Dmitry Peskov said the damage was minor.",
+   "fonti": [
+    "https://www.pbs.org/newshour/world/russia-says-its-defenses-intercepted-over-1300-ukrainian-drones-in-a-major-attack"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "cremlino"
+   }
+  },
+  {
+   "testo": "But that's not the whole story. Satellite images posted by an open-source account and reported by TWZ show scorch marks and signs of damage on the road arch. The extent of the damage has not been independently confirmed.",
+   "fonti": [
+    "https://www.twz.com/news-features/russias-prized-kerch-bridge-struck-in-ukrainian-drone-onslaught",
+    "https://meduza.io/en/feature/2026/11/16/ukrainian-drone-attack-damages-crimea-bridge-shutting-down-road-traffic-for-hours-kremlin-says-damage-is-minor"
+   ],
+   "visivo": {
+    "tipo": "frase",
+    "testo": "But that's not the whole story. Satellite images posted by an open-source account and reported by TWZ show scorch marks and signs of damage on the road arch. The extent of the damage has not been independently confirmed."
+   }
+  },
+  {
+   "testo": "Road traffic was halted. The Russian outlet Mash reported about 2,000 vehicles were stuck. Crimean officials said a single lane had resumed by mid-evening, with traffic alternating directions.",
+   "fonti": [
+    "https://www.yahoo.com/news/world/articles/russia-says-ukraine-hit-crimea-190448401.html",
+    "https://www.ktsm.com/news/international/ap-russia-says-its-air-defenses-intercept-over-1300-ukrainian-drones-in-massive-aerial-attack/"
+   ],
+   "capitolo": "THE OTHER SIDE",
+   "visivo": {
+    "tipo": "set",
+    "set": "strada_ponte_coda"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 2000,
+    "decimali": 0,
+    "prefisso": "~",
+    "unita": "VEHICLES STUCK",
+    "sopra": "ACCORDING TO RUSSIAN OFFICIALS"
+   }
+  },
+  {
+   "testo": "Kyiv has not publicly detailed the bridge operation. Ukraine's General Staff said it struck the Ilsky refinery and an oil depot in the Azov area of the Rostov region.",
+   "fonti": [
+    "https://www.theepochtimes.com/world/ukrainian-forces-hit-crimean-bridge-causing-minor-damage-kremlin-says-6125444",
+    "https://www.france24.com/en/europe/20261116-live-600-ukrainian-drones-target-moscow-strike-crimea-bridge-halts-traffic"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "sala_strategia"
+   }
+  },
+  {
+   "testo": "A day earlier, Zelensky said Ukraine had neutralized more than 55 percent of Russia's oil refining capacity. That figure is his claim, citing a report by Major General Mykhailo Drapatyi.",
+   "fonti": [
+    "https://dronexl.co/2026/11/16/crimean-bridge-hit-russia-1336-ukrainian-drones-refining/",
+    "https://www.themoscowtimes.com/2026/11/16/ukraine-hits-crimean-bridge-amid-record-overnight-drone-attack-a94265"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "ufficio_zelensky"
+   },
+   "citazione": {
+    "chi": "zelensky",
+    "posa": "parla",
+    "testo": "In total, we have already neutralized more than 55% of Russia's oil refining capacity"
+   }
+  },
+  {
+   "testo": "Kyiv says its strikes answer Russian attacks on its energy infrastructure. Zelensky said Russia launched over 2,300 attack drones and 1,590 glide bombs against Ukraine in the past week.",
+   "fonti": [
+    "https://www.themoscowtimes.com/2026/11/16/ukraine-hits-crimean-bridge-amid-record-overnight-drone-attack-a94265",
+    "https://aa.com.tr/en/eurasia/zelenskyy-accuses-spacex-of-restricting-starshield-terminal-speeds-for-ukraine/4125933"
+   ],
+   "capitolo": "THE STARSHIELD PROBLEM",
+   "visivo": {
+    "tipo": "set",
+    "set": "sala_strategia"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 2300,
+    "decimali": 0,
+    "prefisso": "+",
+    "unita": "RUSSIAN DRONES IN A WEEK",
+    "sopra": "ACCORDING TO ZELENSKY"
+   }
+  },
+  {
+   "testo": "And Kyiv says Ukraine's own air defenses are weakened. A new speed limit on SpaceX's Starshield system, 161 kilometers per hour, restricts Ukraine's ability to shoot down Russian strike drones, Zelensky says.",
+   "fonti": [
+    "https://aa.com.tr/en/eurasia/zelenskyy-accuses-spacex-of-restricting-starshield-terminal-speeds-for-ukraine/4125933"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "ufficio_zelensky"
+   }
+  },
+  {
+   "testo": "What happens next? China has confirmed that Xi, Putin and Trump will meet in Shenzhen on Thursday, according to CNBC. Last week's US-mediated talks in Abu Dhabi produced a prisoner-exchange agreement but no breakthrough on territory, AP reports.",
+   "fonti": [
+    "https://www.yahoo.com/news/world/articles/ukraine-strikes-key-bridge-crimea-103805744.html",
+    "https://www.nbcnews.com/world/ukraine/ukraine-launches-biggest-drone-attack-russia-war-began-rcna609555"
+   ],
+   "visivo": {
+    "tipo": "mappa",
+    "centro": [
+     60,
+     50
+    ],
+    "larghezza": 60,
+    "paesi": [
+     {
+      "iso": "UKR",
+      "colore": "blu"
+     },
+     {
+      "iso": "RUS",
+      "colore": "rosso"
+     },
+     {
+      "iso": "CHN",
+      "colore": "amarillo"
+     }
+    ],
+    "punti": [
+     {
+      "lon": 114.06,
+      "lat": 22.54,
+      "nome": "SHENZHEN"
+     },
+     {
+      "lon": 36.51,
+      "lat": 45.31,
+      "nome": "KERCH"
+     }
+    ],
+    "frecce": [],
+    "zoom_su": [
+     75,
+     40
+    ]
+   }
+  },
+  {
+   "testo": "A claimed record barrage. A bridge hit, with Russia calling the damage minor. And a war that shows no sign of slowing. Subscribe, because this story is still moving.",
+   "fonti": [
+    "https://www.nbcnews.com/world/ukraine/ukraine-launches-biggest-drone-attack-russia-war-began-rcna609555"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "ponte_notte"
+   }
+  }
+ ],
+ "copertina": {
+  "sfondo": "The Kerch Bridge at night with a fireball on one arch, smoke over black sea, swarm of drone silhouettes in the sky, no people, no text",
+  "personaggio": "zelensky",
+  "posa": "serio",
+  "lato": "dx",
+  "righe": [
+   "1,336 DRONES",
+   "BRIDGE STILL HIT"
+  ],
+  "evidenzia": 2
+ },
+ "verifica": {
+  "correzioni": 17,
+  "scene_tolte": 1
+ },
+ "lingua": "en",
+ "nome": "2026-11-16_ukraine_hits_kerch_crimea_bridge_in_reco_prova_en",
+ "data": "NOVEMBER 16, 2026",
+ "etichetta": "BREAKING",
+ "musica": "tensione",
+ "voce": "uju3wxzG5OhpWcoi3SMy",
+ "budget_dollari": 2.26,
+ "storia": "Ukraine hits Kerch (Crimea) bridge in record drone attack of 1,300+ drones, Russia says it intercepted them (AP, BBC, Guardian, FT, NBC)",
+ "filone": "guerra"
+}
