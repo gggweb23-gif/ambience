@@ -1,7 +1,23 @@
 {
- "_nota": "Canali dei video notizie (16 nov 2026, Giorgio). SI = ogni mattina si produce e si carica su quel canale; NO = fermo. Il video italiano usa le stesse immagini dell'inglese, quindi l'inglese si produce sempre se e' attivo uno dei due.",
- "guerra_en": {"attivo": "SI", "canale": "War Room Explained (ex WWII Testimony)", "token": "YT_REFRESH_TOKEN_WWII_TESTIMONY"},
- "guerra_it": {"attivo": "NO", "canale": "ex Storia in Minuti", "token": "YT_REFRESH_TOKEN_STORIA"},
- "tech_en":   {"attivo": "NO", "canale": "ex Billion Ruin", "token": "YT_REFRESH_TOKEN_MAIN_STREET_ATLAS"},
- "tech_it":   {"attivo": "NO", "canale": "ex Costo Vero", "token": "YT_REFRESH_TOKEN_COSTO_VERO"}
+ "_nota": "Canali dei video notizie (16 nov 2026, Giorgio). SI = ogni mattina si produce e si carica su quel canale; NO = fermo. Il video italiano usa le stesse immagini dell'inglese, quindi l'inglese si produce sempre se e' attivo uno dei due. 16 nov sera: Giorgio accende tutti e 4 i canali da domani.",
+ "guerra_en": {
+  "attivo": "SI",
+  "canale": "War Room Explained (ex WWII Testimony)",
+  "token": "YT_REFRESH_TOKEN_WWII_TESTIMONY"
+ },
+ "guerra_it": {
+  "attivo": "SI",
+  "canale": "ex Storia in Minuti",
+  "token": "YT_REFRESH_TOKEN_STORIA"
+ },
+ "tech_en": {
+  "attivo": "SI",
+  "canale": "ex Billion Ruin",
+  "token": "YT_REFRESH_TOKEN_MAIN_STREET_ATLAS"
+ },
+ "tech_it": {
+  "attivo": "SI",
+  "canale": "ex Costo Vero",
+  "token": "YT_REFRESH_TOKEN_COSTO_VERO"
+ }
 }
