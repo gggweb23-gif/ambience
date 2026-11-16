@@ -1,13 +1,25 @@
-Traceback (most recent call last):
-  File "/home/runner/work/ambience/ambience/video_mappe.py", line 2356, in <module>
-    main()
-  File "/home/runner/work/ambience/ambience/video_mappe.py", line 2021, in main
-    comp = competitor()
-           ^^^^^^^^^^^^
-  File "/home/runner/work/ambience/ambience/video_mappe.py", line 173, in competitor
-    raise RuntimeError('STOP: manca il link del video competitor. Nessun video creato, nessun costo.')
-RuntimeError: STOP: manca il link del video competitor. Nessun video creato, nessun costo.
-03:56:45 esito: {"stato": "ERRORE", "errore": "STOP: manca il link del video competitor. Nessun video creato, nessun costo.", "minuti_lavoro": 0.0}
-03:59:00 avviso a n8n non riuscito: <urlopen error [Errno 110] Connection timed out>
-04:01:24 avviso a n8n non riuscito: <urlopen error [Errno 110] Connection timed out>
-04:03:47 avviso a n8n non riuscito: <urlopen error [Errno 110] Connection timed out>
+15:45:30 testo originale: 3069 parole (RapidAPI)
+15:45:30 VIDEO DA COPIARE: QyOCZY-kV_M - Why Argentina’s Economic Collapse is a Warning to the World
+15:47:41 copione: 77 scene, 1828 parole
+15:48:19 voce pronta: 11.9 minuti
+15:48:30 ritratto nuovo: Hipólito Yrigoyen
+15:48:33 ritratto nuovo: Carlos Menem
+15:48:33 ritratto nuovo: Juan Domingo Perón
+15:48:44 ritratto nuovo: Javier Milei
+15:48:44 disegno 77 scene su 4 core
+16:03:54 scene disegnate in 15.2 minuti
+16:03:56 musica: 0-16s mistero | 16-85s tensione | 85-121s epico | 121-149s trionfo | 149-336s tensione | 336-363s malinconia | 363-458s tensione | 458-516s azione | 516-545s tensione | 545-574s azione | 574-594s malinconia | 594-615s curiosita | 615-635s tensione | 635-676s epico | 676-719s curiosita | stacchi: 7 | brani: mistero_001.mp3, curiosita_001.mp3, curiosita_001.mp3
+16:03:56 musica: musica_film_s.wav
+16:13:50 invito SUBSCRIBE al secondo 10 (clic 10.6 s, campanella 11.6 s)
+16:13:53 copertina come il competitor: {"sinistra": null, "destra": null, "unica": {"vista": {"lon": -64, "lat": -38, "larghezza": 40}, "colori": {"lime": [], "ruggine": ["CHL", "URY", "PRY", "BOL", "BRA"], "rosso": ["ARG"]}}, "testo": "COLLASSO", "testo_altro": "", "testo_lato": "destra", "extra": ""}
+16:13:54 FATTO: /home/runner/work/ambience/ambience/video_mappe.mp4 12.0 minuti
+16:13:54 COSTO VIDEO (stima): 0.58 $ + 11698 crediti voce | claude claude-sonnet-5-5: 0.420 $ (2 chiamate) | fal fal-ai/bytedance/seedream/v4.5/text-to-image: 0.160 $ (4 chiamate) | elevenlabs eleven_multilingual_v2: 0.000 $ (77 chiamate), 11698 crediti
+16:15:41 video e copertina pronti per il Drive
+16:15:42 ora di uscita gia passata: il video esce subito (pubblico)
+16:15:54 caricato su YouTube: yVzspOI143A
+promozione a pagamento: No
+16:16:00 video aggiunto alla playlist: Storia dei paesi
+16:16:00 esito: {"stato": "PUBBLICATO", "video_id": "yVzspOI143A", "link": "https://www.youtube.com/watch?v=yVzspOI143A", "titolo": "Perché il Crollo Economico dell'Argentina è un Monito per il Mondo", "pubblica_il": "2026-11-16T16:00:00.000Z", "minuti_video": 12.0, "minuti_lavoro": 30.6, "errore": "", "descrizione": "Perché il Crollo Economico dell'Argentina è un Monito per il Mondo\n\nUn secolo fa l'Argentina era tra i dieci paesi più ricchi del pianeta. Buenos Aires era chiamata la Parigi del Sudamerica. Ogg
+16:18:16 avviso a n8n non riuscito: <urlopen error [Errno 110] Connection timed out>
+16:20:39 avviso a n8n non riuscito: <urlopen error [Errno 110] Connection timed out>
+16:23:02 avviso a n8n non riuscito: <urlopen error [Errno 110] Connection timed out>

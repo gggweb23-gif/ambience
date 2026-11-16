@@ -1,0 +1,3490 @@
+{
+ "titolo": "Perché il Crollo Economico dell'Argentina è un Monito per il Mondo",
+ "numero": {
+  "testo": "5.000%",
+  "sotto": "L'INFLAZIONE DEL 1989"
+ },
+ "copertina": {
+  "testo": "CROLLO?",
+  "oro": [
+   "ARG"
+  ],
+  "verde": [
+   "CAN",
+   "AUS",
+   "USA"
+  ],
+  "vista": {
+   "lon": -64,
+   "lat": -36,
+   "larghezza": 40
+  }
+ },
+ "descrizione": "Un secolo fa l'Argentina era tra i dieci paesi più ricchi del pianeta. Buenos Aires era chiamata la Parigi del Sudamerica. Oggi il paese è famoso per l'inflazione, i default e le crisi a ripetizione. Cosa è andato storto? In questo viaggio sulle mappe animate seguiamo l'età dell'oro, la Grande Depressione, i colpi di stato, l'iperinflazione, il crac del 2001 e l'arrivo di Javier Milei con la sua motosega.\n\nVediamo i numeri, le scelte e gli errori che hanno trasformato una potenza agricola in un paese bloccato nello stesso ciclo di crisi. Alla fine, tre lezioni semplici che valgono per ogni economia: istituzioni solide, conti in ordine e politiche coerenti.",
+ "tag": [
+  "Argentina",
+  "crollo economico Argentina",
+  "storia dell'Argentina",
+  "inflazione",
+  "iperinflazione",
+  "Javier Milei",
+  "Perón",
+  "default Argentina",
+  "Buenos Aires",
+  "economia spiegata",
+  "storia economica",
+  "mappe animate"
+ ],
+ "scene": [
+  {
+   "testo": "Un pane che raddoppia di prezzo mentre fai la fila. Una banconota nascosta nel materasso. Un presidente in fuga in elicottero. Com'è crollato uno dei paesi più ricchi del mondo?",
+   "anteprima": true,
+   "vista": {
+    "lon": -60,
+    "lat": -36,
+    "larghezza": 40
+   },
+   "epoca": "oggi",
+   "oro": [
+    "ARG"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "prezzo",
+     "testo": "PANE x2",
+     "sotto": "IN POCHI MINUTI",
+     "ricco": false,
+     "parola": "pane"
+    },
+    {
+     "tipo": "numero",
+     "testo": "5.000%",
+     "lon": -64,
+     "lat": -34,
+     "parola": "materasso"
+    },
+    {
+     "tipo": "icona",
+     "icona": "question",
+     "lon": -58.4,
+     "lat": -34.6,
+     "parola": "crollato"
+    }
+   ],
+   "musica": "mistero",
+   "stacco": false,
+   "pin": {
+    "lon": -66,
+    "lat": -30,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Cento miliardi di dollari di debito non pagato. Cinque presidenti in due settimane. Com'è possibile?",
+   "anteprima": true,
+   "vista": {
+    "lon": -60,
+    "lat": -36,
+    "larghezza": 30
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "numero",
+     "testo": "$100 MLD",
+     "lon": -60,
+     "lat": -36,
+     "parola": "miliardi"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "5 PRESIDENTI",
+     "parola": "presidenti"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -68,
+    "lat": -40,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Immagina di entrare in un negozio e prendere un pane con il prezzo ben chiaro. Mentre vai alla cassa, il prezzo raddoppia. Ti lamenti, e raddoppia ancora.",
+   "anteprima": false,
+   "vista": {
+    "lon": -60,
+    "lat": -36,
+    "larghezza": 24
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "wheat",
+     "lon": -63,
+     "lat": -34,
+     "parola": "pane"
+    },
+    {
+     "tipo": "prezzo",
+     "testo": "x2",
+     "sotto": "PREZZO DEL PANE",
+     "ricco": false,
+     "parola": "raddoppia"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "family",
+     "n": 4,
+     "lon": -58.5,
+     "lat": -34.6,
+     "parola": "ti"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Prezzi fuori controllo",
+     "parola": "ancora"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -66,
+    "lat": -38,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Succedeva davvero nell'Argentina degli anni Ottanta. Inflazione fuori controllo, vite impossibili per milioni di persone. E in parte, quei problemi esistono ancora oggi.",
+   "anteprima": false,
+   "vista": {
+    "lon": -64,
+    "lat": -36,
+    "larghezza": 30
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1980",
+     "parola": "Ottanta"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_up",
+     "lon": -60,
+     "lat": -33,
+     "parola": "Inflazione"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Problemi ancora presenti",
+     "parola": "oggi"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -69,
+    "lat": -42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Ma c'è un dato che sorprende. All'inizio del Novecento l'Argentina era ricca quanto Canada, Australia e Stati Uniti. Tutti paesi sviluppati e industrializzati.",
+   "anteprima": false,
+   "vista": {
+    "lon": -90,
+    "lat": -5,
+    "larghezza": 200
+   },
+   "epoca": "antica",
+   "oro": [
+    "ARG",
+    "CAN",
+    "AUS",
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "contorno",
+     "paese": "ARG",
+     "parola": "Argentina"
+    },
+    {
+     "tipo": "solleva",
+     "paese": [
+      "ARG",
+      "CAN",
+      "AUS",
+      "USA"
+     ],
+     "volte": 6,
+     "testo": "RICCHI",
+     "colore": "oro",
+     "parola": "ricca"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Tra i più ricchi del mondo",
+     "parola": "sviluppati"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -100,
+    "lat": -30,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Oggi sembra impensabile. L'Argentina è ricordata per un'inflazione oltre il cinquemila per cento e per un presidente che sale sul palco con una motosega.",
+   "anteprima": false,
+   "vista": {
+    "lon": -64,
+    "lat": -36,
+    "larghezza": 28
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 5000,
+     "prefisso": "+",
+     "suffisso": "%",
+     "sotto": "INFLAZIONE ANNUA",
+     "parola": "cinquemila"
+    },
+    {
+     "tipo": "icona",
+     "icona": "question",
+     "lon": -58.4,
+     "lat": -34.6,
+     "parola": "motosega"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Da potenza a paese in crisi",
+     "parola": "presidente"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -70,
+    "lat": -30,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Cosa è successo? Come ha fatto un'economia in rapidissima crescita a diventare un disastro perenne? E cosa possiamo imparare da questa storia?",
+   "anteprima": false,
+   "vista": {
+    "lon": -64,
+    "lat": -36,
+    "larghezza": 40
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "scritta",
+     "testo": "PERCHÉ?",
+     "parola": "successo"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": -62,
+     "lat": -36,
+     "parola": "disastro"
+    }
+   ],
+   "musica": "mistero",
+   "stacco": false,
+   "pin": {
+    "lon": -72,
+    "lat": -32,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Dal 1880 al 1930 l'Argentina vive la sua età dell'oro. Buenos Aires è chiamata la Parigi del Sudamerica. Nel 1913 l'Argentina è tra le dieci nazioni più ricche del pianeta.",
+   "anteprima": false,
+   "vista": {
+    "lon": -58,
+    "lat": -34.5,
+    "larghezza": 14
+   },
+   "epoca": "antica",
+   "oro": [
+    "ARG"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1880",
+     "parola": "1880"
+    },
+    {
+     "tipo": "icona",
+     "icona": "parliament",
+     "lon": -58.4,
+     "lat": -34.6,
+     "parola": "Parigi"
+    },
+    {
+     "tipo": "conta",
+     "valore": 10,
+     "prefisso": "TOP ",
+     "suffisso": "",
+     "sotto": "PAESI PIÙ RICCHI, 1913",
+     "parola": "dieci"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Età dell'oro argentina",
+     "parola": "oro"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": false,
+   "pin": {
+    "lon": -62,
+    "lat": -37,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Come ci è arrivata? Soprattutto grazie alla geografia e a un bel po' di fortuna. Il motore erano le immense pianure fertili chiamate Pampa.",
+   "anteprima": false,
+   "vista": {
+    "lon": -62,
+    "lat": -35,
+    "larghezza": 16
+   },
+   "epoca": "antica",
+   "oro": [
+    "ARG"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "LA PAMPA",
+     "lon": -62,
+     "lat": -35,
+     "parola": "Pampa"
+    },
+    {
+     "tipo": "icona",
+     "icona": "wheat",
+     "lon": -63,
+     "lat": -34,
+     "parola": "fertili"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Pianure fertili, motore del paese",
+     "parola": "motore"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -67,
+    "lat": -38,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Mentre l'Europa si industrializzava, l'Argentina diventava il granaio del mondo. Esportava carne e cereali a mercati affamati, a ottimi prezzi.",
+   "anteprima": false,
+   "vista": {
+    "lon": -30,
+    "lat": -10,
+    "larghezza": 120
+   },
+   "epoca": "antica",
+   "oro": [
+    "ARG"
+   ],
+   "verde": [
+    "GBR",
+    "FRA",
+    "DEU"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "cattle",
+     "lon": -62,
+     "lat": -34,
+     "parola": "carne"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -58.4,
+      -34.6
+     ],
+     "a": [
+      -0.1,
+      51.5
+     ],
+     "icona": "cargo_ship",
+     "parola": "Esportava"
+    },
+    {
+     "tipo": "icona",
+     "icona": "wheat",
+     "lon": -64,
+     "lat": -32,
+     "parola": "cereali"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Granaio del mondo",
+     "parola": "granaio"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": -45,
+    "lat": -50,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Il capitale britannico finanziò una fitta rete ferroviaria. Collegava l'interno produttivo con i porti più trafficati.",
+   "anteprima": false,
+   "vista": {
+    "lon": -62,
+    "lat": -34,
+    "larghezza": 14
+   },
+   "epoca": "antica",
+   "oro": [
+    "ARG"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "steam_train",
+     "lon": -62,
+     "lat": -34,
+     "parola": "ferroviaria"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -64,
+      -32
+     ],
+     "a": [
+      -58.4,
+      -34.6
+     ],
+     "icona": "steam_train",
+     "parola": "porti"
+    },
+    {
+     "tipo": "icona",
+     "icona": "port",
+     "lon": -58.4,
+     "lat": -34.6,
+     "parola": "porti"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Ferrovie costruite con capitale britannico",
+     "parola": "britannico"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -66,
+    "lat": -38,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Come gli Stati Uniti, l'Argentina attirava milioni di immigrati in cerca di opportunità. Tra il 1870 e il 1930 arrivarono quasi sei milioni di europei.",
+   "anteprima": false,
+   "vista": {
+    "lon": -35,
+    "lat": -5,
+    "larghezza": 110
+   },
+   "epoca": "antica",
+   "oro": [
+    "ARG"
+   ],
+   "verde": [
+    "ESP",
+    "ITA"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      12.5,
+      41.9
+     ],
+     "a": [
+      -58.4,
+      -34.6
+     ],
+     "icona": "cargo_ship",
+     "parola": "immigrati"
+    },
+    {
+     "tipo": "anno",
+     "testo": "1870",
+     "parola": "1870"
+    },
+    {
+     "tipo": "conta",
+     "valore": 6,
+     "prefisso": "~",
+     "suffisso": " MLN",
+     "sotto": "EUROPEI IN ARGENTINA",
+     "parola": "sei"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "colonist",
+     "n": 6,
+     "lon": -58.4,
+     "lat": -34.6,
+     "parola": "europei"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": -20,
+    "lat": -35,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Nel 1914 quasi un abitante su tre era nato all'estero. Erano lavoratori qualificati che aiutarono a modernizzare l'economia e a far crescere una classe media.",
+   "anteprima": false,
+   "vista": {
+    "lon": -62,
+    "lat": -35,
+    "larghezza": 16
+   },
+   "epoca": "antica",
+   "oro": [
+    "ARG"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1914",
+     "parola": "1914"
+    },
+    {
+     "tipo": "contatore",
+     "testo": "QUASI 3 SU 10",
+     "su": 3,
+     "di": 10,
+     "personaggio": "colonist",
+     "parola": "tre"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "worker",
+     "n": 5,
+     "lon": -60,
+     "lat": -34,
+     "parola": "lavoratori"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Nata all'estero: quasi il 30%",
+     "parola": "estero"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -66,
+    "lat": -38,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Il reddito pro capite argentino superava quello di Francia e Germania, ed era quasi il doppio di quello dell'Italia. Un'Italia che spediva i suoi figli proprio laggiù.",
+   "anteprima": false,
+   "vista": {
+    "lon": -20,
+    "lat": 10,
+    "larghezza": 120
+   },
+   "epoca": "antica",
+   "oro": [
+    "ARG"
+   ],
+   "verde": [
+    "FRA",
+    "DEU",
+    "ITA"
+   ],
+   "eventi": [
+    {
+     "tipo": "solleva",
+     "paese": [
+      "ARG"
+     ],
+     "volte": 9,
+     "testo": "PIÙ RICCA",
+     "colore": "oro",
+     "parola": "superava"
+    },
+    {
+     "tipo": "barre",
+     "titolo": "REDDITO PRO CAPITE, 1913 (INDICE)",
+     "voci": [
+      {
+       "testo": "ARGENTINA",
+       "valore": 100,
+       "lato": "oro"
+      },
+      {
+       "testo": "FRANCIA",
+       "valore": 90,
+       "lato": "verde"
+      },
+      {
+       "testo": "GERMANIA",
+       "valore": 85,
+       "lato": "verde"
+      },
+      {
+       "testo": "ITALIA",
+       "valore": 55,
+       "lato": "verde"
+      }
+     ],
+     "parola": "Francia"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Quasi il doppio dell'Italia",
+     "parola": "doppio"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": false,
+   "pin": {
+    "lon": -40,
+    "lat": 30,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Nel 1906 il New York Times scrisse che Buenos Aires univa la bellezza di Washington, la ricchezza di New York e l'energia di Chicago.",
+   "anteprima": false,
+   "vista": {
+    "lon": -58.4,
+    "lat": -34.6,
+    "larghezza": 8
+   },
+   "epoca": "antica",
+   "oro": [
+    "ARG"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1906",
+     "parola": "1906"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "BUENOS AIRES",
+     "lon": -58.4,
+     "lat": -34.6,
+     "parola": "Buenos"
+    },
+    {
+     "tipo": "icona",
+     "icona": "parliament",
+     "lon": -58.38,
+     "lat": -34.61,
+     "parola": "bellezza"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Bellezza, ricchezza, energia",
+     "parola": "energia"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -58.9,
+    "lat": -35,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Viali in stile europeo, caffè, teatri e circoli eleganti: le élite europee non resistevano. Il futuro sembrava assicurato. Cosa poteva andare storto?",
+   "anteprima": false,
+   "vista": {
+    "lon": -58.4,
+    "lat": -34.6,
+    "larghezza": 6
+   },
+   "epoca": "antica",
+   "oro": [
+    "ARG"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "school",
+     "lon": -58.42,
+     "lat": -34.6,
+     "parola": "teatri"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "merchant",
+     "n": 4,
+     "lon": -58.37,
+     "lat": -34.61,
+     "parola": "élite"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "E POI?",
+     "parola": "storto"
+    }
+   ],
+   "musica": "mistero",
+   "stacco": false,
+   "pin": {
+    "lon": -58.7,
+    "lat": -34.9,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Cosa succede quando il mondo smette di comprare il tuo pane e la tua carne? L'Argentina stava per scoprirlo. Tutto stava per cambiare.",
+   "anteprima": false,
+   "vista": {
+    "lon": -30,
+    "lat": 0,
+    "larghezza": 160
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "cattle",
+     "lon": -62,
+     "lat": -34,
+     "parola": "carne"
+    },
+    {
+     "tipo": "icona",
+     "icona": "question",
+     "lon": -20,
+     "lat": 20,
+     "parola": "smette"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Il mondo smette di comprare",
+     "parola": "cambiare"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": true,
+   "pin": {
+    "lon": -80,
+    "lat": -40,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Il crollo di Wall Street nel 1929 e la Grande Depressione scuotono il pianeta. Il commercio mondiale crolla e ogni paese si chiude dietro i dazi.",
+   "anteprima": false,
+   "vista": {
+    "lon": -40,
+    "lat": 30,
+    "larghezza": 120
+   },
+   "epoca": "antica",
+   "oro": [
+    "USA"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1929",
+     "parola": "1929"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": -74,
+     "lat": 40.7,
+     "parola": "crollo"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "WALL STREET",
+     "lon": -74,
+     "lat": 40.7,
+     "parola": "Wall"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "DAZI",
+     "parola": "dazi"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -20,
+    "lat": 15,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Per l'Argentina, che per cinquant'anni era cresciuta vendendo carne e grano, l'impatto fu devastante. L'economia si fermò di colpo.",
+   "anteprima": false,
+   "vista": {
+    "lon": -62,
+    "lat": -35,
+    "larghezza": 24
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": -62,
+     "lat": -35,
+     "parola": "devastante"
+    },
+    {
+     "tipo": "icona",
+     "icona": "wheat",
+     "lon": -64,
+     "lat": -33,
+     "parola": "grano"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Le esportazioni crollano",
+     "parola": "fermò"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": -68,
+    "lat": -40,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "I nuovi governi scelsero una strategia: come Canada, Australia e Stati Uniti, bisognava industrializzarsi. Produrre in casa ciò che prima si importava. Si chiama sostituzione delle importazioni.",
+   "anteprima": false,
+   "vista": {
+    "lon": -62,
+    "lat": -35,
+    "larghezza": 24
+   },
+   "epoca": "antica",
+   "oro": [
+    "ARG"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "factory",
+     "lon": -58.4,
+     "lat": -34.6,
+     "parola": "industrializzarsi"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "SOSTITUIRE",
+     "parola": "sostituzione"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Produrre in casa, importare meno",
+     "parola": "importazioni"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -66,
+    "lat": -38,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Ma c'era un problema. L'Argentina non costruì industrie competitive che la gente volesse comprare. Alzò dazi altissimi e chiuse la porta al resto del mondo.",
+   "anteprima": false,
+   "vista": {
+    "lon": -62,
+    "lat": -35,
+    "larghezza": 24
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "confine",
+     "punti": [
+      [
+       -73.5,
+       -22
+      ],
+      [
+       -66,
+       -22
+      ],
+      [
+       -54,
+       -26
+      ],
+      [
+       -58,
+       -34
+      ],
+      [
+       -62,
+       -39
+      ],
+      [
+       -65,
+       -55
+      ],
+      [
+       -72,
+       -50
+      ],
+      [
+       -71,
+       -35
+      ],
+      [
+       -73.5,
+       -22
+      ]
+     ],
+     "parola": "chiuse"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "DAZI ALTISSIMI",
+     "parola": "dazi"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Mercato chiuso al mondo",
+     "parola": "porta"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -52,
+    "lat": -42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Così salirono i prezzi di ciò che le imprese non riuscivano a produrre, e calò l'investimento in agricoltura. Anche il Canada usò i dazi, ma molto più bassi, restando aperto ai mercati.",
+   "anteprima": false,
+   "vista": {
+    "lon": -80,
+    "lat": 20,
+    "larghezza": 120
+   },
+   "epoca": "antica",
+   "oro": [
+    "CAN"
+   ],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "chart_up",
+     "lon": -62,
+     "lat": -35,
+     "parola": "prezzi"
+    },
+    {
+     "tipo": "contorno",
+     "paese": "CAN",
+     "parola": "Canada"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Canada: dazi più bassi, mercati aperti",
+     "parola": "aperto"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -90,
+    "lat": -20,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Nel 1930 i militari rovesciarono il presidente Yrigoyen e posero fine a settant'anni di governo costituzionale. Da lì in avanti sarebbe stato solo caos.",
+   "anteprima": false,
+   "vista": {
+    "lon": -58.4,
+    "lat": -34.6,
+    "larghezza": 10
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1930",
+     "parola": "1930"
+    },
+    {
+     "tipo": "personaggio",
+     "nome": "Hipólito Yrigoyen",
+     "descrizione": "Presidente argentino, baffi bianchi, abito scuro, inizio Novecento",
+     "parola": "Yrigoyen"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "soldier",
+     "n": 5,
+     "lon": -58.4,
+     "lat": -34.6,
+     "parola": "militari"
+    },
+    {
+     "tipo": "conta",
+     "valore": 70,
+     "prefisso": "",
+     "suffisso": " ANNI",
+     "sotto": "DI GOVERNO COSTITUZIONALE",
+     "parola": "settant'anni"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -59.5,
+    "lat": -35.5,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "La crisi convinse molti argentini che il modello basato sull'export avesse fallito. Isolata dall'Europa, l'industria si espanse in fretta e la gente si riversò nelle città.",
+   "anteprima": false,
+   "vista": {
+    "lon": -60,
+    "lat": -34,
+    "larghezza": 14
+   },
+   "epoca": "antica",
+   "oro": [
+    "ARG"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "factory",
+     "lon": -58.4,
+     "lat": -34.6,
+     "parola": "industria"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "worker",
+     "n": 6,
+     "lon": -58.5,
+     "lat": -34.7,
+     "parola": "città"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Nasce una classe operaia urbana",
+     "parola": "città"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -62,
+    "lat": -37,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Ma questi nuovi operai erano scontenti. Disoccupazione alta ed economia instabile. E la politica non migliorava.",
+   "anteprima": false,
+   "vista": {
+    "lon": -58.4,
+    "lat": -34.6,
+    "larghezza": 8
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "worker",
+     "n": 5,
+     "lon": -58.4,
+     "lat": -34.6,
+     "parola": "operai"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": -58.3,
+     "lat": -34.5,
+     "parola": "Disoccupazione"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Disoccupazione e instabilità",
+     "parola": "instabile"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": -59,
+    "lat": -35.2,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Nel 1943 un altro colpo di stato. Al potere arriva Juan Domingo Perón con una nuova strategia: il nazionalismo economico.",
+   "anteprima": false,
+   "vista": {
+    "lon": -60,
+    "lat": -36,
+    "larghezza": 24
+   },
+   "epoca": "antica",
+   "oro": [
+    "ARG"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1943",
+     "parola": "1943"
+    },
+    {
+     "tipo": "personaggio",
+     "nome": "Juan Domingo Perón",
+     "descrizione": "Presidente argentino, uniforme militare, capelli scuri pettinati, metà Novecento",
+     "parola": "Perón"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "NAZIONALISMO",
+     "parola": "nazionalismo"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": -66,
+    "lat": -40,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Perón nazionalizzò ferrovie, servizi pubblici e banche. Creò monopoli statali sulle esportazioni e aumentò salari e benefici per i lavoratori.",
+   "anteprima": false,
+   "vista": {
+    "lon": -62,
+    "lat": -34,
+    "larghezza": 16
+   },
+   "epoca": "antica",
+   "oro": [
+    "ARG"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "steam_train",
+     "lon": -62,
+     "lat": -34,
+     "parola": "ferrovie"
+    },
+    {
+     "tipo": "icona",
+     "icona": "banknotes",
+     "lon": -58.4,
+     "lat": -34.6,
+     "parola": "banche"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "worker",
+     "n": 5,
+     "lon": -60,
+     "lat": -33,
+     "parola": "lavoratori"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Lo Stato controlla tutto",
+     "parola": "monopoli"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -66,
+    "lat": -38,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Dopo la crisi poteva sembrare ottimo. Ma quelle politiche crearono abitudini che avrebbero perseguitato l'Argentina per generazioni.",
+   "anteprima": false,
+   "vista": {
+    "lon": -64,
+    "lat": -36,
+    "larghezza": 30
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "hourglass",
+     "lon": -62,
+     "lat": -34,
+     "parola": "generazioni"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Abitudini che durano decenni",
+     "parola": "abitudini"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -68,
+    "lat": -42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Il risultato: spesa insostenibile, Stato onnipresente, chiusura al commercio e, peggio ancora, stampare moneta per coprire i buchi di bilancio.",
+   "anteprima": false,
+   "vista": {
+    "lon": -60,
+    "lat": -35,
+    "larghezza": 24
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "banknotes",
+     "lon": -58.4,
+     "lat": -34.6,
+     "parola": "stampare"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "STAMPARE MONETA",
+     "parola": "moneta"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_up",
+     "lon": -60,
+     "lat": -33,
+     "parola": "spesa"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -66,
+    "lat": -38,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Nel 1952 l'inflazione sale e il governo traballa. Nel 1955 un altro golpe militare caccia Perón.",
+   "anteprima": false,
+   "vista": {
+    "lon": -60,
+    "lat": -35,
+    "larghezza": 24
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1955",
+     "parola": "1955"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "soldier",
+     "n": 5,
+     "lon": -58.4,
+     "lat": -34.6,
+     "parola": "golpe"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Perón deposto dai militari",
+     "parola": "caccia"
+    }
+   ],
+   "musica": "azione",
+   "stacco": false,
+   "pin": {
+    "lon": -66,
+    "lat": -38,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In soli venticinque anni l'Argentina era passata da una delle democrazie più ricche del mondo a un paese con inflazione cronica e golpe a ripetizione.",
+   "anteprima": false,
+   "vista": {
+    "lon": -64,
+    "lat": -36,
+    "larghezza": 40
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 25,
+     "prefisso": "",
+     "suffisso": " ANNI",
+     "sotto": "DALLA RICCHEZZA AL CAOS",
+     "parola": "venticinque"
+    },
+    {
+     "tipo": "icona",
+     "icona": "swords",
+     "lon": -60,
+     "lat": -34,
+     "parola": "golpe"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Da ricca democrazia a instabilità",
+     "parola": "democrazie"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": -70,
+    "lat": -44,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Pensa a un giovane argentino di allora: crescere nel caos. E a un anziano, con il futuro dei figli incerto. Ma i guai erano appena cominciati.",
+   "anteprima": false,
+   "vista": {
+    "lon": -58.4,
+    "lat": -34.6,
+    "larghezza": 8
+   },
+   "epoca": "antica",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "family",
+     "n": 4,
+     "lon": -58.4,
+     "lat": -34.6,
+     "parola": "giovane"
+    },
+    {
+     "tipo": "icona",
+     "icona": "question",
+     "lon": -58.2,
+     "lat": -34.5,
+     "parola": "incerto"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Una generazione senza certezze",
+     "parola": "caos"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": -59,
+    "lat": -35.2,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Per quasi trent'anni l'Argentina oscillò tra golpe e governi deboli. Ogni amministrazione cancellava le politiche della precedente. Il paese girava in tondo.",
+   "anteprima": false,
+   "vista": {
+    "lon": -62,
+    "lat": -36,
+    "larghezza": 30
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 30,
+     "prefisso": "~",
+     "suffisso": " ANNI",
+     "sotto": "DI INSTABILITÀ",
+     "parola": "trent'anni"
+    },
+    {
+     "tipo": "icona",
+     "icona": "hourglass",
+     "lon": -60,
+     "lat": -34,
+     "parola": "girava"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Ogni governo cancella il precedente",
+     "parola": "cancellava"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -68,
+    "lat": -42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "In un clima così imprevedibile nessuno faceva investimenti a lungo termine. Se i politici non sapevano che fare, quale speranza restava all'argentino comune?",
+   "anteprima": false,
+   "vista": {
+    "lon": -62,
+    "lat": -36,
+    "larghezza": 40
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "money_bag",
+     "lon": -70,
+     "lat": -33,
+     "parola": "investimenti"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -64,
+      -34
+     ],
+     "a": [
+      -74,
+      40.7
+     ],
+     "icona": "money_bag",
+     "parola": "nessuno"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Nessuno investe nell'incertezza",
+     "parola": "imprevedibile"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -70,
+    "lat": -45,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Nasce così il famigerato ciclo stop and go. Un governo spende per stimolare la crescita, ma crea inflazione e deficit commerciale.",
+   "anteprima": false,
+   "vista": {
+    "lon": -62,
+    "lat": -36,
+    "larghezza": 30
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "scritta",
+     "testo": "STOP AND GO",
+     "parola": "stop"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_up",
+     "lon": -60,
+     "lat": -33,
+     "parola": "crescita"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Prima spesa, poi inflazione",
+     "parola": "inflazione"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -68,
+    "lat": -42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Poi il governo successivo svaluta la moneta, taglia i servizi e provoca una recessione. Una macchina che andava a sbattere, in continuazione.",
+   "anteprima": false,
+   "vista": {
+    "lon": -62,
+    "lat": -36,
+    "larghezza": 30
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": -60,
+     "lat": -33,
+     "parola": "svaluta"
+    },
+    {
+     "tipo": "icona",
+     "icona": "hourglass",
+     "lon": -64,
+     "lat": -38,
+     "parola": "continuazione"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Tagli, svalutazione, recessione",
+     "parola": "recessione"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -68,
+    "lat": -42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Nel 1976 i militari prendono di nuovo il potere. Ma stavolta instaurano la dittatura più brutale della storia argentina.",
+   "anteprima": false,
+   "vista": {
+    "lon": -58.4,
+    "lat": -34.6,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1976",
+     "parola": "1976"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "soldier",
+     "n": 6,
+     "lon": -58.4,
+     "lat": -34.6,
+     "parola": "militari"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "DITTATURA",
+     "parola": "dittatura"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": true,
+   "pin": {
+    "lon": -59.5,
+    "lat": -35.3,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Sparizioni, diritti calpestati, i volti delle vittime nelle strade di Buenos Aires. Ci sono ancora famiglie che cercano i figli sottratti ai genitori scomparsi.",
+   "anteprima": false,
+   "vista": {
+    "lon": -58.4,
+    "lat": -34.6,
+    "larghezza": 6
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "etichetta",
+     "testo": "I DESAPARECIDOS",
+     "lon": -58.37,
+     "lat": -34.61,
+     "parola": "Sparizioni"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "family",
+     "n": 4,
+     "lon": -58.38,
+     "lat": -34.6,
+     "parola": "famiglie"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Famiglie ancora in cerca di verità",
+     "parola": "cercano"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": -58.8,
+    "lat": -35,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "La dittatura durò sette anni, dal 1976 al 1983, e segnò più generazioni. La sua brutalità era pari solo alla distruttività della sua politica economica.",
+   "anteprima": false,
+   "vista": {
+    "lon": -62,
+    "lat": -36,
+    "larghezza": 30
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 7,
+     "prefisso": "",
+     "suffisso": " ANNI",
+     "sotto": "DI DITTATURA, 1976-1983",
+     "parola": "sette"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Brutale anche in economia",
+     "parola": "distruttività"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -68,
+    "lat": -42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Il nuovo governo riaprì l'economia e tornarono le importazioni. Sembra una buona notizia, no? Ma c'erano due problemi.",
+   "anteprima": false,
+   "vista": {
+    "lon": -62,
+    "lat": -36,
+    "larghezza": 30
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "cargo_ship",
+     "lon": -58,
+     "lat": -35,
+     "parola": "importazioni"
+    },
+    {
+     "tipo": "icona",
+     "icona": "question",
+     "lon": -62,
+     "lat": -34,
+     "parola": "no"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "2 PROBLEMI",
+     "parola": "problemi"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -68,
+    "lat": -42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Primo: il peso era sopravvalutato, forse per i tassi altissimi. I prodotti locali, troppo cari, non reggevano la concorrenza estera. L'industria crollò e la disoccupazione esplose.",
+   "anteprima": false,
+   "vista": {
+    "lon": -60,
+    "lat": -35,
+    "larghezza": 22
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "banknotes",
+     "lon": -58.4,
+     "lat": -34.6,
+     "parola": "peso"
+    },
+    {
+     "tipo": "icona",
+     "icona": "factory",
+     "lon": -60.5,
+     "lat": -33,
+     "parola": "industria"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": -62,
+     "lat": -35,
+     "parola": "crollò"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Peso forte, industria in ginocchio",
+     "parola": "sopravvalutato"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -66,
+    "lat": -39,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Secondo: quale investitore estero rischierebbe i suoi soldi in un paese così instabile? Decenni di oscillazioni avevano fatto dell'Argentina un'incognita rischiosa.",
+   "anteprima": false,
+   "vista": {
+    "lon": -50,
+    "lat": 0,
+    "larghezza": 120
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "banker",
+     "n": 4,
+     "lon": -74,
+     "lat": 40.7,
+     "parola": "investitore"
+    },
+    {
+     "tipo": "icona",
+     "icona": "question",
+     "lon": -62,
+     "lat": -34,
+     "parola": "rischiosa"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Nessuno si fida più",
+     "parola": "instabile"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -90,
+    "lat": -25,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Poi arrivarono gli shock esterni. Nel 1979 la Federal Reserve americana alzò bruscamente i tassi. Il debito argentino, in gran parte con banche estere, divenne una zavorra.",
+   "anteprima": false,
+   "vista": {
+    "lon": -70,
+    "lat": 10,
+    "larghezza": 120
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1979",
+     "parola": "1979"
+    },
+    {
+     "tipo": "etichetta",
+     "testo": "FEDERAL RESERVE",
+     "lon": -77,
+     "lat": 38.9,
+     "parola": "Federal"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_up",
+     "lon": -77,
+     "lat": 38.9,
+     "parola": "tassi"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Interessi in forte aumento",
+     "parola": "zavorra"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -90,
+    "lat": -20,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Il debito esplose: da otto miliardi di dollari nel 1975 a oltre quarantacinque miliardi nel 1983. Più di cinque volte tanto, in otto anni.",
+   "anteprima": false,
+   "vista": {
+    "lon": -62,
+    "lat": -36,
+    "larghezza": 30
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "barre",
+     "titolo": "DEBITO ESTERO (MLD DI $)",
+     "voci": [
+      {
+       "testo": "1975",
+       "valore": 8,
+       "lato": "verde"
+      },
+      {
+       "testo": "1983",
+       "valore": 45,
+       "lato": "verde"
+      }
+     ],
+     "parola": "otto"
+    },
+    {
+     "tipo": "conta",
+     "valore": 45,
+     "prefisso": "+",
+     "suffisso": " MLD $",
+     "sotto": "DEBITO NEL 1983",
+     "parola": "quarantacinque"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "5 VOLTE",
+     "parola": "volte"
+    }
+   ],
+   "musica": "azione",
+   "stacco": true,
+   "pin": {
+    "lon": -68,
+    "lat": -42,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Intanto gli argentini ricchi capivano l'aria che tirava e fuggivano con i capitali verso posti come gli Stati Uniti.",
+   "anteprima": false,
+   "vista": {
+    "lon": -70,
+    "lat": 0,
+    "larghezza": 120
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "freccia",
+     "da": [
+      -58.4,
+      -34.6
+     ],
+     "a": [
+      -80.2,
+      25.8
+     ],
+     "icona": "money_bag",
+     "parola": "fuggivano"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "landowner",
+     "n": 3,
+     "lon": -58.4,
+     "lat": -34.6,
+     "parola": "ricchi"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Fuga di capitali",
+     "parola": "capitali"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -90,
+    "lat": -30,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Con il paese al collasso e la protesta in crescita, il governo fece la solita cosa: stampare moneta. Doveva pagare i debiti, ma alimentò soltanto l'inflazione.",
+   "anteprima": false,
+   "vista": {
+    "lon": -62,
+    "lat": -36,
+    "larghezza": 30
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "banknotes",
+     "lon": -58.4,
+     "lat": -34.6,
+     "parola": "stampare"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_up",
+     "lon": -60,
+     "lat": -33,
+     "parola": "inflazione"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Più moneta, più inflazione",
+     "parola": "moneta"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -68,
+    "lat": -42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "I lavoratori, con il potere d'acquisto in picchiata, chiedevano salari più alti. I prezzi salivano ancora, serviva altra moneta. È la spirale salari-prezzi.",
+   "anteprima": false,
+   "vista": {
+    "lon": -60,
+    "lat": -35,
+    "larghezza": 22
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "worker",
+     "n": 5,
+     "lon": -58.5,
+     "lat": -34.6,
+     "parola": "lavoratori"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "SPIRALE",
+     "parola": "spirale"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Salari e prezzi si rincorrono",
+     "parola": "prezzi"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -64,
+    "lat": -39,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Gli argentini comprarono dollari e li nascosero nei materassi e dietro i quadri. Sapevano che i risparmi in pesos potevano evaporare in una notte.",
+   "anteprima": false,
+   "vista": {
+    "lon": -58.4,
+    "lat": -34.6,
+    "larghezza": 6
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "banknotes",
+     "lon": -58.4,
+     "lat": -34.6,
+     "parola": "dollari"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "family",
+     "n": 3,
+     "lon": -58.37,
+     "lat": -34.62,
+     "parola": "materassi"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Risparmi nascosti in casa",
+     "parola": "nascosero"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -58.8,
+    "lat": -35,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Nei mercati regnava il caos: la gente correva a comprare l'essenziale prima che i prezzi saltassero. Il paese stimato dall'Europa sembrava ormai un sogno lontano.",
+   "anteprima": false,
+   "vista": {
+    "lon": -58.4,
+    "lat": -34.6,
+    "larghezza": 6
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "peasant",
+     "n": 6,
+     "lon": -58.4,
+     "lat": -34.6,
+     "parola": "correva"
+    },
+    {
+     "tipo": "prezzo",
+     "testo": "+++",
+     "sotto": "PREZZI AL GIORNO",
+     "ricco": false,
+     "parola": "prezzi"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Corsa agli acquisti",
+     "parola": "essenziale"
+    }
+   ],
+   "musica": "azione",
+   "stacco": false,
+   "pin": {
+    "lon": -58.8,
+    "lat": -35,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Nel 1983 la dittatura crolla e l'Argentina torna alla democrazia. Ma è ammaccata: economia a pezzi, debito enorme e inflazione al quattrocento per cento annuo.",
+   "anteprima": false,
+   "vista": {
+    "lon": -62,
+    "lat": -36,
+    "larghezza": 30
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1983",
+     "parola": "1983"
+    },
+    {
+     "tipo": "icona",
+     "icona": "ballot_box",
+     "lon": -58.4,
+     "lat": -34.6,
+     "parola": "democrazia"
+    },
+    {
+     "tipo": "conta",
+     "valore": 400,
+     "prefisso": "",
+     "suffisso": "%",
+     "sotto": "INFLAZIONE ANNUA",
+     "parola": "quattrocento"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": -68,
+    "lat": -42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Nonostante vari piani di stabilizzazione, l'inflazione continuò a salire. Nel 1989 l'iperinflazione toccò il cinquemila per cento.",
+   "anteprima": false,
+   "vista": {
+    "lon": -62,
+    "lat": -36,
+    "larghezza": 30
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1989",
+     "parola": "1989"
+    },
+    {
+     "tipo": "conta",
+     "valore": 5000,
+     "prefisso": "",
+     "suffisso": "%",
+     "sotto": "IPERINFLAZIONE",
+     "parola": "cinquemila"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "5.000%",
+     "parola": "iperinflazione"
+    }
+   ],
+   "musica": "azione",
+   "stacco": true,
+   "pin": {
+    "lon": -68,
+    "lat": -42,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "I prezzi cambiavano di ora in ora. I negozianti smisero di mettere i cartellini, aumentando i beni di base dell'uno per cento ogni poche ore.",
+   "anteprima": false,
+   "vista": {
+    "lon": -58.4,
+    "lat": -34.6,
+    "larghezza": 6
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "hourglass",
+     "lon": -58.4,
+     "lat": -34.6,
+     "parola": "ora"
+    },
+    {
+     "tipo": "prezzo",
+     "testo": "+1%",
+     "sotto": "OGNI POCHE ORE",
+     "ricco": false,
+     "parola": "uno"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Prezzi senza cartellino",
+     "parola": "cartellini"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -58.8,
+    "lat": -35,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Gli stipendi diventavano carta straccia prima di poterli spendere. La gente furiosa saccheggiò i negozi per prendere ciò che serviva.",
+   "anteprima": false,
+   "vista": {
+    "lon": -60,
+    "lat": -34,
+    "larghezza": 12
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "peasant",
+     "n": 6,
+     "lon": -60.6,
+     "lat": -33,
+     "parola": "furiosa"
+    },
+    {
+     "tipo": "icona",
+     "icona": "swords",
+     "lon": -58.4,
+     "lat": -34.6,
+     "parola": "saccheggiò"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Rivolte e saccheggi",
+     "parola": "negozi"
+    }
+   ],
+   "musica": "azione",
+   "stacco": false,
+   "pin": {
+    "lon": -62,
+    "lat": -36,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "In mezzo al caos sale al potere Carlos Menem e promette un cambiamento radicale. Sorprende tutti: abbraccia il libero mercato, privatizza, apre al commercio.",
+   "anteprima": false,
+   "vista": {
+    "lon": -62,
+    "lat": -36,
+    "larghezza": 24
+   },
+   "epoca": "oggi",
+   "oro": [
+    "ARG"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "personaggio",
+     "nome": "Carlos Menem",
+     "descrizione": "Presidente argentino, basette folte, abito scuro, anni Novanta",
+     "parola": "Menem"
+    },
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": -58.4,
+     "lat": -34.6,
+     "parola": "privatizza"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Svolta verso il libero mercato",
+     "parola": "mercato"
+    }
+   ],
+   "musica": "epico",
+   "stacco": false,
+   "pin": {
+    "lon": -68,
+    "lat": -42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Nel 1991 la mossa più drastica: il peso agganciato al dollaro per legge, uno a uno. E vietato creare moneta senza copertura in dollari.",
+   "anteprima": false,
+   "vista": {
+    "lon": -62,
+    "lat": -36,
+    "larghezza": 30
+   },
+   "epoca": "oggi",
+   "oro": [
+    "USA"
+   ],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1991",
+     "parola": "1991"
+    },
+    {
+     "tipo": "prezzo",
+     "testo": "1 PESO = 1 $",
+     "sotto": "CAMBIO FISSO PER LEGGE",
+     "ricco": true,
+     "parola": "agganciato"
+    },
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": -58.4,
+     "lat": -34.6,
+     "parola": "legge"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -68,
+    "lat": -42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Per un po' funzionò, perché il dollaro era stabile e l'inflazione americana bassa. In Argentina si poteva stampare poco. L'inflazione scese da migliaia a una sola cifra.",
+   "anteprima": false,
+   "vista": {
+    "lon": -62,
+    "lat": -36,
+    "larghezza": 30
+   },
+   "epoca": "oggi",
+   "oro": [
+    "ARG"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": -60,
+     "lat": -34,
+     "parola": "scese"
+    },
+    {
+     "tipo": "barre",
+     "titolo": "INFLAZIONE ANNUA (%)",
+     "voci": [
+      {
+       "testo": "1989",
+       "valore": 100,
+       "lato": "verde"
+      },
+      {
+       "testo": "anni 90",
+       "valore": 5,
+       "lato": "oro"
+      }
+     ],
+     "parola": "inflazione"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Inflazione domata, crescita ripresa",
+     "parola": "funzionò"
+    }
+   ],
+   "musica": "trionfo",
+   "stacco": false,
+   "pin": {
+    "lon": -68,
+    "lat": -42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "All'improvviso gli argentini potevano permettersi beni importati e perfino viaggi all'estero. Ma questa soluzione creò nuovi problemi.",
+   "anteprima": false,
+   "vista": {
+    "lon": -62,
+    "lat": -36,
+    "larghezza": 30
+   },
+   "epoca": "oggi",
+   "oro": [
+    "ARG"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "cargo_ship",
+     "lon": -58,
+     "lat": -35,
+     "parola": "importati"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "family",
+     "n": 4,
+     "lon": -58.4,
+     "lat": -34.6,
+     "parola": "viaggi"
+    },
+    {
+     "tipo": "icona",
+     "icona": "question",
+     "lon": -64,
+     "lat": -33,
+     "parola": "problemi"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -68,
+    "lat": -42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Il peso valeva come il dollaro, e questo rendeva di nuovo difficile esportare. E senza la possibilità di stampare moneta, il governo si indebitò sempre di più.",
+   "anteprima": false,
+   "vista": {
+    "lon": -62,
+    "lat": -36,
+    "larghezza": 30
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": -60,
+     "lat": -33,
+     "parola": "esportare"
+    },
+    {
+     "tipo": "icona",
+     "icona": "money_bag",
+     "lon": -58.4,
+     "lat": -34.6,
+     "parola": "indebitò"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Export frenato, debito in crescita",
+     "parola": "indebitò"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -68,
+    "lat": -42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Il Cile, con problemi di debito simili negli anni Ottanta, scelse un'altra strada: aprì agli investimenti esteri, stabilizzò i prezzi e crebbe. L'Argentina tornò ai vecchi rimedi tampone.",
+   "anteprima": false,
+   "vista": {
+    "lon": -68,
+    "lat": -35,
+    "larghezza": 24
+   },
+   "epoca": "oggi",
+   "oro": [
+    "CHL"
+   ],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "contorno",
+     "paese": "CHL",
+     "parola": "Cile"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_up",
+     "lon": -71,
+     "lat": -33.5,
+     "parola": "crebbe"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Cile: riforme coerenti e crescita",
+     "parola": "strada"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -62,
+    "lat": -42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "A metà anni Novanta i limiti erano evidenti. L'Argentina non reggeva la concorrenza globale. La disoccupazione salì al diciotto per cento e il debito pubblico continuava a crescere.",
+   "anteprima": false,
+   "vista": {
+    "lon": -62,
+    "lat": -36,
+    "larghezza": 30
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 18,
+     "prefisso": "",
+     "suffisso": "%",
+     "sotto": "DISOCCUPAZIONE",
+     "parola": "diciotto"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_up",
+     "lon": -60,
+     "lat": -33,
+     "parola": "debito"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Disoccupazione e debito in salita",
+     "parola": "limiti"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -68,
+    "lat": -42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Nel 2001 la tempesta perfetta: recessione, debito insostenibile e investitori in fuga. Il governo congelò i conti bancari, dichiarò il default su cento miliardi e abbandonò l'aggancio al dollaro.",
+   "anteprima": false,
+   "vista": {
+    "lon": -58.4,
+    "lat": -34.6,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "2001",
+     "parola": "2001"
+    },
+    {
+     "tipo": "icona",
+     "icona": "banknotes",
+     "lon": -58.4,
+     "lat": -34.6,
+     "parola": "banche"
+    },
+    {
+     "tipo": "conta",
+     "valore": 100,
+     "prefisso": "",
+     "suffisso": " MLD $",
+     "sotto": "DEBITO IN DEFAULT",
+     "parola": "cento"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "DEFAULT",
+     "parola": "default"
+    }
+   ],
+   "musica": "azione",
+   "stacco": true,
+   "pin": {
+    "lon": -59.5,
+    "lat": -35.3,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "La folla si radunò davanti alle banche battendo pentole e padelle, poi scoppiarono le rivolte. Cinque presidenti in due settimane, morti negli scontri e povertà dilagante.",
+   "anteprima": false,
+   "vista": {
+    "lon": -58.4,
+    "lat": -34.6,
+    "larghezza": 6
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "voter",
+     "n": 7,
+     "lon": -58.38,
+     "lat": -34.61,
+     "parola": "folla"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "5 PRESIDENTI",
+     "parola": "presidenti"
+    },
+    {
+     "tipo": "conta",
+     "valore": 5,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "PRESIDENTI IN 2 SETTIMANE",
+     "parola": "Cinque"
+    }
+   ],
+   "musica": "azione",
+   "stacco": false,
+   "pin": {
+    "lon": -58.8,
+    "lat": -35,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Con un gradimento del sette per cento, il presidente si dimise e fuggì dalla capitale in elicottero. Una delle scene economiche più caotiche della storia.",
+   "anteprima": false,
+   "vista": {
+    "lon": -58.4,
+    "lat": -34.6,
+    "larghezza": 6
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 7,
+     "prefisso": "",
+     "suffisso": "%",
+     "sotto": "GRADIMENTO",
+     "parola": "sette"
+    },
+    {
+     "tipo": "freccia",
+     "da": [
+      -58.4,
+      -34.6
+     ],
+     "a": [
+      -58.8,
+      -34.9
+     ],
+     "icona": "question",
+     "parola": "elicottero"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Il presidente fugge in elicottero",
+     "parola": "fuggì"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -58.9,
+    "lat": -35.1,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Il bilancio fu catastrofico. L'economia si ridusse del quindici per cento e un argentino su quattro perse il lavoro. La povertà travolse oltre metà della popolazione.",
+   "anteprima": false,
+   "vista": {
+    "lon": -62,
+    "lat": -36,
+    "larghezza": 30
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "conta",
+     "valore": 15,
+     "prefisso": "-",
+     "suffisso": "%",
+     "sotto": "ECONOMIA",
+     "parola": "quindici"
+    },
+    {
+     "tipo": "contatore",
+     "testo": "1 SU 4 SENZA LAVORO",
+     "su": 1,
+     "di": 4,
+     "personaggio": "worker",
+     "parola": "quattro"
+    },
+    {
+     "tipo": "griglia",
+     "paese": [
+      "ARG"
+     ],
+     "pieni": 0.5,
+     "testo": "OLTRE METÀ IN POVERTÀ",
+     "colore": "verde",
+     "parola": "metà"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": -68,
+    "lat": -42,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Il ceto medio diventò il nuovo povero. In appena un secolo l'Argentina era caduta in disgrazia: da paese ricco e promettente a un caso di sviluppo mancato.",
+   "anteprima": false,
+   "vista": {
+    "lon": -64,
+    "lat": -36,
+    "larghezza": 40
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "folla",
+     "personaggio": "family",
+     "n": 4,
+     "lon": -58.4,
+     "lat": -34.6,
+     "parola": "ceto"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": -62,
+     "lat": -36,
+     "parola": "caduta"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Un secolo dalla ricchezza alla crisi",
+     "parola": "secolo"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": -70,
+    "lat": -44,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Dopo il 2001 si tornò a stampare moneta e a svalutare il peso, e le esportazioni ridiventarono competitive. Un boom mondiale di soia, carne e cereali aiutò la ripresa.",
+   "anteprima": false,
+   "vista": {
+    "lon": -62,
+    "lat": -34,
+    "larghezza": 24
+   },
+   "epoca": "oggi",
+   "oro": [
+    "ARG"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "banknotes",
+     "lon": -58.4,
+     "lat": -34.6,
+     "parola": "moneta"
+    },
+    {
+     "tipo": "icona",
+     "icona": "wheat",
+     "lon": -62,
+     "lat": -33,
+     "parola": "soia"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_up",
+     "lon": -60,
+     "lat": -35,
+     "parola": "ripresa"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Boom di soia, carne e cereali",
+     "parola": "boom"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -68,
+    "lat": -42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "I governi usarono quel denaro per rilanciare il welfare e ridurre la povertà. Sembrava andare bene. Ma sotto la superficie i problemi di sempre erano ancora lì.",
+   "anteprima": false,
+   "vista": {
+    "lon": -62,
+    "lat": -36,
+    "larghezza": 30
+   },
+   "epoca": "oggi",
+   "oro": [
+    "ARG"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "school",
+     "lon": -58.4,
+     "lat": -34.6,
+     "parola": "welfare"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "family",
+     "n": 4,
+     "lon": -60,
+     "lat": -33,
+     "parola": "povertà"
+    },
+    {
+     "tipo": "nota",
+     "testo": "Ripresa fragile",
+     "parola": "superficie"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -68,
+    "lat": -42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "A metà degli anni Duemiladieci l'inflazione tornò, il debito pubblico si gonfiò e la fiducia degli investitori svanì. L'Argentina ricadde nel default, e ancora nel 2020: l'ottavo e il nono della sua storia.",
+   "anteprima": false,
+   "vista": {
+    "lon": -62,
+    "lat": -36,
+    "larghezza": 30
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "2020",
+     "parola": "2020"
+    },
+    {
+     "tipo": "conta",
+     "valore": 9,
+     "prefisso": "",
+     "suffisso": "",
+     "sotto": "DEFAULT NELLA STORIA",
+     "parola": "nono"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_down",
+     "lon": -60,
+     "lat": -34,
+     "parola": "default"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -68,
+    "lat": -42,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Nel 2023 l'inflazione superava il duecento per cento annuo. Il paese era di nuovo intrappolato nel solito ciclo di crisi.",
+   "anteprima": false,
+   "vista": {
+    "lon": -62,
+    "lat": -36,
+    "larghezza": 30
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "2023",
+     "parola": "2023"
+    },
+    {
+     "tipo": "conta",
+     "valore": 200,
+     "prefisso": "+",
+     "suffisso": "%",
+     "sotto": "INFLAZIONE ANNUA",
+     "parola": "duecento"
+    },
+    {
+     "tipo": "icona",
+     "icona": "hourglass",
+     "lon": -60,
+     "lat": -34,
+     "parola": "ciclo"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -68,
+    "lat": -42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Ed ecco una figura improbabile: Javier Milei, economista libertario. Il suo simbolo? Una motosega, promessa di tagliare uno Stato gonfio e la casta politica.",
+   "anteprima": false,
+   "vista": {
+    "lon": -58.4,
+    "lat": -34.6,
+    "larghezza": 10
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "personaggio",
+     "nome": "Javier Milei",
+     "descrizione": "Presidente argentino, capelli scuri e folti, basette, economista libertario",
+     "parola": "Milei"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "MOTOSEGA",
+     "parola": "motosega"
+    },
+    {
+     "tipo": "icona",
+     "icona": "scroll_law",
+     "lon": -58.4,
+     "lat": -34.6,
+     "parola": "Stato"
+    }
+   ],
+   "musica": "epico",
+   "stacco": true,
+   "pin": {
+    "lon": -59.5,
+    "lat": -35.3,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Le sue proposte sono drastiche: eliminare la banca centrale, dollarizzare l'economia, privatizzare i servizi pubblici. Per i sostenitori è l'ultima speranza di spezzare la maledizione.",
+   "anteprima": false,
+   "vista": {
+    "lon": -62,
+    "lat": -36,
+    "larghezza": 30
+   },
+   "epoca": "oggi",
+   "oro": [
+    "ARG"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "banknotes",
+     "lon": -58.4,
+     "lat": -34.6,
+     "parola": "banca"
+    },
+    {
+     "tipo": "prezzo",
+     "testo": "DOLLARIZZARE",
+     "sotto": "IDEA DI MILEI",
+     "ricco": true,
+     "parola": "dollarizzare"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "voter",
+     "n": 5,
+     "lon": -60,
+     "lat": -33,
+     "parola": "sostenitori"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -68,
+    "lat": -42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "I critici temono invece che la terapia d'urto aggravi la povertà e porti tensioni sociali, prima di qualsiasi beneficio a lungo termine. Per gli argentini, la crisi non è storia: è cronaca.",
+   "anteprima": false,
+   "vista": {
+    "lon": -62,
+    "lat": -36,
+    "larghezza": 30
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "question",
+     "lon": -60,
+     "lat": -34,
+     "parola": "temono"
+    },
+    {
+     "tipo": "folla",
+     "personaggio": "family",
+     "n": 4,
+     "lon": -58.4,
+     "lat": -34.6,
+     "parola": "argentini"
+    },
+    {
+     "tipo": "nota",
+     "testo": "La crisi è ancora in corso",
+     "parola": "cronaca"
+    }
+   ],
+   "musica": "tensione",
+   "stacco": false,
+   "pin": {
+    "lon": -68,
+    "lat": -42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Il reddito pro capite argentino di oggi è più o meno quello del 1913. Un secolo di stagnazione, mentre il resto del mondo andava avanti.",
+   "anteprima": false,
+   "vista": {
+    "lon": -62,
+    "lat": -36,
+    "larghezza": 30
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "anno",
+     "testo": "1913",
+     "parola": "1913"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "STESSO REDDITO",
+     "parola": "stesso"
+    },
+    {
+     "tipo": "conta",
+     "valore": 110,
+     "prefisso": "",
+     "suffisso": " ANNI",
+     "sotto": "SENZA CRESCITA PRO CAPITE",
+     "parola": "secolo"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": true,
+   "pin": {
+    "lon": -68,
+    "lat": -42,
+    "faccia": "stupito"
+   }
+  },
+  {
+   "testo": "Quali lezioni ne ricaviamo? Primo: le istituzioni contano. Tribunali indipendenti, diritti di proprietà stabili e una banca centrale protetta dalla politica sono vitali per un'economia sana.",
+   "anteprima": false,
+   "vista": {
+    "lon": -62,
+    "lat": -36,
+    "larghezza": 40
+   },
+   "epoca": "oggi",
+   "oro": [
+    "ARG"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "scritta",
+     "testo": "ISTITUZIONI",
+     "parola": "istituzioni"
+    },
+    {
+     "tipo": "icona",
+     "icona": "parliament",
+     "lon": -58.4,
+     "lat": -34.6,
+     "parola": "Tribunali"
+    },
+    {
+     "tipo": "nota",
+     "testo": "1. Istituzioni solide",
+     "parola": "Primo"
+    }
+   ],
+   "musica": "curiosita",
+   "stacco": false,
+   "pin": {
+    "lon": -68,
+    "lat": -42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Secondo: la disciplina fiscale. Coprire i deficit stampando moneta porta sempre all'inflazione, che divora risparmi, salari e fiducia pubblica.",
+   "anteprima": false,
+   "vista": {
+    "lon": -62,
+    "lat": -36,
+    "larghezza": 40
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "banknotes",
+     "lon": -58.4,
+     "lat": -34.6,
+     "parola": "moneta"
+    },
+    {
+     "tipo": "icona",
+     "icona": "chart_up",
+     "lon": -60,
+     "lat": -33,
+     "parola": "inflazione"
+    },
+    {
+     "tipo": "nota",
+     "testo": "2. Conti pubblici in ordine",
+     "parola": "Secondo"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -68,
+    "lat": -42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "Terzo: la coerenza delle politiche genera fiducia. Oscillare tra statalismo e liberismo ha scoraggiato investimenti e stabilità per decenni.",
+   "anteprima": false,
+   "vista": {
+    "lon": -62,
+    "lat": -36,
+    "larghezza": 40
+   },
+   "epoca": "oggi",
+   "oro": [],
+   "verde": [
+    "ARG"
+   ],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "hourglass",
+     "lon": -60,
+     "lat": -34,
+     "parola": "decenni"
+    },
+    {
+     "tipo": "scritta",
+     "testo": "COERENZA",
+     "parola": "coerenza"
+    },
+    {
+     "tipo": "nota",
+     "testo": "3. Politiche coerenti nel tempo",
+     "parola": "Terzo"
+    }
+   ],
+   "musica": "",
+   "stacco": false,
+   "pin": {
+    "lon": -68,
+    "lat": -42,
+    "faccia": "normale"
+   }
+  },
+  {
+   "testo": "La prosperità è fragile, e un ciclo di crisi può nascere da una sola decisione senza freni. L'Argentina riuscirà a spezzarlo, o toccherà a un'altra generazione?",
+   "anteprima": false,
+   "vista": {
+    "lon": -64,
+    "lat": -36,
+    "larghezza": 40
+   },
+   "epoca": "oggi",
+   "oro": [
+    "ARG"
+   ],
+   "verde": [],
+   "eventi": [
+    {
+     "tipo": "icona",
+     "icona": "question",
+     "lon": -62,
+     "lat": -36,
+     "parola": "spezzarlo"
+    },
+    {
+     "tipo": "nota",
+     "testo": "La prosperità è fragile",
+     "parola": "fragile"
+    }
+   ],
+   "musica": "malinconia",
+   "stacco": false,
+   "pin": {
+    "lon": -68,
+    "lat": -42,
+    "faccia": "normale"
+   }
+  }
+ ]
+}
