@@ -544,7 +544,8 @@ def disegna_sottotitoli(im, tg, gruppi):
 # seconda voce, nome e luogo a schermo, capitoli con il loro titolo. Niente Pexels.
 F_MANO = os.path.join(ROOT, 'fonts_notizie', 'PermanentMarker-Regular.ttf')
 GEO = os.path.join(ROOT, 'risorse_notizie', 'paesi50.geojson')
-PASSO = float(N.get('secondi_per_inquadratura') or 2.6)
+PASSO = float(N.get('secondi_per_inquadratura') or 3.2)
+MAX_RIPRESE = int(N.get('riprese_per_scena') or 3)   # 16 nov sera (Giorgio: troppe riprese della stessa immagine): max 3 angoli per scena disegnata, mai ripetuti
 INQ, GRUPPI, SEGS = [], [], []
 COLORI = {'rosso': (214, 40, 48), 'blu': (24, 72, 178), 'giallo': (250, 190, 20), 'verde': (40, 160, 90), 'arancio': (240, 120, 30), 'viola': (130, 70, 200)}
 
@@ -632,9 +633,9 @@ def inquadrature_set(k, n, stato):
     """n riprese diverse dalla stessa scena, senza mai ripetere quella appena vista."""
     cast = cast_set(k)
     if len(cast) >= 2:
-        giro = ['largo', 'pp:' + cast[0]['chi'], 'pp:' + cast[1]['chi'], 'medio', 'det_c', 'pp:' + cast[0]['chi'], 'largo', 'pp:' + cast[1]['chi']]
+        giro = ['largo', 'pp:' + cast[0]['chi'], 'pp:' + cast[1]['chi'], 'det_c']
     elif cast:
-        giro = ['largo', 'pp:' + cast[0]['chi'], 'det_' + ('sx' if cast[0].get('lato', 'dx') == 'dx' else 'dx'), 'medio', 'pp:' + cast[0]['chi'], 'det_c']
+        giro = ['largo', 'pp:' + cast[0]['chi'], 'det_' + ('sx' if cast[0].get('lato', 'dx') == 'dx' else 'dx'), 'medio']
     else:
         giro = ['largo', 'det_sx', 'det_dx', 'det_c']
     i = stato.get(k, 0); out = [giro[(i + j) % len(giro)] for j in range(n)]
@@ -1004,7 +1005,8 @@ def costruisci(segs, dur):
         elif tipo == 'frase':
             shots.append({'tipo': 'frase', 'frase': v.get('testo') or sc['testo'], 'set': ultimo_set[0]})
         else:
-            k = v.get('set'); n = max(1, int(round(span / PASSO)))
+            k = v.get('set'); resta = MAX_RIPRESE - stato.get(k, 0)
+            n = max(1, min(int(round(span / PASSO)), resta)) if resta > 0 else 1   # mai piu' di 3 angoli della stessa scena
             for fr in inquadrature_set(k, n, stato):
                 shots.append({'tipo': 'set', 'set': k, 'framing': fr})
             ultimo_set[0] = k

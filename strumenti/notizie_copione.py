@@ -125,9 +125,10 @@ STORYTELLING (like a documentary, not a list of news):
   what happens next (only what officials and analysts quoted by sources say).
 - Every 45-60 seconds a curiosity hook ("but that's not the whole story"). Short sentences, decisive, like an authoritative journalist.
 - Last scene: one line asking to subscribe because the story is still moving.
-DIRECTION (regia) - the engine cuts a new camera angle every ~2.5 seconds from each drawn scene (wide, close-up on each person, details), so:
-- "sets" are drawn places where the scene happens: {max(5, int(MINUTI * 3))}-{max(6, int(MINUTI * 3.4))} sets in total. Use a set for 1-3 CONSECUTIVE
-  scenes in the same place (like a film scene), then move to a new place. Never come back to an old set later.
+DIRECTION (regia) - the engine shows each drawn scene from max 3 camera angles (wide, close-up of a person, a detail), ~3 seconds each, so:
+- "sets" are drawn places where the scene happens: {max(5, int(MINUTI * 4))}-{max(6, int(MINUTI * 4.5))} sets in total, each one used for ONE
+  scene of about 8-10 seconds (2 consecutive scenes at most), then a NEW place. Never come back to an old set. Every set must look clearly
+  different from the others (different place, light, colors, time of day).
 - Each set: concrete and coherent with what is said (real places: the Kremlin office, a Kyiv street at night, a tanker in the Strait of Hormuz,
   the Oval Office, a UN hall...), rich in detail, EMPTY of people (people are only our caricatures in "cast"), NO writing anywhere (no documents,
   newspapers, screens with text, signs, flags with text). "effetto" when it fits (rain at night, snow in Ukraine winter, "mirino" = seen through a
