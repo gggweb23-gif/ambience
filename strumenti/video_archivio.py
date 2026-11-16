@@ -635,6 +635,16 @@ elif STILE_COP == 'etichetta_rossa':   # senza ritocco: anche il fotogramma vero
         im = senza_bordi_neri(Image.open(base).convert('RGB').resize((1280, 720)))
 TESTO_COP = str(P.get('testo_copertina') or '').strip() or str(c.get('testo_copertina') or '').strip() or 'WHY?'
 TESTO_COP = TESTO_COP.rstrip(' .')
+if STILE_COP == 'fotogramma' and (max(len(w_) for w_ in TESTO_COP.split()) > 7 or len(TESTO_COP.split()) > 3):
+    # 16 nov (Giorgio: scritte grandi come prima): col carattere spaziale (largo) servono parole corte, max 7 lettere e max 3 parole (es. NO PLAN B)
+    try:
+        alt_ = claude(f'YouTube video title: "{P.get("titolo", "")}". Thumbnail text now: "{TESTO_COP}". Rewrite it in CAPS with the same meaning and curiosity, '
+                      f'max 3 words and EVERY word max 7 letters (e.g. NO PLAN B, 19 HOURS, FROZEN). Never these: {", ".join(sorted(str(x) for x in (P.get("copertine_usate") or [])))}. Only the text.',
+                      modello='claude-haiku-4-5-20251001', max_tokens=40).strip().strip('"').rstrip(' .')
+        if alt_ and len(alt_.split()) <= 3 and max(len(w_) for w_ in alt_.split()) <= 8:
+            log('scritta di copertina accorciata per lettere grandi:', TESTO_COP, '->', alt_); TESTO_COP = alt_
+    except Exception as e_:
+        log('scritta corta non riuscita:', str(e_)[:80])
 # 12 nov (Giorgio): mai la stessa scritta di un'altra copertina del canale (NO ESCAPE era uscita due volte)
 _USATE = {str(x).strip().upper().rstrip(' .') for x in (P.get('copertine_usate') or [])}
 if TESTO_COP.upper() in _USATE:
