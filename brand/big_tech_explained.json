@@ -1,0 +1,58 @@
+{
+ "nome": "brand_big_tech",
+ "lingua": "en",
+ "titolo": "Big Tech Explained",
+ "budget_dollari": 0.6,
+ "nome_canale": [
+  "BIG TECH",
+  "EXPLAINED"
+ ],
+ "motto": "THE TECH STORIES THAT MATTER, EXPLAINED DAILY",
+ "personaggi": {
+  "musk": {
+   "commons": "Elon Musk",
+   "chi": "Elon Musk, CEO of Tesla",
+   "pose": {
+    "telefono": {
+     "posa": "x"
+    }
+   }
+  },
+  "huang": {
+   "commons": "Jensen Huang",
+   "chi": "Jensen Huang, Nvidia",
+   "pose": {
+    "classico": {
+     "posa": "x"
+    }
+   }
+  },
+  "altman": {
+   "commons": "Sam Altman",
+   "chi": "Sam Altman, CEO of OpenAI",
+   "pose": {
+    "sorride": {
+     "posa": "standing, friendly confident smile, hands in pockets, casual sweater"
+    }
+   }
+  }
+ },
+ "banner": {
+  "sfondo": "A futuristic Silicon Valley tech newsroom at night: big glowing screens with abstract chip circuits, rising stock charts and neural network patterns, server racks with blue and green lights, a sleek round table, cinematic neon light, empty of people",
+  "sinistra": [
+   "musk",
+   "telefono"
+  ],
+  "destra": [
+   [
+    "huang",
+    "classico"
+   ],
+   [
+    "altman",
+    "sorride"
+   ]
+  ]
+ },
+ "avatar": "A bold round channel logo icon in editorial cartoon style: a glossy cyan microchip with golden pins and a bright red lightning bolt in its center, thin circuit lines around it, strong dark outlines, flat colors, centered, plain dark navy background, no text"
+}
