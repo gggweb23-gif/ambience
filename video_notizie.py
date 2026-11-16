@@ -9,7 +9,7 @@ Dal file notizie/<nome>.json (copione scritto SOLO con fatti delle fonti, scena 
   5) musica di sottofondo bassa che si abbassa sotto la voce + pulsante iscriviti + copertina
 Env: NOTIZIA (percorso del json), FAL_KEY, ELEVENLABS_API_KEY, ANTHROPIC_API_KEY, PEXELS_API_KEY, TETTO_DOLLARI (default 0.70)
 Uscita: prove_video/notizie/<nome>/video.mp4, copertina.jpg, costi.txt"""
-import base64, io, json, math, os, random, re, shutil, subprocess, sys, time, urllib.parse, urllib.request
+import base64, io, json, math, os, random, re, shutil, subprocess, sys, time, urllib.error, urllib.parse, urllib.request
 from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor
 
 from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageStat
@@ -87,25 +87,78 @@ DIFETTI = ('Look carefully at this AI cartoon image. Count the arms, hands and l
            'or ANY visible text, letters, numbers or logo. Otherwise answer NO. Answer only SI or NO.')
 
 
+MODELLO_VOCE = str(N.get('voce_modello') or 'eleven_v3')   # 16 nov (Giorgio): voce C, stessa voce col modello eleven_v3, piu' umana e autorevole
+
+
+def _allinea(mp3, testo):
+    """Tempi di ogni lettera di un audio gia' fatto (ElevenLabs forced alignment), se il modello non li da' da solo."""
+    bnd = 'notizie' + str(random.randint(10 ** 8, 10 ** 9))
+    corpo = (f'--{bnd}\r\nContent-Disposition: form-data; name="text"\r\n\r\n{testo}\r\n'
+             f'--{bnd}\r\nContent-Disposition: form-data; name="file"; filename="v.mp3"\r\nContent-Type: audio/mpeg\r\n\r\n').encode() + open(mp3, 'rb').read() + f'\r\n--{bnd}--\r\n'.encode()
+    j = http('https://api.elevenlabs.io/v1/forced-alignment', corpo, {'xi-api-key': E('ELEVENLABS_API_KEY', ''), 'Content-Type': f'multipart/form-data; boundary={bnd}'}, timeout=300)
+    ch = j['characters']
+    return {'characters': [c['text'] for c in ch], 'character_start_times_seconds': [c['start'] for c in ch], 'character_end_times_seconds': [c['end'] for c in ch]}
+
+
+def voce_a_blocchi(testo, p, pj):
+    """Voce a blocchi di scene (max ~2.400 caratteri, i video lunghi superano il limite di una chiamata), poi tutto unito con i tempi giusti."""
+    blocchi, cur = [], ''
+    for s in N['scene']:
+        t = s['testo'].strip()
+        if cur and len(cur) + len(t) + 1 > 2400:
+            blocchi.append(cur); cur = t
+        else:
+            cur = (cur + ' ' + t).strip()
+    blocchi.append(cur)
+    imp = ({'stability': .5, 'similarity_boost': .8, 'style': 0, 'use_speaker_boost': True} if 'v3' in MODELLO_VOCE else
+           {'stability': .42, 'similarity_boost': .78, 'style': .28, 'speed': float(N.get('voce_velocita') or 1.08), 'use_speaker_boost': True})
+    parti, al = [], {'characters': [], 'character_start_times_seconds': [], 'character_end_times_seconds': []}
+    off = 0.0
+    for i, b in enumerate(blocchi):
+        f = os.path.join(LAV, f'voce_{i:02d}.mp3'); a = None
+        for k in range(4):
+            try:
+                try:
+                    j = http(f'https://api.elevenlabs.io/v1/text-to-speech/{VOCE}/with-timestamps?output_format=mp3_44100_192',
+                             {'text': b, 'model_id': MODELLO_VOCE, 'voice_settings': imp}, {'xi-api-key': E('ELEVENLABS_API_KEY', '')}, timeout=300)
+                    open(f, 'wb').write(base64.b64decode(j['audio_base64'])); a = j.get('alignment')
+                except urllib.error.HTTPError as e:
+                    log('voce con i tempi non disponibile per', MODELLO_VOCE, e.code, '-> audio semplice + allineamento')
+                    open(f, 'wb').write(http(f'https://api.elevenlabs.io/v1/text-to-speech/{VOCE}?output_format=mp3_44100_192',
+                                             {'text': b, 'model_id': MODELLO_VOCE, 'voice_settings': imp}, {'xi-api-key': E('ELEVENLABS_API_KEY', '')}, timeout=300, raw=True))
+                if not a or not a.get('characters'):
+                    a = _allinea(f, b)
+                CO.registra('elevenlabs', MODELLO_VOCE, crediti=len(b)); break
+            except Exception as e:
+                log('voce non riuscita, riprovo:', str(e)[:200]); time.sleep(5 * (k + 1))
+        if a is None:
+            raise RuntimeError('ElevenLabs non risponde')
+        d = float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', f], capture_output=True, text=True).stdout.strip())
+        if i:   # lo spazio tra un blocco e l'altro
+            al['characters'].append(' '); al['character_start_times_seconds'].append(off); al['character_end_times_seconds'].append(off)
+        al['characters'] += a['characters']
+        al['character_start_times_seconds'] += [x + off for x in a['character_start_times_seconds']]
+        al['character_end_times_seconds'] += [x + off for x in a['character_end_times_seconds']]
+        parti.append(f); off += d
+    if len(parti) == 1:
+        shutil.copy(parti[0], p)
+    else:
+        lst = os.path.join(LAV, 'voci.txt'); open(lst, 'w').write(''.join(f"file '{x}'\n" for x in parti))
+        subprocess.run(['ffmpeg', '-v', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', lst, '-c:a', 'libmp3lame', '-b:a', '192k', p], check=True)
+    json.dump(al, open(pj, 'w'))
+
+
 # ============================================================ 1) VOCE
 def voce():
     p = os.path.join(MAT, 'voce.mp3'); pj = p[:-4] + '.json'
     testo = ' '.join(s['testo'].strip() for s in N['scene'])
     pt = p[:-4] + '_testo.txt'
-    if os.path.exists(pt) and open(pt).read() != testo:   # copione cambiato: voce nuova
+    chiave = MODELLO_VOCE + '|' + VOCE + '|' + testo   # cambia il testo, la voce o il modello: voce nuova
+    if not os.path.exists(pt) or open(pt).read() != chiave:
         for x in (p, pj):
             os.path.exists(x) and os.remove(x)
     if not (os.path.exists(p) and os.path.exists(pj)):
-        for k in range(4):
-            try:
-                j = http(f'https://api.elevenlabs.io/v1/text-to-speech/{VOCE}/with-timestamps?output_format=mp3_44100_192',
-                         {'text': testo, 'model_id': 'eleven_multilingual_v2',
-                          'voice_settings': {'stability': .42, 'similarity_boost': .78, 'style': .28, 'speed': float(N.get('voce_velocita') or 1.08), 'use_speaker_boost': True}},
-                         {'xi-api-key': E('ELEVENLABS_API_KEY', '')}, timeout=300)
-                open(p, 'wb').write(base64.b64decode(j['audio_base64'])); json.dump(j['alignment'], open(pj, 'w')); open(pt, 'w').write(testo)
-                CO.registra('elevenlabs', 'eleven_multilingual_v2', crediti=len(testo)); break
-            except Exception as e:
-                log('voce non riuscita, riprovo:', str(e)[:200]); time.sleep(5 * (k + 1))
+        voce_a_blocchi(testo, p, pj); open(pt, 'w').write(chiave)
     al = json.load(open(pj))
     ch, st, en = al['characters'], al['character_start_times_seconds'], al['character_end_times_seconds']
     # parole con i tempi
