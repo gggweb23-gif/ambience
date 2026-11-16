@@ -217,6 +217,8 @@ def traduci_it(v):
         add(f'tag.{j}', t)
     for k, st in (v.get('sets') or {}).items():
         add(f'l.{k}', st.get('luogo'))
+    for k, pp in (v.get('personaggi') or {}).items():   # ruolo a schermo (etichetta col nome) in italiano
+        add(f'p.{k}', pp.get('chi'))
     for i, s in enumerate(v['scene']):
         add(f's.{i}', s['testo']); add(f'cap.{i}', s.get('capitolo')); add(f'cit.{i}', (s.get('citazione') or {}).get('testo'))
         g = s.get('grafica') or {}
@@ -233,12 +235,15 @@ def traduci_it(v):
     prompt = ("Translate into natural, fluent Italian for an Italian YouTube news channel (authoritative journalist tone, short sentences). "
               "Keep names, numbers and meaning exactly. Texts in UPPERCASE stay UPPERCASE and short (graphics: max 22 chars for 'g.*.testo'). "
               "Use Italian number style in graphics units (e.g. MILIARDI DI DOLLARI). The title (titolo) max 70 chars, for the homepage. "
-              "'fr.N' must be exactly the same words as the matching sentence in 's.N'. Quotes ('cit.*') are translated faithfully, word for word. "
+              "'p.*' are 'Full Name, role': keep the name, translate only the role. 'fr.N' must be exactly the same words as the matching sentence in 's.N'. Quotes ('cit.*') are translated faithfully, word for word. "
               'Return ONLY JSON: {"k": "translation", ...} with the same keys.\n\n' + json.dumps(voci, ensure_ascii=False))
     tr = json_da(claude([{'role': 'user', 'content': prompt}], max_tokens=24000, sforzo='low'))
     it = json.loads(json.dumps(v))
     it['titolo'] = tr.get('titolo', v['titolo']); it['descrizione'] = tr.get('descrizione', v.get('descrizione', ''))
     it['tag'] = [tr.get(f'tag.{j}', t) for j, t in enumerate(v.get('tag', []))]
+    for k, pp in (it.get('personaggi') or {}).items():
+        if pp.get('chi'):
+            pp['chi'] = tr.get(f'p.{k}', pp['chi'])
     for k, st in (it.get('sets') or {}).items():
         if st.get('luogo'):
             st['luogo'] = tr.get(f'l.{k}', st['luogo'])
