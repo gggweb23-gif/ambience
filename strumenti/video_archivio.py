@@ -730,6 +730,15 @@ else:
     except Exception as e:
         log('posizione soggetto non trovata, uso il lato libero previsto:', str(e)[:100])
         sog = (0, 0, 640, 720) if VOLTO_SX else (640, 0, 1280, 720)
+    if STILE_COP == 'fotogramma':   # 16 nov (Giorgio: scritte troppo piccole): se accanto alla persona c'e' poco spazio, si stringe l'inquadratura
+        lib_sx, lib_dx = sog[0], 1280 - sog[2]   # spostando la persona verso un lato: si libera mezza copertina per lettere GRANDI come prima
+        if max(lib_sx, lib_dx) < 430 and sog[2] > sog[0]:
+            z_ = 1.31; cw_, ch_ = int(1280 / z_), int(720 / z_)
+            y0_ = 0 if sog[1] < 120 else min(720 - ch_, max(0, sog[1] - 40))
+            x0_ = min(1280 - cw_, max(0, sog[0] - 20)) if lib_dx >= lib_sx else max(0, min(1280 - cw_, sog[2] + 20 - cw_))
+            im = im.crop((x0_, y0_, x0_ + cw_, y0_ + ch_)).resize((1280, 720), Image.LANCZOS)
+            sog = tuple(int(v) for v in (max(0, (sog[0] - x0_) * z_), max(0, (sog[1] - y0_) * z_), min(1280, (sog[2] - x0_) * z_), min(720, (sog[3] - y0_) * z_)))
+            log('copertina: inquadratura stretta per liberare spazio alla scritta, soggetto ora in', sog)
     d = ImageDraw.Draw(im)
     parole = TESTO_COP.upper().split()
     # 11 nov (Giorgio: scritta troppo piccola da mobile): due righe bilanciate (THEY HAD / IT ALL) invece di tutto su una riga e l'ultima parola da sola
@@ -741,7 +750,13 @@ else:
         if 1 < len(parole) <= 3:
             righe = parole
     def _misure(larg, alt):
-        larg = larg / STRETTO
+        if STILE_COP == 'fotogramma':   # 16 nov: lettere ALTE come le copertine di prima; il carattere spaziale e' largo, quindi si stringe in orizzontale (fino a meta')
+            s0 = 300
+            while s0 > 80:
+                if all(larg / (d.textlength(r_, font=ImageFont.truetype(FP, s0)) + 2 * max(8, s0 // 11)) >= .5 for r_ in righe) and len(righe) * s0 <= alt:
+                    return [s0] * len(righe)
+                s0 -= 6
+            return None
         s0 = 230
         while s0 > 70:
             ms = [s0] * len(righe)
@@ -797,10 +812,11 @@ else:
             dl_.text((2 * sw_ + 30, 2 * sw_), rr, font=f_, fill='#4FD2FF' if i == len(righe) - 1 and len(righe) > 1 else 'white', stroke_width=sw_, stroke_fill=(0, 0, 0))
             glow_.alpha_composite(lay_)
             bb_ = glow_.getbbox() or (0, 0, W_, H_); glow_ = glow_.crop(bb_)
-            glow_ = glow_.resize((max(1, int(glow_.width * STRETTO)), glow_.height), Image.LANCZOS)
+            st_ = min(1.0, (x1 - x0 + 50) / glow_.width)   # stretta solo quanto serve per stare nel posto libero
+            glow_ = glow_.resize((max(1, int(glow_.width * st_)), glow_.height), Image.LANCZOS)
             x_ = (x1 - glow_.width + 25) if lato == 'dx' else x0 - 25
             base_rgba = im.convert('RGBA'); base_rgba.alpha_composite(glow_, (int(x_), int(y + bb_[1] - 2 * sw_))); im = base_rgba.convert('RGB'); d = ImageDraw.Draw(im)
-            y += int(s_ * 1.02); continue
+            y += int(s_ * 1.0); continue
         x_ = (x1 - d.textlength(rr, font=f_)) if lato == 'dx' else x0
         if False:   # (vecchio bagliore, ora disegnato sopra)
             gl_ = Image.new('L', (1280, 720), 0); ImageDraw.Draw(gl_).text((x_, y), rr, font=f_, fill=255, stroke_width=max(8, s_ // 11))
