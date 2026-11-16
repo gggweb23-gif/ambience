@@ -1,0 +1,16 @@
+name: Aggiungi voce ElevenLabs
+on:
+  workflow_dispatch:
+    inputs:
+      voice_id: {required: true, type: string}
+      cerca: {description: 'nome della voce', default: '', type: string}
+jobs:
+  voce:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - env:
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          VOICE_ID: ${{ inputs.voice_id }}
+          CERCA: ${{ inputs.cerca }}
+        run: python3 strumenti/aggiungi_voce.py

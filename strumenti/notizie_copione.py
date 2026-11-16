@@ -19,7 +19,7 @@ MESI_IT = ['GENNAIO', 'FEBBRAIO', 'MARZO', 'APRILE', 'MAGGIO', 'GIUGNO', 'LUGLIO
 LINGUE = [x.strip() for x in (E('LINGUE') or 'en,it').split(',') if x.strip()]
 MINUTI = float(E('MINUTI') or 9.5)
 PAROLE = int(MINUTI * 150)   # la voce legge circa 150 parole al minuto
-VOCI = {'it': 'glnsgBC77wt5zOYU0szz', 'en': E('VOCE_EN') or 'pNInz6obpgDQGcFmaJgB'}
+VOCI = {'it': 'glnsgBC77wt5zOYU0szz', 'en': E('VOCE_EN') or 'uju3wxzG5OhpWcoi3SMy'}   # 16 nov (Giorgio): inglese = voce E, Michael C. Vincent (eleven_v3)
 SPESA = [0.0]
 
 
