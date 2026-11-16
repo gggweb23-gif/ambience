@@ -1,0 +1,83 @@
+{
+ "nome": "anthropic_ipo",
+ "lingua": "it",
+ "titolo": "Anthropic in Borsa: la quotazione da mille miliardi",
+ "data": "16 NOVEMBRE 2026",
+ "etichetta": "IN ARRIVO",
+ "musica": "epico",
+ "fonti_link": [
+  "https://www.cnbc.com/2026/11/10/anthropic-sets-price-range-of-70-to-78-in-upcoming-ipo.html",
+  "https://financefeeds.com/anthropic-ipo-date-price-range-70-78-trading-19-november/",
+  "https://www.tradingkey.com/analysis/stocks/us-stocks/262304476-anthropic-ipo-ant-price-above-78-orders-six-times-november-14-2026-tradingkey"
+ ],
+ "personaggi": {
+  "amodei": {"commons": "Dario Amodei", "chi": "Dario Amodei, CEO of Anthropic", "pose": {
+    "presenta": "standing confidently, one hand open presenting to the side, slight smile, dark blazer over a casual shirt",
+    "pensa": "standing with one hand on the chin, thoughtful worried expression, dark blazer"}},
+  "investitore": {"descrizione": "a Wall Street investor in a navy suit and tie", "pose": {"ordine": "waving a paper order ticket high in one hand, excited expression"}}
+ },
+ "sfondi": {
+  "borsa": "the facade of a big stock exchange building in New York with huge LED screens showing green rising charts, morning light, empty plaza, no people",
+  "fila": "a long queue of many cartoon investors in suits waiting outside a glass skyscraper, holding briefcases, seen from the side, sunny, generic faces",
+  "server": "a huge glowing data center hall with endless rows of server racks and blue-orange lights, empty of people",
+  "rosso": "a trading floor at dusk with big screens full of falling red charts, scattered papers, empty of people, tense mood",
+  "bilancia": "a giant old brass balance scale in a dark room: on one side a glowing rocket, on the other side a cracked soap bubble, dramatic spotlight"
+ },
+ "scene": [
+  {"testo": "Mercoledì Anthropic, l'azienda di Dario Amodei che ha creato Claude, fissa il prezzo delle sue azioni. E potrebbe valere fino a mille miliardi di dollari.",
+   "fonte": "CNBC · S-1/A",
+   "inquadrature": [
+    {"tipo": "cartone", "sfondo": "borsa", "personaggio": "amodei", "posa": "presenta", "lato": "dx", "didascalia": "DARIO AMODEI · CEO DI ANTHROPIC"},
+    {"tipo": "cartone", "sfondo": "borsa", "grafica": {"tipo": "numero", "valore": 1000, "decimali": 0, "unita": "MILIARDI DI DOLLARI", "sopra": "FINO A"}}
+   ]},
+  {"testo": "Giovedì diciannove novembre si parte al Nasdaq, con il simbolo A N T.",
+   "fonte": "CNBC · FinanceFeeds",
+   "inquadrature": [
+    {"tipo": "pexels", "q": ["times square new york", "new york stock exchange", "wall street new york"], "grafica": {"tipo": "titolo", "testo": "NASDAQ: ANT", "sotto": "GIOVEDÌ 19 NOVEMBRE"}}
+   ]},
+  {"testo": "Prezzo previsto: tra settanta e settantotto dollari per azione. In palio, fino a sessantaquattro miliardi raccolti in un colpo solo.",
+   "fonte": "S-1/A · FinanceFeeds",
+   "inquadrature": [
+    {"tipo": "pexels", "q": ["stock market screen", "stock ticker board", "trading screen numbers"], "grafica": {"tipo": "titolo", "testo": "$70 – $78", "sotto": "PREZZO PER AZIONE"}},
+    {"tipo": "pexels", "q": ["dollar bills", "money cash dollars", "counting dollars"], "grafica": {"tipo": "numero", "valore": 64, "decimali": 0, "unita": "MILIARDI DI DOLLARI RACCOLTI", "sopra": "FINO A"}}
+   ]},
+  {"testo": "E la fila è lunghissima: secondo Bloomberg, gli ordini sono circa sei volte le azioni disponibili.",
+   "fonte": "Bloomberg, via TradingKey",
+   "inquadrature": [
+    {"tipo": "cartone", "sfondo": "fila", "grafica": {"tipo": "titolo", "testo": "ORDINI X6", "sotto": "LE AZIONI DISPONIBILI"}},
+    {"tipo": "cartone", "sfondo": "borsa", "personaggio": "investitore", "posa": "ordine", "lato": "sx"}
+   ]},
+  {"testo": "Google e Nvidia compreranno circa dieci miliardi di dollari di azioni a testa.",
+   "fonte": "S-1/A · FinanceFeeds",
+   "inquadrature": [
+    {"tipo": "cartone", "sfondo": "server", "grafica": {"tipo": "titolo", "testo": "GOOGLE + NVIDIA", "sotto": "CIRCA 10 MILIARDI $ A TESTA"}}
+   ]},
+  {"testo": "Il motivo dell'entusiasmo? Ricavi che corrono al ritmo di circa ottantuno miliardi di dollari l'anno.",
+   "fonte": "Fortune · FinanceFeeds",
+   "inquadrature": [
+    {"tipo": "pexels", "q": ["artificial intelligence technology", "data center servers", "computer code screen"], "grafica": {"tipo": "numero", "valore": 81, "decimali": 0, "unita": "MILIARDI $ DI RICAVI L'ANNO", "sopra": "RITMO DI"}}
+   ]},
+  {"testo": "Ma c'è l'altra faccia: in nove mesi una perdita netta di centoquattro miliardi, quasi tutta per una voce contabile da novantaquattro miliardi che non è uscita dalla cassa.",
+   "fonte": "S-1/A · TradingKey",
+   "inquadrature": [
+    {"tipo": "cartone", "sfondo": "rosso", "personaggio": "amodei", "posa": "pensa", "lato": "dx", "grafica": {"tipo": "numero", "valore": -104, "decimali": 0, "unita": "MILIARDI DI PERDITA IN 9 MESI", "rosso": true}},
+    {"tipo": "cartone", "sfondo": "rosso", "grafica": {"tipo": "titolo", "testo": "94 MILIARDI", "sotto": "VOCE CONTABILE · NON USCITI DALLA CASSA"}}
+   ]},
+  {"testo": "E il mercato è nervoso: nella settimana prima del roadshow il Nasdaq ha perso il cinque virgola cinque per cento, per paura di nuove regole sull'intelligenza artificiale.",
+   "fonte": "TradingKey",
+   "inquadrature": [
+    {"tipo": "pexels", "q": ["stock market crash red", "stock chart falling", "trader stress screens"], "grafica": {"tipo": "numero", "valore": -5.5, "decimali": 1, "unita": "% NASDAQ IN UNA SETTIMANA", "rosso": true}}
+   ]},
+  {"testo": "Il primo test arriva martedì, con i conti di Nvidia.",
+   "fonte": "TradingKey",
+   "inquadrature": [
+    {"tipo": "cartone", "sfondo": "server", "grafica": {"tipo": "titolo", "testo": "MARTEDÌ 17", "sotto": "I CONTI DI NVIDIA"}}
+   ]},
+  {"testo": "Debutto da record o bolla pronta a scoppiare? Lo scopriamo giovedì. Iscriviti: la seguiamo passo dopo passo.",
+   "inquadrature": [
+    {"tipo": "cartone", "sfondo": "bilancia", "grafica": {"tipo": "titolo", "testo": "RECORD O BOLLA?", "sotto": ""}},
+    {"tipo": "cartone", "sfondo": "borsa", "personaggio": "amodei", "posa": "presenta", "lato": "sx"}
+   ]}
+ ],
+ "copertina": {"sfondo": "borsa", "personaggio": "amodei", "posa": "presenta", "lato": "dx", "righe": ["ANTHROPIC", "1.000 MILIARDI"], "evidenzia": 1}
+}

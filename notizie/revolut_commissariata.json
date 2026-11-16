@@ -1,0 +1,74 @@
+{
+ "nome": "revolut_commissariata",
+ "lingua": "it",
+ "titolo": "Revolut commissariata: cosa ha deciso il Tribunale di Milano",
+ "data": "16 NOVEMBRE 2026",
+ "etichetta": "ULTIM'ORA",
+ "musica": "tensione",
+ "fonti_link": [
+  "https://www.ansa.it/sito/notizie/cronaca/2026/11/16/riciclaggio-con-aggravante-mafiosa-amministrazione-giudiziaria-per-revolut_826ace80-1187-47af-9cab-866fe3539d56.html",
+  "https://tg24.sky.it/cronaca/2026/11/16/revolut-italia-amministrazione-giudiziaria",
+  "https://www.ilpost.it/2026/11/16/banca-revolut-amministrazione-giudiziaria/",
+  "https://www.finanzadigitale.com/news/revolut-supera-6-milioni-clienti-italia/"
+ ],
+ "personaggi": {
+  "giudice": {"descrizione": "a stern middle-aged Italian judge in a black court robe with a white jabot, grey hair, holding a wooden gavel raised in one hand", "pose": {"martello": "raising the gavel high, determined expression"}},
+  "finanziere": {"descrizione": "an Italian financial police officer in a grey-green uniform with yellow flames insignia and a peaked cap", "pose": {"carte": "carrying a tall wobbling stack of documents in both arms, focused expression"}},
+  "storonsky": {"commons": "Nikolay Storonsky", "chi": "Nik Storonsky, founder and CEO of the digital bank Revolut", "pose": {"telefono": "standing calmly, holding a smartphone in one hand, neutral serious expression, dark t-shirt"}}
+ },
+ "sfondi": {
+  "tribunale": "the grand marble hall of the Milan courthouse (Palazzo di Giustizia), tall columns, wooden judge bench, warm light, empty of people",
+  "ufficio": "a modern fintech office at night with glass walls, big screens showing blue charts, empty desks, moody blue and purple light, empty of people",
+  "archivio": "an office room overflowing with piles of paper files and folders, filing cabinets, a desk lamp, empty of people",
+  "ombre": "a dark rainy city street at night, three anonymous silhouettes in long coats and hats seen from behind, each looking at a glowing smartphone, faces never visible, noir mood",
+  "lente": "a giant magnifying glass hovering over a huge smartphone showing a blank banking app screen with simple icons, on a desk, clean background"
+ },
+ "scene": [
+  {"testo": "Revolut è appena stata commissariata. Lo ha deciso oggi il Tribunale di Milano.",
+   "inquadrature": [
+    {"tipo": "cartone", "sfondo": "tribunale", "personaggio": "giudice", "posa": "martello", "lato": "dx", "grafica": {"tipo": "carta", "timbro": "COMMISSARIATA"}}
+   ]},
+  {"testo": "Per un anno, la filiale italiana della banca digitale da oltre sei milioni di clienti sarà affiancata da due amministratori giudiziari.",
+   "fonte": "Il Post · finanzadigitale.com",
+   "inquadrature": [
+    {"tipo": "pexels", "q": ["smartphone banking app", "mobile payment phone", "online banking phone"], "grafica": {"tipo": "numero", "valore": 6, "decimali": 0, "prefisso": "+", "unita": "MILIONI DI CLIENTI IN ITALIA"}},
+    {"tipo": "cartone", "sfondo": "ufficio", "grafica": {"tipo": "titolo", "testo": "1 ANNO", "sotto": "DUE AMMINISTRATORI GIUDIZIARI"}}
+   ]},
+  {"testo": "Il motivo? Secondo la Procura di Milano, ci sono operazioni di trasferimento e occultamento di capitali per settantasei virgola cinque milioni di euro.",
+   "fonte": "ANSA · Sky TG24",
+   "inquadrature": [
+    {"tipo": "pexels", "q": ["milan city", "milan cathedral", "milan street"], "grafica": {"tipo": "titolo", "testo": "PROCURA DI MILANO", "sotto": "IL MOTIVO"}},
+    {"tipo": "pexels", "q": ["euro banknotes", "counting money euro", "money cash"], "grafica": {"tipo": "numero", "valore": 76.5, "decimali": 1, "unita": "MILIONI DI EURO"}}
+   ]},
+  {"testo": "La Guardia di Finanza ha trovato oltre un milione di violazioni nei controlli sui clienti e nella conservazione dei dati.",
+   "fonte": "ANSA",
+   "inquadrature": [
+    {"tipo": "cartone", "sfondo": "archivio", "personaggio": "finanziere", "posa": "carte", "lato": "sx", "grafica": {"tipo": "numero", "valore": 1, "decimali": 0, "prefisso": "+", "unita": "MILIONE DI VIOLAZIONI"}}
+   ]},
+  {"testo": "E secondo i giudici, così hanno potuto usare la banca anche persone indagate o condannate per riciclaggio, in alcuni casi con l'aggravante mafiosa.",
+   "fonte": "Tribunale di Milano · ANSA",
+   "inquadrature": [
+    {"tipo": "cartone", "sfondo": "ombre", "grafica": {"tipo": "titolo", "testo": "RICICLAGGIO", "sotto": "IN ALCUNI CASI CON L'AGGRAVANTE MAFIOSA"}},
+    {"tipo": "pexels", "q": ["laptop dark hacker", "dark room computer screen", "night city rain"]}
+   ]},
+  {"testo": "Attenzione però: la banca non chiude. La misura serve a sistemare i controlli interni.",
+   "inquadrature": [
+    {"tipo": "cartone", "sfondo": "ufficio", "grafica": {"tipo": "titolo", "testo": "LA BANCA NON CHIUDE", "sotto": "SI RIFANNO I CONTROLLI INTERNI"}}
+   ]},
+  {"testo": "Revolut ha detto che collaborerà pienamente con le autorità, e che in Italia i servizi continuano normalmente, senza interruzioni per i clienti.",
+   "fonte": "Revolut, via ANSA",
+   "inquadrature": [
+    {"tipo": "cartone", "sfondo": "ufficio", "personaggio": "storonsky", "posa": "telefono", "lato": "dx", "grafica": {"tipo": "titolo", "testo": "REVOLUT RISPONDE", "sotto": "PIENA COLLABORAZIONE · SERVIZI REGOLARI"}, "didascalia": "NIK STORONSKY · FONDATORE DI REVOLUT"}
+   ]},
+  {"testo": "Quindi, se hai un conto Revolut, oggi non cambia nulla.",
+   "inquadrature": [
+    {"tipo": "pexels", "q": ["contactless payment phone", "paying with phone", "card payment terminal"], "grafica": {"tipo": "titolo", "testo": "PER I CLIENTI", "sotto": "OGGI NON CAMBIA NULLA"}}
+   ]},
+  {"testo": "Ma la domanda resta: chi controlla davvero chi apre un conto in una banca digitale? Iscriviti, perché questa storia è appena iniziata.",
+   "inquadrature": [
+    {"tipo": "cartone", "sfondo": "lente", "grafica": {"tipo": "titolo", "testo": "CHI CONTROLLA?", "sotto": ""}},
+    {"tipo": "cartone", "sfondo": "tribunale", "personaggio": "giudice", "posa": "martello", "lato": "sx"}
+   ]}
+ ],
+ "copertina": {"sfondo": "tribunale", "personaggio": "giudice", "posa": "martello", "lato": "dx", "righe": ["REVOLUT", "COMMISSARIATA"], "evidenzia": 1}
+}
