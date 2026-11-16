@@ -1,0 +1,47 @@
+name: Primo commento sotto i video
+# 16 nov 2026 (Giorgio): il primo commento entro 3-5 minuti dall'uscita di ogni video e Short. Parte 25 minuti prima degli orari di uscita
+# (Short 09:00, 13:00, 19:00, 21:30 e video lunghi 17:00, ora italiana), aspetta l'uscita e commenta. Registro: coach/primi_commenti.jsonl
+on:
+  schedule:
+    - cron: '35 7 * * *'
+    - cron: '35 11 * * *'
+    - cron: '35 15 * * *'
+    - cron: '35 17 * * *'
+    - cron: '5 20 * * *'
+  workflow_dispatch:
+    inputs:
+      finestra: {description: 'minuti in avanti da coprire', default: '75', type: string}
+      prova: {description: 'SI = non scrive, solo registro', default: 'NO', type: string}
+concurrency:
+  group: primo-commento
+  cancel-in-progress: false
+permissions:
+  contents: write
+jobs:
+  commenti:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - name: Commenti
+        env:
+          FINESTRA: ${{ inputs.finestra || '75' }}
+          PROVA: ${{ inputs.prova || 'NO' }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN_KAO: ${{ secrets.YT_REFRESH_TOKEN_KAO }}
+          YT_REFRESH_TOKEN_STORIA: ${{ secrets.YT_REFRESH_TOKEN_STORIA }}
+          YT_REFRESH_TOKEN_COSTO_VERO: ${{ secrets.YT_REFRESH_TOKEN_COSTO_VERO }}
+          YT_REFRESH_TOKEN_ORBITAL_DAYS: ${{ secrets.YT_REFRESH_TOKEN_ORBITAL_DAYS }}
+          YT_REFRESH_TOKEN_WWII_TESTIMONY: ${{ secrets.YT_REFRESH_TOKEN_WWII_TESTIMONY }}
+          YT_REFRESH_TOKEN_MAIN_STREET_ATLAS: ${{ secrets.YT_REFRESH_TOKEN_MAIN_STREET_ATLAS }}
+          YT_REFRESH_TOKEN_FACES_OF_ROME: ${{ secrets.YT_REFRESH_TOKEN_FACES_OF_ROME }}
+          YT_REFRESH_TOKEN_AGORA_OF_SAGES: ${{ secrets.YT_REFRESH_TOKEN_AGORA_OF_SAGES }}
+        run: python3 strumenti/primo_commento.py
+      - name: Salva registro
+        if: ${{ always() }}
+        run: |
+          git config user.name "render-bot"; git config user.email "render-bot@users.noreply.github.com"
+          git add coach/primi_commenti.jsonl 2>/dev/null || true
+          git diff --cached --quiet || (git commit -qm "Primi commenti" && for i in 1 2 3 4 5; do git pull --rebase -q && git push -q && break; sleep $((i*5)); done)
