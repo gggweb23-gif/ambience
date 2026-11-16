@@ -16,6 +16,8 @@ on:
       lingue: {description: 'lingue del video', default: 'en,it', type: string}
       salta_radar: {description: 'SI = usa la storia gia scelta (onda.json)', default: 'NO', type: string}
       carica: {description: 'SI = carica su YouTube (guerra: WWII Testimony)', default: 'NO', type: string}
+      minuti: {description: 'durata del video in minuti (prova: 1.2)', default: '9.5', type: string}
+      prova: {description: 'SI = prova (non tocca la storia di domani)', default: 'NO', type: string}
 
 concurrency:
   group: notizie-${{ inputs.filone || 'tech' }}
@@ -41,7 +43,8 @@ jobs:
       YT_API_KEY_RADAR: ${{ secrets.YT_API_KEY_RADAR }}
       FAL_KEY: ${{ secrets.FAL_KEY }}
       ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
-      PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+      MINUTI: ${{ inputs.minuti || '9.5' }}
+      PROVA: ${{ inputs.prova || 'NO' }}
     steps:
       - uses: actions/checkout@v4
       - name: Programmi

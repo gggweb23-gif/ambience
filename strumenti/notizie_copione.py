@@ -3,7 +3,7 @@
 in inglese e in italiano (stesse immagini, si rifanno solo testo e voce).
   1) Claude Sonnet cerca le fonti sul web (ricerca web dell'API) e scrive copione e regia di 9-10 minuti: SOLO fatti delle fonti,
      accuse sempre attribuite e al condizionale, mai citazioni inventate; ogni inquadratura a cartone ha un'immagine NUOVA (mai ripetuta);
-     meta' circa clip vere Pexels; il protagonista (la persona della notizia) torna spesso ed e' in copertina
+     niente Pexels (16 nov sera): solo scene disegnate, mappe, dossier e frasi a effetto (stile dinamico); il protagonista torna spesso ed e' in copertina
   2) secondo passaggio di verifica: Claude ricontrolla ogni frase sulle fonti e corregge o toglie quelle non provate
   3) traduzione italiana di tutte le parti scritte e dette (le immagini restano quelle del video inglese)
 Uscita: notizie/auto/<data>_<slug>_en.json e _it.json. Costo stimato: 0,30-0,60 $ (ricerche web + token).
@@ -68,29 +68,37 @@ def libreria():
     return out
 
 
-SCHEMA = '''{
- "titolo": "YouTube title, max 70 characters, with the person's name, made for the HOMEPAGE (curiosity + stakes), no clickbait lies",
+SCHEMA = """{
+ "titolo": "YouTube title, max 70 characters, with the main person's name, made for the HOMEPAGE (curiosity + stakes), no clickbait lies",
  "angolo": "the angle of this video in one line",
  "descrizione": "YouTube description, 3-5 sentences, first sentence = the title",
  "tag": ["10-15 tags, the first one = the title"],
  "fonti_link": ["every URL you used"],
- "personaggi": {"slug_lowercase": {"commons": "Full Name exactly as on Wikipedia", "chi": "Full Name, role", "pose": {"pose_name": {"posa": "pose and expression, one line, full body"}}}},
- "sfondi": {"unique_key": "cartoon scene description in English, EMPTY of people unless a crowd is needed, no text/logos"},
- "scene": [{"testo": "what the voice says (2-4 sentences)", "fonti": ["URL(s) that prove it"],
-   "inquadrature": [
-     {"tipo": "cartone", "sfondo": "unique_key", "personaggio": "slug (optional)", "posa": "pose_name", "lato": "dx|sx",
-      "grafica": {"tipo": "titolo", "testo": "MAX 22 CHARS", "sotto": "max 48 chars"}, "didascalia": "FULL NAME · ROLE (only first appearance)"},
-     {"tipo": "pexels", "q": ["3 English stock-footage searches, real generic footage, no people names, no brands"],
-      "grafica": {"tipo": "numero", "valore": 76.5, "decimali": 1, "prefisso": "", "unita": "MILLION EUROS", "sopra": "UP TO", "rosso": false}}
-   ]}],
- "copertina": {"sfondo": "unique_key", "personaggio": "slug of the MAIN person", "posa": "pose_name", "lato": "dx|sx", "righe": ["LINE 1", "LINE 2"], "evidenzia": 1}
-}'''
+ "personaggi": {"slug_lowercase": {"commons": "Full Name exactly as on Wikipedia", "chi": "Full Name, short role", "pose": {"pose_name": {"posa": "pose and expression, one line, full body"}}}},
+ "sets": {"unique_key": {"descr": "cartoon scene in English (place, objects, light, mood), EMPTY of people, no text/logos/flags with writing",
+                         "luogo": "PLACE, COUNTRY (optional, real place of the scene)", "effetto": "pioggia|neve|mirino|none",
+                         "cast": [{"chi": "slug", "posa": "pose_name", "lato": "sx|dx"}]}},
+ "scene": [{"testo": "what the narrator says (1-3 short sentences)", "fonti": ["URL(s) that prove it"],
+   "capitolo": "CHAPTER TITLE (only on the first scene of a chapter)", "titolo_card": true,
+   "visivo": {"tipo": "set", "set": "unique_key"},
+   "grafica": {"tipo": "numero", "valore": 76.5, "decimali": 1, "prefisso": "", "unita": "MILLION BARRELS", "sopra": "EVERY DAY"},
+   "citazione": {"chi": "slug", "posa": "pose_name", "testo": "the EXACT words this person said, as quoted by the source"}}],
+ "copertina": {"sfondo": "dramatic scene description, empty of people", "personaggio": "slug of the MAIN person", "posa": "pose_name", "lato": "dx|sx", "righe": ["LINE 1", "LINE 2"], "evidenzia": 1}
+}
+Other "visivo" types (use them often, they are free):
+ {"tipo": "mappa", "centro": [lon, lat], "larghezza": 24, "paesi": [{"iso": "UKR", "colore": "blu"}, {"iso": "RUS", "colore": "rosso"}],
+  "punti": [{"lon": 30.52, "lat": 50.45, "nome": "KYIV"}], "frecce": [{"da": [lon, lat], "a": [lon, lat], "colore": "rosso"}], "zoom_su": [lon, lat]}
+   (larghezza = degrees of longitude visible, 8-60; ISO3 codes; colori: rosso, blu, giallo, verde, arancio, viola; real coordinates only)
+ {"tipo": "dossier", "chi": "slug", "posa": "pose_name", "righe": ["3 short handwritten facts, max 26 chars each"], "timbro": "ONE OR TWO WORDS"}
+ {"tipo": "frase", "testo": "the same short punch sentence the narrator says (max 9 words)"}
+"grafica" can also be {"tipo": "titolo", "testo": "MAX 22 CHARS", "sotto": "max 48 chars"}."""
 
 
 def scrivi_en(onda, lib):
     tipo = {'tech': 'tech-news', 'guerra': 'world-conflicts news (wars, ceasefires, sanctions, military and diplomatic moves)'}.get(FILONE, FILONE + ' news')
-    prompt = f"""You are the head writer of a fast, credible {tipo} YouTube channel (English, US audience). Format: cartoon editorial
-caricatures of the REAL people + real stock footage + animated graphics, like the channel Paper Billions. Today is {OGGI}.
+    prompt = f"""You are the head writer of a fast, credible {tipo} YouTube channel (English, US audience). Format: our cartoon editorial
+caricatures of the REAL people in drawn cartoon scenes + animated maps + animated graphics. Pace and storytelling like the channel Paper Billions:
+a story you cannot stop watching, but every word is TRUE. Today is {OGGI}.
 
 STORY TO COVER: {onda['storia']}
 MAIN PERSON (must be the face of the video and of the thumbnail): {onda['persona']} ({onda.get('ruolo', '')}, {onda.get('azienda', '')})
@@ -98,51 +106,66 @@ WHAT IS NEW TODAY: {onda.get('novita_oggi', '')}
 DAY {onda.get('giorni', 1)} OF THIS WAVE. Angles already used on previous days (do NOT repeat them, find a fresh angle on the latest developments): {onda.get('angoli_fatti') or 'none'}
 
 1) RESEARCH FIRST with web search: the latest facts ONLY from authoritative news organizations and official sources (Reuters, AP, Bloomberg, FT, WSJ,
-CNBC, BBC, NYT, The Verge, ANSA, Il Sole 24 Ore, Corriere, company statements, SEC filings). NEVER use YouTube videos, TikTok, social posts, Substack,
-blogs or content farms as sources. The core fact of the video must be confirmed by at least TWO different major outlets (or an official statement).
-Say exactly what is confirmed and what is only reported: e.g. "is weighing a return, according to the Financial Times" is NOT "is returning".
-2) WRITE the video: about {PAROLE} words of narration in total ({MINUTI} minutes), 45-60 scenes.
-RULES (all mandatory):
+CNBC, BBC, NYT, Al Jazeera, Kyiv Independent, ANSA, Il Sole 24 Ore, Corriere, government and company statements). NEVER use YouTube videos, TikTok,
+social posts, Substack, blogs or content farms as sources. The core fact of the video must be confirmed by at least TWO different major outlets
+(or an official statement). Say exactly what is confirmed and what is only reported ("is weighing a return, according to the FT" is NOT "is returning").
+2) WRITE the video: about {PAROLE} words of narration in total ({MINUTI} minutes), {max(6, int(MINUTI * 7))}-{max(8, int(MINUTI * 9))} scenes.
+TRUTH RULES (all mandatory):
 - ONLY facts found in your sources. Every scene lists the URL(s) that prove it. Never invent quotes, numbers, dates or motives.
-- Allegations, reports and rumors: always attributed ("according to Reuters...", "the Financial Times reported...") and never stated as fact.
-  Never name private individuals who are not public figures. Be fair: include the other side / official denials when they exist.
-- Hook: the first scene says the biggest, most surprising fact in 1-2 short sentences (the result first, then how we got here). No intro, no greetings.
-- Rhythm: short sentences, clear and decisive, like an authoritative journalist. Build curiosity every 60-90 seconds ("but that's not the whole story...").
+- Allegations, reports and rumors: always attributed ("according to Reuters...") and never stated as fact. Never name private individuals.
+  Be fair: include the other side / official denials when they exist. Strictly neutral: no opinions, no mocking; for wars give each side's
+  position with attribution; no graphic violence; casualty figures only with their source.
+- "citazione": ONLY real statements, word for word as quoted by a source you list (translated to English if needed, as the source did).
+  Use 4-7 of them across the video (the key people speaking: leaders, ministers, spokespeople). A second voice reads them.
+STORYTELLING (like a documentary, not a list of news):
+- COLD OPEN: scene 1-3 drop the viewer into the most dramatic TRUE moment of the story (the result first), then the scene with "titolo_card": true
+  (around 20-40 seconds in) where the narrator says the video's big question in one sentence.
+- Then 4-6 CHAPTERS ("capitolo" on their first scene, 2-5 words, intriguing, e.g. "THE MAN WITH THE KEY", "48 HOURS IN GENEVA"):
+  who the main person is and how they got here (backstory with real facts) -> how the crisis built up -> what happened now -> what it means /
+  what happens next (only what officials and analysts quoted by sources say).
+- Every 45-60 seconds a curiosity hook ("but that's not the whole story"). Short sentences, decisive, like an authoritative journalist.
 - Last scene: one line asking to subscribe because the story is still moving.
-- Strictly neutral and factual: no opinions, no taking sides, no mocking; for wars give each side's position with attribution; no graphic violence;
-  casualty figures only with their source.
-DIRECTION (regia):
-- Each scene has 1-3 shots of 4-6 seconds each (about 2.8 words per second of voice).
-- About HALF of all shots are "pexels" (real stock footage that matches what is said: offices, chips, servers, stock screens, cities, money,
-  smartphones...), the other half "cartone".
-- EVERY "cartone" shot uses its OWN new key in "sfondi": a background is NEVER reused (it's like a film: always something new). Background
-  descriptions must be coherent with what is said in that moment and specific (place, objects, light, mood). Backgrounds are places and objects
-  WITHOUT writing: never documents, letters, newspapers, social feeds, screens full of text, signs, clocks or flags with text. Write "empty of people"
-  unless a generic crowd is really needed. Never draw real people in backgrounds (real people appear only as our caricatures).
-- Pexels queries describe concrete, literal footage that obviously matches the sentence (e.g. "stock market trading screen red", "military
-  convoy desert", "aircraft carrier at sea"); never abstract or random lifestyle footage.
-- The main person appears in a cartone shot at least every 60-90 seconds, with DIFFERENT poses that fit the moment (max 4 poses for the
-  main person, 2 for the others). Other real people of the story (founders, CEOs, rivals) only if they are public figures, with their real name.
-  Characters already drawn in our library (reuse these slugs and pose names when they fit, it's free): {json.dumps(lib)}
-- Graphics: big numbers with "numero" (exact values from sources), key phrases with "titolo" (UPPERCASE). Not every shot needs a graphic.
-- "lato": the person stands on the right ("dx") or left ("sx"); alternate.
-- Thumbnail (copertina): its background is a dramatic scene EMPTY of people; the main person (our caricature), 2 short UPPERCASE lines (max 3 words each, high-impact words of the story, no final period), evidenzia = index
-  of the line on the red box. Its "sfondo" is a NEW key too.
+DIRECTION (regia) - the engine cuts a new camera angle every ~2.5 seconds from each drawn scene (wide, close-up on each person, details), so:
+- "sets" are drawn places where the scene happens: {max(5, int(MINUTI * 3))}-{max(6, int(MINUTI * 3.4))} sets in total. Use a set for 1-3 CONSECUTIVE
+  scenes in the same place (like a film scene), then move to a new place. Never come back to an old set later.
+- Each set: concrete and coherent with what is said (real places: the Kremlin office, a Kyiv street at night, a tanker in the Strait of Hormuz,
+  the Oval Office, a UN hall...), rich in detail, EMPTY of people (people are only our caricatures in "cast"), NO writing anywhere (no documents,
+  newspapers, screens with text, signs, flags with text). "effetto" when it fits (rain at night, snow in Ukraine winter, "mirino" = seen through a
+  spy/surveillance camera). "luogo" = the real place shown on screen the first time.
+- "cast": 0-2 real people per set, standing on opposite sides (sx/dx), with a pose that fits the moment. The main person appears often
+  (max 4 poses for the main person, 2 for the others). Real public figures only. Characters already drawn in our library (reuse these slugs and
+  pose names when they fit, it's free): {json.dumps(lib)}
+- Use "mappa" for EVERY geographic fact (front lines, cities hit, routes, who borders whom, where troops/ships move): {max(2, int(MINUTI * .8))}+ maps,
+  with correct real coordinates, highlighted countries, pins and arrows.
+- Use 1-2 "dossier" (who is this person: 3 short real facts) and {max(1, int(MINUTI * .5))}+ "frase" (short punch line, white handwritten text
+  over the scene; the narrator says exactly that sentence). Never put "frase" as the first scene.
+- "grafica" on many scenes: big exact numbers from sources ("numero") and key phrases ("titolo", UPPERCASE).
+- Thumbnail (copertina): the MAIN person (our caricature) + 2 short UPPERCASE lines (max 3 words each, high-impact words of the story,
+  no final period); evidenza = index of the line on the red box; a dramatic background empty of people.
 Answer with ONLY the JSON (no markdown), exactly this structure:
 {SCHEMA}"""
     t = claude([{'role': 'user', 'content': prompt}], [{'type': 'web_search_20250305', 'name': 'web_search', 'max_uses': 8}], sforzo='medium')
-    return json_da(t)
+    v = json_da(t)
+    # in copertina sempre la persona principale della notizia
+    per = v.get('personaggi') or {}; cop = v.setdefault('copertina', {})
+    cognome = (onda.get('persona') or '').split()[-1].lower() if onda.get('persona') else ''
+    princ = next((k for k, p in per.items() if cognome and cognome in (p.get('chi', '') + ' ' + p.get('commons', '') + ' ' + k).lower()), None)
+    if princ and cop.get('personaggio') != princ:
+        cop['personaggio'] = princ; cop['posa'] = next(iter(per[princ].get('pose') or {'posa': ''}))
+    return v
 
 
 def verifica(v):
     """Secondo passaggio: ogni frase controllata sulle fonti; le frasi non provate si correggono o si tolgono."""
-    testi = [{'i': i, 'testo': s['testo'], 'fonti': s.get('fonti', [])} for i, s in enumerate(v['scene'])]
+    testi = [{'i': i, 'testo': s['testo'], 'fonti': s.get('fonti', []), **({'citazione_testuale': s['citazione'].get('testo', '')} if s.get('citazione') else {})}
+             for i, s in enumerate(v['scene'])]
     prompt = ("You are a strict fact-checker for a news video. Sources must be authoritative news organizations or official statements: any sentence "
               "that relies on YouTube, social media, blogs or unknown sites must be corrected using a reliable source or dropped. Reports and rumors must "
               "never sound like confirmed facts. Check EVERY sentence below against its sources (use web search to open and "
               "verify them, and to verify anything doubtful). A sentence passes only if the sources support it exactly (numbers, dates, names, "
               "who said what). Reports/allegations must be attributed. Return ONLY JSON: "
-              '{"correzioni": [{"i": 0, "testo": "corrected sentence(s), same length and tone, or an empty string to drop the scene", "perche": "short reason"}], '
+              '{"correzioni": [{"i": 0, "testo": "corrected sentence(s), same length and tone, or an empty string to drop the scene", "togli_citazione": false, "perche": "short reason"}], '
+              '"citazione_testuale" must be the exact words reported by a reliable source, otherwise set togli_citazione true. '
               '"ok": true/false}. Only list scenes that need a change.\n\n' + json.dumps(testi, ensure_ascii=False))
     r = json_da(claude([{'role': 'user', 'content': prompt}], [{'type': 'web_search_20250305', 'name': 'web_search', 'max_uses': 6}], max_tokens=16000))
     tolte = 0
@@ -150,7 +173,13 @@ def verifica(v):
         i = c.get('i')
         if isinstance(i, int) and 0 <= i < len(v['scene']):
             log(f"verifica scena {i}: {c.get('perche', '')[:120]}")
-            v['scene'][i]['testo'] = (c.get('testo') or '').strip()
+            if 'testo' in c:
+                v['scene'][i]['testo'] = (c.get('testo') or '').strip()
+                f = (v['scene'][i].get('visivo') or {})
+                if f.get('tipo') == 'frase' and v['scene'][i]['testo']:
+                    f['testo'] = v['scene'][i]['testo']   # la frase a schermo resta uguale a quella detta
+            if c.get('togli_citazione'):
+                v['scene'][i].pop('citazione', None)
     prima = len(v['scene'])
     v['scene'] = [s for s in v['scene'] if s['testo']]
     tolte = prima - len(v['scene'])
@@ -159,7 +188,7 @@ def verifica(v):
 
 
 def traduci_it(v):
-    """Tutte le parti scritte e dette in italiano; immagini, clip e personaggi restano identici."""
+    """Tutte le parti scritte e dette in italiano; scene disegnate, mappe e personaggi restano identici."""
     voci = []
     def add(chiave, testo):
         if testo:
@@ -167,32 +196,54 @@ def traduci_it(v):
     add('titolo', v.get('titolo')); add('descrizione', v.get('descrizione'))
     for j, t in enumerate(v.get('tag', [])):
         add(f'tag.{j}', t)
+    for k, st in (v.get('sets') or {}).items():
+        add(f'l.{k}', st.get('luogo'))
     for i, s in enumerate(v['scene']):
-        add(f's.{i}', s['testo'])
-        for q, inq in enumerate(s['inquadrature']):
-            g = inq.get('grafica') or {}
-            for c in ('testo', 'sotto', 'unita', 'sopra'):
-                add(f'g.{i}.{q}.{c}', g.get(c))
-            add(f'd.{i}.{q}', inq.get('didascalia'))
+        add(f's.{i}', s['testo']); add(f'cap.{i}', s.get('capitolo')); add(f'cit.{i}', (s.get('citazione') or {}).get('testo'))
+        g = s.get('grafica') or {}
+        for c in ('testo', 'sotto', 'unita', 'sopra'):
+            add(f'g.{i}.{c}', g.get(c))
+        vi = s.get('visivo') or {}
+        add(f'fr.{i}', vi.get('testo') if vi.get('tipo') == 'frase' else None); add(f'tb.{i}', vi.get('timbro'))
+        for j, r in enumerate(vi.get('righe') or []):
+            add(f'r.{i}.{j}', r)
+        for j, pt in enumerate(vi.get('punti') or []):
+            add(f'pt.{i}.{j}', pt.get('nome'))
     for j, r in enumerate(v['copertina'].get('righe', [])):
         add(f'c.{j}', r)
     prompt = ("Translate into natural, fluent Italian for an Italian YouTube news channel (authoritative journalist tone, short sentences). "
               "Keep names, numbers and meaning exactly. Texts in UPPERCASE stay UPPERCASE and short (graphics: max 22 chars for 'g.*.testo'). "
               "Use Italian number style in graphics units (e.g. MILIARDI DI DOLLARI). The title (titolo) max 70 chars, for the homepage. "
+              "'fr.N' must be exactly the same words as the matching sentence in 's.N'. Quotes ('cit.*') are translated faithfully, word for word. "
               'Return ONLY JSON: {"k": "translation", ...} with the same keys.\n\n' + json.dumps(voci, ensure_ascii=False))
     tr = json_da(claude([{'role': 'user', 'content': prompt}], max_tokens=24000, sforzo='low'))
     it = json.loads(json.dumps(v))
     it['titolo'] = tr.get('titolo', v['titolo']); it['descrizione'] = tr.get('descrizione', v.get('descrizione', ''))
     it['tag'] = [tr.get(f'tag.{j}', t) for j, t in enumerate(v.get('tag', []))]
+    for k, st in (it.get('sets') or {}).items():
+        if st.get('luogo'):
+            st['luogo'] = tr.get(f'l.{k}', st['luogo'])
     for i, s in enumerate(it['scene']):
         s['testo'] = tr.get(f's.{i}', s['testo'])
-        for q, inq in enumerate(s['inquadrature']):
-            g = inq.get('grafica') or {}
-            for c in ('testo', 'sotto', 'unita', 'sopra'):
-                if g.get(c):
-                    g[c] = tr.get(f'g.{i}.{q}.{c}', g[c])
-            if inq.get('didascalia'):
-                inq['didascalia'] = tr.get(f'd.{i}.{q}', inq['didascalia'])
+        if s.get('capitolo'):
+            s['capitolo'] = tr.get(f'cap.{i}', s['capitolo'])
+        if (s.get('citazione') or {}).get('testo'):
+            s['citazione']['testo'] = tr.get(f'cit.{i}', s['citazione']['testo'])
+        g = s.get('grafica') or {}
+        for c in ('testo', 'sotto', 'unita', 'sopra'):
+            if g.get(c):
+                g[c] = tr.get(f'g.{i}.{c}', g[c])
+        vi = s.get('visivo') or {}
+        if vi.get('tipo') == 'frase' and vi.get('testo'):
+            vi['testo'] = tr.get(f'fr.{i}', vi['testo'])
+        if vi.get('timbro'):
+            vi['timbro'] = tr.get(f'tb.{i}', vi['timbro'])
+        vi['righe'] = [tr.get(f'r.{i}.{j}', r) for j, r in enumerate(vi.get('righe') or [])] or vi.get('righe')
+        for j, pt in enumerate(vi.get('punti') or []):
+            if pt.get('nome'):
+                pt['nome'] = tr.get(f'pt.{i}.{j}', pt['nome'])
+        if not vi.get('righe'):
+            vi.pop('righe', None)
     it['copertina']['righe'] = [tr.get(f'c.{j}', r) for j, r in enumerate(v['copertina'].get('righe', []))]
     return it
 
@@ -200,7 +251,7 @@ def traduci_it(v):
 def main():
     onda = json.load(open(os.path.join(ROOT, 'notizie', 'radar', FILONE, 'onda.json')))
     slug = re.sub(r'[^a-z0-9]+', '_', onda['storia'].lower()).strip('_')[:40]
-    nome = f'{OGGI}_{slug}'
+    nome = f'{OGGI}_{slug}' + ('_prova' if (E('PROVA') or 'NO').upper() == 'SI' else '')
     v = scrivi_en(onda, libreria())
     log(f"copione EN: {len(v['scene'])} scene, {sum(len(s['testo'].split()) for s in v['scene'])} parole, spesa {SPESA[0]:.3f} $")
     v = verifica(v)
@@ -218,7 +269,8 @@ def main():
         json.dump(it, open(os.path.join(out, nome + '_it.json'), 'w'), ensure_ascii=False, indent=1)
         file_ok.append(os.path.join('notizie', 'auto', nome + '_it.json'))
     # l'angolo entra tra quelli fatti: domani se si resta sull'onda se ne cerca uno nuovo
-    onda.setdefault('angoli_fatti', []).append(v.get('angolo', '')); json.dump(onda, open(os.path.join(ROOT, 'notizie', 'radar', FILONE, 'onda.json'), 'w'), ensure_ascii=False, indent=1)
+    if (E('PROVA') or 'NO').upper() != 'SI':   # una prova non consuma l'angolo di domani
+        onda.setdefault('angoli_fatti', []).append(v.get('angolo', '')); json.dump(onda, open(os.path.join(ROOT, 'notizie', 'radar', FILONE, 'onda.json'), 'w'), ensure_ascii=False, indent=1)
     log(f"copioni pronti: {file_ok} | titolo: {v.get('titolo')} | spesa Claude {SPESA[0]:.3f} $")
     if os.environ.get('GITHUB_OUTPUT'):
         open(os.environ['GITHUB_OUTPUT'], 'a').write('file=' + ' '.join(file_ok) + '\n')

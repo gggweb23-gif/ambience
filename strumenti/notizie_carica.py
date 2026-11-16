@@ -32,7 +32,11 @@ def api(metodo, url, dati=None, tk=None):
 def main():
     titolo = N['titolo'][:100]
     fonti = '\n'.join('- ' + u for u in (N.get('fonti_link') or [])[:12])
-    corpo = '\n\n'.join(x for x in [titolo, N.get('descrizione', ''), ('Sources:\n' if N.get('lingua') == 'en' else 'Fonti:\n') + fonti if fonti else ''] if x)
+    # capitoli (stile dinamico): YouTube li mostra se il primo e' 0:00 e ce ne sono almeno 3
+    cap_f = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'prove_video', 'notizie', N.get('nome', ''), 'capitoli.json')
+    cap = json.load(open(cap_f)) if os.path.exists(cap_f) else []
+    capitoli = '\n'.join(f"{c['t'] // 60}:{c['t'] % 60:02d} {c['titolo']}" for c in cap) if len(cap) >= 3 else ''
+    corpo = '\n\n'.join(x for x in [titolo, N.get('descrizione', ''), capitoli, ('Sources:\n' if N.get('lingua') == 'en' else 'Fonti:\n') + fonti if fonti else ''] if x)
     descr = DESCR.con_titolo(titolo, corpo)[:4900]
     tags = DESCR.tag_con_titolo(titolo, N.get('tag') or [])
     lingua = N.get('lingua', 'en')
