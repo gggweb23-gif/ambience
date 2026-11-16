@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/home/runner/work/ambience/ambience/video_mappe.py", line 2356, in <module>
+    main()
+  File "/home/runner/work/ambience/ambience/video_mappe.py", line 2021, in main
+    comp = competitor()
+           ^^^^^^^^^^^^
+  File "/home/runner/work/ambience/ambience/video_mappe.py", line 173, in competitor
+    raise RuntimeError('STOP: manca il link del video competitor. Nessun video creato, nessun costo.')
+RuntimeError: STOP: manca il link del video competitor. Nessun video creato, nessun costo.
+03:56:45 esito: {"stato": "ERRORE", "errore": "STOP: manca il link del video competitor. Nessun video creato, nessun costo.", "minuti_lavoro": 0.0}
+03:59:00 avviso a n8n non riuscito: <urlopen error [Errno 110] Connection timed out>
+04:01:24 avviso a n8n non riuscito: <urlopen error [Errno 110] Connection timed out>
+04:03:47 avviso a n8n non riuscito: <urlopen error [Errno 110] Connection timed out>
