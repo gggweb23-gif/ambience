@@ -1,28 +1,8 @@
 Revolut commissariata: cosa ha deciso il Tribunale di Milano
-durata 60.5 s, render 4.0 min
-spesa 0.407 $ + 1060 crediti voce
+durata 67.5 s, render 4.9 min
+spesa 0.000 $ + 1060 crediti voce
 {
- "fal fal-ai/bytedance/seedream/v4.5/text-to-image": {
-  "chiamate": 8,
-  "dollari": 0.32,
-  "crediti": 0
- },
- "fal fal-ai/nano-banana-2/edit": {
-  "chiamate": 1,
-  "dollari": 0.08,
-  "crediti": 0
- },
- "claude claude-haiku-4-5-20251001": {
-  "chiamate": 8,
-  "dollari": 0.005,
-  "crediti": 0
- },
- "fal fal-ai/birefnet": {
-  "chiamate": 1,
-  "dollari": 0.002,
-  "crediti": 0
- },
- "elevenlabs eleven_multilingual_v2": {
+ "elevenlabs eleven_v3": {
   "chiamate": 1,
   "dollari": 0.0,
   "crediti": 1060
