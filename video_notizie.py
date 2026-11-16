@@ -207,14 +207,14 @@ def sfondo(chiave):
     if os.path.exists(dest):
         return dest
     descr = N['sfondi'][chiave]
-    for k in range(3):
+    for k in range(4):
         try:
             prompt = STILE + f'Scene: {descr}. Wide 16:9 shot. ' + NO_TESTO
             r = fal('fal-ai/bytedance/seedream/v4.5/text-to-image', {'prompt': prompt, 'image_size': {'width': W, 'height': H}, 'num_images': 1}, 0.04)
             im = Image.open(io.BytesIO(http(r['images'][0]['url'], raw=True, timeout=120))).convert('RGB')
             if max(ImageStat.Stat(im.resize((64, 36))).mean) < 18:
                 log('sfondo nero, rifaccio'); continue
-            if k < 2 and haiku_immagine(im, DIFETTI).startswith('SI'):
+            if haiku_immagine(im, DIFETTI).startswith('SI'):   # 16 nov: un logo inventato ("Techmamy") era passato al terzo tentativo senza controllo
                 log('sfondo con un difetto o scritte, lo rifaccio:', chiave); continue
             im = im.resize((W, H), Image.LANCZOS) if im.size != (W, H) else im
             im.filter(ImageFilter.UnsharpMask(radius=1.2, percent=40, threshold=2)).save(dest, quality=95); return dest
@@ -225,7 +225,7 @@ def sfondo(chiave):
     return None
 
 
-CLIP_USATE = set()
+CLIP_USATE = {38687556}   # grafico EUR/USD: sbagliato per Borsa e Nasdaq
 
 
 def clip_pexels(cartella, domande, sec):
@@ -372,7 +372,7 @@ def disegna_titolo(im, t, g, zona):
         f2 = font(F_TESTI, f2.size - 4)
     larg1 = f1.getbbox(t1)[2] + 90
     h1 = int(s1 * 1.22)
-    dx = int((1 - k) * -(larg1 + 100))
+    dx = int((1 - k) * (-(larg1 + 100) if x0 < W * .3 else (W - x0)))
     b = Image.new('RGBA', (larg1, h1), ROSSO + (255,)); d = ImageDraw.Draw(b)
     testo_box(d, (45, h1 // 2), t1, f1, BIANCO, anchor='lm')
     im.alpha_composite(b, (x0 + dx, y0))
@@ -382,7 +382,7 @@ def disegna_titolo(im, t, g, zona):
         b2 = Image.new('RGBA', (larg2, h2), (10, 12, 18, 235)); d2 = ImageDraw.Draw(b2)
         testo_box(d2, (35, h2 // 2), t2, f2, GIALLO, anchor='lm')
         b2.putalpha(b2.getchannel('A').point(lambda a: int(a * k2)))
-        im.alpha_composite(b2, (x0 + int((1 - k2) * -60), y0 + h1 + 14))
+        im.alpha_composite(b2, (x0 + int((1 - k2) * (-60 if x0 < W * .3 else 60)), y0 + h1 + 14))
 
 
 def disegna_didascalia(im, t, testo, lato):
