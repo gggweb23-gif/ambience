@@ -2,22 +2,22 @@
  "_nota": "Canali dei video notizie (16 nov 2026, Giorgio). SI = ogni mattina si produce e si carica su quel canale; NO = fermo. Il video italiano usa le stesse immagini dell'inglese, quindi l'inglese si produce sempre se e' attivo uno dei due. 16 nov sera: Giorgio accende tutti e 4 i canali da domani.",
  "guerra_en": {
   "attivo": "SI",
-  "canale": "War Room Explained (ex WWII Testimony)",
+  "canale": "WWII Testimony (diventera Frontline Explained), @WarRoomExplained-NEWS",
   "token": "YT_REFRESH_TOKEN_WWII_TESTIMONY"
  },
  "guerra_it": {
   "attivo": "SI",
-  "canale": "ex Storia in Minuti",
+  "canale": "Fronte Aperto (ex Storia in Minuti), @FronteAperto",
   "token": "YT_REFRESH_TOKEN_STORIA"
  },
  "tech_en": {
   "attivo": "SI",
-  "canale": "ex Billion Ruin",
+  "canale": "Big Tech Explained (ex Billion Ruin), @BigTechExplained",
   "token": "YT_REFRESH_TOKEN_MAIN_STREET_ATLAS"
  },
  "tech_it": {
   "attivo": "SI",
-  "canale": "ex Costo Vero",
+  "canale": "Big Tech Spiegata (ex Costo Vero), @BigTechSpiegata",
   "token": "YT_REFRESH_TOKEN_COSTO_VERO"
  }
 }
