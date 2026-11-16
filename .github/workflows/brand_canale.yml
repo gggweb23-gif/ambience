@@ -1,0 +1,30 @@
+name: Banner e avatar canale
+run-name: Brand ${{ inputs.brand }}
+# Banner (2560x1440, fascia sicura per telefono) e avatar di un canale nello stile dei video notizie. Parte solo a mano.
+on:
+  workflow_dispatch:
+    inputs:
+      brand: {description: 'file in brand/ (es. war_room.json)', default: 'war_room.json', type: string}
+permissions:
+  contents: write
+jobs:
+  brand:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      BRAND: brand/${{ inputs.brand }}
+      FAL_KEY: ${{ secrets.FAL_KEY }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Programmi
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null && pip install --quiet --break-system-packages pillow
+      - name: Banner e avatar
+        run: python3 strumenti/brand_canale.py
+      - name: Salva
+        if: ${{ always() }}
+        run: |
+          git config user.name "render-bot"; git config user.email "render-bot@users.noreply.github.com"
+          git add prove_video/brand caricature 2>/dev/null || true
+          git diff --cached --quiet || git commit -qm "Banner e avatar ${{ inputs.brand }}"
+          for i in 1 2 3 4 5; do git pull --rebase -q && git push -q && break; sleep $((i*5)); done

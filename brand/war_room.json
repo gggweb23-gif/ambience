@@ -1,0 +1,9 @@
+{"nome": "brand_war_room", "lingua": "en", "titolo": "War Room Explained", "budget_dollari": 0.6,
+ "nome_canale": ["WAR ROOM", "EXPLAINED"], "motto": "WORLD CONFLICTS, EXPLAINED DAILY",
+ "personaggi": {
+  "putin": {"commons": "Vladimir Putin", "chi": "Vladimir Putin, President of Russia", "pose": {"serio": {"posa": "standing, serious stern expression, hands behind his back, dark suit"}}},
+  "trump": {"commons": "Donald Trump", "chi": "Donald Trump, President of the United States", "pose": {"deciso": {"posa": "standing, confident determined expression, arms crossed, dark suit and red tie"}}},
+  "zelensky": {"commons": "Volodymyr Zelenskyy", "chi": "Volodymyr Zelensky, President of Ukraine", "pose": {"serio": {"posa": "serious"}}}},
+ "banner": {"sfondo": "A dramatic war room at night: a big round table with a glowing world map on it, dark blue walls with large screens showing radar sweeps and abstract maps, red alert lights, cinematic light, empty of people",
+            "sinistra": ["putin", "serio"], "destra": [["trump", "deciso"], ["zelensky", "serio"]]},
+ "avatar": "A bold round channel logo icon in editorial cartoon style: a big glossy red map pin standing on a dark navy globe with light blue continents, thin radar circles and a crosshair around it, strong dark outlines, flat colors, centered, plain dark navy background, no text"}
