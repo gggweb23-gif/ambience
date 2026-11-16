@@ -1,0 +1,1495 @@
+{
+ "titolo": "Quanto guadagna davvero un food truck?",
+ "protagonista": {
+  "nome": "Davide",
+  "capelli": "cap",
+  "colore_capelli": "#3b2a1a",
+  "pelle": "media",
+  "maglia": "#d9381e",
+  "grembiule": "#2b2b2b",
+  "occhiali": false
+ },
+ "oggetto": "panino",
+ "copertina": {
+  "righe": [
+   "IL FOOD TRUCK",
+   "COSTA POCO...",
+   "MA GUADAGNI?"
+  ],
+  "emozione": "stupito",
+  "oggetto": "panino",
+  "prezzo": "9 €",
+  "fondo": "scuro"
+ },
+ "copertina_ai": {
+  "valore_sx": "3,60 €",
+  "valore_dx": "9 €",
+  "oggetto_sx": "a small heap of sandwich ingredients: bread roll, sliced pork, cheese, lettuce",
+  "oggetto_dx": "a big juicy loaded sandwich in paper wrap on a food truck counter",
+  "domanda": [
+   "E ALLORA DOVE",
+   "SPARISCONO I SOLDI?"
+  ]
+ },
+ "descrizione": "Un food truck costa molto meno di un locale, ma quanto resta davvero in tasca a fine mese? Seguiamo Davide, che vende panini con porchetta, e facciamo i conti veri: costi fissi, permessi, eventi e margine per panino. Scopri come si calcola il pareggio e perché un evento sbagliato può farti andare in perdita. Gli importi sono esempi, non dati ufficiali.",
+ "tag": [
+  "food truck",
+  "street food",
+  "aprire un food truck",
+  "quanto guadagna un food truck",
+  "margine panino",
+  "punto di pareggio",
+  "costi fissi",
+  "permessi ambulanti",
+  "eventi e sagre",
+  "aprire un'attività",
+  "partita iva",
+  "conti di un'attività",
+  "food cost",
+  "economia pratica",
+  "panini",
+  "imprenditoria",
+  "commercianti",
+  "come aprire un'attività"
+ ],
+ "scene": [
+  {
+   "testo": "Davide vende duecento panini in un weekend. Duecento! Fa milleottocento euro di incasso. Sembra una vittoria, vero? Alla fine, però, in tasca gli restano solo centoquaranta euro. Dove sono finiti tutti gli altri soldi?",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Dove sono finiti?",
+      "emozione": "stupito",
+      "scuro": true
+     }
+    },
+    {
+     "parola": "milleottocento",
+     "tipo": "conteggio",
+     "p": {
+      "oggetto": "panino",
+      "icone": 40,
+      "testo": "1.800 € incassati"
+     }
+    },
+    {
+     "parola": "centoquaranta",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "panino",
+      "testo": "140 €",
+      "colore": "rosso",
+      "nota": "quello che resta"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Lui è Davide. Faceva il magazziniere, poi ha comprato un furgone usato e l'ha trasformato in un food truck. Vende panini con la porchetta. Ha la passione, il furgone e tanta voglia. Ma i conti li ha fatti bene?",
+   "capitolo": "Il protagonista",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "furgone in piazza",
+      "insegna": "Il Porchettaro",
+      "azione": "felice",
+      "clienti": 2,
+      "testo": "Davide e il suo food truck"
+     }
+    },
+    {
+     "parola": "furgone",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "furgone",
+      "prezzo": "18.000 €",
+      "nota": "furgone usato"
+     }
+    },
+    {
+     "parola": "conti",
+     "tipo": "domanda",
+     "p": {
+      "testo": "I conti li ha fatti?",
+      "emozione": "calmo",
+      "scuro": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Partiamo dal prezzo. Il panino di Davide costa nove euro. Dentro c'è porchetta, pane, salsa e una foglia di insalata. Per il cliente è un prezzo onesto: un panino da fiera, come tanti altri. Ma nove euro sono tutti suoi?",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "panino",
+      "prezzo": "9 €",
+      "nota": "panino con porchetta"
+     }
+    },
+    {
+     "parola": "dentro",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Cosa c'è nel panino",
+      "voci": [
+       "Pane fresco",
+       "Porchetta",
+       "Salsa",
+       "Insalata",
+       "Tovagliolo e carta"
+      ]
+     }
+    },
+    {
+     "parola": "suoi",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Sono tutti suoi?",
+      "emozione": "preoccupato",
+      "scuro": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "No. Su ogni panino ci sono i costi variabili, cioè quelli che crescono con ogni pezzo venduto. Pane novanta centesimi, porchetta un euro e novanta, salsa e insalata cinquanta centesimi, carta e tovagliolo trenta. Fa tre euro e sessanta.",
+   "capitolo": "Margine per panino",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "fette",
+     "p": {
+      "titolo": "Dove vanno i nove euro",
+      "totale": 9,
+      "totale_testo": "9 €",
+      "fette": [
+       {
+        "nome": "Pane",
+        "valore": 0.9,
+        "testo": "0,90 €"
+       },
+       {
+        "nome": "Porchetta",
+        "valore": 1.9,
+        "testo": "1,90 €"
+       },
+       {
+        "nome": "Salsa e insalata",
+        "valore": 0.5,
+        "testo": "0,50 €"
+       },
+       {
+        "nome": "Carta",
+        "valore": 0.3,
+        "testo": "0,30 €"
+       },
+       {
+        "nome": "Margine",
+        "valore": 5.4,
+        "testo": "5,40 €"
+       }
+      ],
+      "evidenzia": 4
+     }
+    },
+    {
+     "parola": "Pane",
+     "tipo": "costi",
+     "p": {
+      "voci": [
+       {
+        "nome": "Pane",
+        "valore": 0.9,
+        "testo": "0,90 €"
+       },
+       {
+        "nome": "Porchetta",
+        "valore": 1.9,
+        "testo": "1,90 €"
+       },
+       {
+        "nome": "Salsa e insalata",
+        "valore": 0.5,
+        "testo": "0,50 €"
+       },
+       {
+        "nome": "Carta",
+        "valore": 0.3,
+        "testo": "0,30 €"
+       }
+      ],
+      "totale": "3,60 €",
+      "periodo": "per panino"
+     }
+    },
+    {
+     "parola": "Fa",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Costo del panino",
+      "a": "0,90 + 1,90",
+      "op": "+",
+      "b": "0,80",
+      "risultato": "3,60 €",
+      "nota": "pane, porchetta, il resto"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Nove euro meno tre euro e sessanta fa cinque euro e quaranta. Questo è il margine per panino. Sembra tanto, e lo è: il sessanta per cento del prezzo. Ma attenzione: il margine non è ancora guadagno. Ci sono tutte le spese da pagare.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Margine per panino",
+      "a": "9 €",
+      "op": "−",
+      "b": "3,60 €",
+      "risultato": "5,40 €",
+      "nota": "prezzo meno costo"
+     }
+    },
+    {
+     "parola": "sessanta",
+     "tipo": "fette",
+     "p": {
+      "titolo": "Il prezzo diviso",
+      "totale": 9,
+      "totale_testo": "9 €",
+      "fette": [
+       {
+        "nome": "Costo panino",
+        "valore": 3.6,
+        "testo": "3,60 €"
+       },
+       {
+        "nome": "Margine",
+        "valore": 5.4,
+        "testo": "5,40 €"
+       }
+      ],
+      "evidenzia": 1
+     }
+    },
+    {
+     "parola": "attenzione",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Ma è tutto guadagno?",
+      "emozione": "preoccupato",
+      "scuro": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Qui sta il trucco del food truck: i costi fissi sono bassi. Niente affitto di un locale, niente vetrina, niente camerieri. Questo è il suo grande vantaggio rispetto a un ristorante, ma bassi non vuol dire zero. Vediamo quanto pagano.",
+   "capitolo": "Costi fissi bassi",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "confronto",
+     "p": {
+      "titolo": "Costi fissi al mese",
+      "a": {
+       "titolo": "Food truck",
+       "valore": "1.400 €",
+       "oggetto": "furgone"
+      },
+      "b": {
+       "titolo": "Locale di strada",
+       "valore": "4.500 €",
+       "oggetto": "negozio"
+      },
+      "vincitore": "a"
+     }
+    },
+    {
+     "parola": "Niente",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Cosa non paga",
+      "voci": [
+       "Affitto del locale",
+       "Vetrina e arredo",
+       "Camerieri fissi",
+       "Bollette del locale"
+      ]
+     }
+    },
+    {
+     "parola": "zero",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Bassi non è zero",
+      "emozione": "calmo",
+      "scuro": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "I costi fissi di Davide al mese sono questi. Rata del furgone, quattrocentocinquanta euro. Assicurazione e bollo, centoventi. Rimessaggio del mezzo, duecentotrenta. Commercialista e contributi, quattrocento. Telefono e gestionale, duecento. Totale: mille e quattrocento euro.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "costi",
+     "p": {
+      "voci": [
+       {
+        "nome": "Rata furgone",
+        "valore": 450,
+        "testo": "450 €"
+       },
+       {
+        "nome": "Assicurazione e bollo",
+        "valore": 120,
+        "testo": "120 €"
+       },
+       {
+        "nome": "Rimessaggio",
+        "valore": 230,
+        "testo": "230 €"
+       },
+       {
+        "nome": "Commercialista e contributi",
+        "valore": 400,
+        "testo": "400 €"
+       },
+       {
+        "nome": "Telefono e gestionale",
+        "valore": 200,
+        "testo": "200 €"
+       }
+      ],
+      "totale": "1.400 €",
+      "periodo": "al mese"
+     }
+    },
+    {
+     "parola": "Totale",
+     "tipo": "soldi",
+     "p": {
+      "centro": "1.400 €",
+      "destinazioni": [
+       "Banca",
+       "Assicurazione",
+       "Commercialista",
+       "Rimessaggio"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Mille e quattrocento euro al mese, tutti i mesi, anche quando il furgone sta fermo. Anche a gennaio, quando non c'è un cane in piazza. Per questo si chiamano fissi: non guardano quanti panini vendi, bussano alla porta lo stesso.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "calendario",
+     "p": {
+      "titolo": "Mille e quattrocento euro, ogni mese",
+      "giorni": 30,
+      "testo": "Anche da fermo"
+     }
+    },
+    {
+     "parola": "gennaio",
+     "tipo": "persone",
+     "p": {
+      "n": 1,
+      "azione": "fila",
+      "escono": 0,
+      "testo": "Piazza vuota"
+     }
+    },
+    {
+     "parola": "bussano",
+     "tipo": "salvadanaio",
+     "p": {
+      "direzione": "svuota",
+      "testo": "Ogni mese, a prescindere"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ora il punto di pareggio, cioè quanti panini servono per non perdere. Si divide: costi fissi diviso margine. Mille e quattrocento diviso cinque euro e quaranta fa duecentosessanta panini al mese, arrotondando. Sotto, sei in perdita. Sopra, guadagni.",
+   "capitolo": "Il pareggio",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Punto di pareggio",
+      "a": "1.400 €",
+      "op": "÷",
+      "b": "5,40 €",
+      "risultato": "260 panini",
+      "nota": "al mese, circa"
+     }
+    },
+    {
+     "parola": "Sotto",
+     "tipo": "pareggio",
+     "p": {
+      "titolo": "Pareggio del food truck",
+      "fissi": 1400,
+      "margine": 5.4,
+      "unita": "panini venduti",
+      "oggetto": "panino",
+      "perdita": true,
+      "guadagno": true
+     }
+    },
+    {
+     "parola": "Sopra",
+     "tipo": "conteggio",
+     "p": {
+      "oggetto": "panino",
+      "icone": 26,
+      "testo": "260 panini al mese"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Duecentosessanta panini al mese sono pochi, no? Meno di nove al giorno. Un bar ne farebbe duecento di colazioni. Ma non è così semplice: il food truck non lavora trenta giorni su trenta. E qui entrano i permessi e i luoghi.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "conteggio",
+     "p": {
+      "oggetto": "panino",
+      "icone": 9,
+      "testo": "9 panini al giorno"
+     }
+    },
+    {
+     "parola": "bar",
+     "tipo": "confronto",
+     "p": {
+      "titolo": "Pezzi per pareggiare",
+      "a": {
+       "titolo": "Food truck",
+       "valore": "260 panini",
+       "oggetto": "panino"
+      },
+      "b": {
+       "titolo": "Bar",
+       "valore": "1.400 caffè",
+       "oggetto": "caffè"
+      },
+      "vincitore": "a"
+     }
+    },
+    {
+     "parola": "permessi",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Ma dove li vendi?",
+      "emozione": "preoccupato",
+      "scuro": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Primo problema: non puoi parcheggiare dove vuoi. Serve un'autorizzazione per il commercio su area pubblica, e il comune decide dove puoi sostare. Per fare un esempio, puoi avere il via libera solo per certi giorni in una certa zona. Controlla sempre il regolamento del tuo comune.",
+   "capitolo": "Permessi",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Permessi da guardare",
+      "voci": [
+       "Autorizzazione commercio ambulante",
+       "Notifica sanitaria",
+       "Idoneità del mezzo",
+       "Corso alimentare",
+       "Posteggio o area concessa"
+      ]
+     }
+    },
+    {
+     "parola": "comune",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "ufficio del comune",
+      "insegna": "Comune",
+      "azione": "preoccupato",
+      "clienti": 0,
+      "testo": "Davide agli sportelli"
+     }
+    },
+    {
+     "parola": "Controlla",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Regole diverse ovunque",
+      "emozione": "calmo",
+      "scuro": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Attenzione, qui le regole cambiano da comune a comune, e cambiano nel tempo. Quindi questi numeri sono solo un esempio. Prima di spendere un euro, vai al tuo comune, alla tua Asl e al commercialista. Una multa può costare più di una settimana di incassi.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "bilancia",
+     "p": {
+      "titolo": "Una multa contro una settimana di incassi",
+      "sinistra": "Multa",
+      "destra": "Una settimana",
+      "pende": "sinistra"
+     }
+    },
+    {
+     "parola": "commercialista",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "documento",
+      "testo": "IN REGOLA",
+      "colore": "verde",
+      "nota": "prima di partire"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Facciamo un esempio diverso: Chiara, che ha un banco di fiori al mercato. Anche lei ha bisogno del posteggio. Se il posto è un buon angolo, vende bene. Se è nell'angolo morto del mercato, lavora la metà. Il permesso non basta: conta dove ti mettono.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "mercato",
+      "insegna": "Fiori di Chiara",
+      "azione": "lavora",
+      "clienti": 3,
+      "testo": "Banco di fiori al mercato"
+     }
+    },
+    {
+     "parola": "angolo",
+     "tipo": "confronto",
+     "p": {
+      "titolo": "Incasso del banco in una mattina",
+      "a": {
+       "titolo": "Angolo buono",
+       "valore": "420 €",
+       "oggetto": "fiori"
+      },
+      "b": {
+       "titolo": "Angolo morto",
+       "valore": "210 €",
+       "oggetto": "fiori"
+      },
+      "vincitore": "a"
+     }
+    },
+    {
+     "parola": "conta",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Conta il posto",
+      "emozione": "stupito",
+      "scuro": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Torniamo a Davide. Dove va a vendere? Ha tre strade. La piazza del paese, dove costa poco ma passa poca gente. Il mercato settimanale, con un posto fisso. Oppure gli eventi: sagre, concerti, fiere. Ogni strada ha numeri diversi.",
+   "capitolo": "Gli eventi",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "leve",
+     "p": {
+      "titolo": "Dove vendere",
+      "voci": [
+       "Piazza",
+       "Mercato",
+       "Sagre",
+       "Concerti"
+      ],
+      "evidenzia": 2
+     }
+    },
+    {
+     "parola": "piazza",
+     "tipo": "persone",
+     "p": {
+      "n": 3,
+      "azione": "fila",
+      "escono": 0,
+      "testo": "Pochi passanti"
+     }
+    },
+    {
+     "parola": "eventi",
+     "tipo": "persone",
+     "p": {
+      "n": 9,
+      "azione": "fila",
+      "escono": 0,
+      "testo": "Folla all'evento"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Gli eventi sono la miniera del food truck, perché c'è tanta gente tutta insieme. Ma gli organizzatori chiedono una quota per metterti lì. Qualche volta una cifra fissa, qualche volta una percentuale sugli incassi. E questo cambia i conti.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "sagra di paese",
+      "insegna": "Sagra",
+      "azione": "festa",
+      "clienti": 5,
+      "testo": "Davide alla sagra"
+     }
+    },
+    {
+     "parola": "quota",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "biglietto",
+      "prezzo": "300 €",
+      "nota": "quota di partecipazione"
+     }
+    },
+    {
+     "parola": "percentuale",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Fissa o in percentuale?",
+      "emozione": "calmo",
+      "scuro": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Esempio. Una sagra di tre giorni. Davide paga trecento euro di quota. Vende duecento panini. Il margine totale è duecento per cinque euro e quaranta, cioè mille e ottanta euro. Meno la quota di trecento, restano settecentottanta euro.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Margine della sagra",
+      "a": "200",
+      "op": "×",
+      "b": "5,40 €",
+      "risultato": "1.080 €",
+      "nota": "margine su duecento panini"
+     }
+    },
+    {
+     "parola": "Meno",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Dopo la quota",
+      "a": "1.080 €",
+      "op": "−",
+      "b": "300 €",
+      "risultato": "780 €",
+      "nota": "resta alla sagra"
+     }
+    },
+    {
+     "parola": "settecentottanta",
+     "tipo": "salvadanaio",
+     "p": {
+      "direzione": "riempie",
+      "testo": "780 € in cassa"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ma non è finita: per tre giorni servono benzina, il generatore, un aiutante. Mettiamo centosessanta euro tra carburante e gas e centoottanta per l'aiutante. Fanno trecentoquaranta. Quindi dai settecentottanta togli altri trecentoquaranta: restano quattrocentoquaranta euro.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "costi",
+     "p": {
+      "voci": [
+       {
+        "nome": "Carburante e gas",
+        "valore": 160,
+        "testo": "160 €"
+       },
+       {
+        "nome": "Aiutante",
+        "valore": 180,
+        "testo": "180 €"
+       }
+      ],
+      "totale": "340 €",
+      "periodo": "per la sagra"
+     }
+    },
+    {
+     "parola": "togli",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Guadagno della sagra",
+      "a": "780 €",
+      "op": "−",
+      "b": "340 €",
+      "risultato": "440 €",
+      "nota": "dopo costi dell'evento"
+     }
+    },
+    {
+     "parola": "quattrocentoquaranta",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "panino",
+      "testo": "440 €",
+      "colore": "verde",
+      "nota": "per tre giorni di fatica"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Quattrocentoquaranta euro per tre giorni di lavoro, di notte a preparare e di giorno in piedi. Sono circa centoquarantasette euro al giorno. Non male, ma nemmeno una miniera d'oro. E se piove? Se l'evento è un flop? Qui il rischio vero.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Guadagno al giorno",
+      "a": "440 €",
+      "op": "÷",
+      "b": "3 giorni",
+      "risultato": "147 € al giorno",
+      "nota": "circa"
+     }
+    },
+    {
+     "parola": "piove",
+     "tipo": "domanda",
+     "p": {
+      "testo": "E se piove?",
+      "emozione": "preoccupato",
+      "scuro": true
+     }
+    },
+    {
+     "parola": "flop",
+     "tipo": "persone",
+     "p": {
+      "n": 5,
+      "azione": "escono",
+      "escono": 4,
+      "testo": "La gente se ne va"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Guarda cosa succede se la sagra va male. Davide vende solo ottanta panini. Margine: ottanta per cinque euro e quaranta, quattrocentotrentadue euro. Quota trecento e costi trecentoquaranta, cioè seicentoquaranta. Risultato: duecentootto euro in perdita.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Margine con pochi clienti",
+      "a": "80",
+      "op": "×",
+      "b": "5,40 €",
+      "risultato": "432 €",
+      "nota": "ottanta panini"
+     }
+    },
+    {
+     "parola": "Quota",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Dopo quota e costi",
+      "a": "432 €",
+      "op": "−",
+      "b": "640 €",
+      "risultato": "−208 €",
+      "nota": "trecento di quota e trecentoquaranta di costi"
+     }
+    },
+    {
+     "parola": "perdita",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "panino",
+      "testo": "PERDITA",
+      "colore": "rosso",
+      "nota": "meno duecentootto euro"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Quindi un evento va valutato come un piccolo investimento. Prima di pagare la quota, fatti una domanda: quanti panini mi servono per pareggiare qui? Si calcola subito. Quota più costi diviso margine: seicentoquaranta diviso cinque euro e quaranta fa centodiciannove panini.",
+   "capitolo": "Pareggio dell'evento",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Pareggio della sagra",
+      "a": "640 €",
+      "op": "÷",
+      "b": "5,40 €",
+      "risultato": "119 panini",
+      "nota": "circa, arrotondato"
+     }
+    },
+    {
+     "parola": "Quota",
+     "tipo": "pareggio",
+     "p": {
+      "titolo": "Pareggio dell'evento",
+      "fissi": 640,
+      "margine": 5.4,
+      "unita": "panini venduti",
+      "oggetto": "panino",
+      "perdita": true,
+      "guadagno": true
+     }
+    },
+    {
+     "parola": "investimento",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Prima di pagare la quota",
+      "voci": [
+       "Quanta gente viene?",
+       "Quanti food truck ci sono?",
+       "Cosa vendono gli altri?",
+       "Quanti panini per pareggiare?"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Cosa non devi guardare? Gli incassi da soli. Duecento panini fanno milleottocento euro e fanno un bell'effetto sul telefono. Ma l'incasso non è guadagno. Guarda il margine, tolti i costi dell'evento. Un incasso grande può nascondere una serata in perdita.",
+   "capitolo": "Cosa guardare",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "confronto",
+     "p": {
+      "titolo": "Incasso e guadagno",
+      "a": {
+       "titolo": "Incasso",
+       "valore": "1.800 €",
+       "oggetto": "soldi"
+      },
+      "b": {
+       "titolo": "Guadagno vero",
+       "valore": "440 €",
+       "oggetto": "salvadanaio"
+      },
+      "vincitore": "b"
+     }
+    },
+    {
+     "parola": "telefono",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Guardi l'incasso?",
+      "emozione": "stupito",
+      "scuro": false
+     }
+    },
+    {
+     "parola": "Guarda",
+     "tipo": "cruscotto",
+     "p": {
+      "titolo": "Cosa guardare",
+      "voci": [
+       {
+        "nome": "Margine per panino",
+        "valore": 0.8
+       },
+       {
+        "nome": "Costi dell'evento",
+        "valore": 0.5
+       },
+       {
+        "nome": "Panini al pareggio",
+        "valore": 0.6
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Un esempio da un altro mondo. Gianni ha una pizzeria d'asporto e vede entrare tanti clienti, ma ogni pizza la vende a sei euro con costo di due euro e cinquanta. Pensa di andare bene perché è pieno. Ma con l'affitto alto, non basta essere pieni.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "pizzeria d'asporto",
+      "insegna": "Pizza da Gianni",
+      "azione": "lavora",
+      "clienti": 4,
+      "testo": "Pizzeria piena di clienti"
+     }
+    },
+    {
+     "parola": "sei",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "pizza",
+      "prezzo": "6 €",
+      "nota": "costo due euro e cinquanta"
+     }
+    },
+    {
+     "parola": "pieni",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Pieno vuol dire guadagno?",
+      "emozione": "preoccupato",
+      "scuro": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Torniamo al mese tipico di Davide. Dove lavora? Diciamo dodici giorni di eventi e mercati, perché sono i giorni che rendono. Poi ci sono giorni di preparazione, spesa, pulizia e riposo. Il furgone non è sempre in strada a incassare.",
+   "capitolo": "Il mese vero",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "calendario",
+     "p": {
+      "titolo": "Giorni in cui vende",
+      "giorni": 12,
+      "testo": "Dodici giorni al mese"
+     }
+    },
+    {
+     "parola": "preparazione",
+     "tipo": "orologio",
+     "p": {
+      "ore": 16,
+      "piene": 12,
+      "testo": "Ore di lavoro in una giornata"
+     }
+    },
+    {
+     "parola": "riposo",
+     "tipo": "domanda",
+     "p": {
+      "testo": "E gli altri giorni?",
+      "emozione": "calmo",
+      "scuro": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Facciamo il conto del mese. Dodici giorni di lavoro, e in media vende settanta panini al giorno. Fa ottocentoquaranta panini. Moltiplicati per cinque euro e quaranta, il margine è quattromilacinquecentotrentasei euro. Ecco il numero chiave.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Panini al mese",
+      "a": "12 giorni",
+      "op": "×",
+      "b": "70 panini",
+      "risultato": "840 panini",
+      "nota": "in media al giorno settanta"
+     }
+    },
+    {
+     "parola": "Moltiplicati",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Margine del mese",
+      "a": "840",
+      "op": "×",
+      "b": "5,40 €",
+      "risultato": "4.536 €",
+      "nota": "prima dei costi fissi"
+     }
+    },
+    {
+     "parola": "chiave",
+     "tipo": "conteggio",
+     "p": {
+      "oggetto": "panino",
+      "icone": 42,
+      "testo": "840 panini al mese"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ora togliamo i costi fissi: quattromilacinquecentotrentasei meno mille e quattrocento fa tremilacentotrentasei euro. Poi togliamo quarantacinque euro a evento di carburante e gas: dodici volte quarantacinque fa cinquecentoquaranta. Restano duemilacinquecentonovantasei euro.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Dopo i costi fissi",
+      "a": "4.536 €",
+      "op": "−",
+      "b": "1.400 €",
+      "risultato": "3.136 €",
+      "nota": "margine meno fissi"
+     }
+    },
+    {
+     "parola": "carburante",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Dopo carburante e gas",
+      "a": "3.136 €",
+      "op": "−",
+      "b": "540 €",
+      "risultato": "2.596 €",
+      "nota": "dodici giorni per quarantacinque euro"
+     }
+    },
+    {
+     "parola": "Restano",
+     "tipo": "mesi",
+     "p": {
+      "titolo": "Guadagno mese per mese",
+      "valori": [
+       0,
+       200,
+       900,
+       1800,
+       2600,
+       3200,
+       3400,
+       3300,
+       2400,
+       1500,
+       300,
+       0
+      ],
+      "evidenzia": [
+       5,
+       6,
+       7
+      ],
+      "nota": "esempio: guadagno stagionale"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Duemilacinquecentonovantasei euro, ma attenzione: è in un mese buono. I food truck lavorano a stagioni. Tra maggio e settembre c'è il boom di sagre e concerti. Da novembre a febbraio, spesso il furgone sta quasi fermo. Il mese medio è un'altra storia.",
+   "capitolo": "Le stagioni",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "andamento",
+     "p": {
+      "titolo": "Guadagno nei mesi dell'anno",
+      "valori": [
+       0,
+       200,
+       900,
+       1800,
+       2600,
+       3200,
+       3400,
+       3300,
+       2400,
+       1500,
+       300,
+       0
+      ],
+      "etichette": [
+       "Gen",
+       "Feb",
+       "Mar",
+       "Apr",
+       "Mag",
+       "Giu",
+       "Lug",
+       "Ago",
+       "Set",
+       "Ott",
+       "Nov",
+       "Dic"
+      ],
+      "colore": "verde"
+     }
+    },
+    {
+     "parola": "novembre",
+     "tipo": "persone",
+     "p": {
+      "n": 1,
+      "azione": "fila",
+      "escono": 0,
+      "testo": "Inverno: piazza deserta"
+     }
+    },
+    {
+     "parola": "medio",
+     "tipo": "domanda",
+     "p": {
+      "testo": "E il mese medio?",
+      "emozione": "preoccupato",
+      "scuro": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Sommiamo l'anno di Davide: dodicimila e quattrocento euro di guadagno, divisi su dodici mesi, fanno circa mille e trentatré euro al mese. Altro che duemilacinquecento! Per questo i mesi forti vanno messi da parte per attraversare l'inverno.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Media mensile",
+      "a": "12.400 €",
+      "op": "÷",
+      "b": "12 mesi",
+      "risultato": "1.033 € al mese",
+      "nota": "circa, esempio"
+     }
+    },
+    {
+     "parola": "Altro",
+     "tipo": "confronto",
+     "p": {
+      "titolo": "Mese buono e mese medio",
+      "a": {
+       "titolo": "Mese d'estate",
+       "valore": "2.596 €",
+       "oggetto": "sole"
+      },
+      "b": {
+       "titolo": "Media annuale",
+       "valore": "1.033 €",
+       "oggetto": "calendario"
+      },
+      "vincitore": "b"
+     }
+    },
+    {
+     "parola": "inverno",
+     "tipo": "salvadanaio",
+     "p": {
+      "direzione": "riempie",
+      "testo": "Metti da parte d'estate"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Un altro esempio, per capire le stagioni. Marta ha un chiosco di gelati sul lago. Di luglio incassa tantissimo, di gennaio è chiuso. Non guarda mai un mese solo: guarda l'anno intero, perché i costi fissi dell'affitto del chiosco corrono anche d'inverno.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "chiosco sul lago",
+      "insegna": "Gelati Marta",
+      "azione": "felice",
+      "clienti": 4,
+      "testo": "Chiosco di gelati in estate"
+     }
+    },
+    {
+     "parola": "gennaio",
+     "tipo": "mesi",
+     "p": {
+      "titolo": "Incassi del chiosco di Marta",
+      "valori": [
+       0,
+       0,
+       500,
+       1500,
+       3000,
+       5000,
+       7000,
+       7000,
+       3500,
+       1000,
+       0,
+       0
+      ],
+      "evidenzia": [
+       7,
+       8
+      ],
+      "nota": "esempio stagionale"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Come migliora Davide i suoi numeri? Ha quattro leve. Alzare il prezzo, abbassare il costo del panino, vendere più panini a evento, scegliere meglio gli eventi. Una sola può cambiare tutto. Facciamo una prova con il prezzo, il più semplice.",
+   "capitolo": "Le leve",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "leve",
+     "p": {
+      "titolo": "Come migliorare i conti",
+      "voci": [
+       "Alzare il prezzo",
+       "Abbassare il costo",
+       "Vendere di più",
+       "Scegliere eventi migliori"
+      ],
+      "evidenzia": 0
+     }
+    },
+    {
+     "parola": "prezzo",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "panino",
+      "prezzo": "9 €",
+      "nuovo_prezzo": "10 €",
+      "nota": "un euro in più"
+     }
+    },
+    {
+     "parola": "prova",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Cosa cambia?",
+      "emozione": "stupito",
+      "scuro": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Con il panino a dieci euro il margine diventa sei euro e quaranta, un euro in più. Con ottocentoquaranta panini fanno ottocentoquaranta euro in più al mese. E il pareggio scende: mille e quattrocento diviso sei euro e quaranta fa circa duecentodiciannove panini.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "pareggio",
+     "p": {
+      "titolo": "Con il prezzo a dieci euro",
+      "fissi": 1400,
+      "margine": 5.4,
+      "nuovo_margine": 6.4,
+      "unita": "panini venduti",
+      "oggetto": "panino",
+      "perdita": true,
+      "guadagno": true
+     }
+    },
+    {
+     "parola": "ottocentoquaranta",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Più margine al mese",
+      "a": "840",
+      "op": "×",
+      "b": "1 €",
+      "risultato": "840 € in più",
+      "nota": "un euro in più per panino"
+     }
+    },
+    {
+     "parola": "pareggio",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Nuovo pareggio",
+      "a": "1.400 €",
+      "op": "÷",
+      "b": "6,40 €",
+      "risultato": "219 panini",
+      "nota": "circa, prima erano duecentosessanta"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ma attenzione: se alzi il prezzo, perdi qualche cliente. Se ne perdi pochi, vinci. Se ne perdi troppi, perdi. Con il prezzo a dieci euro, Davide può perdere fino a un panino ogni sette e guadagnare lo stesso. Prova prima, su un solo evento.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "bilancia",
+     "p": {
+      "titolo": "Più margine contro meno clienti",
+      "sinistra": "Un euro in più",
+      "destra": "Clienti persi",
+      "pende": "sinistra"
+     }
+    },
+    {
+     "parola": "Prova",
+     "tipo": "persone",
+     "p": {
+      "n": 7,
+      "azione": "escono",
+      "escono": 1,
+      "testo": "Uno su sette se ne va"
+     }
+    },
+    {
+     "parola": "evento",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Come provare il prezzo",
+      "voci": [
+       "Un solo evento",
+       "Segna le vendite",
+       "Confronta con prima",
+       "Poi decidi"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ricapitoliamo. Un food truck ha costi fissi bassi: nel nostro esempio mille e quattrocento euro al mese. Il margine per panino è cinque euro e quaranta. Il pareggio è duecentosessanta panini. Guadagnare però dipende da permessi, luoghi ed eventi scelti bene.",
+   "capitolo": "In sintesi",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "riepilogo",
+     "p": {
+      "titolo": "Cosa ricordare",
+      "voci": [
+       "Fissi bassi: 1.400 € al mese",
+       "Margine: 5,40 € a panino",
+       "Pareggio: 260 panini",
+       "Eventi: calcola prima la quota"
+      ]
+     }
+    },
+    {
+     "parola": "Guadagnare",
+     "tipo": "cruscotto",
+     "p": {
+      "titolo": "Cosa tenere d'occhio",
+      "voci": [
+       {
+        "nome": "Margine",
+        "valore": 0.6
+       },
+       {
+        "nome": "Eventi",
+        "valore": 0.5
+       },
+       {
+        "nome": "Stagioni",
+        "valore": 0.4
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "E ricorda: i numeri di Davide sono un esempio, non dati ufficiali. I tuoi cambieranno con il tuo prodotto, la tua città e i permessi del tuo comune. Prima di comprare un furgone, fai i conti su carta. Costa niente e può salvarti migliaia di euro.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "furgone al tramonto",
+      "insegna": "Il Porchettaro",
+      "azione": "felice",
+      "clienti": 1,
+      "testo": "Davide fa i conti sul furgone"
+     }
+    },
+    {
+     "parola": "carta",
+     "tipo": "lista",
+     "p": {
+      "titolo": "I tuoi tre numeri",
+      "voci": [
+       "Costo per panino",
+       "Costi fissi al mese",
+       "Panini per il pareggio"
+      ]
+     }
+    },
+    {
+     "parola": "salvarti",
+     "tipo": "salvadanaio",
+     "p": {
+      "direzione": "riempie",
+      "testo": "Conti fatti, soldi salvi"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Nel prossimo episodio vediamo cosa succede quando un negozio di abbigliamento pensa di andare bene perché ha il magazzino pieno. Spoiler: il magazzino pieno è soldi fermi. Iscriviti, così non perdi la prossima puntata!",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "prossimo",
+     "p": {
+      "luogo": "negozio di abbigliamento",
+      "insegna": "Moda Viola",
+      "oggetto": "maglietta",
+      "testo": "Il magazzino pieno è un guadagno?"
+     }
+    },
+    {
+     "parola": "Iscriviti",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Iscriviti al canale!",
+      "emozione": "felice",
+      "scuro": false
+     }
+    }
+   ]
+  }
+ ]
+}
