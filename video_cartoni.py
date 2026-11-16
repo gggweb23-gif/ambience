@@ -194,7 +194,7 @@ INQUADRATURE (il video e' tutto disegnato: ogni scena ha 2-4 inquadrature, una n
 PROTAGONISTA: definiscilo una volta: {{"nome", "capelli": marco|giulia|short|long|curly|bun|bald|cap|chef, "colore_capelli": "#hex", "pelle": chiara|media|scura, "maglia": "#hex", "grembiule": "#hex" o "", "occhiali": true/false}}.
 CAPITOLI: in 6-9 scene metti "capitolo": "titolo breve del capitolo" (la prima scena NO, e' il gancio).
 COPERTINA: "copertina": {{"righe": [3 righe brevi e grammaticalmente corrette, max 16 caratteri l'una, maiuscole CON gli accenti (CAFFÈ, PERCHÉ), es. "400 MAGLIETTE", "VENDUTE...", "E IN ROSSO"], "emozione": stupito|preoccupato, "oggetto": "...", "prezzo": "20 €", "fondo": scuro|chiaro}}.
-COPERTINA AI: "copertina_ai": {{"valore_sx": quanto COSTA (prezzo di costo, es. "0,10 €", "2,40 €", "18 €/ORA"), "valore_dx": a quanto LO VENDI (es. "1,20 €", "8 €", "40 €/MESE"), "oggetto_sx": "in inglese: cosa disegnare dal lato del costo (es. a small heap of pizza ingredients: flour bag, tomato, mozzarella)", "oggetto_dx": "in inglese: cosa disegnare dal lato della vendita (es. a big hot margherita pizza on a wooden peel)", "domanda": ["prima riga, max 18 caratteri, maiuscole con accenti", "seconda riga max 18 caratteri"] (la domanda che fa cliccare, es. ["E ALLORA PERCHÉ", "IL BAR CHIUDE?"])}}. I valori devono essere numeri veri del video.
+COPERTINA AI: "copertina_ai": {{"valore_sx": quanto COSTA (prezzo di costo, es. "0,10 €", "2,40 €", "18 €/ORA"), "valore_dx": a quanto LO VENDI (es. "1,20 €", "8 €", "40 €/MESE"), "oggetto_sx": "in inglese: i PEZZI SEPARATI che l'attivita' compra, sparsi e NON montati, mai il prodotto finito (es. separate raw pizza ingredients laid apart: a flour bag, a tomato, a mozzarella ball)", "oggetto_dx": "in inglese: cosa disegnare dal lato della vendita (es. a big hot margherita pizza on a wooden peel)", "domanda": ["prima riga, max 18 caratteri, maiuscole con accenti", "seconda riga max 18 caratteri"] (la domanda che fa cliccare, es. ["E ALLORA PERCHÉ", "IL BAR CHIUDE?"])}}. I valori devono essere numeri veri del video.
 YOUTUBE: "descrizione" (3-5 frasi che invogliano, senza capitoli), "tag" (12-18 tag in italiano), "oggetto" (l'oggetto simbolo della puntata, es. "caffe", "pizza").
 
 Rispondi SOLO con il JSON:
@@ -288,7 +288,10 @@ def copertina_ai(pg, ca, ctx, cop):
               + ('The two objects are BIG (most of their half) but the values stay fully visible above the dark band. Keep the same layout: red left half, green right half '
                  'with a slightly diagonal split, a big glossy yellow-orange arrow from left to right, and a plain dark navy band across the ' + ('TOP' if alto else 'bottom') + ' 30% of the image. '
                  if banda else 'The two objects are VERY BIG and the texts are HUGE, readable on a small phone screen. Keep the same layout: red left half, green right half covering the WHOLE image '
-                 'top to bottom, with a slightly diagonal split and a big glossy yellow-orange arrow from left to right. NO dark band, no bottom strip. The bottom-right corner stays free of text. ')
+                 'top to bottom, with a slightly diagonal split and a big glossy yellow-orange arrow from left to right. NO dark band, no bottom strip. '
+                 'Each value sits RIGHT UNDER its label at the TOP of its half; the objects stay in the lower part. NOTHING written in the bottom-right corner (the video duration covers it). '
+                 'MEANING (16 nov, Giorgio): the LEFT shows the separate raw pieces that the business BUYS (ingredients or materials laid out apart, clearly NOT assembled, '
+                 'NOT the finished product); the RIGHT shows the finished product the customer BUYS. The viewer must understand in one second: these pieces cost X, sold together they make Y. ')
               + f'LEFT (red): {ca.get("oggetto_sx") or "what it costs"}. RIGHT (green): {ca.get("oggetto_dx") or "what it is sold for"}. '
               f'The ONLY texts in the image, spelled EXACTLY like this: "COSTA" at the top left and "LO VENDI" at the top right, both WHITE with a dark outline; '
               f'the values "{vs}" (left) and "{vd}" (right) in bold rounded YELLOW lettering with a dark outline, small sparkles around the right value. '
@@ -311,7 +314,8 @@ def copertina_ai(pg, ca, ctx, cop):
         dom = ('Look at this thumbnail image. Answer ONLY with JSON {"ok": true|false, "motivo": "..."}. ok = true ONLY if: the texts "COSTA", "LO VENDI", '
                f'"{vs}" and "{vd}" are present and spelled exactly, and there is NO other readable word or label anywhere'
                + ((' OUTSIDE the ' + ('TOP' if alto else 'BOTTOM') + ' 30% of the image (that strip will be covered by a dark band, so ignore whatever is there).') if banda else
-                  ' in the image. Also ok = false if the texts are small (each label and value must be clearly readable on a phone).'))   # 10 nov: prima bocciava copertine giuste per la fascia
+                  ' in the image. Also ok = false if: the texts are small (each label and value must be clearly readable on a phone); any text is in the bottom-right '
+                  'corner; the LEFT side shows an already assembled/finished product instead of the separate raw pieces (ingredients or materials laid apart).'))   # 10 nov: prima bocciava copertine giuste per la fascia
         j = http('https://api.anthropic.com/v1/messages', {'model': MODELLO, 'max_tokens': 300, 'messages': [{'role': 'user', 'content': [
             {'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(open(img, 'rb').read()).decode()}},
             {'type': 'text', 'text': dom}]}]}, {'x-api-key': E('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01'})

@@ -88,9 +88,10 @@ window.bozza_ai = (c) => {
   // 8 nov (MANO LIBERA): la banda scura una volta sotto e una volta sopra, cosi' le copertine non sono tutte uguali
   if (c.senza_banda) {   // 16 nov (Giorgio): niente banda blu, le due meta' occupano tutta la copertina, oggetti e scritte molto piu' grandi
     let s = `<path d="M0 0 H1080 L840 1080 H0z" fill="#E8484F"/><path d="M1080 0 H1920 V1080 H840z" fill="#23A866"/>`;
-    s += T(420, 190, 'COSTA', 170, '#fff', {st: INK, sw: 30}) + oggetto(c.oggetto_sx || c.oggetto || 'scatola', 420, 560, 2.4, 0) + T(420, 940, S(c.valore_sx || ''), 190, Y, {st: INK, sw: 32});
-    s += T(1440, 190, 'LO VENDI', 170, '#fff', {st: INK, sw: 30}) + oggetto(c.oggetto_dx || c.oggetto || 'scatola', 1440, 560, 2.7, 0) + T(1440, 900, S(c.valore_dx || ''), 200, Y, {st: INK, sw: 34});
-    sv.innerHTML = s + arrow(700, 560, 1180, 560, Y, 44); return;
+    // 16 nov sera (Giorgio): il valore di destra in basso finiva dietro la durata del video: i valori stanno SOTTO le scritte, in alto
+    s += T(420, 175, 'COSTA', 160, '#fff', {st: INK, sw: 30}) + T(420, 360, S(c.valore_sx || ''), 180, Y, {st: INK, sw: 32}) + oggetto(c.oggetto_sx || c.oggetto || 'scatola', 420, 730, 2.3, 0);
+    s += T(1440, 175, 'LO VENDI', 160, '#fff', {st: INK, sw: 30}) + T(1440, 360, S(c.valore_dx || ''), 190, Y, {st: INK, sw: 34}) + oggetto(c.oggetto_dx || c.oggetto || 'scatola', 1440, 730, 2.5, 0);
+    sv.innerHTML = s + arrow(720, 730, 1160, 730, Y, 44); return;
   }
   const off = c.alto ? 320 : 0;
   let s = `<rect width="1920" height="1080" fill="#1F2A44"/><g transform="translate(0 ${off})"><path d="M0 0 H1060 L860 760 H0z" fill="#E8484F"/><path d="M1060 0 H1920 V760 H860z" fill="#23A866"/>`;
@@ -103,8 +104,8 @@ window.bozza_ai = (c) => {
 window.scritte_ai = (img, c) => {
   const sv = document.getElementById('s'); sv.setAttribute('width', 1280); sv.setAttribute('height', 720); sv.setAttribute('viewBox', '0 0 1920 1080');
   if (c.senza_banda) {
-    sv.innerHTML = `<image href="${img}" x="0" y="0" width="1920" height="1080" preserveAspectRatio="xMidYMid slice"/>` + T(420, 200, 'COSTA', 180, '#fff', {st: INK, sw: 32}) + T(420, 950, S(c.valore_sx || ''), 200, Y, {st: INK, sw: 34})
-      + T(1440, 200, 'LO VENDI', 180, '#fff', {st: INK, sw: 32}) + T(1440, 910, S(c.valore_dx || ''), 210, Y, {st: INK, sw: 36}); return;
+    sv.innerHTML = `<image href="${img}" x="0" y="0" width="1920" height="1080" preserveAspectRatio="xMidYMid slice"/>` + T(420, 180, 'COSTA', 170, '#fff', {st: INK, sw: 32}) + T(420, 370, S(c.valore_sx || ''), 190, Y, {st: INK, sw: 34})
+      + T(1440, 180, 'LO VENDI', 170, '#fff', {st: INK, sw: 32}) + T(1440, 370, S(c.valore_dx || ''), 200, Y, {st: INK, sw: 36}); return;
   }
   const off = c.alto ? 320 : 0;
   let s = `<image href="${img}" x="0" y="0" width="1920" height="1080" preserveAspectRatio="xMidYMid slice"/><g transform="translate(0 ${off})">`;
