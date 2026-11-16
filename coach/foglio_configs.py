@@ -31,8 +31,11 @@ def api(metodo, percorso, corpo=None, tk=None):
     req = urllib.request.Request('https://sheets.googleapis.com/v4/spreadsheets/' + FOGLIO + percorso,
                                  data=json.dumps(corpo).encode() if corpo is not None else None, method=metodo,
                                  headers={'Authorization': 'Bearer ' + tk, 'Content-Type': 'application/json'})
-    with urllib.request.urlopen(req, timeout=60) as r:
-        return json.loads(r.read().decode() or '{}')
+    try:
+        with urllib.request.urlopen(req, timeout=60) as r:
+            return json.loads(r.read().decode() or '{}')
+    except urllib.error.HTTPError as e:   # 16 nov: si stampa il motivo di Google (es. cella protetta)
+        print('ERRORE Google Sheets:', e.code, e.read().decode()[:400]); raise
 
 
 def lettera(n):   # 1 -> A

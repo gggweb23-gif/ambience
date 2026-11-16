@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """SCRITTURA SUI FILE DI PRODUZIONE dei canali (stesso account di servizio di foglio_configs.py).
-Il file si trova dalla colonna scout_production_sheet_id di Channel Configs. LUCCHETTO: mai il canale KAO PSICOLOGIA.
+Il file si trova dalla colonna scout_production_sheet_id di Channel Configs. (16 nov: tolto il lucchetto di KAO PSICOLOGIA, deciso da Giorgio).
 PAYLOAD = {"canale": "Agora of Sages", "link": "https://www.youtube.com/watch?v=...", "valori": {"status": "In produzione",
            "data_inizio_produzione": "2026-10-30 19:45:00"}, "prova": "SI"|"NO"}"""
 import json, os, sys, time, urllib.parse
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import foglio_configs as FC
 
-CANALI_BLOCCATI = {'KAO PSICOLOGIA'}
+CANALI_BLOCCATI = set()   # 16 nov 2026 (Giorgio): tolto il lucchetto di KAO
 
 
 def main():
