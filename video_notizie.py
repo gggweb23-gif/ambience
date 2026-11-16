@@ -295,19 +295,22 @@ def sfondo(chiave):
             shutil.copy(gem, dest); return dest
     descr = descr_sfondo(chiave)
     vuota = bool(re.search(r'empty of people|no people|nobody', descr, re.I))
-    for k in range(4):
+    for k in range(3):   # 16 nov sera: max 3 immagini per scena (prima fino a 4: troppi scarti, troppa spesa)
         try:
-            semplice = 'Very simple, clean composition: no screens, no papers, no signs, no clocks, nothing with writing. ' if k >= 2 else ''
+            semplice = 'Very simple, clean composition: no screens, no papers, no signs, no flags, no maps, no clocks, nothing with writing. ' if k >= 1 else ''
             prompt = (STILE + f'Scene: {descr}. Wide 16:9 cinematic establishing shot, rich detail everywhere so that close crops still look good. ' + semplice
                       + ('Absolutely NO people, no characters, no faces. ' if vuota else '') + NO_TESTO)
-            dim = {'width': GW, 'height': GH} if k < 3 else {'width': W, 'height': H}
-            r = fal('fal-ai/bytedance/seedream/v4.5/text-to-image', {'prompt': prompt, 'image_size': dim, 'num_images': 1}, 0.04)
+            r = fal('fal-ai/bytedance/seedream/v4.5/text-to-image', {'prompt': prompt, 'image_size': {'width': GW, 'height': GH}, 'num_images': 1}, 0.04)
             im = Image.open(io.BytesIO(http(r['images'][0]['url'], raw=True, timeout=180))).convert('RGB')
             if max(ImageStat.Stat(im.resize((64, 36))).mean) < 18:
                 log('sfondo nero, rifaccio'); continue
-            dom = DIFETTI + (' Also answer SI if ANY person, character or face is visible (this scene must be empty of people).' if vuota else '')
-            if k < 3 and haiku_immagine(im, dom).startswith('SI'):   # controllo su ogni tentativo; il 4o (semplificato) si tiene, cosi' non si ripete mai un'altra immagine
-                log('sfondo con un difetto o scritte, lo rifaccio:', chiave); continue
+            if k < 2:
+                dom = ('Look at this AI cartoon background. Answer "SI: <reason in 5 words>" ONLY if there is a clear problem: deformed or duplicated people '
+                       '(extra arms, hands, heads), impossible broken objects, or clearly READABLE words, letters or a logo (tiny unreadable marks are fine)'
+                       + ('; or any person or face is visible (this scene must be empty of people)' if vuota else '') + '. Otherwise answer only NO.')
+                esito = haiku_immagine(im, dom, max_tokens=20)
+                if esito.startswith('SI'):
+                    log('sfondo scartato:', chiave, esito[:60]); continue
             im = im.resize((GW, GH), Image.LANCZOS) if im.size != (GW, GH) else im
             im.filter(ImageFilter.UnsharpMask(radius=1.2, percent=40, threshold=2)).save(dest, quality=94); return dest
         except RuntimeError:
@@ -543,7 +546,7 @@ F_MANO = os.path.join(ROOT, 'fonts_notizie', 'PermanentMarker-Regular.ttf')
 GEO = os.path.join(ROOT, 'risorse_notizie', 'paesi50.geojson')
 PASSO = float(N.get('secondi_per_inquadratura') or 2.6)
 INQ, GRUPPI, SEGS = [], [], []
-COLORI = {'rosso': (214, 40, 48), 'blu': (38, 112, 230), 'giallo': (250, 190, 20), 'verde': (40, 160, 90), 'arancio': (240, 120, 30), 'viola': (130, 70, 200)}
+COLORI = {'rosso': (214, 40, 48), 'blu': (24, 72, 178), 'giallo': (250, 190, 20), 'verde': (40, 160, 90), 'arancio': (240, 120, 30), 'viola': (130, 70, 200)}
 
 
 def chi_nome(chi):
@@ -648,9 +651,15 @@ def geo():
         for f in json.load(open(GEO))['features']:
             p = f['properties']; gm = f['geometry']
             polys = gm['coordinates'] if gm['type'] == 'MultiPolygon' else [gm['coordinates']]
-            nome = (p.get('NAME_IT') if N.get('lingua') == 'it' else None) or p.get('NAME_EN') or p.get('NAME')
+            nome = (p.get('NAME_IT') if N.get('lingua') == 'it' else None) or p.get('NAME') or p.get('NAME_EN')
             _GEO.append({'iso': {str(p.get(x) or '') for x in ('ADM0_A3', 'ISO_A3', 'SOV_A3', 'GU_A3')} - {'', '-99'}, 'nome': str(nome or ''),
                          'anelli': [poly[0] for poly in polys]})
+        # la Crimea si disegna con l'Ucraina, come nei confini riconosciuti dall'ONU (Natural Earth la mette con la Russia)
+        rus = next(f for f in _GEO if 'RUS' in f['iso']); ukr = next(f for f in _GEO if 'UKR' in f['iso'])
+        for r in list(rus['anelli']):
+            xs = [a for a, b in r]; ys = [b for a, b in r]
+            if min(xs) > 32 and max(xs) < 37 and min(ys) > 44 and max(ys) < 46.5:
+                rus['anelli'].remove(r); ukr['anelli'].append(r)
     return _GEO
 
 
@@ -714,11 +723,12 @@ def disegna_mappa(im, t, q):
     for i, s in enumerate(q['_strati']):
         a = ease((t - .15 - i * .35) / .5)
         if a > 0:
-            im.paste(Image.new('RGBA', (W, H), s['col'] + (255,)), (0, 0), s['mask'].point(lambda v: int(v * .58 * a)))
+            im.paste(Image.new('RGBA', (W, H), s['col'] + (255,)), (0, 0), s['mask'].point(lambda v: int(v * .72 * a)))
     for i, s in enumerate(q['_strati']):   # nomi dei paesi
         a = ease((t - .45 - i * .35) / .35)
         if a > 0 and s['c'] and 0 < s['c'][0] < W and 0 < s['c'][1] < H:
             f = font(F_TITOLI, 92); x, y = s['c']
+            mezzo = f.getbbox(s['nome'])[2] / 2 + 40; x = min(max(x, mezzo), W - mezzo)   # il nome resta tutto dentro lo schermo
             testo_box(d, (x, y + (1 - a) * 30), s['nome'], f, (255, 255, 255, int(255 * a)), stroke=10, sfill=(30, 26, 22), anchor='mm')
     for i, fr in enumerate(m.get('frecce') or []):   # frecce che si disegnano (attacchi, rotte, spostamenti)
         a = ease((t - .8 - i * .6) / .9)
@@ -975,18 +985,22 @@ def costruisci(segs, dur):
         cit = next((s for s in segs if s['scena'] == si and s['tipo'] == 'citazione'), None)
         qa = (cit['a'] - .05) if cit else b
         v = sc.get('visivo') or {}; tipo = v.get('tipo', 'set')
+        if tipo == 'frase' and len((v.get('testo') or sc['testo']).split()) > 14:   # una frase a effetto e' breve: se no, scena normale
+            v = {'tipo': 'set', 'set': ultimo_set[0]}; tipo = 'set'
         if tipo == 'set' and v.get('set') not in SF:
             v = dict(v, set=ultimo_set[0] or next(iter(SF), None))
         span = max(.4, qa - a); shots = []
         if tipo == 'mappa':
             shots.append({'tipo': 'mappa', 'mappa': v})
-            if span > 6.5:
-                m2 = dict(v, larghezza=float(v.get('larghezza') or 30) * .6, centro=v.get('zoom_su') or v.get('centro'))
+            for j in range(1, max(1, int(round(span / 4.2)))):   # la mappa cambia inquadratura ogni ~4 s (piu' vicina, poi di nuovo larga)
+                fz = [.6, .8, .5, .9][(j - 1) % 4]
+                m2 = dict(v, larghezza=max(6, float(v.get('larghezza') or 30) * fz), centro=v.get('zoom_su') or v.get('centro')) if j % 2 else dict(v)
                 shots.append({'tipo': 'mappa', 'mappa': m2, '_avanti': 9})
         elif tipo == 'dossier':
             shots.append({'tipo': 'dossier', 'dossier': v})
-            if span > 7.5:
-                shots.append({'tipo': 'dossier', 'dossier': v, '_avanti': 9})
+            if span > 6.5 and ultimo_set[0]:   # poi la persona da vicino nella scena di prima
+                cst = [c for c in cast_set(ultimo_set[0]) if c['chi'] == v.get('chi')]
+                shots.append({'tipo': 'set', 'set': ultimo_set[0], 'framing': 'pp:' + v['chi']} if cst else {'tipo': 'dossier', 'dossier': v, '_avanti': 9})
         elif tipo == 'frase':
             shots.append({'tipo': 'frase', 'frase': v.get('testo') or sc['testo'], 'set': ultimo_set[0]})
         else:

@@ -109,7 +109,7 @@ DAY {onda.get('giorni', 1)} OF THIS WAVE. Angles already used on previous days (
 CNBC, BBC, NYT, Al Jazeera, Kyiv Independent, ANSA, Il Sole 24 Ore, Corriere, government and company statements). NEVER use YouTube videos, TikTok,
 social posts, Substack, blogs or content farms as sources. The core fact of the video must be confirmed by at least TWO different major outlets
 (or an official statement). Say exactly what is confirmed and what is only reported ("is weighing a return, according to the FT" is NOT "is returning").
-2) WRITE the video: about {PAROLE} words of narration in total ({MINUTI} minutes), {max(6, int(MINUTI * 7))}-{max(8, int(MINUTI * 9))} scenes.
+2) WRITE the video: {int(PAROLE * .9)}-{int(PAROLE * 1.1)} words of narration in total ({MINUTI} minutes; count them, never more), {max(6, int(MINUTI * 7))}-{max(8, int(MINUTI * 9))} scenes.
 TRUTH RULES (all mandatory):
 - ONLY facts found in your sources. Every scene lists the URL(s) that prove it. Never invent quotes, numbers, dates or motives.
 - Allegations, reports and rumors: always attributed ("according to Reuters...") and never stated as fact. Never name private individuals.
@@ -177,7 +177,11 @@ def verifica(v):
                 v['scene'][i]['testo'] = (c.get('testo') or '').strip()
                 f = (v['scene'][i].get('visivo') or {})
                 if f.get('tipo') == 'frase' and v['scene'][i]['testo']:
-                    f['testo'] = v['scene'][i]['testo']   # la frase a schermo resta uguale a quella detta
+                    if len(v['scene'][i]['testo'].split()) <= 14:
+                        f['testo'] = v['scene'][i]['testo']   # la frase a schermo resta uguale a quella detta
+                    else:   # la frase corretta e' diventata lunga: torna una scena normale
+                        prec = next((x.get('visivo', {}).get('set') for x in reversed(v['scene'][:i]) if (x.get('visivo') or {}).get('tipo', 'set') == 'set'), None)
+                        v['scene'][i]['visivo'] = {'tipo': 'set', 'set': prec} if prec else f
             if c.get('togli_citazione'):
                 v['scene'][i].pop('citazione', None)
     prima = len(v['scene'])
