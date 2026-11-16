@@ -224,7 +224,7 @@ def posa(chi, nome_posa):
     pp = N['personaggi'][chi]; descr_posa = pp['pose'][nome_posa]
     stile = STILE
     if isinstance(descr_posa, dict):   # una posa puo' avere uno stile di disegno suo (per confrontare gli stili)
-        stile = descr_posa.get('stile') or STILE; descr_posa = descr_posa['posa']
+        descr_posa = descr_posa['posa']   # 16 nov (Giorgio): UN SOLO stile di caricatura (il primo, cartone editoriale), mai 3D o altri
     foto = foto_commons(pp['commons'], os.path.join(d, 'foto.jpg')) if pp.get('commons') else None
     for k in range(3):
         try:
