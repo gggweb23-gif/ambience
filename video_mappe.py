@@ -190,7 +190,38 @@ def competitor():
             log('RapidAPI: trascrizione vuota', json.dumps(j)[:200])
         except Exception as e:
             log('RapidAPI non riuscito:', str(e)[:150]); time.sleep(5)
+    # 16 nov (Giorgio: "il video di oggi deve uscire"): RapidAPI non risponde (abbonamento) -> il testo di partenza lo scrive Claude
+    # con la ricerca web sullo stesso argomento del titolo competitor (solo fatti verificati, ~0,15-0,30 $). Il copione poi lo riscrive come sempre.
+    if c.get('titolo') and E('ANTHROPIC_API_KEY'):
+        try:
+            c['testo'] = testo_da_ricerca(c['titolo']); c['testo_da_ricerca'] = True
+            log('testo di partenza scritto con la ricerca web:', len(c['testo'].split()), 'parole')
+            return c
+        except Exception as e:
+            log('testo da ricerca non riuscito:', str(e)[:200])
     raise RuntimeError('STOP: testo del video competitor non leggibile (RapidAPI). Nessun video creato, nessun costo per la voce.')
+
+
+def testo_da_ricerca(titolo):
+    """Documentario di partenza (~1600 parole, in inglese) sull'argomento del video competitor, fatto con la ricerca web."""
+    msg = [{'role': 'user', 'content': (
+        f'A successful YouTube history channel published a video titled: "{titolo}". Research the topic with web search (reliable sources: '
+        'encyclopedias, academic and institutional sources, World Bank/IMF data for economic numbers) and write the full narration of a 10-minute '
+        'documentary on exactly that topic: about 1600 words, chronological, vivid, with concrete dates, names and numbers, a strong hook in the first '
+        'two sentences (the most surprising fact first). ONLY verified facts, no invented quotes. Answer with the narration text only.')}]
+    corpo = {'model': MODELLO_AI, 'max_tokens': 12000, 'messages': msg, 'tools': [{'type': 'web_search_20250305', 'name': 'web_search', 'max_uses': 8}]}
+    for _ in range(6):
+        j = http('https://api.anthropic.com/v1/messages', corpo, {'x-api-key': E('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01'}, timeout=900)
+        n = ((j.get('usage') or {}).get('server_tool_use') or {}).get('web_search_requests', 0)
+        if n:
+            CO.registra('claude', 'web_search', dollari=n * 0.01, nota='ricerche web testo di partenza')
+        if j.get('stop_reason') == 'pause_turn':
+            corpo['messages'] = corpo['messages'] + [{'role': 'assistant', 'content': j['content']}]; continue
+        t = ''.join(b.get('text', '') for b in j['content'] if b.get('type') == 'text').strip()
+        if len(t.split()) > 600:
+            return t
+        raise RuntimeError('testo troppo corto: ' + t[:200])
+    raise RuntimeError('ricerca web senza fine')
 
 
 # ============================================================ 1) COPIONE + REGIA (Claude)
