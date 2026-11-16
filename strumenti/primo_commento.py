@@ -57,7 +57,7 @@ def gia_commentato(tk, vid, cid):
 def testo_commento(v):
     sn = v['snippet']; lingua = (sn.get('defaultLanguage') or sn.get('defaultAudioLanguage') or 'it')[:2]
     prompt = (f"You are the creator of this YouTube video. Write the FIRST comment under it, in {'Italian' if lingua == 'it' else 'English'}: "
-              "one or two short sentences, warm and natural, ending with ONE simple question that makes viewers want to answer with their own "
+              "max 2 short sentences (under 220 characters in total), warm and natural, ending with ONE simple question that makes viewers want to answer with their own "
               "experience or opinion about the topic. No links, no hashtags, no emojis spam (max 1 emoji), no 'subscribe', no clickbait. "
               "Answer with the comment text only.\n\nTITLE: " + sn.get('title', '') + '\nDESCRIPTION: ' + (sn.get('description') or '')[:600])
     j = http('https://api.anthropic.com/v1/messages', {'model': 'claude-haiku-4-5-20251001', 'max_tokens': 200, 'messages': [{'role': 'user', 'content': prompt}]},
@@ -99,12 +99,13 @@ def main():
         testo = testo_commento(v)
         esito = 'PROVA'
         if not PROVA:
-            try:
-                http('https://www.googleapis.com/youtube/v3/commentThreads?part=snippet', {'snippet': {'videoId': v['id'], 'topLevelComment': {'snippet': {'textOriginal': testo}}}},
-                     {'Authorization': 'Bearer ' + tk})
-                esito = 'SCRITTO'
-            except urllib.error.HTTPError as e:
-                esito = f'ERRORE {e.code} ' + e.read().decode()[:200]
+            for k in range(3):   # errore 400 "transient" di YouTube subito dopo l'uscita: si riprova
+                try:
+                    http('https://www.googleapis.com/youtube/v3/commentThreads?part=snippet', {'snippet': {'videoId': v['id'], 'topLevelComment': {'snippet': {'textOriginal': testo}}}},
+                         {'Authorization': 'Bearer ' + tk})
+                    esito = 'SCRITTO'; break
+                except urllib.error.HTTPError as e:
+                    esito = f'ERRORE {e.code} ' + e.read().decode()[:300]; time.sleep(40)
         ritardo = (ORA() - quando).total_seconds() / 60
         log(f'{esito} | {nome} | {v["id"]} | {ritardo:.1f} min dopo l\'uscita | {testo}')
         with open(REG, 'a') as f:
