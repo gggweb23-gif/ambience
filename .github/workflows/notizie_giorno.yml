@@ -36,7 +36,7 @@ jobs:
       LINGUE_A_MANO: ${{ inputs.lingue }}
       PRODUCI_A_MANO: ${{ inputs.produci }}
       CARICA_A_MANO: ${{ inputs.carica }}
-      BUDGET_VIDEO: '3.45'   # 16 nov sera, Giorgio: "facciamo tutte e 3" -> tetto 3 euro veri a video (3,45 $), prima 3 $
+      BUDGET_VIDEO: '4.6'   # 16 nov 21:36, Giorgio: "Confermo" -> tetto 4 euro a video inglese (4,60 $); l'italiano riusa le immagini
       YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
       YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
       YT_REFRESH_TOKEN_WWII_TESTIMONY: ${{ secrets.YT_REFRESH_TOKEN_WWII_TESTIMONY }}
