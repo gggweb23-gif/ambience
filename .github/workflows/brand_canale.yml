@@ -6,6 +6,7 @@ on:
     inputs:
       brand: {description: 'file in brand/ (es. war_room.json)', default: 'war_room.json', type: string}
       solo_banner: {description: 'SI = rifai solo il banner (avatar gia buono)', default: 'NO', type: string}
+      solo_avatar: {description: 'SI = rifai solo l avatar', default: 'NO', type: string}
 permissions:
   contents: write
 jobs:
@@ -15,6 +16,7 @@ jobs:
     env:
       BRAND: brand/${{ inputs.brand }}
       SOLO_BANNER: ${{ inputs.solo_banner }}
+      SOLO_AVATAR: ${{ inputs.solo_avatar }}
       FAL_KEY: ${{ secrets.FAL_KEY }}
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
     steps:
