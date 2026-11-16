@@ -1,0 +1,20 @@
+name: Trend YouTube (views per argomento)
+on:
+  workflow_dispatch:
+    inputs:
+      argomenti: {description: 'argomenti separati da ; (100 unita di quota radar ciascuno)', required: true, type: string}
+      giorni: {description: 'ultimi N giorni', default: '7', type: string}
+      lingua: {description: 'en / it', default: 'en', type: string}
+jobs:
+  trend:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Cerca
+        env:
+          YT_API_KEY_RADAR: ${{ secrets.YT_API_KEY_RADAR }}
+          ARGOMENTI: ${{ inputs.argomenti }}
+          GIORNI: ${{ inputs.giorni }}
+          LINGUA: ${{ inputs.lingua }}
+        run: python3 strumenti/trend_youtube.py
