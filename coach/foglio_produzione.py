@@ -7,7 +7,8 @@ import json, os, sys, time, urllib.parse
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import foglio_configs as FC
 
-CANALI_BLOCCATI = set()   # 16 nov 2026 (Giorgio): tolto il lucchetto di KAO
+CANALI_BLOCCATI = set()
+CONFIGS_ID = FC.FOGLIO   # Channel Configs (FC.FOGLIO viene cambiato quando si apre il file di produzione)   # 16 nov 2026 (Giorgio): tolto il lucchetto di KAO
 
 
 def main():
@@ -57,7 +58,7 @@ def main():
             FC.api('POST', '/values/' + urllib.parse.quote(f"'{sch}'!A{len(val) + 1}") + ':append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS', {'values': [riga_v]}, tk)
             print(f'{can}: riga aggiunta ->', nr)
         if str(P.get('in_cima') or '').upper() == 'SI':
-            P2 = dict(P, ordine=[nr.get('Link video')]); P2.pop('nuova_riga'); os.environ['PAYLOAD'] = json.dumps(P2); return main()
+            P2 = dict(P, ordine=[nr.get('Link video')]); P2.pop('nuova_riga'); os.environ['PAYLOAD'] = json.dumps(P2); FC.FOGLIO = CONFIGS_ID; return main()
         return
     n = next((i + 1 for i, r in enumerate(val) if i and len(r) > il and str(r[il]).strip() == str(P['link']).strip()), None)
     if not n:
