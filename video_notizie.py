@@ -27,7 +27,7 @@ import costi as CO
 import iscrizione as IS
 
 W, H, FPS = 2560, 1440, 30
-TETTO = float(E('TETTO_DOLLARI') or 0.70)
+TETTO = float(E('TETTO_DOLLARI') or 1.0)
 VOCE = str(N.get('voce') or 'glnsgBC77wt5zOYU0szz')
 F_TITOLI = os.path.join(ROOT, 'ctr_test', 'Anton.ttf')
 F_TESTI = os.path.join(ROOT, 'fonts_costo_vero', 'ArchivoBlack-Regular.ttf')
@@ -89,8 +89,12 @@ DIFETTI = ('Look carefully at this AI cartoon image. Count the arms, hands and l
 
 # ============================================================ 1) VOCE
 def voce():
-    p = os.path.join(LAV, 'voce.mp3'); pj = p[:-4] + '.json'
+    p = os.path.join(MAT, 'voce.mp3'); pj = p[:-4] + '.json'
     testo = ' '.join(s['testo'].strip() for s in N['scene'])
+    pt = p[:-4] + '_testo.txt'
+    if os.path.exists(pt) and open(pt).read() != testo:   # copione cambiato: voce nuova
+        for x in (p, pj):
+            os.path.exists(x) and os.remove(x)
     if not (os.path.exists(p) and os.path.exists(pj)):
         for k in range(4):
             try:
@@ -98,7 +102,7 @@ def voce():
                          {'text': testo, 'model_id': 'eleven_multilingual_v2',
                           'voice_settings': {'stability': .42, 'similarity_boost': .78, 'style': .28, 'speed': float(N.get('voce_velocita') or 1.08), 'use_speaker_boost': True}},
                          {'xi-api-key': E('ELEVENLABS_API_KEY', '')}, timeout=300)
-                open(p, 'wb').write(base64.b64decode(j['audio_base64'])); json.dump(j['alignment'], open(pj, 'w'))
+                open(p, 'wb').write(base64.b64decode(j['audio_base64'])); json.dump(j['alignment'], open(pj, 'w')); open(pt, 'w').write(testo)
                 CO.registra('elevenlabs', 'eleven_multilingual_v2', crediti=len(testo)); break
             except Exception as e:
                 log('voce non riuscita, riprovo:', str(e)[:200]); time.sleep(5 * (k + 1))
@@ -165,6 +169,9 @@ def posa(chi, nome_posa):
     if os.path.exists(dest):
         return dest
     pp = N['personaggi'][chi]; descr_posa = pp['pose'][nome_posa]
+    stile = STILE
+    if isinstance(descr_posa, dict):   # una posa puo' avere uno stile di disegno suo (per confrontare gli stili)
+        stile = descr_posa.get('stile') or STILE; descr_posa = descr_posa['posa']
     foto = foto_commons(pp['commons'], os.path.join(d, 'foto.jpg')) if pp.get('commons') else None
     for k in range(3):
         try:
@@ -172,12 +179,12 @@ def posa(chi, nome_posa):
                 prompt = (f"Turn the real person in this photo ({pp.get('chi', '')}) into a FULL-BODY editorial cartoon caricature, head to feet visible: "
                           'big head on a smaller body, strongly recognizable likeness (same face shape, hairline, hair color, glasses or beard if present, skin tone), '
                           f'friendly professional caricature, not mocking. Pose: {descr_posa}. Exactly two arms and two hands with five fingers, normal anatomy. '
-                          + STILE + 'Isolated on a plain pure white background, no shadow, no floor. ' + NO_TESTO)
+                          + stile + 'Isolated on a plain pure white background, no shadow, no floor. ' + NO_TESTO)
                 img = 'data:image/jpeg;base64,' + base64.b64encode(open(foto, 'rb').read()).decode()
                 r = fal('fal-ai/nano-banana-2/edit', {'prompt': prompt, 'image_urls': [img], 'aspect_ratio': '3:4', 'resolution': '2K', 'output_format': 'png', 'num_images': 1}, 0.08)
             else:
                 prompt = (f"FULL-BODY editorial cartoon character, head to feet visible: {pp['descrizione']}. Big head on a smaller body. Pose: {descr_posa}. "
-                          'Exactly two arms and two hands with five fingers, normal anatomy. ' + STILE + 'Isolated on a plain pure white background, no shadow, no floor. ' + NO_TESTO)
+                          'Exactly two arms and two hands with five fingers, normal anatomy. ' + stile + 'Isolated on a plain pure white background, no shadow, no floor. ' + NO_TESTO)
                 r = fal('fal-ai/bytedance/seedream/v4.5/text-to-image', {'prompt': prompt, 'image_size': {'width': 1536, 'height': 2048}, 'num_images': 1}, 0.04)
             url = r['images'][0]['url']
             im = Image.open(io.BytesIO(http(url, raw=True, timeout=120))).convert('RGB')
@@ -192,8 +199,11 @@ def posa(chi, nome_posa):
 
 
 # ============================================================ 3) SFONDI E CLIP
+MAT = os.path.join(OUT, 'materiali'); os.makedirs(MAT, exist_ok=True)
+
+
 def sfondo(chiave):
-    dest = os.path.join(LAV, f'sfondo_{chiave}.jpg')
+    dest = os.path.join(MAT, f'sfondo_{chiave}.jpg')
     if os.path.exists(dest):
         return dest
     descr = N['sfondi'][chiave]
@@ -424,7 +434,7 @@ def disegna_fisse(im, tg, fonte):
         w2 = f.getbbox(dt)[2] + 60
         d.rectangle((70 + w1, 60, 70 + w1 + w2, 140), fill=(10, 12, 18, 230))
         testo_box(d, (70 + w1 + 30, 100), dt, f, BIANCO, anchor='lm')
-    if fonte:
+    if fonte and N.get('fonte_a_schermo'):   # 16 nov (Giorgio): la fonte NON va a schermo, resta solo nel file della notizia
         fs = font(F_TESTI, 34); tx = 'FONTE: ' + fonte.upper()
         w3 = fs.getbbox(tx)[2] + 40
         d.rectangle((70, H - 92, 70 + w3, H - 40), fill=(10, 12, 18, 200))

@@ -1,0 +1,241 @@
+{
+ "nome": "nvidia_senza_huang",
+ "lingua": "it",
+ "titolo": "Nvidia senza Jensen Huang: domani il primo esame",
+ "data": "16 NOVEMBRE 2026",
+ "etichetta": "ULTIM'ORA",
+ "musica": "tensione",
+ "fonti_link": [
+  "https://www.aljazeera.com/news/2026/11/12/why-did-nvidia-ceo-jensen-huang-resign-and-who-is-colette-kress",
+  "https://investor.nvidia.com/news/press-release-details/2026/Statement-from-NVIDIA-Board-of-Directors/",
+  "https://www.fool.com/investing/2026/11/16/jensen-huang-resigns-3-things-to-watch-from-nvidia-on-nov-17/",
+  "https://admiralmarkets.com/analytics/traders-blog/nvidia-ceo-search-board-search-firm-earnings"
+ ],
+ "personaggi": {
+  "huang": {
+   "commons": "Jensen Huang",
+   "chi": "Jensen Huang, founder of Nvidia",
+   "pose": {
+    "classico": {
+     "posa": "standing confidently in his signature black leather jacket, holding a glowing green computer chip in one open hand, slight smile"
+    },
+    "pixar": {
+     "posa": "walking while carrying a cardboard office box with a small plant in it, looking back over his shoulder, black leather jacket, serious expression",
+     "stile": "Stylized 3D animated feature-film caricature render: soft global illumination, smooth rounded shapes, glossy materials, expressive big eyes, crisp and sharp. "
+    },
+    "inchiostro": {
+     "posa": "standing with both hands in the pockets of his black leather jacket, serious regretful expression, looking slightly down",
+     "stile": "Hand-drawn newspaper editorial caricature: confident black ink lines with cross-hatching, loose watercolor washes, subtle paper texture, sharp and clean. "
+    }
+   }
+  },
+  "kress": {
+   "commons": "Colette Kress",
+   "chi": "Colette Kress, CFO and interim CEO of Nvidia",
+   "pose": {
+    "tablet": {
+     "posa": "standing confidently in a dark business suit, holding a tablet in one hand, calm determined expression"
+    }
+   }
+  }
+ },
+ "sfondi": {
+  "sede": "a futuristic tech company headquarters at night with a giant glowing green microchip sculpture in front, wide empty plaza, empty of people",
+  "cda": "an empty corporate boardroom at night, long dark table with leather chairs, one big empty chair at the head of the table, city lights through tall windows, empty of people",
+  "caveau": "a high-security vault room with glowing microchips on pedestals behind thick glass, green laser security grid, empty of people",
+  "sera": "a skyline of Manhattan at dusk with the Wall Street district lights turning on, dramatic sky, empty of people"
+ },
+ "scene": [
+  {
+   "testo": "Domani sera Nvidia presenta i suoi conti. Ed è la prima volta in trentatré anni senza Jensen Huang al comando.",
+   "inquadrature": [
+    {
+     "tipo": "cartone",
+     "sfondo": "sede",
+     "personaggio": "huang",
+     "posa": "classico",
+     "lato": "dx",
+     "grafica": {
+      "tipo": "titolo",
+      "testo": "DOMANI SERA",
+      "sotto": "I PRIMI CONTI SENZA HUANG"
+     },
+     "didascalia": "JENSEN HUANG · FONDATORE DI NVIDIA"
+    }
+   ]
+  },
+  {
+   "testo": "Giovedì dodici novembre Huang si è dimesso da amministratore delegato, e ha lasciato anche il consiglio di amministrazione.",
+   "inquadrature": [
+    {
+     "tipo": "cartone",
+     "sfondo": "sede",
+     "personaggio": "huang",
+     "posa": "pixar",
+     "lato": "sx",
+     "grafica": {
+      "tipo": "titolo",
+      "testo": "DIMESSO",
+      "sotto": "12 NOVEMBRE · LASCIA ANCHE IL CDA"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Pochi giorni prima, il consiglio aveva aperto un'indagine indipendente, dopo le notizie secondo cui Huang sarebbe stato bersaglio di un'operazione di intelligence straniera.",
+   "inquadrature": [
+    {
+     "tipo": "cartone",
+     "sfondo": "cda",
+     "grafica": {
+      "tipo": "titolo",
+      "testo": "INDAGINE INDIPENDENTE",
+      "sotto": "8 NOVEMBRE · IL CONSIGLIO DI NVIDIA"
+     }
+    },
+    {
+     "tipo": "pexels",
+     "q": [
+      "computer chip macro",
+      "circuit board close up",
+      "microchip"
+     ]
+    }
+   ]
+  },
+  {
+   "testo": "Huang ha ammesso di essere stato infedele alla moglie, e si è scusato con la famiglia e con i dipendenti.",
+   "inquadrature": [
+    {
+     "tipo": "cartone",
+     "sfondo": "cda",
+     "personaggio": "huang",
+     "posa": "inchiostro",
+     "lato": "dx",
+     "grafica": {
+      "tipo": "titolo",
+      "testo": "LE SCUSE",
+      "sotto": "ALLA FAMIGLIA E AI DIPENDENTI"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Secondo le accuse riportate dalla stampa, una delle relazioni sarebbe stata con un'ex manager accusata di lavorare per l'intelligence cinese. Ma il consiglio dice di non avere motivo di credere che sicurezza nazionale o segreti siano stati compromessi.",
+   "inquadrature": [
+    {
+     "tipo": "cartone",
+     "sfondo": "caveau",
+     "grafica": {
+      "tipo": "titolo",
+      "testo": "SOLO ACCUSE",
+      "sotto": "NESSUNA PROVA DI SEGRETI RUBATI"
+     }
+    },
+    {
+     "tipo": "cartone",
+     "sfondo": "caveau",
+     "grafica": {
+      "tipo": "titolo",
+      "testo": "SEGRETI AL SICURO?",
+      "sotto": "IL CDA: NESSUN MOTIVO DI CREDERE IL CONTRARIO"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "In Borsa il colpo è stato duro: giovedì il titolo è arrivato a perdere oltre il quattordici per cento.",
+   "inquadrature": [
+    {
+     "tipo": "pexels",
+     "q": [
+      "stock market crash red",
+      "stock chart falling red",
+      "trader screens red"
+     ],
+     "grafica": {
+      "tipo": "numero",
+      "valore": -14,
+      "decimali": 0,
+      "unita": "% IN UNA SOLA SEDUTA",
+      "rosso": true,
+      "sopra": "OLTRE"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ora al comando, ad interim, c'è la direttrice finanziaria Colette Kress. Da quando è arrivata, nel duemilatredici, i ricavi annuali sono passati da quattro a quasi duecentosedici miliardi di dollari.",
+   "inquadrature": [
+    {
+     "tipo": "cartone",
+     "sfondo": "sede",
+     "personaggio": "kress",
+     "posa": "tablet",
+     "lato": "dx",
+     "didascalia": "COLETTE KRESS · CEO AD INTERIM"
+    },
+    {
+     "tipo": "cartone",
+     "sfondo": "sede",
+     "personaggio": "kress",
+     "posa": "tablet",
+     "lato": "dx",
+     "grafica": {
+      "tipo": "numero",
+      "valore": 216,
+      "decimali": 0,
+      "unita": "MILIARDI $ DI RICAVI ANNUALI",
+      "sopra": "DA 4 A QUASI"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "E il successore? Secondo il Financial Times, il consiglio avrebbe contattato Rene Haas, il capo di Arm. Nvidia non conferma: per ora ogni nome è prematuro.",
+   "inquadrature": [
+    {
+     "tipo": "cartone",
+     "sfondo": "cda",
+     "grafica": {
+      "tipo": "titolo",
+      "testo": "CHI AL POSTO DI HUANG?",
+      "sotto": "FT: CONTATTATO RENE HAAS (ARM) · NON CONFERMATO"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Domani, dopo la chiusura di Wall Street, i numeri diranno se Nvidia senza Huang vale ancora come prima. Iscriviti: la seguiamo passo dopo passo.",
+   "inquadrature": [
+    {
+     "tipo": "cartone",
+     "sfondo": "sera",
+     "grafica": {
+      "tipo": "titolo",
+      "testo": "MARTEDÌ 17",
+      "sotto": "DOPO LA CHIUSURA DI WALL STREET"
+     }
+    },
+    {
+     "tipo": "cartone",
+     "sfondo": "sede",
+     "personaggio": "huang",
+     "posa": "classico",
+     "lato": "sx"
+    }
+   ]
+  }
+ ],
+ "copertina": {
+  "sfondo": "sede",
+  "personaggio": "huang",
+  "posa": "classico",
+  "lato": "dx",
+  "righe": [
+   "NVIDIA",
+   "SENZA HUANG"
+  ],
+  "evidenzia": 1
+ }
+}
