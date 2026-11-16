@@ -272,9 +272,11 @@ def copertina_ai(pg, ca, ctx, cop):
     bozza = os.path.join(LAV, 'bozza_copertina.jpg')
     _g = __import__('datetime').date.today().toordinal()
     alto = False   # 11 nov (Giorgio): si torna alle copertine dei primi 2 video (CTR migliore): banda sempre sotto con la targa "Economia d'impresa"
+    # 16 nov (Giorgio, Quanto Ti Resta): via la banda blu sotto (targa e domanda): solo le due grandi immagini con le due grandi scritte, tutto piu' grande
+    banda = str(P.get('copertina_banda') or 'NO').strip().upper() == 'SI'
     foto = False   # 10 nov (Giorgio): sempre a DISEGNO come le altre del canale, mai foto
     log('copertina MANO LIBERA:', 'banda sopra' if alto else 'banda sotto', '|', 'foto vere' if foto else 'cartone')
-    pg.evaluate('c => bozza_ai(c)', dict(ca, oggetto=ctx.get('oggetto'), alto=alto)); pg.wait_for_timeout(300)
+    pg.evaluate('c => bozza_ai(c)', dict(ca, oggetto=ctx.get('oggetto'), alto=alto, senza_banda=not banda)); pg.wait_for_timeout(300)
     pg.screenshot(path=bozza, type='jpeg', quality=92)
     vs, vd = str(ca.get('valore_sx') or '').strip(), str(ca.get('valore_dx') or '').strip()
     senza_logo = lambda t: re.sub(r'\s*\b(with|and)?\s*\b(a|an|the)?\s*(?:[\w-]+\s+)?\b(logo|brand|label|writing|text)s?\b', '', str(t or ''), flags=re.I).strip(' ,')   # 10 nov: un "logo" faceva scrivere parole all'AI
@@ -282,12 +284,16 @@ def copertina_ai(pg, ca, ctx, cop):
     stile_ = ('as a striking PHOTOREALISTIC thumbnail: the objects are REAL PHOTOGRAPHS, big and sharp, with studio light and soft shadows, on flat coloured backgrounds, very readable on a phone, 16:9. '
               if foto else 'as a polished 2D cartoon / flat vector explainer thumbnail: clean thick dark outlines, bright friendly colours, soft gradients and subtle shadows, very readable on a phone, 16:9. ')
     prompt = ('Redesign this rough YouTube thumbnail draft for an Italian channel about how much businesses really earn, ' + stile_ +
-              'Each half shows ONE single simple object, big and centered, instantly recognizable like an icon (no people, no faces, no crowded scenes). The two objects are BIG (most of their half) but the values stay fully visible above the dark band. Keep the same layout: red left half, green right half '
-              'with a slightly diagonal split, a big glossy yellow-orange arrow from left to right, and a plain dark navy band across the ' + ('TOP' if alto else 'bottom') + ' 30% of the image. '
-              f'LEFT (red): {ca.get("oggetto_sx") or "what it costs"}. RIGHT (green): {ca.get("oggetto_dx") or "what it is sold for"}. '
+              'Each half shows ONE single simple object, big and centered, instantly recognizable like an icon (no people, no faces, no crowded scenes). '
+              + ('The two objects are BIG (most of their half) but the values stay fully visible above the dark band. Keep the same layout: red left half, green right half '
+                 'with a slightly diagonal split, a big glossy yellow-orange arrow from left to right, and a plain dark navy band across the ' + ('TOP' if alto else 'bottom') + ' 30% of the image. '
+                 if banda else 'The two objects are VERY BIG and the texts are HUGE, readable on a small phone screen. Keep the same layout: red left half, green right half covering the WHOLE image '
+                 'top to bottom, with a slightly diagonal split and a big glossy yellow-orange arrow from left to right. NO dark band, no bottom strip. The bottom-right corner stays free of text. ')
+              + f'LEFT (red): {ca.get("oggetto_sx") or "what it costs"}. RIGHT (green): {ca.get("oggetto_dx") or "what it is sold for"}. '
               f'The ONLY texts in the image, spelled EXACTLY like this: "COSTA" at the top left and "LO VENDI" at the top right, both WHITE with a dark outline; '
               f'the values "{vs}" (left) and "{vd}" (right) in bold rounded YELLOW lettering with a dark outline, small sparkles around the right value. '
-              'No other words, letters or labels anywhere (no English words, no brand names, no writing on bags, cans, boxes or packages: plain unlabelled packaging). The dark band must stay COMPLETELY EMPTY. No logo, no watermark.')
+              'No other words, letters or labels anywhere (no English words, no brand names, no writing on bags, cans, boxes or packages: plain unlabelled packaging). '
+              + ('The dark band must stay COMPLETELY EMPTY. ' if banda else '') + 'No logo, no watermark.')
     H = {'Authorization': 'Key ' + E('FAL_KEY', ''), 'Content-Type': 'application/json'}
     rif = 'data:image/jpeg;base64,' + base64.b64encode(open(bozza, 'rb').read()).decode()
     for tentativo in range(3):   # 9 nov (Giorgio): un terzo tentativo prima di tornare alla copertina disegnata
@@ -303,8 +309,9 @@ def copertina_ai(pg, ca, ctx, cop):
             open(img, 'wb').write(r.read())
         # controllo scritte (Claude guarda l'immagine): solo COSTA, LO VENDI e i due valori, scritti giusti
         dom = ('Look at this thumbnail image. Answer ONLY with JSON {"ok": true|false, "motivo": "..."}. ok = true ONLY if: the texts "COSTA", "LO VENDI", '
-               f'"{vs}" and "{vd}" are present and spelled exactly, and there is NO other readable word or label anywhere OUTSIDE the ' + ('TOP' if alto else 'BOTTOM') +
-               ' 30% of the image (that strip will be covered by a dark band, so ignore whatever is there).')   # 10 nov: prima bocciava copertine giuste per la fascia
+               f'"{vs}" and "{vd}" are present and spelled exactly, and there is NO other readable word or label anywhere'
+               + ((' OUTSIDE the ' + ('TOP' if alto else 'BOTTOM') + ' 30% of the image (that strip will be covered by a dark band, so ignore whatever is there).') if banda else
+                  ' in the image. Also ok = false if the texts are small (each label and value must be clearly readable on a phone).'))   # 10 nov: prima bocciava copertine giuste per la fascia
         j = http('https://api.anthropic.com/v1/messages', {'model': MODELLO, 'max_tokens': 300, 'messages': [{'role': 'user', 'content': [
             {'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/jpeg', 'data': base64.b64encode(open(img, 'rb').read()).decode()}},
             {'type': 'text', 'text': dom}]}]}, {'x-api-key': E('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01'})
@@ -312,6 +319,11 @@ def copertina_ai(pg, ca, ctx, cop):
         t = ''.join(b.get('text', '') for b in j.get('content', []) if b.get('type') == 'text')
         esito_c = json_da(t) if '{' in t else {'ok': False, 'motivo': t[:100]}
         log(f'copertina AI tentativo {tentativo + 1}:', 'OK' if esito_c.get('ok') else 'scritte da rifare (' + str(esito_c.get('motivo'))[:120] + ')')
+        if esito_c.get('ok') and not banda:
+            from PIL import Image as _Im
+            _Im.open(img).convert('RGB').resize((1280, 720), _Im.LANCZOS).save(cop, quality=93)
+            log('copertina AI pronta (COSTA / LO VENDI grandi, senza banda)')
+            return
         if esito_c.get('ok'):
             d = (ca.get('domanda') or ['', '']) + ['', '']
             pg.goto('file://' + os.path.join(MOT, 'video.html')); pg.wait_for_timeout(300)
@@ -333,8 +345,10 @@ def copertina_ai(pg, ca, ctx, cop):
     with urllib.request.urlopen(http(inv['response_url'], headers=H)['images'][0]['url'], timeout=120) as r:
         open(img, 'wb').write(r.read())
     pg.goto('file://' + os.path.join(MOT, 'video.html')); pg.wait_for_timeout(300)
-    pg.evaluate('([a, c]) => scritte_ai(a, c)', ['file://' + img, dict(ca, alto=alto)]); pg.evaluate('document.fonts.ready'); pg.wait_for_timeout(700)
+    pg.evaluate('([a, c]) => scritte_ai(a, c)', ['file://' + img, dict(ca, alto=alto, senza_banda=not banda)]); pg.evaluate('document.fonts.ready'); pg.wait_for_timeout(700)
     img2 = os.path.join(LAV, 'copertina_ai_scritte.jpg'); pg.screenshot(path=img2, type='jpeg', quality=95)
+    if not banda:
+        shutil.copy(img2, cop); log('copertina AI pronta (riserva: scritte grandi dal codice, senza banda)'); return
     d = (ca.get('domanda') or ['', '']) + ['', '']
     pg.goto('file://' + os.path.join(MOT, 'video.html')); pg.wait_for_timeout(300)
     pg.evaluate('([a, b, c, e]) => finale_ai(a, b, c, e)', ['file://' + img2, d[0], d[1], alto]); pg.evaluate('document.fonts.ready'); pg.wait_for_timeout(700)
