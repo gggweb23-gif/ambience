@@ -27,7 +27,7 @@ import costi as CO
 import iscrizione as IS
 
 W, H, FPS = 2560, 1440, 30
-TETTO = float(E('TETTO_DOLLARI') or 1.0)
+TETTO = float(N.get('budget_dollari') or E('TETTO_DOLLARI') or 1.0)   # colonna budget del canale (Giorgio: max 3 $ a video)
 VOCE = str(N.get('voce') or 'glnsgBC77wt5zOYU0szz')
 F_TITOLI = os.path.join(ROOT, 'ctr_test', 'Anton.ttf')
 F_TESTI = os.path.join(ROOT, 'fonts_costo_vero', 'ArchivoBlack-Regular.ttf')
@@ -236,7 +236,7 @@ def posa(chi, nome_posa):
                 img = 'data:image/jpeg;base64,' + base64.b64encode(open(foto, 'rb').read()).decode()
                 r = fal('fal-ai/nano-banana-2/edit', {'prompt': prompt, 'image_urls': [img], 'aspect_ratio': '3:4', 'resolution': '2K', 'output_format': 'png', 'num_images': 1}, 0.08)
             else:
-                prompt = (f"FULL-BODY editorial cartoon character, head to feet visible: {pp['descrizione']}. Big head on a smaller body. Pose: {descr_posa}. "
+                prompt = (f"FULL-BODY editorial cartoon character, head to feet visible: {pp.get('descrizione') or pp.get('chi') or chi}. Big head on a smaller body. Pose: {descr_posa}. "
                           'Exactly two arms and two hands with five fingers, normal anatomy. ' + stile + 'Isolated on a plain pure white background, no shadow, no floor. ' + NO_TESTO)
                 r = fal('fal-ai/bytedance/seedream/v4.5/text-to-image', {'prompt': prompt, 'image_size': {'width': 1536, 'height': 2048}, 'num_images': 1}, 0.04)
             url = r['images'][0]['url']
@@ -259,7 +259,11 @@ def sfondo(chiave):
     dest = os.path.join(MAT, f'sfondo_{chiave}.jpg')
     if os.path.exists(dest):
         return dest
-    descr = N['sfondi'][chiave]
+    if N.get('materiali_da'):   # versione in un'altra lingua: stesse immagini del video gemello, gratis
+        gem = os.path.join(ROOT, 'prove_video', 'notizie', N['materiali_da'], 'materiali', f'sfondo_{chiave}.jpg')
+        if os.path.exists(gem):
+            shutil.copy(gem, dest); return dest
+    descr = N.get('sfondi', {}).get(chiave) or chiave.replace('_', ' ')
     for k in range(4):
         try:
             prompt = STILE + f'Scene: {descr}. Wide 16:9 shot. ' + NO_TESTO
@@ -335,7 +339,9 @@ def testo_box(d, xy, t, f, fill, stroke=0, sfill=NERO, anchor='la'):
 
 
 def it_num(v, dec):
-    s = f'{abs(v):,.{dec}f}'.replace(',', 'X').replace('.', ',').replace('X', '.')
+    s = f'{abs(v):,.{dec}f}'
+    if N.get('lingua', 'it') != 'en':   # stile italiano: 1.000 e 76,5
+        s = s.replace(',', 'X').replace('.', ',').replace('X', '.')
     return ('-' if v < 0 else '') + s
 
 
@@ -574,6 +580,8 @@ def rendi_inquadratura(i):
         disegna_sottotitoli(im, tg, GRUPPI)
         pr.stdin.write(im.convert('RGB').tobytes())
     pr.stdin.close(); pr.wait()
+    if inq.get('_clip') and os.path.isdir(inq['_clip']):
+        shutil.rmtree(inq['_clip'], ignore_errors=True)
     return out
 
 
@@ -668,10 +676,15 @@ def main():
     cfg = {'language': N.get('lingua', 'it'), 'subscribe_overlay_second': round(dur * .55, 1)}
     if not IS.applica(unito, finale, cfg, os.path.join(LAV, 'iscriviti'), enc=['-c:v', 'libx264', '-preset', 'medium', '-crf', '19']):
         shutil.copy(unito, finale)
-    if os.path.getsize(finale) > 90e6:
-        subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', finale, '-c:v', 'libx264', '-preset', 'medium', '-crf', '23', '-c:a', 'copy', finale + '.mp4'], check=True)
-        os.replace(finale + '.mp4', finale)
-    log(f'video: {os.path.getsize(finale) / 1e6:.1f} MB')
+    if os.path.getsize(finale) > 90e6:   # troppo grande per il repository: il 1440p va negli artefatti, qui l'anteprima 720p
+        pieno = os.path.join(ROOT, 'video_pieni', NOME + '.mp4'); os.makedirs(os.path.dirname(pieno), exist_ok=True)
+        shutil.move(finale, pieno)
+        subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', pieno, '-vf', 'scale=1280:720:flags=lanczos', '-c:v', 'libx264', '-preset', 'medium', '-crf', '26',
+                        '-maxrate', '850k', '-bufsize', '1700k', '-c:a', 'aac', '-b:a', '96k', os.path.join(OUT, 'anteprima_720p.mp4')], check=True)
+        finale = pieno
+        log(f"video 1440p: {os.path.getsize(pieno) / 1e6:.0f} MB (artefatto), anteprima 720p: {os.path.getsize(os.path.join(OUT, 'anteprima_720p.mp4')) / 1e6:.0f} MB")
+    else:
+        log(f'video: {os.path.getsize(finale) / 1e6:.1f} MB')
     try:
         copertina()
     except Exception as e:

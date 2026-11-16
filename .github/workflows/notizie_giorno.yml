@@ -1,0 +1,77 @@
+name: Notizie del giorno
+run-name: Notizie ${{ inputs.filone || 'tech' }} ${{ inputs.produci == 'SI' && '(radar + video)' || '(radar)' }}
+
+# Sistema notizie (16 nov 2026): ogni mattina il radar trova le notizie del filone piu' viste su YouTube, con una persona da mettere in copertina,
+# e decide se restare sull'onda di ieri o cambiare. Se produci = SI (a mano) o la variabile del repository NOTIZIE_PRODUCI = SI (ogni giorno):
+# copione con fonti verificate -> video 9-10 min in inglese e in italiano (stesse immagini). Il video 1440p resta negli artefatti del giro,
+# nel repository copertina, anteprima 720p, costi e fonti.
+on:
+  schedule:
+    - cron: '13 5 * * *'
+  workflow_dispatch:
+    inputs:
+      filone: {description: 'filone (tech)', default: 'tech', type: string}
+      produci: {description: 'SI = anche copione e video', default: 'NO', type: string}
+      lingue: {description: 'lingue del video', default: 'en,it', type: string}
+      salta_radar: {description: 'SI = usa la storia gia scelta (onda.json)', default: 'NO', type: string}
+
+concurrency:
+  group: notizie-${{ inputs.filone || 'tech' }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  notizie:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 240
+    env:
+      FILONE: ${{ inputs.filone || 'tech' }}
+      LINGUE: ${{ inputs.lingue || 'en,it' }}
+      PRODUCI: ${{ inputs.produci == 'SI' && 'SI' || (github.event_name == 'schedule' && vars.NOTIZIE_PRODUCI == 'SI' && 'SI') || 'NO' }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      YT_API_KEY_NOTIZIE: ${{ secrets.YT_API_KEY_NOTIZIE }}
+      YT_API_KEY_RADAR: ${{ secrets.YT_API_KEY_RADAR }}
+      FAL_KEY: ${{ secrets.FAL_KEY }}
+      ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+      PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Programmi
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null && pip install --quiet --break-system-packages pillow
+      - name: Radar
+        if: ${{ inputs.salta_radar != 'SI' }}
+        run: python3 strumenti/notizie_radar.py
+      - name: Salva radar
+        run: |
+          git config user.name "render-bot"; git config user.email "render-bot@users.noreply.github.com"
+          git add notizie/radar && (git diff --cached --quiet || git commit -qm "Radar notizie $FILONE")
+          for i in 1 2 3 4 5; do git pull --rebase -q && git push -q && break; sleep $((i*5)); done
+      - name: Copione (con fonti verificate)
+        id: copione
+        if: ${{ env.PRODUCI == 'SI' }}
+        run: python3 strumenti/notizie_copione.py
+      - name: Video
+        if: ${{ env.PRODUCI == 'SI' }}
+        run: |
+          for f in ${{ steps.copione.outputs.file }}; do
+            echo "=== $f"; NOTIZIA=$f python3 video_notizie.py || echo "VIDEO NON RIUSCITO: $f"
+          done
+      - name: Video 1440p (artefatto)
+        if: ${{ always() && env.PRODUCI == 'SI' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: video-notizie
+          path: video_pieni/
+          retention-days: 14
+          if-no-files-found: ignore
+      - name: Salva
+        if: ${{ always() }}
+        run: |
+          git add notizie caricature 2>/dev/null || true
+          git add -- prove_video/notizie ':(exclude)prove_video/notizie/*/materiali' 2>/dev/null || true
+          if ! git diff --cached --quiet; then
+            git commit -qm "Notizie $FILONE: copione e video"
+            for i in 1 2 3 4 5; do git pull --rebase -q && git push -q && break; sleep $((i*5)); done
+          fi
