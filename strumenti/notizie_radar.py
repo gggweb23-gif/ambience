@@ -94,16 +94,20 @@ def views_youtube(q, lingua, giorni=3):
     if not YT:
         return {}
     time.sleep(1.5)
-    try:
-        r = get('https://www.googleapis.com/youtube/v3/search?' + urllib.parse.urlencode({
+    for k in range(4):   # 429 = troppe richieste ravvicinate: si aspetta e si riprova
+        try:
+            r = get('https://www.googleapis.com/youtube/v3/search?' + urllib.parse.urlencode({
             'part': 'snippet', 'q': q, 'type': 'video', 'order': 'viewCount', 'maxResults': 15, 'relevanceLanguage': lingua, 'key': YT,
             'publishedAfter': (ORA - dt.timedelta(days=giorni)).strftime('%Y-%m-%dT%H:%M:%SZ')}))
-        ids = [x['id']['videoId'] for x in r.get('items', [])]
-        if not ids:
-            return {'views': 0, 'views_ora': 0, 'video': 0, 'lunghi': 0, 'top': []}
-        v = get('https://www.googleapis.com/youtube/v3/videos?' + urllib.parse.urlencode({'part': 'snippet,statistics,contentDetails', 'id': ','.join(ids), 'key': YT}))
-    except Exception as e:
-        log('youtube non letto', q, str(e)[:80]); return {}
+            ids = [x['id']['videoId'] for x in r.get('items', [])]
+            if not ids:
+                return {'views': 0, 'views_ora': 0, 'video': 0, 'lunghi': 0, 'top': []}
+            v = get('https://www.googleapis.com/youtube/v3/videos?' + urllib.parse.urlencode({'part': 'snippet,statistics,contentDetails', 'id': ','.join(ids), 'key': YT}))
+            break
+        except Exception as e:
+            if '429' in str(e) and k < 3:
+                time.sleep(15 * (k + 1)); continue
+            log('youtube non letto', q, str(e)[:80]); return {'errore': str(e)[:60]}
     tot = vel = lunghi = 0; top = []
     for x in v.get('items', []):
         n = int(x['statistics'].get('viewCount', 0)); tot += n
@@ -163,7 +167,8 @@ def main():
     righe = [f'# Radar notizie {FILONE} — {OGGI}', '', f"**Scelta:** {scelta['storia']} ({scelta['persona']}) — {motivo}", '',
              '| # | Storia | Persona | Views all\'ora (EN+IT) | Views 3 gg EN | Views 3 gg IT | Video lunghi EN |', '|---|---|---|---|---|---|---|']
     for k, s in enumerate(storie, 1):
-        righe.append(f"| {k} | {s['storia']} | {s['persona']} | {s['punteggio']:,} | {s['yt_en'].get('views', 0):,} | {s['yt_it'].get('views', 0):,} | {s['yt_en'].get('lunghi', 0)} |")
+        nd = lambda y, c: 'n.d.' if 'errore' in y else f"{y.get(c, 0):,}"   # n.d. = YouTube non ha risposto (quota)
+        righe.append(f"| {k} | {s['storia']} | {s['persona']} | {s['punteggio']:,} | {nd(s['yt_en'], 'views')} | {nd(s['yt_it'], 'views')} | {nd(s['yt_en'], 'lunghi')} |")
     open(os.path.join(CART, 'ultimo.md'), 'w').write('\n'.join(righe) + '\n')
     log('\n'.join(righe))
     if os.environ.get('GITHUB_OUTPUT'):
