@@ -35,22 +35,31 @@
      "posa": "standing, friendly confident smile, hands in pockets, casual sweater"
     }
    }
+  },
+  "amodei": {
+   "commons": "Dario Amodei",
+   "chi": "Dario Amodei, CEO of Anthropic",
+   "pose": {
+    "presenta": {
+     "posa": "x"
+    }
+   }
   }
  },
  "banner": {
-  "sfondo": "A futuristic Silicon Valley tech newsroom at night: big glowing screens with abstract chip circuits, rising stock charts and neural network patterns, server racks with blue and green lights, a sleek round table, cinematic neon light, empty of people",
+  "sfondo": "A bright modern tech studio in warm daylight with purple and orange neon accents: giant smartphone screens, a friendly white robot arm, holographic app icons floating, a glass desk with laptops and gadgets, clean and colorful, empty of people",
   "sinistra": [
-   "musk",
-   "telefono"
+   "huang",
+   "classico"
   ],
   "destra": [
    [
-    "huang",
-    "classico"
+    "musk",
+    "telefono"
    ],
    [
-    "altman",
-    "sorride"
+    "amodei",
+    "presenta"
    ]
   ]
  },
