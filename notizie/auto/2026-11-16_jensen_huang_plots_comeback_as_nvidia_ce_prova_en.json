@@ -1,0 +1,344 @@
+{
+ "titolo": "Jensen Huang: Trump Says Yes, Nvidia's Board Reportedly Says No",
+ "angolo": "A split in Washington: Trump is open to Huang's return, Bessent wants an outsider, the board reportedly refuses, and Nvidia reports earnings tomorrow without him.",
+ "descrizione": "Jensen Huang: Trump Says Yes, Nvidia's Board Reportedly Says No. The FT reports Huang is weighing a comeback, and Trump says he would not mind. CNBC and CBS report, citing anonymous sources, that the board is not considering it while it runs an investigation. Nvidia stock fell about 4% on Monday and the company reports results Tuesday under interim CEO Colette Kress. Subscribe: this story is still moving.",
+ "tag": [
+  "Jensen Huang: Trump Says Yes, Nvidia's Board Reportedly Says No",
+  "Jensen Huang",
+  "Nvidia",
+  "Nvidia CEO",
+  "Colette Kress",
+  "Scott Bessent",
+  "Elon Musk",
+  "Trump Nvidia",
+  "Nvidia board",
+  "Stand With Jensen",
+  "Nvidia stock",
+  "Nvidia earnings",
+  "tech news",
+  "AI chips"
+ ],
+ "fonti_link": [
+  "https://www.cnbc.com/2026/11/16/nvidia-ceo-jensen-huang.html",
+  "https://www.cbsnews.com/news/jensen-huang-nvidia-ceo-reinstatement-petition/",
+  "https://www.nbcnews.com/politics/trump-administration/trump-support-jensen-huang-nvidia-ceo-rcna609597",
+  "https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000082/nvidiaannouncesceotransiti.htm",
+  "https://tech.yahoo.com/general/breaking-news/article/jensen-huang-weighs-comeback-as-nvidia-ceo-as-allies-lobby-board-ft-reports-bessent-calls-for-dramatic-shakeup-204839950.html",
+  "https://finance.yahoo.com/markets/article/nvidia-stock-steady-as-jensen-huang-reportedly-weighs-ceo-comeback-musk-backs-return-015644730.html",
+  "https://thenextweb.com/news/jensen-huang-is-discussing-a-return-to-nvidia-ft-reports",
+  "https://qz.com/nvidia-board-jensen-huang-return-investigation-111626",
+  "https://en.wikipedia.org/wiki/Jensen_Huang"
+ ],
+ "personaggi": {
+  "huang": {
+   "commons": "Jensen Huang",
+   "chi": "Jensen Huang, Nvidia co-founder and former CEO",
+   "pose": {
+    "classico": {
+     "posa": "standing, arms at sides, in his signature black leather jacket, calm but serious"
+    }
+   }
+  },
+  "bessent": {
+   "commons": "Scott Bessent",
+   "chi": "Scott Bessent, US Treasury Secretary",
+   "pose": {
+    "serio": {
+     "posa": "standing in a dark suit, stern expression, arms folded"
+    }
+   }
+  },
+  "kress": {
+   "commons": "Colette Kress",
+   "chi": "Colette Kress, Nvidia CFO and interim CEO",
+   "pose": {
+    "tablet": {
+     "posa": "standing holding a tablet, focused expression"
+    }
+   }
+  },
+  "musk": {
+   "commons": "Elon Musk",
+   "chi": "Elon Musk, Tesla and SpaceX CEO",
+   "pose": {
+    "telefono": {
+     "posa": "standing looking at a phone in hand, smirking slightly"
+    }
+   }
+  }
+ },
+ "sets": {
+  "boardroom": {
+   "descr": "Empty glass boardroom at Nvidia headquarters in Santa Clara at dusk, long table, leather chairs pushed back, a single empty chair at the head of the table, green-tinted light through the windows, tense mood",
+   "luogo": "SANTA CLARA, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "huang",
+     "posa": "classico",
+     "lato": "sx"
+    }
+   ]
+  },
+  "trading": {
+   "descr": "Wall Street style trading floor, empty desks, large dark screens with only abstract red downward arrows and no text, cold blue light, papers scattered",
+   "luogo": "NEW YORK, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "kress",
+     "posa": "tablet",
+     "lato": "dx"
+    }
+   ]
+  },
+  "hq": {
+   "descr": "Nvidia-style glass campus at night, a lit corner office on the top floor, empty plaza with palm trees, glowing green accents, light rain",
+   "luogo": "SANTA CLARA, USA",
+   "effetto": "pioggia",
+   "cast": [
+    {
+     "chi": "huang",
+     "posa": "classico",
+     "lato": "sx"
+    },
+    {
+     "chi": "kress",
+     "posa": "tablet",
+     "lato": "dx"
+    }
+   ]
+  },
+  "tv": {
+   "descr": "Washington TV studio at night with an empty anchor desk, soft spotlights, a blurred Capitol dome skyline in the window, dramatic mood",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "bessent",
+     "posa": "serio",
+     "lato": "dx"
+    }
+   ]
+  },
+  "oval": {
+   "descr": "The Oval Office, empty, heavy golden curtains, the Resolute desk, warm lamp light, a globe on a side table",
+   "luogo": "WASHINGTON, DC, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "bessent",
+     "posa": "serio",
+     "lato": "sx"
+    }
+   ]
+  },
+  "social": {
+   "descr": "Dark Silicon Valley home office, glowing monitors showing only abstract waves, a rocket model on the shelf, night skyline of the Bay through the window",
+   "luogo": "SILICON VALLEY, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "musk",
+     "posa": "telefono",
+     "lato": "dx"
+    },
+    {
+     "chi": "huang",
+     "posa": "classico",
+     "lato": "sx"
+    }
+   ]
+  }
+ },
+ "scene": [
+  {
+   "testo": "Monday. Nvidia's board is reportedly not considering bringing Jensen Huang back, a source told CNBC.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/16/nvidia-ceo-jensen-huang.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "boardroom"
+   },
+   "grafica": {
+    "tipo": "titolo",
+    "testo": "THE DOOR CLOSES?",
+    "sotto": "Board reportedly not discussing his return"
+   }
+  },
+  {
+   "testo": "Nvidia shares fell about four percent. The company reports earnings tomorrow.",
+   "fonti": [
+    "https://finance.yahoo.com/markets/article/nvidia-stock-steady-as-jensen-huang-reportedly-weighs-ceo-comeback-musk-backs-return-015644730.html",
+    "https://thenextweb.com/news/jensen-huang-is-discussing-a-return-to-nvidia-ft-reports"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "trading"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 4,
+    "decimali": 0,
+    "prefisso": "-",
+    "unita": "PERCENT",
+    "sopra": "NVIDIA SHARES MONDAY"
+   }
+  },
+  {
+   "testo": "But President Trump said something very different on Monday.",
+   "fonti": [
+    "https://www.nbcnews.com/politics/trump-administration/trump-support-jensen-huang-nvidia-ceo-rcna609597"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "oval"
+   }
+  },
+  {
+   "testo": "Can a founder come back when the board reportedly opposes it, the Treasury Secretary wants an outsider, and the president is open to it?",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/16/nvidia-ceo-jensen-huang.html"
+   ],
+   "titolo_card": true,
+   "visivo": {
+    "tipo": "set",
+    "set": "oval"
+   }
+  },
+  {
+   "testo": "Jensen Huang co-founded Nvidia and ran it for thirty-three years, until he resigned last Thursday.",
+   "fonti": [
+    "https://en.wikipedia.org/wiki/Jensen_Huang",
+    "https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000082/nvidiaannouncesceotransiti.htm"
+   ],
+   "capitolo": "THE FOUNDER FALLS",
+   "visivo": {
+    "tipo": "dossier",
+    "chi": "huang",
+    "posa": "classico",
+    "righe": [
+     "BORN IN TAIPEI, 1963",
+     "CEO SINCE 1993",
+     "RESIGNED NOV. 12, 2026"
+    ],
+    "timbro": "FOUNDER"
+   }
+  },
+  {
+   "testo": "Nvidia named CFO Colette Kress interim CEO. Board chair Harvey Jones said the board expects operations to continue without interruption.",
+   "fonti": [
+    "https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000082/nvidiaannouncesceotransiti.htm"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "hq"
+   },
+   "citazione": {
+    "chi": "kress",
+    "posa": "tablet",
+    "testo": "I am committed to building on the extraordinary foundation Jensen created over the last 33 years"
+   }
+  },
+  {
+   "testo": "Huang resigned after revelations of an affair with a woman U.S. intelligence agencies reportedly suspect of spying for China, according to CBS. The board said it has no reason to believe national security was compromised.",
+   "fonti": [
+    "https://www.cbsnews.com/news/jensen-huang-nvidia-ceo-reinstatement-petition/",
+    "https://tech.yahoo.com/general/breaking-news/article/jensen-huang-weighs-comeback-as-nvidia-ceo-as-allies-lobby-board-ft-reports-bessent-calls-for-dramatic-shakeup-204839950.html"
+   ],
+   "capitolo": "THE INVESTIGATION",
+   "visivo": {
+    "tipo": "set",
+    "set": "hq"
+   }
+  },
+  {
+   "testo": "Treasury Secretary Scott Bessent wants an outsider as CEO, and says he wants answers from the board and outside counsel within ten days.",
+   "fonti": [
+    "https://www.nbcnews.com/politics/trump-administration/trump-support-jensen-huang-nvidia-ceo-rcna609597",
+    "https://tech.yahoo.com/general/breaking-news/article/jensen-huang-weighs-comeback-as-nvidia-ceo-as-allies-lobby-board-ft-reports-bessent-calls-for-dramatic-shakeup-204839950.html"
+   ],
+   "capitolo": "WASHINGTON SPLITS",
+   "visivo": {
+    "tipo": "set",
+    "set": "tv"
+   },
+   "citazione": {
+    "chi": "bessent",
+    "posa": "serio",
+    "testo": "they need a dramatic shakeup"
+   }
+  },
+  {
+   "testo": "President Trump said he 'would not mind' Huang returning.",
+   "fonti": [
+    "https://www.nbcnews.com/politics/trump-administration/trump-support-jensen-huang-nvidia-ceo-rcna609597"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "oval"
+   }
+  },
+  {
+   "testo": "Elon Musk is backing the petition, now near 180,000 names. Nvidia's board has independent directors who can replace the CEO.",
+   "fonti": [
+    "https://finance.yahoo.com/markets/article/nvidia-stock-steady-as-jensen-huang-reportedly-weighs-ceo-comeback-musk-backs-return-015644730.html",
+    "https://www.cnbc.com/2026/11/16/nvidia-ceo-jensen-huang.html",
+    "https://tech.yahoo.com/general/breaking-news/article/jensen-huang-weighs-comeback-as-nvidia-ceo-as-allies-lobby-board-ft-reports-bessent-calls-for-dramatic-shakeup-204839950.html"
+   ],
+   "capitolo": "THE LONG SHOT",
+   "visivo": {
+    "tipo": "set",
+    "set": "social"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 180000,
+    "decimali": 0,
+    "prefisso": "",
+    "unita": "SIGNATURES",
+    "sopra": "PETITION TO REINSTATE HUANG"
+   },
+   "citazione": {
+    "chi": "musk",
+    "posa": "telefono",
+    "testo": "A petition is underway to reinstate Jensen, and I'm signing it too."
+   }
+  },
+  {
+   "testo": "Some Wall Street analysts call his return a long shot, though others are divided. Subscribe, because this story is still moving.",
+   "fonti": [
+    "https://www.cbsnews.com/news/jensen-huang-nvidia-ceo-reinstatement-petition/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "social"
+   }
+  }
+ ],
+ "copertina": {
+  "sfondo": "Dramatic empty Nvidia boardroom at night, single empty chair at head of table, green light glowing through glass walls, stormy sky outside",
+  "personaggio": "huang",
+  "posa": "classico",
+  "lato": "dx",
+  "righe": [
+   "BOARD SAYS NO",
+   "TRUMP SAYS YES"
+  ],
+  "evidenzia": 1
+ },
+ "verifica": {
+  "correzioni": 10,
+  "scene_tolte": 0
+ },
+ "lingua": "en",
+ "nome": "2026-11-16_jensen_huang_plots_comeback_as_nvidia_ce_prova_en",
+ "data": "NOVEMBER 16, 2026",
+ "etichetta": "BREAKING",
+ "musica": "tensione",
+ "voce": "uju3wxzG5OhpWcoi3SMy",
+ "budget_dollari": 2.51,
+ "storia": "Jensen Huang plots comeback as Nvidia CEO after ouster",
+ "filone": "tech"
+}
