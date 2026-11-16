@@ -264,14 +264,17 @@ def sfondo(chiave):
         if os.path.exists(gem):
             shutil.copy(gem, dest); return dest
     descr = N.get('sfondi', {}).get(chiave) or chiave.replace('_', ' ')
+    vuota = bool(re.search(r'empty of people|no people|nobody', descr, re.I))
     for k in range(4):
         try:
-            prompt = STILE + f'Scene: {descr}. Wide 16:9 shot. ' + NO_TESTO
+            semplice = 'Very simple, clean composition: no screens, no papers, no signs, no clocks, nothing with writing. ' if k >= 2 else ''
+            prompt = STILE + f'Scene: {descr}. Wide 16:9 shot. ' + semplice + ('Absolutely NO people, no characters, no faces. ' if vuota else '') + NO_TESTO
             r = fal('fal-ai/bytedance/seedream/v4.5/text-to-image', {'prompt': prompt, 'image_size': {'width': W, 'height': H}, 'num_images': 1}, 0.04)
             im = Image.open(io.BytesIO(http(r['images'][0]['url'], raw=True, timeout=120))).convert('RGB')
             if max(ImageStat.Stat(im.resize((64, 36))).mean) < 18:
                 log('sfondo nero, rifaccio'); continue
-            if haiku_immagine(im, DIFETTI).startswith('SI'):   # 16 nov: un logo inventato ("Techmamy") era passato al terzo tentativo senza controllo
+            dom = DIFETTI + (' Also answer SI if ANY person, character or face is visible (this scene must be empty of people).' if vuota else '')
+            if k < 3 and haiku_immagine(im, dom).startswith('SI'):   # 16 nov: controllo su ogni tentativo; il 4o (semplificato) si tiene, cosi' non si ripete mai un'altra immagine
                 log('sfondo con un difetto o scritte, lo rifaccio:', chiave); continue
             im = im.resize((W, H), Image.LANCZOS) if im.size != (W, H) else im
             im.filter(ImageFilter.UnsharpMask(radius=1.2, percent=40, threshold=2)).save(dest, quality=95); return dest
@@ -285,7 +288,18 @@ def sfondo(chiave):
 CLIP_USATE = {38687556}   # grafico EUR/USD: sbagliato per Borsa e Nasdaq
 
 
-def clip_pexels(cartella, domande, sec):
+def clip_adatta(v, contesto):
+    if not contesto or not v.get('image'):
+        return True
+    try:
+        im = Image.open(io.BytesIO(http(v['image'], raw=True, timeout=60))).convert('RGB')
+        return haiku_immagine(im, f'A news video says: "{contesto[:300]}". Would this stock footage frame look clearly coherent and relevant as b-roll '
+                                  'for that sentence (same subject or setting, serious news tone)? Random unrelated people, objects or places = NO. Answer only SI or NO.').startswith('SI')
+    except Exception:
+        return True
+
+
+def clip_pexels(cartella, domande, sec, contesto=''):
     if os.path.isdir(cartella) and len(os.listdir(cartella)) >= int(sec * FPS):
         return cartella
     for q in domande if isinstance(domande, list) else [domande]:
@@ -301,6 +315,8 @@ def clip_pexels(cartella, domande, sec):
             fs = [x for x in fs if (x.get('width') or 0) <= 3840] or fs
             if not fs:
                 continue
+            if not clip_adatta(v, contesto):
+                log('clip scartata (non c\'entra con la frase):', q, v['id']); CLIP_USATE.add(v['id']); continue
             raw = cartella + '.mp4'
             try:
                 open(raw, 'wb').write(http(fs[0]['link'], raw=True, timeout=300))
@@ -645,7 +661,21 @@ def main():
         b = (inizi[si + 1] - .05) if si + 1 < len(N['scene']) else dur
         qq = s['inquadrature']; p = (b - a) / len(qq)
         for k, q in enumerate(qq):
-            q = dict(q); q['_t0'] = a + k * p; q['_dur'] = p; q['_fonte'] = s.get('fonte'); INQ.append(q)
+            q = dict(q); q['_t0'] = a + k * p; q['_dur'] = p; q['_fonte'] = s.get('fonte'); q['_testo'] = s['testo']; INQ.append(q)
+    # 16 nov (Giorgio: "come un film, mai la stessa immagine"): ogni inquadratura a cartone ha il suo sfondo
+    usati = {}
+    for q in INQ:
+        if q['tipo'] == 'cartone':
+            k = q['sfondo']; usati[k] = usati.get(k, 0) + 1
+            if usati[k] > 1:
+                nk = f'{k}_v{usati[k]}'
+                N.setdefault('sfondi', {})[nk] = (N.get('sfondi', {}).get(k) or k.replace('_', ' ')) + \
+                    f' A DIFFERENT shot of this subject (version {usati[k]}): different camera angle, framing, distance and details.'
+                q['sfondo'] = nk
+    cop = N.get('copertina') or {}
+    if cop.get('sfondo'):   # la copertina ha uno sfondo suo, senza persone (solo la caricatura del protagonista)
+        N.setdefault('sfondi', {})['copertina'] = (N['sfondi'].get(cop['sfondo']) or cop['sfondo']) + ' Dramatic thumbnail background, completely empty of people.'
+        cop['sfondo'] = 'copertina'
     # materiali: pose e sfondi in parallelo (pochi), clip pexels
     pose = sorted({(q['personaggio'], q['posa']) for q in INQ if q.get('personaggio')} | ({(N['copertina']['personaggio'], N['copertina']['posa'])} if N.get('copertina', {}).get('personaggio') else set()))
     sf = sorted({q['sfondo'] for q in INQ if q['tipo'] == 'cartone'} | {N['copertina']['sfondo']})
@@ -656,9 +686,12 @@ def main():
         PNG = {k: v.result() for k, v in rp.items()}; SF = {k: v.result() for k, v in rs.items()}
     for i, q in enumerate(INQ):
         if q['tipo'] == 'pexels':
-            q['_clip'] = clip_pexels(os.path.join(LAV, f'clip_{i:03d}'), q['q'], q['_dur'])
-            if not q['_clip']:   # niente clip: si usa uno sfondo a cartone della notizia (mai un buco)
-                q['tipo'] = 'cartone'; q['sfondo'] = sf[i % len(sf)]
+            testo_scena = q.get('_testo', '')
+            q['_clip'] = clip_pexels(os.path.join(LAV, f'clip_{i:03d}'), q['q'], q['_dur'], testo_scena)
+            if not q['_clip']:   # niente clip adatta: scena a cartone NUOVA fatta apposta su quella frase (mai un buco, mai un'immagine ripetuta)
+                k = f'auto_{i:03d}'
+                N['sfondi'][k] = f'Editorial illustration of this news moment: {testo_scena[:300]}. Empty of people, no text.'
+                q['tipo'] = 'cartone'; q['sfondo'] = k; SF[k] = sfondo(k)
         if q['tipo'] == 'cartone':
             q['_sfondo'] = SF.get(q['sfondo']) or next(v for v in SF.values() if v)
         if q.get('personaggio'):

@@ -88,7 +88,8 @@ SCHEMA = '''{
 
 
 def scrivi_en(onda, lib):
-    prompt = f"""You are the head writer of a fast, credible tech-news YouTube channel (English, US audience). Format: cartoon editorial
+    tipo = {'tech': 'tech-news', 'guerra': 'world-conflicts news (wars, ceasefires, sanctions, military and diplomatic moves)'}.get(FILONE, FILONE + ' news')
+    prompt = f"""You are the head writer of a fast, credible {tipo} YouTube channel (English, US audience). Format: cartoon editorial
 caricatures of the REAL people + real stock footage + animated graphics, like the channel Paper Billions. Today is {OGGI}.
 
 STORY TO COVER: {onda['storia']}
@@ -108,22 +109,28 @@ RULES (all mandatory):
 - Hook: the first scene says the biggest, most surprising fact in 1-2 short sentences (the result first, then how we got here). No intro, no greetings.
 - Rhythm: short sentences, clear and decisive, like an authoritative journalist. Build curiosity every 60-90 seconds ("but that's not the whole story...").
 - Last scene: one line asking to subscribe because the story is still moving.
+- Strictly neutral and factual: no opinions, no taking sides, no mocking; for wars give each side's position with attribution; no graphic violence;
+  casualty figures only with their source.
 DIRECTION (regia):
 - Each scene has 1-3 shots of 4-6 seconds each (about 2.8 words per second of voice).
 - About HALF of all shots are "pexels" (real stock footage that matches what is said: offices, chips, servers, stock screens, cities, money,
   smartphones...), the other half "cartone".
 - EVERY "cartone" shot uses its OWN new key in "sfondi": a background is NEVER reused (it's like a film: always something new). Background
-  descriptions must be coherent with what is said in that moment and specific (place, objects, light, mood).
+  descriptions must be coherent with what is said in that moment and specific (place, objects, light, mood). Backgrounds are places and objects
+  WITHOUT writing: never documents, letters, newspapers, social feeds, screens full of text, signs, clocks or flags with text. Write "empty of people"
+  unless a generic crowd is really needed. Never draw real people in backgrounds (real people appear only as our caricatures).
+- Pexels queries describe concrete, literal footage that obviously matches the sentence (e.g. "stock market trading screen red", "military
+  convoy desert", "aircraft carrier at sea"); never abstract or random lifestyle footage.
 - The main person appears in a cartone shot at least every 60-90 seconds, with DIFFERENT poses that fit the moment (max 4 poses for the
   main person, 2 for the others). Other real people of the story (founders, CEOs, rivals) only if they are public figures, with their real name.
   Characters already drawn in our library (reuse these slugs and pose names when they fit, it's free): {json.dumps(lib)}
 - Graphics: big numbers with "numero" (exact values from sources), key phrases with "titolo" (UPPERCASE). Not every shot needs a graphic.
 - "lato": the person stands on the right ("dx") or left ("sx"); alternate.
-- Thumbnail (copertina): the main person, 2 short UPPERCASE lines (max 3 words each, high-impact words of the story, no final period), evidenzia = index
+- Thumbnail (copertina): its background is a dramatic scene EMPTY of people; the main person (our caricature), 2 short UPPERCASE lines (max 3 words each, high-impact words of the story, no final period), evidenzia = index
   of the line on the red box. Its "sfondo" is a NEW key too.
 Answer with ONLY the JSON (no markdown), exactly this structure:
 {SCHEMA}"""
-    t = claude([{'role': 'user', 'content': prompt}], [{'type': 'web_search_20250305', 'name': 'web_search', 'max_uses': 12}], sforzo='high')
+    t = claude([{'role': 'user', 'content': prompt}], [{'type': 'web_search_20250305', 'name': 'web_search', 'max_uses': 8}], sforzo='medium')
     return json_da(t)
 
 
@@ -137,7 +144,7 @@ def verifica(v):
               "who said what). Reports/allegations must be attributed. Return ONLY JSON: "
               '{"correzioni": [{"i": 0, "testo": "corrected sentence(s), same length and tone, or an empty string to drop the scene", "perche": "short reason"}], '
               '"ok": true/false}. Only list scenes that need a change.\n\n' + json.dumps(testi, ensure_ascii=False))
-    r = json_da(claude([{'role': 'user', 'content': prompt}], [{'type': 'web_search_20250305', 'name': 'web_search', 'max_uses': 10}], max_tokens=16000))
+    r = json_da(claude([{'role': 'user', 'content': prompt}], [{'type': 'web_search_20250305', 'name': 'web_search', 'max_uses': 6}], max_tokens=16000))
     tolte = 0
     for c in r.get('correzioni', []):
         i = c.get('i')
@@ -199,14 +206,14 @@ def main():
     v = verifica(v)
     log(f"verificato: {v['verifica']}, spesa {SPESA[0]:.3f} $")
     base = {'lingua': 'en', 'nome': nome + '_en', 'data': f"{OGGI_D.strftime('%B').upper()} {OGGI_D.day}, {OGGI_D.year}", 'etichetta': 'BREAKING',
-            'musica': 'tensione', 'voce': VOCI['en'], 'budget_dollari': float(E('BUDGET_VIDEO') or 3), 'storia': onda['storia'], 'filone': FILONE}
+            'musica': 'tensione', 'voce': VOCI['en'], 'budget_dollari': round(max(1.2, float(E('BUDGET_VIDEO') or 3) - SPESA[0]), 2), 'storia': onda['storia'], 'filone': FILONE}
     out = os.path.join(ROOT, 'notizie', 'auto'); os.makedirs(out, exist_ok=True)
     en = dict(v, **base)
     json.dump(en, open(os.path.join(out, nome + '_en.json'), 'w'), ensure_ascii=False, indent=1)
     file_ok = [os.path.join('notizie', 'auto', nome + '_en.json')]
     if 'it' in LINGUE:
         it = traduci_it(v)
-        it.update(base, lingua='it', nome=nome + '_it', data=f'{OGGI_D.day} {MESI_IT[OGGI_D.month - 1]} {OGGI_D.year}', etichetta="ULTIM'ORA",
+        it.update(base, budget_dollari=0.6, lingua='it', nome=nome + '_it', data=f'{OGGI_D.day} {MESI_IT[OGGI_D.month - 1]} {OGGI_D.year}', etichetta="ULTIM'ORA",
                   voce=VOCI['it'], materiali_da=nome + '_en')
         json.dump(it, open(os.path.join(out, nome + '_it.json'), 'w'), ensure_ascii=False, indent=1)
         file_ok.append(os.path.join('notizie', 'auto', nome + '_it.json'))

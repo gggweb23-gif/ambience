@@ -7,13 +7,15 @@ run-name: Notizie ${{ inputs.filone || 'tech' }} ${{ inputs.produci == 'SI' && '
 # nel repository copertina, anteprima 720p, costi e fonti.
 on:
   schedule:
-    - cron: '13 5 * * *'
+    - cron: '13 5 * * *'   # tech: solo radar (la produzione si accende quando il canale c'e')
+    - cron: '23 5 * * *'   # guerra (WWII Testimony): radar + video in inglese + caricamento, esce alle 17:00
   workflow_dispatch:
     inputs:
       filone: {description: 'filone (tech)', default: 'tech', type: string}
       produci: {description: 'SI = anche copione e video', default: 'NO', type: string}
       lingue: {description: 'lingue del video', default: 'en,it', type: string}
       salta_radar: {description: 'SI = usa la storia gia scelta (onda.json)', default: 'NO', type: string}
+      carica: {description: 'SI = carica su YouTube (guerra: WWII Testimony)', default: 'NO', type: string}
 
 concurrency:
   group: notizie-${{ inputs.filone || 'tech' }}
@@ -27,9 +29,13 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 240
     env:
-      FILONE: ${{ inputs.filone || 'tech' }}
-      LINGUE: ${{ inputs.lingue || 'en,it' }}
-      PRODUCI: ${{ inputs.produci == 'SI' && 'SI' || (github.event_name == 'schedule' && vars.NOTIZIE_PRODUCI == 'SI' && 'SI') || 'NO' }}
+      FILONE: ${{ inputs.filone || (github.event.schedule == '23 5 * * *' && 'guerra') || 'tech' }}
+      LINGUE: ${{ inputs.lingue || (github.event.schedule == '23 5 * * *' && 'en') || 'en,it' }}
+      PRODUCI: ${{ inputs.produci == 'SI' && 'SI' || (github.event.schedule == '23 5 * * *' && 'SI') || (github.event_name == 'schedule' && vars.NOTIZIE_PRODUCI == 'SI' && 'SI') || 'NO' }}
+      CARICA: ${{ inputs.carica == 'SI' && 'SI' || (github.event.schedule == '23 5 * * *' && 'SI') || 'NO' }}
+      YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+      YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+      TOKEN_GUERRA_EN: ${{ secrets.YT_REFRESH_TOKEN_WWII_TESTIMONY }}
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       YT_API_KEY_NOTIZIE: ${{ secrets.YT_API_KEY_NOTIZIE }}
       YT_API_KEY_RADAR: ${{ secrets.YT_API_KEY_RADAR }}
@@ -57,6 +63,14 @@ jobs:
         run: |
           for f in ${{ steps.copione.outputs.file }}; do
             echo "=== $f"; NOTIZIA=$f python3 video_notizie.py || echo "VIDEO NON RIUSCITO: $f"
+          done
+      - name: Carica su YouTube
+        if: ${{ env.PRODUCI == 'SI' && env.CARICA == 'SI' && env.FILONE == 'guerra' }}
+        run: |
+          for f in ${{ steps.copione.outputs.file }}; do
+            n=$(python3 -c "import json,sys;print(json.load(open('$f'))['nome'])")
+            if [ -f video_pieni/$n.mp4 ]; then v=video_pieni/$n.mp4; else v=prove_video/notizie/$n/video.mp4; fi
+            NOTIZIA=$f VIDEO=$v COPERTINA=prove_video/notizie/$n/copertina.jpg YT_REFRESH_TOKEN=$TOKEN_GUERRA_EN python3 strumenti/notizie_carica.py || echo "CARICAMENTO NON RIUSCITO: $f"
           done
       - name: Video 1440p (artefatto)
         if: ${{ always() && env.PRODUCI == 'SI' }}

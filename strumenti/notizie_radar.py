@@ -32,6 +32,18 @@ FILONI = {
                 'https://news.google.com/rss/search?q=CEO+tech+when:1d&hl=en-US&gl=US&ceid=US:en'],
         'trends': ['US', 'IT'],
     },
+    # 16 nov sera (Giorgio): filone guerra sul canale WWII Testimony: Ucraina, USA, Trump, Putin, Zelensky, Hormuz e tutti i conflitti
+    'guerra': {
+        'descrizione': 'wars and international conflicts news: Russia-Ukraine war, Middle East (Israel, Gaza, Iran, Strait of Hormuz), US military and '
+                       'diplomatic moves, ceasefires, peace talks, sanctions, NATO; the leaders involved (Trump, Putin, Zelensky, Netanyahu, Khamenei, Xi...)',
+        'rss': ['https://news.google.com/rss/headlines/section/topic/WORLD?hl=en-US&gl=US&ceid=US:en',
+                'https://news.google.com/rss/search?q=Ukraine+Russia+war+when:1d&hl=en-US&gl=US&ceid=US:en',
+                'https://news.google.com/rss/search?q=Iran+OR+Israel+OR+Gaza+OR+Hormuz+when:1d&hl=en-US&gl=US&ceid=US:en',
+                'https://news.google.com/rss/search?q=Trump+Putin+Zelensky+when:1d&hl=en-US&gl=US&ceid=US:en',
+                'https://news.google.com/rss/headlines/section/topic/WORLD?hl=it&gl=IT&ceid=IT:it'],
+        'trends': ['US'],
+        'politica_ok': True,
+    },
 }
 
 
@@ -135,7 +147,7 @@ def main():
               "Below are today's headlines (Google News) and today's rising Google searches (Google Trends, with traffic).\n"
               f"Group them into distinct STORIES of this niche only. Keep ONLY stories that can be tied to ONE well-known real PERSON whose face can go "
               "on the thumbnail (if the story is about a company, the person is its founder/owner/CEO, the face people know). Drop stories without "
-              "such a person, drop politics-only stories and anything outside the niche. Keep ONLY stories reported by authoritative news organizations "
+              "such a person, " + ("" if f.get("politica_ok") else "drop politics-only stories, ") + "drop anything outside the niche. Keep ONLY stories reported by authoritative news organizations "
               "(Reuters, AP, Bloomberg, FT, WSJ, CNBC, BBC, NYT, The Verge, ANSA, Il Sole 24 Ore, Corriere...): never stories that come only from blogs, "
               "YouTube or social media. In 'storia' write precisely what is confirmed and what is only reported (e.g. 'Huang weighs comeback, FT reports').\n"
               + (f"The channel is currently riding this story: {onda.get('storia')} (person: {onda.get('persona')}). If it is still in today's news, "
