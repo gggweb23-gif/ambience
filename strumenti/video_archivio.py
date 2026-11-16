@@ -725,7 +725,13 @@ else:
     # 11 nov (Giorgio: scritta troppo piccola da mobile): due righe bilanciate (THEY HAD / IT ALL) invece di tutto su una riga e l'ultima parola da sola
     _k = min(range(1, len(parole)), key=lambda k: abs(len(' '.join(parole[:k])) - len(' '.join(parole[k:])))) if len(parole) > 1 else 1
     righe = [' '.join(parole[:_k]), ' '.join(parole[_k:])] if len(parole) > 1 else parole
+    STRETTO = 1.0
+    if STILE_COP == 'fotogramma':   # 16 nov (Giorgio): carattere spaziale ma scritte GRANDI come prima: una parola per riga e lettere strette al 72%
+        STRETTO = .72
+        if 1 < len(parole) <= 3:
+            righe = parole
     def _misure(larg, alt):
+        larg = larg / STRETTO
         s0 = 230
         while s0 > 70:
             ms = [s0] * len(righe)
@@ -772,8 +778,21 @@ else:
     im.paste(Image.new('RGB', (1280, 720)), (0, 0), ombra.filter(_IF.GaussianBlur(45))); d = ImageDraw.Draw(im)
     for i, (rr, s_) in enumerate(zip(righe, misure)):
         f_ = ImageFont.truetype(FP, s_)
+        if STILE_COP == 'fotogramma':   # scritta disegnata a parte, stretta in orizzontale (STRETTO), con bagliore azzurro (stile del 15 nov)
+            sw_ = max(8, s_ // 11); W_ = int(d.textlength(rr, font=f_)) + 4 * sw_ + 60; H_ = int(s_ * 1.4) + 4 * sw_
+            lay_ = Image.new('RGBA', (W_, H_), (0, 0, 0, 0)); dl_ = ImageDraw.Draw(lay_)
+            dl_.text((2 * sw_ + 30, 2 * sw_), rr, font=f_, fill=(80, 220, 255, 255), stroke_width=sw_, stroke_fill=(80, 220, 255, 255))
+            glow_ = lay_.filter(_IF.GaussianBlur(14)); glow_.putalpha(glow_.split()[3].point(lambda v: int(v * .55)))
+            dl_ = ImageDraw.Draw(lay_ := Image.new('RGBA', (W_, H_), (0, 0, 0, 0)))
+            dl_.text((2 * sw_ + 30, 2 * sw_), rr, font=f_, fill='#4FD2FF' if i == len(righe) - 1 and len(righe) > 1 else 'white', stroke_width=sw_, stroke_fill=(0, 0, 0))
+            glow_.alpha_composite(lay_)
+            bb_ = glow_.getbbox() or (0, 0, W_, H_); glow_ = glow_.crop(bb_)
+            glow_ = glow_.resize((max(1, int(glow_.width * STRETTO)), glow_.height), Image.LANCZOS)
+            x_ = (x1 - glow_.width + 25) if lato == 'dx' else x0 - 25
+            base_rgba = im.convert('RGBA'); base_rgba.alpha_composite(glow_, (int(x_), int(y + bb_[1] - 2 * sw_))); im = base_rgba.convert('RGB'); d = ImageDraw.Draw(im)
+            y += int(s_ * 1.02); continue
         x_ = (x1 - d.textlength(rr, font=f_)) if lato == 'dx' else x0
-        if STILE_COP == 'fotogramma':   # bagliore azzurro dietro la scritta (stile spaziale scelto da Giorgio il 15 nov)
+        if False:   # (vecchio bagliore, ora disegnato sopra)
             gl_ = Image.new('L', (1280, 720), 0); ImageDraw.Draw(gl_).text((x_, y), rr, font=f_, fill=255, stroke_width=max(8, s_ // 11))
             im.paste(Image.new('RGB', (1280, 720), (80, 220, 255)), (0, 0), gl_.filter(_IF.GaussianBlur(14)).point(lambda v: int(v * .55))); d = ImageDraw.Draw(im)
         d.text((x_, y), rr, font=f_, fill='#4FD2FF' if i == len(righe) - 1 and len(righe) > 1 else 'white', stroke_width=max(8, s_ // 11), stroke_fill=(0, 0, 0))
