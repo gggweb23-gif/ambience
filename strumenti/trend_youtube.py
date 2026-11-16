@@ -13,9 +13,14 @@ def get(p, **q):
     return json.loads(urllib.request.urlopen('https://www.googleapis.com/youtube/v3/' + p + '?' + urllib.parse.urlencode(q), timeout=60).read())
 
 
+import time
 for a in [x.strip() for x in os.environ['ARGOMENTI'].split(';') if x.strip()]:
-    r = get('search', part='snippet', q=a, type='video', order='viewCount', maxResults=15,
+    time.sleep(2)
+    try:
+        r = get('search', part='snippet', q=a, type='video', order='viewCount', maxResults=15,
             publishedAfter=(ora - dt.timedelta(days=giorni)).strftime('%Y-%m-%dT%H:%M:%SZ'), relevanceLanguage=os.environ.get('LINGUA') or 'en')
+    except Exception as e:
+        print(f'\n=== {a}: ricerca non riuscita ({str(e)[:80]})'); continue
     ids = [x['id']['videoId'] for x in r.get('items', [])]
     if not ids:
         print(f'\n=== {a}: nessun video'); continue
