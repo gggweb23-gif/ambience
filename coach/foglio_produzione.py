@@ -46,6 +46,19 @@ def main():
         with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'modifiche_foglio.log'), 'a') as f:
             f.write(time.strftime('%Y-%m-%d %H:%M') + ' [produzione, ordine coda]\n' + '\n'.join('  ' + e for e in esito) + '\n')
         return
+    if P.get('nuova_riga'):   # 16 nov: {"nuova_riga": {"Link video": ..., "status": "Pronto", ...}, "in_cima": "SI"} -> riga aggiunta in fondo (e messa in cima alla coda)
+        nr = P['nuova_riga']; riga_v = [''] * len(ph)
+        for col, v in nr.items():
+            if col in ph:
+                riga_v[ph.index(col)] = v
+        if any(len(r) > il and str(r[il]).strip() == str(nr.get('Link video', '')).strip() for r in val[1:]):
+            print('riga gia presente:', nr.get('Link video'))
+        elif P.get('prova') != 'SI':
+            FC.api('POST', '/values/' + urllib.parse.quote(f"'{sch}'!A{len(val) + 1}") + ':append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS', {'values': [riga_v]}, tk)
+            print(f'{can}: riga aggiunta ->', nr)
+        if str(P.get('in_cima') or '').upper() == 'SI':
+            P2 = dict(P, ordine=[nr.get('Link video')]); P2.pop('nuova_riga'); os.environ['PAYLOAD'] = json.dumps(P2); return main()
+        return
     n = next((i + 1 for i, r in enumerate(val) if i and len(r) > il and str(r[il]).strip() == str(P['link']).strip()), None)
     if not n:
         raise SystemExit('riga non trovata: ' + P['link'])
