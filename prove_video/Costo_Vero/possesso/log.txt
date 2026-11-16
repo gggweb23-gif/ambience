@@ -1,29 +1,23 @@
-12:16:24 copione riusato da prove_video/Costo_Vero/copioni/auto_elettrica_CV-15.json
-12:16:24 numeri: {'prezzo': 35000, 'anni': 8, 'valori': [35000.0, 27500.0, 23500.0, 20000.0, 17000.0, 14500.0, 12000.0, 10000.0, 8500.0], 'totale': 62480, 'rivendita': 8500, 'costo_vero': 53980, 'mese': 562, 'giorno': 18}
-12:17:04 voce: 16.5 caratteri/s naturali -> accelerata x1.000
-12:17:04 voce: 9.9 minuti
-12:17:04 budget: un'immagine ogni 9.0 s (invece di 4) per restare sotto 1.50 euro
-12:17:32 clip Pexels: 67 s su 592 s (11%), al posto di altrettante immagini
-12:17:37 immagine con un difetto (ruote, zampe, corpi o oggetti deformi), la rifaccio
-12:17:42 immagine con un difetto (ruote, zampe, corpi o oggetti deformi), la rifaccio
-12:17:52 immagine con un difetto (ruote, zampe, corpi o oggetti deformi), la rifaccio
-12:17:59 immagine con un difetto (ruote, zampe, corpi o oggetti deformi), la rifaccio
-12:18:22 immagine con un difetto (ruote, zampe, corpi o oggetti deformi), la rifaccio
-12:18:27 immagine con un difetto (ruote, zampe, corpi o oggetti deformi), la rifaccio
-12:19:12 immagine con un difetto (ruote, zampe, corpi o oggetti deformi), la rifaccio
-12:19:22 immagine con un difetto (ruote, zampe, corpi o oggetti deformi), la rifaccio
-12:20:11 immagine con un difetto (ruote, zampe, corpi o oggetti deformi), la rifaccio
-12:20:16 immagine con un difetto (ruote, zampe, corpi o oggetti deformi), la rifaccio
-12:20:45 immagine con un difetto (ruote, zampe, corpi o oggetti deformi), la rifaccio
-12:20:49 immagine con un difetto (ruote, zampe, corpi o oggetti deformi), la rifaccio
-12:21:37 immagine con un difetto (ruote, zampe, corpi o oggetti deformi), la rifaccio
-12:21:51 immagine con un difetto (ruote, zampe, corpi o oggetti deformi), la rifaccio
-12:21:55 immagine con un difetto (ruote, zampe, corpi o oggetti deformi), la rifaccio
-12:22:12 immagini: 62 | spesa finora 2.145 $
-12:41:35 pulsante iscriviti al secondo 95 con 2 suoni
-12:41:39 copertina FOTO 2C: an elegant premium pearl-white electric sedan with black roo | scritte a destra
-12:51:21 video finale a 1440p (piu' nitido su YouTube)
-12:51:23 FATTO: /home/runner/work/ambience/ambience/video_possesso.mp4 9.9 minuti | immagini 62 (una ogni 9.0 s) | COSTO VIDEO (stima): 2.17 $ + 9740 crediti voce | fal flux-2-klein-4b-edit: 1.109 $ (29 chiamate) | fal flux-2-klein-4b: 1.012 $ (50 chiamate) | claude claude-haiku-4-5-20251001: 0.041 $ (75 chiamate) | claude claude-sonnet-5-5: 0.003 $ (1 chiamate) | elevenlabs eleven_multilingual_v2: 0.000 $ (10 chiamate), 9740 crediti
-promozione a pagamento: No (gia' nel caricamento, 0 unita' di quota)
-12:51:28 playlist: Auto e SUV
-12:51:30 esito: {"stato": "PUBBLICATO", "video_id": "LA9ERr11AVY", "link": "https://www.youtube.com/watch?v=LA9ERr11AVY", "pubblica_il": "2026-11-15T16:00:00.000Z", "errore": "", "testo_copertina": "QUANTO COSTA? 53.980 €", "titolo": "AUTO ELETTRICA da 35.000 €: quanto costa in 8 anni?", "descrizione": "AUTO ELETTRICA da 35.000 €: quanto costa in 8 anni?\n\nUna compatta elettrica da trentacinquemila euro sul cartellino: quanto ti costa in otto anni, tra rate, interessi, assicurazione, bollo, tagliandi, wallbox e batteria? Seguiamo Marco e sommiamo ogni voce, fino al costo vero e a quanto pesa ogni mese e ogni
+02:45:56 copione: aggiunta la scena mancante valore
+02:45:56 copione scartato: ['servono almeno 4 scene "dettaglio" (una per voce di spesa), ce ne sono 2', 'il costo vero del gancio (39200) deve essere uguale a somma delle voci - rivendita (34000)', 'CORTO: il copione dura circa 3.6 minuti (3541 caratteri): ne servono almeno 8.5']
+02:46:31 copione scartato: ['il costo vero del gancio (34000) deve essere uguale a somma delle voci - rivendita (39150)', 'CORTO: il copione dura circa 3.2 minuti (3145 caratteri): ne servono almeno 8.5']
+02:47:08 copione scartato: ['il costo vero del gancio (22000) deve essere uguale a somma delle voci - rivendita (29500)', 'CORTO: il copione dura circa 3.7 minuti (3676 caratteri): ne servono almeno 8.5']
+Traceback (most recent call last):
+  File "/home/runner/work/ambience/ambience/video_possesso.py", line 891, in <module>
+    main()
+  File "/home/runner/work/ambience/ambience/video_possesso.py", line 744, in main
+    c = copione(); SCENE = c['scene']
+        ^^^^^^^^^
+  File "/home/runner/work/ambience/ambience/video_possesso.py", line 236, in copione
+    raise RuntimeError('copione con numeri non coerenti dopo 3 tentativi: ' + '; '.join(prob))
+RuntimeError: copione con numeri non coerenti dopo 3 tentativi: il costo vero del gancio (22000) deve essere uguale a somma delle voci - rivendita (29500); CORTO: il copione dura circa 3.7 minuti (3676 caratteri): ne servono almeno 8.5
+02:47:08 esito: {"stato": "ERRORE", "errore": "copione con numeri non coerenti dopo 3 tentativi: il costo vero del gancio (22000) deve essere uguale a somma delle voci - rivendita (29500); CORTO: il copione dura circa 3.7 minuti (3676 caratteri): ne servono almeno 8.5"}
+Traceback (most recent call last):
+  File "/home/runner/work/ambience/ambience/video_possesso.py", line 891, in <module>
+    main()
+  File "/home/runner/work/ambience/ambience/video_possesso.py", line 744, in main
+    c = copione(); SCENE = c['scene']
+        ^^^^^^^^^
+  File "/home/runner/work/ambience/ambience/video_possesso.py", line 236, in copione
+    raise RuntimeError('copione con numeri non coerenti dopo 3 tentativi: ' + '; '.join(prob))
+RuntimeError: copione con numeri non coerenti dopo 3 tentativi: il costo vero del gancio (22000) deve essere uguale a somma delle voci - rivendita (29500); CORTO: il copione dura circa 3.7 minuti (3676 caratteri): ne servono almeno 8.5
