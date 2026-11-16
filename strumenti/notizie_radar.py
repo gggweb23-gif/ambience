@@ -135,7 +135,9 @@ def main():
               "Below are today's headlines (Google News) and today's rising Google searches (Google Trends, with traffic).\n"
               f"Group them into distinct STORIES of this niche only. Keep ONLY stories that can be tied to ONE well-known real PERSON whose face can go "
               "on the thumbnail (if the story is about a company, the person is its founder/owner/CEO, the face people know). Drop stories without "
-              "such a person, drop politics-only stories and anything outside the niche.\n"
+              "such a person, drop politics-only stories and anything outside the niche. Keep ONLY stories reported by authoritative news organizations "
+              "(Reuters, AP, Bloomberg, FT, WSJ, CNBC, BBC, NYT, The Verge, ANSA, Il Sole 24 Ore, Corriere...): never stories that come only from blogs, "
+              "YouTube or social media. In 'storia' write precisely what is confirmed and what is only reported (e.g. 'Huang weighs comeback, FT reports').\n"
               + (f"The channel is currently riding this story: {onda.get('storia')} (person: {onda.get('persona')}). If it is still in today's news, "
                  "include it as a story and mark it continua=true.\n" if onda.get('storia') else '')
               + f"Return the {MAX_STORIE + 2} biggest stories, most important first, as JSON ONLY: "

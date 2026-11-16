@@ -96,8 +96,10 @@ MAIN PERSON (must be the face of the video and of the thumbnail): {onda['persona
 WHAT IS NEW TODAY: {onda.get('novita_oggi', '')}
 DAY {onda.get('giorni', 1)} OF THIS WAVE. Angles already used on previous days (do NOT repeat them, find a fresh angle on the latest developments): {onda.get('angoli_fatti') or 'none'}
 
-1) RESEARCH FIRST with web search: the latest facts from reliable outlets (Reuters, Bloomberg, AP, CNBC, FT, WSJ, The Verge, official statements,
-SEC filings). Use several sources, cross-check numbers and dates.
+1) RESEARCH FIRST with web search: the latest facts ONLY from authoritative news organizations and official sources (Reuters, AP, Bloomberg, FT, WSJ,
+CNBC, BBC, NYT, The Verge, ANSA, Il Sole 24 Ore, Corriere, company statements, SEC filings). NEVER use YouTube videos, TikTok, social posts, Substack,
+blogs or content farms as sources. The core fact of the video must be confirmed by at least TWO different major outlets (or an official statement).
+Say exactly what is confirmed and what is only reported: e.g. "is weighing a return, according to the Financial Times" is NOT "is returning".
 2) WRITE the video: about {PAROLE} words of narration in total ({MINUTI} minutes), 45-60 scenes.
 RULES (all mandatory):
 - ONLY facts found in your sources. Every scene lists the URL(s) that prove it. Never invent quotes, numbers, dates or motives.
@@ -128,7 +130,9 @@ Answer with ONLY the JSON (no markdown), exactly this structure:
 def verifica(v):
     """Secondo passaggio: ogni frase controllata sulle fonti; le frasi non provate si correggono o si tolgono."""
     testi = [{'i': i, 'testo': s['testo'], 'fonti': s.get('fonti', [])} for i, s in enumerate(v['scene'])]
-    prompt = ("You are a strict fact-checker for a news video. Check EVERY sentence below against its sources (use web search to open and "
+    prompt = ("You are a strict fact-checker for a news video. Sources must be authoritative news organizations or official statements: any sentence "
+              "that relies on YouTube, social media, blogs or unknown sites must be corrected using a reliable source or dropped. Reports and rumors must "
+              "never sound like confirmed facts. Check EVERY sentence below against its sources (use web search to open and "
               "verify them, and to verify anything doubtful). A sentence passes only if the sources support it exactly (numbers, dates, names, "
               "who said what). Reports/allegations must be attributed. Return ONLY JSON: "
               '{"correzioni": [{"i": 0, "testo": "corrected sentence(s), same length and tone, or an empty string to drop the scene", "perche": "short reason"}], '
