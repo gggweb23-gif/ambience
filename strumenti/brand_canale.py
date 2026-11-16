@@ -69,5 +69,7 @@ def avatar():
 
 
 if __name__ == '__main__':
-    banner(); avatar()
+    banner()
+    if (os.environ.get('SOLO_BANNER') or 'NO') != 'SI':
+        avatar()
     V.log(f'banner e avatar pronti in {OUT}, spesa {V.CO.totale():.3f} $')
