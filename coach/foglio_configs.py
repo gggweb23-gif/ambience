@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """SCRITTURA SU CHANNEL CONFIGS (Google Sheets API, account di servizio) con LUCCHETTI.
 Lucchetti (decisi da Giorgio il 30 ott 2026), controllati qui E con gli intervalli protetti del foglio:
-- la riga di KAO PSICOLOGIA non si tocca mai;
+- (16 nov 2026: Giorgio ha tolto il lucchetto della riga di KAO PSICOLOGIA: ora si modifica come le altre, budget e videos_per_day esclusi);
 - le colonne videos_per_day (canale acceso/spento) e publish_schedule_days non si toccano mai;
 - nessuna colonna di budget (budget_video, coach_budget_video) si tocca mai;
 - le colonne dei parametri di Giorgio (coach_*, durata_min_minuti, durata_max_minuti) si possono solo COMPILARE se vuote.
@@ -12,7 +12,7 @@ Segreto: GOOGLE_SA_KEY (JSON dell'account di servizio, con il foglio condiviso i
 import json, os, re, sys, time, urllib.parse, urllib.request
 
 FOGLIO = os.environ.get('FOGLIO_CONFIGS', '1COMpgHJshcmz_a9s-WsjCO5xbhwxBazt-ZB0G_C7Rb0')
-RIGHE_BLOCCATE = {'KAO PSICOLOGIA'}
+RIGHE_BLOCCATE = set()   # 16 nov 2026 (Giorgio): niente piu' righe bloccate, KAO compreso
 COLONNE_BLOCCATE = {'channel_id', 'videos_per_day', 'publish_schedule_days'}
 SOLO_SE_VUOTE = {'coach_auto', 'coach_obiettivo_ctr', 'coach_obiettivo_ret30', 'coach_obiettivo_ret60', 'coach_finestra_video',
                  'coach_min_impression', 'durata_min_minuti', 'durata_max_minuti'}
