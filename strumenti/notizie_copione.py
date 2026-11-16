@@ -121,7 +121,7 @@ DAY {onda.get('giorni', 1)} OF THIS WAVE. Angles already used on previous days (
 CNBC, BBC, NYT, Al Jazeera, Kyiv Independent, ANSA, Il Sole 24 Ore, Corriere, government and company statements). NEVER use YouTube videos, TikTok,
 social posts, Substack, blogs or content farms as sources. The core fact of the video must be confirmed by at least TWO different major outlets
 (or an official statement). Say exactly what is confirmed and what is only reported ("is weighing a return, according to the FT" is NOT "is returning").
-2) WRITE the video: {int(PAROLE * .9)}-{int(PAROLE * 1.1)} words of narration in total ({MINUTI} minutes; count them, never more), {max(6, int(MINUTI * 7))}-{max(8, int(MINUTI * 9))} scenes.
+2) WRITE the video: {int(PAROLE * .9)}-{int(PAROLE * 1.1)} words of narration in total ({MINUTI} minutes; count them, never more), {max(8, int(MINUTI * 11))}-{max(10, int(MINUTI * 13))} scenes.
 TRUTH RULES (all mandatory):
 - ONLY facts found in your sources. Every scene lists the URL(s) that prove it. Never invent quotes, numbers, dates or motives.
 - Allegations, reports and rumors: always attributed ("according to Reuters...") and never stated as fact. Never name private individuals.
@@ -137,10 +137,10 @@ STORYTELLING (like a documentary, not a list of news):
   what happens next (only what officials and analysts quoted by sources say).
 - Every 45-60 seconds a curiosity hook ("but that's not the whole story"). Short sentences, decisive, like an authoritative journalist.
 - Last scene: one line asking to subscribe because the story is still moving.
-DIRECTION (regia) - the engine shows each drawn scene from max 3 camera angles (wide, close-up of a person, a detail), ~3 seconds each, so:
-- "sets" are drawn places where the scene happens: {max(5, int(MINUTI * 4))}-{max(6, int(MINUTI * 4.5))} sets in total, each one used for ONE
-  scene of about 8-10 seconds (2 consecutive scenes at most), then a NEW place. Never come back to an old set. Every set must look clearly
-  different from the others (different place, light, colors, time of day).
+DIRECTION (regia) - like a film: EVERY scene has its OWN new drawn image ("set"), shown once (~4-6 seconds), never seen again:
+- Scenes are SHORT: 1-2 sentences, 10-16 words. "sets": one NEW set for every scene that is not a map/dossier/frase
+  (about {max(6, int(MINUTI * 7))}-{max(8, int(MINUTI * 8))} sets in total). Never reuse a set, never come back to an old one. Every set must
+  look clearly different from the previous one (different place or angle, light, colors, time of day, objects in the foreground).
 - Each set: concrete and coherent with what is said (real places: the Kremlin office, a Kyiv street at night, a tanker in the Strait of Hormuz,
   the Oval Office, a UN hall...), rich in detail, EMPTY of people (people are only our caricatures in "cast"), NO writing anywhere (no documents,
   newspapers, screens with text, signs, flags with text). "effetto" when it fits (rain at night, snow in Ukraine winter, "mirino" = seen through a

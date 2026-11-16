@@ -551,8 +551,8 @@ def disegna_sottotitoli(im, tg, gruppi):
 # seconda voce, nome e luogo a schermo, capitoli con il loro titolo. Niente Pexels.
 F_MANO = os.path.join(ROOT, 'fonts_notizie', 'PermanentMarker-Regular.ttf')
 GEO = os.path.join(ROOT, 'risorse_notizie', 'paesi50.geojson')
-PASSO = float(N.get('secondi_per_inquadratura') or 3.2)
-MAX_RIPRESE = int(N.get('riprese_per_scena') or 3)   # 16 nov sera (Giorgio: troppe riprese della stessa immagine): max 3 angoli per scena disegnata, mai ripetuti
+PASSO = float(N.get('secondi_per_inquadratura') or 4.5)
+MAX_RIPRESE = int(N.get('riprese_per_scena') or 1)   # 16 nov sera (Giorgio): niente inquadrature strette della scena appena vista: ogni immagine si vede UNA volta, poi un'immagine nuova
 INQ, GRUPPI, SEGS = [], [], []
 COLORI = {'rosso': (214, 40, 48), 'blu': (24, 72, 178), 'giallo': (250, 190, 20), 'verde': (40, 160, 90), 'arancio': (240, 120, 30), 'viola': (130, 70, 200)}
 
@@ -1012,10 +1012,12 @@ def costruisci(segs, dur):
         elif tipo == 'frase':
             shots.append({'tipo': 'frase', 'frase': v.get('testo') or sc['testo'], 'set': ultimo_set[0]})
         else:
-            k = v.get('set'); resta = MAX_RIPRESE - stato.get(k, 0)
-            n = max(1, min(int(round(span / PASSO)), resta)) if resta > 0 else 1   # mai piu' di 3 angoli della stessa scena
-            for fr in inquadrature_set(k, n, stato):
+            k = v.get('set'); visti = stato.get(k, 0); cast = cast_set(k)
+            n = 1 if span <= 7.5 else 2   # una ripresa; se la frase e' lunga (o la scena e' riusata per il budget) si passa dal largo al medio, mai primi piani stretti
+            for j in range(n):
+                fr = ['largo', 'medio'][(visti + j) % 2] if cast else ['largo', 'det_c'][(visti + j) % 2]
                 shots.append({'tipo': 'set', 'set': k, 'framing': fr})
+            stato[k] = visti + n
             ultimo_set[0] = k
         p = span / len(shots)
         for j, q in enumerate(shots):
