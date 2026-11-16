@@ -1925,7 +1925,15 @@ def carica_youtube(path, c, titolo):
     snippet = {'title': titolo[:100], 'description': descr, 'tags': tags_, 'categoryId': str(P.get('categoria') or '27'),
                'defaultLanguage': LINGUA, 'defaultAudioLanguage': LINGUA}
     status = {'privacyStatus': P.get('privacy') or 'public', 'selfDeclaredMadeForKids': False, 'containsSyntheticMedia': False}
-    if P.get('pubblica_il') and str(P.get('privacy') or 'public').strip().lower() == 'public':
+    _quando = None
+    try:
+        import datetime as _dt
+        _quando = _dt.datetime.fromisoformat(str(P.get('pubblica_il')).replace('Z', '+00:00')) if P.get('pubblica_il') else None
+    except Exception:
+        pass
+    if _quando and _quando <= _dt.datetime.now(_dt.timezone.utc) + _dt.timedelta(minutes=5):   # 16 nov: video finito dopo l'ora di uscita: esce subito
+        log('ora di uscita gia passata: il video esce subito (pubblico)'); _quando = None
+    elif P.get('pubblica_il') and str(P.get('privacy') or 'public').strip().lower() == 'public':
         status['privacyStatus'] = 'private'; status['publishAt'] = P['pubblica_il']
     size = os.path.getsize(path)
     sessione = DICH.sessione('https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&part=snippet,status',   # 8 nov: dichiarazione dentro il caricamento
