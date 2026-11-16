@@ -5,10 +5,11 @@ run-name: Notizie ${{ inputs.filone || 'tech' }} ${{ inputs.produci == 'SI' && '
 # e decide se restare sull'onda di ieri o cambiare. Se produci = SI (a mano) o la variabile del repository NOTIZIE_PRODUCI = SI (ogni giorno):
 # copione con fonti verificate -> video 9-10 min in inglese e in italiano (stesse immagini). Il video 1440p resta negli artefatti del giro,
 # nel repository copertina, anteprima 720p, costi e fonti.
+# Quali canali producono e caricano lo decide notizie/canali.json (guerra_en, guerra_it, tech_en, tech_it: SI/NO).
 on:
   schedule:
-    - cron: '13 5 * * *'   # tech: solo radar (la produzione si accende quando il canale c'e')
-    - cron: '23 5 * * *'   # guerra (WWII Testimony): radar + video in inglese + caricamento, esce alle 17:00
+    - cron: '13 5 * * *'   # tech: radar + video dei canali tech attivi in notizie/canali.json
+    - cron: '23 5 * * *'   # guerra: radar + video dei canali guerra attivi (War Room Explained, ...), escono alle 17:00
   workflow_dispatch:
     inputs:
       filone: {description: 'filone (tech)', default: 'tech', type: string}
@@ -20,7 +21,7 @@ on:
       prova: {description: 'SI = prova (non tocca la storia di domani)', default: 'NO', type: string}
 
 concurrency:
-  group: notizie-${{ inputs.filone || 'tech' }}
+  group: notizie-${{ inputs.filone || github.event.schedule }}
   cancel-in-progress: false
 
 permissions:
@@ -32,12 +33,16 @@ jobs:
     timeout-minutes: 240
     env:
       FILONE: ${{ inputs.filone || (github.event.schedule == '23 5 * * *' && 'guerra') || 'tech' }}
-      LINGUE: ${{ inputs.lingue || (github.event.schedule == '23 5 * * *' && 'en') || 'en,it' }}
-      PRODUCI: ${{ inputs.produci == 'SI' && 'SI' || (github.event.schedule == '23 5 * * *' && 'SI') || (github.event_name == 'schedule' && vars.NOTIZIE_PRODUCI == 'SI' && 'SI') || 'NO' }}
-      CARICA: ${{ inputs.carica == 'SI' && 'SI' || (github.event.schedule == '23 5 * * *' && 'SI') || 'NO' }}
+      LINGUE_A_MANO: ${{ inputs.lingue }}
+      PRODUCI_A_MANO: ${{ inputs.produci }}
+      CARICA_A_MANO: ${{ inputs.carica }}
+      BUDGET_VIDEO: '3.45'   # 16 nov sera, Giorgio: "facciamo tutte e 3" -> tetto 3 euro veri a video (3,45 $), prima 3 $
       YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
       YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
-      TOKEN_GUERRA_EN: ${{ secrets.YT_REFRESH_TOKEN_WWII_TESTIMONY }}
+      YT_REFRESH_TOKEN_WWII_TESTIMONY: ${{ secrets.YT_REFRESH_TOKEN_WWII_TESTIMONY }}
+      YT_REFRESH_TOKEN_STORIA: ${{ secrets.YT_REFRESH_TOKEN_STORIA }}
+      YT_REFRESH_TOKEN_MAIN_STREET_ATLAS: ${{ secrets.YT_REFRESH_TOKEN_MAIN_STREET_ATLAS }}
+      YT_REFRESH_TOKEN_COSTO_VERO: ${{ secrets.YT_REFRESH_TOKEN_COSTO_VERO }}
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       YT_API_KEY_NOTIZIE: ${{ secrets.YT_API_KEY_NOTIZIE }}
       YT_API_KEY_RADAR: ${{ secrets.YT_API_KEY_RADAR }}
@@ -47,6 +52,25 @@ jobs:
       PROVA: ${{ inputs.prova || 'NO' }}
     steps:
       - uses: actions/checkout@v4
+      - name: Canali attivi (notizie/canali.json)
+        run: |
+          python3 - <<'PY'
+          import json, os
+          E = os.environ.get; c = json.load(open('notizie/canali.json')); f = E('FILONE')
+          en, it = c.get(f + '_en', {}).get('attivo') == 'SI', c.get(f + '_it', {}).get('attivo') == 'SI'
+          if E('PRODUCI_A_MANO'):   # giro a mano: decidono gli input
+              produci, lingue, carica = E('PRODUCI_A_MANO'), E('LINGUE_A_MANO') or 'en,it', E('CARICA_A_MANO') or 'NO'
+          else:
+              produci = 'SI' if (en or it) else 'NO'; lingue = 'en' + (',it' if it else ''); carica = 'SI'
+          open(E('GITHUB_ENV'), 'a').write(f'PRODUCI={produci}\nLINGUE={lingue}\nCARICA={carica}\n')
+          print('filone', f, '| produci', produci, '| lingue', lingue, '| carica', carica, '| canali attivi:', [k for k, v in c.items() if isinstance(v, dict) and v.get('attivo') == 'SI'])
+          PY
+      - name: Libreria dei luoghi (immagini dei giorni scorsi)
+        uses: actions/cache/restore@v4
+        with:
+          path: libreria_scene
+          key: libreria-scene-${{ github.run_id }}
+          restore-keys: libreria-scene-
       - name: Programmi
         run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null && pip install --quiet --break-system-packages pillow
       - name: Radar
@@ -67,13 +91,22 @@ jobs:
           for f in ${{ steps.copione.outputs.file }}; do
             echo "=== $f"; NOTIZIA=$f python3 video_notizie.py || echo "VIDEO NON RIUSCITO: $f"
           done
-      - name: Carica su YouTube
-        if: ${{ env.PRODUCI == 'SI' && env.CARICA == 'SI' && env.FILONE == 'guerra' }}
+      - name: Libreria dei luoghi (salva)
+        if: ${{ always() && env.PRODUCI == 'SI' }}
+        uses: actions/cache/save@v4
+        with:
+          path: libreria_scene
+          key: libreria-scene-${{ github.run_id }}
+      - name: Carica su YouTube (canali attivi)
+        if: ${{ env.PRODUCI == 'SI' && env.CARICA == 'SI' }}
         run: |
           for f in ${{ steps.copione.outputs.file }}; do
-            n=$(python3 -c "import json,sys;print(json.load(open('$f'))['nome'])")
+            n=$(python3 -c "import json;print(json.load(open('$f'))['nome'])")
+            l=$(python3 -c "import json;print(json.load(open('$f')).get('lingua','en'))")
+            tk=$(python3 -c "import json;c=json.load(open('notizie/canali.json')).get('${FILONE}_$l',{});print(c.get('token','') if c.get('attivo')=='SI' else '')")
+            if [ -z "$tk" ]; then echo "canale ${FILONE}_$l non attivo: non carico $f"; continue; fi
             if [ -f video_pieni/$n.mp4 ]; then v=video_pieni/$n.mp4; else v=prove_video/notizie/$n/video.mp4; fi
-            NOTIZIA=$f VIDEO=$v COPERTINA=prove_video/notizie/$n/copertina.jpg YT_REFRESH_TOKEN=$TOKEN_GUERRA_EN python3 strumenti/notizie_carica.py || echo "CARICAMENTO NON RIUSCITO: $f"
+            NOTIZIA=$f VIDEO=$v COPERTINA=prove_video/notizie/$n/copertina.jpg YT_REFRESH_TOKEN="${!tk}" python3 strumenti/notizie_carica.py || echo "CARICAMENTO NON RIUSCITO: $f"
           done
       - name: Video 1440p (artefatto)
         if: ${{ always() && env.PRODUCI == 'SI' }}

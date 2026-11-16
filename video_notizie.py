@@ -285,10 +285,17 @@ def descr_sfondo(chiave):
     return (N.get('sfondi') or {}).get(chiave) or st.get('descr') or chiave.replace('_', ' ')
 
 
+LIB = os.path.join(ROOT, 'libreria_scene')                        # immagini dei luoghi gia' disegnati (cache di GitHub, non nel repository)
+LIB_INDICE = os.path.join(ROOT, 'notizie', 'libreria_scene.json')  # elenco dei luoghi: descrizione, luogo, filone, quando usati
+
+
 def sfondo(chiave):
     dest = os.path.join(MAT, f'sfondo_{chiave}.jpg')
     if os.path.exists(dest):
         return dest
+    lib_id = ((N.get('sets') or {}).get(chiave) or {}).get('lib')
+    if lib_id and os.path.exists(os.path.join(LIB, lib_id + '.jpg')):   # luogo gia' disegnato in un altro giorno: gratis
+        shutil.copy(os.path.join(LIB, lib_id + '.jpg'), dest); log('scena dalla libreria dei luoghi:', chiave, '<-', lib_id); return dest
     if N.get('materiali_da'):   # versione in un'altra lingua: stesse immagini del video gemello, gratis
         gem = os.path.join(ROOT, 'prove_video', 'notizie', N['materiali_da'], 'materiali', f'sfondo_{chiave}.jpg')
         if os.path.exists(gem):
@@ -1175,6 +1182,27 @@ def copertina():
     log('copertina pronta'); return p
 
 
+def libreria_aggiorna(ordine):
+    """Ogni scena disegnata entra nella libreria dei luoghi (si potra' riusare gratis dopo almeno 7 giorni); quelle riusate segnano la data."""
+    if N.get('materiali_da'):
+        return
+    os.makedirs(LIB, exist_ok=True)
+    ind = json.load(open(LIB_INDICE)) if os.path.exists(LIB_INDICE) else {}
+    oggi = time.strftime('%Y-%m-%d')
+    for k in ordine:
+        st = (N.get('sets') or {}).get(k) or {}; src = SF.get(k)
+        if not src:
+            continue
+        lid = st.get('lib') or re.sub(r'[^a-z0-9]+', '_', (oggi + '_' + NOME[11:40] + '_' + k).lower()).strip('_')
+        if not os.path.exists(os.path.join(LIB, lid + '.jpg')):
+            Image.open(src).convert('RGB').save(os.path.join(LIB, lid + '.jpg'), quality=90)
+        e = ind.setdefault(lid, {'descr': descr_sfondo(k)[:300], 'luogo': st.get('luogo', ''), 'filone': N.get('filone', ''), 'usato': []})
+        if oggi not in e['usato']:
+            e['usato'].append(oggi)
+    json.dump(ind, open(LIB_INDICE, 'w'), ensure_ascii=False, indent=0)
+    log(f'libreria luoghi: {len(ind)} scene')
+
+
 def da_vecchio_formato():
     """I copioni di prima (inquadrature con clip Pexels) diventano scene disegnate: le clip non si usano piu'."""
     sets = N.setdefault('sets', {})
@@ -1215,8 +1243,10 @@ def main():
     # tetto di spesa: se le scene disegnate non ci stanno, le ultime riusano la scena precedente (il video si fa sempre)
     nuove_pose = sum(1 for c, p in pose if not os.path.exists(os.path.join(CAR, c, p + '.png')))
     posti = int((TETTO - CO.totale() - nuove_pose * .1 - .12) / .05)
-    if not N.get('materiali_da') and len(ordine) > posti:
-        tieni = set(ordine[:max(4, posti)]); prec = None
+    gratis = [k for k in ordine if os.path.exists(os.path.join(LIB, str((sets.get(k) or {}).get('lib')) + '.jpg'))]   # luoghi dalla libreria: non costano
+    if not N.get('materiali_da') and len(ordine) - len(gratis) > posti:
+        nuovi = [k for k in ordine if k not in gratis]
+        tieni = set(gratis) | set(nuovi[:max(4, posti)]); prec = None
         for s in N['scene']:
             v = s.get('visivo') or {}
             if v.get('tipo', 'set') == 'set':
@@ -1244,6 +1274,10 @@ def main():
         if v.get('tipo') == 'dossier' and not v.get('posa'):
             v['posa'] = next((p for (c, p) in PNG if c == v.get('chi') and PNG[(c, p)]), None)
     log(f'materiali pronti, spesa finora {CO.totale():.3f} $')
+    try:
+        libreria_aggiorna(ordine)
+    except Exception as e:
+        log('libreria luoghi non aggiornata:', str(e)[:150])
     INQ = costruisci(segs, dur)
     for q in INQ:
         if q['tipo'] == 'dossier':

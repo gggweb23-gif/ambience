@@ -1,0 +1,26 @@
+name: Prova modelli immagini
+# Confronto di modelli di immagini piu' economici sulle stesse scene (parte solo a mano).
+on:
+  workflow_dispatch:
+    inputs:
+      notizia: {description: 'json della prova', default: 'notizie/auto/2026-11-16_ukraine_hits_kerch_crimea_bridge_in_reco_prova_en.json', type: string}
+permissions:
+  contents: write
+jobs:
+  prova:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      NOTIZIA: ${{ inputs.notizia }}
+      FAL_KEY: ${{ secrets.FAL_KEY }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install --quiet --break-system-packages pillow
+      - run: python3 strumenti/prova_modelli_immagini.py
+      - name: Salva
+        if: ${{ always() }}
+        run: |
+          git config user.name "render-bot"; git config user.email "render-bot@users.noreply.github.com"
+          git add prove_video/prova_modelli && (git diff --cached --quiet || git commit -qm "Prova modelli immagini")
+          for i in 1 2 3 4 5; do git pull --rebase -q && git push -q && break; sleep $((i*5)); done

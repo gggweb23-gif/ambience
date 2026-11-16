@@ -58,6 +58,18 @@ def json_da(t):
     return json.loads(t[a:b + 1])
 
 
+def libreria_luoghi():
+    """Luoghi gia' disegnati nei giorni scorsi (gratis), non usati negli ultimi 7 giorni: chi guarda ogni giorno non rivede le stesse immagini."""
+    f = os.path.join(ROOT, 'notizie', 'libreria_scene.json')
+    if not os.path.exists(f):
+        return {}
+    limite = (OGGI_D - dt.timedelta(days=7)).isoformat(); out = {}
+    for k, e in json.load(open(f)).items():
+        if e.get('filone') == FILONE and max(e.get('usato') or ['0']) < limite:
+            out[k] = (e.get('luogo') + ': ' if e.get('luogo') else '') + e.get('descr', '')[:140]
+    return dict(list(out.items())[-60:])
+
+
 def libreria():
     """Personaggi gia' disegnati (si riusano gratis): caricature/<nome>/<posa>.png"""
     d = os.path.join(ROOT, 'caricature'); out = {}
@@ -77,7 +89,7 @@ SCHEMA = """{
  "personaggi": {"slug_lowercase": {"commons": "Full Name exactly as on Wikipedia", "chi": "Full Name, short role", "pose": {"pose_name": {"posa": "pose and expression, one line, full body"}}}},
  "sets": {"unique_key": {"descr": "cartoon scene in English (place, objects, light, mood), EMPTY of people, no text/logos/flags with writing",
                          "luogo": "PLACE, COUNTRY (optional, real place of the scene)", "effetto": "pioggia|neve|mirino|none",
-                         "cast": [{"chi": "slug", "posa": "pose_name", "lato": "sx|dx"}]}},
+                         "cast": [{"chi": "slug", "posa": "pose_name", "lato": "sx|dx"}], "lib": "library id (optional, only to reuse a library place)"}},
  "scene": [{"testo": "what the narrator says (1-3 short sentences)", "fonti": ["URL(s) that prove it"],
    "capitolo": "CHAPTER TITLE (only on the first scene of a chapter)", "titolo_card": true,
    "visivo": {"tipo": "set", "set": "unique_key"},
@@ -133,6 +145,8 @@ DIRECTION (regia) - the engine shows each drawn scene from max 3 camera angles (
   the Oval Office, a UN hall...), rich in detail, EMPTY of people (people are only our caricatures in "cast"), NO writing anywhere (no documents,
   newspapers, screens with text, signs, flags with text). "effetto" when it fits (rain at night, snow in Ukraine winter, "mirino" = seen through a
   spy/surveillance camera). "luogo" = the real place shown on screen the first time.
+- LIBRARY of places already drawn on previous days (free, not shown in the last 7 days): {json.dumps(libreria_luoghi(), ensure_ascii=False)}
+  When one of them really fits a scene, reuse it by adding "lib": "<its id>" to the set (keep a "descr" anyway). At most 1 set out of 3.
 - "cast": 0-2 real people per set, standing on opposite sides (sx/dx), with a pose that fits the moment. The main person appears often
   (max 4 poses for the main person, 2 for the others). Real public figures only. Characters already drawn in our library (reuse these slugs and
   pose names when they fit, it's free): {json.dumps(lib)}
