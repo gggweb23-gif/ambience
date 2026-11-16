@@ -184,8 +184,9 @@ def main():
             esito.append(f'BLOCCATO: la riga {can} non si tocca'); continue
         # 16 nov 2026 (Giorgio): le colonne di budget si toccano SOLO con la sua autorizzazione esplicita per QUELLA colonna e QUEL valore,
         # scritta nella modifica: {"canale", "colonna", "valore", "autorizzato_da_giorgio": "<le sue parole in chat>"}. Senza, sempre bloccate.
-        if re.search(r'budget', col, re.I) and str(m.get('autorizzato_da_giorgio') or '').strip():
-            esito.append(f'BUDGET con autorizzazione di Giorgio ("{str(m["autorizzato_da_giorgio"])[:120]}")')
+        # 16 nov sera: stessa regola per videos_per_day (accendere/spegnere un canale), solo con le sue parole in chat
+        if (re.search(r'budget', col, re.I) or col == 'videos_per_day') and str(m.get('autorizzato_da_giorgio') or '').strip():
+            esito.append(f'{col} con autorizzazione di Giorgio ("{str(m["autorizzato_da_giorgio"])[:120]}")')
         elif col in COLONNE_BLOCCATE or re.search(r'budget', col, re.I):
             esito.append(f'BLOCCATO: la colonna {col} la decide solo Giorgio'); continue
         if can not in righe:
