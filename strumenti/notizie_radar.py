@@ -134,6 +134,7 @@ def views_youtube(q, lingua, giorni=3):
 
 
 def main():
+    log('chiave YouTube usata:', 'NOTIZIE (dedicata)' if E('YT_API_KEY_NOTIZIE') else 'RADAR (condivisa)')
     f = FILONI[FILONE]
     news = []
     for u in f['rss']:
