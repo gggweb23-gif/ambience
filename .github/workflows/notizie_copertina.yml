@@ -1,0 +1,50 @@
+name: Notizie - rifai copertina (a mano)
+# 17 nov (Giorgio): la versione italiana e quella inglese della stessa notizia devono avere copertine diverse.
+# Rifa' solo la copertina di un video notizie (variante: lato, posa, sfondo, evidenza diversi) e la carica sul video gia' su YouTube (~0,04 $).
+on:
+  workflow_dispatch:
+    inputs:
+      notizia: {description: 'json del copione (notizie/auto/...json)', type: string}
+      video_id: {description: 'id YouTube del video', type: string}
+      chiave: {description: 'segreto del canale (es. YT_REFRESH_TOKEN_STORIA)', type: string}
+permissions:
+  contents: write
+jobs:
+  copertina:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      NOTIZIA: ${{ inputs.notizia }}
+      FAL_KEY: ${{ secrets.FAL_KEY }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      SOLO_COPERTINA: SI
+      VARIANTE_COPERTINA: SI
+      TETTO_DOLLARI: '0.3'
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null && pip install -q --break-system-packages pillow
+      - name: Copertina
+        run: python3 -c "import json,os;n=json.load(open(os.environ['NOTIZIA']));n['budget_dollari']=0.3;json.dump(n,open('/tmp/n.json','w'))" && NOTIZIA=/tmp/n.json python3 video_notizie.py
+      - name: Carica su YouTube
+        env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          TK: ${{ secrets[inputs.chiave] }}
+        run: |
+          n=$(python3 -c "import json;print(json.load(open('$NOTIZIA'))['nome'])")
+          python3 - "$n" <<'PY'
+          import json, os, sys, urllib.parse, urllib.request
+          d = urllib.parse.urlencode({'client_id': os.environ['YT_CLIENT_ID'], 'client_secret': os.environ['YT_CLIENT_SECRET'], 'refresh_token': os.environ['TK'], 'grant_type': 'refresh_token'}).encode()
+          tk = json.loads(urllib.request.urlopen(urllib.request.Request('https://oauth2.googleapis.com/token', data=d)).read())['access_token']
+          f = f'prove_video/notizie/{sys.argv[1]}/copertina.jpg'
+          urllib.request.urlopen(urllib.request.Request('https://www.googleapis.com/upload/youtube/v3/thumbnails/set?videoId=${{ inputs.video_id }}', data=open(f, 'rb').read(),
+                                 method='POST', headers={'Authorization': 'Bearer ' + tk, 'Content-Type': 'image/jpeg'})).read()
+          print('copertina caricata su', '${{ inputs.video_id }}')
+          PY
+      - name: Salva
+        if: ${{ always() }}
+        run: |
+          git config user.name "render-bot"; git config user.email "render-bot@users.noreply.github.com"
+          git add prove_video/notizie caricature 2>/dev/null || true
+          git diff --cached --quiet || git commit -qm "Copertina notizie rifatta"
+          for i in 1 2 3 4 5; do git pull --rebase -q && git push -q && break; sleep $((i*5)); done
