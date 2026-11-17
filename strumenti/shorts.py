@@ -90,7 +90,7 @@ def scarica_sorgente(cid, riga, r, dur_yt, cfg_corrente=None):
         if generico == 'archivio' and '/archivio/' + slug + '_' not in v:   # 7 nov: video-archivio ha i video di piu' canali (WWII e Orbital): senza il nome
             log('  file scartato: non e\' di questo canale', v.split('sorgente')[-1][:80]); return False   # del canale nel percorso non si usa MAI (prima per_shorts/ passava)
         d = durata(v)
-        ok = d >= 180 and (not dur_yt or abs(d - dur_yt) <= 1.5)
+        ok = d >= 180 and (not dur_yt or abs(d - dur_yt) <= 1.5 or (d >= 420 and 0 < dur_yt - d <= 4))   # 17 nov: su YouTube allungato a 8:01 (fino a 4 s in piu')
         if not ok:
             log(f'  file scartato: dura {d / 60:.1f} min' + (f', su YouTube {dur_yt / 60:.1f} min' if dur_yt else ''))
         return ok
