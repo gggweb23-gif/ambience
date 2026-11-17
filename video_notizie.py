@@ -496,7 +496,7 @@ def disegna_personaggio(im, t, png, lato):
 
 
 def disegna_fisse(im, tg, fonte):
-    """ULTIM'ORA + data in alto a sinistra (sempre), fonte in basso a sinistra."""
+    """ULTIM'ORA in alto a sinistra (senza data, 17 nov), fonte in basso a sinistra solo se fonte_a_schermo."""
     f = font(F_TESTI, 44)
     et = N.get('etichetta') or "ULTIM'ORA"
     w1 = f.getbbox(et)[2] + 110
@@ -505,7 +505,7 @@ def disegna_fisse(im, tg, fonte):
     pul = .5 + .5 * math.sin(tg * 2 * math.pi / 1.1)
     d.ellipse((95, 87, 121, 113), fill=(255, 255, 255, int(110 + 145 * pul)))
     testo_box(d, (140, 100), et, f, BIANCO, anchor='lm')
-    dt = N.get('data') or ''
+    dt = ''   # 17 nov (Giorgio): niente data a schermo nei video notizie, il video deve sembrare sempre attuale
     if dt:
         w2 = f.getbbox(dt)[2] + 60
         d.rectangle((70 + w1, 60, 70 + w1 + w2, 140), fill=(10, 12, 18, 230))
@@ -1159,49 +1159,77 @@ def musica(voce_mp3, dur):
 
 
 def copertina():
+    """Copertina MANO LIBERA. 17 nov (Giorgio): in copertina le persone piu' importanti della notizia: 1 se la notizia e' su di lei,
+    2 se e' uno scontro/accordo tra due (una per lato, si guardano, scritta in mezzo), fino a 3 per un vertice o un confronto
+    (la terza al centro, piu' piccola, la scritta sopra). Stessa notizia in un'altra lingua -> copertina diversa (YouTube, duplicati)."""
     c = N.get('copertina') or {}
-    lato = c.get('lato', 'dx'); posa_cop = c.get('posa')
+    variante = bool(N.get('materiali_da')) or (E('VARIANTE_COPERTINA') or '').upper() == 'SI'
+    per = N.get('personaggi') or {}
+    chi = [x for x in (c.get('personaggi') or [c.get('personaggio')]) if x and x in per][:3] or ([c['personaggio']] if c.get('personaggio') else [])
+    pose_cop = {x: (c.get('pose') or {}).get(x) or (c.get('posa') if x == c.get('personaggio') else None) or next(iter(per.get(x, {}).get('pose') or {'': ''})) for x in chi}
+    lato = c.get('lato', 'dx'); righe = c['righe']
+    ev = c.get('evidenzia', 1)
+    ev = ev if isinstance(ev, int) and 0 <= ev < len(righe) else len(righe) - 1
     fondo = sfondo(c['sfondo'])
-    if N.get('materiali_da') or (E('VARIANTE_COPERTINA') or '').upper() == 'SI':
-        # 17 nov (Giorgio): stessa notizia in un'altra lingua -> copertina DIVERSA (YouTube non deve vederla come duplicata):
-        # persona dall'altro lato, altra posa se c'e', sfondo preso da un'altra scena del video e specchiato, riga evidenziata diversa
+    if variante:
+        # persona dall'altro lato / persone scambiate, altra posa se c'e', sfondo di un'altra scena specchiato, altra riga evidenziata
         lato = 'sx' if lato == 'dx' else 'dx'
-        altre = [p for p in ((N.get('personaggi') or {}).get(c.get('personaggio')) or {}).get('pose', {}) if p != posa_cop
-                 and os.path.exists(os.path.join(CAR, c.get('personaggio', ''), p + '.png'))]
-        posa_cop = altre[0] if altre else posa_cop
+        if len(chi) >= 2:
+            chi[0], chi[1] = chi[1], chi[0]
+        for x in chi:
+            altre = [q for q in (per.get(x) or {}).get('pose', {}) if q != pose_cop[x] and os.path.exists(os.path.join(CAR, x, q + '.png'))]
+            pose_cop[x] = altre[0] if altre else pose_cop[x]
         cand = [v for k, v in SF.items() if k != 'copertina' and v and not cast_set(k)] or [v for k, v in SF.items() if k != 'copertina' and v]
         if cand:
             fondo = cand[len(cand) // 2]
-        if len(c.get('righe') or []) > 1:
-            c = dict(c, evidenzia=0 if c.get('evidenzia', 1) != 0 else 1)
+        if len(righe) > 1:
+            ev = 0 if ev != 0 else 1
     im = Image.open(fondo).convert('RGBA').resize((W, H), Image.LANCZOS)
-    if N.get('materiali_da') or (E('VARIANTE_COPERTINA') or '').upper() == 'SI':
+    if variante:
         im = im.transpose(Image.FLIP_LEFT_RIGHT)
-    if c.get('personaggio'):
-        png = posa(c['personaggio'], posa_cop)
-        if png:
-            p = Image.open(png).convert('RGBA'); hh = int(H * 1.0)
-            p = p.resize((int(p.width * hh / p.height), hh), Image.LANCZOS)
-            x = int(W * (.72 if lato == 'dx' else .28) - p.width / 2); im.alpha_composite(p, (x, H - p.height + 60))
-    # testo grande dal lato libero (mai sopra il personaggio, mai in basso a destra sulla durata)
-    righe = c['righe']; ev = c.get('evidenzia', -1)
-    x0 = 110 if lato == 'dx' else int(W * .5); larg = int(W * .48)
-    y = 170
-    d = ImageDraw.Draw(im)
-    for i, r in enumerate(righe):
-        s = 420
-        while font(F_TITOLI, s).getbbox(r)[2] > larg - 60 and s > 120:
-            s -= 10
-        f = font(F_TITOLI, s); bb = f.getbbox(r)
-        if i == ev:
-            d.rectangle((x0 - 30, y + bb[1] - 30, x0 + bb[2] + 30, y + bb[3] + 30), fill=ROSSO + (255,))
-            testo_box(d, (x0, y), r, f, BIANCO, stroke=0)
+    pngs = {x: posa(x, pose_cop[x]) for x in chi}
+    chi = [x for x in chi if pngs.get(x)]
+
+    def metti(x, cx, alt, specchia=False):
+        q = Image.open(pngs[x]).convert('RGBA'); hh = int(H * alt)
+        q = q.resize((int(q.width * hh / q.height), hh), Image.LANCZOS)
+        if specchia:
+            q = q.transpose(Image.FLIP_LEFT_RIGHT)
+        im.alpha_composite(q, (int(W * cx - q.width / 2), H - q.height + 60))
+        return q.width
+
+    # dove va la scritta: (x sinistra, larghezza, y di partenza, y massima, centrata)
+    if len(chi) <= 1:
+        if chi:
+            metti(chi[0], .72 if lato == 'dx' else .28, 1.0)
+        zona = (110 if lato == 'dx' else int(W * .5), int(W * .48), 170, H - 160, False)
+    else:
+        # uno per lato, rivolti verso il centro (chi sta a destra si specchia)
+        metti(chi[0], .15, 1.0); metti(chi[1], .85, 1.0, specchia=True)
+        if len(chi) == 3:
+            metti(chi[2], .5, .58)
+            zona = (int(W * .31), int(W * .38), 90, int(H * .42), True)
         else:
-            testo_box(d, (x0, y), r, f, BIANCO, stroke=16, sfill=NERO)
+            zona = (int(W * .31), int(W * .38), 150 if not variante else int(H * .30), H - 200, True)
+    x0, larg, y, ymax, centro = zona
+    d = ImageDraw.Draw(im)
+    # stessa grandezza per tutte le righe (la piu' lunga decide), che stiano nella zona libera
+    s = 420
+    while s > 110 and (max(font(F_TITOLI, s).getbbox(r)[2] for r in righe) > larg - 60
+                       or sum(font(F_TITOLI, s).getbbox(r)[3] + 70 for r in righe) > ymax - y):
+        s -= 10
+    f = font(F_TITOLI, s)
+    for i, r in enumerate(righe):
+        bb = f.getbbox(r); xr = x0 + (larg - bb[2]) // 2 if centro else x0
+        if i == ev:
+            d.rectangle((xr - 30, y + bb[1] - 30, xr + bb[2] + 30, y + bb[3] + 30), fill=ROSSO + (255,))
+            testo_box(d, (xr, y), r, f, BIANCO, stroke=0)
+        else:
+            testo_box(d, (xr, y), r, f, BIANCO, stroke=16, sfill=NERO)
         y += bb[3] + 70
     p = os.path.join(OUT, 'copertina.jpg'); im.convert('RGB').resize((1280, 720), Image.LANCZOS).save(p, quality=93)
     im.convert('RGB').save(os.path.join(OUT, 'copertina_grande.jpg'), quality=92)
-    log('copertina pronta'); return p
+    log('copertina pronta:', ', '.join(chi)); return p
 
 
 def libreria_aggiorna(ordine):

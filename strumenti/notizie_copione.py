@@ -95,7 +95,7 @@ SCHEMA = """{
    "visivo": {"tipo": "set", "set": "unique_key"},
    "grafica": {"tipo": "numero", "valore": 76.5, "decimali": 1, "prefisso": "", "unita": "MILLION BARRELS", "sopra": "EVERY DAY"},
    "citazione": {"chi": "slug", "posa": "pose_name", "testo": "the EXACT words this person said, as quoted by the source"}}],
- "copertina": {"sfondo": "dramatic scene description, empty of people", "personaggio": "slug of the MAIN person", "posa": "pose_name", "lato": "dx|sx", "righe": ["LINE 1", "LINE 2"], "evidenzia": 1}
+ "copertina": {"sfondo": "dramatic scene description, empty of people", "personaggi": ["slug of the MAIN person", "optional 2nd", "optional 3rd"], "pose": {"slug": "pose_name"}, "personaggio": "slug of the MAIN person", "posa": "pose_name of the main person", "lato": "dx|sx", "righe": ["LINE 1", "LINE 2"], "evidenzia": 1}
 }
 Other "visivo" types (use them often, they are free):
  {"tipo": "mappa", "centro": [lon, lat], "larghezza": 24, "paesi": [{"iso": "UKR", "colore": "blu"}, {"iso": "RUS", "colore": "rosso"}],
@@ -155,7 +155,10 @@ DIRECTION (regia) - like a film: EVERY scene has its OWN new drawn image ("set")
 - Use 1-2 "dossier" (who is this person: 3 short real facts) and {max(1, int(MINUTI * .5))}+ "frase" (short punch line, white handwritten text
   over the scene; the narrator says exactly that sentence). Never put "frase" as the first scene.
 - "grafica" on many scenes: big exact numbers from sources ("numero") and key phrases ("titolo", UPPERCASE).
-- Thumbnail (copertina): the MAIN person (our caricature) + 2 short UPPERCASE lines (max 3 words each, high-impact words of the story,
+- Thumbnail (copertina): the MOST IMPORTANT people of the story as it is trending on the web (our caricatures, listed in "personaggi", main first):
+  1 person if the story is mainly about one person; 2 if it is a clash, deal or rivalry between two (e.g. two leaders facing each other);
+  up to 3 for a summit, round table or big confrontation. Each one must also be in "personaggi" with the pose given in "pose".
+  Plus 2 short UPPERCASE lines (max 3 words each, high-impact words of the story,
   no final period); evidenza = index of the line on the red box; a dramatic background empty of people.
 Answer with ONLY the JSON (no markdown), exactly this structure:
 {SCHEMA}"""
@@ -167,6 +170,13 @@ Answer with ONLY the JSON (no markdown), exactly this structure:
     princ = next((k for k, p in per.items() if cognome and cognome in (p.get('chi', '') + ' ' + p.get('commons', '') + ' ' + k).lower()), None)
     if princ and cop.get('personaggio') != princ:
         cop['personaggio'] = princ; cop['posa'] = next(iter(per[princ].get('pose') or {'posa': ''}))
+    # 17 nov (Giorgio): 1, 2 o 3 persone in copertina (le piu' importanti della notizia), la principale sempre per prima
+    lista = [x for x in (cop.get('personaggi') or []) if x in per]
+    if cop.get('personaggio') in per and cop['personaggio'] not in lista[:1]:
+        lista = [cop['personaggio']] + [x for x in lista if x != cop['personaggio']]
+    cop['personaggi'] = lista[:3]
+    cop['pose'] = {x: (cop.get('pose') or {}).get(x) if (cop.get('pose') or {}).get(x) in (per[x].get('pose') or {}) else
+                   (cop.get('posa') if x == cop.get('personaggio') else next(iter(per[x].get('pose') or {'posa': ''}))) for x in cop['personaggi']}
     return v
 
 
