@@ -13,7 +13,7 @@ Uscita: prove_video/notizie/<nome>/video.mp4, copertina.jpg, capitoli.json, cost
 import base64, io, json, math, os, random, re, shutil, subprocess, sys, time, urllib.error, urllib.parse, urllib.request
 from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor
 
-from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageStat
+from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageOps, ImageStat
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 E = os.environ.get
@@ -1159,77 +1159,120 @@ def musica(voce_mp3, dur):
 
 
 def copertina():
-    """Copertina MANO LIBERA. 17 nov (Giorgio): in copertina le persone piu' importanti della notizia: 1 se la notizia e' su di lei,
-    2 se e' uno scontro/accordo tra due (una per lato, si guardano, scritta in mezzo), fino a 3 per un vertice o un confronto
-    (la terza al centro, piu' piccola, la scritta sopra). Stessa notizia in un'altra lingua -> copertina diversa (YouTube, duplicati)."""
+    """Copertina D'IMPATTO (17 nov, Giorgio: "boom, immagine grande, scritta grande, un messaggio forte, numeri e parole senza esagerare").
+    Tre modelli approvati, scelti in base alla notizia:
+      A = viso gigante + 2 righe enormi (+ cartellino), fondo a raggi (tech) o fuoco (guerra)
+      B = sfida: due visi uno contro l'altro, colori opposti, VS giallo, titolo in alto (quando in copertina ci sono 2+ persone)
+      C = numero shock: fondo nero, viso con contorno rosso, cifra gigante rossa + parole
+    L'italiano usa SEMPRE un modello diverso dall'inglese (YouTube, duplicati); colori e lato cambiano da un giorno all'altro (MANO LIBERA)."""
+    import datetime as _dt
     c = N.get('copertina') or {}
     variante = bool(N.get('materiali_da')) or (E('VARIANTE_COPERTINA') or '').upper() == 'SI'
     per = N.get('personaggi') or {}
     chi = [x for x in (c.get('personaggi') or [c.get('personaggio')]) if x and x in per][:3] or ([c['personaggio']] if c.get('personaggio') else [])
     pose_cop = {x: (c.get('pose') or {}).get(x) or (c.get('posa') if x == c.get('personaggio') else None) or next(iter(per.get(x, {}).get('pose') or {'': ''})) for x in chi}
-    lato = c.get('lato', 'dx'); righe = c['righe']
-    ev = c.get('evidenzia', 1)
-    ev = ev if isinstance(ev, int) and 0 <= ev < len(righe) else len(righe) - 1
-    fondo = sfondo(c['sfondo'])
-    if variante:
-        # persona dall'altro lato / persone scambiate, altra posa se c'e', sfondo di un'altra scena specchiato, altra riga evidenziata
-        lato = 'sx' if lato == 'dx' else 'dx'
-        if len(chi) >= 2:
-            chi[0], chi[1] = chi[1], chi[0]
-        for x in chi:
-            altre = [q for q in (per.get(x) or {}).get('pose', {}) if q != pose_cop[x] and os.path.exists(os.path.join(CAR, x, q + '.png'))]
-            pose_cop[x] = altre[0] if altre else pose_cop[x]
-        cand = [v for k, v in SF.items() if k != 'copertina' and v and not cast_set(k)] or [v for k, v in SF.items() if k != 'copertina' and v]
-        if cand:
-            fondo = cand[len(cand) // 2]
-        if len(righe) > 1:
-            ev = 0 if ev != 0 else 1
-    im = Image.open(fondo).convert('RGBA').resize((W, H), Image.LANCZOS)
-    if variante:
-        im = im.transpose(Image.FLIP_LEFT_RIGHT)
     pngs = {x: posa(x, pose_cop[x]) for x in chi}
     chi = [x for x in chi if pngs.get(x)]
-
-    def metti(x, cx, alt, specchia=False):
-        q = Image.open(pngs[x]).convert('RGBA'); hh = int(H * alt)
-        q = q.resize((int(q.width * hh / q.height), hh), Image.LANCZOS)
-        if specchia:
-            q = q.transpose(Image.FLIP_LEFT_RIGHT)
-        im.alpha_composite(q, (int(W * cx - q.width / 2), H - q.height + 60))
-        return q.width
-
-    # dove va la scritta: (x sinistra, larghezza, y di partenza, y massima, centrata)
-    if len(chi) <= 1:
-        if chi:
-            metti(chi[0], .72 if lato == 'dx' else .28, 1.0)
-        zona = (110 if lato == 'dx' else int(W * .5), int(W * .48), 170, H - 160, False)
-    else:
-        # uno per lato, rivolti verso il centro (chi sta a destra si specchia)
-        metti(chi[0], .15, 1.0); metti(chi[1], .85, 1.0, specchia=True)
-        if len(chi) == 3:
-            metti(chi[2], .5, .58)
-            zona = (int(W * .31), int(W * .38), 90, int(H * .42), True)
+    righe = [str(r).strip().rstrip('.') for r in (c.get('righe') or []) if str(r).strip()][:2] or [N.get('titolo', '')[:20]]
+    box = str(c.get('box') or '').strip().rstrip('.')
+    _r = []
+    for r in righe:   # riga lunga = lettere piccole: si va a capo (es. HUANG VUOLE TORNARE -> HUANG VUOLE / TORNARE)
+        w_ = r.split()
+        if len(r) > 12 and len(w_) > 1:
+            m_ = min(range(1, len(w_)), key=lambda i: abs(len(' '.join(w_[:i])) - len(' '.join(w_[i:]))))
+            _r += [' '.join(w_[:m_]), ' '.join(w_[m_:])]
         else:
-            zona = (int(W * .31), int(W * .38), 150 if not variante else int(H * .30), H - 200, True)
-    x0, larg, y, ymax, centro = zona
-    d = ImageDraw.Draw(im)
-    # stessa grandezza per tutte le righe (la piu' lunga decide), che stiano nella zona libera
-    s = 420
-    while s > 110 and (max(font(F_TITOLI, s).getbbox(r)[2] for r in righe) > larg - 60
-                       or sum(font(F_TITOLI, s).getbbox(r)[3] + 70 for r in righe) > ymax - y):
-        s -= 10
-    f = font(F_TITOLI, s)
-    for i, r in enumerate(righe):
-        bb = f.getbbox(r); xr = x0 + (larg - bb[2]) // 2 if centro else x0
-        if i == ev:
-            d.rectangle((xr - 30, y + bb[1] - 30, xr + bb[2] + 30, y + bb[3] + 30), fill=ROSSO + (255,))
-            testo_box(d, (xr, y), r, f, BIANCO, stroke=0)
+            _r.append(r)
+    righe_v = _r[:4]   # righe da disegnare (max 4)
+    numero = any(ch.isdigit() for ch in ' '.join(righe))
+    stile = 'B' if len(chi) >= 2 else ('C' if numero else 'A')
+    if variante:   # l'altra lingua: sempre un altro modello
+        stile = {'B': 'A', 'A': 'C' if numero else 'C', 'C': 'A'}[stile]
+    giorno = _dt.date.today().toordinal()
+    guerra = N.get('filone') == 'guerra'
+    k = W / 1280   # tutto pensato a 1280x720 e moltiplicato
+
+    def fnt(sz):
+        return ImageFont.truetype(F_TITOLI, max(10, int(sz * k)))
+
+    def scrivi(d, xy, t, sz, col, stroke=12, anchor='la'):
+        d.text((xy[0] * k, xy[1] * k), t, font=fnt(sz), fill=col, stroke_width=int(stroke * k), stroke_fill=(0, 0, 0), anchor=anchor)
+
+    def adatta(t, sz, larg):   # la riga piu' grande possibile che sta nella larghezza
+        while sz > 50 and fnt(sz).getlength(t) / k > larg:
+            sz -= 6
+        return sz
+
+    def viso(x, alt, frac=.5):   # testa e spalle del personaggio, ritagliate dalla posa intera
+        q = Image.open(pngs[x]).convert('RGBA'); q = q.crop(q.getbbox())
+        q = q.crop((0, 0, q.width, int(q.height * frac)))
+        h_ = int(alt * k); return q.resize((int(q.width * h_ / q.height), h_), Image.LANCZOS)
+
+    def bordo(q, col, r=9):
+        m = int(40 * k); qq = Image.new('RGBA', (q.width + 2 * m, q.height + 2 * m), (0, 0, 0, 0)); qq.alpha_composite(q, (m, m))
+        a_ = qq.split()[3].filter(ImageFilter.MaxFilter(int(r * k) * 2 + 1)); o = Image.new('RGBA', qq.size, col + (0,)); o.putalpha(a_); o.alpha_composite(qq); return o
+
+    im = Image.new('RGBA', (W, H)); d = ImageDraw.Draw(im)
+    if stile == 'B':
+        coppie = [((0, 90, 200), (200, 20, 30)), ((20, 160, 80), (210, 20, 40)), ((110, 30, 170), (230, 120, 0))]
+        c1, c2 = coppie[giorno % len(coppie)]
+        d.polygon([(0, 0), (int(W * .547), 0), (int(W * .453), H), (0, H)], fill=c1)
+        d.polygon([(int(W * .547), 0), (W, 0), (W, H), (int(W * .453), H)], fill=c2)
+        v1, v2 = bordo(viso(chi[0], 540, .46), (255, 230, 0)), bordo(viso(chi[1], 540, .46), (255, 255, 255))
+        im.alpha_composite(v1, (int(-60 * k), H - v1.height + int(30 * k))); im.alpha_composite(ImageOps.mirror(v2), (W - v2.width + int(60 * k), H - v2.height + int(30 * k)))
+        if len(chi) > 2:
+            v3 = bordo(viso(chi[2], 300, .46), (255, 255, 255)); im.alpha_composite(v3, ((W - v3.width) // 2, H - v3.height + int(30 * k)))
+        d = ImageDraw.Draw(im)
+        tit = ' '.join(righe) if fnt(110).getlength(' '.join(righe)) / k < 1180 else righe[0]
+        scrivi(d, (640, 80), tit, adatta(tit, 125, 1180), 'white', 12, 'mm')
+        scrivi(d, (640, 400 if len(chi) < 3 else 330), 'VS', 200, (255, 230, 0), 16, 'mm')
+    elif stile == 'C':
+        im.paste((12, 12, 16), (0, 0, W, H)); d = ImageDraw.Draw(im)
+        for y in range(0, H, int(6 * k)):
+            d.line((0, y, W, y), fill=(20, 18, 24))
+        v = bordo(viso(chi[0], 640, .5), (255, 40, 40)) if chi else None
+        if v:
+            im.alpha_composite(v, (int(-90 * k), H - v.height + int(40 * k)))
+        d = ImageDraw.Draw(im)
+        larg = 1250 - ((v.width / k - 130) if v else 0) - 20
+        cols = [(255, 40, 40), 'white', (255, 230, 0), 'white']
+        sz = min(230, int(600 / (len(righe_v) + (0.8 if box else 0)) / 1.12))
+        y = 40
+        for i, r in enumerate(righe_v):
+            s_ = adatta(r, sz if i else int(sz * 1.15), larg); scrivi(d, (1250, y), r, s_, cols[i], 14, 'ra'); y += s_ * 1.12
+        if box and y < 600:
+            s2 = min(adatta(box, 110, larg), int((690 - y) / 1.1)); scrivi(d, (1250, y), box, s2, (255, 230, 0) if len(righe_v) < 3 else (255, 40, 40), 12, 'ra')
+    else:   # A
+        if guerra:
+            for y in range(H):
+                t = y / H; d.line((0, y, W, y), fill=(int(40 + 200 * t), int(10 + 60 * t), 10))
         else:
-            testo_box(d, (xr, y), r, f, BIANCO, stroke=16, sfill=NERO)
-        y += bb[3] + 70
+            fondi = [((200, 10, 20), (235, 40, 40)), ((10, 60, 190), (30, 95, 230)), ((225, 100, 0), (250, 135, 20))]
+            f1, f2 = fondi[giorno % len(fondi)]
+            im.paste(f1, (0, 0, W, H)); d = ImageDraw.Draw(im); cx, cy = W * .7, H * .5
+            for g in range(0, 360, 15):
+                a1, a2 = math.radians(g), math.radians(g + 7.5)
+                d.polygon([(cx, cy), (cx + 4 * W * math.cos(a1), cy + 4 * W * math.sin(a1)), (cx + 4 * W * math.cos(a2), cy + 4 * W * math.sin(a2))], fill=f2)
+        sx = (giorno + (1 if variante else 0)) % 2 == 1   # viso a sinistra un giorno si' e uno no
+        v = bordo(viso(chi[0], 700, .52), (255, 255, 255)) if chi else None
+        if v:
+            im.alpha_composite(v, ((int(-60 * k)) if sx else W - v.width + int(60 * k), H - v.height + int(40 * k)))
+        d = ImageDraw.Draw(im)
+        larg = 1280 - (v.width / k - 60 if v else 0) - 80
+        x0 = 1240 if sx else 40; anc = 'ra' if sx else 'la'
+        cols = ['white', (255, 230, 0), 'white', (255, 230, 0)]
+        sz = min(210, int((470 if box else 640) / len(righe_v) / 1.08))
+        y = 30
+        for i, r in enumerate(righe_v):
+            s_ = adatta(r, sz, larg); scrivi(d, (x0, y), r, s_, cols[i], 14, anc); y += s_ * 1.08
+        if box and y < 560:
+            fb = fnt(min(100, adatta(box, 100, larg - 60))); wb = fb.getlength(box) / k + 60
+            bx0 = (x0 - wb) if sx else x0; by0 = max(y + 10, 480)
+            d.rounded_rectangle((bx0 * k, by0 * k, (bx0 + wb) * k, (by0 + 150) * k), int(20 * k), fill=(220, 20, 40) if guerra else 'white', outline='black', width=int(8 * k))
+            d.text(((bx0 + wb / 2) * k, (by0 + 75) * k), box, font=fb, fill='white' if guerra else (220, 20, 40), anchor='mm')
     p = os.path.join(OUT, 'copertina.jpg'); im.convert('RGB').resize((1280, 720), Image.LANCZOS).save(p, quality=93)
     im.convert('RGB').save(os.path.join(OUT, 'copertina_grande.jpg'), quality=92)
-    log('copertina pronta:', ', '.join(chi)); return p
+    log('copertina pronta: modello', stile, '|', ', '.join(chi), '|', righe, box); return p
 
 
 def libreria_aggiorna(ordine):

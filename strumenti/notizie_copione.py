@@ -95,7 +95,7 @@ SCHEMA = """{
    "visivo": {"tipo": "set", "set": "unique_key"},
    "grafica": {"tipo": "numero", "valore": 76.5, "decimali": 1, "prefisso": "", "unita": "MILLION BARRELS", "sopra": "EVERY DAY"},
    "citazione": {"chi": "slug", "posa": "pose_name", "testo": "the EXACT words this person said, as quoted by the source"}}],
- "copertina": {"sfondo": "dramatic scene description, empty of people", "personaggi": ["slug of the MAIN person", "optional 2nd", "optional 3rd"], "pose": {"slug": "pose_name"}, "personaggio": "slug of the MAIN person", "posa": "pose_name of the main person", "lato": "dx|sx", "righe": ["LINE 1", "LINE 2"], "evidenzia": 1}
+ "copertina": {"sfondo": "dramatic scene description, empty of people", "personaggi": ["slug of the MAIN person", "optional 2nd", "optional 3rd"], "pose": {"slug": "pose_name"}, "personaggio": "slug of the MAIN person", "posa": "pose_name of the main person", "lato": "dx|sx", "righe": ["BIG NUMBER OR 1-2 SHOCK WORDS", "1-2 WORDS"], "box": "2-3 word label (optional)", "evidenzia": 1}
 }
 Other "visivo" types (use them often, they are free):
  {"tipo": "mappa", "centro": [lon, lat], "larghezza": 24, "paesi": [{"iso": "UKR", "colore": "blu"}, {"iso": "RUS", "colore": "rosso"}],
@@ -158,6 +158,9 @@ DIRECTION (regia) - like a film: EVERY scene has its OWN new drawn image ("set")
 - Thumbnail (copertina): the MOST IMPORTANT people of the story as it is trending on the web (our caricatures, listed in "personaggi", main first):
   1 person if the story is mainly about one person; 2 if it is a clash, deal or rivalry between two (e.g. two leaders facing each other);
   up to 3 for a summit, round table or big confrontation. Each one must also be in "personaggi" with the pose given in "pose".
+  IMPACT (17 nov, Giorgio: "boom, big face, big text, one strong message"): "righe" = 2 VERY short UPPERCASE lines, max 12 characters each
+  (e.g. ["1.336", "DRONES"], ["-$500B", "HE WANTS IT BACK"] -> prefer ["RIVUOLE", "NVIDIA"]); mix a real number and words when the story has a strong number,
+  without exaggerating; "box" = optional 2-3 word label that completes the message (e.g. "BOARD SAYS NO"). Everything must be TRUE (never "fired" if he resigned).
   Plus 2 short UPPERCASE lines (max 3 words each, high-impact words of the story,
   no final period); evidenza = index of the line on the red box; a dramatic background empty of people.
 Answer with ONLY the JSON (no markdown), exactly this structure:
@@ -242,6 +245,8 @@ def traduci_it(v):
             add(f'pt.{i}.{j}', pt.get('nome'))
     for j, r in enumerate(v['copertina'].get('righe', [])):
         add(f'c.{j}', r)
+    if (v.get('copertina') or {}).get('box'):
+        add('c.box', v['copertina']['box'])
     prompt = ("Translate into natural, fluent Italian for an Italian YouTube news channel (authoritative journalist tone, short sentences). "
               "Keep names, numbers and meaning exactly. Texts in UPPERCASE stay UPPERCASE and short (graphics: max 22 chars for 'g.*.testo'). "
               "Use Italian number style in graphics units (e.g. MILIARDI DI DOLLARI). The title (titolo) max 70 chars, for the homepage. "
@@ -279,6 +284,8 @@ def traduci_it(v):
         if not vi.get('righe'):
             vi.pop('righe', None)
     it['copertina']['righe'] = [tr.get(f'c.{j}', r) for j, r in enumerate(v['copertina'].get('righe', []))]
+    if v['copertina'].get('box'):
+        it['copertina']['box'] = tr.get('c.box', v['copertina']['box'])
     return it
 
 

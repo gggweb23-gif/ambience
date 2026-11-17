@@ -5,27 +5,32 @@
   "canale": "WWII Testimony (diventera Frontline Explained), @WarRoomExplained-NEWS",
   "token": "YT_REFRESH_TOKEN_WWII_TESTIMONY",
   "channel_id": "WWII Testimony",
-  "playlist": "World Conflicts Today"
+  "playlist": "World Conflicts Today",
+  "ora_uscita": "17:00"
  },
  "guerra_it": {
   "attivo": "SI",
   "canale": "Fronte Aperto (ex Storia in Minuti), @FronteAperto",
   "token": "YT_REFRESH_TOKEN_STORIA",
   "channel_id": "Storia in Minuti",
-  "playlist": "Conflitti nel mondo oggi"
+  "playlist": "Conflitti nel mondo oggi",
+  "ora_uscita": "11:00"
  },
  "tech_en": {
   "attivo": "SI",
   "canale": "Big Tech Explained (ex Billion Ruin), @BigTechExplained",
   "token": "YT_REFRESH_TOKEN_MAIN_STREET_ATLAS",
   "channel_id": "Billion Ruin",
-  "playlist": "Tech News"
+  "playlist": "Tech News",
+  "ora_uscita": "17:00"
  },
  "tech_it": {
   "attivo": "SI",
   "canale": "Big Tech Spiegata (ex Costo Vero), @BigTechSpiegata",
   "token": "YT_REFRESH_TOKEN_COSTO_VERO",
   "channel_id": "Costo Vero",
-  "playlist": "Notizie Tech"
- }
+  "playlist": "Notizie Tech",
+  "ora_uscita": "11:00"
+ },
+ "_nota_ora": "17 nov (Giorgio): notizie, si cavalca l'onda del mattino: italiani alle 11:00, inglesi alle 17:00 italiane (= 11:00 a New York). Se l'ora e' gia' passata esce subito."
 }

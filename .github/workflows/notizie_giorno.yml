@@ -9,7 +9,7 @@ run-name: Notizie ${{ inputs.filone || 'tech' }} ${{ (inputs.produci == 'SI' || 
 on:
   schedule:
     - cron: '13 5 * * *'   # tech: radar + video dei canali tech attivi in notizie/canali.json
-    - cron: '23 5 * * *'   # guerra: radar + video dei canali guerra attivi (War Room Explained, ...), escono alle 17:00
+    - cron: '23 5 * * *'   # guerra: radar + video dei canali guerra attivi; escono all'ora_uscita di notizie/canali.json (IT 11:00, EN 17:00)
   workflow_dispatch:
     inputs:
       filone: {description: 'filone (tech)', default: 'tech', type: string}
@@ -132,7 +132,8 @@ jobs:
             if [ -f video_pieni/$n.mp4 ]; then v=video_pieni/$n.mp4; else v=prove_video/notizie/$n/video.mp4; fi
             cid=$(python3 -c "import json;print(json.load(open('notizie/canali.json')).get('${FILONE}_$l',{}).get('channel_id',''))")
             pl=$(python3 -c "import json;print(json.load(open('notizie/canali.json')).get('${FILONE}_$l',{}).get('playlist',''))")
-            NOTIZIA=$f VIDEO=$v CANALE_ID="$cid" PLAYLIST="$pl" COPERTINA=prove_video/notizie/$n/copertina.jpg YT_REFRESH_TOKEN="${!tk}" python3 strumenti/notizie_carica.py || echo "CARICAMENTO NON RIUSCITO: $f"
+            ora=$(python3 -c "import json;print(json.load(open('notizie/canali.json')).get('${FILONE}_$l',{}).get('ora_uscita','17:00'))")
+            ORA_USCITA="$ora" NOTIZIA=$f VIDEO=$v CANALE_ID="$cid" PLAYLIST="$pl" COPERTINA=prove_video/notizie/$n/copertina.jpg YT_REFRESH_TOKEN="${!tk}" python3 strumenti/notizie_carica.py || echo "CARICAMENTO NON RIUSCITO: $f"
           done
       - name: Salva
         if: ${{ always() }}
