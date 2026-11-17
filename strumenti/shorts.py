@@ -70,8 +70,12 @@ def data_ini(r):
         return None
 
 
+FONTE = {'esatta': False}   # 17 nov: file preso dall'artifact col nome esatto di QUESTA riga (o del giro notizie): e' sicuramente il video giusto
+
+
 def scarica_sorgente(cid, riga, r, dur_yt, cfg_corrente=None):
     cfg_corrente = cfg_corrente or {}
+    FONTE['esatta'] = False
     """Il file del video lungo: prima l'artifact con il suo nome (shorts-<canale>-riga<N>, poi DA CARICARE <canale>);
     per i video fatti prima degli Short, gli artifact dei motori (video-storia, video-mappe, video-archivio) dei giorni del video.
     Si usa solo se la durata coincide con quella del video su YouTube (cosi' non si prende mai il video sbagliato)."""
@@ -98,14 +102,14 @@ def scarica_sorgente(cid, riga, r, dur_yt, cfg_corrente=None):
                 continue
             for v in _scarica(a, tutti=True):
                 if os.path.basename(v) == nomef and giusto(v):
-                    return v
+                    FONTE['esatta'] = True; return v
         return None
     for nome in (f'shorts-{cid}-riga{riga}', f'DA CARICARE {cid}'):
         arts = elenco(nome)[-1:]
         for a in arts:
             v = _scarica(a)
             if giusto(v):
-                return v
+                FONTE['esatta'] = nome.startswith('shorts-'); return v
     ini = data_ini(r)
     if not ini:
         return None
@@ -412,6 +416,8 @@ def canale(cfg):
     log(f'  riga {n}: {titolo} | {durata(video) / 60:.1f} min')
     frasi, parole = trascrivi(video, str(cfg.get('language') or 'en'))
     ok_file, motivo = stesso_video(frasi, riga)   # 7 nov: controllo in piu', senza IA: il parlato deve contenere le parole chiave di QUEL video
+    if not ok_file and FONTE['esatta']:   # 17 nov (KAO gatti bloccato a torto): con il file della riga stessa il controllo serve solo come avviso
+        log('  avviso, parole chiave basse ma il file e\' quello della riga stessa: vado avanti'); ok_file = True
     log('  controllo video giusto:', motivo)
     if not ok_file:
         raise RuntimeError('VIDEO SBAGLIATO, nessuno Short: ' + motivo)
