@@ -1,0 +1,21 @@
+name: Pubblica subito
+run-name: Pubblica subito ${{ inputs.video_id }}
+# 17 nov 2026 (Giorgio): rende pubblici adesso uno o piu' video programmati dello stesso canale (nessuna spesa).
+on:
+  workflow_dispatch:
+    inputs:
+      video_id: {description: 'ID YouTube, separati da virgola', type: string}
+      chiave: {description: 'segreto del canale (es. YT_REFRESH_TOKEN_STORIA)', type: string}
+permissions:
+  contents: read
+jobs:
+  pubblica:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - env:
+          VIDEO_ID: ${{ inputs.video_id }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets[inputs.chiave] }}
+        run: python3 strumenti/pubblica_ora.py
