@@ -210,6 +210,9 @@ def scegli(frasi, n, titolo, lingua, budget, evita=None, gia=None):
                f'- for each moment write in {lingua_nome}: "gancio" = on-screen hook, max 6 words, punchy, in CAPITAL letters; '
                '"titolo" = Short title, max 70 characters, curiosity-driven, no hashtags; '
                '"frase" = one sentence for the description.\n'
+               '- TRUTH (17 nov, news channels above all): hook, title and description must say only what the clip itself says. Never turn a report, '
+               'allegation or suspicion into a fact (write "REPORTS", "ALLEGED", "ACCUSED" or a question), never add details that are not in the clip '
+               '(e.g. "overnight" when the clip says "since the scandal broke"), never exaggerate numbers.\n'
                'Answer ONLY with JSON: [{"inizio": seconds, "fine": seconds, "gancio": "...", "titolo": "...", "frase": "..."}]\n'
                'IMPORTANT: if the transcript is clearly NOT about the video title (wrong video), answer only the word DIVERSO.'
                + (('\nShorts ALREADY made from this video (never pick the same moments or the same content again): ' + ' | '.join(gia)) if gia else ''))
