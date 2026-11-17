@@ -751,7 +751,7 @@ else:
             righe = parole
     def _misure(larg, alt):
         if STILE_COP == 'fotogramma':   # 16 nov: lettere ALTE come le copertine di prima; il carattere spaziale e' largo, quindi si stringe in orizzontale (fino a meta')
-            s0 = 300
+            s0 = 240   # 17 nov (Giorgio, Orbital: "riduci un po' la grandezza delle scritte"): massimo 240 px invece di 300
             while s0 > 80:
                 if all(larg / (d.textlength(r_, font=ImageFont.truetype(FP, s0)) + 2 * max(8, s0 // 11)) >= .5 for r_ in righe) and len(righe) * s0 <= alt:
                     return [s0] * len(righe)
@@ -785,44 +785,72 @@ else:
             if ms:
                 candidati.append((min(ms), lato, vert, x0, x1, y0, y1, ms))
     # MANO LIBERA: tra i posti buoni (lettere almeno l'85% del migliore) si alterna in base al giorno
+    ordine = []
     if candidati:
         top = max(c_[0] for c_ in candidati)
         buoni = sorted([c_ for c_ in candidati if c_[0] >= top * .85], key=lambda c_: (c_[1], c_[2]))
-        _, lato, vert, x0, x1, y0, y1, misure = buoni[_VAR % len(buoni)]
-    else:   # nessun posto libero: il lato con piu' spazio accanto al soggetto, in alto, lettere piu' piccole
-        lato = 'sx' if sog[0] >= 1280 - sog[2] else 'dx'; vert = 'alto'
-        x0, x1, y0, y1 = (45, max(200, sog[0] - 25), 35, 680) if lato == 'sx' else (min(1080, sog[2] + 25), 1235, 35, 545)
-        misure = _misure(x1 - x0, y1 - y0) or [80] * len(righe)
-    log('copertina: scritta', lato, vert, '| lettere', misure)
-    # ombra solo sotto la scritta (non piu' meta' immagine scurita): l'immagine resta limpida
-    alt_tot = sum(int(m * 1.02) for m in misure)
-    y = y0 if vert == 'alto' else y1 - alt_tot
-    ombra = Image.new('L', (1280, 720), 0); do = ImageDraw.Draw(ombra)
-    do.rectangle((x0 - 40, y - 30, x1 + 40, y + alt_tot + 30), fill=120)
-    from PIL import ImageFilter as _IF
-    im.paste(Image.new('RGB', (1280, 720)), (0, 0), ombra.filter(_IF.GaussianBlur(45))); d = ImageDraw.Draw(im)
-    for i, (rr, s_) in enumerate(zip(righe, misure)):
-        f_ = ImageFont.truetype(FP, s_)
-        if STILE_COP == 'fotogramma':   # scritta disegnata a parte, stretta in orizzontale (STRETTO), con bagliore azzurro (stile del 15 nov)
-            sw_ = max(8, s_ // 11); W_ = int(d.textlength(rr, font=f_)) + 4 * sw_ + 60; H_ = int(s_ * 1.4) + 4 * sw_
-            lay_ = Image.new('RGBA', (W_, H_), (0, 0, 0, 0)); dl_ = ImageDraw.Draw(lay_)
-            dl_.text((2 * sw_ + 30, 2 * sw_), rr, font=f_, fill=(80, 220, 255, 255), stroke_width=sw_, stroke_fill=(80, 220, 255, 255))
-            glow_ = lay_.filter(_IF.GaussianBlur(14)); glow_.putalpha(glow_.split()[3].point(lambda v: int(v * .55)))
-            dl_ = ImageDraw.Draw(lay_ := Image.new('RGBA', (W_, H_), (0, 0, 0, 0)))
-            dl_.text((2 * sw_ + 30, 2 * sw_), rr, font=f_, fill='#4FD2FF' if i == len(righe) - 1 and len(righe) > 1 else 'white', stroke_width=sw_, stroke_fill=(0, 0, 0))
-            glow_.alpha_composite(lay_)
-            bb_ = glow_.getbbox() or (0, 0, W_, H_); glow_ = glow_.crop(bb_)
-            st_ = min(1.0, (x1 - x0 + 50) / glow_.width)   # stretta solo quanto serve per stare nel posto libero
-            glow_ = glow_.resize((max(1, int(glow_.width * st_)), glow_.height), Image.LANCZOS)
-            x_ = (x1 - glow_.width + 25) if lato == 'dx' else x0 - 25
-            base_rgba = im.convert('RGBA'); base_rgba.alpha_composite(glow_, (int(x_), int(y + bb_[1] - 2 * sw_))); im = base_rgba.convert('RGB'); d = ImageDraw.Draw(im)
-            y += int(s_ * 1.0); continue
-        x_ = (x1 - d.textlength(rr, font=f_)) if lato == 'dx' else x0
-        if False:   # (vecchio bagliore, ora disegnato sopra)
-            gl_ = Image.new('L', (1280, 720), 0); ImageDraw.Draw(gl_).text((x_, y), rr, font=f_, fill=255, stroke_width=max(8, s_ // 11))
-            im.paste(Image.new('RGB', (1280, 720), (80, 220, 255)), (0, 0), gl_.filter(_IF.GaussianBlur(14)).point(lambda v: int(v * .55))); d = ImageDraw.Draw(im)
-        d.text((x_, y), rr, font=f_, fill='#4FD2FF' if i == len(righe) - 1 and len(righe) > 1 else 'white', stroke_width=max(8, s_ // 11), stroke_fill=(0, 0, 0))
-        y += int(s_ * 1.02)
+        primo = buoni[_VAR % len(buoni)]
+        ordine = [primo] + sorted([c_ for c_ in candidati if c_ is not primo], key=lambda c_: -c_[0])
+    # ultima strada: il lato con piu' spazio accanto al soggetto, in alto, lettere piu' piccole
+    lato_f = 'sx' if sog[0] >= 1280 - sog[2] else 'dx'
+    x0f, x1f, y0f, y1f = (45, max(200, sog[0] - 25), 35, 680) if lato_f == 'sx' else (min(1080, sog[2] + 25), 1235, 35, 545)
+    ordine.append((0, lato_f, 'alto', x0f, x1f, y0f, y1f, _misure(x1f - x0f, y1f - y0f) or [80] * len(righe)))
+    for lato_f2 in ('sx', 'dx'):   # 17 nov: colonne strette ai due lati (se il riquadro del soggetto era sbagliato), lettere piccole
+        x0f, x1f = (45, 340) if lato_f2 == 'sx' else (940, 1235)
+        ordine.append((0, lato_f2, 'alto', x0f, x1f, 50, 545, _misure(x1f - x0f, 495) or [80] * len(righe)))
+    base_cop = im.copy()
+
+    def _copre_persona(img_):
+        # 17 nov (Giorgio, Orbital: la scritta copriva tutta la faccia): i riquadri di Haiku possono sbagliare, quindi si guarda il risultato (~0,002 $)
+        try:
+            b_ = io.BytesIO(); img_.resize((768, 432)).save(b_, 'JPEG', quality=85)
+            r_ = json_sicuro(claude('This YouTube thumbnail has a big title. Does the TITLE TEXT cover any part of a person (face, head, body, hands) '
+                                    'or the object they hold? Answer ONLY {"copre": true|false}', modello='claude-haiku-4-5-20251001', max_tokens=100, immagine=b_.getvalue()))
+            return bool(r_.get('copre'))
+        except Exception as e_:
+            log('controllo scritta non riuscito:', str(e_)[:80]); return False
+
+    def _disegna_scritta(im, lato, vert, x0, x1, y0, y1, misure):
+        log('copertina: scritta', lato, vert, '| lettere', misure)
+        # ombra solo sotto la scritta (non piu' meta' immagine scurita): l'immagine resta limpida
+        alt_tot = sum(int(m * 1.02) for m in misure)
+        y = y0 if vert == 'alto' else y1 - alt_tot
+        ombra = Image.new('L', (1280, 720), 0); do = ImageDraw.Draw(ombra)
+        do.rectangle((x0 - 40, y - 30, x1 + 40, y + alt_tot + 30), fill=120)
+        from PIL import ImageFilter as _IF
+        im.paste(Image.new('RGB', (1280, 720)), (0, 0), ombra.filter(_IF.GaussianBlur(45))); d = ImageDraw.Draw(im)
+        for i, (rr, s_) in enumerate(zip(righe, misure)):
+            f_ = ImageFont.truetype(FP, s_)
+            if STILE_COP == 'fotogramma':   # scritta disegnata a parte, stretta in orizzontale (STRETTO), con bagliore azzurro (stile del 15 nov)
+                sw_ = max(8, s_ // 11); W_ = int(d.textlength(rr, font=f_)) + 4 * sw_ + 60; H_ = int(s_ * 1.4) + 4 * sw_
+                lay_ = Image.new('RGBA', (W_, H_), (0, 0, 0, 0)); dl_ = ImageDraw.Draw(lay_)
+                dl_.text((2 * sw_ + 30, 2 * sw_), rr, font=f_, fill=(80, 220, 255, 255), stroke_width=sw_, stroke_fill=(80, 220, 255, 255))
+                glow_ = lay_.filter(_IF.GaussianBlur(14)); glow_.putalpha(glow_.split()[3].point(lambda v: int(v * .55)))
+                dl_ = ImageDraw.Draw(lay_ := Image.new('RGBA', (W_, H_), (0, 0, 0, 0)))
+                dl_.text((2 * sw_ + 30, 2 * sw_), rr, font=f_, fill='#4FD2FF' if i == len(righe) - 1 and len(righe) > 1 else 'white', stroke_width=sw_, stroke_fill=(0, 0, 0))
+                glow_.alpha_composite(lay_)
+                bb_ = glow_.getbbox() or (0, 0, W_, H_); glow_ = glow_.crop(bb_)
+                st_ = min(1.0, (x1 - x0 + 50) / glow_.width)   # stretta solo quanto serve per stare nel posto libero
+                glow_ = glow_.resize((max(1, int(glow_.width * st_)), glow_.height), Image.LANCZOS)
+                x_ = (x1 - glow_.width + 25) if lato == 'dx' else x0 - 25
+                base_rgba = im.convert('RGBA'); base_rgba.alpha_composite(glow_, (int(x_), int(y + bb_[1] - 2 * sw_))); im = base_rgba.convert('RGB'); d = ImageDraw.Draw(im)
+                y += int(s_ * 1.0); continue
+            x_ = (x1 - d.textlength(rr, font=f_)) if lato == 'dx' else x0
+            if False:   # (vecchio bagliore, ora disegnato sopra)
+                gl_ = Image.new('L', (1280, 720), 0); ImageDraw.Draw(gl_).text((x_, y), rr, font=f_, fill=255, stroke_width=max(8, s_ // 11))
+                im.paste(Image.new('RGB', (1280, 720), (80, 220, 255)), (0, 0), gl_.filter(_IF.GaussianBlur(14)).point(lambda v: int(v * .55))); d = ImageDraw.Draw(im)
+            d.text((x_, y), rr, font=f_, fill='#4FD2FF' if i == len(righe) - 1 and len(righe) > 1 else 'white', stroke_width=max(8, s_ // 11), stroke_fill=(0, 0, 0))
+            y += int(s_ * 1.02)
+        return im
+
+    for k_, (_, lato, vert, x0, x1, y0, y1, misure) in enumerate(ordine):
+        prova_ = _disegna_scritta(base_cop.copy(), lato, vert, x0, x1, y0, y1, misure)
+        if not _copre_persona(prova_):
+            im = prova_; break
+        log('copertina: la scritta copre la persona (', lato, vert, misure, '): provo un altro posto')
+    else:
+        im = _disegna_scritta(base_cop.copy(), *ordine[-2][1:])   # nessun posto libero sicuro: colonna stretta a sinistra, lettere piccole
+        log('copertina: ATTENZIONE nessun posto libero sicuro, colonna stretta a sinistra')
 COP = os.path.join(CART, 'copertina.jpg'); im.save(COP, quality=92)
 
 # ---------------- capitoli (tempi VERI della voce, come Storia in Minuti e Rich Borders) ----------------
