@@ -548,6 +548,11 @@ def main():
     if _YT.nitido(finale, finale[:-4] + '_1440.mp4') == finale[:-4] + '_1440.mp4':
         os.replace(finale[:-4] + '_1440.mp4', finale)
     dur_v = durata(finale)
+    if 420 <= dur_v < MIN_SEC_YT + 1:   # 17 nov: video da 7:59 non caricato -> si allunga il finale (ultimo fotogramma + musica) fino a 8:01, mai sotto gli 8 minuti
+        lungo = finale[:-4] + '_8min.mp4'; extra_s = MIN_SEC_YT + 1.5 - dur_v
+        subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', finale, '-vf', f'tpad=stop_mode=clone:stop_duration={extra_s:.2f}', '-af', f'apad=pad_dur={extra_s:.2f}',
+                        '-c:v', 'libx264', '-preset', 'medium', '-crf', '18', '-c:a', 'aac', '-b:a', '192k', lungo], check=True)
+        shutil.move(lungo, finale); dur_v = durata(finale); log(f'video allungato a {dur_v:.1f} s (minimo 8 minuti)')
     # descrizione: titolo, testo, capitoli, chiusura
     titolo = str(c.get('titolo') or '')[:100]
     cap, t_ = ['00:00 ' + (str(scene[0]['testo']).split('.')[0][:40] or 'Intro')], 0.0

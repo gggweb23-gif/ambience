@@ -45,6 +45,16 @@ for k_, r in enumerate(prod):
         f = video[0]
     if not f:
         print('manca il file per:', tit, flush=True); continue
+    try:   # 17 nov: mai sotto gli 8 minuti (un video da 7:59 resta senza pubblicita' a meta'): si allunga il finale di pochi secondi
+        import subprocess as _sp
+        dur = float(_sp.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', f], capture_output=True, text=True).stdout.strip())
+        if 420 <= dur < 481:
+            ex = 481.5 - dur; g = f[:-4] + '_8min.mp4'
+            _sp.run(['ffmpeg', '-v', 'error', '-y', '-i', f, '-vf', f'tpad=stop_mode=clone:stop_duration={ex:.2f}', '-af', f'apad=pad_dur={ex:.2f}',
+                     '-c:v', 'libx264', '-preset', 'medium', '-crf', '18', '-c:a', 'aac', '-b:a', '192k', g], check=True)
+            f = g; print(f'video allungato da {dur:.1f} s a 8:01', flush=True)
+    except Exception as e:
+        print('durata non controllata:', e, flush=True)
     q = dt.datetime.fromisoformat(str(r.get('data_pubblicazione') or '').strip()[:16]).replace(tzinfo=ROMA)
     if q < dt.datetime.now(ROMA) + dt.timedelta(minutes=20):
         q = dt.datetime.now(ROMA) + dt.timedelta(minutes=30)

@@ -64,7 +64,7 @@ jobs:
       - name: Programmi (Chromium per disegnare le scene)
         timeout-minutes: 10
         run: |
-          pip install --quiet --break-system-packages playwright json-repair google-auth requests
+          pip install --quiet --break-system-packages playwright json-repair google-auth requests pillow   # 17 nov: senza pillow la copertina AI (senza banda) falliva e restava quella disegnata
           python3 -m playwright install --with-deps chromium
 
       - name: Riprendi copione e voce di un giro fallito (stessa riga)
