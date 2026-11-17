@@ -55,7 +55,8 @@ for k_, r in enumerate(prod):
             f = g; print(f'video allungato da {dur:.1f} s a 8:01', flush=True)
     except Exception as e:
         print('durata non controllata:', e, flush=True)
-    q = dt.datetime.fromisoformat(str(r.get('data_pubblicazione') or '').strip()[:16]).replace(tzinfo=ROMA)
+    dp = str(r.get('data_pubblicazione') or '').strip()[:16]
+    q = dt.datetime.fromisoformat(dp).replace(tzinfo=ROMA) if dp else dt.datetime.now(ROMA).replace(hour=17, minute=0, second=0, microsecond=0)   # 17 nov: riga senza data -> oggi alle 17:00
     if q < dt.datetime.now(ROMA) + dt.timedelta(minutes=20):
         q = dt.datetime.now(ROMA) + dt.timedelta(minutes=30)
     tags = [t.strip() for t in str(r.get('tag_seo') or '').split(',') if t.strip()]
