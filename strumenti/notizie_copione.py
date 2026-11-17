@@ -18,7 +18,7 @@ OGGI_D = dt.datetime.now(ZoneInfo('Europe/Rome')).date(); OGGI = OGGI_D.isoforma
 MESI_IT = ['GENNAIO', 'FEBBRAIO', 'MARZO', 'APRILE', 'MAGGIO', 'GIUGNO', 'LUGLIO', 'AGOSTO', 'SETTEMBRE', 'OTTOBRE', 'NOVEMBRE', 'DICEMBRE']
 LINGUE = [x.strip() for x in (E('LINGUE') or 'en,it').split(',') if x.strip()]
 MINUTI = float(E('MINUTI') or 9.5)
-PAROLE = int(MINUTI * 150)   # la voce legge circa 150 parole al minuto
+PAROLE = int(MINUTI * 175)   # 17 nov: la voce legge ~170 parole al minuto e la verifica fatti toglie il 10-15% delle frasi -> si scrive di piu', il video deve restare sopra gli 8 minuti (7:02 e 7:59 il 17 nov)
 VOCI = {'it': 'glnsgBC77wt5zOYU0szz', 'en': E('VOCE_EN') or 'uju3wxzG5OhpWcoi3SMy'}   # 16 nov (Giorgio): inglese = voce E, Michael C. Vincent (eleven_v3)
 SPESA = [0.0]
 
