@@ -469,8 +469,9 @@ def canale(cfg):
     except Exception:
         uscita_lungo = oggi
     slot = orari_liberi(cfg, prod, max(oggi + dt.timedelta(minutes=45), uscita_lungo + dt.timedelta(minutes=30)), len(fatti))
-    if RIGA and QUANTI:   # Short mancante: esce subito (tra 30 minuti), senza prendere gli orari dei prossimi giorni
-        slot = [oggi + dt.timedelta(minutes=30 + 20 * k) for k in range(len(fatti))]
+    if RIGA and QUANTI:   # Short mancante: negli orari liberi di OGGI (17 nov), se non ce ne sono esce subito (tra 30 minuti); mai i giorni dopo
+        oggi_liberi = [q for q in orari_liberi(cfg, prod, oggi + dt.timedelta(minutes=30), len(fatti)) if q.date() == oggi.date()]
+        slot = (oggi_liberi + [oggi + dt.timedelta(minutes=30 + 20 * k) for k in range(len(fatti))])[:len(fatti)]
     caricati = []
     for (f, x), q in zip(fatti, slot):
         sid = carica(tk, f, x, cfg, riga, str(riga.get('youtube_video_id')).strip(), q)
