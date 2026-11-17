@@ -1,0 +1,28 @@
+name: Notizie - sistema video caricato
+run-name: Sistema ${{ inputs.video_id }} (tag, descrizione, playlist)
+# 17 nov 2026 (Giorgio): rimette tag, #hashtag in fondo alla descrizione e playlist su un video notizie gia caricato. Nessuna spesa (solo quota YouTube).
+on:
+  workflow_dispatch:
+    inputs:
+      notizia: {description: 'copione json (notizie/auto/..._it.json)', type: string}
+      video_id: {description: 'id del video YouTube', type: string}
+      canale: {description: 'chiave in notizie/canali.json (guerra_it, tech_en, ...)', type: string}
+permissions:
+  contents: read
+jobs:
+  sistema:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Sistema
+        env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN_WWII_TESTIMONY: ${{ secrets.YT_REFRESH_TOKEN_WWII_TESTIMONY }}
+          YT_REFRESH_TOKEN_STORIA: ${{ secrets.YT_REFRESH_TOKEN_STORIA }}
+          YT_REFRESH_TOKEN_MAIN_STREET_ATLAS: ${{ secrets.YT_REFRESH_TOKEN_MAIN_STREET_ATLAS }}
+          YT_REFRESH_TOKEN_COSTO_VERO: ${{ secrets.YT_REFRESH_TOKEN_COSTO_VERO }}
+        run: |
+          tk=$(python3 -c "import json;print(json.load(open('notizie/canali.json'))['${{ inputs.canale }}']['token'])")
+          pl=$(python3 -c "import json;print(json.load(open('notizie/canali.json'))['${{ inputs.canale }}'].get('playlist',''))")
+          NOTIZIA="${{ inputs.notizia }}" SISTEMA_VIDEO="${{ inputs.video_id }}" PLAYLIST="$pl" YT_REFRESH_TOKEN="${!tk}" python3 strumenti/notizie_carica.py

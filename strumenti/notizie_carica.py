@@ -3,7 +3,7 @@
 "contenuti alterati/AI" = No, promozione a pagamento = No, copertina, playlist del filone, uscita all'ora del canale (17:00 italiane)
 o subito se l'ora e' gia' passata. Nella descrizione le fonti giornalistiche (credibilita'). Il primo commento lo scrive primo_commento.yml.
 Env: NOTIZIA (json del copione), VIDEO (mp4 1440p), COPERTINA, YT_REFRESH_TOKEN, YT_CLIENT_ID, YT_CLIENT_SECRET, ORA_USCITA (17:00), PLAYLIST"""
-import datetime as dt, json, os, sys, time, urllib.error, urllib.parse, urllib.request
+import datetime as dt, json, os, re, sys, time, urllib.error, urllib.parse, urllib.request
 from zoneinfo import ZoneInfo
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import descrizione as DESCR
@@ -29,6 +29,58 @@ def api(metodo, url, dati=None, tk=None):
     return json.loads(urllib.request.urlopen(req, timeout=120).read() or b'{}')
 
 
+def hashtag(tags, n=4):
+    """17 nov (Giorgio): in fondo alla descrizione i 3-4 tag piu' popolari come #hashtag (i primi della lista dopo il titolo, gia' in ordine di peso)."""
+    out = []
+    for t in tags[1:]:
+        h = '#' + ''.join(w[:1].upper() + w[1:] for w in re.findall(r"[^\W_]+", t))
+        if 2 < len(h) <= 22 and h.lower() not in [x.lower() for x in out]:
+            out.append(h)
+        if len(out) == n:
+            break
+    return ' '.join(out)
+
+
+def in_playlist(vid, nome_pl, tk):
+    """Playlist del filone nella lingua del canale (notizie/canali.json). 17 nov: una playlist appena creata da' 409 se ci si mette subito il video -> si aspetta e si riprova."""
+    pls = api('GET', 'https://www.googleapis.com/youtube/v3/playlists?part=snippet&mine=true&maxResults=50', tk=tk).get('items', [])
+    pid = next((p['id'] for p in pls if p['snippet']['title'].strip().lower() == nome_pl.lower()), None)
+    if not pid:
+        pid = api('POST', 'https://www.googleapis.com/youtube/v3/playlists?part=snippet,status', {'snippet': {'title': nome_pl}, 'status': {'privacyStatus': 'public'}}, tk)['id']
+    gia = api('GET', f'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId={pid}&maxResults=50', tk=tk).get('items', []) if pid else []
+    if any(i['snippet']['resourceId'].get('videoId') == vid for i in gia):
+        log('playlist: gia dentro', nome_pl); return
+    for k in range(5):
+        try:
+            api('POST', 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet', {'snippet': {'playlistId': pid, 'resourceId': {'kind': 'youtube#video', 'videoId': vid}}}, tk)
+            log('playlist:', nome_pl); return
+        except urllib.error.HTTPError as e:
+            if e.code not in (409, 500, 503) or k == 4:
+                raise
+            time.sleep(10 * (k + 1))
+
+
+def controlla(vid, tk, titolo, descr, tags):
+    """17 nov (Giorgio: su Fronte Aperto c'era solo il titolo nei tag): dopo il caricamento si rilegge il video da YouTube;
+    se tag o descrizione non sono quelli giusti si rimettono (videos.update, 50 unita' di quota) e si scrive cosa c'era."""
+    v = api('GET', f'https://www.googleapis.com/youtube/v3/videos?part=snippet&id={vid}', tk=tk)['items'][0]['snippet']
+    ora = v.get('tags') or []
+    log(f'tag su YouTube: {len(ora)} -> {ora[:20]}')
+    if len(ora) >= len(tags) and v.get('description', '').strip() == descr.strip():
+        log('tag e descrizione a posto'); return
+    sn = {'title': v['title'], 'categoryId': v.get('categoryId', '25'), 'description': descr, 'tags': tags}
+    for k in ('defaultLanguage', 'defaultAudioLanguage'):
+        if v.get(k):
+            sn[k] = v[k]
+    try:
+        api('PUT', 'https://www.googleapis.com/youtube/v3/videos?part=snippet', {'id': vid, 'snippet': sn}, tk)
+    except urllib.error.HTTPError as e:
+        log('YouTube rifiuta i tag:', e.code, e.read().decode()[:300])
+        sn['tags'] = [t for t in tags if len(t) <= 60]; api('PUT', 'https://www.googleapis.com/youtube/v3/videos?part=snippet', {'id': vid, 'snippet': sn}, tk)
+    v = api('GET', f'https://www.googleapis.com/youtube/v3/videos?part=snippet&id={vid}', tk=tk)['items'][0]['snippet']
+    log(f"tag dopo la sistemazione: {len(v.get('tags') or [])} | hashtag in descrizione: {v.get('description', '').strip().splitlines()[-1]}")
+
+
 def main():
     titolo = N['titolo'][:100]
     fonti = '\n'.join('- ' + u for u in (N.get('fonti_link') or [])[:12])
@@ -36,9 +88,9 @@ def main():
     cap_f = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'prove_video', 'notizie', N.get('nome', ''), 'capitoli.json')
     cap = json.load(open(cap_f)) if os.path.exists(cap_f) else []
     capitoli = '\n'.join(f"{c['t'] // 60}:{c['t'] % 60:02d} {c['titolo']}" for c in cap) if len(cap) >= 3 else ''
-    corpo = '\n\n'.join(x for x in [titolo, N.get('descrizione', ''), capitoli, ('Sources:\n' if N.get('lingua') == 'en' else 'Fonti:\n') + fonti if fonti else ''] if x)
-    descr = DESCR.con_titolo(titolo, corpo)[:4900]
     tags = DESCR.tag_con_titolo(titolo, N.get('tag') or [])
+    corpo = '\n\n'.join(x for x in [titolo, N.get('descrizione', ''), capitoli, ('Sources:\n' if N.get('lingua') == 'en' else 'Fonti:\n') + fonti if fonti else ''] if x)
+    descr = (DESCR.con_titolo(titolo, corpo)[:4700] + '\n\n' + hashtag(tags)).strip()
     lingua = N.get('lingua', 'en')
     ora = E('ORA_USCITA') or '17:00'
     oggi = dt.datetime.now(ZoneInfo('Europe/Rome'))
@@ -46,7 +98,11 @@ def main():
     status = {'privacyStatus': 'public', 'selfDeclaredMadeForKids': False, 'containsSyntheticMedia': False}
     if uscita > oggi + dt.timedelta(minutes=10):
         status['privacyStatus'] = 'private'; status['publishAt'] = uscita.astimezone(dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
-    tk = token(); size = os.path.getsize(E('VIDEO'))
+    tk = token()
+    nome_pl = E('PLAYLIST') or ('World Conflicts Today' if N.get('filone') == 'guerra' else 'Tech News')
+    if E('SISTEMA_VIDEO'):   # video gia caricato: solo tag, descrizione e playlist
+        vid = E('SISTEMA_VIDEO'); controlla(vid, tk, titolo, descr, tags); in_playlist(vid, nome_pl, tk); return
+    size = os.path.getsize(E('VIDEO'))
     sessione = DICH.sessione('https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&part=snippet,status',
                              {'snippet': {'title': titolo, 'description': descr, 'tags': tags, 'categoryId': '25', 'defaultLanguage': lingua, 'defaultAudioLanguage': lingua},
                               'status': status},
@@ -74,14 +130,12 @@ def main():
         log('copertina caricata')
     except Exception as e:
         log('copertina non caricata:', str(e)[:150])
-    nome_pl = E('PLAYLIST') or ('World Conflicts Today' if N.get('filone') == 'guerra' else 'Tech News')
     try:
-        pls = api('GET', 'https://www.googleapis.com/youtube/v3/playlists?part=snippet&mine=true&maxResults=50', tk=tk).get('items', [])
-        pid = next((p['id'] for p in pls if p['snippet']['title'].strip().lower() == nome_pl.lower()), None)
-        if not pid:
-            pid = api('POST', 'https://www.googleapis.com/youtube/v3/playlists?part=snippet,status', {'snippet': {'title': nome_pl}, 'status': {'privacyStatus': 'public'}}, tk)['id']
-        api('POST', 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet', {'snippet': {'playlistId': pid, 'resourceId': {'kind': 'youtube#video', 'videoId': vid}}}, tk)
-        log('playlist:', nome_pl)
+        controlla(vid, tk, titolo, descr, tags)
+    except Exception as e:
+        log('controllo tag non riuscito:', str(e)[:200])
+    try:
+        in_playlist(vid, nome_pl, tk)
     except Exception as e:
         log('playlist non riuscita:', str(e)[:150])
     if E('GITHUB_OUTPUT'):

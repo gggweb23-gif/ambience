@@ -22,8 +22,9 @@ def tag_con_titolo(titolo, tag):
     lista = [x.strip() for x in (tag.split(',') if isinstance(tag, str) else (tag or [])) if str(x).strip()]
     t = ' '.join(str(titolo or '').replace(',', ' ').replace('<', ' ').replace('>', ' ').split())
     out, lung = [], 0
-    for x in ([t] if t else []) + lista:
-        if any(x.lower() == y.lower() for y in out):
+    pulito = lambda x: ' '.join(str(x).replace(',', ' ').replace('<', ' ').replace('>', ' ').split())   # 17 nov: una virgola dentro un tag fa perdere i tag su YouTube
+    for x in ([t] if t else []) + [pulito(y) for y in lista]:
+        if not x or any(x.lower() == y.lower() for y in out):
             continue
         costo = len(x) + (2 if ' ' in x else 0) + (1 if out else 0)
         if lung + costo > 480:

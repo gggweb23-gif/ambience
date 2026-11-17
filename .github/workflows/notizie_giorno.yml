@@ -131,7 +131,8 @@ jobs:
             if [ -z "$tk" ]; then echo "canale ${FILONE}_$l non attivo: non carico $f"; continue; fi
             if [ -f video_pieni/$n.mp4 ]; then v=video_pieni/$n.mp4; else v=prove_video/notizie/$n/video.mp4; fi
             cid=$(python3 -c "import json;print(json.load(open('notizie/canali.json')).get('${FILONE}_$l',{}).get('channel_id',''))")
-            NOTIZIA=$f VIDEO=$v CANALE_ID="$cid" COPERTINA=prove_video/notizie/$n/copertina.jpg YT_REFRESH_TOKEN="${!tk}" python3 strumenti/notizie_carica.py || echo "CARICAMENTO NON RIUSCITO: $f"
+            pl=$(python3 -c "import json;print(json.load(open('notizie/canali.json')).get('${FILONE}_$l',{}).get('playlist',''))")
+            NOTIZIA=$f VIDEO=$v CANALE_ID="$cid" PLAYLIST="$pl" COPERTINA=prove_video/notizie/$n/copertina.jpg YT_REFRESH_TOKEN="${!tk}" python3 strumenti/notizie_carica.py || echo "CARICAMENTO NON RIUSCITO: $f"
           done
       - name: Salva
         if: ${{ always() }}
