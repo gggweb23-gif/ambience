@@ -62,6 +62,16 @@ jobs:
               produci, lingue, carica = E('PRODUCI_A_MANO'), E('LINGUE_A_MANO') or 'en,it', E('CARICA_A_MANO') or 'NO'
           else:
               produci = 'SI' if (en or it) else 'NO'; lingue = 'en' + (',it' if it else ''); carica = 'SI'
+          # mai due video dello stesso filone nello stesso giorno (giro programmato in ritardo + giro lanciato a mano)
+          import datetime as dt, subprocess
+          segno = f"notizie/fatti/{f}_{dt.date.today().isoformat()}.txt"
+          if produci == 'SI' and carica == 'SI':
+              if os.path.exists(segno):
+                  print('video di oggi gia in produzione/fatto da un altro giro:', open(segno).read()); produci = 'NO'
+              else:
+                  os.makedirs('notizie/fatti', exist_ok=True); open(segno, 'w').write(E('GITHUB_RUN_ID', ''))
+                  subprocess.run('git config user.name render-bot && git config user.email render-bot@users.noreply.github.com && '
+                                 f'git add {segno} && git commit -qm "Notizie {f}: giro di oggi" && (git pull --rebase -q; git push -q)', shell=True)
           open(E('GITHUB_ENV'), 'a').write(f'PRODUCI={produci}\nLINGUE={lingue}\nCARICA={carica}\n')
           print('filone', f, '| produci', produci, '| lingue', lingue, '| carica', carica, '| canali attivi:', [k for k, v in c.items() if isinstance(v, dict) and v.get('attivo') == 'SI'])
           PY
