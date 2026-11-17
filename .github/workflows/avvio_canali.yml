@@ -66,3 +66,22 @@ jobs:
           RIFAI_RIGA: ${{ inputs.rifai_riga }}
           COPIONE_DA: ${{ inputs.copione_da }}
         run: pip install -q google-auth requests && python3 strumenti/avvio_canali.py
+      - name: Video notizie del giorno (se GitHub non ha fatto partire il loro orario)
+        # 17 nov: gli orari di notizie_giorno.yml non sono partiti; questo avvio (affidabile) dalle 05:07 italiane li lancia se oggi non sono ancora partiti.
+        # Un doppio giro e' impossibile: notizie_giorno.yml segna notizie/fatti/<filone>_<data>.txt appena parte.
+        if: ${{ always() && inputs.canale == '' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ora=$(TZ=Europe/Rome date +%H); oggi=$(TZ=Europe/Rome date +%F)
+          if [ "$ora" -lt 5 ] || [ "$ora" -gt 11 ]; then echo "fuori orario ($ora)"; exit 0; fi
+          git pull -q || true
+          for f in tech guerra; do
+            attivi=$(python3 -c "import json;c=json.load(open('notizie/canali.json'));print(sum(1 for k,v in c.items() if k.startswith('$f'+'_') and isinstance(v,dict) and v.get('attivo')=='SI'))")
+            if [ "$attivi" = "0" ]; then echo "$f: nessun canale attivo"; continue; fi
+            if [ -f "notizie/fatti/${f}_${oggi}.txt" ]; then echo "$f: gia partito oggi"; continue; fi
+            in_corso=$(gh run list -R "$GITHUB_REPOSITORY" -w notizie_giorno.yml -L 10 --json status,displayTitle -q "[.[]|select(.status!=\"completed\" and (.displayTitle|test(\"Notizie $f\")))]|length")
+            if [ "$in_corso" != "0" ]; then echo "$f: giro gia in corso"; continue; fi
+            echo "{\"ref\":\"main\",\"inputs\":{\"filone\":\"$f\",\"da_canali\":\"SI\"}}" > /tmp/n.json
+            gh api -X POST "repos/$GITHUB_REPOSITORY/actions/workflows/notizie_giorno.yml/dispatches" --input /tmp/n.json && echo "$f: lanciato"
+          done

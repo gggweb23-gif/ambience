@@ -1,5 +1,5 @@
 name: Notizie del giorno
-run-name: Notizie ${{ inputs.filone || 'tech' }} ${{ inputs.produci == 'SI' && '(radar + video)' || '(radar)' }}
+run-name: Notizie ${{ inputs.filone || 'tech' }} ${{ (inputs.produci == 'SI' || inputs.da_canali == 'SI' || github.event_name == 'schedule') && '(radar + video)' || '(radar)' }}
 
 # Sistema notizie (16 nov 2026): ogni mattina il radar trova le notizie del filone piu' viste su YouTube, con una persona da mettere in copertina,
 # e decide se restare sull'onda di ieri o cambiare. Se produci = SI (a mano) o la variabile del repository NOTIZIE_PRODUCI = SI (ogni giorno):
@@ -19,6 +19,7 @@ on:
       carica: {description: 'SI = carica su YouTube (guerra: WWII Testimony)', default: 'NO', type: string}
       minuti: {description: 'durata del video in minuti (prova: 1.2)', default: '9.5', type: string}
       prova: {description: 'SI = prova (non tocca la storia di domani)', default: 'NO', type: string}
+      da_canali: {description: 'SI = come il giro del mattino: decide notizie/canali.json (lo usa avvio_canali.yml)', default: 'NO', type: string}
 
 concurrency:
   group: notizie-${{ inputs.filone || github.event.schedule }}
@@ -34,11 +35,12 @@ jobs:
     env:
       FILONE: ${{ inputs.filone || (github.event.schedule == '23 5 * * *' && 'guerra') || 'tech' }}
       LINGUE_A_MANO: ${{ inputs.lingue }}
-      PRODUCI_A_MANO: ${{ inputs.produci }}
+      PRODUCI_A_MANO: ${{ inputs.da_canali != 'SI' && inputs.produci || '' }}
       CARICA_A_MANO: ${{ inputs.carica }}
       BUDGET_VIDEO: '4.6'   # 16 nov 21:36, Giorgio: "Confermo" -> tetto 4 euro a video inglese (4,60 $); l'italiano riusa le immagini
       YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
       YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+      GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
       YT_REFRESH_TOKEN_WWII_TESTIMONY: ${{ secrets.YT_REFRESH_TOKEN_WWII_TESTIMONY }}
       YT_REFRESH_TOKEN_STORIA: ${{ secrets.YT_REFRESH_TOKEN_STORIA }}
       YT_REFRESH_TOKEN_MAIN_STREET_ATLAS: ${{ secrets.YT_REFRESH_TOKEN_MAIN_STREET_ATLAS }}
@@ -82,7 +84,7 @@ jobs:
           key: libreria-scene-${{ github.run_id }}
           restore-keys: libreria-scene-
       - name: Programmi
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null && pip install --quiet --break-system-packages pillow
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null && pip install --quiet --break-system-packages pillow google-auth requests
       - name: Radar
         if: ${{ inputs.salta_radar != 'SI' }}
         run: python3 strumenti/notizie_radar.py
@@ -107,6 +109,14 @@ jobs:
         with:
           path: libreria_scene
           key: libreria-scene-${{ github.run_id }}
+      - name: Video 1440p (artefatto)
+        if: ${{ always() && env.PRODUCI == 'SI' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: video-notizie
+          path: video_pieni/
+          retention-days: 14
+          if-no-files-found: ignore
       - name: Carica su YouTube (canali attivi)
         if: ${{ env.PRODUCI == 'SI' && env.CARICA == 'SI' }}
         run: |
@@ -116,16 +126,9 @@ jobs:
             tk=$(python3 -c "import json;c=json.load(open('notizie/canali.json')).get('${FILONE}_$l',{});print(c.get('token','') if c.get('attivo')=='SI' else '')")
             if [ -z "$tk" ]; then echo "canale ${FILONE}_$l non attivo: non carico $f"; continue; fi
             if [ -f video_pieni/$n.mp4 ]; then v=video_pieni/$n.mp4; else v=prove_video/notizie/$n/video.mp4; fi
-            NOTIZIA=$f VIDEO=$v COPERTINA=prove_video/notizie/$n/copertina.jpg YT_REFRESH_TOKEN="${!tk}" python3 strumenti/notizie_carica.py || echo "CARICAMENTO NON RIUSCITO: $f"
+            cid=$(python3 -c "import json;print(json.load(open('notizie/canali.json')).get('${FILONE}_$l',{}).get('channel_id',''))")
+            NOTIZIA=$f VIDEO=$v CANALE_ID="$cid" COPERTINA=prove_video/notizie/$n/copertina.jpg YT_REFRESH_TOKEN="${!tk}" python3 strumenti/notizie_carica.py || echo "CARICAMENTO NON RIUSCITO: $f"
           done
-      - name: Video 1440p (artefatto)
-        if: ${{ always() && env.PRODUCI == 'SI' }}
-        uses: actions/upload-artifact@v4
-        with:
-          name: video-notizie
-          path: video_pieni/
-          retention-days: 14
-          if-no-files-found: ignore
       - name: Salva
         if: ${{ always() }}
         run: |

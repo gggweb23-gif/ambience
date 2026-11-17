@@ -86,6 +86,38 @@ def main():
         log('playlist non riuscita:', str(e)[:150])
     if E('GITHUB_OUTPUT'):
         open(E('GITHUB_OUTPUT'), 'a').write(f'video_id={vid}\n')
+    try:
+        registra_per_shorts(vid, titolo, tags, uscita if 'publishAt' in status else oggi)
+    except Exception as e:
+        log('riga per gli Short non scritta:', str(e)[:200])
+
+
+def registra_per_shorts(vid, titolo, tags, uscita):
+    """17 nov (Giorgio: "gli Short devono partire anche sui nuovi canali"): il video notizie entra nel file di produzione del canale come riga
+    Completato, cosi' shorts.yml ne taglia gli Short come per gli altri canali. Il file del video e' nell'artifact video-notizie di questo giro."""
+    cid = E('CANALE_ID', '').strip()
+    if not cid or not E('GOOGLE_SA_KEY'):
+        return
+    import avvio_canali as A
+    _, _, canali = A.righe(A.CONFIGS)
+    cfg = next((c for c in canali if str(c.get('channel_id') or '').strip() == cid), None)
+    fid = str((cfg or {}).get('scout_production_sheet_id') or '').strip()
+    if not fid:
+        log('canale senza file di produzione:', cid); return
+    sch, h, prod = A.righe(fid)
+    for col in ('file_video',):
+        if col not in h:
+            pr = next(x['properties'] for x in A.api(fid, 'GET', '?fields=sheets.properties')['sheets'] if x['properties']['title'] == sch)
+            if pr['gridProperties']['columnCount'] < len(h) + 1:
+                A.api(fid, 'POST', ':batchUpdate', {'requests': [{'appendDimension': {'sheetId': pr['sheetId'], 'dimension': 'COLUMNS', 'length': 3}}]})
+            A.api(fid, 'POST', '/values:batchUpdate', {'valueInputOption': 'RAW', 'data': [{'range': f"'{sch}'!{A.lettera(len(h) + 1)}1", 'values': [[col]]}]})
+            h.append(col)
+    vals = {'status': 'Completato', 'youtube_video_id': vid, 'titolo_originale': titolo, 'titolo_italiano': titolo, 'tag_seo': ', '.join(tags),
+            'data_pubblicazione': uscita.strftime('%Y-%m-%d %H:%M'), 'data_inizio_produzione': dt.datetime.now(ZoneInfo('Europe/Rome')).strftime('%Y-%m-%d %H:%M'),
+            'nome_canale': 'NOTIZIE', 'file_video': f"video-notizie:{os.path.basename(E('VIDEO'))}@{E('GITHUB_RUN_ID', '')}"}
+    riga = [vals.get(c, '') for c in h]
+    A.api(fid, 'POST', '/values/' + urllib.parse.quote(f"'{sch}'!A{len(prod) + 2}") + ':append?valueInputOption=RAW&insertDataOption=INSERT_ROWS', {'values': [riga]})
+    log('riga per gli Short aggiunta nel file di produzione di', cid)
 
 
 if __name__ == '__main__':

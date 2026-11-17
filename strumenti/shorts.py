@@ -90,6 +90,16 @@ def scarica_sorgente(cid, riga, r, dur_yt, cfg_corrente=None):
         if not ok:
             log(f'  file scartato: dura {d / 60:.1f} min' + (f', su YouTube {dur_yt / 60:.1f} min' if dur_yt else ''))
         return ok
+    fv = str(r.get('file_video') or '').strip()
+    if fv.startswith('video-notizie:'):   # 17 nov: video notizie (artifact video-notizie del giro che l'ha prodotto, con dentro inglese e italiano)
+        nomef, _, run_id = fv[len('video-notizie:'):].partition('@')
+        for a in reversed(elenco('video-notizie')):
+            if run_id and str((a.get('workflow_run') or {}).get('id')) != run_id:
+                continue
+            for v in _scarica(a, tutti=True):
+                if os.path.basename(v) == nomef and giusto(v):
+                    return v
+        return None
     for nome in (f'shorts-{cid}-riga{riga}', f'DA CARICARE {cid}'):
         arts = elenco(nome)[-1:]
         for a in arts:

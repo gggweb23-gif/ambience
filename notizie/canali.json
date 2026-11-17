@@ -3,21 +3,25 @@
  "guerra_en": {
   "attivo": "SI",
   "canale": "WWII Testimony (diventera Frontline Explained), @WarRoomExplained-NEWS",
-  "token": "YT_REFRESH_TOKEN_WWII_TESTIMONY"
+  "token": "YT_REFRESH_TOKEN_WWII_TESTIMONY",
+  "channel_id": "WWII Testimony"
  },
  "guerra_it": {
   "attivo": "SI",
   "canale": "Fronte Aperto (ex Storia in Minuti), @FronteAperto",
-  "token": "YT_REFRESH_TOKEN_STORIA"
+  "token": "YT_REFRESH_TOKEN_STORIA",
+  "channel_id": "Storia in Minuti"
  },
  "tech_en": {
   "attivo": "SI",
   "canale": "Big Tech Explained (ex Billion Ruin), @BigTechExplained",
-  "token": "YT_REFRESH_TOKEN_MAIN_STREET_ATLAS"
+  "token": "YT_REFRESH_TOKEN_MAIN_STREET_ATLAS",
+  "channel_id": "Billion Ruin"
  },
  "tech_it": {
   "attivo": "SI",
   "canale": "Big Tech Spiegata (ex Costo Vero), @BigTechSpiegata",
-  "token": "YT_REFRESH_TOKEN_COSTO_VERO"
+  "token": "YT_REFRESH_TOKEN_COSTO_VERO",
+  "channel_id": "Costo Vero"
  }
 }
