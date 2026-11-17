@@ -1,0 +1,22 @@
+Canale: KAO PSICOLOGIA
+modo n8n: copertina per La psicologia delle persone che non bevono alcol | competitor: cIRnHqNygs8
+Video dal 2026-09-21 senza copertina nuova: 1
+              n8n_44021345909  La psicologia delle persone che non bevono alcol  [n8n]
+copia competitor cIRnHqNygs8 -> n8n_44021345909 (100% uguale): NON BEVONO / ALCOL
+  controllo immagine: {"testa_alta": 18, "scritte": true, "vestiti_uguali": false, "luoghi_uguali": true}
+  difetti trovati, rifaccio una volta: The two parts MUST be completely different kinds of places (e.g. a home living room vs a city street at night). Absolutely NO letters or words anywhere.
+  controllo immagine: {"testa_alta": 6.5, "scritte": false, "vestiti_uguali": false, "luoghi_uguali": false}
+zona libera troppo piccola: [0.682, 0.01, 0.735, 0.75]
+  controllo finale scritta: {"copre": true, "cosa": "The white card partially hides a person on the right side of the image, covering their upper body and head"}
+zona libera troppo piccola: [0.6829999999999999, 0.01, 0.733, 0.74]
+  controllo finale scritta: {"copre": true, "cosa": "The white card partially hides a person on the right side of the image - their upper body/torso is obscured by the card"}
+  riquadro ristretto 0.06 0.06
+  controllo finale scritta: {"copre": true, "cosa": "The white card partially obscures one person on the right side of the group"}
+  riquadro ristretto 0.12 0.1
+  controllo finale scritta: {"copre": true, "cosa": "The white card partially obscures one person on the right side of the group, hiding their upper body and head"}
+  controllo finale scritta: {"copre": true, "cosa": "The white card partially hides one person on the right side of the group, covering their upper body and face"}
+  ATTENZIONE: la scritta copre ancora parte della scena, copertina da controllare a mano
+copertina pronta: n8n_44021345909 NON BEVONO / ALCOL
+solo anteprima n8n_44021345909 La psicologia delle persone che non bevono alcol
+risposta a n8n: {'status': 'done', 'url': 'https://v3b.fal.media/files/b/0ab2c9d6/AMgplGapMNHs1BQku-95C_copertina_kao.jpg'}
+FATTO: 0 caricate su 1 | APPLICA = False
