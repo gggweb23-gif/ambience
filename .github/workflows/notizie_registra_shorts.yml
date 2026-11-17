@@ -1,0 +1,35 @@
+name: Notizie - riga per gli Short (a mano)
+# 17 nov: per i video notizie caricati prima che il giro scrivesse da solo la riga nel file di produzione (servono per gli Short).
+on:
+  workflow_dispatch:
+    inputs:
+      notizia: {description: 'json del copione (notizie/auto/...json)', type: string}
+      video_id: {description: 'id YouTube del video caricato', type: string}
+      canale_id: {description: 'channel_id (WWII Testimony, Storia in Minuti, Billion Ruin, Costo Vero)', type: string}
+      run_id: {description: 'id del giro notizie_giorno che ha prodotto il video (artifact video-notizie)', type: string}
+permissions:
+  contents: read
+jobs:
+  riga:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install -q --break-system-packages google-auth requests
+      - env:
+          GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
+          NOTIZIA: ${{ inputs.notizia }}
+          CANALE_ID: ${{ inputs.canale_id }}
+          GITHUB_RUN_ID: ${{ inputs.run_id }}
+        run: |
+          n=$(python3 -c "import json;print(json.load(open('$NOTIZIA'))['nome'])")
+          VIDEO=video_pieni/$n.mp4 python3 -c "
+          import sys, datetime as dt; sys.argv=['x']; sys.path.insert(0,'strumenti')
+          import os
+          os.environ['VIDEO']='video_pieni/$n.mp4'
+          import notizie_carica as C
+          from zoneinfo import ZoneInfo
+          import descrizione as D
+          t=C.N['titolo'][:100]; tags=D.tag_con_titolo(t, C.N.get('tag') or [])
+          u=dt.datetime.now(ZoneInfo('Europe/Rome')).replace(hour=17, minute=0, second=0, microsecond=0)
+          C.registra_per_shorts('${{ inputs.video_id }}', t, tags, u)"
