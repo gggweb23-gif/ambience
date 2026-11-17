@@ -20,7 +20,7 @@ jobs:
           GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
           NOTIZIA: ${{ inputs.notizia }}
           CANALE_ID: ${{ inputs.canale_id }}
-          GITHUB_RUN_ID: ${{ inputs.run_id }}
+          RUN_ID_VIDEO: ${{ inputs.run_id }}   # GITHUB_RUN_ID non si puo' sovrascrivere
         run: |
           n=$(python3 -c "import json;print(json.load(open('$NOTIZIA'))['nome'])")
           VIDEO=video_pieni/$n.mp4 python3 -c "

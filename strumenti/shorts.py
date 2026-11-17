@@ -97,9 +97,10 @@ def scarica_sorgente(cid, riga, r, dur_yt, cfg_corrente=None):
     fv = str(r.get('file_video') or '').strip()
     if fv.startswith('video-notizie:'):   # 17 nov: video notizie (artifact video-notizie del giro che l'ha prodotto, con dentro inglese e italiano)
         nomef, _, run_id = fv[len('video-notizie:'):].partition('@')
-        for a in reversed(elenco('video-notizie')):
-            if run_id and str((a.get('workflow_run') or {}).get('id')) != run_id:
-                continue
+        arts = list(reversed(elenco('video-notizie')))
+        # prima il giro scritto nella riga, poi gli altri (17 nov: righe registrate a mano con il numero di giro sbagliato; il nome del file e' unico)
+        arts = [a for a in arts if str((a.get('workflow_run') or {}).get('id')) == run_id] + [a for a in arts if str((a.get('workflow_run') or {}).get('id')) != run_id]
+        for a in arts[:12]:
             for v in _scarica(a, tutti=True):
                 if os.path.basename(v) == nomef and giusto(v):
                     FONTE['esatta'] = True; return v

@@ -176,7 +176,7 @@ def registra_per_shorts(vid, titolo, tags, uscita):
             h.append(col)
     vals = {'status': 'Completato', 'youtube_video_id': vid, 'titolo_originale': titolo, 'titolo_italiano': titolo, 'tag_seo': ', '.join(tags),
             'data_pubblicazione': uscita.strftime('%Y-%m-%d %H:%M'), 'data_inizio_produzione': dt.datetime.now(ZoneInfo('Europe/Rome')).strftime('%Y-%m-%d %H:%M'),
-            'nome_canale': 'NOTIZIE', 'file_video': f"video-notizie:{os.path.basename(E('VIDEO'))}@{E('GITHUB_RUN_ID', '')}"}
+            'nome_canale': 'NOTIZIE', 'file_video': f"video-notizie:{os.path.basename(E('VIDEO'))}@{E('RUN_ID_VIDEO') or E('GITHUB_RUN_ID', '')}"}
     riga = [vals.get(c, '') for c in h]
     A.api(fid, 'POST', '/values/' + urllib.parse.quote(f"'{sch}'!A{len(prod) + 2}") + ':append?valueInputOption=RAW&insertDataOption=INSERT_ROWS', {'values': [riga]})
     log('riga per gli Short aggiunta nel file di produzione di', cid)
