@@ -1,0 +1,1369 @@
+{
+ "titolo": "Jensen Huang vuole riprendersi Nvidia. Il board dice no",
+ "angolo": "Day 3: the board pushes back on the FT's comeback report via Reuters and CNBC sources, while Trump says it is not a bad idea and Kress faces her first earnings call.",
+ "descrizione": "Jensen Huang vuole riprendersi Nvidia. Il board dice no. Il Financial Times riporta che Huang ha discusso di un ritorno; Reuters e CNBC, citando fonti, affermano che il consiglio di amministrazione di Nvidia non lo sta valutando. Trump dice che \"certamente non è una cattiva idea\", mentre l'amministratrice delegata ad interim Colette Kress affronta martedì la sua prima conference call sugli utili. Ecco cosa è confermato, cosa è solo riportato e cosa succede ora.",
+ "tag": [
+  "Jensen Huang vuole riprendersi Nvidia. Il board dice no",
+  "Jensen Huang",
+  "Nvidia",
+  "CEO di Nvidia",
+  "ritorno di Huang",
+  "Colette Kress",
+  "utili Nvidia",
+  "Financial Times",
+  "Stand with Jensen",
+  "Rene Haas",
+  "Trump Nvidia",
+  "chip per l'IA",
+  "notizie tech",
+  "board di Nvidia"
+ ],
+ "fonti_link": [
+  "https://finance.yahoo.com/markets/stocks/articles/jensen-huang-discusses-comeback-nvidia-192628314.html",
+  "https://www.cnbc.com/2026/11/16/nvidia-jensen-huang-return-tech.html",
+  "https://www.thestar.com.my/business/business-news/2026/11/17/nvidia-rules-out-huang-comeback-as-campaign-for-his-return-grows",
+  "https://www.investing.com/news/stock-market-news/nvidia-board-not-discussing-jensen-huangs-return-as-ceo-cnbc-reports-5030688",
+  "https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000082/nvidiaannouncesceotransiti.htm",
+  "https://www.cnn.com/2026/11/13/business/nvidia-jensen-huang-affair-fallout-vis",
+  "https://www.bnnbloomberg.ca/business/company-news/2026/11/17/nvidia-rules-out-jensen-huang-comeback-as-campaign-for-his-return-grows/",
+  "https://clashreport.com/world/articles/huang-considers-a-return-as-nvidia-ceo-financial-times-reports-rode1scsi0j",
+  "https://finance.yahoo.com/technology/live/nvidia-live-updates-interim-ceo-kress-prepares-for-q3-earnings-with-huang-reportedly-planning-comeback-153114076.html",
+  "https://www.deltaplexnews.com/business-news/nvidia-set-to-issue-earnings-report-days-after-jensen-huang-stepped-down/",
+  "https://www.koreaherald.com/article/10939496",
+  "https://qz.com/nvidia-earnings-jensen-huang-resigned-ceo-kress-111626",
+  "https://www.cnn.com/2026/11/11/business/live-news/nvidia-jensen-huang-investigation-fallout",
+  "https://fortune.com/2026/11/11/nvidia-oust-jensen-huang-spy-affairs/",
+  "https://finance.yahoo.com/markets/article/nvidia-stock-steady-as-jensen-huang-reportedly-weighs-ceo-comeback-musk-backs-return-015644730.html",
+  "https://www.forbes.com/sites/zacharyfolk/2026/11/16/nvidia-shares-slip-in-premarket-as-jensen-huang-reportedly-weighs-ceo-comeback/",
+  "https://finance.yahoo.com/markets/stocks/articles/nvidia-stock-falls-reports-jensen-122345958.html",
+  "https://www.breitbart.com/news/nvidia-earnings-to-test-ai-boom-after-huangs-exit/",
+  "https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000036/nvda-20260512.htm",
+  "https://en.wikipedia.org/wiki/Nvidia"
+ ],
+ "personaggi": {
+  "huang": {
+   "commons": "Jensen Huang",
+   "chi": "Jensen Huang, cofondatore ed ex CEO di Nvidia",
+   "pose": {
+    "classico": {
+     "posa": "standing, hands folded, calm and focused"
+    }
+   }
+  },
+  "kress": {
+   "commons": "Colette Kress",
+   "chi": "Colette Kress, direttrice finanziaria e CEO ad interim di Nvidia",
+   "pose": {
+    "tablet": {
+     "posa": "holding a tablet, serious and composed"
+    }
+   }
+  },
+  "trump": {
+   "commons": "Donald Trump",
+   "chi": "Donald Trump, presidente degli Stati Uniti",
+   "pose": {
+    "deciso": {
+     "posa": "standing firm, determined expression"
+    }
+   }
+  },
+  "musk": {
+   "commons": "Elon Musk",
+   "chi": "Elon Musk, CEO di SpaceX e Tesla",
+   "pose": {
+    "telefono": {
+     "posa": "looking at a phone, thumb typing"
+    }
+   }
+  },
+  "investitore": {
+   "commons": "Brad Gerstner",
+   "chi": "Brad Gerstner, fondatore di Altimeter Capital",
+   "pose": {
+    "ordine": {
+     "posa": "standing in a suit, arms crossed, thoughtful"
+    }
+   }
+  }
+ },
+ "sets": {
+  "s01": {
+   "descr": "Empty glass corner office at dusk in Santa Clara, leather jacket draped on a chair, city lights blinking beyond the window",
+   "luogo": "SANTA CLARA, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "huang",
+     "posa": "classico",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s02": {
+   "descr": "Dark boardroom with a long polished table and eleven empty chairs, single lamp glowing overhead",
+   "effetto": "none",
+   "cast": []
+  },
+  "s03": {
+   "descr": "Giant stock-chart wall in red, falling arrows, empty trading floor at dawn",
+   "effetto": "none",
+   "cast": []
+  },
+  "s04": {
+   "descr": "Sunlit Nvidia-style campus lobby with a tall glass atrium and quiet reception desk",
+   "luogo": "SANTA CLARA, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s05": {
+   "descr": "Newsroom at night with rows of empty desks and glowing monitors showing abstract charts",
+   "effetto": "none",
+   "cast": []
+  },
+  "s06": {
+   "descr": "Close view of a silent phone lit on a wooden desk beside a coffee cup, night",
+   "effetto": "none",
+   "cast": []
+  },
+  "s07": {
+   "descr": "Small garage-style startup office from the 1990s with a whiteboard of diagrams and a computer tower",
+   "effetto": "none",
+   "cast": []
+  },
+  "s08": {
+   "descr": "Vintage diner booth at golden hour with empty cups and a window onto a California road",
+   "effetto": "none",
+   "cast": []
+  },
+  "s09": {
+   "descr": "Server hall with endless rows of blinking green racks, cool blue light",
+   "effetto": "none",
+   "cast": []
+  },
+  "s10": {
+   "descr": "Modern keynote stage with giant empty screen and spotlights, empty seats in dark auditorium",
+   "effetto": "none",
+   "cast": []
+  },
+  "s11": {
+   "descr": "Rooftop at sunset overlooking Silicon Valley, glowing glass towers",
+   "luogo": "SILICON VALLEY, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s12": {
+   "descr": "Stack of glossy magazine covers (blank) fanned on a desk in warm light",
+   "effetto": "none",
+   "cast": []
+  },
+  "s13": {
+   "descr": "Foggy morning over a quiet suburban street in California with a closed garage door",
+   "effetto": "none",
+   "cast": []
+  },
+  "s14": {
+   "descr": "Dim investigator's office with a corkboard of red strings and pins, no writing",
+   "effetto": "mirino",
+   "cast": []
+  },
+  "s15": {
+   "descr": "Washington Capitol dome at dusk with long shadows on the steps",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s16": {
+   "descr": "Closed-door congressional hearing room with an empty witness chair and microphones",
+   "effetto": "none",
+   "cast": []
+  },
+  "s17": {
+   "descr": "Boardroom window showing rain on glass, dark city beyond, empty leather chairs",
+   "effetto": "pioggia",
+   "cast": []
+  },
+  "s18": {
+   "descr": "Press podium with microphones and no one behind it, flash-lit backdrop",
+   "effetto": "none",
+   "cast": []
+  },
+  "s19": {
+   "descr": "Empty executive desk with a nameplate-free pedestal and a tidy stack of folders in morning light",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "kress",
+     "posa": "tablet",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s20": {
+   "descr": "Wall clock striking late evening in a dim corridor",
+   "effetto": "none",
+   "cast": []
+  },
+  "s21": {
+   "descr": "Phone screens glowing in a dark room, many hands-free, a sense of a crowd online",
+   "effetto": "none",
+   "cast": []
+  },
+  "s22": {
+   "descr": "Bright open-plan office with abandoned laptops and warm afternoon light",
+   "effetto": "none",
+   "cast": []
+  },
+  "s23": {
+   "descr": "Dark conference room with a table of whispering shadows on the wall, one lamp",
+   "effetto": "none",
+   "cast": []
+  },
+  "s24": {
+   "descr": "Sleek private jet cabin interior with leather seats, empty, dawn light in windows",
+   "effetto": "none",
+   "cast": []
+  },
+  "s25": {
+   "descr": "White House exterior with the North Lawn at midday, clear sky",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "trump",
+     "posa": "deciso",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s26": {
+   "descr": "Marine One helicopter on the lawn with rotors turning, golden light",
+   "effetto": "none",
+   "cast": []
+  },
+  "s27": {
+   "descr": "Oval Office with the Resolute desk, two armchairs, evening lamp glow",
+   "luogo": "STUDIO OVALE, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s28": {
+   "descr": "Stock exchange floor with empty trading posts and green-red lights",
+   "luogo": "NEW YORK, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s29": {
+   "descr": "Taipei skyline at night with a tall illuminated skyscraper glowing in colored light",
+   "luogo": "TAIPEI, TAIWAN",
+   "effetto": "none",
+   "cast": []
+  },
+  "s30": {
+   "descr": "Night market street in Taipei with lanterns and steam rising from stalls",
+   "luogo": "TAIPEI, TAIWAN",
+   "effetto": "none",
+   "cast": []
+  },
+  "s31": {
+   "descr": "Balance scale on a desk with a glowing chip on one side and a gavel on the other",
+   "effetto": "none",
+   "cast": []
+  },
+  "s32": {
+   "descr": "Wall of glowing computer chips on a silicon wafer macro, iridescent colors",
+   "effetto": "none",
+   "cast": []
+  },
+  "s33": {
+   "descr": "Empty trading desk with six monitors glowing red and a spilled coffee",
+   "effetto": "none",
+   "cast": []
+  },
+  "s34": {
+   "descr": "Long hallway of an investment firm with glass offices and city view at night",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "investitore",
+     "posa": "ordine",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s35": {
+   "descr": "Open laptop on a cafe table in rain-streaked window light",
+   "effetto": "pioggia",
+   "cast": []
+  },
+  "s36": {
+   "descr": "Boardroom table with a single empty chair pulled out, spotlight",
+   "effetto": "none",
+   "cast": []
+  },
+  "s37": {
+   "descr": "Ticking digital clock motif on a dark blue wall, abstract, no numbers readable",
+   "effetto": "none",
+   "cast": []
+  },
+  "s38": {
+   "descr": "Elon Musk-style launch pad at dawn with a rocket on the pad and steam venting",
+   "luogo": "TEXAS, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "musk",
+     "posa": "telefono",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s39": {
+   "descr": "Dim law office library with floor-to-ceiling bookshelves and a green banker lamp",
+   "effetto": "none",
+   "cast": []
+  },
+  "s40": {
+   "descr": "Quiet courtroom-like hearing chamber with wood panels and empty gallery",
+   "effetto": "none",
+   "cast": []
+  },
+  "s41": {
+   "descr": "Highway at dusk with car lights streaming toward a tall tech campus",
+   "effetto": "none",
+   "cast": []
+  },
+  "s42": {
+   "descr": "Dark executive suite with Huang-style leather jacket on a rack and one beam of light",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "huang",
+     "posa": "classico",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s43": {
+   "descr": "Data center cooling pipes and glowing blue cables in a long corridor",
+   "effetto": "none",
+   "cast": []
+  },
+  "s44": {
+   "descr": "Futuristic AI lab with robotic arms idle and soft pink light",
+   "effetto": "none",
+   "cast": []
+  },
+  "s45": {
+   "descr": "Single glowing chip on a velvet cushion under a museum spotlight",
+   "effetto": "none",
+   "cast": []
+  },
+  "s46": {
+   "descr": "Earnings call setup: a conference table with a speakerphone and glasses of water, pale morning light",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "kress",
+     "posa": "tablet",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s47": {
+   "descr": "Wall Street canyon at golden hour with tall towers",
+   "luogo": "NEW YORK, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s48": {
+   "descr": "Beijing skyline at dusk, hazy sun, modern towers",
+   "luogo": "PECHINO, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s49": {
+   "descr": "Airplane tarmac with a plane taking off into orange sunset",
+   "effetto": "none",
+   "cast": []
+  },
+  "s50": {
+   "descr": "Giant chessboard with chip-shaped pieces under a spotlight",
+   "effetto": "none",
+   "cast": []
+  },
+  "s51": {
+   "descr": "Foggy bridge at dawn with a solitary road lamp",
+   "effetto": "none",
+   "cast": []
+  },
+  "s52": {
+   "descr": "Cartoon courtroom scales shadow on a wall during sunset",
+   "effetto": "none",
+   "cast": []
+  },
+  "s53": {
+   "descr": "A quiet hotel conference hall with rows of chairs facing an empty podium",
+   "effetto": "none",
+   "cast": []
+  },
+  "s54": {
+   "descr": "Stack of headhunter portfolios on a desk beside a desk lamp, night",
+   "effetto": "none",
+   "cast": []
+  },
+  "s55": {
+   "descr": "UK chip design campus in Cambridge at morning with glass-and-brick buildings",
+   "luogo": "CAMBRIDGE, UK",
+   "effetto": "none",
+   "cast": []
+  },
+  "s56": {
+   "descr": "Boardroom with a crumpled paper ball on the floor and a half-open door",
+   "effetto": "none",
+   "cast": []
+  },
+  "s57": {
+   "descr": "Empty sports-stadium-sized screen wall of green and red lines at night",
+   "effetto": "none",
+   "cast": []
+  },
+  "s58": {
+   "descr": "Lobby elevator doors half open with warm light",
+   "effetto": "none",
+   "cast": []
+  },
+  "s59": {
+   "descr": "Rainy city street at night with reflections of neon",
+   "effetto": "pioggia",
+   "cast": []
+  },
+  "s60": {
+   "descr": "Calendar-like wall of paper sheets with highlighted days, no text, desk lamp",
+   "effetto": "none",
+   "cast": []
+  },
+  "s61": {
+   "descr": "Warm living-room with a closed laptop and a bookshelf, evening",
+   "effetto": "none",
+   "cast": []
+  },
+  "s62": {
+   "descr": "Ocean-view highway in Northern California at sunrise",
+   "effetto": "none",
+   "cast": []
+  },
+  "s63": {
+   "descr": "Dark stage with a single microphone stand in a spotlight",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "huang",
+     "posa": "classico",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s64": {
+   "descr": "Futuristic cityscape with data streams as glowing lines crossing the sky",
+   "effetto": "none",
+   "cast": []
+  },
+  "s65": {
+   "descr": "Empty meeting room with a speakerphone in the center and daylight through blinds",
+   "effetto": "none",
+   "cast": []
+  },
+  "s66": {
+   "descr": "Dim bar with empty stools and amber lights, quiet night",
+   "effetto": "none",
+   "cast": []
+  },
+  "s67": {
+   "descr": "Nvidia-style campus at sunrise with long shadows and an empty parking lot",
+   "luogo": "SANTA CLARA, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s68": {
+   "descr": "Phone on a table lighting up a dark kitchen, a notification glow",
+   "effetto": "none",
+   "cast": []
+  },
+  "s69": {
+   "descr": "Skyscraper window at night with a lone lit office floor",
+   "effetto": "none",
+   "cast": []
+  },
+  "s70": {
+   "descr": "Lone figure's empty chair on a stage under a falling spotlight",
+   "effetto": "none",
+   "cast": []
+  },
+  "s71": {
+   "descr": "Calm lake at dawn with mist rising, mountain silhouette",
+   "effetto": "none",
+   "cast": []
+  },
+  "s72": {
+   "descr": "Empty keynote hall with rows of red seats and a bright stage, curtains drawn",
+   "effetto": "none",
+   "cast": []
+  }
+ },
+ "scene": [
+  {
+   "testo": "Il consiglio di amministrazione di Nvidia non sta valutando il ritorno di Jensen Huang, hanno detto tre persone a Reuters.",
+   "fonti": [
+    "https://www.thestar.com.my/business/business-news/2026/11/17/nvidia-rules-out-huang-comeback-as-campaign-for-his-return-grows"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s01"
+   },
+   "grafica": {
+    "tipo": "titolo",
+    "testo": "IL BOARD DICE NO",
+    "sotto": "Reuters, citando tre persone"
+   }
+  },
+  {
+   "testo": "Eppure, a pochi giorni dal suo addio, il Financial Times riporta che sta valutando un ritorno, citando persone informate sui fatti.",
+   "fonti": [
+    "https://finance.yahoo.com/markets/stocks/articles/jensen-huang-discusses-comeback-nvidia-192628314.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s02"
+   }
+  },
+  {
+   "testo": "Nvidia ha perso circa 500 miliardi di dollari di valore di mercato da quando è scoppiato lo scandalo, secondo CBC e altri media.",
+   "fonti": [
+    "https://www.thestar.com.my/business/business-news/2026/11/17/nvidia-rules-out-huang-comeback-as-campaign-for-his-return-grows"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s03"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 800,
+    "decimali": 0,
+    "prefisso": "$",
+    "unita": "MILIARDI",
+    "sopra": "BRUCIATI IN BORSA"
+   }
+  },
+  {
+   "testo": "Può davvero un fondatore dimessosi tra le polemiche di uno scandalo rientrare nella sua stessa azienda?",
+   "fonti": [
+    "https://www.thestar.com.my/business/business-news/2026/11/17/nvidia-rules-out-huang-comeback-as-campaign-for-his-return-grows"
+   ],
+   "titolo_card": true,
+   "visivo": {
+    "tipo": "set",
+    "set": "s04"
+   }
+  },
+  {
+   "testo": "Prima di tutto, ciò che è confermato. Il 12 novembre Nvidia ha annunciato che Huang si è dimesso da CEO, con effetto immediato.",
+   "fonti": [
+    "https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000082/nvidiaannouncesceotransiti.htm"
+   ],
+   "capitolo": "COSA È CONFERMATO",
+   "visivo": {
+    "tipo": "set",
+    "set": "s05"
+   }
+  },
+  {
+   "testo": "La direttrice finanziaria Colette Kress è diventata CEO ad interim. Harvey Jones è diventato il primo presidente del consiglio di amministrazione della storia.",
+   "fonti": [
+    "https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000082/nvidiaannouncesceotransiti.htm"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s19"
+   }
+  },
+  {
+   "testo": "Il consiglio ha detto che cercherà un CEO permanente, tra candidati interni ed esterni.",
+   "fonti": [
+    "https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000082/nvidiaannouncesceotransiti.htm"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s54"
+   }
+  },
+  {
+   "testo": "Ciò che non è confermato: qualsiasi decisione di far tornare Huang. Nvidia non ne ha annunciata nessuna.",
+   "fonti": [
+    "https://clashreport.com/world/articles/huang-considers-a-return-as-nvidia-ceo-financial-times-reports-rode1scsi0j"
+   ],
+   "visivo": {
+    "tipo": "frase",
+    "testo": "Riportato non significa confermato"
+   }
+  },
+  {
+   "testo": "I portavoce di Nvidia e di Huang hanno rifiutato di commentare al Financial Times.",
+   "fonti": [
+    "https://clashreport.com/world/articles/huang-considers-a-return-as-nvidia-ceo-financial-times-reports-rode1scsi0j"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s06"
+   }
+  },
+  {
+   "testo": "Ma questo è solo l'inizio della storia.",
+   "fonti": [
+    "https://www.thestar.com.my/business/business-news/2026/11/17/nvidia-rules-out-huang-comeback-as-campaign-for-his-return-grows"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s07"
+   }
+  },
+  {
+   "testo": "Jensen Huang ha cofondato Nvidia nel 1993 e la guida come CEO da 33 anni.",
+   "fonti": [
+    "https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000036/nvda-20260512.htm"
+   ],
+   "capitolo": "IL FONDATORE",
+   "visivo": {
+    "tipo": "set",
+    "set": "s08"
+   }
+  },
+  {
+   "testo": "Ha portato Nvidia da startup a leader mondiale del calcolo accelerato, secondo i documenti ufficiali dell'azienda.",
+   "fonti": [
+    "https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000036/nvda-20260512.htm"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s09"
+   }
+  },
+  {
+   "testo": "A dicembre 2025 il Financial Times lo ha nominato Persona dell'anno.",
+   "fonti": [
+    "https://www.malaymail.com/amp/news/money/2025/12/12/nvidia-ceo-jensen-huang-is-financial-times-top-person-of-2025/201710"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s12"
+   }
+  },
+  {
+   "testo": "Huang detiene circa il 3,6 percento di Nvidia, secondo Yahoo Finance.",
+   "fonti": [
+    "https://fortune.com/2026/11/11/nvidia-oust-jensen-huang-spy-affairs/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s11"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 3.6,
+    "decimali": 1,
+    "prefisso": "",
+    "unita": "PER CENTO DEL CAPITALE",
+    "sopra": "QUOTA DI HUANG"
+   }
+  },
+  {
+   "testo": "Ha guidato l'azienda per 33 anni. Poi, in pochi giorni, tutto è crollato.",
+   "fonti": [
+    "https://fortune.com/2026/11/11/nvidia-oust-jensen-huang-spy-affairs/"
+   ],
+   "visivo": {
+    "tipo": "dossier",
+    "chi": "huang",
+    "posa": "classico",
+    "righe": [
+     "Ha fondato Nvidia nel 1993",
+     "CEO per 33 anni",
+     "Dimesso il 12 novembre"
+    ],
+    "timbro": "FONDATORE"
+   }
+  },
+  {
+   "testo": "Il consiglio di Nvidia ha avviato un'indagine dopo le notizie secondo cui Huang sarebbe stato preso di mira da un'operazione di spionaggio cinese.",
+   "fonti": [
+    "https://abcnews.com/US/nvidia-board-reportedly-preparing-oust-ceo-jensen-huang/story?id=138062059"
+   ],
+   "capitolo": "LA CADUTA",
+   "visivo": {
+    "tipo": "set",
+    "set": "s14"
+   }
+  },
+  {
+   "testo": "Huang ha ammesso di essere stato infedele. Secondo i report, la relazione sarebbe stata con Alice Huang, sospettata di essere una spia cinese.",
+   "fonti": [
+    "https://www.cbsnews.com/news/nvidia-ceo-jensen-huang-resigns/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s13"
+   }
+  },
+  {
+   "testo": "Verifica dei fatti: si tratta di notizie e sospetti dell'intelligence americana riportati dal New York Times, non di un accertamento giudiziario.",
+   "fonti": [
+    "https://www.cbsnews.com/news/nvidia-ceo-jensen-huang-resigns/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s31"
+   }
+  },
+  {
+   "testo": "Il New York Times ha anche riferito che Huang ha avuto una relazione con una subordinata, Kimberly Powell, dirigente di Nvidia che rispondeva direttamente a lui.",
+   "fonti": [
+    "https://www.cbsnews.com/news/nvidia-ceo-jensen-huang-resigns/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s22"
+   }
+  },
+  {
+   "testo": "Il consiglio di Nvidia ha annunciato giovedì mattina che Huang si era dimesso.",
+   "fonti": [
+    "https://www.cnn.com/2026/11/13/business/nvidia-jensen-huang-affair-fallout-vis"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s17"
+   }
+  },
+  {
+   "testo": "Le azioni Nvidia hanno chiuso in calo di circa il 4,3 percento il giorno delle dimissioni, dopo un crollo iniziale.",
+   "fonti": [
+    "https://www.cnn.com/2026/11/11/business/live-news/nvidia-jensen-huang-investigation-fallout"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s28"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 4,
+    "decimali": 0,
+    "prefisso": "-",
+    "unita": "PER CENTO",
+    "sopra": "AZIONI NVIDIA"
+   }
+  },
+  {
+   "testo": "Gli analisti di diverse banche hanno tagliato i prezzi obiettivo su Nvidia dopo l'uscita di Huang.",
+   "fonti": [
+    "https://finance.yahoo.com/markets/article/nvidia-stock-steady-as-jensen-huang-reportedly-weighs-ceo-comeback-musk-backs-return-015644730.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s33"
+   }
+  },
+  {
+   "testo": "Poi è arrivato il fine settimana, e una storia molto diversa.",
+   "fonti": [
+    "https://finance.yahoo.com/markets/stocks/articles/jensen-huang-discusses-comeback-nvidia-192628314.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s20"
+   }
+  },
+  {
+   "testo": "Domenica il Financial Times ha riferito che Huang sta valutando un ritorno, citando persone informate sui fatti.",
+   "fonti": [
+    "https://finance.yahoo.com/markets/stocks/articles/jensen-huang-discusses-comeback-nvidia-192628314.html"
+   ],
+   "capitolo": "L'INDISCREZIONE SUL RITORNO",
+   "visivo": {
+    "tipo": "set",
+    "set": "s42"
+   }
+  },
+  {
+   "testo": "Un alleato ha detto al FT che stavano mettendo insieme una \"war room\" di dirigenti della Silicon Valley per fare pressione a favore del suo ritorno.",
+   "fonti": [
+    "https://finance.yahoo.com/markets/stocks/articles/jensen-huang-discusses-comeback-nvidia-192628314.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s23"
+   }
+  },
+  {
+   "testo": "Lo stesso alleato ha detto che l'iniziativa aveva il sostegno di Huang e che avrebbero cercato di ottenere l'appoggio della Casa Bianca.",
+   "fonti": [
+    "https://finance.yahoo.com/markets/stocks/articles/jensen-huang-discusses-comeback-nvidia-192628314.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s11"
+   }
+  },
+  {
+   "testo": "\"Tutti quelli che contano nella tecnologia fuori dai laboratori di frontiera adorano Jensen.\"",
+   "fonti": [
+    "https://finance.yahoo.com/markets/stocks/articles/jensen-huang-discusses-comeback-nvidia-192628314.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s63"
+   },
+   "citazione": {
+    "chi": "huang",
+    "posa": "classico",
+    "testo": "Tutti quelli che contano nella tecnologia fuori dai laboratori di frontiera adorano Jensen"
+   }
+  },
+  {
+   "testo": "È quanto sostiene l'alleato non identificato, come riportato dal FT e ripreso da Reuters.",
+   "fonti": [
+    "https://finance.yahoo.com/markets/stocks/articles/jensen-huang-discusses-comeback-nvidia-192628314.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s37"
+   }
+  },
+  {
+   "testo": "Due azionisti, Brad Gerstner di Altimeter e Gavin Baker di Atreides, hanno scritto venerdì una lettera aperta al consiglio.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/16/nvidia-jensen-huang-return-tech.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s34"
+   }
+  },
+  {
+   "testo": "Hanno esortato i consiglieri a tenere aperte tutte le opzioni, incluso il ritorno di Huang.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/16/nvidia-jensen-huang-return-tech.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s69"
+   }
+  },
+  {
+   "testo": "La lettera non chiedeva la reintegrazione immediata e riconosceva al consiglio la prerogativa di decidere diversamente.",
+   "fonti": [
+    "https://finance.yahoo.com/markets/stocks/articles/nvidia-stock-falls-reports-jensen-122345958.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s52"
+   }
+  },
+  {
+   "testo": "Una petizione online ha raccolto quasi 180.000 firme, secondo CNBC. Reuters ne ha contate più di 180.200.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/16/nvidia-jensen-huang-return-tech.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s21"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 180000,
+    "decimali": 0,
+    "prefisso": "~",
+    "unita": "FIRME",
+    "sopra": "PETIZIONE PER HUANG"
+   }
+  },
+  {
+   "testo": "Elon Musk ha sostenuto la petizione ed è nell'elenco dei firmatari.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/16/nvidia-jensen-huang-return-tech.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s38"
+   }
+  },
+  {
+   "testo": "Tra gli altri firmatari c'è il CEO di Epic Games Tim Sweeney, e anche Garry Tan di Y Combinator sostiene la campagna.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/16/nvidia-jensen-huang-return-tech.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s44"
+   }
+  },
+  {
+   "testo": "Ma il consiglio ha un messaggio diverso.",
+   "fonti": [
+    "https://www.thestar.com.my/business/business-news/2026/11/17/nvidia-rules-out-huang-comeback-as-campaign-for-his-return-grows"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s56"
+   }
+  },
+  {
+   "testo": "Il consiglio di Nvidia non sta valutando il ritorno di Jensen, hanno detto a Reuters tre persone informate.",
+   "fonti": [
+    "https://www.thestar.com.my/business/business-news/2026/11/17/nvidia-rules-out-huang-comeback-as-campaign-for-his-return-grows"
+   ],
+   "capitolo": "LA RISPOSTA DEL BOARD",
+   "visivo": {
+    "tipo": "set",
+    "set": "s02"
+   }
+  },
+  {
+   "testo": "Lo dicono tre persone che hanno parlato con Reuters. Nvidia non lo ha dichiarato ufficialmente.",
+   "fonti": [
+    "https://www.thestar.com.my/business/business-news/2026/11/17/nvidia-rules-out-huang-comeback-as-campaign-for-his-return-grows"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s58"
+   }
+  },
+  {
+   "testo": "Lunedì anche CNBC ha riferito lo stesso, citando una persona informata sui fatti.",
+   "fonti": [
+    "https://www.investing.com/news/stock-market-news/nvidia-board-not-discussing-jensen-huangs-return-as-ceo-cnbc-reports-5030688"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s65"
+   }
+  },
+  {
+   "testo": "Il consiglio sarebbe concentrato sull'indagine sulla condotta di Huang, non sul suo ritorno.",
+   "fonti": [
+    "https://www.investing.com/news/stock-market-news/nvidia-board-not-discussing-jensen-huangs-return-as-ceo-cnbc-reports-5030688"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s40"
+   }
+  },
+  {
+   "testo": "Nvidia ha incaricato lo studio legale Wachtell Lipton di guidare l'inchiesta.",
+   "fonti": [
+    "https://www.investing.com/news/stock-market-news/nvidia-board-not-discussing-jensen-huangs-return-as-ceo-cnbc-reports-5030688"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s39"
+   }
+  },
+  {
+   "testo": "Verificherà se siano stati compromessi la sicurezza nazionale o i segreti aziendali.",
+   "fonti": [
+    "https://www.investing.com/news/stock-market-news/nvidia-board-not-discussing-jensen-huangs-return-as-ceo-cnbc-reports-5030688"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s51"
+   }
+  },
+  {
+   "testo": "Venerdì un rappresentante del consiglio ha detto soltanto che si stava scegliendo una società di ricerca di dirigenti.",
+   "fonti": [
+    "https://www.investing.com/news/stock-market-news/nvidia-board-not-discussing-jensen-huangs-return-as-ceo-cnbc-reports-5030688"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s50"
+   }
+  },
+  {
+   "testo": "Il FT ha riferito anche che il consiglio ha sondato il CEO di Arm Rene Haas come possibile successore.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/16/nvidia-jensen-huang-return-tech.html"
+   ],
+   "visivo": {
+    "tipo": "mappa",
+    "centro": [
+     -60,
+     45
+    ],
+    "larghezza": 120,
+    "paesi": [
+     {
+      "iso": "USA",
+      "colore": "verde"
+     },
+     {
+      "iso": "GBR",
+      "colore": "azzurro"
+     }
+    ],
+    "punti": [
+     {
+      "lon": -121.96,
+      "lat": 37.35,
+      "nome": "SANTA CLARA"
+     },
+     {
+      "lon": 0.12,
+      "lat": 52.2,
+      "nome": "CAMBRIDGE"
+     }
+    ],
+    "frecce": [
+     {
+      "da": [
+       -121.96,
+       37.35
+      ],
+      "a": [
+       0.12,
+       52.2
+      ],
+      "colore": "giallo"
+     }
+    ]
+   }
+  },
+  {
+   "testo": "Arm è un'azienda britannica di progettazione di chip. Nvidia non ha confermato pubblicamente il contatto.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/16/nvidia-jensen-huang-return-tech.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s55"
+   }
+  },
+  {
+   "testo": "Ma il consiglio non è l'unico potere in questa vicenda.",
+   "fonti": [
+    "https://www.deltaplexnews.com/business-news/nvidia-set-to-issue-earnings-report-days-after-jensen-huang-stepped-down/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s41"
+   }
+  },
+  {
+   "testo": "Lunedì il presidente Trump ha detto, sul ritorno di Huang: \"Certamente non è una cattiva idea.\"",
+   "fonti": [
+    "https://www.deltaplexnews.com/business-news/nvidia-set-to-issue-earnings-report-days-after-jensen-huang-stepped-down/"
+   ],
+   "capitolo": "WASHINGTON SI ESPRIME",
+   "visivo": {
+    "tipo": "set",
+    "set": "s25"
+   },
+   "citazione": {
+    "chi": "trump",
+    "posa": "deciso",
+    "testo": "certamente non è una cattiva idea"
+   }
+  },
+  {
+   "testo": "Ha detto anche che \"non gli dispiacerebbe affatto vederlo\", secondo LBC.",
+   "fonti": [
+    "https://www.breitbart.com/news/nvidia-earnings-to-test-ai-boom-after-huangs-exit/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s26"
+   }
+  },
+  {
+   "testo": "\"Penso che abbia imparato una grande lezione.\"",
+   "fonti": [
+    "https://www.thestar.com.my/business/business-news/2026/11/17/nvidia-rules-out-huang-comeback-as-campaign-for-his-return-grows"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s27"
+   },
+   "citazione": {
+    "chi": "trump",
+    "posa": "deciso",
+    "testo": "Penso che abbia imparato una grande lezione"
+   }
+  },
+  {
+   "testo": "Interrogato sulle notizie secondo cui Alice Huang sarebbe un'agente cinese sospetta, Trump ha risposto: \"Non so se sia una spia.\"",
+   "fonti": [
+    "https://www.deltaplexnews.com/business-news/nvidia-set-to-issue-earnings-report-days-after-jensen-huang-stepped-down/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s15"
+   }
+  },
+  {
+   "testo": "Il Washington Post ha riferito che le operazioni di Trump quest'anno suggeriscono che a fine agosto detenesse azioni Nvidia per un valore compreso tra 13 e 62 milioni di dollari.",
+   "fonti": [
+    "https://www.thestar.com.my/business/business-news/2026/11/17/nvidia-rules-out-huang-comeback-as-campaign-for-his-return-grows"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s47"
+   },
+   "grafica": {
+    "tipo": "titolo",
+    "testo": "DA 13 A 62 MILIONI",
+    "sotto": "Washington Post: azioni Nvidia di Trump, agosto"
+   }
+  },
+  {
+   "testo": "Intanto il Congresso aspetta. Le commissioni della Camera chiedono la testimonianza di Huang per il primo dicembre.",
+   "fonti": [
+    "https://www.cnn.com/2026/11/13/business/nvidia-jensen-huang-affair-fallout-vis"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s16"
+   }
+  },
+  {
+   "testo": "Lunedì Trump è partito per un viaggio in Asia, che include la Cina, dove dovrebbe incontrare il presidente Xi Jinping.",
+   "fonti": [
+    "https://www.koreaherald.com/article/10939496"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s48"
+   }
+  },
+  {
+   "testo": "C'è un altro luogo in cui la caduta di Huang si fa sentire.",
+   "fonti": [
+    "https://lufkindailynews.com/news_reuters/business/nvidia-rules-out-huang-comeback-as-campaign-for-his-return-grows/article_93f708a8-de2f-502e-a777-d866d05d1df8.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s49"
+   }
+  },
+  {
+   "testo": "Taiwan, dove Huang è nato e dove gode di uno status da celebrità chiamato Jensanity.",
+   "fonti": [
+    "https://lufkindailynews.com/news_reuters/business/nvidia-rules-out-huang-comeback-as-campaign-for-his-return-grows/article_93f708a8-de2f-502e-a777-d866d05d1df8.html"
+   ],
+   "capitolo": "JENSANITY",
+   "visivo": {
+    "tipo": "mappa",
+    "centro": [
+     121,
+     24
+    ],
+    "larghezza": 16,
+    "paesi": [
+     {
+      "iso": "TWN",
+      "colore": "verde"
+     }
+    ],
+    "punti": [
+     {
+      "lon": 121.56,
+      "lat": 25.03,
+      "nome": "TAIPEI"
+     }
+    ],
+    "frecce": [],
+    "zoom_su": [
+     121.56,
+     25.03
+    ]
+   }
+  },
+  {
+   "testo": "Gli investitori, però, sono più divisi.",
+   "fonti": [
+    "https://www.bnnbloomberg.ca/business/company-news/2026/11/17/nvidia-rules-out-jensen-huang-comeback-as-campaign-for-his-return-grows/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s57"
+   }
+  },
+  {
+   "testo": "Un investitore istituzionale, parlando in forma anonima, ha detto a Reuters che sarebbe cauto su un ritorno di Huang, osservando che Apple e Microsoft sono prosperate dopo l'uscita dei loro CEO visionari.",
+   "fonti": [
+    "https://www.thestar.com.my/business/business-news/2026/11/17/nvidia-rules-out-huang-comeback-as-campaign-for-his-return-grows"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s66"
+   }
+  },
+  {
+   "testo": "Il ricercatore indipendente Richard Windsor ha detto a Reuters che gli azionisti sarebbero alla fine meglio serviti dal suo ritorno.",
+   "fonti": [
+    "https://lufkindailynews.com/news_reuters/business/nvidia-rules-out-huang-comeback-as-campaign-for-his-return-grows/article_93f708a8-de2f-502e-a777-d866d05d1df8.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s35"
+   }
+  },
+  {
+   "testo": "Gli analisti di T Rowe Price hanno detto che una transizione potrebbe richiedere una nuova struttura, più che un nuovo dirigente.",
+   "fonti": [
+    "https://lufkindailynews.com/news_reuters/business/nvidia-rules-out-huang-comeback-as-campaign-for-his-return-grows/article_93f708a8-de2f-502e-a777-d866d05d1df8.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s64"
+   }
+  },
+  {
+   "testo": "Ora arriva la prima vera prova. Martedì, dopo la chiusura dei mercati, Nvidia presenta i risultati del terzo trimestre.",
+   "fonti": [
+    "https://qz.com/nvidia-earnings-jensen-huang-resigned-ceo-kress-111626"
+   ],
+   "capitolo": "LA PRIMA PROVA DI KRESS",
+   "visivo": {
+    "tipo": "set",
+    "set": "s46"
+   }
+  },
+  {
+   "testo": "Gli analisti si aspettano ricavi per circa 109,1 miliardi di dollari, in crescita del 91 percento, secondo CNBC e LSEG.",
+   "fonti": [
+    "https://qz.com/nvidia-earnings-jensen-huang-resigned-ceo-kress-111626"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s43"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 109.1,
+    "decimali": 1,
+    "prefisso": "$",
+    "unita": "MILIARDI",
+    "sopra": "RICAVI ATTESI"
+   }
+  },
+  {
+   "testo": "Stavolta la conference call è guidata dalla CEO ad interim Colette Kress, che dovrebbe ricevere domande sulla ricerca del nuovo leader.",
+   "fonti": [
+    "https://finance.yahoo.com/technology/live/nvidia-live-updates-interim-ceo-kress-prepares-for-q3-earnings-with-huang-reportedly-planning-comeback-153114076.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s19"
+   }
+  },
+  {
+   "testo": "Secondo CNBC, è probabile che venga incalzata sulle vendite in Cina, sull'esposizione ai neocloud e sulla leadership dell'azienda.",
+   "fonti": [
+    "https://qz.com/nvidia-earnings-jensen-huang-resigned-ceo-kress-111626"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s67"
+   }
+  },
+  {
+   "testo": "Kress ha detto di essere impegnata a \"costruire sulle straordinarie fondamenta create da Jensen negli ultimi 33 anni.\"",
+   "fonti": [
+    "https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000082/nvidiaannouncesceotransiti.htm"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s68"
+   },
+   "citazione": {
+    "chi": "kress",
+    "posa": "tablet",
+    "testo": "Sono impegnata a costruire sulle straordinarie fondamenta create da Jensen negli ultimi 33 anni"
+   }
+  },
+  {
+   "testo": "L'analista Dan Ives, secondo Newsweek, respinge il ritorno di Huang nonostante la spinta degli azionisti.",
+   "fonti": [
+    "https://www.newsweek.com/dan-ives-jensen-huang-nvidia-ceo-comeback-12717954"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s62"
+   }
+  },
+  {
+   "testo": "Dunque, cosa sappiamo davvero? Huang si è dimesso, Kress è CEO ad interim e la ricerca di un CEO permanente è in corso.",
+   "fonti": [
+    "https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000082/nvidiaannouncesceotransiti.htm"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s05"
+   }
+  },
+  {
+   "testo": "Il FT riporta che sta valutando un ritorno. Fonti di Reuters e CNBC dicono che il consiglio non lo sta considerando.",
+   "fonti": [
+    "https://www.thestar.com.my/business/business-news/2026/11/17/nvidia-rules-out-huang-comeback-as-campaign-for-his-return-grows",
+    "https://www.investing.com/news/stock-market-news/nvidia-board-not-discussing-jensen-huangs-return-as-ceo-cnbc-reports-5030688"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s05"
+   }
+  },
+  {
+   "testo": "Le commissioni della Camera chiedono Huang per il primo dicembre. L'indagine esterna del consiglio, affidata a Wachtell Lipton, è ancora in corso, secondo CNBC.",
+   "fonti": [
+    "https://www.cnn.com/2026/11/13/business/nvidia-jensen-huang-affair-fallout-vis"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s60"
+   }
+  },
+  {
+   "testo": "Seguite questa storia, perché è ancora in evoluzione.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/16/nvidia-jensen-huang-return-tech.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s67"
+   }
+  }
+ ],
+ "copertina": {
+  "sfondo": "Dark empty Nvidia-style boardroom with a long polished table, a single empty chair pulled out, red stock-chart glow through the window, dramatic shadows",
+  "personaggio": "huang",
+  "posa": "classico",
+  "lato": "dx",
+  "righe": [
+   "HUANG VUOLE TORNARE",
+   "IL BOARD DICE NO"
+  ],
+  "evidenzia": 2
+ },
+ "verifica": {
+  "correzioni": 65,
+  "scene_tolte": 19
+ },
+ "lingua": "it",
+ "nome": "2026-11-17_jensen_huang_weighs_comeback_as_nvidia_c_it",
+ "data": "17 NOVEMBRE 2026",
+ "etichetta": "ULTIM'ORA",
+ "musica": "tensione",
+ "voce": "glnsgBC77wt5zOYU0szz",
+ "budget_dollari": 0.6,
+ "storia": "Jensen Huang weighs comeback as Nvidia CEO after ouster, FT reports (reported, not confirmed by Nvidia)",
+ "filone": "tech",
+ "materiali_da": "2026-11-17_jensen_huang_weighs_comeback_as_nvidia_c_en"
+}
