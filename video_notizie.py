@@ -269,7 +269,9 @@ def posa(chi, nome_posa):
             if k < 2 and haiku_immagine(im, DIFETTI).startswith('SI'):
                 log('caricatura con un difetto, la rifaccio:', chi, nome_posa); continue
             scontorna(url, dest); log('caricatura pronta:', chi, nome_posa); return dest
-        except RuntimeError:
+        except RuntimeError as e:
+            if 'tetto' in str(e):
+                log('budget finito, caricatura saltata:', chi, nome_posa); return None
             raise
         except Exception as e:
             log('caricatura non riuscita, riprovo:', chi, str(e)[:200]); time.sleep(4)
@@ -321,7 +323,9 @@ def sfondo(chiave):
                     log('sfondo scartato:', chiave, esito[:60]); continue
             im = im.resize((GW, GH), Image.LANCZOS) if im.size != (GW, GH) else im
             im.filter(ImageFilter.UnsharpMask(radius=1.2, percent=40, threshold=2)).save(dest, quality=94); return dest
-        except RuntimeError:
+        except RuntimeError as e:
+            if 'tetto' in str(e):   # 17 nov: soldi finiti -> questa scena riusa la precedente, il video si fa lo stesso (mai fallire tutto)
+                log('budget finito, scena saltata:', chiave); return None
             raise
         except Exception as e:
             log('sfondo non riuscito, riprovo:', chiave, str(e)[:200]); time.sleep(4)
@@ -1245,7 +1249,7 @@ def main():
     pose = [p for p in pose if p[1] and p[0] in (N.get('personaggi') or {})]
     # tetto di spesa: se le scene disegnate non ci stanno, le ultime riusano la scena precedente (il video si fa sempre)
     nuove_pose = sum(1 for c, p in pose if not os.path.exists(os.path.join(CAR, c, p + '.png')))
-    posti = int((TETTO - CO.totale() - nuove_pose * .1 - .12) / .05)
+    posti = int((TETTO - CO.totale() - nuove_pose * .12 - .25) / .065)   # 17 nov: costo vero medio per scena (scarti compresi) ~0,06 $
     gratis = [k for k in ordine if os.path.exists(os.path.join(LIB, str((sets.get(k) or {}).get('lib')) + '.jpg'))]   # luoghi dalla libreria: non costano
     if not N.get('materiali_da') and len(ordine) - len(gratis) > posti:
         nuovi = [k for k in ordine if k not in gratis]

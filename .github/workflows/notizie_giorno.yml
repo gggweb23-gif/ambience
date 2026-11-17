@@ -19,6 +19,7 @@ on:
       carica: {description: 'SI = carica su YouTube (guerra: WWII Testimony)', default: 'NO', type: string}
       minuti: {description: 'durata del video in minuti (prova: 1.2)', default: '9.5', type: string}
       prova: {description: 'SI = prova (non tocca la storia di domani)', default: 'NO', type: string}
+      copione: {description: 'Riparazione: rifai solo il video da questi copioni gia scritti (es. notizie/auto/x_en.json, separati da spazio), senza radar e senza ripagare Claude', default: '', type: string}
       da_canali: {description: 'SI = come il giro del mattino: decide notizie/canali.json (lo usa avvio_canali.yml)', default: 'NO', type: string}
 
 concurrency:
@@ -86,7 +87,7 @@ jobs:
       - name: Programmi
         run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null && pip install --quiet --break-system-packages pillow google-auth requests
       - name: Radar
-        if: ${{ inputs.salta_radar != 'SI' }}
+        if: ${{ inputs.salta_radar != 'SI' && inputs.copione == '' }}
         run: python3 strumenti/notizie_radar.py
       - name: Salva radar
         run: |
@@ -96,7 +97,9 @@ jobs:
       - name: Copione (con fonti verificate)
         id: copione
         if: ${{ env.PRODUCI == 'SI' }}
-        run: python3 strumenti/notizie_copione.py
+        run: |
+          if [ -n "${{ inputs.copione }}" ]; then echo "file=${{ inputs.copione }}" >> "$GITHUB_OUTPUT"; echo "copioni gia scritti: ${{ inputs.copione }}"; exit 0; fi
+          python3 strumenti/notizie_copione.py
       - name: Video
         if: ${{ env.PRODUCI == 'SI' }}
         run: |
