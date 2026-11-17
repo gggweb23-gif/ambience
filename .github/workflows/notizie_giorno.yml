@@ -36,6 +36,7 @@ jobs:
     env:
       FILONE: ${{ inputs.filone || (github.event.schedule == '23 5 * * *' && 'guerra') || 'tech' }}
       LINGUE_A_MANO: ${{ inputs.lingue }}
+      COPIONE_RIPARA: ${{ inputs.copione }}
       PRODUCI_A_MANO: ${{ inputs.da_canali != 'SI' && inputs.produci || '' }}
       CARICA_A_MANO: ${{ inputs.carica }}
       BUDGET_VIDEO: '4.6'   # 16 nov 21:36, Giorgio: "Confermo" -> tetto 4 euro a video inglese (4,60 $); l'italiano riusa le immagini
@@ -68,7 +69,7 @@ jobs:
           # mai due video dello stesso filone nello stesso giorno (giro programmato in ritardo + giro lanciato a mano)
           import datetime as dt, subprocess
           segno = f"notizie/fatti/{f}_{dt.date.today().isoformat()}.txt"
-          if produci == 'SI' and carica == 'SI':
+          if produci == 'SI' and carica == 'SI' and not E('COPIONE_RIPARA'):   # una riparazione (copione gia scritto) passa sempre
               if os.path.exists(segno):
                   print('video di oggi gia in produzione/fatto da un altro giro:', open(segno).read()); produci = 'NO'
               else:
