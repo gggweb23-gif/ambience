@@ -1,12 +1,12 @@
 # Radar notizie guerra — 2026-11-17
 
-**Scelta:** Ukraine hits Kerch (Crimea) bridge in record 1,300+ drone attack; Russia says it intercepted them (AP, BBC, Bloomberg, Guardian). Russia also struck two major Kyiv bridges with ballistic missiles (BBC, DW) (Volodymyr Zelensky) — l'onda di ieri e' ancora forte: si resta con un angolo nuovo
+**Scelta:** US intel reportedly shows Iran planning a 'dirty bomb' attack in Washington; Trump: 'we take it very seriously' (Donald Trump) — la storia con piu' views all'ora oggi
 
 | # | Storia | Persona | Views all'ora (EN+IT) | Views 3 gg EN | Views 3 gg IT | Video lunghi EN |
 |---|---|---|---|---|---|---|
-| 1 | CNN reports US intel indicates Iran developing 'dirty bomb' plans targeting Washington officials; White House says 'no credible threat' | Ali Khamenei | 387,249 | 1,653,909 | 75 | 13 |
-| 2 | Ukraine hits Kerch (Crimea) bridge in record 1,300+ drone attack; Russia says it intercepted them (AP, BBC, Bloomberg, Guardian). Russia also struck two major Kyiv bridges with ballistic missiles (BBC, DW) | Volodymyr Zelensky | 249,614 | 3,240,064 | 852,315 | 13 |
-| 3 | Trump to meet Xi and Putin at Asia summit in Shenzhen; Trump says he will raise Ukraine and may meet Kim Jong Un (AP, ABC, NYT) | Donald Trump | 81,732 | 1,116,231 | 604,965 | 6 |
-| 4 | Vance says 'no daylight' with Trump on Iran war, vows it won't be a 'forever war' (NBC, Independent) | JD Vance | 48,072 | 185,773 | 1,408 | 2 |
-| 5 | Trump says Putin is 'backing down' and 'could have been much tougher' in Ukraine; Bloomberg and NYT criticize his Russia approach | Vladimir Putin | 21,302 | 646,939 | 45,603 | 14 |
-| 6 | Third US aircraft carrier arrives in Middle East as Iran blockade continues and tankers are hit in Hormuz (CNBC, Washington Post) | Donald Trump | 9,850 | 143,403 | 1,234 | 10 |
+| 1 | US intel reportedly shows Iran planning a 'dirty bomb' attack in Washington; Trump: 'we take it very seriously' | Donald Trump | 302,914 | 2,181,453 | 1,249,487 | 12 |
+| 2 | Putin-Xi-Trump summit in Asia: Trump says he will discuss Ukraine and is willing to hold separate talks with Putin | Donald Trump | 93,927 | 2,149,356 | 539,905 | 13 |
+| 3 | Iran attacks US radar and air base in Bahrain as third US carrier arrives and Hormuz tankers are hit | Ali Khamenei | 91,186 | 2,219,827 | 5,218 | 10 |
+| 4 | Ukraine cripples Kerch (Crimea) bridge in record 1,300+ drone attack; Russia says it intercepted them; Russia hits two Kyiv bridges | Volodymyr Zelensky | 22,046 | 594,304 | 0 | 1 |
+| 5 | Zelensky urges US and Musk to lift Starlink restrictions amid peace talks with the US and Europe | Elon Musk | 10,677 | 302,351 | 0 | 4 |
+| 6 | Netanyahu reportedly pushes for a new Iran strike, at odds with military chiefs, as Eisenkot challenges him in the election race | Benjamin Netanyahu | 2,353 | 84,693 | 5,933 | 8 |
