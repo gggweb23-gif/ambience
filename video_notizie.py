@@ -1160,10 +1160,25 @@ def musica(voce_mp3, dur):
 
 def copertina():
     c = N.get('copertina') or {}
-    im = Image.open(sfondo(c['sfondo'])).convert('RGBA').resize((W, H), Image.LANCZOS)
-    lato = c.get('lato', 'dx')
+    lato = c.get('lato', 'dx'); posa_cop = c.get('posa')
+    fondo = sfondo(c['sfondo'])
+    if N.get('materiali_da') or (E('VARIANTE_COPERTINA') or '').upper() == 'SI':
+        # 17 nov (Giorgio): stessa notizia in un'altra lingua -> copertina DIVERSA (YouTube non deve vederla come duplicata):
+        # persona dall'altro lato, altra posa se c'e', sfondo preso da un'altra scena del video e specchiato, riga evidenziata diversa
+        lato = 'sx' if lato == 'dx' else 'dx'
+        altre = [p for p in ((N.get('personaggi') or {}).get(c.get('personaggio')) or {}).get('pose', {}) if p != posa_cop
+                 and os.path.exists(os.path.join(CAR, c.get('personaggio', ''), p + '.png'))]
+        posa_cop = altre[0] if altre else posa_cop
+        cand = [v for k, v in SF.items() if k != 'copertina' and v and not cast_set(k)] or [v for k, v in SF.items() if k != 'copertina' and v]
+        if cand:
+            fondo = cand[len(cand) // 2]
+        if len(c.get('righe') or []) > 1:
+            c = dict(c, evidenzia=0 if c.get('evidenzia', 1) != 0 else 1)
+    im = Image.open(fondo).convert('RGBA').resize((W, H), Image.LANCZOS)
+    if N.get('materiali_da') or (E('VARIANTE_COPERTINA') or '').upper() == 'SI':
+        im = im.transpose(Image.FLIP_LEFT_RIGHT)
     if c.get('personaggio'):
-        png = posa(c['personaggio'], c['posa'])
+        png = posa(c['personaggio'], posa_cop)
         if png:
             p = Image.open(png).convert('RGBA'); hh = int(H * 1.0)
             p = p.resize((int(p.width * hh / p.height), hh), Image.LANCZOS)
@@ -1229,6 +1244,11 @@ def da_vecchio_formato():
 def main():
     global INQ, GRUPPI, SEGS, GRUPPI_TUTTE
     t_start = time.time()
+    if (E('SOLO_COPERTINA') or '').upper() == 'SI':   # 17 nov: rifare solo la copertina (es. versione diversa per l'altra lingua)
+        cop = N.get('copertina') or {}
+        N.setdefault('sets', {})['copertina'] = {'descr': descr_sfondo(cop['sfondo']) + ' Dramatic thumbnail background, completely empty of people.'}
+        cop['sfondo'] = 'copertina'
+        log('copertina rifatta:', copertina()); return
     da_vecchio_formato()
     sets = N.setdefault('sets', {})
     usati = [s['visivo']['set'] for s in N['scene'] if (s.get('visivo') or {}).get('tipo', 'set') == 'set' and (s.get('visivo') or {}).get('set')]
