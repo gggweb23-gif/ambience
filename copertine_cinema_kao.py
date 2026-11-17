@@ -974,8 +974,13 @@ def fai(i):
                         # 17 nov (Giorgio: "KAO e' nascosto", copertina divisa in due): si prova l'altro lato e poi la fascia in basso
                         # (le teste restano visibili); KAO non deve MAI sparire dietro il cartoncino
                         altro = 'sinistra' if lato != 'sinistra' else 'destra'
-                        for lt2, z3 in ((altro, zona_libera(im, altro)), ('basso', None)):
-                            scritta_cartoncino(im, f"{t['riga1']} {t['riga2']}", lt2, z3, None).save(p, quality=90)
+                        def _sopra_scena():   # cartoncino in alto SOLO sulla parte della scena (lontano da KAO), sopra le teste
+                            W_, H_ = im.size; x_a, x_b = (0, int(W_ * .66)) if lato != 'sinistra' else (int(W_ * .34), W_)
+                            sub = scritta_cartoncino(im.crop((x_a, 0, x_b, H_)), f"{t['riga1']} {t['riga2']}", 'alto', None, .26)
+                            im_ = im.copy(); im_.paste(sub, (x_a, 0)); return im_
+                        for lt2, fz in (('alto sulla scena', _sopra_scena), (altro, lambda: scritta_cartoncino(im, f"{t['riga1']} {t['riga2']}", altro, zona_libera(im, altro), None)),
+                                        ('basso', lambda: scritta_cartoncino(im, f"{t['riga1']} {t['riga2']}", 'basso', None, None))):
+                            fz().save(p, quality=90)
                             log('  provo la scritta', lt2)
                             if not copre_soggetti(p):
                                 break
