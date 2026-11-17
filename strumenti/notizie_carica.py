@@ -47,7 +47,10 @@ def in_playlist(vid, nome_pl, tk):
     pid = next((p['id'] for p in pls if p['snippet']['title'].strip().lower() == nome_pl.lower()), None)
     if not pid:
         pid = api('POST', 'https://www.googleapis.com/youtube/v3/playlists?part=snippet,status', {'snippet': {'title': nome_pl}, 'status': {'privacyStatus': 'public'}}, tk)['id']
-    gia = api('GET', f'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId={pid}&maxResults=50', tk=tk).get('items', []) if pid else []
+    try:
+        gia = api('GET', f'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId={pid}&maxResults=50', tk=tk).get('items', [])
+    except urllib.error.HTTPError:   # playlist appena creata: YouTube non la vede ancora
+        gia = []; time.sleep(15)
     if any(i['snippet']['resourceId'].get('videoId') == vid for i in gia):
         log('playlist: gia dentro', nome_pl); return
     for k in range(5):
@@ -77,8 +80,13 @@ def controlla(vid, tk, titolo, descr, tags):
     except urllib.error.HTTPError as e:
         log('YouTube rifiuta i tag:', e.code, e.read().decode()[:300])
         sn['tags'] = [t for t in tags if len(t) <= 60]; api('PUT', 'https://www.googleapis.com/youtube/v3/videos?part=snippet', {'id': vid, 'snippet': sn}, tk)
-    v = api('GET', f'https://www.googleapis.com/youtube/v3/videos?part=snippet&id={vid}', tk=tk)['items'][0]['snippet']
-    log(f"tag dopo la sistemazione: {len(v.get('tags') or [])} | hashtag in descrizione: {v.get('description', '').strip().splitlines()[-1]}")
+    time.sleep(5); v = api('GET', f'https://www.googleapis.com/youtube/v3/videos?part=snippet&id={vid}', tk=tk)['items'][0]['snippet']
+    if len(v.get('tags') or []) < len(tags) - 1:   # YouTube ha scartato i tag senza dire niente: il titolo come tag senza punteggiatura (: ? ! .)
+        log('YouTube ha tenuto solo:', v.get('tags'))
+        sn['tags'] = [' '.join(re.sub(r"[^\w' ]", ' ', tags[0]).split())] + tags[1:]
+        api('PUT', 'https://www.googleapis.com/youtube/v3/videos?part=snippet', {'id': vid, 'snippet': sn}, tk)
+        time.sleep(5); v = api('GET', f'https://www.googleapis.com/youtube/v3/videos?part=snippet&id={vid}', tk=tk)['items'][0]['snippet']
+    log(f"tag dopo la sistemazione: {len(v.get('tags') or [])} {v.get('tags')} | fine descrizione: {v.get('description', '').strip().splitlines()[-1]}")
 
 
 def main():
