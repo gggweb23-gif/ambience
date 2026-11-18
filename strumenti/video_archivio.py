@@ -537,7 +537,8 @@ else:
     PROMPT_COP = ('Use the reference photo only for the setting. ' + c.get('copertina_prompt', '') +
                   ' The astronaut is a FICTIONAL person who does not resemble any real astronaut. Unbranded suit and clothes: NO NASA logo, no agency insignia, '
                   'no flags, no patches. Photorealistic, bright and clean light, vivid natural colors (14 nov: le copertine scure fanno CTR basso), '
-                  'the astronaut looks into the camera with a clear human emotion (curious, scared, amazed), a personal moment of the story. '
+                  'the astronaut looks into the camera with a strong human emotion that matches the DANGER of the story (scared, shocked, tense, in awe), '
+                  'a personal moment of the story; never smiling, never a thumbs-up (18 nov, dati Orbital: copertine serene o col pollice in su = CTR 0,8%). '
                   f'{INQ_TXT}. The {LATO_T} 40% simple and plain. No text, no letters, no logos.')
 def senza_bordi_neri(img):   # bande nere ai lati del fotogramma (pellicole d'epoca): via prima del ritocco
     g_ = img.convert('L'); w_, h_ = g_.size; px = g_.load()
