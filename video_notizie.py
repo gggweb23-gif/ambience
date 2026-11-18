@@ -1185,9 +1185,10 @@ def copertina():
             _r.append(r)
     righe_v = _r[:4]   # righe da disegnare (max 4)
     numero = any(ch.isdigit() for ch in ' '.join(righe))
-    stile = 'B' if len(chi) >= 2 else ('C' if numero else 'A')
+    # 18 nov (Giorgio, dati War Room): il modello B "sfida VS" non funziona e non si propone piu'. Con 2+ persone: A o C con la seconda persona accanto, piu' piccola.
+    stile = 'C' if numero else 'A'
     if variante:   # l'altra lingua: sempre un altro modello
-        stile = {'B': 'A', 'A': 'C' if numero else 'C', 'C': 'A'}[stile]
+        stile = {'A': 'C', 'C': 'A'}[stile]
     giorno = _dt.date.today().toordinal()
     guerra = N.get('filone') == 'guerra'
     k = W / 1280   # tutto pensato a 1280x720 e moltiplicato
@@ -1255,18 +1256,23 @@ def copertina():
                 d.polygon([(cx, cy), (cx + 4 * W * math.cos(a1), cy + 4 * W * math.sin(a1)), (cx + 4 * W * math.cos(a2), cy + 4 * W * math.sin(a2))], fill=f2)
         sx = (giorno + (1 if variante else 0)) % 2 == 1   # viso a sinistra un giorno si' e uno no
         v = bordo(viso(chi[0], 700, .52), (255, 255, 255)) if chi else None
+        extra = 0
+        if v and len(chi) > 1:   # seconda persona della notizia: accanto, piu' piccola, dietro alla principale
+            v2 = bordo(viso(chi[1], 380, .52), (255, 255, 255)); extra = v2.width * .55 / k
+            x2 = int(v.width - 60 * k - v2.width * .45) if sx else int(W - v.width + 60 * k - v2.width * .55)
+            im.alpha_composite(v2 if sx else ImageOps.mirror(v2), (x2, H - v2.height + int(40 * k)))
         if v:
             im.alpha_composite(v, ((int(-60 * k)) if sx else W - v.width + int(60 * k), H - v.height + int(40 * k)))
         d = ImageDraw.Draw(im)
-        larg = 1280 - (v.width / k - 60 if v else 0) - 80
+        larg = 1280 - (v.width / k - 60 if v else 0) - 80   # le righe stanno in alto, sopra la seconda persona; il cartellino accanto a lei
         x0 = 1240 if sx else 40; anc = 'ra' if sx else 'la'
         cols = ['white', (255, 230, 0), 'white', (255, 230, 0)]
-        sz = min(210, int((470 if box else 640) / len(righe_v) / 1.08))
+        sz = min(210, int((470 if box else 640) / len(righe_v) / 1.08)) if not extra else min(190, int(330 / len(righe_v) / 1.08))
         y = 30
         for i, r in enumerate(righe_v):
             s_ = adatta(r, sz, larg); scrivi(d, (x0, y), r, s_, cols[i], 14, anc); y += s_ * 1.08
         if box and y < 560:
-            fb = fnt(min(100, adatta(box, 100, larg - 60))); wb = fb.getlength(box) / k + 60
+            fb = fnt(min(100, adatta(box, 100, larg - 60 - extra))); wb = fb.getlength(box) / k + 60
             bx0 = (x0 - wb) if sx else x0; by0 = max(y + 10, 480)
             d.rounded_rectangle((bx0 * k, by0 * k, (bx0 + wb) * k, (by0 + 150) * k), int(20 * k), fill=(220, 20, 40) if guerra else 'white', outline='black', width=int(8 * k))
             d.text(((bx0 + wb / 2) * k, (by0 + 75) * k), box, font=fb, fill='white' if guerra else (220, 20, 40), anchor='mm')
