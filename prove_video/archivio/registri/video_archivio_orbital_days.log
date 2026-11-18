@@ -1,12 +1,9 @@
-07:58:50 testo di riferimento: 1737 parole
-07:58:50 copione RIPRESO dal giro fallito precedente (45 scene, 1907 parole): nessuna spesa di copione; voce salvata: False
+10:56:49 testo di riferimento: 1737 parole
+10:56:49 copione RIPRESO dal giro fallito precedente (45 scene, 1907 parole): nessuna spesa di copione; voce salvata: False
 Traceback (most recent call last):
-  File "/home/runner/work/ambience/ambience/strumenti/prova_archivio.py", line 78, in <module>
-    j = get(f"https://api.elevenlabs.io/v1/text-to-speech/{P.get('voce') or 'glnsgBC77wt5zOYU0szz'}/with-timestamps?output_format=mp3_44100_128",
-            {'text': testo, 'model_id': 'eleven_multilingual_v2',
-             'voice_settings': {'stability': float(P.get('stabilita') or .45), 'similarity_boost': .75, 'style': float(P.get('stile_voce') or 0),
-                                'speed': float(P.get('velocita') or 1.06)}},
-            {'xi-api-key': E('ELEVENLABS_API_KEY', '')})
+  File "/home/runner/work/ambience/ambience/strumenti/prova_archivio.py", line 96, in <module>
+    jj = get(f"https://api.elevenlabs.io/v1/text-to-speech/{P.get('voce') or 'glnsgBC77wt5zOYU0szz'}/with-timestamps?output_format=mp3_44100_128",
+             dati_, {'xi-api-key': E('ELEVENLABS_API_KEY', '')})
   File "/home/runner/work/ambience/ambience/strumenti/prova_archivio.py", line 46, in get
     with urllib.request.urlopen(req, timeout=timeout) as r:
          ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
@@ -25,15 +22,12 @@ Traceback (most recent call last):
     result = func(*args)
   File "/usr/lib/python3.14/urllib/request.py", line 611, in http_error_default
     raise HTTPError(req.full_url, code, msg, hdrs, fp)
-urllib.error.HTTPError: HTTP Error 400: Bad Request
-07:58:50 montaggio non riuscito al tentativo 1
+urllib.error.HTTPError: HTTP Error 401: Unauthorized
+10:56:50 montaggio non riuscito al tentativo 1
 Traceback (most recent call last):
-  File "/home/runner/work/ambience/ambience/strumenti/prova_archivio.py", line 78, in <module>
-    j = get(f"https://api.elevenlabs.io/v1/text-to-speech/{P.get('voce') or 'glnsgBC77wt5zOYU0szz'}/with-timestamps?output_format=mp3_44100_128",
-            {'text': testo, 'model_id': 'eleven_multilingual_v2',
-             'voice_settings': {'stability': float(P.get('stabilita') or .45), 'similarity_boost': .75, 'style': float(P.get('stile_voce') or 0),
-                                'speed': float(P.get('velocita') or 1.06)}},
-            {'xi-api-key': E('ELEVENLABS_API_KEY', '')})
+  File "/home/runner/work/ambience/ambience/strumenti/prova_archivio.py", line 96, in <module>
+    jj = get(f"https://api.elevenlabs.io/v1/text-to-speech/{P.get('voce') or 'glnsgBC77wt5zOYU0szz'}/with-timestamps?output_format=mp3_44100_128",
+             dati_, {'xi-api-key': E('ELEVENLABS_API_KEY', '')})
   File "/home/runner/work/ambience/ambience/strumenti/prova_archivio.py", line 46, in get
     with urllib.request.urlopen(req, timeout=timeout) as r:
          ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
@@ -52,10 +46,10 @@ Traceback (most recent call last):
     result = func(*args)
   File "/usr/lib/python3.14/urllib/request.py", line 611, in http_error_default
     raise HTTPError(req.full_url, code, msg, hdrs, fp)
-urllib.error.HTTPError: HTTP Error 400: Bad Request
-07:58:51 montaggio non riuscito al tentativo 2
+urllib.error.HTTPError: HTTP Error 401: Unauthorized
+10:56:50 montaggio non riuscito al tentativo 2
 Traceback (most recent call last):
-  File "/home/runner/work/ambience/ambience/strumenti/video_archivio.py", line 488, in <module>
+  File "/home/runner/work/ambience/ambience/strumenti/video_archivio.py", line 490, in <module>
     raise RuntimeError('VIDEO BLOCCATO (controlli, anche dopo la riparazione): ' + '; '.join(errori))
 RuntimeError: VIDEO BLOCCATO (controlli, anche dopo la riparazione): montaggio non riuscito
-07:58:53 file di produzione aggiornato: status, data_inizio_produzione
+10:56:52 file di produzione aggiornato: status, data_inizio_produzione
