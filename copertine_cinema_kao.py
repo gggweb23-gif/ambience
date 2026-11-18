@@ -934,7 +934,7 @@ def fai(i):
                 z2 = zona_libera(im, lato)
                 if z2:
                     scritta_cartoncino(im, f"{t['riga1']} {t['riga2']}", lato, z2, limite).save(p, quality=90)
-                for dx, dy in ((.06, .06), (.12, .10)):   # prima si prova a restringere il riquadro (gratis): via dal bordo interno e dall'alto
+                for dx, dy in ((.08, 0), (.16, 0)):   # prima si prova a restringere il riquadro (gratis) SOLO dal bordo interno: 18 nov (Giorgio, "scritta troppo piccola, non si vede da mobile") l'altezza resta tutta, le parole vanno a capo e restano grandi
                     if not copre_soggetti(p):
                         break
                     zb = list(z2) if z2 else ([.47, .04, .975, .76] if lato != 'sinistra' else [.025, .04, .53, .90])
