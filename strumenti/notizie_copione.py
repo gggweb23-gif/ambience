@@ -135,7 +135,11 @@ STORYTELLING (like a documentary, not a list of news):
 - Then 4-6 CHAPTERS ("capitolo" on their first scene, 2-5 words, intriguing, e.g. "THE MAN WITH THE KEY", "48 HOURS IN GENEVA"):
   who the main person is and how they got here (backstory with real facts) -> how the crisis built up -> what happened now -> what it means /
   what happens next (only what officials and analysts quoted by sources say).
-- Every 45-60 seconds a curiosity hook ("but that's not the whole story"). Short sentences, decisive, like an authoritative journalist.
+- Every 30-45 seconds an OPEN LOOP: announce something concrete that is coming and pay it off later ("in a moment you'll see the one number
+  that scared Nvidia's board", "but the real problem was another one"). The viewer must always want to know what happens next, like a thriller.
+  Short sentences, decisive, like an authoritative journalist. Tension, stakes, consequences for real people.
+- 18 nov (Giorgio: "deve catturare come un film", dati: chi guarda esce presto): in the first 60 seconds the scenes are even SHORTER,
+  6-10 words each (a new image every 2-3 seconds), the strongest images and facts first.
 - Last scene: one line asking to subscribe because the story is still moving.
 DIRECTION (regia) - like a film: EVERY scene has its OWN new drawn image ("set"), shown once (~4-6 seconds), never seen again:
 - Scenes are SHORT: 1-2 sentences, 10-16 words. "sets": one NEW set for every scene that is not a map/dossier/frase
