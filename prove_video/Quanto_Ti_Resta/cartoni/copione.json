@@ -1,126 +1,301 @@
 {
- "titolo": "Quanto guadagna un benzinaio su un pieno da 70 €?",
+ "titolo": "Quanto guadagna una tabaccheria sulle sigarette?",
  "protagonista": {
-  "nome": "Gianni",
+  "nome": "Giorgio",
   "capelli": "short",
-  "colore_capelli": "#5a4a3a",
+  "colore_capelli": "#5a5a5a",
   "pelle": "media",
-  "maglia": "#c0392b",
+  "maglia": "#2f5d8a",
   "grembiule": "",
-  "occhiali": false
+  "occhiali": true
  },
- "oggetto": "benzina",
+ "oggetto": "sigarette",
  "copertina": {
   "righe": [
-   "PIENO DA 70 €",
-   "TU PAGHI TANTO",
-   "LUI INCASSA?"
+   "VENDE TANTO",
+   "GUADAGNA POCO",
+   "LA TABACCHERIA"
   ],
   "emozione": "stupito",
-  "oggetto": "benzina",
-  "prezzo": "70 €",
+  "oggetto": "sigarette",
+  "prezzo": "6,50 €",
   "fondo": "scuro"
  },
  "copertina_ai": {
-  "valore_sx": "1,77 €/L",
-  "valore_dx": "1,85 €/L",
-  "oggetto_sx": "separate items laid apart on a table: a small fuel canister, a pile of coins, a tax stamp paper with no writing",
-  "oggetto_dx": "a big red fuel pump dispensing gasoline into a car at a gas station",
+  "valore_sx": "6,11 €",
+  "valore_dx": "6,50 €",
+  "oggetto_sx": "a single pack of cigarettes with a small stack of coins beside it, separate objects laid apart",
+  "oggetto_dx": "a big cigarette pack on a shop counter with a price tag",
   "domanda": [
-   "E A LUI",
-   "QUANTO RESTA?"
+   "E ALLORA DOVE",
+   "STA IL GUADAGNO?"
   ]
  },
- "descrizione": "Fai il pieno da settanta euro e ti sei mai chiesto quanti centesimi restano al benzinaio? Seguiamo Gianni nel suo distributore e scopriamo dove finiscono i soldi: tasse, petrolio, margine. Vedrai perché il vero guadagno sta nel bar, nel lavaggio e in ciò che non è benzina. Numeri di esempio, utili a chi ha o vuole aprire un'attività.",
+ "descrizione": "Giorgio ha una tabaccheria e vende centinaia di pacchetti al giorno. Ma quanto resta davvero in tasca per ogni pacchetto? In questa puntata scopri l'aggio, i prodotti che rendono di più e i conti per capire se un'attività con tanto incasso e poco margine sta in piedi. Un episodio utile se hai o vuoi aprire un negozio.",
  "tag": [
-  "benzinaio",
-  "distributore di benzina",
-  "margine",
-  "costo carburante",
-  "accise",
-  "tasse carburante",
+  "tabaccheria",
+  "aggio",
+  "sigarette",
+  "margini",
   "aprire un'attività",
-  "guadagno",
-  "bar",
-  "autolavaggio",
-  "economia pratica",
-  "pareggio",
-  "imprenditoria",
+  "costi fissi",
+  "punto di pareggio",
   "commercianti",
-  "prezzo benzina",
-  "quanto ti resta"
+  "economia pratica",
+  "gratta e vinci",
+  "ricariche",
+  "conti di un negozio",
+  "quanto guadagna",
+  "piccola impresa"
  ],
  "scene": [
   {
-   "testo": "Fai il pieno e paghi settanta euro. Sai quanti di quei soldi restano a chi ti ha servito? Sì, proprio lui, che sta là con la pompa in mano. Pochi centesimi. Ma pochi davvero. Vediamo dove finisce il resto.",
+   "testo": "Giorgio vende duecento pacchetti di sigarette ogni giorno. Un bel giro, no? Eppure per ogni pacchetto da sei euro e cinquanta gli restano pochi centesimi. Ma proprio pochi. Come fa a campare? Oggi lo scopriamo.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "domanda",
      "p": {
-      "testo": "Quanto resta a lui?",
+      "testo": "Quanto resta a Giorgio?",
       "emozione": "stupito",
       "scuro": true
      }
     },
     {
-     "parola": "Pochi",
+     "parola": "pacchetto",
      "tipo": "prezzo",
      "p": {
-      "oggetto": "pieno di benzina",
-      "prezzo": "70 €",
-      "nota": "un pieno"
+      "oggetto": "sigarette",
+      "prezzo": "6,50 €",
+      "nota": "prezzo al pubblico"
+     }
+    },
+    {
+     "parola": "centesimi",
+     "tipo": "conteggio",
+     "p": {
+      "oggetto": "sigarette",
+      "icone": 40,
+      "testo": "200 pacchetti al giorno"
      }
     }
    ]
   },
   {
-   "testo": "Lui è Gianni. Ha un distributore alla periferia di una città di provincia, con quattro pompe, un piccolo bar e un lavaggio. Apre alle sei del mattino e chiude alle nove di sera. Quasi ogni giorno.",
-   "capitolo": "Gianni e il distributore",
+   "testo": "Giorgio ha una tabaccheria in un paese di quindicimila abitanti. Apre alle sette e mezza, chiude alle venti. Dietro il bancone vende di tutto, ma la gente entra soprattutto per una cosa: le sigarette.",
+   "capitolo": "La storia di Giorgio",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "luogo",
      "p": {
-      "luogo": "distributore",
-      "insegna": "Self Gianni",
+      "luogo": "tabaccheria",
+      "insegna": "Tabaccheria Giorgio",
       "azione": "lavora",
-      "clienti": 2,
-      "testo": "Il distributore di Gianni"
+      "clienti": 3,
+      "testo": "Aperta dalle sette e mezza"
      }
     },
     {
-     "parola": "Apre",
-     "tipo": "orologio",
+     "parola": "Dietro",
+     "tipo": "persone",
      "p": {
-      "ore": 16,
-      "piene": 15,
-      "testo": "Aperto quasi tutto il giorno"
+      "n": 5,
+      "azione": "fila",
+      "escono": 0,
+      "testo": "Tutti per le sigarette"
      }
     }
    ]
   },
   {
-   "testo": "Un cliente arriva e fa un pieno da settanta euro. Gianni sorride. Pensa: questo mi lascia un bel guadagno, vero? Fermati un secondo. Prova a indovinare quanto resta a Gianni. Dieci euro? Cinque? Due?",
+   "testo": "Una cosa importante: il prezzo delle sigarette non lo decide Giorgio. Lo decide lo Stato, insieme ai produttori. Se un pacchetto costa sei euro e cinquanta, costa così in tutta Italia. Giorgio non può né alzarlo né abbassarlo.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "luogo",
+     "tipo": "prezzo",
      "p": {
-      "luogo": "distributore",
-      "insegna": "Self Gianni",
-      "azione": "felice",
-      "clienti": 1,
-      "testo": "Un pieno da settanta euro"
+      "oggetto": "sigarette",
+      "prezzo": "6,50 €",
+      "nota": "prezzo fisso, uguale per tutti"
      }
     },
     {
-     "parola": "Prova",
+     "parola": "Giorgio",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "tabaccheria",
+      "insegna": "Tabaccheria Giorgio",
+      "azione": "preoccupato",
+      "clienti": 1,
+      "testo": "Il prezzo non lo scegli tu"
+     }
+    },
+    {
+     "parola": "tutta",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Cosa non decide Giorgio",
+      "voci": [
+       "Il prezzo di vendita",
+       "Gli sconti",
+       "I rialzi",
+       "La marca che gira di più"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Allora dove va a finire quel prezzo? Facciamo un conto semplice, con numeri di esempio. Su un pacchetto da sei euro e cinquanta, la gran parte sono tasse: accise e Iva. Il resto va al produttore. E a Giorgio?",
+   "capitolo": "Dove vanno i soldi",
+   "inquadrature": [
+    {
+     "parola": "",
      "tipo": "domanda",
      "p": {
-      "testo": "Quanto resta a Gianni?",
+      "testo": "E a Giorgio quanto va?",
+      "emozione": "preoccupato",
+      "scuro": false
+     }
+    },
+    {
+     "parola": "Facciamo",
+     "tipo": "fette",
+     "p": {
+      "titolo": "Un pacchetto da 6,50 €",
+      "totale": 6.5,
+      "totale_testo": "6,50 €",
+      "fette": [
+       {
+        "nome": "Tasse",
+        "valore": 5,
+        "testo": "5,00 €"
+       },
+       {
+        "nome": "Produttore",
+        "valore": 1.11,
+        "testo": "1,11 €"
+       },
+       {
+        "nome": "Giorgio",
+        "valore": 0.39,
+        "testo": "0,39 €"
+       }
+      ],
+      "evidenzia": 2
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Guarda la fetta di Giorgio: trentanove centesimi. Questo si chiama aggio: una percentuale fissa che lo Stato riconosce al tabaccaio. Qui parliamo del sei per cento circa. Su sei euro e cinquanta fa trentanove centesimi.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "L'aggio su un pacchetto",
+      "a": "6,50 €",
+      "op": "×",
+      "b": "6 %",
+      "risultato": "0,39 €",
+      "nota": "numeri di esempio"
+     }
+    },
+    {
+     "parola": "Questo",
+     "tipo": "fette",
+     "p": {
+      "titolo": "La fetta di Giorgio",
+      "totale": 6.5,
+      "totale_testo": "6,50 €",
+      "fette": [
+       {
+        "nome": "Tasse e produttore",
+        "valore": 6.11,
+        "testo": "6,11 €"
+       },
+       {
+        "nome": "Aggio",
+        "valore": 0.39,
+        "testo": "0,39 €"
+       }
+      ],
+      "evidenzia": 1
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ripetiamolo, perché è il cuore della puntata. Giorgio compra il pacchetto a sei euro e undici. Lo vende a sei euro e cinquanta. Guadagna trentanove centesimi. Non importa quanto lavori: per pacchetto, è sempre quello.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "confronto",
+     "p": {
+      "titolo": "Un pacchetto",
+      "a": {
+       "titolo": "Lo compra a",
+       "valore": "6,11 €",
+       "oggetto": "sigarette"
+      },
+      "b": {
+       "titolo": "Lo vende a",
+       "valore": "6,50 €",
+       "oggetto": "sigarette"
+      },
+      "vincitore": ""
+     }
+    },
+    {
+     "parola": "Non",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Margine per pacchetto",
+      "a": "6,50 €",
+      "op": "−",
+      "b": "6,11 €",
+      "risultato": "0,39 €",
+      "nota": "sempre uguale"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Il bello è che il margine è fisso, ma il volume no. Giorgio ne vende duecento al giorno. Duecento pacchetti per trentanove centesimi fa settantotto euro al giorno. Non male! Ma non è ancora l'utile.",
+   "capitolo": "Il volume",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "conteggio",
+     "p": {
+      "oggetto": "sigarette",
+      "icone": 50,
+      "testo": "200 pacchetti al giorno"
+     }
+    },
+    {
+     "parola": "Duecento",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Margine al giorno",
+      "a": "200 pacchetti",
+      "op": "×",
+      "b": "0,39 €",
+      "risultato": "78 €",
+      "nota": "lordo, prima dei costi"
+     }
+    },
+    {
+     "parola": "utile",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Settantotto euro: utile?",
       "emozione": "calmo",
       "scuro": false
      }
@@ -128,212 +303,34 @@
    ]
   },
   {
-   "testo": "Facciamo i conti. Settanta euro di pieno, con la benzina a un euro e ottantacinque al litro, sono circa trentotto litri. Ricorda questo numero: trentotto litri. Tutto il resto parte da qui.",
+   "testo": "Giorgio è aperto trenta giorni al mese, più o meno. Settantotto euro per trenta giorni fa duemilatrecentoquaranta euro al mese. Questo è quello che le sigarette gli lasciano, prima di pagare qualunque cosa.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "formula",
+     "tipo": "calendario",
      "p": {
-      "titolo": "Quanti litri sono?",
-      "a": "70 €",
-      "op": "÷",
-      "b": "1,85 €",
-      "risultato": "38 litri",
-      "nota": "arrotondato"
+      "titolo": "Un mese di apertura",
+      "giorni": 30,
+      "testo": "Trenta giorni aperti"
      }
     },
     {
-     "parola": "Ricorda",
-     "tipo": "conteggio",
-     "p": {
-      "oggetto": "tanica di benzina",
-      "icone": 38,
-      "testo": "38 litri"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Ora la domanda: di ogni euro e ottantacinque, dove vanno i soldi? Prendiamo un litro. Una fetta se la prende lo Stato con le accise, una con l'Iva. Una è il costo del prodotto. E poi c'è la fetta di Gianni.",
-   "capitolo": "Dove vanno i soldi",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "fette",
-     "p": {
-      "titolo": "Un litro da 1,85 €",
-      "totale": 1.85,
-      "totale_testo": "1,85 €",
-      "fette": [
-       {
-        "nome": "Accise",
-        "valore": 0.73,
-        "testo": "0,73 €"
-       },
-       {
-        "nome": "Iva",
-        "valore": 0.33,
-        "testo": "0,33 €"
-       },
-       {
-        "nome": "Prodotto",
-        "valore": 0.71,
-        "testo": "0,71 €"
-       },
-       {
-        "nome": "Margine Gianni",
-        "valore": 0.08,
-        "testo": "0,08 €"
-       }
-      ],
-      "evidenzia": 3
-     }
-    },
-    {
-     "parola": "Stato",
-     "tipo": "soldi",
-     "p": {
-      "centro": "1,85 €",
-      "destinazioni": [
-       "Stato",
-       "Iva",
-       "Raffineria",
-       "Gianni"
-      ]
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Controlliamo i conti. Settantatré centesimi di accise, trentatré di Iva, settantuno di prodotto e otto per Gianni. Sommati fanno un euro e ottantacinque. Quindi Gianni tiene otto centesimi al litro. Otto.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
+     "parola": "Settantotto",
      "tipo": "formula",
      "p": {
-      "titolo": "Il margine al litro",
-      "a": "1,85 €",
-      "op": "−",
-      "b": "1,77 €",
-      "risultato": "0,08 €",
-      "nota": "costi di Gianni esclusi"
-     }
-    },
-    {
-     "parola": "Otto",
-     "tipo": "timbro",
-     "p": {
-      "oggetto": "litro di benzina",
-      "testo": "8 CENTESIMI",
-      "colore": "rosso",
-      "nota": "margine lordo"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Ora moltiplichiamo. Otto centesimi per trentotto litri fanno tre euro e quattro centesimi. Su un pieno da settanta euro, Gianni incassa poco più di tre euro. Non sono guadagno netto: sono margine lordo.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Margine sul pieno",
-      "a": "0,08 €",
+      "titolo": "Margine sigarette al mese",
+      "a": "78 €",
       "op": "×",
-      "b": "38 litri",
-      "risultato": "3,04 €",
-      "nota": "margine lordo"
-     }
-    },
-    {
-     "parola": "Non",
-     "tipo": "bilancia",
-     "p": {
-      "titolo": "Pieno da 70 euro",
-      "sinistra": "70 € incassati",
-      "destra": "3,04 € di margine",
-      "pende": "sinistra"
+      "b": "30 giorni",
+      "risultato": "2.340 €",
+      "nota": "prima dei costi"
      }
     }
    ]
   },
   {
-   "testo": "Qui nasce l'equivoco. Settanta euro passano dalla cassa di Gianni, ma lui li gira quasi tutti ad altri. Il fatturato è enorme, il margine è minuscolo. Guardare solo gli incassi, in questo mestiere, è come guardare il mare e dire che hai l'acqua.",
-   "capitolo": "Fatturato non è guadagno",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "distributore",
-      "insegna": "Self Gianni",
-      "azione": "stupito",
-      "clienti": 1,
-      "testo": "Passano tanti soldi"
-     }
-    },
-    {
-     "parola": "Il",
-     "tipo": "confronto",
-     "p": {
-      "titolo": "Cosa guardi?",
-      "a": {
-       "titolo": "Incassi",
-       "valore": "70 €",
-       "oggetto": "pieno di benzina"
-      },
-      "b": {
-       "titolo": "Margine",
-       "valore": "3,04 €",
-       "oggetto": "monete"
-      },
-      "vincitore": "b"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "È come un negozio di scarpe? No, è peggio. Una calzoleria compra un paio a trenta euro e lo vende a novanta: il margine è del sessanta per cento. Gianni sulla benzina ha un margine di poco più del quattro per cento.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "confronto",
-     "p": {
-      "titolo": "Margine sul prezzo",
-      "a": {
-       "titolo": "Scarpe",
-       "valore": "60 %",
-       "oggetto": "scarpe"
-      },
-      "b": {
-       "titolo": "Benzina",
-       "valore": "4 %",
-       "oggetto": "pompa di benzina"
-      },
-      "vincitore": "a"
-     }
-    },
-    {
-     "parola": "peggio",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Margine benzina",
-      "a": "0,08 €",
-      "op": "÷",
-      "b": "1,85 €",
-      "risultato": "4 %",
-      "nota": "più o meno"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Ma Gianni ha costi. Ogni mese paga l'affitto del terreno, la luce delle pompe, il dipendente, le assicurazioni, le commissioni sulle carte e le manutenzioni. Sono costi fissi: arrivano anche se non vende un litro.",
+   "testo": "Ora i costi. Giorgio paga l'affitto del locale: ottocento euro al mese. La bolletta della luce e del riscaldamento: duecentoventi. Un commercialista: centoquaranta. Assicurazione e allarme: ottanta. Totale, mille e quarant'euro.",
    "capitolo": "I costi fissi",
    "inquadrature": [
     {
@@ -343,536 +340,179 @@
       "voci": [
        {
         "nome": "Affitto",
-        "valore": 2500,
-        "testo": "2.500 €"
-       },
-       {
-        "nome": "Dipendente",
-        "valore": 2200,
-        "testo": "2.200 €"
-       },
-       {
-        "nome": "Luce",
-        "valore": 900,
-        "testo": "900 €"
-       },
-       {
-        "nome": "Assicurazione",
-        "valore": 600,
-        "testo": "600 €"
-       },
-       {
-        "nome": "Manutenzione",
         "valore": 800,
         "testo": "800 €"
+       },
+       {
+        "nome": "Luce e riscaldamento",
+        "valore": 220,
+        "testo": "220 €"
+       },
+       {
+        "nome": "Commercialista",
+        "valore": 140,
+        "testo": "140 €"
+       },
+       {
+        "nome": "Assicurazione e allarme",
+        "valore": 80,
+        "testo": "80 €"
        }
       ],
-      "totale": 7000,
+      "totale": 1240,
       "periodo": "al mese"
      }
     },
     {
-     "parola": "Sono",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Arrivano sempre!",
-      "emozione": "preoccupato",
-      "scuro": false
-     }
+     "parola": "Totale",
+     "tipo": "preoccupato",
+     "p": {}
     }
    ]
   },
   {
-   "testo": "Sommiamo: duemilacinquecento, duemiladuecento, novecento, seicento e ottocento. Fanno settemila euro al mese. Il conto è chiaro: se Gianni incassa otto centesimi per litro, quanti litri deve vendere per pagare tutto questo?",
+   "testo": "Aspetta, ricontrolliamo. Ottocento più duecentoventi fa mille e venti. Più centoquaranta fa mille e centosessanta. Più ottanta fa mille e duecentoquaranta. Il totale giusto è mille duecentoquaranta euro al mese, non mille e quaranta.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "formula",
+     "tipo": "lista",
      "p": {
-      "titolo": "Costi fissi al mese",
-      "a": "4.100 €",
-      "op": "+",
-      "b": "2.900 €",
-      "risultato": "7.000 €",
-      "nota": "affitto, personale, luce, assicurazione, manutenzione"
+      "titolo": "Il conto dei costi",
+      "voci": [
+       "Ottocento più duecentoventi",
+       "Mille e venti",
+       "Più centoquaranta: mille centosessanta",
+       "Più ottanta: mille duecentoquaranta"
+      ]
      }
     },
     {
-     "parola": "quanti",
-     "tipo": "domanda",
+     "parola": "Il",
+     "tipo": "timbro",
      "p": {
-      "testo": "Quanti litri servono?",
-      "emozione": "preoccupato",
-      "scuro": true
+      "oggetto": "conto",
+      "testo": "1.240 €",
+      "colore": "verde",
+      "nota": "costi fissi al mese"
      }
     }
    ]
   },
   {
-   "testo": "Il calcolo è semplice. Settemila euro diviso zero virgola zero otto fa ottantasettemilacinquecento litri al mese. Sono quasi tremila litri al giorno. Pensa a quante auto devono fermarsi, solo per arrivare in pari.",
-   "capitolo": "Il punto di pareggio",
+   "testo": "Ci manca un costo grosso: il personale. Giorgio da solo non regge dodici ore al giorno. Ha una dipendente, Marta, che costa mille euro al mese tra stipendio e contributi. Aggiungiamola ai costi fissi.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "tabaccheria",
+      "insegna": "Tabaccheria Giorgio",
+      "azione": "lavora",
+      "clienti": 2,
+      "testo": "Marta aiuta al banco"
+     }
+    },
+    {
+     "parola": "Marta",
+     "tipo": "soldi",
+     "p": {
+      "centro": "2.240 €",
+      "destinazioni": [
+       "Affitto",
+       "Utenze",
+       "Marta",
+       "Altro"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Mille duecentoquaranta più mille fa duemiladuecentoquaranta euro di costi fissi al mese. Le sigarette portano duemilatrecentoquaranta. Resta cento euro. Cento euro al mese, per tutto quel lavoro e tutte quelle ore.",
+   "capitolo": "Il conto vero",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "formula",
      "p": {
-      "titolo": "Litri per andare in pari",
-      "a": "7.000 €",
-      "op": "÷",
-      "b": "0,08 €",
-      "risultato": "87.500 litri",
+      "titolo": "Cosa resta con le sole sigarette",
+      "a": "2.340 €",
+      "op": "−",
+      "b": "2.240 €",
+      "risultato": "100 €",
       "nota": "al mese"
      }
     },
     {
-     "parola": "Sono",
-     "tipo": "calendario",
+     "parola": "Cento",
+     "tipo": "salvadanaio",
      "p": {
-      "titolo": "Un mese di benzina",
-      "giorni": 30,
-      "testo": "quasi 2.900 litri al giorno"
+      "direzione": "svuota",
+      "testo": "Quasi niente"
      }
     }
    ]
   },
   {
-   "testo": "Facciamo il pareggio sul grafico. A sinistra, Gianni vende pochi litri e perde. A destra, ne vende tanti e guadagna. Il punto in mezzo è il suo pareggio: ottantasettemilacinquecento litri. Sotto quella soglia, lavora gratis.",
+   "testo": "Cento euro al mese. E Giorgio? Giorgio non si è pagato niente. Se volesse uno stipendio da milleduecento euro, le sigarette da sole non bastano nemmeno lontanamente. Questa è la trappola: tanto incasso, quasi niente utile.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "pareggio",
+     "tipo": "bilancia",
      "p": {
-      "titolo": "Pareggio del distributore",
-      "fissi": 7000,
-      "margine": 0.08,
-      "unita": "litri venduti",
-      "oggetto": "benzina",
-      "perdita": true,
-      "guadagno": true
+      "titolo": "Sigarette da sole",
+      "sinistra": "Margine 2.340 €",
+      "destra": "Costi 2.240 €",
+      "pende": "sinistra"
      }
     },
     {
-     "parola": "Sotto",
-     "tipo": "persone",
-     "p": {
-      "n": 6,
-      "azione": "fila",
-      "escono": 0,
-      "testo": "Servono tantissime auto"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Ora un dubbio. Gianni dice: ma se alzo il prezzo di cinque centesimi guadagno di più! Peccato che a duecento metri c'è un altro distributore. Se i clienti vanno là, perdi litri e il margine non ti salva.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "prezzo",
-     "p": {
-      "oggetto": "benzina",
-      "prezzo": "1,85 €",
-      "nuovo_prezzo": "1,90 €",
-      "nota": "cinque centesimi in più"
-     }
-    },
-    {
-     "parola": "Peccato",
-     "tipo": "persone",
-     "p": {
-      "n": 6,
-      "azione": "escono",
-      "escono": 4,
-      "testo": "I clienti vanno dal vicino"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Succede in tanti mestieri. Un parrucchiere che alza il taglio da venti a ventisei euro può perdere il quindici per cento dei clienti. Se il margine è alto, magari regge. Se il margine è basso, come la benzina, no.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "confronto",
-     "p": {
-      "titolo": "Alzare il prezzo",
-      "a": {
-       "titolo": "Parrucchiere",
-       "valore": "20 € → 26 €",
-       "oggetto": "forbici e pettine"
-      },
-      "b": {
-       "titolo": "Benzinaio",
-       "valore": "1,85 € → 1,90 €",
-       "oggetto": "pompa di benzina"
-      },
-      "vincitore": "a"
-     }
-    },
-    {
-     "parola": "Se",
-     "tipo": "leve",
-     "p": {
-      "titolo": "Cosa pesa di più",
-      "voci": [
-       "Prezzo",
-       "Clienti",
-       "Margine",
-       "Costi fissi"
-      ],
-      "evidenzia": 2
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Allora come fa Gianni a campare? Ti dico una cosa che i benzinai conoscono bene: la benzina porta la gente dentro, ma non è lì che si guadagna. Il vero guadagno sta in quello che c'è intorno.",
-   "capitolo": "Dove guadagna davvero",
-   "inquadrature": [
-    {
-     "parola": "",
+     "parola": "Questa",
      "tipo": "domanda",
      "p": {
-      "testo": "E allora dove guadagna?",
-      "emozione": "stupito",
+      "testo": "Tanto incasso, niente utile",
+      "emozione": "preoccupato",
       "scuro": true
      }
-    },
-    {
-     "parola": "Il",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "distributore",
-      "insegna": "Self Gianni",
-      "azione": "felice",
-      "clienti": 3,
-      "testo": "La benzina porta i clienti"
-     }
     }
    ]
   },
   {
-   "testo": "Primo: il bar. Un caffè costa a Gianni dieci centesimi di ingredienti e lo vende a un euro e dieci. Il margine è di un euro netto di materia prima. E un cliente su cinque, mentre fa il pieno, entra a prenderlo.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "prezzo",
-     "p": {
-      "oggetto": "tazzina di caffè",
-      "prezzo": "1,10 €",
-      "nota": "costa dieci centesimi"
-     }
-    },
-    {
-     "parola": "Il",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Margine sul caffè",
-      "a": "1,10 €",
-      "op": "−",
-      "b": "0,10 €",
-      "risultato": "1,00 €",
-      "nota": "materia prima"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Un euro di margine contro otto centesimi della benzina. Un solo caffè vale come dodici litri e mezzo di carburante. Se ci pensi, è una differenza enorme. Chi ha un bar sa che il caffè è la sua benzina.",
-   "capitolo": "",
+   "testo": "Guarda l'incasso. Duecento pacchetti a sei euro e cinquanta fa milletrecento euro al giorno. In un mese trentanovemila euro. Un numero enorme! Ma di quei trentanovemila, a Giorgio ne restano duemilatrecentoquaranta.",
+   "capitolo": "Incasso non è guadagno",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "formula",
      "p": {
-      "titolo": "Un caffè vale quanti litri?",
-      "a": "1,00 €",
-      "op": "÷",
-      "b": "0,08 €",
-      "risultato": "12,5 litri",
-      "nota": "di margine"
-     }
-    },
-    {
-     "parola": "Se",
-     "tipo": "confronto",
-     "p": {
-      "titolo": "Margine per vendita",
-      "a": {
-       "titolo": "Un caffè",
-       "valore": "1,00 €",
-       "oggetto": "tazzina di caffè"
-      },
-      "b": {
-       "titolo": "Un litro",
-       "valore": "0,08 €",
-       "oggetto": "pompa di benzina"
-      },
-      "vincitore": "a"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Facciamo i numeri del bar. Gianni vende ottanta caffè al giorno. Con un euro di margine fanno ottanta euro al giorno. Per trenta giorni sono duemilaquattrocento euro al mese, solo dal caffè. Più i cornetti, i panini e le bibite.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "conteggio",
-     "p": {
-      "oggetto": "tazzina di caffè",
-      "icone": 40,
-      "testo": "80 caffè al giorno"
-     }
-    },
-    {
-     "parola": "Per",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Margine caffè al mese",
-      "a": "80 €",
+      "titolo": "Incasso al mese",
+      "a": "1.300 €",
       "op": "×",
       "b": "30 giorni",
-      "risultato": "2.400 €",
-      "nota": "ottanta caffè al giorno"
+      "risultato": "39.000 €",
+      "nota": "solo sigarette"
      }
-    }
-   ]
-  },
-  {
-   "testo": "Il bar da solo, con caffè, cornetti e panini, porta a Gianni circa quattromila euro di margine al mese. Quasi il doppio di quello che gli serve per pagare l'affitto. Ecco perché tanti distributori sono bar con le pompe fuori.",
-   "capitolo": "",
-   "inquadrature": [
+    },
     {
-     "parola": "",
+     "parola": "Ma",
      "tipo": "fette",
      "p": {
-      "titolo": "Margine del bar al mese",
-      "totale": 4000,
-      "totale_testo": "4.000 €",
+      "titolo": "Su 39.000 € di incasso",
+      "totale": 39000,
+      "totale_testo": "39.000 €",
       "fette": [
        {
-        "nome": "Caffè",
-        "valore": 2400,
-        "testo": "2.400 €"
+        "nome": "Tasse e produttore",
+        "valore": 36660,
+        "testo": "36.660 €"
        },
        {
-        "nome": "Cornetti",
-        "valore": 900,
-        "testo": "900 €"
-       },
-       {
-        "nome": "Panini e bibite",
-        "valore": 700,
-        "testo": "700 €"
-       }
-      ],
-      "evidenzia": 0
-     }
-    },
-    {
-     "parola": "Ecco",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "bar",
-      "insegna": "Bar Gianni",
-      "azione": "lavora",
-      "clienti": 4,
-      "testo": "Il bar dentro il distributore"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Secondo: il lavaggio. Un lavaggio a spazzole costa a Gianni, tra acqua, sapone ed elettricità, un euro e cinquanta. Lo vende a sei euro. Il margine è di quattro euro e cinquanta. Per auto.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "prezzo",
-     "p": {
-      "oggetto": "auto da lavare",
-      "prezzo": "6 €",
-      "nota": "costa un euro e cinquanta"
-     }
-    },
-    {
-     "parola": "Il",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Margine per lavaggio",
-      "a": "6 €",
-      "op": "−",
-      "b": "1,50 €",
-      "risultato": "4,50 €",
-      "nota": "acqua, sapone, corrente"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Gianni lava dieci auto al giorno. Dieci per quattro euro e cinquanta fanno quarantacinque euro al giorno. In un mese sono milletrecentocinquanta euro. Più di centosessanta litri di benzina in più, ogni giorno, senza fatica.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "conteggio",
-     "p": {
-      "oggetto": "auto",
-      "icone": 10,
-      "testo": "10 lavaggi al giorno"
-     }
-    },
-    {
-     "parola": "In",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Margine lavaggio al mese",
-      "a": "45 €",
-      "op": "×",
-      "b": "30 giorni",
-      "risultato": "1.350 €",
-      "nota": "dieci auto al giorno"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Fermati qui e pensa alla tua attività. Qual è la tua benzina, quella che porta gente ma guadagna poco? E qual è il tuo caffè, quello con il margine alto che puoi vendere a chi è già entrato?",
-   "capitolo": "Il tuo caffè",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Qual è il tuo caffè?",
-      "emozione": "calmo",
-      "scuro": false
-     }
-    },
-    {
-     "parola": "Qual",
-     "tipo": "lista",
-     "p": {
-      "titolo": "Chiediti",
-      "voci": [
-       "Cosa porta clienti?",
-       "Cosa lascia margine?",
-       "Cosa posso aggiungere?",
-       "Cosa costa meno?"
-      ]
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Un esempio fuori dal distributore: una libreria. Il libro nuovo lascia poco, circa il venticinque per cento. Ma la cartoleria, i segnalibri e le agende lasciano anche il sessanta. Il libro attira, la cartoleria paga l'affitto.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "confronto",
-     "p": {
-      "titolo": "Margine in libreria",
-      "a": {
-       "titolo": "Libro",
-       "valore": "25 %",
-       "oggetto": "libro"
-      },
-      "b": {
-       "titolo": "Cartoleria",
-       "valore": "60 %",
-       "oggetto": "quaderni e penne"
-      },
-      "vincitore": "b"
-     }
-    },
-    {
-     "parola": "Il",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "libreria",
-      "insegna": "Libreria Il Faro",
-      "azione": "felice",
-      "clienti": 2,
-      "testo": "Il libro attira, il resto paga"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Mettiamo tutto insieme. Ogni mese Gianni ha un margine sulla benzina, uno dal bar e uno dal lavaggio. Poi tolge i settemila euro di costi fissi. Quello che resta è il suo vero guadagno. Prima la benzina.",
-   "capitolo": "Il conto del mese",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "lista",
-     "p": {
-      "titolo": "Le entrate di Gianni",
-      "voci": [
-       "Margine benzina",
-       "Margine bar",
-       "Margine lavaggio",
-       "Meno costi fissi",
-       "Resta il guadagno"
-      ]
-     }
-    },
-    {
-     "parola": "Prima",
-     "tipo": "conteggio",
-     "p": {
-      "oggetto": "auto",
-      "icone": 30,
-      "testo": "110.000 litri al mese"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Gianni vende centodiecimila litri al mese. Per otto centesimi fanno ottomilaottocento euro di margine sulla benzina. Più i quattromila del bar e i milletrecentocinquanta del lavaggio. In tutto fanno quattordicimilacentocinquanta euro.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Margine benzina al mese",
-      "a": "110.000 litri",
-      "op": "×",
-      "b": "0,08 €",
-      "risultato": "8.800 €",
-      "nota": "centodiecimila litri"
-     }
-    },
-    {
-     "parola": "In",
-     "tipo": "fette",
-     "p": {
-      "titolo": "Margine totale al mese",
-      "totale": 14150,
-      "totale_testo": "14.150 €",
-      "fette": [
-       {
-        "nome": "Benzina",
-        "valore": 8800,
-        "testo": "8.800 €"
-       },
-       {
-        "nome": "Bar",
-        "valore": 4000,
-        "testo": "4.000 €"
-       },
-       {
-        "nome": "Lavaggio",
-        "valore": 1350,
-        "testo": "1.350 €"
+        "nome": "Aggio",
+        "valore": 2340,
+        "testo": "2.340 €"
        }
       ],
       "evidenzia": 1
@@ -881,235 +521,531 @@
    ]
   },
   {
-   "testo": "Ora togliamo i costi fissi: quattordicimilacentocinquanta meno settemila fanno settemilacentocinquanta euro. Questo è ciò che resta a Gianni prima delle imposte sul reddito. Non è poco, ma è molto lavoro e molte ore.",
+   "testo": "Quindi cosa guardare e cosa no. Non guardare l'incasso: è gonfiato dalle tasse. Guarda il margine, cioè quanto resta davvero. Fai sempre la domanda giusta: di ogni cento euro che passano in cassa, quanti restano a me?",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Cosa guardare",
+      "voci": [
+       "Non l'incasso",
+       "Il margine vero",
+       "Quanto resta ogni cento euro",
+       "I costi fissi",
+       "L'utile finale"
+      ]
+     }
+    },
+    {
+     "parola": "Fai",
+     "tipo": "cruscotto",
+     "p": {
+      "titolo": "Gli indicatori",
+      "voci": [
+       {
+        "nome": "Incasso",
+        "valore": 0.9
+       },
+       {
+        "nome": "Margine",
+        "valore": 0.06
+       },
+       {
+        "nome": "Utile",
+        "valore": 0.003
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Per Giorgio il margine sulle sigarette è il sei per cento. Su cento euro incassati, ne restano sei. E dopo i costi, praticamente zero. Quando senti un negozio che dice: faccio quaranta mila al mese! chiedi: e quanto ti resta?",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "formula",
      "p": {
-      "titolo": "Cosa resta a Gianni",
-      "a": "14.150 €",
-      "op": "−",
-      "b": "7.000 €",
-      "risultato": "7.150 €",
-      "nota": "prima delle imposte"
+      "titolo": "Margine percentuale",
+      "a": "0,39 €",
+      "op": "÷",
+      "b": "6,50 €",
+      "risultato": "6 %",
+      "nota": "ogni 100 € ne restano 6"
      }
     },
     {
-     "parola": "Non",
-     "tipo": "timbro",
+     "parola": "Quando",
+     "tipo": "persone",
      "p": {
-      "oggetto": "conti del mese",
-      "testo": "IN ATTIVO",
-      "colore": "verde",
-      "nota": "ma con tante ore"
+      "n": 4,
+      "azione": "entrano",
+      "escono": 0,
+      "testo": "Tanta gente, poco margine"
      }
     }
    ]
   },
   {
-   "testo": "Guarda come cambia la storia. Senza bar e lavaggio, Gianni avrebbe ottomilaottocento di margine e settemila di costi. Gli resterebbero milleottocento euro. Con bar e lavaggio, settemilacentocinquanta. Cinque volte di più, circa quattro.",
-   "capitolo": "",
+   "testo": "Un esempio diverso. Pensa a una concessionaria di auto usate. Vende una macchina da ventimila euro, ma ne guadagna seicento. Tre per cento. Incassa tanto, guadagna poco, e per vivere deve venderne tantissime.",
+   "capitolo": "Un paragone",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "confronto",
      "p": {
-      "titolo": "Cosa resta al mese",
+      "titolo": "Auto usata",
       "a": {
-       "titolo": "Solo benzina",
-       "valore": "1.800 €",
-       "oggetto": "pompa di benzina"
+       "titolo": "Incasso",
+       "valore": "20.000 €",
+       "oggetto": "auto"
       },
       "b": {
-       "titolo": "Con bar e lavaggio",
-       "valore": "7.150 €",
-       "oggetto": "tazzina di caffè"
+       "titolo": "Margine",
+       "valore": "600 €",
+       "oggetto": "auto"
       },
-      "vincitore": "b"
+      "vincitore": ""
      }
     },
     {
-     "parola": "Senza",
-     "tipo": "bilancia",
+     "parola": "Tre",
+     "tipo": "formula",
      "p": {
-      "titolo": "Cosa pesa di più",
-      "sinistra": "Solo benzina",
-      "destra": "Con bar e lavaggio",
-      "pende": "destra"
+      "titolo": "Percentuale",
+      "a": "600 €",
+      "op": "÷",
+      "b": "20.000 €",
+      "risultato": "3 %",
+      "nota": "esempio inventato"
      }
     }
    ]
   },
   {
-   "testo": "Un'altra cosa da guardare: i mesi. In estate la gente viaggia e Gianni vende di più. A gennaio e a novembre meno. Se non ci pensi prima, arrivi al mese magro senza scorte e con le rate da pagare.",
-   "capitolo": "Le stagioni",
+   "testo": "Torniamo da Giorgio. Come fa a stare in piedi? Con gli altri prodotti. Dietro al bancone ci sono i prodotti con il margine più alto. Qui sta il vero guadagno. Vediamoli uno per uno.",
+   "capitolo": "I prodotti che rendono",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "mesi",
+     "tipo": "luogo",
      "p": {
-      "titolo": "Litri venduti al mese, in migliaia",
-      "valori": [
-       90,
-       88,
-       95,
-       100,
-       108,
-       120,
-       130,
-       135,
-       112,
-       102,
-       92,
-       98
-      ],
-      "evidenzia": [
-       7,
-       8
-      ],
-      "nota": "estate piena, inverno magro"
+      "luogo": "tabaccheria",
+      "insegna": "Tabaccheria Giorgio",
+      "azione": "felice",
+      "clienti": 2,
+      "testo": "Il vero guadagno è altrove"
      }
     },
     {
-     "parola": "Se",
-     "tipo": "salvadanaio",
+     "parola": "Vediamoli",
+     "tipo": "leve",
      "p": {
-      "direzione": "riempie",
-      "testo": "Metti da parte d'estate"
+      "titolo": "Prodotti ad alto margine",
+      "voci": [
+       "Accendini e cartine",
+       "Francobolli e valori",
+       "Ricariche telefoniche",
+       "Gratta e vinci",
+       "Cartoleria e regali"
+      ],
+      "evidenzia": 0
      }
     }
    ]
   },
   {
-   "testo": "Un esempio da altri mondi: un gelataio vende tanto d'estate e quasi niente a gennaio. Chi è bravo mette da parte nei mesi forti, per pagare luce e affitto in quelli deboli. Chi non lo fa, a febbraio è già in affanno.",
+   "testo": "Primo: accendini, cartine, filtri. Un accendino costa a Giorgio novanta centesimi e lo vende a due euro. Margine: un euro e dieci. Più del triplo di un pacchetto di sigarette, su un oggetto che costa poco.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "andamento",
+     "tipo": "prezzo",
      "p": {
-      "titolo": "Incassi del gelataio",
-      "valori": [
-       2,
-       2,
-       4,
-       8,
-       14,
-       20,
-       22,
-       22,
-       12,
-       5,
-       2,
-       2
-      ],
-      "etichette": [
-       "G",
-       "F",
-       "M",
-       "A",
-       "M",
-       "G",
-       "L",
-       "A",
-       "S",
-       "O",
-       "N",
-       "D"
-      ],
-      "colore": "verde"
+      "oggetto": "accendino",
+      "prezzo": "2 €",
+      "nota": "costa 0,90 €"
      }
     },
     {
-     "parola": "Chi",
-     "tipo": "salvadanaio",
+     "parola": "Margine",
+     "tipo": "formula",
      "p": {
-      "direzione": "svuota",
-      "testo": "Senza scorte, a febbraio sei fermo"
+      "titolo": "Margine accendino",
+      "a": "2 €",
+      "op": "−",
+      "b": "0,90 €",
+      "risultato": "1,10 €",
+      "nota": "quasi tre pacchetti di sigarette"
      }
     }
    ]
   },
   {
-   "testo": "Cosa guardare, allora, se hai un'attività a basso margine? Non guardare gli incassi: sono un numero che ti fa sentire ricco e non lo sei. Guarda il margine per ogni vendita e il numero di pezzi che ti serve per andare in pari.",
-   "capitolo": "Cosa guardare",
+   "testo": "Giorgio ne vende quindici al giorno. Quindici accendini per un euro e dieci fa sedici euro e cinquanta al giorno. In un mese sono quattrocentonovantacinque euro. Con un oggetto che sta in un cestino vicino alla cassa.",
+   "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "cruscotto",
+     "tipo": "conteggio",
      "p": {
-      "titolo": "Gli indicatori di Gianni",
-      "voci": [
-       {
-        "nome": "Litri venduti",
-        "valore": 0.8
-       },
-       {
-        "nome": "Margine bar",
-        "valore": 0.6
-       },
-       {
-        "nome": "Costi fissi",
-        "valore": 0.5
-       },
-       {
-        "nome": "Scorta cassa",
-        "valore": 0.3
-       }
-      ]
+      "oggetto": "accendino",
+      "icone": 15,
+      "testo": "15 al giorno"
      }
     },
     {
-     "parola": "Non",
-     "tipo": "lista",
+     "parola": "Quindici",
+     "tipo": "formula",
      "p": {
-      "titolo": "Da guardare",
-      "voci": [
-       "Margine per vendita",
-       "Pezzi per il pareggio",
-       "Costi fissi al mese",
-       "Cosa vendi in più"
-      ]
+      "titolo": "Accendini al mese",
+      "a": "16,50 €",
+      "op": "×",
+      "b": "30 giorni",
+      "risultato": "495 €",
+      "nota": "margine mensile"
      }
     }
    ]
   },
   {
-   "testo": "Un'ultima trappola: il prezzo del carburante sale e scende. Quando sale, il cliente pensa che Gianni si arricchisca. Ma il margine è lo stesso, otto centesimi. Sale solo la fetta dello Stato e quella del petrolio. Il peso è sempre sulle tasse.",
+   "testo": "Secondo: le ricariche telefoniche e i servizi, come pagare bollette e bollettini. Qui la commissione è piccola, ma il volume è alto. Giorgio fa in media trenta operazioni al giorno, a ottanta centesimi l'una.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "persone",
      "p": {
-      "n": 5,
-      "azione": "entrano",
+      "n": 6,
+      "azione": "fila",
       "escono": 0,
-      "testo": "Il cliente pensa che lui si arricchisca"
+      "testo": "Bollette e ricariche"
      }
     },
     {
-     "parola": "Ma",
+     "parola": "Giorgio",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Servizi al giorno",
+      "a": "30 operazioni",
+      "op": "×",
+      "b": "0,80 €",
+      "risultato": "24 €",
+      "nota": "commissione media di esempio"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ventiquattro euro al giorno per trenta giorni fa settecentoventi euro al mese. Sembra poco, ma vedi cosa succede: per fare queste operazioni non serve spazio, non serve scorta. Costo quasi zero, margine quasi tutto.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Servizi al mese",
+      "a": "24 €",
+      "op": "×",
+      "b": "30 giorni",
+      "risultato": "720 €",
+      "nota": "senza scorta in magazzino"
+     }
+    },
+    {
+     "parola": "Costo",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Perché i servizi convengono",
+      "voci": [
+       "Niente magazzino",
+       "Niente merce invenduta",
+       "Porta clienti in negozio",
+       "Commissione sicura"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Terzo: i gratta e vinci e le lotterie. Anche qui c'è un aggio, circa l'otto per cento. Su un biglietto da cinque euro fanno quaranta centesimi. Giorgio ne vende trenta al giorno: sono dodici euro. Trecentosessanta al mese.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "gratta e vinci",
+      "prezzo": "5 €",
+      "nota": "aggio circa 0,40 €"
+     }
+    },
+    {
+     "parola": "Giorgio",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Gratta e vinci al mese",
+      "a": "12 €",
+      "op": "×",
+      "b": "30 giorni",
+      "risultato": "360 €",
+      "nota": "30 biglietti al giorno"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Quarto: cartoleria, pile, biglietti d'auguri, piccoli regali. Qui il margine è alto: il quaranta per cento e oltre. Una penna che costa un euro e venti la vende a due euro. Giorgio ne tiene pochi, ma scelti bene.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "penna",
+      "prezzo": "2 €",
+      "nota": "costa 1,20 €"
+     }
+    },
+    {
+     "parola": "Giorgio",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Margine percentuale penna",
+      "a": "0,80 €",
+      "op": "÷",
+      "b": "2 €",
+      "risultato": "40 %",
+      "nota": "molto più delle sigarette"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Con cartoleria e regali Giorgio incassa mille euro al mese con il quaranta per cento di margine. Sono quattrocento euro. Poco spazio sugli scaffali, ma un margine che le sigarette si sognano.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Margine cartoleria",
+      "a": "1.000 €",
+      "op": "×",
+      "b": "40 %",
+      "risultato": "400 €",
+      "nota": "al mese"
+     }
+    },
+    {
+     "parola": "Poco",
+     "tipo": "fette",
+     "p": {
+      "titolo": "Su 1.000 € di cartoleria",
+      "totale": 1000,
+      "totale_testo": "1.000 €",
+      "fette": [
+       {
+        "nome": "Costo merce",
+        "valore": 600,
+        "testo": "600 €"
+       },
+       {
+        "nome": "Margine",
+        "valore": 400,
+        "testo": "400 €"
+       }
+      ],
+      "evidenzia": 1
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Sommiamo tutto. Sigarette duemilatrecentoquaranta. Accendini quattrocentonovantacinque. Servizi settecentoventi. Gratta e vinci trecentosessanta. Cartoleria quattrocento. Totale: quattromilatrecentoquindici euro di margine al mese.",
+   "capitolo": "Il totale",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "fette",
+     "p": {
+      "titolo": "Margine totale al mese",
+      "totale": 4315,
+      "totale_testo": "4.315 €",
+      "fette": [
+       {
+        "nome": "Sigarette",
+        "valore": 2340,
+        "testo": "2.340 €"
+       },
+       {
+        "nome": "Accendini",
+        "valore": 495,
+        "testo": "495 €"
+       },
+       {
+        "nome": "Servizi",
+        "valore": 720,
+        "testo": "720 €"
+       },
+       {
+        "nome": "Gratta e vinci",
+        "valore": 360,
+        "testo": "360 €"
+       },
+       {
+        "nome": "Cartoleria",
+        "valore": 400,
+        "testo": "400 €"
+       }
+      ],
+      "evidenzia": 0
+     }
+    },
+    {
+     "parola": "Totale",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Ora i conti tornano?",
+      "emozione": "felice",
+      "scuro": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Adesso togliamo i costi fissi: duemiladuecentoquaranta euro. Quattromilatrecentoquindici meno duemiladuecentoquaranta fa duemilasettantacinque euro. Ecco lo stipendio vero di Giorgio, prima delle imposte personali.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Utile mensile",
+      "a": "4.315 €",
+      "op": "−",
+      "b": "2.240 €",
+      "risultato": "2.075 €",
+      "nota": "prima delle imposte"
+     }
+    },
+    {
+     "parola": "Ecco",
+     "tipo": "salvadanaio",
+     "p": {
+      "direzione": "riempie",
+      "testo": "Ora Giorgio si paga"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Guarda cosa è successo: le sigarette portano più della metà del margine, ma da sole non pagano le bollette. Gli altri prodotti sono il resto. Senza le sigarette nessuno entra, senza il resto Giorgio non guadagna.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "bilancia",
+     "p": {
+      "titolo": "Cosa tiene in piedi il negozio",
+      "sinistra": "Sigarette: porta i clienti",
+      "destra": "Altri prodotti: portano l'utile",
+      "pende": "destra"
+     }
+    },
+    {
+     "parola": "Senza",
+     "tipo": "cruscotto",
+     "p": {
+      "titolo": "Peso sul margine",
+      "voci": [
+       {
+        "nome": "Sigarette",
+        "valore": 0.54
+       },
+       {
+        "nome": "Servizi",
+        "valore": 0.17
+       },
+       {
+        "nome": "Accendini",
+        "valore": 0.11
+       },
+       {
+        "nome": "Altro",
+        "valore": 0.18
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ora il punto di pareggio. Quanti pacchetti deve vendere Giorgio solo per coprire i costi fissi? Duemiladuecentoquaranta euro diviso zero virgola trentanove fa cinquemilasettecentoquarantasei pacchetti al mese. Circa centonovantadue al giorno.",
+   "capitolo": "Il pareggio",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Pareggio solo sigarette",
+      "a": "2.240 €",
+      "op": "÷",
+      "b": "0,39 €",
+      "risultato": "5.744 pacchetti",
+      "nota": "al mese"
+     }
+    },
+    {
+     "parola": "Circa",
+     "tipo": "pareggio",
+     "p": {
+      "titolo": "Pareggio sulle sigarette",
+      "fissi": 2240,
+      "margine": 0.39,
+      "unita": "pacchetti venduti",
+      "oggetto": "sigarette",
+      "perdita": true,
+      "guadagno": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Facciamo un controllo. Cinquemilasettecentoquarantaquattro diviso trenta giorni fa circa centonovantuno pacchetti al giorno. Giorgio ne vende duecento: è appena sopra il pareggio. Basta un calo del cinque per cento e va in perdita.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Pacchetti al giorno per pareggiare",
+      "a": "5.744",
+      "op": "÷",
+      "b": "30 giorni",
+      "risultato": "191",
+      "nota": "ne vende 200"
+     }
+    },
+    {
+     "parola": "Basta",
      "tipo": "andamento",
      "p": {
-      "titolo": "Prezzo al litro nel tempo",
+      "titolo": "Se le vendite calano",
       "valori": [
-       1.65,
-       1.72,
-       1.8,
-       1.85,
-       1.9,
-       1.95
+       200,
+       190,
+       180,
+       170
       ],
       "etichette": [
-       "1",
-       "2",
-       "3",
-       "4",
-       "5",
-       "6"
+       "Oggi",
+       "-5 %",
+       "-10 %",
+       "-15 %"
       ],
       "colore": "rosso"
      }
@@ -1117,8 +1053,118 @@
    ]
   },
   {
-   "testo": "Facciamo un riepilogo veloce. Su un pieno da settanta euro, Gianni tiene poco più di tre euro. Lo Stato prende quasi la metà, il prodotto quasi altrettanto. I soldi veri arrivano da bar e lavaggio, non dalla pompa.",
-   "capitolo": "Il riassunto",
+   "testo": "E qui c'è il rischio: il fumo cala, anno dopo anno. Se Giorgio perde dieci pacchetti al giorno, perde tre euro e novanta al giorno, cento diciassette euro al mese. Per questo gli altri prodotti non sono un di più: sono la salvezza.",
+   "capitolo": "Il rischio",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "mesi",
+     "p": {
+      "titolo": "Pacchetti venduti in un anno",
+      "valori": [
+       200,
+       198,
+       196,
+       195,
+       193,
+       192,
+       190,
+       189,
+       188,
+       186,
+       185,
+       183
+      ],
+      "evidenzia": [
+       12
+      ],
+      "nota": "calo lento ma continuo"
+     }
+    },
+    {
+     "parola": "Per",
+     "tipo": "leve",
+     "p": {
+      "titolo": "Come si protegge Giorgio",
+      "voci": [
+       "Più servizi",
+       "Più prodotti ad alto margine",
+       "Orari che portano clienti",
+       "Meno costi fissi"
+      ],
+      "evidenzia": 0
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Un altro esempio, lontano dalle sigarette. Un'edicola vende i giornali con un margine fisso del venti per cento circa, ma le copie calano ogni anno. Così molti edicolanti hanno aggiunto giocattoli, ricariche e gadget.",
+   "capitolo": "Cosa impari",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "andamento",
+     "p": {
+      "titolo": "Copie vendute in edicola, esempio",
+      "valori": [
+       100,
+       90,
+       80,
+       70,
+       60
+      ],
+      "etichette": [
+       "Anno 1",
+       "Anno 2",
+       "Anno 3",
+       "Anno 4",
+       "Anno 5"
+      ],
+      "colore": "rosso"
+     }
+    },
+    {
+     "parola": "Così",
+     "tipo": "orologio",
+     "p": {
+      "ore": 12,
+      "piene": 9,
+      "testo": "Più ore, più prodotti utili"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Quindi, se hai un negozio, fai tre domande. Primo: ho un prodotto che porta gente ma rende poco? Secondo: cosa posso vendere a chi è già dentro, con margine alto? Terzo: i miei costi fissi stanno nel margine che ho?",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Tre domande per te",
+      "voci": [
+       "Cosa porta gente ma rende poco?",
+       "Cosa vendo a chi è già dentro?",
+       "I costi stanno nel margine?",
+       "Qual è il mio pareggio?"
+      ]
+     }
+    },
+    {
+     "parola": "Terzo",
+     "tipo": "domanda",
+     "p": {
+      "testo": "E il tuo pareggio?",
+      "emozione": "calmo",
+      "scuro": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ricapitoliamo. Sulle sigarette l'aggio è basso e fisso: trentanove centesimi a pacchetto. L'incasso inganna, conta il margine. Il volume salva, ma non basta. Il guadagno vero sta nei prodotti ad alto margine.",
+   "capitolo": "Riassunto",
    "inquadrature": [
     {
      "parola": "",
@@ -1126,97 +1172,48 @@
      "p": {
       "titolo": "Da ricordare",
       "voci": [
-       "Sul pieno restano tre euro",
-       "Servono tantissimi litri",
-       "Il bar guadagna di più",
-       "Fatturato non è guadagno"
+       "Aggio basso e fisso",
+       "L'incasso inganna",
+       "Il volume non basta",
+       "Il guadagno sta nel resto"
       ]
      }
     },
     {
-     "parola": "Lo",
-     "tipo": "fette",
+     "parola": "Il",
+     "tipo": "timbro",
      "p": {
-      "titolo": "Il pieno da 70 €",
-      "totale": 70,
-      "totale_testo": "70 €",
-      "fette": [
-       {
-        "nome": "Accise",
-        "valore": 27.6,
-        "testo": "27,60 €"
-       },
-       {
-        "nome": "Iva",
-        "valore": 12.6,
-        "testo": "12,60 €"
-       },
-       {
-        "nome": "Prodotto",
-        "valore": 26.8,
-        "testo": "26,80 €"
-       },
-       {
-        "nome": "Gianni",
-        "valore": 3.04,
-        "testo": "3,04 €"
-       }
-      ],
-      "evidenzia": 3
+      "oggetto": "tabaccheria",
+      "testo": "2.075 € AL MESE",
+      "colore": "verde",
+      "nota": "utile di Giorgio"
      }
     }
    ]
   },
   {
-   "testo": "La lezione per te: non farti ingannare dalla grandezza degli incassi. Chiediti sempre quanto resta davvero, dopo tutto. E cerca il tuo caffè, quel prodotto piccolo che ti lascia un margine grande e che puoi vendere a chi è già lì.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Quanto resta davvero?",
-      "emozione": "felice",
-      "scuro": false
-     }
-    },
-    {
-     "parola": "cerca",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "distributore",
-      "insegna": "Self Gianni",
-      "azione": "felice",
-      "clienti": 3,
-      "testo": "Cerca il tuo caffè"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Nel prossimo episodio parliamo di una pizzeria: la pizza costa pochissimo da fare, ma il locale sembra sempre in difficoltà. Dove va a finire il margine? Iscriviti, così non perdi la puntata.",
+   "testo": "E tu, hai mai guardato il margine vero di quello che vendi? Prossima puntata: un parrucchiere che fa il pieno di clienti ogni giorno, ma a fine mese non riesce a pagarsi. Dove finisce il suo tempo? Iscriviti.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "prossimo",
      "p": {
-      "luogo": "pizzeria",
-      "insegna": "Da Salvo",
-      "oggetto": "pizza",
-      "testo": "Quanto resta a una pizzeria?"
+      "luogo": "salone",
+      "insegna": "Salone Chiara",
+      "oggetto": "forbici",
+      "testo": "Pieno di clienti, ma senza utile?"
      }
     },
     {
      "parola": "Iscriviti",
-     "tipo": "riepilogo",
+     "tipo": "luogo",
      "p": {
-      "titolo": "Alla prossima",
-      "voci": [
-       "Iscriviti al canale",
-       "Metti un like",
-       "Racconta la tua attività"
-      ]
+      "luogo": "tabaccheria",
+      "insegna": "Tabaccheria Giorgio",
+      "azione": "festa",
+      "clienti": 5,
+      "testo": "Iscriviti al canale!"
      }
     }
    ]
