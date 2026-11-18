@@ -7,6 +7,7 @@ on:
       notizia: {description: 'json del copione (notizie/auto/...json)', type: string}
       video_id: {description: 'id YouTube del video', type: string}
       chiave: {description: 'segreto del canale (es. YT_REFRESH_TOKEN_STORIA)', type: string}
+      variante: {description: 'SI = versione diversa (per la lingua gemella); NO = copertina normale', default: 'SI', type: string}
 permissions:
   contents: write
 jobs:
@@ -18,10 +19,16 @@ jobs:
       FAL_KEY: ${{ secrets.FAL_KEY }}
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       SOLO_COPERTINA: SI
-      VARIANTE_COPERTINA: SI
+      VARIANTE_COPERTINA: ${{ inputs.variante }}
       TETTO_DOLLARI: '0.3'
     steps:
       - uses: actions/checkout@v4
+      - name: Libreria dei luoghi (scene gia' disegnate, gratis)
+        uses: actions/cache/restore@v4
+        with:
+          path: libreria_scene
+          key: libreria-scene-${{ github.run_id }}
+          restore-keys: libreria-scene-
       - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null && pip install -q --break-system-packages pillow
       - name: Copertina
         run: python3 -c "import json,os;n=json.load(open(os.environ['NOTIZIA']));n['budget_dollari']=0.3;json.dump(n,open('/tmp/n.json','w'))" && NOTIZIA=/tmp/n.json python3 video_notizie.py

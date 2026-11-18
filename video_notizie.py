@@ -13,7 +13,7 @@ Uscita: prove_video/notizie/<nome>/video.mp4, copertina.jpg, capitoli.json, cost
 import base64, io, json, math, os, random, re, shutil, subprocess, sys, time, urllib.error, urllib.parse, urllib.request
 from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor
 
-from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageOps, ImageStat
+from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont, ImageOps, ImageStat
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 E = os.environ.get
@@ -1214,6 +1214,31 @@ def copertina():
         a_ = qq.split()[3].filter(ImageFilter.MaxFilter(int(r * k) * 2 + 1)); o = Image.new('RGBA', qq.size, col + (0,)); o.putalpha(a_); o.alpha_composite(qq); return o
 
     im = Image.new('RGBA', (W, H)); d = ImageDraw.Draw(im)
+    # 18 nov (Giorgio): dietro al viso la SCENA vera del video, come la locandina di un film: si deve intuire la storia
+    # (luogo, situazione) coerente con la scritta. Mai sfondo neutro. Variante (altra lingua): un'altra scena dello stesso video.
+    scena = None
+    try:
+        chiavi = [c.get('sfondo')] + [k_ for k_ in (N.get('sets') or {}) if k_ != c.get('sfondo')]
+        if variante and len(chiavi) > 1:
+            chiavi = chiavi[1:2] + chiavi[:1]
+        for k_ in [x for x in chiavi if x][:2]:
+            f_ = sfondo(k_)
+            if f_:
+                scena = ImageOps.fit(Image.open(f_).convert('RGB'), (W, H), Image.LANCZOS); break
+    except Exception as e:
+        log('scena della copertina non trovata:', str(e)[:100])
+
+    def su_scena(tinta, forza, buio, lato_testo):
+        """La scena del video, scurita e colorata (tinta del modello), con un velo scuro dal lato della scritta per leggerla bene."""
+        nonlocal im
+        b_ = ImageEnhance.Brightness(scena).enhance(buio).convert('RGBA')
+        b_ = Image.alpha_composite(b_, Image.new('RGBA', (W, H), tinta + (int(255 * forza),)))
+        g_ = Image.new('L', (W, 1))
+        for x in range(W):
+            t_ = (1 - x / W) if lato_testo == 'sx' else (x / W)
+            g_.putpixel((x, 0), int(200 * max(0, t_ - .35) / .65))
+        b_ = Image.alpha_composite(b_, Image.merge('RGBA', [Image.new('L', (W, H), 0)] * 3 + [g_.resize((W, H))]))
+        im = b_
     if stile == 'B':
         coppie = [((0, 90, 200), (200, 20, 30)), ((20, 160, 80), (210, 20, 40)), ((110, 30, 170), (230, 120, 0))]
         c1, c2 = coppie[giorno % len(coppie)]
@@ -1228,9 +1253,13 @@ def copertina():
         scrivi(d, (640, 80), tit, adatta(tit, 125, 1180), 'white', 12, 'mm')
         scrivi(d, (640, 400 if len(chi) < 3 else 330), 'VS', 200, (255, 230, 0), 16, 'mm')
     elif stile == 'C':
-        im.paste((12, 12, 16), (0, 0, W, H)); d = ImageDraw.Draw(im)
-        for y in range(0, H, int(6 * k)):
-            d.line((0, y, W, y), fill=(20, 18, 24))
+        if scena is not None:   # scena del video, scura con un po' di rosso: il numero rosso resta il protagonista
+            su_scena((120, 0, 0), .18, .45, 'dx')
+        else:
+            im.paste((12, 12, 16), (0, 0, W, H)); d = ImageDraw.Draw(im)
+            for y in range(0, H, int(6 * k)):
+                d.line((0, y, W, y), fill=(20, 18, 24))
+        d = ImageDraw.Draw(im)
         v = bordo(viso(chi[0], 640, .5), (255, 40, 40)) if chi else None
         if v:
             im.alpha_composite(v, (int(-90 * k), H - v.height + int(40 * k)))
@@ -1244,7 +1273,12 @@ def copertina():
         if box and y < 600:
             s2 = min(adatta(box, 110, larg), int((690 - y) / 1.1)); scrivi(d, (1250, y), box, s2, (255, 230, 0) if len(righe_v) < 3 else (255, 40, 40), 12, 'ra')
     else:   # A
-        if guerra:
+        sx = (giorno + (1 if variante else 0)) % 2 == 1   # viso a sinistra un giorno si' e uno no
+        if scena is not None:   # scena del video con la tinta del giorno (rosso/blu/arancio; guerra: fuoco)
+            tinte = [(200, 10, 20), (10, 60, 190), (225, 100, 0)]
+            su_scena((200, 70, 0) if guerra else tinte[giorno % len(tinte)], .30, .70, 'dx' if sx else 'sx')
+            d = ImageDraw.Draw(im)
+        elif guerra:
             for y in range(H):
                 t = y / H; d.line((0, y, W, y), fill=(int(40 + 200 * t), int(10 + 60 * t), 10))
         else:
@@ -1254,7 +1288,6 @@ def copertina():
             for g in range(0, 360, 15):
                 a1, a2 = math.radians(g), math.radians(g + 7.5)
                 d.polygon([(cx, cy), (cx + 4 * W * math.cos(a1), cy + 4 * W * math.sin(a1)), (cx + 4 * W * math.cos(a2), cy + 4 * W * math.sin(a2))], fill=f2)
-        sx = (giorno + (1 if variante else 0)) % 2 == 1   # viso a sinistra un giorno si' e uno no
         v = bordo(viso(chi[0], 700, .52), (255, 255, 255)) if chi else None
         extra = 0
         if v and len(chi) > 1:   # seconda persona della notizia: accanto, piu' piccola, dietro alla principale
