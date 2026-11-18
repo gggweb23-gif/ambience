@@ -94,7 +94,7 @@ jobs:
         run: |
           git config user.name "render-bot"; git config user.email "render-bot@users.noreply.github.com"
           git add notizie/radar && (git diff --cached --quiet || git commit -qm "Radar notizie $FILONE")
-          for i in 1 2 3 4 5; do git pull --rebase -q && git push -q && break; sleep $((i*5)); done
+          for i in 1 2 3 4 5; do (git pull --rebase -q || { git rebase --abort; git pull --rebase -q -X theirs; }) && git push -q && break; sleep $((i*5)); done   # 18 nov: conflitto col giro dell'altro filone -> si tiene il nostro file, mai copioni persi
       - name: Copione (con fonti verificate)
         id: copione
         if: ${{ env.PRODUCI == 'SI' }}
@@ -142,5 +142,5 @@ jobs:
           git add -- prove_video/notizie ':(exclude)prove_video/notizie/*/materiali' 2>/dev/null || true
           if ! git diff --cached --quiet; then
             git commit -qm "Notizie $FILONE: copione e video"
-            for i in 1 2 3 4 5; do git pull --rebase -q && git push -q && break; sleep $((i*5)); done
+            for i in 1 2 3 4 5; do (git pull --rebase -q || { git rebase --abort; git pull --rebase -q -X theirs; }) && git push -q && break; sleep $((i*5)); done   # 18 nov: conflitto col giro dell'altro filone -> si tiene il nostro file, mai copioni persi
           fi
