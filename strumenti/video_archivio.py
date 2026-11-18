@@ -414,8 +414,10 @@ def revisione():
                      if str(P.get('libreria_archivio') or '').strip().lower() == 'storico' else '') + 'it is a cartoon, '
                      'animation, map graphic or drawing; it is a title card, intertitle or has burned-in text/subtitles/timecode; a swastika flag or Nazi banner is '
                      'the main subject; it is black/empty; or it clearly belongs to ANOTHER subject (e.g. a horse show or a reindeer in a war video, a car on Earth in a space video). '
-                     'Footage that fits the channel topic and period is fine even if generic or not literally what the sentence says (archival black-and-white footage, '
-                     'space/station/mission control footage for a space video). Text we added on purpose (listed per shot) is fine. Judge ONLY the image: the narration is given just as context and may be cut, never reject a shot because of the narration text. Answer ONLY JSON: {"sbagliate": [{"i": <shot number>, "motivo": "short reason"}]} (empty list if all are fine).'})
+                     'COHERENCE (18 nov, Giorgio: the images must be extremely coherent with what the narrator says): when the narration names a specific subject '
+                     '(a person, a place, a weapon, a ship, a prison camp, an interrogation, a city, a mission), the shot must show something related to THAT subject; '
+                     'a shot that shows an unrelated subject of the same era (e.g. a farm or a parade while the narrator talks about an interrogation) is WRONG. '
+                     'Generic period footage is fine only when the narration itself is generic (transitions, general context). Text we added on purpose (listed per shot) is fine. Answer ONLY JSON: {"sbagliate": [{"i": <shot number>, "motivo": "short reason"}]} (empty list if all are fine).'})
         try:
             corpo = {'model': 'claude-haiku-4-5-20251001', 'max_tokens': 1200, 'messages': [{'role': 'user', 'content': cont}]}
             r_ = get('https://api.anthropic.com/v1/messages', corpo, {'x-api-key': E('ANTHROPIC_API_KEY', ''), 'anthropic-version': '2023-06-01'}, timeout=300)

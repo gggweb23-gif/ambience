@@ -141,12 +141,16 @@ DIRECTION (regia) - like a film: EVERY scene has its OWN new drawn image ("set")
 - Scenes are SHORT: 1-2 sentences, 10-16 words. "sets": one NEW set for every scene that is not a map/dossier/frase
   (about {max(6, int(MINUTI * 7))}-{max(8, int(MINUTI * 8))} sets in total). Never reuse a set, never come back to an old one. Every set must
   look clearly different from the previous one (different place or angle, light, colors, time of day, objects in the foreground).
+- COHERENCE IS THE MOST IMPORTANT RULE (18 nov, Giorgio): every set must show the exact place, object or situation the narrator talks about
+  in THAT scene (a big tech CEO -> the company's HQ, a data center, a chip factory, a keynote stage, a stock exchange floor, a courtroom...;
+  never a generic home interior, living room or kitchen unless the sentence is about homes). A viewer must understand the topic from the image alone.
 - Each set: concrete and coherent with what is said (real places: the Kremlin office, a Kyiv street at night, a tanker in the Strait of Hormuz,
   the Oval Office, a UN hall...), rich in detail, EMPTY of people (people are only our caricatures in "cast"), NO writing anywhere (no documents,
   newspapers, screens with text, signs, flags with text). "effetto" when it fits (rain at night, snow in Ukraine winter, "mirino" = seen through a
   spy/surveillance camera). "luogo" = the real place shown on screen the first time.
 - LIBRARY of places already drawn on previous days (free, not shown in the last 7 days): {json.dumps(libreria_luoghi(), ensure_ascii=False)}
-  When one of them really fits a scene, reuse it by adding "lib": "<its id>" to the set (keep a "descr" anyway). At most 1 set out of 3.
+  Reuse one ONLY when it shows exactly the place/subject of that sentence (never just because it is free): add "lib": "<its id>" to the set
+  (keep a "descr" anyway). At most 1 set out of 3.
 - "cast": 0-2 real people per set, standing on opposite sides (sx/dx), with a pose that fits the moment. The main person appears often
   (max 4 poses for the main person, 2 for the others). Real public figures only. Characters already drawn in our library (reuse these slugs and
   pose names when they fit, it's free): {json.dumps(lib)}
@@ -216,6 +220,43 @@ def verifica(v):
     v['scene'] = [s for s in v['scene'] if s['testo']]
     tolte = prima - len(v['scene'])
     v['verifica'] = {'correzioni': len(r.get('correzioni', [])), 'scene_tolte': tolte}
+    return v
+
+
+def coerenza(v):
+    """18 nov (Giorgio): "le immagini devono essere estremamente coerenti con quello che dice la voce: se parla di una big tech e' inutile
+    mostrare l'interno di una casa". Dopo la verifica dei fatti (che cambia alcune frasi) ogni scena disegnata si confronta con la sua frase:
+    i luoghi che non c'entrano si riscrivono (e non si riusano dalla libreria). Solo testo: pochi centesimi."""
+    sets = v.get('sets') or {}
+    righe = []
+    for i, sc in enumerate(v['scene']):
+        vi = sc.get('visivo') or {}
+        if vi.get('tipo', 'set') == 'set' and vi.get('set') in sets:
+            st = sets[vi['set']]
+            righe.append({'i': i, 'set': vi['set'], 'voce': sc['testo'], 'scena': st.get('descr', ''), 'luogo': st.get('luogo', '')})
+    if not righe:
+        return v
+    prompt = ("You are the art director of a news explainer video. For each scene below you get what the NARRATOR says and the DRAWN SCENE shown "
+              "at that moment. The image must show the exact place, object or situation the narrator talks about, so that the viewer understands the "
+              "topic from the image alone (a big tech company -> its HQ, data center, keynote stage, chip factory, trading floor; a war -> the real "
+              "front, city, base, port; never a generic home interior or unrelated place). For every scene that is NOT clearly coherent, write a new "
+              "scene description: concrete real place, rich detail, EMPTY of people, no text/logos/flags with writing, different from the other "
+              'scenes. Return ONLY JSON: {"rifare": [{"set": "key", "descr": "new scene in English", "luogo": "PLACE, COUNTRY or empty", '
+              '"perche": "short reason"}]} (empty list if all are coherent).\n\n' + json.dumps(righe, ensure_ascii=False))
+    try:
+        r = json_da(claude([{'role': 'user', 'content': prompt}], max_tokens=8000, sforzo='low'))
+    except Exception as e:
+        log('coerenza immagini non controllata:', str(e)[:120]); return v
+    n = 0
+    for x in r.get('rifare', []):
+        k = x.get('set')
+        if k in sets and x.get('descr'):
+            log(f"coerenza: scena {k} rifatta ({x.get('perche', '')[:100]})")
+            sets[k]['descr'] = x['descr']; sets[k].pop('lib', None)
+            if 'luogo' in x:
+                sets[k]['luogo'] = x.get('luogo') or ''
+            n += 1
+    v['coerenza'] = {'scene_rifatte': n, 'controllate': len(righe)}
     return v
 
 
@@ -297,6 +338,8 @@ def main():
     log(f"copione EN: {len(v['scene'])} scene, {sum(len(s['testo'].split()) for s in v['scene'])} parole, spesa {SPESA[0]:.3f} $")
     v = verifica(v)
     log(f"verificato: {v['verifica']}, spesa {SPESA[0]:.3f} $")
+    v = coerenza(v)
+    log(f"coerenza immagini: {v.get('coerenza')}, spesa {SPESA[0]:.3f} $")
     base = {'lingua': 'en', 'nome': nome + '_en', 'data': f"{OGGI_D.strftime('%B').upper()} {OGGI_D.day}, {OGGI_D.year}", 'etichetta': 'BREAKING',
             'musica': 'tensione', 'voce': VOCI['en'], 'budget_dollari': round(max(1.2, float(E('BUDGET_VIDEO') or 3) - SPESA[0]), 2), 'storia': onda['storia'], 'filone': FILONE}
     out = os.path.join(ROOT, 'notizie', 'auto'); os.makedirs(out, exist_ok=True)
