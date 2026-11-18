@@ -24,7 +24,7 @@ LAV = '/tmp/lav'; os.makedirs(LAV, exist_ok=True)
 MAXS = float(P.get('max_secondi') or 3.5)
 SOLO_VIDEO = float(P.get('solo_video_fino_a') or 30)
 W, H, FPS = 1920, 1080, 30
-UA = {'User-Agent': 'ambience-prova-archivio/1.0 (gggweb23@gmail.com)'}
+UA = {'User-Agent': 'ambience-prova-archivio/1.0 (+https://github.com/gggweb23-gif/ambience)'}
 NO_CLIP = re.compile(r'brief|conference|interview|news|q ?& ?a|panel|talk|chat|replay|update|event|coverage|town hall|live|speech|remarks|'
                      r'podcast|webinar|explain|animation|graphic|trailer|countdown|speaks|call|engagement|discuss|student|school|media|magazine|'
                      r'governor|official|tour|education|in-?flight|virtual|ceremony|award|reporter|answers|questions', re.I)
@@ -75,11 +75,41 @@ _cache_voce = os.path.join(LAV, f'voce_{_chiave_voce}.json')
 if os.path.exists(_cache_voce):   # riparazione: stessa voce gia' pagata, non si rifa'
     j = json.load(open(_cache_voce)); log('voce ripresa dal tentativo precedente (nessun credito in piu\')')
 else:
-    j = get(f"https://api.elevenlabs.io/v1/text-to-speech/{P.get('voce') or 'glnsgBC77wt5zOYU0szz'}/with-timestamps?output_format=mp3_44100_128",
-            {'text': testo, 'model_id': 'eleven_multilingual_v2',
-             'voice_settings': {'stability': float(P.get('stabilita') or .45), 'similarity_boost': .75, 'style': float(P.get('stile_voce') or 0),
-                                'speed': float(P.get('velocita') or 1.06)}},
-            {'xi-api-key': E('ELEVENLABS_API_KEY', '')})
+    # 18 nov (Orbital fermo con errore 400): ElevenLabs accetta al massimo 10.000 caratteri per richiesta -> si divide in pezzi
+    # sui confini delle scene (max 9.000 caratteri), con il testo prima/dopo per tenere la stessa intonazione, e si uniscono audio e tempi
+    pezzi, cur = [], []
+    for s_ in scene:
+        t_ = s_['testo'].strip()
+        if cur and len(' '.join(cur + [t_])) > 9000:
+            pezzi.append(' '.join(cur)); cur = []
+        cur.append(t_)
+    if cur:
+        pezzi.append(' '.join(cur))
+    audio, ch, st, en, off = [], [], [], [], 0.0
+    for i_, pz in enumerate(pezzi):
+        dati_ = {'text': pz, 'model_id': 'eleven_multilingual_v2',
+                 'voice_settings': {'stability': float(P.get('stabilita') or .45), 'similarity_boost': .75, 'style': float(P.get('stile_voce') or 0),
+                                    'speed': float(P.get('velocita') or 1.06)}}
+        if len(pezzi) > 1:
+            dati_['previous_text'] = pezzi[i_ - 1][-1000:] if i_ else ''
+            dati_['next_text'] = pezzi[i_ + 1][:1000] if i_ + 1 < len(pezzi) else ''
+        jj = get(f"https://api.elevenlabs.io/v1/text-to-speech/{P.get('voce') or 'glnsgBC77wt5zOYU0szz'}/with-timestamps?output_format=mp3_44100_128",
+                 dati_, {'xi-api-key': E('ELEVENLABS_API_KEY', '')})
+        fp_ = os.path.join(LAV, f'voce_pezzo{i_}.mp3'); open(fp_, 'wb').write(base64.b64decode(jj['audio_base64'])); audio.append(fp_)
+        a_ = jj['alignment']
+        if i_:   # lo spazio tra un pezzo e l'altro
+            ch.append(' '); st.append(off); en.append(off)
+        ch += a_['characters']; st += [x + off for x in a_['character_start_times_seconds']]; en += [x + off for x in a_['character_end_times_seconds']]
+        off += durata(fp_)
+    if len(audio) > 1:
+        lista_ = os.path.join(LAV, 'voce_pezzi.txt'); open(lista_, 'w').write(''.join(f"file '{os.path.abspath(a)}'\n" for a in audio))
+        unito_ = os.path.join(LAV, 'voce_unita.mp3')
+        subprocess.run(['ffmpeg', '-y', '-v', 'error', '-f', 'concat', '-safe', '0', '-i', lista_, '-c:a', 'libmp3lame', '-b:a', '192k', unito_], check=True)
+        audio_b64 = base64.b64encode(open(unito_, 'rb').read()).decode()
+        log('voce in', len(audio), 'pezzi (testo lungo', len(testo), 'caratteri)')
+    else:
+        audio_b64 = base64.b64encode(open(audio[0], 'rb').read()).decode()
+    j = {'audio_base64': audio_b64, 'alignment': {'characters': ch, 'character_start_times_seconds': st, 'character_end_times_seconds': en}}
     json.dump(j, open(_cache_voce, 'w'))
 VOCE = os.path.join(LAV, 'voce.mp3'); open(VOCE, 'wb').write(base64.b64decode(j['audio_base64']))
 al = j['alignment']; ts = al['character_start_times_seconds']; te = al['character_end_times_seconds']
