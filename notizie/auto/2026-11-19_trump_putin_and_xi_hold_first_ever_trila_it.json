@@ -1,0 +1,1424 @@
+{
+ "titolo": "Trump, Putin e Xi nella stessa stanza: il vertice che spaventa gli alleati",
+ "angolo": "The handshake before the talks: why Trump's first-ever three-way summit with Putin and Xi has allies on edge, and what is actually on the table in Shenzhen.",
+ "descrizione": "Trump, Putin e Xi nella stessa stanza: il vertice che spaventa gli alleati. Donald Trump è atterrato a Shenzhen, ha stretto la mano a Vladimir Putin e a Xi Jinping e ora affronta il primo vertice a tre mai tenuto tra le maggiori potenze militari del mondo. Sul tavolo: le armi nucleari dopo la scadenza del New START, la guerra con l'Iran e, per stessa ammissione di Trump, l'Ucraina. Gli alleati in Europa e in Asia sono inquieti, e Kiev dice che nulla sull'Ucraina deve essere deciso senza l'Ucraina. Iscriviti, perché questa storia è ancora in movimento.",
+ "tag": [
+  "Trump, Putin e Xi nella stessa stanza: il vertice che spaventa gli alleati",
+  "vertice Trump Putin Xi",
+  "vertice di Shenzhen",
+  "APEC 2026",
+  "Trump in visita in Cina",
+  "vertice trilaterale",
+  "New START scaduto",
+  "controllo degli armamenti nucleari",
+  "guerra in Ucraina",
+  "guerra con l'Iran",
+  "Zelensky Yalta",
+  "incontro Trump Putin",
+  "Xi Jinping",
+  "notizie dal mondo",
+  "geopolitica"
+ ],
+ "fonti_link": [
+  "https://www.cnbc.com/2026/11/18/trump-xi-putin-china-apec.html",
+  "https://www.aljazeera.com/news/2026/11/19/what-do-trump-putin-and-xi-want-from-their-shenzhen-meeting",
+  "https://www.euronews.com/2026/11/18/trump-arrives-in-china-for-unprecedented-trilateral-encounter-with-xi-and-putin",
+  "https://www.wral.com/news/ap/a04dc-trump-meets-xi-and-putin-in-china-with-nuclear-arms-and-two-wars-on-the-table/",
+  "https://www.nbcnews.com/politics/trump-administration/live-blog/trump-xi-putin-china-apec-congress-2026-live-updates-rcna609888",
+  "https://www.huffpost.com/entry/trump-china-xi-putin-protectionism_n_6afd80e0e4b076227f02a16e",
+  "https://www.themoscowtimes.com/2026/11/18/xi-and-putin-blast-western-protectionism-sanctions-before-meeting-trump-a94292",
+  "https://finance.yahoo.com/news/chinas-xi-calls-free-open-032339112.html",
+  "https://www.axios.com/2026/11/17/trump-xi-putin-summit-europe-worried",
+  "https://www.rawstory.com/wsj-trump-2678436293/",
+  "https://www.france24.com/en/asia-pacific/20261116-xi-trump-putin-discuss-world-peace-shenzhen-summit-china-says",
+  "https://www.kyivpost.com/post/90544",
+  "https://www.kyivpost.com/post/90534",
+  "https://www.anews.com.tr/world/2026/11/19/zelensky-says-war-could-end-in-single-trump-putin-xi-meeting-if-leaders-want-it",
+  "https://www.nbcnews.com/world/asia/world-waits-trump-xi-putin-prepare-high-stakes-meeting-rcna609776",
+  "https://www.cnn.com/2026/11/13/politics/trump-putin-xi-meeting",
+  "https://www.thewellnews.com/white-house/whats-on-the-table-when-trump-meets-xi-and-putin-in-shenzhen/",
+  "https://www.atlanticcouncil.org/dispatches/what-trump-putin-and-xi-want-from-their-meeting-in-shenzhen/",
+  "https://www.foxnews.com/live-news/trump-to-meet-xi-in-shenzhen-ahead-of-high-stakes-trilateral-talks-with-putin",
+  "https://www.yahoo.com/news/politics/articles/absolute-nightmare-trump-trilateral-xi-205500323.html",
+  "https://www.cnn.com/2026/11/17/politics/live-news/trump-visit-china-philippines",
+  "https://newscord.org/article/trump-meets-xi-jinping-and-vladimir-putin-in-shenzhen-ahead-of-trilateral-talks--Story_20261118_TrumpPutinundXiaufGic63fc443",
+  "https://www.oann.com/newsroom/trump-putin-and-xi-prepare-for-thursdays-trilateral-nuclear-talks-in-shenzhen/"
+ ],
+ "personaggi": {
+  "trump": {
+   "commons": "Donald Trump",
+   "chi": "Donald Trump, presidente degli Stati Uniti",
+   "pose": {
+    "deciso": {
+     "posa": "standing firm, chin up, hand extended for a handshake"
+    }
+   }
+  },
+  "putin": {
+   "commons": "Vladimir Putin",
+   "chi": "Vladimir Putin, presidente della Russia",
+   "pose": {
+    "serio": {
+     "posa": "standing stiff, cold neutral expression, hands at sides"
+    }
+   }
+  },
+  "xi": {
+   "commons": "Xi Jinping",
+   "chi": "Xi Jinping, presidente della Cina",
+   "pose": {
+    "accoglie": {
+     "posa": "standing calm, slight smile, arms open in welcome"
+    }
+   }
+  },
+  "zelensky": {
+   "commons": "Volodymyr Zelenskyy",
+   "chi": "Volodymyr Zelensky, presidente dell'Ucraina",
+   "pose": {
+    "serio": {
+     "posa": "standing serious, olive military-style clothes, firm gaze"
+    },
+    "parla": {
+     "posa": "speaking, one hand raised, intense expression"
+    }
+   }
+  },
+  "peskov": {
+   "commons": "Dmitry Peskov",
+   "chi": "Dmitry Peskov, portavoce del Cremlino",
+   "pose": {
+    "calmo": {
+     "posa": "standing calm in a suit, neutral face"
+    }
+   }
+  }
+ },
+ "sets": {
+  "s01": {
+   "descr": "Red carpet on an airport tarmac at dusk, Air Force One-style jet with stairs lowered, motorcade of black cars waiting, golden light",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "trump",
+     "posa": "deciso",
+     "lato": "sx"
+    },
+    {
+     "chi": "xi",
+     "posa": "accoglie",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s02": {
+   "descr": "Close view of a grand banquet hall entrance with a long red carpet and glowing lanterns, empty, cinematic light",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "trump",
+     "posa": "deciso",
+     "lato": "sx"
+    },
+    {
+     "chi": "putin",
+     "posa": "serio",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s03": {
+   "descr": "Empty stage with three tall chairs in a row under bright spotlights, dark hall behind, dramatic shadows",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s04": {
+   "descr": "Giant round conference table in a vast summit hall with a dozen empty chairs, chandeliers, tense atmosphere",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s05": {
+   "descr": "Night skyline of Shenzhen with glowing skyscrapers reflected in the harbor, drones of light in the sky",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s06": {
+   "descr": "Three identical black limousines parked in a row in front of a modern summit center at night, rain-polished road",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "pioggia",
+   "cast": []
+  },
+  "s07": {
+   "descr": "Presidential jet touching down on a runway at dawn, mist, airport terminal lights in the background",
+   "luogo": "AEROPORTO DI SHENZHEN BAO'AN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s08": {
+   "descr": "Stairs of a presidential plane with a red carpet at the bottom, ground crew equipment, morning light",
+   "luogo": "AEROPORTO DI SHENZHEN BAO'AN, CINA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "xi",
+     "posa": "accoglie",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s09": {
+   "descr": "Two motorcades pulling away across an airport apron, flashing lights, grey morning sky",
+   "luogo": "AEROPORTO DI SHENZHEN BAO'AN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s10": {
+   "descr": "Oval Office-style presidential desk with a brass lamp, window with warm evening light, empty",
+   "luogo": "STUDIO OVALE, WASHINGTON, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "trump",
+     "posa": "deciso",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s11": {
+   "descr": "Wide summit hall where leaders gather for a group photo, tiered stage with empty risers, flowers, soft light",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s12": {
+   "descr": "Banquet round tables with white tablecloths, porcelain, chopsticks, candle glow, empty hall",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s13": {
+   "descr": "Summit podium with microphone and a backdrop in deep blue, spotlight, empty hall of seats",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "putin",
+     "posa": "serio",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s14": {
+   "descr": "Kremlin office with a long polished table, tall windows, heavy curtains, winter light",
+   "luogo": "CREMLINO, MOSCA, RUSSIA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "peskov",
+     "posa": "calmo",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s15": {
+   "descr": "Stopwatch on a polished table in a meeting room, hands showing one hour, dramatic lamp",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s16": {
+   "descr": "Snowy airfield with a hangar and two cars facing each other, grey winter sky, military base atmosphere",
+   "luogo": "ANCHORAGE, ALASKA, USA",
+   "effetto": "neve",
+   "cast": [
+    {
+     "chi": "trump",
+     "posa": "deciso",
+     "lato": "sx"
+    },
+    {
+     "chi": "putin",
+     "posa": "serio",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s17": {
+   "descr": "Quiet meeting room with two armchairs facing each other and a small table between them, closed doors",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s18": {
+   "descr": "Nuclear missile silo field at sunrise with a hatch closed, fence, wide plains",
+   "luogo": "GRANDI PIANURE, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s19": {
+   "descr": "Long shot of a Russian missile launcher parked in a snowy forest clearing, grey light",
+   "luogo": "RUSSIA",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s20": {
+   "descr": "Desert launch site in western China with road-mobile missile launchers lined up, dusty sky",
+   "luogo": "CINA OCCIDENTALE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s21": {
+   "descr": "Empty US-Russia treaty negotiating room in Geneva with a long polished table, two sets of nameplate-free chairs, signing pens in a tray, tall windows with lake light, no people",
+   "luogo": "GINEVRA, SVIZZERA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s22": {
+   "descr": "Calendar-style wall with February page torn off lying on the floor of an empty office, dim light",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s23": {
+   "descr": "Strait of Hormuz at sunset, tanker silhouettes on orange water, rocky coast",
+   "luogo": "STRETTO DI HORMUZ",
+   "effetto": "none",
+   "cast": []
+  },
+  "s24": {
+   "descr": "Tense war room with a large empty table and wall displays showing blank maps, blue light",
+   "luogo": "SITUATION ROOM, CASA BIANCA, WASHINGTON, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s25": {
+   "descr": "Oil tanker anchored at night, deck lights, calm black sea, tension",
+   "luogo": "GOLFO DI OMAN",
+   "effetto": "none",
+   "cast": []
+  },
+  "s26": {
+   "descr": "Kyiv street at night in winter, dark buildings, a single street lamp, snow falling",
+   "luogo": "KIEV, UCRAINA",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s27": {
+   "descr": "Damaged long road bridge over a strait at dawn, a broken section hanging into the water, smoke",
+   "luogo": "STRETTO DI KERCH, CRIMEA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s28": {
+   "descr": "Soft evening view of Kaesong-style old frontline map-free wall? Replace with: Ukrainian road barricade and sandbag checkpoint at dawn near Kharkiv, rubble, bare trees, no people",
+   "luogo": "KHARKIV, UCRAINA",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s29": {
+   "descr": "Empty chair at the end of a huge table in a bright conference hall, symbolic absence",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s30": {
+   "descr": "Ukrainian presidential office with a desk, a map-less wall, evening light through the window",
+   "luogo": "KIEV, UCRAINA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "zelensky",
+     "posa": "serio",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s31": {
+   "descr": "Tall European Union Council building summit hall in Brussels at dusk, glass atrium, ring of empty chairs, flags absent, soft light",
+   "luogo": "BRUXELLES, BELGIO",
+   "effetto": "none",
+   "cast": []
+  },
+  "s32": {
+   "descr": "Berlin chancellery exterior at dusk, glass facade lit, bare trees",
+   "luogo": "BERLINO, GERMANIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s33": {
+   "descr": "Historic palace room with a round table and three armchairs, 1945 atmosphere, sepia light",
+   "luogo": "YALTA, CRIMEA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s34": {
+   "descr": "Tokyo skyline at dusk with the prime minister's office building, neon glow, calm bay",
+   "luogo": "TOKYO, GIAPPONE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s35": {
+   "descr": "Manila bay waterfront at sunset with conference center, palm trees, warm light",
+   "luogo": "MANILA, FILIPPINE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s36": {
+   "descr": "Newsroom editorial desk with a glowing lamp, stacks of paper without text, night, empty chairs",
+   "luogo": "NEW YORK, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s37": {
+   "descr": "Berlin meeting room with long table, empty chairs, bright windows, envoy briefcases on table",
+   "luogo": "BERLINO, GERMANIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s38": {
+   "descr": "Fogged window overlooking Shenzhen at night from a hotel suite, empty armchair",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s39": {
+   "descr": "Kylin Villa-style lakeside villa with lanterns, quiet garden path, night",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "trump",
+     "posa": "deciso",
+     "lato": "sx"
+    },
+    {
+     "chi": "xi",
+     "posa": "accoglie",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s40": {
+   "descr": "Dining table with a working lunch spread, empty chairs, teacups, lakeside window",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s41": {
+   "descr": "Chip factory clean room with robotic arms and silicon wafers glowing blue, empty",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s42": {
+   "descr": "Container port with giant cranes and stacked containers at dusk, ships in the harbor",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s43": {
+   "descr": "Sunrise over a Shenzhen summit venue exterior with flags poles bare, calm, clear sky",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s44": {
+   "descr": "A lone handshake-sized empty podium before a blue curtain, sharp spotlight, ready for press",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s45": {
+   "descr": "Press room with rows of empty seats, camera tripods, bright stage lights",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s46": {
+   "descr": "Handshake-focused scene: two empty chairs side by side on a stage with a huge globe behind them, warm light",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "trump",
+     "posa": "deciso",
+     "lato": "sx"
+    },
+    {
+     "chi": "putin",
+     "posa": "serio",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s47": {
+   "descr": "Close-up of a big wall clock face in an empty modern conference corridor at the Shenzhen skyline, city lights beyond glass, timer-like tension, deep blue night",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s48": {
+   "descr": "Interior of the Shenzhen Bao'an International Airport terminal at night, vast curved white lattice ceiling, honeycomb steel structure, polished floor reflecting soft lights, floor-to-ceiling windows showing a parked wide-body jet on the apron, completely empty, cinematic blue tones",
+   "luogo": "AEROPORTO DI SHENZHEN BAO'AN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s49": {
+   "descr": "Exterior of a Chinese state guesthouse garden in Beijing: Diaoyutai-style pavilions with red lacquered columns, glazed roof tiles, stone bridge over still pond, morning mist, empty and ceremonial",
+   "luogo": "PECHINO, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s50": {
+   "descr": "A cracked world globe on a desk lit by a single lamp, dark room",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s51": {
+   "descr": "Window view of a snowy Moscow street at dusk from the Kremlin walls",
+   "luogo": "MOSCA, RUSSIA",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s52": {
+   "descr": "Joint Base Andrews airfield at dawn, Air Force One-style blue and white jet parked on the tarmac beside rolled-out red carpet and empty steps, hangars in background, hazy autumn light, no people",
+   "luogo": "JOINT BASE ANDREWS, MARYLAND, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s53": {
+   "descr": "A phone ringing on a desk with a glowing lamp in a diplomatic office at night",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s54": {
+   "descr": "Great Hall of the People exterior in Beijing, wide staircase and massive columns facing Tiananmen Square at morning, empty, pale sunlight, long shadows",
+   "luogo": "PECHINO, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s55": {
+   "descr": "NATO-style headquarters glass building at night with a row of empty flag poles",
+   "luogo": "BRUXELLES, BELGIO",
+   "effetto": "none",
+   "cast": []
+  },
+  "s56": {
+   "descr": "Warsaw old town street at night, quiet cobblestones, a lit window",
+   "luogo": "VARSAVIA, POLONIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s57": {
+   "descr": "Paris Elysee-style palace courtyard in blue evening light, gravel path",
+   "luogo": "PARIGI, FRANCIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s58": {
+   "descr": "London Downing Street-style black door and brick facade in rain at night",
+   "luogo": "LONDRA, REGNO UNITO",
+   "effetto": "pioggia",
+   "cast": []
+  },
+  "s59": {
+   "descr": "Rome government palace piazza at dusk with warm lights, empty cobblestones",
+   "luogo": "ROMA, ITALIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s60": {
+   "descr": "Wide plain under a stormy sky with a lone road leading to the horizon",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s61": {
+   "descr": "A spotlighted empty chair on a huge stage, dust particles in the light",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s62": {
+   "descr": "Chessboard with large pieces on a table in an office, dramatic side light",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s63": {
+   "descr": "Door slightly open to a meeting room with warm light spilling into a dark corridor",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s64": {
+   "descr": "Dawn over Shenzhen bay bridge with light fog, city waking up",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s65": {
+   "descr": "Black summit limousine pulling up to the entrance of a glass convention center, flashing lights",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s66": {
+   "descr": "Closing shot of three empty armchairs on a stage facing the audience seats, soft fade, dark blue light",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  }
+ },
+ "scene": [
+  {
+   "testo": "Mercoledì. Shenzhen, Cina. Donald Trump arriva per il vertice APEC.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/18/trump-xi-putin-china-apec.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s01"
+   }
+  },
+  {
+   "testo": "Xi Jinping lo aspetta ai piedi della scaletta.",
+   "fonti": [
+    "https://www.euronews.com/2026/11/18/trump-arrives-in-china-for-unprecedented-trilateral-encounter-with-xi-and-putin"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s08"
+   }
+  },
+  {
+   "testo": "Poche ore dopo, Trump stringe la mano a Vladimir Putin al banchetto di benvenuto dell'APEC.",
+   "fonti": [
+    "https://www.euronews.com/2026/11/18/trump-arrives-in-china-for-unprecedented-trilateral-encounter-with-xi-and-putin"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s02"
+   }
+  },
+  {
+   "testo": "Tre leader. Tre giganti nucleari. Un solo palco.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/19/what-do-trump-putin-and-xi-want-from-their-shenzhen-meeting"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s03"
+   },
+   "grafica": {
+    "tipo": "titolo",
+    "testo": "PRIMA VOLTA",
+    "sotto": "IL VERTICE A TRE"
+   }
+  },
+  {
+   "testo": "Al Jazeera lo definisce il primo incontro a tre in assoluto tra i leader delle tre potenze militari più forti del mondo.",
+   "fonti": [
+    "https://www.wral.com/news/ap/a04dc-trump-meets-xi-and-putin-in-china-with-nuclear-arms-and-two-wars-on-the-table/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s05"
+   }
+  },
+  {
+   "testo": "E, secondo Axios, gli stessi alleati dell'America osservano con inquietudine.",
+   "fonti": [
+    "https://www.axios.com/2026/11/17/trump-xi-putin-summit-europe-worried"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s04"
+   }
+  },
+  {
+   "testo": "Perché sono inquieti? Ci arriviamo. Prima, cosa è appena successo.",
+   "fonti": [
+    "https://www.axios.com/2026/11/17/trump-xi-putin-summit-europe-worried"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s06"
+   }
+  },
+  {
+   "testo": "Donald Trump può sedersi tra Putin e Xi senza che i suoi alleati temano l'esito?",
+   "fonti": [
+    "https://www.axios.com/2026/11/17/trump-xi-putin-summit-europe-worried"
+   ],
+   "titolo_card": true,
+   "visivo": {
+    "tipo": "set",
+    "set": "s46"
+   }
+  },
+  {
+   "testo": "Restate con me. Tra un minuto vedrete un gesto che Xi non ha riservato a Putin.",
+   "fonti": [
+    "https://www.newsweek.com/xi-makes-unprecedented-gesture-trump-arrives-china-summit-12732265"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s07"
+   }
+  },
+  {
+   "testo": "L'ABBRACCIO SULLA PISTA",
+   "fonti": [
+    "https://finance.yahoo.com/news/chinas-xi-calls-free-open-032339112.html"
+   ],
+   "capitolo": "L'ABBRACCIO SULLA PISTA",
+   "visivo": {
+    "tipo": "mappa",
+    "centro": [
+     114.1,
+     22.6
+    ],
+    "larghezza": 12,
+    "paesi": [
+     {
+      "iso": "CHN",
+      "colore": "rosso"
+     }
+    ],
+    "punti": [
+     {
+      "lon": 113.81,
+      "lat": 22.64,
+      "nome": "SHENZHEN"
+     }
+    ],
+    "zoom_su": [
+     113.81,
+     22.64
+    ]
+   }
+  },
+  {
+   "testo": "Trump è atterrato all'aeroporto di Bao'an, a Shenzhen, mercoledì mattina, prima dei colloqui.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/18/trump-xi-putin-china-apec.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s09"
+   }
+  },
+  {
+   "testo": "Xi lo ha accolto sulla pista. Un abbraccio, poche parole.",
+   "fonti": [
+    "https://www.euronews.com/2026/11/18/trump-arrives-in-china-for-unprecedented-trilateral-encounter-with-xi-and-putin",
+    "https://finance.yahoo.com/news/chinas-xi-calls-free-open-032339112.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s48"
+   }
+  },
+  {
+   "testo": "Secondo Newsweek, è la prima volta che Xi, da presidente, saluta così un capo di Stato straniero.",
+   "fonti": [
+    "https://finance.yahoo.com/news/chinas-xi-calls-free-open-032339112.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s49"
+   }
+  },
+  {
+   "testo": "Ha ricambiato il gesto di Trump a Joint Base Andrews, a settembre, secondo Axios e NPR.",
+   "fonti": [
+    "https://www.huffpost.com/entry/trump-china-xi-putin-protectionism_n_6afd80e0e4b076227f02a16e"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s52"
+   }
+  },
+  {
+   "testo": "Putin non ha ricevuto alcun saluto personale da Xi. Ad accoglierlo è stato invece Cai Qi, alto funzionario del Partito Comunista.",
+   "fonti": [
+    "https://www.newsweek.com/xi-makes-unprecedented-gesture-trump-arrives-china-summit-12732265"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s54"
+   }
+  },
+  {
+   "testo": "Poi è arrivata la stretta di mano che il mondo intero aspettava.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/18/trump-xi-putin-china-apec.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s11"
+   }
+  },
+  {
+   "testo": "Prima del banchetto di benvenuto dell'APEC, Trump e Putin si sono stretti la mano sotto lo sguardo di Xi.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/18/trump-xi-putin-china-apec.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s12"
+   }
+  },
+  {
+   "testo": "I colloqui veri iniziano giovedì. E il tempo è poco.",
+   "fonti": [
+    "https://www.themoscowtimes.com/2026/11/18/xi-and-putin-blast-western-protectionism-sanctions-as-trump-lands-in-china-a94292"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s47"
+   }
+  },
+  {
+   "testo": "Il Cremlino dice che per l'incontro a tre è prevista un'ora, secondo funzionari russi citati dal Moscow Times.",
+   "fonti": [
+    "https://www.themoscowtimes.com/2026/11/18/xi-and-putin-blast-western-protectionism-sanctions-as-trump-lands-in-china-a94292",
+    "https://nukta.com/trump-meets-xi-and-putin"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s15"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 1,
+    "decimali": 0,
+    "prefisso": "",
+    "unita": "ORA",
+    "sopra": "PER L'INCONTRO A TRE"
+   }
+  },
+  {
+   "testo": "Un'ora. Per armi nucleari, Iran e, forse, Ucraina.",
+   "fonti": [
+    "https://www.wral.com/news/ap/a04dc-trump-meets-xi-and-putin-in-china-with-nuclear-arms-and-two-wars-on-the-table/",
+    "https://nukta.com/trump-meets-xi-and-putin"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s17"
+   }
+  },
+  {
+   "testo": "I DISCORSI PRIMA DELLA TEMPESTA",
+   "fonti": [
+    "https://www.huffpost.com/entry/trump-china-xi-putin-protectionism_n_6afd80e0e4b076227f02a16e"
+   ],
+   "capitolo": "I DISCORSI PRIMA DELLA TEMPESTA",
+   "visivo": {
+    "tipo": "set",
+    "set": "s13"
+   }
+  },
+  {
+   "testo": "Ma prima dell'arrivo di Trump, Xi e Putin avevano già parlato.",
+   "fonti": [
+    "https://www.huffpost.com/entry/trump-china-xi-putin-protectionism_n_6afd80e0e4b076227f02a16e"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s43"
+   }
+  },
+  {
+   "testo": "Xi si è impegnato a opporsi al protezionismo commerciale, secondo Reuters.",
+   "fonti": [
+    "https://www.huffpost.com/entry/trump-china-xi-putin-protectionism_n_6afd80e0e4b076227f02a16e"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s42"
+   }
+  },
+  {
+   "testo": "Putin lo ha seguito sul palco e ha definito le potenze occidentali \"ex egemoni\".",
+   "fonti": [
+    "https://www.huffpost.com/entry/trump-china-xi-putin-protectionism_n_6afd80e0e4b076227f02a16e"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s44"
+   }
+  },
+  {
+   "testo": "Ha detto che l'Europa è in un \"declino umiliante\" e che le sanzioni alla Russia si sono ritorte contro chi le ha imposte. Mosca sostiene che l'abbiano resa più forte.",
+   "fonti": [
+    "https://www.themoscowtimes.com/2026/11/18/xi-and-putin-blast-western-protectionism-sanctions-before-meeting-trump-a94292",
+    "https://www.scmp.com/economy/global-economy/article/3374875/putin-says-western-sanctions-are-backfiring-he-pitches-russia-asia-pacific-trade-hub"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s45"
+   }
+  },
+  {
+   "testo": "E c'è stato un colpo di scena. Secondo Reuters, Putin ha parlato dopo l'attacco ucraino al ponte di Kerch.",
+   "fonti": [
+    "https://www.huffpost.com/entry/trump-china-xi-putin-protectionism_n_6afd80e0e4b076227f02a16e"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s27"
+   }
+  },
+  {
+   "testo": "Reuters riferisce che l'Ucraina ha messo fuori uso il ponte stradale di Kerch, che collega la Crimea alla Russia.",
+   "fonti": [
+    "https://www.huffpost.com/entry/trump-china-xi-putin-protectionism_n_6afd80e0e4b076227f02a16e",
+    "https://finance.yahoo.com/news/chinas-xi-calls-free-open-032339112.html"
+   ],
+   "visivo": {
+    "tipo": "mappa",
+    "centro": [
+     36.5,
+     45.3
+    ],
+    "larghezza": 10,
+    "paesi": [
+     {
+      "iso": "UKR",
+      "colore": "azul"
+     },
+     {
+      "iso": "RUS",
+      "colore": "rosso"
+     }
+    ],
+    "punti": [
+     {
+      "lon": 36.51,
+      "lat": 45.31,
+      "nome": "PONTE DI KERCH"
+     },
+     {
+      "lon": 34.1,
+      "lat": 44.95,
+      "nome": "CRIMEA"
+     }
+    ],
+    "zoom_su": [
+     36.51,
+     45.31
+    ]
+   }
+  },
+  {
+   "testo": "Un duro colpo in una guerra che dura da quattro anni, scrive Reuters.",
+   "fonti": [
+    "https://www.huffpost.com/entry/trump-china-xi-putin-protectionism_n_6afd80e0e4b076227f02a16e"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s28"
+   }
+  },
+  {
+   "testo": "Xi e Putin hanno poi tenuto colloqui a margine del vertice. Hanno invocato un \"mondo multipolare\".",
+   "fonti": [
+    "https://www.scmp.com/economy/global-economy/article/3374875/putin-says-western-sanctions-are-backfiring-he-pitches-russia-asia-pacific-trade-hub"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s38"
+   }
+  },
+  {
+   "testo": "Xi ha chiesto a Cina e Russia di \"guidare e far avanzare la tendenza verso un mondo multipolare\", secondo Al Jazeera.",
+   "fonti": [
+    "https://www.huffpost.com/entry/trump-china-xi-putin-protectionism_n_6afd80e0e4b076227f02a16e",
+    "https://www.aljazeera.com/news/2026/11/19/what-do-trump-putin-and-xi-want-from-their-shenzhen-meeting"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s38"
+   }
+  },
+  {
+   "testo": "Allora, cosa c'è davvero sul tavolo giovedì? Tre cose.",
+   "fonti": [
+    "https://www.wral.com/news/ap/a04dc-trump-meets-xi-and-putin-in-china-with-nuclear-arms-and-two-wars-on-the-table/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s50"
+   }
+  },
+  {
+   "testo": "TRE TEMI SUL TAVOLO",
+   "fonti": [
+    "https://www.wral.com/news/ap/a04dc-trump-meets-xi-and-putin-in-china-with-nuclear-arms-and-two-wars-on-the-table/"
+   ],
+   "capitolo": "TRE TEMI SUL TAVOLO",
+   "visivo": {
+    "tipo": "set",
+    "set": "s24"
+   }
+  },
+  {
+   "testo": "Numero uno: le armi nucleari. L'ultimo trattato tra Stati Uniti e Russia è scaduto a febbraio.",
+   "fonti": [
+    "https://www.cnn.com/2026/11/13/politics/trump-putin-xi-meeting",
+    "https://www.aljazeera.com/news/2026/11/19/what-do-trump-putin-and-xi-want-from-their-shenzhen-meeting"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s22"
+   }
+  },
+  {
+   "testo": "Si chiamava New START. Firmato per la prima volta nel 2010, limitava gli arsenali americano e russo.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/19/what-do-trump-putin-and-xi-want-from-their-shenzhen-meeting"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s21"
+   }
+  },
+  {
+   "testo": "Con la sua scadenza, i più grandi arsenali restano senza limiti giuridicamente vincolanti, secondo quanto riportato.",
+   "fonti": [
+    "https://www.oann.com/newsroom/trump-putin-and-xi-prepare-for-thursdays-trilateral-nuclear-talks-in-shenzhen/",
+    "https://www.pbs.org/newshour/world/trump-and-xi-discuss-iran-in-wide-ranging-call-as-u-s-presses-nations-to-break-from-tehran"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s18"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 50,
+    "decimali": 0,
+    "prefisso": "",
+    "unita": "ANNI",
+    "sopra": "SENZA LIMITI, PRIMA VOLTA IN MEZZO SECOLO"
+   }
+  },
+  {
+   "testo": "Al Jazeera riferisce che la Casa Bianca ha detto che Trump intende discutere un possibile accordo a tre sugli armamenti nucleari.",
+   "fonti": [
+    "https://www.thewellnews.com/white-house/whats-on-the-table-when-trump-meets-xi-and-putin-in-shenzhen/",
+    "https://www.cnn.com/2026/11/13/politics/trump-putin-xi-meeting"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s52"
+   }
+  },
+  {
+   "testo": "Numero due: la guerra con l'Iran. Gli osservatori parlano di \"guerra congelata\" nello stallo tra Stati Uniti e Iran.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/19/what-do-trump-putin-and-xi-want-from-their-shenzhen-meeting"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s23"
+   }
+  },
+  {
+   "testo": "Secondo Al Jazeera, i negoziati sono bloccati sulla questione se partire da Hormuz e dagli incentivi o dal programma nucleare iraniano.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/19/what-do-trump-putin-and-xi-want-from-their-shenzhen-meeting"
+   ],
+   "visivo": {
+    "tipo": "mappa",
+    "centro": [
+     56.5,
+     26.5
+    ],
+    "larghezza": 14,
+    "paesi": [
+     {
+      "iso": "IRN",
+      "colore": "rosso"
+     },
+     {
+      "iso": "OMN",
+      "colore": "verde"
+     },
+     {
+      "iso": "ARE",
+      "colore": "verde"
+     }
+    ],
+    "punti": [
+     {
+      "lon": 56.27,
+      "lat": 26.57,
+      "nome": "STRETTO DI HORMUZ"
+     }
+    ],
+    "frecce": [],
+    "zoom_su": [
+     56.27,
+     26.57
+    ]
+   }
+  },
+  {
+   "testo": "Washington vorrebbe che Pechino spingesse in privato Teheran al compromesso, secondo un analista citato da Al Jazeera.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/19/what-do-trump-putin-and-xi-want-from-their-shenzhen-meeting"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s25"
+   }
+  },
+  {
+   "testo": "Numero tre: l'Ucraina. Ed è qui che la storia si complica.",
+   "fonti": [
+    "https://www.nbcnews.com/world/asia/world-waits-trump-xi-putin-prepare-high-stakes-meeting-rcna609776"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s26"
+   }
+  },
+  {
+   "testo": "Funzionari della Casa Bianca hanno detto che l'Ucraina non sarebbe stata all'ordine del giorno.",
+   "fonti": [
+    "https://www.nbcnews.com/world/asia/world-waits-trump-xi-putin-prepare-high-stakes-meeting-rcna609776",
+    "https://www.axios.com/2026/11/17/trump-xi-putin-summit-europe-worried"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s55"
+   }
+  },
+  {
+   "testo": "Axios riferisce che un funzionario americano ha detto che Trump terrà giovedì un incontro a tu per tu con Putin, a margine del vertice.",
+   "fonti": [
+    "https://www.wral.com/news/ap/a04dc-trump-meets-xi-and-putin-in-china-with-nuclear-arms-and-two-wars-on-the-table/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s65"
+   }
+  },
+  {
+   "testo": "Un funzionario americano ha dichiarato ad Axios che Trump terrà giovedì un incontro a tu per tu con Putin.",
+   "fonti": [
+    "https://jowhar.com/putin-slams-western-moves-as-trump-arrives-in-china/",
+    "https://www.nbcnews.com/politics/trump-administration/live-blog/trump-xi-putin-china-apec-congress-2026-live-updates-rcna609888"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s63"
+   }
+  },
+  {
+   "testo": "Ora, la domanda che aspettavate: perché gli alleati hanno paura?",
+   "fonti": [
+    "https://www.axios.com/2026/11/17/trump-xi-putin-summit-europe-worried"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s31"
+   }
+  },
+  {
+   "testo": "LA STANZA SENZA L'UCRAINA",
+   "fonti": [
+    "https://www.kyivpost.com/post/90544"
+   ],
+   "capitolo": "LA STANZA SENZA L'UCRAINA",
+   "visivo": {
+    "tipo": "set",
+    "set": "s29"
+   }
+  },
+  {
+   "testo": "Axios riferisce che gli alleati temono che Trump possa allontanarsi dall'agenda nucleare del vertice e assumere posizioni su Ucraina o Taiwan che danneggino i loro interessi.",
+   "fonti": [
+    "https://www.axios.com/2026/11/17/trump-xi-putin-summit-europe-worried",
+    "https://newsukraine.rbc.ua/news/europe-braces-for-fallout-from-trump-putin-1794923444.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s56"
+   }
+  },
+  {
+   "testo": "Alcune persone sentite da Axios hanno evocato \"Yalta II\", richiamando il vertice del 1945 che plasmò l'Europa del dopoguerra.",
+   "fonti": [
+    "https://www.axios.com/2026/11/17/trump-xi-putin-summit-europe-worried"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s33"
+   }
+  },
+  {
+   "testo": "Zelensky ha usato un monito simile il 28 ottobre, dicendo ai giornalisti di non volere una \"Yalta 2, 3, 4\".",
+   "fonti": [
+    "https://www.france24.com/en/asia-pacific/20261116-xi-trump-putin-discuss-world-peace-shenzhen-summit-china-says"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s30"
+   }
+  },
+  {
+   "testo": "Il messaggio di Kiev è semplice: nessuna decisione sull'Ucraina senza l'Ucraina.",
+   "fonti": [
+    "https://www.kyivpost.com/post/90544"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s26"
+   }
+  },
+  {
+   "testo": "Il cancelliere tedesco Friedrich Merz ha detto che il messaggio a Trump prima dell'incontro con Putin è: \"Niente sorprese, per favore\".",
+   "fonti": [
+    "https://newsukraine.rbc.ua/news/europe-braces-for-fallout-from-trump-putin-1794923444.html",
+    "https://www.axios.com/2026/11/17/trump-xi-putin-summit-europe-worried"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s57"
+   }
+  },
+  {
+   "testo": "Axios cita un diplomatico europeo: ogni volta che Trump parla o incontra Putin, per l'Ucraina e l'Europa significa cattive notizie.",
+   "fonti": [
+    "https://www.axios.com/2026/11/17/trump-xi-putin-summit-europe-worried"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s58"
+   }
+  },
+  {
+   "testo": "Secondo Reuters, Trump aveva incontrato a Manila i principali alleati regionali prima di volare in Cina.",
+   "fonti": [
+    "https://www.huffpost.com/entry/trump-china-xi-putin-protectionism_n_6afd80e0e4b076227f02a16e"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s35"
+   }
+  },
+  {
+   "testo": "Secondo Axios, i funzionari americani hanno cercato di ridimensionare il vertice e abbassare le aspettative su risultati concreti.",
+   "fonti": [
+    "https://mezha.net/eng/news/mezha-4fccad913cd21d643b7d7f14_u-s-_allies_wary",
+    "https://www.cnn.com/2026/11/13/politics/trump-putin-xi-meeting"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s59"
+   }
+  },
+  {
+   "testo": "Trump dice che incontrare i due leader insieme ha senso perché i loro Paesi collaborano.",
+   "fonti": [
+    "https://www.wral.com/news/ap/a04dc-trump-meets-xi-and-putin-in-china-with-nuclear-arms-and-two-wars-on-the-table/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s40"
+   }
+  },
+  {
+   "testo": "COSA ACCADRÀ ORA",
+   "fonti": [
+    "https://www.kyivpost.com/post/90534"
+   ],
+   "capitolo": "COSA ACCADRÀ ORA",
+   "visivo": {
+    "tipo": "set",
+    "set": "s37"
+   }
+  },
+  {
+   "testo": "Lo stesso giorno, gli inviati di Trump, Kushner e Witkoff, sono attesi a Berlino, secondo Axios.",
+   "fonti": [
+    "https://www.axios.com/2026/11/17/trump-xi-putin-summit-europe-worried"
+   ],
+   "visivo": {
+    "tipo": "mappa",
+    "centro": [
+     60.0,
+     45.0
+    ],
+    "larghezza": 100,
+    "paesi": [
+     {
+      "iso": "DEU",
+      "colore": "azul"
+     },
+     {
+      "iso": "CHN",
+      "colore": "rosso"
+     },
+     {
+      "iso": "UKR",
+      "colore": "giallo"
+     }
+    ],
+    "punti": [
+     {
+      "lon": 13.4,
+      "lat": 52.52,
+      "nome": "BERLINO"
+     },
+     {
+      "lon": 113.81,
+      "lat": 22.64,
+      "nome": "SHENZHEN"
+     }
+    ],
+    "frecce": [
+     {
+      "da": [
+       113.81,
+       22.64
+      ],
+      "a": [
+       13.4,
+       52.52
+      ],
+      "colore": "giallo"
+     }
+    ]
+   }
+  },
+  {
+   "testo": "Zelensky ha detto che giovedì rappresentanti americani parteciperanno a incontri a Berlino e informeranno l'Ucraina sui colloqui di Trump in Cina.",
+   "fonti": [
+    "https://www.kyivpost.com/post/90534",
+    "https://www.kyivpost.com/post/90544"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s32"
+   }
+  },
+  {
+   "testo": "La Casa Bianca dice che Putin ha accettato di far partecipare gli europei ai colloqui, ma il consigliere del Cremlino Ushakov ha precisato che non è stato raggiunto alcun accordo del genere.",
+   "fonti": [
+    "https://www.axios.com/2026/11/17/trump-xi-putin-summit-europe-worried"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s55"
+   }
+  },
+  {
+   "testo": "Gli esperti hanno mantenuto basse le aspettative su svolte importanti, secondo l'AP.",
+   "fonti": [
+    "https://www.wral.com/news/ap/a04dc-trump-meets-xi-and-putin-in-china-with-nuclear-arms-and-two-wars-on-the-table/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s45"
+   }
+  },
+  {
+   "testo": "Secondo l'AP, potrebbe segnare una svolta nella storia mondiale, oppure ridursi a una photo opportunity presto dimenticata.",
+   "fonti": [
+    "https://www.wral.com/news/ap/a04dc-trump-meets-xi-and-putin-in-china-with-nuclear-arms-and-two-wars-on-the-table/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s50"
+   }
+  },
+  {
+   "testo": "Zelensky ha dichiarato alla NBC che Trump e Xi hanno \"abbastanza potere per fermare Putin\" in un solo incontro.",
+   "fonti": [
+    "https://www.anews.com.tr/world/2026/11/19/zelensky-says-war-could-end-in-single-trump-putin-xi-meeting-if-leaders-want-it",
+    "https://www.nbcnews.com/video/ukraine-s-zelenskyy-reacts-to-trump-meeting-putin-amid-ongoing-war-in-ukraine-273775685575"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s30"
+   },
+   "citazione": {
+    "chi": "zelensky",
+    "posa": "serio",
+    "testo": "abbastanza potere per fermare Putin"
+   }
+  },
+  {
+   "testo": "Quindi la domanda per giovedì: gli alleati sentiranno parlare di un accordo o di una sorpresa?",
+   "fonti": [
+    "https://www.axios.com/2026/11/17/trump-xi-putin-summit-europe-worried"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s66"
+   }
+  },
+  {
+   "testo": "La storia è ancora in movimento. Iscriviti, per non perdere ciò che uscirà da Shenzhen.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/19/what-do-trump-putin-and-xi-want-from-their-shenzhen-meeting"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s65"
+   }
+  }
+ ],
+ "copertina": {
+  "sfondo": "Dramatic night view of a Shenzhen summit hall with three empty armchairs on a glowing stage, red and blue spotlights, tense mood, empty of people",
+  "personaggi": [
+   "trump",
+   "putin",
+   "xi"
+  ],
+  "pose": {
+   "trump": "deciso",
+   "putin": "serio",
+   "xi": "accoglie"
+  },
+  "personaggio": "trump",
+  "posa": "deciso",
+  "lato": "sx",
+  "righe": [
+   "3 LEADER",
+   "1 STANZA"
+  ],
+  "box": "ALLEATI INQUIETI",
+  "evidenzia": 2
+ },
+ "verifica": {
+  "correzioni": 56,
+  "scene_tolte": 25
+ },
+ "coerenza": {
+  "scene_rifatte": 8,
+  "controllate": 59
+ },
+ "lingua": "it",
+ "nome": "2026-11-19_trump_putin_and_xi_hold_first_ever_trila_it",
+ "data": "19 NOVEMBRE 2026",
+ "etichetta": "ULTIM'ORA",
+ "musica": "tensione",
+ "voce": "glnsgBC77wt5zOYU0szz",
+ "budget_dollari": 0.6,
+ "storia": "Trump, Putin and Xi hold first-ever trilateral summit in China (Shenzhen), with Ukraine war, Iran war and nuclear arms on the table; Trump also holds a one-on-one with Putin",
+ "filone": "guerra",
+ "materiali_da": "2026-11-19_trump_putin_and_xi_hold_first_ever_trila_en"
+}
