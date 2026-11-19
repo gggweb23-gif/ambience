@@ -1,5 +1,5 @@
-04:33:45 testo di riferimento: 1737 parole
-04:33:45 copione RIPRESO dal giro fallito precedente (45 scene, 1907 parole): nessuna spesa di copione; voce salvata: False
+08:16:59 testo di riferimento: 1737 parole
+08:16:59 copione RIPRESO dal giro fallito precedente (45 scene, 1907 parole): nessuna spesa di copione; voce salvata: False
 Traceback (most recent call last):
   File "/home/runner/work/ambience/ambience/strumenti/prova_archivio.py", line 96, in <module>
     jj = get(f"https://api.elevenlabs.io/v1/text-to-speech/{P.get('voce') or 'glnsgBC77wt5zOYU0szz'}/with-timestamps?output_format=mp3_44100_128",
@@ -23,7 +23,7 @@ Traceback (most recent call last):
   File "/usr/lib/python3.14/urllib/request.py", line 611, in http_error_default
     raise HTTPError(req.full_url, code, msg, hdrs, fp)
 urllib.error.HTTPError: HTTP Error 401: Unauthorized
-04:33:45 montaggio non riuscito al tentativo 1
+08:17:00 montaggio non riuscito al tentativo 1
 Traceback (most recent call last):
   File "/home/runner/work/ambience/ambience/strumenti/prova_archivio.py", line 96, in <module>
     jj = get(f"https://api.elevenlabs.io/v1/text-to-speech/{P.get('voce') or 'glnsgBC77wt5zOYU0szz'}/with-timestamps?output_format=mp3_44100_128",
@@ -47,9 +47,9 @@ Traceback (most recent call last):
   File "/usr/lib/python3.14/urllib/request.py", line 611, in http_error_default
     raise HTTPError(req.full_url, code, msg, hdrs, fp)
 urllib.error.HTTPError: HTTP Error 401: Unauthorized
-04:33:45 montaggio non riuscito al tentativo 2
+08:17:00 montaggio non riuscito al tentativo 2
 Traceback (most recent call last):
   File "/home/runner/work/ambience/ambience/strumenti/video_archivio.py", line 490, in <module>
     raise RuntimeError('VIDEO BLOCCATO (controlli, anche dopo la riparazione): ' + '; '.join(errori))
 RuntimeError: VIDEO BLOCCATO (controlli, anche dopo la riparazione): montaggio non riuscito
-04:33:47 file di produzione aggiornato: status, data_inizio_produzione
+08:17:02 file di produzione aggiornato: status, data_inizio_produzione
