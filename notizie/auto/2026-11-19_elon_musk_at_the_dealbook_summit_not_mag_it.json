@@ -1,0 +1,1570 @@
+{
+ "titolo": "Elon Musk: «Non sono MAGA» dopo oltre 400 milioni persi alle midterm",
+ "angolo": "From 'dark MAGA' to 'quite moderate': Musk's DealBook confession, set against a $1B Skydance bet and a SpaceX permit that arrived the same week.",
+ "descrizione": "Elon Musk: «Non sono MAGA» dopo oltre 400 milioni di dollari persi alle midterm. Al DealBook Summit del New York Times, in collegamento video dalla Cina, Musk ha detto di sentirsi «piuttosto sciocco» per quanto speso alle midterm. Nello stesso giorno, David Ellison, CEO di Skydance, ha confermato che Musk è un azionista, e secondo indiscrezioni le autorità del Texas avrebbero autorizzato il permesso per un data center di SpaceX. Distinguiamo ciò che è confermato da ciò che è solo riportato.",
+ "tag": [
+  "Elon Musk: «Non sono MAGA» dopo oltre 400 milioni persi alle midterm",
+  "Elon Musk",
+  "Musk non MAGA",
+  "DealBook Summit 2026",
+  "Musk midterm",
+  "Skydance Musk",
+  "David Ellison",
+  "data center SpaceX",
+  "permesso Starbase",
+  "Tesla",
+  "Andrew Ross Sorkin",
+  "Ken Paxton",
+  "James Talarico",
+  "politica del Texas",
+  "notizie tech"
+ ],
+ "fonti_link": [
+  "https://www.cnbc.com/2026/11/18/dealbook-summit-2026-live-updates.html",
+  "https://www.cbsnews.com/news/elon-musk-not-maga-midterm-spending-trump/",
+  "https://www.nbcnews.com/politics/2026-election/elon-musk-says-not-maga-spending-millions-trump-allies-rcna610129",
+  "https://techcrunch.com/2026/11/18/elon-musk-says-im-not-maga/",
+  "https://variety.com/2026/tv/news/elon-musk-invested-skydance-david-ellison-dealbook-conference-1236951800/",
+  "https://www.investing.com/news/stock-market-news/ellison-confirms-musk-invested-roughly-1-billion-in-skydance-5036814",
+  "https://www.washingtontimes.com/news/2026/nov/18/elon-musk-invested-skydance-confirms-david-ellison/",
+  "https://www.fox4news.com/news/texas-data-center-permits-moving-forward-again-after-abbott-pause",
+  "https://www.politico.com/news/2026/11/17/texas-issues-air-permit-for-massive-spacex-data-center-01170758",
+  "https://www.tipranks.com/news/spacex-stock-spcx-jumps-as-texas-moves-forward-with-data-center-permits",
+  "https://fourweekmba.com/ai-spacexs-24b-ai-site-gets-texas-air-permit-35-gas-turbines/",
+  "https://www.yahoo.com/news/politics/articles/elon-musk-regrets-spending-nearly-234350057.html",
+  "https://www.pbs.org/newshour/politics/musk-says-he-will-cut-back-on-political-spending-after-paying-at-least-250m-backing-trump-in-2024",
+  "https://www.archyde.com/elon-musk-says-he-is-not-maga-at-dealbook-summit/"
+ ],
+ "personaggi": {
+  "musk": {
+   "commons": "Elon Musk",
+   "chi": "Elon Musk, CEO di Tesla e SpaceX, proprietario di X",
+   "pose": {
+    "telefono": {
+     "posa": "holding a phone, looking at it, full body"
+    },
+    "pensa": {
+     "posa": "arms crossed, uneasy frown, full body"
+    },
+    "sorride": {
+     "posa": "half smile, hands in pockets, confident, full body"
+    },
+    "serio": {
+     "posa": "standing straight, stern look, full body"
+    }
+   }
+  },
+  "trump": {
+   "commons": "Donald Trump",
+   "chi": "Donald Trump, presidente degli Stati Uniti",
+   "pose": {
+    "deciso": {
+     "posa": "firm stance, finger pointing, full body"
+    }
+   }
+  },
+  "ellison": {
+   "commons": "David Ellison",
+   "chi": "David Ellison, presidente e CEO di Skydance",
+   "pose": {
+    "parla": {
+     "posa": "speaking on stage, one hand raised, full body"
+    }
+   }
+  },
+  "sorkin": {
+   "commons": "Andrew Ross Sorkin",
+   "chi": "Andrew Ross Sorkin, editorialista del New York Times e conduttore del DealBook",
+   "pose": {
+    "intervista": {
+     "posa": "seated, notes in hand, asking a question, full body"
+    }
+   }
+  },
+  "talarico": {
+   "commons": "James Talarico",
+   "chi": "James Talarico, senatore eletto democratico del Texas",
+   "pose": {
+    "sorride": {
+     "posa": "smiling, waving to a crowd, full body"
+    }
+   }
+  }
+ },
+ "sets": {
+  "s01": {
+   "descr": "Dark empty New York theater stage at Jazz at Lincoln Center, a single giant video screen glowing blue above two empty armchairs, spotlight cone",
+   "luogo": "JAZZ AT LINCOLN CENTER, NEW YORK, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "sorkin",
+     "posa": "intervista",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s02": {
+   "descr": "Interior of a dark auditorium at Jazz at Lincoln Center in Manhattan, a huge video wall glowing with a blue-lit live video feed of a distant skyline at dusk, rows of empty seats in the foreground, cool light spilling over the stage edge",
+   "luogo": "JAZZ AT LINCOLN CENTER, NEW YORK, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "musk",
+     "posa": "serio",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s03": {
+   "descr": "Red Make-America-Great-style baseball cap resting alone on a polished conference table, harsh side light, no text",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s04": {
+   "descr": "Vast empty arena floor at night after a political rally, confetti on the ground, red and blue spotlights, balloons drifting",
+   "luogo": "MADISON SQUARE GARDEN, NEW YORK, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "musk",
+     "posa": "sorride",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s05": {
+   "descr": "Madison Square Garden exterior at night with its round facade lit, wet street, empty sidewalks and crowd barriers, dark red and black dramatic lighting",
+   "luogo": "MADISON SQUARE GARDEN, NEW YORK, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s06": {
+   "descr": "Tall stacks of green cash bundles on a long table inside a dim campaign war room, glowing map lights on the wall",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s07": {
+   "descr": "Empty election night ballroom, deflated balloons, a stage with a podium under a single spotlight, red confetti on floor",
+   "luogo": "AUSTIN, TEXAS, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "musk",
+     "posa": "pensa",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s08": {
+   "descr": "Giant Tesla factory floor with rows of white electric cars and robotic arms, bright industrial light",
+   "luogo": "GIGAFACTORY TEXAS, AUSTIN, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s09": {
+   "descr": "SpaceX Starship rocket on the launch pad at sunset, orange sky, steel tower, Gulf coast scrub in foreground",
+   "luogo": "STARBASE, TEXAS, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s10": {
+   "descr": "Austin Texas state capitol building at golden hour, wide lawn, long shadows",
+   "luogo": "AUSTIN, TEXAS, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s11": {
+   "descr": "White House West Wing exterior at dusk with warm lit windows, empty driveway",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "trump",
+     "posa": "deciso",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s12": {
+   "descr": "Doha conference hall with a large screen showing a blank video call glow, empty chairs, gold and blue light",
+   "luogo": "DOHA, QATAR",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "musk",
+     "posa": "telefono",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s13": {
+   "descr": "Exterior of a Washington federal office building near the National Mall in morning light, rows of tall windows, empty plaza, steel fence, bare trees",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s14": {
+   "descr": "Oval Office with the Resolute desk, golden key resting on the desk in a beam of light",
+   "luogo": "STUDIO OVALE, WASHINGTON, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "trump",
+     "posa": "deciso",
+     "lato": "sx"
+    },
+    {
+     "chi": "musk",
+     "posa": "sorride",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s15": {
+   "descr": "Stormy sky over the White House lawn, dark clouds, lightning far away",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "pioggia",
+   "cast": []
+  },
+  "s16": {
+   "descr": "Chinese Great Hall-style grand meeting hall with red carpet and long tables, many empty seats, chandeliers",
+   "luogo": "CINA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "trump",
+     "posa": "deciso",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s17": {
+   "descr": "Large conference room with international summit tables and microphones, dark wood, soft light, empty",
+   "luogo": "VERTICE APEC, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s18": {
+   "descr": "Interior of a Texas polling place in a school gymnasium, empty voting booths with curtains open, folding tables, basketball hoops overhead, morning light",
+   "luogo": "TEXAS, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s19": {
+   "descr": "Texas Senate campaign stage at night, big floodlights, hay bales, empty podium",
+   "luogo": "TEXAS, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "talarico",
+     "posa": "sorride",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s20": {
+   "descr": "Interior of a Federal Election Commission-style records office with long shelves of campaign finance binders and an empty desk with a lit monitor, cool fluorescent light",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s21": {
+   "descr": "Interior of The View-style daytime talk show set in Manhattan with a long curved table, empty chairs, soft pastel lights and a city window backdrop, no text",
+   "luogo": "NEW YORK, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "talarico",
+     "posa": "sorride",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s22": {
+   "descr": "Austin Texas voters' empty campaign rally hall after Election Day, a stage with a podium and scattered paper streamers, soft light through windows",
+   "luogo": "AUSTIN, TEXAS, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s23": {
+   "descr": "House of Representatives chamber, empty green seats, flag-less rostrum, warm light",
+   "luogo": "CAMERA DEI RAPPRESENTANTI, WASHINGTON, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s24": {
+   "descr": "Courthouse steps at dawn with tall columns, long shadows, an empty witness chair visible through the door",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "musk",
+     "posa": "serio",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s25": {
+   "descr": "Aerial view of the Paramount Pictures studio lot in Hollywood at golden hour, soundstages, water tower, empty streets between buildings",
+   "luogo": "HOLLYWOOD, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s26": {
+   "descr": "Stage at the DealBook-style conference, Ellison-style chair beside a small table with water glass, curtains",
+   "luogo": "JAZZ AT LINCOLN CENTER, NEW YORK, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "ellison",
+     "posa": "parla",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s27": {
+   "descr": "Close view of a Wall Street-style financial newsroom desk with empty chairs, several screens showing blurred rising bar charts, cool blue light, no text",
+   "luogo": "NEW YORK, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s28": {
+   "descr": "Exterior of a Warner Bros. Discovery office tower in Manhattan at dusk, glass facade lit, empty plaza, no lettering",
+   "luogo": "NEW YORK, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s29": {
+   "descr": "Warner Bros. studio lot in Burbank at sunset with the iconic water tower, empty lot streets, soundstages, palm trees, no lettering",
+   "luogo": "BURBANK, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s30": {
+   "descr": "Newsroom with rows of empty desks and big blank monitors glowing blue, night",
+   "luogo": "NEW YORK, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s31": {
+   "descr": "Exterior of a Starlink ground station in a remote Texas field, large white dish antennas under a starry dusk sky, a small utility building",
+   "luogo": "TEXAS, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "ellison",
+     "posa": "parla",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s32": {
+   "descr": "Starlink satellites orbiting over Earth at night, glowing city lights on the planet below",
+   "luogo": "ORBITA BASSA TERRESTRE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s33": {
+   "descr": "Interior of a streaming company's server and control room with racks of glowing equipment and wall of dark monitors, a single illuminated play-symbol shape, no text",
+   "luogo": "LOS ANGELES, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s34": {
+   "descr": "Wide empty Texas coastal flatland near Boca Chica at sunrise, tidal marsh, a tall rocket tower far off",
+   "luogo": "BOCA CHICA, TEXAS, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s35": {
+   "descr": "Aerial view of a large new data center construction site on Texas coastal plains with rows of white server buildings under construction, cranes, dirt roads, dusk",
+   "luogo": "STARBASE, TEXAS, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s36": {
+   "descr": "Rows of 35 industrial natural gas turbines on a construction site under hard sun, cranes",
+   "luogo": "BROWNSVILLE, TEXAS, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s37": {
+   "descr": "Government permit office with a stamp and ink pad on a desk beside a stack of folders, no text",
+   "luogo": "AUSTIN, TEXAS, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s38": {
+   "descr": "Governor's mansion-style stately building in Austin with iron fence at dusk",
+   "luogo": "AUSTIN, TEXAS, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s39": {
+   "descr": "Texas power grid control room with giant wall map of glowing lines, no text, dim blue",
+   "luogo": "TEXAS, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s40": {
+   "descr": "Power lines and pylons across Texas plains at sunset, orange sky",
+   "luogo": "TEXAS, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s41": {
+   "descr": "Environmental activists' empty protest spot by a chain-link fence near a construction site, banners-free, dusty wind",
+   "luogo": "BROWNSVILLE, TEXAS, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s42": {
+   "descr": "Smokestack-like gas turbine exhaust against a hazy sky, warm dusk light",
+   "luogo": "RIO GRANDE VALLEY, TEXAS, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s43": {
+   "descr": "Exterior of the New York Stock Exchange facade with columns at midday, empty sidewalk, flags without writing, long shadows",
+   "luogo": "BORSA DI NEW YORK, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s44": {
+   "descr": "xAI-style supercomputer cluster in a cold dark hall, glowing GPU racks, mist",
+   "luogo": "MEMPHIS, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s45": {
+   "descr": "Exterior of a Tesla factory-style Gigafactory building near Austin at dawn with a vast parking lot, rows of white cars, long shadows, no logos",
+   "luogo": "AUSTIN, TEXAS, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "musk",
+     "posa": "telefono",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s46": {
+   "descr": "Interior of the House Oversight Committee-style hearing room with a long empty witness table, microphones, and tiered dais, daylight from high windows",
+   "luogo": "CAPITOL HILL, WASHINGTON, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s47": {
+   "descr": "Rocket engines firing during a static test at night, bright orange plume over desert",
+   "luogo": "MCGREGOR, TEXAS, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s48": {
+   "descr": "Close-up of a stage armchair facing an empty audience hall at the DealBook summit, a glass of water on a side table, soft spotlight, uncertain mood with fog-like haze",
+   "luogo": "NEW YORK, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s49": {
+   "descr": "Interior of a quiet Texas Tesla charging station at dawn, a row of white chargers with a lone white electric car, golden light on the plains",
+   "luogo": "TEXAS, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "musk",
+     "posa": "pensa",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s50": {
+   "descr": "Close view of an antique desk clock ticking on a polished wooden table in a quiet office, rewound hands blur, warm lamp light, a stack of ledger papers beside it",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s51": {
+   "descr": "Wide exterior of the Jazz at Lincoln Center building at Columbus Circle, Manhattan, in the evening with glass facade lit warm, empty plaza, park trees, city lights",
+   "luogo": "COLUMBUS CIRCLE, NEW YORK, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s52": {
+   "descr": "Close view of a New York Times-style conference stage with two empty leather armchairs angled toward each other, a small side table, blue backdrop lighting, rows of empty audience seats",
+   "luogo": "NEW YORK, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "sorkin",
+     "posa": "intervista",
+     "lato": "sx"
+    },
+    {
+     "chi": "musk",
+     "posa": "serio",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s53": {
+   "descr": "Empty conference stage with a single armchair under a spotlight, a large dark screen behind, scattered empty audience seats, hint of red and blue light in the background suggesting politics",
+   "luogo": "NEW YORK, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s54": {
+   "descr": "Wide view of the Starbase launch complex at blue hour with lights on, rocket silhouette",
+   "luogo": "STARBASE, TEXAS, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "musk",
+     "posa": "sorride",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s55": {
+   "descr": "Exterior of a Tesla and SpaceX-style engineering campus in Texas at dusk with a large empty parking lot, a rocket stage standing upright near a hangar, warm sunset light, a Capitol dome visible as a faint silhouette is not needed, dramatic cloudy sky",
+   "luogo": "STARBASE, TEXAS, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "musk",
+     "posa": "pensa",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s56": {
+   "descr": "The US Capitol viewed from the National Mall at dawn with both House and Senate wings visible, reflecting pool in foreground, soft pink clouds",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s57": {
+   "descr": "Empty stage at Jazz at Lincoln Center with two armchairs, one lit with warm red light and the other with blue light, split lighting on the curtain behind, no text",
+   "luogo": "JAZZ AT LINCOLN CENTER, NEW YORK, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s58": {
+   "descr": "Empty stage at the DealBook summit with a lone armchair under a spotlight, then a faded shadow of a second chair turned the other way on the floor, dim light",
+   "luogo": "NEW YORK, USA",
+   "effetto": "none",
+   "cast": []
+  }
+ },
+ "scene": [
+  {
+   "testo": "Un uomo che un tempo indossava cappellini MAGA ha appena detto: non sono MAGA.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/18/dealbook-summit-2026-live-updates.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s03"
+   }
+  },
+  {
+   "testo": "L'ha detto in diretta, in video, dalla Cina.",
+   "fonti": [
+    "https://techcrunch.com/2026/11/18/elon-musk-says-im-not-maga/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s02"
+   }
+  },
+  {
+   "testo": "E poi ha detto di sentirsi piuttosto sciocco.",
+   "fonti": [
+    "https://www.cbsnews.com/news/elon-musk-not-maga-midterm-spending-trump/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s01"
+   },
+   "citazione": {
+    "chi": "musk",
+    "posa": "serio",
+    "testo": "Mi sento piuttosto sciocco per aver speso così tanti soldi senza vedere granché in cambio."
+   }
+  },
+  {
+   "testo": "Elon Musk ha speso quasi mezzo miliardo di dollari per le midterm, secondo NBC. Perché si tira indietro adesso?",
+   "fonti": [
+    "https://www.nbcnews.com/politics/2026-election/elon-musk-says-not-maga-spending-millions-trump-allies-rcna610129"
+   ],
+   "titolo_card": true,
+   "visivo": {
+    "tipo": "set",
+    "set": "s55"
+   },
+   "grafica": {
+    "tipo": "titolo",
+    "testo": "PERCHÉ TIRARSI INDIETRO?",
+    "sotto": "Musk al DealBook Summit"
+   }
+  },
+  {
+   "testo": "Restate con me. Oggi ci sono altre due storie: la conferma di Ellison che Musk ha una quota in Skydance, a quanto pare di circa un miliardo di dollari, e un permesso ambientale texano per SpaceX.",
+   "fonti": [
+    "https://variety.com/2026/tv/news/elon-musk-invested-skydance-david-ellison-dealbook-conference-1236951800/",
+    "https://www.fox4news.com/news/texas-data-center-permits-moving-forward-again-after-abbott-pause"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s51"
+   }
+  },
+  {
+   "testo": "Prima di tutto, il palco. Il DealBook Summit del New York Times.",
+   "fonti": [
+    "https://variety.com/2026/tv/news/elon-musk-invested-skydance-david-ellison-dealbook-conference-1236951800/"
+   ],
+   "capitolo": "LA DOMANDA SUL CAPPELLINO ROSSO",
+   "visivo": {
+    "tipo": "set",
+    "set": "s26"
+   }
+  },
+  {
+   "testo": "Il conduttore Andrew Ross Sorkin lo ha incalzato sulle sue posizioni politiche.",
+   "fonti": [
+    "https://www.cbsnews.com/news/elon-musk-not-maga-midterm-spending-trump/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s52"
+   }
+  },
+  {
+   "testo": "Musk era collegato dalla Cina, dove fa parte della delegazione del presidente Trump al vertice APEC.",
+   "fonti": [
+    "https://techcrunch.com/2026/11/18/elon-musk-says-im-not-maga/",
+    "https://www.nbcnews.com/politics/2026-election/elon-musk-says-not-maga-spending-millions-trump-allies-rcna610129"
+   ],
+   "visivo": {
+    "tipo": "mappa",
+    "centro": [
+     105,
+     35
+    ],
+    "larghezza": 60,
+    "paesi": [
+     {
+      "iso": "CHN",
+      "colore": "rojo"
+     },
+     {
+      "iso": "USA",
+      "colore": "blu"
+     }
+    ],
+    "punti": [
+     {
+      "lon": 116.4,
+      "lat": 39.9,
+      "nome": "CINA"
+     },
+     {
+      "lon": -74.0,
+      "lat": 40.7,
+      "nome": "NEW YORK"
+     }
+    ],
+    "frecce": [
+     {
+      "da": [
+       116.4,
+       39.9
+      ],
+      "a": [
+       -74.0,
+       40.7
+      ],
+      "colore": "arancio"
+     }
+    ]
+   }
+  },
+  {
+   "testo": "Sorkin ha ricordato le sue dichiarazioni passate sull'immigrazione e quelle che ha definito cose MAGA.",
+   "fonti": [
+    "https://www.cbsnews.com/news/elon-musk-not-maga-midterm-spending-trump/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s53"
+   }
+  },
+  {
+   "testo": "La risposta di Musk è stata netta.",
+   "fonti": [
+    "https://www.cbsnews.com/news/elon-musk-not-maga-midterm-spending-trump/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s52"
+   },
+   "citazione": {
+    "chi": "musk",
+    "posa": "serio",
+    "testo": "Non sono MAGA."
+   }
+  },
+  {
+   "testo": "Poi ha attenuato. Ha detto di non essere sicuro di cosa significhi MAGA.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/18/dealbook-summit-2026-live-updates.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s48"
+   }
+  },
+  {
+   "testo": "Se significa un'adesione cieca alle politiche repubblicane, dice, lui non ce l'ha.",
+   "fonti": [
+    "https://www.cbsnews.com/news/elon-musk-not-maga-midterm-spending-trump/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s22"
+   }
+  },
+  {
+   "testo": "Si è definito ideologicamente piuttosto moderato, senza posizioni politiche estreme.",
+   "fonti": [
+    "https://www.cbsnews.com/news/elon-musk-not-maga-midterm-spending-trump/"
+   ],
+   "visivo": {
+    "tipo": "frase",
+    "testo": "Piuttosto moderato. Nessuna posizione estrema."
+   }
+  },
+  {
+   "testo": "Ma i fatti raccontano un'altra storia. Ecco da dove è partito tutto.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/18/dealbook-summit-2026-live-updates.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s04"
+   }
+  },
+  {
+   "testo": "Nell'autunno 2024 ha fatto campagna con Trump al Madison Square Garden.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/18/dealbook-summit-2026-live-updates.html"
+   ],
+   "capitolo": "DAL DARK MAGA AL MODERATO",
+   "visivo": {
+    "tipo": "set",
+    "set": "s04"
+   }
+  },
+  {
+   "testo": "Lì, ricorda la CNBC, si è definito un MAGA dark e gotico.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/18/dealbook-summit-2026-live-updates.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s05"
+   }
+  },
+  {
+   "testo": "Si è anche mostrato in pubblico con cappellini con la scritta MAGA.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/18/dealbook-summit-2026-live-updates.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s03"
+   }
+  },
+  {
+   "testo": "L'AP ha riportato che nel 2024 ha speso almeno 250 milioni di dollari a sostegno di Trump.",
+   "fonti": [
+    "https://www.pbs.org/newshour/politics/musk-says-he-will-cut-back-on-political-spending-after-paying-at-least-250m-backing-trump-in-2024"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s06"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 250,
+    "decimali": 0,
+    "prefisso": "$",
+    "unita": "MILIONI",
+    "sopra": "ALMENO, NEL 2024"
+   }
+  },
+  {
+   "testo": "Poi ha guidato lo sforzo di taglio dei costi dell'amministrazione Trump, il Dipartimento per l'Efficienza Governativa.",
+   "fonti": [
+    "https://www.cbsnews.com/news/elon-musk-not-maga-midterm-spending-trump/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s13"
+   }
+  },
+  {
+   "testo": "A maggio 2025, in un forum a Doha, ha detto che avrebbe speso molto meno.",
+   "fonti": [
+    "https://www.pbs.org/newshour/politics/musk-says-he-will-cut-back-on-political-spending-after-paying-at-least-250m-backing-trump-in-2024",
+    "https://www.fortune.com/2025/05/20/elon-musk-political-spending-done-enough"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s12"
+   }
+  },
+  {
+   "testo": "Ma con una condizione: se avesse visto un motivo, lo avrebbe fatto.",
+   "fonti": [
+    "https://www.pbs.org/newshour/politics/musk-says-he-will-cut-back-on-political-spending-after-paying-at-least-250m-backing-trump-in-2024"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s53"
+   },
+   "citazione": {
+    "chi": "musk",
+    "posa": "serio",
+    "testo": "Se in futuro vedrò un motivo per fare spese politiche, lo farò."
+   }
+  },
+  {
+   "testo": "Poche settimane dopo, la rottura pubblica con Trump su una legge di spesa.",
+   "fonti": [
+    "https://malaymail.com/news/world/2025/06/11/musk-admits-trump-criticisms-went-too-far-expresses-regret-after-public-clash/180003"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s15"
+   }
+  },
+  {
+   "testo": "Poi Musk ha detto che alcuni suoi post sul presidente erano andati troppo oltre.",
+   "fonti": [
+    "https://malaymail.com/news/world/2025/06/11/musk-admits-trump-criticisms-went-too-far-expresses-regret-after-public-clash/180003"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s11"
+   }
+  },
+  {
+   "testo": "E i soldi hanno ripreso a fluire. Quanti? La risposta dipende da quale stima si usa.",
+   "fonti": [
+    "https://www.archyde.com/elon-musk-says-he-is-not-maga-at-dealbook-summit/"
+   ],
+   "capitolo": "IL CONTO",
+   "visivo": {
+    "tipo": "set",
+    "set": "s06"
+   }
+  },
+  {
+   "testo": "Scripps News, citando i registri dei finanziamenti elettorali, parla di almeno 474 milioni di dollari per le midterm 2026.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/18/dealbook-summit-2026-live-updates.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s20"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 474,
+    "decimali": 0,
+    "prefisso": "$",
+    "unita": "MILIONI",
+    "sopra": "ALMENO, SECONDO CNBC"
+   }
+  },
+  {
+   "testo": "Altre testate citano 458 milioni, oppure 445 milioni. I totali variano a seconda della fonte.",
+   "fonti": [
+    "https://www.ibtimes.co.uk/elon-musk-not-maga-458-million-midterms-1833284",
+    "https://techcrunch.com/2026/11/18/elon-musk-says-im-not-maga/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s27"
+   }
+  },
+  {
+   "testo": "Il bersaglio principale: una corsa al Senato tra Ken Paxton e James Talarico.",
+   "fonti": [
+    "https://www.cbsnews.com/news/elon-musk-not-maga-midterm-spending-trump/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s19"
+   }
+  },
+  {
+   "testo": "Alcune stime sulle sue spese in Texas superano i 200 milioni di dollari, con circa 200 milioni destinati alla sfida Paxton-Talarico secondo una ricostruzione.",
+   "fonti": [
+    "https://www.archyde.com/elon-musk-says-he-is-not-maga-at-dealbook-summit/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s18"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 200,
+    "decimali": 0,
+    "prefisso": "$",
+    "unita": "MILIONI",
+    "sopra": "PAXTON CONTRO TALARICO, PER VARIETY"
+   }
+  },
+  {
+   "testo": "Secondo le notizie, 158 milioni di dollari sono andati a un super PAC repubblicano per il Senato, che ha girato somme equivalenti a un gruppo a sostegno di Paxton.",
+   "fonti": [
+    "https://www.archyde.com/elon-musk-says-he-is-not-maga-at-dealbook-summit/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s06"
+   }
+  },
+  {
+   "testo": "Il risultato? Paxton ha perso contro Talarico.",
+   "fonti": [
+    "https://www.cbsnews.com/news/elon-musk-not-maga-midterm-spending-trump/"
+   ],
+   "capitolo": "COSA HANNO COMPRATO I SOLDI",
+   "visivo": {
+    "tipo": "set",
+    "set": "s07"
+   }
+  },
+  {
+   "testo": "La CBS riferisce che i democratici hanno conquistato la Camera e il Senato.",
+   "fonti": [
+    "https://www.cbsnews.com/news/elon-musk-not-maga-midterm-spending-trump/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s23"
+   }
+  },
+  {
+   "testo": "I democratici hanno vinto anche la carica di governatore del Texas, dove hanno sede Tesla e SpaceX.",
+   "fonti": [
+    "https://www.cbsnews.com/news/elon-musk-not-maga-midterm-spending-trump/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s10"
+   }
+  },
+  {
+   "testo": "Talarico ha detto agli elettori negli ultimi giorni che Musk voleva la terra, l'acqua e i soldi dei contribuenti del Texas, secondo Newsweek.",
+   "fonti": [
+    "https://www.cbsnews.com/news/elon-musk-not-maga-midterm-spending-trump/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s21"
+   }
+  },
+  {
+   "testo": "Dopo la vittoria, Talarico ha raccontato a The View di ABC cosa avevano detto i texani.",
+   "fonti": [
+    "https://www.yahoo.com/news/politics/articles/elon-musk-regrets-spending-nearly-234350057.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s21"
+   },
+   "citazione": {
+    "chi": "talarico",
+    "posa": "sorride",
+    "testo": "Il Texas non è in vendita."
+   }
+  },
+  {
+   "testo": "Quindi, qual era l'obiettivo di Musk, secondo lui?",
+   "fonti": [
+    "https://www.cbsnews.com/news/elon-musk-not-maga-midterm-spending-trump/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s22"
+   }
+  },
+  {
+   "testo": "Preservare un governo diviso, ha detto, piuttosto che garantire un controllo repubblicano unificato.",
+   "fonti": [
+    "https://www.cbsnews.com/news/elon-musk-not-maga-midterm-spending-trump/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s56"
+   }
+  },
+  {
+   "testo": "Ha detto che quell'obiettivo è fallito. Voleva pesi e contrappesi.",
+   "fonti": [
+    "https://www.cbsnews.com/news/elon-musk-not-maga-midterm-spending-trump/"
+   ],
+   "visivo": {
+    "tipo": "frase",
+    "testo": "Il suo obiettivo, dice, è fallito."
+   }
+  },
+  {
+   "testo": "Ha comunque lasciato uno spiraglio: forse senza quella spesa sarebbe andata molto peggio.",
+   "fonti": [
+    "https://techcrunch.com/2026/11/18/elon-musk-says-im-not-maga/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s49"
+   }
+  },
+  {
+   "testo": "Ha anche detto che, potendo riavvolgere il nastro, avrebbe speso meno soldi.",
+   "fonti": [
+    "https://www.ibtimes.co.uk/elon-musk-not-maga-458-million-midterms-1833284"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s50"
+   }
+  },
+  {
+   "testo": "Ora, la posta in gioco per le sue aziende. La NBC riferisce che alcuni democratici in arrivo parlano di aprire indagini sul suo coinvolgimento nel DOGE.",
+   "fonti": [
+    "https://www.yahoo.com/news/politics/articles/elon-musk-regrets-spending-nearly-234350057.html"
+   ],
+   "capitolo": "CONTROLLI IN ARRIVO",
+   "visivo": {
+    "tipo": "set",
+    "set": "s46"
+   }
+  },
+  {
+   "testo": "Ma la politica era solo una parte della storia di mercoledì. L'altra parte erano i soldi.",
+   "fonti": [
+    "https://variety.com/2026/tv/news/elon-musk-invested-skydance-david-ellison-dealbook-conference-1236951800/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s25"
+   }
+  },
+  {
+   "testo": "Stesso vertice. Palco diverso. David Ellison, CEO di Skydance.",
+   "fonti": [
+    "https://variety.com/2026/tv/news/elon-musk-invested-skydance-david-ellison-dealbook-conference-1236951800/"
+   ],
+   "capitolo": "LA SCOMMESSA DI HOLLYWOOD",
+   "visivo": {
+    "tipo": "dossier",
+    "chi": "ellison",
+    "posa": "parla",
+    "righe": [
+     "CEO di Skydance",
+     "Figlio di Larry Ellison",
+     "Fusione Paramount + WBD"
+    ],
+    "timbro": "CONFERMA"
+   }
+  },
+  {
+   "testo": "Variety riferisce che Ellison ha confermato che Musk ha investito in Skydance.",
+   "fonti": [
+    "https://variety.com/2026/tv/news/elon-musk-invested-skydance-david-ellison-dealbook-conference-1236951800/",
+    "https://www.washingtontimes.com/news/2026/nov/18/elon-musk-invested-skydance-confirms-david-ellison/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s26"
+   }
+  },
+  {
+   "testo": "Ellison ha detto che avere Musk come azionista è un onore e un privilegio.",
+   "fonti": [
+    "https://www.investing.com/news/stock-market-news/ellison-confirms-musk-invested-roughly-1-billion-in-skydance-5036814"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s26"
+   },
+   "citazione": {
+    "chi": "ellison",
+    "posa": "parla",
+    "testo": "Avere il suo voto di fiducia e averlo come azionista è un onore e un privilegio."
+   }
+  },
+  {
+   "testo": "L'importo? Semafor ha riportato a ottobre: circa un miliardo di dollari.",
+   "fonti": [
+    "https://variety.com/2026/tv/news/elon-musk-invested-skydance-david-ellison-dealbook-conference-1236951800/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s27"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 1,
+    "decimali": 0,
+    "prefisso": "$",
+    "unita": "MILIARDI",
+    "sopra": "RIPORTATO, NON CONFERMATO DA ELLISON"
+   }
+  },
+  {
+   "testo": "Attenzione: secondo Variety, Ellison non ha confermato ufficialmente quella cifra.",
+   "fonti": [
+    "https://variety.com/2026/tv/news/elon-musk-invested-skydance-david-ellison-dealbook-conference-1236951800/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s29"
+   }
+  },
+  {
+   "testo": "Investing.com, invece, ha scritto che Ellison ha parlato di circa un miliardo. Le versioni divergono.",
+   "fonti": [
+    "https://www.investing.com/news/stock-market-news/ellison-confirms-musk-invested-roughly-1-billion-in-skydance-5036814"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s43"
+   }
+  },
+  {
+   "testo": "Sorkin ha chiesto se sia l'inizio di qualcosa di più grande con Starlink.",
+   "fonti": [
+    "https://variety.com/2026/tv/news/elon-musk-invested-skydance-david-ellison-dealbook-conference-1236951800/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s32"
+   }
+  },
+  {
+   "testo": "Ellison ha detto che sarebbero entusiasti di collaborare un giorno, ma per ora non c'è nulla.",
+   "fonti": [
+    "https://variety.com/2026/tv/news/elon-musk-invested-skydance-david-ellison-dealbook-conference-1236951800/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s31"
+   }
+  },
+  {
+   "testo": "Ed ecco il colpo di scena. HBO Max di Skydance prevede di trasmettere un documentario critico su Musk.",
+   "fonti": [
+    "https://www.investing.com/news/stock-market-news/ellison-confirms-musk-invested-roughly-1-billion-in-skydance-5036814"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s28"
+   }
+  },
+  {
+   "testo": "È previsto per il primo trimestre del prossimo anno.",
+   "fonti": [
+    "https://www.investing.com/news/stock-market-news/ellison-confirms-musk-invested-roughly-1-billion-in-skydance-5036814"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s33"
+   }
+  },
+  {
+   "testo": "La risposta di Ellison sul controllo editoriale: crediamo nell'indipendenza.",
+   "fonti": [
+    "https://www.investing.com/news/stock-market-news/ellison-confirms-musk-invested-roughly-1-billion-in-skydance-5036814"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s30"
+   }
+  },
+  {
+   "testo": "Ha anche detto di volere CBS News e CNN tenute separate.",
+   "fonti": [
+    "https://www.investing.com/news/stock-market-news/ellison-confirms-musk-invested-roughly-1-billion-in-skydance-5036814"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s30"
+   }
+  },
+  {
+   "testo": "Questo dopo la fusione da 110 miliardi di dollari tra Paramount Skydance e Warner Bros. Discovery, conclusa il mese scorso.",
+   "fonti": [
+    "https://www.investing.com/news/stock-market-news/ellison-confirms-musk-invested-roughly-1-billion-in-skydance-5036814"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s29"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 110,
+    "decimali": 0,
+    "prefisso": "$",
+    "unita": "MILIARDI",
+    "sopra": "LA FUSIONE"
+   }
+  },
+  {
+   "testo": "E ora la terza storia del giorno. Riguarda un'azienda di razzi e turbine a gas.",
+   "fonti": [
+    "https://www.fox4news.com/news/texas-data-center-permits-moving-forward-again-after-abbott-pause"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s34"
+   }
+  },
+  {
+   "testo": "Politico riferisce che lunedì le autorità del Texas hanno rilasciato a SpaceX un permesso per le emissioni in atmosfera per un progetto di data center.",
+   "fonti": [
+    "https://www.fox4news.com/news/texas-data-center-permits-moving-forward-again-after-abbott-pause",
+    "https://www.politico.com/news/2026/11/17/texas-issues-air-permit-for-massive-spacex-data-center-01170758"
+   ],
+   "capitolo": "IL PERMESSO",
+   "visivo": {
+    "tipo": "set",
+    "set": "s35"
+   }
+  },
+  {
+   "testo": "Il progetto vale 24 miliardi di dollari, vicino a Brownsville e Starbase.",
+   "fonti": [
+    "https://www.fox4news.com/news/texas-data-center-permits-moving-forward-again-after-abbott-pause"
+   ],
+   "visivo": {
+    "tipo": "mappa",
+    "centro": [
+     -97.3,
+     26.0
+    ],
+    "larghezza": 10,
+    "paesi": [
+     {
+      "iso": "USA",
+      "colore": "azul"
+     },
+     {
+      "iso": "MEX",
+      "colore": "verde"
+     }
+    ],
+    "punti": [
+     {
+      "lon": -97.5,
+      "lat": 25.9,
+      "nome": "BROWNSVILLE"
+     },
+     {
+      "lon": -97.15,
+      "lat": 25.99,
+      "nome": "STARBASE"
+     }
+    ],
+    "zoom_su": [
+     -97.3,
+     26.0
+    ]
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 24,
+    "decimali": 0,
+    "prefisso": "$",
+    "unita": "MILIARDI",
+    "sopra": "DATA CENTER SPACEX"
+   }
+  },
+  {
+   "testo": "Il permesso copre 35 turbine a gas naturale, circa 750 megawatt, secondo Politico.",
+   "fonti": [
+    "https://www.tipranks.com/news/spacex-stock-spcx-jumps-as-texas-moves-forward-with-data-center-permits"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s36"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 35,
+    "decimali": 0,
+    "prefisso": "",
+    "unita": "TURBINE A GAS",
+    "sopra": "SECONDO POLITICO"
+   }
+  },
+  {
+   "testo": "L'impianto non sarebbe collegato alla rete elettrica statale, secondo le notizie.",
+   "fonti": [
+    "https://www.tipranks.com/news/spacex-stock-spcx-jumps-as-texas-moves-forward-with-data-center-permits"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s40"
+   }
+  },
+  {
+   "testo": "Secondo le notizie, consente fino a 248 tonnellate di ossidi di azoto all'anno.",
+   "fonti": [
+    "https://www.tipranks.com/news/spacex-stock-spcx-jumps-as-texas-moves-forward-with-data-center-permits"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s42"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 248,
+    "decimali": 0,
+    "prefisso": "",
+    "unita": "TONNELLATE DI NOX",
+    "sopra": "ALL'ANNO, MASSIMO"
+   }
+  },
+  {
+   "testo": "L'agenzia, la TCEQ, aveva sospeso questi permessi dopo che il governatore Greg Abbott lo aveva ordinato a settembre.",
+   "fonti": [
+    "https://www.fox4news.com/news/texas-data-center-permits-moving-forward-again-after-abbott-pause"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s38"
+   }
+  },
+  {
+   "testo": "La sospensione attendeva un rapporto del gestore della rete, ERCOT.",
+   "fonti": [
+    "https://www.fox4news.com/news/texas-data-center-permits-moving-forward-again-after-abbott-pause"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s39"
+   }
+  },
+  {
+   "testo": "Politico afferma che la sospensione non sarebbe dovuta terminare prima del 10 dicembre.",
+   "fonti": [
+    "https://fourweekmba.com/ai-spacexs-24b-ai-site-gets-texas-air-permit-35-gas-turbines/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s50"
+   }
+  },
+  {
+   "testo": "Un portavoce della TCEQ ha detto a Politico che l'agenzia ha ripreso il normale processo di revisione dei permessi.",
+   "fonti": [
+    "https://fourweekmba.com/ai-spacexs-24b-ai-site-gets-texas-air-permit-35-gas-turbines/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s37"
+   }
+  },
+  {
+   "testo": "Il gruppo di difesa Public Citizen ha criticato la mossa, sostenendo che la TCEQ cercava di far avanzare i permessi in fretta e in silenzio.",
+   "fonti": [
+    "https://fourweekmba.com/ai-spacexs-24b-ai-site-gets-texas-air-permit-35-gas-turbines/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s41"
+   }
+  },
+  {
+   "testo": "Il gruppo sostiene che la costruzione potrebbe essere iniziata senza il permesso. Non è stato accertato.",
+   "fonti": [
+    "https://fourweekmba.com/ai-spacexs-24b-ai-site-gets-texas-air-permit-35-gas-turbines/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s34"
+   }
+  },
+  {
+   "testo": "SpaceX non ha risposto alle richieste di commento di Politico.",
+   "fonti": [
+    "https://fourweekmba.com/ai-spacexs-24b-ai-site-gets-texas-air-permit-35-gas-turbines/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s47"
+   }
+  },
+  {
+   "testo": "Secondo le notizie, le azioni di SpaceX sono salite di circa l'uno-due per cento dopo la notizia.",
+   "fonti": [
+    "https://www.tipranks.com/news/spacex-stock-spcx-jumps-as-texas-moves-forward-with-data-center-permits"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s43"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 2,
+    "decimali": 0,
+    "prefisso": "+",
+    "unita": "PER CENTO",
+    "sopra": "AZIONI SPACEX, SECONDO TIPRANKS"
+   }
+  },
+  {
+   "testo": "Notate i tempi. Abbott ha perso la corsa alla rielezione all'inizio di questo mese.",
+   "fonti": [
+    "https://www.tipranks.com/news/spacex-stock-spcx-jumps-as-texas-moves-forward-with-data-center-permits"
+   ],
+   "capitolo": "COSA ACCADRÀ ORA",
+   "visivo": {
+    "tipo": "set",
+    "set": "s10"
+   }
+  },
+  {
+   "testo": "La democratica Gina Hinojosa ha vinto la corsa a governatore, riferisce CBS News.",
+   "fonti": [
+    "https://www.tipranks.com/news/spacex-stock-spcx-jumps-as-texas-moves-forward-with-data-center-permits"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s38"
+   }
+  },
+  {
+   "testo": "La politica cambia. Permessi, razzi e server continuano.",
+   "fonti": [
+    "https://www.fox4news.com/news/texas-data-center-permits-moving-forward-again-after-abbott-pause"
+   ],
+   "visivo": {
+    "tipo": "frase",
+    "testo": "La politica cambia. Permessi, razzi e server continuano."
+   }
+  },
+  {
+   "testo": "Le parole di Musk al DealBook hanno dato un tono nuovo.",
+   "fonti": [
+    "https://www.cbsnews.com/news/elon-musk-not-maga-midterm-spending-trump/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s45"
+   }
+  },
+  {
+   "testo": "Ha detto che ci sono aspetti positivi e negativi in entrambi i partiti.",
+   "fonti": [
+    "https://www.nbcnews.com/politics/2026-election/elon-musk-says-not-maga-spending-millions-trump-allies-rcna610129"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s57"
+   },
+   "citazione": {
+    "chi": "musk",
+    "posa": "serio",
+    "testo": "Penso che ci siano aspetti positivi e negativi in entrambi i partiti."
+   }
+  },
+  {
+   "testo": "Nel 2023, allo stesso vertice, era in rotta con gli inserzionisti.",
+   "fonti": [
+    "https://techcrunch.com/2026/11/18/elon-musk-says-im-not-maga/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s51"
+   }
+  },
+  {
+   "testo": "Tre storie in un solo giorno: un rimpianto, una quota, un permesso.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/18/dealbook-summit-2026-live-updates.html",
+    "https://variety.com/2026/tv/news/elon-musk-invested-skydance-david-ellison-dealbook-conference-1236951800/",
+    "https://www.fox4news.com/news/texas-data-center-permits-moving-forward-again-after-abbott-pause"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s54"
+   }
+  },
+  {
+   "testo": "Quindi è un vero cambio di rotta o un azzeramento dopo un'elezione difficile? Ha fatto marcia indietro nella stessa risposta.",
+   "fonti": [
+    "https://techcrunch.com/2026/11/18/elon-musk-says-im-not-maga/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s58"
+   }
+  },
+  {
+   "testo": "La storia è ancora in movimento. Iscrivetevi, per non perdere il prossimo capitolo.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/18/dealbook-summit-2026-live-updates.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s49"
+   }
+  }
+ ],
+ "copertina": {
+  "sfondo": "Dark theater stage with a giant glowing screen, a red baseball cap lying alone on the floor under a harsh spotlight, dramatic red and blue light, empty of people",
+  "personaggi": [
+   "musk"
+  ],
+  "pose": {
+   "musk": "pensa"
+  },
+  "personaggio": "musk",
+  "posa": "pensa",
+  "lato": "dx",
+  "righe": [
+   "NON MAGA",
+   "474 MLN DOPO"
+  ],
+  "box": "SE NE PENTE",
+  "evidenzia": 1
+ },
+ "verifica": {
+  "correzioni": 58,
+  "scene_tolte": 6
+ },
+ "coerenza": {
+  "scene_rifatte": 27,
+  "controllate": 71
+ },
+ "lingua": "it",
+ "nome": "2026-11-19_elon_musk_at_the_dealbook_summit_not_mag_it",
+ "data": "19 NOVEMBRE 2026",
+ "etichetta": "ULTIM'ORA",
+ "musica": "tensione",
+ "voce": "glnsgBC77wt5zOYU0szz",
+ "budget_dollari": 0.6,
+ "storia": "Elon Musk at the DealBook Summit: 'not MAGA', regrets midterm spending, backs Skydance",
+ "filone": "tech",
+ "materiali_da": "2026-11-19_elon_musk_at_the_dealbook_summit_not_mag_en"
+}
