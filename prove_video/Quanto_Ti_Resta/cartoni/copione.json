@@ -1,553 +1,143 @@
 {
- "titolo": "Quanto guadagna un fiorista a San Valentino?",
+ "titolo": "Perché le edicole chiudono una dopo l'altra?",
  "protagonista": {
-  "nome": "Chiara",
-  "capelli": "bun",
-  "colore_capelli": "#5a3a22",
-  "pelle": "chiara",
-  "maglia": "#d9658b",
-  "grembiule": "#3f7d4e",
-  "occhiali": false
+  "nome": "Walter",
+  "capelli": "short",
+  "colore_capelli": "#9a9a9a",
+  "pelle": "media",
+  "maglia": "#2f6f8f",
+  "grembiule": "#c0392b",
+  "occhiali": true
  },
- "oggetto": "rosa",
+ "oggetto": "giornale",
  "copertina": {
   "righe": [
-   "MILLE ROSE",
-   "COMPRATE...",
-   "E POI?"
+   "VENDE GIORNALI",
+   "GUADAGNA UN",
+   "CENTESIMO..."
   ],
   "emozione": "preoccupato",
-  "oggetto": "rosa",
-  "prezzo": "4 €",
+  "oggetto": "giornale",
+  "prezzo": "1,70 €",
   "fondo": "scuro"
  },
  "copertina_ai": {
-  "valore_sx": "1,20 €",
-  "valore_dx": "4 €",
-  "oggetto_sx": "separate raw flower materials laid apart: a bare red rose stem, a sheet of kraft paper, a ribbon spool, a small green foliage sprig",
-  "oggetto_dx": "a big beautiful bouquet of red roses wrapped in paper with a ribbon",
+  "valore_sx": "1,36 €",
+  "valore_dx": "1,70 €",
+  "oggetto_sx": "separate newspaper pieces laid apart: a stack of paper sheets, a small ink bottle, a delivery van toy",
+  "oggetto_dx": "a freshly printed Italian newspaper on a newsstand counter",
   "domanda": [
    "E ALLORA PERCHÉ",
-   "BUTTA FIORI?"
+   "L'EDICOLA CHIUDE?"
   ]
  },
- "descrizione": "Un giorno all'anno vale come un mese intero. Ma quanto resta davvero nelle tasche di una fiorista dopo San Valentino? Seguiamo Chiara tra rose comprate in anticipo, fiori che appassiscono e invenduto da buttare. Scopri come si calcola il margine, cosa guardare davvero e perché vendere tanto non basta.",
+ "descrizione": "Walter ha un'edicola da trent'anni e ogni anno vende meno giornali. Ma il problema non è solo che la gente non legge più: è come funziona il margine sui quotidiani. In questo episodio facciamo i conti veri, con numeri di esempio, e scopriamo cosa può fare un'edicola per restare in piedi. Se hai un negozio, questa storia riguarda anche te.",
  "tag": [
-  "fiorista",
-  "san valentino",
-  "margini",
-  "costi",
-  "aprire un negozio",
-  "invenduto",
-  "merce deperibile",
-  "picchi di vendita",
-  "conti di un'attività",
-  "economia pratica",
-  "piccola impresa",
-  "negozio di fiori",
+  "edicola",
+  "chiusura edicole",
+  "margine",
   "punto di pareggio",
+  "diversificazione",
+  "aprire un'attività",
   "commercianti",
-  "quanto guadagna",
-  "rose"
+  "economia pratica",
+  "costi fissi",
+  "giornali",
+  "quanto ti resta",
+  "conti di un negozio",
+  "mercato in calo",
+  "piccola impresa",
+  "come guadagna un'edicola"
  ],
  "scene": [
   {
-   "testo": "Chiara ha comprato mille rose per San Valentino. Il quindici febbraio, ne ha buttate trecento. Dentro un sacco nero. Sai quanto le sono costate quelle rose buttate? Più di quanto pensi. Oggi facciamo i conti veri.",
+   "testo": "Walter vende un giornale a un euro e settanta. Quanto gli resta in tasca? Ventiquattro centesimi. Proprio così: per guadagnare un euro deve venderne più di quattro. E ogni anno ne vende meno.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "domanda",
      "p": {
-      "testo": "Mille rose comprate!",
+      "testo": "Quanto gli resta?",
       "emozione": "stupito",
       "scuro": true
      }
     },
     {
-     "parola": "buttate",
-     "tipo": "conteggio",
+     "parola": "Ventiquattro",
+     "tipo": "prezzo",
      "p": {
-      "oggetto": "rosa",
-      "icone": 30,
-      "testo": "300 rose buttate"
+      "oggetto": "giornale",
+      "prezzo": "1,70 €",
+      "nota": "resta: 0,24 €"
      }
     },
     {
-     "parola": "conti",
-     "tipo": "luogo",
+     "parola": "Proprio",
+     "tipo": "conteggio",
      "p": {
-      "luogo": "fioraio",
-      "insegna": "Fiori di Chiara",
-      "azione": "preoccupato",
-      "clienti": 0,
-      "testo": "15 febbraio"
+      "oggetto": "giornale",
+      "icone": 5,
+      "testo": "5 giornali = 1,20 €"
      }
     }
    ]
   },
   {
-   "testo": "Lei è Chiara. Ha un negozio di fiori in una cittadina di provincia. Lavora tutto l'anno con matrimoni, funerali e mazzetti della domenica. Ma c'è un giorno che aspetta come un esame: il quattordici febbraio.",
-   "capitolo": "Il giorno dell'esame",
+   "testo": "Ti presento Walter. Ha sessantadue anni e un'edicola in una via del centro. L'ha aperta suo padre, poi l'ha presa lui. Trent'anni dietro al bancone, sempre con gli occhiali sul naso e il caffè freddo accanto.",
+   "capitolo": "Walter e la sua edicola",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "luogo",
      "p": {
-      "luogo": "fioraio",
-      "insegna": "Fiori di Chiara",
+      "luogo": "edicola",
+      "insegna": "EDICOLA WALTER",
       "azione": "lavora",
       "clienti": 1,
-      "testo": "Chiara, fiorista"
+      "testo": "Edicola di Walter"
      }
     },
     {
-     "parola": "giorno",
-     "tipo": "calendario",
+     "parola": "Trent'anni",
+     "tipo": "luogo",
      "p": {
-      "titolo": "Febbraio",
-      "giorni": 28,
-      "testo": "Il 14 conta più di tutti"
-     }
-    },
-    {
-     "parola": "esame",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Sarà un affare?",
-      "emozione": "preoccupato",
-      "scuro": false
+      "luogo": "edicola",
+      "insegna": "EDICOLA WALTER",
+      "azione": "felice",
+      "clienti": 2,
+      "testo": "Trent'anni di mestiere"
      }
     }
    ]
   },
   {
-   "testo": "Guarda il suo anno. Mese per mese, le vendite sono più o meno stabili. Poi febbraio: un salto enorme. E maggio: un altro piccolo picco, per la festa della mamma. Si chiama picco di vendita. Poche ore che valgono tantissimo.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "mesi",
-     "p": {
-      "titolo": "Incasso mensile (in migliaia di euro)",
-      "valori": [
-       4,
-       9,
-       4,
-       4,
-       6,
-       4,
-       3,
-       3,
-       4,
-       4,
-       5,
-       6
-      ],
-      "evidenzia": [
-       2,
-       5
-      ],
-      "nota": "Febbraio vale più di due mesi normali"
-     }
-    },
-    {
-     "parola": "picco",
-     "tipo": "andamento",
-     "p": {
-      "titolo": "Vendite del 14 febbraio",
-      "valori": [
-       1,
-       2,
-       3,
-       6,
-       8,
-       10,
-       7
-      ],
-      "etichette": [
-       "8",
-       "10",
-       "12",
-       "14",
-       "16",
-       "18",
-       "20"
-      ],
-      "colore": "verde"
-     }
-    },
-    {
-     "parola": "tantissimo",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Tutto in un giorno?",
-      "emozione": "stupito",
-      "scuro": false
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Ora la rosa. Chiara la compra dal grossista a un euro e venti. Ma a San Valentino il prezzo sale: un euro e ottanta. La vende, già confezionata, a quattro euro. Sembra un margine enorme. Fermati un attimo, però.",
-   "capitolo": "Il prezzo di una rosa",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "prezzo",
-     "p": {
-      "oggetto": "rosa",
-      "prezzo": "1,80 €",
-      "nota": "Costo all'ingrosso a San Valentino"
-     }
-    },
-    {
-     "parola": "vende",
-     "tipo": "prezzo",
-     "p": {
-      "oggetto": "rosa",
-      "prezzo": "4 €",
-      "nota": "Prezzo di vendita confezionata"
-     }
-    },
-    {
-     "parola": "enorme",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Margine enorme?",
-      "emozione": "stupito",
-      "scuro": false
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Una rosa a quattro euro, costo un euro e ottanta. Fa due euro e venti di differenza. Però ci sono carta, nastro e biglietto: trenta centesimi. Resta un euro e novanta. Questo è il margine lordo vero di una rosa venduta.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "fette",
-     "p": {
-      "titolo": "Dove vanno i quattro euro di una rosa",
-      "totale": 4,
-      "totale_testo": "4 €",
-      "fette": [
-       {
-        "nome": "La rosa",
-        "valore": 1.8,
-        "testo": "1,80 €"
-       },
-       {
-        "nome": "Carta e nastro",
-        "valore": 0.3,
-        "testo": "0,30 €"
-       },
-       {
-        "nome": "Margine lordo",
-        "valore": 1.9,
-        "testo": "1,90 €"
-       }
-      ],
-      "evidenzia": 2
-     }
-    },
-    {
-     "parola": "trenta",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Margine di una rosa",
-      "a": "4 €",
-      "op": "−",
-      "b": "2,10 €",
-      "risultato": "1,90 €",
-      "nota": "Prima di affitto e personale"
-     }
-    },
-    {
-     "parola": "vero",
-     "tipo": "timbro",
-     "p": {
-      "oggetto": "rosa",
-      "testo": "1,90 € LORDI",
-      "colore": "verde",
-      "nota": "Ma non è ancora guadagno"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Chiara ci ragiona così: se vendo ottocento rose, faccio ottocento per un euro e novanta. Fa mille e cinquecento venti euro di margine. Bello. Ma ne ha comprate mille. E qui comincia il problema vero.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Margine su rose vendute",
-      "a": "800 rose",
-      "op": "×",
-      "b": "1,90 €",
-      "risultato": "1.520 €",
-      "nota": "Margine lordo teorico"
-     }
-    },
-    {
-     "parola": "comprate",
-     "tipo": "conteggio",
-     "p": {
-      "oggetto": "rosa",
-      "icone": 60,
-      "testo": "1.000 rose comprate"
-     }
-    },
-    {
-     "parola": "problema",
-     "tipo": "domanda",
-     "p": {
-      "testo": "E le altre duecento?",
-      "emozione": "preoccupato",
-      "scuro": true
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Le rose sono merce deperibile. Non stanno sullo scaffale come le scarpe. Dopo pochi giorni, appassiscono. Il quindici febbraio, una rosa invenduta vale zero. Anzi, meno di zero: devi pure smaltirla.",
-   "capitolo": "Merce che muore",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "andamento",
-     "p": {
-      "titolo": "Valore di una rosa nei giorni",
-      "valori": [
-       4,
-       4,
-       3,
-       1,
-       0
-      ],
-      "etichette": [
-       "14 feb",
-       "15 feb",
-       "16 feb",
-       "17 feb",
-       "18 feb"
-      ],
-      "colore": "rosso"
-     }
-    },
-    {
-     "parola": "scarpe",
-     "tipo": "confronto",
-     "p": {
-      "titolo": "Cosa succede se resta invenduto",
-      "a": {
-       "titolo": "Scarpe",
-       "valore": "Le vendi dopo",
-       "oggetto": "scarpe"
-      },
-      "b": {
-       "titolo": "Rose",
-       "valore": "Le butti",
-       "oggetto": "rosa"
-      },
-      "vincitore": "a"
-     }
-    },
-    {
-     "parola": "zero",
-     "tipo": "timbro",
-     "p": {
-      "oggetto": "rosa",
-      "testo": "VALORE ZERO",
-      "colore": "rosso",
-      "nota": "Dopo pochi giorni"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Facciamo il conto dell'invenduto. Chiara ne ha vendute settecento e ne ha buttate trecento. Le trecento le aveva pagate un euro e ottanta l'una. Fa cinquecentoquaranta euro buttati, più il lavoro per smaltirle.",
+   "testo": "Una volta, alle sette del mattino, c'era la fila. Walter vendeva centoventi quotidiani al giorno. Oggi ne vende quaranta. E tu: quando hai comprato l'ultimo giornale di carta? Ecco, appunto.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "persone",
      "p": {
-      "n": 7,
-      "azione": "escono",
-      "escono": 7,
-      "testo": "700 rose vendute"
+      "n": 8,
+      "azione": "fila",
+      "testo": "Ieri: la fila alle sette"
      }
     },
     {
-     "parola": "trecento",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Costo dell'invenduto",
-      "a": "300 rose",
-      "op": "×",
-      "b": "1,80 €",
-      "risultato": "540 €",
-      "nota": "Soldi spesi e buttati"
-     }
-    },
-    {
-     "parola": "buttati",
-     "tipo": "salvadanaio",
-     "p": {
-      "direzione": "svuota",
-      "testo": "Cinquecentoquaranta euro in fumo"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Rifacciamo il margine vero. Ha venduto settecento rose, a un euro e novanta: fa mille e trecentotrenta euro. Ma ne ha buttate per cinquecentoquaranta euro. Il margine reale scende a settecentonovanta euro. Quasi metà evaporata.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Margine sulle rose vendute",
-      "a": "700 rose",
-      "op": "×",
-      "b": "1,90 €",
-      "risultato": "1.330 €",
-      "nota": "Margine lordo effettivo"
-     }
-    },
-    {
-     "parola": "buttate",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Tolto l'invenduto",
-      "a": "1.330 €",
-      "op": "−",
-      "b": "540 €",
-      "risultato": "790 €",
-      "nota": "Margine reale sulle rose"
-     }
-    },
-    {
-     "parola": "evaporata",
-     "tipo": "bilancia",
-     "p": {
-      "titolo": "Teoria contro realtà",
-      "sinistra": "1.520 € sognati",
-      "destra": "790 € veri",
-      "pende": "destra"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Capisci la lezione? Il margine di un prodotto deperibile non si calcola sul prezzo di vendita meno il costo. Si calcola su tutto quello che compri, non solo su quello che vendi. L'invenduto è un costo, anche se non lo vedi.",
-   "capitolo": "La regola del deperibile",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "lista",
-     "p": {
-      "titolo": "Margine vero di merce deperibile",
-      "voci": [
-       "Conta tutto ciò che compri",
-       "Sottrai ciò che butti",
-       "Dividi per ciò che vendi",
-       "L'invenduto è un costo"
-      ]
-     }
-    },
-    {
-     "parola": "compri",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Compri o vendi?",
-      "emozione": "calmo",
-      "scuro": false
-     }
-    },
-    {
-     "parola": "costo",
-     "tipo": "timbro",
-     "p": {
-      "oggetto": "rosa",
-      "testo": "INVENDUTO = COSTO",
-      "colore": "rosso",
-      "nota": "Anche se non lo vedi"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Pensa a un panettiere. Cuoce cento pagnotte a un euro di costo, le vende a due. Ne avanzano venti a fine giornata. Non fa cento per un euro di margine: fa ottanta euro meno venti buttati. Sessanta euro. Stessa logica, stesso trucco.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "panificio",
-      "insegna": "Forno Rossi",
-      "azione": "lavora",
-      "clienti": 3,
-      "testo": "Cento pagnotte al giorno"
-     }
-    },
-    {
-     "parola": "avanzano",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Margine vero del panettiere",
-      "a": "80 €",
-      "op": "−",
-      "b": "20 €",
-      "risultato": "60 €",
-      "nota": "Ottanta vendute meno venti buttate"
-     }
-    },
-    {
-     "parola": "trucco",
+     "parola": "Oggi",
      "tipo": "conteggio",
      "p": {
-      "oggetto": "pane",
-      "icone": 20,
-      "testo": "20 pagnotte buttate"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Ora, quanto compro? Qui sta il bello. Se Chiara compra poche rose, finisce tutto a mezzogiorno e perde clienti. Se ne compra troppe, butta soldi. Non esiste la quantità giusta: esiste la quantità meno sbagliata.",
-   "capitolo": "Quante ne compro?",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "bilancia",
-     "p": {
-      "titolo": "Il dilemma dell'ordine",
-      "sinistra": "Troppo poche: clienti persi",
-      "destra": "Troppe: rose buttate",
-      "pende": "destra"
+      "oggetto": "giornale",
+      "icone": 40,
+      "testo": "40 al giorno"
      }
     },
     {
-     "parola": "mezzogiorno",
-     "tipo": "orologio",
-     "p": {
-      "ore": 12,
-      "piene": 6,
-      "testo": "Scorte finite alle due"
-     }
-    },
-    {
-     "parola": "meno",
+     "parola": "Ecco",
      "tipo": "domanda",
      "p": {
-      "testo": "Quale errore costa meno?",
+      "testo": "E tu, quando?",
       "emozione": "calmo",
       "scuro": false
      }
@@ -555,244 +145,178 @@
    ]
   },
   {
-   "testo": "Chiara guarda gli anni passati. Il quattordici febbraio dell'anno scorso ha venduto settecentoventi rose. Quello prima, seicentoottanta. La media è settecento. Compra settecento più un po' di scorta: ne ordina mille. Troppo? Vediamo.",
+   "testo": "Guarda come è crollato il numero di copie nel tempo. Dieci anni fa, centoventi al giorno. Otto anni fa, novanta. Cinque anni fa, settanta. Tre anni fa, cinquanta. Oggi quaranta. Una discesa lenta, ma continua.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "andamento",
      "p": {
-      "titolo": "Rose vendute a San Valentino",
+      "titolo": "Giornali venduti al giorno",
       "valori": [
-       680,
-       720,
-       700
+       120,
+       90,
+       70,
+       50,
+       40
       ],
       "etichette": [
-       "Due anni fa",
-       "Anno scorso",
-       "Media"
+       "10 anni fa",
+       "8",
+       "5",
+       "3",
+       "oggi"
       ],
-      "colore": "verde"
+      "colore": "rosso"
      }
     },
     {
-     "parola": "media",
-     "tipo": "formula",
+     "parola": "Una",
+     "tipo": "persone",
      "p": {
-      "titolo": "La media storica",
-      "a": "1.400 rose",
-      "op": "÷",
-      "b": "2 anni",
-      "risultato": "700 rose",
-      "nota": "Seicentoottanta più settecentoventi"
-     }
-    },
-    {
-     "parola": "scorta",
-     "tipo": "conteggio",
-     "p": {
-      "oggetto": "rosa",
-      "icone": 60,
-      "testo": "1.000 rose ordinate"
+      "n": 4,
+      "azione": "escono",
+      "escono": 3,
+      "testo": "I lettori se ne vanno"
      }
     }
    ]
   },
   {
-   "testo": "La scorta di trecento rose costa cinquecentoquaranta euro. È l'assicurazione contro il rischio di restare senza. Ma quando vale la pena pagarla? Se ogni cliente in più porta un euro e novanta, devi chiederti quanti ne perdi senza scorta.",
-   "capitolo": "",
+   "testo": "Ora la parte che quasi nessuno conosce. Il prezzo di copertina non è tutto di Walter. Il giornale lo compra dal distributore e ci guadagna una percentuale fissa. Non decide lui il prezzo, non decide lui lo sconto.",
+   "capitolo": "Il margine fisso",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "soldi",
+     "tipo": "prezzo",
      "p": {
-      "centro": "540 €",
-      "destinazioni": [
-       "Scorta di sicurezza",
-       "Rose buttate",
-       "Clienti salvati"
+      "oggetto": "giornale",
+      "prezzo": "1,70 €",
+      "nota": "prezzo deciso dall'editore"
+     }
+    },
+    {
+     "parola": "percentuale",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Cosa decide Walter?",
+      "voci": [
+       "Il prezzo? No",
+       "Lo sconto? No",
+       "Quanto ordina? Poco",
+       "Il margine? Fisso"
       ]
      }
-    },
-    {
-     "parola": "assicurazione",
-     "tipo": "leve",
-     "p": {
-      "titolo": "A cosa serve la scorta",
-      "voci": [
-       "Non restare a secco",
-       "Servire i ritardatari",
-       "Vendere mazzi più grandi"
-      ],
-      "evidenzia": 0
-     }
-    },
-    {
-     "parola": "perdi",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Quanti clienti perdi?",
-      "emozione": "preoccupato",
-      "scuro": false
-     }
     }
    ]
   },
   {
-   "testo": "Un pizzaiolo conosce bene questo gioco. L'impasto lievitato dura due giorni. Se ne prepara per cento pizze e il martedì ne vende sessanta, quaranta palline sono perse. Ma il sabato, con la stessa dose, resta senza. La scorta cambia col giorno.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "pizzeria",
-      "insegna": "Pizzeria Da Gigi",
-      "azione": "lavora",
-      "clienti": 2,
-      "testo": "Cento palline di impasto"
-     }
-    },
-    {
-     "parola": "martedì",
-     "tipo": "confronto",
-     "p": {
-      "titolo": "Stessa dose, due giorni",
-      "a": {
-       "titolo": "Martedì: sessanta pizze",
-       "valore": "40 palline perse",
-       "oggetto": "pizza"
-      },
-      "b": {
-       "titolo": "Sabato: cento pizze",
-       "valore": "Zero sprechi",
-       "oggetto": "pizza"
-      },
-      "vincitore": "b"
-     }
-    },
-    {
-     "parola": "cambia",
-     "tipo": "calendario",
-     "p": {
-      "titolo": "Impasto da calibrare",
-      "giorni": 7,
-      "testo": "Ogni giorno diverso"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Torniamo a Chiara. Ha venduto settecento rose, ne ha buttate trecento. Ma non vende solo rose. Mazzi misti, orchidee, piante. Facciamo il quadro completo della giornata del quattordici. L'incasso totale è di seimilacinquecento euro.",
-   "capitolo": "Il conto della giornata",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "fioraio",
-      "insegna": "Fiori di Chiara",
-      "azione": "festa",
-      "clienti": 5,
-      "testo": "14 febbraio: fila fuori"
-     }
-    },
-    {
-     "parola": "incasso",
-     "tipo": "conteggio",
-     "p": {
-      "oggetto": "mazzo",
-      "icone": 40,
-      "testo": "6.500 € incassati"
-     }
-    },
-    {
-     "parola": "quadro",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Seimilacinquecento euro!",
-      "emozione": "felice",
-      "scuro": false
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Sembra un sogno. Ma guarda dove vanno i soldi. La merce comprata costa duemilaottocento euro, compreso il buttato. Il personale extra, cinquecento. Carta e nastri, quattrocento. Resta duemilaottocento. E non è finita.",
+   "testo": "Facciamo i conti su un giornale da un euro e settanta. Walter lo paga un euro e trentasei. Il margine è il venti per cento del prezzo di copertina: trentaquattro centesimi. Dividi trentaquattro per centosettanta e ottieni proprio venti.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "fette",
      "p": {
-      "titolo": "Dove vanno i seimilacinquecento euro",
-      "totale": 6500,
-      "totale_testo": "6.500 €",
+      "titolo": "Dove vanno 1,70 € di un giornale",
+      "totale": 1.7,
+      "totale_testo": "1,70 €",
       "fette": [
        {
-        "nome": "Merce comprata",
-        "valore": 2800,
-        "testo": "2.800 €"
+        "nome": "Editore e distribuzione",
+        "valore": 1.36,
+        "testo": "1,36 €"
        },
        {
-        "nome": "Personale extra",
-        "valore": 500,
-        "testo": "500 €"
-       },
-       {
-        "nome": "Carta e nastri",
-        "valore": 400,
-        "testo": "400 €"
-       },
-       {
-        "nome": "Resta",
-        "valore": 2800,
-        "testo": "2.800 €"
+        "nome": "Margine di Walter",
+        "valore": 0.34,
+        "testo": "0,34 €"
        }
       ],
-      "evidenzia": 3
+      "evidenzia": 1
      }
     },
     {
-     "parola": "personale",
-     "tipo": "costi",
+     "parola": "Dividi",
+     "tipo": "formula",
      "p": {
-      "voci": [
-       {
-        "nome": "Merce",
-        "valore": 2800,
-        "testo": "2.800 €"
-       },
-       {
-        "nome": "Aiuti extra",
-        "valore": 500,
-        "testo": "500 €"
-       },
-       {
-        "nome": "Imballi",
-        "valore": 400,
-        "testo": "400 €"
-       }
-      ],
-      "totale": 3700,
-      "periodo": "in un giorno"
-     }
-    },
-    {
-     "parola": "finita",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Resta tutto a lei?",
-      "emozione": "preoccupato",
-      "scuro": true
+      "titolo": "Quanto è il margine?",
+      "a": "0,34 €",
+      "op": "÷",
+      "b": "1,70 €",
+      "risultato": "il 20 %",
+      "nota": "margine sul prezzo"
      }
     }
    ]
   },
   {
-   "testo": "No, perché c'è l'affitto, la luce, la cella frigorifera, il commercialista. Costi fissi che pagheresti anche senza vendere un fiore. Per Chiara fanno duemilaquattrocento euro al mese. Una fetta va caricata anche su questa giornata.",
-   "capitolo": "I costi che non vedi",
+   "testo": "Attenzione però: il margine lordo è trentaquattro centesimi, ma ci sono le copie invendute. Quelle si rendono, ma non tutto torna. Diciamo che tra resi mancati, sprechi e fatica, a Walter restano in media ventiquattro centesimi.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "bilancia",
+     "p": {
+      "titolo": "Margine lordo e reale",
+      "sinistra": "0,34 € teorici",
+      "destra": "0,24 € reali",
+      "pende": "sinistra"
+     }
+    },
+    {
+     "parola": "Diciamo",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "giornale",
+      "prezzo": "1,70 €",
+      "nota": "a Walter restano 0,24 €"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Se vendi quaranta giornali al giorno e ne guadagni ventiquattro centesimi, fanno nove euro e sessanta al giorno. Per ventisei giorni di apertura, duecentoquarantanove euro e sessanta al mese. Dai giornali, intendo.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Guadagno al giorno",
+      "a": "40 giornali",
+      "op": "×",
+      "b": "0,24 €",
+      "risultato": "9,60 €",
+      "nota": "al giorno, solo giornali"
+     }
+    },
+    {
+     "parola": "Per",
+     "tipo": "calendario",
+     "p": {
+      "titolo": "Giorni di apertura",
+      "giorni": 26,
+      "testo": "26 giorni al mese"
+     }
+    },
+    {
+     "parola": "duecentoquarantanove",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Guadagno al mese",
+      "a": "9,60 €",
+      "op": "×",
+      "b": "26 giorni",
+      "risultato": "249,60 €",
+      "nota": "al mese, solo giornali"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Duecentoquarantanove euro al mese. E i costi? L'affitto del negozio è di ottocento euro. La luce e il riscaldamento, centoventi. Il commercialista, cento. Le tasse e i contributi, quattrocentottanta. Il totale fa millecinquecento euro.",
+   "capitolo": "I costi che non calano",
    "inquadrature": [
     {
      "parola": "",
@@ -801,780 +325,973 @@
       "voci": [
        {
         "nome": "Affitto",
-        "valore": 1100,
-        "testo": "1.100 €"
+        "valore": 800,
+        "testo": "800 €"
        },
        {
-        "nome": "Luce e frigo",
-        "valore": 350,
-        "testo": "350 €"
+        "nome": "Luce e riscaldamento",
+        "valore": 120,
+        "testo": "120 €"
        },
        {
         "nome": "Commercialista",
-        "valore": 200,
-        "testo": "200 €"
-       },
-       {
-        "nome": "Assicurazione",
         "valore": 100,
         "testo": "100 €"
        },
        {
-        "nome": "Furgone",
-        "valore": 250,
-        "testo": "250 €"
-       },
-       {
-        "nome": "Dipendente fissa",
-        "valore": 400,
-        "testo": "400 €"
+        "nome": "Tasse e contributi",
+        "valore": 480,
+        "testo": "480 €"
        }
       ],
-      "totale": 2400,
+      "totale": 1500,
       "periodo": "al mese"
      }
     },
     {
-     "parola": "cella",
-     "tipo": "domanda",
+     "parola": "Il",
+     "tipo": "soldi",
      "p": {
-      "testo": "Pagheresti anche a zero",
-      "emozione": "calmo",
-      "scuro": false
-     }
-    },
-    {
-     "parola": "fanno",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Costi fissi al giorno",
-      "a": "2.400 €",
-      "op": "÷",
-      "b": "30 giorni",
-      "risultato": "80 € al giorno",
-      "nota": "Un giorno normale"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Ottanta euro al giorno sembrano pochi. Ma Chiara in un giorno normale incassa duecento euro con un margine del cinquanta per cento: cento euro. Sottratti gli ottanta dei fissi, restano venti. Ecco perché febbraio le serve.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Giorno normale",
-      "a": "100 €",
-      "op": "−",
-      "b": "80 €",
-      "risultato": "20 €",
-      "nota": "Margine meno costi fissi"
-     }
-    },
-    {
-     "parola": "venti",
-     "tipo": "salvadanaio",
-     "p": {
-      "direzione": "riempie",
-      "testo": "Venti euro al giorno: poco"
-     }
-    },
-    {
-     "parola": "febbraio",
-     "tipo": "mesi",
-     "p": {
-      "titolo": "Utile stimato per mese (in centinaia di euro)",
-      "valori": [
-       6,
-       28,
-       6,
-       6,
-       12,
-       6,
-       3,
-       3,
-       6,
-       6,
-       8,
-       12
-      ],
-      "evidenzia": [
-       2,
-       5
-      ],
-      "nota": "Pochi giorni sostengono l'anno"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Facciamo il pareggio. Con duemilaquattrocento euro di costi fissi al mese e un margine di un euro e novanta per rosa, quante ne deve vendere per non perdere? Duemilaquattrocento diviso uno e novanta: milleduecentosessantatré rose circa.",
-   "capitolo": "Il pareggio",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Rose per andare in pareggio",
-      "a": "2.400 €",
-      "op": "÷",
-      "b": "1,90 €",
-      "risultato": "1.263 rose",
-      "nota": "Solo per coprire i fissi di un mese"
-     }
-    },
-    {
-     "parola": "pareggio",
-     "tipo": "pareggio",
-     "p": {
-      "titolo": "Pareggio mensile di Chiara",
-      "fissi": 2400,
-      "margine": 1.9,
-      "unita": "rose vendute",
-      "oggetto": "rosa",
-      "perdita": true,
-      "guadagno": true
-     }
-    },
-    {
-     "parola": "perdere",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Milleduecento rose al mese",
-      "emozione": "stupito",
-      "scuro": false
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Ma Chiara non vende solo rose. Il margine medio di tutto il negozio è più alto: mazzi composti, piante, composizioni. Un margine medio del cinquanta per cento. Quindi serve un incasso mensile di quattromilaottocento euro per il pareggio.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Incasso di pareggio",
-      "a": "2.400 €",
-      "op": "÷",
-      "b": "0,50",
-      "risultato": "4.800 €",
-      "nota": "Costi fissi diviso margine percentuale"
-     }
-    },
-    {
-     "parola": "composizioni",
-     "tipo": "fette",
-     "p": {
-      "titolo": "Cento euro di incasso normale",
-      "totale": 100,
-      "totale_testo": "100 €",
-      "fette": [
-       {
-        "nome": "Costo dei fiori",
-        "valore": 40,
-        "testo": "40 €"
-       },
-       {
-        "nome": "Imballi e sprechi",
-        "valore": 10,
-        "testo": "10 €"
-       },
-       {
-        "nome": "Margine",
-        "valore": 50,
-        "testo": "50 €"
-       }
-      ],
-      "evidenzia": 2
-     }
-    },
-    {
-     "parola": "quattromilaottocento",
-     "tipo": "mesi",
-     "p": {
-      "titolo": "Incasso mensile contro pareggio (migliaia)",
-      "valori": [
-       4,
-       9,
-       4,
-       4,
-       6,
-       4,
-       3,
-       3,
-       4,
-       4,
-       5,
-       6
-      ],
-      "evidenzia": [
-       7,
-       8
-      ],
-      "nota": "Luglio e agosto sotto il pareggio"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Guarda luglio e agosto: tre mila euro di incasso, sotto il pareggio. Qui il picco di febbraio paga le mancanze dell'estate. Se non lo capisci, pensi di guadagnare ogni mese. In realtà vivi di pochi mesi buoni.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "bilancia",
-     "p": {
-      "titolo": "Estate contro febbraio",
-      "sinistra": "Mesi in perdita",
-      "destra": "Mesi in guadagno",
-      "pende": "sinistra"
-     }
-    },
-    {
-     "parola": "estate",
-     "tipo": "andamento",
-     "p": {
-      "titolo": "Margine mensile meno fissi (euro)",
-      "valori": [
-       -400,
-       2000,
-       -400,
-       -400,
-       500,
-       -400,
-       -900,
-       -900,
-       -400,
-       -400,
-       100,
-       500
-      ],
-      "etichette": [
-       "G",
-       "F",
-       "M",
-       "A",
-       "M",
-       "G",
-       "L",
-       "A",
-       "S",
-       "O",
-       "N",
-       "D"
-      ],
-      "colore": "rosso"
-     }
-    },
-    {
-     "parola": "vivi",
-     "tipo": "salvadanaio",
-     "p": {
-      "direzione": "svuota",
-      "testo": "Luglio e agosto mangiano i risparmi"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Un'attività simile è il gelataio. Vive d'estate, d'inverno è quasi vuoto. Un gelatiere incassa ventimila euro in luglio e tremila a gennaio. Con affitto e luce uguali tutto l'anno. Deve mettere da parte nei mesi buoni per sopravvivere.",
-   "capitolo": "Vivere di picchi",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "gelateria",
-      "insegna": "Gelateria Dolce Estate",
-      "azione": "festa",
-      "clienti": 5,
-      "testo": "Luglio: coda alla porta"
-     }
-    },
-    {
-     "parola": "gennaio",
-     "tipo": "confronto",
-     "p": {
-      "titolo": "Gelateria: due mesi",
-      "a": {
-       "titolo": "Luglio",
-       "valore": "20.000 €",
-       "oggetto": "gelato"
-      },
-      "b": {
-       "titolo": "Gennaio",
-       "valore": "3.000 €",
-       "oggetto": "gelato"
-      },
-      "vincitore": "a"
-     }
-    },
-    {
-     "parola": "mettere",
-     "tipo": "salvadanaio",
-     "p": {
-      "direzione": "riempie",
-      "testo": "Si risparmia d'estate per l'inverno"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Torniamo a San Valentino. Chiara può fare qualcosa per guadagnare di più? Tre leve. Primo: prenotazioni anticipate, così sa quante rose servono. Secondo: mazzi da prezzo più alto. Terzo: usare l'invenduto in modo intelligente.",
-   "capitolo": "Come ridurre lo spreco",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "leve",
-     "p": {
-      "titolo": "Le tre leve di Chiara",
-      "voci": [
-       "Prenotazioni anticipate",
-       "Mazzi a prezzo più alto",
-       "Riuso dell'invenduto"
-      ],
-      "evidenzia": 0
-     }
-    },
-    {
-     "parola": "Primo",
-     "tipo": "lista",
-     "p": {
-      "titolo": "Prenotare per non sprecare",
-      "voci": [
-       "Raccogli ordini da gennaio",
-       "Chiedi un piccolo anticipo",
-       "Compra solo il prenotato",
-       "Aggiungi poca scorta"
-      ]
-     }
-    },
-    {
-     "parola": "intelligente",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Come si riusa?",
-      "emozione": "calmo",
-      "scuro": false
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Con cento prenotazioni anticipate a dieci euro, Chiara sa già che incasserà mille euro. Compra quindi le rose giuste, prima dell'aumento di prezzo. Risparmia venti centesimi a rosa. Su settecento rose, centoquaranta euro. Piccole cose, ma contano.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Risparmio comprando in anticipo",
-      "a": "700 rose",
-      "op": "×",
-      "b": "0,20 €",
-      "risultato": "140 €",
-      "nota": "Prezzo più basso prima del picco"
-     }
-    },
-    {
-     "parola": "cento",
-     "tipo": "persone",
-     "p": {
-      "n": 9,
-      "azione": "entrano",
-      "escono": 0,
-      "testo": "Cento prenotazioni da gennaio"
-     }
-    },
-    {
-     "parola": "contano",
-     "tipo": "salvadanaio",
-     "p": {
-      "direzione": "riempie",
-      "testo": "Centoquaranta euro in più"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Seconda leva: i mazzi. Una rosa singola vale quattro euro. Un mazzo di dodici rose con verde e fiocco lo vendi a quaranta. Costo trentuno euro? No: ventitré e sessanta di fiori, tre di imballo. Margine tredici e quaranta contro uno e novanta. Molto meglio.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "prezzo",
-     "p": {
-      "oggetto": "mazzo",
-      "prezzo": "40 €",
-      "nota": "Mazzo di dodici rose con fiocco"
-     }
-    },
-    {
-     "parola": "Costo",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Margine del mazzo",
-      "a": "40 €",
-      "op": "−",
-      "b": "26,60 €",
-      "risultato": "13,40 €",
-      "nota": "Ventitré e sessanta più tre di imballo"
-     }
-    },
-    {
-     "parola": "Molto",
-     "tipo": "confronto",
-     "p": {
-      "titolo": "Margine: rosa o mazzo?",
-      "a": {
-       "titolo": "Rosa singola",
-       "valore": "1,90 €",
-       "oggetto": "rosa"
-      },
-      "b": {
-       "titolo": "Mazzo da dodici",
-       "valore": "13,40 €",
-       "oggetto": "mazzo"
-      },
-      "vincitore": "b"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Attenzione: ventitré e sessanta per dodici rose sono un euro e novantasette l'una, non un euro e ottanta. Perché Chiara spende un po' di più in verde e fiori di accompagno. Il conto lo fai sul mazzo intero, non sulla singola rosa. Sempre.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Costo dei fiori del mazzo",
-      "a": "12 rose",
-      "op": "×",
-      "b": "1,80 €",
-      "risultato": "21,60 €",
-      "nota": "Più verde e fiori di accompagno"
-     }
-    },
-    {
-     "parola": "verde",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Con il verde",
-      "a": "21,60 €",
-      "op": "+",
-      "b": "2 €",
-      "risultato": "23,60 €",
-      "nota": "Costo dei fiori del mazzo"
-     }
-    },
-    {
-     "parola": "intero",
-     "tipo": "cruscotto",
-     "p": {
-      "titolo": "Cosa controlla Chiara",
-      "voci": [
-       {
-        "nome": "Costo mazzo",
-        "valore": 0.6
-       },
-       {
-        "nome": "Margine",
-        "valore": 0.35
-       },
-       {
-        "nome": "Spreco",
-        "valore": 0.1
-       }
+      "centro": "1.500 €",
+      "destinazioni": [
+       "Proprietario",
+       "Luce",
+       "Commercialista",
+       "Stato"
       ]
      }
     }
    ]
   },
   {
-   "testo": "Terza leva: l'invenduto. Le rose del quindici sono ancora belle per due giorni. Chiara le vende a metà prezzo, due euro, oppure le trasforma in piccoli mazzetti. Incassa qualcosa invece di zero. Anche cento euro recuperati sono cento euro.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "prezzo",
-     "p": {
-      "oggetto": "rosa",
-      "prezzo": "4 €",
-      "nuovo_prezzo": "2 €",
-      "nota": "Il giorno dopo, a metà prezzo"
-     }
-    },
-    {
-     "parola": "mazzetti",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Recupero dell'invenduto",
-      "a": "100 rose",
-      "op": "×",
-      "b": "2 €",
-      "risultato": "200 €",
-      "nota": "Cento delle trecento invendute"
-     }
-    },
-    {
-     "parola": "zero",
-     "tipo": "salvadanaio",
-     "p": {
-      "direzione": "riempie",
-      "testo": "Duecento euro salvati"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Con le tre leve, il risultato cambia. Chiara vende cento rose in meno ma sceglie meglio cosa vendere. Compra novecento rose invece di mille e butta cento invece di trecento. Il costo dello spreco crolla da cinquecentoquaranta a centottanta euro.",
-   "capitolo": "Il risultato",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "conteggio",
-     "p": {
-      "oggetto": "rosa",
-      "icone": 10,
-      "testo": "100 rose buttate"
-     }
-    },
-    {
-     "parola": "Compra",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Nuovo spreco",
-      "a": "100 rose",
-      "op": "×",
-      "b": "1,80 €",
-      "risultato": "180 €",
-      "nota": "Invece di cinquecentoquaranta"
-     }
-    },
-    {
-     "parola": "crolla",
-     "tipo": "confronto",
-     "p": {
-      "titolo": "Spreco: prima e dopo",
-      "a": {
-       "titolo": "Prima",
-       "valore": "540 €",
-       "oggetto": "rosa"
-      },
-      "b": {
-       "titolo": "Dopo",
-       "valore": "180 €",
-       "oggetto": "rosa"
-      },
-      "vincitore": "b"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Cosa guardare quindi? Non l'incasso del quattordici. Non il numero di clienti in fila. Guarda quanto hai comprato, quanto hai venduto, quanto hai buttato. Il margine vero è quello che resta dopo il cestino.",
-   "capitolo": "Cosa guardare",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "cruscotto",
-     "p": {
-      "titolo": "Gli indicatori giusti",
-      "voci": [
-       {
-        "nome": "Comprato su venduto",
-        "valore": 0.7
-       },
-       {
-        "nome": "Invenduto",
-        "valore": 0.1
-       },
-       {
-        "nome": "Margine vero",
-        "valore": 0.5
-       }
-      ]
-     }
-    },
-    {
-     "parola": "Non",
-     "tipo": "lista",
-     "p": {
-      "titolo": "Cosa NON guardare",
-      "voci": [
-       "L'incasso lordo del giorno",
-       "La fila davanti al negozio",
-       "Il prezzo di vendita da solo"
-      ]
-     }
-    },
-    {
-     "parola": "cestino",
-     "tipo": "timbro",
-     "p": {
-      "oggetto": "rosa",
-      "testo": "MARGINE DOPO IL CESTINO",
-      "colore": "verde",
-      "nota": "Questo è il numero vero"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Se hai un'attività con merce che scade, fai un esercizio. Prendi l'ultimo mese. Scrivi quanto hai comprato. Scrivi quanto hai venduto. La differenza è quanto hai sprecato. Poi moltiplica per il costo. Ti sorprenderai. Quasi sempre è più di quel che credi.",
+   "testo": "Ricontrolliamo: ottocento più centoventi fa novecentoventi. Più cento, mille e venti. Più quattrocentottanta, millecinquecento. Giusto. E questi soldi escono sia se vendi quaranta giornali, sia se ne vendi quattro. Sono costi fissi.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "lista",
      "p": {
-      "titolo": "L'esercizio da fare stasera",
+      "titolo": "Costi fissi: sempre uguali",
       "voci": [
-       "Quanto ho comprato",
-       "Quanto ho venduto",
-       "Differenza: lo spreco",
-       "Spreco per costo: i soldi persi"
+       "Affitto: 800 €",
+       "Luce: 120 €",
+       "Commercialista: 100 €",
+       "Tasse: 480 €",
+       "Totale: 1.500 €"
       ]
      }
     },
     {
-     "parola": "differenza",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Esempio rapido",
-      "a": "1.000 comprate",
-      "op": "−",
-      "b": "700 vendute",
-      "risultato": "300 sprecate",
-      "nota": "Poi moltiplica per il costo"
-     }
-    },
-    {
-     "parola": "Ti",
+     "parola": "E",
      "tipo": "domanda",
      "p": {
-      "testo": "Quanto butti tu?",
-      "emozione": "stupito",
+      "testo": "Anche se non vendi?",
+      "emozione": "preoccupato",
       "scuro": true
      }
     }
    ]
   },
   {
-   "testo": "Quanto resta davvero a Chiara dopo San Valentino? Con le sue leve, dei duemilaottocento euro di margine lordo meno i costi fissi del giorno, ottanta, e lo spreco già contato, resta circa duemila e trecento euro. Una bella giornata. Ma non mille rose di guadagno.",
-   "capitolo": "Quanto resta",
+   "testo": "Ora la domanda che conta: quanti giornali deve vendere Walter per coprire millecinquecento euro di costi? Dividi i costi fissi per il margine di ogni pezzo. Millecinquecento diviso zero virgola ventiquattro.",
+   "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "formula",
      "p": {
-      "titolo": "Quanto resta il 14 febbraio",
-      "a": "2.800 €",
-      "op": "−",
-      "b": "500 €",
-      "risultato": "2.300 €",
-      "nota": "Margine meno costi del giorno e rimborsi"
+      "titolo": "Il punto di pareggio",
+      "a": "1.500 €",
+      "op": "÷",
+      "b": "0,24 €",
+      "risultato": "6.250 giornali",
+      "nota": "al mese, solo per pareggiare"
      }
     },
     {
-     "parola": "bella",
-     "tipo": "luogo",
+     "parola": "Dividi",
+     "tipo": "pareggio",
      "p": {
-      "luogo": "fioraio",
-      "insegna": "Fiori di Chiara",
-      "azione": "felice",
-      "clienti": 2,
-      "testo": "Giornata ben chiusa"
-     }
-    },
-    {
-     "parola": "mille",
-     "tipo": "timbro",
-     "p": {
-      "oggetto": "rosa",
-      "testo": "UTILE",
-      "colore": "verde",
-      "nota": "Duemilatrecento euro, non seimilacinquecento"
+      "titolo": "Pareggio solo con i giornali",
+      "fissi": 1500,
+      "margine": 0.24,
+      "unita": "giornali venduti",
+      "oggetto": "giornale",
+      "perdita": true,
+      "guadagno": false
      }
     }
    ]
   },
   {
-   "testo": "Riassumiamo. Primo: i picchi di vendita sono preziosi ma rischiosi. Secondo: la merce deperibile ha un margine vero, che conta anche quello che butti. Terzo: l'invenduto è un costo. Quarto: compra con i dati, non con la speranza.",
-   "capitolo": "Da ricordare",
+   "testo": "Seimiladuecentocinquanta giornali al mese. Diviso ventisei giorni, fanno duecentoquaranta e mezzo al giorno. E Walter ne vende quaranta. Ne vende meno di un sesto di quelli che servirebbero. Il conto non torna, e non tornerà.",
+   "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "riepilogo",
+     "tipo": "confronto",
      "p": {
-      "titolo": "Le quattro cose da ricordare",
+      "titolo": "Giornali al giorno",
+      "a": {
+       "titolo": "Servirebbero",
+       "valore": "240",
+       "oggetto": "giornale"
+      },
+      "b": {
+       "titolo": "Walter ne vende",
+       "valore": "40",
+       "oggetto": "giornale"
+      },
+      "vincitore": "a"
+     }
+    },
+    {
+     "parola": "Ne",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "giornale",
+      "testo": "IN PERDITA",
+      "colore": "rosso",
+      "nota": "solo con i giornali"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Lo stesso vale per tante attività. Un lavasecco che ha costi fissi di duemila euro e guadagna due euro e cinquanta su ogni capo deve lavarne ottocento al mese solo per pareggiare. Se i clienti calano, il conto salta.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Pareggio di un lavasecco",
+      "a": "2.000 €",
+      "op": "÷",
+      "b": "2,50 €",
+      "risultato": "800 capi",
+      "nota": "al mese, solo per pareggiare"
+     }
+    },
+    {
+     "parola": "Se",
+     "tipo": "persone",
+     "p": {
+      "n": 6,
+      "azione": "escono",
+      "escono": 3,
+      "testo": "Se i clienti calano, il conto salta"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ma Walter non vende solo giornali. Altrimenti avrebbe già chiuso. Vende anche riviste, figurine, ricariche telefoniche, biglietti dell'autobus. Vediamo cosa porta davvero soldi e cosa è solo fatica.",
+   "capitolo": "Cosa vende davvero",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "edicola",
+      "insegna": "EDICOLA WALTER",
+      "azione": "stupito",
+      "clienti": 1,
+      "testo": "Non solo giornali"
+     }
+    },
+    {
+     "parola": "Vende",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Cosa c'è nel negozio",
       "voci": [
-       "Il picco aiuta, ma rischia",
-       "Conta anche ciò che butti",
-       "L'invenduto è un costo",
-       "Compra con i dati"
+       "Quotidiani",
+       "Riviste e fumetti",
+       "Figurine",
+       "Ricariche e biglietti",
+       "Giocattoli e cartoleria"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Le riviste hanno lo stesso margine fisso dei giornali, il venti per cento. Ma si vendono meno e restano giorni sullo scaffale. Un mensile da cinque euro lascia un euro. Se ne vendi dieci al mese, sono dieci euro. Poco.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "rivista",
+      "prezzo": "5 €",
+      "nota": "margine: 1 €"
+     }
+    },
+    {
+     "parola": "Se",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Margine sulle riviste",
+      "a": "10 riviste",
+      "op": "×",
+      "b": "1 €",
+      "risultato": "10 €",
+      "nota": "al mese, per un titolo"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Poi le ricariche telefoniche. Qui il margine è piccolissimo: una ricarica da venti euro lascia circa cinquanta centesimi. Il due virgola cinque per cento. Ma la gente le compra ancora, e porta clienti in negozio.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "ricarica telefonica",
+      "prezzo": "20 €",
+      "nota": "margine: 0,50 €"
+     }
+    },
+    {
+     "parola": "Il",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Margine sulla ricarica",
+      "a": "0,50 €",
+      "op": "÷",
+      "b": "20 €",
+      "risultato": "il 2,5 %",
+      "nota": "quasi niente"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Poi ci sono le figurine e i giocattoli. Qui il margine è molto più alto: una bustina da un euro e cinquanta costa a Walter un euro. Cinquanta centesimi di margine, il trentatré per cento. Una cosa diversa dai giornali.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "fette",
+     "p": {
+      "titolo": "Dove vanno 1,50 € di una bustina",
+      "totale": 1.5,
+      "totale_testo": "1,50 €",
+      "fette": [
+       {
+        "nome": "Costo della bustina",
+        "valore": 1,
+        "testo": "1,00 €"
+       },
+       {
+        "nome": "Margine di Walter",
+        "valore": 0.5,
+        "testo": "0,50 €"
+       }
+      ],
+      "evidenzia": 1
+     }
+    },
+    {
+     "parola": "Cinquanta",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Margine sulle figurine",
+      "a": "0,50 €",
+      "op": "÷",
+      "b": "1,50 €",
+      "risultato": "il 33 %",
+      "nota": "molto meglio dei giornali"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Confrontiamo i due mondi. Il giornale, venti per cento, ma solo ventiquattro centesimi reali. La bustina, trentatré per cento, e nessun reso. Con la stessa fatica, ogni vendita di figurine rende più del doppio.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "confronto",
+     "p": {
+      "titolo": "Margine per ogni pezzo",
+      "a": {
+       "titolo": "Giornale",
+       "valore": "0,24 €",
+       "oggetto": "giornale"
+      },
+      "b": {
+       "titolo": "Bustina di figurine",
+       "valore": "0,50 €",
+       "oggetto": "bustina di figurine"
+      },
+      "vincitore": "b"
+     }
+    },
+    {
+     "parola": "Con",
+     "tipo": "leve",
+     "p": {
+      "titolo": "Dove sta il margine",
+      "voci": [
+       "Quotidiani",
+       "Riviste",
+       "Ricariche",
+       "Figurine e giochi"
+      ],
+      "evidenzia": 3
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ora guardiamo le vendite nei dodici mesi. A settembre, con la scuola e i fumetti, Walter incassa di più. D'estate la città si svuota. Dicembre sale per i regali. Il negozio non vive ogni mese allo stesso modo.",
+   "capitolo": "Il calendario dell'edicola",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "mesi",
+     "p": {
+      "titolo": "Incasso mensile in euro",
+      "valori": [
+       2800,
+       2600,
+       2900,
+       3000,
+       3100,
+       2500,
+       2000,
+       1800,
+       3600,
+       3200,
+       3300,
+       4200
+      ],
+      "evidenzia": [
+       8,
+       9,
+       12
+      ],
+      "nota": "agosto basso, settembre e dicembre alti"
+     }
+    },
+    {
+     "parola": "D'estate",
+     "tipo": "persone",
+     "p": {
+      "n": 2,
+      "azione": "entrano",
+      "testo": "D'estate, poca gente"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Se sommi i dodici mesi, fanno trentaduemilacento euro di incasso all'anno. Facciamo i conti: duemilaottocento più duemilaseicento fa cinquemilaquattrocento. Più duemilanovecento, ottomilatrecento. Continuando, arrivi a trentaduemilacento.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Incasso dell'anno",
+      "a": "12 mesi",
+      "op": "+",
+      "b": "somma",
+      "risultato": "32.100 €",
+      "nota": "incasso lordo, non guadagno"
+     }
+    },
+    {
+     "parola": "Facciamo",
+     "tipo": "conteggio",
+     "p": {
+      "oggetto": "euro",
+      "icone": 32,
+      "testo": "32.100 € incassati"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ma incassare non è guadagnare. Quanto resta davvero a Walter? Ecco l'errore più grande di chi ha un negozio: guardare l'incasso e pensare che sia il guadagno. Walter incassa tremila euro al mese. Ma di quelli, quanti sono suoi?",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Incasso è guadagno?",
+      "emozione": "preoccupato",
+      "scuro": true
+     }
+    },
+    {
+     "parola": "Ecco",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Cosa non guardare",
+      "voci": [
+       "L'incasso del giorno",
+       "Il numero di clienti",
+       "Il fatturato dell'anno",
+       "Quanto vende il vicino"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Prendiamo un mese medio da tremila euro di incasso. Di questi, duemilaquattrocento vanno per pagare la merce a chi la fornisce. Restano seicento euro di margine. Poi ci sono i millecinquecento di costi fissi. Il risultato: meno novecento.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "fette",
+     "p": {
+      "titolo": "Dove vanno 3.000 € di incasso",
+      "totale": 3000,
+      "totale_testo": "3.000 €",
+      "fette": [
+       {
+        "nome": "Merce pagata ai fornitori",
+        "valore": 2400,
+        "testo": "2.400 €"
+       },
+       {
+        "nome": "Margine lordo",
+        "valore": 600,
+        "testo": "600 €"
+       }
+      ],
+      "evidenzia": 1
+     }
+    },
+    {
+     "parola": "Poi",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Cosa resta a Walter",
+      "a": "600 €",
+      "op": "−",
+      "b": "1.500 €",
+      "risultato": "− 900 €",
+      "nota": "al mese, in perdita"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Meno novecento euro al mese. Come fa Walter ad andare avanti? Semplice: non si paga lo stipendio. Anzi, mette soldi di tasca sua, dalla pensione della moglie e dai risparmi. Il salvadanaio si svuota in silenzio.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "edicola",
+      "testo": "PERDITA",
+      "colore": "rosso",
+      "nota": "meno 900 € al mese"
+     }
+    },
+    {
+     "parola": "Semplice",
+     "tipo": "salvadanaio",
+     "p": {
+      "direzione": "svuota",
+      "testo": "I risparmi di Walter calano"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "E questo succede a tanti. Un barbiere che non si paga lo stipendio e poi scopre che in un anno ha perso diecimila euro. Una cartoleria che tira avanti con i soldi dei genitori. L'attività sembra viva, ma consuma capitale.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "andamento",
+     "p": {
+      "titolo": "Risparmi di un barbiere in un anno",
+      "valori": [
+       10000,
+       8800,
+       7500,
+       6000,
+       4200
+      ],
+      "etichette": [
+       "gen",
+       "apr",
+       "lug",
+       "ott",
+       "dic"
+      ],
+      "colore": "rosso"
+     }
+    },
+    {
+     "parola": "Una",
+     "tipo": "persone",
+     "p": {
+      "n": 3,
+      "azione": "escono",
+      "escono": 2,
+      "testo": "L'attività sembra viva"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Torniamo a Walter. Un giorno si siede e decide: o chiudo, o cambio. Prende un foglio e scrive tre strade. Alzare i prezzi? Non può. Vendere più giornali? Impossibile. Allora rimane una sola strada: vendere altro. Si chiama diversificazione.",
+   "capitolo": "La diversificazione",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "edicola",
+      "insegna": "EDICOLA WALTER",
+      "azione": "preoccupato",
+      "clienti": 0,
+      "testo": "O chiudo, o cambio"
+     }
+    },
+    {
+     "parola": "Alzare",
+     "tipo": "leve",
+     "p": {
+      "titolo": "Le strade di Walter",
+      "voci": [
+       "Alzare i prezzi",
+       "Vendere più giornali",
+       "Tagliare i costi",
+       "Vendere altro"
+      ],
+      "evidenzia": 3
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Diversificare non vuol dire riempire il negozio di roba a caso. Vuol dire scegliere prodotti con margine più alto e che i tuoi clienti già cercano. Walter guarda chi entra: bambini, nonni, studenti. Cosa comprerebbero?",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "persone",
+     "p": {
+      "n": 5,
+      "azione": "entrano",
+      "testo": "Chi entra davvero in edicola?"
+     }
+    },
+    {
+     "parola": "Diversificare",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Come scegliere cosa aggiungere",
+      "voci": [
+       "Lo cercano già i clienti",
+       "Margine più alto",
+       "Poco spazio occupato",
+       "Non scade presto",
+       "Costo iniziale basso"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Esempio fuori dall'edicola. Una lavanderia self-service aggiunge il servizio stiro a due euro e cinquanta a camicia. Una pizzeria da asporto aggiunge le bibite, che costano ottanta centesimi e vende a tre euro. Stessi clienti, margine nuovo.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "bibita",
+      "prezzo": "3 €",
+      "nota": "costa 0,80 €, margine 2,20 €"
+     }
+    },
+    {
+     "parola": "Stessi",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Margine sulla bibita",
+      "a": "3 €",
+      "op": "−",
+      "b": "0,80 €",
+      "risultato": "2,20 €",
+      "nota": "per ogni bibita venduta"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Walter prova con tre cose. Primo: la cartoleria, quaderni e penne a settembre. Secondo: i giochi da tavolo e i puzzle. Terzo: il servizio fotocopie e stampa a dieci centesimi a pagina, che costa tre centesimi. Vediamo i numeri.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Le tre novità di Walter",
+      "voci": [
+       "Cartoleria scolastica",
+       "Giochi da tavolo e puzzle",
+       "Fotocopie e stampa"
       ]
      }
     },
     {
      "parola": "Terzo",
-     "tipo": "domanda",
+     "tipo": "prezzo",
      "p": {
-      "testo": "Hai un'attività?",
-      "emozione": "felice",
-      "scuro": false
-     }
-    },
-    {
-     "parola": "speranza",
-     "tipo": "bilancia",
-     "p": {
-      "titolo": "Cosa pesa di più",
-      "sinistra": "La speranza",
-      "destra": "I numeri",
-      "pende": "destra"
+      "oggetto": "fotocopia",
+      "prezzo": "0,10 €",
+      "nota": "costa 0,03 €, margine 0,07 €"
      }
     }
    ]
   },
   {
-   "testo": "Prossima volta entriamo in una palestra. Mille iscritti che pagano ogni mese, ma si presentano in venti. Può essere un affare o un disastro? Scopriremo perché chi non viene è il miglior cliente. Iscriviti, così non perdi la puntata.",
+   "testo": "Le fotocopie: settanta centesimi di margine ogni dieci pagine. Se Walter ne fa trecento al giorno, fanno ventuno euro. Per ventisei giorni, cinquecentoquarantasei euro al mese. Da una sola macchina. Più dei giornali.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Guadagno al giorno dalle copie",
+      "a": "300 pagine",
+      "op": "×",
+      "b": "0,07 €",
+      "risultato": "21 €",
+      "nota": "al giorno"
+     }
+    },
+    {
+     "parola": "Per",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Guadagno al mese dalle copie",
+      "a": "21 €",
+      "op": "×",
+      "b": "26 giorni",
+      "risultato": "546 €",
+      "nota": "al mese, una macchina"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "I giochi da tavolo: un gioco da venticinque euro costa a Walter sedici euro. Margine nove euro, il trentasei per cento. Ne vende quindici al mese: centotrentacinque euro. Con meno fatica e senza resi. Questo è un margine vero.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "gioco da tavolo",
+      "prezzo": "25 €",
+      "nota": "costa 16 €, margine 9 €"
+     }
+    },
+    {
+     "parola": "Ne",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Margine sui giochi",
+      "a": "15 giochi",
+      "op": "×",
+      "b": "9 €",
+      "risultato": "135 €",
+      "nota": "al mese"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "La cartoleria porta altri trecentoquaranta euro di margine al mese, in media. Facciamo la somma: seicento dai giornali e dalle riviste, cinquecentoquarantasei dalle copie, centotrentacinque dai giochi, trecentoquaranta dalla cartoleria. Fanno milleseicentoventuno euro.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "fette",
+     "p": {
+      "titolo": "Margine mensile dopo le novità",
+      "totale": 1621,
+      "totale_testo": "1.621 €",
+      "fette": [
+       {
+        "nome": "Giornali e riviste",
+        "valore": 600,
+        "testo": "600 €"
+       },
+       {
+        "nome": "Fotocopie e stampa",
+        "valore": 546,
+        "testo": "546 €"
+       },
+       {
+        "nome": "Giochi da tavolo",
+        "valore": 135,
+        "testo": "135 €"
+       },
+       {
+        "nome": "Cartoleria",
+        "valore": 340,
+        "testo": "340 €"
+       }
+      ],
+      "evidenzia": 1
+     }
+    },
+    {
+     "parola": "Fanno",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Somma dei margini",
+      "a": "600 + 546 + 135",
+      "op": "+",
+      "b": "340",
+      "risultato": "1.621 €",
+      "nota": "al mese"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Millesicentoventuno meno millecinquecento di costi fissi. Restano centoventuno euro. Non è un tesoro, ma è la prima volta in anni che il conto è positivo. Da meno novecento a più centoventuno: la differenza è mille e ventuno.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Cosa resta a Walter ora",
+      "a": "1.621 €",
+      "op": "−",
+      "b": "1.500 €",
+      "risultato": "121 €",
+      "nota": "al mese, finalmente positivo"
+     }
+    },
+    {
+     "parola": "Non",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "edicola",
+      "testo": "IN ATTIVO",
+      "colore": "verde",
+      "nota": "più 121 € al mese"
+     }
+    },
+    {
+     "parola": "Da",
+     "tipo": "salvadanaio",
+     "p": {
+      "direzione": "riempie",
+      "testo": "Il salvadanaio smette di calare"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Attenzione ai rischi. Ogni novità ha un costo: la scorta di quaderni occupa soldi e spazio. Una macchina per le copie costa e si rompe. Se compri troppo e non vendi, hai solo cambiato il tipo di problema. Prova piano, un prodotto alla volta.",
+   "capitolo": "Attenzione agli errori",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "bilancia",
+     "p": {
+      "titolo": "Provare o rischiare?",
+      "sinistra": "Scorte ferme",
+      "destra": "Margine in più",
+      "pende": "sinistra"
+     }
+    },
+    {
+     "parola": "Prova",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Come provare senza rischiare",
+      "voci": [
+       "Un prodotto alla volta",
+       "Poche scorte all'inizio",
+       "Guarda cosa chiedono",
+       "Conta ogni mese",
+       "Taglia ciò che non gira"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ecco il cruscotto di Walter per capire se va meglio. Il margine totale al mese. Le vendite per ogni prodotto nuovo. I giorni di merce ferma sugli scaffali. E il saldo finale, dopo i costi fissi. Quattro numeri, non di più.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "cruscotto",
+     "p": {
+      "titolo": "Gli indicatori di Walter",
+      "voci": [
+       {
+        "nome": "Margine totale",
+        "valore": 0.7
+       },
+       {
+        "nome": "Vendite novità",
+        "valore": 0.5
+       },
+       {
+        "nome": "Merce ferma",
+        "valore": 0.3
+       },
+       {
+        "nome": "Saldo dopo i costi",
+        "valore": 0.2
+       }
+      ]
+     }
+    },
+    {
+     "parola": "Quattro",
+     "tipo": "orologio",
+     "p": {
+      "ore": 10,
+      "piene": 6,
+      "testo": "Un'ora al giorno per i conti"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Se hai un negozio, fermati un momento. Qual è il tuo prodotto che occupa più spazio e rende meno? Qual è quello che i clienti chiedono e tu non hai? E quanti pezzi devi vendere ogni mese per pareggiare? Se non lo sai, calcolalo oggi.",
+   "capitolo": "E tu?",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Quanti pezzi per pareggiare?",
+      "emozione": "calmo",
+      "scuro": false
+     }
+    },
+    {
+     "parola": "Qual",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Tre domande per te",
+      "voci": [
+       "Cosa occupa spazio e rende poco?",
+       "Cosa chiedono i clienti?",
+       "Qual è il tuo pareggio?"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Quindi, perché le edicole chiudono? Perché il mercato cala, il margine sui giornali è fisso e non si può alzare, e i costi fissi restano uguali. Chi non cambia, fa il conto e perde. Chi diversifica con testa, resiste.",
+   "capitolo": "Cosa ricordare",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "andamento",
+     "p": {
+      "titolo": "Margine mensile di Walter",
+      "valori": [
+       -900,
+       -500,
+       -100,
+       121
+      ],
+      "etichette": [
+       "prima",
+       "1° mese",
+       "2° mese",
+       "dopo"
+      ],
+      "colore": "verde"
+     }
+    },
+    {
+     "parola": "Chi",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "edicola",
+      "insegna": "EDICOLA WALTER",
+      "azione": "felice",
+      "clienti": 3,
+      "testo": "Chi cambia con testa, resiste"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ricorda: il margine sui giornali è fisso, ventiquattro centesimi reali su un euro e settanta. Il pareggio con soli giornali era seimiladuecentocinquanta copie al mese. La soluzione è diversificare con margini più alti. Controlla sempre i tuoi numeri.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "riepilogo",
+     "p": {
+      "titolo": "Da ricordare",
+      "voci": [
+       "Margine fisso: non lo decidi tu",
+       "Pareggio = costi fissi ÷ margine",
+       "Incasso non è guadagno",
+       "Diversifica con margini più alti"
+      ]
+     }
+    },
+    {
+     "parola": "Controlla",
+     "tipo": "leve",
+     "p": {
+      "titolo": "Le leve per salvarti",
+      "voci": [
+       "Prezzi",
+       "Volumi",
+       "Costi fissi",
+       "Nuovi prodotti"
+      ],
+      "evidenzia": 3
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Prossimo episodio: una pasticceria. Vende un cornetto a un euro e vent'anni di tradizione. Ma il burro è raddoppiato di prezzo. Il cornetto guadagna ancora o ormai ci rimette? Faremo i conti insieme. Iscriviti, così non te lo perdi.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "prossimo",
      "p": {
-      "luogo": "palestra",
-      "insegna": "Palestra Energia",
-      "oggetto": "manubrio",
-      "testo": "Iscritti che non vengono mai"
-     }
-    },
-    {
-     "parola": "disastro",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Chi non viene paga?",
-      "emozione": "stupito",
-      "scuro": true
+      "luogo": "pasticceria",
+      "insegna": "PASTICCERIA DOLCE",
+      "oggetto": "cornetto",
+      "testo": "Il burro raddoppia: il cornetto regge?"
      }
     },
     {
      "parola": "Iscriviti",
-     "tipo": "luogo",
+     "tipo": "domanda",
      "p": {
-      "luogo": "fioraio",
-      "insegna": "Fiori di Chiara",
-      "azione": "felice",
-      "clienti": 3,
-      "testo": "Iscriviti al canale"
+      "testo": "Ci vediamo al prossimo!",
+      "emozione": "felice",
+      "scuro": false
      }
     }
    ]
