@@ -1,0 +1,1182 @@
+{
+ "titolo": "Quanto rende davvero una lavanderia a gettoni?",
+ "protagonista": {
+  "nome": "Davide",
+  "capelli": "short",
+  "colore_capelli": "#3b2a1e",
+  "pelle": "media",
+  "maglia": "#2f80ed",
+  "grembiule": "",
+  "occhiali": false
+ },
+ "oggetto": "lavatrice",
+ "copertina": {
+  "righe": [
+   "LAVANDERIA",
+   "SENZA PERSONALE",
+   "QUANTO RENDE?"
+  ],
+  "emozione": "stupito",
+  "oggetto": "lavatrice",
+  "prezzo": "6 €",
+  "fondo": "scuro"
+ },
+ "copertina_ai": {
+  "valore_sx": "0,90 €",
+  "valore_dx": "6 €",
+  "oggetto_sx": "separate laundry ingredients laid apart: a small detergent bottle, a few coins of water drops, a lightning bolt for electricity",
+  "oggetto_dx": "a big shiny front loading washing machine full of colorful clothes",
+  "domanda": [
+   "UN CICLO COSTA",
+   "POCO. E TU?"
+  ]
+ },
+ "descrizione": "Una lavanderia a gettoni sembra la macchina dei sogni: apre, funziona da sola e incassa. Ma quanto resta davvero a fine mese? Seguiamo Davide, che ha aperto la sua con otto lavatrici e due asciugatrici, e facciamo i conti veri: incasso per ciclo, costi fissi, ammortamento delle macchine e pareggio. Alla fine saprai cosa guardare prima di investire.",
+ "tag": [
+  "lavanderia a gettoni",
+  "aprire una lavanderia",
+  "self service",
+  "margini",
+  "punto di pareggio",
+  "ammortamento",
+  "costi fissi",
+  "aprire un'attività",
+  "piccola impresa",
+  "business automatico",
+  "quanto rende",
+  "investimento",
+  "economia pratica",
+  "imprenditoria",
+  "conti attività"
+ ],
+ "scene": [
+  {
+   "testo": "Otto lavatrici, nessun dipendente, aperta tutti i giorni. Sembra un sogno, vero? Davide ci ha messo trentacinquemila euro. Dopo un anno ti dico quanto gli resta davvero in tasca. Il numero ti sorprenderà, in un senso o nell'altro.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Quanto resta davvero?",
+      "emozione": "stupito",
+      "scuro": true
+     }
+    },
+    {
+     "parola": "Davide",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "lavanderia",
+      "insegna": "LAVANDERIA",
+      "azione": "stupito",
+      "clienti": 0,
+      "testo": "Otto lavatrici"
+     }
+    },
+    {
+     "parola": "trentacinquemila",
+     "tipo": "conteggio",
+     "p": {
+      "oggetto": "lavatrice",
+      "icone": 8,
+      "testo": "8 lavatrici"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Davide ha quarantadue anni e faceva il magazziniere. Era stanco di orari e capi. Ha visto una lavanderia a gettoni in un quartiere pieno di studenti e ha pensato: le macchine lavorano, io incasso. Facile. Troppo facile?",
+   "capitolo": "Il sogno automatico",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "lavanderia",
+      "insegna": "LAVANDERIA",
+      "azione": "felice",
+      "clienti": 1,
+      "testo": "Il sogno di Davide"
+     }
+    },
+    {
+     "parola": "Era",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Facile? Troppo?",
+      "emozione": "calmo",
+      "scuro": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Partiamo dalla cosa più bella: il personale. Una lavanderia a gettoni si gestisce quasi da sola. Il cliente carica, paga alla cassa automatica, avvia. Davide passa un'ora al giorno a pulire e controllare. Il resto è tempo suo.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "lavanderia",
+      "insegna": "LAVANDERIA",
+      "azione": "lavora",
+      "clienti": 2,
+      "testo": "Un'ora al giorno"
+     }
+    },
+    {
+     "parola": "Davide",
+     "tipo": "orologio",
+     "p": {
+      "ore": 16,
+      "piene": 1,
+      "testo": "1 ora su 16"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Confronta con una pizzeria da quattro dipendenti, dove il personale si mangia un terzo dell'incasso. Qui il costo del lavoro è quasi zero. Ma attenzione: quello che non spendi in persone lo spendi in macchine. Il conto si sposta, non sparisce.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "confronto",
+     "p": {
+      "titolo": "Dove va il costo",
+      "a": {
+       "titolo": "Pizzeria",
+       "valore": "Tanto personale",
+       "oggetto": "pizza"
+      },
+      "b": {
+       "titolo": "Lavanderia",
+       "valore": "Tante macchine",
+       "oggetto": "lavatrice"
+      },
+      "vincitore": ""
+     }
+    },
+    {
+     "parola": "Ma",
+     "tipo": "bilancia",
+     "p": {
+      "titolo": "Il costo si sposta",
+      "sinistra": "Personale",
+      "destra": "Macchine",
+      "pende": "destra"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Primo numero: l'incasso per ciclo. Davide fa pagare sei euro un lavaggio da otto chili. Un ciclo dura quarantacinque minuti. Questo è il tuo prezzo. Ma non è quello che ti resta, e adesso vediamo perché.",
+   "capitolo": "Incasso per ciclo",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "lavatrice",
+      "prezzo": "6 €",
+      "nota": "Un ciclo da 8 chili"
+     }
+    },
+    {
+     "parola": "Un",
+     "tipo": "orologio",
+     "p": {
+      "ore": 16,
+      "piene": 1,
+      "testo": "45 minuti a ciclo"
+     }
+    },
+    {
+     "parola": "Ma",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Ma quanto resta?",
+      "emozione": "preoccupato",
+      "scuro": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ogni ciclo ha un costo vivo. Acqua: un euro e dieci. Corrente: un euro e venti. Detersivo e ammorbidente, che Davide offre già nel prezzo: novanta centesimi. In tutto tre euro e venti. Su sei euro, ne restano due e ottanta.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "fette",
+     "p": {
+      "titolo": "Dove vanno i sei euro",
+      "totale": 6,
+      "totale_testo": "6 €",
+      "fette": [
+       {
+        "nome": "Acqua",
+        "valore": 1.1,
+        "testo": "1,10 €"
+       },
+       {
+        "nome": "Corrente",
+        "valore": 1.2,
+        "testo": "1,20 €"
+       },
+       {
+        "nome": "Detersivo",
+        "valore": 0.9,
+        "testo": "0,90 €"
+       },
+       {
+        "nome": "Resta",
+        "valore": 2.8,
+        "testo": "2,80 €"
+       }
+      ],
+      "evidenzia": 3
+     }
+    },
+    {
+     "parola": "Su",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Margine per ciclo",
+      "a": "6,00 €",
+      "op": "−",
+      "b": "3,20 €",
+      "risultato": "2,80 €",
+      "nota": "Margine di un ciclo"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Due euro e ottanta su sei: quarantasette per cento circa. Per un negozio è un margine altissimo. Per paragone, un bar sul caffè tiene più o meno l'ottanta per cento, ma vende tazzine da un euro. Qui ogni ciclo vale tanto.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "cruscotto",
+     "p": {
+      "titolo": "Margine per ciclo",
+      "voci": [
+       {
+        "nome": "Margine lavanderia",
+        "valore": 0.47
+       },
+       {
+        "nome": "Margine su caffè",
+        "valore": 0.8
+       }
+      ]
+     }
+    },
+    {
+     "parola": "Per",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "lavanderia",
+      "insegna": "LAVANDERIA",
+      "azione": "felice",
+      "clienti": 2,
+      "testo": "Margine 47%"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ora la domanda che conta: quanti cicli al giorno? Le otto lavatrici di Davide, in media, ne fanno trentadue al giorno in totale. Quattro a macchina. Sono sei ore di lavoro su sedici di apertura. Il resto del tempo sono ferme.",
+   "capitolo": "Quanti cicli al giorno",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "conteggio",
+     "p": {
+      "oggetto": "lavatrice",
+      "icone": 32,
+      "testo": "32 cicli al giorno"
+     }
+    },
+    {
+     "parola": "Quattro",
+     "tipo": "orologio",
+     "p": {
+      "ore": 16,
+      "piene": 6,
+      "testo": "6 ore piene su 16"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Trentadue cicli per sei euro fanno centonovantadue euro al giorno. In un mese da trenta giorni sono cinquemilasettecentosessanta euro. Questo è l'incasso. Attenzione, non il guadagno: l'incasso. Tienilo a mente, perché è l'errore più comune.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Incasso al giorno",
+      "a": "32 cicli",
+      "op": "×",
+      "b": "6 €",
+      "risultato": "192 €",
+      "nota": "Incasso al giorno"
+     }
+    },
+    {
+     "parola": "In",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Incasso al mese",
+      "a": "192 €",
+      "op": "×",
+      "b": "30 giorni",
+      "risultato": "5.760 €",
+      "nota": "Incasso al mese"
+     }
+    },
+    {
+     "parola": "Attenzione",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Incasso non è guadagno",
+      "emozione": "preoccupato",
+      "scuro": true
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Togli i costi vivi dei cicli: trentadue per tre euro e venti fanno centodue euro e quaranta al giorno. In trenta giorni, tremilasettantadue euro. Dai cinquemilasettecentosessanta restano duemilaseicentoottantotto euro. Questo è il margine lordo del mese.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Costi vivi al mese",
+      "a": "102,40 €",
+      "op": "×",
+      "b": "30 giorni",
+      "risultato": "3.072 €",
+      "nota": "Acqua, corrente, detersivo"
+     }
+    },
+    {
+     "parola": "Dai",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Margine lordo",
+      "a": "5.760 €",
+      "op": "−",
+      "b": "3.072 €",
+      "risultato": "2.688 €",
+      "nota": "Prima dei costi fissi"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ma i costi fissi non aspettano. Affitto del locale: ottocento euro. Assicurazione e manutenzione: trecento. Pulizie e consumabili: centocinquanta. Internet e sistema di pagamento: cinquanta. In totale milletrecento euro al mese, anche se non entra nessuno.",
+   "capitolo": "Costi fissi",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "costi",
+     "p": {
+      "voci": [
+       {
+        "nome": "Affitto",
+        "valore": 800,
+        "testo": "800 €"
+       },
+       {
+        "nome": "Assicurazione e manutenzione",
+        "valore": 300,
+        "testo": "300 €"
+       },
+       {
+        "nome": "Pulizie",
+        "valore": 150,
+        "testo": "150 €"
+       },
+       {
+        "nome": "Internet e pagamenti",
+        "valore": 50,
+        "testo": "50 €"
+       }
+      ],
+      "totale": 1300,
+      "periodo": "al mese"
+     }
+    },
+    {
+     "parola": "Ma",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Costi anche a zero clienti",
+      "emozione": "preoccupato",
+      "scuro": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Sottrai: duemilaseicentoottantotto meno milletrecento fa milletrecentottantotto euro. Sembra bello. Ma c'è una voce che quasi tutti dimenticano, ed è quella che trasforma i conti: le macchine stesse. Si consumano, e vanno ricomprate.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Dopo i costi fissi",
+      "a": "2.688 €",
+      "op": "−",
+      "b": "1.300 €",
+      "risultato": "1.388 €",
+      "nota": "Ancora senza macchine"
+     }
+    },
+    {
+     "parola": "Ma",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Manca una voce",
+      "emozione": "stupito",
+      "scuro": true
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ecco l'ammortamento. Davide ha speso ventiquattromila euro per le macchine: otto lavatrici e due asciugatrici. Durano circa otto anni. Ventiquattromila diviso novantasei mesi fa duecentocinquanta euro al mese. È un costo vero, anche se non esce dal conto.",
+   "capitolo": "Ammortamento",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Ammortamento mensile",
+      "a": "24.000 €",
+      "op": "÷",
+      "b": "96 mesi",
+      "risultato": "250 €",
+      "nota": "Il costo nascosto delle macchine"
+     }
+    },
+    {
+     "parola": "Durano",
+     "tipo": "calendario",
+     "p": {
+      "titolo": "Vita delle macchine",
+      "giorni": 30,
+      "testo": "8 anni, 96 mesi"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Pensa a un tassista: compra l'auto a trentamila euro, la usa cinque anni. Ogni anno deve mettere da parte seimila euro, altrimenti a fine corsa non ha come ricomprarla. Il guadagno vero è quello che avanza dopo aver messo da parte quella cifra.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "salvadanaio",
+     "p": {
+      "direzione": "riempie",
+      "testo": "Metti da parte ogni mese"
+     }
+    },
+    {
+     "parola": "Ogni",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Auto del tassista",
+      "a": "30.000 €",
+      "op": "÷",
+      "b": "5 anni",
+      "risultato": "6.000 € l'anno",
+      "nota": "Ammortamento annuale"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Torniamo a Davide. Milletrecentottantotto meno duecentocinquanta fa mille e centotrentotto euro al mese. Ma c'è altro: le imposte e la sua quota di contributi. Mettiamo, per semplicità, il trenta per cento. Restano circa ottocento euro netti.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Dopo l'ammortamento",
+      "a": "1.388 €",
+      "op": "−",
+      "b": "250 €",
+      "risultato": "1.138 €",
+      "nota": "Utile prima delle tasse"
+     }
+    },
+    {
+     "parola": "Ma",
+     "tipo": "fette",
+     "p": {
+      "titolo": "Dove vanno i 1.138 €",
+      "totale": 1138,
+      "totale_testo": "1.138 €",
+      "fette": [
+       {
+        "nome": "Tasse e contributi",
+        "valore": 341,
+        "testo": "341 €"
+       },
+       {
+        "nome": "Netto di Davide",
+        "valore": 797,
+        "testo": "797 €"
+       }
+      ],
+      "evidenzia": 1
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ottocento euro al mese per un investimento da trentacinquemila. È poco? Dipende. Davide lavora un'ora al giorno, quindi la lavanderia non è il suo stipendio, è un'entrata in più. Se la fai come lavoro unico, la storia cambia parecchio.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Ottocento euro: poco?",
+      "emozione": "calmo",
+      "scuro": false
+     }
+    },
+    {
+     "parola": "Davide",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "lavanderia",
+      "insegna": "LAVANDERIA",
+      "azione": "preoccupato",
+      "clienti": 1,
+      "testo": "800 € al mese"
+     }
+    },
+    {
+     "parola": "Se",
+     "tipo": "bilancia",
+     "p": {
+      "titolo": "Entrata extra o stipendio",
+      "sinistra": "Extra",
+      "destra": "Stipendio",
+      "pende": "sinistra"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Adesso il punto di pareggio. Quanti cicli devi fare al mese per non perdere? I costi fissi, compreso l'ammortamento, sono mille cinquecentocinquanta euro. Ogni ciclo lascia due euro e ottanta. Milletrecentocinquanta diviso due euro e ottanta fa cinquecentocinquantatré cicli.",
+   "capitolo": "Punto di pareggio",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Pareggio in cicli",
+      "a": "1.550 €",
+      "op": "÷",
+      "b": "2,80 €",
+      "risultato": "554 cicli",
+      "nota": "Al mese, per non perdere"
+     }
+    },
+    {
+     "parola": "Ogni",
+     "tipo": "pareggio",
+     "p": {
+      "titolo": "Pareggio lavanderia",
+      "fissi": 1550,
+      "margine": 2.8,
+      "unita": "cicli al mese",
+      "oggetto": "lavatrice",
+      "perdita": true,
+      "guadagno": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Facciamo i conti giusti. Mille cinquecentocinquanta diviso due virgola otto fa cinquecentocinquantatré virgola cinque, quindi cinquecentocinquantaquattro cicli. Sono diciotto cicli al giorno. Davide ne fa trentadue. Ha un margine di sicurezza del quaranta per cento.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "conteggio",
+     "p": {
+      "oggetto": "lavatrice",
+      "icone": 18,
+      "testo": "18 cicli al giorno"
+     }
+    },
+    {
+     "parola": "Davide",
+     "tipo": "cruscotto",
+     "p": {
+      "titolo": "Sicurezza",
+      "voci": [
+       {
+        "nome": "Cicli di pareggio",
+        "valore": 0.56
+       },
+       {
+        "nome": "Cicli reali",
+        "valore": 1
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ma i cicli non sono uguali tutti i giorni. Davide ha tracciato i dodici mesi. In estate la gente lava meno, i vestiti sono leggeri. In autunno e inverno, coperte e giacche portano il picco. Lo stagionale conta, eccome.",
+   "capitolo": "Stagionalità",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "mesi",
+     "p": {
+      "titolo": "Cicli al giorno per mese",
+      "valori": [
+       34,
+       33,
+       32,
+       30,
+       28,
+       24,
+       22,
+       23,
+       30,
+       34,
+       36,
+       38
+      ],
+      "evidenzia": [
+       7,
+       8
+      ],
+      "nota": "Estate: calo dei cicli"
+     }
+    },
+    {
+     "parola": "In",
+     "tipo": "andamento",
+     "p": {
+      "titolo": "Cicli giornalieri",
+      "valori": [
+       34,
+       33,
+       32,
+       30,
+       28,
+       24,
+       22,
+       23,
+       30,
+       34,
+       36,
+       38
+      ],
+      "etichette": [
+       "Gen",
+       "Feb",
+       "Mar",
+       "Apr",
+       "Mag",
+       "Giu",
+       "Lug",
+       "Ago",
+       "Set",
+       "Ott",
+       "Nov",
+       "Dic"
+      ],
+      "colore": "verde"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "A luglio fa ventidue cicli al giorno. Sono sei cicli e sessanta centesimi per macchina... lasciamo stare, restano seicentosessanta cicli al mese, comunque sopra il pareggio. Il rischio non è perdere, è che il guadagno sia piccolo nei mesi deboli.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "persone",
+     "p": {
+      "n": 3,
+      "azione": "escono",
+      "escono": 2,
+      "testo": "Estate: meno clienti"
+     }
+    },
+    {
+     "parola": "Il",
+     "tipo": "pareggio",
+     "p": {
+      "titolo": "Luglio contro il pareggio",
+      "fissi": 1550,
+      "margine": 2.8,
+      "unita": "cicli al mese",
+      "oggetto": "lavatrice",
+      "perdita": false,
+      "guadagno": true
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Cosa devi guardare prima di aprire? Primo: la zona. Studenti, case piccole senza lavatrice, affitti turistici. Davide ha scelto bene. In un quartiere di villette con la lavatrice in ogni casa, quei trentadue cicli li sogneresti.",
+   "capitolo": "Cosa guardare",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Prima di aprire",
+      "voci": [
+       "Studenti e affitti brevi",
+       "Case senza lavatrice",
+       "Pochi concorrenti vicini",
+       "Parcheggio comodo",
+       "Affitto sotto controllo"
+      ]
+     }
+    },
+    {
+     "parola": "In",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "lavanderia",
+      "insegna": "LAVANDERIA",
+      "azione": "stupito",
+      "clienti": 0,
+      "testo": "Zona sbagliata"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Secondo: l'affitto. Davide paga ottocento euro, il quindici per cento dell'incasso. Se lo stesso locale costasse milleottocento, mangerebbe quasi un terzo dell'incasso e il guadagno sparirebbe. Un negozio di abbigliamento regge affitti alti perché ha margini maggiori.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "confronto",
+     "p": {
+      "titolo": "Peso dell'affitto",
+      "a": {
+       "titolo": "Affitto 800 €",
+       "valore": "14% incasso",
+       "oggetto": "lavatrice"
+      },
+      "b": {
+       "titolo": "Affitto 1.800 €",
+       "valore": "31% incasso",
+       "oggetto": "lavatrice"
+      },
+      "vincitore": "a"
+     }
+    },
+    {
+     "parola": "Un",
+     "tipo": "soldi",
+     "p": {
+      "centro": "5.760 €",
+      "destinazioni": [
+       "Affitto",
+       "Macchine",
+       "Corrente e acqua",
+       "Davide"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Terzo: la qualità delle macchine. Una lavatrice economica costa meno ma si rompe. Una buona costa il doppio e dura il doppio. Fai il calcolo: se si ferma per due settimane, perdi i suoi cicli. Un fermo macchina è un'emorragia silenziosa.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "confronto",
+     "p": {
+      "titolo": "Due lavatrici",
+      "a": {
+       "titolo": "Economica",
+       "valore": "2.000 € · 4 anni",
+       "oggetto": "lavatrice"
+      },
+      "b": {
+       "titolo": "Professionale",
+       "valore": "3.000 € · 8 anni",
+       "oggetto": "lavatrice"
+      },
+      "vincitore": "b"
+     }
+    },
+    {
+     "parola": "Fai",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Costo per anno",
+      "a": "3.000 €",
+      "op": "÷",
+      "b": "8 anni",
+      "risultato": "375 € l'anno",
+      "nota": "Contro 500 € l'anno"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Che cosa non guardare? Il fatturato da solo. Un cliente dice: faccio sessantamila euro l'anno. Bello, ma non dice quanto resta. Una gelateria può fare duecentomila e restare con poco se materia prima e personale mangiano tutto.",
+   "capitolo": "Cosa non guardare",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "lavatrice",
+      "testo": "INCASSO ≠ GUADAGNO",
+      "colore": "rosso",
+      "nota": "Guarda cosa resta"
+     }
+    },
+    {
+     "parola": "Una",
+     "tipo": "fette",
+     "p": {
+      "titolo": "Gelateria: 200.000 € incasso",
+      "totale": 200,
+      "totale_testo": "200.000 €",
+      "fette": [
+       {
+        "nome": "Materie prime",
+        "valore": 70,
+        "testo": "70.000 €"
+       },
+       {
+        "nome": "Personale",
+        "valore": 70,
+        "testo": "70.000 €"
+       },
+       {
+        "nome": "Affitto e altro",
+        "valore": 45,
+        "testo": "45.000 €"
+       },
+       {
+        "nome": "Resta",
+        "valore": 15,
+        "testo": "15.000 €"
+       }
+      ],
+      "evidenzia": 3
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Non guardare nemmeno la voce passaparola dei venditori di macchine. Ti dicono: rendimento del trenta per cento l'anno. Chiedi sempre i conti dettagliati. E ricorda che i risultati migliori sono di chi ha scelto bene la zona, non di chi ha comprato la macchina più cara.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Chiedi i conti veri",
+      "emozione": "calmo",
+      "scuro": false
+     }
+    },
+    {
+     "parola": "Chiedi",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Domande da fare",
+      "voci": [
+       "Quanti cicli al giorno?",
+       "Quanto costa ogni ciclo?",
+       "Quanto durano le macchine?",
+       "Qual è l'affitto?",
+       "Che succede in estate?"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Torniamo ai numeri di Davide. Investimento: trentacinquemila euro, di cui ventiquattromila per le macchine. Netto: circa ottocento euro al mese, novemilaseicento all'anno. Per rientrare servono più di tre anni e mezzo. Non è una miniera d'oro, è un lavoro lento.",
+   "capitolo": "Il rientro",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Anni per rientrare",
+      "a": "35.000 €",
+      "op": "÷",
+      "b": "9.600 €",
+      "risultato": "3,6 anni",
+      "nota": "Circa tre anni e mezzo"
+     }
+    },
+    {
+     "parola": "Non",
+     "tipo": "andamento",
+     "p": {
+      "titolo": "Soldi recuperati",
+      "valori": [
+       0,
+       9.6,
+       19.2,
+       28.8,
+       38.4
+      ],
+      "etichette": [
+       "Anno 0",
+       "Anno 1",
+       "Anno 2",
+       "Anno 3",
+       "Anno 4"
+      ],
+      "colore": "verde"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Come migliora Davide? Prima leva: più cicli, con orari che riempiono i buchi e sconti nelle ore vuote. Seconda: servizi extra, come piumoni e coperte a dieci euro. Terza: tagliare i costi vivi, con una caldaia più efficiente. Ognuna sposta il risultato.",
+   "capitolo": "Le leve",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "leve",
+     "p": {
+      "titolo": "Come aumentare il guadagno",
+      "voci": [
+       "Più cicli",
+       "Servizi extra",
+       "Costi vivi più bassi",
+       "Prezzo ritoccato"
+      ],
+      "evidenzia": 0
+     }
+    },
+    {
+     "parola": "Seconda",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "lavatrice",
+      "prezzo": "10 €",
+      "nota": "Piumone: ciclo grande"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Prova con il prezzo. Se Davide passa da sei a sei euro e cinquanta, il margine per ciclo sale da due euro e ottanta a tre euro e trenta. Con trentadue cicli al giorno sono sedici euro in più al giorno, quattrocentottanta al mese. Mezzo euro conta.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "lavatrice",
+      "prezzo": "6 €",
+      "nuovo_prezzo": "6,50 €",
+      "nota": "Ritocco di cinquanta centesimi"
+     }
+    },
+    {
+     "parola": "Con",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Guadagno extra al mese",
+      "a": "16 €",
+      "op": "×",
+      "b": "30 giorni",
+      "risultato": "480 €",
+      "nota": "Solo con mezzo euro"
+     }
+    },
+    {
+     "parola": "Mezzo",
+     "tipo": "pareggio",
+     "p": {
+      "titolo": "Pareggio con prezzo nuovo",
+      "fissi": 1550,
+      "margine": 2.8,
+      "nuovo_margine": 3.3,
+      "unita": "cicli al mese",
+      "oggetto": "lavatrice",
+      "perdita": false,
+      "guadagno": true
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ma attenzione: se alzi il prezzo e i clienti vanno dal concorrente, perdi. Davide prova su un mese e controlla i cicli. Se calano di meno di dodici al giorno... ti basta confrontare. Regola: prima un test, poi la decisione, mai a sensazione.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "persone",
+     "p": {
+      "n": 5,
+      "azione": "escono",
+      "escono": 1,
+      "testo": "Test sul prezzo"
+     }
+    },
+    {
+     "parola": "Regola",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "lavatrice",
+      "testo": "PROVA PRIMA",
+      "colore": "verde",
+      "nota": "Un mese di test"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Un ultimo rischio: il guasto. Se una lavatrice si ferma tre giorni, perdi dodici cicli, trentatré euro e sessanta di margine. Poco. Ma se si rompe il sistema di pagamento, si ferma tutto. Meglio avere un tecnico di fiducia e un fondo di emergenza.",
+   "capitolo": "Imprevisti",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "salvadanaio",
+     "p": {
+      "direzione": "svuota",
+      "testo": "Un guasto costa"
+     }
+    },
+    {
+     "parola": "Meglio",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Contro gli imprevisti",
+      "voci": [
+       "Fondo emergenza",
+       "Tecnico di fiducia",
+       "Assicurazione",
+       "Pagamento di riserva"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Facciamo il riassunto. La lavanderia ha pochi costi di personale ma tante macchine da pagare nel tempo. Ogni ciclo rende bene, ma l'incasso non è il guadagno. Calcola ammortamento, costi fissi e pareggio. Davide tiene ottocento euro netti al mese.",
+   "capitolo": "Riassunto",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "riepilogo",
+     "p": {
+      "titolo": "Da ricordare",
+      "voci": [
+       "Incasso per ciclo, non per giorno",
+       "Ammortamento: costo vero",
+       "Pareggio: cinquecentocinquantaquattro cicli",
+       "Zona e affitto decidono tutto"
+      ]
+     }
+    },
+    {
+     "parola": "Davide",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "lavanderia",
+      "insegna": "LAVANDERIA",
+      "azione": "felice",
+      "clienti": 3,
+      "testo": "800 € netti al mese"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "E tu? Se hai un'attività con macchinari, calcola l'ammortamento: prezzo diviso mesi di vita. Se vuoi aprirne una, parti dal pareggio, non dal sogno. Scrivimi nei commenti che attività hai e quale numero ti manca. Ti rispondo con piacere.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Qual è il tuo numero?",
+      "emozione": "calmo",
+      "scuro": false
+     }
+    },
+    {
+     "parola": "Se",
+     "tipo": "cruscotto",
+     "p": {
+      "titolo": "Controlla questi",
+      "voci": [
+       {
+        "nome": "Ammortamento",
+        "valore": 0.5
+       },
+       {
+        "nome": "Pareggio",
+        "valore": 0.7
+       },
+       {
+        "nome": "Costi fissi",
+        "valore": 0.6
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Nel prossimo episodio entriamo in un negozio di fiori, dove il prodotto muore in cinque giorni. Quanto buttano ogni settimana? E come fa Rosa a tenere il margine con un prodotto che appassisce? Un conto diverso. Iscriviti, così non te lo perdi.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "prossimo",
+     "p": {
+      "luogo": "fioraio",
+      "insegna": "FIORI",
+      "oggetto": "fiori",
+      "testo": "Il prodotto che muore"
+     }
+    },
+    {
+     "parola": "Iscriviti",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Iscriviti!",
+      "emozione": "felice",
+      "scuro": false
+     }
+    }
+   ]
+  }
+ ]
+}
