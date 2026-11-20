@@ -1,12 +1,12 @@
 # Radar notizie tech — 2026-11-20
 
-**Scelta:** Trump says he mentioned Huang's situation 'briefly' with Xi (Jensen Huang) — l'onda di ieri e' ancora forte: si resta con un angolo nuovo
+**Scelta:** Nvidia's Huang ousted amid scandal; interim CEO says Nvidia 'will not reinstate' him; Nvidia approaches Arm's Rene Haas for CEO (Guardian reports) (Jensen Huang) — l'onda di ieri e' ancora la piu' forte: si resta con un angolo nuovo
 
 | # | Storia | Persona | Views all'ora (EN+IT) | Views 3 gg EN | Views 3 gg IT | Video lunghi EN |
 |---|---|---|---|---|---|---|
-| 1 | Nvidia CEO search after Jensen Huang's ouster: Arm's Rene Haas approached, Bessent wants an outsider | Jensen Huang | 257,520 | 5,402,161 | 4,426,269 | 3 |
-| 2 | Trump says he mentioned Huang's situation 'briefly' with Xi | Jensen Huang | 194,056 | 3,135,120 | 3,113,751 | 13 |
-| 3 | Anthropic IPO: biggest ever, SoftBank plunges and AI stocks sell off | Dario Amodei | 140,059 | 637,431 | 585,952 | 10 |
-| 4 | Palo Alto Networks CEO links outages to software updates and AI-assisted attacks; $4.5B Applied Compute deal | Nikesh Arora | 634 | 24,008 | 0 | 1 |
-| 5 | Nadella warns critical infrastructure is 'unpatchable' amid tech outages and AI cyberattack fears | Satya Nadella | 59 | 829 | 0 | 2 |
-| 6 | Nadella predicts AI agents will reshuffle the economics of the web | Satya Nadella | 29 | 147 | 16 | 5 |
+| 1 | Nvidia's Huang ousted amid scandal; interim CEO says Nvidia 'will not reinstate' him; Nvidia approaches Arm's Rene Haas for CEO (Guardian reports) | Jensen Huang | 108,309 | 5,087,841 | 304,633 | 12 |
+| 2 | Anthropic's record IPO: shares jump then tumble as AI trade cracks, valuation around $1.5 trillion | Dario Amodei | 51,275 | 792,774 | 110,967 | 13 |
+| 3 | Musk says he was 'foolish' to give millions to MAGA; Democrats crash his Texas honeymoon | Elon Musk | 8,485 | 107,490 | 2,889 | 5 |
+| 4 | California AG Bonta subpoenas Nvidia in China AI chip probe after Huang's alleged affair with a suspected Chinese spy (BBC, NY Post) | Jensen Huang | 3,764 | 20,837 | 0 | 3 |
+| 5 | Microsoft outage fallout: Nadella explains Outlook outage cause and defends 60,000 AI-linked buyouts | Satya Nadella | 116 | 6,281 | 0 | 1 |
+| 6 | Musk wants to launch Nvidia chips into orbit; lenders aim to bar SpaceX from $40bn launch (FT) | Elon Musk | 3 | 3 | 0 | 2 |
