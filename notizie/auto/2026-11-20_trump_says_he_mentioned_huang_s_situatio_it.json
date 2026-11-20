@@ -1,0 +1,1435 @@
+{
+ "titolo": "Trump: con Xi si parlò di Jensen Huang 'brevemente'. Perché conta",
+ "angolo": "Trump's 'briefly' answer about Huang to Xi, set against the three clocks now ticking on Huang: California's subpoena, the House hearing on Dec 1 and the China chip approvals",
+ "descrizione": "Trump: con Xi si parlò di Jensen Huang 'brevemente'. Perché conta. Secondo Reuters, Trump ha detto a Fox News di 'aver forse accennato' alla situazione di Huang solo brevemente durante la cena con Xi a Shenzhen. Nelle stesse 24 ore, la California ha inviato una citazione a Nvidia e una commissione della Camera ha rivelato 879.000 spedizioni di chip approvate verso la Cina. Separiamo ciò che è confermato da ciò che è solo riportato.",
+ "tag": [
+  "Trump: con Xi si parlò di Jensen Huang 'brevemente'. Perché conta",
+  "Jensen Huang",
+  "Nvidia",
+  "Cena Trump Xi",
+  "Alice Huang",
+  "Megaspeed",
+  "procuratore generale California Nvidia",
+  "Rob Bonta",
+  "H200 Cina",
+  "Il CEO di Nvidia si dimette",
+  "Colette Kress",
+  "APEC Shenzhen",
+  "Nvidia testimonianza al Congresso",
+  "controlli sulle esportazioni di chip per l'IA"
+ ],
+ "fonti_link": [
+  "https://www.yahoo.com/news/politics/articles/trump-says-referred-ex-nvidia-014758300.html",
+  "https://www.investing.com/news/stock-market-news/trump-says-he-referred-to-exnvidia-boss-huangs-situation-briefly-in-talk-with-xi-5037541",
+  "https://www.businesstoday.com.my/2026/11/19/trump-says-jensen-huangs-situation-briefly-came-up-in-talks-with-xi/",
+  "https://www.cbsnews.com/news/trump-xi-meet-china-chips-ai/",
+  "https://www.fmprc.gov.cn/eng/xw/zyxw/202611/t20261119_12063139.html",
+  "https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000082/nvidiaannouncesceotransiti.htm",
+  "https://www.cnbc.com/2026/11/12/nvidia-jensen-huang-ceo-live-updates.html",
+  "https://www.cnbc.com/2026/11/19/nvidia-california-bonta-subpoena-china-chips.html",
+  "https://www.upi.com/Top_News/US/2026/11/19/california-nvidia/2081795137162/",
+  "https://bloomberg.com/news/articles/2026-11-19/california-probing-if-nvidia-misled-investors-over-china-risks",
+  "https://www.koreajoongangdaily.com/world/us-signed-off-on-sales-of-nearly-900000-ai-chips-to-china-in-six-months-house-committee-says/12982240",
+  "https://www.inquisitr.com/house-panel-chip-approvals-china/",
+  "https://www.thestar.com.my/aseanplus/aseanplus-news/2026/11/19/jensen-huang-agrees-to-face-congress-over-nvidia-scandal",
+  "https://www.axios.com/2026/11/17/nvidia-jensen-huang-congress-testify-dates",
+  "https://www.dailywire.com/news/the-chip-bosss-bedroom-scandal-just-got-a-date-on-capitol-hill",
+  "https://www.washingtonpost.com/technology/2026/11/17/lawmakers-set-date-nvidia-ceo-testify/",
+  "https://en.wikipedia.org/wiki/Jensen_Huang",
+  "https://www.cnn.com/2026/11/11/business/live-news/nvidia-jensen-huang-investigation-fallout",
+  "https://asiatimes.com/2026/11/trump-needs-a-win-in-shenzhen-and-xi-knows-it/",
+  "https://www.nst.com.my/world/world/2026/11/1581837/california-launches-probe-nvidia-over-china-chip-controversy",
+  "https://www.engadget.com/2319382/jensen-huang-said-hed-be-honored-to-return-as-nvidia-ceo-because-of-course-he-would/",
+  "https://techcrunch.com/2026/11/19/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline"
+ ],
+ "personaggi": {
+  "huang": {
+   "commons": "Jensen Huang",
+   "chi": "Jensen Huang, cofondatore ed ex CEO di Nvidia",
+   "pose": {
+    "classico": {
+     "posa": "standing in dark suit, tired serious expression, hands at sides"
+    },
+    "teso": {
+     "posa": "head slightly bowed, hands clasped in front, worried expression"
+    },
+    "guarda": {
+     "posa": "looking over shoulder at the viewer, tense eyes"
+    }
+   }
+  },
+  "trump": {
+   "commons": "Donald Trump",
+   "chi": "Donald Trump, presidente degli Stati Uniti",
+   "pose": {
+    "deciso": {
+     "posa": "standing firm, chin up, pointing finger"
+    }
+   }
+  },
+  "xi": {
+   "commons": "Xi Jinping",
+   "chi": "Xi Jinping, presidente della Cina",
+   "pose": {
+    "calmo": {
+     "posa": "standing calm, hands folded, neutral expression"
+    }
+   }
+  },
+  "bonta": {
+   "commons": "Rob Bonta",
+   "chi": "Rob Bonta, procuratore generale della California",
+   "pose": {
+    "serio": {
+     "posa": "standing at a podium, serious expression, one hand raised"
+    }
+   }
+  },
+  "kress": {
+   "commons": "Colette Kress",
+   "chi": "Colette Kress, CEO ad interim e direttrice finanziaria di Nvidia",
+   "pose": {
+    "tablet": {
+     "posa": "holding a tablet, focused expression"
+    }
+   }
+  }
+ },
+ "sets": {
+  "s01": {
+   "descr": "Dark empty Nvidia glass headquarters lobby at night, one lit executive floor above, rain on the windows",
+   "luogo": "SANTA CLARA, CALIFORNIA, USA",
+   "effetto": "pioggia",
+   "cast": []
+  },
+  "s02": {
+   "descr": "Exterior of a Shenzhen state guesthouse complex at dusk, grand lit entrance with stone steps, manicured gardens and a long black motorcade-ready driveway, Shenzhen skyline towers glowing behind, empty of people",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "trump",
+     "posa": "deciso",
+     "lato": "sx"
+    },
+    {
+     "chi": "xi",
+     "posa": "calmo",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s03": {
+   "descr": "Exterior of Nasdaq MarketSite tower in Times Square at night with giant LED screens glowing red with downward-sloping chart shapes, no readable text, wet pavement reflecting red light, empty street",
+   "luogo": "NEW YORK, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s04": {
+   "descr": "Empty glass-walled Nvidia executive office corner with an abandoned leather chair pushed back from a desk, a single cardboard box and a security badge lying on the desk, Santa Clara campus lights at dusk outside",
+   "luogo": "SANTA CLARA, CALIFORNIA, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "huang",
+     "posa": "teso",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s05": {
+   "descr": "Fox-style television studio with empty interview chairs under bright blue lights",
+   "luogo": "NEW YORK, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "trump",
+     "posa": "deciso",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s06": {
+   "descr": "Night aerial view of Shenzhen skyline with glowing skyscrapers over the harbor",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s07": {
+   "descr": "Round dinner table with white tablecloth, two untouched wine glasses and gold chopsticks, warm chandelier light",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "xi",
+     "posa": "calmo",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s08": {
+   "descr": "Giant stage with huge glowing green graphics card sculpture on a keynote stage, empty seats, spotlights",
+   "luogo": "SAN JOSE, CALIFORNIA, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "huang",
+     "posa": "classico",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s09": {
+   "descr": "Dim Denny's-style diner booth at night with coffee cups and a single hanging lamp",
+   "luogo": "SAN JOSE, CALIFORNIA, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s10": {
+   "descr": "Stanford campus arcade at golden hour, sandstone arches and palm trees, empty",
+   "luogo": "STANFORD, CALIFORNIA, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s11": {
+   "descr": "Huge data center aisle with rows of glowing green server racks stretching far",
+   "luogo": "STATI UNITI",
+   "effetto": "none",
+   "cast": []
+  },
+  "s12": {
+   "descr": "White House Oval Office with desk and golden curtains, afternoon light, empty",
+   "luogo": "WASHINGTON DC, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "trump",
+     "posa": "deciso",
+     "lato": "sx"
+    },
+    {
+     "chi": "huang",
+     "posa": "classico",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s13": {
+   "descr": "White House State Dining Room long table set for a lunch with tech leaders, bright daylight",
+   "luogo": "WASHINGTON DC, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s14": {
+   "descr": "Container port at dusk with stacked crates and cranes, chips symbolized by glowing blue boxes",
+   "luogo": "SINGAPORE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s15": {
+   "descr": "Marina Bay Singapore at dusk with a mid-rise glass office building housing a data company, server-room glow visible on one floor, quiet waterfront, empty promenade",
+   "luogo": "SINGAPORE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s16": {
+   "descr": "Austere federal investigators' conference room with a large wall board with strings and pins, no writing",
+   "luogo": "WASHINGTON DC, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s17": {
+   "descr": "Nvidia boardroom at midnight, long table, ten empty leather chairs, city lights through floor-to-ceiling glass",
+   "luogo": "SANTA CLARA, CALIFORNIA, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s18": {
+   "descr": "Press room podium with microphones in front of a deep blue curtain, flashbulbs frozen",
+   "luogo": "SANTA CLARA, CALIFORNIA, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "kress",
+     "posa": "tablet",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s19": {
+   "descr": "Wall Street facade of a stock exchange with big columns, dark red glow, stormy sky",
+   "luogo": "NEW YORK, USA",
+   "effetto": "pioggia",
+   "cast": []
+  },
+  "s20": {
+   "descr": "Empty Capitol Hill hearing room with raised dais and leather chairs, green lamps",
+   "luogo": "WASHINGTON DC, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s21": {
+   "descr": "Truth-Social-style phone glowing on a desk in a dark office, only a lamp light",
+   "luogo": "WASHINGTON DC, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s22": {
+   "descr": "Apple-style campus aerial with a circular glass building at sunrise",
+   "luogo": "CUPERTINO, CALIFORNIA, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s23": {
+   "descr": "Closed-door interview room with a table, a stenographer's machine and a pitcher of water, harsh lights",
+   "luogo": "WASHINGTON DC, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "huang",
+     "posa": "teso",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s24": {
+   "descr": "Bright Capitol dome at dawn with fog and long shadows",
+   "luogo": "WASHINGTON DC, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s25": {
+   "descr": "California State Capitol building in Sacramento under a clear blue sky",
+   "luogo": "SACRAMENTO, CALIFORNIA, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "bonta",
+     "posa": "serio",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s26": {
+   "descr": "Courier hand-delivering a sealed envelope to a glass-fronted reception desk, bright lobby, no people",
+   "luogo": "SANTA CLARA, CALIFORNIA, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s27": {
+   "descr": "Exterior of the California Department of Justice building in Oakland at dusk, Ronald Dellums federal-style plaza, glass facade lit, empty steps",
+   "luogo": "OAKLAND, CALIFORNIA, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "bonta",
+     "posa": "serio",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s28": {
+   "descr": "Exterior of the Pacific Coast stock exchange style financial district in San Francisco at dawn, Transamerica Pyramid and glass towers, empty streets, red sunrise",
+   "luogo": "SAN FRANCISCO, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s29": {
+   "descr": "Scales of justice on a courtroom bench with golden light",
+   "luogo": "CALIFORNIA, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s30": {
+   "descr": "Air cargo terminal at Hong Kong International Airport at dusk with Boeing freighter being loaded with sealed crates by conveyor, orange sky, empty tarmac",
+   "luogo": "HONG KONG",
+   "effetto": "none",
+   "cast": []
+  },
+  "s31": {
+   "descr": "Warehouse with pallets of boxed AI chips glowing blue in the dark, forklift idle",
+   "luogo": "HONG KONG",
+   "effetto": "none",
+   "cast": []
+  },
+  "s32": {
+   "descr": "Cinematic image of a giant Chinese tech campus with glass towers at sunset",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s33": {
+   "descr": "Hearing room of House Foreign Affairs with empty dais at dawn",
+   "luogo": "WASHINGTON DC, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s34": {
+   "descr": "Close-up of an Nvidia H200-style GPU accelerator module on a server tray, gold heat spreader and HBM memory stacks, cool blue-green light, data center backdrop blurred",
+   "luogo": "STATI UNITI",
+   "effetto": "none",
+   "cast": []
+  },
+  "s35": {
+   "descr": "Chip fabrication clean room with glowing yellow lighting, wafers on rails, empty",
+   "luogo": "TAIWAN",
+   "effetto": "none",
+   "cast": []
+  },
+  "s36": {
+   "descr": "Huge Nvidia-green neon cube sculpture over a plaza at night, rain reflections",
+   "luogo": "SANTA CLARA, CALIFORNIA, USA",
+   "effetto": "pioggia",
+   "cast": []
+  },
+  "s37": {
+   "descr": "Airplane Air Force One style on the Shenzhen tarmac in the rain at night",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "pioggia",
+   "cast": []
+  },
+  "s38": {
+   "descr": "Trilateral meeting villa lounge with three armchairs in a triangle, soft lamps",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s39": {
+   "descr": "Gavel on a wooden block in a hearing room, spotlight",
+   "luogo": "WASHINGTON DC, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s40": {
+   "descr": "Senate Banking Committee hearing room, polished wood dais, tall windows",
+   "luogo": "WASHINGTON DC, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s41": {
+   "descr": "Commerce Department building facade with columns in morning light",
+   "luogo": "WASHINGTON DC, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s42": {
+   "descr": "US Capitol Visitor Center and the intelligence community headquarters style building: exterior of a secure federal facility in Virginia at dusk, fenced perimeter, lit windows, empty road",
+   "luogo": "MCLEAN, VIRGINIA, USA",
+   "effetto": "mirino",
+   "cast": []
+  },
+  "s43": {
+   "descr": "Empty executive office with large desk, a closed laptop, window view over a campus at dusk",
+   "luogo": "SANTA CLARA, CALIFORNIA, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "huang",
+     "posa": "guarda",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s44": {
+   "descr": "Bright green countdown clock shape, abstract, on a dark wall with long shadows",
+   "luogo": "WASHINGTON DC, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s45": {
+   "descr": "Dim hotel conference corridor with red carpet and gold lamps",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s46": {
+   "descr": "Wide shot of Nvidia campus triangular buildings under a dramatic sunset",
+   "luogo": "SANTA CLARA, CALIFORNIA, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s47": {
+   "descr": "Analyst's trading office at night with large blank monitors and city lights",
+   "luogo": "NEW YORK, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s48": {
+   "descr": "Long hallway of a government building with marble floor and tall doors, light at the end",
+   "luogo": "WASHINGTON DC, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s49": {
+   "descr": "Empty podium with microphones facing rows of empty press chairs",
+   "luogo": "WASHINGTON DC, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s50": {
+   "descr": "Single glowing server rack in a dark hall with a warning amber light",
+   "luogo": "STATI UNITI",
+   "effetto": "none",
+   "cast": []
+  },
+  "s51": {
+   "descr": "Trump Xi handshake-site: Great Hall style banquet room in Shenzhen with red drapes and round tables",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "trump",
+     "posa": "deciso",
+     "lato": "sx"
+    },
+    {
+     "chi": "xi",
+     "posa": "calmo",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s52": {
+   "descr": "A lone silhouette-free CEO coat hanging in an empty office, window with dawn light",
+   "luogo": "SANTA CLARA, CALIFORNIA, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s53": {
+   "descr": "Capitol steps at dusk with long shadows and a single lit window",
+   "luogo": "WASHINGTON DC, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s54": {
+   "descr": "Overhead of a long conference table with three blank folders aligned, hearing room",
+   "luogo": "WASHINGTON DC, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s55": {
+   "descr": "Nvidia Santa Clara campus interior atrium at night, empty, lights dimmed, a single green-lit logo-free wall panel",
+   "luogo": "SANTA CLARA, CALIFORNIA, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "huang",
+     "posa": "classico",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s56": {
+   "descr": "Aerial view of Nvidia's Santa Clara headquarters at dusk with falling stock-chart-like light trails on the highway beside it, dark clouds gathering, empty parking lots",
+   "luogo": "SANTA CLARA, CALIFORNIA, USA",
+   "effetto": "pioggia",
+   "cast": []
+  },
+  "s57": {
+   "descr": "Glowing globe on a desk with arcs of light between continents, dark room",
+   "luogo": "STATI UNITI",
+   "effetto": "none",
+   "cast": []
+  },
+  "s58": {
+   "descr": "Exterior of the Fox News headquarters building on Avenue of the Americas at night, tall glass facade lit blue, empty plaza and wet sidewalk",
+   "luogo": "NEW YORK, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s59": {
+   "descr": "Calm boardroom at morning, table with a single green plant, sunlight",
+   "luogo": "SANTA CLARA, CALIFORNIA, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "kress",
+     "posa": "tablet",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s60": {
+   "descr": "Stock ticker wall in dark red, empty trading floor with a single lit screen glow",
+   "luogo": "NEW YORK, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s61": {
+   "descr": "Courtroom with empty benches and an empty witness stand",
+   "luogo": "SAN FRANCISCO, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "huang",
+     "posa": "teso",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s62": {
+   "descr": "Snowless winter night street in Washington with lit federal buildings",
+   "luogo": "WASHINGTON DC, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s63": {
+   "descr": "Wide dawn over a data center campus with cooling towers and green lights",
+   "luogo": "STATI UNITI",
+   "effetto": "none",
+   "cast": []
+  },
+  "s64": {
+   "descr": "Close view of a printed transcript page lying on a polished desk beside a red pen and a highlighted line, blurred text shapes only, warm desk lamp light, Washington office",
+   "luogo": "WASHINGTON DC, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "trump",
+     "posa": "deciso",
+     "lato": "sx"
+    },
+    {
+     "chi": "huang",
+     "posa": "classico",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s65": {
+   "descr": "Exterior of the Pentagon aerial view at dusk with its pentagonal shape, parking lots and lit windows, empty surrounding lawns",
+   "luogo": "ARLINGTON, VIRGINIA, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s66": {
+   "descr": "Sunset over the Nvidia headquarters with a single window lit",
+   "luogo": "SANTA CLARA, CALIFORNIA, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "huang",
+     "posa": "guarda",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s67": {
+   "descr": "Finale: empty keynote stage with a single spotlight and dark seats",
+   "luogo": "SAN JOSE, CALIFORNIA, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s68": {
+   "descr": "Dark empty open-plan Nvidia office floor at night with monitors off, one lit desk lamp, internal staff message concept, windows over Santa Clara",
+   "luogo": "SANTA CLARA, CALIFORNIA, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s69": {
+   "descr": "Close view of a lone empty chair facing a long table in a hearing room",
+   "luogo": "WASHINGTON DC, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s70": {
+   "descr": "Air Force One style white jet parked on a rain-wet tarmac at Shenzhen Bao'an airport at night, stairs lowered, runway lights glowing, empty of people",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  }
+ },
+ "scene": [
+  {
+   "testo": "Un presidente dice che se ne è parlato solo brevemente. Una tragedia, la definisce.",
+   "fonti": [
+    "https://www.investing.com/news/stock-market-news/trump-says-he-referred-to-exnvidia-boss-huangs-situation-briefly-in-talk-with-xi-5037541"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s02"
+   }
+  },
+  {
+   "testo": "L'uomo al centro della vicenda si è dimesso otto giorni fa.",
+   "fonti": [
+    "https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000082/nvidiaannouncesceotransiti.htm"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s04"
+   }
+  },
+  {
+   "testo": "Dal picco di ottobre, Nvidia ha perso circa 1,76 trilioni di dollari di valore di mercato, secondo la CNN.",
+   "fonti": [
+    "https://www.cnn.com/2026/11/11/business/live-news/nvidia-jensen-huang-investigation-fallout"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s03"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 1.76,
+    "decimali": 2,
+    "prefisso": "$",
+    "unita": "MILIARDI DI DOLLARI",
+    "sopra": "PERSI IN BORSA"
+   }
+  },
+  {
+   "testo": "Allora cosa significa davvero 'brevemente', quando su Jensen Huang corrono tre orologi?",
+   "fonti": [
+    "https://www.investing.com/news/stock-market-news/trump-says-he-referred-to-exnvidia-boss-huangs-situation-briefly-in-talk-with-xi-5037541"
+   ],
+   "titolo_card": true,
+   "visivo": {
+    "tipo": "set",
+    "set": "s01"
+   },
+   "grafica": {
+    "tipo": "titolo",
+    "testo": "COSA VUOL DIRE 'BREVE'?",
+    "sotto": "Trump, Xi e la caduta di Jensen Huang"
+   }
+  },
+  {
+   "testo": "Ecco cosa ha detto esattamente Trump.",
+   "fonti": [
+    "https://www.investing.com/news/stock-market-news/trump-says-he-referred-to-exnvidia-boss-huangs-situation-briefly-in-talk-with-xi-5037541"
+   ],
+   "capitolo": "LA PAROLA 'BREVEMENTE'",
+   "visivo": {
+    "tipo": "set",
+    "set": "s05"
+   }
+  },
+  {
+   "testo": "Era mercoledì, su Fox News, nel programma The Ingraham Angle.",
+   "fonti": [
+    "https://www.investing.com/news/stock-market-news/trump-says-he-referred-to-exnvidia-boss-huangs-situation-briefly-in-talk-with-xi-5037541"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s58"
+   }
+  },
+  {
+   "testo": "Secondo Reuters, il presidente aveva appena cenato con Xi Jinping.",
+   "fonti": [
+    "https://www.yahoo.com/news/politics/articles/trump-says-referred-ex-nvidia-014758300.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s07"
+   }
+  },
+  {
+   "testo": "La cena si è svolta a Shenzhen, in Cina, durante il vertice APEC.",
+   "fonti": [
+    "https://www.cbsnews.com/news/trump-xi-meet-china-chips-ai/"
+   ],
+   "visivo": {
+    "tipo": "mappa",
+    "centro": [
+     114.06,
+     22.54
+    ],
+    "larghezza": 24,
+    "paesi": [
+     {
+      "iso": "CHN",
+      "colore": "rojo"
+     },
+     {
+      "iso": "USA",
+      "colore": "azul"
+     }
+    ],
+    "punti": [
+     {
+      "lon": 114.06,
+      "lat": 22.54,
+      "nome": "SHENZHEN"
+     }
+    ],
+    "zoom_su": [
+     114.06,
+     22.54
+    ]
+   }
+  },
+  {
+   "testo": "Trump dice che hanno parlato per tutta la sera, soprattutto di intelligenza artificiale.",
+   "fonti": [
+    "https://www.yahoo.com/news/politics/articles/trump-says-referred-ex-nvidia-014758300.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s51"
+   }
+  },
+  {
+   "testo": "Poi gli hanno chiesto di Huang.",
+   "fonti": [
+    "https://www.businesstoday.com.my/2026/11/19/trump-says-jensen-huangs-situation-briefly-came-up-in-talks-with-xi/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s45"
+   }
+  },
+  {
+   "testo": "Ha aggiunto una seconda frase, di elogio a Huang.",
+   "fonti": [
+    "https://www.investing.com/news/stock-market-news/trump-says-he-referred-to-exnvidia-boss-huangs-situation-briefly-in-talk-with-xi-5037541"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s12"
+   }
+  },
+  {
+   "testo": "È un uomo davvero brillante, ha detto Trump, secondo Reuters.",
+   "fonti": [
+    "https://www.investing.com/news/stock-market-news/trump-says-he-referred-to-exnvidia-boss-huangs-situation-briefly-in-talk-with-xi-5037541"
+   ],
+   "visivo": {
+    "tipo": "frase",
+    "testo": "\"È un uomo davvero brillante.\""
+   }
+  },
+  {
+   "testo": "Ma la stessa dichiarazione contiene un dettaglio da notare.",
+   "fonti": [
+    "https://www.investing.com/news/stock-market-news/trump-says-he-referred-to-exnvidia-boss-huangs-situation-briefly-in-talk-with-xi-5037541"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s64"
+   }
+  },
+  {
+   "testo": "Prima di 'brevemente', Trump ha detto 'non ne abbiamo discusso'.",
+   "fonti": [
+    "https://www.investing.com/news/stock-market-news/trump-says-he-referred-to-exnvidia-boss-huangs-situation-briefly-in-talk-with-xi-5037541"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s02"
+   }
+  },
+  {
+   "testo": "Era una discussione formale o un semplice accenno? Solo Trump e Xi sanno cosa è stato detto.",
+   "fonti": [
+    "https://finance.biggo.com/news/2133fd59-24de-4b0c-af7c-f928d08b74bb"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s70"
+   }
+  },
+  {
+   "testo": "Ma prima, chi è l'uomo di cui parlano tutti?",
+   "fonti": [
+    "https://en.wikipedia.org/wiki/Jensen_Huang"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s43"
+   }
+  },
+  {
+   "testo": "Trentatré anni dopo averla cofondata, Nvidia valeva diversi trilioni di dollari.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/12/nvidia-jensen-huang-ceo-live-updates.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s46"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 4,
+    "decimali": 0,
+    "prefisso": "$",
+    "unita": "MILIARDI DI DOLLARI",
+    "sopra": "NVIDIA AL PICCO"
+   }
+  },
+  {
+   "testo": "I suoi chip hanno alimentato il boom dell'intelligenza artificiale.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/12/nvidia-jensen-huang-ceo-live-updates.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s11"
+   }
+  },
+  {
+   "testo": "Era diventato anche un ospite abituale della Casa Bianca.",
+   "fonti": [
+    "https://www.yahoo.com/news/politics/articles/trump-says-referred-ex-nvidia-014758300.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s13"
+   }
+  },
+  {
+   "testo": "Reuters osserva che ha espresso sostegno all'agenda di Trump sull'IA e lo ha incontrato più volte.",
+   "fonti": [
+    "https://www.yahoo.com/news/politics/articles/trump-says-referred-ex-nvidia-014758300.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s12"
+   }
+  },
+  {
+   "testo": "L'obiettivo: vendere chip Nvidia alla Cina.",
+   "fonti": [
+    "https://www.yahoo.com/news/politics/articles/trump-says-referred-ex-nvidia-014758300.html"
+   ],
+   "visivo": {
+    "tipo": "mappa",
+    "centro": [
+     -30,
+     38
+    ],
+    "larghezza": 60,
+    "paesi": [
+     {
+      "iso": "USA",
+      "colore": "azul"
+     },
+     {
+      "iso": "CHN",
+      "colore": "rojo"
+     }
+    ],
+    "punti": [
+     {
+      "lon": -121.96,
+      "lat": 37.37,
+      "nome": "SANTA CLARA"
+     },
+     {
+      "lon": 114.06,
+      "lat": 22.54,
+      "nome": "SHENZHEN"
+     }
+    ],
+    "frecce": [
+     {
+      "da": [
+       -121.96,
+       37.37
+      ],
+      "a": [
+       114.06,
+       22.54
+      ],
+      "colore": "verde"
+     }
+    ]
+   }
+  },
+  {
+   "testo": "Nel dicembre 2025 Trump ha dato il via libera al chip H200 per la Cina.",
+   "fonti": [
+    "https://www.koreajoongangdaily.com/world/us-signed-off-on-sales-of-nearly-900000-ai-chips-to-china-in-six-months-house-committee-says/12982240"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s34"
+   }
+  },
+  {
+   "testo": "La decisione ha cancellato i limiti dell'era Biden e ha scatenato dure critiche dai falchi anti-Cina.",
+   "fonti": [
+    "https://www.koreajoongangdaily.com/world/us-signed-off-on-sales-of-nearly-900000-ai-chips-to-china-in-six-months-house-committee-says/12982240"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s24"
+   }
+  },
+  {
+   "testo": "Ricordate questa decisione. Torna tra poco, con un numero.",
+   "fonti": [
+    "https://www.inquisitr.com/house-panel-chip-approvals-china/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s35"
+   }
+  },
+  {
+   "testo": "Perché prima c'è la storia di come è maturata la crisi.",
+   "fonti": [
+    "https://www.cbsnews.com/news/trump-xi-meet-china-chips-ai/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s56"
+   }
+  },
+  {
+   "testo": "Si chiama Alice Huang. Non è parente di Jensen Huang, secondo CNBC e CNN.",
+   "fonti": [
+    "https://www.nst.com.my/world/world/2026/11/1581837/california-launches-probe-nvidia-over-china-chip-controversy"
+   ],
+   "capitolo": "IL CASO ALICE HUANG",
+   "visivo": {
+    "tipo": "set",
+    "set": "s15"
+   }
+  },
+  {
+   "testo": "È un'ex dirigente di Megaspeed, società con sede a Singapore.",
+   "fonti": [
+    "https://www.nst.com.my/world/world/2026/11/1581837/california-launches-probe-nvidia-over-china-chip-controversy"
+   ],
+   "visivo": {
+    "tipo": "mappa",
+    "centro": [
+     103.82,
+     1.35
+    ],
+    "larghezza": 14,
+    "paesi": [
+     {
+      "iso": "SGP",
+      "colore": "amarillo"
+     }
+    ],
+    "punti": [
+     {
+      "lon": 103.82,
+      "lat": 1.35,
+      "nome": "SINGAPORE"
+     }
+    ],
+    "zoom_su": [
+     103.82,
+     1.35
+    ]
+   }
+  },
+  {
+   "testo": "Megaspeed è sotto inchiesta per il sospetto di aver dirottato verso la Cina chip Nvidia soggetti a restrizioni, riferisce CNBC.",
+   "fonti": [
+    "https://www.axios.com/2026/11/17/nvidia-jensen-huang-congress-testify-dates"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s31"
+   }
+  },
+  {
+   "testo": "Reuters, citando persone informate sui fatti, afferma che l'intelligence americana sta cercando di accertare i legami di Alice Huang con il ministero della Sicurezza cinese.",
+   "fonti": [
+    "https://www.yahoo.com/news/politics/articles/trump-says-referred-ex-nvidia-014758300.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s16"
+   }
+  },
+  {
+   "testo": "Questi legami sono riportati, non provati.",
+   "fonti": [
+    "https://www.yahoo.com/news/politics/articles/trump-says-referred-ex-nvidia-014758300.html",
+    "https://asiatimes.com/2026/11/trump-needs-a-win-in-shenzhen-and-xi-knows-it/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s42"
+   }
+  },
+  {
+   "testo": "Trump, interpellato direttamente, ha detto di non aver sentito che fosse una spia.",
+   "fonti": [
+    "https://www.yahoo.com/news/politics/articles/trump-says-referred-ex-nvidia-014758300.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s05"
+   }
+  },
+  {
+   "testo": "Poi è arrivata la notte del dodici novembre.",
+   "fonti": [
+    "https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000082/nvidiaannouncesceotransiti.htm"
+   ],
+   "capitolo": "LA NOTTE DEL CDA",
+   "visivo": {
+    "tipo": "set",
+    "set": "s17"
+   }
+  },
+  {
+   "testo": "CNBC cita una persona informata sui fatti riguardo a come il consiglio di amministrazione ha preso la decisione.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/12/nvidia-jensen-huang-ceo-live-updates.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s52"
+   }
+  },
+  {
+   "testo": "Il dodici novembre Nvidia ha annunciato che Huang si era dimesso da presidente, CEO e membro del consiglio, con effetto immediato.",
+   "fonti": [
+    "https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000082/nvidiaannouncesceotransiti.htm"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s18"
+   }
+  },
+  {
+   "testo": "La direttrice finanziaria Colette Kress è diventata CEO ad interim. Harvey Jones è diventato il primo presidente del consiglio nella storia dell'azienda.",
+   "fonti": [
+    "https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000082/nvidiaannouncesceotransiti.htm"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s59"
+   }
+  },
+  {
+   "testo": "La CEO ad interim Colette Kress ha detto di essere impegnata a costruire sulle fondamenta create da Huang in 33 anni.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/12/nvidia-jensen-huang-ceo-live-updates.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s46"
+   }
+  },
+  {
+   "testo": "Ora il primo orologio: la California.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/19/nvidia-california-bonta-subpoena-china-chips.html"
+   ],
+   "capitolo": "PRIMO OROLOGIO: CALIFORNIA",
+   "visivo": {
+    "tipo": "set",
+    "set": "s25"
+   }
+  },
+  {
+   "testo": "Giovedì il procuratore generale della California, Rob Bonta, ha emesso una citazione istruttoria nei confronti di Nvidia.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/19/nvidia-california-bonta-subpoena-china-chips.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s26"
+   }
+  },
+  {
+   "testo": "Lo riportano sia CNBC sia UPI.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/19/nvidia-california-bonta-subpoena-china-chips.html",
+    "https://www.upi.com/Top_News/US/2026/11/19/california-nvidia/2081795137162/",
+    "https://bloomberg.com/news/articles/2026-11-19/california-probing-if-nvidia-misled-investors-over-china-risks"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s27"
+   }
+  },
+  {
+   "testo": "Chiede inoltre se Nvidia abbia ingannato investitori e pubblico su quel rischio.",
+   "fonti": [
+    "https://www.upi.com/Top_News/US/2026/11/19/california-nvidia/2081795137162/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s28"
+   }
+  },
+  {
+   "testo": "Bonta ha detto a Politico che la citazione è il primo passo, secondo UPI.",
+   "fonti": [
+    "https://www.upi.com/Top_News/US/2026/11/19/california-nvidia/2081795137162/"
+   ],
+   "visivo": {
+    "tipo": "frase",
+    "testo": "Bonta ha detto a Politico che la citazione è il primo passo, secondo UPI."
+   }
+  },
+  {
+   "testo": "Nvidia ha sede a Santa Clara, in California.",
+   "fonti": [
+    "https://biztoc.com/x/893ee2a1d4622716"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s46"
+   }
+  },
+  {
+   "testo": "Il secondo orologio è a Washington. E ha una data.",
+   "fonti": [
+    "https://www.thestar.com.my/aseanplus/aseanplus-news/2026/11/19/jensen-huang-agrees-to-face-congress-over-nvidia-scandal"
+   ],
+   "capitolo": "SECONDO OROLOGIO: 1° DICEMBRE",
+   "visivo": {
+    "tipo": "set",
+    "set": "s20"
+   }
+  },
+  {
+   "testo": "Il primo dicembre Huang comparirà per interviste volontarie trascritte davanti a tre commissioni della Camera.",
+   "fonti": [
+    "https://www.thestar.com.my/aseanplus/aseanplus-news/2026/11/19/jensen-huang-agrees-to-face-congress-over-nvidia-scandal"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s33"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 1,
+    "decimali": 0,
+    "prefisso": "DEC ",
+    "unita": "",
+    "sopra": "HUANG DAVANTI AL CONGRESSO"
+   }
+  },
+  {
+   "testo": "Le commissioni sono Affari Esteri della Camera, Intelligence della Camera e la Commissione speciale sulla Cina.",
+   "fonti": [
+    "https://www.thestar.com.my/aseanplus/aseanplus-news/2026/11/19/jensen-huang-agrees-to-face-congress-over-nvidia-scandal"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s54"
+   }
+  },
+  {
+   "testo": "Le interviste sono trascritte e, secondo Axios, a porte chiuse.",
+   "fonti": [
+    "https://www.axios.com/2026/11/17/nvidia-jensen-huang-congress-testify-dates"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s23"
+   }
+  },
+  {
+   "testo": "Il consulente legale generale di Nvidia, Tim Teter, è atteso per il due dicembre.",
+   "fonti": [
+    "https://www.axios.com/2026/11/17/nvidia-jensen-huang-congress-testify-dates"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s48"
+   }
+  },
+  {
+   "testo": "Questa è la dichiarazione dei presidenti delle commissioni Moolenaar, Mast e Crawford, non di Huang.",
+   "fonti": [
+    "https://www.thestar.com.my/aseanplus/aseanplus-news/2026/11/19/jensen-huang-agrees-to-face-congress-over-nvidia-scandal"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s69"
+   }
+  },
+  {
+   "testo": "Il presidente della Commissione Bancaria del Senato, Tim Scott, ha chiesto a Huang di testimoniare il tre dicembre.",
+   "fonti": [
+    "https://www.ramaponews.com/2026/11/19/ex-nvidia-ceo-to-testify-before-house-and-senate-on-chinese-spy-affair/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s40"
+   }
+  },
+  {
+   "testo": "E ora il terzo orologio. Il numero che vi avevo promesso.",
+   "fonti": [
+    "https://www.koreajoongangdaily.com/world/us-signed-off-on-sales-of-nearly-900000-ai-chips-to-china-in-six-months-house-committee-says/12982240"
+   ],
+   "capitolo": "TERZO OROLOGIO: IL NUMERO",
+   "visivo": {
+    "tipo": "set",
+    "set": "s44"
+   }
+  },
+  {
+   "testo": "La Commissione Affari Esteri della Camera lo ha reso noto giovedì.",
+   "fonti": [
+    "https://www.koreajoongangdaily.com/world/us-signed-off-on-sales-of-nearly-900000-ai-chips-to-china-in-six-months-house-committee-says/12982240"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s33"
+   }
+  },
+  {
+   "testo": "Il Dipartimento del Commercio ha approvato 879.000 spedizioni di chip per aziende cinesi, afferma la commissione.",
+   "fonti": [
+    "https://www.koreajoongangdaily.com/world/us-signed-off-on-sales-of-nearly-900000-ai-chips-to-china-in-six-months-house-committee-says/12982240"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s63"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 879000,
+    "decimali": 0,
+    "prefisso": "",
+    "unita": "SPEDIZIONI DI CHIP",
+    "sopra": "APPROVATE PER LA CINA IN 6 MESI"
+   }
+  },
+  {
+   "testo": "I chip erano processori Nvidia e AMD, approvati tra dicembre 2025 e maggio 2026.",
+   "fonti": [
+    "https://www.inquisitr.com/house-panel-chip-approvals-china/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s30"
+   }
+  },
+  {
+   "testo": "Le approvazioni includono 150.000 per Tencent, 75.000 per Alibaba, 43.000 per Baidu e 4.000 per BYD.",
+   "fonti": [
+    "https://www.koreajoongangdaily.com/world/us-signed-off-on-sales-of-nearly-900000-ai-chips-to-china-in-six-months-house-committee-says/12982240"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s32"
+   }
+  },
+  {
+   "testo": "La commissione ha osservato che tutte e quattro sono nell'elenco del Pentagono delle presunte aziende cinesi legate ai militari.",
+   "fonti": [
+    "https://www.koreajoongangdaily.com/world/us-signed-off-on-sales-of-nearly-900000-ai-chips-to-china-in-six-months-house-committee-says/12982240"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s65"
+   }
+  },
+  {
+   "testo": "Un portavoce ha dichiarato: 'Nonostante abbiamo ricevuto alcune licenze, da allora abbiamo smesso di spedire gli H200 in Cina.'",
+   "fonti": [
+    "https://www.koreajoongangdaily.com/world/us-signed-off-on-sales-of-nearly-900000-ai-chips-to-china-in-six-months-house-committee-says/12982240"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s50"
+   }
+  },
+  {
+   "testo": "Intanto il consiglio di Nvidia ha avviato la ricerca di un CEO permanente.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/12/nvidia-jensen-huang-ceo-live-updates.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s59"
+   }
+  },
+  {
+   "testo": "Il consiglio dice che valuterà candidati interni ed esterni.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/12/nvidia-jensen-huang-ceo-live-updates.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s17"
+   }
+  },
+  {
+   "testo": "Quindi è stato breve? Trump dice di sì.",
+   "fonti": [
+    "https://www.investing.com/news/stock-market-news/trump-says-he-referred-to-exnvidia-boss-huangs-situation-briefly-in-talk-with-xi-5037541"
+   ],
+   "visivo": {
+    "tipo": "frase",
+    "testo": "Quindi è stato breve? Trump dice di sì."
+   }
+  },
+  {
+   "testo": "L'uomo che ha guidato Nvidia per 33 anni ora affronta tre fronti di controllo.",
+   "fonti": [
+    "https://www.thestar.com.my/aseanplus/aseanplus-news/2026/11/19/jensen-huang-agrees-to-face-congress-over-nvidia-scandal"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s67"
+   }
+  },
+  {
+   "testo": "La citazione della California. Il Congresso il primo dicembre. E le approvazioni dei chip rese note da una commissione della Camera.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/19/nvidia-california-bonta-subpoena-china-chips.html",
+    "https://www.thestar.com.my/aseanplus/aseanplus-news/2026/11/19/jensen-huang-agrees-to-face-congress-over-nvidia-scandal"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s55"
+   }
+  },
+  {
+   "testo": "Huang ha ammesso, in un messaggio interno ai dipendenti, di essere stato infedele a sua moglie. Gli investigatori non hanno annunciato conclusioni.",
+   "fonti": [
+    "https://www.dailywire.com/news/the-chip-bosss-bedroom-scandal-just-got-a-date-on-capitol-hill"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s68"
+   }
+  }
+ ],
+ "copertina": {
+  "sfondo": "Dramatic dark Nvidia headquarters at night with green glow and storm clouds, empty of people",
+  "personaggi": [
+   "huang",
+   "trump"
+  ],
+  "pose": {
+   "huang": "teso",
+   "trump": "deciso"
+  },
+  "personaggio": "huang",
+  "posa": "teso",
+  "lato": "dx",
+  "righe": [
+   "'BREVEMENTE'",
+   "HA DETTO TRUMP"
+  ],
+  "box": "3 OROLOGI IN CORSA",
+  "evidenzia": 1
+ },
+ "verifica": {
+  "correzioni": 73,
+  "scene_tolte": 36
+ },
+ "coerenza": {
+  "scene_rifatte": 16,
+  "controllate": 56
+ },
+ "lingua": "it",
+ "nome": "2026-11-20_trump_says_he_mentioned_huang_s_situatio_it",
+ "data": "20 NOVEMBRE 2026",
+ "etichetta": "ULTIM'ORA",
+ "musica": "tensione",
+ "voce": "glnsgBC77wt5zOYU0szz",
+ "budget_dollari": 0.6,
+ "storia": "Trump says he mentioned Huang's situation 'briefly' with Xi",
+ "filone": "tech",
+ "materiali_da": "2026-11-20_trump_says_he_mentioned_huang_s_situatio_en"
+}
