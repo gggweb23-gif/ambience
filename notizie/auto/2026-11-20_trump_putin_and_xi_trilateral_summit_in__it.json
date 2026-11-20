@@ -1,0 +1,1480 @@
+{
+ "titolo": "Trump chiama Putin \"amico mio\". Poche ore dopo, telefona all'Europa",
+ "angolo": "The 24 hours after the Shenzhen handshake: the warm greeting, the empty declaration, and the angry call to Berlin that left allies and Republicans asking what Trump really got.",
+ "descrizione": "Trump chiama Putin \"amico mio\". Poche ore dopo, telefona all'Europa. Dopo il primo vertice in assoluto Trump-Putin-Xi a Shenzhen, una dichiarazione in quattro punti ha ignorato Ucraina e Iran, repubblicani e leader europei hanno reagito con durezza, e Politico ha riferito che Trump, in una telefonata da Air Force One, ha messo in dubbio gli aiuti europei all'Ucraina. Un funzionario Usa ha dichiarato a Politico che questa versione non è accurata. Separiamo ciò che è confermato da ciò che è solo riportato.",
+ "tag": [
+  "Trump chiama Putin \"amico mio\". Poche ore dopo, telefona all'Europa",
+  "vertice Trump Putin Xi",
+  "vertice Shenzhen",
+  "dichiarazione di pace",
+  "Trump Putin amico mio",
+  "aiuti Ucraina Europa",
+  "coalizione dei volenterosi",
+  "Merz photo op",
+  "New START",
+  "rischio nucleare",
+  "Zelensky",
+  "reazioni repubblicani Trump Putin",
+  "notizie dal mondo",
+  "geopolitica",
+  "guerra in Ucraina"
+ ],
+ "fonti_link": [
+  "https://finance.yahoo.com/news/trumps-historic-meeting-xi-putin-230405871.html",
+  "https://www.yahoo.com/news/politics/articles/trump-xi-putin-issue-4-123140450.html",
+  "https://www.aljazeera.com/news/2026/11/19/groundbreaking-trump-xi-putin-summit-five-key-takeaways",
+  "https://www.yahoo.com/news/politics/articles/trump-greeting-putin-summit-spurs-193209876.html",
+  "https://abcnews.com/International/china-summit-trump-calls-putin-friend-amid-ukraine/story?id=138282642",
+  "https://www.nbcnews.com/politics/trump-administration/live-blog/trump-xi-putin-nuclear-ukraine-congress-2026-live-updates-rcna610150",
+  "https://uk.news.yahoo.com/trump-tells-europe-defund-ukraine-180050035.html",
+  "https://news.liga.net/en/all/news/politico-after-meeting-putin-and-xi-trump-criticised-partners-for-aiding-ukraine",
+  "https://united24media.com/war-in-ukraine/hours-after-meeting-putin-trump-presses-europe-over-military-aid-to-ukraine-24541",
+  "https://www.yahoo.com/news/politics/articles/trump-tells-europe-defund-ukraine-202441862.html",
+  "https://www.kyivpost.com/post/90605",
+  "https://www.abc.net.au/news/2026-11-20/key-takeaways-from-trump-xi-putin-meeting/107407564",
+  "https://www.eurasiareview.com/20112026-trump-xi-putin-wrap-up-historic-summit-with-nuclear-arms-control-on-agenda/",
+  "https://decode39.com/17428/after-shenzhen-the-challenge-of-nuclear-stability-in-a-tripolar-world/",
+  "https://www.eurasiareview.com/20112026-trump-xi-and-putin-make-history-but-no-breakthroughs-4-takeaways-from-the-trilateral-summit-analysis/",
+  "https://www.dailysabah.com/world/europe/merz-calls-trump-putin-xi-summit-photo-op-dismisses-yalta-format",
+  "https://www.yahoo.com/news/world/articles/burnham-europe-strong-organized-ready-194832283.html",
+  "https://www.semafor.com/article/11/18/2026/republicans-warily-eye-trumps-meeting-with-putin-xi",
+  "https://theconversation.com/xi-putin-trump-summit-was-heavy-on-symbolism-light-on-substance-and-not-exactly-a-yalta-ii-297087",
+  "https://sundayguardianlive.com/world/trump-xi-and-putin-apec-summit-key-takeaways-from-historic-shenzhen-trilateral-as-four-point-peace-declaration-omits-ukraine-and-iran-324770/",
+  "https://cnn.com/2026/11/17/politics/live-news/trump-visit-china-philippines"
+ ],
+ "personaggi": {
+  "trump": {
+   "commons": "Donald Trump",
+   "chi": "Donald Trump, presidente degli Stati Uniti",
+   "pose": {
+    "deciso": {
+     "posa": "standing firm, chin up, confident stare, arms at sides"
+    }
+   }
+  },
+  "putin": {
+   "commons": "Vladimir Putin",
+   "chi": "Vladimir Putin, presidente della Russia",
+   "pose": {
+    "serio": {
+     "posa": "standing straight, stern neutral expression, hands clasped"
+    }
+   }
+  },
+  "zelensky": {
+   "commons": "Volodymyr Zelenskyy",
+   "chi": "Volodymyr Zelensky, presidente dell'Ucraina",
+   "pose": {
+    "parla": {
+     "posa": "speaking, one hand raised, serious"
+    },
+    "serio": {
+     "posa": "standing, arms crossed, grim look"
+    }
+   }
+  },
+  "peskov": {
+   "commons": "Dmitry Peskov",
+   "chi": "Dmitry Peskov, portavoce del Cremlino",
+   "pose": {
+    "calmo": {
+     "posa": "standing calm, hands folded, neutral"
+    }
+   }
+  },
+  "xi": {
+   "commons": "Xi Jinping",
+   "chi": "Xi Jinping, presidente della Cina",
+   "pose": {
+    "calmo": {
+     "posa": "standing calm, slight smile, hands at sides"
+    }
+   }
+  },
+  "merz": {
+   "commons": "Friedrich Merz",
+   "chi": "Friedrich Merz, cancelliere della Germania",
+   "pose": {
+    "serio": {
+     "posa": "standing at a podium stance, stern, one hand gesturing"
+    }
+   }
+  },
+  "schumer": {
+   "commons": "Chuck Schumer",
+   "chi": "Chuck Schumer, leader dei democratici al Senato",
+   "pose": {
+    "parla": {
+     "posa": "speaking, finger raised, indignant"
+    }
+   }
+  }
+ },
+ "sets": {
+  "s01": {
+   "descr": "Long empty conference table in a luxurious Chinese villa hall, three chairs side by side, soft golden afternoon light, tall windows",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s02": {
+   "descr": "Close view of a hand reaching toward another across a polished table, shallow depth, warm light, villa interior",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "trump",
+     "posa": "deciso",
+     "lato": "sx"
+    },
+    {
+     "chi": "putin",
+     "posa": "serio",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s03": {
+   "descr": "Marble villa foyer with red carpet and tall potted plants, camera flashes glowing from afar, evening",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s04": {
+   "descr": "Interior of Air Force One conference cabin, leather seats, a phone on the table, night glow from the windows",
+   "luogo": "AIR FORCE ONE",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "trump",
+     "posa": "deciso",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s05": {
+   "descr": "Berlin Chancellery meeting room with round table, a speakerphone in the center, grey daylight",
+   "luogo": "BERLINO, GERMANIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s06": {
+   "descr": "Shenzhen skyline at dusk with glass towers and the harbor, orange sky",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s07": {
+   "descr": "Empty Chinese villa garden with stone path and pavilion, soft morning mist",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s08": {
+   "descr": "Three identical chairs under a chandelier in a grand hall, polished floor reflecting light",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s09": {
+   "descr": "Press room with empty rows of seats and cameras on tripods facing an empty podium",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s10": {
+   "descr": "Empty villa hallway with red carpet and rows of camera tripods, bright flashing light at the far end, evening",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "trump",
+     "posa": "deciso",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s11": {
+   "descr": "Ornate villa hallway with tall doors and red carpet, empty, light spilling from an open door at the far end",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "putin",
+     "posa": "serio",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s12": {
+   "descr": "Washington Capitol dome at dawn, long shadows, cold blue light",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s13": {
+   "descr": "US Senate chamber empty, desks in rows, light from high windows",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "schumer",
+     "posa": "parla",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s14": {
+   "descr": "Capitol Hill corridor with marble columns and a bank of empty microphones on stands",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s15": {
+   "descr": "Oil pumpjacks and storage tanks in a desert oil field at sunset, pipelines stretching to the horizon, tanker trucks parked, no people",
+   "luogo": "ARABIA SAUDITA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s16": {
+   "descr": "Empty United Nations Security Council chamber, horseshoe table, blue walls",
+   "luogo": "NEW YORK, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s17": {
+   "descr": "The International Criminal Court building in The Hague, modern glass and steel, overcast sky",
+   "luogo": "L'AIA, PAESI BASSI",
+   "effetto": "none",
+   "cast": []
+  },
+  "s18": {
+   "descr": "Silent missile silo with open hatch, steel and concrete, cold light",
+   "luogo": "SILO NUCLEARE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s19": {
+   "descr": "Dark Kyiv street at night with lit apartment windows, light snow",
+   "luogo": "KIEV, UCRAINA",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s20": {
+   "descr": "Iranian coastline at dawn with a lone oil tanker on the Gulf",
+   "luogo": "GOLFO PERSICO",
+   "effetto": "none",
+   "cast": []
+  },
+  "s21": {
+   "descr": "Kremlin office with long desk, tall windows, gold clock, dim light",
+   "luogo": "MOSCA, RUSSIA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "peskov",
+     "posa": "calmo",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s22": {
+   "descr": "Berlin hotel corridor with tall windows, a luggage cart and a closed door at the end, grey light, no people",
+   "luogo": "BERLINO, GERMANIA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "zelensky",
+     "posa": "serio",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s23": {
+   "descr": "Brandenburg Gate at twilight, wet pavement reflecting lights",
+   "luogo": "BERLINO, GERMANIA",
+   "effetto": "pioggia",
+   "cast": []
+  },
+  "s24": {
+   "descr": "German Chancellery exterior, glass and concrete, evening",
+   "luogo": "BERLINO, GERMANIA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "merz",
+     "posa": "serio",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s25": {
+   "descr": "Fragment of the Berlin Wall displayed on a velvet cushion on a table, soft light",
+   "luogo": "BERLINO, GERMANIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s26": {
+   "descr": "Cockpit window of a jet over night clouds, glowing instruments",
+   "luogo": "AIR FORCE ONE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s27": {
+   "descr": "Sleek airplane aisle with a single phone lit on a seat, dim cabin",
+   "luogo": "AIR FORCE ONE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s28": {
+   "descr": "Rows of artillery shells on pallets in a European ammunition depot with cranes and trucks, cold daylight, no people",
+   "luogo": "EUROPA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s29": {
+   "descr": "White House West Wing exterior at night, lit windows",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s30": {
+   "descr": "Oval Office with desk and flags without emblems, afternoon sun",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "trump",
+     "posa": "deciso",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s31": {
+   "descr": "Frozen trench on the Ukrainian front line, snow, barbed wire at dawn",
+   "luogo": "UCRAINA ORIENTALE",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s32": {
+   "descr": "Ukrainian military command post in a Kyiv bunker with maps on tables and empty chairs, dim lamp",
+   "luogo": "KIEV, UCRAINA",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s33": {
+   "descr": "Empty Oval Office-style meeting room with two armchairs facing each other and a calendar-less desk, afternoon light through windows, no people",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s34": {
+   "descr": "Doral golf resort clubhouse at sunset, palm trees, glass ballroom",
+   "luogo": "MIAMI, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s35": {
+   "descr": "Dim Kremlin corridor with red carpet and gold doors",
+   "luogo": "MOSCA, RUSSIA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "putin",
+     "posa": "serio",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s36": {
+   "descr": "Beijing Great Hall of the People exterior, wide steps, hazy sun",
+   "luogo": "PECHINO, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s37": {
+   "descr": "Xi in a quiet red-and-gold hall, calm, reflecting light",
+   "luogo": "PECHINO, CINA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "xi",
+     "posa": "calmo",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s38": {
+   "descr": "Warehouse of computer chips on racks with blue light, cold atmosphere",
+   "luogo": "SUDEST ASIATICO",
+   "effetto": "none",
+   "cast": []
+  },
+  "s39": {
+   "descr": "Capitol steps in rain, empty microphones in a row",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "pioggia",
+   "cast": []
+  },
+  "s40": {
+   "descr": "Close view of a telephone handset on a conference table, light from window",
+   "luogo": "BERLINO, GERMANIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s41": {
+   "descr": "Warsaw Presidential skyline at dusk, red rooftops",
+   "luogo": "VARSAVIA, POLONIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s42": {
+   "descr": "London Downing Street door, grey day, wet pavement",
+   "luogo": "LONDRA, REGNO UNITO",
+   "effetto": "pioggia",
+   "cast": []
+  },
+  "s43": {
+   "descr": "Fast attack patrol boats docked at a naval pier, grey sea",
+   "luogo": "BASE NAVALE BRITANNICA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s44": {
+   "descr": "Statesmen's long table at Yalta palace, empty chairs, old stone hall, sepia light",
+   "luogo": "YALTA, CRIMEA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s45": {
+   "descr": "Giant world map room with strategy table, no text, dim blue",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s46": {
+   "descr": "Vienna-style negotiating hall with empty table and name stands blank",
+   "luogo": "GINEVRA, SVIZZERA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s47": {
+   "descr": "Nuclear missile storage hall with rows of intercontinental ballistic missiles in a silo complex, steel gantries, cold lighting, no people",
+   "luogo": "BASE NUCLEARE, RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s48": {
+   "descr": "Stage of a big press conference in Shenzhen, three blue chairs, spotlights",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s49": {
+   "descr": "Politician's silhouette-free podium with US seal blank in a briefing room",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s50": {
+   "descr": "Aerial view of Boeing 747 style Air Force One parked on an airport apron at night, stairs attached, runway lights glowing, no people",
+   "luogo": "AIR FORCE ONE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s51": {
+   "descr": "Large Russian Foreign Ministry style hall with two separate closed doors, one to a large conference room with a long table and one to a small private office with two armchairs, empty, evening light",
+   "luogo": "MOSCA, RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s52": {
+   "descr": "Empty Senate hearing room with rows of desks, leather chair at the head, window light on the dais, no people",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "trump",
+     "posa": "deciso",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s53": {
+   "descr": "Dark empty corridor in the Kremlin, one door ajar with light",
+   "luogo": "MOSCA, RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s54": {
+   "descr": "Snow falling over a Kyiv cathedral with golden domes at dawn",
+   "luogo": "KIEV, UCRAINA",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s55": {
+   "descr": "Lone lamp on an empty desk in a Kyiv government office, night",
+   "luogo": "KIEV, UCRAINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s56": {
+   "descr": "Aerial view of Iranian Persian Gulf oil terminal at Kharg Island with tankers moored, hazy sunset, no people",
+   "luogo": "ISOLA DI KHARG, IRAN",
+   "effetto": "none",
+   "cast": []
+  },
+  "s57": {
+   "descr": "Empty Ukrainian government conference room in Kyiv with a long table, flags without writing, morning light through windows, papers stacked neatly",
+   "luogo": "KIEV, UCRAINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s58": {
+   "descr": "Camera tripod facing a closed door, flash light spilling",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s59": {
+   "descr": "Close view of a blank multi-page declaration lying on a polished table between three empty armchairs in a Chinese state guesthouse hall, three pens beside it, window light, no readable text",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s60": {
+   "descr": "Empty rows of seats in a Chinese convention hall with a stage backdrop in neutral blue, three armchairs on stage lit by spotlights, cameras on tripods in the foreground, no text",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s61": {
+   "descr": "Frozen Dnipro river bridge in Kyiv at dusk, lights reflecting on ice",
+   "luogo": "KIEV, UCRAINA",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s62": {
+   "descr": "Rows of empty plenary seats in a European parliament hemicycle, blue light",
+   "luogo": "BRUXELLES, BELGIO",
+   "effetto": "none",
+   "cast": []
+  },
+  "s63": {
+   "descr": "Trump in a plane cabin looking at his phone, night window behind",
+   "luogo": "AIR FORCE ONE",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "trump",
+     "posa": "deciso",
+     "lato": "sx"
+    },
+    {
+     "chi": "zelensky",
+     "posa": "parla",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s64": {
+   "descr": "Wide empty negotiation hall in a Chinese state guesthouse: long polished table with three leather armchairs facing each other, blank document folders squared at each seat, tall windows with sheer curtains, soft overcast light, no people, no text",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s65": {
+   "descr": "Gulf sunrise over a naval ship's deck, calm sea",
+   "luogo": "GOLFO PERSICO",
+   "effetto": "none",
+   "cast": []
+  },
+  "s66": {
+   "descr": "Empty harbor pier in Shenzhen at night, reflections on water",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s67": {
+   "descr": "Empty Russian nuclear missile launch site with mobile ICBM launchers parked in snowy forest, overcast dawn",
+   "luogo": "RUSSIA",
+   "effetto": "none",
+   "cast": []
+  }
+ },
+ "scene": [
+  {
+   "testo": "Un saluto. Poi una telefonata. Poi la tempesta.",
+   "fonti": [
+    "https://uk.news.yahoo.com/trump-tells-europe-defund-ukraine-180050035.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s01"
+   }
+  },
+  {
+   "testo": "Trump indica Putin. Ride. Dice: \"È mio amico.\"",
+   "fonti": [
+    "https://www.yahoo.com/news/politics/articles/trump-greeting-putin-summit-spurs-193209876.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s02"
+   },
+   "citazione": {
+    "chi": "trump",
+    "posa": "deciso",
+    "testo": "È mio amico."
+   }
+  },
+  {
+   "testo": "Poche ore dopo, l'Europa era in linea.",
+   "fonti": [
+    "https://united24media.com/war-in-ukraine/hours-after-meeting-putin-trump-presses-europe-over-military-aid-to-ukraine-24541"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s04"
+   }
+  },
+  {
+   "testo": "Che cosa avrebbe detto Trump a Berlino da Air Force One?",
+   "fonti": [
+    "https://news.liga.net/en/all/news/politico-after-meeting-putin-and-xi-trump-criticised-partners-for-aiding-ukraine"
+   ],
+   "capitolo": "LA CHIAMATA A BERLINO",
+   "titolo_card": true,
+   "visivo": {
+    "tipo": "set",
+    "set": "s05"
+   }
+  },
+  {
+   "testo": "E il vertice valeva davvero la bufera che ha scatenato?",
+   "fonti": [
+    "https://finance.yahoo.com/news/trumps-historic-meeting-xi-putin-230405871.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s06"
+   }
+  },
+  {
+   "testo": "L'incontro è durato circa novanta minuti, secondo ABC News. Secondo NPR, i colloqui tra Trump e Putin sono durati 42 minuti.",
+   "fonti": [
+    "https://www.abc.net.au/news/2026-11-20/key-takeaways-from-trump-xi-putin-meeting/107407564"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s07"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 90,
+    "decimali": 0,
+    "prefisso": "",
+    "unita": "MINUTI",
+    "sopra": "IL PRIMO TRILATERALE"
+   }
+  },
+  {
+   "testo": "Shenzhen, Cina. 19 novembre 2026.",
+   "fonti": [
+    "https://www.yahoo.com/news/politics/articles/trump-xi-putin-issue-4-123140450.html"
+   ],
+   "visivo": {
+    "tipo": "mappa",
+    "centro": [
+     114.06,
+     22.54
+    ],
+    "larghezza": 20,
+    "paesi": [
+     {
+      "iso": "CHN",
+      "colore": "rosso"
+     },
+     {
+      "iso": "USA",
+      "colore": "blu"
+     },
+     {
+      "iso": "RUS",
+      "colore": "viola"
+     }
+    ],
+    "punti": [
+     {
+      "lon": 114.06,
+      "lat": 22.54,
+      "nome": "SHENZHEN"
+     }
+    ],
+    "zoom_su": [
+     114.06,
+     22.54
+    ]
+   }
+  },
+  {
+   "testo": "I leader delle tre maggiori potenze nucleari del mondo. In una stanza.",
+   "fonti": [
+    "https://www.scmp.com/news/china/diplomacy/article/3374977/world-leaders-gather-talk-trade-and-investment-apec-chinas-tech-hub-shenzhen"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s08"
+   }
+  },
+  {
+   "testo": "Trump ha detto a Xi e Putin all'inizio dell'incontro: \"Stiamo davvero facendo la storia.\"",
+   "fonti": [
+    "https://finance.yahoo.com/news/trumps-historic-meeting-xi-putin-230405871.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s09"
+   },
+   "citazione": {
+    "chi": "trump",
+    "posa": "deciso",
+    "testo": "Stiamo davvero facendo la storia."
+   }
+  },
+  {
+   "testo": "Il video del saluto si è diffuso rapidamente e i critici lo hanno condannato sui social.",
+   "fonti": [
+    "https://www.yahoo.com/news/politics/articles/trump-greeting-putin-summit-spurs-193209876.html"
+   ],
+   "capitolo": "IL SALUTO",
+   "visivo": {
+    "tipo": "set",
+    "set": "s10"
+   }
+  },
+  {
+   "testo": "Trump ha indicato Putin, ha riso e lo ha definito un amico.",
+   "fonti": [
+    "https://www.yahoo.com/news/politics/articles/trump-greeting-putin-summit-spurs-193209876.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s11"
+   }
+  },
+  {
+   "testo": "Ha aggiunto: \"Abbiamo un ottimo rapporto da molti anni.\"",
+   "fonti": [
+    "https://www.yahoo.com/news/politics/articles/trump-greeting-putin-summit-spurs-193209876.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s03"
+   }
+  },
+  {
+   "testo": "ABC News ha osservato che Putin cerca da anni questo tipo di riconoscimento.",
+   "fonti": [
+    "https://abcnews.com/International/china-summit-trump-calls-putin-friend-amid-ukraine/story?id=138282642"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s48"
+   }
+  },
+  {
+   "testo": "L'analista Jonathan Eyal del RUSI ha detto che Putin ha \"guadagnato credibilità e uscita dallo status di paria\".",
+   "fonti": [
+    "https://finance.yahoo.com/news/trumps-historic-meeting-xi-putin-230405871.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s35"
+   }
+  },
+  {
+   "testo": "Eyal ha detto che Trump ha \"ottenuto un'occasione fotografica di cui non aveva bisogno\".",
+   "fonti": [
+    "https://finance.yahoo.com/news/trumps-historic-meeting-xi-putin-230405871.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s30"
+   }
+  },
+  {
+   "testo": "A Washington, la reazione è stata immediata.",
+   "fonti": [
+    "https://www.nbcnews.com/politics/trump-administration/live-blog/trump-xi-putin-nuclear-ukraine-congress-2026-live-updates-rcna610150"
+   ],
+   "capitolo": "LA REAZIONE DI WASHINGTON",
+   "visivo": {
+    "tipo": "set",
+    "set": "s12"
+   }
+  },
+  {
+   "testo": "Il senatore Mark Kelly ha detto che il vertice rende Putin più audace.",
+   "fonti": [
+    "https://www.nbcnews.com/politics/trump-administration/live-blog/trump-xi-putin-nuclear-ukraine-congress-2026-live-updates-rcna610150"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s14"
+   }
+  },
+  {
+   "testo": "Chuck Schumer ha attaccato il comportamento di Trump al vertice.",
+   "fonti": [
+    "https://www.nbcnews.com/politics/trump-administration/live-blog/trump-xi-putin-nuclear-ukraine-congress-2026-live-updates-rcna610150"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s13"
+   }
+  },
+  {
+   "testo": "Ma i repubblicani non hanno parlato con una sola voce.",
+   "fonti": [
+    "https://www.semafor.com/article/11/18/2026/republicans-warily-eye-trumps-meeting-with-putin-xi"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s39"
+   }
+  },
+  {
+   "testo": "Il senatore Rick Scott ha definito Putin un criminale.",
+   "fonti": [
+    "https://www.nbcnews.com/politics/trump-administration/live-blog/trump-xi-putin-nuclear-ukraine-congress-2026-live-updates-rcna610150"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s49"
+   }
+  },
+  {
+   "testo": "Ma ha aggiunto di capire che Trump sta cercando di porre fine alla guerra.",
+   "fonti": [
+    "https://www.nbcnews.com/politics/trump-administration/live-blog/trump-xi-putin-nuclear-ukraine-congress-2026-live-updates-rcna610150"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s29"
+   }
+  },
+  {
+   "testo": "Prima del vertice, il senatore Thom Tillis aveva detto a Semafor che avrebbe preferito vedere un vertice NATO.",
+   "fonti": [
+    "https://www.semafor.com/article/11/18/2026/republicans-warily-eye-trumps-meeting-with-putin-xi"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s52"
+   }
+  },
+  {
+   "testo": "Il senatore Cornyn ha detto di sperare che Trump non concedesse troppo.",
+   "fonti": [
+    "https://www.semafor.com/article/11/18/2026/republicans-warily-eye-trumps-meeting-with-putin-xi"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s59"
+   }
+  },
+  {
+   "testo": "Il senatore Steve Daines, al contrario, ha elogiato l'incontro definendolo storico.",
+   "fonti": [
+    "https://www.semafor.com/article/11/18/2026/republicans-warily-eye-trumps-meeting-with-putin-xi"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s60"
+   }
+  },
+  {
+   "testo": "Veniamo ora al documento uscito da quella stanza.",
+   "fonti": [
+    "https://www.yahoo.com/news/politics/articles/trump-xi-putin-issue-4-123140450.html"
+   ],
+   "capitolo": "QUATTRO PUNTI, ZERO GUERRA",
+   "visivo": {
+    "tipo": "set",
+    "set": "s64"
+   }
+  },
+  {
+   "testo": "I leader hanno emesso una dichiarazione di pace in quattro punti.",
+   "fonti": [
+    "https://www.yahoo.com/news/politics/articles/trump-xi-putin-issue-4-123140450.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s59"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 4,
+    "decimali": 0,
+    "prefisso": "",
+    "unita": "PUNTI",
+    "sopra": "LA DICHIARAZIONE DI PACE"
+   }
+  },
+  {
+   "testo": "Primo punto: la riforma delle Nazioni Unite.",
+   "fonti": [
+    "https://www.yahoo.com/news/politics/articles/trump-xi-putin-issue-4-123140450.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s16"
+   }
+  },
+  {
+   "testo": "Secondo punto: più produzione e offerta di petrolio.",
+   "fonti": [
+    "https://www.yahoo.com/news/politics/articles/trump-xi-putin-issue-4-123140450.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s15"
+   }
+  },
+  {
+   "testo": "Terzo punto: la Corte penale internazionale non deve abusare della propria giurisdizione.",
+   "fonti": [
+    "https://www.yahoo.com/news/politics/articles/trump-xi-putin-issue-4-123140450.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s17"
+   }
+  },
+  {
+   "testo": "Quarto punto: una guerra nucleare non deve mai essere combattuta.",
+   "fonti": [
+    "https://www.yahoo.com/news/politics/articles/trump-xi-putin-issue-4-123140450.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s18"
+   }
+  },
+  {
+   "testo": "Notate che cosa manca.",
+   "fonti": [
+    "https://www.kyivpost.com/post/90605"
+   ],
+   "visivo": {
+    "tipo": "frase",
+    "testo": "Notate che cosa manca."
+   }
+  },
+  {
+   "testo": "Nessun riferimento all'Ucraina nella dichiarazione. Nessun riferimento all'Iran, secondo l'AFP.",
+   "fonti": [
+    "https://www.sundayguardianlive.com/world/trump-xi-and-putin-apec-summit-key-takeaways-from-historic-shenzhen-trilateral-as-four-point-peace-declaration-omits-ukraine-and-iran-324770/",
+    "https://www.kyivpost.com/post/90605"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s19"
+   }
+  },
+  {
+   "testo": "La Casa Bianca aveva detto all'inizio che dell'Ucraina non si sarebbe discusso, secondo il Kyiv Post.",
+   "fonti": [
+    "https://www.kyivpost.com/post/90605"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s55"
+   }
+  },
+  {
+   "testo": "Aveva indicato come priorità la riduzione degli arsenali nucleari e la guerra in Iran.",
+   "fonti": [
+    "https://www.kyivpost.com/post/90605"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s56"
+   }
+  },
+  {
+   "testo": "Poi Trump ha detto di voler sollevare la questione ucraina con entrambi i leader.",
+   "fonti": [
+    "https://www.kyivpost.com/post/90605"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s52"
+   }
+  },
+  {
+   "testo": "Il portavoce del Cremlino Peskov ha detto che l'Ucraina non era il tema centrale del trilaterale.",
+   "fonti": [
+    "https://uk.news.yahoo.com/trump-tells-europe-defund-ukraine-180050035.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s21"
+   }
+  },
+  {
+   "testo": "Eppure il consigliere di Putin Yuri Ushakov ha definito l'Ucraina il tema principale dei colloqui Trump-Putin.",
+   "fonti": [
+    "https://www.yahoo.com/news/politics/articles/trump-tells-europe-defund-ukraine-202441862.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s53"
+   }
+  },
+  {
+   "testo": "Le due dichiarazioni descrivono due incontri diversi: il trilaterale e il faccia a faccia.",
+   "fonti": [
+    "https://uk.news.yahoo.com/trump-tells-europe-defund-ukraine-180050035.html",
+    "https://www.yahoo.com/news/politics/articles/trump-tells-europe-defund-ukraine-202441862.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s51"
+   }
+  },
+  {
+   "testo": "Sull'Iran, l'AP non ha riscontrato alcun segnale che Trump abbia ottenuto aiuto da Xi o Putin.",
+   "fonti": [
+    "https://sundayguardianlive.com/world/trump-xi-and-putin-apec-summit-key-takeaways-from-historic-shenzhen-trilateral-as-four-point-peace-declaration-omits-ukraine-and-iran-324770/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s65"
+   }
+  },
+  {
+   "testo": "Veniamo al punto nucleare. È forte come sembra?",
+   "fonti": [
+    "https://www.eurasiareview.com/20112026-trump-xi-and-putin-make-history-but-no-breakthroughs-4-takeaways-from-the-trilateral-summit-analysis/"
+   ],
+   "capitolo": "IL VUOTO NUCLEARE",
+   "visivo": {
+    "tipo": "set",
+    "set": "s47"
+   }
+  },
+  {
+   "testo": "La dichiarazione afferma che i leader concordano sul fatto che una guerra nucleare \"non deve mai essere combattuta\".",
+   "fonti": [
+    "https://www.eurasiareview.com/20112026-trump-xi-and-putin-make-history-but-no-breakthroughs-4-takeaways-from-the-trilateral-summit-analysis/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s67"
+   }
+  },
+  {
+   "testo": "Analisti ed esperti di controllo degli armamenti dicono che la dichiarazione offre retorica ma nessun piano di controllo degli armamenti.",
+   "fonti": [
+    "https://www.eurasiareview.com/20112026-trump-xi-and-putin-make-history-but-no-breakthroughs-4-takeaways-from-the-trilateral-summit-analysis/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s33"
+   }
+  },
+  {
+   "testo": "Torniamo ora alla telefonata che ha cambiato il clima.",
+   "fonti": [
+    "https://united24media.com/war-in-ukraine/hours-after-meeting-putin-trump-presses-europe-over-military-aid-to-ukraine-24541"
+   ],
+   "capitolo": "COSA HA SENTITO BERLINO",
+   "visivo": {
+    "tipo": "set",
+    "set": "s26"
+   }
+  },
+  {
+   "testo": "Politico ha riferito che Trump si è collegato da Air Force One a una riunione della coalizione a Berlino.",
+   "fonti": [
+    "https://united24media.com/war-in-ukraine/hours-after-meeting-putin-trump-presses-europe-over-military-aid-to-ukraine-24541"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s27"
+   }
+  },
+  {
+   "testo": "Quattro funzionari europei hanno detto a Politico che Trump ha affermato che Putin era serio sui negoziati.",
+   "fonti": [
+    "https://united24media.com/war-in-ukraine/hours-after-meeting-putin-trump-presses-europe-over-military-aid-to-ukraine-24541"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s40"
+   }
+  },
+  {
+   "testo": "Politico ha riferito anche, citando tre sue fonti, che Trump ha messo in dubbio se l'Europa debba continuare a spendere miliardi per l'esercito ucraino.",
+   "fonti": [
+    "https://news.liga.net/en/all/news/politico-after-meeting-putin-and-xi-trump-criticised-partners-for-aiding-ukraine"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s28"
+   }
+  },
+  {
+   "testo": "Il Telegraph ha riferito che ha sottolineato come i Paesi potrebbero risparmiare se la guerra finisse.",
+   "fonti": [
+    "https://uk.news.yahoo.com/trump-tells-europe-defund-ukraine-180050035.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s50"
+   }
+  },
+  {
+   "testo": "Ma la versione della Casa Bianca è diversa.",
+   "fonti": [
+    "https://uk.news.yahoo.com/trump-tells-europe-defund-ukraine-180050035.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s29"
+   }
+  },
+  {
+   "testo": "Un funzionario Usa, anonimo, ha detto a Politico che non è accurato che abbia detto ai leader di interrompere i finanziamenti.",
+   "fonti": [
+    "https://uk.news.yahoo.com/trump-tells-europe-defund-ukraine-180050035.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s30"
+   }
+  },
+  {
+   "testo": "Il funzionario ha detto che ha ribadito il desiderio di porre fine al conflitto.",
+   "fonti": [
+    "https://uk.news.yahoo.com/trump-tells-europe-defund-ukraine-180050035.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s57"
+   }
+  },
+  {
+   "testo": "Jared Kushner ha detto a Berlino che Trump si era collegato alla riunione.",
+   "fonti": [
+    "https://www.yahoo.com/news/politics/articles/trump-tells-europe-defund-ukraine-202138863.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s24"
+   }
+  },
+  {
+   "testo": "A Berlino, il cancelliere Merz non ha usato mezzi termini sul vertice.",
+   "fonti": [
+    "https://www.dailysabah.com/world/europe/merz-calls-trump-putin-xi-summit-photo-op-dismisses-yalta-format"
+   ],
+   "capitolo": "LA RISPOSTA DELL'EUROPA",
+   "visivo": {
+    "tipo": "set",
+    "set": "s23"
+   }
+  },
+  {
+   "testo": "Lo ha definito un \"photo op\" e ha detto che \"un formato Yalta non può portare la pace\".",
+   "fonti": [
+    "https://www.yahoo.com/news/world/articles/burnham-europe-strong-organized-ready-194832283.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s24"
+   },
+   "citazione": {
+    "chi": "merz",
+    "posa": "serio",
+    "testo": "Un formato Yalta non può portare la pace"
+   }
+  },
+  {
+   "testo": "Ha detto che i colloqui possono avere successo solo con l'Ucraina e l'Europa.",
+   "fonti": [
+    "https://www.dailysabah.com/world/europe/merz-calls-trump-putin-xi-summit-photo-op-dismisses-yalta-format"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s05"
+   }
+  },
+  {
+   "testo": "Ma ha anche accolto con favore la mossa degli Usa di avviare nuovi colloqui con la Russia.",
+   "fonti": [
+    "https://www.dailysabah.com/world/europe/merz-calls-trump-putin-xi-summit-photo-op-dismisses-yalta-format"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s25"
+   }
+  },
+  {
+   "testo": "Merz ha regalato a ogni partecipante alla riunione un pezzo del Muro di Berlino.",
+   "fonti": [
+    "https://www.dailysabah.com/world/europe/merz-calls-trump-putin-xi-summit-photo-op-dismisses-yalta-format"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s25"
+   }
+  },
+  {
+   "testo": "Il primo ministro britannico Andy Burnham si è impegnato a stare al fianco dell'Ucraina \"per tutto il tempo necessario\".",
+   "fonti": [
+    "https://www.yahoo.com/news/world/articles/burnham-europe-strong-organized-ready-194832283.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s42"
+   }
+  },
+  {
+   "testo": "Prima della riunione, il Regno Unito ha annunciato di finanziare due motovedette d'attacco veloci per l'Ucraina; secondo il Kyiv Post, ci lavora con la Norvegia.",
+   "fonti": [
+    "https://www.yahoo.com/news/world/articles/burnham-europe-strong-organized-ready-194832283.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s43"
+   }
+  },
+  {
+   "testo": "Burnham ha detto che non spetta all'aggressore avanzare richieste di sicurezza ampie e irrealistiche.",
+   "fonti": [
+    "https://www.yahoo.com/news/politics/articles/trump-tells-europe-defund-ukraine-202138863.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s61"
+   }
+  },
+  {
+   "testo": "E Putin ha avuto un suo avvertimento per l'Europa.",
+   "fonti": [
+    "https://www.yahoo.com/news/politics/articles/trump-tells-europe-defund-ukraine-202138863.html"
+   ],
+   "capitolo": "IL MESSAGGIO DI PUTIN",
+   "visivo": {
+    "tipo": "set",
+    "set": "s35"
+   }
+  },
+  {
+   "testo": "In una conferenza stampa, Putin ha detto che qualsiasi cooperazione militare tra Europa e Ucraina è un problema per la Russia.",
+   "fonti": [
+    "https://www.yahoo.com/news/politics/articles/trump-tells-europe-defund-ukraine-202441862.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s53"
+   }
+  },
+  {
+   "testo": "Compreso, ha detto, qualsiasi dispiegamento di truppe in Ucraina.",
+   "fonti": [
+    "https://www.yahoo.com/news/politics/articles/trump-tells-europe-defund-ukraine-202441862.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s31"
+   }
+  },
+  {
+   "testo": "Putin ha detto che Ucraina ed Europa non sono ancora pronte a un compromesso, secondo ABC.",
+   "fonti": [
+    "https://www.abc.net.au/news/2026-11-20/key-takeaways-from-trump-xi-putin-meeting/107407564"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s32"
+   }
+  },
+  {
+   "testo": "ABC News ha scritto che l'incontro potrebbe aver rafforzato la convinzione di Putin che la guerra stia andando a suo favore.",
+   "fonti": [
+    "https://abcnews.com/International/china-summit-trump-calls-putin-friend-amid-ukraine/story?id=138282642"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s54"
+   }
+  },
+  {
+   "testo": "Putin ottiene la foto. Kiev ottiene domande.",
+   "fonti": [
+    "https://abcnews.com/International/china-summit-trump-calls-putin-friend-amid-ukraine/story?id=138282642",
+    "https://www.kyivpost.com/post/90605"
+   ],
+   "visivo": {
+    "tipo": "frase",
+    "testo": "Putin ottiene la foto. Kiev ottiene domande."
+   }
+  },
+  {
+   "testo": "E Zelensky? Era a Berlino mentre tutto questo accadeva.",
+   "fonti": [
+    "https://cnn.com/2026/11/17/politics/live-news/trump-visit-china-philippines"
+   ],
+   "capitolo": "LA RISPOSTA DI KIEV",
+   "visivo": {
+    "tipo": "set",
+    "set": "s22"
+   }
+  },
+  {
+   "testo": "Zelensky ha detto che le questioni che riguardano l'Ucraina vanno decise con il coinvolgimento dell'Ucraina.",
+   "fonti": [
+    "https://www.kyivpost.com/post/90605"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s55"
+   }
+  },
+  {
+   "testo": "Zelensky ha detto anche che sia gli Usa sia la Cina possono contribuire a fermare la guerra.",
+   "fonti": [
+    "https://cnn.com/2026/11/17/politics/live-news/trump-visit-china-philippines"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s19"
+   }
+  },
+  {
+   "testo": "Il Kyiv Post scrive che Mosca sperava di usare il vertice per discutere di accordi.",
+   "fonti": [
+    "https://www.kyivpost.com/post/90605"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s21"
+   }
+  },
+  {
+   "testo": "Ora contano due numeri: le date dei prossimi incontri.",
+   "fonti": [
+    "https://www.abc.net.au/news/2026-11-20/key-takeaways-from-trump-xi-putin-meeting/107407564"
+   ],
+   "capitolo": "COSA SUCCEDE ORA",
+   "visivo": {
+    "tipo": "set",
+    "set": "s34"
+   }
+  },
+  {
+   "testo": "Trump ha detto che lui e Putin si incontreranno di nuovo.",
+   "fonti": [
+    "https://www.yahoo.com/news/politics/articles/trump-greeting-putin-summit-spurs-193209876.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s33"
+   }
+  },
+  {
+   "testo": "I senatori repubblicani avevano già sollevato dubbi sull'invito a Putin al G20 di Miami a dicembre.",
+   "fonti": [
+    "https://thehill.com/homenews/senate/6110545-gop-senators-criticize-trump-xi-summit-iran-cooperation/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s34"
+   }
+  },
+  {
+   "testo": "Trump ha rifiutato di dire se incontrerà Zelensky, secondo la CNN.",
+   "fonti": [
+    "https://cnn.com/2026/11/17/politics/live-news/trump-visit-china-philippines"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s30"
+   }
+  },
+  {
+   "testo": "Reuters ha descritto il vertice come ricco di retorica ma povero di accordi concreti.",
+   "fonti": [
+    "https://finance.yahoo.com/news/trumps-historic-meeting-xi-putin-230405871.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s66"
+   }
+  },
+  {
+   "testo": "Due letture di un solo vertice: storia fatta, o storia messa in scena.",
+   "fonti": [
+    "https://finance.yahoo.com/news/trumps-historic-meeting-xi-putin-230405871.html",
+    "https://theconversation.com/xi-putin-trump-summit-was-heavy-on-symbolism-light-on-substance-and-not-exactly-a-yalta-ii-297087"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s67"
+   }
+  },
+  {
+   "testo": "La vicenda è ancora in evoluzione. Seguiteci per gli aggiornamenti.",
+   "fonti": [
+    "https://www.abc.net.au/news/2026-11-20/key-takeaways-from-trump-xi-putin-meeting/107407564"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s50"
+   }
+  }
+ ],
+ "copertina": {
+  "sfondo": "Dramatic dusk over a Shenzhen villa with a long red carpet, red and blue lights, empty",
+  "personaggi": [
+   "trump",
+   "putin"
+  ],
+  "pose": {
+   "trump": "deciso",
+   "putin": "serio"
+  },
+  "personaggio": "trump",
+  "posa": "deciso",
+  "lato": "sx",
+  "righe": [
+   "\"AMICO MIO\"",
+   "POI BERLINO"
+  ],
+  "box": "12 SU 10?",
+  "evidenzia": 1
+ },
+ "verifica": {
+  "correzioni": 45,
+  "scene_tolte": 14
+ },
+ "coerenza": {
+  "scene_rifatte": 18,
+  "controllate": 73
+ },
+ "lingua": "it",
+ "nome": "2026-11-20_trump_putin_and_xi_trilateral_summit_in__it",
+ "data": "20 NOVEMBRE 2026",
+ "etichetta": "ULTIM'ORA",
+ "musica": "tensione",
+ "voce": "glnsgBC77wt5zOYU0szz",
+ "budget_dollari": 0.6,
+ "storia": "Trump, Putin and Xi trilateral summit in China: joint 'peace declaration', nuclear risks, no breakthroughs, Ukraine and Iran left out",
+ "filone": "guerra",
+ "materiali_da": "2026-11-20_trump_putin_and_xi_trilateral_summit_in__en"
+}
