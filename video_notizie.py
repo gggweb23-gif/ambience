@@ -88,7 +88,15 @@ DIFETTI = ('Look carefully at this AI cartoon image. Count the arms, hands and l
            'or ANY visible text, letters, numbers or logo. Otherwise answer NO. Answer only SI or NO.')
 
 
-MODELLO_VOCE = str(N.get('voce_modello') or 'eleven_v3')   # 16 nov (Giorgio): voce C, stessa voce col modello eleven_v3, piu' umana e autorevole
+def _modello_voce():   # 21 nov (Giorgio, ridurre i costi): il modello si sceglie in notizie/canali.json (voce_modello per canale), Flash = meta' crediti
+    try:
+        c = json.load(open(os.path.join(ROOT, 'notizie', 'canali.json')))
+        return str(N.get('voce_modello') or c.get(f"{N.get('filone', '')}_{N.get('lingua', 'en')}", {}).get('voce_modello') or c.get('_voce_modello') or 'eleven_v3')
+    except Exception:
+        return str(N.get('voce_modello') or 'eleven_v3')
+
+
+MODELLO_VOCE = _modello_voce()   # 16 nov: voce C col modello eleven_v3; dal 21 nov eleven_flash_v2_5 (stessa voce, meta' crediti)
 # 16 nov sera (Giorgio, stile dinamico): le dichiarazioni VERE riportate dalle fonti le legge una seconda voce, come un dialogo (mai battute inventate)
 VOCE_CITAZIONI = str(N.get('voce_citazioni') or 'onwK4e9ZLuTAKqWW03F9')
 SEME_VOCE = int(N.get('seme_voce') or 4242)   # 16 nov sera (Giorgio, voce C): stesso seme per tutti i pezzi, cosi' il tono resta uguale dall'inizio alla fine
@@ -129,7 +137,7 @@ def _una_voce(voce_id, b, f):
                                  {'text': b, 'model_id': MODELLO_VOCE, 'voice_settings': imp, 'seed': SEME_VOCE}, {'xi-api-key': E('ELEVENLABS_API_KEY', '')}, timeout=300, raw=True))
     if not a or not a.get('characters'):
         a = _allinea(f, b)
-    CO.registra('elevenlabs', MODELLO_VOCE, crediti=len(b))
+    CO.registra('elevenlabs', MODELLO_VOCE, crediti=len(b) * (.5 if 'flash' in MODELLO_VOCE or 'turbo' in MODELLO_VOCE else 1))
     return a
 
 

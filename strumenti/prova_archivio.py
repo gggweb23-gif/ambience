@@ -70,7 +70,7 @@ if scene:
     scene[0]['_apertura'] = True
 testo = ' '.join(s['testo'].strip() for s in scene)
 import hashlib
-_chiave_voce = hashlib.md5((testo + str(P.get('voce')) + str(P.get('velocita'))).encode()).hexdigest()[:12]
+_chiave_voce = hashlib.md5((testo + str(P.get('voce')) + str(P.get('velocita')) + str(P.get('modello_voce') or '')).encode()).hexdigest()[:12]
 _cache_voce = os.path.join(LAV, f'voce_{_chiave_voce}.json')
 if os.path.exists(_cache_voce):   # riparazione: stessa voce gia' pagata, non si rifa'
     j = json.load(open(_cache_voce)); log('voce ripresa dal tentativo precedente (nessun credito in piu\')')
@@ -87,7 +87,7 @@ else:
         pezzi.append(' '.join(cur))
     audio, ch, st, en, off = [], [], [], [], 0.0
     for i_, pz in enumerate(pezzi):
-        dati_ = {'text': pz, 'model_id': 'eleven_multilingual_v2',
+        dati_ = {'text': pz, 'model_id': P.get('modello_voce') or 'eleven_multilingual_v2',   # 21 nov: dalla colonna voice_model_id (Flash = meta' crediti)
                  'voice_settings': {'stability': float(P.get('stabilita') or .45), 'similarity_boost': .75, 'style': float(P.get('stile_voce') or 0),
                                     'speed': float(P.get('velocita') or 1.06)}}
         if len(pezzi) > 1:

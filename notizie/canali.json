@@ -6,7 +6,8 @@
   "token": "YT_REFRESH_TOKEN_WWII_TESTIMONY",
   "channel_id": "WWII Testimony",
   "playlist": "World Conflicts Today",
-  "ora_uscita": "17:00"
+  "ora_uscita": "17:00",
+  "voce_modello": "eleven_flash_v2_5"
  },
  "guerra_it": {
   "attivo": "SI",
@@ -14,7 +15,8 @@
   "token": "YT_REFRESH_TOKEN_STORIA",
   "channel_id": "Storia in Minuti",
   "playlist": "Conflitti nel mondo oggi",
-  "ora_uscita": "11:00"
+  "ora_uscita": "11:00",
+  "voce_modello": "eleven_flash_v2_5"
  },
  "tech_en": {
   "attivo": "SI",
@@ -22,7 +24,8 @@
   "token": "YT_REFRESH_TOKEN_MAIN_STREET_ATLAS",
   "channel_id": "Billion Ruin",
   "playlist": "Tech News",
-  "ora_uscita": "17:00"
+  "ora_uscita": "17:00",
+  "voce_modello": "eleven_flash_v2_5"
  },
  "tech_it": {
   "attivo": "SI",
@@ -30,12 +33,14 @@
   "token": "YT_REFRESH_TOKEN_COSTO_VERO",
   "channel_id": "Costo Vero",
   "playlist": "Notizie Tech",
-  "ora_uscita": "11:00"
+  "ora_uscita": "11:00",
+  "voce_modello": "eleven_flash_v2_5"
  },
  "_nota_ora": "17 nov (Giorgio): notizie, si cavalca l'onda del mattino: italiani alle 11:00, inglesi alle 17:00 italiane (= 11:00 a New York). Se l'ora e' gia' passata esce subito.",
  "_ogni_quanti_giorni": {
   "tech": 2,
   "guerra": 2
  },
- "_nota_cadenza": "21 nov (Giorgio): per risparmiare i crediti voce le notizie escono un giorno si' e uno no (tech e guerra); KAO ogni 3 giorni, gli altri canali ogni 2 (colonna ogni_quanti_giorni di Channel Configs)."
+ "_nota_cadenza": "21 nov (Giorgio): per risparmiare i crediti voce le notizie escono un giorno si' e uno no (tech e guerra); KAO ogni 3 giorni, gli altri canali ogni 2 (colonna ogni_quanti_giorni di Channel Configs).",
+ "_nota_voce": "21 nov 2026 (Giorgio): voce_modello eleven_flash_v2_5 = stesse voci, meta' crediti ElevenLabs. Per tornare indietro: eleven_v3."
 }
