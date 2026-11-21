@@ -161,8 +161,11 @@ def scegli(imgs, testo, q):
         g.paste(im.convert('RGB').resize((cw, ch)), (x, y))
         d.rectangle((x, y, x + 52, y + 50), fill=(0, 0, 0)); d.text((x + 10, y + 2), str(k + 1), font=fo, fill=(255, 255, 0))
     r = claude(f'Numbered frames of candidate footage for a serious YouTube documentary. Narration: "{testo}" (search: "{q}").\n'
-               'List the numbers of the frames that fit the narration well, best first, excluding any frame with visible text, subtitles, logos, '
-               'watermarks, people posing for the camera, or blur. Reply only with numbers separated by commas, or NONE.',
+               'Be STRICT, viewers notice mistakes: keep a frame ONLY if it really shows what the narration names (the same kind of place, '
+               'the right animal species that actually lives there, the right era and country, the right object). Generic pretty footage is NOT '
+               'enough; a wrong animal, a wrong country or a modern thing in an old story is a mistake. Also exclude any frame with visible text, '
+               'subtitles, logos, watermarks, people posing for the camera, or blur.\n'
+               'Reply only with the numbers that pass, best first, separated by commas, or NONE.',
                modello='claude-haiku-4-5-20251001', max_tokens=30, immagine=g)
     return [int(x) - 1 for x in re.findall(r'\d+', r) if 0 < int(x) <= len(imgs)]
 
@@ -199,6 +202,69 @@ def clip_pexels(q, testo, quanti):
         if len(out) >= quanti:
             break
     return out
+
+
+def clip_commons(q, testo, quanti):
+    """Wikimedia Commons: video con licenza libera (gratis), utili per luoghi e animali precisi che Pexels non ha."""
+    out = []
+    try:
+        j = http('https://commons.wikimedia.org/w/api.php?' + urllib.parse.urlencode({
+            'action': 'query', 'format': 'json', 'generator': 'search', 'gsrnamespace': 6, 'gsrsearch': q + ' filetype:video', 'gsrlimit': 12,
+            'prop': 'imageinfo', 'iiprop': 'url|size|extmetadata', 'iiurlwidth': 320}), timeout=60)
+    except Exception:
+        return out
+    cand = []
+    for pg in sorted((j.get('query') or {}).get('pages', {}).values(), key=lambda x: x.get('index', 99)):
+        ii = (pg.get('imageinfo') or [{}])[0]; m = ii.get('extmetadata') or {}
+        lic = (m.get('LicenseShortName') or {}).get('value', '')
+        if not re.search(r'CC0|public domain|CC BY', lic, re.I) or ii.get('width', 0) < 1280 or float(ii.get('size') or 0) > 4e8 or pg['title'] in USATE:
+            continue
+        try:
+            im = Image.open(io.BytesIO(http(ii['thumburl'], raw=True, timeout=60)))
+        except Exception:
+            continue
+        cand.append((pg['title'], ii['url'], lic, im))
+        if len(cand) >= 8:
+            break
+    for k in scegli([c_[3] for c_ in cand], testo, q):
+        if len(out) >= quanti:
+            break
+        tit, url, lic, _ = cand[k]
+        f = os.path.join(LAV, 'cm_' + re.sub(r'[^A-Za-z0-9]', '_', tit)[:50] + os.path.splitext(url)[1])
+        try:
+            open(f, 'wb').write(http(url, raw=True, timeout=600))
+        except Exception:
+            continue
+        dur = float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', f], capture_output=True, text=True).stdout or 0)
+        if dur < 2:
+            continue
+        USATE.add(tit); out.append((f, dur, 0.0)); FONTI.append(f'Wikimedia Commons {tit} ({lic}) {url}')
+    return out
+
+
+AI_N = [0]
+
+
+def immagine_ai(testo, q, i):
+    """Ultima risorsa (circa 0,009 $): immagine fotorealistica FLUX.2 Klein quando nessuna clip gratis mostra la cosa giusta.
+    Diventa un'inquadratura ferma breve (conta nel 20% di 'non video'); al massimo AI_MAX per video."""
+    if AI_N[0] >= int(C.get('ai_max') or 4):
+        return None
+    hd = {'Authorization': 'Key ' + E('FAL_KEY', '')}
+    prompt = (C.get('stile_ai') or 'Photorealistic documentary photograph, natural light, sharp, 16:9') + '. Scene: ' + q + ' — ' + testo +              '. Absolutely no text, letters, logos or watermarks; correct anatomy.'
+    try:
+        inv = http('https://queue.fal.run/fal-ai/flux-2/klein/4b', {'prompt': prompt, 'image_size': {'width': 1280, 'height': 720}, 'num_images': 1, 'output_format': 'png'}, hd, timeout=120)
+        for _ in range(90):
+            time.sleep(2)
+            if http(inv['status_url'], headers=hd, timeout=60).get('status') == 'COMPLETED':
+                break
+        u = http(inv['response_url'], headers=hd, timeout=60)['images'][0]['url']
+        f = os.path.join(LAV, f'ai_{i:03d}.png'); open(f, 'wb').write(http(u, raw=True, timeout=120))
+    except Exception as e:
+        log('immagine AI non riuscita', str(e)[:100]); return None
+    AI_N[0] += 1; COSTI['fal_$'] = COSTI.get('fal_$', 0) + 0.009
+    FONTI.append(f'Immagine AI FLUX.2 Klein: {q}')
+    return (f, 99.0, 0.0)
 
 
 ARCH = {}
@@ -291,7 +357,8 @@ def inquadratura(src, da, dur, i, scritta=None, effetto=None):
     vf = (f'scale={W}:{H}:force_original_aspect_ratio=increase:flags=lanczos,crop={W}:{H},fps={FPS},setsar=1'
           + (',eq=contrast=1.05:saturation=0.9' if C['fonte'] == 'archivio' else '')
           + (f',fade=in:st=0:d=0.18:color={effetto}' if effetto else ''))
-    cmd = ['ffmpeg', '-v', 'error', '-y', '-stream_loop', '-1', '-ss', f'{da:.2f}', '-t', f'{dur:.3f}', '-i', src]   # clip corta: ricomincia, mai buchi nei tempi
+    cmd = (['ffmpeg', '-v', 'error', '-y', '-loop', '1', '-t', f'{dur:.3f}', '-i', src] if src.endswith('.png') else
+           ['ffmpeg', '-v', 'error', '-y', '-stream_loop', '-1', '-ss', f'{da:.2f}', '-t', f'{dur:.3f}', '-i', src])   # clip corta: ricomincia, mai buchi nei tempi
     if scritta:
         cmd += ['-loop', '1', '-t', f'{dur:.3f}', '-i', scritta_png(scritta),
                 '-filter_complex', f'[0:v]{vf}[v];[1:v]format=rgba,fade=in:st=0.12:d=0.2:alpha=1[s];[v][s]overlay=0:0:shortest=1,format=yuv420p[o]', '-map', '[o]']
@@ -308,12 +375,20 @@ def main():
     json.dump(c, open(os.path.join(OUT, 'copione.json'), 'w'), ensure_ascii=False, indent=1)
     fv, tempi, durata = voce(c['scene'])
     shots, n_clip, n_tot = [], 0, 0
+    n_ai = [0]
     for i, (s, (a, b)) in enumerate(zip(c['scene'], tempi)):
         dur = b - a
         pezzi = max(1, int(-(-dur // MAX_S)))
         cl = (clip_pexels if C['fonte'] == 'pexels' else clip_archivio)(s['q'], s['testo'], pezzi)
+        if len(cl) < pezzi and C.get('commons', True):   # 21 nov: tutte le fonti gratis prima di spendere
+            cl += clip_commons(s['q'], s['testo'], pezzi - len(cl))
         if not cl:
-            log('SCENA SENZA CLIP', i, s['q']); cl = [shots[-1][0:3]] if shots else []
+            ai = immagine_ai(s['testo'], s['q'], i)
+            cl = [ai] if ai else ([shots[-1][0:3]] if shots else [])
+            if ai:
+                n_tot += 0; n_ai[0] += 1
+        if not cl:
+            log('SCENA SENZA CLIP', i, s['q'])
         n_ok = len(cl) if cl else 0
         pezzi = max(1, min(pezzi, n_ok or 1))   # meno clip trovate -> inquadrature un po' piu' lunghe, mai la stessa clip ripetuta
         d1 = dur / pezzi
@@ -324,7 +399,7 @@ def main():
             else:
                 da = src[2]
             shots.append((src[0], src[1], da, d1, s.get('scritta') if k == 0 and s.get('scritta') else None, ('white' if i % 5 == 4 else 'black' if i % 7 == 6 else None) if k == 0 else None))
-        n_tot += pezzi; n_clip += pezzi if cl else 0
+        n_tot += pezzi; n_clip += pezzi if cl and not str(cl[0][0]).endswith('.png') else 0
         log(f'scena {i + 1}/{len(c["scene"])}: {round(dur, 1)} s, {pezzi} inquadrature, q="{s["q"]}"')
     files = []
     for j, (src, _, da, d1, scr, eff) in enumerate(shots):
@@ -349,12 +424,12 @@ def main():
     open(os.path.join(OUT, 'fonti.txt'), 'w').write('\n'.join(FONTI))
     usd_cr = 1.65 / 10000   # prezzo della ricarica (21 nov): 1,65 $ ogni 10.000 crediti
     voce_usd = COSTI['elevenlabs_crediti'] * usd_cr
-    tot = COSTI['claude_sonnet_$'] + COSTI['claude_haiku_$'] + voce_usd
+    tot = COSTI['claude_sonnet_$'] + COSTI['claude_haiku_$'] + voce_usd + COSTI.get('fal_$', 0)
     # stima video intero: voce e controllo clip crescono con la durata; il copione no (una sola chiamata, ~0,10 $ per 9,5 minuti)
-    per_min = (voce_usd + COSTI['claude_haiku_$']) / max(durata / 60, 0.1) + 0.10 / 9.5
+    per_min = (voce_usd + COSTI['claude_haiku_$'] + COSTI.get('fal_$', 0)) / max(durata / 60, 0.1) + 0.10 / 9.5
     righe = [f'PROVA {NOME}: {c["titolo"]}', f'durata {round(durata, 1)} s | inquadrature {len(shots)} | clip in movimento {round(n_clip / max(n_tot, 1) * 100)}%',
              f'Claude Sonnet (copione) {COSTI["claude_sonnet_$"]:.3f} $ | Claude Haiku (controllo clip) {COSTI["claude_haiku_$"]:.3f} $',
-             f'ElevenLabs Flash {COSTI["elevenlabs_crediti"]} crediti = {voce_usd:.3f} $ (prezzo ricarica) | Pexels/archive.org 0 $',
+             f'ElevenLabs Flash {COSTI["elevenlabs_crediti"]} crediti = {voce_usd:.3f} $ (prezzo ricarica) | immagini AI {AI_N[0]} = {COSTI.get("fal_$", 0):.3f} $ | Pexels/Commons/archive.org 0 $',
              f'TOTALE prova {tot:.3f} $ | stima video da 9,5 minuti: circa {per_min * 9.5:.2f} $', f'tempo {round((time.time() - t0) / 60, 1)} min']
     open(os.path.join(OUT, 'costi.txt'), 'w').write('\n'.join(righe))
     log('\n'.join(righe))
