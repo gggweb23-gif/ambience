@@ -1,91 +1,132 @@
 {
- "titolo": "50 Things From 1950s America That Quietly Disappeared",
+ "titolo": "40 Things From 1950s America That Quietly Disappeared",
  "copertina": "GONE FOREVER",
  "scene": [
   {
-   "testo": "Milk once appeared on your porch before breakfast, in glass bottles.",
-   "q": "milkman delivery",
-   "scritta": "MILKMAN"
-  },
-  {
-   "testo": "No app. No order. Just a milkman and his truck.",
-   "q": "milk bottles",
-   "scritta": ""
-  },
-  {
-   "testo": "Today, that daily delivery is almost completely gone.",
-   "q": "suburban street morning",
-   "scritta": ""
-  },
-  {
-   "testo": "Fifty everyday things from the 1950s vanished the same quiet way.",
-   "q": "1950s everyday life",
-   "scritta": "50 THINGS"
-  },
-  {
-   "testo": "Nobody held a funeral for them. They just faded.",
-   "q": "small town main street",
-   "scritta": ""
-  },
-  {
-   "testo": "Attendants pumped your gas and checked your oil.",
-   "q": "gas station attendant",
-   "scritta": ""
-  },
-  {
-   "testo": "Neighbors shared telephone lines called party lines.",
-   "q": "telephone operator",
-   "scritta": "PARTY LINES"
-  },
-  {
-   "testo": "Families watched movies from the front seat of a car.",
-   "q": "drive-in theater",
-   "scritta": ""
-  },
-  {
-   "testo": "Kids gathered at the soda fountain after school.",
-   "q": "soda fountain",
-   "scritta": ""
-  },
-  {
-   "testo": "Shoppers handed a list to the grocer, who fetched everything.",
-   "q": "grocery store clerk",
-   "scritta": ""
-  },
-  {
-   "testo": "Families gathered around one television, with just a few channels.",
-   "q": "television family living room",
-   "scritta": "ONE TV"
-  },
-  {
-   "testo": "One of these changes reshaped how families spent their evenings.",
-   "q": "family dinner kitchen",
-   "scritta": ""
-  },
-  {
-   "testo": "But that's not the strangest part.",
+   "testo": "Some of these you used every single day.",
    "q": "suburban family",
-   "scritta": ""
+   "scritta": "40 GONE",
+   "etichetta": "INTRO",
+   "numero": ""
   },
   {
-   "testo": "Some of these things were everywhere, then nearly gone within decades.",
-   "q": "downtown shopping crowd",
-   "scritta": ""
+   "testo": "Nobody announced when they vanished.",
+   "q": "main street 1950s",
+   "scritta": "",
+   "etichetta": "INTRO",
+   "numero": ""
   },
   {
-   "testo": "Children played outside until the streetlights came on.",
-   "q": "neighborhood children playing",
-   "scritta": ""
+   "testo": "They just stopped showing up one day.",
+   "q": "small town",
+   "scritta": "",
+   "etichetta": "INTRO",
+   "numero": ""
   },
   {
-   "testo": "Stay with me, because number one is easy to miss.",
-   "q": "highway 1950s",
-   "scritta": "NUMBER ONE"
+   "testo": "Today, most kids wouldn't know what they were.",
+   "q": "children classroom",
+   "scritta": "",
+   "etichetta": "INTRO",
+   "numero": ""
   },
   {
-   "testo": "Let's start with the forgotten ones.",
-   "q": "supermarket",
-   "scritta": ""
+   "testo": "Forty everyday things, counted down from the very end.",
+   "q": "city street traffic",
+   "scritta": "FORTY",
+   "etichetta": "INTRO",
+   "numero": ""
+  },
+  {
+   "testo": "And a few of them will honestly surprise you.",
+   "q": "family living room",
+   "scritta": "",
+   "etichetta": "INTRO",
+   "numero": ""
+  },
+  {
+   "testo": "Number 40: the milkman.",
+   "q": "milkman delivery",
+   "scritta": "MILKMAN",
+   "etichetta": "THE MILKMAN",
+   "numero": "40"
+  },
+  {
+   "testo": "Glass bottles waited on the porch every morning.",
+   "q": "milk bottles",
+   "scritta": "",
+   "etichetta": "THE MILKMAN",
+   "numero": ""
+  },
+  {
+   "testo": "Empty ones went back out for the next delivery.",
+   "q": "dairy bottling",
+   "scritta": "",
+   "etichetta": "THE MILKMAN",
+   "numero": ""
+  },
+  {
+   "testo": "Number 39: the full-service gas station.",
+   "q": "gas station attendant",
+   "scritta": "",
+   "etichetta": "FULL-SERVICE GAS",
+   "numero": "39"
+  },
+  {
+   "testo": "An attendant pumped your gas and checked your oil.",
+   "q": "service station",
+   "scritta": "",
+   "etichetta": "FULL-SERVICE GAS",
+   "numero": ""
+  },
+  {
+   "testo": "He even washed your windshield, without being asked.",
+   "q": "car windshield wash",
+   "scritta": "",
+   "etichetta": "FULL-SERVICE GAS",
+   "numero": ""
+  },
+  {
+   "testo": "Number 38: the soda fountain.",
+   "q": "soda fountain",
+   "scritta": "SODA FOUNTAIN",
+   "etichetta": "SODA FOUNTAINS",
+   "numero": "38"
+  },
+  {
+   "testo": "Neighbors gathered there for milkshakes and conversation.",
+   "q": "drugstore counter",
+   "scritta": "",
+   "etichetta": "SODA FOUNTAINS",
+   "numero": ""
+  },
+  {
+   "testo": "The soda jerk mixed every drink by hand.",
+   "q": "ice cream sundae",
+   "scritta": "",
+   "etichetta": "SODA FOUNTAINS",
+   "numero": ""
+  },
+  {
+   "testo": "Number 37: the drive-in theater.",
+   "q": "drive-in theater",
+   "scritta": "",
+   "etichetta": "DRIVE-IN THEATERS",
+   "numero": "37"
+  },
+  {
+   "testo": "But the next one changed how families spent evenings.",
+   "q": "television family",
+   "scritta": "",
+   "etichetta": "NEXT ITEM",
+   "numero": ""
+  },
+  {
+   "testo": "Stay with me, because it gets stranger.",
+   "q": "antenna rooftop",
+   "scritta": "",
+   "etichetta": "NEXT ITEM",
+   "numero": ""
   }
  ]
 }
