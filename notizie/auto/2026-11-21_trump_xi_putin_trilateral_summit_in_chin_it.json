@@ -1,0 +1,1544 @@
+{
+ "titolo": "Trump: Putin «vuole la pace». Zelensky: «È un killer»",
+ "angolo": "Day 5: Trump defends his 'friend' Putin at the White House while Zelensky answers 'killer', and the FT reports a hidden January deadline behind the rush.",
+ "descrizione": "Trump: Putin «vuole la pace». Zelensky: «È un killer». In una conferenza stampa alla Casa Bianca, Donald Trump ha detto che Vladimir Putin vuole porre fine alla guerra, mentre Volodymyr Zelensky ha dichiarato alla CNN che per l'Ucraina Putin è un nemico e un killer. Putin, intanto, ha detto che la Russia non negozierà dopo gli attacchi al ponte di Crimea. Il Financial Times riferisce che Washington vuole un accordo entro l'inizio di gennaio 2027. Distinguiamo ciò che è confermato da ciò che è solo riportato.",
+ "tag": [
+  "Trump: Putin «vuole la pace». Zelensky: «È un killer»",
+  "Donald Trump",
+  "Vladimir Putin",
+  "Zelensky",
+  "Xi Jinping",
+  "vertice di Shenzhen",
+  "guerra in Ucraina",
+  "accordo di pace",
+  "ponte di Crimea",
+  "Coalizione dei volenterosi",
+  "notizie dal mondo",
+  "Russia Ucraina",
+  "Trump Putin amico",
+  "scadenza gennaio 2027"
+ ],
+ "fonti_link": [
+  "https://www.axios.com/2026/11/20/trump-pushes-putin-ukraine-war-deal",
+  "https://www.pravda.com.ua/eng/news/2026/11/20/8063883/",
+  "https://www.yahoo.com/news/politics/articles/trump-says-putin-wants-end-182500641.html",
+  "https://www.tbsnews.net/worldbiz/europe/zelensky-calls-putin-enemy-and-killer-after-trump-describes-him-friend-1609321",
+  "https://www.pravda.com.ua/eng/news/2026/11/20/8063867/",
+  "https://www.kyivpost.com/post/90773",
+  "https://meduza.io/amp/en/news/2026/11/19/trump-tells-european-leaders-that-putin-wants-to-end-the-war-in-ukraine-but-putin-says-moscow-won-t-negotiate-with-kyiv-after-crimean-bridge-strikes",
+  "https://www.cbsnews.com/news/putin-russia-ukraine-bridge-strike/",
+  "https://www.yahoo.com/news/world/articles/not-negotiate-putin-addresses-ukraines-172344979.html",
+  "https://hromadske.ua/en/war/274651-putin-rules-out-ceasefire-talks-after-ukrainian-strikes-on-kerch-bridge-threatens-retaliation",
+  "https://www.yahoo.com/news/politics/articles/trump-administration-wants-ukraine-russia-171900747.html",
+  "https://english.nv.ua/nation/u-s-wants-russia-ukraine-peace-deal-by-january-50661149.html",
+  "https://en.interfax.com.ua/news/general/1240065.html",
+  "https://www.cbsnews.com/news/trump-xi-putin-china-apec-summit/",
+  "https://poland.us/en/us-russia-china-summit-shenzhen-declaration/",
+  "https://www.plataformamedia.com/en/2026/11/20/china-us-and-russia-announce-commitments-on-un-energy-and-nuclear-risks/",
+  "https://www.cnn.com/2026/11/19/politics/trump-putin-xi-meeting-takeaways",
+  "https://www.npr.org/2026/11/18/nx-s1-6040432/trump-xi-and-putin-shenzhen-china-russia-usa",
+  "https://aninews.in/news/world/europe/zelenskyy-sidesteps-questions-on-warm-trump-putin-shenzhen-meet-amid-coalition-of-the-willing-talks20261120075539/",
+  "https://www.ir-ia.com/news/zelenskyy-meets-us-envoys-and-european-leaders-in-germany-to-discuss-ukraine-peace-efforts/",
+  "https://www.freemalaysiatoday.com/category/world/2026/11/21/zelensky-says-putin-a-killer-after-trump-calls-him-his-friend",
+  "https://www.yahoo.com/news/world/articles/russias-putin-rules-energy-truce-082120569.html",
+  "https://clashreport.com/world/articles/putin-crimean-bridge-ceasefire-response-8t1mazsqmwj",
+  "https://tickernews.co/trump-says-putin-wants-ukraine-war-to-end-european-officials-cautious/"
+ ],
+ "personaggi": {
+  "trump": {
+   "commons": "Donald Trump",
+   "chi": "Donald Trump, presidente degli Stati Uniti",
+   "pose": {
+    "deciso": {
+     "posa": "standing firm at a podium, chin up, hand raised, confident"
+    }
+   }
+  },
+  "putin": {
+   "commons": "Vladimir Putin",
+   "chi": "Vladimir Putin, presidente della Russia",
+   "pose": {
+    "serio": {
+     "posa": "standing stiffly, cold stern expression, hands folded"
+    }
+   }
+  },
+  "zelensky": {
+   "commons": "Volodymyr Zelensky",
+   "chi": "Volodymyr Zelensky, presidente dell'Ucraina",
+   "pose": {
+    "serio": {
+     "posa": "standing in olive jacket, grim determined face"
+    },
+    "parla": {
+     "posa": "speaking to the press, one hand gesturing"
+    }
+   }
+  }
+ },
+ "sets": {
+  "s01": {
+   "descr": "White House briefing room podium with a row of microphones, harsh camera flashes, empty chairs, dark blue curtain",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "trump",
+     "posa": "deciso",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s02": {
+   "descr": "Ukrainian presidential office in Kyiv at night, lone desk lamp, dark window with city lights",
+   "luogo": "KIEV, UCRAINA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "zelensky",
+     "posa": "serio",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s03": {
+   "descr": "Split-lit long table in a Chinese villa meeting room, three empty chairs spaced equally, round table, soft green garden outside",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s04": {
+   "descr": "Air Force One cabin interior with a phone on a polished wooden desk, glowing window at dusk",
+   "luogo": "A BORDO DELL'AIR FORCE ONE",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "trump",
+     "posa": "deciso",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s05": {
+   "descr": "Berlin conference hall with a large circular table, many empty chairs, a speakerphone in the center",
+   "luogo": "BERLINO, GERMANIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s06": {
+   "descr": "Shenzhen skyline at dusk with glowing towers and a harbor, warm orange sky",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s07": {
+   "descr": "Kylin Villa entrance, stone path, lanterns, tropical trees and a tiger safari park fence behind",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s08": {
+   "descr": "Two armchairs facing each other in a small bright meeting room, a tea set on a low table",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "trump",
+     "posa": "deciso",
+     "lato": "sx"
+    },
+    {
+     "chi": "putin",
+     "posa": "serio",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s09": {
+   "descr": "Oval Office desk close-up with brass lamp, golden curtains, afternoon light",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s10": {
+   "descr": "Alaskan airfield with a red carpet on a cold tarmac, gray sky, parked jets",
+   "luogo": "ANCHORAGE, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s11": {
+   "descr": "Press center in Shenzhen convention hall with rows of empty chairs, camera tripods and a stage with blank backdrop, modern glass architecture, afternoon light",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s12": {
+   "descr": "White House East Room, rows of empty chairs facing a lectern, chandeliers, midday light",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "trump",
+     "posa": "deciso",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s13": {
+   "descr": "Doorway of an elegant Chinese villa meeting room with a long corridor, polished floor, tall wooden doors slightly open revealing a table and chairs, soft light",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s14": {
+   "descr": "Interior of the villa meeting room in Shenzhen, two empty chairs near a window, translation headsets on a small table, warm light, garden outside",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "putin",
+     "posa": "serio",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s15": {
+   "descr": "Ukrainian battlefield road at dawn with a burned-out truck, frozen mud, mist",
+   "luogo": "REGIONE DI DONETSK, UCRAINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s16": {
+   "descr": "Crimean Bridge seen from the Black Sea at dawn, a damaged road section hanging toward the water, smoke",
+   "luogo": "STRETTO DI KERCH, CRIMEA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s17": {
+   "descr": "Kyiv military command room with a map table and dim blue light",
+   "luogo": "KIEV, UCRAINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s18": {
+   "descr": "Close view of railway tracks on the bridge, bent rails, dusty morning light",
+   "luogo": "STRETTO DI KERCH, CRIMEA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s19": {
+   "descr": "Russian press room in a Shenzhen hotel, rows of empty seats, a single microphone, Russian-style dark wood",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "putin",
+     "posa": "serio",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s20": {
+   "descr": "Security Council table in the Kremlin, empty leather chairs, long green table",
+   "luogo": "MOSCA, RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s21": {
+   "descr": "Black Sea cargo ships at anchor under storm clouds",
+   "luogo": "MAR NERO",
+   "effetto": "none",
+   "cast": []
+  },
+  "s22": {
+   "descr": "Power substation in Ukraine at winter dusk, transformers, steam rising",
+   "luogo": "UCRAINA",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s23": {
+   "descr": "CNN-style television news studio in Kyiv, a single empty armchair facing cameras, soft key lights, blue backdrop with a blurred Kyiv skyline screen",
+   "luogo": "KIEV, UCRAINA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "zelensky",
+     "posa": "parla",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s24": {
+   "descr": "Kyiv street at night with a lit cafe window, wet pavement, tram wires",
+   "luogo": "KIEV, UCRAINA",
+   "effetto": "pioggia",
+   "cast": []
+  },
+  "s25": {
+   "descr": "Shenzhen airport hotel corridor with a hotel lobby lined with empty sofas, polished marble, a red carpet leading out to a doorway, evening light",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s26": {
+   "descr": "Interior of the Federal Chancellery in Berlin, glass-walled conference room with large table and German-style chairs, daylight, empty",
+   "luogo": "BERLINO, GERMANIA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "zelensky",
+     "posa": "serio",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s27": {
+   "descr": "US Capitol building at dusk, dome lit, cold autumn leaves on the steps",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s28": {
+   "descr": "US Senate Foreign Relations Committee hearing room, empty dais with microphones and nameplates blank, green leather chairs, wooden panels",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s29": {
+   "descr": "Warsaw old town square at evening, soft street lamps, cobblestones",
+   "luogo": "VARSAVIA, POLONIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s30": {
+   "descr": "Close view of a large analog wall clock and a paper desk calendar with days crossed out, on the wall of a dim West Wing corridor office, hands close to midnight, soft desk lamp glow, window showing the dark Washington sky",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s31": {
+   "descr": "Capitol House chamber, empty seats under bright light, the speaker's rostrum",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s32": {
+   "descr": "Moscow street with a government building lit at night, snow falling softly",
+   "luogo": "MOSCA, RUSSIA",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s33": {
+   "descr": "Kyiv government quarter street with a sandbagged building facing the Verkhovna Rada at dusk, empty road",
+   "luogo": "KIEV, UCRAINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s34": {
+   "descr": "Miami waterfront at sunset with a convention center and palm trees",
+   "luogo": "MIAMI, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s35": {
+   "descr": "Ukrainian air defense launcher in a snowy field at night, searchlight beams",
+   "luogo": "UCRAINA",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s36": {
+   "descr": "Kyiv apartment block courtyard in winter dusk with lit windows, bare trees",
+   "luogo": "KIEV, UCRAINA",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s37": {
+   "descr": "Shenzhen airport tarmac at night with Air Force One silhouette, ground lights",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s38": {
+   "descr": "Briefing room lectern with empty reporters' chairs, a hand-raised shadow impression, warm lamps",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "trump",
+     "posa": "deciso",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s39": {
+   "descr": "Empty summit meeting room in a Chinese villa with a long table with three empty chairs, blank nameplates, document folders with pens, large windows to a garden, dawn light",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s40": {
+   "descr": "International Criminal Court building in The Hague under gray clouds",
+   "luogo": "L'AIA, PAESI BASSI",
+   "effetto": "none",
+   "cast": []
+  },
+  "s41": {
+   "descr": "Oil refinery at night with flare stacks and glowing pipes",
+   "luogo": "ZONA INDUSTRIALE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s42": {
+   "descr": "Intercontinental ballistic missile silo door in a green field in Montana with a fence and overcast sky",
+   "luogo": "MONTANA, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s43": {
+   "descr": "Empty negotiating hall in a Gulf-style palace with a long table, two chairs at opposite ends facing each other, one lamp, tall windows",
+   "luogo": "ISTANBUL, TURCHIA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "zelensky",
+     "posa": "serio",
+     "lato": "sx"
+    },
+    {
+     "chi": "putin",
+     "posa": "serio",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s44": {
+   "descr": "White House South Lawn at dusk, helicopter landing pad, long shadows",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s45": {
+   "descr": "Brussels EU headquarters glass facade at dusk, lit windows",
+   "luogo": "BRUXELLES, BELGIO",
+   "effetto": "none",
+   "cast": []
+  },
+  "s46": {
+   "descr": "European Union Council building in Brussels, glass and steel facade, evening light, flags without text blurred, empty plaza",
+   "luogo": "BRUXELLES, BELGIO",
+   "effetto": "none",
+   "cast": []
+  },
+  "s47": {
+   "descr": "Kremlin tower in winter twilight with red stars glowing",
+   "luogo": "MOSCA, RUSSIA",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s48": {
+   "descr": "Trump and Zelensky facing off across a divided room, half lit warm half cold blue",
+   "luogo": "PALCO NEUTRALE",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "trump",
+     "posa": "deciso",
+     "lato": "sx"
+    },
+    {
+     "chi": "zelensky",
+     "posa": "parla",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s49": {
+   "descr": "Phone on a desk ringing, glowing, in a dark office with window city lights",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s50": {
+   "descr": "Empty chair at a large oval table in a European capital hall, tall windows, evening",
+   "luogo": "EUROPA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s51": {
+   "descr": "Radar and air-defense installation near Kyiv at dusk, antenna dish, military trucks parked, soft golden light",
+   "luogo": "KIEV, UCRAINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s52": {
+   "descr": "Wide shot of Shenzhen tech district at night with glowing towers and light trails",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s53": {
+   "descr": "Washington Monument at dawn with long shadow, pale pink sky",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s54": {
+   "descr": "Exterior of the White House north facade at night with lit windows, closed gate, empty Pennsylvania Avenue",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s55": {
+   "descr": "Trump at White House window looking at the night lawn, lamps glowing",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "trump",
+     "posa": "deciso",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s56": {
+   "descr": "Snow-covered front-line trench at sunrise in Ukraine, sandbags, quiet",
+   "luogo": "UCRAINA",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s57": {
+   "descr": "Empty office of a negotiator in Moscow, a Kremlin window with snow, a clock showing slow time, a long table with documents, dim light",
+   "luogo": "MOSCA, RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s58": {
+   "descr": "Large wall clock and a paper calendar with torn pages in the White House West Wing office, dark red evening light through a window, papers piled on a desk, realistic style",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s59": {
+   "descr": "US Treasury Department building in Washington with columns, evening light, empty plaza, sanctions-related offices",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s60": {
+   "descr": "Empty Ukrainian presidential-style office in Kyiv with a heavy desk, a map of Ukraine on the wall, rainy window with blurred lights of the government quarter, dim lamp",
+   "luogo": "KIEV, UCRAINA",
+   "effetto": "pioggia",
+   "cast": []
+  },
+  "s61": {
+   "descr": "Chinese hotel corridor with red carpet and golden lamps, empty",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s62": {
+   "descr": "Long table in the White House Cabinet Room with empty chairs, papers divided into two stacks, one lit lamp, daylight through windows",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s63": {
+   "descr": "Rows of empty chairs and television cameras in the White House briefing room, lights on, blue backdrop",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "mirino",
+   "cast": []
+  },
+  "s64": {
+   "descr": "Empty White House Cross Hall with red carpet and marble columns, an open door at the far end with warm light, tall windows",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s65": {
+   "descr": "White House press briefing room at night, empty lectern with presidential seal-less blue backdrop, rows of empty chairs, dark windows glowing with lamplight, microphones clustered on lectern",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "trump",
+     "posa": "deciso",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s66": {
+   "descr": "Frozen Dnipro river bank in Kyiv at dawn with mist",
+   "luogo": "KIEV, UCRAINA",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s67": {
+   "descr": "Quiet Berlin chancellery courtyard in evening light",
+   "luogo": "BERLINO, GERMANIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s68": {
+   "descr": "Dim empty cafeteria-style hall with a single table lamp",
+   "luogo": "EUROPA",
+   "effetto": "none",
+   "cast": []
+  }
+ },
+ "scene": [
+  {
+   "testo": "Un presidente americano chiama Vladimir Putin suo amico. Un presidente ucraino chiama Putin un killer.",
+   "fonti": [
+    "https://www.tbsnews.net/worldbiz/europe/zelensky-calls-putin-enemy-and-killer-after-trump-describes-him-friend-1609321"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s01"
+   }
+  },
+  {
+   "testo": "Entrambi lo hanno detto nel giro di un giorno, sulla stessa vicenda.",
+   "fonti": [
+    "https://www.freemalaysiatoday.com/category/world/2026/11/21/zelensky-says-putin-a-killer-after-trump-calls-him-his-friend"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s02"
+   }
+  },
+  {
+   "testo": "Solo uno dei due, secondo le indiscrezioni, lavora contro una scadenza.",
+   "fonti": [
+    "https://english.nv.ua/nation/u-s-wants-russia-ukraine-peace-deal-by-january-50661149.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s30"
+   }
+  },
+  {
+   "testo": "Venerdì, la Casa Bianca. Trump difende i suoi rapporti con Putin in una conferenza stampa.",
+   "fonti": [
+    "https://www.pravda.com.ua/eng/news/2026/11/20/8063883/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s12"
+   },
+   "grafica": {
+    "tipo": "titolo",
+    "testo": "CONFERENZA CASA BIANCA",
+    "sotto": "20 novembre 2026"
+   }
+  },
+  {
+   "testo": "Le sue parole: un rapporto fantastico con Putin.",
+   "fonti": [
+    "https://www.pravda.com.ua/eng/news/2026/11/20/8063883/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s65"
+   },
+   "citazione": {
+    "chi": "trump",
+    "posa": "deciso",
+    "testo": "Ritengo di avere un rapporto fantastico con Putin."
+   }
+  },
+  {
+   "testo": "Poche ore prima, Zelensky aveva risposto alla CNN, dal punto di vista dell'Ucraina.",
+   "fonti": [
+    "https://www.pravda.com.ua/eng/news/2026/11/20/8063867/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s23"
+   }
+  },
+  {
+   "testo": "La sua risposta: per l'Ucraina, Putin è un nemico e un killer.",
+   "fonti": [
+    "https://www.pravda.com.ua/eng/news/2026/11/20/8063867/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s60"
+   },
+   "citazione": {
+    "chi": "zelensky",
+    "posa": "serio",
+    "testo": "Per noi è un nemico e, naturalmente, per noi è un killer."
+   }
+  },
+  {
+   "testo": "Ma una scadenza riportata dai media potrebbe spiegare perché Washington si muove così in fretta.",
+   "fonti": [
+    "https://english.nv.ua/nation/u-s-wants-russia-ukraine-peace-deal-by-january-50661149.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s58"
+   }
+  },
+  {
+   "testo": "Partiamo dalla stanza in cui tutto è cominciato.",
+   "fonti": [
+    "https://www.cbsnews.com/news/trump-xi-putin-china-apec-summit/"
+   ],
+   "capitolo": "LA STANZA A SHENZHEN",
+   "visivo": {
+    "tipo": "set",
+    "set": "s03"
+   }
+  },
+  {
+   "testo": "Giovedì 19 novembre. Shenzhen, nel sud della Cina.",
+   "fonti": [
+    "https://poland.us/en/us-russia-china-summit-shenzhen-declaration/"
+   ],
+   "visivo": {
+    "tipo": "mappa",
+    "centro": [
+     114.06,
+     22.54
+    ],
+    "larghezza": 24,
+    "paesi": [
+     {
+      "iso": "CHN",
+      "colore": "rojo"
+     }
+    ],
+    "punti": [
+     {
+      "lon": 114.06,
+      "lat": 22.54,
+      "nome": "SHENZHEN"
+     }
+    ]
+   }
+  },
+  {
+   "testo": "Il primo vertice trilaterale in assoluto tra i leader di Stati Uniti, Russia e Cina, secondo quanto riportato.",
+   "fonti": [
+    "https://poland.us/en/us-russia-china-summit-shenzhen-declaration/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s07"
+   }
+  },
+  {
+   "testo": "È durato circa 90 minuti, secondo The Hill.",
+   "fonti": [
+    "https://www.plataformamedia.com/en/2026/11/20/china-us-and-russia-announce-commitments-on-un-energy-and-nuclear-risks/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s11"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 80,
+    "decimali": 0,
+    "prefisso": "~",
+    "unita": "MINUTI",
+    "sopra": "L'INCONTRO TRILATERALE"
+   }
+  },
+  {
+   "testo": "Prima, Trump ha incontrato Putin a margine.",
+   "fonti": [
+    "https://www.axios.com/2026/11/20/trump-pushes-putin-ukraine-war-deal"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s08"
+   }
+  },
+  {
+   "testo": "Entrando nella sala, Trump ha chiesto: chi è quello? Poi si è risposto da solo.",
+   "fonti": [
+    "https://www.axios.com/2026/11/20/trump-pushes-putin-ukraine-war-deal"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s13"
+   },
+   "citazione": {
+    "chi": "trump",
+    "posa": "deciso",
+    "testo": "È mio amico."
+   }
+  },
+  {
+   "testo": "Putin ha risposto in inglese: piacere di conoscerla.",
+   "fonti": [
+    "https://www.freemalaysiatoday.com/category/world/2026/11/21/zelensky-says-putin-a-killer-after-trump-calls-him-his-friend"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s14"
+   }
+  },
+  {
+   "testo": "È stato il loro primo incontro dopo l'Alaska, nell'agosto 2025, secondo quanto riportato.",
+   "fonti": [
+    "https://www.freemalaysiatoday.com/category/world/2026/11/21/zelensky-says-putin-a-killer-after-trump-calls-him-his-friend"
+   ],
+   "visivo": {
+    "tipo": "mappa",
+    "centro": [
+     -150,
+     61.2
+    ],
+    "larghezza": 40,
+    "paesi": [
+     {
+      "iso": "USA",
+      "colore": "azul"
+     }
+    ],
+    "punti": [
+     {
+      "lon": -149.9,
+      "lat": 61.2,
+      "nome": "ANCHORAGE"
+     }
+    ]
+   }
+  },
+  {
+   "testo": "Che cosa hanno firmato davvero i tre leader a Shenzhen?",
+   "fonti": [
+    "https://poland.us/en/us-russia-china-summit-shenzhen-declaration/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s52"
+   }
+  },
+  {
+   "testo": "Una dichiarazione in quattro punti. Riforma dell'ONU, forniture di petrolio, Corte penale internazionale e rischio nucleare.",
+   "fonti": [
+    "https://poland.us/en/us-russia-china-summit-shenzhen-declaration/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s39"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 4,
+    "decimali": 0,
+    "prefisso": "",
+    "unita": "PUNTI",
+    "sopra": "DICHIARAZIONE DI SHENZHEN"
+   }
+  },
+  {
+   "testo": "Hanno detto di voler aumentare la produzione e la fornitura di prodotti petroliferi raffinati.",
+   "fonti": [
+    "https://poland.us/en/us-russia-china-summit-shenzhen-declaration/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s41"
+   }
+  },
+  {
+   "testo": "Hanno detto che una guerra nucleare non può essere vinta e non deve mai essere combattuta.",
+   "fonti": [
+    "https://poland.us/en/us-russia-china-summit-shenzhen-declaration/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s42"
+   }
+  },
+  {
+   "testo": "Mancavano i colloqui sul controllo degli armamenti e qualsiasi riferimento all'Ucraina, secondo Reuters e RFE/RL.",
+   "fonti": [
+    "https://www.plataformamedia.com/en/2026/11/20/china-us-and-russia-announce-commitments-on-un-energy-and-nuclear-risks/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s42"
+   }
+  },
+  {
+   "testo": "E il punto sulla CPI? La dichiarazione conteneva una critica alla Corte penale internazionale.",
+   "fonti": [
+    "https://www.plataformamedia.com/en/2026/11/20/china-us-and-russia-announce-commitments-on-un-energy-and-nuclear-risks/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s40"
+   }
+  },
+  {
+   "testo": "Secondo Reuters, il viaggio ha prodotto pochi risultati concreti nonostante le vanterie di Trump. Trump ha definito il vertice «più grande di Yalta».",
+   "fonti": [
+    "https://www.cbsnews.com/news/trump-xi-putin-china-apec-summit/",
+    "https://www.foxnews.com/live-news/trump-to-meet-xi-in-shenzhen-ahead-of-high-stakes-trilateral-talks-with-putin"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s37"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 12,
+    "decimali": 0,
+    "prefisso": "",
+    "unita": "SU 10",
+    "sopra": "IL VOTO DI TRUMP"
+   }
+  },
+  {
+   "testo": "Ma subito dopo ha parlato Putin. E ha detto qualcosa che Trump non ha ripetuto.",
+   "fonti": [
+    "https://www.cbsnews.com/news/putin-russia-ukraine-bridge-strike/"
+   ],
+   "capitolo": "COSA HA DETTO POI PUTIN",
+   "visivo": {
+    "tipo": "set",
+    "set": "s19"
+   }
+  },
+  {
+   "testo": "Pochi giorni prima, l'Ucraina aveva colpito il ponte di Crimea.",
+   "fonti": [
+    "https://www.yahoo.com/news/world/articles/not-negotiate-putin-addresses-ukraines-172344979.html"
+   ],
+   "visivo": {
+    "tipo": "mappa",
+    "centro": [
+     36.5,
+     45.3
+    ],
+    "larghezza": 10,
+    "paesi": [
+     {
+      "iso": "UKR",
+      "colore": "azul"
+     },
+     {
+      "iso": "RUS",
+      "colore": "rojo"
+     }
+    ],
+    "punti": [
+     {
+      "lon": 36.5,
+      "lat": 45.3,
+      "nome": "PONTE DI CRIMEA"
+     }
+    ]
+   }
+  },
+  {
+   "testo": "Un tratto della carreggiata è crollato dopo un attacco ucraino, secondo quanto riportato; l'Ucraina ha detto di aver danneggiato l'infrastruttura stradale.",
+   "fonti": [
+    "https://www.yahoo.com/news/world/articles/not-negotiate-putin-addresses-ukraines-172344979.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s16"
+   }
+  },
+  {
+   "testo": "Putin ha definito il ponte una struttura esclusivamente civile. Kiev sostiene che sostenga la logistica russa.",
+   "fonti": [
+    "https://clashreport.com/world/articles/putin-crimean-bridge-ceasefire-response-8t1mazsqmwj"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s17"
+   }
+  },
+  {
+   "testo": "A Shenzhen, Putin ha detto di aver discusso di cessate il fuoco limitati con il Consiglio di sicurezza russo.",
+   "fonti": [
+    "https://www.yahoo.com/news/world/articles/not-negotiate-putin-addresses-ukraines-172344979.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s20"
+   }
+  },
+  {
+   "testo": "Infrastrutture energetiche. Navi commerciali nel Mar Nero.",
+   "fonti": [
+    "https://www.yahoo.com/news/world/articles/not-negotiate-putin-addresses-ukraines-172344979.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s21"
+   }
+  },
+  {
+   "testo": "Poi ha chiuso quella porta, pubblicamente.",
+   "fonti": [
+    "https://www.cbsnews.com/news/putin-russia-ukraine-bridge-strike/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s22"
+   },
+   "citazione": {
+    "chi": "putin",
+    "posa": "serio",
+    "testo": "Dopo gli attacchi al ponte di Crimea, non negozieremo."
+   }
+  },
+  {
+   "testo": "Ha anche avvertito di una risposta molto più dolorosa dei danni al ponte.",
+   "fonti": [
+    "https://www.yahoo.com/news/world/articles/not-negotiate-putin-addresses-ukraines-172344979.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s47"
+   }
+  },
+  {
+   "testo": "Questa era la versione di Putin. Ora, quella di Trump.",
+   "fonti": [
+    "https://www.axios.com/2026/11/20/trump-pushes-putin-ukraine-war-deal"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s09"
+   }
+  },
+  {
+   "testo": "Durante il volo di ritorno, Trump ha telefonato a una riunione a Berlino, ha riferito Axios.",
+   "fonti": [
+    "https://www.axios.com/2026/11/20/trump-pushes-putin-ukraine-war-deal"
+   ],
+   "capitolo": "LA CHIAMATA DALL'AIR FORCE ONE",
+   "visivo": {
+    "tipo": "set",
+    "set": "s04"
+   }
+  },
+  {
+   "testo": "Gli inviati Steve Witkoff e Jared Kushner ospitavano i leader europei e Zelensky, ha riferito Axios.",
+   "fonti": [
+    "https://www.axios.com/2026/11/20/trump-pushes-putin-ukraine-war-deal"
+   ],
+   "visivo": {
+    "tipo": "mappa",
+    "centro": [
+     13.4,
+     52.5
+    ],
+    "larghezza": 16,
+    "paesi": [
+     {
+      "iso": "DEU",
+      "colore": "azul"
+     }
+    ],
+    "punti": [
+     {
+      "lon": 13.4,
+      "lat": 52.52,
+      "nome": "BERLINO"
+     }
+    ]
+   }
+  },
+  {
+   "testo": "Il vertice della Coalizione dei volenterosi a Berlino, ospitato dal cancelliere Friedrich Merz.",
+   "fonti": [
+    "https://www.ir-ia.com/news/zelenskyy-meets-us-envoys-and-european-leaders-in-germany-to-discuss-ukraine-peace-efforts/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s05"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 37,
+    "decimali": 0,
+    "prefisso": "",
+    "unita": "RAPPRESENTANTI",
+    "sopra": "A BERLINO"
+   }
+  },
+  {
+   "testo": "Il messaggio di Trump, secondo persone presenti nella sala e citate da Axios:",
+   "fonti": [
+    "https://www.axios.com/2026/11/20/trump-pushes-putin-ukraine-war-deal"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s67"
+   }
+  },
+  {
+   "testo": "Putin, ha detto, vuole che l'accordo si faccia.",
+   "fonti": [
+    "https://www.axios.com/2026/11/20/trump-pushes-putin-ukraine-war-deal"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s49"
+   },
+   "citazione": {
+    "chi": "trump",
+    "posa": "deciso",
+    "testo": "Putin vuole porre fine alla guerra, vuole che l'accordo si faccia, si sta stancando di tutto questo."
+   }
+  },
+  {
+   "testo": "Kushner ha detto che Trump vuole fare un accordo con l'Europa al suo fianco e non intende imporre nulla in modo unilaterale.",
+   "fonti": [
+    "https://meduza.io/amp/en/news/2026/11/19/trump-tells-european-leaders-that-putin-wants-to-end-the-war-in-ukraine-but-putin-says-moscow-won-t-negotiate-with-kyiv-after-crimean-bridge-strikes"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s26"
+   }
+  },
+  {
+   "testo": "A Shenzhen, a Zelensky è stato chiesto del caloroso saluto. Ha alzato le spalle ed è andato avanti, ha riferito Reuters.",
+   "fonti": [
+    "https://aninews.in/news/world/europe/zelensky-sidesteps-questions-on-warm-trump-putin-shenzhen-meet-amid-coalition-of-the-willing-talks20261120075539/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s25"
+   }
+  },
+  {
+   "testo": "Il giorno dopo, il podio della Casa Bianca. E una nuova domanda.",
+   "fonti": [
+    "https://www.pravda.com.ua/eng/news/2026/11/20/8063883/"
+   ],
+   "capitolo": "IL PODIO E LA DOMANDA",
+   "visivo": {
+    "tipo": "set",
+    "set": "s38"
+   }
+  },
+  {
+   "testo": "Putin è un amico dell'America? Trump ha risposto: «Non posso parlare a nome dell'America».",
+   "fonti": [
+    "https://www.pravda.com.ua/eng/news/2026/11/20/8063883/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s44"
+   }
+  },
+  {
+   "testo": "Ma ha insistito che Putin ha espresso chiaramente il desiderio di porre fine alla guerra con mezzi diplomatici.",
+   "fonti": [
+    "https://www.yahoo.com/news/politics/articles/trump-says-putin-wants-end-182500641.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s64"
+   }
+  },
+  {
+   "testo": "La sua spiegazione dello stallo: Putin e Zelensky si odiano, dice.",
+   "fonti": [
+    "https://www.yahoo.com/news/politics/articles/trump-says-putin-wants-end-182500641.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s43"
+   }
+  },
+  {
+   "testo": "Ha detto che la guerra, che a suo dire avrebbe dovuto durare un giorno, è durata cinque anni.",
+   "fonti": [
+    "https://www.pravda.com.ua/eng/news/2026/11/20/8063883/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s56"
+   }
+  },
+  {
+   "testo": "E che Putin gli ha detto che la guerra non ci sarebbe stata se Trump fosse stato presidente.",
+   "fonti": [
+    "https://www.yahoo.com/news/politics/articles/trump-says-putin-wants-end-182500641.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s55"
+   }
+  },
+  {
+   "testo": "In patria, le critiche sono arrivate subito.",
+   "fonti": [
+    "https://www.pravda.com.ua/eng/news/2026/11/20/8063883/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s28"
+   }
+  },
+  {
+   "testo": "La senatrice Jeanne Shaheen, la principale esponente democratica della Commissione Esteri del Senato, ha definito l'«amico» di Trump un sanguinario criminale di guerra.",
+   "fonti": [
+    "https://www.pravda.com.ua/eng/news/2026/11/20/8063883/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s27"
+   }
+  },
+  {
+   "testo": "Il primo ministro polacco Donald Tusk ha detto che Putin «non è nostro amico e non lo sarà mai».",
+   "fonti": [
+    "https://www.pravda.com.ua/eng/news/2026/11/20/8063867/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s29"
+   }
+  },
+  {
+   "testo": "La risposta di Zelensky alla CNN è andata oltre. E conteneva un avvertimento.",
+   "fonti": [
+    "https://www.kyivpost.com/post/90773"
+   ],
+   "capitolo": "L'AVVERTIMENTO DI ZELENSKY",
+   "visivo": {
+    "tipo": "set",
+    "set": "s36"
+   }
+  },
+  {
+   "testo": "Se Putin viene chiamato amico, non sente abbastanza pressione, ha detto Zelensky.",
+   "fonti": [
+    "https://www.tbsnews.net/worldbiz/europe/zelensky-calls-putin-enemy-and-killer-after-trump-describes-him-friend-1609321"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s24"
+   },
+   "citazione": {
+    "chi": "zelensky",
+    "posa": "parla",
+    "testo": "Se parli di Putin come se fosse un amico, naturalmente lui non sente di essere un killer, non sente abbastanza pressione."
+   }
+  },
+  {
+   "testo": "Ma ha ammesso che spetta a Trump decidere come chiamare Putin.",
+   "fonti": [
+    "https://www.kyivpost.com/post/90773"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s51"
+   }
+  },
+  {
+   "testo": "Ha detto che gli Stati Uniti hanno enormi strumenti per fare pressione su Putin.",
+   "fonti": [
+    "https://www.pravda.com.ua/eng/news/2026/11/20/8063867/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s59"
+   }
+  },
+  {
+   "testo": "La linea di Trump su entrambi: vogliono tutti e due chiuderla, ha detto.",
+   "fonti": [
+    "https://www.tbsnews.net/worldbiz/europe/zelensky-calls-putin-enemy-and-killer-after-trump-describes-him-friend-1609321"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s63"
+   }
+  },
+  {
+   "testo": "Ora, l'orologio. Il Financial Times ha riportato qualcosa che potrebbe cambiare il quadro.",
+   "fonti": [
+    "https://english.nv.ua/nation/u-s-wants-russia-ukraine-peace-deal-by-january-50661149.html"
+   ],
+   "capitolo": "L'OROLOGIO DI GENNAIO",
+   "visivo": {
+    "tipo": "set",
+    "set": "s31"
+   }
+  },
+  {
+   "testo": "Washington vuole un accordo entro l'inizio di gennaio, ha riportato il FT, citando quattro persone informate sui negoziati.",
+   "fonti": [
+    "https://english.nv.ua/nation/u-s-wants-russia-ukraine-peace-deal-by-january-50661149.html",
+    "https://www.yahoo.com/news/politics/articles/trump-administration-wants-ukraine-russia-171900747.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s58b"
+   },
+   "grafica": {
+    "tipo": "titolo",
+    "testo": "ACCORDO ENTRO GENNAIO",
+    "sotto": "Secondo il Financial Times"
+   }
+  },
+  {
+   "testo": "Perché gennaio? I Democratici dovrebbero assumere il controllo del Congresso, secondo il FT.",
+   "fonti": [
+    "https://english.nv.ua/nation/u-s-wants-russia-ukraine-peace-deal-by-january-50661149.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s27"
+   }
+  },
+  {
+   "testo": "Ci si aspetta che i Democratici cerchino più sostegno per l'Ucraina e intensifichino la pressione con le sanzioni su Mosca.",
+   "fonti": [
+    "https://censor.net/en/news/4034832/trump-wants-ukraine-and-russia-to-conclude-peace-deal-by-beginning-of-january-2027-ft"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s31"
+   }
+  },
+  {
+   "testo": "Secondo il FT, Witkoff e Kushner hanno trasmesso questa urgenza a Mosca, Dublino e Berlino.",
+   "fonti": [
+    "https://english.nv.ua/nation/u-s-wants-russia-ukraine-peace-deal-by-january-50661149.html"
+   ],
+   "visivo": {
+    "tipo": "mappa",
+    "centro": [
+     15,
+     52
+    ],
+    "larghezza": 50,
+    "paesi": [
+     {
+      "iso": "RUS",
+      "colore": "rojo"
+     },
+     {
+      "iso": "DEU",
+      "colore": "azul"
+     },
+     {
+      "iso": "IRL",
+      "colore": "verde"
+     }
+    ],
+    "punti": [
+     {
+      "lon": 37.6,
+      "lat": 55.75,
+      "nome": "MOSCA"
+     },
+     {
+      "lon": -6.26,
+      "lat": 53.35,
+      "nome": "DUBLINO"
+     },
+     {
+      "lon": 13.4,
+      "lat": 52.52,
+      "nome": "BERLINO"
+     }
+    ],
+    "frecce": [
+     {
+      "da": [
+       -6.26,
+       53.35
+      ],
+      "a": [
+       13.4,
+       52.52
+      ],
+      "colore": "amarillo"
+     },
+     {
+      "da": [
+       13.4,
+       52.52
+      ],
+      "a": [
+       37.6,
+       55.75
+      ],
+      "colore": "amarillo"
+     }
+    ]
+   }
+  },
+  {
+   "testo": "Una fonte ha detto al FT: gli americani hanno fretta, Putin no.",
+   "fonti": [
+    "https://en.interfax.com.ua/news/general/1240065.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s57"
+   }
+  },
+  {
+   "testo": "Un funzionario europeo ha detto al FT che c'era preoccupazione che un accordo richiedesse moltissime concessioni ucraine.",
+   "fonti": [
+    "https://english.nv.ua/nation/u-s-wants-russia-ukraine-peace-deal-by-january-50661149.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s46"
+   }
+  },
+  {
+   "testo": "Un alto funzionario ucraino ha detto al FT che la Russia potrebbe ottenere condizioni migliori prima di gennaio.",
+   "fonti": [
+    "https://www.yahoo.com/news/politics/articles/trump-administration-wants-ukraine-russia-171900747.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s33"
+   }
+  },
+  {
+   "testo": "Il FT ha riportato anche, citando due persone informate sulle posizioni del Cremlino, che Mosca pianifica una campagna di attacchi aerei per ottenere un vantaggio negoziale.",
+   "fonti": [
+    "https://www.yahoo.com/news/politics/articles/trump-administration-wants-ukraine-russia-171900747.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s35"
+   }
+  },
+  {
+   "testo": "La Casa Bianca non ha risposto alla richiesta di commento del FT sulla data di gennaio, ha riportato il FT.",
+   "fonti": [
+    "https://english.nv.ua/nation/u-s-wants-russia-ukraine-peace-deal-by-january-50661149.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s54"
+   }
+  },
+  {
+   "testo": "Ecco dunque a che punto siamo, con ciò che è confermato e ciò che è solo riportato.",
+   "fonti": [
+    "https://www.axios.com/2026/11/20/trump-pushes-putin-ukraine-war-deal"
+   ],
+   "capitolo": "COSA È CONFERMATO",
+   "visivo": {
+    "tipo": "set",
+    "set": "s62"
+   }
+  },
+  {
+   "testo": "Confermato: Trump ha chiamato Putin amico e ha detto che Putin vuole porre fine alla guerra.",
+   "fonti": [
+    "https://www.pravda.com.ua/eng/news/2026/11/20/8063883/",
+    "https://www.axios.com/2026/11/20/trump-pushes-putin-ukraine-war-deal"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s01b"
+   }
+  },
+  {
+   "testo": "Confermato: Putin ha detto pubblicamente che la Russia non negozierà cessate il fuoco dopo gli attacchi al ponte.",
+   "fonti": [
+    "https://www.cbsnews.com/news/putin-russia-ukraine-bridge-strike/",
+    "https://hromadske.ua/en/war/274651-putin-rules-out-ceasefire-talks-after-ukrainian-strikes-on-kerch-bridge-threatens-retaliation"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s32b"
+   }
+  },
+  {
+   "testo": "Confermato: Zelensky ha definito Putin un nemico e un killer.",
+   "fonti": [
+    "https://www.tbsnews.net/worldbiz/europe/zelensky-calls-putin-enemy-and-killer-after-trump-describes-him-friend-1609321",
+    "https://www.pravda.com.ua/eng/news/2026/11/20/8063867/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s60b"
+   }
+  },
+  {
+   "testo": "Solo riportato: la scadenza di gennaio, attribuita a fonti anonime del FT.",
+   "fonti": [
+    "https://english.nv.ua/nation/u-s-wants-russia-ukraine-peace-deal-by-january-50661149.html"
+   ],
+   "visivo": {
+    "tipo": "frase",
+    "testo": "Solo riportato: la scadenza di gennaio, attribuita a fonti anonime del FT."
+   }
+  },
+  {
+   "testo": "Trump dice che Putin vuole la pace. Putin dice no ai negoziati sui cessate il fuoco dopo il ponte.",
+   "fonti": [
+    "https://www.axios.com/2026/11/20/trump-pushes-putin-ukraine-war-deal",
+    "https://www.cbsnews.com/news/putin-russia-ukraine-bridge-strike/"
+   ],
+   "visivo": {
+    "tipo": "frase",
+    "testo": "Trump dice che Putin vuole la pace. Putin dice no ai negoziati sui cessate il fuoco dopo il ponte."
+   }
+  },
+  {
+   "testo": "La storia è ancora in movimento. Iscriviti, per non perdere la prossima mossa.",
+   "fonti": [
+    "https://www.axios.com/2026/11/20/trump-pushes-putin-ukraine-war-deal"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s63b"
+   }
+  }
+ ],
+ "copertina": {
+  "sfondo": "Dark dramatic split background: a glowing White House podium on one side and a snowy Kyiv night street on the other, no people, red glow in the middle",
+  "personaggi": [
+   "trump",
+   "zelensky"
+  ],
+  "pose": {
+   "trump": "deciso",
+   "zelensky": "parla"
+  },
+  "personaggio": "trump",
+  "posa": "deciso",
+  "lato": "dx",
+  "righe": [
+   "«MIO AMICO»",
+   "«UN KILLER»"
+  ],
+  "box": "OROLOGIO DI GENNAIO",
+  "evidenzia": 2
+ },
+ "verifica": {
+  "correzioni": 68,
+  "scene_tolte": 11
+ },
+ "coerenza": {
+  "scene_rifatte": 23,
+  "controllate": 58
+ },
+ "lingua": "it",
+ "nome": "2026-11-21_trump_xi_putin_trilateral_summit_in_chin_it",
+ "data": "21 NOVEMBRE 2026",
+ "etichetta": "ULTIM'ORA",
+ "musica": "tensione",
+ "voce": "glnsgBC77wt5zOYU0szz",
+ "budget_dollari": 0.6,
+ "storia": "Trump, Xi, Putin trilateral summit in China: Trump calls Putin 'my friend', says Putin wants peace; backlash from Zelensky and Europeans",
+ "filone": "guerra",
+ "materiali_da": "2026-11-21_trump_xi_putin_trilateral_summit_in_chin_en"
+}
