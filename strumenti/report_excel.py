@@ -156,7 +156,7 @@ def main():
     wv = wb.create_sheet('Vincenti')
     for c, w_ in zip('ABCDEFGH', (8, 70, 12, 12, 14, 12, 14, 30)):
         wv.column_dimensions[c].width = w_
-    wv['A1'] = 'VIDEO VINCENTI (ultimi 90 giorni, o di sempre dove vincenti_giorni = TUTTO) - i primi 3 di ogni canale sono i modelli dei video gemelli'; wv['A1'].font = Font(bold=True, size=14)
+    wv['A1'] = 'VIDEO VINCENTI (ultimi 90 giorni, o di sempre dove vincenti_giorni = TUTTO) - i vincenti sopra 50.000 views (fino a 3) sono i modelli dei gemelli, a turno'; wv['A1'].font = Font(bold=True, size=14)
     rv = 3
     try:
         tutti_v = json.load(open('coach/vincenti.json'))
@@ -164,7 +164,7 @@ def main():
         tutti_v = {}
     for nome in sorted(tutti_v):
         x = tutti_v[nome]; qv = x.get('quota_gemelli') or 0
-        wv.cell(rv, 1, nome.upper() + '  [' + str(x.get('periodo') or 'ultimi 90 giorni') + ']' + ('   (50-50 attivo: ' + str(int(qv)) + '% gemelli)' if qv > 0 else '   (50-50 non attivo: vuoi iniziare?)' if x.get('video') else '   (nessun video sopra ' + f"{int(x.get('min_views') or 50000):,}".replace(',', '.') + ' views: niente gemelli, solo video presi dai competitor)')).font = Font(bold=True, size=12)
+        wv.cell(rv, 1, nome.upper() + '  [' + str(x.get('periodo') or 'ultimi 90 giorni') + ']' + ('   (50-50 attivo: ' + str(int(qv)) + '% gemelli)' if qv > 0 else '   (50-50 non attivo: canale notizie o quota_gemelli 0)' if x.get('video') else '   (nessun video sopra ' + f"{int(x.get('min_views') or 50000):,}".replace(',', '.') + ' views: niente gemelli, solo video presi dai competitor)')).font = Font(bold=True, size=12)
         rv += 1
         for c, t in enumerate(['Posto', 'Titolo', 'Pubblicato', 'Views', 'Views al giorno', 'CTR %', 'Impression', 'Ruolo'], 1):
             y = wv.cell(rv, c, t); y.font = Font(bold=True, color='FFFFFF'); y.fill = TESTA

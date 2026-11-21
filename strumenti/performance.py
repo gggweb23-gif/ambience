@@ -220,7 +220,7 @@ def vincenti_90(cfg, cid, fid, auth, tutti, imp, ora):
     """15 nov 2026 (Giorgio, metodo 50-50): i video VINCENTI del canale negli ultimi 90 giorni.
     Vincente = almeno gemelli_min_views views (21 nov: 50.000) E (CTR >= 4% con almeno 500 impression, oppure almeno 3 volte le views medie del periodo).
     Classifica per views al giorno (cosi' un video vecchio non vince solo perche' e' uscito prima), a parita' il CTR piu' alto.
-    I primi 3 sono i modelli dei video gemelli (strumenti/gemelli.py): circa 50% sul 1o, 30% sul 2o, 20% sul 3o."""
+    I primi 3 sono i modelli dei video gemelli (strumenti/gemelli.py), usati a turno."""
     # 15 nov (Giorgio): colonna vincenti_giorni di Channel Configs = quanti giorni guardare (90 per tutti), TUTTO = i migliori di sempre del canale (KAO)
     per_ = str(cfg.get('vincenti_giorni') or '90').strip().upper()
     sempre = per_ == 'TUTTO'

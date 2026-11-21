@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """VIDEO GEMELLI - metodo 50-50 (15 nov 2026, Giorgio).
-Quando un NOSTRO video funziona (coach/vincenti.json, scritto ogni mattina dal report Performance: CTR >= 4% con >= 500 impression
-oppure >= 3 volte le views medie del canale) si continua su quell'angolo. Per ogni canale con quota_gemelli > 0 (Channel Configs, la
+Quando un NOSTRO video ha dimostrato di funzionare (coach/vincenti.json, scritto ogni mattina dal report Performance: almeno 50.000 views,
+colonna gemelli_min_views, e CTR >= 4% o >= 3 volte le views medie del canale) si continua su quell'angolo. Per ogni canale con quota_gemelli > 0 (Channel Configs, la
 decide Giorgio) si tengono in coda GEMELLI_CODA righe Pronto "gemelle" (nome_canale = GEMELLO):
  - canali con testo nostro: Claude scrive titoli NUOVI con lo stesso schema del vincente; il motore riscrive il copione partendo dal
    testo del vincente (Link video = il vincente) con argomento nuovo;
@@ -46,10 +46,10 @@ def main():
         manca = CODA - len(gem)
         if manca <= 0:
             print(nome, ': coda gemelli piena (', len(gem), ')'); continue
-        # 15 nov (Giorgio): mai tutto su un video. Modelli = i primi 3 della classifica degli ultimi 90 giorni (views al giorno), pesi 50/30/20:
-        # ogni riga nuova va al modello piu' "indietro" rispetto al suo peso (contando i gemelli gia' in coda e gia' fatti).
+        # 21 nov (Giorgio): mai sempre la stessa struttura. Modelli = fino a 3 nostri vincenti (tutti sopra gemelli_min_views, 50.000 views):
+        # si ALTERNANO a turno (1o, 2o, 3o, 1o...): ogni riga nuova va al modello con meno gemelli (in coda e gia' fatti).
         vv = sorted(w['video'], key=lambda x: x.get('posto') or 99)[:3]
-        PESI = [0.5, 0.3, 0.2][:len(vv)]; PESI = [p_ / sum(PESI) for p_ in PESI]
+        PESI = [1 / len(vv)] * len(vv)   # 21 nov: a turno, pesi uguali (prima 50/30/20)
         conta = [sum(1 for r in prod if str(r.get('nome_canale') or '').strip().upper() == 'GEMELLO'
                      and (str(r.get('gemello_di') or '').strip() == x['titolo'] or x['id'] in str(r.get('Link video') or ''))) for x in vv]
         modelli = []
