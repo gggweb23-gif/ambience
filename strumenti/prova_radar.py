@@ -79,6 +79,11 @@ def copione():
              'ARCHIVE.ORG Prelinger public-domain films of 1940s-1960s America (2-4 words that appear in old educational/industrial film '
              'titles or descriptions: e.g. "drive-in theater", "soda fountain", "suburban family", "highway 1950s", "supermarket"; '
              'no modern things)')
+    cornice = C.get('stile_video') == 'cornice'
+    extra = ('- this is a COUNTDOWN list video (like the competitor): items are numbered from the highest down; for every scene give "etichetta": '
+             'the name of the item shown, 2-4 words in CAPS (e.g. "HOMEMADE CARS"), and "numero": the item number on the first scene of each item, else "";\n'
+             if cornice else '')
+    extra_json = ', "etichetta": "", "numero": ""' if cornice else ''
     p = f"""You write YouTube documentary narration in English for a NEW channel that copies the STRUCTURE (not the words) of a winning channel.
 Winning channel: {C['competitor']} — {C['descrizione']}
 Their best videos (copy the hook and structure, NEVER the text): {C['modelli']}
@@ -90,7 +95,7 @@ Write ONLY the first {int(SECONDI)} seconds of the video (about {parole} words i
 - split into scenes of 6-11 words each (one sentence or half sentence per scene); every scene must be easy to show with real footage;
 - for every scene give "q": the footage search for {fonte}; make each q different and concrete;
 - "scritta": an optional on-screen keyword of 1-3 words in CAPS (a number or a strong word) for about one scene in four, else "".
-Reply ONLY with JSON: {{"titolo": "...", "copertina": "2-4 word thumbnail text built on the title", "scene": [{{"testo": "...", "q": "...", "scritta": ""}}]}}"""
+{extra}Reply ONLY with JSON: {{"titolo": "...", "copertina": "2-4 word thumbnail text built on the title", "scene": [{{"testo": "...", "q": "...", "scritta": ""{extra_json}}}]}}"""
     t = claude(p, max_tokens=5000)
     j = json.loads(t[t.index('{'):t.rindex('}') + 1])
     n = sum(len(x['testo'].split()) for x in j['scene'])
@@ -355,6 +360,43 @@ def scritta_png(testo):
     return f
 
 
+FW, FH = 1480, 832   # foto/clip nella cornice (stile Lost America)
+
+
+def cornice_png(etichetta, numero, sinistra):
+    """Stile del competitor: fondo scuro, foto in cornice, linee gialle ad angolo, etichetta in maiuscolo spaziato, numero grande."""
+    im = Image.new('RGBA', (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
+    x = 170 if sinistra else W - FW - 170; y = (H - FH) // 2 + 50
+    gialla = (242, 196, 24, 255)
+    d.rectangle((x - 14, y - 14, x + FW + 14, y + FH + 14), outline=(245, 240, 225, 255), width=10)   # bordo chiaro della foto
+    lx = x - 60 if sinistra else x + FW + 60
+    d.line([(lx, y - 120), (lx, y + FH * .55)], fill=gialla, width=16)
+    d.line([(lx - (0 if sinistra else 700), y + FH * .55), (lx + (700 if sinistra else 0), y + FH * .55)], fill=gialla, width=16)
+    if etichetta:
+        fo = ImageFont.truetype(FONT, 78)
+        t = ' '.join(etichetta.upper())
+        tw = d.textlength(t, font=fo)
+        d.text((x + FW / 2 - tw / 2, y - 125), t, font=fo, fill=(245, 240, 225, 255), stroke_width=4, stroke_fill=(0, 0, 0, 255))
+    if numero:
+        fo = ImageFont.truetype(FONT, 330)
+        nx = x + FW - 60 if sinistra else x + 60
+        d.text((nx, y + FH - 40), str(numero), font=fo, fill=(255, 255, 255, 255), anchor='rs' if sinistra else 'ls', stroke_width=10, stroke_fill=(0, 0, 0, 255))
+    f = os.path.join(LAV, f'cornice_{abs(hash((etichetta, numero, sinistra)))}.png'); im.save(f)
+    return f, x, y
+
+
+def inquadratura_cornice(src, da, dur, i, etichetta, numero, sinistra, effetto=None):
+    o = os.path.join(LAV, f'shot_{i:03d}.mp4')
+    png, x, y = cornice_png(etichetta, numero, sinistra)
+    ing = (['-loop', '1', '-t', f'{dur:.3f}', '-i', src] if src.endswith('.png') else ['-stream_loop', '-1', '-ss', f'{da:.2f}', '-t', f'{dur:.3f}', '-i', src])
+    fc = (f'[0:v]fps={FPS},split[a][b];[a]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},boxblur=30:3,eq=brightness=-0.32:saturation=0.4[bg];'
+          f'[b]scale={FW}:{FH}:force_original_aspect_ratio=increase:flags=lanczos,crop={FW}:{FH},setsar=1[fg];[bg][fg]overlay={x}:{y}[v];'
+          f'[1:v]format=rgba[s];[v][s]overlay=0:0:shortest=1' + (f',fade=in:st=0:d=0.18:color={effetto}' if effetto else '') + ',format=yuv420p[o]')
+    subprocess.run(['ffmpeg', '-v', 'error', '-y'] + ing + ['-loop', '1', '-t', f'{dur:.3f}', '-i', png, '-filter_complex', fc, '-map', '[o]',
+                    '-an', '-c:v', 'libx264', '-preset', 'medium', '-crf', '18', '-r', str(FPS), o], check=True)
+    return o
+
+
 def inquadratura(src, da, dur, i, scritta=None, effetto=None):
     o = os.path.join(LAV, f'shot_{i:03d}.mp4')
     vf = (f'scale={W}:{H}:force_original_aspect_ratio=increase:flags=lanczos,crop={W}:{H},fps={FPS},setsar=1'
@@ -401,12 +443,16 @@ def main():
                 da = random.uniform(0.2, max(0.25, src[1] - d1 - 0.2)) if src[1] > d1 + 0.5 else 0.0
             else:
                 da = src[2]
-            shots.append((src[0], src[1], da, d1, s.get('scritta') if k == 0 and s.get('scritta') else None, ('white' if i % 5 == 4 else 'black' if i % 7 == 6 else None) if k == 0 else None))
+            shots.append((src[0], src[1], da, d1, s.get('scritta') if k == 0 and s.get('scritta') else None, ('white' if i % 5 == 4 else 'black' if i % 7 == 6 else None) if k == 0 else None,
+                          s.get('etichetta') or '', str(s.get('numero') or '') if k == 0 else '', len(shots) % 2 == 0))
         n_tot += pezzi; n_clip += pezzi if cl and not str(cl[0][0]).endswith('.png') else 0
         log(f'scena {i + 1}/{len(c["scene"])}: {round(dur, 1)} s, {pezzi} inquadrature, q="{s["q"]}"')
     files = []
-    for j, (src, _, da, d1, scr, eff) in enumerate(shots):
-        files.append(inquadratura(src, da, d1, j, scr, eff))
+    for j, (src, _, da, d1, scr, eff, etic, num, sin) in enumerate(shots):
+        if C.get('stile_video') == 'cornice':
+            files.append(inquadratura_cornice(src, da, d1, j, etic, num, sin, eff))
+        else:
+            files.append(inquadratura(src, da, d1, j, scr, eff))
     lista = os.path.join(LAV, 'lista.txt'); open(lista, 'w').write(''.join(f"file '{f}'\n" for f in files))
     muto = os.path.join(LAV, 'muto.mp4')
     subprocess.run(['ffmpeg', '-v', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', lista, '-c', 'copy', muto], check=True)

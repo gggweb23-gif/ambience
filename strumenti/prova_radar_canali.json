@@ -35,7 +35,7 @@
   "competitor": "Lost America",
   "descrizione": "nostalgia for everyday American life in the 1950s-60s: objects, habits, places that disappeared",
   "modelli": "100 Things From 1950s America We'll Never See Again (136k views) | 100 Things From 1960s America We'll Never See Again | 13 Things From 1960s America Kids Today Would Never Understand",
-  "titolo": "50 Things From 1950s America That Quietly Disappeared",
+  "titolo": "40 Things From 1950s America That Quietly Disappeared",
   "fonte": "archivio",
   "voce": "pNInz6obpgDQGcFmaJgB",
   "musica": "malinconia_003.mp3",
@@ -46,7 +46,8 @@
    200
   ],
   "velocita": 1.0,
-  "contesto": "English nostalgia video for older US viewers about everyday life in 1950s America; only 1950s American people, homes, cars, objects"
+  "contesto": "English nostalgia video for older US viewers about everyday life in 1950s America; only 1950s American people, homes, cars, objects",
+  "stile_video": "cornice"
  },
  "africaregions": {
   "competitor": "africaregions",
@@ -62,7 +63,7 @@
    255,
    255
   ],
-  "contesto": "English video for a US audience about the region named in the title (e.g. Alaska); only footage of that region, its nature, towns and people"
+  "contesto": "English video for a US audience about Alaska: only footage of Alaska, its nature, wildlife, towns and people"
  },
  "intothegreen": {
   "competitor": "IntoTheGreen",
@@ -96,5 +97,23 @@
   ],
   "contesto": "English video for a US audience about Hawaii: only Hawaiian islands, volcanoes, ocean, reefs, wildlife and towns",
   "copertina_stile": "intothegreen"
+ },
+ "nickel_years": {
+  "competitor": "The Nickel Years",
+  "descrizione": "everyday life of ordinary American families during the Great Depression (1930s): food, money, work, home, told warmly with real period footage and photos",
+  "modelli": "What Did Ordinary Families Actually Eat During the Great Depression? (121k views)",
+  "titolo": "How Ordinary Families Made a Dollar Last a Week During the Great Depression",
+  "fonte": "archivio",
+  "voce": "pNInz6obpgDQGcFmaJgB",
+  "musica": "malinconia_004.mp3",
+  "riserva": "depression 1930s",
+  "colore_scritta": [
+   255,
+   236,
+   200
+  ],
+  "velocita": 1.0,
+  "contesto": "English nostalgia documentary for older US viewers about ordinary American families in the 1930s Great Depression: only 1930s America, farms, kitchens, breadlines, small towns",
+  "copertina_stile": "lost_america"
  }
 }
