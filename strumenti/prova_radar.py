@@ -93,6 +93,11 @@ Write ONLY the first {int(SECONDI)} seconds of the video (about {parole} words i
 Reply ONLY with JSON: {{"titolo": "...", "copertina": "2-4 word thumbnail text built on the title", "scene": [{{"testo": "...", "q": "...", "scritta": ""}}]}}"""
     t = claude(p, max_tokens=5000)
     j = json.loads(t[t.index('{'):t.rindex('}') + 1])
+    n = sum(len(x['testo'].split()) for x in j['scene'])
+    if n < parole * 0.88:   # troppo corto: la durata conta (video lunghi sempre sopra gli 8 minuti)
+        t = claude(p + f'\n\nYour previous answer had only {n} words, far below {parole}. Here it is:\n' + json.dumps(j, ensure_ascii=False)
+                   + f'\nRewrite it to {parole} words (count them), adding new TRUE facts and scenes, same rules, same JSON format.', max_tokens=6000)
+        j = json.loads(t[t.index('{'):t.rindex('}') + 1])
     log('titolo:', j['titolo'], '| scene', len(j['scene']), '| parole', sum(len(s['testo'].split()) for s in j['scene']))
     return j
 
@@ -144,36 +149,55 @@ def fotogramma(f, t):
     return Image.open(g) if os.path.exists(g) else None
 
 
-def giudice(img, testo, q):
-    if img is None:
-        return False
-    r = claude(f'This is one frame of footage for a serious YouTube documentary. Narration at this moment: "{testo}" (footage search: "{q}").\n'
-               'Answer SI if the frame fits the narration well enough for a documentary AND has no visible text, subtitles, logos or watermarks '
-               'AND is not blurry. Otherwise answer NO. Answer only SI or NO.', modello='claude-haiku-4-5-20251001', max_tokens=5, immagine=img)
-    return r.strip().upper().startswith('SI')
+def scegli(imgs, testo, q):
+    """UNA chiamata Haiku per scena: griglia numerata di anteprime piccole -> i numeri che c'entrano, dal migliore (costo ~0,001 $)."""
+    if not imgs:
+        return []
+    cw, ch, cols = 320, 180, 4
+    rows = -(-len(imgs) // cols)
+    g = Image.new('RGB', (cw * cols, ch * rows), (0, 0, 0)); d = ImageDraw.Draw(g); fo = ImageFont.truetype(FONT, 40)
+    for k, im in enumerate(imgs):
+        x, y = (k % cols) * cw, (k // cols) * ch
+        g.paste(im.convert('RGB').resize((cw, ch)), (x, y))
+        d.rectangle((x, y, x + 52, y + 50), fill=(0, 0, 0)); d.text((x + 10, y + 2), str(k + 1), font=fo, fill=(255, 255, 0))
+    r = claude(f'Numbered frames of candidate footage for a serious YouTube documentary. Narration: "{testo}" (search: "{q}").\n'
+               'List the numbers of the frames that fit the narration well, best first, excluding any frame with visible text, subtitles, logos, '
+               'watermarks, people posing for the camera, or blur. Reply only with numbers separated by commas, or NONE.',
+               modello='claude-haiku-4-5-20251001', max_tokens=30, immagine=g)
+    return [int(x) - 1 for x in re.findall(r'\d+', r) if 0 < int(x) <= len(imgs)]
 
 
 def clip_pexels(q, testo, quanti):
     out = []
-    for q_ in [q, ' '.join(q.split()[:2])]:
+    for q_ in [q, ' '.join(q.split()[:2]), C.get('riserva') or q]:
+        cand = []
         for v in pexels(q_):
-            if len(out) >= quanti:
-                return out
-            if v['id'] in USATE or v.get('duration', 0) < 3:
+            if v['id'] in USATE or v.get('duration', 0) < 3 or len(cand) >= 8:
                 continue
             fs = sorted([x for x in v['video_files'] if x.get('file_type') == 'video/mp4' and (x.get('width') or 0) >= 1920],
                         key=lambda x: (abs((x.get('width') or 0) - 2560), -(x.get('fps') or 0)))
             if not fs:
                 continue
+            try:
+                im = Image.open(io.BytesIO(http(v['image'], raw=True, timeout=60)))
+            except Exception:
+                continue
+            cand.append((v, fs[0], im))
+        for k in scegli([c_[2] for c_ in cand], testo, q_):
+            if len(out) >= quanti:
+                return out
+            v, fl, _ = cand[k]
+            if v['id'] in USATE:
+                continue
             USATE.add(v['id'])
             f = os.path.join(LAV, f'pex_{v["id"]}.mp4')
             try:
-                open(f, 'wb').write(http(fs[0]['link'], raw=True, timeout=300))
+                open(f, 'wb').write(http(fl['link'], raw=True, timeout=300))
             except Exception:
                 continue
-            if not giudice(fotogramma(f, min(1.5, v['duration'] / 2)), testo, q_):
-                log('  scartata pexels', v['id']); continue
-            out.append((f, float(v['duration']), 1.0)); FONTI.append(f'Pexels {v["id"]} {v.get("url", "")} (licenza Pexels, gratis)')
+            out.append((f, float(v['duration']), 0.0)); FONTI.append(f'Pexels {v["id"]} {v.get("url", "")} (licenza Pexels, gratis)')
+        if len(out) >= quanti:
+            break
     return out
 
 
@@ -213,7 +237,7 @@ def film_archivio(q):
         dur = float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', f], capture_output=True, text=True).stdout or 0)
         if dur < 30:
             continue
-        USATE.add(ide); ARCH[q].append([f, dur, ide, set()])
+        USATE.add(ide); ARCH[q].append([f, dur, ide, []])
         FONTI.append(f'archive.org {ide} https://archive.org/details/{ide} (pubblico dominio: {lic})')
         if len(ARCH[q]) >= 2:
             break
@@ -223,19 +247,25 @@ def film_archivio(q):
 def clip_archivio(q, testo, quanti):
     out = []
     for q_ in [q, ' '.join(q.split()[:2]), C.get('riserva') or 'america 1950s']:
+        cand = []
         for film in film_archivio(q_):
             f, dur, ide, presi = film
-            for _ in range(8):
-                if len(out) >= quanti:
-                    return out
-                t = random.uniform(dur * 0.08, dur * 0.9 - 4)
-                if any(abs(t - p) < 12 for p in presi):
+            for _ in range(5):
+                t = random.uniform(dur * 0.06, dur * 0.92 - 5)
+                if any(abs(t - p_) < 10 for p_ in presi) or any(c_[0] == f and abs(c_[2] - t) < 10 for c_ in cand):
                     continue
-                presi.add(t)
-                if giudice(fotogramma(f, t + 1), testo, q_):
-                    out.append((f, dur, t))
-                else:
-                    log('  scartato pezzo', ide, round(t))
+                im = fotogramma(f, t + 1)
+                if im:
+                    cand.append((f, dur, t, im, presi))
+        for k in scegli([c_[3] for c_ in cand][:12], testo, q_):
+            if len(out) >= quanti:
+                return out
+            f, dur, t, _, presi = cand[k]
+            if any(abs(t - p_) < 10 for p_ in presi):
+                continue
+            presi.append(t); out.append((f, dur, t))
+        if len(out) >= quanti:
+            break
     return out
 
 
@@ -282,17 +312,17 @@ def main():
         dur = b - a
         pezzi = max(1, int(-(-dur // MAX_S)))
         cl = (clip_pexels if C['fonte'] == 'pexels' else clip_archivio)(s['q'], s['testo'], pezzi)
-        if not cl:   # riserva: ricerca generica del canale
-            cl = (clip_pexels if C['fonte'] == 'pexels' else clip_archivio)(C.get('riserva') or s['q'], s['testo'], pezzi)
         if not cl:
             log('SCENA SENZA CLIP', i, s['q']); cl = [shots[-1][0:3]] if shots else []
+        n_ok = len(cl) if cl else 0
+        pezzi = max(1, min(pezzi, n_ok or 1))   # meno clip trovate -> inquadrature un po' piu' lunghe, mai la stessa clip ripetuta
         d1 = dur / pezzi
         for k in range(pezzi):
-            src = cl[k % len(cl)]
+            src = cl[k]
             if C['fonte'] == 'pexels':
-                da = max(0.0, min(src[1] - d1 - 0.1, random.uniform(0.3, max(0.4, src[1] - d1 - 0.2))))
+                da = random.uniform(0.2, max(0.25, src[1] - d1 - 0.2)) if src[1] > d1 + 0.5 else 0.0
             else:
-                da = src[2] + (k // len(cl)) * (d1 + 0.5)
+                da = src[2]
             shots.append((src[0], src[1], da, d1, s.get('scritta') if k == 0 and s.get('scritta') else None, ('white' if i % 5 == 4 else 'black' if i % 7 == 6 else None) if k == 0 else None))
         n_tot += pezzi; n_clip += pezzi if cl else 0
         log(f'scena {i + 1}/{len(c["scene"])}: {round(dur, 1)} s, {pezzi} inquadrature, q="{s["q"]}"')
