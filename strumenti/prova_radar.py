@@ -82,8 +82,13 @@ def copione():
     cornice = C.get('stile_video') == 'cornice'
     extra = ('- this is a COUNTDOWN list video (like the competitor): items are numbered from the highest down; for every scene give "etichetta": '
              'the name of the item shown, 2-4 words in CAPS (e.g. "HOMEMADE CARS"), and "numero": the item number on the first scene of each item, else "";\n'
-             if cornice else '')
-    extra_json = ', "etichetta": "", "numero": ""' if cornice else ''
+             if cornice else
+             ('- this is a COUNTDOWN of surprising facts/places about the place in the title (like the competitor: "A countdown of 40 strange and '
+              'surprising facts"); every new fact starts with a scene that has "capitolo": the short name of that fact (2-4 words, Title Case, e.g. '
+              '"Kalahari truffle"), other scenes "capitolo": ""; when a scene mentions a year give "anno" (e.g. "2012") and "nota": what happened, '
+              'max 6 words lowercase (e.g. "scientists found ash from burnt grass"), else "";\n'
+              if C.get('stile_video') == 'capitoli' else ''))
+    extra_json = ', "etichetta": "", "numero": ""' if cornice else (', "capitolo": "", "anno": "", "nota": ""' if C.get('stile_video') == 'capitoli' else '')
     p = f"""You write YouTube documentary narration in English for a NEW channel that copies the STRUCTURE (not the words) of a winning channel.
 Winning channel: {C['competitor']} — {C['descrizione']}
 Their best videos (copy the hook and structure, NEVER the text): {C['modelli']}
@@ -387,6 +392,44 @@ def cornice_png(etichetta, numero, sinistra):
     return f, x, y
 
 
+def scheda_capitolo(nome):
+    """Come africaregions: foglio chiaro con griglia sottile, pallino rosso + CHAPTER, nome evidenziato in giallo."""
+    im = Image.new('RGB', (W, H), (243, 242, 238)); d = ImageDraw.Draw(im)
+    for x in (int(W * .64), int(W * .74), int(W * .86)):
+        d.line([(x, 0), (x, H)], fill=(200, 200, 205), width=3)
+    for y in (int(H * .12), int(H * .3), int(H * .82)):
+        d.line([(int(W * .55), y), (W, y)], fill=(200, 200, 205), width=3)
+    d.rectangle((int(W * .9), 0, W, int(H * .88)), fill=(214, 222, 232))
+    x0, y0 = int(W * .12), int(H * .55)
+    d.ellipse((x0, y0 - 20, x0 + 36, y0 + 16), fill=(220, 50, 50)); d.ellipse((x0 + 11, y0 - 9, x0 + 25, y0 + 5), fill=(243, 242, 238))
+    d.text((x0 + 56, y0), 'CHAPTER', font=ImageFont.truetype(os.path.join(ROOT, 'fonts_costo_vero', 'ArchivoBlack-Regular.ttf'), 44), fill=(60, 60, 60), anchor='lm')
+    fo = ImageFont.truetype(os.path.join(ROOT, 'fonts_costo_vero', 'ArchivoBlack-Regular.ttf'), 110)
+    tw = d.textlength(nome, font=fo)
+    d.rectangle((x0 - 10, y0 + 70, x0 + tw + 20, y0 + 205), fill=(240, 220, 30))
+    d.text((x0 + 5, y0 + 138), nome, font=fo, fill=(15, 15, 15), anchor='lm')
+    f = os.path.join(LAV, f'capitolo_{abs(hash(nome))}.png'); im.save(f)
+    return f
+
+
+def scheda_data(anno, nota):
+    """Come africaregions: cartoncino in basso a sinistra con righello e pallino giallo, anno grande, nota su fascia gialla."""
+    im = Image.new('RGBA', (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
+    x0, y0, x1, y1 = 90, H - 560, 700, H - 170
+    d.rectangle((x0 + 10, y0 + 12, x1 + 10, y1 + 12), fill=(0, 0, 0, 90))
+    d.rectangle((x0, y0, x1, y1), fill=(250, 250, 246, 255))
+    d.line([(x0 + 50, y0 + 70), (x1 - 50, y0 + 70)], fill=(90, 90, 90, 255), width=4)
+    for k in range(5):
+        xx = x0 + 50 + k * (x1 - x0 - 100) / 4; d.line([(xx, y0 + 55), (xx, y0 + 85)], fill=(90, 90, 90, 255), width=4)
+    d.ellipse((x0 + 40, y0 + 52, x0 + 76, y0 + 88), fill=(240, 210, 30, 255), outline=(120, 100, 0, 255), width=3)
+    d.text(((x0 + x1) / 2, y0 + 210), str(anno), font=ImageFont.truetype(FONT, 190), fill=(20, 20, 20, 255), anchor='mm')
+    fo = ImageFont.truetype(os.path.join(ROOT, 'fonts_costo_vero', 'ArchivoBlack-Regular.ttf'), 38)
+    tw = d.textlength(nota, font=fo)
+    d.rectangle((x0 + 10, y1 - 20, x0 + 40 + tw, y1 + 40), fill=(240, 210, 30, 255))
+    d.text((x0 + 25, y1 + 10), nota, font=fo, fill=(15, 15, 15, 255), anchor='lm')
+    f = os.path.join(LAV, f'data_{abs(hash((anno, nota)))}.png'); im.save(f)
+    return f
+
+
 def inquadratura_cornice(src, da, dur, i, etichetta, numero, sinistra, effetto=None):
     o = os.path.join(LAV, f'shot_{i:03d}.mp4')
     png, x, y = cornice_png(etichetta, numero, sinistra)
@@ -401,13 +444,14 @@ def inquadratura_cornice(src, da, dur, i, etichetta, numero, sinistra, effetto=N
 
 def inquadratura(src, da, dur, i, scritta=None, effetto=None):
     o = os.path.join(LAV, f'shot_{i:03d}.mp4')
+    png_scritta = scritta if (scritta and str(scritta).endswith('.png')) else (scritta_png(scritta) if scritta else None)
     vf = (f'scale={W}:{H}:force_original_aspect_ratio=increase:flags=lanczos,crop={W}:{H},fps={FPS},setsar=1'
           + (',eq=contrast=1.05:saturation=0.9' if C['fonte'] == 'archivio' else '')
           + (f',fade=in:st=0:d=0.18:color={effetto}' if effetto else ''))
     cmd = (['ffmpeg', '-v', 'error', '-y', '-loop', '1', '-t', f'{dur:.3f}', '-i', src] if src.endswith('.png') else
            ['ffmpeg', '-v', 'error', '-y', '-stream_loop', '-1', '-ss', f'{da:.2f}', '-t', f'{dur:.3f}', '-i', src])   # clip corta: ricomincia, mai buchi nei tempi
     if scritta:
-        cmd += ['-loop', '1', '-t', f'{dur:.3f}', '-i', scritta_png(scritta),
+        cmd += ['-loop', '1', '-t', f'{dur:.3f}', '-i', png_scritta,
                 '-filter_complex', f'[0:v]{vf}[v];[1:v]format=rgba,fade=in:st=0.12:d=0.2:alpha=1[s];[v][s]overlay=0:0:shortest=1,format=yuv420p[o]', '-map', '[o]']
     else:
         cmd += ['-vf', vf + ',format=yuv420p']
@@ -438,7 +482,11 @@ def main():
             log('SCENA SENZA CLIP', i, s['q'])
         n_ok = len(cl) if cl else 0
         pezzi = max(1, min(pezzi, n_ok or 1))   # meno clip trovate -> inquadrature un po' piu' lunghe, mai la stessa clip ripetuta
+        if C.get('stile_video') == 'capitoli' and s.get('capitolo') and dur > 2.4:   # scheda CHAPTER (1,3 s) all'inizio del fatto
+            shots.append((scheda_capitolo(s['capitolo']), 99.0, 0.0, 1.3, None, None, '', '', False)); dur -= 1.3
         d1 = dur / pezzi
+        if C.get('stile_video') == 'capitoli' and s.get('anno'):
+            s['scritta'] = scheda_data(s['anno'], str(s.get('nota') or '')[:48])
         for k in range(pezzi):
             src = cl[k]
             if C['fonte'] == 'pexels':
