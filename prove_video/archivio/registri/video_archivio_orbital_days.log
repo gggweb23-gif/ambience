@@ -1,55 +1,878 @@
-07:43:29 testo di riferimento: 1737 parole
-07:43:30 copione RIPRESO dal giro fallito precedente (45 scene, 1907 parole): nessuna spesa di copione; voce salvata: False
-Traceback (most recent call last):
-  File "/home/runner/work/ambience/ambience/strumenti/prova_archivio.py", line 96, in <module>
-    jj = get(f"https://api.elevenlabs.io/v1/text-to-speech/{P.get('voce') or 'glnsgBC77wt5zOYU0szz'}/with-timestamps?output_format=mp3_44100_128",
-             dati_, {'xi-api-key': E('ELEVENLABS_API_KEY', '')})
-  File "/home/runner/work/ambience/ambience/strumenti/prova_archivio.py", line 46, in get
-    with urllib.request.urlopen(req, timeout=timeout) as r:
-         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.14/urllib/request.py", line 187, in urlopen
-    return opener.open(url, data, timeout)
-           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.14/urllib/request.py", line 493, in open
-    response = meth(req, response)
-  File "/usr/lib/python3.14/urllib/request.py", line 602, in http_response
-    response = self.parent.error(
-        'http', request, response, code, msg, hdrs)
-  File "/usr/lib/python3.14/urllib/request.py", line 531, in error
-    return self._call_chain(*args)
-           ~~~~~~~~~~~~~~~~^^^^^^^
-  File "/usr/lib/python3.14/urllib/request.py", line 464, in _call_chain
-    result = func(*args)
-  File "/usr/lib/python3.14/urllib/request.py", line 611, in http_error_default
-    raise HTTPError(req.full_url, code, msg, hdrs, fp)
-urllib.error.HTTPError: HTTP Error 401: Unauthorized
-07:43:30 montaggio non riuscito al tentativo 1
-Traceback (most recent call last):
-  File "/home/runner/work/ambience/ambience/strumenti/prova_archivio.py", line 96, in <module>
-    jj = get(f"https://api.elevenlabs.io/v1/text-to-speech/{P.get('voce') or 'glnsgBC77wt5zOYU0szz'}/with-timestamps?output_format=mp3_44100_128",
-             dati_, {'xi-api-key': E('ELEVENLABS_API_KEY', '')})
-  File "/home/runner/work/ambience/ambience/strumenti/prova_archivio.py", line 46, in get
-    with urllib.request.urlopen(req, timeout=timeout) as r:
-         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.14/urllib/request.py", line 187, in urlopen
-    return opener.open(url, data, timeout)
-           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.14/urllib/request.py", line 493, in open
-    response = meth(req, response)
-  File "/usr/lib/python3.14/urllib/request.py", line 602, in http_response
-    response = self.parent.error(
-        'http', request, response, code, msg, hdrs)
-  File "/usr/lib/python3.14/urllib/request.py", line 531, in error
-    return self._call_chain(*args)
-           ~~~~~~~~~~~~~~~~^^^^^^^
-  File "/usr/lib/python3.14/urllib/request.py", line 464, in _call_chain
-    result = func(*args)
-  File "/usr/lib/python3.14/urllib/request.py", line 611, in http_error_default
-    raise HTTPError(req.full_url, code, msg, hdrs, fp)
-urllib.error.HTTPError: HTTP Error 401: Unauthorized
-07:43:30 montaggio non riuscito al tentativo 2
-Traceback (most recent call last):
-  File "/home/runner/work/ambience/ambience/strumenti/video_archivio.py", line 490, in <module>
-    raise RuntimeError('VIDEO BLOCCATO (controlli, anche dopo la riparazione): ' + '; '.join(errori))
-RuntimeError: VIDEO BLOCCATO (controlli, anche dopo la riparazione): montaggio non riuscito
-07:43:32 file di produzione aggiornato: status, data_inizio_produzione
+18:44:43 testo di riferimento: 1750 parole
+18:45:27 copione: 48 scene, 1728 parole (obiettivo 1683-1782, minimo accettato 1574)
+18:45:42 voce in 2 pezzi (testo lungo 9910 caratteri)
+18:45:42 voce 576.4 s, 9910 caratteri, 3.0 parole/s
+18:45:46 00 FOTO 2.93 s fade
+18:45:49 01 FOTO 2.93 s fade
+18:45:52 02 FOTO 2.93 s fadeblack
+18:45:54 03 FOTO 2.93 s fade
+18:45:55 04 FOTO 2.93 s fade
+18:45:58 05 FOTO 2.69 s fadewhite
+18:46:00 06 FOTO 2.69 s fade
+18:46:02 07 FOTO 2.69 s fade
+18:46:04 08 FOTO 2.69 s zoomin
+18:46:08 09 CLIP 3.34 s fade
+18:46:11 10 CLIP 3.34 s fade
+18:46:14 11 CLIP 3.34 s dissolve
+18:46:19 12 CLIP 2.86 s fade
+18:46:22 13 CLIP 2.86 s fade
+18:46:37 14 CLIP 2.86 s slideleft
+18:46:39 15 CLIP 2.86 s fade
+18:46:40 16 CLIP 2.86 s fade
+18:46:49 17 CLIP 2.75 s smoothright
+18:46:54 clip 4:3 con bande nere: messa in cornice lib_iss062m261080759_NTV_VideoFile_Expedition_62_Landing_200416.mp4 640x216 su 640x360
+18:46:57 18 CLIP 2.75 s fade
+18:46:58 19 CLIP 2.75 s fade
+18:47:35 20 CLIP 2.75 s circleopen
+18:47:41 21 FOTO 2.93 s fade
+18:47:46 22 FOTO 2.93 s fade
+18:47:51 23 FOTO 2.93 s fadeblack
+18:47:55 24 FOTO 2.93 s fade
+18:48:12 25 CLIP 2.88 s fade
+18:48:14 26 CLIP 2.88 s fadewhite
+18:48:16 27 CLIP 2.88 s fade
+18:48:17 28 CLIP 2.88 s fade
+18:48:31 29 CLIP 2.67 s zoomin
+18:48:38 30 CLIP 2.67 s fade
+18:48:42 31 CLIP 2.67 s fade
+18:49:07 clip 4:3 con bande nere: messa in cornice lib_iss065m262241159_Expedition_65_NG_16_Cygnus_Installation_210.mp4 640x310 su 640x360
+18:49:10 32 CLIP 2.67 s dissolve
+18:49:11 33 CLIP 2.83 s fade
+18:49:16 34 CLIP 2.83 s fade
+18:49:17 35 CLIP 2.83 s slideleft
+18:49:19 36 CLIP 2.83 s fade
+18:49:23 37 CLIP 3.2 s fade
+18:49:26 38 CLIP 3.2 s smoothright
+18:49:30 39 CLIP 3.2 s fade
+18:49:32 40 CLIP 3.2 s fade
+18:49:35 41 CLIP 3.08 s circleopen
+18:49:37 42 CLIP 3.08 s fade
+18:49:40 43 CLIP 3.08 s fade
+18:49:42 44 CLIP 3.08 s fadeblack
+18:49:45 45 FOTO 2.65 s fade
+18:49:47 46 FOTO 2.65 s fade
+18:49:49 47 FOTO 2.65 s fadewhite
+18:49:52 48 FOTO 2.65 s fade
+18:50:00 49 CLIP 2.63 s fade
+18:50:02 50 CLIP 2.63 s zoomin
+18:50:04 51 CLIP 2.63 s fade
+18:50:06 52 CLIP 2.63 s fade
+18:50:08 53 FOTO 3.37 s dissolve
+18:50:10 54 FOTO 3.37 s fade
+18:50:13 55 FOTO 3.37 s fade
+18:50:15 56 FOTO 2.67 s slideleft
+18:50:17 57 FOTO 2.67 s fade
+18:50:18 58 FOTO 2.67 s fade
+18:50:20 59 FOTO 2.67 s smoothright
+18:50:22 60 CLIP 2.76 s fade
+18:50:34 61 CLIP 2.76 s fade
+18:50:41 62 CLIP 2.76 s circleopen
+18:50:42 63 CLIP 2.76 s fade
+18:50:43 64 CLIP 3.0 s fade
+18:50:52 65 CLIP 3.0 s fadeblack
+18:50:54 66 CLIP 3.0 s fade
+18:51:14 67 CLIP 3.0 s fade
+18:51:25 68 CLIP 3.07 s fadewhite
+18:51:27 69 CLIP 3.07 s fade
+18:51:36 70 CLIP 3.07 s fade
+18:51:42 71 CLIP 3.07 s zoomin
+18:51:44 72 CLIP 2.86 s fade
+18:51:45 73 CLIP 2.86 s fade
+18:51:51 74 CLIP 2.86 s dissolve
+18:52:18 75 CLIP 2.86 s fade
+18:52:34 76 CLIP 3.45 s fade
+18:52:36 77 CLIP 3.45 s slideleft
+18:52:38 78 CLIP 3.45 s fade
+18:52:40 79 CLIP 3.45 s fade
+18:52:40 clip della libreria con bande nere, scartata jsc2022m000094_NTV_Video_File_Soyuz_MS-19_Landing_220330- 540.03
+18:52:42 80 CLIP 3.16 s smoothright
+18:53:00 81 CLIP 3.16 s fade
+18:53:02 82 CLIP 3.16 s fade
+18:53:03 83 CLIP 3.16 s circleopen
+18:53:07 84 CLIP 3.42 s fade
+18:53:17 85 CLIP 3.42 s fade
+18:53:19 86 CLIP 3.42 s fadeblack
+18:53:20 87 CLIP 2.77 s fade
+18:53:22 88 CLIP 2.77 s fade
+18:53:23 89 CLIP 2.77 s fadewhite
+18:53:25 90 CLIP 2.77 s fade
+18:53:26 91 CLIP 2.86 s fade
+18:53:30 92 CLIP 2.86 s zoomin
+18:53:35 93 CLIP 2.86 s fade
+18:53:36 94 CLIP 2.86 s fade
+18:53:40 95 CLIP 2.86 s dissolve
+18:54:00 96 CLIP 2.84 s fade
+18:54:01 97 CLIP 2.84 s fade
+18:54:03 98 CLIP 2.84 s slideleft
+18:54:05 99 CLIP 2.84 s fade
+18:54:06 100 CLIP 2.87 s fade
+18:54:07 101 CLIP 2.87 s smoothright
+18:54:09 102 CLIP 2.87 s fade
+18:54:13 clip 4:3 con bande nere: messa in cornice lib_jsc2021m000296_NTV_VideoFile_Soyuz_MS_20_Landing_211219.mp4 640x310 su 640x360
+18:54:15 103 CLIP 2.87 s fade
+18:54:15 clip 4:3 con bande nere: messa in cornice lib_iss065m262241159_Expedition_65_NG_16_Cygnus_Installation_210.mp4 634x316 su 640x360
+18:54:19 104 CLIP 2.87 s circleopen
+18:54:23 105 FOTO 3.35 s fade
+18:54:26 106 FOTO 3.35 s fade
+18:54:29 107 FOTO 3.35 s fadeblack
+18:54:32 108 FOTO 3.35 s fade
+18:54:37 109 CLIP 2.68 s fade
+18:54:38 110 CLIP 2.68 s fadewhite
+18:54:40 111 CLIP 2.68 s fade
+18:54:42 112 CLIP 2.68 s fade
+18:54:44 113 CLIP 3.08 s zoomin
+18:55:17 114 CLIP 3.08 s fade
+18:55:19 115 CLIP 3.08 s fade
+18:55:23 116 CLIP 3.08 s dissolve
+18:55:29 117 CLIP 3.47 s fade
+18:55:39 clip 4:3 con bande nere: messa in cornice NDTV001077_X_15_Documentary_Revised.mp4 480x360 su 640x360
+18:55:43 118 CLIP 3.47 s fade
+18:55:49 119 CLIP 3.47 s slideleft
+18:55:53 120 CLIP 2.83 s fade
+18:55:55 121 CLIP 2.83 s fade
+18:55:57 122 CLIP 2.83 s smoothright
+18:56:38 123 CLIP 2.83 s fade
+18:56:39 124 CLIP 2.83 s fade
+18:56:41 125 CLIP 2.93 s circleopen
+18:56:43 126 CLIP 2.93 s fade
+18:56:46 127 CLIP 2.93 s fade
+18:56:48 128 CLIP 2.93 s fadeblack
+18:56:49 129 CLIP 2.93 s fade
+18:56:51 130 CLIP 2.67 s fade
+18:57:05 131 CLIP 2.67 s fadewhite
+18:57:07 132 CLIP 2.67 s fade
+18:57:08 133 CLIP 2.67 s fade
+18:57:10 134 FOTO 3.44 s zoomin
+18:57:12 135 FOTO 3.44 s fade
+18:57:13 136 FOTO 3.44 s fade
+18:57:15 137 CLIP 2.76 s dissolve
+18:57:17 138 CLIP 2.76 s fade
+18:57:18 139 CLIP 2.76 s fade
+18:57:20 140 CLIP 2.76 s slideleft
+18:57:23 141 FOTO 2.77 s fade
+18:57:26 142 FOTO 2.77 s fade
+18:57:28 143 FOTO 2.77 s smoothright
+18:57:31 144 FOTO 2.77 s fade
+18:57:32 145 CLIP 3.49 s fade
+18:57:34 146 CLIP 3.49 s circleopen
+18:57:36 147 CLIP 3.49 s fade
+18:57:39 148 CLIP 3.49 s fade
+18:57:43 149 FOTO 3.09 s fadeblack
+18:57:44 150 FOTO 3.09 s fade
+18:57:48 151 FOTO 3.09 s fade
+18:57:50 152 FOTO 3.09 s fadewhite
+18:57:51 clip 4:3 con bande nere: messa in cornice lib_jsc2026m000128_NASA_Astronaut_Chris_Williams_and_Soyuz_MS_28.mp4 512x360 su 640x360
+18:57:53 153 CLIP 2.64 s fade
+18:58:26 clip 4:3 con bande nere: messa in cornice lib_iss062m261080359_NTV_Expedition_62_Deorbit_Burn_and_Landing_.mp4 512x358 su 640x360
+18:58:29 154 CLIP 2.64 s fade
+18:59:02 clip 4:3 con bande nere: messa in cornice lib_iss060m262760930_NASA_TV_Soyuz_MS_12_Landing_2019_1003.mp4 512x358 su 640x360
+18:59:05 155 CLIP 2.64 s zoomin
+18:59:07 156 CLIP 2.64 s fade
+18:59:10 157 CLIP 3.34 s fade
+18:59:15 158 CLIP 3.34 s dissolve
+18:59:50 clip 4:3 con bande nere: messa in cornice lib_iss064m261070319_Expedition_64_MS_17_Deorbit_Burn_and_Landin.mp4 512x358 su 640x360
+18:59:53 159 CLIP 3.34 s fade
+19:00:21 160 CLIP 3.34 s fade
+19:00:24 161 FOTO 3.48 s slideleft
+19:01:02 162 CLIP 3.48 s fade
+19:01:02 clip 4:3 con bande nere: messa in cornice lib_iss062m261080359_NTV_Expedition_62_Deorbit_Burn_and_Landing_.mp4 512x358 su 640x360
+19:01:06 163 CLIP 3.48 s fade
+19:01:10 164 CLIP 3.48 s smoothright
+19:01:10 clip 4:3 con bande nere: messa in cornice lib_iss064m261070319_Expedition_64_MS_17_Deorbit_Burn_and_Landin.mp4 512x358 su 640x360
+19:01:13 165 CLIP 2.68 s fade
+19:01:21 166 CLIP 2.68 s fade
+19:01:21 clip 4:3 con bande nere: messa in cornice lib_iss060m262760930_NASA_TV_Soyuz_MS_12_Landing_2019_1003.mp4 512x358 su 640x360
+19:01:24 167 CLIP 2.68 s circleopen
+19:01:27 168 CLIP 2.68 s fade
+19:01:31 clip 4:3 con bande nere: messa in cornice Guy_Bluford__First_African_American_in_Space_40_Years_of_Inspiration.mp4 468x360 su 640x360
+19:01:35 169 CLIP 3.33 s fade
+19:01:40 170 CLIP 3.33 s fadeblack
+19:01:44 171 CLIP 3.33 s fade
+19:01:48 172 CLIP 3.33 s fade
+19:01:49 173 CLIP 3.05 s fadewhite
+19:01:52 174 CLIP 3.05 s fade
+19:01:54 175 CLIP 3.05 s fade
+19:01:55 176 CLIP 3.05 s zoomin
+19:01:59 177 FOTO 3.45 s fade
+19:02:03 178 FOTO 3.45 s fade
+19:02:05 179 FOTO 3.45 s dissolve
+19:02:09 180 FOTO 3.17 s fade
+19:02:12 181 FOTO 3.17 s fade
+19:02:16 182 FOTO 3.17 s slideleft
+19:02:19 183 FOTO 3.17 s fade
+19:02:22 184 CLIP 3.11 s fade
+19:02:24 185 CLIP 3.11 s smoothright
+19:02:26 186 CLIP 3.11 s fade
+19:02:29 187 CLIP 3.11 s fade
+19:02:47 188 CLIP 3.04 s circleopen
+19:02:49 189 CLIP 3.04 s fade
+19:02:51 190 CLIP 3.04 s fade
+19:02:54 191 CLIP 3.04 s fadeblack
+19:02:55 192 CLIP 3.04 s fade
+19:12:40 scatti di macchina fotografica: 47
+19:13:50 ATTENZIONE: solo 75% di video in movimento (minimo 80%)
+19:13:50 FATTO prove_video/archivio/orbital_days_how_did_cosmonauts_survive_their_deadliest_spac/prova.mp4 193 inquadrature 577.3 s 75% video
+19:13:50 CONTROLLI: durata 9.6 min, video in movimento 75%, inquadratura media 3.0 s | OK
+19:13:50 28 argomenti senza clip in libreria: aggiunti alle ricerche dei prossimi giri
+19:14:04 REVISIONE: 10 inquadrature bocciate su 193: 4 Shot shows a city at night from space (satellite view), but narration discusses the February 23, 1997 fire aboard Mir space station - unrelated generic space imagery; 5 Shot shows a satellite or spacecraft in orbit, but narration is transitional/generic about multiple hazards - this appears to be unrelated satellite imagery rather than Mir or relevant mission documentation; 49 Shows a space launch/explosion from external view, not related to the Mir fire incident being described; 50 Shows a Soyuz capsule in orbit, generic spacecraft imagery not specifically related to the Mir fire of Feb 23, 1997; 51 Shows a Soyuz capsule at night/landing, generic imagery not related to the specific Mir fire incident; 52 Shows a rocket launch, unrelated to the Mir fire incident being described; 120 Shows astronaut training on Earth at night, not a spacewalk 250 miles above Earth; 138 Shows a world map graphic labeled 'ISS RESULTS' - this is a map graphic which should not be used; 169 Black/empty shot with only a thin horizon line visible - doesn't show actual space shuttle disaster footage or related content; 172 Shows a person speaking at a podium (appears to be a memorial or official speech) - unclear connection to the specific 1986/2003 shuttle disasters being discussed
+19:14:04 10 spezzoni tolti per sempre dalla libreria (bocciati.json)
+19:14:04 RIMONTAGGIO 1: tolte 8 clip e 2 foto bocciate
+19:14:04 voce ripresa dal tentativo precedente (nessun credito in piu')
+19:14:04 voce 576.4 s, 9910 caratteri, 3.0 parole/s
+19:14:08 00 FOTO 2.93 s fade
+19:14:10 01 FOTO 2.93 s fade
+19:14:12 02 FOTO 2.93 s fadeblack
+19:14:15 03 FOTO 2.93 s fade
+19:14:16 04 FOTO 2.93 s fade
+19:14:19 05 FOTO 2.69 s fadewhite
+19:14:21 06 FOTO 2.69 s fade
+19:14:24 07 FOTO 2.69 s fade
+19:14:25 08 FOTO 2.69 s zoomin
+19:14:29 09 CLIP 3.34 s fade
+19:14:33 10 CLIP 3.34 s fade
+19:14:35 11 CLIP 3.34 s dissolve
+19:14:40 12 CLIP 2.86 s fade
+19:14:44 13 CLIP 2.86 s fade
+19:14:58 14 CLIP 2.86 s slideleft
+19:15:00 15 CLIP 2.86 s fade
+19:15:01 16 CLIP 2.86 s fade
+19:15:11 17 CLIP 2.75 s smoothright
+19:15:16 clip 4:3 con bande nere: messa in cornice lib_iss062m261080759_NTV_VideoFile_Expedition_62_Landing_200416.mp4 640x216 su 640x360
+19:15:19 18 CLIP 2.75 s fade
+19:15:20 19 CLIP 2.75 s fade
+19:16:00 20 CLIP 2.75 s circleopen
+19:16:06 21 FOTO 2.93 s fade
+19:16:10 22 FOTO 2.93 s fade
+19:16:14 23 FOTO 2.93 s fadeblack
+19:16:18 24 FOTO 2.93 s fade
+19:16:39 25 CLIP 2.88 s fade
+19:16:41 26 CLIP 2.88 s fadewhite
+19:16:43 27 CLIP 2.88 s fade
+19:16:44 28 CLIP 2.88 s fade
+19:17:00 29 CLIP 2.67 s zoomin
+19:17:07 30 CLIP 2.67 s fade
+19:17:11 31 CLIP 2.67 s fade
+19:17:41 clip 4:3 con bande nere: messa in cornice lib_iss065m262241159_Expedition_65_NG_16_Cygnus_Installation_210.mp4 640x310 su 640x360
+19:17:44 32 CLIP 2.67 s dissolve
+19:17:45 33 CLIP 2.83 s fade
+19:17:50 34 CLIP 2.83 s fade
+19:17:52 35 CLIP 2.83 s slideleft
+19:17:54 36 CLIP 2.83 s fade
+19:17:57 37 CLIP 3.2 s fade
+19:18:01 38 CLIP 3.2 s smoothright
+19:18:04 39 CLIP 3.2 s fade
+19:18:06 40 CLIP 3.2 s fade
+19:18:09 41 CLIP 3.08 s circleopen
+19:18:11 42 CLIP 3.08 s fade
+19:18:15 43 CLIP 3.08 s fade
+19:18:16 44 CLIP 3.08 s fadeblack
+19:18:19 45 FOTO 2.65 s fade
+19:18:21 46 FOTO 2.65 s fade
+19:18:23 47 FOTO 2.65 s fadewhite
+19:18:25 48 FOTO 2.65 s fade
+19:18:34 49 CLIP 2.63 s fade
+19:18:36 50 CLIP 2.63 s zoomin
+19:18:38 51 CLIP 2.63 s fade
+19:18:40 52 CLIP 2.63 s fade
+19:18:42 53 FOTO 3.37 s dissolve
+19:18:44 54 FOTO 3.37 s fade
+19:18:46 55 FOTO 3.37 s fade
+19:18:47 56 FOTO 2.67 s slideleft
+19:18:49 57 FOTO 2.67 s fade
+19:18:51 58 FOTO 2.67 s fade
+19:18:53 59 FOTO 2.67 s smoothright
+19:18:54 60 CLIP 2.76 s fade
+19:19:09 61 CLIP 2.76 s fade
+19:19:16 62 CLIP 2.76 s circleopen
+19:19:17 63 CLIP 2.76 s fade
+19:19:18 64 CLIP 3.0 s fade
+19:19:28 65 CLIP 3.0 s fadeblack
+19:19:29 66 CLIP 3.0 s fade
+19:19:50 67 CLIP 3.0 s fade
+19:20:02 68 CLIP 3.07 s fadewhite
+19:20:03 69 CLIP 3.07 s fade
+19:20:13 70 CLIP 3.07 s fade
+19:20:19 71 CLIP 3.07 s zoomin
+19:20:21 72 CLIP 2.86 s fade
+19:20:22 73 CLIP 2.86 s fade
+19:20:28 74 CLIP 2.86 s dissolve
+19:20:57 75 CLIP 2.86 s fade
+19:21:13 76 CLIP 3.45 s fade
+19:21:15 77 CLIP 3.45 s slideleft
+19:21:16 78 CLIP 3.45 s fade
+19:21:18 79 CLIP 3.45 s fade
+19:21:19 clip della libreria con bande nere, scartata jsc2022m000094_NTV_Video_File_Soyuz_MS-19_Landing_220330- 540.03
+19:21:21 80 CLIP 3.16 s smoothright
+19:21:40 81 CLIP 3.16 s fade
+19:21:41 82 CLIP 3.16 s fade
+19:21:43 83 CLIP 3.16 s circleopen
+19:21:46 84 CLIP 3.42 s fade
+19:21:57 85 CLIP 3.42 s fade
+19:21:59 86 CLIP 3.42 s fadeblack
+19:22:01 87 CLIP 2.77 s fade
+19:22:02 88 CLIP 2.77 s fade
+19:22:04 89 CLIP 2.77 s fadewhite
+19:22:06 90 CLIP 2.77 s fade
+19:22:07 91 CLIP 2.86 s fade
+19:22:11 92 CLIP 2.86 s zoomin
+19:22:15 93 CLIP 2.86 s fade
+19:22:17 94 CLIP 2.86 s fade
+19:22:21 95 CLIP 2.86 s dissolve
+19:22:42 96 CLIP 2.84 s fade
+19:22:43 97 CLIP 2.84 s fade
+19:22:45 98 CLIP 2.84 s slideleft
+19:22:47 99 CLIP 2.84 s fade
+19:22:48 100 CLIP 2.87 s fade
+19:22:49 101 CLIP 2.87 s smoothright
+19:22:51 102 CLIP 2.87 s fade
+19:22:54 clip 4:3 con bande nere: messa in cornice lib_jsc2021m000296_NTV_VideoFile_Soyuz_MS_20_Landing_211219.mp4 640x310 su 640x360
+19:22:57 103 CLIP 2.87 s fade
+19:22:57 clip 4:3 con bande nere: messa in cornice lib_iss065m262241159_Expedition_65_NG_16_Cygnus_Installation_210.mp4 634x316 su 640x360
+19:23:01 104 CLIP 2.87 s circleopen
+19:23:05 105 FOTO 3.35 s fade
+19:23:08 106 FOTO 3.35 s fade
+19:23:11 107 FOTO 3.35 s fadeblack
+19:23:13 108 FOTO 3.35 s fade
+19:23:18 109 CLIP 2.68 s fade
+19:23:19 110 CLIP 2.68 s fadewhite
+19:23:21 111 CLIP 2.68 s fade
+19:23:23 112 CLIP 2.68 s fade
+19:23:25 113 CLIP 3.08 s zoomin
+19:24:01 114 CLIP 3.08 s fade
+19:24:03 115 CLIP 3.08 s fade
+19:24:07 116 CLIP 3.08 s dissolve
+19:24:14 117 CLIP 3.47 s fade
+19:24:24 clip 4:3 con bande nere: messa in cornice NDTV001077_X_15_Documentary_Revised.mp4 480x360 su 640x360
+19:24:28 118 CLIP 3.47 s fade
+19:24:34 119 CLIP 3.47 s slideleft
+19:24:36 120 CLIP 2.83 s fade
+19:24:39 121 CLIP 2.83 s fade
+19:25:20 122 CLIP 2.83 s smoothright
+19:25:21 123 CLIP 2.83 s fade
+19:25:24 124 CLIP 2.83 s fade
+19:25:26 125 CLIP 2.93 s circleopen
+19:25:28 126 CLIP 2.93 s fade
+19:25:32 127 CLIP 2.93 s fade
+19:25:33 128 CLIP 2.93 s fadeblack
+19:25:36 129 CLIP 2.93 s fade
+19:25:49 130 CLIP 2.67 s fade
+19:25:51 131 CLIP 2.67 s fadewhite
+19:25:53 132 CLIP 2.67 s fade
+19:25:55 133 CLIP 2.67 s fade
+19:25:57 134 FOTO 3.44 s zoomin
+19:25:58 135 FOTO 3.44 s fade
+19:26:00 136 FOTO 3.44 s fade
+19:26:02 137 CLIP 2.76 s dissolve
+19:26:03 138 CLIP 2.76 s fade
+19:26:05 139 CLIP 2.76 s fade
+19:26:06 140 CLIP 2.76 s slideleft
+19:26:09 141 FOTO 2.77 s fade
+19:26:11 142 FOTO 2.77 s fade
+19:26:13 143 FOTO 2.77 s smoothright
+19:26:15 144 FOTO 2.77 s fade
+19:26:17 145 CLIP 3.49 s fade
+19:26:19 146 CLIP 3.49 s circleopen
+19:26:21 147 CLIP 3.49 s fade
+19:26:24 148 CLIP 3.49 s fade
+19:26:27 149 FOTO 3.09 s fadeblack
+19:26:30 150 FOTO 3.09 s fade
+19:26:33 151 FOTO 3.09 s fade
+19:26:36 152 FOTO 3.09 s fadewhite
+19:26:36 clip 4:3 con bande nere: messa in cornice lib_jsc2026m000128_NASA_Astronaut_Chris_Williams_and_Soyuz_MS_28.mp4 512x360 su 640x360
+19:26:39 153 CLIP 2.64 s fade
+19:27:16 clip 4:3 con bande nere: messa in cornice lib_iss062m261080359_NTV_Expedition_62_Deorbit_Burn_and_Landing_.mp4 512x358 su 640x360
+19:27:19 154 CLIP 2.64 s fade
+19:27:55 clip 4:3 con bande nere: messa in cornice lib_iss060m262760930_NASA_TV_Soyuz_MS_12_Landing_2019_1003.mp4 512x358 su 640x360
+19:27:58 155 CLIP 2.64 s zoomin
+19:27:59 156 CLIP 2.64 s fade
+19:28:03 157 CLIP 3.34 s fade
+19:28:08 158 CLIP 3.34 s dissolve
+19:28:34 clip 4:3 con bande nere: messa in cornice lib_iss064m261070319_Expedition_64_MS_17_Deorbit_Burn_and_Landin.mp4 512x358 su 640x360
+19:28:38 159 CLIP 3.34 s fade
+19:28:58 160 CLIP 3.34 s fade
+19:29:02 161 FOTO 3.48 s slideleft
+19:29:33 162 CLIP 3.48 s fade
+19:29:33 clip 4:3 con bande nere: messa in cornice lib_iss062m261080359_NTV_Expedition_62_Deorbit_Burn_and_Landing_.mp4 512x358 su 640x360
+19:29:37 163 CLIP 3.48 s fade
+19:29:41 164 CLIP 3.48 s smoothright
+19:29:41 clip 4:3 con bande nere: messa in cornice lib_iss064m261070319_Expedition_64_MS_17_Deorbit_Burn_and_Landin.mp4 512x358 su 640x360
+19:29:44 165 CLIP 2.68 s fade
+19:29:52 166 CLIP 2.68 s fade
+19:29:52 clip 4:3 con bande nere: messa in cornice lib_iss060m262760930_NASA_TV_Soyuz_MS_12_Landing_2019_1003.mp4 512x358 su 640x360
+19:29:55 167 CLIP 2.68 s circleopen
+19:29:58 168 CLIP 2.68 s fade
+19:30:02 169 FOTO 3.33 s fade
+19:30:06 170 FOTO 3.33 s fadeblack
+19:30:11 171 FOTO 3.33 s fade
+19:30:13 172 FOTO 3.33 s fade
+19:30:15 173 CLIP 3.05 s fadewhite
+19:30:17 174 CLIP 3.05 s fade
+19:30:18 175 CLIP 3.05 s fade
+19:30:20 176 CLIP 3.05 s zoomin
+19:30:23 177 FOTO 3.45 s fade
+19:30:26 178 FOTO 3.45 s fade
+19:30:28 179 FOTO 3.45 s dissolve
+19:30:32 180 FOTO 3.17 s fade
+19:30:35 181 FOTO 3.17 s fade
+19:30:38 182 FOTO 3.17 s slideleft
+19:30:40 183 FOTO 3.17 s fade
+19:30:43 184 CLIP 3.11 s fade
+19:30:44 185 CLIP 3.11 s smoothright
+19:30:46 186 CLIP 3.11 s fade
+19:30:49 187 CLIP 3.11 s fade
+19:31:09 188 CLIP 3.04 s circleopen
+19:31:10 189 CLIP 3.04 s fade
+19:31:13 190 CLIP 3.04 s fade
+19:31:15 191 CLIP 3.04 s fadeblack
+19:31:17 192 CLIP 3.04 s fade
+19:41:01 scatti di macchina fotografica: 51
+19:42:12 ATTENZIONE: solo 73% di video in movimento (minimo 80%)
+19:42:12 FATTO prove_video/archivio/orbital_days_how_did_cosmonauts_survive_their_deadliest_spac/prova.mp4 193 inquadrature 577.3 s 73% video
+19:42:12 CONTROLLI: durata 9.6 min, video in movimento 73%, inquadratura media 3.0 s | OK
+19:42:25 REVISIONE: 11 inquadrature bocciate su 193: 4 Shot shows city lights from space at night, unrelated to the February 23, 1997 Mir fire incident being described; 5 Shot shows a large atmospheric/weather phenomenon on Earth, unrelated to space station disasters; 49 Shows Earth from space/satellite view, not related to the fire inside Mir station being described; 50 Shows Soyuz capsule in space, not related to the fire and smoke inside Mir being described; 51 Shows Soyuz capsule/Dragon capsule at night, not related to the fire inside Mir being described; 52 Shows a rocket launch at night, not related to the fire inside Mir station being described; 132 Shows hikers on a volcanic landscape on Earth, unrelated to Parmitano's spacewalk incident or space operations; 133 Shows a spacesuit/equipment on ground in what appears to be an Earth training scenario, not related to the specific Parmitano spacewalk emergency being described; 169 The photo shows what appears to be a control room with people in business attire, not related to the 1986 Challenger or 2003 Columbia disasters being discussed; 170 The photo shows a full moon over a city skyline at night, completely unrelated to the space shuttle disasters mentioned in the narration; 171 The photo shows a Space Shuttle launch, but narration is about two disasters (1986 and 2003) - this generic launch footage doesn't illustrate the specific tragedies being discussed
+19:42:25 11 spezzoni tolti per sempre dalla libreria (bocciati.json)
+19:42:25 RIMONTAGGIO 2: tolte 14 clip e 7 foto bocciate
+19:42:25 voce ripresa dal tentativo precedente (nessun credito in piu')
+19:42:25 voce 576.4 s, 9910 caratteri, 3.0 parole/s
+19:42:29 00 FOTO 2.93 s fade
+19:42:32 01 FOTO 2.93 s fade
+19:42:34 02 FOTO 2.93 s fadeblack
+19:42:36 03 FOTO 2.93 s fade
+19:42:37 04 FOTO 2.93 s fade
+19:42:39 05 FOTO 2.69 s fadewhite
+19:42:42 06 FOTO 2.69 s fade
+19:42:43 07 FOTO 2.69 s fade
+19:42:45 08 FOTO 2.69 s zoomin
+19:42:49 09 CLIP 3.34 s fade
+19:42:53 10 CLIP 3.34 s fade
+19:42:55 11 CLIP 3.34 s dissolve
+19:43:00 12 CLIP 2.86 s fade
+19:43:04 13 CLIP 2.86 s fade
+19:43:19 14 CLIP 2.86 s slideleft
+19:43:21 15 CLIP 2.86 s fade
+19:43:23 16 CLIP 2.86 s fade
+19:43:32 17 CLIP 2.75 s smoothright
+19:43:37 clip 4:3 con bande nere: messa in cornice lib_iss062m261080759_NTV_VideoFile_Expedition_62_Landing_200416.mp4 640x216 su 640x360
+19:43:40 18 CLIP 2.75 s fade
+19:43:41 19 CLIP 2.75 s fade
+19:44:20 20 CLIP 2.75 s circleopen
+19:44:26 21 FOTO 2.93 s fade
+19:44:30 22 FOTO 2.93 s fade
+19:44:34 23 FOTO 2.93 s fadeblack
+19:44:39 24 FOTO 2.93 s fade
+19:45:01 25 CLIP 2.88 s fade
+19:45:03 26 CLIP 2.88 s fadewhite
+19:45:05 27 CLIP 2.88 s fade
+19:45:06 28 CLIP 2.88 s fade
+19:45:22 29 CLIP 2.67 s zoomin
+19:45:30 30 CLIP 2.67 s fade
+19:45:33 31 CLIP 2.67 s fade
+19:46:05 clip 4:3 con bande nere: messa in cornice lib_iss065m262241159_Expedition_65_NG_16_Cygnus_Installation_210.mp4 640x310 su 640x360
+19:46:08 32 CLIP 2.67 s dissolve
+19:46:10 33 CLIP 2.83 s fade
+19:46:14 34 CLIP 2.83 s fade
+19:46:16 35 CLIP 2.83 s slideleft
+19:46:18 36 CLIP 2.83 s fade
+19:46:21 37 CLIP 3.2 s fade
+19:46:25 38 CLIP 3.2 s smoothright
+19:46:29 39 CLIP 3.2 s fade
+19:46:30 40 CLIP 3.2 s fade
+19:46:33 41 CLIP 3.08 s circleopen
+19:46:36 42 CLIP 3.08 s fade
+19:46:39 43 CLIP 3.08 s fade
+19:46:41 44 CLIP 3.08 s fadeblack
+19:46:43 45 FOTO 2.65 s fade
+19:46:45 46 FOTO 2.65 s fade
+19:46:46 47 FOTO 2.65 s fadewhite
+19:46:48 48 FOTO 2.65 s fade
+19:46:50 49 FOTO 2.63 s fade
+19:46:52 50 FOTO 2.63 s zoomin
+19:46:53 51 FOTO 2.63 s fade
+19:46:56 52 FOTO 2.63 s fade
+19:46:59 53 FOTO 3.37 s dissolve
+19:47:01 54 FOTO 3.37 s fade
+19:47:02 55 FOTO 3.37 s fade
+19:47:04 56 FOTO 2.67 s slideleft
+19:47:05 57 FOTO 2.67 s fade
+19:47:07 58 FOTO 2.67 s fade
+19:47:09 59 FOTO 2.67 s smoothright
+19:47:10 60 CLIP 2.76 s fade
+19:47:24 61 CLIP 2.76 s fade
+19:47:31 62 CLIP 2.76 s circleopen
+19:47:32 63 CLIP 2.76 s fade
+19:47:33 64 CLIP 3.0 s fade
+19:47:43 65 CLIP 3.0 s fadeblack
+19:47:45 66 CLIP 3.0 s fade
+19:48:07 67 CLIP 3.0 s fade
+19:48:19 68 CLIP 3.07 s fadewhite
+19:48:20 69 CLIP 3.07 s fade
+19:48:29 70 CLIP 3.07 s fade
+19:48:35 71 CLIP 3.07 s zoomin
+19:48:37 72 CLIP 2.86 s fade
+19:48:39 73 CLIP 2.86 s fade
+19:48:44 74 CLIP 2.86 s dissolve
+19:49:13 75 CLIP 2.86 s fade
+19:49:28 76 CLIP 3.45 s fade
+19:49:31 77 CLIP 3.45 s slideleft
+19:49:32 78 CLIP 3.45 s fade
+19:49:35 79 CLIP 3.45 s fade
+19:49:35 clip della libreria con bande nere, scartata jsc2022m000094_NTV_Video_File_Soyuz_MS-19_Landing_220330- 540.03
+19:49:37 80 CLIP 3.16 s smoothright
+19:49:56 81 CLIP 3.16 s fade
+19:49:57 82 CLIP 3.16 s fade
+19:49:59 83 CLIP 3.16 s circleopen
+19:50:02 84 CLIP 3.42 s fade
+19:50:13 85 CLIP 3.42 s fade
+19:50:16 86 CLIP 3.42 s fadeblack
+19:50:17 87 CLIP 2.77 s fade
+19:50:19 88 CLIP 2.77 s fade
+19:50:20 89 CLIP 2.77 s fadewhite
+19:50:22 90 CLIP 2.77 s fade
+19:50:23 91 CLIP 2.86 s fade
+19:50:27 92 CLIP 2.86 s zoomin
+19:50:31 93 CLIP 2.86 s fade
+19:50:33 94 CLIP 2.86 s fade
+19:50:37 95 CLIP 2.86 s dissolve
+19:50:57 96 CLIP 2.84 s fade
+19:50:58 97 CLIP 2.84 s fade
+19:51:00 98 CLIP 2.84 s slideleft
+19:51:02 99 CLIP 2.84 s fade
+19:51:03 100 CLIP 2.87 s fade
+19:51:05 101 CLIP 2.87 s smoothright
+19:51:06 102 CLIP 2.87 s fade
+19:51:10 clip 4:3 con bande nere: messa in cornice lib_jsc2021m000296_NTV_VideoFile_Soyuz_MS_20_Landing_211219.mp4 640x310 su 640x360
+19:51:12 103 CLIP 2.87 s fade
+19:51:13 clip 4:3 con bande nere: messa in cornice lib_iss065m262241159_Expedition_65_NG_16_Cygnus_Installation_210.mp4 634x316 su 640x360
+19:51:16 104 CLIP 2.87 s circleopen
+19:51:20 105 FOTO 3.35 s fade
+19:51:24 106 FOTO 3.35 s fade
+19:51:26 107 FOTO 3.35 s fadeblack
+19:51:28 108 FOTO 3.35 s fade
+19:51:32 109 CLIP 2.68 s fade
+19:51:33 110 CLIP 2.68 s fadewhite
+19:51:36 111 CLIP 2.68 s fade
+19:51:39 112 CLIP 2.68 s fade
+19:51:41 113 CLIP 3.08 s zoomin
+19:52:17 114 CLIP 3.08 s fade
+19:52:19 115 CLIP 3.08 s fade
+19:52:23 116 CLIP 3.08 s dissolve
+19:52:30 117 CLIP 3.47 s fade
+19:52:41 clip 4:3 con bande nere: messa in cornice NDTV001077_X_15_Documentary_Revised.mp4 480x360 su 640x360
+19:52:44 118 CLIP 3.47 s fade
+19:52:50 119 CLIP 3.47 s slideleft
+19:52:52 120 CLIP 2.83 s fade
+19:52:55 121 CLIP 2.83 s fade
+19:53:39 122 CLIP 2.83 s smoothright
+19:53:40 123 CLIP 2.83 s fade
+19:53:43 124 CLIP 2.83 s fade
+19:53:44 125 CLIP 2.93 s circleopen
+19:53:47 126 CLIP 2.93 s fade
+19:53:51 127 CLIP 2.93 s fade
+19:53:52 128 CLIP 2.93 s fadeblack
+19:53:54 129 CLIP 2.93 s fade
+19:54:09 130 CLIP 2.67 s fade
+19:54:11 131 CLIP 2.67 s fadewhite
+19:54:13 132 CLIP 2.67 s fade
+19:54:15 133 CLIP 2.67 s fade
+19:54:17 134 FOTO 3.44 s zoomin
+19:54:18 135 FOTO 3.44 s fade
+19:54:20 136 FOTO 3.44 s fade
+19:54:22 137 CLIP 2.76 s dissolve
+19:54:23 138 CLIP 2.76 s fade
+19:54:24 139 CLIP 2.76 s fade
+19:54:26 140 CLIP 2.76 s slideleft
+19:54:28 141 FOTO 2.77 s fade
+19:54:30 142 FOTO 2.77 s fade
+19:54:31 143 FOTO 2.77 s smoothright
+19:54:33 144 FOTO 2.77 s fade
+19:54:35 145 CLIP 3.49 s fade
+19:54:37 146 CLIP 3.49 s circleopen
+19:54:39 147 CLIP 3.49 s fade
+19:54:41 148 CLIP 3.49 s fade
+19:54:46 149 FOTO 3.09 s fadeblack
+19:54:50 150 FOTO 3.09 s fade
+19:54:52 151 FOTO 3.09 s fade
+19:54:55 152 FOTO 3.09 s fadewhite
+19:54:55 clip 4:3 con bande nere: messa in cornice lib_jsc2026m000128_NASA_Astronaut_Chris_Williams_and_Soyuz_MS_28.mp4 512x360 su 640x360
+19:54:58 153 CLIP 2.64 s fade
+19:55:35 clip 4:3 con bande nere: messa in cornice lib_iss062m261080359_NTV_Expedition_62_Deorbit_Burn_and_Landing_.mp4 512x358 su 640x360
+19:55:38 154 CLIP 2.64 s fade
+19:56:13 clip 4:3 con bande nere: messa in cornice lib_iss060m262760930_NASA_TV_Soyuz_MS_12_Landing_2019_1003.mp4 512x358 su 640x360
+19:56:16 155 CLIP 2.64 s zoomin
+19:56:18 156 CLIP 2.64 s fade
+19:56:22 157 CLIP 3.34 s fade
+19:56:26 158 CLIP 3.34 s dissolve
+19:57:03 clip 4:3 con bande nere: messa in cornice lib_iss064m261070319_Expedition_64_MS_17_Deorbit_Burn_and_Landin.mp4 512x358 su 640x360
+19:57:07 159 CLIP 3.34 s fade
+19:57:34 160 CLIP 3.34 s fade
+19:57:39 161 FOTO 3.48 s slideleft
+19:58:20 162 CLIP 3.48 s fade
+19:58:21 clip 4:3 con bande nere: messa in cornice lib_iss062m261080359_NTV_Expedition_62_Deorbit_Burn_and_Landing_.mp4 512x358 su 640x360
+19:58:24 163 CLIP 3.48 s fade
+19:58:29 164 CLIP 3.48 s smoothright
+19:58:29 clip 4:3 con bande nere: messa in cornice lib_iss064m261070319_Expedition_64_MS_17_Deorbit_Burn_and_Landin.mp4 512x358 su 640x360
+19:58:32 165 CLIP 2.68 s fade
+19:58:40 166 CLIP 2.68 s fade
+19:58:40 clip 4:3 con bande nere: messa in cornice lib_iss060m262760930_NASA_TV_Soyuz_MS_12_Landing_2019_1003.mp4 512x358 su 640x360
+19:58:43 167 CLIP 2.68 s circleopen
+19:58:46 168 CLIP 2.68 s fade
+19:58:49 169 FOTO 3.33 s fade
+19:58:53 170 FOTO 3.33 s fadeblack
+19:58:57 171 FOTO 3.33 s fade
+19:59:00 172 FOTO 3.33 s fade
+19:59:01 173 CLIP 3.05 s fadewhite
+19:59:04 174 CLIP 3.05 s fade
+19:59:06 175 CLIP 3.05 s fade
+19:59:09 176 CLIP 3.05 s zoomin
+19:59:12 177 FOTO 3.45 s fade
+19:59:15 178 FOTO 3.45 s fade
+19:59:18 179 FOTO 3.45 s dissolve
+19:59:22 180 FOTO 3.17 s fade
+19:59:24 181 FOTO 3.17 s fade
+19:59:28 182 FOTO 3.17 s slideleft
+19:59:30 183 FOTO 3.17 s fade
+19:59:34 184 CLIP 3.11 s fade
+19:59:36 185 CLIP 3.11 s smoothright
+19:59:37 186 CLIP 3.11 s fade
+19:59:40 187 CLIP 3.11 s fade
+19:59:59 188 CLIP 3.04 s circleopen
+20:00:00 189 CLIP 3.04 s fade
+20:00:03 190 CLIP 3.04 s fade
+20:00:05 191 CLIP 3.04 s fadeblack
+20:00:07 192 CLIP 3.04 s fade
+20:09:51 scatti di macchina fotografica: 55
+20:11:01 ATTENZIONE: solo 71% di video in movimento (minimo 80%)
+20:11:01 FATTO prove_video/archivio/orbital_days_how_did_cosmonauts_survive_their_deadliest_spac/prova.mp4 193 inquadrature 577.3 s 71% video
+20:11:01 CONTROLLI: durata 9.6 min, video in movimento 71%, inquadratura media 3.0 s | OK
+20:11:17 REVISIONE: 13 inquadrature bocciate su 193: 4 Shot shows city lights from space, but narration discusses the February 23, 1997 fire incident - not relevant to this specific event being described; 5 Shot shows atmospheric phenomenon/smoke from space, unrelated to the specific events being narrated about the space station fire and other hazards; 50 Shot shows a dramatic sky/cloud formation on Earth, unrelated to the Mir fire incident being described; 51 Shot shows an Earth sunset/cityscape, unrelated to the Mir fire incident being described; 134 Listed as 'foto' (still image) but narration describes an action sequence (crew pulling him in, removing helmet). Should be video footage of the actual recovery.; 135 Listed as 'foto' (still image) but narration describes the investigation and discovery of the blockage. Should show relevant investigative footage or hardware details.; 136 Listed as 'foto' (still image) showing Earth reflection in helmet visor - unrelated to the narration about crew pulling Parmitano in and finding the cooling system blockage.; 150 Shows astronauts inside the ISS (interior, with equipment and people in casual poses), not the Neutral Buoyancy Laboratory pool training facility being described in the narration; 151 Shows astronauts inside the ISS (interior space with red module visible), not the NBL pool training facility described in the narration; 152 Shows astronauts performing a task inside the ISS (interior), not the NBL pool training facility described in the narration; 169 Shot shows people in what appears to be a control room or office setting, not related to the 1986 Challenger or 2003 Columbia disasters being discussed; 170 Shot shows a full moon over a building at night, unrelated to the space shuttle disasters mentioned in the narration
+20:11:17 13 spezzoni tolti per sempre dalla libreria (bocciati.json)
+20:11:17 RIMONTAGGIO 3: tolte 14 clip e 20 foto bocciate
+20:11:17 voce ripresa dal tentativo precedente (nessun credito in piu')
+20:11:17 voce 576.4 s, 9910 caratteri, 3.0 parole/s
+20:11:21 00 FOTO 2.93 s fade
+20:11:22 01 FOTO 2.93 s fade
+20:11:24 02 FOTO 2.93 s fadeblack
+20:11:26 03 FOTO 2.93 s fade
+20:11:28 04 FOTO 2.93 s fade
+20:11:30 05 FOTO 2.69 s fadewhite
+20:11:32 06 FOTO 2.69 s fade
+20:11:34 07 FOTO 2.69 s fade
+20:11:36 08 FOTO 2.69 s zoomin
+20:11:39 09 CLIP 3.34 s fade
+20:11:43 10 CLIP 3.34 s fade
+20:11:46 11 CLIP 3.34 s dissolve
+20:11:50 12 CLIP 2.86 s fade
+20:11:54 13 CLIP 2.86 s fade
+20:12:09 14 CLIP 2.86 s slideleft
+20:12:11 15 CLIP 2.86 s fade
+20:12:13 16 CLIP 2.86 s fade
+20:12:22 17 CLIP 2.75 s smoothright
+20:12:27 clip 4:3 con bande nere: messa in cornice lib_iss062m261080759_NTV_VideoFile_Expedition_62_Landing_200416.mp4 640x216 su 640x360
+20:12:30 18 CLIP 2.75 s fade
+20:12:32 19 CLIP 2.75 s fade
+20:13:11 20 CLIP 2.75 s circleopen
+20:13:16 21 FOTO 2.93 s fade
+20:13:20 22 FOTO 2.93 s fade
+20:13:24 23 FOTO 2.93 s fadeblack
+20:13:28 24 FOTO 2.93 s fade
+20:13:50 25 CLIP 2.88 s fade
+20:13:51 26 CLIP 2.88 s fadewhite
+20:13:54 27 CLIP 2.88 s fade
+20:13:54 28 CLIP 2.88 s fade
+20:14:09 29 CLIP 2.67 s zoomin
+20:14:17 30 CLIP 2.67 s fade
+20:14:20 31 CLIP 2.67 s fade
+20:14:52 clip 4:3 con bande nere: messa in cornice lib_iss065m262241159_Expedition_65_NG_16_Cygnus_Installation_210.mp4 640x310 su 640x360
+20:14:55 32 CLIP 2.67 s dissolve
+20:14:56 33 CLIP 2.83 s fade
+20:15:01 34 CLIP 2.83 s fade
+20:15:02 35 CLIP 2.83 s slideleft
+20:15:04 36 CLIP 2.83 s fade
+20:15:08 37 CLIP 3.2 s fade
+20:15:11 38 CLIP 3.2 s smoothright
+20:15:15 39 CLIP 3.2 s fade
+20:15:17 40 CLIP 3.2 s fade
+20:15:20 41 CLIP 3.08 s circleopen
+20:15:22 42 CLIP 3.08 s fade
+20:15:25 43 CLIP 3.08 s fade
+20:15:27 44 CLIP 3.08 s fadeblack
+20:15:29 45 FOTO 2.65 s fade
+20:15:32 46 FOTO 2.65 s fade
+20:15:34 47 FOTO 2.65 s fadewhite
+20:15:36 48 FOTO 2.65 s fade
+20:15:37 49 FOTO 2.63 s fade
+20:15:39 50 FOTO 2.63 s zoomin
+20:15:41 51 FOTO 2.63 s fade
+20:15:44 52 FOTO 2.63 s fade
+20:15:46 53 FOTO 3.37 s dissolve
+20:15:48 54 FOTO 3.37 s fade
+20:15:50 55 FOTO 3.37 s fade
+20:15:51 56 FOTO 2.67 s slideleft
+20:15:53 57 FOTO 2.67 s fade
+20:15:55 58 FOTO 2.67 s fade
+20:15:57 59 FOTO 2.67 s smoothright
+20:15:58 60 CLIP 2.76 s fade
+20:16:12 61 CLIP 2.76 s fade
+20:16:19 62 CLIP 2.76 s circleopen
+20:16:20 63 CLIP 2.76 s fade
+20:16:21 64 CLIP 3.0 s fade
+20:16:31 65 CLIP 3.0 s fadeblack
+20:16:33 66 CLIP 3.0 s fade
+20:16:54 67 CLIP 3.0 s fade
+20:17:06 68 CLIP 3.07 s fadewhite
+20:17:07 69 CLIP 3.07 s fade
+20:17:16 70 CLIP 3.07 s fade
+20:17:22 71 CLIP 3.07 s zoomin
+20:17:24 72 CLIP 2.86 s fade
+20:17:26 73 CLIP 2.86 s fade
+20:17:31 74 CLIP 2.86 s dissolve
+20:18:01 75 CLIP 2.86 s fade
+20:18:17 76 CLIP 3.45 s fade
+20:18:19 77 CLIP 3.45 s slideleft
+20:18:21 78 CLIP 3.45 s fade
+20:18:23 79 CLIP 3.45 s fade
+20:18:23 clip della libreria con bande nere, scartata jsc2022m000094_NTV_Video_File_Soyuz_MS-19_Landing_220330- 540.03
+20:18:25 80 CLIP 3.16 s smoothright
+20:18:46 81 CLIP 3.16 s fade
+20:18:47 82 CLIP 3.16 s fade
+20:18:48 83 CLIP 3.16 s circleopen
+20:18:52 84 CLIP 3.42 s fade
+20:19:02 85 CLIP 3.42 s fade
+20:19:05 86 CLIP 3.42 s fadeblack
+20:19:06 87 CLIP 2.77 s fade
+20:19:08 88 CLIP 2.77 s fade
+20:19:09 89 CLIP 2.77 s fadewhite
+20:19:11 90 CLIP 2.77 s fade
+20:19:12 91 CLIP 2.86 s fade
+20:19:16 92 CLIP 2.86 s zoomin
+20:19:20 93 CLIP 2.86 s fade
+20:19:22 94 CLIP 2.86 s fade
+20:19:26 95 CLIP 2.86 s dissolve
+20:19:46 96 CLIP 2.84 s fade
+20:19:47 97 CLIP 2.84 s fade
+20:19:49 98 CLIP 2.84 s slideleft
+20:19:51 99 CLIP 2.84 s fade
+20:19:52 100 CLIP 2.87 s fade
+20:19:54 101 CLIP 2.87 s smoothright
+20:19:55 102 CLIP 2.87 s fade
+20:19:59 clip 4:3 con bande nere: messa in cornice lib_jsc2021m000296_NTV_VideoFile_Soyuz_MS_20_Landing_211219.mp4 640x310 su 640x360
+20:20:01 103 CLIP 2.87 s fade
+20:20:01 clip 4:3 con bande nere: messa in cornice lib_iss065m262241159_Expedition_65_NG_16_Cygnus_Installation_210.mp4 634x316 su 640x360
+20:20:05 104 CLIP 2.87 s circleopen
+20:20:09 105 FOTO 3.35 s fade
+20:20:14 106 FOTO 3.35 s fade
+20:20:17 107 FOTO 3.35 s fadeblack
+20:20:19 108 FOTO 3.35 s fade
+20:20:24 109 CLIP 2.68 s fade
+20:20:25 110 CLIP 2.68 s fadewhite
+20:20:27 111 CLIP 2.68 s fade
+20:20:29 112 CLIP 2.68 s fade
+20:20:31 113 CLIP 3.08 s zoomin
+20:21:11 114 CLIP 3.08 s fade
+20:21:13 115 CLIP 3.08 s fade
+20:21:17 116 CLIP 3.08 s dissolve
+20:21:23 117 CLIP 3.47 s fade
+20:21:35 clip 4:3 con bande nere: messa in cornice NDTV001077_X_15_Documentary_Revised.mp4 480x360 su 640x360
+20:21:38 118 CLIP 3.47 s fade
+20:21:44 119 CLIP 3.47 s slideleft
+20:21:46 120 CLIP 2.83 s fade
+20:21:49 121 CLIP 2.83 s fade
+20:22:34 122 CLIP 2.83 s smoothright
+20:22:36 123 CLIP 2.83 s fade
+20:22:38 124 CLIP 2.83 s fade
+20:22:40 125 CLIP 2.93 s circleopen
+20:22:42 126 CLIP 2.93 s fade
+20:22:46 127 CLIP 2.93 s fade
+20:22:48 128 CLIP 2.93 s fadeblack
+20:22:50 129 CLIP 2.93 s fade
+20:23:04 130 CLIP 2.67 s fade
+20:23:06 131 CLIP 2.67 s fadewhite
+20:23:08 132 CLIP 2.67 s fade
+20:23:10 133 CLIP 2.67 s fade
+20:23:12 134 FOTO 3.44 s zoomin
+20:23:13 135 FOTO 3.44 s fade
+20:23:15 136 FOTO 3.44 s fade
+20:23:17 137 CLIP 2.76 s dissolve
+20:23:18 138 CLIP 2.76 s fade
+20:23:19 139 CLIP 2.76 s fade
+20:23:20 140 CLIP 2.76 s slideleft
+20:23:23 141 FOTO 2.77 s fade
+20:23:26 142 FOTO 2.77 s fade
+20:23:28 143 FOTO 2.77 s smoothright
+20:23:30 144 FOTO 2.77 s fade
+20:23:32 145 CLIP 3.49 s fade
+20:23:34 146 CLIP 3.49 s circleopen
+20:23:36 147 CLIP 3.49 s fade
+20:23:38 148 CLIP 3.49 s fade
+20:23:43 149 FOTO 3.09 s fadeblack
+20:23:46 150 FOTO 3.09 s fade
+20:23:48 151 FOTO 3.09 s fade
+20:23:51 152 FOTO 3.09 s fadewhite
+20:23:51 clip 4:3 con bande nere: messa in cornice lib_jsc2026m000128_NASA_Astronaut_Chris_Williams_and_Soyuz_MS_28.mp4 512x360 su 640x360
+20:23:54 153 CLIP 2.64 s fade
+20:24:32 clip 4:3 con bande nere: messa in cornice lib_iss062m261080359_NTV_Expedition_62_Deorbit_Burn_and_Landing_.mp4 512x358 su 640x360
+20:24:34 154 CLIP 2.64 s fade
+20:25:07 clip 4:3 con bande nere: messa in cornice lib_iss060m262760930_NASA_TV_Soyuz_MS_12_Landing_2019_1003.mp4 512x358 su 640x360
+20:25:10 155 CLIP 2.64 s zoomin
+20:25:12 156 CLIP 2.64 s fade
+20:25:16 157 CLIP 3.34 s fade
+20:25:21 158 CLIP 3.34 s dissolve
+20:25:59 clip 4:3 con bande nere: messa in cornice lib_iss064m261070319_Expedition_64_MS_17_Deorbit_Burn_and_Landin.mp4 512x358 su 640x360
+20:26:03 159 CLIP 3.34 s fade
+20:26:31 160 CLIP 3.34 s fade
+20:26:35 161 FOTO 3.48 s slideleft
+20:27:17 162 CLIP 3.48 s fade
+20:27:17 clip 4:3 con bande nere: messa in cornice lib_iss062m261080359_NTV_Expedition_62_Deorbit_Burn_and_Landing_.mp4 512x358 su 640x360
+20:27:21 163 CLIP 3.48 s fade
+20:27:26 164 CLIP 3.48 s smoothright
+20:27:26 clip 4:3 con bande nere: messa in cornice lib_iss064m261070319_Expedition_64_MS_17_Deorbit_Burn_and_Landin.mp4 512x358 su 640x360
+20:27:29 165 CLIP 2.68 s fade
+20:27:37 166 CLIP 2.68 s fade
+20:27:37 clip 4:3 con bande nere: messa in cornice lib_iss060m262760930_NASA_TV_Soyuz_MS_12_Landing_2019_1003.mp4 512x358 su 640x360
+20:27:40 167 CLIP 2.68 s circleopen
+20:27:43 168 CLIP 2.68 s fade
+20:27:47 169 FOTO 3.33 s fade
+20:27:49 170 FOTO 3.33 s fadeblack
+20:27:52 171 FOTO 3.33 s fade
+20:27:55 172 FOTO 3.33 s fade
+20:27:57 173 CLIP 3.05 s fadewhite
+20:27:59 174 CLIP 3.05 s fade
+20:28:01 175 CLIP 3.05 s fade
+20:28:04 176 CLIP 3.05 s zoomin
+20:28:07 177 FOTO 3.45 s fade
+20:28:11 178 FOTO 3.45 s fade
+20:28:13 179 FOTO 3.45 s dissolve
+20:28:16 180 FOTO 3.17 s fade
+20:28:19 181 FOTO 3.17 s fade
+20:28:22 182 FOTO 3.17 s slideleft
+20:28:25 183 FOTO 3.17 s fade
+20:28:28 184 CLIP 3.11 s fade
+20:28:30 185 CLIP 3.11 s smoothright
+20:28:32 186 CLIP 3.11 s fade
+20:28:34 187 CLIP 3.11 s fade
+20:28:54 188 CLIP 3.04 s circleopen
+20:28:56 189 CLIP 3.04 s fade
+20:28:58 190 CLIP 3.04 s fade
+20:29:00 191 CLIP 3.04 s fadeblack
+20:29:02 192 CLIP 3.04 s fade
+20:38:45 scatti di macchina fotografica: 55
+20:39:55 ATTENZIONE: solo 71% di video in movimento (minimo 80%)
+20:39:55 FATTO prove_video/archivio/orbital_days_how_did_cosmonauts_survive_their_deadliest_spac/prova.mp4 193 inquadrature 577.3 s 71% video
+20:39:55 CONTROLLI: durata 9.6 min, video in movimento 71%, inquadratura media 3.0 s | OK
+20:40:11 REVISIONE: 13 inquadrature bocciate su 193: 4 Shot shows city lights at night from space, unrelated to the February 23, 1997 fire incident being described; 5 Shot shows atmospheric phenomenon/smoke over Earth, appears to be unrelated weather/natural event rather than space station incident; 50 Ground-based cloud/sky photo, not related to Mir fire in space; 51 Ground-based sunset/buildings photo, not related to Mir fire in space; 52 Earth from orbit photo, generic space imagery not related to the specific Mir fire incident; 134 Labeled as 'foto' but narration discusses specific investigation findings - should be video/clip showing the actual suit or investigation, not a static photo; 135 Labeled as 'foto' but narration discusses investigation findings - appears to be unrelated interior spacecraft photo, not documenting the cooling system blockage mentioned; 136 Labeled as 'foto' - shows helmet interior but doesn't clearly relate to the cooling system blockage or water accumulation described in narration; 149 The image shown is only the top portion of the pool facility. While this is a minor issue since it's acknowledged that custom text was cut out, the framing is incomplete and doesn't fully show the scale being described (6.2 million gallons, nine Olympic pools).; 157 Similar to Shot 149, only the top portion is shown with custom text cut out, resulting in incomplete framing of the reentry capsule and parachute descent sequence being described.; 169 Shot shows people in what appears to be a control room or office setting, but narration specifically references 1986 and 2003 space shuttle tragedies. This generic office scene is not coherent with the specific tragic events being discussed - it should show shuttle-related imagery or memorial content.; 170 Shot shows a full moon over a city at night. Narration discusses the 1986 and 2003 space shuttle disasters. This generic night sky photo is unrelated to the specific tragic events being referenced and lacks coherence with the subject matter.
+20:40:11 13 spezzoni tolti per sempre dalla libreria (bocciati.json)
+20:50:15 pulsante iscriviti al secondo 10 con 2 suoni
+21:04:43 video finale a 1440p (piu' nitido su YouTube)
+21:04:44 impaginazione copertina: 0 | volto RIGHT | scritta in alto a LEFT
+21:04:44 inquadratura copertina: mezzo busto
+21:05:16 copertina: soggetto in (271, 92, 820, 656)
+21:05:16 copertina: scritta dx alto | lettere [122, 155]
+21:05:17 capitoli: 10
+21:05:17 esce il 22/11 alle 17:00 (ora italiana)
+21:05:28 caricato su YouTube: Qe6vzw3mmpI (public)
+promozione a pagamento: No
+21:05:30 copertina caricata
+21:05:32 video aggiunto alla playlist: Survival in Space
+21:05:34 file di produzione aggiornato: status, youtube_video_id, titolo_thumbnail, descrizione_youtube, tag_seo, data_pubblicazione
+VIDEO_ID=Qe6vzw3mmpI
+21:05:34 FATTO orbital_days_how_did_cosmonauts_survive_their_deadliest_spac 0.337 $
