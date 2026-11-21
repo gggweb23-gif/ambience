@@ -32,5 +32,10 @@
   "playlist": "Notizie Tech",
   "ora_uscita": "11:00"
  },
- "_nota_ora": "17 nov (Giorgio): notizie, si cavalca l'onda del mattino: italiani alle 11:00, inglesi alle 17:00 italiane (= 11:00 a New York). Se l'ora e' gia' passata esce subito."
+ "_nota_ora": "17 nov (Giorgio): notizie, si cavalca l'onda del mattino: italiani alle 11:00, inglesi alle 17:00 italiane (= 11:00 a New York). Se l'ora e' gia' passata esce subito.",
+ "_ogni_quanti_giorni": {
+  "tech": 2,
+  "guerra": 2
+ },
+ "_nota_cadenza": "21 nov (Giorgio): per risparmiare i crediti voce le notizie escono un giorno si' e uno no (tech e guerra); KAO ogni 3 giorni, gli altri canali ogni 2 (colonna ogni_quanti_giorni di Channel Configs)."
 }

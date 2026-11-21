@@ -104,6 +104,9 @@ for cfg in canali:
         continue
     if SOLO and str(cfg.get('channel_id')).strip() != SOLO:
         continue
+    ogni = int(num(cfg.get('ogni_quanti_giorni')) or 1)   # 21 nov (Giorgio): un video ogni N giorni (vuota = ogni giorno)
+    if ogni > 1 and not SOLO and dt.date.today().toordinal() % ogni:
+        print(cfg.get('channel_id'), f': oggi niente video (uno ogni {ogni} giorni)'); continue
     if PRIVACY:
         cfg = dict(cfg, privacy=PRIVACY)
     fid = str(cfg.get('scout_production_sheet_id') or '').strip()

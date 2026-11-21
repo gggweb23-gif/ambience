@@ -80,6 +80,8 @@ jobs:
             attivi=$(python3 -c "import json;c=json.load(open('notizie/canali.json'));print(sum(1 for k,v in c.items() if k.startswith('$f'+'_') and isinstance(v,dict) and v.get('attivo')=='SI'))")
             if [ "$attivi" = "0" ]; then echo "$f: nessun canale attivo"; continue; fi
             if [ -f "notizie/fatti/${f}_${oggi}.txt" ]; then echo "$f: gia partito oggi"; continue; fi
+            ogni=$(python3 -c "import json;print(json.load(open('notizie/canali.json')).get('_ogni_quanti_giorni',{}).get('$f',1))")
+            if [ "$ogni" -gt 1 ] && [ $(( $(TZ=Europe/Rome date +%s) / 86400 % ogni )) -ne 0 ]; then echo "$f: oggi niente video (uno ogni $ogni giorni)"; continue; fi
             in_corso=$(gh run list -R "$GITHUB_REPOSITORY" -w notizie_giorno.yml -L 10 --json status,displayTitle -q "[.[]|select(.status!=\"completed\" and (.displayTitle|test(\"Notizie $f\")))]|length")
             if [ "$in_corso" != "0" ]; then echo "$f: giro gia in corso"; continue; fi
             echo "{\"ref\":\"main\",\"inputs\":{\"filone\":\"$f\",\"da_canali\":\"SI\"}}" > /tmp/n.json

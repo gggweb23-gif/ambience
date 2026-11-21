@@ -162,6 +162,10 @@ def main():
         wf = motore(cfg)
         if not cid or not wf or num(cfg.get('videos_per_day')) < 1 or (SOLO and cid != SOLO):
             continue
+        # 21 nov (Giorgio): video ogni N giorni (colonna ogni_quanti_giorni: KAO 3, gli altri 2; vuota = ogni giorno)
+        ogni = int(num(cfg.get('ogni_quanti_giorni')) or 1)
+        if ogni > 1 and not SOLO and not FORZA and dt.datetime.now(ZoneInfo('Europe/Rome')).date().toordinal() % ogni:
+            print(cid, f': oggi niente video (uno ogni {ogni} giorni)'); continue
         fid = str(cfg.get('scout_production_sheet_id') or '').strip()
         try:
             sch, h, prod, gid = righe(fid, con_gid=True)
