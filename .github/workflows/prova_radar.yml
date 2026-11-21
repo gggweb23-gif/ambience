@@ -44,6 +44,8 @@ jobs:
       - if: always()
         run: |
           git config user.name render-bot; git config user.email render-bot@users.noreply.github.com
-          rm -f prove_video/radar/${{ matrix.canale }}/prova.mp4
+          d=prove_video/radar/${{ matrix.canale }}
+          if [ -f $d/prova.mp4 ]; then ffmpeg -v error -y -i $d/prova.mp4 -vf scale=1920:-2 -c:v libx264 -crf 23 -preset medium -c:a aac -b:a 160k $d/anteprima_1080p.mp4 || true; fi
+          rm -f $d/prova.mp4
           git add prove_video/radar && git commit -qm "Prova RADAR ${{ matrix.canale }}" || exit 0
           for i in 1 2 3 4 5; do (git pull --rebase -q || { git rebase --abort; git pull --rebase -q -X theirs; }) && git push -q && break; sleep $((i*7)); done
