@@ -1,0 +1,49 @@
+name: Prova canali RADAR (1 minuto)
+# 21 nov 2026 (Giorgio): prova di 1 minuto per i 5 canali scelti dal RADAR (views x RPM, ultimi 60 giorni). Massima qualita', minimo prezzo
+# (obiettivo: massimo 1 euro a video). Spesa per prova: pochi centesimi (Claude + voce Flash). Clip gratis (Pexels, archive.org pubblico dominio).
+on:
+  workflow_dispatch:
+    inputs:
+      canali: {description: 'chiavi di strumenti/prova_radar_canali.json, separate da virgola', default: 'ominiam,beyond_history,lost_america,africaregions,intothegreen', type: string}
+      secondi: {description: 'durata', default: '60', type: string}
+permissions:
+  contents: write
+jobs:
+  elenco:
+    runs-on: ubuntu-latest
+    outputs:
+      m: ${{ steps.m.outputs.m }}
+    steps:
+      - id: m
+        run: echo "m=$(python3 -c "import json;print(json.dumps([x.strip() for x in '${{ inputs.canali }}'.split(',') if x.strip()]))")" >> "$GITHUB_OUTPUT"
+  prova:
+    needs: elenco
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        canale: ${{ fromJson(needs.elenco.outputs.m) }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null && pip install -q pillow
+      - env:
+          CANALE: ${{ matrix.canale }}
+          SECONDI: ${{ inputs.secondi }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+        run: python3 strumenti/prova_radar.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: prova-${{ matrix.canale }}
+          path: prove_video/radar/${{ matrix.canale }}/
+          retention-days: 14
+      - if: always()
+        run: |
+          git config user.name render-bot; git config user.email render-bot@users.noreply.github.com
+          rm -f prove_video/radar/${{ matrix.canale }}/prova.mp4
+          git add prove_video/radar && git commit -qm "Prova RADAR ${{ matrix.canale }}" || exit 0
+          for i in 1 2 3 4 5; do (git pull --rebase -q || { git rebase --abort; git pull --rebase -q -X theirs; }) && git push -q && break; sleep $((i*7)); done
