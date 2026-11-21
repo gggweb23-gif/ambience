@@ -7,6 +7,43 @@ from PIL import Image, ImageDraw
 
 OUT = os.path.join('prove_video', 'storyboard', os.environ.get('NOME') or 'sb'); os.makedirs(OUT, exist_ok=True)
 LAV = '/tmp/sb'; os.makedirs(LAV, exist_ok=True)
+import io, re, urllib.request
+
+
+def storyboard(vid):
+    out = []
+    for client in ({'clientName': 'WEB', 'clientVersion': '2.20251101.00.00'}, {'clientName': 'MWEB', 'clientVersion': '2.20251101.01.00'},
+                   {'clientName': 'TVHTML5', 'clientVersion': '7.20251101.10.00'}):
+        try:
+            r = urllib.request.Request('https://www.youtube.com/youtubei/v1/player?prettyPrint=false', data=json.dumps(
+                {'videoId': vid, 'context': {'client': dict(client, hl='en', gl='US')}}).encode(), headers={'Content-Type': 'application/json',
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36'})
+            j = json.loads(urllib.request.urlopen(r, timeout=60).read())
+            spec = (j.get('storyboards') or {}).get('playerStoryboardSpecRenderer', {}).get('spec')
+        except Exception as e:
+            print(vid, client['clientName'], str(e)[:80]); spec = None
+        if not spec:
+            continue
+        parti = spec.split('|'); base = parti[0]; lv = len(parti) - 2
+        w, h, n, cols, rows, _, nome, sigh = parti[lv + 1].split('#')[:8]
+        fogli = -(-int(n) // (int(cols) * int(rows)))
+        for m in sorted({0, fogli // 3, fogli * 2 // 3, fogli - 1}):
+            u = base.replace('$L', str(lv)).replace('$N', nome).replace('$M', str(m)) + '&sigh=' + sigh
+            try:
+                im = Image.open(io.BytesIO(urllib.request.urlopen(urllib.request.Request(u, headers={'User-Agent': 'Mozilla/5.0'}), timeout=60).read())).convert('RGB')
+            except Exception as e:
+                print(vid, 'foglio', m, str(e)[:60]); continue
+            cw, ch = im.width // int(cols), im.height // int(rows)
+            for k in range(0, int(cols) * int(rows), 4):
+                cell = im.crop(((k % int(cols)) * cw, (k // int(cols)) * ch, (k % int(cols) + 1) * cw, (k // int(cols) + 1) * ch))
+                if cell.getbbox():
+                    out.append(cell.resize((480, 270)))
+        if out:
+            print(vid, 'storyboard', client['clientName'])
+            return out[:24]
+    return out
+
+
 for vid in [v.strip() for v in os.environ.get('VIDEO', '').split(',') if v.strip()]:
     try:
         info = json.loads(subprocess.run(['yt-dlp', '-J', '--no-warnings', '--extractor-args', 'youtube:player_client=tv,ios,mweb,web_safari',
@@ -28,6 +65,8 @@ for vid in [v.strip() for v in os.environ.get('VIDEO', '').split(',') if v.strip
             subprocess.run(['ffmpeg', '-y', '-v', 'error', '-ss', str(2 + j * 6), '-i', src, '-frames:v', '1', '-vf', 'scale=480:270', o])
             if os.path.exists(o):
                 fr.append(Image.open(o).convert('RGB'))
+    if not fr:   # YouTube blocca il download dai server GitHub: si prova lo storyboard pubblico (miniature dei fotogrammi)
+        fr = storyboard(vid)
     if not fr:
         print(vid, 'non scaricato'); continue
     g = Image.new('RGB', (480 * 6, 270 * (-(-len(fr) // 6))))
