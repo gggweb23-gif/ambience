@@ -1,311 +1,374 @@
 {
- "titolo": "Quanto guadagna un meccanico su un tagliando?",
+ "titolo": "Quanto guadagna un negozio su un paio di scarpe da 100 €?",
  "protagonista": {
-  "nome": "Gianni",
-  "capelli": "short",
-  "colore_capelli": "#3a2a1e",
-  "pelle": "media",
-  "maglia": "#2f5d8a",
-  "grembiule": "#c8501e",
-  "occhiali": false
+  "nome": "Luisa",
+  "capelli": "bun",
+  "colore_capelli": "#5a3a22",
+  "pelle": "chiara",
+  "maglia": "#2f6f8f",
+  "grembiule": "",
+  "occhiali": true
  },
- "oggetto": "chiave inglese",
+ "oggetto": "scarpe",
  "copertina": {
   "righe": [
-   "TAGLIANDO",
-   "DA 250 €",
-   "MA QUANTO RESTA?"
+   "SCARPE A CENTO",
+   "EURO: TI RESTA",
+   "POCHISSIMO"
   ],
   "emozione": "stupito",
-  "oggetto": "chiave inglese",
-  "prezzo": "250 €",
+  "oggetto": "scarpe",
+  "prezzo": "100 €",
   "fondo": "scuro"
  },
  "copertina_ai": {
-  "valore_sx": "18 €/ORA",
-  "valore_dx": "50 €/ORA",
-  "oggetto_sx": "separate car parts laid apart: an oil filter, a bottle of engine oil, an air filter, spark plugs, a wrench",
-  "oggetto_dx": "a clean modern car lifted on a workshop lift with a happy mechanic",
+  "valore_sx": "50 €",
+  "valore_dx": "100 €",
+  "oggetto_sx": "a pair of plain brown leather shoes seen from the side, no box, no price tag",
+  "oggetto_dx": "a pair of elegant leather shoes in an open shoebox with a big price tag",
   "domanda": [
-   "TI HANNO FATTO",
-   "PAGARE TROPPO?"
+   "COMPRI A CINQUANTA",
+   "E TI RESTA?"
   ]
  },
- "descrizione": "Duecentocinquanta euro per un tagliando: sono tanti o pochi? Seguiamo Gianni nella sua officina e scopriamo dove vanno davvero i soldi: ricambi, manodopera, ore fatturate e attrezzatura. Imparerai a leggere un preventivo e, se hai un'attività, a calcolare quanto ti resta davvero. Alla fine scoprirai perché un'ora di lavoro non vale un'ora in cassa.",
+ "descrizione": "Un paio di scarpe a cento euro: quanto ne resta davvero a chi le vende? Con Luisa, titolare di un negozio di scarpe, scopri la differenza tra ricarico e margine, cosa succede con i saldi, quanto costa l'invenduto e perché le taglie sono il vero nemico del magazzino. Numeri semplici, esempi di altre attività e una regola da usare subito nel tuo negozio.",
  "tag": [
-  "tagliando",
-  "officina",
-  "meccanico",
-  "costi officina",
-  "manodopera",
-  "ricambi",
-  "ore fatturate",
+  "negozio di scarpe",
+  "aprire un negozio",
+  "ricarico",
   "margine",
-  "aprire un'officina",
-  "quanto guadagna un meccanico",
+  "saldi",
+  "magazzino",
+  "invenduto",
+  "taglie",
+  "costi fissi",
+  "punto di pareggio",
+  "commercio",
+  "negozio abbigliamento",
   "economia pratica",
   "piccola impresa",
-  "preventivo auto",
-  "partita iva",
-  "costi fissi",
-  "attrezzatura",
-  "tariffa oraria",
-  "gestione attività"
+  "aprire un'attività",
+  "conti del negozio"
  ],
  "scene": [
   {
-   "testo": "Ti hanno chiesto duecentocinquanta euro per un tagliando. Ti sei detto: ma sono matti! Ora ti dico una cosa: dopo aver pagato tutto, al meccanico ne restano meno di trenta.",
+   "testo": "Un paio di scarpe costa cento euro in vetrina. Pensi che il negozio ne guadagni cinquanta? Ecco, quella è la cifra che pensano tutti. Luisa ci credeva anche lei, il primo anno. Poi ha fatto i conti veri. E ti dico subito: non sono cinquanta.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "domanda",
      "p": {
-      "testo": "250 € per un tagliando?",
+      "testo": "Ne resta metà?",
       "emozione": "stupito",
       "scuro": true
      }
     },
     {
-     "parola": "dopo",
+     "parola": "cinquanta",
      "tipo": "prezzo",
      "p": {
-      "oggetto": "auto",
-      "prezzo": "250 €",
-      "nota": "tagliando completo"
+      "oggetto": "scarpe",
+      "prezzo": "100 €",
+      "nota": "Il prezzo che vedi"
      }
     },
     {
-     "parola": "trenta",
+     "parola": "conti",
      "tipo": "timbro",
      "p": {
-      "oggetto": "fattura",
-      "testo": "POCO",
+      "oggetto": "scarpe",
+      "testo": "NON È METÀ",
       "colore": "rosso",
-      "nota": "meno di 30 € restano"
+      "nota": "I conti veri sono un altro film"
      }
     }
    ]
   },
   {
-   "testo": "Lui è Gianni. Ha un'officina in provincia, due sollevatori e un apprendista. Oggi apriamo i suoi conti, riga per riga, e vediamo dove finisce ogni euro di quel tagliando.",
-   "capitolo": "",
+   "testo": "Lei è Luisa. Ha un negozio di scarpe in una città di provincia, in una via con un po' di passaggio. Due vetrine, un magazzino piccolo, tanta passione. Oggi ti porto dentro i suoi conti. Prendi un caffè, perché si parte.",
+   "capitolo": "Il negozio di Luisa",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "luogo",
      "p": {
-      "luogo": "officina",
-      "insegna": "Officina Gianni",
+      "luogo": "negozio di scarpe",
+      "insegna": "Scarpe Luisa",
       "azione": "felice",
       "clienti": 2,
-      "testo": "Gianni e la sua officina"
+      "testo": "Il negozio di Luisa"
      }
     },
     {
-     "parola": "Oggi",
+     "parola": "Due",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Il negozio",
+      "voci": [
+       "Due vetrine",
+       "Un magazzino piccolo",
+       "Una via con passaggio",
+       "Una titolare appassionata"
+      ]
+     }
+    },
+    {
+     "parola": "caffè",
      "tipo": "domanda",
      "p": {
-      "testo": "Dove vanno i soldi?",
-      "emozione": "calmo",
+      "testo": "Si parte!",
+      "emozione": "felice",
       "scuro": false
      }
     }
    ]
   },
   {
-   "testo": "Una macchina entra alle nove. Cambio olio, filtro olio, filtro aria, filtro abitacolo, controllo freni e candele. Il cliente paga duecentocinquanta euro. Vediamo cosa c'è dentro quel prezzo.",
-   "capitolo": "Cosa c'è nel prezzo",
+   "testo": "Partiamo dalla scarpa. Luisa compra un paio dal fornitore a cinquanta euro, più o meno. Lo rivende a cento. Quindi su quel paio, dentro la cassa, entrano cento euro. Bello, vero? Ma attenzione: cento euro in cassa non sono cento di guadagno.",
+   "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "officina",
-      "insegna": "Officina Gianni",
-      "azione": "lavora",
-      "clienti": 1,
-      "testo": "Tagliando in corso"
-     }
-    },
-    {
-     "parola": "Il",
-     "tipo": "lista",
-     "p": {
-      "titolo": "Cosa fa Gianni",
-      "voci": [
-       "Cambio olio motore",
-       "Filtro olio",
-       "Filtro aria",
-       "Filtro abitacolo",
-       "Controllo freni",
-       "Candele"
-      ]
-     }
-    },
-    {
-     "parola": "duecentocinquanta",
      "tipo": "prezzo",
      "p": {
-      "oggetto": "auto",
-      "prezzo": "250 €",
-      "nota": "prezzo al cliente"
+      "oggetto": "scarpe",
+      "prezzo": "50 €",
+      "nuovo_prezzo": "100 €",
+      "nota": "Costo e prezzo di vendita"
+     }
+    },
+    {
+     "parola": "Quindi",
+     "tipo": "conteggio",
+     "p": {
+      "oggetto": "scarpe",
+      "icone": 10,
+      "testo": "100 € in cassa"
+     }
+    },
+    {
+     "parola": "Bello",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "scarpe",
+      "testo": "NON È GUADAGNO",
+      "colore": "rosso",
+      "nota": "Cassa non vuol dire utile"
      }
     }
    ]
   },
   {
-   "testo": "Prima voce: i ricambi. Olio e filtri costano a Gianni sessantacinque euro. Li compra dal grossista con lo sconto. Al cliente li rivende a novanta euro. Quindi ci guadagna venticinque euro.",
-   "capitolo": "",
+   "testo": "Prima parola magica: ricarico. Il ricarico è quanto aggiungi al costo per ottenere il prezzo. Costo cinquanta, prezzo cento: hai aggiunto cinquanta. E cinquanta su cinquanta fa il cento per cento di ricarico. Cioè hai raddoppiato.",
+   "capitolo": "Ricarico e margine",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "formula",
      "p": {
-      "titolo": "Margine sui ricambi",
-      "a": "90 €",
-      "op": "−",
-      "b": "65 €",
-      "risultato": "25 €",
-      "nota": "prezzo di vendita meno costo"
+      "titolo": "Il ricarico",
+      "a": "50 €",
+      "op": "+",
+      "b": "50 €",
+      "risultato": "100 €",
+      "nota": "Ricarico: cento per cento"
      }
     },
     {
-     "parola": "Al",
+     "parola": "Costo",
      "tipo": "confronto",
      "p": {
-      "titolo": "Ricambi",
+      "titolo": "Costo e prezzo",
       "a": {
        "titolo": "Costo",
-       "valore": "65 €",
-       "oggetto": "filtro olio"
+       "valore": "50 €",
+       "oggetto": "scarpe"
       },
       "b": {
-       "titolo": "Vendita",
-       "valore": "90 €",
-       "oggetto": "filtro olio"
+       "titolo": "Prezzo",
+       "valore": "100 €",
+       "oggetto": "scarpe"
       },
-      "vincitore": "b"
+      "vincitore": ""
+     }
+    },
+    {
+     "parola": "raddoppiato",
+     "tipo": "andamento",
+     "p": {
+      "titolo": "Dal costo al prezzo",
+      "valori": [
+       50,
+       100
+      ],
+      "etichette": [
+       "Costo",
+       "Prezzo"
+      ],
+      "colore": "verde"
      }
     }
    ]
   },
   {
-   "testo": "Seconda voce: la manodopera. Il tagliando richiede due ore di lavoro. Gianni fattura sessanta euro all'ora, quindi centoventi euro. Totale: novanta più centoventi fa duecentodieci. E gli altri quaranta?",
+   "testo": "Seconda parola magica: margine. Il margine è quello che resta del prezzo, non del costo. Cinquanta euro su cento, cioè il cinquanta per cento. Attenzione: ricarico cento per cento vuol dire margine cinquanta per cento. Non confonderli mai.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Manodopera",
-      "a": "60 €",
-      "op": "×",
-      "b": "2 ore",
-      "risultato": "120 €",
-      "nota": "tariffa oraria per ore di lavoro"
-     }
-    },
-    {
-     "parola": "Totale",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Ricambi più manodopera",
-      "a": "90 €",
-      "op": "+",
-      "b": "120 €",
-      "risultato": "210 €",
-      "nota": "mancano ancora 40 €"
-     }
-    },
-    {
-     "parola": "gli",
-     "tipo": "domanda",
-     "p": {
-      "testo": "E gli altri 40 €?",
-      "emozione": "stupito",
-      "scuro": false
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Gli altri quaranta sono materiali di consumo e smaltimento: guanti, stracci, sgrassante, e lo smaltimento dell'olio esausto, che è un rifiuto speciale. Sommando fa duecentocinquanta euro, più l'IVA.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "lista",
-     "p": {
-      "titolo": "Voci nascoste",
-      "voci": [
-       "Guanti e stracci",
-       "Sgrassante",
-       "Smaltimento olio",
-       "Materiale di consumo"
-      ]
-     }
-    },
-    {
-     "parola": "Sommando",
      "tipo": "fette",
      "p": {
-      "titolo": "Il prezzo del tagliando",
-      "totale": 250,
-      "totale_testo": "250 €",
+      "titolo": "Un paio venduto a cento euro",
+      "totale": 100,
+      "totale_testo": "100 €",
       "fette": [
        {
-        "nome": "Ricambi",
-        "valore": 90,
-        "testo": "90 €"
+        "nome": "Costo della scarpa",
+        "valore": 50,
+        "testo": "50 €"
        },
        {
-        "nome": "Manodopera",
-        "valore": 120,
-        "testo": "120 €"
-       },
-       {
-        "nome": "Consumo e smaltimento",
-        "valore": 40,
-        "testo": "40 €"
+        "nome": "Margine lordo",
+        "valore": 50,
+        "testo": "50 €"
        }
       ],
       "evidenzia": 1
      }
-    }
-   ]
-  },
-  {
-   "testo": "Qui parte il primo errore che fa chi guarda un preventivo: pensare che la manodopera sia tutta guadagno. Centoventi euro per due ore? Eh, magari. Quel denaro paga un sacco di cose.",
-   "capitolo": "Manodopera non è guadagno",
-   "inquadrature": [
+    },
     {
-     "parola": "",
-     "tipo": "domanda",
+     "parola": "Attenzione",
+     "tipo": "bilancia",
      "p": {
-      "testo": "120 € sono tutti suoi?",
-      "emozione": "preoccupato",
-      "scuro": true
+      "titolo": "Ricarico e margine",
+      "sinistra": "Ricarico 100%",
+      "destra": "Margine 50%",
+      "pende": "sinistra"
      }
     },
     {
-     "parola": "Quel",
-     "tipo": "soldi",
+     "parola": "confonderli",
+     "tipo": "domanda",
      "p": {
-      "centro": "120 €",
-      "destinazioni": [
-       "Stipendio",
-       "Affitto",
-       "Attrezzi",
-       "Tasse"
-      ]
+      "testo": "Non sono uguali!",
+      "emozione": "stupito",
+      "scuro": false
      }
     }
    ]
   },
   {
-   "testo": "Facciamo i conti di Gianni. Affitto del capannone, mille euro al mese. Assicurazione e utenze, ottocento. Stipendio dell'apprendista, milleduecento. Software e licenze, centocinquanta. Rate dell'attrezzatura, seicento.",
+   "testo": "Facciamo un esempio fuori dal negozio. Un fioraio compra una rosa a settanta centesimi e la vende a due euro e dieci. Ricarico: duecento per cento. Margine: due terzi del prezzo. Sembra tantissimo, ma le rose appassiscono. Tienilo a mente.",
    "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Il fioraio",
+      "a": "0,70 €",
+      "op": "+",
+      "b": "1,40 €",
+      "risultato": "2,10 €",
+      "nota": "Ricarico duecento per cento"
+     }
+    },
+    {
+     "parola": "Margine",
+     "tipo": "fette",
+     "p": {
+      "titolo": "Una rosa venduta",
+      "totale": 2.1,
+      "totale_testo": "2,10 €",
+      "fette": [
+       {
+        "nome": "Costo",
+        "valore": 0.7,
+        "testo": "0,70 €"
+       },
+       {
+        "nome": "Margine",
+        "valore": 1.4,
+        "testo": "1,40 €"
+       }
+      ],
+      "evidenzia": 1
+     }
+    },
+    {
+     "parola": "appassiscono",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "rosa",
+      "testo": "SCADE",
+      "colore": "rosso",
+      "nota": "Il margine non basta"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ma torniamo da Luisa. Quei cinquanta euro di margine su un paio non sono ancora il guadagno. Sono la prima fetta della torta, quella che serve a pagare tutto il resto. Vediamo cosa deve pagare ogni mese.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "negozio di scarpe",
+      "insegna": "Scarpe Luisa",
+      "azione": "preoccupato",
+      "clienti": 0,
+      "testo": "Il margine non è utile"
+     }
+    },
+    {
+     "parola": "fetta",
+     "tipo": "fette",
+     "p": {
+      "titolo": "Dove va il margine",
+      "totale": 50,
+      "totale_testo": "50 €",
+      "fette": [
+       {
+        "nome": "Affitto e bollette",
+        "valore": 20,
+        "testo": "20 €"
+       },
+       {
+        "nome": "Stipendio dipendente",
+        "valore": 14,
+        "testo": "14 €"
+       },
+       {
+        "nome": "Tasse e varie",
+        "valore": 10,
+        "testo": "10 €"
+       },
+       {
+        "nome": "Resta a Luisa",
+        "valore": 6,
+        "testo": "6 €"
+       }
+      ],
+      "evidenzia": 3
+     }
+    },
+    {
+     "parola": "pagare",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Ne restano pochi",
+      "emozione": "preoccupato",
+      "scuro": true
+     }
+    }
+   ]
+  },
+  {
+   "testo": "I costi fissi di Luisa ogni mese. Affitto: mille e duecento euro. Una commessa: mille e cinquecento. Luce, riscaldamento e internet: duecento. Commercialista e cassa: trecento. Assicurazione e varie: cento. Totale: tremilatrecento euro al mese.",
+   "capitolo": "I costi fissi",
    "inquadrature": [
     {
      "parola": "",
@@ -314,753 +377,470 @@
       "voci": [
        {
         "nome": "Affitto",
-        "valore": 1000,
-        "testo": "1.000 €"
-       },
-       {
-        "nome": "Assicurazione e utenze",
-        "valore": 800,
-        "testo": "800 €"
-       },
-       {
-        "nome": "Apprendista",
         "valore": 1200,
         "testo": "1.200 €"
        },
        {
-        "nome": "Software",
-        "valore": 150,
-        "testo": "150 €"
+        "nome": "Commessa",
+        "valore": 1500,
+        "testo": "1.500 €"
        },
        {
-        "nome": "Rate attrezzatura",
-        "valore": 600,
-        "testo": "600 €"
+        "nome": "Luce e internet",
+        "valore": 200,
+        "testo": "200 €"
+       },
+       {
+        "nome": "Commercialista",
+        "valore": 300,
+        "testo": "300 €"
+       },
+       {
+        "nome": "Assicurazione",
+        "valore": 100,
+        "testo": "100 €"
        }
       ],
-      "totale": 3750,
+      "totale": 3300,
       "periodo": "al mese"
      }
-    }
-   ]
-  },
-  {
-   "testo": "Totale: tremilasettecentocinquanta euro al mese di costi fissi. Li paghi sempre, anche se non entra nessuna macchina. E non c'è ancora lo stipendio di Gianni. Se lo vuole, deve aggiungerlo.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Costi fissi del mese",
-      "a": "1.000 € + 800 € + 1.200 €",
-      "op": "+",
-      "b": "150 € + 600 €",
-      "risultato": "3.750 €",
-      "nota": "senza stipendio del titolare"
-     }
     },
     {
-     "parola": "E",
-     "tipo": "domanda",
-     "p": {
-      "testo": "E il suo stipendio?",
-      "emozione": "preoccupato",
-      "scuro": true
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Gianni vuole portarsi a casa duemila euro al mese. Quindi i costi da coprire diventano cinquemilasettecentocinquanta euro. Questa è la cifra che ogni mese l'officina deve generare prima di fare utile.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Cosa deve coprire l'officina",
-      "a": "3.750 €",
-      "op": "+",
-      "b": "2.000 €",
-      "risultato": "5.750 €",
-      "nota": "costi fissi più stipendio"
-     }
-    },
-    {
-     "parola": "Questa",
-     "tipo": "salvadanaio",
-     "p": {
-      "direzione": "svuota",
-      "testo": "5.750 € da coprire ogni mese"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Ora la domanda giusta. Quanto guadagna Gianni su un tagliando? Ricambi: venticinque euro di margine. Manodopera: centoventi euro. Consumo e smaltimento: diciamo quaranta euro, con pochi euro di costo reale.",
-   "capitolo": "Quanto resta su un tagliando",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Quanto resta a Gianni?",
-      "emozione": "calmo",
-      "scuro": false
-     }
-    },
-    {
-     "parola": "Ricambi",
-     "tipo": "fette",
-     "p": {
-      "titolo": "Cosa incassa sopra il costo",
-      "totale": 250,
-      "totale_testo": "250 €",
-      "fette": [
-       {
-        "nome": "Costo ricambi",
-        "valore": 65,
-        "testo": "65 €"
-       },
-       {
-        "nome": "Margine ricambi",
-        "valore": 25,
-        "testo": "25 €"
-       },
-       {
-        "nome": "Manodopera",
-        "valore": 120,
-        "testo": "120 €"
-       },
-       {
-        "nome": "Consumo",
-        "valore": 40,
-        "testo": "40 €"
-       }
-      ],
-      "evidenzia": 2
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Quindi dei duecentocinquanta euro, sessantacinque se ne vanno subito per comprare i pezzi. Restano centoottantacinque euro lordi. Questi devono pagare l'officina: affitto, apprendista, attrezzi, e alla fine Gianni.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Margine lordo",
-      "a": "250 €",
-      "op": "−",
-      "b": "65 €",
-      "risultato": "185 €",
-      "nota": "prezzo meno costo ricambi"
-     }
-    },
-    {
-     "parola": "Questi",
+     "parola": "Totale",
      "tipo": "soldi",
      "p": {
-      "centro": "185 €",
+      "centro": "3.300 €",
       "destinazioni": [
-       "Affitto",
-       "Apprendista",
-       "Attrezzi",
-       "Gianni"
+       "Proprietario",
+       "Commessa",
+       "Fornitori luce",
+       "Commercialista"
       ]
      }
-    }
-   ]
-  },
-  {
-   "testo": "Ma attenzione: quanti tagliandi può fare Gianni? Qui entra il concetto più importante dell'officina: le ore fatturate. Non conta quante ore lavori, conta quante ne riesci a vendere.",
-   "capitolo": "Le ore fatturate",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "orologio",
-     "p": {
-      "ore": 8,
-      "piene": 8,
-      "testo": "Otto ore in officina"
-     }
     },
     {
-     "parola": "conta",
-     "tipo": "domanda",
+     "parola": "mese",
+     "tipo": "calendario",
      "p": {
-      "testo": "Ore lavorate o vendute?",
-      "emozione": "stupito",
-      "scuro": true
+      "titolo": "Ogni mese, vendi o non vendi",
+      "giorni": 30,
+      "testo": "3.300 € da pagare"
      }
     }
    ]
   },
   {
-   "testo": "Gianni e l'apprendista in officina stanno otto ore al giorno ciascuno. Sono sedici ore. Ma tra telefonate, attese del ricambio, preventivi, pulizie e macchine che non arrivano, ne fattura solo dieci.",
+   "testo": "Questi soldi li paghi anche se non entra nessuno. Anche il lunedì pieno di pioggia. Anche ad agosto. Per questo si chiamano fissi. E sono il primo numero che devi conoscere a memoria prima di aprire qualsiasi negozio.",
    "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "orologio",
-     "p": {
-      "ore": 16,
-      "piene": 10,
-      "testo": "Sedici ore presenti, dieci fatturate"
-     }
-    },
-    {
-     "parola": "Ma",
-     "tipo": "lista",
-     "p": {
-      "titolo": "Dove spariscono le ore",
-      "voci": [
-       "Telefonate",
-       "Attesa ricambi",
-       "Preventivi gratis",
-       "Pulizie",
-       "Clienti in ritardo",
-       "Imprevisti"
-      ]
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Dieci ore su sedici è il sessantadue e mezzo per cento. Si chiama tasso di saturazione. Se lo fai salire all'ottanta per cento, con le stesse persone, incassi molto di più. Senza assumere nessuno.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Saturazione",
-      "a": "10 ore",
-      "op": "÷",
-      "b": "16 ore",
-      "risultato": "62,5 %",
-      "nota": "ore fatturate su ore presenti"
-     }
-    },
-    {
-     "parola": "Se",
-     "tipo": "cruscotto",
-     "p": {
-      "titolo": "Indicatori officina",
-      "voci": [
-       {
-        "nome": "Saturazione",
-        "valore": 0.62
-       },
-       {
-        "nome": "Obiettivo",
-        "valore": 0.8
-       }
-      ]
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Facciamo il conto. Dieci ore fatturate al giorno per sessanta euro fanno seicento euro di manodopera al giorno. In ventidue giorni lavorativi sono tredicimiladuecento euro al mese. Bello, no?",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Manodopera al giorno",
-      "a": "10 ore",
-      "op": "×",
-      "b": "60 €",
-      "risultato": "600 €",
-      "nota": "ore fatturate per tariffa"
-     }
-    },
-    {
-     "parola": "In",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Manodopera al mese",
-      "a": "600 €",
-      "op": "×",
-      "b": "22 giorni",
-      "risultato": "13.200 €",
-      "nota": "giorni lavorativi del mese"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Bello sì, ma attento: questo è fatturato, non guadagno. Da tredicimiladuecento togli i costi fissi di cinquemilasettecentocinquanta. Restano settemilaquattrocentocinquanta. Sembra tanto. Ma stiamo ancora tralasciando qualcosa.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Dopo i costi fissi",
-      "a": "13.200 €",
-      "op": "−",
-      "b": "5.750 €",
-      "risultato": "7.450 €",
-      "nota": "senza ancora tasse e imprevisti"
-     }
-    },
-    {
-     "parola": "Ma",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Cosa manca?",
-      "emozione": "preoccupato",
-      "scuro": true
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Manca l'attrezzatura. Un'officina vive di strumenti: sollevatore, diagnosi elettronica, compressore, chiavi dinamometriche, macchina per le gomme. Costano tanto e si rompono. Vediamo quanto pesa tutto questo.",
-   "capitolo": "L'attrezzatura",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "officina",
-      "insegna": "Officina Gianni",
-      "azione": "preoccupato",
-      "clienti": 0,
-      "testo": "Attrezzatura costosa"
-     }
-    },
-    {
-     "parola": "Costano",
-     "tipo": "lista",
-     "p": {
-      "titolo": "Attrezzatura base",
-      "voci": [
-       "Sollevatore",
-       "Strumento di diagnosi",
-       "Compressore",
-       "Chiavi dinamometriche",
-       "Smontagomme",
-       "Banco da lavoro"
-      ]
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Il solo strumento di diagnosi costa seimila euro, più un abbonamento annuo per gli aggiornamenti dei software delle case auto. Senza, non leggi i codici errore delle auto moderne. Non è un lusso, è obbligatorio.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "prezzo",
-     "p": {
-      "oggetto": "strumento di diagnosi",
-      "prezzo": "6.000 €",
-      "nota": "più abbonamento annuo"
-     }
-    },
-    {
-     "parola": "Senza",
-     "tipo": "timbro",
-     "p": {
-      "oggetto": "auto moderna",
-      "testo": "OBBLIGATORIO",
-      "colore": "rosso",
-      "nota": "senza diagnosi non lavori"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Quanto vale un attrezzo in rapporto al lavoro? Prendi il sollevatore: costa cinquemila euro e dura dieci anni. Ammortizzato fa cinquecento euro l'anno. Quarantadue euro al mese, circa. Per migliaia di tagliandi.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Ammortamento sollevatore",
-      "a": "5.000 €",
-      "op": "÷",
-      "b": "10 anni",
-      "risultato": "500 € all'anno",
-      "nota": "circa 42 € al mese"
-     }
-    },
-    {
-     "parola": "Per",
-     "tipo": "conteggio",
-     "p": {
-      "oggetto": "auto",
-      "icone": 30,
-      "testo": "Migliaia di auto sul sollevatore"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Ora la tua attività. Anche tu hai un attrezzo che costa tanto e dura tanto? Un forno, un computer, una macchina da cucire? Dividi il prezzo per gli anni e poi per i mesi. Quel costo esiste, anche se non lo paghi.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Quanto costa il tuo attrezzo?",
-      "emozione": "calmo",
-      "scuro": false
-     }
-    },
-    {
-     "parola": "Dividi",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Esempio: forno di una pizzeria",
-      "a": "6.000 €",
-      "op": "÷",
-      "b": "10 anni",
-      "risultato": "600 € all'anno",
-      "nota": "cinquanta euro al mese"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Un parrucchiere, per esempio, ha la poltrona e il lavatesta. Quattromila euro in tutto, che durano otto anni. Cinquecento euro l'anno, quarantadue al mese. Se non li metti nei prezzi, li paghi tu di tasca tua.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Esempio: salone di parrucchiera",
-      "a": "4.000 €",
-      "op": "÷",
-      "b": "8 anni",
-      "risultato": "500 € all'anno",
-      "nota": "poltrona e lavatesta"
-     }
-    },
-    {
-     "parola": "Se",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "salone",
-      "insegna": "Salone Giulia",
-      "azione": "preoccupato",
-      "clienti": 1,
-      "testo": "Costi nascosti nel salone"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Torniamo a Gianni. Sommando ammortamenti, aggiornamenti software, riparazioni e attrezzi che si consumano, spende circa quattrocento euro al mese in più, che non aveva messo in conto. Ecco il primo buco.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Costi dell'attrezzatura",
-      "a": "7.450 €",
-      "op": "−",
-      "b": "400 €",
-      "risultato": "7.050 €",
-      "nota": "al mese, dopo l'attrezzatura"
-     }
-    },
-    {
-     "parola": "Ecco",
-     "tipo": "salvadanaio",
-     "p": {
-      "direzione": "svuota",
-      "testo": "Quattrocento euro che sfuggono"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Poi ci sono le macchine che tornano indietro. Un cliente lamenta un rumore dopo il tagliando. Gianni lo ricontrolla gratis: un'ora persa, sessanta euro. Se succede cinque volte al mese, sono trecento euro che spariscono.",
-   "capitolo": "Le ore regalate",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "persone",
      "p": {
-      "n": 5,
+      "n": 1,
       "azione": "entrano",
       "escono": 0,
-      "testo": "Cinque clienti tornano a lamentarsi"
+      "testo": "Un lunedì di pioggia"
      }
     },
     {
-     "parola": "Se",
-     "tipo": "formula",
+     "parola": "agosto",
+     "tipo": "mesi",
      "p": {
-      "titolo": "Garanzie regalate",
-      "a": "60 €",
-      "op": "×",
-      "b": "5 volte",
-      "risultato": "300 €",
-      "nota": "al mese di lavoro gratis"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Ecco perché i meccanici bravi controllano tutto con attenzione: un lavoro fatto bene non torna. Non è solo orgoglio, è denaro. Ogni ritorno è un'ora regalata, e un'ora regalata vale quanto una scommessa persa.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "officina",
-      "insegna": "Officina Gianni",
-      "azione": "lavora",
-      "clienti": 1,
-      "testo": "Lavoro fatto bene"
+      "titolo": "Costi fissi: sempre uguali",
+      "valori": [
+       3300,
+       3300,
+       3300,
+       3300,
+       3300,
+       3300,
+       3300,
+       3300,
+       3300,
+       3300,
+       3300,
+       3300
+      ],
+      "evidenzia": [
+       8
+      ],
+      "nota": "Anche ad agosto"
      }
     },
     {
-     "parola": "Ogni",
-     "tipo": "bilancia",
-     "p": {
-      "titolo": "Un ritorno",
-      "sinistra": "Un'ora regalata",
-      "destra": "Sessanta euro persi",
-      "pende": "destra"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Cosa NON devi guardare, se hai un'officina o qualunque attività? Il prezzo dei concorrenti, da solo. Se Marco, il meccanico dall'altra parte della città, fa il tagliando a centonovanta euro, magari lavora in perdita.",
-   "capitolo": "Cosa non guardare",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "confronto",
-     "p": {
-      "titolo": "Due officine",
-      "a": {
-       "titolo": "Gianni",
-       "valore": "250 €",
-       "oggetto": "auto"
-      },
-      "b": {
-       "titolo": "Marco",
-       "valore": "190 €",
-       "oggetto": "auto"
-      },
-      "vincitore": ""
-     }
-    },
-    {
-     "parola": "magari",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Marco guadagna davvero?",
-      "emozione": "stupito",
-      "scuro": false
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Un esempio fuori dall'officina. Una pasticceria vende la torta a ventidue euro perché la concorrenza la vende a venti. Ma il burro è rincarato. Ora ci guadagna tre euro invece di cinque. Copiare il prezzo altrui è un salto nel buio.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "prezzo",
-     "p": {
-      "oggetto": "torta",
-      "prezzo": "20 €",
-      "nuovo_prezzo": "22 €",
-      "nota": "prezzo della concorrenza"
-     }
-    },
-    {
-     "parola": "Copiare",
-     "tipo": "timbro",
-     "p": {
-      "oggetto": "torta",
-      "testo": "ATTENTO",
-      "colore": "rosso",
-      "nota": "guarda i tuoi costi, non i loro prezzi"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Cosa guardare invece? Il tuo costo orario vero. Prendi tutti i costi fissi e dividili per le ore che riesci a fatturare. Per Gianni sono cinquemilasettecentocinquanta euro diviso duecentoventi ore. Fa ventisei euro all'ora.",
-   "capitolo": "Il costo orario vero",
-   "inquadrature": [
-    {
-     "parola": "",
+     "parola": "memoria",
      "tipo": "lista",
      "p": {
-      "titolo": "Cosa guardare",
+      "titolo": "Da sapere a memoria",
       "voci": [
-       "Il tuo costo orario",
-       "Le ore vendute",
-       "Il margine sui ricambi",
-       "I ritorni gratis"
+       "Affitto",
+       "Personale",
+       "Utenze",
+       "Commercialista"
       ]
      }
-    },
-    {
-     "parola": "Per",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Costo orario di Gianni",
-      "a": "5.750 €",
-      "op": "÷",
-      "b": "220 ore",
-      "risultato": "26,14 € all'ora",
-      "nota": "dieci ore al giorno per ventidue giorni"
-     }
     }
    ]
   },
   {
-   "testo": "Ventisei euro all'ora è quanto costa tenere aperta l'officina, anche se non ci lavori. Se Gianni vende l'ora a sessanta, ne resta trentaquattro. Se la vendesse a trenta, resterebbero quattro euro. Fa pensare, vero?",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Guadagno su un'ora",
-      "a": "60 €",
-      "op": "−",
-      "b": "26 €",
-      "risultato": "34 €",
-      "nota": "tariffa meno costo orario"
-     }
-    },
-    {
-     "parola": "Se",
-     "tipo": "bilancia",
-     "p": {
-      "titolo": "Un'ora venduta",
-      "sinistra": "Costo 26 euro",
-      "destra": "Prezzo 60 euro",
-      "pende": "destra"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Ora il pareggio. Con trentaquattro euro di margine per ora e costi extra, quante ore al mese deve fatturare Gianni per non perdere? Dividi i costi per il margine orario. Ti faccio vedere il grafico.",
+   "testo": "Ora la domanda che conta: quante paia deve vendere Luisa per arrivare a zero? Zero di perdita, zero di guadagno. Si chiama punto di pareggio. Si calcola dividendo i costi fissi per il margine di un paio. Facile.",
    "capitolo": "Il pareggio",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "domanda",
      "p": {
-      "testo": "Quante ore per pareggiare?",
+      "testo": "Quante ne vende?",
       "emozione": "calmo",
       "scuro": false
      }
     },
     {
-     "parola": "Dividi",
+     "parola": "punto",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Punto di pareggio",
+      "a": "3.300 €",
+      "op": "÷",
+      "b": "50 €",
+      "risultato": "66 paia",
+      "nota": "Costi fissi diviso margine"
+     }
+    },
+    {
+     "parola": "Facile",
      "tipo": "pareggio",
      "p": {
-      "titolo": "Pareggio dell'officina",
-      "fissi": 5750,
-      "margine": 34,
-      "unita": "ore fatturate",
-      "oggetto": "chiave inglese",
+      "titolo": "Pareggio mensile",
+      "fissi": 3300,
+      "margine": 50,
+      "unita": "paia vendute",
+      "oggetto": "scarpe",
       "perdita": true,
+      "guadagno": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Sessantasei paia al mese, per non perdere nulla. Fa poco più di due al giorno, vero? Sembra poco. Ma sono due paia al giorno, ogni giorno, solo per pareggiare. Il guadagno vero comincia dal sessantasettesimo paio.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "conteggio",
+     "p": {
+      "oggetto": "scarpe",
+      "icone": 22,
+      "testo": "Due al giorno"
+     }
+    },
+    {
+     "parola": "Sembra",
+     "tipo": "calendario",
+     "p": {
+      "titolo": "Un mese di vendite",
+      "giorni": 30,
+      "testo": "Sessantasei paia per pareggiare"
+     }
+    },
+    {
+     "parola": "guadagno",
+     "tipo": "pareggio",
+     "p": {
+      "titolo": "Dopo il pareggio",
+      "fissi": 3300,
+      "margine": 50,
+      "unita": "paia vendute",
+      "oggetto": "scarpe",
+      "perdita": false,
       "guadagno": true
      }
     }
    ]
   },
   {
-   "testo": "Cinquemilasettecentocinquanta diviso trentaquattro fa circa centosessantanove ore al mese. Sotto quella soglia Gianni lavora per niente. Sopra, comincia a guadagnare. Su ventidue giorni, sono quasi otto ore al giorno.",
+   "testo": "Ma c'è un problema, ed è il più grosso dei negozi di scarpe. Luisa non vende tutte le scarpe al prezzo pieno. Alcune finiscono in saldo. Alcune restano lì anni. E il pareggio che hai appena calcolato, a quel punto, salta.",
+   "capitolo": "Saldi e invenduto",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "negozio di scarpe",
+      "insegna": "Scarpe Luisa",
+      "azione": "stupito",
+      "clienti": 1,
+      "testo": "Arrivano i saldi"
+     }
+    },
+    {
+     "parola": "saldo",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "scarpe",
+      "testo": "SALDI",
+      "colore": "rosso",
+      "nota": "Il margine cambia"
+     }
+    },
+    {
+     "parola": "salta",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Il pareggio salta",
+      "emozione": "preoccupato",
+      "scuro": true
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Facciamo i saldi. Un paio da cento euro viene scontato del trenta per cento. Nuovo prezzo: settanta. Il costo è sempre cinquanta. Quindi il margine passa da cinquanta euro a venti. Hai tolto trenta di sconto, ma hai perso più della metà del margine.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "scarpe",
+      "prezzo": "100 €",
+      "nuovo_prezzo": "70 €",
+      "nota": "Sconto trenta per cento"
+     }
+    },
+    {
+     "parola": "margine",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Margine in saldo",
+      "a": "70 €",
+      "op": "−",
+      "b": "50 €",
+      "risultato": "20 €",
+      "nota": "Prima erano cinquanta"
+     }
+    },
+    {
+     "parola": "perso",
+     "tipo": "confronto",
+     "p": {
+      "titolo": "Margine per paio",
+      "a": {
+       "titolo": "Prezzo pieno",
+       "valore": "50 €",
+       "oggetto": "scarpe"
+      },
+      "b": {
+       "titolo": "In saldo",
+       "valore": "20 €",
+       "oggetto": "scarpe"
+      },
+      "vincitore": "a"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Qui sta il trucco che quasi nessuno vede. Con trenta per cento di sconto, per tornare a guadagnare gli stessi cinquanta euro, devi vendere due paia e mezzo invece di uno. Perché venti per due e mezzo fa cinquanta. Lo sconto non è un regalo: è una moltiplicazione di lavoro.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "formula",
      "p": {
-      "titolo": "Ore per pareggiare",
-      "a": "5.750 €",
+      "titolo": "Quanti paia servono",
+      "a": "50 €",
       "op": "÷",
-      "b": "34 €",
-      "risultato": "169 ore",
-      "nota": "al mese, circa"
+      "b": "20 €",
+      "risultato": "2,5 paia",
+      "nota": "Per guadagnare come prima"
      }
     },
     {
-     "parola": "Su",
-     "tipo": "orologio",
+     "parola": "Perché",
+     "tipo": "conteggio",
      "p": {
-      "ore": 16,
-      "piene": 8,
-      "testo": "Otto ore al giorno per restare a galla"
+      "oggetto": "scarpe",
+      "icone": 3,
+      "testo": "Due e mezzo per uno"
+     }
+    },
+    {
+     "parola": "regalo",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Sconto = più lavoro",
+      "emozione": "stupito",
+      "scuro": false
      }
     }
    ]
   },
   {
-   "testo": "Che succede in un mese tranquillo? Luglio, tutti in vacanza. Le ore fatturate crollano. Gianni scende a centoquaranta ore e va in perdita. Poi a settembre, tutti tornano e l'officina scoppia. Guarda l'andamento.",
-   "capitolo": "Mesi buoni e mesi magri",
+   "testo": "Un esempio diverso: un parrucchiere fa un taglio a trenta euro e ci resta, tolti i prodotti, venti. Se lo scontasse del trenta per cento, a ventuno euro, gli resterebbero undici. Servirebbero quasi due clienti per averne uno di prima. Gli sconti ammazzano i margini.",
+   "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "mesi",
+     "tipo": "prezzo",
      "p": {
-      "titolo": "Ore fatturate in un anno",
-      "valori": [
-       190,
-       185,
-       200,
-       195,
-       180,
-       170,
-       140,
-       100,
-       210,
-       220,
-       215,
-       180
-      ],
-      "evidenzia": [
-       7,
-       8
-      ],
-      "nota": "estate più debole"
+      "oggetto": "forbici",
+      "prezzo": "30 €",
+      "nuovo_prezzo": "21 €",
+      "nota": "Taglio scontato"
      }
     },
     {
-     "parola": "Poi",
+     "parola": "Se",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Margine dopo lo sconto",
+      "a": "21 €",
+      "op": "−",
+      "b": "10 €",
+      "risultato": "11 €",
+      "nota": "Prima erano venti"
+     }
+    },
+    {
+     "parola": "ammazzano",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Prima di fare uno sconto",
+      "voci": [
+       "Calcola il nuovo margine",
+       "Calcola quanti pezzi servono",
+       "Chiediti se li venderai davvero"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Allora perché Luisa fa i saldi? Perché la merce ferma costa più dello sconto. Un paio invenduto occupa spazio, immobilizza soldi, passa di moda. Meglio guadagnare venti euro oggi che zero tra un anno. Ma lo deve fare con testa.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Perché scontare?",
+      "emozione": "calmo",
+      "scuro": false
+     }
+    },
+    {
+     "parola": "spazio",
+     "tipo": "bilancia",
+     "p": {
+      "titolo": "Meglio...",
+      "sinistra": "20 € oggi",
+      "destra": "0 € tra un anno",
+      "pende": "sinistra"
+     }
+    },
+    {
+     "parola": "testa",
+     "tipo": "cruscotto",
+     "p": {
+      "titolo": "Prima di scontare",
+      "voci": [
+       {
+        "nome": "Mesi in magazzino",
+        "valore": 0.8
+       },
+       {
+        "nome": "Margine residuo",
+        "valore": 0.4
+       },
+       {
+        "nome": "Moda che passa",
+        "valore": 0.7
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Passiamo al magazzino, il vero nascondiglio dei soldi. Luisa ha scarpe per ventimila euro di costo sugli scaffali e nel retro. Sono soldi suoi, fermi, che non lavorano. E mentre sono lì, l'affitto corre lo stesso.",
+   "capitolo": "Il magazzino",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "magazzino scarpe",
+      "insegna": "Scarpe Luisa",
+      "azione": "preoccupato",
+      "clienti": 0,
+      "testo": "Il retro del negozio"
+     }
+    },
+    {
+     "parola": "ventimila",
+     "tipo": "conteggio",
+     "p": {
+      "oggetto": "scarpe",
+      "icone": 40,
+      "testo": "20.000 € di scarpe ferme"
+     }
+    },
+    {
+     "parola": "affitto",
+     "tipo": "salvadanaio",
+     "p": {
+      "direzione": "svuota",
+      "testo": "Soldi fermi che non lavorano"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Quante volte il magazzino gira in un anno? Si chiama rotazione. Luisa vende ogni anno scarpe per quaranta mila euro di costo. Con venti mila in magazzino, gira due volte l'anno. Cioè ogni scarpa resta ferma, in media, sei mesi.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Rotazione del magazzino",
+      "a": "40.000 €",
+      "op": "÷",
+      "b": "20.000 €",
+      "risultato": "2 volte l'anno",
+      "nota": "Ogni scarpa ferma sei mesi"
+     }
+    },
+    {
+     "parola": "Cioè",
+     "tipo": "orologio",
+     "p": {
+      "ore": 12,
+      "piene": 6,
+      "testo": "Sei mesi ferma, sei mesi venduta"
+     }
+    },
+    {
+     "parola": "scarpa",
      "tipo": "andamento",
      "p": {
-      "titolo": "Ore fatturate",
+      "titolo": "Valore delle scarpe nel tempo",
       "valori": [
-       170,
-       140,
        100,
-       210
+       90,
+       75,
+       60,
+       45
       ],
       "etichette": [
-       "Giu",
-       "Lug",
-       "Ago",
-       "Set"
+       "Nuova",
+       "3 mesi",
+       "6 mesi",
+       "9 mesi",
+       "12 mesi"
       ],
       "colore": "rosso"
      }
@@ -1068,53 +848,42 @@
    ]
   },
   {
-   "testo": "Per questo il pareggio medio non basta. Devi avere un cuscinetto per i mesi magri. Un'officina, un bar al mare d'inverno, un negozio di costumi: tutti hanno mesi che salvano l'anno e mesi che lo sprofondano.",
+   "testo": "Un esempio diverso: una panetteria ha la rotazione più alta che esista. Il pane si vende in giornata, il magazzino gira trecento volte l'anno. Per questo il pane può avere margini piccoli. Il negozio di scarpe gira due volte: per forza servono margini grandi.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "salvadanaio",
+     "tipo": "confronto",
      "p": {
-      "direzione": "riempie",
-      "testo": "Il cuscinetto dei mesi buoni"
+      "titolo": "Rotazione in un anno",
+      "a": {
+       "titolo": "Pane",
+       "valore": "300 volte",
+       "oggetto": "pane"
+      },
+      "b": {
+       "titolo": "Scarpe",
+       "valore": "2 volte",
+       "oggetto": "scarpe"
+      },
+      "vincitore": "a"
      }
     },
     {
-     "parola": "Un",
-     "tipo": "luogo",
+     "parola": "Per",
+     "tipo": "bilancia",
      "p": {
-      "luogo": "negozio",
-      "insegna": "Costumi Mare",
-      "azione": "preoccupato",
-      "clienti": 0,
-      "testo": "Negozio di costumi a gennaio"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Quali sono le leve di Gianni per guadagnare di più? Quattro. Alzare le ore vendute. Alzare la tariffa. Alzare il margine sui ricambi. Ridurre i ritorni gratuiti. Quale conviene di più? Facciamo i conti.",
-   "capitolo": "Le leve",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "leve",
-     "p": {
-      "titolo": "Come guadagnare di più",
-      "voci": [
-       "Più ore vendute",
-       "Tariffa più alta",
-       "Margine ricambi",
-       "Meno ritorni gratis"
-      ],
-      "evidenzia": 0
+      "titolo": "Più giri, meno margine",
+      "sinistra": "Pane: margine piccolo",
+      "destra": "Scarpe: margine grande",
+      "pende": "destra"
      }
     },
     {
-     "parola": "Quale",
+     "parola": "forza",
      "tipo": "domanda",
      "p": {
-      "testo": "Quale leva conviene?",
+      "testo": "Poco giro, molto margine",
       "emozione": "calmo",
       "scuro": false
      }
@@ -1122,93 +891,260 @@
    ]
   },
   {
-   "testo": "Se Gianni alza la tariffa da sessanta a sessantacinque euro, su centosettanta ore al mese guadagna cinque euro in più per ogni ora. Cioè ottocentocinquanta euro al mese, senza lavorare un minuto in più.",
-   "capitolo": "",
+   "testo": "Ora il guaio che fa piangere i negozi di scarpe: le taglie. Luisa compra un modello in tutte le taglie, dalla trentasei alla quarantasei. Ma a venderne tante sono solo quelle centrali. Le estreme restano lì, e sono la tomba dei suoi soldi.",
+   "capitolo": "Le taglie",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "prezzo",
+     "tipo": "lista",
      "p": {
-      "oggetto": "ora di lavoro",
-      "prezzo": "60 €",
-      "nuovo_prezzo": "65 €",
-      "nota": "tariffa oraria"
-     }
-    },
-    {
-     "parola": "Cioè",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Effetto del ritocco",
-      "a": "5 €",
-      "op": "×",
-      "b": "170 ore",
-      "risultato": "850 €",
-      "nota": "in più ogni mese"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Ritoccare il prezzo è la leva più potente, ma fa paura. Perché pensi di perdere clienti. Spesso non succede, se spieghi bene cosa fai. Il cliente non compra l'ora, compra la tranquillità di un'auto che non lo lascia a piedi.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "persone",
-     "p": {
-      "n": 8,
-      "azione": "fila",
-      "escono": 0,
-      "testo": "I clienti restano se capiscono il valore"
-     }
-    },
-    {
-     "parola": "Il",
-     "tipo": "timbro",
-     "p": {
-      "oggetto": "auto",
-      "testo": "FIDUCIA",
-      "colore": "verde",
-      "nota": "il cliente compra tranquillità"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Riassumiamo. Primo: in un tagliando i ricambi guadagnano poco, la manodopera molto, ma non è tutta tua. Secondo: conta l'ora fatturata, non quella lavorata. Terzo: calcola il tuo costo orario, attrezzatura compresa. Quarto: conosci il tuo pareggio.",
-   "capitolo": "Cosa ricordare",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "riepilogo",
-     "p": {
-      "titolo": "Da ricordare",
+      "titolo": "Le taglie del modello",
       "voci": [
-       "Ricambi: margine piccolo",
-       "Manodopera: paga i costi fissi",
-       "Conta l'ora fatturata",
-       "Calcola il tuo pareggio"
+       "Trentasei: poche",
+       "Trentotto e quaranta: tante",
+       "Quarantadue: tante",
+       "Quarantasei: quasi nessuna"
       ]
      }
     },
     {
-     "parola": "Quarto",
+     "parola": "centrali",
+     "tipo": "mesi",
+     "p": {
+      "titolo": "Vendite per taglia (paia)",
+      "valori": [
+       1,
+       3,
+       6,
+       9,
+       10,
+       8,
+       5,
+       3,
+       1,
+       1,
+       0,
+       0
+      ],
+      "evidenzia": [
+       5,
+       6
+      ],
+      "nota": "Dalla piccola alla grande"
+     }
+    },
+    {
+     "parola": "tomba",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "scarpe",
+      "testo": "INVENDUTE",
+      "colore": "rosso",
+      "nota": "Le taglie estreme"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Facciamo i numeri. Luisa ordina dodici paia di un modello, costo cinquanta euro l'uno, seicento euro in tutto. A prezzo pieno ne vende sette, le taglie buone. Cinque restano. Vediamo quanto ha guadagnato davvero su quel modello.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "conteggio",
+     "p": {
+      "oggetto": "scarpe",
+      "icone": 12,
+      "testo": "12 paia ordinate"
+     }
+    },
+    {
+     "parola": "sette",
+     "tipo": "persone",
+     "p": {
+      "n": 7,
+      "azione": "escono",
+      "escono": 7,
+      "testo": "Sette paia vendute"
+     }
+    },
+    {
+     "parola": "Cinque",
+     "tipo": "conteggio",
+     "p": {
+      "oggetto": "scarpe",
+      "icone": 5,
+      "testo": "5 paia restano"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Incasso: sette paia per cento euro, settecento. Costo di tutte e dodici: seicento. Quindi sul modello, per ora, sono solo cento euro di utile. Non trecentocinquanta, come pensavi. E cinque paia sono ancora lì, a occupare scaffale.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Utile del modello",
+      "a": "700 €",
+      "op": "−",
+      "b": "600 €",
+      "risultato": "100 €",
+      "nota": "Incasso meno costo di tutte le paia"
+     }
+    },
+    {
+     "parola": "Quindi",
+     "tipo": "fette",
+     "p": {
+      "titolo": "Cosa succede ai 700 €",
+      "totale": 700,
+      "totale_testo": "700 €",
+      "fette": [
+       {
+        "nome": "Costo delle 7 vendute",
+        "valore": 350,
+        "testo": "350 €"
+       },
+       {
+        "nome": "Costo delle 5 ferme",
+        "valore": 250,
+        "testo": "250 €"
+       },
+       {
+        "nome": "Utile",
+        "valore": 100,
+        "testo": "100 €"
+       }
+      ],
+      "evidenzia": 2
+     }
+    },
+    {
+     "parola": "scaffale",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Cento, non trecentocinquanta",
+      "emozione": "stupito",
+      "scuro": true
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ecco la lezione: non guardare il margine del singolo paio. Guarda il margine di tutto l'ordine, comprese le paia che non vendi. Se ne vendi sette su dodici, hai pagato anche cinque paia che non ti rendono nulla.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Cosa guardare",
+      "voci": [
+       "Margine sull'intero ordine",
+       "Paia vendute su paia comprate",
+       "Soldi fermi nelle taglie estreme"
+      ]
+     }
+    },
+    {
+     "parola": "singolo",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "scarpe",
+      "testo": "NON BASTA",
+      "colore": "rosso",
+      "nota": "Il margine del singolo paio"
+     }
+    },
+    {
+     "parola": "cinque",
+     "tipo": "bilancia",
+     "p": {
+      "titolo": "Ordine di dodici paia",
+      "sinistra": "7 vendute",
+      "destra": "5 ferme",
+      "pende": "destra"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Un esempio diverso: una pasticceria prepara venti torte per il sabato e ne vende dodici. Le altre otto si buttano o si regalano. Il margine della torta è buono, ma l'ordine in realtà è in perdita. Vale per tutto ciò che si compra in blocco.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "conteggio",
+     "p": {
+      "oggetto": "torta",
+      "icone": 20,
+      "testo": "Venti torte, dodici vendute"
+     }
+    },
+    {
+     "parola": "buttano",
+     "tipo": "persone",
+     "p": {
+      "n": 8,
+      "azione": "escono",
+      "escono": 0,
+      "testo": "Otto restano sul bancone"
+     }
+    },
+    {
+     "parola": "blocco",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Il blocco costa",
+      "emozione": "preoccupato",
+      "scuro": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Torniamo a Luisa. Il suo mese tipo: vende ottanta paia a prezzo pieno e venti in saldo. Incasso: ottomila euro più millequattrocento. Totale: novemilaquattrocento. Ma il costo delle scarpe vendute non è tutto: anche l'invenduto pesa.",
+   "capitolo": "Il mese di Luisa",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "negozio di scarpe",
+      "insegna": "Scarpe Luisa",
+      "azione": "lavora",
+      "clienti": 3,
+      "testo": "Un mese qualsiasi"
+     }
+    },
+    {
+     "parola": "Incasso",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Incasso del mese",
+      "a": "8.000 €",
+      "op": "+",
+      "b": "1.400 €",
+      "risultato": "9.400 €",
+      "nota": "Pieno prezzo più saldi"
+     }
+    },
+    {
+     "parola": "invenduto",
      "tipo": "cruscotto",
      "p": {
-      "titolo": "Gianni sotto controllo",
+      "titolo": "Vendite del mese",
       "voci": [
        {
-        "nome": "Saturazione",
+        "nome": "Paia a prezzo pieno",
         "valore": 0.8
        },
        {
-        "nome": "Costo orario",
-        "valore": 0.45
-       },
-       {
-        "nome": "Ritorni gratis",
-        "valore": 0.1
+        "nome": "Paia in saldo",
+        "valore": 0.2
        }
       ]
      }
@@ -1216,53 +1152,400 @@
    ]
   },
   {
-   "testo": "Gianni alla fine ci guadagna, ma non è quello che pensavi. Su duecentocinquanta euro, il suo utile reale è sui trenta euro. Non è poco, se fa tanti tagliandi con ore piene. Ma è tutto nei dettagli dei numeri.",
+   "testo": "Il costo delle cento paia vendute è cinquemila euro. Tolgo anche duecentocinquanta euro di scarpe che si sono rovinate o rimaste in vetrina. Margine del mese: nove mila e quattrocento meno cinquemila e duecentocinquanta. Fa quattromilacentocinquanta.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "timbro",
+     "tipo": "formula",
      "p": {
-      "oggetto": "tagliando",
-      "testo": "UTILE 30 €",
-      "colore": "verde",
-      "nota": "circa, dopo tutti i costi"
+      "titolo": "Margine del mese",
+      "a": "9.400 €",
+      "op": "−",
+      "b": "5.250 €",
+      "risultato": "4.150 €",
+      "nota": "Incasso meno costo delle scarpe"
      }
     },
     {
-     "parola": "Ma",
-     "tipo": "luogo",
+     "parola": "Tolgo",
+     "tipo": "fette",
      "p": {
-      "luogo": "officina",
-      "insegna": "Officina Gianni",
-      "azione": "felice",
-      "clienti": 3,
-      "testo": "Officina piena, conti in ordine"
+      "titolo": "Dove vanno i 9.400 €",
+      "totale": 9400,
+      "totale_testo": "9.400 €",
+      "fette": [
+       {
+        "nome": "Costo scarpe vendute",
+        "valore": 5000,
+        "testo": "5.000 €"
+       },
+       {
+        "nome": "Scarpe rovinate",
+        "valore": 250,
+        "testo": "250 €"
+       },
+       {
+        "nome": "Margine",
+        "valore": 4150,
+        "testo": "4.150 €"
+       }
+      ],
+      "evidenzia": 2
+     }
+    },
+    {
+     "parola": "quattromilacentocinquanta",
+     "tipo": "conteggio",
+     "p": {
+      "oggetto": "scarpe",
+      "icone": 42,
+      "testo": "4.150 € di margine"
      }
     }
    ]
   },
   {
-   "testo": "E tu, hai mai guardato il tuo costo orario? Scrivimelo nei commenti. Nel prossimo episodio parliamo di una pizzeria che vende duecento pizze al giorno ma a fine mese non ha un euro. Come è possibile? Iscriviti!",
+   "testo": "Ora paghiamo i costi fissi: tremilatrecento. Dai quattromilacentocinquanta togliamo tremilatrecento. Restano ottocentocinquanta euro. E da lì, ancora, le tasse. Luisa lavora dieci ore al giorno per un guadagno di ottocento euro al mese.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Cosa resta a Luisa",
+      "a": "4.150 €",
+      "op": "−",
+      "b": "3.300 €",
+      "risultato": "850 €",
+      "nota": "Prima delle tasse"
+     }
+    },
+    {
+     "parola": "Restano",
+     "tipo": "orologio",
+     "p": {
+      "ore": 16,
+      "piene": 10,
+      "testo": "Dieci ore al giorno"
+     }
+    },
+    {
+     "parola": "tasse",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "scarpe",
+      "testo": "850 € AL MESE",
+      "colore": "rosso",
+      "nota": "Prima delle tasse"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Quindi sulle scarpe da cento euro cosa resta? Pochi euro per paio. Facciamo ottocentocinquanta diviso cento paia: otto euro e cinquanta. Su cento euro in vetrina, otto e cinquanta nella tasca di Luisa. Altro che cinquanta.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Utile per paio",
+      "a": "850 €",
+      "op": "÷",
+      "b": "100 paia",
+      "risultato": "8,50 €",
+      "nota": "Su cento euro di prezzo"
+     }
+    },
+    {
+     "parola": "Altro",
+     "tipo": "fette",
+     "p": {
+      "titolo": "Un paio da 100 €",
+      "totale": 100,
+      "totale_testo": "100 €",
+      "fette": [
+       {
+        "nome": "Costo scarpa",
+        "valore": 52.5,
+        "testo": "52,50 €"
+       },
+       {
+        "nome": "Costi fissi",
+        "valore": 33,
+        "testo": "33 €"
+       },
+       {
+        "nome": "Resta a Luisa",
+        "valore": 8.5,
+        "testo": "8,50 €"
+       },
+       {
+        "nome": "Sconti e rovinate",
+        "valore": 6,
+        "testo": "6 €"
+       }
+      ],
+      "evidenzia": 2
+     }
+    },
+    {
+     "parola": "cinquanta",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Otto e cinquanta!",
+      "emozione": "stupito",
+      "scuro": true
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Come può migliorare? Ci sono quattro leve. Alzare il prezzo, abbassare il costo d'acquisto, vendere più paia, ridurre l'invenduto. Ogni leva ha un prezzo. Luisa deve scegliere quale tirare, e non per forza la più ovvia.",
+   "capitolo": "Le leve",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "leve",
+     "p": {
+      "titolo": "Come migliorare",
+      "voci": [
+       "Alzare il prezzo",
+       "Comprare meglio",
+       "Vendere più paia",
+       "Ridurre l'invenduto"
+      ],
+      "evidenzia": 3
+     }
+    },
+    {
+     "parola": "Alzare",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "scarpe",
+      "prezzo": "100 €",
+      "nuovo_prezzo": "110 €",
+      "nota": "Dieci euro in più"
+     }
+    },
+    {
+     "parola": "scegliere",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Quale leva tiri?",
+      "emozione": "calmo",
+      "scuro": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Prima leva: il prezzo. Se Luisa porta le scarpe da cento a centodieci, e ne vende ancora cento, incassa mille euro in più. Mille euro che vanno quasi tutti in tasca, perché i costi fissi restano uguali. Dieci euro in più del prezzo sono quasi dieci euro di utile.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Prezzo più alto",
+      "a": "10 €",
+      "op": "×",
+      "b": "100 paia",
+      "risultato": "1.000 € in più",
+      "nota": "Se i clienti restano"
+     }
+    },
+    {
+     "parola": "mille",
+     "tipo": "andamento",
+     "p": {
+      "titolo": "Utile del mese",
+      "valori": [
+       850,
+       1850
+      ],
+      "etichette": [
+       "Prima",
+       "Dopo"
+      ],
+      "colore": "verde"
+     }
+    },
+    {
+     "parola": "fissi",
+     "tipo": "salvadanaio",
+     "p": {
+      "direzione": "riempie",
+      "testo": "Quasi tutto in tasca"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Seconda leva: l'invenduto. Se Luisa ordina meglio e le paia rovinate o in saldo passano da venti a dieci, recupera circa duecento euro al mese. Meno paia ferme, più soldi liberi, meno sconti da fare. È la leva più noiosa, ma spesso la più sicura.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "confronto",
+     "p": {
+      "titolo": "Paia in saldo al mese",
+      "a": {
+       "titolo": "Prima",
+       "valore": "20 paia",
+       "oggetto": "scarpe"
+      },
+      "b": {
+       "titolo": "Dopo",
+       "valore": "10 paia",
+       "oggetto": "scarpe"
+      },
+      "vincitore": "b"
+     }
+    },
+    {
+     "parola": "recupera",
+     "tipo": "salvadanaio",
+     "p": {
+      "direzione": "riempie",
+      "testo": "Circa 200 € in più"
+     }
+    },
+    {
+     "parola": "noiosa",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Ordinare meglio",
+      "voci": [
+       "Poche taglie estreme",
+       "Riordini piccoli",
+       "Controlla cosa gira"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Riassumiamo. Il ricarico si calcola sul costo, il margine sul prezzo: non sono la stessa cosa. Il margine non è utile: devi pagare i costi fissi. Gli sconti moltiplicano il lavoro. E il magazzino fermo, con le taglie sbagliate, mangia i soldi.",
+   "capitolo": "Riepilogo",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "riepilogo",
+     "p": {
+      "titolo": "Da ricordare",
+      "voci": [
+       "Ricarico non è margine",
+       "Margine non è utile",
+       "Sconto = più lavoro",
+       "Magazzino fermo = soldi persi"
+      ]
+     }
+    },
+    {
+     "parola": "sconti",
+     "tipo": "cruscotto",
+     "p": {
+      "titolo": "Cosa tenere d'occhio",
+      "voci": [
+       {
+        "nome": "Margine",
+        "valore": 0.5
+       },
+       {
+        "nome": "Rotazione",
+        "valore": 0.3
+       },
+       {
+        "nome": "Invenduto",
+        "valore": 0.6
+       }
+      ]
+     }
+    },
+    {
+     "parola": "taglie",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "negozio di scarpe",
+      "insegna": "Scarpe Luisa",
+      "azione": "felice",
+      "clienti": 3,
+      "testo": "Luisa ha capito"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "E tu? Se hai un negozio, quante paia, o pezzi, restano ferme da più di sei mesi? Quanto margine hai davvero, dopo i saldi? Scrivilo nei commenti: sono i due numeri che salvano un negozio. La prossima volta: quanto guadagna una pizzeria su una margherita da otto euro?",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "domanda",
      "p": {
-      "testo": "Sai il tuo costo orario?",
+      "testo": "E il tuo magazzino?",
       "emozione": "calmo",
       "scuro": false
      }
     },
     {
-     "parola": "Nel",
+     "parola": "commenti",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Due numeri da guardare",
+      "voci": [
+       "Pezzi fermi da sei mesi",
+       "Margine dopo i saldi"
+      ]
+     }
+    },
+    {
+     "parola": "pizzeria",
      "tipo": "prossimo",
      "p": {
       "luogo": "pizzeria",
-      "insegna": "Pizzeria Da Salvo",
+      "insegna": "Da Gennaro",
       "oggetto": "pizza",
-      "testo": "Duecento pizze al giorno e zero soldi"
+      "testo": "Quanto guadagna una pizzeria su una margherita da 8 €?"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Se questa puntata ti è servita, iscriviti al canale e attiva la campanella. Mandala a chi ha un negozio o sta per aprirne uno: gli risparmi un errore da migliaia di euro. Alla prossima, e a presto, con i conti veri delle attività. Iscriviti.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "negozio di scarpe",
+      "insegna": "Scarpe Luisa",
+      "azione": "festa",
+      "clienti": 4,
+      "testo": "Grazie e a presto!"
+     }
+    },
+    {
+     "parola": "campanella",
+     "tipo": "persone",
+     "p": {
+      "n": 5,
+      "azione": "entrano",
+      "escono": 0,
+      "testo": "Benvenuti nel canale"
+     }
+    },
+    {
+     "parola": "Iscriviti",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "scarpe",
+      "testo": "ISCRIVITI",
+      "colore": "verde",
+      "nota": "Quanto Ti Resta"
      }
     }
    ]
