@@ -93,7 +93,7 @@ Write ONLY the first {int(SECONDI)} seconds of the video (about {parole} words i
 - plant at least one open loop ("but that's not the strangest part..."), short punchy sentences, vivid and visual;
 - EVERYTHING must be TRUE and verifiable: no invented numbers, no fake quotes; if unsure, don't say it;
 - split into scenes of 6-11 words each (one sentence or half sentence per scene); every scene must be easy to show with real footage;
-- for every scene give "q": the footage search for {fonte}; make each q different and concrete;
+- for every scene give "q": the footage search for {fonte}; make each q different and concrete; if the video is about a specific place (country, state, region, city), EVERY q must contain that place name (e.g. "Alaska glacier aerial", not "glacier aerial");
 - "scritta": an optional on-screen keyword of 1-3 words in CAPS (a number or a strong word) for about one scene in four, else "".
 {extra}Reply ONLY with JSON: {{"titolo": "...", "copertina": "2-4 word thumbnail text built on the title", "scene": [{{"testo": "...", "q": "...", "scritta": ""{extra_json}}}]}}"""
     t = claude(p, max_tokens=5000)
@@ -173,6 +173,8 @@ def scegli(imgs, testo, q):
                'for the past). Generic pretty footage is NOT '
                'enough; a wrong animal, a wrong country or a modern thing in an old story is a mistake. Also exclude any frame with visible text, '
                'subtitles, logos, watermarks, people posing for the camera, or blur.\n'
+               'If the video is about a specific place, reject anything that does not look like that place (e.g. for Alaska: no tropical turquoise '
+               'water, no palm trees, no European villages or Alps-style towns; for 1950s America: no modern cars, phones or clothes).\n'
                'Reply only with the numbers that pass, best first, separated by commas, or NONE.',
                modello='claude-haiku-4-5-20251001', max_tokens=30, immagine=g)
     return [int(x) - 1 for x in re.findall(r'\d+', r) if 0 < int(x) <= len(imgs)]
