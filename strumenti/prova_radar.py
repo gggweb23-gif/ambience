@@ -144,7 +144,7 @@ def pexels(q):
 
 
 def fotogramma(f, t):
-    g = f + f'_{t:.1f}.jpg'
+    g = os.path.join(LAV, os.path.basename(f) + f'_{t:.1f}.jpg')   # mai nella cartella delle prove (finiva nel repository)
     subprocess.run(['ffmpeg', '-v', 'error', '-y', '-ss', f'{t:.2f}', '-i', f, '-frames:v', '1', '-vf', 'scale=480:-2', g])
     return Image.open(g) if os.path.exists(g) else None
 
@@ -350,7 +350,8 @@ def main():
     usd_cr = 1.65 / 10000   # prezzo della ricarica (21 nov): 1,65 $ ogni 10.000 crediti
     voce_usd = COSTI['elevenlabs_crediti'] * usd_cr
     tot = COSTI['claude_sonnet_$'] + COSTI['claude_haiku_$'] + voce_usd
-    per_min = tot / max(durata / 60, 0.1)
+    # stima video intero: voce e controllo clip crescono con la durata; il copione no (una sola chiamata, ~0,10 $ per 9,5 minuti)
+    per_min = (voce_usd + COSTI['claude_haiku_$']) / max(durata / 60, 0.1) + 0.10 / 9.5
     righe = [f'PROVA {NOME}: {c["titolo"]}', f'durata {round(durata, 1)} s | inquadrature {len(shots)} | clip in movimento {round(n_clip / max(n_tot, 1) * 100)}%',
              f'Claude Sonnet (copione) {COSTI["claude_sonnet_$"]:.3f} $ | Claude Haiku (controllo clip) {COSTI["claude_haiku_$"]:.3f} $',
              f'ElevenLabs Flash {COSTI["elevenlabs_crediti"]} crediti = {voce_usd:.3f} $ (prezzo ricarica) | Pexels/archive.org 0 $',
