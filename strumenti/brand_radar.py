@@ -38,9 +38,11 @@ def fit(d, t, path, w, s):
     return ImageFont.truetype(path, s)
 
 
-for k, b in B.items():
+for k, b in [(x, B[x]) for x in (os.environ.get('SOLO') or ','.join(B)).split(',')]:
     out = os.path.join(ROOT, 'prove_video', 'brand', k); os.makedirs(out, exist_ok=True)
     im = klein(b['sfondo'], 2048, 1152).resize((2560, 1440), Image.LANCZOS)
+    if not b['avatar']:   # foto d'epoca AI: le insegne escono con lettere storte -> sfondo morbido, scritte illeggibili
+        im = im.filter(ImageFilter.GaussianBlur(9))
     sc = Image.new('RGBA', im.size, (0, 0, 0, 0)); ds = ImageDraw.Draw(sc)
     for y in range(1440):
         ds.line((0, y, 2560, y), fill=(0, 0, 0, int(max(0, 150 - abs(y - 720) * .45))))
@@ -58,8 +60,7 @@ for k, b in B.items():
     if b['avatar']:
         av = klein(b['avatar'], 1024, 1024).resize((800, 800), Image.LANCZOS)
     else:
-        av = im.crop((cx - 380, 330, cx + 380, 1090)).resize((800, 800), Image.LANCZOS).filter(ImageFilter.GaussianBlur(3))
-        av = Image.blend(av, Image.new('RGB', av.size, (15, 12, 10)), .45); da = ImageDraw.Draw(av)
+        av = Image.new('RGB', (800, 800), (24, 20, 16) if k == 'dollar_years' else (18, 24, 40)); da = ImageDraw.Draw(av)
         da.ellipse((40, 40, 760, 760), outline=b['col'], width=26)
         w1, w2 = b['nome'][0].split()[-1] if len(b['nome'][0].split()) > 1 else b['nome'][0], b['nome'][1]
         da.text((400, 330), w1, font=fit(da, w1, A, 560, 200), fill='white', anchor='mm', stroke_width=6, stroke_fill='black')

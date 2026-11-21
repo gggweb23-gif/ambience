@@ -1,5 +1,8 @@
 name: Banner e avatar canali RADAR
-on: {workflow_dispatch: {}}
+on:
+  workflow_dispatch:
+    inputs:
+      solo: {default: '', type: string}
 permissions: {contents: write}
 jobs:
   b:
@@ -8,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: pip install -q pillow
-      - env: {FAL_KEY: '${{ secrets.FAL_KEY }}', ANTHROPIC_API_KEY: '${{ secrets.ANTHROPIC_API_KEY }}'}
+      - env: {FAL_KEY: '${{ secrets.FAL_KEY }}', ANTHROPIC_API_KEY: '${{ secrets.ANTHROPIC_API_KEY }}', SOLO: '${{ inputs.solo }}'}
         run: python3 strumenti/brand_radar.py
       - run: |
           git config user.name render-bot; git config user.email render-bot@users.noreply.github.com
