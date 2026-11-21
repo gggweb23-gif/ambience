@@ -1,0 +1,16 @@
+name: Banner e avatar canali RADAR
+on: {workflow_dispatch: {}}
+permissions: {contents: write}
+jobs:
+  b:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install -q pillow
+      - env: {FAL_KEY: '${{ secrets.FAL_KEY }}', ANTHROPIC_API_KEY: '${{ secrets.ANTHROPIC_API_KEY }}'}
+        run: python3 strumenti/brand_radar.py
+      - run: |
+          git config user.name render-bot; git config user.email render-bot@users.noreply.github.com
+          git add prove_video/brand && git commit -qm "Banner e avatar canali RADAR" || exit 0
+          for i in 1 2 3 4 5; do (git pull --rebase -q || { git rebase --abort; git pull --rebase -q -X theirs; }) && git push -q && break; sleep $((i*5)); done
