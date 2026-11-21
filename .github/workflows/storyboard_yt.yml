@@ -1,0 +1,22 @@
+name: Storyboard YouTube (gratis)
+# 21 nov 2026: miniature pubbliche dello storyboard di un video competitor, per vedere com'e' fatto (clip vere, AI, animazioni, mappe)
+on:
+  workflow_dispatch:
+    inputs:
+      nome: {description: 'cartella', default: 'radar', type: string}
+      video: {description: 'id video separati da virgola', required: true, type: string}
+permissions:
+  contents: write
+jobs:
+  sb:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install -q pillow
+      - env: {NOME: '${{ inputs.nome }}', VIDEO: '${{ inputs.video }}'}
+        run: python3 strumenti/storyboard_yt.py
+      - run: |
+          git config user.name render-bot; git config user.email render-bot@users.noreply.github.com
+          git add prove_video/storyboard && git commit -qm "Storyboard ${{ inputs.nome }}" || exit 0
+          for i in 1 2 3 4 5; do (git pull --rebase -q || { git rebase --abort; git pull --rebase -q -X theirs; }) && git push -q && break; sleep $((i*5)); done
