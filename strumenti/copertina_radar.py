@@ -19,7 +19,7 @@ W, H = 1280, 720
 ANTON = os.path.join(R.ROOT, 'ctr_test', 'Anton.ttf')
 BEBAS = os.path.join(R.ROOT, 'fonts_costo_vero', 'BebasNeue-Regular.ttf')
 ARCHIVO = os.path.join(R.ROOT, 'fonts_costo_vero', 'ArchivoBlack-Regular.ttf')
-STILE = C.get('copertina_stile') or NOME
+STILE = C.get('copertina_stile') or (NOME if NOME in ('lost_america', 'beyond_history', 'intothegreen') else 'intothegreen')
 
 
 def spec(titolo):

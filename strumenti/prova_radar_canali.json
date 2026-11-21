@@ -12,7 +12,8 @@
    255,
    214,
    0
-  ]
+  ],
+  "contesto": "English what-if documentary for a US audience about today's world"
  },
  "beyond_history": {
   "competitor": "Beyond The History",
@@ -27,7 +28,8 @@
    255,
    190,
    60
-  ]
+  ],
+  "contesto": "English documentary for a US audience about ancient sites; show the exact site/artifact named (Giza, Machu Picchu, Stonehenge...)"
  },
  "lost_america": {
   "competitor": "Lost America",
@@ -43,7 +45,8 @@
    236,
    200
   ],
-  "velocita": 1.0
+  "velocita": 1.0,
+  "contesto": "English nostalgia video for older US viewers about everyday life in 1950s America; only 1950s American people, homes, cars, objects"
  },
  "africaregions": {
   "competitor": "africaregions",
@@ -58,7 +61,8 @@
    255,
    255,
    255
-  ]
+  ],
+  "contesto": "English video for a US audience about the region named in the title (e.g. Alaska); only footage of that region, its nature, towns and people"
  },
  "intothegreen": {
   "competitor": "IntoTheGreen",
@@ -73,6 +77,24 @@
    170,
    255,
    120
-  ]
+  ],
+  "contesto": "English nature documentary about the place named in the title (e.g. the Amazon rainforest, South America); only animals and plants that live there"
+ },
+ "beneath_islands": {
+  "competitor": "Beneath the Islands",
+  "descrizione": "mysteries and hidden curiosities of one island or coastal place at a time, nature and underwater footage, on the pattern 'X Is Hiding Something More Dangerous Than You Think'",
+  "modelli": "Grenada Is Hiding Something More Dangerous Than You Think (141k views)",
+  "titolo": "Hawaii Is Hiding Something More Dangerous Than You Think",
+  "fonte": "pexels",
+  "voce": "onwK4e9ZLuTAKqWW03F9",
+  "musica": "mistero_005.mp3",
+  "riserva": "hawaii aerial coast",
+  "colore_scritta": [
+   255,
+   214,
+   0
+  ],
+  "contesto": "English video for a US audience about Hawaii: only Hawaiian islands, volcanoes, ocean, reefs, wildlife and towns",
+  "copertina_stile": "intothegreen"
  }
 }

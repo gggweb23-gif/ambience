@@ -161,8 +161,11 @@ def scegli(imgs, testo, q):
         g.paste(im.convert('RGB').resize((cw, ch)), (x, y))
         d.rectangle((x, y, x + 52, y + 50), fill=(0, 0, 0)); d.text((x + 10, y + 2), str(k + 1), font=fo, fill=(255, 255, 0))
     r = claude(f'Numbered frames of candidate footage for a serious YouTube documentary. Narration: "{testo}" (search: "{q}").\n'
+               f'Video context: {C.get("contesto", "")}. '
                'Be STRICT, viewers notice mistakes: keep a frame ONLY if it really shows what the narration names (the same kind of place, '
-               'the right animal species that actually lives there, the right era and country, the right object). Generic pretty footage is NOT '
+               'the right animal species that actually lives there, the right era and country, people who look like they belong to that '
+               'place and time, the right object as the audience imagines it: a modern thing when the story is about today, an old one only '
+               'for the past). Generic pretty footage is NOT '
                'enough; a wrong animal, a wrong country or a modern thing in an old story is a mistake. Also exclude any frame with visible text, '
                'subtitles, logos, watermarks, people posing for the camera, or blur.\n'
                'Reply only with the numbers that pass, best first, separated by commas, or NONE.',
