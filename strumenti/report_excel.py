@@ -45,6 +45,8 @@ def fonti_txt(f):
 def vincente(g, mediana):
     """15 nov (Giorgio): un video "funziona" se CTR >= 4% con almeno 500 impression, oppure fa almeno 3 volte le views medie del canale (min 100)."""
     v, ctr, imp = g.get('views') or 0, g.get('ctr'), g.get('impression') or 0
+    if v < 50000:   # 21 nov (Giorgio): sotto le 50.000 views non e' un vincente da cui fare gemelli
+        return False
     return bool((ctr is not None and ctr >= 4.0 and imp >= 500) or (mediana and v >= 100 and v >= 3 * mediana))
 
 
@@ -162,7 +164,7 @@ def main():
         tutti_v = {}
     for nome in sorted(tutti_v):
         x = tutti_v[nome]; qv = x.get('quota_gemelli') or 0
-        wv.cell(rv, 1, nome.upper() + '  [' + str(x.get('periodo') or 'ultimi 90 giorni') + ']' + ('   (50-50 attivo: ' + str(int(qv)) + '% gemelli)' if qv > 0 else '   (50-50 non attivo: vuoi iniziare?)' if x.get('video') else '   (nessun vincente per ora)')).font = Font(bold=True, size=12)
+        wv.cell(rv, 1, nome.upper() + '  [' + str(x.get('periodo') or 'ultimi 90 giorni') + ']' + ('   (50-50 attivo: ' + str(int(qv)) + '% gemelli)' if qv > 0 else '   (50-50 non attivo: vuoi iniziare?)' if x.get('video') else '   (nessun video sopra ' + f"{int(x.get('min_views') or 50000):,}".replace(',', '.') + ' views: niente gemelli, solo video presi dai competitor)')).font = Font(bold=True, size=12)
         rv += 1
         for c, t in enumerate(['Posto', 'Titolo', 'Pubblicato', 'Views', 'Views al giorno', 'CTR %', 'Impression', 'Ruolo'], 1):
             y = wv.cell(rv, c, t); y.font = Font(bold=True, color='FFFFFF'); y.fill = TESTA

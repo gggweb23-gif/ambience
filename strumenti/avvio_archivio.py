@@ -7,8 +7,21 @@ Gira piu' volte a notte (avvio_archivio.yml): se il video di oggi e' gia' fatto 
 lo riprova, al massimo videos_per_day + 2 tentativi al giorno per canale (contati dai run "Video Archivio <canale>" di oggi)."""
 import datetime as dt, json, os, re, urllib.parse, urllib.request
 from zoneinfo import ZoneInfo
+
+
+def modelli_validi(nome):
+    """21 nov (Giorgio): un gemello si fa SOLO da un nostro video che ha dimostrato di funzionare (sopra gemelli_min_views, 50.000 views).
+    Titoli dei vincenti attuali del canale (coach/vincenti.json): le righe GEMELLO nate da video sotto soglia non si usano."""
+    try:
+        v = json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'coach', 'vincenti.json')))
+        return {str(w.get('titolo') or '').strip() for w in (v.get(str(nome)) or {}).get('video') or []}
+    except Exception:
+        return set()
 CONFIGS = os.environ.get('FOGLIO_CONFIGS', '1COMpgHJshcmz_a9s-WsjCO5xbhwxBazt-ZB0G_C7Rb0')
 REPO = os.environ.get('GITHUB_REPOSITORY', 'gggweb23-gif/ambience')
+
+
+NOME_CANALE = ''
 
 
 def primo_pronto(prod):
@@ -16,6 +29,8 @@ def primo_pronto(prod):
     si fa prima quello (solo gancio e struttura, testo nostro); altrimenti la prima riga Pronto (titoli creati da noi). KAO escluso: ha un solo competitor."""
     pronte = [i for i, r in enumerate(prod) if str(r.get('status')).strip() == 'Pronto']
     gem = lambda r: str(r.get('nome_canale') or '').strip().upper() == 'GEMELLO'
+    validi = modelli_validi(NOME_CANALE)
+    pronte = [i for i in pronte if not gem(prod[i]) or str(prod[i].get('gemello_di') or '').strip() in validi]   # 21 nov: niente gemelli di video sotto 50.000 views
     if QUOTA_GEM > 0:   # 15 nov (Giorgio, 50-50): tra gli ultimi 10 video fatti, la quota dei gemelli decide se ora tocca a un gemello
         fatti = [r for r in prod if str(r.get('status')).strip() in ('Completato', 'Da caricare a mano')][-10:]
         quota_ora = (sum(1 for r in fatti if gem(r)) / len(fatti) * 100) if fatti else 0
@@ -134,6 +149,7 @@ for cfg in canali:
     if len(giri) >= num(cfg.get('videos_per_day')) + 2:
         print(cfg['channel_id'], ': troppi tentativi falliti oggi, si riprova domani'); continue
     QUOTA_GEM = num(cfg.get('quota_gemelli'))
+    NOME_CANALE = str(cfg.get('channel_name') or cfg.get('channel_id'))
     k = primo_pronto(prod)
     if k is None:
         print(cfg['channel_id'], ': nessuna riga Pronto'); continue

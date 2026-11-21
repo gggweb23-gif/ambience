@@ -7,6 +7,16 @@ render_workflow = video_storia.yml / video_mappe.yml): prende la prima riga "Pro
 Mai due video Pexels insieme: se un video Pexels e' gia' in lavorazione, gli altri canali Pexels aspettano il giro successivo."""
 import datetime as dt, json, os, re, urllib.parse, urllib.request
 from zoneinfo import ZoneInfo
+
+
+def modelli_validi(nome):
+    """21 nov (Giorgio): un gemello si fa SOLO da un nostro video che ha dimostrato di funzionare (sopra gemelli_min_views, 50.000 views).
+    Titoli dei vincenti attuali del canale (coach/vincenti.json): le righe GEMELLO nate da video sotto soglia non si usano."""
+    try:
+        v = json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'coach', 'vincenti.json')))
+        return {str(w.get('titolo') or '').strip() for w in (v.get(str(nome)) or {}).get('video') or []}
+    except Exception:
+        return set()
 import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import iscrizione as ISC
@@ -17,10 +27,13 @@ PEXELS_IN_CORSO = PEXELS | {'video_kao.yml', 'video_agora.yml', 'filosofo.yml', 
 _TK = {}
 
 
-def kao_pronto(prod, quota):
+def kao_pronto(prod, quota, nome=''):
     """15 nov (Giorgio, 50-50): KAO copia al 100%. I gemelli sono video di La Psicologia Invisible simili al nostro vincente (nome_canale = GEMELLO):
     se la quota dei gemelli negli ultimi 10 video e' sotto quota_gemelli si fa un gemello, altrimenti la prima riga Pronto normale."""
     pronte = [i for i, r in enumerate(prod) if str(r.get('status')).strip() == 'Pronto']
+    validi = modelli_validi(nome)   # 21 nov: niente gemelli di video sotto 50.000 views
+    scarta = [i for i in pronte if str(prod[i].get('nome_canale') or '').strip().upper() == 'GEMELLO' and str(prod[i].get('gemello_di') or '').strip() not in validi]
+    pronte = [i for i in pronte if i not in scarta]
     gem = [i for i in pronte if str(prod[i].get('nome_canale') or '').strip().upper() == 'GEMELLO']
     fatti = [r for r in prod if str(r.get('status')).strip() in ('Completato', 'Da caricare a mano')][-10:]
     ora = (sum(1 for r in fatti if str(r.get('nome_canale') or '').strip().upper() == 'GEMELLO') / len(fatti) * 100) if fatti else 0
@@ -207,12 +220,12 @@ def main():
                 sch, h, prod, gid = righe(fid, con_gid=True)
         except Exception as e:
             print(cid, ': rifornimento titoli non riuscito', str(e)[:150])
-        k = primo_pronto(prod) if not cid.upper().startswith('KAO') else kao_pronto(prod, num(cfg.get('quota_gemelli')))
+        k = primo_pronto(prod) if not cid.upper().startswith('KAO') else kao_pronto(prod, num(cfg.get('quota_gemelli')), str(cfg.get('channel_name') or cid))
         while k is not None and not nel_filone(cfg, prod[k]):   # 9 nov: fuori filone -> Scartato, si passa alla riga dopo
             print(cid, ': FUORI FILONE, scartato:', prod[k].get('titolo_originale'))
             api(fid, 'POST', '/values:batchUpdate', {'valueInputOption': 'RAW', 'data': [{'range': f"'{sch}'!{lettera(h.index('status') + 1)}{k + 2}", 'values': [['Scartato (fuori filone)']]}]})
             prod[k]['status'] = 'Scartato (fuori filone)'
-            k = primo_pronto(prod) if not cid.upper().startswith('KAO') else kao_pronto(prod, num(cfg.get('quota_gemelli')))
+            k = primo_pronto(prod) if not cid.upper().startswith('KAO') else kao_pronto(prod, num(cfg.get('quota_gemelli')), str(cfg.get('channel_name') or cid))
         if k is None:
             print(cid, ': nessuna riga Pronto'); continue
         if RIFAI_RIGA:

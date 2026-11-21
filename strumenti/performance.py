@@ -218,7 +218,7 @@ def scrivi(fid, valori):
 
 def vincenti_90(cfg, cid, fid, auth, tutti, imp, ora):
     """15 nov 2026 (Giorgio, metodo 50-50): i video VINCENTI del canale negli ultimi 90 giorni.
-    Vincente = CTR >= 4% con almeno 500 impression, oppure almeno 3 volte le views medie (mediana) dei video del periodo (min 100 views).
+    Vincente = almeno gemelli_min_views views (21 nov: 50.000) E (CTR >= 4% con almeno 500 impression, oppure almeno 3 volte le views medie del periodo).
     Classifica per views al giorno (cosi' un video vecchio non vince solo perche' e' uscito prima), a parita' il CTR piu' alto.
     I primi 3 sono i modelli dei video gemelli (strumenti/gemelli.py): circa 50% sul 1o, 30% sul 2o, 20% sul 3o."""
     # 15 nov (Giorgio): colonna vincenti_giorni di Channel Configs = quanti giorni guardare (90 per tutti), TUTTO = i migliori di sempre del canale (KAO)
@@ -236,10 +236,14 @@ def vincenti_90(cfg, cid, fid, auth, tutti, imp, ora):
         for row in r.get('rows', []) or []:
             vw[row[0]] = int(row[1] or 0)
     views = sorted(vw.get(v, 0) for _, v, _ in v90); med = views[len(views) // 2] if views else 0
+    MIN_V = int(num(cfg.get('gemelli_min_views'), 50000) or 50000)
     lista = []
     for pub, v, x in v90:
         ic = ((imp or {}).get('per') or {}).get(v); n = vw.get(v, 0)
         ctr = round(ic[1] / ic[0] * 100, 2) if ic and ic[0] else None; im = int(ic[0]) if ic else 0
+        # 21 nov (Giorgio): il gemello si fa solo da un video che ha DIMOSTRATO di funzionare: almeno gemelli_min_views views (Channel Configs, 50.000)
+        if n < MIN_V:
+            continue
         if (ctr is not None and ctr >= 4.0 and im >= 500) or (med and n >= 100 and n >= 3 * med):
             gg = max(1.0, (ora - pub).total_seconds() / 86400)
             lista.append({'id': v, 'titolo': x['snippet']['title'], 'views': n, 'ctr': ctr, 'impression': im, 'views_giorno': round(n / gg, 1),
@@ -250,7 +254,7 @@ def vincenti_90(cfg, cid, fid, auth, tutti, imp, ora):
         lista.sort(key=lambda w: (w['views_giorno'], w['ctr'] or 0), reverse=True)
     for i, w in enumerate(lista, 1):
         w['posto'] = i
-    VINCENTI[str(cfg.get('channel_name') or cid)] = {'periodo': 'di sempre' if sempre else f'ultimi {giorni_} giorni', 'channel_id': cid, 'quota_gemelli': num(cfg.get('quota_gemelli'), 0), 'foglio': fid, 'mediana_views': med, 'video': lista}
+    VINCENTI[str(cfg.get('channel_name') or cid)] = {'periodo': 'di sempre' if sempre else f'ultimi {giorni_} giorni', 'channel_id': cid, 'quota_gemelli': num(cfg.get('quota_gemelli'), 0), 'min_views': MIN_V, 'foglio': fid, 'mediana_views': med, 'video': lista}
     log(f"  vincenti {'di sempre' if sempre else f'ultimi {giorni_} giorni'}: {len(lista)}" + ''.join(f"\n    {w['posto']}o {w['titolo'][:60]} ({w['views']} views, {w['views_giorno']}/giorno, CTR {w['ctr']})" for w in lista[:3]))
 
 
