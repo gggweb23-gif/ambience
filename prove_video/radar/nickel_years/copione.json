@@ -1,90 +1,863 @@
 {
  "titolo": "How Ordinary Families Made a Dollar Last a Week During the Great Depression",
- "copertina": "MAKING IT LAST",
+ "descrizione": "How did ordinary American families stretch every dollar during the Great Depression? This warm look at 1930s home life covers cheap food, home canning, feed sack clothing, mending, neighbors, and the New Deal. Learn how people cooked, patched, traded, and saved when money was scarce.",
+ "tag": [
+  "great depression",
+  "1930s america",
+  "depression era",
+  "how families survived",
+  "great depression food",
+  "frugal living history",
+  "1930s life",
+  "american history",
+  "depression era cooking",
+  "make do and mend",
+  "history documentary",
+  "everyday life 1930s",
+  "thrift history",
+  "feed sack dresses",
+  "new deal"
+ ],
+ "copertina": "A Dollar A Week",
  "scene": [
   {
-   "testo": "Millions of families lived on almost nothing, and survived.",
-   "q": "family kitchen",
-   "scritta": "ALMOST NOTHING"
+   "testo": "Millions of families lived on almost no cash in the 1930s.",
+   "q": "family kitchen table",
+   "scritta": "NO CASH"
   },
   {
-   "testo": "Nothing was wasted. Not bread, not string, not fabric.",
-   "q": "sewing mending",
-   "scritta": ""
-  },
-  {
-   "testo": "Flour sacks became dresses, curtains, and children's shirts.",
-   "q": "homemaker sewing",
-   "scritta": ""
-  },
-  {
-   "testo": "Stale bread turned into pudding or breadcrumbs.",
-   "q": "baking bread",
-   "scritta": ""
-  },
-  {
-   "testo": "Worn-out socks were darned again and again.",
-   "q": "darning socks",
-   "scritta": "DARNED"
-  },
-  {
-   "testo": "By 1933, about one in four workers had no job.",
-   "q": "unemployed men",
-   "scritta": "1 IN 4"
-  },
-  {
-   "testo": "Wages were cut, hours were cut, and savings vanished.",
-   "q": "bank savings",
-   "scritta": ""
-  },
-  {
-   "testo": "So the kitchen became the center of the household economy.",
-   "q": "housewife cooking",
-   "scritta": ""
-  },
-  {
-   "testo": "Families planted gardens in every yard they had.",
-   "q": "vegetable garden",
-   "scritta": ""
-  },
-  {
-   "testo": "Mothers canned vegetables to last through the winter.",
-   "q": "home canning",
-   "scritta": "CANNED"
-  },
-  {
-   "testo": "Worn collars were flipped and sewn back on.",
-   "q": "clothing repair",
-   "scritta": ""
-  },
-  {
-   "testo": "Neighbors traded eggs, labor, and vegetables instead of cash.",
-   "q": "farm neighbors",
-   "scritta": ""
-  },
-  {
-   "testo": "Many meals were built around beans, potatoes, and cornbread.",
+   "testo": "Yet most of them still ate every single day.",
    "q": "family dinner",
    "scritta": ""
   },
   {
-   "testo": "But the smartest trick wasn't about food at all.",
+   "testo": "They did it with tricks you have probably never heard.",
+   "q": "housewife kitchen",
+   "scritta": ""
+  },
+  {
+   "testo": "Some of those tricks sound strange today.",
+   "q": "old fashioned kitchen",
+   "scritta": ""
+  },
+  {
+   "testo": "Some of them were honestly pure genius.",
+   "q": "mother cooking",
+   "scritta": ""
+  },
+  {
+   "testo": "Stay to the end, and you'll see how it worked.",
+   "q": "home economics class",
+   "scritta": ""
+  },
+  {
+   "testo": "But the biggest money-saver was not a recipe at all.",
+   "q": "neighbors talking",
+   "scritta": ""
+  },
+  {
+   "testo": "It was something nobody could buy in a store.",
+   "q": "small town street",
+   "scritta": ""
+  },
+  {
+   "testo": "I'll reveal it near the end.",
+   "q": "front porch",
+   "scritta": ""
+  },
+  {
+   "testo": "First, let's step into the kitchen of 1932.",
+   "q": "kitchen stove",
+   "scritta": ""
+  },
+  {
+   "testo": "The Great Depression began with the stock market crash of 1929.",
+   "q": "stock exchange",
+   "scritta": "1929"
+  },
+  {
+   "testo": "But the crash was only the start.",
+   "q": "ticker tape",
+   "scritta": ""
+  },
+  {
+   "testo": "Over the next years, thousands of banks closed their doors.",
+   "q": "bank building",
+   "scritta": ""
+  },
+  {
+   "testo": "Families who trusted those banks lost their savings.",
+   "q": "bank teller",
+   "scritta": ""
+  },
+  {
+   "testo": "Businesses cut wages, cut hours, or shut down entirely.",
+   "q": "closed factory",
+   "scritta": ""
+  },
+  {
+   "testo": "By 1933, about one in four workers had no job.",
+   "q": "men waiting jobs",
+   "scritta": "1 IN 4"
+  },
+  {
+   "testo": "That was the worst point of the whole decade.",
+   "q": "unemployed men",
+   "scritta": ""
+  },
+  {
+   "testo": "No one in a family could count on a paycheck.",
+   "q": "pay envelope",
+   "scritta": ""
+  },
+  {
+   "testo": "So every household turned into a tiny, careful economy.",
+   "q": "family budget",
+   "scritta": ""
+  },
+  {
+   "testo": "And the first place they watched was the grocery bill.",
    "q": "grocery store",
    "scritta": ""
   },
   {
-   "testo": "It was a habit nearly every household shared.",
-   "q": "small town",
+   "testo": "Food took a huge share of a working family's income.",
+   "q": "grocery shopping",
    "scritta": ""
   },
   {
-   "testo": "It cost nothing, yet it stretched every paycheck further.",
-   "q": "paying bills",
-   "scritta": "COST NOTHING"
+   "testo": "So cooks leaned on cheap, filling foods that lasted.",
+   "q": "pantry shelves",
+   "scritta": ""
   },
   {
-   "testo": "Stay with me, and I'll show you.",
-   "q": "farm family",
+   "testo": "Dried beans were a pantry hero.",
+   "q": "dried beans",
+   "scritta": "BEANS"
+  },
+  {
+   "testo": "They cost little, and one pot fed everyone.",
+   "q": "cooking pot",
+   "scritta": ""
+  },
+  {
+   "testo": "Potatoes, cornmeal, flour, and rice did the same job.",
+   "q": "potatoes cooking",
+   "scritta": ""
+  },
+  {
+   "testo": "Cornmeal mush could be eaten hot for breakfast.",
+   "q": "breakfast table",
+   "scritta": ""
+  },
+  {
+   "testo": "Then leftover mush was sliced and fried for supper.",
+   "q": "frying pan",
+   "scritta": ""
+  },
+  {
+   "testo": "Nothing was thrown out if it could still be eaten.",
+   "q": "leftovers refrigerator",
+   "scritta": "NO WASTE"
+  },
+  {
+   "testo": "Meat was no longer the center of the plate.",
+   "q": "butcher shop",
+   "scritta": ""
+  },
+  {
+   "testo": "A little went a long way in a stew.",
+   "q": "stew pot",
+   "scritta": ""
+  },
+  {
+   "testo": "Cooks stretched ground meat with oats, bread crumbs, or rice.",
+   "q": "meat loaf",
+   "scritta": ""
+  },
+  {
+   "testo": "Cheaper cuts simmered for hours until they turned tender.",
+   "q": "pot roast",
+   "scritta": ""
+  },
+  {
+   "testo": "Gravy over bread made a meal out of almost nothing.",
+   "q": "gravy bread",
+   "scritta": ""
+  },
+  {
+   "testo": "Bread itself was often baked at home.",
+   "q": "baking bread",
+   "scritta": ""
+  },
+  {
+   "testo": "Store loaves cost money, but flour went further.",
+   "q": "flour mixing",
+   "scritta": ""
+  },
+  {
+   "testo": "Sliced bread was new, having first appeared in 1928.",
+   "q": "bakery bread",
+   "scritta": ""
+  },
+  {
+   "testo": "Many homes still sliced their own loaves by hand.",
+   "q": "slicing bread",
+   "scritta": ""
+  },
+  {
+   "testo": "Stale bread was never wasted in a careful home.",
+   "q": "bread crumbs",
+   "scritta": ""
+  },
+  {
+   "testo": "It became pudding, stuffing, toast, or crumbs for coating.",
+   "q": "bread pudding",
+   "scritta": ""
+  },
+  {
+   "testo": "But that's not the strangest part.",
+   "q": "mystery old film",
+   "scritta": ""
+  },
+  {
+   "testo": "Some families baked cakes with no eggs, milk, or butter.",
+   "q": "baking cake",
+   "scritta": ""
+  },
+  {
+   "testo": "Those were scarce or costly, so recipes adapted.",
+   "q": "recipe cards",
+   "scritta": ""
+  },
+  {
+   "testo": "People later called them Depression cakes.",
+   "q": "layer cake",
+   "scritta": "DEPRESSION CAKE"
+  },
+  {
+   "testo": "Dessert still mattered, even when money did not.",
+   "q": "children dessert",
+   "scritta": ""
+  },
+  {
+   "testo": "A birthday needed some kind of sweetness.",
+   "q": "birthday party",
+   "scritta": ""
+  },
+  {
+   "testo": "Then, in 1937, a new boxed dinner arrived.",
+   "q": "boxed dinner",
+   "scritta": ""
+  },
+  {
+   "testo": "Kraft Macaroni and Cheese was cheap and easy to store.",
+   "q": "macaroni cheese",
+   "scritta": "1937"
+  },
+  {
+   "testo": "The company advertised it as a meal for a family.",
+   "q": "food advertisement",
+   "scritta": ""
+  },
+  {
+   "testo": "That same year, Hormel introduced a canned meat called Spam.",
+   "q": "canned meat",
+   "scritta": "SPAM"
+  },
+  {
+   "testo": "Canned foods made shopping simpler for busy households.",
+   "q": "canned food shelves",
+   "scritta": ""
+  },
+  {
+   "testo": "But the cheapest food was the food you grew.",
+   "q": "backyard garden",
+   "scritta": ""
+  },
+  {
+   "testo": "Families dug up backyards and empty lots for vegetables.",
+   "q": "digging garden",
+   "scritta": ""
+  },
+  {
+   "testo": "Tomatoes, beans, cabbage, and squash filled the rows.",
+   "q": "vegetable garden",
+   "scritta": ""
+  },
+  {
+   "testo": "Farm families also kept cows, hogs, and chickens.",
+   "q": "farm animals",
+   "scritta": ""
+  },
+  {
+   "testo": "Even some town families kept a few hens.",
+   "q": "chicken coop",
+   "scritta": ""
+  },
+  {
+   "testo": "Eggs gave them protein without a trip to the store.",
+   "q": "gathering eggs",
+   "scritta": ""
+  },
+  {
+   "testo": "Children weeded, hauled water, and chased off the pests.",
+   "q": "children farm chores",
+   "scritta": ""
+  },
+  {
+   "testo": "Garden work was a daily part of life.",
+   "q": "hoeing garden",
+   "scritta": ""
+  },
+  {
+   "testo": "In some places, people also gathered wild greens.",
+   "q": "picking wild plants",
+   "scritta": ""
+  },
+  {
+   "testo": "Dandelion leaves went into the pot for free.",
+   "q": "salad greens",
+   "scritta": ""
+  },
+  {
+   "testo": "When summer ended, the real work of saving began.",
+   "q": "harvest time",
+   "scritta": ""
+  },
+  {
+   "testo": "Women spent hot afternoons canning vegetables and fruit.",
+   "q": "home canning",
+   "scritta": "CANNING"
+  },
+  {
+   "testo": "Jars were filled, sealed, and lined up in cellars.",
+   "q": "canning jars",
+   "scritta": ""
+  },
+  {
+   "testo": "A full shelf meant a family could face winter.",
+   "q": "cellar shelves",
+   "scritta": ""
+  },
+  {
+   "testo": "Extra jars were traded with neighbors.",
+   "q": "neighbors sharing",
+   "scritta": ""
+  },
+  {
+   "testo": "Some people dried apples and beans to keep them.",
+   "q": "drying fruit",
+   "scritta": ""
+  },
+  {
+   "testo": "Others stored potatoes and root vegetables in cool cellars.",
+   "q": "root cellar",
+   "scritta": ""
+  },
+  {
+   "testo": "Salt, smoke, and cold storage kept meat from spoiling.",
+   "q": "smokehouse",
+   "scritta": ""
+  },
+  {
+   "testo": "Farm families often butchered a hog in the cold months.",
+   "q": "farm hog",
+   "scritta": ""
+  },
+  {
+   "testo": "Every part of the animal had a use.",
+   "q": "farm kitchen",
+   "scritta": ""
+  },
+  {
+   "testo": "Now think about clothing, another quiet drain on money.",
+   "q": "clothing store",
+   "scritta": ""
+  },
+  {
+   "testo": "The rule was simple: make it last.",
+   "q": "clothes closet",
+   "scritta": ""
+  },
+  {
+   "testo": "An old saying went: use it up, wear it out.",
+   "q": "old clothes",
+   "scritta": ""
+  },
+  {
+   "testo": "Make it do, or do without.",
+   "q": "sewing basket",
+   "scritta": "MAKE DO"
+  },
+  {
+   "testo": "Mothers patched knees and darned socks by lamplight.",
+   "q": "darning socks",
+   "scritta": ""
+  },
+  {
+   "testo": "Collars were turned so the frayed side hid underneath.",
+   "q": "shirt collar",
+   "scritta": ""
+  },
+  {
+   "testo": "Coats were passed down from child to child.",
+   "q": "children coats",
+   "scritta": ""
+  },
+  {
+   "testo": "A big brother's shirt became a little brother's shirt.",
+   "q": "brothers boys",
+   "scritta": ""
+  },
+  {
+   "testo": "When cloth finally gave out, it was not thrown away.",
+   "q": "fabric scraps",
+   "scritta": ""
+  },
+  {
+   "testo": "It was cut up and sewn into quilts.",
+   "q": "quilting",
+   "scritta": ""
+  },
+  {
+   "testo": "Then came one of the cleverest tricks of the era.",
+   "q": "sewing machine",
+   "scritta": ""
+  },
+  {
+   "testo": "Flour and feed often came in cotton sacks.",
+   "q": "flour sack",
+   "scritta": "FEED SACKS"
+  },
+  {
+   "testo": "Women washed those sacks and sewed them into clothes.",
+   "q": "washing fabric",
+   "scritta": ""
+  },
+  {
+   "testo": "Soon the mills noticed what shoppers were doing.",
+   "q": "flour mill",
+   "scritta": ""
+  },
+  {
+   "testo": "They began printing flowers and patterns on the cloth.",
+   "q": "printed fabric",
+   "scritta": ""
+  },
+  {
+   "testo": "A farm wife could choose flour by the design.",
+   "q": "general store",
+   "scritta": ""
+  },
+  {
+   "testo": "One sack might become an apron or a child's dress.",
+   "q": "girl dress",
+   "scritta": ""
+  },
+  {
+   "testo": "Several matching sacks could make a whole shirt.",
+   "q": "cutting pattern",
+   "scritta": ""
+  },
+  {
+   "testo": "Pillowcases and curtains came from the same cloth.",
+   "q": "window curtains",
+   "scritta": ""
+  },
+  {
+   "testo": "Even the bag was part of the bargain.",
+   "q": "farm wife",
+   "scritta": ""
+  },
+  {
+   "testo": "Shoes were another worry, especially with growing children.",
+   "q": "children shoes",
+   "scritta": ""
+  },
+  {
+   "testo": "A cobbler could resole a pair for far less than new.",
+   "q": "shoe repair",
+   "scritta": ""
+  },
+  {
+   "testo": "When a sole wore through, some used cardboard inside.",
+   "q": "worn shoes",
+   "scritta": ""
+  },
+  {
+   "testo": "Children saved their good shoes for church and school.",
+   "q": "church sunday",
+   "scritta": ""
+  },
+  {
+   "testo": "In summer, many went barefoot to spare the leather.",
+   "q": "barefoot children",
+   "scritta": ""
+  },
+  {
+   "testo": "Inside the home, the same thinking ruled.",
+   "q": "farm house",
+   "scritta": ""
+  },
+  {
+   "testo": "Broken chairs were glued, nailed, and tied back together.",
+   "q": "home repair",
+   "scritta": ""
+  },
+  {
+   "testo": "Worn sheets were cut down the middle and flipped.",
+   "q": "bed sheets",
+   "scritta": ""
+  },
+  {
+   "testo": "The thin center was sewn to the outside edges.",
+   "q": "hand sewing",
+   "scritta": ""
+  },
+  {
+   "testo": "Old towels became rags, and rags became rugs.",
+   "q": "braided rug",
+   "scritta": ""
+  },
+  {
+   "testo": "Heating the house took money too, so families economized.",
+   "q": "coal furnace",
+   "scritta": ""
+  },
+  {
+   "testo": "Many closed off rooms and lived around one stove.",
+   "q": "stove living room",
+   "scritta": ""
+  },
+  {
+   "testo": "Coal, wood, or even corncobs fed the fire.",
+   "q": "chopping wood",
+   "scritta": ""
+  },
+  {
+   "testo": "Bedrooms stayed cold, so heavy quilts piled on the beds.",
+   "q": "bedroom quilt",
+   "scritta": ""
+  },
+  {
+   "testo": "Children dressed fast beside the warm kitchen stove.",
+   "q": "children winter morning",
+   "scritta": ""
+  },
+  {
+   "testo": "Electric lights were switched off the moment a room emptied.",
+   "q": "light switch",
+   "scritta": ""
+  },
+  {
+   "testo": "Wash day meant hauling water and scrubbing by hand.",
+   "q": "washboard laundry",
+   "scritta": ""
+  },
+  {
+   "testo": "Clothes dried on a line, even in winter cold.",
+   "q": "clothesline",
+   "scritta": ""
+  },
+  {
+   "testo": "Homemade soap was made from saved kitchen fat.",
+   "q": "making soap",
+   "scritta": ""
+  },
+  {
+   "testo": "Fat from cooking was never poured down the drain.",
+   "q": "kitchen sink",
+   "scritta": ""
+  },
+  {
+   "testo": "Yet life was not all work and worry.",
+   "q": "family laughing",
+   "scritta": ""
+  },
+  {
+   "testo": "Families still found ways to laugh together.",
+   "q": "family evening",
+   "scritta": ""
+  },
+  {
+   "testo": "The radio became the center of many living rooms.",
+   "q": "family radio",
+   "scritta": "RADIO"
+  },
+  {
+   "testo": "Families gathered to hear music, comedy, and news.",
+   "q": "radio listening",
+   "scritta": ""
+  },
+  {
+   "testo": "In 1933, President Roosevelt began his fireside chats.",
+   "q": "Roosevelt speech",
+   "scritta": ""
+  },
+  {
+   "testo": "He spoke to the nation in a calm voice.",
+   "q": "microphone broadcast",
+   "scritta": ""
+  },
+  {
+   "testo": "Many people felt he was talking right to them.",
+   "q": "people listening",
+   "scritta": ""
+  },
+  {
+   "testo": "Board games filled long evenings at the kitchen table.",
+   "q": "board game family",
+   "scritta": ""
+  },
+  {
+   "testo": "Parker Brothers began selling Monopoly in 1935.",
+   "q": "playing board game",
+   "scritta": "MONOPOLY"
+  },
+  {
+   "testo": "Players got rich on paper, while real wallets stayed thin.",
+   "q": "play money",
+   "scritta": ""
+  },
+  {
+   "testo": "Children invented games that cost nothing at all.",
+   "q": "children playing",
+   "scritta": ""
+  },
+  {
+   "testo": "Kids rolled hoops, played marbles, and flew homemade kites.",
+   "q": "kite flying",
+   "scritta": ""
+  },
+  {
+   "testo": "Stickball and sandlot baseball ruled the summer streets.",
+   "q": "sandlot baseball",
+   "scritta": ""
+  },
+  {
+   "testo": "Old socks were stuffed to make a ball.",
+   "q": "boys ball game",
+   "scritta": ""
+  },
+  {
+   "testo": "Spools and scrap wood became toys.",
+   "q": "homemade toys",
+   "scritta": ""
+  },
+  {
+   "testo": "A trip to the movies was a special treat.",
+   "q": "movie theater",
+   "scritta": ""
+  },
+  {
+   "testo": "For a small price, you got hours of escape.",
+   "q": "audience cinema",
+   "scritta": ""
+  },
+  {
+   "testo": "Dishes and fancy glassware were sometimes given away at theaters.",
+   "q": "dinnerware dishes",
+   "scritta": ""
+  },
+  {
+   "testo": "Families treasured these small pleasures more than ever.",
+   "q": "family picnic",
+   "scritta": ""
+  },
+  {
+   "testo": "Now, here is the secret I promised.",
+   "q": "neighbors porch",
+   "scritta": ""
+  },
+  {
+   "testo": "The secret was other people, all along.",
+   "q": "community gathering",
+   "scritta": ""
+  },
+  {
+   "testo": "Neighbors traded eggs, vegetables, tools, and a helping hand.",
+   "q": "neighbors helping",
+   "scritta": ""
+  },
+  {
+   "testo": "A man might fix a roof for a basket of food.",
+   "q": "roof repair",
+   "scritta": ""
+  },
+  {
+   "testo": "Some towns even printed their own scrip to keep trade going.",
+   "q": "town merchants",
+   "scritta": "SCRIP"
+  },
+  {
+   "testo": "Families doubled up, with relatives moving into one house.",
+   "q": "large family",
+   "scritta": ""
+  },
+  {
+   "testo": "Grandparents, cousins, and children shared the same roof.",
+   "q": "grandparents grandchildren",
+   "scritta": ""
+  },
+  {
+   "testo": "Churches collected clothing and handed out meals.",
+   "q": "church community",
+   "scritta": ""
+  },
+  {
+   "testo": "Soup kitchens served hot food to people with no work.",
+   "q": "soup kitchen",
+   "scritta": "SOUP LINES"
+  },
+  {
+   "testo": "Cities saw long lines of men waiting for a bowl.",
+   "q": "food line",
+   "scritta": ""
+  },
+  {
+   "testo": "Some people built shacks from scrap and called them home.",
+   "q": "shanty houses",
+   "scritta": ""
+  },
+  {
+   "testo": "Those shantytowns were bitterly nicknamed Hoovervilles, after the president.",
+   "q": "poor housing",
+   "scritta": "HOOVERVILLES"
+  },
+  {
+   "testo": "Children pitched in as soon as they were able.",
+   "q": "boy chores",
+   "scritta": ""
+  },
+  {
+   "testo": "Boys sold newspapers on street corners after school.",
+   "q": "newsboy newspapers",
+   "scritta": ""
+  },
+  {
+   "testo": "Girls helped with sewing, cooking, and younger siblings.",
+   "q": "girl helping mother",
+   "scritta": ""
+  },
+  {
+   "testo": "Some teenagers left school to find any paying work.",
+   "q": "teenager job",
+   "scritta": ""
+  },
+  {
+   "testo": "Every nickel they earned went into the family pot.",
+   "q": "coins counting",
+   "scritta": ""
+  },
+  {
+   "testo": "Then, in March 1933, Roosevelt took office.",
+   "q": "inauguration",
+   "scritta": "1933"
+  },
+  {
+   "testo": "He declared a bank holiday to stop panic withdrawals.",
+   "q": "bank doors",
+   "scritta": ""
+  },
+  {
+   "testo": "Soon after, the government created deposit insurance for bank accounts.",
+   "q": "savings account",
+   "scritta": ""
+  },
+  {
+   "testo": "People could finally trust their savings again.",
+   "q": "bank customers",
+   "scritta": ""
+  },
+  {
+   "testo": "The New Deal brought a flood of new programs.",
+   "q": "Washington government",
+   "scritta": "NEW DEAL"
+  },
+  {
+   "testo": "The Civilian Conservation Corps put young men to work outdoors.",
+   "q": "conservation corps",
+   "scritta": "CCC"
+  },
+  {
+   "testo": "They planted trees and built trails and park buildings.",
+   "q": "tree planting",
+   "scritta": ""
+  },
+  {
+   "testo": "Workers earned thirty dollars a month; twenty-five went home.",
+   "q": "young men working",
+   "scritta": "$30 A MONTH"
+  },
+  {
+   "testo": "In 1935, the Works Progress Administration began hiring.",
+   "q": "construction workers",
+   "scritta": "WPA"
+  },
+  {
+   "testo": "Over the years, it employed millions of Americans.",
+   "q": "public works",
+   "scritta": ""
+  },
+  {
+   "testo": "They built roads, bridges, schools, and playgrounds across the country.",
+   "q": "road construction",
+   "scritta": ""
+  },
+  {
+   "testo": "That same year, Congress passed the Social Security Act.",
+   "q": "social security",
+   "scritta": "1935"
+  },
+  {
+   "testo": "It aimed to protect older people from poverty.",
+   "q": "elderly couple",
+   "scritta": ""
+  },
+  {
+   "testo": "Still, the hard years lasted through the decade.",
+   "q": "slow street traffic",
+   "scritta": ""
+  },
+  {
+   "testo": "Those years left habits that never really faded.",
+   "q": "grandmother kitchen",
+   "scritta": ""
+  },
+  {
+   "testo": "Many survivors kept saving string, jars, and scraps.",
+   "q": "saving string",
+   "scritta": ""
+  },
+  {
+   "testo": "They reused foil, mended clothes, and hated waste.",
+   "q": "mending clothes",
+   "scritta": ""
+  },
+  {
+   "testo": "So how did a dollar last a week?",
+   "q": "dollar bills",
+   "scritta": ""
+  },
+  {
+   "testo": "With beans, bread, gardens, patches, and endless patience.",
+   "q": "family kitchen",
+   "scritta": ""
+  },
+  {
+   "testo": "With neighbors who shared, and children who helped.",
+   "q": "community garden",
+   "scritta": ""
+  },
+  {
+   "testo": "It was never easy, but families held together.",
+   "q": "family porch",
+   "scritta": ""
+  },
+  {
+   "testo": "If you enjoyed this, subscribe for more everyday history.",
+   "q": "old home",
    "scritta": ""
   }
  ]
