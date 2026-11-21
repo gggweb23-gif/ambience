@@ -124,13 +124,25 @@ section{break-inside:auto}
 h2{break-after:avoid}
 .tbl{overflow:visible}
 </style>
+<style>
+.seq{display:grid;gap:0;border:1px solid var(--line);background:var(--card);counter-reset:s}
+.seq>div{display:grid;grid-template-columns:64px 1fr;gap:14px;padding:14px 16px;border-bottom:1px solid var(--line);align-items:start}
+.seq>div:last-child{border-bottom:0}
+.seq .n{font-family:var(--display);font-size:40px;line-height:1;color:var(--red)}
+.seq .copy{background:color-mix(in srgb,var(--yellow) 18%,var(--card))}
+.seq .twin{background:var(--cyan-soft)}
+.seq .copy .n{color:#000}
+.seq .twin .n{color:var(--cyan)}
+.seq p{font-size:13.5px;color:var(--muted)}
+.seq .ex{font-family:var(--mono);font-size:12px;color:var(--fg);margin-top:4px}
+</style>
 <div class="wrap">
 
 <header class="hero">
   <div>
-    <span class="tag">Strategia · aggiornata al 15 novembre 2026</span>
-    <h1 style="margin-top:10px">Da dove siamo partiti, cosa facciamo adesso</h1>
-    <p class="lead">Una sola strategia per tutti i canali, così non si riparte da zero ogni volta. Il punto di svolta del 15 novembre: quasi tutte le visite arrivano dalla home di YouTube, quindi contano copertina e titolo, e quando un video funziona si continua su quell'angolo.</p>
+    <span class="tag">Strategia · aggiornata al 21 novembre 2026</span>
+    <h1 style="margin-top:10px">Prendere il meglio, poi raddoppiare su ciò che vince</h1>
+    <p class="lead">Ogni video nasce da un video che ha già funzionato: metà dai migliori video degli altri canali del filone, metà dai nostri video vincenti (i gemelli). Così non si riparte mai da zero e non si resta mai senza video.</p>
   </div>
   <div class="kpis" aria-label="Obiettivi">
     <div class="kpi"><b>3,5%</b><span>CTR copertina da superare</span></div>
@@ -140,80 +152,70 @@ h2{break-after:avoid}
 </header>
 
 <section>
+  <h2>La sequenza, passo per passo <span class="box y" style="font-size:22px">50-50</span></h2>
+  <div class="seq" style="margin-top:16px">
+    <div><span class="n">1</span><div><h3>Trovare il meglio degli altri canali</h3><p>Lo scout guarda prima il competitor principale, poi i video con più views degli ultimi 60–90 giorni degli altri canali dello stesso filone. Si prendono solo i video del filone che funziona, mai fuori filone, dal più visto in giù.</p><p class="ex">KAO: sempre prima La Psicología Invisible</p></div></div>
+    <div class="copy"><span class="n">2</span><div><h3>50% · Si copia quel video</h3><p>Dal video vincente dell'altro canale si prendono il gancio, la struttura e lo schema del titolo. Il testo si riscrive da capo, per non essere penalizzati come copia; i fatti devono essere veri. La copertina parte da quella del competitor, ma nello stile del nostro canale.</p><p class="ex">KAO: copiato al 100% e tradotto (lingua diversa)</p></div></div>
+    <div><span class="n">3</span><div><h3>Pubblicare e misurare</h3><p>Ogni mattina il foglio Performance segna per ogni video impression, CTR, ritenzione a 30 e 60 secondi e da dove arrivano le visite (home = copertina, consigliati = argomento e titolo).</p></div></div>
+    <div><span class="n">4</span><div><h3>Riconoscere i nostri vincenti</h3><p>Un nostro video è vincente con CTR ≥ 4% e almeno 500 impression, oppure con 3 volte le views medie del canale. Si guardano gli ultimi 90 giorni (KAO: i migliori di sempre) e si ordina per views al giorno. Il vincente diventa azzurro nel foglio.</p></div></div>
+    <div class="twin"><span class="n">5</span><div><h3>50% · Gemelli dei nostri vincenti</h3><p>Si parte dalla trascrizione del nostro vincente: stesso schema di titolo, stesso tipo di copertina, stesso gancio e struttura, argomento e fatti nuovi. I gemelli si dividono sui primi 3 vincenti: 50% sul 1°, 30% sul 2°, 20% sul 3°. Ogni gemello dice da quale video nasce (colonna gemello_di).</p><p class="ex">Quota contata sugli ultimi 10 video del canale</p></div></div>
+    <div><span class="n">6</span><div><h3>Mai fermi</h3><p>Finché un canale non ha un vincente, il 100% dei video viene dal punto 2. Se la coda dei competitor finisce, i titoli li crea Claude sullo stesso schema dei vincenti. Poi si ricomincia dal punto 1.</p></div></div>
+  </div>
+  <p class="note">Il 50-50 è attivo su KAO e Orbital Days. Sugli altri canali, quando un video diventa vincente, il messaggio del mattino chiede: vuoi iniziare a fare il 50-50? I 4 canali notizie seguono il loro giro (sotto).</p>
+</section>
+
+<section>
   <h2>Come è cambiata la strategia</h2>
   <div class="evo" style="margin-top:22px">
-    <div class="step"><span class="d">ottobre</span><h3>Copiare chi funziona</h3><p>Ogni canale parte da un competitor. KAO copia al 100% La Psicología Invisible e traduce. Titoli creati da Claude quando la coda finisce.</p></div>
-    <div class="step"><span class="d">4 nov</span><h3>Coach automatico</h3><p>Ogni canale ha il controllo delle metriche: versioni dello stile, si tiene quella che va meglio.</p></div>
-    <div class="step"><span class="d">11 nov</span><h3>Niente doppioni</h3><p>I canali inglesi che copiano un canale inglese prendono solo gancio e struttura: testo e titolo nuovi. Foglio Performance con fonti delle visite e rami del filone.</p></div>
-    <div class="step"><span class="d">12–13 nov</span><h3>Copertine nuove</h3><p>Mai la stessa scritta due volte. Stile per canale: soldi (Billion Ruin), FOTO 2C (Costo Vero), mappe grandi (Storia).</p></div>
-    <div class="step"><span class="d">14 nov</span><h3>Mai fermi</h3><p>Lo scout guarda il competitor e i video migliori degli ultimi 60–90 giorni del filone. Le 30 parole più cercate per canale.</p></div>
-    <div class="step"><span class="d">15 nov · oggi</span><h3>Home e metodo 50-50</h3><p>Visite: 89% dalla home, 0,5% dalla ricerca. Titoli e copertine per la home. Video vincente → video gemelli.</p></div>
+    <div class="step"><span class="d">ottobre</span><h3>Copiare chi funziona</h3><p>Ogni canale parte da un competitor. KAO traduce al 100% La Psicología Invisible.</p></div>
+    <div class="step"><span class="d">11–14 nov</span><h3>Niente doppioni, mai fermi</h3><p>Dal competitor nella stessa lingua solo gancio e struttura. Scout sugli ultimi 60–90 giorni del filone, 30 parole chiave per canale.</p></div>
+    <div class="step"><span class="d">15 nov</span><h3>Home e 50-50</h3><p>89% delle visite dalla home: titoli e copertine per la home. Video vincente → gemelli.</p></div>
+    <div class="step"><span class="d">16–17 nov</span><h3>Canali notizie</h3><p>4 canali convertiti alle notizie del giorno (guerra e tech, IT ed EN), con fonti verificate.</p></div>
+    <div class="step"><span class="d">17–18 nov</span><h3>Copertine locandina</h3><p>Viso grande riconoscibile, scritta grande, la scena vera della storia dietro. Niente “VS”.</p></div>
+    <div class="step"><span class="d">21 nov · oggi</span><h3>Costi voce</h3><p>Video ogni 2 giorni (KAO ogni 3), voce Flash su tutti tranne KAO. Quanto Ti Resta fermo: si apre un canale dal RADAR.</p></div>
   </div>
 </section>
 
 <section>
-  <h2>Il cambio di rotta</h2>
-  <div class="from-to" style="margin-top:16px">
-    <div class="old">
-      <span class="tag">Prima</span>
-      <ul>
-        <li>Si cercavano le parole della ricerca di YouTube come fonte principale</li>
-        <li>Ogni video su un argomento nuovo, anche dopo un video andato bene</li>
-        <li>Copertine decise caso per caso, anche con parole deboli (SICURO?)</li>
-        <li class="keep">Competitor come fonte dei titoli (resta)</li>
-      </ul>
-    </div>
-    <div class="arrow" aria-hidden="true">→</div>
-    <div>
-      <span class="tag">Adesso</span>
-      <ul>
-        <li><b>Titolo e copertina per la home</b>: curiosità e contrasto, le parole chiave restano ma vengono dopo</li>
-        <li><b>Video vincente in azzurro</b> nel foglio Performance, e da lì i <b>video gemelli</b></li>
-        <li><b>Copertine con parole d'impatto del filone</b> (RICCHI / POVERI?, PERCHÉ?, BANCAROTTA), mai parole vuote</li>
-        <li>Competitor e filone degli ultimi 60–90 giorni per non restare mai senza video</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section>
-  <h2>Il giro di ogni giorno</h2>
+  <h2>Il giro dei canali notizie</h2>
   <div class="cycle" style="margin-top:16px">
-    <div class="c"><span class="t">notte</span><h3>Scout</h3><p>Competitor prima, poi i video migliori del filone negli ultimi 60–90 giorni. Se manca tutto, titoli di Claude.</p></div>
-    <div class="c"><span class="t">notte</span><h3>Produzione</h3><p>Un video al giorno per canale, 9–10 minuti, 1440p, gancio forte nei primi 30 secondi.</p></div>
-    <div class="c"><span class="t">17:00</span><h3>Caricamento</h3><p>Copertina, playlist, descrizione, tag. Più 4 Short al giorno.</p></div>
-    <div class="c"><span class="t">06:03</span><h3>Performance</h3><p>CTR, ritenzione, da dove arrivano le visite. Foglio Excel per email.</p></div>
-    <div class="c win"><span class="t">06:03</span><h3>Vincente?</h3><p>Ultimi 90 giorni (su KAO i migliori di sempre): CTR ≥ 4% con almeno 500 impression, oppure 3 volte le views medie. Classifica per views al giorno.</p></div>
-    <div class="c win"><span class="t">06:10</span><h3>Gemelli</h3><p>Divisi sui primi 3 vincenti: 50% sul 1°, 30% sul 2°, 20% sul 3°. Colonna gemello_di: da quale video nasce.</p></div>
+    <div class="c"><span class="t">mattino</span><h3>Radar</h3><p>La notizia più forte del giorno nel filone (guerra o tech), un giorno sì e uno no.</p></div>
+    <div class="c"><span class="t">mattino</span><h3>Copione</h3><p>Solo fatti delle fonti, mai un'accusa presentata come fatto. Ritmo da film: domande aperte ogni 30–45 s, primo minuto veloce. Sopra gli 8 minuti.</p></div>
+    <div class="c"><span class="t">mattino</span><h3>Video</h3><p>Immagini coerenti con la voce, nessuna data in sovrimpressione.</p></div>
+    <div class="c"><span class="t">mattino</span><h3>Copertina</h3><p>Viso grande, 1–3 persone se è uno scontro, numero vero + parole, la scena dietro. IT ed EN sempre diverse.</p></div>
+    <div class="c win"><span class="t">11:00 · 17:00</span><h3>Uscita</h3><p>Italiani alle 11:00, inglesi alle 17:00 (le 11 di New York). Se è tardi, esce subito.</p></div>
+    <div class="c win"><span class="t">dopo</span><h3>Short</h3><p>Titoli veri, collegati al video lungo, 4 al giorno.</p></div>
   </div>
-  <p class="note">Il messaggio del mattino segnala ogni nuovo video vincente. Sui canali dove il 50-50 non è attivo la domanda è: vuoi iniziare a fare il 50-50?</p>
-</section>
-
-<section>
-  <h2>Metodo 50-50 <span class="box y" style="font-size:22px">gemelli</span></h2>
-  <div class="fifty" style="margin-top:16px">
-    <div class="a"><span class="big">50%</span><h3>Video nuovi</h3><p>Argomenti dalla coda normale: competitor, filone, titoli di Claude. Servono a scoprire il prossimo vincente.</p></div>
-    <div class="b"><span class="big">50%</span><h3>Video gemelli</h3><p>Stesso schema di titolo, stesso tipo di copertina, stesso gancio e struttura del nostro vincente; argomento nuovo e fatti nuovi. La quota si conta sugli ultimi 10 video del canale.</p></div>
-  </div>
-  <p class="note">Su KAO, che traduce La Psicología Invisible al 100%, il gemello è il loro video più simile al nostro vincente (per esempio “la psicologia di chi…”).</p>
 </section>
 
 <section>
   <h2>Canale per canale</h2>
   <div class="tbl" style="margin-top:16px">
     <table>
-      <thead><tr><th>Canale</th><th>Fonte dei video</th><th>Copertina</th><th>Titoli</th><th>Vincente oggi</th><th>50-50</th></tr></thead>
+      <thead><tr><th>Canale</th><th>Cosa fa</th><th>Ogni quanto</th><th>Copertina</th><th>Voce</th><th>50-50</th></tr></thead>
       <tbody>
-        <tr><td>KAO Psicologia</td><td>La Psicología Invisible copiato al 100% e tradotto + filone 60–90 giorni</td><td>Cinema, persona sempre intera e visibile</td><td>Tradotti dal competitor</td><td>Modelli: i 3 migliori di sempre del canale, 1° “Le persone che non buttano niente” (160.000+ views)</td><td><span class="pill ask">Giorgio scrive 50</span></td></tr>
-        <tr><td>WWII Testimony</td><td>Competitor inglese: solo gancio e struttura</td><td>Regola testo del canale</td><td>Nuovi, stesso schema</td><td>“They Asked Guderian About Patton…”, 2.271 views, CTR 6%</td><td><span class="pill on">attivo 50%</span></td></tr>
-        <tr><td>Orbital Days</td><td>Competitor inglese: solo gancio e struttura</td><td>Fotogramma vero del video, font Orbitron con bagliore azzurro</td><td>Domande da home (“How did…”, “Why…”)</td><td>“How Did Astronauts Survive…”, CTR 5,7%</td><td><span class="pill on">attivo 50%</span></td></tr>
-        <tr><td>Storia in Minuti</td><td>Competitor + filone</td><td>Mappa a schermo diviso, colori fluo, due parole opposte d'impatto, unità metriche</td><td>Contrasto e perché (ricchi/poveri)</td><td>“Perché gli USA si arricchirono…” (POVERI? / RICCHI)</td><td><span class="pill off">da chiedere</span></td></tr>
-        <tr><td>Costo Vero</td><td>Copioni propri, stile A “contatore”</td><td>FOTO 2C prima/dopo, “IN N ANNI”, cerchio sul soggetto</td><td>Mai “davvero”</td><td>—</td><td><span class="pill off">non ancora</span></td></tr>
-        <tr><td>Billion Ruin</td><td>Competitor + filone</td><td>Sempre “soldi”: cifra grande, scheda, timbro</td><td>Cifra e rovina</td><td>—</td><td><span class="pill off">non ancora</span></td></tr>
-        <tr><td>Quanto Ti Resta</td><td>Competitor + filone</td><td>Stile del canale</td><td>—</td><td>—</td><td><span class="pill off">non ancora</span></td></tr>
-        <tr><td>Agora of Sages</td><td colspan="4">In revisione: da sostituire con un filone del radar (decisione di Giorgio)</td><td><span class="pill off">fermo</span></td></tr>
+        <tr><td>KAO Psicologia</td><td>La Psicología Invisible tradotto al 100% + filone; gemelli dei 3 migliori di sempre (1° “Le persone che non buttano niente”, 168.000 views)</td><td>ogni 3 giorni</td><td>Cinema, KAO intero e visibile, scritta grande leggibile da telefono</td><td>Multilingual v2 (invariata)</td><td><span class="pill on">attivo 50%</span></td></tr>
+        <tr><td>Orbital Days</td><td>Archivio NASA, competitor inglese: solo gancio e struttura</td><td>ogni 2 giorni</td><td>AI drammatica, parole di pericolo, mai sorrisi</td><td>Flash</td><td><span class="pill on">attivo 50%</span></td></tr>
+        <tr><td>War Room (ex WWII Testimony)</td><td>Notizie guerra in inglese</td><td>giorno sì e no</td><td>Locandina notizie</td><td>Flash</td><td><span class="pill off">giro notizie</span></td></tr>
+        <tr><td>Fronte Aperto (ex Storia in Minuti)</td><td>Notizie guerra in italiano</td><td>giorno sì e no</td><td>Locandina notizie, diversa dall'inglese</td><td>Flash</td><td><span class="pill off">giro notizie</span></td></tr>
+        <tr><td>Big Tech Explained (ex Billion Ruin)</td><td>Notizie tech in inglese</td><td>giorno sì e no</td><td>Locandina notizie</td><td>Flash</td><td><span class="pill off">giro notizie</span></td></tr>
+        <tr><td>Big Tech Spiegata (ex Costo Vero)</td><td>Notizie tech in italiano</td><td>giorno sì e no</td><td>Locandina notizie, diversa dall'inglese</td><td>Flash</td><td><span class="pill off">giro notizie</span></td></tr>
+        <tr><td>Quanto Ti Resta</td><td colspan="4">Fermo dal 21 nov. Si riconverte in inglese con un filone del RADAR (proposta: IntoTheGreen, natura e luoghi proibiti)</td><td><span class="pill ask">decide Giorgio</span></td></tr>
+        <tr><td>Agora of Sages</td><td colspan="4">Fermo</td><td><span class="pill off">fermo</span></td></tr>
       </tbody>
     </table>
+  </div>
+</section>
+
+<section>
+  <h2>Aprire un canale nuovo</h2>
+  <div class="cycle" style="margin-top:16px">
+    <div class="c"><span class="t">1</span><h3>RADAR</h3><p>Canale in esplosione, solo in inglese, materiale gratis (Pexels, NASA, archivi).</p></div>
+    <div class="c"><span class="t">2</span><h3>Filone giusto</h3><p>Si copia solo il filone che ha funzionato da loro (IMPRONTA).</p></div>
+    <div class="c"><span class="t">3</span><h3>Copertine</h3><p>Studio: i loro video migliori accanto alle nostre proposte.</p></div>
+    <div class="c"><span class="t">4</span><h3>Prova 1 minuto</h3><p>Almeno 80% clip in movimento, ritmo e dinamicità.</p></div>
+    <div class="c win"><span class="t">5</span><h3>OK di Giorgio</h3><p>Il canale si apre solo dopo la prova approvata.</p></div>
+    <div class="c win"><span class="t">6</span><h3>Poi 50-50</h3><p>Dai migliori video del filone ai gemelli dei nostri vincenti.</p></div>
   </div>
 </section>
 
@@ -221,38 +223,39 @@ h2{break-after:avoid}
   <h2>Regole fisse</h2>
   <div class="rules" style="margin-top:16px">
     <div class="r cop"><h3>Copertine</h3><ul>
-      <li>Stile MANO LIBERA, scritte grandi leggibili da telefono</li>
-      <li>Parole d'impatto del filone, mai parole vuote</li>
-      <li>Niente sopra la durata (in basso a destra), niente punto finale</li>
-      <li>Mai coprire la persona o il soggetto; cerchio o freccia sul soggetto</li>
-      <li>Mai una scritta già usata sul canale</li>
+      <li>Viso o soggetto grande, scritta grande leggibile da telefono</li>
+      <li>Dietro la scena vera della storia, mai sfondo neutro; niente “VS”</li>
+      <li>La scritta non copre mai teste o soggetto; niente sopra la durata, niente punto finale</li>
+      <li>Impaginazione sempre diversa (MANO LIBERA), mai una scritta già usata</li>
+      <li>Stessa storia in IT ed EN → copertine diverse</li>
     </ul></div>
     <div class="r up"><h3>Ogni caricamento</h3><ul>
       <li>AI = No, Promozione = No</li>
-      <li>Il titolo è la prima riga della descrizione e uno dei tag</li>
-      <li>Playlist e pulsante Iscriviti</li>
+      <li>Titolo = prima riga della descrizione e uno dei tag; sempre tutti i tag e la playlist</li>
+      <li>In fondo alla descrizione i 3–4 tag più popolari come #hashtag</li>
+      <li>Primo commento entro 3–5 minuti</li>
       <li>4 Short al giorno: 09:00, 13:00, 19:00, 21:30</li>
     </ul></div>
     <div class="r vid"><h3>Video</h3><ul>
-      <li>9–10 minuti, mai sotto 8</li>
-      <li>1440p</li>
-      <li>Gancio forte all'inizio: la risposta del titolo subito</li>
-      <li>Mai immagini che tremano o vibrano</li>
+      <li>Sempre sopra 8 minuti (9–10), 1440p</li>
+      <li>Gancio forte subito: prima il risultato, poi come ci si arriva</li>
+      <li>Almeno 80% clip in movimento; mai immagini ferme, sgranate o che tremano</li>
+      <li>Musica solo di sottofondo</li>
     </ul></div>
-    <div class="r kw"><h3>Parole chiave</h3><ul>
-      <li>Le 30 frasi più cercate del filone per canale</li>
-      <li>Nel titolo, nelle prime righe della descrizione, nel parlato</li>
-      <li>Dopo il 15 novembre vengono dopo il titolo pensato per la home</li>
+    <div class="r kw"><h3>Verità</h3><ul>
+      <li>Notizie, copertine e Short: solo fatti veri</li>
+      <li>Mai un'accusa presentata come fatto</li>
+      <li>Messaggi positivi e incuriosenti, mai frasi di colpa</li>
     </ul></div>
     <div class="r sold"><h3>Soldi</h3><ul>
-      <li>Nessuna spesa senza OK di Giorgio</li>
-      <li>Budget, durata e video al giorno li decide solo Giorgio</li>
-      <li>La qualità di KAO non deve mai peggiorare</li>
+      <li>Nessuna spesa senza OK di Giorgio; budget e video al giorno li decide lui</li>
+      <li>Massima resa con minima spesa, ma la qualità di KAO non peggiora mai</li>
+      <li>Voce: un piano ElevenLabs da 99 $, niente piano da 299</li>
     </ul></div>
     <div class="r sec"><h3>Sicurezza e foglio</h3><ul>
       <li>Mai segreti in chat: il repository è pubblico</li>
       <li>I token li inserisce Giorgio nei segreti di GitHub</li>
-      <li>La riga di KAO in Channel Configs la modifica solo Giorgio</li>
+      <li>Niente modifiche automatiche: si cambia solo quando lo dice Giorgio</li>
       <li>Ogni colonna nuova viene comunicata; SI/NO parte da NO</li>
     </ul></div>
   </div>
@@ -261,12 +264,12 @@ h2{break-after:avoid}
 <section>
   <h2>In attesa di una decisione</h2>
   <ul class="open" style="margin-top:16px">
-    <li>KAO: scrivere quota_gemelli = 50 nella riga di KAO</li>
-    <li>Storia in Minuti: iniziare il 50-50 sullo schema POVERI? / RICCHI</li>
-    <li>Orbital e WWII: passare al titolo successivo (video di oggi bloccati dal controllo qualità)</li>
-    <li>Agora: The War They Filmed o africaregions, nuovo canale o rinomina</li>
-    <li>Quota YouTube: ricerche libere solo su richiesta, al massimo 2 al giorno</li>
-    <li>Short della sera: ne escono meno del previsto, da verificare</li>
+    <li>Crediti voce fino al 2 dicembre: ricarica (Top Up) su ElevenLabs</li>
+    <li>Nuovo canale al posto di Quanto Ti Resta: IntoTheGreen o un altro del RADAR</li>
+    <li>KAO con voce Flash: solo dopo una prova d'ascolto affiancata</li>
+    <li>Video notizie troppo corti: allungare il copione in automatico sopra gli 8 minuti</li>
+    <li>Short da video lunghi più vecchi, finché non tornano i video nuovi</li>
+    <li>Costo voce nel foglio di controllo di gestione</li>
   </ul>
 </section>
 
