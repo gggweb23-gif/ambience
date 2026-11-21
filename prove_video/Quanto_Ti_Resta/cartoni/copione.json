@@ -1,143 +1,112 @@
 {
- "titolo": "Perché le edicole chiudono una dopo l'altra?",
+ "titolo": "Quanto guadagna un meccanico su un tagliando?",
  "protagonista": {
-  "nome": "Walter",
+  "nome": "Gianni",
   "capelli": "short",
-  "colore_capelli": "#9a9a9a",
+  "colore_capelli": "#3a2a1e",
   "pelle": "media",
-  "maglia": "#2f6f8f",
-  "grembiule": "#c0392b",
-  "occhiali": true
+  "maglia": "#2f5d8a",
+  "grembiule": "#c8501e",
+  "occhiali": false
  },
- "oggetto": "giornale",
+ "oggetto": "chiave inglese",
  "copertina": {
   "righe": [
-   "VENDE GIORNALI",
-   "GUADAGNA UN",
-   "CENTESIMO..."
+   "TAGLIANDO",
+   "DA 250 €",
+   "MA QUANTO RESTA?"
   ],
-  "emozione": "preoccupato",
-  "oggetto": "giornale",
-  "prezzo": "1,70 €",
+  "emozione": "stupito",
+  "oggetto": "chiave inglese",
+  "prezzo": "250 €",
   "fondo": "scuro"
  },
  "copertina_ai": {
-  "valore_sx": "1,36 €",
-  "valore_dx": "1,70 €",
-  "oggetto_sx": "separate newspaper pieces laid apart: a stack of paper sheets, a small ink bottle, a delivery van toy",
-  "oggetto_dx": "a freshly printed Italian newspaper on a newsstand counter",
+  "valore_sx": "18 €/ORA",
+  "valore_dx": "50 €/ORA",
+  "oggetto_sx": "separate car parts laid apart: an oil filter, a bottle of engine oil, an air filter, spark plugs, a wrench",
+  "oggetto_dx": "a clean modern car lifted on a workshop lift with a happy mechanic",
   "domanda": [
-   "E ALLORA PERCHÉ",
-   "L'EDICOLA CHIUDE?"
+   "TI HANNO FATTO",
+   "PAGARE TROPPO?"
   ]
  },
- "descrizione": "Walter ha un'edicola da trent'anni e ogni anno vende meno giornali. Ma il problema non è solo che la gente non legge più: è come funziona il margine sui quotidiani. In questo episodio facciamo i conti veri, con numeri di esempio, e scopriamo cosa può fare un'edicola per restare in piedi. Se hai un negozio, questa storia riguarda anche te.",
+ "descrizione": "Duecentocinquanta euro per un tagliando: sono tanti o pochi? Seguiamo Gianni nella sua officina e scopriamo dove vanno davvero i soldi: ricambi, manodopera, ore fatturate e attrezzatura. Imparerai a leggere un preventivo e, se hai un'attività, a calcolare quanto ti resta davvero. Alla fine scoprirai perché un'ora di lavoro non vale un'ora in cassa.",
  "tag": [
-  "edicola",
-  "chiusura edicole",
+  "tagliando",
+  "officina",
+  "meccanico",
+  "costi officina",
+  "manodopera",
+  "ricambi",
+  "ore fatturate",
   "margine",
-  "punto di pareggio",
-  "diversificazione",
-  "aprire un'attività",
-  "commercianti",
+  "aprire un'officina",
+  "quanto guadagna un meccanico",
   "economia pratica",
-  "costi fissi",
-  "giornali",
-  "quanto ti resta",
-  "conti di un negozio",
-  "mercato in calo",
   "piccola impresa",
-  "come guadagna un'edicola"
+  "preventivo auto",
+  "partita iva",
+  "costi fissi",
+  "attrezzatura",
+  "tariffa oraria",
+  "gestione attività"
  ],
  "scene": [
   {
-   "testo": "Walter vende un giornale a un euro e settanta. Quanto gli resta in tasca? Ventiquattro centesimi. Proprio così: per guadagnare un euro deve venderne più di quattro. E ogni anno ne vende meno.",
+   "testo": "Ti hanno chiesto duecentocinquanta euro per un tagliando. Ti sei detto: ma sono matti! Ora ti dico una cosa: dopo aver pagato tutto, al meccanico ne restano meno di trenta.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "domanda",
      "p": {
-      "testo": "Quanto gli resta?",
+      "testo": "250 € per un tagliando?",
       "emozione": "stupito",
       "scuro": true
      }
     },
     {
-     "parola": "Ventiquattro",
+     "parola": "dopo",
      "tipo": "prezzo",
      "p": {
-      "oggetto": "giornale",
-      "prezzo": "1,70 €",
-      "nota": "resta: 0,24 €"
+      "oggetto": "auto",
+      "prezzo": "250 €",
+      "nota": "tagliando completo"
      }
     },
     {
-     "parola": "Proprio",
-     "tipo": "conteggio",
+     "parola": "trenta",
+     "tipo": "timbro",
      "p": {
-      "oggetto": "giornale",
-      "icone": 5,
-      "testo": "5 giornali = 1,20 €"
+      "oggetto": "fattura",
+      "testo": "POCO",
+      "colore": "rosso",
+      "nota": "meno di 30 € restano"
      }
     }
    ]
   },
   {
-   "testo": "Ti presento Walter. Ha sessantadue anni e un'edicola in una via del centro. L'ha aperta suo padre, poi l'ha presa lui. Trent'anni dietro al bancone, sempre con gli occhiali sul naso e il caffè freddo accanto.",
-   "capitolo": "Walter e la sua edicola",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "edicola",
-      "insegna": "EDICOLA WALTER",
-      "azione": "lavora",
-      "clienti": 1,
-      "testo": "Edicola di Walter"
-     }
-    },
-    {
-     "parola": "Trent'anni",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "edicola",
-      "insegna": "EDICOLA WALTER",
-      "azione": "felice",
-      "clienti": 2,
-      "testo": "Trent'anni di mestiere"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Una volta, alle sette del mattino, c'era la fila. Walter vendeva centoventi quotidiani al giorno. Oggi ne vende quaranta. E tu: quando hai comprato l'ultimo giornale di carta? Ecco, appunto.",
+   "testo": "Lui è Gianni. Ha un'officina in provincia, due sollevatori e un apprendista. Oggi apriamo i suoi conti, riga per riga, e vediamo dove finisce ogni euro di quel tagliando.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "persone",
+     "tipo": "luogo",
      "p": {
-      "n": 8,
-      "azione": "fila",
-      "testo": "Ieri: la fila alle sette"
+      "luogo": "officina",
+      "insegna": "Officina Gianni",
+      "azione": "felice",
+      "clienti": 2,
+      "testo": "Gianni e la sua officina"
      }
     },
     {
      "parola": "Oggi",
-     "tipo": "conteggio",
-     "p": {
-      "oggetto": "giornale",
-      "icone": 40,
-      "testo": "40 al giorno"
-     }
-    },
-    {
-     "parola": "Ecco",
      "tipo": "domanda",
      "p": {
-      "testo": "E tu, quando?",
+      "testo": "Dove vanno i soldi?",
       "emozione": "calmo",
       "scuro": false
      }
@@ -145,178 +114,198 @@
    ]
   },
   {
-   "testo": "Guarda come è crollato il numero di copie nel tempo. Dieci anni fa, centoventi al giorno. Otto anni fa, novanta. Cinque anni fa, settanta. Tre anni fa, cinquanta. Oggi quaranta. Una discesa lenta, ma continua.",
-   "capitolo": "",
+   "testo": "Una macchina entra alle nove. Cambio olio, filtro olio, filtro aria, filtro abitacolo, controllo freni e candele. Il cliente paga duecentocinquanta euro. Vediamo cosa c'è dentro quel prezzo.",
+   "capitolo": "Cosa c'è nel prezzo",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "andamento",
+     "tipo": "luogo",
      "p": {
-      "titolo": "Giornali venduti al giorno",
-      "valori": [
-       120,
-       90,
-       70,
-       50,
-       40
-      ],
-      "etichette": [
-       "10 anni fa",
-       "8",
-       "5",
-       "3",
-       "oggi"
-      ],
-      "colore": "rosso"
+      "luogo": "officina",
+      "insegna": "Officina Gianni",
+      "azione": "lavora",
+      "clienti": 1,
+      "testo": "Tagliando in corso"
      }
     },
     {
-     "parola": "Una",
-     "tipo": "persone",
+     "parola": "Il",
+     "tipo": "lista",
      "p": {
-      "n": 4,
-      "azione": "escono",
-      "escono": 3,
-      "testo": "I lettori se ne vanno"
+      "titolo": "Cosa fa Gianni",
+      "voci": [
+       "Cambio olio motore",
+       "Filtro olio",
+       "Filtro aria",
+       "Filtro abitacolo",
+       "Controllo freni",
+       "Candele"
+      ]
+     }
+    },
+    {
+     "parola": "duecentocinquanta",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "auto",
+      "prezzo": "250 €",
+      "nota": "prezzo al cliente"
      }
     }
    ]
   },
   {
-   "testo": "Ora la parte che quasi nessuno conosce. Il prezzo di copertina non è tutto di Walter. Il giornale lo compra dal distributore e ci guadagna una percentuale fissa. Non decide lui il prezzo, non decide lui lo sconto.",
-   "capitolo": "Il margine fisso",
+   "testo": "Prima voce: i ricambi. Olio e filtri costano a Gianni sessantacinque euro. Li compra dal grossista con lo sconto. Al cliente li rivende a novanta euro. Quindi ci guadagna venticinque euro.",
+   "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "prezzo",
+     "tipo": "formula",
      "p": {
-      "oggetto": "giornale",
-      "prezzo": "1,70 €",
-      "nota": "prezzo deciso dall'editore"
+      "titolo": "Margine sui ricambi",
+      "a": "90 €",
+      "op": "−",
+      "b": "65 €",
+      "risultato": "25 €",
+      "nota": "prezzo di vendita meno costo"
      }
     },
     {
-     "parola": "percentuale",
+     "parola": "Al",
+     "tipo": "confronto",
+     "p": {
+      "titolo": "Ricambi",
+      "a": {
+       "titolo": "Costo",
+       "valore": "65 €",
+       "oggetto": "filtro olio"
+      },
+      "b": {
+       "titolo": "Vendita",
+       "valore": "90 €",
+       "oggetto": "filtro olio"
+      },
+      "vincitore": "b"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Seconda voce: la manodopera. Il tagliando richiede due ore di lavoro. Gianni fattura sessanta euro all'ora, quindi centoventi euro. Totale: novanta più centoventi fa duecentodieci. E gli altri quaranta?",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Manodopera",
+      "a": "60 €",
+      "op": "×",
+      "b": "2 ore",
+      "risultato": "120 €",
+      "nota": "tariffa oraria per ore di lavoro"
+     }
+    },
+    {
+     "parola": "Totale",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Ricambi più manodopera",
+      "a": "90 €",
+      "op": "+",
+      "b": "120 €",
+      "risultato": "210 €",
+      "nota": "mancano ancora 40 €"
+     }
+    },
+    {
+     "parola": "gli",
+     "tipo": "domanda",
+     "p": {
+      "testo": "E gli altri 40 €?",
+      "emozione": "stupito",
+      "scuro": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Gli altri quaranta sono materiali di consumo e smaltimento: guanti, stracci, sgrassante, e lo smaltimento dell'olio esausto, che è un rifiuto speciale. Sommando fa duecentocinquanta euro, più l'IVA.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
      "tipo": "lista",
      "p": {
-      "titolo": "Cosa decide Walter?",
+      "titolo": "Voci nascoste",
       "voci": [
-       "Il prezzo? No",
-       "Lo sconto? No",
-       "Quanto ordina? Poco",
-       "Il margine? Fisso"
+       "Guanti e stracci",
+       "Sgrassante",
+       "Smaltimento olio",
+       "Materiale di consumo"
+      ]
+     }
+    },
+    {
+     "parola": "Sommando",
+     "tipo": "fette",
+     "p": {
+      "titolo": "Il prezzo del tagliando",
+      "totale": 250,
+      "totale_testo": "250 €",
+      "fette": [
+       {
+        "nome": "Ricambi",
+        "valore": 90,
+        "testo": "90 €"
+       },
+       {
+        "nome": "Manodopera",
+        "valore": 120,
+        "testo": "120 €"
+       },
+       {
+        "nome": "Consumo e smaltimento",
+        "valore": 40,
+        "testo": "40 €"
+       }
+      ],
+      "evidenzia": 1
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Qui parte il primo errore che fa chi guarda un preventivo: pensare che la manodopera sia tutta guadagno. Centoventi euro per due ore? Eh, magari. Quel denaro paga un sacco di cose.",
+   "capitolo": "Manodopera non è guadagno",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "domanda",
+     "p": {
+      "testo": "120 € sono tutti suoi?",
+      "emozione": "preoccupato",
+      "scuro": true
+     }
+    },
+    {
+     "parola": "Quel",
+     "tipo": "soldi",
+     "p": {
+      "centro": "120 €",
+      "destinazioni": [
+       "Stipendio",
+       "Affitto",
+       "Attrezzi",
+       "Tasse"
       ]
      }
     }
    ]
   },
   {
-   "testo": "Facciamo i conti su un giornale da un euro e settanta. Walter lo paga un euro e trentasei. Il margine è il venti per cento del prezzo di copertina: trentaquattro centesimi. Dividi trentaquattro per centosettanta e ottieni proprio venti.",
+   "testo": "Facciamo i conti di Gianni. Affitto del capannone, mille euro al mese. Assicurazione e utenze, ottocento. Stipendio dell'apprendista, milleduecento. Software e licenze, centocinquanta. Rate dell'attrezzatura, seicento.",
    "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "fette",
-     "p": {
-      "titolo": "Dove vanno 1,70 € di un giornale",
-      "totale": 1.7,
-      "totale_testo": "1,70 €",
-      "fette": [
-       {
-        "nome": "Editore e distribuzione",
-        "valore": 1.36,
-        "testo": "1,36 €"
-       },
-       {
-        "nome": "Margine di Walter",
-        "valore": 0.34,
-        "testo": "0,34 €"
-       }
-      ],
-      "evidenzia": 1
-     }
-    },
-    {
-     "parola": "Dividi",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Quanto è il margine?",
-      "a": "0,34 €",
-      "op": "÷",
-      "b": "1,70 €",
-      "risultato": "il 20 %",
-      "nota": "margine sul prezzo"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Attenzione però: il margine lordo è trentaquattro centesimi, ma ci sono le copie invendute. Quelle si rendono, ma non tutto torna. Diciamo che tra resi mancati, sprechi e fatica, a Walter restano in media ventiquattro centesimi.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "bilancia",
-     "p": {
-      "titolo": "Margine lordo e reale",
-      "sinistra": "0,34 € teorici",
-      "destra": "0,24 € reali",
-      "pende": "sinistra"
-     }
-    },
-    {
-     "parola": "Diciamo",
-     "tipo": "prezzo",
-     "p": {
-      "oggetto": "giornale",
-      "prezzo": "1,70 €",
-      "nota": "a Walter restano 0,24 €"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Se vendi quaranta giornali al giorno e ne guadagni ventiquattro centesimi, fanno nove euro e sessanta al giorno. Per ventisei giorni di apertura, duecentoquarantanove euro e sessanta al mese. Dai giornali, intendo.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Guadagno al giorno",
-      "a": "40 giornali",
-      "op": "×",
-      "b": "0,24 €",
-      "risultato": "9,60 €",
-      "nota": "al giorno, solo giornali"
-     }
-    },
-    {
-     "parola": "Per",
-     "tipo": "calendario",
-     "p": {
-      "titolo": "Giorni di apertura",
-      "giorni": 26,
-      "testo": "26 giorni al mese"
-     }
-    },
-    {
-     "parola": "duecentoquarantanove",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Guadagno al mese",
-      "a": "9,60 €",
-      "op": "×",
-      "b": "26 giorni",
-      "risultato": "249,60 €",
-      "nota": "al mese, solo giornali"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Duecentoquarantanove euro al mese. E i costi? L'affitto del negozio è di ottocento euro. La luce e il riscaldamento, centoventi. Il commercialista, cento. Le tasse e i contributi, quattrocentottanta. Il totale fa millecinquecento euro.",
-   "capitolo": "I costi che non calano",
    "inquadrature": [
     {
      "parola": "",
@@ -325,67 +314,57 @@
       "voci": [
        {
         "nome": "Affitto",
+        "valore": 1000,
+        "testo": "1.000 €"
+       },
+       {
+        "nome": "Assicurazione e utenze",
         "valore": 800,
         "testo": "800 €"
        },
        {
-        "nome": "Luce e riscaldamento",
-        "valore": 120,
-        "testo": "120 €"
+        "nome": "Apprendista",
+        "valore": 1200,
+        "testo": "1.200 €"
        },
        {
-        "nome": "Commercialista",
-        "valore": 100,
-        "testo": "100 €"
+        "nome": "Software",
+        "valore": 150,
+        "testo": "150 €"
        },
        {
-        "nome": "Tasse e contributi",
-        "valore": 480,
-        "testo": "480 €"
+        "nome": "Rate attrezzatura",
+        "valore": 600,
+        "testo": "600 €"
        }
       ],
-      "totale": 1500,
+      "totale": 3750,
       "periodo": "al mese"
-     }
-    },
-    {
-     "parola": "Il",
-     "tipo": "soldi",
-     "p": {
-      "centro": "1.500 €",
-      "destinazioni": [
-       "Proprietario",
-       "Luce",
-       "Commercialista",
-       "Stato"
-      ]
      }
     }
    ]
   },
   {
-   "testo": "Ricontrolliamo: ottocento più centoventi fa novecentoventi. Più cento, mille e venti. Più quattrocentottanta, millecinquecento. Giusto. E questi soldi escono sia se vendi quaranta giornali, sia se ne vendi quattro. Sono costi fissi.",
+   "testo": "Totale: tremilasettecentocinquanta euro al mese di costi fissi. Li paghi sempre, anche se non entra nessuna macchina. E non c'è ancora lo stipendio di Gianni. Se lo vuole, deve aggiungerlo.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "lista",
+     "tipo": "formula",
      "p": {
-      "titolo": "Costi fissi: sempre uguali",
-      "voci": [
-       "Affitto: 800 €",
-       "Luce: 120 €",
-       "Commercialista: 100 €",
-       "Tasse: 480 €",
-       "Totale: 1.500 €"
-      ]
+      "titolo": "Costi fissi del mese",
+      "a": "1.000 € + 800 € + 1.200 €",
+      "op": "+",
+      "b": "150 € + 600 €",
+      "risultato": "3.750 €",
+      "nota": "senza stipendio del titolare"
      }
     },
     {
      "parola": "E",
      "tipo": "domanda",
      "p": {
-      "testo": "Anche se non vendi?",
+      "testo": "E il suo stipendio?",
       "emozione": "preoccupato",
       "scuro": true
      }
@@ -393,494 +372,424 @@
    ]
   },
   {
-   "testo": "Ora la domanda che conta: quanti giornali deve vendere Walter per coprire millecinquecento euro di costi? Dividi i costi fissi per il margine di ogni pezzo. Millecinquecento diviso zero virgola ventiquattro.",
+   "testo": "Gianni vuole portarsi a casa duemila euro al mese. Quindi i costi da coprire diventano cinquemilasettecentocinquanta euro. Questa è la cifra che ogni mese l'officina deve generare prima di fare utile.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "formula",
      "p": {
-      "titolo": "Il punto di pareggio",
-      "a": "1.500 €",
-      "op": "÷",
-      "b": "0,24 €",
-      "risultato": "6.250 giornali",
-      "nota": "al mese, solo per pareggiare"
+      "titolo": "Cosa deve coprire l'officina",
+      "a": "3.750 €",
+      "op": "+",
+      "b": "2.000 €",
+      "risultato": "5.750 €",
+      "nota": "costi fissi più stipendio"
      }
     },
     {
-     "parola": "Dividi",
-     "tipo": "pareggio",
+     "parola": "Questa",
+     "tipo": "salvadanaio",
      "p": {
-      "titolo": "Pareggio solo con i giornali",
-      "fissi": 1500,
-      "margine": 0.24,
-      "unita": "giornali venduti",
-      "oggetto": "giornale",
-      "perdita": true,
-      "guadagno": false
+      "direzione": "svuota",
+      "testo": "5.750 € da coprire ogni mese"
      }
     }
    ]
   },
   {
-   "testo": "Seimiladuecentocinquanta giornali al mese. Diviso ventisei giorni, fanno duecentoquaranta e mezzo al giorno. E Walter ne vende quaranta. Ne vende meno di un sesto di quelli che servirebbero. Il conto non torna, e non tornerà.",
-   "capitolo": "",
+   "testo": "Ora la domanda giusta. Quanto guadagna Gianni su un tagliando? Ricambi: venticinque euro di margine. Manodopera: centoventi euro. Consumo e smaltimento: diciamo quaranta euro, con pochi euro di costo reale.",
+   "capitolo": "Quanto resta su un tagliando",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "confronto",
+     "tipo": "domanda",
      "p": {
-      "titolo": "Giornali al giorno",
-      "a": {
-       "titolo": "Servirebbero",
-       "valore": "240",
-       "oggetto": "giornale"
-      },
-      "b": {
-       "titolo": "Walter ne vende",
-       "valore": "40",
-       "oggetto": "giornale"
-      },
-      "vincitore": "a"
+      "testo": "Quanto resta a Gianni?",
+      "emozione": "calmo",
+      "scuro": false
      }
     },
     {
-     "parola": "Ne",
-     "tipo": "timbro",
+     "parola": "Ricambi",
+     "tipo": "fette",
      "p": {
-      "oggetto": "giornale",
-      "testo": "IN PERDITA",
-      "colore": "rosso",
-      "nota": "solo con i giornali"
+      "titolo": "Cosa incassa sopra il costo",
+      "totale": 250,
+      "totale_testo": "250 €",
+      "fette": [
+       {
+        "nome": "Costo ricambi",
+        "valore": 65,
+        "testo": "65 €"
+       },
+       {
+        "nome": "Margine ricambi",
+        "valore": 25,
+        "testo": "25 €"
+       },
+       {
+        "nome": "Manodopera",
+        "valore": 120,
+        "testo": "120 €"
+       },
+       {
+        "nome": "Consumo",
+        "valore": 40,
+        "testo": "40 €"
+       }
+      ],
+      "evidenzia": 2
      }
     }
    ]
   },
   {
-   "testo": "Lo stesso vale per tante attività. Un lavasecco che ha costi fissi di duemila euro e guadagna due euro e cinquanta su ogni capo deve lavarne ottocento al mese solo per pareggiare. Se i clienti calano, il conto salta.",
+   "testo": "Quindi dei duecentocinquanta euro, sessantacinque se ne vanno subito per comprare i pezzi. Restano centoottantacinque euro lordi. Questi devono pagare l'officina: affitto, apprendista, attrezzi, e alla fine Gianni.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "formula",
      "p": {
-      "titolo": "Pareggio di un lavasecco",
-      "a": "2.000 €",
-      "op": "÷",
-      "b": "2,50 €",
-      "risultato": "800 capi",
-      "nota": "al mese, solo per pareggiare"
+      "titolo": "Margine lordo",
+      "a": "250 €",
+      "op": "−",
+      "b": "65 €",
+      "risultato": "185 €",
+      "nota": "prezzo meno costo ricambi"
      }
     },
     {
-     "parola": "Se",
-     "tipo": "persone",
+     "parola": "Questi",
+     "tipo": "soldi",
      "p": {
-      "n": 6,
-      "azione": "escono",
-      "escono": 3,
-      "testo": "Se i clienti calano, il conto salta"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Ma Walter non vende solo giornali. Altrimenti avrebbe già chiuso. Vende anche riviste, figurine, ricariche telefoniche, biglietti dell'autobus. Vediamo cosa porta davvero soldi e cosa è solo fatica.",
-   "capitolo": "Cosa vende davvero",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "edicola",
-      "insegna": "EDICOLA WALTER",
-      "azione": "stupito",
-      "clienti": 1,
-      "testo": "Non solo giornali"
-     }
-    },
-    {
-     "parola": "Vende",
-     "tipo": "lista",
-     "p": {
-      "titolo": "Cosa c'è nel negozio",
-      "voci": [
-       "Quotidiani",
-       "Riviste e fumetti",
-       "Figurine",
-       "Ricariche e biglietti",
-       "Giocattoli e cartoleria"
+      "centro": "185 €",
+      "destinazioni": [
+       "Affitto",
+       "Apprendista",
+       "Attrezzi",
+       "Gianni"
       ]
      }
     }
    ]
   },
   {
-   "testo": "Le riviste hanno lo stesso margine fisso dei giornali, il venti per cento. Ma si vendono meno e restano giorni sullo scaffale. Un mensile da cinque euro lascia un euro. Se ne vendi dieci al mese, sono dieci euro. Poco.",
+   "testo": "Ma attenzione: quanti tagliandi può fare Gianni? Qui entra il concetto più importante dell'officina: le ore fatturate. Non conta quante ore lavori, conta quante ne riesci a vendere.",
+   "capitolo": "Le ore fatturate",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "orologio",
+     "p": {
+      "ore": 8,
+      "piene": 8,
+      "testo": "Otto ore in officina"
+     }
+    },
+    {
+     "parola": "conta",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Ore lavorate o vendute?",
+      "emozione": "stupito",
+      "scuro": true
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Gianni e l'apprendista in officina stanno otto ore al giorno ciascuno. Sono sedici ore. Ma tra telefonate, attese del ricambio, preventivi, pulizie e macchine che non arrivano, ne fattura solo dieci.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "prezzo",
+     "tipo": "orologio",
      "p": {
-      "oggetto": "rivista",
-      "prezzo": "5 €",
-      "nota": "margine: 1 €"
+      "ore": 16,
+      "piene": 10,
+      "testo": "Sedici ore presenti, dieci fatturate"
+     }
+    },
+    {
+     "parola": "Ma",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Dove spariscono le ore",
+      "voci": [
+       "Telefonate",
+       "Attesa ricambi",
+       "Preventivi gratis",
+       "Pulizie",
+       "Clienti in ritardo",
+       "Imprevisti"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Dieci ore su sedici è il sessantadue e mezzo per cento. Si chiama tasso di saturazione. Se lo fai salire all'ottanta per cento, con le stesse persone, incassi molto di più. Senza assumere nessuno.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Saturazione",
+      "a": "10 ore",
+      "op": "÷",
+      "b": "16 ore",
+      "risultato": "62,5 %",
+      "nota": "ore fatturate su ore presenti"
      }
     },
     {
      "parola": "Se",
-     "tipo": "formula",
+     "tipo": "cruscotto",
      "p": {
-      "titolo": "Margine sulle riviste",
-      "a": "10 riviste",
-      "op": "×",
-      "b": "1 €",
-      "risultato": "10 €",
-      "nota": "al mese, per un titolo"
+      "titolo": "Indicatori officina",
+      "voci": [
+       {
+        "nome": "Saturazione",
+        "valore": 0.62
+       },
+       {
+        "nome": "Obiettivo",
+        "valore": 0.8
+       }
+      ]
      }
     }
    ]
   },
   {
-   "testo": "Poi le ricariche telefoniche. Qui il margine è piccolissimo: una ricarica da venti euro lascia circa cinquanta centesimi. Il due virgola cinque per cento. Ma la gente le compra ancora, e porta clienti in negozio.",
+   "testo": "Facciamo il conto. Dieci ore fatturate al giorno per sessanta euro fanno seicento euro di manodopera al giorno. In ventidue giorni lavorativi sono tredicimiladuecento euro al mese. Bello, no?",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Manodopera al giorno",
+      "a": "10 ore",
+      "op": "×",
+      "b": "60 €",
+      "risultato": "600 €",
+      "nota": "ore fatturate per tariffa"
+     }
+    },
+    {
+     "parola": "In",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Manodopera al mese",
+      "a": "600 €",
+      "op": "×",
+      "b": "22 giorni",
+      "risultato": "13.200 €",
+      "nota": "giorni lavorativi del mese"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Bello sì, ma attento: questo è fatturato, non guadagno. Da tredicimiladuecento togli i costi fissi di cinquemilasettecentocinquanta. Restano settemilaquattrocentocinquanta. Sembra tanto. Ma stiamo ancora tralasciando qualcosa.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Dopo i costi fissi",
+      "a": "13.200 €",
+      "op": "−",
+      "b": "5.750 €",
+      "risultato": "7.450 €",
+      "nota": "senza ancora tasse e imprevisti"
+     }
+    },
+    {
+     "parola": "Ma",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Cosa manca?",
+      "emozione": "preoccupato",
+      "scuro": true
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Manca l'attrezzatura. Un'officina vive di strumenti: sollevatore, diagnosi elettronica, compressore, chiavi dinamometriche, macchina per le gomme. Costano tanto e si rompono. Vediamo quanto pesa tutto questo.",
+   "capitolo": "L'attrezzatura",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "officina",
+      "insegna": "Officina Gianni",
+      "azione": "preoccupato",
+      "clienti": 0,
+      "testo": "Attrezzatura costosa"
+     }
+    },
+    {
+     "parola": "Costano",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Attrezzatura base",
+      "voci": [
+       "Sollevatore",
+       "Strumento di diagnosi",
+       "Compressore",
+       "Chiavi dinamometriche",
+       "Smontagomme",
+       "Banco da lavoro"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Il solo strumento di diagnosi costa seimila euro, più un abbonamento annuo per gli aggiornamenti dei software delle case auto. Senza, non leggi i codici errore delle auto moderne. Non è un lusso, è obbligatorio.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "prezzo",
      "p": {
-      "oggetto": "ricarica telefonica",
-      "prezzo": "20 €",
-      "nota": "margine: 0,50 €"
+      "oggetto": "strumento di diagnosi",
+      "prezzo": "6.000 €",
+      "nota": "più abbonamento annuo"
      }
     },
     {
-     "parola": "Il",
+     "parola": "Senza",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "auto moderna",
+      "testo": "OBBLIGATORIO",
+      "colore": "rosso",
+      "nota": "senza diagnosi non lavori"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Quanto vale un attrezzo in rapporto al lavoro? Prendi il sollevatore: costa cinquemila euro e dura dieci anni. Ammortizzato fa cinquecento euro l'anno. Quarantadue euro al mese, circa. Per migliaia di tagliandi.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
      "tipo": "formula",
      "p": {
-      "titolo": "Margine sulla ricarica",
-      "a": "0,50 €",
+      "titolo": "Ammortamento sollevatore",
+      "a": "5.000 €",
       "op": "÷",
-      "b": "20 €",
-      "risultato": "il 2,5 %",
-      "nota": "quasi niente"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Poi ci sono le figurine e i giocattoli. Qui il margine è molto più alto: una bustina da un euro e cinquanta costa a Walter un euro. Cinquanta centesimi di margine, il trentatré per cento. Una cosa diversa dai giornali.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "fette",
-     "p": {
-      "titolo": "Dove vanno 1,50 € di una bustina",
-      "totale": 1.5,
-      "totale_testo": "1,50 €",
-      "fette": [
-       {
-        "nome": "Costo della bustina",
-        "valore": 1,
-        "testo": "1,00 €"
-       },
-       {
-        "nome": "Margine di Walter",
-        "valore": 0.5,
-        "testo": "0,50 €"
-       }
-      ],
-      "evidenzia": 1
+      "b": "10 anni",
+      "risultato": "500 € all'anno",
+      "nota": "circa 42 € al mese"
      }
     },
     {
-     "parola": "Cinquanta",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Margine sulle figurine",
-      "a": "0,50 €",
-      "op": "÷",
-      "b": "1,50 €",
-      "risultato": "il 33 %",
-      "nota": "molto meglio dei giornali"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Confrontiamo i due mondi. Il giornale, venti per cento, ma solo ventiquattro centesimi reali. La bustina, trentatré per cento, e nessun reso. Con la stessa fatica, ogni vendita di figurine rende più del doppio.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "confronto",
-     "p": {
-      "titolo": "Margine per ogni pezzo",
-      "a": {
-       "titolo": "Giornale",
-       "valore": "0,24 €",
-       "oggetto": "giornale"
-      },
-      "b": {
-       "titolo": "Bustina di figurine",
-       "valore": "0,50 €",
-       "oggetto": "bustina di figurine"
-      },
-      "vincitore": "b"
-     }
-    },
-    {
-     "parola": "Con",
-     "tipo": "leve",
-     "p": {
-      "titolo": "Dove sta il margine",
-      "voci": [
-       "Quotidiani",
-       "Riviste",
-       "Ricariche",
-       "Figurine e giochi"
-      ],
-      "evidenzia": 3
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Ora guardiamo le vendite nei dodici mesi. A settembre, con la scuola e i fumetti, Walter incassa di più. D'estate la città si svuota. Dicembre sale per i regali. Il negozio non vive ogni mese allo stesso modo.",
-   "capitolo": "Il calendario dell'edicola",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "mesi",
-     "p": {
-      "titolo": "Incasso mensile in euro",
-      "valori": [
-       2800,
-       2600,
-       2900,
-       3000,
-       3100,
-       2500,
-       2000,
-       1800,
-       3600,
-       3200,
-       3300,
-       4200
-      ],
-      "evidenzia": [
-       8,
-       9,
-       12
-      ],
-      "nota": "agosto basso, settembre e dicembre alti"
-     }
-    },
-    {
-     "parola": "D'estate",
-     "tipo": "persone",
-     "p": {
-      "n": 2,
-      "azione": "entrano",
-      "testo": "D'estate, poca gente"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Se sommi i dodici mesi, fanno trentaduemilacento euro di incasso all'anno. Facciamo i conti: duemilaottocento più duemilaseicento fa cinquemilaquattrocento. Più duemilanovecento, ottomilatrecento. Continuando, arrivi a trentaduemilacento.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Incasso dell'anno",
-      "a": "12 mesi",
-      "op": "+",
-      "b": "somma",
-      "risultato": "32.100 €",
-      "nota": "incasso lordo, non guadagno"
-     }
-    },
-    {
-     "parola": "Facciamo",
+     "parola": "Per",
      "tipo": "conteggio",
      "p": {
-      "oggetto": "euro",
-      "icone": 32,
-      "testo": "32.100 € incassati"
+      "oggetto": "auto",
+      "icone": 30,
+      "testo": "Migliaia di auto sul sollevatore"
      }
     }
    ]
   },
   {
-   "testo": "Ma incassare non è guadagnare. Quanto resta davvero a Walter? Ecco l'errore più grande di chi ha un negozio: guardare l'incasso e pensare che sia il guadagno. Walter incassa tremila euro al mese. Ma di quelli, quanti sono suoi?",
+   "testo": "Ora la tua attività. Anche tu hai un attrezzo che costa tanto e dura tanto? Un forno, un computer, una macchina da cucire? Dividi il prezzo per gli anni e poi per i mesi. Quel costo esiste, anche se non lo paghi.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "domanda",
      "p": {
-      "testo": "Incasso è guadagno?",
-      "emozione": "preoccupato",
-      "scuro": true
+      "testo": "Quanto costa il tuo attrezzo?",
+      "emozione": "calmo",
+      "scuro": false
+     }
+    },
+    {
+     "parola": "Dividi",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Esempio: forno di una pizzeria",
+      "a": "6.000 €",
+      "op": "÷",
+      "b": "10 anni",
+      "risultato": "600 € all'anno",
+      "nota": "cinquanta euro al mese"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Un parrucchiere, per esempio, ha la poltrona e il lavatesta. Quattromila euro in tutto, che durano otto anni. Cinquecento euro l'anno, quarantadue al mese. Se non li metti nei prezzi, li paghi tu di tasca tua.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Esempio: salone di parrucchiera",
+      "a": "4.000 €",
+      "op": "÷",
+      "b": "8 anni",
+      "risultato": "500 € all'anno",
+      "nota": "poltrona e lavatesta"
+     }
+    },
+    {
+     "parola": "Se",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "salone",
+      "insegna": "Salone Giulia",
+      "azione": "preoccupato",
+      "clienti": 1,
+      "testo": "Costi nascosti nel salone"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Torniamo a Gianni. Sommando ammortamenti, aggiornamenti software, riparazioni e attrezzi che si consumano, spende circa quattrocento euro al mese in più, che non aveva messo in conto. Ecco il primo buco.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Costi dell'attrezzatura",
+      "a": "7.450 €",
+      "op": "−",
+      "b": "400 €",
+      "risultato": "7.050 €",
+      "nota": "al mese, dopo l'attrezzatura"
      }
     },
     {
      "parola": "Ecco",
-     "tipo": "lista",
-     "p": {
-      "titolo": "Cosa non guardare",
-      "voci": [
-       "L'incasso del giorno",
-       "Il numero di clienti",
-       "Il fatturato dell'anno",
-       "Quanto vende il vicino"
-      ]
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Prendiamo un mese medio da tremila euro di incasso. Di questi, duemilaquattrocento vanno per pagare la merce a chi la fornisce. Restano seicento euro di margine. Poi ci sono i millecinquecento di costi fissi. Il risultato: meno novecento.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "fette",
-     "p": {
-      "titolo": "Dove vanno 3.000 € di incasso",
-      "totale": 3000,
-      "totale_testo": "3.000 €",
-      "fette": [
-       {
-        "nome": "Merce pagata ai fornitori",
-        "valore": 2400,
-        "testo": "2.400 €"
-       },
-       {
-        "nome": "Margine lordo",
-        "valore": 600,
-        "testo": "600 €"
-       }
-      ],
-      "evidenzia": 1
-     }
-    },
-    {
-     "parola": "Poi",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Cosa resta a Walter",
-      "a": "600 €",
-      "op": "−",
-      "b": "1.500 €",
-      "risultato": "− 900 €",
-      "nota": "al mese, in perdita"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Meno novecento euro al mese. Come fa Walter ad andare avanti? Semplice: non si paga lo stipendio. Anzi, mette soldi di tasca sua, dalla pensione della moglie e dai risparmi. Il salvadanaio si svuota in silenzio.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "timbro",
-     "p": {
-      "oggetto": "edicola",
-      "testo": "PERDITA",
-      "colore": "rosso",
-      "nota": "meno 900 € al mese"
-     }
-    },
-    {
-     "parola": "Semplice",
      "tipo": "salvadanaio",
      "p": {
       "direzione": "svuota",
-      "testo": "I risparmi di Walter calano"
+      "testo": "Quattrocento euro che sfuggono"
      }
     }
    ]
   },
   {
-   "testo": "E questo succede a tanti. Un barbiere che non si paga lo stipendio e poi scopre che in un anno ha perso diecimila euro. Una cartoleria che tira avanti con i soldi dei genitori. L'attività sembra viva, ma consuma capitale.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "andamento",
-     "p": {
-      "titolo": "Risparmi di un barbiere in un anno",
-      "valori": [
-       10000,
-       8800,
-       7500,
-       6000,
-       4200
-      ],
-      "etichette": [
-       "gen",
-       "apr",
-       "lug",
-       "ott",
-       "dic"
-      ],
-      "colore": "rosso"
-     }
-    },
-    {
-     "parola": "Una",
-     "tipo": "persone",
-     "p": {
-      "n": 3,
-      "azione": "escono",
-      "escono": 2,
-      "testo": "L'attività sembra viva"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Torniamo a Walter. Un giorno si siede e decide: o chiudo, o cambio. Prende un foglio e scrive tre strade. Alzare i prezzi? Non può. Vendere più giornali? Impossibile. Allora rimane una sola strada: vendere altro. Si chiama diversificazione.",
-   "capitolo": "La diversificazione",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "edicola",
-      "insegna": "EDICOLA WALTER",
-      "azione": "preoccupato",
-      "clienti": 0,
-      "testo": "O chiudo, o cambio"
-     }
-    },
-    {
-     "parola": "Alzare",
-     "tipo": "leve",
-     "p": {
-      "titolo": "Le strade di Walter",
-      "voci": [
-       "Alzare i prezzi",
-       "Vendere più giornali",
-       "Tagliare i costi",
-       "Vendere altro"
-      ],
-      "evidenzia": 3
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Diversificare non vuol dire riempire il negozio di roba a caso. Vuol dire scegliere prodotti con margine più alto e che i tuoi clienti già cercano. Walter guarda chi entra: bambini, nonni, studenti. Cosa comprerebbero?",
-   "capitolo": "",
+   "testo": "Poi ci sono le macchine che tornano indietro. Un cliente lamenta un rumore dopo il tagliando. Gianni lo ricontrolla gratis: un'ora persa, sessanta euro. Se succede cinque volte al mese, sono trecento euro che spariscono.",
+   "capitolo": "Le ore regalate",
    "inquadrature": [
     {
      "parola": "",
@@ -888,359 +797,387 @@
      "p": {
       "n": 5,
       "azione": "entrano",
-      "testo": "Chi entra davvero in edicola?"
+      "escono": 0,
+      "testo": "Cinque clienti tornano a lamentarsi"
      }
     },
     {
-     "parola": "Diversificare",
-     "tipo": "lista",
-     "p": {
-      "titolo": "Come scegliere cosa aggiungere",
-      "voci": [
-       "Lo cercano già i clienti",
-       "Margine più alto",
-       "Poco spazio occupato",
-       "Non scade presto",
-       "Costo iniziale basso"
-      ]
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Esempio fuori dall'edicola. Una lavanderia self-service aggiunge il servizio stiro a due euro e cinquanta a camicia. Una pizzeria da asporto aggiunge le bibite, che costano ottanta centesimi e vende a tre euro. Stessi clienti, margine nuovo.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "prezzo",
-     "p": {
-      "oggetto": "bibita",
-      "prezzo": "3 €",
-      "nota": "costa 0,80 €, margine 2,20 €"
-     }
-    },
-    {
-     "parola": "Stessi",
+     "parola": "Se",
      "tipo": "formula",
      "p": {
-      "titolo": "Margine sulla bibita",
-      "a": "3 €",
-      "op": "−",
-      "b": "0,80 €",
-      "risultato": "2,20 €",
-      "nota": "per ogni bibita venduta"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Walter prova con tre cose. Primo: la cartoleria, quaderni e penne a settembre. Secondo: i giochi da tavolo e i puzzle. Terzo: il servizio fotocopie e stampa a dieci centesimi a pagina, che costa tre centesimi. Vediamo i numeri.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "lista",
-     "p": {
-      "titolo": "Le tre novità di Walter",
-      "voci": [
-       "Cartoleria scolastica",
-       "Giochi da tavolo e puzzle",
-       "Fotocopie e stampa"
-      ]
-     }
-    },
-    {
-     "parola": "Terzo",
-     "tipo": "prezzo",
-     "p": {
-      "oggetto": "fotocopia",
-      "prezzo": "0,10 €",
-      "nota": "costa 0,03 €, margine 0,07 €"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Le fotocopie: settanta centesimi di margine ogni dieci pagine. Se Walter ne fa trecento al giorno, fanno ventuno euro. Per ventisei giorni, cinquecentoquarantasei euro al mese. Da una sola macchina. Più dei giornali.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Guadagno al giorno dalle copie",
-      "a": "300 pagine",
+      "titolo": "Garanzie regalate",
+      "a": "60 €",
       "op": "×",
-      "b": "0,07 €",
-      "risultato": "21 €",
-      "nota": "al giorno"
+      "b": "5 volte",
+      "risultato": "300 €",
+      "nota": "al mese di lavoro gratis"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ecco perché i meccanici bravi controllano tutto con attenzione: un lavoro fatto bene non torna. Non è solo orgoglio, è denaro. Ogni ritorno è un'ora regalata, e un'ora regalata vale quanto una scommessa persa.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "officina",
+      "insegna": "Officina Gianni",
+      "azione": "lavora",
+      "clienti": 1,
+      "testo": "Lavoro fatto bene"
+     }
+    },
+    {
+     "parola": "Ogni",
+     "tipo": "bilancia",
+     "p": {
+      "titolo": "Un ritorno",
+      "sinistra": "Un'ora regalata",
+      "destra": "Sessanta euro persi",
+      "pende": "destra"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Cosa NON devi guardare, se hai un'officina o qualunque attività? Il prezzo dei concorrenti, da solo. Se Marco, il meccanico dall'altra parte della città, fa il tagliando a centonovanta euro, magari lavora in perdita.",
+   "capitolo": "Cosa non guardare",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "confronto",
+     "p": {
+      "titolo": "Due officine",
+      "a": {
+       "titolo": "Gianni",
+       "valore": "250 €",
+       "oggetto": "auto"
+      },
+      "b": {
+       "titolo": "Marco",
+       "valore": "190 €",
+       "oggetto": "auto"
+      },
+      "vincitore": ""
+     }
+    },
+    {
+     "parola": "magari",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Marco guadagna davvero?",
+      "emozione": "stupito",
+      "scuro": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Un esempio fuori dall'officina. Una pasticceria vende la torta a ventidue euro perché la concorrenza la vende a venti. Ma il burro è rincarato. Ora ci guadagna tre euro invece di cinque. Copiare il prezzo altrui è un salto nel buio.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "torta",
+      "prezzo": "20 €",
+      "nuovo_prezzo": "22 €",
+      "nota": "prezzo della concorrenza"
+     }
+    },
+    {
+     "parola": "Copiare",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "torta",
+      "testo": "ATTENTO",
+      "colore": "rosso",
+      "nota": "guarda i tuoi costi, non i loro prezzi"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Cosa guardare invece? Il tuo costo orario vero. Prendi tutti i costi fissi e dividili per le ore che riesci a fatturare. Per Gianni sono cinquemilasettecentocinquanta euro diviso duecentoventi ore. Fa ventisei euro all'ora.",
+   "capitolo": "Il costo orario vero",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "lista",
+     "p": {
+      "titolo": "Cosa guardare",
+      "voci": [
+       "Il tuo costo orario",
+       "Le ore vendute",
+       "Il margine sui ricambi",
+       "I ritorni gratis"
+      ]
      }
     },
     {
      "parola": "Per",
      "tipo": "formula",
      "p": {
-      "titolo": "Guadagno al mese dalle copie",
-      "a": "21 €",
-      "op": "×",
-      "b": "26 giorni",
-      "risultato": "546 €",
-      "nota": "al mese, una macchina"
+      "titolo": "Costo orario di Gianni",
+      "a": "5.750 €",
+      "op": "÷",
+      "b": "220 ore",
+      "risultato": "26,14 € all'ora",
+      "nota": "dieci ore al giorno per ventidue giorni"
      }
     }
    ]
   },
   {
-   "testo": "I giochi da tavolo: un gioco da venticinque euro costa a Walter sedici euro. Margine nove euro, il trentasei per cento. Ne vende quindici al mese: centotrentacinque euro. Con meno fatica e senza resi. Questo è un margine vero.",
+   "testo": "Ventisei euro all'ora è quanto costa tenere aperta l'officina, anche se non ci lavori. Se Gianni vende l'ora a sessanta, ne resta trentaquattro. Se la vendesse a trenta, resterebbero quattro euro. Fa pensare, vero?",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Guadagno su un'ora",
+      "a": "60 €",
+      "op": "−",
+      "b": "26 €",
+      "risultato": "34 €",
+      "nota": "tariffa meno costo orario"
+     }
+    },
+    {
+     "parola": "Se",
+     "tipo": "bilancia",
+     "p": {
+      "titolo": "Un'ora venduta",
+      "sinistra": "Costo 26 euro",
+      "destra": "Prezzo 60 euro",
+      "pende": "destra"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ora il pareggio. Con trentaquattro euro di margine per ora e costi extra, quante ore al mese deve fatturare Gianni per non perdere? Dividi i costi per il margine orario. Ti faccio vedere il grafico.",
+   "capitolo": "Il pareggio",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Quante ore per pareggiare?",
+      "emozione": "calmo",
+      "scuro": false
+     }
+    },
+    {
+     "parola": "Dividi",
+     "tipo": "pareggio",
+     "p": {
+      "titolo": "Pareggio dell'officina",
+      "fissi": 5750,
+      "margine": 34,
+      "unita": "ore fatturate",
+      "oggetto": "chiave inglese",
+      "perdita": true,
+      "guadagno": true
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Cinquemilasettecentocinquanta diviso trentaquattro fa circa centosessantanove ore al mese. Sotto quella soglia Gianni lavora per niente. Sopra, comincia a guadagnare. Su ventidue giorni, sono quasi otto ore al giorno.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Ore per pareggiare",
+      "a": "5.750 €",
+      "op": "÷",
+      "b": "34 €",
+      "risultato": "169 ore",
+      "nota": "al mese, circa"
+     }
+    },
+    {
+     "parola": "Su",
+     "tipo": "orologio",
+     "p": {
+      "ore": 16,
+      "piene": 8,
+      "testo": "Otto ore al giorno per restare a galla"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Che succede in un mese tranquillo? Luglio, tutti in vacanza. Le ore fatturate crollano. Gianni scende a centoquaranta ore e va in perdita. Poi a settembre, tutti tornano e l'officina scoppia. Guarda l'andamento.",
+   "capitolo": "Mesi buoni e mesi magri",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "mesi",
+     "p": {
+      "titolo": "Ore fatturate in un anno",
+      "valori": [
+       190,
+       185,
+       200,
+       195,
+       180,
+       170,
+       140,
+       100,
+       210,
+       220,
+       215,
+       180
+      ],
+      "evidenzia": [
+       7,
+       8
+      ],
+      "nota": "estate più debole"
+     }
+    },
+    {
+     "parola": "Poi",
+     "tipo": "andamento",
+     "p": {
+      "titolo": "Ore fatturate",
+      "valori": [
+       170,
+       140,
+       100,
+       210
+      ],
+      "etichette": [
+       "Giu",
+       "Lug",
+       "Ago",
+       "Set"
+      ],
+      "colore": "rosso"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Per questo il pareggio medio non basta. Devi avere un cuscinetto per i mesi magri. Un'officina, un bar al mare d'inverno, un negozio di costumi: tutti hanno mesi che salvano l'anno e mesi che lo sprofondano.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "salvadanaio",
+     "p": {
+      "direzione": "riempie",
+      "testo": "Il cuscinetto dei mesi buoni"
+     }
+    },
+    {
+     "parola": "Un",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "negozio",
+      "insegna": "Costumi Mare",
+      "azione": "preoccupato",
+      "clienti": 0,
+      "testo": "Negozio di costumi a gennaio"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Quali sono le leve di Gianni per guadagnare di più? Quattro. Alzare le ore vendute. Alzare la tariffa. Alzare il margine sui ricambi. Ridurre i ritorni gratuiti. Quale conviene di più? Facciamo i conti.",
+   "capitolo": "Le leve",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "leve",
+     "p": {
+      "titolo": "Come guadagnare di più",
+      "voci": [
+       "Più ore vendute",
+       "Tariffa più alta",
+       "Margine ricambi",
+       "Meno ritorni gratis"
+      ],
+      "evidenzia": 0
+     }
+    },
+    {
+     "parola": "Quale",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Quale leva conviene?",
+      "emozione": "calmo",
+      "scuro": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Se Gianni alza la tariffa da sessanta a sessantacinque euro, su centosettanta ore al mese guadagna cinque euro in più per ogni ora. Cioè ottocentocinquanta euro al mese, senza lavorare un minuto in più.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "prezzo",
      "p": {
-      "oggetto": "gioco da tavolo",
-      "prezzo": "25 €",
-      "nota": "costa 16 €, margine 9 €"
+      "oggetto": "ora di lavoro",
+      "prezzo": "60 €",
+      "nuovo_prezzo": "65 €",
+      "nota": "tariffa oraria"
      }
     },
     {
-     "parola": "Ne",
+     "parola": "Cioè",
      "tipo": "formula",
      "p": {
-      "titolo": "Margine sui giochi",
-      "a": "15 giochi",
+      "titolo": "Effetto del ritocco",
+      "a": "5 €",
       "op": "×",
-      "b": "9 €",
-      "risultato": "135 €",
-      "nota": "al mese"
+      "b": "170 ore",
+      "risultato": "850 €",
+      "nota": "in più ogni mese"
      }
     }
    ]
   },
   {
-   "testo": "La cartoleria porta altri trecentoquaranta euro di margine al mese, in media. Facciamo la somma: seicento dai giornali e dalle riviste, cinquecentoquarantasei dalle copie, centotrentacinque dai giochi, trecentoquaranta dalla cartoleria. Fanno milleseicentoventuno euro.",
+   "testo": "Ritoccare il prezzo è la leva più potente, ma fa paura. Perché pensi di perdere clienti. Spesso non succede, se spieghi bene cosa fai. Il cliente non compra l'ora, compra la tranquillità di un'auto che non lo lascia a piedi.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "fette",
+     "tipo": "persone",
      "p": {
-      "titolo": "Margine mensile dopo le novità",
-      "totale": 1621,
-      "totale_testo": "1.621 €",
-      "fette": [
-       {
-        "nome": "Giornali e riviste",
-        "valore": 600,
-        "testo": "600 €"
-       },
-       {
-        "nome": "Fotocopie e stampa",
-        "valore": 546,
-        "testo": "546 €"
-       },
-       {
-        "nome": "Giochi da tavolo",
-        "valore": 135,
-        "testo": "135 €"
-       },
-       {
-        "nome": "Cartoleria",
-        "valore": 340,
-        "testo": "340 €"
-       }
-      ],
-      "evidenzia": 1
+      "n": 8,
+      "azione": "fila",
+      "escono": 0,
+      "testo": "I clienti restano se capiscono il valore"
      }
     },
     {
-     "parola": "Fanno",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Somma dei margini",
-      "a": "600 + 546 + 135",
-      "op": "+",
-      "b": "340",
-      "risultato": "1.621 €",
-      "nota": "al mese"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Millesicentoventuno meno millecinquecento di costi fissi. Restano centoventuno euro. Non è un tesoro, ma è la prima volta in anni che il conto è positivo. Da meno novecento a più centoventuno: la differenza è mille e ventuno.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Cosa resta a Walter ora",
-      "a": "1.621 €",
-      "op": "−",
-      "b": "1.500 €",
-      "risultato": "121 €",
-      "nota": "al mese, finalmente positivo"
-     }
-    },
-    {
-     "parola": "Non",
+     "parola": "Il",
      "tipo": "timbro",
      "p": {
-      "oggetto": "edicola",
-      "testo": "IN ATTIVO",
+      "oggetto": "auto",
+      "testo": "FIDUCIA",
       "colore": "verde",
-      "nota": "più 121 € al mese"
-     }
-    },
-    {
-     "parola": "Da",
-     "tipo": "salvadanaio",
-     "p": {
-      "direzione": "riempie",
-      "testo": "Il salvadanaio smette di calare"
+      "nota": "il cliente compra tranquillità"
      }
     }
    ]
   },
   {
-   "testo": "Attenzione ai rischi. Ogni novità ha un costo: la scorta di quaderni occupa soldi e spazio. Una macchina per le copie costa e si rompe. Se compri troppo e non vendi, hai solo cambiato il tipo di problema. Prova piano, un prodotto alla volta.",
-   "capitolo": "Attenzione agli errori",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "bilancia",
-     "p": {
-      "titolo": "Provare o rischiare?",
-      "sinistra": "Scorte ferme",
-      "destra": "Margine in più",
-      "pende": "sinistra"
-     }
-    },
-    {
-     "parola": "Prova",
-     "tipo": "lista",
-     "p": {
-      "titolo": "Come provare senza rischiare",
-      "voci": [
-       "Un prodotto alla volta",
-       "Poche scorte all'inizio",
-       "Guarda cosa chiedono",
-       "Conta ogni mese",
-       "Taglia ciò che non gira"
-      ]
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Ecco il cruscotto di Walter per capire se va meglio. Il margine totale al mese. Le vendite per ogni prodotto nuovo. I giorni di merce ferma sugli scaffali. E il saldo finale, dopo i costi fissi. Quattro numeri, non di più.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "cruscotto",
-     "p": {
-      "titolo": "Gli indicatori di Walter",
-      "voci": [
-       {
-        "nome": "Margine totale",
-        "valore": 0.7
-       },
-       {
-        "nome": "Vendite novità",
-        "valore": 0.5
-       },
-       {
-        "nome": "Merce ferma",
-        "valore": 0.3
-       },
-       {
-        "nome": "Saldo dopo i costi",
-        "valore": 0.2
-       }
-      ]
-     }
-    },
-    {
-     "parola": "Quattro",
-     "tipo": "orologio",
-     "p": {
-      "ore": 10,
-      "piene": 6,
-      "testo": "Un'ora al giorno per i conti"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Se hai un negozio, fermati un momento. Qual è il tuo prodotto che occupa più spazio e rende meno? Qual è quello che i clienti chiedono e tu non hai? E quanti pezzi devi vendere ogni mese per pareggiare? Se non lo sai, calcolalo oggi.",
-   "capitolo": "E tu?",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Quanti pezzi per pareggiare?",
-      "emozione": "calmo",
-      "scuro": false
-     }
-    },
-    {
-     "parola": "Qual",
-     "tipo": "lista",
-     "p": {
-      "titolo": "Tre domande per te",
-      "voci": [
-       "Cosa occupa spazio e rende poco?",
-       "Cosa chiedono i clienti?",
-       "Qual è il tuo pareggio?"
-      ]
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Quindi, perché le edicole chiudono? Perché il mercato cala, il margine sui giornali è fisso e non si può alzare, e i costi fissi restano uguali. Chi non cambia, fa il conto e perde. Chi diversifica con testa, resiste.",
+   "testo": "Riassumiamo. Primo: in un tagliando i ricambi guadagnano poco, la manodopera molto, ma non è tutta tua. Secondo: conta l'ora fatturata, non quella lavorata. Terzo: calcola il tuo costo orario, attrezzatura compresa. Quarto: conosci il tuo pareggio.",
    "capitolo": "Cosa ricordare",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "andamento",
-     "p": {
-      "titolo": "Margine mensile di Walter",
-      "valori": [
-       -900,
-       -500,
-       -100,
-       121
-      ],
-      "etichette": [
-       "prima",
-       "1° mese",
-       "2° mese",
-       "dopo"
-      ],
-      "colore": "verde"
-     }
-    },
-    {
-     "parola": "Chi",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "edicola",
-      "insegna": "EDICOLA WALTER",
-      "azione": "felice",
-      "clienti": 3,
-      "testo": "Chi cambia con testa, resiste"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Ricorda: il margine sui giornali è fisso, ventiquattro centesimi reali su un euro e settanta. Il pareggio con soli giornali era seimiladuecentocinquanta copie al mese. La soluzione è diversificare con margini più alti. Controlla sempre i tuoi numeri.",
-   "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
@@ -1248,50 +1185,84 @@
      "p": {
       "titolo": "Da ricordare",
       "voci": [
-       "Margine fisso: non lo decidi tu",
-       "Pareggio = costi fissi ÷ margine",
-       "Incasso non è guadagno",
-       "Diversifica con margini più alti"
+       "Ricambi: margine piccolo",
+       "Manodopera: paga i costi fissi",
+       "Conta l'ora fatturata",
+       "Calcola il tuo pareggio"
       ]
      }
     },
     {
-     "parola": "Controlla",
-     "tipo": "leve",
+     "parola": "Quarto",
+     "tipo": "cruscotto",
      "p": {
-      "titolo": "Le leve per salvarti",
+      "titolo": "Gianni sotto controllo",
       "voci": [
-       "Prezzi",
-       "Volumi",
-       "Costi fissi",
-       "Nuovi prodotti"
-      ],
-      "evidenzia": 3
+       {
+        "nome": "Saturazione",
+        "valore": 0.8
+       },
+       {
+        "nome": "Costo orario",
+        "valore": 0.45
+       },
+       {
+        "nome": "Ritorni gratis",
+        "valore": 0.1
+       }
+      ]
      }
     }
    ]
   },
   {
-   "testo": "Prossimo episodio: una pasticceria. Vende un cornetto a un euro e vent'anni di tradizione. Ma il burro è raddoppiato di prezzo. Il cornetto guadagna ancora o ormai ci rimette? Faremo i conti insieme. Iscriviti, così non te lo perdi.",
+   "testo": "Gianni alla fine ci guadagna, ma non è quello che pensavi. Su duecentocinquanta euro, il suo utile reale è sui trenta euro. Non è poco, se fa tanti tagliandi con ore piene. Ma è tutto nei dettagli dei numeri.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "prossimo",
+     "tipo": "timbro",
      "p": {
-      "luogo": "pasticceria",
-      "insegna": "PASTICCERIA DOLCE",
-      "oggetto": "cornetto",
-      "testo": "Il burro raddoppia: il cornetto regge?"
+      "oggetto": "tagliando",
+      "testo": "UTILE 30 €",
+      "colore": "verde",
+      "nota": "circa, dopo tutti i costi"
      }
     },
     {
-     "parola": "Iscriviti",
+     "parola": "Ma",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "officina",
+      "insegna": "Officina Gianni",
+      "azione": "felice",
+      "clienti": 3,
+      "testo": "Officina piena, conti in ordine"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "E tu, hai mai guardato il tuo costo orario? Scrivimelo nei commenti. Nel prossimo episodio parliamo di una pizzeria che vende duecento pizze al giorno ma a fine mese non ha un euro. Come è possibile? Iscriviti!",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
      "tipo": "domanda",
      "p": {
-      "testo": "Ci vediamo al prossimo!",
-      "emozione": "felice",
+      "testo": "Sai il tuo costo orario?",
+      "emozione": "calmo",
       "scuro": false
+     }
+    },
+    {
+     "parola": "Nel",
+     "tipo": "prossimo",
+     "p": {
+      "luogo": "pizzeria",
+      "insegna": "Pizzeria Da Salvo",
+      "oggetto": "pizza",
+      "testo": "Duecento pizze al giorno e zero soldi"
      }
     }
    ]

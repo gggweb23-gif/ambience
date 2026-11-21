@@ -1,9 +1,10 @@
-07:07:09 Claude: 23892 caratteri, fine: end_turn
-07:07:09 copione: 38 scene, 8461 caratteri
-07:07:10 voce non riuscita, riprovo: HTTP Error 401: Unauthorized
-07:07:15 voce non riuscita, riprovo: HTTP Error 401: Unauthorized
-07:07:25 voce non riuscita, riprovo: HTTP Error 401: Unauthorized
-07:07:40 voce non riuscita, riprovo: HTTP Error 401: Unauthorized
+03:59:46 Claude: 21622 caratteri, fine: end_turn
+03:59:46 copione: 36 scene, 7088 caratteri
+04:00:58 Claude: 23153 caratteri, fine: end_turn
+04:00:58 voce non riuscita, riprovo: HTTP Error 401: Unauthorized
+04:01:03 voce non riuscita, riprovo: HTTP Error 401: Unauthorized
+04:01:13 voce non riuscita, riprovo: HTTP Error 401: Unauthorized
+04:01:28 voce non riuscita, riprovo: HTTP Error 401: Unauthorized
 Traceback (most recent call last):
   File "/home/runner/work/ambience/ambience/video_cartoni.py", line 586, in <module>
     main()
@@ -13,7 +14,7 @@ Traceback (most recent call last):
   File "/home/runner/work/ambience/ambience/video_cartoni.py", line 253, in voce
     raise RuntimeError('ElevenLabs non risponde')
 RuntimeError: ElevenLabs non risponde
-07:08:00 esito: {"stato": "ERRORE", "errore": "ElevenLabs non risponde"}
+04:01:48 esito: {"stato": "ERRORE", "errore": "ElevenLabs non risponde"}
 Traceback (most recent call last):
   File "/home/runner/work/ambience/ambience/video_cartoni.py", line 586, in <module>
     main()
