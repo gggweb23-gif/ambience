@@ -1,0 +1,21 @@
+name: Descrizione del canale (gratis)
+# 21 nov 2026: aggiorna descrizione e parole chiave di un canale YouTube (strumenti/descrizione_canale.py)
+on:
+  workflow_dispatch:
+    inputs:
+      chiave_youtube: {description: 'segreto del canale, es. YT_REFRESH_TOKEN', required: true, type: string}
+      descrizione: {description: 'nuova descrizione (\n per andare a capo)', required: true, type: string}
+      parole_chiave: {description: 'parole chiave separate da virgola', default: '', type: string}
+jobs:
+  d:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets[inputs.chiave_youtube] }}
+          DESCRIZIONE: ${{ inputs.descrizione }}
+          PAROLE_CHIAVE: ${{ inputs.parole_chiave }}
+        run: python3 strumenti/descrizione_canale.py
