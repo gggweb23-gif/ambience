@@ -93,20 +93,20 @@ def copione():
 Winning channel: {C['competitor']} — {C['descrizione']}
 Their best videos (copy the hook and structure, NEVER the text): {C['modelli']}
 Our video title (keep it, or improve it on the same pattern): {C['titolo']}
-Write ONLY the first {int(SECONDI)} seconds of the video (about {parole} words in total, no more):
+Write {'the WHOLE video' if SECONDI > 120 else 'ONLY the first ' + str(int(SECONDI)) + ' seconds of the video'} (about {parole} words in total, no more):
 - open with the strongest hook immediately: say the result/the most surprising fact first, then promise the explanation;
 - plant at least one open loop ("but that's not the strangest part..."), short punchy sentences, vivid and visual;
 - EVERYTHING must be TRUE and verifiable: no invented numbers, no fake quotes; if unsure, don't say it;
 - split into scenes of 6-11 words each (one sentence or half sentence per scene); every scene must be easy to show with real footage;
 - for every scene give "q": the footage search for {fonte}; make each q different and concrete; if the video is about a specific place (country, state, region, city), EVERY q must contain that place name (e.g. "Alaska glacier aerial", not "glacier aerial");
 - "scritta": an optional on-screen keyword of 1-3 words in CAPS (a number or a strong word) for about one scene in four, else "".
-{extra}Reply ONLY with JSON: {{"titolo": "...", "copertina": "2-4 word thumbnail text built on the title", "scene": [{{"testo": "...", "q": "...", "scritta": ""{extra_json}}}]}}"""
-    t = claude(p, max_tokens=5000)
+{extra}Reply ONLY with JSON: {{"titolo": "...", "descrizione": "2-3 sentence YouTube description with the main keywords", "tag": ["12-15 popular search tags"], "copertina": "2-4 word thumbnail text built on the title", "scene": [{{"testo": "...", "q": "...", "scritta": ""{extra_json}}}]}}"""
+    t = claude(p, max_tokens=24000 if SECONDI > 120 else 5000)
     j = json.loads(t[t.index('{'):t.rindex('}') + 1])
     n = sum(len(x['testo'].split()) for x in j['scene'])
     if n < parole * 0.88:   # troppo corto: la durata conta (video lunghi sempre sopra gli 8 minuti)
         t = claude(p + f'\n\nYour previous answer had only {n} words, far below {parole}. Here it is:\n' + json.dumps(j, ensure_ascii=False)
-                   + f'\nRewrite it to {parole} words (count them), adding new TRUE facts and scenes, same rules, same JSON format.', max_tokens=6000)
+                   + f'\nRewrite it to {parole} words (count them), adding new TRUE facts and scenes, same rules, same JSON format.', max_tokens=24000 if SECONDI > 120 else 6000)
         j = json.loads(t[t.index('{'):t.rindex('}') + 1])
     log('titolo:', j['titolo'], '| scene', len(j['scene']), '| parole', sum(len(s['testo'].split()) for s in j['scene']))
     return j
@@ -289,7 +289,12 @@ def film_archivio(q):
     """Film Prelinger di pubblico dominio su archive.org (licenza controllata), scaricati una volta e usati a pezzi diversi."""
     if q in ARCH:
         return ARCH[q]
+    tutti = [f for v in ARCH.values() for f in v]
+    if q == '__pool__':
+        return tutti
     ARCH[q] = []
+    if len(tutti) >= int(C.get('max_film') or 22):   # tetto di download per video (archive.org e' lento): poi si riusano i film gia' presi
+        return ARCH[q]
     try:
         r = http('https://archive.org/advancedsearch.php?' + urllib.parse.urlencode(
             [('q', f'({q}) AND collection:prelinger AND mediatype:movies'), ('fl[]', 'identifier'), ('rows', 12), ('output', 'json')]), timeout=60)
@@ -306,7 +311,7 @@ def film_archivio(q):
         lic = str(m.get('metadata', {}).get('licenseurl') or '')
         if 'publicdomain' not in lic:
             continue
-        mp4 = [x for x in m.get('files', []) if str(x.get('name', '')).lower().endswith('.mp4') and 3e6 < float(x.get('size') or 0) < 2.5e8]
+        mp4 = [x for x in m.get('files', []) if str(x.get('name', '')).lower().endswith('.mp4') and 3e6 < float(x.get('size') or 0) < 9e7]
         if not mp4:
             continue
         x = sorted(mp4, key=lambda x: -float(x.get('size') or 0))[0]
@@ -327,9 +332,9 @@ def film_archivio(q):
 
 def clip_archivio(q, testo, quanti):
     out = []
-    for q_ in [q, ' '.join(q.split()[:2]), C.get('riserva') or 'america 1950s']:
+    for q_ in [q, ' '.join(q.split()[:2]), C.get('riserva') or 'america 1950s', '__pool__']:
         cand = []
-        for film in film_archivio(q_):
+        for film in film_archivio(q_)[:6]:
             f, dur, ide, presi = film
             for _ in range(5):
                 t = random.uniform(dur * 0.06, dur * 0.92 - 5)
@@ -338,7 +343,7 @@ def clip_archivio(q, testo, quanti):
                 im = fotogramma(f, t + 1)
                 if im:
                     cand.append((f, dur, t, im, presi))
-        for k in scegli([c_[3] for c_ in cand][:12], testo, q_):
+        for k in scegli([c_[3] for c_ in cand][:12], testo, q if q_ == '__pool__' else q_):
             if len(out) >= quanti:
                 return out
             f, dur, t, _, presi = cand[k]

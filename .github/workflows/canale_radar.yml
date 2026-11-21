@@ -1,0 +1,66 @@
+name: Video canali RADAR (10 minuti)
+# 21 nov 2026 (Giorgio): primi video dei 3 canali nuovi dal RADAR (Venerdi = stile africaregions sugli USA, Agora of Sages = Lost America,
+# Orbital Days @orbitaldays = The Nickel Years). Clip vere gratis, voce Flash, ~1 $ a video. Programmati all'ora_uscita.
+on:
+  workflow_dispatch:
+    inputs:
+      canali: {description: 'JSON [{"canale":..,"chiave":..,"titolo":..,"playlist":..}]', required: true, type: string}
+      pubblica_il: {description: 'UTC ISO, es. 2026-11-22T16:00:00Z', required: true, type: string}
+      secondi: {default: '570', type: string}
+permissions:
+  contents: write
+jobs:
+  video:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      matrix:
+        c: ${{ fromJson(inputs.canali) }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null && pip install -q pillow
+      - name: Titolo del video
+        run: |
+          python3 - <<'PY'
+          import json
+          p='strumenti/prova_radar_canali.json'; c=json.load(open(p)); c['${{ matrix.c.canale }}']['titolo']=${{ toJson(matrix.c.titolo) }}
+          json.dump(c,open(p,'w'),ensure_ascii=False,indent=1)
+          PY
+      - name: Video
+        env:
+          CANALE: ${{ matrix.c.canale }}
+          SECONDI: ${{ inputs.secondi }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          FAL_KEY: ${{ secrets.FAL_KEY }}
+        run: python3 strumenti/prova_radar.py
+      - name: Copertina
+        env:
+          CANALE: ${{ matrix.c.canale }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          FAL_KEY: ${{ secrets.FAL_KEY }}
+        run: python3 strumenti/copertina_radar.py
+      - name: Carica su YouTube
+        env:
+          CANALE: ${{ matrix.c.canale }}
+          PUBBLICA_IL: ${{ inputs.pubblica_il }}
+          PLAYLIST: ${{ matrix.c.playlist }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets[matrix.c.chiave] }}
+        run: python3 strumenti/carica_radar.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: video-${{ matrix.c.canale }}
+          path: prove_video/radar/${{ matrix.c.canale }}/
+          retention-days: 14
+      - if: always()
+        run: |
+          git config user.name render-bot; git config user.email render-bot@users.noreply.github.com
+          d=prove_video/radar/${{ matrix.c.canale }}; rm -f $d/prova.mp4 $d/anteprima_1080p.mp4
+          git checkout strumenti/prova_radar_canali.json
+          git add prove_video/radar && git commit -qm "Video RADAR ${{ matrix.c.canale }}" || exit 0
+          for i in 1 2 3 4 5; do (git pull --rebase -q || { git rebase --abort; git pull --rebase -q -X theirs; }) && git push -q && break; sleep $((i*7)); done
