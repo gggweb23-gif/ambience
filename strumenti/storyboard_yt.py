@@ -1,34 +1,37 @@
 #!/usr/bin/env python3
-"""STORYBOARD YOUTUBE (gratis, 21 nov 2026): per capire com'e' fatto DAVVERO il video di un competitor (clip vere? immagini AI?
-animazioni? mappe? cartone?) scarica le miniature dello storyboard pubblico di YouTube e fa un foglio unico.
-Env: VIDEO = id separati da virgola, NOME. Uscita: prove_video/storyboard/<NOME>/<id>.jpg"""
-import io, json, os, re, urllib.request
-from PIL import Image
+"""FOTOGRAMMI COMPETITOR (gratis, 21 nov 2026, Giorgio: "guarda bene se dentro c'e' AI o animazioni, altrimenti copiandoli con Pexels siamo lontani").
+Per ogni video: scarica a 360p tre pezzi (inizio, meta', fine) con yt-dlp e ne prende 16 fotogrammi -> un foglio unico.
+Env: VIDEO = id separati da virgola, NOME. Uscita: prove_video/storyboard/<NOME>/<id>.jpg (+ durata dei tagli: quante inquadrature al minuto)"""
+import json, os, subprocess
+from PIL import Image, ImageDraw
 
-UA = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36',
-      'Accept-Language': 'en-US,en;q=0.9', 'Cookie': 'CONSENT=YES+1'}
-get = lambda u: urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=60).read()
 OUT = os.path.join('prove_video', 'storyboard', os.environ.get('NOME') or 'sb'); os.makedirs(OUT, exist_ok=True)
+LAV = '/tmp/sb'; os.makedirs(LAV, exist_ok=True)
 for vid in [v.strip() for v in os.environ.get('VIDEO', '').split(',') if v.strip()]:
     try:
-        html = get('https://www.youtube.com/watch?v=' + vid).decode('utf-8', 'ignore')
-        spec = json.loads('"' + re.search(r'"playerStoryboardSpecRenderer":\{"spec":"(.*?)"', html).group(1) + '"')
-    except Exception as e:
-        print(vid, 'storyboard non trovato', str(e)[:100]); continue
-    parti = spec.split('|'); base = parti[0]
-    livello = len(parti) - 2   # il livello piu' grande
-    w, h, n, cols, rows, _, nome, sigh = parti[livello + 1].split('#')[:8]
-    fogli = -(-int(n) // (int(cols) * int(rows)))
-    imgs = []
-    for m in range(min(fogli, 6)):
-        u = base.replace('$L', str(livello)).replace('$N', nome).replace('$M', str(m)) + '&sigh=' + sigh
-        try:
-            imgs.append(Image.open(io.BytesIO(get(u))).convert('RGB'))
-        except Exception as e:
-            print(vid, 'foglio', m, str(e)[:80])
-    if imgs:
-        tot = Image.new('RGB', (imgs[0].width, sum(i.height for i in imgs)))
-        y = 0
-        for i in imgs:
-            tot.paste(i, (0, y)); y += i.height
-        tot.save(os.path.join(OUT, vid + '.jpg'), quality=85); print(vid, 'ok', len(imgs), 'fogli')
+        info = json.loads(subprocess.run(['yt-dlp', '-J', '--no-warnings', '--extractor-args', 'youtube:player_client=tv,ios,mweb,web_safari',
+                                          'https://www.youtube.com/watch?v=' + vid], capture_output=True, text=True, timeout=120).stdout or '{}')
+        dur = float(info.get('duration') or 600)
+    except Exception:
+        dur = 600
+    fr = []
+    for k, ini in enumerate([20, dur * .45, dur * .8]):
+        base = os.path.join(LAV, f'{vid}_{k}')
+        subprocess.run(['yt-dlp', '-q', '--no-warnings', '--extractor-args', 'youtube:player_client=tv,ios,mweb,web_safari',
+                        '-f', 'bv*[height<=360][ext=mp4]/b[height<=360]/b', '--download-sections', f'*{int(ini)}-{int(ini) + 40}',
+                        '-o', base + '.%(ext)s', 'https://www.youtube.com/watch?v=' + vid], timeout=300)
+        src = next((os.path.join(LAV, x) for x in os.listdir(LAV) if x.startswith(f'{vid}_{k}.')), None)
+        if not src:
+            continue
+        for j in range(6):
+            o = f'{base}_{j}.jpg'
+            subprocess.run(['ffmpeg', '-y', '-v', 'error', '-ss', str(2 + j * 6), '-i', src, '-frames:v', '1', '-vf', 'scale=480:270', o])
+            if os.path.exists(o):
+                fr.append(Image.open(o).convert('RGB'))
+    if not fr:
+        print(vid, 'non scaricato'); continue
+    g = Image.new('RGB', (480 * 6, 270 * (-(-len(fr) // 6))))
+    for i, im in enumerate(fr):
+        g.paste(im, ((i % 6) * 480, (i // 6) * 270))
+    ImageDraw.Draw(g).text((10, 10), f"{vid} {info.get('title', '')[:80]}", fill=(255, 255, 0))
+    g.save(os.path.join(OUT, vid + '.jpg'), quality=80); print(vid, 'ok', len(fr), 'fotogrammi', info.get('title', '')[:60])
