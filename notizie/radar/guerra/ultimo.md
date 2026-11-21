@@ -1,12 +1,12 @@
-# Radar notizie guerra — 2026-11-20
+# Radar notizie guerra — 2026-11-21
 
-**Scelta:** Trump, Xi and Putin trilateral summit in China: joint 'peace declaration', nuclear risks, no breakthroughs, Ukraine and Iran left out (AP, ABC, Guardian confirm; Putin called 'my friend' by Trump; backlash from Republicans and Ukraine allies per Politico) (Donald Trump) — l'onda di ieri e' ancora la piu' forte: si resta con un angolo nuovo
+**Scelta:** Trump, Xi, Putin trilateral summit in China: Trump calls Putin 'my friend', says Putin wants peace; backlash from Zelensky and Europeans (Donald Trump) — l'onda di ieri e' ancora la piu' forte: si resta con un angolo nuovo
 
 | # | Storia | Persona | Views all'ora (EN+IT) | Views 3 gg EN | Views 3 gg IT | Video lunghi EN |
 |---|---|---|---|---|---|---|
-| 1 | Trump, Xi and Putin trilateral summit in China: joint 'peace declaration', nuclear risks, no breakthroughs, Ukraine and Iran left out (AP, ABC, Guardian confirm; Putin called 'my friend' by Trump; backlash from Republicans and Ukraine allies per Politico) | Donald Trump | 580,598 | 13,029,279 | 5,392,281 | 12 |
-| 2 | Zelensky says Russian attack was one of the largest; Ukraine's Crimean bridge strikes strain Russian logistics (Reuters) and Zelensky addresses the superpowers on how to end the war | Volodymyr Zelensky | 176,024 | 3,060,213 | 187,619 | 15 |
-| 3 | Russia strikes Kyiv bridges and Ukraine in massive barrage (8 killed per Reuters, 400+ drones and 110+ missiles per Ukraine) after Putin vowed revenge for the Crimean/Kerch bridge attack; Putin says he won't negotiate a limited ceasefire | Vladimir Putin | 39,541 | 1,234,560 | 0 | 7 |
-| 4 | Kushner says Russia is 'comfortable' with NATO-like security guarantees for Ukraine after Trump-Putin talks (reported by Kushner, AP/PBS); WSJ reports US floated NATO membership; Moscow Times says Russia pushes back | Jared Kushner | 25,344 | 260,222 | 126,838 | 6 |
-| 5 | Russian missiles and a drone hit Poland during the Ukraine barrage; Warsaw calls it a provocation, NATO jets scrambled (Guardian, AP, BBC, Il Sole 24 Ore) | Donald Tusk | 21,321 | 37,346 | 0 | 5 |
-| 6 | US and Israel considering a new assault on Iran (CBS sources); Trump says he is 'not rushing' and suggests the war could continue into 2027 (Reuters, Axios, Time) | Donald Trump | 6,230 | 40,635 | 19,987 | 5 |
+| 1 | Trump, Xi, Putin trilateral summit in China: Trump calls Putin 'my friend', says Putin wants peace; backlash from Zelensky and Europeans | Donald Trump | 532,747 | 13,721,060 | 778,971 | 10 |
+| 2 | US and Israel reportedly weighing new assault on Iran as Trump says Iran's deal terms are unacceptable | Donald Trump | 138,980 | 2,609,414 | 2,724,971 | 12 |
+| 3 | Russian missiles crash in Poland during massive strike on Ukraine; NATO calls it a violation, Tusk suspects provocation | Donald Tusk | 110,095 | 1,256,690 | 118,740 | 10 |
+| 4 | Putin urges Europeans to 'come to Moscow' after Shenzhen summit; Russian allies say 'no one needs Europe' | Vladimir Putin | 39,698 | 836,642 | 469 | 8 |
+| 5 | Trump wants Ukraine peace deal before January and before Democrats take over Congress | Donald Trump | 24,601 | 267,112 | 0 | 6 |
+| 6 | Zelensky asks US to clarify Article 5-like security guarantee; Kushner says Russia OK with 'NATO-like' pact, Moscow pushes back | Volodymyr Zelensky | 1,592 | 46,227 | 5,754 | 5 |
