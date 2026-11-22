@@ -452,7 +452,7 @@ def canale(cfg):
         if video:
             break
         log(f'  riga {n}: file del video non trovato su GitHub')
-        if not PROVA and not RIGA:
+        if not PROVA and not RIGA and not extra:   # 22 nov: in modalita' extra la riga ha gia' i suoi Short: mai sovrascrivere
             scrivi(fid, sch, h, n, 'shorts', 'saltato: file del video non disponibile')
     if not video:
         return
@@ -580,6 +580,37 @@ def main():
     os.makedirs(LAV, exist_ok=True)
     _, _, canali = A.righe(A.CONFIGS)
     canali = canali + canali_radar()
+    if E('REGISTRA', '').strip().upper() == 'RICOSTRUISCI':   # 22 nov: righe con "saltato" ma Short gia' fatti: si rileggono da YouTube (link al lungo nella descrizione)
+        for cfg in canali:
+            cid = str(cfg.get('channel_id') or '').strip(); fid = str(cfg.get('scout_production_sheet_id') or '').strip()
+            if not cid or not fid or (SOLO and cid != SOLO):
+                continue
+            sch, h, prod = righe_prod(fid)
+            rotte = {str(r.get('youtube_video_id') or '').strip(): i + 2 for i, r in enumerate(prod) if str(r.get('shorts') or '').startswith('saltato') and str(r.get('youtube_video_id') or '').strip()}
+            if not rotte:
+                continue
+            chiave = str(cfg.get('chiave_youtube') or '').strip() or {'Storia in Minuti': 'YT_REFRESH_TOKEN_STORIA', 'KAO PSICOLOGIA': 'YT_REFRESH_TOKEN_KAO'}.get(cid, '') \
+                or 'YT_REFRESH_TOKEN_' + re.sub(r'[^A-Z0-9]+', '_', cid.upper()).strip('_')
+            auth = {'Authorization': 'Bearer ' + PF.token(PF.SEGRETI.get(chiave) or E(chiave))[0]}
+            up = http('https://www.googleapis.com/youtube/v3/channels?part=contentDetails&mine=true', h=auth)['items'][0]['contentDetails']['relatedPlaylists']['uploads']
+            ids, tok = [], ''
+            for _ in range(4):
+                j = http('https://www.googleapis.com/youtube/v3/playlistItems?part=contentDetails&maxResults=50&playlistId=' + up + ('&pageToken=' + tok if tok else ''), h=auth)
+                ids += [x['contentDetails']['videoId'] for x in j.get('items', [])]; tok = j.get('nextPageToken')
+                if not tok:
+                    break
+            trovati = {}
+            for k in range(0, len(ids), 50):
+                for x in http('https://www.googleapis.com/youtube/v3/videos?part=snippet,status&id=' + ','.join(ids[k:k + 50]), h=auth).get('items', []):
+                    m = re.search(r'youtu\.be/([\w-]{11})', x['snippet'].get('description', ''))
+                    if m and m.group(1) in rotte:
+                        q = x['status'].get('publishAt') or x['snippet']['publishedAt']
+                        q = dt.datetime.fromisoformat(q.replace('Z', '+00:00')).astimezone(ROMA).strftime('%Y-%m-%d %H:%M')
+                        trovati.setdefault(m.group(1), []).append(f"{x['id']}@{q}")
+            for v, n in rotte.items():
+                if trovati.get(v):
+                    scrivi(fid, sch, h, n, 'shorts', ' | '.join(sorted(trovati[v], key=lambda z: z.split('@')[1]))); log(cid, 'riga', n, 'ricostruita:', len(trovati[v]), 'Short')
+        return
     if E('REGISTRA', '').strip():   # correzione a mano della colonna shorts: {"canale": {"riga": "valore"}}
         for cfg in canali:
             for n, v in json.loads(E('REGISTRA')).get(str(cfg.get('channel_id')), {}).items():
