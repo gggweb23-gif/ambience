@@ -55,6 +55,8 @@ jobs:
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
           YT_REFRESH_TOKEN_KAO: ${{ secrets.YT_REFRESH_TOKEN_KAO }}
           YT_REFRESH_TOKEN_AGORA_OF_SAGES: ${{ secrets.YT_REFRESH_TOKEN_AGORA_OF_SAGES }}
+          YT_REFRESH_TOKEN_CANALE_NUOVO: ${{ secrets.YT_REFRESH_TOKEN_CANALE_NUOVO }}
+          YT_REFRESH_TOKEN_CANALE_NUOVO_2: ${{ secrets.YT_REFRESH_TOKEN_CANALE_NUOVO_2 }}
           YT_REFRESH_TOKEN_MAIN_STREET_ATLAS: ${{ secrets.YT_REFRESH_TOKEN_MAIN_STREET_ATLAS }}
           YT_REFRESH_TOKEN_STORIA: ${{ secrets.YT_REFRESH_TOKEN_STORIA }}
           YT_REFRESH_TOKEN_ORBITAL_DAYS: ${{ secrets.YT_REFRESH_TOKEN_ORBITAL_DAYS }}
@@ -80,7 +82,7 @@ jobs:
       - name: Salva costi
         if: ${{ always() }}
         run: |
-          [ -n "$(git status --porcelain coach/costi prove_video/shorts)" ] || exit 0
+          [ -n "$(git status --porcelain coach/costi prove_video/shorts prove_video/radar)" ] || exit 0
           git config user.name "render-bot"; git config user.email "render-bot@users.noreply.github.com"
-          git add coach/costi prove_video/shorts; git commit -m "Costi Short" || exit 0
+          git add coach/costi prove_video/shorts prove_video/radar/*/produzione.json; git commit -m "Costi Short" || exit 0
           for i in 1 2 3 4 5; do git pull --rebase --autostash -q && git push && break; sleep $((i * 5)); done

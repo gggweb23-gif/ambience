@@ -105,6 +105,13 @@ def scarica_sorgente(cid, riga, r, dur_yt, cfg_corrente=None):
                 if os.path.basename(v) == nomef and giusto(v):
                     FONTE['esatta'] = True; return v
         return None
+    if fv.startswith('radar:'):   # 22 nov: canali RADAR, artifact video-<cartella> del giro che ha fatto il video
+        nomef, _, run_id = fv[len('radar:'):].partition('@')
+        for a in [a for a in elenco(nomef) if str((a.get('workflow_run') or {}).get('id')) == run_id]:
+            v = _scarica(a)
+            if giusto(v):
+                FONTE['esatta'] = True; return v
+        return None
     for nome in (f'shorts-{cid}-riga{riga}', f'DA CARICARE {cid}'):
         arts = elenco(nome)[-1:]
         for a in arts:
@@ -353,7 +360,31 @@ def carica(tk, f, x, cfg, riga, vid_lungo, quando):
     return sid
 
 
+RADAR = 'strumenti/shorts_radar.json'   # 22 nov (Giorgio): Short anche sui canali RADAR (nessun file di produzione: righe in prove_video/radar/<cartella>/produzione.json)
+
+
+def righe_prod(fid):
+    if fid.startswith('json:'):
+        rr = json.load(open(fid[5:], encoding='utf-8'))
+        h = []
+        for r in rr:
+            h += [k for k in r if k not in h]
+        return 'json', h, rr
+    return A.righe(fid)
+
+
+def canali_radar():
+    try:
+        return [{**v, 'channel_id': k, 'scout_production_sheet_id': 'json:prove_video/radar/' + v['cartella'] + '/produzione.json'}
+                for k, v in json.load(open(RADAR, encoding='utf-8')).items() if not k.startswith('_')]
+    except FileNotFoundError:
+        return []
+
+
 def scrivi(fid, sch, h, n, colonna, valore):
+    if fid.startswith('json:'):
+        rr = json.load(open(fid[5:], encoding='utf-8')); rr[n - 2][colonna] = valore
+        json.dump(rr, open(fid[5:], 'w', encoding='utf-8'), ensure_ascii=False, indent=1); return
     if colonna not in h:
         pr = next(x['properties'] for x in A.api(fid, 'GET', '?fields=sheets.properties')['sheets'] if x['properties']['title'] == sch)
         manca = len(h) + 1 - pr['gridProperties']['columnCount']
@@ -384,7 +415,7 @@ def canale(cfg):
     log('===', cid, f"| shorts_al_giorno={cfg.get('shorts_al_giorno')!r} shorts_orari={cfg.get('shorts_orari')!r} shorts_budget_giorno={cfg.get('shorts_budget_giorno')!r}")
     if budget <= 0:
         log('  shorts_budget_giorno vuota: niente Short (nessuna spesa senza il tuo ok)'); return
-    sch, h, prod = A.righe(fid)
+    sch, h, prod = righe_prod(fid)
     oggi = dt.datetime.now(ROMA)
     chiave = str(cfg.get('chiave_youtube') or '').strip() or {'Storia in Minuti': 'YT_REFRESH_TOKEN_STORIA', 'KAO PSICOLOGIA': 'YT_REFRESH_TOKEN_KAO'}.get(cid, '') \
         or 'YT_REFRESH_TOKEN_' + re.sub(r'[^A-Z0-9]+', '_', cid.upper()).strip('_')
@@ -504,7 +535,7 @@ def rifai(canali):
         if not cid or not fid or (SOLO and cid != SOLO) or int(num(cfg.get('shorts_al_giorno'))) < 1:
             continue
         try:
-            sch, h, prod = A.righe(fid)
+            sch, h, prod = righe_prod(fid)
             chiave = str(cfg.get('chiave_youtube') or '').strip() or {'Storia in Minuti': 'YT_REFRESH_TOKEN_STORIA', 'KAO PSICOLOGIA': 'YT_REFRESH_TOKEN_KAO'}.get(cid, '') \
                 or 'YT_REFRESH_TOKEN_' + re.sub(r'[^A-Z0-9]+', '_', cid.upper()).strip('_')
             tk = PF.token(PF.SEGRETI.get(chiave) or E(chiave))[0]
@@ -548,6 +579,7 @@ def rifai(canali):
 def main():
     os.makedirs(LAV, exist_ok=True)
     _, _, canali = A.righe(A.CONFIGS)
+    canali = canali + canali_radar()
     if E('REGISTRA', '').strip():   # correzione a mano della colonna shorts: {"canale": {"riga": "valore"}}
         for cfg in canali:
             for n, v in json.loads(E('REGISTRA')).get(str(cfg.get('channel_id')), {}).items():
