@@ -47,7 +47,9 @@
   ],
   "velocita": 1.0,
   "contesto": "English nostalgia video for older US viewers about everyday life in 1950s America; only 1950s American people, homes, cars, objects",
-  "stile_video": "cornice"
+  "stile_video": "cornice",
+  "modello": "competitor_modelli/lost_america.txt",
+  "capitoli": 30
  },
  "africaregions": {
   "competitor": "africaregions",
@@ -64,7 +66,10 @@
    255
   ],
   "contesto": "English video for a US audience about Alaska: only footage of Alaska, its nature, wildlife, towns and people",
-  "stile_video": "capitoli"
+  "stile_video": "capitoli",
+  "modello": "competitor_modelli/africaregions.txt",
+  "capitoli": 30,
+  "copertina_stile": "mappa"
  },
  "intothegreen": {
   "competitor": "IntoTheGreen",
@@ -115,6 +120,8 @@
   ],
   "velocita": 1.0,
   "contesto": "English nostalgia documentary for older US viewers about ordinary American families in the 1930s Great Depression: only 1930s America, farms, kitchens, breadlines, small towns",
-  "copertina_stile": "lost_america"
+  "copertina_stile": "lost_america",
+  "modello": "competitor_modelli/nickel_years.txt",
+  "capitoli": 9
  }
 }

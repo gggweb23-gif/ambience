@@ -79,6 +79,12 @@ def copione():
              'ARCHIVE.ORG Prelinger public-domain films of 1940s-1960s America (2-4 words that appear in old educational/industrial film '
              'titles or descriptions: e.g. "drive-in theater", "soda fountain", "suburban family", "highway 1950s", "supermarket"; '
              'no modern things)')
+    # 22 nov 2026 (Giorgio): si applica la strategia: gancio, struttura e tipo di argomenti del video competitor (trascrizione) -> niente copione senza modello
+    mod = os.path.join(ROOT, C.get('modello') or '')
+    if not C.get('modello') or not os.path.exists(mod):
+        raise SystemExit('MANCA il modello del competitor (trascrizione/struttura): copione NON scritto')
+    modello = open(mod).read()
+    ncap = int(C.get('capitoli') or 0)
     cornice = C.get('stile_video') == 'cornice'
     extra = ('- this is a COUNTDOWN list video (like the competitor): items are numbered from the highest down; for every scene give "etichetta": '
              'the name of the item shown, 2-4 words in CAPS (e.g. "HOMEMADE CARS"), and "numero": the item number on the first scene of each item, else "";\n'
@@ -88,11 +94,13 @@ def copione():
               '"Kalahari truffle"), other scenes "capitolo": ""; when a scene mentions a year give "anno" (e.g. "2012") and "nota": what happened, '
               'max 6 words lowercase (e.g. "scientists found ash from burnt grass"), else "";\n'
               if C.get('stile_video') == 'capitoli' else ''))
-    extra_json = ', "etichetta": "", "numero": ""' if cornice else (', "capitolo": "", "anno": "", "nota": ""' if C.get('stile_video') == 'capitoli' else '')
+    extra_json = ', "etichetta": "", "numero": "", "capitolo": ""' if cornice else (', "capitolo": "", "anno": "", "nota": ""' if C.get('stile_video') == 'capitoli' else ', "capitolo": ""')
     p = f"""You write YouTube documentary narration in English for a NEW channel that copies the STRUCTURE (not the words) of a winning channel.
 Winning channel: {C['competitor']} — {C['descrizione']}
 Their best videos (copy the hook and structure, NEVER the text): {C['modelli']}
-Our video title (keep it, or improve it on the same pattern): {C['titolo']}
+COMPETITOR MODEL (its real hook, structure, chapter types and tone, from the transcript; copy ALL of this, but write every sentence new, with new TRUE facts about our topic):
+{modello}
+{('- the video has exactly ' + str(ncap) + ' chapters, like the competitor; every chapter is ONE specific, little-known place, object, person or event (never a generic fact); the first scene of each chapter has "capitolo": its short name (2-4 words, Title Case), other scenes "capitolo": "";' + chr(10)) if ncap else ''}Our video title (keep it, or improve it on the same pattern): {C['titolo']}
 Write {'the WHOLE video' if SECONDI > 120 else 'ONLY the first ' + str(int(SECONDI)) + ' seconds of the video'} (about {parole} words in total, no more):
 - open with the strongest hook immediately: say the result/the most surprising fact first, then promise the explanation;
 - plant at least one open loop ("but that's not the strangest part..."), short punchy sentences, vivid and visual;
@@ -470,6 +478,7 @@ def main():
     c = copione()
     json.dump(c, open(os.path.join(OUT, 'copione.json'), 'w'), ensure_ascii=False, indent=1)
     fv, tempi, durata = voce(c['scene'])
+    json.dump([[round(a, 1), sc['capitolo']] for sc, (a, b) in zip(c['scene'], tempi) if sc.get('capitolo')], open(os.path.join(OUT, 'capitoli.json'), 'w'), ensure_ascii=False)
     shots, n_clip, n_tot = [], 0, 0
     n_ai = [0]
     for i, (s, (a, b)) in enumerate(zip(c['scene'], tempi)):

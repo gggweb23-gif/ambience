@@ -18,8 +18,9 @@ C, NOME, OUT = R.C, R.NOME, R.OUT
 W, H = 1280, 720
 ANTON = os.path.join(R.ROOT, 'ctr_test', 'Anton.ttf')
 BEBAS = os.path.join(R.ROOT, 'fonts_costo_vero', 'BebasNeue-Regular.ttf')
+A_FONT = os.path.join(R.ROOT, 'ctr_test', 'Anton.ttf')
 ARCHIVO = os.path.join(R.ROOT, 'fonts_costo_vero', 'ArchivoBlack-Regular.ttf')
-STILE = C.get('copertina_stile') or (NOME if NOME in ('lost_america', 'beyond_history', 'intothegreen') else 'intothegreen')
+STILE = 'mappa' if C.get('copertina_stile') == 'mappa' else C.get('copertina_stile') or (NOME if NOME in ('lost_america', 'beyond_history', 'intothegreen') else 'intothegreen')
 
 
 def spec(titolo):
@@ -82,6 +83,26 @@ def font_per(testo, path, larghezza, massimo):
     return ImageFont.truetype(path, 30)
 
 
+def volti(img):
+    """Riquadri dei volti/teste (Haiku), per non metterci sopra frecce o etichette."""
+    r = R.claude('List every human or animal face/head in this image as boxes in percent: x1,y1,x2,y2 one per line (e.g. 20,10,35,40). '
+                 'Make boxes generous (include hair). Reply only with the lines, or NONE.', modello='claude-haiku-4-5-20251001', max_tokens=200, immagine=img)
+    out = []
+    for riga in r.splitlines():
+        n = [float(x) for x in re.findall(r'\d+(?:\.\d+)?', riga)]
+        if len(n) == 4:
+            out.append((n[0] / 100 * W - 15, n[1] / 100 * H - 15, n[2] / 100 * W + 15, n[3] / 100 * H + 15))
+    return out
+
+
+def sovrapp(a, b):
+    return not (a[2] < b[0] or a[0] > b[2] or a[3] < b[1] or a[1] > b[3])
+
+
+def dentro(p, b):
+    return b[0] <= p[0] <= b[2] and b[1] <= p[1] <= b[3]
+
+
 def componi(img, sp, variante):
     im = img.copy(); d = ImageDraw.Draw(im)
     sx, sy = dove(img, sp['soggetto'])
@@ -91,15 +112,29 @@ def componi(img, sp, variante):
         testo = sp['banner'].upper().rstrip('.')
         f = font_per(testo, BEBAS, W - 60, 150)
         d.text((W / 2, bh / 2 + 4), testo, font=f, fill=(255, 255, 255), anchor='mm')
+        facce = volti(img)   # 22 nov (Giorgio): frecce ed etichette MAI sopra persone o scritte
+        occupati = [(0, 0, W, bh)] + facce
         for k, lab in enumerate((sp.get('labels') or [])[:2]):
             ox, oy = dove(img, lab.replace('Your ', ''))
             fo = ImageFont.truetype(ARCHIVO, 34)
-            lw = d.textlength(lab, font=fo) + 36
-            lx = 30 if ox > W / 2 else W - lw - 30   # etichetta dal lato opposto all'oggetto, freccia che lo raggiunge
-            ly = bh + 30 + k * 90
-            d.rounded_rectangle((lx, ly, lx + lw, ly + 60), radius=18, fill=(255, 255, 255), outline=(0, 0, 0), width=3)
+            lw = d.textlength(lab, font=fo) + 36; lh = 60
+            scelta = None
+            for dx, dy in ((-lw - 90, -40), (90, -40), (-lw / 2, 110), (-lw / 2, -170), (-lw - 90, 60), (90, 60)):
+                lx, ly = max(15, min(W - lw - 15, ox + dx)), max(bh + 15, min(H - lh - 15, oy + dy))
+                box = (lx, ly, lx + lw, ly + lh)
+                ax, ay = (lx + lw / 2, ly + lh / 2)
+                linea = [(ax + (ox - ax) * t / 10, ay + (oy - ay) * t / 10) for t in range(2, 9)]
+                if any(sovrapp(box, o) for o in occupati) or any(dentro(pt, o) for pt in linea for o in occupati) or (lx + lw > W * .8 and ly + lh > H * .82):
+                    continue
+                scelta = (lx, ly); break
+            if not scelta:
+                R.log('etichetta senza posto libero, saltata:', lab); continue
+            lx, ly = scelta
+            occupati.append((lx - 10, ly - 10, lx + lw + 10, ly + lh + 10))
+            d.rounded_rectangle((lx, ly, lx + lw, ly + lh), radius=18, fill=(255, 255, 255), outline=(0, 0, 0), width=3)
             d.text((lx + 18, ly + 30), lab, font=fo, fill=(0, 0, 0), anchor='lm')
-            freccia(d, (lx + lw / 2, ly + 62), (ox, oy - 20), (214, 20, 26), 12, .2 if k == 0 else -.2)
+            ax = lx + lw / 2 + (lw / 2 if ox > lx + lw else -lw / 2 if ox < lx else 0); ay = ly + lh / 2 + (lh / 2 if oy > ly + lh else -lh / 2 if oy < ly else 0)
+            freccia(d, (ax, ay), (ox, oy), (214, 20, 26), 10, 0.0)
     elif STILE == 'beyond_history':
         a = (sx + (260 if sx < W / 2 else -260), max(60, sy - 230)) if variante == 1 else (sx + (300 if sx < W / 2 else -300), sy - 60)
         freccia(d, a, (sx + (40 if a[0] > sx else -40), sy - 30), (230, 22, 22), 30, .18)
@@ -119,8 +154,63 @@ def componi(img, sp, variante):
     return im
 
 
+
+def copertina_mappa(titolo, v):
+    """Stile africaregions (22 nov): territorio VERO (confini US Census) rosso luminoso su vista satellitare, segnaposti, freccia bianca,
+    STAY AWAY / FROM <STATO>. Nessuna persona, scritta lontana dal territorio, nulla nell'angolo della durata."""
+    stato = re.split(r'\s+(?:Is|Are)\s+Hiding', titolo)[0].strip()
+    gj = R.http('https://raw.githubusercontent.com/PublicaMundi/MappingAPI/master/data/geojson/us-states.json', timeout=60)
+    f = next(x for x in gj['features'] if x['properties']['name'].lower() == stato.lower())
+    g = f['geometry']; polys = g['coordinates'] if g['type'] == 'MultiPolygon' else [g['coordinates']]
+    anelli = [[(lo - 360 if lo > 0 else lo, la) for lo, la in pol[0]] for pol in polys]
+    pts = [p for a in anelli for p in a]
+    import math
+    lat0 = sum(p[1] for p in pts) / len(pts); kx = math.cos(math.radians(lat0))
+    xs = [p[0] * kx for p in pts]; ys = [p[1] for p in pts]
+    bw, bh_ = max(xs) - min(xs), max(ys) - min(ys)
+    box = (W * .44, H * .06, W * .96, H * .78)   # territorio a destra, scritta in basso a sinistra
+    sc = min((box[2] - box[0]) / bw, (box[3] - box[1]) / bh_)
+    ox = box[0] + ((box[2] - box[0]) - bw * sc) / 2; oy = box[1] + ((box[3] - box[1]) - bh_ * sc) / 2
+    pr = lambda lo, la: (ox + (lo * kx - min(xs)) * sc, oy + (max(ys) - la) * sc)
+    sfondo = klein(f'Top-down satellite photograph of the terrain of {stato}, United States: mountains, rivers, forests, coastline, natural colors, '
+                   'sharp, high detail, no text, no labels, no borders')
+    im = sfondo.convert('RGBA')
+    maschera = Image.new('L', (W, H), 0); dm = ImageDraw.Draw(maschera)
+    for a in anelli:
+        if len(a) > 8:
+            dm.polygon([pr(*p) for p in a], fill=255)
+    bagliore = maschera.filter(ImageFilter.MaxFilter(9)).filter(ImageFilter.GaussianBlur(10))
+    im = Image.composite(Image.new('RGBA', (W, H), (90, 220, 255, 255)), im, bagliore)
+    rosso = Image.new('RGBA', (W, H), (235, 30, 35, 255))
+    im = Image.composite(Image.blend(im, rosso, .85), im, maschera).convert('RGB'); d = ImageDraw.Draw(im)
+    # segnaposti dentro il territorio
+    import random as _r
+    _r.seed(stato + str(v)); messi = 0
+    while messi < 4:
+        x = _r.uniform(box[0], box[2]); y = _r.uniform(box[1], box[3])
+        if maschera.getpixel((int(x), int(y))) > 0 and all(maschera.getpixel((int(x + dx), int(y + dy))) > 0 for dx, dy in ((-28, 0), (28, 0), (0, -28), (0, 28))):
+            d.ellipse((x - 26, y - 26, x + 26, y + 26), fill=(180, 10, 15), outline=(255, 255, 255), width=5)
+            d.text((x, y + 1), '!', font=ImageFont.truetype(A_FONT, 40), fill=(255, 255, 255), anchor='mm'); messi += 1
+    # scritta in basso a sinistra, lontana dal territorio e dalla durata
+    righe = ['STAY AWAY', 'FROM ' + stato.upper()]
+    y = H * (.56 if v == 1 else .6)
+    for k, r in enumerate(righe):
+        fo = font_per(r, A_FONT, W * .42, 120)
+        tw = d.textlength(r, font=fo)
+        d.rectangle((28, y - 6, 28 + tw + 28, y + fo.size * 1.12), fill=(0, 0, 0))
+        d.text((42, y), r, font=fo, fill=(255, 255, 255) if k == 0 else (255, 226, 0))
+        y += fo.size * 1.2
+    cx_, cy_ = [sum(c) / len(c) for c in zip(*[pr(*p) for p in max(anelli, key=len)])]
+    freccia(d, (W * .2, H * .5), (cx_ - 60, cy_ + 20), (255, 255, 255), 16, -.25)
+    return im
+
+
 def main():
     c = json.load(open(os.path.join(OUT, 'copione.json')))
+    if STILE == 'mappa':
+        for v in (1, 2):
+            copertina_mappa(c['titolo'], v).save(os.path.join(OUT, f'copertina_{v}.jpg'), quality=92)
+        return
     sp = spec(c['titolo']); R.log('copertina:', sp)
     base = (C.get('stile_copertina_ai') or 'Hyper-realistic, highly detailed, vivid colors, cinematic lighting, YouTube thumbnail photo, 16:9, '
             'no text, no letters, no logos, correct anatomy') + '. ' + sp['scene']

@@ -25,7 +25,18 @@ c = json.load(open(os.path.join(D, 'copione.json')))
 titolo = c['titolo'].strip()
 P = {'privacy': 'public', 'pubblica_il': E('PUBBLICA_IL') or None, 'youtube_category_id': '27', 'playlist': E('PLAYLIST') or '',
      'youtube_description_footer': E('FOOTER') or ''}
-descr, tags = YT.testi(P, titolo, c.get('descrizione') or '', [], c.get('tag') or [])
+cap = []   # capitoli nella descrizione (regola di sempre): 0:00 obbligatorio, almeno 10 s l'uno
+try:
+    ult = -99
+    for t, n in json.load(open(os.path.join(D, 'capitoli.json'))):
+        t = 0 if not cap else t
+        if t - ult >= 10:
+            cap.append(f"{int(t // 60)}:{int(t % 60):02d} {n}"); ult = t
+except Exception:
+    pass
+if cap and not cap[0].startswith('0:00'):
+    cap.insert(0, '0:00 Intro')
+descr, tags = YT.testi(P, titolo, c.get('descrizione') or '', cap, c.get('tag') or [])
 descr += '\n\n' + hashtag(tags)
 cop = os.path.join(D, 'copertina_1.jpg')
 vid, nota = YT.carica_youtube(P, os.path.join(D, 'prova.mp4'), titolo, descr, tags, cop, 'en')
