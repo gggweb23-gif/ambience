@@ -1,0 +1,19 @@
+name: Trascrizione video competitor
+on:
+  workflow_dispatch:
+    inputs:
+      video: {required: true, type: string}
+permissions: {contents: write}
+jobs:
+  t:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - env: {VIDEO: '${{ inputs.video }}', RAPIDAPI_KEY: '${{ secrets.RAPIDAPI_KEY }}'}
+        run: python3 strumenti/trascrizione.py
+      - if: always()
+        run: |
+          git config user.name render-bot; git config user.email render-bot@users.noreply.github.com
+          git add competitor_trascrizioni && git commit -qm "Trascrizioni competitor" || exit 0
+          for i in 1 2 3 4 5; do (git pull --rebase -q || { git rebase --abort; git pull --rebase -q -X theirs; }) && git push -q && break; sleep $((i*5)); done
