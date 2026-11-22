@@ -1,0 +1,1425 @@
+{
+ "titolo": "Trump Calls Putin 'Friend' — Then Can't Speak For America",
+ "angolo": "Day 6: Trump's 'I can't speak to America' answer, Zelensky's 'Yalta 2 failed' claim after 111 missiles, and Putin's invitation sending Europe to Moscow.",
+ "descrizione": "Trump Calls Putin 'Friend' — Then Can't Speak For America. On Friday Trump defended calling Putin a friend but said he 'can't speak to America' on whether Putin is a friend of the US. On Saturday Zelensky said the Shenzhen summit was 'very unsuccessful' for Putin, hours after a 111-missile barrage. Meanwhile Putin has invited Europeans to Moscow, and Bloomberg reports the E3 are weighing it. Every fact here comes from AP, CNN, Bloomberg, the Jerusalem Post and other cited outlets.",
+ "tag": [
+  "Trump Calls Putin 'Friend' — Then Can't Speak For America",
+  "Trump Putin friend",
+  "I can't speak to America",
+  "Shenzhen summit",
+  "Trump Xi Putin summit",
+  "Zelensky Yalta 2",
+  "Putin invites Europeans Moscow",
+  "Stubb Ukraine clause",
+  "111 missiles Ukraine",
+  "Coalition of the Willing Berlin",
+  "Ukraine war news",
+  "Trump Ukraine peace",
+  "Zelensky Putin killer",
+  "E3 Moscow meeting"
+ ],
+ "fonti_link": [
+  "https://www.yahoo.com/news/politics/articles/trump-defends-calling-putin-friend-112918539.html",
+  "https://www.1news.co.nz/2026/11/21/trump-defends-calling-putin-his-friend-but-i-cant-speak-to-america/",
+  "https://edition.cnn.com/2026/11/20/politics/trump-news-conference-takeaways",
+  "https://c-span.org/clip/white-house-event/president-trump-says-i-cant-speak-to-america-when-asked-if-vladimir-putin-is-a-friend-to-the-us/5211290",
+  "https://www.joe.co.uk/news/zelenskyy-makes-bold-statement-after-trump-called-putin-his-friend-556278",
+  "https://www.archynewsy.com/zelensky-calls-putin-killer-as-trump-defends-friend-after-massive-russian-attack/",
+  "https://www.kyivpost.com/post/90722",
+  "https://english.nv.ua/nation/u-s-removed-ukraine-section-from-summit-declaration-stubb-50661199.html",
+  "https://www.pravda.com.ua/eng/news/2026/11/20/8063799/",
+  "https://www.yahoo.com/news/politics/articles/finnish-president-says-us-removed-120200589.html",
+  "https://www.archynewsy.com/finlands-stubb-u-s-cut-ukraine-reference-from-trump-xi-putin-declaration/",
+  "https://www.kyivpost.com/post/90819",
+  "https://english.nv.ua/nation/zelenskyy-putin-failed-to-secure-yalta-2-world-division-at-u-s-china-russia-summit-50661323.html",
+  "https://jpost.com/international/article-915639",
+  "https://unn.ua/en/news/for-russia-it-was-unsuccessful-zelenskyy-on-the-russia-china-us-summit",
+  "https://english.nv.ua/nation/pistorius-urges-europe-to-keep-dialogue-with-putin-open-50661079.html",
+  "https://business-standard.com/amp/world-news/trump-defends-ties-with-putin-as-russia-intensifies-attacks-on-ukraine-126112100144_1.html",
+  "https://www.oreanda-news.com/en/v_mire/three-key-european-countries-wanted-to-hold-a-meeting-with-russia/article1605508/",
+  "https://world-today-journal.com/uk-germany-france-weigh-talks-with-russia-on-ukraine-bloomberg-says/",
+  "https://www.newsy-today.com/pistorius-welcomes-putin-invite-demands-concrete-results/",
+  "https://www.aol.com/articles/trump-tells-europe-defund-ukraine-180050000.html",
+  "https://www.csmonitor.com/USA/Foreign-Policy/2026/1120/putin-trump-xi-summit-ukraine-war",
+  "https://www.cnn.com/2026/11/17/politics/live-news/trump-visit-china-philippines",
+  "https://www.archyde.com/trump-calls-putin-my-friend-in-shenzhen-doubles-down-on-truth-social/"
+ ],
+ "personaggi": {
+  "trump": {
+   "commons": "Donald Trump",
+   "chi": "Donald Trump, President of the United States",
+   "pose": {
+    "deciso": {
+     "posa": "standing firm, chin up, hands gesturing, confident stern expression"
+    }
+   }
+  },
+  "putin": {
+   "commons": "Vladimir Putin",
+   "chi": "Vladimir Putin, President of Russia",
+   "pose": {
+    "serio": {
+     "posa": "standing straight, hands folded, cold serious expression"
+    }
+   }
+  },
+  "zelensky": {
+   "commons": "Volodymyr Zelenskyy",
+   "chi": "Volodymyr Zelensky, President of Ukraine",
+   "pose": {
+    "parla": {
+     "posa": "speaking, one hand raised, determined expression"
+    },
+    "serio": {
+     "posa": "standing, arms at sides, grim serious expression"
+    }
+   }
+  },
+  "peskov": {
+   "commons": "Dmitry Peskov",
+   "chi": "Dmitry Peskov, Kremlin spokesman",
+   "pose": {
+    "calmo": {
+     "posa": "standing calm, hands clasped, neutral expression"
+    }
+   }
+  }
+ },
+ "sets": {
+  "s01": {
+   "descr": "Kyiv night sky streaked with glowing missile trails and bright interceptor flashes over dark rooftops",
+   "luogo": "KYIV, UKRAINE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s02": {
+   "descr": "Metro station platform in Kyiv, empty, blankets and thermoses left on the floor under dim lights",
+   "luogo": "KYIV, UKRAINE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s03": {
+   "descr": "Gleaming glass summit hall in Shenzhen at dusk, three empty chairs in a row before a stage, camera flashes frozen",
+   "luogo": "SHENZHEN, CHINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s04": {
+   "descr": "White House briefing room podium with microphones, dark blue curtain, harsh camera lights, empty rows of seats",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "trump",
+     "posa": "deciso",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s05": {
+   "descr": "Close view of a podium microphone cluster glowing under studio lights in the briefing room",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s06": {
+   "descr": "Shenzhen skyline at night, glittering towers over the bay, the summit venue lit up",
+   "luogo": "SHENZHEN, CHINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s07": {
+   "descr": "Long table in Shenzhen conference room with three nameless chairs, handshake-height lamp, golden light",
+   "luogo": "SHENZHEN, CHINA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "putin",
+     "posa": "serio",
+     "lato": "sx"
+    },
+    {
+     "chi": "trump",
+     "posa": "deciso",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s08": {
+   "descr": "Red-carpeted airport tarmac in Shenzhen with a gleaming presidential jet and empty stairs at dawn",
+   "luogo": "SHENZHEN, CHINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s09": {
+   "descr": "Interior of Air Force One cabin, leather seat, phone handset on a wooden desk, clouds in window",
+   "luogo": "ABOARD AIR FORCE ONE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s10": {
+   "descr": "Berlin conference hall with a horseshoe table, speakerphone in the center, empty chairs, afternoon light",
+   "luogo": "BERLIN, GERMANY",
+   "effetto": "none",
+   "cast": []
+  },
+  "s11": {
+   "descr": "Berlin Chancellery building exterior in grey November light with empty forecourt and bare trees, where the Coalition of the Willing met",
+   "luogo": "BERLIN, GERMANY",
+   "effetto": "none",
+   "cast": []
+  },
+  "s12": {
+   "descr": "Ukrainian apartment block with blown-out windows at dawn, smoke thin in the sky, empty street",
+   "luogo": "UKRAINE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s13": {
+   "descr": "Oval Office desk, golden curtains, phone and a small globe, warm morning light",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s14": {
+   "descr": "Marble hall of the Helsinki presidential palace with tall windows and winter light",
+   "luogo": "HELSINKI, FINLAND",
+   "effetto": "none",
+   "cast": []
+  },
+  "s15": {
+   "descr": "Close view of a printed draft declaration on a polished conference table, one paragraph blacked out with a thick marker bar, a pen beside it, in a Helsinki government meeting room with soft winter light",
+   "luogo": "HELSINKI, FINLAND",
+   "effetto": "none",
+   "cast": []
+  },
+  "s16": {
+   "descr": "Brussels-style European Union headquarters glass facade, rainy grey evening",
+   "luogo": "BRUSSELS, BELGIUM",
+   "effetto": "pioggia",
+   "cast": []
+  },
+  "s17": {
+   "descr": "Copenhagen harbor at dusk, still water, old colorful buildings, empty quay",
+   "luogo": "COPENHAGEN, DENMARK",
+   "effetto": "none",
+   "cast": []
+  },
+  "s18": {
+   "descr": "Kremlin tower and red walls over the Moscow river in cold sunrise",
+   "luogo": "MOSCOW, RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s19": {
+   "descr": "Ornate Kremlin office with long desk, green lamp and heavy drapes, empty",
+   "luogo": "MOSCOW, RUSSIA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "peskov",
+     "posa": "calmo",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s20": {
+   "descr": "Empty Moscow airport VIP lounge with leather chairs and a window onto a tarmac",
+   "luogo": "MOSCOW, RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s21": {
+   "descr": "Snowy road leading toward the Kremlin gates, lone lamp posts, grey dawn",
+   "luogo": "MOSCOW, RUSSIA",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s22": {
+   "descr": "Ukrainian presidential office in Kyiv with a map-less wooden desk and window onto sandbagged street",
+   "luogo": "KYIV, UKRAINE",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "zelensky",
+     "posa": "parla",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s23": {
+   "descr": "Press room in Kyiv with rows of empty chairs and a lectern, camera tripods",
+   "luogo": "KYIV, UKRAINE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s24": {
+   "descr": "Historic Livadia Palace courtyard in Crimea, stone columns, grey sky, empty chairs in a garden",
+   "luogo": "YALTA, CRIMEA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s25": {
+   "descr": "Faded black-and-white style sepia conference table with three armchairs in a palace room",
+   "luogo": "YALTA, CRIMEA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s26": {
+   "descr": "Missile launch trucks parked in a snowy field at night, glowing exhaust",
+   "luogo": "RUSSIA",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s27": {
+   "descr": "Ukrainian power plant silhouette with floodlights and steam at night",
+   "luogo": "UKRAINE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s28": {
+   "descr": "Interceptor missile launcher in a field at dawn, ground fog, crates",
+   "luogo": "UKRAINE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s29": {
+   "descr": "Berlin Bendlerblock German Defence Ministry courtyard in cold daylight, stone facade, empty paving, bare trees",
+   "luogo": "BERLIN, GERMANY",
+   "effetto": "none",
+   "cast": []
+  },
+  "s30": {
+   "descr": "German Ministry of Defence conference room in Berlin with a long table, a closed door and empty chairs, grey light, a single closed folder in the center",
+   "luogo": "BERLIN, GERMANY",
+   "effetto": "none",
+   "cast": []
+  },
+  "s31": {
+   "descr": "Congress dome in Washington under gold winter sunrise, empty steps",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s32": {
+   "descr": "Finnish Presidential Palace study in Helsinki with a desk, a draft paper with a highlighted paragraph and a pen, tall windows with pale winter light, empty",
+   "luogo": "HELSINKI, FINLAND",
+   "effetto": "none",
+   "cast": []
+  },
+  "s33": {
+   "descr": "Calendar-like wall clock and an hourglass on a wooden desk in a dim office, January snow outside the window",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s34": {
+   "descr": "Presidential podium in a ballroom with a blue backdrop and empty gilded chairs",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "trump",
+     "posa": "deciso",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s35": {
+   "descr": "Trump Tower-like gold-and-glass lobby in Manhattan, empty, polished floor",
+   "luogo": "NEW YORK, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s36": {
+   "descr": "Two empty armchairs facing each other under a spotlight in a dark studio",
+   "luogo": "",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "zelensky",
+     "posa": "serio",
+     "lato": "sx"
+    },
+    {
+     "chi": "putin",
+     "posa": "serio",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s37": {
+   "descr": "Frontline trench in muddy Donbas field at grey dawn, sandbags and wire",
+   "luogo": "DONBAS, UKRAINE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s38": {
+   "descr": "Long empty negotiating table in a neutral European palace, water glasses, soft chandelier light",
+   "luogo": "GENEVA, SWITZERLAND",
+   "effetto": "none",
+   "cast": []
+  },
+  "s39": {
+   "descr": "Berlin Chancellery press hall with rows of empty chairs, a lectern with microphones and camera tripods, evening light through windows",
+   "luogo": "BERLIN, GERMANY",
+   "effetto": "pioggia",
+   "cast": []
+  },
+  "s40": {
+   "descr": "Empty meeting room of a European national security council, a round table with folders and a speakerphone, flag-less walls, evening light through windows over a European capital",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s41": {
+   "descr": "Berlin Chancellery glass-and-concrete building lit at dusk, empty plaza",
+   "luogo": "BERLIN, GERMANY",
+   "effetto": "none",
+   "cast": []
+  },
+  "s42": {
+   "descr": "Train crossing a snowy Russian forest toward Moscow in blue twilight",
+   "luogo": "RUSSIA",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s43": {
+   "descr": "Moscow Kremlin Senate Palace corridor with a desk telephone and secure handset on a polished table in a government office, heavy drapes, dim amber light, empty",
+   "luogo": "MOSCOW, RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s44": {
+   "descr": "Flag-less NATO headquarters-style lobby with polished floor and glass walls, empty",
+   "luogo": "BRUSSELS, BELGIUM",
+   "effetto": "none",
+   "cast": []
+  },
+  "s45": {
+   "descr": "Kyiv Saint Sophia cathedral golden domes under a clear cold sky, empty square",
+   "luogo": "KYIV, UKRAINE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s46": {
+   "descr": "Night view through a surveillance camera of a quiet Moscow street with a black car idling",
+   "luogo": "MOSCOW, RUSSIA",
+   "effetto": "mirino",
+   "cast": []
+  },
+  "s47": {
+   "descr": "White House South Lawn at dusk with the helicopter pad lit and long shadows",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s48": {
+   "descr": "Smoking ruins of a market stall street in a Ukrainian town, dust settling, no bodies",
+   "luogo": "UKRAINE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s49": {
+   "descr": "Dark Kyiv skyline with distant orange glows and a bright full moon",
+   "luogo": "KYIV, UKRAINE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s50": {
+   "descr": "Kyiv Mariinsky Palace exterior and the government quarter at sunrise, cold light on the neoclassical facade, empty street with sandbag barriers and bare trees",
+   "luogo": "KYIV, UKRAINE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s51": {
+   "descr": "Studio set with a desk, glowing map-less wall and cameras, empty chairs, news-room mood",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s52": {
+   "descr": "Washington State Department-style diplomatic negotiation room with a long table, empty chairs and a draft document with a crossed-out section at the center, grey daylight through tall windows",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s53": {
+   "descr": "Great Hall of the People in Beijing exterior at sunset, empty plaza and long columns, hazy golden light",
+   "luogo": "BEIJING, CHINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s54": {
+   "descr": "Empty hallway of the White House West Wing with portraits-free walls and red carpet",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s55": {
+   "descr": "Ukrainian soldier-free bunker corridor with a single lit lamp and cables on the ceiling",
+   "luogo": "UKRAINE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s56": {
+   "descr": "Frozen Dnipro river bank with bare trees and snow, dawn glow",
+   "luogo": "KYIV, UKRAINE",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s57": {
+   "descr": "Red Square cobblestones at night under floodlights, empty",
+   "luogo": "MOSCOW, RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s58": {
+   "descr": "Grand Shenzhen summit hall interior with two ornate armchairs angled toward each other on a carpeted stage, a low table between them with two glasses of water, warm spotlights, rows of empty press seats and camera tripods behind",
+   "luogo": "SHENZHEN, CHINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s59": {
+   "descr": "Trump motorcade-free Pennsylvania Avenue at night with the lit White House in the distance",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s60": {
+   "descr": "Split view of two empty podiums in a summit hall, one in front of a Washington-style blue curtain and one before a Kyiv-style dark wall, a long table between them under bright light",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s61": {
+   "descr": "Beijing Great Hall-style red-columned corridor, empty, glowing lanterns",
+   "luogo": "BEIJING, CHINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s62": {
+   "descr": "Wide view of Shenzhen's Yantian container port at dusk, tall gantry cranes and stacked colorful containers over calm water, with the glittering Shenzhen skyline on the horizon",
+   "luogo": "SHENZHEN, CHINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s63": {
+   "descr": "Interior of the International Criminal Court courtroom in The Hague, empty judges' bench and public gallery behind glass, cool light",
+   "luogo": "THE HAGUE, NETHERLANDS",
+   "effetto": "none",
+   "cast": []
+  },
+  "s64": {
+   "descr": "International Criminal Court building in The Hague, glass facade, grey sky, empty plaza",
+   "luogo": "THE HAGUE, NETHERLANDS",
+   "effetto": "none",
+   "cast": []
+  },
+  "s65": {
+   "descr": "Shenzhen summit conference hall after the event, a long empty table with three microphones and blank notepads, glass towers visible through floor-to-ceiling windows at dusk, dim lights",
+   "luogo": "SHENZHEN, CHINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s66": {
+   "descr": "Close shot of a draft declaration page with a deleted paragraph and a green approving checkmark in the margin, on a desk in the Finnish Presidential Palace, soft light, empty room",
+   "luogo": "HELSINKI, FINLAND",
+   "effetto": "none",
+   "cast": []
+  },
+  "s67": {
+   "descr": "Lone clock tower in Kyiv at midnight with sirens-free silence, cold mist",
+   "luogo": "KYIV, UKRAINE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s68": {
+   "descr": "Trump pointing pose at a lectern in the Oval Office with golden drapes",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "trump",
+     "posa": "deciso",
+     "lato": "dx"
+    },
+    {
+     "chi": "zelensky",
+     "posa": "serio",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s69": {
+   "descr": "US Capitol rotunda interior viewed from below, empty marble floor and the painted dome, soft winter light",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s70": {
+   "descr": "Kyiv Pedestrian Bridge over the Dnipro at sunrise with a view of the golden domes of the Lavra in the distance, mist on the river, empty",
+   "luogo": "KYIV, UKRAINE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s71": {
+   "descr": "Kremlin Senate building facade across Red Square at dusk, cold blue sky, floodlit towers, empty cobblestones",
+   "luogo": "MOSCOW, RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s72": {
+   "descr": "Hotel corridor of a Moscow-style grand hotel with a closed door, a luggage cart holding a lone suitcase, warm lamps, quiet carpeted hallway",
+   "luogo": "MOSCOW, RUSSIA",
+   "effetto": "none",
+   "cast": []
+  }
+ },
+ "scene": [
+  {
+   "testo": "A hundred and eleven missiles in one night, according to Zelensky. Ukraine's sky lit up.",
+   "fonti": [
+    "https://unn.ua/en/news/for-russia-it-was-unsuccessful-zelenskyy-on-the-russia-china-us-summit"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s01"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 111,
+    "decimali": 0,
+    "prefisso": "",
+    "unita": "MISSILES",
+    "sopra": "ONE NIGHT"
+   }
+  },
+  {
+   "testo": "Hours after Trump, Putin and Xi met together in China.",
+   "fonti": [
+    "https://www.aol.com/articles/trump-tells-europe-defund-ukraine-180050000.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s03"
+   }
+  },
+  {
+   "testo": "Now Donald Trump is being asked: is Putin a friend to America?",
+   "fonti": [
+    "https://edition.cnn.com/2026/11/20/politics/trump-news-conference-takeaways"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s04"
+   }
+  },
+  {
+   "testo": "His answer has drawn wide attention. He said: I can't speak to America.",
+   "fonti": [
+    "https://www.yahoo.com/news/politics/articles/trump-defends-calling-putin-friend-112918539.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s05"
+   },
+   "citazione": {
+    "chi": "trump",
+    "posa": "deciso",
+    "testo": "I can't speak to America."
+   },
+   "titolo_card": true
+  },
+  {
+   "testo": "The big question: what does Trump's friendship with Putin actually deliver?",
+   "fonti": [
+    "https://edition.cnn.com/2026/11/20/politics/trump-news-conference-takeaways"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s13"
+   },
+   "grafica": {
+    "tipo": "titolo",
+    "testo": "WHAT DOES IT BUY?",
+    "sotto": "Trump, Putin and the Shenzhen fallout"
+   }
+  },
+  {
+   "testo": "First, the scene. Shenzhen, Thursday, November 19. A first-ever three-way summit of Trump, Xi and Putin.",
+   "fonti": [
+    "https://www.cnn.com/2026/11/17/politics/live-news/trump-visit-china-philippines"
+   ],
+   "capitolo": "THE FRIEND QUESTION",
+   "visivo": {
+    "tipo": "set",
+    "set": "s06"
+   }
+  },
+  {
+   "testo": "Trump, Putin and Xi sat down together for the first time.",
+   "fonti": [
+    "https://www.cnn.com/2026/11/17/politics/live-news/trump-visit-china-philippines"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s07"
+   }
+  },
+  {
+   "testo": "Trump greeted Putin warmly and repeatedly called him his friend, AP reports.",
+   "fonti": [
+    "https://www.archyde.com/trump-calls-putin-my-friend-in-shenzhen-doubles-down-on-truth-social/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s58"
+   }
+  },
+  {
+   "testo": "Friday, back at the White House, he was asked about it directly.",
+   "fonti": [
+    "https://www.yahoo.com/news/politics/articles/trump-defends-calling-putin-friend-112918539.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s54"
+   }
+  },
+  {
+   "testo": "AP reports he made no effort to walk the comments back.",
+   "fonti": [
+    "https://www.yahoo.com/news/politics/articles/trump-defends-calling-putin-friend-112918539.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s34"
+   }
+  },
+  {
+   "testo": "He did say Putin would love to end the war.",
+   "fonti": [
+    "https://www.yahoo.com/news/politics/articles/trump-defends-calling-putin-friend-112918539.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s47"
+   }
+  },
+  {
+   "testo": "But whether Putin is a friend to America? Trump said he can't speak to that.",
+   "fonti": [
+    "https://c-span.org/clip/white-house-event/president-trump-says-i-cant-speak-to-america-when-asked-if-vladimir-putin-is-a-friend-to-the-us/5211290"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s05"
+   }
+  },
+  {
+   "testo": "CNN's Kaitlan Collins asked the question. Trump moved straight to his own relationship with Putin.",
+   "fonti": [
+    "https://edition.cnn.com/2026/11/20/politics/trump-news-conference-takeaways",
+    "https://www.yahoo.com/news/politics/articles/trump-defends-calling-putin-friend-112918539.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s51"
+   }
+  },
+  {
+   "testo": "He called it a very good relationship, and said it helps keep the US safe.",
+   "fonti": [
+    "https://c-span.org/clip/white-house-event/president-trump-says-i-cant-speak-to-america-when-asked-if-vladimir-putin-is-a-friend-to-the-us/5211290",
+    "https://edition.cnn.com/2026/11/20/politics/trump-news-conference-takeaways"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s59"
+   }
+  },
+  {
+   "testo": "But a sharper response was still coming. It came from Kyiv.",
+   "fonti": [
+    "https://www.joe.co.uk/news/zelenskyy-makes-bold-statement-after-trump-called-putin-his-friend-556278"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s22"
+   }
+  },
+  {
+   "testo": "Zelensky told CNN it's up to Trump how he describes Putin.",
+   "fonti": [
+    "https://www.joe.co.uk/news/zelenskyy-makes-bold-statement-after-trump-called-putin-his-friend-556278"
+   ],
+   "capitolo": "KYIV ANSWERS",
+   "visivo": {
+    "tipo": "set",
+    "set": "s23"
+   }
+  },
+  {
+   "testo": "But for Ukraine, he said, the picture is different.",
+   "fonti": [
+    "https://www.joe.co.uk/news/zelenskyy-makes-bold-statement-after-trump-called-putin-his-friend-556278"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s45"
+   },
+   "citazione": {
+    "chi": "zelensky",
+    "posa": "parla",
+    "testo": "For us, he is an enemy… for us he's a killer"
+   }
+  },
+  {
+   "testo": "Zelensky also argued that calling Putin a friend sends a signal.",
+   "fonti": [
+    "https://www.archynewsy.com/zelensky-calls-putin-killer-as-trump-defends-friend-after-massive-russian-attack/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s67"
+   }
+  },
+  {
+   "testo": "In his words, Putin then 'doesn't feel enough pressure'.",
+   "fonti": [
+    "https://www.archynewsy.com/zelensky-calls-putin-killer-as-trump-defends-friend-after-massive-russian-attack/"
+   ],
+   "visivo": {
+    "tipo": "frase",
+    "testo": "In his words, Putin then 'doesn't feel enough pressure'."
+   }
+  },
+  {
+   "testo": "Trump's own framing was different. He pointed to hatred between two men.",
+   "fonti": [
+    "https://www.yahoo.com/news/politics/articles/trump-defends-calling-putin-friend-112918539.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s36"
+   }
+  },
+  {
+   "testo": "He said Zelensky and Putin hate each other, and both are stuck in the war.",
+   "fonti": [
+    "https://www.yahoo.com/news/politics/articles/trump-defends-calling-putin-friend-112918539.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s37"
+   },
+   "citazione": {
+    "chi": "trump",
+    "posa": "deciso",
+    "testo": "You have two people that hate each other, Zelenskyy and Putin."
+   }
+  },
+  {
+   "testo": "The war is now more than four years old.",
+   "fonti": [
+    "https://www.1news.co.nz/2026/11/21/trump-defends-calling-putin-his-friend-but-i-cant-speak-to-america/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s12"
+   }
+  },
+  {
+   "testo": "And then came Saturday. Zelensky made a second, bolder claim.",
+   "fonti": [
+    "https://jpost.com/international/article-915639"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s50"
+   }
+  },
+  {
+   "testo": "The summit, he said, was very unsuccessful for Russia.",
+   "fonti": [
+    "https://jpost.com/international/article-915639",
+    "https://unn.ua/en/news/for-russia-it-was-unsuccessful-zelenskyy-on-the-russia-china-us-summit"
+   ],
+   "capitolo": "YALTA 2 FAILED",
+   "visivo": {
+    "tipo": "set",
+    "set": "s24"
+   },
+   "citazione": {
+    "chi": "zelensky",
+    "posa": "serio",
+    "testo": "The summit was very unsuccessful for Russia."
+   }
+  },
+  {
+   "testo": "Why? Zelensky says Putin wanted a new Yalta, a redrawing of the world and its borders.",
+   "fonti": [
+    "https://www.kyivpost.com/post/90819",
+    "https://jpost.com/international/article-915639"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s25"
+   }
+  },
+  {
+   "testo": "Yalta, 1945. The conference where the US, Britain and the USSR agreed on the post-war order in Europe.",
+   "fonti": [
+    "https://jpost.com/international/article-915639"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s24"
+   }
+  },
+  {
+   "testo": "Zelensky said Putin's 'Yalta-2' did not work out.",
+   "fonti": [
+    "https://www.kyivpost.com/post/90819"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s61"
+   }
+  },
+  {
+   "testo": "He noted China refused to be drawn into such an arrangement.",
+   "fonti": [
+    "https://www.kyivpost.com/post/90819"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s62"
+   }
+  },
+  {
+   "testo": "And no public agreements on Ukraine or borders came out of Shenzhen.",
+   "fonti": [
+    "https://www.kyivpost.com/post/90819"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s65"
+   }
+  },
+  {
+   "testo": "That is Zelensky's reading. We found no Kremlin endorsement of it.",
+   "fonti": [
+    "https://www.kyivpost.com/post/90819"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s18"
+   }
+  },
+  {
+   "testo": "But there's a detail that adds weight: a deleted paragraph, according to Finland's president.",
+   "fonti": [
+    "https://www.pravda.com.ua/eng/news/2026/11/20/8063799/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s15"
+   }
+  },
+  {
+   "testo": "Finland's president Alexander Stubb says the draft declaration had a Ukraine paragraph.",
+   "fonti": [
+    "https://www.kyivpost.com/post/90722",
+    "https://www.pravda.com.ua/eng/news/2026/11/20/8063799/"
+   ],
+   "capitolo": "THE DELETED PARAGRAPH",
+   "visivo": {
+    "tipo": "set",
+    "set": "s14"
+   }
+  },
+  {
+   "testo": "He says the United States asked for it to be removed.",
+   "fonti": [
+    "https://www.kyivpost.com/post/90722",
+    "https://english.nv.ua/nation/u-s-removed-ukraine-section-from-summit-declaration-stubb-50661199.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s52"
+   }
+  },
+  {
+   "testo": "Stubb did not say what the paragraph contained. He said the wording was poor.",
+   "fonti": [
+    "https://www.kyivpost.com/post/90722"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s32"
+   }
+  },
+  {
+   "testo": "He said removing it was a good thing.",
+   "fonti": [
+    "https://english.nv.ua/nation/u-s-removed-ukraine-section-from-summit-declaration-stubb-50661199.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s66"
+   }
+  },
+  {
+   "testo": "Stubb explained that the draft contained no call to stop supporting Ukraine, according to European Pravda.",
+   "fonti": [
+    "https://www.pravda.com.ua/eng/news/2026/11/20/8063799/",
+    "https://www.archynewsy.com/finlands-stubb-u-s-cut-ukraine-reference-from-trump-xi-putin-declaration/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s11"
+   }
+  },
+  {
+   "testo": "The final text, titled 'Declaration towards Peace', makes no mention of Ukraine.",
+   "fonti": [
+    "https://www.archynewsy.com/finlands-stubb-u-s-cut-ukraine-reference-from-trump-xi-putin-declaration/",
+    "https://www.yahoo.com/news/politics/articles/finnish-president-says-us-removed-120200589.html"
+   ],
+   "visivo": {
+    "tipo": "frase",
+    "testo": "The final text, titled 'Declaration towards Peace', makes no mention of Ukraine."
+   }
+  },
+  {
+   "testo": "The declaration also called on the ICC to exercise restraint in pursuing state leaders.",
+   "fonti": [
+    "https://www.kyivpost.com/post/90722"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s64"
+   }
+  },
+  {
+   "testo": "Putin is subject to an ICC arrest warrant issued in March 2023 over the unlawful deportation of Ukrainian children.",
+   "fonti": [
+    "https://www.csmonitor.com/USA/Foreign-Policy/2026/1120/putin-trump-xi-summit-ukraine-war"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s63"
+   }
+  },
+  {
+   "testo": "Stubb also described a phone call. He said Trump called in to the Coalition of the Willing meeting in Berlin from his plane.",
+   "fonti": [
+    "https://www.yahoo.com/news/politics/articles/finnish-president-says-us-removed-120200589.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s09"
+   }
+  },
+  {
+   "testo": "According to Stubb, Trump said the war in Ukraine should end so that Europe can spend its money on other things.",
+   "fonti": [
+    "https://www.yahoo.com/news/politics/articles/finnish-president-says-us-removed-120200589.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s10"
+   }
+  },
+  {
+   "testo": "But then another twist. Putin invited the Europeans to Moscow.",
+   "fonti": [
+    "https://business-standard.com/amp/world-news/trump-defends-ties-with-putin-as-russia-intensifies-attacks-on-ukraine-126112100144_1.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s20"
+   }
+  },
+  {
+   "testo": "Putin said Russia had invited the Europeans to come to Moscow.",
+   "fonti": [
+    "https://english.nv.ua/nation/pistorius-urges-europe-to-keep-dialogue-with-putin-open-50661079.html"
+   ],
+   "capitolo": "COME TO MOSCOW",
+   "visivo": {
+    "tipo": "set",
+    "set": "s21"
+   }
+  },
+  {
+   "testo": "Putin said Europeans must travel there if they want a seat in talks.",
+   "fonti": [
+    "https://english.nv.ua/nation/u-s-removed-ukraine-section-from-summit-declaration-stubb-50661199.html",
+    "https://english.nv.ua/nation/pistorius-urges-europe-to-keep-dialogue-with-putin-open-50661079.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s57"
+   }
+  },
+  {
+   "testo": "Putin said that after hearing Europe's position, Russia would decide the format for further talks.",
+   "fonti": [
+    "https://www.newsy-today.com/pistorius-welcomes-putin-invite-demands-concrete-results/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s65"
+   }
+  },
+  {
+   "testo": "Bloomberg also reports, citing sources, that the E3 – France, Germany and Britain – are weighing a meeting with Russia.",
+   "fonti": [
+    "https://www.oreanda-news.com/en/v_mire/three-key-european-countries-wanted-to-hold-a-meeting-with-russia/article1605508/",
+    "https://world-today-journal.com/uk-germany-france-weigh-talks-with-russia-on-ukraine-bloomberg-says/"
+   ],
+   "visivo": {
+    "tipo": "mappa",
+    "centro": [
+     15,
+     50
+    ],
+    "larghezza": 50,
+    "paesi": [
+     {
+      "iso": "FRA",
+      "colore": "blu"
+     },
+     {
+      "iso": "DEU",
+      "colore": "blu"
+     },
+     {
+      "iso": "GBR",
+      "colore": "blu"
+     },
+     {
+      "iso": "RUS",
+      "colore": "rosso"
+     },
+     {
+      "iso": "UKR",
+      "colore": "giallo"
+     }
+    ],
+    "punti": [
+     {
+      "lon": 2.35,
+      "lat": 48.86,
+      "nome": "PARIS"
+     },
+     {
+      "lon": 13.4,
+      "lat": 52.52,
+      "nome": "BERLIN"
+     },
+     {
+      "lon": -0.12,
+      "lat": 51.5,
+      "nome": "LONDON"
+     },
+     {
+      "lon": 37.62,
+      "lat": 55.75,
+      "nome": "MOSCOW"
+     }
+    ],
+    "frecce": [
+     {
+      "da": [
+       13.4,
+       52.52
+      ],
+      "a": [
+       37.62,
+       55.75
+      ],
+      "colore": "arancio"
+     }
+    ]
+   }
+  },
+  {
+   "testo": "Bloomberg's sources say a national security adviser from one of them spoke with Putin's aide Yuri Ushakov.",
+   "fonti": [
+    "https://www.newsy-today.com/pistorius-welcomes-putin-invite-demands-concrete-results/",
+    "https://world-today-journal.com/uk-germany-france-weigh-talks-with-russia-on-ukraine-bloomberg-says/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s43"
+   }
+  },
+  {
+   "testo": "Ushakov proposed Moscow as the venue, according to Bloomberg's sources.",
+   "fonti": [
+    "https://world-today-journal.com/uk-germany-france-weigh-talks-with-russia-on-ukraine-bloomberg-says/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s19"
+   }
+  },
+  {
+   "testo": "No meeting has been confirmed as agreed.",
+   "fonti": [
+    "https://world-today-journal.com/uk-germany-france-weigh-talks-with-russia-on-ukraine-bloomberg-says/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s40"
+   }
+  },
+  {
+   "testo": "Germany's defense minister Boris Pistorius says: talks, yes. Moscow, no.",
+   "fonti": [
+    "https://english.nv.ua/nation/pistorius-urges-europe-to-keep-dialogue-with-putin-open-50661079.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s29"
+   }
+  },
+  {
+   "testo": "He says rejecting the invitation outright would send the wrong signal.",
+   "fonti": [
+    "https://english.nv.ua/nation/pistorius-urges-europe-to-keep-dialogue-with-putin-open-50661079.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s30"
+   }
+  },
+  {
+   "testo": "Talks, he says, should happen only if there is a ceasefire.",
+   "fonti": [
+    "https://english.nv.ua/nation/pistorius-urges-europe-to-keep-dialogue-with-putin-open-50661079.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s38"
+   }
+  },
+  {
+   "testo": "Zelensky says European leaders will not go to Moscow, though his comment referred to national security advisers.",
+   "fonti": [
+    "https://english.nv.ua/nation/pistorius-urges-europe-to-keep-dialogue-with-putin-open-50661079.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s39"
+   }
+  },
+  {
+   "testo": "Finland's Stubb has a different view. He thinks European leaders will have to meet Putin at some point.",
+   "fonti": [
+    "https://english.nv.ua/nation/u-s-removed-ukraine-section-from-summit-declaration-stubb-50661199.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s14"
+   }
+  },
+  {
+   "testo": "Asked about Moscow, Stubb said it was difficult to say at this point.",
+   "fonti": [
+    "https://english.nv.ua/nation/u-s-removed-ukraine-section-from-summit-declaration-stubb-50661199.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s44"
+   }
+  },
+  {
+   "testo": "Stubb also says Trump hinted the Europeans should talk to Putin directly.",
+   "fonti": [
+    "https://www.pravda.com.ua/eng/news/2026/11/20/8063799/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s71"
+   }
+  },
+  {
+   "testo": "So Trump reportedly nudges Europe toward talks with Putin. Zelensky says European leaders won't go to Moscow.",
+   "fonti": [
+    "https://www.pravda.com.ua/eng/news/2026/11/20/8063799/",
+    "https://english.nv.ua/nation/pistorius-urges-europe-to-keep-dialogue-with-putin-open-50661079.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s71"
+   }
+  },
+  {
+   "testo": "And behind all of it, the FT reports a ticking clock.",
+   "fonti": [
+    "https://jpost.com/international/article-915639"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s33"
+   }
+  },
+  {
+   "testo": "Per the FT, Trump's administration wants a Ukraine deal by early January, before Democrats take control of Congress.",
+   "fonti": [
+    "https://jpost.com/international/article-915639"
+   ],
+   "capitolo": "THE JANUARY CLOCK",
+   "visivo": {
+    "tipo": "set",
+    "set": "s31"
+   }
+  },
+  {
+   "testo": "According to the Financial Times, Democrats are expected to push stronger support for Kyiv.",
+   "fonti": [
+    "https://jpost.com/international/article-915639"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s32"
+   }
+  },
+  {
+   "testo": "They are also expected to push more pressure on Moscow.",
+   "fonti": [
+    "https://jpost.com/international/article-915639"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s69"
+   }
+  },
+  {
+   "testo": "Zelensky says NATO membership is still the clearest security guarantee for Ukraine.",
+   "fonti": [
+    "https://www.kyivpost.com/post/90819"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s44"
+   }
+  },
+  {
+   "testo": "Trump touted the summit, while CNN describes it as historic but generating little substantive progress.",
+   "fonti": [
+    "https://edition.cnn.com/2026/11/20/politics/trump-news-conference-takeaways",
+    "https://www.ms.now/the-assignment/watch/trump-i-can-t-speak-to-whether-putin-is-america-s-friend-2521607747939"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s53"
+   }
+  },
+  {
+   "testo": "So who is right? The facts are mixed.",
+   "fonti": [
+    "https://edition.cnn.com/2026/11/20/politics/trump-news-conference-takeaways",
+    "https://jpost.com/international/article-915639"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s60"
+   }
+  },
+  {
+   "testo": "Confirmed by AP: Trump defended calling Putin a friend, and said he can't speak to America.",
+   "fonti": [
+    "https://www.yahoo.com/news/politics/articles/trump-defends-calling-putin-friend-112918539.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s04"
+   }
+  },
+  {
+   "testo": "Zelensky said the summit was very unsuccessful for Russia, and cited a 111-missile barrage.",
+   "fonti": [
+    "https://unn.ua/en/news/for-russia-it-was-unsuccessful-zelenskyy-on-the-russia-china-us-summit",
+    "https://jpost.com/international/article-915639"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s49"
+   }
+  },
+  {
+   "testo": "Reported only: the E3 weighing Moscow, per Bloomberg's sources, and the deleted paragraph, per Stubb.",
+   "fonti": [
+    "https://world-today-journal.com/uk-germany-france-weigh-talks-with-russia-on-ukraine-bloomberg-says/",
+    "https://www.kyivpost.com/post/90722"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s72"
+   }
+  },
+  {
+   "testo": "What to watch next: whether any European envoy travels to Moscow.",
+   "fonti": [
+    "https://business-standard.com/amp/world-news/trump-defends-ties-with-putin-as-russia-intensifies-attacks-on-ukraine-126112100144_1.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s42"
+   }
+  },
+  {
+   "testo": "And whether Trump's January deadline forces a deal Kyiv can accept.",
+   "fonti": [
+    "https://jpost.com/international/article-915639"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s70"
+   }
+  }
+ ],
+ "copertina": {
+  "sfondo": "Dramatic dark Kremlin-and-White-House split sky at dusk, red glow on one side, blue on the other, empty summit table in the foreground",
+  "personaggi": [
+   "trump",
+   "putin"
+  ],
+  "pose": {
+   "trump": "deciso",
+   "putin": "serio"
+  },
+  "personaggio": "trump",
+  "posa": "deciso",
+  "lato": "sx",
+  "righe": [
+   "\"MY FRIEND\"",
+   "BUT AMERICA'S?"
+  ],
+  "box": "CAN'T SPEAK",
+  "evidenzia": 2
+ },
+ "verifica": {
+  "correzioni": 64,
+  "scene_tolte": 11
+ },
+ "coerenza": {
+  "scene_rifatte": 21,
+  "controllate": 66
+ },
+ "lingua": "en",
+ "nome": "2026-11-22_trump_putin_xi_china_summit_fallout_trum_en",
+ "data": "NOVEMBER 22, 2026",
+ "etichetta": "BREAKING",
+ "musica": "tensione",
+ "voce": "uju3wxzG5OhpWcoi3SMy",
+ "budget_dollari": 3.52,
+ "storia": "Trump–Putin–Xi China summit fallout: Trump calls Putin 'my friend', says Putin wants peace; Zelensky calls Putin a 'killer', Europeans push back; Ukraine clause reportedly dropped from the 'peace declaration' at US request (per Finland's president, via Meduza)",
+ "filone": "guerra"
+}
