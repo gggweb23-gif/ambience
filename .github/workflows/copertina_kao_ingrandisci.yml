@@ -1,0 +1,37 @@
+name: Copertina KAO - scritta piu grande (gratis)
+# 22 nov (Giorgio): stessa copertina, cartoncino e scritta piu' grandi, leggibili da mobile. Nessuna spesa: niente immagini nuove.
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: 'URL della copertina attuale (dal registro kao_copertine/registri)'
+        required: true
+      frase:
+        description: 'Scritta (di solito la stessa di prima)'
+        required: true
+      video_id:
+        required: true
+      lato:
+        default: 'sinistra'
+      limite:
+        description: 'Fin dove arriva il cartoncino (frazione della larghezza, mai sopra il personaggio)'
+        default: '0.50'
+permissions:
+  contents: write
+jobs:
+  copertina:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install -q pillow numpy
+      - env:
+          URL: ${{ inputs.url }}
+          FRASE: ${{ inputs.frase }}
+          LATO: ${{ inputs.lato }}
+          LIMITE: ${{ inputs.limite }}
+          OUT: kao_copertine/piatto_prova/${{ inputs.video_id }}_grande.jpg
+        run: python3 strumenti/copertina_kao_ingrandisci.py
+      - run: |
+          git config user.name "render-bot"; git config user.email "render-bot@users.noreply.github.com"
+          git add kao_copertine/piatto_prova; git commit -m "Copertina KAO scritta grande (anteprima)" || exit 0
+          for i in 1 2 3; do git pull --rebase -q && git push && break; sleep 5; done
