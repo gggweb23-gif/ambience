@@ -1,0 +1,14 @@
+name: Video in privato
+on:
+  workflow_dispatch:
+    inputs:
+      chiave_youtube: {required: true, type: string}
+      video_id: {required: true, type: string}
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - env: {VIDEO_ID: '${{ inputs.video_id }}', YT_CLIENT_ID: '${{ secrets.YT_CLIENT_ID }}', YT_CLIENT_SECRET: '${{ secrets.YT_CLIENT_SECRET }}', YT_REFRESH_TOKEN: '${{ secrets[inputs.chiave_youtube] }}'}
+        run: python3 strumenti/privacy_video.py
