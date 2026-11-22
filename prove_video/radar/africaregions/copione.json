@@ -1,140 +1,1158 @@
 {
  "titolo": "Alaska Is Hiding Something Most Americans Never Notice",
- "copertina": "ALASKA'S HIDDEN SECRET",
+ "descrizione": "Alaska is far stranger than its postcards. Count down 30 true, surprising facts about Alaska: Denali, the Diomede Islands, the 1964 earthquake, the Whittier tunnel, ghost towns, glaciers and more hidden places most Americans never notice.",
+ "tag": [
+  "Alaska",
+  "Alaska facts",
+  "Alaska documentary",
+  "hidden Alaska",
+  "Denali",
+  "Alaska history",
+  "Alaska glaciers",
+  "Alaska earthquake",
+  "Trans-Alaska Pipeline",
+  "Whittier tunnel",
+  "Diomede Islands",
+  "Alaska travel",
+  "strange places",
+  "geography documentary",
+  "America hidden facts"
+ ],
+ "copertina": "ALASKA'S HIDDEN SECRETS",
  "scene": [
   {
-   "testo": "Alaska is so big that Texas would fit inside it twice.",
-   "q": "Alaska mountains aerial",
-   "scritta": "2x TEXAS",
-   "capitolo": "Alaska Is Huge",
+   "testo": "Did you know two islands in Alaska sit in different days?",
+   "q": "Alaska sea islands aerial",
+   "scritta": "2 DAYS",
+   "capitolo": "",
    "anno": "",
    "nota": ""
   },
   {
-   "testo": "Yet most Americans have never seen what hides here.",
-   "q": "Alaska wilderness landscape",
+   "testo": "Or that one tunnel there is shared by trains and cars?",
+   "q": "Alaska tunnel mountain road",
    "scritta": "",
    "capitolo": "",
    "anno": "",
    "nota": ""
   },
   {
-   "testo": "Stay with me, because the explanation is stranger than the size.",
-   "q": "Alaska valley clouds",
+   "testo": "How about a cabbage grown in Alaska weighing 138 pounds?",
+   "q": "Alaska giant cabbage field",
    "scritta": "",
    "capitolo": "",
    "anno": "",
    "nota": ""
   },
   {
-   "testo": "This state has more coastline than all other states combined.",
-   "q": "Alaska coastline aerial",
-   "scritta": "",
-   "capitolo": "Endless Coastline",
-   "anno": "",
-   "nota": ""
-  },
-  {
-   "testo": "Tens of thousands of miles, carved by ice and sea.",
-   "q": "Alaska fjord water",
+   "testo": "There's a lot more to Alaska than bears and snow.",
+   "q": "Alaska snowy mountains landscape",
    "scritta": "",
    "capitolo": "",
    "anno": "",
    "nota": ""
   },
   {
-   "testo": "But that's not the strangest part.",
-   "q": "Alaska fog forest",
+   "testo": "It looks empty from the window of a plane.",
+   "q": "Alaska wilderness aerial flight",
    "scritta": "",
    "capitolo": "",
    "anno": "",
    "nota": ""
   },
   {
-   "testo": "Alaska has more than three million lakes.",
-   "q": "Alaska lake aerial",
-   "scritta": "3 MILLION",
-   "capitolo": "Three Million Lakes",
-   "anno": "",
-   "nota": ""
-  },
-  {
-   "testo": "Many are so remote that they have never been named.",
-   "q": "Alaska remote lake",
+   "testo": "It is not empty. It is hiding some of America's strangest places.",
+   "q": "Alaska glacier valley drone",
    "scritta": "",
    "capitolo": "",
    "anno": "",
    "nota": ""
   },
   {
-   "testo": "Some are so quiet you only hear wind over the water.",
-   "q": "Alaska lake mountains",
+   "testo": "Today we're counting down 30 facts that will change how you see Alaska.",
+   "q": "Alaska aerial coastline mountains",
+   "scritta": "30 FACTS",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Stay with us, because the strangest one is still ahead.",
+   "q": "Alaska road mountains cloudy",
    "scritta": "",
    "capitolo": "",
    "anno": "",
    "nota": ""
   },
   {
-   "testo": "In summer, the sun barely sets in the far north.",
-   "q": "Alaska midnight sun",
+   "testo": "Fact 1. Two islands here are only miles apart, yet almost a day apart.",
+   "q": "Alaska Bering Strait island",
    "scritta": "",
-   "capitolo": "Midnight Sun",
+   "capitolo": "Diomede Islands",
    "anno": "",
    "nota": ""
   },
   {
-   "testo": "In Utqiagvik, it stays above the horizon for about eighty days.",
-   "q": "Alaska arctic sunset",
-   "scritta": "80 DAYS",
-   "capitolo": "",
-   "anno": "",
-   "nota": ""
-  },
-  {
-   "testo": "Then winter arrives, and the sun vanishes for weeks.",
-   "q": "Alaska snow winter night",
+   "testo": "Little Diomede belongs to America, Big Diomede to Russia.",
+   "q": "Alaska rocky island ocean",
    "scritta": "",
    "capitolo": "",
    "anno": "",
    "nota": ""
   },
   {
-   "testo": "The night sky then fills with shimmering green aurora.",
-   "q": "Alaska northern lights",
-   "scritta": "",
-   "capitolo": "Polar Aurora",
-   "anno": "",
-   "nota": ""
-  },
-  {
-   "testo": "Green ribbons ripple above frozen spruce trees and silent snow.",
-   "q": "Alaska aurora trees",
+   "testo": "Between them runs the International Date Line, about 2.4 miles wide.",
+   "q": "Alaska sea waves cold",
    "scritta": "",
    "capitolo": "",
    "anno": "",
    "nota": ""
   },
   {
-   "testo": "Alaska also holds North America's tallest mountain, Denali.",
-   "q": "Alaska Denali mountain",
+   "testo": "Big Diomede runs about twenty-one hours ahead of its neighbor.",
+   "q": "Alaska island cliffs fog",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "On a clear day, you can literally look into tomorrow.",
+   "q": "Alaska horizon ocean fog",
+   "scritta": "TOMORROW",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Fact 2. A single glacier here is bigger than Rhode Island.",
+   "q": "Alaska glacier aerial ice",
+   "scritta": "",
+   "capitolo": "Malaspina Glacier",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Malaspina Glacier spreads across the plain like a melted pancake.",
+   "q": "Alaska glacier plain drone",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Geologists call it a piedmont glacier, fed by huge mountains.",
+   "q": "Alaska icy mountains clouds",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Its ice covers well over a thousand square miles.",
+   "q": "Alaska ice field wide",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Most Americans have never heard its name.",
+   "q": "Alaska ice texture closeup",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Fact 3. The tallest mountain in North America stands in Alaska.",
+   "q": "Denali Alaska mountain peak",
    "scritta": "20,310 FT",
-   "capitolo": "Denali Giant",
+   "capitolo": "Denali",
    "anno": "",
    "nota": ""
   },
   {
-   "testo": "It rises about twenty thousand three hundred feet above sea level.",
-   "q": "Alaska snowy peak",
+   "testo": "Denali rises 20,310 feet, about 6,190 meters, above sea level.",
+   "q": "Denali Alaska summit clouds",
    "scritta": "",
    "capitolo": "",
    "anno": "",
    "nota": ""
   },
   {
-   "testo": "But the next secret is hidden underground.",
-   "q": "Alaska frozen ground",
+   "testo": "Its official name changed from McKinley back to Denali in 2015.",
+   "q": "Alaska Denali national park",
    "scritta": "",
-   "capitolo": "Frozen Ground",
+   "capitolo": "",
+   "anno": "2015",
+   "nota": "name officially changed to Denali"
+  },
+  {
+   "testo": "Many climbers attempt it each year, and many turn back.",
+   "q": "Alaska mountaineering snow ridge",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Its rise from base to peak is among the greatest on land.",
+   "q": "Alaska mountain range snow",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Fact 4. In 1912, Alaska produced the biggest eruption of the century.",
+   "q": "Alaska volcano ash landscape",
+   "scritta": "",
+   "capitolo": "Novarupta Eruption",
+   "anno": "1912",
+   "nota": "largest eruption of 20th century"
+  },
+  {
+   "testo": "Novarupta buried a green valley under hot ash many meters deep.",
+   "q": "Alaska volcanic valley ash",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Ash darkened Kodiak, about a hundred miles away, for days.",
+   "q": "Alaska Kodiak dark sky",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Later explorers found thousands of steaming vents and named it Ten Thousand Smokes.",
+   "q": "Alaska volcano steam vents",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Today the valley is silent, gray and almost lunar.",
+   "q": "Alaska barren gray valley",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Fact 5. To reach one Alaskan town, you wait for a tunnel.",
+   "q": "Alaska tunnel entrance traffic",
+   "scritta": "",
+   "capitolo": "Whittier Tunnel",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "The Anton Anderson tunnel runs about 2.5 miles through solid mountain.",
+   "q": "Alaska mountain tunnel road",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "It carries cars and trains on the same single track.",
+   "q": "Alaska railway track mountains",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Cars and trains take turns, and it closes at night.",
+   "q": "Alaska tunnel night lights",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Fact 6. Inside that town, nearly everyone lives under one roof.",
+   "q": "Alaska Whittier harbor town",
+   "scritta": "",
+   "capitolo": "Begich Towers",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Begich Towers is a 14-story building that houses most residents.",
+   "q": "Alaska apartment building mountains",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "It even connects to the school by a tunnel.",
+   "q": "Alaska snowy town buildings",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "The town sits on Prince William Sound, ringed by peaks.",
+   "q": "Alaska Prince William Sound",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "In winter, you can reach everything without stepping outside.",
+   "q": "Alaska winter snowstorm town",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Fact 7. In Alaska's far north, the sun disappears for two months.",
+   "q": "Alaska Arctic winter twilight",
+   "scritta": "65 DAYS",
+   "capitolo": "Utqiagvik",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Utqiagvik, once called Barrow, sees no sunrise for about 65 days.",
+   "q": "Alaska Arctic town winter",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Then comes summer, with the sun staying up for about 80 days.",
+   "q": "Alaska midnight sun tundra",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "It's the northernmost town in the United States.",
+   "q": "Alaska Arctic ocean ice",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Fact 8. In 1964, the ground in Alaska shook for minutes.",
+   "q": "Alaska earthquake damaged road",
+   "scritta": "9.2",
+   "capitolo": "Great Earthquake",
+   "anno": "1964",
+   "nota": "magnitude 9.2 earthquake struck Alaska"
+  },
+  {
+   "testo": "It measured magnitude 9.2, the second strongest ever recorded.",
+   "q": "Alaska coast ruined buildings",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Anchorage suffered heavy damage, with whole streets collapsing.",
+   "q": "Alaska Anchorage city aerial",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Tsunamis hit Alaska's coast, and waves reached other places too.",
+   "q": "Alaska harbor ocean waves",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Parts of the coast sank, while others rose.",
+   "q": "Alaska coastline shore tide",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Fact 9. A steel river crosses Alaska without a drop of water.",
+   "q": "Alaska oil pipeline tundra",
+   "scritta": "800 MILES",
+   "capitolo": "Trans-Alaska Pipeline",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "The pipeline runs about 800 miles from Prudhoe Bay to Valdez.",
+   "q": "Alaska pipeline mountains snow",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "It was finished in 1977 and zigzags to survive earthquakes.",
+   "q": "Alaska pipeline zigzag landscape",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "1977",
+   "nota": "pipeline completed and oil began flowing"
+  },
+  {
+   "testo": "Parts rise on supports so hot oil won't melt permafrost.",
+   "q": "Alaska permafrost tundra supports",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Fact 10. In 1925, dogs raced medicine across Alaska to save a town.",
+   "q": "Alaska sled dogs snow",
+   "scritta": "",
+   "capitolo": "Nome Serum Run",
+   "anno": "1925",
+   "nota": "sled dogs carried diphtheria antitoxin"
+  },
+  {
+   "testo": "Diphtheria threatened Nome, and the only antitoxin was far away.",
+   "q": "Alaska Nome frozen coast",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "About twenty mushers relayed it through brutal blizzards.",
+   "q": "Alaska sled team blizzard",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "The lead dog Balto became famous, though others ran farther.",
+   "q": "Alaska husky dog winter",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Fact 11. A ghost town of red buildings clings to a mountain.",
+   "q": "Alaska ghost town mine",
+   "scritta": "",
+   "capitolo": "Kennecott Mines",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Kennecott was a copper mining camp deep in the wilderness.",
+   "q": "Alaska old mill mountain",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "The mines closed in 1938 and the town emptied.",
+   "q": "Alaska abandoned wooden buildings",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "1938",
+   "nota": "Kennecott mines closed"
+  },
+  {
+   "testo": "Now its red mill stands beside a glacier.",
+   "q": "Alaska red building glacier",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Fact 12. One Alaskan park is larger than Switzerland.",
+   "q": "Alaska huge national park aerial",
+   "scritta": "",
+   "capitolo": "Wrangell-St. Elias",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Wrangell-St. Elias covers over 13 million acres.",
+   "q": "Alaska mountains wilderness vast",
+   "scritta": "13 MILLION",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "It's the largest national park in the United States.",
+   "q": "Alaska glaciers peaks drone",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Nine of America's sixteen highest peaks rise inside it.",
+   "q": "Alaska snowy summit sunrise",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Fact 13. Another park has no roads, trails or campgrounds.",
+   "q": "Alaska Arctic wilderness river",
+   "scritta": "",
+   "capitolo": "Gates of the Arctic",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Gates of the Arctic lies entirely north of the Arctic Circle.",
+   "q": "Alaska Brooks Range tundra",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "You arrive by small plane, then walk into nothing.",
+   "q": "Alaska bush plane landing",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Caribou cross it in the thousands each year.",
+   "q": "Alaska caribou herd tundra",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Fact 14. At Brooks Falls, bears stand and catch jumping salmon.",
+   "q": "Alaska bear waterfall salmon",
+   "scritta": "",
+   "capitolo": "Brooks Falls",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "It's inside Katmai National Park, home to thousands of brown bears.",
+   "q": "Alaska brown bear river",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "The salmon leap upstream in July, and the bears wait.",
+   "q": "Alaska salmon jumping falls",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Every autumn, viewers vote online in Fat Bear Week.",
+   "q": "Alaska bear fishing closeup",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "The winner is simply the bear that got fattest.",
+   "q": "Alaska bear autumn grass",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Fact 15. The biggest bears in Alaska live on one island.",
+   "q": "Alaska Kodiak island coast",
+   "scritta": "",
+   "capitolo": "Kodiak Island",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Kodiak bears are a subspecies found only in that archipelago.",
+   "q": "Alaska large bear meadow",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Big males can weigh well over a thousand pounds.",
+   "q": "Alaska bear walking shore",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Kodiak is the second largest island in the United States.",
+   "q": "Alaska island green hills",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Fact 16. A WWII battle was fought on American soil in Alaska.",
+   "q": "Alaska Aleutian islands fog",
+   "scritta": "",
+   "capitolo": "Attu Island",
+   "anno": "1943",
+   "nota": "battle fought on Attu"
+  },
+  {
+   "testo": "Japan occupied Attu and Kiska in the Aleutians in 1942.",
+   "q": "Alaska Aleutian remote island",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "1942",
+   "nota": "Japan occupied two Aleutian islands"
+  },
+  {
+   "testo": "In May 1943, American troops fought to retake Attu.",
+   "q": "Alaska rugged island tundra",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Fog, cold and mud made it a miserable fight.",
+   "q": "Alaska foggy coast",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Fact 17. America bought all of Alaska for two cents an acre.",
+   "q": "Alaska Sitka harbor town",
+   "scritta": "2 CENTS",
+   "capitolo": "Sitka Handover",
+   "anno": "1867",
+   "nota": "Russia sold Alaska for $7.2 million"
+  },
+  {
+   "testo": "In 1867, Russia sold it for $7.2 million.",
+   "q": "Alaska Russian church Sitka",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "1867",
+   "nota": "Russia sold Alaska to America"
+  },
+  {
+   "testo": "The flag changed hands in a ceremony at Sitka in October.",
+   "q": "Alaska Sitka waterfront mountains",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Critics mocked it as Seward's Folly.",
+   "q": "Alaska old town historic",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Then gold and oil proved them wrong.",
+   "q": "Alaska gold river mining",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Fact 18. A glacier here has closed off an entire fjord.",
+   "q": "Alaska Hubbard glacier calving",
+   "scritta": "",
+   "capitolo": "Hubbard Glacier",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Hubbard Glacier is one of the few advancing glaciers.",
+   "q": "Alaska glacier face ice",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "In 1986 and 2002, it dammed Russell Fiord with ice.",
+   "q": "Alaska fjord icebergs",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "2002",
+   "nota": "glacier dammed Russell Fiord again"
+  },
+  {
+   "testo": "Water rose behind it until the ice finally broke.",
+   "q": "Alaska glacier water ice",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Fact 19. In 1958, a wave in Alaska climbed 1,720 feet.",
+   "q": "Alaska bay cliffs forest",
+   "scritta": "1,720 FT",
+   "capitolo": "Lituya Bay",
+   "anno": "1958",
+   "nota": "megatsunami hit Lituya Bay"
+  },
+  {
+   "testo": "An earthquake dropped a huge rockslide into Lituya Bay.",
+   "q": "Alaska mountain rockslide bay",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "The wave stripped trees from the slopes high above the water.",
+   "q": "Alaska forest hillside bay",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Two fishermen survived by riding it in their boat.",
+   "q": "Alaska fishing boat waves",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "It's the tallest tsunami wave ever documented.",
+   "q": "Alaska ocean wave coast",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Fact 20. You can't drive to Alaska's capital city.",
+   "q": "Alaska Juneau city harbor",
+   "scritta": "",
+   "capitolo": "Juneau",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "No road links Juneau to the rest of the continent.",
+   "q": "Alaska Juneau mountains water",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Mountains and ice fields wall it off from Canada.",
+   "q": "Alaska icefield mountains aerial",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "You arrive only by plane or boat.",
+   "q": "Alaska ferry water mountains",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Behind town, the Mendenhall Glacier glows blue.",
+   "q": "Alaska Mendenhall glacier blue",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Fact 21. A train in Alaska will stop wherever you wave.",
+   "q": "Alaska train forest river",
+   "scritta": "",
+   "capitolo": "Hurricane Turn",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "The Hurricane Turn is known as a flag-stop train.",
+   "q": "Alaska railway wilderness cabin",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "It serves cabins that no road can reach.",
+   "q": "Alaska remote cabin forest",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Passengers simply stand by the track and wave it down.",
+   "q": "Alaska train tracks autumn",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Fact 22. Alaskans bet on when a frozen river will crack.",
+   "q": "Alaska frozen river ice",
+   "scritta": "",
+   "capitolo": "Nenana Ice Classic",
+   "anno": "1917",
+   "nota": "ice guessing contest began"
+  },
+  {
+   "testo": "The Nenana Ice Classic began in 1917.",
+   "q": "Alaska river spring thaw",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "1917",
+   "nota": "first Nenana ice bet"
+  },
+  {
+   "testo": "A wooden tripod stands on the ice of the Tanana River.",
+   "q": "Alaska river ice breakup",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "When it moves, the clock stops and a winner is chosen.",
+   "q": "Alaska river ice floating",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "The jackpot can reach hundreds of thousands of dollars.",
+   "q": "Alaska river bridge spring",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Fact 23. One Alaskan river runs about 2,000 miles to the sea.",
+   "q": "Alaska Yukon river aerial",
+   "scritta": "",
+   "capitolo": "Yukon River",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "The Yukon carried gold rush prospectors toward Klondike dreams.",
+   "q": "Alaska river boat wilderness",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "It's wide, braided and full of sandbars and islands.",
+   "q": "Alaska braided river drone",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Salmon still swim its length to spawn.",
+   "q": "Alaska salmon river spawning",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Fact 24. One of America's top fishing ports sits in the Aleutians.",
+   "q": "Alaska Dutch Harbor fishing boats",
+   "scritta": "",
+   "capitolo": "Dutch Harbor",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Dutch Harbor, in Unalaska, has led the nation in catch volume.",
+   "q": "Alaska fishing port cranes",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Crab and pollock boats brave the Bering Sea.",
+   "q": "Alaska crab boat sea",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "That's among the roughest waters on Earth.",
+   "q": "Alaska stormy sea waves",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Fact 25. Alaska holds the remains of a vanished land bridge.",
+   "q": "Alaska Bering land bridge preserve",
+   "scritta": "",
+   "capitolo": "Bering Land Bridge",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Thousands of years ago, Asia and America were connected here.",
+   "q": "Alaska tundra coast ancient",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Animals and people may have crossed this vanished plain.",
+   "q": "Alaska tundra grass wind",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Today it lies largely beneath the Bering Sea.",
+   "q": "Alaska sea shoreline cold",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Fact 26. Glacier Bay was once buried under solid ice.",
+   "q": "Alaska Glacier Bay cruise",
+   "scritta": "",
+   "capitolo": "Glacier Bay",
+   "anno": "1794",
+   "nota": "bay was filled by glacier ice"
+  },
+  {
+   "testo": "When Captain Vancouver passed in 1794, it was mostly ice.",
+   "q": "Alaska bay icebergs sailing",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "1794",
+   "nota": "Vancouver saw only an ice-filled bay"
+  },
+  {
+   "testo": "Naturalist John Muir arrived in 1879 and found it retreating.",
+   "q": "Alaska bay glacier wilderness",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "1879",
+   "nota": "John Muir visited Glacier Bay"
+  },
+  {
+   "testo": "Since then, the ice has retreated over sixty miles.",
+   "q": "Alaska glacier retreat fjord",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Forests now grow where there was once only glacier.",
+   "q": "Alaska forest glacier coast",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Fact 27. A huge volcanic bowl hides on the Alaska Peninsula.",
+   "q": "Alaska volcano caldera crater",
+   "scritta": "",
+   "capitolo": "Aniakchak Caldera",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Aniakchak's caldera is about six miles wide.",
+   "q": "Alaska crater lake aerial",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "It formed in a massive eruption roughly 3,600 years ago.",
+   "q": "Alaska volcano rim landscape",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Few people ever see it, even in Alaska.",
+   "q": "Alaska remote volcano clouds",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Fact 28. Alaska has recorded both blistering heat and brutal cold.",
+   "q": "Alaska Fort Yukon river",
+   "scritta": "",
+   "capitolo": "Fort Yukon",
+   "anno": "1915",
+   "nota": "Alaska's record 100°F recorded"
+  },
+  {
+   "testo": "Fort Yukon hit 100 degrees Fahrenheit in 1915.",
+   "q": "Alaska summer river heat",
+   "scritta": "100°F",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Prospect Creek fell to minus 80 in 1971.",
+   "q": "Alaska frozen forest winter",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "1971",
+   "nota": "Prospect Creek hit minus 80°F"
+  },
+  {
+   "testo": "That's a range of 180 degrees in one state.",
+   "q": "Alaska thermometer snow cold",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Fact 29. Alaska's summer sun grows gigantic vegetables.",
+   "q": "Alaska Matanuska valley farm",
+   "scritta": "",
+   "capitolo": "Giant Cabbages",
+   "anno": "2012",
+   "nota": "138-pound cabbage set record"
+  },
+  {
+   "testo": "Near twenty hours of daylight pushes crops to monstrous sizes.",
+   "q": "Alaska summer farm vegetables",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "A cabbage grown there in 2012 weighed 138 pounds.",
+   "q": "Alaska huge cabbage harvest",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Every year, growers compete at the Alaska State Fair.",
+   "q": "Alaska state fair produce",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Fact 30. A tiny Alaskan town is named after a bird.",
+   "q": "Alaska Chicken town gold",
+   "scritta": "",
+   "capitolo": "Chicken Alaska",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Legend says miners couldn't agree how to spell ptarmigan.",
+   "q": "Alaska ptarmigan bird snow",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "So they settled on Chicken, and the name stuck.",
+   "q": "Alaska rustic town sign",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "Gold dredges still sit rusting in the creeks.",
+   "q": "Alaska gold dredge creek",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "That's thirty facts, and Alaska has only begun to surprise us.",
+   "q": "Alaska sunset mountains lake",
+   "scritta": "",
+   "capitolo": "",
+   "anno": "",
+   "nota": ""
+  },
+  {
+   "testo": "It looked empty, but it never was.",
+   "q": "Alaska aurora night sky",
+   "scritta": "",
+   "capitolo": "",
    "anno": "",
    "nota": ""
   }
