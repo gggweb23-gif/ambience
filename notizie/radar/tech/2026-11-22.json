@@ -1,454 +1,519 @@
 {
  "data": "2026-11-22",
  "filone": "tech",
- "scelta": "Anthropic mathematician claims AI-assisted proof of the Riemann hypothesis",
- "motivo": "la storia con piu' views all'ora oggi",
+ "scelta": "Anthropic mathematician claims AI-assisted proof of the Riemann hypothesis with Claude",
+ "motivo": "l'onda di ieri e' ancora la piu' forte: si resta con un angolo nuovo",
  "storie": [
   {
-   "storia": "Anthropic mathematician claims AI-assisted proof of the Riemann hypothesis",
+   "storia": "Anthropic mathematician claims AI-assisted proof of the Riemann hypothesis with Claude",
    "persona": "Dario Amodei",
-   "ruolo": "CEO and co-founder of Anthropic",
+   "ruolo": "CEO of Anthropic",
    "azienda": "Anthropic",
-   "query_en": "Anthropic Riemann hypothesis AI proof",
-   "query_it": "Anthropic ipotesi di Riemann IA dimostrazione",
-   "novita": "NPR and Il Sole 24 Ore report that an Anthropic mathematician claims an AI-assisted proof. It is a claim, not yet independently verified.",
-   "continua": false,
+   "query_en": "Anthropic Riemann hypothesis Claude proof",
+   "query_it": "Anthropic ipotesi di Riemann Claude dimostrazione",
+   "novita": "The Independent and Il Sole 24 Ore report an Anthropic mathematician claims a proof of the Riemann hypothesis with Claude's help; it is a claim, not yet verified by the math community.",
+   "continua": true,
    "yt_en": {
-    "views": 4617768,
-    "views_ora": 138615,
+    "views": 4098133,
+    "views_ora": 104116,
     "video": 15,
-    "lunghi": 11,
+    "lunghi": 10,
     "top": [
      {
-      "views": 1171313,
-      "ore": 36,
+      "views": 1234338,
+      "ore": 42,
       "titolo": "The Riemann Hypothesis Falls (reaction) - Numberphile",
       "canale": "Numberphile",
       "lungo": true
      },
      {
-      "views": 704346,
-      "ore": 32,
-      "titolo": "¿La IA de Anthropic ha resuelto la hipótesis de Riemann?",
-      "canale": "Date un Vlog",
-      "lungo": false
-     },
-     {
-      "views": 496274,
-      "ore": 33,
+      "views": 624898,
+      "ore": 40,
       "titolo": "앤트로픽 수학자 리만가설 증명 발표 | 인간의 한계를 벗어난 AI",
       "canale": "미주일기",
       "lungo": true
      },
      {
-      "views": 369262,
-      "ore": 27,
+      "views": 415061,
+      "ore": 33,
       "titolo": "Did AI Just Prove The Riemann Hypothesis?",
       "canale": "SciencePetr",
       "lungo": true
      },
      {
-      "views": 245092,
-      "ore": 35,
+      "views": 264543,
+      "ore": 42,
       "titolo": "¿Claude resolvió un problema de 167 años? 😳",
       "canale": "Taratic",
       "lungo": false
+     },
+     {
+      "views": 245801,
+      "ore": 45,
+      "titolo": "Riemann Hypothesis Solved by Claude AI?",
+      "canale": "The Math Sorcerer",
+      "lungo": true
      }
     ]
    },
    "yt_it": {
-    "views": 709789,
-    "views_ora": 25493,
+    "views": 924137,
+    "views_ora": 27571,
     "video": 15,
     "lunghi": 9,
     "top": [
      {
-      "views": 215851,
-      "ore": 31,
+      "views": 229342,
+      "ore": 38,
       "titolo": "AI Just Cracked One Of The Worlds BIGGEST Mystery",
       "canale": "TheAIGRID",
       "lungo": true
      },
      {
-      "views": 167717,
-      "ore": 28,
+      "views": 179252,
+      "ore": 35,
       "titolo": "Claude JUST solved the Riemann Hypothesis...",
       "canale": "Wes Roth",
       "lungo": true
      },
      {
-      "views": 146991,
-      "ore": 37,
+      "views": 157649,
+      "ore": 44,
       "titolo": "MATHPOCALYPSE: Riemann Hypothesis \"solved\" by Claude AI and Anthropic mathematician",
       "canale": "Scientific American",
       "lungo": false
      },
      {
-      "views": 27824,
-      "ore": 36,
-      "titolo": "«Ho risolto con l'IA uno dei problemi più complessi della matematica irrisolto da oltre 16",
-      "canale": "Il Mattino",
-      "lungo": false
+      "views": 113527,
+      "ore": 23,
+      "titolo": "AI Claimed the Riemann Hypothesis. A Human Had a Secret Proof.",
+      "canale": "Adem B10",
+      "lungo": true
      },
      {
-      "views": 22066,
-      "ore": 31,
-      "titolo": "Anthropic Just Did WHAT?! (Claude vs a 167-Year-Old Problem)",
-      "canale": "Universe of AI",
+      "views": 67378,
+      "ore": 29,
+      "titolo": "GLM 5.5 IS COMING SOON! Claude CRACKS 167-Year-Old Math Problem?! Google Loop & MORE! AI N",
+      "canale": "WorldofAI",
       "lungo": true
      }
     ]
    },
-   "punteggio": 164108
+   "punteggio": 131687
   },
   {
-   "storia": "AI-driven tech stock rout wipes out trillions (China AI rout, Bitcoin at 2-year low)",
-   "persona": "Jensen Huang",
-   "ruolo": "Former CEO and founder of Nvidia",
-   "azienda": "Nvidia",
-   "query_en": "AI stock market crash Nvidia correction",
-   "query_it": "crollo borse AI Nvidia correzione",
-   "novita": "Bloomberg reports a $1.7T rout in China's AI trade and a two-year low for Bitcoin. Nvidia is down about 35% from its high, and the US market is in correction territory.",
+   "storia": "Anthropic IPO fails to calm AI market sell-off; Nasdaq turns red for the year",
+   "persona": "Dario Amodei",
+   "ruolo": "CEO of Anthropic",
+   "azienda": "Anthropic",
+   "query_en": "Anthropic IPO market sell-off",
+   "query_it": "Anthropic IPO crollo mercati AI",
+   "novita": "Reuters reports Anthropic ran an unusual IPO process that chafed some bankers, while Nasdaq wiped out its 2026 gains and Europe closed sharply lower with Anthropic weighing on Wall Street.",
    "continua": false,
    "yt_en": {
-    "views": 2254170,
-    "views_ora": 70407,
+    "views": 2873841,
+    "views_ora": 61480,
     "video": 15,
-    "lunghi": 12,
+    "lunghi": 13,
     "top": [
      {
-      "views": 602646,
-      "ore": 32,
+      "views": 621007,
+      "ore": 39,
       "titolo": "Markets plummet as tech sell-off intensifies",
       "canale": "NBC News",
       "lungo": false
      },
      {
-      "views": 572261,
-      "ore": 32,
-      "titolo": "NASDAQ wipes out 2026’s gains in AI correction",
-      "canale": "CNN",
+      "views": 399543,
+      "ore": 39,
+      "titolo": "Trump News Conference & Stock Market Sell-Off - LIVE Breaking News Coverage",
+      "canale": "Agenda-Free TV",
       "lungo": true
      },
      {
-      "views": 266649,
-      "ore": 30,
-      "titolo": "Stock market faces BRUTAL sell-off",
-      "canale": "Fox News Clips",
+      "views": 242399,
+      "ore": 67,
+      "titolo": "He Traded the 1987 Crash and Says This Sell-Off Still Isn’t Panic | Bubba Horwitz",
+      "canale": "Kitco NEWS",
+      "lungo": true
+     },
+     {
+      "views": 219456,
+      "ore": 60,
+      "titolo": "Market hit by major stock selloff after Anthropic's record-breaking IPO",
+      "canale": "CBS Evening News",
       "lungo": false
      },
      {
-      "views": 254941,
-      "ore": 30,
-      "titolo": "Stock market plunges into correction territory",
-      "canale": "NBC News",
-      "lungo": false
-     },
-     {
-      "views": 151798,
-      "ore": 37,
-      "titolo": "90% CRASH 🔴 अमेरिका का खेल खत्म?🔴 DOW JONES CRASH, NASDAQ CRASH🔴 CRYPTO BITCOIN CRASH🔴 GIF",
-      "canale": "Stock Market का Commando",
+      "views": 214918,
+      "ore": 66,
+      "titolo": "4 Safe Stocks To Buy Before A 30% Market Drop",
+      "canale": "TheStreet",
       "lungo": true
      }
     ]
    },
    "yt_it": {
-    "views": 0,
-    "views_ora": 0,
-    "video": 0,
-    "lunghi": 0,
-    "top": []
+    "views": 101390,
+    "views_ora": 1754,
+    "video": 8,
+    "lunghi": 5,
+    "top": [
+     {
+      "views": 56113,
+      "ore": 61,
+      "titolo": "Are You Ready For Markets To Crash? (KNOW THIS NOW)",
+      "canale": "Ricky Gutierrez",
+      "lungo": true
+     },
+     {
+      "views": 36825,
+      "ore": 53,
+      "titolo": "AI rout deepens as Anthropic IPO fails to lift market mood",
+      "canale": "CNBC International Live",
+      "lungo": true
+     },
+     {
+      "views": 8005,
+      "ore": 66,
+      "titolo": "How Would I Deploy My Last $10K After Anthropic IPO? [URGENT]",
+      "canale": "Chart Hackers",
+      "lungo": true
+     },
+     {
+      "views": 201,
+      "ore": 46,
+      "titolo": "Il CROLLO dei mercati è CAUSATO dall'AI e potrà peggiorare",
+      "canale": "WhaleStreet",
+      "lungo": true
+     },
+     {
+      "views": 180,
+      "ore": 22,
+      "titolo": "AI Stocks Crash on Wall Street—Nasdaq Plunges Over 5% One Day After Anthropic’s Historic I",
+      "canale": "The Flyover",
+      "lungo": false
+     }
+    ]
    },
-   "punteggio": 70407
+   "punteggio": 63234
   },
   {
-   "storia": "Anthropic IPO at about $1.5 trillion fails to calm AI market sell-off",
-   "persona": "Dario Amodei",
-   "ruolo": "CEO and co-founder of Anthropic",
-   "azienda": "Anthropic",
-   "query_en": "Anthropic IPO Dario Amodei",
-   "query_it": "Anthropic IPO Dario Amodei",
-   "novita": "Anthropic's listing is described as a $1.5T IPO, creating new billionaires such as Ashton Kutcher. Tech stocks still fell worldwide, with the US in correction territory and Anthropic itself weak in Wall Street trading.",
+   "storia": "Jensen Huang resigns as Nvidia CEO amid board probe and reports of threats to staff",
+   "persona": "Jensen Huang",
+   "ruolo": "Founder and (until resignation) CEO of Nvidia",
+   "azienda": "Nvidia",
+   "query_en": "Jensen Huang resignation Nvidia CEO",
+   "query_it": "Jensen Huang dimissioni Nvidia",
+   "novita": "NYT reports the interim CEO is trying to calm the company; Business Insider says allies are urging Huang to 'fight'; Nvidia's board opened a probe into Huang and stock fell, with a reported US accounting probe also under way.",
    "continua": false,
    "yt_en": {
-    "views": 1457307,
-    "views_ora": 29527,
+    "views": 976689,
+    "views_ora": 32254,
     "video": 15,
-    "lunghi": 13,
+    "lunghi": 5,
     "top": [
      {
-      "views": 216098,
-      "ore": 42,
-      "titolo": "The Anthropic IPO Should Have Been Illegal",
-      "canale": "Finance Stack",
+      "views": 275117,
+      "ore": 20,
+      "titolo": "Jensen Huang RENUNCIA: La trama que sacude a NVIDIA",
+      "canale": "Date un Vlog",
       "lungo": true
      },
      {
-      "views": 194820,
-      "ore": 62,
-      "titolo": "Anthropic raises record $81.3B in IPO: What it means for AI",
-      "canale": "CNN",
-      "lungo": true
+      "views": 254608,
+      "ore": 46,
+      "titolo": "Why Jensen will be so valuable to Elon Musk? 🤫 #AI #elonmusk #xai",
+      "canale": "LarkyMotion",
+      "lungo": false
      },
      {
-      "views": 168311,
-      "ore": 52,
-      "titolo": "Ana & Cenk React To Anthropic's SHOCKING IPO",
-      "canale": "The Young Turks",
-      "lungo": true
+      "views": 158195,
+      "ore": 24,
+      "titolo": "黃仁勳辭職六天後，Uber創辦人卡蘭尼克穿黑皮衣上台：要把他找回來｜卡蘭尼克 Travis Kalanick 黃仁勳 Jensen Huang",
+      "canale": "亞洲錢劇場",
+      "lungo": false
      },
      {
-      "views": 140001,
-      "ore": 43,
-      "titolo": "ಇಲಾನ್‌ ಮಸ್ಕ್ ದಾಖಲೆ ಛಿದ್ರ! | Anthropic Biggest IPO | AI | Dario Amodei |  Masth Magaa | Ama",
-      "canale": "Masth Magaa",
-      "lungo": true
-     },
-     {
-      "views": 124972,
-      "ore": 59,
-      "titolo": "Anthropic IPOs, GPT 6.2 Astra Arrives, But There’s a Bigger Story",
-      "canale": "AI Explained",
-      "lungo": true
-     }
-    ]
-   },
-   "yt_it": {
-    "views": 1365634,
-    "views_ora": 31091,
-    "video": 15,
-    "lunghi": 13,
-    "top": [
-     {
-      "views": 216098,
-      "ore": 42,
-      "titolo": "The Anthropic IPO Should Have Been Illegal",
-      "canale": "Finance Stack",
-      "lungo": true
-     },
-     {
-      "views": 194820,
-      "ore": 62,
-      "titolo": "Anthropic raises record $81.3B in IPO: What it means for AI",
-      "canale": "CNN",
-      "lungo": true
-     },
-     {
-      "views": 168311,
-      "ore": 52,
-      "titolo": "Ana & Cenk React To Anthropic's SHOCKING IPO",
-      "canale": "The Young Turks",
-      "lungo": true
-     },
-     {
-      "views": 140001,
-      "ore": 43,
-      "titolo": "ಇಲಾನ್‌ ಮಸ್ಕ್ ದಾಖಲೆ ಛಿದ್ರ! | Anthropic Biggest IPO | AI | Dario Amodei |  Masth Magaa | Ama",
-      "canale": "Masth Magaa",
-      "lungo": true
-     },
-     {
-      "views": 108054,
-      "ore": 63,
-      "titolo": "FULL SPEECH: Anthropic CEO Dario Reveals How AI Could Transform Medicine and Accelerate Cu",
-      "canale": "DWS News",
-      "lungo": true
-     }
-    ]
-   },
-   "punteggio": 60618
-  },
-  {
-   "storia": "Jensen Huang ousted from Nvidia: Senate hearing, comeback push and allies' 'let's fight'",
-   "persona": "Jensen Huang",
-   "ruolo": "Former CEO and founder of Nvidia",
-   "azienda": "Nvidia",
-   "query_en": "Jensen Huang Nvidia resignation comeback",
-   "query_it": "Jensen Huang Nvidia dimissioni ritorno",
-   "novita": "WSJ reports Huang broke his silence and signals willingness to return as CEO. The Senate public hearing is confirmed per Benzinga, and Business Insider says his allies are urging him to fight; a return is not confirmed.",
-   "continua": true,
-   "yt_en": {
-    "views": 6833,
-    "views_ora": 164,
-    "video": 15,
-    "lunghi": 9,
-    "top": [
-     {
-      "views": 2174,
-      "ore": 48,
-      "titolo": "【獨家觀點】老黃還沒輸！美記者預言籌1.6兆東山再起 輝達逼走靈魂人物根本自掘墳墓？反送中國大禮 華為恐成最大贏家？！｜#環球大戰線 #寰宇全視界 @globalvisiontal",
-      "canale": "寰宇全視界",
-      "lungo": true
-     },
-     {
-      "views": 2164,
+      "views": 126828,
       "ore": 39,
-      "titolo": "Jensen Huang!!!!",
-      "canale": "BitBiasedAI",
-      "lungo": true
-     },
-     {
-      "views": 730,
-      "ore": 28,
-      "titolo": "Trump Backs Jensen Huang's Return To Nvidia, Calls Him A 'Brilliant Man' | India Today",
-      "canale": "India Today",
-      "lungo": false
-     },
-     {
-      "views": 652,
-      "ore": 61,
-      "titolo": "Nvidia Made $115.8 Billion. Its CEO Is Gone. #shorts",
-      "canale": "The KnowMore Show",
-      "lungo": false
-     },
-     {
-      "views": 257,
-      "ore": 39,
-      "titolo": "180,000 People Demand A Return #viral #news #shorts",
-      "canale": "Null Mindset ",
-      "lungo": false
-     }
-    ]
-   },
-   "yt_it": {
-    "views": 294077,
-    "views_ora": 8110,
-    "video": 15,
-    "lunghi": 4,
-    "top": [
-     {
-      "views": 122896,
-      "ore": 32,
       "titolo": "President Trump calls for return of former Nvidia CEO Jensen Huang",
       "canale": "FOX 9 Minneapolis-St. Paul",
       "lungo": false
      },
      {
-      "views": 116647,
-      "ore": 36,
+      "views": 43194,
+      "ore": 50,
+      "titolo": "Elon Musk’s $4 Trillion Hostile Takeover ?",
+      "canale": "Chokepoint",
+      "lungo": true
+     }
+    ]
+   },
+   "yt_it": {
+    "views": 540799,
+    "views_ora": 10953,
+    "video": 15,
+    "lunghi": 9,
+    "top": [
+     {
+      "views": 178550,
+      "ore": 67,
+      "titolo": "Nvidia’s Jensen Huang Scandal Just Got MUCH Bigger… WHAT Do They Know?",
+      "canale": "Ross Givens",
+      "lungo": true
+     },
+     {
+      "views": 126828,
+      "ore": 39,
+      "titolo": "President Trump calls for return of former Nvidia CEO Jensen Huang",
+      "canale": "FOX 9 Minneapolis-St. Paul",
+      "lungo": false
+     },
+     {
+      "views": 122233,
+      "ore": 42,
       "titolo": "Jensen Huang Resignation & Trump-Xi-Putin Summit Nothingburger - Off the Fence",
       "canale": "Triggernometry",
       "lungo": true
      },
      {
-      "views": 28315,
-      "ore": 66,
-      "titolo": "Nvidia is F*ucked and Jensen Huang is Panicking",
-      "canale": "Finance Stack",
+      "views": 46304,
+      "ore": 62,
+      "titolo": "🚨Biggest Investing Opportunity of the Decade Won't Last Long",
+      "canale": "Kenan Grace",
       "lungo": true
      },
      {
-      "views": 7098,
-      "ore": 61,
-      "titolo": "Jensen Huang Resigns, FAA & Microsoft Outages: Is AI Breaking the Internet?",
-      "canale": "Philosophy, Programs, and Prom",
+      "views": 13782,
+      "ore": 46,
+      "titolo": "What’s Happening to Jensen Huang Right Now Is Hard to Watch",
+      "canale": "Classic Stars USA",
       "lungo": true
-     },
-     {
-      "views": 5247,
-      "ore": 63,
-      "titolo": "Jensen Huang dopo le dimissioni: “Pronto a tornare alla guida di Nvidia se il board lo vor",
-      "canale": "Corriere della Sera",
-      "lungo": false
      }
     ]
    },
-   "punteggio": 8274
+   "punteggio": 43207
   },
   {
-   "storia": "Nvidia faces US accounting probe and China chip-smuggling allegations",
-   "persona": "Jensen Huang",
-   "ruolo": "Former CEO and founder of Nvidia",
-   "azienda": "Nvidia",
-   "query_en": "Nvidia SEC accounting probe China",
-   "query_it": "Nvidia indagine Sec contabilità Cina",
-   "novita": "Media report a US accounting probe (Il Sole 24 Ore says the SEC is examining accounting practices). WSJ names an associate accused of funneling Nvidia chips to China. Bessent says no further export limits are needed. The probe is reported, not formally confirmed.",
+   "storia": "Apple's new CEO John Ternus pushes into AI with a secret agent",
+   "persona": "John Ternus",
+   "ruolo": "CEO of Apple",
+   "azienda": "Apple",
+   "query_en": "John Ternus Apple AI agent",
+   "query_it": "John Ternus Apple agente AI",
+   "novita": "Yahoo Finance reports Apple is developing a secret AI agent, and DW asks whether Ternus can fix Apple's AI troubles.",
    "continua": false,
    "yt_en": {
-    "views": 119129,
-    "views_ora": 4089,
+    "views": 174425,
+    "views_ora": 2706,
     "video": 15,
-    "lunghi": 6,
+    "lunghi": 5,
     "top": [
      {
-      "views": 116256,
-      "ore": 29,
-      "titolo": "Why Nvidia Stock NVDA Crashed 14% on a Reported SEC Accounting Probe",
-      "canale": "Comeback or Collapse",
+      "views": 164460,
+      "ore": 67,
+      "titolo": "iOS 28 - The FIRST Details Are HERE!",
+      "canale": "ZONEofTECH",
       "lungo": true
      },
      {
-      "views": 973,
-      "ore": 34,
-      "titolo": "Nvidia falls 11.8% on reported SEC probe #shorts",
-      "canale": "StockGecko",
+      "views": 7994,
+      "ore": 52,
+      "titolo": "애플 AI 에이전트 팀장에 기본급 40만 달러, 터너스가 뒤에서 다그친 까닭",
+      "canale": "경제로어",
       "lungo": false
      },
      {
-      "views": 568,
-      "ore": 33,
-      "titolo": "NVIDIA Stock TANKED This Week 📉 Tech News Today #Shorts",
-      "canale": "The Tech Pits",
+      "views": 1244,
+      "ore": 14,
+      "titolo": "How Apple Will Win the AI Race?",
+      "canale": "Worlds Roundup",
       "lungo": false
      },
      {
-      "views": 441,
-      "ore": 29,
-      "titolo": "🚨 SEC PROBES NVIDIA'S ACCOUNTING | $500 Billion Wiped Out in One Day",
-      "canale": "Breaking World News",
+      "views": 185,
+      "ore": 26,
+      "titolo": "Apple's SECRET AI Agent (Internal Panic)",
+      "canale": "Blue Fractal",
       "lungo": false
      },
      {
-      "views": 335,
-      "ore": 25,
-      "titolo": "Nvidia Stock Plummets 14% as SEC Reportedly Probes Its Accounting",
-      "canale": "Politricks 360",
+      "views": 148,
+      "ore": 44,
+      "titolo": "Apple prépare son agent IA — et ChatGPT passe de 4 à 14 autorisations",
+      "canale": "L’IA Sur Le Terrain",
       "lungo": false
      }
     ]
    },
    "yt_it": {
-    "views": 0,
-    "views_ora": 0,
-    "video": 0,
-    "lunghi": 0,
-    "top": []
-   },
-   "punteggio": 4089
-  },
-  {
-   "storia": "Satya Nadella: 'tech founders are not gods' amid Huang fallout",
-   "persona": "Satya Nadella",
-   "ruolo": "CEO of Microsoft",
-   "azienda": "Microsoft",
-   "query_en": "Satya Nadella founders not gods",
-   "query_it": "Satya Nadella fondatori non sono dei",
-   "novita": "Nadella praised Huang but said tech founders should not be treated as gods, according to reports citing his comments. Details come mostly from secondary outlets.",
-   "continua": false,
-   "yt_en": {
-    "views": 0,
-    "views_ora": 0,
-    "video": 0,
-    "lunghi": 0,
-    "top": []
-   },
-   "yt_it": {
-    "views": 685,
-    "views_ora": 122,
-    "video": 1,
-    "lunghi": 0,
+    "views": 174417,
+    "views_ora": 2706,
+    "video": 15,
+    "lunghi": 3,
     "top": [
      {
-      "views": 685,
-      "ore": 6,
-      "titolo": "젠슨 황에 대한 나델라의 생각 \"진짜 힘은 그가 키운 조직\" 🤝🏢 딜북 서밋 #shorts",
-      "canale": "Max with Isaac",
+      "views": 164460,
+      "ore": 67,
+      "titolo": "iOS 28 - The FIRST Details Are HERE!",
+      "canale": "ZONEofTECH",
+      "lungo": true
+     },
+     {
+      "views": 7983,
+      "ore": 52,
+      "titolo": "애플 AI 에이전트 팀장에 기본급 40만 달러, 터너스가 뒤에서 다그친 까닭",
+      "canale": "경제로어",
+      "lungo": false
+     },
+     {
+      "views": 1248,
+      "ore": 14,
+      "titolo": "How Apple Will Win the AI Race?",
+      "canale": "Worlds Roundup",
+      "lungo": false
+     },
+     {
+      "views": 185,
+      "ore": 26,
+      "titolo": "Apple's SECRET AI Agent (Internal Panic)",
+      "canale": "Blue Fractal",
+      "lungo": false
+     },
+     {
+      "views": 147,
+      "ore": 44,
+      "titolo": "Apple prépare son agent IA — et ChatGPT passe de 4 à 14 autorisations",
+      "canale": "L’IA Sur Le Terrain",
       "lungo": false
      }
     ]
    },
-   "punteggio": 122
+   "punteggio": 5412
+  },
+  {
+   "storia": "Tech outages wave and Anthropic engineer's warning about Claude Code",
+   "persona": "Dario Amodei",
+   "ruolo": "CEO of Anthropic",
+   "azienda": "Anthropic",
+   "query_en": "Claude Code outages warning AI",
+   "query_it": "Claude Code blackout tecnologici avvertimento",
+   "novita": "CNBC, WIRED and NYT run pieces on AI-fueled outages, with an Anthropic engineer warning about Claude Code and Cloudflare's CEO predicting two years of outages.",
+   "continua": false,
+   "yt_en": {
+    "views": 222911,
+    "views_ora": 3295,
+    "video": 4,
+    "lunghi": 3,
+    "top": [
+     {
+      "views": 222852,
+      "ore": 68,
+      "titolo": "AI agents are doing what experts warned. Stephen Fry",
+      "canale": "Pindex",
+      "lungo": true
+     },
+     {
+      "views": 36,
+      "ore": 12,
+      "titolo": "Historical Context of Cyberattacks, Artex, and FBI Misinformation",
+      "canale": "Skillversitas",
+      "lungo": false
+     },
+     {
+      "views": 13,
+      "ore": 15,
+      "titolo": "Claude Code 写得快，出了故障谁来修？",
+      "canale": "AI财经观察",
+      "lungo": true
+     },
+     {
+      "views": 10,
+      "ore": 21,
+      "titolo": "Google Gemini for Mac launches computer use",
+      "canale": "TOKN | AI, Tech & What's Next",
+      "lungo": true
+     }
+    ]
+   },
+   "yt_it": {
+    "views": 0,
+    "views_ora": 0,
+    "video": 0,
+    "lunghi": 0,
+    "top": []
+   },
+   "punteggio": 3295
+  },
+  {
+   "storia": "Nvidia chip-smuggling to China scandal: probes, House Democrats and WSJ exclusive",
+   "persona": "Jensen Huang",
+   "ruolo": "Founder of Nvidia",
+   "azienda": "Nvidia",
+   "query_en": "Nvidia chip smuggling China probe",
+   "query_it": "Nvidia contrabbando chip Cina indagine",
+   "novita": "House Democrats probe whether Nvidia helped halt a Commerce smuggling inquiry, WSJ names an associate accused of funneling chips, and Bessent says no further export restrictions are needed.",
+   "continua": false,
+   "yt_en": {
+    "views": 1377,
+    "views_ora": 22,
+    "video": 11,
+    "lunghi": 7,
+    "top": [
+     {
+      "views": 641,
+      "ore": 66,
+      "titolo": "كيف دخلت جاسوسة صينية إلى إنفيديا… وأخرجت مؤسسها",
+      "canale": "عقلية مليار",
+      "lungo": true
+     },
+     {
+      "views": 558,
+      "ore": 71,
+      "titolo": "The Nvidia Chip Smuggling Probe Just Got Bigger #shorts #jensenhuang #nvidiachips #nvidia",
+      "canale": "The Toppling",
+      "lungo": false
+     },
+     {
+      "views": 89,
+      "ore": 31,
+      "titolo": "Nvidia's China Chip Diversion Probe, Java4Shell and Ukraine's Flying Modems",
+      "canale": "Techstrong TV",
+      "lungo": true
+     },
+     {
+      "views": 60,
+      "ore": 67,
+      "titolo": "Nvidia H200 Chips: China Firms Cleared Amid Smuggling Probe #shorts",
+      "canale": "Delania Munro",
+      "lungo": false
+     },
+     {
+      "views": 10,
+      "ore": 22,
+      "titolo": "The Dinner That Cost Jensen Huang Nvidia",
+      "canale": "Bizarrely Explained",
+      "lungo": true
+     }
+    ]
+   },
+   "yt_it": {
+    "views": 2811,
+    "views_ora": 55,
+    "video": 1,
+    "lunghi": 1,
+    "top": [
+     {
+      "views": 2811,
+      "ore": 51,
+      "titolo": "Why America Can’t Afford To Lose Him | 2 Huang's Don't Make A Right",
+      "canale": "NewsBaba / Mahfuz Talukder",
+      "lungo": true
+     }
+    ]
+   },
+   "punteggio": 77
   }
  ]
 }
