@@ -72,7 +72,7 @@ def claude(prompt, modello='claude-sonnet-5-5', max_tokens=6000, immagine=None, 
 
 # ---------------------------------------------------------------- 1) copione
 def copione():
-    parole = int(SECONDI * 2.55)
+    parole = int(SECONDI * 2.65)
     fonte = ('PEXELS stock video search (short concrete visual query in English, 2-4 words, things a stock cameraman would film: '
              'e.g. "empty city street", "desert dunes aerial", "lion walking grass"; never people talking to camera, never text)'
              if C['fonte'] == 'pexels' else
@@ -112,7 +112,9 @@ Write {'the WHOLE video' if SECONDI > 120 else 'ONLY the first ' + str(int(SECON
     t = claude(p, max_tokens=24000 if SECONDI > 120 else 5000)
     j = json.loads(t[t.index('{'):t.rindex('}') + 1])
     n = sum(len(x['testo'].split()) for x in j['scene'])
-    if n < parole * 0.88:   # troppo corto: la durata conta (video lunghi sempre sopra gli 8 minuti)
+    for _giro in range(2):
+      n = sum(len(x['testo'].split()) for x in j['scene'])
+      if n < parole * 0.95:   # troppo corto: la durata conta (video lunghi sempre sopra gli 8 minuti)
         t = claude(p + f'\n\nYour previous answer had only {n} words, far below {parole}. Here it is:\n' + json.dumps(j, ensure_ascii=False)
                    + f'\nRewrite it to {parole} words (count them), adding new TRUE facts and scenes, same rules, same JSON format.', max_tokens=24000 if SECONDI > 120 else 6000)
         j = json.loads(t[t.index('{'):t.rindex('}') + 1])

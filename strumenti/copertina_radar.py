@@ -174,7 +174,7 @@ def copertina_mappa(titolo, v):
     pr = lambda lo, la: (ox + (lo * kx - min(xs)) * sc, oy + (max(ys) - la) * sc)
     sfondo = klein(f'Top-down satellite photograph of the terrain of {stato}, United States: mountains, rivers, forests, coastline, natural colors, '
                    'sharp, high detail, no text, no labels, no borders')
-    im = sfondo.convert('RGBA')
+    im = sfondo.resize((W, H), Image.LANCZOS).convert('RGBA')
     maschera = Image.new('L', (W, H), 0); dm = ImageDraw.Draw(maschera)
     for a in anelli:
         if len(a) > 8:

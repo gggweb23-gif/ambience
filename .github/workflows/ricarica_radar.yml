@@ -1,0 +1,29 @@
+name: Copertina e caricamento canale RADAR (da video gia fatto)
+on:
+  workflow_dispatch:
+    inputs:
+      run_id: {required: true, type: string}
+      canale: {required: true, type: string}
+      chiave: {required: true, type: string}
+      playlist: {required: true, type: string}
+      pubblica_il: {required: true, type: string}
+permissions: {contents: write, actions: read}
+jobs:
+  r:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: {name: 'video-${{ inputs.canale }}', path: 'prove_video/radar/${{ inputs.canale }}', run-id: '${{ inputs.run_id }}', github-token: '${{ github.token }}'}
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null && pip install -q pillow
+      - env: {CANALE: '${{ inputs.canale }}', ANTHROPIC_API_KEY: '${{ secrets.ANTHROPIC_API_KEY }}', FAL_KEY: '${{ secrets.FAL_KEY }}'}
+        run: python3 strumenti/copertina_radar.py
+      - env: {CANALE: '${{ inputs.canale }}', PUBBLICA_IL: '${{ inputs.pubblica_il }}', PLAYLIST: '${{ inputs.playlist }}', YT_CLIENT_ID: '${{ secrets.YT_CLIENT_ID }}', YT_CLIENT_SECRET: '${{ secrets.YT_CLIENT_SECRET }}', YT_REFRESH_TOKEN: '${{ secrets[inputs.chiave] }}'}
+        run: python3 strumenti/carica_radar.py
+      - if: always()
+        run: |
+          git config user.name render-bot; git config user.email render-bot@users.noreply.github.com
+          d=prove_video/radar/${{ inputs.canale }}; rm -f $d/prova.mp4 $d/anteprima_1080p.mp4
+          git add prove_video/radar && git commit -qm "Ricarica RADAR ${{ inputs.canale }}" || exit 0
+          for i in 1 2 3 4 5; do (git pull --rebase -q || { git rebase --abort; git pull --rebase -q -X theirs; }) && git push -q && break; sleep $((i*7)); done

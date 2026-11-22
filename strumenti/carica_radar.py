@@ -39,6 +39,10 @@ if cap and not cap[0].startswith('0:00'):
 descr, tags = YT.testi(P, titolo, c.get('descrizione') or '', cap, c.get('tag') or [])
 descr += '\n\n' + hashtag(tags)
 cop = os.path.join(D, 'copertina_1.jpg')
+import subprocess
+dur = float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', os.path.join(D, 'prova.mp4')], capture_output=True, text=True).stdout or 0)
+if dur < 480:   # regola: video lunghi sempre sopra gli 8 minuti -> non si carica
+    raise SystemExit(f'VIDEO TROPPO CORTO ({dur:.0f} s): non caricato')
 vid, nota = YT.carica_youtube(P, os.path.join(D, 'prova.mp4'), titolo, descr, tags, cop, 'en')
 print('CARICATO', vid, '| esce', P['pubblica_il'], '|', nota)
 open(os.path.join(D, 'caricato.txt'), 'w').write(f'{vid} {P["pubblica_il"]} {titolo}\n{nota}\n')
