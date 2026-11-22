@@ -1,131 +1,1276 @@
 {
- "titolo": "40 Things From 1950s America That Quietly Disappeared",
- "copertina": "GONE FOREVER",
+ "titolo": "25 Things From 1950s America That Quietly Disappeared",
+ "descrizione": "Travel back to 1950s America and rediscover 25 everyday things that quietly vanished: milkmen, party lines, drive-ins, soda fountains, carhops, streetcars and more. A nostalgic look at the objects, habits and places of mid-century American life that we will never see again.",
+ "tag": [
+  "1950s america",
+  "1950s nostalgia",
+  "things we'll never see again",
+  "lost america",
+  "vintage america",
+  "1950s life",
+  "1950s history",
+  "nostalgia",
+  "milkman",
+  "party line telephone",
+  "drive-in theater",
+  "soda fountain",
+  "carhop",
+  "mid century america",
+  "disappeared 1950s"
+ ],
+ "copertina": "GONE FOREVER: 1950s",
  "scene": [
   {
-   "testo": "Some of these you used every single day.",
+   "testo": "Some neighbors once shared one phone line, and could listen in.",
+   "q": "telephone party line",
+   "scritta": "PARTY LINE",
+   "etichetta": "INTRO",
+   "numero": ""
+  },
+  {
+   "testo": "Milk arrived on your porch before you woke up.",
+   "q": "milk bottles doorstep",
+   "scritta": "",
+   "etichetta": "INTRO",
+   "numero": ""
+  },
+  {
+   "testo": "Whole TV stations ended the night with a test pattern.",
+   "q": "television test pattern",
+   "scritta": "",
+   "etichetta": "INTRO",
+   "numero": ""
+  },
+  {
+   "testo": "None of that is shocking to anyone who lived it.",
    "q": "suburban family",
-   "scritta": "40 GONE",
-   "etichetta": "INTRO",
-   "numero": ""
-  },
-  {
-   "testo": "Nobody announced when they vanished.",
-   "q": "main street 1950s",
    "scritta": "",
    "etichetta": "INTRO",
    "numero": ""
   },
   {
-   "testo": "They just stopped showing up one day.",
-   "q": "small town",
+   "testo": "But today, almost every piece of it is gone.",
+   "q": "small town street",
+   "scritta": "GONE",
+   "etichetta": "INTRO",
+   "numero": ""
+  },
+  {
+   "testo": "Here are twenty-five things from 1950s America that quietly disappeared.",
+   "q": "American home 1950s",
    "scritta": "",
    "etichetta": "INTRO",
    "numero": ""
   },
   {
-   "testo": "Today, most kids wouldn't know what they were.",
-   "q": "children classroom",
+   "testo": "And the final one changed how every town looked.",
+   "q": "main street shops",
    "scritta": "",
    "etichetta": "INTRO",
    "numero": ""
   },
   {
-   "testo": "Forty everyday things, counted down from the very end.",
-   "q": "city street traffic",
-   "scritta": "FORTY",
-   "etichetta": "INTRO",
-   "numero": ""
-  },
-  {
-   "testo": "And a few of them will honestly surprise you.",
-   "q": "family living room",
+   "testo": "Stay to the end, because number one explains everything.",
+   "q": "neighborhood families",
    "scritta": "",
    "etichetta": "INTRO",
    "numero": ""
   },
   {
-   "testo": "Number 40: the milkman.",
+   "testo": "Twenty-five: the milkman, who delivered breakfast before dawn.",
    "q": "milkman delivery",
-   "scritta": "MILKMAN",
+   "scritta": "25",
    "etichetta": "THE MILKMAN",
-   "numero": "40"
+   "numero": "25"
   },
   {
-   "testo": "Glass bottles waited on the porch every morning.",
-   "q": "milk bottles",
-   "scritta": "",
-   "etichetta": "THE MILKMAN",
-   "numero": ""
-  },
-  {
-   "testo": "Empty ones went back out for the next delivery.",
-   "q": "dairy bottling",
+   "testo": "Milk came in glass bottles, left right on the porch.",
+   "q": "milk bottles delivery",
    "scritta": "",
    "etichetta": "THE MILKMAN",
    "numero": ""
   },
   {
-   "testo": "Number 39: the full-service gas station.",
-   "q": "gas station attendant",
+   "testo": "Families set out empties, and he swapped them for full ones.",
+   "q": "milkman house",
    "scritta": "",
-   "etichetta": "FULL-SERVICE GAS",
-   "numero": "39"
-  },
-  {
-   "testo": "An attendant pumped your gas and checked your oil.",
-   "q": "service station",
-   "scritta": "",
-   "etichetta": "FULL-SERVICE GAS",
+   "etichetta": "THE MILKMAN",
    "numero": ""
   },
   {
-   "testo": "He even washed your windshield, without being asked.",
-   "q": "car windshield wash",
+   "testo": "Some dairies even delivered eggs and butter too.",
+   "q": "dairy truck route",
    "scritta": "",
-   "etichetta": "FULL-SERVICE GAS",
+   "etichetta": "THE MILKMAN",
    "numero": ""
   },
   {
-   "testo": "Number 38: the soda fountain.",
+   "testo": "Many routes ran early, while neighborhoods were still asleep.",
+   "q": "milk truck morning",
+   "scritta": "",
+   "etichetta": "THE MILKMAN",
+   "numero": ""
+  },
+  {
+   "testo": "Supermarkets and home refrigerators slowly made the route unnecessary.",
+   "q": "supermarket dairy",
+   "scritta": "",
+   "etichetta": "THE MILKMAN",
+   "numero": ""
+  },
+  {
+   "testo": "Today, home milk delivery is a rare novelty.",
+   "q": "dairy farm milk",
+   "scritta": "",
+   "etichetta": "THE MILKMAN",
+   "numero": ""
+  },
+  {
+   "testo": "Twenty-four: a telephone line shared with your neighbors.",
+   "q": "telephone 1950s home",
+   "scritta": "",
+   "etichetta": "PARTY LINES",
+   "numero": "24"
+  },
+  {
+   "testo": "Several households used one circuit to save money.",
+   "q": "telephone lines poles",
+   "scritta": "",
+   "etichetta": "PARTY LINES",
+   "numero": ""
+  },
+  {
+   "testo": "If a neighbor was talking, you simply waited.",
+   "q": "woman telephone kitchen",
+   "scritta": "",
+   "etichetta": "PARTY LINES",
+   "numero": ""
+  },
+  {
+   "testo": "Each home often had its own ring pattern.",
+   "q": "telephone ringing",
+   "scritta": "",
+   "etichetta": "PARTY LINES",
+   "numero": ""
+  },
+  {
+   "testo": "Yes, curious neighbors could pick up and listen.",
+   "q": "telephone conversation",
+   "scritta": "",
+   "etichetta": "PARTY LINES",
+   "numero": ""
+  },
+  {
+   "testo": "Rural areas relied on party lines especially often.",
+   "q": "rural telephone farm",
+   "scritta": "",
+   "etichetta": "PARTY LINES",
+   "numero": ""
+  },
+  {
+   "testo": "Private lines gradually became the normal way to call.",
+   "q": "telephone desk",
+   "scritta": "",
+   "etichetta": "PARTY LINES",
+   "numero": ""
+  },
+  {
+   "testo": "Twenty-three: women who connected calls by hand.",
+   "q": "telephone operator switchboard",
+   "scritta": "",
+   "etichetta": "SWITCHBOARD OPERATORS",
+   "numero": "23"
+  },
+  {
+   "testo": "Operators plugged cords into a board, one call at a time.",
+   "q": "switchboard operators",
+   "scritta": "",
+   "etichetta": "SWITCHBOARD OPERATORS",
+   "numero": ""
+  },
+  {
+   "testo": "You lifted the receiver and a real voice answered.",
+   "q": "operator headset",
+   "scritta": "",
+   "etichetta": "SWITCHBOARD OPERATORS",
+   "numero": ""
+  },
+  {
+   "testo": "Automatic dialing spread across the country and replaced them.",
+   "q": "automatic telephone exchange",
+   "scritta": "",
+   "etichetta": "SWITCHBOARD OPERATORS",
+   "numero": ""
+  },
+  {
+   "testo": "Phone numbers began with exchange names and then digits.",
+   "q": "telephone number directory",
+   "scritta": "",
+   "etichetta": "SWITCHBOARD OPERATORS",
+   "numero": ""
+  },
+  {
+   "testo": "Those names gave way to all-digit numbers.",
+   "q": "telephone company office",
+   "scritta": "",
+   "etichetta": "SWITCHBOARD OPERATORS",
+   "numero": ""
+  },
+  {
+   "testo": "Twenty-two: the rotary dial, which made calling take patience.",
+   "q": "rotary telephone",
+   "scritta": "",
+   "etichetta": "ROTARY DIALS",
+   "numero": "22"
+  },
+  {
+   "testo": "You slid a finger into the hole and turned.",
+   "q": "telephone dialing",
+   "scritta": "",
+   "etichetta": "ROTARY DIALS",
+   "numero": ""
+  },
+  {
+   "testo": "Then you waited while the dial spun back.",
+   "q": "telephone dial closeup",
+   "scritta": "",
+   "etichetta": "ROTARY DIALS",
+   "numero": ""
+  },
+  {
+   "testo": "A wrong digit meant hanging up and starting over.",
+   "q": "man telephone office",
+   "scritta": "",
+   "etichetta": "ROTARY DIALS",
+   "numero": ""
+  },
+  {
+   "testo": "Phone companies leased the telephones to customers monthly.",
+   "q": "telephone installation",
+   "scritta": "",
+   "etichetta": "ROTARY DIALS",
+   "numero": ""
+  },
+  {
+   "testo": "Push-button phones arrived in 1963 and slowly took over.",
+   "q": "push button telephone",
+   "scritta": "1963",
+   "etichetta": "ROTARY DIALS",
+   "numero": ""
+  },
+  {
+   "testo": "Today, many kids have never touched one.",
+   "q": "children telephone",
+   "scritta": "",
+   "etichetta": "ROTARY DIALS",
+   "numero": ""
+  },
+  {
+   "testo": "Twenty-one: watching a movie from your own car.",
+   "q": "drive-in theater",
+   "scritta": "",
+   "etichetta": "DRIVE-IN THEATERS",
+   "numero": "21"
+  },
+  {
+   "testo": "Cars rolled onto a lot facing one giant screen.",
+   "q": "drive-in movie cars",
+   "scritta": "",
+   "etichetta": "DRIVE-IN THEATERS",
+   "numero": ""
+  },
+  {
+   "testo": "Sound came from a speaker you hung on the window.",
+   "q": "drive-in speaker",
+   "scritta": "",
+   "etichetta": "DRIVE-IN THEATERS",
+   "numero": ""
+  },
+  {
+   "testo": "Drive-ins peaked in the late 1950s, with thousands across America.",
+   "q": "drive-in theater night",
+   "scritta": "",
+   "etichetta": "DRIVE-IN THEATERS",
+   "numero": ""
+  },
+  {
+   "testo": "Many offered playgrounds for children before the show.",
+   "q": "drive-in playground",
+   "scritta": "",
+   "etichetta": "DRIVE-IN THEATERS",
+   "numero": ""
+  },
+  {
+   "testo": "Most have closed, though some still survive.",
+   "q": "movie screen outdoor",
+   "scritta": "",
+   "etichetta": "DRIVE-IN THEATERS",
+   "numero": ""
+  },
+  {
+   "testo": "Twenty: the drugstore soda fountain.",
    "q": "soda fountain",
-   "scritta": "SODA FOUNTAIN",
+   "scritta": "",
    "etichetta": "SODA FOUNTAINS",
-   "numero": "38"
+   "numero": "20"
   },
   {
-   "testo": "Neighbors gathered there for milkshakes and conversation.",
-   "q": "drugstore counter",
+   "testo": "A soda jerk mixed floats, malts and milkshakes by hand.",
+   "q": "soda jerk milkshake",
    "scritta": "",
    "etichetta": "SODA FOUNTAINS",
    "numero": ""
   },
   {
-   "testo": "The soda jerk mixed every drink by hand.",
+   "testo": "Customers sat on spinning stools at a long counter.",
+   "q": "lunch counter stools",
+   "scritta": "",
+   "etichetta": "SODA FOUNTAINS",
+   "numero": ""
+  },
+  {
+   "testo": "Fountain drinks like the egg cream were local favorites.",
    "q": "ice cream sundae",
    "scritta": "",
    "etichetta": "SODA FOUNTAINS",
    "numero": ""
   },
   {
-   "testo": "Number 37: the drive-in theater.",
-   "q": "drive-in theater",
+   "testo": "Teenagers made the corner drugstore a favorite hangout.",
+   "q": "teenagers soda fountain",
    "scritta": "",
-   "etichetta": "DRIVE-IN THEATERS",
-   "numero": "37"
-  },
-  {
-   "testo": "But the next one changed how families spent evenings.",
-   "q": "television family",
-   "scritta": "",
-   "etichetta": "NEXT ITEM",
+   "etichetta": "SODA FOUNTAINS",
    "numero": ""
   },
   {
-   "testo": "Stay with me, because it gets stranger.",
-   "q": "antenna rooftop",
+   "testo": "Pharmacy and ice cream shared the same roof.",
+   "q": "drugstore counter",
    "scritta": "",
-   "etichetta": "NEXT ITEM",
+   "etichetta": "SODA FOUNTAINS",
+   "numero": ""
+  },
+  {
+   "testo": "Modern chain pharmacies mostly removed those counters.",
+   "q": "pharmacy interior",
+   "scritta": "",
+   "etichetta": "SODA FOUNTAINS",
+   "numero": ""
+  },
+  {
+   "testo": "Nineteen: nobody pumped their own gas.",
+   "q": "gas station attendant",
+   "scritta": "",
+   "etichetta": "FULL-SERVICE GAS",
+   "numero": "19"
+  },
+  {
+   "testo": "An attendant hurried out the moment you pulled in.",
+   "q": "service station 1950s",
+   "scritta": "",
+   "etichetta": "FULL-SERVICE GAS",
+   "numero": ""
+  },
+  {
+   "testo": "He filled the tank and cleaned your windshield.",
+   "q": "gas pump windshield",
+   "scritta": "",
+   "etichetta": "FULL-SERVICE GAS",
+   "numero": ""
+  },
+  {
+   "testo": "He often checked the oil and tire pressure too.",
+   "q": "car oil check",
+   "scritta": "",
+   "etichetta": "FULL-SERVICE GAS",
+   "numero": ""
+  },
+  {
+   "testo": "Free road maps were handed out at stations.",
+   "q": "road map travel",
+   "scritta": "",
+   "etichetta": "FULL-SERVICE GAS",
+   "numero": ""
+  },
+  {
+   "testo": "Self-service pumps later spread widely in the 1970s.",
+   "q": "gasoline pump",
+   "scritta": "",
+   "etichetta": "FULL-SERVICE GAS",
+   "numero": ""
+  },
+  {
+   "testo": "New Jersey still bans self-service gas today.",
+   "q": "highway filling station",
+   "scritta": "",
+   "etichetta": "FULL-SERVICE GAS",
+   "numero": ""
+  },
+  {
+   "testo": "Eighteen: the nightly sign-off of television stations.",
+   "q": "television 1950s family",
+   "scritta": "",
+   "etichetta": "TV SIGN-OFF",
+   "numero": "18"
+  },
+  {
+   "testo": "Stations once went off the air late at night.",
+   "q": "television broadcast studio",
+   "scritta": "",
+   "etichetta": "TV SIGN-OFF",
+   "numero": ""
+  },
+  {
+   "testo": "Many played the national anthem before shutting down.",
+   "q": "american flag waving",
+   "scritta": "",
+   "etichetta": "TV SIGN-OFF",
+   "numero": ""
+  },
+  {
+   "testo": "Then came a test pattern, and finally static.",
+   "q": "television screen static",
+   "scritta": "",
+   "etichetta": "TV SIGN-OFF",
+   "numero": ""
+  },
+  {
+   "testo": "Round-the-clock programming eventually filled those empty hours.",
+   "q": "television set living room",
+   "scritta": "",
+   "etichetta": "TV SIGN-OFF",
+   "numero": ""
+  },
+  {
+   "testo": "The screen never sleeps now.",
+   "q": "television control room",
+   "scritta": "",
+   "etichetta": "TV SIGN-OFF",
+   "numero": ""
+  },
+  {
+   "testo": "Seventeen: rabbit ears on top of the television.",
+   "q": "television antenna",
+   "scritta": "",
+   "etichetta": "RABBIT EARS",
+   "numero": "17"
+  },
+  {
+   "testo": "Early sets were furniture, with big wooden cabinets.",
+   "q": "television cabinet",
+   "scritta": "",
+   "etichetta": "RABBIT EARS",
+   "numero": ""
+  },
+  {
+   "testo": "Two metal rods pulled in a signal from the air.",
+   "q": "television set antenna",
+   "scritta": "",
+   "etichetta": "RABBIT EARS",
+   "numero": ""
+  },
+  {
+   "testo": "Weak reception meant fuzzy pictures and rolling lines.",
+   "q": "television picture interference",
+   "scritta": "",
+   "etichetta": "RABBIT EARS",
+   "numero": ""
+  },
+  {
+   "testo": "Someone always got stuck holding the antenna.",
+   "q": "family watching television",
+   "scritta": "",
+   "etichetta": "RABBIT EARS",
+   "numero": ""
+  },
+  {
+   "testo": "Aluminum foil on the tips was a popular trick.",
+   "q": "television repair",
+   "scritta": "",
+   "etichetta": "RABBIT EARS",
+   "numero": ""
+  },
+  {
+   "testo": "Cable and digital broadcasting made them obsolete.",
+   "q": "rooftop antenna houses",
+   "scritta": "",
+   "etichetta": "RABBIT EARS",
+   "numero": ""
+  },
+  {
+   "testo": "Sixteen: offices full of clattering typewriters.",
+   "q": "typewriter office",
+   "scritta": "",
+   "etichetta": "TYPEWRITER OFFICES",
+   "numero": "16"
+  },
+  {
+   "testo": "Secretaries typed letters on heavy mechanical machines.",
+   "q": "secretaries typing",
+   "scritta": "",
+   "etichetta": "TYPEWRITER OFFICES",
+   "numero": ""
+  },
+  {
+   "testo": "Offices echoed with typing from dozens of desks.",
+   "q": "typing pool",
+   "scritta": "",
+   "etichetta": "TYPEWRITER OFFICES",
+   "numero": ""
+  },
+  {
+   "testo": "At the end of each line, a bell rang.",
+   "q": "typewriter keys closeup",
+   "scritta": "",
+   "etichetta": "TYPEWRITER OFFICES",
+   "numero": ""
+  },
+  {
+   "testo": "Mistakes meant erasers, correction fluid, or retyping the page.",
+   "q": "typewriter business",
+   "scritta": "",
+   "etichetta": "TYPEWRITER OFFICES",
+   "numero": ""
+  },
+  {
+   "testo": "Carbon paper made duplicate copies, one sheet at a time.",
+   "q": "office clerks 1950s",
+   "scritta": "",
+   "etichetta": "TYPEWRITER OFFICES",
+   "numero": ""
+  },
+  {
+   "testo": "Word processors and computers later retired them.",
+   "q": "business office machines",
+   "scritta": "",
+   "etichetta": "TYPEWRITER OFFICES",
+   "numero": ""
+  },
+  {
+   "testo": "Fifteen: ashtrays on every table.",
+   "q": "ashtray cigarette",
+   "scritta": "",
+   "etichetta": "ASHTRAYS EVERYWHERE",
+   "numero": "15"
+  },
+  {
+   "testo": "Smoking was common in homes, offices, restaurants and stores.",
+   "q": "smoking restaurant",
+   "scritta": "",
+   "etichetta": "ASHTRAYS EVERYWHERE",
+   "numero": ""
+  },
+  {
+   "testo": "Hosts set out ashtrays for guests like plates.",
+   "q": "living room party",
+   "scritta": "",
+   "etichetta": "ASHTRAYS EVERYWHERE",
+   "numero": ""
+  },
+  {
+   "testo": "In 1964, the Surgeon General's report linked smoking to cancer.",
+   "q": "surgeon general health",
+   "scritta": "1964",
+   "etichetta": "ASHTRAYS EVERYWHERE",
+   "numero": ""
+  },
+  {
+   "testo": "Public smoking rules gradually tightened over the decades.",
+   "q": "cigarette smoking office",
+   "scritta": "",
+   "etichetta": "ASHTRAYS EVERYWHERE",
+   "numero": ""
+  },
+  {
+   "testo": "Those glass ashtrays now sit in antique shops.",
+   "q": "cocktail party guests",
+   "scritta": "",
+   "etichetta": "ASHTRAYS EVERYWHERE",
+   "numero": ""
+  },
+  {
+   "testo": "Fourteen: the five-and-dime, where small change went far.",
+   "q": "five and dime store",
+   "scritta": "",
+   "etichetta": "FIVE-AND-DIMES",
+   "numero": "14"
+  },
+  {
+   "testo": "These stores sold toys, candy, sewing supplies and housewares.",
+   "q": "variety store counter",
+   "scritta": "",
+   "etichetta": "FIVE-AND-DIMES",
+   "numero": ""
+  },
+  {
+   "testo": "A dime could buy candy or a small toy.",
+   "q": "candy counter children",
+   "scritta": "",
+   "etichetta": "FIVE-AND-DIMES",
+   "numero": ""
+  },
+  {
+   "testo": "Woolworth was the most famous name in the business.",
+   "q": "downtown store shoppers",
+   "scritta": "",
+   "etichetta": "FIVE-AND-DIMES",
+   "numero": ""
+  },
+  {
+   "testo": "Many had lunch counters right inside the store.",
+   "q": "store lunch counter",
+   "scritta": "",
+   "etichetta": "FIVE-AND-DIMES",
+   "numero": ""
+  },
+  {
+   "testo": "Woolworth closed its last American variety stores in 1997.",
+   "q": "main street shopping",
+   "scritta": "1997",
+   "etichetta": "FIVE-AND-DIMES",
+   "numero": ""
+  },
+  {
+   "testo": "Discount chains slowly pushed them aside.",
+   "q": "shopping center parking",
+   "scritta": "",
+   "etichetta": "FIVE-AND-DIMES",
+   "numero": ""
+  },
+  {
+   "testo": "Thirteen: a kid on a bicycle delivering the news.",
+   "q": "paperboy bicycle",
+   "scritta": "",
+   "etichetta": "PAPERBOYS",
+   "numero": "13"
+  },
+  {
+   "testo": "Boys folded papers and tossed them toward porches.",
+   "q": "newspaper delivery boy",
+   "scritta": "",
+   "etichetta": "PAPERBOYS",
+   "numero": ""
+  },
+  {
+   "testo": "Many collected payment door to door.",
+   "q": "boy newspaper route",
+   "scritta": "",
+   "etichetta": "PAPERBOYS",
+   "numero": ""
+  },
+  {
+   "testo": "Afternoon editions were still common in many cities.",
+   "q": "newspaper press printing",
+   "scritta": "",
+   "etichetta": "PAPERBOYS",
+   "numero": ""
+  },
+  {
+   "testo": "For lots of children, it was a first job.",
+   "q": "newspaper boys",
+   "scritta": "",
+   "etichetta": "PAPERBOYS",
+   "numero": ""
+  },
+  {
+   "testo": "Adult carriers in cars have mostly replaced them.",
+   "q": "newsstand street",
+   "scritta": "",
+   "etichetta": "PAPERBOYS",
+   "numero": ""
+  },
+  {
+   "testo": "Twelve: the uniformed elevator operator.",
+   "q": "elevator operator",
+   "scritta": "",
+   "etichetta": "ELEVATOR OPERATORS",
+   "numero": "12"
+  },
+  {
+   "testo": "She opened the gate and called out each floor.",
+   "q": "department store elevator",
+   "scritta": "",
+   "etichetta": "ELEVATOR OPERATORS",
+   "numero": ""
+  },
+  {
+   "testo": "Department stores made downtown shopping feel special.",
+   "q": "department store shoppers",
+   "scritta": "",
+   "etichetta": "ELEVATOR OPERATORS",
+   "numero": ""
+  },
+  {
+   "testo": "Many stores had tearooms and fancy window displays.",
+   "q": "store window display",
+   "scritta": "",
+   "etichetta": "ELEVATOR OPERATORS",
+   "numero": ""
+  },
+  {
+   "testo": "Automatic push-button controls ended most of those jobs.",
+   "q": "elevator doors",
+   "scritta": "",
+   "etichetta": "ELEVATOR OPERATORS",
+   "numero": ""
+  },
+  {
+   "testo": "Now we just press a button ourselves.",
+   "q": "office building lobby",
+   "scritta": "",
+   "etichetta": "ELEVATOR OPERATORS",
+   "numero": ""
+  },
+  {
+   "testo": "Eleven: the iceman, who carried blocks to your kitchen.",
+   "q": "iceman delivery",
+   "scritta": "",
+   "etichetta": "THE ICEMAN",
+   "numero": "11"
+  },
+  {
+   "testo": "Iceboxes kept food cold before electric refrigerators took over.",
+   "q": "icebox kitchen",
+   "scritta": "",
+   "etichetta": "THE ICEMAN",
+   "numero": ""
+  },
+  {
+   "testo": "Blocks often weighed twenty-five or fifty pounds.",
+   "q": "ice block delivery",
+   "scritta": "",
+   "etichetta": "THE ICEMAN",
+   "numero": ""
+  },
+  {
+   "testo": "Cards in the window told him how much ice.",
+   "q": "ice truck street",
+   "scritta": "",
+   "etichetta": "THE ICEMAN",
+   "numero": ""
+  },
+  {
+   "testo": "Neighborhood kids chased his truck for loose chips.",
+   "q": "children ice truck",
+   "scritta": "",
+   "etichetta": "THE ICEMAN",
+   "numero": ""
+  },
+  {
+   "testo": "By the 1950s, most homes had a refrigerator.",
+   "q": "refrigerator kitchen",
+   "scritta": "",
+   "etichetta": "THE ICEMAN",
+   "numero": ""
+  },
+  {
+   "testo": "The iceman's route faded within a generation.",
+   "q": "housewife refrigerator",
+   "scritta": "",
+   "etichetta": "THE ICEMAN",
+   "numero": ""
+  },
+  {
+   "testo": "Ten: schoolchildren practicing duck and cover.",
+   "q": "duck and cover",
+   "scritta": "10",
+   "etichetta": "DUCK AND COVER",
+   "numero": "10"
+  },
+  {
+   "testo": "Cold War fears reached into American classrooms.",
+   "q": "school children drill",
+   "scritta": "",
+   "etichetta": "DUCK AND COVER",
+   "numero": ""
+  },
+  {
+   "testo": "A cartoon turtle named Bert taught the lesson.",
+   "q": "civil defense film",
+   "scritta": "",
+   "etichetta": "DUCK AND COVER",
+   "numero": ""
+  },
+  {
+   "testo": "Students dropped under desks and covered their necks.",
+   "q": "classroom desks students",
+   "scritta": "",
+   "etichetta": "DUCK AND COVER",
+   "numero": ""
+  },
+  {
+   "testo": "Some families built fallout shelters in their yards.",
+   "q": "fallout shelter",
+   "scritta": "",
+   "etichetta": "DUCK AND COVER",
+   "numero": ""
+  },
+  {
+   "testo": "Metal dog tags were even given to some students.",
+   "q": "civil defense school",
+   "scritta": "",
+   "etichetta": "DUCK AND COVER",
+   "numero": ""
+  },
+  {
+   "testo": "Nine: carhops, who brought dinner to your car window.",
+   "q": "carhop drive-in restaurant",
+   "scritta": "",
+   "etichetta": "CARHOPS",
+   "numero": "9"
+  },
+  {
+   "testo": "You parked under a canopy and waited.",
+   "q": "drive-in restaurant",
+   "scritta": "",
+   "etichetta": "CARHOPS",
+   "numero": ""
+  },
+  {
+   "testo": "Food came on a tray hooked to the door.",
+   "q": "carhop tray car",
+   "scritta": "",
+   "etichetta": "CARHOPS",
+   "numero": ""
+  },
+  {
+   "testo": "Some carhops famously served on roller skates.",
+   "q": "roller skates waitress",
+   "scritta": "",
+   "etichetta": "CARHOPS",
+   "numero": ""
+  },
+  {
+   "testo": "Carhop restaurants spread alongside America's growing highways.",
+   "q": "roadside restaurant highway",
+   "scritta": "",
+   "etichetta": "CARHOPS",
+   "numero": ""
+  },
+  {
+   "testo": "Teenagers made these lots a Saturday night hangout.",
+   "q": "teenagers cars hamburger",
+   "scritta": "",
+   "etichetta": "CARHOPS",
+   "numero": ""
+  },
+  {
+   "testo": "Fast-food windows eventually replaced the personal service.",
+   "q": "hamburger stand",
+   "scritta": "",
+   "etichetta": "CARHOPS",
+   "numero": ""
+  },
+  {
+   "testo": "Eight: dining cars on long-distance trains.",
+   "q": "passenger train dining car",
+   "scritta": "",
+   "etichetta": "DINING CARS",
+   "numero": "8"
+  },
+  {
+   "testo": "Waiters in white jackets served meals while the countryside rolled by.",
+   "q": "railroad dining car",
+   "scritta": "",
+   "etichetta": "DINING CARS",
+   "numero": ""
+  },
+  {
+   "testo": "Pullman cars turned seats into beds at night.",
+   "q": "pullman sleeping car",
+   "scritta": "",
+   "etichetta": "DINING CARS",
+   "numero": ""
+  },
+  {
+   "testo": "Porters on Pullman cars helped passengers throughout the trip.",
+   "q": "railroad porter",
+   "scritta": "",
+   "etichetta": "DINING CARS",
+   "numero": ""
+  },
+  {
+   "testo": "The interstate system, authorized in 1956, pulled travelers onto highways.",
+   "q": "highway 1950s",
+   "scritta": "1956",
+   "etichetta": "DINING CARS",
+   "numero": ""
+  },
+  {
+   "testo": "Jet airliners soon finished the job.",
+   "q": "airliner passengers",
+   "scritta": "",
+   "etichetta": "DINING CARS",
+   "numero": ""
+  },
+  {
+   "testo": "Seven: family memories projected onto a bedsheet.",
+   "q": "home movie projector",
+   "scritta": "",
+   "etichetta": "HOME MOVIES",
+   "numero": "7"
+  },
+  {
+   "testo": "Dad threaded the reel, and the room went dark.",
+   "q": "movie projector family",
+   "scritta": "",
+   "etichetta": "HOME MOVIES",
+   "numero": ""
+  },
+  {
+   "testo": "Eight-millimeter home movies were silent and flickering.",
+   "q": "8mm movie camera",
+   "scritta": "",
+   "etichetta": "HOME MOVIES",
+   "numero": ""
+  },
+  {
+   "testo": "Film had to be mailed away to be developed.",
+   "q": "photo processing film",
+   "scritta": "",
+   "etichetta": "HOME MOVIES",
+   "numero": ""
+  },
+  {
+   "testo": "Slide shows came with a click for every picture.",
+   "q": "slide projector",
+   "scritta": "",
+   "etichetta": "HOME MOVIES",
+   "numero": ""
+  },
+  {
+   "testo": "Kodak sold Kodachrome film for color slides.",
+   "q": "camera photography family",
+   "scritta": "",
+   "etichetta": "HOME MOVIES",
+   "numero": ""
+  },
+  {
+   "testo": "Video cameras later replaced the projector.",
+   "q": "family vacation photographs",
+   "scritta": "",
+   "etichetta": "HOME MOVIES",
+   "numero": ""
+  },
+  {
+   "testo": "Six: music on small vinyl discs.",
+   "q": "record player teenagers",
+   "scritta": "",
+   "etichetta": "45 RPM RECORDS",
+   "numero": "6"
+  },
+  {
+   "testo": "The 45 rpm single was introduced by RCA in 1949.",
+   "q": "phonograph records",
+   "scritta": "45 RPM",
+   "etichetta": "45 RPM RECORDS",
+   "numero": ""
+  },
+  {
+   "testo": "Teenagers saved allowance money for their favorite songs.",
+   "q": "teenagers dancing",
+   "scritta": "",
+   "etichetta": "45 RPM RECORDS",
+   "numero": ""
+  },
+  {
+   "testo": "Jukeboxes let a nickel or dime pick the soundtrack.",
+   "q": "jukebox diner",
+   "scritta": "",
+   "etichetta": "45 RPM RECORDS",
+   "numero": ""
+  },
+  {
+   "testo": "Albums came later, but singles ruled early rock and roll.",
+   "q": "disc jockey radio",
+   "scritta": "",
+   "etichetta": "45 RPM RECORDS",
+   "numero": ""
+  },
+  {
+   "testo": "The record store was a hangout in itself.",
+   "q": "record store",
+   "scritta": "",
+   "etichetta": "45 RPM RECORDS",
+   "numero": ""
+  },
+  {
+   "testo": "Streaming now puts everything in your pocket.",
+   "q": "radio listening family",
+   "scritta": "",
+   "etichetta": "45 RPM RECORDS",
+   "numero": ""
+  },
+  {
+   "testo": "Five: the coal furnace in the basement.",
+   "q": "coal furnace basement",
+   "scritta": "",
+   "etichetta": "COAL FURNACES",
+   "numero": "5"
+  },
+  {
+   "testo": "Coal arrived by truck and slid down a chute.",
+   "q": "coal delivery truck",
+   "scritta": "",
+   "etichetta": "COAL FURNACES",
+   "numero": ""
+  },
+  {
+   "testo": "Coal dust coated basements and cellars.",
+   "q": "basement cellar",
+   "scritta": "",
+   "etichetta": "COAL FURNACES",
+   "numero": ""
+  },
+  {
+   "testo": "Someone had to shovel it into the furnace.",
+   "q": "shoveling coal furnace",
+   "scritta": "",
+   "etichetta": "COAL FURNACES",
+   "numero": ""
+  },
+  {
+   "testo": "Ashes had to be hauled out afterward.",
+   "q": "furnace heating home",
+   "scritta": "",
+   "etichetta": "COAL FURNACES",
+   "numero": ""
+  },
+  {
+   "testo": "Oil and gas heat gradually replaced the dusty chore.",
+   "q": "oil burner heating",
+   "scritta": "",
+   "etichetta": "COAL FURNACES",
+   "numero": ""
+  },
+  {
+   "testo": "Many old coal chutes are still hidden in walls.",
+   "q": "old house exterior",
+   "scritta": "",
+   "etichetta": "COAL FURNACES",
+   "numero": ""
+  },
+  {
+   "testo": "Four: laundry day with a wringer washer.",
+   "q": "wringer washer",
+   "scritta": "",
+   "etichetta": "WRINGER WASHERS",
+   "numero": "4"
+  },
+  {
+   "testo": "Clothes passed through rollers to squeeze out water.",
+   "q": "washing machine wringer",
+   "scritta": "",
+   "etichetta": "WRINGER WASHERS",
+   "numero": ""
+  },
+  {
+   "testo": "Careless fingers could get caught in the rollers.",
+   "q": "laundry room housewife",
+   "scritta": "",
+   "etichetta": "WRINGER WASHERS",
+   "numero": ""
+  },
+  {
+   "testo": "Then everything was hung on the backyard clothesline.",
+   "q": "clothesline backyard",
+   "scritta": "",
+   "etichetta": "WRINGER WASHERS",
+   "numero": ""
+  },
+  {
+   "testo": "Automatic washers and dryers made laundry far easier.",
+   "q": "automatic washing machine",
+   "scritta": "",
+   "etichetta": "WRINGER WASHERS",
+   "numero": ""
+  },
+  {
+   "testo": "Today, some neighborhoods even restrict clotheslines.",
+   "q": "housewife laundry",
+   "scritta": "",
+   "etichetta": "WRINGER WASHERS",
+   "numero": ""
+  },
+  {
+   "testo": "Three: streetcars rolling down the middle of the road.",
+   "q": "streetcar city",
+   "scritta": "",
+   "etichetta": "STREETCARS",
+   "numero": "3"
+  },
+  {
+   "testo": "Electric trolleys carried workers and shoppers through city centers.",
+   "q": "trolley street",
+   "scritta": "",
+   "etichetta": "STREETCARS",
+   "numero": ""
+  },
+  {
+   "testo": "Overhead wires fed them power from above.",
+   "q": "trolley overhead wires",
+   "scritta": "",
+   "etichetta": "STREETCARS",
+   "numero": ""
+  },
+  {
+   "testo": "Los Angeles once had a vast Red Car network.",
+   "q": "Los Angeles streetcar",
+   "scritta": "",
+   "etichetta": "STREETCARS",
+   "numero": ""
+  },
+  {
+   "testo": "Many American cities replaced them with buses.",
+   "q": "city bus 1950s",
+   "scritta": "",
+   "etichetta": "STREETCARS",
+   "numero": ""
+  },
+  {
+   "testo": "Tracks were paved over as cars took command.",
+   "q": "downtown traffic",
+   "scritta": "",
+   "etichetta": "STREETCARS",
+   "numero": ""
+  },
+  {
+   "testo": "A few cities have brought streetcars back.",
+   "q": "city transit passengers",
+   "scritta": "",
+   "etichetta": "STREETCARS",
+   "numero": ""
+  },
+  {
+   "testo": "Two: a salesman knocking at your front door.",
+   "q": "door to door salesman",
+   "scritta": "",
+   "etichetta": "DOOR-TO-DOOR SALES",
+   "numero": "2"
+  },
+  {
+   "testo": "He carried samples of brushes, vacuums and encyclopedias.",
+   "q": "salesman vacuum cleaner",
+   "scritta": "",
+   "etichetta": "DOOR-TO-DOOR SALES",
+   "numero": ""
+  },
+  {
+   "testo": "The Fuller Brush Man became a famous American figure.",
+   "q": "brush salesman",
+   "scritta": "",
+   "etichetta": "DOOR-TO-DOOR SALES",
+   "numero": ""
+  },
+  {
+   "testo": "Avon ladies sold cosmetics the same way.",
+   "q": "cosmetics saleswoman",
+   "scritta": "",
+   "etichetta": "DOOR-TO-DOOR SALES",
+   "numero": ""
+  },
+  {
+   "testo": "Encyclopedia salesmen promised knowledge on monthly payments.",
+   "q": "encyclopedia books family",
+   "scritta": "",
+   "etichetta": "DOOR-TO-DOOR SALES",
+   "numero": ""
+  },
+  {
+   "testo": "Housewives often watched demonstrations right in the living room.",
+   "q": "home demonstration",
+   "scritta": "",
+   "etichetta": "DOOR-TO-DOOR SALES",
+   "numero": ""
+  },
+  {
+   "testo": "Television ads and shopping malls reduced the need.",
+   "q": "shopping mall 1950s",
+   "scritta": "",
+   "etichetta": "DOOR-TO-DOOR SALES",
+   "numero": ""
+  },
+  {
+   "testo": "And number one: the corner grocery store.",
+   "q": "corner grocery store",
+   "scritta": "1",
+   "etichetta": "CORNER GROCERY",
+   "numero": "1"
+  },
+  {
+   "testo": "The grocer knew your family and your usual order.",
+   "q": "grocer counter",
+   "scritta": "",
+   "etichetta": "CORNER GROCERY",
+   "numero": ""
+  },
+  {
+   "testo": "Some neighbors bought groceries on credit and paid later.",
+   "q": "grocery store 1950s",
+   "scritta": "",
+   "etichetta": "CORNER GROCERY",
+   "numero": ""
+  },
+  {
+   "testo": "Clerks often fetched items from the shelves for you.",
+   "q": "grocery clerk shelves",
+   "scritta": "",
+   "etichetta": "CORNER GROCERY",
+   "numero": ""
+  },
+  {
+   "testo": "Many grocers lived above their stores.",
+   "q": "neighborhood store",
+   "scritta": "",
+   "etichetta": "CORNER GROCERY",
+   "numero": ""
+  },
+  {
+   "testo": "Then self-service supermarkets arrived, with wide aisles and lower prices.",
+   "q": "supermarket shopping",
+   "scritta": "",
+   "etichetta": "CORNER GROCERY",
+   "numero": ""
+  },
+  {
+   "testo": "Small shops struggled, and neighborhoods lost their center.",
+   "q": "small shops street",
+   "scritta": "",
+   "etichetta": "CORNER GROCERY",
+   "numero": ""
+  },
+  {
+   "testo": "None of these things vanished in a single day.",
+   "q": "small town America",
+   "scritta": "",
+   "etichetta": "OUTRO",
+   "numero": ""
+  },
+  {
+   "testo": "They slipped away while life kept moving forward.",
+   "q": "suburban street",
+   "scritta": "",
+   "etichetta": "OUTRO",
+   "numero": ""
+  },
+  {
+   "testo": "Which one do you remember best?",
+   "q": "family 1950s",
+   "scritta": "",
+   "etichetta": "OUTRO",
+   "numero": ""
+  },
+  {
+   "testo": "Tell us in the comments.",
+   "q": "american family television",
+   "scritta": "",
+   "etichetta": "OUTRO",
+   "numero": ""
+  },
+  {
+   "testo": "Subscribe for more lost pieces of America.",
+   "q": "sunset American town",
+   "scritta": "",
+   "etichetta": "OUTRO",
    "numero": ""
   }
  ]
