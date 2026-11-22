@@ -196,10 +196,12 @@ def copertina_mappa(titolo, v):
     y = H * (.56 if v == 1 else .6)
     for k, r in enumerate(righe):
         fo = font_per(r, A_FONT, W * .42, 120)
-        tw = d.textlength(r, font=fo)
-        d.rectangle((28, y - 6, 28 + tw + 28, y + fo.size * 1.12), fill=(0, 0, 0))
-        d.text((42, y), r, font=fo, fill=(255, 255, 255) if k == 0 else (255, 226, 0))
-        y += fo.size * 1.2
+        bb = d.textbbox((46, y), r, font=fo)   # 22 nov (Giorgio): la scritta resta SEMPRE dentro il suo riquadro (misura reale delle lettere)
+        mx, my = max(16, fo.size * .16), max(12, fo.size * .13)
+        box = (46 - mx, bb[1] - my, bb[2] + mx, bb[3] + my)   # bordo sinistro allineato
+        d.rectangle(box, fill=(0, 0, 0))
+        d.text((46, y), r, font=fo, fill=(255, 255, 255) if k == 0 else (255, 226, 0))
+        y += box[3] - box[1] + 2
     cx_, cy_ = [sum(c) / len(c) for c in zip(*[pr(*p) for p in max(anelli, key=len)])]
     freccia(d, (W * .2, H * .5), (cx_ - 60, cy_ + 20), (255, 255, 255), 16, -.25)
     return im
