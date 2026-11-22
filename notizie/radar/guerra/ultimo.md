@@ -1,12 +1,12 @@
-# Radar notizie guerra — 2026-11-21
+# Radar notizie guerra — 2026-11-22
 
-**Scelta:** Trump, Xi, Putin trilateral summit in China: Trump calls Putin 'my friend', says Putin wants peace; backlash from Zelensky and Europeans (Donald Trump) — l'onda di ieri e' ancora la piu' forte: si resta con un angolo nuovo
+**Scelta:** Trump–Putin–Xi China summit fallout: Trump calls Putin 'my friend', says Putin wants peace; Zelensky calls Putin a 'killer', Europeans push back; Ukraine clause reportedly dropped from the 'peace declaration' at US request (per Finland's president, via Meduza) (Donald Trump) — l'onda di ieri e' ancora la piu' forte: si resta con un angolo nuovo
 
 | # | Storia | Persona | Views all'ora (EN+IT) | Views 3 gg EN | Views 3 gg IT | Video lunghi EN |
 |---|---|---|---|---|---|---|
-| 1 | Trump, Xi, Putin trilateral summit in China: Trump calls Putin 'my friend', says Putin wants peace; backlash from Zelensky and Europeans | Donald Trump | 532,747 | 13,721,060 | 778,971 | 10 |
-| 2 | US and Israel reportedly weighing new assault on Iran as Trump says Iran's deal terms are unacceptable | Donald Trump | 138,980 | 2,609,414 | 2,724,971 | 12 |
-| 3 | Russian missiles crash in Poland during massive strike on Ukraine; NATO calls it a violation, Tusk suspects provocation | Donald Tusk | 110,095 | 1,256,690 | 118,740 | 10 |
-| 4 | Putin urges Europeans to 'come to Moscow' after Shenzhen summit; Russian allies say 'no one needs Europe' | Vladimir Putin | 39,698 | 836,642 | 469 | 8 |
-| 5 | Trump wants Ukraine peace deal before January and before Democrats take over Congress | Donald Trump | 24,601 | 267,112 | 0 | 6 |
-| 6 | Zelensky asks US to clarify Article 5-like security guarantee; Kushner says Russia OK with 'NATO-like' pact, Moscow pushes back | Volodymyr Zelensky | 1,592 | 46,227 | 5,754 | 5 |
+| 1 | Trump–Putin–Xi China summit fallout: Trump calls Putin 'my friend', says Putin wants peace; Zelensky calls Putin a 'killer', Europeans push back; Ukraine clause reportedly dropped from the 'peace declaration' at US request (per Finland's president, via Meduza) | Donald Trump | 91,887 | 3,158,255 | 270,204 | 6 |
+| 2 | Russian cargo ship ablaze in Baltic after drone strike; Finland warns war is 'spilling over' | Vladimir Putin | 65,670 | 600,572 | 894 | 14 |
+| 3 | Ukraine strikes Crimean Bridge; Russia hits Zelensky's hometown with ballistic missile, 2 dead, 60 wounded; Zelensky calls strikes a 'fair response' | Volodymyr Zelensky | 37,334 | 1,647,319 | 183,802 | 7 |
+| 4 | Russian missiles hit Poland; Trump calls it a mistake; NATO calls it a violation | Donald Trump | 33,428 | 631,089 | 16,228 | 8 |
+| 5 | Trump seeks Ukraine peace deal before January; Kushner reportedly floated NATO membership for Ukraine in exchange for ceding Donbas (reported, not confirmed) | Donald Trump | 10,231 | 201,141 | 4,095 | 6 |
+| 6 | Iran escalates in Hormuz and Bahrain against US blockade; Trump says he wants a 'permanent' Iran deal | Donald Trump | 69 | 370 | 0 | 2 |
