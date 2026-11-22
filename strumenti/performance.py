@@ -312,6 +312,15 @@ def canale(cfg):
             tot[row[0]] = row[1:]
     except urllib.error.HTTPError as e:
         log('  Analytics non letto:', e.code, e.read().decode()[:200])
+    soldi = {}   # 22 nov (Giorgio): entrate stimate per video (RPM = entrate / views x 1000, come YouTube Studio); serve il permesso monetary
+    try:
+        r = analytics(auth, {'startDate': inizio, 'endDate': dt.date.today().isoformat(), 'dimensions': 'video', 'maxResults': 200, 'currency': 'EUR',
+                             'metrics': 'estimatedRevenue', 'filters': 'video==' + ','.join(v for _, v, _ in usciti), 'sort': '-estimatedRevenue'})
+        soldi = {row[0]: row[1] for row in r.get('rows', []) or []}
+        for _, v, _ in usciti:
+            soldi.setdefault(v, 0.0)
+    except urllib.error.HTTPError as e:
+        log('  entrate non lette (canale non monetizzato o token senza permesso monetary):', e.code)
     try:
         imp = impression_ctr(auth, cfg)
     except urllib.error.HTTPError as e:
@@ -355,7 +364,7 @@ def canale(cfg):
         fonti_canale = fonti_traffico(auth, (dt.date.today() - dt.timedelta(days=28)).isoformat(), None)
     except Exception as e:
         fonti_canale = {}; log('  fonti di traffico del canale non lette:', str(e)[:80])
-    DATI_EXCEL[str(cfg.get('channel_name') or cid)] = [dict(dict(zip(COLONNE, r)), playlist=ramo.get(r[1], ''), fonti=fonti.get(r[1], {})) for r in righe[1:]]
+    DATI_EXCEL[str(cfg.get('channel_name') or cid)] = [dict(dict(zip(COLONNE, r)), playlist=ramo.get(r[1], ''), fonti=fonti.get(r[1], {}), entrate=soldi.get(r[1])) for r in righe[1:]]
     FONTI_CANALE[str(cfg.get('channel_name') or cid)] = fonti_canale
     QUOTE[str(cfg.get('channel_name') or cid)] = {'channel_id': cid, 'quota_gemelli': num(cfg.get('quota_gemelli'), 0), 'foglio': fid}   # 15 nov: metodo 50-50
     ultimi = [x for x in righe[1:] if num(x[15], 0) >= 3 and not str(x[16]).startswith('incompleto')][-5:]   # solo video con >= 3 giorni di report

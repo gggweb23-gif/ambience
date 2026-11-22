@@ -55,9 +55,9 @@ def main():
     oggi = dt.date.today().isoformat()
     wb = Workbook(); ws = wb.active; ws.title = 'Performance'
     ws.column_dimensions['A'].width = 18; ws.column_dimensions['B'].width = 52
-    for c in 'CDEFGHIJKLMNO':
+    for c in 'CDEFGHIJKLMNOPQ':
         ws.column_dimensions[c].width = 14
-    ws.column_dimensions['P'].width = 70
+    ws.column_dimensions['R'].width = 70
     try:
         fonti_can = json.load(open('coach/performance_fonti_canale.json'))
     except Exception:
@@ -87,7 +87,7 @@ def main():
     r = 7
     COL = ['Pubblicato', 'Titolo', 'Durata media visualizzazione', '% media visualizzata', 'Visualizzazioni', 'Tempo di visualizzazione (ore)',
            'Iscritti', 'Impression miniatura', 'CTR miniatura %', 'Ritenzione 30 s %', 'Ritenzione 60 s %',
-           'Da HOME %', 'Da CONSIGLIATI %', 'Da RICERCA %', 'Da SHORT %', 'DOVE AGIRE']
+           'Da HOME %', 'Da CONSIGLIATI %', 'Da RICERCA %', 'Da SHORT %', 'Entrate stimate €', 'RPM €', 'DOVE AGIRE']   # 22 nov (Giorgio): entrate e RPM per video
     NC = len(COL)
     mmss = lambda x: f'{int(x // 60)}:{int(round(x % 60)):02d}'
     for nome in sorted(dati):
@@ -117,7 +117,9 @@ def main():
             x = ws.cell(r, c, val); x.font = Font(bold=True, size=12); x.fill = PatternFill('solid', fgColor='FEF3C7'); x.alignment = Alignment(horizontal='center' if c > 2 else 'left')
         if imp_t:
             ws.cell(r, 9).fill = VERDE if clic / imp_t * 100 >= OBIETTIVI['ctr'] else ROSSO
-        for c, val in enumerate(fonti_txt(fonti_can.get(nome) or {}), 12):   # fonti di TUTTO il canale, ultimi 28 giorni (Short compresi)
+        ft = fonti_txt(fonti_can.get(nome) or {})
+        ent_t = sum(num(v.get('entrate')) or 0 for v in video); vr_t = sum((g['views'] or 0) for v, g in righe if v.get('entrate') not in (None, ''))
+        for c, val in zip((12, 13, 14, 15, 16, 17, NC), ft[:4] + [round(ent_t, 2) if vr_t else '-', round(ent_t / vr_t * 1000, 2) if vr_t else '-', ft[4]]):   # fonti di TUTTO il canale, ultimi 28 giorni (Short compresi)
             x = ws.cell(r, c, val); x.font = Font(bold=True); x.fill = PatternFill('solid', fgColor='FEF3C7')
         r += 1
         vv_ = sorted(g['views'] or 0 for _, g in righe); mediana = vv_[len(vv_) // 2] if vv_ else 0
@@ -136,7 +138,10 @@ def main():
                 vuoto = 'in arrivo' if (c == 9 or not imp or g['giorni_dalla_pubblicazione'] is None or g['giorni_dalla_pubblicazione'] < 3) else 'poche views'
                 x = ws.cell(r, c, round(val, 1) if val is not None else vuoto)
                 x.fill = GRIGIO if val is None or (c == 9 and not imp) else (VERDE if val >= ob else ROSSO)
-            for c, val in enumerate(fonti_txt(v.get('fonti') or {}), 12):
+            ft = fonti_txt(v.get('fonti') or {})
+            ent = num(v.get('entrate')); rpm = round(ent / g['views'] * 1000, 2) if ent is not None and g['views'] else None
+            for c, val in zip((12, 13, 14, 15, 16, 17, NC), ft[:4] + [round(ent, 2) if ent is not None else '-',
+                              (str(rpm) + (' (poche views)' if g['views'] < 500 else '')) if rpm is not None else '-', ft[4]]):
                 ws.cell(r, c, val)
             if vince:
                 ws.cell(r, 2).fill = AZZURRO; ws.cell(r, 2).font = Font(bold=True)
