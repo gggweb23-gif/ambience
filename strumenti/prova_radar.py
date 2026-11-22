@@ -100,7 +100,7 @@ Winning channel: {C['competitor']} — {C['descrizione']}
 Their best videos (copy the hook and structure, NEVER the text): {C['modelli']}
 COMPETITOR MODEL (its real hook, structure, chapter types and tone, from the transcript; copy ALL of this, but write every sentence new, with new TRUE facts about our topic):
 {modello}
-{('- the video has exactly ' + str(ncap) + ' chapters, like the competitor; every chapter is ONE specific, little-known place, object, person or event (never a generic fact); the first scene of each chapter has "capitolo": its short name (2-4 words, Title Case), other scenes "capitolo": "";' + chr(10)) if ncap else ''}Our video title (keep it, or improve it on the same pattern): {C['titolo']}
+{('- the video has exactly ' + str(ncap) + ' chapters, like the competitor; if the competitor numbers its items aloud ("Fact 40.", "Number one."), say the number aloud at the start of each chapter in the same way, and any open loop in the hook ("X shows up at number N") must point to the REAL number of that item in your list; every chapter is ONE specific, little-known place, object, person or event (never a generic fact); the first scene of each chapter has "capitolo": its short name (2-4 words, Title Case), other scenes "capitolo": "";' + chr(10)) if ncap else ''}Our video title (keep it, or improve it on the same pattern): {C['titolo']}
 Write {'the WHOLE video' if SECONDI > 120 else 'ONLY the first ' + str(int(SECONDI)) + ' seconds of the video'} (about {parole} words in total, no more):
 - open with the strongest hook immediately: say the result/the most surprising fact first, then promise the explanation;
 - plant at least one open loop ("but that's not the strangest part..."), short punchy sentences, vivid and visual;
