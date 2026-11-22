@@ -403,6 +403,15 @@ def canale(cfg):
                 or PROVA and str(r.get('status')).strip() == 'Da caricare a mano') and not str(r.get('shorts') or '').strip()]   # in prova anche i video ancora da caricare a mano
         # i file dei video restano su GitHub 7 giorni: si parte dal video piu' recente e, se manca il file, si passa ai giorni prima
         cand = [x for x in cand if data_ini(x[1]) and (oggi - data_ini(x[1])).days < 7][::-1][:4]
+    ogni = max(1, int(num(cfg.get('ogni_quanti_giorni')) or 1))   # 22 nov (Giorgio): 3-4 Short AL GIORNO anche se il lungo esce ogni 2 giorni
+    extra = 0
+    if not cand and not PROVA and not RIGA and len(futuri) < n_giorno:
+        # 22 nov: nessun lungo nuovo -> altri Short dall'ultimo lungo gia' usato (14 giorni), mai sugli stessi momenti
+        usati = [(i + 2, r) for i, r in enumerate(prod) if str(r.get('status')).strip() == 'Completato' and str(r.get('youtube_video_id') or '').strip()
+                 and re.search(r'[\w-]{11}@', str(r.get('shorts') or '')) and data_ini(r) and (oggi - data_ini(r)).days < 14]
+        if usati:
+            cand = usati[::-1][:2]; extra = n_giorno - len(futuri)
+            log(f'  nessun lungo nuovo: {extra} Short in piu\' dall\'ultimo lungo (riga {cand[0][0]})')
     if not cand:
         log('  nessun video lungo da cui fare gli Short'); return
     video = None
@@ -427,14 +436,16 @@ def canale(cfg):
         raise RuntimeError('VIDEO SBAGLIATO, nessuno Short: ' + motivo)
     isc = ISC.impostazioni(cfg)   # nel video lungo il pulsante compare per 4 s: lo Short parte dopo (mai due pulsanti nello stesso Short)
     gia = []
-    if RIGA and QUANTI:   # 15 nov: Short in piu' da un video gia' usato: mai gli stessi momenti (si passano i titoli degli Short gia' fatti)
+    if not (RIGA and QUANTI) and not extra:
+        n_giorno = n_giorno * ogni   # un lungo ogni N giorni -> Short per N giorni, distribuiti negli orari liberi
+    if RIGA and QUANTI or extra:   # 15 nov: Short in piu' da un video gia' usato: mai gli stessi momenti (si passano i titoli degli Short gia' fatti)
         ids_ = re.findall(r'([\w-]{11})@', str(riga.get('shorts') or ''))
         try:
             gia = [x['snippet']['title'] for x in json.loads(urllib.request.urlopen(urllib.request.Request('https://www.googleapis.com/youtube/v3/videos?part=snippet&id=' + ','.join(ids_),
                    headers={'Authorization': 'Bearer ' + tk}), timeout=60).read()).get('items', [])] if ids_ else []
         except Exception as e:
             log('  titoli degli Short gia\' fatti non letti:', str(e)[:80])
-        n_giorno = QUANTI
+        n_giorno = extra or QUANTI
     momenti, costo = scegli(frasi, n_giorno, titolo, str(cfg.get('language') or 'en'), budget, evita=(isc['sec'] - 0.5, isc['sec'] + 4.5), gia=gia)
     if not momenti:
         raise RuntimeError('nessun momento valido scelto')
@@ -469,6 +480,8 @@ def canale(cfg):
     except Exception:
         uscita_lungo = oggi
     slot = orari_liberi(cfg, prod, max(oggi + dt.timedelta(minutes=45), uscita_lungo + dt.timedelta(minutes=30)), len(fatti))
+    if extra:   # 22 nov: Short in piu' da un lungo gia' uscito: dal primo orario libero da adesso
+        slot = orari_liberi(cfg, prod, oggi + dt.timedelta(minutes=30), len(fatti))
     if RIGA and QUANTI:   # Short mancante: negli orari liberi di OGGI (17 nov), se non ce ne sono esce subito (tra 30 minuti); mai i giorni dopo
         oggi_liberi = [q for q in orari_liberi(cfg, prod, oggi + dt.timedelta(minutes=30), len(fatti)) if q.date() == oggi.date()]
         slot = (oggi_liberi + [oggi + dt.timedelta(minutes=30 + 20 * k) for k in range(len(fatti))])[:len(fatti)]
@@ -477,7 +490,7 @@ def canale(cfg):
         sid = carica(tk, f, x, cfg, riga, str(riga.get('youtube_video_id')).strip(), q)
         caricati.append(f"{sid}@{q.strftime('%Y-%m-%d %H:%M')}")
         log('  caricato', sid, '| esce', q.strftime('%d/%m %H:%M'))
-    tenuti = [x.strip() for x in str(riga.get('shorts') or '').split('|') if re.match(r'^[\w-]{11}@\d{4}-', x.strip())] if RIGA else []   # rifacimento: restano quelli gia' usciti
+    tenuti = [x.strip() for x in str(riga.get('shorts') or '').split('|') if re.match(r'^[\w-]{11}@\d{4}-', x.strip())] if RIGA or extra else []   # rifacimento: restano quelli gia' usciti
     scrivi(fid, sch, h, n, 'shorts', ' | '.join(tenuti + caricati) or 'nessuno Short superato i controlli')
     costo_registro(cid, costo, f'{len(caricati)} Short caricati')
 
