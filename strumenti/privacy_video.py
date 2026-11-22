@@ -6,6 +6,6 @@ tk = json.loads(urllib.request.urlopen(urllib.request.Request('https://oauth2.go
     'client_id': E('YT_CLIENT_ID'), 'client_secret': E('YT_CLIENT_SECRET'), 'refresh_token': E('YT_REFRESH_TOKEN'), 'grant_type': 'refresh_token'}).encode())).read())['access_token']
 h = {'Authorization': 'Bearer ' + tk, 'Content-Type': 'application/json'}
 v = json.loads(urllib.request.urlopen(urllib.request.Request(f"https://www.googleapis.com/youtube/v3/videos?part=status&id={E('VIDEO_ID')}", headers=h)).read())['items'][0]
-st = v['status']; st['privacyStatus'] = 'private'; st.pop('publishAt', None)
+st = v['status']; st['privacyStatus'] = 'private'; st['publishAt'] = None   # null = annulla la programmazione
 r = json.loads(urllib.request.urlopen(urllib.request.Request('https://www.googleapis.com/youtube/v3/videos?part=status', data=json.dumps({'id': E('VIDEO_ID'), 'status': st}).encode(), headers=h, method='PUT')).read())
 print(E('VIDEO_ID'), '->', r['status']['privacyStatus'], r['status'].get('publishAt'))
