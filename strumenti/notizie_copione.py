@@ -95,7 +95,7 @@ SCHEMA = """{
    "visivo": {"tipo": "set", "set": "unique_key"},
    "grafica": {"tipo": "numero", "valore": 76.5, "decimali": 1, "prefisso": "", "unita": "MILLION BARRELS", "sopra": "EVERY DAY"},
    "citazione": {"chi": "slug", "posa": "pose_name", "testo": "the EXACT words this person said, as quoted by the source"}}],
- "copertina": {"sfondo": "dramatic scene description, empty of people", "personaggi": ["slug of the MAIN person", "optional 2nd", "optional 3rd"], "pose": {"slug": "pose_name"}, "personaggio": "slug of the MAIN person", "posa": "pose_name of the main person", "lato": "dx|sx", "righe": ["BIG NUMBER OR 1-2 SHOCK WORDS", "1-2 WORDS"], "box": "2-3 word label (optional)", "evidenzia": 1}
+ "copertina": {"sfondo": "dramatic scene description, empty of people", "personaggi": ["slug of the MAIN person", "optional 2nd", "optional 3rd"], "pose": {"slug": "pose_name"}, "personaggio": "slug of the MAIN person", "posa": "pose_name of the main person", "lato": "dx|sx", "righe": ["BIG NUMBER OR 1-2 SHOCK WORDS", "1-2 WORDS"], "box": "2-3 word label (optional)", "evidenzia": 1, "parola": "ONE SHOCK WORD (max 10 chars)", "etichetta": "2-4 word label (max 24 chars)", "domanda": "CURIOSITY QUESTION (max 18 chars)", "frase": "real quote of the main person, max 14 chars, or empty"}
 }
 Other "visivo" types (use them often, they are free):
  {"tipo": "mappa", "centro": [lon, lat], "larghezza": 24, "paesi": [{"iso": "UKR", "colore": "blu"}, {"iso": "RUS", "colore": "rosso"}],
@@ -171,6 +171,11 @@ DIRECTION (regia) - like a film: EVERY scene has its OWN new drawn image ("set")
   without exaggerating; "box" = optional 2-3 word label that completes the message (e.g. "BOARD SAYS NO"). Everything must be TRUE (never "fired" if he resigned).
   Plus 2 short UPPERCASE lines (max 3 words each, high-impact words of the story,
   no final period); evidenza = index of the line on the red box; a dramatic background empty of people.
+  23 nov (Giorgio): the MAIN person in the thumbnail is ALWAYS the most RECOGNIZABLE person linked to the story for the general public
+  (e.g. Putin, Trump, Zelensky), never a less known commentator. Also give: "parola" = ONE true shock word for the scene (e.g. "BURNING",
+  "COLLAPSED"); "etichetta" = short true label that completes it (e.g. "NEAR NATO"); "domanda" = a curiosity question that claims nothing
+  unverified (e.g. "WHO HIT IT?"); "frase" = a REAL short quote said by the main person in this story (in quotes, e.g. "MY FRIEND"), or "" if none.
+  The background ("sfondo") must show the strongest moment of the story (fire, collapse, explosion, crowd), bright and clear.
 Answer with ONLY the JSON (no markdown), exactly this structure:
 {SCHEMA}"""
     t = claude([{'role': 'user', 'content': prompt}], [{'type': 'web_search_20250305', 'name': 'web_search', 'max_uses': 8}], sforzo='medium')
@@ -292,6 +297,8 @@ def traduci_it(v):
         add(f'c.{j}', r)
     if (v.get('copertina') or {}).get('box'):
         add('c.box', v['copertina']['box'])
+    for c_ in ('parola', 'etichetta', 'domanda', 'frase'):
+        add('c.' + c_, (v.get('copertina') or {}).get(c_))
     prompt = ("Translate into natural, fluent Italian for an Italian YouTube news channel (authoritative journalist tone, short sentences). "
               "Keep names, numbers and meaning exactly. Texts in UPPERCASE stay UPPERCASE and short (graphics: max 22 chars for 'g.*.testo'). "
               "Use Italian number style in graphics units (e.g. MILIARDI DI DOLLARI). The title (titolo) max 70 chars, for the homepage. "
@@ -331,6 +338,9 @@ def traduci_it(v):
     it['copertina']['righe'] = [tr.get(f'c.{j}', r) for j, r in enumerate(v['copertina'].get('righe', []))]
     if v['copertina'].get('box'):
         it['copertina']['box'] = tr.get('c.box', v['copertina']['box'])
+    for c_ in ('parola', 'etichetta', 'domanda', 'frase'):
+        if v['copertina'].get(c_):
+            it['copertina'][c_] = tr.get('c.' + c_, v['copertina'][c_])
     return it
 
 

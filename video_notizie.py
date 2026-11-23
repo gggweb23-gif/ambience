@@ -1317,9 +1317,70 @@ def copertina():
             bx0 = (x0 - wb) if sx else x0; by0 = max(y + 10, 480)
             d.rounded_rectangle((bx0 * k, by0 * k, (bx0 + wb) * k, (by0 + 150) * k), int(20 * k), fill=(220, 20, 40) if guerra else 'white', outline='black', width=int(8 * k))
             d.text(((bx0 + wb / 2) * k, (by0 + 75) * k), box, font=fb, fill='white' if guerra else (220, 20, 40), anchor='mm')
+    if guerra and scena is not None and chi:   # 23 nov (Giorgio): copertine guerra ad alto impatto, scena vera grande e luminosa
+        im, stile = impatto(scena, Image.open(pngs[chi[0]]).convert('RGBA'), c, righe, box, giorno, variante)
     p = os.path.join(OUT, 'copertina.jpg'); im.convert('RGB').resize((1280, 720), Image.LANCZOS).save(p, quality=93)
     im.convert('RGB').save(os.path.join(OUT, 'copertina_grande.jpg'), quality=92)
     log('copertina pronta: modello', stile, '|', ', '.join(chi), '|', righe, box); return p
+
+
+def impatto(scena, posa_png, c, righe, box, giorno, variante):
+    """23 nov (Giorgio, Fronte Aperto / War Room: CTR 1-2%): tre modelli che si alternano, l'altra lingua sempre un modello diverso.
+    A = la scena protagonista grande e luminosa, il volto piccolo nell'angolo, UNA parola enorme + etichetta
+    B = volto grande su rosso a sinistra, scena a destra, domanda di curiosita' in basso (mai affermazioni non verificate)
+    C = volto grande + sua frase VERA enorme + 2 righe brevi del fatto (solo se la frase esiste)
+    Il volto e' sempre la persona piu' riconoscibile della notizia. Niente scritte nell'angolo in basso a destra (durata)."""
+    k = W / 1280
+    parola = str(c.get('parola') or (righe[0] if righe else '')).strip().upper()
+    etich = str(c.get('etichetta') or box or (righe[1] if len(righe) > 1 else '')).strip().upper()
+    domanda = str(c.get('domanda') or '').strip().upper()
+    frase = str(c.get('frase') or '').strip().upper()
+    modelli = ['A', 'B', 'C'] if frase else ['A', 'B']
+    if not domanda:
+        modelli = [m for m in modelli if m != 'B']
+    stile = modelli[(giorno + (1 if variante else 0)) % len(modelli)]
+    sc = ImageOps.fit(scena, (W, H), Image.LANCZOS)
+    sc = ImageEnhance.Color(ImageEnhance.Contrast(ImageEnhance.Brightness(sc).enhance(1.25)).enhance(1.25)).enhance(1.35).convert('RGBA')
+    q = posa_png.crop(posa_png.getbbox()); q = q.crop((0, 0, q.width, int(q.height * .5)))
+
+    def volto(alt, col=(255, 255, 255), r=8):
+        h_ = int(alt * k); v = q.resize((int(q.width * h_ / q.height), h_), Image.LANCZOS)
+        m = int(30 * k); vv = Image.new('RGBA', (v.width + 2 * m, v.height + m), (0, 0, 0, 0)); vv.alpha_composite(v, (m, m))
+        a_ = vv.split()[3].filter(ImageFilter.MaxFilter(int(r * k) * 2 + 1)); o = Image.new('RGBA', vv.size, col + (0,)); o.putalpha(a_); o.alpha_composite(vv); return o
+
+    def fnt(t, sz, larg):
+        while sz > 40 and ImageFont.truetype(F_TITOLI, int(sz * k)).getlength(t) > larg * k:
+            sz -= 4
+        return ImageFont.truetype(F_TITOLI, int(sz * k))
+
+    def scrivi(d, xy, t, sz, larg, col, anchor='la', sw=8):
+        d.text((xy[0] * k, xy[1] * k), t, font=fnt(t, sz, larg), fill=col, stroke_width=int(sw * k), stroke_fill=(0, 0, 0), anchor=anchor)
+
+    def riquadro(d, xy, t, sz, larg, fg, bg, anchor='la'):
+        f_ = fnt(t, sz, larg); bb = d.textbbox((xy[0] * k, xy[1] * k), t, font=f_, anchor=anchor); pd = 14 * k
+        d.rectangle((bb[0] - pd, bb[1] - pd, bb[2] + pd, bb[3] + pd), fill=bg); d.text((xy[0] * k, xy[1] * k), t, font=f_, fill=fg, anchor=anchor)
+    if stile == 'A':
+        im = sc; d = ImageDraw.Draw(im)
+        v = volto(450); im.alpha_composite(v, (int(10 * k), H - v.height))
+        scrivi(d, (1240, 30), parola, 190, 800, 'white', 'ra')
+        if etich:
+            riquadro(d, (1240, 272), etich, 62, 620, 'black', (255, 214, 0), 'ra')
+    elif stile == 'B':
+        im = Image.new('RGBA', (W, H), (0, 0, 0, 255))
+        im.paste(sc.crop((int(240 * k), 0, int(1040 * k), int(588 * k))), (int(480 * k), 0))
+        im.paste((170, 0, 0, 255), (0, 0, int(480 * k), H)); d = ImageDraw.Draw(im)
+        d.polygon([(470 * k, 0), (510 * k, 0), (470 * k, H), (430 * k, H)], fill=(255, 214, 0))
+        v = volto(600, (0, 0, 0), 6); im.alpha_composite(v, (max(0, int(240 * k) - v.width // 2), H - v.height))
+        d = ImageDraw.Draw(im); d.rectangle((480 * k, 588 * k, W, H), fill=(0, 0, 0))
+        scrivi(d, (810, 654), domanda, 96, 560, (255, 214, 0), 'mm', 0)
+    else:
+        im = Image.alpha_composite(sc, Image.new('RGBA', (W, H), (0, 0, 0, 50)))
+        v = volto(660); im.alpha_composite(v, (W - v.width - int(10 * k), H - v.height)); d = ImageDraw.Draw(im)
+        lim = (W - v.width) / k - 90
+        scrivi(d, (50, 50), '"' + frase.strip('"«»') + '"', 170, lim, 'white', 'la', 10)
+        if parola:
+            riquadro(d, (60, 310), (parola + ' ' + etich).strip()[:28], 62, lim, 'white', (200, 0, 0))
+    return im, 'impatto-' + stile
 
 
 def libreria_aggiorna(ordine):
