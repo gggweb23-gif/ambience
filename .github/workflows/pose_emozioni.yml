@@ -1,0 +1,25 @@
+name: Pose con emozione dei personaggi (copertine notizie)
+# 23 nov 2026 (Giorgio): volto grande, intero, con emozione chiara ma naturale. Una volta sola per personaggio/emozione (0,08 $ l'una).
+on:
+  workflow_dispatch:
+    inputs:
+      chi: {description: 'personaggi separati da virgola (vuoto = putin,trump,zelensky)', default: '', type: string}
+permissions:
+  contents: write
+jobs:
+  pose:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install -q --break-system-packages pillow numpy google-auth requests
+      - env:
+          CHI: ${{ inputs.chi }}
+          FAL_KEY: ${{ secrets.FAL_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python3 strumenti/pose_emozioni.py
+      - if: ${{ always() }}
+        run: |
+          git config user.name "render-bot"; git config user.email "render-bot@users.noreply.github.com"
+          git add caricature; git commit -m "Pose con emozione dei personaggi" || exit 0
+          for i in 1 2 3; do git pull --rebase -q && git push && break; sleep 5; done
