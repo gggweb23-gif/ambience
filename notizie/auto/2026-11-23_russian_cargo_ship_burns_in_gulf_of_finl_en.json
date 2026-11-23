@@ -1,0 +1,1528 @@
+{
+ "titolo": "Putin's Ship Burns Off NATO Finland: 'War Is Spilling Over'",
+ "angolo": "Day 2: the ship is towed home, but the burning Sparta II leaves Finland, NATO and the Kremlin with one question: where does this war stop?",
+ "descrizione": "Putin's Ship Burns Off NATO Finland: 'War Is Spilling Over'. A Russian cargo ship linked to the Defense Ministry was hit by two drones in the Gulf of Finland, drifted into Finnish waters and is now being towed back to Russia. Finland's prime minister says the war is spilling over into its immediate vicinity. Here is what is confirmed, what is only suspected, and what the Kremlin has and has not said.",
+ "tag": [
+  "Putin's Ship Burns Off NATO Finland: 'War Is Spilling Over'",
+  "Putin",
+  "Sparta II",
+  "Gulf of Finland",
+  "Finland",
+  "Petteri Orpo",
+  "Russia Ukraine war",
+  "drone attack",
+  "NATO",
+  "Baltic Sea",
+  "Oboronlogistika",
+  "Kaliningrad",
+  "Alexander Stubb",
+  "war news",
+  "Russia news"
+ ],
+ "fonti_link": [
+  "https://tvpworld.com/96622539/cargo-ship-struck-by-drones-towed-back-to-russian-waters",
+  "https://www.koreatimes.co.kr/world/20261123/russia-starts-towing-ship-hit-by-drones-in-baltic-finland-says",
+  "https://www.theglobeandmail.com/world/article-russian-cargo-ship-still-burning-off-finland-after-suspected-ukrainian/",
+  "https://www.aljazeera.com/news/2026/11/21/russia-says-kaliningrad-bound-ship-struck-by-drones-in-gulf-of-finland",
+  "https://www.aljazeera.com/news/2026/11/22/russian-cargo-ship-still-on-fire-off-finland-after-drone-attack",
+  "https://thehill.com/policy/international/6235751-russian-cargo-ship-drone-attack/",
+  "https://www.yahoo.com/news/world/articles/russian-cargo-ship-set-ablaze-142226005.html",
+  "https://www.themoscowtimes.com/2026/11/21/russia-says-cargo-vessel-struck-by-drones-in-gulf-of-finland-a94342",
+  "https://www.themoscowtimes.com/2026/11/22/russian-cargo-ship-still-on-fire-off-finland-after-attack-a94343",
+  "https://www.energyconnects.com/news/oil/2026/november/russian-cargo-ship-attacked-by-drones-in-gulf-of-finland/",
+  "https://www.france24.com/en/europe/20261121-drone-attack-sets-russian-cargo-ship-ablaze-in-gulf-of-finland",
+  "https://kyivindependent.com/russian-military-linked-cargo-ship-catches-fire-after-reported-drone-strike-in-gulf-of-finland/",
+  "https://www.yahoo.com/news/world/articles/russian-cargo-ship-hit-drones-160153610.html",
+  "https://sg.news.yahoo.com/russian-cargo-ship-hit-ukrainian-154744117.html",
+  "https://www.yahoo.com/news/world/articles/finland-confirms-russia-towing-drone-203831500.html",
+  "https://shippingtelegraph.com/shipping-reports/russian-cargo-ship-on-fire-in-gulf-of-finland-after-suspected-drone-strike/",
+  "https://ground.news/article/towing-of-the-sparta-ii-vessel-into-russian-territorial-waters-has-begun",
+  "https://voennoedelo.com/en/posts/id22501-two-drones-attack-cargo-ship-bound-for-kaliningrad-in-gulf-of-finland",
+  "https://www.yahoo.com/news/world/articles/drones-attack-cargo-ship-gulf-161828494.html",
+  "https://en.tempo.co/read/2124144/finland-says-russian-helicopter-violated-its-airspace",
+  "https://www.aljazeera.com/news/2022/8/18/finland-says-russian-fighter-jets-violated-its-airspace",
+  "https://www.yahoo.com/news/russian-jet-suspected-violating-finnish-022614370.html"
+ ],
+ "personaggi": {
+  "putin": {
+   "commons": "Vladimir Putin",
+   "chi": "Vladimir Putin, President of Russia",
+   "pose": {
+    "serio": {
+     "posa": "standing stiff, arms at his sides, cold serious stare, dark suit"
+    }
+   }
+  },
+  "zelensky": {
+   "commons": "Volodymyr Zelensky",
+   "chi": "Volodymyr Zelensky, President of Ukraine",
+   "pose": {
+    "serio": {
+     "posa": "standing in olive military-style shirt, serious look"
+    }
+   }
+  },
+  "peskov": {
+   "commons": "Dmitry Peskov",
+   "chi": "Dmitry Peskov, Kremlin spokesman",
+   "pose": {
+    "calmo": {
+     "posa": "standing calm, hands folded, neutral face"
+    }
+   }
+  },
+  "orpo": {
+   "commons": "Petteri Orpo",
+   "chi": "Petteri Orpo, Prime Minister of Finland",
+   "pose": {
+    "serio": {
+     "posa": "standing in dark suit, grave concerned expression, hands clasped"
+    }
+   }
+  },
+  "stubb": {
+   "commons": "Alexander Stubb",
+   "chi": "Alexander Stubb, President of Finland",
+   "pose": {
+    "serio": {
+     "posa": "standing in dark suit, serious look, one hand in pocket"
+    }
+   }
+  }
+ },
+ "sets": {
+  "s01": {
+   "descr": "Cargo ship deck on fire at night, orange flames and thick black smoke over stacked containers, dark sea",
+   "luogo": "GULF OF FINLAND",
+   "effetto": "none",
+   "cast": []
+  },
+  "s02": {
+   "descr": "Firefighting vessels spraying powerful water cannon arcs at a burning cargo ship at night, steam clouds",
+   "luogo": "GULF OF FINLAND",
+   "effetto": "none",
+   "cast": []
+  },
+  "s03": {
+   "descr": "Burning ship at anchor close to a rocky Finnish coastline at dusk, smoke drifting over pine-covered islands",
+   "luogo": "LOVIISA, FINLAND",
+   "effetto": "none",
+   "cast": []
+  },
+  "s04": {
+   "descr": "Kremlin office desk, heavy curtains, a dark telephone, cold lamp light, empty leather chair",
+   "luogo": "MOSCOW, RUSSIA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "putin",
+     "posa": "serio",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s05": {
+   "descr": "Two small black drones flying low over grey winter sea at dawn, seen from behind",
+   "luogo": "GULF OF FINLAND",
+   "effetto": "none",
+   "cast": []
+  },
+  "s06": {
+   "descr": "Tugboat with heavy tow cable pulling a smoking cargo ship across calm grey sea, pale morning light",
+   "luogo": "GULF OF FINLAND",
+   "effetto": "none",
+   "cast": []
+  },
+  "s07": {
+   "descr": "Finnish coast guard patrol vessel cutting through grey waves, searchlight sweeping, early morning haze",
+   "luogo": "GULF OF FINLAND",
+   "effetto": "none",
+   "cast": []
+  },
+  "s08": {
+   "descr": "Government building in Helsinki at dusk with lit windows, empty snowy square in front",
+   "luogo": "HELSINKI, FINLAND",
+   "effetto": "neve",
+   "cast": [
+    {
+     "chi": "orpo",
+     "posa": "serio",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s09": {
+   "descr": "Russian rescue tug at sea with orange hull and a coiled cable on deck, grey sky",
+   "luogo": "GULF OF FINLAND",
+   "effetto": "none",
+   "cast": []
+  },
+  "s10": {
+   "descr": "Bridge of a cargo ship, abandoned, dark windows, smoke seeping in, steering wheel in foreground",
+   "luogo": "GULF OF FINLAND",
+   "effetto": "none",
+   "cast": []
+  },
+  "s11": {
+   "descr": "Lifeboat rowing away from a burning ship toward a larger cargo vessel, flames reflecting on water",
+   "luogo": "GULF OF FINLAND",
+   "effetto": "none",
+   "cast": []
+  },
+  "s12": {
+   "descr": "St Petersburg port at dawn, cranes and docked cargo ships, cold mist",
+   "luogo": "SAINT PETERSBURG, RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s13": {
+   "descr": "Sealed shipping containers stacked on a ship deck, some scorched and glowing warm, smoke wisps",
+   "luogo": "GULF OF FINLAND",
+   "effetto": "none",
+   "cast": []
+  },
+  "s14": {
+   "descr": "Military-style cargo ship moored at a grey Baltic quay, grey sky, empty dock",
+   "luogo": "BALTIYSK, RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s15": {
+   "descr": "Finnish defence ministry command room, big table, radar glow, empty chairs",
+   "luogo": "HELSINKI, FINLAND",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "orpo",
+     "posa": "serio",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s16": {
+   "descr": "Radar screen glow in dark operations room showing blips over a gulf, no text",
+   "luogo": "FINLAND",
+   "effetto": "mirino",
+   "cast": []
+  },
+  "s17": {
+   "descr": "Russian helicopter silhouette flying low over grey sea toward a green coastline, overcast",
+   "luogo": "LOVIISA, FINLAND",
+   "effetto": "mirino",
+   "cast": []
+  },
+  "s18": {
+   "descr": "Finnish border post style fence line in snowy forest, floodlights at dusk",
+   "luogo": "FINLAND-RUSSIA BORDER",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s19": {
+   "descr": "Swedish Gripen fighter jets parked on an airbase apron in northern Finland at dawn, cold mist, empty runway lights, no markings with text",
+   "luogo": "FINLAND",
+   "effetto": "none",
+   "cast": []
+  },
+  "s20": {
+   "descr": "Aerial view of the rocky coast near Loviisa, Finland: a lone cargo ship at anchor in a calm bay just offshore, pine-covered skerries, the old town waterfront and the Loviisa nuclear power plant faintly visible on the shoreline, grey dusk light, empty of people",
+   "luogo": "LOVIISA, FINLAND",
+   "effetto": "none",
+   "cast": []
+  },
+  "s21": {
+   "descr": "Kyiv skyline at night with distant glow, quiet empty street",
+   "luogo": "KYIV, UKRAINE",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "zelensky",
+     "posa": "serio",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s22": {
+   "descr": "Red Square at night with snow falling, Kremlin towers lit",
+   "luogo": "MOSCOW, RUSSIA",
+   "effetto": "neve",
+   "cast": [
+    {
+     "chi": "putin",
+     "posa": "serio",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s23": {
+   "descr": "Finnish NATO accession scene: Finnish Defence Forces armored vehicles parked in a snowy forest base near the eastern border, dawn light, empty, no text",
+   "luogo": "FINLAND",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s24": {
+   "descr": "NATO headquarters exterior in Brussels at night, flagpoles bare, cold light",
+   "luogo": "BRUSSELS, BELGIUM",
+   "effetto": "none",
+   "cast": []
+  },
+  "s25": {
+   "descr": "Drone factory-style workshop with small black drones lined on a bench, harsh light",
+   "luogo": "UKRAINE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s26": {
+   "descr": "Russian Baltic Fleet warships at moorings in the naval base at Kronstadt, grey hulls against a pale sky, a thin smoke plume from one vessel, cold daylight, no people",
+   "luogo": "KRONSTADT, RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s27": {
+   "descr": "Oil terminal at night with storage tanks and flare glow on Baltic coast",
+   "luogo": "UST-LUGA, RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s28": {
+   "descr": "Closed-off eastern Gulf of Finland: an empty grey sea with a Finnish Border Guard patrol vessel blocking a shipping lane near Kotka, buoys marking a restricted zone, overcast dusk, no people",
+   "luogo": "KOTKA, FINLAND",
+   "effetto": "none",
+   "cast": []
+  },
+  "s29": {
+   "descr": "Wide view of a US Treasury building facade in Washington DC with its colonnade and bronze statue out front, heavy overcast sky, empty plaza, no text visible",
+   "luogo": "WASHINGTON DC, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s30": {
+   "descr": "Estonian coast at dusk with watchtower and calm sea, lighthouse beam",
+   "luogo": "ESTONIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s31": {
+   "descr": "Estonian fighter jet taking off from an air base runway at dawn, afterburner glow",
+   "luogo": "ESTONIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s32": {
+   "descr": "Presidential palace in Helsinki exterior, winter evening, lit windows",
+   "luogo": "HELSINKI, FINLAND",
+   "effetto": "neve",
+   "cast": [
+    {
+     "chi": "stubb",
+     "posa": "serio",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s33": {
+   "descr": "Kremlin press briefing room, empty podium, rows of empty chairs, cold light",
+   "luogo": "MOSCOW, RUSSIA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "peskov",
+     "posa": "calmo",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s34": {
+   "descr": "Kaliningrad coastline at night with port lights and cold fog",
+   "luogo": "KALININGRAD, RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s35": {
+   "descr": "Environmental response boat laying orange oil boom on dark water at dawn",
+   "luogo": "GULF OF FINLAND",
+   "effetto": "none",
+   "cast": []
+  },
+  "s36": {
+   "descr": "Maritime border zone in the Gulf of Finland: a Finnish Border Guard vessel and a distant Russian tug passing each other on grey open water, pale winter light, empty decks",
+   "luogo": "GULF OF FINLAND",
+   "effetto": "none",
+   "cast": []
+  },
+  "s37": {
+   "descr": "Finnish rescue helicopter hovering over sea at dusk with searchlight beam",
+   "luogo": "GULF OF FINLAND",
+   "effetto": "none",
+   "cast": []
+  },
+  "s38": {
+   "descr": "Finnish Ministry of Defence building in Helsinki exterior near the harbour, neoclassical facade, evening light, empty street, no flags with writing",
+   "luogo": "HELSINKI, FINLAND",
+   "effetto": "none",
+   "cast": []
+  },
+  "s39": {
+   "descr": "Lone ship being towed away toward a dim horizon, smoke trail, sunset red sky",
+   "luogo": "GULF OF FINLAND",
+   "effetto": "none",
+   "cast": []
+  },
+  "s40": {
+   "descr": "Kremlin interior corridor, red carpet, tall doors, empty, cold light",
+   "luogo": "MOSCOW, RUSSIA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "putin",
+     "posa": "serio",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s41": {
+   "descr": "Exterior of the Russian Ministry of Defence building on Frunzenskaya Embankment in Moscow, a large grey Stalinist-era government block on the river, overcast cold daylight, empty embankment road, no signs",
+   "luogo": "MOSCOW, RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s42": {
+   "descr": "Aerial view of Finnish coast at dawn with the Gulf of Finland, Finnish Border Guard vessel on patrol, a lighthouse on a rocky island, calm grey sea, hint of tension",
+   "luogo": "GULF OF FINLAND",
+   "effetto": "none",
+   "cast": []
+  },
+  "s43": {
+   "descr": "Night sky over Leningrad region with tracer-like streaks of air defense fire over dark rooftops",
+   "luogo": "LENINGRAD REGION, RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s44": {
+   "descr": "Dark Gulf of Finland at night with distant ship lights and a thin line of smoke",
+   "luogo": "GULF OF FINLAND",
+   "effetto": "none",
+   "cast": []
+  }
+ },
+ "scene": [
+  {
+   "testo": "A ship is burning off the coast of a NATO country.",
+   "fonti": [
+    "https://www.yahoo.com/news/world/articles/russian-cargo-ship-set-ablaze-142226005.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s01"
+   }
+  },
+  {
+   "testo": "Finnish crews fought its flames for two days.",
+   "fonti": [
+    "https://www.koreatimes.co.kr/world/20261123/russia-starts-towing-ship-hit-by-drones-in-baltic-finland-says"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s02"
+   }
+  },
+  {
+   "testo": "After the strike it drifted into Finnish territorial waters.",
+   "fonti": [
+    "https://www.theglobeandmail.com/world/article-russian-cargo-ship-still-burning-off-finland-after-suspected-ukrainian/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s03"
+   }
+  },
+  {
+   "testo": "Now Russia is towing it back toward Russian waters, and Finland's prime minister says the war is spilling over.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/22/russian-cargo-ship-still-on-fire-off-finland-after-drone-attack",
+    "https://tvpworld.com/96622539/cargo-ship-struck-by-drones-towed-back-to-russian-waters"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s39"
+   }
+  },
+  {
+   "testo": "So the question is simple: how close to NATO can this war come?",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/22/russian-cargo-ship-still-on-fire-off-finland-after-drone-attack"
+   ],
+   "titolo_card": true,
+   "visivo": {
+    "tipo": "set",
+    "set": "s04"
+   },
+   "grafica": {
+    "tipo": "titolo",
+    "testo": "HOW CLOSE TO NATO?",
+    "sotto": "Day 2 of the Gulf of Finland crisis"
+   }
+  },
+  {
+   "testo": "First, the ship. Its name is Sparta II.",
+   "fonti": [
+    "https://tvpworld.com/96622539/cargo-ship-struck-by-drones-towed-back-to-russian-waters"
+   ],
+   "capitolo": "THE SHIP CALLED SPARTA",
+   "visivo": {
+    "tipo": "set",
+    "set": "s12"
+   }
+  },
+  {
+   "testo": "It is 121 meters long and flies the Russian flag.",
+   "fonti": [
+    "https://tvpworld.com/96622539/cargo-ship-struck-by-drones-towed-back-to-russian-waters"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s14"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 121,
+    "decimali": 0,
+    "prefisso": "",
+    "unita": "METERS LONG",
+    "sopra": "SPARTA II"
+   }
+  },
+  {
+   "testo": "It left Saint Petersburg on Friday, bound for Kaliningrad.",
+   "fonti": [
+    "https://www.theglobeandmail.com/world/article-russian-cargo-ship-still-burning-off-finland-after-suspected-ukrainian/",
+    "https://www.koreatimes.co.kr/world/20261123/russia-starts-towing-ship-hit-by-drones-in-baltic-finland-says"
+   ],
+   "visivo": {
+    "tipo": "mappa",
+    "centro": [
+     24.0,
+     59.6
+    ],
+    "larghezza": 24,
+    "paesi": [
+     {
+      "iso": "RUS",
+      "colore": "rosso"
+     },
+     {
+      "iso": "FIN",
+      "colore": "azzurro_placeholder"
+     },
+     {
+      "iso": "EST",
+      "colore": "giallo"
+     }
+    ],
+    "punti": [
+     {
+      "lon": 30.3,
+      "lat": 59.93,
+      "nome": "ST PETERSBURG"
+     },
+     {
+      "lon": 19.9,
+      "lat": 54.65,
+      "nome": "BALTIYSK"
+     },
+     {
+      "lon": 26.9,
+      "lat": 60.05,
+      "nome": "GOGLAND"
+     }
+    ],
+    "frecce": [
+     {
+      "da": [
+       30.3,
+       59.93
+      ],
+      "a": [
+       19.9,
+       54.65
+      ],
+      "colore": "rosso"
+     }
+    ]
+   }
+  },
+  {
+   "testo": "The owner is Oboronlogistika, which serves Russia's Defense Ministry.",
+   "fonti": [
+    "https://tvpworld.com/96622539/cargo-ship-struck-by-drones-towed-back-to-russian-waters",
+    "https://thehill.com/policy/international/6235751-russian-cargo-ship-drone-attack/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s41"
+   }
+  },
+  {
+   "testo": "The ship is under US sanctions.",
+   "fonti": [
+    "https://thehill.com/policy/international/6235751-russian-cargo-ship-drone-attack/",
+    "https://www.koreatimes.co.kr/world/20261123/russia-starts-towing-ship-hit-by-drones-in-baltic-finland-says"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s29"
+   }
+  },
+  {
+   "testo": "On Saturday morning, two drones hit it.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/21/russia-says-kaliningrad-bound-ship-struck-by-drones-in-gulf-of-finland",
+    "https://www.themoscowtimes.com/2026/11/21/russia-says-cargo-vessel-struck-by-drones-in-gulf-of-finland-a94342"
+   ],
+   "capitolo": "TWO DRONES, ONE FIRE",
+   "visivo": {
+    "tipo": "set",
+    "set": "s05"
+   }
+  },
+  {
+   "testo": "Leningrad's governor says it happened about three nautical miles from Russia's maritime border.",
+   "fonti": [
+    "https://www.themoscowtimes.com/2026/11/21/russia-says-cargo-vessel-struck-by-drones-in-gulf-of-finland-a94342"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s44"
+   }
+  },
+  {
+   "testo": "Finland's military says it detected the strike in international waters west of Gogland island.",
+   "fonti": [
+    "https://www.theglobeandmail.com/world/article-russian-cargo-ship-still-burning-off-finland-after-suspected-ukrainian/"
+   ],
+   "visivo": {
+    "tipo": "mappa",
+    "centro": [
+     26.5,
+     60.0
+    ],
+    "larghezza": 14,
+    "paesi": [
+     {
+      "iso": "FIN",
+      "colore": "azul_placeholder"
+     },
+     {
+      "iso": "RUS",
+      "colore": "rosso"
+     },
+     {
+      "iso": "EST",
+      "colore": "giallo"
+     }
+    ],
+    "punti": [
+     {
+      "lon": 26.9,
+      "lat": 60.05,
+      "nome": "GOGLAND"
+     },
+     {
+      "lon": 26.2,
+      "lat": 60.46,
+      "nome": "LOVIISA"
+     },
+     {
+      "lon": 24.94,
+      "lat": 60.17,
+      "nome": "HELSINKI"
+     }
+    ],
+    "frecce": [
+     {
+      "da": [
+       26.9,
+       60.05
+      ],
+      "a": [
+       26.2,
+       60.2
+      ],
+      "colore": "arancio"
+     }
+    ],
+    "zoom_su": [
+     26.6,
+     60.1
+    ]
+   }
+  },
+  {
+   "testo": "Fire broke out aboard, and the 16 crew members were evacuated.",
+   "fonti": [
+    "https://tvpworld.com/96622539/cargo-ship-struck-by-drones-towed-back-to-russian-waters"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s11"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 16,
+    "decimali": 0,
+    "prefisso": "",
+    "unita": "CREW EVACUATED",
+    "sopra": "SPARTA II"
+   }
+  },
+  {
+   "testo": "One crew member was slightly injured, according to Finland's coast guard.",
+   "fonti": [
+    "https://www.theglobeandmail.com/world/article-russian-cargo-ship-still-burning-off-finland-after-suspected-ukrainian/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s10"
+   }
+  },
+  {
+   "testo": "The ship lost steering, and Finnish officials say it drifted into Finnish territorial waters.",
+   "fonti": [
+    "https://kyivindependent.com/russian-military-linked-cargo-ship-catches-fire-after-reported-drone-strike-in-gulf-of-finland/",
+    "https://www.theglobeandmail.com/world/article-russian-cargo-ship-still-burning-off-finland-after-suspected-ukrainian/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s07"
+   }
+  },
+  {
+   "testo": "Then it anchored off Finland's southern coast, near Loviisa.",
+   "fonti": [
+    "https://tvpworld.com/96622539/cargo-ship-struck-by-drones-towed-back-to-russian-waters",
+    "https://shippingtelegraph.com/shipping-reports/russian-cargo-ship-on-fire-in-gulf-of-finland-after-suspected-drone-strike/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s20"
+   }
+  },
+  {
+   "testo": "Who launched the drones? Finland's military says the strike was likely carried out by Ukraine.",
+   "fonti": [
+    "https://www.theglobeandmail.com/world/article-russian-cargo-ship-still-burning-off-finland-after-suspected-ukrainian/",
+    "https://www.aljazeera.com/news/2026/11/21/russia-says-kaliningrad-bound-ship-struck-by-drones-in-gulf-of-finland"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s25"
+   }
+  },
+  {
+   "testo": "I could not verify from the reviewed sources whether Ukrainian officials have publicly claimed responsibility.",
+   "fonti": [
+    "https://www.yahoo.com/news/world/articles/russian-cargo-ship-set-ablaze-142226005.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s16"
+   }
+  },
+  {
+   "testo": "But the ship was not the only incident that day.",
+   "fonti": [
+    "https://www.france24.com/en/europe/20261121-drone-attack-sets-russian-cargo-ship-ablaze-in-gulf-of-finland"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s37"
+   }
+  },
+  {
+   "testo": "Hours later, Finland reported a suspected Russian helicopter violation of its airspace.",
+   "fonti": [
+    "https://www.france24.com/en/europe/20261121-drone-attack-sets-russian-cargo-ship-ablaze-in-gulf-of-finland",
+    "https://kyivindependent.com/russian-military-linked-cargo-ship-catches-fire-after-reported-drone-strike-in-gulf-of-finland/"
+   ],
+   "capitolo": "A HELICOPTER OVER LOVIISA",
+   "visivo": {
+    "tipo": "set",
+    "set": "s17"
+   }
+  },
+  {
+   "testo": "It was suspected of flying up to 4.1 kilometers into Finnish territory.",
+   "fonti": [
+    "https://www.france24.com/en/europe/20261121-drone-attack-sets-russian-cargo-ship-ablaze-in-gulf-of-finland"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s15"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 4.1,
+    "decimali": 1,
+    "prefisso": "",
+    "unita": "KILOMETERS INSIDE FINLAND",
+    "sopra": "SUSPECTED"
+   }
+  },
+  {
+   "testo": "Finland's defense minister said the suspected violation was possibly linked to rescue or tracking operations for the damaged ship.",
+   "fonti": [
+    "https://www.france24.com/en/europe/20261121-drone-attack-sets-russian-cargo-ship-ablaze-in-gulf-of-finland",
+    "https://www.aljazeera.com/news/2026/11/21/russia-says-kaliningrad-bound-ship-struck-by-drones-in-gulf-of-finland"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s38"
+   }
+  },
+  {
+   "testo": "Finland says the suspected incursion happened at 12:34 local time, near the town of Loviisa.",
+   "fonti": [
+    "https://www.ukrinform.net/rubric-emergencies/4187228-finland-suspects-russian-helicopter-of-violating-its-airspace.html"
+   ],
+   "visivo": {
+    "tipo": "mappa",
+    "centro": [
+     26.2,
+     60.2
+    ],
+    "larghezza": 10,
+    "paesi": [
+     {
+      "iso": "FIN",
+      "colore": "verde_placeholder"
+     },
+     {
+      "iso": "RUS",
+      "colore": "rosso"
+     }
+    ],
+    "punti": [
+     {
+      "lon": 26.2,
+      "lat": 60.46,
+      "nome": "LOVIISA"
+     }
+    ],
+    "frecce": [
+     {
+      "da": [
+       26.3,
+       60.3
+      ],
+      "a": [
+       26.2,
+       60.44
+      ],
+      "colore": "rosso"
+     }
+    ],
+    "zoom_su": [
+     26.2,
+     60.4
+    ]
+   }
+  },
+  {
+   "testo": "Finland said it informed NATO.",
+   "fonti": [
+    "https://www.france24.com/en/europe/20261121-drone-attack-sets-russian-cargo-ship-ablaze-in-gulf-of-finland"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s24"
+   }
+  },
+  {
+   "testo": "It restricted air and sea traffic in the eastern gulf.",
+   "fonti": [
+    "https://www.france24.com/en/europe/20261121-drone-attack-sets-russian-cargo-ship-ablaze-in-gulf-of-finland",
+    "https://www.yahoo.com/news/world/articles/russian-cargo-ship-set-ablaze-142226005.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s28"
+   }
+  },
+  {
+   "testo": "Reuters reported that Swedish fighter jets, under Finnish command, helped patrol the area.",
+   "fonti": [
+    "https://www.yahoo.com/news/world/articles/russian-cargo-ship-set-ablaze-142226005.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s19"
+   }
+  },
+  {
+   "testo": "Then came the line that has been widely repeated.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/22/russian-cargo-ship-still-on-fire-off-finland-after-drone-attack"
+   ],
+   "capitolo": "THE FINNISH WARNING",
+   "visivo": {
+    "tipo": "set",
+    "set": "s08"
+   }
+  },
+  {
+   "testo": "Finland's prime minister, Petteri Orpo, wrote on X that war is spilling over into Finland's immediate vicinity.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/21/russia-says-kaliningrad-bound-ship-struck-by-drones-in-gulf-of-finland"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s15"
+   }
+  },
+  {
+   "testo": "He added that Ukraine has the right to fight back against the aggressor.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/22/russian-cargo-ship-still-on-fire-off-finland-after-drone-attack"
+   ],
+   "visivo": {
+    "tipo": "frase",
+    "testo": "Ukraine has the right to fight back."
+   }
+  },
+  {
+   "testo": "President Stubb also said Finland's security is being taken care of.",
+   "fonti": [
+    "https://newsable.asianetnews.com/world/finnish-pm-orpo-says-war-spills-over-after-gulf-of-finland-strike-articleshow-r6aegr3"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s32"
+   }
+  },
+  {
+   "testo": "President Alexander Stubb called the events involving the Sparta II serious.",
+   "fonti": [
+    "https://www.energyconnects.com/news/oil/2026/november/russian-cargo-ship-attacked-by-drones-in-gulf-of-finland/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s32"
+   },
+   "citazione": {
+    "chi": "stubb",
+    "posa": "serio",
+    "testo": "The events involving the Sparta II vessel in the Gulf of Finland are serious."
+   }
+  },
+  {
+   "testo": "Stubb added that the consequences of Russia's war of aggression are also visible in the region.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/22/russian-cargo-ship-still-on-fire-off-finland-after-drone-attack"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s18"
+   }
+  },
+  {
+   "testo": "Now, who is the man at the center of all this? Russia's president.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/22/russian-cargo-ship-still-on-fire-off-finland-after-drone-attack"
+   ],
+   "capitolo": "THE MAN IN THE KREMLIN",
+   "visivo": {
+    "tipo": "set",
+    "set": "s22"
+   }
+  },
+  {
+   "testo": "Vladimir Putin is president of Russia.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2022/8/18/finland-says-russian-fighter-jets-violated-its-airspace"
+   ],
+   "visivo": {
+    "tipo": "dossier",
+    "chi": "putin",
+    "posa": "serio",
+    "righe": [
+     "President of Russia",
+     "Ordered 2022 invasion",
+     "Faces NATO on Baltic"
+    ],
+    "timbro": "KREMLIN"
+   }
+  },
+  {
+   "testo": "In February 2022, Russia launched its full-scale invasion of Ukraine.",
+   "fonti": [
+    "https://www.yahoo.com/news/world/articles/drones-attack-cargo-ship-gulf-161828494.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s40"
+   }
+  },
+  {
+   "testo": "Russia's 2022 invasion pushed Finland to join NATO, which it did in 2023.",
+   "fonti": [
+    "https://www.yahoo.com/news/russian-jet-suspected-violating-finnish-022614370.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s23"
+   }
+  },
+  {
+   "testo": "Finland now shares a 1,300-kilometer border with Russia.",
+   "fonti": [
+    "https://www.yahoo.com/news/russian-jet-suspected-violating-finnish-022614370.html"
+   ],
+   "visivo": {
+    "tipo": "mappa",
+    "centro": [
+     28.0,
+     64.0
+    ],
+    "larghezza": 30,
+    "paesi": [
+     {
+      "iso": "FIN",
+      "colore": "blu"
+     },
+     {
+      "iso": "RUS",
+      "colore": "rosso"
+     }
+    ],
+    "punti": [
+     {
+      "lon": 24.94,
+      "lat": 60.17,
+      "nome": "HELSINKI"
+     },
+     {
+      "lon": 30.3,
+      "lat": 59.93,
+      "nome": "ST PETERSBURG"
+     }
+    ],
+    "frecce": []
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 1300,
+    "decimali": 0,
+    "prefisso": "",
+    "unita": "KM BORDER WITH RUSSIA",
+    "sopra": "FINLAND NOW SHARES"
+   }
+  },
+  {
+   "testo": "Finland shut all its land border crossings with Russia in 2023, according to Reuters.",
+   "fonti": [
+    "https://www.theglobeandmail.com/world/article-russian-cargo-ship-still-burning-off-finland-after-suspected-ukrainian/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s18"
+   }
+  },
+  {
+   "testo": "So what has Putin said about the burning ship?",
+   "fonti": [
+    "https://www.themoscowtimes.com/2026/11/22/russian-cargo-ship-still-on-fire-off-finland-after-attack-a94343"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s40"
+   }
+  },
+  {
+   "testo": "In the sources we reviewed, we found no statement from Putin on Sparta II.",
+   "fonti": [
+    "https://www.themoscowtimes.com/2026/11/22/russian-cargo-ship-still-on-fire-off-finland-after-attack-a94343",
+    "https://www.aljazeera.com/news/2026/11/22/russian-cargo-ship-still-on-fire-off-finland-after-drone-attack"
+   ],
+   "visivo": {
+    "tipo": "frase",
+    "testo": "In the sources we reviewed, we found no statement from Putin on Sparta II."
+   }
+  },
+  {
+   "testo": "The Russian voices we found come from regional governors.",
+   "fonti": [
+    "https://www.themoscowtimes.com/2026/11/21/russia-says-cargo-vessel-struck-by-drones-in-gulf-of-finland-a94342",
+    "https://voennoedelo.com/en/posts/id22501-two-drones-attack-cargo-ship-bound-for-kaliningrad-in-gulf-of-finland"
+   ],
+   "capitolo": "WHAT MOSCOW SAYS",
+   "visivo": {
+    "tipo": "set",
+    "set": "s33"
+   }
+  },
+  {
+   "testo": "Leningrad's governor, Alexander Drozdenko, said two drones attacked the ship about three nautical miles from Russia's maritime border, in international waters.",
+   "fonti": [
+    "https://www.themoscowtimes.com/2026/11/21/russia-says-cargo-vessel-struck-by-drones-in-gulf-of-finland-a94342"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s43"
+   }
+  },
+  {
+   "testo": "So why does this ship matter? Stay with me for one more detail.",
+   "fonti": [
+    "https://kyivindependent.com/russian-military-linked-cargo-ship-catches-fire-after-reported-drone-strike-in-gulf-of-finland/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s26"
+   }
+  },
+  {
+   "testo": "Finnish authorities say the cargo on board has not been publicly established.",
+   "fonti": [
+    "https://www.yahoo.com/news/world/articles/finland-confirms-russia-towing-drone-203831500.html"
+   ],
+   "capitolo": "WHAT WAS INSIDE?",
+   "visivo": {
+    "tipo": "set",
+    "set": "s13"
+   }
+  },
+  {
+   "testo": "A Finnish Border Guard commander said military materiel could not be ruled out.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/21/russia-says-kaliningrad-bound-ship-struck-by-drones-in-gulf-of-finland"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s41"
+   }
+  },
+  {
+   "testo": "Kyiv Independent describes the ship as sanctioned and as having a history of transporting Russian military equipment.",
+   "fonti": [
+    "https://kyivindependent.com/russian-military-linked-cargo-ship-catches-fire-after-reported-drone-strike-in-gulf-of-finland/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s14"
+   }
+  },
+  {
+   "testo": "Finland reportedly considered seizing the ship and its cargo.",
+   "fonti": [
+    "https://tvpworld.com/96622539/cargo-ship-struck-by-drones-towed-back-to-russian-waters"
+   ],
+   "capitolo": "THE DECISION TO TOW",
+   "visivo": {
+    "tipo": "set",
+    "set": "s07"
+   }
+  },
+  {
+   "testo": "A Finnish official reportedly said bringing it to a Finnish port would be extremely risky.",
+   "fonti": [
+    "https://tvpworld.com/96622539/cargo-ship-struck-by-drones-towed-back-to-russian-waters"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s35"
+   }
+  },
+  {
+   "testo": "So on Sunday, the Russian rescue vessel Murman began towing it out.",
+   "fonti": [
+    "https://tvpworld.com/96622539/cargo-ship-struck-by-drones-towed-back-to-russian-waters",
+    "https://www.koreatimes.co.kr/world/20261123/russia-starts-towing-ship-hit-by-drones-in-baltic-finland-says"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s09"
+   }
+  },
+  {
+   "testo": "Finland's coast guard said thermal cameras showed some containers were still warm.",
+   "fonti": [
+    "https://sg.news.yahoo.com/russian-cargo-ship-hit-ukrainian-154744117.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s06"
+   }
+  },
+  {
+   "testo": "But Finland's coast guard said the vessel was stable enough for towing to begin.",
+   "fonti": [
+    "https://sg.news.yahoo.com/russian-cargo-ship-hit-ukrainian-154744117.html",
+    "https://www.koreatimes.co.kr/world/20261123/russia-starts-towing-ship-hit-by-drones-in-baltic-finland-says"
+   ],
+   "visivo": {
+    "tipo": "mappa",
+    "centro": [
+     26.0,
+     60.0
+    ],
+    "larghezza": 16,
+    "paesi": [
+     {
+      "iso": "FIN",
+      "colore": "blu"
+     },
+     {
+      "iso": "RUS",
+      "colore": "rosso"
+     },
+     {
+      "iso": "EST",
+      "colore": "giallo"
+     }
+    ],
+    "punti": [
+     {
+      "lon": 26.2,
+      "lat": 60.46,
+      "nome": "LOVIISA"
+     },
+     {
+      "lon": 26.9,
+      "lat": 60.05,
+      "nome": "GOGLAND"
+     }
+    ],
+    "frecce": [
+     {
+      "da": [
+       26.2,
+       60.35
+      ],
+      "a": [
+       27.5,
+       60.0
+      ],
+      "colore": "rosso"
+     }
+    ]
+   }
+  },
+  {
+   "testo": "Mikko Hirvi of the Finnish Border Guard called Russian towing the best and safest solution for Finland.",
+   "fonti": [
+    "https://sg.news.yahoo.com/russian-cargo-ship-hit-ukrainian-154744117.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s39"
+   }
+  },
+  {
+   "testo": "Once it leaves Finnish waters, rescue responsibility passes to Russia.",
+   "fonti": [
+    "https://www.koreatimes.co.kr/world/20261123/russia-starts-towing-ship-hit-by-drones-in-baltic-finland-says"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s36"
+   }
+  },
+  {
+   "testo": "Finland's president Alexander Stubb said on X that the ship has now left Finnish territorial waters.",
+   "fonti": [
+    "https://shippingtelegraph.com/shipping-reports/russian-cargo-ship-on-fire-in-gulf-of-finland-after-suspected-drone-strike/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s32"
+   }
+  },
+  {
+   "testo": "The risk is not over, and neighbors are watching closely.",
+   "fonti": [
+    "https://www.themoscowtimes.com/2026/11/22/russian-cargo-ship-still-on-fire-off-finland-after-attack-a94343"
+   ],
+   "capitolo": "WILL IT HAPPEN AGAIN?",
+   "visivo": {
+    "tipo": "set",
+    "set": "s30"
+   }
+  },
+  {
+   "testo": "Estonia's Navy commander said further attacks in the gulf cannot be ruled out.",
+   "fonti": [
+    "https://www.themoscowtimes.com/2026/11/22/russian-cargo-ship-still-on-fire-off-finland-after-attack-a94343",
+    "https://www.koreatimes.co.kr/world/20261123/russia-starts-towing-ship-hit-by-drones-in-baltic-finland-says"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s31"
+   }
+  },
+  {
+   "testo": "This was not the first drone strike in the area.",
+   "fonti": [
+    "https://www.theglobeandmail.com/world/article-russian-cargo-ship-still-burning-off-finland-after-suspected-ukrainian/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s26"
+   }
+  },
+  {
+   "testo": "Bloomberg reports a Russian Navy corvette, the Naro-Fominsk, was hit earlier this month.",
+   "fonti": [
+    "https://www.theglobeandmail.com/world/article-russian-cargo-ship-still-burning-off-finland-after-suspected-ukrainian/",
+    "https://www.aljazeera.com/news/2026/11/22/russian-cargo-ship-still-on-fire-off-finland-after-drone-attack"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s44"
+   }
+  },
+  {
+   "testo": "Bloomberg calls Sparta II the second ship struck by a drone this month in the Gulf of Finland.",
+   "fonti": [
+    "https://www.energyconnects.com/news/oil/2026/november/russian-cargo-ship-attacked-by-drones-in-gulf-of-finland/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s27"
+   }
+  },
+  {
+   "testo": "Al Jazeera notes that some Ukrainian drones have strayed into the airspace of neighboring Baltic countries this year.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/22/russian-cargo-ship-still-on-fire-off-finland-after-drone-attack"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s43"
+   }
+  },
+  {
+   "testo": "That has raised concerns the war could spread to NATO territory.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/22/russian-cargo-ship-still-on-fire-off-finland-after-drone-attack"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s24"
+   }
+  },
+  {
+   "testo": "Now look at what is at stake in this narrow gulf.",
+   "fonti": [
+    "https://www.energyconnects.com/news/oil/2026/november/russian-cargo-ship-attacked-by-drones-in-gulf-of-finland/"
+   ],
+   "capitolo": "WHAT IS AT STAKE",
+   "visivo": {
+    "tipo": "mappa",
+    "centro": [
+     25.0,
+     59.8
+    ],
+    "larghezza": 20,
+    "paesi": [
+     {
+      "iso": "FIN",
+      "colore": "blu"
+     },
+     {
+      "iso": "EST",
+      "colore": "giallo"
+     },
+     {
+      "iso": "RUS",
+      "colore": "rosso"
+     }
+    ],
+    "punti": [
+     {
+      "lon": 24.94,
+      "lat": 60.17,
+      "nome": "HELSINKI"
+     },
+     {
+      "lon": 24.75,
+      "lat": 59.44,
+      "nome": "TALLINN"
+     },
+     {
+      "lon": 30.3,
+      "lat": 59.93,
+      "nome": "ST PETERSBURG"
+     }
+    ],
+    "frecce": []
+   }
+  },
+  {
+   "testo": "Bloomberg says more than three million people cross the Gulf of Finland on passenger ferries every year.",
+   "fonti": [
+    "https://www.energyconnects.com/news/oil/2026/november/russian-cargo-ship-attacked-by-drones-in-gulf-of-finland/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s28"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 3,
+    "decimali": 0,
+    "prefisso": "",
+    "unita": "MILLION PEOPLE",
+    "sopra": "CROSS THE GULF EACH YEAR BY FERRY"
+   }
+  },
+  {
+   "testo": "Cargo ships and tankers pass through too, including the shadow fleet carrying sanctioned Russian oil.",
+   "fonti": [
+    "https://www.energyconnects.com/news/oil/2026/november/russian-cargo-ship-attacked-by-drones-in-gulf-of-finland/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s29"
+   }
+  },
+  {
+   "testo": "Bloomberg says the attack highlights growing risks to Russian energy and food exports.",
+   "fonti": [
+    "https://www.energyconnects.com/news/oil/2026/november/russian-cargo-ship-attacked-by-drones-in-gulf-of-finland/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s27"
+   }
+  },
+  {
+   "testo": "Finnish authorities say they are monitoring for marine pollution and prepared for possible damage within Finland's jurisdiction.",
+   "fonti": [
+    "https://www.yahoo.com/news/world/articles/drones-attack-cargo-ship-gulf-161828494.html",
+    "https://kyivindependent.com/russian-military-linked-cargo-ship-catches-fire-after-reported-drone-strike-in-gulf-of-finland/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s35"
+   }
+  },
+  {
+   "testo": "So what happens next? Here is what we know, and what we do not.",
+   "fonti": [
+    "https://www.themoscowtimes.com/2026/11/22/russian-cargo-ship-still-on-fire-off-finland-after-attack-a94343"
+   ],
+   "capitolo": "WHAT HAPPENS NEXT",
+   "visivo": {
+    "tipo": "set",
+    "set": "s42"
+   }
+  },
+  {
+   "testo": "Confirmed by Finnish authorities: a Russian ship was hit by drones and burned in the Gulf of Finland.",
+   "fonti": [
+    "https://www.theglobeandmail.com/world/article-russian-cargo-ship-still-burning-off-finland-after-suspected-ukrainian/",
+    "https://www.aljazeera.com/news/2026/11/21/russia-says-kaliningrad-bound-ship-struck-by-drones-in-gulf-of-finland"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s01"
+   }
+  },
+  {
+   "testo": "Confirmed by Finnish authorities: it drifted into Finnish waters and a Russian vessel has been towing it out.",
+   "fonti": [
+    "https://tvpworld.com/96622539/cargo-ship-struck-by-drones-towed-back-to-russian-waters",
+    "https://www.koreatimes.co.kr/world/20261123/russia-starts-towing-ship-hit-by-drones-in-baltic-finland-says"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s39"
+   }
+  },
+  {
+   "testo": "Not confirmed: who launched the drones. Finland's military says Ukraine likely carried out the strike.",
+   "fonti": [
+    "https://www.theglobeandmail.com/world/article-russian-cargo-ship-still-burning-off-finland-after-suspected-ukrainian/",
+    "https://www.yahoo.com/news/world/articles/russian-cargo-ship-set-ablaze-142226005.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s25"
+   }
+  },
+  {
+   "testo": "Not confirmed: what the ship was carrying.",
+   "fonti": [
+    "https://www.yahoo.com/news/world/articles/finland-confirms-russia-towing-drone-203831500.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s13"
+   }
+  },
+  {
+   "testo": "Not found: any direct comment from Putin on the incident.",
+   "fonti": [
+    "https://www.themoscowtimes.com/2026/11/22/russian-cargo-ship-still-on-fire-off-finland-after-attack-a94343"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s22"
+   }
+  },
+  {
+   "testo": "A burning ship has left Finnish waters. The question of where this war stops has not.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/22/russian-cargo-ship-still-on-fire-off-finland-after-drone-attack"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s22"
+   }
+  },
+  {
+   "testo": "This story is still moving. Subscribe, so you do not miss what comes next.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/22/russian-cargo-ship-still-on-fire-off-finland-after-drone-attack"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s44"
+   }
+  }
+ ],
+ "copertina": {
+  "sfondo": "Burning cargo ship with orange flames and black smoke at night on the dark Gulf of Finland, rescue vessels spraying water, no people, no text",
+  "personaggi": [
+   "putin"
+  ],
+  "pose": {
+   "putin": "serio"
+  },
+  "personaggio": "putin",
+  "posa": "serio",
+  "lato": "dx",
+  "righe": [
+   "SHIP ON FIRE",
+   "NEAR NATO"
+  ],
+  "box": "WAR SPILLING OVER",
+  "evidenzia": 1
+ },
+ "verifica": {
+  "correzioni": 61,
+  "scene_tolte": 6
+ },
+ "coerenza": {
+  "scene_rifatte": 10,
+  "controllate": 66
+ },
+ "lingua": "en",
+ "nome": "2026-11-23_russian_cargo_ship_burns_in_gulf_of_finl_en",
+ "data": "NOVEMBER 23, 2026",
+ "etichetta": "BREAKING",
+ "musica": "tensione",
+ "voce": "uju3wxzG5OhpWcoi3SMy",
+ "budget_dollari": 3.5,
+ "storia": "Russian cargo ship burns in Gulf of Finland after drone attack; Finland says war 'spilling over' (ship towed away by Russia; NPR/NBC report war creeping into NATO territory)",
+ "filone": "guerra"
+}
