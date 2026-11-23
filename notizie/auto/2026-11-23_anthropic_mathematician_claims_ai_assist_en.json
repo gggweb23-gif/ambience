@@ -1,0 +1,1329 @@
+{
+ "titolo": "Amodei's Claude 'Solved' Riemann. Nobody Knows Why It Works",
+ "angolo": "Day 3: The code is machine-certified, but no human can yet explain why it works, and the credit and prize questions are just opening.",
+ "descrizione": "Amodei's Claude 'Solved' Riemann. Nobody Knows Why It Works. Anthropic mathematician Levent Alpöge says he and Claude proved the Riemann hypothesis, and the Lean and Mathlib communities have certified the proof as correct. But mathematicians say the ideas are not yet understood, a rival human claim has surfaced, and the Clay Prize clock has not started. Here is exactly what is confirmed and what is not, according to AP, Nature, Al Jazeera and Scientific American.",
+ "tag": [
+  "Amodei's Claude 'Solved' Riemann. Nobody Knows Why It Works",
+  "Dario Amodei",
+  "Anthropic",
+  "Claude",
+  "Riemann hypothesis",
+  "Levent Alpöge",
+  "Lean proof",
+  "Mathlib",
+  "Anthropic IPO",
+  "ANT stock",
+  "Millennium Prize",
+  "AI mathematics",
+  "Clay Mathematics Institute",
+  "Andrew Sutherland",
+  "Kevin Buzzard"
+ ],
+ "fonti_link": [
+  "https://www.npr.org/2026/11/21/g-s1-154922/anthropic-worker-claims-to-have-solved-a-holy-grail-of-math-problems-with-the-help-of-ai",
+  "https://broadbandbreakfast.com/anthropic-worker-claims-to-have-solved-riemann-hypothesis-with-help-from-claude/",
+  "https://www.nature.com/articles/d41586-026-03812-7",
+  "https://www.aljazeera.com/news/2026/11/21/riemann-hypothesis-has-the-worlds-most-famous-maths-problem-been-cracked",
+  "https://www.scientificamerican.com/article/the-ai-riemann-hypothesis-proof-is-almost-certainly-true-independent-mathematicians-attest/",
+  "https://www.scientificamerican.com/article/dueling-claims-of-riemann-hypothesis-proofs-emerge/",
+  "https://www.bostonglobe.com/2026/11/21/nation/anthropic-worker-solve-math-problems-ai-riemann-hypothesis/",
+  "https://www.cbsnews.com/news/anthropic-ipo-founders-net-worth/",
+  "https://finance.yahoo.com/technology/ai/articles/dario-amodei-ceo-anthropic-194927539.html",
+  "https://www.bloomberg.com/news/features/2026-11-15/anthropic-s-ipo-makes-dario-amodei-the-new-face-of-the-ai-boom",
+  "https://fortune.com/2026/11/19/anthropic-ipo-millionaire-employees-billionaire-early-hires-wealth-concentration-warning-dario-amodei/",
+  "https://mlq.ai/news/lean-and-mathlib-communities-certify-levent-alpoges-claude-assisted-proof-of-the-riemann-hypothesis/",
+  "https://mlq.ai/news/anthropic-mathematician-levent-alpoge-posts-a-claimed-proof-of-the-riemann-hypothesis-made-with-claude/",
+  "https://garymarcus.substack.com/p/levent-alpoge-has-solved-the-riemann",
+  "https://pasqualepillitteri.it/en/news/35468/riemann-hypothesis-proof-claude-alpoge",
+  "https://en.wikipedia.org/wiki/Millennium_Prize_Problems",
+  "https://alpo.ge/remark.pdf",
+  "https://eu.36kr.com/en/p/4078902157185920",
+  "https://www.ibm.com/think/news/anthropic-claude-riemann-hypothesis-math-proof"
+ ],
+ "personaggi": {
+  "amodei": {
+   "commons": "Dario Amodei",
+   "chi": "Dario Amodei, CEO of Anthropic",
+   "pose": {
+    "presenta": {
+     "posa": "standing confidently, one hand gesturing outward as if presenting, calm expression"
+    },
+    "pensa": {
+     "posa": "standing with hand on chin, thoughtful, slightly worried expression"
+    }
+   }
+  }
+ },
+ "sets": {
+  "s01": {
+   "descr": "A vast chalkboard wall in a dark university math hall covered with endless dense chalk symbols and a glowing line down the middle, dramatic spotlight, dust in the air",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s02": {
+   "descr": "A glowing server room corridor of a data center, endless racks with blue lights, cold light, fog on the floor",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s03": {
+   "descr": "Nasdaq-style trading floor at night, giant empty screens glowing green with abstract rising lines, confetti on the floor",
+   "luogo": "New York, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s04": {
+   "descr": "Giant stack of paper pages towering to the ceiling in a dim library, pages fanning out like a mountain, golden lamp light",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s05": {
+   "descr": "Anthropic-style glass headquarters tower in San Francisco at dawn, fog over the bay, pink sky",
+   "luogo": "San Francisco, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "amodei",
+     "posa": "presenta",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s06": {
+   "descr": "A lone desk in a quiet office at night with a glowing laptop, cup of tea, city lights through the window",
+   "luogo": "San Francisco, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s07": {
+   "descr": "Empty glass-walled office at a San Francisco AI company at night, a single desk with a smartphone lit beside a laptop, city lights outside, no text on screen",
+   "luogo": "San Francisco, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s08": {
+   "descr": "Nasdaq bell podium on an exchange balcony, golden bell, morning light, balloons",
+   "luogo": "New York, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "amodei",
+     "posa": "presenta",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s09": {
+   "descr": "Old 19th-century German study in Göttingen, quill and ink, candlelit desk, handwritten sheets scattered with no readable text, dark wood",
+   "luogo": "Göttingen, Germany",
+   "effetto": "none",
+   "cast": []
+  },
+  "s10": {
+   "descr": "A glowing number line stretching into a starry void, prime-like glowing dots scattered along it",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s11": {
+   "descr": "Clay-themed vault with seven glowing golden trophies on pedestals, one dimmed, museum light",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s12": {
+   "descr": "A dark server-room desk where a single glowing monitor shows a huge abstract number rendered as thousands of tiny glowing digits blurred and unreadable, dramatic teaser lighting, empty chair",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s13": {
+   "descr": "Close view of a personal academic website's blog page glowing on a laptop screen on a desk, a short four-page printed note beside it with blurred unreadable lines, warm desk lamp, dark office, rain on window",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s14": {
+   "descr": "Futuristic AI lab with a glowing neural-network sculpture hovering in the center, blue and violet light",
+   "luogo": "San Francisco, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s15": {
+   "descr": "Bridge at dawn over San Francisco bay with fog, empty road, orange light",
+   "luogo": "San Francisco, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s16": {
+   "descr": "A wooden desk with a traditional printed academic journal and stacked paper manuscripts pushed aside, while a laptop glowing with an abstract code editor sits front and center, a university library at night, empty",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s17": {
+   "descr": "A glowing green checkmark-shaped light sculpture on a dark stage, sparks falling, no text",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s18": {
+   "descr": "A giant library of black hard drives in a vault, endless shelves, cold blue lights",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s19": {
+   "descr": "A massive computer cluster room with many monitors showing abstract green progress bars with no text, night",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s20": {
+   "descr": "Lecture hall at MIT-style campus, red brick, empty rows of seats, afternoon sun through tall windows",
+   "luogo": "Cambridge, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s21": {
+   "descr": "Stone-columned academic building at Cambridge Massachusetts at dusk, lit windows, autumn leaves",
+   "luogo": "Cambridge, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s22": {
+   "descr": "Large conference table with many open laptops glowing in a dark room, abstract code glow, no text",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s23": {
+   "descr": "A glass magnifying lens hovering over an enormous tangle of glowing threads, dramatic macro lighting",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s24": {
+   "descr": "London university quad at dusk with Gothic towers and wet paving, warm windows",
+   "luogo": "London, UK",
+   "effetto": "pioggia",
+   "cast": []
+  },
+  "s25": {
+   "descr": "Exterior of the Clay Mathematics Institute building in Denver-area style office on a quiet street at dusk, lit windows",
+   "luogo": "Denver, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s26": {
+   "descr": "Interior of a university math library reading room with long oak tables and stacks of academic journals, warm lamps, empty",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s27": {
+   "descr": "Giant hourglass on a stone plinth with golden sand slowly falling, dark background",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s28": {
+   "descr": "A researcher's desk with a printed manuscript of dense handwritten-style pages with unreadable marks and a question-like empty stamp area, warm lamp, math department office",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s29": {
+   "descr": "Two desks side by side in a dim office, one with glowing laptop, one with a stack of handwritten sheets with no text",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s30": {
+   "descr": "Oxford-style stone college courtyard at dusk, lanterns lit, mist",
+   "luogo": "Oxford, UK",
+   "effetto": "none",
+   "cast": []
+  },
+  "s31": {
+   "descr": "Stock market floor with a descending red chart-shaped light beam on the wall, empty trading desks",
+   "luogo": "New York, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s32": {
+   "descr": "A stack of heavy financial binders on a boardroom table, glass skyscraper view at dusk",
+   "luogo": "New York, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s33": {
+   "descr": "Executive boardroom with huge window over San Francisco skyline at night, empty leather chairs",
+   "luogo": "San Francisco, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "amodei",
+     "posa": "pensa",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s34": {
+   "descr": "Close-up of a single large ornate certificate-style check envelope sealed with a wax stamp, resting on a polished table beside a stack of neatly bound one-million-dollar banknote bundles, museum lighting, no readable text",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s35": {
+   "descr": "Empty modern glass headquarters lobby of an AI company with a large abstract sculpture, polished floor, morning light, no logos",
+   "luogo": "San Francisco, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s36": {
+   "descr": "A glass podium on a conference stage with a spotlight, empty chairs, deep blue backdrop",
+   "luogo": "",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "amodei",
+     "posa": "presenta",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s37": {
+   "descr": "A laptop on a desk showing a long glowing abstract code compile log scrolling in green, beside a magnifying glass and checklist paper blurred, dark university office",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s38": {
+   "descr": "Empty editorial office of a science magazine at night with desks, printed proof pages, and a clock showing late hour, monitors with abstract shapes",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s39": {
+   "descr": "A single candle burning beside a giant stack of unread pages in a dark study",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s40": {
+   "descr": "A row of identical supercomputer racks in an AI lab each with a dim idle light, one rack brightly glowing, empty room, cool light",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s41": {
+   "descr": "Rooftop of a San Francisco tower at night overlooking the city lights, wind, clouds",
+   "luogo": "San Francisco, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s42": {
+   "descr": "Long empty hallway of a university math department, trophy cases, warm lights",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s43": {
+   "descr": "Two laptop screens side by side on a desk, one showing abstract formal code, the other a page of classic mathematical formulas blurred, a magnifying glass between them, dark room",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s44": {
+   "descr": "Open laptop on a cafe-style table beside a coffee, rain on window, late night",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s45": {
+   "descr": "A towering stone archive with endless drawers, one drawer glowing, library ladder",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s46": {
+   "descr": "Sunrise over the Nasdaq-style building facade in Times Square area, empty street, golden light",
+   "luogo": "New York, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s47": {
+   "descr": "Wide view of a mathematics department blackboard with a plotted graph of a curve and a vertical dashed line labeled by blurred shapes, symbolic zeros marked as dots along the line, chalk dust, dim light",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s48": {
+   "descr": "A tall bar chart-like light installation in a dark exhibition hall, a bar rising from a low level to a much higher level with glowing percent-style gauge, no text, cool light",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s49": {
+   "descr": "Capitol-style government building at dusk with lit dome, empty plaza",
+   "luogo": "Washington, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s50": {
+   "descr": "A giant balance scale in a dark hall, one side with glowing code blocks, the other with a glowing brain-shaped sculpture",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s51": {
+   "descr": "A calendar-less wall of ticking pendulum clocks in a dim hall, brass and amber light",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s52": {
+   "descr": "A wall calendar-less timeline made of three glowing monitor-lit desks in a row in a quiet research lab, seasons changing outside the windows from summer to autumn, empty",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s53": {
+   "descr": "An enormous glowing door in a dark cathedral-like hall, light spilling, long shadows",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s54": {
+   "descr": "Two separate computer workstations side by side in a dim lab each showing a green checkmark glow abstract, a cable linking them, empty room",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s55": {
+   "descr": "Stack of heavily marked-up manuscript pages with red pen corrections and sticky notes on a desk in a professor's office, warm lamp",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s56": {
+   "descr": "Stone and glass building of a mathematics society headquarters in Providence with a quiet street at dusk, lit windows, trees",
+   "luogo": "Providence, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s57": {
+   "descr": "Rows of glowing monitors in a dark data analysis center showing abstract waves, no text",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s58": {
+   "descr": "Stanford University campus Main Quad sandstone arcades at dawn with Hoover Tower in the distance, empty, warm light",
+   "luogo": "Stanford, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s59": {
+   "descr": "A desk with a draft write-up manuscript still unfinished beside a printed press announcement sheet with blurred text, dim office, clock on wall",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s60": {
+   "descr": "A wall of glowing blue server racks stretching to a vanishing point, cold mist",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s61": {
+   "descr": "Wooden desk with an old fountain pen, antique globe and a modern glowing tablet side by side, warm light",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s62": {
+   "descr": "A lighthouse beam sweeping across dark water at night, rocks in foreground",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s63": {
+   "descr": "Quiet university seminar room at dawn with a long table covered in open notebooks and laptops showing abstract code, coffee cups, chalkboard with faint diagrams, empty",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s64": {
+   "descr": "A flock of glowing paper pages flying like birds over a night city skyline",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  },
+  "s65": {
+   "descr": "Exterior of Anthropic-style HQ at night with all windows lit, empty street, drizzle",
+   "luogo": "San Francisco, USA",
+   "effetto": "pioggia",
+   "cast": [
+    {
+     "chi": "amodei",
+     "posa": "pensa",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s66": {
+   "descr": "A finish-line ribbon stretched across an empty running track at dusk, floodlights on",
+   "luogo": "",
+   "effetto": "none",
+   "cast": []
+  }
+ },
+ "scene": [
+  {
+   "testo": "A computer has checked every step of a claimed proof of the Riemann hypothesis, and independent mathematicians say it compiles without issues.",
+   "fonti": [
+    "https://www.scientificamerican.com/article/the-ai-riemann-hypothesis-proof-is-almost-certainly-true-independent-mathematicians-attest/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s01"
+   }
+  },
+  {
+   "testo": "Lean and Mathlib communities say it is correct.",
+   "fonti": [
+    "https://www.scientificamerican.com/article/the-ai-riemann-hypothesis-proof-is-almost-certainly-true-independent-mathematicians-attest/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s02"
+   },
+   "grafica": {
+    "tipo": "titolo",
+    "testo": "CERTIFIED BY LEAN",
+    "sotto": "Joint statement, November 21"
+   }
+  },
+  {
+   "testo": "But a leading mathematician says nobody yet understands what it shows.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/21/riemann-hypothesis-has-the-worlds-most-famous-maths-problem-been-cracked"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s04"
+   }
+  },
+  {
+   "testo": "Did Anthropic's Claude just help solve math's greatest mystery, and who actually understands the answer?",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/21/riemann-hypothesis-has-the-worlds-most-famous-maths-problem-been-cracked"
+   ],
+   "titolo_card": true,
+   "visivo": {
+    "tipo": "set",
+    "set": "s05"
+   }
+  },
+  {
+   "testo": "It started on a Friday, one day after Anthropic's Nasdaq debut.",
+   "fonti": [
+    "https://www.bostonglobe.com/2026/11/21/nation/anthropic-worker-solve-math-problems-ai-riemann-hypothesis/",
+    "https://finance.yahoo.com/technology/ai/articles/dario-amodei-ceo-anthropic-194927539.html"
+   ],
+   "capitolo": "THE FRIDAY NOTE",
+   "visivo": {
+    "tipo": "set",
+    "set": "s03"
+   }
+  },
+  {
+   "testo": "Mathematician Levent Alpöge posted a four-page note on his website.",
+   "fonti": [
+    "https://www.bostonglobe.com/2026/11/21/nation/anthropic-worker-solve-math-problems-ai-riemann-hypothesis/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s06"
+   }
+  },
+  {
+   "testo": "Its first line made headlines in the math world.",
+   "fonti": [
+    "https://www.nature.com/articles/d41586-026-03812-7"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s13"
+   }
+  },
+  {
+   "testo": "He wrote what he believed he had found.",
+   "fonti": [
+    "https://www.nature.com/articles/d41586-026-03812-7"
+   ],
+   "visivo": {
+    "tipo": "frase",
+    "testo": "He wrote what he believed he had found."
+   },
+   "citazione": {
+    "chi": "amodei",
+    "posa": "presenta",
+    "testo": "I believe I have, working with Claude, discovered a proof of the Riemann Hypothesis"
+   }
+  },
+  {
+   "testo": "The Riemann hypothesis dates to 1859 and concerns prime numbers.",
+   "fonti": [
+    "https://www.ibm.com/think/news/anthropic-claude-riemann-hypothesis-math-proof"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s09"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 1859,
+    "decimali": 0,
+    "prefisso": "",
+    "unita": "OPEN SINCE",
+    "sopra": "UNSOLVED"
+   }
+  },
+  {
+   "testo": "It is one of seven Millennium Prize Problems listed by the Clay Mathematics Institute.",
+   "fonti": [
+    "https://en.wikipedia.org/wiki/Millennium_Prize_Problems"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s11"
+   }
+  },
+  {
+   "testo": "Each carries a one million dollar prize, according to the Clay Mathematics Institute.",
+   "fonti": [
+    "https://en.wikipedia.org/wiki/Millennium_Prize_Problems"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s34"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 1,
+    "decimali": 0,
+    "prefisso": "$",
+    "unita": "MILLION",
+    "sopra": "PRIZE"
+   }
+  },
+  {
+   "testo": "Alpöge also claimed the method resolves the generalized version.",
+   "fonti": [
+    "https://www.ibm.com/think/news/anthropic-claude-riemann-hypothesis-math-proof"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s10"
+   }
+  },
+  {
+   "testo": "In a moment: the number that makes this proof unusual.",
+   "fonti": [
+    "https://www.npr.org/2026/11/21/g-s1-154922/anthropic-worker-claims-to-have-solved-a-holy-grail-of-math-problems-with-the-help-of-ai"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s12"
+   }
+  },
+  {
+   "testo": "He did not publish a conventional paper.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/21/riemann-hypothesis-has-the-worlds-most-famous-maths-problem-been-cracked"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s16"
+   }
+  },
+  {
+   "testo": "He released the argument in Lean, a proof assistant that checks logic step by step.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/21/riemann-hypothesis-has-the-worlds-most-famous-maths-problem-been-cracked"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s19"
+   }
+  },
+  {
+   "testo": "According to Science magazine, that was about seventeen million lines of code.",
+   "fonti": [
+    "https://broadbandbreakfast.com/anthropic-worker-claims-to-have-solved-riemann-hypothesis-with-help-from-claude/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s18"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 17,
+    "decimali": 0,
+    "prefisso": "",
+    "unita": "MILLION LINES",
+    "sopra": "OF LEAN CODE"
+   }
+  },
+  {
+   "testo": "Alpöge said he messaged his boss first.",
+   "fonti": [
+    "https://www.npr.org/2026/11/21/g-s1-154922/anthropic-worker-claims-to-have-solved-a-holy-grail-of-math-problems-with-the-help-of-ai"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s07"
+   }
+  },
+  {
+   "testo": "Alpöge said the discovery came late Sunday night.",
+   "fonti": [
+    "https://www.npr.org/2026/11/21/g-s1-154922/anthropic-worker-claims-to-have-solved-a-holy-grail-of-math-problems-with-the-help-of-ai"
+   ],
+   "capitolo": "THE MESSAGE TO AMODEI",
+   "visivo": {
+    "tipo": "set",
+    "set": "s41"
+   }
+  },
+  {
+   "testo": "He messaged CEO Dario Amodei to ask about \"my ability to announce,\" NPR reported.",
+   "fonti": [
+    "https://www.npr.org/2026/11/21/g-s1-154922/anthropic-worker-claims-to-have-solved-a-holy-grail-of-math-problems-with-the-help-of-ai"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s33"
+   }
+  },
+  {
+   "testo": "The company was about to make major news with its stock debut.",
+   "fonti": [
+    "https://www.npr.org/2026/11/21/g-s1-154922/anthropic-worker-claims-to-have-solved-a-holy-grail-of-math-problems-with-the-help-of-ai"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s46"
+   }
+  },
+  {
+   "testo": "Anthropic priced its shares at eighty-three dollars on November eighteenth, according to CBS News and other outlets.",
+   "fonti": [
+    "https://cryptobriefing.com/anthropic-ceo-amodei-ipo-ai-safety/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s08"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 83,
+    "decimali": 0,
+    "prefisso": "$",
+    "unita": "PER SHARE",
+    "sopra": "IPO PRICE"
+   }
+  },
+  {
+   "testo": "Who is the man whose company is at the center of this story?",
+   "fonti": [
+    "https://www.cbsnews.com/news/anthropic-ipo-founders-net-worth/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s35"
+   }
+  },
+  {
+   "testo": "Anthropic's shares opened at one hundred eleven dollars and fifty cents, CBS News reported.",
+   "fonti": [
+    "https://finance.yahoo.com/technology/ai/articles/dario-amodei-ceo-anthropic-194927539.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s31"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 111.5,
+    "decimali": 2,
+    "prefisso": "$",
+    "unita": "OPENING PRICE",
+    "sopra": "NASDAQ: ANT"
+   }
+  },
+  {
+   "testo": "The IPO raised about eighty-one billion dollars, a record, according to NPR and CNN.",
+   "fonti": [
+    "https://cryptobriefing.com/anthropic-ceo-amodei-ipo-ai-safety/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s34"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 81.3,
+    "decimali": 1,
+    "prefisso": "$",
+    "unita": "BILLION RAISED",
+    "sopra": "LARGEST IPO"
+   }
+  },
+  {
+   "testo": "Now, the hard part. Was the proof really checked?",
+   "fonti": [
+    "https://www.scientificamerican.com/article/the-ai-riemann-hypothesis-proof-is-almost-certainly-true-independent-mathematicians-attest/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s37"
+   }
+  },
+  {
+   "testo": "MIT's Andrew Sutherland compiled the code on his own computers.",
+   "fonti": [
+    "https://www.scientificamerican.com/article/the-ai-riemann-hypothesis-proof-is-almost-certainly-true-independent-mathematicians-attest/"
+   ],
+   "capitolo": "THE CHECK",
+   "visivo": {
+    "tipo": "set",
+    "set": "s20"
+   }
+  },
+  {
+   "testo": "It compiled without issues, and Sutherland said it was independently rechecked by the Lean kernel using only the three standard axioms.",
+   "fonti": [
+    "https://www.scientificamerican.com/article/the-ai-riemann-hypothesis-proof-is-almost-certainly-true-independent-mathematicians-attest/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s22"
+   }
+  },
+  {
+   "testo": "Sutherland told Scientific American the chance anything is fishy is approximately zero.",
+   "fonti": [
+    "https://www.scientificamerican.com/article/the-ai-riemann-hypothesis-proof-is-almost-certainly-true-independent-mathematicians-attest/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s21"
+   },
+   "citazione": {
+    "chi": "amodei",
+    "posa": "pensa",
+    "testo": "Honestly the chance that anything is fishy here is approximately zero."
+   }
+  },
+  {
+   "testo": "On November twenty-first, the Lean FRO and Mathlib communities issued a joint statement, according to reports.",
+   "fonti": [
+    "https://mlq.ai/news/lean-and-mathlib-communities-certify-levent-alpoges-claude-assisted-proof-of-the-riemann-hypothesis/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s17"
+   }
+  },
+  {
+   "testo": "They said they have full confidence the proof is correct.",
+   "fonti": [
+    "https://mlq.ai/news/lean-and-mathlib-communities-certify-levent-alpoges-claude-assisted-proof-of-the-riemann-hypothesis/"
+   ],
+   "visivo": {
+    "tipo": "frase",
+    "testo": "They said they have full confidence the proof is correct."
+   }
+  },
+  {
+   "testo": "Dozens of people independently compiled the code, according to reports on that joint statement.",
+   "fonti": [
+    "https://pasqualepillitteri.it/en/news/35468/riemann-hypothesis-proof-claude-alpoge"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s57"
+   }
+  },
+  {
+   "testo": "So is the case closed? Not quite.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/21/riemann-hypothesis-has-the-worlds-most-famous-maths-problem-been-cracked"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s53"
+   }
+  },
+  {
+   "testo": "Here is where the story turns.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/21/riemann-hypothesis-has-the-worlds-most-famous-maths-problem-been-cracked"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s62"
+   }
+  },
+  {
+   "testo": "Imperial College's Kevin Buzzard said nobody yet understands what the proof actually shows.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/21/riemann-hypothesis-has-the-worlds-most-famous-maths-problem-been-cracked"
+   ],
+   "capitolo": "WHO UNDERSTANDS IT?",
+   "visivo": {
+    "tipo": "set",
+    "set": "s24"
+   }
+  },
+  {
+   "testo": "Compiling only means each step is valid in Lean; mathematicians say humans must still confirm the statement is right and understand the ideas.",
+   "fonti": [
+    "https://eu.36kr.com/en/p/4078902157185920"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s23"
+   }
+  },
+  {
+   "testo": "Oxford's James Maynard said he suspects the proof will turn out to be correct.",
+   "fonti": [
+    "https://www.nature.com/articles/d41586-026-03812-7"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s30"
+   }
+  },
+  {
+   "testo": "Yet Nature reported that Maynard described the proof as now existing in the form of incomprehensible code.",
+   "fonti": [
+    "https://www.nature.com/articles/d41586-026-03812-7"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s39"
+   }
+  },
+  {
+   "testo": "Rutgers professor Alex Kontorovich described an out-of-body experience, according to NPR.",
+   "fonti": [
+    "https://www.npr.org/2026/11/21/g-s1-154922/anthropic-worker-claims-to-have-solved-a-holy-grail-of-math-problems-with-the-help-of-ai"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s42"
+   }
+  },
+  {
+   "testo": "A natural-language proof that humans can read has yet to be published.",
+   "fonti": [
+    "https://mediabrief.com/mudaliar-memo-riemann-hypothesis-proof-prospectus/"
+   ],
+   "visivo": {
+    "tipo": "frase",
+    "testo": "A natural-language proof that humans can read has yet to be published."
+   }
+  },
+  {
+   "testo": "Another question hangs over the work: does the Lean statement match the real theorem?",
+   "fonti": [
+    "https://www.yahoo.com/news/science/articles/ai-riemann-hypothesis-proof-almost-210000837.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s43"
+   }
+  },
+  {
+   "testo": "Buzzard said the first question to ask is whether the statement in the Lean code corresponds to the actual theorem.",
+   "fonti": [
+    "https://www.yahoo.com/news/science/articles/ai-riemann-hypothesis-proof-almost-210000837.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s26"
+   }
+  },
+  {
+   "testo": "The Lean and Mathlib statement says two independent tools confirmed the statements match, according to reports.",
+   "fonti": [
+    "https://pasqualepillitteri.it/en/news/35468/riemann-hypothesis-proof-claude-alpoge"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s54"
+   }
+  },
+  {
+   "testo": "Then came a second claim on the same day.",
+   "fonti": [
+    "https://www.scientificamerican.com/article/dueling-claims-of-riemann-hypothesis-proofs-emerge/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s63"
+   }
+  },
+  {
+   "testo": "Scientific American reported a second claim, this one by a human, that had not been verified.",
+   "fonti": [
+    "https://www.scientificamerican.com/article/dueling-claims-of-riemann-hypothesis-proofs-emerge/"
+   ],
+   "capitolo": "THE RIVAL CLAIM",
+   "visivo": {
+    "tipo": "set",
+    "set": "s28"
+   }
+  },
+  {
+   "testo": "Ravi Vakil, president of the American Mathematical Society, posted about it on his blog.",
+   "fonti": [
+    "https://www.scientificamerican.com/article/dueling-claims-of-riemann-hypothesis-proofs-emerge/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s56"
+   }
+  },
+  {
+   "testo": "He said Stanford's Alessandro Masullo had written the proof, all human, with no AI, according to the post.",
+   "fonti": [
+    "https://www.scientificamerican.com/article/dueling-claims-of-riemann-hypothesis-proofs-emerge/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s58"
+   }
+  },
+  {
+   "testo": "Scientific American's Brian Conrad said the work is undergoing major revision.",
+   "fonti": [
+    "https://www.scientificamerican.com/article/dueling-claims-of-riemann-hypothesis-proofs-emerge/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s55"
+   }
+  },
+  {
+   "testo": "Meanwhile, a debate erupted over who deserves the credit.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/21/riemann-hypothesis-has-the-worlds-most-famous-maths-problem-been-cracked"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s50"
+   }
+  },
+  {
+   "testo": "Alpöge himself wrote that Claude far outpaced him near the finish line, according to Al Jazeera.",
+   "fonti": [
+    "https://www.bostonglobe.com/2026/11/21/nation/anthropic-worker-solve-math-problems-ai-riemann-hypothesis/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s66"
+   }
+  },
+  {
+   "testo": "One mathematician told Al Jazeera others with similar access to frontier AI models had not found a proof.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/21/riemann-hypothesis-has-the-worlds-most-famous-maths-problem-been-cracked"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s40"
+   }
+  },
+  {
+   "testo": "Nature quoted number theorist Andrew Granville criticizing the timing.",
+   "fonti": [
+    "https://www.nature.com/articles/d41586-026-03812-7"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s38"
+   }
+  },
+  {
+   "testo": "He said a clearer write-up should have come before the announcement.",
+   "fonti": [
+    "https://www.nature.com/articles/d41586-026-03812-7"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s59"
+   }
+  },
+  {
+   "testo": "Nature said the announcement came just days after Anthropic's IPO.",
+   "fonti": [
+    "https://www.nature.com/articles/d41586-026-03812-7"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s46"
+   }
+  },
+  {
+   "testo": "As of Friday morning, Scientific American reported Anthropic had issued no public statement on the claim.",
+   "fonti": [
+    "https://pasqualepillitteri.it/en/news/35468/riemann-hypothesis-proof-claude-alpoge"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s41"
+   }
+  },
+  {
+   "testo": "Back in August, Anthropic reported Claude had raised a known bound on the share of zeta zeros on the line, but not proved the full hypothesis.",
+   "fonti": [
+    "https://mlq.ai/news/anthropic-mathematician-levent-alpoge-posts-a-claimed-proof-of-the-riemann-hypothesis-made-with-claude/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s47"
+   }
+  },
+  {
+   "testo": "Anthropic reported it had raised a known bound from forty-one point six to sixty-seven point two percent.",
+   "fonti": [
+    "https://mlq.ai/news/anthropic-mathematician-levent-alpoge-posts-a-claimed-proof-of-the-riemann-hypothesis-made-with-claude/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s48"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 67.2,
+    "decimali": 1,
+    "prefisso": "",
+    "unita": "PERCENT",
+    "sopra": "AUGUST RESULT"
+   }
+  },
+  {
+   "testo": "Three months later, Alpöge claimed a full proof.",
+   "fonti": [
+    "https://mlq.ai/news/anthropic-mathematician-levent-alpoge-posts-a-claimed-proof-of-the-riemann-hypothesis-made-with-claude/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s52"
+   }
+  },
+  {
+   "testo": "Meanwhile on Wall Street, shares fell about 8.5 percent on day two, closing at $88.91, per market reports.",
+   "fonti": [
+    "https://enoumen.substack.com/p/who-checks-the-work-ant-riemann-and"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s31"
+   }
+  },
+  {
+   "testo": "Day one closed at ninety-seven dollars seventeen, up seventeen percent from the offer, CBS News reported.",
+   "fonti": [
+    "https://mediabrief.com/mudaliar-memo-riemann-hypothesis-proof-prospectus/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s03"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 97.17,
+    "decimali": 2,
+    "prefisso": "$",
+    "unita": "FIRST-DAY CLOSE",
+    "sopra": "ANT"
+   }
+  },
+  {
+   "testo": "So can the prize be claimed? Here is the catch, according to the Clay Institute's rules.",
+   "fonti": [
+    "https://en.wikipedia.org/wiki/Millennium_Prize_Problems"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s25"
+   }
+  },
+  {
+   "testo": "The Clay Institute's rules require publication in a qualifying outlet.",
+   "fonti": [
+    "https://en.wikipedia.org/wiki/Millennium_Prize_Problems"
+   ],
+   "capitolo": "THE TWO-YEAR CLOCK",
+   "visivo": {
+    "tipo": "set",
+    "set": "s26"
+   }
+  },
+  {
+   "testo": "Then at least two years must pass after publication.",
+   "fonti": [
+    "https://en.wikipedia.org/wiki/Millennium_Prize_Problems"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s27"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 2,
+    "decimali": 0,
+    "prefisso": "",
+    "unita": "YEARS",
+    "sopra": "MINIMUM WAIT"
+   }
+  },
+  {
+   "testo": "And the work must gain general acceptance in the mathematics community.",
+   "fonti": [
+    "https://en.wikipedia.org/wiki/Millennium_Prize_Problems"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s51"
+   }
+  },
+  {
+   "testo": "The institute does not accept direct submissions.",
+   "fonti": [
+    "https://en.wikipedia.org/wiki/Millennium_Prize_Problems"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s55"
+   }
+  },
+  {
+   "testo": "What happens next? Al Jazeera reports mathematicians say it may take weeks to understand.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/21/riemann-hypothesis-has-the-worlds-most-famous-maths-problem-been-cracked"
+   ],
+   "capitolo": "WHAT COMES NEXT",
+   "visivo": {
+    "tipo": "set",
+    "set": "s63"
+   }
+  },
+  {
+   "testo": "In his note, Alpöge also said he expects the Extended Riemann Hypothesis, with more time.",
+   "fonti": [
+    "https://alpo.ge/remark.pdf"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s53"
+   }
+  },
+  {
+   "testo": "For now, here is what is confirmed.",
+   "fonti": [
+    "https://www.scientificamerican.com/article/the-ai-riemann-hypothesis-proof-is-almost-certainly-true-independent-mathematicians-attest/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s17"
+   }
+  },
+  {
+   "testo": "The code compiles, and the Lean and Mathlib communities say it is correct.",
+   "fonti": [
+    "https://mlq.ai/news/lean-and-mathlib-communities-certify-levent-alpoges-claude-assisted-proof-of-the-riemann-hypothesis/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s02"
+   }
+  },
+  {
+   "testo": "What is not yet confirmed: the underlying ideas, peer review, and the prize.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/21/riemann-hypothesis-has-the-worlds-most-famous-maths-problem-been-cracked",
+    "https://en.wikipedia.org/wiki/Millennium_Prize_Problems"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s39"
+   }
+  },
+  {
+   "testo": "The machine has checked the code. Now the humans must understand it.",
+   "fonti": [
+    "https://cryptobriefing.com/claude-riemann-hypothesis-proof-claim/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s01"
+   }
+  },
+  {
+   "testo": "The story is still moving. Subscribe, so you see what comes next.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/21/riemann-hypothesis-has-the-worlds-most-famous-maths-problem-been-cracked"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s65"
+   }
+  }
+ ],
+ "copertina": {
+  "sfondo": "Dark university chalkboard wall covered in endless glowing symbols with a bright green checkmark-shaped light and a giant question-mark-free glowing line down the center, dramatic red and blue light, empty of people",
+  "personaggi": [
+   "amodei"
+  ],
+  "pose": {
+   "amodei": "pensa"
+  },
+  "personaggio": "amodei",
+  "posa": "pensa",
+  "lato": "dx",
+  "righe": [
+   "250,000",
+   "PAGES"
+  ],
+  "box": "NOBODY GETS IT",
+  "evidenzia": 1
+ },
+ "verifica": {
+  "correzioni": 69,
+  "scene_tolte": 18
+ },
+ "coerenza": {
+  "scene_rifatte": 22,
+  "controllate": 68
+ },
+ "lingua": "en",
+ "nome": "2026-11-23_anthropic_mathematician_claims_ai_assist_en",
+ "data": "NOVEMBER 23, 2026",
+ "etichetta": "BREAKING",
+ "musica": "tensione",
+ "voce": "uju3wxzG5OhpWcoi3SMy",
+ "budget_dollari": 3.31,
+ "storia": "Anthropic mathematician claims AI-assisted proof of the Riemann hypothesis with Claude",
+ "filone": "tech"
+}
