@@ -1,12 +1,12 @@
 # Radar notizie tech — 2026-11-23
 
-**Scelta:** Anthropic mathematician claims AI-assisted proof of the Riemann hypothesis with Claude (Dario Amodei) — l'onda di ieri e' ancora la piu' forte: si resta con un angolo nuovo
+**Scelta:** AI-assisted proof of the Riemann hypothesis with Claude (Levent Alpöge, Anthropic) (Dario Amodei) — l'onda di ieri e' ancora forte: si resta con un angolo nuovo
 
 | # | Storia | Persona | Views all'ora (EN+IT) | Views 3 gg EN | Views 3 gg IT | Video lunghi EN |
 |---|---|---|---|---|---|---|
-| 1 | Anthropic mathematician claims AI-assisted proof of the Riemann hypothesis with Claude | Dario Amodei | 180,385 | 5,434,301 | 3,611,321 | 10 |
-| 2 | Anthropic IPO fails to calm AI market jitters as Nasdaq nears bear market after AI rout | Dario Amodei | 45,641 | 1,970,259 | 42,513 | 13 |
-| 3 | Jensen Huang out as Nvidia CEO: Huang breaks silence and signals willingness to return, WSJ reports; board reportedly not planning to bring him back | Jensen Huang | 26,374 | 1,104,690 | 181,780 | 3 |
-| 4 | Tesla and SpaceX each form special committees to explore a merger; Musk's net worth drops $64B in a day amid AI bubble fears | Elon Musk | 1,430 | 20,222 | 21,445 | 7 |
-| 5 | Nvidia chip smuggling probe widens: NYT reports Alice Huang contacted Chinese intelligence during her relationship with Huang; US probes Megaspeed; Bloomberg says California probe extends to possible criminal violations | Jensen Huang | 67 | 554 | 0 | 12 |
-| 6 | Amazon nearing $7.5B deal to buy AI startup Decart, FT reports | Andy Jassy | 30 | 360 | 0 | 3 |
+| 1 | Nvidia board reinstates Jensen Huang as CEO, stock surges ~30% and Nasdaq jumps | Jensen Huang | 221,120 | 1,273,526 | 137,109 | 4 |
+| 2 | AI-assisted proof of the Riemann hypothesis with Claude (Levent Alpöge, Anthropic) | Dario Amodei | 168,067 | 6,539,305 | 3,767,924 | 10 |
+| 3 | Anthropic IPO fails to calm AI trade jitters amid market selloff | Dario Amodei | 36,267 | 2,182,770 | 10,056 | 14 |
+| 4 | Huang's ouster tied to spy scandal: woman at center of Nvidia scandal reportedly in touch with China's intelligence agency | Jensen Huang | 2,467 | 14,001 | 115,781 | 8 |
+| 5 | Arm CEO Rene Haas extends contract through 2033 after Nvidia top-job chatter | Rene Haas | 1,368 | 773 | 968 | 0 |
+| 6 | Amodei's idea for simulating a fulfilling life for people who lose jobs to AI (video games) | Dario Amodei | 43 | 595 | 0 | 5 |

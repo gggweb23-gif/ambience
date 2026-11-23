@@ -1,152 +1,249 @@
 {
  "data": "2026-11-23",
  "filone": "tech",
- "scelta": "Anthropic mathematician claims AI-assisted proof of the Riemann hypothesis with Claude",
- "motivo": "l'onda di ieri e' ancora la piu' forte: si resta con un angolo nuovo",
+ "scelta": "AI-assisted proof of the Riemann hypothesis with Claude (Levent Alpöge, Anthropic)",
+ "motivo": "l'onda di ieri e' ancora forte: si resta con un angolo nuovo",
  "storie": [
   {
-   "storia": "Anthropic mathematician claims AI-assisted proof of the Riemann hypothesis with Claude",
+   "storia": "Nvidia board reinstates Jensen Huang as CEO, stock surges ~30% and Nasdaq jumps",
+   "persona": "Jensen Huang",
+   "ruolo": "CEO of Nvidia",
+   "azienda": "Nvidia",
+   "query_en": "Jensen Huang reinstated Nvidia CEO",
+   "query_it": "Jensen Huang reintegrato CEO Nvidia",
+   "novita": "Nvidia's board confirmed Huang's return as CEO (Reuters, CNBC, The Verge, BBC); shares soared ~30% and the Nasdaq rebounded ~7%, with Reuters reporting pressure from President Trump and investors.",
+   "continua": false,
+   "yt_en": {
+    "views": 1273526,
+    "views_ora": 177230,
+    "video": 15,
+    "lunghi": 4,
+    "top": [
+     {
+      "views": 731764,
+      "ore": 47,
+      "titolo": "Jensen Huang Is Back as NVIDIA CEO 🔥 His First Day Back | AI Parody #nvidia #jensenhuang",
+      "canale": "Amit Sharma",
+      "lungo": false
+     },
+     {
+      "views": 132324,
+      "ore": 66,
+      "titolo": "President Trump calls for return of former Nvidia CEO Jensen Huang",
+      "canale": "FOX 9 Minneapolis-St. Paul",
+      "lungo": false
+     },
+     {
+      "views": 95238,
+      "ore": 69,
+      "titolo": "WATCH: Trump says he would love former Nvidia CEO Jensen Huang to ‘be given a second chanc",
+      "canale": "PBS NewsHour",
+      "lungo": false
+     },
+     {
+      "views": 66411,
+      "ore": 2,
+      "titolo": "BREAKING: Nvidia reinstates Jensen Huang as CEO",
+      "canale": "Fox News",
+      "lungo": true
+     },
+     {
+      "views": 46923,
+      "ore": 1,
+      "titolo": "Jensen Huang reinstated as Nvidia CEO: What to know",
+      "canale": "CNN",
+      "lungo": true
+     }
+    ]
+   },
+   "yt_it": {
+    "views": 137109,
+    "views_ora": 43890,
+    "video": 15,
+    "lunghi": 7,
+    "top": [
+     {
+      "views": 70389,
+      "ore": 69,
+      "titolo": "Jensen Packed Up His Desk… Now He’s Unpacking It 📦😂 Back as NVIDIA CEO | AI Parody",
+      "canale": "Amit Sharma",
+      "lungo": false
+     },
+     {
+      "views": 18776,
+      "ore": 1,
+      "titolo": "WE Are UNDER ATTACK",
+      "canale": "Timcast",
+      "lungo": true
+     },
+     {
+      "views": 14252,
+      "ore": 16,
+      "titolo": "Elon Had Jensen’s Back… and Now He’s NVIDIA CEO Again 😅 AI Parody #nvidia #jensenhuang",
+      "canale": "Amit Sharma",
+      "lungo": false
+     },
+     {
+      "views": 7670,
+      "ore": 1,
+      "titolo": "'EXTRAORDINARY!': Andrew Ross Sorkin's INSTANT REACTION on Nvidia reinstating Huang",
+      "canale": "MS NOW",
+      "lungo": true
+     },
+     {
+      "views": 7557,
+      "ore": 14,
+      "titolo": "Jensen Huang’s First Press Conference Back as NVIDIA CEO 🎤😂 AI Parody #nvidia",
+      "canale": "Amit Sharma",
+      "lungo": false
+     }
+    ]
+   },
+   "punteggio": 221120
+  },
+  {
+   "storia": "AI-assisted proof of the Riemann hypothesis with Claude (Levent Alpöge, Anthropic)",
    "persona": "Dario Amodei",
    "ruolo": "CEO of Anthropic",
    "azienda": "Anthropic",
-   "query_en": "Claude Riemann hypothesis proof",
-   "query_it": "Claude ipotesi di Riemann dimostrazione",
-   "novita": "Levent Alpöge's claimed Riemann proof with Claude is still being discussed (Marcus on AI); verification is pending, not confirmed.",
+   "query_en": "Riemann hypothesis solved Claude Anthropic",
+   "query_it": "ipotesi di Riemann Claude Anthropic",
+   "novita": "Gary Marcus's Substack discusses the claim that Levent Alpöge solved the Riemann Hypothesis with Claude; the only coverage in today's headlines is Marcus's commentary, with no independent confirmation from major outlets.",
    "continua": true,
    "yt_en": {
-    "views": 5434301,
-    "views_ora": 114194,
+    "views": 6539305,
+    "views_ora": 111119,
     "video": 15,
     "lunghi": 10,
     "top": [
      {
-      "views": 1383308,
-      "ore": 60,
+      "views": 1425209,
+      "ore": 69,
       "titolo": "The Riemann Hypothesis Falls (reaction) - Numberphile",
       "canale": "Numberphile",
       "lungo": true
      },
      {
-      "views": 819316,
-      "ore": 57,
+      "views": 847495,
+      "ore": 67,
+      "titolo": "앤트로픽 수학자 리만가설 증명 발표 | 인간의 한계를 벗어난 AI",
+      "canale": "미주일기",
+      "lungo": true
+     },
+     {
+      "views": 837539,
+      "ore": 66,
       "titolo": "¿La IA de Anthropic ha resuelto la hipótesis de Riemann?",
       "canale": "Date un Vlog",
       "lungo": false
      },
      {
-      "views": 505987,
-      "ore": 51,
+      "views": 527692,
+      "ore": 60,
       "titolo": "Did AI Just Prove The Riemann Hypothesis?",
       "canale": "SciencePetr",
       "lungo": true
      },
      {
-      "views": 454366,
-      "ore": 45,
-      "titolo": "【速報】リーマン予想、証明される",
-      "canale": "えびまラボ",
-      "lungo": false
-     },
-     {
-      "views": 406256,
-      "ore": 17,
-      "titolo": "\"Where do we go next?\" Mathematics after AI cracks the Riemann hypothesis • FRANCE 24 Engl",
+      "views": 493304,
+      "ore": 26,
+      "titolo": "'Where do we go next?' Mathematics after AI cracks the Riemann hypothesis • FRANCE 24 Engl",
       "canale": "FRANCE 24 English",
       "lungo": true
      }
     ]
    },
    "yt_it": {
-    "views": 3611321,
-    "views_ora": 66191,
+    "views": 3767924,
+    "views_ora": 56948,
     "video": 15,
-    "lunghi": 9,
+    "lunghi": 6,
     "top": [
      {
-      "views": 1383308,
-      "ore": 60,
+      "views": 1425209,
+      "ore": 69,
       "titolo": "The Riemann Hypothesis Falls (reaction) - Numberphile",
       "canale": "Numberphile",
       "lungo": true
      },
      {
-      "views": 505987,
-      "ore": 51,
-      "titolo": "Did AI Just Prove The Riemann Hypothesis?",
-      "canale": "SciencePetr",
-      "lungo": true
+      "views": 837539,
+      "ore": 66,
+      "titolo": "¿La IA de Anthropic ha resuelto la hipótesis de Riemann?",
+      "canale": "Date un Vlog",
+      "lungo": false
      },
      {
-      "views": 255083,
-      "ore": 63,
+      "views": 258320,
+      "ore": 72,
       "titolo": "Riemann Hypothesis Solved by Claude AI?",
       "canale": "The Math Sorcerer",
       "lungo": true
      },
      {
-      "views": 231196,
-      "ore": 61,
+      "views": 243096,
+      "ore": 70,
       "titolo": "Claude Proves Riemann Hypothesis?",
       "canale": "Into AI by Dr. Ashish Bamania",
       "lungo": false
      },
      {
-      "views": 201971,
-      "ore": 53,
+      "views": 207999,
+      "ore": 62,
       "titolo": "Claude JUST solved the Riemann Hypothesis...",
       "canale": "Wes Roth",
       "lungo": true
      }
     ]
    },
-   "punteggio": 180385
+   "punteggio": 168067
   },
   {
-   "storia": "Anthropic IPO fails to calm AI market jitters as Nasdaq nears bear market after AI rout",
+   "storia": "Anthropic IPO fails to calm AI trade jitters amid market selloff",
    "persona": "Dario Amodei",
    "ruolo": "CEO of Anthropic",
    "azienda": "Anthropic",
    "query_en": "Anthropic IPO AI stock selloff",
    "query_it": "Anthropic IPO crollo titoli AI",
-   "novita": "Yahoo Finance reports stocks 'on fire sale' despite the Anthropic IPO; Bloomberg reports dip buyers hesitating.",
+   "novita": "Yahoo Finance reports stocks are on a 'fire sale' as the Anthropic IPO fails to ease AI jitters, with Bloomberg noting the Nasdaq 100 neared a bear market before Monday's rebound.",
    "continua": false,
    "yt_en": {
-    "views": 1970259,
-    "views_ora": 44993,
+    "views": 2182770,
+    "views_ora": 35394,
     "video": 15,
-    "lunghi": 13,
+    "lunghi": 14,
     "top": [
      {
-      "views": 666874,
-      "ore": 57,
+      "views": 670689,
+      "ore": 66,
       "titolo": "Markets plummet as tech sell-off intensifies",
       "canale": "NBC News",
       "lungo": false
      },
      {
-      "views": 403239,
-      "ore": 57,
+      "views": 403647,
+      "ore": 66,
       "titolo": "Trump News Conference & Stock Market Sell-Off - LIVE Breaking News Coverage",
       "canale": "Agenda-Free TV",
       "lungo": true
      },
      {
-      "views": 192757,
+      "views": 244966,
       "ore": 57,
+      "titolo": "Anthropic Anfang vom Ende? DAS darf jetzt nicht passieren // BRIEFING",
+      "canale": "Mario Lochner",
+      "lungo": true
+     },
+     {
+      "views": 196855,
+      "ore": 66,
       "titolo": "ANTHROPIC VALUE PLUNGES AFTER IPO, MARKETS IN CORRECTION TERRITORY, HUGE AI SELLOFF",
       "canale": "Vaush",
       "lungo": true
      },
      {
-      "views": 138700,
-      "ore": 12,
-      "titolo": "What Did the Anthropic IPO Tell Us About the AI Bubble?",
-      "canale": "Kyla Scanlon",
-      "lungo": true
-     },
-     {
-      "views": 127018,
-      "ore": 53,
+      "views": 128461,
+      "ore": 62,
       "titolo": "Historic Anthropic IPO FAILS To Stop Stock Market Collapse",
       "canale": "The Young Turks",
       "lungo": true
@@ -154,353 +251,271 @@
     ]
    },
    "yt_it": {
-    "views": 42513,
-    "views_ora": 648,
-    "video": 5,
+    "views": 10056,
+    "views_ora": 873,
+    "video": 4,
     "lunghi": 3,
     "top": [
      {
-      "views": 36946,
-      "ore": 71,
-      "titolo": "AI rout deepens as Anthropic IPO fails to lift market mood",
-      "canale": "CNBC International Live",
-      "lungo": true
-     },
-     {
-      "views": 5224,
-      "ore": 44,
+      "views": 6895,
+      "ore": 53,
       "titolo": "【ひろゆき 最新】アンソロピックのナスダック上場・IPOとAIバブル崩壊危機の実態について話します【切り抜き/ひろゆきの実/Anthropic/Claude/クロード/人工知能/経",
       "canale": "ひろゆきの実【ひろゆき hiroyuki 切り抜き】",
       "lungo": true
      },
      {
-      "views": 239,
-      "ore": 40,
+      "views": 2777,
+      "ore": 4,
+      "titolo": "Uno sguardo ai mercati: Anthropic non salva i mercati. Cosa succede?",
+      "canale": "FinecoBank",
+      "lungo": true
+     },
+     {
+      "views": 250,
+      "ore": 49,
       "titolo": "AI Stocks Crash on Wall Street—Nasdaq Plunges Over 5% One Day After Anthropic’s Historic I",
       "canale": "The Flyover",
       "lungo": false
      },
      {
-      "views": 104,
-      "ore": 35,
+      "views": 134,
+      "ore": 44,
       "titolo": "Rassegna Finanziaria 21 Novembre. Crollo Borse: AI, IPO Anthropic come difendere il Portaf",
       "canale": "Claudio Loponte, CFA",
       "lungo": true
-     },
-     {
-      "views": 0,
-      "ore": 68,
-      "titolo": "Uno sguardo ai mercati: Anthropic non salva i mercati. Cosa succede?",
-      "canale": "FinecoBank",
-      "lungo": false
      }
     ]
    },
-   "punteggio": 45641
+   "punteggio": 36267
   },
   {
-   "storia": "Jensen Huang out as Nvidia CEO: Huang breaks silence and signals willingness to return, WSJ reports; board reportedly not planning to bring him back",
+   "storia": "Huang's ouster tied to spy scandal: woman at center of Nvidia scandal reportedly in touch with China's intelligence agency",
    "persona": "Jensen Huang",
-   "ruolo": "Former CEO and co-founder of Nvidia",
+   "ruolo": "CEO of Nvidia",
    "azienda": "Nvidia",
-   "query_en": "Jensen Huang Nvidia CEO return",
-   "query_it": "Jensen Huang ritorno Nvidia ceo",
-   "novita": "WSJ reports Huang signals willingness to return as CEO; Shopify CEO calls the ouster 'choreographed'.",
+   "query_en": "Nvidia spy scandal Jensen Huang timeline",
+   "query_it": "Nvidia scandalo spia Jensen Huang",
+   "novita": "WSJ published a timeline of Huang's 'spy downfall and resurrection', and NYT/ABC sources report the woman at the center (Alice Huang) was in contact with China's top spy agency for at least a year.",
    "continua": false,
    "yt_en": {
-    "views": 1104690,
-    "views_ora": 22557,
+    "views": 14001,
+    "views_ora": 480,
     "video": 15,
-    "lunghi": 3,
+    "lunghi": 8,
     "top": [
      {
-      "views": 280937,
-      "ore": 42,
-      "titolo": "黃仁勳辭職六天後，Uber創辦人卡蘭尼克穿黑皮衣上台：要把他找回來｜卡蘭尼克 Travis Kalanick 黃仁勳 Jensen Huang",
-      "canale": "亞洲錢劇場",
+      "views": 5304,
+      "ore": 28,
+      "titolo": "Najdroższy błąd w historii technologii",
+      "canale": "Kod Jutra",
+      "lungo": true
+     },
+     {
+      "views": 1533,
+      "ore": 69,
+      "titolo": "Former CIA Officer Exposes The $5B Nvidia Honeytrap Scandal",
+      "canale": "Chronicles of Capital",
+      "lungo": true
+     },
+     {
+      "views": 1378,
+      "ore": 11,
+      "titolo": "How a Suspected Spy Ended Jensen Huang's 33 Years at Nvidia",
+      "canale": "Poppy The Guy",
       "lungo": false
      },
      {
-      "views": 172366,
-      "ore": 61,
-      "titolo": "'We Have To Protect Our Brilliant People': Trump Calls For Jensen Huang's Return To Nvidia",
-      "canale": "CNN-News18",
+      "views": 1356,
+      "ore": 30,
+      "titolo": "Why Jensen Huang had to resign #nvidia #tech #business",
+      "canale": "Bayloot",
       "lungo": false
      },
      {
-      "views": 137649,
-      "ore": 48,
-      "titolo": "젠슨 황 엔비디아 복귀 없다더니…베이조스, 충격 경고 뭐길래 '경악'",
-      "canale": "서울경제TV",
-      "lungo": false
-     },
-     {
-      "views": 131866,
-      "ore": 57,
-      "titolo": "President Trump calls for return of former Nvidia CEO Jensen Huang",
-      "canale": "FOX 9 Minneapolis-St. Paul",
-      "lungo": false
-     },
-     {
-      "views": 94323,
-      "ore": 61,
-      "titolo": "WATCH: Trump says he would love former Nvidia CEO Jensen Huang to ‘be given a second chanc",
-      "canale": "PBS NewsHour",
+      "views": 1188,
+      "ore": 50,
+      "titolo": "Nvidia CEO Spy Scandal: The Biggest Prenup Payment in History?",
+      "canale": "Hyped",
       "lungo": false
      }
     ]
    },
    "yt_it": {
-    "views": 181780,
-    "views_ora": 3817,
-    "video": 15,
-    "lunghi": 6,
-    "top": [
-     {
-      "views": 131866,
-      "ore": 57,
-      "titolo": "President Trump calls for return of former Nvidia CEO Jensen Huang",
-      "canale": "FOX 9 Minneapolis-St. Paul",
-      "lungo": false
-     },
-     {
-      "views": 10518,
-      "ore": 60,
-      "titolo": "Trump Wants Jensen Huang BACK At Nvidia! 'Everyone Deserves A Second Chance' #Shorts",
-      "canale": "NDTV Profit",
-      "lungo": false
-     },
-     {
-      "views": 7701,
-      "ore": 26,
-      "titolo": "Presiden Trump Endorse Jensen Huang Balik Jadi CEO Nvidia",
-      "canale": "kumparan",
-      "lungo": false
-     },
-     {
-      "views": 6131,
-      "ore": 40,
-      "titolo": "What’s Next for NVIDIA?",
-      "canale": "99Block",
-      "lungo": true
-     },
-     {
-      "views": 5664,
-      "ore": 54,
-      "titolo": "RIPPLE XRP: TRUMP SAYS HE “WOULD NOT MIND” JENSEN HUANG RETURNING AS NVIDIA CEO!",
-      "canale": "BULLRUNNERS",
-      "lungo": false
-     }
-    ]
-   },
-   "punteggio": 26374
-  },
-  {
-   "storia": "Tesla and SpaceX each form special committees to explore a merger; Musk's net worth drops $64B in a day amid AI bubble fears",
-   "persona": "Elon Musk",
-   "ruolo": "CEO of Tesla and SpaceX",
-   "azienda": "Tesla / SpaceX",
-   "query_en": "Tesla SpaceX merger committee Musk",
-   "query_it": "fusione Tesla SpaceX Musk",
-   "novita": "Reports say both companies formed special committees to explore a merger while Musk's wealth fell sharply.",
-   "continua": false,
-   "yt_en": {
-    "views": 20222,
-    "views_ora": 493,
-    "video": 15,
-    "lunghi": 7,
-    "top": [
-     {
-      "views": 17597,
-      "ore": 41,
-      "titolo": "테슬라·스페이스X 합병 특별위원회 가동, 한국 주주들 '양도세 폭탄' 논란",
-      "canale": "언더스탠딩 : 세상의 모든 지식",
-      "lungo": false
-     },
-     {
-      "views": 1090,
-      "ore": 58,
-      "titolo": "SpaceX and Tesla: what is actually confirmed",
-      "canale": "Plain Signal",
-      "lungo": false
-     },
-     {
-      "views": 884,
-      "ore": 59,
-      "titolo": "The Richest Man Just Pushed a $3.7T Merger. Who Pays?",
-      "canale": "Trend Max",
-      "lungo": true
-     },
-     {
-      "views": 208,
-      "ore": 32,
-      "titolo": "Elon Musk Is Selling Tesla to Himself",
-      "canale": "MeltPoint",
-      "lungo": true
-     },
-     {
-      "views": 178,
-      "ore": 21,
-      "titolo": "Tesla and SpaceX Each Form a Special Committee to Explore a Merger #Shorts",
-      "canale": "World Finance News Now",
-      "lungo": false
-     }
-    ]
-   },
-   "yt_it": {
-    "views": 21445,
-    "views_ora": 937,
-    "video": 12,
+    "views": 115781,
+    "views_ora": 1987,
+    "video": 11,
     "lunghi": 9,
     "top": [
      {
-      "views": 12039,
-      "ore": 17,
-      "titolo": "🚨 SPACEX–TESLA MERGER IS MOVING AT “WARP SPEED”",
-      "canale": "Over The Horizon",
+      "views": 96254,
+      "ore": 68,
+      "titolo": "Nvidia Spy Scandal Takes A Suprising Turn",
+      "canale": "Wall Street Millennial",
       "lungo": true
      },
      {
-      "views": 4996,
-      "ore": 35,
-      "titolo": "Steven Mark Ryan: Starship Caught, Private Cybercabs and the Tesla SpaceX Merger",
-      "canale": "Tesla Owners Silicon Valley",
+      "views": 7652,
+      "ore": 66,
+      "titolo": "‘Jensen should make a big apology…’: Trump asks NVIDIA to take Huang back amid China spy s",
+      "canale": "The Economic Times",
       "lungo": true
      },
      {
-      "views": 1734,
-      "ore": 50,
-      "titolo": "Cybercab Hits Dallas, Starship Caught & Musk Says 'Probably' Better Together: Tesla Beat #",
-      "canale": "Tesla Owners Silicon Valley",
-      "lungo": true
-     },
-     {
-      "views": 1010,
+      "views": 5438,
       "ore": 46,
-      "titolo": "Elon Musk Reportedly Puts $1B Into Paramount Skydance #ElonMusk #Tesla #SpaceX #Skydance",
-      "canale": "Get Rich Or Die Lottery",
-      "lungo": false
+      "titolo": "Jensen Huang and the Chinese Spy Memes, Explained",
+      "canale": "Know Your Meme",
+      "lungo": true
      },
      {
-      "views": 972,
-      "ore": 56,
-      "titolo": "SpaceX and Tesla Merger? Musk’s Boldest Move Yet #shorts",
-      "canale": "AutoNatics",
-      "lungo": false
+      "views": 3923,
+      "ore": 65,
+      "titolo": "Gaming Scandals! (Jensen Huang NVIDIA/Xbox COO) - Pachter Factor Live Episode 105",
+      "canale": "SIFTD Games",
+      "lungo": true
+     },
+     {
+      "views": 1338,
+      "ore": 19,
+      "titolo": "NVIDIA CEO’s EXPLOSIVE Affair With an Alleged Chinese SPY",
+      "canale": "Chicks on the Right ",
+      "lungo": true
      }
     ]
    },
-   "punteggio": 1430
+   "punteggio": 2467
   },
   {
-   "storia": "Nvidia chip smuggling probe widens: NYT reports Alice Huang contacted Chinese intelligence during her relationship with Huang; US probes Megaspeed; Bloomberg says California probe extends to possible criminal violations",
-   "persona": "Jensen Huang",
-   "ruolo": "Former CEO of Nvidia",
-   "azienda": "Nvidia",
-   "query_en": "Nvidia Alice Huang spy probe",
-   "query_it": "Nvidia Alice Huang indagine spie",
-   "novita": "NYT, CNBC and Bloomberg report new details on the investigation and the Nvidia chip case.",
+   "storia": "Arm CEO Rene Haas extends contract through 2033 after Nvidia top-job chatter",
+   "persona": "Rene Haas",
+   "ruolo": "CEO of Arm",
+   "azienda": "Arm",
+   "query_en": "Rene Haas Arm CEO 2033 Nvidia",
+   "query_it": "Rene Haas Arm CEO 2033 Nvidia",
+   "novita": "Reuters and Bloomberg report Haas will stay CEO through 2033, snubbing an approach from Nvidia amid speculation about the top job there.",
    "continua": false,
    "yt_en": {
-    "views": 554,
-    "views_ora": 67,
-    "video": 15,
-    "lunghi": 12,
-    "top": [
-     {
-      "views": 290,
-      "ore": 32,
-      "titolo": "Nvidia’s CEO Fell for an Alleged Chinese Spy. It Cost $1.6 Trillion",
-      "canale": "History Reborn",
-      "lungo": false
-     },
-     {
-      "views": 56,
-      "ore": 2,
-      "titolo": "Jensen Huang Affair Row: US Intelligence Tracked Alice Huang's China Links",
-      "canale": "NDTV",
-      "lungo": false
-     },
-     {
-      "views": 46,
-      "ore": 28,
-      "titolo": "How Jensen Huang’s Scandal Exposed the Lie of Success",
-      "canale": "Docs by alPha ",
-      "lungo": true
-     },
-     {
-      "views": 38,
-      "ore": 59,
-      "titolo": "The Ai Snitched on him",
-      "canale": "Penumbra",
-      "lungo": true
-     },
-     {
-      "views": 27,
-      "ore": 21,
-      "titolo": "Was Nvidia's Boss Honeytrapped? | Jensen Huang Story | TBS #02",
-      "canale": "The Bigger Story",
-      "lungo": true
-     }
-    ]
-   },
-   "yt_it": {
-    "views": 0,
-    "views_ora": 0,
-    "video": 0,
+    "views": 773,
+    "views_ora": 651,
+    "video": 4,
     "lunghi": 0,
-    "top": []
-   },
-   "punteggio": 67
-  },
-  {
-   "storia": "Amazon nearing $7.5B deal to buy AI startup Decart, FT reports",
-   "persona": "Andy Jassy",
-   "ruolo": "CEO of Amazon",
-   "azienda": "Amazon",
-   "query_en": "Amazon Decart acquisition $7.5 billion",
-   "query_it": "Amazon acquisizione Decart 7,5 miliardi",
-   "novita": "FT reports Amazon is nearing the deal; not yet confirmed by the companies.",
-   "continua": false,
-   "yt_en": {
-    "views": 360,
-    "views_ora": 30,
-    "video": 15,
-    "lunghi": 3,
     "top": [
      {
-      "views": 257,
-      "ore": 16,
-      "titolo": "Why Amazon Wants Decart's AI Tech",
-      "canale": "TheTechTweaks",
-      "lungo": false
-     },
-     {
-      "views": 27,
-      "ore": 18,
-      "titolo": "Amazon Eyes $7.5B Decart Deal #Shorts",
-      "canale": "AI AI Video News",
-      "lungo": false
-     },
-     {
-      "views": 17,
-      "ore": 29,
-      "titolo": "Amazon's $7.5B Move to Break Nvidia's Grip!",
-      "canale": "Deccan Tech",
-      "lungo": false
-     },
-     {
-      "views": 12,
-      "ore": 13,
-      "titolo": "Why Is Amazon Buying Decart AI for $7.5B?",
-      "canale": "Fire of AI",
-      "lungo": false
-     },
-     {
-      "views": 10,
+      "views": 691,
       "ore": 1,
-      "titolo": "Amazon's $7.5B bet on AI worlds #shorts",
-      "canale": "PiBrief",
+      "titolo": "黃仁勳復職！輝達董事會全票通過，離開 11 天又回來｜11/23 快報 #Shorts",
+      "canale": "無立場新聞台",
+      "lungo": false
+     },
+     {
+      "views": 80,
+      "ore": 2,
+      "titolo": "【緊急検証】Arm CEOがSBG副会長に！NVIDIA引き抜き阻止…明日ソフトバンクGは買いか罠か？ #ソフトバンク  #株式投資 #日経平均",
+      "canale": "外資系サラリーマン×日米株式投資　Ujin_kabu",
+      "lungo": false
+     },
+     {
+      "views": 2,
+      "ore": 1,
+      "titolo": "輝達接班人，被一份2033年合約卡住",
+      "canale": "BigGo財經",
+      "lungo": false
+     },
+     {
+      "views": 0,
+      "ore": 1,
+      "titolo": "Arm首席执行官Rene Haas拒绝英伟达挖角",
+      "canale": "銭景科技",
+      "lungo": false
+     }
+    ]
+   },
+   "yt_it": {
+    "views": 968,
+    "views_ora": 717,
+    "video": 4,
+    "lunghi": 1,
+    "top": [
+     {
+      "views": 691,
+      "ore": 1,
+      "titolo": "黃仁勳復職！輝達董事會全票通過，離開 11 天又回來｜11/23 快報 #Shorts",
+      "canale": "無立場新聞台",
+      "lungo": false
+     },
+     {
+      "views": 197,
+      "ore": 3,
+      "titolo": "Trump Wants Jensen Huang Back. What I Found in NVIDIA’s Filings Changes Everything.",
+      "canale": "Eric Jackson",
+      "lungo": true
+     },
+     {
+      "views": 80,
+      "ore": 2,
+      "titolo": "【緊急検証】Arm CEOがSBG副会長に！NVIDIA引き抜き阻止…明日ソフトバンクGは買いか罠か？ #ソフトバンク  #株式投資 #日経平均",
+      "canale": "外資系サラリーマン×日米株式投資　Ujin_kabu",
+      "lungo": false
+     },
+     {
+      "views": 0,
+      "ore": 1,
+      "titolo": "Arm首席执行官Rene Haas拒绝英伟达挖角",
+      "canale": "銭景科技",
+      "lungo": false
+     }
+    ]
+   },
+   "punteggio": 1368
+  },
+  {
+   "storia": "Amodei's idea for simulating a fulfilling life for people who lose jobs to AI (video games)",
+   "persona": "Dario Amodei",
+   "ruolo": "CEO of Anthropic",
+   "azienda": "Anthropic",
+   "query_en": "Dario Amodei video games AI jobs",
+   "query_it": "Dario Amodei videogiochi lavoro IA",
+   "novita": "IGN and Multiplayer report Amodei's alleged view that video games could occupy people displaced by AI; also, Il Sole 24 Ore reports he reportedly bought a masseria in Puglia.",
+   "continua": false,
+   "yt_en": {
+    "views": 595,
+    "views_ora": 43,
+    "video": 11,
+    "lunghi": 5,
+    "top": [
+     {
+      "views": 206,
+      "ore": 12,
+      "titolo": "Did Anthropic's CEO Say Video Games Could Calm the AI-Jobless? #shorts",
+      "canale": "One Token Ahead",
+      "lungo": false
+     },
+     {
+      "views": 202,
+      "ore": 16,
+      "titolo": "Dario Amodei Pitched Video Games to Defuse AI Job-Loss Politics",
+      "canale": "Midnight Signal AI",
+      "lungo": true
+     },
+     {
+      "views": 77,
+      "ore": 16,
+      "titolo": "Dario Amodei videójátékot javasolt az MI-s állásvesztés ellen",
+      "canale": "AI Jel a Zajban — napi AI-híre",
+      "lungo": true
+     },
+     {
+      "views": 75,
+      "ore": 21,
+      "titolo": "Dario Amodei: The Man in a Hurry Who Kept Saying No | The Full Story (Anthropic CEO)",
+      "canale": "Stories of challenge",
+      "lungo": true
+     },
+     {
+      "views": 11,
+      "ore": 12,
+      "titolo": "Amodei suggests games could pacify the jobless | Top 5 AI News #Shorts",
+      "canale": "JunSun",
       "lungo": false
      }
     ]
@@ -512,7 +527,7 @@
     "lunghi": 0,
     "top": []
    },
-   "punteggio": 30
+   "punteggio": 43
   }
  ]
 }
