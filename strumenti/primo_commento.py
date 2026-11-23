@@ -12,6 +12,7 @@ import datetime as dt, json, os, re, time, urllib.parse, urllib.request
 E = os.environ.get
 ORA = lambda: dt.datetime.now(dt.timezone.utc)
 FINESTRA = float(E('FINESTRA') or 75)
+RECUPERO = float(E('RECUPERO') or 90)   # 23 nov: minuti all'indietro per i video gia' usciti senza il nostro commento (recupero: 2880 = 2 giorni)
 PROVA = (E('PROVA') or 'NO').upper() == 'SI'
 CANALI = {k[len('YT_REFRESH_TOKEN_'):]: v for k, v in os.environ.items() if k.startswith('YT_REFRESH_TOKEN_') and v.strip()}
 REG = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'coach', 'primi_commenti.jsonl')
@@ -77,7 +78,7 @@ def main():
             quando = dt.datetime.fromisoformat((pub or v['snippet']['publishedAt']).replace('Z', '+00:00'))
             mancano = (quando - ORA()).total_seconds() / 60
             programmato = st.get('privacyStatus') == 'private' and pub and 0 <= mancano <= FINESTRA
-            appena_uscito = st.get('privacyStatus') == 'public' and -90 <= mancano <= 0   # uscito da poco (anche se il giro e' partito in ritardo)
+            appena_uscito = st.get('privacyStatus') == 'public' and -RECUPERO <= mancano <= 0   # uscito da poco (anche se il giro e' partito in ritardo)
             if programmato or appena_uscito:
                 da_fare.append((quando, nome, refresh, cid, v))
     da_fare.sort(key=lambda x: x[0])
