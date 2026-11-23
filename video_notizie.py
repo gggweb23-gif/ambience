@@ -1361,16 +1361,17 @@ def impatto(scena, posa_png, c, righe, box, giorno, variante):
         d.rectangle((bb[0] - pd, bb[1] - pd, bb[2] + pd, bb[3] + pd), fill=bg); d.text((xy[0] * k, xy[1] * k), t, font=f_, fill=fg, anchor=anchor)
     if stile == 'A':
         im = sc; d = ImageDraw.Draw(im)
-        v = volto(450); im.alpha_composite(v, (int(10 * k), H - v.height))
-        scrivi(d, (1240, 30), parola, 190, 800, 'white', 'ra')
+        v = volto(650); im.alpha_composite(v, (int(10 * k), H - v.height))   # 23 nov (Giorgio): il volto e' il gancio, grande e riconoscibile
+        lib = 1280 - v.width / k - 80
+        scrivi(d, (1240, 30), parola, 190, lib, 'white', 'ra')
         if etich:
-            riquadro(d, (1240, 272), etich, 62, 620, 'black', (255, 214, 0), 'ra')
+            riquadro(d, (1240, 272), etich, 62, lib - 20, 'black', (255, 214, 0), 'ra')
     elif stile == 'B':
         im = Image.new('RGBA', (W, H), (0, 0, 0, 255))
         im.paste(sc.crop((int(240 * k), 0, int(1040 * k), int(588 * k))), (int(480 * k), 0))
         im.paste((170, 0, 0, 255), (0, 0, int(480 * k), H)); d = ImageDraw.Draw(im)
         d.polygon([(470 * k, 0), (510 * k, 0), (470 * k, H), (430 * k, H)], fill=(255, 214, 0))
-        v = volto(600, (0, 0, 0), 6); im.alpha_composite(v, (max(0, int(240 * k) - v.width // 2), H - v.height))
+        v = volto(680, (0, 0, 0), 6); im.alpha_composite(v, (max(0, int(250 * k) - v.width // 2), H - v.height))
         d = ImageDraw.Draw(im); d.rectangle((480 * k, 588 * k, W, H), fill=(0, 0, 0))
         scrivi(d, (810, 654), domanda, 96, 560, (255, 214, 0), 'mm', 0)
     else:
