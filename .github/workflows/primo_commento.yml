@@ -38,6 +38,8 @@ jobs:
           YT_REFRESH_TOKEN_MAIN_STREET_ATLAS: ${{ secrets.YT_REFRESH_TOKEN_MAIN_STREET_ATLAS }}
           YT_REFRESH_TOKEN_FACES_OF_ROME: ${{ secrets.YT_REFRESH_TOKEN_FACES_OF_ROME }}
           YT_REFRESH_TOKEN_AGORA_OF_SAGES: ${{ secrets.YT_REFRESH_TOKEN_AGORA_OF_SAGES }}
+          YT_REFRESH_TOKEN_CANALE_NUOVO: ${{ secrets.YT_REFRESH_TOKEN_CANALE_NUOVO }}
+          YT_REFRESH_TOKEN_CANALE_NUOVO_2: ${{ secrets.YT_REFRESH_TOKEN_CANALE_NUOVO_2 }}
         run: python3 strumenti/primo_commento.py
       - name: Salva registro
         if: ${{ always() }}
