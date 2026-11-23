@@ -1341,7 +1341,7 @@ def impatto(scena, posa_png, c, righe, box, giorno, variante):
     stile = modelli[(giorno + (1 if variante else 0)) % len(modelli)]
     sc = ImageOps.fit(scena, (W, H), Image.LANCZOS)
     sc = ImageEnhance.Color(ImageEnhance.Contrast(ImageEnhance.Brightness(sc).enhance(1.25)).enhance(1.25)).enhance(1.35).convert('RGBA')
-    q = posa_png.crop(posa_png.getbbox()); q = q.crop((0, 0, q.width, int(q.height * .5)))
+    q = posa_png.crop(posa_png.getbbox()); q = q.crop((0, 0, q.width, int(q.height * .5)))   # testa e spalle: il volto sempre INTERO
 
     def volto(alt, col=(255, 255, 255), r=8):
         h_ = int(alt * k); v = q.resize((int(q.width * h_ / q.height), h_), Image.LANCZOS)
@@ -1376,7 +1376,10 @@ def impatto(scena, posa_png, c, righe, box, giorno, variante):
         scrivi(d, (810, 654), domanda, 96, 560, (255, 214, 0), 'mm', 0)
     else:
         im = Image.alpha_composite(sc, Image.new('RGBA', (W, H), (0, 0, 0, 50)))
-        v = volto(660); im.alpha_composite(v, (W - v.width - int(10 * k), H - v.height)); d = ImageDraw.Draw(im)
+        v = volto(660)
+        if v.width > W * .48:
+            v = v.resize((int(W * .48), int(v.height * W * .48 / v.width)), Image.LANCZOS)
+        im.alpha_composite(v, (W - v.width - int(20 * k), H - v.height)); d = ImageDraw.Draw(im)
         lim = (W - v.width) / k - 90
         scrivi(d, (50, 50), '"' + frase.strip('"«»') + '"', 170, lim, 'white', 'la', 10)
         if parola:

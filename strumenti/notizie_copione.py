@@ -176,6 +176,9 @@ DIRECTION (regia) - like a film: EVERY scene has its OWN new drawn image ("set")
   "COLLAPSED"); "etichetta" = short true label that completes it (e.g. "NEAR NATO"); "domanda" = a curiosity question that claims nothing
   unverified (e.g. "WHO HIT IT?"); "frase" = a REAL short quote said by the main person in this story (in quotes, e.g. "MY FRIEND"), or "" if none.
   The background ("sfondo") must show the strongest moment of the story (fire, collapse, explosion, crowd), bright and clear.
+  THUMBNAIL POSE of the main person (23 nov, Giorgio): a CLEAR EMOTION that fits the story (tense, worried, angry, smug, shocked, determined),
+  natural and believable, never exaggerated or grotesque. Reuse the library emotion poses when they exist (e.g. putin: teso/arrabbiato/compiaciuto;
+  trump: compiaciuto/arrabbiato/preoccupato/sorpreso; zelensky: determinato/preoccupato/arrabbiato); a new one costs 0.08 $ once.
 Answer with ONLY the JSON (no markdown), exactly this structure:
 {SCHEMA}"""
     t = claude([{'role': 'user', 'content': prompt}], [{'type': 'web_search_20250305', 'name': 'web_search', 'max_uses': 8}], sforzo='medium')
