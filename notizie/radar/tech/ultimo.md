@@ -1,12 +1,12 @@
-# Radar notizie tech — 2026-11-22
+# Radar notizie tech — 2026-11-23
 
 **Scelta:** Anthropic mathematician claims AI-assisted proof of the Riemann hypothesis with Claude (Dario Amodei) — l'onda di ieri e' ancora la piu' forte: si resta con un angolo nuovo
 
 | # | Storia | Persona | Views all'ora (EN+IT) | Views 3 gg EN | Views 3 gg IT | Video lunghi EN |
 |---|---|---|---|---|---|---|
-| 1 | Anthropic mathematician claims AI-assisted proof of the Riemann hypothesis with Claude | Dario Amodei | 131,687 | 4,098,133 | 924,137 | 10 |
-| 2 | Anthropic IPO fails to calm AI market sell-off; Nasdaq turns red for the year | Dario Amodei | 63,234 | 2,873,841 | 101,390 | 13 |
-| 3 | Jensen Huang resigns as Nvidia CEO amid board probe and reports of threats to staff | Jensen Huang | 43,207 | 976,689 | 540,799 | 5 |
-| 4 | Apple's new CEO John Ternus pushes into AI with a secret agent | John Ternus | 5,412 | 174,425 | 174,417 | 5 |
-| 5 | Tech outages wave and Anthropic engineer's warning about Claude Code | Dario Amodei | 3,295 | 222,911 | 0 | 3 |
-| 6 | Nvidia chip-smuggling to China scandal: probes, House Democrats and WSJ exclusive | Jensen Huang | 77 | 1,377 | 2,811 | 7 |
+| 1 | Anthropic mathematician claims AI-assisted proof of the Riemann hypothesis with Claude | Dario Amodei | 180,385 | 5,434,301 | 3,611,321 | 10 |
+| 2 | Anthropic IPO fails to calm AI market jitters as Nasdaq nears bear market after AI rout | Dario Amodei | 45,641 | 1,970,259 | 42,513 | 13 |
+| 3 | Jensen Huang out as Nvidia CEO: Huang breaks silence and signals willingness to return, WSJ reports; board reportedly not planning to bring him back | Jensen Huang | 26,374 | 1,104,690 | 181,780 | 3 |
+| 4 | Tesla and SpaceX each form special committees to explore a merger; Musk's net worth drops $64B in a day amid AI bubble fears | Elon Musk | 1,430 | 20,222 | 21,445 | 7 |
+| 5 | Nvidia chip smuggling probe widens: NYT reports Alice Huang contacted Chinese intelligence during her relationship with Huang; US probes Megaspeed; Bloomberg says California probe extends to possible criminal violations | Jensen Huang | 67 | 554 | 0 | 12 |
+| 6 | Amazon nearing $7.5B deal to buy AI startup Decart, FT reports | Andy Jassy | 30 | 360 | 0 | 3 |
