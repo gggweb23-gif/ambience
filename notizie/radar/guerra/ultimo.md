@@ -1,12 +1,12 @@
 # Radar notizie guerra — 2026-11-23
 
-**Scelta:** Russian cargo ship burns in Gulf of Finland after drone attack; Finland says war 'spilling over' (ship towed away by Russia; NPR/NBC report war creeping into NATO territory) (Vladimir Putin) — l'onda di ieri e' ancora forte: si resta con un angolo nuovo
+**Scelta:** Ukraine sinks Russian corvette Merkury at Libya's Benghazi port with naval drones; Zelensky confirms, Russia vows 'painful' response (Volodymyr Zelensky) — la storia con piu' views all'ora oggi
 
 | # | Storia | Persona | Views all'ora (EN+IT) | Views 3 gg EN | Views 3 gg IT | Video lunghi EN |
 |---|---|---|---|---|---|---|
-| 1 | Russian warship Merkury hit by suspected Ukrainian sea drones at Benghazi, Libya; UN calls for probe | Volodymyr Zelensky | 186,906 | 1,966,629 | 374,576 | 9 |
-| 2 | Russian cargo ship burns in Gulf of Finland after drone attack; Finland says war 'spilling over' (ship towed away by Russia; NPR/NBC report war creeping into NATO territory) | Vladimir Putin | 117,940 | 2,262,821 | 914,430 | 10 |
-| 3 | Trump-Putin-Xi trilateral and Ukraine security guarantees talks | Donald Trump | 42,588 | 1,734,553 | 541,069 | 14 |
-| 4 | Netanyahu's Likud and Eisenkot's party end coalition talks without a deal | Gadi Eisenkot | 30,124 | 586,545 | 9 | 8 |
-| 5 | Trump sets new-year deadline for Iran, warns of strikes as Hormuz attacks hit wartime high | Donald Trump | 1,703 | 320 | 18,631 | 2 |
-| 6 | IDF reportedly warns Netanyahu an Israeli strike on Iran could spark multifront war | Benjamin Netanyahu | 0 | 0 | 0 | 1 |
+| 1 | Ukraine sinks Russian corvette Merkury at Libya's Benghazi port with naval drones; Zelensky confirms, Russia vows 'painful' response | Volodymyr Zelensky | 182,251 | 1,223,519 | 0 | 6 |
+| 2 | Russian cargo ship hit by drone in Baltic/Gulf of Finland; Kremlin accuses Ukraine of 'terrorist activity', Finland says war 'spilling over', NATO to meet | Vladimir Putin | 64,869 | 1,836,173 | 187,105 | 12 |
+| 3 | Trump says he is inclined to strike Iran after the new year if no deal is reached; Iran vows to counter US naval blockade | Donald Trump | 51,331 | 285,766 | 6,810 | 3 |
+| 4 | Israel's IDF warns Netanyahu an attack on Iran could spark a multifront war; ex-Mossad chief urges war | Benjamin Netanyahu | 19,366 | 34,446 | 197,660 | 4 |
+| 5 | Israeli election race: Bennett backs Eisenkot unity government and rules out Netanyahu as next PM | Benjamin Netanyahu | 13,185 | 344,958 | 0 | 11 |
+| 6 | Trump keeps trying to reach Kim Jong Un but is 'ghosted', report says; Kim welcomes new envoys | Kim Jong Un | 7,190 | 41,252 | 63,148 | 8 |
