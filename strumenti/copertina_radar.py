@@ -103,6 +103,17 @@ def dentro(p, b):
     return b[0] <= p[0] <= b[2] and b[1] <= p[1] <= b[3]
 
 
+def sagoma_persone(img):
+    """Maschera delle persone (rembg u2net_human_seg, sul runner, gratis). None se non disponibile."""
+    try:
+        from rembg import remove, new_session
+        import numpy as np
+        globals().setdefault('_SESS', new_session('u2net_human_seg'))
+        return np.asarray(remove(img.convert('RGB').resize((W, H)), session=_SESS, only_mask=True)) > 128
+    except Exception as e:
+        R.log('sagoma persone non calcolata:', str(e)[:100]); return None
+
+
 def componi(img, sp, variante):
     im = img.copy(); d = ImageDraw.Draw(im)
     sx, sy = dove(img, sp['soggetto'])
@@ -114,8 +125,13 @@ def componi(img, sp, variante):
         d.text((W / 2, bh / 2 + 4), testo, font=f, fill=(255, 255, 255), anchor='mm')
         facce = volti(img)   # 22 nov (Giorgio): frecce ed etichette MAI sopra persone o scritte
         occupati = [(0, 0, W, bh)] + facce
+        sag = sagoma_persone(img)   # 24 nov: anche il CORPO delle persone (non solo i volti), sagoma vera rembg, gratis
+        su_persona = lambda x_, y_: sag is not None and 0 <= int(y_) < sag.shape[0] and 0 <= int(x_) < sag.shape[1] and sag[int(y_), int(x_)]
+        tocca = lambda b_: sag is not None and sag[max(0, int(b_[1])):int(b_[3]), max(0, int(b_[0])):int(b_[2])].mean() > .01 if b_[3] > b_[1] and b_[2] > b_[0] else False
         for k, lab in enumerate((sp.get('labels') or [])[:2]):
             ox, oy = dove(img, lab.replace('Your ', ''))
+            if su_persona(ox, oy):
+                R.log('etichetta saltata, la freccia punterebbe su una persona:', lab); continue
             fo = ImageFont.truetype(ARCHIVO, 34)
             lw = d.textlength(lab, font=fo) + 36; lh = 60
             scelta = None
@@ -124,7 +140,7 @@ def componi(img, sp, variante):
                 box = (lx, ly, lx + lw, ly + lh)
                 ax, ay = (lx + lw / 2, ly + lh / 2)
                 linea = [(ax + (ox - ax) * t / 10, ay + (oy - ay) * t / 10) for t in range(2, 9)]
-                if any(sovrapp(box, o) for o in occupati) or any(dentro(pt, o) for pt in linea for o in occupati) or (lx + lw > W * .8 and ly + lh > H * .82):
+                if any(sovrapp(box, o) for o in occupati) or any(dentro(pt, o) for pt in linea for o in occupati) or tocca(box) or any(su_persona(*pt) for pt in linea) or (lx + lw > W * .8 and ly + lh > H * .82):
                     continue
                 scelta = (lx, ly); break
             if not scelta:
@@ -218,6 +234,7 @@ def main():
             'no text, no letters, no logos, correct anatomy') + '. ' + sp['scene']
     for v in (1, 2):
         img = klein(base + (' Wide shot.' if v == 1 else ' Closer shot, subject bigger.'))
+        img.save(os.path.join(OUT, f'copertina_{v}_base.jpg'), quality=92)   # base senza scritte: si rifa' gratis
         componi(img, sp, v).save(os.path.join(OUT, f'copertina_{v}.jpg'), quality=92)
     open(os.path.join(OUT, 'copertina.txt'), 'w').write(json.dumps(sp, ensure_ascii=False, indent=1) + f"\ncosto immagini {R.COSTI.get('fal_$', 0):.3f} $ + Haiku {R.COSTI['claude_haiku_$']:.3f} $\n")
 
