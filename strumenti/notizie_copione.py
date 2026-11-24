@@ -347,12 +347,52 @@ def traduci_it(v):
     return it
 
 
+MIN_PAROLE = int(E('MIN_PAROLE') or 1250)   # 24 nov (Giorgio): video sopra gli 8 minuti; la voce EN legge ~140 parole/min (863 parole = 6:12)
+
+
+def allunga(v):
+    """24 nov (Giorgio): "tutti i video sopra gli 8 minuti, raccogliendo piu' informazioni, ma senza inventare: se non ci sono, si va avanti".
+    Se il copione e' corto, Claude cerca altri fatti VERI (contesto, cronologia, persone, numeri, reazioni, cosa succede ora) e li aggiunge
+    come scene nuove con le loro fonti; poi la verifica dei fatti ricontrolla tutto. Al massimo 2 giri."""
+    for giro in range(2):
+        n = sum(len(sc['testo'].split()) for sc in v['scene'])
+        if n >= MIN_PAROLE * .95:
+            break
+        riass = [{'i': i, 'testo': sc['testo'], 'capitolo': sc.get('capitolo', '')} for i, sc in enumerate(v['scene'])]
+        usati = sorted(v.get('sets') or {}); prossimo = len(usati) + 1
+        prompt = f"""This is the narration of a news video ("{v.get('titolo')}"), {n} words. It must reach about {MIN_PAROLE + 100} words (over 8 minutes),
+but ONLY with TRUE facts from reliable sources: NEVER invent, never pad with opinions or repetitions. Use web search to find more verified material on this
+story: background and history, the timeline hour by hour, who the key people are, real numbers, official statements, reactions, what happens next.
+Write new scenes in the same style (1-2 short sentences, 10-16 words, spoken narration, same language as the script) and say after which existing
+scene each group goes (index "dopo"), so the story stays in order and the hook/structure are not broken. Every new scene has its sources and a NEW drawn set
+(ids from s{prossimo:02d} on) described like the existing ones: {json.dumps(dict(list((v.get('sets') or {}).items())[:2]), ensure_ascii=False)[:600]}
+If there is not enough real material, add only what is true (even nothing).
+SCRIPT: {json.dumps(riass, ensure_ascii=False)}
+Answer ONLY JSON: {{"aggiunte": [{{"dopo": 12, "scene": [{{"testo": "...", "fonti": ["https://..."], "visivo": {{"tipo": "set", "set": "s{prossimo:02d}"}}}}]}}], "sets": {{"s{prossimo:02d}": {{"descr": "...", "luogo": "...", "effetto": "none", "cast": []}}}}}}"""
+        try:
+            r = json_da(claude([{'role': 'user', 'content': prompt}], [{'type': 'web_search_20250305', 'name': 'web_search', 'max_uses': 8}], max_tokens=24000))
+        except Exception as e:
+            log('allungamento non riuscito:', str(e)[:120]); break
+        v.setdefault('sets', {}).update({k: x for k, x in (r.get('sets') or {}).items() if k not in v['sets']})
+        agg = sorted([a for a in r.get('aggiunte') or [] if isinstance(a.get('dopo'), int) and a.get('scene')], key=lambda a: -a['dopo'])
+        tot = 0
+        for a in agg:
+            nuove = [sc for sc in a['scene'] if sc.get('testo') and sc.get('fonti') and (sc.get('visivo') or {}).get('set') in v['sets']]
+            pos = max(0, min(len(v['scene']), a['dopo'] + 1)); v['scene'][pos:pos] = nuove; tot += len(nuove)
+        log(f"allungato (giro {giro + 1}): +{tot} scene, ora {sum(len(sc['testo'].split()) for sc in v['scene'])} parole, spesa {SPESA[0]:.3f} $")
+        if not tot:
+            break
+    return v
+
+
 def main():
     onda = json.load(open(os.path.join(ROOT, 'notizie', 'radar', FILONE, 'onda.json')))
     slug = re.sub(r'[^a-z0-9]+', '_', onda['storia'].lower()).strip('_')[:40]
     nome = f'{OGGI}_{slug}' + ('_prova' if (E('PROVA') or 'NO').upper() == 'SI' else '')
     v = scrivi_en(onda, libreria())
     log(f"copione EN: {len(v['scene'])} scene, {sum(len(s['testo'].split()) for s in v['scene'])} parole, spesa {SPESA[0]:.3f} $")
+    if (E('ALLUNGA') or 'NO').upper() == 'SI':   # acceso solo con l'OK di Giorgio (costa immagini in piu')
+        v = allunga(v)
     v = verifica(v)
     log(f"verificato: {v['verifica']}, spesa {SPESA[0]:.3f} $")
     v = coerenza(v)
