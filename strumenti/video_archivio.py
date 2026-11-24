@@ -733,6 +733,23 @@ else:
     except Exception as e:
         log('posizione soggetto non trovata, uso il lato libero previsto:', str(e)[:100])
         sog = (0, 0, 640, 720) if VOLTO_SX else (640, 0, 1280, 720)
+
+    def maschera_persone(img_):
+        # 24 nov (Giorgio, Orbital "7 MIN BLACKOUT" sopra il casco): i riquadri e il si'/no di Haiku possono sbagliare.
+        # Sagoma VERA delle persone (rembg u2net_human_seg, gratis, sul runner): la scritta non deve toccarla.
+        try:
+            from rembg import remove as _rm, new_session as _ns
+            import numpy as _np
+            globals().setdefault('_SESS_UMANI', _ns('u2net_human_seg'))
+            return _np.asarray(_rm(img_, session=_SESS_UMANI, only_mask=True)) > 128
+        except Exception as e_:
+            log('sagoma persone non calcolata:', str(e_)[:100]); return None
+    _mk = maschera_persone(im)
+    if _mk is not None and _mk.mean() > .01:
+        import numpy as _np
+        ys_, xs_ = _np.where(_mk)
+        sog = (min(sog[0], int(xs_.min())), min(sog[1], int(ys_.min())), max(sog[2], int(xs_.max())), max(sog[3], int(ys_.max()))) if sog != (0, 0, 0, 0) else (int(xs_.min()), int(ys_.min()), int(xs_.max()), int(ys_.max()))
+        log('copertina: soggetto (sagoma vera) in', sog)
     if STILE_COP == 'fotogramma':   # 16 nov (Giorgio: scritte troppo piccole): se accanto alla persona c'e' poco spazio, si stringe l'inquadratura
         lib_sx, lib_dx = sog[0], 1280 - sog[2]   # spostando la persona verso un lato: si libera mezza copertina per lettere GRANDI come prima
         if max(lib_sx, lib_dx) < 430 and sog[2] > sog[0]:
@@ -802,6 +819,14 @@ else:
         x0f, x1f = (45, 340) if lato_f2 == 'sx' else (940, 1235)
         ordine.append((0, lato_f2, 'alto', x0f, x1f, 50, 545, _misure(x1f - x0f, 495) or [80] * len(righe)))
     base_cop = im.copy()
+    MASCHERA_COP = maschera_persone(base_cop)
+
+    def _tocca_sagoma(lato, vert, x0, x1, y0, y1, misure):
+        if MASCHERA_COP is None:
+            return False
+        alt_ = sum(int(m * 1.02) for m in misure); ya_ = y0 if vert == 'alto' else y1 - alt_
+        r_ = MASCHERA_COP[max(0, int(ya_) - 10):min(720, int(ya_ + alt_) + 10), max(0, int(x0) - 30):min(1280, int(x1) + 30)]
+        return r_.size > 0 and r_.mean() > .02
 
     def _copre_persona(img_):
         # 17 nov (Giorgio, Orbital: la scritta copriva tutta la faccia): i riquadri di Haiku possono sbagliare, quindi si guarda il risultato (~0,002 $)
@@ -847,6 +872,8 @@ else:
         return im
 
     for k_, (_, lato, vert, x0, x1, y0, y1, misure) in enumerate(ordine):
+        if _tocca_sagoma(lato, vert, x0, x1, y0, y1, misure):
+            log('copertina: la scritta toccherebbe la sagoma della persona (', lato, vert, '): provo un altro posto'); continue
         prova_ = _disegna_scritta(base_cop.copy(), lato, vert, x0, x1, y0, y1, misure)
         if not _copre_persona(prova_):
             im = prova_; break
