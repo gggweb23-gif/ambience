@@ -1,0 +1,1449 @@
+{
+ "titolo": "Zelensky Sank a Russian Warship in Libya. Now Moscow Vows Revenge",
+ "angolo": "A Russian warship sunk 2,400 km from the front: what Zelensky confirmed, who condemned it, and what Moscow and Italy say comes next",
+ "descrizione": "Zelensky Sank a Russian Warship in Libya. Now Moscow Vows Revenge. Ukraine says seven naval drones sank the Russian corvette Merkury in Benghazi, Libya. Zelensky confirmed it on Monday, Libya's governments condemned it, Italy warned of spillover, and the Kremlin promised painful consequences. Here is what is confirmed, what is only claimed, and what could come next.",
+ "tag": [
+  "Zelensky Sank a Russian Warship in Libya. Now Moscow Vows Revenge",
+  "Zelensky",
+  "Merkury corvette",
+  "Benghazi",
+  "Libya",
+  "Ukraine naval drones",
+  "Russia retaliation",
+  "Peskov",
+  "Tajani",
+  "Mediterranean",
+  "Russia Ukraine war",
+  "SBU",
+  "MV Angara",
+  "war news",
+  "Haftar"
+ ],
+ "fonti_link": [
+  "https://www.cnbc.com/2026/11/23/ukraine-russia-warship-libya.html",
+  "https://www.cbc.ca/news/world/ukraine-attack-russian-warship-libya-merkury-9.7432215",
+  "https://www.cbc.ca/news/world/ukraine-behind-attack-that-sank-russian-warship-off-libya-9.7432215",
+  "https://www.cbsnews.com/news/ukraine-zelenskyy-2-russian-ships-libya/",
+  "https://www.aljazeera.com/news/2026/11/23/russian-ships-hit-by-drones-off-libya-coast-what-do-we-know",
+  "https://www.aljazeera.com/news/2026/11/23/russia-warns-ukraine-of-dangerous-trend-after-libya-and-baltic-attacks",
+  "https://www.aljazeera.com/news/2026/11/22/suspected-drone-strike-hits-russian-vessel-in-libya",
+  "https://www.kyivpost.com/post/90978",
+  "https://www.tbsnews.net/world/ukraine-sinks-russian-warship-libya-conflict-spreads-beyond-europe-1612236",
+  "https://www.koreatimes.co.kr/world/20261124/ukraine-sinks-russian-warship-in-libya-as-conflict-spreads-beyond-europe",
+  "https://www.foxnews.com/world/zelenskyy-hails-exemplary-ukrainian-operation-sinking-russian-warship-libya",
+  "https://www.trtworld.com/article/ad4249812e76",
+  "https://www.dagens.com/war/kremlin-reacts-after-ukraine-sinks-russian-warship-in-libya-over-1000-miles-away",
+  "https://ansa.it/sito/notizie/topnews/2026/11/23/tajani-preoccupa-esplosione-nave-russa-in-libia-evitare-guerra-in-mediterraneo_9559ae23-c3e4-40bc-b6fa-789982e69d7a.html",
+  "https://www.democrata.es/en/international/italy-demands-to-stop-a-military-escalation-in-the-mediterranean-after-the-ukrainian-attack-on-a-russian-ship-in-libya/",
+  "https://www.eurasiareview.com/24112026-could-divided-libya-become-a-new-front-in-the-russia-ukraine-war-analysis/",
+  "https://en.lasicilia.it/news/italy-world/3092892/the-war-just-steps-away-from-sicily-the-raid-in-libya-against-russian-ships-and-the-hand-of-british-spies.html",
+  "https://www.newsbeep.com/822012/",
+  "https://maps.southfront.press/russia-vows-benghazi-attack-will-not-go-unanswered"
+ ],
+ "personaggi": {
+  "zelensky": {
+   "commons": "Volodymyr Zelensky",
+   "chi": "Volodymyr Zelensky, President of Ukraine",
+   "pose": {
+    "determinato": {
+     "posa": "standing firm, jaw set, determined gaze"
+    },
+    "parla": {
+     "posa": "speaking, one hand raised"
+    },
+    "serio": {
+     "posa": "serious, arms at sides"
+    },
+    "preoccupato": {
+     "posa": "worried, brow furrowed"
+    }
+   }
+  },
+  "peskov": {
+   "commons": "Dmitry Peskov",
+   "chi": "Dmitry Peskov, Kremlin spokesman",
+   "pose": {
+    "calmo": {
+     "posa": "calm, hands folded"
+    }
+   }
+  },
+  "putin": {
+   "commons": "Vladimir Putin",
+   "chi": "Vladimir Putin, President of Russia",
+   "pose": {
+    "serio": {
+     "posa": "serious, seated"
+    },
+    "teso": {
+     "posa": "tense"
+    }
+   }
+  }
+ },
+ "sets": {
+  "s01": {
+   "descr": "Night harbor, a warship capsized in black water, only the bow above the surface, orange fires on the dock, smoke",
+   "luogo": "BENGHAZI, LIBYA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s02": {
+   "descr": "Seven small sea drones racing across dark moonlit water leaving white wakes",
+   "luogo": "MEDITERRANEAN SEA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s03": {
+   "descr": "Huge fireball erupting over a naval base pier at night, sparks in the sky",
+   "luogo": "BENGHAZI, LIBYA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s04": {
+   "descr": "Empty press podium with microphones in a Kyiv government hall, tall windows, grey winter light, blank blue and yellow cloth banners hung behind without writing, nobody present",
+   "luogo": "KYIV, UKRAINE",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "zelensky",
+     "posa": "determinato",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s05": {
+   "descr": "Dawn over Benghazi port, cranes and a ship's bow poking from water, thin smoke",
+   "luogo": "BENGHAZI, LIBYA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s06": {
+   "descr": "Satellite-style top-down view of a harbor with a capsized hull, grainy tones",
+   "luogo": "BENGHAZI, LIBYA",
+   "effetto": "mirino",
+   "cast": []
+  },
+  "s07": {
+   "descr": "Kremlin tower against a gray winter sky, red walls, crows",
+   "luogo": "MOSCOW, RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s08": {
+   "descr": "Empty Kremlin press briefing room, rows of vacant chairs facing a lectern with microphones, dark wood paneling, cold overhead light",
+   "luogo": "MOSCOW, RUSSIA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "peskov",
+     "posa": "calmo",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s09": {
+   "descr": "Quiet Kyiv street at dawn, empty tram, pale light",
+   "luogo": "KYIV, UKRAINE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s10": {
+   "descr": "Empty wartime presidential office in Kyiv, large wall map with no labels, desk lamp casting warm light, sandbags visible at the window, no people",
+   "luogo": "KYIV, UKRAINE",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "zelensky",
+     "posa": "serio",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s11": {
+   "descr": "Ukrainian theater stage with a comedian's spotlight and empty chairs",
+   "luogo": "KYIV, UKRAINE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s12": {
+   "descr": "Presidential administration building in Kyiv, sandbags, dusk",
+   "luogo": "KYIV, UKRAINE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s13": {
+   "descr": "Black Sea naval drone speeding at sunset off the Crimean coast",
+   "luogo": "BLACK SEA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s14": {
+   "descr": "Wide rocky Black Sea coast near Sevastopol at dawn with the burning wreck of a Russian corvette listing in the bay, smoke column, grey sky",
+   "luogo": "BLACK SEA, CRIMEA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s15": {
+   "descr": "Crimean Bridge across the Kerch Strait at night, long span with road and rail arches, smoke rising from a damaged section lit by orange glow, dark water below",
+   "luogo": "KERCH STRAIT",
+   "effetto": "none",
+   "cast": []
+  },
+  "s16": {
+   "descr": "Dark Gulf of Finland with a cargo ship burning on the horizon",
+   "luogo": "GULF OF FINLAND",
+   "effetto": "none",
+   "cast": []
+  },
+  "s17": {
+   "descr": "Finnish Navy coastal command base on the Gulf of Finland, grey patrol vessels at a quay, radar mast, overcast sky, no people",
+   "luogo": "HELSINKI AREA, FINLAND",
+   "effetto": "none",
+   "cast": []
+  },
+  "s18": {
+   "descr": "Corvette at a quay in Benghazi harbor in daylight, calm blue water, helicopter on deck",
+   "luogo": "BENGHAZI, LIBYA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s19": {
+   "descr": "Fuel hoses and supply crates on a Libyan quay beside a gray warship",
+   "luogo": "BENGHAZI, LIBYA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s20": {
+   "descr": "Dry cargo ship at sea at dusk, deck cranes, rusty hull",
+   "luogo": "OFF BENGHAZI, LIBYA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s21": {
+   "descr": "Ukrainian security service operations room with dim monitors showing blank glow",
+   "luogo": "KYIV, UKRAINE",
+   "effetto": "mirino",
+   "cast": []
+  },
+  "s22": {
+   "descr": "Mothership deck at night with seven drones lined up under red light",
+   "luogo": "MEDITERRANEAN SEA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s23": {
+   "descr": "Drone bow cutting waves toward a harbor mouth, lights of a city ahead",
+   "luogo": "BENGHAZI, LIBYA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s24": {
+   "descr": "Explosion flash over warship, shockwave ripples on water",
+   "luogo": "BENGHAZI, LIBYA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s25": {
+   "descr": "Ammunition cooking off, streaks of light over a harbor",
+   "luogo": "BENGHAZI, LIBYA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s26": {
+   "descr": "Firefighting trucks on a Libyan quay at dawn, hoses spraying",
+   "luogo": "BENGHAZI, LIBYA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s27": {
+   "descr": "Rooftops of Benghazi at night, glow of fire in the distance",
+   "luogo": "BENGHAZI, LIBYA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s28": {
+   "descr": "Helicopter silhouette sinking under dark water with bubbles",
+   "luogo": "BENGHAZI, LIBYA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s29": {
+   "descr": "Merchant ship with a fire at sea, coast guard boat nearby",
+   "luogo": "OFF BENGHAZI, LIBYA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s30": {
+   "descr": "Empty desk with a camera on a tripod and ring light pointed at a chair, dark window behind in a Kyiv government office, night, no people",
+   "luogo": "KYIV, UKRAINE",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "zelensky",
+     "posa": "parla",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s31": {
+   "descr": "Phone on a table showing a glowing blank video frame, Kyiv office",
+   "luogo": "KYIV, UKRAINE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s32": {
+   "descr": "Satellite dish and antenna array against dusk sky",
+   "luogo": "UNKNOWN",
+   "effetto": "none",
+   "cast": []
+  },
+  "s33": {
+   "descr": "Tripoli skyline and harbor at sunset",
+   "luogo": "TRIPOLI, LIBYA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s34": {
+   "descr": "Government meeting room in Tripoli with long table and empty chairs",
+   "luogo": "TRIPOLI, LIBYA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s35": {
+   "descr": "Eastern Libyan government building in Benghazi, flag pole without flag, heat haze",
+   "luogo": "BENGHAZI, LIBYA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s36": {
+   "descr": "UN Security Council chamber in New York, horseshoe table with empty seats, blue light, no text",
+   "luogo": "NEW YORK, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s37": {
+   "descr": "Libyan desert road with checkpoint barrier and dust",
+   "luogo": "WESTERN LIBYA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s38": {
+   "descr": "Misrata coastline with a military air college runway and low hangars, Mediterranean beyond, dusk",
+   "luogo": "MISRATA, LIBYA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s39": {
+   "descr": "Rome foreign ministry palace facade at golden hour",
+   "luogo": "ROME, ITALY",
+   "effetto": "none",
+   "cast": []
+  },
+  "s40": {
+   "descr": "Baku skyline with flame towers at dusk",
+   "luogo": "BAKU, AZERBAIJAN",
+   "effetto": "none",
+   "cast": []
+  },
+  "s41": {
+   "descr": "Sicilian coast with fishing boats at dawn, Mediterranean calm",
+   "luogo": "SICILY, ITALY",
+   "effetto": "none",
+   "cast": []
+  },
+  "s42": {
+   "descr": "Naval frigate at sea in the central Mediterranean at sunrise",
+   "luogo": "MEDITERRANEAN SEA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s43": {
+   "descr": "Aerial view of a shadow-fleet tanker at sea with no flag visible, rusty hull, heavy deck pipes, grey water, a coast guard boat in the distance",
+   "luogo": "MEDITERRANEAN SEA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s44": {
+   "descr": "Russian defense ministry building facade in gray light",
+   "luogo": "MOSCOW, RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s45": {
+   "descr": "Kremlin hallway with red carpet and tall doors, empty",
+   "luogo": "MOSCOW, RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s46": {
+   "descr": "Empty long desk in a Kremlin office with gilded chair, tall window light, a phone and papers, no people",
+   "luogo": "MOSCOW, RUSSIA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "putin",
+     "posa": "serio",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s47": {
+   "descr": "Night sky over a Ukrainian city with drone streaks and searchlights",
+   "luogo": "UKRAINE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s48": {
+   "descr": "Russian missile strike aftermath at night: smoking industrial buildings and damaged port cranes in Odesa harbor, glowing fires, no people",
+   "luogo": "ODESA, UKRAINE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s49": {
+   "descr": "Diplomat's meeting table in a neutral conference hall, pens and water glasses",
+   "luogo": "UNKNOWN",
+   "effetto": "none",
+   "cast": []
+  },
+  "s50": {
+   "descr": "Shenzhen skyline at night with harbor lights",
+   "luogo": "SHENZHEN, CHINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s51": {
+   "descr": "Exterior of the Russian embassy compound in Tripoli, Libya, high walls, security gate, palm trees, dusk light, no people, no text",
+   "luogo": "TRIPOLI, LIBYA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s52": {
+   "descr": "Satellite dish array and low concrete intelligence compound behind fences in a desert, hazy light, no people",
+   "luogo": "UNKNOWN",
+   "effetto": "none",
+   "cast": []
+  },
+  "s53": {
+   "descr": "Gray Russian warships docked at a northern naval base under cloud",
+   "luogo": "RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s54": {
+   "descr": "Naval commander's bridge with empty chair, sea ahead",
+   "luogo": "MEDITERRANEAN SEA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s55": {
+   "descr": "Dark Ukrainian military airfield at night, runway lights glowing, parked transport aircraft silhouette, starry sky, no people",
+   "luogo": "UKRAINE",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "zelensky",
+     "posa": "preoccupato",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s56": {
+   "descr": "Wide empty Mediterranean at night with a lighthouse beam sweeping",
+   "luogo": "MEDITERRANEAN SEA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s57": {
+   "descr": "Close-up of a drone's bow and camera on a pier in morning mist",
+   "luogo": "UKRAINE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s58": {
+   "descr": "Wreck bow protruding from water, seagulls, sun rising",
+   "luogo": "BENGHAZI, LIBYA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s59": {
+   "descr": "Empty TV studio with a desk, lit backdrop map, camera, no logos or text, cool studio lighting",
+   "luogo": "UNKNOWN",
+   "effetto": "none",
+   "cast": []
+  },
+  "s60": {
+   "descr": "Peace talks hall with long table, lamps, empty chairs",
+   "luogo": "UNKNOWN",
+   "effetto": "none",
+   "cast": []
+  }
+ },
+ "scene": [
+  {
+   "testo": "Sunday, before dawn. A Russian warship is blown apart in a Libyan port.",
+   "fonti": [
+    "https://www.cbc.ca/news/world/ukraine-attack-russian-warship-libya-merkury-9.7432215"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s01"
+   }
+  },
+  {
+   "testo": "Ukraine says it sent seven naval drones across the water. None carried a crew.",
+   "fonti": [
+    "https://www.cbc.ca/news/world/ukraine-attack-russian-warship-libya-merkury-9.7432215"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s02"
+   }
+  },
+  {
+   "testo": "Today, Volodymyr Zelensky said Ukraine did this.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/23/ukraine-russia-warship-libya.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s04"
+   },
+   "grafica": {
+    "tipo": "titolo",
+    "testo": "UKRAINE CLAIMS IT",
+    "sotto": "CONFIRMED BY ZELENSKY"
+   }
+  },
+  {
+   "testo": "The target was the corvette Merkury, which Zelensky called one of Russia's newest ships.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/23/ukraine-russia-warship-libya.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s05"
+   }
+  },
+  {
+   "testo": "Satellite images show it mostly underwater, having capsized.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/23/russian-ships-hit-by-drones-off-libya-coast-what-do-we-know"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s06"
+   }
+  },
+  {
+   "testo": "Now Moscow warns of painful consequences.",
+   "fonti": [
+    "https://www.dagens.com/war/kremlin-reacts-after-ukraine-sinks-russian-warship-in-libya-over-1000-miles-away"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s07"
+   }
+  },
+  {
+   "testo": "Why did Ukraine take its war to Libya, and what does Russia do next?",
+   "fonti": [
+    "https://www.eurasiareview.com/24112026-could-divided-libya-become-a-new-front-in-the-russia-ukraine-war-analysis/"
+   ],
+   "titolo_card": true,
+   "visivo": {
+    "tipo": "set",
+    "set": "s08"
+   },
+   "grafica": {
+    "tipo": "titolo",
+    "testo": "WAR IN LIBYA?",
+    "sotto": "UKRAINE SINKS A RUSSIAN WARSHIP"
+   }
+  },
+  {
+   "testo": "Stay with me. In a moment, the distance that makes this strike unusual.",
+   "fonti": [
+    "https://www.eurasiareview.com/24112026-could-divided-libya-become-a-new-front-in-the-russia-ukraine-war-analysis/"
+   ],
+   "capitolo": "A STRIKE 2,400 KM AWAY",
+   "visivo": {
+    "tipo": "set",
+    "set": "s09"
+   }
+  },
+  {
+   "testo": "First, the man who announced it.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/23/ukraine-russia-warship-libya.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s10"
+   }
+  },
+  {
+   "testo": "Volodymyr Zelensky is the president of Ukraine.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/23/ukraine-russia-warship-libya.html"
+   ],
+   "visivo": {
+    "tipo": "dossier",
+    "chi": "zelensky",
+    "posa": "serio",
+    "righe": [
+     "PRESIDENT OF UKRAINE",
+     "WAR LEADER SINCE 2022",
+     "PRAISED THE RAID"
+    ],
+    "timbro": "COMMANDER"
+   }
+  },
+  {
+   "testo": "Since 2022, Ukraine has repeatedly used naval drones against Russian warships in the Black Sea.",
+   "fonti": [
+    "https://en.wikipedia.org/wiki/385th_Unmanned_Surface_Vehicles_Brigade_(Ukraine)",
+    "https://www.pressreader.com/canada/the-hamilton-spectator/20240202/281655374964859"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s13"
+   }
+  },
+  {
+   "testo": "In 2024, Ukraine claimed it sank the corvette Ivanovets with sea drones.",
+   "fonti": [
+    "https://www.pressreader.com/canada/the-hamilton-spectator/20240202/281655374964859"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s14"
+   }
+  },
+  {
+   "testo": "But Benghazi is another scale. One analysis puts it more than 2,400 kilometers from the Ukrainian front.",
+   "fonti": [
+    "https://www.eurasiareview.com/24112026-could-divided-libya-become-a-new-front-in-the-russia-ukraine-war-analysis/"
+   ],
+   "visivo": {
+    "tipo": "mappa",
+    "centro": [
+     25,
+     40
+    ],
+    "larghezza": 50,
+    "paesi": [
+     {
+      "iso": "UKR",
+      "colore": "blu"
+     },
+     {
+      "iso": "RUS",
+      "colore": "rosso"
+     },
+     {
+      "iso": "LBY",
+      "colore": "amarillo"
+     }
+    ],
+    "punti": [
+     {
+      "lon": 30.52,
+      "lat": 50.45,
+      "nome": "KYIV"
+     },
+     {
+      "lon": 20.07,
+      "lat": 32.12,
+      "nome": "BENGHAZI"
+     }
+    ],
+    "frecce": [
+     {
+      "da": [
+       30.52,
+       50.45
+      ],
+      "a": [
+       20.07,
+       32.12
+      ],
+      "colore": "arancio"
+     }
+    ]
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 2400,
+    "decimali": 0,
+    "prefisso": "+",
+    "unita": "KM FROM THE FRONT",
+    "sopra": "MORE THAN"
+   }
+  },
+  {
+   "testo": "The raid followed an attack last week on the Kerch Bridge.",
+   "fonti": [
+    "https://www.eurasiareview.com/24112026-could-divided-libya-become-a-new-front-in-the-russia-ukraine-war-analysis/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s15"
+   }
+  },
+  {
+   "testo": "And a day earlier, a Russian-owned cargo ship was struck by drones in the Baltic Sea.",
+   "fonti": [
+    "https://www.koreatimes.co.kr/world/20261124/ukraine-sinks-russian-warship-in-libya-as-conflict-spreads-beyond-europe"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s16"
+   }
+  },
+  {
+   "testo": "Finland's military said Ukraine likely carried that one out.",
+   "fonti": [
+    "https://www.koreatimes.co.kr/world/20261124/ukraine-sinks-russian-warship-in-libya-as-conflict-spreads-beyond-europe"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s17"
+   }
+  },
+  {
+   "testo": "Why was a Russian warship in Libya at all? That's next.",
+   "fonti": [
+    "https://www.tbsnews.net/world/ukraine-sinks-russian-warship-libya-conflict-spreads-beyond-europe-1612236"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s18"
+   }
+  },
+  {
+   "testo": "Eastern Libya is controlled by military commander Khalifa Haftar.",
+   "fonti": [
+    "https://www.foxnews.com/world/zelenskyy-hails-exemplary-ukrainian-operation-sinking-russian-warship-libya"
+   ],
+   "capitolo": "WHY BENGHAZI?",
+   "visivo": {
+    "tipo": "mappa",
+    "centro": [
+     17,
+     31
+    ],
+    "larghezza": 24,
+    "paesi": [
+     {
+      "iso": "LBY",
+      "colore": "verde"
+     }
+    ],
+    "punti": [
+     {
+      "lon": 20.07,
+      "lat": 32.12,
+      "nome": "BENGHAZI"
+     },
+     {
+      "lon": 13.19,
+      "lat": 32.89,
+      "nome": "TRIPOLI"
+     }
+    ]
+   }
+  },
+  {
+   "testo": "His Libyan National Army maintains ties with Russia.",
+   "fonti": [
+    "https://www.foxnews.com/world/zelenskyy-hails-exemplary-ukrainian-operation-sinking-russian-warship-libya"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s35"
+   }
+  },
+  {
+   "testo": "Eastern authorities said the Merkury had docked to refuel and take on supplies.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/22/suspected-drone-strike-hits-russian-vessel-in-libya"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s19"
+   }
+  },
+  {
+   "testo": "That, they said, was under a cooperation agreement with Russia.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/22/suspected-drone-strike-hits-russian-vessel-in-libya"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s51"
+   }
+  },
+  {
+   "testo": "The Institute for the Study of War says the corvette had stopped at the port for several days while escorting Russian cargo ships.",
+   "fonti": [
+    "https://www.tbsnews.net/world/ukraine-sinks-russian-warship-libya-conflict-spreads-beyond-europe-1612236"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s20"
+   }
+  },
+  {
+   "testo": "Ukraine's security service said the Merkury had guarded the cargo ship Angara.",
+   "fonti": [
+    "https://www.cbc.ca/news/world/ukraine-behind-attack-that-sank-russian-warship-off-libya-9.7432215"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s21"
+   }
+  },
+  {
+   "testo": "It says Angara is sanctioned and carried Russian military equipment.",
+   "fonti": [
+    "https://www.cbc.ca/news/world/ukraine-behind-attack-that-sank-russian-warship-off-libya-9.7432215"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s29"
+   }
+  },
+  {
+   "testo": "Those are Kyiv's claims. Russia has not confirmed the loss.",
+   "fonti": [
+    "https://en.lasicilia.it/news/italy-world/3092892/the-war-just-steps-away-from-sicily-the-raid-in-libya-against-russian-ships-and-the-hand-of-british-spies.html",
+    "https://www.taylortailored.co.uk/news-current-affairs/ukraine-strikes-russian-warship-merkury-benghazi-libya"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s44"
+   }
+  },
+  {
+   "testo": "Next: how seven drones got that close, according to Ukraine.",
+   "fonti": [
+    "https://www.eurasiareview.com/24112026-could-divided-libya-become-a-new-front-in-the-russia-ukraine-war-analysis/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s22"
+   }
+  },
+  {
+   "testo": "Ukraine's security service says the drones launched from a mothership.",
+   "fonti": [
+    "https://www.eurasiareview.com/24112026-could-divided-libya-become-a-new-front-in-the-russia-ukraine-war-analysis/"
+   ],
+   "capitolo": "SEVEN DRONES, ONE NIGHT",
+   "visivo": {
+    "tipo": "set",
+    "set": "s57"
+   }
+  },
+  {
+   "testo": "Zelensky says all seven were made in Ukraine.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/23/ukraine-russia-warship-libya.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s23"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 7,
+    "decimali": 0,
+    "prefisso": "",
+    "unita": "NAVAL DRONES",
+    "sopra": "UKRAINIAN-MADE"
+   }
+  },
+  {
+   "testo": "They struck in the early hours of Sunday morning.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/23/ukraine-russia-warship-libya.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s24"
+   }
+  },
+  {
+   "testo": "A British maritime firm, Ambrey, said some of the explosions were likely caused by ammunition aboard detonating.",
+   "fonti": [
+    "https://www.cbc.ca/news/world/ukraine-attack-russian-warship-libya-merkury-9.7432215"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s25"
+   }
+  },
+  {
+   "testo": "Eastern Libyan authorities described a brief fire.",
+   "fonti": [
+    "https://www.cbsnews.com/news/ukraine-zelenskyy-2-russian-ships-libya/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s26"
+   }
+  },
+  {
+   "testo": "A Ka-27 helicopter was aboard. Zelensky and Ukraine's security service say it was destroyed too.",
+   "fonti": [
+    "https://www.cbc.ca/news/world/ukraine-attack-russian-warship-libya-merkury-9.7432215"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s28"
+   }
+  },
+  {
+   "testo": "Hours later, according to local media reports picked up by AP, a Maltese-flagged commercial ship was also hit off Benghazi.",
+   "fonti": [
+    "https://www.cbc.ca/news/world/ukraine-behind-attack-that-sank-russian-warship-off-libya-9.7432215"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s27"
+   }
+  },
+  {
+   "testo": "The Libyan coast guard reported that hit. Who owns that ship is not established here.",
+   "fonti": [
+    "https://www.cbc.ca/news/world/ukraine-behind-attack-that-sank-russian-warship-off-libya-9.7432215"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s56"
+   }
+  },
+  {
+   "testo": "At first, nobody claimed it. Libya's east called it a suspected drone attack.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/22/suspected-drone-strike-hits-russian-vessel-in-libya"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s35"
+   }
+  },
+  {
+   "testo": "Then came Monday, and Zelensky's own words.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/23/ukraine-russia-warship-libya.html"
+   ],
+   "capitolo": "ZELENSKY BREAKS SILENCE",
+   "visivo": {
+    "tipo": "set",
+    "set": "s30"
+   }
+  },
+  {
+   "testo": "He posted video of a massive explosion on the Russian ship.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/23/ukraine-russia-warship-libya.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s31"
+   }
+  },
+  {
+   "testo": "He wrote that despite the enemy's efforts, the corvette was sunk.",
+   "fonti": [
+    "https://www.cbsnews.com/news/ukraine-zelenskyy-2-russian-ships-libya/"
+   ],
+   "visivo": {
+    "tipo": "frase",
+    "testo": "The Russian corvette Merkury was sunk."
+   },
+   "citazione": {
+    "chi": "zelensky",
+    "posa": "determinato",
+    "testo": "Despite all the enemy's efforts to counter the attack, the Russian corvette Merkury was sunk."
+   }
+  },
+  {
+   "testo": "He called it an exemplary operation, and said the ship was commissioned in 2023.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/23/ukraine-russia-warship-libya.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s10"
+   }
+  },
+  {
+   "testo": "And he added a line that matters for what comes next.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/23/ukraine-russia-warship-libya.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s55"
+   }
+  },
+  {
+   "testo": "We continue our operations in designated waters.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/23/ukraine-russia-warship-libya.html"
+   ],
+   "visivo": {
+    "tipo": "frase",
+    "testo": "We continue our operations in designated waters."
+   },
+   "citazione": {
+    "chi": "zelensky",
+    "posa": "parla",
+    "testo": "We continue our operations in designated waters."
+   }
+  },
+  {
+   "testo": "Libya's governments were not pleased. Both condemned it.",
+   "fonti": [
+    "https://www.tbsnews.net/world/ukraine-sinks-russian-warship-libya-conflict-spreads-beyond-europe-1612236",
+    "https://www.kyivpost.com/post/90978"
+   ],
+   "capitolo": "LIBYA PUSHES BACK",
+   "visivo": {
+    "tipo": "set",
+    "set": "s33"
+   }
+  },
+  {
+   "testo": "The UN-recognized government in Tripoli condemned the attacks.",
+   "fonti": [
+    "https://www.kyivpost.com/post/90978"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s34"
+   }
+  },
+  {
+   "testo": "It said Libya would not be drawn into the war.",
+   "fonti": [
+    "https://www.tbsnews.net/world/ukraine-sinks-russian-warship-libya-conflict-spreads-beyond-europe-1612236"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s37"
+   }
+  },
+  {
+   "testo": "The eastern administration called it a violation of Libya's sovereignty.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/22/suspected-drone-strike-hits-russian-vessel-in-libya"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s35"
+   }
+  },
+  {
+   "testo": "It launched an investigation with Russia into who was behind it.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/22/suspected-drone-strike-hits-russian-vessel-in-libya"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s51"
+   }
+  },
+  {
+   "testo": "Its prime minister asked the UN to look into suspicions.",
+   "fonti": [
+    "https://www.tbsnews.net/world/ukraine-sinks-russian-warship-libya-conflict-spreads-beyond-europe-1612236"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s36"
+   }
+  },
+  {
+   "testo": "That the boats had been launched from western Libya.",
+   "fonti": [
+    "https://www.tbsnews.net/world/ukraine-sinks-russian-warship-libya-conflict-spreads-beyond-europe-1612236"
+   ],
+   "visivo": {
+    "tipo": "mappa",
+    "centro": [
+     17,
+     31
+    ],
+    "larghezza": 20,
+    "paesi": [
+     {
+      "iso": "LBY",
+      "colore": "verde"
+     }
+    ],
+    "punti": [
+     {
+      "lon": 20.07,
+      "lat": 32.12,
+      "nome": "BENGHAZI"
+     },
+     {
+      "lon": 15.09,
+      "lat": 32.38,
+      "nome": "MISRATA"
+     },
+     {
+      "lon": 13.19,
+      "lat": 32.89,
+      "nome": "TRIPOLI"
+     }
+    ]
+   }
+  },
+  {
+   "testo": "He also asked it to check the presence of Ukrainian military experts there.",
+   "fonti": [
+    "https://www.tbsnews.net/world/ukraine-sinks-russian-warship-libya-conflict-spreads-beyond-europe-1612236"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s38"
+   }
+  },
+  {
+   "testo": "That is an allegation by eastern Libyan officials. Ukraine has not confirmed it.",
+   "fonti": [
+    "https://www.tbsnews.net/world/ukraine-sinks-russian-warship-libya-conflict-spreads-beyond-europe-1612236"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s37"
+   }
+  },
+  {
+   "testo": "The UN mission in Libya voiced serious concern.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/23/ukraine-russia-warship-libya.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s36"
+   }
+  },
+  {
+   "testo": "It said Libya must not become a battleground for foreign conflicts.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/23/ukraine-russia-warship-libya.html"
+   ],
+   "visivo": {
+    "tipo": "frase",
+    "testo": "Libya must not become a battleground."
+   }
+  },
+  {
+   "testo": "Across the sea, one capital was listening closely. Rome.",
+   "fonti": [
+    "https://ansa.it/sito/notizie/topnews/2026/11/23/tajani-preoccupa-esplosione-nave-russa-in-libia-evitare-guerra-in-mediterraneo_9559ae23-c3e4-40bc-b6fa-789982e69d7a.html"
+   ],
+   "capitolo": "ROME TAKES NOTE",
+   "visivo": {
+    "tipo": "set",
+    "set": "s39"
+   }
+  },
+  {
+   "testo": "Italy's foreign minister, Antonio Tajani, spoke from Baku.",
+   "fonti": [
+    "https://ansa.it/sito/notizie/topnews/2026/11/23/tajani-preoccupa-esplosione-nave-russa-in-libia-evitare-guerra-in-mediterraneo_9559ae23-c3e4-40bc-b6fa-789982e69d7a.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s40"
+   }
+  },
+  {
+   "testo": "He said that if this is a continuation of the Russia-Ukraine war a few hundred kilometers from Italy, it is worrying.",
+   "fonti": [
+    "https://www.usmuslims.com/italy-warns-ukraine-war-risks-spreading-to-mediterranean-after-attack-on-russian-383370h.htm"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s41"
+   }
+  },
+  {
+   "testo": "He said war in the Mediterranean must be avoided.",
+   "fonti": [
+    "https://www.newsbeep.com/822012/"
+   ],
+   "visivo": {
+    "tipo": "frase",
+    "testo": "He said war in the Mediterranean must be avoided."
+   }
+  },
+  {
+   "testo": "He added that Rome wants a stable Libya, and Russian presence needs close watching.",
+   "fonti": [
+    "https://ansa.it/sito/notizie/topnews/2026/11/23/tajani-preoccupa-esplosione-nave-russa-in-libia-evitare-guerra-in-mediterraneo_9559ae23-c3e4-40bc-b6fa-789982e69d7a.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s42"
+   }
+  },
+  {
+   "testo": "He also offered a view on the timing.",
+   "fonti": [
+    "https://liveuamap.com/en/2026/23-november-10-italian-foreign-minister-antonio-tajani-warned"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s49"
+   }
+  },
+  {
+   "testo": "When peace dialogue begins, he said, military activity always increases.",
+   "fonti": [
+    "https://liveuamap.com/en/2026/23-november-10-italian-foreign-minister-antonio-tajani-warned"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s60"
+   }
+  },
+  {
+   "testo": "Fox News reported that peace talks resumed this month after a nine-month pause.",
+   "fonti": [
+    "https://www.koreatimes.co.kr/world/20261124/ukraine-sinks-russian-warship-in-libya-as-conflict-spreads-beyond-europe"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s59"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 9,
+    "decimali": 0,
+    "prefisso": "",
+    "unita": "MONTH PAUSE",
+    "sopra": "TALKS RESUMED AFTER"
+   }
+  },
+  {
+   "testo": "So what does Moscow say? The answer came Monday.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/23/russia-warns-ukraine-of-dangerous-trend-after-libya-and-baltic-attacks"
+   ],
+   "capitolo": "MOSCOW'S ANSWER",
+   "visivo": {
+    "tipo": "set",
+    "set": "s45"
+   }
+  },
+  {
+   "testo": "Then spokesman Dmitry Peskov said the Defense Ministry was handling the matter.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/23/russia-warns-ukraine-of-dangerous-trend-after-libya-and-baltic-attacks"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s08"
+   }
+  },
+  {
+   "testo": "He said it would share details if it deemed that appropriate.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/23/russia-warns-ukraine-of-dangerous-trend-after-libya-and-baltic-attacks"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s44"
+   }
+  },
+  {
+   "testo": "Russia's Defense Ministry had not commented on the incident, according to the Epoch Times.",
+   "fonti": [
+    "https://www.taylortailored.co.uk/news-current-affairs/ukraine-strikes-russian-warship-merkury-benghazi-libya"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s53"
+   }
+  },
+  {
+   "testo": "Peskov called it a very dangerous trend.",
+   "fonti": [
+    "https://www.trtworld.com/article/ad4249812e76"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s46"
+   }
+  },
+  {
+   "testo": "Daily Russian strikes on Ukraine, he said, 'have very painful consequences for the Kyiv regime.'",
+   "fonti": [
+    "https://www.dagens.com/war/kremlin-reacts-after-ukraine-sinks-russian-warship-in-libya-over-1000-miles-away"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s46"
+   }
+  },
+  {
+   "testo": "Asked about a response, Peskov said Russian forces carry out large-scale strikes on Ukraine daily.",
+   "fonti": [
+    "https://maps.southfront.press/russia-vows-benghazi-attack-will-not-go-unanswered"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s48"
+   }
+  },
+  {
+   "testo": "Russia's ambassador to Libya, Aydar Aganin, spoke to RT.",
+   "fonti": [
+    "https://maps.southfront.press/russia-vows-benghazi-attack-will-not-go-unanswered"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s51"
+   }
+  },
+  {
+   "testo": "He said the attack will not go unanswered and Moscow is considering its response options.",
+   "fonti": [
+    "https://maps.southfront.press/russia-vows-benghazi-attack-will-not-go-unanswered"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s51"
+   }
+  },
+  {
+   "testo": "He also claimed Kyiv's Western backers provided logistical and intelligence support.",
+   "fonti": [
+    "https://maps.southfront.press/russia-vows-benghazi-attack-will-not-go-unanswered"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s52"
+   }
+  },
+  {
+   "testo": "Peskov also hoped Baltic states would press Kyiv to stop what he called terrorist practices.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/23/russia-warns-ukraine-of-dangerous-trend-after-libya-and-baltic-attacks"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s16"
+   }
+  },
+  {
+   "testo": "Kyiv's position is different. Zelensky says Ukraine is responding to Russia's aggression.",
+   "fonti": [
+    "https://www.navalnews.com/naval-news/2026/11/russian-warship-destroyed-in-huge-explosion-in-libya/"
+   ],
+   "capitolo": "WHAT HAPPENS NEXT",
+   "visivo": {
+    "tipo": "set",
+    "set": "s04"
+   }
+  },
+  {
+   "testo": "Al Jazeera says the attacks come amid a Ukrainian campaign targeting Russian naval assets, energy infrastructure and vessels linked to Moscow's so-called shadow fleet.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/23/russia-warns-ukraine-of-dangerous-trend-after-libya-and-baltic-attacks"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s43"
+   }
+  },
+  {
+   "testo": "That fleet helps Russia evade Western sanctions, according to Al Jazeera.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/23/russia-warns-ukraine-of-dangerous-trend-after-libya-and-baltic-attacks"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s20"
+   }
+  },
+  {
+   "testo": "What is claimed: Zelensky says seven drones sank the Merkury.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/23/ukraine-russia-warship-libya.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s58"
+   }
+  },
+  {
+   "testo": "Satellite imagery shows the ship capsized. Libya's governments condemned it.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/23/russian-ships-hit-by-drones-off-libya-coast-what-do-we-know",
+    "https://www.tbsnews.net/world/ukraine-sinks-russian-warship-libya-conflict-spreads-beyond-europe-1612236"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s06"
+   }
+  },
+  {
+   "testo": "This story is still moving. Subscribe, so you don't miss what happens next.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/23/russia-warns-ukraine-of-dangerous-trend-after-libya-and-baltic-attacks"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s55"
+   }
+  }
+ ],
+ "copertina": {
+  "sfondo": "Night harbor with a capsized warship, only the bow above black water, orange fires and thick smoke on the quay, bright and clear",
+  "personaggi": [
+   "zelensky"
+  ],
+  "pose": {
+   "zelensky": "determinato"
+  },
+  "personaggio": "zelensky",
+  "posa": "determinato",
+  "lato": "dx",
+  "righe": [
+   "7 DRONES",
+   "1 WARSHIP"
+  ],
+  "box": "RUSSIA VOWS REVENGE",
+  "evidenzia": 1,
+  "parola": "SUNK",
+  "etichetta": "OFF LIBYA",
+  "domanda": "WHAT'S NEXT?",
+  "frase": ""
+ },
+ "verifica": {
+  "correzioni": 53,
+  "scene_tolte": 14
+ },
+ "coerenza": {
+  "scene_rifatte": 16,
+  "controllate": 69
+ },
+ "lingua": "en",
+ "nome": "2026-11-24_ukraine_sinks_russian_corvette_merkury_a_en",
+ "data": "NOVEMBER 24, 2026",
+ "etichetta": "BREAKING",
+ "musica": "tensione",
+ "voce": "uju3wxzG5OhpWcoi3SMy",
+ "budget_dollari": 3.57,
+ "storia": "Ukraine sinks Russian corvette Merkury at Libya's Benghazi port with naval drones; Zelensky confirms, Russia vows response",
+ "filone": "guerra"
+}
