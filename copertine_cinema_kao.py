@@ -566,7 +566,7 @@ def scritta_cartoncino(im, frase, lato='destra', zona=None, limite=None):
     y0, y1 = int(Hh * .04), (int(Hh * .90) if lato == 'sinistra' else int(Hh * .76))   # in basso a destra c'e' la durata del video
     if lato in ('alto', 'basso'):   # fascia come il competitor: larga e bassa, la scena sotto resta visibile
         x0, x1 = int(W * .05), int(W * .95)
-        y0, y1 = (int(Hh * .025), int(Hh * .27)) if lato == 'alto' else (int(Hh * .68), int(Hh * .92))
+        y0, y1 = (int(Hh * .025), int(Hh * .27)) if lato == 'alto' else (int(Hh * .58), int(Hh * .95))   # 24 nov: fascia bassa piu' alta, scritta grande
         if lato == 'alto' and limite:   # mai sopra le teste: il fondo del riquadro (ombra compresa) resta sopra la testa piu' alta
             y1 = min(y1, int(Hh * limite) - 12)
         if lato == 'basso':
@@ -603,6 +603,9 @@ def scritta_cartoncino(im, frase, lato='destra', zona=None, limite=None):
         if not best or lo > best[0]:
             best = (lo, righe)
     k, righe = best
+    if lato == 'alto' and k < Hh * .13:   # 24 nov (Giorgio: "scritta nettamente piu' grande, da mobile non si vede niente"): se sopra le teste
+        log(f'  scritta in alto troppo piccola ({k}px): la metto grande in basso, sopra gambe e pavimento')   # c'e' poco spazio, va in basso grande
+        return scritta_cartoncino(im, frase, 'basso', None, None)
     senza = lambda r: ''.join(ch for ch in unicodedata.normalize('NFD', r) if unicodedata.category(ch) != 'Mn')
 
     def misure(k):   # centratura in altezza sul CORPO delle lettere: l'accento di É/À sta nel margine sopra, che resta uguale a quello sotto
