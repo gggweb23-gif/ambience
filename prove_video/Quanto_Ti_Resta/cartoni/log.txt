@@ -1,25 +1,22 @@
-07:00:26 Claude: 26159 caratteri, fine: end_turn
-07:00:26 copione: 34 scene, 8000 caratteri
-07:00:26 voce non riuscita, riprovo: HTTP Error 401: Unauthorized
-07:00:31 voce non riuscita, riprovo: HTTP Error 401: Unauthorized
-07:00:42 voce non riuscita, riprovo: HTTP Error 401: Unauthorized
-07:00:57 voce non riuscita, riprovo: HTTP Error 401: Unauthorized
-Traceback (most recent call last):
-  File "/home/runner/work/ambience/ambience/video_cartoni.py", line 586, in <module>
-    main()
-  File "/home/runner/work/ambience/ambience/video_cartoni.py", line 514, in main
-    files.append(voce(i, s['testo'], ' '.join(x['testo'] for x in scene[:i]), ' '.join(x['testo'] for x in scene[i + 1:])))
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/ambience/ambience/video_cartoni.py", line 253, in voce
-    raise RuntimeError('ElevenLabs non risponde')
-RuntimeError: ElevenLabs non risponde
-07:01:17 esito: {"stato": "ERRORE", "errore": "ElevenLabs non risponde"}
-Traceback (most recent call last):
-  File "/home/runner/work/ambience/ambience/video_cartoni.py", line 586, in <module>
-    main()
-  File "/home/runner/work/ambience/ambience/video_cartoni.py", line 514, in main
-    files.append(voce(i, s['testo'], ' '.join(x['testo'] for x in scene[:i]), ' '.join(x['testo'] for x in scene[i + 1:])))
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/ambience/ambience/video_cartoni.py", line 253, in voce
-    raise RuntimeError('ElevenLabs non risponde')
-RuntimeError: ElevenLabs non risponde
+10:30:31 Claude: 22513 caratteri, fine: end_turn
+10:30:31 copione: 33 scene, 7396 caratteri
+10:31:46 Claude: 23013 caratteri, fine: end_turn
+10:32:03 voce: 7536 caratteri, 473 s naturali, atempo 1.035, video 8.1 minuti
+10:32:07 inquadrature: 78 | media 6.2 s
+10:32:20 scena 1 di 37
+10:33:25 scena 6 di 37
+10:34:34 scena 11 di 37
+10:35:42 scena 16 di 37
+10:36:53 scena 21 di 37
+10:38:02 scena 26 di 37
+10:39:07 scena 31 di 37
+10:40:21 scena 36 di 37
+10:40:33 copertina MANO LIBERA: banda sotto | cartone
+10:40:57 copertina AI tentativo 1: OK
+10:40:58 copertina AI pronta (COSTA / LO VENDI grandi, senza banda)
+10:42:57 pulsante iscriviti al secondo 116.36 con 2 suoni
+10:47:46 video finale a 1440p (piu' nitido su YouTube)
+10:47:46 FATTO: /home/runner/work/ambience/ambience/video_cartoni.mp4 8.1 minuti | COSTO VIDEO (stima): 0.45 $ + 3759 crediti voce | claude claude-sonnet-5-5: 0.373 $ (3 chiamate) | fal fal-ai/nano-banana-2/edit: 0.080 $ (1 chiamate) | elevenlabs eleven_flash_v2_5: 0.000 $ (37 chiamate), 3759 crediti
+promozione a pagamento: No
+10:47:49 playlist: Quanto guadagna davvero
+10:47:52 esito: {"stato": "PUBBLICATO", "video_id": "OsPNAIPyNB4", "link": "https://www.youtube.com/watch?v=OsPNAIPyNB4", "pubblica_il": "2026-11-24T16:00:00.000Z", "errore": "", "titolo": "Quanto guadagna una libreria su un libro da 20 €?", "descrizione": "Quanto guadagna una libreria su un libro da 20 €?\n\nUn libro costa venti euro e sulla copertina c'è scritto. Ma quanti euro restano davvero al libraio? Con Elena e la sua libreria scopriamo il prezzo fissato dall'editore, lo sconto massimo, il margine che sembra alto e invece si scioglie tra affitto e costi, e perché gli eventi possono salvare i conti. Nu

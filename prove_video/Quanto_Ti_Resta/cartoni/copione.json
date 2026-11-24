@@ -1,374 +1,330 @@
 {
- "titolo": "Quanto guadagna un negozio su un paio di scarpe da 100 €?",
+ "titolo": "Quanto guadagna una libreria su un libro da 20 €?",
  "protagonista": {
-  "nome": "Luisa",
+  "nome": "Elena",
   "capelli": "bun",
-  "colore_capelli": "#5a3a22",
+  "colore_capelli": "#5a3825",
   "pelle": "chiara",
-  "maglia": "#2f6f8f",
-  "grembiule": "",
+  "maglia": "#2e6f95",
+  "grembiule": "#8a5a44",
   "occhiali": true
  },
- "oggetto": "scarpe",
+ "oggetto": "libro",
  "copertina": {
   "righe": [
-   "SCARPE A CENTO",
-   "EURO: TI RESTA",
-   "POCHISSIMO"
+   "LIBRO DA 20 €",
+   "TI RESTANO",
+   "SOLO 6 €"
   ],
   "emozione": "stupito",
-  "oggetto": "scarpe",
-  "prezzo": "100 €",
+  "oggetto": "libro",
+  "prezzo": "20 €",
   "fondo": "scuro"
  },
  "copertina_ai": {
-  "valore_sx": "50 €",
-  "valore_dx": "100 €",
-  "oggetto_sx": "a pair of plain brown leather shoes seen from the side, no box, no price tag",
-  "oggetto_dx": "a pair of elegant leather shoes in an open shoebox with a big price tag",
+  "valore_sx": "14 €",
+  "valore_dx": "20 €",
+  "oggetto_sx": "a stack of plain printed book pages, a cardboard cover and a spool of thread laid apart, not assembled",
+  "oggetto_dx": "a beautiful hardcover novel with a price tag standing on a bookshop shelf",
   "domanda": [
-   "COMPRI A CINQUANTA",
-   "E TI RESTA?"
+   "VENDI UN LIBRO",
+   "E TI RESTA COSÌ POCO?"
   ]
  },
- "descrizione": "Un paio di scarpe a cento euro: quanto ne resta davvero a chi le vende? Con Luisa, titolare di un negozio di scarpe, scopri la differenza tra ricarico e margine, cosa succede con i saldi, quanto costa l'invenduto e perché le taglie sono il vero nemico del magazzino. Numeri semplici, esempi di altre attività e una regola da usare subito nel tuo negozio.",
+ "descrizione": "Un libro costa venti euro e sulla copertina c'è scritto. Ma quanti euro restano davvero al libraio? Con Elena e la sua libreria scopriamo il prezzo fissato dall'editore, lo sconto massimo, il margine che sembra alto e invece si scioglie tra affitto e costi, e perché gli eventi possono salvare i conti. Numeri d'esempio, per capire come ragionare se hai o vuoi aprire un'attività.",
  "tag": [
-  "negozio di scarpe",
-  "aprire un negozio",
-  "ricarico",
-  "margine",
-  "saldi",
-  "magazzino",
-  "invenduto",
-  "taglie",
+  "libreria",
+  "aprire una libreria",
+  "margine libreria",
+  "prezzo libro",
+  "sconto libri",
+  "legge Levi",
+  "editori",
+  "distributore",
   "costi fissi",
   "punto di pareggio",
-  "commercio",
-  "negozio abbigliamento",
+  "eventi in libreria",
   "economia pratica",
-  "piccola impresa",
   "aprire un'attività",
-  "conti del negozio"
+  "commercianti",
+  "piccola impresa",
+  "conti di un negozio"
  ],
  "scene": [
   {
-   "testo": "Un paio di scarpe costa cento euro in vetrina. Pensi che il negozio ne guadagni cinquanta? Ecco, quella è la cifra che pensano tutti. Luisa ci credeva anche lei, il primo anno. Poi ha fatto i conti veri. E ti dico subito: non sono cinquanta.",
+   "testo": "Elena vende un libro da venti euro. Pensi che le restino almeno dieci euro, no? Invece, dopo tutti i costi, a fine mese su quel libro le restano pochi centesimi. Vediamo dove finiscono i soldi.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "domanda",
      "p": {
-      "testo": "Ne resta metà?",
+      "testo": "Quanto le resta?",
       "emozione": "stupito",
       "scuro": true
      }
     },
     {
-     "parola": "cinquanta",
+     "parola": "Invece",
      "tipo": "prezzo",
      "p": {
-      "oggetto": "scarpe",
-      "prezzo": "100 €",
-      "nota": "Il prezzo che vedi"
+      "oggetto": "libro",
+      "prezzo": "20 €",
+      "nota": "prezzo di copertina"
      }
     },
     {
-     "parola": "conti",
-     "tipo": "timbro",
+     "parola": "centesimi",
+     "tipo": "fette",
      "p": {
-      "oggetto": "scarpe",
-      "testo": "NON È METÀ",
-      "colore": "rosso",
-      "nota": "I conti veri sono un altro film"
+      "titolo": "Dove vanno i venti euro",
+      "totale": 20,
+      "totale_testo": "20 €",
+      "fette": [
+       {
+        "nome": "Editore e distributore",
+        "valore": 13,
+        "testo": "13 €"
+       },
+       {
+        "nome": "Costi della libreria",
+        "valore": 5.4,
+        "testo": "5,40 €"
+       },
+       {
+        "nome": "Resta a Elena",
+        "valore": 1.6,
+        "testo": "1,60 €"
+       }
+      ],
+      "evidenzia": 2
      }
     }
    ]
   },
   {
-   "testo": "Lei è Luisa. Ha un negozio di scarpe in una città di provincia, in una via con un po' di passaggio. Due vetrine, un magazzino piccolo, tanta passione. Oggi ti porto dentro i suoi conti. Prendi un caffè, perché si parte.",
-   "capitolo": "Il negozio di Luisa",
+   "testo": "Lei è Elena. Ha una libreria di quartiere con tremila titoli sugli scaffali, un tavolo di novità e una poltrona vecchia dove i clienti leggono le prime pagine, senza comprare. Quasi sempre.",
+   "capitolo": "La libreria di Elena",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "luogo",
      "p": {
-      "luogo": "negozio di scarpe",
-      "insegna": "Scarpe Luisa",
+      "luogo": "libreria",
+      "insegna": "Il Segnalibro",
       "azione": "felice",
       "clienti": 2,
-      "testo": "Il negozio di Luisa"
+      "testo": "Libreria Il Segnalibro"
      }
     },
     {
-     "parola": "Due",
-     "tipo": "lista",
+     "parola": "poltrona",
+     "tipo": "persone",
      "p": {
-      "titolo": "Il negozio",
-      "voci": [
-       "Due vetrine",
-       "Un magazzino piccolo",
-       "Una via con passaggio",
-       "Una titolare appassionata"
-      ]
-     }
-    },
-    {
-     "parola": "caffè",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Si parte!",
-      "emozione": "felice",
-      "scuro": false
+      "n": 3,
+      "azione": "entrano",
+      "escono": 0,
+      "testo": "Leggono, ma comprano?"
      }
     }
    ]
   },
   {
-   "testo": "Partiamo dalla scarpa. Luisa compra un paio dal fornitore a cinquanta euro, più o meno. Lo rivende a cento. Quindi su quel paio, dentro la cassa, entrano cento euro. Bello, vero? Ma attenzione: cento euro in cassa non sono cento di guadagno.",
-   "capitolo": "",
+   "testo": "Prima regola, strana: Elena non decide il prezzo. Lo decide l'editore e lo stampa sulla copertina. Venti euro. Se vuole, può solo scontarlo. Non può nemmeno rincararlo, perché la copertina è la copertina.",
+   "capitolo": "Il prezzo lo fa l'editore",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "prezzo",
      "p": {
-      "oggetto": "scarpe",
-      "prezzo": "50 €",
-      "nuovo_prezzo": "100 €",
-      "nota": "Costo e prezzo di vendita"
+      "oggetto": "libro",
+      "prezzo": "20 €",
+      "nota": "Lo decide l'editore"
      }
     },
     {
-     "parola": "Quindi",
-     "tipo": "conteggio",
+     "parola": "scontarlo",
+     "tipo": "luogo",
      "p": {
-      "oggetto": "scarpe",
-      "icone": 10,
-      "testo": "100 € in cassa"
+      "luogo": "libreria",
+      "insegna": "Il Segnalibro",
+      "azione": "stupito",
+      "clienti": 1,
+      "testo": "Prezzo fisso"
      }
     },
     {
-     "parola": "Bello",
-     "tipo": "timbro",
+     "parola": "copertina",
+     "tipo": "lista",
      "p": {
-      "oggetto": "scarpe",
-      "testo": "NON È GUADAGNO",
-      "colore": "rosso",
-      "nota": "Cassa non vuol dire utile"
+      "titolo": "Chi decide cosa",
+      "voci": [
+       "Prezzo: editore",
+       "Sconto massimo: la legge",
+       "Titoli in vetrina: Elena",
+       "Orari e arredi: Elena"
+      ]
      }
     }
    ]
   },
   {
-   "testo": "Prima parola magica: ricarico. Il ricarico è quanto aggiungi al costo per ottenere il prezzo. Costo cinquanta, prezzo cento: hai aggiunto cinquanta. E cinquanta su cinquanta fa il cento per cento di ricarico. Cioè hai raddoppiato.",
-   "capitolo": "Ricarico e margine",
+   "testo": "Anche lo sconto ha un tetto. In Italia, in generale, il massimo è il cinque per cento, con qualche eccezione per promozioni e periodi speciali. Quindi su venti euro lo sconto massimo è un euro. Ricordalo.",
+   "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "formula",
      "p": {
-      "titolo": "Il ricarico",
-      "a": "50 €",
-      "op": "+",
-      "b": "50 €",
-      "risultato": "100 €",
-      "nota": "Ricarico: cento per cento"
+      "titolo": "Sconto massimo",
+      "a": "20 €",
+      "op": "×",
+      "b": "5%",
+      "risultato": "1 €",
+      "nota": "esempio indicativo"
      }
     },
     {
-     "parola": "Costo",
+     "parola": "eccezioni",
+     "tipo": "bilancia",
+     "p": {
+      "titolo": "Sconto o margine?",
+      "sinistra": "Clienti contenti",
+      "destra": "Margine ridotto",
+      "pende": "destra"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Pensa a un negozio di elettrodomestici. Può fare il prezzo che vuole: oggi lo vende a trecento euro, domani a duecentosettanta. Elena questa libertà non ce l'ha. Ha un solo strumento: il servizio.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
      "tipo": "confronto",
      "p": {
-      "titolo": "Costo e prezzo",
+      "titolo": "Chi fa il prezzo",
       "a": {
-       "titolo": "Costo",
-       "valore": "50 €",
-       "oggetto": "scarpe"
+       "titolo": "Elettrodomestici",
+       "valore": "prezzo libero",
+       "oggetto": "lavatrice"
       },
       "b": {
-       "titolo": "Prezzo",
-       "valore": "100 €",
-       "oggetto": "scarpe"
+       "titolo": "Libreria",
+       "valore": "prezzo fisso",
+       "oggetto": "libro"
       },
       "vincitore": ""
      }
     },
     {
-     "parola": "raddoppiato",
-     "tipo": "andamento",
+     "parola": "servizio",
+     "tipo": "luogo",
      "p": {
-      "titolo": "Dal costo al prezzo",
-      "valori": [
-       50,
-       100
-      ],
-      "etichette": [
-       "Costo",
-       "Prezzo"
-      ],
-      "colore": "verde"
+      "luogo": "libreria",
+      "insegna": "Il Segnalibro",
+      "azione": "lavora",
+      "clienti": 1,
+      "testo": "Il servizio è l'arma"
      }
     }
    ]
   },
   {
-   "testo": "Seconda parola magica: margine. Il margine è quello che resta del prezzo, non del costo. Cinquanta euro su cento, cioè il cinquanta per cento. Attenzione: ricarico cento per cento vuol dire margine cinquanta per cento. Non confonderli mai.",
-   "capitolo": "",
+   "testo": "Ora la domanda vera: a quanto compra il libro? Elena lo compra dal distributore con uno sconto di circa il trenta per cento sul prezzo di copertina. Venti euro meno il trenta per cento fa quattordici euro.",
+   "capitolo": "Quanto lo paga lei",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "fette",
+     "tipo": "formula",
      "p": {
-      "titolo": "Un paio venduto a cento euro",
-      "totale": 100,
-      "totale_testo": "100 €",
-      "fette": [
-       {
-        "nome": "Costo della scarpa",
-        "valore": 50,
-        "testo": "50 €"
-       },
-       {
-        "nome": "Margine lordo",
-        "valore": 50,
-        "testo": "50 €"
-       }
-      ],
-      "evidenzia": 1
+      "titolo": "Sconto di acquisto",
+      "a": "20 €",
+      "op": "×",
+      "b": "30%",
+      "risultato": "6 €",
+      "nota": "sconto dell'editore"
      }
     },
     {
-     "parola": "Attenzione",
-     "tipo": "bilancia",
+     "parola": "Venti",
+     "tipo": "formula",
      "p": {
-      "titolo": "Ricarico e margine",
-      "sinistra": "Ricarico 100%",
-      "destra": "Margine 50%",
-      "pende": "sinistra"
+      "titolo": "Costo del libro",
+      "a": "20 €",
+      "op": "−",
+      "b": "6 €",
+      "risultato": "14 €",
+      "nota": "quanto paga Elena"
      }
     },
     {
-     "parola": "confonderli",
-     "tipo": "domanda",
+     "parola": "quattordici",
+     "tipo": "prezzo",
      "p": {
-      "testo": "Non sono uguali!",
-      "emozione": "stupito",
-      "scuro": false
+      "oggetto": "libro",
+      "prezzo": "14 €",
+      "nota": "costo d'acquisto"
      }
     }
    ]
   },
   {
-   "testo": "Facciamo un esempio fuori dal negozio. Un fioraio compra una rosa a settanta centesimi e la vende a due euro e dieci. Ricarico: duecento per cento. Margine: due terzi del prezzo. Sembra tantissimo, ma le rose appassiscono. Tienilo a mente.",
+   "testo": "Quindi Elena lo vende a venti e lo paga quattordici. Il margine lordo è di sei euro, cioè il trenta per cento. Sembra un bel margine, vero? Aspetta: questo è solo il margine lordo, quello prima dei costi.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "formula",
      "p": {
-      "titolo": "Il fioraio",
-      "a": "0,70 €",
-      "op": "+",
-      "b": "1,40 €",
-      "risultato": "2,10 €",
-      "nota": "Ricarico duecento per cento"
+      "titolo": "Margine lordo",
+      "a": "20 €",
+      "op": "−",
+      "b": "14 €",
+      "risultato": "6 €",
+      "nota": "il trenta per cento"
      }
     },
     {
-     "parola": "Margine",
-     "tipo": "fette",
+     "parola": "Aspetta",
+     "tipo": "domanda",
      "p": {
-      "titolo": "Una rosa venduta",
-      "totale": 2.1,
-      "totale_testo": "2,10 €",
-      "fette": [
-       {
-        "nome": "Costo",
-        "valore": 0.7,
-        "testo": "0,70 €"
-       },
-       {
-        "nome": "Margine",
-        "valore": 1.4,
-        "testo": "1,40 €"
-       }
-      ],
-      "evidenzia": 1
-     }
-    },
-    {
-     "parola": "appassiscono",
-     "tipo": "timbro",
-     "p": {
-      "oggetto": "rosa",
-      "testo": "SCADE",
-      "colore": "rosso",
-      "nota": "Il margine non basta"
+      "testo": "Sei euro tutti suoi?",
+      "emozione": "preoccupato",
+      "scuro": false
      }
     }
    ]
   },
   {
-   "testo": "Ma torniamo da Luisa. Quei cinquanta euro di margine su un paio non sono ancora il guadagno. Sono la prima fetta della torta, quella che serve a pagare tutto il resto. Vediamo cosa deve pagare ogni mese.",
+   "testo": "Un dettaglio che frega tanti: il resto. I libri non venduti, spesso, si possono restituire all'editore. Ma la resa non è gratis: costa tempo, spedizione e capitale fermo. E un libro fermo è una banconota ferma.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "luogo",
      "p": {
-      "luogo": "negozio di scarpe",
-      "insegna": "Scarpe Luisa",
+      "luogo": "libreria",
+      "insegna": "Il Segnalibro",
       "azione": "preoccupato",
       "clienti": 0,
-      "testo": "Il margine non è utile"
+      "testo": "Scatoloni da rendere"
      }
     },
     {
-     "parola": "fetta",
-     "tipo": "fette",
+     "parola": "banconota",
+     "tipo": "salvadanaio",
      "p": {
-      "titolo": "Dove va il margine",
-      "totale": 50,
-      "totale_testo": "50 €",
-      "fette": [
-       {
-        "nome": "Affitto e bollette",
-        "valore": 20,
-        "testo": "20 €"
-       },
-       {
-        "nome": "Stipendio dipendente",
-        "valore": 14,
-        "testo": "14 €"
-       },
-       {
-        "nome": "Tasse e varie",
-        "valore": 10,
-        "testo": "10 €"
-       },
-       {
-        "nome": "Resta a Luisa",
-        "valore": 6,
-        "testo": "6 €"
-       }
-      ],
-      "evidenzia": 3
-     }
-    },
-    {
-     "parola": "pagare",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Ne restano pochi",
-      "emozione": "preoccupato",
-      "scuro": true
+      "direzione": "svuota",
+      "testo": "Soldi fermi sugli scaffali"
      }
     }
    ]
   },
   {
-   "testo": "I costi fissi di Luisa ogni mese. Affitto: mille e duecento euro. Una commessa: mille e cinquecento. Luce, riscaldamento e internet: duecento. Commercialista e cassa: trecento. Assicurazione e varie: cento. Totale: tremilatrecento euro al mese.",
-   "capitolo": "I costi fissi",
+   "testo": "Adesso i costi. Elena paga ogni mese l'affitto di duemila euro, lo stipendio di una commessa di mille e ottocento euro, le bollette e il gestionale per trecento euro e il resto per quattrocento. Tutto insieme?",
+   "capitolo": "I costi fissi di Elena",
    "inquadrature": [
     {
      "parola": "",
@@ -377,146 +333,93 @@
       "voci": [
        {
         "nome": "Affitto",
-        "valore": 1200,
-        "testo": "1.200 €"
+        "valore": 2000,
+        "testo": "2.000 €"
        },
        {
         "nome": "Commessa",
-        "valore": 1500,
-        "testo": "1.500 €"
+        "valore": 1800,
+        "testo": "1.800 €"
        },
        {
-        "nome": "Luce e internet",
-        "valore": 200,
-        "testo": "200 €"
-       },
-       {
-        "nome": "Commercialista",
+        "nome": "Bollette e gestionale",
         "valore": 300,
         "testo": "300 €"
        },
        {
-        "nome": "Assicurazione",
-        "valore": 100,
-        "testo": "100 €"
+        "nome": "Altro",
+        "valore": 400,
+        "testo": "400 €"
        }
       ],
-      "totale": 3300,
+      "totale": 4500,
       "periodo": "al mese"
      }
     },
     {
-     "parola": "Totale",
-     "tipo": "soldi",
+     "parola": "Tutto",
+     "tipo": "formula",
      "p": {
-      "centro": "3.300 €",
-      "destinazioni": [
-       "Proprietario",
-       "Commessa",
-       "Fornitori luce",
-       "Commercialista"
-      ]
-     }
-    },
-    {
-     "parola": "mese",
-     "tipo": "calendario",
-     "p": {
-      "titolo": "Ogni mese, vendi o non vendi",
-      "giorni": 30,
-      "testo": "3.300 € da pagare"
+      "titolo": "Totale costi fissi",
+      "a": "4.500 €",
+      "op": "+",
+      "b": "0 €",
+      "risultato": "4.500 € al mese",
+      "nota": "prima di guadagnare"
      }
     }
    ]
   },
   {
-   "testo": "Questi soldi li paghi anche se non entra nessuno. Anche il lunedì pieno di pioggia. Anche ad agosto. Per questo si chiamano fissi. E sono il primo numero che devi conoscere a memoria prima di aprire qualsiasi negozio.",
+   "testo": "Quattromilacinquecento euro al mese, vendi o non vendi. Questi sono i costi fissi. Non cambiano se entra un cliente o se ne entrano cento. Per questo il margine di sei euro, da solo, non basta a capire niente.",
    "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "persone",
-     "p": {
-      "n": 1,
-      "azione": "entrano",
-      "escono": 0,
-      "testo": "Un lunedì di pioggia"
-     }
-    },
-    {
-     "parola": "agosto",
-     "tipo": "mesi",
-     "p": {
-      "titolo": "Costi fissi: sempre uguali",
-      "valori": [
-       3300,
-       3300,
-       3300,
-       3300,
-       3300,
-       3300,
-       3300,
-       3300,
-       3300,
-       3300,
-       3300,
-       3300
-      ],
-      "evidenzia": [
-       8
-      ],
-      "nota": "Anche ad agosto"
-     }
-    },
-    {
-     "parola": "memoria",
-     "tipo": "lista",
-     "p": {
-      "titolo": "Da sapere a memoria",
-      "voci": [
-       "Affitto",
-       "Personale",
-       "Utenze",
-       "Commercialista"
-      ]
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Ora la domanda che conta: quante paia deve vendere Luisa per arrivare a zero? Zero di perdita, zero di guadagno. Si chiama punto di pareggio. Si calcola dividendo i costi fissi per il margine di un paio. Facile.",
-   "capitolo": "Il pareggio",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "domanda",
      "p": {
-      "testo": "Quante ne vende?",
-      "emozione": "calmo",
-      "scuro": false
+      "testo": "Costi fissi: sempre uguali",
+      "emozione": "preoccupato",
+      "scuro": true
      }
     },
     {
-     "parola": "punto",
+     "parola": "margine",
+     "tipo": "bilancia",
+     "p": {
+      "titolo": "Sei euro contro il mese",
+      "sinistra": "Margine di un libro: 6 €",
+      "destra": "Costi del mese: 4.500 €",
+      "pende": "destra"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Facciamo il calcolo del pareggio. Costi fissi quattromilacinquecento euro, diviso sei euro di margine per libro. Fa settecentocinquanta libri al mese. Solo per non perdere nemmeno un euro.",
+   "capitolo": "Il punto di pareggio",
+   "inquadrature": [
+    {
+     "parola": "",
      "tipo": "formula",
      "p": {
       "titolo": "Punto di pareggio",
-      "a": "3.300 €",
+      "a": "4.500 €",
       "op": "÷",
-      "b": "50 €",
-      "risultato": "66 paia",
-      "nota": "Costi fissi diviso margine"
+      "b": "6 €",
+      "risultato": "750 libri",
+      "nota": "al mese"
      }
     },
     {
-     "parola": "Facile",
+     "parola": "Solo",
      "tipo": "pareggio",
      "p": {
-      "titolo": "Pareggio mensile",
-      "fissi": 3300,
-      "margine": 50,
-      "unita": "paia vendute",
-      "oggetto": "scarpe",
+      "titolo": "Pareggio della libreria",
+      "fissi": 4500,
+      "margine": 6,
+      "unita": "libri venduti",
+      "oggetto": "libro",
       "perdita": true,
       "guadagno": false
      }
@@ -524,323 +427,287 @@
    ]
   },
   {
-   "testo": "Sessantasei paia al mese, per non perdere nulla. Fa poco più di due al giorno, vero? Sembra poco. Ma sono due paia al giorno, ogni giorno, solo per pareggiare. Il guadagno vero comincia dal sessantasettesimo paio.",
+   "testo": "Settecentocinquanta libri al mese, in trenta giorni, fanno venticinque libri al giorno. Tutti i giorni, domeniche comprese. Ma una libreria di quartiere ne vende, nelle giornate buone, quindici o venti.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "conteggio",
      "p": {
-      "oggetto": "scarpe",
-      "icone": 22,
-      "testo": "Due al giorno"
+      "oggetto": "libro",
+      "icone": 25,
+      "testo": "25 al giorno"
      }
     },
     {
-     "parola": "Sembra",
-     "tipo": "calendario",
+     "parola": "quindici",
+     "tipo": "conteggio",
      "p": {
-      "titolo": "Un mese di vendite",
-      "giorni": 30,
-      "testo": "Sessantasei paia per pareggiare"
-     }
-    },
-    {
-     "parola": "guadagno",
-     "tipo": "pareggio",
-     "p": {
-      "titolo": "Dopo il pareggio",
-      "fissi": 3300,
-      "margine": 50,
-      "unita": "paia vendute",
-      "oggetto": "scarpe",
-      "perdita": false,
-      "guadagno": true
+      "oggetto": "libro",
+      "icone": 15,
+      "testo": "15 al giorno"
      }
     }
    ]
   },
   {
-   "testo": "Ma c'è un problema, ed è il più grosso dei negozi di scarpe. Luisa non vende tutte le scarpe al prezzo pieno. Alcune finiscono in saldo. Alcune restano lì anni. E il pareggio che hai appena calcolato, a quel punto, salta.",
-   "capitolo": "Saldi e invenduto",
+   "testo": "Con quindici libri al giorno, Elena ne vende quattrocentocinquanta al mese. Quattrocentocinquanta per sei euro fa duemilasettecento euro di margine. Sui costi di quattromilacinquecento, mancano milleottocento euro.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Margine totale",
+      "a": "450 libri",
+      "op": "×",
+      "b": "6 €",
+      "risultato": "2.700 €",
+      "nota": "al mese"
+     }
+    },
+    {
+     "parola": "mancano",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Cosa manca",
+      "a": "4.500 €",
+      "op": "−",
+      "b": "2.700 €",
+      "risultato": "1.800 €",
+      "nota": "perdita mensile"
+     }
+    },
+    {
+     "parola": "perdita",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "libro",
+      "testo": "PERDITA",
+      "colore": "rosso",
+      "nota": "meno 1.800 € al mese"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ecco perché a un libraio puro i conti non tornano. Non è colpa sua: il margine è basso e i costi fissi sono alti. Come un bar che vende solo acqua minerale. Tanto lavoro, poco margine per pezzo.",
+   "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "luogo",
      "p": {
-      "luogo": "negozio di scarpe",
-      "insegna": "Scarpe Luisa",
-      "azione": "stupito",
+      "luogo": "libreria",
+      "insegna": "Il Segnalibro",
+      "azione": "preoccupato",
       "clienti": 1,
-      "testo": "Arrivano i saldi"
+      "testo": "I conti non tornano"
      }
     },
     {
-     "parola": "saldo",
-     "tipo": "timbro",
-     "p": {
-      "oggetto": "scarpe",
-      "testo": "SALDI",
-      "colore": "rosso",
-      "nota": "Il margine cambia"
-     }
-    },
-    {
-     "parola": "salta",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Il pareggio salta",
-      "emozione": "preoccupato",
-      "scuro": true
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Facciamo i saldi. Un paio da cento euro viene scontato del trenta per cento. Nuovo prezzo: settanta. Il costo è sempre cinquanta. Quindi il margine passa da cinquanta euro a venti. Hai tolto trenta di sconto, ma hai perso più della metà del margine.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "prezzo",
-     "p": {
-      "oggetto": "scarpe",
-      "prezzo": "100 €",
-      "nuovo_prezzo": "70 €",
-      "nota": "Sconto trenta per cento"
-     }
-    },
-    {
-     "parola": "margine",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Margine in saldo",
-      "a": "70 €",
-      "op": "−",
-      "b": "50 €",
-      "risultato": "20 €",
-      "nota": "Prima erano cinquanta"
-     }
-    },
-    {
-     "parola": "perso",
+     "parola": "bar",
      "tipo": "confronto",
      "p": {
-      "titolo": "Margine per paio",
+      "titolo": "Margine per pezzo",
       "a": {
-       "titolo": "Prezzo pieno",
-       "valore": "50 €",
-       "oggetto": "scarpe"
+       "titolo": "Libro",
+       "valore": "6 €",
+       "oggetto": "libro"
       },
       "b": {
-       "titolo": "In saldo",
-       "valore": "20 €",
-       "oggetto": "scarpe"
+       "titolo": "Caffè al bancone",
+       "valore": "1 €",
+       "oggetto": "tazzina"
       },
-      "vincitore": "a"
+      "vincitore": ""
      }
     }
    ]
   },
   {
-   "testo": "Qui sta il trucco che quasi nessuno vede. Con trenta per cento di sconto, per tornare a guadagnare gli stessi cinquanta euro, devi vendere due paia e mezzo invece di uno. Perché venti per due e mezzo fa cinquanta. Lo sconto non è un regalo: è una moltiplicazione di lavoro.",
+   "testo": "Un altro esempio: la farmacia. Anche lei ha molti prezzi regolati, ma vende tanti pezzi ogni giorno e ha un flusso costante. La libreria invece dipende da chi ha voglia di leggere. E la voglia è stagionale.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "formula",
+     "tipo": "confronto",
      "p": {
-      "titolo": "Quanti paia servono",
-      "a": "50 €",
-      "op": "÷",
-      "b": "20 €",
-      "risultato": "2,5 paia",
-      "nota": "Per guadagnare come prima"
+      "titolo": "Flusso di clienti",
+      "a": {
+       "titolo": "Farmacia",
+       "valore": "costante",
+       "oggetto": "medicine"
+      },
+      "b": {
+       "titolo": "Libreria",
+       "valore": "stagionale",
+       "oggetto": "libro"
+      },
+      "vincitore": ""
      }
     },
     {
-     "parola": "Perché",
-     "tipo": "conteggio",
+     "parola": "stagionale",
+     "tipo": "mesi",
      "p": {
-      "oggetto": "scarpe",
-      "icone": 3,
-      "testo": "Due e mezzo per uno"
+      "titolo": "Libri venduti per mese",
+      "valori": [
+       380,
+       330,
+       350,
+       370,
+       360,
+       330,
+       300,
+       260,
+       420,
+       480,
+       520,
+       780
+      ],
+      "evidenzia": [
+       12
+      ],
+      "nota": "dicembre fa la differenza"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Guarda i dodici mesi. Dicembre è il mese dei regali: sono settecentottanta libri. Agosto, invece, duecentosessanta. Una libreria vive di mesi pieni e mesi vuoti. E i costi fissi arrivano uguali tutti i mesi.",
+   "capitolo": "La stagionalità",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "mesi",
+     "p": {
+      "titolo": "Libri venduti per mese",
+      "valori": [
+       380,
+       330,
+       350,
+       370,
+       360,
+       330,
+       300,
+       260,
+       420,
+       480,
+       520,
+       780
+      ],
+      "evidenzia": [
+       8,
+       12
+      ],
+      "nota": "agosto basso, dicembre alto"
      }
     },
     {
-     "parola": "regalo",
+     "parola": "fissi",
+     "tipo": "calendario",
+     "p": {
+      "titolo": "Le bollette arrivano sempre",
+      "giorni": 30,
+      "testo": "Trenta giorni di costi"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Allora Elena ha capito una cosa: se il libro rende sei euro, la libreria non può vivere solo di libri uno alla volta. Deve vendere altro, o vendere insieme ai libri. Cosa guardare? Non solo il prezzo di copertina.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
      "tipo": "domanda",
      "p": {
-      "testo": "Sconto = più lavoro",
-      "emozione": "stupito",
-      "scuro": false
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Un esempio diverso: un parrucchiere fa un taglio a trenta euro e ci resta, tolti i prodotti, venti. Se lo scontasse del trenta per cento, a ventuno euro, gli resterebbero undici. Servirebbero quasi due clienti per averne uno di prima. Gli sconti ammazzano i margini.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "prezzo",
-     "p": {
-      "oggetto": "forbici",
-      "prezzo": "30 €",
-      "nuovo_prezzo": "21 €",
-      "nota": "Taglio scontato"
-     }
-    },
-    {
-     "parola": "Se",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Margine dopo lo sconto",
-      "a": "21 €",
-      "op": "−",
-      "b": "10 €",
-      "risultato": "11 €",
-      "nota": "Prima erano venti"
-     }
-    },
-    {
-     "parola": "ammazzano",
-     "tipo": "lista",
-     "p": {
-      "titolo": "Prima di fare uno sconto",
-      "voci": [
-       "Calcola il nuovo margine",
-       "Calcola quanti pezzi servono",
-       "Chiediti se li venderai davvero"
-      ]
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Allora perché Luisa fa i saldi? Perché la merce ferma costa più dello sconto. Un paio invenduto occupa spazio, immobilizza soldi, passa di moda. Meglio guadagnare venti euro oggi che zero tra un anno. Ma lo deve fare con testa.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Perché scontare?",
+      "testo": "Solo libri non basta",
       "emozione": "calmo",
       "scuro": false
      }
     },
     {
-     "parola": "spazio",
-     "tipo": "bilancia",
+     "parola": "guardare",
+     "tipo": "lista",
      "p": {
-      "titolo": "Meglio...",
-      "sinistra": "20 € oggi",
-      "destra": "0 € tra un anno",
-      "pende": "sinistra"
-     }
-    },
-    {
-     "parola": "testa",
-     "tipo": "cruscotto",
-     "p": {
-      "titolo": "Prima di scontare",
+      "titolo": "Cosa guardare",
       "voci": [
-       {
-        "nome": "Mesi in magazzino",
-        "valore": 0.8
-       },
-       {
-        "nome": "Margine residuo",
-        "valore": 0.4
-       },
-       {
-        "nome": "Moda che passa",
-        "valore": 0.7
-       }
+       "Margine per pezzo",
+       "Costi fissi del mese",
+       "Pezzi da vendere",
+       "Rotazione degli scaffali"
       ]
      }
     }
    ]
   },
   {
-   "testo": "Passiamo al magazzino, il vero nascondiglio dei soldi. Luisa ha scarpe per ventimila euro di costo sugli scaffali e nel retro. Sono soldi suoi, fermi, che non lavorano. E mentre sono lì, l'affitto corre lo stesso.",
-   "capitolo": "Il magazzino",
+   "testo": "Cosa non guardare? Il fatturato, da solo. Se Elena incassa novemila euro in un mese, sembra un successo. Ma novemila euro di incasso non sono novemila di guadagno. Il guadagno è quello che resta dopo tutto.",
+   "capitolo": "Incasso e guadagno",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "luogo",
+     "tipo": "soldi",
      "p": {
-      "luogo": "magazzino scarpe",
-      "insegna": "Scarpe Luisa",
-      "azione": "preoccupato",
-      "clienti": 0,
-      "testo": "Il retro del negozio"
+      "centro": "9.000 €",
+      "destinazioni": [
+       "Editori",
+       "Affitto",
+       "Commessa",
+       "Resta a Elena"
+      ]
      }
     },
     {
-     "parola": "ventimila",
-     "tipo": "conteggio",
+     "parola": "guadagno",
+     "tipo": "lista",
      "p": {
-      "oggetto": "scarpe",
-      "icone": 40,
-      "testo": "20.000 € di scarpe ferme"
-     }
-    },
-    {
-     "parola": "affitto",
-     "tipo": "salvadanaio",
-     "p": {
-      "direzione": "svuota",
-      "testo": "Soldi fermi che non lavorano"
+      "titolo": "Cosa non guardare",
+      "voci": [
+       "L'incasso da solo",
+       "I titoli che girano poco",
+       "Il numero di clienti che entrano",
+       "I mi piace sui social"
+      ]
      }
     }
    ]
   },
   {
-   "testo": "Quante volte il magazzino gira in un anno? Si chiama rotazione. Luisa vende ogni anno scarpe per quaranta mila euro di costo. Con venti mila in magazzino, gira due volte l'anno. Cioè ogni scarpa resta ferma, in media, sei mesi.",
+   "testo": "Primo trucco di Elena: i libri che non girano. Un libro fermo da un anno è un costo, perché occupa spazio e soldi. Meglio venderne meno ma con rotazione alta. Come un fruttivendolo: la frutta ferma marcisce.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "formula",
+     "tipo": "luogo",
      "p": {
-      "titolo": "Rotazione del magazzino",
-      "a": "40.000 €",
-      "op": "÷",
-      "b": "20.000 €",
-      "risultato": "2 volte l'anno",
-      "nota": "Ogni scarpa ferma sei mesi"
+      "luogo": "libreria",
+      "insegna": "Il Segnalibro",
+      "azione": "lavora",
+      "clienti": 1,
+      "testo": "Rotazione degli scaffali"
      }
     },
     {
-     "parola": "Cioè",
-     "tipo": "orologio",
-     "p": {
-      "ore": 12,
-      "piene": 6,
-      "testo": "Sei mesi ferma, sei mesi venduta"
-     }
-    },
-    {
-     "parola": "scarpa",
+     "parola": "fruttivendolo",
      "tipo": "andamento",
      "p": {
-      "titolo": "Valore delle scarpe nel tempo",
+      "titolo": "Valore della frutta ferma",
       "valori": [
        100,
-       90,
-       75,
-       60,
-       45
+       80,
+       55,
+       25,
+       0
       ],
       "etichette": [
-       "Nuova",
-       "3 mesi",
-       "6 mesi",
-       "9 mesi",
-       "12 mesi"
+       "Giorno 1",
+       "Giorno 2",
+       "Giorno 3",
+       "Giorno 4",
+       "Giorno 5"
       ],
       "colore": "rosso"
      }
@@ -848,587 +715,502 @@
    ]
   },
   {
-   "testo": "Un esempio diverso: una panetteria ha la rotazione più alta che esista. Il pane si vende in giornata, il magazzino gira trecento volte l'anno. Per questo il pane può avere margini piccoli. Il negozio di scarpe gira due volte: per forza servono margini grandi.",
+   "testo": "Secondo trucco: le scuole. A settembre arrivano i testi scolastici e le liste d'istituto. Un ragazzo compra anche dieci libri. Il margine sui testi scolastici è diverso, ma il volume può salvare la stagione.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "confronto",
-     "p": {
-      "titolo": "Rotazione in un anno",
-      "a": {
-       "titolo": "Pane",
-       "valore": "300 volte",
-       "oggetto": "pane"
-      },
-      "b": {
-       "titolo": "Scarpe",
-       "valore": "2 volte",
-       "oggetto": "scarpe"
-      },
-      "vincitore": "a"
-     }
-    },
-    {
-     "parola": "Per",
-     "tipo": "bilancia",
-     "p": {
-      "titolo": "Più giri, meno margine",
-      "sinistra": "Pane: margine piccolo",
-      "destra": "Scarpe: margine grande",
-      "pende": "destra"
-     }
-    },
-    {
-     "parola": "forza",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Poco giro, molto margine",
-      "emozione": "calmo",
-      "scuro": false
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Ora il guaio che fa piangere i negozi di scarpe: le taglie. Luisa compra un modello in tutte le taglie, dalla trentasei alla quarantasei. Ma a venderne tante sono solo quelle centrali. Le estreme restano lì, e sono la tomba dei suoi soldi.",
-   "capitolo": "Le taglie",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "lista",
-     "p": {
-      "titolo": "Le taglie del modello",
-      "voci": [
-       "Trentasei: poche",
-       "Trentotto e quaranta: tante",
-       "Quarantadue: tante",
-       "Quarantasei: quasi nessuna"
-      ]
-     }
-    },
-    {
-     "parola": "centrali",
-     "tipo": "mesi",
-     "p": {
-      "titolo": "Vendite per taglia (paia)",
-      "valori": [
-       1,
-       3,
-       6,
-       9,
-       10,
-       8,
-       5,
-       3,
-       1,
-       1,
-       0,
-       0
-      ],
-      "evidenzia": [
-       5,
-       6
-      ],
-      "nota": "Dalla piccola alla grande"
-     }
-    },
-    {
-     "parola": "tomba",
-     "tipo": "timbro",
-     "p": {
-      "oggetto": "scarpe",
-      "testo": "INVENDUTE",
-      "colore": "rosso",
-      "nota": "Le taglie estreme"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Facciamo i numeri. Luisa ordina dodici paia di un modello, costo cinquanta euro l'uno, seicento euro in tutto. A prezzo pieno ne vende sette, le taglie buone. Cinque restano. Vediamo quanto ha guadagnato davvero su quel modello.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "conteggio",
-     "p": {
-      "oggetto": "scarpe",
-      "icone": 12,
-      "testo": "12 paia ordinate"
-     }
-    },
-    {
-     "parola": "sette",
      "tipo": "persone",
      "p": {
-      "n": 7,
-      "azione": "escono",
-      "escono": 7,
-      "testo": "Sette paia vendute"
-     }
-    },
-    {
-     "parola": "Cinque",
-     "tipo": "conteggio",
-     "p": {
-      "oggetto": "scarpe",
-      "icone": 5,
-      "testo": "5 paia restano"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Incasso: sette paia per cento euro, settecento. Costo di tutte e dodici: seicento. Quindi sul modello, per ora, sono solo cento euro di utile. Non trecentocinquanta, come pensavi. E cinque paia sono ancora lì, a occupare scaffale.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Utile del modello",
-      "a": "700 €",
-      "op": "−",
-      "b": "600 €",
-      "risultato": "100 €",
-      "nota": "Incasso meno costo di tutte le paia"
-     }
-    },
-    {
-     "parola": "Quindi",
-     "tipo": "fette",
-     "p": {
-      "titolo": "Cosa succede ai 700 €",
-      "totale": 700,
-      "totale_testo": "700 €",
-      "fette": [
-       {
-        "nome": "Costo delle 7 vendute",
-        "valore": 350,
-        "testo": "350 €"
-       },
-       {
-        "nome": "Costo delle 5 ferme",
-        "valore": 250,
-        "testo": "250 €"
-       },
-       {
-        "nome": "Utile",
-        "valore": 100,
-        "testo": "100 €"
-       }
-      ],
-      "evidenzia": 2
-     }
-    },
-    {
-     "parola": "scaffale",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Cento, non trecentocinquanta",
-      "emozione": "stupito",
-      "scuro": true
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Ecco la lezione: non guardare il margine del singolo paio. Guarda il margine di tutto l'ordine, comprese le paia che non vendi. Se ne vendi sette su dodici, hai pagato anche cinque paia che non ti rendono nulla.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "lista",
-     "p": {
-      "titolo": "Cosa guardare",
-      "voci": [
-       "Margine sull'intero ordine",
-       "Paia vendute su paia comprate",
-       "Soldi fermi nelle taglie estreme"
-      ]
-     }
-    },
-    {
-     "parola": "singolo",
-     "tipo": "timbro",
-     "p": {
-      "oggetto": "scarpe",
-      "testo": "NON BASTA",
-      "colore": "rosso",
-      "nota": "Il margine del singolo paio"
-     }
-    },
-    {
-     "parola": "cinque",
-     "tipo": "bilancia",
-     "p": {
-      "titolo": "Ordine di dodici paia",
-      "sinistra": "7 vendute",
-      "destra": "5 ferme",
-      "pende": "destra"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Un esempio diverso: una pasticceria prepara venti torte per il sabato e ne vende dodici. Le altre otto si buttano o si regalano. Il margine della torta è buono, ma l'ordine in realtà è in perdita. Vale per tutto ciò che si compra in blocco.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "conteggio",
-     "p": {
-      "oggetto": "torta",
-      "icone": 20,
-      "testo": "Venti torte, dodici vendute"
-     }
-    },
-    {
-     "parola": "buttano",
-     "tipo": "persone",
-     "p": {
-      "n": 8,
-      "azione": "escono",
+      "n": 6,
+      "azione": "fila",
       "escono": 0,
-      "testo": "Otto restano sul bancone"
+      "testo": "Fila a settembre"
      }
     },
     {
-     "parola": "blocco",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Il blocco costa",
-      "emozione": "preoccupato",
-      "scuro": false
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Torniamo a Luisa. Il suo mese tipo: vende ottanta paia a prezzo pieno e venti in saldo. Incasso: ottomila euro più millequattrocento. Totale: novemilaquattrocento. Ma il costo delle scarpe vendute non è tutto: anche l'invenduto pesa.",
-   "capitolo": "Il mese di Luisa",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "negozio di scarpe",
-      "insegna": "Scarpe Luisa",
-      "azione": "lavora",
-      "clienti": 3,
-      "testo": "Un mese qualsiasi"
-     }
-    },
-    {
-     "parola": "Incasso",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Incasso del mese",
-      "a": "8.000 €",
-      "op": "+",
-      "b": "1.400 €",
-      "risultato": "9.400 €",
-      "nota": "Pieno prezzo più saldi"
-     }
-    },
-    {
-     "parola": "invenduto",
-     "tipo": "cruscotto",
-     "p": {
-      "titolo": "Vendite del mese",
-      "voci": [
-       {
-        "nome": "Paia a prezzo pieno",
-        "valore": 0.8
-       },
-       {
-        "nome": "Paia in saldo",
-        "valore": 0.2
-       }
-      ]
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Il costo delle cento paia vendute è cinquemila euro. Tolgo anche duecentocinquanta euro di scarpe che si sono rovinate o rimaste in vetrina. Margine del mese: nove mila e quattrocento meno cinquemila e duecentocinquanta. Fa quattromilacentocinquanta.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Margine del mese",
-      "a": "9.400 €",
-      "op": "−",
-      "b": "5.250 €",
-      "risultato": "4.150 €",
-      "nota": "Incasso meno costo delle scarpe"
-     }
-    },
-    {
-     "parola": "Tolgo",
-     "tipo": "fette",
-     "p": {
-      "titolo": "Dove vanno i 9.400 €",
-      "totale": 9400,
-      "totale_testo": "9.400 €",
-      "fette": [
-       {
-        "nome": "Costo scarpe vendute",
-        "valore": 5000,
-        "testo": "5.000 €"
-       },
-       {
-        "nome": "Scarpe rovinate",
-        "valore": 250,
-        "testo": "250 €"
-       },
-       {
-        "nome": "Margine",
-        "valore": 4150,
-        "testo": "4.150 €"
-       }
-      ],
-      "evidenzia": 2
-     }
-    },
-    {
-     "parola": "quattromilacentocinquanta",
-     "tipo": "conteggio",
-     "p": {
-      "oggetto": "scarpe",
-      "icone": 42,
-      "testo": "4.150 € di margine"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Ora paghiamo i costi fissi: tremilatrecento. Dai quattromilacentocinquanta togliamo tremilatrecento. Restano ottocentocinquanta euro. E da lì, ancora, le tasse. Luisa lavora dieci ore al giorno per un guadagno di ottocento euro al mese.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Cosa resta a Luisa",
-      "a": "4.150 €",
-      "op": "−",
-      "b": "3.300 €",
-      "risultato": "850 €",
-      "nota": "Prima delle tasse"
-     }
-    },
-    {
-     "parola": "Restano",
-     "tipo": "orologio",
-     "p": {
-      "ore": 16,
-      "piene": 10,
-      "testo": "Dieci ore al giorno"
-     }
-    },
-    {
-     "parola": "tasse",
-     "tipo": "timbro",
-     "p": {
-      "oggetto": "scarpe",
-      "testo": "850 € AL MESE",
-      "colore": "rosso",
-      "nota": "Prima delle tasse"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Quindi sulle scarpe da cento euro cosa resta? Pochi euro per paio. Facciamo ottocentocinquanta diviso cento paia: otto euro e cinquanta. Su cento euro in vetrina, otto e cinquanta nella tasca di Luisa. Altro che cinquanta.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Utile per paio",
-      "a": "850 €",
-      "op": "÷",
-      "b": "100 paia",
-      "risultato": "8,50 €",
-      "nota": "Su cento euro di prezzo"
-     }
-    },
-    {
-     "parola": "Altro",
-     "tipo": "fette",
-     "p": {
-      "titolo": "Un paio da 100 €",
-      "totale": 100,
-      "totale_testo": "100 €",
-      "fette": [
-       {
-        "nome": "Costo scarpa",
-        "valore": 52.5,
-        "testo": "52,50 €"
-       },
-       {
-        "nome": "Costi fissi",
-        "valore": 33,
-        "testo": "33 €"
-       },
-       {
-        "nome": "Resta a Luisa",
-        "valore": 8.5,
-        "testo": "8,50 €"
-       },
-       {
-        "nome": "Sconti e rovinate",
-        "valore": 6,
-        "testo": "6 €"
-       }
-      ],
-      "evidenzia": 2
-     }
-    },
-    {
-     "parola": "cinquanta",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Otto e cinquanta!",
-      "emozione": "stupito",
-      "scuro": true
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Come può migliorare? Ci sono quattro leve. Alzare il prezzo, abbassare il costo d'acquisto, vendere più paia, ridurre l'invenduto. Ogni leva ha un prezzo. Luisa deve scegliere quale tirare, e non per forza la più ovvia.",
-   "capitolo": "Le leve",
-   "inquadrature": [
-    {
-     "parola": "",
+     "parola": "volume",
      "tipo": "leve",
      "p": {
-      "titolo": "Come migliorare",
+      "titolo": "Le leve della libreria",
       "voci": [
-       "Alzare il prezzo",
-       "Comprare meglio",
-       "Vendere più paia",
-       "Ridurre l'invenduto"
+       "Testi scolastici",
+       "Ordini per le scuole",
+       "Regali e cartoleria",
+       "Eventi"
       ],
-      "evidenzia": 3
-     }
-    },
-    {
-     "parola": "Alzare",
-     "tipo": "prezzo",
-     "p": {
-      "oggetto": "scarpe",
-      "prezzo": "100 €",
-      "nuovo_prezzo": "110 €",
-      "nota": "Dieci euro in più"
-     }
-    },
-    {
-     "parola": "scegliere",
-     "tipo": "domanda",
-     "p": {
-      "testo": "Quale leva tiri?",
-      "emozione": "calmo",
-      "scuro": false
+      "evidenzia": 0
      }
     }
    ]
   },
   {
-   "testo": "Prima leva: il prezzo. Se Luisa porta le scarpe da cento a centodieci, e ne vende ancora cento, incassa mille euro in più. Mille euro che vanno quasi tutti in tasca, perché i costi fissi restano uguali. Dieci euro in più del prezzo sono quasi dieci euro di utile.",
-   "capitolo": "",
-   "inquadrature": [
-    {
-     "parola": "",
-     "tipo": "formula",
-     "p": {
-      "titolo": "Prezzo più alto",
-      "a": "10 €",
-      "op": "×",
-      "b": "100 paia",
-      "risultato": "1.000 € in più",
-      "nota": "Se i clienti restano"
-     }
-    },
-    {
-     "parola": "mille",
-     "tipo": "andamento",
-     "p": {
-      "titolo": "Utile del mese",
-      "valori": [
-       850,
-       1850
-      ],
-      "etichette": [
-       "Prima",
-       "Dopo"
-      ],
-      "colore": "verde"
-     }
-    },
-    {
-     "parola": "fissi",
-     "tipo": "salvadanaio",
-     "p": {
-      "direzione": "riempie",
-      "testo": "Quasi tutto in tasca"
-     }
-    }
-   ]
-  },
-  {
-   "testo": "Seconda leva: l'invenduto. Se Luisa ordina meglio e le paia rovinate o in saldo passano da venti a dieci, recupera circa duecento euro al mese. Meno paia ferme, più soldi liberi, meno sconti da fare. È la leva più noiosa, ma spesso la più sicura.",
-   "capitolo": "",
+   "testo": "Terzo trucco: la cartoleria e i regali. Un quaderno bello, un segnalibro, una penna. Qui il prezzo lo decide Elena. E il margine, su questi oggetti, può arrivare al cinquanta per cento, molto più dei libri.",
+   "capitolo": "Oltre i libri",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "confronto",
      "p": {
-      "titolo": "Paia in saldo al mese",
+      "titolo": "Margine sul prezzo",
       "a": {
-       "titolo": "Prima",
-       "valore": "20 paia",
-       "oggetto": "scarpe"
+       "titolo": "Libro",
+       "valore": "30%",
+       "oggetto": "libro"
       },
       "b": {
-       "titolo": "Dopo",
-       "valore": "10 paia",
-       "oggetto": "scarpe"
+       "titolo": "Quaderno",
+       "valore": "50%",
+       "oggetto": "quaderno"
       },
       "vincitore": "b"
      }
     },
     {
-     "parola": "recupera",
-     "tipo": "salvadanaio",
+     "parola": "quaderno",
+     "tipo": "formula",
      "p": {
-      "direzione": "riempie",
-      "testo": "Circa 200 € in più"
+      "titolo": "Margine di un quaderno",
+      "a": "12 €",
+      "op": "×",
+      "b": "50%",
+      "risultato": "6 €",
+      "nota": "come un libro da venti"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Guarda: un quaderno da dodici euro con margine al cinquanta per cento rende sei euro, lo stesso di un libro da venti. Ma costa meno al cliente, e spesso si compra d'impulso, insieme al libro.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "prezzo",
+     "p": {
+      "oggetto": "quaderno",
+      "prezzo": "12 €",
+      "nota": "margine sei euro"
      }
     },
     {
-     "parola": "noiosa",
+     "parola": "impulso",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Libro più quaderno!",
+      "emozione": "felice",
+      "scuro": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Come si fa nei bar: il caffè rende poco, ma con la brioche il conto sale. Elena ragiona uguale: il libro porta il cliente, l'oggetto in più porta il margine. E ogni mese ne vende duecento di quelli.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "confronto",
+     "p": {
+      "titolo": "Il cliente porta più margine",
+      "a": {
+       "titolo": "Solo libro",
+       "valore": "6 €",
+       "oggetto": "libro"
+      },
+      "b": {
+       "titolo": "Libro e quaderno",
+       "valore": "12 €",
+       "oggetto": "quaderno"
+      },
+      "vincitore": "b"
+     }
+    },
+    {
+     "parola": "duecento",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Margine extra",
+      "a": "200 pezzi",
+      "op": "×",
+      "b": "6 €",
+      "risultato": "1.200 €",
+      "nota": "al mese"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Con milleduecento euro in più, la perdita scende da milleottocento a seicento euro al mese. Meglio, ma non basta ancora. Elena ha bisogno di una leva diversa. Una che riempia la libreria di gente. Gli eventi.",
+   "capitolo": "Gli eventi",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Perdita aggiornata",
+      "a": "1.800 €",
+      "op": "−",
+      "b": "1.200 €",
+      "risultato": "600 €",
+      "nota": "manca ancora"
+     }
+    },
+    {
+     "parola": "eventi",
+     "tipo": "domanda",
+     "p": {
+      "testo": "E gli eventi?",
+      "emozione": "felice",
+      "scuro": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Un evento: la presentazione di un autore locale, di sera, a libreria chiusa. Entrano quaranta persone. Non pagano il biglietto, ma una buona parte compra il libro. Qui il margine arriva tutto insieme.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "libreria",
+      "insegna": "Il Segnalibro",
+      "azione": "festa",
+      "clienti": 5,
+      "testo": "Serata con l'autore"
+     }
+    },
+    {
+     "parola": "quaranta",
+     "tipo": "persone",
+     "p": {
+      "n": 8,
+      "azione": "entrano",
+      "escono": 0,
+      "testo": "Quaranta persone in sala"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Facciamo i conti. Quaranta persone, venticinque comprano il libro dell'autore a venti euro. Venticinque per sei euro fa centocinquanta euro di margine. In una serata. E i costi extra sono quasi zero.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Margine di una serata",
+      "a": "25 libri",
+      "op": "×",
+      "b": "6 €",
+      "risultato": "150 €",
+      "nota": "costi extra minimi"
+     }
+    },
+    {
+     "parola": "quasi",
      "tipo": "lista",
      "p": {
-      "titolo": "Ordinare meglio",
+      "titolo": "Costi di un evento",
       "voci": [
-       "Poche taglie estreme",
-       "Riordini piccoli",
-       "Controlla cosa gira"
+       "Sedie in prestito",
+       "Un buffet semplice",
+       "Locandina e social",
+       "Un'ora di tempo"
       ]
      }
     }
    ]
   },
   {
-   "testo": "Riassumiamo. Il ricarico si calcola sul costo, il margine sul prezzo: non sono la stessa cosa. Il margine non è utile: devi pagare i costi fissi. Gli sconti moltiplicano il lavoro. E il magazzino fermo, con le taglie sbagliate, mangia i soldi.",
+   "testo": "Ma l'evento fa di più: porta gente nuova. Chi viene a una serata torna a comprare. E parla bene della libreria agli amici. Un evento al mese, quattro persone su dieci tornano. È pubblicità senza pagarla.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "persone",
+     "p": {
+      "n": 9,
+      "azione": "escono",
+      "escono": 4,
+      "testo": "Quattro su dieci tornano"
+     }
+    },
+    {
+     "parola": "pubblicità",
+     "tipo": "cruscotto",
+     "p": {
+      "titolo": "Cosa tenere d'occhio",
+      "voci": [
+       {
+        "nome": "Clienti che tornano",
+        "valore": 0.4
+       },
+       {
+        "nome": "Libri per cliente",
+        "valore": 0.5
+       },
+       {
+        "nome": "Rotazione scaffali",
+        "valore": 0.6
+       },
+       {
+        "nome": "Margine extra",
+        "valore": 0.3
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Pensa a una palestra: il corso gratuito di prova costa poco ma porta iscritti. Per Elena l'evento è la stessa cosa. Un modo di dare un motivo a chi sta bene a casa di uscire e andare proprio da lei.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "confronto",
+     "p": {
+      "titolo": "Un costo che porta clienti",
+      "a": {
+       "titolo": "Lezione di prova",
+       "valore": "costo basso",
+       "oggetto": "tappetino"
+      },
+      "b": {
+       "titolo": "Serata con l'autore",
+       "valore": "costo basso",
+       "oggetto": "libro"
+      },
+      "vincitore": ""
+     }
+    },
+    {
+     "parola": "motivo",
+     "tipo": "leve",
+     "p": {
+      "titolo": "Perché venire in libreria",
+      "voci": [
+       "Consiglio personale",
+       "Eventi",
+       "Ordini veloci",
+       "Atmosfera"
+      ],
+      "evidenzia": 0
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Elena ne fa quattro al mese, uno a settimana. Quattro per centocinquanta fa seicento euro di margine. Esattamente quello che mancava. Così la libreria arriva al pareggio, grazie a quaderni ed eventi.",
+   "capitolo": "Il pareggio",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Margine degli eventi",
+      "a": "4 serate",
+      "op": "×",
+      "b": "150 €",
+      "risultato": "600 €",
+      "nota": "al mese"
+     }
+    },
+    {
+     "parola": "Esattamente",
+     "tipo": "pareggio",
+     "p": {
+      "titolo": "Pareggio con eventi e quaderni",
+      "fissi": 4500,
+      "margine": 6,
+      "nuovo_margine": 6,
+      "unita": "pezzi venduti",
+      "oggetto": "libro",
+      "perdita": false,
+      "guadagno": false
+     }
+    },
+    {
+     "parola": "pareggio",
+     "tipo": "timbro",
+     "p": {
+      "oggetto": "libro",
+      "testo": "PAREGGIO",
+      "colore": "verde",
+      "nota": "zero perdita, zero guadagno"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Pareggio vuol dire zero. Elena lavora tutto il mese e non guadagna. Per avere uno stipendio deve fare ancora di più. Ogni dieci libri in più al giorno sono sessanta euro, e a fine mese fanno milleottocento.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "libreria",
+      "insegna": "Il Segnalibro",
+      "azione": "stupito",
+      "clienti": 2,
+      "testo": "Zero guadagno"
+     }
+    },
+    {
+     "parola": "sessanta",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Dieci libri in più al giorno",
+      "a": "10 libri",
+      "op": "×",
+      "b": "6 €",
+      "risultato": "60 € al giorno",
+      "nota": "milleottocento al mese"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Quarto trucco: i clienti fissi. Elena ha una cinquantina di lettori che passano ogni settimana. Li conosce per nome, sa cosa leggono. Un amazon non può dire: questo ti piacerà, l'ho letto io.",
+   "capitolo": "Il servizio",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "luogo",
+     "p": {
+      "luogo": "libreria",
+      "insegna": "Il Segnalibro",
+      "azione": "felice",
+      "clienti": 3,
+      "testo": "Un consiglio che vale"
+     }
+    },
+    {
+     "parola": "cinquantina",
+     "tipo": "conteggio",
+     "p": {
+      "oggetto": "cliente",
+      "icone": 50,
+      "testo": "50 clienti fissi"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Se ognuno di loro compra due libri in più al mese perché Elena li consiglia, sono cento libri. Cento per sei euro fanno seicento euro in più, ogni mese, senza spendere in pubblicità. È la leva più economica.",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "formula",
+     "p": {
+      "titolo": "Effetto del consiglio",
+      "a": "100 libri",
+      "op": "×",
+      "b": "6 €",
+      "risultato": "600 €",
+      "nota": "al mese"
+     }
+    },
+    {
+     "parola": "leva",
+     "tipo": "andamento",
+     "p": {
+      "titolo": "Guadagno mensile di Elena",
+      "valori": [
+       -1800,
+       -600,
+       0,
+       600
+      ],
+      "etichette": [
+       "Solo libri",
+       "Con quaderni",
+       "Con eventi",
+       "Con consigli"
+      ],
+      "colore": "verde"
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Da una perdita di milleottocento euro a un guadagno di seicento. Con gli stessi scaffali, la stessa commessa, lo stesso affitto. Cambia solo come usi il locale. Se hai un'attività, chiediti: cosa ho che non uso?",
+   "capitolo": "",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "salvadanaio",
+     "p": {
+      "direzione": "riempie",
+      "testo": "Seicento euro in più"
+     }
+    },
+    {
+     "parola": "chiediti",
+     "tipo": "domanda",
+     "p": {
+      "testo": "Cosa non sfrutti?",
+      "emozione": "calmo",
+      "scuro": false
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Ricapitoliamo. Il prezzo lo decide l'editore: venti euro. Lo sconto massimo è circa l'uno per cento di... no, il cinque: un euro. Elena compra a quattordici, margine lordo sei euro. Basso per sé, alto per il cliente.",
    "capitolo": "Riepilogo",
+   "inquadrature": [
+    {
+     "parola": "",
+     "tipo": "lista",
+     "p": {
+      "titolo": "I numeri di Elena",
+      "voci": [
+       "Prezzo di copertina: 20 €",
+       "Costo d'acquisto: 14 €",
+       "Margine lordo: 6 €",
+       "Costi fissi: 4.500 € al mese"
+      ]
+     }
+    },
+    {
+     "parola": "Basso",
+     "tipo": "fette",
+     "p": {
+      "titolo": "Un libro da venti euro",
+      "totale": 20,
+      "totale_testo": "20 €",
+      "fette": [
+       {
+        "nome": "Editore e distributore",
+        "valore": 14,
+        "testo": "14 €"
+       },
+       {
+        "nome": "Quota costi fissi",
+        "valore": 4.5,
+        "testo": "4,50 €"
+       },
+       {
+        "nome": "Resta a Elena",
+        "valore": 1.5,
+        "testo": "1,50 €"
+       }
+      ],
+      "evidenzia": 2
+     }
+    }
+   ]
+  },
+  {
+   "testo": "Con soli libri servono settecentocinquanta pezzi al mese per il pareggio. Con quaderni, eventi e consigli, Elena ci arriva senza correre. La lezione: se il margine per pezzo è basso, devi alzare il valore di ogni cliente.",
+   "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
@@ -1436,116 +1218,90 @@
      "p": {
       "titolo": "Da ricordare",
       "voci": [
-       "Ricarico non è margine",
-       "Margine non è utile",
-       "Sconto = più lavoro",
-       "Magazzino fermo = soldi persi"
+       "Prezzo fissato: non lo decidi tu",
+       "Margine basso: conta il volume",
+       "Costi fissi: calcola il pareggio",
+       "Eventi e extra alzano il guadagno"
       ]
      }
     },
     {
-     "parola": "sconti",
+     "parola": "lezione",
      "tipo": "cruscotto",
      "p": {
-      "titolo": "Cosa tenere d'occhio",
+      "titolo": "I numeri da guardare",
       "voci": [
        {
-        "nome": "Margine",
-        "valore": 0.5
-       },
-       {
-        "nome": "Rotazione",
+        "nome": "Margine per pezzo",
         "valore": 0.3
        },
        {
-        "nome": "Invenduto",
-        "valore": 0.6
+        "nome": "Pareggio mensile",
+        "valore": 0.75
+       },
+       {
+        "nome": "Clienti che tornano",
+        "valore": 0.4
+       },
+       {
+        "nome": "Extra sul totale",
+        "valore": 0.5
        }
       ]
-     }
-    },
-    {
-     "parola": "taglie",
-     "tipo": "luogo",
-     "p": {
-      "luogo": "negozio di scarpe",
-      "insegna": "Scarpe Luisa",
-      "azione": "felice",
-      "clienti": 3,
-      "testo": "Luisa ha capito"
      }
     }
    ]
   },
   {
-   "testo": "E tu? Se hai un negozio, quante paia, o pezzi, restano ferme da più di sei mesi? Quanto margine hai davvero, dopo i saldi? Scrivilo nei commenti: sono i due numeri che salvano un negozio. La prossima volta: quanto guadagna una pizzeria su una margherita da otto euro?",
+   "testo": "E tu? Quanti pezzi devi vendere per coprire i tuoi costi fissi? Se non lo sai, fermati e fai il calcolo: costi fissi diviso margine per pezzo. Dieci minuti che valgono più di un mese di lavoro alla cieca.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
      "tipo": "domanda",
      "p": {
-      "testo": "E il tuo magazzino?",
-      "emozione": "calmo",
-      "scuro": false
+      "testo": "Sai il tuo pareggio?",
+      "emozione": "stupito",
+      "scuro": true
      }
     },
     {
-     "parola": "commenti",
-     "tipo": "lista",
+     "parola": "calcolo",
+     "tipo": "formula",
      "p": {
-      "titolo": "Due numeri da guardare",
-      "voci": [
-       "Pezzi fermi da sei mesi",
-       "Margine dopo i saldi"
-      ]
-     }
-    },
-    {
-     "parola": "pizzeria",
-     "tipo": "prossimo",
-     "p": {
-      "luogo": "pizzeria",
-      "insegna": "Da Gennaro",
-      "oggetto": "pizza",
-      "testo": "Quanto guadagna una pizzeria su una margherita da 8 €?"
+      "titolo": "Il tuo pareggio",
+      "a": "costi fissi",
+      "op": "÷",
+      "b": "margine per pezzo",
+      "risultato": "pezzi da vendere",
+      "nota": "fallo oggi"
      }
     }
    ]
   },
   {
-   "testo": "Se questa puntata ti è servita, iscriviti al canale e attiva la campanella. Mandala a chi ha un negozio o sta per aprirne uno: gli risparmi un errore da migliaia di euro. Alla prossima, e a presto, con i conti veri delle attività. Iscriviti.",
+   "testo": "Nel prossimo episodio entriamo in una pizzeria al taglio: la pizza costa pochissimo da fare, ma il forno acceso a vuoto è un nemico silenzioso. Ti mostro dove si perdono i soldi. Iscriviti, così non te la perdi.",
    "capitolo": "",
    "inquadrature": [
     {
      "parola": "",
-     "tipo": "luogo",
+     "tipo": "prossimo",
      "p": {
-      "luogo": "negozio di scarpe",
-      "insegna": "Scarpe Luisa",
-      "azione": "festa",
-      "clienti": 4,
-      "testo": "Grazie e a presto!"
-     }
-    },
-    {
-     "parola": "campanella",
-     "tipo": "persone",
-     "p": {
-      "n": 5,
-      "azione": "entrano",
-      "escono": 0,
-      "testo": "Benvenuti nel canale"
+      "luogo": "pizzeria",
+      "insegna": "Pizza al Taglio",
+      "oggetto": "pizza",
+      "testo": "Il forno acceso a vuoto"
      }
     },
     {
      "parola": "Iscriviti",
-     "tipo": "timbro",
+     "tipo": "luogo",
      "p": {
-      "oggetto": "scarpe",
-      "testo": "ISCRIVITI",
-      "colore": "verde",
-      "nota": "Quanto Ti Resta"
+      "luogo": "libreria",
+      "insegna": "Il Segnalibro",
+      "azione": "felice",
+      "clienti": 3,
+      "testo": "Iscriviti!"
      }
     }
    ]
