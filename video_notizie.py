@@ -1366,14 +1366,17 @@ def impatto(scena, posa_png, c, righe, box, giorno, variante):
         scrivi(d, (1240, 30), parola, 190, lib, 'white', 'ra')
         if etich:
             riquadro(d, (1240, 272), etich, 62, lib - 20, 'black', (255, 214, 0), 'ra')
-    elif stile == 'B':
+    elif stile == 'B':   # 24 nov (Giorgio: "scritta troppo piccola, nessuno la vedra' mai, dobbiamo emergere"): parola enorme + domanda grande
         im = Image.new('RGBA', (W, H), (0, 0, 0, 255))
-        im.paste(sc.crop((int(240 * k), 0, int(1040 * k), int(588 * k))), (int(480 * k), 0))
-        im.paste((170, 0, 0, 255), (0, 0, int(480 * k), H)); d = ImageDraw.Draw(im)
+        dx = ImageOps.fit(scena, (W - int(480 * k), H), Image.LANCZOS)
+        dx = ImageEnhance.Color(ImageEnhance.Contrast(ImageEnhance.Brightness(dx).enhance(1.25)).enhance(1.25)).enhance(1.35)
+        im.paste(dx, (int(480 * k), 0)); im.paste((170, 0, 0, 255), (0, 0, int(480 * k), H)); d = ImageDraw.Draw(im)
         d.polygon([(470 * k, 0), (510 * k, 0), (470 * k, H), (430 * k, H)], fill=(255, 214, 0))
         v = volto(680, (0, 0, 0), 6); im.alpha_composite(v, (max(0, int(250 * k) - v.width // 2), H - v.height))
-        d = ImageDraw.Draw(im); d.rectangle((480 * k, 588 * k, W, H), fill=(0, 0, 0))
-        scrivi(d, (810, 654), domanda, 96, 560, (255, 214, 0), 'mm', 0)
+        d = ImageDraw.Draw(im)
+        if parola:
+            scrivi(d, (1250, 25), parola, 230, 700, 'white', 'ra', 12)
+        riquadro(d, (1250, 330), domanda, 150, 640, 'black', (255, 214, 0), 'ra')
     else:
         im = Image.alpha_composite(sc, Image.new('RGBA', (W, H), (0, 0, 0, 50)))
         v = volto(660)
