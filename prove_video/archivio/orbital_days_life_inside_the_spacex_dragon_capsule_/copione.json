@@ -1,538 +1,25 @@
 {
  "scene": [
   {
-   "testo": "Four people, one capsule, and a ride that tops 17,000 miles per hour in just twelve minutes. Inside the SpaceX Dragon, you go from sitting on a pad to floating weightless, faster than any airliner could ever dream.",
-   "q": "Crew Dragon launch astronaut",
+   "testo": "In just 12 minutes, you go from sitting on the ground to floating in orbit. The ride takes you to 17,500 mph. And the part that scares engineers most is not the launch. It is the fiery trip home.",
+   "q": "Crew Dragon launch astronauts",
    "tag": [
     "crew dragon",
     "launch"
    ],
-   "scritta": "12 MINUTES",
+   "scritta": "17,500 MPH",
    "obbligo": [
     "astronaut"
    ],
-   "capitolo": "Twelve Minutes To Orbit",
+   "capitolo": "The 12 Minute Ride",
    "anno": 0
   },
   {
-   "testo": "But how do four humans live inside a cabin smaller than a minivan? Where do they sit, sleep, eat, and even use the toilet? And what happens when something goes wrong?",
-   "q": "astronauts inside Dragon capsule",
-   "tag": [
-    "crew dragon",
-    "cabin"
-   ],
-   "scritta": "",
-   "obbligo": [
-    "astronaut"
-   ],
-   "capitolo": "",
-   "anno": 0
-  },
-  {
-   "testo": "The scariest part is not the launch. It is a seven-minute blackout during reentry, when nobody on Earth can talk to you. Stay with me, because we are going inside Dragon, step by step.",
-   "q": "Dragon capsule reentry",
-   "tag": [
-    "reentry",
-    "capsule"
-   ],
-   "scritta": "",
-   "obbligo": [
-    "astronaut"
-   ],
-   "capitolo": "",
-   "anno": 0
-  },
-  {
-   "testo": "First, meet the machine. Dragon began as a cargo ship. Its first version started flying to the International Space Station in 2010, and it completed 23 cargo missions before SpaceX built a version for people.",
-   "q": "Dragon cargo spacecraft station",
+   "testo": "So what is it really like inside the SpaceX Dragon capsule? Where do you sit? Where do you sleep, eat, and use the toilet? And what happens when the screens go silent during reentry?",
+   "q": "astronaut inside Dragon capsule",
    "tag": [
     "dragon",
-    "cargo"
-   ],
-   "scritta": "23 MISSIONS",
-   "obbligo": [],
-   "capitolo": "Meet The Dragon",
-   "anno": 0
-  },
-  {
-   "testo": "NASA backed the crew version through its Commercial Crew Program. The first crewed flight launched on May 30, 2020. It was the first American crewed spacecraft to reach orbit since the Space Shuttle retired in 2011.",
-   "q": "Crew Dragon Demo-2 launch",
-   "tag": [
-    "demo-2",
-    "launch"
-   ],
-   "scritta": "MAY 30, 2020",
-   "obbligo": [],
-   "capitolo": "",
-   "anno": 2020
-  },
-  {
-   "testo": "The capsule itself stands about sixteen feet tall and thirteen feet wide. Underneath sits the trunk, adding roughly twelve more feet. Together, that is taller than a basketball hoop is high, stacked more than once.",
-   "q": "Crew Dragon capsule trunk",
-   "tag": [
-    "trunk",
-    "capsule"
-   ],
-   "scritta": "16 FEET",
-   "obbligo": [],
-   "capitolo": "",
-   "anno": 0
-  },
-  {
-   "testo": "The trunk is more than a tail. It carries unpressurized cargo, and it holds the solar panels that power the spacecraft. Before reentry, it gets cut loose and burns up, so only the capsule comes home.",
-   "q": "Dragon trunk solar panels",
-   "tag": [
-    "trunk",
-    "solar"
-   ],
-   "scritta": "",
-   "obbligo": [],
-   "capitolo": "",
-   "anno": 0
-  },
-  {
-   "testo": "At the very front, a hinged nose cone swings open. Behind it hides a docking port for trips to the station. On free-flying missions, that spot can carry a glass dome instead.",
-   "q": "Dragon nose cone opening",
-   "tag": [
-    "nose cone",
-    "docking"
-   ],
-   "scritta": "",
-   "obbligo": [],
-   "capitolo": "",
-   "anno": 0
-  },
-  {
-   "testo": "Dragon uses two kinds of thrusters. Sixteen small Draco engines steer the capsule and adjust its orbit. They burn two chemicals that ignite on contact, so there is no spark plug, no fuss, just fire.",
-   "q": "Dragon thrusters firing",
-   "tag": [
-    "thrusters",
-    "dragon"
-   ],
-   "scritta": "16 ENGINES",
-   "obbligo": [],
-   "capitolo": "",
-   "anno": 0
-  },
-  {
-   "testo": "Then come the SuperDracos, eight larger engines hidden in four pods around the capsule. Each one delivers about sixteen thousand pounds of thrust. They exist for one reason: to save your life.",
-   "q": "SuperDraco abort test",
-   "tag": [
-    "superdraco",
-    "abort"
-   ],
-   "scritta": "16,000 LBS",
-   "obbligo": [],
-   "capitolo": "",
-   "anno": 0
-  },
-  {
-   "testo": "If the rocket fails during ascent, those engines fire in about a tenth of a second and fling the capsule away from the booster. In seven seconds, Dragon covers roughly half a mile.",
-   "q": "Dragon in-flight abort test",
-   "tag": [
-    "abort",
-    "test"
-   ],
-   "scritta": "0.5 MILE",
-   "obbligo": [],
-   "capitolo": "",
-   "anno": 0
-  },
-  {
-   "testo": "Those fins on the trunk look pointless in space, and they are. They are there to keep Dragon stable if it ever has to fly through air alone during an emergency escape from the rocket.",
-   "q": "Crew Dragon abort fins",
-   "tag": [
-    "dragon",
-    "abort"
-   ],
-   "scritta": "",
-   "obbligo": [],
-   "capitolo": "",
-   "anno": 0
-  },
-  {
-   "testo": "Now step inside. The pressurized cabin holds about 330 cubic feet, enough for four people. For comparison, Russia's Soyuz descent module offers roughly 140 cubic feet, and it is designed for three.",
-   "q": "Crew Dragon interior cabin",
-   "tag": [
-    "cabin",
-    "interior"
-   ],
-   "scritta": "330 CU FT",
-   "obbligo": [
-    "astronaut"
-   ],
-   "capitolo": "Inside The Cabin",
-   "anno": 0
-  },
-  {
-   "testo": "Picture the old Apollo cockpit: hundreds of switches, dials, and lights. Now picture Dragon instead. In front of the crew, there are three large touchscreens. That is the cockpit. It feels more like a tablet than a spaceship.",
-   "q": "Crew Dragon touchscreen displays",
-   "tag": [
-    "touchscreen",
-    "display"
-   ],
-   "scritta": "",
-   "obbligo": [
-    "astronaut"
-   ],
-   "capitolo": "",
-   "anno": 0
-  },
-  {
-   "testo": "Dragon flies itself. Astronauts can monitor and give commands, but ground teams in Hawthorne, California, can handle much of the work remotely. For a crew, that means less button pushing and more looking out the window.",
-   "q": "SpaceX mission control Dragon",
-   "tag": [
-    "mission control",
-    "dragon"
-   ],
-   "scritta": "",
-   "obbligo": [],
-   "capitolo": "",
-   "anno": 0
-  },
-  {
-   "testo": "Compare that with Boeing's Starliner, which still has physical switches and controls. Dragon's clean, screen-based design is a real break from decades of spacecraft cockpits packed with analog hardware.",
-   "q": "Starliner spacecraft cockpit",
-   "tag": [
-    "starliner",
-    "cockpit"
-   ],
-   "scritta": "",
-   "obbligo": [],
-   "capitolo": "",
-   "anno": 0
-  },
-  {
-   "testo": "Now it is launch day, and you need a suit. Each astronaut gets a custom-fitted pressure suit and a 3D-printed helmet. It looks sleek, but its job is deadly serious: keeping you alive if the cabin loses pressure.",
-   "q": "astronaut SpaceX pressure suit",
-   "tag": [
-    "spacesuit",
-    "suit"
-   ],
-   "scritta": "",
-   "obbligo": [
-    "astronaut"
-   ],
-   "capitolo": "The Suit Up",
-   "anno": 0
-  },
-  {
-   "testo": "Without pressure, water boils at a far lower temperature, and body fluids can start to vaporize. The suit holds sea-level-style pressure around you. Ideally, nobody ever needs it, like a seatbelt you hope never matters.",
-   "q": "astronaut suit test pressure",
-   "tag": [
-    "pressure",
-    "suit"
-   ],
-   "scritta": "",
-   "obbligo": [
-    "astronaut"
-   ],
-   "capitolo": "",
-   "anno": 0
-  },
-  {
-   "testo": "The suit is a single piece. You step in through the waist and zip up. Communications and health monitoring are built in, and the helmet seals the system, so everything you need is wrapped around you.",
-   "q": "astronaut putting on spacesuit",
-   "tag": [
-    "spacesuit",
-    "dressing"
-   ],
-   "scritta": "",
-   "obbligo": [
-    "astronaut"
-   ],
-   "capitolo": "",
-   "anno": 0
-  },
-  {
-   "testo": "About three hours before liftoff, the crew suits up at Kennedy Space Center in Florida. They get a final briefing, then head out for a ride that is surprisingly familiar: an electric Tesla Model X.",
-   "q": "astronauts walk out Kennedy launch",
-   "tag": [
-    "astronauts",
-    "walkout"
-   ],
-   "scritta": "3 HOURS",
-   "obbligo": [
-    "astronaut"
-   ],
-   "capitolo": "",
-   "anno": 0
-  },
-  {
-   "testo": "The Tesla carries the crew to the launch pad. Its gull-wing doors make it easier to climb in and out while wearing a bulky suit, which is exactly why this odd choice actually makes sense.",
-   "q": "astronauts Tesla launch pad",
-   "tag": [
-    "tesla",
-    "astronauts"
-   ],
-   "scritta": "",
-   "obbligo": [
-    "astronaut"
-   ],
-   "capitolo": "",
-   "anno": 0
-  },
-  {
-   "testo": "At the pad, an elevator lifts the crew about 255 feet to the crew access arm. That is roughly a twenty-story building. Up there, a landline phone waits for any last words to family and friends.",
-   "q": "launch tower crew access arm",
-   "tag": [
-    "launch pad",
-    "tower"
-   ],
-   "scritta": "255 FEET",
-   "obbligo": [],
-   "capitolo": "",
-   "anno": 0
-  },
-  {
-   "testo": "Then comes the short walk across the access arm to the hatch. Ground crews help each astronaut squeeze in, strap down, and connect to the seat. This is the last time you touch anything solid on Earth.",
-   "q": "astronauts enter Dragon hatch",
-   "tag": [
-    "hatch",
-    "crew dragon"
-   ],
-   "scritta": "",
-   "obbligo": [
-    "astronaut"
-   ],
-   "capitolo": "",
-   "anno": 0
-  },
-  {
-   "testo": "Your boots clip into the floor so your legs stay put. A hose from the seat plugs into your suit, flowing cooled air and oxygen. At that moment, you and Dragon become one connected system.",
-   "q": "astronaut strapped Dragon seat",
-   "tag": [
-    "seat",
-    "straps"
-   ],
-   "scritta": "",
-   "obbligo": [
-    "astronaut"
-   ],
-   "capitolo": "",
-   "anno": 0
-  },
-  {
-   "testo": "About forty-five minutes before launch, the ground crew says goodbye and closes the hatch. The access arm swings away. Visors come down. You hear nothing now except fans, valves, and your own breathing.",
-   "q": "Crew Dragon hatch closing",
-   "tag": [
-    "hatch",
-    "closing"
-   ],
-   "scritta": "45 MINUTES",
-   "obbligo": [
-    "astronaut"
-   ],
-   "capitolo": "The Countdown",
-   "anno": 0
-  },
-  {
-   "testo": "Next, the crew arms the launch escape system. It is one of the few jobs done from inside the capsule. A loud bang follows as the SuperDraco fuel tanks are pressurized. Not exactly calming.",
-   "q": "Crew Dragon astronauts countdown",
-   "tag": [
-    "countdown",
-    "crew dragon"
-   ],
-   "scritta": "",
-   "obbligo": [
-    "astronaut"
-   ],
-   "capitolo": "",
-   "anno": 0
-  },
-  {
-   "testo": "Then fueling begins, with you already aboard. SpaceX loads the Falcon 9 with crew inside, a procedure unusual in human spaceflight. You can hear valves opening and super-cold propellant rushing through the rocket below.",
-   "q": "Falcon 9 fueling crew launch",
-   "tag": [
-    "falcon 9",
-    "fueling"
-   ],
-   "scritta": "",
-   "obbligo": [],
-   "capitolo": "",
-   "anno": 0
-  },
-  {
-   "testo": "On your three screens, live data scrolls by, much like the SpaceX webcast viewers watch at home, with extra technical detail. The final minutes arrive. You grip nothing, because there is nothing to grip.",
-   "q": "astronauts Dragon screens countdown",
-   "tag": [
-    "screens",
-    "astronauts"
-   ],
-   "scritta": "",
-   "obbligo": [
-    "astronaut"
-   ],
-   "capitolo": "",
-   "anno": 0
-  },
-  {
-   "testo": "Ignition. Nine Merlin engines at the base of the Falcon 9 booster generate about 1.7 million pounds of thrust. The whole stack shakes, then climbs. Within seconds, you are pressed hard into your seat.",
-   "q": "Falcon 9 liftoff crew",
-   "tag": [
-    "falcon 9",
-    "liftoff"
-   ],
-   "scritta": "1.7 MILLION LBS",
-   "obbligo": [
-    "astronaut"
-   ],
-   "capitolo": "Liftoff",
-   "anno": 0
-  },
-  {
-   "testo": "Around the one-minute mark, the rocket passes the speed of sound. Then comes the highest-stress phase of ascent, called max Q, when aerodynamic pressure peaks. The ride is loud, rough, and fast, then it smooths out.",
-   "q": "Falcon 9 ascent supersonic",
-   "tag": [
-    "falcon 9",
-    "ascent"
-   ],
-   "scritta": "",
-   "obbligo": [],
-   "capitolo": "",
-   "anno": 0
-  },
-  {
-   "testo": "At about two minutes and thirty seconds, the first-stage engines shut down and the stage separates. You are already traveling several thousand miles per hour, more than fifty miles up. The upper stage takes over.",
-   "q": "Falcon 9 stage separation",
-   "tag": [
-    "stage separation",
-    "falcon 9"
-   ],
-   "scritta": "",
-   "obbligo": [],
-   "capitolo": "",
-   "anno": 0
-  },
-  {
-   "testo": "Around nine minutes after liftoff, the second engine cuts off. You are near 17,000 miles per hour at about 125 miles of altitude. Suddenly the shaking stops, and anything loose begins to float.",
-   "q": "astronauts weightless Dragon",
-   "tag": [
-    "weightless",
-    "floating"
-   ],
-   "scritta": "17,000 MPH",
-   "obbligo": [
-    "astronaut"
-   ],
-   "capitolo": "Reaching Orbit",
-   "anno": 0
-  },
-  {
-   "testo": "Crews often bring a small plush toy as a zero-gravity indicator. When it lifts off the floor and drifts in front of the cameras, everyone knows without a word: you have arrived in space.",
-   "q": "zero gravity indicator plush astronaut",
-   "tag": [
-    "plush",
-    "zero gravity"
-   ],
-   "scritta": "",
-   "obbligo": [
-    "astronaut"
-   ],
-   "capitolo": "",
-   "anno": 0
-  },
-  {
-   "testo": "About twelve minutes in, Dragon separates from the second stage and begins flying on its own. Fifteen minutes in, you can lift your visor and unstrap. You float free inside the capsule for the first time.",
-   "q": "astronauts floating Dragon capsule",
-   "tag": [
-    "floating",
-    "crew dragon"
-   ],
-   "scritta": "15 MINUTES",
-   "obbligo": [
-    "astronaut"
-   ],
-   "capitolo": "",
-   "anno": 0
-  },
-  {
-   "testo": "From here, your trip splits in two. If you are heading to the International Space Station, Dragon spends roughly a day chasing it. Slowly, carefully, it raises and matches its orbit until docking.",
-   "q": "Dragon approaching space station",
-   "tag": [
-    "docking",
-    "approach"
-   ],
-   "scritta": "",
-   "obbligo": [],
-   "capitolo": "Two Kinds Of Trips",
-   "anno": 0
-  },
-  {
-   "testo": "For station missions, the nose cone opens and exposes the docking port. Dragon connects automatically, and the crew floats through the hatch to join the station residents. A long stay awaits them there.",
-   "q": "Crew Dragon docks station",
-   "tag": [
-    "crew dragon",
-    "docking"
-   ],
-   "scritta": "",
-   "obbligo": [
-    "astronaut"
-   ],
-   "capitolo": "",
-   "anno": 0
-  },
-  {
-   "testo": "The other kind of trip is a private flight, like Inspiration4, which stayed in low Earth orbit for about three days. No station, no docking port. Instead, a glass dome replaces the nose cone.",
-   "q": "Dragon cupola window Earth",
-   "tag": [
-    "cupola",
-    "window"
-   ],
-   "scritta": "3 DAYS",
-   "obbligo": [
-    "astronaut"
-   ],
-   "capitolo": "",
-   "anno": 0
-  },
-  {
-   "testo": "Inside that dome, you can put your whole head and see Earth all around you at once. Sunrises come every ninety minutes or so. Many astronauts have described that view as unforgettable.",
-   "q": "astronaut looking out cupola Earth",
-   "tag": [
-    "cupola",
-    "earth view"
-   ],
-   "scritta": "",
-   "obbligo": [
-    "astronaut"
-   ],
-   "capitolo": "",
-   "anno": 0
-  },
-  {
-   "testo": "Sooner or later, someone has to use the toilet. In Mercury, Alan Shepard famously had to wait on the pad and ended up relieving himself in his suit. Space plumbing has come a long way since May 1961.",
-   "q": "space toilet astronaut",
-   "tag": [
-    "toilet",
-    "plumbing"
-   ],
-   "scritta": "",
-   "obbligo": [
-    "astronaut"
-   ],
-   "capitolo": "The Toilet Problem",
-   "anno": 1961
-  },
-  {
-   "testo": "Today, a vacuum toilet pulls waste away with airflow instead of gravity. Dragon has one above the side hatch. It is tucked in a wall compartment with fans, hoses, and storage, plus a privacy curtain.",
-   "q": "space station toilet suction",
-   "tag": [
-    "toilet",
-    "vacuum"
-   ],
-   "scritta": "",
-   "obbligo": [
-    "astronaut"
-   ],
-   "capitolo": "",
-   "anno": 0
-  },
-  {
-   "testo": "Weightlessness changes how the body works, and the urge can arrive fast. Crews have reported that nearly everyone ends up using the toilet within hours of reaching orbit. So no, you cannot just hold it.",
-   "q": "astronaut weightlessness floating cabin",
-   "tag": [
-    "weightlessness",
+    "capsule",
     "crew"
    ],
    "scritta": "",
@@ -543,61 +30,14 @@
    "anno": 0
   },
   {
-   "testo": "Now it is time to come home. Flight controllers pick one of seven landing zones off the Florida coast, in the Atlantic or the Gulf of Mexico, depending on weather and sea conditions on the day.",
-   "q": "Crew Dragon splashdown ocean",
+   "testo": "Stay with me. Because the most dangerous moment is not the launch. It is a seven minute blackout on the way home, when nobody on Earth can talk to you at all.",
+   "q": "astronaut floating Dragon capsule",
    "tag": [
-    "splashdown",
-    "ocean"
+    "dragon",
+    "floating",
+    "astronaut"
    ],
-   "scritta": "7 SITES",
-   "obbligo": [],
-   "capitolo": "Coming Home",
-   "anno": 0
-  },
-  {
-   "testo": "Dragon lowers its orbit step by step. Then the trunk separates, and Draco thrusters point the heat shield forward. The crew puts suits back on, lowers visors, and braces for the most violent part of the trip.",
-   "q": "Dragon deorbit burn reentry",
-   "tag": [
-    "deorbit",
-    "reentry"
-   ],
-   "scritta": "",
-   "obbligo": [],
-   "capitolo": "",
-   "anno": 0
-  },
-  {
-   "testo": "Dragon slams into the atmosphere at about 17,500 miles per hour. Air compresses and glows as superheated plasma, around 3,500 degrees Fahrenheit outside, roughly 1,900 degrees Celsius. Communications drop out for about seven minutes.",
-   "q": "capsule reentry plasma fire",
-   "tag": [
-    "reentry",
-    "plasma"
-   ],
-   "scritta": "3,500°F",
-   "obbligo": [],
-   "capitolo": "",
-   "anno": 0
-  },
-  {
-   "testo": "The heat shield is ablative. Its outer layer burns away on purpose, carrying the heat with it. Inside, cooled air flows through your suit, and the crew feels roughly four to five times Earth's gravity.",
-   "q": "heat shield capsule reentry glow",
-   "tag": [
-    "heat shield",
-    "reentry"
-   ],
-   "scritta": "4-5 G",
-   "obbligo": [],
-   "capitolo": "",
-   "anno": 0
-  },
-  {
-   "testo": "Then drogue parachutes open, followed by four main parachutes, slowing Dragon to about fifteen miles per hour at touchdown. Splash. You are floating in the ocean, bobbing, and finally safe.",
-   "q": "Crew Dragon parachutes splashdown",
-   "tag": [
-    "parachutes",
-    "splashdown"
-   ],
-   "scritta": "15 MPH",
+   "scritta": "7 MINUTES",
    "obbligo": [
     "astronaut"
    ],
@@ -605,11 +45,51 @@
    "anno": 0
   },
   {
-   "testo": "Recovery crews arrive fast, but first they must cover the thrusters. The leftover fuel is toxic, so teams wear breathing masks. Then a crane lifts the capsule aboard the ship. The white paint now looks charred.",
-   "q": "Crew Dragon recovery ship crane",
+   "testo": "Meet the ship. Dragon first flew in 2010 as a cargo vessel for the International Space Station. It completed 23 cargo missions over ten years, and that record gave NASA the confidence to trust it with people.",
+   "q": "Dragon cargo spacecraft space station",
    "tag": [
-    "recovery",
-    "ship"
+    "dragon",
+    "cargo",
+    "station"
+   ],
+   "scritta": "23 MISSIONS",
+   "obbligo": [],
+   "capitolo": "Meet The Dragon",
+   "anno": 2010
+  },
+  {
+   "testo": "The crew version flew its first test in 2019. Then on May 30, 2020, it became the first American spacecraft to carry astronauts to orbit since the Space Shuttle retired in 2011.",
+   "q": "Crew Dragon Demo-2 launch",
+   "tag": [
+    "demo-2",
+    "launch",
+    "dragon"
+   ],
+   "scritta": "MAY 30, 2020",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 2020
+  },
+  {
+   "testo": "Now imagine standing next to it. The capsule itself is about 16 feet tall and 13 feet wide. Under it sits the trunk, adding roughly 12 more feet. Together, that is taller than a two story house.",
+   "q": "Dragon capsule trunk exterior",
+   "tag": [
+    "dragon",
+    "trunk",
+    "capsule"
+   ],
+   "scritta": "16 FEET",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "The trunk is not just storage. It carries unpressurized cargo, and it supports the spacecraft's power system. It also has fins, which only matter if something goes wrong and Dragon must fly through air alone.",
+   "q": "Dragon trunk fins solar panels",
+   "tag": [
+    "trunk",
+    "fins",
+    "dragon"
    ],
    "scritta": "",
    "obbligo": [],
@@ -617,11 +97,559 @@
    "anno": 0
   },
   {
-   "testo": "The hatch opens. Crews have to climb and slide out, since gravity suddenly weighs a lot. After a long stay in orbit, walking can be hard, and doctors often help. The surprise: Dragon gets refurbished and flies again.",
-   "q": "astronauts exit Dragon recovery",
+   "testo": "On the nose sits a hinged cover. When it opens, it reveals a docking port for trips to the space station. On some missions, a glass dome window sits there instead, for pure sightseeing.",
+   "q": "Dragon nose cone open docking",
+   "tag": [
+    "nose cone",
+    "docking",
+    "dragon"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Dragon has two kinds of thrusters. Sixteen small Draco engines steer the capsule and adjust its orbit. They burn two fuels that ignite on contact, so there is no spark needed, only a valve opening.",
+   "q": "Draco thrusters firing spacecraft",
+   "tag": [
+    "thruster",
+    "engine",
+    "dragon"
+   ],
+   "scritta": "16 ENGINES",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "The other engines are the SuperDracos. Eight of them sit in four pods around the capsule. Each one can push with about 16,000 pounds of thrust. They exist for one reason only: to save your life.",
+   "q": "SuperDraco abort test",
+   "tag": [
+    "superdraco",
+    "abort",
+    "test"
+   ],
+   "scritta": "16,000 LBS",
+   "obbligo": [],
+   "capitolo": "Launch Day",
+   "anno": 0
+  },
+  {
+   "testo": "If the rocket fails during ascent, those engines fire in about a tenth of a second. They throw the capsule away from the booster, covering roughly half a mile in just seven seconds.",
+   "q": "Dragon pad abort test",
+   "tag": [
+    "abort",
+    "engines",
+    "test"
+   ],
+   "scritta": "7 SECONDS",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Inside, the cabin offers about 330 cubic feet of pressurized space. That sounds tiny. But for a spacecraft, it is roomy. It is about the size of the inside of a large van.",
+   "q": "Dragon capsule interior cabin",
+   "tag": [
+    "interior",
+    "cabin",
+    "dragon"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Look forward and you will not find a wall of switches. Apollo capsules had panels packed with dials and toggles. Dragon has three big touchscreens, and that is basically it. The ship flies itself.",
+   "q": "Dragon touchscreen displays astronauts",
+   "tag": [
+    "touchscreen",
+    "display",
+    "dragon"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "If something needs a manual fix, ground teams can often handle it remotely. The astronauts mostly monitor and watch. They are passengers with a very good view, and a very important job in emergencies.",
+   "q": "astronauts monitoring Dragon screens",
+   "tag": [
+    "monitoring",
+    "screens",
+    "crew"
+   ],
+   "scritta": "",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Before anyone climbs in, they put on the suit. Each astronaut gets a custom fitted pressure suit and a helmet made with 3D printing. It is slim, flexible, and designed to be worn the whole ride.",
+   "q": "astronauts SpaceX spacesuit",
+   "tag": [
+    "spacesuit",
+    "helmet",
+    "suit"
+   ],
+   "scritta": "",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Why bother? Because the suit is the backup plan. If the cabin ever lost pressure, the suit keeps breathable air around you. Without pressure, bodily fluids can literally begin to boil at the temperatures of space.",
+   "q": "astronaut suit check pressure",
+   "tag": [
+    "suit",
+    "pressure",
+    "check"
+   ],
+   "scritta": "",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Launch day starts about three hours before liftoff. The crew suits up at Kennedy Space Center in Florida, gets a final briefing, and then walks out toward a row of waiting Tesla vehicles.",
+   "q": "astronauts walking out suits Kennedy",
+   "tag": [
+    "walkout",
+    "suits",
+    "kennedy"
+   ],
+   "scritta": "3 HOURS",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "They ride to the launch pad. About an hour before liftoff, an elevator lifts them 255 feet to the crew access arm. That is roughly the height of a 25 story building, with the rocket beside you.",
+   "q": "astronauts elevator launch tower",
+   "tag": [
+    "tower",
+    "elevator",
+    "launch pad"
+   ],
+   "scritta": "255 FEET",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "At the top, you cross a short walkway into the capsule. Ground crews help you slide through the side hatch, strap you in, and clip your boots to the floor, so your legs stay put during launch.",
+   "q": "astronauts boarding Crew Dragon hatch",
+   "tag": [
+    "boarding",
+    "hatch",
+    "crew dragon"
+   ],
+   "scritta": "",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Then a hose connects to your suit. It pumps in cooled air, keeping your temperature and breathing comfortable. From this moment on, you and the spacecraft are basically one connected system.",
+   "q": "astronaut strapped seat capsule",
+   "tag": [
+    "seat",
+    "strapped",
+    "capsule"
+   ],
+   "scritta": "",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "About 45 minutes before liftoff, the ground crew says goodbye and closes the hatch. The access arm swings away. Helmet visors come down. Now it is just you, your crewmates, and the countdown.",
+   "q": "astronauts waiting countdown capsule",
+   "tag": [
+    "countdown",
+    "visor",
+    "crew"
+   ],
+   "scritta": "",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Next comes an unusual detail. Fueling begins with the crew already aboard. Most rockets fuel before people board. But SpaceX loads super cold propellant while astronauts sit on top, and they can hear it flowing.",
+   "q": "Falcon 9 fueling crew launch",
+   "tag": [
+    "falcon 9",
+    "fueling",
+    "launch"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Then the final seconds. Nine Merlin engines ignite at the base of the Falcon 9 booster. Together they produce about 1.8 million pounds of thrust. The whole stack shakes, and then it rises.",
+   "q": "Falcon 9 liftoff crew",
+   "tag": [
+    "falcon 9",
+    "liftoff",
+    "engines"
+   ],
+   "scritta": "1.8 MILLION LBS",
+   "obbligo": [],
+   "capitolo": "Ride To Orbit",
+   "anno": 0
+  },
+  {
+   "testo": "Within about a minute, the rocket passes the speed of sound. Pressure builds and the ride gets rough. You feel yourself pushed back into the seat, harder and harder, as the rocket gets lighter and faster.",
+   "q": "astronauts launch acceleration",
+   "tag": [
+    "launch",
+    "acceleration",
+    "astronauts"
+   ],
+   "scritta": "",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "At about two minutes and thirty seconds, the first stage shuts down and separates. You are already traveling thousands of miles per hour, more than 50 miles up. The upper stage ignites to finish the job.",
+   "q": "Falcon 9 stage separation",
+   "tag": [
+    "stage separation",
+    "falcon 9",
+    "rocket"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "At roughly nine minutes, the engine cuts off. You are now moving around 17,500 mph, about 125 miles up. The shaking stops. Everything goes quiet. And a stuffed toy floats up in front of you.",
+   "q": "zero gravity indicator floating plush Dragon",
+   "tag": [
+    "zero gravity",
+    "plush",
+    "dragon"
+   ],
+   "scritta": "17,500 MPH",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "That floating toy is a tradition. It is the signal that you have reached weightlessness. It is a simple, almost silly, detail. But everyone on board knows exactly what it means. You made it.",
+   "q": "astronauts weightless Dragon cabin",
+   "tag": [
+    "weightless",
+    "cabin",
+    "crew"
+   ],
+   "scritta": "",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Around twelve minutes after liftoff, Dragon separates from the second stage. About fifteen minutes in, you lift your visor, unbuckle, and float free. The most dangerous part of going up is behind you.",
+   "q": "astronaut unbuckle float Dragon",
+   "tag": [
+    "floating",
+    "unbuckle",
+    "dragon"
+   ],
+   "scritta": "",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Now there are two kinds of trips. If you are headed to the International Space Station, the chase takes about a day. Dragon slowly closes the gap, then docks on its own, with astronauts watching.",
+   "q": "Crew Dragon approaching space station",
+   "tag": [
+    "docking",
+    "approach",
+    "space station"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "Life In Orbit",
+   "anno": 0
+  },
+  {
+   "testo": "The other kind of trip is a free flyer mission. Private crews, like Inspiration4 in September 2021, spent about three days in orbit. No station. Just the capsule, the view, and the planet below.",
+   "q": "Inspiration4 crew Dragon orbit",
+   "tag": [
+    "inspiration4",
+    "orbit",
+    "crew"
+   ],
+   "scritta": "3 DAYS",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "",
+   "anno": 2021
+  },
+  {
+   "testo": "On those flights, the docking port gets replaced by a glass dome. You can put your head inside it and see the horizon in almost every direction. Many people say it is the best seat in the sky.",
+   "q": "Dragon cupola dome window Earth",
+   "tag": [
+    "cupola",
+    "window",
+    "dome"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Now the question everyone asks. Where do you go to the bathroom? Early astronauts had it rough. On Mercury, the first American in space, Alan Shepard, had to wait on the pad so long that he relieved himself in his suit.",
+   "q": "Mercury capsule astronaut Shepard",
+   "tag": [
+    "mercury",
+    "shepard",
+    "capsule"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "Space Toilet",
+   "anno": 1961
+  },
+  {
+   "testo": "Later missions used collection bags, and the Space Shuttle introduced a vacuum toilet. The station uses one too. Air flow, not gravity, pulls everything away. It is not glamorous, but it works.",
+   "q": "space toilet astronaut station",
+   "tag": [
+    "toilet",
+    "space station",
+    "suction"
+   ],
+   "scritta": "",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Dragon has its own toilet, tucked into the wall above the side hatch. It uses fans, valves, and suction hoses. There is even a privacy curtain. In a cabin this small, that curtain matters a lot.",
+   "q": "Dragon toilet privacy curtain",
+   "tag": [
+    "toilet",
+    "curtain",
+    "dragon"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "And you cannot really hold it. Astronauts have reported that weightlessness changes how the body behaves, so everyone ends up using the toilet within hours of arriving in orbit. Nobody gets to be shy.",
+   "q": "astronauts floating cabin weightless",
+   "tag": [
+    "weightless",
+    "cabin",
+    "astronauts"
+   ],
+   "scritta": "",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Eating is simpler. Meals come as packaged food that is heated with water or warmed in a small device. Drinks come in pouches with straws, because a loose liquid ball is a mess waiting to happen.",
+   "q": "astronaut eating food space",
+   "tag": [
+    "food",
+    "eating",
+    "pouch"
+   ],
+   "scritta": "",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Sleeping is just as strange. There is no up or down, so you float. On long flights, crews use sleeping bags tied to a wall. On short trips, you might just drift and rest in your seat.",
+   "q": "astronaut sleeping bag space",
+   "tag": [
+    "sleeping bag",
+    "sleep",
+    "astronaut"
+   ],
+   "scritta": "",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Then comes the trip home. Mission control picks one of seven landing zones off Florida, in the Gulf of Mexico or the Atlantic. Weather decides everything. If the seas are rough, the whole plan can wait.",
+   "q": "Dragon splashdown recovery ship",
+   "tag": [
+    "splashdown",
+    "recovery",
+    "ship"
+   ],
+   "scritta": "7 ZONES",
+   "obbligo": [],
+   "capitolo": "Coming Home",
+   "anno": 0
+  },
+  {
+   "testo": "Dragon lowers its orbit step by step, until it is on a path that must hit the atmosphere. Crew suit up again, visors down, straps tight. This is the point of no return, and everyone knows it.",
+   "q": "astronauts suited Dragon returning Earth",
+   "tag": [
+    "return",
+    "suit",
+    "crew"
+   ],
+   "scritta": "",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Then the trunk is dropped. The Draco thrusters turn the heat shield toward Earth. From here on, the capsule is on its own. There is no engine to save you. Only the shield, and physics.",
+   "q": "Dragon trunk separation reentry",
+   "tag": [
+    "trunk",
+    "separation",
+    "reentry"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Dragon hits the air at about 17,500 mph. The air in front of it compresses so hard that it glows as superheated plasma, around 3,500 degrees Fahrenheit. Outside your window, the world turns orange.",
+   "q": "capsule reentry fire plasma",
+   "tag": [
+    "reentry",
+    "plasma",
+    "fire"
+   ],
+   "scritta": "3,500°F",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "And now the blackout. The plasma blocks radio signals, so for about seven minutes the capsule is cut off. If something goes wrong, nobody tells you. The heat shield tiles slowly burn away, carrying the heat off.",
+   "q": "reentry blackout capsule heat shield",
+   "tag": [
+    "blackout",
+    "heat shield",
+    "reentry"
+   ],
+   "scritta": "7 MINUTES",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "Inside, you stay surprisingly cool. The life support system keeps pumping chilled air through your suit. But the deceleration is brutal. You feel four to five times your normal weight, pressing into your seat.",
+   "q": "astronauts deceleration G-force capsule",
+   "tag": [
+    "g-force",
+    "deceleration",
+    "astronauts"
+   ],
+   "scritta": "4-5 G",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "When the fire fades, radio comes back. Two small drogue parachutes open first, then four huge main parachutes. They slow the capsule to about 15 mph, just fast enough to splash down safely.",
+   "q": "Dragon parachutes splashdown",
+   "tag": [
+    "parachutes",
+    "splashdown",
+    "dragon"
+   ],
+   "scritta": "15 MPH",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "After splashdown, a recovery ship rushes in. Crews hoist the capsule onto the deck. Its bright white paint is now scorched into shades of gray and black. But you are safe, and you are back.",
+   "q": "Dragon recovery ship capsule hoisted",
+   "tag": [
+    "recovery",
+    "ship",
+    "capsule"
+   ],
+   "scritta": "",
+   "obbligo": [],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "One more surprise. Before anyone opens the hatch, teams must cover the thruster nozzles. The fuel is toxic, and they wear breathing masks. Only when the air is safe do they let the crew out.",
+   "q": "recovery team Dragon hatch open astronauts",
+   "tag": [
+    "recovery",
+    "hatch",
+    "astronauts"
+   ],
+   "scritta": "",
+   "obbligo": [
+    "astronaut"
+   ],
+   "capitolo": "",
+   "anno": 0
+  },
+  {
+   "testo": "After weeks in weightlessness, your legs may feel like jelly. Some astronauts walk with help. And that is life inside Dragon: a few minutes of fire, days of floating, and a view nobody forgets.",
+   "q": "astronauts exit Dragon after splashdown",
    "tag": [
     "astronauts",
-    "recovery"
+    "exit",
+    "splashdown"
    ],
    "scritta": "",
    "obbligo": [
@@ -631,40 +659,41 @@
    "anno": 0
   }
  ],
- "descrizione": "What is it really like to ride inside the SpaceX Dragon capsule? In this Orbital Days documentary, we follow a crew from suit-up and the Tesla ride to launch, orbit, the space toilet, reentry at about 17,500 mph, and splashdown. We cover the Crew Dragon cabin, SuperDraco abort engines, the heat shield, and how private flights differ from International Space Station trips, using only documented facts from NASA and SpaceX.\n\nYou will learn how big the cabin really is, how astronauts get strapped in, what the three touchscreens do, why the capsule has fins, and what happens during the seven-minute communications blackout on the way home.\n\nSubscribe to Orbital Days for more journeys into real life in space, every week.\n\n#SpaceX #CrewDragon #NASA #Astronauts #SpaceTravel #OrbitalDays",
+ "descrizione": "What really happens to astronauts inside the SpaceX Dragon capsule? From launch to splashdown, this is life inside Crew Dragon: how astronauts eat, sleep, use the space toilet, and survive a seven minute reentry blackout.\n\nWe follow a real mission step by step: the ride to orbit at 17,500 mph, floating in weightlessness, docking at the space station, and returning to Earth through 3,500°F plasma, all explained with documented NASA facts.\n\nSubscribe to Orbital Days for more true stories about astronauts in space.\n\n#SpaceX #CrewDragon #Astronauts #SpaceStation #NASA",
  "tag": [
-  "spacex dragon",
-  "crew dragon",
-  "life inside dragon",
-  "dragon capsule",
-  "spacex crew dragon",
-  "astronaut life",
-  "space travel",
-  "inside spacex dragon",
-  "nasa commercial crew",
-  "international space station",
-  "falcon 9",
-  "superdraco",
-  "dragon reentry",
-  "dragon splashdown",
-  "spacex launch",
+  "SpaceX Dragon",
+  "Crew Dragon",
+  "life inside Dragon capsule",
+  "astronauts in space",
+  "what happens to astronauts",
+  "how astronauts sleep",
+  "how astronauts eat",
+  "how astronauts poop",
   "space toilet",
-  "astronaut suit",
-  "inspiration4",
-  "demo-2",
-  "how astronauts launch",
-  "space documentary",
-  "orbital days",
-  "spacex astronauts",
-  "dragon cabin",
+  "reentry",
+  "splashdown",
+  "launch",
+  "space station",
+  "NASA",
+  "SpaceX",
+  "Falcon 9",
+  "Demo-2",
+  "Inspiration4",
+  "abort system",
+  "SuperDraco",
   "heat shield",
-  "zero gravity",
-  "private spaceflight",
-  "spacex explained",
-  "what is it like in space"
+  "reentry blackout",
+  "weightlessness",
+  "the truth about space travel",
+  "what really happens",
+  "Orbital Days",
+  "astronaut documentary",
+  "returning to Earth",
+  "spacewalk",
+  "Dragon capsule inside"
  ],
- "testo_copertina": "SEVEN MINUTES",
- "copertina_prompt": "A fictional astronaut in a white SpaceX-style pressure suit sits strapped in a sleek Dragon capsule cabin with three glowing touchscreens, wide eyes and a nervous clenched expression, a bright orange glow from reentry flickering through the small window beside him.",
+ "testo_copertina": "7 MIN BLACKOUT",
+ "copertina_prompt": "A fictional astronaut in a white SpaceX style pressure suit, wide eyes and tense face, strapped into a seat inside a glowing orange Dragon capsule during reentry, fiery plasma flickering in the small window beside the helmet",
  "titolo_video": "Life Inside The SpaceX Dragon Capsule!",
  "titolo_competitor": "Life Inside The SpaceX Dragon Capsule!"
 }
