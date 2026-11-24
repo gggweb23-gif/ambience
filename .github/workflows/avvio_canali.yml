@@ -74,7 +74,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           ora=$(TZ=Europe/Rome date +%H); oggi=$(TZ=Europe/Rome date +%F)
-          if [ "$ora" -lt 5 ] || [ "$ora" -gt 11 ]; then echo "fuori orario ($ora)"; exit 0; fi
+          if [ "$ora" -lt 4 ] || [ "$ora" -gt 11 ]; then echo "fuori orario ($ora)"; exit 0; fi
           git pull -q || true
           for f in tech guerra; do
             attivi=$(python3 -c "import json;c=json.load(open('notizie/canali.json'));print(sum(1 for k,v in c.items() if k.startswith('$f'+'_') and isinstance(v,dict) and v.get('attivo')=='SI'))")
