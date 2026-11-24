@@ -9,7 +9,7 @@ run-name: Notizie ${{ inputs.filone || 'tech' }} ${{ (inputs.produci == 'SI' || 
 on:
   schedule:
     - cron: '13 5 * * *'   # tech: radar + video dei canali tech attivi in notizie/canali.json
-    - cron: '23 5 * * *'   # guerra: radar + video dei canali guerra attivi; escono all'ora_uscita di notizie/canali.json (IT 11:00, EN 17:00)
+    - cron: '23 5 * * *'   # guerra: radar + video dei canali guerra attivi; escono all'ora_uscita di notizie/canali.json (IT 10:00, EN 17:00)
   workflow_dispatch:
     inputs:
       filone: {description: 'filone (tech)', default: 'tech', type: string}
