@@ -1,12 +1,12 @@
-# Radar notizie tech — 2026-11-23
+# Radar notizie tech — 2026-11-24
 
-**Scelta:** AI-assisted proof of the Riemann hypothesis with Claude (Levent Alpöge, Anthropic) (Dario Amodei) — l'onda di ieri e' ancora forte: si resta con un angolo nuovo
+**Scelta:** Nvidia board reinstates Jensen Huang as CEO after Trump pressure; stock surges about 30% and tech rallies (Jensen Huang) — la storia con piu' views all'ora oggi
 
 | # | Storia | Persona | Views all'ora (EN+IT) | Views 3 gg EN | Views 3 gg IT | Video lunghi EN |
 |---|---|---|---|---|---|---|
-| 1 | Nvidia board reinstates Jensen Huang as CEO, stock surges ~30% and Nasdaq jumps | Jensen Huang | 221,120 | 1,273,526 | 137,109 | 4 |
-| 2 | AI-assisted proof of the Riemann hypothesis with Claude (Levent Alpöge, Anthropic) | Dario Amodei | 168,067 | 6,539,305 | 3,767,924 | 10 |
-| 3 | Anthropic IPO fails to calm AI trade jitters amid market selloff | Dario Amodei | 36,267 | 2,182,770 | 10,056 | 14 |
-| 4 | Huang's ouster tied to spy scandal: woman at center of Nvidia scandal reportedly in touch with China's intelligence agency | Jensen Huang | 2,467 | 14,001 | 115,781 | 8 |
-| 5 | Arm CEO Rene Haas extends contract through 2033 after Nvidia top-job chatter | Rene Haas | 1,368 | 773 | 968 | 0 |
-| 6 | Amodei's idea for simulating a fulfilling life for people who lose jobs to AI (video games) | Dario Amodei | 43 | 595 | 0 | 5 |
+| 1 | Nvidia board reinstates Jensen Huang as CEO after Trump pressure; stock surges about 30% and tech rallies | Jensen Huang | 711,529 | 6,712,695 | 3,233,480 | 11 |
+| 2 | Anthropic's Claude Riemann hypothesis proof: 250,000-page written proof draws criticism | Dario Amodei | 74,305 | 1,992,763 | 553,288 | 9 |
+| 3 | Huang spy scandal: Alice Huang's contacts with Chinese intelligence and Singapore probe | Jensen Huang | 54,375 | 1,106,163 | 6,742 | 11 |
+| 4 | Huang's return sparks anger in Congress; lawmakers move toward hearings over Nvidia board and China chip sales | Jensen Huang | 34,200 | 357,506 | 2,875 | 13 |
+| 5 | Dario Amodei reportedly buys a masseria in Puglia, Italy | Dario Amodei | 614 | 12,378 | 12,378 | 0 |
+| 6 | Amazon buys Decart's AI optimization tech for $7.5B as it prepares to sell Trainium chips | Andy Jassy | 28 | 583 | 62 | 4 |
