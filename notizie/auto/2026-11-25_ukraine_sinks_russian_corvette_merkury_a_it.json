@@ -1,0 +1,1389 @@
+{
+ "titolo": "Raid di Zelensky in Libia: gli alleati nel panico",
+ "angolo": "Day 3: Kyiv's legal case under Article 51 vs. the human cost in Libya and the political squeeze on Italy's Meloni",
+ "descrizione": "Raid di Zelensky in Libia: gli alleati nel panico. L'Ucraina sostiene che l'affondamento della corvetta russa Merkury a Bengasi sia stato legittima difesa ai sensi dell'articolo 51 della Carta dell'ONU. Da allora due soldati libici sono morti, entrambi i governi libici hanno condannato l'attacco e il ministro degli Esteri italiano afferma che la guerra non deve estendersi al Mediterraneo. Ecco che cosa è confermato, che cosa è solo dichiarato e che cosa dicono Mosca e Roma sui prossimi passi.",
+ "tag": [
+  "Raid di Zelensky in Libia: gli alleati nel panico",
+  "Zelensky",
+  "Ucraina",
+  "Russia",
+  "Libia",
+  "Bengasi",
+  "corvetta Merkury",
+  "Meloni",
+  "Italia",
+  "Mediterraneo",
+  "droni navali",
+  "Articolo 51",
+  "Cremlino",
+  "NATO",
+  "notizie guerra Ucraina"
+ ],
+ "fonti_link": [
+  "https://www.cnbc.com/2026/11/23/ukraine-russia-warship-libya.html",
+  "https://www.defensenews.com/global/mideast-africa/2026/11/23/ukraine-confirms-it-sank-russian-corvette-in-libyan-port/",
+  "https://www.kyivpost.com/post/90913",
+  "https://kyivindependent.com/strikes-on-russian-ship-in-libya-are-lawful-self-defense-ukraine-says/",
+  "https://www.usnews.com/news/world/articles/2026-11-24/ukraine-insists-attack-on-russian-ships-in-libya-was-self-defence",
+  "https://www.france24.com/en/europe/20261124-live-tripoli-demands-explanation-from-kyiv-for-striking-russian-ships-in-libyan-waters",
+  "https://english.alarabiya.net/News/north-africa/2026/11/25/two-libyan-army-personnel-succumbed-to-wounds-after-benghazi-port-attack",
+  "https://urgent.news/2026/11/25/everything-that-concerns-libya-concerns-italy-why-ukraines-med-strike",
+  "https://mezha.net/eng/news/mezha-ba5fe4f28b6147458a987d7f_ukraine-s_strikes_on",
+  "https://www.trtworld.com/article/ad4249812e76",
+  "https://newsukraine.rbc.ua/news/kremlin-responds-to-ukraine-s-destruction-1795437902.html",
+  "https://time.com/article/2026/11/23/zelensky-says-ukraine-sank-russian-warship-at-naval-base-in-libya/",
+  "https://rferl.org/a/benghazi-libya-russian-ship-sunk-drone-ukraine/33903623.html",
+  "https://sg.news.yahoo.com/italy-watches-worryingly-ukraine-strikes-160507053.html",
+  "https://www.document.news/2026/11/24/italy-criticises-ukraines-military-operations-in-the-mediterranean",
+  "https://piqmarkets.com/story/italy-warns-ukraine-s-libya-strikes-risk-spreading-war-to-mediterranean",
+  "https://rt-english.com/news/649272-libya-zelensky-terrorism-watchlist/",
+  "https://archynewsy.com/ukraine-claims-sinking-russian-corvette-in-libya-lna-says-two-soldiers-killed/",
+  "https://www.archynewsy.com/ukraine-claims-sinking-russian-corvette-in-libya-lna-says-two-soldiers-killed/"
+ ],
+ "personaggi": {
+  "zelensky": {
+   "commons": "Volodymyr Zelenskyy",
+   "chi": "Volodymyr Zelensky, presidente dell'Ucraina",
+   "pose": {
+    "determinato": {
+     "posa": "standing firm, jaw set, hands clasped, steady determined gaze"
+    },
+    "parla": {
+     "posa": "speaking at a podium, one hand raised, focused"
+    },
+    "preoccupato": {
+     "posa": "arms crossed, brow furrowed, worried look"
+    },
+    "serio": {
+     "posa": "standing straight, serious neutral face"
+    }
+   }
+  },
+  "putin": {
+   "commons": "Vladimir Putin",
+   "chi": "Vladimir Putin, presidente della Russia",
+   "pose": {
+    "serio": {
+     "posa": "seated stiffly, cold serious stare"
+    },
+    "teso": {
+     "posa": "standing tense, jaw tight, fists at sides"
+    }
+   }
+  },
+  "peskov": {
+   "commons": "Dmitry Peskov",
+   "chi": "Dmitry Peskov, portavoce del Cremlino",
+   "pose": {
+    "calmo": {
+     "posa": "standing at a briefing lectern, calm expression"
+    }
+   }
+  },
+  "meloni": {
+   "commons": "Giorgia Meloni",
+   "chi": "Giorgia Meloni, presidente del Consiglio italiano",
+   "pose": {
+    "preoccupata": {
+     "posa": "standing with arms folded, tense worried expression"
+    },
+    "seria": {
+     "posa": "standing straight, serious guarded look"
+    }
+   }
+  },
+  "tajani": {
+   "commons": "Antonio Tajani",
+   "chi": "Antonio Tajani, ministro degli Esteri italiano",
+   "pose": {
+    "preoccupato": {
+     "posa": "standing with one hand on chin, concerned"
+    }
+   }
+  }
+ },
+ "sets": {
+  "s01": {
+   "descr": "Night harbor, a warship capsized beside a fire-damaged pier, orange flames on black water, thick smoke trail",
+   "luogo": "BENGASI, LIBIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s02": {
+   "descr": "Seven small sea drones racing across dark water under moonlight, white wakes trailing",
+   "luogo": "AL LARGO DI BENGASI, LIBIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s03": {
+   "descr": "Close view of a massive fireball engulfing a dock at night, sparks over water",
+   "luogo": "BENGASI, LIBIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s04": {
+   "descr": "Presidential office in Kyiv at dusk, long desk, window glowing amber, a tablet showing an abstract video glow",
+   "luogo": "KIEV, UCRAINA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "zelensky",
+     "posa": "determinato",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s05": {
+   "descr": "Aerial view of a calm Mediterranean harbor at dawn, cranes and piers, pastel sky",
+   "luogo": "BENGASI, LIBIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s06": {
+   "descr": "Satellite-style top view of a capsized ship by a burned pier, grainy grey tones",
+   "luogo": "BENGASI, LIBIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s07": {
+   "descr": "Empty hospital corridor in a military port city, cold light, empty stretchers",
+   "luogo": "BENGASI, LIBIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s08": {
+   "descr": "Two folded military caps resting on a wooden table, soft candlelight, dark room",
+   "luogo": "LIBIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s09": {
+   "descr": "UN Security Council-style horseshoe table, empty chairs, blue light",
+   "luogo": "NEW YORK, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s10": {
+   "descr": "Rows of empty chairs in a Brussels-style press room, spotlights on a lectern",
+   "luogo": "BRUXELLES, BELGIO",
+   "effetto": "none",
+   "cast": []
+  },
+  "s11": {
+   "descr": "Ukrainian naval base pier at night, sea drone on a trailer under floodlights, fog",
+   "luogo": "ODESSA, UCRAINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s12": {
+   "descr": "Kremlin office, long table, heavy curtains, gold clock, cold morning light",
+   "luogo": "MOSCA, RUSSIA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "putin",
+     "posa": "serio",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s13": {
+   "descr": "Kremlin press briefing room, blue backdrop, rows of empty seats, microphones",
+   "luogo": "MOSCA, RUSSIA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "peskov",
+     "posa": "calmo",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s14": {
+   "descr": "Foggy St Petersburg shipyard at dusk, tugboat towing a damaged hull, red cranes",
+   "luogo": "SAN PIETROBURGO, RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s15": {
+   "descr": "Roman government palace facade at dusk, lit windows, empty square, long shadows",
+   "luogo": "ROMA, ITALIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s16": {
+   "descr": "Italian foreign ministry corridor, marble floor, tall windows, quiet",
+   "luogo": "ROMA, ITALIA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "tajani",
+     "posa": "preoccupato",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s17": {
+   "descr": "Old Italian colonial-era seafront buildings in Tripoli, arcaded Italian architecture facing the harbor, warm afternoon light, empty promenade",
+   "luogo": "TRIPOLI, LIBIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s18": {
+   "descr": "Parliament chamber in Rome, empty benches, afternoon light through high windows",
+   "luogo": "ROMA, ITALIA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "meloni",
+     "posa": "preoccupata",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s19": {
+   "descr": "Ukrainian foreign ministry briefing room in Kyiv, lectern and microphones, soft light",
+   "luogo": "KIEV, UCRAINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s20": {
+   "descr": "Exterior of the Peace Palace in The Hague at dawn, red-brick neo-Gothic towers, reflecting pond, empty forecourt, soft mist",
+   "luogo": "L'AIA, PAESI BASSI",
+   "effetto": "none",
+   "cast": []
+  },
+  "s21": {
+   "descr": "Tripoli seafront skyline at sunset, old fortress and mosque domes, orange sky",
+   "luogo": "TRIPOLI, LIBIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s22": {
+   "descr": "Military parade ground in eastern Libya at dawn, empty, dusty, flags without markings limp",
+   "luogo": "BENGASI, LIBIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s23": {
+   "descr": "Dark Kyiv street at night, power lines, one lit window, snow flurries",
+   "luogo": "KIEV, UCRAINA",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s24": {
+   "descr": "Black Sea coast at dawn, grey waves, an empty Ukrainian shoreline with rusted barriers",
+   "luogo": "ODESSA, UCRAINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s25": {
+   "descr": "Baltic Sea tanker silhouette near Ust-Luga port at dusk, loading cranes, icy water, pink horizon",
+   "luogo": "MAR BALTICO, RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s26": {
+   "descr": "Burning oil refinery towers at night, orange glow, smoke columns",
+   "luogo": "SIBERIA OCCIDENTALE, RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s27": {
+   "descr": "Empty press conference podium in the Ukrainian presidential administration in Kyiv, blue and yellow lighting, rows of empty chairs, no text",
+   "luogo": "KIEV, UCRAINA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "zelensky",
+     "posa": "parla",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s28": {
+   "descr": "Cargo ship with a smoking stern drifting on a calm blue sea, midday sun",
+   "luogo": "AL LARGO DI BENGASI, LIBIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s29": {
+   "descr": "Damaged Benghazi harbor pier with a half-sunk grey warship hull listing in the water, cranes and tugboats nearby, daylight, no people",
+   "luogo": "BENGASI, LIBIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s30": {
+   "descr": "Naval chart table with dividers and a compass, lamp light, no writing",
+   "luogo": "KIEV, UCRAINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s31": {
+   "descr": "Two empty ornate chairs facing each other across a long polished negotiating table in a neutral palace hall, one lit by warm light and one by cold blue light, tall windows behind, no people, no flags",
+   "luogo": "",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "zelensky",
+     "posa": "determinato",
+     "lato": "sx"
+    },
+    {
+     "chi": "putin",
+     "posa": "teso",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s32": {
+   "descr": "Press waiting area outside the Italian Chamber of Deputies in Rome, empty cordons and microphones on stands, marble floor, morning light",
+   "luogo": "ROMA, ITALIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s33": {
+   "descr": "Italian naval frigate at sea, grey hull, calm waters, hazy horizon",
+   "luogo": "MAR MEDITERRANEO",
+   "effetto": "none",
+   "cast": []
+  },
+  "s34": {
+   "descr": "Greek island harbor at dusk with white houses and anchored ferries",
+   "luogo": "GRECIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s35": {
+   "descr": "Exterior of NATO headquarters in Brussels at dusk, glass facade, flagpoles bare, wet plaza reflecting lights, empty",
+   "luogo": "BRUXELLES, BELGIO",
+   "effetto": "none",
+   "cast": []
+  },
+  "s36": {
+   "descr": "Montecitorio-style coalition meeting room in Rome, round table with empty chairs split into two clusters, tall windows, afternoon light",
+   "luogo": "ROMA, ITALIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s37": {
+   "descr": "Zelensky listening, hand on chin, in a Kyiv situation room with a glowing map table",
+   "luogo": "KIEV, UCRAINA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "zelensky",
+     "posa": "preoccupato",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s38": {
+   "descr": "Exterior of the UN Support Mission in Libya compound in Tripoli, fortified gate, white UN-style vehicles parked, hazy morning light, no text, no people",
+   "luogo": "TRIPOLI, LIBIA",
+   "effetto": "pioggia",
+   "cast": []
+  },
+  "s39": {
+   "descr": "Russian warship convoy sailing in heavy fog, ghostly shapes",
+   "luogo": "MAR MEDITERRANEO",
+   "effetto": "none",
+   "cast": []
+  },
+  "s40": {
+   "descr": "Port of Tartus-style Syrian harbor at sunset, cranes, quiet piers",
+   "luogo": "TARTUS, SIRIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s41": {
+   "descr": "Aerial view of a Russian naval vessel in the Mediterranean off the Syrian port of Tartus, grey hull on blue water, harbor breakwater in the distance",
+   "luogo": "TARTUS, SIRIA",
+   "effetto": "mirino",
+   "cast": []
+  },
+  "s42": {
+   "descr": "Open sea at golden hour with a Russian-style grey naval vessel and a cargo ship sailing in the distance, calm Mediterranean water, aerial three-quarter view, no people",
+   "luogo": "MAR MEDITERRANEO",
+   "effetto": "none",
+   "cast": []
+  },
+  "s43": {
+   "descr": "Exterior of the Russian Ministry of Defence building in Moscow at dusk, large grey Stalinist facade, wet empty embankment, cold light",
+   "luogo": "MOSCA, RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s44": {
+   "descr": "Shenzhen skyline at dusk, glass towers, harbor lights",
+   "luogo": "SHENZHEN, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s45": {
+   "descr": "Energy plant in Ukraine at night, transformers, thin snow",
+   "luogo": "UCRAINA",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s46": {
+   "descr": "European Parliament-style hemicycle in Strasbourg, empty, blue seats",
+   "luogo": "STRASBURGO, FRANCIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s47": {
+   "descr": "Satellite-style top view of a partly submerged capsized warship beside a Benghazi quay, grey-green water, oil slick, grainy tones",
+   "luogo": "BENGASI, LIBIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s48": {
+   "descr": "Empty Palazzo Chigi courtyard in Rome on one side and an empty Kyiv government quarter street on the other, split composition with warm and cold light, no people",
+   "luogo": "ROMA, ITALIA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "meloni",
+     "posa": "seria",
+     "lato": "sx"
+    },
+    {
+     "chi": "zelensky",
+     "posa": "serio",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s49": {
+   "descr": "Sunrise over the open Mediterranean, a single ship on the horizon",
+   "luogo": "MAR MEDITERRANEO",
+   "effetto": "none",
+   "cast": []
+  },
+  "s50": {
+   "descr": "Dim Kyiv government corridor with tall windows and a long carpet",
+   "luogo": "KIEV, UCRAINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s51": {
+   "descr": "A lone sea drone resting on a harbor slipway under a night sky of stars",
+   "luogo": "UCRAINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s52": {
+   "descr": "Libyan coastline near Benghazi at dusk, a small patrol boat and fishing boats anchored in a calm bay, distant oil flare, no people",
+   "luogo": "BENGASI, LIBIA",
+   "effetto": "pioggia",
+   "cast": []
+  },
+  "s53": {
+   "descr": "Ukrainian presidential office exterior in Kyiv at night, neoclassical facade lit by floodlights, sandbags, empty street",
+   "luogo": "KIEV, UCRAINA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "zelensky",
+     "posa": "serio",
+     "lato": "sx"
+    }
+   ]
+  }
+ },
+ "scene": [
+  {
+   "testo": "Notte. Una nave da guerra russa si capovolge in un porto africano. L'Ucraina dice di averla affondata.",
+   "fonti": [
+    "https://www.defensenews.com/global/mideast-africa/2026/11/23/ukraine-confirms-it-sank-russian-corvette-in-libyan-port/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s01"
+   }
+  },
+  {
+   "testo": "Sette droni marini, dice l'Ucraina. Costruiti in Ucraina. Usati a migliaia di chilometri dal fronte.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/23/ukraine-russia-warship-libya.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s02"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 7,
+    "decimali": 0,
+    "prefisso": "",
+    "unita": "DRONI NAVALI",
+    "sopra": "DICE ZELENSKY"
+   }
+  },
+  {
+   "testo": "Ora due militari libici sono morti, dice l'Esercito nazionale libico, e la regione si chiede chi sarà il prossimo.",
+   "fonti": [
+    "https://www.france24.com/en/europe/20261124-live-tripoli-demands-explanation-from-kyiv-for-striking-russian-ships-in-libyan-waters"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s03"
+   }
+  },
+  {
+   "testo": "L'Ucraina può colpire legalmente una nave da guerra russa nel porto di un paese terzo?",
+   "fonti": [
+    "https://www.usnews.com/news/world/articles/2026-11-24/ukraine-insists-attack-on-russian-ships-in-libya-was-self-defence"
+   ],
+   "titolo_card": true,
+   "visivo": {
+    "tipo": "set",
+    "set": "s04"
+   },
+   "grafica": {
+    "tipo": "titolo",
+    "testo": "LEGITTIMA DIFESA?",
+    "sotto": "LA TESI DI KIEV SU BENGASI"
+   }
+  },
+  {
+   "testo": "È la domanda a cui Kiev ha risposto martedì. Tripoli non è convinta.",
+   "fonti": [
+    "https://www.usnews.com/news/world/articles/2026-11-24/ukraine-insists-attack-on-russian-ships-in-libya-was-self-defence"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s19"
+   }
+  },
+  {
+   "testo": "Restate con me. Qui contano due numeri dalla Libia.",
+   "fonti": [
+    "https://english.alarabiya.net/News/north-africa/2026/11/25/two-libyan-army-personnel-succumbed-to-wounds-after-benghazi-port-attack"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s05"
+   }
+  },
+  {
+   "testo": "Facciamo un passo indietro a domenica 22 novembre.",
+   "fonti": [
+    "https://www.kyivpost.com/post/90913"
+   ],
+   "capitolo": "IL RAID DI DOMENICA",
+   "visivo": {
+    "tipo": "set",
+    "set": "s06"
+   }
+  },
+  {
+   "testo": "I servizi di sicurezza ucraini dicono che i loro droni hanno colpito la corvetta Merkury nel porto di Bengasi.",
+   "fonti": [
+    "https://www.kyivpost.com/post/90913"
+   ],
+   "visivo": {
+    "tipo": "mappa",
+    "centro": [
+     20.07,
+     32.12
+    ],
+    "larghezza": 24,
+    "paesi": [
+     {
+      "iso": "LBY",
+      "colore": "arancio"
+     }
+    ],
+    "punti": [
+     {
+      "lon": 20.07,
+      "lat": 32.12,
+      "nome": "BENGASI"
+     }
+    ]
+   }
+  },
+  {
+   "testo": "Anche una seconda nave russa, il cargo Angara, è stata colpita, dice l'Ucraina.",
+   "fonti": [
+    "https://www.kyivpost.com/post/90913"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s28"
+   }
+  },
+  {
+   "testo": "Zelensky l'ha definita un'operazione ucraina esemplare.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/23/ukraine-russia-warship-libya.html",
+    "https://sg.news.yahoo.com/italy-watches-worryingly-ukraine-strikes-160507053.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s27"
+   }
+  },
+  {
+   "testo": "Le immagini satellitari riportate dalla CNBC mostrano la nave da guerra quasi del tutto sott'acqua, capovolta.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/23/ukraine-russia-warship-libya.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s47"
+   }
+  },
+  {
+   "testo": "Funzionari libici hanno detto all'Associated Press che la nave era solo gravemente danneggiata, secondo Al Jazeera.",
+   "fonti": [
+    "https://m.whatreallyhappened.com/NEW/stories/zelensky-takes-credit-attack-russian-warship-libyan-port-benghazi"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s29"
+   }
+  },
+  {
+   "testo": "Zelensky ha detto che è stato distrutto anche un elicottero Ka-27 a bordo.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/23/ukraine-russia-warship-libya.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s11"
+   }
+  },
+  {
+   "testo": "Chi è l'uomo che ha ordinato tutto questo?",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/23/ukraine-russia-warship-libya.html"
+   ],
+   "capitolo": "L'UOMO DIETRO L'ATTACCO",
+   "visivo": {
+    "tipo": "set",
+    "set": "s23"
+   }
+  },
+  {
+   "testo": "Volodymyr Zelensky, presidente dell'Ucraina, alla guida di un paese in guerra con la Russia.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/23/ukraine-russia-warship-libya.html"
+   ],
+   "visivo": {
+    "tipo": "dossier",
+    "chi": "zelensky",
+    "posa": "determinato",
+    "righe": [
+     "PRESIDENTE DELL'UCRAINA",
+     "IN GUERRA CON LA RUSSIA",
+     "HA RIVENDICATO IL RAID"
+    ],
+    "timbro": "COMANDANTE"
+   }
+  },
+  {
+   "testo": "Kiev dice che continuerà a operare. Mosca dice che i suoi attacchi all'Ucraina continueranno.",
+   "fonti": [
+    "https://aroundprague.cz/en/news/world/benghazi-ship-attack-ukraine-claims-responsibility-as-libya-demands-inquiry"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s31"
+   }
+  },
+  {
+   "testo": "Prima, lo scontro legale. Il ministro degli Esteri ucraino ne ha parlato martedì.",
+   "fonti": [
+    "https://www.usnews.com/news/world/articles/2026-11-24/ukraine-insists-attack-on-russian-ships-in-libya-was-self-defence"
+   ],
+   "capitolo": "LA TESI GIURIDICA",
+   "visivo": {
+    "tipo": "set",
+    "set": "s20"
+   }
+  },
+  {
+   "testo": "Il ministro degli Esteri Andrii Sybiha l'ha definito un legittimo atto di autodifesa.",
+   "fonti": [
+    "https://www.usnews.com/news/world/articles/2026-11-24/ukraine-insists-attack-on-russian-ships-in-libya-was-self-defence"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s19"
+   }
+  },
+  {
+   "testo": "Ha citato l'articolo 51 della Carta delle Nazioni Unite.",
+   "fonti": [
+    "https://www.usnews.com/news/world/articles/2026-11-24/ukraine-insists-attack-on-russian-ships-in-libya-was-self-defence"
+   ],
+   "visivo": {
+    "tipo": "frase",
+    "testo": "L'articolo 51 della Carta delle Nazioni Unite."
+   }
+  },
+  {
+   "testo": "Il portavoce del ministero degli Esteri di Kiev, Heorhii Tykhyi, è andato oltre.",
+   "fonti": [
+    "https://kyivindependent.com/strikes-on-russian-ship-in-libya-are-lawful-self-defense-ukraine-says/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s50"
+   }
+  },
+  {
+   "testo": "Sybiha ha detto che le navi militari russe e i cargo che trasportano equipaggiamento militare erano obiettivi legittimi.",
+   "fonti": [
+    "https://kyivindependent.com/strikes-on-russian-ship-in-libya-are-lawful-self-defense-ukraine-says/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s42"
+   }
+  },
+  {
+   "testo": "Sybiha ha anche detto che l'Ucraina rispetta la sovranità e l'integrità territoriale della Libia.",
+   "fonti": [
+    "https://kyivindependent.com/strikes-on-russian-ship-in-libya-are-lawful-self-defense-ukraine-says/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s21"
+   }
+  },
+  {
+   "testo": "Il governo libico di Tripoli ha condannato l'attacco e anche il governo dell'est ha protestato all'ONU.",
+   "fonti": [
+    "https://rt-english.com/news/649272-libya-zelensky-terrorism-watchlist/"
+   ],
+   "capitolo": "UNA LIBIA DIVISA",
+   "visivo": {
+    "tipo": "set",
+    "set": "s22"
+   }
+  },
+  {
+   "testo": "Il ministero degli Esteri di Tripoli ha detto di condannare qualsiasi operazione militare straniera sul territorio libico o nelle sue acque.",
+   "fonti": [
+    "https://libyaobserver.ly/news/libya-condemns-zelenskyy-remarks-strike-near-benghazi-demands-clarification"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s09"
+   }
+  },
+  {
+   "testo": "Ha affermato che la guerra tra Russia e Ucraina non dà a nessuna delle due parti il diritto di condurre operazioni militari sul territorio libico o nelle sue acque.",
+   "fonti": [
+    "https://rferl.org/a/benghazi-libya-russian-ship-sunk-drone-ukraine/33903623.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s46"
+   }
+  },
+  {
+   "testo": "Tripoli ha anche chiesto chiarimenti ufficiali a Kiev.",
+   "fonti": [
+    "https://www.france24.com/en/europe/20261124-live-tripoli-demands-explanation-from-kyiv-for-striking-russian-ships-in-libyan-waters"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s10"
+   }
+  },
+  {
+   "testo": "Musa al-Koni, vicepresidente del Consiglio presidenziale libico, ha detto che la rivendicazione dell'attacco da parte dell'Ucraina potrebbe essere considerata una dichiarazione di guerra, riferisce la TASS.",
+   "fonti": [
+    "https://www.yahoo.com/news/world/articles/ukrainian-foreign-ministry-says-russian-081500444.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s43"
+   }
+  },
+  {
+   "testo": "La missione delle Nazioni Unite in Libia ha chiesto un'indagine indipendente.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/23/ukraine-russia-warship-libya.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s38"
+   }
+  },
+  {
+   "testo": "Ha anche messo in guardia dal trascinare la Libia in conflitti stranieri.",
+   "fonti": [
+    "https://www.cnbc.com/2026/11/23/ukraine-russia-warship-libya.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s52"
+   }
+  },
+  {
+   "testo": "Poi è arrivato martedì, con il costo umano.",
+   "fonti": [
+    "https://www.france24.com/en/europe/20261124-live-tripoli-demands-explanation-from-kyiv-for-striking-russian-ships-in-libyan-waters"
+   ],
+   "capitolo": "DUE EROI",
+   "visivo": {
+    "tipo": "set",
+    "set": "s07"
+   }
+  },
+  {
+   "testo": "Saddam Haftar, figlio del comandante dell'est Khalifa Haftar, ha annunciato sui social la morte di due militari della marina.",
+   "fonti": [
+    "https://www.france24.com/en/europe/20261124-live-tripoli-demands-explanation-from-kyiv-for-striking-russian-ships-in-libyan-waters"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s08"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 2,
+    "decimali": 0,
+    "prefisso": "",
+    "unita": "MILITARI LIBICI",
+    "sopra": "MORTI PER LE FERITE"
+   }
+  },
+  {
+   "testo": "L'Esercito nazionale libico ha indicato i due morti come Al-Taher Abdullah al-Sadiq e il tenente Ali Mohammed al-Said.",
+   "fonti": [
+    "https://www.france24.com/en/europe/20261124-live-tripoli-demands-explanation-from-kyiv-for-striking-russian-ships-in-libyan-waters"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s22"
+   }
+  },
+  {
+   "testo": "L'Esercito nazionale libico afferma che la sua risposta arriverà al momento e nel luogo opportuni.",
+   "fonti": [
+    "https://english.alarabiya.net/News/north-africa/2026/11/25/two-libyan-army-personnel-succumbed-to-wounds-after-benghazi-port-attack"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s47"
+   }
+  },
+  {
+   "testo": "Il Cremlino è rimasto in silenzio per più di 24 ore, ha riferito Dagens, prima che Peskov parlasse lunedì.",
+   "fonti": [
+    "https://www.dagens.com/war/kremlin-reacts-after-ukraine-sinks-russian-warship-in-libya-over-1000-miles-away"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s43"
+   }
+  },
+  {
+   "testo": "Il portavoce del Cremlino Dmitry Peskov ha detto lunedì che Mosca ha preso atto della dichiarazione di Zelensky.",
+   "fonti": [
+    "https://www.trtworld.com/article/ad4249812e76",
+    "https://newsukraine.rbc.ua/news/kremlin-responds-to-ukraine-s-destruction-1795437902.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s13"
+   }
+  },
+  {
+   "testo": "Ha detto che il ministero della Difesa diffonderà i dettagli se lo riterrà opportuno.",
+   "fonti": [
+    "https://www.trtworld.com/article/ad4249812e76"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s12"
+   }
+  },
+  {
+   "testo": "Ha definito l'operazione ucraina al largo della Libia e gli attacchi nel Baltico una tendenza molto pericolosa.",
+   "fonti": [
+    "https://www.trtworld.com/article/ad4249812e76"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s43"
+   }
+  },
+  {
+   "testo": "E ha detto che gli attacchi russi contro l'Ucraina hanno conseguenze molto dolorose per il regime di Kiev.",
+   "fonti": [
+    "https://www.trtworld.com/article/ad4249812e76"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s13"
+   }
+  },
+  {
+   "testo": "Ha richiamato una dichiarazione fatta da Putin a Shenzhen.",
+   "fonti": [
+    "https://www.dagens.com/war/kremlin-reacts-after-ukraine-sinks-russian-warship-in-libya-over-1000-miles-away"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s44"
+   }
+  },
+  {
+   "testo": "Peskov ha detto che l'esercito russo continua ogni giorno attacchi su larga scala contro le infrastrutture militari in Ucraina.",
+   "fonti": [
+    "https://kayhan.ir/en/news/156074/kremlin-warns-ukraine-of-painful-response-over-attacks-on-russian-vessels"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s45"
+   }
+  },
+  {
+   "testo": "Ma una delle reazioni più dure è arrivata da Roma.",
+   "fonti": [
+    "https://urgent.news/2026/11/25/everything-that-concerns-libya-concerns-italy-why-ukraines-med-strike"
+   ],
+   "capitolo": "L'INCUBO DI ROMA",
+   "visivo": {
+    "tipo": "set",
+    "set": "s15"
+   }
+  },
+  {
+   "testo": "Il ministro degli Esteri italiano, Antonio Tajani, ha parlato con Sybiha martedì, secondo il ministero degli Esteri italiano.",
+   "fonti": [
+    "https://piqmarkets.com/story/italy-warns-ukraine-s-libya-strikes-risk-spreading-war-to-mediterranean"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s16"
+   }
+  },
+  {
+   "testo": "Il ministero afferma che ha sottolineato il rispetto della sovranità della Libia e la necessità di tenere il conflitto fuori dal Mediterraneo.",
+   "fonti": [
+    "https://piqmarkets.com/story/italy-warns-ukraine-s-libya-strikes-risk-spreading-war-to-mediterranean"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s33"
+   }
+  },
+  {
+   "testo": "Tajani ha detto ai giornalisti che l'Italia non era stata informata dell'attacco, secondo Euronews.",
+   "fonti": [
+    "https://urgent.news/2026/11/25/everything-that-concerns-libya-concerns-italy-why-ukraines-med-strike"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s32"
+   }
+  },
+  {
+   "testo": "Ecco come Tajani ha espresso la preoccupazione.",
+   "fonti": [
+    "https://piqmarkets.com/story/italy-warns-ukraine-s-libya-strikes-risk-spreading-war-to-mediterranean"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s16"
+   },
+   "citazione": {
+    "chi": "zelensky",
+    "posa": "serio",
+    "testo": "Se questa è una continuazione della guerra tra Russia e Ucraina a poche centinaia di chilometri dall'Italia, è preoccupante, soprattutto perché lavoriamo per la stabilità della Libia."
+   }
+  },
+  {
+   "testo": "Perché la Libia conta così tanto per l'Italia?",
+   "fonti": [
+    "https://mezha.net/eng/news/mezha-ba5fe4f28b6147458a987d7f_ukraine-s_strikes_on"
+   ],
+   "visivo": {
+    "tipo": "mappa",
+    "centro": [
+     15,
+     36
+    ],
+    "larghezza": 24,
+    "paesi": [
+     {
+      "iso": "ITA",
+      "colore": "verde"
+     },
+     {
+      "iso": "LBY",
+      "colore": "arancio"
+     }
+    ],
+    "punti": [
+     {
+      "lon": 12.5,
+      "lat": 41.9,
+      "nome": "ROMA"
+     },
+     {
+      "lon": 20.07,
+      "lat": 32.12,
+      "nome": "BENGASI"
+     }
+    ],
+    "frecce": [
+     {
+      "da": [
+       20.07,
+       32.12
+      ],
+      "a": [
+       12.5,
+       41.9
+      ],
+      "colore": "arancio"
+     }
+    ]
+   }
+  },
+  {
+   "testo": "È un'ex colonia italiana, ricorda Politico.",
+   "fonti": [
+    "https://mezha.net/eng/news/mezha-ba5fe4f28b6147458a987d7f_ukraine-s_strikes_on",
+    "https://urgent.news/2026/11/25/everything-that-concerns-libya-concerns-italy-why-ukraines-med-strike"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s17"
+   }
+  },
+  {
+   "testo": "Politico afferma che gli attacchi potrebbero diventare un grattacapo per Giorgia Meloni.",
+   "fonti": [
+    "https://mezha.net/eng/news/mezha-ba5fe4f28b6147458a987d7f_ukraine-s_strikes_on",
+    "https://urgent.news/2026/11/25/everything-that-concerns-libya-concerns-italy-why-ukraines-med-strike"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s18"
+   }
+  },
+  {
+   "testo": "Politico afferma che in Europa si distingue per il forte sostegno all'Ucraina.",
+   "fonti": [
+    "https://urgent.news/2026/11/25/everything-that-concerns-libya-concerns-italy-why-ukraines-med-strike"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s48"
+   }
+  },
+  {
+   "testo": "Politico afferma che questo la mette in contrasto con una parte della sua stessa coalizione.",
+   "fonti": [
+    "https://urgent.news/2026/11/25/everything-that-concerns-libya-concerns-italy-why-ukraines-med-strike"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s36"
+   }
+  },
+  {
+   "testo": "Il leader della Lega e vicepremier Matteo Salvini si è chiesto se gli aiuti all'Ucraina debbano servire ad affondare navi in giro per il mondo.",
+   "fonti": [
+    "https://www.document.news/2026/11/24/italy-criticises-ukraines-military-operations-in-the-mediterranean"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s15"
+   }
+  },
+  {
+   "testo": "Ha anche avvertito che la guerra che arriva in Nord Africa rischia di essere una bomba che esplode in casa dell'Italia, riferisce il Giornale di Sicilia.",
+   "fonti": [
+    "https://www.document.news/2026/11/24/italy-criticises-ukraines-military-operations-in-the-mediterranean"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s15"
+   }
+  },
+  {
+   "testo": "Meloni non ha commentato pubblicamente, secondo Euronews.",
+   "fonti": [
+    "https://sg.news.yahoo.com/italy-watches-worryingly-ukraine-strikes-160507053.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s32"
+   }
+  },
+  {
+   "testo": "La Repubblica riferisce che in privato abbia definito gli attacchi inaccettabili. Non è confermato.",
+   "fonti": [
+    "https://sg.news.yahoo.com/italy-watches-worryingly-ukraine-strikes-160507053.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s18"
+   }
+  },
+  {
+   "testo": "Il ministro della Difesa greco, Nikos Dendias, ha chiesto spiegazioni a Kiev, secondo Athens News.",
+   "fonti": [
+    "https://mezha.net/eng/news/mezha-ba5fe4f28b6147458a987d7f_ukraine-s_strikes_on"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s34"
+   }
+  },
+  {
+   "testo": "E come ha risposto Zelensky agli alleati preoccupati?",
+   "fonti": [
+    "https://kyivindependent.com/strikes-on-russian-ship-in-libya-are-lawful-self-defense-ukraine-says/"
+   ],
+   "capitolo": "LA RISPOSTA DI ZELENSKY",
+   "visivo": {
+    "tipo": "set",
+    "set": "s53"
+   }
+  },
+  {
+   "testo": "Fa parte di qualcosa di più grande?",
+   "fonti": [
+    "https://sg.news.yahoo.com/italy-watches-worryingly-ukraine-strikes-160507053.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s25"
+   }
+  },
+  {
+   "testo": "Un funzionario dell'UE ha detto a Euronews che l'Ucraina voleva segnalare che le navi russe nel Mediterraneo sono a portata di mano.",
+   "fonti": [
+    "https://sg.news.yahoo.com/italy-watches-worryingly-ukraine-strikes-160507053.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s41"
+   }
+  },
+  {
+   "testo": "Al Jazeera osserva che l'Ucraina sta intensificando anche gli attacchi alle navi legate alla Russia, anche nel Baltico.",
+   "fonti": [
+    "https://www.document.news/2026/11/24/italy-criticises-ukraines-military-operations-in-the-mediterranean"
+   ],
+   "visivo": {
+    "tipo": "mappa",
+    "centro": [
+     22,
+     46
+    ],
+    "larghezza": 55,
+    "paesi": [
+     {
+      "iso": "UKR",
+      "colore": "azul"
+     },
+     {
+      "iso": "RUS",
+      "colore": "rosso"
+     },
+     {
+      "iso": "LBY",
+      "colore": "arancio"
+     }
+    ],
+    "punti": [
+     {
+      "lon": 29,
+      "lat": 60,
+      "nome": "GOLFO DI FINLANDIA"
+     },
+     {
+      "lon": 20.07,
+      "lat": 32.12,
+      "nome": "BENGASI"
+     },
+     {
+      "lon": 30.52,
+      "lat": 50.45,
+      "nome": "KIEV"
+     }
+    ],
+    "frecce": [
+     {
+      "da": [
+       30.52,
+       50.45
+      ],
+      "a": [
+       29,
+       60
+      ],
+      "colore": "blu"
+     },
+     {
+      "da": [
+       30.52,
+       50.45
+      ],
+      "a": [
+       20.07,
+       32.12
+      ],
+      "colore": "blu"
+     }
+    ]
+   }
+  },
+  {
+   "testo": "Tre domande decidono ora che cosa accadrà.",
+   "fonti": [
+    "https://www.usnews.com/news/world/articles/2026-11-24/ukraine-insists-attack-on-russian-ships-in-libya-was-self-defence"
+   ],
+   "capitolo": "COSA ACCADRÀ ORA",
+   "visivo": {
+    "tipo": "set",
+    "set": "s35"
+   }
+  },
+  {
+   "testo": "Uno: gli eserciti libici risponderanno, come promette l'LNA?",
+   "fonti": [
+    "https://english.alarabiya.net/News/north-africa/2026/11/25/two-libyan-army-personnel-succumbed-to-wounds-after-benghazi-port-attack"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s22"
+   }
+  },
+  {
+   "testo": "Due: l'indagine dell'ONU chiesta dal governo orientale libico si farà davvero?",
+   "fonti": [
+    "https://time.com/article/2026/11/23/zelensky-says-ukraine-sank-russian-warship-at-naval-base-in-libya/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s09"
+   }
+  },
+  {
+   "testo": "Tre: le preoccupazioni di Roma cambieranno i calcoli di Kiev? Per ora nulla di ufficiale lo indica.",
+   "fonti": [
+    "https://piqmarkets.com/story/italy-warns-ukraine-s-libya-strikes-risk-spreading-war-to-mediterranean"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s33"
+   }
+  },
+  {
+   "testo": "La posizione dell'Ucraina: le navi da guerra russe e i carichi di armi sono obiettivi legittimi.",
+   "fonti": [
+    "https://kyivindependent.com/strikes-on-russian-ship-in-libya-are-lawful-self-defense-ukraine-says/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s30"
+   }
+  },
+  {
+   "testo": "La posizione della Russia: una tendenza pericolosa con conseguenze dolorose.",
+   "fonti": [
+    "https://www.trtworld.com/article/ad4249812e76"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s12"
+   }
+  },
+  {
+   "testo": "La posizione della Libia: nessuna delle due parti ha il diritto di combattere sul suo territorio o nelle sue acque.",
+   "fonti": [
+    "https://rferl.org/a/benghazi-libya-russian-ship-sunk-drone-ukraine/33903623.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s21"
+   }
+  },
+  {
+   "testo": "La posizione dell'Italia: tenere questa guerra fuori dal Mediterraneo e rispettare la sovranità della Libia.",
+   "fonti": [
+    "https://piqmarkets.com/story/italy-warns-ukraine-s-libya-strikes-risk-spreading-war-to-mediterranean"
+   ],
+   "visivo": {
+    "tipo": "frase",
+    "testo": "La posizione dell'Italia: tenere questa guerra fuori dal Mediterraneo e rispettare la sovranità della Libia."
+   }
+  },
+  {
+   "testo": "Un solo attacco in un solo porto ha coinvolto diversi governi e l'ONU.",
+   "fonti": [
+    "https://www.france24.com/en/europe/20261124-live-tripoli-demands-explanation-from-kyiv-for-striking-russian-ships-in-libyan-waters",
+    "https://time.com/article/2026/11/23/zelensky-says-ukraine-sank-russian-warship-at-naval-base-in-libya/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s49"
+   }
+  },
+  {
+   "testo": "La vicenda è ancora in evoluzione. Iscrivetevi, per non perdere la prossima mossa.",
+   "fonti": [
+    "https://www.usnews.com/news/world/articles/2026-11-24/ukraine-insists-attack-on-russian-ships-in-libya-was-self-defence"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s52"
+   }
+  }
+ ],
+ "copertina": {
+  "sfondo": "Burning Russian corvette capsized at a night pier in Benghazi, huge orange flames and smoke over dark water, bright and clear",
+  "personaggi": [
+   "zelensky"
+  ],
+  "pose": {
+   "zelensky": "determinato"
+  },
+  "personaggio": "zelensky",
+  "posa": "determinato",
+  "lato": "dx",
+  "righe": [
+   "LEGITTIMA DIFESA",
+   "O GUERRA?"
+  ],
+  "box": "ALLEATI ALLARMATI",
+  "evidenzia": 1,
+  "parola": "AFFONDATA",
+  "etichetta": "NAVE DA GUERRA IN LIBIA",
+  "domanda": "CHI È IL PROSSIMO?",
+  "frase": ""
+ },
+ "verifica": {
+  "correzioni": 75,
+  "scene_tolte": 20
+ },
+ "coerenza": {
+  "scene_rifatte": 17,
+  "controllate": 63
+ },
+ "lingua": "it",
+ "nome": "2026-11-25_ukraine_sinks_russian_corvette_merkury_a_it",
+ "data": "25 NOVEMBRE 2026",
+ "etichetta": "ULTIM'ORA",
+ "musica": "tensione",
+ "voce": "glnsgBC77wt5zOYU0szz",
+ "budget_dollari": 0.6,
+ "storia": "Ukraine sinks Russian corvette Merkury at Libya's Benghazi port; Zelensky confirms, Kyiv says self-defence, Putin vows retaliation, NATO allies and Meloni uneasy",
+ "filone": "guerra",
+ "materiali_da": "2026-11-25_ukraine_sinks_russian_corvette_merkury_a_en"
+}
