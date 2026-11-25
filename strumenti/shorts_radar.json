@@ -1,5 +1,5 @@
 {
- "_nota": "22 nov (Giorgio): 4 Short al giorno anche sui canali RADAR. Ogni nuovo video lungo va aggiunto in prove_video/radar/<cartella>/produzione.json 25 nov: fermati (resta attivo solo KAO). 25 nov sera: riaccesi Lost Decades e The Dollar Years (Hidden America resta fermo). video_attivo SI = video lungo automatico ogni ogni_quanti_giorni (avvio_radar.yml).",
+ "_nota": "22 nov (Giorgio): 4 Short al giorno anche sui canali RADAR. Ogni nuovo video lungo va aggiunto in prove_video/radar/<cartella>/produzione.json 25 nov: fermati (resta attivo solo KAO). 25 nov sera: riaccesi Lost Decades e The Dollar Years (Hidden America resta fermo). video_attivo SI = video lungo automatico ogni ogni_quanti_giorni (avvio_radar.yml). 25 nov 19:18 (Giorgio): fermati anche Lost Decades e The Dollar Years; attivi solo KAO e Fronte Aperto.",
  "Hidden America Docs": {
   "cartella": "africaregions",
   "chiave_youtube": "YT_REFRESH_TOKEN_CANALE_NUOVO",
@@ -16,21 +16,21 @@
   "chiave_youtube": "YT_REFRESH_TOKEN_AGORA_OF_SAGES",
   "language": "en",
   "youtube_category_id": "27",
-  "shorts_al_giorno": "4",
+  "shorts_al_giorno": "0",
   "shorts_orari": "09:00, 13:00, 19:00, 21:30",
   "shorts_budget_giorno": "0.02",
   "ogni_quanti_giorni": "2",
-  "video_attivo": "SI"
+  "video_attivo": "NO"
  },
  "The Dollar Years": {
   "cartella": "nickel_years",
   "chiave_youtube": "YT_REFRESH_TOKEN_CANALE_NUOVO_2",
   "language": "en",
   "youtube_category_id": "27",
-  "shorts_al_giorno": "4",
+  "shorts_al_giorno": "0",
   "shorts_orari": "09:00, 13:00, 19:00, 21:30",
   "shorts_budget_giorno": "0.02",
   "ogni_quanti_giorni": "2",
-  "video_attivo": "SI"
+  "video_attivo": "NO"
  }
 }
