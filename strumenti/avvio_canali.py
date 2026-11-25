@@ -177,8 +177,6 @@ def main():
             continue
         # 21 nov (Giorgio): video ogni N giorni (colonna ogni_quanti_giorni: KAO 3, gli altri 2; vuota = ogni giorno)
         ogni = int(num(cfg.get('ogni_quanti_giorni')) or 1)
-        if ogni > 1 and not SOLO and not FORZA and dt.datetime.now(ZoneInfo('Europe/Rome')).date().toordinal() % ogni:
-            print(cid, f': oggi niente video (uno ogni {ogni} giorni)'); continue
         fid = str(cfg.get('scout_production_sheet_id') or '').strip()
         try:
             sch, h, prod, gid = righe(fid, con_gid=True)
@@ -195,6 +193,22 @@ def main():
                     pass
         if occupata:
             print(cid, ': un video e\' gia\' in produzione'); continue
+        # 25 nov (Giorgio): "uno ogni N giorni" si conta dall'ULTIMO video fatto (non dal calendario pari/dispari):
+        # se un video esce un giorno fuori turno, il successivo arriva N giorni dopo quello.
+        if ogni > 1 and not SOLO and not FORZA:
+            ultimo = None
+            for r in prod:
+                if str(r.get('status')).strip() not in ('Completato', 'In produzione', 'Da caricare a mano'):
+                    continue
+                try:
+                    ini = dt.datetime.fromisoformat(str(r.get('data_inizio_produzione')).strip().replace('Z', '+00:00').replace(' ', 'T'))
+                    ini = (ini if ini.tzinfo else ini.replace(tzinfo=ZoneInfo('Europe/Rome'))).astimezone(ZoneInfo('Europe/Rome')).date()
+                    ultimo = max(ultimo, ini) if ultimo else ini
+                except Exception:
+                    pass
+            oggi_r = dt.datetime.now(ZoneInfo('Europe/Rome')).date()
+            if ultimo and (oggi_r - ultimo).days < ogni:
+                print(cid, f': oggi niente video (uno ogni {ogni} giorni, ultimo il {ultimo})'); continue
         # quanti video di questo canale sono gia' partiti OGGI (ora italiana): mai piu' di videos_per_day al giorno
         oggi = ora.astimezone(ZoneInfo('Europe/Rome')).date(); fatti_oggi = tentativi_oggi = 0
         for r in prod:
