@@ -1,12 +1,12 @@
 # Radar notizie guerra — 2026-11-25
 
-**Scelta:** Ukraine sinks Russian corvette Merkury at Libya's Benghazi port; Zelensky confirms, Kyiv says self-defence, Putin vows retaliation, NATO allies and Meloni uneasy (Volodymyr Zelensky) — l'onda di ieri e' ancora forte: si resta con un angolo nuovo
+**Scelta:** Ukraine's Benghazi strike on Russian corvette fallout: two Libyan naval officers die, Libya vows retaliation, NATO allies uneasy (Volodymyr Zelensky) — l'onda di ieri e' ancora la piu' forte: si resta con un angolo nuovo
 
 | # | Storia | Persona | Views all'ora (EN+IT) | Views 3 gg EN | Views 3 gg IT | Video lunghi EN |
 |---|---|---|---|---|---|---|
-| 1 | Leaked Russian data suggests 490,000 to 720,000 Russian soldiers killed in Ukraine war | Vladimir Putin | 91,104 | 1,882,699 | 23 | 9 |
-| 2 | Ukraine sinks Russian corvette Merkury at Libya's Benghazi port; Zelensky confirms, Kyiv says self-defence, Putin vows retaliation, NATO allies and Meloni uneasy | Volodymyr Zelensky | 67,181 | 2,478,529 | 151,700 | 8 |
-| 3 | Putin says retaliation is 'inevitable' after Ukrainian strikes on Russian oil plants and refineries | Vladimir Putin | 30,427 | 337,086 | 2,351 | 9 |
-| 4 | Iran says three tankers hit mines in Hormuz despite US escort as Treasury widens sanctions | Donald Trump | 12,138 | 330,609 | 261 | 8 |
-| 5 | Israel's Katz urges preemptive strike on Iran over emerging chemical weapons threat | Benjamin Netanyahu | 4,372 | 17,973 | 4 | 3 |
-| 6 | Trump administration debating targeting Iran's top leaders to end the war; Trump says war funding lasts through January | Donald Trump | 0 | 0 | 0 | 1 |
+| 1 | Ukraine's Benghazi strike on Russian corvette fallout: two Libyan naval officers die, Libya vows retaliation, NATO allies uneasy | Volodymyr Zelensky | 88,466 | 3,643,775 | 145,835 | 12 |
+| 2 | Israel's Eisenkot secures first coalition partner as Netanyahu race to form government continues; Netanyahu trial judges suggest dropping Case 4000 | Benjamin Netanyahu | 43,874 | 1,331,126 | 628,543 | 11 |
+| 3 | Putin says retaliation 'inevitable' after Ukraine hits Russian oil refineries (Samara) and a ship in the Gulf of Finland | Vladimir Putin | 29,255 | 304,755 | 2,638 | 9 |
+| 4 | US shelves business-deal incentives for Russia, returns to 'land for peace' approach on Ukraine, FT reports | Donald Trump | 1,658 | 760 | 99,314 | 2 |
+| 5 | Leaked Russian data shows at least 490,000 Russian soldiers killed in Ukraine (Meduza estimate 720,000); Kremlin dismisses | Vladimir Putin | 963 | 13,087 | 0 | 4 |
+| 6 | Trump says Iran war funded through January, signals narrowing window for new strikes; US tells citizens to leave Iran | Donald Trump | 132 | 2,399 | 0 | 5 |
