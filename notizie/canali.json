@@ -1,7 +1,7 @@
 {
- "_nota": "Canali dei video notizie (16 nov 2026, Giorgio). SI = ogni mattina si produce e si carica su quel canale; NO = fermo. Il video italiano usa le stesse immagini dell'inglese, quindi l'inglese si produce sempre se e' attivo uno dei due. 16 nov sera: Giorgio accende tutti e 4 i canali da domani.",
+ "_nota": "Canali dei video notizie (16 nov 2026, Giorgio). SI = ogni mattina si produce e si carica su quel canale; NO = fermo. Il video italiano usa le stesse immagini dell'inglese, quindi l'inglese si produce sempre se e' attivo uno dei due. 16 nov sera: Giorgio accende tutti e 4 i canali da domani. 25 nov: Giorgio ferma tutti e 4 (resta attivo solo KAO, strategia da ripensare per i costi ElevenLabs/Anthropic).",
  "guerra_en": {
-  "attivo": "SI",
+  "attivo": "NO",
   "canale": "War Room Daily (ex WWII Testimony), @WarRoomExplained-NEWS",
   "token": "YT_REFRESH_TOKEN_WWII_TESTIMONY",
   "channel_id": "WWII Testimony",
@@ -10,7 +10,7 @@
   "voce_modello": "eleven_flash_v2_5"
  },
  "guerra_it": {
-  "attivo": "SI",
+  "attivo": "NO",
   "canale": "Fronte Aperto (ex Storia in Minuti), @FronteAperto",
   "token": "YT_REFRESH_TOKEN_STORIA",
   "channel_id": "Storia in Minuti",
@@ -19,7 +19,7 @@
   "voce_modello": "eleven_flash_v2_5"
  },
  "tech_en": {
-  "attivo": "SI",
+  "attivo": "NO",
   "canale": "Big Tech Explained (ex Billion Ruin), @BigTechExplained",
   "token": "YT_REFRESH_TOKEN_MAIN_STREET_ATLAS",
   "channel_id": "Billion Ruin",
@@ -28,7 +28,7 @@
   "voce_modello": "eleven_flash_v2_5"
  },
  "tech_it": {
-  "attivo": "SI",
+  "attivo": "NO",
   "canale": "Big Tech Spiegata (ex Costo Vero), @BigTechSpiegata",
   "token": "YT_REFRESH_TOKEN_COSTO_VERO",
   "channel_id": "Costo Vero",
