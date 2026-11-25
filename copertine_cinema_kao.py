@@ -725,9 +725,43 @@ def riferimento_stile(vid):
     return None, False
 
 
+def tocca_personaggio(path):
+    """25 nov (Giorgio: "il riquadro copre un po' il personaggio", mano/braccio di KAO dietro il cartoncino; Haiku aveva detto no).
+    Controllo geometrico gratis: sagoma dei personaggi a cartone (rembg isnet-anime) e cartoncino bianco trovato nell'immagine.
+    Se la sagoma arriva a toccare il bordo del cartoncino, vuol dire che una parte del personaggio ci finisce sotto. None se non si puo' dire."""
+    try:
+        import numpy as np
+        from rembg import remove, new_session
+        im = Image.open(path).convert('RGB').resize((1280, 720)); a = np.asarray(im).astype(int)
+        bianco = a.min(axis=2) > 232
+        from scipy import ndimage
+        lab, n_ = ndimage.label(bianco)
+        if not n_:
+            return None
+        big = 1 + int(np.argmax(ndimage.sum(bianco, lab, range(1, n_ + 1))))   # il cartoncino = la zona bianca piu' grande
+        ys_, xs_ = np.where(lab == big)
+        x0, x1, y0, y1 = xs_.min(), xs_.max(), ys_.min(), ys_.max()
+        # KAO porta sempre la maglia magenta: pixel magenta appena fuori dal cartoncino = braccio/corpo di KAO che ci finisce sotto.
+        # Per gli altri personaggi: sagoma "persone" (u2net_human_seg) confermata da quella dei disegni (isnet-anime): solo persone, non oggetti.
+        mag = (a[:, :, 0] > 120) & (a[:, :, 2] > 100) & (a[:, :, 0] - a[:, :, 1] > 80) & (a[:, :, 2] - a[:, :, 1] > 60)   # anche sotto l'ombra del cartoncino
+        globals().setdefault('_SESS_ANIME', new_session('isnet-anime')); globals().setdefault('_SESS_UMANI', new_session('u2net_human_seg'))
+        m = mag | ((np.asarray(remove(im, session=_SESS_ANIME, only_mask=True)) > 128) & (np.asarray(remove(im, session=_SESS_UMANI, only_mask=True)) > 128))
+        b = 26   # fascia appena fuori dal bordo nero e dall'ombra del cartoncino
+        fascia = np.zeros_like(m)
+        fascia[max(0, y0 - b):min(720, y1 + b), max(0, x0 - b):min(1280, x1 + b)] = True
+        fascia[max(0, y0 - 2):min(720, y1 + 2), max(0, x0 - 2):min(1280, x1 + 2)] = False
+        n = int((m & fascia).sum())   # pixel di personaggio a ridosso del cartoncino (immagine 1280x720)
+        log(f'  personaggi a ridosso del cartoncino: {n} pixel')
+        return bool(n > 800)
+    except Exception as e:
+        log('  controllo sagoma non riuscito:', str(e)[:100]); return None
+
+
 def copre_soggetti(path):
     """4 nov (Giorgio): controllo finale della copertina (~0,002 $). True se il riquadro della scritta copre persone, volti
     o oggetti che danno senso alla scena (anche in parte). None se il controllo non riesce."""
+    if tocca_personaggio(path):
+        log('  controllo finale scritta: il cartoncino tocca/copre un personaggio (sagoma)'); return True
     try:
         buf = io.BytesIO(); Image.open(path).convert('RGB').resize((768, 432)).save(buf, 'JPEG', quality=85)
         rr = http('https://api.anthropic.com/v1/messages', {'model': 'claude-haiku-4-5-20251001', 'max_tokens': 200, 'messages': [{'role': 'user', 'content': [

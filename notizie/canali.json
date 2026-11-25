@@ -1,5 +1,5 @@
 {
- "_nota": "Canali dei video notizie (16 nov 2026, Giorgio). SI = ogni mattina si produce e si carica su quel canale; NO = fermo. Il video italiano usa le stesse immagini dell'inglese, quindi l'inglese si produce sempre se e' attivo uno dei due. 16 nov sera: Giorgio accende tutti e 4 i canali da domani. 25 nov: Giorgio ferma tutti e 4 (resta attivo solo KAO, strategia da ripensare per i costi ElevenLabs/Anthropic).",
+ "_nota": "Canali dei video notizie (16 nov 2026, Giorgio). SI = ogni mattina si produce e si carica su quel canale; NO = fermo. Il video italiano usa le stesse immagini dell'inglese, quindi l'inglese si produce sempre se e' attivo uno dei due. 16 nov sera: Giorgio accende tutti e 4 i canali da domani. 25 nov: Giorgio ferma tutti e 4 (resta attivo solo KAO, strategia da ripensare per i costi ElevenLabs/Anthropic). 25 nov sera: Giorgio riaccende solo Fronte Aperto (guerra_it), ogni giorno.",
  "guerra_en": {
   "attivo": "NO",
   "canale": "War Room Daily (ex WWII Testimony), @WarRoomExplained-NEWS",
@@ -10,7 +10,7 @@
   "voce_modello": "eleven_flash_v2_5"
  },
  "guerra_it": {
-  "attivo": "NO",
+  "attivo": "SI",
   "canale": "Fronte Aperto (ex Storia in Minuti), @FronteAperto",
   "token": "YT_REFRESH_TOKEN_STORIA",
   "channel_id": "Storia in Minuti",
