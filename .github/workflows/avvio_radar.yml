@@ -1,0 +1,32 @@
+name: Avvio canali RADAR (Lost Decades, The Dollar Years)
+# 25 nov 2026 (Giorgio): Lost Decades e The Dollar Years un video ogni 2 giorni, in automatico.
+# Quali canali: strumenti/shorts_radar.json (video_attivo SI/NO, ogni_quanti_giorni). Piu' giri di notte perche' GitHub ne salta qualcuno:
+# il primo che parte segna prove_video/radar/<cartella>/avviato_<data>.txt e gli altri non rifanno nulla.
+on:
+  schedule:
+    - cron: '17 1 * * *'
+    - cron: '17 2 * * *'
+    - cron: '17 3 * * *'
+    - cron: '17 5 * * *'
+  workflow_dispatch:
+    inputs:
+      solo: {description: 'Solo questo canale (nome o cartella), vuoto = tutti', default: '', type: string}
+      forza: {description: 'SI = anche se non sono passati i giorni', default: 'NO', type: string}
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: avvio-radar
+  cancel-in-progress: false
+jobs:
+  avvio:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GH_TOKEN: ${{ github.token }}
+          SOLO: ${{ inputs.solo }}
+          FORZA: ${{ inputs.forza }}
+          ORA_USCITA: '17:00'
+        run: python3 strumenti/avvio_radar.py

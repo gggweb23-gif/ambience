@@ -46,3 +46,18 @@ if dur < 480:   # regola: video lunghi sempre sopra gli 8 minuti -> non si caric
 vid, nota = YT.carica_youtube(P, os.path.join(D, 'prova.mp4'), titolo, descr, tags, cop, 'en')
 print('CARICATO', vid, '| esce', P['pubblica_il'], '|', nota)
 open(os.path.join(D, 'caricato.txt'), 'w').write(f'{vid} {P["pubblica_il"]} {titolo}\n{nota}\n')
+
+# 25 nov (Giorgio: Lost Decades e The Dollar Years ogni 2 giorni, in automatico): registra il video lungo in produzione.json,
+# cosi' shorts.py fa gli Short da questo video e avvio_radar.py sa quando e' uscito l'ultimo.
+try:
+    import datetime as _dt
+    pp = os.path.join(D, 'produzione.json')
+    righe = json.load(open(pp)) if os.path.exists(pp) else []
+    if not any(r.get('youtube_video_id') == vid for r in righe):
+        righe.append({'status': 'Completato', 'youtube_video_id': vid, 'titolo_originale': titolo, 'tag_seo': ', '.join(tags or []),
+                      'data_inizio_produzione': _dt.datetime.now(_dt.timezone.utc).isoformat(timespec='seconds'),
+                      'data_pubblicazione': P['pubblica_il'] or '', 'file_video': f"radar:video-{E('CANALE')}@{E('GITHUB_RUN_ID', '')}", 'shorts': ''})
+        json.dump(righe, open(pp, 'w'), ensure_ascii=False, indent=1)
+        print('registrato in', pp)
+except Exception as e:
+    print('registro produzione non scritto:', str(e)[:120])
