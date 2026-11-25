@@ -8,8 +8,14 @@ run-name: Notizie ${{ inputs.filone || 'tech' }} ${{ (inputs.produci == 'SI' || 
 # Quali canali producono e caricano lo decide notizie/canali.json (guerra_en, guerra_it, tech_en, tech_it: SI/NO).
 on:
   schedule:
-    - cron: '13 3 * * *'   # 24 nov: IT escono alle 08:00, si parte alle 04:13 italiane. tech: radar + video dei canali tech attivi in notizie/canali.json
-    - cron: '23 3 * * *'   # guerra: radar + video dei canali guerra attivi; escono all'ora_uscita di notizie/canali.json (IT 08:00, EN 17:00)
+    # 25 nov: GitHub salta spesso i giri programmati di notte -> 3 tentativi per filone (02, 03, 04 italiane).
+    # Il primo che parte segna notizie/fatti/<filone>_<data>.txt e gli altri non rifanno il video (nessuna spesa doppia).
+    - cron: '13 1 * * *'   # tech: radar + video dei canali tech attivi in notizie/canali.json (IT escono alle 08:00)
+    - cron: '13 2 * * *'
+    - cron: '13 3 * * *'
+    - cron: '23 1 * * *'   # guerra (minuto 23): escono all'ora_uscita di notizie/canali.json (IT 08:00, EN 17:00)
+    - cron: '23 2 * * *'
+    - cron: '23 3 * * *'
   workflow_dispatch:
     inputs:
       filone: {description: 'filone (tech)', default: 'tech', type: string}
@@ -23,7 +29,7 @@ on:
       da_canali: {description: 'SI = come il giro del mattino: decide notizie/canali.json (lo usa avvio_canali.yml)', default: 'NO', type: string}
 
 concurrency:
-  group: notizie-${{ inputs.filone || github.event.schedule }}
+  group: notizie-${{ inputs.filone || (startsWith(github.event.schedule, '23 ') && 'guerra' || 'tech') }}
   cancel-in-progress: false
 
 permissions:
@@ -34,7 +40,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 240
     env:
-      FILONE: ${{ inputs.filone || (github.event.schedule == '23 5 * * *' && 'guerra') || 'tech' }}
+      FILONE: ${{ inputs.filone || (startsWith(github.event.schedule, '23 ') && 'guerra') || 'tech' }}
       LINGUE_A_MANO: ${{ inputs.lingue }}
       COPIONE_RIPARA: ${{ inputs.copione }}
       PRODUCI_A_MANO: ${{ inputs.da_canali != 'SI' && inputs.produci || '' }}
