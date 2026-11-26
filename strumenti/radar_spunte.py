@@ -19,7 +19,7 @@ FOGLIO = os.environ.get('RADAR_FOGLIO', '1cOLkymyVmU2SQYZWMNMPb99AHkk4qdH8RKMUPt
 OGGI = dt.datetime.now(ZoneInfo('Europe/Rome')).date()
 SI, NO, ATT = '✅', '❌', '⏳'
 NUOVE = ['✓ Sotto 30.000 iscritti', '✓ Aperto da 1-6 mesi', '✓ Video virale (>100.000 views)',
-         '✓ Cresce costante (3 settimane)', '✓ 3+ concorrenti in crescita', '✓ Tendenza positiva (views settimana su)', 'Concorrenti nello stesso filone', '✅ VALIDATO (tutto verde)']
+         '✓ Cresce costante (3 settimane)', '✓ 3+ concorrenti in crescita', '✓ Tendenza positiva (views settimana su)', 'Concorrenti nello stesso filone', 'Fase dell\'onda', 'Pubblica ogni (giorni)', '✅ VALIDATO (tutto verde)']
 
 
 def num(x):
@@ -30,14 +30,14 @@ def num(x):
 
 
 def leggi(nome):
-    v = A.api(FOGLIO, 'GET', '/values/' + urllib.parse.quote(f"'{nome}'!A1:BZ20000") + '?valueRenderOption=UNFORMATTED_VALUE').get('values', [])
+    v = A.api(FOGLIO, 'GET', '/values/' + urllib.parse.quote(f"'{nome}'!A1:BZ20000") + '?valueRenderOption=UNFORMATTED_VALUE&dateTimeRenderOption=FORMATTED_STRING').get('values', [])
     return [str(x).strip() for x in v[0]], v[1:]
 
 
 GENERICHE = set('storia storica storico storiche documentari documentario documentary educazione educativa educativo spiegata spiegate spiegati '
                 'curiosita curiosità analisi video video, canale contenuti animata animate animati illustrata racconti storie stories history '
                 'relax rilassante rilassanti musica ambience ambient natura naturali americana americano americani mondiale mondo'.split())
-SINONIMI = [(r'seconda guerra mondiale|ww2|wwii|world war', ' ww2 '), (r'guerra fredda|cold war', ' guerrafredda '),
+SINONIMI = [(r'seconda guerra mondiale|guerra mondiale|ww2|wwii|world war', ' ww2 '), (r'guerra fredda|cold war', ' guerrafredda '),
             (r'economi\w*|finanz\w*|ricchezz\w*|debito', ' economia '), (r'geopolitic\w*|geografi\w*|mapp\w*', ' geopolitica '),
             (r'militar\w*|battagli\w*|armi|aviazione|navi da guerra', ' militare '), (r'archeolog\w*|antic\w*|misteri\w*', ' antico '),
             (r'jazz|fireplace|camino|cozy|sonno|meditazion\w*|asmr|autunn\w*', ' ambience '), (r'animali|wildlife|selvag\w*|fauna', ' animali '),
@@ -52,8 +52,14 @@ def parole(nicchia):
 
 
 def giorno(x):
-    try:
-        return dt.date.fromisoformat(str(x)[:10])
+    x = str(x).strip()
+    for f in ('%Y-%m-%d', '%d/%m/%Y', '%m/%d/%Y', '%d-%m-%Y'):
+        try:
+            return dt.datetime.strptime(x[:10], f).date()
+        except Exception:
+            pass
+    try:   # numero di serie di Google Sheets
+        return dt.date(1899, 12, 30) + dt.timedelta(days=int(float(x)))
     except Exception:
         return None
 
@@ -92,6 +98,12 @@ def main():
         best = num(r.get('Views video migliore')); c3 = ATT if best is None else (SI if best >= 100000 else NO)
         oggi_s = max(serie.get(cid, {}) or [OGGI])
         p = [views_al(cid, oggi_s - dt.timedelta(days=7 * k)) for k in range(4)]
+        onda = '⏳ dati in raccolta'
+        if None not in p[:3]:
+            a, b = p[0] - p[1], p[1] - p[2]
+            onda = ('🌊 sale (accelera)' if a > b * 1.2 else '〰️ in cima (cresce piano)' if a >= b * .95 else '📉 scende') if b > 0 else ('🌊 sale' if a > 0 else '📉 ferma')
+        nv, gg = num(r.get('Video nel canale')), num(r.get('Giorni dal primo video'))
+        freq = f"{gg / nv:.1f}".replace('.', ',') + f" ({int(nv)} video in {int(gg)} giorni)" if nv and gg else ''
         if None in p:
             c4 = ATT
         else:
@@ -99,12 +111,12 @@ def main():
             un_solo = best is not None and p[0] > 0 and best / p[0] > .6
             c4 = SI if (w1 > 0 and w1 >= w2 * .95 and w2 >= w3 * .95 and not un_solo) else NO
         mie = parole(r.get('Nicchia'))
-        conc = [x for x in in_crescita if x is not r and str(x.get('channel_id')) != cid and len(mie & parole(x.get('Nicchia'))) >= 2] if mie else []
+        conc = [x for x in in_crescita if x is not r and str(x.get('channel_id')) != cid and len(mie & parole(x.get('Nicchia'))) >= (1 if min(len(mie), len(parole(x.get('Nicchia')))) <= 2 else 2)] if mie else []
         c5 = SI if len(conc) >= 3 else NO
         cx = num(r.get('Crescita x')); c6 = ATT if cx is None else (SI if cx > 1 else NO)
         nomi = f"{len(conc)}: " + ', '.join(str(x.get('Canale'))[:30] for x in conc[:4]) if conc else '0'
         tutto = SI if all(c == SI for c in (c1, c2, c3, c4, c5, c6)) else ''
-        out.append([c1, c2, c3, c4, c5, c6, nomi, tutto])
+        out.append([c1, c2, c3, c4, c5, c6, nomi, onda, freq, tutto])
     k0 = h.index(NUOVE[0]) + 1
     if out:
         A.api(FOGLIO, 'PUT', '/values/' + urllib.parse.quote(f"'Canali'!{A.lettera(k0)}2:{A.lettera(k0 + len(NUOVE) - 1)}{len(out) + 1}") + '?valueInputOption=RAW',
@@ -112,7 +124,7 @@ def main():
     val = [(r, o) for r, o in zip(rr, out) if o[-1] == SI]
     print(f'canali: {len(rr)} | validati (tutto verde): {len(val)}')
     for r, o in sorted(zip(rr, out), key=lambda ro: -sum(c == SI for c in ro[1][:6]))[:25]:
-        print(sum(c == SI for c in o[:6]), '/6', '|', r.get('Canale'), '|', r.get('Nicchia'), '|', o[:6], '| conc', o[6][:80], '| RPM', r.get('RPM stimato $'),
+        print(sum(c == SI for c in o[:6]), '/6', '|', r.get('Canale'), '|', r.get('Nicchia'), '|', o[:6], '| conc', o[6][:80], '|', o[7], '|', o[8], '| RPM', r.get('RPM stimato $'),
               '| v/g', r.get('Views al giorno (ultima settimana)'), '| isc', r.get('Iscritti'), '|', r.get('Link canale'))
 
 
