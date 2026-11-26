@@ -23,6 +23,8 @@ NUOVE = ['✓ Sotto 30.000 iscritti', '✓ Aperto da 0-6 mesi', '✓ Video viral
 
 
 def num(x):
+    if isinstance(x, (int, float)):   # 27 nov: i numeri letti UNFORMATTED arrivano gia' come numeri (prima 2.5 diventava 25)
+        return float(x)
     try:
         return float(str(x).replace('.', '').replace(',', '.')) if re.search(r'\d', str(x)) else None
     except Exception:
@@ -176,8 +178,9 @@ def main():
     ordine = sorted(range(len(rr)), key=lambda i: (out[i][-1] == SI, sum(c == SI for c in out[i][:6]), pot(rr[i])), reverse=True)
     for i in range(len(out)):
         out[i].append('')
-    for pos, i in enumerate(ordine[:3]):
-        out[i][-1] = f"{pos + 1}° " + ('VALIDATO' if out[i][-2] == SI else f"migliore ({sum(c == SI for c in out[i][:6])}/6)")
+    for pos, i in enumerate(ordine):   # 27 nov (Giorgio): posizione su TUTTI i validati; tra i non validati solo i primi 3
+        if out[i][-2] == SI or pos < 3:
+            out[i][-1] = f"{pos + 1}° " + ('VALIDATO' if out[i][-2] == SI else f"migliore ({sum(c == SI for c in out[i][:6])}/6)")
     k0 = h.index(NUOVE[0]) + 1
     if out:
         A.api(FOGLIO, 'PUT', '/values/' + urllib.parse.quote(f"'Canali'!{A.lettera(k0)}2:{A.lettera(k0 + len(NUOVE) - 1)}{len(out) + 1}") + '?valueInputOption=RAW',
