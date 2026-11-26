@@ -27,10 +27,9 @@ def da_archive():
             return 'https://archive.org/download/' + d['identifier'] + '/' + urllib.parse.quote(fs[0]['name'])
 
 
-def da_commons():
-    j = json.loads(get('https://commons.wikimedia.org/w/api.php?' + urllib.parse.urlencode({
-        'action': 'query', 'format': 'json', 'generator': 'search', 'gsrnamespace': 6, 'gsrsearch': CERCA + ' filetype:video', 'gsrlimit': 10,
-        'prop': 'imageinfo', 'iiprop': 'url|size'})))
+def da_commons():   # CERCA = 'File:Nome esatto.ogv' -> proprio quel file
+    q = {'titles': CERCA} if CERCA.startswith('File:') else {'generator': 'search', 'gsrnamespace': 6, 'gsrsearch': CERCA + ' filetype:video', 'gsrlimit': 10}
+    j = json.loads(get('https://commons.wikimedia.org/w/api.php?' + urllib.parse.urlencode(dict(q, action='query', format='json', prop='imageinfo', iiprop='url|size'))))
     for pg in (j.get('query') or {}).get('pages', {}).values():
         if int(pg['imageinfo'][0].get('size') or 0) > 20e6:
             print('commons:', pg['title']); return pg['imageinfo'][0]['url']
