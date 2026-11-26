@@ -1,0 +1,1632 @@
+{
+ "titolo": "Putin Vows 'Inevitable' Revenge After Ukraine Hits Refineries and Air Base",
+ "angolo": "Putin promises retaliation for the refinery campaign while Kyiv says it hit the Savasleyka air base (the Kinzhal jet base) the same day: what is confirmed, what is claimed, and what could come next.",
+ "descrizione": "Putin Vows 'Inevitable' Revenge After Ukraine Hits Refineries and Air Base. Putin told Russian oil executives that retaliation for Ukrainian refinery strikes is inevitable, and Ukraine's foreign minister answered with two words: stop complaining. The next day Kyiv said it hit Savasleyka air base and damaged five aircraft; Russia had not commented at the time of reporting. Here is what is confirmed, what is only claimed, and what could happen next.",
+ "tag": [
+  "Putin Vows 'Inevitable' Revenge After Ukraine Hits Refineries and Air Base",
+  "Putin",
+  "Putin retaliation",
+  "Ukraine refinery strikes",
+  "Savasleyka air base",
+  "Sybiha stop complaining",
+  "Russia Ukraine war",
+  "MiG-31 Kinzhal",
+  "Russian oil refineries",
+  "energy war",
+  "Ukraine news",
+  "Russia news",
+  "Trump Putin Zelensky",
+  "Ukraine war update"
+ ],
+ "fonti_link": [
+  "https://www.trtworld.com/article/940463ac5ac5",
+  "https://newsukraine.rbc.ua/news/putin-warns-of-inevitable-retaliation-over-1795541075.html",
+  "https://globetv.app/news/putin-calls-retaliation-inevitable-as-ukrainian-drones-cut-refinery-output-6b06052ccf7c8",
+  "https://www.pravda.com.ua/eng/news/2026/11/24/8064490/",
+  "https://www.yahoo.com/news/world/articles/ukraine-tells-putin-stop-complaining-211136987.html",
+  "https://www.briefs.co/news/kyiv-to-putin-want-refinery-strikes-to-stop-end-the-war/",
+  "https://www.news24.com.au/news/ukraine-tells-putin-stop-complaining-following-attacks-on-russian-infrastructure/news-story/dd35b7b95c85fcfaa7b7cdf1ab0fb166?nk=b64f2f51d47ea5620d7fa537dbbeebdc-1795668512",
+  "https://khanlist.com/story/ukraine-tells-putin-to-stop-complaining-over-oil-refinery-6f303d26",
+  "https://www.arabnews.com/world/ukraine-says-it-struck-a-major-russian-air-base-damaging-five-planes-3014040",
+  "https://www.aljazeera.com/news/2026/11/26/ukraine-attacks-russian-military-base-says-five-planes-struck",
+  "https://finwire.io/news/world-news/ukraine-attacks-russian-military-base-says-five-planes-struck",
+  "https://newsukraine.rbc.ua/news/ukraine-hits-5-russian-aircraft-at-savasleyka-1795609854.html",
+  "https://www.businessday.co.za/world/europe/2026-11-25-russian-strikes-cut-power-in-five-ukraine-regions/",
+  "https://www.pravda.com.ua/eng/news/2026/11/25/8064593/",
+  "https://en.lb.ua/news/2026/11/25/51406_russia_strikes_energy_facilities.html",
+  "https://gsmglobalnews.com/article/d20261125-ukrenergo1.html",
+  "https://uk.news.yahoo.com/ukraine-russia-war-latest-putin-070109181.html",
+  "https://internewscast.com/news/ukraine-urges-putin-to-stop-complaining-over-russian-refinery-attacks/"
+ ],
+ "personaggi": {
+  "putin": {
+   "commons": "Vladimir Putin",
+   "chi": "Vladimir Putin, President of Russia",
+   "pose": {
+    "arrabbiato": {
+     "posa": "Standing stiff, jaw clenched, brows lowered, one fist closed at his side, cold angry stare"
+    },
+    "serio": {
+     "posa": "Standing upright, hands folded in front, neutral stern expression"
+    },
+    "teso": {
+     "posa": "Standing tense, shoulders raised, eyes narrowed, hands clasped"
+    }
+   }
+  },
+  "zelensky": {
+   "commons": "Volodymyr Zelenskyy",
+   "chi": "Volodymyr Zelensky, President of Ukraine",
+   "pose": {
+    "determinato": {
+     "posa": "Standing firm in olive jacket, chin up, determined look"
+    },
+    "serio": {
+     "posa": "Standing, serious expression, hands at sides"
+    }
+   }
+  },
+  "trump": {
+   "commons": "Donald Trump",
+   "chi": "Donald Trump, President of the United States",
+   "pose": {
+    "preoccupato": {
+     "posa": "Standing in dark suit, brow furrowed, one hand raised to chin"
+    }
+   }
+  },
+  "peskov": {
+   "commons": "Dmitry Peskov",
+   "chi": "Dmitry Peskov, Kremlin spokesman",
+   "pose": {
+    "calmo": {
+     "posa": "Standing calm in suit, hands folded, composed expression"
+    }
+   }
+  },
+  "sybiha": {
+   "commons": "Andrii Sybiha",
+   "chi": "Andrii Sybiha, Ukraine's Foreign Minister",
+   "pose": {
+    "serio": {
+     "posa": "Standing in dark suit, holding a phone at chest height, firm serious expression"
+    }
+   }
+  }
+ },
+ "sets": {
+  "s01": {
+   "descr": "Savasleyka-style airfield at dawn, a dark scorched apron with smoking jet fuselages, grey smoke columns, orange sky",
+   "luogo": "NIZHNY NOVGOROD REGION, RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s02": {
+   "descr": "Russian refinery towers at night engulfed in orange fire, thick black smoke rising, sparks",
+   "luogo": "SAMARA REGION, RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s03": {
+   "descr": "Kremlin meeting hall, long polished table, rows of empty chairs, harsh light, one chair pushed back",
+   "luogo": "KREMLIN, MOSCOW, RUSSIA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "putin",
+     "posa": "arrabbiato",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s04": {
+   "descr": "Exterior of the Ukrainian Ministry of Foreign Affairs building in Kyiv at dusk, a large stately stone facade on Mykhailivska Square with lit windows, bare trees, wet pavement, no people",
+   "luogo": "KYIV, UKRAINE",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "sybiha",
+     "posa": "serio",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s05": {
+   "descr": "Long Kremlin conference table with oil-industry models, small refinery model and barrels, stern light",
+   "luogo": "KREMLIN, MOSCOW, RUSSIA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "putin",
+     "posa": "serio",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s06": {
+   "descr": "Gas station canopy with empty pumps at dusk, cars queued far away, orange light",
+   "luogo": "RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s07": {
+   "descr": "Giant oil storage tanks in a row under a heavy sky, one with a scorched top",
+   "luogo": "RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s08": {
+   "descr": "Night sky with a swarm of small drones glowing, flying over dark fields",
+   "luogo": "UKRAINE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s09": {
+   "descr": "Perm-style refinery complex at night, pipes and flare stacks, orange glow, snowy ground",
+   "luogo": "PERM, RUSSIA",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s10": {
+   "descr": "Oil pumping station with pipelines and valves in a snowy field, dawn",
+   "luogo": "RUSSIA",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s11": {
+   "descr": "Refinery in Rostov region, quiet halted chimneys, thin smoke, pale morning",
+   "luogo": "ROSTOV REGION, RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s12": {
+   "descr": "Exterior of the White House north facade in Washington at golden hour, fountain and lawn, bare trees, empty Pennsylvania Avenue sidewalk, no people",
+   "luogo": "WASHINGTON, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "trump",
+     "posa": "preoccupato",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s13": {
+   "descr": "Ukrainian presidential office, map table without text, grey light",
+   "luogo": "KYIV, UKRAINE",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "zelensky",
+     "posa": "determinato",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s14": {
+   "descr": "Exterior of the Palais des Nations in Geneva on a calm grey day, long colonnade and rows of empty flagpoles without flags, no people",
+   "luogo": "GENEVA, SWITZERLAND",
+   "effetto": "none",
+   "cast": []
+  },
+  "s15": {
+   "descr": "Kremlin corridor with red carpet, tall doors, long shadows",
+   "luogo": "KREMLIN, MOSCOW, RUSSIA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "putin",
+     "posa": "teso",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s16": {
+   "descr": "Interior of an oil refinery control room with banks of dark monitor screens, a single panel showing a falling red bar chart without text, empty operator chairs, dim light",
+   "luogo": "RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s17": {
+   "descr": "Tanker trucks lined up at a fuel depot at dawn, steam rising",
+   "luogo": "RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s18": {
+   "descr": "Russian military airfield runway with a fighter jet in a hangar, wide doors, golden light",
+   "luogo": "NIZHNY NOVGOROD REGION, RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s19": {
+   "descr": "MiG-31 interceptor jet parked on the apron, long nose, grey sky",
+   "luogo": "NIZHNY NOVGOROD REGION, RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s20": {
+   "descr": "Su-34 fighter-bomber on a taxiway, dusk, wet pavement",
+   "luogo": "RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s21": {
+   "descr": "Hardened aircraft shelters in a row on a snowy airbase, long shadows",
+   "luogo": "NIZHNY NOVGOROD REGION, RUSSIA",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s22": {
+   "descr": "Air-defense radar and launcher on a snowy hill near a runway, dawn",
+   "luogo": "RUSSIA",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s23": {
+   "descr": "Kinzhal-style air-launched missile under a jet wing close-up, hangar light",
+   "luogo": "RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s24": {
+   "descr": "Kyiv apartment block skyline at night with lit windows and dark patches of blackout",
+   "luogo": "KYIV, UKRAINE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s25": {
+   "descr": "Ukrainian power substation after a strike, twisted transformers, steam, dawn",
+   "luogo": "UKRAINE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s26": {
+   "descr": "Zaporizhzhia nuclear plant cooling towers under cold light, diesel generators in foreground",
+   "luogo": "ZAPORIZHZHIA, UKRAINE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s27": {
+   "descr": "Zaporizhzhia apartment block with a damaged facade, rubble on the pavement, morning",
+   "luogo": "ZAPORIZHZHIA, UKRAINE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s28": {
+   "descr": "Zaporizhzhia residential street in the morning: a multi-story apartment block with blown-out windows, scorched balconies, debris and shattered glass on the sidewalk, a broken child's swing in the courtyard, no people",
+   "luogo": "ZAPORIZHZHIA, UKRAINE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s29": {
+   "descr": "Ukrainian energy workers' truck with cherry picker raised beside power lines in winter",
+   "luogo": "UKRAINE",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s30": {
+   "descr": "Candle and flashlight on a table in a dark room during a blackout, window with frost",
+   "luogo": "UKRAINE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s31": {
+   "descr": "Ukrainian foreign ministry building facade, stately, evening, lit windows",
+   "luogo": "KYIV, UKRAINE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s32": {
+   "descr": "Smartphone lying on desk with glowing blank screen next to coffee cup, night",
+   "luogo": "KYIV, UKRAINE",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "sybiha",
+     "posa": "serio",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s33": {
+   "descr": "Soldiers' empty boots and helmet lined up on a snowy field, grey sky, somber",
+   "luogo": "UKRAINE",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s34": {
+   "descr": "Kremlin press podium with microphones and blue backdrop",
+   "luogo": "KREMLIN, MOSCOW, RUSSIA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "peskov",
+     "posa": "calmo",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s35": {
+   "descr": "Interior of the Kremlin's Novo-Ogaryovo-style meeting room for oil executives: a long polished conference table with water glasses and notepads at each seat, tall windows with heavy curtains, a Russian state emblem-free wall, winter daylight, no people",
+   "luogo": "KREMLIN, MOSCOW, RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s36": {
+   "descr": "Cargo ship burning at sea at night in the Baltic, calm water",
+   "luogo": "BALTIC SEA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s37": {
+   "descr": "Crimean bridge silhouette with damaged span, sunset haze",
+   "luogo": "KERCH STRAIT, CRIMEA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s38": {
+   "descr": "Russian Black Sea Fleet warships moored at Novorossiysk naval base at night, grey hulls, searchlights sweeping the water, harbor cranes, no people",
+   "luogo": "NOVOROSSIYSK, RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s39": {
+   "descr": "Siberian oil field with pumpjacks in snow under pink sunrise",
+   "luogo": "SIBERIA, RUSSIA",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s40": {
+   "descr": "Railway tanker cars heading east across a snowy plain, long line",
+   "luogo": "SIBERIA, RUSSIA",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s41": {
+   "descr": "Far East port with oil terminal and tankers, cold blue morning",
+   "luogo": "RUSSIAN FAR EAST",
+   "effetto": "none",
+   "cast": []
+  },
+  "s42": {
+   "descr": "Worker's hard hat and safety vest hanging in a refinery locker room, dim light",
+   "luogo": "RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s43": {
+   "descr": "Exterior of a Russian refinery perimeter at night: tall fence with floodlights and security camera poles, flare stacks glowing in the background, snow on the ground, no people",
+   "luogo": "ROSTOV REGION, RUSSIA",
+   "effetto": "mirino",
+   "cast": []
+  },
+  "s44": {
+   "descr": "Anti-aircraft gun crew position with sandbags beside refinery fence, dusk",
+   "luogo": "RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s45": {
+   "descr": "Gas pump with a hose lying idle at a busy station, tired light",
+   "luogo": "RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s46": {
+   "descr": "Oil barrels stacked at a port with a tanker behind, grey sea",
+   "luogo": "RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s47": {
+   "descr": "Wide view of the Moscow International Business Center towers across the river at dusk, grey sky, empty embankment, no people",
+   "luogo": "MOSCOW, RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s48": {
+   "descr": "Ukrainian long-range drone assembly hall, rows of drones on racks, bright industrial light",
+   "luogo": "UKRAINE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s49": {
+   "descr": "Ballistic missile launcher truck in a forest clearing, camouflage nets, dawn",
+   "luogo": "RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s50": {
+   "descr": "Ukrainian defense ministry briefing room with empty lectern, cold light",
+   "luogo": "KYIV, UKRAINE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s51": {
+   "descr": "Night street in Kyiv under snowfall with a tram standing dark",
+   "luogo": "KYIV, UKRAINE",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s52": {
+   "descr": "Satellite dishes and radio antenna array of a military intelligence listening station on a hill at dusk, fenced perimeter, snow, no people",
+   "luogo": "RUSSIA",
+   "effetto": "mirino",
+   "cast": []
+  },
+  "s53": {
+   "descr": "Frozen Dnipro riverbank with ice edges and a distant power plant",
+   "luogo": "UKRAINE",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s54": {
+   "descr": "Giant hourglass on a Kremlin windowsill with sand running low, grey winter light",
+   "luogo": "KREMLIN, MOSCOW, RUSSIA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "putin",
+     "posa": "serio",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s55": {
+   "descr": "Fork in a snowy road at dusk, two paths toward the horizon, cold glow",
+   "luogo": "UKRAINE",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s56": {
+   "descr": "Kyiv skyline under heavy winter clouds, the Pechersk Lavra golden domes and the Motherland Monument silhouetted, a few lit windows, snow on rooftops, no people",
+   "luogo": "KYIV, UKRAINE",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s57": {
+   "descr": "Fighter jets with scorched fuselages and craters on the apron of the Savasleyka air base, burnt concrete, scattered debris, thin smoke, grey morning light, no people",
+   "luogo": "NIZHNY NOVGOROD REGION, RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s58": {
+   "descr": "Gas pipeline valves wheel close-up with frost, sunrise",
+   "luogo": "RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s59": {
+   "descr": "Kremlin domes at dawn through falling snow, cold pink sky",
+   "luogo": "KREMLIN, MOSCOW, RUSSIA",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s60": {
+   "descr": "Empty chair at the head of a long dark table, spotlight from above",
+   "luogo": "KREMLIN, MOSCOW, RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s61": {
+   "descr": "Burning fuel tank farm seen from a hill at night, reflections on snow",
+   "luogo": "RUSSIA",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s62": {
+   "descr": "Calm Ukrainian field at sunrise with a lone power pylon, fog",
+   "luogo": "UKRAINE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s63": {
+   "descr": "Mountain of fuel jerrycans on a loading dock, warehouse light",
+   "luogo": "RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s64": {
+   "descr": "Night view of Moscow skyline with the Kremlin towers lit, light snow",
+   "luogo": "MOSCOW, RUSSIA",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s65": {
+   "descr": "Aerial of a refinery complex with a dark halted unit, cold light",
+   "luogo": "RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s66": {
+   "descr": "Old-fashioned scales on a desk, one side heavy with oil drums, other with a model missile, warm lamp",
+   "luogo": "KREMLIN, MOSCOW, RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s67": {
+   "descr": "Silhouette of a drone against a rising sun over frozen fields",
+   "luogo": "UKRAINE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s68": {
+   "descr": "Ukrainian street lamp flickering back on in a snowy evening",
+   "luogo": "UKRAINE",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s69": {
+   "descr": "Wide view of the Kremlin Senate building and the Spasskaya Tower across the empty Red Square on a dark winter evening, lit windows, wet cobblestones, no people",
+   "luogo": "KREMLIN, MOSCOW, RUSSIA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "putin",
+     "posa": "teso",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s70": {
+   "descr": "Aerial view of a burned-out Russian refinery with blackened distillation columns and melted pipework, a flare stack cold, dawn light on snow, no people",
+   "luogo": "SAMARA REGION, RUSSIA",
+   "effetto": "neve",
+   "cast": []
+  }
+ },
+ "scene": [
+  {
+   "testo": "Five warplanes. Hit on the ground. Deep inside Russia, Ukraine says.",
+   "fonti": [
+    "https://www.arabnews.com/world/ukraine-says-it-struck-a-major-russian-air-base-damaging-five-planes-3014040",
+    "https://www.aljazeera.com/news/2026/11/26/ukraine-attacks-russian-military-base-says-five-planes-struck"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s01"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 5,
+    "decimali": 0,
+    "prefisso": "",
+    "unita": "AIRCRAFT STRUCK",
+    "sopra": "KYIV SAYS"
+   }
+  },
+  {
+   "testo": "A day earlier, Ukraine reported striking Russian refineries. Russia's oil system was under pressure.",
+   "fonti": [
+    "https://newsukraine.rbc.ua/news/putin-warns-of-inevitable-retaliation-over-1795541075.html",
+    "https://www.news24.com.au/news/ukraine-tells-putin-stop-complaining-following-attacks-on-russian-infrastructure/news-story/dd35b7b95c85fcfaa7b7cdf1ab0fb166?nk=b64f2f51d47ea5620d7fa537dbbeebdc-1795668512"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s02"
+   }
+  },
+  {
+   "testo": "Then Vladimir Putin said Russia would retaliate.",
+   "fonti": [
+    "https://www.trtworld.com/article/940463ac5ac5"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s03"
+   }
+  },
+  {
+   "testo": "Retaliation, he said, is inevitable. What will Moscow do next?",
+   "fonti": [
+    "https://www.trtworld.com/article/940463ac5ac5",
+    "https://globetv.app/news/putin-calls-retaliation-inevitable-as-ukrainian-drones-cut-refinery-output-6b06052ccf7c8"
+   ],
+   "titolo_card": true,
+   "visivo": {
+    "tipo": "set",
+    "set": "s15"
+   }
+  },
+  {
+   "testo": "Ukraine's foreign minister answered with a short reply. You'll hear it in a moment.",
+   "fonti": [
+    "https://www.pravda.com.ua/eng/news/2026/11/24/8064490/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s04"
+   }
+  },
+  {
+   "testo": "First, the room where Putin said it.",
+   "fonti": [
+    "https://globetv.app/news/putin-calls-retaliation-inevitable-as-ukrainian-drones-cut-refinery-output-6b06052ccf7c8"
+   ],
+   "capitolo": "THE KREMLIN WARNING",
+   "visivo": {
+    "tipo": "set",
+    "set": "s05"
+   }
+  },
+  {
+   "testo": "It was Tuesday, at a Kremlin meeting with oil executives.",
+   "fonti": [
+    "https://globetv.app/news/putin-calls-retaliation-inevitable-as-ukrainian-drones-cut-refinery-output-6b06052ccf7c8"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s35"
+   }
+  },
+  {
+   "testo": "He accused Kyiv of ignoring a direct request from Donald Trump.",
+   "fonti": [
+    "https://www.trtworld.com/article/940463ac5ac5"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s12"
+   }
+  },
+  {
+   "testo": "In Putin's words:",
+   "fonti": [
+    "https://www.trtworld.com/article/940463ac5ac5"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s69"
+   },
+   "citazione": {
+    "chi": "putin",
+    "posa": "arrabbiato",
+    "testo": "The Kiev regime does not stop attacking our oil refining facilities, despite the appeal and direct request of the US president to refrain from these attacks."
+   }
+  },
+  {
+   "testo": "Then came the line the world is now repeating.",
+   "fonti": [
+    "https://newsukraine.rbc.ua/news/putin-warns-of-inevitable-retaliation-over-1795541075.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s54"
+   },
+   "citazione": {
+    "chi": "putin",
+    "posa": "serio",
+    "testo": "I would like to point out that retaliatory actions on our part are inevitable. Everyone should know this."
+   }
+  },
+  {
+   "testo": "He did not specify what the response would be.",
+   "fonti": [
+    "https://unbiasedheadlines.com/article/putin-vows-inevitable-retaliation-for-refinery-strikes-drones-hit-two-samara",
+    "https://www.tribuneindia.com/news/sports/drones-hit-russian-fuel-depot-again"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s60"
+   }
+  },
+  {
+   "testo": "He also asked for additional security measures at energy facilities.",
+   "fonti": [
+    "https://globetv.app/news/putin-calls-retaliation-inevitable-as-ukrainian-drones-cut-refinery-output-6b06052ccf7c8",
+    "https://www.trtworld.com/article/940463ac5ac5"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s44"
+   }
+  },
+  {
+   "testo": "Why is Moscow so concerned? One number stands out.",
+   "fonti": [
+    "https://www.news24.com.au/news/ukraine-tells-putin-stop-complaining-following-attacks-on-russian-infrastructure/news-story/dd35b7b95c85fcfaa7b7cdf1ab0fb166?nk=b64f2f51d47ea5620d7fa537dbbeebdc-1795668512"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s16"
+   }
+  },
+  {
+   "testo": "Forty-five percent. That is how far Russian refining volumes have fallen since late October, according to two industry sources cited by Reuters.",
+   "fonti": [
+    "https://www.news24.com.au/news/ukraine-tells-putin-stop-complaining-following-attacks-on-russian-infrastructure/news-story/dd35b7b95c85fcfaa7b7cdf1ab0fb166?nk=b64f2f51d47ea5620d7fa537dbbeebdc-1795668512",
+    "https://finwire.io/news/world-news/ukraine-attacks-russian-military-base-says-five-planes-struck"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s07"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 45,
+    "decimali": 0,
+    "prefisso": "",
+    "unita": "% DROP IN REFINING",
+    "sopra": "SINCE LATE OCTOBER"
+   }
+  },
+  {
+   "testo": "That's since late October, according to two industry sources cited by Reuters.",
+   "fonti": [
+    "https://finwire.io/news/world-news/ukraine-attacks-russian-military-base-says-five-planes-struck"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s65"
+   }
+  },
+  {
+   "testo": "Remember that number. It is part of the backdrop to Putin's remarks.",
+   "fonti": [
+    "https://www.news24.com.au/news/ukraine-tells-putin-stop-complaining-following-attacks-on-russian-infrastructure/news-story/dd35b7b95c85fcfaa7b7cdf1ab0fb166?nk=b64f2f51d47ea5620d7fa537dbbeebdc-1795668512"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s59"
+   }
+  },
+  {
+   "testo": "Who is the man making the threat?",
+   "fonti": [
+    "https://www.trtworld.com/article/940463ac5ac5"
+   ],
+   "capitolo": "THE MAN AT THE TABLE",
+   "visivo": {
+    "tipo": "set",
+    "set": "s64"
+   }
+  },
+  {
+   "testo": "Vladimir Putin, president of Russia.",
+   "fonti": [
+    "https://www.trtworld.com/article/940463ac5ac5"
+   ],
+   "visivo": {
+    "tipo": "dossier",
+    "chi": "putin",
+    "posa": "serio",
+    "righe": [
+     "PRESIDENT OF RUSSIA",
+     "ORDERED 2022 INVASION",
+     "WAR NEARLY 5 YEARS"
+    ],
+    "timbro": "KREMLIN"
+   }
+  },
+  {
+   "testo": "He ordered the full-scale invasion of Ukraine in 2022.",
+   "fonti": [
+    "https://www.pravda.com.ua/eng/news/2026/11/24/8064490/",
+    "https://nationalsecurityjournal.org/putin-never-saw-this-coming-ukraine-has-hit-16-russian-oil-refineries-since-late-october-and-reportedly-cut-processing-about-45-percent/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s66"
+   }
+  },
+  {
+   "testo": "Today, that war is nearly five years old.",
+   "fonti": [
+    "https://www.news24.com.au/news/ukraine-tells-putin-stop-complaining-following-attacks-on-russian-infrastructure/news-story/dd35b7b95c85fcfaa7b7cdf1ab0fb166?nk=b64f2f51d47ea5620d7fa537dbbeebdc-1795668512"
+   ],
+   "visivo": {
+    "tipo": "frase",
+    "testo": "Today, that war is nearly five years old."
+   }
+  },
+  {
+   "testo": "Now its drones have reached targets more than 1,500 kilometers inside Russia, Ukraine's General Staff says.",
+   "fonti": [
+    "https://newsukraine.rbc.ua/news/putin-warns-of-inevitable-retaliation-over-1795541075.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s08"
+   }
+  },
+  {
+   "testo": "How did the refinery strikes escalate? Follow the timeline.",
+   "fonti": [
+    "https://tldrdailynews.com/news/world/geopolitics/ukraines-foreign-minister-tells-putin-to-end-war-to-stop-refinery-strikes-qk0gocmq9i"
+   ],
+   "capitolo": "THE OIL WAR BUILDS",
+   "visivo": {
+    "tipo": "set",
+    "set": "s70"
+   }
+  },
+  {
+   "testo": "September: Trump called on Zelensky to stop targeting Russian refineries, saying the attacks were 'hurting the world', according to CNBC.",
+   "fonti": [
+    "https://www.pravda.com.ua/eng/news/2026/11/24/8064490/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s12"
+   }
+  },
+  {
+   "testo": "Kyiv's stated position: it will halt strikes on Russian energy sites once Moscow stops hitting Ukrainian ones, Al Jazeera reported.",
+   "fonti": [
+    "https://tldrdailynews.com/news/world/geopolitics/ukraines-foreign-minister-tells-putin-to-end-war-to-stop-refinery-strikes-qk0gocmq9i",
+    "https://finwire.io/news/world-news/ukraine-attacks-russian-military-base-says-five-planes-struck"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s14"
+   }
+  },
+  {
+   "testo": "Late October: Ukrainian strikes picked up again, Al Jazeera reports, after easing following Trump's mid-October energy ceasefire declaration.",
+   "fonti": [
+    "https://tldrdailynews.com/news/world/geopolitics/ukraines-foreign-minister-tells-putin-to-end-war-to-stop-refinery-strikes-qk0gocmq9i"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s61"
+   }
+  },
+  {
+   "testo": "By one count, Ukrainian strikes have halted all or part of production at 16 Russian refineries in November, according to the Kyiv Post.",
+   "fonti": [
+    "https://newsukraine.rbc.ua/news/putin-warns-of-inevitable-retaliation-over-1795541075.html",
+    "https://tldrdailynews.com/news/world/geopolitics/ukraines-foreign-minister-tells-putin-to-end-war-to-stop-refinery-strikes-qk0gocmq9i"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s09"
+   }
+  },
+  {
+   "testo": "Now the map. Here is where the latest strikes were reported.",
+   "fonti": [
+    "https://newsukraine.rbc.ua/news/putin-warns-of-inevitable-retaliation-over-1795541075.html",
+    "https://www.arabnews.com/world/ukraine-says-it-struck-a-major-russian-air-base-damaging-five-planes-3014040"
+   ],
+   "visivo": {
+    "tipo": "mappa",
+    "centro": [
+     45,
+     55
+    ],
+    "larghezza": 30,
+    "paesi": [
+     {
+      "iso": "RUS",
+      "colore": "rosso"
+     },
+     {
+      "iso": "UKR",
+      "colore": "blu"
+     }
+    ],
+    "punti": [
+     {
+      "lon": 56.25,
+      "lat": 58.01,
+      "nome": "PERM"
+     },
+     {
+      "lon": 39.9,
+      "lat": 47.75,
+      "nome": "NOVOSHAKHTINSK"
+     },
+     {
+      "lon": 42.3,
+      "lat": 55.4,
+      "nome": "SAVASLEYKA"
+     },
+     {
+      "lon": 30.52,
+      "lat": 50.45,
+      "nome": "KYIV"
+     }
+    ],
+    "frecce": [
+     {
+      "da": [
+       30.52,
+       50.45
+      ],
+      "a": [
+       56.25,
+       58.01
+      ],
+      "colore": "arancio"
+     },
+     {
+      "da": [
+       30.52,
+       50.45
+      ],
+      "a": [
+       42.3,
+       55.4
+      ],
+      "colore": "arancio"
+     }
+    ]
+   }
+  },
+  {
+   "testo": "On the night of November 23, Ukraine's General Staff said it hit the Perm refinery.",
+   "fonti": [
+    "https://newsukraine.rbc.ua/news/putin-warns-of-inevitable-retaliation-over-1795541075.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s09"
+   }
+  },
+  {
+   "testo": "And the Kaleykino oil pumping station in Tatarstan, which Ukraine's General Staff also said it hit. Russian regional officials confirmed a strike near Almetyevsk, TASS reported.",
+   "fonti": [
+    "https://newsukraine.rbc.ua/news/putin-warns-of-inevitable-retaliation-over-1795541075.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s10"
+   }
+  },
+  {
+   "testo": "The same night, the Novoshakhtinsk refinery in Rostov was struck.",
+   "fonti": [
+    "https://newsukraine.rbc.ua/news/putin-warns-of-inevitable-retaliation-over-1795541075.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s11"
+   }
+  },
+  {
+   "testo": "The Rostov governor said it halted operations.",
+   "fonti": [
+    "https://newsukraine.rbc.ua/news/putin-warns-of-inevitable-retaliation-over-1795541075.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s43"
+   }
+  },
+  {
+   "testo": "Fires were also reported overnight at the Syzran and Kuibyshev refineries in Samara region, and the governor said more than 145 drones were shot down, the BBC reports.",
+   "fonti": [
+    "https://unbiasedheadlines.com/article/putin-vows-inevitable-retaliation-for-refinery-strikes-drones-hit-two-samara"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s61"
+   }
+  },
+  {
+   "testo": "Zelensky said earlier this month that Ukrainian long-range strikes had disabled more than 55% of Russia's oil-refining capacity, CNBC reports.",
+   "fonti": [
+    "https://www.briefs.co/news/kyiv-to-putin-want-refinery-strikes-to-stop-end-the-war/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s65"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 55,
+    "decimali": 0,
+    "prefisso": "OVER ",
+    "unita": "% OF CAPACITY",
+    "sopra": "ZELENSKY CLAIMS OFFLINE"
+   }
+  },
+  {
+   "testo": "That is Kyiv's claim. Industry sources cited by Reuters put the cut in crude processing at 45 percent.",
+   "fonti": [
+    "https://www.briefs.co/news/kyiv-to-putin-want-refinery-strikes-to-stop-end-the-war/",
+    "https://finwire.io/news/world-news/ukraine-attacks-russian-military-base-says-five-planes-struck"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s16"
+   }
+  },
+  {
+   "testo": "Fuel supply is the pressure point at home.",
+   "fonti": [
+    "https://globetv.app/news/putin-calls-retaliation-inevitable-as-ukrainian-drones-cut-refinery-output-6b06052ccf7c8"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s06"
+   }
+  },
+  {
+   "testo": "Putin said the domestic fuel market situation remains difficult.",
+   "fonti": [
+    "https://globetv.app/news/putin-calls-retaliation-inevitable-as-ukrainian-drones-cut-refinery-output-6b06052ccf7c8"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s45"
+   }
+  },
+  {
+   "testo": "But he said petrol prices have stabilised after peaking in October.",
+   "fonti": [
+    "https://globetv.app/news/putin-calls-retaliation-inevitable-as-ukrainian-drones-cut-refinery-output-6b06052ccf7c8"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s17"
+   }
+  },
+  {
+   "testo": "He called for more refining in Siberia and the Far East.",
+   "fonti": [
+    "https://www.trtworld.com/article/940463ac5ac5"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s39"
+   }
+  },
+  {
+   "testo": "He called for developing oil refining and petrochemicals in the east of the country.",
+   "fonti": [
+    "https://www.trtworld.com/article/940463ac5ac5"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s41"
+   }
+  },
+  {
+   "testo": "And a message to the West about oil and gas.",
+   "fonti": [
+    "https://www.trtworld.com/article/940463ac5ac5"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s58"
+   }
+  },
+  {
+   "testo": "Now, Kyiv's reply.",
+   "fonti": [
+    "https://www.pravda.com.ua/eng/news/2026/11/24/8064490/"
+   ],
+   "capitolo": "KYIV'S TWO WORDS",
+   "visivo": {
+    "tipo": "set",
+    "set": "s31"
+   }
+  },
+  {
+   "testo": "Foreign Minister Andrii Sybiha answered on X on Tuesday.",
+   "fonti": [
+    "https://www.pravda.com.ua/eng/news/2026/11/24/8064490/",
+    "https://www.yahoo.com/news/world/articles/ukraine-tells-putin-stop-complaining-211136987.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s32"
+   }
+  },
+  {
+   "testo": "His post:",
+   "fonti": [
+    "https://www.pravda.com.ua/eng/news/2026/11/24/8064490/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s04"
+   },
+   "citazione": {
+    "chi": "sybiha",
+    "posa": "serio",
+    "testo": "If Putin doesn't like Ukraine's strikes on his oil refineries, he can order an end to the war."
+   }
+  },
+  {
+   "testo": "He added: 'Stop complaining.'",
+   "fonti": [
+    "https://www.pravda.com.ua/eng/news/2026/11/24/8064490/"
+   ],
+   "visivo": {
+    "tipo": "frase",
+    "testo": "He added: 'Stop complaining.'"
+   }
+  },
+  {
+   "testo": "He added: if Putin doesn't want his military vessels hit, he can order an end to the war.",
+   "fonti": [
+    "https://www.yahoo.com/news/world/articles/ukraine-tells-putin-stop-complaining-211136987.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s38"
+   }
+  },
+  {
+   "testo": "Sybiha also said Russia has lost 432,000 soldiers on the battlefield this year.",
+   "fonti": [
+    "https://www.yahoo.com/news/world/articles/ukraine-tells-putin-stop-complaining-211136987.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s33"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 432000,
+    "decimali": 0,
+    "prefisso": "",
+    "unita": "SOLDIERS, SYBIHA CLAIMS",
+    "sopra": "UNVERIFIED"
+   }
+  },
+  {
+   "testo": "The Hill said the figure could not be verified.",
+   "fonti": [
+    "https://www.briefs.co/news/kyiv-to-putin-want-refinery-strikes-to-stop-end-the-war/",
+    "https://www.yahoo.com/news/world/articles/ukraine-tells-putin-stop-complaining-211136987.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s52"
+   }
+  },
+  {
+   "testo": "Kyiv's stated position is consistent: strikes stop when Russia stops hitting Ukrainian energy, Al Jazeera reported.",
+   "fonti": [
+    "https://globetv.app/news/putin-calls-retaliation-inevitable-as-ukrainian-drones-cut-refinery-output-6b06052ccf7c8",
+    "https://finwire.io/news/world-news/ukraine-attacks-russian-military-base-says-five-planes-struck"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s55"
+   }
+  },
+  {
+   "testo": "But has Russia stopped? Look at the last 48 hours.",
+   "fonti": [
+    "https://www.businessday.co.za/world/europe/2026-11-25-russian-strikes-cut-power-in-five-ukraine-regions/"
+   ],
+   "capitolo": "THE OTHER SIDE OF THE GRID",
+   "visivo": {
+    "tipo": "set",
+    "set": "s24"
+   }
+  },
+  {
+   "testo": "Overnight, Russian strikes hit Ukraine's power sector, Ukrainian officials said.",
+   "fonti": [
+    "https://www.businessday.co.za/world/europe/2026-11-25-russian-strikes-cut-power-in-five-ukraine-regions/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s25"
+   }
+  },
+  {
+   "testo": "Outages in five regions: Dnipropetrovsk, Donetsk, Zaporizhzhia, Odesa and Kharkiv.",
+   "fonti": [
+    "https://www.businessday.co.za/world/europe/2026-11-25-russian-strikes-cut-power-in-five-ukraine-regions/",
+    "https://gsmglobalnews.com/article/d20261125-ukrenergo1.html"
+   ],
+   "visivo": {
+    "tipo": "mappa",
+    "centro": [
+     34,
+     48.5
+    ],
+    "larghezza": 14,
+    "paesi": [
+     {
+      "iso": "UKR",
+      "colore": "blu"
+     },
+     {
+      "iso": "RUS",
+      "colore": "rosso"
+     }
+    ],
+    "punti": [
+     {
+      "lon": 35.14,
+      "lat": 47.84,
+      "nome": "ZAPORIZHZHIA"
+     },
+     {
+      "lon": 35.05,
+      "lat": 48.46,
+      "nome": "DNIPRO"
+     },
+     {
+      "lon": 30.72,
+      "lat": 46.48,
+      "nome": "ODESA"
+     },
+     {
+      "lon": 36.23,
+      "lat": 49.99,
+      "nome": "KHARKIV"
+     }
+    ],
+    "frecce": []
+   }
+  },
+  {
+   "testo": "Zaporizhzhia was in the most difficult situation, Prime Minister Koretskyi said.",
+   "fonti": [
+    "https://www.pravda.com.ua/eng/news/2026/11/25/8064593/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s27"
+   }
+  },
+  {
+   "testo": "The governor said a morning attack on Zaporizhzhia city hit a residential building and injured six, including two children.",
+   "fonti": [
+    "https://www.businessday.co.za/world/europe/2026-11-25-russian-strikes-cut-power-in-five-ukraine-regions/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s28"
+   }
+  },
+  {
+   "testo": "The occupied Zaporizhzhia nuclear plant lost external power again.",
+   "fonti": [
+    "https://www.businessday.co.za/world/europe/2026-11-25-russian-strikes-cut-power-in-five-ukraine-regions/",
+    "https://en.lb.ua/news/2026/11/25/51406_russia_strikes_energy_facilities.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s26"
+   }
+  },
+  {
+   "testo": "The 17th time this year, said Ukraine's deputy energy minister.",
+   "fonti": [
+    "https://www.businessday.co.za/world/europe/2026-11-25-russian-strikes-cut-power-in-five-ukraine-regions/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s26"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 17,
+    "decimali": 0,
+    "prefisso": "",
+    "unita": "TIMES THIS YEAR",
+    "sopra": "PLANT LOST OUTSIDE POWER"
+   }
+  },
+  {
+   "testo": "It switched to diesel generators.",
+   "fonti": [
+    "https://en.lb.ua/news/2026/11/25/51406_russia_strikes_energy_facilities.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s29"
+   }
+  },
+  {
+   "testo": "Winter is setting in. The pressure on Ukraine's grid is rising.",
+   "fonti": [
+    "https://www.businessday.co.za/world/europe/2026-11-25-russian-strikes-cut-power-in-five-ukraine-regions/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s51"
+   }
+  },
+  {
+   "testo": "So both sides are now hitting each other's energy sector. Each blames the other.",
+   "fonti": [
+    "https://www.yahoo.com/news/world/articles/ukraine-tells-putin-stop-complaining-211136987.html",
+    "https://www.trtworld.com/article/940463ac5ac5"
+   ],
+   "visivo": {
+    "tipo": "frase",
+    "testo": "So both sides are now hitting each other's energy sector. Each blames the other."
+   }
+  },
+  {
+   "testo": "Then came Wednesday's twist. Not a refinery. An air base.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/26/ukraine-attacks-russian-military-base-says-five-planes-struck"
+   ],
+   "capitolo": "THE AIR BASE TWIST",
+   "visivo": {
+    "tipo": "set",
+    "set": "s18"
+   }
+  },
+  {
+   "testo": "Ukraine's General Staff said it struck the Savasleyka air base.",
+   "fonti": [
+    "https://www.arabnews.com/world/ukraine-says-it-struck-a-major-russian-air-base-damaging-five-planes-3014040",
+    "https://www.aljazeera.com/news/2026/11/26/ukraine-attacks-russian-military-base-says-five-planes-struck"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s21"
+   }
+  },
+  {
+   "testo": "It sits in the Nizhny Novgorod region, about 300 kilometers east of Moscow, the BBC says.",
+   "fonti": [
+    "https://www.aljazeera.com/news/2026/11/26/ukraine-attacks-russian-military-base-says-five-planes-struck"
+   ],
+   "visivo": {
+    "tipo": "mappa",
+    "centro": [
+     38,
+     54
+    ],
+    "larghezza": 24,
+    "paesi": [
+     {
+      "iso": "RUS",
+      "colore": "rosso"
+     },
+     {
+      "iso": "UKR",
+      "colore": "blu"
+     }
+    ],
+    "punti": [
+     {
+      "lon": 37.62,
+      "lat": 55.75,
+      "nome": "MOSCOW"
+     },
+     {
+      "lon": 42.3,
+      "lat": 55.4,
+      "nome": "SAVASLEYKA"
+     },
+     {
+      "lon": 30.52,
+      "lat": 50.45,
+      "nome": "KYIV"
+     }
+    ],
+    "frecce": [
+     {
+      "da": [
+       30.52,
+       50.45
+      ],
+      "a": [
+       42.3,
+       55.4
+      ],
+      "colore": "rosso"
+     }
+    ],
+    "zoom_su": [
+     42.3,
+     55.4
+    ]
+   }
+  },
+  {
+   "testo": "Three MiG-31 jets and two Su-34 fighter-bombers, Kyiv says.",
+   "fonti": [
+    "https://www.arabnews.com/world/ukraine-says-it-struck-a-major-russian-air-base-damaging-five-planes-3014040",
+    "https://newsukraine.rbc.ua/news/ukraine-hits-5-russian-aircraft-at-savasleyka-1795609854.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s19"
+   }
+  },
+  {
+   "testo": "Kyiv says the Su-34s are used in glide-bomb attacks on Ukraine.",
+   "fonti": [
+    "https://www.arabnews.com/world/ukraine-says-it-struck-a-major-russian-air-base-damaging-five-planes-3014040"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s20"
+   }
+  },
+  {
+   "testo": "Kyiv says MiG-31s from this base carry Kinzhal missiles used against Ukrainian cities. The General Staff did not specify the MiG-31 variant.",
+   "fonti": [
+    "https://www.arabnews.com/world/ukraine-says-it-struck-a-major-russian-air-base-damaging-five-planes-3014040",
+    "https://shorty-news.com/world/ukraine-strikes-nizhny-novgorod-air-base/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s23"
+   }
+  },
+  {
+   "testo": "The jets will be unable to fly for some time, the General Staff said.",
+   "fonti": [
+    "https://www.arabnews.com/world/ukraine-says-it-struck-a-major-russian-air-base-damaging-five-planes-3014040"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s57"
+   }
+  },
+  {
+   "testo": "The General Staff said the extent of the damage is still being assessed.",
+   "fonti": [
+    "https://newsukraine.rbc.ua/news/ukraine-hits-5-russian-aircraft-at-savasleyka-1795609854.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s43"
+   }
+  },
+  {
+   "testo": "And Russia? It has not commented, the BBC reports.",
+   "fonti": [
+    "https://finwire.io/news/world-news/ukraine-attacks-russian-military-base-says-five-planes-struck"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s34"
+   }
+  },
+  {
+   "testo": "So the claim is Kyiv's alone for now. It has not been independently confirmed.",
+   "fonti": [
+    "https://finwire.io/news/world-news/ukraine-attacks-russian-military-base-says-five-planes-struck",
+    "https://thedefensewatch.com/global-news/ukraine-says-strike-damaged-five-russian-aircraft-at-savasleyka-air-base/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s47"
+   }
+  },
+  {
+   "testo": "So what will Putin do now? He has not said.",
+   "fonti": [
+    "https://unbiasedheadlines.com/article/putin-vows-inevitable-retaliation-for-refinery-strikes-drones-hit-two-samara"
+   ],
+   "capitolo": "WHAT COMES NEXT",
+   "visivo": {
+    "tipo": "set",
+    "set": "s56"
+   }
+  },
+  {
+   "testo": "Moscow has not said what its response will be.",
+   "fonti": [
+    "https://unbiasedheadlines.com/article/putin-vows-inevitable-retaliation-for-refinery-strikes-drones-hit-two-samara"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s34"
+   }
+  },
+  {
+   "testo": "Ukraine's allies have warned the country faces another winter of blackouts and freezing temperatures, CNBC reports.",
+   "fonti": [
+    "https://nationalsecurityjournal.org/putin-never-saw-this-coming-ukraine-has-hit-16-russian-oil-refineries-since-late-october-and-reportedly-cut-processing-about-45-percent/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s53"
+   }
+  },
+  {
+   "testo": "Meanwhile Washington's role is unclear. In September, Trump urged Zelensky to stop targeting Russian refineries.",
+   "fonti": [
+    "https://www.yahoo.com/news/world/articles/ukraine-tells-putin-stop-complaining-211136987.html",
+    "https://thehill.com/policy/international/6243656-ukraine-russia-oil-refinery-attacks/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s12"
+   }
+  },
+  {
+   "testo": "The Trump administration previously threatened to cut off intelligence sharing if Kyiv did not stop its refinery strikes, according to The Hill.",
+   "fonti": [
+    "https://www.yahoo.com/news/world/articles/ukraine-tells-putin-stop-complaining-211136987.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s52"
+   }
+  },
+  {
+   "testo": "Kyiv's line has not changed: end the war, end the strikes.",
+   "fonti": [
+    "https://www.pravda.com.ua/eng/news/2026/11/24/8064490/",
+    "https://www.briefs.co/news/kyiv-to-putin-want-refinery-strikes-to-stop-end-the-war/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s13"
+   }
+  },
+  {
+   "testo": "Moscow's line: retaliation is inevitable. Two stated positions, no meeting point.",
+   "fonti": [
+    "https://www.trtworld.com/article/940463ac5ac5",
+    "https://www.pravda.com.ua/eng/news/2026/11/24/8064490/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s60"
+   }
+  },
+  {
+   "testo": "Winter is coming. Ukraine reports refineries hit and grids damaged. Planes sit damaged, Kyiv says.",
+   "fonti": [
+    "https://www.businessday.co.za/world/europe/2026-11-25-russian-strikes-cut-power-in-five-ukraine-regions/",
+    "https://www.arabnews.com/world/ukraine-says-it-struck-a-major-russian-air-base-damaging-five-planes-3014040"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s70"
+   }
+  },
+  {
+   "testo": "This story is still moving. Subscribe, so you don't miss what happens next.",
+   "fonti": [
+    "https://www.trtworld.com/article/940463ac5ac5"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s54"
+   }
+  }
+ ],
+ "copertina": {
+  "sfondo": "Russian refinery at night engulfed in huge orange flames and black smoke, with a jet fuselage smoking on an airfield in the distance, dramatic red sky, empty of people",
+  "personaggi": [
+   "putin",
+   "zelensky"
+  ],
+  "pose": {
+   "putin": "arrabbiato",
+   "zelensky": "determinato"
+  },
+  "personaggio": "putin",
+  "posa": "arrabbiato",
+  "lato": "dx",
+  "righe": [
+   "INEVITABLE",
+   "PUTIN VOWS"
+  ],
+  "box": "KYIV: STOP COMPLAINING",
+  "evidenzia": 0,
+  "parola": "INEVITABLE",
+  "etichetta": "RETALIATION VOW",
+  "domanda": "WHAT'S NEXT?",
+  "frase": "INEVITABLE"
+ },
+ "verifica": {
+  "correzioni": 87,
+  "scene_tolte": 13
+ },
+ "coerenza": {
+  "scene_rifatte": 14,
+  "controllate": 70
+ },
+ "lingua": "en",
+ "nome": "2026-11-26_putin_vows_inevitable_retaliation_after__en",
+ "data": "NOVEMBER 26, 2026",
+ "etichetta": "BREAKING",
+ "musica": "tensione",
+ "voce": "uju3wxzG5OhpWcoi3SMy",
+ "budget_dollari": 3.37,
+ "storia": "Putin vows 'inevitable' retaliation after Ukraine's refinery strikes; Kyiv tells him to 'stop complaining'",
+ "filone": "guerra"
+}
