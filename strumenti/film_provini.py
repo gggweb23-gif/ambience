@@ -17,6 +17,8 @@ def da_archive():
     j = json.loads(get('https://archive.org/advancedsearch.php?' + urllib.parse.urlencode(
         {'q': f'title:("{CERCA}") AND mediatype:movies', 'fl[]': ['identifier', 'title'], 'rows': 10, 'output': 'json'}, doseq=True)))
     for d in j['response']['docs']:
+        if re.match(r'(CSPAN|KQED|WMAR|MSNBC|CNN|FOX|BBC|tv)', d['identifier'], re.I):   # registrazioni TV: non scaricabili, con loghi
+            continue
         m = json.loads(get('https://archive.org/metadata/' + d['identifier']))
         fs = [f for f in m.get('files', []) if re.search(r'\.(mp4|mpeg4|ogv|mpg)$', f['name'], re.I)]
         fs.sort(key=lambda f: (not f['name'].lower().endswith('.mp4'), -int(f.get('size') or 0)))
@@ -30,11 +32,12 @@ def da_commons():
         'action': 'query', 'format': 'json', 'generator': 'search', 'gsrnamespace': 6, 'gsrsearch': CERCA + ' filetype:video', 'gsrlimit': 10,
         'prop': 'imageinfo', 'iiprop': 'url|size'})))
     for pg in (j.get('query') or {}).get('pages', {}).values():
-        print('commons:', pg['title']); return pg['imageinfo'][0]['url']
+        if int(pg['imageinfo'][0].get('size') or 0) > 20e6:
+            print('commons:', pg['title']); return pg['imageinfo'][0]['url']
 
 
 url = None
-for f in (da_archive, da_commons):
+for f in (da_commons, da_archive):
     try:
         url = url or f()
     except Exception as e:
