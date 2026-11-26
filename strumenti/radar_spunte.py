@@ -2,7 +2,7 @@
 """26 nov 2026 (Giorgio): nel foglio RADAR, scheda Canali, una spunta per ogni criterio di scelta (gratis, nessuna chiamata a Claude).
 Quando sono tutte verdi il canale e' VALIDATO. Criteri:
   1. meno di 30.000 iscritti
-  2. aperto da 1 a 6 mesi (primo video tra 30 e 183 giorni fa)
+  2. aperto da 0 a 6 mesi (primo video negli ultimi 183 giorni)
   3. almeno un video virale (video migliore sopra 100.000 views)
   4. cresce in modo costante: views delle ultime 3 settimane (scheda Storico) in crescita settimana dopo settimana
      e non vive di un solo video (il video migliore sotto il 60% delle views del canale)
@@ -18,8 +18,8 @@ import avvio_canali as A
 FOGLIO = os.environ.get('RADAR_FOGLIO', '1cOLkymyVmU2SQYZWMNMPb99AHkk4qdH8RKMUPtwhcLI')
 OGGI = dt.datetime.now(ZoneInfo('Europe/Rome')).date()
 SI, NO, ATT = '✅', '❌', '⏳'
-NUOVE = ['✓ Sotto 30.000 iscritti', '✓ Aperto da 1-6 mesi', '✓ Video virale (>100.000 views)',
-         '✓ Cresce costante (3 settimane)', '✓ 3+ concorrenti in crescita', '✓ Tendenza positiva (views settimana su)', 'Concorrenti nello stesso filone', 'Fase dell\'onda', 'Pubblica ogni (giorni)', '✅ VALIDATO (tutto verde)']
+NUOVE = ['✓ Sotto 30.000 iscritti', '✓ Aperto da 0-6 mesi', '✓ Video virale (>100.000 views)',
+         '✓ Cresce costante (3 settimane)', '✓ 3+ concorrenti in crescita', '✓ Tendenza positiva (views settimana su)', 'Concorrenti nello stesso filone', 'Fase dell\'onda', 'Pubblica in media', '✅ VALIDATO (tutto verde)', '🏆 Classifica']
 
 
 def num(x):
@@ -94,7 +94,7 @@ def main():
     for r in rr:
         cid = str(r.get('channel_id'))
         isc = num(r.get('Iscritti')); c1 = ATT if isc is None else (SI if isc < 30000 else NO)
-        pv = giorno(r.get('Primo video')); c2 = ATT if not pv else (SI if 30 <= (OGGI - pv).days <= 183 else NO)
+        pv = giorno(r.get('Primo video')); c2 = ATT if not pv else (SI if 0 <= (OGGI - pv).days <= 183 else NO)
         best = num(r.get('Views video migliore')); c3 = ATT if best is None else (SI if best >= 100000 else NO)
         oggi_s = max(serie.get(cid, {}) or [OGGI])
         p = [views_al(cid, oggi_s - dt.timedelta(days=7 * k)) for k in range(4)]
@@ -103,7 +103,7 @@ def main():
             a, b = p[0] - p[1], p[1] - p[2]
             onda = ('🌊 sale (accelera)' if a > b * 1.2 else '〰️ in cima (cresce piano)' if a >= b * .95 else '📉 scende') if b > 0 else ('🌊 sale' if a > 0 else '📉 ferma')
         nv, gg = num(r.get('Video nel canale')), num(r.get('Giorni dal primo video'))
-        freq = f"{gg / nv:.1f}".replace('.', ',') + f" ({int(nv)} video in {int(gg)} giorni)" if nv and gg else ''
+        freq = ('ogni ' + f"{gg / (nv - 1):.1f}".replace('.', ',') + ' giorni') if nv and nv > 1 and gg else ''   # dal primo all'ultimo video
         if None in p:
             c4 = ATT
         else:
@@ -117,11 +117,35 @@ def main():
         nomi = f"{len(conc)}: " + ', '.join(str(x.get('Canale'))[:30] for x in conc[:4]) if conc else '0'
         tutto = SI if all(c == SI for c in (c1, c2, c3, c4, c5, c6)) else ''
         out.append([c1, c2, c3, c4, c5, c6, nomi, onda, freq, tutto])
+    # 26 nov (Giorgio): sempre i 3 migliori evidenziati (giallo pieno, meno, meno ancora): prima i VALIDATI, poi il numero di spunte,
+    # a parita' il guadagno potenziale (views al giorno x RPM)
+    def pot(r):
+        return (num(r.get('Views al giorno (ultima settimana)')) or 0) * (num(r.get('RPM stimato $')) or 0)
+    ordine = sorted(range(len(rr)), key=lambda i: (out[i][-1] == SI, sum(c == SI for c in out[i][:6]), pot(rr[i])), reverse=True)
+    for i in range(len(out)):
+        out[i].append('')
+    for pos, i in enumerate(ordine[:3]):
+        out[i][-1] = f"{pos + 1}° " + ('VALIDATO' if out[i][-2] == SI else f"migliore ({sum(c == SI for c in out[i][:6])}/6)")
     k0 = h.index(NUOVE[0]) + 1
     if out:
         A.api(FOGLIO, 'PUT', '/values/' + urllib.parse.quote(f"'Canali'!{A.lettera(k0)}2:{A.lettera(k0 + len(NUOVE) - 1)}{len(out) + 1}") + '?valueInputOption=RAW',
               {'values': out})
-    val = [(r, o) for r, o in zip(rr, out) if o[-1] == SI]
+    try:
+        gid = next(x['properties']['sheetId'] for x in A.api(FOGLIO, 'GET', '?fields=sheets.properties')['sheets'] if x['properties']['title'] == 'Canali')
+        bianco = {'red': 1, 'green': 1, 'blue': 1}
+        gialli = [{'red': 1, 'green': .85, 'blue': .2}, {'red': 1, 'green': .92, 'blue': .55}, {'red': 1, 'green': .97, 'blue': .8}]
+        rq = [{'repeatCell': {'range': {'sheetId': gid, 'startRowIndex': 1, 'endRowIndex': len(rr) + 1, 'startColumnIndex': 0, 'endColumnIndex': len(h)},
+                              'cell': {'userEnteredFormat': {'backgroundColor': bianco}}, 'fields': 'userEnteredFormat.backgroundColor'}}]
+        for pos, i in enumerate(ordine[:3]):
+            rq.append({'repeatCell': {'range': {'sheetId': gid, 'startRowIndex': i + 1, 'endRowIndex': i + 2, 'startColumnIndex': 0, 'endColumnIndex': len(h)},
+                                      'cell': {'userEnteredFormat': {'backgroundColor': gialli[pos]}}, 'fields': 'userEnteredFormat.backgroundColor'}})
+        A.api(FOGLIO, 'POST', ':batchUpdate', {'requests': rq})
+    except Exception as e:
+        print('colori non messi:', str(e)[:150])
+    for pos, i in enumerate(ordine[:3]):
+        print('CLASSIFICA', out[i][-1], '|', rr[i].get('Canale'), '|', rr[i].get('Nicchia'), '| RPM', rr[i].get('RPM stimato $'), '| v/g', rr[i].get('Views al giorno (ultima settimana)'),
+              '| isc', rr[i].get('Iscritti'), '|', out[i][7], '|', out[i][8], '|', rr[i].get('Link canale'))
+    val = [(r, o) for r, o in zip(rr, out) if o[-2] == SI]
     print(f'canali: {len(rr)} | validati (tutto verde): {len(val)}')
     for r, o in sorted(zip(rr, out), key=lambda ro: -sum(c == SI for c in ro[1][:6]))[:25]:
         print(sum(c == SI for c in o[:6]), '/6', '|', r.get('Canale'), '|', r.get('Nicchia'), '|', o[:6], '| conc', o[6][:80], '|', o[7], '|', o[8], '| RPM', r.get('RPM stimato $'),
