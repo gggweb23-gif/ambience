@@ -41,7 +41,7 @@ jobs:
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           PROVA: ${{ inputs.prova }}
           MAX_RICERCHE: ${{ inputs.max_ricerche }}
-          SENZA_CLAUDE: ${{ inputs.senza_claude }}
+          SENZA_CLAUDE: ${{ github.event_name == 'schedule' && 'SI' || inputs.senza_claude }}   # 26 nov (Giorgio): il giro giornaliero non usa Claude (solo dati gratis); le valutazioni solo quando lo lanciamo a mano
         run: pip install -q google-auth requests && python3 strumenti/radar.py
       - name: Salva valutazioni e spesa Claude
         if: ${{ always() && inputs.prova != 'SI' }}
