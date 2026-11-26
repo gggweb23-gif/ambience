@@ -406,7 +406,9 @@ for n, (d, s, prima, t0) in enumerate(piano):
             ULTIME_CLIP.append(nid)
         INFO_N.update(tipo='clip', fonte=nid)
         spinta = MOVIMENTI and n % 2 == 0              # una clip si' e una no: leggera spinta in avanti (punch-in), solo con movimenti_camera = SI
-        if p in RITAGLIO:   # 11 nov (Giorgio): filmato d'epoca 4:3 -> intero, come una foto con cornice bianca, su sfondo dello stesso filmato sfocato e scuro
+        if p in RITAGLIO and str(P.get('riempi_schermo') or 'NO').upper() == 'SI':   # 26 nov: filmato 4:3 ritagliato a tutto schermo, tutte le inquadrature uguali
+            vf = f'[0:v]{RITAGLIO[p]}scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={FPS},setsar=1,tpad=stop_mode=clone:stop_duration={L:.2f}[v]'
+        elif p in RITAGLIO:   # 11 nov (Giorgio): filmato d'epoca 4:3 -> intero, come una foto con cornice bianca, su sfondo dello stesso filmato sfocato e scuro
             hf = int(H * .84) // 2 * 2; bc = max(6, H // 90)
             vf = (f'[0:v]{RITAGLIO[p]}setsar=1,split[a][b];[a]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},boxblur=24:3,eq=brightness=-0.18:saturation=0.7[bg];'
                   f'[b]scale=-2:{hf},pad=iw+{2 * bc}:ih+{2 * bc}:{bc}:{bc}:color=0xF2EEE4[fg];[bg][fg]overlay=(W-w)/2:(H-h)/2,'
