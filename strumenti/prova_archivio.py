@@ -365,7 +365,7 @@ for k, (s, (a, b)) in enumerate(zip(scene, tempi)):
 json.dump([[round(a, 2), round(b, 2)] for a, b in tempi], open(os.path.join(CART, 'tempi_scene.json'), 'w'))   # per i capitoli YouTube
 trans = []
 for n in range(len(piano) - 1):
-    trans.append(EFFETTI[(n // 3) % len(EFFETTI)] if n % 3 == 2 else TAGLIO)   # un effetto ogni 3 tagli
+    trans.append(EFFETTI[(n // 3) % len(EFFETTI)] if (n % 3 == 2 and str(P.get('solo_tagli') or 'NO').upper() != 'SI') else TAGLIO)   # un effetto ogni 3 tagli (solo_tagli = SI: solo tagli netti, come i documentari d'archivio)
 trans.append(('fade', 0))
 
 pezzi, fonti, nclip = [], [], 0
