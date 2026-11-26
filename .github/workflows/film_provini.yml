@@ -6,6 +6,7 @@ on:
       cerca: {description: 'titolo del film', required: true, type: string}
       nome: {description: 'cartella in libreria_clip', required: true, type: string}
       passo: {description: 'secondi tra i fotogrammi', default: '4', type: string}
+      sigla: {description: 'sigla del rullo nei nomi dei file', default: '', type: string}
 permissions:
   contents: write
 jobs:
@@ -15,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null && pip install -q pillow
-      - env: {CERCA: '${{ inputs.cerca }}', NOME: '${{ inputs.nome }}', PASSO: '${{ inputs.passo }}'}
+      - env: {CERCA: '${{ inputs.cerca }}', NOME: '${{ inputs.nome }}', PASSO: '${{ inputs.passo }}', SIGLA: '${{ inputs.sigla }}'}
         run: python3 strumenti/film_provini.py
       - run: |
           git config user.name render-bot; git config user.email render-bot@users.noreply.github.com

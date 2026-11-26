@@ -7,6 +7,7 @@ import json, os, re, subprocess, urllib.parse, urllib.request
 from PIL import Image, ImageDraw
 
 CERCA, NOME = os.environ['CERCA'], os.environ.get('NOME') or 'film'
+SIGLA = re.sub(r'[^a-z0-9]+', '', os.environ.get('SIGLA', '').lower()) + ('_' if os.environ.get('SIGLA') else '')
 PASSO = float(os.environ.get('PASSO') or 4)
 OUT = os.path.join('libreria_clip', NOME); os.makedirs(OUT, exist_ok=True)
 UA = {'User-Agent': 'ambience-provini/1.0 (+https://github.com/gggweb23-gif/ambience)'}
@@ -35,7 +36,7 @@ def da_commons():   # CERCA = 'File:Nome esatto.ogv' -> proprio quel file
             print('commons:', pg['title']); return pg['imageinfo'][0]['url']
 
 
-url = None
+url = CERCA if CERCA.startswith('http') else None   # link diretto (es. National Archives, catalog.archives.gov/medialz/...mp4)
 for f in (da_commons, da_archive):
     try:
         url = url or f()
@@ -58,6 +59,6 @@ for k in range(0, len(fr), 40):   # fogli da 40 fotogrammi (8 x 5)
         g.paste(im, ((i % 8) * w, (i // 8) * h))
         t = (k + i) * PASSO
         ImageDraw.Draw(g).text(((i % 8) * w + 4, (i // 8) * h + 4), f'{int(t // 60)}:{int(t % 60):02d}', fill=(255, 255, 0))
-    g.save(os.path.join(OUT, f'provini_{k // 40:02d}.jpg'), quality=80)
-json.dump({'url': url, 'durata': dur, 'passo': PASSO, 'cerca': CERCA}, open(os.path.join(OUT, 'film.json'), 'w'), indent=1)
+    g.save(os.path.join(OUT, f'provini_{SIGLA}{k // 40:02d}.jpg'), quality=80)
+json.dump({'url': url, 'sigla': SIGLA, 'durata': dur, 'passo': PASSO, 'cerca': CERCA}, open(os.path.join(OUT, f'film_{SIGLA or "0"}.json'), 'w'), indent=1)
 print('fogli', -(-len(fr) // 40))
