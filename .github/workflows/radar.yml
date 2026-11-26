@@ -47,6 +47,7 @@ jobs:
         if: ${{ always() && inputs.prova != 'SI' }}
         env:
           GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
+          YT_API_KEY_RADAR: ${{ secrets.YT_API_KEY_RADAR }}
         run: python3 strumenti/radar_spunte.py
       - name: Salva valutazioni e spesa Claude
         if: ${{ always() && inputs.prova != 'SI' }}

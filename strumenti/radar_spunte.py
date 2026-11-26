@@ -19,7 +19,7 @@ FOGLIO = os.environ.get('RADAR_FOGLIO', '1cOLkymyVmU2SQYZWMNMPb99AHkk4qdH8RKMUPt
 OGGI = dt.datetime.now(ZoneInfo('Europe/Rome')).date()
 SI, NO, ATT = '✅', '❌', '⏳'
 NUOVE = ['✓ Sotto 30.000 iscritti', '✓ Aperto da 0-6 mesi', '✓ Video virale (>100.000 views)',
-         '✓ Cresce costante (3 settimane)', '✓ 3+ concorrenti in crescita', '✓ Tendenza positiva (views settimana su)', 'Concorrenti nello stesso filone', 'Fase dell\'onda', 'Pubblica in media', '✅ VALIDATO (tutto verde)', '🏆 Classifica']
+         '✓ Cresce costante (3 settimane)', '✓ 3+ concorrenti in crescita', '✓ Tendenza positiva (views settimana su)', 'Concorrenti nello stesso filone', 'Fase dell\'onda', 'Pubblica in media (solo video lunghi)', 'Video lunghi sopra 100.000 views', '✅ VALIDATO (tutto verde)', '🏆 Classifica']
 
 
 def num(x):
@@ -64,6 +64,42 @@ def giorno(x):
         return None
 
 
+YT_KEY = os.environ.get('YT_API_KEY_RADAR', '')
+
+
+def yt(path, **q):
+    import json, urllib.request
+    q['key'] = YT_KEY
+    return json.load(urllib.request.urlopen('https://www.googleapis.com/youtube/v3/' + path + '?' + urllib.parse.urlencode(q), timeout=60))
+
+
+def durata(iso):
+    m = re.match(r'PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?', iso or '')
+    return (int(m.group(1) or 0) * 3600 + int(m.group(2) or 0) * 60 + int(m.group(3) or 0)) if m else 0
+
+
+def lunghi(cid):
+    """26 nov (Giorgio): cadenza e video esplosi contando SOLO i video lunghi (niente Short: sopra i 3 minuti)."""
+    ids, tok = [], None
+    for _ in range(6):   # fino a 300 video
+        q = dict(part='contentDetails', playlistId='UU' + cid[2:], maxResults=50)
+        if tok:
+            q['pageToken'] = tok
+        r = yt('playlistItems', **q); ids += [x['contentDetails']['videoId'] for x in r.get('items', [])]; tok = r.get('nextPageToken')
+        if not tok:
+            break
+    vv = []
+    for i in range(0, len(ids), 50):
+        for x in yt('videos', part='contentDetails,statistics,snippet', id=','.join(ids[i:i + 50])).get('items', []):
+            if durata(x['contentDetails'].get('duration')) > 180:
+                vv.append((x['snippet']['publishedAt'][:10], int(x['statistics'].get('viewCount', 0))))
+    if len(vv) < 2:
+        return '', str(sum(v >= 100000 for _, v in vv))
+    dd = sorted(dt.date.fromisoformat(d) for d, _ in vv)
+    g = (dd[-1] - dd[0]).days / (len(dd) - 1)
+    return 'ogni ' + f'{g:.1f}'.replace('.', ',') + f' giorni ({len(dd)} lunghi)', str(sum(v >= 100000 for _, v in vv))
+
+
 def main():
     h, rr = leggi('Canali')
     for c in NUOVE:
@@ -103,7 +139,7 @@ def main():
             a, b = p[0] - p[1], p[1] - p[2]
             onda = ('🌊 sale (accelera)' if a > b * 1.2 else '〰️ in cima (cresce piano)' if a >= b * .95 else '📉 scende') if b > 0 else ('🌊 sale' if a > 0 else '📉 ferma')
         nv, gg = num(r.get('Video nel canale')), num(r.get('Giorni dal primo video'))
-        freq = ('ogni ' + f"{gg / (nv - 1):.1f}".replace('.', ',') + ' giorni') if nv and nv > 1 and gg else ''   # dal primo all'ultimo video
+        freq, n100 = '', ''
         if None in p:
             c4 = ATT
         else:
@@ -116,7 +152,15 @@ def main():
         cx = num(r.get('Crescita x')); c6 = ATT if cx is None else (SI if cx > 1 else NO)
         nomi = f"{len(conc)}: " + ', '.join(str(x.get('Canale'))[:30] for x in conc[:4]) if conc else '0'
         tutto = SI if all(c == SI for c in (c1, c2, c3, c4, c5, c6)) else ''
-        out.append([c1, c2, c3, c4, c5, c6, nomi, onda, freq, tutto])
+        out.append([c1, c2, c3, c4, c5, c6, nomi, onda, freq, n100, tutto])
+    fatti = 0
+    for i, r in enumerate(rr):   # solo i canali promettenti (almeno 4 spunte su 6): risparmia quota YouTube
+        if YT_KEY and sum(c == SI for c in out[i][:6]) >= 4 and str(r.get('channel_id')).startswith('UC'):
+            try:
+                out[i][8], out[i][9] = lunghi(str(r.get('channel_id'))); fatti += 1
+            except Exception as e:
+                out[i][8] = 'non letto'
+    print('cadenza video lunghi calcolata per', fatti, 'canali')
     # 26 nov (Giorgio): sempre i 3 migliori evidenziati (giallo pieno, meno, meno ancora): prima i VALIDATI, poi il numero di spunte,
     # a parita' il guadagno potenziale (views al giorno x RPM)
     def pot(r):
@@ -144,7 +188,7 @@ def main():
         print('colori non messi:', str(e)[:150])
     for pos, i in enumerate(ordine[:3]):
         print('CLASSIFICA', out[i][-1], '|', rr[i].get('Canale'), '|', rr[i].get('Nicchia'), '| RPM', rr[i].get('RPM stimato $'), '| v/g', rr[i].get('Views al giorno (ultima settimana)'),
-              '| isc', rr[i].get('Iscritti'), '|', out[i][7], '|', out[i][8], '|', rr[i].get('Link canale'))
+              '| isc', rr[i].get('Iscritti'), '|', out[i][7], '|', out[i][8], '| lunghi >100k:', out[i][9], '|', rr[i].get('Link canale'))
     val = [(r, o) for r, o in zip(rr, out) if o[-2] == SI]
     print(f'canali: {len(rr)} | validati (tutto verde): {len(val)}')
     for r, o in sorted(zip(rr, out), key=lambda ro: -sum(c == SI for c in ro[1][:6]))[:25]:
