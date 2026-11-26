@@ -113,7 +113,7 @@ jobs:
             tar xzf fontsource-cormorant-garamond-5.3.0.tgz
             python3 -c "from fontTools.ttLib import TTFont; f=TTFont('package/files/cormorant-garamond-latin-600-normal.woff'); f.flavor=None; f.save('font/CormorantGaramond-SemiBold.ttf')"
           fi
-          pip install -q faster-whisper pillow playwright && python -m playwright install --with-deps chromium
+          pip install -q faster-whisper pillow playwright scipy "rembg[cpu]" && python -m playwright install --with-deps chromium
           npm install --prefix motore --silent --no-audit --no-fund luxon@3
           node --version && ffmpeg -version | head -1
 
