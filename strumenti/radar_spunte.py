@@ -158,6 +158,8 @@ def main():
         if YT_KEY and sum(c == SI for c in out[i][:6]) >= 4 and str(r.get('channel_id')).startswith('UC'):
             try:
                 out[i][8], out[i][9] = lunghi(str(r.get('channel_id'))); fatti += 1
+                out[i][2] = SI if int(out[i][9] or 0) >= 1 else NO   # video esploso = almeno un video LUNGO sopra 100.000 views
+                out[i][10] = SI if all(c == SI for c in out[i][:6]) else ''
             except Exception as e:
                 out[i][8] = 'non letto'
     print('cadenza video lunghi calcolata per', fatti, 'canali')
