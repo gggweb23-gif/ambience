@@ -1,0 +1,23 @@
+name: Provini di un film d'archivio (gratis)
+# 26 nov 2026: fotogrammi con minutaggio di un film di pubblico dominio, per scegliere gli spezzoni di una prova
+on:
+  workflow_dispatch:
+    inputs:
+      cerca: {description: 'titolo del film', required: true, type: string}
+      nome: {description: 'cartella in libreria_clip', required: true, type: string}
+      passo: {description: 'secondi tra i fotogrammi', default: '4', type: string}
+permissions:
+  contents: write
+jobs:
+  provini:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null && pip install -q pillow
+      - env: {CERCA: '${{ inputs.cerca }}', NOME: '${{ inputs.nome }}', PASSO: '${{ inputs.passo }}'}
+        run: python3 strumenti/film_provini.py
+      - run: |
+          git config user.name render-bot; git config user.email render-bot@users.noreply.github.com
+          git add libreria_clip && git commit -qm "Provini ${{ inputs.nome }}" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -q && git push -q && break; sleep $((i*5)); done
