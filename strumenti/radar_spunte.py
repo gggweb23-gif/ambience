@@ -101,12 +101,18 @@ def lunghi(cid):
 
 
 def main():
-    h, rr = leggi('Canali')
-    for c in NUOVE:
-        if c not in h:
-            h.append(c)
-    A.api(FOGLIO, 'PUT', '/values/' + urllib.parse.quote(f"'Canali'!A1:{A.lettera(len(h))}1") + '?valueInputOption=RAW', {'values': [h]})
-    rr = [dict(zip(h, list(r) + [''] * (len(h) - len(r)))) for r in rr]
+    h0, rr = leggi('Canali')
+    rr = [dict(zip(h0, list(r) + [''] * (len(h0) - len(r)))) for r in rr]
+    # 26 nov: le colonne delle spunte stanno sempre tutte insieme, in fondo, nell'ordine di NUOVE
+    # (prima restavano intestazioni vecchie in mezzo e i dati finivano sotto la colonna sbagliata)
+    VECCHIE = {'✓ Aperto da 1-6 mesi', 'Pubblica ogni (giorni)', 'Pubblica in media'}
+    base = [c for c in h0 if c and c not in NUOVE and c not in VECCHIE and not c.startswith('✓ ')]
+    h = base + NUOVE
+    vuote = max(0, len(h0) - len(h))
+    A.api(FOGLIO, 'PUT', '/values/' + urllib.parse.quote(f"'Canali'!A1:{A.lettera(len(h) + vuote)}1") + '?valueInputOption=RAW',
+          {'values': [h + [''] * vuote]})
+    if vuote:   # svuota le colonne rimaste a destra (vecchie spunte)
+        A.api(FOGLIO, 'POST', '/values/' + urllib.parse.quote(f"'Canali'!{A.lettera(len(h) + 1)}2:{A.lettera(len(h) + vuote)}20000") + ':clear', {})
 
     # Storico: views totali del canale giorno per giorno
     hs, rs = leggi('Storico')
