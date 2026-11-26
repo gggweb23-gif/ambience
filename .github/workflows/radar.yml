@@ -43,6 +43,11 @@ jobs:
           MAX_RICERCHE: ${{ inputs.max_ricerche }}
           SENZA_CLAUDE: ${{ github.event_name == 'schedule' && 'SI' || inputs.senza_claude }}   # 26 nov (Giorgio): il giro giornaliero non usa Claude (solo dati gratis); le valutazioni solo quando lo lanciamo a mano
         run: pip install -q google-auth requests && python3 strumenti/radar.py
+      - name: Spunte dei criteri di scelta (26 nov, gratis)
+        if: ${{ always() && inputs.prova != 'SI' }}
+        env:
+          GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
+        run: python3 strumenti/radar_spunte.py
       - name: Salva valutazioni e spesa Claude
         if: ${{ always() && inputs.prova != 'SI' }}
         run: |

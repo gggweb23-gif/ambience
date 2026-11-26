@@ -1,0 +1,13 @@
+name: RADAR - spunte criteri (gratis)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  spunte:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - env:
+          GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
+        run: pip install -q google-auth requests && python3 strumenti/radar_spunte.py
