@@ -51,7 +51,11 @@ class Studio:
         p.load_lora_weights(LORA, weight_name=lora_file('high'), adapter_name='lightning', cache_dir='/cache/hub')
         p.load_lora_weights(LORA, weight_name=lora_file('low'), adapter_name='lightning_2', load_into_transformer_2=True, cache_dir='/cache/hub')
         p.set_adapters(['lightning', 'lightning_2'], adapter_weights=[1.0, 1.0])
-        p.enable_model_cpu_offload()   # 2 trasformatori da 14B + testo: si alternano sulla GPU (80 GB)
+        try:   # 27 nov: tutto sulla GPU (piu' veloce = meno spesa); se non ci sta, alternanza CPU/GPU (lenta: ~150 s a clip)
+            p.to('cuda'); self.modo = 'gpu'
+        except Exception as e:
+            print('non ci sta tutto in GPU, uso offload:', str(e)[:80], flush=True)
+            import torch as _t; _t.cuda.empty_cache(); p.to('cpu'); p.enable_model_cpu_offload(); self.modo = 'offload'
         self.p = p
         print('modelli caricati in', round(time.time() - t), 's', flush=True)
 
