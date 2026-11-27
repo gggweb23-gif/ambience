@@ -8,9 +8,16 @@ import modal
 
 GPU = os.environ.get('GPU_MODAL', 'H100')
 REPO = 'Wan-AI/Wan2.2-I2V-A14B-Diffusers'
-LORA = 'Kijai/WanVideo_comfy'
-LORA_H = 'Wan22-Lightning/Wan2.2-Lightning_I2V-A14B-4steps-lora_HIGH_fp16.safetensors'
-LORA_L = 'Wan22-Lightning/Wan2.2-Lightning_I2V-A14B-4steps-lora_LOW_fp16.safetensors'
+LORA = 'lightx2v/Wan2.2-Distill-Loras'   # 27 nov: i nomi dei file cambiano con le versioni: si scelgono leggendo l'elenco del repository
+
+
+def lora_file(tipo):
+    from huggingface_hub import HfApi
+    fs = sorted(f for f in HfApi().list_repo_files(LORA) if f.endswith('.safetensors') and 'i2v' in f.lower()
+                and f'{tipo}_noise' in f.lower() and '4step' in f.lower())
+    if not fs:
+        raise RuntimeError('LoRA ' + tipo + ' non trovata in ' + LORA)
+    return fs[-1]
 img = (modal.Image.debian_slim(python_version='3.11')
        .apt_install('ffmpeg', 'git')
        .pip_install('torch==2.7.1', 'diffusers>=0.35.1', 'transformers>=4.51', 'accelerate', 'peft', 'sentencepiece', 'ftfy',
@@ -27,8 +34,8 @@ def scarica():
     t = time.time()
     snapshot_download(REPO, cache_dir='/cache/hub', allow_patterns=['model_index.json', '*/*.json', '*/*.safetensors', '*/*.model', '*/*.txt', '*/spiece*', '*/tokenizer*'])
     print('scaricato', REPO, round(time.time() - t), 's', flush=True)
-    for w in (LORA_H, LORA_L):
-        hf_hub_download(LORA, w, cache_dir='/cache/hub')
+    for tipo in ('high', 'low'):
+        w = lora_file(tipo); hf_hub_download(LORA, w, cache_dir='/cache/hub'); print('LoRA', w, flush=True)
     print('scaricate LoRA', round(time.time() - t), 's', flush=True)
     cache.commit()
 
@@ -41,8 +48,8 @@ class Studio:
         from diffusers import WanImageToVideoPipeline
         t = time.time()
         p = WanImageToVideoPipeline.from_pretrained(REPO, torch_dtype=torch.bfloat16, cache_dir='/cache/hub')
-        p.load_lora_weights(LORA, weight_name=LORA_H, adapter_name='lightning', cache_dir='/cache/hub')
-        p.load_lora_weights(LORA, weight_name=LORA_L, adapter_name='lightning_2', load_into_transformer_2=True, cache_dir='/cache/hub')
+        p.load_lora_weights(LORA, weight_name=lora_file('high'), adapter_name='lightning', cache_dir='/cache/hub')
+        p.load_lora_weights(LORA, weight_name=lora_file('low'), adapter_name='lightning_2', load_into_transformer_2=True, cache_dir='/cache/hub')
         p.set_adapters(['lightning', 'lightning_2'], adapter_weights=[1.0, 1.0])
         p.enable_model_cpu_offload()   # 2 trasformatori da 14B + testo: si alternano sulla GPU (80 GB)
         self.p = p
