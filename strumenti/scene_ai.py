@@ -87,7 +87,12 @@ for n, s in enumerate(P['scene']):
         grezzo = f'/tmp/grezzo_{sid}.mp4'
         with open(img, 'rb') as f:   # l'immagine passa come data URI (niente caricamenti intermedi)
             data_uri = 'data:image/png;base64,' + base64.b64encode(f.read()).decode()
-        if P.get('modello_video', '').startswith('wan'):   # 27 nov: Wan 2.2 A14B turbo, prezzo a clip (~5 s): 480p 0,05 $, 580p 0,075 $, 720p 0,10 $
+        if P.get('modello_video') == 'file':   # 27 nov: clip gia' fatta sul computer in affitto (Modal Wan 480p), qui solo suoni e rifinitura
+            src = os.path.join(P['cartella_clip'], f"wan480_{sid}.mp4")
+            import shutil; shutil.copy(src, grezzo)
+            r = {'video': {'url': f'https://raw.githubusercontent.com/{REPO}/main/{src}'}}
+            spesa.append(['video AI Modal Wan 480p (gia\' pagata su Modal)', sid, 0.0])
+        elif P.get('modello_video', '').startswith('wan'):   # 27 nov: Wan 2.2 A14B turbo, prezzo a clip (~5 s): 480p 0,05 $, 580p 0,075 $, 720p 0,10 $
             ris = P.get('risoluzione_video') or '580p'
             try:
                 r = fal('fal-ai/wan/v2.2-a14b/image-to-video/turbo', {'prompt': s.get('movimento') or s['prompt'], 'image_url': data_uri,
