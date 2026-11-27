@@ -1,12 +1,12 @@
 # Radar notizie guerra — 2026-11-27
 
-**Scelta:** Two Italians killed in Kuwait drone attack; Trump says Iran war ends 'whenever I want it' (Donald Trump) — la storia con piu' views all'ora oggi
+**Scelta:** Zelensky warns of imminent major Russian strike on power grid and tells BBC the US is too focused on the Middle East (Volodymyr Zelensky) — la storia con piu' views all'ora oggi
 
 | # | Storia | Persona | Views all'ora (EN+IT) | Views 3 gg EN | Views 3 gg IT | Video lunghi EN |
 |---|---|---|---|---|---|---|
-| 1 | Two Italians killed in Kuwait drone attack; Trump says Iran war ends 'whenever I want it' | Donald Trump | 18,130 | 137,080 | 1,150 | 8 |
-| 2 | Israel judges suggest dropping key charges in Netanyahu corruption trial; Eisenkot moves to replace him | Benjamin Netanyahu | 8,305 | 223,027 | 233 | 7 |
-| 3 | Ukraine strikes on Russian ships off Libya anger Italy; Meloni warns against expanding war to the Mediterranean | Giorgia Meloni | 7,191 | 158,842 | 93,907 | 6 |
-| 4 | Trump tells Putin to 'pull back all military aggression' across Europe, joint line with NATO chief Rutte | Donald Trump | 1,304 | 12,068 | 0 | 5 |
-| 5 | Kushner says Putin shows no interest in ceasefire, 'restraint' on nukes, calls Ukraine war a proxy war | Vladimir Putin | 307 | 6,177 | 836 | 1 |
-| 6 | Ukraine strikes Russian airbase (five jets damaged, per Ukraine), refineries and power plant; Zelensky warns of imminent major Russian attack on power grid | Volodymyr Zelensky | 93 | 680 | 0 | 1 |
+| 1 | Zelensky warns of imminent major Russian strike on power grid and tells BBC the US is too focused on the Middle East | Volodymyr Zelensky | 67,176 | 996,123 | 4,979 | 7 |
+| 2 | Two Italians killed in Kuwait drone attack; Trump says Iran war ends 'whenever I want it', 'victory at hand' | Donald Trump | 37,411 | 292,036 | 1,295 | 11 |
+| 3 | Kushner says Putin shows no interest in a ceasefire, shows 'restraint' by not using nukes; prisoner exchange possible before the holidays | Jared Kushner | 32,991 | 526,312 | 113,266 | 8 |
+| 4 | Italy and Ukraine tension over Ukrainian strikes on Russian ships off Libya; Meloni warns against war spreading to the Mediterranean | Giorgia Meloni | 3,904 | 57,593 | 25,969 | 4 |
+| 5 | Trump urges Putin to 'pull back' military aggression in Europe, calls Ukraine war a 'bloodbath'; diverges from joint NATO statement by adding Ukraine to the warning | Donald Trump | 2,062 | 15,209 | 0 | 5 |
+| 6 | Israel escalates targeted killings in Gaza as Hamas weighs response; Katz threatens new offensive while US urges Netanyahu to proceed with ceasefire plan | Benjamin Netanyahu | 600 | 32,649 | 920 | 1 |
