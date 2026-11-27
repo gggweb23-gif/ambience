@@ -158,6 +158,7 @@ GENERICHE |= {'military', 'wartime', 'war', 'world', 'ii', 'ww2', 'wwii'} | set(
 
 
 LIB_FINE = {}
+SUONI_CLIP = {}
 
 
 def dalla_libreria(s, dur):
@@ -429,6 +430,7 @@ for n, (d, s, prima, t0) in enumerate(piano):
           vf = (f'[0:v]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={FPS},setsar=1,tpad=stop_mode=clone:stop_duration={L:.2f}'
               + (f",zoompan=z='1+0.06*on/{int(L * FPS)}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s={W}x{H}:fps={FPS}" if spinta else '') + '[v]')
         cmd = ['ffmpeg', '-y', '-v', 'error', '-ss', round(da, 2), '-t', round(L, 3), '-i', p]
+        SUONI_CLIP[n] = (p, da, L)   # 27 nov: suoni della clip (scene AI con mmaudio), si mescolano sotto la voce
         fonti.append(f'{n:03d} CLIP {nid} da {da:.1f}s | {tit}')
     else:
         if not f_:   # ultima rete: mai fermarsi per una sola scena
@@ -504,6 +506,25 @@ SCATTI = os.path.join(LAV, 'scatti.wav')
 with wave.open(SCATTI, 'wb') as w_:
     w_.setnchannels(1); w_.setsampwidth(2); w_.setframerate(SR); w_.writeframes(traccia.tobytes())
 log('scatti di macchina fotografica:', nscatti)
+VS = float(P.get('volume_suoni') or 0)   # 27 nov: volume dei suoni delle clip (0 = niente, come prima)
+if VS > 0:
+    # traccia dei suoni: per ogni inquadratura l'audio della sua clip (o silenzio), uno dopo l'altro
+    pezzi_a = []
+    for n_, ((p_, d_, _), f_) in enumerate(zip(pezzi, fonti)):
+        w_ = os.path.join(LAV, f'sfx_{n_:03d}.wav'); src = SUONI_CLIP.get(int(f_[:3])) if f_[:3].isdigit() else None
+        ok = False
+        if src:
+            ok = subprocess.run(['ffmpeg', '-y', '-v', 'error', '-ss', str(round(src[1], 2)), '-i', src[0], '-t', str(round(d_, 3)), '-vn',
+                                 '-af', f'aformat=sample_rates=44100:channel_layouts=stereo,apad=whole_dur={d_:.3f}', w_]).returncode == 0 and os.path.exists(w_) and os.path.getsize(w_) > 1000
+        if not ok:
+            subprocess.run(['ffmpeg', '-y', '-v', 'error', '-f', 'lavfi', '-i', 'anullsrc=r=44100:cl=stereo', '-t', str(round(d_, 3)), w_], check=True)
+        pezzi_a.append(w_)
+    la = os.path.join(LAV, 'sfx.txt'); open(la, 'w').write(''.join(f"file '{x}'\n" for x in pezzi_a))
+    SFX = os.path.join(LAV, 'sfx.wav'); run(['ffmpeg', '-y', '-v', 'error', '-f', 'concat', '-safe', '0', '-i', la, '-c:a', 'pcm_s16le', SFX])
+    tmp_ = os.path.join(LAV, 'scatti_sfx.wav')
+    run(['ffmpeg', '-y', '-v', 'error', '-i', SCATTI, '-i', SFX, '-filter_complex',
+         f'[0:a]aformat=sample_rates=44100:channel_layouts=stereo[a];[1:a]volume={VS}[b];[a][b]amix=inputs=2:duration=longest:normalize=0[o]', '-map', '[o]', tmp_])
+    SCATTI = tmp_
 run(['ffmpeg', '-y', '-v', 'error', '-i', muto, '-i', VOCE, '-stream_loop', '-1', '-i', mus, '-i', SCATTI, '-filter_complex',
      f'[1:a]aformat=sample_rates=44100:channel_layouts=stereo,volume={VV}[v];'
      f'[2:a]aformat=sample_rates=44100:channel_layouts=stereo,loudnorm=I=-24:TP=-3,volume={0.16 * vm / 0.07:.3f},afade=t=in:d=1,afade=t=out:st={fine_tot - 1.5:.2f}:d=1.5[m];'

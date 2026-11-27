@@ -66,10 +66,10 @@ def rifinisci(src, dst, secondi):
         vf = f"scale={W}:{H}:force_original_aspect_ratio=increase:flags=lanczos,crop={W}:{H},fps={FPS},{FILTRO}"
         cmd = ['ffmpeg', '-y', '-v', 'error', '-i', src]
     if CORN:
-        cmd += ['-i', CORN, '-filter_complex', f'[0:v]{vf}[b];[b][1:v]overlay=0:0,format=yuv420p[v]', '-map', '[v]']
+        cmd += ['-i', CORN, '-filter_complex', f'[0:v]{vf}[b];[b][1:v]overlay=0:0,format=yuv420p[v]', '-map', '[v]', '-map', '0:a?']
     else:
-        cmd += ['-vf', vf + ',format=yuv420p']
-    subprocess.run(cmd + ['-t', str(secondi), '-an', '-c:v', 'libx264', '-preset', 'medium', '-crf', '19', dst], check=True)
+        cmd += ['-vf', vf + ',format=yuv420p', '-map', '0:v', '-map', '0:a?']
+    subprocess.run(cmd + ['-t', str(secondi), '-c:a', 'aac', '-b:a', '128k', '-c:v', 'libx264', '-preset', 'medium', '-crf', '19', dst], check=True)
 
 
 indice = []
@@ -85,7 +85,12 @@ for n, s in enumerate(P['scene']):
         grezzo = f'/tmp/grezzo_{sid}.mp4'
         with open(img, 'rb') as f:   # l'immagine passa come data URI (niente caricamenti intermedi)
             data_uri = 'data:image/png;base64,' + base64.b64encode(f.read()).decode()
-        if P.get('modello_video') == 'ltx':   # 27 nov: LTX-Video 13B 0.9.8 distilled 720p, 0,02 $ al secondo (meta' di h3)
+        if P.get('modello_video', '').startswith('wan'):   # 27 nov: Wan 2.2 A14B turbo, prezzo a clip (~5 s): 480p 0,05 $, 580p 0,075 $, 720p 0,10 $
+            ris = P.get('risoluzione_video') or '580p'
+            r = fal('fal-ai/wan/v2.2-a14b/image-to-video/turbo', {'prompt': s.get('movimento') or s['prompt'], 'image_url': data_uri,
+                                                                  'resolution': ris, 'aspect_ratio': '16:9', 'acceleration': 'regular'}, attesa=900)
+            scarica(r['video']['url'], grezzo); spesa.append([f'video AI wan 2.2 turbo {ris}', sid, {'480p': .05, '580p': .075, '720p': .10}[ris]])
+        elif P.get('modello_video') == 'ltx':   # 27 nov: LTX-Video 13B 0.9.8 distilled 720p, 0,02 $ al secondo (meta' di h3)
             r = fal('fal-ai/ltxv-13b-098-distilled/image-to-video', {'prompt': s.get('movimento') or s['prompt'], 'image_url': data_uri,
                                                                      'resolution': '720p', 'aspect_ratio': '16:9', 'num_frames': int(sec * 24) + 1}, attesa=900)
             scarica(r['video']['url'], grezzo); spesa.append(['video AI ltxv 13b distilled 720p', sid, round(0.02 * sec, 3)])
@@ -94,6 +99,14 @@ for n, s in enumerate(P['scene']):
                                                              'duration': sec, 'resolution': '768P', 'prompt_expansion_mode': 'disabled'}, attesa=900)
             scarica(r['video']['url'], grezzo); spesa.append(['video AI h3-max-turbo 768P', sid, round(0.04 * sec, 3)])
         log('clip AI', sid)
+        if s.get('suoni'):   # 27 nov (Giorgio: si devono sentire tuoni, esplosioni...): suoni sincronizzati con la clip, mmaudio 0,001 $/s
+            try:
+                a = fal('fal-ai/mmaudio-v2', {'video_url': r['video']['url'], 'prompt': s['suoni'], 'negative_prompt': 'music, speech, voice, singing',
+                                              'duration': min(30, sec + 1), 'num_steps': 25}, attesa=600)
+                scarica(a['video']['url'], grezzo); spesa.append(['suoni mmaudio', sid, round(0.001 * (sec + 1), 4)])
+                log('suoni', sid)
+            except Exception as e:
+                log('suoni non riusciti', sid, str(e)[:80])
         rifinisci(grezzo, mp4, sec)
     else:
         rifinisci(img, mp4, sec)
