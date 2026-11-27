@@ -20,6 +20,17 @@ app = modal.App('ambience-video', image=img)
 cache = modal.Volume.from_name('ambience-modelli', create_if_missing=True)   # i modelli si scaricano una volta sola
 
 
+@app.function(volumes={'/cache': cache}, timeout=3600, cpu=4)
+def scarica():
+    """scarica i modelli nel volume SENZA GPU (costa pochissimo), cosi' la GPU si paga solo per lavorare"""
+    from huggingface_hub import snapshot_download
+    t = time.time()
+    for r in ('black-forest-labs/FLUX.1-schnell', 'Lightricks/LTX-Video-0.9.7-distilled'):
+        snapshot_download(r, cache_dir='/cache/hub', allow_patterns=['*.json', '*.safetensors', '*.txt', '*.model', 'tokenizer*/*', '*/*.json', '*/*.safetensors', '*/*.model', '*/*.txt'])
+        print('scaricato', r, round(time.time() - t), 's', flush=True)
+    cache.commit()
+
+
 @app.cls(gpu=GPU, volumes={'/cache': cache}, timeout=3600, scaledown_window=120)
 class Studio:
     @modal.enter()
@@ -56,7 +67,9 @@ class Studio:
 @app.local_entrypoint()
 def main(scene: str, uscita: str, stile: str = ''):
     os.makedirs(uscita, exist_ok=True)
-    sc = json.loads(scene); s_ = Studio()
+    sc = json.loads(scene)
+    scarica.remote()
+    s_ = Studio()
     prezzo = {'H100': 0.001097, 'A100-80GB': 0.000694, 'L40S': 0.000542}.get(GPU, 0.0011)
     tot = 0.0; righe = []
     for x in sc:
