@@ -354,7 +354,10 @@ def altro_pezzo(nid, dur):
 
 # ---------------- 3) scritte ----------------
 FONT = os.path.join(LAV, 'anton.ttf')
-open(FONT, 'wb').write(get('https://github.com/google/fonts/raw/main/ofl/anton/Anton-Regular.ttf', raw=True))
+if os.path.exists('ctr_test/Anton.ttf'):   # 27 nov: il font e' gia' nel repository (lo scaricamento esterno a volte va in errore 504)
+    import shutil; shutil.copy('ctr_test/Anton.ttf', FONT)
+else:
+    open(FONT, 'wb').write(get('https://github.com/google/fonts/raw/main/ofl/anton/Anton-Regular.ttf', raw=True))
 
 
 def scritta_png(t, k):
