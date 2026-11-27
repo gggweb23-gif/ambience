@@ -198,7 +198,7 @@ def dalla_libreria(s, dur):
             return dalla_libreria(s, dur)
         open(f, 'wb').write(dati_clip); LIB_FILE[best['url']] = f
     f_ = LIB_FILE[best['url']]
-    if bande_nere(f_, float(best['da']), dur):   # anche le clip della libreria: niente bande nere (pillarbox)
+    if not best.get('cornice_voluta') and bande_nere(f_, float(best['da']), dur):   # anche le clip della libreria (tranne quelle con cornice d'epoca voluta): niente bande nere (pillarbox)
         log('clip della libreria con bande nere, scartata', best['nasa_id'], best['da'])
         return dalla_libreria(s, dur)
     if best['nasa_id'] not in CLIP_CACHE:

@@ -1,0 +1,24 @@
+name: Scene AI per una prova (immagini e clip AI, a pagamento)
+# 27 nov 2026: strumenti/scene_ai.py — immagini flux-2 klein (~0,02 $) e clip minimax h3 max turbo 768P (~0,04 $/s). Solo con OK di Giorgio.
+on:
+  workflow_dispatch:
+    inputs:
+      payload: {description: 'JSON (vedi strumenti/scene_ai.py)', required: true, type: string}
+permissions:
+  contents: write
+jobs:
+  scene:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null && pip install -q pillow
+      - env:
+          PAYLOAD: ${{ inputs.payload }}
+          FAL_KEY: ${{ secrets.FAL_KEY }}
+        run: python3 strumenti/scene_ai.py
+      - if: ${{ always() }}
+        run: |
+          git config user.name render-bot; git config user.email render-bot@users.noreply.github.com
+          git add libreria_clip && git commit -qm "Scene AI per prova" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -q && git push -q && break; sleep $((i*5)); done
