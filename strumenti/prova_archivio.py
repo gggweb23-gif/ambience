@@ -192,10 +192,10 @@ def dalla_libreria(s, dur):
         # 27 nov: prove con scene AI (una clip per frase): se la frase continua, si prosegue la stessa clip invece di cercare foto a caso
         for x in LIB:
             if s['q'] in (x.get('tag') or []):   # stessa scena esatta
-                da = LIB_FINE.get(x['n'], float(x.get('da') or 0))
-                if da + dur > float(x.get('durata') or 0):
-                    da = max(0.0, float(x.get('durata') or 0) - dur)
-                best = dict(x, da=round(da, 2)); break
+                # mai tornare indietro nella clip (sarebbe un'immagine ripetuta, 27 nov Giorgio): si prosegue da dove era arrivata;
+                # se la clip finisce, l'ultimo fotogramma resta fermo per il tempo che manca
+                da = min(LIB_FINE.get(x['n'], float(x.get('da') or 0)), max(0.0, float(x.get('durata') or 0) - 0.4))
+                best = dict(x, da=round(da, 2), durata=max(float(x.get('durata') or 0), da + dur + .3)); break
     if not best:
         return None
     LIB_FINE[best['n']] = float(best['da']) + dur
