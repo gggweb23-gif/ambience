@@ -1,0 +1,151 @@
+{
+ "gpu": "H100",
+ "motore": "wan2.2-i2v-a14b + lightning 4 passi",
+ "scene": [
+  {
+   "id": "t1",
+   "prompt": "aerial view at dawn of a tiny flat coral atoll with palm trees in the middle of a vast turquoise Pacific Ocean, a line of grey warships on the horizon",
+   "movimento": "fast aerial flyover toward the island, waves move, smoke drifts",
+   "secondi": 5,
+   "w": 832,
+   "h": 480,
+   "immagine": "libreria_clip/tarawa_animato/immagine_t1.png",
+   "immagine_s": 0.0,
+   "clip_s": 24.4,
+   "costo_dollari": 0.0268
+  },
+  {
+   "id": "t9",
+   "prompt": "low view along a narrow white coral beach lined with palm trees at first light, calm sea, a long Japanese log seawall with gun bunkers",
+   "movimento": "camera glides fast along the beach past the seawall, palm leaves move in the wind",
+   "secondi": 5,
+   "w": 832,
+   "h": 480,
+   "immagine": "libreria_clip/tarawa_animato/immagine_t9.png",
+   "immagine_s": 0.0,
+   "clip_s": 23.5,
+   "costo_dollari": 0.0258
+  },
+  {
+   "id": "t2b",
+   "prompt": "a grey US Navy battleship of 1943 at dawn, its main gun turrets firing toward a distant island, bright orange muzzle flashes and thick smoke, dark sea",
+   "movimento": "the big guns fire one after another with huge flashes, smoke blasts outward, the ship rocks, camera tracks along the hull",
+   "secondi": 5,
+   "w": 832,
+   "h": 480,
+   "immagine": "libreria_clip/tarawa_animato/immagine_t2b.png",
+   "immagine_s": 0.0,
+   "clip_s": 23.6,
+   "costo_dollari": 0.0259
+  },
+  {
+   "id": "t3",
+   "prompt": "a small palm-covered island erupting with explosions and towering columns of black smoke seen from the sea at sunrise",
+   "movimento": "explosions burst across the island in sequence, smoke columns rise, camera slowly pushes in",
+   "secondi": 5,
+   "w": 832,
+   "h": 480,
+   "immagine": "libreria_clip/tarawa_animato/immagine_t3.png",
+   "immagine_s": 0.0,
+   "clip_s": 23.7,
+   "costo_dollari": 0.026
+  },
+  {
+   "id": "t10",
+   "prompt": "dark pre-dawn sky over a Pacific atoll filled with glowing red tracer shells arcing from warships toward the island",
+   "movimento": "streams of glowing shells arc across the sky and explode on the island, camera pans with the shells",
+   "secondi": 5,
+   "w": 832,
+   "h": 480,
+   "immagine": "libreria_clip/tarawa_animato/immagine_t10.png",
+   "immagine_s": 0.0,
+   "clip_s": 23.7,
+   "costo_dollari": 0.026
+  },
+  {
+   "id": "t4b",
+   "prompt": "a wave of tracked armored WWII LVT amphibious tractors (amtracs) full of US Marines in M1 helmets churning through the surf toward a smoking beach",
+   "movimento": "the amtracs plow forward through the waves throwing spray, marines duck down, camera follows alongside",
+   "secondi": 5,
+   "w": 832,
+   "h": 480,
+   "immagine": "libreria_clip/tarawa_animato/immagine_t4b.png",
+   "immagine_s": 0.0,
+   "clip_s": 23.7,
+   "costo_dollari": 0.026
+  },
+  {
+   "id": "t5b",
+   "prompt": "grey steel Higgins landing boats (LCVP) with lowered ramps stuck on a shallow coral reef far from a smoking beach, low tide, US Marines inside",
+   "movimento": "the boats grind and lurch to a stop on the reef, water splashes, the ramp drops, camera shakes slightly",
+   "secondi": 5,
+   "w": 832,
+   "h": 480,
+   "immagine": "libreria_clip/tarawa_animato/immagine_t5b.png",
+   "immagine_s": 0.0,
+   "clip_s": 23.7,
+   "costo_dollari": 0.026
+  },
+  {
+   "id": "t11",
+   "prompt": "underwater-level view of very shallow water over a jagged coral reef, the steel hull of a landing boat scraping the coral",
+   "movimento": "the boat hull scrapes across the coral, sand clouds rise, bubbles, light ripples",
+   "secondi": 5,
+   "w": 832,
+   "h": 480,
+   "immagine": "libreria_clip/tarawa_animato/immagine_t11.png",
+   "immagine_s": 0.0,
+   "clip_s": 23.8,
+   "costo_dollari": 0.0261
+  },
+  {
+   "id": "t6",
+   "prompt": "US Marines wading chest-deep through turquoise water toward a burning beach, rifles held above their heads, bullets splashing the water",
+   "movimento": "the marines wade forward, bullets splash in the water around them, smoke drifts, camera moves backward in front of them",
+   "secondi": 5,
+   "w": 832,
+   "h": 480,
+   "immagine": "libreria_clip/tarawa_animato/immagine_t6.png",
+   "immagine_s": 0.0,
+   "clip_s": 23.8,
+   "costo_dollari": 0.0261
+  },
+  {
+   "id": "t12",
+   "prompt": "wide shot of hundreds of US Marines spread out wading across a lagoon toward a burning island, mortar explosions throwing columns of water",
+   "movimento": "columns of water explode between the wading marines, they keep moving forward, camera rises slowly",
+   "secondi": 5,
+   "w": 832,
+   "h": 480,
+   "immagine": "libreria_clip/tarawa_animato/immagine_t12.png",
+   "immagine_s": 0.0,
+   "clip_s": 23.7,
+   "costo_dollari": 0.026
+  },
+  {
+   "id": "t7",
+   "prompt": "aftermath on a beach at sunset, shattered palm trees, a lone US Marine helmet on the sand, smoke on the horizon",
+   "movimento": "smoke drifts, small waves wash over the sand near the helmet, palm leaves sway, slow push in",
+   "secondi": 5,
+   "w": 832,
+   "h": 480,
+   "immagine": "libreria_clip/tarawa_animato/immagine_t7.png",
+   "immagine_s": 0.0,
+   "clip_s": 23.8,
+   "costo_dollari": 0.0261
+  },
+  {
+   "id": "t8",
+   "prompt": "close-up portrait of a young exhausted US Marine with a dirty face looking at the horizon, golden light, 1943",
+   "movimento": "the marine slowly turns his head toward the camera, breathing, wind moves dust, slow push in",
+   "secondi": 5,
+   "w": 832,
+   "h": 480,
+   "immagine": "libreria_clip/tarawa_animato/immagine_t8.png",
+   "immagine_s": 0.0,
+   "clip_s": 23.7,
+   "costo_dollari": 0.026
+  }
+ ],
+ "totale_dollari_gpu": 0.313
+}
