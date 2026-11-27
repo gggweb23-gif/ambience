@@ -85,8 +85,8 @@ def main(scene: str, uscita: str, stile: str = ''):
     tot = 0.0; righe = []
     for x in sc:
         png = open(x['immagine'], 'rb').read()
-        mp4, tempi = s_.scena.remote(png, (stile + ' ' + x['prompt']).strip(), x.get('movimento') or '', float(x.get('secondi') or 5))
-        open(os.path.join(uscita, f"wan_{x['id']}.mp4"), 'wb').write(mp4)
+        mp4, tempi = s_.scena.remote(png, (stile + ' ' + x['prompt']).strip(), x.get('movimento') or '', float(x.get('secondi') or 5), int(x.get('w') or 1280), int(x.get('h') or 720))
+        open(os.path.join(uscita, f"wan{x.get('h') or 720}_{x['id']}.mp4"), 'wb').write(mp4)
         costo = tempi['clip_s'] * prezzo; tot += costo
         righe.append(dict(x, **tempi, costo_dollari=round(costo, 4)))
         print(x['id'], tempi, f'~{costo:.4f} $', flush=True)
