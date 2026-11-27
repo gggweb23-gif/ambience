@@ -190,8 +190,7 @@ def dalla_libreria(s, dur):
     if not best and str(P.get('riusa_libreria') or 'NO').upper() == 'SI':
         # 27 nov: prove con scene AI (una clip per frase): se la frase continua, si prosegue la stessa clip invece di cercare foto a caso
         for x in LIB:
-            et = parole(' '.join(x.get('tag') or []) + ' ' + str(x.get('cosa') or ''))
-            if chiave & et:
+            if s['q'] in (x.get('tag') or []):   # stessa scena esatta
                 da = LIB_FINE.get(x['n'], float(x.get('da') or 0))
                 if da + dur > float(x.get('durata') or 0):
                     da = max(0.0, float(x.get('durata') or 0) - dur)
