@@ -93,9 +93,10 @@ for n, s in enumerate(P['scene']):
                 r = fal('fal-ai/wan/v2.2-a14b/image-to-video/turbo', {'prompt': s.get('movimento') or s['prompt'], 'image_url': data_uri,
                                                                       'resolution': ris, 'aspect_ratio': '16:9', 'acceleration': 'regular'}, attesa=900)
             except Exception as e:   # rifiutata (es. filtro sui contenuti): un secondo tentativo con un movimento piu' semplice
-                log('wan rifiutata', sid, str(e)[:80])
-                r = fal('fal-ai/wan/v2.2-a14b/image-to-video/turbo', {'prompt': 'cinematic slow camera push in, subtle natural motion', 'image_url': data_uri,
-                                                                      'resolution': ris, 'aspect_ratio': '16:9', 'acceleration': 'regular'}, attesa=900)
+                log('wan rifiutata, uso LTX per questa scena', sid, str(e)[:80])
+                r = fal('fal-ai/ltxv-13b-098-distilled/image-to-video', {'prompt': s.get('movimento') or s['prompt'], 'image_url': data_uri,
+                                                                         'resolution': '480p', 'aspect_ratio': '16:9', 'num_frames': int(sec * 24) + 1}, attesa=900)
+                spesa.append(['video AI ltx 480p (riserva)', sid, round(0.02 * sec - {'480p': .05, '580p': .075, '720p': .10}[ris], 3)])
             scarica(r['video']['url'], grezzo); spesa.append([f'video AI wan 2.2 turbo {ris}', sid, {'480p': .05, '580p': .075, '720p': .10}[ris]])
         elif P.get('modello_video') == 'ltx':   # 27 nov: LTX-Video 13B 0.9.8 distilled 720p, 0,02 $ al secondo (meta' di h3)
             r = fal('fal-ai/ltxv-13b-098-distilled/image-to-video', {'prompt': s.get('movimento') or s['prompt'], 'image_url': data_uri,
