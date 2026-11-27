@@ -566,7 +566,7 @@ def scritta_cartoncino(im, frase, lato='destra', zona=None, limite=None):
     y0, y1 = int(Hh * .04), (int(Hh * .90) if lato == 'sinistra' else int(Hh * .76))   # in basso a destra c'e' la durata del video
     if lato in ('alto', 'basso'):   # fascia come il competitor: larga e bassa, la scena sotto resta visibile
         x0, x1 = int(W * .05), int(W * .95)
-        y0, y1 = (int(Hh * .025), int(Hh * .27)) if lato == 'alto' else (int(Hh * .50), int(Hh * .80))   # 27 nov (Giorgio): la fascia bassa finisce SOPRA la durata del video
+        y0, y1 = (int(Hh * .025), int(Hh * .27)) if lato == 'alto' else (int(Hh * .64), int(Hh * .84))   # 27 nov (Giorgio): fascia bassa piu' sottile e piu' in basso: sopra la durata del video ma senza coprire cosa fa il personaggio
         if lato == 'alto' and limite:   # mai sopra le teste: il fondo del riquadro (ombra compresa) resta sopra la testa piu' alta
             y1 = min(y1, int(Hh * limite) - 12)
         # 27 nov: da telefono la durata del video copre circa l'ultimo 20% in basso e il 35% a destra: la fascia sta tutta sopra, larga e grande

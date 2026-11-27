@@ -23,7 +23,11 @@ jobs:
           GPU_MODAL: ${{ inputs.gpu }}
           SCENE: ${{ inputs.scene }}
           STILE: ${{ inputs.stile }}
-        run: modal run strumenti/gpu/modal_video.py --scene "$SCENE" --uscita "libreria_clip/${{ inputs.nome }}" --stile "$STILE"
+        run: |
+          # i token incollati a mano possono avere spazi o a capo in fondo: li tolgo
+          export MODAL_TOKEN_ID="$(printf '%s' "$MODAL_TOKEN_ID" | tr -d '[:space:]')"
+          export MODAL_TOKEN_SECRET="$(printf '%s' "$MODAL_TOKEN_SECRET" | tr -d '[:space:]')"
+          modal run strumenti/gpu/modal_video.py --scene "$SCENE" --uscita "libreria_clip/${{ inputs.nome }}" --stile "$STILE"
       - if: ${{ always() }}
         run: |
           git config user.name render-bot; git config user.email render-bot@users.noreply.github.com
