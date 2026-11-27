@@ -74,7 +74,7 @@ def rifinisci(src, dst, secondi):
 
 indice = []
 for n, s in enumerate(P['scene']):
-    sid = s['id']; img = os.path.join(OUT, f'immagine_{sid}.png'); mp4 = os.path.join(OUT, f'scena_{sid}.mp4')
+    sid = s['id']; img = os.path.join(OUT, f'immagine_{sid}.png'); mp4 = os.path.join(OUT, f'scena_{sid}{P.get("suffisso", "")}.mp4')
     if not os.path.exists(img):
         r = fal('fal-ai/flux-2/klein/4b', {'prompt': (P.get('stile', '') + ' ' + s['prompt']).strip(),
                                            'image_size': {'width': 1920, 'height': 1080}, 'num_images': 1, 'output_format': 'png'})
@@ -85,15 +85,20 @@ for n, s in enumerate(P['scene']):
         grezzo = f'/tmp/grezzo_{sid}.mp4'
         with open(img, 'rb') as f:   # l'immagine passa come data URI (niente caricamenti intermedi)
             data_uri = 'data:image/png;base64,' + base64.b64encode(f.read()).decode()
-        r = fal('minimax/h3-max-turbo/image-to-video', {'prompt': s.get('movimento') or s['prompt'], 'image_url': data_uri,
-                                                         'duration': sec, 'resolution': '768P', 'prompt_expansion_mode': 'disabled'}, attesa=900)
-        scarica(r['video']['url'], grezzo); spesa.append(['video AI h3-max-turbo 768P', sid, round(0.04 * sec, 3)])
+        if P.get('modello_video') == 'ltx':   # 27 nov: LTX-Video 13B 0.9.8 distilled 720p, 0,02 $ al secondo (meta' di h3)
+            r = fal('fal-ai/ltxv-13b-098-distilled/image-to-video', {'prompt': s.get('movimento') or s['prompt'], 'image_url': data_uri,
+                                                                     'resolution': '720p', 'aspect_ratio': '16:9', 'num_frames': int(sec * 24) + 1}, attesa=900)
+            scarica(r['video']['url'], grezzo); spesa.append(['video AI ltxv 13b distilled 720p', sid, round(0.02 * sec, 3)])
+        else:
+            r = fal('minimax/h3-max-turbo/image-to-video', {'prompt': s.get('movimento') or s['prompt'], 'image_url': data_uri,
+                                                             'duration': sec, 'resolution': '768P', 'prompt_expansion_mode': 'disabled'}, attesa=900)
+            scarica(r['video']['url'], grezzo); spesa.append(['video AI h3-max-turbo 768P', sid, round(0.04 * sec, 3)])
         log('clip AI', sid)
         rifinisci(grezzo, mp4, sec)
     else:
         rifinisci(img, mp4, sec)
     indice.append({'n': n, 'nasa_id': f'{NOME}@{sid}', 'titolo': s['prompt'][:80], 'durata': sec, 'da': 0,
-                   'url': f'https://raw.githubusercontent.com/{REPO}/main/{OUT}/scena_{sid}.mp4', 'movimento': 8,
+                   'url': f'https://raw.githubusercontent.com/{REPO}/main/{OUT}/scena_{sid}{P.get("suffisso", "")}.mp4', 'movimento': 8,
                    'licenza': 'generato con AI', 'cosa': s['prompt'][:120], 'luogo': '', 'epoca': '', 'parla_in_camera': False,
                    'scritte': False, 'animazione': True, 'cornice_voluta': bool(CORN), 'qualita': 8, 'tag': [sid], 'ok': True, 'anno': 2026})
 json.dump(indice, open(os.path.join(OUT, 'indice.json'), 'w'), indent=1)
