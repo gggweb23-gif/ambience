@@ -26,7 +26,7 @@ def scarica():
     from huggingface_hub import snapshot_download
     t = time.time()
     for r in ('Lightricks/LTX-Video-0.9.7-distilled',):   # 27 nov: FLUX.1 schnell e' a registrazione (gated): le immagini le fa fal (~0,02 $), qui solo l'animazione
-        snapshot_download(r, cache_dir='/cache/hub', allow_patterns=['model_index.json', '*/*.json', '*/*.safetensors', '*/*.model', '*/*.txt']   # solo le cartelle diffusers (i file grandi in radice sono altre versioni: 30+ GB inutili))
+        snapshot_download(r, cache_dir='/cache/hub', allow_patterns=['model_index.json', '*/*.json', '*/*.safetensors', '*/*.model', '*/*.txt'])   # solo le cartelle diffusers (i file grandi in radice sono altre versioni: 30+ GB inutili)
         print('scaricato', r, round(time.time() - t), 's', flush=True)
     cache.commit()
 
