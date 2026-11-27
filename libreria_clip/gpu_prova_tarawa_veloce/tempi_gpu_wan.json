@@ -1,0 +1,27 @@
+{
+ "gpu": "H100",
+ "motore": "wan2.2-i2v-a14b + lightning 4 passi",
+ "scene": [
+  {
+   "id": "t1",
+   "prompt": "aerial view at dawn of a tiny flat coral atoll with palm trees in the middle of a vast turquoise Pacific Ocean, a line of grey warships on the horizon",
+   "movimento": "fast aerial flyover toward the island, waves move, smoke drifts",
+   "secondi": 5,
+   "immagine": "libreria_clip/tarawa_animato/immagine_t1.png",
+   "immagine_s": 0.0,
+   "clip_s": 83.1,
+   "costo_dollari": 0.0912
+  },
+  {
+   "id": "t4b",
+   "prompt": "a wave of tracked armored WWII LVT amphibious tractors (amtracs) full of US Marines in M1 helmets churning through the surf toward a smoking beach",
+   "movimento": "the amtracs plow forward through the waves throwing spray, marines duck down, camera follows alongside",
+   "secondi": 5,
+   "immagine": "libreria_clip/tarawa_animato/immagine_t4b.png",
+   "immagine_s": 0.0,
+   "clip_s": 82.2,
+   "costo_dollari": 0.0902
+  }
+ ],
+ "totale_dollari_gpu": 0.181
+}
