@@ -1,12 +1,12 @@
 # Radar notizie tech — 2026-11-27
 
-**Scelta:** Jensen Huang reinstated as Nvidia CEO: backlash over Trump's role, pardon talk, security clearance and board scrutiny (Jensen Huang) — l'onda di ieri e' ancora la piu' forte: si resta con un angolo nuovo
+**Scelta:** Jensen Huang reinstated as Nvidia CEO: backlash over Trump's role, pardon talk, security clearance and board scrutiny. Today: Trump says Huang poses no security risk and was 'a little concerned' by the selloff; Reuters reports US officials are divided over Chinese spying allegations; reports say Trump offered a pardon if Huang is indicted; S&P put Nvidia's AA ratings on CreditWatch negative; Tom's Hardware reports (unconfirmed) that the Defense Production Act was floated to force the reinstatement. (Jensen Huang) — l'onda di ieri e' ancora la piu' forte: si resta con un angolo nuovo
 
 | # | Storia | Persona | Views all'ora (EN+IT) | Views 3 gg EN | Views 3 gg IT | Video lunghi EN |
 |---|---|---|---|---|---|---|
-| 1 | Jensen Huang reinstated as Nvidia CEO: backlash over Trump's role, pardon talk, security clearance and board scrutiny | Jensen Huang | 146,397 | 8,551,644 | 477,405 | 11 |
-| 2 | Musk's SpaceX gets US approval for up to 1 million orbital data-center satellites and expands share donations to Trump Accounts | Elon Musk | 73,796 | 935,608 | 318,649 | 5 |
-| 3 | Anthropic's stock debut: shares nearly back at IPO price, impact on tech start-ups | Dario Amodei | 2,806 | 121,357 | 272 | 4 |
-| 4 | Nvidia pauses chip shipments to Southeast Asia and reportedly cuts gaming GPU supply 20-30% | Jensen Huang | 2,563 | 50,095 | 0 | 2 |
-| 5 | OpenAI miscalculation: GPT-6.2 subscribers hit limits up to 40% faster | Sam Altman | 1,513 | 27,210 | 0 | 8 |
-| 6 | Trump launches 'Super Intelligence Force' AI task force as tech leaders meet in DC | Sam Altman | 5 | 0 | 57 | 0 |
+| 1 | Jensen Huang reinstated as Nvidia CEO: backlash over Trump's role, pardon talk, security clearance and board scrutiny. Today: Trump says Huang poses no security risk and was 'a little concerned' by the selloff; Reuters reports US officials are divided over Chinese spying allegations; reports say Trump offered a pardon if Huang is indicted; S&P put Nvidia's AA ratings on CreditWatch negative; Tom's Hardware reports (unconfirmed) that the Defense Production Act was floated to force the reinstatement. | Jensen Huang | 192,773 | 6,957,549 | 4,725,380 | 10 |
+| 2 | Elon Musk: FCC-approved plan for 1 million satellites / orbital data centers (ANSA 'Starmind'), SpaceX shares up 4% as Musk says he will expand share donations for Trump Accounts (CNBC) | Elon Musk | 79,040 | 1,137,830 | 327,392 | 4 |
+| 3 | Nvidia pauses chip shipments to Southeast Asia (TechCrunch, Corriere: four Asian countries) amid reports that Chinese-owned California firms are obtaining its most advanced AI chips (NY Post) | Jensen Huang | 4,483 | 52,777 | 46,132 | 2 |
+| 4 | Anthropic stock debut (IPO) could hurt tech startups (NYT) and Wall Street AI jitters; Dario Amodei calls for stronger AI regulation (ABC) and avoids comment ahead of a Trump meeting with AI leaders | Dario Amodei | 3,105 | 129,775 | 13,846 | 5 |
+| 5 | AI debt fears: Michael Burry warns on AI borrowing as Nvidia, Oracle and Meta debt insurance costs surge; Bank of England flags AI borrowing risk; Oracle down sharply | Michael Burry | 285 | 17,624 | 0 | 11 |
+| 6 | Trump says AI leaders signed a 'constitution' to self-police and announces an AI task force (ABC); AI executives meet Trump in DC | Sam Altman | 0 | 0 | 0 | 0 |
