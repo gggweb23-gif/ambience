@@ -25,7 +25,7 @@ def scarica():
     """scarica i modelli nel volume SENZA GPU (costa pochissimo), cosi' la GPU si paga solo per lavorare"""
     from huggingface_hub import snapshot_download
     t = time.time()
-    for r in ('black-forest-labs/FLUX.1-schnell', 'Lightricks/LTX-Video-0.9.7-distilled'):
+    for r in ('Lightricks/LTX-Video-0.9.7-distilled',):   # 27 nov: FLUX.1 schnell e' a registrazione (gated): le immagini le fa fal (~0,02 $), qui solo l'animazione
         snapshot_download(r, cache_dir='/cache/hub', allow_patterns=['*.json', '*.safetensors', '*.txt', '*.model', 'tokenizer*/*', '*/*.json', '*/*.safetensors', '*/*.model', '*/*.txt'])
         print('scaricato', r, round(time.time() - t), 's', flush=True)
     cache.commit()
@@ -36,32 +36,32 @@ class Studio:
     @modal.enter()
     def carica(self):
         import torch
-        from diffusers import FluxPipeline, LTXConditionPipeline
+        from diffusers import LTXConditionPipeline
         t = time.time()
-        self.flux = FluxPipeline.from_pretrained('black-forest-labs/FLUX.1-schnell', torch_dtype=torch.bfloat16).to('cuda')
         self.ltx = LTXConditionPipeline.from_pretrained('Lightricks/LTX-Video-0.9.7-distilled', torch_dtype=torch.bfloat16).to('cuda')
         self.ltx.vae.enable_tiling()
         cache.commit()
         print('modelli caricati in', round(time.time() - t), 's', flush=True)
 
     @modal.method()
-    def scena(self, prompt, movimento, secondi=5.0, w=1280, h=720, seed=7):
-        """un'immagine e la sua clip animata; ritorna (png, mp4, tempi)"""
+    def scena(self, png, prompt, movimento, secondi=5.0, w=1280, h=704, seed=7):
+        """anima un'immagine gia' fatta; ritorna (mp4, tempi)"""
         import torch
+        from PIL import Image
         from diffusers.utils import export_to_video
+        from diffusers.pipelines.ltx.pipeline_ltx_condition import LTXVideoCondition
         g = torch.Generator('cuda').manual_seed(seed)
-        t0 = time.time()
-        im = self.flux(prompt, width=1344, height=768, num_inference_steps=4, guidance_scale=0.0, generator=g).images[0].resize((w, h))
+        im = Image.open(io.BytesIO(png)).convert('RGB').resize((w, h))
         t1 = time.time()
         n = int(secondi * 24) // 8 * 8 + 1   # LTX vuole 8k+1 fotogrammi
-        fr = self.ltx(image=im, prompt=movimento + '. ' + prompt, negative_prompt='worst quality, inconsistent motion, blurry, jittery, distorted',
+        fr = self.ltx(conditions=[LTXVideoCondition(image=im, frame_index=0)], prompt=movimento + '. ' + prompt,
+                      negative_prompt='worst quality, inconsistent motion, blurry, jittery, distorted, text, watermark',
                       width=w, height=h, num_frames=n, timesteps=[1000, 993, 987, 981, 975, 909, 725, 0.03], decode_timestep=0.05,
                       decode_noise_scale=0.025, image_cond_noise_scale=0.0, guidance_scale=1.0, guidance_rescale=0.7, generator=g,
                       output_type='pil').frames[0]
         t2 = time.time()
         p = '/tmp/c.mp4'; export_to_video(fr, p, fps=24)
-        b = io.BytesIO(); im.save(b, 'PNG')
-        return b.getvalue(), open(p, 'rb').read(), {'immagine_s': round(t1 - t0, 1), 'clip_s': round(t2 - t1, 1)}
+        return open(p, 'rb').read(), {'immagine_s': 0.0, 'clip_s': round(t2 - t1, 1)}
 
 
 @app.local_entrypoint()
@@ -74,8 +74,8 @@ def main(scene: str, uscita: str, stile: str = ''):
     tot = 0.0; righe = []
     for x in sc:
         t = time.time()
-        png, mp4, tempi = s_.scena.remote((stile + ' ' + x['prompt']).strip(), x.get('movimento') or '', float(x.get('secondi') or 5))
-        open(os.path.join(uscita, f"immagine_{x['id']}.png"), 'wb').write(png)
+        png = open(x['immagine'], 'rb').read()   # immagine gia' fatta (fal) nella libreria
+        mp4, tempi = s_.scena.remote(png, (stile + ' ' + x['prompt']).strip(), x.get('movimento') or '', float(x.get('secondi') or 5))
         open(os.path.join(uscita, f"grezzo_{x['id']}.mp4"), 'wb').write(mp4)
         gpu_s = tempi['immagine_s'] + tempi['clip_s']; costo = gpu_s * prezzo; tot += costo
         righe.append(dict(x, **tempi, costo_dollari=round(costo, 4), totale_s=round(time.time() - t, 1)))
