@@ -1,0 +1,31 @@
+name: GPU in affitto (Modal) - prova immagini + clip animate
+# 27 nov 2026: strumenti/gpu/modal_video.py. Serve che Giorgio abbia creato i segreti MODAL_TOKEN_ID e MODAL_TOKEN_SECRET.
+# Spesa: tempo GPU su Modal (il piano Starter include 30 $ al mese). Solo con OK di Giorgio.
+on:
+  workflow_dispatch:
+    inputs:
+      nome: {description: 'cartella in libreria_clip', required: true, type: string}
+      scene: {description: 'JSON [{"id","prompt","movimento","secondi"}]', required: true, type: string}
+      stile: {description: 'prefisso comune ai prompt', default: '', type: string}
+      gpu: {description: 'H100 / A100-80GB / L40S', default: 'H100', type: string}
+permissions:
+  contents: write
+jobs:
+  gpu:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install -q modal
+      - env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+          GPU_MODAL: ${{ inputs.gpu }}
+          SCENE: ${{ inputs.scene }}
+          STILE: ${{ inputs.stile }}
+        run: modal run strumenti/gpu/modal_video.py --scene "$SCENE" --uscita "libreria_clip/${{ inputs.nome }}" --stile "$STILE"
+      - if: ${{ always() }}
+        run: |
+          git config user.name render-bot; git config user.email render-bot@users.noreply.github.com
+          git add libreria_clip && git commit -qm "GPU Modal: prova clip" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -q && git push -q && break; sleep $((i*5)); done
