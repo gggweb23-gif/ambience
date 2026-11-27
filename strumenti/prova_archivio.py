@@ -157,6 +157,9 @@ GENERICHE = {'space', 'station', 'astronaut', 'astronauts', 'iss', 'earth', 'ins
 GENERICHE |= {'military', 'wartime', 'war', 'world', 'ii', 'ww2', 'wwii'} | set(P.get('generiche') or [])   # archivi di guerra: parole che stanno su quasi tutte le clip
 
 
+LIB_FINE = {}
+
+
 def dalla_libreria(s, dur):
     """Lo spezzone piu' adatto alla scena (parole chiave della scena contro etichetta), mai ripetuto,
     mai due volte di fila dalla stessa ripresa."""
@@ -184,8 +187,18 @@ def dalla_libreria(s, dur):
             continue
         if len(chiave & et) and pt > bp:
             best, bp = x, pt
+    if not best and str(P.get('riusa_libreria') or 'NO').upper() == 'SI':
+        # 27 nov: prove con scene AI (una clip per frase): se la frase continua, si prosegue la stessa clip invece di cercare foto a caso
+        for x in LIB:
+            et = parole(' '.join(x.get('tag') or []) + ' ' + str(x.get('cosa') or ''))
+            if chiave & et:
+                da = LIB_FINE.get(x['n'], float(x.get('da') or 0))
+                if da + dur > float(x.get('durata') or 0):
+                    da = max(0.0, float(x.get('durata') or 0) - dur)
+                best = dict(x, da=round(da, 2)); break
     if not best:
         return None
+    LIB_FINE[best['n']] = float(best['da']) + dur
     ULTIMO_N[0] = best['n']
     LIB_USATI.add(best['n']); ULTIMA_SORGENTE[0] = best['nasa_id']; PER_SORGENTE[best['nasa_id']] = PER_SORGENTE.get(best['nasa_id'], 0) + 1
     if best['url'] not in LIB_FILE:
