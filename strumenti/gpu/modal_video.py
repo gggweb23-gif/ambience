@@ -13,7 +13,7 @@ import modal
 GPU = os.environ.get('GPU_MODAL', 'H100')
 img = (modal.Image.debian_slim(python_version='3.11')
        .apt_install('ffmpeg', 'git')
-       .pip_install('torch==2.5.1', 'diffusers>=0.34.0', 'transformers>=4.47', 'accelerate', 'sentencepiece', 'imageio[ffmpeg]', 'pillow',
+       .pip_install('torch==2.7.1', 'diffusers>=0.34.0', 'transformers>=4.47', 'accelerate', 'sentencepiece', 'imageio[ffmpeg]', 'pillow',
                     'huggingface_hub[hf_transfer]', 'protobuf')
        .env({'HF_HUB_ENABLE_HF_TRANSFER': '1', 'HF_HOME': '/cache'}))
 app = modal.App('ambience-video', image=img)
@@ -31,7 +31,7 @@ def scarica():
     cache.commit()
 
 
-@app.cls(gpu=GPU, volumes={'/cache': cache}, timeout=3600, scaledown_window=120)
+@app.cls(gpu=GPU, volumes={'/cache': cache}, timeout=1800, scaledown_window=60, max_containers=1, retries=0)
 class Studio:
     @modal.enter()
     def carica(self):
