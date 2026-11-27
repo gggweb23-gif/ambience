@@ -81,14 +81,21 @@ for n, s in enumerate(P['scene']):
         scarica(r['images'][0]['url'], img); spesa.append(['immagine flux-2 klein 4b', sid, 0.02])
         log('immagine', sid)
     sec = float(s.get('secondi') or P.get('secondi_clip') or 5)
-    if s.get('moto') == 'clip':
+    if os.path.exists(mp4):   # gia' fatta in un giro precedente: niente doppia spesa
+        log('gia\' pronta', sid)
+    elif s.get('moto') == 'clip':
         grezzo = f'/tmp/grezzo_{sid}.mp4'
         with open(img, 'rb') as f:   # l'immagine passa come data URI (niente caricamenti intermedi)
             data_uri = 'data:image/png;base64,' + base64.b64encode(f.read()).decode()
         if P.get('modello_video', '').startswith('wan'):   # 27 nov: Wan 2.2 A14B turbo, prezzo a clip (~5 s): 480p 0,05 $, 580p 0,075 $, 720p 0,10 $
             ris = P.get('risoluzione_video') or '580p'
-            r = fal('fal-ai/wan/v2.2-a14b/image-to-video/turbo', {'prompt': s.get('movimento') or s['prompt'], 'image_url': data_uri,
-                                                                  'resolution': ris, 'aspect_ratio': '16:9', 'acceleration': 'regular'}, attesa=900)
+            try:
+                r = fal('fal-ai/wan/v2.2-a14b/image-to-video/turbo', {'prompt': s.get('movimento') or s['prompt'], 'image_url': data_uri,
+                                                                      'resolution': ris, 'aspect_ratio': '16:9', 'acceleration': 'regular'}, attesa=900)
+            except Exception as e:   # rifiutata (es. filtro sui contenuti): un secondo tentativo con un movimento piu' semplice
+                log('wan rifiutata', sid, str(e)[:80])
+                r = fal('fal-ai/wan/v2.2-a14b/image-to-video/turbo', {'prompt': 'cinematic slow camera push in, subtle natural motion', 'image_url': data_uri,
+                                                                      'resolution': ris, 'aspect_ratio': '16:9', 'acceleration': 'regular'}, attesa=900)
             scarica(r['video']['url'], grezzo); spesa.append([f'video AI wan 2.2 turbo {ris}', sid, {'480p': .05, '580p': .075, '720p': .10}[ris]])
         elif P.get('modello_video') == 'ltx':   # 27 nov: LTX-Video 13B 0.9.8 distilled 720p, 0,02 $ al secondo (meta' di h3)
             r = fal('fal-ai/ltxv-13b-098-distilled/image-to-video', {'prompt': s.get('movimento') or s['prompt'], 'image_url': data_uri,
