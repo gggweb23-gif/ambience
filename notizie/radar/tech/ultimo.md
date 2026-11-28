@@ -1,12 +1,12 @@
 # Radar notizie tech — 2026-11-28
 
-**Scelta:** Jensen Huang's Nvidia comeback: Trump ties, security-risk and chip-smuggling scrutiny (Jensen Huang) — l'onda di ieri e' ancora la piu' forte: si resta con un angolo nuovo
+**Scelta:** Jensen Huang's Nvidia comeback: Trump ties, security-risk and chip-smuggling scrutiny. Bloomberg reports finding Blackwell chips in China, WSJ reports on the political cost of Trump's loyalty, and Nvidia has reportedly told partners to stop shipping server chips to four countries (Jensen Huang) — l'onda di ieri e' ancora la piu' forte: si resta con un angolo nuovo
 
 | # | Storia | Persona | Views all'ora (EN+IT) | Views 3 gg EN | Views 3 gg IT | Video lunghi EN |
 |---|---|---|---|---|---|---|
-| 1 | Jensen Huang's Nvidia comeback: Trump ties, security-risk and chip-smuggling scrutiny | Jensen Huang | 108,246 | 2,745,532 | 931,554 | 9 |
-| 2 | Musk's plan for a million satellites as space data centers wins approval | Elon Musk | 89,343 | 2,346,279 | 296,476 | 7 |
-| 3 | Musk pledges annual SpaceX share giveaway to every American child | Elon Musk | 49,833 | 1,412,691 | 66,920 | 5 |
-| 4 | Anthropic stock jump and the Amodeis' possible $560M misstep | Dario Amodei | 1,797 | 51,971 | 21,324 | 4 |
-| 5 | OpenAI countersues Apple over alleged trade-secret theft | Sam Altman | 1,189 | 10,445 | 0 | 1 |
-| 6 | Apple enters the AI agent race under new CEO John Ternus | John Ternus | 35 | 1,213 | 1,195 | 4 |
+| 1 | Jensen Huang's Nvidia comeback: Trump ties, security-risk and chip-smuggling scrutiny. Bloomberg reports finding Blackwell chips in China, WSJ reports on the political cost of Trump's loyalty, and Nvidia has reportedly told partners to stop shipping server chips to four countries | Jensen Huang | 181,320 | 1,525,217 | 7,700,992 | 4 |
+| 2 | Musk's plan for a million data-center satellites in space, and SpaceX stock rising after his pledge of an annual share giveaway for kids | Elon Musk | 107,783 | 2,825,828 | 532,738 | 7 |
+| 3 | OpenAI countersues Apple for stealing trade secrets | Sam Altman | 878 | 9,786 | 0 | 3 |
+| 4 | Michael Dell races to deliver a $132 billion AI server backlog | Michael Dell | 72 | 4,613 | 0 | 7 |
+| 5 | Apple enters the AI agent race under new CEO John Ternus, taking on OpenAI, Anthropic and Meta | John Ternus | 18 | 1,214 | 0 | 4 |
+| 6 | Anthropic stock jumps and Amodei stays silent as AI leaders meet Trump in DC | Dario Amodei | 0 | 0 | 0 | 0 |
