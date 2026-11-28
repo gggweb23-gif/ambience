@@ -1,0 +1,1602 @@
+{
+ "titolo": "Zelensky contro Trump: \"Non può essere un amico\". Scontro su Putin",
+ "angolo": "A two-word edit to a NATO statement, a photo captioned 'My Friend', and a BBC interview in Kyiv: how three days exposed the widening gap between Zelensky and Trump.",
+ "descrizione": "Zelensky contro Trump: \"Non può essere un amico\". Scontro su Putin. Il presidente ucraino ha detto alla BBC che è \"strano\" che Trump chiami Putin \"my friend\", e che gli Stati Uniti sono troppo concentrati sul Medio Oriente. Nella stessa settimana Trump ha riscritto una dichiarazione congiunta con la NATO per aggiungere \"Ucraina\" a un avvertimento rivolto in origine solo alla Russia. Ecco cosa è confermato, cosa è solo riportato e cosa dice ciascuna parte. Fonti: BBC, CBS, RTE, Kyiv Post, Interfax-Ukraine, Reuters.",
+ "tag": [
+  "Zelensky contro Trump: \"Non può essere un amico\". Scontro su Putin",
+  "Zelensky",
+  "Trump",
+  "Putin",
+  "my friend",
+  "dichiarazione NATO",
+  "Mark Rutte",
+  "guerra in Ucraina",
+  "intervista di Zelensky alla BBC",
+  "Kushner Putin gran maestro",
+  "missili Patriot Ucraina",
+  "Mar-a-Lago",
+  "negoziati di pace Ucraina",
+  "notizie dal mondo"
+ ],
+ "fonti_link": [
+  "https://www.rte.ie/news/2026/1127/1600845-trump-putin-ukraine/",
+  "https://theglobeandmail.com/world/article-zelensky-trump-putin-friend-remark-hitler",
+  "https://cbsnews.com/news/zelenskyy-trump-calling-putin-friend-like-hitler-viewed-friend-wwii",
+  "https://www.kyivpost.com/post/91339",
+  "https://www.kyivpost.com/post/91409",
+  "https://mingooland.com/2026/11/trump-diverges-from-nato-statement-emphasizing-ukraine-mustnt-expand-war/",
+  "https://www.rawstory.com/trump-russia-ukraine-2678538352/",
+  "https://news.liga.net/en/world/news/politico-trump-single-handedly-added-ukraine-to-a-joint-statement-with-rutte-on-the-escalation-of-the-war",
+  "https://gsmglobalnews.com/article/d20261127-sub7179-zelensky1.html",
+  "https://www.shango.media/bbc-us-too-focused-on-middle-east-and-not-pushing-russia-hard-enough-zelensky-tells-bbc-12090551",
+  "https://ncijnetwork.com/zelensky-tells-bbc-us-too-focused-on-middle-east-and-not-pushing-russia-hard-enough/",
+  "https://www.newsweek.com/donald-trump-putin-russia-nato-europe-ukraine-bloodbath-12771381",
+  "https://gsmglobalnews.com/article/d20261125-kushnerputin1.html",
+  "https://www.euronews.com/2026/11/27/russian-drone-strikes-hit-ukraines-energy-rail-and-civilian-infrastructure-causing-deaths",
+  "https://www.usnews.com/news/world/articles/2026-11-25/russian-attack-damages-ukraines-energy-and-gas-sites-cuts-power-in-five-regions",
+  "https://hngn.com/articles/273975/20261127/zelensky-calls-trumps-my-friend-remark-strange-eu-stalls-loan.htm",
+  "https://en.interfax.com.ua/news/general/1243284.html",
+  "https://www.mediaite.com/media/news/zelensky-warns-trump-that-calling-putin-friend-is-like-befriending-hitler-its-strange/",
+  "https://www.tampafp.com/zelenskyy-compares-trump-calling-putin-a-friend-to-befriending-hitler-as-peace-talks-stall/",
+  "https://www.huffingtonpost.co.uk/entry/volodymyr-zelenskyy-ukraine-donald-trump-putin_uk_6b093f14e4b01f494a037db9"
+ ],
+ "personaggi": {
+  "zelensky": {
+   "commons": "Volodymyr Zelensky",
+   "chi": "Volodymyr Zelensky, presidente dell'Ucraina",
+   "pose": {
+    "serio": {
+     "posa": "standing straight, arms at sides, serious steady gaze, olive military-style shirt"
+    },
+    "parla": {
+     "posa": "one hand raised mid-speech, speaking directly, intense expression"
+    },
+    "preoccupato": {
+     "posa": "hand on chin, worried frowning look, slightly hunched"
+    },
+    "determinato": {
+     "posa": "fists loosely clenched, jaw set, firm determined look"
+    }
+   }
+  },
+  "trump": {
+   "commons": "Donald Trump",
+   "chi": "Donald Trump, presidente degli Stati Uniti",
+   "pose": {
+    "deciso": {
+     "posa": "standing with chin up, one finger pointing forward, confident look"
+    },
+    "compiaciuto": {
+     "posa": "smug half-smile, arms crossed, dark suit and red tie"
+    }
+   }
+  },
+  "putin": {
+   "commons": "Vladimir Putin",
+   "chi": "Vladimir Putin, presidente della Russia",
+   "pose": {
+    "serio": {
+     "posa": "standing stiffly, hands folded in front, cold neutral look"
+    }
+   }
+  },
+  "rutte": {
+   "commons": "Mark Rutte",
+   "chi": "Mark Rutte, segretario generale della NATO",
+   "pose": {
+    "serio": {
+     "posa": "standing in dark suit, hands clasped, calm diplomatic expression"
+    }
+   }
+  },
+  "kushner": {
+   "commons": "Jared Kushner",
+   "chi": "Jared Kushner, inviato presidenziale degli Stati Uniti",
+   "pose": {
+    "serio": {
+     "posa": "standing in dark suit, holding a folder, composed expression"
+    }
+   }
+  }
+ },
+ "sets": {
+  "s01": {
+   "descr": "Kyiv presidential office interior at dusk, two empty armchairs facing each other, a camera tripod and studio light set up, tall window with city lights",
+   "luogo": "KIEV, UCRAINA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "zelensky",
+     "posa": "serio",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s02": {
+   "descr": "Mar-a-Lago exterior at golden hour: the pale Spanish-colonial tower and gardens of the Palm Beach club, manicured lawns, palm trees, empty terrace with white tablecloth tables, warm sunset light",
+   "luogo": "PALM BEACH, FLORIDA, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "trump",
+     "posa": "compiaciuto",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s03": {
+   "descr": "Great Hall of the People in Beijing, empty stage with two armchairs side by side and a plain backdrop, bright formal light",
+   "luogo": "PECHINO, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s04": {
+   "descr": "Dark Kyiv skyline at night with a power outage, only a few candles glowing in distant windows, cold stars",
+   "luogo": "KIEV, UCRAINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s05": {
+   "descr": "Mar-a-Lago style ballroom with gold chandeliers and long empty table prepared for a meeting, two leather chairs facing each other",
+   "luogo": "PALM BEACH, FLORIDA, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "trump",
+     "posa": "deciso",
+     "lato": "sx"
+    },
+    {
+     "chi": "rutte",
+     "posa": "serio",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s06": {
+   "descr": "Close view of the NATO headquarters in Brussels: the star-shaped glass-and-steel building at dawn, empty entrance plaza, rows of flagpoles without visible emblems",
+   "luogo": "BRUXELLES, BELGIO",
+   "effetto": "none",
+   "cast": []
+  },
+  "s07": {
+   "descr": "Cold Kyiv street in late November, bare trees, frost on parked bus stop glass, pale morning light",
+   "luogo": "KIEV, UCRAINA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "zelensky",
+     "posa": "parla",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s08": {
+   "descr": "Russian strategic missile launcher on a snowy road beside a pine forest, grey sky, no people",
+   "luogo": "RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s09": {
+   "descr": "Small Ukrainian town street in winter dusk, a wedding-like old cinema building, snow on the pavement, lamp glow",
+   "luogo": "UCRAINA",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s10": {
+   "descr": "Modern Kyiv government hall prepared for a TV interview, two armchairs, softbox lights and a camera, large window with snowy city view",
+   "luogo": "KIEV, UCRAINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s11": {
+   "descr": "Presidential building in Kyiv at night, sandbags at the entrance, floodlights, empty street",
+   "luogo": "KIEV, UCRAINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s12": {
+   "descr": "Oval Office with the Resolute desk, golden curtains, late afternoon sun, empty",
+   "luogo": "WASHINGTON D.C., USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "trump",
+     "posa": "deciso",
+     "lato": "sx"
+    },
+    {
+     "chi": "zelensky",
+     "posa": "serio",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s13": {
+   "descr": "Large Chinese summit venue: exterior of the Great Hall of the People in Beijing at dusk, wide plaza empty, lit columns",
+   "luogo": "PECHINO, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s14": {
+   "descr": "Grand ceremonial hall in the Great Hall of the People, Beijing, red carpet leading to tall double doors, chandeliers, empty",
+   "luogo": "PECHINO, CINA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "trump",
+     "posa": "compiaciuto",
+     "lato": "sx"
+    },
+    {
+     "chi": "putin",
+     "posa": "serio",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s15": {
+   "descr": "A dark Mar-a-Lago study at night: carved wooden desk with a single glowing smartphone lying on gold-trimmed leather, lamp light, palm shadows on the window, no text on screen",
+   "luogo": "PALM BEACH, FLORIDA, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s16": {
+   "descr": "Mar-a-Lago terrace at golden hour with palm trees and a flagpole, empty lounge chairs, calm ocean",
+   "luogo": "PALM BEACH, FLORIDA, USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s17": {
+   "descr": "NATO headquarters exterior in Brussels with glass facade at dawn, empty plaza, grey sky",
+   "luogo": "BRUXELLES, BELGIO",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "rutte",
+     "posa": "serio",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s18": {
+   "descr": "Empty NATO press briefing room in Brussels with rows of seats, a podium and a blank projection screen, cold neutral light",
+   "luogo": "BRUXELLES, BELGIO",
+   "effetto": "none",
+   "cast": []
+  },
+  "s19": {
+   "descr": "Mar-a-Lago dining room on Thanksgiving: long table set with autumn centerpieces, gold chandeliers, large windows to the garden, empty",
+   "luogo": "PALM BEACH, FLORIDA, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "trump",
+     "posa": "deciso",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s20": {
+   "descr": "Two split-glass doors of a conference room, one lit warm and one lit cold blue, empty corridor",
+   "luogo": "BRUXELLES, BELGIO",
+   "effetto": "none",
+   "cast": []
+  },
+  "s21": {
+   "descr": "Ukrainian presidential office building (Bankova Street) in central Kyiv, neoclassical facade seen from the empty street on a grey winter day, sandbag barricades at the entrance, bare trees",
+   "luogo": "KIEV, UCRAINA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "zelensky",
+     "posa": "parla",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s22": {
+   "descr": "Black-and-white style 1940s European street ruins with a lone bicycle, smoke haze, solemn mood",
+   "luogo": "EUROPA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s23": {
+   "descr": "Ukrainian air defense battery in a snowy field at dusk, launcher tubes pointing to the sky, no people",
+   "luogo": "UCRAINA",
+   "effetto": "neve",
+   "cast": [
+    {
+     "chi": "zelensky",
+     "posa": "preoccupato",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s24": {
+   "descr": "Night sky over a Ukrainian city with ballistic missile trails and bright interceptor flashes",
+   "luogo": "UCRAINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s25": {
+   "descr": "Patriot missile interceptor canisters on a launcher at a Ukrainian site under a winter sky, crates stacked beside, no people",
+   "luogo": "UCRAINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s26": {
+   "descr": "US air defense battery with Patriot launchers and radar in a desert in the Gulf region, harsh orange sky, no people",
+   "luogo": "MEDIO ORIENTE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s27": {
+   "descr": "Ukrainian drone interception: small interceptor drones flying at night over fields, glowing trails",
+   "luogo": "UCRAINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s28": {
+   "descr": "Damaged power substation in Ukraine with transformers and tangled lines, smoke, dusk",
+   "luogo": "UCRAINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s29": {
+   "descr": "Odesa power substation at night with dark apartment blocks behind, repair truck lights, port cranes in the distance",
+   "luogo": "ODESSA, UCRAINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s30": {
+   "descr": "Cold Ukrainian apartment block exterior at night with most windows dark, frost, streetlamp",
+   "luogo": "UCRAINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s31": {
+   "descr": "Abu Dhabi conference hotel hall with glass walls and gold lighting, empty round table",
+   "luogo": "ABU DHABI, EAU",
+   "effetto": "none",
+   "cast": []
+  },
+  "s32": {
+   "descr": "Moscow Kremlin walls and towers in early winter evening, soft snow",
+   "luogo": "MOSCA, RUSSIA",
+   "effetto": "neve",
+   "cast": [
+    {
+     "chi": "kushner",
+     "posa": "serio",
+     "lato": "sx"
+    },
+    {
+     "chi": "putin",
+     "posa": "serio",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s33": {
+   "descr": "Empty podcast studio in New York with two microphones, warm lamps and a skyline window, no text",
+   "luogo": "NEW YORK, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "kushner",
+     "posa": "serio",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s34": {
+   "descr": "Kremlin meeting hall in Moscow with a long polished table and tall gilded doors, empty, cold light",
+   "luogo": "MOSCA, RUSSIA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s35": {
+   "descr": "Ukrainian frontier landscape with trenches in frozen fields, grey sky, no soldiers",
+   "luogo": "DONBASS, UCRAINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s36": {
+   "descr": "Palm Beach Mar-a-Lago back lawn with the pale tower behind, a lectern and empty microphone stands on the grass, sunny sky, no people",
+   "luogo": "PALM BEACH, FLORIDA, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "trump",
+     "posa": "deciso",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s37": {
+   "descr": "Brussels EU summit hall with ring of empty blue chairs, bright lights",
+   "luogo": "BRUXELLES, BELGIO",
+   "effetto": "none",
+   "cast": []
+  },
+  "s38": {
+   "descr": "Bank vault door half open with stacks of euro bundles, cold light",
+   "luogo": "BRUXELLES, BELGIO",
+   "effetto": "none",
+   "cast": []
+  },
+  "s39": {
+   "descr": "Zelensky at a Kyiv window looking over snowy rooftops at dawn",
+   "luogo": "KIEV, UCRAINA",
+   "effetto": "neve",
+   "cast": [
+    {
+     "chi": "zelensky",
+     "posa": "determinato",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s40": {
+   "descr": "Diplomatic negotiating table in a European hall, many empty chairs on one side, one chair on the other",
+   "luogo": "EUROPA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s41": {
+   "descr": "Frozen trench line in eastern Ukraine with barbed wire and a bare treeline, grey winter sky, no people",
+   "luogo": "DONBASS, UCRAINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s42": {
+   "descr": "Kyiv Independence Square at twilight, fountain off, lamp glow, empty, winter mood",
+   "luogo": "KIEV, UCRAINA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "zelensky",
+     "posa": "serio",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s43": {
+   "descr": "Calendar-free scene: a lit window of a Kyiv office on a dark winter night, long shadows on snow",
+   "luogo": "KIEV, UCRAINA",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s44": {
+   "descr": "The White House north facade at night, lit lawn and fountain, empty Pennsylvania Avenue fence line, quiet atmosphere",
+   "luogo": "WASHINGTON D.C., USA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s45": {
+   "descr": "Ukrainian winter road with a power line crew truck repairing lines at sunrise",
+   "luogo": "UCRAINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s46": {
+   "descr": "Quiet Kyiv railway station platform at dawn, a train waiting, cold breath mist",
+   "luogo": "KIEV, UCRAINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s47": {
+   "descr": "Kyiv television interview setting: an empty chair beside a camera on a tripod in a government hall with tall windows overlooking snowy rooftops",
+   "luogo": "KIEV, UCRAINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s48": {
+   "descr": "Snowy Kyiv rooftops with the golden domes of a monastery in morning light",
+   "luogo": "KIEV, UCRAINA",
+   "effetto": "neve",
+   "cast": [
+    {
+     "chi": "zelensky",
+     "posa": "parla",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s49": {
+   "descr": "Mar-a-Lago patio at night, lanterns, empty chairs, sea breeze in palm leaves",
+   "luogo": "PALM BEACH, FLORIDA, USA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "trump",
+     "posa": "compiaciuto",
+     "lato": "sx"
+    }
+   ]
+  },
+  "s50": {
+   "descr": "Empty European negotiation hall in Brussels with the European Union Council table and blank nameplates, soft light",
+   "luogo": "BRUXELLES, BELGIO",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s51": {
+   "descr": "Radar dishes against a winter sky over a Ukrainian air defense site, sunrise",
+   "luogo": "UCRAINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s52": {
+   "descr": "Lone lit lamp on the desk of a Kyiv presidential office late at night",
+   "luogo": "KIEV, UCRAINA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "zelensky",
+     "posa": "serio",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s53": {
+   "descr": "Brussels diplomatic corridor at night with a single door open to light",
+   "luogo": "BRUXELLES, BELGIO",
+   "effetto": "none",
+   "cast": []
+  },
+  "s54": {
+   "descr": "Frozen Dnipro river in Kyiv with bridges lit softly, quiet dusk",
+   "luogo": "KIEV, UCRAINA",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s55": {
+   "descr": "Peace talk table in a Gulf hotel with empty chairs and tall palm plants, evening",
+   "luogo": "ABU DHABI, EAU",
+   "effetto": "none",
+   "cast": []
+  },
+  "s56": {
+   "descr": "Ukrainian winter sunrise over a field of wind turbines and power pylons",
+   "luogo": "UCRAINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s57": {
+   "descr": "Heating radiator in a cold public building with frost on the window, no people",
+   "luogo": "UCRAINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s58": {
+   "descr": "Giant clock on a Brussels wall nearing midnight, dim light",
+   "luogo": "BRUXELLES, BELGIO",
+   "effetto": "none",
+   "cast": []
+  },
+  "s59": {
+   "descr": "Wide empty Kyiv government quarter on a winter evening, snow on Bankova Street and the presidential office facade glowing in the window lights, no people",
+   "luogo": "KIEV, UCRAINA",
+   "effetto": "none",
+   "cast": [
+    {
+     "chi": "zelensky",
+     "posa": "determinato",
+     "lato": "sx"
+    },
+    {
+     "chi": "trump",
+     "posa": "deciso",
+     "lato": "dx"
+    }
+   ]
+  },
+  "s60": {
+   "descr": "Empty handshake-height pedestal beside two chairs in a quiet diplomatic hall, soft light",
+   "luogo": "INTERNAZIONALE",
+   "effetto": "none",
+   "cast": []
+  },
+  "s61": {
+   "descr": "Night view of Ukrainian city with restored lights flickering on one by one",
+   "luogo": "UCRAINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s62": {
+   "descr": "Cold winter dawn over Kyiv with smoke from heating chimneys",
+   "luogo": "KIEV, UCRAINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s63": {
+   "descr": "Great Hall of the People in Beijing, empty long conference table with microphones and blank document folders, soft light",
+   "luogo": "PECHINO, CINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s64": {
+   "descr": "Ukrainian winter road at night with a convoy of utility trucks, headlights in fog",
+   "luogo": "UCRAINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s65": {
+   "descr": "Briefing room at NATO with empty podium and blue backdrop without emblems",
+   "luogo": "BRUXELLES, BELGIO",
+   "effetto": "none",
+   "cast": []
+  },
+  "s66": {
+   "descr": "Zelensky silhouette-free Kyiv office door closing with light seeping underneath",
+   "luogo": "KIEV, UCRAINA",
+   "effetto": "none",
+   "cast": []
+  },
+  "s67": {
+   "descr": "Snowfall over an empty Kyiv square, a single bench, quiet",
+   "luogo": "KIEV, UCRAINA",
+   "effetto": "neve",
+   "cast": []
+  },
+  "s68": {
+   "descr": "Kyiv Independence Square at dawn, frost on the monument and quiet snow-covered pavement, no people",
+   "luogo": "KIEV, UCRAINA",
+   "effetto": "none",
+   "cast": []
+  }
+ },
+ "scene": [
+  {
+   "testo": "Due parole. Pubblicate dal presidente americano. Sotto una stretta di mano: \"My Friend\".",
+   "fonti": [
+    "https://www.rte.ie/news/2026/1127/1600845-trump-putin-ukraine/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s02"
+   },
+   "grafica": {
+    "tipo": "titolo",
+    "testo": "\"MY FRIEND\"",
+    "sotto": "Didascalia di Trump su una foto con Putin"
+   }
+  },
+  {
+   "testo": "L'uomo che viene invaso ha risposto, in un'intervista alla BBC, da Kiev.",
+   "fonti": [
+    "https://theglobeandmail.com/world/article-zelensky-trump-putin-friend-remark-hitler"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s01"
+   }
+  },
+  {
+   "testo": "\"Non può essere un amico.\"",
+   "fonti": [
+    "https://cbsnews.com/news/zelenskyy-trump-calling-putin-friend-like-hitler-viewed-friend-wwii"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s21"
+   },
+   "citazione": {
+    "chi": "zelensky",
+    "posa": "parla",
+    "testo": "Non può essere un amico."
+   }
+  },
+  {
+   "testo": "Il presidente ucraino può criticare apertamente Trump e continuare ad avere l'America dalla sua parte?",
+   "fonti": [
+    "https://www.shango.media/bbc-us-too-focused-on-middle-east-and-not-pushing-russia-hard-enough-zelensky-tells-bbc-12090551"
+   ],
+   "titolo_card": true,
+   "visivo": {
+    "tipo": "set",
+    "set": "s59"
+   },
+   "grafica": {
+    "tipo": "titolo",
+    "testo": "AMICO O AGGRESSORE?",
+    "sotto": "Zelensky contro Trump su Putin"
+   }
+  },
+  {
+   "testo": "Ma prima, una modifica a una dichiarazione congiunta con la NATO. Ha aggiunto l'Ucraina a un avvertimento.",
+   "fonti": [
+    "https://www.kyivpost.com/post/91339"
+   ],
+   "capitolo": "LA MODIFICA DI DUE PAROLE",
+   "visivo": {
+    "tipo": "set",
+    "set": "s06"
+   }
+  },
+  {
+   "testo": "Mercoledì sera. Mar-a-Lago, Florida. Trump ospita il capo della NATO, Mark Rutte.",
+   "fonti": [
+    "https://www.kyivpost.com/post/91339"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s05"
+   }
+  },
+  {
+   "testo": "La Florida è il primo punto sulla nostra mappa.",
+   "fonti": [
+    "https://www.kyivpost.com/post/91339"
+   ],
+   "visivo": {
+    "tipo": "mappa",
+    "centro": [
+     -60,
+     40
+    ],
+    "larghezza": 60,
+    "paesi": [
+     {
+      "iso": "USA",
+      "colore": "azul"
+     }
+    ],
+    "punti": [
+     {
+      "lon": -80.04,
+      "lat": 26.68,
+      "nome": "MAR-A-LAGO"
+     },
+     {
+      "lon": 4.42,
+      "lat": 50.88,
+      "nome": "BRUXELLES"
+     }
+    ],
+    "frecce": [
+     {
+      "da": [
+       -80.04,
+       26.68
+      ],
+      "a": [
+       4.42,
+       50.88
+      ],
+      "colore": "blu"
+     }
+    ]
+   }
+  },
+  {
+   "testo": "Le due parti hanno diffuso una dichiarazione congiunta. Trump e Rutte hanno definito l'incontro \"eccezionale\".",
+   "fonti": [
+    "https://www.rawstory.com/trump-russia-ukraine-2678538352/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s16"
+   }
+  },
+  {
+   "testo": "La frase chiave: la Russia deve evitare azioni che \"intenzionalmente o non intenzionalmente, allarghino la guerra\".",
+   "fonti": [
+    "https://www.rte.ie/news/2026/1127/1600845-trump-putin-ukraine/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s17"
+   }
+  },
+  {
+   "testo": "Poche ore dopo, Trump ha pubblicato su Truth Social una sua versione.",
+   "fonti": [
+    "https://mingooland.com/2026/11/trump-diverges-from-nato-statement-emphasizing-ukraine-mustnt-expand-war/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s15"
+   }
+  },
+  {
+   "testo": "Ha aggiunto due parole, \"e Ucraina\". Nella sua versione l'avvertimento si riferiva a \"Russia e Ucraina\".",
+   "fonti": [
+    "https://mingooland.com/2026/11/trump-diverges-from-nato-statement-emphasizing-ukraine-mustnt-expand-war/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s15"
+   },
+   "grafica": {
+    "tipo": "titolo",
+    "testo": "+ \"E UCRAINA\"",
+    "sotto": "Aggiunto da Trump al testo concordato"
+   }
+  },
+  {
+   "testo": "Un funzionario della NATO ha detto a Politico, in forma anonima, che la formulazione originale era quella concordata da entrambe le parti.",
+   "fonti": [
+    "https://www.kyivpost.com/post/91339",
+    "https://news.liga.net/en/world/news/politico-trump-single-handedly-added-ukraine-to-a-joint-statement-with-rutte-on-the-escalation-of-the-war"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s20"
+   }
+  },
+  {
+   "testo": "Ciò suggerisce, secondo quel funzionario, che Trump abbia modificato la dichiarazione unilateralmente in seguito.",
+   "fonti": [
+    "https://www.kyivpost.com/post/91339"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s18"
+   }
+  },
+  {
+   "testo": "Poi Trump ha pubblicato di nuovo su Truth Social, a seguito della dichiarazione congiunta.",
+   "fonti": [
+    "https://www.rawstory.com/trump-russia-ukraine-2678538352/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s44"
+   }
+  },
+  {
+   "testo": "Ha scritto di volere che Putin \"ritiri ogni aggressione militare contro territori in tutta Europa\".",
+   "fonti": [
+    "https://mingooland.com/2026/11/trump-diverges-from-nato-statement-emphasizing-ukraine-mustnt-expand-war/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s36"
+   }
+  },
+  {
+   "testo": "Quale messaggio sentirà allora Kiev? La modifica o l'appello a Putin?",
+   "fonti": [
+    "https://mingooland.com/2026/11/trump-diverges-from-nato-statement-emphasizing-ukraine-mustnt-expand-war/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s43"
+   }
+  },
+  {
+   "testo": "Teniamo a mente questo punto. Prima, chi è l'uomo che ha dovuto rispondere?",
+   "fonti": [
+    "https://www.rte.ie/news/2026/1127/1600845-trump-putin-ukraine/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s52"
+   }
+  },
+  {
+   "testo": "Volodymyr Zelensky guida un Paese in guerra con la Russia dal 2022.",
+   "fonti": [
+    "https://www.kyivpost.com/post/91339"
+   ],
+   "capitolo": "L'UOMO DI KIEV",
+   "visivo": {
+    "tipo": "dossier",
+    "chi": "zelensky",
+    "posa": "serio",
+    "righe": [
+     "PRESIDENTE DELL'UCRAINA",
+     "INTERVISTA BBC A KIEV",
+     "GUERRA: QUASI 5 ANNI"
+    ],
+    "timbro": "UCRAINA"
+   }
+  },
+  {
+   "testo": "Nel febbraio 2025 ebbe un duro scontro con Trump nello Studio Ovale.",
+   "fonti": [
+    "https://www.shango.media/bbc-us-too-focused-on-middle-east-and-not-pushing-russia-hard-enough-zelensky-tells-bbc-12090551"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s12"
+   }
+  },
+  {
+   "testo": "Ecco perché l'intervista di questa settimana è importante.",
+   "fonti": [
+    "https://www.shango.media/bbc-us-too-focused-on-middle-east-and-not-pushing-russia-hard-enough-zelensky-tells-bbc-12090551"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s47"
+   }
+  },
+  {
+   "testo": "Mercoledì 19 novembre. Shenzhen, Cina. Un vertice APEC.",
+   "fonti": [
+    "https://theglobeandmail.com/world/article-zelensky-trump-putin-friend-remark-hitler"
+   ],
+   "capitolo": "UNA STRETTA DI MANO A SHENZHEN",
+   "visivo": {
+    "tipo": "mappa",
+    "centro": [
+     100,
+     38
+    ],
+    "larghezza": 50,
+    "paesi": [
+     {
+      "iso": "CHN",
+      "colore": "rojo"
+     },
+     {
+      "iso": "RUS",
+      "colore": "rosso"
+     },
+     {
+      "iso": "USA",
+      "colore": "blu"
+     }
+    ],
+    "punti": [
+     {
+      "lon": 114.06,
+      "lat": 22.54,
+      "nome": "SHENZHEN"
+     },
+     {
+      "lon": 37.62,
+      "lat": 55.75,
+      "nome": "MOSCA"
+     }
+    ],
+    "frecce": [
+     {
+      "da": [
+       37.62,
+       55.75
+      ],
+      "a": [
+       114.06,
+       22.54
+      ],
+      "colore": "rosso"
+     }
+    ]
+   }
+  },
+  {
+   "testo": "Trump e Putin si sono incontrati brevemente, prima di un vertice a tre con Xi Jinping.",
+   "fonti": [
+    "https://www.kyivpost.com/post/91409"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s13"
+   }
+  },
+  {
+   "testo": "Trump ha salutato Putin come un \"amico\", secondo le cronache del vertice.",
+   "fonti": [
+    "https://www.kyivpost.com/post/91409",
+    "https://en.interfax.com.ua/news/general/1243284.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s14"
+   }
+  },
+  {
+   "testo": "Giorni dopo ha pubblicato una foto della stretta di mano, con la didascalia \"My Friend\".",
+   "fonti": [
+    "https://www.rte.ie/news/2026/1127/1600845-trump-putin-ukraine/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s03"
+   }
+  },
+  {
+   "testo": "La dichiarazione del vertice trilaterale non menzionava direttamente la guerra della Russia contro l'Ucraina, secondo The New Voice of Ukraine.",
+   "fonti": [
+    "https://hngn.com/articles/273975/20261127/zelensky-calls-trumps-my-friend-remark-strange-eu-stalls-loan.htm"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s63"
+   }
+  },
+  {
+   "testo": "Di nuovo in Florida, per il Giorno del Ringraziamento, un giornalista ha incalzato Trump sul contrasto tra definire Putin un amico e invitarlo a fermare l'aggressione militare.",
+   "fonti": [
+    "https://www.kyivpost.com/post/91409"
+   ],
+   "capitolo": "LA RISPOSTA DI TRUMP",
+   "visivo": {
+    "tipo": "set",
+    "set": "s19"
+   }
+  },
+  {
+   "testo": "Trump ha detto: \"Vogliamo fare un accordo. Vogliamo fermare le uccisioni.\"",
+   "fonti": [
+    "https://www.kyivpost.com/post/91409",
+    "https://www.mediaite.com/media/news/zelensky-warns-trump-that-calling-putin-friend-is-like-befriending-hitler-its-strange/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s49"
+   },
+   "citazione": {
+    "chi": "trump",
+    "posa": "deciso",
+    "testo": "Vogliamo fare un accordo. Vogliamo fermare le uccisioni."
+   }
+  },
+  {
+   "testo": "Ha aggiunto: \"Potrei dire che non è un amico... Voglio fare un accordo.\"",
+   "fonti": [
+    "https://www.kyivpost.com/post/91409"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s36"
+   }
+  },
+  {
+   "testo": "Ha sostenuto che una retorica ostile non lo porterebbe \"assolutamente da nessuna parte\", e l'ha paragonata al rapporto teso tra Zelensky e Putin.",
+   "fonti": [
+    "https://en.interfax.com.ua/news/general/1243284.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s41"
+   }
+  },
+  {
+   "testo": "Ha anche affermato che la Russia perde 25.000 persone al mese.",
+   "fonti": [
+    "https://www.outlookindia.com/international/donald-trump-putin-ukraine-war-latest-peace-deal-russia-military-aggression-truth-social-europe-nato-talks"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s35"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 25000,
+    "decimali": 0,
+    "prefisso": "",
+    "unita": "PERSONE AL MESE",
+    "sopra": "L'AFFERMAZIONE DI TRUMP SULLA RUSSIA"
+   }
+  },
+  {
+   "testo": "Ora a Kiev. Zelensky ha rilasciato un'intervista a Sarah Rainsford della BBC.",
+   "fonti": [
+    "https://www.tampafp.com/zelenskyy-compares-trump-calling-putin-a-friend-to-befriending-hitler-as-peace-talks-stall/"
+   ],
+   "capitolo": "ZELENSKY ROMPE IL SILENZIO",
+   "visivo": {
+    "tipo": "set",
+    "set": "s10"
+   }
+  },
+  {
+   "testo": "Ha iniziato con cautela: \"Naturalmente spetta al presidente degli Stati Uniti.\"",
+   "fonti": [
+    "https://www.shango.media/bbc-us-too-focused-on-middle-east-and-not-pushing-russia-hard-enough-zelensky-tells-bbc-12090551"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s48"
+   }
+  },
+  {
+   "testo": "Poi ha detto: \"È strano.\"",
+   "fonti": [
+    "https://ncijnetwork.com/zelensky-tells-bbc-us-too-focused-on-middle-east-and-not-pushing-russia-hard-enough/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s11"
+   },
+   "citazione": {
+    "chi": "zelensky",
+    "posa": "parla",
+    "testo": "Naturalmente spetta al presidente degli Stati Uniti, ma... è strano."
+   }
+  },
+  {
+   "testo": "Ha definito Putin \"un aggressore\" e \"un assassino\".",
+   "fonti": [
+    "https://www.mediaite.com/media/news/zelensky-warns-trump-that-calling-putin-friend-is-like-befriending-hitler-its-strange/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s39"
+   }
+  },
+  {
+   "testo": "Poi è arrivato il paragone che ha fatto i titoli.",
+   "fonti": [
+    "https://www.rte.ie/news/2026/1127/1600845-trump-putin-ukraine/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s66"
+   }
+  },
+  {
+   "testo": "Lo ha paragonato a chiamare Hitler un buon amico durante la Seconda guerra mondiale.",
+   "fonti": [
+    "https://www.huffingtonpost.co.uk/entry/volodymyr-zelenskyy-ukraine-donald-trump-putin_uk_6b093f14e4b01f494a037db9"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s22"
+   }
+  },
+  {
+   "testo": "\"No, non è un amico.\"",
+   "fonti": [
+    "https://www.rte.ie/news/2026/1127/1600845-trump-putin-ukraine/"
+   ],
+   "visivo": {
+    "tipo": "frase",
+    "testo": "\"No, non è un amico.\""
+   },
+   "citazione": {
+    "chi": "zelensky",
+    "posa": "determinato",
+    "testo": "No, non è un amico."
+   }
+  },
+  {
+   "testo": "Ha detto che gli Stati Uniti sono troppo concentrati sul Medio Oriente.",
+   "fonti": [
+    "https://www.shango.media/bbc-us-too-focused-on-middle-east-and-not-pushing-russia-hard-enough-zelensky-tells-bbc-12090551"
+   ],
+   "capitolo": "IL DIVARIO DEI MISSILI",
+   "visivo": {
+    "tipo": "set",
+    "set": "s26"
+   }
+  },
+  {
+   "testo": "\"È un peccato che abbiano puntato sul Medio Oriente e li aiutino di più.\"",
+   "fonti": [
+    "https://www.shango.media/bbc-us-too-focused-on-middle-east-and-not-pushing-russia-hard-enough-zelensky-tells-bbc-12090551"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s23"
+   },
+   "citazione": {
+    "chi": "zelensky",
+    "posa": "preoccupato",
+    "testo": "È un peccato che abbiano puntato sul Medio Oriente e li aiutino di più."
+   }
+  },
+  {
+   "testo": "Ha detto che i ritardi sui missili antibalistici costano vite ucraine, secondo la BBC.",
+   "fonti": [
+    "https://ncijnetwork.com/zelensky-tells-bbc-us-too-focused-on-middle-east-and-not-pushing-russia-hard-enough/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s25"
+   }
+  },
+  {
+   "testo": "Le forze armate ucraine possono ora distruggere circa il 70 per cento dei droni più veloci della Russia, ha detto Zelensky alla BBC.",
+   "fonti": [
+    "https://gsmglobalnews.com/article/d20261127-sub7179-zelensky1.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s27"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 70,
+    "decimali": 0,
+    "prefisso": "",
+    "unita": "% DEI DRONI PIÙ VELOCI",
+    "sopra": "ZELENSKY: L'UCRAINA DISTRUGGE"
+   }
+  },
+  {
+   "testo": "Ma ha avvertito di un deficit \"molto, molto grande\" di intercettori per i missili balistici.",
+   "fonti": [
+    "https://gsmglobalnews.com/article/d20261127-sub7179-zelensky1.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s24"
+   }
+  },
+  {
+   "testo": "Ha detto che gli americani stavano ritardando le consegne dei sistemi Patriot.",
+   "fonti": [
+    "https://gsmglobalnews.com/article/d20261127-sub7179-zelensky1.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s51"
+   }
+  },
+  {
+   "testo": "Intanto gli attacchi continuano. Ecco cosa ha colpito la Russia questa settimana.",
+   "fonti": [
+    "https://www.euronews.com/2026/11/27/russian-drone-strikes-hit-ukraines-energy-rail-and-civilian-infrastructure-causing-deaths"
+   ],
+   "capitolo": "L'INVERNO SOTTO IL FUOCO",
+   "visivo": {
+    "tipo": "set",
+    "set": "s28"
+   }
+  },
+  {
+   "testo": "Mercoledì Reuters ha riferito di blackout in cinque regioni dopo un attacco russo notturno.",
+   "fonti": [
+    "https://www.usnews.com/news/world/articles/2026-11-25/russian-attack-damages-ukraines-energy-and-gas-sites-cuts-power-in-five-regions"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s29"
+   }
+  },
+  {
+   "testo": "Il governatore di Odessa ha detto che un massiccio attacco di droni ha danneggiato infrastrutture civili ed energetiche.",
+   "fonti": [
+    "https://www.usnews.com/news/world/articles/2026-11-25/russian-attack-damages-ukraines-energy-and-gas-sites-cuts-power-in-five-regions"
+   ],
+   "visivo": {
+    "tipo": "mappa",
+    "centro": [
+     32,
+     48.5
+    ],
+    "larghezza": 16,
+    "paesi": [
+     {
+      "iso": "UKR",
+      "colore": "blu"
+     },
+     {
+      "iso": "RUS",
+      "colore": "rosso"
+     }
+    ],
+    "punti": [
+     {
+      "lon": 30.73,
+      "lat": 46.48,
+      "nome": "ODESSA"
+     },
+     {
+      "lon": 30.52,
+      "lat": 50.45,
+      "nome": "KIEV"
+     },
+     {
+      "lon": 35.14,
+      "lat": 47.84,
+      "nome": "ZAPORIZHZHIA"
+     }
+    ],
+    "frecce": [
+     {
+      "da": [
+       37.62,
+       55.75
+      ],
+      "a": [
+       30.52,
+       50.45
+      ],
+      "colore": "rosso"
+     }
+    ]
+   }
+  },
+  {
+   "testo": "Venerdì funzionari ucraini hanno segnalato attacchi in nove regioni, tra cui infrastrutture ferroviarie ed energetiche.",
+   "fonti": [
+    "https://www.euronews.com/2026/11/27/russian-drone-strikes-hit-ukraines-energy-rail-and-civilian-infrastructure-causing-deaths"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s30"
+   }
+  },
+  {
+   "testo": "Euronews riferisce di oltre 1.000 attacchi al sistema energetico ucraino da settembre.",
+   "fonti": [
+    "https://www.euronews.com/2026/11/27/russian-drone-strikes-hit-ukraines-energy-rail-and-civilian-infrastructure-causing-deaths"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s57"
+   },
+   "grafica": {
+    "tipo": "numero",
+    "valore": 1000,
+    "decimali": 0,
+    "prefisso": "+",
+    "unita": "ATTACCHI ALL'ENERGIA",
+    "sopra": "DA SETTEMBRE, SECONDO EURONEWS"
+   }
+  },
+  {
+   "testo": "Mosca dice di colpire siti legati ai militari e nega di prendere di mira i civili, ha riferito Reuters.",
+   "fonti": [
+    "https://www.yahoo.com/news/articles/russia-hits-ukraine-energy-infrastructure-062639418.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s56"
+   }
+  },
+  {
+   "testo": "Ora gli inviati. Due settimane di colloqui e un'intervista controversa.",
+   "fonti": [
+    "https://www.newsweek.com/donald-trump-putin-russia-nato-europe-ukraine-bloodbath-12771381"
+   ],
+   "capitolo": "GLI ELOGI DEGLI INVIATI",
+   "visivo": {
+    "tipo": "set",
+    "set": "s31"
+   }
+  },
+  {
+   "testo": "Negoziatori russi e ucraini si sono incontrati ad Abu Dhabi all'inizio di questo mese.",
+   "fonti": [
+    "https://www.newsweek.com/donald-trump-putin-russia-nato-europe-ukraine-bloodbath-12771381"
+   ],
+   "visivo": {
+    "tipo": "mappa",
+    "centro": [
+     45,
+     38
+    ],
+    "larghezza": 50,
+    "paesi": [
+     {
+      "iso": "ARE",
+      "colore": "verde"
+     },
+     {
+      "iso": "UKR",
+      "colore": "blu"
+     },
+     {
+      "iso": "RUS",
+      "colore": "rosso"
+     }
+    ],
+    "punti": [
+     {
+      "lon": 54.37,
+      "lat": 24.45,
+      "nome": "ABU DHABI"
+     },
+     {
+      "lon": 37.62,
+      "lat": 55.75,
+      "nome": "MOSCA"
+     },
+     {
+      "lon": 30.52,
+      "lat": 50.45,
+      "nome": "KIEV"
+     }
+    ],
+    "frecce": [
+     {
+      "da": [
+       37.62,
+       55.75
+      ],
+      "a": [
+       54.37,
+       24.45
+      ],
+      "colore": "rosso"
+     },
+     {
+      "da": [
+       30.52,
+       50.45
+      ],
+      "a": [
+       54.37,
+       24.45
+      ],
+      "colore": "blu"
+     }
+    ]
+   }
+  },
+  {
+   "testo": "Secondo Newsweek hanno concordato un grande scambio di prigionieri, ma non sul territorio.",
+   "fonti": [
+    "https://www.newsweek.com/donald-trump-putin-russia-nato-europe-ukraine-bloodbath-12771381"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s55"
+   }
+  },
+  {
+   "testo": "Gli inviati Kushner e Witkoff sono poi andati a Mosca per incontrare Putin.",
+   "fonti": [
+    "https://www.newsweek.com/donald-trump-putin-russia-nato-europe-ukraine-bloodbath-12771381"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s32"
+   }
+  },
+  {
+   "testo": "In un podcast uscito il 25 novembre, Kushner ha definito Putin \"decisamente un gran maestro della politica\".",
+   "fonti": [
+    "https://gsmglobalnews.com/article/d20261125-kushnerputin1.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s33"
+   },
+   "citazione": {
+    "chi": "kushner",
+    "posa": "serio",
+    "testo": "Ma è decisamente un gran maestro della politica."
+   }
+  },
+  {
+   "testo": "Ha detto anche che lui e Witkoff hanno concluso che il territorio è l'ostacolo alla fine della guerra.",
+   "fonti": [
+    "https://www.yahoo.com/news/world/articles/kushner-putin-warns-war-ukraine-185120851.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s34"
+   }
+  },
+  {
+   "testo": "Kushner ha detto anche che Putin li ha \"rassicurati\": non ha intenzione di usare armi nucleari.",
+   "fonti": [
+    "https://gsmglobalnews.com/article/d20261125-kushnerputin1.html"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s08"
+   }
+  },
+  {
+   "testo": "E Zelensky dice che non è chiaro se i negoziatori europei sederanno al tavolo.",
+   "fonti": [
+    "https://ncijnetwork.com/zelensky-tells-bbc-us-too-focused-on-middle-east-and-not-pushing-russia-hard-enough/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s50"
+   }
+  },
+  {
+   "testo": "Veniamo a cosa succede ora.",
+   "fonti": [
+    "https://gsmglobalnews.com/article/d20261127-sub7179-zelensky1.html"
+   ],
+   "capitolo": "COSA ACCADRÀ ORA",
+   "visivo": {
+    "tipo": "set",
+    "set": "s62"
+   }
+  },
+  {
+   "testo": "Zelensky ha chiesto \"alleati davvero utili, che possano spingere la Russia\".",
+   "fonti": [
+    "https://www.shango.media/bbc-us-too-focused-on-middle-east-and-not-pushing-russia-hard-enough-zelensky-tells-bbc-12090551"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s67"
+   },
+   "citazione": {
+    "chi": "zelensky",
+    "posa": "determinato",
+    "testo": "alleati davvero utili, che possano spingere la Russia"
+   }
+  },
+  {
+   "testo": "Ha esortato gli Stati Uniti a essere all'altezza della loro reputazione di Paese forte, con \"potere e rispetto\".",
+   "fonti": [
+    "https://www.shango.media/bbc-us-too-focused-on-middle-east-and-not-pushing-russia-hard-enough-zelensky-tells-bbc-12090551"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s54"
+   }
+  },
+  {
+   "testo": "Trump dice di volere un accordo. Zelensky dice che la pressione deve ricadere su Mosca.",
+   "fonti": [
+    "https://www.kyivpost.com/post/91409",
+    "https://www.shango.media/bbc-us-too-focused-on-middle-east-and-not-pushing-russia-hard-enough-zelensky-tells-bbc-12090551"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s61"
+   }
+  },
+  {
+   "testo": "Stessa guerra. Due visioni molto diverse su cosa dire di Putin.",
+   "fonti": [
+    "https://www.kyivpost.com/post/91409",
+    "https://www.mediaite.com/media/news/zelensky-warns-trump-that-calling-putin-friend-is-like-befriending-hitler-its-strange/"
+   ],
+   "visivo": {
+    "tipo": "frase",
+    "testo": "Stessa guerra. Due visioni molto diverse su cosa dire di Putin."
+   }
+  },
+  {
+   "testo": "Questa storia è ancora in movimento. Iscriviti, per non perdere quello che succede dopo.",
+   "fonti": [
+    "https://www.rte.ie/news/2026/1127/1600845-trump-putin-ukraine/"
+   ],
+   "visivo": {
+    "tipo": "set",
+    "set": "s68"
+   }
+  }
+ ],
+ "copertina": {
+  "sfondo": "Split dramatic night: a frosted Kyiv power station in smoke on one side, a bright Florida terrace on the other, no people",
+  "personaggi": [
+   "zelensky",
+   "trump"
+  ],
+  "pose": {
+   "zelensky": "arrabbiato",
+   "trump": "compiaciuto"
+  },
+  "personaggio": "zelensky",
+  "posa": "arrabbiato",
+  "lato": "sx",
+  "righe": [
+   "NON UN",
+   "AMICO"
+  ],
+  "box": "DICE ZELENSKY",
+  "evidenzia": 2,
+  "parola": "STRANO",
+  "etichetta": "IL POST DI TRUMP SU PUTIN",
+  "domanda": "CHI CEDE?",
+  "frase": "\"STRANO\""
+ },
+ "verifica": {
+  "correzioni": 51,
+  "scene_tolte": 10
+ },
+ "coerenza": {
+  "scene_rifatte": 24,
+  "controllate": 56
+ },
+ "lingua": "it",
+ "nome": "2026-11-28_trump_calls_putin_my_friend_urges_him_to_it",
+ "data": "28 NOVEMBRE 2026",
+ "etichetta": "ULTIM'ORA",
+ "musica": "tensione",
+ "voce": "glnsgBC77wt5zOYU0szz",
+ "budget_dollari": 0.6,
+ "storia": "Trump calls Putin 'my friend', urges him to pull back aggression in Europe; Zelensky calls remark 'strange' (Trump and NATO chief Rutte joint statement, Reuters/AP report)",
+ "filone": "guerra",
+ "materiali_da": "2026-11-28_trump_calls_putin_my_friend_urges_him_to_en"
+}
