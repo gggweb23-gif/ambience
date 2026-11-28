@@ -1,12 +1,12 @@
-# Radar notizie tech — 2026-11-27
+# Radar notizie tech — 2026-11-28
 
-**Scelta:** Jensen Huang reinstated as Nvidia CEO: backlash over Trump's role, pardon talk, security clearance and board scrutiny. Today: Trump says Huang poses no security risk and was 'a little concerned' by the selloff; Reuters reports US officials are divided over Chinese spying allegations; reports say Trump offered a pardon if Huang is indicted; S&P put Nvidia's AA ratings on CreditWatch negative; Tom's Hardware reports (unconfirmed) that the Defense Production Act was floated to force the reinstatement. (Jensen Huang) — l'onda di ieri e' ancora la piu' forte: si resta con un angolo nuovo
+**Scelta:** Jensen Huang's Nvidia comeback: Trump ties, security-risk and chip-smuggling scrutiny (Jensen Huang) — l'onda di ieri e' ancora la piu' forte: si resta con un angolo nuovo
 
 | # | Storia | Persona | Views all'ora (EN+IT) | Views 3 gg EN | Views 3 gg IT | Video lunghi EN |
 |---|---|---|---|---|---|---|
-| 1 | Jensen Huang reinstated as Nvidia CEO: backlash over Trump's role, pardon talk, security clearance and board scrutiny. Today: Trump says Huang poses no security risk and was 'a little concerned' by the selloff; Reuters reports US officials are divided over Chinese spying allegations; reports say Trump offered a pardon if Huang is indicted; S&P put Nvidia's AA ratings on CreditWatch negative; Tom's Hardware reports (unconfirmed) that the Defense Production Act was floated to force the reinstatement. | Jensen Huang | 192,773 | 6,957,549 | 4,725,380 | 10 |
-| 2 | Elon Musk: FCC-approved plan for 1 million satellites / orbital data centers (ANSA 'Starmind'), SpaceX shares up 4% as Musk says he will expand share donations for Trump Accounts (CNBC) | Elon Musk | 79,040 | 1,137,830 | 327,392 | 4 |
-| 3 | Nvidia pauses chip shipments to Southeast Asia (TechCrunch, Corriere: four Asian countries) amid reports that Chinese-owned California firms are obtaining its most advanced AI chips (NY Post) | Jensen Huang | 4,483 | 52,777 | 46,132 | 2 |
-| 4 | Anthropic stock debut (IPO) could hurt tech startups (NYT) and Wall Street AI jitters; Dario Amodei calls for stronger AI regulation (ABC) and avoids comment ahead of a Trump meeting with AI leaders | Dario Amodei | 3,105 | 129,775 | 13,846 | 5 |
-| 5 | AI debt fears: Michael Burry warns on AI borrowing as Nvidia, Oracle and Meta debt insurance costs surge; Bank of England flags AI borrowing risk; Oracle down sharply | Michael Burry | 285 | 17,624 | 0 | 11 |
-| 6 | Trump says AI leaders signed a 'constitution' to self-police and announces an AI task force (ABC); AI executives meet Trump in DC | Sam Altman | 0 | 0 | 0 | 0 |
+| 1 | Jensen Huang's Nvidia comeback: Trump ties, security-risk and chip-smuggling scrutiny | Jensen Huang | 108,246 | 2,745,532 | 931,554 | 9 |
+| 2 | Musk's plan for a million satellites as space data centers wins approval | Elon Musk | 89,343 | 2,346,279 | 296,476 | 7 |
+| 3 | Musk pledges annual SpaceX share giveaway to every American child | Elon Musk | 49,833 | 1,412,691 | 66,920 | 5 |
+| 4 | Anthropic stock jump and the Amodeis' possible $560M misstep | Dario Amodei | 1,797 | 51,971 | 21,324 | 4 |
+| 5 | OpenAI countersues Apple over alleged trade-secret theft | Sam Altman | 1,189 | 10,445 | 0 | 1 |
+| 6 | Apple enters the AI agent race under new CEO John Ternus | John Ternus | 35 | 1,213 | 1,195 | 4 |
